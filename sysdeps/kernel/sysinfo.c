@@ -86,7 +86,7 @@ init_sysinfo (glibtop *server)
 	sysinfo.flags = _glibtop_sysdeps_sysinfo;
 }
 
-glibtop_sysinfo *
+const glibtop_sysinfo *
 glibtop_get_sysinfo_s (glibtop *server)
 {
 	init_sysinfo (server);

@@ -1,3 +1,7 @@
+2004-06-13  Benoît Dejean  <tazforever@dlfp.org>
+
+	* sysinfo.c: Added missing const qualifier.
+
 2004-06-06  Benoît Dejean  <tazforever@dlfp.org>
 
 	* proclist.c: (glibtop_get_proclist_s): Used g_memdup.
