@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.99.0\n"
-"POT-Creation-Date: 1998-12-17 20:10+0100\n"
+"POT-Creation-Date: 1998-12-25 20:08+0100\n"
 "PO-Revision-Date: 1998-12-27 13:20+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@fib.hl.no>\n"
 "Language-Team: Norwegian <no@li.org>\n"

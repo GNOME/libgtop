@@ -17,3 +17,5 @@ libgtop_sysdeps_suid_la_LDFLAGS	= $(LT_VERSION_INFO)
 libgtop_sysdeps_suid_la_LIBADD	= -lkvm
 
 include_HEADERS			= glibtop_server.h glibtop_machine.h
+
+noinst_HEADERS			= glibtop_suid.h

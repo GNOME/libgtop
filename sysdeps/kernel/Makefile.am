@@ -15,6 +15,8 @@ libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO)
 
 include_HEADERS			= glibtop_server.h
 
+noinst_HEADERS			= kernel.h
+
 kernel.o kernel.lo: $(srcdir)/kernel.s
 	rm -f kernel.o kernel.lo
 	$(AS) -o kernel.o $(srcdir)/kernel.s

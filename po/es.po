@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: glibtop 0.29.1\n"
-"POT-Creation-Date: 1998-12-15 12:58+0100\n"
+"POT-Creation-Date: 1998-12-25 20:08+0100\n"
 "PO-Revision-Date: 1998-12-13 04:38+0100\n"
 "Last-Translator: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
 "Language-Team: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
@@ -1070,39 +1070,39 @@ msgstr "laídos %d bytes de datos"
 msgid "write %d bytes"
 msgstr "escritos %d bytes"
 
-#: src/daemon/gnuserv.c:432
+#: src/daemon/gnuserv.c:439
 msgid "Enable debugging"
 msgstr "Activar depuración"
 
-#: src/daemon/gnuserv.c:432
+#: src/daemon/gnuserv.c:439
 msgid "DEBUG"
 msgstr "DEPURACIÓN"
 
-#: src/daemon/gnuserv.c:434
+#: src/daemon/gnuserv.c:441
 msgid "Enable verbose output"
 msgstr "Activa salida detallada"
 
-#: src/daemon/gnuserv.c:434
+#: src/daemon/gnuserv.c:441
 msgid "VERBOSE"
 msgstr ""
 
-#: src/daemon/gnuserv.c:436
+#: src/daemon/gnuserv.c:443
 msgid "Don't fork into background"
 msgstr ""
 
-#: src/daemon/gnuserv.c:436
+#: src/daemon/gnuserv.c:443
 msgid "NO-DAEMON"
 msgstr ""
 
-#: src/daemon/gnuserv.c:438
+#: src/daemon/gnuserv.c:445
 msgid "Invoked from inetd"
 msgstr "Invocado desde inetd"
 
-#: src/daemon/gnuserv.c:438
+#: src/daemon/gnuserv.c:445
 msgid "INETD"
 msgstr ""
 
-#: src/daemon/gnuserv.c:472
+#: src/daemon/gnuserv.c:479
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

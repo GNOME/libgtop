@@ -17,7 +17,8 @@ include_HEADERS = glibtop.h
 
 EXTRA_DIST = autogen.sh libgtop.spec copyright.txt libgtopConf.sh.in \
 	LIBGTOP-VERSION features.def libgtop-config.in RELNOTES-0.25 \
-	libgtop-sysdeps.m4
+	libgtop-sysdeps.m4 ANNOUNCE ANNOUNCE-0.25 README.LATEST \
+	libgtop-mirror.sh
 
 release:
 	$(MAKE) dist distdir=$(PACKAGE)-$(VERSION)
