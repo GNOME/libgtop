@@ -1,0 +1,1498 @@
+# Norwegian (nynorsk) translation of libgtop.
+# Copyright (C) 2000 Gaute Hvoslef Kvalnes.
+# Gaute Hvoslef Kvalnes <ai98ghk@stud.hib.no>, 2000
+# Kjartan Maraas <kmaraas@gnome.org>, 2001.
+
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop 1.0.13\n"
+"POT-Creation-Date: 2001-07-16 21:07+0200\n"
+"PO-Revision-Date: 2001-06-25 18:55+02:00\n"
+"Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
+"Language-Team: Norwegian (Nynorsk)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: examples/smp.c:68
+#, c-format
+msgid "Ticks (%ld per second):"
+msgstr "Tikk (%ld per sekund):"
+
+#: examples/smp.c:71
+msgid "Total"
+msgstr "Totalt"
+
+#: examples/smp.c:71 sysdeps/names/mem.c:47
+msgid "User"
+msgstr "Brukar"
+
+#: examples/smp.c:71 sysdeps/names/procuid.c:58
+msgid "Nice"
+msgstr "Snill"
+
+#: examples/smp.c:71
+#, fuzzy
+msgid "Sys"
+msgstr "Sys Req"
+
+#: examples/smp.c:71
+msgid "Idle"
+msgstr "Inaktiv"
+
+#: examples/smp.c:73
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+msgstr ""
+
+#: examples/smp.c:77
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr ""
+
+#: examples/smp.c:94
+#, fuzzy
+msgid "Percent:"
+msgstr "Prosent"
+
+#: examples/smp.c:95
+#, fuzzy
+msgid "Total (%)"
+msgstr "Totalt: %1"
+
+#: examples/smp.c:95
+#, fuzzy
+msgid "User (%)"
+msgstr "Brukar%"
+
+#: examples/smp.c:95
+#, fuzzy
+msgid "Nice (%)"
+msgstr "Linje (%1)"
+
+#: examples/smp.c:95
+#, fuzzy
+msgid "Sys (%)"
+msgstr "Dagar (d)"
+
+#: examples/smp.c:96
+#, fuzzy
+msgid "Idle (%)"
+msgstr "Inaktiv"
+
+#: examples/smp.c:98
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+msgstr ""
+
+#: examples/smp.c:114
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr ""
+
+#: examples/smp.c:120
+#, fuzzy
+msgid "Spin:"
+msgstr "Spania"
+
+#: lib/read.c:75
+#, fuzzy, c-format
+msgid "read %d bytes"
+msgstr "%2 (%1 byte)"
+
+#: lib/read_data.c:49
+#, fuzzy
+msgid "read data size"
+msgstr "Set storleik"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr ""
+
+#: lib/write.c:48
+#, fuzzy, c-format
+msgid "write %d bytes"
+msgstr "Skrivartest"
+
+#: src/daemon/gnuserv.c:448
+#, fuzzy
+msgid "Enable debugging"
+msgstr "Skru på avlusingsinfo"
+
+#: src/daemon/gnuserv.c:448
+msgid "DEBUG"
+msgstr ""
+
+#: src/daemon/gnuserv.c:450
+#, fuzzy
+msgid "Enable verbose output"
+msgstr "Skru på avlusingsinfo"
+
+#: src/daemon/gnuserv.c:450
+msgid "VERBOSE"
+msgstr ""
+
+#: src/daemon/gnuserv.c:452
+#, fuzzy
+msgid "Don't fork into background"
+msgstr "Bokmerkebakgrunn"
+
+#: src/daemon/gnuserv.c:452
+msgid "NO-DAEMON"
+msgstr ""
+
+#: src/daemon/gnuserv.c:454
+#, fuzzy
+msgid "Invoked from inetd"
+msgstr "Kom frå venstre"
+
+#: src/daemon/gnuserv.c:454
+#, fuzzy
+msgid "INETD"
+msgstr "INT"
+
+#: src/daemon/gnuserv.c:488
+#, fuzzy, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr "Bruk --help for å få ei liste over tilgjengelege kommandolinjeval."
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr ""
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: flagg «%s» er fleirtydig\n"
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: flagg «--%s» tek ikkje argument\n"
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: flagg «%c%s» tek ikkje argument\n"
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: flagg «%s» treng eit argument\n"
+
+#. --option
+#: support/getopt.c:744
+#, fuzzy, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: ulovleg flagg -- %c\n"
+
+#. +option or -option
+#: support/getopt.c:748
+#, fuzzy, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: ulovleg flagg -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: ulovleg flagg -- %c\n"
+
+#: support/getopt.c:777
+#, fuzzy, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: ulovleg flagg -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: flagg treng eit argument -- %c\n"
+
+#: support/getopt.c:854
+#, fuzzy, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: flagg «%s» er fleirtydig\n"
+
+#: support/getopt.c:872
+#, fuzzy, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: flagg «--%s» tek ikkje argument\n"
+
+#: sysdeps/names/cpu.c:43
+#, fuzzy
+msgid "Total CPU Time"
+msgstr "Totaltid"
+
+#: sysdeps/names/cpu.c:44
+msgid "CPU Time in User Mode"
+msgstr ""
+
+#: sysdeps/names/cpu.c:45
+msgid "CPU Time in User Mode (nice)"
+msgstr ""
+
+#: sysdeps/names/cpu.c:46
+msgid "CPU Time in System Mode"
+msgstr ""
+
+#: sysdeps/names/cpu.c:47
+msgid "CPU Time in the Idle Task"
+msgstr ""
+
+#: sysdeps/names/cpu.c:48
+#, fuzzy
+msgid "Tick Frequency"
+msgstr "Klokkefrekvens"
+
+#: sysdeps/names/cpu.c:49
+#, fuzzy
+msgid "SMP Total CPU Time"
+msgstr "Totaltid"
+
+#: sysdeps/names/cpu.c:50
+msgid "SMP CPU Time in User Mode"
+msgstr ""
+
+#: sysdeps/names/cpu.c:51
+msgid "SMP CPU Time in User Mode (nice)"
+msgstr ""
+
+#: sysdeps/names/cpu.c:52
+msgid "SMP CPU Time in System Mode"
+msgstr ""
+
+#: sysdeps/names/cpu.c:53
+msgid "SMP CPU Time in the Idle Task"
+msgstr ""
+
+#: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
+msgid "Number of clock ticks since system boot"
+msgstr ""
+
+#: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
+msgid "Number of clock ticks the system spent in user mode"
+msgstr ""
+
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
+msgid "Number of clock ticks the system spent in user mode (nice)"
+msgstr ""
+
+#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
+msgid "Number of clock ticks the system spent in system mode"
+msgstr ""
+
+#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
+msgid "Number of clock ticks the system spent in the idle task"
+msgstr ""
+
+#: sysdeps/names/cpu.c:63
+msgid "Tick frequency (default is 100)"
+msgstr ""
+
+#: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
+#, fuzzy
+msgid "Total blocks"
+msgstr "Tal på filer totalt:"
+
+#: sysdeps/names/fsusage.c:40
+#, fuzzy
+msgid "Free blocks"
+msgstr "Mørke felt"
+
+#: sysdeps/names/fsusage.c:41
+#, fuzzy
+msgid "Available blocks"
+msgstr "Tilgjengelege reglar"
+
+#: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
+#, fuzzy
+msgid "Total file nodes"
+msgstr "Tal på filer totalt:"
+
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+#, fuzzy
+msgid "Free file nodes"
+msgstr "Førehandsvis filinformasjon"
+
+#: sysdeps/names/fsusage.c:49
+msgid "Free blocks available to the superuser"
+msgstr ""
+
+#: sysdeps/names/fsusage.c:50
+msgid "Free blocks available to non-superusers"
+msgstr ""
+
+#: sysdeps/names/loadavg.c:39
+#, fuzzy
+msgid "Load Average"
+msgstr "Snittlast (1 min)"
+
+#: sysdeps/names/loadavg.c:40
+#, fuzzy
+msgid "Running Tasks"
+msgstr "Køyrer "
+
+#: sysdeps/names/loadavg.c:41
+#, fuzzy
+msgid "Number of Tasks"
+msgstr "Tal på maur:"
+
+#: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
+#, fuzzy
+msgid "Last PID"
+msgstr "har GID"
+
+#: sysdeps/names/loadavg.c:47
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgstr ""
+
+#: sysdeps/names/loadavg.c:48
+#, fuzzy
+msgid "Number of tasks currently running"
+msgstr "Tal på tekstar:"
+
+#: sysdeps/names/loadavg.c:49
+#, fuzzy
+msgid "Total number of tasks"
+msgstr "Tal på element i alt"
+
+#: sysdeps/names/mem.c:41
+#, fuzzy
+msgid "Total Memory"
+msgstr "Totalt minne"
+
+#: sysdeps/names/mem.c:42
+msgid "Used Memory"
+msgstr "Brukt minne"
+
+#: sysdeps/names/mem.c:43
+msgid "Free Memory"
+msgstr "Ledig minne"
+
+#: sysdeps/names/mem.c:44
+#, fuzzy
+msgid "Shared Memory"
+msgstr "Delt minne"
+
+#: sysdeps/names/mem.c:45
+msgid "Buffers"
+msgstr "Bufferar"
+
+#: sysdeps/names/mem.c:46
+msgid "Cached"
+msgstr "Snøgglagra"
+
+#: sysdeps/names/mem.c:48
+#, fuzzy
+msgid "Locked"
+msgstr "Lås"
+
+#: sysdeps/names/mem.c:53
+#, fuzzy
+msgid "Total physical memory in kB"
+msgstr "Totalt fysisk minne"
+
+#: sysdeps/names/mem.c:54
+#, fuzzy
+msgid "Used memory size in kB"
+msgstr "Brukt minne"
+
+#: sysdeps/names/mem.c:55
+#, fuzzy
+msgid "Free memory size in kB"
+msgstr "Ledig minne"
+
+#: sysdeps/names/mem.c:56
+#, fuzzy
+msgid "Shared memory size in kB"
+msgstr "Delt minne i kilobyte"
+
+#: sysdeps/names/mem.c:57
+#, fuzzy
+msgid "Size of buffers kB"
+msgstr "Skjema-&storleik"
+
+#: sysdeps/names/mem.c:58
+#, fuzzy
+msgid "Size of cached memory in kB"
+msgstr "Delt minne i kilobyte"
+
+#: sysdeps/names/mem.c:59
+msgid "Memory used from user processes in kB"
+msgstr ""
+
+#: sysdeps/names/mem.c:60
+msgid "Memory in locked pages in kB"
+msgstr ""
+
+#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
+#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
+#: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
+#, fuzzy
+msgid "Number of list elements"
+msgstr "Tal på element i alt"
+
+#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
+#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
+#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
+#, fuzzy
+msgid "Total size of list"
+msgstr "Total storleik er %1 byte"
+
+#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
+#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
+#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
+msgid "Size of a single list element"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
+msgid "Size in kilobytes of message pool"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
+#, fuzzy
+msgid "Number of entries in message map"
+msgstr "Tal på filer i bruk:"
+
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
+#, fuzzy
+msgid "Max size of message"
+msgstr "storleik på vertsnamn"
+
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
+#, fuzzy
+msgid "Default max size of queue"
+msgstr "Standard bandstorleik:"
+
+#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
+msgid "Max queues system wide"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
+#, fuzzy
+msgid "Message segment size"
+msgstr "Melding sendt"
+
+#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
+#, fuzzy
+msgid "Number of system message headers"
+msgstr "Tal på programtekstar: %1\n"
+
+#: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+#, fuzzy
+msgid "Interface Flags"
+msgstr "Avbrot"
+
+#: sysdeps/names/netload.c:46
+msgid "MTU"
+msgstr ""
+
+#: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
+#, fuzzy
+msgid "Subnet"
+msgstr "Emne"
+
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
+msgid "Address"
+msgstr "Adresse"
+
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
+#, fuzzy
+msgid "Packets In"
+msgstr "pakkar inn"
+
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+#, fuzzy
+msgid "Packets Out"
+msgstr "pakkar ut"
+
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+#, fuzzy
+msgid "Packets Total"
+msgstr "pakkar ut"
+
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+#, fuzzy
+msgid "Bytes In"
+msgstr "Byte inn"
+
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+#, fuzzy
+msgid "Bytes Out"
+msgstr "Byte ut"
+
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+#, fuzzy
+msgid "Bytes Total"
+msgstr "Byte ut"
+
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+#, fuzzy
+msgid "Errors In"
+msgstr "Feil"
+
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+#, fuzzy
+msgid "Errors Out"
+msgstr "Feil"
+
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+#, fuzzy
+msgid "Errors Total"
+msgstr "Feilfarge"
+
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+#, fuzzy
+msgid "Collisions"
+msgstr "Kolonnar:"
+
+#: sysdeps/names/netload.c:64
+#, fuzzy
+msgid "Maximum Transfer Unit"
+msgstr "Overføringseiningar"
+
+#: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
+#, fuzzy
+msgid "PPP State"
+msgstr "Stat"
+
+#: sysdeps/names/ppp.c:39
+#, fuzzy
+msgid "Input bytes"
+msgstr "Farge på inn-byte"
+
+#: sysdeps/names/ppp.c:40
+#, fuzzy
+msgid "Output bytes"
+msgstr "Farge på ut-byte"
+
+#: sysdeps/names/ppp.c:46
+#, fuzzy
+msgid "Number of input bytes"
+msgstr "Tal på røyr"
+
+#: sysdeps/names/ppp.c:47
+#, fuzzy
+msgid "Number of output bytes"
+msgstr "Tal på kopiar:"
+
+#: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
+msgid "Size"
+msgstr "Storleik"
+
+#: sysdeps/names/procargs.c:43
+msgid "Length in bytes of the returned string."
+msgstr ""
+
+#: sysdeps/names/prockernel.c:42
+#, fuzzy
+msgid "K_Flags"
+msgstr "Klasse"
+
+#: sysdeps/names/prockernel.c:42
+#, fuzzy
+msgid "Min_Flt"
+msgstr "Minutt"
+
+#: sysdeps/names/prockernel.c:42
+#, fuzzy
+msgid "Maj_Flt"
+msgstr "Malta"
+
+#: sysdeps/names/prockernel.c:42
+msgid "CMin_Flt"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:43
+#, fuzzy
+msgid "CMaj_Flt"
+msgstr "Malta"
+
+#: sysdeps/names/prockernel.c:43
+msgid "KStk_ESP"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:43
+msgid "KStk_EIP"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:43
+#, fuzzy
+msgid "NWChan"
+msgstr "Endra"
+
+#: sysdeps/names/prockernel.c:44
+#, fuzzy
+msgid "WChan"
+msgstr "Endra"
+
+#. K_Flags
+#: sysdeps/names/prockernel.c:50
+msgid ""
+"Kernel flags of the process.\n"
+"\n"
+"On Linux, currently every flag has the math bit set, because crt0.s checks "
+"for math emulation, so this is not included in the output.\n"
+"\n"
+"This is probably a bug, as not every process is a compiled C program.\n"
+"\n"
+"The math bit should be a decimal 4, and the traced bit is decimal 10."
+msgstr ""
+
+#. Min_Flt
+#: sysdeps/names/prockernel.c:59
+msgid ""
+"The number of minor faults the process has made, those which have not "
+"required loading a memory page from disk."
+msgstr ""
+
+#. Maj_Flt
+#: sysdeps/names/prockernel.c:62
+msgid ""
+"The number of major faults the process has made, those which have required "
+"loading a memory page from disk."
+msgstr ""
+
+#. CMin_Flt
+#: sysdeps/names/prockernel.c:65
+msgid "The number of minor faults that the process and its children have made."
+msgstr ""
+
+#. CMaj_Flt
+#: sysdeps/names/prockernel.c:68
+msgid "The number of major faults that the process and its children have made."
+msgstr ""
+
+#. KStk_ESP
+#: sysdeps/names/prockernel.c:71
+msgid ""
+"The current value of esp (32-bit stack pointer), as found in the kernel "
+"stack page for the process."
+msgstr ""
+
+#. KStk_EIP
+#: sysdeps/names/prockernel.c:74
+msgid "The current EIP (32-bit instruction pointer)."
+msgstr ""
+
+#. NWChan
+#: sysdeps/names/prockernel.c:76
+msgid ""
+"This is the \"channel\" in which the process is waiting.  This is the "
+"address of a system call, and can be looked up in a namelist if you need a "
+"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
+"see the WCHAN field in action)"
+msgstr ""
+
+#. WChan
+#: sysdeps/names/prockernel.c:81
+msgid "This is the textual name of the `nwchan' field."
+msgstr ""
+
+#: sysdeps/names/procmem.c:47
+#, fuzzy
+msgid "Virtual"
+msgstr "&Visuelt"
+
+#: sysdeps/names/procmem.c:47
+#, fuzzy
+msgid "Resident"
+msgstr "Tilbakestill"
+
+#: sysdeps/names/procmem.c:47
+#, fuzzy
+msgid "Share"
+msgstr "Øydelegg"
+
+#: sysdeps/names/procmem.c:48
+#, fuzzy
+msgid "Resident Set Size"
+msgstr "Til&bakestill økttid"
+
+#: sysdeps/names/procmem.c:48
+msgid "Resident Set Size Limit"
+msgstr ""
+
+#: sysdeps/names/procmem.c:53
+#, fuzzy
+msgid "Total # of pages of memory"
+msgstr "Totalt veksleminne"
+
+#: sysdeps/names/procmem.c:54
+msgid "Number of pages of virtual memory"
+msgstr ""
+
+#: sysdeps/names/procmem.c:55
+#, fuzzy
+msgid "Number of resident set (non-swapped) pages"
+msgstr "Tal på skitne (ikkje-skrivne) sider"
+
+#: sysdeps/names/procmem.c:56
+msgid "Number of pages of shared (mmap'd) memory"
+msgstr ""
+
+#: sysdeps/names/procmem.c:57
+msgid ""
+"Number of pages the process has in real memory, minus 3 for administrative "
+"purposes. This is just the pages which count towards text, data, or stack "
+"space. This does not include pages which have not been demand-loaded in, or "
+"which are swapped out."
+msgstr ""
+
+#: sysdeps/names/procmem.c:62
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr ""
+
+#: sysdeps/names/procsegment.c:42
+#, fuzzy
+msgid "Text_RSS"
+msgstr "Tekst:"
+
+#: sysdeps/names/procsegment.c:42
+msgid "ShLib_RSS"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:42
+#, fuzzy
+msgid "Data_RSS"
+msgstr "Data"
+
+#: sysdeps/names/procsegment.c:42
+#, fuzzy
+msgid "Stack_RSS"
+msgstr "Skalert"
+
+#: sysdeps/names/procsegment.c:43
+#, fuzzy
+msgid "Dirty Size"
+msgstr "på storleik"
+
+#: sysdeps/names/procsegment.c:43
+#, fuzzy
+msgid "Start_Code"
+msgstr "Start KNode"
+
+#: sysdeps/names/procsegment.c:43
+#, fuzzy
+msgid "End_Code"
+msgstr "Koding"
+
+#: sysdeps/names/procsegment.c:43
+#, fuzzy
+msgid "Start_Stack"
+msgstr "St&art søk"
+
+#: sysdeps/names/procsegment.c:48
+#, fuzzy
+msgid "Text resident set size"
+msgstr "Mindre skrift"
+
+#: sysdeps/names/procsegment.c:49
+msgid "Shared-Lib resident set size"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:50
+#, fuzzy
+msgid "Data resident set size"
+msgstr "Mindre skrift"
+
+#: sysdeps/names/procsegment.c:51
+msgid "Stack resident set size"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:52
+#, fuzzy
+msgid "Total size of dirty pages"
+msgstr "Total storleik er %1 byte"
+
+#: sysdeps/names/procsegment.c:53
+msgid "Address of beginning of code segment"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:54
+msgid "Address of end of code segment"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:55
+#, fuzzy
+msgid "Address of the bottom of stack segment"
+msgstr "Legg oppgåvelinja nedst på skjermen"
+
+#: sysdeps/names/procsignal.c:40
+msgid "Signal"
+msgstr "Signal"
+
+#: sysdeps/names/procsignal.c:40
+#, fuzzy
+msgid "Blocked"
+msgstr "Blokk"
+
+#: sysdeps/names/procsignal.c:40
+#, fuzzy
+msgid "SigIgnore"
+msgstr "Ignorer"
+
+#: sysdeps/names/procsignal.c:40
+#, fuzzy
+msgid "SigCatch"
+msgstr "Mellomlager"
+
+#: sysdeps/names/procsignal.c:45
+msgid "Mask of pending signals"
+msgstr ""
+
+#: sysdeps/names/procsignal.c:46
+msgid "Mask of blocked signals"
+msgstr ""
+
+#: sysdeps/names/procsignal.c:47
+msgid "Mask of ignored signals"
+msgstr ""
+
+#: sysdeps/names/procsignal.c:48
+msgid "Mask of caught signals"
+msgstr ""
+
+#: sysdeps/names/procstate.c:40
+#, fuzzy
+msgid "Cmd"
+msgstr "LC-modus"
+
+#: sysdeps/names/procstate.c:40
+msgid "State"
+msgstr "Stat"
+
+#: sysdeps/names/procstate.c:40
+msgid "UID"
+msgstr "UID"
+
+#: sysdeps/names/procstate.c:40
+msgid "GID"
+msgstr "GID"
+
+#: sysdeps/names/procstate.c:45
+#, fuzzy
+msgid "Basename of executable file in call to exec()"
+msgstr "Oppgi namnet på programfila her."
+
+#: sysdeps/names/procstate.c:46
+msgid "Single-Char code for process state (S=sleeping)"
+msgstr ""
+
+#: sysdeps/names/procstate.c:47
+#, fuzzy
+msgid "UID of process"
+msgstr "Stopp prosess"
+
+#: sysdeps/names/procstate.c:48
+#, fuzzy
+msgid "GID of process"
+msgstr "Stopp prosess"
+
+#: sysdeps/names/proctime.c:44
+#, fuzzy
+msgid "Start_Time"
+msgstr "Start-tid"
+
+#: sysdeps/names/proctime.c:44
+#, fuzzy
+msgid "RTime"
+msgstr "Tid"
+
+#: sysdeps/names/proctime.c:44
+#, fuzzy
+msgid "UTime"
+msgstr "Tid"
+
+#: sysdeps/names/proctime.c:44
+#, fuzzy
+msgid "STime"
+msgstr "Tid"
+
+#: sysdeps/names/proctime.c:45
+#, fuzzy
+msgid "CUTime"
+msgstr "Tid"
+
+#: sysdeps/names/proctime.c:45
+#, fuzzy
+msgid "CSTime"
+msgstr "Tid"
+
+#: sysdeps/names/proctime.c:45
+#, fuzzy
+msgid "TimeOut"
+msgstr "&Tidsgrense"
+
+#: sysdeps/names/proctime.c:45
+#, fuzzy
+msgid "It_Real_Value"
+msgstr "Intern feil"
+
+#: sysdeps/names/proctime.c:46
+msgid "Frequency"
+msgstr "Frekvens"
+
+#: sysdeps/names/proctime.c:46
+msgid "XCPU_UTime"
+msgstr ""
+
+#: sysdeps/names/proctime.c:46
+msgid "XCPU_STime"
+msgstr ""
+
+#: sysdeps/names/proctime.c:51
+msgid "Start time of process in seconds since the epoch"
+msgstr ""
+
+#: sysdeps/names/proctime.c:52
+msgid "Real time accumulated by process (should be utime + stime)"
+msgstr ""
+
+#: sysdeps/names/proctime.c:53
+#, fuzzy
+msgid "user-mode CPU time accumulated by process"
+msgstr "Nullstill oppsparte telefonkostnader"
+
+#: sysdeps/names/proctime.c:54
+#, fuzzy
+msgid "kernel-mode CPU time accumulated by process"
+msgstr "Nullstill oppsparte telefonkostnader"
+
+#: sysdeps/names/proctime.c:55
+msgid "cumulative utime of process and reaped children"
+msgstr ""
+
+#: sysdeps/names/proctime.c:56
+msgid "cumulative stime of process and reaped children"
+msgstr ""
+
+#: sysdeps/names/proctime.c:57
+msgid "The time (in jiffies) of the process's next timeout"
+msgstr ""
+
+#: sysdeps/names/proctime.c:58
+msgid ""
+"The time (in jiffies) before the next SIGALRM is sent to the process due to "
+"an interval timer."
+msgstr ""
+
+#: sysdeps/names/proctime.c:60
+#, fuzzy
+msgid "Tick frequency"
+msgstr "Klokkefrekvens"
+
+#: sysdeps/names/proctime.c:61
+msgid "SMP user-mode CPU time accumulated by process"
+msgstr ""
+
+#: sysdeps/names/proctime.c:62
+msgid "SMP kernel-mode CPU time accumulated by process"
+msgstr ""
+
+#: sysdeps/names/procuid.c:56
+#, fuzzy
+msgid "Uid"
+msgstr "Brukar-id"
+
+#: sysdeps/names/procuid.c:56
+#, fuzzy
+msgid "EUid"
+msgstr "Avslutta"
+
+#: sysdeps/names/procuid.c:56
+#, fuzzy
+msgid "Gid"
+msgstr "Ingen rutenett"
+
+#: sysdeps/names/procuid.c:56
+#, fuzzy
+msgid "EGid"
+msgstr "Avslutta"
+
+#: sysdeps/names/procuid.c:56
+#, fuzzy
+msgid "Pid"
+msgstr "Pod"
+
+#: sysdeps/names/procuid.c:57
+#, fuzzy
+msgid "PPid"
+msgstr "Punktum"
+
+#: sysdeps/names/procuid.c:57
+#, fuzzy
+msgid "PGrp"
+msgstr "Grep"
+
+#: sysdeps/names/procuid.c:57
+msgid "Session"
+msgstr "Økt"
+
+#: sysdeps/names/procuid.c:57
+#, fuzzy
+msgid "Tty"
+msgstr "Txt"
+
+#: sysdeps/names/procuid.c:58
+#, fuzzy
+msgid "TPGid"
+msgstr "Til rutenett"
+
+#: sysdeps/names/procuid.c:58
+msgid "Priority"
+msgstr "Prioritet"
+
+#: sysdeps/names/procuid.c:63
+msgid "User ID"
+msgstr "Brukar-ID"
+
+#: sysdeps/names/procuid.c:64
+#, fuzzy
+msgid "Effective User ID"
+msgstr "Effektiv rente"
+
+#: sysdeps/names/procuid.c:65
+#, fuzzy
+msgid "Group ID"
+msgstr " Gruppe "
+
+#: sysdeps/names/procuid.c:66
+#, fuzzy
+msgid "Effective Group ID"
+msgstr "Fjern gruppe"
+
+#: sysdeps/names/procuid.c:67
+msgid "Process ID"
+msgstr "Prosess-ID"
+
+#: sysdeps/names/procuid.c:68
+#, fuzzy
+msgid "PID of parent process"
+msgstr "Prosess-ID til foreldreprosessen"
+
+#: sysdeps/names/procuid.c:69
+msgid "Process group ID"
+msgstr "Prosessgruppe-ID"
+
+#: sysdeps/names/procuid.c:70
+msgid "Session ID"
+msgstr "Økt-ID"
+
+#: sysdeps/names/procuid.c:71
+msgid "Full device number of controlling terminal"
+msgstr ""
+
+#: sysdeps/names/procuid.c:72
+#, fuzzy
+msgid "Terminal process group ID"
+msgstr "Prosessgruppe-ID"
+
+#: sysdeps/names/procuid.c:73
+#, fuzzy
+msgid "Kernel scheduling priority"
+msgstr "Køyreplan-praksis"
+
+#: sysdeps/names/procuid.c:74
+msgid "Standard unix nice level of process"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
+#, fuzzy
+msgid "Number of entries in semaphore map"
+msgstr "Tal på filer i bruk:"
+
+#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
+#, fuzzy
+msgid "Max number of arrays"
+msgstr "Høgste &tal på URL-ar"
+
+#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
+msgid "Max semaphores system wide"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
+msgid "Number of undo structures system wide"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
+msgid "Max semaphores per array"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
+msgid "Max ops per semop call"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
+#, fuzzy
+msgid "Max number of undo entries per process"
+msgstr "Høgste tal på søkte verdiar per miksar"
+
+#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
+msgid "sizeof struct sem_undo"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
+#, fuzzy
+msgid "Semaphore max value"
+msgstr "Alarm for maksimumsverdi"
+
+#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
+msgid "Adjust on exit max value"
+msgstr ""
+
+#: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
+#, fuzzy
+msgid "Max segment size"
+msgstr "Rutestorleik"
+
+#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
+#, fuzzy
+msgid "Min segment size"
+msgstr "Manglar argument"
+
+#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
+#, fuzzy
+msgid "Max number of segments"
+msgstr "Tal på element i alt"
+
+#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
+msgid "Max shared segments per process"
+msgstr ""
+
+#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
+#, fuzzy
+msgid "Max total shared memory"
+msgstr "Totalt veksleminne"
+
+#: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
+#, fuzzy
+msgid "Total Swap Space"
+msgstr "Totalt veksleminne"
+
+#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
+#, fuzzy
+msgid "Used Swap Space"
+msgstr "Bruk midi-mapper"
+
+#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
+#, fuzzy
+msgid "Free Swap Space"
+msgstr "Ledig veksleminne"
+
+#: sysdeps/names/swap.c:42
+#, fuzzy
+msgid "Page In"
+msgstr "Sider inn"
+
+#: sysdeps/names/swap.c:43
+#, fuzzy
+msgid "Page Out"
+msgstr "Sider ut"
+
+#: sysdeps/names/swap.c:51
+msgid "Total number of swap pages that have been brought in since system boot"
+msgstr ""
+
+#: sysdeps/names/swap.c:53
+msgid "Total number of swap pages that have been brought out since system boot"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
+#, fuzzy
+msgid "Server Features"
+msgstr "Tenarnamn"
+
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
+#, fuzzy
+msgid "CPU Usage"
+msgstr "Bruk"
+
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
+#, fuzzy
+msgid "Memory Usage"
+msgstr "Minneområde"
+
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
+#, fuzzy
+msgid "Swap Usage"
+msgstr "Bruk"
+
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
+#, fuzzy
+msgid "System Uptime"
+msgstr "Set systemdato/-tid"
+
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
+#, fuzzy
+msgid "Load Averange"
+msgstr "Snittlast (1 min)"
+
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
+#, fuzzy
+msgid "Shared Memory Limits"
+msgstr "Delt minne i kilobyte"
+
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
+#, fuzzy
+msgid "Message Queue Limits"
+msgstr "Meldingsliste"
+
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
+msgid "Semaphore Set Limits"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
+#, fuzzy
+msgid "List of running Processes"
+msgstr "Køyrande prosessar"
+
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
+#, fuzzy
+msgid "Process Status information"
+msgstr "Personleg informasjon"
+
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
+#, fuzzy
+msgid "Process UID and TTY information"
+msgstr "Comment=Prosessorinformasjon"
+
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
+#, fuzzy
+msgid "Process Memory information"
+msgstr "Minneinformasjon"
+
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
+#, fuzzy
+msgid "Process Time information"
+msgstr "Dokumentinformasjon"
+
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
+#, fuzzy
+msgid "Process Signal information"
+msgstr "Personleg informasjon"
+
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
+#, fuzzy
+msgid "Process Kernel Data information"
+msgstr "Comment=Prosessorinformasjon"
+
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
+#, fuzzy
+msgid "Process Segment information"
+msgstr "Dokumentinformasjon"
+
+#: sysdeps/names/sysdeps.c:66
+#, fuzzy
+msgid "Process Arguments"
+msgstr "Prosessoppteljing"
+
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
+#, fuzzy
+msgid "Process Memory Map"
+msgstr "Prosessor"
+
+#: sysdeps/names/sysdeps.c:68
+#, fuzzy
+msgid "Mount List"
+msgstr "Liste over skrifttypar"
+
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
+#, fuzzy
+msgid "File System Usage"
+msgstr "Filsystemtype:"
+
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
+#, fuzzy
+msgid "Network Load"
+msgstr "Leit på nettverket"
+
+#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
+#, fuzzy
+msgid "PPP Statistics"
+msgstr "Statistikk"
+
+#: sysdeps/names/sysdeps.c:93
+#, fuzzy
+msgid "Command line arguments of the process"
+msgstr "Kommandolinja som starta prosessen"
+
+#: sysdeps/names/sysdeps.c:95
+#, fuzzy
+msgid "List of currently mounted filesystems"
+msgstr "Søk i monterte filsystem"
+
+#: sysdeps/names/uptime.c:38
+#, fuzzy
+msgid "Uptime"
+msgstr "Tid"
+
+#: sysdeps/names/uptime.c:39
+#, fuzzy
+msgid "Idletime"
+msgstr "Inaktiv-tid"
+
+#: sysdeps/names/uptime.c:44
+msgid "Time in seconds since system boot"
+msgstr ""
+
+#: sysdeps/names/uptime.c:45
+msgid "Time in seconds the system spent in the idle task since system boot"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Hangup"
+msgstr "Legg på"
+
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr "Avbrot"
+
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "Avslutt"
+
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#, fuzzy
+msgid "Illegal instruction"
+msgstr "Comment=Ulovleg instruksjon."
+
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#, fuzzy
+msgid "Trace trap"
+msgstr "Spor"
+
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "Avbryt"
+
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#, fuzzy
+msgid "EMT error"
+msgstr "Typefeil"
+
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#, fuzzy
+msgid "Floating-point exception"
+msgstr "Comment=Flyttalsunntak."
+
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "Drep"
+
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#, fuzzy
+msgid "Bus error"
+msgstr "Vertsfeil"
+
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#, fuzzy
+msgid "Segmentation violation"
+msgstr "SIGSEGV (brot på segmentering)"
+
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#, fuzzy
+msgid "Broken pipe"
+msgstr "Broten"
+
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#, fuzzy
+msgid "Alarm clock"
+msgstr "Kolonnar:"
+
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#, fuzzy
+msgid "Termination"
+msgstr "Terminalval"
+
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "Stopp"
+
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#, fuzzy
+msgid "Keyboard stop"
+msgstr "&Tastatur"
+
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "Fortset"
+
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#, fuzzy
+msgid "Background read from tty"
+msgstr "Bakgrunnsprogram"
+
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#, fuzzy
+msgid "Background write to tty"
+msgstr "Bakgrunn:"
+
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#, fuzzy
+msgid "I/O now possible"
+msgstr "Kan ikkje angra"
+
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#, fuzzy
+msgid "CPU limit exceeded"
+msgstr ""
+"%1\n"
+"Gått over øvre grense!"
+
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#, fuzzy
+msgid "File size limit exceeded"
+msgstr ""
+"%1\n"
+"Gått over øvre grense!"
+
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#, fuzzy
+msgid "Virtual alarm clock"
+msgstr "Virtuelt teikn "
+
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#, fuzzy
+msgid "Window size change"
+msgstr "Rull opp vindauge"
+
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#, fuzzy
+msgid "Information request"
+msgstr "Krev stadfesting"
+
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#, fuzzy
+msgid "User defined signal 1"
+msgstr "Eigendefinert 1:"
+
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#, fuzzy
+msgid "User defined signal 2"
+msgstr "Eigendefinert 2:"
