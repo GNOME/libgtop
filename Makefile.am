@@ -47,6 +47,7 @@ libgtopConf.sh: libgtopConf.sh.in Makefile
 ## Use sed and then mv to avoid problems if the user interrupts.
 	sed -e 's#\@LIBGTOP_LIBDIR\@#$(libdir)#g' \
 	  -e 's#\@LIBGTOP_INCLUDEDIR\@#$(includedir)#g' \
+	  -e 's#\@LIBGTOP_DATADIR\@#$(datadir)#g' \
 	  -e 's#\@LIBGTOP_EXTRA_LIBS\@#$(LIBGTOP_EXTRA_LIBS)#g' \
 	  -e 's#\@LIBGTOP_LIBS\@#$(LIBGTOP_LIBS)#g' \
 	  -e 's#\@LIBGTOP_INCS\@#$(LIBGTOP_INCS)#g' \

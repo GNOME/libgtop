@@ -1,3 +1,7 @@
+1999-01-23  Martin Baulig  <martin@home-of-linux.org>
+
+	* libgtopConf.sh.in (LIBGTOP_DATADIR): New variable.
+
 1999-01-06  Martin Baulig  <martin@home-of-linux.org>
 
 	* libgtop-sysdeps.m4: Always enable SMP support for Linux.
