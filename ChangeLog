@@ -1,5 +1,9 @@
 2001-04-20  Martin Baulig  <baulig@suse.de>
 
+	* include/glibtop/closure.h: New file.
+
+2001-04-20  Martin Baulig  <baulig@suse.de>
+
 	* include/glibtop/*.h (glibtop_get_*_s, glibtop_get_*_pl):
 	Changed `void *closure' to `glibtop_closure *closure'.
 

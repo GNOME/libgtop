@@ -44,7 +44,7 @@ struct _glibtop_backend_private
 {
     const glibtop_backend_info *info;
 
-    void *closure_data;
+    glibtop_closure *closure_data;
 
     glibtop_server *server;
     glibtop_backend_module *module;
@@ -253,7 +253,7 @@ glibtop_backend_get_server (glibtop_backend *backend)
     return backend->_priv->server;
 }
 
-void *
+glibtop_closure *
 glibtop_backend_get_closure_data (glibtop_backend *backend)
 {
     g_return_val_if_fail (GLIBTOP_IS_BACKEND (backend), NULL);
@@ -262,7 +262,8 @@ glibtop_backend_get_closure_data (glibtop_backend *backend)
 }
 
 void
-glibtop_backend_set_closure_data (glibtop_backend *backend, void *closure)
+glibtop_backend_set_closure_data (glibtop_backend *backend,
+				  glibtop_closure *closure)
 {
     g_return_if_fail (GLIBTOP_IS_BACKEND (backend));
     g_return_if_fail (backend->_priv->closure_data == NULL);

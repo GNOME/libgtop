@@ -28,6 +28,7 @@
 
 #include <glibtop/global.h>
 #include <glibtop/sysdeps.h>
+#include <glibtop/closure.h>
 
 BEGIN_LIBGTOP_DECLS
 
