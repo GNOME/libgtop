@@ -26,6 +26,7 @@
 #include <glibtop/open.h>
 
 #include <fcntl.h>
+#include <locale.h>
 
 #if defined(HAVE_GETDTABLESIZE)
 #define GET_MAX_FDS() getdtablesize()

@@ -1,3 +1,7 @@
+1998-06-02  Federico Mena Quintero  <federico@nuclecu.unam.mx>
+
+	* src/server/main.c: #include <locale.h>
+
 1998-06-02  Martin Baulig  <baulig@merkur.uni-trier.de>
 
 	* lib/open.c (glibtop_open): renamed to `glibtop_open__l'.
