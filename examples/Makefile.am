@@ -12,9 +12,9 @@ DEFS			= @DEFS@
 libexec_PROGRAMS	= first first_static second second_static \
 			  mountlist mountlist_static \
 			  procmap procmap_static \
-			  @guile_examples@
+			  @guile_examples@ @smp_examples@
 
-EXTRA_PROGRAMS		= third third_static
+EXTRA_PROGRAMS		= third third_static smp smp_static
 
 first_SOURCES		= first.c
 first_LDADD		= $(top_builddir)/lib/libgtop.la \
@@ -73,4 +73,15 @@ mountlist_LDADD		= $(top_builddir)/lib/libgtop.la \
 mountlist_static_SOURCES= $(mountlist_SOURCES)
 mountlist_static_LDADD	= $(mountlist_LDADD)
 mountlist_static_LDFLAGS= -static
+
+
+smp_SOURCES		= smp.c
+smp_LDADD		= $(top_builddir)/lib/libgtop.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+			  @INTLLIBS@ @LIBSUPPORT@ @LIBGTOP_EXTRA_LIBS@
+
+smp_static_SOURCES	= $(smp_SOURCES)
+smp_static_LDADD	= $(smp_LDADD)
+smp_static_LDFLAGS	= -static
 
