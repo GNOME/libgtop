@@ -51,6 +51,17 @@
 # define __P(protos) ()
 #endif
 
+#if TIME_WITH_SYS_TIME
+# include <sys/time.h>
+# include <time.h>
+#else
+# if HAVE_SYS_TIME_H
+#  include <sys/time.h>
+# else
+#  include <time.h>
+# endif
+#endif
+
 #ifdef HAVE_GUILE
 #include <guile/gh.h>
 #endif
@@ -67,7 +78,10 @@
 #include <stdlib.h>
 
 #include <stdarg.h>
+
+#ifdef HAVE_UNISTD_H
 #include <unistd.h>
+#endif
 
 #ifdef HAVE_MEMORY_H
 #include <memory.h>
@@ -75,7 +89,9 @@
 
 #include <string.h>
 #include <sys/types.h>
+#include <sys/param.h>
 #include <sys/socket.h>
+#include <sys/stat.h>
 #include <signal.h>
 #include <errno.h>
 
