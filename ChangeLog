@@ -1,5 +1,12 @@
 2000-01-12  Martin Baulig  <martin@home-of-linux.org>
 
+	* xml.m4: New file to check for libxml.
+
+	* configure.in: Call `LIBGTOP_XML_HOOK' from `xml.m4' and
+	add libxml libraries to `LIBGTOP_EXTRA_LIBS' when found.
+
+2000-01-12  Martin Baulig  <martin@home-of-linux.org>
+
 	* lib/sysdeps.c (_glibtop_init_hook_s): This has been moved
 	into the sysdeps backend.
 

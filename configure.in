@@ -113,11 +113,13 @@ AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 GNOME_LIBGTOP_SYSDEPS
 GNOME_LIBGTOP_TYPES
 
+LIBGTOP_XML_HOOK([],)
+
 AC_ARG_WITH(libgtop-inodedb,
 [  --with-libgtop-inodedb  Build the inodedb stuff (default=no)],
 [build_inodedb="$withval"], [build_inodedb=no])
 
-LIBGTOP_EXTRA_LIBS=
+LIBGTOP_EXTRA_LIBS="$LIBGTOP_XML_LIBS"
 
 if test x$build_inodedb = xyes ; then
   AC_CHECK_LIB(gdbm, gdbm_open, LIBGTOP_EXTRA_LIBS='-lgdbm', build_inodedb=no)
