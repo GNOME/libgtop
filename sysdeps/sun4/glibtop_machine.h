@@ -85,6 +85,10 @@ struct _glibtop_machine
 	gid_t gid, egid;		/* Real and effective group id */
 	int nlist_count;		/* Number of symbols in the nlist */
 	int ncpu;			/* Number of CPUs we have */
+	int nproc;			/* Number of entries in the process array */
+	size_t ptable_size;		/* Size of process array. */
+	unsigned long ptable_offset;	/* Offset of process array in kernel. */
+	struct proc *proc_table;	/* Process array. */
 	unsigned long pages, epages;
 	struct page *physpage;
 	int bytesize, count;
@@ -101,6 +105,10 @@ extern struct nlist _glibtop_nlist[];
 extern int _glibtop_check_nlist __P((void *, register struct nlist *));
 
 extern int _glibtop_getkval __P((void *, unsigned long, int *, int, char *));
+
+extern void _glibtop_read_proc_table __P((void *));
+
+extern struct proc *_glibtop_find_pid __P((void *, pid_t));
 
 #endif
 

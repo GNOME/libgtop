@@ -118,6 +118,24 @@ glibtop_open_r (glibtop *server, const char *program_name,
 	    (_glibtop_check_nlist (server, _glibtop_nlist) > 0))
 		_exit (1);
 
+	/* Get process array stuff. */
+
+	(void) _glibtop_getkval (server, _glibtop_nlist[X_NPROC].n_value,
+				 (int *)(&server->machine.nproc),
+				 sizeof (server->machine.nproc),
+				 _glibtop_nlist[X_NPROC].n_name);
+
+	(void) _glibtop_getkval (server, _glibtop_nlist[X_PROC].n_value,
+				 (int *)(&server->machine.ptable_offset),
+				 sizeof (server->machine.ptable_offset),
+				 _glibtop_nlist[X_PROC].n_name);
+
+	server->machine.ptable_size = (unsigned long) server->machine.nproc *
+		(unsigned long) sizeof (struct proc);
+
+	server->machine.proc_table = glibtop_malloc_r
+		(server, server->machine.ptable_size);
+
 	/* This are for the memory statistics. */
 	
 	(void) _glibtop_getkval (server, _glibtop_nlist[X_PAGES].n_value,
@@ -220,4 +238,47 @@ _glibtop_getkval (void *void_server, unsigned long offset, int *ptr, int size, c
 		}
 
 	return 1;
+}
+
+/* Used internally. Reads process table from kernel. */
+
+void
+_glibtop_read_proc_table (void *void_server)
+{
+	glibtop *server = (glibtop *) void_server;
+
+	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
+	
+	setregid (server->machine.gid, server->machine.egid);
+	
+	/* Read process table from kernel. */	
+
+	(void) _glibtop_getkval (server, server->machine.ptable_offset,
+				 (int *) server->machine.proc_table,
+				 (size_t) server->machine.ptable_size,
+				 _glibtop_nlist[X_PROC].n_name);
+	
+	if (setregid (server->machine.egid, server->machine.gid))
+		_exit (1);
+	
+	/* !!! END OF SGID KMEM PART !!! */
+}
+
+/* Used internally. Finds pid in process table. */
+
+struct proc *
+_glibtop_find_pid (void *void_server, pid_t pid)
+{
+	register struct proc *pp;
+	register int i;
+
+	glibtop *server = (glibtop *) void_server;
+
+	for (pp = server->machine.proc_table, i = 0;
+	     i < server->machine.nproc; pp++, i++) {
+		if ((pp->p_stat != 0) && (pp->p_pid == pid))
+			return pp;
+	}
+
+	return NULL;
 }

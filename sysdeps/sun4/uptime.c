@@ -41,9 +41,9 @@ glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 
 	/* Make sure all required fields are present. */
 
-	if (((cpu.flags & GLIBTOP_CPU_TOTAL) == 0) ||
-	    ((cpu.flags & GLIBTOP_CPU_IDLE) == 0) ||
-	    ((cpu.flags & GLIBTOP_CPU_FREQUENCY) == 0) ||
+	if (((cpu.flags & (1 << GLIBTOP_CPU_TOTAL)) == 0) ||
+	    ((cpu.flags & (1 << GLIBTOP_CPU_IDLE)) == 0) ||
+	    ((cpu.flags & (1 << GLIBTOP_CPU_FREQUENCY)) == 0) ||
 	    (cpu.frequency == 0))
 		return;
 

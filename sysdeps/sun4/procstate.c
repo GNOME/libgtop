@@ -19,16 +19,38 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
 #include <glibtop/procstate.h>
+
+static const unsigned long _glibtop_sysdeps_proc_state =
+(1 << GLIBTOP_PROC_STATE_STATE) + (1 << GLIBTOP_PROC_STATE_UID);
 
 /* Provides detailed information about a process. */
 
 void
 glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf,
-			   pid_t pid)
+			  pid_t pid)
 {
+	struct proc *pp;
+
 	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_state));
+
+	/* Read process table from kernel. */	
+
+	_glibtop_read_proc_table (server);
+
+	/* Find the pid in the process table. */
+
+	pp = _glibtop_find_pid (server, pid);
+
+	if (pp == NULL)	return;
+
+	/* Fill in data fields. */
+
+	buf->state = pp->p_stat;
+	buf->uid = pp->p_uid;
+
+	buf->flags = _glibtop_sysdeps_proc_state;
 }

@@ -19,16 +19,38 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
 #include <glibtop/proctime.h>
+
+static const unsigned long _glibtop_sysdeps_proc_time =
+(1 << GLIBTOP_PROC_TIME_START_TIME) + (1 << GLIBTOP_PROC_TIME_UTIME);
 
 /* Provides detailed information about a process. */
 
 void
 glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
-			  pid_t pid)
+			 pid_t pid)
 {
+	struct proc *pp;
+
 	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_time));
+
+	/* Read process table from kernel. */	
+
+	_glibtop_read_proc_table (server);
+
+	/* Find the pid in the process table. */
+
+	pp = _glibtop_find_pid (server, pid);
+
+	if (pp == NULL)	return;
+
+	/* Fill in data fields. */
+
+	buf->start_time = pp->p_time;
+	buf->utime = pp->p_cpticks;
+
+	buf->flags = _glibtop_sysdeps_proc_time;
 }

@@ -19,16 +19,49 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
 #include <glibtop/procuid.h>
+
+static const unsigned long _glibtop_sysdeps_proc_uid =
+(1 << GLIBTOP_PROC_UID_UID) + (1 << GLIBTOP_PROC_UID_EUID) +
+(1 << GLIBTOP_PROC_UID_EGID) + (1 << GLIBTOP_PROC_UID_PID) +
+(1 << GLIBTOP_PROC_UID_PPID) + (1 << GLIBTOP_PROC_UID_PGRP) +
+(1 << GLIBTOP_PROC_UID_TPGID) + (1 << GLIBTOP_PROC_UID_PRIORITY) +
+(1 << GLIBTOP_PROC_UID_NICE);
 
 /* Provides detailed information about a process. */
 
 void
 glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
-			 pid_t pid)
+			pid_t pid)
 {
+	struct proc *pp;
+
 	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_uid));
+
+	/* Read process table from kernel. */	
+
+	_glibtop_read_proc_table (server);
+
+	/* Find the pid in the process table. */
+
+	pp = _glibtop_find_pid (server, pid);
+
+	if (pp == NULL)	return;
+
+	/* Fill in data fields. */
+
+	buf->uid = pp->p_uid;
+	buf->euid = pp->p_suid;
+	buf->egid = pp->p_sgid;
+	buf->pid = pp->p_pid;
+	buf->ppid = pp->p_ppid;
+	buf->pgrp = pp->p_pgrp;
+	buf->tpgid = pp->p_pgrp;
+	buf->priority = pp->p_pri;
+	buf->nice = pp->p_nice;
+
+	buf->flags = _glibtop_sysdeps_proc_uid;
 }

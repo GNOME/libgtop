@@ -32,7 +32,7 @@
 #include <glibtop/sysdeps.h>
 
 #ifndef PROFILE_COUNT
-#define PROFILE_COUNT	1000
+#define PROFILE_COUNT	1
 #endif
 
 int

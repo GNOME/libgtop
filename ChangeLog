@@ -1,5 +1,13 @@
 1998-07-17  Martin Baulig  <baulig@Stud.Informatik.uni-trier.de>
 
+	* sysdeps/sun4/proclist.c (glibtop_get_proclist_p): Added
+	implementation of that feature.
+
+	* sysdeps/sun4/proc_{uid,state}.c: Now working quite well.
+
+	* sysdeps/sun4/proc_{mem,time,signal,kernel,segment}.c: Added
+	some basic implementation; this isn't really working yet.
+	
 	* sysdeps/linux/sem_limits.c: Applied patch from Albert K T Hui
 	<avatar@deva.net> for glibc 2.1.
 

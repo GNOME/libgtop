@@ -22,13 +22,38 @@
 #include <config.h>
 #include <glibtop/procmem.h>
 
+static const unsigned long _glibtop_sysdeps_proc_mem =
+(1 << GLIBTOP_PROC_MEM_SIZE) + (1 << GLIBTOP_PROC_MEM_RSS) +
+(1 << GLIBTOP_PROC_MEM_RSS_RLIM);
+
 /* Provides detailed information about a process. */
 
 void
 glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
-			 pid_t pid)
+			pid_t pid)
 {
+	struct proc *pp;
+
 	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_mem));
+
+	/* Read process table from kernel. */	
+
+	_glibtop_read_proc_table (server);
+
+	/* Find the pid in the process table. */
+
+	pp = _glibtop_find_pid (server, pid);
+
+	if (pp == NULL)	return;
+
+	/* Fill in data fields. */
+
+	buf->size = (pp)->p_tsize + (pp)->p_dsize + (pp)->p_ssize;
+
+	buf->rss = pp->p_rssize;
+	buf->rss_rlim = pp->p_maxrss;
+
+	buf->flags = _glibtop_sysdeps_proc_mem;
 }

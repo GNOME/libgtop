@@ -19,10 +19,13 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
+#include <glibtop/xmalloc.h>
 #include <glibtop/proclist.h>
 
-#define GLIBTOP_PROCLIST_FLAGS	3
+static const unsigned long _glibtop_sysdeps_proclist =
+(1 << GLIBTOP_PROCLIST_TOTAL) + (1 << GLIBTOP_PROCLIST_NUMBER) +
+(1 << GLIBTOP_PROCLIST_SIZE);
 
 /* Fetch list of currently running processes.
  *
@@ -34,8 +37,56 @@
 unsigned *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf)
 {
+	register struct proc *pp;
+	register int i, nproc = 0;
+	unsigned *proc_list = NULL;
+	size_t proc_size;
+
 	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proclist));
-	return NULL;
+
+	/* Read process table from kernel. */	
+
+	_glibtop_read_proc_table (server);
+
+	/* Count number of processes. */
+
+	for (pp = server->machine.proc_table, i = 0;
+	     i < server->machine.nproc; pp++, i++) {
+		if (pp->p_stat == 0)
+			continue;
+		else
+			nproc++;
+	}
+
+	if (nproc == 0) /* Should never happen. */
+		return NULL;
+
+	/* Allocate space for process list. */
+
+	proc_size = nproc * sizeof (unsigned);
+
+	proc_list = glibtop_malloc_r (server, proc_size);
+
+	/* Write process list. */
+
+	for (pp = server->machine.proc_table, i = 0, nproc = 0;
+	     i < server->machine.nproc; pp++, i++) {
+		if (pp->p_stat == 0)
+			continue;
+		proc_list [nproc++] = pp->p_pid;
+	}
+
+	/* Since everything is ok now, we can set buf->flags, fill in the remaining fields
+	   and return proc_list. */
+
+	buf->flags = _glibtop_sysdeps_proclist;
+
+	buf->size = sizeof (unsigned);
+	buf->number = nproc;
+
+	buf->total = nproc * sizeof (unsigned);
+
+	return proc_list;
 }
