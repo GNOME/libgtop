@@ -49,7 +49,7 @@ void
 glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 {
 	char buffer [BUFSIZ], *p;
-	const unsigned pageshift = get_pageshift();
+	const size_t pagesize = getpagesize();
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
 
@@ -76,10 +76,10 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 	buf->resident = strtoull (p, &p, 0);
 	buf->share    = strtoull (p, &p, 0);
 
-	buf->size     <<= pageshift;
-	buf->resident <<= pageshift;
-	buf->share    <<= pageshift;
-	buf->rss      <<= pageshift;
+	buf->size     *= pagesize;
+	buf->resident *= pagesize;
+	buf->share    *= pagesize;
+	buf->rss      *= pagesize;
 
 	buf->flags |= _glibtop_sysdeps_proc_mem_statm;
 }

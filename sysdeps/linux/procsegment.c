@@ -53,7 +53,7 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 			    pid_t pid)
 {
 	char buffer [BUFSIZ], *p;
-	const unsigned pageshift = get_pageshift();
+	const size_t pagesize = getpagesize();
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
 
@@ -86,10 +86,10 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 	buf->data_rss   = strtoull (p, &p, 0);
 	buf->dirty_size = strtoull (p, &p, 0);
 
-	buf->text_rss   <<= pageshift;
-	buf->shlib_rss  <<= pageshift;
-	buf->data_rss   <<= pageshift;
-	buf->dirty_size <<= pageshift;
+	buf->text_rss   *= pagesize;
+	buf->shlib_rss  *= pagesize;
+	buf->data_rss   *= pagesize;
+	buf->dirty_size *= pagesize;
 
 	buf->flags |= _glibtop_sysdeps_proc_segment_statm;
 }

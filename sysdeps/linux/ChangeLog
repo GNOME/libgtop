@@ -1,3 +1,12 @@
+2004-09-23  Benoît Dejean  <tazforever@dlfp.org>
+
+	* glibtop_server.c:
+	* glibtop_server.h:
+	* procmem.c: (glibtop_get_proc_mem_s):
+	* procsegment.c: (glibtop_get_proc_segment_s): Removed get_pageshift().
+	Every one can affort a * instead of a >>, no need for this kind of
+	non-reentrant optimization. Saved 144B (obviously perfect cleanup ;)
+
 2004-09-22  Benoît Dejean  <tazforever@dlfp.org>
 
 	* glibtop_server.c: Removed #warning, my gcc is not buggy anymore.

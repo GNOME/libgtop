@@ -9,9 +9,6 @@
 
 #include <fcntl.h>
 
-/* gcc warning bug */
-unsigned get_pageshift(void);
-
 
 unsigned long long
 get_scaled(const char *buffer, const char *key)
@@ -85,20 +82,3 @@ file_to_buffer(glibtop *server, char *buffer, const char *filename)
 }
 
 
-unsigned get_pageshift(void)
-{
-	static unsigned pageshift = 0;
-
-	if(G_UNLIKELY(!pageshift))
-	{
-		register unsigned pagesize = getpagesize();
-
-		while( pagesize > 1 )
-		{
-			pagesize >>= 1;
-			pageshift++;
-		}
-	}
-
-	return pageshift;
-}

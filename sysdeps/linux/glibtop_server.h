@@ -39,8 +39,6 @@ G_BEGIN_DECLS
 #define LINUX_VERSION_CODE(x,y,z)   (0x10000*(x) + 0x100*(y) + z)
 
 
-unsigned get_pageshift(void);
-
 static inline char*
 next_token(const char *p)
 {
