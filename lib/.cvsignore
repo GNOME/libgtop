@@ -32,3 +32,4 @@ sysinfo.lo
 uptime.lo
 write.lo
 xmalloc.lo
+lib.c

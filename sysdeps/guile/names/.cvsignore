@@ -24,3 +24,4 @@ so_locations
 swap.lo
 sysdeps.lo
 uptime.lo
+guile-names.c
