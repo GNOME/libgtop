@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LibGTOP\n"
-"POT-Creation-Date: 2000-10-26 18:43-0200\n"
-"PO-Revision-Date: 1999-04-28 16:40-0300\n"
+"POT-Creation-Date: 2000-10-30 11:19-0200\n"
+"PO-Revision-Date: 2000-10-27 14:37-0300\n"
 "Last-Translator: E. A. Tacão <tacao@conectiva.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -11,187 +11,187 @@ msgstr ""
 
 #: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
 msgid "Hangup (POSIX)"
-msgstr ""
+msgstr "Hangup (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
 msgid "Interrupt (ANSI)"
-msgstr ""
+msgstr "Interrupt (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:35 lib/sysdeps-init-linux.c:35
 msgid "Quit (POSIX)"
-msgstr ""
+msgstr "Quit (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:36 lib/sysdeps-init-linux.c:36
 msgid "Illegal instruction (ANSI)"
-msgstr ""
+msgstr "Illegal instruction (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:37 lib/sysdeps-init-linux.c:37
 msgid "Trace trap (POSIX)"
-msgstr ""
+msgstr "Trace trap (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:38 lib/sysdeps-init-linux.c:38
 msgid "Abort (ANSI)"
-msgstr ""
+msgstr "Abort (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:39
 msgid "EMT instruction"
-msgstr ""
+msgstr "Instrução EMT"
 
 #: lib/sysdeps-init-freebsd.c:40 lib/sysdeps-init-linux.c:40
 msgid "Floating-point exception (ANSI)"
-msgstr ""
+msgstr "Floating-point exception (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
 msgid "Kill, unblockable (POSIX)"
-msgstr ""
+msgstr "Kill, unblockable (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
 msgid "BUS error (4.2 BSD)"
-msgstr ""
+msgstr "BUS error (4.2 BSD)"
 
 #: lib/sysdeps-init-freebsd.c:43 lib/sysdeps-init-linux.c:43
 msgid "Segmentation violation (ANSI)"
-msgstr ""
+msgstr "Segmentation violation (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:44
 msgid "Bad argument to system call"
-msgstr ""
+msgstr "Argumento inválido na chamada de sistema"
 
 #: lib/sysdeps-init-freebsd.c:45 lib/sysdeps-init-linux.c:45
 msgid "Broken pipe (POSIX)"
-msgstr ""
+msgstr "Broken pipe (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:46 lib/sysdeps-init-linux.c:46
 msgid "Alarm clock (POSIX)"
-msgstr ""
+msgstr "Alarm clock (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
 msgid "Termination (ANSI)"
-msgstr ""
+msgstr "Termination (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:48 lib/sysdeps-init-linux.c:55
 msgid "Urgent condition on socket (4.2 BSD)"
-msgstr ""
+msgstr "Urgent condition on socket (4.2 BSD)"
 
 #: lib/sysdeps-init-freebsd.c:49 lib/sysdeps-init-linux.c:51
 msgid "Stop, unblockable (POSIX)"
-msgstr ""
+msgstr "Stop, unblockable (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:50 lib/sysdeps-init-linux.c:52
 msgid "Keyboard stop (POSIX)"
-msgstr ""
+msgstr "Keyboard stop (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:51 lib/sysdeps-init-linux.c:50
 msgid "Continue (POSIX)"
-msgstr ""
+msgstr "Continue (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:52 lib/sysdeps-init-linux.c:49
 msgid "Child status has changed (POSIX)"
-msgstr ""
+msgstr "Child status has changed (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:53 lib/sysdeps-init-linux.c:53
 msgid "Background read from tty (POSIX)"
-msgstr ""
+msgstr "Background read from tty (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:54 lib/sysdeps-init-linux.c:54
 msgid "Background write to tty (POSIX)"
-msgstr ""
+msgstr "Background write to tty (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:55 lib/sysdeps-init-linux.c:61
 msgid "I/O now possible (4.2 BSD)"
-msgstr ""
+msgstr "I/O now possible (4.2 BSD)"
 
 #: lib/sysdeps-init-freebsd.c:56 lib/sysdeps-init-linux.c:56
 msgid "CPU limit exceeded (4.2 BSD)"
-msgstr ""
+msgstr "CPU limit exceeded (4.2 BSD)"
 
 #: lib/sysdeps-init-freebsd.c:57 lib/sysdeps-init-linux.c:57
 msgid "File size limit exceeded (4.2 BSD)"
-msgstr ""
+msgstr "File size limit exceeded (4.2 BSD)"
 
 #: lib/sysdeps-init-freebsd.c:58 lib/sysdeps-init-linux.c:58
 msgid "Virtual alarm clock (4.2 BSD)"
-msgstr ""
+msgstr "Virtual alarm clock (4.2 BSD)"
 
 #: lib/sysdeps-init-freebsd.c:59 lib/sysdeps-init-linux.c:59
 msgid "Profiling alarm clock (4.2 BSD)"
-msgstr ""
+msgstr "Profiling alarm clock (4.2 BSD)"
 
 #: lib/sysdeps-init-freebsd.c:60 lib/sysdeps-init-linux.c:60
 msgid "Window size change (4.3 BSD, Sun)"
-msgstr ""
+msgstr "Window size change (4.3 BSD, Sun)"
 
 #: lib/sysdeps-init-freebsd.c:61
 msgid "Information request"
-msgstr ""
+msgstr "Requisição de informação"
 
 #: lib/sysdeps-init-freebsd.c:62 lib/sysdeps-init-linux.c:42
 msgid "User-defined signal 1 (POSIX)"
-msgstr ""
+msgstr "User-defined signal 1 (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:63 lib/sysdeps-init-linux.c:44
 msgid "User-defined signal 2 (POSIX)"
-msgstr ""
+msgstr "User-defined signal 2 (POSIX)"
 
 #: lib/sysdeps-init-linux.c:62
 msgid "Power failure restart (System V)"
-msgstr ""
+msgstr "Power failure restart (System V)"
 
 #: support/popthelp.c:23
 msgid "Show this help message"
-msgstr ""
+msgstr "Mostra esta mensagem de ajuda"
 
 #: support/popthelp.c:24
 msgid "Display brief usage message"
-msgstr ""
+msgstr "Mostra uma breve explicação de uso"
 
 #: sysdeps/names/cpu.c:45
 msgid "Total CPU Time"
-msgstr "Tempo total de CPU"
+msgstr "Tempo Total de CPU"
 
 #: sysdeps/names/cpu.c:46
 msgid "CPU Time in User Mode"
-msgstr "Tempo de CPU em modo usuário"
+msgstr "Tempo de CPU em Modo Usuário"
 
 #: sysdeps/names/cpu.c:47
 msgid "CPU Time in User Mode (nice)"
-msgstr "Tempo de CPU em modo usuário (baixa pri.)"
+msgstr "Tempo de CPU em Modo Usuário (baixa pri.)"
 
 #: sysdeps/names/cpu.c:48
 msgid "CPU Time in System Mode"
-msgstr "Tempo de CPU em modo sistema"
+msgstr "Tempo de CPU em Modo Sistema"
 
 #: sysdeps/names/cpu.c:49
 msgid "CPU Time in the Idle Task"
-msgstr "Tempo de CPU em inatividade"
+msgstr "Tempo de CPU em Inatividade"
 
 #: sysdeps/names/cpu.c:50
 msgid "Tick Frequency"
-msgstr "Freqüência de relógio"
+msgstr "Freqüência de Relógio"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP Total CPU Time"
-msgstr "Tempo total de CPU SMP"
+msgstr "Tempo Total de CPU SMP"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in User Mode"
-msgstr "Tempo de CPU SMP em modo usuário"
+msgstr "Tempo de CPU SMP em Modo Usuário"
 
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "Tempo de CPU SMP em modo usuário (baixa pri.)"
+msgstr "Tempo de CPU SMP em Modo Usuário (baixa pri.)"
 
 #: sysdeps/names/cpu.c:54
 msgid "SMP CPU Time in System Mode"
-msgstr "Tempo de CPU SMP em modo sistema"
+msgstr "Tempo de CPU SMP em Modo Sistema"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Time in the Idle Task"
-msgstr "Tempo de CPU SMP em inatividade"
+msgstr "Tempo de CPU SMP em Inatividade"
 
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 msgid "SMP CPU Flags"
-msgstr "Bandeiras de SMP - CPU"
+msgstr "Sinalizadores SMP - CPU"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
@@ -297,7 +297,7 @@ msgstr "Buffers"
 
 #: sysdeps/names/mem.c:48
 msgid "Cached"
-msgstr "Cached"
+msgstr "No Cache"
 
 #: sysdeps/names/mem.c:49
 msgid "User"
@@ -309,39 +309,39 @@ msgstr "Reservados"
 
 #: sysdeps/names/mem.c:55
 msgid "Total physical memory in kB"
-msgstr "Total de memória física em Kb"
+msgstr "Total de memória física em kB"
 
 #: sysdeps/names/mem.c:56
 msgid "Used memory size in kB"
-msgstr "Memória utilizada em Kb"
+msgstr "Memória utilizada em kB"
 
 #: sysdeps/names/mem.c:57
 msgid "Free memory size in kB"
-msgstr "Memória livre em Kb"
+msgstr "Memória livre em kB"
 
 #: sysdeps/names/mem.c:58
 msgid "Shared memory size in kB"
-msgstr "Memória compartilhada em Kb"
+msgstr "Memória compartilhada em kB"
 
 #: sysdeps/names/mem.c:59
 msgid "Size of buffers kB"
-msgstr "Tamanho dos buffers em Kb"
+msgstr "Tamanho dos buffers em kB"
 
 #: sysdeps/names/mem.c:60
 msgid "Size of cached memory in kB"
-msgstr "Tamanho da memória em cache em Kb"
+msgstr "Tamanho da memória em cache em kB"
 
 #: sysdeps/names/mem.c:61
 msgid "Memory used from user processes in kB"
-msgstr "Memória utilizada em processos de usuários em Kb"
+msgstr "Memória utilizada em processos de usuários em kB"
 
 #: sysdeps/names/mem.c:62
 msgid "Memory in locked pages in kB"
-msgstr "Memória em páginas reservadas em Kb"
+msgstr "Memória em páginas reservadas em kB"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Size in kilobytes of message pool"
-msgstr "Tamanho em Kb da área de mensagens"
+msgstr "Tamanho em kB da área de mensagens"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Number of entries in message map"
@@ -417,7 +417,7 @@ msgid ""
 msgstr ""
 "Parâmetros do kernel para o processo.\n"
 "\n"
-"No Linux, cada parâmetro tem o bit matemático habilitado,pois crt0.s "
+"No Linux, cada parâmetro tem o bit matemático habilitado, pois crt0.s "
 "verifica se há emulação matemática, de modo que não seja incluída na saída.\n"
 "\n"
 "Isto é provavelmente um problema, já que nem todo processo é um programa C.\n"
@@ -439,7 +439,7 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"O número de falhas maiores do processo, são aquelas que provocaram  a busca "
+"O número de falhas maiores do processo, são aquelas que provocaram a busca "
 "de uma página de memória do disco."
 
 #. CMin_Flt
@@ -458,7 +458,7 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
-"O valor corrente de esp (ponteiro de pilha 32-bits), tal como  consta na "
+"O valor corrente de esp (ponteiro de pilha 32-bits), tal como consta na "
 "página da pilha do kernel para o processo."
 
 #. KStk_EIP
@@ -539,7 +539,7 @@ msgstr ""
 #: sysdeps/names/procmem.c:64
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "Limite atual em bytes do RSS de um processo (usualmente 2.1 Gb)."
+msgstr "Limite atual em bytes do RSS de um processo (normalmente 2.1 GB)."
 
 #: sysdeps/names/procsegment.c:50
 msgid "Text_RSS"
@@ -1088,13 +1088,13 @@ msgstr "Página em Espera"
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought in since system boot"
 msgstr ""
-"Número total de páginas de troca que foram trazidas à RAM  deste a "
+"Número total de páginas de troca que foram trazidas à RAM desde a "
 "inicialização do sistema"
 
 #: sysdeps/names/swap.c:55
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
-"Número total de páginas de troca que foram colocadas em espera deste  a "
+"Número total de páginas de troca que foram colocadas em espera desde a "
 "inicialização do sistema"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
@@ -1103,7 +1103,7 @@ msgstr "Recursos do Servidor"
 
 #: sysdeps/names/sysdeps.c:54
 msgid "Pointer Size"
-msgstr "Tamanho Ponteiro"
+msgstr "Tamanho do Ponteiro"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
 msgid "CPU Usage"
@@ -1238,7 +1238,7 @@ msgstr "Tempo em segundos deste a inicialização do sistema"
 #: sysdeps/names/uptime.c:48
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr ""
-"Tempo em segundos que o sistema despendeu ociosodesde a inicialização do "
+"Tempo em segundos que o sistema despendeu ocioso desde a inicialização do "
 "sistema"
 
 #: sysdeps/names/uptime.c:49
@@ -1349,55 +1349,55 @@ msgstr "Suporte kernel inexistente"
 msgid "Incompatible kernel version"
 msgstr "Versão do kernel incompatível"
 
-#~ msgid "read %d bytes"
-#~ msgstr "ler %d bytes"
+msgid "read %d bytes"
+msgstr "ler %d bytes"
 
-#~ msgid "read data size"
-#~ msgstr "ler tamanho dos dados"
+msgid "read data size"
+msgstr "ler tamanho dos dados"
 
-#~ msgid "read data %d bytes"
-#~ msgstr "ler %d bytes de dados"
+msgid "read data %d bytes"
+msgstr "ler %d bytes de dados"
 
-#~ msgid "write %d bytes"
-#~ msgstr "escrever %d bytes"
+msgid "write %d bytes"
+msgstr "escrever %d bytes"
 
-#~ msgid "Enable debugging"
-#~ msgstr "Habilitar depuração"
+msgid "Enable debugging"
+msgstr "Habilitar depuração"
 
-#~ msgid "DEBUG"
-#~ msgstr "DEBUG"
+msgid "DEBUG"
+msgstr "DEBUG"
 
-#~ msgid "Enable verbose output"
-#~ msgstr "Habilitar saída com mensagens detalhadas "
+msgid "Enable verbose output"
+msgstr "Habilitar saída com mensagens detalhadas "
 
-#~ msgid "VERBOSE"
-#~ msgstr "VERBOSE"
+msgid "VERBOSE"
+msgstr "VERBOSE"
 
-#~ msgid "Don't fork into background"
-#~ msgstr "Não passar para segundo plano"
+msgid "Don't fork into background"
+msgstr "Não passar para segundo plano"
 
-#~ msgid "NO-DAEMON"
-#~ msgstr "NO-DAEMON"
+msgid "NO-DAEMON"
+msgstr "NO-DAEMON"
 
-#~ msgid "Invoked from inetd"
-#~ msgstr "Acionado pelo inetd"
+msgid "Invoked from inetd"
+msgstr "Acionado pelo inetd"
 
-#~ msgid "INETD"
-#~ msgstr "INETD"
+msgid "INETD"
+msgstr "INETD"
 
-#~ msgid ""
-#~ "Error on option %s: %s.\n"
-#~ "Run '%s --help' to see a full list of available command line options.\n"
-#~ msgstr ""
-#~ "Erro na opção %s: %s.\n"
-#~ "Execute '%s --help' para uma lista completa das opções\n"
-#~ "de linha de comando.\n"
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Erro na opção %s: %s.\n"
+"Execute '%s --help' para uma lista completa das opções\n"
+"de linha de comando.\n"
 
-#~ msgid "Number of list elements"
-#~ msgstr "Número de elementos na lista"
+msgid "Number of list elements"
+msgstr "Número de elementos na lista"
 
-#~ msgid "Total size of list"
-#~ msgstr "Tamanho total da lista"
+msgid "Total size of list"
+msgstr "Tamanho total da lista"
 
-#~ msgid "Size of a single list element"
-#~ msgstr "Tamanho de um elemento da lista"
+msgid "Size of a single list element"
+msgstr "Tamanho de um elemento da lista"
