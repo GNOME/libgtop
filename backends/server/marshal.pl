@@ -198,7 +198,7 @@ sub output {
     $send_buf_code .= "\t_LIBGTOP_DATA_ptr = _LIBGTOP_DATA_buf;\n";
 
     $call_code = '';
-    $call_code .= sprintf ("\t%sglibtop_call_i (server, backend, GLIBTOP_CMND_%s,\n",
+    $call_code .= sprintf ("\t%sglibtop_call_i (server, closure, GLIBTOP_CMND_%s,\n",
 			   $call_prefix, &toupper($feature));
     $call_code .= sprintf ("\t\t\t%s%s, %s,\n", $call_prefix_space,
 			   "_LIBGTOP_SEND_len", "_LIBGTOP_SEND_buf");
@@ -257,16 +257,16 @@ sub output {
 
     $func_decl = 'static '.$retval."\n";
     if ($line_fields[3] eq '') {
-      $func_decl .= sprintf ("_glibtop_get_%s_c (glibtop_server *server, glibtop_backend *backend%s)\n",
+      $func_decl .= sprintf ("_glibtop_get_%s_c (glibtop_server *server, void *closure%s)\n",
 			     $feature, $param_decl);
     } elsif ($line_fields[3] eq 'array') {
-      $func_decl .= sprintf ("_glibtop_get_%s_c (glibtop_server *server, glibtop_backend *backend, glibtop_array *array%s)\n",
+      $func_decl .= sprintf ("_glibtop_get_%s_c (glibtop_server *server, void *closure, glibtop_array *array%s)\n",
 			     $feature, $param_decl);
     } elsif ($line_fields[3] =~ /^array/) {
-      $func_decl .= sprintf ("_glibtop_get_%s_c (glibtop_server *server, glibtop_backend *backend, glibtop_array *array, %s *buf%s)\n",
+      $func_decl .= sprintf ("_glibtop_get_%s_c (glibtop_server *server, void *closure, glibtop_array *array, %s *buf%s)\n",
 			     $feature, 'glibtop_'.$feature, $param_decl);
     } else {
-      $func_decl .= sprintf ("_glibtop_get_%s_c (glibtop_server *server, glibtop_backend *backend, %s *buf%s)\n",
+      $func_decl .= sprintf ("_glibtop_get_%s_c (glibtop_server *server, void *closure, %s *buf%s)\n",
 			     $feature, 'glibtop_'.$feature, $param_decl);
     }
 

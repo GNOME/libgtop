@@ -29,7 +29,7 @@ static int
 _open_sysdeps (glibtop_server *, glibtop_backend *, u_int64_t, const char **);
 
 static int
-_close_sysdeps (glibtop_server *, glibtop_backend *);
+_close_sysdeps (glibtop_server *, glibtop_backend *, void *);
 
 extern glibtop_call_vector glibtop_backend_sysdeps_call_vector;
 
@@ -68,8 +68,9 @@ _open_sysdeps (glibtop_server *server, glibtop_backend *backend,
 }
 
 static int
-_close_sysdeps (glibtop_server *server, glibtop_backend *backend)
+_close_sysdeps (glibtop_server *server, glibtop_backend *backend,
+		void *closure)
 {
-    return -1;
+    return 0;
 }
 

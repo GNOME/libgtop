@@ -179,23 +179,23 @@ sub output {
       ("\t}\n\n");
 
     $sysdeps_code .= sprintf
-      ("\tfor (list = client->_priv->backend_list; list; list = list->next) {\n\t\tglibtop_backend *backend = list->data;\n\t\tglibtop_call_vector *call_vector;\n\n\t\tcall_vector = glibtop_backend_get_call_vector (backend);\n\n\t\tif (call_vector && call_vector->%s) {\n\t\t\tglibtop_server *server = glibtop_backend_get_server (backend);\n\n", $feature);
+      ("\tfor (list = client->_priv->backend_list; list; list = list->next) {\n\t\tglibtop_backend *backend = list->data;\n\t\tglibtop_call_vector *call_vector;\n\n\t\tcall_vector = glibtop_backend_get_call_vector (backend);\n\n\t\tif (call_vector && call_vector->%s) {\n\t\t\tglibtop_server *server = glibtop_backend_get_server (backend);\n\t\t\tvoid *closure = glibtop_backend_get_closure_data (backend);\n\n", $feature);
 
     if ($line_fields[3] eq '') {
       $sysdeps_code .= sprintf
-	("\t\t\tretval = call_vector->%s (server, backend%s);\n",
+	("\t\t\tretval = call_vector->%s (server, closure%s);\n",
 	 $feature, $call_param);
     } elsif ($line_fields[3] eq 'array') {
       $sysdeps_code .= sprintf
-	("\t\t\tretval = call_vector->%s (server, backend, array%s);\n",
+	("\t\t\tretval = call_vector->%s (server, closure, array%s);\n",
 	 $feature, $call_param);
     } elsif ($line_fields[3] =~ /^array/) {
       $sysdeps_code .= sprintf
-	("\t\t\tretval = call_vector->%s (server, backend, array, buf%s);\n",
+	("\t\t\tretval = call_vector->%s (server, closure, array, buf%s);\n",
 	 $feature, $call_param);
     } else {
       $sysdeps_code .= sprintf
-	("\t\t\tretval = call_vector->%s (server, backend, buf%s);\n",
+	("\t\t\tretval = call_vector->%s (server, closure, buf%s);\n",
 	 $feature, $call_param);
     }
 

@@ -31,8 +31,6 @@
 #include <glibtop.h>
 #include <glibtop/union.h>
 
-#include <glibtop/backend.h>
-
 BEGIN_LIBGTOP_DECLS
 
 struct _glibtop_call_vector

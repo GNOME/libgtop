@@ -46,10 +46,8 @@ struct _backend_server_private
     glibtop_server *server;
 };
 
-extern GQuark backend_server_quark;
-
 void *
-glibtop_call_i (glibtop_server *server, glibtop_backend *backend,
+glibtop_call_i (glibtop_server *server, backend_server_private *priv,
 		unsigned command, size_t send_size, const void *send_ptr,
 		size_t data_size, const void *data_ptr,
 		size_t recv_size, void *recv_ptr,

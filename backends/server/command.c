@@ -28,7 +28,7 @@
 #include "command.h"
 
 void *
-glibtop_call_i (glibtop_server *server, glibtop_backend *backend,
+glibtop_call_i (glibtop_server *server, backend_server_private *priv,
 		unsigned command, size_t send_size, const void *send_buf,
 		size_t data_size, const void *data_buf,
 		size_t recv_size, void *recv_ptr,
@@ -36,16 +36,12 @@ glibtop_call_i (glibtop_server *server, glibtop_backend *backend,
 {
     glibtop_command cmnd;
     glibtop_response resp;
-    backend_server_private *priv;
 #if 0
     int retval;
 #endif
 
     memset (&cmnd, 0, sizeof (glibtop_command));
     memset (&resp, 0, sizeof (glibtop_response));
-
-    priv = g_object_get_qdata (G_OBJECT (backend), backend_server_quark);
-    g_assert (priv != NULL);
 
     cmnd.command = command;
 

@@ -1,3 +1,12 @@
+2000-11-27  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/glibtop-backend-info.h
+	(glibtop_backend_close_func_t): Added `void *closure' argument.
+
+	* include/glibtop/call-vector.h: Changed the second argument
+	of all function in the call vector from `glibtop_backend *' to
+	`void *closure'.
+
 2000-11-26  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/glibtop-backend.h (glibtop_backend_open):
