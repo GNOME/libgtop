@@ -1,3 +1,8 @@
+1999-03-24  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in: Check for getloadavg () and swapctl () for
+	Solaris.
+
 1999-03-23  Martin Baulig  <martin@home-of-linux.org>
 
 	* glibtop.h (glibtop): Added `wanted'. Applications can set the

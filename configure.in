@@ -185,6 +185,7 @@ AC_CHECK_LIB(kvm, kvm_open)
 
 dnl Solaris 7
 AC_CHECK_LIB(kstat, kstat_open)
+AC_CHECK_FUNCS(getloadavg swapctl)
 
 dnl For DEC OSF1
 AC_CHECK_LIB(mach, vm_statistics)
