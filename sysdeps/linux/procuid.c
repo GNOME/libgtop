@@ -66,10 +66,10 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	if (!p) return;
 
 	p = skip_token (p); /* "Pid:" */
-	buf->pid = strtoul (p, &p, 0);
+	buf->pid = strtol (p, &p, 0);
 
 	p = skip_token (p); /* "PPid:" */
-	buf->ppid = strtoul (p, &p, 0);
+	buf->ppid = strtol (p, &p, 0);
 
 	/* Maybe future Linux versions place something between
 	 * "PPid" and "Uid", so we catch this here. */
@@ -77,8 +77,8 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	if (!p) return;
 
 	p = skip_token (p); /* "Uid:" */
-	buf->uid = strtoul (p, &p, 0);
-	buf->euid = strtoul (p, &p, 0);
+	buf->uid  = strtol (p, &p, 0);
+	buf->euid = strtol (p, &p, 0);
 
 	/* We don't know how many entries on the "Uid:" line
 	 * future Linux version will have, so we catch this here. */
@@ -86,8 +86,8 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	if (!p) return;
 
 	p = skip_token (p); /* "Gid:" */
-	buf->gid = strtoul (p, &p, 0);
-	buf->egid = strtoul (p, &p, 0);
+	buf->gid  = strtol (p, &p, 0);
+	buf->egid = strtol (p, &p, 0);
 
 	buf->flags = _glibtop_sysdeps_proc_uid;
 
@@ -99,15 +99,15 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 
 	p = skip_multiple_token (p, 2);
 
-	buf->pgrp = strtoul (p, &p, 0);
-	buf->session = strtoul (p, &p, 0);
-	buf->tty = strtoul (p, &p, 0);
-	buf->tpgid = strtoul (p, &p, 0);
+	buf->pgrp    = strtol (p, &p, 0);
+	buf->session = strtol (p, &p, 0);
+	buf->tty     = strtol (p, &p, 0);
+	buf->tpgid   = strtol (p, &p, 0);
 
 	p = skip_multiple_token (p, 9);
 	
-	buf->priority = strtoul (p, &p, 0);
-	buf->nice = strtoul (p, &p, 0);
+	buf->priority = strtol (p, &p, 0);
+	buf->nice     = strtol (p, &p, 0);
 
 	if (buf->tty == 0)
 		/* the old notty val, update elsewhere bef. moving to 0 */

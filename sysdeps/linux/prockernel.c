@@ -58,20 +58,20 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid)
 
 	p = skip_multiple_token (p, 6);
 
-	buf->k_flags   = strtoul (p, &p, 0);
-	buf->min_flt   = strtoul (p, &p, 0);
-	buf->cmin_flt  = strtoul (p, &p, 0);
-	buf->maj_flt   = strtoul (p, &p, 0);
-	buf->cmaj_flt  = strtoul (p, &p, 0);
+	buf->k_flags   = strtoull (p, &p, 0);
+	buf->min_flt   = strtoull (p, &p, 0);
+	buf->cmin_flt  = strtoull (p, &p, 0);
+	buf->maj_flt   = strtoull (p, &p, 0);
+	buf->cmaj_flt  = strtoull (p, &p, 0);
 
 	p = skip_multiple_token (p, 15);
 
-	buf->kstk_esp = strtoul (p, &p, 0);
-	buf->kstk_eip = strtoul (p, &p, 0);
+	buf->kstk_esp = strtoull (p, &p, 0);
+	buf->kstk_eip = strtoull (p, &p, 0);
 	
 	p = skip_multiple_token (p, 4);
 	
-	buf->nwchan = strtoul (p, &p, 0);
+	buf->nwchan = strtoull (p, &p, 0);
 
 	buf->flags = _glibtop_sysdeps_proc_kernel;
 }

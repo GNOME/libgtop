@@ -67,9 +67,9 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 
 	buffer [len] = '\0';
 
-	buf->loadavg [0] = (float) strtod (buffer, &p);
-	buf->loadavg [1] = (float) strtod (p, &p);
-	buf->loadavg [2] = (float) strtod (p, &p);
+	buf->loadavg [0] = strtod (buffer, &p);
+	buf->loadavg [1] = strtod (p, &p);
+	buf->loadavg [2] = strtod (p, &p);
 
 	buf->flags = _glibtop_sysdeps_loadavg;
 
@@ -86,9 +86,9 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 		p++;
 	}
 
-	buf->nr_running  = strtoul (old, &p, 0); p++;
-	buf->nr_tasks    = strtoul (p, &p, 0);
-	buf->last_pid    = strtoul (p, &p, 0);
+	buf->nr_running  = strtoull (old, &p, 0); p++;
+	buf->nr_tasks    = strtoull (p, &p, 0);
+	buf->last_pid    = strtoull (p, &p, 0);
 
 	buf->flags |= _glibtop_sysdeps_loadavg_tasks;
 }

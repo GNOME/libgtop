@@ -112,7 +112,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     skfd = socket (AF_INET, SOCK_DGRAM, 0);
     if (skfd) {
 	struct ifreq ifr;
-	unsigned flags;
+	unsigned long long flags;
 
 	strcpy (ifr.ifr_name, interface);
 	if (!ioctl (skfd, SIOCGIFFLAGS, &ifr)) {
@@ -197,7 +197,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	    fgets (buffer, BUFSIZ-1, f);
 
 	    while (fgets (buffer, BUFSIZ-1, f)) {
-		unsigned long flags, packets, bytes;
+		unsigned long long flags, packets, bytes;
 		char *p, *dev;
 
 		/* Skip over the network thing. */		
@@ -212,12 +212,12 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 
 		p = skip_token (p);
 
-		flags   = strtoul (p, &p, 16);
+		flags   = strtoull (p, &p, 16);
 
 		p = skip_multiple_token (p, 2);
 
-		packets = strtoul (p, &p, 0);
-		bytes   = strtoul (p, &p, 0);
+		packets = strtoull (p, &p, 0);
+		bytes   = strtoull (p, &p, 0);
 
 		if (flags & _GLIBTOP_IP_FW_ACCTIN) {
 		    /* Incoming packets only. */
@@ -317,24 +317,24 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	/* Only read byte counts if we really have them. */
 
 	if (have_bytes) {
-	    buf->bytes_in = strtoul (p, &p, 0);
+	    buf->bytes_in = strtoull (p, &p, 0);
 	    fields--;
 	}
 
-	buf->packets_in = strtoul (p, &p, 0);
-	buf->errors_in  = strtoul (p, &p, 0);
+	buf->packets_in = strtoull (p, &p, 0);
+	buf->errors_in  = strtoull (p, &p, 0);
 
 	p = skip_multiple_token (p, fields);
 
 	if (have_bytes)
-	    buf->bytes_out = strtoul (p, &p, 0);
+	    buf->bytes_out = strtoull (p, &p, 0);
 
-	buf->packets_out = strtoul (p, &p, 0);
-	buf->errors_out  = strtoul (p, &p, 0);
+	buf->packets_out = strtoull (p, &p, 0);
+	buf->errors_out  = strtoull (p, &p, 0);
 
 	p = skip_multiple_token (p, 2);
 
-	buf->collisions  = strtoul (p, &p, 0);
+	buf->collisions  = strtoull (p, &p, 0);
 
 	/* Compute total valules. */
 

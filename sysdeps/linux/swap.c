@@ -95,8 +95,8 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
 	p = skip_token (p);
 
-	buf->pagein  = strtoul (p, &p, 0);
-	buf->pageout = strtoul (p, &p, 0);
+	buf->pagein  = strtoull (p, &p, 0);
+	buf->pageout = strtoull (p, &p, 0);
 
 	buf->flags |= _glibtop_sysdeps_swap_paging;
 }

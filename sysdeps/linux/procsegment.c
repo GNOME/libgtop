@@ -87,9 +87,9 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 
 	p = skip_multiple_token (p, 23);
 
-	buf->start_code = strtoul (p, &p, 0);
-	buf->end_code = strtoul (p, &p, 0);
-	buf->start_stack = strtoul (p, &p, 0);
+	buf->start_code  = strtoull (p, &p, 0);
+	buf->end_code    = strtoull (p, &p, 0);
+	buf->start_stack = strtoull (p, &p, 0);
 
 	buf->flags = _glibtop_sysdeps_proc_segment;
 
@@ -101,10 +101,10 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 	/* This doesn't work very well due to a bug in the Linux kernel.
 	 * I'll submit a patch to the kernel mailing list soon. */
 
-	buf->text_rss = strtoul (p, &p, 0);
-	buf->shlib_rss = strtoul (p, &p, 0);
-	buf->data_rss = strtoul (p, &p, 0);
-	buf->dirty_size = strtoul (p, &p, 0);
+	buf->text_rss   = strtoull (p, &p, 0);
+	buf->shlib_rss  = strtoull (p, &p, 0);
+	buf->data_rss   = strtoull (p, &p, 0);
+	buf->dirty_size = strtoull (p, &p, 0);
 
 	buf->text_rss   <<= pageshift;
 	buf->shlib_rss  <<= pageshift;

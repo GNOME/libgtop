@@ -82,23 +82,23 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 
 	p = skip_multiple_token (p, 20);
 
-	buf->vsize = strtoul (p, &p, 0);
-	buf->rss = strtoul (p, &p, 0);
-	buf->rss_rlim = strtoul (p, &p, 0);
+	buf->vsize    = strtoull (p, &p, 0);
+	buf->rss      = strtoull (p, &p, 0);
+	buf->rss_rlim = strtoull (p, &p, 0);
 
 	buf->flags = _glibtop_sysdeps_proc_mem;
 
 	if (proc_statm_to_buffer (buffer, pid))
 		return;
 
-	buf->size = strtoul (buffer, &p, 0);
-	buf->resident = strtoul (p, &p, 0);
-	buf->share = strtoul (p, &p, 0);
+	buf->size     = strtoull (buffer, &p, 0);
+	buf->resident = strtoull (p, &p, 0);
+	buf->share    = strtoull (p, &p, 0);
 
-	buf->size <<= pageshift;
+	buf->size     <<= pageshift;
 	buf->resident <<= pageshift;
-	buf->share <<= pageshift;
-	buf->rss <<= pageshift;
+	buf->share    <<= pageshift;
+	buf->rss      <<= pageshift;
 
 	buf->flags |= _glibtop_sysdeps_proc_mem_statm;
 }
