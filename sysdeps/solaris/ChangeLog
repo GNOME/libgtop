@@ -1,5 +1,12 @@
 1999-05-08  Drazen Kacar  <dave@srce.hr>
 
+	* safeio.c, safeio.h: Added s_open(), s_close() etc. with EINTR
+	wrappers.
+
+	* procdata.c, procmap.c, proclist.c: Use them.
+
+1999-05-08  Drazen Kacar  <dave@srce.hr>
+
 	* procmem.c: Use bytes as units for memory consumption.
 
 1999-05-08  Drazen Kacar  <dave@srce.hr>

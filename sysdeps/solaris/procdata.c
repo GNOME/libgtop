@@ -27,6 +27,8 @@
 
 #include <errno.h>
 
+#include "safeio.h"
+
 /* Read /proc/<pid>/psinfo. */
 
 int
@@ -36,19 +38,21 @@ glibtop_get_proc_data_psinfo_s (glibtop *server, struct psinfo *psinfo, pid_t pi
 	char buffer [BUFSIZ];
 
 	sprintf (buffer, "/proc/%d/psinfo", (int) pid);
-	fd = open (buffer, O_RDONLY);
+	fd = s_open (buffer, O_RDONLY);
 	if (fd < 0) {
 		glibtop_warn_io_r (server, "open (%s)", buffer);
 		return -1;
 	}
 
-	if (pread (fd, psinfo, sizeof (struct psinfo), 0) != sizeof (struct psinfo)) {
-		close (fd);
+	if (s_pread (fd, psinfo, sizeof (struct psinfo), 0) !=
+	             sizeof (struct psinfo))
+	{
+		s_close (fd);
 		glibtop_warn_io_r (server, "pread (%s)", buffer);
 		return -1;
 	}
 
-	close (fd);
+	s_close (fd);
 	return 0;
 }
 
@@ -59,19 +63,21 @@ glibtop_get_proc_data_usage_s (glibtop *server, struct prusage *prusage, pid_t p
 	char buffer [BUFSIZ];
 
 	sprintf (buffer, "/proc/%d/usage", (int) pid);
-	fd = open (buffer, O_RDONLY);
+	fd = s_open (buffer, O_RDONLY);
 	if (fd < 0) {
 		glibtop_warn_io_r (server, "open (%s)", buffer);
 		return -1;
 	}
 
-	if (pread (fd, prusage, sizeof (struct prusage), 0) != sizeof (struct prusage)) {
-		close (fd);
+	if (s_pread (fd, prusage, sizeof (struct prusage), 0) !=
+	             sizeof (struct prusage))
+	{
+		s_close (fd);
 		glibtop_warn_io_r (server, "pread (%s)", buffer);
 		return -1;
 	}
 
-	close (fd);
+	s_close (fd);
 	return 0;
 }
 
@@ -86,15 +92,16 @@ glibtop_get_proc_credentials_s(glibtop *server,
 	char buffer[BUFSIZ];
 
 	sprintf(buffer, "/proc/%d/cred", (int)pid);
-	if((fd = open(buffer, O_RDONLY)) < 0)
+	if((fd = s_open(buffer, O_RDONLY)) < 0)
 	{
 	   	if(errno != EPERM && errno != EACCES)
 		   	glibtop_warn_io_r(server, "open (%s)", buffer);
 		return -1;
 	}
-	if(pread(fd, prcred, sizeof(struct prcred), 0) != sizeof(struct prcred))
+	if(s_pread(fd, prcred, sizeof(struct prcred), 0) !=
+	           sizeof(struct prcred))
 	{
-	   	close(fd);
+	   	s_close(fd);
 		glibtop_warn_io_r(server, "pread (%s)", buffer);
 		return -1;
 	}
@@ -104,11 +111,11 @@ glibtop_get_proc_credentials_s(glibtop *server,
 	        toread = prcred->pr_ngroups * sizeof(gid_t);
 	    else
 	        toread = GLIBTOP_MAX_GROUPS * sizeof(gid_t);
-	    if(pread(fd, groups, toread,
-	       &(((struct prcred *)0)->pr_groups[0])) != toread)
-	        prcred->pr_ngroups = 0;
+	    if(s_pread(fd, groups, toread,
+	               &(((struct prcred *)0)->pr_groups[0])) != toread)
+	               prcred->pr_ngroups = 0;
 	}
-	close(fd);
+	s_close(fd);
 	return 0;
 }
 
@@ -119,18 +126,19 @@ glibtop_get_proc_status_s(glibtop *server, struct pstatus *pstatus, pid_t pid)
 	char buffer[BUFSIZ];
 
 	sprintf(buffer, "/proc/%d/status", (int)pid);
-	if((fd = open(buffer, O_RDONLY)) < 0)
+	if((fd = s_open(buffer, O_RDONLY)) < 0)
 	{
 	   	if(errno != EPERM && errno != EACCES)
 		   	glibtop_warn_io_r(server, "open (%s)", buffer);
 		return -1;
 	}
-	if(pread(fd, pstatus, sizeof(struct pstatus), 0) != sizeof(struct pstatus))
+	if(s_pread(fd, pstatus, sizeof(struct pstatus), 0) !=
+	           sizeof(struct pstatus))
 	{
 	   	close(fd);
 		glibtop_warn_io_r(server, "pread (%s)", buffer);
 		return -1;
 	}
-	close(fd);
+	s_close(fd);
 	return 0;
 }

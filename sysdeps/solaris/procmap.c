@@ -30,6 +30,8 @@
 #include <errno.h>
 #include <alloca.h>
 
+#include "safeio.h"
+
 static const unsigned long _glibtop_sysdeps_proc_map =
 (1L << GLIBTOP_PROC_MAP_NUMBER) + (1L << GLIBTOP_PROC_MAP_TOTAL) +
 (1L << GLIBTOP_PROC_MAP_SIZE);
@@ -60,7 +62,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	memset (buf, 0, sizeof (glibtop_proc_map));
 
 	sprintf(buffer, "/proc/%d/map", (int)pid);
-	if((fd = open(buffer, O_RDONLY)) < 0)
+	if((fd = s_open(buffer, O_RDONLY)) < 0)
 	{
 	   	if(errno != EPERM && errno != EACCES)
 		   	glibtop_warn_io_r(server, "open (%s)", buffer);
@@ -76,7 +78,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	}
 	maps = alloca(inode.st_size);
 	nmaps = inode.st_size / sizeof(prmap_t);
-	if(pread(fd, maps, inode.st_size, 0) != inode.st_size)
+	if(s_pread(fd, maps, inode.st_size, 0) != inode.st_size)
 	{
 	   	glibtop_warn_io_r(server, "pread (%s)", buffer);
 		close(fd);

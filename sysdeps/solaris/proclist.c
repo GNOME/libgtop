@@ -92,7 +92,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 
 		sprintf (buffer, "/proc/%d", pid);
 		
-		if (stat (buffer, &statb)) continue;
+		if (s_stat (buffer, &statb)) continue;
 
 		if (!S_ISDIR (statb.st_mode)) continue;
 
@@ -126,7 +126,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		total++;
 	}
 	
-	closedir (proc);
+	s_closedir (proc);
 
 	/* count is only zero if an error occured (one a running Linux system,
 	 * we have at least one single process). */
