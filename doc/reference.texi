@@ -494,7 +494,12 @@ struct _glibtop_proc_state
 @{
     u_int64_t flags;
     char cmd[40];
+@ifset LIBGTOP-1-1
     unsigned state;
+@end ifset
+@ifclear LIBGTOP-1-1
+    char state;
+@end ifclear
     int uid,
         gid,
         ruid,
@@ -511,7 +516,16 @@ struct _glibtop_proc_state
 @item cmd
 Basename of the executable file in the call to @code{exec}.
 @item state
+@ifset LIBGTOP-1-1
 Process state (see the constants defined below).
+@end ifset
+@ifclear LIBGTOP-1-1
+Process state ('R' = running, 'S' = sleeping, 'D' = uninterruptible,
+'Z' = zombie, 'T' = stopped, 'I' = idle).
+
+This was changed to an @code{unsigned} bitfield in LibGTop 1.1.x where there
+are also some constants for it.
+@end ifclear
 @end table
 
 When porting LibGTop, please @emph{try hard} to implement the following
@@ -547,6 +561,7 @@ in this case to find out whether the process really has a CPU).
 The is the processor id of the CPU the process was last running on.
 @end table
 
+@ifset LIBGTOP-1-1
 There are some constants for the @code{state} field:
 
 @example
@@ -559,6 +574,7 @@ There are some constants for the @code{state} field:
 #define GLIBTOP_PROCESS_SWAPPING                32
 @end cartouche
 @end example
+@end ifset
 
 @table @code
 @item GLIBTOP_PROCESS_RUNNING
