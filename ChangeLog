@@ -1,5 +1,12 @@
 1998-08-17  Martin Baulig  <martin@home-of-linux.org>
 
+	* LIBGTOP-VERSION: Released libgtop-0.25pre1. With this
+	release I made what Linus calles a ``feature freeze'' until
+	0.25 is out. A Tarball and RPMS can be found at my site:
+	`ftp://ftp.home-of-linux.org/pub/'.
+
+1998-08-17  Martin Baulig  <martin@home-of-linux.org>
+
 	* libgtop-conf.in: New file.
 
 1998-08-16  Martin Baulig  <martin@home-of-linux.org>
