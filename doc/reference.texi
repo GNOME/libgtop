@@ -2,6 +2,14 @@
 @chapter LibGTop Reference Manual
 
 @menu
+* System Dependent::            System Dependent Functions.
+* Common Functions::            Common Functions.
+@end menu
+
+@node System Dependent, Common Functions, Reference Manual, Reference Manual
+@section System Dependent Functions
+
+@menu
 * glibtop_cpu::                 CPU Usage.
 * glibtop_mem::                 Memory Usage.
 * glibtop_swap::                Swap Usage.
@@ -19,12 +27,10 @@
 * glibtop_proc_map::            Process Memory Maps.
 * glibtop_netload::             Network Load.
 * glibtop_ppp::                 PPP Usage.
-* glibtop_mountlist::           Mount List.
-* glibtop_fsusage::             File System Usage.
 @end menu
 
-@node glibtop_cpu, glibtop_mem, Reference Manual, Reference Manual
-@section CPU Usage
+@node glibtop_cpu, glibtop_mem, System Dependent, System Dependent
+@subsection CPU Usage
 
 Library function @code{glibtop_get_cpu}:
 
@@ -112,8 +118,8 @@ result, wait some time and then call it again and divide the differences of
 the two values by the time you have waited.
 
 @page
-@node glibtop_mem, glibtop_swap, glibtop_cpu, Reference Manual
-@section Memory Usage
+@node glibtop_mem, glibtop_swap, glibtop_cpu, System Dependent
+@subsection Memory Usage
 
 Library function @code{glibtop_get_mem}:
 
@@ -180,8 +186,8 @@ Memory in locked segments.
 @end table
 
 @page
-@node glibtop_swap, glibtop_uptime, glibtop_mem, Reference Manual
-@section Swap Usage
+@node glibtop_swap, glibtop_uptime, glibtop_mem, System Dependent
+@subsection Swap Usage
 
 Library function @code{glibtop_get_swap}:
 
@@ -239,8 +245,8 @@ Total number of swap pages that have been brought out since system boot
 @end table
 
 @page
-@node glibtop_uptime, glibtop_loadavg, glibtop_swap, Reference Manual
-@section Uptime
+@node glibtop_uptime, glibtop_loadavg, glibtop_swap, System Dependent
+@subsection Uptime
 
 Library function @code{glibtop_get_uptime}:
 
@@ -291,8 +297,8 @@ Time of last system boot in seconds since the epoch.
 @end table
 
 @page
-@node glibtop_loadavg, glibtop_proclist, glibtop_uptime, Reference Manual
-@section Load Average
+@node glibtop_loadavg, glibtop_proclist, glibtop_uptime, System Dependent
+@subsection Load Average
 
 Library function @code{glibtop_get_loadavg}:
 
@@ -343,8 +349,8 @@ Last PID.
 @end table
 
 @page
-@node glibtop_proclist, glibtop_proc_state, glibtop_loadavg, Reference Manual
-@section Process List
+@node glibtop_proclist, glibtop_proc_state, glibtop_loadavg, System Dependent
+@subsection Process List
 
 Library function @code{glibtop_get_proclist}:
 
@@ -461,8 +467,8 @@ The returned list is allocated using @code{glibtop_malloc} and must be freed
 using @code{glibtop_free} to avoid a memory leak.
 
 @page
-@node glibtop_proc_state, glibtop_proc_uid, glibtop_proclist, Reference Manual
-@section Process State
+@node glibtop_proc_state, glibtop_proc_uid, glibtop_proclist, System Dependent
+@subsection Process State
 
 Library function @code{glibtop_get_proc_state}:
 
@@ -571,8 +577,8 @@ The process is currently swapping.
 @end table
 
 @page
-@node glibtop_proc_uid, glibtop_proc_mem, glibtop_proc_state, Reference Manual
-@section Process UID and TTY information
+@node glibtop_proc_uid, glibtop_proc_mem, glibtop_proc_state, System Dependent
+@subsection Process UID and TTY information
 
 Library function @code{glibtop_get_proc_uid}:
 
@@ -651,8 +657,8 @@ Array of additional process groups@*
 @end table
 
 @page
-@node glibtop_proc_mem, glibtop_proc_time, glibtop_proc_uid, Reference Manual
-@section Process Memory information
+@node glibtop_proc_mem, glibtop_proc_time, glibtop_proc_uid, System Dependent
+@subsection Process Memory information
 
 Library function @code{glibtop_get_proc_mem}:
 
@@ -766,8 +772,8 @@ The hints above describe how it works under Linux - but we should try to make
 @code{glibtop_get_proc_mem} show the same behavior under every other system.
 
 @page
-@node glibtop_proc_time, glibtop_proc_signal, glibtop_proc_mem, Reference Manual
-@section Process Time information
+@node glibtop_proc_time, glibtop_proc_signal, glibtop_proc_mem, System Dependent
+@subsection Process Time information
 
 Library function @code{glibtop_get_proc_time}:
 
@@ -834,8 +840,8 @@ SMP kernel-mode CPU time accumulated by process
 @end table
 
 @page
-@node glibtop_proc_signal, glibtop_proc_kernel, glibtop_proc_time, Reference Manual
-@section Process Signal information
+@node glibtop_proc_signal, glibtop_proc_kernel, glibtop_proc_time, System Dependent
+@subsection Process Signal information
 
 Library function @code{glibtop_get_proc_signal}:
 
@@ -879,8 +885,8 @@ Mask of caught signals
 @end table
 
 @page
-@node glibtop_proc_kernel, glibtop_proc_segment, glibtop_proc_signal, Reference Manual
-@section Process Kernel Data information
+@node glibtop_proc_kernel, glibtop_proc_segment, glibtop_proc_signal, System Dependent
+@subsection Process Kernel Data information
 
 Library function @code{glibtop_get_proc_kernel}:
 
@@ -979,8 +985,8 @@ Process was killed by a signal.
 @end table
 
 @page
-@node glibtop_proc_segment, glibtop_proc_args, glibtop_proc_kernel, Reference Manual
-@section Process Segment information
+@node glibtop_proc_segment, glibtop_proc_args, glibtop_proc_kernel, System Dependent
+@subsection Process Segment information
 
 Library function @code{glibtop_get_proc_segment}:
 
@@ -1045,38 +1051,47 @@ Address of the bottom of stack segmen
 @end table
 
 @page
-@node glibtop_proc_args, glibtop_proc_map, glibtop_proc_segment, Reference Manual
-@section Process Arguments
+@node glibtop_proc_args, glibtop_proc_map, glibtop_proc_segment, System Dependent
+@subsection Process Arguments
 
 [Not yet written.]
 
 @page
-@node glibtop_proc_map, glibtop_netload, glibtop_proc_args, Reference Manual
-@section Process Memory Maps
+@node glibtop_proc_map, glibtop_netload, glibtop_proc_args, System Dependent
+@subsection Process Memory Maps
 
 [Not yet written.]
 
 @page
-@node glibtop_netload, glibtop_ppp, glibtop_proc_map, Reference Manual
-@section Network Load
+@node glibtop_netload, glibtop_ppp, glibtop_proc_map, System Dependent
+@subsection Network Load
 
 [Not yet written.]
 
 @page
-@node glibtop_ppp, glibtop_mountlist, glibtop_netload, Reference Manual
-@section PPP Statistics
+@node glibtop_ppp,  , glibtop_netload, System Dependent
+@subsection PPP Statistics
 
 [Not yet written.]
 
 @page
-@node glibtop_mountlist, glibtop_fsusage, glibtop_ppp, Reference Manual
-@section Mount List
+@node Common Functions,  , System Dependent, Reference Manual
+@section Common Functions
+
+@menu
+* glibtop_mountlist::           Mount List.
+* glibtop_fsusage::             File System Usage.
+@end menu
+
+@page
+@node glibtop_mountlist, glibtop_fsusage, Common Functions, Common Functions
+@subsection Mount List
 
 [Not yet written.]
 
 @page
-@node glibtop_fsusage,  , glibtop_mountlist, Reference Manual
-@section File System Usage
+@node glibtop_fsusage,  , glibtop_mountlist, Common Functions
+@subsection File System Usage
 
 [Not yet written.]
 

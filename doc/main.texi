@@ -16,6 +16,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
  --- The Detailed Node Listing ---
 
 About LibGTop
@@ -37,6 +46,11 @@ Overview
 
 LibGTop Reference Manual
 
+* System Dependent::            System Dependent Functions.
+* Common Functions::            Common Functions.
+
+System Dependent Functions
+
 * glibtop_cpu::                 CPU Usage.
 * glibtop_mem::                 Memory Usage.
 * glibtop_swap::                Swap Usage.
@@ -54,6 +68,9 @@ LibGTop Reference Manual
 * glibtop_proc_map::            Process Memory Maps.
 * glibtop_netload::             Network Load.
 * glibtop_ppp::                 PPP Usage.
+
+Common Functions
+
 * glibtop_mountlist::           Mount List.
 * glibtop_fsusage::             File System Usage.
 @end menu
