@@ -48,7 +48,7 @@ function make_output(line) {
       list = params[param];
       type = params[param];
       sub(/\(.*/, "", type);
-      sub(/^\w+\(/, "", list); sub(/\)$/, "", list);
+      sub(/^.*\(/, "", list); sub(/\)$/, "", list);
       count = split (list, fields, /,/);
       total_nr_params = total_nr_params + count;
       for (field = 1; field <= count; field++) {
@@ -87,7 +87,7 @@ function make_output(line) {
     list = elements[element];
     type = elements[element];
     sub(/\(.*/, "", type);
-    sub(/^\w+\(/, "", list); sub(/\)$/, "", list);
+    sub(/^.*\(/, "", list); sub(/\)$/, "", list);
     count = split (list, fields, /,/);
     for (field = 1; field <= count; field++) {
       output = output""convert[type]" ("feature"."fields[field]"),\n\t\t\t";
