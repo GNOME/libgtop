@@ -45,6 +45,14 @@
 #include <sys/sysctl.h>
 #include <vm/vm.h>
 
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+/* Fixme ... */
+#undef _KERNEL
+#define _UVM_UVM_AMAP_I_H_ 1
+#define _UVM_UVM_MAP_I_H_ 1
+#include <uvm/uvm.h>
+#endif
+
 static const unsigned long _glibtop_sysdeps_proc_mem =
 (1L << GLIBTOP_PROC_MEM_SIZE) +
 (1L << GLIBTOP_PROC_MEM_VSIZE) +
@@ -94,7 +102,11 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	struct kinfo_proc *pinfo;
 	struct vm_map_entry entry, *first;
 	struct vmspace *vms, vmspace;
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+	struct uvm_object object;
+#else
 	struct vm_object object;
+#endif
 	struct plimit plimit;
 	int count;
 
@@ -174,10 +186,28 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
  			continue;
 #endif
 #else
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+ 		if (UVM_ET_ISSUBMAP (&entry))
+			continue;
+#else
 		if (entry.is_a_map || entry.is_sub_map)
 			continue;
 #endif
+#endif
 
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+		if (!entry.object.uvm_obj)
+			continue;
+
+		/* We're only interested in `uvm_obj's */
+
+		if (kvm_read (server->machine.kd,
+			      (unsigned long) entry.object.uvm_obj,
+			      &object, sizeof (object)) != sizeof (object)) {
+			glibtop_warn_io_r (server, "kvm_read (object)");
+			return;
+		}
+#else
 		if (!entry.object.vm_object)
 			continue;
 
@@ -189,7 +219,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 			glibtop_warn_io_r (server, "kvm_read (object)");
 			return;
 		}
-
+#endif
 		/* If the object is of type vnode, add its size */
 
 #ifdef __FreeBSD__
@@ -198,7 +228,11 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 		buf->share += object.un_pager.vnp.vnp_size;
 #else
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+		buf->share += pagetok (object.uo_npages) << LOG1024;
+#else
 		buf->share += object.size;
+#endif
 #endif
 	}
 

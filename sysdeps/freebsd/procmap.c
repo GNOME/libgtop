@@ -148,8 +148,11 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
  			continue;
 #endif
 #else
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+#else
 		if (entry.is_a_map || entry.is_sub_map)
 			continue;
+#endif
 #endif
 
 		maps [i].flags  = _glibtop_sysdeps_map_entry;
@@ -169,6 +172,8 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 		i++;
 
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+#else
 		if (!entry.object.vm_object)
 			continue;
 
@@ -178,6 +183,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			      (unsigned long) entry.object.vm_object,
 			      &object, sizeof (object)) != sizeof (object))
 			glibtop_error_io_r (server, "kvm_read (object)");
+#endif
 
 #ifdef __FreeBSD__
 		/* If the object is of type vnode, add its size */
