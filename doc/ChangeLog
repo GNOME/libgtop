@@ -1,3 +1,10 @@
+1998-10-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am: New file. We are now using automake here.
+	* libgtopConf.sh: Removed. Since libgtop-docu now requires
+ 	LibGTop to be installed we use the installed version of this file.
+	* Makefile: Removed.
+
 1998-08-12  Martin Baulig  <martin@home-of-linux.org>
 
 	* features: New directory.

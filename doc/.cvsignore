@@ -1,10 +1,8 @@
-*.shml
-*.ced
-.timestamp
-.timestamp2
-.timestamp3
-.timestamp4
+Makefile.in
+Makefile
 gnome-hackers
 libgtop
 libgtop-ref
 table
+*.ced
+*.fot

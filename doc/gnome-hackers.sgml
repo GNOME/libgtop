@@ -31,7 +31,7 @@
 <!-- Some entities to include other files. -->
 
 <!entity include-autoconf.sgml SYSTEM "autoconf.sgml">
-<!entity include-reference.sgml SYSTEM "../guile/reference.sgml">
+<!entity include-reference.sgml SYSTEM "reference.sgml">
 
 <!-- The following entities are used in the automatically generated
      `reference.sgml' to include custom descriptions of the features.
