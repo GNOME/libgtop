@@ -1,3 +1,7 @@
+1999-09-18  Pablo Saratxaga <pablo@mandrakesoft.com>
+
+	* configure.in, po/*.po: merged *.po files from HEAD CVS
+
 1999-09-17  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in: Make it work if we have GNOME and the user
