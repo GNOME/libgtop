@@ -368,4 +368,4 @@ src/inodedb/Makefile
 lib/Makefile
 examples/Makefile
 support/Makefile
-macros/Makefile],[sed -e "/POTFILES =/r po/POTFILES" po/Makefile.in > po/Makefile])
+macros/Makefile])
