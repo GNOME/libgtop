@@ -157,6 +157,12 @@ if test "x$ac_cv_guile_found" = "xyes" ; then
   LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $GUILE_LIBS"
 fi
 
+if test "x$libgtop_use_machine_h" = "xyes" ; then
+  machine_incs='-I$(top_srcdir)/sysdeps/@sysdeps_dir@'
+fi
+
+AC_SUBST(machine_incs)
+
 AC_SUBST(LIBGTOP_LIBS)
 AC_SUBST(LIBGTOP_INCS)
 AC_SUBST(LIBGTOP_GUILE_LIBS)
