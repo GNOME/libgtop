@@ -18,7 +18,7 @@
 	* include/glibtop/procstate.h: Define some constants for the `state'
 	field of glibtop_proc_state.
 
-	* include/glibtop/prockernel.h: Define some constands for the
+	* include/glibtop/prockernel.h: Define some constants for the
 	`k_flags' field of glibtop_proc_kernel.
 	
 1999-03-24  Martin Baulig  <martin@home-of-linux.org>
