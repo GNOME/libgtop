@@ -30,6 +30,7 @@
  */
 
 #include <glibtop.h>
+#include <glibtop/error.h>
 #include <glibtop/gnuserv.h>
 
 #include <fcntl.h>

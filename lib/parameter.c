@@ -23,6 +23,7 @@
 
 #include <glibtop.h>
 #include <glibtop/parameter.h>
+#include <glibtop/error.h>
 
 #define _write_data(ptr,size)	\
 	if ((data_ptr == NULL) || (data_size < size)) return -size; \

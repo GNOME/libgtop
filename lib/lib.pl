@@ -23,6 +23,7 @@ print '';
 print '#include <config.h>';
 print '';
 print '#include <glibtop.h>';
+print '#include <glibtop/error.h>';
 print '#include <glibtop/open.h>';
 print '';
 print '#include <glibtop/sysdeps.h>';

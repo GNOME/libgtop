@@ -25,7 +25,6 @@
 #define __GLIBTOP_READ_H__
 
 #include <glibtop.h>
-#include <glibtop/error.h>
 
 G_BEGIN_DECLS
 

@@ -22,6 +22,7 @@
 */
 
 #include "daemon.h"
+#include <glibtop/error.h>
 
 void
 handle_slave_connection (int input, int output)
@@ -42,11 +43,11 @@ handle_slave_connection (int input, int output)
 	while (do_read (input, cmnd, sizeof (glibtop_command))) {
 #ifdef SLAVE_DEBUG
 		fprintf (stderr, "Slave %d received command "
-			 "%d from client.\n", getpid (), cmnd->command);
+			 "%llu from client.\n", getpid (), cmnd->command);
 #endif
 
 		if (cmnd->data_size >= BUFSIZ)
-			glibtop_error ("Client sent %d bytes, "
+			glibtop_error ("Client sent %llu bytes, "
 				       "but buffer is %lu",
 				       cmnd->size, (unsigned long)BUFSIZ);
 
@@ -56,7 +57,7 @@ handle_slave_connection (int input, int output)
 
 		if (cmnd->data_size) {
 #ifdef SLAVE_DEBUG
-			fprintf (stderr, "Client has %d bytes of data.\n",
+			fprintf (stderr, "Client has %llu bytes of data.\n",
 				 cmnd->data_size);
 #endif
 
@@ -249,7 +250,7 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 		break;
 #endif
 	default:
-		glibtop_error ("Child received unknown command %d",
+		glibtop_error ("Child received unknown command %llu",
 			       cmnd->command);
 		break;
 	}

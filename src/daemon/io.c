@@ -22,6 +22,7 @@
 */
 
 #include "daemon.h"
+#include <glibtop/error.h>
 
 void
 do_output (int s, glibtop_response *resp, off_t offset,

@@ -27,7 +27,6 @@
 #define __GLIBTOP_DAEMON_H__
 
 #include <glibtop.h>
-#include <glibtop/error.h>
 
 #include <glibtop/open.h>
 #include <glibtop/union.h>

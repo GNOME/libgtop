@@ -22,6 +22,7 @@
 */
 
 #include <glibtop.h>
+#include <glibtop/error.h>
 #include <glibtop/sysdeps.h>
 #include <glibtop/parameter.h>
 

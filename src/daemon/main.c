@@ -62,13 +62,13 @@ handle_parent_connection (int s)
     while (do_read (s, cmnd, sizeof (glibtop_command))) {
 	if (enable_debug)
 	    syslog_message (LOG_DEBUG,
-			    "Parent (%d) received command %d from client.",
-			    getpid (), (int)cmnd->command);
+			    "Parent (%d) received command %llu from client.",
+			    getpid (), cmnd->command);
 
 	if (cmnd->data_size >= BUFSIZ) {
 	    syslog_message (LOG_WARNING,
-			    "Client sent %d bytes, but buffer is %lu",
-			    (int)cmnd->data_size, (unsigned long)BUFSIZ);
+			    "Client sent %llu bytes, but buffer is %lu",
+			    cmnd->data_size, (unsigned long)BUFSIZ);
 	    return;
 	}
 
@@ -78,8 +78,8 @@ handle_parent_connection (int s)
 
 	if (cmnd->data_size) {
 	    if (enable_debug)
-		syslog_message (LOG_DEBUG, "Client has %d bytes of data.",
-				(int) cmnd->data_size);
+		syslog_message (LOG_DEBUG, "Client has %llu bytes of data.",
+				cmnd->data_size);
 
 	    do_read (s, parameter, cmnd->data_size);
 
@@ -229,8 +229,8 @@ handle_parent_connection (int s)
 		       0, NULL);
 	    break;
 	default:
-	    syslog_message (LOG_ERR, "Parent received unknown command %d.",
-			    (int)cmnd->command);
+	    syslog_message (LOG_ERR, "Parent received unknown command %llu.",
+			    cmnd->command);
 	    break;
 	}
     }

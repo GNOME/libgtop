@@ -51,7 +51,6 @@ LIBGTOP_MICRO_VERSION >= (micro)))
 #include <glibtop/global.h>
 
 #include <glibtop_server.h>
-#include <glibtop/types.h>
 
 #ifdef HAVE_GLIBTOP_MACHINE_H
 #include <glibtop_machine.h>

@@ -1,5 +1,34 @@
 2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>
 
+	* backends/server/server.h:
+	* configure.in:
+	* glibtop.h:
+	* include/glibtop/Makefile.am:
+	* include/glibtop/gnuserv.h:
+	* include/glibtop/open.h:
+	* include/glibtop/read.h:
+	* include/glibtop/read_data.h:
+	* include/glibtop/types.h:
+	* include/glibtop/write.h:
+	* lib/close.c:
+	* lib/init.c:
+	* lib/lib.pl:
+	* lib/open.c:
+	* lib/parameter.c:
+	* lib/read.c:
+	* lib/read_data.c:
+	* lib/write.c:
+	* src/daemon/daemon.h:
+	* src/daemon/io.c:
+	* src/daemon/main.c: (handle_parent_connection):
+	* src/daemon/slave.c: (handle_slave_connection),
+	(handle_slave_command):
+	* sysdeps/common/gnuslib.c:
+	* sysdeps/solaris/glibtop_private.h: Removed some dead files.
+	Don't install private headers.
+
+2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>
+
 	* include/glibtop/error.h: Don't export private symbols.
 
 2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>

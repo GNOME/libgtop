@@ -25,7 +25,6 @@
 #define __GLIBTOP_PRIVATE_H__
 
 #include <glibtop.h>
-#include <glibtop/error.h>
 
 #include <sys/param.h>
 #include <kstat.h>

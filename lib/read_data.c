@@ -23,6 +23,7 @@
 
 #include <config.h>
 
+#include <glibtop/error.h>
 #include <glibtop/read_data.h>
 #include "libgtop-i18n.h"
 

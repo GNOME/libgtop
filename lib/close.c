@@ -23,6 +23,7 @@
 
 #include <glibtop.h>
 #include <glibtop/open.h>
+#include <glibtop/error.h>
 #include <glibtop/close.h>
 #include <glibtop/command.h>
 
