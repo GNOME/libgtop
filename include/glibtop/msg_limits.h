@@ -91,7 +91,7 @@ extern SCM glibtop_guile_descriptions_msg_limits __P((void));
 /* You need to link with -lgtop_names to get this stuff here. */
 
 extern const char *glibtop_names_msg_limits [];
-extern const char *glibtop_types_msg_limits [];
+extern const unsigned glibtop_types_msg_limits [];
 extern const char *glibtop_labels_msg_limits [];
 extern const char *glibtop_descriptions_msg_limits [];
 

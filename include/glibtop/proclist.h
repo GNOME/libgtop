@@ -83,7 +83,7 @@ extern SCM glibtop_guile_descriptions_proclist __P((void));
 /* You need to link with -lgtop_names to get this stuff here. */
 
 extern const char *glibtop_names_proclist [];
-extern const char *glibtop_types_proclist [];
+extern const unsigned glibtop_types_proclist [];
 extern const char *glibtop_labels_proclist [];
 extern const char *glibtop_descriptions_proclist [];
 

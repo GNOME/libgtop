@@ -83,7 +83,7 @@ extern SCM glibtop_guile_descriptions_swap __P((void));
 /* You need to link with -lgtop_names to get this stuff here. */
 
 extern const char *glibtop_names_swap [];
-extern const char *glibtop_types_swap [];
+extern const unsigned glibtop_types_swap [];
 extern const char *glibtop_labels_swap [];
 extern const char *glibtop_descriptions_swap [];
 

@@ -89,7 +89,7 @@ extern SCM glibtop_guile_descriptions_cpu __P((void));
 /* You need to link with -lgtop_names to get this stuff here. */
 
 extern const char *glibtop_names_cpu [];
-extern const char *glibtop_types_cpu [];
+extern const unsigned glibtop_types_cpu [];
 extern const char *glibtop_labels_cpu [];
 extern const char *glibtop_descriptions_cpu [];
 

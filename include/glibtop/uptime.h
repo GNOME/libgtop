@@ -81,7 +81,7 @@ extern SCM glibtop_guile_descriptions_uptime __P((void));
 /* You need to link with -lgtop_names to get this stuff here. */
 
 extern const char *glibtop_names_uptime [];
-extern const char *glibtop_types_uptime [];
+extern const unsigned glibtop_types_uptime [];
 extern const char *glibtop_labels_uptime [];
 extern const char *glibtop_descriptions_uptime [];
 

@@ -93,7 +93,7 @@ extern SCM glibtop_guile_descriptions_proc_mem __P((void));
 /* You need to link with -lgtop_names to get this stuff here. */
 
 extern const char *glibtop_names_proc_mem [];
-extern const char *glibtop_types_proc_mem [];
+extern const unsigned glibtop_types_proc_mem [];
 extern const char *glibtop_labels_proc_mem [];
 extern const char *glibtop_descriptions_proc_mem [];
 
