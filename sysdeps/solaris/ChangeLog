@@ -1,5 +1,9 @@
 1999-05-08  Drazen Kacar  <dave@srce.hr>
 
+	* procmem.c: Use bytes as units for memory consumption.
+
+1999-05-08  Drazen Kacar  <dave@srce.hr>
+
 	* procuid.c: Fixed nice value.
 
 1999-05-08  Martin Baulig  <martin@home-of-linux.org>
