@@ -1,5 +1,20 @@
 1999-05-03  Drazen Kacar  <dave@srce.hr>
 
+	* glibtop_private.h, procdata.c (glibtop_get_proc_signal_s):
+	Read pstatus info from /proc
+
+	* procsignal.c (glibtop_get_proc_signal_s): Implemented
+	set of pending and blocked signals. The rest should probably
+	be read from /proc/<pid>/sigact, but I'm not sure it's
+	worth implementing before thread API comes into place.
+
+	* siglist.c: Added Solaris 7 signals. Someone will gettextize
+	it eventually. Besides, signal list should become a pointer
+	instead of being fixed field. We need some run time initializations.
+	The code is written, but commented out.
+
+1999-05-03  Drazen Kacar  <dave@srce.hr>
+
 	* glibtop_private.h: Ups, forgot to put prototypes in.
 
 1999-05-02  Drazen Kacar  <dave@srce.hr>

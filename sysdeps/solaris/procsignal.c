@@ -24,7 +24,8 @@
 #include <glibtop.h>
 #include <glibtop/procsignal.h>
 
-static const unsigned long _glibtop_sysdeps_proc_signal = 0;
+static const unsigned long _glibtop_sysdeps_proc_signal = 
+(1L << GLIBTOP_PROC_SIGNAL_SIGNAL) + (1L << GLIBTOP_PROC_SIGNAL_BLOCKED);
 
 /* Init function. */
 
@@ -40,5 +41,24 @@ void
 glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 			   pid_t pid)
 {
+   	struct pstatus pstatus;
+	int size;
+
 	memset (buf, 0, sizeof (glibtop_proc_signal));
+	
+	if(glibtop_get_proc_status_s(server, &pstatus, pid))
+	   	return;
+
+	if(sizeof(buf->signal) < sizeof(sigset_t))
+	   	size = sizeof(buf->signal);
+	else
+	   	size = sizeof(sigset_t);
+
+	memcpy(buf->signal, &pstatus.pr_sigpend, size);
+	memcpy(buf->blocked, &pstatus.pr_lwp.pr_lwphold, size);
+
+	/* Technically, most of this is meaningless on a process level,
+	   but this should be a good enough approximation. */
+
+	buf->flags = _glibtop_sysdeps_proc_signal;
 }
