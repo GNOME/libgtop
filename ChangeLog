@@ -1,3 +1,7 @@
+2000-03-08 Alastair McKinstry <mckinstry@computer.org>
+
+	* configure.in (ALL_LINGUAS): Added Irish (ga) translation.
+
 2000-02-27  Martin Baulig  <martin@home-of-linux.org>
 
 	* dtd/libgtop-backends.dtd: Added XML DTD for the `*.backend' files.
