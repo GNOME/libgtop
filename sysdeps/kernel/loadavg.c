@@ -3,7 +3,7 @@
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, March 1999.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -24,14 +24,17 @@
 #include <glibtop.h>
 #include <glibtop/loadavg.h>
 
-static const unsigned long _glibtop_sysdeps_loadavg = 0;
+#include <glibtop_private.h>
+
+static const unsigned long _glibtop_sysdeps_loadavg =
+(1 << GLIBTOP_LOADAVG_LOADAVG);
 
 /* Init function. */
 
 void
 glibtop_init_loadavg_s (glibtop *server)
 {
-	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
+    server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
 }
 
 /* Provides load averange. */
@@ -39,5 +42,16 @@ glibtop_init_loadavg_s (glibtop *server)
 void
 glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
-	memset (buf, 0, sizeof (glibtop_loadavg));
+    libgtop_stat_t stat;
+
+    memset (buf, 0, sizeof (glibtop_loadavg));
+
+    if (glibtop_get_proc_data_stat_s (server, &stat))
+	return;
+
+    buf->loadavg [0] = stat.loadavg [0];
+    buf->loadavg [1] = stat.loadavg [1];
+    buf->loadavg [2] = stat.loadavg [2];
+
+    buf->flags = _glibtop_sysdeps_loadavg;
 }

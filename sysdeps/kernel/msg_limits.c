@@ -3,7 +3,7 @@
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, March 1999.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -21,17 +21,23 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop.h>
 #include <glibtop/msg_limits.h>
 
-static const unsigned long _glibtop_sysdeps_msg_limits = 0;
+#include <sys/ipc.h>
+#include <sys/msg.h>
+
+static const unsigned long _glibtop_sysdeps_msg_limits =
+(1 << GLIBTOP_IPC_MSGPOOL) + (1 << GLIBTOP_IPC_MSGMAP) +
+(1 << GLIBTOP_IPC_MSGMAX) + (1 << GLIBTOP_IPC_MSGMNB) +
+(1 << GLIBTOP_IPC_MSGMNI) + (1 << GLIBTOP_IPC_MSGSSZ) +
+(1 << GLIBTOP_IPC_MSGTQL);
 
 /* Init function. */
 
 void
 glibtop_init_msg_limits_s (glibtop *server)
 {
-	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+    server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -39,5 +45,21 @@ glibtop_init_msg_limits_s (glibtop *server)
 void
 glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 {
-	memset (buf, 0, sizeof (glibtop_msg_limits));
+    struct msginfo msginfo;
+  
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_MSG_LIMITS, 0);
+
+    memset (buf, 0, sizeof (glibtop_msg_limits));
+  
+    buf->flags = _glibtop_sysdeps_msg_limits;
+  
+    msgctl (0, IPC_INFO, (struct msqid_ds *) &msginfo);
+  
+    buf->msgpool = msginfo.msgpool;
+    buf->msgmap = msginfo.msgmap;
+    buf->msgmax = msginfo.msgmax;
+    buf->msgmnb = msginfo.msgmnb;
+    buf->msgmni = msginfo.msgmni;
+    buf->msgssz = msginfo.msgssz;
+    buf->msgtql = msginfo.msgtql;
 }

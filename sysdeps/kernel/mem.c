@@ -3,7 +3,7 @@
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, March 1999.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -24,14 +24,19 @@
 #include <glibtop.h>
 #include <glibtop/mem.h>
 
-static const unsigned long _glibtop_sysdeps_mem = 0;
+#include <glibtop_private.h>
+
+static const unsigned long _glibtop_sysdeps_mem =
+(1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
+(1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_SHARED) +
+(1 << GLIBTOP_MEM_BUFFER) + (1 << GLIBTOP_MEM_CACHED);
 
 /* Init function. */
 
 void
 glibtop_init_mem_s (glibtop *server)
 {
-	server->sysdeps.mem = _glibtop_sysdeps_mem;
+    server->sysdeps.mem = _glibtop_sysdeps_mem;
 }
 
 /* Provides information about memory usage. */
@@ -39,5 +44,19 @@ glibtop_init_mem_s (glibtop *server)
 void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
-	memset (buf, 0, sizeof (glibtop_mem));
+    libgtop_mem_t mem;
+
+    memset (buf, 0, sizeof (glibtop_mem));
+
+    if (glibtop_get_proc_data_mem_s (server, &mem))
+	return;
+
+    buf->total = mem.totalram;
+    buf->used = mem.totalram - mem.freeram;
+    buf->free = mem.freeram;
+    buf->shared = mem.sharedram;
+    buf->buffer = mem.bufferram;
+    buf->cached = mem.cachedram;
+
+    buf->flags = _glibtop_sysdeps_mem;
 }

@@ -21,37 +21,24 @@
    Boston, MA 02111-1307, USA.
 */
 
+#ifndef __GLIBTOP_PRIVATE_H__
+#define __GLIBTOP_PRIVATE_H__
+
 #include <glibtop.h>
-#include <glibtop/uptime.h>
+#include <glibtop/error.h>
 
-#include <glibtop_private.h>
+#include <sys/param.h>
+#include <sys/sysctl.h>
 
-static unsigned long _glibtop_sysdeps_uptime =
-(1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME);
+#undef LIBGTOP_VERSION
+#include <linux/libgtop.h>
 
-/* Init function. */
+BEGIN_LIBGTOP_DECLS
 
-void
-glibtop_init_uptime_s (glibtop *server)
-{
-    server->sysdeps.uptime = _glibtop_sysdeps_uptime;
-}
+int glibtop_get_proc_data_stat_s (glibtop *server, libgtop_stat_t *stat);
+int glibtop_get_proc_data_mem_s (glibtop *server, libgtop_mem_t *mem);
+int glibtop_get_proc_data_swap_s (glibtop *server, libgtop_swap_t *swap);
 
-/* Provides uptime and idle time. */
+END_LIBGTOP_DECLS
 
-void
-glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
-{
-    libgtop_stat_t stat;
-    unsigned long total;
-
-    memset (buf, 0, sizeof (glibtop_uptime));
-
-    if (glibtop_get_proc_data_stat_s (server, &stat))
-	return;
-
-    total = stat.cpu.user + stat.cpu.nice + stat.cpu.sys + stat.cpu.idle;
-
-    buf->uptime = (double) total / (double) stat.frequency;
-    buf->idletime = (double) stat.cpu.idle / (double) stat.frequency;
-}
+#endif __GLIBTOP_PRIVATE_H__

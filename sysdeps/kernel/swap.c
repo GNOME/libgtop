@@ -3,7 +3,7 @@
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, March 1999.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -24,14 +24,22 @@
 #include <glibtop.h>
 #include <glibtop/swap.h>
 
-static const unsigned long _glibtop_sysdeps_swap = 0;
+#include <glibtop_private.h>
+
+static const unsigned long _glibtop_sysdeps_swap =
+(1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
+(1 << GLIBTOP_SWAP_FREE);
+
+static const unsigned long _glibtop_sysdeps_swap_stat =
+(1 << GLIBTOP_SWAP_PAGEIN) + (1 << GLIBTOP_SWAP_PAGEOUT);
 
 /* Init function. */
 
 void
 glibtop_init_swap_s (glibtop *server)
 {
-	server->sysdeps.swap = _glibtop_sysdeps_swap;
+    server->sysdeps.swap = _glibtop_sysdeps_swap |
+	_glibtop_sysdeps_swap_stat;
 }
 
 /* Provides information about swap usage. */
@@ -39,5 +47,25 @@ glibtop_init_swap_s (glibtop *server)
 void
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
-	memset (buf, 0, sizeof (glibtop_swap));
+    libgtop_stat_t stat;
+    libgtop_swap_t swap;
+
+    memset (buf, 0, sizeof (glibtop_swap));
+
+    if (glibtop_get_proc_data_swap_s (server, &swap))
+	return;
+
+    buf->total = swap.totalswap;
+    buf->free = swap.freeswap;
+    buf->used = swap.totalswap - swap.freeswap;
+
+    buf->flags = _glibtop_sysdeps_swap;
+
+    if (glibtop_get_proc_data_stat_s (server, &stat))
+	return;
+
+    buf->pagein = stat.pswpin;
+    buf->pageout = stat.pswpout;
+
+    buf->flags |= _glibtop_sysdeps_swap_stat;
 }

@@ -3,7 +3,7 @@
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, March 1999.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -21,23 +21,66 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop.h>
 #include <glibtop/sem_limits.h>
 
-static const unsigned long _glibtop_sysdeps_sem_limits = 0;
+#include <sys/ipc.h>
+#include <sys/sem.h>
+
+#ifdef _SEM_SEMUN_UNDEFINED
+
+/* glibc 2.1 will no longer defines semun, instead it defines
+ * _SEM_SEMUN_UNDEFINED so users can define semun on their own.
+ * Thanks to Albert K T Hui <avatar@deva.net>. */
+
+union semun
+{
+    int val;
+    struct semid_ds *buf;
+    unsigned short int *array;
+    struct seminfo *__buf;
+};
+#endif
+
+static unsigned long _glibtop_sysdeps_sem_limits =
+(1 << GLIBTOP_IPC_SEMMAP) + (1 << GLIBTOP_IPC_SEMMNI) +
+(1 << GLIBTOP_IPC_SEMMNS) + (1 << GLIBTOP_IPC_SEMMNU) +
+(1 << GLIBTOP_IPC_SEMMSL) + (1 << GLIBTOP_IPC_SEMOPM) +
+(1 << GLIBTOP_IPC_SEMUME) + (1 << GLIBTOP_IPC_SEMUSZ) +
+(1 << GLIBTOP_IPC_SEMVMX) + (1 << GLIBTOP_IPC_SEMAEM);
 
 /* Init function. */
 
 void
 glibtop_init_sem_limits_s (glibtop *server)
 {
-	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+    server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
 }
 
-/* Provides information about sysv sem limits. */
+/* Provides information about sysv ipc limits. */
 
 void
 glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 {
-	memset (buf, 0, sizeof (glibtop_sem_limits));
+    struct seminfo seminfo;
+    union semun	arg;  
+  
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_SEM_LIMITS, 0);
+
+    memset (buf, 0, sizeof (glibtop_sem_limits));
+  
+    buf->flags = _glibtop_sysdeps_sem_limits;
+  
+    arg.array = (ushort *) &seminfo;
+    semctl (0, 0, IPC_INFO, arg);
+  
+    buf->semmap = seminfo.semmap;
+    buf->semmni = seminfo.semmni;
+    buf->semmns = seminfo.semmns;
+    buf->semmnu = seminfo.semmnu;
+    buf->semmsl = seminfo.semmsl;
+    buf->semopm = seminfo.semopm;
+    buf->semume = seminfo.semume;
+    buf->semusz = seminfo.semusz;
+    buf->semvmx = seminfo.semvmx;
+    buf->semaem = seminfo.semaem;
 }

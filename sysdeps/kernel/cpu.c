@@ -3,7 +3,7 @@
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, March 1999.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -24,14 +24,27 @@
 #include <glibtop.h>
 #include <glibtop/cpu.h>
 
-static const unsigned long _glibtop_sysdeps_cpu = 0;
+#include <glibtop_private.h>
+
+static const unsigned long _glibtop_sysdeps_cpu =
+(1 << GLIBTOP_CPU_TOTAL) + (1 << GLIBTOP_CPU_USER) +
+(1 << GLIBTOP_CPU_NICE) + (1 << GLIBTOP_CPU_SYS) +
+(1 << GLIBTOP_CPU_IDLE) + (1 << GLIBTOP_CPU_FREQUENCY);
+
+static const unsigned long _glibtop_sysdeps_cpu_smp =
+(1 << GLIBTOP_XCPU_TOTAL) + (1 << GLIBTOP_XCPU_USER) +
+(1 << GLIBTOP_XCPU_NICE) + (1 << GLIBTOP_XCPU_SYS) +
+(1 << GLIBTOP_XCPU_IDLE);
 
 /* Init function. */
 
 void
 glibtop_init_cpu_s (glibtop *server)
 {
-	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+    server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+
+    if (server->ncpu)
+	server->sysdeps.cpu |= _glibtop_sysdeps_cpu_smp;
 }
 
 /* Provides information about cpu usage. */
@@ -39,5 +52,35 @@ glibtop_init_cpu_s (glibtop *server)
 void
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
-	memset (buf, 0, sizeof (glibtop_cpu));
+    libgtop_stat_t stat;
+    int i;
+
+    memset (buf, 0, sizeof (glibtop_cpu));
+
+    if (glibtop_get_proc_data_stat_s (server, &stat))
+	return;
+
+    buf->user = stat.cpu.user;
+    buf->nice = stat.cpu.nice;
+    buf->sys = stat.cpu.sys;
+    buf->idle = stat.cpu.idle;
+
+    buf->total = buf->user + buf->nice + buf->sys + buf->idle;
+    buf->frequency = stat.frequency;
+
+    buf->flags = _glibtop_sysdeps_cpu;
+
+    if (stat.ncpu) {
+	for (i = 0; i < GLIBTOP_NCPU; i++) {
+	    buf->xcpu_user [i] = stat.xcpu [i].user;
+	    buf->xcpu_nice [i] = stat.xcpu [i].nice;
+	    buf->xcpu_sys [i] = stat.xcpu [i].sys;
+	    buf->xcpu_idle [i] = stat.xcpu [i].idle;
+	    
+	    buf->xcpu_total [i] = buf->xcpu_user [i] + buf->xcpu_nice [i] +
+		buf->xcpu_sys [i] + buf->xcpu_idle [i];
+	}
+
+	buf->flags |= _glibtop_sysdeps_cpu_smp;
+    }
 }
