@@ -64,9 +64,13 @@ struct _glibtop_machine
     int ticks;			/* clock ticks, as returned by sysconf() */
     unsigned long long boot;	/* boot time, although it's ui32 in kstat */
     void *libproc;		/* libproc handle */
+#if GLIBTOP_SOLARIS_RELEASE >= 560
     void (*objname)(void *, uintptr_t, const char *, size_t);
     struct ps_prochandle *(*pgrab)(pid_t, int, int *);
     void (*pfree)(void *);
+#else
+    void *filler[3];
+#endif
 };
 
 END_LIBGTOP_DECLS

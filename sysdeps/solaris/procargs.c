@@ -43,7 +43,11 @@ char *
 glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len)
 {
+#ifdef HAVE_PROCFS_H
    	struct psinfo pinfo;
+#else
+	struct prpsinfo pinfo;
+#endif
 	int len, i;
 	char *ret, *p;
 

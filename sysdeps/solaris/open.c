@@ -205,6 +205,8 @@ glibtop_open_s (glibtop *server, const char *program_name,
 
     /* Now let's have a bit of magic dust... */
 
+#if GLIBTOP_SOLARIS_RELEASE >= 560
+
     dl = dlopen("/usr/lib/libproc.so", RTLD_LAZY);
     server->machine.libproc = dl;
     if(dl)
@@ -226,5 +228,6 @@ glibtop_open_s (glibtop *server, const char *program_name,
        server->machine.pgrab = NULL;
        server->machine.pfree = NULL;
     }
+#endif
     server->machine.me = getpid();
 }

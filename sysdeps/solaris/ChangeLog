@@ -1,3 +1,9 @@
+1999-06-07  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_machine.h, open.c, procargs.c, proclist.c, procmap.c:
+	  Solaris 2.5 & 2.5.1 portability fixes, based on patches
+	  from Steve Murphy <murf@e-tools.com>.
+
 1999-05-30  Drazen Kacar  <dave@srce.hr>
 
 	* procargs.c: Fixed bug in calculation of process argument list.

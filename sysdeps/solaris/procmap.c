@@ -57,7 +57,12 @@ glibtop_map_entry *
 glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 {
    	int fd, i, nmaps, pr_err, heap;
+#if GLIBTOP_SOLARIS_RELEASE >= 560
 	prxmap_t *maps;
+	struct ps_prochandle *Pr;
+#else
+	prmap_t *maps;
+#endif
 
 	/* A few defines, to make it shorter down there */
 
@@ -67,7 +72,6 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 # define OFFSET  pr_off
 #endif
 
-	struct ps_prochandle *Pr;
 	glibtop_map_entry *entry;
 	struct stat inode;
 	char buffer[BUFSIZ];
@@ -109,7 +113,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		s_close(fd);
 		return NULL;
 	}
-	maps = alloca((nmaps + 1) * sizeof(prxmap_t));
+	maps = alloca((nmaps + 1) * sizeof(prmap_t));
 	if(ioctl(fd, PIOCMAP, maps) < 0)
 	{
 	   	glibtop_warn_io_r(server, "ioctl(%s, PIOCMAP)", buffer);
@@ -126,21 +130,28 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 
 	memset(entry, 0, nmaps * sizeof(glibtop_map_entry));
 
+#if GLIBTOP_SOLARIS_RELEASE >= 560
+
 	if(server->machine.objname && server->machine.pgrab &&
 	   server->machine.pfree)
 	   Pr = (server->machine.pgrab)(pid, 1, &pr_err);
+#endif
 	for(heap = 0,i = 0; i < nmaps; ++i)
 	{
 	   	int len;
 
 	   	entry[i].start = maps[i].pr_vaddr;
 		entry[i].end = maps[i].pr_vaddr + maps[i].pr_size;
+
+#if GLIBTOP_SOLARIS_RELEASE >= 560
+
 		if(maps[i].pr_dev != PRNODEV)
 		{
 		   entry[i].device = maps[i].pr_dev;
 		   entry[i].inode = maps[i].pr_ino;
 		   entry[i].flags |= _glibtop_sysdeps_map_device;
 		}
+#endif
 		entry[i].offset = maps[i].OFFSET;
 		if(maps[i].pr_mflags & MA_READ)
 		   	entry[i].perm |= GLIBTOP_MAP_PERM_READ;
@@ -153,6 +164,9 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		else
 		   	entry[i].perm |= GLIBTOP_MAP_PERM_PRIVATE;
 		entry[i].flags = _glibtop_sysdeps_map_entry;
+
+#if GLIBTOP_SOLARIS_RELEASE >= 560
+
 		if(maps[i].pr_mflags & MA_ANON)
 		{
 		   if(!heap)
@@ -179,9 +193,14 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 			 entry[i].flags |= (1L << GLIBTOP_MAP_ENTRY_FILENAME);
 		      }
 		   }
+#endif
 	}
+
+#if GLIBTOP_SOLARIS_RELEASE >= 560
+
 	if(Pr)
 	   	server->machine.pfree(Pr);
+#endif
 	buf->flags = _glibtop_sysdeps_proc_map;
 	s_close(fd);
 	return entry;

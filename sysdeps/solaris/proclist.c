@@ -77,8 +77,11 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	{
 	   if(mask)
 	   {
+#ifdef HAVE_PROCFS_H
 	      struct psinfo psinfo;
-
+#else
+	      struct prpsinfo psinfo;
+#endif
 	      if(glibtop_get_proc_data_psinfo_s(server, &psinfo, pid))
 		 return NULL;
 	      if(mask & GLIBTOP_EXCLUDE_IDLE && !psinfo.pr_pctcpu)
