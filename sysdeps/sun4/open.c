@@ -21,6 +21,10 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <config.h>
+#include <glib/gstrfuncs.h>
+#include <errno.h>
+
 #include <glibtop.h>
 #include <glibtop/open.h>
 
@@ -257,7 +261,7 @@ _glibtop_getkval (void *void_server, unsigned long offset, int *ptr,
 			if (*refstr == '!') return 0;
 
 			glibtop_error_r (server, "kvm_read(%s): %s",
-					 refstr, strerror (errno));
+					 refstr, g_strerror (errno));
 		}
 
 	return 1;
