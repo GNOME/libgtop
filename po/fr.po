@@ -1,15 +1,15 @@
 # libgtop fr.po
-# Copyright (C) 1998,1999 Free Software Foundation, Inc.
-# Vincent Renardias <vincent@ldsol.com>, 1998,1999.
+# Copyright (C) 1998-2001 Free Software Foundation, Inc.
+# Vincent Renardias <vincent@ldsol.com>, 1998-1999.
 # Fabrice Bellet <Fabrice.Bellet@imag.fr>, 1999.
-# Christophe Merlet (RedFox) <christophe@merlet.net>, 2000.
+# Christophe Merlet (RedFox) <redfox@eikonex.org>, 2000-2001.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2000-10-17 19:19+0200\n"
-"PO-Revision-Date: 2000-10-17 19:08+0200\n"
-"Last-Translator: Christophe Merlet (RedFox) <christophe@merlet.net>\n"
+"POT-Creation-Date: 2001-02-05 19:19+0100\n"
+"PO-Revision-Date: 2001-02-05 19:26+0100\n"
+"Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
@@ -49,7 +49,7 @@ msgstr "Exception virgule flottante (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
 msgid "Kill, unblockable (POSIX)"
-msgstr "Signal 'Kill', non blocable (POSIX)"
+msgstr "Signal « Kill », non blocable (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
 msgid "BUS error (4.2 BSD)"
@@ -486,7 +486,7 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Il s'agit du \"canal\" dans lequel le processus est en attente, constitué "
+"Il s'agit du « canal » dans lequel le processus est en attente, constitué "
 "par l'adresse d'un appel système dans lequel le processus est bloqué. La "
 "correspondance entre l'adresse et le nom de l'appel système est disponible "
 "si le fichier /etc/psdatabase est à jour par rapport à la version du noyau "
@@ -1013,7 +1013,7 @@ msgstr "Priorité de séquencement noyau"
 
 #: sysdeps/names/procuid.c:72
 msgid "Standard unix nice level of process"
-msgstr "Niveau de \"nice\" (standard unix) du processus"
+msgstr "Niveau de « nice » (standard unix) du processus"
 
 #: sysdeps/names/procuid.c:73
 msgid "Number of additional process groups"
@@ -1257,108 +1257,71 @@ msgstr ""
 msgid "Boot time (seconds sice epoch)"
 msgstr "Date de démarrage (en secondes depuis le 01/01/1970)"
 
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "Erreur système inconnue"
+#~ msgid "Unknown system error"
+#~ msgstr "Erreur système inconnue"
 
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s : l'option `%s' est ambigüe\n"
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s : l'option `%s' est ambigüe\n"
 
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s : l'option `--%s' ne supporte pas d'arguments\n"
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s : l'option `--%s' ne supporte pas d'arguments\n"
 
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s : l'option `%c%s' ne supporte pas d'arguments\n"
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s : l'option `%c%s' ne supporte pas d'arguments\n"
 
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s : l'option `%s' nécessite un argument\n"
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s : l'option `%s' nécessite un argument\n"
 
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s : option inconnue `--%s'\n"
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s : option inconnue `--%s'\n"
 
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s : option inconnue `%c%s'\n"
+#~ msgid "%s: unrecognized option `%c%s'\n"
+#~ msgstr "%s : option inconnue `%c%s'\n"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s : option illégale -- %c\n"
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s : option illégale -- %c\n"
 
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s : option non valide -- %c\n"
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s : option non valide -- %c\n"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s : l'option nécessite un argument -- %c\n"
+#~ msgid "%s: option requires an argument -- %c\n"
+#~ msgstr "%s : l'option nécessite un argument -- %c\n"
 
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s : l'option `-W %s' is ambigüe\n"
+#~ msgid "%s: option `-W %s' is ambiguous\n"
+#~ msgstr "%s : l'option `-W %s' is ambigüe\n"
 
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s : l'option `-W %s' ne supporte pas d'arguments\n"
+#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
+#~ msgstr "%s : l'option `-W %s' ne supporte pas d'arguments\n"
 
-#: lib/errors.c:31
-msgid "No error"
-msgstr "Pas d'erreurs"
+#~ msgid "No error"
+#~ msgstr "Pas d'erreurs"
 
-#: lib/errors.c:32
-msgid "Unknown error"
-msgstr "Erreur inconnue"
+#~ msgid "Unknown error"
+#~ msgstr "Erreur inconnue"
 
-#: lib/errors.c:33
-msgid "Invalid argument"
-msgstr "Argument invalide"
+#~ msgid "Invalid argument"
+#~ msgstr "Argument invalide"
 
-#: lib/errors.c:34
-msgid "No such parameter"
-msgstr "N'est pas un paramètre"
+#~ msgid "No such parameter"
+#~ msgstr "N'est pas un paramètre"
 
-#: lib/errors.c:35
-msgid "Attempted to modify a read-only value"
-msgstr "Tentative de modification d'une valeur en lecture seule"
+#~ msgid "Attempted to modify a read-only value"
+#~ msgstr "Tentative de modification d'une valeur en lecture seule"
 
-#: lib/errors.c:36
-msgid "Parameter size mismatch"
-msgstr "Taille de paramèter incohérent"
+#~ msgid "Parameter size mismatch"
+#~ msgstr "Taille de paramèter incohérent"
 
-#: lib/errors.c:37
-msgid "Communication with LibGTop server failed"
-msgstr "La communication avec le serveur LibGTop a échoué"
+#~ msgid "Communication with LibGTop server failed"
+#~ msgstr "La communication avec le serveur LibGTop a échoué"
 
-#: lib/errors.c:38
-msgid "No such process"
-msgstr "Plus de processus"
+#~ msgid "No such process"
+#~ msgstr "Plus de processus"
 
-#: lib/errors.c:39
-msgid "No kernel support"
-msgstr "Aucun support noyau"
+#~ msgid "No kernel support"
+#~ msgstr "Aucun support noyau"
 
-#: lib/errors.c:40
-msgid "Incompatible kernel version"
-msgstr "Version du noyau incompatible"
+#~ msgid "Incompatible kernel version"
+#~ msgstr "Version du noyau incompatible"
 
 #~ msgid "read %d bytes"
 #~ msgstr "%d octets lus"
