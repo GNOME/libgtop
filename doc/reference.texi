@@ -54,8 +54,13 @@ struct _glibtop_cpu
         xcpu_user [GLIBTOP_NCPU],
         xcpu_nice [GLIBTOP_NCPU],
         xcpu_sys  [GLIBTOP_NCPU],
+@ifset LIBGTOP-1-1
         xcpu_idle [GLIBTOP_NCPU],
         xcpu_flags;
+@end ifset
+@ifclear LIBGTOP-1-1
+        xcpu_idle [GLIBTOP_NCPU];
+@end ifclear
 @};
 @end cartouche
 @end example
@@ -91,12 +96,14 @@ except that they are arrays of @code{GLIBTOP_NCPU} (defined in
 @file{<glibtop/limits.h>}) elements and contain one value for each CPU
 in the system.
 
+@ifset LIBGTOP-1-1
 @table @code
 @item xcpu_flags
 This is interpreted as a bit-field: on systems like Solaris, not all CPUs
 need to be running all the time, so we set the corresponding bit for each
 CPU that is currently running.
 @end table
+@end ifset
 
 Please note that all of the cpu values are absolute values measured in
 certain units (to get seconds, divide them by @code{frequency}) since system
