@@ -1,5 +1,9 @@
 2005-01-10  Benoît Dejean  <TazForEver@dlfp.org>
 
+	* procopenfiles.c: (get_socket_endpoint): Fixed.
+
+2005-01-10  Benoît Dejean  <TazForEver@dlfp.org>
+
 	* glibtop_server.h:
 	* procopenfiles.c: (get_socket_endpoint): Disabled.
 	

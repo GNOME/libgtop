@@ -33,6 +33,7 @@
 #include <stdio.h>
 #include <arpa/inet.h>
 
+#include "glibtop_private.h"
 
 static const unsigned long _glibtop_sysdeps_proc_open_files =
 (1L << GLIBTOP_PROC_OPEN_FILES_NUMBER)|
@@ -52,23 +53,26 @@ static void
 get_socket_endpoint(char *buf, int *prmtport, int s)
 {
 	FILE *f;
-	char l[1024];
+	char line[1024];
 
 	buf[0] = '\0';
-	prmtport = 0;
+	*prmtport = 0;
 
 	f = fopen("/proc/net/tcp", "r");
-
 	if(!f)
 		return;
 
-	while(fgets(l, sizeof l, f))
+	if(!fgets(line, sizeof line, f)) goto eof;
+
+
+	while(fgets(line, sizeof line, f))
 	{
-		unsigned int loc, locport, rmt;
+		unsigned int rmt;
 		int sock = -42;
-		/* FIXME
-		  sscanf(l, "%*d: %8x:%4x %8x:%4x %*x %*x:%*x %*x:%*x %*d %*d %*d %d",
-		&loc, &locport, &rmt, prmtport, &sock); */
+
+		sscanf(line, "%*d: %*x:%*x %8x:%4x %*x %*x:%*x %*x:%*x %*d %*d %*d %d",
+		       &rmt, prmtport, &sock);
+
 		if(sock == s)
 		{
 			inet_ntop(AF_INET, &rmt, buf, GLIBTOP_OPEN_DEST_HOST_LEN);
@@ -76,6 +80,7 @@ get_socket_endpoint(char *buf, int *prmtport, int s)
 		}
 	}
 
+ eof:
 	fclose(f);
 }
 
