@@ -25,7 +25,13 @@
 
 #include <glibtop_suid.h>
 
-static const unsigned long _glibtop_sysdeps_proc_time = 0;
+static const unsigned long _glibtop_sysdeps_proc_time =
+(1 << GLIBTOP_PROC_TIME_START_TIME) + (1 << GLIBTOP_PROC_TIME_UTIME) +
+(1 << GLIBTOP_PROC_TIME_STIME) + (1 << GLIBTOP_PROC_TIME_CUTIME) +
+(1 << GLIBTOP_PROC_TIME_CSTIME) + (1 << GLIBTOP_PROC_TIME_TIMEOUT) +
+(1 << GLIBTOP_PROC_TIME_IT_REAL_VALUE);
+
+#define tv2sec(tv)	(((u_int64_t) tv.tv_sec * 1000000) + (u_int64_t) tv.tv_usec)
 
 /* Init function. */
 
@@ -35,13 +41,119 @@ glibtop_init_proc_time_p (glibtop *server)
 	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
 }
 
+/* Taken from /usr/src/sys/kern/kern_resource.c */
+
+/*
+ * Transform the running time and tick information in proc p into user,
+ * system, and interrupt time usage.
+ */
+
+static void
+calcru(p, up, sp, ip)
+     struct proc *p;
+     struct timeval *up;
+     struct timeval *sp;
+     struct timeval *ip;
+{
+	quad_t totusec;
+	u_quad_t u, st, ut, it, tot;
+	long sec, usec;
+	struct timeval tv;
+
+	st = p->p_sticks;
+	ut = p->p_uticks;
+	it = p->p_iticks;
+
+	tot = st + ut + it;
+	if (tot == 0) {
+		st = 1;
+		tot = 1;
+	}
+
+	sec = p->p_rtime.tv_sec;
+	usec = p->p_rtime.tv_usec;
+
+	totusec = (quad_t)sec * 1000000 + usec;
+	if (totusec < 0) {
+		/* XXX no %qd in kernel.  Truncate. */
+		printf("calcru: negative time: %ld usec\n", (long)totusec);
+		totusec = 0;
+	}
+
+	u = totusec;
+	st = (u * st) / tot;
+	sp->tv_sec = st / 1000000;
+	sp->tv_usec = st % 1000000;
+	ut = (u * ut) / tot;
+	up->tv_sec = ut / 1000000;
+	up->tv_usec = ut % 1000000;
+	if (ip != NULL) {
+		it = (u * it) / tot;
+		ip->tv_sec = it / 1000000;
+		ip->tv_usec = it % 1000000;
+	}
+}
+
 /* Provides detailed information about a process. */
 
 void
 glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 			 pid_t pid)
 {
+	struct kinfo_proc *pinfo;
+	struct user *u_addr = (struct user *)USRSTACK;
+	struct pstats pstats;
+	struct pcb pcb;
+	int f, count;
+	quad_t totusec;
+
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_TIME, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_time));
+
+	/* Get the process information */
+	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	if ((pinfo == NULL) || (count != 1))
+		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
+
+	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
+	    kvm_uread (server->machine.kd, &(pinfo [0]).kp_proc,
+		       (unsigned long) &u_addr->u_stats,
+		       (char *) &pstats, sizeof (pstats)) == sizeof (pstats))
+		{
+			/* This is taken form the kernel source code of
+			 * FreeBSD 2.2.6. */
+
+			/* Well, we just do the same getrusage () does ... */
+
+			register struct rusage *rup;
+			
+			rup = &pstats.p_ru;
+			calcru(&(pinfo [0]).kp_proc,
+			       &rup->ru_utime, &rup->ru_stime, NULL);
+
+			buf->utime = tv2sec (pstats.p_ru.ru_utime);
+			buf->stime = tv2sec (pstats.p_ru.ru_stime);
+			
+			buf->cutime = tv2sec (pstats.p_cru.ru_utime);
+			buf->cstime = tv2sec (pstats.p_cru.ru_stime);
+
+			buf->start_time = tv2sec (pstats.p_start);
+		}
+
+#if 0
+	fprintf (stderr, "TIME: (%ld, %ld) - %ld (%ld, %ld) - %d (%d, %d, %d)\n",
+		 (long) pinfo [0].kp_proc.p_rtime.tv_sec,
+		 (long) pinfo [0].kp_proc.p_rtime.tv_usec,
+		 (unsigned long) (buf->utime + buf->stime),
+		 (unsigned long) buf->utime,
+		 (unsigned long) buf->stime,
+		 (int) pinfo [0].kp_proc.p_uticks + 
+		 (int) pinfo [0].kp_proc.p_sticks +
+		 (int) pinfo [0].kp_proc.p_iticks,
+		 (int) pinfo [0].kp_proc.p_uticks,
+		 (int) pinfo [0].kp_proc.p_sticks,
+		 (int) pinfo [0].kp_proc.p_iticks);
+#endif
 }
+
