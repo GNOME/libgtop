@@ -31,8 +31,8 @@
 
 /*
  * The differences between old and new procfs API are:
- * - old has /proc/<pid> file and ioctl() is used to obtain the data.
- * - new has /proc/<pid>/* files and read() & friends are used to
+ * - old has '/proc/<pid>' file and ioctl() is used to obtain the data.
+ * - new has '/proc/<pid>/*' files and read() & friends are used to
  *   obtain the data.
  * - names of structures and members are different. It's mostly the
  *   prefix. Old uses `pr' and new uses `ps'.
@@ -127,7 +127,7 @@ glibtop_get_proc_credentials_s(glibtop *server,
 	    else
 	        toread = GLIBTOP_MAX_GROUPS * sizeof(gid_t);
 	    if(s_pread(fd, groups, toread,
-	               &(((struct prcred *)0)->pr_groups[0])) != toread)
+	               (off_t)&(((struct prcred *)0)->pr_groups[0])) != toread)
 	               prcred->pr_ngroups = 0;
 	}
 	s_close(fd);

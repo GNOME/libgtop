@@ -23,5 +23,5 @@ libgtop_sysdeps_suid_la_LDFLAGS	= $(LT_VERSION_INFO)
 
 
 include_HEADERS			= glibtop_server.h glibtop_machine.h
-noinst_HEADERS			= glibtop_private.h glibtop_suid.h safeio.h
+noinst_HEADERS			= glibtop_private.h glibtop_suid.h
 
