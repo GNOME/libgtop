@@ -67,7 +67,7 @@ glibtop_init_netload_p (glibtop *server)
 {
     server->sysdeps.netload = _glibtop_sysdeps_netload;
 
-    if (kvm_nlist (server->machine.kd, nlst) != 0)
+    if (kvm_nlist (server->machine.kd, nlst) < 0)
 	glibtop_error_io_r (server, "kvm_nlist");
 }
 

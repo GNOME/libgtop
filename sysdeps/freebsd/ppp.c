@@ -82,7 +82,7 @@ glibtop_init_ppp_p (glibtop *server)
 #endif
 #endif /* HAVE_I4B */
 
-	if (kvm_nlist (server->machine.kd, nlst) != 0)
+	if (kvm_nlist (server->machine.kd, nlst) < 0)
 		glibtop_error_io_r (server, "kvm_nlist");
 }
 
