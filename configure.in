@@ -93,6 +93,8 @@ AC_CHECK_FUNCS(getcwd gettimeofday getwd putenv strdup strtoul uname)
 ALL_LINGUAS=""
 AM_GNU_GETTEXT
 
+CFLAGS="$CFLAGS -D_IN_LIBGTOP"
+
 AC_SUBST(CFLAGS)
 AC_SUBST(CPPFLAGS)
 AC_SUBST(LDFLAGS)
