@@ -247,7 +247,8 @@ connect_to_internet_server (const char *serverhost, u_short port)
 	peeraddr_in.sin_family = AF_INET;
 
 	/* look up the server host's internet address */
-	if (((long) peeraddr_in.sin_addr.s_addr = glibtop_internet_addr (serverhost)) == -1)
+	peeraddr_in.sin_addr.s_addr = glibtop_internet_addr (serverhost);
+	if ((long) peeraddr_in.sin_addr.s_addr == -1)
 		glibtop_error ("unable to find %s in /etc/hosts or from YP", serverhost);
 
 	if (port == 0) {
