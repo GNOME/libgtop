@@ -1,3 +1,12 @@
+1998-10-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* ppp.c: New file to get PPP/ISDN statistics. Currently this only
+	get ISDN statistics if you have the I4B package.
+
+	To get the number of bytes transferred in/out you need to read the
+	file `misc/i4b_acct.txt' in the LibGTop source directory to see
+	how to enable this.
+
 1998-10-03  Martin Baulig  <martin@home-of-linux.org>
 
 	* procstate.c (glibtop_get_procstate_s): Use correct values for

@@ -172,6 +172,17 @@ main (int argc, char *argv [])
 
 	printf ("\n");
 
+	for (c = 0; c < PROFILE_COUNT; c++)
+		glibtop_get_ppp (&data.ppp, 0);
+
+	printf ("PPP          (0x%08lx): %lu, %lu, %lu\n",
+		(unsigned long) data.ppp.flags,
+		(unsigned long) data.ppp.state,
+		(unsigned long) data.ppp.bytes_in,
+		(unsigned long) data.ppp.bytes_out);
+
+	printf ("\n");
+
 	glibtop_get_sysdeps (&sysdeps);
 
 	printf ("Sysdeps      (0x%08lx): %lu, %lu, %lu, %lu, %lu, "

@@ -141,3 +141,6 @@
 
 #undef HAVE_XAUTH
 
+/* Define if your have the I4B package. */
+#undef HAVE_I4B
+#undef HAVE_I4B_ACCT

@@ -45,6 +45,7 @@ BEGIN {
   convert["ulong"]  = "u_int64_t";
   convert["pid_t"]  = "pid_t";
   convert["int"]    = "int";
+  convert["ushort"] = "unsigned short";
 }
 
 function output(line) {

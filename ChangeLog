@@ -1,3 +1,19 @@
+1998-10-25  Martin Baulig  <martin@home-of-linux.org>
+
+	Added PPP/ISDN support.
+
+	* include/glibtop/ppp.h: New file.
+	* features.def: Added new feature `ppp'.
+
+	* acconfig.h (HAVE_I4B): Defined if we have the I4B package.
+	(HAVE_I4B_ACCT): Defined if we have ISDN statistics with I4B.
+
+	* misc: New directory.
+	* misc/i4b_acct.txt: Read this file to get ISDN statistics on BSD.
+
+	* lib/lib.awk: New type `ushort' for the features.def which is
+	`unsigned short'.
+
 1998-10-20  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/proc_signal.h: Use a 2-element-array of

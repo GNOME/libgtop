@@ -6,7 +6,8 @@ else
 examples_SUBDIRS =
 endif
 
-SUBDIRS = po intl support macros include sysdeps lib src $(examples_SUBDIRS)
+SUBDIRS = po intl support macros misc include sysdeps lib src \
+	  $(examples_SUBDIRS)
 
 include_HEADERS = glibtop.h
 

@@ -1,3 +1,7 @@
+1998-10-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* first.c (glibtop_get_ppp): Get PPP/ISDN statistics.
+
 1998-09-28  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am: Install everything in $(libexecdir)/libgtop.

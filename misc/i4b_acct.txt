@@ -1,0 +1,96 @@
+To get ISDN statistics with the I4B package do the following:
+
+* Look at the declaration of `struct i4bisppp_softc' in
+  /usr/src/i4b/driver/i4b_isppp.c.
+
+  It is looking like this:
+
+	struct i4bisppp_softc {
+		/*
+		 * struct sppp starts with a struct ifnet, but we gotta allocate
+		 * more space for it.  NB: do not relocate this union, it must
+		 * be first in isppp_softc.  The tls and tlf hooks below want to
+		 * convert a ``struct sppp *'' into a ``struct isppp_softc *''.
+		 */
+		union {
+			struct ifnet scu_if;
+			struct sppp scu_sp;
+		} sc_if_un;
+	#define sc_if sc_if_un.scu_if
+		int	sc_state;	/* state of the interface	*/
+	#ifndef __FreeBSD__
+		int	sc_unit;	/* unit number for Net/OpenBSD	*/
+	#endif
+		call_desc_t *sc_cdp;	/* ptr to call descriptor	*/
+	
+	#ifdef I4BISPPPACCT
+		int sc_iinb;		/* isdn driver # of inbytes	*/
+		int sc_ioutb;		/* isdn driver # of outbytes	*/
+		int sc_inb;		/* # of bytes rx'd		*/
+		int sc_outb;		/* # of bytes tx'd	 	*/
+		int sc_linb;		/* last # of bytes rx'd		*/
+		int sc_loutb;		/* last # of bytes tx'd 	*/
+		int sc_fn;		/* flag, first null acct	*/
+	#endif
+	
+	#if defined(__FreeBSD__) && __FreeBSD__ >= 3
+		struct callout_handle sc_ch;
+	#endif
+	} i4bisppp_softc[NI4BISPPP];
+
+* Create a new file /usr/include/machine/i4b_acct.h and put the declaration
+  of this structure in this file.
+
+* Replace `call_desc_t *' with `void *' in it.
+
+* The result should look like this:
+
+	struct i4bisppp_softc {
+		/*
+		 * struct sppp starts with a struct ifnet, but we gotta allocate
+		 * more space for it.  NB: do not relocate this union, it must
+		 * be first in isppp_softc.  The tls and tlf hooks below want to
+		 * convert a ``struct sppp *'' into a ``struct isppp_softc *''.
+		 */
+		union {
+			struct ifnet scu_if;
+			struct sppp scu_sp;
+		} sc_if_un;
+	#define sc_if sc_if_un.scu_if
+		int	sc_state;	/* state of the interface	*/
+	#ifndef __FreeBSD__
+		int	sc_unit;	/* unit number for Net/OpenBSD	*/
+	#endif
+		void *sc_cdp;		/* ptr to call descriptor	*/
+	
+	#ifdef I4BISPPPACCT
+		int sc_iinb;		/* isdn driver # of inbytes	*/
+		int sc_ioutb;		/* isdn driver # of outbytes	*/
+		int sc_inb;		/* # of bytes rx'd		*/
+		int sc_outb;		/* # of bytes tx'd	 	*/
+		int sc_linb;		/* last # of bytes rx'd		*/
+		int sc_loutb;		/* last # of bytes tx'd 	*/
+		int sc_fn;		/* flag, first null acct	*/
+	#endif
+	
+	#if defined(__FreeBSD__) && __FreeBSD__ >= 3
+		struct callout_handle sc_ch;
+	#endif
+	};
+
+* Put a
+
+	#define I4BISPPPACCT	1	/* enable accounting messages */
+
+  at the top of your /usr/include/machine/i4b_acct.h
+
+* This file should now look about like `misc/i4b_acct.h' in the LibGTop
+  source directory.
+
+* Done.
+
+This is necessary since LibGTop reads its data directly out of the kernel
+and the `struct i4bisppp_softc' is only defined there and in no header file
+(someone can tell the I4B people to put it in some header file ?).
+
+Martin <martin@home-of-linux.org>

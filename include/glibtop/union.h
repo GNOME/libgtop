@@ -44,6 +44,8 @@
 #include <glibtop/mountlist.h>
 #include <glibtop/fsusage.h>
 
+#include <glibtop/ppp.h>
+
 __BEGIN_DECLS
 
 typedef union _glibtop_union	glibtop_union;
@@ -69,6 +71,7 @@ union _glibtop_union
 	glibtop_proc_map	proc_map;
 	glibtop_mountlist	mountlist;
 	glibtop_fsusage		fsusage;
+	glibtop_ppp		ppp;
 };
 
 __END_DECLS

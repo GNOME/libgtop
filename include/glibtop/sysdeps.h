@@ -46,8 +46,9 @@ __BEGIN_DECLS
 #define GLIBTOP_SYSDEPS_PROC_MAP	17
 #define GLIBTOP_SYSDEPS_MOUNTLIST	18
 #define GLIBTOP_SYSDEPS_FSUSAGE		19
+#define GLIBTOP_SYSDEPS_PPP		20
 
-#define GLIBTOP_MAX_SYSDEPS		20
+#define GLIBTOP_MAX_SYSDEPS		21
 
 #define GLIBTOP_SYSDEPS_ALL		((1 << GLIBTOP_MAX_SYSDEPS) - 1)
 
@@ -79,7 +80,8 @@ struct _glibtop_sysdeps
 		proc_segment,		/* glibtop_proc_segment	*/
 		proc_map,		/* glibtop_proc_map	*/
 		mountlist,		/* glibtop_mountlist	*/
-		fsusage;		/* glibtop_fsusage	*/
+		fsusage,		/* glibtop_fsusage	*/
+		ppp;			/* glibtop_ppp		*/
 };
 
 #define glibtop_get_sysdeps(sysdeps)	glibtop_get_sysdeps_r(glibtop_global_server,sysdeps)

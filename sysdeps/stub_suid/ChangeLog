@@ -1,0 +1,5 @@
+1998-10-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* ChangeLog: New file.
+	* ppp.c: New file.
+

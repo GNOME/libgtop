@@ -342,6 +342,7 @@ AC_OUTPUT([
 Makefile
 po/Makefile.in
 intl/Makefile
+misc/Makefile
 include/Makefile
 include/glibtop/Makefile
 sysdeps/Makefile

@@ -101,6 +101,7 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 		      const void *parameter)
 {
 	glibtop *server = glibtop_global_server;
+	unsigned short device;
 	pid_t pid;
 
 	switch (cmnd->command) {
@@ -212,6 +213,13 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 		glibtop_get_proc_segment_p
 			(server, &resp->u.data.proc_segment, pid);
 		resp->offset = _offset_data (proc_segment);
+		break;
+#endif
+#if GLIBTOP_SUID_PPP
+	case GLIBTOP_CMND_PPP:
+		memcpy (&device, parameter, sizeof (unsigned short));
+		glibtop_get_ppp_p (server, &resp->u.data.ppp, device);
+		resp->offset = _offset_data (ppp);
 		break;
 #endif
 	default:
