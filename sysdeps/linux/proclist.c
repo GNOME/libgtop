@@ -128,6 +128,13 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 				if ((int) arg != procuid.pgrp)
 					continue;
 			break;
+		case GLIBTOP_KERN_PROC_PPID:
+			/* Do you really, really need this ? */
+			glibtop_get_proc_uid_s (server, &procuid, pid);
+			if (procuid.flags & (1L << GLIBTOP_PROC_UID_PPID))
+				if ((int) arg != procuid.ppid)
+					continue;
+			break;
 		case GLIBTOP_KERN_PROC_SESSION:
 			/* Do you really, really need this ? */
 			glibtop_get_proc_uid_s (server, &procuid, pid);
