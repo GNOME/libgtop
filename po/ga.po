@@ -1,96 +1,98 @@
 # Irish (gaeilge) translations for libgtop.pot (Gnome)
-# Copyright (C) 1998 Free Software Foundation, Inc.
+# Copyright (C) 1998,2003 Free Software Foundation, Inc.
 # Alastair McKinstry <mckinstry@computer.org>, 1998
-#
+# Paul Duffy <dubhthach@frink.nuigalway.ie>, 2003
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop CVS\n"
-"POT-Creation-Date: 2001-03-09 17:27+0100\n"
-"PO-Revision-Date: 2000-03-09 12:39+000\n"
-"Last-Translator: Alastair McKinstry <mckinstry@computer.org>\n"
-"Language-Team: Irish <ga@li.org>\n"
+"Project-Id-Version: libgtop-GNOME-2-0-port \n"
+"POT-Creation-Date: 2003-06-04 14:31+0100\n"
+"PO-Revision-Date: 2003-06-04 14:39+000\n"
+"Last-Translator: Paul Duffy <dubhthach@frink.nuigalway.ie>\n"
+"Language-Team: Irish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: examples/smp.c:68
+#: examples/smp.c:71
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr ""
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Total"
-msgstr ""
+msgstr "Iomlán"
 
-#: examples/smp.c:71 sysdeps/names/mem.c:47
+#: examples/smp.c:74 sysdeps/names/mem.c:47
 msgid "User"
 msgstr "Úsáidoeir"
 
-#: examples/smp.c:71 sysdeps/names/procuid.c:58
+#: examples/smp.c:74 sysdeps/names/procuid.c:58
 msgid "Nice"
 msgstr "Deas"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Sys"
-msgstr ""
+msgstr "Sys"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Idle"
-msgstr ""
+msgstr "Diomhaoin"
 
-#: examples/smp.c:73
+#: examples/smp.c:76
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 msgstr ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
 
-#: examples/smp.c:77
+#: examples/smp.c:80
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr ""
+msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:94
+#: examples/smp.c:97
 msgid "Percent:"
-msgstr ""
-
-#: examples/smp.c:95
-msgid "Total (%)"
-msgstr ""
-
-#: examples/smp.c:95
-#, fuzzy
-msgid "User (%)"
-msgstr "Úsáidoeir"
-
-#: examples/smp.c:95
-#, fuzzy
-msgid "Nice (%)"
-msgstr "Deas"
-
-#: examples/smp.c:95
-msgid "Sys (%)"
-msgstr ""
-
-#: examples/smp.c:96
-msgid "Idle (%)"
-msgstr ""
+msgstr "Céatadán:"
 
 #: examples/smp.c:98
+msgid "Total (%)"
+msgstr "Iomlán (%)"
+
+#: examples/smp.c:98
+msgid "User (%)"
+msgstr "Úsáidoeir (%)"
+
+#: examples/smp.c:98
+msgid "Nice (%)"
+msgstr "Deas (%)"
+
+#: examples/smp.c:98
+msgid "Sys (%)"
+msgstr "Sys (%)"
+
+#: examples/smp.c:99
+msgid "Idle (%)"
+msgstr "Diomhaoin (%)"
+
+#: examples/smp.c:101
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 msgstr ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
 
-#: examples/smp.c:114
+#: examples/smp.c:117
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr ""
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:123
 msgid "Spin:"
-msgstr ""
+msgstr "Sníomh:"
 
 #: lib/read.c:75
 #, c-format
@@ -111,39 +113,39 @@ msgstr ""
 msgid "write %d bytes"
 msgstr ""
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
 msgstr ""
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
 msgstr ""
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
 msgstr ""
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr ""
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
 msgstr ""
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr ""
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr ""
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr ""
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -211,6 +213,14 @@ msgstr ""
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr ""
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr ""
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
 msgstr ""
 
 #: sysdeps/names/cpu.c:43
@@ -1330,69 +1340,3 @@ msgstr ""
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr ""
-
-#, fuzzy
-#~ msgid "RUID"
-#~ msgstr "UID"
-
-#, fuzzy
-#~ msgid "RGID"
-#~ msgstr "GID"
-
-#, fuzzy
-#~ msgid "Processor"
-#~ msgstr "ID Próiseas"
-
-# NOTE:
-# Don't try translating the following; instead translate their
-# popup hints that explain them.
-#, fuzzy
-#~ msgid "XCPU_Flags"
-#~ msgstr "K_Flags"
-
-#, fuzzy
-#~ msgid "SUid"
-#~ msgstr "Uid"
-
-#, fuzzy
-#~ msgid "SGid"
-#~ msgstr "Gid"
-
-#, fuzzy
-#~ msgid "FsUid"
-#~ msgstr "FsUid"
-
-#, fuzzy
-#~ msgid "FsGid"
-#~ msgstr "FsGid"
-
-#, fuzzy
-#~ msgid "NGroups"
-#~ msgstr "ID Grupa"
-
-#, fuzzy
-#~ msgid "Groups"
-#~ msgstr "ID Grupa"
-
-#, fuzzy
-#~ msgid "Saved User ID"
-#~ msgstr "ID Úsáideoir Sábháid"
-
-#, fuzzy
-#~ msgid "Saved Group ID"
-#~ msgstr "ID Grupa Sábháid"
-
-#, fuzzy
-#~ msgid "Filesystem User ID"
-#~ msgstr "ID Úsáideoir Coráschomad"
-
-#, fuzzy
-#~ msgid "Filesystem Group ID"
-#~ msgstr "ID Grupa Coráschomad"
-
-#, fuzzy
-#~ msgid "Unknown error"
-#~ msgstr "éarraid coráis anathnid"
-
-#~ msgid "Invalid argument"
-#~ msgstr "Droch Argoint"
