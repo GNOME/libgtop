@@ -1,3 +1,8 @@
+2004-06-13  Benoît Dejean  <tazforever@dlfp.org>
+
+	* include/glibtop/sysinfo.h: Changed get_sysinfo prototype so that it
+	returns a const pointer. Added missing macro.
+
 2004-06-12  Benoît Dejean  <tazforever@dlfp.org>
 
 	* include/glibtop/fsusage.h: block_size is now defined as a guint32

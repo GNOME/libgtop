@@ -32,9 +32,10 @@
 
 G_BEGIN_DECLS
 
-#define GLIBTOP_SYSINFO_CPUINFO		0
+#define GLIBTOP_SYSINFO_NCPU		0
+#define GLIBTOP_SYSINFO_CPUINFO		1
 
-#define GLIBTOP_MAX_SYSINFO		1
+#define GLIBTOP_MAX_SYSINFO		2
 
 typedef struct _glibtop_sysinfo	glibtop_sysinfo;
 
@@ -42,22 +43,22 @@ typedef struct _glibtop_entry	glibtop_entry;
 
 struct _glibtop_entry
 {
-	GPtrArray	*labels;
-	GHashTable	*values;
-	GHashTable	*descriptions;
+	GPtrArray	*labels; /* unused */
+	GHashTable	*values; /* key -> description */
+	GHashTable	*descriptions; /* unused */
 };
 
 struct _glibtop_sysinfo
 {
 	guint64	flags, ncpu;
-	glibtop_entry	cpuinfo [GLIBTOP_NCPU];
+	glibtop_entry cpuinfo [GLIBTOP_NCPU];
 };
 
 #define glibtop_get_sysinfo()	glibtop_get_sysinfo_s(glibtop_global_server)
 
 #define glibtop_get_sysinfo_r	glibtop_get_sysinfo_s
 
-glibtop_sysinfo *glibtop_get_sysinfo_s (glibtop *server);
+const glibtop_sysinfo *glibtop_get_sysinfo_s (glibtop *server);
 
 G_END_DECLS
 
