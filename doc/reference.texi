@@ -1,4 +1,4 @@
-@node Reference Manual, , About, Top
+@node Reference Manual, , White Paper, Top
 @chapter LibGTop Reference Manual
 
 @menu

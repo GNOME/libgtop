@@ -5,3 +5,5 @@ Makefile
 *.log *.toc *.dvi *.aux *.cp *.fn *.vr *.tp *.ky *.pg
 *.ps
 auto-macros.texi
+version.texi
+stamp-vti

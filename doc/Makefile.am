@@ -1,7 +1,7 @@
 info_TEXINFOS		= libgtop.texi
 
 libgtop_TEXINFOS	= libgtop.texi about.texi reference.texi \
-			  auto-macros.texi
+			  auto-macros.texi version.texi
 
 EXTRA_DIST		= auto-macros.texi.in
 
