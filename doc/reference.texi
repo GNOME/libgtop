@@ -7,6 +7,7 @@
 * glibtop_swap::                Swap Usage.
 * glibtop_uptime::              System Uptime.
 * glibtop_loadavg::             Load Average.
+* glibtop_proclist::            Process List.
 @end menu
 
 @node glibtop_cpu, glibtop_mem, Reference Manual, Reference Manual
@@ -270,7 +271,7 @@ Time of last system boot in seconds since the epoch.
 @end table
 
 @page
-@node glibtop_loadavg,  , glibtop_uptime, Reference Manual
+@node glibtop_loadavg, glibtop_proclist, glibtop_uptime, Reference Manual
 @section Load Average
 
 Library function @code{glibtop_get_loadavg}:
@@ -321,4 +322,120 @@ Total number of tasks.
 Last PID.
 @end table
 
+@page
+@node glibtop_proclist,  , glibtop_loadavg, Reference Manual
+@section Process List
 
+Library function @code{glibtop_get_proclist}:
+
+@example
+@cartouche
+unsigned *
+glibtop_get_proclist (glibtop_proclist *buf,
+                      int64_t which, int64_t arg);
+
+unsigned *
+glibtop_get_proclist_l (glibtop *server, glibtop_proclist *buf,
+                        int64_t which, int64_t arg);
+@end cartouche
+@end example
+
+Constants for the @code{which} argument:
+
+@example
+@cartouche
+#define GLIBTOP_KERN_PROC_ALL           0
+#define GLIBTOP_KERN_PROC_PID           1
+#define GLIBTOP_KERN_PROC_PGRP          2
+#define GLIBTOP_KERN_PROC_SESSION       3
+#define GLIBTOP_KERN_PROC_TTY           4
+#define GLIBTOP_KERN_PROC_UID           5
+#define GLIBTOP_KERN_PROC_RUID          6
+
+#define GLIBTOP_KERN_PROC_MASK          15
+
+#define GLIBTOP_EXCLUDE_IDLE            0x1000
+#define GLIBTOP_EXCLUDE_SYSTEM          0x2000
+#define GLIBTOP_EXCLUDE_NOTTY           0x4000
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proclist} in @file{<glibtop/proclist.h}:
+
+@example
+@cartouche
+typedef struct _glibtop_proclist        glibtop_proclist;
+
+struct _glibtop_proclist
+@{
+    u_int64_t   flags,
+        number,
+        total,
+        size;
+@};
+@end cartouche
+@end example
+
+This function returns a list of all or a selected subset of all running
+processes. You can use the @code{which} and @code{arg} arguments to
+specify which processes should be returned.
+
+You can use the following values for the @code{which} argument:
+
+@table @code
+@item GLIBTOP_KERN_PROC_ALL
+Return information about all processes (the @code{arg} argument is ignored).
+
+@item GLIBTOP_KERN_PROC_PID
+Return information about all process with the pid @var{PID} which is passed
+in @code{arg}. You can use this to find out whether some process still exists.
+
+@item GLIBTOP_KERN_PROC_PGRP
+Return all processes in process group @var{PGRP} which is passed in
+@code{arg}.
+
+@item GLIBTOP_KERN_PROC_SESSION
+Return all processes in session @var{SESSION} which is passed in @code{arg}.
+
+@item GLIBTOP_KERN_PROC_TTY
+Return all processes which have the controlling tty @var{TTY} which is passed
+in @code{arg} (@var{TTY} is interpreted as device number).
+
+@item GLIBTOP_KERN_PROC_UID
+Return all processes with effective uid @var{UID} which is passed in @code{arg}.
+
+@item GLIBTOP_KERN_PROC_RUID
+Return all processes with real uid @var{RUID} which is passed in @code{arg}.
+
+@end table
+
+You can alter the list of returned processes by using a binary OR of
+@code{which} and the following constants:
+
+@table @code
+@item GLIBTOP_EXCLUDE_IDLE
+Exclude idle processes.
+@item GLIBTOP_EXCLUDE_SYSTEM
+Exclude system processes.
+@item GLIBTOP_EXCLUDE_NOTTY
+Exclude processes without a controlling terminal.
+@end table
+
+The return value of @code{glibtop_get_proclist} is either @code{NULL} on
+error or a @code{unsigned *} list of pids. Additionally, the following fields
+of @code{glibtop_proclist} are set:
+
+@table @code
+@item number
+Number of entries in the returned list.
+
+@item total
+Total size of the returned list (this equals @code{number * size}).
+
+@item size
+Size of a single entry in the returned list
+(this equals @code{sizeof (unsigned)}).
+@end table
+
+The returned list is allocated using @code{glibtop_malloc} and must be freed
+using @code{glibtop_free} to avoid a memory leak.
