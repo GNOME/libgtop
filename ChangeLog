@@ -1,3 +1,8 @@
+2004-07-03  Benoît Dejean  <tazforever@dlfp.org>
+
+	* glibtop.h: Moved foward declaration of glibtop to break circular
+	#includes dependencies.
+
 2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
 
 	* include/glibtop/error.h: Also tries C99 __VA_ARGS__ before using
