@@ -4,7 +4,9 @@ endif
 
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-INCLUDES			= @GTOP_INCS@
+INCLUDES			= -I$(includedir) -I$(top_builddir) -I$(top_srcdir) @machine_incs@ \
+				  -I$(top_srcdir)/include -I$(top_srcdir)/intl @GUILE_INCS@ \
+				  -DGTOPLOCALEDIR=\"$(datadir)/locale\" -D_GNU_SOURCE
 
 CFLAGS				= -Wall -W @CFLAGS@
 
