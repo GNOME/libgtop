@@ -6,7 +6,7 @@ INCLUDES		= @INCLUDES@
 
 DEFS			= @DEFS@
 
-noinst_PROGRAMS	= 	first second\
+noinst_PROGRAMS	= 	first second pprint procargs \
 			  mountlist procmap netload sysdeps timings \
 			  @static_targets@ @smp_examples@
 
@@ -14,7 +14,7 @@ EXTRA_PROGRAMS		= first_static second_static \
 			  mountlist_static procmap_static \
 			  third third_static smp smp_static \
 			  netload_static sysdeps_static \
-			  timings_static
+			  timings_static pprint_static procargs_static
 
 first_SOURCES		= first.c
 first_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
@@ -83,4 +83,20 @@ timings_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
 timings_static_SOURCES	= $(timings_SOURCES)
 timings_static_LDADD	= $(timings_LDADD)
 timings_static_LDFLAGS	= -static
+
+
+pprint_SOURCES	        = pprint.c
+pprint_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
+
+pprint_static_SOURCES   = $(pprint_SOURCES)
+pprint_static_LDADD	= $(pprint_LDADD)
+pprint_static_LDFLAGS   = -static
+
+
+procargs_SOURCES	  = procargs.c
+procargs_LDADD		  = $(top_builddir)/lib/libgtop-2.0.la
+
+procargs_static_SOURCES   = $(procargs_SOURCES)
+procargs_static_LDADD	  = $(procargs_LDADD)
+procargs_static_LDFLAGS   = -static
 
