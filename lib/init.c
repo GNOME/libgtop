@@ -214,13 +214,13 @@ glibtop_init_s (glibtop **server_ptr, const unsigned long features,
 
 	/* Do the initialization, but only if not already initialized. */
 
-	if ((server->flags & _GLIBTOP_INIT_STATE_INIT) == 0) {
+	if ((server->flags & _GLIBTOP_INIT_STATE_SYSDEPS) == 0) {
 		glibtop_open_s (server, "glibtop", features, flags);
 
 		for (init_fkt = _glibtop_init_hook_s; *init_fkt; init_fkt++)
 			(*init_fkt) (server);
 		
-		server->flags |= _GLIBTOP_INIT_STATE_INIT;
+		server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;
 	}
 
 	return server;
