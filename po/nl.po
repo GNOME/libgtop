@@ -5,7 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop CVS\n"
-"POT-Creation-Date: 2002-10-29 05:10+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-06-21 12:58+0200\n"
 "PO-Revision-Date: 2002-10-29 13:14+0100\n"
 "Last-Translator: Jeroen van der Vegt <A.J.vanderVegt@ITS.TUDelft.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -13,83 +14,80 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: examples/smp.c:68
+#: examples/smp.c:71
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "Ticks (%ld per seconde):"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Total"
 msgstr "Totaal"
 
-#: examples/smp.c:71 sysdeps/names/mem.c:47
+#: examples/smp.c:74 sysdeps/names/mem.c:47
 msgid "User"
 msgstr "Gebruiker"
 
-#: examples/smp.c:71 sysdeps/names/procuid.c:58
+#: examples/smp.c:74 sysdeps/names/procuid.c:58
 msgid "Nice"
 msgstr "'Nice'"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Sys"
 msgstr "Sys"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Idle"
 msgstr "Rust"
 
-#: examples/smp.c:73
+#: examples/smp.c:76
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
-msgstr ""
-"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+msgstr "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 
-#: examples/smp.c:77
+#: examples/smp.c:80
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:94
+#: examples/smp.c:97
 msgid "Percent:"
 msgstr "Percentage:"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Total (%)"
 msgstr "Totaal (%)"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "User (%)"
 msgstr "Gebruiker (%)"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Nice (%)"
 msgstr "'Nice' (%)"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Sys (%)"
 msgstr "Sys (%)"
 
-#: examples/smp.c:96
+#: examples/smp.c:99
 msgid "Idle (%)"
 msgstr "Rust (%)"
 
-#: examples/smp.c:98
+#: examples/smp.c:101
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
-msgstr ""
-"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:114
+#: examples/smp.c:117
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr ""
-"CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:123
 msgid "Spin:"
 msgstr "Draaiing:"
 
@@ -112,39 +110,39 @@ msgstr "lees %d bytes"
 msgid "write %d bytes"
 msgstr "schrijf %d bytes"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
 msgstr "Schakel debuggen in"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
 msgstr "Schakel overvloedige uitvoer in"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
 msgstr "Splits niet naar de achtergrond"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr "NO-DEAMON"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr "Aangeroepen vanuit inetd"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -337,8 +335,7 @@ msgid "Last PID"
 msgstr "Laatste PID"
 
 #: sysdeps/names/loadavg.c:47
-msgid ""
-"Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
 msgstr "Aantal simultaan lopende processen tijdens 1, 5 en 15 minuten"
 
 #: sysdeps/names/loadavg.c:48
@@ -596,8 +593,8 @@ msgstr ""
 "In Linux heeft op dit moment elke vlag de 'math bit' aan staan, omdat crt0.s "
 "op 'math-emulation' controleert. Dus dit komt niet in de uitvoer.\n"
 "\n"
-"Dit is waarschijnlijk een bug, omdat niet elk proces een gecompileerd "
-"C-programm is.\n"
+"Dit is waarschijnlijk een bug, omdat niet elk proces een gecompileerd C-"
+"programm is.\n"
 "\n"
 "De 'math-bit' zou decimaal 4 moeten zijn, en de gevolgde bit is decimaal 10."
 
@@ -607,8 +604,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Het aantal foutjes dat het programma heeft gemaakt (waarvoor geen "
-"geheugen-pagina van de schijf hoefde te worden gehaald)."
+"Het aantal foutjes dat het programma heeft gemaakt (waarvoor geen geheugen-"
+"pagina van de schijf hoefde te worden gehaald)."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -616,26 +613,24 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Het aantal fouten dat het proces heeft gemaakt (waarvoor wel een "
-"geheugen-pagina van de schijf moest worden gehaald)."
+"Het aantal fouten dat het proces heeft gemaakt (waarvoor wel een geheugen-"
+"pagina van de schijf moest worden gehaald)."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
-msgid ""
-"The number of minor faults that the process and its children have made."
+msgid "The number of minor faults that the process and its children have made."
 msgstr "Het aantal foutjes dat het proces en zijn kinderen hebben gemaakt."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:68
-msgid ""
-"The number of major faults that the process and its children have made."
+msgid "The number of major faults that the process and its children have made."
 msgstr "Het aantal fouten dat het proces en zijn kinderen hebben gemaakt."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:71
 msgid ""
-"The current value of esp (32-bit stack pointer), as found in the kernel stack "
-"page for the process."
+"The current value of esp (32-bit stack pointer), as found in the kernel "
+"stack page for the process."
 msgstr ""
 "De huidige waarde van 'esp' (32-bit stack pointer), zoals gevonden in de "
 "kernel stack-page van het proces."
@@ -648,10 +643,10 @@ msgstr "De huidige EIP (32-bit instruction pointer)."
 #. NWChan
 #: sysdeps/names/prockernel.c:76
 msgid ""
-"This is the \"channel\" in which the process is waiting.  This is the address "
-"of a system call, and can be looked up in a namelist if you need a textual "
-"name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to see the "
-"WCHAN field in action)"
+"This is the \"channel\" in which the process is waiting.  This is the "
+"address of a system call, and can be looked up in a namelist if you need a "
+"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
+"see the WCHAN field in action)"
 msgstr ""
 "Dit is de 'rij' waarin het proces wacht. Het is het adres van een 'system "
 "call', die opgezocht kan worden in de 'namelist' als je een echte naam nodig "
@@ -708,8 +703,8 @@ msgid ""
 msgstr ""
 "Het aantal pagina's dat het proces in het echte geheugen heeft, min 3 for "
 "administratieve doeleinden. Dit zijn slechts pagina's die naar text, data of "
-"stack tellen. Het is exclusief de pagina's die niet op aanvraag zijn geladen, "
-"en die geswapped zijn."
+"stack tellen. Het is exclusief de pagina's die niet op aanvraag zijn "
+"geladen, en die geswapped zijn."
 
 #: sysdeps/names/procmem.c:62
 msgid ""
@@ -1115,8 +1110,7 @@ msgid "Total number of swap pages that have been brought in since system boot"
 msgstr "Totaal aantal swap-pagina's dat sinds de systeem-start is ingebracht"
 
 #: sysdeps/names/swap.c:53
-msgid ""
-"Total number of swap pages that have been brought out since system boot"
+msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
 "Totaal aantal swap-pagina's dat sinds de systeem-start naar buiten is "
 "ingebracht"
@@ -1247,7 +1241,7 @@ msgstr "Interrupt"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
-msgstr "Einde"
+msgstr "Afsluiten"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
@@ -1303,7 +1297,7 @@ msgstr "Dringende situatie bij de socket"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
-msgstr "Stop"
+msgstr "Stoppen"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
@@ -1360,135 +1354,3 @@ msgstr "Gebruiker gedefinieerd signaal 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Gebruiker gedefinieerd signaal 2"
-
-#~ msgid "SMP CPU Flags"
-#~ msgstr "SMP CPU vlaggen"
-
-#~ msgid "Start_Data"
-#~ msgstr "Start_Data"
-
-#~ msgid "End_Data"
-#~ msgstr "End_Data"
-
-#~ msgid "Start_Brk"
-#~ msgstr "Start_Brk"
-
-#~ msgid "Brk"
-#~ msgstr "Brk"
-
-#~ msgid "Start_MMap"
-#~ msgstr "Start_MMAP"
-
-#~ msgid "Arg_Start"
-#~ msgstr "Arg_Start"
-
-#~ msgid "Arg_End"
-#~ msgstr "Arg_End"
-
-#~ msgid "Env_Start"
-#~ msgstr "Env_Start"
-
-#~ msgid "Env_End"
-#~ msgstr "Env_End"
-
-#~ msgid "Address of beginning of data segment"
-#~ msgstr "Adres van het begin van het stuk data"
-
-#~ msgid "Address of end of data segment"
-#~ msgstr "Adres van het eind van het stuk data"
-
-#~ msgid "Brk_Start"
-#~ msgstr "Brk_Start"
-
-#~ msgid "Brk_End"
-#~ msgstr "Brk_End"
-
-#~ msgid "Start of mmap()ed areas"
-#~ msgstr "Begin van de ge-mmap()-de gebieden."
-
-#~ msgid "RUID"
-#~ msgstr "RUID"
-
-#~ msgid "RGID"
-#~ msgstr "RGID"
-
-#~ msgid "Has CPU"
-#~ msgstr "Heeft CPU"
-
-#~ msgid "Processor"
-#~ msgstr "Processor"
-
-#~ msgid "Last Processor"
-#~ msgstr "Last Processor"
-
-#~ msgid "effective UID of process"
-#~ msgstr "UID van het proces"
-
-#~ msgid "effective GID of process"
-#~ msgstr "GID van het proces"
-
-#~ msgid "has_cpu"
-#~ msgstr "has_cpu"
-
-#~ msgid "processor"
-#~ msgstr "processor"
-
-#~ msgid "last_processor"
-#~ msgstr "last_processor"
-
-#~ msgid "XCPU_Flags"
-#~ msgstr "XCPU_Flags"
-
-#~ msgid "SUid"
-#~ msgstr "SUid"
-
-#~ msgid "SGid"
-#~ msgstr "SGid"
-
-#~ msgid "FsUid"
-#~ msgstr "FsUid"
-
-#~ msgid "FsGid"
-#~ msgstr "FsGid"
-
-#~ msgid "NGroups"
-#~ msgstr "NGroups"
-
-#~ msgid "Groups"
-#~ msgstr "Groepen"
-
-#~ msgid "Saved User ID"
-#~ msgstr "Opgeslagen gebruikers ID"
-
-#~ msgid "Saved Group ID"
-#~ msgstr "Opgeslagen groep ID"
-
-#~ msgid "Filesystem User ID"
-#~ msgstr "Bestandssysteem gebruikers ID"
-
-#~ msgid "Filesystem Group ID"
-#~ msgstr "Bestandssysteem Groep ID"
-
-#~ msgid "Number of additional process groups"
-#~ msgstr "Aantal extra proces groepen."
-
-#~ msgid "Additional process groups"
-#~ msgstr "Extra proces groepen."
-
-#~ msgid "Pointer Size"
-#~ msgstr "Pointer grootte"
-
-#~ msgid "Process CWD"
-#~ msgstr "Proces CWD"
-
-#~ msgid "Pointer Size on the Server (in bits)"
-#~ msgstr "Pointer grootte op de server (in bits)"
-
-#~ msgid "Current working directory of the process"
-#~ msgstr "Werk directory van het proces"
-
-#~ msgid "Boot time"
-#~ msgstr "Opstarttijd"
-
-#~ msgid "Boot time (seconds sice epoch)"
-#~ msgstr "Tijd in seconden dat het systeem aan staat"
