@@ -1,3 +1,8 @@
+2000-02-20  Martin Baulig  <martin@home-of-linux.org>
+
+	* LIBGTOP-VERSION: Set version number to 1.0.8 binary age 7,
+	interface age 7.
+
 2000-02-15  Martin Baulig  <martin@home-of-linux.org>
 
 	Released LibGTop 1.0.7 "Copenhagen".
