@@ -154,7 +154,23 @@
 		    Is the default.
 		    
 	    </variablelist>
-	    
+
+	<listitem>
+
+	  <para>
+	    To disable building of the examples, you can say:
+
+	    <variablelist>
+	      
+	      <varlistentry>
+		<term><parameter>--without-examples</parameter>
+		  
+		<listitem>
+		  <para>
+		    Disables building of the examples.
+		    
+	    </variablelist>
+
       </itemizedlist>
     
   <chapter id="gtopConf">
@@ -258,6 +274,39 @@
 	      a structure <structname>_glibtop_machine</structname> in this header file.
 	      This structure represents the <structfield>machine</structfield> member of
 	      <structname>_glibtop</structname>.
+
+	<varlistentry>
+	  <term><parameter>GTOP_GUILE_FOUND</parameter></term>
+	  
+	  <listitem>
+	    <para>
+	      Is either <literal>yes</literal> or <literal>no</literal> and tells you
+	      whether <productname>guile</productname> has been found on your system
+	      (or if building the guile interface was disabled).
+
+	<varlistentry>
+	  <term><parameter>GTOP_WANT_NAMES</parameter></term>
+	  
+	  <listitem>
+	    <para>
+	      Is either <literal>yes</literal> or <literal>no</literal> and tells you
+	      whether the <filename>sysdeps/names</filename> subdirectory was build.
+
+	<varlistentry>
+	  <term><parameter>GTOP_WANT_GUILE_NAMES</parameter></term>
+	  
+	  <listitem>
+	    <para>
+	      Is either <literal>yes</literal> or <literal>no</literal> and tells you
+	      whether the <filename>sysdeps/guile/names</filename> subdirectory was build.
+
+	<varlistentry>
+	  <term><parameter>GTOP_WANT_EXAMPLES</parameter></term>
+	  
+	  <listitem>
+	    <para>
+	      Is either <literal>yes</literal> or <literal>no</literal> and tells you
+	      whether the examples were build.
 
       </variablelist>
 
