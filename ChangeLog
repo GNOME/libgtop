@@ -1,3 +1,7 @@
+2003-08-24  Kevin Vandersloot
+
+	* configure.in: release 2.0.4
+
 2003-08-13  Guntupalli Karunakar  <karunakar@freedomink.org>
 
 	* configure.in: Added "hi" (Hindi) in ALL_LINGUAS.
