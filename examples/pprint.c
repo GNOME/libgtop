@@ -180,6 +180,24 @@ static void pprint_get_netload(const char *iface)
 
 
 
+static void pprint_get_swap()
+{
+  glibtop_swap buf;
+
+  glibtop_get_swap(&buf);
+
+  HEADER_PPRINT(glibtop_get_swap);
+  PPRINT(flags, "%#llx");
+  PPRINT(total, "%llu");
+  PPRINT(used, "%llu");
+  PPRINT(free, "%llu");
+  PPRINT(pagein, "%llu");
+  PPRINT(pageout, "%llu");
+  FOOTER_PPRINT();
+}
+
+
+
 static void pprint_get_uptime()
 {
   glibtop_uptime buf;
@@ -211,10 +229,12 @@ int main()
 
   pprint_get_msg_limits();
 
-  pprint_get_netload("lo");
+/*   pprint_get_netload("lo"); */
 
 
+  pprint_get_swap();
 
+/* pprint_get_sysinfo(); */
 
   pprint_get_uptime();
 
