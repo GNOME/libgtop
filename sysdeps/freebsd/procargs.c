@@ -85,7 +85,7 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_array *array, pid_t pid)
 	return NULL;
     }
 
-    args = kvm_getargv (server->_priv->machine.kd, pinfo, PAGE_SIZE);
+    args = kvm_getargv (server->_priv->machine.kd, pinfo, BUFSIZ);
     if (args == NULL) {
 	glibtop_suid_leave (server);
 	glibtop_warn_io_r (server, "kvm_getargv (%d)", pid);
