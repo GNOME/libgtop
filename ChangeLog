@@ -1,3 +1,7 @@
+1999-12-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* features.def: Use `string' instead of `str' as type name.
+
 1999-12-05  Martin Baulig  <martin@home-of-linux.org>
 
 	Moved all Guile code to the libgtop-bindings module.
