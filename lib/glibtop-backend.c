@@ -86,12 +86,14 @@ glibtop_backend_class_init (glibtop_backend_class *class)
 }
 
 static void
-glibtop_backend_init (glibtop_backend *glibtop)
+glibtop_backend_init (glibtop_backend *backend)
 {
     glibtop_backend_private *priv;
 
+    g_message (G_STRLOC ": %p", backend);
+
     priv = g_new0 (glibtop_backend_private, 1);
-    glibtop->_priv = priv;
+    backend->_priv = priv;
 }
 
 static void
@@ -102,6 +104,8 @@ glibtop_backend_finalize (GObject *object)
   
     glibtop = GLIBTOP_BACKEND (object);
     priv = glibtop->_priv;
+
+    g_message (G_STRLOC);
   
     g_free (priv);
   
@@ -145,8 +149,8 @@ load_extra_libs (glibtop_backend_entry *entry, GError **error)
 }
 
 glibtop_backend *
-glibtop_backend_open (const char *backend_name, u_int64_t features,
-		      const char **backend_args, GError **error)
+glibtop_backend_get (const char *backend_name, u_int64_t features,
+		     const char **backend_args, GError **error)
 {
     const glibtop_backend_info *info;
     glibtop_backend_entry *entry;
@@ -212,6 +216,8 @@ glibtop_backend_open (const char *backend_name, u_int64_t features,
 
     backend->_priv->server = glibtop_server_new ();
 
+    g_message (G_STRLOC ": %p - %p - %p", backend, backend->_priv, info);
+
     if (info->open) {
 	int retval;
 
@@ -236,7 +242,21 @@ glibtop_backend_get_call_vector (glibtop_backend *backend)
 {
     g_return_val_if_fail (GLIBTOP_IS_BACKEND (backend), NULL);
 
+    g_message (G_STRLOC ": %p - %p - %p", backend, backend->_priv,
+	       backend->_priv->info);
+
     g_assert (backend->_priv->info != NULL);
 
     return backend->_priv->info->call_vector;
 }
+
+glibtop_server *
+glibtop_backend_get_server (glibtop_backend *backend)
+{
+    g_return_val_if_fail (GLIBTOP_IS_BACKEND (backend), NULL);
+
+    glibtop_server_ref (backend->_priv->server);
+
+    return backend->_priv->server;
+}
+

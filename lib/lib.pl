@@ -31,32 +31,38 @@ print '';
 print '#include <glibtop/sysdeps.h>';
 print '#include <glibtop/union.h>';
 print '';
-print '#include <glibtop/backend.h>';
+print '#include <glibtop/glibtop-client.h>';
+print '';
+print '#include <glibtop/call-vector.h>';
+print '#include <glibtop-client-private.h>';
 
 print '';
 print '/* Some required fields are missing. */';
 print '';
 
+print '#if 0';
+print '';
+
 print 'static void';
-print '_glibtop_missing_feature (glibtop *server, const char *feature,';
+print '_glibtop_missing_feature (glibtop_client *client, const char *feature,';
 print "\t\t\t  const u_int64_t present, u_int64_t *required)";
 print '{';
 print "\tu_int64_t old_required = *required;\n";
 print "\t/* Return if we have all required fields. */";
 print "\tif ((~present & old_required) == 0)";
 print "\t\treturn;\n";
-print "\tswitch (server->_param.error_method) {";
+print "\tswitch (client->_param.error_method) {";
 print "\tcase GLIBTOP_ERROR_METHOD_WARN_ONCE:";
 print "\t\t*required &= present;";
 print "\tcase GLIBTOP_ERROR_METHOD_WARN:";
-print "\t\tglibtop_warn_r (server,";
+print "\t\tglibtop_warn_r (client,";
 print "\t\t\t\t\"glibtop_get_%s (): Client requested \"";
 print "\t\t\t\t\"field mask %05lx, but only have %05lx.\",";
 print "\t\t\t\t feature, (unsigned long) old_required,";
 print "\t\t\t\t (unsigned long) present);";
 print "\t\tbreak;";
 print "\tcase GLIBTOP_ERROR_METHOD_ABORT:";
-print "\t\tglibtop_error_r (server,";
+print "\t\tglibtop_error_r (client,";
 print "\t\t\t\t\"glibtop_get_%s (): Client requested \"";
 print "\t\t\t\t\"field mask %05lx, but only have %05lx.\",";
 print "\t\t\t\t feature, (unsigned long) old_required,";
@@ -64,6 +70,9 @@ print "\t\t\t\t (unsigned long) present);";
 print "\t\tbreak;";
 print "\t}";
 print '}';
+
+print '';
+print '#endif';
 
 print '';
 print '/* Library functions. */';
@@ -151,14 +160,14 @@ sub output {
       }
     }
 
-    $local_var_code = sprintf ("\tGSList *list;\n\tint done = 0;\n");
+    $local_var_code = "\tGSList *list;\n\tint done = 0;\n\tGError *error = NULL;\n\n";
     if ($retval !~ /^void$/) {
       $local_var_code .= sprintf ("\t%s retval = (%s) 0;\n",
 				  $retval, $retval);
     }
 
     $sysdeps_code = sprintf
-      ("\tif (!server->_priv) {\n\t\tserver->glibtop_errno = GLIBTOP_ERROR_NO_BACKEND_OPENED;\n");
+      ("\tif (client->_priv->backend_list == NULL) {\n\t\tg_set_error (&error, GLIBTOP_ERROR, GLIBTOP_ERROR_NO_BACKEND_OPENED, G_STRLOC);\n");
     if ($line_fields[1] eq 'retval') {
       $sysdeps_code .= sprintf
 	("\t\treturn -GLIBTOP_ERROR_NO_BACKEND_OPENED;\n");
@@ -170,31 +179,31 @@ sub output {
       ("\t}\n\n");
 
     $sysdeps_code .= sprintf
-      ("\tfor (list = server->_priv->backend_list;\n\t     list; list = list->next) {\n\t\tglibtop_backend *backend = list->data;\n\n\t\tif (!backend->info || !backend->info->call_vector)\n\t\t\tcontinue;\n\n\t\tif (backend->info->call_vector->%s) {\n", $feature);
+      ("\tfor (list = client->_priv->backend_list; list; list = list->next) {\n\t\tglibtop_backend *backend = list->data;\n\t\tglibtop_call_vector *call_vector;\n\n\t\tcall_vector = glibtop_backend_get_call_vector (backend);\n\n\t\tif (call_vector && call_vector->%s) {\n\t\t\tglibtop_server *server = glibtop_backend_get_server (backend);\n\n", $feature);
 
     if ($line_fields[3] eq '') {
       $sysdeps_code .= sprintf
-	("\t\t\tretval = backend->info->call_vector->%s (server, backend%s);\n",
+	("\t\t\tretval = call_vector->%s (server, backend%s);\n",
 	 $feature, $call_param);
     } elsif ($line_fields[3] eq 'array') {
       $sysdeps_code .= sprintf
-	("\t\t\tretval = backend->info->call_vector->%s (server, backend, array%s);\n",
+	("\t\t\tretval = call_vector->%s (server, backend, array%s);\n",
 	 $feature, $call_param);
     } elsif ($line_fields[3] =~ /^array/) {
       $sysdeps_code .= sprintf
-	("\t\t\tretval = backend->info->call_vector->%s (server, backend, array, buf%s);\n",
+	("\t\t\tretval = call_vector->%s (server, backend, array, buf%s);\n",
 	 $feature, $call_param);
     } else {
       $sysdeps_code .= sprintf
-	("\t\t\tretval = backend->info->call_vector->%s (server, backend, buf%s);\n",
+	("\t\t\tretval = call_vector->%s (server, backend, buf%s);\n",
 	 $feature, $call_param);
     }
 
     $sysdeps_code .= sprintf
-      ("\t\t\tdone = 1;\n\t\t\tbreak;\n\t\t}\n\t}\n");
+      ("\t\t\tdone = 1;\n\t\t\tglibtop_server_unref (server);\n\t\t\t\tbreak;\n\t\t}\n\t}\n");
 
     $sysdeps_code .= sprintf
-      ("\n\tif (!done) {\n\t\tserver->glibtop_errno = GLIBTOP_ERROR_NOT_IMPLEMENTED;\n");
+      ("\n\tif (!done) {\n\t\tg_set_error (&error, GLIBTOP_ERROR, GLIBTOP_ERROR_NOT_IMPLEMENTED, G_STRLOC);\n");
     if ($line_fields[1] eq 'retval') {
       $sysdeps_code .= sprintf
 	("\t\treturn -GLIBTOP_ERROR_NOT_IMPLEMENTED;\n");
@@ -207,24 +216,25 @@ sub output {
 
     if ($line_fields[1] eq 'retval') {
       $sysdeps_code .= "\tif (retval < 0) {\n";
-      $sysdeps_code .= "\t\tserver->glibtop_errno = -retval;\n";
+      $sysdeps_code .= "\t\tg_set_error (&error, GLIBTOP_ERROR, -retval, G_STRLOC);\n";
       $sysdeps_code .= "\t\tgoto do_return;\n";
-      $sysdeps_code .= "\t} else {\n\t\tserver->glibtop_errno = 0;\n\t}\n\n";
+      $sysdeps_code .= "\t}\n\n";
     }
       
     $sysdeps_code .= "\tgoto check_missing;\n";
 
-    $init_code = sprintf ("\tglibtop_init_r (&server, (1 << %s), 0);\n\n",
-			  "GLIBTOP_SYSDEPS_".&toupper($feature));
+#    $init_code = sprintf ("\tglibtop_init_r (&client, (1 << %s), 0);\n\n",
+#			  "GLIBTOP_SYSDEPS_".&toupper($feature));
+    $init_code = '';
 
     $total_code = sprintf ("%s%s\n", $init_code, $sysdeps_code);
 
     $check_code = "check_missing:\n";
     $check_code .= "\t/* Make sure that all required fields are present. */\n";
     if (!(($line_fields[3] eq '') or ($line_fields[3] eq 'array'))) {
-      $check_code .= "\tif (buf->flags & server->info->required." . $feature . ")\n";
-      $check_code .= "\t\t_glibtop_missing_feature (server, \"" . $feature .
-	"\", buf->flags,\n\t\t\t\t\t  &server->info->required." . $feature . ");\n";
+#      $check_code .= "\tif (buf->flags & client->info->required." . $feature . ")\n";
+#      $check_code .= "\t\t_glibtop_missing_feature (client, \"" . $feature .
+	"\", buf->flags,\n\t\t\t\t\t  &client->info->required." . $feature . ");\n";
     }
 
     $total_code .= $check_code."\tgoto do_return;\n\n";
@@ -240,16 +250,16 @@ sub output {
 
     $func_decl = $retval."\n";
     if ($line_fields[3] eq '') {
-      $func_decl .= sprintf ("glibtop_get_%s_l (glibtop *server%s)\n",
+      $func_decl .= sprintf ("glibtop_get_%s_l (glibtop_client *client%s)\n",
 			     $feature, $param_decl);
     } elsif ($line_fields[3] eq 'array') {
-      $func_decl .= sprintf ("glibtop_get_%s_l (glibtop *server, glibtop_array *array%s)\n",
+      $func_decl .= sprintf ("glibtop_get_%s_l (glibtop_client *client, glibtop_array *array%s)\n",
 			     $feature, $param_decl);
     } elsif ($line_fields[3] =~ /^array/) {
-      $func_decl .= sprintf ("glibtop_get_%s_l (glibtop *server, glibtop_array *array, %s *buf%s)\n",
+      $func_decl .= sprintf ("glibtop_get_%s_l (glibtop_client *client, glibtop_array *array, %s *buf%s)\n",
 			     $feature, 'glibtop_'.$feature, $param_decl);
     } else {
-      $func_decl .= sprintf ("glibtop_get_%s_l (glibtop *server, %s *buf%s)\n",
+      $func_decl .= sprintf ("glibtop_get_%s_l (glibtop_client *client, %s *buf%s)\n",
 			     $feature, 'glibtop_'.$feature, $param_decl);
     }
 

@@ -262,8 +262,8 @@ glibtop_client_open_backend (glibtop_client *client, const char *backend_name,
 
     g_return_if_fail (GLIBTOP_IS_CLIENT (client));
 
-    backend = glibtop_backend_open (backend_name, features, backend_args,
-				    &error);
+    backend = glibtop_backend_get (backend_name, features, backend_args,
+				   &error);
     if (!backend) {
 	glibtop_client_propagate_error (client, error);
 	g_error_free (error);

@@ -10,12 +10,10 @@ noinst_LTLIBRARIES		= libgtop_server.la
 
 libgtop_la_SOURCES		= errors.c glibtop-backend-info.c \
 				  glibtop-client.c glibtop-server.c \
-				  glibtop-backend.c sysdeps-init.c \
-				  glibtop-client-private.h
+				  glibtop-backend.c glibtop-client-private.h \
+				  $(BUILT_SOURCES)
 
 libgtop_server_la_SOURCES	= error.c xmalloc.c
-
-libgtop_server_la_LDFLAGS	= $(LT_VERSION_INFO)
 
 libgtop_la_LDFLAGS		= $(LT_VERSION_INFO)
 libgtop_la_LIBADD		= $(GLIB_LIBS) $(XML_LIBS)

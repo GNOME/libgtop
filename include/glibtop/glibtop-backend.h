@@ -65,11 +65,14 @@ GType
 glibtop_backend_get_type (void);
 
 glibtop_backend *
-glibtop_backend_open (const char *backend_name, u_int64_t features,
-		      const char **backend_args, GError **error);
+glibtop_backend_get (const char *backend_name, u_int64_t features,
+		     const char **backend_args, GError **error);
 
 glibtop_call_vector *
 glibtop_backend_get_call_vector (glibtop_backend *backend);
+
+glibtop_server *
+glibtop_backend_get_server (glibtop_backend *backend);
 
 END_LIBGTOP_DECLS
 
