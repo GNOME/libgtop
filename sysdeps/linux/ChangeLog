@@ -1,3 +1,8 @@
+1998-10-02  Martin Baulig  <martin@home-of-linux.org>
+
+	* proclist.c (glibtop_init_proclist_s): You can now also use the
+	`GLIBTOP_EXCLUDE_*' flags for the `which' parameter.
+
 1998-10-01  Martin Baulig  <baulig@Stud.Informatik.uni-trier.de>
 
 	* proclist.c (glibtop_init_proclist_s): Honor the `which' parameter

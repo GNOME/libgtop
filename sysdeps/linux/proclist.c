@@ -21,8 +21,10 @@
 
 #include <config.h>
 #include <glibtop/xmalloc.h>
-#include <glibtop/procuid.h>
 #include <glibtop/proclist.h>
+
+#include <glibtop/procuid.h>
+#include <glibtop/procstate.h>
 
 #include <sys/stat.h>
 #include <unistd.h>
@@ -67,9 +69,11 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	unsigned count, total, pid;
 	unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
 	unsigned pids_size = 0, pids_offset = 0, new_size;
-	glibtop_proc_uid procuid;
 	struct stat statb;
 	int len, i, ok;
+
+	glibtop_proc_uid procuid;
+	glibtop_proc_state procstate;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROCLIST, 0);
 
@@ -102,7 +106,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 
 		if (!S_ISDIR (statb.st_mode)) continue;
 
-		switch (which) {
+		switch (which & GLIBTOP_KERN_PROC_MASK) {
 		case GLIBTOP_KERN_PROC_ALL:
 			break;
 		case GLIBTOP_KERN_PROC_PID:
@@ -141,6 +145,24 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 				if ((int) arg != procuid.euid)
 					continue;
 			break;
+		}
+
+		if (which & GLIBTOP_EXCLUDE_NOTTY) {
+			glibtop_get_proc_uid_s (server, &procuid, pid);
+			if (procuid.flags & (1 << GLIBTOP_PROC_UID_TTY))
+				if (procuid.tty == -1) continue;
+		}
+
+		if (which & GLIBTOP_EXCLUDE_IDLE) {
+			glibtop_get_proc_state_s (server, &procstate, pid);
+			if (procstate.flags & (1 << GLIBTOP_PROC_STATE_STATE))
+				if (procstate.state != 'R') continue;
+		}
+
+		if (which & GLIBTOP_EXCLUDE_SYSTEM) {
+			glibtop_get_proc_uid_s (server, &procuid, pid);
+			if (procuid.flags & (1 << GLIBTOP_PROC_UID_UID))
+				if (procuid.uid == 0) continue;
 		}
 
 		/* Fine. Now we first try to store it in pids. If this buffer is
