@@ -1,10 +1,9 @@
-/* $Id$ */
-
 /* Copyright (C) 1998-99 Martin Baulig
-   This file is part of LibGTop 1.0.
+   This file is part of LibGTop 2.0.
 
    Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
-
+   Contributed by Benoît Dejean <TazForEver@dlfp.org>, 2004.
+   
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License,
