@@ -23,6 +23,9 @@
 
 #include <sys/types.h>
 #include <sys/stat.h>
+#ifdef HAVE_SYS_BITYPES_H
+#include <sys/bitypes.h>
+#endif
 #include "fsusage.h"
 
 int statfs ();
