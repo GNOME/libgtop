@@ -1,5 +1,15 @@
 1999-12-19  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/glib-arrays.h: New file.
+
+	* lib/glib-arrays.c: New file.
+	(glibtop_get_proclist_as_array_l): New function.
+	(glibtop_get_proc_args_as_array_l): New function.
+	(glibtop_get_proc_map_as_array_l): New function.
+	(glibtop_get_mountlist_as_array_l): New function.
+
+1999-12-19  Martin Baulig  <martin@home-of-linux.org>
+
 	* glibtop-server-private.h: New file. This is a private header
 	file which defines `struct _glibtop_server_private'.
 

@@ -6,7 +6,7 @@ lib_LTLIBRARIES			= libgtop.la
 
 libgtop_la_SOURCES		= init.c open.c close.c command.c read.c \
 				  read_data.c write.c lib.c parameter.c \
-				  sysdeps.c errors.c
+				  sysdeps.c errors.c glib-arrays.c
 
 libgtop_la_LDFLAGS		= $(LT_VERSION_INFO)
 
