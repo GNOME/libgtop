@@ -35,8 +35,8 @@ int
 glibtop_open_backend_l (glibtop *server, const char *backend_name,
 			u_int64_t features, const char **backend_args)
 {
+    const glibtop_backend_info *info;
     glibtop_backend_entry *entry;
-    glibtop_backend_info *info;
     glibtop_backend *backend;
 
     entry = glibtop_backend_by_name (backend_name);
@@ -67,14 +67,15 @@ glibtop_open_backend_l (glibtop *server, const char *backend_name,
 
 	    return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
 	}
-
-	entry->_priv->refcount++;
     }
+
+    entry->_priv->refcount++;
 
     info = entry->info;
     if (!info) return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
 
     backend = glibtop_calloc_r (server, 1, sizeof (glibtop_backend));
+    backend->_priv_module = entry->_priv;
     backend->info = info;
 
     if (info->open) {

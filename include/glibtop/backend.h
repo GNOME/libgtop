@@ -73,14 +73,21 @@ struct _glibtop_backend_entry
     char *libtool_name;
     char *shlib_name;
 
-    glibtop_backend_info *info;
+    /* This is const since you must not attempt to
+     * write into gmodule loaded memory. */
+    const glibtop_backend_info *info;
+
+    /* private pointer */
     glibtop_backend_module *_priv;
 };
 
 struct _glibtop_backend
 {
-    glibtop_backend_info *info;
+    const glibtop_backend_info *info;
+
+    /* private pointers */
     glibtop_backend_private *_priv;
+    glibtop_backend_module *_priv_module;
 };
 
 long

@@ -27,9 +27,37 @@
 #include <glibtop/open.h>
 #include <glibtop/close.h>
 
+#include <glibtop/backend.h>
+
 /* Closes server. */
+
+static void
+close_backend (gpointer value, gpointer user_data)
+{
+    glibtop_backend *backend = (glibtop_backend *) value;
+    glibtop *server = (glibtop *) user_data;
+
+    /* should not happen ... */
+    if (!backend || !backend->_priv_module)
+	return;
+
+    if (backend->info && backend->info->close)
+	backend->info->close (server, backend);
+
+    /* Note that two or more servers may open the same backend. */
+    backend->_priv_module->refcount--;
+    if (!backend->_priv_module->refcount) {
+	g_module_close (backend->_priv_module->module);
+	g_free (backend->_priv_module);
+    }
+
+    g_free (backend);
+}
 
 void
 glibtop_close_r (glibtop *server)
 {
+    g_slist_foreach (server->_priv->backend_list, close_backend, server);
+    g_slist_free (server->_priv->backend_list);
+    server->_priv->backend_list = NULL;
 }
