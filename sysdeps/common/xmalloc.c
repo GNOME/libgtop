@@ -59,6 +59,12 @@ glibtop_realloc_r (glibtop *server, void *ptr, size_t size)
 	return buf;
 }
 
+char *
+glibtop_strdup_r (glibtop *server, const char *string)
+{
+	return strcpy (glibtop_malloc_r (server, strlen (string) + 1), string);
+}
+
 void
 glibtop_free_r (glibtop *server, void *ptr)
 {
