@@ -362,6 +362,7 @@ AC_SUBST(server_programs)
 
 AC_OUTPUT([
 Makefile
+libgtop.spec
 po/Makefile.in
 intl/Makefile
 misc/Makefile

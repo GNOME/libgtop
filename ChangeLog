@@ -1,3 +1,8 @@
+1999-02-10  Martin Baulig  <martin@home-of-linux.org>
+
+	* libgtop.spec.in, libgtop.spec: Replaced libgtop.spec with
+	with libgtop.spec.in, so libgtop.spec is now a generated file.
+
 1999-02-05  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/global.h: Enclose some of the stuff in this
