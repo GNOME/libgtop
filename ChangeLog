@@ -1,5 +1,9 @@
 1999-12-22  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/errors.h
+	(GLIBTOP_ERROR_NO_KERNEL_SUPPORT): New error constant.
+	(GLIBTOP_ERROR_INCOMPATIBLE_KERNEL): New error constant.
+
 	* lib/errors.c (glibtop_get_errno_l): New global function.
 
 	* lib/lib.pl: For functions with a `retval' return type, set

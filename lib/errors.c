@@ -33,7 +33,9 @@ const char *glibtop_error_strings[GLIBTOP_MAX_ERROR] = {
     N_("Attempted to modify a read-only value"),
     N_("Parameter size mismatch"),
     N_("Communication with LibGTop server failed"),
-    N_("No such process")
+    N_("No such process"),
+    N_("No kernel support"),
+    N_("Incompatible kernel version")
 };
 
 char *
