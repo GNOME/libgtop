@@ -1,26 +1,24 @@
-# translation of libgtop.libgtop-GNOME-2-0-port.ar.po to Arabic
-# translation of libgtop.po to
-# translation of libgtop.po to
-# translation of libgtop.po to
-# translation of libgtop.po to
 # translation of libgtop.po to Arabic
+# translation of libgtop.libgtop-GNOME-2-0-port.ar.po to Arabic
 # This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# Arafat Medini <lumina@silverpen.de>, 2002,2003
-# Isam Bayazidi <bayazidi@arabeyes.org>, 2002
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Arafat Medini <lumina@silverpen.de>, 2002,2003.
+# Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
+# Abdulaziz Al-Arfaj <alarfaj0@yahoo.com>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop.libgtop-GNOME-2-0-port.ar\n"
+"Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2003-07-21 17:50+0200\n"
-"Last-Translator: Arafat Medini <lumina@silverpen.de>\n"
-"Language-Team: Arabic <doc@arabeyes.org>\n"
+"POT-Creation-Date: 2004-08-02 12:39+0200\n"
+"PO-Revision-Date: 2004-09-04 17:52+0300\n"
+"Last-Translator: Abdulaziz Al-Arfaj <alarfaj0@yahoo.com>\n"
+"Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.0\n"
+"X-Generator: KBabel 1.3\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : 3\n\n"
 
 #: examples/smp.c:76
 #, c-format
@@ -104,29 +102,35 @@ msgid "Spin:"
 msgstr "تدوير:"
 
 #: lib/read.c:65
-#, fuzzy, c-format
+#, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "اقرء %d بايتس"
-msgstr[1] "اقرء %d بايتس"
+msgstr[0] "قراءة بايت واحدة"
+msgstr[1] "قراءة بايتين"
+msgstr[2] "قراءة %d بايتات"
+msgstr[3] "قراءة %d بايت"
 
 #: lib/read_data.c:51
 msgid "read data size"
 msgstr "قراءت حجم البيانات"
 
 #: lib/read_data.c:68
-#, fuzzy, c-format
+#, c-format
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
-msgstr[0] "قراءت بيانات %d بايتس"
-msgstr[1] "قراءت بيانات %d بايتس"
+msgstr[0] "البيانات المقروءة بايت واحدة"
+msgstr[1] "البيانات المقروءة بايتان"
+msgstr[2] "البيانات المقروءة %d بايتات"
+msgstr[3] "البيانات المقروءة %d بايت"
 
 #: lib/write.c:51
-#, fuzzy, c-format
+#, c-format
 msgid "write %d byte"
 msgid_plural "write %d bytes"
-msgstr[0] "اكتب %d بايتس "
-msgstr[1] "اكتب %d بايتس "
+msgstr[0] "كتابة بايت واحدة"
+msgstr[1] "كتابة بايتين"
+msgstr[2] "كتابة %d بايتات"
+msgstr[3] "كتابة %d بايت"
 
 #: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
@@ -215,7 +219,7 @@ msgstr "وقت SMP CPU في العملية الفارغة"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "أعلام معالج SMP"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks since system boot"
@@ -243,7 +247,7 @@ msgstr "تردد اﻻشارات (الافتراض 100)"
 
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
-msgstr ""
+msgstr "حقل بتّات يبيّن أي معالجٍ يعمل حاليّاً"
 
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
@@ -266,9 +270,8 @@ msgid "Free file nodes"
 msgstr "ملفات العقد المطلوقة"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "اوقف"
+msgstr "حجم الكتلة"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -296,8 +299,7 @@ msgstr "الـ PID الأخير"
 
 #: sysdeps/names/loadavg.c:48
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr ""
-"عدد الأعمال الشاغلة متزامنة موسطة على دقيقة واحدة أو 5 دقائق أو 15 دقيقة."
+msgstr "عدد الأعمال الشاغلة متزامنة موسطة على دقيقة واحدة أو 5 دقائق أو 15 دقيقة."
 
 #: sysdeps/names/loadavg.c:49
 msgid "Number of tasks currently running"
@@ -422,14 +424,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Subnet"
+msgstr "شبكة IPv4 فرعيّة"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "العنوان"
+msgstr "عنوان IPv4"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -472,17 +472,16 @@ msgid "Collisions"
 msgstr "تصادمات"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "العنوان"
+msgstr "عنوان IPv6"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "سابقة IPv6"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "مجال IPv6"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
@@ -680,8 +679,7 @@ msgstr ""
 "صفحات حملت بطلب، او التي وقع اخراجها عند التبادل."
 
 #: sysdeps/names/procmem.c:63
-msgid ""
-"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "الحد الحالي بالبايتات لـ rss العملية (عادة 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:43
@@ -797,26 +795,24 @@ msgid "GID"
 msgstr "هوية المجموعة (GID)"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RGid"
-msgstr "هوية المجموعة"
+msgstr "الهويّة الحقيقيّة للمجموعة"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RUid"
-msgstr "هوية المستعمل"
+msgstr "الهويّة الحقيقيّة للمستخدم"
 
 #: sysdeps/names/procstate.c:44
 msgid "HasCPU"
-msgstr ""
+msgstr "له المعالج"
 
 #: sysdeps/names/procstate.c:44
 msgid "Proc"
-msgstr ""
+msgstr "المعالج"
 
 #: sysdeps/names/procstate.c:44
 msgid "LProc"
-msgstr ""
+msgstr "المعالج الأخير"
 
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
@@ -835,27 +831,24 @@ msgid "GID of process"
 msgstr "GID العملية"
 
 #: sysdeps/names/procstate.c:53
-#, fuzzy
 msgid "Real UID of process"
-msgstr "UID العملية"
+msgstr "هويّة المستخدم الحقيقيّة للعمليّة"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "Real GID of process"
-msgstr "GID العملية"
+msgstr "هويّة المجموعة الحقيقيّة للعمليّة"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
-msgstr ""
+msgstr "له المعالج"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "Processor"
-msgstr "هوية العملية"
+msgstr "المعالج"
 
 #: sysdeps/names/procstate.c:57
 msgid "Last Processor"
-msgstr ""
+msgstr "المعالج الأخير"
 
 #: sysdeps/names/proctime.c:45
 msgid "Start_Time"
@@ -933,8 +926,7 @@ msgstr "الوقت (بالـ jiffies) لالـ timeout التالي للعملي
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
-msgstr ""
-"الوقت (بالـ jiffies) قبل بعث الـ SIGALRM التالي للعملية بسبب مؤقت فترات."
+msgstr "الوقت (بالـ jiffies) قبل بعث الـ SIGALRM التالي للعملية بسبب مؤقت فترات."
 
 #: sysdeps/names/proctime.c:61
 msgid "Tick frequency"
@@ -965,24 +957,20 @@ msgid "EGid"
 msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "هوية المستعمل"
+msgstr "هويّة المستخدم الموضوعة"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "هوية المجموعة"
+msgstr "هويّة المجموعة الموضوعة"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSUid"
-msgstr "هوية المستعمل"
+msgstr "هوية المستخدم لنظام الملفّات"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSGid"
-msgstr "هوية المجموعة"
+msgstr "هوية المجموعة لنظام الملفّات"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
@@ -1013,14 +1001,12 @@ msgid "Priority"
 msgstr "الأولوية"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "هزية المجموعة"
+msgstr "عدد المجموعات"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "Groups"
-msgstr "هزية المجموعة"
+msgstr "المجموعات"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
@@ -1039,24 +1025,20 @@ msgid "Effective Group ID"
 msgstr "هوية المجموعة الفعلية"
 
 #: sysdeps/names/procuid.c:60
-#, fuzzy
 msgid "Set User ID"
-msgstr "هوية المستخدم"
+msgstr "هويّة المستخدم الموضوعة"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Set Group ID"
-msgstr "هزية المجموعة"
+msgstr "هويّة المجموعة الموضوعة"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "استعمال نظام الملفات"
+msgstr "هويّة المستخدم لنظام الملفّات"
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "هوية المجموعة الفعلية"
+msgstr "هويّة المجموعة لنظام الملفّات"
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
@@ -1091,14 +1073,12 @@ msgid "Standard unix nice level of process"
 msgstr "المستوى الطيب باعتيادي يونكس للعملية"
 
 #: sysdeps/names/procuid.c:72
-#, fuzzy
 msgid "Number of additional process groups"
-msgstr "هوية مجموعة الشاشات الطرفية"
+msgstr "عدد مجموعات العمليّات الإضافيّة"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Array of additional process groups"
-msgstr "هوية مجموعة الشاشات الطرفية"
+msgstr "مصفوفة مجموعات العمليّات الإضافيّة"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
@@ -1297,9 +1277,8 @@ msgid "Idletime"
 msgstr "وقت العطل"
 
 #: sysdeps/names/uptime.c:41
-#, fuzzy
 msgid "BootTime"
-msgstr "وقتR"
+msgstr "وقت الإقلاع"
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
@@ -1307,13 +1286,11 @@ msgstr "الوقت بالثواني منذ تشغيل النظام"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr ""
-"الوقت بالثواني الذي قضاه النظام في المهمة الفارغة منذ اعادة تشغيل النظام"
+msgstr "الوقت بالثواني الذي قضاه النظام في المهمة الفارغة منذ اعادة تشغيل النظام"
 
 #: sysdeps/names/uptime.c:48
-#, fuzzy
 msgid "Time of last system boot in seconds since the epoch"
-msgstr "وقت البداية للعملية بالثوان منذ العصر"
+msgstr "وقت آخر إقلاعٍ للنّظام بالثّوني منذ بداية العصر"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1439,44 +1416,3 @@ msgstr "اشارة معرفة من طرف المستخدم 1"
 msgid "User defined signal 2"
 msgstr "اشارة معرفة من طرف المستخدم 2"
 
-#~ msgid "Unknown system error"
-#~ msgstr "خطأ جهاز مجهول"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: الخيار `%s' شاذّ\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: الخيار `--%s' لا يسمح بمتغيّر\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: الخيار `%c%s' لا يسمح بمتغيّر\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: الخيار  `%s' يحتاج متغيّر\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: خيار غير معلوم `--%s'\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: خيار غير معروف  `%c%s'\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: خيار ممنوع -- %c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: خيار باطل -- %c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: الخيار يستلزم متغيرّا -- %c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: الخيار `-W %s' ملتبس\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: الخيار `-W %s' لا يسمح بمتغير\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "إظهار رسالة المساعدة هذه"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "عرض رسالة استعمال قصيرة"
