@@ -115,11 +115,11 @@ msgstr "zapisal %d bajtov"
 
 #: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
-msgstr "Vklopi razhro¹èevanje"
+msgstr "Vkljuèi razhro¹èevanje"
 
 #: src/daemon/gnuserv.c:448
 msgid "DEBUG"
-msgstr "RAHRO©ÈUJ"
+msgstr "RAZHRO©ÈUJ"
 
 #: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
@@ -219,23 +219,23 @@ msgstr "%s: opcija `-W %s' ne dovoli argumenta\n"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
-msgstr "Celoten CPU Èas"
+msgstr "Celoten CPU èas"
 
 #: sysdeps/names/cpu.c:44
 msgid "CPU Time in User Mode"
-msgstr "CPU Èas v Uporabni¹kem Naèinu"
+msgstr "CPU Èas v uporabni¹kem naèinu"
 
 #: sysdeps/names/cpu.c:45
 msgid "CPU Time in User Mode (nice)"
-msgstr "CPU Èas v Uporabni¹kem Naèinu (nice)"
+msgstr "CPU èas v uporabni¹kem naèinu (nice)"
 
 #: sysdeps/names/cpu.c:46
 msgid "CPU Time in System Mode"
-msgstr "CPU Èas v Sistemskem Naèinu"
+msgstr "CPU èas v sistemskem naèinu"
 
 #: sysdeps/names/cpu.c:47
 msgid "CPU Time in the Idle Task"
-msgstr "CPU Èas v Praznih Poslih"
+msgstr "CPU èas v praznih poslih"
 
 #: sysdeps/names/cpu.c:48
 msgid "Tick Frequency"
@@ -243,23 +243,23 @@ msgstr "Frekvenca merjenja"
 
 #: sysdeps/names/cpu.c:49
 msgid "SMP Total CPU Time"
-msgstr "SMP Celoten CPU Èas"
+msgstr "SMP celoten CPU èas"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in User Mode"
-msgstr "SMP CPU Èas v Uporabni¹kem Naèinu"
+msgstr "SMP CPU èas v uporabni¹kem naèinu"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "SMP CPU Èas v Uporabni¹kem Naèinu (nice)"
+msgstr "SMP CPU èas v uporabni¹kem naèinu (nice)"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in System Mode"
-msgstr "SMP CPU Èas v Sistemksem Naèinu"
+msgstr "SMP CPU èas v sistemskem naèinu"
 
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in the Idle Task"
-msgstr "SMP CPU Èas v Praznih Poslih"
+msgstr "SMP CPU èas v praznih poslih"
 
 #: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 msgid "Number of clock ticks since system boot"
@@ -324,7 +324,7 @@ msgstr "Posli v teku"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Number of Tasks"
-msgstr "©tevilo Poslov"
+msgstr "©tevilo poslov"
 
 #: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
 msgid "Last PID"
@@ -344,23 +344,23 @@ msgstr "Skupno ¹tevilo poslov"
 
 #: sysdeps/names/mem.c:41
 msgid "Total Memory"
-msgstr "Celoten Pomnilnik"
+msgstr "Celoten pomnilnik"
 
 #: sysdeps/names/mem.c:42
 msgid "Used Memory"
-msgstr "Pomnilnik v Uporabi"
+msgstr "Pomnilnik v uporabi"
 
 #: sysdeps/names/mem.c:43
 msgid "Free Memory"
-msgstr "Prost Pomnilnik"
+msgstr "Prost pomnilnik"
 
 #: sysdeps/names/mem.c:44
 msgid "Shared Memory"
-msgstr "Deljen Pomnilnik"
+msgstr "Deljen pomnilnik"
 
 #: sysdeps/names/mem.c:45
 msgid "Buffers"
-msgstr "Medpomnilniki"
+msgstr "Izravnalniki"
 
 #: sysdeps/names/mem.c:46
 msgid "Cached"
@@ -388,7 +388,7 @@ msgstr "Deljenega pomnilnika v kB"
 
 #: sysdeps/names/mem.c:57
 msgid "Size of buffers kB"
-msgstr "Velikost medpomnilnikov"
+msgstr "Velikost izravnalnikov"
 
 #: sysdeps/names/mem.c:58
 msgid "Size of cached memory in kB"
@@ -747,11 +747,11 @@ msgstr "Velikost text v fiziènem pomnilniku"
 
 #: sysdeps/names/procsegment.c:49
 msgid "Shared-Lib resident set size"
-msgstr "Velikost Deljenih knji¾nic v fiziènem pomnilniku"
+msgstr "Velikost deljenih knji¾nic v fiziènem pomnilniku"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Data resident set size"
-msgstr "Velikost Podatkov v fiziènem pomnilniku"
+msgstr "Velikost podatkov v fiziènem pomnilniku"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Stack resident set size"
@@ -975,23 +975,23 @@ msgstr "Prioriteta"
 
 #: sysdeps/names/procuid.c:63
 msgid "User ID"
-msgstr "Uporabnikov ID"
+msgstr "ID uporabnika"
 
 #: sysdeps/names/procuid.c:64
 msgid "Effective User ID"
-msgstr "Efektivni Uporabnikov ID"
+msgstr "ID efektivnega uporabnika"
 
 #: sysdeps/names/procuid.c:65
 msgid "Group ID"
-msgstr "ID Skupine"
+msgstr "ID skupine"
 
 #: sysdeps/names/procuid.c:66
 msgid "Effective Group ID"
-msgstr "Efektivni ID Skupine"
+msgstr "ID Efektivne skupine"
 
 #: sysdeps/names/procuid.c:67
 msgid "Process ID"
-msgstr "ID Procesa"
+msgstr "ID procesa"
 
 #: sysdeps/names/procuid.c:68
 msgid "PID of parent process"
@@ -999,11 +999,11 @@ msgstr "PID roditeljskega procesa"
 
 #: sysdeps/names/procuid.c:69
 msgid "Process group ID"
-msgstr "Skupinski ID procesa"
+msgstr "ID skupine procesov"
 
 #: sysdeps/names/procuid.c:70
 msgid "Session ID"
-msgstr "ID Seje"
+msgstr "ID seje"
 
 #: sysdeps/names/procuid.c:71
 msgid "Full device number of controlling terminal"
@@ -1011,7 +1011,7 @@ msgstr "Polno ime naprave kontrolenga terminala"
 
 #: sysdeps/names/procuid.c:72
 msgid "Terminal process group ID"
-msgstr "Skupinski ID terminalskega procesa"
+msgstr "ID skupine terminalskega procesa"
 
 #: sysdeps/names/procuid.c:73
 msgid "Kernel scheduling priority"
@@ -1115,7 +1115,7 @@ msgstr "Lastnosti stre¾nika"
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "CPU Usage"
-msgstr "Uporaba procesor"
+msgstr "Uporaba procesorja"
 
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "Memory Usage"
@@ -1473,16 +1473,16 @@ msgstr "Uporabni¹ko definiran signal 2"
 #~ msgstr "Skupine"
 
 #~ msgid "Saved User ID"
-#~ msgstr "Shranjen ID Uporabnika"
+#~ msgstr "Shranjen ID uporabnika"
 
 #~ msgid "Saved Group ID"
-#~ msgstr "Shranjen ID Skupine"
+#~ msgstr "Shranjen ID skupine"
 
 #~ msgid "Filesystem User ID"
-#~ msgstr "Uporabni¹ki ID Datoteènega Sistema"
+#~ msgstr "Uporabni¹ki ID datoteènega sistema"
 
 #~ msgid "Filesystem Group ID"
-#~ msgstr "Skupinski ID Datoteènega Sistema"
+#~ msgstr "Skupinski ID datoteènega sistema"
 
 #~ msgid "Number of additional process groups"
 #~ msgstr "©tevilo dodatnih skupin procesov"
