@@ -1,0 +1,193 @@
+<!-- $Id$ -->
+
+<!doctype book PUBLIC "-//Davenport//DTD DocBook V3.0//EN" [
+<!entity libgtopConf.sh SYSTEM "../libgtopConf.sh" >
+<!entity home-of-linux "http://www.home-of-linux.org/">
+<!entity table-announce-first "&home-of-linux;kernel/table/ANNOUNCE.FIRST">
+<!entity table20-tgz "&home-of-linux;kernel/table/table20.tgz">
+<!entity table21-tgz "&home-of-linux;kernel/table/table21.tgz">
+<!entity news-c-o-l-d-s "comp.os.linux.development.system">
+<!entity libgtop "<productname>libgtop</productname>">
+<!entity table "<function>table ()</function>">
+]>
+<book>
+  <bookinfo>
+    <title>The &table; system call under Linux</title>
+    <authorgroup>
+      <author>
+	<firstname>Martin</firstname>
+	<surname>Baulig</surname>
+	<affiliation>
+	  <address>
+	    <email>martin@home-of-linux.org</email>
+	  </address>
+	</affiliation>
+      </author>
+    </authorgroup>
+    <copyright>
+      <year>1998</year>
+      <holder>Martin Baulig</holder>
+    </copyright>
+    
+    <legalnotice>
+
+      <para>
+	This documentation is free software; you can redistribute
+	it and/or modify it under the terms of the GNU General Public
+	License as published by the Free Software Foundation; either
+	version 2 of the License, or (at your option) any later
+	version.
+	
+      <para>
+	This library is distributed in the hope that it will be
+	useful, but WITHOUT ANY WARRANTY; without even the implied
+	warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+	PURPOSE.  See the GNU General Public License for more
+	details.
+
+      <para>
+	You should have received a copy of the GNU General Public
+	License along with this program; if not, write to the Free
+	Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+	MA 02111-1307 USA
+
+      <para>
+	For more details see the file COPYING in the source
+	distribution of LibGTop.</para>
+
+    </legalnotice>
+
+    <abstract>
+      <para>
+	<literal>$Id$</literal>
+
+      <para>
+	Under <productname>Linux</productname>, reading from
+	<filename>/proc</filename> is somehow slow because the data
+	needs to be converted into a stringified representation from
+	the kernel and to be parsed from the application program to
+	get the original data back.
+
+	While doing the <productname>DEC OSF/1</productname> port of
+	&libgtop; I got the idea to add something similar to the &table;
+	function there to the Linux kernel.
+
+	This is what this document is about.
+    </abstract>
+
+  </bookinfo>
+
+  <toc></toc>
+
+  <chapter id="why-not-sysctl">
+    <title>Why not <function>sysctl</function>?</title>
+
+    <para>
+      Some weeks ago, I posted the initial proposal of the project to
+      <ulink url="news:&news-c-o-l-d-s;">&news-c-o-l-d-s;</ulink> with
+      Message-ID <literal>&lt;of7zpfprs08.fsf@Taurus.uni-trier.de&gt;</literal>.
+
+    <para>
+      You can also read this article at my site:
+
+      <itemizedlist>
+	<listitem><para>
+	  <ulink url="&table-announce-first;">&table-announce-first;</ulink>
+      </itemizedlist>
+
+    <para>
+      Some people told me to include all the stuff into
+      <function>sysctl</function> instead of inventing a new system call.
+
+    <para>
+      Basically this is a good idea, but the main problem with
+      <function>sysctl</function> is that this should be applied to standard
+      kernels and not just as a short patch. Well, AFAIK something similar
+      is on the "wish list" for 2.2er kernels - but of cause it'll need some
+      time until we have a real replacement of the <filename>/proc</filename>
+      filesystem in <function>sysctl</function>.
+
+    <para>
+      If someone thinks that this absolutely should be included in
+      <function>sysctl</function>: think about some kind of interface,
+      discuss it with the kernel developers, ...
+
+  <chapter id="about-table">
+    <title>About the &table; function</title>
+
+    <para>
+      Using the &table; function will not affect any existing kernel
+      structures and can be done independent from kernel development.
+
+    <para>
+      So it can easily be used in &libgtop; until we have something
+      simliar in standard kernels.
+
+    <para>
+      If you want to use the &table; function in your own programs, be
+      aware that it is just intended to be some kind of quick solution
+      for &libgtop; until there's something better in standard kernels.
+
+  <chapter id="how-to-use">
+    <title>How to use the &table; function in &libgtop;</title>
+
+    <para>
+      The source code of the &table; function is distributed together with
+      &libgtop;. It can be found in the <filename>kernel/table20</filename>
+      directory for 2.0.xx kernels and in the <filename>kernel/table21</filename>
+      directory for 2.1.xx kernels.
+
+    <para>
+      You can also download it from my site:
+      
+      <itemizedlist>
+	<listitem><para>
+	    <ulink url="&table20-tgz;">&table20-tgz</ulink>
+	    (for kernel 2.0.xx)
+	<listitem><para>
+	    <ulink url="&table21-tgz;">&table21-tgz</ulink>
+	    (for kernel 2.1.xx)
+      </itemizedlist>
+
+    <para>
+      Copy the contents of the appropriate directory to
+      <filename>/usr/src/linux/table</filename>, apply the
+      patch to the kernel and re-configure &libgtop;.
+
+    <para>
+      After that, you can unmount <filename>/proc</filename> and
+      &libgtop; will still work !
+
+      <note>
+	<para>
+	  Maybe one could consider this as a bug, but currently there
+	  isn't a configuration option to disable the &table; function
+	  once you applied the patch ...
+      </note>
+
+      <note>
+	<para>
+	  Currently I'm working on the 2.1.x version to implement some
+	  features newer kernels have - so the 2.0.x version may not
+	  have all features the 2.1.x one has.
+      </note>
+
+      <note>
+	<para>
+	  The 2.1.x version of the &table; function is implemented
+	  as a kernel module. You have to do a
+	  <command>insmod table/module.o</command> manually to use it.
+
+	<para>
+	  This has the advantage that you don't need to reboot if you
+	  want to play around with the code a little bit.
+      </note>
+      
+</book>
+
+<!--
+  Local Variables:
+  mode: sgml
+  sgml-indent-data: t
+  End:
+ -->
