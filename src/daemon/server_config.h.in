@@ -21,7 +21,7 @@
 #define SERVER_UID		99	/* User ID the server should run as. */
 #define SERVER_GID		99	/* Group ID the server should run as. */
 
-#define HOST_TABLE_ENTRIES	0	/* Number of entries in the host table. */
+#define HOST_TABLE_ENTRIES	1	/* Number of entries in the host table. */
 
 /* List of hosts that should be authorized to connect to the server.
  *
@@ -38,7 +38,7 @@
  */
 
 const char *permitted_host_names [HOST_TABLE_ENTRIES] =
-{ };
+{ NULL };
 
 unsigned long permitted_hosts [HOST_TABLE_ENTRIES];
 

@@ -62,9 +62,8 @@ char *program_invocation_short_name;
 char *program_invocation_name;
 #endif
 
-extern void handle_parent_connection __P ((int));
-extern void handle_slave_connection __P ((int, int));
-extern void handle_ipc_connection __P ((int));
+void handle_parent_connection (int s);
+void handle_slave_connection (int input, int output);
 
 #if !defined(INTERNET_DOMAIN_SOCKETS)
 #error "Internet Domain sockets are required"
@@ -244,6 +243,8 @@ permitted (u_long host_addr, int fd)
 	if (enable_debug)
 	    syslog_message (LOG_DEBUG, "Trying %lx - %lx",
 			    host_addr, permitted_hosts [i]);
+	if (permitted_hosts [i] == NULL)
+	    return (FALSE);
 	if (host_addr == permitted_hosts [i])
 	    return (TRUE);
     }
