@@ -93,7 +93,7 @@ syslog_message (int priority, char *format, ...)
     vsnprintf (buffer, BUFSIZ-1, format, ap);
     va_end (ap);
 
-    syslog (priority, buffer);
+    syslog (priority, "%s", buffer);
 }
 
 void
@@ -108,7 +108,7 @@ syslog_io_message (int priority, char *format, ...)
     va_end (ap);
 
     snprintf (buffer2, BUFSIZ-1, "%s: %s", buffer, strerror (errno));
-    syslog (priority, buffer2);
+    syslog (priority, "%s", buffer2);
 }
 
 /*
