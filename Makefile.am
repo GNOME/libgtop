@@ -99,6 +99,8 @@ perl/Makefile.PL: perl/Makefile.PL.in Makefile
 	    -e 's,\@libgtop_want_names\@,$(libgtop_want_names),g' \
 	    -e 's,\@libgtop_want_guile_names\@,$(libgtop_want_guile_names),g' \
 	    -e 's,\@libgtop_want_examples\@,$(libgtop_want_examples),g' \
+	    -e 's,\@top_srcdir\@,$(top_srcdir),g' \
+	    -e 's,\@srcdir\@,$(srcdir)/perl,g' \
 	      < $(srcdir)/perl/Makefile.PL.in > perl/Makefile.tmp \
 	  && mv perl/Makefile.tmp perl/Makefile.PL
 

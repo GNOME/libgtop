@@ -1,3 +1,7 @@
+1998-10-10  Martin Baulig  <martin@home-of-linux.org>
+
+	* perl/ChangeLog: New file.
+
 1998-10-07  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in (ALL_LINGUAS): Added `de'.
