@@ -1,3 +1,8 @@
+2004-08-22  Benoît Dejean  <tazforever@dlfp.org>
+
+	* procstate.c:
+	* uptime.c: (glibtop_get_uptime_p): Merged Marcus' patches.
+
 2004-07-15  Benoît Dejean  <tazforever@dlfp.org>
 
 	* procstate.c: (glibtop_get_proc_state_p): Fixed copy/paste error

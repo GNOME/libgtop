@@ -68,8 +68,6 @@ glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 		buf->flags = _glibtop_sysdeps_uptime;
 	}
 #else
-	buf->flags = _glibtop_sysdeps_uptime;
-
 	glibtop_cpu cpu;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_UPTIME), 0);
