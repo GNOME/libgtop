@@ -1,20 +1,22 @@
 # English (British) translation.
-# Copyright (C) 2004 THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2004 The GNOME Foundation
 # This file is distributed under the same license as the libgtop package.
-# Gareth Owen <gowen72@yahoo.com>, 2004.
-#
+# Gareth Owen <gowen72@yahoo.com>, David Lodge <dave@cirt.net>, 2004.
+# Gareth Owen <gowen72@yahoo.comg>, 2004.
+# 
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-20 15:07+0200\n"
-"PO-Revision-Date: 2004-03-22 09:12-0500\n"
-"Last-Translator: Gareth Owen <gowen72@yahoo.comg>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2004-07-29 00:24+0100\n"
+"PO-Revision-Date: 2004-07-29 00:24+0100\n"
+"Last-Translator: David Lodge <dave@cirt.net>\n"
+"Language-Team: English/GB <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);"
 
 #: examples/smp.c:76
 #, c-format
@@ -260,9 +262,8 @@ msgid "Free file nodes"
 msgstr "Free file nodes"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Blocked"
+msgstr "Block size"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -416,14 +417,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Subnet"
+msgstr "IPv4 Subnet"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Address"
+msgstr "IPv4 Address"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -466,17 +465,16 @@ msgid "Collisions"
 msgstr "Collisions"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Address"
+msgstr "IPv6 Address"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "IPv6 Prefix"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "IPv6 Scope"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
@@ -1419,3 +1417,4 @@ msgstr "User defined signal 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "User defined signal 2"
+
