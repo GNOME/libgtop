@@ -77,6 +77,12 @@ struct _glibtop_open_files_entry
 		struct {
 			char name[GLIBTOP_OPEN_FILENAME_LEN+1];
 		} file;
+
+		/* When type == GLIBTOP_FILE_TYPE_LOCALSOCKET */
+		struct {
+			char name[GLIBTOP_OPEN_FILENAME_LEN+1];
+		} localsock;
+
 	} info;
 };
 

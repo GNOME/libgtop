@@ -1,3 +1,9 @@
+2005-01-22  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* examples/openfiles.c: (show_open_files):
+	* include/glibtop/procopenfiles.h: added localsock { name } to
+	glibtop_open_files_entry. Should not break ABI.
+
 2005-01-12  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* configure.in: 2.9.5.
