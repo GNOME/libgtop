@@ -60,7 +60,9 @@ glibtop_get_kstats(glibtop *server)
 	if(ksp)
 	{
 	    kstat_read(kc, ksp, &server->machine.vminfo);
-	    server->machine.vminfo_snaptime = ksp->ks_snaptime;
+	    /* Don't change snaptime if we only need to reinitialize kstats */
+	    if(!(server->machine.vminfo_snaptime))
+	        server->machine.vminfo_snaptime = ksp->ks_snaptime;
 	}
 
 	/* We don't know why was kstat chain invalidated. It could have
@@ -164,6 +166,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
 	glibtop_warn_io_r (server, "kstat_open ()");
 
     server->ncpu = -1;  /* Force processor detection */
+    server->machine.vminfo_snaptime = 0;  /* Force snaptime read */
     glibtop_get_kstats(server);
 
     server->machine.boot = 0;
@@ -171,7 +174,17 @@ glibtop_open_s (glibtop *server, const char *program_name,
     {
 	kn = (kstat_named_t *)kstat_data_lookup(ksp, "boot_time");
 	if(kn)
-	    server->machine.boot = kn->value.ui32;
+	    switch(kn->data_type)
+	    {
+	        case KSTAT_DATA_INT32:  server->machine.boot = kn->value.i32;
+				        break;
+	        case KSTAT_DATA_UINT32: server->machine.boot = kn->value.ui32;
+				        break;
+	        case KSTAT_DATA_INT64:  server->machine.boot = kn->value.i64;
+				        break;
+	        case KSTAT_DATA_UINT64: server->machine.boot = kn->value.ui64;
+				        break;
+	    }
     }
 
     server->machine.kd = kvm_open(NULL, NULL, NULL, O_RDONLY, NULL);
