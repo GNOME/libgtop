@@ -1,6 +1,0 @@
-#Please remember + in front of the files that should be ignored
-#Please keep these files in alphabetic order
-
-#Shouldn't be translated according to Martin:
-+kernel/table20/unistd-i386.h
-+kernel/table21/unistd-i386.h
