@@ -1,3 +1,8 @@
+1998-08-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* features: New directory.
+	* gnome-hackers.sgml: Updated documentation.
+
 1998-08-11  Martin Baulig  <martin@home-of-linux.org>
 
 	* gnome-hackers.sgml: Updated documentation.

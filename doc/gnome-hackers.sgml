@@ -9,10 +9,20 @@
 
 <!entity libgtop "<productname>libgtop</productname>">
 
-<!-- Some abbreviations for often used filenames. -->
+<!-- Some abbreviations for often used filenames and functions. -->
 
 <!entity gnome-libgtop-check.m4 "<filename>macros/gnome-libgtop-check.m4</filename>">
 <!entity libgtopConf.sh "<filename>libgtopConf.sh</filename>">
+<!entity glibtop-free "<function>glibtop_free ()</function>">
+<!entity glibtop-get-procmem "<function>glibtop_get_proc_mem ()</function>">
+<!entity mmap "<function>mmap ()</function>">
+<!entity MAP-SHARED "<parameter>MAP_SHARED</parameter>">
+<!entity MAP-PRIVATE "<parameter>MAP_PRIVATE</parameter>">
+<!entity pmem-vsize "<structfield>procmem.vsize</structfield>">
+<!entity pmem-size "<structfield>procmem.size</structfield>">
+<!entity pmem-resident "<structfield>procmem.resident</structfield>">
+<!entity pmem-shared "<structfield>procmem.shared</structfield>">
+<!entity pmem-rss "<structfield>procmem.rss</structfield>">
 
 <!-- This will include a sample `libgtopConf.sh'. -->
 
@@ -30,15 +40,15 @@
 <!entity include-cpu.sgml "">
 <!entity include-mem.sgml "">
 <!entity include-swap.sgml "">
-<!entity include-uptime.sgml "">
+<!entity include-uptime.sgml SYSTEM "features/uptime.sgml">
 <!entity include-loadavg.sgml "">
 <!entity include-shm-limits.sgml "">
 <!entity include-msg-limits.sgml "">
 <!entity include-sem-limits.sgml "">
-<!entity include-proclist.sgml "">
+<!entity include-proclist.sgml SYSTEM "features/proclist.sgml">
 <!entity include-proc-state.sgml "">
 <!entity include-proc-uid.sgml "">
-<!entity include-proc-mem.sgml "">
+<!entity include-proc-mem.sgml SYSTEM "features/procmem.sgml">
 <!entity include-proc-time.sgml "">
 <!entity include-proc-signal.sgml "">
 <!entity include-proc-kernel.sgml "">
@@ -46,6 +56,8 @@
 <!entity include-proc-map.sgml "">
 <!entity include-mountlist.sgml "">
 <!entity include-fsusage.sgml "">
+
+<!entity include-uptime.txt SYSTEM "features/uptime.txt">
 ]>
 <book>
   <bookinfo>
@@ -139,7 +151,27 @@
     &include-reference.sgml;
 
   </chapter>
-    
+
+  <chapter id="porting-libgtop">
+    <title>Porting &libgtop; to other systems</title>
+
+    <para>
+      Here are some comments for people porting &libgtop; to other systems.
+
+    <sect1>
+      <title>&glibtop-get-procmem; - Process Memory information</title>
+
+      <para>
+	This section is copied here from the description of
+	&glibtop-get-procmem;.
+      </para>
+	
+      &include-proc-mem.sgml;
+
+    </sect1>
+
+  </chapter>
+
 </book>
 
 <!--

@@ -12,7 +12,9 @@ clean:
 		-V %no-make-index% libgtop.sgml > /dev/null && \
 		touch .timestamp
 
-.timestamp2:	gnome-hackers.sgml autoconf.sgml ../guile/reference.sgml
+.timestamp2:	gnome-hackers.sgml autoconf.sgml ../guile/reference.sgml \
+	features/uptime.sgml features/uptime.txt features/proclist.sgml \
+	features/procmem.sgml
 	-rm -rf gnome-hackers
 	mkdir gnome-hackers
 	-rm -f .timestamp2

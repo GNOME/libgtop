@@ -1,0 +1,40 @@
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/error.h&gt;
+#include &lt;glibtop/uptime.h&gt;
+
+#include &lt;glibtop/cpu.h&gt;
+
+#include &lt;glibtop_suid.h&gt;
+
+static const unsigned long _glibtop_sysdeps_uptime =
+(1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME);
+
+static const unsigned long _required_cpu_flags =
+(1 << GLIBTOP_CPU_TOTAL) + (1 << GLIBTOP_CPU_IDLE) +
+(1 << GLIBTOP_CPU_FREQUENCY);
+
+void
+glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
+{
+	glibtop_cpu cpu;
+
+	glibtop_init_p (server, GLIBTOP_SYSDEPS_UPTIME, 0);
+	
+	memset (buf, 0, sizeof (glibtop_uptime));
+
+	/* We simply calculate it from the CPU usage. */
+
+	glibtop_get_cpu_p (server, &amp;cpu);
+
+	/* Make sure all required fields are present. */
+
+	if ((cpu.flags &amp; _required_cpu_flags) != _required_cpu_flags)
+		return;
+
+	/* Calculate values. */
+
+	buf->uptime = (double) cpu.total / (double) cpu.frequency;
+	buf->idletime = (double) cpu.idle / (double) cpu.frequency;
+
+	buf->flags = _glibtop_sysdeps_uptime;
+}

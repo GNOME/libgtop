@@ -1,0 +1,103 @@
+  <para>
+    The automatically generated description above is taken from the
+    manual page of the <filename>/proc</filename> filesystem under Linux
+    and is a little bit confusing, so I make this clear here.
+    
+    <note>
+      <title>Note for people porting &libgtop; to other systems</title>
+
+      <para>
+	Well, every operating system has its own idea about the memory usage
+	of a processes, and also system utilities like <filename>ps</filename>
+	show different things on different systems.
+
+      <para>
+	Nevertheless, we should try to make &libgtop; as system independent
+	as possible, so I give you some hints here how &glibtop-get-procmem;
+	should work.
+
+	<itemizedlist>
+	  <listitem>
+	    <para>
+	      When you use &mmap; with either &MAP-SHARED; or &MAP-PRIVATE;,
+	      this should only affect the &pmem-vsize; of the process and
+	      none of its &pmem-size;, &pmem-resident;, &pmem-shared; and
+	      &pmem-rss; sizes.
+
+	  <listitem>
+	    <para>
+	      As soon as you read some of the &mmap;ed pages, they will be
+	      demand-loaded and thus count towards the &pmem-size; of the
+	      process. Also - we assume there is enough free memory - they
+	      are resident in memory until they get stolen or swapped out
+	      and thus increase the &pmem-resident; and &pmem-rss; sizes of
+	      the process.
+
+	  <listitem>
+	    <para>
+	      If the process has used &MAP-SHARED; and another process
+	      attaches the same file also &MAP-SHARED; some of the pages
+	      are shared with this process and thus increase the &pmem-shared;
+	      sizes of both processes.
+
+	  <listitem>
+	    <para>
+	      If the process has used &MAP-PRIVATE; and writes to the &mmap;ed
+	      pages, the only difference to reading from them is that they
+	      get dirty and cannot be stolen any longer but will get swapped
+	      out.
+
+	  <listitem>
+	    <para>
+	      If memory gets rare, clean pages are normally stolen which
+	      decreases the &pmem-size;, &pmem-resident;, &pmem-shared; and
+	      &pmem-rss; sizes of the process.
+
+	  <listitem>
+	    <para>
+	      When dirty pages are swapped out, this will
+	      <emphasis>not</emphasis> decrease the &pmem-size; of the
+	      process but only its &pmem-resident; and &pmem-rss; sizes
+	      (dirty pages cannot be shared).
+
+	  <listitem>
+	    <para>
+	      The &pmem-vsize; of a process can <emphasis>only</emphasis>
+	      be changed by the process itself when it requests or frees
+	      memory but <emphasis>never</emphasis> due to swapping
+	      activity of the system.
+
+	  <listitem>
+	    <para>
+	      If the &pmem-shared; size changes, this
+	      <emphasis>only</emphasis> means that the number of pages that
+	      are currently shared with other processes has changed; if this
+	      happens, this will <emphasis>never</emphasis> affect any of the
+	      other sizes of the process.
+	
+	</itemizedlist>
+
+    </note>
+
+  <para>
+    The hints above describe how it works under Linux - and we should try to
+    make &glibtop-get-procmem; show the same behavior under every other
+    system.
+
+  <para>
+    If you want to make any comments, flames, suggestions about this, please
+    feel free to do so.
+    
+    <!--
+    Local Variables:
+    mode: sgml
+    sgml-omittag:t
+    sgml-shorttag:t
+    sgml-minimize-attributes:nil
+    sgml-always-quote-attributes:t
+    sgml-indent-step:2
+    sgml-indent-data: t
+    sgml-parent-document: ("../gnome-hackers.sgml" "book" "sect1" "")
+    End:
+    -->
+  
