@@ -59,7 +59,7 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 
     memset (buf, 0, sizeof (glibtop_mem));
 
-    buf->total = (u_int64_t)sysconf(_SC_PHYS_PAGES) * pagesize;
+    buf->total = (u_int64_t)sysconf(_SC_PHYS_PAGES) << pagesize;
     buf->flags = _glibtop_sysdeps_mem_os_sysconf;
 
     if(!kc)
@@ -77,18 +77,18 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	if(kn)
 	{
 #ifdef _LP64
-	    buf->free = kn->value.ui64 * pagesize;
+	    buf->free = kn->value.ui64 << pagesize;
 #else
-	    buf->free = kn->value.ui32 * pagesize;
+	    buf->free = kn->value.ui32 << pagesize;
 #endif
 	    buf->used = buf->total - buf->free;
 	}
 	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pageslocked");
 	if(kn)
 #ifdef _LP64
-	    buf->locked = kn->value.ui64 * pagesize;
+	    buf->locked = kn->value.ui64 << pagesize;
 #else
-	    buf->locked = kn->value.ui32 * pagesize;
+	    buf->locked = kn->value.ui32 << pagesize;
 #endif
 	buf->flags += _glibtop_sysdeps_mem_os_kstat;
     }
@@ -100,23 +100,23 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
         kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_anon");
 	if(kn)
 #ifdef _LP64
-	    buf->user = kn->value.ui64 * pagesize;
+	    buf->user = kn->value.ui64 << pagesize;
 #else
-	    buf->user = kn->value.ui32 * pagesize;
+	    buf->user = kn->value.ui32 << pagesize;
 #endif
 	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_exec");
 	if(kn)
 #ifdef _LP64
-	    buf->shared = kn->value.ui64 * pagesize;
+	    buf->shared = kn->value.ui64 << pagesize;
 #else
-	    buf->shared = kn->value.ui32 * pagesize;
+	    buf->shared = kn->value.ui32 << pagesize;
 #endif
 	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_vnode");
 	if(kn)
 #ifdef _LP64
-	    buf->buffer = kn->value.ui64 * pagesize;
+	    buf->buffer = kn->value.ui64 << pagesize;
 #else
-	    buf->buffer = kn->value.ui32 * pagesize;
+	    buf->buffer = kn->value.ui32 << pagesize;
 #endif
 	buf->flags += _glibtop_sysdeps_mem_bunyip;
     }

@@ -42,6 +42,7 @@ void
 glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
 			pid_t pid)
 {
+   	int pagesize = server->machine.pagesize;
    	struct psinfo psinfo;
 
 	memset (buf, 0, sizeof (glibtop_proc_mem));
@@ -49,8 +50,8 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
 	if(glibtop_get_proc_data_psinfo_s(server, &psinfo, pid))
 	   	return;
 
-	buf->size = buf->vsize = psinfo.pr_size;
-	buf->resident = buf->rss = psinfo.pr_rssize;
+	buf->size = buf->vsize = psinfo.pr_size >> pagesize;
+	buf->resident = buf->rss = psinfo.pr_rssize >> pagesize;
 
 	buf->flags = _glibtop_sysdeps_proc_mem;
 }

@@ -55,7 +55,7 @@ struct _glibtop_machine
     kstat_t *syspages;		/* memory usage */
     kstat_t *bunyip;		/* more memory usage */
 
-    int pagesize;		/* in kilobytes */
+    int pagesize;		/* in bits to shift, ie. 2^pagesize gives Kb */
     int ticks;			/* clock ticks, as returned by sysconf() */
     unsigned long long boot;	/* boot time, it's ui32 in kstat */
 };
