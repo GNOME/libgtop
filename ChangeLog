@@ -1,3 +1,13 @@
+2004-02-07  Kevin Vandersloot
+
+	* configure.in: release 2.5.1
+
+2004-02-02  Sebastien Bacher  <seb128@debian.org>
+
+	* sysdeps/linux/mem.c: (glibtop_get_mem_s): patch from 
+	Benoît Dejean <bnet@ifrance.com> to fix libtop_mem.used 
+	and glibtop_mem.shared values (Closes: #129863).
+
 Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* libgtop-2.0.pc.in: Should be -lgtop-2.0, #130506
@@ -21,7 +31,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* configure.in: remove linking to libgtop and checks for 64-bit
 	integer bytes (fixes warning on build on glib 2.0 systems)
 
-2003-11-02  Žygimantas Beručka  <uid0@tuxfamily.org>
+2003-11-02  Ćœygimantas BeruÄka  <uid0@tuxfamily.org>
 
 	* configure.in: Added "lt" to ALL_LINGUAS.
 
@@ -240,13 +250,13 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* configure.in: make it compile
 
-2003-10-19  Carlos Perelló Marín <carlos@gnome.org>
+2003-10-19  Carlos PerellĂł MarĂ­n <carlos@gnome.org>
 
 	* support/*: Reverted libgtop changes. It's a common module
 	and I should not modify it.
 	* Added/removed files. Now the move should be done.
 
-2003-10-19  Carlos Perelló Marín <carlos@gnome.org>
+2003-10-19  Carlos PerellĂł MarĂ­n <carlos@gnome.org>
 
 	* libgtop-GNOME-2-0-branch moved to HEAD.
 
@@ -258,7 +268,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* configure.in: Added "ta" (Tamil) to the languages' list.
 
-2003-09-13  Carlos Perelló Marín <carlos@gnome.org>
+2003-09-13  Carlos PerellĂł MarĂ­n <carlos@gnome.org>
 
 	* configure.in (ALL_LINGUAS):  Removed es_ES.
 
@@ -311,7 +321,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* configure.in: release 2.0.2
 
-2003-05-10  Danilo Šegan  <dsegan@gmx.net>
+2003-05-10  Danilo Ć egan  <dsegan@gmx.net>
 
 	* configure.in: Added "sr" and "sr@Latn" to ALL_LINGUAS.
 
@@ -331,7 +341,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* configure.in: Added he to ALL_LINGUAS.
 
-2003-02-25  T?µivo Leedj?¤rv  <toivo@linux.ee>
+2003-02-25  T?Â”ivo Leedj?Â€rv  <toivo@linux.ee>
 
 	* configure.in: Added et to ALL_LINGUAS.
 

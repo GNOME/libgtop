@@ -8,12 +8,20 @@ AC_CANONICAL_SYSTEM
 
 LIBGTOP_MAJOR_VERSION=2
 LIBGTOP_MINOR_VERSION=5
-LIBGTOP_MICRO_VERSION=0
+LIBGTOP_MICRO_VERSION=1
 LIBGTOP_VERSION=$LIBGTOP_MAJOR_VERSION.$LIBGTOP_MINOR_VERSION.$LIBGTOP_MICRO_VERSION
 AM_INIT_AUTOMAKE(libgtop, $LIBGTOP_VERSION)
 
-LIBGTOP_CURRENT=1
+dnl  increment if the interface has additions, changes, removals.
+LIBGTOP_CURRENT=2
+
+dnl  increment any time the source changes; set to
+dnl  0 if you increment CURRENT
 LIBGTOP_REVISION=0
+
+dnl  increment if any interfaces have been added; set to 0
+dnl  if any interfaces have been removed. removal has
+dnl  precedence over adding, so set to 0 if both happened.
 LIBGTOP_AGE=0
 
 # you can set this to `-snap' for instance to create
