@@ -347,7 +347,7 @@ fi
 
 LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS"
 
-LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop -lgtop_sysdeps -lgtop_common"
+LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_sysdeps -lgtop_common -lgtop"
 
 LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names"
 

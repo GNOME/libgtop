@@ -1,3 +1,7 @@
+1999-12-13  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in (LIBGTOP_LIBS): Put `-lgtop' after `-lgtop_common'.
+
 1999-12-19  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/errors.h: New file. We define `GLIBTOP_ERROR_*'
