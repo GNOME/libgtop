@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 1.0.2\n"
-"POT-Creation-Date: 1999-09-29 02:37+0200\n"
-"PO-Revision-Date: 1999-03-30 10:40:01+0900\n"
-"Last-Translator: Sung-Hyun Nam <namsh@lgic.co.kr>\n"
+"Project-Id-Version: libgtop 1.1.1\n"
+"POT-Creation-Date: 1999-09-29 23:26+0900\n"
+"PO-Revision-Date: 1999-10-04 14:19:43+0900\n"
+"Last-Translator: Sung-Hyun Nam <namsh@kldp.org>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=euc-kr\n"
@@ -59,7 +59,7 @@ msgstr "SMP 유휴 태스크 CPU 시간"
 
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "SMP CPU 플래그"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
@@ -253,39 +253,39 @@ msgstr "시스템 메시지 헤더의 갯수"
 
 #: sysdeps/names/prockernel.c:44
 msgid "K_Flags"
-msgstr ""
+msgstr "K_Flags"
 
 #: sysdeps/names/prockernel.c:44
 msgid "Min_Flt"
-msgstr ""
+msgstr "Min_Flt"
 
 #: sysdeps/names/prockernel.c:44
 msgid "Maj_Flt"
-msgstr ""
+msgstr "Maj_Flt"
 
 #: sysdeps/names/prockernel.c:44
 msgid "CMin_Flt"
-msgstr ""
+msgstr "CMin_Flt"
 
 #: sysdeps/names/prockernel.c:45
 msgid "CMaj_Flt"
-msgstr ""
+msgstr "CMaj_Flt"
 
 #: sysdeps/names/prockernel.c:45
 msgid "KStk_ESP"
-msgstr ""
+msgstr "KStk_ESP"
 
 #: sysdeps/names/prockernel.c:45
 msgid "KStk_EIP"
-msgstr ""
+msgstr "KStk_EIP"
 
 #: sysdeps/names/prockernel.c:45
 msgid "NWChan"
-msgstr ""
+msgstr "NWChan"
 
 #: sysdeps/names/prockernel.c:46
 msgid "WChan"
-msgstr ""
+msgstr "WChan"
 
 #. K_Flags
 #: sysdeps/names/prockernel.c:52
@@ -401,7 +401,6 @@ msgid "Number of pages of virtual memory"
 msgstr "가상 메모리에서의 페이지 수"
 
 #: sysdeps/names/procmem.c:57
-#, fuzzy
 msgid "Number of resident set (non-swapped) pages"
 msgstr "상주 세트 (스왑않된) 페이지 수"
 
@@ -428,71 +427,71 @@ msgstr ""
 
 #: sysdeps/names/procsegment.c:50
 msgid "Text_RSS"
-msgstr ""
+msgstr "Text_RSS"
 
 #: sysdeps/names/procsegment.c:50
 msgid "ShLib_RSS"
-msgstr ""
+msgstr "ShLib_RSS"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Data_RSS"
-msgstr ""
+msgstr "Data_RSS"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Stack_RSS"
-msgstr ""
+msgstr "Stack_RSS"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Dirty Size"
-msgstr ""
+msgstr "Dirty 크기"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Start_Code"
-msgstr ""
+msgstr "시작_코드"
 
 #: sysdeps/names/procsegment.c:51
 msgid "End_Code"
-msgstr ""
+msgstr "끝_코드"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Start_Data"
-msgstr ""
+msgstr "시작_데이타"
 
 #: sysdeps/names/procsegment.c:52
 msgid "End_Data"
-msgstr ""
+msgstr "끝_데이타"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Start_Brk"
-msgstr ""
+msgstr "시작_Brk"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Brk"
-msgstr ""
+msgstr "Brk"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_Stack"
-msgstr ""
+msgstr "시작_스택"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_MMap"
-msgstr ""
+msgstr "시작_MMap"
 
 #: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
 msgid "Arg_Start"
-msgstr ""
+msgstr "Arg_시작"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
 msgid "Arg_End"
-msgstr ""
+msgstr "Arg_끝"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
 msgid "Env_Start"
-msgstr ""
+msgstr "Env_시작"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
 msgid "Env_End"
-msgstr ""
+msgstr "Env_끝"
 
 #: sysdeps/names/procsegment.c:59
 msgid "Text resident set size"
@@ -523,22 +522,20 @@ msgid "Address of end of code segment"
 msgstr "코드 세그먼트의 끝 주소"
 
 #: sysdeps/names/procsegment.c:66
-#, fuzzy
 msgid "Address of beginning of data segment"
-msgstr "코드 세그먼트의 시작 주소"
+msgstr "데이타 세그먼트의 시작 주소"
 
 #: sysdeps/names/procsegment.c:67
-#, fuzzy
 msgid "Address of end of data segment"
-msgstr "코드 세그먼트의 끝 주소"
+msgstr "데이타 세그먼트의 끝 주소"
 
 #: sysdeps/names/procsegment.c:68
 msgid "Brk_Start"
-msgstr ""
+msgstr "Brk_시작"
 
 #: sysdeps/names/procsegment.c:69
 msgid "Brk_End"
-msgstr ""
+msgstr "Brk_끝"
 
 #: sysdeps/names/procsegment.c:70
 msgid "Address of the bottom of stack segment"
@@ -546,7 +543,7 @@ msgstr "스택 세그먼트의 바닥 주소"
 
 #: sysdeps/names/procsegment.c:71
 msgid "Start of mmap()ed areas"
-msgstr ""
+msgstr "mmap()된 영역의 시작"
 
 #: sysdeps/names/procsignal.c:42
 msgid "Signal"
@@ -554,68 +551,67 @@ msgstr "시그널"
 
 #: sysdeps/names/procsignal.c:42
 msgid "Blocked"
-msgstr ""
+msgstr "Blocked"
 
 #: sysdeps/names/procsignal.c:42
 msgid "SigIgnore"
-msgstr ""
+msgstr "SigIgnore"
 
 #: sysdeps/names/procsignal.c:42
 msgid "SigCatch"
-msgstr ""
+msgstr "SigCatch"
 
 #: sysdeps/names/procsignal.c:47
 msgid "Mask of pending signals"
-msgstr ""
+msgstr "미결정(pend) 시그널 마스크"
 
 #: sysdeps/names/procsignal.c:48
 msgid "Mask of blocked signals"
-msgstr ""
+msgstr "막힌(block) 시그널 마스크"
 
 #: sysdeps/names/procsignal.c:49
 msgid "Mask of ignored signals"
-msgstr ""
+msgstr "무시된(ignore) 시그널 마스크"
 
 #: sysdeps/names/procsignal.c:50
 msgid "Mask of caught signals"
-msgstr ""
+msgstr "잡힌(caught) 시그널 마스크"
 
 #: sysdeps/names/procstate.c:45
 msgid "Cmd"
-msgstr ""
+msgstr "명령"
 
 #: sysdeps/names/procstate.c:45
 msgid "State"
-msgstr ""
+msgstr "상태"
 
 #: sysdeps/names/procstate.c:45
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 #: sysdeps/names/procstate.c:45
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: sysdeps/names/procstate.c:45
 msgid "RUID"
-msgstr ""
+msgstr "RUID"
 
 #: sysdeps/names/procstate.c:46
 msgid "RGID"
-msgstr ""
+msgstr "RGID"
 
 #: sysdeps/names/procstate.c:46
 msgid "Has CPU"
-msgstr ""
+msgstr "CPU 가짐"
 
 #: sysdeps/names/procstate.c:46
-#, fuzzy
 msgid "Processor"
-msgstr "프로세스 ID"
+msgstr "프로세서"
 
 #: sysdeps/names/procstate.c:47
 msgid "Last Processor"
-msgstr ""
+msgstr "마지막 프로세서"
 
 #: sysdeps/names/procstate.c:52
 msgid "Basename of executable file in call to exec()"
@@ -626,85 +622,80 @@ msgid "Single-Char code for process state (S=sleeping)"
 msgstr "프로세스 상태의 단일문자 코드 (S=sleeping)"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "effective UID of process"
-msgstr "프로세스의 UID"
+msgstr "프로세스의 유효한 UID"
 
 #: sysdeps/names/procstate.c:55
-#, fuzzy
 msgid "effective GID of process"
-msgstr "프로세스의 GID"
+msgstr "프로세스의 유효한 GID"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "real UID of process"
-msgstr "프로세스의 UID"
+msgstr "프로세스의 진짜 UID"
 
 #: sysdeps/names/procstate.c:57
-#, fuzzy
 msgid "real GID of process"
-msgstr "프로세스의 GID"
+msgstr "프로세스의 진짜 GID"
 
 #: sysdeps/names/procstate.c:58
 msgid "has_cpu"
-msgstr ""
+msgstr "CPU_가짐"
 
 #: sysdeps/names/procstate.c:59
-#, fuzzy
 msgid "processor"
-msgstr "프로세스 ID"
+msgstr "프로세서"
 
 #: sysdeps/names/procstate.c:60
 msgid "last_processor"
-msgstr ""
+msgstr "마지막_프로세서"
 
 #: sysdeps/names/proctime.c:46
 msgid "Start_Time"
-msgstr ""
+msgstr "시작_시간"
 
 #: sysdeps/names/proctime.c:46
 msgid "RTime"
-msgstr ""
+msgstr "RTime"
 
 #: sysdeps/names/proctime.c:46
 msgid "UTime"
-msgstr ""
+msgstr "UTime"
 
 #: sysdeps/names/proctime.c:46
 msgid "STime"
-msgstr ""
+msgstr "STime"
 
 #: sysdeps/names/proctime.c:47
 msgid "CUTime"
-msgstr ""
+msgstr "CUTime"
 
 #: sysdeps/names/proctime.c:47
 msgid "CSTime"
-msgstr ""
+msgstr "CSTime"
 
 #: sysdeps/names/proctime.c:47
 msgid "TimeOut"
-msgstr ""
+msgstr "타임아웃"
 
 #: sysdeps/names/proctime.c:47
 msgid "It_Real_Value"
-msgstr ""
+msgstr "It_Real_Value"
 
 #: sysdeps/names/proctime.c:48
 msgid "Frequency"
-msgstr ""
+msgstr "주파수"
 
 #: sysdeps/names/proctime.c:48
 msgid "XCPU_UTime"
-msgstr ""
+msgstr "XCPU_UTime"
 
 #: sysdeps/names/proctime.c:48
 msgid "XCPU_STime"
-msgstr ""
+msgstr "XCPU_STime"
 
 #: sysdeps/names/proctime.c:49
 msgid "XCPU_Flags"
-msgstr ""
+msgstr "XCPU_Flags"
 
 #: sysdeps/names/proctime.c:54
 msgid "Start time of process in seconds since the epoch"
@@ -724,21 +715,23 @@ msgstr "프로세스가 사용한 커널 모드 CPU 시간"
 
 #: sysdeps/names/proctime.c:58
 msgid "cumulative utime of process and reaped children"
-msgstr ""
+msgstr "프로세스의 점증적 utime과 reaped 자식"
 
 #: sysdeps/names/proctime.c:59
 msgid "cumulative stime of process and reaped children"
-msgstr ""
+msgstr "프로세스의 점증적 stime과 reaped 자식"
 
 #: sysdeps/names/proctime.c:60
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr ""
+msgstr "프로세스의 다음 타임아웃 시간 (in jiffies)"
 
 #: sysdeps/names/proctime.c:61
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
+"다음 SIGALRM이 간격 타이머에 의해 프로세스에게 보내지기 전 시간 "
+"(in jiffies)"
 
 #: sysdeps/names/proctime.c:63
 msgid "Tick frequency"
@@ -746,55 +739,55 @@ msgstr "틱 주파수"
 
 #: sysdeps/names/proctime.c:64
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "프로세스에 의해 축적된 SMP 사용자-모드 CPU 시간"
 
 #: sysdeps/names/proctime.c:65
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "프로세스에 의해 축적된 SMP 커널-모드 CPU 시간"
 
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
-msgstr ""
+msgstr "Uid"
 
 #: sysdeps/names/procuid.c:48
 msgid "EUid"
-msgstr ""
+msgstr "EUid"
 
 #: sysdeps/names/procuid.c:48
 msgid "Gid"
-msgstr ""
+msgstr "Gid"
 
 #: sysdeps/names/procuid.c:48
 msgid "EGid"
-msgstr ""
+msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
 msgid "SUid"
-msgstr ""
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
 msgid "SGid"
-msgstr ""
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "FsUid"
-msgstr ""
+msgstr "FsUid"
 
 #: sysdeps/names/procuid.c:49
 msgid "FsGid"
-msgstr ""
+msgstr "FsGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
-msgstr ""
+msgstr "Pid"
 
 #: sysdeps/names/procuid.c:50
 msgid "PPid"
-msgstr ""
+msgstr "PPid"
 
 #: sysdeps/names/procuid.c:50
 msgid "PGrp"
-msgstr ""
+msgstr "PGrp"
 
 #: sysdeps/names/procuid.c:50
 msgid "Session"
@@ -802,29 +795,27 @@ msgstr "세션"
 
 #: sysdeps/names/procuid.c:50
 msgid "Tty"
-msgstr ""
+msgstr "Tty"
 
 #: sysdeps/names/procuid.c:51
 msgid "TPGid"
-msgstr ""
+msgstr "TPGid"
 
 #: sysdeps/names/procuid.c:51
 msgid "Priority"
-msgstr ""
+msgstr "우선순위"
 
 #: sysdeps/names/procuid.c:51
 msgid "Nice"
-msgstr ""
+msgstr "Nice"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "그룹 ID"
+msgstr "NGroups"
 
 #: sysdeps/names/procuid.c:52
-#, fuzzy
 msgid "Groups"
-msgstr "그룹 ID"
+msgstr "그룹"
 
 #: sysdeps/names/procuid.c:57
 msgid "User ID"
@@ -843,24 +834,20 @@ msgid "Effective Group ID"
 msgstr "유효한 그룹 ID"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Saved User ID"
-msgstr "사용자 ID"
+msgstr "저장된 사용자 ID"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Saved Group ID"
-msgstr "그룹 ID"
+msgstr "저장된 그룹 ID"
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "파일 시스템 사용"
+msgstr "파일시스템 사용자 ID"
 
 #: sysdeps/names/procuid.c:64
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "유효한 그룹 ID"
+msgstr "파일시스템 그룹 ID"
 
 #: sysdeps/names/procuid.c:65
 msgid "Process ID"
@@ -880,7 +867,7 @@ msgstr "세션 ID"
 
 #: sysdeps/names/procuid.c:69
 msgid "Full device number of controlling terminal"
-msgstr ""
+msgstr "터미널을 조정하는 완전한 장치 번호"
 
 #: sysdeps/names/procuid.c:70
 msgid "Terminal process group ID"
@@ -895,18 +882,16 @@ msgid "Standard unix nice level of process"
 msgstr "프로세스의 표준 유닉스 나이스 레벨"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Number of additional process groups"
 msgstr "터미널 프로세스 그룹 ID"
 
 #: sysdeps/names/procuid.c:74
-#, fuzzy
 msgid "Additional process groups"
-msgstr "터미널 프로세스 그룹 ID"
+msgstr "부가 프로세스 그룹"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Number of entries in semaphore map"
-msgstr ""
+msgstr "세마포어 맵의 엔트리 수"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max number of arrays"
@@ -918,7 +903,7 @@ msgstr "시스템 전체에서의 최대 세마포어수"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Number of undo structures system wide"
-msgstr ""
+msgstr "시스템 전반적인 undo 스트럭쳐 수"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max semaphores per array"
@@ -930,19 +915,19 @@ msgstr ""
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Max number of undo entries per process"
-msgstr ""
+msgstr "프로세스당 undo 엔트리의 최대 수"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "sizeof struct sem_undo"
-msgstr ""
+msgstr "sem_undo 스트럭쳐의 크기"
 
 #: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 msgid "Semaphore max value"
-msgstr ""
+msgstr "세마포어 최대 값"
 
 #: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 msgid "Adjust on exit max value"
-msgstr ""
+msgstr "종료시 초대 값 조정"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max segment size"
@@ -994,12 +979,11 @@ msgstr "시스템 시동후 내보낸 총 스왑 페이지 수"
 
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:79
 msgid "Server Features"
-msgstr ""
+msgstr "서버 기능"
 
 #: sysdeps/names/sysdeps.c:52
-#, fuzzy
 msgid "Pointer Size"
-msgstr "상주 세트 크기"
+msgstr "포인터 크기"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
 msgid "CPU Usage"
@@ -1015,11 +999,11 @@ msgstr "스왑 사용량"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:84
 msgid "System Uptime"
-msgstr ""
+msgstr "시스템 Uptime"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:85
 msgid "Load Averange"
-msgstr ""
+msgstr "로드 평균"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:86
 msgid "Shared Memory Limits"
@@ -1067,7 +1051,7 @@ msgstr "프로세스 세그먼트 정보"
 
 #: sysdeps/names/sysdeps.c:69
 msgid "Process Arguments"
-msgstr ""
+msgstr "프로세스 인자"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
 msgid "Process Memory Map"
@@ -1083,19 +1067,19 @@ msgstr "파일 시스템 사용"
 
 #: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:101
 msgid "Network Load"
-msgstr ""
+msgstr "네트워크 로드"
 
 #: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:102
 msgid "PPP Statistics"
-msgstr ""
+msgstr "PPP 통계"
 
 #: sysdeps/names/sysdeps.c:80
 msgid "Pointer Size on the Server (in bits)"
-msgstr ""
+msgstr "서버에서 (비트로) 포인터 크기"
 
 #: sysdeps/names/sysdeps.c:97
 msgid "Command line arguments of the process"
-msgstr ""
+msgstr "프로세스의 명령행 인자"
 
 #: sysdeps/names/sysdeps.c:99
 msgid "List of currently mounted filesystems"
@@ -1103,7 +1087,7 @@ msgstr "현재 마운트된 파일시스템의 목록"
 
 #: sysdeps/names/uptime.c:40
 msgid "Uptime"
-msgstr ""
+msgstr "Uptime"
 
 #: sysdeps/names/uptime.c:41
 msgid "Idletime"
@@ -1111,7 +1095,7 @@ msgstr "유휴시간"
 
 #: sysdeps/names/uptime.c:42
 msgid "Boot time"
-msgstr ""
+msgstr "부트 시간"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds since system boot"
@@ -1122,9 +1106,8 @@ msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "시스템 시동후에 유휴 태스크가 소비한 초 단위의 시간"
 
 #: sysdeps/names/uptime.c:49
-#, fuzzy
 msgid "Boot time (seconds sice epoch)"
-msgstr "시스템이 시작된 이후 초로 나타낸 프로세스의 시작 시간"
+msgstr "부트 시간 (seconds sice epoch)"
 
 #: support/error.c:109
 msgid "Unknown system error"
@@ -1192,53 +1175,53 @@ msgstr "%s: `-W %s' 옵션은 인자가 필요없습니다\n"
 #: lib/read.c:75
 #, c-format
 msgid "read %d bytes"
-msgstr ""
+msgstr "%d 바이트 읽음"
 
 #: lib/read_data.c:49
 msgid "read data size"
-msgstr ""
+msgstr "데이타 크기 읽음"
 
 #: lib/read_data.c:66
 #, c-format
 msgid "read data %d bytes"
-msgstr ""
+msgstr "데이타 %d 바이트 읽음"
 
 #: lib/write.c:48
 #, c-format
 msgid "write %d bytes"
-msgstr ""
+msgstr "%d 바이트 씀"
 
 #: src/daemon/gnuserv.c:446
 msgid "Enable debugging"
-msgstr ""
+msgstr "디버깅 함"
 
 #: src/daemon/gnuserv.c:446
 msgid "DEBUG"
-msgstr ""
+msgstr "디버그"
 
 #: src/daemon/gnuserv.c:448
 msgid "Enable verbose output"
-msgstr ""
+msgstr "출력을 많이 함"
 
 #: src/daemon/gnuserv.c:448
 msgid "VERBOSE"
-msgstr ""
+msgstr "말많음"
 
 #: src/daemon/gnuserv.c:450
 msgid "Don't fork into background"
-msgstr ""
+msgstr "백그라운드로 포크 않함"
 
 #: src/daemon/gnuserv.c:450
 msgid "NO-DAEMON"
-msgstr ""
+msgstr "데몬-없음"
 
 #: src/daemon/gnuserv.c:452
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "inetd에 의해 불려짐"
 
 #: src/daemon/gnuserv.c:452
 msgid "INETD"
-msgstr ""
+msgstr "INETD"
 
 #: src/daemon/gnuserv.c:486
 #, c-format
@@ -1246,3 +1229,5 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+"옵션 %s에서 에러: %s.\n"
+"가능한 명령행 옵션을 보려면 '%s --help'를 실행하세요.\n"
