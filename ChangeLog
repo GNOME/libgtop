@@ -1,3 +1,8 @@
+1998-07-17  Martin Baulig  <baulig@Stud.Informatik.uni-trier.de>
+
+	* sysdeps/linux/sem_limits.c: Applied patch from Albert K T Hui
+	<avatar@deva.net> for glibc 2.1.
+
 1998-07-15  Martin Baulig  <martin@home-of-linux.org>
 
 	* sysdeps/sun4/loadavg.h: New file. Imported from top 3.4.

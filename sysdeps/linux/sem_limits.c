@@ -24,6 +24,16 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
+#ifdef _SEM_SEMUN_UNDEFINED
+union semun
+{
+	int val;
+	struct semid_ds *buf;
+	unsigned short int *array;
+	struct seminfo *__buf;
+};
+#endif
+
 static unsigned long _glibtop_sysdeps_sem_limits =
 (1 << GLIBTOP_IPC_SEMMAP) + (1 << GLIBTOP_IPC_SEMMNI) +
 (1 << GLIBTOP_IPC_SEMMNS) + (1 << GLIBTOP_IPC_SEMMNU) +
