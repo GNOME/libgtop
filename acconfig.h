@@ -155,3 +155,7 @@
  * the running kernel (if we don't have configured kernel sources).
  */
 #undef GLIBTOP_LINUX_VERSION_CODE
+
+/* Define if you want to use LibGTop without GNOME. */
+#undef WITHOUT_GNOME
+

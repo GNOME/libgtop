@@ -82,6 +82,8 @@ if test "x$gnome_found" != xyes; then
 *** If you want to use LibGTop without GNOME, you need
 *** to give configure the --without-gnome parameter.
 ])
+  else
+    AC_DEFINE(WITHOUT_GNOME)
   fi
   GNOME_SUPPORT_CHECKS
 else
