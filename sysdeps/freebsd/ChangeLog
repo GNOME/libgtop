@@ -1,3 +1,12 @@
+2004-08-28  Benoît Dejean  <tazforever@dlfp.org>
+
+	* mem.c: (glibtop_get_mem_p):
+	* ppp.c:
+	* swap.c: (glibtop_init_swap_p), (glibtop_get_swap_p):
+	* uptime.c: (glibtop_get_uptime_p): Merge a bunch of trivial OpenBSD
+	patchs. To *BSD maintainers : please report bugs ! don't be selfish, share
+	your patchs.
+
 2004-08-22  Benoît Dejean  <tazforever@dlfp.org>
 
 	* procstate.c:

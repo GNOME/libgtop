@@ -49,7 +49,7 @@ glibtop_init_uptime_p (glibtop *server)
 void
 glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 {
-#ifdef __NetBSD__
+#if defined(__NetBSD__) || defined(__OpenBSD__)
 	time_t now;
 	time_t uptime;
 	int mib[2];

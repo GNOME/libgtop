@@ -39,7 +39,7 @@
 #include <net/netisr.h>
 #include <net/route.h>
 
-#if defined(__FreeBSD__) || defined(__NetBSD__)
+#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
 #include <net/if_sppp.h>
 #else
 #include <i4b/sppp/if_sppp.h>

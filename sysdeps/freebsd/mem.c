@@ -33,7 +33,7 @@
 #include <vm/vm_param.h>
 #endif
 
-#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
 #include <uvm/uvm_extern.h>
 #endif
 
@@ -59,7 +59,7 @@ static int pageshift;		/* log base 2 of the pagesize */
 
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
-#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
 	{ "_bufpages" },
 	{ 0 }
 #else
@@ -82,7 +82,7 @@ static int mib [] = { CTL_VM, VM_TOTAL };
 static int mib [] = { CTL_VM, VM_METER };
 #endif
 
-#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
 static int mib_uvmexp [] = { CTL_VM, VM_UVMEXP };
 #endif
 
@@ -118,7 +118,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 {
 	struct vmtotal vmt;
 	size_t length_vmt;
-#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
 	struct uvmexp uvmexp;
 	size_t length_uvmexp;
 #else
@@ -147,7 +147,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 		return;
 	}
 
-#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
 	length_uvmexp = sizeof (uvmexp);
 	if (sysctl (mib_uvmexp, 2, &uvmexp, &length_uvmexp, NULL, 0)) {
 		glibtop_warn_io_r (server, "sysctl (uvmexp)");
@@ -173,7 +173,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 #if defined(__FreeBSD__)
 	v_total_count = vmm.v_page_count;
 #else
-#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
 	v_total_count = uvmexp.reserve_kernel +
 		uvmexp.reserve_pagedaemon +
 		uvmexp.free + uvmexp.wired + uvmexp.active +
@@ -185,7 +185,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 #endif
 #endif
 
-#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
 	v_used_count = uvmexp.active + uvmexp.inactive;
 	v_free_count = uvmexp.free;
 #else
@@ -201,7 +201,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	buf->cached = (guint64) pagetok (vmm.v_cache_count) << LOG1024;
 #endif
 
-#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
 	buf->locked = (guint64) pagetok (uvmexp.wired) << LOG1024;
 #else
 	buf->locked = (guint64) pagetok (vmm.v_wire_count) << LOG1024;
