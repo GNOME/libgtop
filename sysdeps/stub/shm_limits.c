@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_shm_limits = 0;
 int
 glibtop_init_shm_limits_s (glibtop *server)
 {
-    server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
+    server->info->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
 
     return 0;
 }

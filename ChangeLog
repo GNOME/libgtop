@@ -1,5 +1,12 @@
 2000-11-20  Martin Baulig  <baulig@suse.de>
 
+	* glibtop.h (glibtop_server_info): New type.
+	(glibtop): Added `glibtop_server_info *info', moved
+	`ncpu', `features', `sysdeps', `required' and `wanted'
+	info glibtop_server_info.
+
+2000-11-20  Martin Baulig  <baulig@suse.de>
+
 	* autogen.sh: Use gnome-common.
 	* configure.in: Require glib HEAD.
 

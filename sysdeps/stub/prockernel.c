@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_proc_kernel = 0;
 int
 glibtop_init_proc_kernel_s (glibtop *server)
 {
-    server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
+    server->info->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
 
     return 0;
 }

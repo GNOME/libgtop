@@ -35,7 +35,7 @@ static const unsigned long _glibtop_sysdeps_proclist = 0;
 int
 glibtop_init_proclist_s (glibtop *server)
 {
-    server->sysdeps.proclist = _glibtop_sysdeps_proclist;
+    server->info->sysdeps.proclist = _glibtop_sysdeps_proclist;
 
     return 0;
 }

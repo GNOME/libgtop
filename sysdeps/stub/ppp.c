@@ -34,7 +34,7 @@ static const unsigned long _glibtop_sysdeps_ppp = 0;
 int
 glibtop_init_ppp_s (glibtop *server)
 {
-    server->sysdeps.ppp = _glibtop_sysdeps_ppp;
+    server->info->sysdeps.ppp = _glibtop_sysdeps_ppp;
 
     return 0;
 }

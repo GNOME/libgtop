@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_msg_limits = 0;
 int
 glibtop_init_msg_limits_s (glibtop *server)
 {
-    server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+    server->info->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
 
     return 0;
 }

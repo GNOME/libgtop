@@ -36,7 +36,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 
 	_glibtop_open_sysdeps (server, "glibtop", features, flags);
 
-	server->_param.ncpu = server->ncpu;
+	server->_param.ncpu = server->info->ncpu;
 	server->_param.os_version_code = server->os_version_code;
 
 	server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;

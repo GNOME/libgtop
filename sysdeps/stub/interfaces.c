@@ -36,7 +36,7 @@ static const unsigned long _glibtop_sysdeps_interface_names =
 int
 glibtop_init_interface_names_s (glibtop *server)
 {
-    server->sysdeps.interface_names = _glibtop_sysdeps_interface_names;
+    server->info->sysdeps.interface_names = _glibtop_sysdeps_interface_names;
 
     return 0;
 }

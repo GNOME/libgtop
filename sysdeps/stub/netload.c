@@ -34,7 +34,7 @@ static const unsigned long _glibtop_sysdeps_netload = 0;
 int
 glibtop_init_netload_s (glibtop *server)
 {
-    server->sysdeps.netload = _glibtop_sysdeps_netload;
+    server->info->sysdeps.netload = _glibtop_sysdeps_netload;
 
     return 0;
 }

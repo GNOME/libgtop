@@ -35,7 +35,7 @@ static const unsigned long _glibtop_sysdeps_proc_cwd = 0;
 int
 glibtop_init_proc_cwd_s (glibtop *server)
 {
-    server->sysdeps.proc_cwd = _glibtop_sysdeps_proc_cwd;
+    server->info->sysdeps.proc_cwd = _glibtop_sysdeps_proc_cwd;
 
     return 0;
 }

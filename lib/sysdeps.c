@@ -52,5 +52,5 @@ GLIBTOP_SUID_PPP;
 void
 glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf)
 {
-    memcpy (buf, &server->sysdeps, sizeof (glibtop_sysdeps));
+    memcpy (buf, &server->info->sysdeps, sizeof (glibtop_sysdeps));
 }

@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_swap = 0;
 int
 glibtop_init_swap_s (glibtop *server)
 {
-    server->sysdeps.swap = _glibtop_sysdeps_swap;
+    server->info->sysdeps.swap = _glibtop_sysdeps_swap;
 
     return 0;
 }

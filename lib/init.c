@@ -77,6 +77,10 @@ glibtop_init_r (glibtop **server_ptr, unsigned long features, unsigned flags)
     if (flags & GLIBTOP_INIT_NO_INIT)
 	return server;
 
+    if (!server->info) {
+	server->info = g_new0 (glibtop_server_info, 1);
+    }
+
     /* Do the initialization, but only if not already initialized. */
 
     if ((server->flags & _GLIBTOP_INIT_STATE_INIT) == 0) {
@@ -90,7 +94,7 @@ glibtop_init_r (glibtop **server_ptr, unsigned long features, unsigned flags)
 	    features = 0;
 	}
 		
-	server->features = features;
+	server->info->features = features;
 		
 	server->flags |= _GLIBTOP_INIT_STATE_INIT;
     }
@@ -128,7 +132,7 @@ glibtop_init_s (glibtop **server_ptr, unsigned long features, unsigned flags)
 	return server;
 
     if ((server->flags & _GLIBTOP_INIT_STATE_SYSDEPS) == 0) {
-	server->sysdeps.pointer_size = sizeof (void*)*8;
+	server->info->sysdeps.pointer_size = sizeof (void*)*8;
 		
 	server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;
     }

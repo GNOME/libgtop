@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_proc_uid = 0;
 int
 glibtop_init_proc_uid_s (glibtop *server)
 {
-    server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
+    server->info->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
 
     return 0;
 }

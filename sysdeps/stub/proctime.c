@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_proc_time = 0;
 int
 glibtop_init_proc_time_s (glibtop *server)
 {
-    server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
+    server->info->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
 
     return 0;
 }

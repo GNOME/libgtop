@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_proc_segment = 0;
 int
 glibtop_init_proc_segment_s (glibtop *server)
 {
-    server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
+    server->info->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
 
     return 0;
 }

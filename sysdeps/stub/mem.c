@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_mem = 0;
 int
 glibtop_init_mem_s (glibtop *server)
 {
-    server->sysdeps.mem = _glibtop_sysdeps_mem;
+    server->info->sysdeps.mem = _glibtop_sysdeps_mem;
 
     return 0;
 }

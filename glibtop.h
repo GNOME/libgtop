@@ -40,6 +40,7 @@ BEGIN_LIBGTOP_DECLS
 
 typedef struct _glibtop			glibtop;
 typedef struct _glibtop_server_private	glibtop_server_private;
+typedef struct _glibtop_server_info	glibtop_server_info;
 
 #include <glibtop/sysdeps.h>
 #include <glibtop/errors.h>
@@ -50,20 +51,25 @@ typedef struct _glibtop_server_private	glibtop_server_private;
 #include <glibtop-server-private.h>
 #endif
 
+struct _glibtop_server_info
+{
+    int ncpu;			/* Number of CPUs, zero if single-processor */
+    unsigned long features;	/* Server is required for this features */
+    glibtop_sysdeps sysdeps;	/* Detailed feature list */
+    glibtop_sysdeps required;	/* Required feature list */
+    glibtop_sysdeps wanted;	/* We only want this features */
+};
+
 struct _glibtop
 {
     int refcount;		/* Reference count */
     unsigned flags;
-    int ncpu;			/* Number of CPUs, zero if single-processor */
     unsigned long os_version_code;	/* Version code of the operating system */
     const char *name;		/* Program name for error messages */
-    unsigned long features;	/* Server is required for this features */
     unsigned long server_port;	/* Port on which daemon is listening */
-    glibtop_sysdeps sysdeps;	/* Detailed feature list */
-    glibtop_sysdeps required;	/* Required feature list */
-    glibtop_sysdeps wanted;	/* We only want this features */
     glibtop_parameter _param;	/* Server parameter */
     glibtop_server_private *_priv;	/* Private data */
+    glibtop_server_info *info;	/* Server Info */
     unsigned glibtop_errno;
 };
 

@@ -222,9 +222,9 @@ sub output {
     $check_code = "check_missing:\n";
     $check_code .= "\t/* Make sure that all required fields are present. */\n";
     if (!(($line_fields[3] eq '') or ($line_fields[3] eq 'array'))) {
-      $check_code .= "\tif (buf->flags & server->required." . $feature . ")\n";
+      $check_code .= "\tif (buf->flags & server->info->required." . $feature . ")\n";
       $check_code .= "\t\t_glibtop_missing_feature (server, \"" . $feature .
-	"\", buf->flags,\n\t\t\t\t\t  &server->required." . $feature . ");\n";
+	"\", buf->flags,\n\t\t\t\t\t  &server->info->required." . $feature . ");\n";
     }
 
     $total_code .= $check_code."\tgoto do_return;\n\n";
