@@ -26,7 +26,7 @@ const char *glibtop_names_shm_limits [GLIBTOP_MAX_SHM_LIMITS] =
 	"shmmax", "shmmin", "shmmni", "shmseg", "shmall"
 };
 
-const char *glibtop_types_shm_limits [GLIBTOP_MAX_SHM_LIMITS] =
+const unsigned glibtop_types_shm_limits [GLIBTOP_MAX_SHM_LIMITS] =
 {
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG

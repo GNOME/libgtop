@@ -28,7 +28,7 @@ const char *glibtop_names_proc_kernel [GLIBTOP_MAX_PROC_KERNEL] =
 	"kstk_esp", "kstk_eip", "wchan"
 };
 
-const char *glibtop_types_proc_kernel [GLIBTOP_MAX_PROC_KERNEL] =
+const unsigned glibtop_types_proc_kernel [GLIBTOP_MAX_PROC_KERNEL] =
 {
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,

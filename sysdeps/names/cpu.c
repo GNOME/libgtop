@@ -26,7 +26,7 @@ const char *glibtop_names_cpu [GLIBTOP_MAX_CPU] =
 	"total", "user", "nice", "sys", "idle", "frequency"
 };
 
-const char *glibtop_types_cpu [GLIBTOP_MAX_CPU] =
+const unsigned glibtop_types_cpu [GLIBTOP_MAX_CPU] =
 { 
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG

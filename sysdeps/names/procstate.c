@@ -27,7 +27,7 @@ const char *glibtop_names_proc_state [GLIBTOP_MAX_PROC_STATE] =
 	"cmd", "state", "uid", "gid"
 };
 
-const char *glibtop_types_proc_state [GLIBTOP_MAX_PROC_STATE] =
+const unsigned glibtop_types_proc_state [GLIBTOP_MAX_PROC_STATE] =
 {
 	GLIBTOP_TYPE_STRING, GLIBTOP_TYPE_CHAR,
 	GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT

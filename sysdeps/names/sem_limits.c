@@ -27,7 +27,7 @@ const char *glibtop_names_sem_limits [GLIBTOP_MAX_SEM_LIMITS] =
 	"semopm", "semume", "semusz", "semvmx", "semaem"
 };
 
-const char *glibtop_types_sem_limits [GLIBTOP_MAX_SEM_LIMITS] =
+const unsigned glibtop_types_sem_limits [GLIBTOP_MAX_SEM_LIMITS] =
 {
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,

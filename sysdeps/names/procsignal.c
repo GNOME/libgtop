@@ -27,7 +27,7 @@ const char *glibtop_names_proc_signal [GLIBTOP_MAX_PROC_SIGNAL] =
 	"signal", "blocked", "sigignore", "sigcatch"
 };
 
-const char *glibtop_types_proc_signal [GLIBTOP_MAX_PROC_SIGNAL] =
+const unsigned glibtop_types_proc_signal [GLIBTOP_MAX_PROC_SIGNAL] =
 {
 	GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
 	GLIBTOP_TYPE_INT

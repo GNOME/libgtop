@@ -27,7 +27,7 @@ const char *glibtop_names_proc_segment [GLIBTOP_MAX_PROC_SEGMENT] =
 	"trs", "lrs", "drs", "dt", "start_code", "end_code", "start_stack"
 };
 
-const char *glibtop_types_proc_segment [GLIBTOP_MAX_PROC_SEGMENT] =
+const unsigned glibtop_types_proc_segment [GLIBTOP_MAX_PROC_SEGMENT] =
 {
 	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
 	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,

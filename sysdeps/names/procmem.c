@@ -34,7 +34,7 @@ const char *glibtop_names_proc_mem [GLIBTOP_MAX_PROC_MEM] =
 	"size", "vsize", "resident", "share", "rss", "rss_rlim"
 };
 
-const char *glibtop_types_proc_mem [GLIBTOP_MAX_PROC_MEM] =
+const unsigned glibtop_types_proc_mem [GLIBTOP_MAX_PROC_MEM] =
 {
 	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
 	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG

@@ -26,7 +26,7 @@ const char *glibtop_names_swap [GLIBTOP_MAX_SWAP] =
 	"total", "used", "free"
 };
 
-const char *glibtop_types_swap [GLIBTOP_MAX_SWAP] =
+const unsigned glibtop_types_swap [GLIBTOP_MAX_SWAP] =
 {
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };

@@ -26,7 +26,7 @@ const char *glibtop_names_msg_limits [GLIBTOP_MAX_MSG_LIMITS] =
 	"msgpool", "msgmap", "msgmax", "msgmnb", "msgmni", "msgssz", "msgtql"
 };
 
-const char *glibtop_types_msg_limits [GLIBTOP_MAX_MSG_LIMITS] =
+const unsigned glibtop_types_msg_limits [GLIBTOP_MAX_MSG_LIMITS] =
 {
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,

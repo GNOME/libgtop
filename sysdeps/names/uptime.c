@@ -26,7 +26,7 @@ const char *glibtop_names_uptime [GLIBTOP_MAX_UPTIME] =
 	"uptime", "idletime"
 };
 
-const char *glibtop_types_uptime [GLIBTOP_MAX_UPTIME] =
+const unsigned glibtop_types_uptime [GLIBTOP_MAX_UPTIME] =
 {
 	GLIBTOP_TYPE_DOUBLE, GLIBTOP_TYPE_DOUBLE
 };

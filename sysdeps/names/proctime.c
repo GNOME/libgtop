@@ -36,7 +36,7 @@ const char *glibtop_names_proc_time [GLIBTOP_MAX_PROC_TIME] =
 	"timeout", "it_real_value"
 };
 
-const char *glibtop_types_proc_time [GLIBTOP_MAX_PROC_TIME] =
+const unsigned glibtop_types_proc_time [GLIBTOP_MAX_PROC_TIME] =
 {
 	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
 	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,

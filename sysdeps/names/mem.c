@@ -27,7 +27,7 @@ const char *glibtop_names_mem [GLIBTOP_MAX_MEM] =
 	"cached", "user", "locked"
 };
 
-const char *glibtop_types_mem [GLIBTOP_MAX_MEM] =
+const unsigned glibtop_types_mem [GLIBTOP_MAX_MEM] =
 { 
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,

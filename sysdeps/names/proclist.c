@@ -26,7 +26,7 @@ const char *glibtop_names_proclist [GLIBTOP_MAX_PROCLIST] =
 	"number", "total", "size"
 };
 
-const char *glibtop_types_proclist [GLIBTOP_MAX_PROCLIST] =
+const unsigned glibtop_types_proclist [GLIBTOP_MAX_PROCLIST] =
 {
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };

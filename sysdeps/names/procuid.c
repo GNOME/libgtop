@@ -41,7 +41,7 @@ const char *glibtop_names_proc_uid [GLIBTOP_MAX_PROC_UID] =
 	"session", "tty", "tpgid", "priority", "nice"
 };
 
-const char *glibtop_types_proc_uid [GLIBTOP_MAX_PROC_UID] =
+const unsigned glibtop_types_proc_uid [GLIBTOP_MAX_PROC_UID] =
 {
 	GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
 	GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
