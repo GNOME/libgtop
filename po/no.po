@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.26.2\n"
-"POT-Creation-Date: 1998-10-01 23:41+0200\n"
-"PO-Revision-Date: 1998-10-10 16:31+0100\n"
+"POT-Creation-Date: 1998-10-21 20:38+0200\n"
+"PO-Revision-Date: 1998-10-25 11:26+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@fib.hl.no>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -39,47 +39,47 @@ msgstr "Tikkfrekvens"
 
 #: sysdeps/names/cpu.c:47
 msgid "SMP Total CPU Time"
-msgstr ""
+msgstr "SMP Total prosessortid"
 
 #: sysdeps/names/cpu.c:48
 msgid "SMP CPU Time in User Mode"
-msgstr ""
+msgstr "SMP Prosessortid i brukermodus"
 
 #: sysdeps/names/cpu.c:49
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr ""
+msgstr "SMP Prosessortid i brukermodus (nice)"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in System Mode"
-msgstr ""
+msgstr "SMP Prosessortid i systemmodus"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in the Idle Task"
-msgstr ""
+msgstr "SMP Prosessortid i Idle Task"
 
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:62
 msgid "Number of clock ticks since system boot"
-msgstr ""
+msgstr "Antall klokketikk siden systemoppstart"
 
 #: sysdeps/names/cpu.c:57 sysdeps/names/cpu.c:63
 msgid "Number of clock ticks the system spent in user mode"
-msgstr ""
+msgstr "Antall klokketikk systemet har tilbrakt i brukermodus"
 
 #: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr ""
+msgstr "Antall klokketikk systemet har tilbrakt i brukermodus (nice)"
 
 #: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
 msgid "Number of clock ticks the system spent in system mode"
-msgstr ""
+msgstr "Antall klokketikk systemet har tilbrakt i systemmodus"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr ""
+msgstr "Antall klokketikk systemet har tilbrakt i idle task"
 
 #: sysdeps/names/cpu.c:61
 msgid "Tick frequency (default is 100)"
-msgstr ""
+msgstr "Tikkfrekvens (forvalgt er 100)"
 
 #: sysdeps/names/fsusage.c:37 sysdeps/names/fsusage.c:46
 msgid "Total blocks"
@@ -115,7 +115,7 @@ msgstr "Gjennomsnittsbelastning"
 
 #: sysdeps/names/loadavg.c:38
 msgid "Running Tasks"
-msgstr "Kj\370rende oppgaver"
+msgstr "Kjørende oppgaver"
 
 #: sysdeps/names/loadavg.c:39
 msgid "Number of Tasks"
@@ -127,11 +127,11 @@ msgstr "Siste PID"
 
 #: sysdeps/names/loadavg.c:45
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "Antall samtidig kj\370rende jobber med snitt over 1, 5 og 15 minutter"
+msgstr "Antall samtidig kjørende jobber med snitt over 1, 5 og 15 minutter"
 
 #: sysdeps/names/loadavg.c:46
 msgid "Number of tasks currently running"
-msgstr "Antall oppgaver som kj\370rer n\345"
+msgstr "Antall oppgaver som kjører nå"
 
 #: sysdeps/names/loadavg.c:47
 msgid "Total number of tasks"
@@ -167,7 +167,7 @@ msgstr "Bruker"
 
 #: sysdeps/names/mem.c:46
 msgid "Locked"
-msgstr "L\345st"
+msgstr "Låst"
 
 #: sysdeps/names/mem.c:51
 msgid "Total physical memory in kB"
@@ -187,11 +187,11 @@ msgstr "Delt minne i kB"
 
 #: sysdeps/names/mem.c:55
 msgid "Size of buffers kB"
-msgstr "St\370rrelse p\345 buffere i kB"
+msgstr "Størrelse på buffere i kB"
 
 #: sysdeps/names/mem.c:56
 msgid "Size of cached memory in kB"
-msgstr "St\370rrelse p\345 mellomlagret minne i kB"
+msgstr "Størrelse på mellomlagret minne i kB"
 
 #: sysdeps/names/mem.c:57
 msgid "Memory used from user processes in kB"
@@ -199,43 +199,49 @@ msgstr "Minne brukt av brukerprosesser i kB"
 
 #: sysdeps/names/mem.c:58
 msgid "Memory in locked pages in kB"
-msgstr "Minne i l\345ste sider i kB"
+msgstr "Minne i låste sider i kB"
 
-#: sysdeps/names/mountlist.c:36 sysdeps/names/mountlist.c:43 sysdeps/names/proclist.c:36 sysdeps/names/proclist.c:43 sysdeps/names/procmap.c:36 sysdeps/names/procmap.c:43
+#: sysdeps/names/mountlist.c:36 sysdeps/names/mountlist.c:43
+#: sysdeps/names/proclist.c:36 sysdeps/names/proclist.c:43
+#: sysdeps/names/procmap.c:36 sysdeps/names/procmap.c:43
 msgid "Number of list elements"
 msgstr "Antall elementer i listen"
 
-#: sysdeps/names/mountlist.c:37 sysdeps/names/mountlist.c:44 sysdeps/names/proclist.c:37 sysdeps/names/proclist.c:44 sysdeps/names/procmap.c:37 sysdeps/names/procmap.c:44
+#: sysdeps/names/mountlist.c:37 sysdeps/names/mountlist.c:44
+#: sysdeps/names/proclist.c:37 sysdeps/names/proclist.c:44
+#: sysdeps/names/procmap.c:37 sysdeps/names/procmap.c:44
 msgid "Total size of list"
-msgstr "Total st\370rrelse p\345 listen"
+msgstr "Total størrelse på listen"
 
-#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45 sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45 sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
+#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
+#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
+#: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
 msgid "Size of a single list element"
-msgstr "St\370rrelsen p\345 et enkelt element i listen"
+msgstr "Størrelsen på et enkelt element i listen"
 
 #: sysdeps/names/msg_limits.c:38 sysdeps/names/msg_limits.c:49
 msgid "Size in kilobytes of message pool"
-msgstr "St\370rrelse i kilobyte p\345 meldingslageret"
+msgstr "Størrelse i kilobyte på meldingslageret"
 
 #: sysdeps/names/msg_limits.c:39 sysdeps/names/msg_limits.c:50
 msgid "Number of entries in message map"
-msgstr "Antall oppf\370ringer i meldingskartet"
+msgstr "Antall oppføringer i meldingskartet"
 
 #: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
 msgid "Max size of message"
-msgstr "Maks st\370rrelse p\345 meldingen"
+msgstr "Maks størrelse på meldingen"
 
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Default max size of queue"
-msgstr "Forvalgt st\370rrelse p\345 k\370en"
+msgstr "Forvalgt størrelse på køen"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Max queues system wide"
-msgstr "Maks antall k\370er p\345 systemet"
+msgstr "Maks antall køer på systemet"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Message segment size"
-msgstr "St\370rrelse p\345 meldingssegment"
+msgstr "Størrelse på meldingssegment"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Number of system message headers"
@@ -277,27 +283,47 @@ msgstr "NWChan"
 msgid "WChan"
 msgstr "WChan"
 
+#. K_Flags
 #: sysdeps/names/prockernel.c:48
 msgid ""
 "Kernel flags of the process.\n"
 "\n"
-"On Linux, currently every flag has the math bit set, because crt0.s checks for math emulation, so this is not included in the output.\n"
+"On Linux, currently every flag has the math bit set, because crt0.s checks "
+"for math emulation, so this is not included in the output.\n"
 "\n"
 "This is probably a bug, as not every process is a compiled C program.\n"
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
+"Prosessens kjerneflagg.\n"
+"\n"
+"Under Linux har alle flagg mattebiten satt fordi crt0.s sjekker etter "
+"matteemulering, så dette er ikke inkludert i utskriften.\n"
+"\n"
+"Dette er sannsynligvis en feil, siden ikke alle prosesser er et kompilert\n"
+"C program."
+"\n"
+"Mattebiten skal være desimal 4, og den tracete biten er desimal 10."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:57
-msgid "The number of minor faults the process has made, those which have not required loading a memory page from disk."
+msgid ""
+"The number of minor faults the process has made, those which have not "
+"required loading a memory page from disk."
 msgstr ""
+"Antallet mindre feil prosessen har laget; de som ikke har gjort det "
+"nødvendig å lese en minneside inn fra disk."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:60
-msgid "The number of major faults the process has made, those which have required loading a memory page from disk."
+msgid ""
+"The number of major faults the process has made, those which have required "
+"loading a memory page from disk."
 msgstr ""
+"Antallet større feil prosessen har laget; de som har gjort det nødvendig "
+"å lese en minneside inn fra disk."
 
+#. CMin_Flt
 #: sysdeps/names/prockernel.c:63
 msgid "The number of minor faults that the process and its children have made."
 msgstr "Antallet mindre feil prosessen og dens barn har laget."
@@ -305,21 +331,34 @@ msgstr "Antallet mindre feil prosessen og dens barn har laget."
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of major faults that the process and its children have made."
-msgstr "Antallet st\370rre feil prosessen og dens barn har laget."
+msgstr "Antallet større feil prosessen og dens barn har laget."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:69
-msgid "The current value of esp (32-bit stack pointer), as found in the kernel stack page for the process."
+msgid ""
+"The current value of esp (32-bit stack pointer), as found in the kernel "
+"stack page for the process."
 msgstr ""
+"Den nåværende verdien til esp (32-bits stakkpeker), som funnet i kjernens "
+"stakkside for prosessen."
 
+#. KStk_EIP
 #: sysdeps/names/prockernel.c:72
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr "Den n\345v\346rende EIP (32-bits instruksjonspeker)."
+msgstr "Den nåværende EIP (32-bits instruksjonspeker)."
 
 #. NWChan
 #: sysdeps/names/prockernel.c:74
-msgid "This is the \"channel\" in which the process is waiting.  This is the address of a system call, and can be looked up in a namelist if you need a textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to see the WCHAN field in action)"
+msgid ""
+"This is the \"channel\" in which the process is waiting.  This is the "
+"address of a system call, and can be looked up in a namelist if you need a "
+"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
+"see the WCHAN field in action)"
 msgstr ""
+"Dette er \"kanalen\" hvor prosessen venter. Dette er adressen til "
+"systemkallet, og kan slås opp i en navneliste hvis du trenger et tekstnavn. "
+"(Hvis du har en oppdatert /etc/psdatabase, så prøv ps -l for å se WCHAN "
+"feltet i aksjon)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:79
@@ -328,7 +367,7 @@ msgstr "Dette er tekstnavnet til `nwchan' feltet."
 
 #: sysdeps/names/procmem.c:45
 msgid "Size"
-msgstr "St\370rrelse"
+msgstr "Størrelse"
 
 #: sysdeps/names/procmem.c:45
 msgid "Virtual"
@@ -344,11 +383,11 @@ msgstr "Del"
 
 #: sysdeps/names/procmem.c:46
 msgid "Resident Set Size"
-msgstr "St\370rrelse p\345 resident sett"
+msgstr "Størrelse på resident sett"
 
 #: sysdeps/names/procmem.c:46
 msgid "Resident Set Size Limit"
-msgstr "St\370rrelsesgrense p\345 resident sett"
+msgstr "Størrelsesgrense på resident sett"
 
 #: sysdeps/names/procmem.c:51
 msgid "Total # of pages of memory"
@@ -360,19 +399,29 @@ msgstr "Antall sider virtuelt minne"
 
 #: sysdeps/names/procmem.c:53
 msgid "Number of residnet set (non-swapped) pages"
-msgstr ""
+msgstr "Antallet resident sett (ikke swappete) sider"
 
 #: sysdeps/names/procmem.c:54
 msgid "Number of pages of shared (mmap'd) memory"
 msgstr "Antall sider med delt (mmap'et) minne"
 
 #: sysdeps/names/procmem.c:55
-msgid "Number of pages the process has in real memory, minus 3 for administrative purposes. This is just the pages which count towards text, data, or stack space. This does not include pages which have not been demand-loaded in, or which are swapped out."
+msgid ""
+"Number of pages the process has in real memory, minus 3 for administrative "
+"purposes. This is just the pages which count towards text, data, or stack "
+"space. This does not include pages which have not been demand-loaded in, or "
+"which are swapped out."
 msgstr ""
+"Antallet sider prosessen har i fysisk minne, minus 3 for administrative "
+"hensikter. Dette er bare de sidene som teller av tekst, data eller stakk "
+"plass. Dette inkluderer ikke sider som ikke er lastet ved behov, eller "
+"som er swappet ut."
 
 #: sysdeps/names/procmem.c:60
-msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr ""
+"Nåværende grense i bytes på prosessens rss (vanligvis 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:40
 msgid "Text_RSS"
@@ -392,7 +441,7 @@ msgstr "Stack_RSS"
 
 #: sysdeps/names/procsegment.c:41
 msgid "Dirty Size"
-msgstr "Skitten st\370rrelse"
+msgstr "Skitten størrelse"
 
 #: sysdeps/names/procsegment.c:41
 msgid "Start_Code"
@@ -408,35 +457,35 @@ msgstr "Start_Stack"
 
 #: sysdeps/names/procsegment.c:46
 msgid "Text resident set size"
-msgstr "St\370rrelse p\345 resident tekst-sett"
+msgstr "Størrelse på tekst resident sett"
 
 #: sysdeps/names/procsegment.c:47
 msgid "Shared-Lib resident set size"
-msgstr "St\370rrelse p\345 resident sett for delt biliotek"
+msgstr "Størrelse på resident sett for delt biliotek"
 
 #: sysdeps/names/procsegment.c:48
 msgid "Data resident set size"
-msgstr "St\370rrelse p\345 resident sett for data"
+msgstr "Størrelse på resident sett for data"
 
 #: sysdeps/names/procsegment.c:49
 msgid "Stack resident set size"
-msgstr "St\370rrelse p\345 resident sett for stakk"
+msgstr "Størrelse på resident sett for stakk"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Total size of dirty pages"
-msgstr "Total st\370rrelse p\345 endrede sider"
+msgstr "Total størrelse på endrede sider"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Address of beginning of code segment"
-msgstr "Adressen til begynnelsen p\345 kodesegmentet"
+msgstr "Adressen til begynnelsen på kodesegmentet"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Address of end of code segment"
-msgstr "Adressen til slutten p\345 kodesegmentet"
+msgstr "Adressen til slutten på kodesegmentet"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Address of the bottom of stack segment"
-msgstr "Adressen til bunnen p\345 stakksegmentet"
+msgstr "Adressen til bunnen på stakksegmentet"
 
 #: sysdeps/names/procsignal.c:38
 msgid "Signal"
@@ -488,7 +537,7 @@ msgstr "GID (GruppeID)"
 
 #: sysdeps/names/procstate.c:43
 msgid "Basename of executable file in call to exec()"
-msgstr "Basenavnet p\345 den kj\370rbare filen i et kall til exec()"
+msgstr "Basenavnet på den kjørbare filen i et kall til exec()"
 
 #: sysdeps/names/procstate.c:44
 msgid "Single-Char code for process state (S=sleeping)"
@@ -540,11 +589,11 @@ msgstr "Frekvens"
 
 #: sysdeps/names/proctime.c:44
 msgid "XCPU_UTime"
-msgstr ""
+msgstr "XCPU_UTid"
 
 #: sysdeps/names/proctime.c:44
 msgid "XCPU_STime"
-msgstr ""
+msgstr "XCPU_STid"
 
 #: sysdeps/names/proctime.c:49
 msgid "Start time of process in seconds since the epoch"
@@ -552,7 +601,7 @@ msgstr "Prosessens starttid i sekunder siden epoken"
 
 #: sysdeps/names/proctime.c:50
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr ""
+msgstr "Reell tid akkumulert av prosessen (skal være utid + stid)"
 
 #: sysdeps/names/proctime.c:51
 msgid "user-mode CPU time accumulated by process"
@@ -564,19 +613,23 @@ msgstr "kjerne-modus prosessortid akkumulert av prosessen"
 
 #: sysdeps/names/proctime.c:53
 msgid "cumulative utime of process and reaped children"
-msgstr "kumultiv utime for prosessen og d\370de barn"
+msgstr "kumultiv utime for prosessen og døde barn"
 
 #: sysdeps/names/proctime.c:54
 msgid "cumulative stime of process and reaped children"
-msgstr "kumulativ stime for prosessen og dens d\370de barn"
+msgstr "kumulativ stime for prosessen og dens døde barn"
 
 #: sysdeps/names/proctime.c:55
 msgid "The time (in jiffies) of the process's next timeout"
 msgstr "Tiden (i jiffies) for prosessens neste tidsavbrudd"
 
 #: sysdeps/names/proctime.c:56
-msgid "The time (in jiffies) before the next SIGALRM is sent to the process due to an interval timer."
+msgid ""
+"The time (in jiffies) before the next SIGALRM is sent to the process due to "
+"an interval timer."
 msgstr ""
+"Tiden (i jiffies) før neste SIGALARM blir sendt til prosessen på grunn av "
+"en intervallklokke."
 
 #: sysdeps/names/proctime.c:58
 msgid "Tick frequency"
@@ -584,11 +637,11 @@ msgstr "Tikkfrekvens"
 
 #: sysdeps/names/proctime.c:59
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "SMP brukermodus prosessortid akkumulert av prosessen"
 
 #: sysdeps/names/proctime.c:60
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "SMP kjernemodus prosessortid akkumulert av prosessen"
 
 #: sysdeps/names/procuid.c:54
 msgid "Uid"
@@ -640,23 +693,23 @@ msgstr "Nice"
 
 #: sysdeps/names/procuid.c:61
 msgid "User ID"
-msgstr "Bruker-ID"
+msgstr "BrukerID"
 
 #: sysdeps/names/procuid.c:62
 msgid "Effective User ID"
-msgstr "Effektiv bruker-ID"
+msgstr "Effektiv brukerID"
 
 #: sysdeps/names/procuid.c:63
 msgid "Group ID"
-msgstr "Gruppe-ID"
+msgstr "GruppeID"
 
 #: sysdeps/names/procuid.c:64
 msgid "Effective Group ID"
-msgstr "Effektiv gruppe-ID"
+msgstr "Effektiv gruppeID"
 
 #: sysdeps/names/procuid.c:65
 msgid "Process ID"
-msgstr "Prosess-ID"
+msgstr "ProsessID"
 
 #: sysdeps/names/procuid.c:66
 msgid "PID of parent process"
@@ -664,19 +717,19 @@ msgstr "PID til forelderprosessen"
 
 #: sysdeps/names/procuid.c:67
 msgid "Process group ID"
-msgstr "Prosess gruppe-ID"
+msgstr "Prosess gruppeID"
 
 #: sysdeps/names/procuid.c:68
 msgid "Session ID"
-msgstr "Sesjons-ID"
+msgstr "SesjonsID"
 
 #: sysdeps/names/procuid.c:69
 msgid "Full device number of controlling terminal"
-msgstr "Fullt enhetsnummer p\345 kontrollerende terminal"
+msgstr "Fullt enhetsnummer på kontrollerende terminal"
 
 #: sysdeps/names/procuid.c:70
 msgid "Terminal process group ID"
-msgstr "Terminalprosess' gruppe-ID"
+msgstr "Terminalprosessens gruppeID"
 
 #: sysdeps/names/procuid.c:71
 msgid "Kernel scheduling priority"
@@ -684,11 +737,11 @@ msgstr "Kernel scheduling prioritet"
 
 #: sysdeps/names/procuid.c:72
 msgid "Standard unix nice level of process"
-msgstr "Standard unix nice-niv\345 for prosessen"
+msgstr "Standard unix nice-nivå for prosessen"
 
 #: sysdeps/names/sem_limits.c:40 sysdeps/names/sem_limits.c:54
 msgid "Number of entries in semaphore map"
-msgstr "Antall oppf\370ringer i semaforkartet"
+msgstr "Antall oppføringer i semaforkartet"
 
 #: sysdeps/names/sem_limits.c:41 sysdeps/names/sem_limits.c:55
 msgid "Max number of arrays"
@@ -696,11 +749,11 @@ msgstr "Maks antall tabeller"
 
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 msgid "Max semaphores system wide"
-msgstr "Maks semaforer p\345 hele systemet"
+msgstr "Maks antall semaforer på hele systemet"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of undo structures system wide"
-msgstr "Antall gjenopprettingsstrukturer p\345 hele systemet"
+msgstr "Antall gjenopprettingsstrukturer på hele systemet"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max semaphores per array"
@@ -712,11 +765,11 @@ msgstr "Maks operasjoner per semop kall"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max number of undo entries per process"
-msgstr "Maks antall gjenopprettingsfors\370k per prosess"
+msgstr "Maks antall gjenopprettingsforsøk per prosess"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "sizeof struct sem_undo"
-msgstr ""
+msgstr "sizeof struct sem_undo"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Semaphore max value"
@@ -728,11 +781,11 @@ msgstr "Juster maksverdi ved utgang"
 
 #: sysdeps/names/shm_limits.c:37 sysdeps/names/shm_limits.c:46
 msgid "Max segment size"
-msgstr "Maks segmentst\370rrelse"
+msgstr "Maks segmentstørrelse"
 
 #: sysdeps/names/shm_limits.c:38 sysdeps/names/shm_limits.c:47
 msgid "Min segment size"
-msgstr "Minimum segmentst\370rrelse"
+msgstr "Minimum segmentstørrelse"
 
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
 msgid "Max number of segments"
@@ -804,7 +857,7 @@ msgstr "Grenser for delt minne"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:77
 msgid "Message Queue Limits"
-msgstr "Grenser for meldingsk\370er"
+msgstr "Grenser for meldingskøer"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:78
 msgid "Semaphore Set Limits"
@@ -812,7 +865,7 @@ msgstr "Grenser for semaforsett"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:79
 msgid "List of running Processes"
-msgstr "Liste over kj\370rende prosesser"
+msgstr "Liste over kjørende prosesser"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:80
 msgid "Process Status information"
@@ -899,77 +952,92 @@ msgid "(PROGRAM ERROR) No version known!?"
 msgstr "(PROGRAMFEIL) Versjon ikke kjent!?"
 
 #: support/argp-parse.c:641
+#, c-format
 msgid "%s: Too many arguments\n"
 msgstr "%s: For mange argumenter\n"
 
 #: support/argp-parse.c:780
 msgid "(PROGRAM ERROR) Option should have been recognized!?"
-msgstr "(PROGRAMFEIL) Flagget skulle v\346rt gjenkjent!?"
+msgstr "(PROGRAMFEIL) Flagget skulle vært gjenkjent!?"
 
 #: support/error.c:109
 msgid "Unknown system error"
 msgstr "Ukjent systemfeil"
 
 #: support/getopt.c:669
+#, c-format
 msgid "%s: option `%s' is ambiguous\n"
 msgstr "%s: flagget `%s' er flertydig\n"
 
-#. --option
 #: support/getopt.c:693
+#, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
 msgstr "%s: flagget `--%s' tar ikke argumenter\n"
 
 #: support/getopt.c:698
+#, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
 msgstr "%s: flagget `%c%s' tar ikke argumenter\n"
 
 #: support/getopt.c:715 support/getopt.c:888
+#, c-format
 msgid "%s: option `%s' requires an argument\n"
 msgstr "%s: flagget `%s' krever et argument\n"
 
 #. --option
 #: support/getopt.c:744
+#, c-format
 msgid "%s: unrecognized option `--%s'\n"
 msgstr "%s: ukjent flagg `--%s'\n"
 
+#. +option or -option
 #: support/getopt.c:748
+#, c-format
 msgid "%s: unrecognized option `%c%s'\n"
 msgstr "%s: ukjent flagg `%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
+#, c-format
 msgid "%s: illegal option -- %c\n"
 msgstr "%s: ulovlig flagg -- %c\n"
 
 #: support/getopt.c:777
+#, c-format
 msgid "%s: invalid option -- %c\n"
 msgstr "%s: ugyldig flagg -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937
+#, c-format
 msgid "%s: option requires an argument -- %c\n"
 msgstr "%s: flagget kerver et argument -- %c\n"
 
 #: support/getopt.c:854
+#, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
 msgstr "%s: flagget `-W %s' er flertydig\n"
 
 #: support/getopt.c:872
+#, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: flagget `-W %s' tar ikke argumenter\n"
 
 #: lib/read.c:69
+#, c-format
 msgid "read %d bytes"
 msgstr "les %d bytes"
 
 #: lib/read_data.c:47
 msgid "read data size"
-msgstr "les st\370rrelse p\345 data"
+msgstr "les størrelse på data"
 
 #: lib/read_data.c:64
+#, c-format
 msgid "read data %d bytes"
 msgstr "les data %d bytes"
 
 #: lib/write.c:46
+#, c-format
 msgid "write %d bytes"
 msgstr "skriv %d bytes"
