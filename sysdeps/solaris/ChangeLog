@@ -1,3 +1,7 @@
+1999-05-11  Drazen Kacar  <dave@srce.hr>
+
+	* proctime.c: Return 0 usage times for scheaduler (PID 0).
+
 1999-05-10  Drazen Kacar  <dave@srce.hr>
 
 	* proclist.c: Added process selection mechanism. It's not
