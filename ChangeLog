@@ -1,3 +1,7 @@
+2000-01-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* structures.def (glibtop_ifaddr): Added.
+
 2000-01-24  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/netinfo.h (glibtop_netinfo): `address' and
