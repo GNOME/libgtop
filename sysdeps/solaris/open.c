@@ -29,10 +29,37 @@ void
 glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
-	server->name = program_name;
+    kstat_t *ksp;
 
-	server->machine.kstat = kstat_open ();
+    server->name = program_name;
 
-	if (!server->machine.kstat)
-		glibtop_error_io_r (server, "kstat_open ()");
+    server->machine.kc = kstat_open ();
+
+    for (ksp = server->machine.kc->kc_chain; ksp != NULL; ksp = ksp->ks_next) {
+	if (!strcmp (ksp->ks_class, "vm") && !strcmp (ksp->ks_name, "vminfo")) {
+	    server->machine.vminfo_kstat = ksp;
+	    kstat_read (server->machine.kc, ksp, &server->machine.vminfo);
+	    server->machine.vminfo_snaptime = ksp->ks_snaptime;
+	    continue;
+	}
+
+	if (!strcmp (ksp->ks_class, "misc") && !strncmp (ksp->ks_name, "cpu_stat", 8)) {
+	    int cpu;
+
+	    if ((sscanf (ksp->ks_name+8, "%d", &cpu) != 1) || (cpu > 63))
+		continue;
+
+	    if (cpu >= server->ncpu)
+		server->ncpu = cpu+1;
+
+	    server->machine.cpu_stat_kstat [cpu] = ksp;
+	    continue;
+	}
+    }
+
+    if (!server->machine.kc)
+	glibtop_error_io_r (server, "kstat_open ()");
+
+    fprintf (stderr, "Sleeping 2 seconds, please wait ...\n");
+    sleep (2);
 }

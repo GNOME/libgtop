@@ -1,3 +1,15 @@
+1999-03-19  Martin Baulig  <martin@home-of-linux.org>
+
+	Added first kstat based implementation for Solaris 7.
+
+	* open.c (glibtop_open_s): Walk kstat list and save interesting
+	kstats in the `server->machine'.
+
+	* cpu.c: This can already provide `idle', `user' and `sys' with
+	full SMP support.
+
+	* swap.c: This can already provide `total', `used' and `free'.
+
 1999-03-17  Martin Baulig  <martin@home-of-linux.org>
 
 	Initial import of my Solaris 7 port.

@@ -22,16 +22,21 @@
 */
 
 #include <glibtop.h>
+#include <glibtop/error.h>
 #include <glibtop/swap.h>
 
-static const unsigned long _glibtop_sysdeps_swap = 0;
+#include <sys/sysinfo.h>
+
+static const unsigned long _glibtop_sysdeps_swap =
+(1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
+(1 << GLIBTOP_SWAP_FREE);
 
 /* Init function. */
 
 void
 glibtop_init_swap_s (glibtop *server)
 {
-	server->sysdeps.swap = _glibtop_sysdeps_swap;
+    server->sysdeps.swap = _glibtop_sysdeps_swap;
 }
 
 /* Provides information about swap usage. */
@@ -39,5 +44,37 @@ glibtop_init_swap_s (glibtop *server)
 void
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
-	memset (buf, 0, sizeof (glibtop_swap));
+    kstat_ctl_t *kc = server->machine.kc;
+    kstat_t *ksp = server->machine.vminfo_kstat;
+    u_int64_t swap_resv, swap_alloc, swap_avail, swap_free;
+    vminfo_t vminfo;
+    double rate;
+    kid_t ret;
+
+    memset (buf, 0, sizeof (glibtop_swap));
+
+    if (!ksp) return;
+
+    ret = kstat_read (kc, ksp, &vminfo);
+
+    if (ret == -1) {
+	glibtop_warn_io_r (server, "kstat_read (vminfo)");
+	return;
+    }
+
+    rate = (ksp->ks_snaptime - server->machine.vminfo_snaptime) / 1E+9;
+
+    swap_resv = (vminfo.swap_resv - server->machine.vminfo.swap_resv) / rate;
+    swap_alloc = (vminfo.swap_alloc - server->machine.vminfo.swap_alloc) / rate;
+    swap_avail = (vminfo.swap_avail - server->machine.vminfo.swap_avail) / rate;
+    swap_free = (vminfo.swap_free - server->machine.vminfo.swap_free) / rate;
+
+    memcpy (&server->machine.vminfo, &vminfo, sizeof (vminfo_t));
+    server->machine.vminfo_snaptime = ksp->ks_snaptime;
+
+    buf->total = swap_resv + swap_avail;
+    buf->used = swap_alloc;
+    buf->free = buf->total - buf->used;
+
+    buf->flags = _glibtop_sysdeps_swap;
 }

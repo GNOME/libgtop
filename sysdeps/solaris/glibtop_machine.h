@@ -26,8 +26,10 @@
 
 #include <sys/param.h>
 #include <procfs.h>
-#include <kstat.h>
 #include <fcntl.h>
+
+#include <kstat.h>
+#include <sys/sysinfo.h>
 
 BEGIN_LIBGTOP_DECLS
 
@@ -35,10 +37,16 @@ typedef struct _glibtop_machine glibtop_machine;
 
 struct _glibtop_machine
 {
-	uid_t uid, euid;
-	gid_t gid, egid;
+    uid_t uid, euid;
+    gid_t gid, egid;
 
-	kstat_ctl_t *kstat;
+    kstat_ctl_t *kc;
+    
+    kstat_t *vminfo_kstat;
+    hrtime_t vminfo_snaptime;
+    vminfo_t vminfo;
+
+    kstat_t *cpu_stat_kstat [64];
 };
 
 END_LIBGTOP_DECLS
