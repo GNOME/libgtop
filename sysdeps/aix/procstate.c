@@ -84,7 +84,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
 
 	if (pinfo->pi_state == SZOMB)
 	{
-		buf->state = 'Z';
+		buf->state = GLIBTOP_PROCESS_ZOMBIE;
 		strcpy(buf->cmd, "<defunct>");
 	}
 	else
@@ -92,7 +92,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
 		/* get state of first thread */
 
 		thid = 0;
-        	result = getthrds(pid, &thinfo, sizeof(thinfo), &thid, 1);
+		result = getthrds(pid, &thinfo, sizeof(thinfo), &thid, 1);
 		if (result != 1)
 		{
 			glibtop_error_io_r(server, "Cannot read threadinfo");
@@ -101,23 +101,24 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
 		switch (thinfo.ti_state)
 		{
 			case TSIDL:
-				buf->state = 'D';
+				/* FIXME */
+				/* buf->state = GLIBTOP_PROCESS_UNINTERRUPTIBLE; */
 				break;
 			case TSRUN:
-				buf->state = 'R';
+				buf->state = GLIBTOP_PROCESS_RUNNING;
 				break;
 			case TSSLEEP:
-				buf->state = 'S';
+				buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
 				break;
 			case TSZOMB:
-				buf->state = 'Z';
+				buf->state = GLIBTOP_PROCESS_ZOMBIE;
 				strcpy(buf->cmd, "<defunct>");
 				break;
 			case TSSTOP:
-				buf->state = 'T';
+				buf->state = GLIBTOP_PROCESS_STOPPED;
 				break;
 			case TSSWAP:
-				buf->state = 'W';
+				buf->state = GLIBTOP_PROCESS_SWAPPING;
 				break;
 			default:
 				buf->state = 0;

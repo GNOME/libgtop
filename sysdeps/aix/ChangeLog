@@ -1,5 +1,10 @@
 2004-10-04  Benoît Dejean  <tazforever@dlfp.org>
 
+	* procstate.c: (glibtop_get_proc_state_s): Fixed .state to follow 
+	LibGTop2 specification.
+
+2004-10-04  Benoît Dejean  <tazforever@dlfp.org>
+
 	* procmap.c: (glibtop_get_proc_map_s): Fixed glibtop_init_s call.
 
 2004-10-04  Benoît Dejean  <tazforever@dlfp.org>
