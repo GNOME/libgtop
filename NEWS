@@ -1,3 +1,13 @@
+December 4, 2004: Overview of Changes from 2.8.1 to 2.8.2
+=========================================================
+  o linux:
+     - fixed segfault when polling PPP devices with glibtop_get_proclist.
+     - fixed process state in glibtop_get_proclist.
+
+  o updated translations:
+     - da (Martin Willemoes Hansen)
+
+
 October 11, 2004: Overview of Changes from 2.8.0 to 2.8.1
 =========================================================
 * Improved Solaris and AIX support.
