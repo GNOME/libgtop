@@ -25,6 +25,12 @@
 #include <glibtop/error.h>
 #include <glibtop/procmap.h>
 
+
+#define PROC_MAPS_FORMAT ((sizeof(void*) == 8) \
+? "%16lx-%16lx %4c %16lx %02hx:%02hx %lu%*[ ]%[^\n]\n" \
+: "%08lx-%08lx %4c %08lx %02hx:%02hx %lu%*[ ]%[^\n]\n")
+
+
 static const unsigned long _glibtop_sysdeps_proc_map =
 (1L << GLIBTOP_PROC_MAP_NUMBER) + (1L << GLIBTOP_PROC_MAP_TOTAL) +
 (1L << GLIBTOP_PROC_MAP_SIZE);
@@ -48,89 +54,90 @@ glibtop_init_proc_map_s (glibtop *server)
 glibtop_map_entry *
 glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 {
-	char fn [BUFSIZ];
-	glibtop_map_entry *entry_list = NULL;
-	int rv, n = 0;
+	char filename [GLIBTOP_MAP_FILENAME_LEN+1];
+	glibtop_map_entry *entry_list;
+	gsize allocated;
 	FILE *maps;
+
+	/* fscanf args */
+	unsigned short dev_major, dev_minor;
+	unsigned long start, end, offset, inode;
+	char flags[4];
+	/* filename is the 8th argument */
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_map));
 
-	sprintf (fn, "/proc/%d/maps", pid);
+	sprintf (filename, "/proc/%d/maps", pid);
 
-	maps = fopen (fn, "r");
+	maps = fopen (filename, "r");
 	if (!maps) return NULL;
 
-	do {
-		short dev_major, dev_minor;
-		unsigned long start, end, offset, inode, perm;
-		char flags [5], *format;
-		size_t size;
+	allocated = 32; /* magic */
+	entry_list = g_new(glibtop_map_entry, allocated);
 
-		if (sizeof (void*) == 8)
-			format = "%16lx-%16lx %4c\n %16lx %02hx:%02hx %ld";
-		else
-			format = "%08lx-%08lx %4c\n %08lx %02hx:%02hx %ld";
+	for(buf->number = 0; TRUE; buf->number++)
+	{
+		unsigned long perm = 0;
 
-		rv = fscanf (maps, format,
+		int rv;
+
+		/* 8 arguments */
+		rv = fscanf (maps, PROC_MAPS_FORMAT,
 			     &start, &end, flags, &offset,
-			     &dev_major, &dev_minor, &inode);
+			     &dev_major, &dev_minor, &inode, filename);
 
-		flags [4] = 0;
+		if(rv == EOF || rv < 7)
+		  break;
+
+		if(rv == 7) /* no filename */
+		  filename[0] = '\0';
 
 		/* Compute access permissions. */
 
-		perm = 0;
-
 		if (flags [0] == 'r')
 			perm |= GLIBTOP_MAP_PERM_READ;
+
 		if (flags [1] == 'w')
 			perm |= GLIBTOP_MAP_PERM_WRITE;
+
 		if (flags [2] == 'x')
 			perm |= GLIBTOP_MAP_PERM_EXECUTE;
+
 		if (flags [3] == 's')
 			perm |= GLIBTOP_MAP_PERM_SHARED;
-		if (flags [3] == 'p')
+		else if (flags [3] == 'p')
 			perm |= GLIBTOP_MAP_PERM_PRIVATE;
 
-		/* Read filename. */
 
-		fn [0] = fgetc (maps);
+		if(buf->number == allocated) {
+			/* grow by 2 and blank the newly allocated entries */
+			entry_list = g_renew (glibtop_map_entry, entry_list, allocated * 2);
+			allocated *= 2;
+		}
 
-		if (fn [0] != '\n' && fn [0] != EOF) {
+		entry_list [buf->number].flags = _glibtop_sysdeps_map_entry;
 
-			fscanf (maps, "%*[ ]%[^\n]\n", fn);
-
-		} else fn [0] = 0;
-
-		size = (n+1) * sizeof (glibtop_map_entry);
-
-		entry_list = g_realloc (entry_list, size);
-
-		memset (&(entry_list [n]), 0, sizeof (glibtop_map_entry));
-
-		entry_list [n].flags = _glibtop_sysdeps_map_entry;
-
-		entry_list [n].start = (guint64) start;
-		entry_list [n].end = (guint64) end;
-		entry_list [n].offset = (guint64) offset;
-		entry_list [n].perm = (guint64) perm;
-		entry_list [n].device = (guint64) (dev_major << 8) +
+		entry_list [buf->number].start = (guint64) start;
+		entry_list [buf->number].end = (guint64) end;
+		entry_list [buf->number].offset = (guint64) offset;
+		entry_list [buf->number].perm = (guint64) perm;
+		entry_list [buf->number].device = (guint64) (dev_major << 8) +
 			(guint64) dev_minor;
-		entry_list [n].inode = (guint64) inode;
+		entry_list [buf->number].inode = (guint64) inode;
 
-		g_strlcpy (entry_list [n].filename, fn, sizeof entry_list [n].filename);
-
-		n++;
-
-	} while (rv != EOF && rv && fn [0] != EOF);
+		g_strlcpy (entry_list [buf->number].filename, filename,
+			   sizeof entry_list [buf->number].filename);
+	}
 
 	fclose (maps);
 
-	buf->number = n;
+	buf->flags = _glibtop_sysdeps_proc_map;
 	buf->size = sizeof (glibtop_map_entry);
-	buf->total = n * sizeof (glibtop_map_entry);
+	buf->total = buf->number * buf->size;
+
+	g_renew(glibtop_map_entry, entry_list, buf->number);
 
 	return entry_list;
 }

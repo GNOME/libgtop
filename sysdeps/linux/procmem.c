@@ -38,7 +38,7 @@ static const unsigned long _glibtop_sysdeps_proc_mem_statm =
 #endif
 
 /* these are for getting the memory statistics */
-static int pageshift;		/* log base 2 of the pagesize */
+static int pageshift = 0;		/* log base 2 of the pagesize */
 
 /* define pagetok in terms of pageshift */
 #define pagetok(size) ((size) << pageshift)

@@ -27,11 +27,11 @@
 
 #include <fcntl.h>
 
-static unsigned long _glibtop_sysdeps_swap =
+static const unsigned long _glibtop_sysdeps_swap =
 (1L << GLIBTOP_SWAP_TOTAL) + (1L << GLIBTOP_SWAP_USED) +
 (1L << GLIBTOP_SWAP_FREE);
 
-static unsigned long _glibtop_sysdeps_swap_paging =
+static const unsigned long _glibtop_sysdeps_swap_paging =
 (1L << GLIBTOP_SWAP_PAGEIN) + (1L << GLIBTOP_SWAP_PAGEOUT);
 
 /* Init function. */

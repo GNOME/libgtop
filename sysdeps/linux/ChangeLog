@@ -1,3 +1,25 @@
+2004-06-12  Benoît Dejean  <tazforever@dlfp.org>
+
+	* Makefile.am:
+	* glibtop_server.c: Added to repository.
+	
+	* glibtop_server.h: (get_scaled): Uninlined and moved it to glibtop_server.c.
+	(skip_token) : Fixed indentation.	
+	
+	* procmap.c: (glibtop_get_proc_map_s): Big cleanup. Better allocation
+	algorithm.
+	
+	* procmem.c:
+	* procsegment.c: Added missing initializations.
+	
+	* sem_limits.c:
+	* shm_limits.c: (glibtop_get_shm_limits_s):
+	* swap.c:
+	* uptime.c: Added missing const qualifiers.
+	
+	* sysinfo.c: (init_sysinfo): Added missing 0 initialization.
+	Saved 1 gboolean :D.
+
 2004-06-08  Benoît Dejean  <tazforever@dlfp.org>
 
 	* procuid.c: (glibtop_get_proc_uid_s): Whitespace clean up.

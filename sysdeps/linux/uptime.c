@@ -26,7 +26,7 @@
 #include <glibtop/uptime.h>
 #include <time.h>
 
-static unsigned long _glibtop_sysdeps_uptime =
+static const unsigned long _glibtop_sysdeps_uptime =
 (1L << GLIBTOP_UPTIME_UPTIME) + (1L << GLIBTOP_UPTIME_IDLETIME);
 
 /* Init function. */

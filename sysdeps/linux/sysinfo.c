@@ -28,26 +28,23 @@
 static const unsigned long _glibtop_sysdeps_sysinfo =
 (1L << GLIBTOP_SYSINFO_CPUINFO);
 
-static glibtop_sysinfo sysinfo;
+static glibtop_sysinfo sysinfo = { .flags = 0 };
 
 static void
 init_sysinfo (glibtop *server)
 {
-	static gboolean is_init = FALSE;
 
 	char buffer [BUFSIZ];
 	glibtop_entry *cpuinfo = NULL;
 	FILE *f;
 
-	if (is_init) return;
-
-	is_init = TRUE;
+	if(sysinfo.flags) return;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
 	memset (&sysinfo, 0, sizeof (glibtop_sysinfo));
 
-	g_return_if_fail (f = fopen ("/proc/cpuinfo", "r"));
+	g_return_if_fail ((f = fopen ("/proc/cpuinfo", "r")));
 
 	while (fgets (buffer, BUFSIZ, f)) {
 		char *p, *start, *key, *value;

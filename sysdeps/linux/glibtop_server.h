@@ -24,6 +24,7 @@
 #ifndef __GLIBTOP_SERVER_H__
 #define __GLIBTOP_SERVER_H__
 
+
 #include <fcntl.h>
 #include <ctype.h>
 
@@ -36,8 +37,8 @@ G_BEGIN_DECLS
 static inline char *
 skip_token (const char *p)
 {
-        while (isspace(*p)) p++;
-        while (*p && !isspace(*p)) p++;
+	while (isspace(*p)) p++;
+	while (*p && !isspace(*p)) p++;
 	return (char *)p;
 }
 
@@ -57,25 +58,9 @@ skip_line (const char *p)
 	return (char *) (*p ? p+1 : p);
 }
 
-static inline unsigned long long
-get_scaled(const char *buffer, const char *key)
-{
-  const char    *ptr;
-  char          *next;
-  const size_t len = strlen(key);
-  unsigned long long value = 0;
+unsigned long long
+get_scaled(const char *buffer, const char *key);
 
-  if ((ptr = strstr(buffer, key)))
-    {
-      ptr += len;
-      value = strtoull(ptr, &next, 0);
-      if (strchr(next, 'k'))
-	value *= 1024;
-      else if (strchr(next, 'M'))
-	value *= 1024 * 1024;
-    }
-  return value;
-}
 
 static inline int
 proc_file_to_buffer (char *buffer, const char *fmt, pid_t pid)
