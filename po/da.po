@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.99.3\n"
-"POT-Creation-Date: 1999-09-29 02:37+0200\n"
-"PO-Revision-Date: 1999-09-28 22:43+02:00\n"
+"POT-Creation-Date: 1999-10-08 21:57+0200\n"
+"PO-Revision-Date: 1999-10-08 22:12+02:00\n"
 "Last-Translator: Kenneth Christiansen <kenneth@ripen.dk>\n"
 "Language-Team: Dansk/Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -298,7 +298,7 @@ msgstr "Maks størrelse af meddelelse"
 # sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Default max size of queue"
-msgstr "Standard størrelse på køen"
+msgstr "Standard størrelse af køen"
 
 # sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
@@ -375,8 +375,7 @@ msgid ""
 msgstr ""
 "Processens kerneflag.\n"
 "\n"
-"Under Linux har alle flag matematik biten sat, fordi crt0.s tjekker efter "
-"matematikemulering, så dette er ikke inkluderet i udskriften.\n"
+"Under Linux har alle flag matematik-biten sat, fordi crt0.s tjekker efter matematikemulering, så dette er ikke inkluderet i uddata.\n"
 "\n"
 "Dette er nok en fejl, siden ikke alle processer er et kompileret C program.\n"
 "Matematikbiten bør være decimal 4, og den tracede bit er decimal 10."
@@ -387,9 +386,7 @@ msgstr ""
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
-msgstr ""
-"Antal mindre fejl processen har lavet, dem som ikke har gjort det nødvendig "
-"at læse en hukommelsesside ind fra disk."
+msgstr "Antal mindre fejl processen har lavet, som ikke har gjort det nødvendig at læse en hukommelsesside ind fra disk."
 
 # sysdeps/names/prockernel.c:64
 #. Maj_Flt
@@ -447,7 +444,7 @@ msgstr ""
 #. WChan
 #: sysdeps/names/prockernel.c:83
 msgid "This is the textual name of the `nwchan' field."
-msgstr "Dette er tekstnavnet på `nwchan' feltet."
+msgstr "Dette er tekstnavnet på 'nwchan' feltet."
 
 # sysdeps/names/procmem.c:49
 #: sysdeps/names/procmem.c:49
@@ -467,7 +464,7 @@ msgstr "Resident"
 # sysdeps/names/procmem.c:49
 #: sysdeps/names/procmem.c:49
 msgid "Share"
-msgstr "Del"
+msgstr "Delt"
 
 # sysdeps/names/procmem.c:50
 #: sysdeps/names/procmem.c:50
@@ -506,11 +503,7 @@ msgid ""
 "purposes. This is just the pages which count towards text, data, or stack "
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
-msgstr ""
-"Antal sider processen har i fysisk hukommelse, minus 3 for administrative "
-"opgaver. Dette er kun de sider som tæller mht. tekst, data eller stak plads. "
-"Dette inkluderer ikke sider som ikke er indlæst ved behov, eller som er "
-"swappet ud."
+msgstr "Antal sider processen har i fysisk hukommelse, minus 3 for administrative opgaver. Dette er kun de sider som tæller mht. tekst, data eller stakplads. Dette inkluderer ikke sider som ikke er indlæst ved behov, eller som er swappet ud."
 
 # sysdeps/names/procmem.c:64
 #: sysdeps/names/procmem.c:64
@@ -636,7 +629,7 @@ msgstr "Adresse på begyndelse af kodesegment"
 # sysdeps/names/procsegment.c:65
 #: sysdeps/names/procsegment.c:65
 msgid "Address of end of code segment"
-msgstr "Adresse på slutning af kodesegmentet"
+msgstr "Adresse på slutning af kodesegment"
 
 # sysdeps/names/procsegment.c:66
 #: sysdeps/names/procsegment.c:66
@@ -661,7 +654,7 @@ msgstr "Brk_End"
 # sysdeps/names/procsegment.c:70
 #: sysdeps/names/procsegment.c:70
 msgid "Address of the bottom of stack segment"
-msgstr "Adresse på bunden af staksegmentet"
+msgstr "Adresse på bunden af staksegment"
 
 # sysdeps/names/procsegment.c:71
 #: sysdeps/names/procsegment.c:71
@@ -881,12 +874,12 @@ msgstr "kerne-modus processortid akkumuleret af processen"
 # sysdeps/names/proctime.c:58
 #: sysdeps/names/proctime.c:58
 msgid "cumulative utime of process and reaped children"
-msgstr "kumulativ utid for processen og døde barn"
+msgstr "kumulativ utid for processen og døde 'børn'"
 
 # sysdeps/names/proctime.c:59
 #: sysdeps/names/proctime.c:59
 msgid "cumulative stime of process and reaped children"
-msgstr "kumulativ stime for processen og dens døde barn"
+msgstr "kumulativ stime for processen og dens døde 'børn'"
 
 # sysdeps/names/proctime.c:60
 #: sysdeps/names/proctime.c:60
@@ -898,9 +891,7 @@ msgstr "Tiden (i jiffi'er) for processens næste tidsudløb"
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
-msgstr ""
-"Tiden (i jiffi'er) før næste SIGALARM bliver sendt til processen på grund af "
-"en intervalklokke."
+msgstr "Tiden (i jiffi'er) før næste SIGALARM bliver sendt til processen på grund af en intervaltimer."
 
 # sysdeps/names/proctime.c:63
 #: sysdeps/names/proctime.c:63
@@ -1080,7 +1071,7 @@ msgstr "Terminalprocessens gruppeID"
 # sysdeps/names/procuid.c:71
 #: sysdeps/names/procuid.c:71
 msgid "Kernel scheduling priority"
-msgstr "Kerne planlægnings prioritet"
+msgstr "Kerne planlægningsprioritet"
 
 # sysdeps/names/procuid.c:72
 #: sysdeps/names/procuid.c:72
@@ -1090,7 +1081,7 @@ msgstr "Standard unix god-niveau for processen"
 # sysdeps/names/procuid.c:73
 #: sysdeps/names/procuid.c:73
 msgid "Number of additional process groups"
-msgstr "Antal yderligere proces grupper"
+msgstr "Antal yderligere procesgrupper"
 
 # sysdeps/names/procuid.c:74
 #: sysdeps/names/procuid.c:74
@@ -1100,7 +1091,7 @@ msgstr "Yderligere proces grupper"
 # sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Number of entries in semaphore map"
-msgstr "Antal opføringer i semaforkortet"
+msgstr "Antal elementer i semaforoversigt"
 
 # sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
@@ -1155,7 +1146,7 @@ msgstr "Maks segmentstørrelse"
 # sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Min segment size"
-msgstr "Minimum segmentstørrelse"
+msgstr "Min. segmentstørrelse"
 
 # sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
@@ -1175,17 +1166,17 @@ msgstr "Maks delt hukommelse"
 # sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Total Swap Space"
-msgstr "Total swap"
+msgstr "Total swapplads"
 
 # sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 #: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 msgid "Used Swap Space"
-msgstr "Brugt swap"
+msgstr "Brugt swapplads"
 
 # sysdeps/names/swap.c:43 sysdeps/names/swap.c:52
 #: sysdeps/names/swap.c:43 sysdeps/names/swap.c:52
 msgid "Free Swap Space"
-msgstr "Ledig swap"
+msgstr "Ledig swapplads"
 
 # sysdeps/names/swap.c:44
 #: sysdeps/names/swap.c:44
@@ -1215,7 +1206,7 @@ msgstr "Server egenskaber"
 # sysdeps/names/sysdeps.c:52
 #: sysdeps/names/sysdeps.c:52
 msgid "Pointer Size"
-msgstr "Peger størrelse"
+msgstr "Pegerstørrelse"
 
 # sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
@@ -1305,7 +1296,7 @@ msgstr "Procesargumenter"
 # sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
 msgid "Process Memory Map"
-msgstr "Processens hukommelseskort"
+msgstr "Processens hukommelsesoversigt"
 
 # sysdeps/names/sysdeps.c:71
 #: sysdeps/names/sysdeps.c:71
@@ -1350,7 +1341,7 @@ msgstr "Oppetid"
 # sysdeps/names/uptime.c:41
 #: sysdeps/names/uptime.c:41
 msgid "Idletime"
-msgstr "Afslapningstid"
+msgstr "Passivtid"
 
 # sysdeps/names/uptime.c:42
 #: sysdeps/names/uptime.c:42
@@ -1360,12 +1351,12 @@ msgstr "Opstartstid"
 # sysdeps/names/uptime.c:47
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds since system boot"
-msgstr "Tid i sekunder siden opstart"
+msgstr "Tid i sekunder siden systemopstart"
 
 # sysdeps/names/uptime.c:48
 #: sysdeps/names/uptime.c:48
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Tid i sekunder som systemet har brugt i Idle Task siden opstart"
+msgstr "Tid i sekunder som systemet har brugt i passiv siden systemopstart"
 
 # sysdeps/names/uptime.c:49
 #: sysdeps/names/uptime.c:49
@@ -1433,7 +1424,7 @@ msgstr "%s: ugyldig flag -- %c\n"
 #: support/getopt.c:807 support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: flaget kærver et argument -- %c\n"
+msgstr "%s: flaget kræver et argument -- %c\n"
 
 # support/getopt.c:854
 #: support/getopt.c:854
@@ -1456,7 +1447,7 @@ msgstr "læs %d byte"
 # lib/read_data.c:49
 #: lib/read_data.c:49
 msgid "read data size"
-msgstr "læs størrelse på data"
+msgstr "læs datastørrelse"
 
 # lib/read_data.c:66
 #: lib/read_data.c:66
