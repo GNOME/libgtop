@@ -1,5 +1,10 @@
 2005-01-24  Benoît Dejean  <TazForEver@dlfp.org>
 
+	* NEWS:
+	* configure.in: Released 2.9.90.
+
+2005-01-24  Benoît Dejean  <TazForEver@dlfp.org>
+
 	* include/glibtop/procopenfiles.h:
 	* sysdeps/linux/procopenfiles.c:
 	* sysdeps/stub/procopenfiles.c: UTF-8-ified.
