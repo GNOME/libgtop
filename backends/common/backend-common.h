@@ -23,16 +23,15 @@
    Boston, MA 02111-1307, USA.
 */
 
-#ifndef __GLIBTOP_BACKEND_PRIVATE_H__
-#define __GLIBTOP_BACKEND_PRIVATE_H__
+#ifndef __GLIBTOP_BACKEND_COMMON_H__
+#define __GLIBTOP_BACKEND_COMMON_H__
+
+#include <glibtop.h>
+#include <glibtop/global.h>
 
 #include <glibtop/open.h>
+#include <glibtop/xmalloc.h>
 #include <glibtop/glibtop-backend.h>
 #include <glibtop/glibtop-backend-info.h>
-
-struct _glibtop_backend_private
-{
-    u_int64_t flags;
-};
 
 #endif

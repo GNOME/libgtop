@@ -24,16 +24,12 @@ print '/* marshal.c */';
 print "/* This is a generated file.  Please modify `marshal.pl' */";
 print '';
 
-print '#include <glibtop.h>';
-print '#include <glibtop/open.h>';
-print '#include <glibtop/xmalloc.h>';
+print '#include <backend-common.h>';
 print '';
 print '#include <glibtop/sysdeps.h>';
 print '#include <glibtop/union.h>';
 print '';
 print '#include <glibtop/call-vector.h>';
-print '';
-print '#include <glibtop-backend-private.h>';
 print '';
 
 $feature_count = 0;

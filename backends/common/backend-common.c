@@ -23,12 +23,7 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop.h>
-#include <glibtop/global.h>
-#include <glibtop/xmalloc.h>
-
-#include <glibtop/open.h>
-#include <glibtop-backend-private.h>
+#include <backend-common.h>
 
 static int
 _open_common (glibtop_server *, glibtop_backend *, u_int64_t, const char **);
@@ -54,9 +49,6 @@ static int
 _open_common (glibtop_server *server, glibtop_backend *backend,
 	      u_int64_t features, const char **backend_args)
 {
-    backend->_priv = glibtop_calloc_r
-	(server, 1, sizeof (glibtop_backend_private));
-
     return 0;
 }
 
