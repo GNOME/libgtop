@@ -1,5 +1,10 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* src/inodedb/Makefile.am: link to libgtop_suid_common-2.0.la
+	(Closes: #107990)
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* acconfig.h:
 	* acinclude.m4:
 	* include/glibtop/array.h:
