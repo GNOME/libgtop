@@ -1,4 +1,9 @@
 1999-05-09  Martin Baulig  <martin@home-of-linux.org>
 
+	* about.texi: Split the `libgtop.texi' into one file pro chapter,
+	this is the "About LibGTop".
+
+	* reference.texi: The "LibGTop Reference Manual".
+
 	* libgtop.texi: Initial version of the new LibGTop Manual.
 

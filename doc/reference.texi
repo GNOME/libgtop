@@ -1,0 +1,73 @@
+@node Reference Manual, , About, Top
+@chapter LibGTop Reference Manual
+
+@menu
+* glibtop_cpu::                 CPU Usage.
+@end menu
+
+@node glibtop_cpu,  , Reference Manual, Reference Manual
+@section CPU Usage
+
+Declaration of @code{glibtop_cpu} in @file{<glibtop/cpu.h}:
+
+@example
+@cartouche
+typedef struct _glibtop_cpu     glibtop_cpu;
+
+struct _glibtop_cpu
+@{
+    u_int64_t   flags,
+        total,
+        user,
+        nice,
+        sys,
+        idle,
+        frequency,
+        xcpu_total [GLIBTOP_NCPU],
+        xcpu_user [GLIBTOP_NCPU],
+        xcpu_nice [GLIBTOP_NCPU],
+        xcpu_sys  [GLIBTOP_NCPU],
+        xcpu_idle [GLIBTOP_NCPU],
+        xcpu_flags;
+@};
+@end cartouche
+@end example
+
+All CPU units are measured in @dfn{jiffies} which are normally 1/100th of a
+second (in which case @code{frequency} equals 100), but can also be in any
+other unit. To get seconds, divide them by @code{frequency}.
+
+@table @code
+@item total
+Number of clock ticks since system boot.
+
+@item user
+Number of clock ticks the system spent in user mode.
+
+@item nice
+Number of clock ticks the system spent in user mode (nice).
+
+@item sys
+Number of clock ticks the system spent in system mode.
+
+@item idle
+Number of clock ticks the system spent in the idle task.
+
+@item frequency
+Tick frequency (default is 100).
+
+@end table
+
+The @samp{xcpu_} values are for SMP systems - they are the same than
+@code{total}, @code{user}, @code{nice}, @code{sys} and @code{idle}
+except that they are arrays of @code{GLIBTOP_NCPU} (defined in
+@file{<glibtop/limits.h>}) elements and contain one value for each CPU
+in the system.
+
+@table @code
+@item xcpu_flags
+This is interpreted as a bit-field: on systems like Solaris, not all CPUs
+need to be running all the time, so we set the corresponding bit for each
+CPU that is currently running.
+@end table
+
