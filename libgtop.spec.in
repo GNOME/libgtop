@@ -103,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 
 %doc RELNOTES-0.25 RELNOTES-1.0 AUTHORS ChangeLog NEWS README
-%doc ANNOUNCE-0.25 ANNOUNCE-1.0 TODO NEWS.old copyright.txt
+%doc TODO NEWS.old copyright.txt
 %doc src/inodedb/README.inodedb
 
 %{prefix}/lib/lib*.so.*
