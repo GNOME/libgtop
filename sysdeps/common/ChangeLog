@@ -1,3 +1,7 @@
+2004-09-22  Benoît Dejean  <tazforever@dlfp.org>
+
+	* mountlist.c: (ignore_mount_entry): Added mntfs to ignore list.
+
 2004-09-21  Benoît Dejean  <tazforever@dlfp.org>
 
 	* fsusage.c: (_glibtop_get_fsusage_read_write),
