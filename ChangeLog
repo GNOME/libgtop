@@ -1,5 +1,11 @@
 2000-01-02  Martin Baulig  <martin@home-of-linux.org>
 
+	* src/Makefile.am: Disable compilation of the `daemon' directory.
+
+	* include/glibtop/command.h: Removed.
+
+2000-01-02  Martin Baulig  <martin@home-of-linux.org>
+
 	* include/glibtop/call-vector.pl: All functions in the
 	`glibtop_call_vector' now take an additional `glibtop_backend *'
 	argument.
