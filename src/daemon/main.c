@@ -50,6 +50,9 @@ extern void handle_slave_command __P((glibtop_command *, glibtop_response *, con
 #define _offset_union(p)	((char *) &resp->u.p - (char *) resp)
 #define _offset_data(p)		_offset_union (data.p)
 
+static void do_output __P((int, glibtop_response *, off_t, size_t, const void *));
+static int do_read __P((int, void *, size_t));
+
 static void
 do_output (int s, glibtop_response *resp, off_t offset,
 	   size_t data_size, const void *data)
@@ -262,7 +265,7 @@ handle_child_connection (int s)
 	char parameter [BUFSIZ];
 	void *ptr;
 
-	while (do_read (s, &cmnd, sizeof (glibtop_command))) {
+	while (do_read (s, cmnd, sizeof (glibtop_command))) {
 #ifdef CHILD_DEBUG
 		fprintf (stderr, "Child (%d - %d) received command "
 			 "%d from client.\n", getpid (), s, cmnd->command);
