@@ -290,7 +290,10 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     }
 
     /* Should never happen. */
-    if (fields < 2) return;
+    if (fields < 2) {
+	fclose (f);
+	return;
+    }
     fields--;
 
     while (fgets (buffer, BUFSIZ-1, f)) {

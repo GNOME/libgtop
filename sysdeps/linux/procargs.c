@@ -60,6 +60,8 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 		retval = glibtop_malloc_r (server, max_len+1);
 
 		len = read (cmdline, retval, max_len);
+		close (cmdline);
+
 		if (len < 0) {
 			glibtop_free_r (server, retval);
 			return NULL;
@@ -76,6 +78,7 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 	while (1) {
 		len = read (cmdline, buffer, BUFSIZ-1);
 		if (len < 0) {
+			close (cmdline);
 			glibtop_free_r (server, retval);
 			return NULL;
 		}
