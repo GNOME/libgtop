@@ -1037,7 +1037,7 @@ msgstr "Podatki o segmentu procesa"
 
 #: sysdeps/names/sysdeps.c:71
 msgid "Process CWD"
-msgstr "Procesov trenutni delavni imenik"
+msgstr "Procesov trenutni delovni imenik"
 
 #: sysdeps/names/sysdeps.c:72
 msgid "Process Arguments"
@@ -1073,7 +1073,7 @@ msgstr "Velikost kazalca na stre¾niku (v bitih)"
 
 #: sysdeps/names/sysdeps.c:101
 msgid "Current working directory of the process"
-msgstr "Trenutni delavni imenik procesa"
+msgstr "Trenutni delovni imenik procesa"
 
 #: sysdeps/names/sysdeps.c:102
 msgid "Command line arguments of the process"
