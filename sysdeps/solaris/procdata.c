@@ -23,6 +23,7 @@
 
 #include <glibtop.h>
 #include <glibtop_private.h>
+#include <glibtop/procuid.h>
 
 #include <errno.h>
 
@@ -75,9 +76,13 @@ glibtop_get_proc_data_usage_s (glibtop *server, struct prusage *prusage, pid_t p
 }
 
 int
-glibtop_get_proc_credentials_s(glibtop *server, struct prcred *prcred, pid_t pid)
+glibtop_get_proc_credentials_s(glibtop *server,
+      			       struct prcred *prcred,
+			       gid_t *groups,
+			       pid_t pid)
 {
 	int fd;
+	size_t toread;
 	char buffer[BUFSIZ];
 
 	sprintf(buffer, "/proc/%d/cred", (int)pid);
@@ -92,6 +97,16 @@ glibtop_get_proc_credentials_s(glibtop *server, struct prcred *prcred, pid_t pid
 	   	close(fd);
 		glibtop_warn_io_r(server, "pread (%s)", buffer);
 		return -1;
+	}
+	if(prcred->pr_ngroups >= 0)
+	{
+	    if(prcred->pr_ngroups <= GLIBTOP_MAX_GROUPS)
+	        toread = prcred->pr_ngroups * sizeof(gid_t);
+	    else
+	        toread = GLIBTOP_MAX_GROUPS * sizeof(gid_t);
+	    if(pread(fd, groups, toread,
+	       &(((struct prcred *)0)->pr_groups[0])) != toread)
+	        prcred->pr_ngroups = 0;
 	}
 	close(fd);
 	return 0;

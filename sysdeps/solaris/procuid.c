@@ -53,6 +53,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 {
 	struct psinfo psinfo;
 	struct prcred prcred;
+	gid_t groups[GLIBTOP_MAX_GROUPS];
 
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 
@@ -76,7 +77,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 
 	buf->flags = _glibtop_sysdeps_proc_uid_psinfo;
 
-	if(glibtop_get_proc_credentials_s(server, &prcred, pid))
+	if(glibtop_get_proc_credentials_s(server, &prcred, groups, pid))
 		return;
 
 	buf->suid = prcred.pr_suid;
@@ -85,14 +86,13 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	   		prcred.pr_ngroups : GLIBTOP_MAX_GROUPS;
 
 	if(sizeof(int) == sizeof(gid_t))
-	   	memcpy(buf->groups, prcred.pr_groups,
-		       buf->ngroups * sizeof(gid_t));
+	   	memcpy(buf->groups, &groups, buf->ngroups * sizeof(gid_t));
 	else
 	{
 	   	int i;
 
 		for(i = 0; i < buf->ngroups; ++i)
-		   	buf->groups[i] = prcred.pr_groups[i];
+		   	buf->groups[i] = groups[i];
 	}
 	buf->flags += _glibtop_sysdeps_proc_uid_prcred;
 }

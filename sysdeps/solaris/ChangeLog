@@ -1,3 +1,8 @@
+1999-05-06  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_private.h, procuid.c, procdata.c: List of supplementary
+	groups was not correct. Fixed.
+
 1999-05-04  Drazen Kacar  <dave@srce.hr>
 
 	* glibtop_machine.h: Changed boot time to unsigned long long.
