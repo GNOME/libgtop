@@ -30,6 +30,10 @@
 
 #include <glibtop/procmap.h>
 
+#ifdef GLIBTOP_INODEDB
+#include <glibtop/inodedb.h>
+#endif
+
 #include <sys/resource.h>
 #include <sys/mman.h>
 
@@ -40,6 +44,9 @@
 int
 main (int argc, char *argv [])
 {
+#ifdef GLIBTOP_INODEDB
+	glibtop_inodedb *inodedb;
+#endif
 	glibtop_proc_map procmap;
 	glibtop_map_entry *maps;
 	unsigned method, count, port, i, *ptr;
@@ -75,16 +82,38 @@ main (int argc, char *argv [])
 	if ((argc != 2) || (sscanf (argv [1], "%d", &pid) != 1))
 		glibtop_error ("Usage: %s pid", argv [0]);
 
+#ifdef GLIBTOP_INODEDB
+	inodedb = glibtop_inodedb_open (0, 0);
+#endif
+
 	fprintf (stderr, "Getting memory maps for pid %d.\n\n", pid);
 
 	maps = glibtop_get_proc_map (&procmap, pid);
 
 	for (i = 0; i < procmap.number; i++) {
-		fprintf (stderr, "%08x - %08x - %08lu - %08lu\n",
-			 (unsigned long) maps [i].start,
-			 (unsigned long) maps [i].end,
-			 (unsigned long) maps [i].device,
-			 (unsigned long) maps [i].inode);
+		const char *filename = NULL;
+
+#ifdef GLIBTOP_INODEDB
+		if (inodedb)
+			filename = glibtop_inodedb_lookup
+				(inodedb, maps [i].device, maps [i].inode);
+#endif
+
+		if (filename)
+			fprintf (stderr, "%08x - %08x - %08lu - %08lu - %s\n",
+				 (unsigned long) maps [i].start,
+				 (unsigned long) maps [i].end,
+				 (unsigned long) maps [i].device,
+				 (unsigned long) maps [i].inode,
+				 filename);
+		else
+			fprintf (stderr, "%08x - %08x - %08lu - %08lu\n",
+				 (unsigned long) maps [i].start,
+				 (unsigned long) maps [i].end,
+				 (unsigned long) maps [i].device,
+				 (unsigned long) maps [i].inode);
+
+		glibtop_free (filename);
 	}
 
 	glibtop_free (maps);
