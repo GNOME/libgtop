@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.99.3\n"
 "POT-Creation-Date: 1999-09-22 00:52+0200\n"
-"PO-Revision-Date: 1999-09-19 23:46+02:00\n"
+"PO-Revision-Date: 1999-09-28 22:43+02:00\n"
 "Last-Translator: Kenneth Christiansen <kenneth@ripen.dk>\n"
 "Language-Team: Dansk/Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Processortid i systemmodus"
 
 #: sysdeps/names/cpu.c:49
 msgid "CPU Time in the Idle Task"
-msgstr "Processortid i idle task"
+msgstr "Processortid i afslapningsmodus"
 
 #: sysdeps/names/cpu.c:50
 msgid "Tick Frequency"
@@ -39,7 +39,7 @@ msgstr "Tikfrekvens"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP Total CPU Time"
-msgstr "SMP Total processortid"
+msgstr "SMP total processortid"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in User Mode"
@@ -55,11 +55,11 @@ msgstr "SMP Processortid i systemmodus"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Time in the Idle Task"
-msgstr "SMP Processortid i idle task"
+msgstr "SMP Processortid i afslapningsmodus"
 
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "SMP processor flag"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
@@ -115,7 +115,7 @@ msgstr "Ledige blokke tilgængelige til ikke-superbrugere"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Load Average"
-msgstr "Gennemsnitsbelastning"
+msgstr "Middelbelastning"
 
 #: sysdeps/names/loadavg.c:42
 msgid "Running Tasks"
@@ -163,7 +163,7 @@ msgstr "Buffere"
 
 #: sysdeps/names/mem.c:48
 msgid "Cached"
-msgstr "Mellemlagret"
+msgstr "Cachet"
 
 #: sysdeps/names/mem.c:49
 msgid "User"
@@ -253,7 +253,7 @@ msgstr "Antal systemmeddelelseshoveder"
 
 #: sysdeps/names/prockernel.c:44
 msgid "K_Flags"
-msgstr "K_Flags"
+msgstr "K_Flag"
 
 #: sysdeps/names/prockernel.c:44
 msgid "Min_Flt"
@@ -341,13 +341,13 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
-"Den nuværende værdi af esp (32-bits stakpeger), som fundet i kernens "
+"Den nuværende værdi af esp (32-bit stakpeger), som fundet i kernens "
 "stakside for processen."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:76
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr "Den nuværende EIP (32-bits instruktionspeger)."
+msgstr "Den nuværende EIP (32-bit instruktionspeger)."
 
 #. NWChan
 #: sysdeps/names/prockernel.c:78
@@ -453,47 +453,44 @@ msgid "End_Code"
 msgstr "End_Code"
 
 #: sysdeps/names/procsegment.c:52
-#, fuzzy
 msgid "Start_Data"
-msgstr "Start_Stack"
+msgstr "Start_Data"
 
 #: sysdeps/names/procsegment.c:52
 msgid "End_Data"
-msgstr ""
+msgstr "End_Data"
 
 #: sysdeps/names/procsegment.c:52
-#, fuzzy
 msgid "Start_Brk"
-msgstr "Start_Stack"
+msgstr "Start_Brk"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Brk"
-msgstr ""
+msgstr "Brk"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_Stack"
-msgstr "Start_Stack"
+msgstr "Start_Stak"
 
 #: sysdeps/names/procsegment.c:53
-#, fuzzy
 msgid "Start_MMap"
-msgstr "Start_Stack"
+msgstr "Start_MMap"
 
 #: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
 msgid "Arg_Start"
-msgstr ""
+msgstr "Arg_Start"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
 msgid "Arg_End"
-msgstr ""
+msgstr "Arg_End"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
 msgid "Env_Start"
-msgstr ""
+msgstr "Env_Start"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
 msgid "Env_End"
-msgstr ""
+msgstr "Env_End"
 
 #: sysdeps/names/procsegment.c:59
 msgid "Text resident set size"
@@ -517,29 +514,27 @@ msgstr "Total størrelse på beskidte sider"
 
 #: sysdeps/names/procsegment.c:64
 msgid "Address of beginning of code segment"
-msgstr "Adresse på begyndelsen af kodesegmentet"
+msgstr "Adresse på begyndelse af kodesegment"
 
 #: sysdeps/names/procsegment.c:65
 msgid "Address of end of code segment"
 msgstr "Adresse på slutning af kodesegmentet"
 
 #: sysdeps/names/procsegment.c:66
-#, fuzzy
 msgid "Address of beginning of data segment"
-msgstr "Adresse på begyndelsen af kodesegmentet"
+msgstr "Adresse på begyndelse af datasegment"
 
 #: sysdeps/names/procsegment.c:67
-#, fuzzy
 msgid "Address of end of data segment"
-msgstr "Adresse på slutning af kodesegmentet"
+msgstr "Adresse på slutning af datasegment"
 
 #: sysdeps/names/procsegment.c:68
 msgid "Brk_Start"
-msgstr ""
+msgstr "Brk_Start"
 
 #: sysdeps/names/procsegment.c:69
 msgid "Brk_End"
-msgstr ""
+msgstr "Brk_End"
 
 #: sysdeps/names/procsegment.c:70
 msgid "Address of the bottom of stack segment"
@@ -547,7 +542,7 @@ msgstr "Adresse på bunden af staksegmentet"
 
 #: sysdeps/names/procsegment.c:71
 msgid "Start of mmap()ed areas"
-msgstr ""
+msgstr "Start på mmap()ed arealer"
 
 #: sysdeps/names/procsignal.c:42
 msgid "Signal"
@@ -598,27 +593,24 @@ msgid "GID"
 msgstr "GID (GruppeID)"
 
 #: sysdeps/names/procstate.c:45
-#, fuzzy
 msgid "RUID"
-msgstr "UID (BrugerID)"
+msgstr "RUID"
 
 #: sysdeps/names/procstate.c:46
-#, fuzzy
 msgid "RGID"
-msgstr "GID (GruppeID)"
+msgstr "RGID"
 
 #: sysdeps/names/procstate.c:46
 msgid "Has CPU"
-msgstr ""
+msgstr "Har CPU"
 
 #: sysdeps/names/procstate.c:46
-#, fuzzy
 msgid "Processor"
-msgstr "ProcesID"
+msgstr "Processor"
 
 #: sysdeps/names/procstate.c:47
 msgid "Last Processor"
-msgstr ""
+msgstr "Sidste processor"
 
 #: sysdeps/names/procstate.c:52
 msgid "Basename of executable file in call to exec()"
@@ -629,37 +621,32 @@ msgid "Single-Char code for process state (S=sleeping)"
 msgstr "Enkelttegnskode for processens tilstand (S=sovende)"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "effective UID of process"
-msgstr "Processens UID (BrukerID)"
+msgstr "Effektiv proces UID"
 
 #: sysdeps/names/procstate.c:55
-#, fuzzy
 msgid "effective GID of process"
-msgstr "Processens GID (GruppeID)"
+msgstr "Effektiv proces GID"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "real UID of process"
-msgstr "Processens UID (BrukerID)"
+msgstr "Rigtig proces UID"
 
 #: sysdeps/names/procstate.c:57
-#, fuzzy
 msgid "real GID of process"
-msgstr "Processens GID (GruppeID)"
+msgstr "Rigtig proces GID"
 
 #: sysdeps/names/procstate.c:58
 msgid "has_cpu"
-msgstr ""
+msgstr "har_cpu"
 
 #: sysdeps/names/procstate.c:59
-#, fuzzy
 msgid "processor"
-msgstr "ProcesID"
+msgstr "processor"
 
 #: sysdeps/names/procstate.c:60
 msgid "last_processor"
-msgstr ""
+msgstr "sidste_processor"
 
 #: sysdeps/names/proctime.c:46
 msgid "Start_Time"
@@ -706,9 +693,8 @@ msgid "XCPU_STime"
 msgstr "XCPU_STid"
 
 #: sysdeps/names/proctime.c:49
-#, fuzzy
 msgid "XCPU_Flags"
-msgstr "K_Flags"
+msgstr "XCPU_Flag"
 
 #: sysdeps/names/proctime.c:54
 msgid "Start time of process in seconds since the epoch"
@@ -775,24 +761,20 @@ msgid "EGid"
 msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "Uid"
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "Gid"
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FsUid"
-msgstr "Uid"
+msgstr "FsUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FsGid"
-msgstr "Gid"
+msgstr "FsGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
@@ -827,14 +809,12 @@ msgid "Nice"
 msgstr "God"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "GruppeID"
+msgstr "NGruppe"
 
 #: sysdeps/names/procuid.c:52
-#, fuzzy
 msgid "Groups"
-msgstr "GruppeID"
+msgstr "Grupper"
 
 #: sysdeps/names/procuid.c:57
 msgid "User ID"
@@ -853,24 +833,20 @@ msgid "Effective Group ID"
 msgstr "Effektiv gruppeID"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Saved User ID"
-msgstr "BrugerID"
+msgstr "Gemt brugerID"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Saved Group ID"
-msgstr "GruppeID"
+msgstr "Gemt gruppeID"
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Brug af filsystemer"
+msgstr "Filsystem brugerID"
 
 #: sysdeps/names/procuid.c:64
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "Effektiv gruppeID"
+msgstr "Filsystem gruppeID"
 
 #: sysdeps/names/procuid.c:65
 msgid "Process ID"
@@ -905,14 +881,12 @@ msgid "Standard unix nice level of process"
 msgstr "Standard unix god-niveau for processen"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Number of additional process groups"
-msgstr "Terminalprocessens gruppeID"
+msgstr "Antal yderligere proces grupper"
 
 #: sysdeps/names/procuid.c:74
-#, fuzzy
 msgid "Additional process groups"
-msgstr "Terminalprocessens gruppeID"
+msgstr "Yderligere proces grupper"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Number of entries in semaphore map"
@@ -1007,9 +981,8 @@ msgid "Server Features"
 msgstr "Server egenskaber"
 
 #: sysdeps/names/sysdeps.c:52
-#, fuzzy
 msgid "Pointer Size"
-msgstr "Beskidt størrelse"
+msgstr "Peger størrelse"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
 msgid "CPU Usage"
@@ -1101,11 +1074,11 @@ msgstr "PPP-statistik"
 
 #: sysdeps/names/sysdeps.c:80
 msgid "Pointer Size on the Server (in bits)"
-msgstr ""
+msgstr "Peger-størrelse på serveren (i bit)"
 
 #: sysdeps/names/sysdeps.c:97
 msgid "Command line arguments of the process"
-msgstr "Processens kommandolinjeargumenter"
+msgstr "Processens kommandolinieargumenter"
 
 #: sysdeps/names/sysdeps.c:99
 msgid "List of currently mounted filesystems"
@@ -1117,11 +1090,11 @@ msgstr "Oppetid"
 
 #: sysdeps/names/uptime.c:41
 msgid "Idletime"
-msgstr "Idletid"
+msgstr "Afslapningstid"
 
 #: sysdeps/names/uptime.c:42
 msgid "Boot time"
-msgstr ""
+msgstr "Opstartstid"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds since system boot"
@@ -1132,9 +1105,8 @@ msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "Tid i sekunder som systemet har brugt i Idle Task siden opstart"
 
 #: sysdeps/names/uptime.c:49
-#, fuzzy
 msgid "Boot time (seconds sice epoch)"
-msgstr "Processens starttid i sekunder siden epoken"
+msgstr "Opstartstid (i sekunder siden epok)"
 
 #: support/error.c:109
 msgid "Unknown system error"
