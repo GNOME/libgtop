@@ -57,6 +57,8 @@ glibtop_init_proc_mem_s (glibtop *server)
 	pageshift++;
 	pagesize >>= 1;
     }
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -66,11 +68,13 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
 			pid_t pid)
 {
     libgtop_proc_mem_t proc_mem;
+    int retval;
 
     memset (buf, 0, sizeof (glibtop_proc_mem));
 
-    if (glibtop_get_proc_data_proc_mem_s (server, &proc_mem, pid))
-	return;
+    retval = glibtop_get_proc_data_proc_mem_s (server, &proc_mem, pid);
+    if (retval)
+	return retval;
 
     buf->vsize = proc_mem.segment.vsize;
 
@@ -88,4 +92,6 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
     buf->share <<= pageshift;
 
     buf->flags = _glibtop_sysdeps_proc_mem;
+
+    return 0;
 }

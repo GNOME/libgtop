@@ -45,6 +45,8 @@ int
 glibtop_init_ppp_s (glibtop *server)
 {
 	server->sysdeps.ppp = _glibtop_sysdeps_ppp;
+
+    return 0;
 }
 
 static int
@@ -198,4 +200,6 @@ glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device)
 		buf->flags |= (1L << GLIBTOP_PPP_BYTES_IN) |
 			(1L << GLIBTOP_PPP_BYTES_OUT);
 	}
+
+    return 0;
 }

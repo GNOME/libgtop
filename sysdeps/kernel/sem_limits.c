@@ -54,6 +54,8 @@ int
 glibtop_init_sem_limits_s (glibtop *server)
 {
     server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+
+    return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -71,7 +73,8 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
     buf->flags = _glibtop_sysdeps_sem_limits;
   
     arg.array = (ushort *) &seminfo;
-    semctl (0, 0, IPC_INFO, arg);
+    if (semctl (0, 0, IPC_INFO, arg))
+	return -1;
   
     buf->semmap = seminfo.semmap;
     buf->semmni = seminfo.semmni;
@@ -83,4 +86,6 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
     buf->semusz = seminfo.semusz;
     buf->semvmx = seminfo.semvmx;
     buf->semaem = seminfo.semaem;
+
+    return 0;
 }

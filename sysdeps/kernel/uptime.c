@@ -36,6 +36,8 @@ int
 glibtop_init_uptime_s (glibtop *server)
 {
     server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+
+    return 0;
 }
 
 /* Provides uptime and idle time. */
@@ -45,11 +47,13 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
     libgtop_stat_t stat;
     unsigned long total;
+    int retval;
 
     memset (buf, 0, sizeof (glibtop_uptime));
 
-    if (glibtop_get_proc_data_stat_s (server, &stat))
-	return;
+    retval = glibtop_get_proc_data_stat_s (server, &stat);
+    if (retval)
+	return retval;
 
     total = stat.cpu.user + stat.cpu.nice + stat.cpu.sys + stat.cpu.idle;
 
@@ -59,4 +63,6 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
     buf->boot_time = stat.boot_time;
 
     buf->flags = _glibtop_sysdeps_uptime;
+
+    return 0;
 }

@@ -38,6 +38,8 @@ int
 glibtop_init_proc_signal_s (glibtop *server)
 {
     server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -47,12 +49,13 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 			   pid_t pid)
 {
     libgtop_proc_signal_t proc_signal;
-    int i;
+    int retval, i;
 
     memset (buf, 0, sizeof (glibtop_proc_signal));
 
-    if (glibtop_get_proc_data_proc_signal_s (server, &proc_signal, pid))
-	return;
+    retval = glibtop_get_proc_data_proc_signal_s (server, &proc_signal, pid);
+    if (retval)
+	return retval;
 
     for (i = 0; i < 1; i++) {
 	buf->signal [i] = proc_signal.signal [i];
@@ -62,4 +65,6 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
     }
 
     buf->flags = _glibtop_sysdeps_proc_signal;
+
+    return 0;
 }

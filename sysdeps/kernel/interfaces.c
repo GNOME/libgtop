@@ -3,7 +3,7 @@
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
-   Contributed by Martin Baulig <martin@home-of-linux.org>, March 1999.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, October 1998.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -22,42 +22,33 @@
 */
 
 #include <glibtop.h>
-#include <glibtop/loadavg.h>
+#include <glibtop/error.h>
+#include <glibtop/interfaces.h>
 
-#include <glibtop_private.h>
-
-static const unsigned long _glibtop_sysdeps_loadavg =
-(1L << GLIBTOP_LOADAVG_LOADAVG);
+static const unsigned long _glibtop_sysdeps_interface_names = 
+(1L << GLIBTOP_INTERFACE_NAMES_NUMBER) +
+(1L << GLIBTOP_INTERFACE_NAMES_SIZE);
 
 /* Init function. */
 
 int
-glibtop_init_loadavg_s (glibtop *server)
+glibtop_init_interface_names_s (glibtop *server)
 {
-    server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
+    server->sysdeps.interface_names = _glibtop_sysdeps_interface_names;
 
     return 0;
 }
 
-/* Provides load averange. */
+/* Provides network statistics. */
 
-int
-glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
+glibtop_interface *
+glibtop_get_interface_names_s (glibtop *server, glibtop_interface_names *buf,
+			       u_int64_t interface, u_int64_t number,
+			       u_int64_t instance, u_int64_t strategy)
 {
-    libgtop_stat_t stat;
-    int retval;
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_INTERFACE_NAMES, 0);
 
-    memset (buf, 0, sizeof (glibtop_loadavg));
+    memset (buf, 0, sizeof (glibtop_interface_names));
 
-    retval = glibtop_get_proc_data_stat_s (server, &stat);
-    if (retval)
-	return retval;
-
-    buf->loadavg [0] = stat.loadavg [0];
-    buf->loadavg [1] = stat.loadavg [1];
-    buf->loadavg [2] = stat.loadavg [2];
-
-    buf->flags = _glibtop_sysdeps_loadavg;
-
-    return 0;
+    return NULL;
 }

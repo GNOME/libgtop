@@ -47,6 +47,8 @@ int
 glibtop_init_proc_uid_s (glibtop *server)
 {
     server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -57,12 +59,13 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
 {
     libgtop_proc_state_t proc_state;
     long priority, nice;
-    int i;
+    int retval, i;
 
     memset (buf, 0, sizeof (glibtop_proc_uid));
 
-    if (glibtop_get_proc_data_proc_state_s (server, &proc_state, pid))
-	return;
+    retval = glibtop_get_proc_data_proc_state_s (server, &proc_state, pid);
+    if (retval)
+	return retval;
 
     buf->uid = proc_state.uid;
     buf->euid = proc_state.euid;
@@ -97,4 +100,6 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
 	buf->groups [i] = proc_state.groups [i];
 
     buf->flags = _glibtop_sysdeps_proc_uid;
+
+    return 0;
 }

@@ -44,6 +44,8 @@ glibtop_init_proc_kernel_s (glibtop *server)
 {
     server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel |
 	_glibtop_sysdeps_proc_kernel_kernel;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -54,11 +56,13 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
 {
     libgtop_proc_state_t proc_state;
     libgtop_proc_kernel_t proc_kernel;
+    int retval;
 
     memset (buf, 0, sizeof (glibtop_proc_kernel));
 
-    if (glibtop_get_proc_data_proc_state_s (server, &proc_state, pid))
-	return;
+    retval = glibtop_get_proc_data_proc_state_s (server, &proc_state, pid);
+    if (retval)
+	return retval;
 
     buf->min_flt = proc_state.min_flt;
     buf->maj_flt = proc_state.maj_flt;
@@ -69,9 +73,12 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
 
     buf->flags = _glibtop_sysdeps_proc_kernel;
 
-    if (glibtop_get_proc_data_proc_kernel_s (server, &proc_kernel, pid))
-	return;
+    retval = glibtop_get_proc_data_proc_kernel_s (server, &proc_kernel, pid);
+    if (retval)
+	return retval;
 
     buf->nwchan = proc_kernel.wchan;
     buf->flags |= _glibtop_sysdeps_proc_kernel_kernel;
+
+    return 0;
 }

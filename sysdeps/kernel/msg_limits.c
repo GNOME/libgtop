@@ -38,6 +38,8 @@ int
 glibtop_init_msg_limits_s (glibtop *server)
 {
     server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+
+    return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -53,7 +55,8 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
   
     buf->flags = _glibtop_sysdeps_msg_limits;
   
-    msgctl (0, IPC_INFO, (struct msqid_ds *) &msginfo);
+    if (msgctl (0, IPC_INFO, (struct msqid_ds *) &msginfo))
+	return -1;
   
     buf->msgpool = msginfo.msgpool;
     buf->msgmap = msginfo.msgmap;
@@ -62,4 +65,6 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
     buf->msgmni = msginfo.msgmni;
     buf->msgssz = msginfo.msgssz;
     buf->msgtql = msginfo.msgtql;
+
+    return 0;
 }

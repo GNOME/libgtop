@@ -45,6 +45,8 @@ glibtop_init_cpu_s (glibtop *server)
 
     if (server->ncpu)
 	server->sysdeps.cpu |= _glibtop_sysdeps_cpu_smp;
+
+    return 0;
 }
 
 /* Provides information about cpu usage. */
@@ -53,12 +55,13 @@ int
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
     libgtop_stat_t stat;
-    int i;
+    int retval, i;
 
     memset (buf, 0, sizeof (glibtop_cpu));
 
-    if (glibtop_get_proc_data_stat_s (server, &stat))
-	return;
+    retval = glibtop_get_proc_data_stat_s (server, &stat);
+    if (retval)
+	return retval;
 
     buf->user = stat.cpu.user;
     buf->nice = stat.cpu.nice;
@@ -83,4 +86,6 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 
 	buf->flags |= _glibtop_sysdeps_cpu_smp;
     }
+
+    return 0;
 }

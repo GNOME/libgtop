@@ -40,6 +40,8 @@ glibtop_init_swap_s (glibtop *server)
 {
     server->sysdeps.swap = _glibtop_sysdeps_swap |
 	_glibtop_sysdeps_swap_stat;
+
+    return 0;
 }
 
 /* Provides information about swap usage. */
@@ -49,11 +51,13 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
     libgtop_stat_t stat;
     libgtop_swap_t swap;
+    int retval;
 
     memset (buf, 0, sizeof (glibtop_swap));
 
-    if (glibtop_get_proc_data_swap_s (server, &swap))
-	return;
+    retval = glibtop_get_proc_data_swap_s (server, &swap);
+    if (retval)
+	return retval;
 
     buf->total = swap.totalswap;
     buf->free = swap.freeswap;
@@ -61,11 +65,14 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
     buf->flags = _glibtop_sysdeps_swap;
 
-    if (glibtop_get_proc_data_stat_s (server, &stat))
-	return;
+    retval = glibtop_get_proc_data_stat_s (server, &stat);
+    if (retval)
+	return retval;
 
     buf->pagein = stat.pswpin;
     buf->pageout = stat.pswpout;
 
     buf->flags |= _glibtop_sysdeps_swap_stat;
+
+    return 0;
 }

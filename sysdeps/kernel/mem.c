@@ -37,6 +37,8 @@ int
 glibtop_init_mem_s (glibtop *server)
 {
     server->sysdeps.mem = _glibtop_sysdeps_mem;
+
+    return 0;
 }
 
 /* Provides information about memory usage. */
@@ -45,11 +47,13 @@ int
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
     libgtop_mem_t mem;
+    int retval;
 
     memset (buf, 0, sizeof (glibtop_mem));
 
-    if (glibtop_get_proc_data_mem_s (server, &mem))
-	return;
+    retval = glibtop_get_proc_data_mem_s (server, &mem);
+    if (retval)
+	return retval;
 
     buf->total = mem.totalram;
     buf->used = mem.totalram - mem.freeram;
@@ -59,4 +63,6 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
     buf->cached = mem.cachedram;
 
     buf->flags = _glibtop_sysdeps_mem;
+
+    return 0;
 }

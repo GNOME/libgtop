@@ -39,6 +39,8 @@ int
 glibtop_init_proc_state_s (glibtop *server)
 {
     server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -48,11 +50,13 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
 			  pid_t pid)
 {
     libgtop_proc_state_t proc_state;
+    int retval;
 
     memset (buf, 0, sizeof (glibtop_proc_state));
 
-    if (glibtop_get_proc_data_proc_state_s (server, &proc_state, pid))
-	return;
+    retval = glibtop_get_proc_data_proc_state_s (server, &proc_state, pid);
+    if (retval)
+	return retval;
 
     memcpy (buf->cmd, proc_state.comm, sizeof (buf->cmd));
 
@@ -79,4 +83,6 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
     buf->last_processor = proc_state.last_processor;
 
     buf->flags = _glibtop_sysdeps_proc_state;
+
+    return 0;
 }

@@ -43,6 +43,8 @@ glibtop_init_proc_time_s (glibtop *server)
 
     if (server->ncpu)
 	server->sysdeps.proc_time |= _glibtop_sysdeps_proc_time_smp;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -52,12 +54,13 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf,
 			 pid_t pid)
 {
     libgtop_proc_state_t proc_state;
-    int i;
+    int retval, i;
 
     memset (buf, 0, sizeof (glibtop_proc_time));
 
-    if (glibtop_get_proc_data_proc_state_s (server, &proc_state, pid))
-	return;
+    retval = glibtop_get_proc_data_proc_state_s (server, &proc_state, pid);
+    if (retval)
+	return retval;
 
     buf->start_time = proc_state.start_time;
     buf->utime = proc_state.utime;
@@ -76,4 +79,6 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf,
 
     if (server->ncpu)
 	buf->flags |= _glibtop_sysdeps_proc_time_smp;
+
+    return 0;
 }

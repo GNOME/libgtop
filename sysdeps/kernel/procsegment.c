@@ -65,6 +65,8 @@ glibtop_init_proc_segment_s (glibtop *server)
 	pageshift++;
 	pagesize >>= 1;
     }
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -75,11 +77,13 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 {
     libgtop_proc_mem_t proc_mem;
     libgtop_proc_state_t proc_state;
+    int retval;
 
     memset (buf, 0, sizeof (glibtop_proc_segment));
 
-    if (glibtop_get_proc_data_proc_mem_s (server, &proc_mem, pid))
-	return;
+    retval = glibtop_get_proc_data_proc_mem_s (server, &proc_mem, pid);
+    if (retval)
+	return retval;
 
     buf->text_rss = proc_mem.trs;
     buf->shlib_rss = proc_mem.lrs;
@@ -95,8 +99,9 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 
     buf->flags = _glibtop_sysdeps_proc_segment;
 
-    if (glibtop_get_proc_data_proc_state_s (server, &proc_state, pid))
-	return;
+    retval = glibtop_get_proc_data_proc_state_s (server, &proc_state, pid);
+    if (retval)
+	return retval;
 
     buf->start_code = proc_state.start_code;
     buf->end_code = proc_state.end_code;
@@ -114,4 +119,6 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
     buf->env_end = proc_state.env_end;
 
     buf->flags |= _glibtop_sysdeps_proc_segment_state;
+
+    return 0;
 }

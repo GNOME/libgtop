@@ -37,6 +37,8 @@ int
 glibtop_init_shm_limits_s (glibtop *server)
 {
     server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
+
+    return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -52,11 +54,14 @@ glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
   
     buf->flags = _glibtop_sysdeps_shm_limits;
   
-    shmctl (0, IPC_INFO, (struct shmid_ds *) &shminfo);
+    if (shmctl (0, IPC_INFO, (struct shmid_ds *) &shminfo))
+	return -1;
   
     buf->shmmax = shminfo.shmmax;
     buf->shmmin = shminfo.shmmin;
     buf->shmmni = shminfo.shmmni;
     buf->shmseg = shminfo.shmseg;
     buf->shmall = shminfo.shmall;
+
+    return 0;
 }
