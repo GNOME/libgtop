@@ -52,7 +52,7 @@ const char *glibtop_descriptions_proc_mem [GLIBTOP_MAX_PROC_MEM] =
 {
 	N_("Total # of pages of memory"),
 	N_("Number of pages of virtual memory"),
-	N_("Number of residnet set (non-swapped) pages"),
+	N_("Number of resident set (non-swapped) pages"),
 	N_("Number of pages of shared (mmap'd) memory"),
 	N_("Number of pages the process has in real memory, minus 3 "
 	   "for administrative purposes. This is just the pages which "
