@@ -29,6 +29,8 @@
 
 #include <glibtop/backend.h>
 
+#if LIBGTOP_USE_GMODULE
+
 #include <gmodule.h>
 
 static void
@@ -65,6 +67,42 @@ load_extra_libs (glibtop *server, glibtop_backend_entry *entry)
     return 0;
 }
 
+#else /* not LIBGTOP_USE_GMODULE */
+
+extern glibtop_backend_info LibGTopBackendInfo_Sysdeps;
+extern glibtop_backend_info LibGTopBackendInfo_Common;
+extern glibtop_backend_info LibGTopBackendInfo_Server;
+
+typedef struct {
+    const char *name;
+    glibtop_backend_info *backend_info;
+} backend_init_table_entry;
+
+static backend_init_table_entry backend_init_table [] = {
+#ifdef LIBGTOP_HAVE_SYSDEPS
+    { "glibtop-backend-sysdeps", &LibGTopBackendInfo_Sysdeps },
+#endif
+    { "glibtop-backend-common", &LibGTopBackendInfo_Sysdeps },
+#ifdef LIBGTOP_NEED_SERVER
+    { "glibtop-backend-server", &LibGTopBackendInfo_Server },
+#endif
+    { NULL, NULL }
+};
+
+static glibtop_backend_info *
+find_backend_by_name (const char *backend_name)
+{
+    backend_init_table_entry *table;
+
+    for (table = backend_init_table; table->name; table++)
+	if (!strcmp (backend_name, table->name))
+	    return table->backend_info;
+
+    return NULL;
+}
+
+#endif /* LIBGTOP_USE_GMODULE */
+
 int
 glibtop_open_backend_l (glibtop *server, const char *backend_name,
 			u_int64_t features, const char **backend_args)
@@ -79,6 +117,7 @@ glibtop_open_backend_l (glibtop *server, const char *backend_name,
     if (!entry->_priv) {
 	entry->_priv = g_new0 (glibtop_backend_module, 1);
 
+#if LIBGTOP_USE_GMODULE
 	if (entry->extra_libs) {
 	    int retval;
 
@@ -108,6 +147,11 @@ glibtop_open_backend_l (glibtop *server, const char *backend_name,
 
 	    return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
 	}
+#else /* not LIBGTOP_USE_GMODULE */
+	entry->info = find_backend_by_name (backend_name);
+	if (!entry->info)
+	    return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
+#endif /* not LIBGTOP_USE_GMODULE */
     }
 
     entry->_priv->refcount++;
@@ -119,6 +163,10 @@ glibtop_open_backend_l (glibtop *server, const char *backend_name,
     backend->_priv_module = entry->_priv;
     backend->info = info;
 
+    if (!server->_priv)
+	server->_priv = glibtop_calloc_r
+	    (server, 1, sizeof (glibtop_server_private));
+
     if (info->open) {
 	int retval;
 
@@ -129,10 +177,6 @@ glibtop_open_backend_l (glibtop *server, const char *backend_name,
 	    return retval;
 	}
     }
-
-    if (!server->_priv)
-	server->_priv = glibtop_calloc_r
-	    (server, 1, sizeof (glibtop_server_private));
 
     server->_priv->backend_list = g_slist_append
 	(server->_priv->backend_list, backend);

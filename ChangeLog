@@ -1,7 +1,10 @@
 2000-02-22  Martin Baulig  <martin@home-of-linux.org>
 
-	* lib/init-backends.c (glibtop_backend_*): Removed external
-	declaration.
+	* lib/init-backends.c (glibtop_backend_*): Removed external declaration.
+	* lib/open-backends.c (backend_init_table): New static variable. This maps
+	backend names to their `glibtop_backend_info' structure.
+	(glibtop_open_backend_l): Make this working for the non-gmodule case.
+	* lib/close.c (close_backend): Likewise.
 
 	* acconfig.h (LIBGTOP_HAVE_SYSDEPS): Added.
 	(LIBGTOP_NEED_SERVER): Added.

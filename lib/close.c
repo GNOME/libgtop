@@ -46,10 +46,12 @@ close_backend (gpointer value, gpointer user_data)
 
     /* Note that two or more servers may open the same backend. */
     backend->_priv_module->refcount--;
+#if LIBGTOP_USE_GMODULE
     if (!backend->_priv_module->refcount) {
 	g_module_close (backend->_priv_module->module);
 	g_free (backend->_priv_module);
     }
+#endif /* LIBGTOP_USE_GMODULE */
 
     g_free (backend);
 }
