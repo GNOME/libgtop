@@ -1,3 +1,8 @@
+1999-03-31  Drazen Kacar  <dave@srce.hr>
+
+	* loadavg.c: make it work with Solaris 2.6 and older. A part
+	of it should be moved to open.c.
+
 1999-03-19  Martin Baulig  <martin@home-of-linux.org>
 
 	Added first kstat based implementation for Solaris 7.

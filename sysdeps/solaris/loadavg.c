@@ -24,7 +24,12 @@
 #include <glibtop.h>
 #include <glibtop/loadavg.h>
 
+#ifdef HAVE_GETLOADAVG
 #include <sys/loadavg.h>
+#else
+#include <sys/param.h>
+#include <kstat.h>
+#endif
 
 static const unsigned long _glibtop_sysdeps_loadavg =
 (1 << GLIBTOP_LOADAVG_LOADAVG);
@@ -37,15 +42,41 @@ glibtop_init_loadavg_s (glibtop *server)
 	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
 }
 
-/* Provides load averange. */
+/* Provides load average. */
 
 void
 glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
+#ifndef HAVE_GETLOADAVG
+	kstat_ctl_t *kc;
+	static kstat_t *ksp = NULL;
+	kid_t k;
+	int i;
+	static char *avestrings[] = { "avenrun_1min",
+	   			      "avenrun_5min",
+				      "avenrun_15min" };
+#endif
 	memset (buf, 0, sizeof (glibtop_loadavg));
 
+#ifdef HAVE_GETLOADAVG
 	if (getloadavg (buf->loadavg, 3))
 		return;
-
+#else
+	kc = server->machine.kc;
+	if((k = kstat_chain_update(kc)) < 0)
+	   	return;
+	if(k || !ksp)
+		if(!(ksp = kstat_lookup(kc, "unix", 0, "system_misc")))
+	   		return;
+	if(kstat_read(kc, ksp, 0) < 0)
+	   	return;
+	for(i = 0; i < 3; ++i) /* Do we have a countof macro? */
+	{
+	   	kstat_named_t *kn;
+		kn = (kstat_named_t *)kstat_data_lookup(ksp, avestrings[i]);
+		if(kn)
+		   	buf->loadavg[i] = (double)kn->value.ul / FSCALE;
+	}
+#endif
 	buf->flags = _glibtop_sysdeps_loadavg;
 }
