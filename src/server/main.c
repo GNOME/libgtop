@@ -140,6 +140,11 @@ int main(int argc, char *argv[])
 		}
 
 		switch (cmnd.command) {
+		case GLIBTOP_CMND_SYSDEPS:
+			sysdeps.features = GLIBTOP_SYSDEPS_ALL;
+			glibtop_output (sizeof (glibtop_sysdeps), &sysdeps);
+			glibtop_output (0, NULL);
+			break;
 		case GLIBTOP_CMND_CPU:
 #if GLIBTOP_SUID_CPU
 			glibtop_get_cpu__p (&server, &data.cpu);
