@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-12-19 00:33+0100\n"
+"POT-Creation-Date: 2000-01-13 01:04+0100\n"
 "PO-Revision-Date: 1999-07-27 18:24+0200\n"
 "Last-Translator: Vincent Renardias <vincent@ldsol.com>\n"
 "Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"
@@ -1175,91 +1175,90 @@ msgstr "%s: l'option `-W %s' is ambigüe\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: l'option `-W %s' ne supporte pas d'arguments\n"
 
-#: lib/read.c:75
-#, c-format
-msgid "read %d bytes"
-msgstr "%d octets lus"
-
-#: lib/read_data.c:49
-msgid "read data size"
-msgstr "taille des données lues"
-
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
-msgstr "lecture de %d octets de données"
-
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
-msgstr "écriture de %d octets"
-
-#: lib/errors.c:29
+#: lib/errors.c:31
 msgid "No error"
 msgstr ""
 
-#: lib/errors.c:30
+#: lib/errors.c:32
 #, fuzzy
 msgid "Unknown error"
 msgstr "Erreur système inconnue"
 
-#: lib/errors.c:31
+#: lib/errors.c:33
 msgid "Invalid argument"
 msgstr ""
 
-#: lib/errors.c:32
+#: lib/errors.c:34
 msgid "No such parameter"
 msgstr ""
 
-#: lib/errors.c:33
+#: lib/errors.c:35
 msgid "Attempted to modify a read-only value"
 msgstr ""
 
-#: lib/errors.c:34
+#: lib/errors.c:36
 msgid "Parameter size mismatch"
 msgstr ""
 
-#: src/daemon/gnuserv.c:448
-msgid "Enable debugging"
-msgstr "Active le debuggage"
-
-#: src/daemon/gnuserv.c:448
-msgid "DEBUG"
-msgstr "DEBUG"
-
-#: src/daemon/gnuserv.c:450
-msgid "Enable verbose output"
-msgstr "Active la sortie bavarde"
-
-#: src/daemon/gnuserv.c:450
-msgid "VERBOSE"
-msgstr "BAVARD"
-
-#: src/daemon/gnuserv.c:452
-msgid "Don't fork into background"
-msgstr "Ne pas lancer en tâche de fond"
-
-#: src/daemon/gnuserv.c:452
-msgid "NO-DAEMON"
-msgstr "NON-DEMON"
-
-#: src/daemon/gnuserv.c:454
-msgid "Invoked from inetd"
-msgstr "Invoqué à partir de inetd"
-
-#: src/daemon/gnuserv.c:454
-msgid "INETD"
-msgstr "INETD"
-
-#: src/daemon/gnuserv.c:488
-#, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
+#: lib/errors.c:37
+msgid "Communication with LibGTop server failed"
 msgstr ""
-"Erreur sur l'option %s: %s.\n"
-"Executer '%s --help' pour avoir la liste des options de la ligne de "
-"commande.\n"
+
+#: lib/errors.c:38
+msgid "No such process"
+msgstr ""
+
+#: lib/errors.c:39
+msgid "No kernel support"
+msgstr ""
+
+#: lib/errors.c:40
+msgid "Incompatible kernel version"
+msgstr ""
+
+#~ msgid "read %d bytes"
+#~ msgstr "%d octets lus"
+
+#~ msgid "read data size"
+#~ msgstr "taille des données lues"
+
+#~ msgid "read data %d bytes"
+#~ msgstr "lecture de %d octets de données"
+
+#~ msgid "write %d bytes"
+#~ msgstr "écriture de %d octets"
+
+#~ msgid "Enable debugging"
+#~ msgstr "Active le debuggage"
+
+#~ msgid "DEBUG"
+#~ msgstr "DEBUG"
+
+#~ msgid "Enable verbose output"
+#~ msgstr "Active la sortie bavarde"
+
+#~ msgid "VERBOSE"
+#~ msgstr "BAVARD"
+
+#~ msgid "Don't fork into background"
+#~ msgstr "Ne pas lancer en tâche de fond"
+
+#~ msgid "NO-DAEMON"
+#~ msgstr "NON-DEMON"
+
+#~ msgid "Invoked from inetd"
+#~ msgstr "Invoqué à partir de inetd"
+
+#~ msgid "INETD"
+#~ msgstr "INETD"
+
+#~ msgid ""
+#~ "Error on option %s: %s.\n"
+#~ "Run '%s --help' to see a full list of available command line options.\n"
+#~ msgstr ""
+#~ "Erreur sur l'option %s: %s.\n"
+#~ "Executer '%s --help' pour avoir la liste des options de la ligne de "
+#~ "commande.\n"
 
 #~ msgid "Number of list elements"
 #~ msgstr "Nombre d'éléments de liste"

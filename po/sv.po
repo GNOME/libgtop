@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.0\n"
-"POT-Creation-Date: 1999-12-19 00:33+0100\n"
+"POT-Creation-Date: 2000-01-13 01:04+0100\n"
 "PO-Revision-Date: 1999-06-22 22:42+0200\n"
 "Last-Translator: Tomas Ögren <stric@ing.umu.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -1160,91 +1160,90 @@ msgstr "%s: flaggan `-W %s' är tvetydig\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: flaggan `-W %s' tillåter inga argument\n"
 
-#: lib/read.c:75
-#, c-format
-msgid "read %d bytes"
-msgstr "läsa %d tecken"
-
-#: lib/read_data.c:49
-msgid "read data size"
-msgstr "läsa datastorlek"
-
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
-msgstr "läste %d tecken data"
-
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
-msgstr "skrev %d tecken"
-
-#: lib/errors.c:29
+#: lib/errors.c:31
 msgid "No error"
 msgstr ""
 
-#: lib/errors.c:30
+#: lib/errors.c:32
 #, fuzzy
 msgid "Unknown error"
 msgstr "Okänt systemfel"
 
-#: lib/errors.c:31
+#: lib/errors.c:33
 msgid "Invalid argument"
 msgstr ""
 
-#: lib/errors.c:32
+#: lib/errors.c:34
 msgid "No such parameter"
 msgstr ""
 
-#: lib/errors.c:33
+#: lib/errors.c:35
 msgid "Attempted to modify a read-only value"
 msgstr ""
 
-#: lib/errors.c:34
+#: lib/errors.c:36
 msgid "Parameter size mismatch"
 msgstr ""
 
-#: src/daemon/gnuserv.c:448
-msgid "Enable debugging"
-msgstr "Aktivera felsökning"
-
-#: src/daemon/gnuserv.c:448
-msgid "DEBUG"
-msgstr "DEBUG"
-
-#: src/daemon/gnuserv.c:450
-msgid "Enable verbose output"
-msgstr "Aktivera utförlig utskrift"
-
-#: src/daemon/gnuserv.c:450
-msgid "VERBOSE"
-msgstr "VERBOSE"
-
-#: src/daemon/gnuserv.c:452
-msgid "Don't fork into background"
-msgstr "Starta ej bakgrunds-gren"
-
-#: src/daemon/gnuserv.c:452
-msgid "NO-DAEMON"
-msgstr "NO-DAEMON"
-
-#: src/daemon/gnuserv.c:454
-msgid "Invoked from inetd"
-msgstr "Startad från inetd"
-
-#: src/daemon/gnuserv.c:454
-msgid "INETD"
-msgstr "INETD"
-
-#: src/daemon/gnuserv.c:488
-#, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
+#: lib/errors.c:37
+msgid "Communication with LibGTop server failed"
 msgstr ""
-"Fel vid flagga %s: %s.\n"
-"Kör '%s --help' för att se hela listan av alla tillgängliga "
-"kommandoflaggor.\n"
+
+#: lib/errors.c:38
+msgid "No such process"
+msgstr ""
+
+#: lib/errors.c:39
+msgid "No kernel support"
+msgstr ""
+
+#: lib/errors.c:40
+msgid "Incompatible kernel version"
+msgstr ""
+
+#~ msgid "read %d bytes"
+#~ msgstr "läsa %d tecken"
+
+#~ msgid "read data size"
+#~ msgstr "läsa datastorlek"
+
+#~ msgid "read data %d bytes"
+#~ msgstr "läste %d tecken data"
+
+#~ msgid "write %d bytes"
+#~ msgstr "skrev %d tecken"
+
+#~ msgid "Enable debugging"
+#~ msgstr "Aktivera felsökning"
+
+#~ msgid "DEBUG"
+#~ msgstr "DEBUG"
+
+#~ msgid "Enable verbose output"
+#~ msgstr "Aktivera utförlig utskrift"
+
+#~ msgid "VERBOSE"
+#~ msgstr "VERBOSE"
+
+#~ msgid "Don't fork into background"
+#~ msgstr "Starta ej bakgrunds-gren"
+
+#~ msgid "NO-DAEMON"
+#~ msgstr "NO-DAEMON"
+
+#~ msgid "Invoked from inetd"
+#~ msgstr "Startad från inetd"
+
+#~ msgid "INETD"
+#~ msgstr "INETD"
+
+#~ msgid ""
+#~ "Error on option %s: %s.\n"
+#~ "Run '%s --help' to see a full list of available command line options.\n"
+#~ msgstr ""
+#~ "Fel vid flagga %s: %s.\n"
+#~ "Kör '%s --help' för att se hela listan av alla tillgängliga "
+#~ "kommandoflaggor.\n"
 
 #~ msgid "Number of list elements"
 #~ msgstr "Antal listelement"

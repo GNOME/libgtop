@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.3\n"
-"POT-Creation-Date: 1999-12-19 00:33+0100\n"
+"POT-Creation-Date: 2000-01-13 01:04+0100\n"
 "PO-Revision-Date: 1999-11-29 04:21:16+0900\n"
 "Last-Translator: Sung-Hyun Nam <namsh@kldp.org>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -1157,90 +1157,89 @@ msgstr "%s: `-W %s' 옵션이 모호합니다\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: `-W %s' 옵션은 인자가 필요없습니다\n"
 
-#: lib/read.c:75
-#, c-format
-msgid "read %d bytes"
-msgstr "%d 바이트 읽음"
-
-#: lib/read_data.c:49
-msgid "read data size"
-msgstr "데이타 크기 읽음"
-
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
-msgstr "데이타 %d 바이트 읽음"
-
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
-msgstr "%d 바이트 씀"
-
-#: lib/errors.c:29
+#: lib/errors.c:31
 msgid "No error"
 msgstr ""
 
-#: lib/errors.c:30
+#: lib/errors.c:32
 #, fuzzy
 msgid "Unknown error"
 msgstr "알려지지 않은 시스템 에러"
 
-#: lib/errors.c:31
+#: lib/errors.c:33
 msgid "Invalid argument"
 msgstr ""
 
-#: lib/errors.c:32
+#: lib/errors.c:34
 msgid "No such parameter"
 msgstr ""
 
-#: lib/errors.c:33
+#: lib/errors.c:35
 msgid "Attempted to modify a read-only value"
 msgstr ""
 
-#: lib/errors.c:34
+#: lib/errors.c:36
 msgid "Parameter size mismatch"
 msgstr ""
 
-#: src/daemon/gnuserv.c:448
-msgid "Enable debugging"
-msgstr "디버깅 함"
-
-#: src/daemon/gnuserv.c:448
-msgid "DEBUG"
-msgstr "디버그"
-
-#: src/daemon/gnuserv.c:450
-msgid "Enable verbose output"
-msgstr "출력을 많이 함"
-
-#: src/daemon/gnuserv.c:450
-msgid "VERBOSE"
-msgstr "말많음"
-
-#: src/daemon/gnuserv.c:452
-msgid "Don't fork into background"
-msgstr "백그라운드로 포크 않함"
-
-#: src/daemon/gnuserv.c:452
-msgid "NO-DAEMON"
-msgstr "데몬-없음"
-
-#: src/daemon/gnuserv.c:454
-msgid "Invoked from inetd"
-msgstr "inetd에 의해 불려짐"
-
-#: src/daemon/gnuserv.c:454
-msgid "INETD"
-msgstr "INETD"
-
-#: src/daemon/gnuserv.c:488
-#, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
+#: lib/errors.c:37
+msgid "Communication with LibGTop server failed"
 msgstr ""
-"옵션 %s에서 에러: %s.\n"
-"가능한 명령행 옵션을 보려면 '%s --help'를 실행하세요.\n"
+
+#: lib/errors.c:38
+msgid "No such process"
+msgstr ""
+
+#: lib/errors.c:39
+msgid "No kernel support"
+msgstr ""
+
+#: lib/errors.c:40
+msgid "Incompatible kernel version"
+msgstr ""
+
+#~ msgid "read %d bytes"
+#~ msgstr "%d 바이트 읽음"
+
+#~ msgid "read data size"
+#~ msgstr "데이타 크기 읽음"
+
+#~ msgid "read data %d bytes"
+#~ msgstr "데이타 %d 바이트 읽음"
+
+#~ msgid "write %d bytes"
+#~ msgstr "%d 바이트 씀"
+
+#~ msgid "Enable debugging"
+#~ msgstr "디버깅 함"
+
+#~ msgid "DEBUG"
+#~ msgstr "디버그"
+
+#~ msgid "Enable verbose output"
+#~ msgstr "출력을 많이 함"
+
+#~ msgid "VERBOSE"
+#~ msgstr "말많음"
+
+#~ msgid "Don't fork into background"
+#~ msgstr "백그라운드로 포크 않함"
+
+#~ msgid "NO-DAEMON"
+#~ msgstr "데몬-없음"
+
+#~ msgid "Invoked from inetd"
+#~ msgstr "inetd에 의해 불려짐"
+
+#~ msgid "INETD"
+#~ msgstr "INETD"
+
+#~ msgid ""
+#~ "Error on option %s: %s.\n"
+#~ "Run '%s --help' to see a full list of available command line options.\n"
+#~ msgstr ""
+#~ "옵션 %s에서 에러: %s.\n"
+#~ "가능한 명령행 옵션을 보려면 '%s --help'를 실행하세요.\n"
 
 #~ msgid "Number of list elements"
 #~ msgstr "목록 요소의 갯수"
