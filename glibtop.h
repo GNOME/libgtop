@@ -38,16 +38,12 @@
 
 BEGIN_LIBGTOP_DECLS
 
-typedef struct _glibtop			glibtop;
+typedef struct _glibtop glibtop;
 
 #include <glibtop/sysdeps.h>
 #include <glibtop/errors.h>
 
 #include <glibtop/glibtop-server.h>
-
-#ifdef _IN_LIBGTOP
-#include <glibtop-server-private.h>
-#endif
 
 glibtop *
 glibtop_init_r (glibtop **server_ptr,

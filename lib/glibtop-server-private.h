@@ -32,6 +32,8 @@
 
 #include <glib.h>
 
+typedef struct _glibtop_server_private glibtop_server_private;
+
 struct _glibtop_server_private
 {
 #ifdef HAVE_GLIBTOP_MACHINE_H
