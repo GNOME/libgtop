@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 2002-01-27 02:55+0100\n"
-"PO-Revision-Date: 2002-01-27 02:55+0100\n"
+"POT-Creation-Date: 2002-05-05 21:00+0200\n"
+"PO-Revision-Date: 2002-05-05 21:00+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -221,6 +221,14 @@ msgstr "%s: flaggan \"-W %s\" är tvetydig\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: flaggan \"-W %s\" tillåter inga argument\n"
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr "Visa denna hjälptext"
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
+msgstr "Visa kortfattad användningstext"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
