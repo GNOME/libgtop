@@ -78,8 +78,8 @@ dnl For Solaris
 AC_CHECK_LIB(socket, socket)
 
 AC_ARG_WITH(libgtop-guile,
-[  --with-libgtop-guile    Build the libgtop guile interface (default=yes)],
-[build_guile="$withval"], [build_guile=yes])
+[  --with-libgtop-guile    Build the libgtop guile interface (default=no)],
+[build_guile="$withval"], [build_guile=no])
 
 test x$build_guile = xno && ac_cv_guile_found=no
 

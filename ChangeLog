@@ -1,3 +1,7 @@
+1998-09-08  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* configure.in: Make the default to disable guile.
+
 1998-08-30  Martin Baulig  <martin@home-of-linux.org>
 
 	* LIBGTOP-VERSION (LIBGTOP_VERSION_CODE): Added. This is a numerical
