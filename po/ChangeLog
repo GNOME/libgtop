@@ -1,5 +1,9 @@
 2002-05-28  Carlos Perello Marin <carlos@gnome-db.org>
 
+	* LEEME.es: Updated.
+
+2002-05-28  Carlos Perello Marin <carlos@gnome-db.org>
+
 	* es.po, es_ES.po: Updated so the contry dependent string is
 	placed at es_ES.po for Spain and the US like number notation is
 	stored at es.po. It's much more easy mantain the es_ES.po file than
