@@ -1,3 +1,7 @@
+2003-01-23  Marius Andreiana <marius galuna.ro>
+
+	* ro.po: updated ( thanks to MiÅŸu Moldovan )
+
 2003-01-22  Christian Rose  <menthos@menthos.com>
 
 	* mn.po: Added Mongolian translation by
@@ -20,10 +24,10 @@
 
 	* vi.po: Added Vietnamese file
 
-2002-05-01  Germán Poo-Caamaño  <gpoo@ubiobio.cl>
+2002-05-01  GermÃ¡n Poo-CaamaÃ±o  <gpoo@ubiobio.cl>
 
         * es.po: Updated Spanish translation from
-		José Antonio Salgueiro <joseantoniosalgueiro@telefonica.net>.
+		JosÃ© Antonio Salgueiro <joseantoniosalgueiro@telefonica.net>.
 
 2002-03-11  Duarte Loreto <happyguy_pt@hotmail.com>
 
@@ -54,7 +58,7 @@
 2001-07-25  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* nn.po: Added Norwegian (nynorsk) translation.
-	* no.po: Updated Norwegian (bokmål) translation.
+	* no.po: Updated Norwegian (bokmÃ¥l) translation.
 	
 2001-06-07  Pablo Saratxaga  <pablo@mandrakesoft.com>
 
@@ -67,7 +71,7 @@
 2001-03-23  Fatih Demir <kabalak@gtranslator.org>
 
 	* tr.po: Committed updated Turkish translation by
-		Görkem also to the HEAD branch (here).
+		GÃ¶rkem also to the HEAD branch (here).
 
 2001-03-17  Marius Andreiana  <mandreiana@yahoo.com>
 	
@@ -120,7 +124,7 @@
 2001-02-04  Fatih Demir	<kabalak@gmx.net>
 
 	* tr.po: Added Turkish translation by
-		Görkem Cetin.
+		GÃ¶rkem Cetin.
 
 2001-01-31  Szabolcs Ban  <shooby@gnome.hu>
 
@@ -261,7 +265,7 @@
 
 	* gl.po: Added Galician translation.
 
-1999-09-29  Kenneth lléphaane Christiansen  <kenneth@ripen.dk>
+1999-09-29  Kenneth llÃ©phaane Christiansen  <kenneth@ripen.dk>
 
 	* da.po: Updated.
 
