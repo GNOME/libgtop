@@ -1,3 +1,7 @@
+2004-08-22  Benoît Dejean  <tazforever@dlfp.org>
+
+	* mountlist.c: (read_filesystem_list): Merged FreeBSD Marcus' patch.
+
 2004-07-17  Benoît Dejean  <tazforever@dlfp.org>
 
 	* fsusage.c: (glibtop_get_fsusage_s): Started implementation of read, write.
