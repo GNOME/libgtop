@@ -9,12 +9,14 @@ DEFS			= @DEFS@
 # We install it in `libexec' since this will make it more easy
 # to put the examples into an extra RPM package.
 
-libexec_PROGRAMS	= first first_static second second_static \
-			  mountlist mountlist_static \
-			  procmap procmap_static \
+libexec_PROGRAMS	= first second\
+			  mountlist procmap \
+			  @static_targets@ \
 			  @guile_examples@ @smp_examples@
 
-EXTRA_PROGRAMS		= third third_static smp smp_static
+EXTRA_PROGRAMS		= first_static second_static \
+			  mountlist_static procmap_static \
+			  third third_static smp smp_static
 
 first_SOURCES		= first.c
 first_LDADD		= $(top_builddir)/lib/libgtop.la \

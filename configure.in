@@ -102,20 +102,31 @@ if test x$ac_cv_guile_found = xyes ; then
   AC_DEFINE(GLIBTOP_GUILE)
   AC_DEFINE(GLIBTOP_GUILE_NAMES)
   libgtop_guile_found=yes
-  guile_examples='third third_static'
+  guile_examples='third'
+  guile_static_examples='third_static'
   guile_subdirs='guile'
 else
   libgtop_guile_found=no
   guile_examples=
+  guile_static_examples=
   guile_subdirs=
 fi
 
 if test x$libgtop_smp = xyes ; then
-  smp_examples='smp smp_static'
+  smp_examples='smp'
+  smp_static_examples='smp_static'
 else
   smp_examples=
+  smp_static_examples=
 fi
 
+if test "x$enable_static" != xno; then
+  static_targets="first_static second_static mountlist_static procmap_static $guile_static_example $smp_static_examples"
+else
+  static_targets=""
+fi
+
+AC_SUBST(static_targets)
 AC_SUBST(smp_examples)
 AC_SUBST(guile_examples)
 AC_SUBST(guile_subdirs)
