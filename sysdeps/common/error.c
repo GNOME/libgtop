@@ -34,77 +34,97 @@ print_server_name (glibtop *server)
 }
 
 void
+glibtop_error_vr (glibtop *server, char *format, va_list args)
+{
+	print_server_name (server);	
+	vfprintf (stderr, format, args);
+	fprintf (stderr, "\n");
+
+#ifdef LIBGTOP_ENABLE_DEBUG
+	abort ();
+#else
+	exit (1);
+#endif
+}
+
+void
+glibtop_error_io_vr (glibtop *server, char *format, gint error, va_list args)
+{
+	print_server_name (server);
+	vfprintf (stderr, format, args);
+	fprintf (stderr, ": %s\n", strerror (error));
+
+#ifdef LIBGTOP_ENABLE_DEBUG
+	abort ();
+#else
+	exit (1);
+#endif
+}
+
+void
+glibtop_warn_vr (glibtop *server, char *format, va_list args)
+{
+	print_server_name (server);
+	vfprintf (stderr, format, args);
+	fprintf (stderr, "\n");
+
+#ifdef LIBGTOP_FATAL_WARNINGS
+	abort ();
+#endif
+}
+
+void
+glibtop_warn_io_vr (glibtop *server, char *format, gint error, va_list args)
+{
+	print_server_name (server);
+	vfprintf (stderr, format, args);
+	fprintf (stderr, ": %s\n", strerror (error));
+
+#ifdef LIBGTOP_FATAL_WARNINGS
+	abort ();
+#endif
+}
+
+#ifndef G_CAN_INLINE
+
+G_INLINE_FUNC void
 glibtop_error_r (glibtop *server, char *format, ...)
 {
-	va_list	ap;
-	
-	va_start (ap, format);
+	va_list args;
 
-	print_server_name (server);	
-	vfprintf (stderr, format, ap);
-	fprintf (stderr, "\n");
-	
-	va_end (ap);
-
-#ifdef LIBGTOP_ENABLE_DEBUG
-	abort ();
-#else
-	exit (1);
-#endif
+	va_start (args, format);
+	glibtop_error_vr (server, format, args);
+	va_end (args);
 }
 
-void
-glibtop_error_io_r (glibtop *server, char *format, ...)
-{
-	va_list	ap;
-	
-	va_start (ap, format);
-	
-	print_server_name (server);
-	vfprintf (stderr, format, ap);
-	fprintf (stderr, ": %s\n", strerror (errno));
-	
-	va_end (ap);
-
-#ifdef LIBGTOP_ENABLE_DEBUG
-	abort ();
-#else
-	exit (1);
-#endif
-}
-
-void
+G_INLINE_FUNC void
 glibtop_warn_r (glibtop *server, char *format, ...)
 {
-	va_list	ap;
-	
-	va_start (ap, format);
-	
-	print_server_name (server);
-	vfprintf (stderr, format, ap);
-	fprintf (stderr, "\n");
-	
-	va_end (ap);
+	va_list args;
 
-#ifdef LIBGTOP_FATAL_WARNINGS
-	abort ();
-#endif
+	va_start (args, format);
+	glibtop_warn_vr (server, format, args);
+	va_end (args);
 }
 
-void
+G_INLINE_FUNC void
+glibtop_error_io_r (glibtop *server, char *format, ...)
+{
+	va_list args;
+
+	va_start (args, format);
+	glibtop_error_io_vr (server, format, errno, args);
+	va_end (args);
+}
+
+G_INLINE_FUNC void
 glibtop_warn_io_r (glibtop *server, char *format, ...)
 {
-	va_list	ap;
+	va_list args;
 
-	va_start (ap, format);
-	
-	print_server_name (server);
-	vfprintf (stderr, format, ap);
-	fprintf (stderr, ": %s\n", strerror (errno));
-	
-	va_end (ap);
-
-#ifdef LIBGTOP_FATAL_WARNINGS
-	abort ();
-#endif
+	va_start (args, format);
+	glibtop_warn_io_vr (server, format, errno, args);
+	va_end (args);
 }
+
+#endif /* not G_CAN_INLINE */

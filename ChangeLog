@@ -1,3 +1,12 @@
+1999-02-18  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/common/error.c (glibtop_error_r, glibtop_warn_r): Define
+	them as G_INLINE_FUNC in <glibtop/errno.h> if possible.
+	(glibtop_error_io_r, glibtop_warn_io_r): Likewise.
+	(glibtop_error_vr, glibtop_warn_vr): New functions taking a va_list.
+	(glibtop_error_io_vr, glibtop_warn_io_vr): New functions taking an
+	errno an a va_list.
+
 1999-02-17  Martin Baulig  <martin@home-of-linux.org>
 
 	Released LibGTop 0.99.8.

@@ -23,13 +23,65 @@
 #define __GLIBTOP_ERROR_H__
 
 #include <glibtop.h>
+#include <glib.h>
 
 __BEGIN_DECLS
 
-/*
- * FIXME: varargs macros only supported on gcc.
- *	  Breaks Sun CC, maybe others.
- */
+extern void glibtop_error_vr __P((glibtop *, char *, va_list));
+extern void glibtop_warn_vr __P((glibtop *, char *, va_list));
+
+extern void glibtop_error_io_vr __P((glibtop *, char *, gint, va_list));
+extern void glibtop_warn_io_vr __P((glibtop *, char *, gint, va_list));
+
+G_INLINE_FUNC void glibtop_error_r __P((glibtop *, char *, ...));
+G_INLINE_FUNC void glibtop_warn_r __P((glibtop *, char *, ...));
+
+G_INLINE_FUNC void glibtop_error_io_r __P((glibtop *, char *, ...));
+G_INLINE_FUNC void glibtop_warn_io_r __P((glibtop *, char *, ...));
+
+#ifdef G_CAN_INLINE
+G_INLINE_FUNC void
+glibtop_error_r (glibtop *server, char *format, ...)
+{
+	va_list args;
+
+	va_start (args, format);
+	glibtop_error_vr (server, format, args);
+	va_end (args);
+}
+
+G_INLINE_FUNC void
+glibtop_warn_r (glibtop *server, char *format, ...)
+{
+	va_list args;
+
+	va_start (args, format);
+	glibtop_warn_vr (server, format, args);
+	va_end (args);
+}
+
+G_INLINE_FUNC void
+glibtop_error_io_r (glibtop *server, char *format, ...)
+{
+	va_list args;
+
+	va_start (args, format);
+	glibtop_error_io_vr (server, format, errno, args);
+	va_end (args);
+}
+
+G_INLINE_FUNC void
+glibtop_warn_io_r (glibtop *server, char *format, ...)
+{
+	va_list args;
+
+	va_start (args, format);
+	glibtop_warn_io_vr (server, format, errno, args);
+	va_end (args);
+}
+#endif
+
+#ifdef  __GNUC__
 
 #define glibtop_error(p1, args...)	glibtop_error_r(glibtop_global_server , p1 , ## args)
 #define glibtop_warn(p1, args...)	glibtop_warn_r(glibtop_global_server , p1 , ## args)
@@ -37,11 +89,45 @@ __BEGIN_DECLS
 #define glibtop_error_io(p1, args...)	glibtop_error_io_r(glibtop_global_server , p1 , ## args)
 #define glibtop_warn_io(p1, args...)	glibtop_warn_io_r(glibtop_global_server , p1 , ## args)
 
-extern void glibtop_error_r __P((glibtop *, char *, ...));
-extern void glibtop_warn_r __P((glibtop *, char *, ...));
+#else /* no __GNUC__ */
 
-extern void glibtop_error_io_r __P((glibtop *, char *, ...));
-extern void glibtop_warn_io_r __P((glibtop *, char *, ...));
+static void
+glibtop_error (char *format, ...)
+{
+	va_list args;
+	va_start (args, format);
+	glibtop_error_vr (glibtop_global_server, format, args);
+	va_end (args);
+}
+
+static void
+glibtop_warn (char *format, ...)
+{
+	va_list args;
+	va_start (args, format);
+	glibtop_warn_vr (glibtop_global_server, format, args);
+	va_end (args);
+}
+
+static void
+glibtop_error_io (char *format, ...)
+{
+	va_list args;
+	va_start (args, format);
+	glibtop_error_io_vr (glibtop_global_server, format, errno, args);
+	va_end (args);
+}
+
+static void
+glibtop_warn_io (char *format, ...)
+{
+	va_list args;
+	va_start (args, format);
+	glibtop_warn_io_vr (glibtop_global_server, format, errno, args);
+	va_end (args);
+}
+
+#endif /* no __GNUC__ */
 
 __END_DECLS
 
