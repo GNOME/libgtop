@@ -1,14 +1,14 @@
 # Catalan translation of libgtop.
-# Copyright © 2000, 2001, 2002 Free Software Foundation, Inc.
+# Copyright © 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
 # Softcatalà <gnome@softcatala.net>, 2000, 2001, 2002.
-# Jordi Mallach <jordi@sindominio.net>, 2002, 2003.
+# Jordi Mallach <jordi@sindominio.net>, 2002, 2003, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 2.0.0\n"
+"Project-Id-Version: libgtop 2.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2003-11-03 15:17+0100\n"
+"POT-Creation-Date: 2004-08-21 18:36+0200\n"
+"PO-Revision-Date: 2004-08-21 18:41+0200\n"
 "Last-Translator: Jordi Mallach <jordi@sindominio.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -101,8 +101,8 @@ msgstr "Rotació:"
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "llegeix %d byte"
-msgstr[1] "llegeix %d bytes"
+msgstr[0] "llegeix %d octet"
+msgstr[1] "llegeix %d octets"
 
 #: lib/read_data.c:51
 msgid "read data size"
@@ -112,15 +112,15 @@ msgstr "llegeix la mida de les dades"
 #, c-format
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
-msgstr[0] "llegeix %d byte de les dades"
-msgstr[1] "llegeix els %d bytes de les dades"
+msgstr[0] "llegeix %d octet de les dades"
+msgstr[1] "llegeix els %d octets de les dades"
 
 #: lib/write.c:51
 #, c-format
 msgid "write %d byte"
 msgid_plural "write %d bytes"
-msgstr[0] "escriu %d byte"
-msgstr[1] "escriu els %d bytes"
+msgstr[0] "escriu %d octet"
+msgstr[1] "escriu els %d octets"
 
 #: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
@@ -264,9 +264,8 @@ msgid "Free file nodes"
 msgstr "Nodes d'arxiu lliures"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Bloquejada"
+msgstr "Mida del bloc"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -385,7 +384,7 @@ msgstr "La mida d'un element de la llista"
 
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Size in kilobytes of message pool"
-msgstr "Mida en kB de la bústia de missatges"
+msgstr "Mida en KB de la bústia de missatges"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Number of entries in message map"
@@ -420,14 +419,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Subxarxa"
+msgstr "Subxarxa IPv4"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Adreça"
+msgstr "Adreça IPv4"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -443,15 +440,15 @@ msgstr "El total de paquets "
 
 #: sysdeps/names/netload.c:53 sysdeps/names/netload.c:74
 msgid "Bytes In"
-msgstr "Bytes a dins"
+msgstr "Octets a dins"
 
 #: sysdeps/names/netload.c:54 sysdeps/names/netload.c:75
 msgid "Bytes Out"
-msgstr "Bytes a fora"
+msgstr "Octets a fora"
 
 #: sysdeps/names/netload.c:55 sysdeps/names/netload.c:76
 msgid "Bytes Total"
-msgstr "El total de bytes"
+msgstr "Total d'octets"
 
 #: sysdeps/names/netload.c:56 sysdeps/names/netload.c:77
 msgid "Errors In"
@@ -470,17 +467,16 @@ msgid "Collisions"
 msgstr "Col·lisions"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Adreça"
+msgstr "Adreça IPv6"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "Prefix IPv6"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "Àmbit IPv6"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
@@ -492,19 +488,19 @@ msgstr "Estat del PPP"
 
 #: sysdeps/names/ppp.c:40
 msgid "Input bytes"
-msgstr "Bytes d'entrada"
+msgstr "Octets d'entrada"
 
 #: sysdeps/names/ppp.c:41
 msgid "Output bytes"
-msgstr "Bytes de sortida"
+msgstr "Octets de sortida"
 
 #: sysdeps/names/ppp.c:47
 msgid "Number of input bytes"
-msgstr "Nombre de bytes d'entrada"
+msgstr "Nombre d'octets d'entrada"
 
 #: sysdeps/names/ppp.c:48
 msgid "Number of output bytes"
-msgstr "Nombre de bytes de sortida"
+msgstr "Nombre d'octets de sortida"
 
 #: sysdeps/names/procargs.c:39 sysdeps/names/procmem.c:48
 msgid "Size"
@@ -512,7 +508,7 @@ msgstr "Mida"
 
 #: sysdeps/names/procargs.c:44
 msgid "Length in bytes of the returned string."
-msgstr "Longitud en bytes de la cadena retornada"
+msgstr "Longitud en octets de la cadena retornada"
 
 #: sysdeps/names/prockernel.c:43
 msgid "K_Flags"
@@ -684,8 +680,7 @@ msgstr ""
 #: sysdeps/names/procmem.c:63
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr ""
-"Límit actual en octets de la rss del procés (normalment 2.147.483.647)."
+msgstr "Límit actual en octets de la rss del procés (normalment 2.147.483.647)."
 
 #: sysdeps/names/procsegment.c:43
 msgid "Text_RSS"
