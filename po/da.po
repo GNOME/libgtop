@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.99.3\n"
-"POT-Creation-Date: 2000-02-23 00:23+0100\n"
-"PO-Revision-Date: 1999-12-03 18:15+01:00\n"
+"POT-Creation-Date: 2000-04-08 17:11+0200\n"
+"PO-Revision-Date: 2000-04-08 19:02+02:00\n"
 "Last-Translator: Birger Langkjer <birger.langkjer@image.dk>\n"
 "Language-Team: Dansk/Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,17 +21,17 @@ msgstr "Total processortid"
 # sysdeps/names/cpu.c:46
 #: sysdeps/names/cpu.c:46
 msgid "CPU Time in User Mode"
-msgstr "Processortid i brugermodus"
+msgstr "Processortid i brugertilstand"
 
 # sysdeps/names/cpu.c:47
 #: sysdeps/names/cpu.c:47
 msgid "CPU Time in User Mode (nice)"
-msgstr "Processortid i brugermodus (god)"
+msgstr "Processortid i brugertilstand (god)"
 
 # sysdeps/names/cpu.c:48
 #: sysdeps/names/cpu.c:48
 msgid "CPU Time in System Mode"
-msgstr "Processortid i systemmodus"
+msgstr "Processortid i systemtilstand"
 
 # sysdeps/names/cpu.c:49
 #: sysdeps/names/cpu.c:49
@@ -46,32 +46,32 @@ msgstr "Tikfrekvens"
 # sysdeps/names/cpu.c:51
 #: sysdeps/names/cpu.c:51
 msgid "SMP Total CPU Time"
-msgstr "SMP total processortid"
+msgstr "Total SMP-processortid"
 
 # sysdeps/names/cpu.c:52
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in User Mode"
-msgstr "SMP processortid i brugermodus"
+msgstr "SMP-processortid i brugertilstand"
 
 # sysdeps/names/cpu.c:53
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "SMP processortid i brugermodus (god)"
+msgstr "SMP-processortid i brugertilstand (god)"
 
 # sysdeps/names/cpu.c:54
 #: sysdeps/names/cpu.c:54
 msgid "SMP CPU Time in System Mode"
-msgstr "SMP processortid i systemmodus"
+msgstr "SMP-processortid i systemtilstand"
 
 # sysdeps/names/cpu.c:55
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Time in the Idle Task"
-msgstr "SMP processortid i ventemodus"
+msgstr "SMP-processortid i ventetilstand"
 
 # sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 msgid "SMP CPU Flags"
-msgstr "SMP processorflag"
+msgstr "SMP-processorflag"
 
 # sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
@@ -81,17 +81,17 @@ msgstr "Antal klokketik siden systemopstart"
 # sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode"
-msgstr "Antal klokketik systemet har tilbragt i brugermodus"
+msgstr "Antal klokketik systemet har tilbragt i brugertilstand"
 
 # sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 #: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "Antal klokketik systemet har tilbragt i brugermodus (god)"
+msgstr "Antal klokketik systemet har tilbragt i brugertilstand (god)"
 
 # sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 #: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in system mode"
-msgstr "Antal klokketik systemet har tilbragt i systemmodus"
+msgstr "Antal klokketik systemet har tilbragt i systemtilstand"
 
 # sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
 #: sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
@@ -261,7 +261,7 @@ msgstr "Størrelse i kilobyte på meddelelseslageret"
 # sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Number of entries in message map"
-msgstr "Antal elementer i meddelelseskort"
+msgstr "Antal elementer i meddelelsestabel"
 
 # sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
@@ -446,27 +446,27 @@ msgstr "Delt"
 # sysdeps/names/procmem.c:50
 #: sysdeps/names/procmem.c:50
 msgid "Resident Set Size"
-msgstr "Størrelse af resident sæt"
+msgstr "Størrelse på resident sæt"
 
 # sysdeps/names/procmem.c:50
 #: sysdeps/names/procmem.c:50
 msgid "Resident Set Size Limit"
-msgstr "Størrelsesgrænse af resident sæt"
+msgstr "Størrelsesgrænse på resident sæt"
 
 # sysdeps/names/procmem.c:55
 #: sysdeps/names/procmem.c:55
 msgid "Total # of pages of memory"
-msgstr "Total # af hukommelsessider"
+msgstr "Total antal hukommelsessider"
 
 # sysdeps/names/procmem.c:56
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of virtual memory"
-msgstr "Antal sider virtuel hukommelse"
+msgstr "Antal virtuelle hukommelsessider"
 
 # sysdeps/names/procmem.c:57
 #: sysdeps/names/procmem.c:57
 msgid "Number of resident set (non-swapped) pages"
-msgstr "Antal af residente sæt (ikke-swappede) sider"
+msgstr "Antal residente sæt (ikke-swappede) sider"
 
 # sysdeps/names/procmem.c:58
 #: sysdeps/names/procmem.c:58
@@ -740,22 +740,22 @@ msgstr "Enkelttegnskode for processens tilstand (S=sovende)"
 # sysdeps/names/procstate.c:54
 #: sysdeps/names/procstate.c:54
 msgid "effective UID of process"
-msgstr "effektiv proces UID"
+msgstr "effektiv proces-UID"
 
 # sysdeps/names/procstate.c:55
 #: sysdeps/names/procstate.c:55
 msgid "effective GID of process"
-msgstr "effektiv proces GID"
+msgstr "effektiv proces-GID"
 
 # sysdeps/names/procstate.c:56
 #: sysdeps/names/procstate.c:56
 msgid "real UID of process"
-msgstr "rigtig proces UID"
+msgstr "rigtig proces-UID"
 
 # sysdeps/names/procstate.c:57
 #: sysdeps/names/procstate.c:57
 msgid "real GID of process"
-msgstr "rigtig proces GID"
+msgstr "rigtig proces-GID"
 
 # sysdeps/names/procstate.c:58
 #: sysdeps/names/procstate.c:58
@@ -845,12 +845,12 @@ msgstr "Reél tid akkumuleret af processen (skal være utid + stid)"
 # sysdeps/names/proctime.c:56
 #: sysdeps/names/proctime.c:56
 msgid "user-mode CPU time accumulated by process"
-msgstr "bruger-modus processortid akkumuleret af processen"
+msgstr "brugertilstandsprocessortid akkumuleret af processen"
 
 # sysdeps/names/proctime.c:57
 #: sysdeps/names/proctime.c:57
 msgid "kernel-mode CPU time accumulated by process"
-msgstr "kerne-modus processortid akkumuleret af processen"
+msgstr "kernetilstandsprocessortid akkumuleret af processen"
 
 # sysdeps/names/proctime.c:58
 #: sysdeps/names/proctime.c:58
@@ -884,12 +884,12 @@ msgstr "Tikfrekvens"
 # sysdeps/names/proctime.c:64
 #: sysdeps/names/proctime.c:64
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr "SMP brugermodus processortid akkumuleret af processen"
+msgstr "SMP-brugertilstandsprocessortid akkumuleret af processen"
 
 # sysdeps/names/proctime.c:65
 #: sysdeps/names/proctime.c:65
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "SMP kernemodus processortid akkumuleret af processen"
+msgstr "SMP-kernetilstandsprocessortid akkumuleret af processen"
 
 # sysdeps/names/procuid.c:48
 #: sysdeps/names/procuid.c:48
@@ -1014,12 +1014,12 @@ msgstr "Gemt gruppeID"
 # sysdeps/names/procuid.c:63
 #: sysdeps/names/procuid.c:63
 msgid "Filesystem User ID"
-msgstr "Filsystem brugerID"
+msgstr "FilsystembrugerID"
 
 # sysdeps/names/procuid.c:64
 #: sysdeps/names/procuid.c:64
 msgid "Filesystem Group ID"
-msgstr "Filsystem gruppeID"
+msgstr "FilsystemgruppeID"
 
 # sysdeps/names/procuid.c:65
 #: sysdeps/names/procuid.c:65
@@ -1029,12 +1029,12 @@ msgstr "ProcesID"
 # sysdeps/names/procuid.c:66
 #: sysdeps/names/procuid.c:66
 msgid "PID of parent process"
-msgstr "PID til forælderprocessen"
+msgstr "PID på forælderprocessen"
 
 # sysdeps/names/procuid.c:67
 #: sysdeps/names/procuid.c:67
 msgid "Process group ID"
-msgstr "Proces gruppeID"
+msgstr "ProcesgruppeID"
 
 # sysdeps/names/procuid.c:68
 #: sysdeps/names/procuid.c:68
@@ -1044,7 +1044,7 @@ msgstr "SessionsID"
 # sysdeps/names/procuid.c:69
 #: sysdeps/names/procuid.c:69
 msgid "Full device number of controlling terminal"
-msgstr "Fuld enhedsnummer på kontrollerende terminal"
+msgstr "Fuldt enhedsnummer på kontrollerende terminal"
 
 # sysdeps/names/procuid.c:70
 #: sysdeps/names/procuid.c:70
@@ -1054,7 +1054,7 @@ msgstr "Terminalprocessens gruppeID"
 # sysdeps/names/procuid.c:71
 #: sysdeps/names/procuid.c:71
 msgid "Kernel scheduling priority"
-msgstr "Kerne planlægningsprioritet"
+msgstr "Kerneplanlægningsprioritet"
 
 # sysdeps/names/procuid.c:72
 #: sysdeps/names/procuid.c:72
@@ -1069,12 +1069,12 @@ msgstr "Antal yderligere procesgrupper"
 # sysdeps/names/procuid.c:74
 #: sysdeps/names/procuid.c:74
 msgid "Additional process groups"
-msgstr "Yderligere proces grupper"
+msgstr "Yderligere procesgrupper"
 
 # sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Number of entries in semaphore map"
-msgstr "Antal elementer i semaforoversigt"
+msgstr "Antal elementer i semafortabel"
 
 # sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
@@ -1139,7 +1139,7 @@ msgstr "Maks antal segmenter"
 # sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 #: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max shared segments per process"
-msgstr "Maks delte segmenter per proces"
+msgstr "Maks delte segmenter pr proces"
 
 # sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
 #: sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
@@ -1184,7 +1184,7 @@ msgstr "Totalt antal swap-sider som er blevet hentet ud siden systemopstart"
 # sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:79
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
 msgid "Server Features"
-msgstr "Serveregenskaber"
+msgstr "Tjeneregenskaber"
 
 # sysdeps/names/sysdeps.c:52
 #: sysdeps/names/sysdeps.c:54
@@ -1239,7 +1239,7 @@ msgstr "Liste over kørende processer"
 # sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:90
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
 msgid "Process Status information"
-msgstr "Processens tilstandsinformation"
+msgstr "Processens statusinformation"
 
 # sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:91
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
@@ -1279,7 +1279,7 @@ msgstr "Procesargumenter"
 # sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
 #: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
 msgid "Process Memory Map"
-msgstr "Processens hukommelsesoversigt"
+msgstr "Processens hukommelsestabel"
 
 # sysdeps/names/sysdeps.c:71
 #: sysdeps/names/sysdeps.c:73
@@ -1308,7 +1308,7 @@ msgstr "PPP-statistik"
 # sysdeps/names/sysdeps.c:80
 #: sysdeps/names/sysdeps.c:83
 msgid "Pointer Size on the Server (in bits)"
-msgstr "Peger-størrelse på serveren (i bit)"
+msgstr "Pegerstørrelse på tjeneren (i bit)"
 
 # sysdeps/names/sysdeps.c:97
 #: sysdeps/names/sysdeps.c:100
@@ -1427,45 +1427,44 @@ msgstr "%s: flaget `-W %s' tillader ikke argumenter\n"
 
 #: lib/errors.c:31
 msgid "No error"
-msgstr ""
+msgstr "Ingen fejl"
 
 # support/error.c:109
 #: lib/errors.c:32
-#, fuzzy
 msgid "Unknown error"
-msgstr "Ukendt systemfejl"
+msgstr "Ukendt fejl"
 
 #: lib/errors.c:33
 msgid "Invalid argument"
-msgstr ""
+msgstr "Ugyldigt argument"
 
 #: lib/errors.c:34
 msgid "No such parameter"
-msgstr ""
+msgstr "Ingen sådan parameter"
 
 #: lib/errors.c:35
 msgid "Attempted to modify a read-only value"
-msgstr ""
+msgstr "Prøvede at ændre en skrivebeskyttet værdi"
 
 #: lib/errors.c:36
 msgid "Parameter size mismatch"
-msgstr ""
+msgstr "Parameterstørrelse stemte ikke"
 
 #: lib/errors.c:37
 msgid "Communication with LibGTop server failed"
-msgstr ""
+msgstr "Kommunikation med LibGTop-tjener fejlede"
 
 #: lib/errors.c:38
 msgid "No such process"
-msgstr ""
+msgstr "Ingen sådan proces"
 
 #: lib/errors.c:39
 msgid "No kernel support"
-msgstr ""
+msgstr "Ingen kerneunderstøttelse"
 
 #: lib/errors.c:40
 msgid "Incompatible kernel version"
-msgstr ""
+msgstr "Inkompatibel kerneversion"
 
 # lib/read.c:75
 #~ msgid "read %d bytes"
