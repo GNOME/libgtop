@@ -31,6 +31,10 @@ handle_slave_connection (int input, int output)
 	const void *ptr G_GNUC_UNUSED;
 	int ret G_GNUC_UNUSED = -1;
 
+	u_int64_t interface G_GNUC_UNUSED;
+	u_int64_t number G_GNUC_UNUSED;
+	u_int64_t strategy G_GNUC_UNUSED;
+
 	unsigned short max_len G_GNUC_UNUSED;
 	pid_t pid G_GNUC_UNUSED;
 
@@ -105,6 +109,22 @@ handle_slave_connection (int input, int output)
 						      pid);
 			do_output (output, resp, _offset_data (proc_map),
 				   resp->u.data.proc_map.total,
+				   ptr, (ptr != NULL) ? 0 : -1);
+			glibtop_free_r (server, ptr);
+			break;
+#endif
+#if GLIBTOP_SUID_INTERFACE_NAMES
+		case GLIBTOP_CMND_INTERFACE_NAMES:
+			memcpy (&interface, parameter, sizeof (u_int64_t));
+			memcpy (&number, parameter + sizeof (u_int64_t),
+				sizeof (u_int64_t));
+			memcpy (&strategy, parameter + 2 * sizeof (u_int64_t),
+				sizeof (u_int64_t));
+			ptr = glibtop_get_proc_args_p
+				(server, &resp->u.data.interface_names,
+				 interface, number, strategy);
+			do_output (output, resp, _offset_data (interface_names),
+				   ptr ? resp->u.data.interface_names.size+1 : 0,
 				   ptr, (ptr != NULL) ? 0 : -1);
 			glibtop_free_r (server, ptr);
 			break;

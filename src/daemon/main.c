@@ -46,6 +46,10 @@ handle_parent_connection (int s)
     pid_t pid;
     void *ptr;
 
+    u_int64_t interface G_GNUC_UNUSED;
+    u_int64_t number G_GNUC_UNUSED;
+    u_int64_t strategy G_GNUC_UNUSED;
+
     glibtop_send_version (glibtop_global_server, s);
 
     if (verbose_output)
@@ -232,6 +236,21 @@ handle_parent_connection (int s)
 	    do_output (s, resp, _offset_data (netload),
 		       0, NULL, retval);
 	    break;
+	case GLIBTOP_CMND_INTERFACE_NAMES:
+	    memcpy (&interface, parameter, sizeof (u_int64_t));
+	    memcpy (&number, parameter + sizeof (u_int64_t),
+		    sizeof (u_int64_t));
+	    memcpy (&strategy, parameter + 2 * sizeof (u_int64_t),
+		    sizeof (u_int64_t));
+	    ptr = glibtop_get_interface_names_l (server,
+						 &resp->u.data.interface_names,
+						 interface, number, strategy);
+	    do_output (s, resp, _offset_data (interface_names),
+		       ptr ? resp->u.data.interface_names.size+1 : 0, ptr,
+		       (ptr != NULL) ? 0 : -1);
+	    glibtop_free_r (server, ptr);
+	    break;
+
 	default:
 	    syslog_message (LOG_ERR, "Parent received unknown command %u.",
 			    cmnd->command);
