@@ -28,7 +28,6 @@
 
 #include <glibtop.h>
 #include <glibtop/error.h>
-#include <glibtop/gnuserv.h>
 
 #include <glibtop/open.h>
 #include <glibtop/union.h>
