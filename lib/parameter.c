@@ -26,7 +26,7 @@
 
 #define _write_data(ptr,size)	\
 	if ((data_ptr == NULL) || (data_size < size)) return -size; \
-	if (ptr == NULL) { strcpy (data_ptr, ""); return 1; } \
+	if (ptr == NULL) { char * const p = data_ptr; *p = '\0'; return 1; } \
 	memcpy (data_ptr, ptr, size);	\
 	return size;
 

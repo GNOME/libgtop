@@ -1,3 +1,10 @@
+2004-06-07  Benoît Dejean  <tazforever@dlfp.org>
+
+	* lib/parameter.c:
+	* support/popt.c: (poptGetContext): Cleaned.
+	
+	* support/vsnprintf.c: s/strncpy/g_strlcpy
+
 2004-05-28  Benoît Dejean <TazForEver@free.fr>
 
 	* examples/*: Added missing #include.
