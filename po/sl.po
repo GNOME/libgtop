@@ -1111,15 +1111,15 @@ msgstr "Skupno ¹tevilo strani z diska, ki so bile shranjene od zagona sistema"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
-msgstr "Lastnosti Stre¾nika"
+msgstr "Lastnosti stre¾nika"
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "CPU Usage"
-msgstr "Uporaba CPU-ja"
+msgstr "Uporaba procesor"
 
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "Memory Usage"
-msgstr "Uporaba Pomnilnika"
+msgstr "Poraba pomnilnika"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Swap Usage"
@@ -1135,15 +1135,15 @@ msgstr "Povpreèna zasedenost"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Shared Memory Limits"
-msgstr "Limiti Deljenega Pomnilnika"
+msgstr "Omejitve deljenega pomnilnika"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Message Queue Limits"
-msgstr "Limiti Vrste s Sporoèili"
+msgstr "Omejitve vrste s sporoèili"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
-msgstr "Limiti Semaforjev"
+msgstr "Omejitve semaforjev"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
@@ -1175,31 +1175,31 @@ msgstr "Podatki o procesu, ki jih ima jedro"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Segment information"
-msgstr "Podatki o Segmentu Procesa"
+msgstr "Podatki o segmentu procesa"
 
 #: sysdeps/names/sysdeps.c:66
 msgid "Process Arguments"
-msgstr "Argumenti Procesa"
+msgstr "Argumenti procesa"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 msgid "Process Memory Map"
-msgstr "Pomnilni¹ka Karta Procesa"
+msgstr "Pomnilni¹ka karta procesa"
 
 #: sysdeps/names/sysdeps.c:68
 msgid "Mount List"
-msgstr "Seznam Priklopov"
+msgstr "Seznam priklopov"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "File System Usage"
-msgstr "Uporaba Datoteènih sistemov"
+msgstr "Uporaba datoteènih sistemov"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "Network Load"
-msgstr "Zasedenost Mre¾e"
+msgstr "Zasedenost mre¾e"
 
 #: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "PPP Statistics"
-msgstr "PPP Statistika"
+msgstr "Statistika PPP"
 
 #: sysdeps/names/sysdeps.c:93
 msgid "Command line arguments of the process"
