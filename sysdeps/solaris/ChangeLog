@@ -1,3 +1,8 @@
+1999-12-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* glibtop_private.h: Added function prototypes for everything
+	from safeio.c.
+
 1999-10-17  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am (libgtop_sysdeps_la_LIBADD): Added `@DL_LIB@'.

@@ -26,6 +26,8 @@
 #include <dirent.h>
 #include <errno.h>
 
+#include <glibtop_private.h>
+
 int
 s_open(const char *file, int mode)
 {

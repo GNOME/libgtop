@@ -61,6 +61,14 @@ int glibtop_get_proc_credentials_s(glibtop *, struct prcred *, gid_t *, pid_t);
 /* Reread kstat chains */
 void glibtop_get_kstats(glibtop *);
 
+/* safeio.c */
+
+int s_open (const char *, int);
+int s_stat (const char *, struct stat *);
+int s_close (int);
+ssize_t s_pread (int, void *, size_t, off_t);
+int s_closedir (DIR *);
+
 END_LIBGTOP_DECLS
 
 #endif __GLIBTOP_PRIVATE_H__
