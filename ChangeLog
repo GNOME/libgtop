@@ -1,4 +1,8 @@
 2004-11-18  Benoît Dejean  <tazforever@dlfp.org>
+
+	* Makefile.am: Forgot to ship libgtopconfig.h.
+
+2004-11-18  Benoît Dejean  <tazforever@dlfp.org>
 	
 	* LIBGTOP-VERSION:
 	* libgtop-mirror.sh: Removed unused files.

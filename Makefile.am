@@ -1,7 +1,7 @@
 
 SUBDIRS = po misc include sysdeps lib src examples doc
 
-libgtopinclude_HEADERS = glibtop.h
+libgtopinclude_HEADERS = glibtop.h libgtopconfig.h
 libgtopincludedir = $(includedir)/libgtop-2.0
 
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt \
