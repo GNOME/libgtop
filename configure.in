@@ -6,6 +6,16 @@ AC_INIT(copyright.txt)
 AM_CONFIG_HEADER(config.h)
 AC_CANONICAL_SYSTEM
 
+dnl This is required at several places
+AC_CHECK_PROG(ac_dc_found, dc, yes, no)
+if test x$ac_dc_found != xyes ; then
+AC_MSG_ERROR([
+*** The "dc" utility was not found on your system.
+***
+*** When using RedHat Linux, you need to install the "bc" package.
+***])
+fi
+
 . $srcdir/LIBGTOP-VERSION
 AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
 
