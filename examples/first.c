@@ -43,7 +43,8 @@ main (int argc, char *argv [])
 	glibtop_union data;
 	glibtop_sysdeps sysdeps;
 	unsigned c, method, count, port, i, *ptr;
-	char buffer [BUFSIZ], *args;
+	char buffer [BUFSIZ];
+	const char *args;
 	pid_t pid, ppid;
 
 	count = PROFILE_COUNT;
@@ -186,7 +187,8 @@ main (int argc, char *argv [])
 	glibtop_get_sysdeps (&sysdeps);
 
 	printf ("Sysdeps      (0x%08lx): %lu, %lu, %lu, %lu, %lu, "
-		"%lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu\n",
+		"%lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu, "
+		"%lu, %lu, %lu, %lu, %lu, %lu\n",
 		(unsigned long) sysdeps.flags,
 		(unsigned long) sysdeps.cpu,
 		(unsigned long) sysdeps.mem,
@@ -203,7 +205,13 @@ main (int argc, char *argv [])
 		(unsigned long) sysdeps.proc_time,
 		(unsigned long) sysdeps.proc_signal,
 		(unsigned long) sysdeps.proc_kernel,
-		(unsigned long) sysdeps.proc_segment);
+		(unsigned long) sysdeps.proc_segment,
+		(unsigned long) sysdeps.proc_args,
+		(unsigned long) sysdeps.proc_map,
+		(unsigned long) sysdeps.mountlist,
+		(unsigned long) sysdeps.fsusage,
+		(unsigned long) sysdeps.netload,
+		(unsigned long) sysdeps.ppp);
 
 	printf ("\n");
 	

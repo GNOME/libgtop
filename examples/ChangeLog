@@ -1,3 +1,7 @@
+1998-11-02  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps.c: New example.
+
 1998-10-26  Martin Baulig  <martin@home-of-linux.org>
 
 	* netload.c: New file. Gets network load for the interface
