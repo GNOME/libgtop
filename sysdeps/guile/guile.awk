@@ -34,9 +34,12 @@ function make_output(line) {
   sub(/^@/,"",feature);
   features[feature] = feature;
 
+  total_nr_params = 0;
+
   if (param_def == "string") {
     call_param = ", gh_scm2newstr( "line_fields[5]", NULL)";
     param_decl = "SCM "line_fields[5];
+    total_nr_params = 1;
   } else {
     call_param = "";
     param_decl = "";
@@ -47,6 +50,7 @@ function make_output(line) {
       sub(/\(.*/, "", type);
       sub(/^\w+\(/, "", list); sub(/\)$/, "", list);
       count = split (list, fields, /,/);
+      total_nr_params = total_nr_params + count;
       for (field = 1; field <= count; field++) {
 	if (param_decl != "")
 	  param_decl = param_decl", ";
@@ -57,6 +61,8 @@ function make_output(line) {
     if (param_decl == "")
       param_decl = "void";
   }
+
+  nr_params_field[feature] = total_nr_params;
   
   output = "SCM\nglibtop_guile_get_"feature" ("param_decl")\n{\n";
 
@@ -117,13 +123,7 @@ END {
   print "{";
 
   for (feature in features) {
-    if (feature ~ /^proc_/) {
-      print "\tgh_new_procedure1_0";
-    } else if (feature ~ /^fsusage$/) {
-      print "\tgh_new_procedure1_0";
-    } else {
-      print "\tgh_new_procedure0_0";
-    }
+    print "\tgh_new_procedure"nr_params_field[feature]"_0";
     print "\t\t(\"glibtop-get-"feature"\", glibtop_guile_get_"feature");";
   }
   print "}";
