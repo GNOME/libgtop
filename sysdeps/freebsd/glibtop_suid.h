@@ -26,6 +26,10 @@
 
 BEGIN_LIBGTOP_DECLS
 
+#if _IN_LIBGTOP
+#include <sys/param.h>
+#endif
+
 #define KI_PROC(ki) (&(ki))->kp_proc)
 #define KI_EPROC(ki) (&(ki))->kp_eproc)
 
