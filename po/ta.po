@@ -11,7 +11,7 @@ msgstr ""
 "0500\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2004-09-02 20:19+0530\n"
+"PO-Revision-Date: 2004-09-03 10:28+0530\n"
 "Last-Translator: Jayaradha N <jaya@pune.redhat.com>\n"
 "Language-Team: Tamil <zhakanini@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -261,19 +261,19 @@ msgstr "மொத்த கோப்பு நோட்கள்"
 
 #: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:54
 msgid "Free file nodes"
-msgstr ""
+msgstr "காலி கணினி கோப்பு "
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
 msgid "Block size"
-msgstr ""
+msgstr "பகுதி அளவு"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
-msgstr ""
+msgstr "மேலாளருக்கான காலி பகுதிகள்"
 
 #: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
-msgstr ""
+msgstr "மேலாளர் அல்லாதவர்களுக்கான காலி பகுதிகள்"
 
 #: sysdeps/names/loadavg.c:40
 msgid "Load Average"
@@ -281,145 +281,145 @@ msgstr "சுமாராக ஏற்று"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Running Tasks"
-msgstr ""
+msgstr "பணிகள் இயங்கிக்கொண்டிருக்கிறது"
 
 #: sysdeps/names/loadavg.c:42
 msgid "Number of Tasks"
-msgstr ""
+msgstr "பணிகளின் எண்ணிக்கை"
 
 #: sysdeps/names/loadavg.c:43 sysdeps/names/loadavg.c:51
 msgid "Last PID"
-msgstr ""
+msgstr "கடைசி PID"
 
 #: sysdeps/names/loadavg.c:48
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr ""
+msgstr "அடுத்தடுத்து இய்கத்திலுருக்கும் பணிகளின் சராசரி 1, 5 மற்றும் 15 நிமிடங்கள்"
 
 #: sysdeps/names/loadavg.c:49
 msgid "Number of tasks currently running"
-msgstr ""
+msgstr "தற்போது இயங்கிக்கொண்டிருக்கும் பணிகளின் எண்ணிக்கை"
 
 #: sysdeps/names/loadavg.c:50
 msgid "Total number of tasks"
-msgstr ""
+msgstr "பணிகளின் மொத்த எண்ணிக்கை"
 
 #: sysdeps/names/mem.c:42
 msgid "Total Memory"
-msgstr ""
+msgstr "மொத்த நினைவிடம்"
 
 #: sysdeps/names/mem.c:43
 msgid "Used Memory"
-msgstr ""
+msgstr "பயன்படுத்தப்பட்ட நினைவிடம்"
 
 #: sysdeps/names/mem.c:44
 msgid "Free Memory"
-msgstr ""
+msgstr "காலி நினைவிடம்"
 
 #: sysdeps/names/mem.c:45
 msgid "Shared Memory"
-msgstr ""
+msgstr "பகிரப்பட்ட நினைவிடம்"
 
 #: sysdeps/names/mem.c:46
 msgid "Buffers"
-msgstr ""
+msgstr "இடையகம்"
 
 #: sysdeps/names/mem.c:47
 msgid "Cached"
-msgstr ""
+msgstr "தற்காலிக சேமிப்பு"
 
 #: sysdeps/names/mem.c:49
 msgid "Locked"
-msgstr ""
+msgstr "பூட்டப்பட்ட"
 
 #: sysdeps/names/mem.c:54
 msgid "Total physical memory in kB"
-msgstr ""
+msgstr "மொத்த நினைவிடம் kB யில்"
 
 #: sysdeps/names/mem.c:55
 msgid "Used memory size in kB"
-msgstr ""
+msgstr "பயன்படுத்தப்பட்ட ்த நினைவிடம் kB யில்"
 
 #: sysdeps/names/mem.c:56
 msgid "Free memory size in kB"
-msgstr ""
+msgstr "காலித்த நினைவிடம் kB யில்"
 
 #: sysdeps/names/mem.c:57
 msgid "Shared memory size in kB"
-msgstr ""
+msgstr "பகிரப்பட்டத்த நினைவிடம் kB யில்"
 
 #: sysdeps/names/mem.c:58
 msgid "Size of buffers kB"
-msgstr ""
+msgstr "இடையகத்தின் அளவு kB யில்"
 
 #: sysdeps/names/mem.c:59
 msgid "Size of cached memory in kB"
-msgstr ""
+msgstr "தற்காலிக சேமிப்புத்த நினைவிடம் kB யில்"
 
 #: sysdeps/names/mem.c:60
 msgid "Memory used from user processes in kB"
-msgstr ""
+msgstr "பயனீடாளர் ப்ராஸஸர் பயன்படுத்திய நினைவிடம் kB யில்"
 
 #: sysdeps/names/mem.c:61
 msgid "Memory in locked pages in kB"
-msgstr ""
+msgstr "பூட்டப்பட்ட பக்கங்களின் நினைவிடம் kB யில்"
 
 #: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
 #: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
 #: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
 msgid "Number of list elements"
-msgstr ""
+msgstr "பட்டியல் உறுப்புகளின் எண்ணிக்கை"
 
 #: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
 #: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
 #: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
 msgid "Total size of list"
-msgstr ""
+msgstr "பட்டியலிம் மொத்த அளவு"
 
 #: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
 #: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
 #: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
 msgid "Size of a single list element"
-msgstr ""
+msgstr "ஒரு உறுப்பின் அளவு"
 
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Size in kilobytes of message pool"
-msgstr ""
+msgstr "மொத்த செய்திகளின் அளவு கிலோபைட்டில்"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Number of entries in message map"
-msgstr ""
+msgstr "செய்தி வரைவில் உள்ள உள்ளீடுகளின் எண்ணிக்கை"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Max size of message"
-msgstr ""
+msgstr "செய்தியின் அதிக பட்ச அளவு"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Default max size of queue"
-msgstr ""
+msgstr "வரிசையில் இயல்பான அளவு"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Max queues system wide"
-msgstr ""
+msgstr "கணினி முழுமைக்கும் அதிகபட்ச வரிசை"
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Message segment size"
-msgstr ""
+msgstr "செய்தி செக்மென்ட் அளவு"
 
 #: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
 msgid "Number of system message headers"
-msgstr ""
+msgstr "கணினி செய்தி தலைப்புகளின் எண்ணிக்கை"
 
 #: sysdeps/names/netload.c:46 sysdeps/names/netload.c:67
 msgid "Interface Flags"
-msgstr ""
+msgstr "இடைமுக குறியீடு"
 
 #: sysdeps/names/netload.c:47
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
 msgid "IPv4 Subnet"
-msgstr ""
+msgstr "IPv4 Subnet"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
 msgid "IPv4 Address"
@@ -607,7 +607,7 @@ msgid ""
 "address of a system call, and can be looked up in a namelist if you need a "
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
-msgstr ""
+msgstr "இந்த \"அலைவரிசை\" இல் செயல் காத்திருக்கிறது.இது கணினி அழைப்பின் முகவரி, உங்களுக்கு பெயர் தெரிய வேண்டுமெனில் பெயர் பட்டியலை பார்க்கலாம்.(/etc/psdatabase இன்று வரை சரியாக புதுப்பிக்கப்பட்டிருந்தால் ps -l ஐ முயன்று WCHAN இன் செயலை பார்க்கவும் )"
 
 #. WChan
 #: sysdeps/names/prockernel.c:82
@@ -656,11 +656,11 @@ msgid ""
 "purposes. This is just the pages which count towards text, data, or stack "
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
-msgstr ""
+msgstr "மேலாளருக்காக உண்மையாக நினைவகத்தில் உள்ள பக்கங்களின் எண்ணிக்கையிலிருந்து 3 ஐ கழிக்க வேண்டும். இது பக்கங்களை உரையாகவும், தகவலாகவும் அல்லது ஸ்டாக் ஆகவும் எண்ண உதவும், demand-loaded அல்லது ஸ்வாப் பக்கங்களை இது சேர்க்காது"
 
 #: sysdeps/names/procmem.c:63
 msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr ""
+msgstr "rss செயலில் உள்ள தற்போதைய வரம்பு(பொதுவாக 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:43
 msgid "Text_RSS"
@@ -906,7 +906,7 @@ msgstr "அடுத்த காலம் கடக்கும் நேரம
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
-msgstr ""
+msgstr "இடைவேளை நேரத்திற்காக  அடுத்த SIGALRM  அனுப்ப வேண்டிய நேரம்"
 
 #: sysdeps/names/proctime.c:61
 msgid "Tick frequency"
@@ -914,11 +914,11 @@ msgstr "துடிப்பு அதிர்வெண்"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "SMP பயனீட்டாளர்-பாங்கு CPU செயல் குவித்த நேரம்"
 
 #: sysdeps/names/proctime.c:63
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "SMP கர்னல்-பாங்கு CPU செயல் குவித்த நேரம்"
 
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
@@ -1082,195 +1082,195 @@ msgstr "அணியில் உள்ள அதிக பட்ச செம�
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max ops per semop call"
-msgstr ""
+msgstr "அதிகபட்ச ops க்கான semop அழைப்பு"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max number of undo entries per process"
-msgstr ""
+msgstr "செயலின் ரத்து செய்யப்பட்ட உள்ளீடுகளின் அதிக பட்ச எண்ணிக்கை"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "sizeof struct sem_undo"
-msgstr ""
+msgstr "struct sem_undo வின் அளவு"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Semaphore max value"
-msgstr ""
+msgstr "செமஃபோர் அதிகபட்ச மதிப்பு"
 
 #: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 msgid "Adjust on exit max value"
-msgstr ""
+msgstr "அதிக மதிப்பில் வெளியேறும் போது சரிப்படுத்து"
 
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Max segment size"
-msgstr ""
+msgstr "அதிக பட்ச செக்மென்ட் அளவு"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Min segment size"
-msgstr ""
+msgstr "குறைந்தக பட்ச செக்மென்ட் அளவு"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max number of segments"
-msgstr ""
+msgstr "செக்மன்ட்டின் அதிக பட்ச எண்ணிக்கை"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max shared segments per process"
-msgstr ""
+msgstr "பகிரப்பட்ட செக்மன்ட்டின் அதிக பட்ச எண்ணிக்கை"
 
 #: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max total shared memory"
-msgstr ""
+msgstr "பகிரப்பட்ட நினைவிடத்திம் அதிக பட்ச மொத்த மதிப்பு"
 
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Total Swap Space"
-msgstr ""
+msgstr "மொத்த ஸ்வாப் இடம்"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Used Swap Space"
-msgstr ""
+msgstr "பயன்படுத்தப்பட்ட ஸ்வாப் இடம்"
 
 #: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 msgid "Free Swap Space"
-msgstr ""
+msgstr "காலி ஸ்வாப் இடம்"
 
 #: sysdeps/names/swap.c:43
 msgid "Page In"
-msgstr ""
+msgstr "பேஜ் உள்"
 
 #: sysdeps/names/swap.c:44
 msgid "Page Out"
-msgstr ""
+msgstr "பேஜ் வெளி"
 
 #: sysdeps/names/swap.c:52
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr ""
+msgstr "கணினி துவங்கும் போது கிடைத்த ஸ்வாப் பேஜ்களின் மொத்த எண்ணிக்கை"
 
 #: sysdeps/names/swap.c:54
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr ""
+msgstr "கணினி துவங்கிய பின் கிடைத்த ஸ்வாப் பேஜ்களின் மொத்த எண்ணிக்கை"
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "Server Features"
-msgstr ""
+msgstr "சேவகன் வசதிகள்"
 
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "CPU Usage"
-msgstr ""
+msgstr "CPU பயன்பாடு"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Memory Usage"
-msgstr ""
+msgstr "நினைவக பயன்பாடு"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "Swap Usage"
-msgstr ""
+msgstr "ஸ்வாப் பயன்பாடு"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "System Uptime"
-msgstr ""
+msgstr "கணினி இயக்க நேரம்"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Load Averange"
-msgstr ""
+msgstr "சாராசரி ஏற்றம்"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Shared Memory Limits"
-msgstr ""
+msgstr "பகிர் நினைவக வரம்பு"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Message Queue Limits"
-msgstr ""
+msgstr "செய்தி வரிசை எல்லை"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "Semaphore Set Limits"
-msgstr ""
+msgstr "செமஃபோர் அமைப்பு எல்லை"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "List of running Processes"
-msgstr ""
+msgstr "இயக்கத்திலிருகும் செயல்களின் பட்டியல்"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process Status information"
-msgstr ""
+msgstr "நிலை தகவலை செயல்படுத்து"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process UID and TTY information"
-msgstr ""
+msgstr "UID மற்றும் TTY லை செயல்படுத்து"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Memory information"
-msgstr ""
+msgstr "நினைவக தகவலை செயல்படுத்து"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Time information"
-msgstr ""
+msgstr "் நேர தலை செயல்படுத்துல்"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Signal information"
-msgstr ""
+msgstr "் சங்கேத தலை செயல்படுத்துல்"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Kernel Data information"
-msgstr ""
+msgstr "் கர்னல் தகவலை செயல்படுத்து"
 
 #: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:93
 msgid "Process Segment information"
-msgstr ""
+msgstr "செக்மண்ட் தகவலை செயல்படுத்து"
 
 #: sysdeps/names/sysdeps.c:67
 msgid "Process Arguments"
-msgstr ""
+msgstr "அளவுருக்களை செயல்படுத்து"
 
 #: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
 msgid "Process Memory Map"
-msgstr ""
+msgstr "நினைவக வரைவை செயல்படுத்து"
 
 #: sysdeps/names/sysdeps.c:69
 msgid "Mount List"
-msgstr ""
+msgstr "ஏற்ற பட்டியல்"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "File System Usage"
-msgstr ""
+msgstr "கோப்பு அமைப்பு பயன்பாடு"
 
 #: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "Network Load"
-msgstr ""
+msgstr "வலைப்பின்னல் ஏற்றம்"
 
 #: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:99
 msgid "PPP Statistics"
-msgstr ""
+msgstr "PPP புள்ளிவிவரம்"
 
 #: sysdeps/names/sysdeps.c:94
 msgid "Command line arguments of the process"
-msgstr ""
+msgstr "செயலின் கட்டளை வரி அளவுரு"
 
 #: sysdeps/names/sysdeps.c:96
 msgid "List of currently mounted filesystems"
-msgstr ""
+msgstr "தற்போது ஏற்றப்பட்ட கோப்பு அமைப்புகளின் பட்டியல்"
 
 #: sysdeps/names/uptime.c:39
 msgid "Uptime"
-msgstr ""
+msgstr "இயக்க நேரம்"
 
 #: sysdeps/names/uptime.c:40
 msgid "Idletime"
-msgstr ""
+msgstr "வேலையற்ற நேரம்"
 
 #: sysdeps/names/uptime.c:41
 msgid "BootTime"
-msgstr ""
+msgstr "துவக்க நேரம்"
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
-msgstr ""
+msgstr "கணினி துவகியதிலிருந்து நேரம் நொடியில்"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr ""
+msgstr "கணினி துவங்கியதிலிருந்து கணினி வேலையற்று இருந்த நேரம் நொடியில்"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time of last system boot in seconds since the epoch"
-msgstr ""
+msgstr "epoch லிருந்து கடைடியாக கணினி துவங்கிய நேரம் நொடியில்"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
