@@ -34,10 +34,17 @@ void free ();
 #include <strings.h>
 #endif
 
+#include <glib.h>
+
+#undef xmalloc
+#undef xrealloc
+#undef xstrdup
+
+#define xmalloc g_malloc
+#define xrealloc g_realloc
+#define xstrdup g_strdup
+
 char *strstr ();
-char *xmalloc ();
-char *xrealloc ();
-char *xstrdup ();
 void error ();
 
 #ifdef HAVE_SYS_PARAM_H
