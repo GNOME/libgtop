@@ -35,7 +35,7 @@ glibtop_get_proc_signal__s (glibtop *server, glibtop_proc_signal *buf, pid_t pid
 	int nread;
 	FILE *f;
 	
-	glibtop_init__r (&server);
+	glibtop_init__r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 

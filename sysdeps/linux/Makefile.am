@@ -13,3 +13,5 @@ libgtop_sysdeps_la_SOURCES	= init.c open.c close.c cpu.c mem.c swap.c \
 				  sem_limits.c proclist.c procstate.c procuid.c \
 				  proctime.c procmem.c procsignal.c prockernel.c \
 				  procsegment.c
+
+include_HEADERS			= glibtop_server.h

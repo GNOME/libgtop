@@ -32,7 +32,7 @@ glibtop_get_uptime__s (glibtop *server, glibtop_uptime *buf)
 {
 	FILE *f;
 
-	glibtop_init__r (&server);
+	glibtop_init__r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_uptime));
 

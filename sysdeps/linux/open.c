@@ -51,7 +51,8 @@ static void set_linux_version(void) {
 /* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
 
 void
-glibtop_open (glibtop *server, const char *program_name)
+glibtop_open (glibtop *server, const char *program_name,
+	      const unsigned long features, const unsigned flags)
 {
 	memset (server, 0, sizeof (glibtop));
 	server->name = program_name;

@@ -37,7 +37,7 @@ glibtop_get_msg_limits__s (glibtop *server, glibtop_msg_limits *buf)
 {
 	struct msginfo	msginfo;
   
-	glibtop_init__r (&server);
+	glibtop_init__r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_msg_limits));
   
