@@ -55,10 +55,12 @@
 #include <guile/gh.h>
 #endif
 
+#ifdef _IN_LIBGTOP
 #if (defined HAVE_LIBINTL_H) || (defined HAVE_GETTEXT)
 #include <libintl.h>
 #else
 #include <libgettext.h>
+#endif
 #endif
 
 #include <stdio.h>
