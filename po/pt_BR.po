@@ -1,19 +1,21 @@
-# Brazilian Portuguese translation of libgtop
-# Copyright (C) 2001-2003 Free Software Foundation, Inc.
-# E. A. Tacão <tacao@conectiva.com.br>, 2001
+# Brazilian Portuguese translation of libgtop.
+# Copyright (C) 2001-2004 Free Software Foundation, Inc.
+# This file is distributed under the same license as the libgtop package.
+# E. A. Tacão <tacao@conectiva.com.br>, 2001.
+# Evandro Fernandes Giovanini <evandrofg@ig.com.br>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 2.0.4\n"
+"Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2004-03-11 11:28-0500\n"
+"POT-Creation-Date: 2004-09-05 04:07+0200\n"
+"PO-Revision-Date: 2004-09-05 07:43-0300\n"
 "Last-Translator: Evandro Fernandes Giovanini <evandrofg@ig.com.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: examples/smp.c:76
 #, c-format
@@ -260,9 +262,8 @@ msgid "Free file nodes"
 msgstr "Nós de arquivo livres"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Bloqueado"
+msgstr "Tamanho do bloco"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -274,7 +275,7 @@ msgstr "Blocos livres disponíveis para usuários comuns"
 
 #: sysdeps/names/loadavg.c:40
 msgid "Load Average"
-msgstr "Média de Carga"
+msgstr "Carga Média"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Running Tasks"
@@ -286,13 +287,11 @@ msgstr "Número de Tarefas"
 
 #: sysdeps/names/loadavg.c:43 sysdeps/names/loadavg.c:51
 msgid "Last PID"
-msgstr "Última Identificação de Processo"
+msgstr "Última PID"
 
 #: sysdeps/names/loadavg.c:48
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr ""
-"Número de tarefas correndo simultaneamente, \n"
-"na média dos últimos 1, 5 e 15 minutos."
+msgstr "Número de tarefas correndo simultaneamente, na média dos últimos 1, 5 e 15 minutos."
 
 #: sysdeps/names/loadavg.c:49
 msgid "Number of tasks currently running"
@@ -417,14 +416,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Sub-rede"
+msgstr "Sub-rede IPv4"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Endereço"
+msgstr "Endereço IPv4"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -467,17 +464,16 @@ msgid "Collisions"
 msgstr "Colisões"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Endereço"
+msgstr "Endereço IPv6"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "Prefixo IPv6"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "Escopo IPv6"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
