@@ -182,7 +182,7 @@ AC_TYPE_SIGNAL
 AC_FUNC_STRFTIME
 AC_CHECK_FUNCS(getcwd gettimeofday getwd putenv strdup strtoul uname)
 
-ALL_LINGUAS="fr"
+ALL_LINGUAS="fr ko"
 AM_GNU_GETTEXT
 
 AC_PATH_XTRA

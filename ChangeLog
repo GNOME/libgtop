@@ -1,3 +1,8 @@
+1998-09-29  Sung-Hyun Nam  <namsh@lgic.co.kr>
+
+	* configure.in (ALL_LINGUAS): add `ko'
+	* po/ko.po: new file.
+
 1998-09-27  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in: Make it really *require* GLIB >= 1.1.3.
