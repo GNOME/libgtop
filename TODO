@@ -27,7 +27,7 @@ Things that need to be done before Dec 15:
               (we have one at the university, so I can do this)
 
 * [IMPORTANT] Check whether the daemon works on all supported systems
-              and has all features the server has. (***)
+              and has all features the server has.
 
 * NetBSD/OpenBSD: Support was added on Dec 6, but we need to check
   whether all data are valid (I'll do this next week).
@@ -36,9 +36,6 @@ Guile-Port:
 ===========
 
 * Guile-Port: Add glibtop_sysdeps (), glibtop_get/set_parameter () etc.
-
-* Guile-Port: Provide some way to use multiple servers (with #f for
-  to global server).
 
 Perl-Port:
 =========
