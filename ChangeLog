@@ -1,5 +1,10 @@
 2004-11-13  Benoît Dejean  <tazforever@dlfp.org>
 
+	* structures.def: Removed old functions. OMG, everything is really broken
+	here :/
+
+2004-11-13  Benoît Dejean  <tazforever@dlfp.org>
+
 	* configure.in: Bumped to 2.9.0
 	
 	* configure.in:
