@@ -34,5 +34,7 @@ int main(int argc, char **argv)
       pid_t pid = strtol(*argv, NULL, 10);
       show_args(pid);
     }
+
+  return 0;
 }
 
