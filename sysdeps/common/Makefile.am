@@ -1,10 +1,21 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-CFLAGS				= -Wall -W @CFLAGS@
+if INODEDB
+inodedb_SRCLIST			= inodedb.c
+inodedb_DEFS			= -DSYSTEM_INODEDB=\"$(prefix)/var/libgtop/inodedb.db\"
+else
+inodedb_SRCLIST			=
+inodedb_DEFS			=
+endif
+
+CFLAGS				= -Wall -W @CFLAGS@ $(inodedb_DEFS)
 
 lib_LTLIBRARIES			= libgtop_common.la libgtop_suid_common.la
 
 libgtop_common_la_SOURCES	= xmalloc.c error.c gnuslib.c \
-				  fsusage.c fsusage.h mountlist.c mountlist.h
+				  fsusage.c fsusage.h mountlist.c mountlist.h \
+				  $(inodedb_SRCLIST)
 
 libgtop_suid_common_la_SOURCES	= xmalloc.c error.c sysdeps_suid.c
+
+EXTRA_DIST			= inodedb.c

@@ -39,7 +39,7 @@ typedef struct _glibtop_proc_map	glibtop_proc_map;
 
 struct _glibtop_map_entry
 {
-	u_int64_t start, end, inode, device;
+	u_int64_t start, end, offset, perm, inode, device;
 };
 
 struct _glibtop_proc_map

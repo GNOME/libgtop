@@ -1,4 +1,10 @@
-SUBDIRS			= daemon
+if INODEDB
+inodedb_SUBDIRS		= inodedb
+else
+inodedb_SUBDIRS		=
+endif
 
-DIST_SUBDIRS		= daemon
+SUBDIRS			= daemon $(inodedb_SUBDIRS)
+
+DIST_SUBDIRS		= daemon inodedb
 

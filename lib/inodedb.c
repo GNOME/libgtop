@@ -1,0 +1,114 @@
+/* $Id$ */
+
+/* Copyright (C) 1995, 1996, 1997 Free Software Foundation, Inc.
+   This file is part of the Gnome Top Library.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+
+   The Gnome Top Library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public License as
+   published by the Free Software Foundation; either version 2 of the
+   License, or (at your option) any later version.
+
+   The Gnome Top Library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public
+   License along with the GNU C Library; see the file COPYING.LIB.  If not,
+   write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+   Boston, MA 02111-1307, USA.  */
+
+#include <glibtop.h>
+#include <glibtop/error.h>
+#include <glibtop/xmalloc.h>
+#include <glibtop/inodedb.h>
+
+#include <pwd.h>
+#include <gdbm.h>
+
+#ifndef SYSTEM_INODEDB
+#define SYSTEM_INODEDB "/home/baulig/INSTALL/var/libgtop/inode.db"
+#endif
+
+glibtop_inodedb *
+glibtop_inodedb_open_s (glibtop *server, unsigned databases,
+			unsigned long cachesize)
+{
+	glibtop_inodedb *inodedb;
+	char filename [BUFSIZ];
+	struct passwd *pwd;
+	struct stat statb;
+
+	if (!databases)
+		databases = GLIBTOP_INODEDB_ALL;
+
+	inodedb = glibtop_calloc_r (server, 1, sizeof (glibtop_inodedb));
+
+	if (stat (SYSTEM_INODEDB, &statb))
+		databases &= ~GLIBTOP_INODEDB_SYSTEM;
+
+	if (databases & GLIBTOP_INODEDB_SYSTEM) {
+		inodedb->system_dbf = gdbm_open
+			(SYSTEM_INODEDB, 0, GDBM_READER, 0, 0);
+		if (!inodedb->system_dbf)
+			glibtop_error_io_r
+				(server, "gdbm_open (%s)", SYSTEM_INODEDB);
+	}
+
+	pwd = getpwuid (getuid ());
+	if (!pwd) glibtop_error_io_r (server, "getpwuid");
+	
+	sprintf (filename, "%s/var/libgtop/inode.db", pwd->pw_dir);
+	
+	if (stat (filename, &statb))
+		databases &= ~GLIBTOP_INODEDB_USER;
+
+	if (databases & GLIBTOP_INODEDB_USER) {
+		inodedb->user_dbf = gdbm_open
+			(filename, 0, GDBM_READER, 0, 0);
+		if (!inodedb->user_dbf)
+			glibtop_error_io_r
+				(server, "gdbm_open (%s)", filename);
+	}
+
+	return inodedb;
+}
+
+const char *
+glibtop_inodedb_lookup_s (glibtop *server, glibtop_inodedb *inodedb,
+			  u_int64_t device, u_int64_t inode)
+{
+	glibtop_inodedb_key key;
+	datum d_key, d_content;
+
+	d_key.dptr = (void *) &key;
+	d_key.dsize = sizeof (key);
+
+	key.device = device;
+	key.inode = inode;
+
+	if (inodedb->system_dbf) {
+		d_content = gdbm_fetch (inodedb->system_dbf, d_key);
+		if (d_content.dptr) return d_content.dptr;
+	}
+
+	if (inodedb->user_dbf) {
+		d_content = gdbm_fetch (inodedb->user_dbf, d_key);
+		if (d_content.dptr) return d_content.dptr;
+	}
+
+	return NULL;
+}
+
+void
+glibtop_inodedb_close_s (glibtop *server, glibtop_inodedb *inodedb)
+{
+	if (inodedb->system_dbf)
+		gdbm_close (inodedb->system_dbf);
+	
+	if (inodedb->user_dbf)
+		gdbm_close (inodedb->user_dbf);
+
+	glibtop_free_r (server, inodedb);
+}

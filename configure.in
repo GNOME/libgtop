@@ -64,6 +64,20 @@ AC_ARG_WITH(libgtop-guile,
 
 test x$build_guile = xno && ac_cv_guile_found=no
 
+AC_ARG_WITH(libgtop-inodedb,
+[  --with-libgtop-inodedb  Build the inodedb stuff (default=no)],
+[build_inodedb="$withval"], [build_inodedb=no])
+
+if test x$build_inodedb = xyes ; then
+  AC_CHECK_LIB(gdbm, gdbm_open, , build_inodedb=no)
+fi
+
+AM_CONDITIONAL(INODEDB, test x$build_inodedb = xyes)
+
+if test x$build_inodedb = xyes ; then
+  AC_DEFINE(GLIBTOP_INODEDB)
+fi
+
 AC_DEFINE(GLIBTOP_NAMES)
 
 if test x$ac_cv_guile_found = xyes ; then
@@ -182,6 +196,11 @@ AC_SUBST(SUPPORTINCS)
 dnl These definitions are expanded in make.
 LIBGTOP_LIBS='-L$(libdir) -lgtop'
 LIBGTOP_INCS='-I$(includedir)'
+
+if test x$build_inodedb = xyes ; then
+  LIBGTOP_INCS="$LIBGTOP_INCS -DGLIBTOP_INODEDB"
+fi
+
 LIBGTOP_GUILE_LIBS="$LIBGTOP_LIBS"
 LIBGTOP_GUILE_INCS="$LIBGTOP_INCS"
 LIBGTOP_BINDIR='$(bindir)'
@@ -285,6 +304,7 @@ sysdeps/kernel/Makefile
 sysdeps/freebsd/Makefile
 src/Makefile
 src/daemon/Makefile
+src/inodedb/Makefile
 lib/Makefile
 guile/Makefile
 examples/Makefile
