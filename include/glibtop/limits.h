@@ -39,6 +39,12 @@ BEGIN_LIBGTOP_DECLS
 /* Maximum length of a mountpoint/device name in glibtop_mountlist. */
 #define GLIBTOP_MOUNTENTRY_LEN	79
 
+/* Maximum length of a network interface name. */
+#define GLIBTOP_INTERFACE_LEN	32
+
+/* This is ((u_int64_t)-1) */
+#define GLIBTOP_UNLIMITED	(~(u_int64_t)0)
+
 END_LIBGTOP_DECLS
 
 #endif

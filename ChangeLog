@@ -1,5 +1,8 @@
 1999-12-05  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/limits.h (GLIBTOP_INTERFACE_LEN): New #define.
+	(GLIBTOP_UNLIMITED): #define this to be `(~(u_int64_t)0)'.
+
 	* glibtop.h (glibtop): Added `refcount' field.
 	* lib/init.c (glibtop_server_ref, glibtop_server_unref): New
 	functions to deal with refcounts.
