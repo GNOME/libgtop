@@ -1,3 +1,17 @@
+March 11, 2004:
+===============
+
+* Released LibGTop 2.5.99 "Gross Work", dedicated to people who do push-ups
+  in the loos.
+
+  - plenty of code cleanups
+
+  - removed the dependency on libgnome, only glib required now
+
+  - Linux 2.6 support, NetBSD support and better FreeBSD support
+
+  - Make the block size available for filesystem statistics
+
 February 27, 2001:
 =================
 

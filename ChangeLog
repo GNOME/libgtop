@@ -1,5 +1,9 @@
 2004-03-11  Bastien Nocera  <hadess@hadess.net>
 
+	* NEWS: update the NEWS file for the release
+
+2004-03-11  Bastien Nocera  <hadess@hadess.net>
+
 	* include/Makefile.am: fix distchecking
 
 2003-12-27  Ole Laursen  <olau@hardworking.dk>
