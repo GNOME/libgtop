@@ -52,7 +52,7 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	kstat_ctl_t *kc;
 	kstat_t *ksp;
 	int i;
-	static char *avestrings[] = { "avenrun_1min",
+	static const char *avestrings[] = { "avenrun_1min",
 	   			      "avenrun_5min",
 				      "avenrun_15min" };
 #endif

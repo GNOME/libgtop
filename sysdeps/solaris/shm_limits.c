@@ -27,7 +27,7 @@
 #include <kvm.h>
 #include <sys/shm.h>
 
-static struct nlist nlst[] = { {"shminfo"}, {NULL} };
+static const struct nlist nlst[] = { {"shminfo"}, {NULL} };
 static const unsigned long _glibtop_sysdeps_shm_limits =
 (1L << GLIBTOP_IPC_SHMMAX) + (1L << GLIBTOP_IPC_SHMMIN) +
 (1L << GLIBTOP_IPC_SHMMNI) + (1L << GLIBTOP_IPC_SHMSEG);

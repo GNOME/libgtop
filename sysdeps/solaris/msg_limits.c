@@ -27,7 +27,7 @@
 #include <kvm.h>
 #include <sys/msg.h>
 
-static struct nlist nlst[] = { {"msginfo"}, {NULL} };
+static const struct nlist nlst[] = { {"msginfo"}, {NULL} };
 static const unsigned long _glibtop_sysdeps_msg_limits =
 #if GLIBTOP_SOLARIS_RELEASE <= 570
 (1L << GLIBTOP_IPC_MSGMAP) +  (1L << GLIBTOP_IPC_MSGSSZ) +

@@ -27,7 +27,7 @@
 #include <kvm.h>
 #include <sys/sem.h>
 
-static struct nlist nlst[] = { {"seminfo"}, {NULL} };
+static const struct nlist nlst[] = { {"seminfo"}, {NULL} };
 static const unsigned long _glibtop_sysdeps_sem_limits =
 #if GLIBTOP_SOLARIS_RELEASE <= 570
 (1L << GLIBTOP_IPC_SEMMAP) +
