@@ -99,7 +99,7 @@ glibtop_client_warning_handler (glibtop_client *client, GError *error)
 
 }
 
-void
+static void
 glibtop_client_marshal_VOID__POINTER (GClosure     *closure,
 				      GValue       *return_value,
 				      guint         n_param_values,

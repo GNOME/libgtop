@@ -33,13 +33,14 @@ const glibtop_signame glibtop_sys_siglist [] =
 { { 0, NULL, NULL } };
 
 void
-_glibtop_open_sysdeps (glibtop *server, const char *program_name,
-		       const unsigned long features, const unsigned flags)
+_glibtop_open_sysdeps (glibtop_client *client, const char *program_name,
+		       const u_int64_t features, const char **backend_args,
+		       GError **opt_error)
 {
-    glibtop_open_backend_l (server, "glibtop-backend-common",
-			    features, NULL);
-    glibtop_open_backend_l (server, "glibtop-backend-sysdeps",
-			    features, NULL);
-    glibtop_open_backend_l (server, "glibtop-backend-server",
-			    features, NULL);
+    glibtop_open_backend_l (client, "glibtop-backend-common",
+			    features, backend_args, opt_error);
+    glibtop_open_backend_l (client, "glibtop-backend-sysdeps",
+			    features, backend_args, opt_error);
+    glibtop_open_backend_l (client, "glibtop-backend-server",
+			    features, backend_args, opt_error);
 }

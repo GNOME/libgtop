@@ -10,7 +10,8 @@ noinst_LTLIBRARIES		= libgtop_server.la
 
 libgtop_la_SOURCES		= errors.c backend.c \
 				  init-backends.c open-backend.c \
-				  glibtop-client.c glibtop-server.c
+				  glibtop-client.c glibtop-server.c \
+				  sysdeps-init.c
 
 libgtop_server_la_SOURCES	= error.c xmalloc.c
 
