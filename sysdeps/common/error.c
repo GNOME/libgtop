@@ -48,7 +48,7 @@ glibtop_error_vr (glibtop *server, char *format, va_list args)
 }
 
 void
-glibtop_error_io_vr (glibtop *server, char *format, gint error, va_list args)
+glibtop_error_io_vr (glibtop *server, char *format, int error, va_list args)
 {
 	print_server_name (server);
 	vfprintf (stderr, format, args);
@@ -74,7 +74,7 @@ glibtop_warn_vr (glibtop *server, char *format, va_list args)
 }
 
 void
-glibtop_warn_io_vr (glibtop *server, char *format, gint error, va_list args)
+glibtop_warn_io_vr (glibtop *server, char *format, int error, va_list args)
 {
 	print_server_name (server);
 	vfprintf (stderr, format, args);

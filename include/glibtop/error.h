@@ -23,15 +23,14 @@
 #define __GLIBTOP_ERROR_H__
 
 #include <glibtop.h>
-#include <glib.h>
 
 BEGIN_LIBGTOP_DECLS
 
 void glibtop_error_vr (glibtop *server, char *format, va_list args);
 void glibtop_warn_vr (glibtop *server, char *format, va_list args);
 
-void glibtop_error_io_vr (glibtop *server, char *format, gint, va_list args);
-void glibtop_warn_io_vr (glibtop *server, char *format, gint, va_list args);
+void glibtop_error_io_vr (glibtop *server, char *format, int, va_list args);
+void glibtop_warn_io_vr (glibtop *server, char *format, int, va_list args);
 
 static void
 glibtop_error_r (glibtop *server, char *format, ...)
