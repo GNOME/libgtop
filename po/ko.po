@@ -2,7 +2,6 @@
 # Copyright (C) 1998 Free Software Foundation, Inc.
 # Sung-Hyun Nam <namsh@lgic.co.kr>, 1998
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
@@ -43,33 +42,23 @@ msgid "The number of jiffies (1/100ths of a second) since system boot"
 msgstr ""
 
 #: sysdeps/names/cpu.c:49
-msgid ""
-"The number of jiffies (1/100ths of a second) that the system spent in user "
-"mode"
+msgid "The number of jiffies (1/100ths of a second) that the system spent in user mode"
 msgstr ""
 
 #: sysdeps/names/cpu.c:51
-msgid ""
-"The number of jiffies (1/100ths of a second) that the system spent in user "
-"mode with low priority (nice)"
+msgid "The number of jiffies (1/100ths of a second) that the system spent in user mode with low priority (nice)"
 msgstr ""
 
 #: sysdeps/names/cpu.c:53
-msgid ""
-"The number of jiffies (1/100ths of a second) that the system spent in system "
-"mode"
+msgid "The number of jiffies (1/100ths of a second) that the system spent in system mode"
 msgstr ""
 
 #: sysdeps/names/cpu.c:55
-msgid ""
-"The number of jiffies (1/100ths of a second) that the system spend in the "
-"idle task"
+msgid "The number of jiffies (1/100ths of a second) that the system spend in the idle task"
 msgstr ""
 
 #: sysdeps/names/cpu.c:57
-msgid ""
-"All of the above values are in jiffies (1/100ths of a second) unless "
-"otherwise stated in this field (i.e. 'frequency != 100')"
+msgid "All of the above values are in jiffies (1/100ths of a second) unless otherwise stated in this field (i.e. 'frequency != 100')"
 msgstr ""
 
 #: sysdeps/names/fsusage.c:37 sysdeps/names/fsusage.c:46
@@ -192,21 +181,15 @@ msgstr "사용자 프로세스가 차지한 메모리 (kB)"
 msgid "Memory in locked pages in kB"
 msgstr "막힌 페이지 메모리 (kB)"
 
-#: sysdeps/names/mountlist.c:36 sysdeps/names/mountlist.c:43
-#: sysdeps/names/proclist.c:36 sysdeps/names/proclist.c:43
-#: sysdeps/names/procmap.c:36 sysdeps/names/procmap.c:43
+#: sysdeps/names/mountlist.c:36 sysdeps/names/mountlist.c:43 sysdeps/names/proclist.c:36 sysdeps/names/proclist.c:43 sysdeps/names/procmap.c:36 sysdeps/names/procmap.c:43
 msgid "Number of list elements"
 msgstr ""
 
-#: sysdeps/names/mountlist.c:37 sysdeps/names/mountlist.c:44
-#: sysdeps/names/proclist.c:37 sysdeps/names/proclist.c:44
-#: sysdeps/names/procmap.c:37 sysdeps/names/procmap.c:44
+#: sysdeps/names/mountlist.c:37 sysdeps/names/mountlist.c:44 sysdeps/names/proclist.c:37 sysdeps/names/proclist.c:44 sysdeps/names/procmap.c:37 sysdeps/names/procmap.c:44
 msgid "Total size of list"
 msgstr ""
 
-#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
-#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
-#: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
+#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45 sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45 sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
 msgid "Size of a single list element"
 msgstr ""
 
@@ -274,13 +257,11 @@ msgstr ""
 msgid "WChan"
 msgstr ""
 
-#. K_Flags
 #: sysdeps/names/prockernel.c:48
 msgid ""
 "Kernel flags of the process.\n"
 "\n"
-"On Linux, currently every flag has the math bit set, because crt0.s checks "
-"for math emulation, so this is not included in the output.\n"
+"On Linux, currently every flag has the math bit set, because crt0.s checks for math emulation, so this is not included in the output.\n"
 "\n"
 "This is probably a bug, as not every process is a compiled C program.\n"
 "\n"
@@ -289,19 +270,14 @@ msgstr ""
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:57
-msgid ""
-"The number of minor faults the process has made, those which have not "
-"required loading a memory page from disk."
+msgid "The number of minor faults the process has made, those which have not required loading a memory page from disk."
 msgstr ""
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:60
-msgid ""
-"The number of major faults the process has made, those which have required "
-"loading a memory page from disk."
+msgid "The number of major faults the process has made, those which have required loading a memory page from disk."
 msgstr ""
 
-#. CMin_Flt
 #: sysdeps/names/prockernel.c:63
 msgid "The number of minor faults that the process and its children have made."
 msgstr ""
@@ -313,23 +289,16 @@ msgstr ""
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:69
-msgid ""
-"The current value of esp (32-bit stack pointer), as found in the kernel "
-"stack page for the process."
+msgid "The current value of esp (32-bit stack pointer), as found in the kernel stack page for the process."
 msgstr ""
 
-#. KStk_EIP
 #: sysdeps/names/prockernel.c:72
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr ""
 
 #. NWChan
 #: sysdeps/names/prockernel.c:74
-msgid ""
-"This is the \"channel\" in which the process is waiting.  This is the "
-"address of a system call, and can be looked up in a namelist if you need a "
-"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
-"see the WCHAN field in action)"
+msgid "This is the \"channel\" in which the process is waiting.  This is the address of a system call, and can be looked up in a namelist if you need a textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to see the WCHAN field in action)"
 msgstr ""
 
 #. WChan
@@ -378,16 +347,11 @@ msgid "Number of pages of shared (mmap'd) memory"
 msgstr ""
 
 #: sysdeps/names/procmem.c:55
-msgid ""
-"Number of pages the process has in real memory, minus 3 for administrative "
-"purposes. This is just the pages which count towards text, data, or stack "
-"space. This does not include pages which have not been demand-loaded in, or "
-"which are swapped out."
+msgid "Number of pages the process has in real memory, minus 3 for administrative purposes. This is just the pages which count towards text, data, or stack space. This does not include pages which have not been demand-loaded in, or which are swapped out."
 msgstr ""
 
 #: sysdeps/names/procmem.c:60
-msgid ""
-"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr ""
 
 #: sysdeps/names/procsegment.c:40
@@ -559,7 +523,7 @@ msgid "Start time of process in seconds since the epoch"
 msgstr ""
 
 #: sysdeps/names/proctime.c:48
-msgid "Read time accumulated by process (should be utime + stime)"
+msgid "Real time accumulated by process (should be utime + stime)"
 msgstr ""
 
 #: sysdeps/names/proctime.c:49
@@ -583,9 +547,7 @@ msgid "The time (in jiffies) of the process's next timeout"
 msgstr ""
 
 #: sysdeps/names/proctime.c:54
-msgid ""
-"The time (in jiffies) before the next SIGALRM is sent to the process due to "
-"an interval timer."
+msgid "The time (in jiffies) before the next SIGALRM is sent to the process due to an interval timer."
 msgstr ""
 
 #: sysdeps/names/proctime.c:56
@@ -876,47 +838,21 @@ msgstr "시스템 시동후의 초 단위의 시간"
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "시스템 시동후에 유휴 태스크가 소비한 초 단위의 시간"
 
-#: lib/read.c:69
-#, c-format
-msgid "read %d bytes"
-msgstr ""
-
-#: lib/read_data.c:47
-msgid "read data size"
-msgstr ""
-
-#: lib/read_data.c:64
-#, c-format
-msgid "read data %d bytes"
-msgstr ""
-
-#: lib/write.c:46
-#, c-format
-msgid "write %d bytes"
-msgstr ""
-
 #: support/argp-help.c:185
-#, c-format
 msgid "%.*s: ARGP_HELP_FMT parameter requires a value"
 msgstr ""
 
 #: support/argp-help.c:194
-#, c-format
 msgid "%.*s: Unknown ARGP_HELP_FMT parameter"
 msgstr ""
 
 #: support/argp-help.c:206
-#, c-format
 msgid "Garbage in ARGP_HELP_FMT: %s"
 msgstr ""
 
 #: support/argp-help.c:1146
-msgid ""
-"Mandatory or optional arguments to long options are also mandatory or "
-"optional for any corresponding short options."
+msgid "Mandatory or optional arguments to long options are also mandatory or optional for any corresponding short options."
 msgstr ""
-"긴 옵션에 대한 명령 혹은 임의의 인자는 대치되는 짧은 옵션의 명령 혹은 "
-"임의의 인자이기도 합니다."
 
 #: support/argp-help.c:1522
 msgid "Usage:"
@@ -931,12 +867,10 @@ msgid " [OPTION...]"
 msgstr " [옵션...]"
 
 #: support/argp-help.c:1565
-#, c-format
 msgid "Try `%s --help' or `%s --usage' for more information.\n"
 msgstr "더 많은 정보를 얻으려면 `%s --help' 혹은 `%s --usage'를 입력하시오.\n"
 
 #: support/argp-help.c:1593
-#, c-format
 msgid "Report bugs to %s.\n"
 msgstr "%s로 버그를 보고해 주세요.\n"
 
@@ -965,7 +899,6 @@ msgid "(PROGRAM ERROR) No version known!?"
 msgstr "(프로그램 에러) 판번호를 모르겠슴!?"
 
 #: support/argp-parse.c:641
-#, c-format
 msgid "%s: Too many arguments\n"
 msgstr "%s: 너무 많은 인자\n"
 
@@ -978,60 +911,72 @@ msgid "Unknown system error"
 msgstr "알려지지 않은 시스템 에러"
 
 #: support/getopt.c:669
-#, c-format
 msgid "%s: option `%s' is ambiguous\n"
 msgstr "%s: `%s' 옵션이 모호합니다\n"
 
+#. --option
 #: support/getopt.c:693
-#, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
 msgstr "%s: `--%s' 옵션은 인자가 필요없습니다\n"
 
 #: support/getopt.c:698
-#, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
 msgstr "%s: `%c%s' 옵션은 인자가 필요없습니다\n"
 
 #: support/getopt.c:715 support/getopt.c:888
-#, c-format
 msgid "%s: option `%s' requires an argument\n"
 msgstr "%s: `%s' 옵션은 인자가 필요합니다\n"
 
 #. --option
 #: support/getopt.c:744
-#, c-format
 msgid "%s: unrecognized option `--%s'\n"
 msgstr "%s: 알수 없는 옵션 `--%s'\n"
 
-#. +option or -option
 #: support/getopt.c:748
-#, c-format
 msgid "%s: unrecognized option `%c%s'\n"
 msgstr "%s: 알수 없는 옵션 `%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
-#, c-format
 msgid "%s: illegal option -- %c\n"
 msgstr "%s: 비정상적인 옵션 -- %c\n"
 
 #: support/getopt.c:777
-#, c-format
 msgid "%s: invalid option -- %c\n"
 msgstr "%s: 지원하지 않는 옵션 -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937
-#, c-format
 msgid "%s: option requires an argument -- %c\n"
 msgstr "%s: 옵션은 인자가 필요합니다 -- %c\n"
 
 #: support/getopt.c:854
-#, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
 msgstr "%s: `-W %s' 옵션이 모호합니다\n"
 
 #: support/getopt.c:872
-#, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: `-W %s' 옵션은 인자가 필요없습니다\n"
+
+#: lib/read.c:69
+msgid "read %d bytes"
+msgstr ""
+
+#: lib/read_data.c:47
+msgid "read data size"
+msgstr ""
+
+#: lib/read_data.c:64
+msgid "read data %d bytes"
+msgstr ""
+
+#: lib/write.c:46
+msgid "write %d bytes"
+msgstr ""
+# msgid ""
+# "Mandatory or optional arguments to long options are also mandatory or "
+# "optional for any corresponding short options."
+# msgstr ""
+# "긴 옵션에 대한 명령 혹은 임의의 인자는 대치되는 짧은 옵션의 명령 혹은 "
+# "임의의 인자이기도 합니다."
+# 

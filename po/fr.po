@@ -523,7 +523,7 @@ msgid "Start time of process in seconds since the epoch"
 msgstr ""
 
 #: sysdeps/names/proctime.c:48
-msgid "Read time accumulated by process (should be utime + stime)"
+msgid "Real time accumulated by process (should be utime + stime)"
 msgstr ""
 
 #: sysdeps/names/proctime.c:49
@@ -838,22 +838,6 @@ msgstr "Temps en secondes depuis le d\351marrage du syst\350me"
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "Temps en secondes pass\351 dans le processus inactif depuis le d\351marrage du syst\350me"
 
-#: lib/read.c:69
-msgid "read %d bytes"
-msgstr ""
-
-#: lib/read_data.c:47
-msgid "read data size"
-msgstr ""
-
-#: lib/read_data.c:64
-msgid "read data %d bytes"
-msgstr ""
-
-#: lib/write.c:46
-msgid "write %d bytes"
-msgstr ""
-
 #: support/argp-help.c:185
 msgid "%.*s: ARGP_HELP_FMT parameter requires a value"
 msgstr ""
@@ -972,4 +956,20 @@ msgstr ""
 
 #: support/getopt.c:872
 msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/read.c:69
+msgid "read %d bytes"
+msgstr ""
+
+#: lib/read_data.c:47
+msgid "read data size"
+msgstr ""
+
+#: lib/read_data.c:64
+msgid "read data %d bytes"
+msgstr ""
+
+#: lib/write.c:46
+msgid "write %d bytes"
 msgstr ""
