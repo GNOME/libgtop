@@ -1,5 +1,9 @@
 1998-07-30  Martin Baulig  <martin@home-of-linux.org>
 
+	* sysdeps/common/gnuslib.c: Using `0xffffffff' instead of -1
+	as error code for inet_addr () since on 64bit systems,
+	`inet_addr (some_error) != (INET_ADDR) -1'.
+
 	* configure.in: Only defining guile stuff if
 	we really have guile.
 

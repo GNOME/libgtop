@@ -45,14 +45,14 @@ static int connect_to_internet_server __P((const char *, u_short));
 /* On some systems, e.g. DGUX, inet_addr returns a 'struct in_addr'. */
 #ifdef HAVE_BROKEN_INET_ADDR
 #define IN_ADDR struct in_addr
-#define NUMERIC_ADDR_ERROR (numeric_addr.s_addr == -1)
+#define NUMERIC_ADDR_ERROR (numeric_addr.s_addr == 0xffffffff)
 #else
 #if (LONGBITS > 32)
 #define IN_ADDR unsigned int
 #else
 #define IN_ADDR unsigned long
 #endif
-#define NUMERIC_ADDR_ERROR (numeric_addr == (IN_ADDR) -1)
+#define NUMERIC_ADDR_ERROR (numeric_addr == (IN_ADDR) 0xffffffff)
 #endif
 
 #include <arpa/inet.h>
@@ -208,6 +208,8 @@ glibtop_internet_addr (host)
 	IN_ADDR numeric_addr;	/* host address */
 
 	numeric_addr = inet_addr (host);
+	fprintf (stderr, "TEST: %lx - %lx\n",
+		 (IN_ADDR) numeric_addr, (IN_ADDR) 0xffffffff);
 	if (!NUMERIC_ADDR_ERROR)
 		return numeric_addr;
 	else if ((hp = gethostbyname (host)) != NULL)
