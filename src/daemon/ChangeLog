@@ -1,3 +1,7 @@
+2004-05-25  Benoît Dejean  <tazforever@dlfp.org>
+
+	* gnuserv.c: (permitted): Cast to size_t to remove warning.
+
 2004-03-04  Bastien Nocera  <hadess@hadess.net>
 
 	* Makefile.am:
