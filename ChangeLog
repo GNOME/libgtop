@@ -1,3 +1,8 @@
+1999-10-17  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in: Fixed typedef syntax for glibtop-config.h.
+	Thanks to Drazen Kacar for pointing this out.
+
 1999-10-16  Martin Baulig  <martin@home-of-linux.org>
 
 	* LIBGTOP-VERSION: Set version number to 1.1.2, binary age 2,

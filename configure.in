@@ -466,7 +466,7 @@ _______EOF
 	  cat >> $outfile <<\_______EOF
 
 #ifndef u_int64_t
-typedef u_int64_t unsigned long long int
+typedef unsigned long long int u_int64_t;
 #endif
 _______EOF
 	fi
@@ -476,7 +476,7 @@ _______EOF
 	  cat >> $outfile <<\_______EOF
 
 #ifndef int64_t
-typedef int64_t signed long long int
+typedef signed long long int int64_t;
 #endif
 _______EOF
 	fi
