@@ -1,7 +1,31 @@
 <!-- $Id$ -->
 
 <!doctype book PUBLIC "-//Davenport//DTD DocBook V3.0//EN" [
-<!entity reference.sgml SYSTEM "../guile/reference.sgml" >
+<!entity include-reference.sgml SYSTEM "../guile/reference.sgml" >
+
+<!-- The following entities are used in the automatically generated
+     `reference.sgml' to include custom descriptions of the features.
+  -->
+
+<!entity include-cpu.sgml "">
+<!entity include-mem.sgml "">
+<!entity include-swap.sgml "">
+<!entity include-uptime.sgml "">
+<!entity include-loadavg.sgml "">
+<!entity include-shm-limits.sgml "">
+<!entity include-msg-limits.sgml "">
+<!entity include-sem-limits.sgml "">
+<!entity include-proclist.sgml "">
+<!entity include-proc-state.sgml "">
+<!entity include-proc-uid.sgml "">
+<!entity include-proc-mem.sgml "">
+<!entity include-proc-time.sgml "">
+<!entity include-proc-signal.sgml "">
+<!entity include-proc-kernel.sgml "">
+<!entity include-proc-segment.sgml "">
+<!entity include-proc-map.sgml "">
+<!entity include-mountlist.sgml "">
+<!entity include-fsusage.sgml "">
 ]>
 <book>
   <bookinfo>
@@ -22,9 +46,11 @@
 	<literal>$Id$</literal>
 
       <para>
-	This reference manual is automatically generated from <filename>doc/make-docbook.scm</filename>.
-	It uses the guile interface of <productname>libgtop</productname> to get the names of all
-	features the library defines and a description of the structures.
+	This reference manual is automatically generated from
+	<filename>doc/make-docbook.scm</filename>. It uses the
+	guile interface of <productname>libgtop</productname> to
+	get the names of all features the library defines and a
+	description of the structures.
     </abstract>
 
     <copyright>
@@ -62,6 +88,21 @@
   
   <toc></toc>
   
-    &reference.sgml;
+  <chapter id="functions">
+    <title>Function Reference List</title>
+    
+    &include-reference.sgml;
 
 </book>
+
+<!--
+  Local Variables:
+  mode: sgml
+  sgml-omittag:t
+  sgml-shorttag:t
+  sgml-minimize-attributes:nil
+  sgml-always-quote-attributes:t
+  sgml-indent-step:2
+  sgml-indent-data: t
+  End:
+ -->

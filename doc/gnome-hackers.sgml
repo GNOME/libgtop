@@ -1,12 +1,51 @@
 <!-- $Id$ -->
 
 <!doctype book PUBLIC "-//Davenport//DTD DocBook V3.0//EN" [
-<!entity example-libgtopConf-sh SYSTEM "libgtopConf.sh">
-<!entity autoconf.sgml SYSTEM "autoconf.sgml">
+<!-- Site-specific entities, change them if you want to copy this
+     document somewhere else. -->
 <!entity home-of-linux "http://www.home-of-linux.org/">
+
+<!-- Some general entities -->
+
+<!entity libgtop "<productname>libgtop</productname>">
+
+<!-- Some abbreviations for often used filenames. -->
+
 <!entity gnome-libgtop-check.m4 "<filename>macros/gnome-libgtop-check.m4</filename>">
 <!entity libgtopConf.sh "<filename>libgtopConf.sh</filename>">
-<!entity libgtop "<productname>libgtop</productname>">
+
+<!-- This will include a sample `libgtopConf.sh'. -->
+
+<!entity example-libgtopConf-sh SYSTEM "libgtopConf.sh">
+
+<!-- Some entities to include other files. -->
+
+<!entity include-autoconf.sgml SYSTEM "autoconf.sgml">
+<!entity include-reference.sgml SYSTEM "../guile/reference.sgml">
+
+<!-- The following entities are used in the automatically generated
+     `reference.sgml' to include custom descriptions of the features.
+  -->
+
+<!entity include-cpu.sgml "">
+<!entity include-mem.sgml "">
+<!entity include-swap.sgml "">
+<!entity include-uptime.sgml "">
+<!entity include-loadavg.sgml "">
+<!entity include-shm-limits.sgml "">
+<!entity include-msg-limits.sgml "">
+<!entity include-sem-limits.sgml "">
+<!entity include-proclist.sgml "">
+<!entity include-proc-state.sgml "">
+<!entity include-proc-uid.sgml "">
+<!entity include-proc-mem.sgml "">
+<!entity include-proc-time.sgml "">
+<!entity include-proc-signal.sgml "">
+<!entity include-proc-kernel.sgml "">
+<!entity include-proc-segment.sgml "">
+<!entity include-proc-map.sgml "">
+<!entity include-mountlist.sgml "">
+<!entity include-fsusage.sgml "">
 ]>
 <book>
   <bookinfo>
@@ -90,8 +129,16 @@
   <chapter id="autoconf-automake">
     <title>Configuration</title>
 
-    &autoconf.sgml;
+    &include-autoconf.sgml;
 
+  </chapter>
+
+  <chapter id="functions">
+    <title>Function Reference List</title>
+    
+    &include-reference.sgml;
+
+  </chapter>
     
 </book>
 

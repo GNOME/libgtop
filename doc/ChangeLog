@@ -1,3 +1,8 @@
+1998-08-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* gnome-hackers.sgml: Updated documentation.
+	* autoconf.sgml: New file, included from `gnome-hackers.sgml'.
+
 1998-07-21  Martin Baulig  <martin@home-of-linux.org>
 
 	* gnome-hackers.sgml: Added note that this file is
