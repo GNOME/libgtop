@@ -34,6 +34,8 @@
 BEGIN_LIBGTOP_DECLS
 
 typedef struct _glibtop_backend_info	glibtop_backend_info;
+typedef struct _glibtop_backend_entry	glibtop_backend_entry;
+typedef struct _glibtop_backend_module	glibtop_backend_module;
 typedef struct _glibtop_backend_private	glibtop_backend_private;
 
 typedef struct _glibtop_backend		glibtop_backend;
@@ -52,6 +54,29 @@ struct _glibtop_backend_info
     glibtop_call_vector *call_vector;
 };
 
+#ifdef _IN_LIBGTOP
+
+#include <gmodule.h>
+
+/* private structure */
+struct _glibtop_backend_module
+{
+    int refcount;
+    GModule *module;
+};
+
+#endif /* _IN_LIBGTOP */
+
+struct _glibtop_backend_entry
+{
+    char *name;
+    char *libtool_name;
+    char *shlib_name;
+
+    glibtop_backend_info *info;
+    glibtop_backend_module *_priv;
+};
+
 struct _glibtop_backend
 {
     glibtop_backend_info *info;
@@ -59,15 +84,15 @@ struct _glibtop_backend
 };
 
 long
-glibtop_register_backend (glibtop_backend_info *info);
+glibtop_register_backend (glibtop_backend_entry *entry);
 
 void
 glibtop_unregister_backend (long id);
 
-glibtop_backend_info *
+glibtop_backend_entry *
 glibtop_backend_by_id (long id);
 
-glibtop_backend_info *
+glibtop_backend_entry *
 glibtop_backend_by_name (const char *backend_name);
 
 void

@@ -1,5 +1,24 @@
 2000-01-12  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/backend.h (glibtop_backend_entry): New type.
+	(glibtop_backend_module): New private type.
+
+	* lib/backend.c (glibtop_register_backend): This now takes a
+	`glibtop_backend_entry' argument, not a `glibtop_backend_info' one.
+	(glibtop_backend_by_id): Return a `glibtop_backend_entry' type,
+	not a `glibtop_backend_info' one.
+	(glibtop_backend_by_name): Likewise.
+
+	* lib/init-backends.c: If we have libxml, read all `.backend' files
+	in $(LIBGTOP_BACKEND_DIR), XML parse them and register them via
+	`glibtop_backend_register'. This builds a list of all currently
+	supported backends without actually loading them into memory.
+
+	* lib/open-backend.c (glibtop_open_backend_l): GModule load the
+	backend if it's not already in memory.
+
+2000-01-12  Martin Baulig  <martin@home-of-linux.org>
+
 	* lib/init.c (glibtop_init_s): Comment out `_glibtop_init_hook_s'.
 
 	* configure.in: We now require libxml.

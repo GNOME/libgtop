@@ -33,7 +33,7 @@ static GHashTable *_glibtop_backend_list = NULL;
 static long _glibtop_backend_nr = 0;
 
 long
-glibtop_register_backend (glibtop_backend_info *info)
+glibtop_register_backend (glibtop_backend_entry *entry)
 {
     long id;
 
@@ -44,7 +44,7 @@ glibtop_register_backend (glibtop_backend_info *info)
 
     g_hash_table_insert (_glibtop_backend_list,
 			 GINT_TO_POINTER (id),
-			 info);
+			 entry);
 
     return id;
 }
@@ -56,7 +56,7 @@ glibtop_unregister_backend (long id)
 			 GINT_TO_POINTER (id));
 }
 
-glibtop_backend_info *
+glibtop_backend_entry *
 glibtop_backend_by_id (long id)
 {
     return g_hash_table_lookup (_glibtop_backend_list,
@@ -65,23 +65,23 @@ glibtop_backend_by_id (long id)
 
 typedef struct {
     const char *backend_name;
-    glibtop_backend_info *info;
+    glibtop_backend_entry *entry;
 } _find_by_name_param_t;
 
 static void
 find_by_name (gpointer key, gpointer value, gpointer user_data)
 {
     _find_by_name_param_t *param = (_find_by_name_param_t *) user_data;
-    glibtop_backend_info *info = (glibtop_backend_info *) value;
+    glibtop_backend_entry *entry = (glibtop_backend_entry *) value;
 
-    if (!info || !info->name || param->info)
+    if (!entry || !entry->name || param->entry)
 	return;
 
-    if (!strcmp (info->name, param->backend_name))
-	param->info = info;
+    if (!strcmp (entry->name, param->backend_name))
+	param->entry = entry;
 }
 
-glibtop_backend_info *
+glibtop_backend_entry *
 glibtop_backend_by_name (const char *backend_name)
 {
     _find_by_name_param_t param = { backend_name, NULL };
@@ -89,5 +89,5 @@ glibtop_backend_by_name (const char *backend_name)
     g_hash_table_foreach (_glibtop_backend_list,
 			  find_by_name, &param);
 
-    return param.info;
+    return param.entry;
 }

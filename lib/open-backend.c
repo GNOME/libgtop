@@ -29,14 +29,49 @@
 
 #include <glibtop/backend.h>
 
+#include <gmodule.h>
+
 int
 glibtop_open_backend_l (glibtop *server, const char *backend_name,
 			u_int64_t features, const char **backend_args)
 {
+    glibtop_backend_entry *entry;
     glibtop_backend_info *info;
     glibtop_backend *backend;
 
-    info = glibtop_backend_by_name (backend_name);
+    entry = glibtop_backend_by_name (backend_name);
+    if (!entry) return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
+
+    if (!entry->_priv) {
+	entry->_priv = g_new0 (glibtop_backend_module, 1);
+
+	entry->_priv->module = g_module_open (entry->shlib_name,
+					      G_MODULE_BIND_LAZY);
+	if (!entry->_priv->module) {
+	    glibtop_warn_r (server, "Cannot open shared library `%s' "
+			    "for backend `%s'", entry->shlib_name,
+			    entry->name);
+	    return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
+	}
+
+	if (!g_module_symbol (entry->_priv->module,
+			      "LibGTopBackendInfo",
+			      (gpointer*) &entry->info)) {
+	    glibtop_warn_r (server, "Library `%s' is not a valid "
+			    "LibGTop Backend library (start symbol not found)",
+			    entry->shlib_name);
+
+	    g_module_close (entry->_priv->module);
+	    g_free (entry->_priv);
+	    entry->_priv = NULL;
+
+	    return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
+	}
+
+	entry->_priv->refcount++;
+    }
+
+    info = entry->info;
     if (!info) return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
 
     backend = glibtop_calloc_r (server, 1, sizeof (glibtop_backend));

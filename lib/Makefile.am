@@ -9,6 +9,7 @@ libgtop_la_SOURCES		= init.c open.c close.c lib.c parameter.c \
 				  backend.c init-backends.c open-backend.c
 
 libgtop_la_LDFLAGS		= $(LT_VERSION_INFO)
+libgtop_la_LIBADD		= $(LIBGTOP_XML_LIB)
 
 glibtopdir			= $(includedir)/glibtop
 
