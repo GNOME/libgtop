@@ -1,0 +1,1046 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop\n"
+"POT-Creation-Date: 1999-09-17 04:26+0200\n"
+"PO-Revision-Date: 1999-09-17 04:26+0200\n"
+"Last-Translator: GNOME PL Team\n"
+"Language-Team: Polish <gnomepl@pandora.info.bielsko.pl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: sysdeps/names/cpu.c:1
+msgid "Total CPU Time"
+msgstr "Ca³kowity czas procesora"
+
+#: sysdeps/names/cpu.c:1
+msgid "CPU Time in User Mode"
+msgstr "Czas procesora w trybie u¿ytkownika"
+
+#: sysdeps/names/cpu.c:1
+msgid "CPU Time in User Mode (nice)"
+msgstr "Czas procesora w trybie u¿ytkownika (nice)"
+
+#: sysdeps/names/cpu.c:1
+msgid "CPU Time in System Mode"
+msgstr "Czas procesora w trybie j±dra"
+
+#: sysdeps/names/cpu.c:1
+msgid "CPU Time in the Idle Task"
+msgstr "Czas bezczynno¶ci procesora"
+
+#: sysdeps/names/cpu.c:1
+msgid "Tick Frequency"
+msgstr "Czêstotliwo¶æ taktów"
+
+#: sysdeps/names/cpu.c:1
+msgid "SMP Total CPU Time"
+msgstr "£±czny czas wielu procesorów"
+
+#: sysdeps/names/cpu.c:1
+msgid "SMP CPU Time in User Mode"
+msgstr "Czas wszystkich procesorów w trybie u¿ytkownika"
+
+#: sysdeps/names/cpu.c:1
+msgid "SMP CPU Time in User Mode (nice)"
+msgstr "Czas wszystkich procesorów w trybie u¿ytkownika (nice)"
+
+#: sysdeps/names/cpu.c:1
+msgid "SMP CPU Time in System Mode"
+msgstr "Czas wszystkich procesorów w trybie j±dra"
+
+#: sysdeps/names/cpu.c:1
+msgid "SMP CPU Time in the Idle Task"
+msgstr "Bezczynny czas wszystkich procesorów"
+
+#: sysdeps/names/cpu.c:1 sysdeps/names/cpu.c:1
+msgid "Number of clock ticks since system boot"
+msgstr "Liczba taktów zegara od startu systemu"
+
+#: sysdeps/names/cpu.c:1 sysdeps/names/cpu.c:1
+msgid "Number of clock ticks the system spent in user mode"
+msgstr "Liczba taktów zegara spêdzonych w trybie u¿ytkownika"
+
+#: sysdeps/names/cpu.c:1 sysdeps/names/cpu.c:1
+msgid "Number of clock ticks the system spent in user mode (nice)"
+msgstr "Liczba taktów zegara spêdzonych w trybie u¿ytkownika (nice)"
+
+#: sysdeps/names/cpu.c:1 sysdeps/names/cpu.c:1
+msgid "Number of clock ticks the system spent in system mode"
+msgstr "Liczba taktów zegara spêdzonych w trybie j±dra"
+
+#: sysdeps/names/cpu.c:1 sysdeps/names/cpu.c:1
+msgid "Number of clock ticks the system spent in the idle task"
+msgstr "Liczba taktów zegara spêdzonych bezczynnie"
+
+#: sysdeps/names/cpu.c:1
+msgid "Tick frequency (default is 100)"
+msgstr "Czêstotliwo¶æ taktów (domy¶lnie 100)"
+
+#: sysdeps/names/fsusage.c:1 sysdeps/names/fsusage.c:1
+msgid "Total blocks"
+msgstr "Ogó³em bloków"
+
+#: sysdeps/names/fsusage.c:1
+msgid "Free blocks"
+msgstr "Wolnych bloków"
+
+#: sysdeps/names/fsusage.c:1
+msgid "Available blocks"
+msgstr "Dostêpnych bloków"
+
+#: sysdeps/names/fsusage.c:1 sysdeps/names/fsusage.c:1
+msgid "Total file nodes"
+msgstr "Ogó³em i-wêz³ów"
+
+#: sysdeps/names/fsusage.c:1 sysdeps/names/fsusage.c:1
+msgid "Free file nodes"
+msgstr "Wolnych i-wêz³ów"
+
+#: sysdeps/names/fsusage.c:1
+msgid "Free blocks available to the superuser"
+msgstr "Wolnych bloków dostêpnych nadzorcy"
+
+#: sysdeps/names/fsusage.c:1
+msgid "Free blocks available to non-superusers"
+msgstr "Wolnych bloków dostêpnych zwyk³ym u¿ytkownikom"
+
+#: sysdeps/names/loadavg.c:1
+msgid "Load Average"
+msgstr "¦rednie obci±¿enie"
+
+#: sysdeps/names/loadavg.c:1
+msgid "Running Tasks"
+msgstr "Dzia³aj±ce procesy"
+
+#: sysdeps/names/loadavg.c:1
+msgid "Number of Tasks"
+msgstr "Liczba procesów"
+
+#: sysdeps/names/loadavg.c:1 sysdeps/names/loadavg.c:1
+msgid "Last PID"
+msgstr "Ostatni PID"
+
+#: sysdeps/names/loadavg.c:1
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgstr ""
+"¦rednia liczba dzia³aj±cych jednocze¶nie procesów w okresie 1, 5 i 15 minut"
+
+#: sysdeps/names/loadavg.c:1
+msgid "Number of tasks currently running"
+msgstr "Liczba dzia³aj±cych obecnie zadañ"
+
+#: sysdeps/names/loadavg.c:1
+msgid "Total number of tasks"
+msgstr "Ca³kowita liczba zadañ"
+
+#: sysdeps/names/mem.c:1
+msgid "Total Memory"
+msgstr "Ca³kowita pamiêæ"
+
+#: sysdeps/names/mem.c:1
+msgid "Used Memory"
+msgstr "Wykorzystana pamiêæ"
+
+#: sysdeps/names/mem.c:1
+msgid "Free Memory"
+msgstr "Wolna pamiêæ"
+
+#: sysdeps/names/mem.c:1
+msgid "Shared Memory"
+msgstr "Pamiêæ wspó³dzielona"
+
+#: sysdeps/names/mem.c:1
+msgid "Buffers"
+msgstr "Bufory"
+
+#: sysdeps/names/mem.c:1
+msgid "Cached"
+msgstr ""
+
+#: sysdeps/names/mem.c:1
+msgid "User"
+msgstr "U¿ytkownik"
+
+#: sysdeps/names/mem.c:1
+msgid "Locked"
+msgstr "Zablokowana"
+
+#: sysdeps/names/mem.c:1
+msgid "Total physical memory in kB"
+msgstr "Ca³kowita fizyczna pamiêæ w KB"
+
+#: sysdeps/names/mem.c:1
+msgid "Used memory size in kB"
+msgstr "Rozmiar wykorzystanej pamiêci w KB"
+
+#: sysdeps/names/mem.c:1
+msgid "Free memory size in kB"
+msgstr "Rozmiar wolnej pamiêci w KB"
+
+#: sysdeps/names/mem.c:1
+msgid "Shared memory size in kB"
+msgstr "Rozmiar pamiêci wspó³dzielonej w KB"
+
+#: sysdeps/names/mem.c:1
+msgid "Size of buffers kB"
+msgstr "Rozmiar buforów w KB"
+
+#: sysdeps/names/mem.c:1
+msgid "Size of cached memory in kB"
+msgstr ""
+
+#: sysdeps/names/mem.c:1
+msgid "Memory used from user processes in kB"
+msgstr ""
+
+#: sysdeps/names/mem.c:1
+msgid "Memory in locked pages in kB"
+msgstr "Rozmiar zablokowanych stron pamiêci w KB"
+
+#: sysdeps/names/mountlist.c:1 sysdeps/names/mountlist.c:1
+#: sysdeps/names/proclist.c:1 sysdeps/names/proclist.c:1
+#: sysdeps/names/procmap.c:1 sysdeps/names/procmap.c:1
+msgid "Number of list elements"
+msgstr "Liczba elementów listy"
+
+#: sysdeps/names/mountlist.c:1 sysdeps/names/mountlist.c:1
+#: sysdeps/names/proclist.c:1 sysdeps/names/proclist.c:1
+#: sysdeps/names/procmap.c:1 sysdeps/names/procmap.c:1
+msgid "Total size of list"
+msgstr "Ca³kowity rozmiar listy"
+
+#: sysdeps/names/mountlist.c:1 sysdeps/names/mountlist.c:1
+#: sysdeps/names/proclist.c:1 sysdeps/names/proclist.c:1
+#: sysdeps/names/procmap.c:1 sysdeps/names/procmap.c:1
+msgid "Size of a single list element"
+msgstr "Rozmiar pojedynczego elementu listy"
+
+#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+msgid "Size in kilobytes of message pool"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+msgid "Number of entries in message map"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+msgid "Max size of message"
+msgstr "Maksymalny rozmiar komunikatu"
+
+#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+msgid "Default max size of queue"
+msgstr "Domy¶lny maks rozmiar kolejki"
+
+#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+msgid "Max queues system wide"
+msgstr "Maks liczba kolejek w systemie"
+
+#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+msgid "Message segment size"
+msgstr "Rozmiar segmentu komunikatu"
+
+#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+msgid "Number of system message headers"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:1
+msgid "K_Flags"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:1
+msgid "Min_Flt"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:1
+msgid "Maj_Flt"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:1
+msgid "CMin_Flt"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:1
+msgid "CMaj_Flt"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:1
+msgid "KStk_ESP"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:1
+msgid "KStk_EIP"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:1
+msgid "NWChan"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:1
+msgid "WChan"
+msgstr ""
+
+#. K_Flags
+#: sysdeps/names/prockernel.c:1
+msgid ""
+"Kernel flags of the process.\n"
+"\n"
+"On Linux, currently every flag has the math bit set, because crt0.s checks "
+"for math emulation, so this is not included in the output.\n"
+"\n"
+"This is probably a bug, as not every process is a compiled C program.\n"
+"\n"
+"The math bit should be a decimal 4, and the traced bit is decimal 10."
+msgstr ""
+
+#. Min_Flt
+#: sysdeps/names/prockernel.c:1
+msgid ""
+"The number of minor faults the process has made, those which have not "
+"required loading a memory page from disk."
+msgstr ""
+
+#. Maj_Flt
+#: sysdeps/names/prockernel.c:1
+msgid ""
+"The number of major faults the process has made, those which have required "
+"loading a memory page from disk."
+msgstr ""
+
+#. CMin_Flt
+#: sysdeps/names/prockernel.c:1
+msgid "The number of minor faults that the process and its children have made."
+msgstr ""
+
+#. CMaj_Flt
+#: sysdeps/names/prockernel.c:1
+msgid "The number of major faults that the process and its children have made."
+msgstr ""
+
+#. KStk_ESP
+#: sysdeps/names/prockernel.c:1
+msgid ""
+"The current value of esp (32-bit stack pointer), as found in the kernel "
+"stack page for the process."
+msgstr ""
+
+#. KStk_EIP
+#: sysdeps/names/prockernel.c:1
+msgid "The current EIP (32-bit instruction pointer)."
+msgstr "Autualna warto¶c EIP (wska¼nika instrukcji)."
+
+#. NWChan
+#: sysdeps/names/prockernel.c:1
+msgid ""
+"This is the \"channel\" in which the process is waiting.  This is the "
+"address of a system call, and can be looked up in a namelist if you need a "
+"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
+"see the WCHAN field in action)"
+msgstr ""
+
+#. WChan
+#: sysdeps/names/prockernel.c:1
+msgid "This is the textual name of the `nwchan' field."
+msgstr ""
+
+#: sysdeps/names/procmem.c:1
+msgid "Size"
+msgstr "Rozmiar"
+
+#: sysdeps/names/procmem.c:1
+msgid "Virtual"
+msgstr ""
+
+#: sysdeps/names/procmem.c:1
+msgid "Resident"
+msgstr "Rezyd."
+
+#: sysdeps/names/procmem.c:1
+msgid "Share"
+msgstr "Dziel."
+
+#: sysdeps/names/procmem.c:1
+msgid "Resident Set Size"
+msgstr ""
+
+#: sysdeps/names/procmem.c:1
+msgid "Resident Set Size Limit"
+msgstr ""
+
+#: sysdeps/names/procmem.c:1
+msgid "Total # of pages of memory"
+msgstr "Ca³kowita liczba stron pamiêci"
+
+#: sysdeps/names/procmem.c:1
+msgid "Number of pages of virtual memory"
+msgstr "Liczba stron pamiêci wirtualnej"
+
+#: sysdeps/names/procmem.c:1
+msgid "Number of resident set (non-swapped) pages"
+msgstr "Liczba rezydentnych (nie usuniêtych) stron"
+
+#: sysdeps/names/procmem.c:1
+msgid "Number of pages of shared (mmap'd) memory"
+msgstr "Liczba stron pamiêci dzielonej (przez mmap())"
+
+#: sysdeps/names/procmem.c:1
+msgid ""
+"Number of pages the process has in real memory, minus 3 for administrative "
+"purposes. This is just the pages which count towards text, data, or stack "
+"space. This does not include pages which have not been demand-loaded in, or "
+"which are swapped out."
+msgstr ""
+
+#: sysdeps/names/procmem.c:1
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr ""
+
+#: sysdeps/names/procsegment.c:1
+msgid "Text_RSS"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:1
+msgid "ShLib_RSS"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:1
+msgid "Data_RSS"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:1
+msgid "Stack_RSS"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:1
+msgid "Dirty Size"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:1
+msgid "Start_Code"
+msgstr "Pocz_kodu"
+
+#: sysdeps/names/procsegment.c:1
+msgid "End_Code"
+msgstr "Kon_kodu"
+
+#: sysdeps/names/procsegment.c:1
+msgid "Start_Stack"
+msgstr "Pocz_stosu"
+
+#: sysdeps/names/procsegment.c:1
+msgid "Text resident set size"
+msgstr "Rezydentna czê¶æ kodu"
+
+#: sysdeps/names/procsegment.c:1
+msgid "Shared-Lib resident set size"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:1
+msgid "Data resident set size"
+msgstr "Rezydentna czê¶æ danych"
+
+#: sysdeps/names/procsegment.c:1
+msgid "Stack resident set size"
+msgstr "Rezydentna czê¶æ stosu"
+
+#: sysdeps/names/procsegment.c:1
+msgid "Total size of dirty pages"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:1
+msgid "Address of beginning of code segment"
+msgstr "Adres pocz±tku segmentu kodu"
+
+#: sysdeps/names/procsegment.c:1
+msgid "Address of end of code segment"
+msgstr "Adres koñca segmentu kodu"
+
+#: sysdeps/names/procsegment.c:1
+msgid "Address of the bottom of stack segment"
+msgstr "Adres pocz±tku segmentu kodu"
+
+#: sysdeps/names/procsignal.c:1
+msgid "Signal"
+msgstr "Sygna³"
+
+#: sysdeps/names/procsignal.c:1
+msgid "Blocked"
+msgstr "Zablokowany"
+
+#: sysdeps/names/procsignal.c:1
+msgid "SigIgnore"
+msgstr ""
+
+#: sysdeps/names/procsignal.c:1
+msgid "SigCatch"
+msgstr ""
+
+#: sysdeps/names/procsignal.c:1
+msgid "Mask of pending signals"
+msgstr ""
+
+#: sysdeps/names/procsignal.c:1
+msgid "Mask of blocked signals"
+msgstr "Maska zablokowanych sygna³ów"
+
+#: sysdeps/names/procsignal.c:1
+msgid "Mask of ignored signals"
+msgstr ""
+
+#: sysdeps/names/procsignal.c:1
+msgid "Mask of caught signals"
+msgstr ""
+
+#: sysdeps/names/procstate.c:1
+msgid "Cmd"
+msgstr "Polec."
+
+#: sysdeps/names/procstate.c:1
+msgid "State"
+msgstr "Stan"
+
+#: sysdeps/names/procstate.c:1
+msgid "UID"
+msgstr "UID"
+
+#: sysdeps/names/procstate.c:1
+msgid "GID"
+msgstr "GID"
+
+#: sysdeps/names/procstate.c:1
+msgid "Basename of executable file in call to exec()"
+msgstr "Nazwa pliku wykonywalnego w wywo³aniu funkcji exec()"
+
+#: sysdeps/names/procstate.c:1
+msgid "Single-Char code for process state (S=sleeping)"
+msgstr "Znakowe oznaczenie stanu procesu (S=u¶piony)"
+
+#: sysdeps/names/procstate.c:1
+msgid "UID of process"
+msgstr "UID procesu"
+
+#: sysdeps/names/procstate.c:1
+msgid "GID of process"
+msgstr "GID procesu"
+
+#: sysdeps/names/proctime.c:1
+msgid "Start_Time"
+msgstr "Czas startu"
+
+#: sysdeps/names/proctime.c:1
+msgid "RTime"
+msgstr "CzasDz"
+
+#: sysdeps/names/proctime.c:1
+msgid "UTime"
+msgstr "CzasU"
+
+#: sysdeps/names/proctime.c:1
+msgid "STime"
+msgstr "CzasS"
+
+#: sysdeps/names/proctime.c:1
+msgid "CUTime"
+msgstr "CzasPrU¿"
+
+#: sysdeps/names/proctime.c:1
+msgid "CSTime"
+msgstr "CzasPrS"
+
+#: sysdeps/names/proctime.c:1
+msgid "TimeOut"
+msgstr "CzasOcz"
+
+#: sysdeps/names/proctime.c:1
+msgid "It_Real_Value"
+msgstr "Rzecz_czas_oczek"
+
+#: sysdeps/names/proctime.c:1
+msgid "Frequency"
+msgstr "Czêstotliwo¶æ"
+
+#: sysdeps/names/proctime.c:1
+msgid "XCPU_UTime"
+msgstr "CzasU¿_WProc"
+
+#: sysdeps/names/proctime.c:1
+msgid "XCPU_STime"
+msgstr "CzasS_WProc"
+
+#: sysdeps/names/proctime.c:1
+msgid "Start time of process in seconds since the epoch"
+msgstr "Czas startu procesu w sekundach od epoki Uniksa"
+
+#: sysdeps/names/proctime.c:1
+msgid "Real time accumulated by process (should be utime + stime)"
+msgstr ""
+"Czas rzeczywisty wykorzystany przez proces (powinien byæ równy CzasU + CzasS)"
+
+#: sysdeps/names/proctime.c:1
+msgid "user-mode CPU time accumulated by process"
+msgstr "czas procesora wykorzystany przez proces w trybie u¿ytkownika"
+
+#: sysdeps/names/proctime.c:1
+msgid "kernel-mode CPU time accumulated by process"
+msgstr "czas procesora wykorzystany przez proces w trybie j±dra"
+
+#: sysdeps/names/proctime.c:1
+msgid "cumulative utime of process and reaped children"
+msgstr ""
+"³±czny czas procesora wykorzystany przez proces i jego potomków w trybie "
+"u¿ytkownika"
+
+#: sysdeps/names/proctime.c:1
+msgid "cumulative stime of process and reaped children"
+msgstr ""
+"³±czny czas procesora wykorzystany przez proces i jego potomków w trybie "
+"j±dra"
+
+#: sysdeps/names/proctime.c:1
+msgid "The time (in jiffies) of the process's next timeout"
+msgstr "Czas (w chwileczkach) nastêpnego oczekiwania procesu"
+
+#: sysdeps/names/proctime.c:1
+msgid ""
+"The time (in jiffies) before the next SIGALRM is sent to the process due to "
+"an interval timer."
+msgstr ""
+"Czas (w chwileczkach) przed nastêpnym wys³aniem SIGALRM do procesu z powodu "
+"up³yniêcia zadanego interwa³u"
+
+#: sysdeps/names/proctime.c:1
+msgid "Tick frequency"
+msgstr "Czêstotliwo¶æ taktów"
+
+#: sysdeps/names/proctime.c:1
+msgid "SMP user-mode CPU time accumulated by process"
+msgstr "czas SMP wykorzystany przez proces w trybie u¿ytkownika"
+
+#: sysdeps/names/proctime.c:1
+msgid "SMP kernel-mode CPU time accumulated by process"
+msgstr "czas SMP wykorzystany przez proces w trybie j±dra"
+
+#: sysdeps/names/procuid.c:1
+msgid "Uid"
+msgstr "Uid"
+
+#: sysdeps/names/procuid.c:1
+msgid "EUid"
+msgstr "Euid"
+
+#: sysdeps/names/procuid.c:1
+msgid "Gid"
+msgstr "Gid"
+
+#: sysdeps/names/procuid.c:1
+msgid "EGid"
+msgstr "EGid"
+
+#: sysdeps/names/procuid.c:1
+msgid "Pid"
+msgstr "Pid"
+
+#: sysdeps/names/procuid.c:1
+msgid "PPid"
+msgstr "PPid"
+
+#: sysdeps/names/procuid.c:1
+msgid "PGrp"
+msgstr "PGrp"
+
+#: sysdeps/names/procuid.c:1
+msgid "Session"
+msgstr "Sesja"
+
+#: sysdeps/names/procuid.c:1
+msgid "Tty"
+msgstr "Term"
+
+#: sysdeps/names/procuid.c:1
+msgid "TPGid"
+msgstr "TPGid"
+
+#: sysdeps/names/procuid.c:1
+msgid "Priority"
+msgstr "Priorytet"
+
+#: sysdeps/names/procuid.c:1
+msgid "Nice"
+msgstr "'Nice'"
+
+#: sysdeps/names/procuid.c:1
+msgid "User ID"
+msgstr "Identyfikator u¿ytkownika"
+
+#: sysdeps/names/procuid.c:1
+msgid "Effective User ID"
+msgstr "Efektywny identyfikator u¿ytkownika"
+
+#: sysdeps/names/procuid.c:1
+msgid "Group ID"
+msgstr "Identyfikator grupy"
+
+#: sysdeps/names/procuid.c:1
+msgid "Effective Group ID"
+msgstr "Efektywny identyfikator grupy"
+
+#: sysdeps/names/procuid.c:1
+msgid "Process ID"
+msgstr "Identyfikator procesu"
+
+#: sysdeps/names/procuid.c:1
+msgid "PID of parent process"
+msgstr "PID procesu ojca"
+
+#: sysdeps/names/procuid.c:1
+msgid "Process group ID"
+msgstr "Identyfikator grupy procesów"
+
+#: sysdeps/names/procuid.c:1
+msgid "Session ID"
+msgstr "Identyfikator sesji"
+
+#: sysdeps/names/procuid.c:1
+msgid "Full device number of controlling terminal"
+msgstr "Numer urz±dzenie terminala steruj±cego"
+
+#: sysdeps/names/procuid.c:1
+msgid "Terminal process group ID"
+msgstr "Identyfikator grupy procesu steruj±cego"
+
+#: sysdeps/names/procuid.c:1
+msgid "Kernel scheduling priority"
+msgstr "Priorytet harmonogramu j±dra"
+
+#: sysdeps/names/procuid.c:1
+msgid "Standard unix nice level of process"
+msgstr "Standardowa Uniksowa warto¶æ `nice' procesu"
+
+#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+msgid "Number of entries in semaphore map"
+msgstr "Liczba wpisów w mapie semaforów"
+
+#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+msgid "Max number of arrays"
+msgstr "Maksymalna liczba tablic"
+
+#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+msgid "Max semaphores system wide"
+msgstr "Maksymalna liczba semaforów w systemie"
+
+#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+msgid "Number of undo structures system wide"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+msgid "Max semaphores per array"
+msgstr "Maksymalna liczba semaforów na tablicê"
+
+#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+msgid "Max ops per semop call"
+msgstr "Maksymalna liczba operacji na wywo³anie semop"
+
+#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+msgid "Max number of undo entries per process"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+msgid "sizeof struct sem_undo"
+msgstr "sizeof struct sem_undo"
+
+#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+msgid "Semaphore max value"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+msgid "Adjust on exit max value"
+msgstr ""
+
+#: sysdeps/names/shm_limits.c:1 sysdeps/names/shm_limits.c:1
+msgid "Max segment size"
+msgstr "Maksymalny rozmiar segmentu"
+
+#: sysdeps/names/shm_limits.c:1 sysdeps/names/shm_limits.c:1
+msgid "Min segment size"
+msgstr "Minimalny rozmiar segmentu"
+
+#: sysdeps/names/shm_limits.c:1 sysdeps/names/shm_limits.c:1
+msgid "Max number of segments"
+msgstr "Maksymalna liczba segmentów"
+
+#: sysdeps/names/shm_limits.c:1 sysdeps/names/shm_limits.c:1
+msgid "Max shared segments per process"
+msgstr "Maksymalna liczba wspó³dzielonych segmentów na proces"
+
+#: sysdeps/names/shm_limits.c:1 sysdeps/names/shm_limits.c:1
+msgid "Max total shared memory"
+msgstr "Maksymalna calkowity rozmiar pamiêci wspó³dzielonej"
+
+#: sysdeps/names/swap.c:1 sysdeps/names/swap.c:1
+msgid "Total Swap Space"
+msgstr "Ca³kowita przestrzeñ wymiany"
+
+#: sysdeps/names/swap.c:1 sysdeps/names/swap.c:1
+msgid "Used Swap Space"
+msgstr "Wykorzystana przestrzeñ wymiany"
+
+#: sysdeps/names/swap.c:1 sysdeps/names/swap.c:1
+msgid "Free Swap Space"
+msgstr "Wolna przestrzeñ wymiany"
+
+#: sysdeps/names/swap.c:1
+msgid "Page In"
+msgstr "Strona wchodz±ca"
+
+#: sysdeps/names/swap.c:1
+msgid "Page Out"
+msgstr "Strona wychodz±ca"
+
+#: sysdeps/names/swap.c:1
+msgid "Total number of swap pages that have been brought in since system boot"
+msgstr "Ca³kowita liczba sprowadzonych stron od startu systemu"
+
+#: sysdeps/names/swap.c:1
+msgid "Total number of swap pages that have been brought out since system boot"
+msgstr "Ca³kowita liczba usuniêtych stron od startu systemu"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Server Features"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "CPU Usage"
+msgstr "Wykorzystanie CPU"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Memory Usage"
+msgstr "Wykorzystanie pamiêci"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Swap Usage"
+msgstr "Wykorzystanie przestrzeni wymiany"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "System Uptime"
+msgstr "Czas dzia³ania systemu"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Load Averange"
+msgstr "Przeciêtne obci±¿enie"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Shared Memory Limits"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Message Queue Limits"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Semaphore Set Limits"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "List of running Processes"
+msgstr "Lista dzia³aj±cych procesów"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Process Status information"
+msgstr "Informacje o stanie procesu"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Process UID and TTY information"
+msgstr "Informacje o identyfikatorze u¿ytkownika i terminalu procesu"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Process Memory information"
+msgstr "Informacje o pamiêci procesu"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Process Time information"
+msgstr "Informacje o czasie procesu"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Process Signal information"
+msgstr "Informacje o sygna³ach"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Process Kernel Data information"
+msgstr "Informacje o danych procesu w j±drze"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Process Segment information"
+msgstr "Informacje o segmentach"
+
+#: sysdeps/names/sysdeps.c:1
+msgid "Process Arguments"
+msgstr "Argumenty procesu"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Process Memory Map"
+msgstr "Mapa pamiêci procesu"
+
+#: sysdeps/names/sysdeps.c:1
+msgid "Mount List"
+msgstr "Lista montowañ"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "File System Usage"
+msgstr "Wykorzystanie systemu plików"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "Network Load"
+msgstr "Obci±¿enie sieci"
+
+#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+msgid "PPP Statistics"
+msgstr "Statystyki PPP"
+
+#: sysdeps/names/sysdeps.c:1
+msgid "Command line arguments of the process"
+msgstr "Argumenty z wiersza polecenia procesu"
+
+#: sysdeps/names/sysdeps.c:1
+msgid "List of currently mounted filesystems"
+msgstr "Lista obecnie zamontowanych systemów plików"
+
+#: sysdeps/names/uptime.c:1
+msgid "Uptime"
+msgstr "Czas dzia³ania"
+
+#: sysdeps/names/uptime.c:1
+msgid "Idletime"
+msgstr "Czas bezczynno¶ci"
+
+#: sysdeps/names/uptime.c:1
+msgid "Time in seconds since system boot"
+msgstr "Czas w sekundach od startu systemu"
+
+#: sysdeps/names/uptime.c:1
+msgid "Time in seconds the system spent in the idle task since system boot"
+msgstr ""
+"£±czny czas bezczynno¶ci systemu w sekundach, liczony od momentu startu"
+
+#: support/error.c:1
+msgid "Unknown system error"
+msgstr "Nieznany b³±d systemowy"
+
+#: support/getopt.c:1
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: opcja `%s' jest niejednoznaczna\n"
+
+#: support/getopt.c:1
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: opcja `--%s' nie pozwala na u¿ycie argumentu\n"
+
+#: support/getopt.c:1
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: opcja `%c%s' nie pozwala na u¿ycie argumentu\n"
+
+#: support/getopt.c:1 support/getopt.c:1
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: opcja `%s' wymaga argumentu\n"
+
+#. --option
+#: support/getopt.c:1
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: nie rozpoznano opcji `--%s'\n"
+
+#. +option or -option
+#: support/getopt.c:1
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: nie rozpoznani opcji `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:1
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: b³êdna opcja -- %c\n"
+
+#: support/getopt.c:1
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: niew³a¶ciwa opcja -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:1 support/getopt.c:1
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: opcja wymaga argumentu -- %c\n"
+
+#: support/getopt.c:1
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: opcja `-W %s' jest niejednoznaczna\n"
+
+#: support/getopt.c:1
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: opcja `-W %s' nie pozwala na u¿ycie argumentu\n"
+
+#: lib/read.c:1
+#, c-format
+msgid "read %d bytes"
+msgstr "odczytaj %d bajtów"
+
+#: lib/read_data.c:1
+msgid "read data size"
+msgstr "odczytaj rozmiar danych"
+
+#: lib/read_data.c:1
+#, c-format
+msgid "read data %d bytes"
+msgstr "odczytaj %d bajtów danych"
+
+#: lib/write.c:1
+#, c-format
+msgid "write %d bytes"
+msgstr "zapisz %d bajtów"
+
+#: src/daemon/gnuserv.c:1
+msgid "Enable debugging"
+msgstr "Uaktywnij ¶ledzenie"
+
+#: src/daemon/gnuserv.c:1
+msgid "DEBUG"
+msgstr "¦LEDZENIE"
+
+#: src/daemon/gnuserv.c:1
+msgid "Enable verbose output"
+msgstr "Uaktywnij rozwlek³e komunikaty"
+
+#: src/daemon/gnuserv.c:1
+msgid "VERBOSE"
+msgstr "ROZWLEK£Y"
+
+#: src/daemon/gnuserv.c:1
+msgid "Don't fork into background"
+msgstr "Nie przechod¼ w t³o"
+
+#: src/daemon/gnuserv.c:1
+msgid "NO-DAEMON"
+msgstr "NIE-DEMON"
+
+#: src/daemon/gnuserv.c:1
+msgid "Invoked from inetd"
+msgstr "Wywo³any przez inetd"
+
+#: src/daemon/gnuserv.c:1
+msgid "INETD"
+msgstr "INETD"
+
+#: src/daemon/gnuserv.c:1
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"B³êdna opcja %s: %s.\n"
+"Uruchom '%s --help' aby wy¶wietliæ pe³n± listê dostêpnych opcji.\n"
