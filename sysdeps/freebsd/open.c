@@ -50,7 +50,9 @@ void
 glibtop_open_p (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
+#ifdef DEBUG
 	fprintf (stderr, "DEBUG (%d): glibtop_open_p ()\n", getpid ()); 
+#endif
 
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 

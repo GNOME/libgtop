@@ -38,7 +38,9 @@ glibtop_send_version (glibtop *server, int fd)
 	
 	size = strlen (buffer) + 1;
 
+#ifdef DEBUG
 	fprintf (stderr, "SERVER ID: |%s|\n", buffer);
+#endif
 
 	if (fd == 0) {
 		if (write (1, (const void *) &size, sizeof (size)) < 0)

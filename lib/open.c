@@ -57,34 +57,44 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		server->features = 0;
 		break;
 	case GLIBTOP_METHOD_INET:
+#ifdef DEBUG
 		fprintf (stderr, "Connecting to '%s' port %ld.\n",
 			 server->server_host, server->server_port);
+#endif
 		
 		connect_type = glibtop_make_connection
 			(server->server_host, server->server_port,
 			 &server->socket);
 		
+#ifdef DEBUG
 		fprintf (stderr, "Connect Type is %d.\n", connect_type);
+#endif
 		
 		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
 		
 		server->features = -1;
 		break;
 	case GLIBTOP_METHOD_UNIX:
+#ifdef DEBUG
 		fprintf (stderr, "Connecting to Unix Domain Socket.\n");
+#endif
 
 		connect_type = glibtop_make_connection
 			("unix", 0, &server->socket);
-		
+
+#ifdef DEBUG		
 		fprintf (stderr, "Connect Type is %d.\n", connect_type);
+#endif
 
 		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
 
 		server->features = -1;
 		break;
 	case GLIBTOP_METHOD_PIPE:
+#ifdef DEBUG
 		fprintf (stderr, "Opening pipe to server (%s).\n",
 			 LIBGTOP_SERVER);
+#endif
 
 		if (pipe (server->input) || pipe (server->output))
 			glibtop_error_io_r (server, "cannot make a pipe");
@@ -153,14 +163,18 @@ glibtop_open_l (glibtop *server, const char *program_name,
 
 		memcpy (&server->sysdeps, &sysdeps, sizeof (glibtop_sysdeps));
 
+#ifdef DEBUG
 		fprintf (stderr, "Server features are %lu.\n",
 			 server->features);
+#endif
 	}
 
 	/* In any case, we call the open functions of our own sysdeps
 	 * directory. */
 
+#ifdef DEBUG
 	fprintf (stderr, "Calling sysdeps open function.\n");
+#endif
 	
 	glibtop_init_s (&server, features, flags);
 }
