@@ -1,5 +1,7 @@
 ;; $Id$
 
+(use-modules (libgtop names))
+
 (load "features.scm")
 
 (define sysdeps-list '())
@@ -10,9 +12,9 @@
 
 (define make-sysdeps-list
   (lambda ()
-    (letrec ((names (cdr (glibtop-names-sysdeps)))
-	     (labels (cdr (glibtop-labels-sysdeps)))
-	     (descriptions (cdr (glibtop-descriptions-sysdeps)))
+    (letrec ((names (cdr glibtop-names-sysdeps))
+	     (labels (cdr glibtop-labels-sysdeps))
+	     (descriptions (cdr glibtop-descriptions-sysdeps))
 	     )
       (for-each (lambda (feature)
 		  (let* ((label (car labels))
@@ -34,15 +36,16 @@
 
 (define make-function-reference
   (lambda (feature)
-    (let* ((names (eval-string (string "(glibtop-names-" feature ")")))
-	   (types (eval-string (string "(glibtop-types-" feature ")")))
-	   (labels (eval-string (string "(glibtop-labels-" feature ")")))
+    (let* ((feature-name (car (assoc-ref libgtop-feature-names feature)))
+	   (names (eval-string (string "glibtop-names-" feature-name)))
+	   (types (eval-string (string "glibtop-types-" feature-name)))
+	   (labels (eval-string (string "glibtop-labels-" feature-name)))
 	   (sysdeps (assoc-ref sysdeps-list feature))
 	   (retval (car (car (assoc-ref libgtop-features feature))))
 	   (name (assoc-ref sysdeps 'name))
 	   (label (assoc-ref sysdeps 'label))
 	   (description (assoc-ref sysdeps 'description))
-	   (descriptions (eval-string (string "(glibtop-descriptions-" feature ")")))
+	   (descriptions (eval-string (string "glibtop-descriptions-" feature-name)))
 	   (feature_nounder (car (assoc-ref libgtop-feature-names feature)))
 	   (decl-list '()) (field-list '())
 
@@ -334,13 +337,11 @@
 ;; <paramdef>glibtop *<parameter>server</parameter>, glibtop_cpu *<parameter>cpu_usage</parameter>
 ;; </paramdef></funcsynopsis>
 
-
-
 (begin
   (make-sysdeps-list)
   
   (for-each (lambda (x)
 	      (display (make-function-reference x))
 	      )
-	    (cdr (glibtop-names-sysdeps)))
+	    (cdr glibtop-names-sysdeps))
   )
