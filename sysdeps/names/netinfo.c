@@ -27,18 +27,19 @@
 
 const char *glibtop_names_netinfo[GLIBTOP_MAX_NETINFO] =
 {
-    "if_flags", "mtu", "subnet", "address"
+    "if_flags", "transport", "mtu", "subnet", "address"
 };
 
 const unsigned glibtop_types_netinfo[GLIBTOP_MAX_NETINFO] =
 {
     GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-    GLIBTOP_TYPE_ULONG
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_netinfo[GLIBTOP_MAX_NETINFO] =
 {
     N_ ("Interface Flags"),
+    N_ ("Transport Method"),
     N_ ("MTU"),
     N_ ("Subnet"),
     N_ ("Address"),
@@ -47,6 +48,7 @@ const char *glibtop_labels_netinfo[GLIBTOP_MAX_NETINFO] =
 const char *glibtop_descriptions_netinfo[GLIBTOP_MAX_NETINFO] =
 {
     N_ ("Interface Flags"),
+    N_ ("Transport Method"),
     N_ ("Maximum Transfer Unit"),
     N_ ("Subnet"),
     N_ ("Address"),

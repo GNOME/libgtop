@@ -32,11 +32,12 @@
 BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_NETINFO_IF_FLAGS	0
-#define GLIBTOP_NETINFO_MTU		1
-#define GLIBTOP_NETINFO_SUBNET		2
-#define GLIBTOP_NETINFO_ADDRESS		3
+#define GLIBTOP_NETINFO_TRANSPORT	1
+#define GLIBTOP_NETINFO_MTU		2
+#define GLIBTOP_NETINFO_SUBNET		3
+#define GLIBTOP_NETINFO_ADDRESS		4
 
-#define GLIBTOP_MAX_NETINFO		4
+#define GLIBTOP_MAX_NETINFO		5
 
 typedef struct _glibtop_netinfo	glibtop_netinfo;
 
@@ -65,6 +66,7 @@ struct _glibtop_netinfo
 {
     u_int64_t	flags,
 	if_flags,		/* GLIBTOP_NETINFO_IF_FLAGS	*/
+	transport,		/* GLIBTOP_NETINFO_TRANSPORT	*/		
 	mtu,			/* GLIBTOP_NETINFO_MTU		*/
 	subnet,			/* GLIBTOP_NETINFO_SUBNET	*/
 	address;		/* GLIBTOP_NETINFO_ADDRESS	*/

@@ -1,5 +1,10 @@
 1999-11-28  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/netinfo.h (glibtop_netinfo): Added `transport'
+	field for the transport method.
+
+1999-11-28  Martin Baulig  <martin@home-of-linux.org>
+
 	Split netload into netload and netinfo.
 
 	* include/glibtop/netinfo.h: New file.
