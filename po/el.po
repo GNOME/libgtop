@@ -1,274 +1,485 @@
 # libgtop greek .po file
-# Copyright (C) 2000 Free Software Foundation, Inc.
+# Copyright (C) 2000-2001 Free Software Foundation, Inc.
 # Sarantis Paskalis <paskalis@di.uoa.gr>, 2000.
+# Simos Xenitellis <simos@hellug.gr>, 2001.
+#
+# sarantis: ~134 messages, (unknown), initial translation.
+# simos: 240 messages, 19Feb2001, added more messages, still 65 left. (FROM STABLE BRANCH)
+# simos: 228 messages, 20Feb2001, added more messages, still 64 left.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2000-02-25 14:02+0200\n"
-"PO-Revision-Date: 2000-02-28 16:25+02:00\n"
-"Last-Translator: Sarantis Paskalis <paskalis@di.uoa.gr>\n"
+"POT-Creation-Date: 2001-02-19 16:22+0000\n"
+"PO-Revision-Date: 2001-02-19 16:31:52+0900\n"
+"Last-Translator: Simos Xenitellis <simos@hellug.gr>\n"
 "Language-Team: Greek <nsl@tux.hellug.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-7\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
+#: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
+msgid "Hangup (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
+msgid "Interrupt (ANSI)"
+msgstr "Διακοπή (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:35 lib/sysdeps-init-linux.c:35
+msgid "Quit (POSIX)"
+msgstr "Τερματισμός (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:36 lib/sysdeps-init-linux.c:36
+msgid "Illegal instruction (ANSI)"
+msgstr "Ακατάλληλη εντολή (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:37 lib/sysdeps-init-linux.c:37
+msgid "Trace trap (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:38 lib/sysdeps-init-linux.c:38
+msgid "Abort (ANSI)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:39
+msgid "EMT instruction"
+msgstr "Εντολή EMT"
+
+#: lib/sysdeps-init-freebsd.c:40 lib/sysdeps-init-linux.c:40
+msgid "Floating-point exception (ANSI)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
+msgid "Kill, unblockable (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
+msgid "BUS error (4.2 BSD)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:43 lib/sysdeps-init-linux.c:43
+msgid "Segmentation violation (ANSI)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:44
+msgid "Bad argument to system call"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:45 lib/sysdeps-init-linux.c:45
+msgid "Broken pipe (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:46 lib/sysdeps-init-linux.c:46
+msgid "Alarm clock (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
+msgid "Termination (ANSI)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:48 lib/sysdeps-init-linux.c:55
+msgid "Urgent condition on socket (4.2 BSD)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:49 lib/sysdeps-init-linux.c:51
+msgid "Stop, unblockable (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:50 lib/sysdeps-init-linux.c:52
+msgid "Keyboard stop (POSIX)"
+msgstr "Σταμάτημα πληκτρολογίου (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:51 lib/sysdeps-init-linux.c:50
+msgid "Continue (POSIX)"
+msgstr "Συνέχιση (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:52 lib/sysdeps-init-linux.c:49
+msgid "Child status has changed (POSIX)"
+msgstr "Η κατάσταση θυγατρικής διεργασίας έχει αλλάξει (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:53 lib/sysdeps-init-linux.c:53
+msgid "Background read from tty (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:54 lib/sysdeps-init-linux.c:54
+msgid "Background write to tty (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:55 lib/sysdeps-init-linux.c:61
+msgid "I/O now possible (4.2 BSD)"
+msgstr "Η Ε/Ε είναι τώρα δυνατή (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:56 lib/sysdeps-init-linux.c:56
+msgid "CPU limit exceeded (4.2 BSD)"
+msgstr "Το όριο ΚΜΕ έχει ξεπεραστεί (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:57 lib/sysdeps-init-linux.c:57
+msgid "File size limit exceeded (4.2 BSD)"
+msgstr "Το όριο μεγέθους αρχείου έχει ξεπεραστεί (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:58 lib/sysdeps-init-linux.c:58
+msgid "Virtual alarm clock (4.2 BSD)"
+msgstr "Ιδεατό ξυπνητήρι (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:59 lib/sysdeps-init-linux.c:59
+msgid "Profiling alarm clock (4.2 BSD)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:60 lib/sysdeps-init-linux.c:60
+msgid "Window size change (4.3 BSD, Sun)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:61
+msgid "Information request"
+msgstr "Αίτηση πληροφορίας"
+
+# sysdeps/names/procsignal.c:49
+#: lib/sysdeps-init-freebsd.c:62 lib/sysdeps-init-linux.c:42
+msgid "User-defined signal 1 (POSIX)"
+msgstr "Σήμα 1 οριζόμενο από το χρήστη (POSIX)"
+
+# sysdeps/names/procsignal.c:49
+#: lib/sysdeps-init-freebsd.c:63 lib/sysdeps-init-linux.c:44
+msgid "User-defined signal 2 (POSIX)"
+msgstr "Σήμα 2 οριζόμενο από το χρήστη (POSIX)"
+
+#: lib/sysdeps-init-linux.c:62
+msgid "Power failure restart (System V)"
+msgstr ""
+
+#: support/popthelp.c:23
+msgid "Show this help message"
+msgstr ""
+
+#: support/popthelp.c:24
+msgid "Display brief usage message"
+msgstr ""
+
+# sysdeps/names/cpu.c:45
 #: sysdeps/names/cpu.c:45
 msgid "Total CPU Time"
 msgstr "Συνολικός Χρόνος CPU"
 
+# sysdeps/names/cpu.c:46
 #: sysdeps/names/cpu.c:46
 msgid "CPU Time in User Mode"
 msgstr "Χρόνος CPU σε Τρόπο Χρήστη"
 
+# sysdeps/names/cpu.c:47
 #: sysdeps/names/cpu.c:47
 msgid "CPU Time in User Mode (nice)"
 msgstr "Χρόνος CPU σε Τρόπο Χρήστη (ευγενή)"
 
+# sysdeps/names/cpu.c:48
 #: sysdeps/names/cpu.c:48
 msgid "CPU Time in System Mode"
 msgstr "Χρόνος CPU σε Τρόπο Συστήματος"
 
+# sysdeps/names/cpu.c:49
 #: sysdeps/names/cpu.c:49
 msgid "CPU Time in the Idle Task"
 msgstr "Χρόνος CPU στην Αδρανή Εργασία"
 
+# sysdeps/names/cpu.c:50
 #: sysdeps/names/cpu.c:50
 msgid "Tick Frequency"
 msgstr "Συχνότητα Χτύπου Ρολογιού"
 
+# sysdeps/names/cpu.c:51
 #: sysdeps/names/cpu.c:51
 msgid "SMP Total CPU Time"
 msgstr "SMP Συνολικός Χρόνος CPU"
 
+# sysdeps/names/cpu.c:52
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in User Mode"
 msgstr "SMP Χρόνος CPU σε Τρόπο Χρήστη"
 
+# sysdeps/names/cpu.c:53
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in User Mode (nice)"
 msgstr "SMP Χρόνος CPU σε Τρόπο Χρήστη (ευγενή)"
 
+# sysdeps/names/cpu.c:54
 #: sysdeps/names/cpu.c:54
 msgid "SMP CPU Time in System Mode"
 msgstr "SMP Χρόνος CPU σε Τρόπο Συστήματος"
 
+# sysdeps/names/cpu.c:55
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Time in the Idle Task"
 msgstr "SMP Χρόνος CPU σε Αδρανή Εργασία"
 
+# sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 msgid "SMP CPU Flags"
 msgstr "SMP Σημαίες CPU"
 
+# sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
 msgstr "Αριθμός χτύπων ρολογιού από την εκκίνηση του συστήματος"
 
+# sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode"
 msgstr "Αριθμός χτύπων ρολογιού που το σύστημα κατανάλωσε σε τρόπο χρήστη"
 
+# sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 #: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "Αριθμός χτύπων ρολογιού που το σύστημα κατανάλωσε σε τρόπο χρήστη (ευγενή)"
+msgstr ""
+"Αριθμός χτύπων ρολογιού που το σύστημα κατανάλωσε σε τρόπο χρήστη (ευγενή)"
 
+# sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 #: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in system mode"
 msgstr "Αριθμός χτύπων ρολογιού που το σύστημα κατανάλωσε σε τρόπο συστήματος"
 
+# sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
 #: sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
 msgid "Number of clock ticks the system spent in the idle task"
 msgstr "Αριθμός χτύπων ρολογιού που το σύστημα κατανάλωσε στην αδρανή εργασία"
 
+# sysdeps/names/cpu.c:66
 #: sysdeps/names/cpu.c:66
 msgid "Tick frequency (default is 100)"
 msgstr "Συχνότητα Χτύπου Ρολογιού (εξ ορισμού είναι 100)"
 
+# sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
 #: sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
 msgstr "Συνολικά μπλοκ"
 
+# sysdeps/names/fsusage.c:42
 #: sysdeps/names/fsusage.c:42
 msgid "Free blocks"
 msgstr "Ελεύθερα μπλοκ"
 
+# sysdeps/names/fsusage.c:43
 #: sysdeps/names/fsusage.c:43
 msgid "Available blocks"
 msgstr "Διαθέσιμα μπλοκ"
 
+# sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
 #: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
 msgid "Total file nodes"
 msgstr "Συνολικοί κόμβοι αρχείων"
 
+# sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:54
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:54
 msgid "Free file nodes"
 msgstr "Ελεύθεροι κόμβοι αρχείων"
 
+# sysdeps/names/fsusage.c:51
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
 msgstr "Ελεύθερα μπλοκ διαθέσιμα στον υπερχρήστη"
 
+# sysdeps/names/fsusage.c:52
 #: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
 msgstr "Ελεύθερα μπλοκ διαθέσιμα σε μη-υπερχρήστες"
 
+# sysdeps/names/loadavg.c:41
 #: sysdeps/names/loadavg.c:41
 msgid "Load Average"
 msgstr "Μέσο Φορτίο"
 
+# sysdeps/names/loadavg.c:42
 #: sysdeps/names/loadavg.c:42
 msgid "Running Tasks"
 msgstr "Εκτελούμενες Εργασίες"
 
+# sysdeps/names/loadavg.c:43
 #: sysdeps/names/loadavg.c:43
 msgid "Number of Tasks"
 msgstr "Αριθμός Εργασιών"
 
+# sysdeps/names/loadavg.c:44 sysdeps/names/loadavg.c:52
 #: sysdeps/names/loadavg.c:44 sysdeps/names/loadavg.c:52
 msgid "Last PID"
 msgstr "Τελευταίο PID"
 
+# sysdeps/names/loadavg.c:49
 #: sysdeps/names/loadavg.c:49
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "Μέσος αριθμός εργασιών που εκτελούνται ταυτόχρονα τα τελευταία 1, 5 και 15 λεπτά"
+msgstr ""
+"Μέσος αριθμός εργασιών που εκτελούνται ταυτόχρονα τα τελευταία 1, 5 και 15 "
+"λεπτά"
 
+# sysdeps/names/loadavg.c:50
 #: sysdeps/names/loadavg.c:50
 msgid "Number of tasks currently running"
 msgstr "Αριθμός εργασιών που εκτελούνται τώρα"
 
+# sysdeps/names/loadavg.c:51
 #: sysdeps/names/loadavg.c:51
 msgid "Total number of tasks"
 msgstr "Συνολικός αριθμός εργασιών"
 
+# sysdeps/names/mem.c:43
 #: sysdeps/names/mem.c:43
 msgid "Total Memory"
 msgstr "Συνολική Μνήμη"
 
+# sysdeps/names/mem.c:44
 #: sysdeps/names/mem.c:44
 msgid "Used Memory"
 msgstr "Χρησιμοποιημένη Μνήμη"
 
+# sysdeps/names/mem.c:45
 #: sysdeps/names/mem.c:45
 msgid "Free Memory"
 msgstr "Ελεύθερη Μνήμη"
 
+# sysdeps/names/mem.c:46
 #: sysdeps/names/mem.c:46
 msgid "Shared Memory"
 msgstr "Διαμοιραζόμενη Μνήμη"
 
+# sysdeps/names/mem.c:47
 #: sysdeps/names/mem.c:47
 msgid "Buffers"
 msgstr "Ενταμιευτές"
 
+# sysdeps/names/mem.c:48
 #: sysdeps/names/mem.c:48
 msgid "Cached"
 msgstr "Στην κρύπτη"
 
+# sysdeps/names/mem.c:49
 #: sysdeps/names/mem.c:49
 msgid "User"
 msgstr "Χρήστης"
 
+# sysdeps/names/mem.c:50
 #: sysdeps/names/mem.c:50
 msgid "Locked"
 msgstr "Κλειδωμένο"
 
+# sysdeps/names/mem.c:55
 #: sysdeps/names/mem.c:55
 msgid "Total physical memory in kB"
 msgstr "Συνολική φυσική μνήμη σε kB"
 
+# sysdeps/names/mem.c:56
 #: sysdeps/names/mem.c:56
 msgid "Used memory size in kB"
 msgstr "Χρησιμοποιημένο μέγεθος μνήμης σε kB"
 
+# sysdeps/names/mem.c:57
 #: sysdeps/names/mem.c:57
 msgid "Free memory size in kB"
 msgstr "Ελεύθερο μέγεθος μνήμης σε kB"
 
+# sysdeps/names/mem.c:58
 #: sysdeps/names/mem.c:58
 msgid "Shared memory size in kB"
 msgstr "Διαμοιραζόμενο μέγεθος μνήμης σε kB"
 
+# sysdeps/names/mem.c:59
 #: sysdeps/names/mem.c:59
 msgid "Size of buffers kB"
 msgstr "Μέγεθος ενταμιευτών σε kB"
 
+# sysdeps/names/mem.c:60
 #: sysdeps/names/mem.c:60
 msgid "Size of cached memory in kB"
 msgstr "Μέγεθος κρυφής μνήμης σε kB"
 
+# sysdeps/names/mem.c:61
 #: sysdeps/names/mem.c:61
 msgid "Memory used from user processes in kB"
 msgstr "Μνήμη χρησιμοποιούμενη από διεργασίες χρήστη σε kB"
 
+# sysdeps/names/mem.c:62
 #: sysdeps/names/mem.c:62
 msgid "Memory in locked pages in kB"
 msgstr "Μνήμη σε κλειδωμένες σελίδες σε kB"
 
+# sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Size in kilobytes of message pool"
 msgstr "Μέγεθος δεξαμενής μηνυμάτων σε kB"
 
+# sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Number of entries in message map"
 msgstr "Αριθμός καταχωρήσεων στο χάρτη μηνυμάτων"
 
+# sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Max size of message"
 msgstr "Μέγιστο μέγεθος μηνύματος"
 
+# sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Default max size of queue"
 msgstr "Εξ ορισμού μέγιστο μέγεθος ουράς"
 
+# sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Max queues system wide"
 msgstr "Μέγιστος αριθμός ουρών σε ολόκληρο το σύστημα"
 
+# sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
 #: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
 msgid "Message segment size"
 msgstr "Μέγεθος Τμήματος Μηνύματος (MSS)"
 
+# sysdeps/names/msg_limits.c:48 sysdeps/names/msg_limits.c:59
 #: sysdeps/names/msg_limits.c:48 sysdeps/names/msg_limits.c:59
 msgid "Number of system message headers"
 msgstr "Αριθμός επικεφαλίδων μηνυμάτων συστήματος"
 
+# sysdeps/names/prockernel.c:44
 #: sysdeps/names/prockernel.c:44
 msgid "K_Flags"
 msgstr "K_Flags"
 
+# sysdeps/names/prockernel.c:44
 #: sysdeps/names/prockernel.c:44
 msgid "Min_Flt"
 msgstr "Min_Flt"
 
+# sysdeps/names/prockernel.c:44
 #: sysdeps/names/prockernel.c:44
 msgid "Maj_Flt"
 msgstr "Maj_Flt"
 
+# sysdeps/names/prockernel.c:44
 #: sysdeps/names/prockernel.c:44
 msgid "CMin_Flt"
 msgstr "CMin_Flt"
 
+# sysdeps/names/prockernel.c:45
 #: sysdeps/names/prockernel.c:45
 msgid "CMaj_Flt"
 msgstr "CMaj_Flt"
 
+# sysdeps/names/prockernel.c:45
 #: sysdeps/names/prockernel.c:45
 msgid "KStk_ESP"
 msgstr "KStk_ESP"
 
+# sysdeps/names/prockernel.c:45
 #: sysdeps/names/prockernel.c:45
 msgid "KStk_EIP"
 msgstr "KStk_EIP"
 
+# sysdeps/names/prockernel.c:45
 #: sysdeps/names/prockernel.c:45
 msgid "NWChan"
 msgstr "NWChan"
 
+# sysdeps/names/prockernel.c:46
 #: sysdeps/names/prockernel.c:46
 msgid "WChan"
 msgstr "WChan"
 
+# sysdeps/names/prockernel.c:52
 #. K_Flags
 #: sysdeps/names/prockernel.c:52
 msgid ""
@@ -293,6 +504,7 @@ msgstr ""
 "Το math bit θα έπρεπε να είναι ένα δεκαδικό 4, και το traced bit είναι\n"
 "δεκαδικό 10."
 
+# sysdeps/names/prockernel.c:61
 #. Min_Flt
 #: sysdeps/names/prockernel.c:61
 msgid ""
@@ -302,6 +514,7 @@ msgstr ""
 "O αριθμός ήσσονων λαθών που έχει κάνει η διεργασία, αυτά που δεν έχουν "
 "απαιτήσει φόρτωμα σελίδας μνήμης από το δίσκο."
 
+# sysdeps/names/prockernel.c:64
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:64
 msgid ""
@@ -311,30 +524,36 @@ msgstr ""
 "Ο αριθμός μείζονων λαθών που έχει κάνει η διεργασία, αυτά που έχουν "
 "απαιτήσει φόρτωμα σελίδας μνήμης από το δίσκό."
 
+# sysdeps/names/prockernel.c:67
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:67
 msgid "The number of minor faults that the process and its children have made."
 msgstr "Ο αριθμός ήσσονων λαθών που έχει κάνει η διεργασία και τα παιδιά της."
 
+# sysdeps/names/prockernel.c:70
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:70
 msgid "The number of major faults that the process and its children have made."
-msgstr "Ο αριθμός των μείζονων λαθών που έχει κάνει η διεργασία και τα παιδιά της."
+msgstr ""
+"Ο αριθμός των μείζονων λαθών που έχει κάνει η διεργασία και τα παιδιά της."
 
+# sysdeps/names/prockernel.c:73
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:73
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
-"Η τρέχουσα τιμή του esp (32-bit δείκτης στοίβας), όπως βρίσκεται στη "
-"σελίδα στοίβας πυρήνα για τη διεργασία."
+"Η τρέχουσα τιμή του esp (32-bit δείκτης στοίβας), όπως βρίσκεται στη σελίδα "
+"στοίβας πυρήνα για τη διεργασία."
 
+# sysdeps/names/prockernel.c:76
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:76
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr "Ο τρέχων EIP (32-bit δείκτης εντολών)"
 
+# sysdeps/names/prockernel.c:78
 #. NWChan
 #: sysdeps/names/prockernel.c:78
 msgid ""
@@ -348,51 +567,63 @@ msgstr ""
 "ονομάτων αν χρειάζεστε το όνομα κειμένου. (Αν έχετε ενημερωμένο το αρχείο "
 "/etc/psdatabase, τότε δοκιμάστε ps -l για να δείτε το πεδίο WCHAN σε δράση)"
 
+# sysdeps/names/prockernel.c:83
 #. WChan
 #: sysdeps/names/prockernel.c:83
 msgid "This is the textual name of the `nwchan' field."
 msgstr "Αυτό είναι το όνομα κειμένου του πεδίου `nwchan'."
 
+# sysdeps/names/procmem.c:49
 #: sysdeps/names/procmem.c:49
 msgid "Size"
 msgstr "Μέγεθος"
 
+# sysdeps/names/procmem.c:49
 #: sysdeps/names/procmem.c:49
 msgid "Virtual"
 msgstr "Εικονικό"
 
+# sysdeps/names/procmem.c:49
 #: sysdeps/names/procmem.c:49
 msgid "Resident"
 msgstr "Παραμένον"
 
+# sysdeps/names/procmem.c:49
 #: sysdeps/names/procmem.c:49
 msgid "Share"
 msgstr "Διαμοιραζόμενο"
 
+# sysdeps/names/procmem.c:50
 #: sysdeps/names/procmem.c:50
 msgid "Resident Set Size"
 msgstr "Μέγεθος ανάθεσης παραμένοντος"
 
+# sysdeps/names/procmem.c:50
 #: sysdeps/names/procmem.c:50
 msgid "Resident Set Size Limit"
 msgstr "Όριο μεγέθους ανάθεσης παραμένοντος"
 
+# sysdeps/names/procmem.c:55
 #: sysdeps/names/procmem.c:55
 msgid "Total # of pages of memory"
 msgstr "Συνολικός αριθμός σελίδων μνήμης"
 
+# sysdeps/names/procmem.c:56
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of virtual memory"
 msgstr "Αριθμός σελίδων εικονικής μνήμης"
 
+# sysdeps/names/procmem.c:57
 #: sysdeps/names/procmem.c:57
 msgid "Number of resident set (non-swapped) pages"
 msgstr "Αριθμός τιθέμενων παραμένουσων σελίδων (όχι περιοχή εναλλαγής)"
 
+# sysdeps/names/procmem.c:58
 #: sysdeps/names/procmem.c:58
 msgid "Number of pages of shared (mmap'd) memory"
 msgstr "Αριθμός σελίδων διαμοιραζόμενης (mmap) μνήμης"
 
+# sysdeps/names/procmem.c:59
 #: sysdeps/names/procmem.c:59
 msgid ""
 "Number of pages the process has in real memory, minus 3 for administrative "
@@ -405,470 +636,577 @@ msgstr ""
 "κώδικα, δεδομένων ή στοίβας. Δεν συμπεριλαμβάνονται σελίδες που δεν έχουν "
 "φορτωθεί κατ' απαίτηση ή που έχουν μετακινηθεί στην περιοχή εναλλαγής."
 
+# sysdeps/names/procmem.c:64
 #: sysdeps/names/procmem.c:64
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "Τρέχον όριο σε bytes στο rss της διεργασίας (συνήθως 2.147.483.547)"
 
+# sysdeps/names/procsegment.c:50
 #: sysdeps/names/procsegment.c:50
 msgid "Text_RSS"
 msgstr "Text_RSS"
 
+# sysdeps/names/procsegment.c:50
 #: sysdeps/names/procsegment.c:50
 msgid "ShLib_RSS"
 msgstr "ShLib_RSS"
 
+# sysdeps/names/procsegment.c:50
 #: sysdeps/names/procsegment.c:50
 msgid "Data_RSS"
 msgstr "Data_RSS"
 
+# sysdeps/names/procsegment.c:50
 #: sysdeps/names/procsegment.c:50
 msgid "Stack_RSS"
 msgstr "Stack_RSS"
 
+# sysdeps/names/procsegment.c:51
 #: sysdeps/names/procsegment.c:51
 msgid "Dirty Size"
 msgstr "Μέγεθος ακάθαρτου"
 
+# sysdeps/names/procsegment.c:51
 #: sysdeps/names/procsegment.c:51
 msgid "Start_Code"
 msgstr "Αρχή_Κώδικα"
 
+# sysdeps/names/procsegment.c:51
 #: sysdeps/names/procsegment.c:51
 msgid "End_Code"
 msgstr "Τέλος_Κώδικα"
 
+# sysdeps/names/procsegment.c:52
 #: sysdeps/names/procsegment.c:52
 msgid "Start_Data"
 msgstr "Αρχή_Δεδομένων"
 
+# sysdeps/names/procsegment.c:52
 #: sysdeps/names/procsegment.c:52
 msgid "End_Data"
 msgstr "Τέλος_Δεδομένων"
 
+# sysdeps/names/procsegment.c:52
 #: sysdeps/names/procsegment.c:52
-#, fuzzy
 msgid "Start_Brk"
-msgstr "Αρχή_Brk"
+msgstr "Start_Brk"
 
+# sysdeps/names/procsegment.c:52
 #: sysdeps/names/procsegment.c:52
-#, fuzzy
 msgid "Brk"
 msgstr "Brk"
 
+# sysdeps/names/procsegment.c:53
 #: sysdeps/names/procsegment.c:53
 msgid "Start_Stack"
 msgstr "Αρχή_Στοίβας"
 
+# sysdeps/names/procsegment.c:53
 #: sysdeps/names/procsegment.c:53
-#, fuzzy
 msgid "Start_MMap"
-msgstr "Αρχή_MMap"
+msgstr "Start_MMap"
 
+# sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
 #: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
 msgid "Arg_Start"
 msgstr "Αρχή_Ορισμάτων"
 
+# sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
-#, fuzzy
 msgid "Arg_End"
-msgstr "Τέλος_Ορισμάτων"
+msgstr "Arg_End"
 
+# sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
-#, fuzzy
 msgid "Env_Start"
-msgstr "Αρχή_Env"
+msgstr "Env_Start"
 
+# sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
-#, fuzzy
 msgid "Env_End"
-msgstr "Τέλος_Env"
+msgstr "Env_End"
 
+# sysdeps/names/procsegment.c:59
 #: sysdeps/names/procsegment.c:59
 msgid "Text resident set size"
 msgstr "Μέγεθος τιθέμενου παραμένοντος κώδικα"
 
+# sysdeps/names/procsegment.c:60
 #: sysdeps/names/procsegment.c:60
 msgid "Shared-Lib resident set size"
 msgstr "Μέγεθος τιθέμενων παραμένοντων διαμοιραζόμενων βιβλιοθηκών"
 
+# sysdeps/names/procsegment.c:61
 #: sysdeps/names/procsegment.c:61
 msgid "Data resident set size"
 msgstr "Μέγεθος τιθέμενων παραμένοντων δεδομένων"
 
+# sysdeps/names/procsegment.c:62
 #: sysdeps/names/procsegment.c:62
 msgid "Stack resident set size"
 msgstr "Μέγεθος τιθέμενης παραμένουσας στοίβας"
 
+# sysdeps/names/procsegment.c:63
 #: sysdeps/names/procsegment.c:63
 msgid "Total size of dirty pages"
 msgstr "Συνολικός αριθμός ακάθαρτων σελίδων"
 
+# sysdeps/names/procsegment.c:64
 #: sysdeps/names/procsegment.c:64
 msgid "Address of beginning of code segment"
 msgstr "Διεύθυνση αρχής του τμήματος κώδικα"
 
+# sysdeps/names/procsegment.c:65
 #: sysdeps/names/procsegment.c:65
 msgid "Address of end of code segment"
 msgstr "Διεύθυνση τέλους του τμήματος κώδικα"
 
+# sysdeps/names/procsegment.c:66
 #: sysdeps/names/procsegment.c:66
 msgid "Address of beginning of data segment"
 msgstr "Διεύθυνση αρχής του τμήματος δεδομένων"
 
+# sysdeps/names/procsegment.c:67
 #: sysdeps/names/procsegment.c:67
 msgid "Address of end of data segment"
 msgstr "Διεύθυνση τέλους του τμήματος δεδομένων"
 
+# sysdeps/names/procsegment.c:68
 #: sysdeps/names/procsegment.c:68
-#, fuzzy
 msgid "Brk_Start"
 msgstr "Brk_Start"
 
+# sysdeps/names/procsegment.c:69
 #: sysdeps/names/procsegment.c:69
-#, fuzzy
 msgid "Brk_End"
 msgstr "Brk_End"
 
+# sysdeps/names/procsegment.c:70
 #: sysdeps/names/procsegment.c:70
 msgid "Address of the bottom of stack segment"
 msgstr "Διεύθυνση πυθμένα του τμήματος στοίβας"
 
+# sysdeps/names/procsegment.c:71
 #: sysdeps/names/procsegment.c:71
-#, fuzzy
 msgid "Start of mmap()ed areas"
-msgstr "Αρχή περιοχών mmap"
+msgstr "Αρχή περιοχών mmap()"
 
+# sysdeps/names/procsignal.c:42
 #: sysdeps/names/procsignal.c:42
 msgid "Signal"
 msgstr "Σήμα"
 
+# sysdeps/names/procsignal.c:42
 #: sysdeps/names/procsignal.c:42
 msgid "Blocked"
 msgstr "Φραγμένο"
 
+# sysdeps/names/procsignal.c:42
 #: sysdeps/names/procsignal.c:42
 msgid "SigIgnore"
 msgstr "Αγνόηση Σήματος"
 
+# sysdeps/names/procsignal.c:42
 #: sysdeps/names/procsignal.c:42
 msgid "SigCatch"
 msgstr "Πιάσιμο Σήματος"
 
+# sysdeps/names/procsignal.c:47
 #: sysdeps/names/procsignal.c:47
 msgid "Mask of pending signals"
 msgstr "Μάσκα αναμένοντων σημάτων"
 
+# sysdeps/names/procsignal.c:48
 #: sysdeps/names/procsignal.c:48
 msgid "Mask of blocked signals"
 msgstr "Μάσκα φραγμένων σημάτων"
 
+# sysdeps/names/procsignal.c:49
 #: sysdeps/names/procsignal.c:49
 msgid "Mask of ignored signals"
 msgstr "Μάσκα αγνοημένων σημάτων"
 
+# sysdeps/names/procsignal.c:50
 #: sysdeps/names/procsignal.c:50
 msgid "Mask of caught signals"
 msgstr "Μάσκα πιασμένων σημάτων"
 
+# sysdeps/names/procstate.c:45
 #: sysdeps/names/procstate.c:45
 msgid "Cmd"
 msgstr "Εντολή"
 
+# sysdeps/names/procstate.c:45
 #: sysdeps/names/procstate.c:45
 msgid "State"
 msgstr "Κατάσταση"
 
+# sysdeps/names/procstate.c:45
 #: sysdeps/names/procstate.c:45
 msgid "UID"
 msgstr "UID"
 
+# sysdeps/names/procstate.c:45
 #: sysdeps/names/procstate.c:45
 msgid "GID"
 msgstr "GID"
 
+# sysdeps/names/procstate.c:45
 #: sysdeps/names/procstate.c:45
 msgid "RUID"
 msgstr "RUID"
 
+# sysdeps/names/procstate.c:46
 #: sysdeps/names/procstate.c:46
 msgid "RGID"
 msgstr "RGID"
 
+# sysdeps/names/procstate.c:46
 #: sysdeps/names/procstate.c:46
 msgid "Has CPU"
 msgstr "Έχει CPU"
 
+# sysdeps/names/procstate.c:46
 #: sysdeps/names/procstate.c:46
 msgid "Processor"
 msgstr "Επεξεργαστής"
 
+# sysdeps/names/procstate.c:47
 #: sysdeps/names/procstate.c:47
 msgid "Last Processor"
 msgstr "Τελευταίος Επεξεργαστής"
 
+# sysdeps/names/procstate.c:52
 #: sysdeps/names/procstate.c:52
 msgid "Basename of executable file in call to exec()"
 msgstr "Όνομα βάσης εκτελέσιμου αρχείου στην κλήση exec()"
 
+# sysdeps/names/procstate.c:53
 #: sysdeps/names/procstate.c:53
 msgid "Single-Char code for process state (S=sleeping)"
 msgstr "Κώδικας Ενός Χαρακτήρα για την κατάσταση της διεργασίας (S=sleeping)"
 
+# sysdeps/names/procstate.c:54
 #: sysdeps/names/procstate.c:54
 msgid "effective UID of process"
 msgstr "ουσιαστικό UID διεργασίας"
 
+# sysdeps/names/procstate.c:55
 #: sysdeps/names/procstate.c:55
 msgid "effective GID of process"
 msgstr "ουσιαστικό GID διεργασίας"
 
+# sysdeps/names/procstate.c:56
 #: sysdeps/names/procstate.c:56
 msgid "real UID of process"
 msgstr "πραγματικό UID διεργασίας"
 
+# sysdeps/names/procstate.c:57
 #: sysdeps/names/procstate.c:57
 msgid "real GID of process"
 msgstr "πραγματικό GID διεργασίας"
 
+# sysdeps/names/procstate.c:58
 #: sysdeps/names/procstate.c:58
 msgid "has_cpu"
 msgstr "έχει_cpu"
 
+# sysdeps/names/procstate.c:59
 #: sysdeps/names/procstate.c:59
 msgid "processor"
 msgstr "επεξεργαστής"
 
+# sysdeps/names/procstate.c:60
 #: sysdeps/names/procstate.c:60
 msgid "last_processor"
 msgstr "τελευταίος_επεξεργαστής"
 
+# sysdeps/names/proctime.c:46
 #: sysdeps/names/proctime.c:46
 msgid "Start_Time"
 msgstr "Αρχή_Χρόνου"
 
+# sysdeps/names/proctime.c:46
 #: sysdeps/names/proctime.c:46
 msgid "RTime"
 msgstr "RTime"
 
+# sysdeps/names/proctime.c:46
 #: sysdeps/names/proctime.c:46
 msgid "UTime"
 msgstr "UTime"
 
+# sysdeps/names/proctime.c:46
 #: sysdeps/names/proctime.c:46
 msgid "STime"
 msgstr "STime"
 
+# sysdeps/names/proctime.c:47
 #: sysdeps/names/proctime.c:47
 msgid "CUTime"
 msgstr "CUTime"
 
+# sysdeps/names/proctime.c:47
 #: sysdeps/names/proctime.c:47
 msgid "CSTime"
 msgstr "CSTime"
 
+# sysdeps/names/proctime.c:47
 #: sysdeps/names/proctime.c:47
 msgid "TimeOut"
 msgstr "TimeOut"
 
+# sysdeps/names/proctime.c:47
 #: sysdeps/names/proctime.c:47
 msgid "It_Real_Value"
 msgstr ""
 
+# sysdeps/names/proctime.c:48
 #: sysdeps/names/proctime.c:48
 msgid "Frequency"
 msgstr "Συχνότητα"
 
+# sysdeps/names/proctime.c:48
 #: sysdeps/names/proctime.c:48
 msgid "XCPU_UTime"
-msgstr ""
+msgstr "XCPU_UTime"
 
+# sysdeps/names/proctime.c:48
 #: sysdeps/names/proctime.c:48
 msgid "XCPU_STime"
-msgstr ""
+msgstr "XCPU_STime"
 
+# sysdeps/names/prockernel.c:44
 #: sysdeps/names/proctime.c:49
 msgid "XCPU_Flags"
-msgstr ""
+msgstr "XCPU_Flags"
 
+# sysdeps/names/proctime.c:54
 #: sysdeps/names/proctime.c:54
 msgid "Start time of process in seconds since the epoch"
 msgstr "Χρόνος αρχής της διεργασίας σε δευτερόλεπτα από την εποχή"
 
+# sysdeps/names/proctime.c:55
 #: sysdeps/names/proctime.c:55
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "Πραγματικός χρόνος συσσωρευμένος από τη διεργασία (θα έπρεπε να είναι utime + stime)"
+msgstr ""
+"Πραγματικός χρόνος συσσωρευμένος από τη διεργασία (θα έπρεπε να είναι utime "
+"+ stime)"
 
+# sysdeps/names/proctime.c:56
 #: sysdeps/names/proctime.c:56
 msgid "user-mode CPU time accumulated by process"
 msgstr ""
 
+# sysdeps/names/proctime.c:57
 #: sysdeps/names/proctime.c:57
 msgid "kernel-mode CPU time accumulated by process"
 msgstr ""
 
+# sysdeps/names/proctime.c:58
 #: sysdeps/names/proctime.c:58
 msgid "cumulative utime of process and reaped children"
 msgstr ""
 
+# sysdeps/names/proctime.c:59
 #: sysdeps/names/proctime.c:59
 msgid "cumulative stime of process and reaped children"
 msgstr ""
 
+# sysdeps/names/proctime.c:60
 #: sysdeps/names/proctime.c:60
 msgid "The time (in jiffies) of the process's next timeout"
 msgstr ""
 
+# sysdeps/names/proctime.c:61
 #: sysdeps/names/proctime.c:61
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
 
+# sysdeps/names/proctime.c:63
 #: sysdeps/names/proctime.c:63
 msgid "Tick frequency"
 msgstr ""
 
+# sysdeps/names/proctime.c:64
 #: sysdeps/names/proctime.c:64
 msgid "SMP user-mode CPU time accumulated by process"
 msgstr ""
 
+# sysdeps/names/proctime.c:65
 #: sysdeps/names/proctime.c:65
 msgid "SMP kernel-mode CPU time accumulated by process"
 msgstr ""
 
+# sysdeps/names/procuid.c:48
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
-msgstr ""
+msgstr "Uid"
 
+# sysdeps/names/procuid.c:48
 #: sysdeps/names/procuid.c:48
 msgid "EUid"
-msgstr ""
+msgstr "EUid"
 
+# sysdeps/names/procuid.c:48
 #: sysdeps/names/procuid.c:48
 msgid "Gid"
-msgstr ""
+msgstr "Gid"
 
+# sysdeps/names/procuid.c:48
 #: sysdeps/names/procuid.c:48
 msgid "EGid"
-msgstr ""
+msgstr "EGid"
 
+# sysdeps/names/procuid.c:48
 #: sysdeps/names/procuid.c:48
 msgid "SUid"
-msgstr ""
+msgstr "SUid"
 
+# sysdeps/names/procuid.c:48
 #: sysdeps/names/procuid.c:49
 msgid "SGid"
-msgstr ""
+msgstr "SGid"
 
+# sysdeps/names/procuid.c:48
 #: sysdeps/names/procuid.c:49
 msgid "FsUid"
-msgstr ""
+msgstr "FsUid"
 
+# sysdeps/names/procuid.c:48
 #: sysdeps/names/procuid.c:49
 msgid "FsGid"
-msgstr ""
+msgstr "FsGid"
 
+# sysdeps/names/procuid.c:49
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
-msgstr ""
+msgstr "Pid"
 
+# sysdeps/names/procuid.c:50
 #: sysdeps/names/procuid.c:50
 msgid "PPid"
-msgstr ""
+msgstr "PPid"
 
+# sysdeps/names/procuid.c:50
 #: sysdeps/names/procuid.c:50
 msgid "PGrp"
-msgstr ""
+msgstr "PGrp"
 
+# sysdeps/names/procuid.c:50
 #: sysdeps/names/procuid.c:50
 msgid "Session"
-msgstr ""
+msgstr "Συνεδρία"
 
+# sysdeps/names/procuid.c:50
 #: sysdeps/names/procuid.c:50
 msgid "Tty"
-msgstr ""
+msgstr "Tty"
 
+# sysdeps/names/procuid.c:51
 #: sysdeps/names/procuid.c:51
 msgid "TPGid"
-msgstr ""
+msgstr "TPGid"
 
+# sysdeps/names/procuid.c:51
 #: sysdeps/names/procuid.c:51
 msgid "Priority"
-msgstr ""
+msgstr "Προτεραιότητα"
 
+# sysdeps/names/procuid.c:51
 #: sysdeps/names/procuid.c:51
 msgid "Nice"
 msgstr ""
 
+# sysdeps/names/procuid.c:59
 #: sysdeps/names/procuid.c:51
 msgid "NGroups"
-msgstr ""
+msgstr "NGroups"
 
+# sysdeps/names/procuid.c:59
 #: sysdeps/names/procuid.c:52
 msgid "Groups"
-msgstr ""
+msgstr "Ομάδες"
 
+# sysdeps/names/procuid.c:57
 #: sysdeps/names/procuid.c:57
 msgid "User ID"
-msgstr ""
+msgstr "Ταυότητα Χρήστη"
 
+# sysdeps/names/procuid.c:58
 #: sysdeps/names/procuid.c:58
 msgid "Effective User ID"
-msgstr ""
+msgstr "Ενεργή Ταυτότητα Χρήστη"
 
+# sysdeps/names/procuid.c:59
 #: sysdeps/names/procuid.c:59
 msgid "Group ID"
-msgstr ""
+msgstr "Ταυτότητα Ομάδας"
 
+# sysdeps/names/procuid.c:60
 #: sysdeps/names/procuid.c:60
 msgid "Effective Group ID"
-msgstr ""
+msgstr "Ενεργή Ταυτότητα Ομάδας"
 
+# sysdeps/names/procuid.c:57
 #: sysdeps/names/procuid.c:61
 msgid "Saved User ID"
-msgstr ""
+msgstr "Αποθηκευμένη Ταυότητα Χρήστη"
 
+# sysdeps/names/procuid.c:59
 #: sysdeps/names/procuid.c:62
 msgid "Saved Group ID"
-msgstr ""
+msgstr "Αποθηκευμένη Ταυτότητα Ομάδας"
 
+# sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
 #: sysdeps/names/procuid.c:63
 msgid "Filesystem User ID"
-msgstr ""
+msgstr "Ταυτότητα Χρήστη Συστήματος Αρχείων"
 
+# sysdeps/names/procuid.c:60
 #: sysdeps/names/procuid.c:64
 msgid "Filesystem Group ID"
-msgstr ""
+msgstr "Ταυτότητα Ομάδας Συστήματος Αρχείων"
 
+# sysdeps/names/procuid.c:65
 #: sysdeps/names/procuid.c:65
 msgid "Process ID"
-msgstr ""
+msgstr "Ταυτότητα Διεργασίας"
 
+# sysdeps/names/procuid.c:66
 #: sysdeps/names/procuid.c:66
 msgid "PID of parent process"
-msgstr ""
+msgstr "Ταυτότητα γονικής διεργασίας"
 
+# sysdeps/names/procuid.c:67
 #: sysdeps/names/procuid.c:67
 msgid "Process group ID"
-msgstr ""
+msgstr "Ταυτότητα ομάδας διεργασίας"
 
+# sysdeps/names/procuid.c:68
 #: sysdeps/names/procuid.c:68
 msgid "Session ID"
-msgstr ""
+msgstr "Ταυτότητα συνεδρίας"
 
+# sysdeps/names/procuid.c:69
 #: sysdeps/names/procuid.c:69
 msgid "Full device number of controlling terminal"
 msgstr ""
 
+# sysdeps/names/procuid.c:70
 #: sysdeps/names/procuid.c:70
 msgid "Terminal process group ID"
 msgstr ""
 
+# sysdeps/names/procuid.c:71
 #: sysdeps/names/procuid.c:71
 msgid "Kernel scheduling priority"
 msgstr ""
 
+# sysdeps/names/procuid.c:72
 #: sysdeps/names/procuid.c:72
 msgid "Standard unix nice level of process"
 msgstr ""
@@ -881,329 +1219,470 @@ msgstr ""
 msgid "Additional process groups"
 msgstr ""
 
+# sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Number of entries in semaphore map"
 msgstr ""
 
+# sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max number of arrays"
 msgstr ""
 
+# sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores system wide"
 msgstr ""
 
+# sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Number of undo structures system wide"
 msgstr ""
 
+# sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max semaphores per array"
 msgstr ""
 
+# sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max ops per semop call"
 msgstr ""
 
+# sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Max number of undo entries per process"
 msgstr ""
 
+# sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "sizeof struct sem_undo"
 msgstr ""
 
+# sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 #: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 msgid "Semaphore max value"
 msgstr ""
 
+# sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 #: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 msgid "Adjust on exit max value"
 msgstr ""
 
+# sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max segment size"
 msgstr ""
 
+# sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Min segment size"
 msgstr ""
 
+# sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max number of segments"
 msgstr ""
 
+# sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 #: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max shared segments per process"
 msgstr ""
 
+# sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
 #: sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
 msgid "Max total shared memory"
 msgstr ""
 
+# sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Total Swap Space"
 msgstr ""
 
+# sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 #: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 msgid "Used Swap Space"
 msgstr ""
 
+# sysdeps/names/swap.c:43 sysdeps/names/swap.c:52
 #: sysdeps/names/swap.c:43 sysdeps/names/swap.c:52
 msgid "Free Swap Space"
 msgstr ""
 
+# sysdeps/names/swap.c:44
 #: sysdeps/names/swap.c:44
 msgid "Page In"
 msgstr ""
 
+# sysdeps/names/swap.c:45
 #: sysdeps/names/swap.c:45
 msgid "Page Out"
 msgstr ""
 
+# sysdeps/names/swap.c:53
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought in since system boot"
 msgstr ""
 
+# sysdeps/names/swap.c:55
 #: sysdeps/names/swap.c:55
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
+# sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
-msgstr ""
+msgstr "Χαρακτηριστικά Εξυπηρετητή"
 
+# sysdeps/names/procsegment.c:51
 #: sysdeps/names/sysdeps.c:54
 msgid "Pointer Size"
-msgstr ""
+msgstr "Μέγεθος Δείκτη"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:84
+# sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
 msgid "CPU Usage"
-msgstr ""
+msgstr "Χρήση ΚΜΕ"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:85
+# sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
 msgid "Memory Usage"
-msgstr ""
+msgstr "Χρήση Μνήμης"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:86
+# sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
 msgid "Swap Usage"
-msgstr ""
+msgstr "Χρήση Εναλλαγής"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:87
+# sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
 msgid "System Uptime"
-msgstr ""
+msgstr "Χρόνος Λειτουργίας Συστήματος"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:88
+# sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
 msgid "Load Averange"
-msgstr ""
+msgstr "Μέσος Φόρτος"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:89
+# sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
 msgid "Shared Memory Limits"
-msgstr ""
+msgstr "Όρια Διαμοιραζόμενης Μνήμης"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:90
+# sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
 msgid "Message Queue Limits"
-msgstr ""
+msgstr "Όρια Ουράς Μηνυμάτων"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:91
+# sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
 msgid "Semaphore Set Limits"
-msgstr ""
+msgstr "Όρια Συνόλου Σημαφόρων"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
+# sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
 msgid "List of running Processes"
-msgstr ""
+msgstr "Λίστα εκτελούμενων Διεργασιών"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
+# sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 msgid "Process Status information"
-msgstr ""
+msgstr "Πληροφορίες Κατάστασης Διεργασίας"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
+# sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
 msgid "Process UID and TTY information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
+# sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 msgid "Process Memory information"
-msgstr ""
+msgstr "Πληροφορίες Μνήμης Διεργασίας"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:96
+# sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
 msgid "Process Time information"
-msgstr ""
+msgstr "Πληροφορίες Ώρας Διεργασίας"
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:97
+# sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
 msgid "Process Signal information"
-msgstr ""
+msgstr "Πληροφορίες Σημάτων Διεργασίας"
 
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:98
+# sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
 msgid "Process Kernel Data information"
-msgstr ""
+msgstr "Πληροφορίες Δεδομένων Πυρήνα Διεργασίας"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:99
+# sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
 msgid "Process Segment information"
-msgstr ""
+msgstr "Πληροφορίες Τμημάτων Διεργασίας"
 
+# sysdeps/names/procuid.c:65
 #: sysdeps/names/sysdeps.c:71
+msgid "Process CWD"
+msgstr "Τρέχουσα Διαδρομή Εργασίας Διεργασίας"
+
+# sysdeps/names/sysdeps.c:71
+#: sysdeps/names/sysdeps.c:72
 msgid "Process Arguments"
-msgstr ""
+msgstr "Ορίσματα Διεργασίας"
 
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
+# sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
+#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
 msgid "Process Memory Map"
-msgstr ""
+msgstr "Χάρτης Μνήμης Διεργασίας"
 
-#: sysdeps/names/sysdeps.c:73
+# sysdeps/names/sysdeps.c:73
+#: sysdeps/names/sysdeps.c:74
 msgid "Mount List"
-msgstr ""
+msgstr "Λίστα Προσαρτήσεων"
 
-#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
+# sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
+#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
 msgid "File System Usage"
-msgstr ""
+msgstr "Χρήση Συστήματος Αρχείων"
 
-#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:104
+# sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:104
+#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
 msgid "Network Load"
-msgstr ""
+msgstr "Φόρτος Δικτύου"
 
-#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
+#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
 msgid "Interface Names"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
+# sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
+#: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
 msgid "PPP Statistics"
-msgstr ""
+msgstr "Στατιστικά PPP"
 
-#: sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:84
 msgid "Pointer Size on the Server (in bits)"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:100
-msgid "Command line arguments of the process"
-msgstr ""
+# sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:101
+msgid "Current working directory of the process"
+msgstr "Τρέχουσα διαδρομή εργασίας της διεργασίας"
 
+# sysdeps/names/sysdeps.c:100
 #: sysdeps/names/sysdeps.c:102
-msgid "List of currently mounted filesystems"
-msgstr ""
+msgid "Command line arguments of the process"
+msgstr "Ορίσματα γραμμής εντολών διεργασίας"
 
+# sysdeps/names/sysdeps.c:102
+#: sysdeps/names/sysdeps.c:104
+msgid "List of currently mounted filesystems"
+msgstr "Λίστα των τρεχόντων προσαρτημένων συστημάτων αρχείων"
+
+# sysdeps/names/uptime.c:40
 #: sysdeps/names/uptime.c:40
 msgid "Uptime"
-msgstr ""
+msgstr "Χρόνος λειτουργίας"
 
+# sysdeps/names/uptime.c:41
 #: sysdeps/names/uptime.c:41
 msgid "Idletime"
-msgstr ""
+msgstr "Χρόνος ανενεργίας"
 
 #: sysdeps/names/uptime.c:42
 msgid "Boot time"
 msgstr ""
 
+# sysdeps/names/uptime.c:47
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds since system boot"
-msgstr ""
+msgstr "Χρόνος σε δεύτερα από την εκκίνηση συστήματος"
 
+# sysdeps/names/uptime.c:48
 #: sysdeps/names/uptime.c:48
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr ""
 
+# sysdeps/names/proctime.c:54
 #: sysdeps/names/uptime.c:49
 msgid "Boot time (seconds sice epoch)"
-msgstr ""
+msgstr "Χρόνος εκκίνησης (σε δευτ/πτα από εποχή)"
 
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr ""
+#~ msgid "Total"
+#~ msgstr "Συνολικά"
 
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr ""
+#~ msgid "Sys"
+#~ msgstr "Σύστημα"
 
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr ""
+#~ msgid "Idle"
+#~ msgstr "Ανενεργό"
 
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr ""
+#~ msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+#~ msgstr "ΚΜΕ %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr ""
+#~ msgid "Percent:"
+#~ msgstr "Ποσοστό:"
 
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr ""
+#~ msgid "Total (%)"
+#~ msgstr "Συνολικα (%)"
 
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr ""
+# sysdeps/names/mem.c:49
+#~ msgid "User (%)"
+#~ msgstr "Χρήστη (%)"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr ""
+#~ msgid "Sys (%)"
+#~ msgstr "Σύστημα (%)"
 
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr ""
+#~ msgid "Idle (%)"
+#~ msgstr "Ανενεργό (%)"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr ""
+#~ msgid ""
+#~ "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+#~ "\n"
+#~ msgstr ""
+#~ "ΚΜΕ          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+#~ "\n"
 
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr ""
+#~ msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+#~ msgstr "ΚΜΕ %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr ""
+#~ msgid "read %d bytes"
+#~ msgstr "ανάγνωση %d byte"
 
-#: lib/errors.c:31
-msgid "No error"
-msgstr ""
+#~ msgid "read data size"
+#~ msgstr "ανάγνωση μεγέθους δεδομένων"
 
-#: lib/errors.c:32
-msgid "Unknown error"
-msgstr ""
+#~ msgid "read data %d bytes"
+#~ msgstr "ανάγνωση δεδομένων %d byte"
 
-#: lib/errors.c:33
-msgid "Invalid argument"
-msgstr ""
+#~ msgid "write %d bytes"
+#~ msgstr "γράψιμο %d byte"
 
-#: lib/errors.c:34
-msgid "No such parameter"
-msgstr ""
+#~ msgid "Enable debugging"
+#~ msgstr "Ενεργοποίηση εκσφαλμάτωσης"
 
-#: lib/errors.c:35
-msgid "Attempted to modify a read-only value"
-msgstr ""
+#~ msgid "DEBUG"
+#~ msgstr "ΕΚΣΦΑΛΜΆΤΩΣΗ"
 
-#: lib/errors.c:36
-msgid "Parameter size mismatch"
-msgstr ""
+#~ msgid "Enable verbose output"
+#~ msgstr "Ενεργοποίηση περιφραστικής εξόδου"
 
-#: lib/errors.c:37
-msgid "Communication with LibGTop server failed"
-msgstr ""
+#~ msgid "VERBOSE"
+#~ msgstr "ΠΕΡΙΦΡΑΣΤΙΚΉ"
 
-#: lib/errors.c:38
-msgid "No such process"
-msgstr ""
+#~ msgid "Don't fork into background"
+#~ msgstr "Να μη γίνει δικράνωση στο παρασκήνιο"
 
-#: lib/errors.c:39
-msgid "No kernel support"
-msgstr ""
+#~ msgid "NO-DAEMON"
+#~ msgstr "ΧΩΡΊΣ-ΔΑΊΜΟΝΑ"
 
-#: lib/errors.c:40
-msgid "Incompatible kernel version"
-msgstr ""
+#~ msgid "Invoked from inetd"
+#~ msgstr "Εκτελεσμένο από το inetd"
+
+#~ msgid "INETD"
+#~ msgstr "INETD"
+
+# support/error.c:109
+#~ msgid "Unknown system error"
+#~ msgstr "Άγνωστο σφάλμα συστήματος"
+
+# support/getopt.c:669
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s: η επιλογή `%s' είναι ασαφής\n"
+
+# support/getopt.c:693
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s: η επιλογή `--%s' δεν επιτρέπει ορίσματα\n"
+
+# support/getopt.c:698
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: η επιλογή `%c%s' δεν επιτρέπει ορίσματα\n"
+
+# support/getopt.c:715 support/getopt.c:888
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s: η επιλογή `%s' απαιτεί ένα όρισμα\n"
+
+# support/getopt.c:744
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s: μη αναγνωρίσιμη επιλογή `--%s'\n"
+
+# support/getopt.c:748
+#~ msgid "%s: unrecognized option `%c%s'\n"
+#~ msgstr "%s: μη αναγνωρίσιμη επιλογή `%c%s'\n"
+
+# support/getopt.c:774
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s: ακατάλληλη επιλογή -- %c\n"
+
+# support/getopt.c:777
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s: μη έγκυρη επιλογή -- %c\n"
+
+# sysdeps/names/loadavg.c:43
+#~ msgid "Number of list elements"
+#~ msgstr "Αριθμός στοιχείων λίστας"
+
+# sysdeps/names/procsegment.c:63
+#~ msgid "Total size of list"
+#~ msgstr "Συνολικό μέγεθος λίστας"
+
+#~ msgid "Size of a single list element"
+#~ msgstr "Μέγεθος ενός στοιχείου λίστας"
+
+#~ msgid "Address"
+#~ msgstr "Διεύθυνση"
+
+#~ msgid "Packets In"
+#~ msgstr "Πακέτα Εισερχόμενα"
+
+#~ msgid "Packets Out"
+#~ msgstr "Πακέτα Εξερχόμενα"
+
+#~ msgid "Packets Total"
+#~ msgstr "Πακέτα Συνολικά"
+
+#~ msgid "Bytes In"
+#~ msgstr "Byte Εισερχόμενα"
+
+#~ msgid "Bytes Out"
+#~ msgstr "Byte Εξερχόμενα"
+
+#~ msgid "Bytes Total"
+#~ msgstr "Byte Συνολικά"
+
+#~ msgid "Errors In"
+#~ msgstr "Σφάλματα Εισερχόμενα"
+
+#~ msgid "Errors Out"
+#~ msgstr "Σφάλματα Εξερχόμενα"
+
+#~ msgid "Errors Total"
+#~ msgstr "Σφάλματα Συνολικά"
+
+#~ msgid "Collisions"
+#~ msgstr "Συγκρούσεις"
+
+#~ msgid "Maximum Transfer Unit"
+#~ msgstr "Μέγιστη Μονάδα Μεταφοράς"
+
+# sysdeps/names/procstate.c:45
+#~ msgid "PPP State"
+#~ msgstr "Κατάσταση PPP"
+
+#~ msgid "Input bytes"
+#~ msgstr "Byte Εισόδου"
+
+#~ msgid "Output bytes"
+#~ msgstr "Byte Εξόδου"
+
+# sysdeps/names/loadavg.c:43
+#~ msgid "Number of input bytes"
+#~ msgstr "Αριθμός byte εισόδου"
+
+# sysdeps/names/loadavg.c:43
+#~ msgid "Number of output bytes"
+#~ msgstr "Αριθμός byte εξόδου"
+
+#~ msgid "Quit"
+#~ msgstr "Τερματισμός"
+
+#~ msgid "Stop"
+#~ msgstr "Σταμάτημα"
