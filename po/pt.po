@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.4.1\n"
-"POT-Creation-Date: 2002-03-25 12:23+0000\n"
-"PO-Revision-Date: 2002-03-25 13:06+0000\n"
+"POT-Creation-Date: 2002-04-02 00:00+0100\n"
+"PO-Revision-Date: 2002-04-02 00:06+0000\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -217,6 +217,14 @@ msgstr "%s: opção `-W %s' é ambígua\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: opção `-W %s' não permite um argumento\n"
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr "Mostrar esta mensagem de ajuda"
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
+msgstr "Mostrar breve mensagem de utilização"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
