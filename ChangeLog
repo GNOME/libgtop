@@ -1,3 +1,16 @@
+1998-05-20  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* sysdeps/osf1/procuid.c (glibtop_get_proc_uid__r):
+	added implementation for DEC OSF/1.
+	
+	* sysdeps/sun4/uptime.c: forgot to checkin
+
+	* sysdeps/sun4/loadavg.c: forgot to checkin
+	
+	* sysdeps/osf1/uptime.c: forgot to checkin
+	
+	* sysdeps/osf1/loadavg.c: forgot to checkin
+
 1998-05-19  Martin Baulig  <baulig@merkur.uni-trier.de>
 
 	* sysdeps/stub/uptime.c: forgot this file all the
