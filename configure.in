@@ -115,7 +115,7 @@ fi
 AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 
 GNOME_LIBGTOP_SYSDEPS
-GNOME_LIBGTOP_TYPES
+GNOME_LIBGTOP_TYPES_PRIVATE
 
 sysdeps_dir="$libgtop_sysdeps_dir"
 sysdeps_name="$libgtop_sysdeps_name"
@@ -123,7 +123,7 @@ AC_SUBST(sysdeps_dir)
 AC_SUBST(sysdeps_name)
 
 AC_MSG_CHECKING(for sysdeps_init_file)
-if x$linux_sysctl = xyes ; then
+if test x$linux_sysctl = xyes ; then
   sysdeps_init_file='sysdeps-init-kernel.c'
 else
   sysdeps_init_file='sysdeps-init-'"$libgtop_sysdeps_name"'.c'
@@ -442,6 +442,26 @@ typedef signed long long int int64_t;
 _______EOF
 	fi
 
+	if test x$glibtop_uint8_t != xyes ; then
+	  did_typedefs=yes
+	  cat >> $outfile <<\_______EOF
+
+#ifndef u_int8_t
+typedef unsigned char u_int8_t;
+#endif
+_______EOF
+	fi
+
+	if test x$glibtop_int8_t != xyes ; then
+	  did_typedefs=yes
+	  cat >> $outfile <<\_______EOF
+
+#ifndef int8_t
+typedef signed char int8_t;
+#endif
+_______EOF
+	fi
+
 	if test x$did_typedefs = xyes ; then
 	  cat >>$outfile <<_______EOF
 
@@ -505,6 +525,8 @@ esac
 ],[
 glibtop_uint64_t=$ac_cv_type_u_int64_t
 glibtop_int64_t=$ac_cv_type_int64_t
+glibtop_uint8_t=$ac_cv_type_u_int8_t
+glibtop_int8_t=$ac_cv_type_int8_t
 libgtop_major_version=$LIBGTOP_MAJOR_VERSION
 libgtop_minor_version=$LIBGTOP_MINOR_VERSION
 libgtop_micro_version=$LIBGTOP_MICRO_VERSION
