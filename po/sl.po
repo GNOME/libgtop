@@ -84,7 +84,7 @@ msgstr "©tevilo klikov ure, ki jih je sistem prebil v praznih poslih"
 
 #: sysdeps/names/cpu.c:66
 msgid "Tick frequency (default is 100)"
-msgstr "Frekvenca klikov (privzeto je 100)"
+msgstr "Frekvenca merjenja (privzeto je 100)"
 
 #: sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
@@ -721,7 +721,7 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:63
 msgid "Tick frequency"
-msgstr "Frekvenca klikov"
+msgstr "Frekvenca merjenja"
 
 #: sysdeps/names/proctime.c:64
 msgid "SMP user-mode CPU time accumulated by process"
