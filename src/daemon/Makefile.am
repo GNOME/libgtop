@@ -15,7 +15,8 @@ bin_PROGRAMS			= libgtop_daemon @server_programs@
 
 EXTRA_PROGRAMS			= libgtop_server
 
-libgtop_daemon_SOURCES		= gnuserv.c slave.c main.c io.c version.c
+libgtop_daemon_SOURCES		= gnuserv.c slave.c main.c io.c version.c \
+				  daemon.h server_config.h
 libgtop_daemon_LDADD		= $(top_builddir)/lib/libgtop.la \
 				  $(top_builddir)/sysdeps/common/libgtop_common.la \
 				  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
@@ -24,9 +25,10 @@ libgtop_daemon_LDADD		= $(top_builddir)/lib/libgtop.la \
 				  @INTLLIBS@ @LIBSUPPORT@ @X_LIBS@ -lXau
 libgtop_daemon_LDFLAGS		= -static
 
-libgtop_server_SOURCES		= server.c slave.c io.c version.c
+libgtop_server_SOURCES		= server.c slave.c io.c version.c daemon.h
 libgtop_server_LDADD		= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid.la \
 				  $(top_builddir)/sysdeps/common/libgtop_suid_common.la \
 				  @LIBSUPPORT@
 libgtop_server_LDFLAGS		= -static
 
+EXTRA_DIST			= server_config.h.in server_config.pl
