@@ -1,3 +1,9 @@
+2000-02-13  Martin Baulig  <martin@home-of-linux.org>
+
+	* *.c: kvm_nlist () returns -1 on error, but a positive return value
+	does not necessarily mean failure. Fixes #3302 which was reported by
+	Matthias Scheler some time ago.
+
 2000-02-06  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am: Removed the non-suid `libgtop-sysdeps.la'.

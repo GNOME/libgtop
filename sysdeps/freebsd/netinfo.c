@@ -59,7 +59,7 @@ glibtop_init_netinfo_p (glibtop *server)
 {
     server->sysdeps.netinfo = _glibtop_sysdeps_netinfo;
 
-    if (kvm_nlist (server->_priv->machine.kd, nlst) != 0)
+    if (kvm_nlist (server->_priv->machine.kd, nlst) < 0)
 	glibtop_error_io_r (server, "kvm_nlist");
 
     return 0;

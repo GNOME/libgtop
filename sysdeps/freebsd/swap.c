@@ -99,7 +99,7 @@ glibtop_init_swap_p (glibtop *server)
 {
 #if defined(__FreeBSD__) || defined(__bsdi__)
 #if __FreeBSD__ < 4 || defined(__bsdi__)
-    if (kvm_nlist (server->_priv->machine.kd, nlst) != 0) {
+    if (kvm_nlist (server->_priv->machine.kd, nlst) < 0) {
 	glibtop_warn_io_r (server, "kvm_nlist (swap)");
 	return -1;
     }
@@ -114,7 +114,7 @@ glibtop_init_swap_p (glibtop *server)
 #endif
 
 #if !(defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000))
-    if (kvm_nlist (server->_priv->machine.kd, nlst2) != 0) {
+    if (kvm_nlist (server->_priv->machine.kd, nlst2) < 0) {
 	glibtop_warn_io_r (server, "kvm_nlist (cnt)");
 	return -1;
     }

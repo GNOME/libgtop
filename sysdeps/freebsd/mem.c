@@ -94,7 +94,7 @@ glibtop_init_mem_p (glibtop *server)
 {
     register int pagesize;
 
-    if (kvm_nlist (server->_priv->machine.kd, nlst) != 0) {
+    if (kvm_nlist (server->_priv->machine.kd, nlst) < 0) {
 	glibtop_warn_io_r (server, "kvm_nlist (mem)");
 	return -1;
     }
