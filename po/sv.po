@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-28 23:55+0100\n"
-"PO-Revision-Date: 2004-12-28 23:55+0100\n"
+"POT-Creation-Date: 2004-12-29 09:23+0100\n"
+"PO-Revision-Date: 2004-12-29 09:23+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,111 +19,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: examples/smp.c:76
-#, c-format
-msgid "Ticks (%ld per second):"
-msgstr "Tick (%ld per sekund):"
-
-#: examples/smp.c:79
-msgid "Total"
-msgstr "Totalt"
-
-#: examples/smp.c:79
-msgid "User"
-msgstr "Användare"
-
-#: examples/smp.c:79
-msgid "Nice"
-msgstr "Nice"
-
-#: examples/smp.c:79
-msgid "Sys"
-msgstr "Sys"
-
-#: examples/smp.c:79
-msgid "Idle"
-msgstr "Ledigt"
-
-#: examples/smp.c:81
-#, c-format
-msgid ""
-"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-"\n"
-msgstr ""
-"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-"\n"
-
-#: examples/smp.c:85
-#, c-format
-msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-
-#: examples/smp.c:102
-msgid "Percent:"
-msgstr "Procent:"
-
-#: examples/smp.c:103
-msgid "Total (%)"
-msgstr "Totalt (%)"
-
-#: examples/smp.c:103
-msgid "User (%)"
-msgstr "Användare (%)"
-
-#: examples/smp.c:103
-msgid "Nice (%)"
-msgstr "Nice (%)"
-
-#: examples/smp.c:103
-msgid "Sys (%)"
-msgstr "Sys (%)"
-
-#: examples/smp.c:104
-msgid "Idle (%)"
-msgstr "Ledig (%)"
-
-#: examples/smp.c:106
-#, c-format
-msgid ""
-"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-"\n"
-msgstr ""
-"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-"\n"
-
-#: examples/smp.c:122
-#, c-format
-msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-
-#: examples/smp.c:128
-msgid "Spin:"
-msgstr "Spinn:"
-
 #: lib/read.c:64
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "läs %d byte"
-msgstr[1] "läs %d byte"
+msgstr[0] "läste %d byte"
+msgstr[1] "läste %d byte"
 
 #: lib/read_data.c:52
 msgid "read data size"
-msgstr "läs datastorlek"
+msgstr "läste datastorlek"
 
 #: lib/read_data.c:71
 #, c-format
-msgid "read data %lu byte"
-msgid_plural "read data %lu bytes"
-msgstr[0] "läs data %lu byte"
-msgstr[1] "läs data %lu byte"
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "läste %lu byte data"
+msgstr[1] "läste %lu byte data"
 
 #: lib/write.c:51
 #, c-format
-msgid "write %d byte"
-msgid_plural "write %d bytes"
-msgstr[0] "skriv %d byte"
-msgstr[1] "skriv %d byte"
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "skrev %d byte"
+msgstr[1] "skrev %d byte"
 
 #: src/daemon/gnuserv.c:461
 msgid "Enable debugging"
@@ -291,15 +210,74 @@ msgstr "Användarsignal 1"
 msgid "User defined signal 2"
 msgstr "Användarsignal 2"
 
-#~ msgid "read %lu byte of data"
-#~ msgid_plural "read %lu bytes of data"
-#~ msgstr[0] "läste %lu byte data"
-#~ msgstr[1] "läste %lu byte data"
+#~ msgid "Ticks (%ld per second):"
+#~ msgstr "Tick (%ld per sekund):"
 
-#~ msgid "wrote %d byte"
-#~ msgid_plural "wrote %d bytes"
-#~ msgstr[0] "skrev %d byte"
-#~ msgstr[1] "skrev %d byte"
+#~ msgid "Total"
+#~ msgstr "Totalt"
+
+#~ msgid "User"
+#~ msgstr "Användare"
+
+#~ msgid "Nice"
+#~ msgstr "Nice"
+
+#~ msgid "Sys"
+#~ msgstr "Sys"
+
+#~ msgid "Idle"
+#~ msgstr "Ledigt"
+
+#~ msgid ""
+#~ "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+#~ "\n"
+#~ msgstr ""
+#~ "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+#~ "\n"
+
+#~ msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+#~ msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+
+#~ msgid "Percent:"
+#~ msgstr "Procent:"
+
+#~ msgid "Total (%)"
+#~ msgstr "Totalt (%)"
+
+#~ msgid "User (%)"
+#~ msgstr "Användare (%)"
+
+#~ msgid "Nice (%)"
+#~ msgstr "Nice (%)"
+
+#~ msgid "Sys (%)"
+#~ msgstr "Sys (%)"
+
+#~ msgid "Idle (%)"
+#~ msgstr "Ledig (%)"
+
+#~ msgid ""
+#~ "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+#~ "\n"
+#~ msgstr ""
+#~ "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+#~ "\n"
+
+#~ msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+#~ msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+
+#~ msgid "Spin:"
+#~ msgstr "Spinn:"
+
+#~ msgid "read data %lu byte"
+#~ msgid_plural "read data %lu bytes"
+#~ msgstr[0] "läste data %lu byte"
+#~ msgstr[1] "läste data %lu byte"
+
+#~ msgid "write %d byte"
+#~ msgid_plural "write %d bytes"
+#~ msgstr[0] "skriv %d byte"
+#~ msgstr[1] "skriv %d byte"
 
 #~ msgid "Total CPU Time"
 #~ msgstr "Total processortid"
