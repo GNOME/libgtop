@@ -1,9 +1,7 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 CFLAGS				= -Wall -W @CFLAGS@ \
-				  -DDEBUG -DREAL_DEBUG -D_BSD \
-				  -DPARENT_DEBUG -DSLAVE_DEBUG \
-				  -DGLIBTOP_DAEMON_SLAVE
+				  -D_BSD -DGLIBTOP_DAEMON_SLAVE
 
 if NEED_LIBGTOP
 suid_sysdeps			= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid.la

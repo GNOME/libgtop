@@ -56,6 +56,8 @@ handle_parent_connection (int s)
 			return;
 		}
 		
+		memset (resp, 0, sizeof (glibtop_response));
+
 		memset (parameter, 0, sizeof (parameter));
 		
 		if (cmnd->data_size) {
@@ -88,6 +90,8 @@ handle_parent_connection (int s)
 #endif
 			return;
 		case GLIBTOP_CMND_SYSDEPS:
+			memcpy (&resp->u.sysdeps, &server->sysdeps, 
+				sizeof (glibtop_sysdeps));
 			resp->u.sysdeps.features = GLIBTOP_SYSDEPS_ALL;
 			do_output (s, resp, _offset_union (sysdeps), 0, NULL);
 			break;

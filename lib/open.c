@@ -176,6 +176,8 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		
 		server->features = sysdeps.features;
 
+		memcpy (&server->sysdeps, &sysdeps, sizeof (glibtop_sysdeps));
+
 		fprintf (stderr, "Server features are %lu.\n",
 			 server->features);
 	}

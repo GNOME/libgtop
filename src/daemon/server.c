@@ -49,14 +49,6 @@ GLIBTOP_SUID_PROC_SEGMENT;
 #include <fcntl.h>
 #include <locale.h>
 
-#if defined(HAVE_GETDTABLESIZE)
-#define GET_MAX_FDS() getdtablesize()
-#else
-/* Fallthrough case - please add other #elif cases above
-   for different OS's as necessary */
-#define GET_MAX_FDS() 256
-#endif
-
 int
 main(int argc, char *argv[])
 {
@@ -69,18 +61,13 @@ main(int argc, char *argv[])
 	uid = getuid (); euid = geteuid ();
 	gid = getgid (); egid = getegid ();
 
-	glibtop_open_p (glibtop_global_server, argv [0], 0, 0);
+	glibtop_init_p (glibtop_global_server, 0, 0);
 
 	if (setreuid (euid, uid)) _exit (1);
 
 	if (setregid (egid, gid)) _exit (1);
 
 	/* !!! END OF SUID ROOT PART !!! */
-
-	/* close all file descriptors except ones used by the pipes (0 and 1). */
-	max_fd = GET_MAX_FDS();
-	for(fd = 3 /* The first fd after the pipes */; fd < max_fd; fd++)
-		close(fd);
 
 	handle_slave_connection (0, 0);
 

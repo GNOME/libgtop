@@ -43,6 +43,8 @@ handle_slave_connection (int input, int output)
 				       "but buffer is %d",
 				       cmnd->size, BUFSIZ);
 
+		memset (resp, 0, sizeof (glibtop_response));
+
 		memset (parameter, 0, sizeof (parameter));
 		
 		if (cmnd->data_size) {
@@ -87,6 +89,10 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 
 	switch (cmnd->command) {
 	case GLIBTOP_CMND_SYSDEPS:
+		fprintf (stderr, "SYSDEPS: %p - %lx\n",
+			 server, server->sysdeps.cpu); 
+		memcpy (&resp->u.sysdeps, &server->sysdeps, 
+			sizeof (glibtop_sysdeps));
 		resp->u.sysdeps.features = glibtop_server_features;
 		resp->offset = _offset_union (sysdeps);
 		break;

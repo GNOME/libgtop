@@ -51,6 +51,7 @@ __BEGIN_DECLS
 
 extern void glibtop_open_l __P((glibtop *, const char *, const unsigned long, const unsigned));
 
+extern void glibtop_init_p __P((glibtop *, const unsigned long, const unsigned));
 extern void glibtop_open_p __P((glibtop *, const char *, const unsigned long, const unsigned));
 extern void glibtop_open_s __P((glibtop *, const char *, const unsigned long, const unsigned));
 
