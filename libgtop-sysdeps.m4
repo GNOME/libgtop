@@ -87,20 +87,14 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	if test $libgtop_smp = auto ; then
 	  AC_MSG_CHECKING(whether to enable SMP support)
-	  AC_TRY_RUN([
-#include <sys/utsname.h>
-#include <string.h>
-
-int
-main (void)
-{
-	struct utsname name;
-
-	if (uname (&name)) exit (1);
-
-	exit (strstr (name.version, "SMP") ? 0 : 1);
-}
-], libgtop_smp=yes, libgtop_smp=no, libgtop_smp=no)
+	  case "$host_os" in
+	  linux*)
+	    libgtop_smp=yes
+	    ;;
+	  *)
+	    libgtop_smp=no
+	    ;;
+	  esac
 	  AC_MSG_RESULT($libgtop_smp)
 	fi
 
