@@ -8,9 +8,9 @@ use Libgtop;
 
 my $server = Libgtop->new;
 
-print "CPU Usage: ".join (':', $server->cpu)."\n";
-print "Memory Usage: ".join (':', $server->mem)."\n";
-print "Swap Usage: ".join (':', $server->swap)."\n";
+print "CPU Usage:    ".join (' ', $server->cpu)."\n";
+print "Memory Usage: ".join (' ', $server->mem)."\n";
+print "Swap Usage:   ".join (' ', $server->swap)."\n";
 
 print "Process List: ".join (' ', $server->proclist (0,0))."\n";
 
