@@ -642,6 +642,9 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
+"Bu, sürecin beklediði \"kanal\"dýr. Baþka türlü belirtmek gerekirse, bir "
+"sistem çaðrýsýnýn adresidir. Eðer güncel bir /etc/psdatabase dosyanýz "
+"var ise ps -l komutu yardýmýyla WCHAN bilgisini görebilirsiniz."
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
@@ -691,11 +694,13 @@ msgid ""
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
 msgstr ""
+"Belleðin gerçek bellekte tuttuðu sayfa sayýsýndan üç çýkartýlmýþ halidir. "
+"Metin, veri ve yýðýn alanlarýnýn toplamýný verir."
 
 #: sysdeps/names/procmem.c:62
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr ""
+msgstr "Sürecin rss limit boyu (genellikle 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
@@ -731,19 +736,19 @@ msgstr "Yýðýn_Baþlangýcý"
 
 #: sysdeps/names/procsegment.c:48
 msgid "Text resident set size"
-msgstr ""
+msgstr "Kod kalýcý boyutu"
 
 #: sysdeps/names/procsegment.c:49
 msgid "Shared-Lib resident set size"
-msgstr ""
+msgstr "Paylaþýlmýþ kütüphane kalýcý boyutu"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Data resident set size"
-msgstr ""
+msgstr "Veri kalýcý boyutu"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Stack resident set size"
-msgstr ""
+msgstr "Yýðýn kalýcý boyutu"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Total size of dirty pages"
@@ -779,7 +784,7 @@ msgstr "SigCatch"
 
 #: sysdeps/names/procsignal.c:45
 msgid "Mask of pending signals"
-msgstr ""
+msgstr "Bekleyen sinyallerin maskesi"
 
 #: sysdeps/names/procsignal.c:46
 msgid "Mask of blocked signals"
@@ -815,7 +820,7 @@ msgstr "Exec() komutunda iþaret edilen çalýþtýrýlabilir dosyanýn ismi"
 
 #: sysdeps/names/procstate.c:46
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr ""
+msgstr "Süreç durumunun tek karakterlik gösterimi (S=uyuyor)"
 
 #: sysdeps/names/procstate.c:47
 msgid "UID of process"
@@ -887,21 +892,24 @@ msgstr "Süreç tarafýndan depolanan çekirdek konumu iþlemci zamaný"
 
 #: sysdeps/names/proctime.c:55
 msgid "cumulative utime of process and reaped children"
-msgstr ""
+msgstr "sürecin ve ek yavrularýn toplam utime süresi"
 
 #: sysdeps/names/proctime.c:56
 msgid "cumulative stime of process and reaped children"
-msgstr ""
+msgstr "sürecin ve ek yavrularýn toplam stime süresi"
 
 #: sysdeps/names/proctime.c:57
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr ""
+msgstr "Sürecin sonraki zamanaþýmýnýn zamaný (jiffy cinsinden)"
 
 #: sysdeps/names/proctime.c:58
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
+"Ýç zamanlayýcý nedeniyle sürece sonraki SIGALRM'ýn gönderilmesinden önce "
+"geçen zaman (jiffy cinsinden)" 
+
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
@@ -993,7 +1001,7 @@ msgstr "Oturum ID"
 
 #: sysdeps/names/procuid.c:71
 msgid "Full device number of controlling terminal"
-msgstr ""
+msgstr "Kontrol eden terminalin aygýt numarasý"
 
 #: sysdeps/names/procuid.c:72
 msgid "Terminal process group ID"
@@ -1021,7 +1029,7 @@ msgstr "Max sistem göstergesi"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Number of undo structures system wide"
-msgstr ""
+msgstr "Sistem tabanýndaki undo yapýsý sayýsý"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores per array"
@@ -1029,7 +1037,7 @@ msgstr "Her dize için Max gösterge"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max ops per semop call"
-msgstr ""
+msgstr "semop çaðrýsý baþýna azami op"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max number of undo entries per process"
@@ -1037,7 +1045,7 @@ msgstr "Süreçler için Max geri alma sayýsý"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
-msgstr ""
+msgstr "sizeof struct sem_undo"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Semaphore max value"
@@ -1129,7 +1137,7 @@ msgstr "Mesaj kuyruðu limiti"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
-msgstr ""
+msgstr "Semafor Set Limitleri"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
@@ -1209,11 +1217,11 @@ msgstr "Sistem açýldýktan sonra geçen zaman (sn)"
 
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr ""
+msgstr "Sistemin açýlýþýndan beri boþ geçirdiði zaman süresi (saniye)"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr ""
+msgstr "Takýlma"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
@@ -1241,7 +1249,7 @@ msgstr "EMT hatasý"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
-msgstr ""
+msgstr "Kayar nokta hatasý"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
@@ -1249,11 +1257,11 @@ msgstr "Öldür"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
-msgstr ""
+msgstr "Veriyolu hatasý"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
-msgstr ""
+msgstr "Eriþim hatasý"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
@@ -1261,7 +1269,7 @@ msgstr "Sistem kaynaklarýna hatalý baðlantý"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr ""
+msgstr "Kýrýk boru"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
@@ -1273,7 +1281,7 @@ msgstr "Sonlandýrma"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Sokette acil durum"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
@@ -1281,7 +1289,7 @@ msgstr "Dur"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr ""
+msgstr "Klavyeden durdurma"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
@@ -1289,19 +1297,19 @@ msgstr "Devam"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
-msgstr ""
+msgstr "Yavru sürecin durumu deðiþti"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr ""
+msgstr "tty'dan arkaplanda okuma"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr ""
+msgstr "tty'a arkaplanda yazma"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr ""
+msgstr "G/Ç mümkün"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
@@ -1317,11 +1325,11 @@ msgstr "Sanal alarm"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Alarm saati"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
-msgstr "Pencere "
+msgstr "Pencere boyu deðiþimi"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
