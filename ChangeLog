@@ -1,6 +1,7 @@
 2001-01-14  Abel Cheung  <maddog@linux.org.hk>
 
-	* configure.in: Sync'ed ALL_LINGUAS with files in po directory.
+	* configure.in: Sync'ed ALL_LINGUAS with files in po directory,
+	and renamed GETTEXT_PACKAGE to avoid conflict with libgtop 1.0.x.
 
 2002-01-10  Kevin Vandersloot <kfv101@psu.edu>
 
