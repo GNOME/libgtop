@@ -50,6 +50,8 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
 
+	memset(buf, 0, sizeof *buf);
+
 	file_to_buffer(server, buffer, FILENAME);
 
 	buf->total  = get_scaled(buffer, "MemTotal:");

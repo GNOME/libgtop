@@ -1,3 +1,7 @@
+2004-09-19  Benoît Dejean  <tazforever@dlfp.org>
+
+	* mem.c: (glibtop_get_mem_s): Added missing memset( , 0, ).
+
 2004-08-03  Benoît Dejean  <tazforever@dlfp.org>
 
 	* glibtop_server.h: Added next_token(). Changed skip_token(),
