@@ -1,5 +1,10 @@
 1998-10-12  Martin Baulig  <martin@home-of-linux.org>
 
+	* configure.in (GNOME_COMPILE_WARNINGS): Let the user enable
+	compiler warnings.
+	(--with-libgtop-guile): Make the default to build the guile
+	interface if guile can be found.
+
 	* Makefile.am (confexec_DATA): Install `feature.def' as
 	`libgtop-features.def'.
 	* libgtop.spec: Added `%{prefix}/lib/*.def' to the file list.

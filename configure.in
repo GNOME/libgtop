@@ -59,6 +59,9 @@ export cross_compiling
 
 AM_PROG_LIBTOOL
 
+dnl Let the user enable compiler warnings
+GNOME_COMPILE_WARNINGS
+
 dnl If you want to use libgtop without gnome, comment the following line out.
 GNOME_INIT_HOOK(gnome_found=yes)
 
@@ -74,9 +77,9 @@ GNOME_LIBGTOP_TYPES
 
 AC_ARG_WITH(libgtop-guile,
 [  --with-libgtop-guile    Build the libgtop guile interface (default=no)],
-[build_guile="$withval"], [build_guile=no])
+[build_guile="$withval"], [build_guile=yes])
 
-if test x$build_guile = xyes ; then
+if test x$build_guile != xno ; then
   GNOME_CHECK_GUILE
 fi
 
@@ -308,7 +311,7 @@ else
   guile_def=""
 fi
 
-INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_srcdir)/intl $SUPPORTINCS $GLIB_CFLAGS -W -Wall -Wmissing-prototypes -Wmissing-declarations -Wpointer-arith $CFLAGS $guile_def "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
+INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_srcdir)/intl $SUPPORTINCS $GLIB_CFLAGS $CFLAGS $guile_def "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
 
 AC_SUBST(INCLUDES)
 
