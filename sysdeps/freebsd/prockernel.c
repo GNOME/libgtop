@@ -142,12 +142,18 @@ glibtop_get_proc_kernel_p (glibtop *server,
 		       (unsigned long) &u_addr->u_pcb,
 		       (char *) &pcb, sizeof (pcb)) == sizeof (pcb))
 		{
-			/* Same like with pstats above. */
-			
+#if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
+
+			/* Sorry, don't know how to get it for
+			 * FreeBSD 3.0 at the moment.
+			 */
+
+#else
 			buf->kstk_esp = (u_int64_t) pcb.pcb_ksp;
 			buf->kstk_eip = (u_int64_t) pcb.pcb_pc;
 			
 			buf->flags |= _glibtop_sysdeps_proc_kernel_pcb;
+#endif
 		}
 
 	/* Taken from `wchan ()' in `/usr/src/bin/ps/print.c'. */

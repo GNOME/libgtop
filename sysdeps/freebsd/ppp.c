@@ -29,6 +29,11 @@
 
 #include <net/if.h>
 #include <net/if_types.h>
+
+#ifdef HAVE_NET_IF_VAR_H
+#include <net/if_var.h>
+#endif
+
 #include <net/netisr.h>
 #include <net/route.h>
 

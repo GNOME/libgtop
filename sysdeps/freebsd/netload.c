@@ -28,6 +28,11 @@
 #include <net/if.h>
 #include <net/if_dl.h>
 #include <net/if_types.h>
+
+#ifdef HAVE_NET_IF_VAR_H
+#include <net/if_var.h>
+#endif
+
 #include <netinet/in.h>
 #include <netinet/in_var.h>
 
@@ -102,7 +107,11 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 			   tname, 16) != 16))
 		glibtop_error_io_r (server, "kvm_read (ifnetaddr)");
 
+#if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
+	    ifaddraddr = (u_long) ifnet.if_addrhead.tqh_first;
+#else
 	    ifaddraddr = (u_long) ifnet.if_addrlist;
+#endif
 	}
 
 	if (ifaddraddr) {
@@ -171,10 +180,18 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 		buf->flags = _glibtop_sysdeps_netload;
 		return;
 	    }
-	
+
+#if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
+	    ifaddraddr = (u_long)ifaddr.ifa.ifa_link.tqe_next;
+#else
 	    ifaddraddr = (u_long)ifaddr.ifa.ifa_next;
+#endif
 	}
 	
+#if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
+	ifnetaddr = (u_long) ifnet.if_link.tqe_next;
+#else
 	ifnetaddr = (u_long) ifnet.if_next;
+#endif
     }
 }

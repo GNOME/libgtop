@@ -71,6 +71,14 @@ calcru(p, up, sp, ip)
 		tot = 1;
 	}
 
+#if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
+
+	/* This was changed from a `struct timeval' into a `u_int64_t'
+	 * on FreeBSD 3.0 and renamed p_rtime -> p_runtime.
+	 */
+
+	totusec = (u_quad_t) p->p_runtime;
+#else
 	sec = p->p_rtime.tv_sec;
 	usec = p->p_rtime.tv_usec;
 
@@ -81,6 +89,8 @@ calcru(p, up, sp, ip)
 			 (long)totusec);
 		totusec = 0;
 	}
+#endif
+
 
 	u = totusec;
 	st = (u * st) / tot;
@@ -161,7 +171,11 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 
 	glibtop_suid_leave (server);
 
+#if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
+	buf->rtime = pinfo [0].kp_proc.p_runtime;
+#else
 	buf->rtime = tv2sec (pinfo [0].kp_proc.p_rtime);
+#endif
 
 	buf->frequency = 1000000;
 
