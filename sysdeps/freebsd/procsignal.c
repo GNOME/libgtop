@@ -47,7 +47,7 @@ glibtop_get_proc_signal_p (glibtop *server,
 	struct kinfo_proc *pinfo;
 	int count = 0;
 
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_SIGNAL, 0);
+	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_SIGNAL), 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 

@@ -71,7 +71,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	struct pcb pcb;
 	int f, count;
 
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
+	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_KERNEL), 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
 
@@ -130,7 +130,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 
 	glibtop_suid_leave (server);
 
-	buf->nwchan = (u_int64_t) pinfo [0].kp_proc.p_wchan &~ KERNBASE;
+	buf->nwchan = (unsigned long) pinfo [0].kp_proc.p_wchan &~ KERNBASE;
 
 	if (pinfo [0].kp_proc.p_wchan && pinfo [0].kp_proc.p_wmesg) {
 		strncpy (buf->wchan, pinfo [0].kp_eproc.e_wmesg,

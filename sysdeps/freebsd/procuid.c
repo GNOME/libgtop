@@ -49,7 +49,7 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	struct kinfo_proc *pinfo;
 	int count = 0;
 
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_UID, 0);
+	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_UID), 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 
