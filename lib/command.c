@@ -31,12 +31,10 @@ void *
 glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 		const void *send_buf, size_t recv_size, void *recv_buf)
 {
-	glibtop_command cmnd;
-	glibtop_response response;
+	glibtop_command cmnd = {0};
+	glibtop_response response = {0};
 
 	glibtop_init_r (&server, 0, 0);
-
-	memset (&cmnd, 0, sizeof (glibtop_command));
 
 	cmnd.command = command;
 

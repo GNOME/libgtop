@@ -1,3 +1,7 @@
+2004-08-22  Benoît Dejean  <tazforever@dlfp.org>
+
+	* lib/command.c: (glibtop_call_l): Zeroed all args.
+
 2004-08-21  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.in: Add «nb» to ALL_LINGUAS.
