@@ -1,5 +1,10 @@
 1999-12-05  Martin Baulig  <martin@home-of-linux.org>
 
+	* lib/structures.pl: New script to create `structures.h' which will
+	be used in language bindings code.
+
+1999-12-05  Martin Baulig  <martin@home-of-linux.org>
+
 	* features.def: Use `pointer(<type>)' as return value for functions
 	returning an array of scalar values (such as `unsigned' etc.).
 
