@@ -1,3 +1,7 @@
+2004-07-15  Benoît Dejean  <tazforever@dlfp.org>
+
+	* include/glibtop/procstate.h: Added GLIBTOP_PROCESS_DEAD constant.
+
 2004-07-07  Benoît Dejean  <tazforever@dlfp.org>
 
 	* include/glibtop/procargs.h: Added new glibtop_get_proc_argv*() functions.

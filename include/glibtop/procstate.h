@@ -47,6 +47,7 @@ G_BEGIN_DECLS
 #define GLIBTOP_PROCESS_ZOMBIE                  8
 #define GLIBTOP_PROCESS_STOPPED                 16
 #define GLIBTOP_PROCESS_SWAPPING                32
+#define GLIBTOP_PROCESS_DEAD                    64
 
 typedef struct _glibtop_proc_state	glibtop_proc_state;
 
