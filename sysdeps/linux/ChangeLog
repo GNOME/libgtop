@@ -1,3 +1,7 @@
+1998-10-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* procdata.c: Removed this obsolete file.
+
 1998-10-02  Martin Baulig  <martin@home-of-linux.org>
 
 	* proclist.c (glibtop_init_proclist_s): You can now also use the
