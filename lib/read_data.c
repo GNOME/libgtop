@@ -63,7 +63,7 @@ glibtop_read_data_l (glibtop *server)
 	}
 
 	if (ret < 0)
-		glibtop_error_io_r (server, _("read data %d bytes"));
+		glibtop_error_io_r (server, ngettext ("read data %d byte", "read data %d bytes", size));
 
 	return ptr;
 }

@@ -45,5 +45,5 @@ glibtop_write_l (glibtop *server, size_t size, void *buf)
 	}
 
 	if (ret < 0)
-		glibtop_error_io_r (server, _("write %d bytes"), size);
+		glibtop_error_io_r (server, ngettext ("write %d byte", "write %d bytes", size), size);
 }

@@ -1,5 +1,12 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* lib/read.c: (glibtop_read_l):
+	* lib/read_data.c: (glibtop_read_data_l):
+	* lib/write.c: (glibtop_write_l): apply patch for ngettext support
+	by Christian Neumair <chris@gnome-de.org>
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* src/inodedb/Makefile.am: link to libgtop_suid_common-2.0.la
 	(Closes: #107990)
 
