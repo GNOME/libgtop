@@ -1,3 +1,9 @@
+2002-01-10  Kevin Vandersloot <kfv101@psu.edu>
+
+	* configure.in: Put in error message telling people
+	not to use HEAD for the time being untill I merger the
+	porting branch
+
 2002-01-09  Darin Adler  <darin@bentspoon.com>
 
 	* Makefile.am: Fix install problem.

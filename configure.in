@@ -6,6 +6,19 @@ AC_INIT(copyright.txt)
 AM_CONFIG_HEADER(config.h)
 AC_CANONICAL_SYSTEM
 
+if test -z "$I_LIKE_PAIN"; then
+AC_MSG_ERROR([
+*** You don't want this version of libgtop!
+*** If you want the GNOME 2.0 port then check out
+*** the libgtop-GNOME-2-0-port branch of libgtop
+*** You can do this by typing
+*** cvs update -r libgtop-GNOME-2-0-port libgtop/
+*** in the directory above this one.
+*** If you are looking for the stable branch then 
+*** check out the LIBGTOP_STABLE_1_0 branch
+***])
+fi
+  
 dnl This is required at several places
 AC_CHECK_PROG(ac_dc_found, dc, yes, no)
 if test x$ac_dc_found != xyes ; then
