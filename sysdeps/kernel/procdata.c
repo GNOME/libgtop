@@ -92,7 +92,10 @@ glibtop_get_proc_data_proc_state_s (glibtop *server,
     size_t size = sizeof (libgtop_proc_state_t);
 
     if (sysctl (name, 3, proc_state, &size, NULL, 0)) {
-	glibtop_warn_io_r (server, "sysctl (libgtop/proc_state)");
+	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_SUCH_PROCESS;
+	else
+	    glibtop_warn_io_r (server, "sysctl (libgtop/proc_state)");
 	return -1;
     }
 
@@ -108,7 +111,10 @@ glibtop_get_proc_data_proc_mem_s (glibtop *server,
     size_t size = sizeof (libgtop_proc_mem_t);
 
     if (sysctl (name, 3, proc_mem, &size, NULL, 0)) {
-	glibtop_warn_io_r (server, "sysctl (libgtop/proc_mem)");
+	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_SUCH_PROCESS;
+	else
+	    glibtop_warn_io_r (server, "sysctl (libgtop/proc_mem)");
 	return -1;
     }
 
@@ -124,7 +130,10 @@ glibtop_get_proc_data_proc_signal_s (glibtop *server,
     size_t size = sizeof (libgtop_proc_signal_t);
 
     if (sysctl (name, 3, proc_signal, &size, NULL, 0)) {
-	glibtop_warn_io_r (server, "sysctl (libgtop/proc_signal)");
+	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_SUCH_PROCESS;
+	else
+	    glibtop_warn_io_r (server, "sysctl (libgtop/proc_signal)");
 	return -1;
     }
 
@@ -140,7 +149,10 @@ glibtop_get_proc_data_proc_kernel_s (glibtop *server,
     size_t size = sizeof (libgtop_proc_kernel_t);
 
     if (sysctl (name, 3, proc_kernel, &size, NULL, 0)) {
-	glibtop_warn_io_r (server, "sysctl (libgtop/proc_kernel)");
+	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_SUCH_PROCESS;
+	else
+	    glibtop_warn_io_r (server, "sysctl (libgtop/proc_kernel)");
 	return -1;
     }
 
@@ -155,7 +167,10 @@ glibtop_get_proc_data_proc_args_s (glibtop *server, pid_t pid,
     size_t size = max_len;
 
     if (sysctl (name, 3, result, &size, NULL, 0)) {
-	glibtop_warn_io_r (server, "sysctl (libgtop/proc_args)");
+	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_SUCH_PROCESS;
+	else
+	    glibtop_warn_io_r (server, "sysctl (libgtop/proc_args)");
 	return -1;
     }
 
@@ -171,8 +186,10 @@ glibtop_get_proc_data_proc_maps_s (glibtop *server, pid_t pid,
     size_t size = max_len;
 
     if (sysctl (name, 3, result, &size, NULL, 0)) {
-	glibtop_warn_io_r (server, "sysctl (libgtop/proc_maps)");
-	fprintf (stderr, "retval: %d\n", size);
+	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_SUCH_PROCESS;
+	else
+	    glibtop_warn_io_r (server, "sysctl (libgtop/proc_maps)");
 	return -1;
     }
 
