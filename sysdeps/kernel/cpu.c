@@ -42,7 +42,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	memset (buf, 0, sizeof (glibtop_cpu));
 
 	if (table (TABLE_CPU, &tbl, NULL))
-		glibtop_error_r (server, "table(TABLE_CPU): %s\n", strerror (errno));
+		glibtop_error_io_r (server, "table(TABLE_CPU)");
 
 	buf->flags = _glibtop_sysdeps_cpu;
 

@@ -38,7 +38,8 @@ static const unsigned long _glibtop_sysdeps_proc_uid =
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
+glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
+			pid_t pid)
 {
 	union table tbl;
 	long def_priority, priority, nice;
@@ -54,7 +55,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	}
 
 	if (table (TABLE_PROC_UID, &tbl, &pid))
-	  glibtop_error_r (server, "table(TABLE_PROC_UID): %s\n", strerror (errno));
+	  glibtop_error_io_r (server, "table(TABLE_PROC_UID)");
 
 	buf->flags = _glibtop_sysdeps_proc_uid;
 

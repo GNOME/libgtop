@@ -34,7 +34,8 @@ static const unsigned long _glibtop_sysdeps_proc_time =
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
+glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf,
+			 pid_t pid)
 {
 	union table tbl;
 
@@ -49,7 +50,7 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 	}
 
 	if (table (TABLE_PROC_TIME, &tbl, &pid))
-	  glibtop_error_r (server, "table(TABLE_PROC_TIME): %s\n", strerror (errno));
+	  glibtop_error_io_r (server, "table(TABLE_PROC_TIME)");
 
 	buf->utime = tbl.proc_time.utime;
 	buf->stime = tbl.proc_time.stime;

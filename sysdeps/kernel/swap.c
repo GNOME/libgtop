@@ -41,7 +41,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	memset (buf, 0, sizeof (glibtop_swap));
 
 	if (table (TABLE_SWAP, &tbl, NULL))
-		glibtop_error_r (server, "table(TABLE_SWAP): %s\n", strerror (errno));
+		glibtop_error_io_r (server, "table(TABLE_SWAP)");
 
 	buf->flags = _glibtop_sysdeps_swap;
 

@@ -40,16 +40,9 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	memset (buf, 0, sizeof (glibtop_loadavg));
 
 	if (table (TABLE_LOADAVG, &tbl, NULL))
-		glibtop_error_r (server, "table(TABLE_LOADAVG): %s\n", strerror (errno));
+		glibtop_error_io_r (server, "table(TABLE_LOADAVG)");
 	
 	buf->flags = _glibtop_sysdeps_loadavg;
-
-#if 0
-	fprintf (stderr, "Table (%u) = (%lu, %lu, %lu) - %u, %u, %u\n",
-		 TABLE_LOADAVG, tbl.loadavg.loadavg [0], tbl.loadavg.loadavg [1],
-		 tbl.loadavg.loadavg [2], tbl.loadavg.nr_running,
-		 tbl.loadavg.nr_tasks, tbl.loadavg.last_pid);
-#endif
 
 	buf->loadavg [0] = tbl.loadavg.loadavg [0];
 	buf->loadavg [1] = tbl.loadavg.loadavg [1];

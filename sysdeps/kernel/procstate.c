@@ -33,10 +33,12 @@ static const unsigned long _glibtop_sysdeps_proc_state =
 #define NR_STATES	7
 
 void
-glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
+glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
+			  pid_t pid)
 {
 	union table tbl;
-	static const char states [NR_STATES] = { 'R', 'S', 'D', 'Z', 'T', 'W', '.' };
+	static const char states [NR_STATES] =
+	{ 'R', 'S', 'D', 'Z', 'T', 'W', '.' };
 	unsigned state;
 
 	glibtop_init_r (&server, 0, 0);
@@ -50,7 +52,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	}
 
 	if (table (TABLE_PROC_STATE, &tbl, &pid))
-		glibtop_error_r (server, "table(TABLE_PROC_STATE): %s\n", strerror (errno));
+		glibtop_error_io_r (server, "table(TABLE_PROC_STATE)");
 
 	buf->flags = _glibtop_sysdeps_proc_state;
 

@@ -50,14 +50,14 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 	}
 
 	if (table (TABLE_PROC_MEM, &tbl, &pid))
-		glibtop_error_r (server, "table(TABLE_PROC_MEM): %s\n", strerror (errno));
+		glibtop_error_io_r (server, "table(TABLE_PROC_MEM)");
 	
 	buf->start_code = tbl.proc_mem.start_code;
 	buf->end_code = tbl.proc_mem.end_code;
 	buf->start_stack = tbl.proc_mem.start_stack;
 
 	if (table (TABLE_PROC_SEGMENT, &tbl, &pid))
-		glibtop_error_r (server, "table(TABLE_PROC_SEGMENT): %s\n", strerror (errno));
+		glibtop_error_io_r (server, "table(TABLE_PROC_SEGMENT)");
 
 	buf->flags = _glibtop_sysdeps_proc_segment;
 

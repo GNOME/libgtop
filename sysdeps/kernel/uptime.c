@@ -40,7 +40,7 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 	memset (buf, 0, sizeof (glibtop_uptime));
 
 	if (table (TABLE_UPTIME, &tbl, NULL))
-		glibtop_error_r (server, "table(TABLE_UPTIME): %s\n", strerror (errno));
+		glibtop_error_io_r (server, "table(TABLE_UPTIME)");
 	
 	buf->flags = _glibtop_sysdeps_uptime;
 

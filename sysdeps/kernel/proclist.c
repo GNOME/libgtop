@@ -19,14 +19,11 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
 #include <glibtop/xmalloc.h>
 #include <glibtop/proclist.h>
 
-#include <sys/stat.h>
-#include <unistd.h>
-#include <dirent.h>
-#include <ctype.h>
+#include "kernel.h"
 
 static const unsigned long _glibtop_sysdeps_proclist =
 (1 << GLIBTOP_PROCLIST_TOTAL) + (1 << GLIBTOP_PROCLIST_NUMBER) +
@@ -51,105 +48,24 @@ static const unsigned long _glibtop_sysdeps_proclist =
 unsigned *
 glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf)
 {
-	DIR *proc;
-	struct dirent *entry;
-	char buffer [BUFSIZ];
-	unsigned count, total, pid;
-	unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
-	unsigned pids_size = 0, pids_offset = 0, new_size;
-	struct stat statb;
-	int len, i, ok;
+	union table tbl;
+	unsigned *pids_chain;
 
 	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proclist));
 
-	proc = opendir ("/proc");
-	if (!proc) return NULL;
-
-	/* read every every entry in /proc */
-
-	for (count = total = 0, entry = readdir (proc); entry; entry = readdir (proc)) {
-		ok = 1; len = strlen (entry->d_name);
-
-		/* does it consist entirely of digits? */
-		
-		for (i = 0; i < len; i++)
-			if (!isdigit (entry->d_name [i])) ok = 0;
-		if (!ok) continue;
-
-		/* convert it in a number */
-
-		if (sscanf (entry->d_name, "%u", &pid) != 1) continue;
-
-		/* is it really a directory? */
-
-		sprintf (buffer, "/proc/%d", pid);
-		
-		if (stat (buffer, &statb)) continue;
-
-		if (!S_ISDIR (statb.st_mode)) continue;
-
-		/* Fine. Now we first try to store it in pids. If this buffer is
-		 * full, we copy it to the pids_chain. */
-
-		if (count >= BLOCK_COUNT) {
-			/* The following call to glibtop_realloc will be equivalent to
-			 * glibtop_malloc if pids_chain is NULL. We just calculate the
-			 * new size and copy pids to the beginning of the newly allocated
-			 * block. */
-
-			new_size = pids_size + BLOCK_SIZE;
-
-			pids_chain = glibtop_realloc_r (server, pids_chain, new_size);
-
-			memcpy (pids_chain + pids_offset, pids, BLOCK_SIZE);
-
-			pids_size = new_size;
-
-			pids_offset += BLOCK_COUNT;
-
-			count = 0;
-		}
-
-		/* pids is now big enough to hold at least one single pid. */
-		
-		pids [count++] = pid;
-
-		total++;
-	}
-	
-	closedir (proc);
-
-	/* count is only zero if an error occured (one a running Linux system, we
-	 * only have at least one single process). */
-
-	if (!count) return NULL;
-
-	/* The following call to glibtop_realloc will be equivalent to
-	 * glibtop_malloc if pids_chain is NULL. We just calculate the
-	 * new size and copy pids to the beginning of the newly allocated
-	 * block. */
-	
-	new_size = pids_size + count * sizeof (unsigned);
-	
-	pids_chain = glibtop_realloc_r (server, pids_chain, new_size);
-	
-	memcpy (pids_chain + pids_offset, pids, count * sizeof (unsigned));
-	
-	pids_size = new_size;
-	
-	pids_offset += BLOCK_COUNT;
-
-	/* Since everything is ok now, we can set buf->flags, fill in the remaining fields
-	   and return pids_chain. */
-
-	buf->flags = _glibtop_sysdeps_proclist;
+	if (table (TABLE_PROCLIST, &tbl, NULL))
+		glibtop_error_io_r (server, "table(TABLE_PROCLIST)");
 
 	buf->size = sizeof (unsigned);
-	buf->number = total;
+	buf->number = tbl.proclist.nr_tasks;
 
-	buf->total = total * sizeof (unsigned);
+	buf->total = buf->number * sizeof (unsigned);
+
+	pids_chain = glibtop_malloc_r (server, buf->total);
+
+	memcpy (pids_chain, tbl.proclist.pids, buf->total);
 
 	return pids_chain;
 }

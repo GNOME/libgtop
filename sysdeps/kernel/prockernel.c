@@ -34,7 +34,8 @@ static const unsigned long _glibtop_sysdeps_proc_kernel =
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid)
+glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
+			   pid_t pid)
 {
 	union table tbl;
 	
@@ -49,7 +50,7 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid)
 	}
 
 	if (table (TABLE_PROC_KERNEL, &tbl, &pid))
-		glibtop_error_r (server, "table(TABLE_PROC_KERNEL): %s\n", strerror (errno));
+		glibtop_error_io_r (server, "table(TABLE_PROC_KERNEL)");
 	
 	buf->flags = _glibtop_sysdeps_proc_kernel;
 	

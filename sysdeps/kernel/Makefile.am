@@ -16,8 +16,8 @@ libgtop_sysdeps_la_SOURCES	= init.c open.c close.c kernel.s cpu.c mem.c swap.c \
 
 include_HEADERS			= glibtop_server.h
 
-kernel.o kernel.lo: kernel.s
+kernel.o kernel.lo: $(srcdir)/kernel.s
 	rm -f kernel.o kernel.lo
-	$(AS) -o kernel.o kernel.s
+	$(AS) -o kernel.o $(srcdir)/kernel.s
 	cp kernel.o kernel.lo
 

@@ -32,7 +32,8 @@ static const unsigned long _glibtop_sysdeps_proc_signal =
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf, pid_t pid)
+glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
+			   pid_t pid)
 {
 	union table tbl;
 
@@ -47,13 +48,12 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf, pid_t pid)
 	}
 
 	if (table (TABLE_PROC_SIGNAL, &tbl, &pid))
-		glibtop_error_r (server, "table(TABLE_PROC_SIGNAL): %s\n", strerror (errno));
+		glibtop_error_io_r (server, "table(TABLE_PROC_SIGNAL)");
 
 	buf->flags = _glibtop_sysdeps_proc_signal;
 
-	buf->signal = tbl.proc_signal.signal;
-	buf->blocked = tbl.proc_signal.blocked;
-	buf->sigignore = tbl.proc_signal.ignored;
-	buf->sigcatch = tbl.proc_signal.caught;
-	
+	buf->signal = tbl.proc_signal.signal.__val [0];
+	buf->blocked = tbl.proc_signal.blocked.__val [0];
+	buf->sigignore = tbl.proc_signal.ignored.__val [0];
+	buf->sigcatch = tbl.proc_signal.caught.__val [0];
 }

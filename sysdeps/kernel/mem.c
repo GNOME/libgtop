@@ -43,7 +43,7 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	memset (buf, 0, sizeof (glibtop_mem));
 
 	if (table (TABLE_MEM, &tbl, NULL))
-		glibtop_error_r (server, "table(TABLE_MEM): %s\n", strerror (errno));
+		glibtop_error_io_r (server, "table(TABLE_MEM)");
 
 	buf->flags = _glibtop_sysdeps_mem;
 

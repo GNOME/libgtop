@@ -33,7 +33,8 @@ static const unsigned long _glibtop_sysdeps_proc_mem =
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
+glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
+			pid_t pid)
 {
 	union table tbl;
 
@@ -48,13 +49,13 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 	}
 
 	if (table (TABLE_PROC_MEM, &tbl, &pid))
-		glibtop_error_r (server, "table(TABLE_PROC_MEM): %s\n", strerror (errno));
+		glibtop_error_io_r (server, "table(TABLE_PROC_MEM)");
 	
 	buf->rss = tbl.proc_mem.rss;
 	buf->rss_rlim = tbl.proc_mem.rlim;
 
 	if (table (TABLE_PROC_SEGMENT, &tbl, &pid))
-		glibtop_error_r (server, "table(TABLE_PROC_SEGMENT): %s\n", strerror (errno));
+		glibtop_error_io_r (server, "table(TABLE_PROC_SEGMENT)");
 	
 	buf->flags = _glibtop_sysdeps_proc_mem;
 
