@@ -39,7 +39,7 @@ _close_common (glibtop *, glibtop_backend *);
 
 extern glibtop_call_vector glibtop_backend_common_call_vector;
 
-glibtop_backend_info glibtop_backend_common = {
+glibtop_backend_info LibGTopBackendInfo = {
     "glibtop-backend-common", _open_common, _close_common,
     &glibtop_backend_common_call_vector
 };

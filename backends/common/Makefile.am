@@ -2,10 +2,15 @@ LINK		= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 INCLUDES	= @INCLUDES@
 
+backenddir	= @LIBGTOP_BACKEND_DIR@
+
+backend_DATA = \
+	libgtop-common.backend
+
 noinst_HEADERS = \
 	glibtop-backend-private.h
 
-lib_LTLIBRARIES = \
+backend_LTLIBRARIES = \
 	libgtop_backend_common.la
 
 libgtop_backend_common_la_SOURCES = \
@@ -13,7 +18,7 @@ libgtop_backend_common_la_SOURCES = \
 	marshal.c
 
 libgtop_backend_common_la_LDFLAGS = \
-	$(LT_VERSION_INFO)
+	$(LT_VERSION_INFO) -export-dynamic
 
 BUILT_SOURCES = \
 	marshal.c

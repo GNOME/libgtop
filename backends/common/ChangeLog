@@ -1,5 +1,14 @@
 2000-01-12  Martin Baulig  <martin@home-of-linux.org>
 
+	* Makefile.am: Install everything in $(LIBGTOP_BACKEND_DIR).
+
+	* libgtop-common.backend: New file.
+
+	* backend-common.c (glibtop_backend_common): Renamed to
+	`LibGTopBackendInfo'.
+
+2000-01-12  Martin Baulig  <martin@home-of-linux.org>
+
 	Initial version of the "glibtop-backend-common" backend.
 
 	* backend-common.c: New file.
