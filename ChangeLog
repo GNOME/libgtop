@@ -1,3 +1,7 @@
+1998-12-22  Yukihiro Nakai  <Nakai@TokyoNet.AD.JP>
+
+	* configure.in (ALL_LINGUAS): Added `ja'.
+
 1998-12-18  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am: Applied patch from Edward Jason Riedy to use '#'

@@ -1,0 +1,1063 @@
+# Copyright (C) 1998 Free Software Foundation, Inc.
+# Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1998
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop VERSION\n"
+"POT-Creation-Date: 1998-12-10 22:12+0900\n"
+"PO-Revision-Date: 1998-12-11 06:53+09:00\n"
+"Last-Translator: Eiichiro ITANI <emu@ceres.dti.ne.jp>\n"
+"Language-Team: <gnome@lists.hypercore.co.jp>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=euc-japan\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: sysdeps/names/cpu.c:41
+msgid "Total CPU Time"
+msgstr "累積CPU時間"
+
+#: sysdeps/names/cpu.c:42
+msgid "CPU Time in User Mode"
+msgstr "ユーザモードでのCPU時間"
+
+#: sysdeps/names/cpu.c:43
+msgid "CPU Time in User Mode (nice)"
+msgstr "ユーザモードでのCPU時間 (nice)"
+
+#: sysdeps/names/cpu.c:44
+msgid "CPU Time in System Mode"
+msgstr "システムモードでのCPU時間"
+
+#: sysdeps/names/cpu.c:45
+msgid "CPU Time in the Idle Task"
+msgstr "休眠中タスクでのCPU時間"
+
+#: sysdeps/names/cpu.c:46
+msgid "Tick Frequency"
+msgstr "チック周波数"
+
+#: sysdeps/names/cpu.c:47
+msgid "SMP Total CPU Time"
+msgstr "SMP累積CPU時間"
+
+#: sysdeps/names/cpu.c:48
+msgid "SMP CPU Time in User Mode"
+msgstr "ユーザモードでのSMP CPU時間"
+
+#: sysdeps/names/cpu.c:49
+msgid "SMP CPU Time in User Mode (nice)"
+msgstr "ユーザモードでのSMP CPU時間(nice)"
+
+#: sysdeps/names/cpu.c:50
+msgid "SMP CPU Time in System Mode"
+msgstr "システムモードでのSMP CPU時間"
+
+#: sysdeps/names/cpu.c:51
+msgid "SMP CPU Time in the Idle Task"
+msgstr "休眠中タスクでのSMP CPU時間"
+
+#: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:62
+msgid "Number of clock ticks since system boot"
+msgstr "システムが起動した後経過したチック数"
+
+#: sysdeps/names/cpu.c:57 sysdeps/names/cpu.c:63
+msgid "Number of clock ticks the system spent in user mode"
+msgstr "ユーザモードで費やした累積チック数"
+
+#: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
+msgid "Number of clock ticks the system spent in user mode (nice)"
+msgstr "ユーザモードで費やした累積チック数(nice)"
+
+#: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
+msgid "Number of clock ticks the system spent in system mode"
+msgstr "システムモードで費やした累積チック数"
+
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
+msgid "Number of clock ticks the system spent in the idle task"
+msgstr "休眠中のタスクに費やした累積チック数"
+
+#: sysdeps/names/cpu.c:61
+msgid "Tick frequency (default is 100)"
+msgstr "チック周波数(デフォルトは 100)"
+
+#: sysdeps/names/fsusage.c:37 sysdeps/names/fsusage.c:46
+msgid "Total blocks"
+msgstr "累積ブロック数"
+
+#: sysdeps/names/fsusage.c:38
+msgid "Free blocks"
+msgstr "空ブロック"
+
+#: sysdeps/names/fsusage.c:39
+msgid "Available blocks"
+msgstr "使用可能ブロック"
+
+#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
+msgid "Total file nodes"
+msgstr "累積ファイルノード数"
+
+#: sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
+msgid "Free file nodes"
+msgstr "空きファイルノード数"
+
+#: sysdeps/names/fsusage.c:47
+msgid "Free blocks available to the superuser"
+msgstr "特権ユーザが利用できるの空ブロック"
+
+#: sysdeps/names/fsusage.c:48
+msgid "Free blocks available to non-superusers"
+msgstr "非特権ユーザが利用できる空ブロック"
+
+#: sysdeps/names/loadavg.c:37
+msgid "Load Average"
+msgstr "負荷平均"
+
+#: sysdeps/names/loadavg.c:38
+msgid "Running Tasks"
+msgstr "実行中のタスク"
+
+#: sysdeps/names/loadavg.c:39
+msgid "Number of Tasks"
+msgstr "タスク数"
+
+#: sysdeps/names/loadavg.c:40 sysdeps/names/loadavg.c:48
+msgid "Last PID"
+msgstr "最新 PID"
+
+#: sysdeps/names/loadavg.c:45
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgstr "過去1、5、15分間に実行されたジョブの平均数"
+
+#: sysdeps/names/loadavg.c:46
+msgid "Number of tasks currently running"
+msgstr "現在実行中のタスク数"
+
+#: sysdeps/names/loadavg.c:47
+msgid "Total number of tasks"
+msgstr "累積タスク数"
+
+#: sysdeps/names/mem.c:39
+msgid "Total Memory"
+msgstr "総メモリ"
+
+#: sysdeps/names/mem.c:40
+msgid "Used Memory"
+msgstr "使用中メモリ"
+
+#: sysdeps/names/mem.c:41
+msgid "Free Memory"
+msgstr "未使用メモリ"
+
+#: sysdeps/names/mem.c:42
+msgid "Shared Memory"
+msgstr "共有メモリ"
+
+#: sysdeps/names/mem.c:43
+msgid "Buffers"
+msgstr "バッファ"
+
+#: sysdeps/names/mem.c:44
+msgid "Cached"
+msgstr "キャッシュ中"
+
+#: sysdeps/names/mem.c:45
+msgid "User"
+msgstr "ユーザ"
+
+#: sysdeps/names/mem.c:46
+msgid "Locked"
+msgstr "ロック中"
+
+#: sysdeps/names/mem.c:51
+msgid "Total physical memory in kB"
+msgstr "全物理メモリ量(kB)"
+
+#: sysdeps/names/mem.c:52
+msgid "Used memory size in kB"
+msgstr "使用中メモリ量(kB)"
+
+#: sysdeps/names/mem.c:53
+msgid "Free memory size in kB"
+msgstr "未使用メモリ量(kB)"
+
+#: sysdeps/names/mem.c:54
+msgid "Shared memory size in kB"
+msgstr "共有メモリ量(kB)"
+
+#: sysdeps/names/mem.c:55
+msgid "Size of buffers kB"
+msgstr "バッファサイズ(kB)"
+
+#: sysdeps/names/mem.c:56
+msgid "Size of cached memory in kB"
+msgstr "キャッシュメモリ量(kB)"
+
+#: sysdeps/names/mem.c:57
+msgid "Memory used from user processes in kB"
+msgstr "ユーザプロセスが使用したメモリ量(kB)"
+
+#: sysdeps/names/mem.c:58
+msgid "Memory in locked pages in kB"
+msgstr "ロックされたページのメモリ量(kb)"
+
+#: sysdeps/names/mountlist.c:36 sysdeps/names/mountlist.c:43
+#: sysdeps/names/proclist.c:36 sysdeps/names/proclist.c:43
+#: sysdeps/names/procmap.c:36 sysdeps/names/procmap.c:43
+msgid "Number of list elements"
+msgstr "リストの要素数"
+
+#: sysdeps/names/mountlist.c:37 sysdeps/names/mountlist.c:44
+#: sysdeps/names/proclist.c:37 sysdeps/names/proclist.c:44
+#: sysdeps/names/procmap.c:37 sysdeps/names/procmap.c:44
+msgid "Total size of list"
+msgstr "リスト全体の大きさ"
+
+#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
+#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
+#: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
+msgid "Size of a single list element"
+msgstr "リスト要素一つの大きさ"
+
+#: sysdeps/names/msg_limits.c:38 sysdeps/names/msg_limits.c:49
+msgid "Size in kilobytes of message pool"
+msgstr "メッセージブールの大きさ(kB)"
+
+#: sysdeps/names/msg_limits.c:39 sysdeps/names/msg_limits.c:50
+msgid "Number of entries in message map"
+msgstr "メッセージマップ中のエントリ数"
+
+#: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
+msgid "Max size of message"
+msgstr "メッセージの最大サイズ"
+
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
+msgid "Default max size of queue"
+msgstr "デフォルトのキューの最大サイズ"
+
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
+msgid "Max queues system wide"
+msgstr "システム全体での最大キュー数"
+
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
+msgid "Message segment size"
+msgstr "メッセージセグメントサイズ"
+
+#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
+msgid "Number of system message headers"
+msgstr "システムメッセージヘッダの数"
+
+#: sysdeps/names/prockernel.c:40
+msgid "K_Flags"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:40
+msgid "Min_Flt"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:40
+msgid "Maj_Flt"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:40
+msgid "CMin_Flt"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:41
+msgid "CMaj_Flt"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:41
+msgid "KStk_ESP"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:41
+msgid "KStk_EIP"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:41
+msgid "NWChan"
+msgstr ""
+
+#: sysdeps/names/prockernel.c:42
+msgid "WChan"
+msgstr ""
+
+#. K_Flags
+#: sysdeps/names/prockernel.c:48
+msgid ""
+"Kernel flags of the process.\n"
+"\n"
+"On Linux, currently every flag has the math bit set, because crt0.s checks "
+"for math emulation, so this is not included in the output.\n"
+"\n"
+"This is probably a bug, as not every process is a compiled C program.\n"
+"\n"
+"The math bit should be a decimal 4, and the traced bit is decimal 10."
+msgstr ""
+"プロセスのカーネルフラグ\n"
+"\n"
+"Linuxでは、crt0.s が math emulation のために使う目的のため、 全てのフラグの\n"
+"math ビットが立っています。 ですからこれは出力に含めていません。\n"
+"\n"
+"全てのプロセスが C "
+"で書かれているのではないので、バグと言えるかも知れません。\n"
+"\n"
+"math ビットは10進の4のはずで、 traced ビットは10進の10です。"
+
+#. Min_Flt
+#: sysdeps/names/prockernel.c:57
+msgid ""
+"The number of minor faults the process has made, those which have not "
+"required loading a memory page from disk."
+msgstr ""
+"カーネルで発生した、 ディスクからのメモリページの読み込みを必要としない "
+"マイナーフォールトの発生数です。"
+
+#. Maj_Flt
+#: sysdeps/names/prockernel.c:60
+msgid ""
+"The number of major faults the process has made, those which have required "
+"loading a memory page from disk."
+msgstr ""
+"カーネルで発生した、ディスクからのメモリページの読み込みが必要な "
+"メジャーフォールトの発生数です。"
+
+#. CMin_Flt
+#: sysdeps/names/prockernel.c:63
+msgid "The number of minor faults that the process and its children have made."
+msgstr "該当プロセスとその子プロセスが起こしたマイナーフォールトの発生数です。"
+
+#. CMaj_Flt
+#: sysdeps/names/prockernel.c:66
+msgid "The number of major faults that the process and its children have made."
+msgstr "該当プロセスとその子プロセスが起こしたメジャーフォールトの発生数です。"
+
+#. KStk_ESP
+#: sysdeps/names/prockernel.c:69
+msgid ""
+"The current value of esp (32-bit stack pointer), as found in the kernel "
+"stack page for the process."
+msgstr ""
+"カーネルのスタックページに記録されている、 該当プロセスの ESP "
+"(32ビットスタックポインタ) の現在の値です。"
+
+#. KStk_EIP
+#: sysdeps/names/prockernel.c:72
+msgid "The current EIP (32-bit instruction pointer)."
+msgstr "現在の EIP (32ビットインストラクションポインタ)。"
+
+#. NWChan
+#: sysdeps/names/prockernel.c:74
+msgid ""
+"This is the \"channel\" in which the process is waiting.  This is the "
+"address of a system call, and can be looked up in a namelist if you need a "
+"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
+"see the WCHAN field in action)"
+msgstr ""
+"これは待機中プロセスの\"チャネル\"です。 これはシステムコールのアドレスで、 "
+"文字表記の名前が必要な時には namelist から見つけることができます。 "
+"(更新済みの /etc/psupdate がある場合は、 ps -l の WCHAN 表示で確認できます)"
+
+#. WChan
+#: sysdeps/names/prockernel.c:79
+msgid "This is the textual name of the `nwchan' field."
+msgstr "`nwchan' フィールドの文字表記の名前です。"
+
+#: sysdeps/names/procmem.c:45
+msgid "Size"
+msgstr "サイズ"
+
+#: sysdeps/names/procmem.c:45
+msgid "Virtual"
+msgstr "仮想"
+
+#: sysdeps/names/procmem.c:45
+msgid "Resident"
+msgstr "常駐"
+
+#: sysdeps/names/procmem.c:45
+msgid "Share"
+msgstr "共有"
+
+#: sysdeps/names/procmem.c:46
+msgid "Resident Set Size"
+msgstr "常駐セットサイズ"
+
+#: sysdeps/names/procmem.c:46
+msgid "Resident Set Size Limit"
+msgstr "常駐セットサイズリミット"
+
+#: sysdeps/names/procmem.c:51
+msgid "Total # of pages of memory"
+msgstr "メモリのページの総数"
+
+#: sysdeps/names/procmem.c:52
+msgid "Number of pages of virtual memory"
+msgstr "仮想メモリのページ数"
+
+#: sysdeps/names/procmem.c:53
+msgid "Number of residnet set (non-swapped) pages"
+msgstr "常駐セット(スワップされない)ページ数"
+
+#: sysdeps/names/procmem.c:54
+msgid "Number of pages of shared (mmap'd) memory"
+msgstr "共有(mmapされた)メモリのページ数"
+
+#: sysdeps/names/procmem.c:55
+msgid ""
+"Number of pages the process has in real memory, minus 3 for administrative "
+"purposes. This is just the pages which count towards text, data, or stack "
+"space. This does not include pages which have not been demand-loaded in, or "
+"which are swapped out."
+msgstr ""
+"実メモリ中に存在する該当プロセスのページ数から、管理用の3つを引いたもの。 "
+"単に テキスト、データとスタック空間に 数えられているページです。 "
+"まだ読み込む必要が生じていない部分や、スワップアウトされているページは含みませ"
+"ん。"
+
+#: sysdeps/names/procmem.c:60
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr ""
+"現時点での該当プロセスの RSS リミットのバイト表記(一般には 2,147,483,647)。"
+
+#: sysdeps/names/procsegment.c:40
+msgid "Text_RSS"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:40
+msgid "ShLib_RSS"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:40
+msgid "Data_RSS"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:40
+msgid "Stack_RSS"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:41
+msgid "Dirty Size"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:41
+msgid "Start_Code"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:41
+msgid "End_Code"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:41
+msgid "Start_Stack"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:46
+msgid "Text resident set size"
+msgstr "テキスト常駐セットサイズ"
+
+#: sysdeps/names/procsegment.c:47
+msgid "Shared-Lib resident set size"
+msgstr "共有ライブラリ常駐セットサイズ"
+
+#: sysdeps/names/procsegment.c:48
+msgid "Data resident set size"
+msgstr "データ常駐セットサイズ"
+
+#: sysdeps/names/procsegment.c:49
+msgid "Stack resident set size"
+msgstr "スタック常駐セットサイズ"
+
+#: sysdeps/names/procsegment.c:50
+msgid "Total size of dirty pages"
+msgstr "ダーティページの総数"
+
+#: sysdeps/names/procsegment.c:51
+msgid "Address of beginning of code segment"
+msgstr "コードセグメント始点のアドレス"
+
+#: sysdeps/names/procsegment.c:52
+msgid "Address of end of code segment"
+msgstr "コードセグメントの終点アドレス"
+
+#: sysdeps/names/procsegment.c:53
+msgid "Address of the bottom of stack segment"
+msgstr "スタックセグメントの底のアドレス"
+
+#: sysdeps/names/procsignal.c:38
+msgid "Signal"
+msgstr "シグナル"
+
+#: sysdeps/names/procsignal.c:38
+msgid "Blocked"
+msgstr "ブロック"
+
+#: sysdeps/names/procsignal.c:38
+msgid "SigIgnore"
+msgstr ""
+
+#: sysdeps/names/procsignal.c:38
+msgid "SigCatch"
+msgstr ""
+
+#: sysdeps/names/procsignal.c:43
+msgid "Mask of pending signals"
+msgstr "ペンディングされたシグナルのマスク"
+
+#: sysdeps/names/procsignal.c:44
+msgid "Mask of blocked signals"
+msgstr "ブロックするシグナルのマスク"
+
+#: sysdeps/names/procsignal.c:45
+msgid "Mask of ignored signals"
+msgstr "無視するシグナルのマスク"
+
+#: sysdeps/names/procsignal.c:46
+msgid "Mask of caught signals"
+msgstr "捕捉するシグナルのマスク"
+
+#: sysdeps/names/procstate.c:38
+msgid "Cmd"
+msgstr ""
+
+#: sysdeps/names/procstate.c:38
+msgid "State"
+msgstr ""
+
+#: sysdeps/names/procstate.c:38
+msgid "UID"
+msgstr ""
+
+#: sysdeps/names/procstate.c:38
+msgid "GID"
+msgstr ""
+
+#: sysdeps/names/procstate.c:43
+msgid "Basename of executable file in call to exec()"
+msgstr "execコールでの実行ファイルのベース名"
+
+#: sysdeps/names/procstate.c:44
+msgid "Single-Char code for process state (S=sleeping)"
+msgstr "プロセス状態の1文字での表現 (S=休眠中)"
+
+#: sysdeps/names/procstate.c:45
+msgid "UID of process"
+msgstr "プロセスUID"
+
+#: sysdeps/names/procstate.c:46
+msgid "GID of process"
+msgstr "プロセスGID"
+
+#: sysdeps/names/proctime.c:42
+msgid "Start_Time"
+msgstr "起動時刻"
+
+#: sysdeps/names/proctime.c:42
+msgid "RTime"
+msgstr ""
+
+#: sysdeps/names/proctime.c:42
+msgid "UTime"
+msgstr ""
+
+#: sysdeps/names/proctime.c:42
+msgid "STime"
+msgstr ""
+
+#: sysdeps/names/proctime.c:43
+msgid "CUTime"
+msgstr ""
+
+#: sysdeps/names/proctime.c:43
+msgid "CSTime"
+msgstr ""
+
+#: sysdeps/names/proctime.c:43
+msgid "TimeOut"
+msgstr ""
+
+#: sysdeps/names/proctime.c:43
+msgid "It_Real_Value"
+msgstr ""
+
+#: sysdeps/names/proctime.c:44
+msgid "Frequency"
+msgstr ""
+
+#: sysdeps/names/proctime.c:44
+msgid "XCPU_UTime"
+msgstr ""
+
+#: sysdeps/names/proctime.c:44
+msgid "XCPU_STime"
+msgstr ""
+
+#: sysdeps/names/proctime.c:49
+msgid "Start time of process in seconds since the epoch"
+msgstr "プロセスの起動時間をepochからの秒数で表記したもの"
+
+#: sysdeps/names/proctime.c:50
+msgid "Real time accumulated by process (should be utime + stime)"
+msgstr "プロセスが使用した実時間(utimeとstimeの和のはず)"
+
+#: sysdeps/names/proctime.c:51
+msgid "user-mode CPU time accumulated by process"
+msgstr "プロセスがユーザモードで使用したCPU時間"
+
+#: sysdeps/names/proctime.c:52
+msgid "kernel-mode CPU time accumulated by process"
+msgstr "プロセスがカーネルモードで使用したCPU時間"
+
+#: sysdeps/names/proctime.c:53
+msgid "cumulative utime of process and reaped children"
+msgstr "プロセスとその子が使用した utime の総量"
+
+#: sysdeps/names/proctime.c:54
+msgid "cumulative stime of process and reaped children"
+msgstr "プロセスとその子が使用した stime の総量"
+
+#: sysdeps/names/proctime.c:55
+msgid "The time (in jiffies) of the process's next timeout"
+msgstr "プロセスが次にタイムアウトする時間(in jiffies)"
+
+#: sysdeps/names/proctime.c:56
+msgid ""
+"The time (in jiffies) before the next SIGALRM is sent to the process due to "
+"an interval timer."
+msgstr ""
+"インターバルタイマーによって次にプロセスに SIGALRM が送られるまでの時間(in "
+"jiffies)"
+
+#: sysdeps/names/proctime.c:58
+msgid "Tick frequency"
+msgstr "チック周波数"
+
+#: sysdeps/names/proctime.c:59
+msgid "SMP user-mode CPU time accumulated by process"
+msgstr "プロセスがユーザモードで使用した SMP CPU時間"
+
+#: sysdeps/names/proctime.c:60
+msgid "SMP kernel-mode CPU time accumulated by process"
+msgstr "プロセスがカーネルモードで使用した SMP CPU時間"
+
+#: sysdeps/names/procuid.c:54
+msgid "Uid"
+msgstr ""
+
+#: sysdeps/names/procuid.c:54
+msgid "EUid"
+msgstr ""
+
+#: sysdeps/names/procuid.c:54
+msgid "Gid"
+msgstr ""
+
+#: sysdeps/names/procuid.c:54
+msgid "EGid"
+msgstr ""
+
+#: sysdeps/names/procuid.c:54
+msgid "Pid"
+msgstr ""
+
+#: sysdeps/names/procuid.c:55
+msgid "PPid"
+msgstr ""
+
+#: sysdeps/names/procuid.c:55
+msgid "PGrp"
+msgstr ""
+
+#: sysdeps/names/procuid.c:55
+msgid "Session"
+msgstr ""
+
+#: sysdeps/names/procuid.c:55
+msgid "Tty"
+msgstr ""
+
+#: sysdeps/names/procuid.c:56
+msgid "TPGid"
+msgstr ""
+
+#: sysdeps/names/procuid.c:56
+msgid "Priority"
+msgstr ""
+
+#: sysdeps/names/procuid.c:56
+msgid "Nice"
+msgstr ""
+
+#: sysdeps/names/procuid.c:61
+msgid "User ID"
+msgstr "ユーザID"
+
+#: sysdeps/names/procuid.c:62
+msgid "Effective User ID"
+msgstr "実効ユーザID"
+
+#: sysdeps/names/procuid.c:63
+msgid "Group ID"
+msgstr "グループID"
+
+#: sysdeps/names/procuid.c:64
+msgid "Effective Group ID"
+msgstr "実効グループID"
+
+#: sysdeps/names/procuid.c:65
+msgid "Process ID"
+msgstr "プロセスID"
+
+#: sysdeps/names/procuid.c:66
+msgid "PID of parent process"
+msgstr "親プロセスのPID"
+
+#: sysdeps/names/procuid.c:67
+msgid "Process group ID"
+msgstr "プロセスグループID"
+
+#: sysdeps/names/procuid.c:68
+msgid "Session ID"
+msgstr "セッションID"
+
+#: sysdeps/names/procuid.c:69
+msgid "Full device number of controlling terminal"
+msgstr "制御端末の完全なデバイス名"
+
+#: sysdeps/names/procuid.c:70
+msgid "Terminal process group ID"
+msgstr "端末プロセスのグループID"
+
+#: sysdeps/names/procuid.c:71
+msgid "Kernel scheduling priority"
+msgstr "カーネルスケジューリング優先度"
+
+#: sysdeps/names/procuid.c:72
+msgid "Standard unix nice level of process"
+msgstr "プロセスの標準 unix nice レベル"
+
+#: sysdeps/names/sem_limits.c:40 sysdeps/names/sem_limits.c:54
+msgid "Number of entries in semaphore map"
+msgstr "セマフォマップ中のエントリ数"
+
+#: sysdeps/names/sem_limits.c:41 sysdeps/names/sem_limits.c:55
+msgid "Max number of arrays"
+msgstr "配列の最大数"
+
+#: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
+msgid "Max semaphores system wide"
+msgstr "システム全体での最大セマフォ数"
+
+#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
+msgid "Number of undo structures system wide"
+msgstr "システム全体での最大 undo 構造体数"
+
+#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
+msgid "Max semaphores per array"
+msgstr "配列毎の最大セマフォ数"
+
+#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
+msgid "Max ops per semop call"
+msgstr "semopコールの最大操作数"
+
+#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
+msgid "Max number of undo entries per process"
+msgstr "プロセス毎のundoエントリ最大数"
+
+#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
+msgid "sizeof struct sem_undo"
+msgstr "sem_undo構造体のサイズ"
+
+#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
+msgid "Semaphore max value"
+msgstr "セマフォの最大値"
+
+#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
+msgid "Adjust on exit max value"
+msgstr ""
+
+#: sysdeps/names/shm_limits.c:37 sysdeps/names/shm_limits.c:46
+msgid "Max segment size"
+msgstr "最大セグメントサイズ"
+
+#: sysdeps/names/shm_limits.c:38 sysdeps/names/shm_limits.c:47
+msgid "Min segment size"
+msgstr "最小セグメントサイズ"
+
+#: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
+msgid "Max number of segments"
+msgstr "セグメントの最大数"
+
+#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
+msgid "Max shared segments per process"
+msgstr "プロセス毎の最大共有セグメント"
+
+#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
+msgid "Max total shared memory"
+msgstr "共有メモリの最大量"
+
+#: sysdeps/names/swap.c:37 sysdeps/names/swap.c:46
+msgid "Total Swap Space"
+msgstr "全スワップ空間"
+
+#: sysdeps/names/swap.c:38 sysdeps/names/swap.c:47
+msgid "Used Swap Space"
+msgstr "使用中のスワップ空間"
+
+#: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
+msgid "Free Swap Space"
+msgstr "未使用のスワップ空間"
+
+#: sysdeps/names/swap.c:40
+msgid "Page In"
+msgstr "ページイン"
+
+#: sysdeps/names/swap.c:41
+msgid "Page Out"
+msgstr "ページアウト"
+
+#: sysdeps/names/swap.c:49
+msgid "Total number of swap pages that have been brought in since system boot"
+msgstr "システム起動後に読み込まれたスワップページの累積量"
+
+#: sysdeps/names/swap.c:51
+msgid "Total number of swap pages that have been brought out since system boot"
+msgstr "システム起動後に書き出されたスワップページの累積量"
+
+#: sysdeps/names/sysdeps.c:47 sysdeps/names/sysdeps.c:74
+msgid "Server Features"
+msgstr "サーバーの特性"
+
+#: sysdeps/names/sysdeps.c:48 sysdeps/names/sysdeps.c:75
+msgid "CPU Usage"
+msgstr "CPU使用量"
+
+#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
+msgid "Memory Usage"
+msgstr "メモリ使用量"
+
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
+msgid "Swap Usage"
+msgstr "スワップ使用量"
+
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
+msgid "System Uptime"
+msgstr "システム稼働時間"
+
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
+msgid "Load Averange"
+msgstr "負荷平均"
+
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
+msgid "Shared Memory Limits"
+msgstr "共有メモリリミット"
+
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
+msgid "Message Queue Limits"
+msgstr "メッセージキューリミット"
+
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
+msgid "Semaphore Set Limits"
+msgstr "セマフォセットリミット"
+
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
+msgid "List of running Processes"
+msgstr "走行中プロセス一覧"
+
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
+msgid "Process Status information"
+msgstr "プロセス状態の情報"
+
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
+msgid "Process UID and TTY information"
+msgstr "プロセスのUIDとTTY情報"
+
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
+msgid "Process Memory information"
+msgstr "プロセスのメモリ情報"
+
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
+msgid "Process Time information"
+msgstr "プロセスの時間情報"
+
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
+msgid "Process Signal information"
+msgstr "プロセスのシグナル情報"
+
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
+msgid "Process Kernel Data information"
+msgstr "プロセスのカーネルデータ情報"
+
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
+msgid "Process Segment information"
+msgstr "プロセスのセグメント情報"
+
+#: sysdeps/names/sysdeps.c:64
+msgid "Process Arguments"
+msgstr "プロセス引数"
+
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
+msgid "Process Memory Map"
+msgstr "プロセスのメモリマップ"
+
+#: sysdeps/names/sysdeps.c:66
+msgid "Mount List"
+msgstr "マウント一覧"
+
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
+msgid "File System Usage"
+msgstr "ファイルシステム使用状況"
+
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
+msgid "Network Load"
+msgstr "ネットワーク負荷"
+
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
+msgid "PPP Statistics"
+msgstr "PPP統計"
+
+#: sysdeps/names/sysdeps.c:91
+msgid "Command line arguments of the process"
+msgstr "プロセスのコマンド行引数"
+
+#: sysdeps/names/sysdeps.c:93
+msgid "List of currently mounted filesystems"
+msgstr "現在マウント中のファイルシステム一覧"
+
+#: sysdeps/names/uptime.c:36
+msgid "Uptime"
+msgstr "稼働時間"
+
+#: sysdeps/names/uptime.c:37
+msgid "Idletime"
+msgstr "休眠時間"
+
+#: sysdeps/names/uptime.c:42
+msgid "Time in seconds since system boot"
+msgstr "システム起動後の時間(秒)"
+
+#: sysdeps/names/uptime.c:43
+msgid "Time in seconds the system spent in the idle task since system boot"
+msgstr "システム起動以後休眠中のタスクに費やした時間(秒)"
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "不明なシステムエラー"
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr ""
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr ""
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr ""
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr ""
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr ""
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr ""
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr ""
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr ""
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr ""
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr ""
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/read.c:69
+#, c-format
+msgid "read %d bytes"
+msgstr ""
+
+#: lib/read_data.c:47
+msgid "read data size"
+msgstr ""
+
+#: lib/read_data.c:64
+#, c-format
+msgid "read data %d bytes"
+msgstr ""
+
+#: lib/write.c:46
+#, c-format
+msgid "write %d bytes"
+msgstr ""
+
+#: src/daemon/gnuserv.c:439
+msgid "Enable debugging"
+msgstr ""
+
+#: src/daemon/gnuserv.c:439
+msgid "DEBUG"
+msgstr ""
+
+#: src/daemon/gnuserv.c:441
+msgid "Enable verbose output"
+msgstr ""
+
+#: src/daemon/gnuserv.c:441
+msgid "VERBOSE"
+msgstr ""
+
+#: src/daemon/gnuserv.c:443
+msgid "Don't fork into background"
+msgstr ""
+
+#: src/daemon/gnuserv.c:443
+msgid "NO-DAEMON"
+msgstr ""
+
+#: src/daemon/gnuserv.c:445
+msgid "Invoked from inetd"
+msgstr ""
+
+#: src/daemon/gnuserv.c:445
+msgid "INETD"
+msgstr ""
+
+#: src/daemon/gnuserv.c:479
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
