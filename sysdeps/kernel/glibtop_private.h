@@ -79,6 +79,11 @@ glibtop_get_proc_data_proc_maps_s (glibtop *server, pid_t pid,
 				   libgtop_proc_maps_t *result,
 				   size_t max_len);
 
+int
+glibtop_get_proc_data_netload_s (glibtop *server,
+				 libgtop_netload_t *netload,
+				 const char *device);
+
 END_LIBGTOP_DECLS
 
 #endif __GLIBTOP_PRIVATE_H__

@@ -178,3 +178,19 @@ glibtop_get_proc_data_proc_maps_s (glibtop *server, pid_t pid,
 
     return size;
 }
+
+int
+glibtop_get_proc_data_netload_s (glibtop *server,
+				 libgtop_netload_t *netload,
+				 const char *device)
+{
+    int name [2] = { CTL_LIBGTOP, LIBGTOP_NETLOAD };
+    size_t size = sizeof (libgtop_netload_t);
+
+    if (sysctl (name, 2, netload, &size, device, strlen (device)+1)) {
+	glibtop_warn_io_r (server, "sysctl (libgtop/netload)");
+	return -1;
+    }
+
+    return 0;
+}
