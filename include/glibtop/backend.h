@@ -29,8 +29,6 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-#include <glibtop/call-vector.h>
-
 #include <glib.h>
 
 BEGIN_LIBGTOP_DECLS
@@ -39,6 +37,8 @@ typedef struct _glibtop_backend_info	glibtop_backend_info;
 typedef struct _glibtop_backend_private	glibtop_backend_private;
 
 typedef struct _glibtop_backend		glibtop_backend;
+
+#include <glibtop/call-vector.h>
 
 typedef int (*glibtop_backend_open_func_t) (glibtop *, glibtop_backend *,
 					    u_int64_t, const char **);

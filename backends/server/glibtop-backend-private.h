@@ -34,6 +34,11 @@ struct _glibtop_backend_private
     pid_t pid;			/* PID of the server */
 };
 
+void *
+glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
+		size_t send_size, const void *send_buf, size_t recv_size,
+		void *recv_buf, int *retval_ptr);
+
 void
 glibtop_read_i (glibtop *server, glibtop_backend *backend,
 		size_t size, void *buf);

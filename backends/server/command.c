@@ -23,17 +23,19 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop/read.h>
-#include <glibtop/write.h>
-#include <glibtop/read_data.h>
-
 #include <glibtop/command.h>
 #include <glibtop/xmalloc.h>
 
+#include <glibtop.h>
+#include <glibtop/error.h>
+#include <glibtop/backend.h>
+
+#include <glibtop-backend-private.h>
+
 void *
-glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
-		const void *send_buf, size_t recv_size, void *recv_buf,
-		int *retval_ptr)
+glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
+		size_t send_size, const void *send_buf, size_t recv_size,
+		void *recv_buf, int *retval_ptr)
 {
     glibtop_command cmnd;
     glibtop_response response;
@@ -56,16 +58,16 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 	cmnd.data_size = send_size;
     }
 	
-    glibtop_write_l (server, sizeof (glibtop_command), &cmnd);
+    glibtop_write_i (server, backend, sizeof (glibtop_command), &cmnd);
 
-    glibtop_read_l (server, sizeof (glibtop_response), &response);
+    glibtop_read_i (server, backend, sizeof (glibtop_response), &response);
 
 #ifdef DEBUG
     fprintf (stderr, "RESPONSE: %lu - %d\n",
 	     response.offset, response.data_size);
 #endif
 
-    glibtop_read_l (server, sizeof (int), &retval);
+    glibtop_read_i (server, backend, sizeof (int), &retval);
     if (retval_ptr)
 	*retval_ptr = retval;
 
@@ -76,7 +78,7 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
     if (response.data_size) {
 	void *ptr = glibtop_malloc_r (server, response.data_size);
 
-	glibtop_read_l (server, response.data_size, ptr);
+	glibtop_read_i (server, backend, response.data_size, ptr);
 
 	return ptr;
     }

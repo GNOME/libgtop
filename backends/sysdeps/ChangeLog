@@ -1,3 +1,8 @@
+2000-01-02  Martin Baulig  <martin@home-of-linux.org>
+
+	* marshal.pl: New file. Automatically creates `marshal.c'.
+	* call-vector.c: Removed.
+
 2000-01-01  Martin Baulig  <martin@home-of-linux.org>
 
 	Initial version of the "glibtop-backend-sysdeps" backend.

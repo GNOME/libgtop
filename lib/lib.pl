@@ -166,19 +166,19 @@ sub output {
 
     if ($line_fields[3] eq '') {
       $sysdeps_code .= sprintf
-	("\t\t\tretval = backend->info->call_vector->%s (server%s);\n",
+	("\t\t\tretval = backend->info->call_vector->%s (server, backend%s);\n",
 	 $feature, $call_param);
     } elsif ($line_fields[3] eq 'array') {
       $sysdeps_code .= sprintf
-	("\t\t\tretval = backend->info->call_vector->%s (server, array%s);\n",
+	("\t\t\tretval = backend->info->call_vector->%s (server, backend, array%s);\n",
 	 $feature, $call_param);
     } elsif ($line_fields[3] =~ /^array/) {
       $sysdeps_code .= sprintf
-	("\t\t\tretval = backend->info->call_vector->%s (server, array, buf%s);\n",
+	("\t\t\tretval = backend->info->call_vector->%s (server, backend, array, buf%s);\n",
 	 $feature, $call_param);
     } else {
       $sysdeps_code .= sprintf
-	("\t\t\tretval = backend->info->call_vector->%s (server, buf%s);\n",
+	("\t\t\tretval = backend->info->call_vector->%s (server, backend, buf%s);\n",
 	 $feature, $call_param);
     }
 

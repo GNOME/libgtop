@@ -82,16 +82,16 @@ sub parse_features_def {
 
   if ($line_fields[3] eq '') {
     $func_decl_code .= sprintf
-      (qq[\t%s (*%s) (glibtop *%s);\n], $retval, $feature, $param_decl);
+      (qq[\t%s (*%s) (glibtop *, glibtop_backend *%s);\n], $retval, $feature, $param_decl);
   } elsif ($line_fields[3] eq 'array') {
     $func_decl_code .= sprintf
-      (qq[\t%s (*%s) (glibtop *, glibtop_array *%s);\n], $retval, $feature, $param_decl);
+      (qq[\t%s (*%s) (glibtop *, glibtop_backend *, glibtop_array *%s);\n], $retval, $feature, $param_decl);
   } elsif ($line_fields[3] =~ /^array/) {
     $func_decl_code .= sprintf
-      (qq[\t%s (*%s) (glibtop *, glibtop_array *, %s *%s);\n], $retval, $feature, 'glibtop_'.$feature, $param_decl);
+      (qq[\t%s (*%s) (glibtop *, glibtop_backend *, glibtop_array *, %s *%s);\n], $retval, $feature, 'glibtop_'.$feature, $param_decl);
   } else {
     $func_decl_code .= sprintf
-      (qq[\t%s (*%s) (glibtop *, %s *%s);\n], $retval, $feature, 'glibtop_'.$feature, $param_decl);
+      (qq[\t%s (*%s) (glibtop *, glibtop_backend *, %s *%s);\n], $retval, $feature, 'glibtop_'.$feature, $param_decl);
   }
 }
 
