@@ -53,7 +53,7 @@ glibtop_guile_types_proclist (void)
 	for (i = 0; i < GLIBTOP_MAX_PROCLIST; i++)
 		list = gh_append2
 			(list, gh_list
-			 (gh_str02scm (glibtop_labels_proclist [i]),
+			 (gh_str02scm (glibtop_types_proclist [i]),
 			  SCM_UNDEFINED));
 	
 	return list;

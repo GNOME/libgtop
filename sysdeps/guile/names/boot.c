@@ -91,6 +91,8 @@ glibtop_boot_guile_names (void)
 	gh_new_procedure0_0
 		("glibtop-types-proc_mem", glibtop_guile_types_proc_mem);
 	gh_new_procedure0_0
+		("glibtop-types-proc_time", glibtop_guile_types_proc_time);
+	gh_new_procedure0_0
 		("glibtop-types-proc_signal", glibtop_guile_types_proc_signal);
 	gh_new_procedure0_0
 		("glibtop-types-proc_kernel", glibtop_guile_types_proc_kernel);
@@ -126,6 +128,8 @@ glibtop_boot_guile_names (void)
 	gh_new_procedure0_0
 		("glibtop-labels-proc_mem", glibtop_guile_labels_proc_mem);
 	gh_new_procedure0_0
+		("glibtop-labels-proc_time", glibtop_guile_labels_proc_time);
+	gh_new_procedure0_0
 		("glibtop-labels-proc_signal", glibtop_guile_labels_proc_signal);
 	gh_new_procedure0_0
 		("glibtop-labels-proc_kernel", glibtop_guile_labels_proc_kernel);
@@ -159,6 +163,8 @@ glibtop_boot_guile_names (void)
 		("glibtop-descriptions-proc_uid", glibtop_guile_descriptions_proc_uid);
 	gh_new_procedure0_0
 		("glibtop-descriptions-proc_mem", glibtop_guile_descriptions_proc_mem);
+	gh_new_procedure0_0
+		("glibtop-descriptions-proc_time", glibtop_guile_descriptions_proc_time);
 	gh_new_procedure0_0
 		("glibtop-descriptions-proc_signal", glibtop_guile_descriptions_proc_signal);
 	gh_new_procedure0_0
