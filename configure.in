@@ -103,8 +103,8 @@ AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]],
 
 LIBSUPPORT=
 SUPPORTINCS=
-if test "$need_libgtop_support" = yes; then
-   LIBSUPPORT='$(top_builddir)/support/libgtopsupport.la'
+if test "$need_gnome_support" = yes; then
+   LIBSUPPORT='$(top_builddir)/support/libgnomesupport.la'
    SUPPORTINCS='-I$(top_srcdir)/support'
 fi
 
