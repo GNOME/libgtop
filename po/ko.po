@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1998-12-08 19:49+0100\n"
+"POT-Creation-Date: 1998-12-15 12:58+0100\n"
 "PO-Revision-Date: 1998-09-29 10:03:31+0900\n"
 "Last-Translator: Sung-Hyun Nam <namsh@lgic.co.kr>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -801,95 +801,103 @@ msgstr "시스템 시동후 도입한 총 스왑 페이지 수"
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "시스템 시동후 내보낸 총 스왑 페이지 수"
 
-#: sysdeps/names/sysdeps.c:47 sysdeps/names/sysdeps.c:73
+#: sysdeps/names/sysdeps.c:47 sysdeps/names/sysdeps.c:74
 msgid "Server Features"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:48 sysdeps/names/sysdeps.c:74
+#: sysdeps/names/sysdeps.c:48 sysdeps/names/sysdeps.c:75
 msgid "CPU Usage"
 msgstr "CPU 사용량"
 
-#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:75
+#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Memory Usage"
 msgstr "메모리 사용량"
 
-#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:76
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "Swap Usage"
 msgstr "스왑 사용량"
 
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:77
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "System Uptime"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:78
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Load Averange"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "Shared Memory Limits"
 msgstr "공유 메모리 한계"
 
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Message Queue Limits"
 msgstr "메시지 큐 한계"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Semaphore Set Limits"
 msgstr "세마포어 세트 한계"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "List of running Processes"
 msgstr "돌고 있는 프로세스 목록"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Process Status information"
 msgstr "프로세스 상태 정보"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "Process UID and TTY information"
 msgstr "프로세스 UID와 TTY 정보"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Memory information"
 msgstr "프로세스 메모리 정보"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process Time information"
 msgstr "프로세스 시간 정보"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process Signal information"
 msgstr "프로세스 시그널 정보"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Kernel Data information"
 msgstr "프로세스 커널 자료 정보"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Segment information"
 msgstr "프로세스 세그먼트 정보"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:64
+msgid "Process Arguments"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Memory Map"
 msgstr "프로세스 메모리 맵"
 
-#: sysdeps/names/sysdeps.c:65
+#: sysdeps/names/sysdeps.c:66
 msgid "Mount List"
 msgstr "마운트 목록"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 msgid "File System Usage"
 msgstr "파일 시스템 사용"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
 msgid "Network Load"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "PPP Statistics"
 msgstr ""
 
 #: sysdeps/names/sysdeps.c:91
+msgid "Command line arguments of the process"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:93
 msgid "List of currently mounted filesystems"
 msgstr "현재 마운트된 파일시스템의 목록"
 
@@ -908,39 +916,6 @@ msgstr "시스템 시동후의 초 단위의 시간"
 #: sysdeps/names/uptime.c:43
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "시스템 시동후에 유휴 태스크가 소비한 초 단위의 시간"
-
-#: support/argp-parse.c:95
-msgid "Give this help list"
-msgstr "이 도움말 목록을 출력"
-
-#: support/argp-parse.c:96
-msgid "Give a short usage message"
-msgstr "짧은 사용법 출력"
-
-#: support/argp-parse.c:97
-msgid "Set the program name"
-msgstr "프로그램 이름 설정"
-
-#: support/argp-parse.c:99
-msgid "Hang for SECS seconds (default 3600)"
-msgstr "SECS 초만큼 멈춤 (생략시값 3600)"
-
-#: support/argp-parse.c:156
-msgid "Print program version"
-msgstr "프로그램 판번호 출력"
-
-#: support/argp-parse.c:172
-msgid "(PROGRAM ERROR) No version known!?"
-msgstr "(프로그램 에러) 판번호를 모르겠슴!?"
-
-#: support/argp-parse.c:646
-#, c-format
-msgid "%s: Too many arguments\n"
-msgstr "%s: 너무 많은 인자\n"
-
-#: support/argp-parse.c:785
-msgid "(PROGRAM ERROR) Option should have been recognized!?"
-msgstr "(프로그램 에러) 옵션을 인식해야만 됨!?"
 
 #: support/error.c:109
 msgid "Unknown system error"
@@ -1023,3 +998,66 @@ msgstr ""
 #, c-format
 msgid "write %d bytes"
 msgstr ""
+
+#: src/daemon/gnuserv.c:432
+msgid "Enable debugging"
+msgstr ""
+
+#: src/daemon/gnuserv.c:432
+msgid "DEBUG"
+msgstr ""
+
+#: src/daemon/gnuserv.c:434
+msgid "Enable verbose output"
+msgstr ""
+
+#: src/daemon/gnuserv.c:434
+msgid "VERBOSE"
+msgstr ""
+
+#: src/daemon/gnuserv.c:436
+msgid "Don't fork into background"
+msgstr ""
+
+#: src/daemon/gnuserv.c:436
+msgid "NO-DAEMON"
+msgstr ""
+
+#: src/daemon/gnuserv.c:438
+msgid "Invoked from inetd"
+msgstr ""
+
+#: src/daemon/gnuserv.c:438
+msgid "INETD"
+msgstr ""
+
+#: src/daemon/gnuserv.c:472
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+
+#~ msgid "Give this help list"
+#~ msgstr "이 도움말 목록을 출력"
+
+#~ msgid "Give a short usage message"
+#~ msgstr "짧은 사용법 출력"
+
+#~ msgid "Set the program name"
+#~ msgstr "프로그램 이름 설정"
+
+#~ msgid "Hang for SECS seconds (default 3600)"
+#~ msgstr "SECS 초만큼 멈춤 (생략시값 3600)"
+
+#~ msgid "Print program version"
+#~ msgstr "프로그램 판번호 출력"
+
+#~ msgid "(PROGRAM ERROR) No version known!?"
+#~ msgstr "(프로그램 에러) 판번호를 모르겠슴!?"
+
+#~ msgid "%s: Too many arguments\n"
+#~ msgstr "%s: 너무 많은 인자\n"
+
+#~ msgid "(PROGRAM ERROR) Option should have been recognized!?"
+#~ msgstr "(프로그램 에러) 옵션을 인식해야만 됨!?"

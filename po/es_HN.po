@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-08 19:49+0100\n"
+"POT-Creation-Date: 1998-12-15 12:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -813,95 +813,103 @@ msgstr ""
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:47 sysdeps/names/sysdeps.c:73
+#: sysdeps/names/sysdeps.c:47 sysdeps/names/sysdeps.c:74
 msgid "Server Features"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:48 sysdeps/names/sysdeps.c:74
+#: sysdeps/names/sysdeps.c:48 sysdeps/names/sysdeps.c:75
 msgid "CPU Usage"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:75
+#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Memory Usage"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:76
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "Swap Usage"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:77
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "System Uptime"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:78
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Load Averange"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "Shared Memory Limits"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Message Queue Limits"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Semaphore Set Limits"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "List of running Processes"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Process Status information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "Process UID and TTY information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Memory information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process Time information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process Signal information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Kernel Data information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Segment information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:64
+msgid "Process Arguments"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Memory Map"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:65
+#: sysdeps/names/sysdeps.c:66
 msgid "Mount List"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 msgid "File System Usage"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
 msgid "Network Load"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "PPP Statistics"
 msgstr ""
 
 #: sysdeps/names/sysdeps.c:91
+msgid "Command line arguments of the process"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:93
 msgid "List of currently mounted filesystems"
 msgstr ""
 
@@ -919,39 +927,6 @@ msgstr ""
 
 #: sysdeps/names/uptime.c:43
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr ""
-
-#: support/argp-parse.c:95
-msgid "Give this help list"
-msgstr ""
-
-#: support/argp-parse.c:96
-msgid "Give a short usage message"
-msgstr ""
-
-#: support/argp-parse.c:97
-msgid "Set the program name"
-msgstr ""
-
-#: support/argp-parse.c:99
-msgid "Hang for SECS seconds (default 3600)"
-msgstr ""
-
-#: support/argp-parse.c:156
-msgid "Print program version"
-msgstr ""
-
-#: support/argp-parse.c:172
-msgid "(PROGRAM ERROR) No version known!?"
-msgstr ""
-
-#: support/argp-parse.c:646
-#, c-format
-msgid "%s: Too many arguments\n"
-msgstr ""
-
-#: support/argp-parse.c:785
-msgid "(PROGRAM ERROR) Option should have been recognized!?"
 msgstr ""
 
 #: support/error.c:109
@@ -1034,4 +1009,43 @@ msgstr ""
 #: lib/write.c:46
 #, c-format
 msgid "write %d bytes"
+msgstr ""
+
+#: src/daemon/gnuserv.c:432
+msgid "Enable debugging"
+msgstr ""
+
+#: src/daemon/gnuserv.c:432
+msgid "DEBUG"
+msgstr ""
+
+#: src/daemon/gnuserv.c:434
+msgid "Enable verbose output"
+msgstr ""
+
+#: src/daemon/gnuserv.c:434
+msgid "VERBOSE"
+msgstr ""
+
+#: src/daemon/gnuserv.c:436
+msgid "Don't fork into background"
+msgstr ""
+
+#: src/daemon/gnuserv.c:436
+msgid "NO-DAEMON"
+msgstr ""
+
+#: src/daemon/gnuserv.c:438
+msgid "Invoked from inetd"
+msgstr ""
+
+#: src/daemon/gnuserv.c:438
+msgid "INETD"
+msgstr ""
+
+#: src/daemon/gnuserv.c:472
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
