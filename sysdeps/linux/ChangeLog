@@ -1,3 +1,7 @@
+2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
+
+	* netload.c: (glibtop_get_netload_s): Implemented new IPv6 feature.
+
 2004-06-13  Benoît Dejean  <tazforever@dlfp.org>
 
 	* procargs.c: (glibtop_get_proc_args_s): Replaced by g_file_get_contents.

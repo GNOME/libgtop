@@ -47,6 +47,17 @@
 #include <linux/udp.h>
 #endif
 
+/* IPV6 */
+
+#include <ifaddrs.h>
+
+#ifndef IN6_IS_ADDR_GLOBAL
+#define IN6_IS_ADDR_GLOBAL(a) \
+   (((((__const uint8_t *) (a))[0] & 0xff) == 0x3f   \
+     || (((__const uint8_t *) (a))[0] & 0xff) == 0x20))
+#endif
+/* IPV6 */
+
 #define _GLIBTOP_IP_FW_ACCTIN	0x1000	/* Account incoming packets only. */
 #define _GLIBTOP_IP_FW_ACCTOUT	0x2000	/* Account outgoing packets only. */
 
@@ -85,6 +96,11 @@ static const unsigned long _glibtop_sysdeps_netload_out =
 (1L << GLIBTOP_NETLOAD_BYTES_TOTAL) +
 (1L << GLIBTOP_NETLOAD_PACKETS_OUT) +
 (1L << GLIBTOP_NETLOAD_BYTES_OUT);
+
+static const unsigned long _glibtop_sysdeps_netload_6 =
+(1L << GLIBTOP_NETLOAD_ADDRESS6) +
+(1L << GLIBTOP_NETLOAD_PREFIX6) +
+(1L << GLIBTOP_NETLOAD_SCOPE6);
 
 /* Init function. */
 
@@ -314,6 +330,8 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	if (strcmp (dev, interface))
 	    continue;
 
+	/* Ok, we've found the interface */
+
 	/* Only read byte counts if we really have them. */
 
 	if (have_bytes) {
@@ -348,7 +366,56 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 
 	if (have_bytes)
 	    buf->flags |= _glibtop_sysdeps_netload_bytes;
+
+	break; /* finished */
     }
 
     fclose (f);
+
+
+    /* IPv6 */
+    {
+	    struct ifaddrs *ifa0, *ifr6;
+	    getifaddrs (&ifa0);
+
+	    for (ifr6 = ifa0; ifr6; ifr6 = ifr6->ifa_next) {
+		    if (strcmp (ifr6->ifa_name, interface) == 0
+			&& ifr6->ifa_addr->sa_family == AF_INET6)
+			    break;
+	    }
+
+	    if(!ifr6) return;
+
+	    memcpy(buf->address6,
+		   &((struct sockaddr_in6 *) ifr6->ifa_addr)->sin6_addr,
+		   16);
+
+	    memcpy(buf->prefix6,
+		   &((struct sockaddr_in6 *) ifr6->ifa_netmask)->sin6_addr,
+		   16);
+
+
+	    if (IN6_IS_ADDR_LINKLOCAL (buf->address6))
+		    buf->scope6 = GLIBTOP_IF_IN6_SCOPE_LINK;
+
+	    else if (IN6_IS_ADDR_SITELOCAL (buf->address6))
+		    buf->scope6 = GLIBTOP_IF_IN6_SCOPE_SITE;
+
+	    else if (IN6_IS_ADDR_GLOBAL (buf->address6)
+		     || IN6_IS_ADDR_MC_ORGLOCAL (buf->address6)
+		     || IN6_IS_ADDR_V4COMPAT (buf->address6)
+		     || IN6_IS_ADDR_MULTICAST (buf->address6)
+		     || IN6_IS_ADDR_UNSPECIFIED (buf->address6)
+		    )
+		    buf->scope6 = GLIBTOP_IF_IN6_SCOPE_GLOBAL;
+
+	    else if (IN6_IS_ADDR_LOOPBACK (buf->address6))
+		    buf->scope6 = GLIBTOP_IF_IN6_SCOPE_HOST;
+
+	    else
+		    buf->scope6 = GLIBTOP_IF_IN6_SCOPE_UNKNOWN;
+
+
+	    buf->flags |= _glibtop_sysdeps_netload_6;
+    } /* IPV6 */
 }
