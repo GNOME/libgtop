@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2003-01-03 19:53+0100\n"
-"PO-Revision-Date: 2003-01-03 21:15+0100\n"
+"POT-Creation-Date: 2003-07-11 10:31+0200\n"
+"PO-Revision-Date: 2003-07-11 10:32+0200\n"
 "Last-Translator: Andras Timar <timar@gnome.hu>\n"
 "Language-Team: Hungarian Gnome Project <hu@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -134,45 +134,45 @@ msgid "write %d bytes"
 msgstr "%d byte írása"
 
 # src/daemon/gnuserv.c:448
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
 msgstr "Hibakeresés engedélyezése"
 
 # src/daemon/gnuserv.c:448
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
 msgstr "DEBUG"
 
 # src/daemon/gnuserv.c:450
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
 msgstr "Részletes üzenetek bekapcsolása"
 
 # src/daemon/gnuserv.c:450
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
 msgstr "Ne forkoljon a háttérbe"
 
 # src/daemon/gnuserv.c:452
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
 # src/daemon/gnuserv.c:454
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr "inetd-ből indítva"
 
 # src/daemon/gnuserv.c:454
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -1564,7 +1564,7 @@ msgstr "Sürgős állapot a foglalaton"
 # sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
-msgstr "Stop"
+msgstr "Leállítás"
 
 # sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
