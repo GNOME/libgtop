@@ -1,18 +1,19 @@
 # French translation of libgtop.
 # Copyright (C) 1998-2004 Free Software Foundation, Inc.
-# This file is distributed under the same license as the libgtop package.
+# This file is distributed under the GNU General Public License Version 2.
 #
 # Vincent Renardias <vincent@ldsol.com>, 1998-1999.
 # Fabrice Bellet <Fabrice.Bellet@imag.fr>, 1999.
 # maintainer: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>, 2000-2004.
+# Benoit Dejean <TazForEver@dlfp.org>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 2.5.0\n"
+"Project-Id-Version: libgtop 2.7.92\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2004-01-04 13:01+0100\n"
-"Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
+"POT-Creation-Date: 2004-09-10 19:53+0200\n"
+"PO-Revision-Date: 2004-09-10 19:47+0200\n"
+"Last-Translator: Benoit Dejean <TazForEver@dlfp.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -242,8 +243,7 @@ msgstr "Fréquence des tics (100 par défaut)"
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
 msgstr ""
-"Champ de bit indiquant quel est le CPU actuellement en cours de "
-"fonctionnement"
+"Champ de bits indiquant les CPU actuellement en cours de fonctionnement"
 
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
@@ -259,16 +259,15 @@ msgstr "Blocs disponibles"
 
 #: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:53
 msgid "Total file nodes"
-msgstr "Nombre total de noeuds de fichiers"
+msgstr "Nombre total de nœuds de fichiers"
 
 #: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:54
 msgid "Free file nodes"
-msgstr "Noeuds de fichiers libres"
+msgstr "nœuds de fichiers libres"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Bloqué"
+msgstr "Taille des blocs"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -399,11 +398,11 @@ msgstr "Taille maximum des messages"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Default max size of queue"
-msgstr "Taille maximum par défaut de la queue"
+msgstr "Taille maximum par défaut de la file"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Max queues system wide"
-msgstr "Nombre maximum de queues dans le système"
+msgstr "Nombre maximum de files dans le système"
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Message segment size"
@@ -422,14 +421,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Sous-réseau"
+msgstr "Sous-réseau IPv6"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Adresse"
+msgstr "Adresse IPv4"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -472,17 +469,16 @@ msgid "Collisions"
 msgstr "Collisions"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Adresse"
+msgstr "Adresse IPv6"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "Préfixe IPv6"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "Type de lien IPv6"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
@@ -552,7 +548,6 @@ msgstr "Chan_NA"
 msgid "WChan"
 msgstr "Chan_N"
 
-#. K_Flags
 #: sysdeps/names/prockernel.c:51
 msgid ""
 "Kernel flags of the process.\n"
@@ -576,7 +571,6 @@ msgstr ""
 "Le bit mathématique devrait donner 4 en décimal, et le bit tracé vaut 10 en "
 "décimal."
 
-#. Min_Flt
 #: sysdeps/names/prockernel.c:60
 msgid ""
 "The number of minor faults the process has made, those which have not "
@@ -585,7 +579,6 @@ msgstr ""
 "Le nombre de défauts de page mineurs d'un processus, c'est-à-dire ceux qui "
 "n'ont pas nécessité de charger une page mémoire depuis le disque."
 
-#. Maj_Flt
 #: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
@@ -594,21 +587,18 @@ msgstr ""
 "Le nombre de défauts de page majeurs d'un processus, c'est-à-dire ceux qui "
 "ont nécessité de charger une page mémoire depuis le disque."
 
-#. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
 msgstr ""
 "Le nombre de défauts de page mineurs qu'un processus et ses fils ont "
 "réalisés."
 
-#. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
 msgstr ""
 "Le nombre de défauts de page majeurs qu'un processus et ses fils ont "
 "réalisés."
 
-#. KStk_ESP
 #: sysdeps/names/prockernel.c:72
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
@@ -622,7 +612,6 @@ msgstr ""
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr "La valeur courante du registre EIP (pointeur d'instruction 32 bits)"
 
-#. NWChan
 #: sysdeps/names/prockernel.c:77
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "
@@ -1085,7 +1074,7 @@ msgstr "ID de groupe du processus de control du terminal"
 
 #: sysdeps/names/procuid.c:70
 msgid "Kernel scheduling priority"
-msgstr "Priorité de séquencement noyau"
+msgstr "Priorité d'ordonnancement noyau"
 
 #: sysdeps/names/procuid.c:71
 msgid "Standard unix nice level of process"
@@ -1437,186 +1426,3 @@ msgstr "Signal utilisateur 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Signal utilisateur 2"
-
-#~ msgid "Unknown system error"
-#~ msgstr "Erreur système inconnue"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s : l'option « %s » est ambigüe\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s : l'option « --%s » ne supporte pas d'arguments\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s : l'option « %c%s » ne supporte pas d'arguments\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s : l'option « %s » nécessite un argument\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s : option inconnue « --%s »\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s : option inconnue « %c%s »\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s : option illégale -- %c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s : option non valide -- %c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s : l'option nécessite un argument -- %c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s : l'option « -W %s » is ambigüe\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s : l'option « -W %s » ne supporte pas d'arguments\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "Afficher ce message d'aide"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "Affiche un bref message d'utilisation"
-
-#~ msgid "Hangup (POSIX)"
-#~ msgstr "Raccrochement (POSIX)"
-
-#~ msgid "Quit (POSIX)"
-#~ msgstr "Quitter (POSIX)"
-
-#~ msgid "Abort (ANSI)"
-#~ msgstr "Arrêt depuis abort() (ANSI)"
-
-#~ msgid "EMT instruction"
-#~ msgstr "Instruction EMT"
-
-#~ msgid "Kill, unblockable (POSIX)"
-#~ msgstr "Signal « Kill », non blocable (POSIX)"
-
-#~ msgid "BUS error (4.2 BSD)"
-#~ msgstr "Erreur de Bus (BSD 4.2)"
-
-#~ msgid "Stop, unblockable (POSIX)"
-#~ msgstr "Arrêt du processus, non blocable (POSIX)"
-
-#~ msgid "Power failure restart (System V)"
-#~ msgstr "Chute d'alimentation (System V)"
-
-#~ msgid "Start_Data"
-#~ msgstr "Début_données"
-
-#~ msgid "End_Data"
-#~ msgstr "Fin_données"
-
-#~ msgid "Start_Brk"
-#~ msgstr "Début_Brk"
-
-#~ msgid "Brk"
-#~ msgstr "Brk"
-
-#~ msgid "Start_MMap"
-#~ msgstr "Début_MMap"
-
-#~ msgid "Arg_Start"
-#~ msgstr "Début_Arg"
-
-#~ msgid "Arg_End"
-#~ msgstr "Fin_Arg"
-
-#~ msgid "Env_Start"
-#~ msgstr "Début_Env"
-
-#~ msgid "Env_End"
-#~ msgstr "Fin_Env"
-
-#~ msgid "Address of beginning of data segment"
-#~ msgstr "Adresse du début du segment de données"
-
-#~ msgid "Address of end of data segment"
-#~ msgstr "Adresse de fin du segment de données"
-
-#~ msgid "Brk_Start"
-#~ msgstr "Début_Brk"
-
-#~ msgid "Brk_End"
-#~ msgstr "Fin_Brk"
-
-#~ msgid "Start of mmap()ed areas"
-#~ msgstr "Début des zones allouées par mmap()"
-
-#~ msgid "RUID"
-#~ msgstr "RUID"
-
-#~ msgid "RGID"
-#~ msgstr "RGID"
-
-#~ msgid "effective UID of process"
-#~ msgstr "ID Effectif de l'utilisateur du processus"
-
-#~ msgid "effective GID of process"
-#~ msgstr "ID effectif du groupe du processus"
-
-#~ msgid "has_cpu"
-#~ msgstr "Utilise la CPU"
-
-#~ msgid "processor"
-#~ msgstr "processeur"
-
-#~ msgid "last_processor"
-#~ msgstr "processeur précédent"
-
-#~ msgid "XCPU_Flags"
-#~ msgstr "Drap_XCPU"
-
-#~ msgid "FsUid"
-#~ msgstr "FsUid"
-
-#~ msgid "FsGid"
-#~ msgstr "FsGid"
-
-#~ msgid "Additional process groups"
-#~ msgstr "Groupes supplémentaires"
-
-#~ msgid "Pointer Size"
-#~ msgstr "Taille du pointeur"
-
-#~ msgid "Process CWD"
-#~ msgstr "Processus CWD"
-
-#~ msgid "Pointer Size on the Server (in bits)"
-#~ msgstr "Taille du pointeur sur le serveur (en bits)"
-
-#~ msgid "Current working directory of the process"
-#~ msgstr "Répertoire de travail courant du processus"
-
-#~ msgid "Boot time (seconds sice epoch)"
-#~ msgstr "Date de démarrage (en secondes depuis le 01/01/1970)"
-
-#~ msgid "Unknown error"
-#~ msgstr "Erreur inconnue"
-
-#~ msgid "Invalid argument"
-#~ msgstr "Argument invalide"
-
-#~ msgid "No such parameter"
-#~ msgstr "N'est pas un paramètre"
-
-#~ msgid "Attempted to modify a read-only value"
-#~ msgstr "Tentative de modification d'une valeur en lecture seule"
-
-#~ msgid "Parameter size mismatch"
-#~ msgstr "Taille de paramèter incohérent"
-
-#~ msgid "Communication with LibGTop server failed"
-#~ msgstr "La communication avec le serveur LibGTop a échoué"
-
-#~ msgid "No such process"
-#~ msgstr "Plus de processus"
-
-#~ msgid "No kernel support"
-#~ msgstr "Aucun support noyau"
-
-#~ msgid "Incompatible kernel version"
-#~ msgstr "Version du noyau incompatible"
