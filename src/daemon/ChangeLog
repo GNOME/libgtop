@@ -1,3 +1,10 @@
+2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* daemon.h:
+	* gnuserv.c: (syslog_message), (syslog_io_message):
+	* main.c: (handle_parent_connection):
+	* slave.c: (handle_slave_connection), (handle_slave_command): Misc. cleanups.
+
 2004-09-19  Benoît Dejean  <tazforever@dlfp.org>
 
 	* gnuserv.c: (setup_table): 'screen' is only defined when AUTH_MAGIC_COOKIE

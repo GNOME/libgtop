@@ -65,8 +65,6 @@ char *program_invocation_short_name;
 char *program_invocation_name;
 #endif
 
-void handle_parent_connection (int s);
-void handle_slave_connection (int input, int output);
 
 #if !defined(INTERNET_DOMAIN_SOCKETS)
 #error "Internet Domain sockets are required"
@@ -87,7 +85,7 @@ static int invoked_from_inetd = 0;
 static int changed_uid = 0;
 
 void
-syslog_message (int priority, char *format, ...)
+syslog_message (int priority, const char *format, ...)
 {
     va_list ap;
     char buffer [BUFSIZ];
@@ -100,7 +98,7 @@ syslog_message (int priority, char *format, ...)
 }
 
 void
-syslog_io_message (int priority, char *format, ...)
+syslog_io_message (int priority, const char *format, ...)
 {
     va_list ap;
     char buffer [BUFSIZ];

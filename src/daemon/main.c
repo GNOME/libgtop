@@ -63,12 +63,12 @@ handle_parent_connection (int s)
 	if (enable_debug)
 	    syslog_message (LOG_DEBUG,
 			    "Parent (%d) received command %d from client.",
-			    getpid (), (int) cmnd->command);
+			    getpid (), (int)cmnd->command);
 
 	if (cmnd->data_size >= BUFSIZ) {
 	    syslog_message (LOG_WARNING,
-			    "Client sent %d bytes, but buffer is %d",
-			    cmnd->data_size, BUFSIZ);
+			    "Client sent %d bytes, but buffer is %lu",
+			    (int)cmnd->data_size, (unsigned long)BUFSIZ);
 	    return;
 	}
 
@@ -229,8 +229,8 @@ handle_parent_connection (int s)
 		       0, NULL);
 	    break;
 	default:
-	    syslog_message (LOG_ERR, "Parent received unknown command %u.",
-			    cmnd->command);
+	    syslog_message (LOG_ERR, "Parent received unknown command %d.",
+			    (int)cmnd->command);
 	    break;
 	}
     }
