@@ -135,7 +135,8 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	    solaris*)
 	      libgtop_sysdeps_dir=solaris
 	      libgtop_use_machine_h=yes
-	      libgtop_need_server=no
+	      libgtop_need_server=yes
+	      libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
 	      ;;
 	    sunos4*)
 	      libgtop_sysdeps_dir=sun4
