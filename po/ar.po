@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: libgtop.libgtop-GNOME-2-0-port.ar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2003-07-16 11:09+0200\n"
-"PO-Revision-Date: 2003-07-17 15:29+0200\n"
+"PO-Revision-Date: 2003-07-19 10:12+0200\n"
 "Last-Translator: Arafat Medini <lumina@silverpen.de>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
@@ -649,6 +649,9 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
+"هذه \"القنات\" التي تنتظر فيها العملية. هذا نداء نظام، ويمكن مراجعته "
+"في قائمة اسماء اذا استحققت الاسم النصي. (اذا كان لديك /etc/psdatabase "
+"محدثة، فحاول ps -l لترى مساحة WCHAN وهي شاغلة)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
@@ -689,7 +692,7 @@ msgstr "عدد الصفحات (الغير متبادلة) المضبوطة كم�
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr ""
+msgstr "عدد صفحات الذاكرة المتقاسمة (mmap)"
 
 #: sysdeps/names/procmem.c:57
 msgid ""
@@ -697,7 +700,7 @@ msgid ""
 "purposes. This is just the pages which count towards text, data, or stack "
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
-msgstr "عدد الصفحات التي تملكها العملية في الذاكرة الحقيقية، إلا 3 لأغراض إدارية. "
+msgstr ""
 
 #: sysdeps/names/procmem.c:62
 msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
@@ -773,7 +776,7 @@ msgstr "اﻻشارة"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Blocked"
-msgstr ""
+msgstr "اوقف"
 
 #: sysdeps/names/procsignal.c:40
 msgid "SigIgnore"
@@ -789,7 +792,7 @@ msgstr "قناع الإشارات المتأخرة"
 
 #: sysdeps/names/procsignal.c:46
 msgid "Mask of blocked signals"
-msgstr ""
+msgstr "قناع الشارات التي اوقفت"
 
 #: sysdeps/names/procsignal.c:47
 msgid "Mask of ignored signals"
@@ -817,7 +820,7 @@ msgstr "هوية المجموعة (GID)"
 
 #: sysdeps/names/procstate.c:45
 msgid "Basename of executable file in call to exec()"
-msgstr ""
+msgstr "Basename الملفات الـ executable عند النداء لـ exec()"
 
 #: sysdeps/names/procstate.c:46
 msgid "Single-Char code for process state (S=sleeping)"
@@ -901,13 +904,13 @@ msgstr "وقتs التراكمي للعملية و الابناء المحصود
 
 #: sysdeps/names/proctime.c:57
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr ""
+msgstr "الوقت (بالـ jiffies) لالـ timeout التالي للعملية"
 
 #: sysdeps/names/proctime.c:58
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
-msgstr ""
+msgstr "الوقت (بالـ jiffies) قبل بعث الـ SIGALRM التالي للعملية بسبب مؤقت فترات."
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
@@ -1007,7 +1010,7 @@ msgstr "هوية مجموعة الشاشات الطرفية"
 
 #: sysdeps/names/procuid.c:73
 msgid "Kernel scheduling priority"
-msgstr ""
+msgstr "أولوية تخطيط الكرنل"
 
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
@@ -1067,11 +1070,11 @@ msgstr "العدد الأقصى للقطع"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max shared segments per process"
-msgstr ""
+msgstr "العدد الأقصى للقطع المتقاسمة في عملية"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max total shared memory"
-msgstr ""
+msgstr "الذاكرة القصوى المتقاسمة"
 
 #: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
 msgid "Total Swap Space"
@@ -1279,7 +1282,7 @@ msgstr "إنهاء"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "حالة استعجالية عند نقطة الاتصال"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
