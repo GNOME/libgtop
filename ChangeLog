@@ -1,3 +1,7 @@
+2002-05-10  Kevin Vandersloot <kfv101@psu.edu>
+
+	* configure.in: release 2.0.0
+
 2002-05-28  Carlos Perello Marin <carlos@gnome-db.org>
 
 	* configure.in (ALL_LINGUAS): Removed all es_* and added only es_ES.
