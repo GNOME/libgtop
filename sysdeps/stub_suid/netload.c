@@ -27,6 +27,8 @@
 #include <glibtop/error.h>
 #include <glibtop/netload.h>
 
+#include <glibtop_suid.h>
+
 static const unsigned long _glibtop_sysdeps_netload = 0;
 
 /* Init function. */
@@ -46,6 +48,8 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 		       const char *interface, unsigned transport,
 		       unsigned protocol)
 {
+    glibtop_init_p (server, GLIBTOP_SYSDEPS_NETLOAD, 0);
+	
     memset (buf, 0, sizeof (glibtop_netload));
 
     return 0;

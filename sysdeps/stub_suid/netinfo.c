@@ -27,6 +27,8 @@
 #include <glibtop/error.h>
 #include <glibtop/netinfo.h>
 
+#include <glibtop_suid.h>
+
 static const unsigned long _glibtop_sysdeps_netinfo = 0;
 
 /* Init function. */
@@ -45,6 +47,8 @@ int
 glibtop_get_netinfo_p (glibtop *server, glibtop_netinfo *buf,
 		       const char *interface, unsigned transport)
 {
+    glibtop_init_p (server, GLIBTOP_SYSDEPS_NETINFO, 0);
+	
     memset (buf, 0, sizeof (glibtop_netinfo));
 
     return 0;

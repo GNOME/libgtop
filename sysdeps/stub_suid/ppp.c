@@ -27,6 +27,8 @@
 #include <glibtop/error.h>
 #include <glibtop/ppp.h>
 
+#include <glibtop_suid.h>
+
 static const unsigned long _glibtop_sysdeps_ppp = 0;
 
 /* Init function. */
@@ -44,6 +46,8 @@ glibtop_init_ppp_p (glibtop *server)
 int
 glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device)
 {
+    glibtop_init_p (server, GLIBTOP_SYSDEPS_PPP, 0);
+	
     memset (buf, 0, sizeof (glibtop_ppp));
 
     return 0;
