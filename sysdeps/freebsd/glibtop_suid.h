@@ -24,6 +24,12 @@
 
 __BEGIN_DECLS
 
+#define KI_PROC(ki) (&(ki))->kp_proc)
+#define KI_EPROC(ki) (&(ki))->kp_eproc)
+
+#define FORCEUREAD	1
+#define UREADOK(ki)	(FORCEUREAD || (KI_PROC(ki)->p_flag & P_INMEM))
+
 static inline void glibtop_suid_enter (glibtop *server) {
 	setregid (server->machine.gid, server->machine.egid);
 };

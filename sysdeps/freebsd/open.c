@@ -52,8 +52,6 @@ glibtop_open_p (glibtop *server, const char *program_name,
 {
 	fprintf (stderr, "DEBUG (%d): glibtop_open_p ()\n", getpid ()); 
 
-	sleep (5);
-
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
 	server->name = program_name;

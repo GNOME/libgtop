@@ -45,28 +45,36 @@ glibtop_get_proc_signal_p (glibtop *server,
 			   pid_t pid)
 {
 	struct kinfo_proc *pinfo;
+	int count = 0;
 
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_SIGNAL, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 
+	/* Get the process information */
+	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	if ((pinfo == NULL) || (count != 1))
+		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
+
 	/* signal: mask of pending signals.
-	   pinfo[0].kp_proc.p_siglist
-	*/
-	buf->signal = pinfo[0].kp_proc.p_siglist;
+	 *         pinfo [0].kp_proc.p_siglist
+	 */
+	buf->signal = pinfo [0].kp_proc.p_siglist;
 
 	/* blocked: mask of blocked signals.
-	   pinfo[0].kp_proc.p_sigmask
-	*/
-	buf->blocked = pinfo[0].kp_proc.p_sigmask;
+	 *          pinfo [0].kp_proc.p_sigmask
+	 */
+	buf->blocked = pinfo [0].kp_proc.p_sigmask;
 	
 	/* sigignore: mask of ignored signals.
-	   pinfo[0].kp_proc.p_sigignore
+	 *            pinfo [0].kp_proc.p_sigignore
 	*/
-	buf->sigignore = pinfo[0].kp_proc.p_sigignore;
+	buf->sigignore = pinfo [0].kp_proc.p_sigignore;
 	
 	/* sigcatch: mask of caught signals.
-	   pinfo[0].kp_proc.p_sigcatch
+	 *           pinfo [0].kp_proc.p_sigcatch
 	*/
-	buf->sigcatch = pinfo[0].kp_proc.p_sigcatch;
+	buf->sigcatch = pinfo [0].kp_proc.p_sigcatch;
+
+	buf->flags = _glibtop_sysdeps_proc_signal;
 }

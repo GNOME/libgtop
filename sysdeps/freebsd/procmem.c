@@ -56,6 +56,7 @@ void
 glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 			pid_t pid)
 {
+#if 0
 	struct kinfo_proc *pinfo;
 	struct vmspace vms;
 	struct vm_map vmm;
@@ -123,4 +124,5 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	
 	/* Set the flags */
 	buf->flags = _glibtop_sysdeps_proc_mem;
+#endif
 }

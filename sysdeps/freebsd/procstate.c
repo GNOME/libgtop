@@ -25,11 +25,11 @@
 
 #include <glibtop_suid.h>
 
+#include <sys/user.h>
+
 static const unsigned long _glibtop_sysdeps_proc_state =
-(1 << GLIBTOP_PROC_STATE_CMD) +
-(1 << GLIBTOP_PROC_STATE_STATE) +
-(1 << GLIBTOP_PROC_STATE_UID) +
-(1 << GLIBTOP_PROC_STATE_GID);
+(1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE) +
+(1 << GLIBTOP_PROC_STATE_UID) + (1 << GLIBTOP_PROC_STATE_GID);
 
 /* Init function. */
 
@@ -46,9 +46,25 @@ glibtop_get_proc_state_p (glibtop *server,
 			  glibtop_proc_state *buf,
 			  pid_t pid)
 {
+	struct kinfo_proc *pinfo;
+	int count = 0;
+
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_STATE, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_state));
+
+	/* Get the process information */
+	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	if ((pinfo == NULL) || (count != 1))
+		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
+
+	strncpy (buf->cmd, pinfo [0].kp_proc.p_comm, sizeof (buf->cmd)-1);
+	buf->cmd [sizeof (buf->cmd)-1] = 0;
+
+	buf->uid = pinfo [0].kp_eproc.e_pcred.p_svuid;
+	buf->gid = pinfo [0].kp_eproc.e_pcred.p_svgid;
+
+	buf->state = pinfo [0].kp_proc.p_stat;
 
 	/* Set the flags for the data we're about to return*/
 	buf->flags = _glibtop_sysdeps_proc_state;

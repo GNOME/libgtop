@@ -38,13 +38,15 @@
 
 static const unsigned long _glibtop_sysdeps_proc_kernel =
 (1 << GLIBTOP_PROC_KERNEL_K_FLAGS) +
-(1 << GLIBTOP_PROC_KERNEL_MIN_FLT) +
-(1 << GLIBTOP_PROC_KERNEL_MAJ_FLT) +
-(1 << GLIBTOP_PROC_KERNEL_CMIN_FLT) +
-(1 << GLIBTOP_PROC_KERNEL_CMAJ_FLT) +
 (1 << GLIBTOP_PROC_KERNEL_KSTK_ESP) +
 (1 << GLIBTOP_PROC_KERNEL_KSTK_EIP) +
 (1 << GLIBTOP_PROC_KERNEL_WCHAN);
+
+static const unsigned long _glibtop_sysdeps_proc_kernel_user =
+(1 << GLIBTOP_PROC_KERNEL_MIN_FLT) +
+(1 << GLIBTOP_PROC_KERNEL_MAJ_FLT) +
+(1 << GLIBTOP_PROC_KERNEL_CMIN_FLT) +
+(1 << GLIBTOP_PROC_KERNEL_CMAJ_FLT);
 
 /* Init function. */
 
@@ -61,56 +63,47 @@ glibtop_get_proc_kernel_p (glibtop *server,
 {
 	struct kinfo_proc *pinfo;
 	struct i386tss *pcb_tss;
-	struct pstats ps;
-	struct user usr;
+	struct user *u_addr = (struct user *)USRSTACK;
+	struct pstats pstats;
 	int f, count;
 
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
 
-	/* Get the information pertaining to the given PID */
+	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
-	if (count != 1) {
-		return; /* the 0-filled struct, since we can't get any info */
+	if ((pinfo == NULL) || (count != 1))
+		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
+
+	/* Taken from `saveuser ()' in `/usr/src/bin/ps/ps.c'. */
+
+	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
+	    kvm_uread (server->machine.kd, pinfo [0].kp_proc,
+		       (unsigned long) &u_addr->u_stats,
+		       (char *) &pstats, sizeof (pstats)) == sizeof (pstats)) {
+		/*
+		 * The u-area might be swapped out, and we can't get
+		 * at it because we have a crashdump and no swap.
+		 * If it's here fill in these fields, otherwise, just
+		 * leave them 0.
+		 */
+
+		buf->min_flt = (u_int64_t) pstats.p_ru.ru_minflt;
+		buf->maj_flt = (u_int64_t) pstats.p_ru.ru_majflt;
+		buf->cmin_flt = (u_int64_t) pstats.p_cru.ru_minflt;
+		buf->cmaj_flt = (u_int64_t) pstats.p_cru.ru_majflt;
+
+		buf->flags |= _glibtop_sysdeps_proc_kernel_user;
 	}
 
-	f = open ("/dev/kmem", O_RDONLY, NULL);
-	if (f == NULL)
-		glibtop_error_io_r (server, "open (/dev/kmem)");
-
-	/* Read the p_stats struct from kernel memory */
-	lseek (f, (long) pinfo[0].kp_proc.p_stats, SEEK_SET);
-	if (read (f, &ps, sizeof (struct pstats)))
-		glibtop_error_io_r (server, "read");
-	/* Read the struct at kp_proc.p_addr */
-	lseek (f, (long) pinfo[0].kp_proc.p_addr, SEEK_SET);
-	if (read(f, &usr, sizeof (struct user)))
-		glibtop_error_io_r (server, "read");
-	close (f);
-
-	
-	/* kflags:
-	   kinfo_proc.e_flag?
-	   proc.p_flag
-	   proc.p_stat
-	*/
-	buf->k_flags = pinfo[0].kp_eproc.e_flag;
-	
-	/* min_flt: rusage.ru_minflt */
-	buf->min_flt = ps.p_ru.ru_minflt;
-	/* maj_flt: rusage.ru_majflt */
-	buf->maj_flt = ps.p_ru.ru_majflt;
-	/* cmin_flt: */
-	buf->cmin_flt = ps.p_cru.ru_minflt;
-	/* cmaj_flt: */
-	buf->cmaj_flt = ps.p_cru.ru_majflt;
-	
+#if 0
 	/* kstk_esp: pcb_tss.tss_esp */
 	buf->kstk_esp = (u_int64_t) usr.u_pcb.pcb_ksp;
 	/* kstk_eip: pcb_tss.tss_eip */
 	buf->kstk_eip = (u_int64_t) usr.u_pcb.pcb_pc;
+#endif
 	
 	/* wchan : kinfo_proc.proc.p_wchan */
-	buf->wchan = (u_int64_t) pinfo[0].kp_proc.p_wchan;
+	buf->wchan = (u_int64_t) pinfo [0].kp_proc.p_wchan;
 }
