@@ -77,4 +77,4 @@ perl/Makefile.PL: perl/Makefile.PL.in Makefile
 
 perl/Libgtop.xs: perl/perl.awk $(top_builddir)/config.h $(top_srcdir)/features.def
 	$(AWK) -f $(top_srcdir)/perl/perl.awk < $(top_srcdir)/features.def > perl/lgt-t
-	mv perl/lgt_t perl/Libgtop.xs
+	mv perl/lgt-t perl/Libgtop.xs
