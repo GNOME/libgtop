@@ -1,8 +1,6 @@
-2001-10-13  Bastien Nocera  <hadess@hadess.net>
+2002-01-09  Darin Adler  <darin@bentspoon.com>
 
-	reviewed by: <delete if not using a buddy>
-
-	* Makefile.am:
+	* Makefile.am: Fix build breakage caused by bad MAKEINFO change.
 
 2000-02-05  Martin Baulig  <martin@home-of-linux.org>
 

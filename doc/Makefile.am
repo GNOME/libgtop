@@ -4,7 +4,7 @@ libgtop_TEXINFOS	= libgtop.texi about.texi reference.texi \
 			  auto-macros.texi version.texi main.texi \
 			  white-paper.texi internals.texi
 
-MAKEINFO		= -I @libgtop_top_builddir@/doc
+MAKEINFO		= @MAKEINFO@ -I @libgtop_top_builddir@/doc
 
 EXTRA_DIST		= auto-macros.texi.in
 
