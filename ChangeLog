@@ -1,3 +1,8 @@
+1999-09-16  Martin Baulig  <martin@home-of-linux.org>
+
+	Merged everything since May 31 from HEAD and released
+ 	LibGTop 1.0.3.
+
 1999-07-11  Tomas Ogren  <stric@ing.umu.se>
 
 	* configure.in: Added sv to ALL_LINGUAS

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-05-28 01:39+0200\n"
+"POT-Creation-Date: 1999-09-16 23:16+0200\n"
 "PO-Revision-Date: 1998-12-11 06:53+09:00\n"
 "Last-Translator: Eiichiro ITANI <emu@ceres.dti.ne.jp>\n"
 "Language-Team: <gnome@lists.hypercore.co.jp>\n"
@@ -396,7 +396,8 @@ msgid "Number of pages of virtual memory"
 msgstr "仮想メモリのページ数"
 
 #: sysdeps/names/procmem.c:55
-msgid "Number of residnet set (non-swapped) pages"
+#, fuzzy
+msgid "Number of resident set (non-swapped) pages"
 msgstr "常駐セット(スワップされない)ページ数"
 
 #: sysdeps/names/procmem.c:56
@@ -1023,39 +1024,39 @@ msgstr ""
 msgid "write %d bytes"
 msgstr ""
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:446
 msgid "Enable debugging"
 msgstr ""
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:446
 msgid "DEBUG"
 msgstr ""
 
-#: src/daemon/gnuserv.c:447
+#: src/daemon/gnuserv.c:448
 msgid "Enable verbose output"
 msgstr ""
 
-#: src/daemon/gnuserv.c:447
+#: src/daemon/gnuserv.c:448
 msgid "VERBOSE"
 msgstr ""
 
-#: src/daemon/gnuserv.c:449
+#: src/daemon/gnuserv.c:450
 msgid "Don't fork into background"
 msgstr ""
 
-#: src/daemon/gnuserv.c:449
+#: src/daemon/gnuserv.c:450
 msgid "NO-DAEMON"
 msgstr ""
 
-#: src/daemon/gnuserv.c:451
+#: src/daemon/gnuserv.c:452
 msgid "Invoked from inetd"
 msgstr ""
 
-#: src/daemon/gnuserv.c:451
+#: src/daemon/gnuserv.c:452
 msgid "INETD"
 msgstr ""
 
-#: src/daemon/gnuserv.c:485
+#: src/daemon/gnuserv.c:486
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

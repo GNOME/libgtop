@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: glibtop 1.0.0\n"
-"POT-Creation-Date: 1999-05-28 01:39+0200\n"
+"POT-Creation-Date: 1999-09-16 23:16+0200\n"
 "PO-Revision-Date: 1998-12-13 04:38+0100\n"
 "Last-Translator: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
 "Language-Team: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
@@ -442,7 +442,8 @@ msgid "Number of pages of virtual memory"
 msgstr "Cantidad de páginas de memoria virtual"
 
 #: sysdeps/names/procmem.c:55
-msgid "Number of residnet set (non-swapped) pages"
+#, fuzzy
+msgid "Number of resident set (non-swapped) pages"
 msgstr "Cantidad de páginas de conjuntos compartidos (que no estan en swap)"
 
 #: sysdeps/names/procmem.c:56
@@ -1076,39 +1077,39 @@ msgstr "leídos %d bytes de datos"
 msgid "write %d bytes"
 msgstr "escritos %d bytes"
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:446
 msgid "Enable debugging"
 msgstr "Activar depuración"
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:446
 msgid "DEBUG"
 msgstr "DEPURACIÓN"
 
-#: src/daemon/gnuserv.c:447
+#: src/daemon/gnuserv.c:448
 msgid "Enable verbose output"
 msgstr "Activa salida detallada"
 
-#: src/daemon/gnuserv.c:447
+#: src/daemon/gnuserv.c:448
 msgid "VERBOSE"
 msgstr ""
 
-#: src/daemon/gnuserv.c:449
+#: src/daemon/gnuserv.c:450
 msgid "Don't fork into background"
 msgstr "No abrir un proceso de fondo"
 
-#: src/daemon/gnuserv.c:449
+#: src/daemon/gnuserv.c:450
 msgid "NO-DAEMON"
 msgstr ""
 
-#: src/daemon/gnuserv.c:451
+#: src/daemon/gnuserv.c:452
 msgid "Invoked from inetd"
 msgstr "Invocado desde inetd"
 
-#: src/daemon/gnuserv.c:451
+#: src/daemon/gnuserv.c:452
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:485
+#: src/daemon/gnuserv.c:486
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
