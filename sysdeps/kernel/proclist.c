@@ -54,7 +54,8 @@ glibtop_init_proclist_s (glibtop *server)
  * On error, NULL is returned and buf->flags is zero. */
 
 unsigned *
-glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf)
+glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
+			int64_t which, int64_t arg)
 {
 	union table tbl;
 	unsigned *pids_chain;

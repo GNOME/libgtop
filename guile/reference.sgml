@@ -1457,13 +1457,14 @@ typedef struct _glibtop_proc_segment    glibtop_proc_segment;
 struct _glibtop_proc_segment
 {
 	u_int64_t	flags;
-	u_int64_t       start_code,     /* GLIBTOP_PROC_SEGMENT_START_CODE  */
+	u_int64_t       text_rss,       /* GLIBTOP_PROC_SEGMENT_TEXT_RSS    */
+		shlib_rss,      	/* GLIBTOP_PROC_SEGMENT_SHLIB_RSS   */
+		data_rss,       	/* GLIBTOP_PROC_SEGMENT_DATA_RSS    */
+		stack_rss,      	/* GLIBTOP_PROC_SEGMENT_STACK_RSS   */
+		dirty_size,     	/* GLIBTOP_PROC_SEGMENT_DIRTY_SIZE  */
+		start_code,     	/* GLIBTOP_PROC_SEGMENT_START_CODE  */
 		end_code,       	/* GLIBTOP_PROC_SEGMENT_END_CODE    */
 		start_stack;    	/* GLIBTOP_PROC_SEGMENT_START_STACK  */
-	int64_t         trs,            /* GLIBTOP_PROC_SEGMENT_TRS         */
-		lrs,            	/* GLIBTOP_PROC_SEGMENT_LRS         */
-		drs,            	/* GLIBTOP_PROC_SEGMENT_DRS         */
-		dt;             	/* GLIBTOP_PROC_SEGMENT_DT          */
 };
 </literallayout>
 </blockquote>
@@ -1472,32 +1473,39 @@ struct _glibtop_proc_segment
 <variablelist>
 
 <varlistentry>
-<term><parameter>trs</parameter></term>
+<term><parameter>text_rss</parameter></term>
 
 <listitem>
 <para>
 Text resident set size
 
 <varlistentry>
-<term><parameter>lrs</parameter></term>
+<term><parameter>shlib_rss</parameter></term>
 
 <listitem>
 <para>
 Shared-Lib resident set size
 
 <varlistentry>
-<term><parameter>drs</parameter></term>
+<term><parameter>data_rss</parameter></term>
 
 <listitem>
 <para>
 Data resident set size
 
 <varlistentry>
-<term><parameter>dt</parameter></term>
+<term><parameter>stack_rss</parameter></term>
 
 <listitem>
 <para>
-Dirty pages
+Stack resident set size
+
+<varlistentry>
+<term><parameter>dirty_size</parameter></term>
+
+<listitem>
+<para>
+Total size of dirty pages
 
 <varlistentry>
 <term><parameter>start_code</parameter></term>

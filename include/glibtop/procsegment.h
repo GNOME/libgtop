@@ -27,15 +27,16 @@
 
 __BEGIN_DECLS
 
-#define GLIBTOP_PROC_SEGMENT_TRS		0
-#define GLIBTOP_PROC_SEGMENT_LRS		1
-#define GLIBTOP_PROC_SEGMENT_DRS		2
-#define GLIBTOP_PROC_SEGMENT_DT			3
-#define GLIBTOP_PROC_SEGMENT_START_CODE		4
-#define GLIBTOP_PROC_SEGMENT_END_CODE		5
-#define GLIBTOP_PROC_SEGMENT_START_STACK	6
+#define GLIBTOP_PROC_SEGMENT_TEXT_RSS		0
+#define GLIBTOP_PROC_SEGMENT_SHLIB_RSS		1
+#define GLIBTOP_PROC_SEGMENT_DATA_RSS		2
+#define GLIBTOP_PROC_SEGMENT_STACK_RSS		3
+#define GLIBTOP_PROC_SEGMENT_DIRTY_SIZE		4
+#define GLIBTOP_PROC_SEGMENT_START_CODE		5
+#define GLIBTOP_PROC_SEGMENT_END_CODE		6
+#define GLIBTOP_PROC_SEGMENT_START_STACK	7
 
-#define GLIBTOP_MAX_PROC_SEGMENT		7
+#define GLIBTOP_MAX_PROC_SEGMENT		8
 
 typedef struct _glibtop_proc_segment	glibtop_proc_segment;
 
@@ -44,10 +45,11 @@ typedef struct _glibtop_proc_segment	glibtop_proc_segment;
 struct _glibtop_proc_segment
 {
 	u_int64_t	flags,
-		trs,		/* text resident set size */
-		lrs,		/* shared-lib resident set size */
-		drs,		/* data resident set size */
-		dt,		/* dirty pages */
+		text_rss,	/* text resident set size */
+		shlib_rss,	/* shared-lib resident set size */
+		data_rss,	/* data resident set size */
+		stack_rss,	/* stack resident set size */
+		dirty_size,	/* size of dirty pages */
 		start_code,
 				/* address of beginning of code segment */
 		end_code,	/* address of end of code segment */

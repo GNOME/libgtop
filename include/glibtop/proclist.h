@@ -44,6 +44,10 @@ __BEGIN_DECLS
 #define GLIBTOP_KERN_PROC_UID		5
 #define GLIBTOP_KERN_PROC_RUID		6
 
+#define GLIBTOP_EXCLUDE_IDLE		0x1000
+#define GLIBTOP_EXCLUDE_SYSTEM		0x2000
+#define GLIBTOP_EXCLUDE_NOTTY		0x4000
+
 typedef struct _glibtop_proclist	glibtop_proclist;
 
 struct _glibtop_proclist

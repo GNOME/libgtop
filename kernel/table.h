@@ -117,8 +117,8 @@ struct table_proc_mem
 struct table_proc_segment
 {
 	unsigned long vsize;
-	int size, resident, shared;
-	int trs, lrs, drs, dt;
+	unsigned long size, resident, shared;
+	unsigned long trs, lrs, drs, srs, dt;
 };
 
 struct table_proc_time

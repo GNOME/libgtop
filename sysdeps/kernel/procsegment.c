@@ -26,9 +26,13 @@
 #include "kernel.h"
 
 static const unsigned long _glibtop_sysdeps_proc_segment =
-(1 << GLIBTOP_PROC_SEGMENT_TRS) + (1 << GLIBTOP_PROC_SEGMENT_LRS) +
-(1 << GLIBTOP_PROC_SEGMENT_DRS) + (1 << GLIBTOP_PROC_SEGMENT_DT) +
-(1 << GLIBTOP_PROC_SEGMENT_START_CODE) + (1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
+(1 << GLIBTOP_PROC_SEGMENT_TEXT_RSS) +
+(1 << GLIBTOP_PROC_SEGMENT_SHLIB_RSS) +
+(1 << GLIBTOP_PROC_SEGMENT_DATA_RSS) +
+(1 << GLIBTOP_PROC_SEGMENT_STACK_RSS) +
+(1 << GLIBTOP_PROC_SEGMENT_DIRTY_SIZE) +
+(1 << GLIBTOP_PROC_SEGMENT_START_CODE) +
+(1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
 (1 << GLIBTOP_PROC_SEGMENT_START_STACK);
 
 /* Init function. */
@@ -63,8 +67,9 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 
 	buf->flags = _glibtop_sysdeps_proc_segment;
 
-	buf->trs = tbl.proc_segment.trs;
-	buf->lrs = tbl.proc_segment.lrs;
-	buf->drs = tbl.proc_segment.drs;
-	buf->dt = tbl.proc_segment.dt;
+	buf->text_rss	= tbl.proc_segment.trs;
+	buf->shlib_rss	= tbl.proc_segment.lrs;
+	buf->data_rss	= tbl.proc_segment.drs;
+	buf->stack_rss	= tbl.proc_segment.srs;
+	buf->dirty_size	= tbl.proc_segment.dt;
 }

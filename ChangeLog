@@ -1,3 +1,20 @@
+1998-08-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/procsegment.h (glibtop_proc_segment): Using
+	`text_rss', `shlib_rss', `data_rss' and `dirty_size' instead of
+	`tsr', `lrs', `drs' and `dt'. New field `stack_rss'.
+
+	* sysdeps/linux/procmem.c: Memory sizes now correctly in bytes.
+	* sysdeps/linux/procsegment.c: Dito.
+
+	* sysdeps/kernel/procsegment.c: Stack pages are reported via
+	`stack_rss' and no longer count towards `data_rss'
+	* kernel/table.h (table_proc_segment): Added `srs' field.
+	* kernel/table21/module.c (TBL_PROC_SEGMENT): Added kernel support
+	for this.
+
+	* sysdeps/{linux, kernel, stub}/procmap.c: New files.
+
 1998-08-11  Martin Baulig  <martin@home-of-linux.org>
 
 	* guile/features.awk: New file.

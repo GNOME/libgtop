@@ -257,6 +257,21 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_mem.rss,
 		(unsigned long) data.proc_mem.rss_rlim);
 
+	for (c = 0; c < PROFILE_COUNT; c++)
+		glibtop_get_proc_segment (&data.proc_segment, pid);
+
+	printf ("Proc_Segment PID  %5u (0x%08lx): "
+		"%lu %lu %lu %lu %lu %lu %lu %lu\n", pid,
+		(unsigned long) data.proc_segment.flags,
+		(unsigned long) data.proc_segment.text_rss,
+		(unsigned long) data.proc_segment.shlib_rss,
+		(unsigned long) data.proc_segment.data_rss,
+		(unsigned long) data.proc_segment.stack_rss,
+		(unsigned long) data.proc_segment.dirty_size,
+		(unsigned long) data.proc_segment.start_code,
+		(unsigned long) data.proc_segment.end_code,
+		(unsigned long) data.proc_segment.start_stack);
+
 	getrusage (RUSAGE_SELF, &ru);
 
 	fprintf (stderr, "GETRUSAGE: (%ld, %ld) - (%ld, %ld)\n",
@@ -306,20 +321,6 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_kernel.nwchan,
 		data.proc_kernel.wchan);
 
-	for (c = 0; c < PROFILE_COUNT; c++)
-		glibtop_get_proc_segment (&data.proc_segment, pid);
-
-	printf ("Proc_Segment PID  %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu\n", pid,
-		(unsigned long) data.proc_segment.flags,
-		(unsigned long) data.proc_segment.trs,
-		(unsigned long) data.proc_segment.lrs,
-		(unsigned long) data.proc_segment.drs,
-		(unsigned long) data.proc_segment.dt,
-		(unsigned long) data.proc_segment.start_code,
-		(unsigned long) data.proc_segment.end_code,
-		(unsigned long) data.proc_segment.start_stack);
-
 	printf ("\n");
 
 	for (c = 0; c < PROFILE_COUNT; c++)
@@ -355,6 +356,21 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_mem.share,
 		(unsigned long) data.proc_mem.rss,
 		(unsigned long) data.proc_mem.rss_rlim);
+
+	for (c = 0; c < PROFILE_COUNT; c++)
+		glibtop_get_proc_segment (&data.proc_segment, ppid);
+
+	printf ("Proc_Segment PPID %5u (0x%08lx): "
+		"%lu %lu %lu %lu %lu %lu %lu %lu\n", ppid,
+		(unsigned long) data.proc_segment.flags,
+		(unsigned long) data.proc_segment.text_rss,
+		(unsigned long) data.proc_segment.shlib_rss,
+		(unsigned long) data.proc_segment.data_rss,
+		(unsigned long) data.proc_segment.stack_rss,
+		(unsigned long) data.proc_segment.dirty_size,
+		(unsigned long) data.proc_segment.start_code,
+		(unsigned long) data.proc_segment.end_code,
+		(unsigned long) data.proc_segment.start_stack);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_time (&data.proc_time, ppid);
@@ -398,20 +414,6 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_kernel.nwchan,
 		data.proc_kernel.wchan);
 
-	for (c = 0; c < PROFILE_COUNT; c++)
-		glibtop_get_proc_segment (&data.proc_segment, ppid);
-
-	printf ("Proc_Segment PPID %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu\n", ppid,
-		(unsigned long) data.proc_segment.flags,
-		(unsigned long) data.proc_segment.trs,
-		(unsigned long) data.proc_segment.lrs,
-		(unsigned long) data.proc_segment.drs,
-		(unsigned long) data.proc_segment.dt,
-		(unsigned long) data.proc_segment.start_code,
-		(unsigned long) data.proc_segment.end_code,
-		(unsigned long) data.proc_segment.start_stack);
-
 	printf ("\n");
 
 	for (c = 0; c < PROFILE_COUNT; c++)
@@ -447,6 +449,21 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_mem.share,
 		(unsigned long) data.proc_mem.rss,
 		(unsigned long) data.proc_mem.rss_rlim);
+
+	for (c = 0; c < PROFILE_COUNT; c++)
+		glibtop_get_proc_segment (&data.proc_segment, 1);
+
+	printf ("Proc_Segment INIT %5u (0x%08lx): "
+		"%lu %lu %lu %lu %lu %lu %lu %lu\n", 1,
+		(unsigned long) data.proc_segment.flags,
+		(unsigned long) data.proc_segment.text_rss,
+		(unsigned long) data.proc_segment.shlib_rss,
+		(unsigned long) data.proc_segment.data_rss,
+		(unsigned long) data.proc_segment.stack_rss,
+		(unsigned long) data.proc_segment.dirty_size,
+		(unsigned long) data.proc_segment.start_code,
+		(unsigned long) data.proc_segment.end_code,
+		(unsigned long) data.proc_segment.start_stack);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_time (&data.proc_time, 1);
@@ -490,20 +507,6 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_kernel.kstk_eip,
 		(unsigned long) data.proc_kernel.nwchan,
 		data.proc_kernel.wchan);
-
-	for (c = 0; c < PROFILE_COUNT; c++)
-		glibtop_get_proc_segment (&data.proc_segment, 1);
-
-	printf ("Proc_Segment INIT %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu\n", 1,
-		(unsigned long) data.proc_segment.flags,
-		(unsigned long) data.proc_segment.trs,
-		(unsigned long) data.proc_segment.lrs,
-		(unsigned long) data.proc_segment.drs,
-		(unsigned long) data.proc_segment.dt,
-		(unsigned long) data.proc_segment.start_code,
-		(unsigned long) data.proc_segment.end_code,
-		(unsigned long) data.proc_segment.start_stack);
 
 	glibtop_close ();
 

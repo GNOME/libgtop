@@ -2,7 +2,7 @@
 
 /* Copyright (C) 1995, 1996, 1997 Free Software Foundation, Inc.
    This file is part of the Gnome Top Library.
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Joshua Sled <jsled@xcf.berkeley.edu>, July 1998.
 
    The Gnome Top Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as
@@ -19,29 +19,29 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#ifndef __GLIBTOP_SERVER_H__
-#define __GLIBTOP_SERVER_H__
+#include <glibtop.h>
+#include <glibtop/error.h>
+#include <glibtop/xmalloc.h>
+#include <glibtop/procmap.h>
 
-__BEGIN_DECLS
+static const unsigned long _glibtop_sysdeps_proc_map = 0;
 
-#define GLIBTOP_SUID_CPU		0
-#define GLIBTOP_SUID_MEM		0
-#define GLIBTOP_SUID_SWAP		0
-#define GLIBTOP_SUID_UPTIME		0
-#define GLIBTOP_SUID_LOADAVG		0
-#define GLIBTOP_SUID_SHM_LIMITS		0
-#define GLIBTOP_SUID_MSG_LIMITS		0
-#define GLIBTOP_SUID_SEM_LIMITS		0
-#define GLIBTOP_SUID_PROCLIST		0
-#define GLIBTOP_SUID_PROC_STATE		0
-#define GLIBTOP_SUID_PROC_UID		0
-#define GLIBTOP_SUID_PROC_MEM		0
-#define GLIBTOP_SUID_PROC_TIME		0
-#define GLIBTOP_SUID_PROC_SIGNAL	0
-#define GLIBTOP_SUID_PROC_KERNEL	0
-#define GLIBTOP_SUID_PROC_SEGMENT	0
-#define GLIBTOP_SUID_PROC_MAP		0
+/* Init function. */
 
-__END_DECLS
+void
+glibtop_init_proc_map_s (glibtop *server)
+{
+	server->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
+}
 
-#endif
+/* Provides detailed information about a process. */
+
+glibtop_map_entry *
+glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
+{
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
+	
+	memset (buf, 0, sizeof (glibtop_proc_map));
+	
+	return NULL;
+}

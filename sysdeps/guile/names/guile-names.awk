@@ -103,6 +103,8 @@ function output(feature) {
 }
 
 END {
+  features["sysdeps"] = "sysdeps";
+
   for (feature in features) {
     output(feature);
   }

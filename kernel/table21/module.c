@@ -473,7 +473,7 @@ table_fkt (int type, union table *buf, const void *param)
 		if (tsk->mm && tsk->mm != &init_mm) {
 			unsigned long vsize = 0;
 			int size = 0, resident = 0, share = 0;
-			int trs = 0, lrs = 0, drs = 0, dt = 0;
+			int trs = 0, lrs = 0, drs = 0, srs = 0, dt = 0;
 			struct vm_area_struct * vma = tsk->mm->mmap;
 
 			while (vma) {
@@ -486,27 +486,26 @@ table_fkt (int type, union table *buf, const void *param)
 
 						 &pages, &shared, &dirty, &total);
 
-#if 0
-				printk ("vma %p (%d) - %d, %d, %d, %d - "
-					"%lx - %lx, %lx - %lx - %lx\n",
-					vma, pid, pages, shared, dirty, total,
-					PAGE_SIZE, vma->vm_start, vma->vm_end,
-					vma->vm_end - vma->vm_start,
-					(vma->vm_end - vma->vm_start) >> PAGE_SHIFT);
-#endif
-
 				resident += pages;
 				share += shared;
 				dt += dirty;
 				size += total;
-				if (vma->vm_flags & VM_EXECUTABLE)
-					trs += pages;	/* text */
-				else if (vma->vm_flags & VM_GROWSDOWN)
-					drs += pages;	/* stack */
-				else if (vma->vm_end > 0x60000000)
+
+				/* Well, shared library seem to get mapped
+				 * above 0x40000000 and are executable,
+				 * so I use this hack to get their size.
+				 */
+
+				if (vma->vm_flags & VM_GROWSDOWN)
+					srs += pages;	/* stack */
+				else if ((vma->vm_flags & VM_EXEC) &&
+					 (vma->vm_start > 0x40000000))
 					lrs += pages;	/* library */
+				else if (vma->vm_flags & VM_EXECUTABLE)
+					trs += pages;	/* text */
 				else
 					drs += pages;
+
 				vma = vma->vm_next;
 			}
 
@@ -516,6 +515,8 @@ table_fkt (int type, union table *buf, const void *param)
 			tbl.proc_segment.shared = share << PAGE_SHIFT;
 			tbl.proc_segment.trs = trs << PAGE_SHIFT;
 			tbl.proc_segment.lrs = lrs << PAGE_SHIFT;
+			tbl.proc_segment.drs = drs << PAGE_SHIFT;
+			tbl.proc_segment.srs = srs << PAGE_SHIFT;
 			tbl.proc_segment.dt = dt << PAGE_SHIFT;
 		}
 		break;

@@ -24,17 +24,41 @@
 #include <glibtop/procsegment.h>
 
 static const unsigned long _glibtop_sysdeps_proc_segment =
-(1 << GLIBTOP_PROC_SEGMENT_TRS) + (1 << GLIBTOP_PROC_SEGMENT_LRS) +
-(1 << GLIBTOP_PROC_SEGMENT_DRS) + (1 << GLIBTOP_PROC_SEGMENT_DT) +
-(1 << GLIBTOP_PROC_SEGMENT_START_CODE) + (1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
+(1 << GLIBTOP_PROC_SEGMENT_TEXT_RSS) +
+(1 << GLIBTOP_PROC_SEGMENT_SHLIB_RSS) +
+(1 << GLIBTOP_PROC_SEGMENT_DATA_RSS) +
+(1 << GLIBTOP_PROC_SEGMENT_DIRTY_SIZE) +
+(1 << GLIBTOP_PROC_SEGMENT_START_CODE) +
+(1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
 (1 << GLIBTOP_PROC_SEGMENT_START_STACK);
+
+#ifndef LOG1024
+#define LOG1024		10
+#endif
+
+/* these are for getting the memory statistics */
+static int pageshift;		/* log base 2 of the pagesize */
+
+/* define pagetok in terms of pageshift */
+#define pagetok(size) ((size) << pageshift)
 
 /* Init function. */
 
 void
 glibtop_init_proc_segment_s (glibtop *server)
 {
+	register int pagesize;
+
 	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
+
+	/* get the page size with "getpagesize" and calculate pageshift
+	 * from it */
+	pagesize = getpagesize ();
+	pageshift = 0;
+	while (pagesize > 1) {
+		pageshift++;
+		pagesize >>= 1;
+	}
 }
 
 /* Provides detailed information about a process. */
@@ -94,7 +118,13 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 	input [nread] = 0;
 
 	sscanf (input, "%*d %*d %*d %Lu %Lu %Lu %Lu",
-		&buf->trs, &buf->lrs, &buf->drs, &buf->dt);
+		&buf->text_rss, &buf->shlib_rss,
+		&buf->data_rss, &buf->dirty_size);
+
+	buf->text_rss   <<= pageshift;
+	buf->shlib_rss  <<= pageshift;
+	buf->data_rss   <<= pageshift;
+	buf->dirty_size <<= pageshift;
 
 	fclose (f);
 

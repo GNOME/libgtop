@@ -80,12 +80,11 @@ main (int argc, char *argv [])
 	maps = glibtop_get_proc_map (&procmap, pid);
 
 	for (i = 0; i < procmap.number; i++) {
-		fprintf (stderr, "%08x - %08x - %08lu - %08lu - '%s'\n",
+		fprintf (stderr, "%08x - %08x - %08lu - %08lu\n",
 			 (unsigned long) maps [i].start,
 			 (unsigned long) maps [i].end,
 			 (unsigned long) maps [i].device,
-			 (unsigned long) maps [i].inode,
-			 devname (maps [i].device, S_IFBLK));
+			 (unsigned long) maps [i].inode);
 	}
 
 	glibtop_free (maps);

@@ -29,7 +29,7 @@ static const unsigned long _glibtop_sysdeps_proc_kernel =
 (1 << GLIBTOP_PROC_KERNEL_K_FLAGS) + (1 << GLIBTOP_PROC_KERNEL_MIN_FLT) +
 (1 << GLIBTOP_PROC_KERNEL_MAJ_FLT) + (1 << GLIBTOP_PROC_KERNEL_CMIN_FLT) +
 (1 << GLIBTOP_PROC_KERNEL_CMAJ_FLT) + (1 << GLIBTOP_PROC_KERNEL_KSTK_ESP) +
-(1 << GLIBTOP_PROC_KERNEL_KSTK_EIP) + (1 << GLIBTOP_PROC_KERNEL_WCHAN);
+(1 << GLIBTOP_PROC_KERNEL_KSTK_EIP) + (1 << GLIBTOP_PROC_KERNEL_NWCHAN);
 
 /* Init function. */
 
@@ -62,5 +62,5 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
 	buf->cmaj_flt = tbl.proc_kernel.cmaj_flt;
 	buf->kstk_esp = tbl.proc_kernel.kesp;
 	buf->kstk_eip = tbl.proc_kernel.keip;
-	buf->wchan = tbl.proc_kernel.wchan;
+	buf->nwchan = tbl.proc_kernel.wchan;
 }

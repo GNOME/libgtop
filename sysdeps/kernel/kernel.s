@@ -19,7 +19,7 @@ gcc2_compiled.:
 table:
 	pushl %ebp
 	movl %esp,%ebp
-	movl $188,%eax
+	movl $190,%eax
 	pushl %ebx
 	movl 8(%ebp),%ebx
 	movl 12(%ebp),%ecx
