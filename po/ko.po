@@ -4,9 +4,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 1.1.1\n"
-"POT-Creation-Date: 1999-10-16 20:49+0200\n"
-"PO-Revision-Date: 1999-10-04 14:19:43+0900\n"
+"Project-Id-Version: libgtop 1.1.3\n"
+"POT-Creation-Date: 1999-11-29 13:08+0900\n"
+"PO-Revision-Date: 1999-11-29 04:21:16+0900\n"
 "Last-Translator: Sung-Hyun Nam <namsh@kldp.org>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -910,7 +910,7 @@ msgstr "배열당 최대 세마포어수"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max ops per semop call"
-msgstr ""
+msgstr "세마포어 콜당 최대 동작"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Max number of undo entries per process"
@@ -962,11 +962,11 @@ msgstr "여유 스왑 공간"
 
 #: sysdeps/names/swap.c:44
 msgid "Page In"
-msgstr ""
+msgstr "페이지 인"
 
 #: sysdeps/names/swap.c:45
 msgid "Page Out"
-msgstr ""
+msgstr "페이지 아웃"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought in since system boot"
@@ -976,111 +976,115 @@ msgstr "시스템 시동후 도입한 총 스왑 페이지 수"
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "시스템 시동후 내보낸 총 스왑 페이지 수"
 
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
 msgid "Server Features"
 msgstr "서버 기능"
 
-#: sysdeps/names/sysdeps.c:52
+#: sysdeps/names/sysdeps.c:54
 msgid "Pointer Size"
 msgstr "포인터 크기"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:84
 msgid "CPU Usage"
 msgstr "CPU 사용량"
 
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:85
 msgid "Memory Usage"
 msgstr "메모리 사용량"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:86
 msgid "Swap Usage"
 msgstr "스왑 사용량"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:87
 msgid "System Uptime"
 msgstr "시스템 Uptime"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:88
 msgid "Load Averange"
 msgstr "로드 평균"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:89
 msgid "Shared Memory Limits"
 msgstr "공유 메모리 한계"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:90
 msgid "Message Queue Limits"
 msgstr "메시지 큐 한계"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:91
 msgid "Semaphore Set Limits"
 msgstr "세마포어 세트 한계"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
 msgid "List of running Processes"
 msgstr "돌고 있는 프로세스 목록"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
 msgid "Process Status information"
 msgstr "프로세스 상태 정보"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
 msgid "Process UID and TTY information"
 msgstr "프로세스 UID와 TTY 정보"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
 msgid "Process Memory information"
 msgstr "프로세스 메모리 정보"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:96
 msgid "Process Time information"
 msgstr "프로세스 시간 정보"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:97
 msgid "Process Signal information"
 msgstr "프로세스 시그널 정보"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:98
 msgid "Process Kernel Data information"
 msgstr "프로세스 커널 자료 정보"
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:99
 msgid "Process Segment information"
 msgstr "프로세스 세그먼트 정보"
 
-#: sysdeps/names/sysdeps.c:69
+#: sysdeps/names/sysdeps.c:71
 msgid "Process Arguments"
 msgstr "프로세스 인자"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
 msgid "Process Memory Map"
 msgstr "프로세스 메모리 맵"
 
-#: sysdeps/names/sysdeps.c:71
+#: sysdeps/names/sysdeps.c:73
 msgid "Mount List"
 msgstr "마운트 목록"
 
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
 msgid "File System Usage"
 msgstr "파일 시스템 사용"
 
-#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:101
+#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:104
 msgid "Network Load"
 msgstr "네트워크 로드"
 
-#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:102
+#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
+msgid "Interface Names"
+msgstr "인터페이스 이름"
+
+#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
 msgid "PPP Statistics"
 msgstr "PPP 통계"
 
-#: sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:83
 msgid "Pointer Size on the Server (in bits)"
 msgstr "서버에서 (비트로) 포인터 크기"
 
-#: sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:100
 msgid "Command line arguments of the process"
 msgstr "프로세스의 명령행 인자"
 
-#: sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:102
 msgid "List of currently mounted filesystems"
 msgstr "현재 마운트된 파일시스템의 목록"
 
@@ -1190,39 +1194,39 @@ msgstr "데이타 %d 바이트 읽음"
 msgid "write %d bytes"
 msgstr "%d 바이트 씀"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
 msgstr "디버깅 함"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "DEBUG"
 msgstr "디버그"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
 msgstr "출력을 많이 함"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
 msgstr "말많음"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
 msgstr "백그라운드로 포크 않함"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
 msgstr "데몬-없음"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
 msgstr "inetd에 의해 불려짐"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:486
+#: src/daemon/gnuserv.c:488
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
