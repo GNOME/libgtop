@@ -64,11 +64,13 @@ init_sysinfo (glibtop *server)
 
 		p = strchr (buffer, ':');
 		if (!p) continue;
-		
+
+		/* Remove leading spaces from `p'. */
 		*p = '\0'; start = p; p++;
 		while (isspace (*p)) p++;
 
-		while ((start > buffer) && isspace (*start))
+		/* Remove trailing spaces from `buffer'. */
+		while ((start > buffer) && (*start) && isspace (*start))
 			*start-- = '\0';
 
 		key = g_strdup (buffer);
