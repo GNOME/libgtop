@@ -27,6 +27,8 @@
 #include <glibtop/error.h>
 #include <glibtop/interfaces.h>
 
+#include <glibtop_suid.h>
+
 static const unsigned long _glibtop_sysdeps_interface_names = 
 (1L << GLIBTOP_INTERFACE_NAMES_NUMBER) +
 (1L << GLIBTOP_INTERFACE_NAMES_SIZE);

@@ -92,6 +92,8 @@ sub output {
     $size_code = "\t_LIBGTOP_SEND_len = 0;\n";
     $marshal_code = "\t_LIBGTOP_SEND_offset = 0;\n";
     $marshal_code .= "\tmemset (_LIBGTOP_SEND_buf, 0, _LIBGTOP_SEND_len);\n";
+    $marshal_code .= "\t_LIBGTOP_SEND_ptr = ".
+	  "(char *) _LIBGTOP_SEND_buf;\n";
     $first_param_name = '';
 
     $call_param = '';
