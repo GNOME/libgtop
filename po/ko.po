@@ -7,9 +7,9 @@ msgstr ""
 "Project-Id-Version: libgtop 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-01-17 02:31+0900\n"
-"PO-Revision-Date: 2004-01-17 02:41+0900\n"
+"PO-Revision-Date: 2004-02-08 01:03+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
-"Language-Team: Korean <gnome-kr-hackers@lists.kldp.net>\n"
+"Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,7 +22,7 @@ msgstr "틱 (초당 %ld):"
 
 #: examples/smp.c:77
 msgid "Total"
-msgstr "총"
+msgstr "전체"
 
 #: examples/smp.c:77 sysdeps/names/mem.c:48
 msgid "User"
@@ -157,7 +157,7 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "옵션 %s에 에러: %s.\n"
-"'%s --help'를 실행하시면 명령행 옵션에서 사용할 수 있는 목록이 보입니다.\n"
+"실행 가능한 명령행 옵션을 모두 보려면 '%s --help'라고 실행하십시오.\n"
 
 #: sysdeps/names/cpu.c:44
 msgid "Total CPU Time"
@@ -309,7 +309,7 @@ msgstr "공유 메모리"
 
 #: sysdeps/names/mem.c:46
 msgid "Buffers"
-msgstr "버퍼들"
+msgstr "버퍼"
 
 #: sysdeps/names/mem.c:47
 msgid "Cached"
@@ -546,32 +546,27 @@ msgstr ""
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
-msgstr ""
-"디스크로부터 메모리 페이지 적재를 필요로 하지 않는 프로세스로부터 발생된 사소"
-"한 폴트 갯수"
+msgstr "디스크로부터 메모리 페이지 적재를 필요로 하지 않는 프로세스로부터 발생된 사소한 폴트 갯수."
 
 #: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
-msgstr ""
-"디스크로부터 메모리 페이지 적재를 필요로 하는 프로세스로부터 발생된 중대한 폴"
-"트 갯수"
+msgstr "디스크로부터 메모리 페이지 적재를 필요로 하는 프로세스로부터 발생된 중대한 폴트 갯수."
 
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
-msgstr "프로세스와 그 하위 프로세스로부터 발생된 사소한 폴트 갯수"
+msgstr "프로세스와 그 하위 프로세스로부터 발생된 사소한 폴트 갯수."
 
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
-msgstr "프로세스와 그 하위 프로세스로부터 발생된 중대한 폴트 갯수"
+msgstr "프로세스와 그 하위 프로세스로부터 발생된 중대한 폴트 갯수."
 
 #: sysdeps/names/prockernel.c:72
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
-msgstr ""
-"프로세스의 커널 스택 페이지에서 찾아진 esp (32비트 스택 포인터)의 현재 값"
+msgstr "프로세스의 커널 스택 페이지에서 찾아진 esp (32비트 스택 포인터)의 현재 값."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:75
@@ -749,7 +744,7 @@ msgstr "Cmd"
 
 #: sysdeps/names/procstate.c:43
 msgid "State"
-msgstr "State"
+msgstr "상태"
 
 #: sysdeps/names/procstate.c:43
 msgid "UID"
@@ -849,7 +844,7 @@ msgstr "It_Real_Value"
 
 #: sysdeps/names/proctime.c:47
 msgid "Frequency"
-msgstr "주파수"
+msgstr "빈도"
 
 #: sysdeps/names/proctime.c:47
 msgid "XCPU_UTime"
@@ -891,7 +886,7 @@ msgstr "프로세스의 다음 타임아웃 시간 (jiffy)"
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
-msgstr "타이머때문에 프로세스에 다음 SIGALARM을 보낼 때까지의 시간 (jiffy)"
+msgstr "타이머때문에 프로세스에 다음 SIGALARM을 보낼 때까지의 시간 (jiffy)."
 
 #: sysdeps/names/proctime.c:61
 msgid "Tick frequency"
@@ -907,51 +902,51 @@ msgstr "프로세스에 의해 모여진 SMP 커널 모드 CPU 시간"
 
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
-msgstr "Uid"
+msgstr "UID"
 
 #: sysdeps/names/procuid.c:48
 msgid "EUid"
-msgstr "EUid"
+msgstr "EUID"
 
 #: sysdeps/names/procuid.c:48
 msgid "Gid"
-msgstr "Gid"
+msgstr "GID"
 
 #: sysdeps/names/procuid.c:48
 msgid "EGid"
-msgstr "EGid"
+msgstr "EGID"
 
 #: sysdeps/names/procuid.c:48
 msgid "SUid"
-msgstr "SUid"
+msgstr "SUID"
 
 #: sysdeps/names/procuid.c:49
 msgid "SGid"
-msgstr "SGid"
+msgstr "SGID"
 
 #: sysdeps/names/procuid.c:49
 msgid "FSUid"
-msgstr "FSUid"
+msgstr "FSUID"
 
 #: sysdeps/names/procuid.c:49
 msgid "FSGid"
-msgstr "FSGid"
+msgstr "FSGID"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
-msgstr "Pid"
+msgstr "PID"
 
 #: sysdeps/names/procuid.c:50
 msgid "PPid"
-msgstr "PPid"
+msgstr "PPID"
 
 #: sysdeps/names/procuid.c:50
 msgid "PGrp"
-msgstr "PGrp"
+msgstr "PGRP"
 
 #: sysdeps/names/procuid.c:50
 msgid "Session"
-msgstr "Session"
+msgstr "세션"
 
 #: sysdeps/names/procuid.c:50
 msgid "Tty"
@@ -959,7 +954,7 @@ msgstr "TTY"
 
 #: sysdeps/names/procuid.c:51
 msgid "TPGid"
-msgstr "TPGid"
+msgstr "TPGID"
 
 #: sysdeps/names/procuid.c:51
 msgid "Priority"
@@ -1155,7 +1150,7 @@ msgstr "시스템 Uptime"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Load Averange"
-msgstr "로드 평균"
+msgstr "사용량 평균"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Shared Memory Limits"
@@ -1323,11 +1318,11 @@ msgstr "소켓에 위급한 조건"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
-msgstr "멈춤"
+msgstr "중지"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr "키보드 멈춤"
+msgstr "키보드 중지"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
