@@ -1,8 +1,6 @@
 @node LibGTop Internals, , Reference Manual, Top
 @chapter LibGTop Internals
 
-@ifset LIBGTOP-1-1
-
 @menu
 * General Internals::           General Internals
 * Sysdeps Internals::           Sysdeps Internals
@@ -106,13 +104,4 @@ glibtop_close_s (glibtop *server);
 
 It is normally implemented in @file{close.c} in the sysdeps directory, but may
 be empty.
-
-@end ifset
-
-@ifclear LIBGTOP-1-1
-
-This section was added in the development versions of LibGTop, please look
-at the manual for LibGTop 1.1.x.
-
-@end ifclear
 
