@@ -38,12 +38,20 @@ BEGIN_LIBGTOP_DECLS
 #define _GLIBTOP_PARAM_SIZE		16
 
 typedef struct _glibtop_command		glibtop_command;
+typedef struct _glibtop_response	glibtop_response;
 
 struct _glibtop_command
 {
     u_int64_t	command;
     u_int64_t	param_size, send_size, data_size;
     char	parameter [_GLIBTOP_PARAM_SIZE];
+};
+
+struct _glibtop_response
+{
+    int retval;
+    int glibtop_errno;
+    u_int64_t recv_size, data_size;
 };
 
 END_LIBGTOP_DECLS

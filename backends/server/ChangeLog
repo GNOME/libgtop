@@ -1,3 +1,7 @@
+2000-01-08  Martin Baulig  <martin@home-of-linux.org>
+
+	* command.h.in (glibtop_response): New structure.
+
 2000-01-02  Martin Baulig  <martin@home-of-linux.org>
 
 	* command.pl: New file. Creates `command.h' from `command.h.in'.
