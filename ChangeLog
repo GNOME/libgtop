@@ -1,3 +1,9 @@
+1999-05-28  Martin Baulig  <baulig@Stud.Informatik.Uni-Trier.DE>
+
+	* include/glibtop/sysdeps.h: Remove the `GLIBTOP_SYSDEPS_FEATURES'
+	and `GLIBTOP_SYSDEPS_POINTER_SIZE' constants and let numbering
+	start at zero for `GLIBTOP_SYSDEPS_CPU'.
+
 1999-05-28  Martin Baulig  <martin@home-of-linux.org>
 
 	* glibtop.h (GLIBTOP_MOUNTENTRY_LEN): Move this

@@ -128,8 +128,7 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 			sizeof (glibtop_sysdeps));
 		resp->u.sysdeps.features = glibtop_server_features;
 		resp->u.sysdeps.pointer_size = sizeof (void*)*8;
-		resp->u.sysdeps.flags = glibtop_server_features |
-		  (1L << GLIBTOP_SYSDEPS_FEATURES);
+		resp->u.sysdeps.flags = glibtop_server_features;
 		resp->offset = _offset_union (sysdeps);
 		break;
 #if GLIBTOP_SUID_CPU
