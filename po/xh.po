@@ -1,0 +1,209 @@
+# Xhosa translation of libgtop
+# Copyright (C) 2005 Canonical Ltd.
+# This file is distributed under the same license as the libgtop package.
+# Translation by Canonical Ltd <translations@canonical.com> with thanks to
+# Translation World CC in South Africa, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-04-01 11:20+0200\n"
+"PO-Revision-Date: 2005-03-30 22:54+0200\n"
+"Last-Translator: Canonical Ltd <translations@canonical.com>\n"
+"Language-Team: Xhosa <xh-translate@ubuntu.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+
+#: ../lib/read.c:65
+#, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "funda %d ye byte"
+msgstr[1] "funda %d yee-byte"
+
+#: ../lib/read_data.c:53
+msgid "read data size"
+msgstr "funda ubungakanani bee-data"
+
+#: ../lib/read_data.c:72
+#, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "funda %lu byte ye-data"
+msgstr[1] "funda %lu ii-byte ze-data"
+
+#: ../lib/write.c:52
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "ibhale %d ye byte"
+msgstr[1] "ibhale %d yee-byte"
+
+#: ../src/daemon/gnuserv.c:460
+msgid "Enable debugging"
+msgstr "Yenza ibe nako ukulungisa isiphene kwinkqubo"
+
+#: ../src/daemon/gnuserv.c:460
+msgid "DEBUG"
+msgstr "LUNGISA ISIPHENE KWINKQUBO"
+
+#: ../src/daemon/gnuserv.c:462
+msgid "Enable verbose output"
+msgstr "Yenza ukuba kubekho iziphumo ezingumlembelele"
+
+#: ../src/daemon/gnuserv.c:462
+msgid "VERBOSE"
+msgstr "UMLEMBELELE"
+
+#: ../src/daemon/gnuserv.c:464
+msgid "Don't fork into background"
+msgstr "Musa ukujika-jikisa kokungasemva"
+
+#: ../src/daemon/gnuserv.c:464
+msgid "NO-DAEMON"
+msgstr "i-NO-DAEMON"
+
+#: ../src/daemon/gnuserv.c:466
+msgid "Invoked from inetd"
+msgstr "Ibizwe isuswa kwi inetd"
+
+#: ../src/daemon/gnuserv.c:466
+msgid "INETD"
+msgstr "i-INETD"
+
+#: ../src/daemon/gnuserv.c:500
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Impazamo kokungakhethwa kuko i %s: %s.\n"
+"Phumeza i '%s --help' ukwenzela ukuba ubone uluhlu oluzeleyo lwezinto "
+"ekungakhethwa kuzo ezifumanekayo zomgca womyalelo.\n"
+
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+msgid "Hangup"
+msgstr "Beka umnxeba"
+
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr "Phazamisa"
+
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "Phuma"
+
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
+msgstr "Umyalelo ongekho semthethweni"
+
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
+msgstr "Khuphela umjelo wenkqubo"
+
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "Yeka"
+
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+msgid "EMT error"
+msgstr "Impazamo ye EMT"
+
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+msgid "Floating-point exception"
+msgstr "Incam-etshintsha-tshintshayo ekhethekileyo"
+
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "Bulala"
+
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+msgid "Bus error"
+msgstr "Impazamo yebhasi"
+
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
+msgstr "Ukwaphulwa kwenkqubo"
+
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr "Isiphumezi-miyalelo esingalunganga kubizo lwenkqubo"
+
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
+msgstr "Umbhobho wothungelwano owophukileyo"
+
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
+msgstr "Iwotshi enkulu yokuvusa"
+
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+msgid "Termination"
+msgstr "Ukuphelisa"
+
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
+msgstr "Imeko engxamisekileyo kwisokhethi"
+
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "Yima"
+
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+msgid "Keyboard stop"
+msgstr "Ukuma kwe-keyboard"
+
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "Qhubeka"
+
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
+msgstr "Ubume benkqubo engumntwana butshintshile"
+
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+msgid "Background read from tty"
+msgstr "Okungasemva kufundwe kwi-tty"
+
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+msgid "Background write to tty"
+msgstr "Ukukhuphela ulwazi lokungasemva kwi-tty"
+
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+msgid "I/O now possible"
+msgstr "i-I/O ingenzeka ngoku"
+
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr "Umda we CPU ugqithisiwe"
+
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+msgid "File size limit exceeded"
+msgstr "Umda wobungakanani befayili ugqithisiwe"
+
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
+msgstr "Iwotshi enkulu yokuvusa eyelelanisiweyo"
+
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr "Iwotshi enkulu yokuvusa yenkangeleko"
+
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+msgid "Window size change"
+msgstr "Utshintsho lobungakanani befestile"
+
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+msgid "Information request"
+msgstr "Isicelo senkcazelo"
+
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+msgid "User defined signal 1"
+msgstr "Umqondiso ochazwa ngumsebenzi woku 1"
+
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+msgid "User defined signal 2"
+msgstr "Umqondiso ochazwa ngumsebenzi wesi 2"
