@@ -41,7 +41,9 @@
 static const unsigned long _glibtop_sysdeps_netload =
 (1L << GLIBTOP_NETLOAD_IF_FLAGS) +
 (1L << GLIBTOP_NETLOAD_MTU) +
+#if !defined(__bsdi__)
 (1L << GLIBTOP_NETLOAD_SUBNET) +
+#endif
 (1L << GLIBTOP_NETLOAD_ADDRESS) +
 (1L << GLIBTOP_NETLOAD_PACKETS_IN) +
 (1L << GLIBTOP_NETLOAD_PACKETS_OUT) +
@@ -172,7 +174,10 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 		if (ifnet.if_flags & IFF_MULTICAST)
 			buf->if_flags |= GLIBTOP_IF_FLAGS_MULTICAST;
 
+#if !defined(__bsdi__)
+		/* Commenting out to "fix" #13345. */
 		buf->subnet = htonl (ifaddr.in.ia_subnet);
+#endif
 		buf->address = sin->sin_addr.s_addr;
 
 		buf->mtu = ifnet.if_mtu;

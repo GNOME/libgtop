@@ -1,5 +1,8 @@
 2001-02-27  Martin Baulig  <baulig@suse.de>
 
+	* netload.c: Comment out the `subnet' field on BSDI; this should
+	make it compile. Bug #13345.
+
 	* shm_limits.c, msg_limits.c, sem_limits.c: Applied a patch
 	from Rolf Grossmann (grossman@securitas.net) for FreeBSD 4.2.
 	Fixes #51334.
