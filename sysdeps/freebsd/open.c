@@ -70,7 +70,7 @@ glibtop_open_p (glibtop *server, const char *program_name,
 		glibtop_error_io_r (server, "kvm_open");
 	
 	/* Drop priviledges. */	
-	
+
 	if (setreuid (server->machine.euid, server->machine.uid))
 		_exit (1);
 	

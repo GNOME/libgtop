@@ -51,10 +51,14 @@ glibtop_get_proc_signal_p (glibtop *server,
 	
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 
+	glibtop_suid_enter (server);
+
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1))
 		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
+
+	glibtop_suid_leave (server);
 
 	/* signal: mask of pending signals.
 	 *         pinfo [0].kp_proc.p_siglist

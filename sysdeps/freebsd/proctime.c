@@ -26,10 +26,11 @@
 #include <glibtop_suid.h>
 
 static const unsigned long _glibtop_sysdeps_proc_time =
-(1 << GLIBTOP_PROC_TIME_START_TIME) + (1 << GLIBTOP_PROC_TIME_UTIME) +
-(1 << GLIBTOP_PROC_TIME_STIME) + (1 << GLIBTOP_PROC_TIME_CUTIME) +
-(1 << GLIBTOP_PROC_TIME_CSTIME) + (1 << GLIBTOP_PROC_TIME_TIMEOUT) +
-(1 << GLIBTOP_PROC_TIME_IT_REAL_VALUE);
+(1 << GLIBTOP_PROC_TIME_RTIME) + (1 << GLIBTOP_PROC_TIME_FREQUENCY);
+
+static const unsigned long _glibtop_sysdeps_proc_time_user =
+(1 << GLIBTOP_PROC_TIME_UTIME) + (1 << GLIBTOP_PROC_TIME_STIME) +
+(1 << GLIBTOP_PROC_TIME_CUTIME) + (1 << GLIBTOP_PROC_TIME_CSTIME);
 
 #define tv2sec(tv)	(((u_int64_t) tv.tv_sec * 1000000) + (u_int64_t) tv.tv_usec)
 
@@ -38,7 +39,8 @@ static const unsigned long _glibtop_sysdeps_proc_time =
 void
 glibtop_init_proc_time_p (glibtop *server)
 {
-	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
+	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time |
+		_glibtop_sysdeps_proc_time_user;
 }
 
 /* Taken from /usr/src/sys/kern/kern_resource.c */
@@ -111,6 +113,8 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	
 	memset (buf, 0, sizeof (glibtop_proc_time));
 
+	glibtop_suid_enter (server);
+
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1))
@@ -127,6 +131,8 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 			/* Well, we just do the same getrusage () does ... */
 
 			register struct rusage *rup;
+
+			glibtop_suid_leave (server);
 			
 			rup = &pstats.p_ru;
 			calcru(&(pinfo [0]).kp_proc,
@@ -139,21 +145,16 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 			buf->cstime = tv2sec (pstats.p_cru.ru_stime);
 
 			buf->start_time = tv2sec (pstats.p_start);
+
+			buf->flags = _glibtop_sysdeps_proc_time_user;
 		}
 
-#if 0
-	fprintf (stderr, "TIME: (%ld, %ld) - %ld (%ld, %ld) - %d (%d, %d, %d)\n",
-		 (long) pinfo [0].kp_proc.p_rtime.tv_sec,
-		 (long) pinfo [0].kp_proc.p_rtime.tv_usec,
-		 (unsigned long) (buf->utime + buf->stime),
-		 (unsigned long) buf->utime,
-		 (unsigned long) buf->stime,
-		 (int) pinfo [0].kp_proc.p_uticks + 
-		 (int) pinfo [0].kp_proc.p_sticks +
-		 (int) pinfo [0].kp_proc.p_iticks,
-		 (int) pinfo [0].kp_proc.p_uticks,
-		 (int) pinfo [0].kp_proc.p_sticks,
-		 (int) pinfo [0].kp_proc.p_iticks);
-#endif
+	glibtop_suid_leave (server);
+
+	buf->rtime = tv2sec (pinfo [0].kp_proc.p_rtime);
+
+	buf->frequency = 1000000;
+
+	buf->flags |= _glibtop_sysdeps_proc_time;
 }
 

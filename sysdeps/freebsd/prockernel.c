@@ -75,6 +75,8 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
 
+	glibtop_suid_enter (server);
+
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1))
@@ -125,6 +127,8 @@ glibtop_get_proc_kernel_p (glibtop *server,
 		}
 
 	/* Taken from `wchan ()' in `/usr/src/bin/ps/print.c'. */
+
+	glibtop_suid_leave (server);
 
 	buf->nwchan = (u_int64_t) pinfo [0].kp_proc.p_wchan &~ KERNBASE;
 
