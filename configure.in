@@ -97,6 +97,21 @@ AC_CHECK_LIB(kvm, kvm_open)
 dnl For DEC OSF1
 AC_CHECK_LIB(mach, vm_statistics)
 
+dnl Check for Internet sockets.
+AC_CHECK_FUNC(socket,
+ [AC_CHECK_HEADER(netinet/in.h,
+   [AC_CHECK_HEADER(arpa/inet.h, [
+  AC_DEFINE(HAVE_SOCKETS)
+      AC_MSG_CHECKING("for sun_len member in struct sockaddr_un")
+      AC_TRY_LINK([
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/un.h>
+      ],
+      [static struct sockaddr_un x; x.sun_len = 1;],
+      [AC_MSG_RESULT(yes); AC_DEFINE(HAVE_SOCKADDR_SUN_LEN)],
+      [AC_MSG_RESULT(no)])])])])
+
 dnl Checks for library functions.
 AC_FUNC_ALLOCA
 AC_FUNC_MMAP

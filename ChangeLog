@@ -1,5 +1,7 @@
 1998-08-06  Martin Baulig  <martin@home-of-linux.org>
 
+	* configure.in (HAVE_SOCKETS, HAVE_SOCKADDR_SUN_LEN): New checks.
+
 	* include/glibtop/*.h: Using `GLIBTOP_GUILE' instead of `HAVE_GUILE'
 	so one should be able to use libgtop without guile in an application
 	even if guile is installed.

@@ -95,6 +95,9 @@
 /* to fix a bug in autoheader on DEC OSF1. */
 #undef HAVE_PROGRAM_INVOCATION_NAME
 
+#undef HAVE_SOCKETS
+#undef HAVE_SOCKADDR_SUN_LEN
+
 #undef HAVE_LIBJPEG
 #undef HAVE_LIBGIF
 #undef HAVE_LIBTIFF
