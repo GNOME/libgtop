@@ -1,3 +1,7 @@
+2000-01-09  Martin Baulig  <martin@bergen.home-of-linux.org>
+
+	* include/glibtop/global.h: Unconditionally #include <sys/types.h>.
+
 2000-01-02  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/errors.h

@@ -111,10 +111,10 @@
 #endif
 
 #include <string.h>
+#include <sys/types.h>
 
 #ifdef _IN_LIBGTOP
 
-#include <sys/types.h>
 #include <sys/param.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
