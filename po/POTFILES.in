@@ -1,17 +1,8 @@
 lib/close.c
 lib/command.c
-lib/cpu.c
-lib/mem.c
 lib/open.c
 lib/read.c
-lib/swap.c
 lib/write.c
-lib/uptime.c
-lib/loadavg.c
-lib/shm_limits.c
-lib/msg_limits.c
-lib/sem_limits.c
-lib/proclist.c
 lib/read_data.c
 acconfig.h
 glibtop.h
