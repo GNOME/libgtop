@@ -361,5 +361,6 @@ lib/Makefile
 guile/Makefile
 examples/Makefile
 perl/Makefile.PL
+perl/Names/Makefile.PL
 support/Makefile
 macros/Makefile],[sed -e "/POTFILES =/r po/POTFILES" po/Makefile.in > po/Makefile])
