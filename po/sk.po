@@ -69,7 +69,7 @@ msgstr "Preru¹ená rúra (POSIX)"
 msgid "Alarm clock (POSIX)"
 msgstr "Budík (POSIX)"
 
-#: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linuxc:47
+#: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
 msgid "Termination (ANSI)"
 msgstr "Ukonèenie (ANSI)"
 
@@ -221,7 +221,7 @@ msgstr "Poèet tikov hodín, ktoré systém strávil v neèinnosti"
 msgid "Tick frequency (default is 100)"
 msgstr "Frekvencia tikov (¹tandardne 100)"
 
-#: sysdeps/names/fsusage.c:41 sysdeps/names/fsusagec:50
+#: sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
 msgstr "Celkom blokov"
 
@@ -453,10 +453,10 @@ msgstr "Poèet vedµaj¹ích výpadkov procesu a jeho potomkov."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:70
-msgid "The number of major faults that the process and its children have made"
+msgid "The number of major faults that the process and its children have made."
 msgstr "Poèet hlavných výpadkov procesu a jeho potomkov."
 
-# KStk_ESP
+#. KStk_ESP
 #: sysdeps/names/prockernel.c:73
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
@@ -887,7 +887,7 @@ msgstr "SUid"
 msgid "SGid"
 msgstr "SGid"
 
-#: sysdeps/names/procuidc:49
+#: sysdeps/names/procuid.c:49
 msgid "FsUid"
 msgstr "FsUid"
 
@@ -1003,7 +1003,7 @@ msgstr "©tandardná úroveò priority procesu v unix-e"
 msgid "Number of additional process groups"
 msgstr "Poèet prídavných skupín procesu"
 
-#: sysdeps/names/procuidc:74
+#: sysdeps/names/procuid.c:74
 msgid "Additional process groups"
 msgstr "Prídavné skupiny procesu"
 
