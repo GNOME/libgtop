@@ -26,9 +26,9 @@
 #include <glibtop/msg_limits.h>
 
 static const unsigned long _glibtop_sysdeps_msg_limits =
-(1L << GLIBTOP_IPC_MSGMAP) + (1L << GLIBTOP_IPC_MSGMAX) +
-(1L << GLIBTOP_IPC_MSGMNB) + (1L << GLIBTOP_IPC_MSGMNI) + 
-(1L << GLIBTOP_IPC_MSGTQL);
+(1L << GLIBTOP_MSG_LIMITS_MSGMAP) + (1L << GLIBTOP_MSG_LIMITS_MSGMAX) +
+(1L << GLIBTOP_MSG_LIMITS_MSGMNB) + (1L << GLIBTOP_MSG_LIMITS_MSGMNI) + 
+(1L << GLIBTOP_MSG_LIMITS_MSGTQL);
 
 /* Init function. */
 
@@ -54,7 +54,7 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 
 	if (ret != 1) return;
 	
-	buf->flags += (1L << GLIBTOP_IPC_MSGMAX);
+	buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGMAX);
 
 	buf->msgmax = value;
 	
@@ -63,7 +63,7 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 
 	if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_IPC_MSGMNB);
+	buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGMNB);
 
 	buf->msgmnb = value;
 	
@@ -72,7 +72,7 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 
 	if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_IPC_MSGMNI);
+	buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGMNI);
 
 	buf->msgmni = value;
 	
@@ -81,7 +81,7 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 
 	if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_IPC_MSGTQL);
+	buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGTQL);
 
 	buf->msgtql = value;
 }

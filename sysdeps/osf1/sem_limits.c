@@ -26,9 +26,9 @@
 #include <glibtop/sem_limits.h>
 
 static unsigned long _glibtop_sysdeps_sem_limits =
-(1L << GLIBTOP_IPC_SEMMNI) + (1L << GLIBTOP_IPC_SEMMSL) +
-(1L << GLIBTOP_IPC_SEMOPM) + (1L << GLIBTOP_IPC_SEMVMX) +
-(1L << GLIBTOP_IPC_SEMAEM);
+(1L << GLIBTOP_SEM_LIMITS_SEMMNI) + (1L << GLIBTOP_SEM_LIMITS_SEMMSL) +
+(1L << GLIBTOP_SEM_LIMITS_SEMOPM) + (1L << GLIBTOP_SEM_LIMITS_SEMVMX) +
+(1L << GLIBTOP_SEM_LIMITS_SEMAEM);
 
 /* Init function. */
 
@@ -54,7 +54,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 
 	if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_IPC_SEMMNI);
+	buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMMNI);
 
 	buf->semmni = value;
 	
@@ -64,7 +64,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 
 	if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_IPC_SEMMSL);
+	buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMMSL);
 
 	buf->semmsl = value;
 	
@@ -74,7 +74,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 
 	if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_IPC_SEMOPM);
+	buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMOPM);
 
 	buf->semopm = value;
 	
@@ -84,7 +84,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 
 	if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_IPC_SEMUME);
+	buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMUME);
 
 	buf->semume = value;
 	
@@ -94,7 +94,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 
 	if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_IPC_SEMVMX);
+	buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMVMX);
 
 	buf->semvmx = value;
 	
@@ -104,7 +104,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 
 	if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_IPC_SEMAEM);
+	buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMAEM);
 
 	buf->semaem = value;
 }

@@ -60,9 +60,9 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 #include <sys/msg.h>
 
 static const unsigned long _glibtop_sysdeps_msg_limits =
-(1L << GLIBTOP_IPC_MSGMAX) + (1L << GLIBTOP_IPC_MSGMNI) +
-(1L << GLIBTOP_IPC_MSGMNB) + (1L << GLIBTOP_IPC_MSGTQL) +
-(1L << GLIBTOP_IPC_MSGSSZ);
+(1L << GLIBTOP_MSG_LIMITS_MSGMAX) + (1L << GLIBTOP_MSG_LIMITS_MSGMNI) +
+(1L << GLIBTOP_MSG_LIMITS_MSGMNB) + (1L << GLIBTOP_MSG_LIMITS_MSGTQL) +
+(1L << GLIBTOP_MSG_LIMITS_MSGSSZ);
 
 /* The values in this structure never change at runtime, so we only
  * read it once during initialization. We have to use the name `_msginfo'

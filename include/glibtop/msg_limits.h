@@ -31,28 +31,28 @@
 
 BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_IPC_MSGPOOL	0
-#define GLIBTOP_IPC_MSGMAP	1
-#define GLIBTOP_IPC_MSGMAX	2
-#define GLIBTOP_IPC_MSGMNB	3
-#define GLIBTOP_IPC_MSGMNI	4
-#define GLIBTOP_IPC_MSGSSZ	5
-#define GLIBTOP_IPC_MSGTQL	6
+#define GLIBTOP_MSG_LIMITS_MSGPOOL	0
+#define GLIBTOP_MSG_LIMITS_MSGMAP	1
+#define GLIBTOP_MSG_LIMITS_MSGMAX	2
+#define GLIBTOP_MSG_LIMITS_MSGMNB	3
+#define GLIBTOP_MSG_LIMITS_MSGMNI	4
+#define GLIBTOP_MSG_LIMITS_MSGSSZ	5
+#define GLIBTOP_MSG_LIMITS_MSGTQL	6
 
-#define GLIBTOP_MAX_MSG_LIMITS	7
+#define GLIBTOP_MAX_MSG_LIMITS		7
 
 typedef struct _glibtop_msg_limits	glibtop_msg_limits;
 
 struct _glibtop_msg_limits
 {
     u_int64_t	flags,
-	msgpool,	/* GLIBTOP_IPC_MSGPOOL	*/
-	msgmap,		/* GLIBTOP_IPC_MSGMAP	*/
-	msgmax,		/* GLIBTOP_IPC_MSGMAX	*/
-	msgmnb,		/* GLIBTOP_IPC_MSGMNB	*/
-	msgmni,		/* GLIBTOP_IPC_MSGMNI	*/
-	msgssz,		/* GLIBTOP_IPC_MSGSSZ	*/
-	msgtql;		/* GLIBTOP_IPC_MSGTQL	*/
+	msgpool,	/* GLIBTOP_MSG_LIMITS_MSGPOOL	*/
+	msgmap,		/* GLIBTOP_MSG_LIMITS_MSGMAP	*/
+	msgmax,		/* GLIBTOP_MSG_LIMITS_MSGMAX	*/
+	msgmnb,		/* GLIBTOP_MSG_LIMITS_MSGMNB	*/
+	msgmni,		/* GLIBTOP_MSG_LIMITS_MSGMNI	*/
+	msgssz,		/* GLIBTOP_MSG_LIMITS_MSGSSZ	*/
+	msgtql;		/* GLIBTOP_MSG_LIMITS_MSGTQL	*/
 };
 
 #define glibtop_get_msg_limits(msg)	glibtop_get_msg_limits_l(glibtop_global_server, msg)

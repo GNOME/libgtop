@@ -61,11 +61,11 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 #include <sys/sem.h>
 
 static unsigned long _glibtop_sysdeps_sem_limits =
-(1L << GLIBTOP_IPC_SEMMAP) + (1L << GLIBTOP_IPC_SEMMNI) +
-(1L << GLIBTOP_IPC_SEMMNS) + (1L << GLIBTOP_IPC_SEMMNU) +
-(1L << GLIBTOP_IPC_SEMMSL) + (1L << GLIBTOP_IPC_SEMOPM) +
-(1L << GLIBTOP_IPC_SEMUME) + (1L << GLIBTOP_IPC_SEMUSZ) +
-(1L << GLIBTOP_IPC_SEMVMX) + (1L << GLIBTOP_IPC_SEMAEM);
+(1L << GLIBTOP_SEM_LIMITS_SEMMAP) + (1L << GLIBTOP_SEM_LIMITS_SEMMNI) +
+(1L << GLIBTOP_SEM_LIMITS_SEMMNS) + (1L << GLIBTOP_SEM_LIMITS_SEMMNU) +
+(1L << GLIBTOP_SEM_LIMITS_SEMMSL) + (1L << GLIBTOP_SEM_LIMITS_SEMOPM) +
+(1L << GLIBTOP_SEM_LIMITS_SEMUME) + (1L << GLIBTOP_SEM_LIMITS_SEMUSZ) +
+(1L << GLIBTOP_SEM_LIMITS_SEMVMX) + (1L << GLIBTOP_SEM_LIMITS_SEMAEM);
 
 /* The values in this structure never change at runtime, so we only
  * read it once during initialization. We have to use the name `_seminfo'

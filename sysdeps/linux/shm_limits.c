@@ -27,9 +27,9 @@
 #include <sys/shm.h>
 
 static unsigned long _glibtop_sysdeps_shm_limits =
-(1L << GLIBTOP_IPC_SHMMAX) + (1L << GLIBTOP_IPC_SHMMIN) +
-(1L << GLIBTOP_IPC_SHMMNI) + (1L << GLIBTOP_IPC_SHMSEG) +
-(1L << GLIBTOP_IPC_SHMALL);
+(1L << GLIBTOP_SHM_LIMITS_SHMMAX) + (1L << GLIBTOP_SHM_LIMITS_SHMMIN) +
+(1L << GLIBTOP_SHM_LIMITS_SHMMNI) + (1L << GLIBTOP_SHM_LIMITS_SHMSEG) +
+(1L << GLIBTOP_SHM_LIMITS_SHMALL);
 
 /* Init function. */
 

@@ -31,34 +31,34 @@
 
 BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_IPC_SEMMAP	0
-#define GLIBTOP_IPC_SEMMNI	1
-#define GLIBTOP_IPC_SEMMNS	2
-#define GLIBTOP_IPC_SEMMNU	3
-#define GLIBTOP_IPC_SEMMSL	4
-#define GLIBTOP_IPC_SEMOPM	5
-#define GLIBTOP_IPC_SEMUME	6
-#define GLIBTOP_IPC_SEMUSZ	7
-#define GLIBTOP_IPC_SEMVMX	8
-#define GLIBTOP_IPC_SEMAEM	9
+#define GLIBTOP_SEM_LIMITS_SEMMAP	0
+#define GLIBTOP_SEM_LIMITS_SEMMNI	1
+#define GLIBTOP_SEM_LIMITS_SEMMNS	2
+#define GLIBTOP_SEM_LIMITS_SEMMNU	3
+#define GLIBTOP_SEM_LIMITS_SEMMSL	4
+#define GLIBTOP_SEM_LIMITS_SEMOPM	5
+#define GLIBTOP_SEM_LIMITS_SEMUME	6
+#define GLIBTOP_SEM_LIMITS_SEMUSZ	7
+#define GLIBTOP_SEM_LIMITS_SEMVMX	8
+#define GLIBTOP_SEM_LIMITS_SEMAEM	9
 
-#define GLIBTOP_MAX_SEM_LIMITS	10
+#define GLIBTOP_MAX_SEM_LIMITS		10
 
 typedef struct _glibtop_sem_limits	glibtop_sem_limits;
 
 struct _glibtop_sem_limits
 {
     u_int64_t	flags,
-	semmap,		/* GLIBTOP_IPC_SEMMAP	*/
-	semmni,		/* GLIBTOP_IPC_SEMMNI	*/
-	semmns,		/* GLIBTOP_IPC_SEMMNS	*/
-	semmnu,		/* GLIBTOP_IPC_SEMMNU	*/
-	semmsl,		/* GLIBTOP_IPC_SEMMSL	*/
-	semopm,		/* GLIBTOP_IPC_SEMOPM	*/
-	semume,		/* GLIBTOP_IPC_SEMUME	*/
-	semusz,		/* GLIBTOP_IPC_SEMUSZ	*/
-	semvmx,		/* GLIBTOP_IPC_SEMVMX	*/
-	semaem;		/* GLIBTOP_IPC_SEMAEM	*/
+	semmap,		/* GLIBTOP_SEM_LIMITS_SEMMAP	*/
+	semmni,		/* GLIBTOP_SEM_LIMITS_SEMMNI	*/
+	semmns,		/* GLIBTOP_SEM_LIMITS_SEMMNS	*/
+	semmnu,		/* GLIBTOP_SEM_LIMITS_SEMMNU	*/
+	semmsl,		/* GLIBTOP_SEM_LIMITS_SEMMSL	*/
+	semopm,		/* GLIBTOP_SEM_LIMITS_SEMOPM	*/
+	semume,		/* GLIBTOP_SEM_LIMITS_SEMUME	*/
+	semusz,		/* GLIBTOP_SEM_LIMITS_SEMUSZ	*/
+	semvmx,		/* GLIBTOP_SEM_LIMITS_SEMVMX	*/
+	semaem;		/* GLIBTOP_SEM_LIMITS_SEMAEM	*/
 };
 
 #define glibtop_get_sem_limits(sem)	glibtop_get_sem_limits_l(glibtop_global_server, sem)

@@ -38,12 +38,12 @@ BEGIN_LIBGTOP_DECLS
 #define GLIBTOP_CPU_IDLE	4
 #define GLIBTOP_CPU_FREQUENCY	5
 
-#define GLIBTOP_XCPU_TOTAL	6
-#define GLIBTOP_XCPU_USER	7
-#define GLIBTOP_XCPU_NICE	8
-#define GLIBTOP_XCPU_SYS	9
-#define GLIBTOP_XCPU_IDLE	10
-#define GLIBTOP_XCPU_FLAGS	11
+#define GLIBTOP_CPU_XCPU_TOTAL	6
+#define GLIBTOP_CPU_XCPU_USER	7
+#define GLIBTOP_CPU_XCPU_NICE	8
+#define GLIBTOP_CPU_XCPU_SYS	9
+#define GLIBTOP_CPU_XCPU_IDLE	10
+#define GLIBTOP_CPU_XCPU_FLAGS	11
 
 #define GLIBTOP_MAX_CPU		12
 
@@ -58,12 +58,12 @@ struct _glibtop_cpu
 	sys,				/* GLIBTOP_CPU_SYS		*/
 	idle,				/* GLIBTOP_CPU_IDLE		*/
 	frequency,			/* GLIBTOP_CPU_FREQUENCY	*/
-	xcpu_total [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_TOTAL		*/
-	xcpu_user [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_USER		*/
-	xcpu_nice [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_NICE		*/
-	xcpu_sys  [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_SYS		*/
-	xcpu_idle [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_IDLE		*/
-	xcpu_flags;			/* GLIBTOP_XCPU_FLAGS		*/
+	xcpu_total [GLIBTOP_NCPU],	/* GLIBTOP_CPU_XCPU_TOTAL	*/
+	xcpu_user [GLIBTOP_NCPU],	/* GLIBTOP_CPU_XCPU_USER	*/
+	xcpu_nice [GLIBTOP_NCPU],	/* GLIBTOP_CPU_XCPU_NICE	*/
+	xcpu_sys  [GLIBTOP_NCPU],	/* GLIBTOP_CPU_XCPU_SYS		*/
+	xcpu_idle [GLIBTOP_NCPU],	/* GLIBTOP_CPU_XCPU_IDLE	*/
+	xcpu_flags;			/* GLIBTOP_CPU_XCPU_FLAGS	*/
 };
 
 #define glibtop_get_cpu(cpu)	glibtop_get_cpu_l(glibtop_global_server, cpu)

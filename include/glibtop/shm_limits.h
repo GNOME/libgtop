@@ -31,24 +31,24 @@
 
 BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_IPC_SHMMAX	0
-#define GLIBTOP_IPC_SHMMIN	1
-#define GLIBTOP_IPC_SHMMNI	2
-#define GLIBTOP_IPC_SHMSEG	3
-#define GLIBTOP_IPC_SHMALL	4
+#define GLIBTOP_SHM_LIMITS_SHMMAX	0
+#define GLIBTOP_SHM_LIMITS_SHMMIN	1
+#define GLIBTOP_SHM_LIMITS_SHMMNI	2
+#define GLIBTOP_SHM_LIMITS_SHMSEG	3
+#define GLIBTOP_SHM_LIMITS_SHMALL	4
 
-#define GLIBTOP_MAX_SHM_LIMITS	5
+#define GLIBTOP_MAX_SHM_LIMITS		5
 
 typedef struct _glibtop_shm_limits	glibtop_shm_limits;
 
 struct _glibtop_shm_limits
 {
     u_int64_t	flags,
-	shmmax,		/* GLIBTOP_IPC_SHMMAX	*/
-	shmmin,		/* GLIBTOP_IPC_SHMMIN	*/
-	shmmni,		/* GLIBTOP_IPC_SHMMNI	*/
-	shmseg,		/* GLIBTOP_IPC_SHMSEG	*/
-	shmall;		/* GLIBTOP_IPC_SHMALL	*/
+	shmmax,		/* GLIBTOP_SHM_LIMITS_SHMMAX	*/
+	shmmin,		/* GLIBTOP_SHM_LIMITS_SHMMIN	*/
+	shmmni,		/* GLIBTOP_SHM_LIMITS_SHMMNI	*/
+	shmseg,		/* GLIBTOP_SHM_LIMITS_SHMSEG	*/
+	shmall;		/* GLIBTOP_SHM_LIMITS_SHMALL	*/
 };
 
 #define glibtop_get_shm_limits(shm)	glibtop_get_shm_limits_l(glibtop_global_server, shm)

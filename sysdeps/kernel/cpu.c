@@ -32,9 +32,9 @@ static const unsigned long _glibtop_sysdeps_cpu =
 (1L << GLIBTOP_CPU_IDLE) + (1L << GLIBTOP_CPU_FREQUENCY);
 
 static const unsigned long _glibtop_sysdeps_cpu_smp =
-(1L << GLIBTOP_XCPU_TOTAL) + (1L << GLIBTOP_XCPU_USER) +
-(1L << GLIBTOP_XCPU_NICE) + (1L << GLIBTOP_XCPU_SYS) +
-(1L << GLIBTOP_XCPU_IDLE);
+(1L << GLIBTOP_CPU_XCPU_TOTAL) + (1L << GLIBTOP_CPU_XCPU_USER) +
+(1L << GLIBTOP_CPU_XCPU_NICE) + (1L << GLIBTOP_CPU_XCPU_SYS) +
+(1L << GLIBTOP_CPU_XCPU_IDLE);
 
 /* Init function. */
 

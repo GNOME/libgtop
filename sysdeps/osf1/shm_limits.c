@@ -26,8 +26,8 @@
 #include <glibtop/shm_limits.h>
 
 static unsigned long _glibtop_sysdeps_shm_limits =
-(1L << GLIBTOP_IPC_SHMMAX) + (1L << GLIBTOP_IPC_SHMMIN) +
-(1L << GLIBTOP_IPC_SHMMNI) + (1L << GLIBTOP_IPC_SHMSEG);
+(1L << GLIBTOP_SHM_LIMITS_SHMMAX) + (1L << GLIBTOP_SHM_LIMITS_SHMMIN) +
+(1L << GLIBTOP_SHM_LIMITS_SHMMNI) + (1L << GLIBTOP_SHM_LIMITS_SHMSEG);
 
 /* Init function. */
 
@@ -53,7 +53,7 @@ glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 
 	if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_IPC_SHMMAX);
+	buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMMAX);
 		
 	buf->shmmax = value;
 	
@@ -63,7 +63,7 @@ glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 
 	if (ret != 1) return;
 		
-	buf->flags += (1L << GLIBTOP_IPC_SHMMIN);
+	buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMMIN);
 		
 	buf->shmmin = value;
 	
@@ -73,7 +73,7 @@ glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 
 	if (ret != 1) return;
 		
-	buf->flags += (1L << GLIBTOP_IPC_SHMMNI);
+	buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMMNI);
 		
 	buf->shmmni = value;
 	
@@ -83,7 +83,7 @@ glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 
 	if (ret != 1) return;
 		
-	buf->flags += (1L << GLIBTOP_IPC_SHMSEG);
+	buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMSEG);
 		
 	buf->shmseg = value;
 }
