@@ -34,12 +34,20 @@
 #include <glibtop/sysdeps.h>
 
 #include <sys/times.h>
+#include <sys/resource.h>
 
 #include <glibtop_private.h>
 
 #ifndef PROFILE_COUNT
-#define PROFILE_COUNT	100000
+#define PROFILE_COUNT			100000L
 #endif
+
+#ifndef PROFILE_COUNT_EXPENSIVE
+#define PROFILE_COUNT_EXPENSIVE		10000L
+#endif
+
+#define ELAPSED_UTIME ((unsigned long) elapsed_utime.tv_sec * 1000000 +	(unsigned long) elapsed_utime.tv_usec)
+#define ELAPSED_STIME ((unsigned long) elapsed_stime.tv_sec * 1000000 + (unsigned long) elapsed_stime.tv_usec)
 
 int
 main (int argc, char *argv [])
@@ -47,7 +55,9 @@ main (int argc, char *argv [])
 	glibtop_union data;
 	glibtop_sysdeps sysdeps;
 	unsigned c, count, port, i, *ptr;
-	struct tms start_time, end_time;
+	struct rusage total_start, total_end;
+	struct rusage rusage_start, rusage_end;
+	struct timeval elapsed_utime, elapsed_stime;
 	char buffer [BUFSIZ];
 	pid_t pid, ppid;
 	char *args;
@@ -57,148 +67,275 @@ main (int argc, char *argv [])
 	setlocale (LC_ALL, "");
 	bindtextdomain (PACKAGE, GTOPLOCALEDIR);
 	textdomain (PACKAGE);
+
+	printf ("%-12s (%-10s): %7s - %9s - %9s\n",
+		"Feature", "Flags", "Count", "utime", "stime");
+	printf ("-------------------------------------------"
+		"---------------\n");
 	
 	glibtop_init_r (&glibtop_global_server, 0, 0);
 
-	times (&start_time);
+	getrusage (RUSAGE_SELF, &total_start);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_cpu (&data.cpu);
-	times (&end_time);
 
-	printf ("CPU          (0x%08lx): %lu - %lu\n",
-		(unsigned long) data.cpu.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+	getrusage (RUSAGE_SELF, &rusage_end);
 
-	times (&start_time);
-	for (c = 0; c < PROFILE_COUNT; c++)
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("CPU          (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.cpu.flags, PROFILE_COUNT,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT,
+		(long double) ELAPSED_STIME / PROFILE_COUNT);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
+	for (c = 0; c < PROFILE_COUNT_EXPENSIVE; c++)
 		glibtop_get_mem (&data.mem);
-	times (&end_time);
 
-	printf ("Memory       (0x%08lx): %lu - %lu\n",
-		(unsigned long) data.mem.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+	getrusage (RUSAGE_SELF, &rusage_end);
 
-	times (&start_time);
-	for (c = 0; c < PROFILE_COUNT; c++)
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("Memory       (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.mem.flags, PROFILE_COUNT_EXPENSIVE,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT_EXPENSIVE,
+		(long double) ELAPSED_STIME / PROFILE_COUNT_EXPENSIVE);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
+	for (c = 0; c < PROFILE_COUNT_EXPENSIVE; c++)
 		glibtop_get_swap (&data.swap);
-	times (&end_time);
 
-	printf ("Swap         (0x%08lx): %lu - %lu\n",
-		(unsigned long) data.swap.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+	getrusage (RUSAGE_SELF, &rusage_end);
 
-	times (&start_time);
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("Swap         (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.swap.flags, PROFILE_COUNT_EXPENSIVE,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT_EXPENSIVE,
+		(long double) ELAPSED_STIME / PROFILE_COUNT_EXPENSIVE);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_uptime (&data.uptime);
-	times (&end_time);
 
-	printf ("Uptime       (0x%08lx): %lu - %lu\n",
-		(unsigned long) data.uptime.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+	getrusage (RUSAGE_SELF, &rusage_end);
 
-	times (&start_time);
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("Uptime       (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.uptime.flags, PROFILE_COUNT,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT,
+		(long double) ELAPSED_STIME / PROFILE_COUNT);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_loadavg (&data.loadavg);
-	times (&end_time);
 
-	printf ("Loadavg      (0x%08lx): %lu - %lu\n",
-		(unsigned long) data.loadavg.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+	getrusage (RUSAGE_SELF, &rusage_end);
+
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("Loadavg      (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.loadavg.flags, PROFILE_COUNT,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT,
+		(long double) ELAPSED_STIME / PROFILE_COUNT);
 
 	printf ("\n");
 
-	times (&start_time);
-	for (c = 0; c < PROFILE_COUNT; c++) {
+	getrusage (RUSAGE_SELF, &rusage_start);
+
+	for (c = 0; c < PROFILE_COUNT_EXPENSIVE; c++) {
 		ptr = glibtop_get_proclist (&data.proclist, 0, 0);
 		glibtop_free (ptr);
 	}
-	times (&end_time);
 
-	printf ("Proclist     (0x%08lx): %lu - %lu\n",
+	getrusage (RUSAGE_SELF, &rusage_end);
+
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("Proclist     (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.proclist.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+		PROFILE_COUNT_EXPENSIVE,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT_EXPENSIVE,
+		(long double) ELAPSED_STIME / PROFILE_COUNT_EXPENSIVE);
 
 	pid = getpid ();
 
 	printf ("\n");
 
-	times (&start_time);
+	getrusage (RUSAGE_SELF, &rusage_start);
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_state (&data.proc_state, pid);
-	times (&end_time);
 
-	printf ("Proc_State   PID  %5d (0x%08lx): %lu - %lu\n",
-		(int) pid, (unsigned long) data.proc_state.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+	getrusage (RUSAGE_SELF, &rusage_end);
 
-	times (&start_time);
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("Proc_State   (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.proc_state.flags, PROFILE_COUNT,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT,
+		(long double) ELAPSED_STIME / PROFILE_COUNT);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_uid (&data.proc_uid, pid);
-	times (&end_time);
 
-	printf ("Proc_Uid     PID  %5d (0x%08lx): %lu - %lu\n",
-		(int) pid, (unsigned long) data.proc_uid.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+	getrusage (RUSAGE_SELF, &rusage_end);
 
-	times (&start_time);
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("Proc_Uid     (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.proc_uid.flags, PROFILE_COUNT,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT,
+		(long double) ELAPSED_STIME / PROFILE_COUNT);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_mem (&data.proc_mem, pid);
-	times (&end_time);
 
-	printf ("Proc_Mem     PID  %5d (0x%08lx): %lu - %lu\n",
-		(int) pid, (unsigned long) data.proc_mem.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+	getrusage (RUSAGE_SELF, &rusage_end);
 
-	times (&start_time);
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("Proc_Mem     (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.proc_mem.flags, PROFILE_COUNT,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT,
+		(long double) ELAPSED_STIME / PROFILE_COUNT);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_segment (&data.proc_segment, pid);
-	times (&end_time);
 
-	printf ("Proc_Segment PID  %5d (0x%08lx): %lu - %lu\n",
-		(int) pid, (unsigned long) data.proc_segment.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+	getrusage (RUSAGE_SELF, &rusage_end);
 
-	times (&start_time);
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("Proc_Segment (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.proc_segment.flags, PROFILE_COUNT,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT,
+		(long double) ELAPSED_STIME / PROFILE_COUNT);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_time (&data.proc_time, pid);
-	times (&end_time);
 
-	printf ("Proc_Time    PID  %5d (0x%08lx): %lu - %lu\n",
-		(int) pid, (unsigned long) data.proc_time.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+	getrusage (RUSAGE_SELF, &rusage_end);
 
-	times (&start_time);
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("Proc_Time    (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.proc_time.flags, PROFILE_COUNT,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT,
+		(long double) ELAPSED_STIME / PROFILE_COUNT);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_signal (&data.proc_signal, pid);
-	times (&end_time);
 	
-	printf ("Proc_Signal  PID  %5d (0x%08lx): %lu - %lu\n",
-		(int) pid, (unsigned long) data.proc_signal.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+	getrusage (RUSAGE_SELF, &rusage_end);
 
-	times (&start_time);
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("Proc_Signal  (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.proc_signal.flags, PROFILE_COUNT,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT,
+		(long double) ELAPSED_STIME / PROFILE_COUNT);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_kernel (&data.proc_kernel, pid);
-	times (&end_time);
 
-	printf ("Proc_Kernel  PID  %5d (0x%08lx): %lu - %lu\n",
-		(int) pid, (unsigned long) data.proc_kernel.flags,
-		end_time.tms_utime - start_time.tms_utime,
-		end_time.tms_stime - start_time.tms_stime);
+	getrusage (RUSAGE_SELF, &rusage_end);
+
+	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("Proc_Kernel  (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.proc_kernel.flags, PROFILE_COUNT,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT,
+		(long double) ELAPSED_STIME / PROFILE_COUNT);
 	
-	printf ("\n");
+	getrusage (RUSAGE_SELF, &total_end);
+
+	timersub (&total_end.ru_utime, &total_start.ru_utime,
+		  &elapsed_utime);
+
+	timersub (&total_end.ru_stime, &total_start.ru_stime,
+		  &elapsed_stime);
+
+	printf ("-------------------------------------------"
+		"---------------\n");
+
+	printf ("%-36s %9lu - %9lu\n\n", "TOTAL",
+		ELAPSED_UTIME, ELAPSED_STIME);
+
+	printf ("All timings are in clock ticks "
+		"(1000000 ticks per second).\n\n");
 
 	glibtop_close ();
 
