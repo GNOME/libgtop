@@ -248,4 +248,4 @@ backends/common/Makefile
 lib/Makefile
 doc/Makefile
 dtd/Makefile
-libgtop.pc])
+libgtop-2.0.pc])
