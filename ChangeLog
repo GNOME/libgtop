@@ -1,5 +1,14 @@
 1998-07-22  Martin Baulig  <martin@home-of-linux.org>
 
+	* sysdeps/common/Makefile.am (libgtop_common_la_SOURCES):
+	Added `fsusage.[ch]' and `mountlist.[ch]'.
+
+	* include/glibtop/signal.h: New file.
+
+	* sysdeps/{kernel, linux, osf1, sun4, stub}/siglist.c: New files.
+
+1998-07-22  Martin Baulig  <martin@home-of-linux.org>
+
 	* lib/init.c (glibtop_init_s): Added this init function of
 	the sysdeps directory `libgtop_sysdeps.la'.
 

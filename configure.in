@@ -256,7 +256,6 @@ sysdeps/linux/Makefile
 sysdeps/kernel/Makefile
 src/Makefile
 src/server/Makefile
-src/proxy/Makefile
 src/daemon/Makefile
 lib/Makefile
 examples/Makefile

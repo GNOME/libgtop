@@ -8,7 +8,7 @@ CFLAGS				= -Wall -W @CFLAGS@
 
 lib_LTLIBRARIES			= libgtop_sysdeps.la libgtop_sysdeps_suid.la
 
-libgtop_sysdeps_la_SOURCES	= nosuid.c
+libgtop_sysdeps_la_SOURCES	= nosuid.c siglist.c
 libgtop_sysdeps_la_LIBADD	= -lkvm
 
 libgtop_sysdeps_suid_la_SOURCES	= open.c close.c cpu.c mem.c swap.c \

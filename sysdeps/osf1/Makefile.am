@@ -8,7 +8,7 @@ CFLAGS				= -Wall -W @CFLAGS@
 
 lib_LTLIBRARIES			= libgtop_sysdeps.la libgtop_sysdeps_suid.la
 
-libgtop_sysdeps_la_SOURCES	= open.c close.c cpu.c mem.c swap.c \
+libgtop_sysdeps_la_SOURCES	= open.c close.c siglist.c cpu.c mem.c swap.c \
 				  uptime.c loadavg.c shm_limits.c msg_limits.c \
 				  sem_limits.c
 libgtop_sysdeps_la_LIBADD	= -lmach
