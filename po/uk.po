@@ -683,7 +683,7 @@ msgstr ""
 #: sysdeps/names/procmem.c:62
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr ""
+msgstr "Поточна межа в байтах для процесу РРН (зазвичай 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
@@ -843,7 +843,7 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:45
 msgid "It_Real_Value"
-msgstr ""
+msgstr "Це_дійсне_значення"
 
 #: sysdeps/names/proctime.c:46
 msgid "Frequency"
