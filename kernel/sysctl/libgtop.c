@@ -63,7 +63,7 @@ static int proc_net_ctl_handler (ctl_table *table, int *name, int nlen,
 
 #endif /* CONFIG_NET */
 
-static int libgtop_sysctl_version = 1;
+static int libgtop_sysctl_version = 2;
 static int libgtop_update_expensive = 5000;
 
 static struct ctl_table_header *libgtop_sysctl_header = NULL;
