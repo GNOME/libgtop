@@ -68,6 +68,20 @@
   <chapter id="macros">
     <title>Autoconf macros</title>
 
+    <sect1 id="gnome-libgtop-check">
+      <title><filename>macros/gnome-libgtop-check.m4</filename></title>
+
+      <para>
+	Contains all that you need to include libgtop in any Gnome application. It defines
+	<function>GNOME_INIT_LIBGTOP</function> which you can use in the same way like
+	<function>GNOME_INIT</function> to check whether libgtop is installed and to read
+	its <filename>libgtopConf.sh</filename> script. It automatically invokes
+	<function>GNOME_LIBGTOP_SYSDEPS</function>.
+
+      <para>
+	When libgtop can be found, it defines <parameter>HAVE_LIBGTOP</parameter>. There's
+	also an automake conditional <parameter>HAVE_LIBGTOP</parameter> which you can use.
+
     <sect1 id="gnome-libgtop-sysdeps">
       <title><filename>macros/gnome-libgtop-sysdeps.m4</filename></title>
 
@@ -119,13 +133,6 @@
 		which you can use in you <filename>Makefile.am</filename>.
 
 	</variablelist>
-
-    <sect1 id="gnome-libgtop-check">
-      <title><filename>macros/gnome-libgtop-check.m4</filename></title>
-
-      <para>
-	Checks whether <productname>libgtop</productname> can be found and includes everything
-	from its <filename>libgtopConf.sh</filename> configuration script.
 
     </sect1>
     
