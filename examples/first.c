@@ -344,7 +344,7 @@ main (int argc, char *argv [])
 	printf ("Proc_Args    PID  %5d (0x%08lx): %lu - '%s'\n", (int) pid,
 		(unsigned long) data.proc_args.flags,
 		(unsigned long) data.proc_args.size,
-		args);
+		args ? args : "");
 
 	glibtop_free (args);
 
@@ -454,7 +454,7 @@ main (int argc, char *argv [])
 	printf ("Proc_Args    PID  %5d (0x%08lx): %lu - '%s'\n", (int) ppid,
 		(unsigned long) data.proc_args.flags,
 		(unsigned long) data.proc_args.size,
-		args);
+		args ? args : "");
 
 	glibtop_free (args);
 
@@ -565,7 +565,7 @@ main (int argc, char *argv [])
 	printf ("Proc_Args    PID  %5d (0x%08lx): %lu - '%s'\n", 1,
 		(unsigned long) data.proc_args.flags,
 		(unsigned long) data.proc_args.size,
-		args);
+		args ? args : "");
 
 	glibtop_free (args);
 
