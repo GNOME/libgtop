@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+require 'guile_types.pl';
+
 $[ = 1;			# set array base to 1
 $, = ' ';		# set output field separator
 $\ = "\n";		# set output record separator
@@ -29,26 +31,14 @@ print '#include <guile/gh.h>';
 
 print '';
 
-$convert{'long'} = 'gh_long2scm  ';
-$convert{'ulong'} = 'gh_ulong2scm ';
-$convert{'double'} = 'gh_double2scm';
-$convert{'str'} = 'gh_str02scm  ';
-$convert{'char'} = 'gh_char2scm  ';
-
-$backconv{'int'} = 'gh_scm2long';
-$backconv{'pid_t'} = 'gh_scm2ulong';
-$backconv{'long'} = 'gh_scm2long';
-$backconv{'ulong'} = 'gh_scm2ulong';
-$backconv{'unsigned'} = 'gh_scm2ulong';
-
 $feature_count = 0;
 
 while (<>) {
-    chop;	# strip record separator
-
-    if (/^[^#]/) {
-	&make_output($_);
-    }
+  chop;				# strip record separator
+  
+  if (/^[^\#]/) {
+    &make_output($_);
+  }
 }
 
 $sep = '';
@@ -66,213 +56,149 @@ print "#include \"guile.x\"";
 print '}';
 
 sub make_output {
-    local($line) = @_;
-    @line_fields = split(/\|/, $line, 9999);
-    $retval = $line_fields[1];
-    $element_def = $line_fields[3];
-    $feature = $line_fields[2];
-    $param_def = $line_fields[4];
+  local($line) = @_;
+  @line_fields = split(/\|/, $line, 9999);
+  $retval = $line_fields[1];
+  $element_def = $line_fields[3];
+  $feature = $line_fields[2];
+  $param_def = $line_fields[4];
+  
+  $feature =~ s/^@//;
+  $features{$feature} = $feature;
+  
+  $feature_field{$feature_count} = $feature;
+  $feature_count = $feature_count + 1;
+  
+  $total_nr_params = 0;
+  
+  $temp_list_count = 0;
+  $temp_string_count = 0;
+  $have_count_var = 0;
+  
+  if ($retval eq 'retval') {
+    $retval = 'int';
+  }
 
-    $feature =~ s/^@//;
-    $features{$feature} = $feature;
+  $pre_call_code = '';
+  $post_call_code = '';
+  
+  $local_var_decl_code = sprintf (qq[\tglibtop_%s %s;\n\tSCM list;\n],
+				  $feature, $feature);
+  
+  $call_param = '';
+  $param_decl = '';
+  $nr_params = (@params = split(/:/, $param_def, 9999));
+  for ($param = 1; $param <= $nr_params; $param++) {
+    $list = $params[$param];
+    $type = $params[$param];
+    $type =~ s/\(.*//;
+    $list =~ s/^.*\(//;
+    $list =~ s/\)$//;
+    $count = (@fields = split(/,/, $list, 9999));
+    $total_nr_params = $total_nr_params + $count;
+    for ($field = 1; $field <= $count; $field++) {
+      if ($param_decl ne '') {
+	$param_decl = $param_decl . ', ';
+      }
+      $param_decl = $param_decl . 'SCM ' . $fields[$field];
+      if ($type eq 'string') {
+	$local_var_decl_code .= sprintf
+	  (qq[\tchar *_LIBGTOP_TEMP_str%d;\n], ++$temp_string_count);
 
-    $feature_field{$feature_count} = $feature;
-    $feature_count = $feature_count + 1;
+	$pre_call_code .= sprintf
+	  (qq[\t_LIBGTOP_TEMP_str%d = gh_scm2newstr (%s, NULL);\n],
+	   $temp_string_count, $fields[$field]);
 
-    $total_nr_params = 0;
+	$post_call_code .= sprintf
+	  (qq[\tfree (_LIBGTOP_TEMP_str%d);\n], $temp_string_count);
 
-    if ($retval eq 'retval') {
-      $retval = 'int';
+	$call_param .= sprintf
+	  (qq[, _LIBGTOP_TEMP_str%d], $temp_string_count);
+      } else {
+	$call_param .= sprintf
+	  (qq[, %s (%s)], $typeinfo->{$type}->[1], $fields[$field]);
+      }
     }
-
-    if ($param_def eq 'string') {
-	$call_param = ', gh_scm2newstr( ' . $line_fields[5] . ', NULL)';
-	$param_decl = 'SCM ' . $line_fields[5];
-	$total_nr_params = 1;
-    }
-    else {
-	$call_param = '';
-	$param_decl = '';
-	$nr_params = (@params = split(/:/, $param_def, 9999));
-	for ($param = 1; $param <= $nr_params; $param++) {
-	    $list = $params[$param];
-	    $type = $params[$param];
-	    $type =~ s/\(.*//;
-	    $list =~ s/^.*\(//;
-	    $list =~ s/\)$//;
-	    $count = (@fields = split(/,/, $list, 9999));
-	    $total_nr_params = $total_nr_params + $count;
-	    for ($field = 1; $field <= $count; $field++) {
-		if ($param_decl ne '') {
-		    $param_decl = $param_decl . ', ';
-		}
-		$param_decl = $param_decl . 'SCM ' . $fields[$field];
-		$call_param = $call_param . ', ' . $backconv{$type} . ' (' .
-
-		  $fields[$field] . ')';
-	    }
+  }
+  if ($param_decl eq '') {
+    $param_decl = 'void';
+  }
+  
+  $nr_params_field{$feature} = $total_nr_params;
+  
+  $feature_name = $feature;
+  $feature_name =~ s/_/-/;
+  
+  $scm_proc_code = sprintf
+    (qq[SCM_PROC (s_%s, "glibtop-get-%s", %d, 0, 0, glibtop_guile_get_%s);],
+     $feature, $feature_name, $nr_params_field{$feature}, $feature);
+  
+  $func_decl_code = sprintf
+    (qq[static SCM\nglibtop_guile_get_%s (%s)], $feature, $param_decl);
+  
+  if ($retval ne 'void') {
+    $local_var_decl_code .= sprintf (qq[\t%s retval;\n], $retval);
+  }
+  
+  if ($retval ne 'void') {
+    $prefix = 'retval = ';
+  } else {
+    $prefix = '';
+  }
+  
+  $libgtop_call_code = sprintf
+    (qq[\t%sglibtop_get_%s (&%s%s);\n\n], $prefix, $feature,
+     $feature, $call_param);
+  
+  $temp_list_code = '';
+  
+  $create_list_code = sprintf
+    ("\tlist = gh_list (gh_ulong2scm (%s.flags),\n\t\t\t", $feature);
+  
+  $nr_elements = (@elements = split(/:/, $element_def, 9999));
+  for ($element = 1; $element <= $nr_elements; $element++) {
+    $list = $elements[$element];
+    $type = $elements[$element];
+    $type =~ s/\(.*//;
+    $list =~ s/^.*\(//;
+    $list =~ s/\)$//;
+    $count = (@fields = split(/,/, $list, 9999));
+    for ($field = 1; $field <= $count; $field++) {
+      if ($fields[$field] =~ /^(\w+)\[([^\]]+)\]$/) {
+	@field_parts = split(/\[/, $fields[$field], 9999);
+	$fields[$field] = $field_parts[1];
+	$field_parts[2] =~ s/\]//;
+	
+	if (!$have_count_var) {
+	  $local_var_decl_code .= sprintf (qq[\tlong _LIBGTOP_tmp_i;\n]);
+	  $have_count_var = 1;
 	}
-	if ($param_decl eq '') {
-	    $param_decl = 'void';
-	}
+	
+	$local_var_decl_code .= sprintf
+	  (qq[\tSCM _LIBGTOP_TEMP_list%d;\n], ++$temp_list_count);
+	
+	$temp_list_code .= sprintf
+	  (qq[\t_LIBGTOP_TEMP_list%d = SCM_EOL;\n], $temp_list_count);
+	
+	$temp_list_code .= sprintf
+	  (qq[\tfor (_LIBGTOP_tmp_i = 0; _LIBGTOP_tmp_i < %s; _LIBGTOP_tmp_i++)\n\t\t_LIBGTOP_TEMP_list%d = gh_append2\n\t\t\t(_LIBGTOP_TEMP_list%d,\n\t\t\t gh_list\n\t\t\t (%s (%s.%s [_LIBGTOP_tmp_i]),\n\t\t\t  SCM_UNDEFINED));\n\n], $field_parts[2], $temp_list_count, $temp_list_count, $typeinfo->{$type}->[0], $feature, $fields[$field]);
+	
+	$create_list_code .= sprintf
+	  (qq[_LIBGTOP_TEMP_list%d,\n\t\t\t], $temp_list_count);
+      } else {
+	$create_list_code .= sprintf
+	  (qq[%s (%s.%s),\n\t\t\t], $typeinfo->{$type}->[0], $feature,
+	   $fields[$field]);
+      }
     }
-
-    $nr_params_field{$feature} = $total_nr_params;
-
-    $feature_name = $feature;
-    $feature_name =~ s/_/-/;
-    $output = 'SCM_PROC (s_' . $feature . ", \"glibtop-get-" . $feature_name .
-
-      "\",";
-    $output = $output . ' ' . $nr_params_field{$feature} . ', 0, 0, ';
-    $output = $output . 'glibtop_guile_get_' . $feature . ");\n\n";
-
-    $output = $output . "static SCM\nglibtop_guile_get_" . $feature . ' (' .
-
-      $param_decl . ")\n{\n";
-
-    $output = $output . "\tglibtop_" . $feature . ' ' . $feature . ";\n";
-    if ($retval ne 'void') {
-	$output = $output . "\t" . $retval . " retval;\n";
-    }
-    if ($feature =~ /^(proc(list|_map|_args))|mountlist$/) {
-	$output = $output . "\tunsigned i;\n";
-    }
-    if ($feature =~ /^proc_args$/) {
-	$output = $output . "\tSCM list, scm_args, args_list;\n";
-	$output = $output . "\tchar *start;\n\n";
-    }
-    else {
-	$output = $output . "\tSCM list;\n\n";
-    }
-    if ($retval ne 'void') {
-	$prefix = 'retval = ';
-    }
-    else {
-	$prefix = '';
-    }
-    $output = $output . "\t" . $prefix . 'glibtop_get_' . $feature . ' (&' .
-
-      $feature . '' . $call_param . ");\n\n";
-
-    $output = $output . "\tlist = gh_list (gh_ulong2scm  (" . $feature .
-
-      ".flags),\n\t\t\t";
-
-    $nr_elements = (@elements = split(/:/, $element_def, 9999));
-    for ($element = 1; $element <= $nr_elements; $element++) {
-	$list = $elements[$element];
-	$type = $elements[$element];
-	$type =~ s/\(.*//;
-	$list =~ s/^.*\(//;
-	$list =~ s/\)$//;
-	$count = (@fields = split(/,/, $list, 9999));
-	for ($field = 1; $field <= $count; $field++) {
-	    if ($fields[$field] =~ /^(\w+)\[([0-9]+)\]$/) {
-		@field_parts = split(/\[/, $fields[$field], 9999);
-		$fields[$field] = $field_parts[1];
-		$field_parts[2] =~ s/\]//;
-		$number = $field_parts[2];
-		$output = $output . "gh_list\n\t\t\t(";
-		for ($nr = 0; $nr < $number; $nr++) {
-		    $output = $output . '' . $convert{$type} . ' (' . $feature
-
-		      . '.' . $fields[$field] . ' [' . $nr . "]),\n\t\t\t ";
-		}
-		$output = $output . "SCM_UNDEFINED),\n\t\t\t";
-	    }
-	    else {
-		$output = $output . '' . $convert{$type} . ' (' . $feature .
-
-		  '.' . $fields[$field] . "),\n\t\t\t";
-	    }
-	}
-    }
-    $output = $output . "SCM_UNDEFINED);\n";
-
-    print $output;
-
-    if ($feature =~ /^proclist$/) {
-	print "\tif (retval == NULL)";
-	print "\t\treturn list;";
-	print '';
-	print "\tfor (i = 0; i < proclist.number; i++)";
-	print "\t\tlist = scm_append";
-	print "\t\t\t(gh_list (list,";
-	print
-
-	  "\t\t\t\t  gh_list (gh_ulong2scm ((unsigned long) retval [i])),";
-	print "\t\t\t\t  SCM_UNDEFINED));";
-	print '';
-	print "\tglibtop_free (retval);\n";
-    }
-
-    if ($feature =~ /^proc_map$/) {
-	print "\tif (retval == NULL)";
-	print "\t\treturn list;";
-	print '';
-	print "\tfor (i = 0; i < proc_map.number; i++) {";
-	print "\t\tglibtop_map_entry *entry = &(retval [i]);";
-	print "\t\tSCM scm_entry = gh_list";
-	print "\t\t\t(gh_ulong2scm ((unsigned long) entry->flags),";
-	print "\t\t\t gh_ulong2scm ((unsigned long) entry->start),";
-	print "\t\t\t gh_ulong2scm ((unsigned long) entry->end),";
-	print "\t\t\t gh_ulong2scm ((unsigned long) entry->offset),";
-	print "\t\t\t gh_ulong2scm ((unsigned long) entry->perm),";
-	print "\t\t\t gh_ulong2scm ((unsigned long) entry->inode),";
-	print "\t\t\t gh_ulong2scm ((unsigned long) entry->device),";
-	print "\t\t\t gh_str02scm (entry->filename), SCM_UNDEFINED);";
-	print "\t\tSCM entry_list = gh_list (scm_entry, SCM_UNDEFINED);\n";
-
-	print
-
-	  "\t\tlist = scm_append (gh_list (list, entry_list, SCM_UNDEFINED));";
-	print "\t};\n";
-	print "\tglibtop_free (retval);\n";
-    }
-
-    if ($feature =~ /^proc_args$/) {
-	print "\tif (retval == NULL)";
-	print "\t\treturn list;";
-	print '';
-	print "\tstart = retval;";
-	print "\tscm_args = gh_list (SCM_UNDEFINED);\n";
-	print "\tfor (i = 0; i <= proc_args.size; i++) {";
-	print "\t\tSCM arg_list;\n";
-	print "\t\tif (retval [i]) continue;\n";
-	print "\t\targ_list = gh_list (gh_str02scm (start), SCM_UNDEFINED);";
-	print "\t\tscm_args = scm_append";
-	print "\t\t\t(gh_list (scm_args, arg_list, SCM_UNDEFINED));\n;";
-	print "\t\tstart = &(retval [i+1]);";
-	print "\t};\n";
-	print "\targs_list = gh_list (scm_args, SCM_UNDEFINED);";
-	print
-
-	  "\tlist = scm_append (gh_list (list, args_list, SCM_UNDEFINED));\n";
-	print "\tglibtop_free (retval);\n";
-    }
-
-    if ($feature =~ /^mountlist$/) {
-	print "\tif (retval == NULL)";
-	print "\t\treturn list;";
-	print '';
-	print "\tfor (i = 0; i < mountlist.number; i++) {";
-	print "\t\tglibtop_mountentry *entry = &(retval [i]);";
-	print "\t\tSCM scm_entry = gh_list";
-	print "\t\t\t(gh_ulong2scm ((unsigned long) entry->dev),";
-	print "\t\t\t gh_str02scm (entry->devname),";
-	print "\t\t\t gh_str02scm (entry->mountdir),";
-	print "\t\t\t gh_str02scm (entry->type), SCM_UNDEFINED);";
-	print "\t\tSCM entry_list = gh_list (scm_entry, SCM_UNDEFINED);\n";
-
-	print
-
-	  "\t\tlist = scm_append (gh_list (list, entry_list, SCM_UNDEFINED));";
-	print "\t};\n";
-	print "\tglibtop_free (retval);\n";
-    }
-
-    print "\treturn list;";
-    print '}';
-    print '';
+  }
+  
+  $create_list_code .= "SCM_UNDEFINED);\n";
+  
+  $total = sprintf ("%s\n\n%s\n{\n%s\n\n%s\n%s\n%s%s\n\n%s\n\treturn list;\n}\n",
+		    $scm_proc_code, $func_decl_code, $local_var_decl_code,
+		    $pre_call_code, $libgtop_call_code, $post_call_code,
+		    $temp_list_code, $create_list_code);
+  
+  print $total;
 }
