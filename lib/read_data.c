@@ -30,7 +30,7 @@ glibtop_read_data__l (glibtop *server)
 	size_t	size;
 	void *ptr;
 
-	glibtop_init__r (&server);
+	glibtop_init__r (&server, 0, 0);
 
 	if (read (server->input [0], &size, sizeof (size_t)) < 0)
 		glibtop_error__r (server, _("read data size: %s"),
@@ -38,8 +38,6 @@ glibtop_read_data__l (glibtop *server)
 
 	if (!size) return NULL;	
 
-	fprintf (stderr, "Server has %d bytes of data.\n", size);
-	
 	ptr = glibtop_malloc__r (server, size);
 	
 	if (read (server->input [0], ptr, size) < 0)

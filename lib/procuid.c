@@ -23,17 +23,18 @@
 #include <glibtop/procuid.h>
 #include <glibtop/command.h>
 
-#if GLIBTOP_SUID_PROC_UID
-
 /* Provides detailed information about a process. */
 
 void
 glibtop_get_proc_uid__l (glibtop *server, glibtop_proc_uid *buf,
 			   pid_t pid)
 {
-	glibtop_init__r (&server);
-	glibtop_call__l (server, GLIBTOP_CMND_PROC_UID, sizeof (pid_t),
-			 &pid, sizeof (glibtop_proc_uid), buf);
-}
+	glibtop_init__r (&server, GLIBTOP_SYSDEPS_PROC_UID, 0);
 
-#endif
+	if (server->features & GLIBTOP_SYSDEPS_PROC_UID) {
+		glibtop_call__l (server, GLIBTOP_CMND_PROC_UID, sizeof (pid_t),
+				 &pid, sizeof (glibtop_proc_uid), buf);
+	} else {
+		glibtop_get_proc_uid__r (server, buf, pid);
+	}
+}

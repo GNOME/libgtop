@@ -23,17 +23,18 @@
 #include <glibtop/procmem.h>
 #include <glibtop/command.h>
 
-#if GLIBTOP_SUID_PROC_MEM
-
 /* Provides detailed information about a process. */
 
 void
 glibtop_get_proc_mem__l (glibtop *server, glibtop_proc_mem *buf,
-			   pid_t pid)
+			 pid_t pid)
 {
-	glibtop_init__r (&server);
-	glibtop_call__l (server, GLIBTOP_CMND_PROC_MEM, sizeof (pid_t),
-			 &pid, sizeof (glibtop_proc_mem), buf);
-}
+	glibtop_init__r (&server, GLIBTOP_SYSDEPS_PROC_MEM, 0);
 
-#endif
+	if (server->features & GLIBTOP_SYSDEPS_PROC_MEM) {
+		glibtop_call__l (server, GLIBTOP_CMND_PROC_MEM, sizeof (pid_t),
+				 &pid, sizeof (glibtop_proc_mem), buf);
+	} else {
+		glibtop_get_proc_mem__r (server, buf, pid);
+	}
+}

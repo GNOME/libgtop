@@ -23,17 +23,18 @@
 #include <glibtop/proctime.h>
 #include <glibtop/command.h>
 
-#if GLIBTOP_SUID_PROC_TIME
-
 /* Provides detailed information about a process. */
 
 void
 glibtop_get_proc_time__l (glibtop *server, glibtop_proc_time *buf,
-			   pid_t pid)
+			  pid_t pid)
 {
-	glibtop_init__r (&server);
-	glibtop_call__l (server, GLIBTOP_CMND_PROC_TIME, sizeof (pid_t),
-			 &pid, sizeof (glibtop_proc_time), buf);
-}
+	glibtop_init__r (&server, GLIBTOP_SYSDEPS_PROC_TIME, 0);
 
-#endif
+	if (server->features & GLIBTOP_SYSDEPS_PROC_TIME) {
+		glibtop_call__l (server, GLIBTOP_CMND_PROC_TIME, sizeof (pid_t),
+				 &pid, sizeof (glibtop_proc_time), buf);
+	} else {
+		glibtop_get_proc_time__r (server, buf, pid);
+	}
+}

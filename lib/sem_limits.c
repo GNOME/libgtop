@@ -22,16 +22,17 @@
 #include <glibtop/sem_limits.h>
 #include <glibtop/command.h>
 
-#if GLIBTOP_SUID_SEM_LIMITS
-
 /* Provides information about sysv ipc limits. */
 
 void
 glibtop_get_sem_limits__l (glibtop *server, glibtop_sem_limits *buf)
 {
-	glibtop_init__r (&server);
-	glibtop_call__l (server, GLIBTOP_CMND_SEM_LIMITS, 0, NULL,
-			 sizeof (glibtop_sem_limits), buf);
-}
+	glibtop_init__r (&server, GLIBTOP_SYSDEPS_SEM_LIMITS, 0);
 
-#endif
+	if (server->features & GLIBTOP_SYSDEPS_SEM_LIMITS) {
+		glibtop_call__l (server, GLIBTOP_CMND_SEM_LIMITS, 0, NULL,
+				 sizeof (glibtop_sem_limits), buf);
+	} else {
+		glibtop_get_sem_limits__r (server, buf);
+	}
+}

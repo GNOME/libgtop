@@ -23,17 +23,18 @@
 #include <glibtop/procsegment.h>
 #include <glibtop/command.h>
 
-#if GLIBTOP_SUID_PROC_SEGMENT
-
 /* Provides detailed information about a process. */
 
 void
 glibtop_get_proc_segment__l (glibtop *server, glibtop_proc_segment *buf,
-			   pid_t pid)
+			     pid_t pid)
 {
-	glibtop_init__r (&server);
-	glibtop_call__l (server, GLIBTOP_CMND_PROC_SEGMENT, sizeof (pid_t),
-			 &pid, sizeof (glibtop_proc_segment), buf);
-}
+	glibtop_init__r (&server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
 
-#endif
+	if (server->features & GLIBTOP_SYSDEPS_PROC_SEGMENT) {
+		glibtop_call__l (server, GLIBTOP_CMND_PROC_SEGMENT, sizeof (pid_t),
+				 &pid, sizeof (glibtop_proc_segment), buf);
+	} else {
+		glibtop_get_proc_segment__r (server, buf, pid);
+	}
+}

@@ -28,7 +28,7 @@ glibtop_read__l (glibtop *server, size_t size, void *buf)
 {
 	size_t	ssize;
 
-	glibtop_init__r (&server);
+	glibtop_init__r (&server, 0, 0);
 	
 	if (read (server->input [0], &ssize, sizeof (size_t)) < 0)
 		glibtop_error__r (server, _("read size: %s"), strerror (errno));

@@ -23,17 +23,18 @@
 #include <glibtop/prockernel.h>
 #include <glibtop/command.h>
 
-#if GLIBTOP_SUID_PROC_KERNEL
-
 /* Provides detailed information about a process. */
 
 void
 glibtop_get_proc_kernel__l (glibtop *server, glibtop_proc_kernel *buf,
-			   pid_t pid)
+			    pid_t pid)
 {
-	glibtop_init__r (&server);
-	glibtop_call__l (server, GLIBTOP_CMND_PROC_KERNEL, sizeof (pid_t),
-			 &pid, sizeof (glibtop_proc_kernel), buf);
-}
+	glibtop_init__r (&server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
 
-#endif
+	if (server->features & GLIBTOP_SYSDEPS_PROC_KERNEL) {
+		glibtop_call__l (server, GLIBTOP_CMND_PROC_KERNEL, sizeof (pid_t),
+				 &pid, sizeof (glibtop_proc_kernel), buf);
+	} else {
+		glibtop_get_proc_kernel__r (server, buf, pid);
+	}
+}

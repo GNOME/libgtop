@@ -26,7 +26,7 @@
 void
 glibtop_write__l (glibtop *server, size_t size, void *buf)
 {
-	glibtop_init__r (&server);
+	glibtop_init__r (&server, 0, 0);
 
 	if (write (server->output [1], &size, sizeof (size_t)) < 0)
 		glibtop_error__r (server, _("write size: %s"), strerror (errno));

@@ -22,16 +22,17 @@
 #include <glibtop/mem.h>
 #include <glibtop/command.h>
 
-#if GLIBTOP_SUID_MEM
-
 /* Provides information about memory usage. */
 
 void
 glibtop_get_mem__l (glibtop *server, glibtop_mem *buf)
 {
-	glibtop_init__r (&server);
-	glibtop_call__l (server, GLIBTOP_CMND_MEM, 0, NULL,
-			 sizeof (glibtop_mem), buf);
-}
+	glibtop_init__r (&server, GLIBTOP_SYSDEPS_MEM, 0);
 
-#endif
+	if (server->features & GLIBTOP_SYSDEPS_MEM) {
+		glibtop_call__l (server, GLIBTOP_CMND_MEM, 0, NULL,
+				 sizeof (glibtop_mem), buf);
+	} else {
+		glibtop_get_mem__r (server, buf);
+	}
+}

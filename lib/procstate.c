@@ -23,17 +23,18 @@
 #include <glibtop/procstate.h>
 #include <glibtop/command.h>
 
-#if GLIBTOP_SUID_PROC_STATE
-
 /* Provides detailed information about a process. */
 
 void
 glibtop_get_proc_state__l (glibtop *server, glibtop_proc_state *buf,
 			   pid_t pid)
 {
-	glibtop_init__r (&server);
-	glibtop_call__l (server, GLIBTOP_CMND_PROC_STATE, sizeof (pid_t),
-			 &pid, sizeof (glibtop_proc_state), buf);
-}
+	glibtop_init__r (&server, GLIBTOP_SYSDEPS_PROC_STATE, 0);
 
-#endif
+	if (server->features & GLIBTOP_SYSDEPS_PROC_STATE) {
+		glibtop_call__l (server, GLIBTOP_CMND_PROC_STATE, sizeof (pid_t),
+				 &pid, sizeof (glibtop_proc_state), buf);
+	} else {
+		glibtop_get_proc_state__r (server, buf, pid);
+	}
+}

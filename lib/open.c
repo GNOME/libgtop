@@ -19,18 +19,79 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#include <glibtop.h>
 #include <glibtop/open.h>
+#include <glibtop/xmalloc.h>
 
 /* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
 
 void
-glibtop_open (glibtop *server, const char *program_name)
+glibtop_open (glibtop *server, const char *program_name,
+	      const unsigned long features, const unsigned flags)
 {
 	char	version [BUFSIZ], buffer [BUFSIZ];
+	char	*server_command, *server_rsh, *temp;
+	char	*server_host, *server_user;
 
 	memset (server, 0, sizeof (glibtop));
 
 	server->name = program_name;
+
+	/* Try to get data from environment. */
+
+	temp = getenv ("LIBGTOP_SERVER") ?
+	  getenv ("LIBGTOP_SERVER") : GTOP_SERVER;
+
+	server_command = glibtop_malloc__r (server, strlen (temp) + 1);
+	
+	strcpy (server_command, temp);
+
+	temp = getenv ("LIBGTOP_RSH") ?
+	  getenv ("LIBGTOP_RSH") : "rsh";
+
+	server_rsh = glibtop_malloc__r (server, strlen (temp) + 1);
+
+	strcpy (server_rsh, temp);
+
+	/* Extract host and user information. */
+
+	temp = strstr (server_command, ":");
+
+	if (temp) {
+	  *temp = 0;
+	  server_host = server_command;
+	  server_command = temp+1;
+
+	  temp = strstr (server_host, "@");
+	  
+	  if (temp) {
+	    *temp = 0;
+	    server_user = server_host;
+	    server_host = temp+1;
+	  } else {
+	    server_user = NULL;
+	  }
+
+	} else {
+	  server_host = NULL;
+	  server_user = NULL;
+	}
+
+	/* Store everything in `server'. */
+
+	server->server_command = server_command;
+	server->server_host = server_host;
+	server->server_user = server_user;
+	server->server_rsh = server_rsh;
+
+	/* Get server features. */
+
+	if (server->server_host)
+		glibtop_error__r (server, _("Remote server not yet supported by library\n"));
+
+	server->features = glibtop_server_features;
+
+	/* Fork and exec server. */
 
 	if (pipe (server->input) || pipe (server->output))
 		glibtop_error__r (server, _("cannot make a pipe: %s\n"), strerror (errno));
@@ -44,7 +105,20 @@ glibtop_open (glibtop *server, const char *program_name)
 		close (server->input [0]); close (server->output [1]);
 		dup2 (server->input [1], 1); /* dup2 (server->input [1], 2); */
 		dup2 (server->output [0], 0);
-		execl (GTOP_SERVER, NULL);
+
+		if (server_host) {
+			if (server_user) {
+				execl (server->server_rsh, "gtop_server", "-l",
+				       server->server_user, server->server_host,
+				       server->server_command, NULL);
+			} else {
+				execl (server->server_rsh, "gtop_server",
+				       server->server_host, server_command, NULL);
+			}
+		} else {
+			execl (server->server_command, "gtop_server", NULL);
+		}
+
 		_exit (2);
 	}
 

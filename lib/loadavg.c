@@ -23,16 +23,17 @@
 #include <glibtop/loadavg.h>
 #include <glibtop/command.h>
 
-#if GLIBTOP_SUID_LOADAVG
-
 /* Provides load averange. */
 
 void
 glibtop_get_loadavg__l (glibtop *server, glibtop_loadavg *buf)
 {
-	glibtop_init__r (&server);
-	glibtop_call__l (server, GLIBTOP_CMND_LOADAVG, 0, NULL,
-			 sizeof (glibtop_loadavg), buf);
-}
+	glibtop_init__r (&server, GLIBTOP_SYSDEPS_LOADAVG, 0);
 
-#endif
+	if (server->features & GLIBTOP_SYSDEPS_LOADAVG) {
+		glibtop_call__l (server, GLIBTOP_CMND_LOADAVG, 0, NULL,
+				 sizeof (glibtop_loadavg), buf);
+	} else {
+		glibtop_get_loadavg__r (server, buf);
+	}
+}

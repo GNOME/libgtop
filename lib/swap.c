@@ -22,16 +22,17 @@
 #include <glibtop/swap.h>
 #include <glibtop/command.h>
 
-#if GLIBTOP_SUID_SWAP
-
 /* Provides information about swap usage. */
 
 void
 glibtop_get_swap__l (glibtop *server, glibtop_swap *buf)
 {
-	glibtop_init__r (&server);
-	glibtop_call__l (server, GLIBTOP_CMND_SWAP, 0, NULL,
-			 sizeof (glibtop_swap), buf);
-}
+	glibtop_init__r (&server, GLIBTOP_SYSDEPS_SWAP, 0);
 
-#endif
+	if (server->features & GLIBTOP_SYSDEPS_SWAP) {
+		glibtop_call__l (server, GLIBTOP_CMND_SWAP, 0, NULL,
+				 sizeof (glibtop_swap), buf);
+	} else {
+		glibtop_get_swap__r (server, buf);
+	}
+}

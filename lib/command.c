@@ -33,7 +33,7 @@ glibtop_call__l (glibtop *server, unsigned command, size_t send_size, void *send
 	glibtop_command *cmnd;
 	void *ptr;
 
-	glibtop_init__r (&server);
+	glibtop_init__r (&server, 0, 0);
 
 	cmnd = glibtop_calloc__r (server, 1, sizeof (glibtop_command));
 	
