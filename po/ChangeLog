@@ -1,5 +1,9 @@
 2000-05-16  Kenneth Christiansen  <kenneth@gnome.org>
 
+        * POTFILES.in: New strings added
+
+2000-05-16  Kenneth Christiansen  <kenneth@gnome.org>
+
         * da.po: New da translation
 	* update.sh: New update.sh script
 
