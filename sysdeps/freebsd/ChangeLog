@@ -1,5 +1,10 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* swap.c: (glibtop_get_swap_p): fix swap sizes in FreeBSD,
+	patch by edwin@mavetju.org
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* glibtop_machine.h:
 	* glibtop_server.h:
 	* glibtop_suid.h:
