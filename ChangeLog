@@ -1,5 +1,7 @@
 2000-02-13  Martin Baulig  <martin@home-of-linux.org>
 
+	* configure.in (AC_LIBTOOL_DLOPEN): Added.
+
 	* lib/sysdeps-init-linux.c (glibtop_sys_siglist): Added labels.
 	* lib/sysdeps-init-freebsd.c (glibtop_sys_siglist): Provide
 	actual implementation.

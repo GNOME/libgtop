@@ -85,6 +85,7 @@ AC_PROG_MAKE_SET
 
 export cross_compiling
 
+AC_LIBTOOL_DLOPEN
 AM_PROG_LIBTOOL
 
 dnl Let the user enable compiler warnings
