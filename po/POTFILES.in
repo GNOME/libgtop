@@ -199,7 +199,6 @@ support/vasprintf.c
 support/vsnprintf.c
 support/strtod.c
 support/memmove.c
-support/gnomesupport.h
 support/mkstemp.c
 support/strtol.c
 support/strtoul.c
