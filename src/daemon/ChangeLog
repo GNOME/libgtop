@@ -1,3 +1,9 @@
+2004-09-19  Benoît Dejean  <tazforever@dlfp.org>
+
+	* gnuserv.c: (setup_table): 'screen' is only defined when AUTH_MAGIC_COOKIE
+	is defined.
+	Added missing initializers for popt options.
+
 2004-05-25  Benoît Dejean  <tazforever@dlfp.org>
 
 	* gnuserv.c: (permitted): Cast to size_t to remove warning.

@@ -274,7 +274,12 @@ permitted (u_long host_addr, int fd)
 static int
 setup_table (void)
 {
-    char hostname [HOSTNAMSZ], screen [BUFSIZ];
+    char hostname [HOSTNAMSZ];
+
+#ifdef AUTH_MAGIC_COOKIE
+    char screen [BUFSIZ];
+#endif
+
     long host_addr;
     int i, hosts = 0;
 
@@ -460,7 +465,7 @@ const struct poptOption popt_options [] = {
       N_("Don't fork into background"), N_("NO-DAEMON") },
     { "inetd", 'i', POPT_ARG_NONE, &invoked_from_inetd, 0,
       N_("Invoked from inetd"), N_("INETD") },
-    { NULL, '\0', 0, NULL, 0 }
+    { NULL, '\0', 0, NULL, 0, NULL, NULL }
 };
 
 int
