@@ -1,5 +1,9 @@
 1999-02-18  Martin Baulig  <martin@home-of-linux.org>
 
+	* sysdeps/common/error.h: Replaced inline with static.
+
+1999-02-18  Martin Baulig  <martin@home-of-linux.org>
+
 	* */*.awk: Replaced all awk scripts with perl scripts since it is
 	more likely that people have a working perl interpreter than GNU
 	awk on their system.

@@ -33,14 +33,7 @@ extern void glibtop_warn_vr __P((glibtop *, char *, va_list));
 extern void glibtop_error_io_vr __P((glibtop *, char *, gint, va_list));
 extern void glibtop_warn_io_vr __P((glibtop *, char *, gint, va_list));
 
-G_INLINE_FUNC void glibtop_error_r __P((glibtop *, char *, ...));
-G_INLINE_FUNC void glibtop_warn_r __P((glibtop *, char *, ...));
-
-G_INLINE_FUNC void glibtop_error_io_r __P((glibtop *, char *, ...));
-G_INLINE_FUNC void glibtop_warn_io_r __P((glibtop *, char *, ...));
-
-#ifdef G_CAN_INLINE
-G_INLINE_FUNC void
+static void
 glibtop_error_r (glibtop *server, char *format, ...)
 {
 	va_list args;
@@ -50,7 +43,7 @@ glibtop_error_r (glibtop *server, char *format, ...)
 	va_end (args);
 }
 
-G_INLINE_FUNC void
+static void
 glibtop_warn_r (glibtop *server, char *format, ...)
 {
 	va_list args;
@@ -60,7 +53,7 @@ glibtop_warn_r (glibtop *server, char *format, ...)
 	va_end (args);
 }
 
-G_INLINE_FUNC void
+static void
 glibtop_error_io_r (glibtop *server, char *format, ...)
 {
 	va_list args;
@@ -70,7 +63,7 @@ glibtop_error_io_r (glibtop *server, char *format, ...)
 	va_end (args);
 }
 
-G_INLINE_FUNC void
+static void
 glibtop_warn_io_r (glibtop *server, char *format, ...)
 {
 	va_list args;
@@ -79,7 +72,6 @@ glibtop_warn_io_r (glibtop *server, char *format, ...)
 	glibtop_warn_io_vr (server, format, errno, args);
 	va_end (args);
 }
-#endif
 
 #ifdef  __GNUC__
 
