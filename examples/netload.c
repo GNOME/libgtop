@@ -85,8 +85,8 @@ main (int argc, char *argv [])
 
 	printf ("Network Load (0x%08lx):\n\n"
 		"\tInterface Flags:\t0x%08lx\n"
-		"\tSubnet:\t\t\t0x%08lx - %s\n"
 		"\tAddress:\t\t0x%08lx - %s\n\n"
+		"\tSubnet:\t\t\t0x%08lx - %s\n"
 		"\tMTU:\t\t\t%ld\n"
 		"\tCollisions:\t\t%ld\n\n"
 		"\tPackets In:\t\t%ld\n"
@@ -100,8 +100,8 @@ main (int argc, char *argv [])
 		"\tErrors Total:\t\t%ld\n\n",
 		(unsigned long) netload.flags,
 		(unsigned long) netload.if_flags,
-		(unsigned long) netload.subnet,  subnet_string,
 		(unsigned long) netload.address, address_string,
+		(unsigned long) netload.subnet,  subnet_string,
 		(unsigned long) netload.mtu,
 		(unsigned long) netload.collisions,
 		(unsigned long) netload.packets_in,
