@@ -1,5 +1,12 @@
 2004-11-13  Benoît Dejean  <tazforever@dlfp.org>
 
+	* include/glibtop/procargs.h:
+	* sysdeps/common/procargs.c: (glibtop_get_proc_argv_l): Removed SUID 
+	wrappers because glibtop_proc_argv_l is a client-side function that wraps
+	glibtop_get_proc_args.
+
+2004-11-13  Benoît Dejean  <tazforever@dlfp.org>
+
 	* structures.def: Removed old functions. OMG, everything is really broken
 	here :/
 

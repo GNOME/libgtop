@@ -85,28 +85,6 @@ glibtop_get_proc_argv_l (glibtop *server, glibtop_proc_args *buf,
 #define glibtop_get_proc_argv(proc_args,pid,max_len) glibtop_get_proc_argv_l(glibtop_global_server, proc_args, pid, max_len)
 
 
-#if GLIBTOP_SUID_PROC_ARGS
-
-# define glibtop_get_proc_argv_r		glibtop_get_proc_args_p
-# define glibtop_init_proc_argv_p		glibtop_init_proc_args_p
-
-  char **
-  glibtop_get_proc_argv_p (glibtop *server, glibtop_proc_args *buf,
-			   pid_t pid, unsigned max_len);
-
-
-#else /* !GLIBTOP_SUID_PROC_ARGS */
-
-# define glibtop_get_proc_argv_r		glibtop_get_proc_args_s
-# define glibtop_init_proc_argv_s		glibtop_init_proc_args_s
-
-  char **
-  glibtop_get_proc_argv_s (glibtop *server, glibtop_proc_args *buf,
-			   pid_t pid, unsigned max_len);
-#endif /* GLIBTOP_SUID_PROC_ARGS */
-
-
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

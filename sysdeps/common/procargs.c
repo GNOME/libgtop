@@ -41,26 +41,3 @@ glibtop_get_proc_argv_l (glibtop *server, glibtop_proc_args *buf,
 	const char * const args0 = glibtop_get_proc_args_l(server, buf, pid, max_len);
 	return split_args0(args0, buf->size);
 }
-
-
-
-#if GLIBTOP_SUID_PROC_ARGS
-
-char **
-glibtop_get_proc_argv_p (glibtop *server, glibtop_proc_args *buf,
-			 pid_t pid, unsigned max_len)
-{
-	const char * const args0 = glibtop_get_proc_args_p(server, buf, pid, max_len);
-	return split_args0(args0, buf->size);
-}
-
-#else /* !GLIBTOP_SUID_PROC_ARGS */
-
-char **
-glibtop_get_proc_argv_s (glibtop *server, glibtop_proc_args *buf,
-			 pid_t pid, unsigned max_len)
-{
-	const char * const args0 = glibtop_get_proc_args_s(server, buf, pid, max_len);
-	return split_args0(args0, buf->size);
-}
-#endif /* GLIBTOP_SUID_PROC_ARGS */
