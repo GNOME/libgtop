@@ -1,3 +1,17 @@
+July 19, 2004: Overview of Changes from 2.6.1 to 2.7.4
+======================================================
+* Plenty of code cleanups. Uninlined a lot of functions. ~5-10KB object size
+  reduction.
+* Glibify a bit more.
+* API changes:
+ - glibtop_fsusage provides total read and writes since boot_time.
+ - glibtop_netload provides hardware address. IPv6 enable.
+ - Added glibtop_get_proc_argv.
+
+Work in progress :
+* Finish glibtop_fsusage implementation for Linux.
+* Some fuctions don't conform to the documentation, e.g. proctime.
+
 March 11, 2004:
 ===============
 
