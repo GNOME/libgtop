@@ -1,3 +1,9 @@
+i2004-09-25  Benoît Dejean  <tazforever@dlfp.org>
+
+	* df.c: (main):
+	* pprint.c: (main):
+	* procargs.c: (main): Added missing call to libgtop_init();
+
 2004-09-24  Benoît Dejean  <tazforever@dlfp.org>
 
 	* .cvsignore:

@@ -28,6 +28,7 @@ int main()
   glibtop_mountentry *entries;
   size_t i;
 
+  glibtop_init();
 
   printf("%-20s %-10s %-10s %-10s %-10s\n",
 	 "Filesystem", "Size", "Used", "Avail", "Use%");

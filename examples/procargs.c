@@ -1,3 +1,4 @@
+#include <glibtop.h>
 #include <glibtop/procargs.h>
 
 #include <stdlib.h>
@@ -27,6 +28,8 @@ static void show_args(pid_t pid, unsigned max_len)
 
 int main(int argc, char **argv)
 {
+  glibtop_init();
+
   show_args(getpid(), 0);
   show_args(getpid(), 15);
 

@@ -216,6 +216,8 @@ static void pprint_get_uptime()
 
 int main()
 {
+  glibtop_init();
+
   pprint_get_cpu();
 
   pprint_get_fsusage("/");
