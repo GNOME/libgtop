@@ -1,5 +1,15 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* sysdeps/Makefile.am:
+	* sysdeps/guile/ChangeLog:
+	* sysdeps/guile/Makefile.am:
+	* sysdeps/guile/guile.pl:
+	* sysdeps/guile/names/.cvsignore:
+	* sysdeps/guile/names/Makefile.am:
+	* sysdeps/guile/names/guile-names.pl: removed guile
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* Makefile.am:
 	* configure.in: remove guile and libgnome-support stuff
 
