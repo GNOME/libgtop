@@ -1,6 +1,11 @@
 2000-05-25  Martin Baulig  <baulig@suse.de>
 
-	Released LibGTop 1.0.8 "Stuttgart".
+	Released LibGTop 1.0.9 "Stuttgart".
+
+	* LIBGTOP-VERSION: Set version number to 1.0.9 binary age 8,
+	interface age 8.
+
+	(LibGTop 1.0.8 "Frankfurt" was not publically released.)
 
 2000-02-20  Martin Baulig  <martin@home-of-linux.org>
 
