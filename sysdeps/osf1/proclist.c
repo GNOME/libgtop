@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -37,7 +39,7 @@ static const unsigned long _glibtop_sysdeps_proclist =
 int
 glibtop_init_proclist_p (glibtop *server)
 {
-	server->sysdeps.proclist = _glibtop_sysdeps_proclist;
+    server->sysdeps.proclist = _glibtop_sysdeps_proclist;
 }
 
 /* How many elements are there per proctable entry? */
@@ -69,44 +71,44 @@ unsigned *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 			int64_t which, int64_t arg)
 {
-	unsigned count = 0, total = 0;
-	unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
-	unsigned pids_size = 0, pids_offset = 0, new_size;
-	struct tbl_procinfo procinfo [8];
-	int entry, max_elements, k;
+    unsigned count = 0, total = 0;
+    unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
+    unsigned pids_size = 0, pids_offset = 0, new_size;
+    struct tbl_procinfo procinfo [8];
+    int entry, max_elements, k;
 
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROCLIST, 0);
+    glibtop_init_p (server, GLIBTOP_SYSDEPS_PROCLIST, 0);
 	
-	memset (buf, 0, sizeof (glibtop_proclist));
+    memset (buf, 0, sizeof (glibtop_proclist));
 	
-	for (entry = 0; entry < server->machine.proctable_entries;
-	     entry += ELEMENTS_PER_ENTRY)
+    for (entry = 0; entry < server->machine.proctable_entries;
+	 entry += ELEMENTS_PER_ENTRY)
 	{
-		/* !!! THE FOLLOWING CODE RUNS SUID ROOT - 
-		 *     CHANGE WITH CAUTION !!! */
+	    /* !!! THE FOLLOWING CODE RUNS SUID ROOT - 
+	     *     CHANGE WITH CAUTION !!! */
 
-		glibtop_suid_enter (server);
+	    glibtop_suid_enter (server);
 
-		max_elements = table
-			(TBL_PROCINFO, entry, (char *) &procinfo,
-			 ELEMENTS_PER_ENTRY, sizeof (struct tbl_procinfo));
+	    max_elements = table
+		(TBL_PROCINFO, entry, (char *) &procinfo,
+		 ELEMENTS_PER_ENTRY, sizeof (struct tbl_procinfo));
 
-		glibtop_suid_leave (server);
+	    glibtop_suid_leave (server);
 		
-		/* !!! END OF SUID ROOT PART !!! */
+	    /* !!! END OF SUID ROOT PART !!! */
 		
-		for (k = 0; k < max_elements; k++)
+	    for (k = 0; k < max_elements; k++)
 		{
-			/* Does this entry contain a real process? */
+		    /* Does this entry contain a real process? */
 
-			if (procinfo [k].pi_status == 0)
-				continue;
+		    if (procinfo [k].pi_status == 0)
+			continue;
 
-			/* Fine. Now we first try to store it in pids.
-			 * If this buffer is full, we copy it to the
-			 * pids_chain. */
+		    /* Fine. Now we first try to store it in pids.
+		     * If this buffer is full, we copy it to the
+		     * pids_chain. */
 
-			if (count >= BLOCK_COUNT) {
+		    if (count >= BLOCK_COUNT) {
 
 				/* The following call to glibtop_realloc ()
 				 * will be equivalent to glibtop_malloc ()
@@ -114,59 +116,59 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 				 * the new size and copy `pids' to the
 				 * beginning of the newly allocated block. */
 
-				new_size = pids_size + BLOCK_SIZE;
+			new_size = pids_size + BLOCK_SIZE;
 
-				pids_chain = glibtop_realloc_r
-					(server, pids_chain, new_size);
+			pids_chain = glibtop_realloc_r
+			    (server, pids_chain, new_size);
 
-				memcpy (pids_chain + pids_offset,
-					pids, BLOCK_SIZE);
+			memcpy (pids_chain + pids_offset,
+				pids, BLOCK_SIZE);
 
-				pids_size = new_size;
+			pids_size = new_size;
 
-				pids_offset += BLOCK_COUNT;
+			pids_offset += BLOCK_COUNT;
 				
-				count = 0;
-			}
+			count = 0;
+		    }
 
-			/* pids is now big enough to hold at least
-			 * one single pid. */
+		    /* pids is now big enough to hold at least
+		     * one single pid. */
 		
-			pids [count++] = procinfo [k].pi_pid;
+		    pids [count++] = procinfo [k].pi_pid;
 			
-			total++;
+		    total++;
 		}	
 	}
 
-	/* count is only zero if an error occured
-	 * (eg. the server is not suid root). */
+    /* count is only zero if an error occured
+     * (eg. the server is not suid root). */
 
-	if (!count) return NULL;
+    if (!count) return NULL;
 
-	/* The following call to glibtop_realloc () will be equivalent to
-	 * glibtop_malloc () if `pids_chain' is NULL. We just calculate the
-	 * new size and copy `pids' to the beginning of the newly allocated
-	 * block. */
+    /* The following call to glibtop_realloc () will be equivalent to
+     * glibtop_malloc () if `pids_chain' is NULL. We just calculate the
+     * new size and copy `pids' to the beginning of the newly allocated
+     * block. */
 	
-	new_size = pids_size + count * sizeof (unsigned);
+    new_size = pids_size + count * sizeof (unsigned);
 	
-	pids_chain = glibtop_realloc_r (server, pids_chain, new_size);
+    pids_chain = glibtop_realloc_r (server, pids_chain, new_size);
 	
-	memcpy (pids_chain + pids_offset, pids, count * sizeof (unsigned));
+    memcpy (pids_chain + pids_offset, pids, count * sizeof (unsigned));
 	
-	pids_size = new_size;
+    pids_size = new_size;
 	
-	pids_offset += BLOCK_COUNT;
+    pids_offset += BLOCK_COUNT;
 
-	/* Since everything is ok now, we can set buf->flags, fill in the
-	 * remaining fields and return `pids_chain'. */
+    /* Since everything is ok now, we can set buf->flags, fill in the
+     * remaining fields and return `pids_chain'. */
 
-	buf->flags = _glibtop_sysdeps_proclist;
+    buf->flags = _glibtop_sysdeps_proclist;
 
-	buf->size = sizeof (unsigned);
-	buf->number = total;
+    buf->size = sizeof (unsigned);
+    buf->number = total;
 
-	buf->total = total * sizeof (unsigned);
+    buf->total = total * sizeof (unsigned);
 
-	return pids_chain;
+    return pids_chain;
 }

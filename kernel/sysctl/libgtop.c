@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /*
  * linux/libgtop/module.c
  * Copyright (C) 1999 Martin Baulig
@@ -282,7 +284,7 @@ get_wchan (struct task_struct *p)
 # define KSTK_EIP(tsk)	(((unsigned long *)(4096+(unsigned long)(tsk)))[1019])
 # define KSTK_ESP(tsk)	(((unsigned long *)(4096+(unsigned long)(tsk)))[1022])
 #elif defined(__alpha__)
-  /*
+/*
    * See arch/alpha/kernel/ptrace.c for details.
    */
 # define PT_REG(reg)		(PAGE_SIZE - sizeof(struct pt_regs)	\
@@ -426,8 +428,8 @@ statm_pgd_range (pgd_t * pgd, unsigned long address, unsigned long end,
 	statm_pmd_range (pgd, address, end - address, pages,
 			 shared, dirty, total);
 	address = (address + PGDIR_SIZE) & PGDIR_MASK;
-		pgd++;
-	}
+	pgd++;
+    }
 }
 
 static void

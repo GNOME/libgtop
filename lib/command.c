@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -33,51 +35,51 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 		const void *send_buf, size_t recv_size, void *recv_buf,
 		int *retval_ptr)
 {
-	glibtop_command cmnd;
-	glibtop_response response;
-	int retval;
+    glibtop_command cmnd;
+    glibtop_response response;
+    int retval;
 
-	glibtop_init_r (&server, 0, 0);
+    glibtop_init_r (&server, 0, 0);
 
-	memset (&cmnd, 0, sizeof (glibtop_command));
+    memset (&cmnd, 0, sizeof (glibtop_command));
 
-	cmnd.command = command;
+    cmnd.command = command;
 
-	/* If send_size is less than _GLIBTOP_PARAM_SIZE (normally 16 Bytes), we
-	 * send it together with command, so we only need one system call instead
-	 * of two. */
+    /* If send_size is less than _GLIBTOP_PARAM_SIZE (normally 16 Bytes), we
+     * send it together with command, so we only need one system call instead
+     * of two. */
 
-	if (send_size <= _GLIBTOP_PARAM_SIZE) {
-		memcpy (cmnd.parameter, send_buf, send_size);
-		cmnd.size = send_size;
-	} else {
-		cmnd.data_size = send_size;
-	}
+    if (send_size <= _GLIBTOP_PARAM_SIZE) {
+	memcpy (cmnd.parameter, send_buf, send_size);
+	cmnd.size = send_size;
+    } else {
+	cmnd.data_size = send_size;
+    }
 	
-	glibtop_write_l (server, sizeof (glibtop_command), &cmnd);
+    glibtop_write_l (server, sizeof (glibtop_command), &cmnd);
 
-	glibtop_read_l (server, sizeof (glibtop_response), &response);
+    glibtop_read_l (server, sizeof (glibtop_response), &response);
 
 #ifdef DEBUG
-	fprintf (stderr, "RESPONSE: %lu - %d\n",
-		 response.offset, response.data_size);
+    fprintf (stderr, "RESPONSE: %lu - %d\n",
+	     response.offset, response.data_size);
 #endif
 
-	glibtop_read_l (server, sizeof (int), &retval);
-	if (retval_ptr)
-		*retval_ptr = retval;
+    glibtop_read_l (server, sizeof (int), &retval);
+    if (retval_ptr)
+	*retval_ptr = retval;
 
-	if (recv_buf)
-		memcpy (recv_buf, ((char *) &response) + response.offset,
-			recv_size);
+    if (recv_buf)
+	memcpy (recv_buf, ((char *) &response) + response.offset,
+		recv_size);
 
-	if (response.data_size) {
-		void *ptr = glibtop_malloc_r (server, response.data_size);
+    if (response.data_size) {
+	void *ptr = glibtop_malloc_r (server, response.data_size);
 
-		glibtop_read_l (server, response.data_size, ptr);
+	glibtop_read_l (server, response.data_size, ptr);
 
-		return ptr;
-	}
+	return ptr;
+    }
 
-	return NULL;
+    return NULL;
 }

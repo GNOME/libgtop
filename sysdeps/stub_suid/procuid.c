@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,9 +36,9 @@ static const unsigned long _glibtop_sysdeps_proc_uid = 0;
 int
 glibtop_init_proc_uid_p (glibtop *server)
 {
-	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
+    server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
 
-	return 0;
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -45,9 +47,9 @@ int
 glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 			pid_t pid)
 {
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_UID, 0);
+    glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_UID, 0);
 	
-	memset (buf, 0, sizeof (glibtop_proc_uid));
+    memset (buf, 0, sizeof (glibtop_proc_uid));
 
-	return 0;
+    return 0;
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -62,11 +64,11 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
 
     switch(kstat_chain_update(kc))
-    {
+	{
         case -1: assert(0); /* Debugging, shouldn't happen */
 	case 0:  break;
 	default: glibtop_get_kstats(server);
-    }
+	}
     ret = kstat_read (kc, ksp, &vminfo);
 
     if (ret == -1) {

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -36,26 +38,26 @@ int
 glibtop_get_proc_segment_p (glibtop *server, glibtop_proc_segment *buf,
 			    pid_t pid)
 {
-	struct proc *pp;
+    struct proc *pp;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_SEGMENT), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_SEGMENT), 0);
 
-	memset (buf, 0, sizeof (glibtop_proc_segment));
+    memset (buf, 0, sizeof (glibtop_proc_segment));
 
-	/* Read process table from kernel. */	
+    /* Read process table from kernel. */	
 
-	_glibtop_read_proc_table (server);
+    _glibtop_read_proc_table (server);
 
-	/* Find the pid in the process table. */
+    /* Find the pid in the process table. */
 
-	pp = _glibtop_find_pid (server, pid);
+    pp = _glibtop_find_pid (server, pid);
 
-	if (pp == NULL)	return;
+    if (pp == NULL)	return;
 
-	/* Fill in data fields. */
+    /* Fill in data fields. */
 
-	buf->text_rss = pp->p_tsize;
-	buf->data_rss = pp->p_dsize;
+    buf->text_rss = pp->p_tsize;
+    buf->data_rss = pp->p_dsize;
 
-	buf->flags = _glibtop_sysdeps_proc_segment;
+    buf->flags = _glibtop_sysdeps_proc_segment;
 }

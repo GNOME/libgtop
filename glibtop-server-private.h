@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -31,12 +33,12 @@
 struct _glibtop_server_private
 {
 #ifdef HAVE_GLIBTOP_MACHINE_H
-	glibtop_machine machine;	/* Machine dependent data */
+    glibtop_machine machine;	/* Machine dependent data */
 #endif
-	int input [2];			/* Pipe client <- server */
-	int output [2];			/* Pipe client -> server */
-	int socket;			/* Accepted connection of a socket */
-	pid_t pid;			/* PID of the server */
+    int input [2];		/* Pipe client <- server */
+    int output [2];		/* Pipe client -> server */
+    int socket;			/* Accepted connection of a socket */
+    pid_t pid;			/* PID of the server */
 };
 
 #endif

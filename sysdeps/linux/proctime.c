@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -39,12 +41,12 @@ static const unsigned long _glibtop_sysdeps_proc_time_smp =
 int
 glibtop_init_proc_time_s (glibtop *server)
 {
-	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
+    server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
 
-	if (server->ncpu)
-		server->sysdeps.proc_time |= _glibtop_sysdeps_proc_time_smp;
+    if (server->ncpu)
+	server->sysdeps.proc_time |= _glibtop_sysdeps_proc_time_smp;
 
-	return 0;
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -52,56 +54,56 @@ glibtop_init_proc_time_s (glibtop *server)
 int
 glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 {
-	char buffer [BUFSIZ], *p;
-	int i;
+    char buffer [BUFSIZ], *p;
+    int i;
 	
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_TIME, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_TIME, 0);
 
-	memset (buf, 0, sizeof (glibtop_proc_time));
+    memset (buf, 0, sizeof (glibtop_proc_time));
 
-	if (proc_stat_to_buffer (buffer, pid))
-		return -1;
+    if (proc_stat_to_buffer (buffer, pid))
+	return -1;
 
-	p = proc_stat_after_cmd (buffer);
-	if (!p) return -1;
+    p = proc_stat_after_cmd (buffer);
+    if (!p) return -1;
 
-	p = skip_multiple_token (p, 11);
+    p = skip_multiple_token (p, 11);
 
-	buf->utime  = strtoul (p, &p, 0);
-	buf->stime  = strtoul (p, &p, 0);
-	buf->cutime = strtoul (p, &p, 0);
-	buf->cstime = strtoul (p, &p, 0);
+    buf->utime  = strtoul (p, &p, 0);
+    buf->stime  = strtoul (p, &p, 0);
+    buf->cutime = strtoul (p, &p, 0);
+    buf->cstime = strtoul (p, &p, 0);
 
-	p = skip_multiple_token (p, 2);
+    p = skip_multiple_token (p, 2);
 
-	buf->timeout = strtoul (p, &p, 0);
-	buf->it_real_value = strtoul (p, &p, 0);
-	buf->start_time = strtoul (p, &p, 0);
+    buf->timeout = strtoul (p, &p, 0);
+    buf->it_real_value = strtoul (p, &p, 0);
+    buf->start_time = strtoul (p, &p, 0);
 
-	buf->frequency = 100;
+    buf->frequency = 100;
 
-	buf->flags = _glibtop_sysdeps_proc_time;
+    buf->flags = _glibtop_sysdeps_proc_time;
 
-	if (!server->ncpu)
-		return 0;
-
-	if (proc_file_to_buffer (buffer, "/proc/%d/cpu", pid))
-		return -1;
-
-	p = skip_token (buffer);
-	buf->utime  = strtoul (p, &p, 0);
-	buf->stime  = strtoul (p, &p, 0);
-
-	for (i = 0; i < GLIBTOP_NCPU; i++) {
-		if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
-			break;
-
-		p += 6;
-		buf->xcpu_utime [i] = strtoul (p, &p, 0);
-		buf->xcpu_stime [i] = strtoul (p, &p, 0);
-	}
-
-	buf->flags |= _glibtop_sysdeps_proc_time_smp;
-
+    if (!server->ncpu)
 	return 0;
+
+    if (proc_file_to_buffer (buffer, "/proc/%d/cpu", pid))
+	return -1;
+
+    p = skip_token (buffer);
+    buf->utime  = strtoul (p, &p, 0);
+    buf->stime  = strtoul (p, &p, 0);
+
+    for (i = 0; i < GLIBTOP_NCPU; i++) {
+	if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
+	    break;
+
+	p += 6;
+	buf->xcpu_utime [i] = strtoul (p, &p, 0);
+	buf->xcpu_stime [i] = strtoul (p, &p, 0);
+    }
+
+    buf->flags |= _glibtop_sysdeps_proc_time_smp;
+
+    return 0;
 }

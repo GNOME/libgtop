@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -27,12 +29,12 @@
 BEGIN_LIBGTOP_DECLS
 
 static inline void glibtop_suid_enter (glibtop *server) {
-	setregid (server->machine.gid, server->machine.egid);
+    setregid (server->machine.gid, server->machine.egid);
 };
 
 static inline void glibtop_suid_leave (glibtop *server) {
-	if (setregid (server->machine.egid, server->machine.gid))
-		_exit (1);
+    if (setregid (server->machine.egid, server->machine.gid))
+	_exit (1);
 };
 
 void

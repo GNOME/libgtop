@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998 Joshua Sled
@@ -31,21 +33,21 @@ void
 glibtop_init_p (glibtop *server, const unsigned long features,
 		const unsigned flags)
 {
-	glibtop_init_func_t *init_fkt;
+    glibtop_init_func_t *init_fkt;
 
-	if (server == NULL)
-		glibtop_error_r (NULL, "glibtop_init_p (server == NULL)");
+    if (server == NULL)
+	glibtop_error_r (NULL, "glibtop_init_p (server == NULL)");
 
-	/* Do the initialization, but only if not already initialized. */
+    /* Do the initialization, but only if not already initialized. */
 
-	if ((server->flags & _GLIBTOP_INIT_STATE_SYSDEPS) == 0) {
-		glibtop_open_p (server, "glibtop", features, flags);
+    if ((server->flags & _GLIBTOP_INIT_STATE_SYSDEPS) == 0) {
+	glibtop_open_p (server, "glibtop", features, flags);
 
-		for (init_fkt = _glibtop_init_hook_p; *init_fkt; init_fkt++)
-			(*init_fkt) (server);
+	for (init_fkt = _glibtop_init_hook_p; *init_fkt; init_fkt++)
+	    (*init_fkt) (server);
 		
-		server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;
-	}
+	server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;
+    }
 }
 
 void
@@ -54,45 +56,45 @@ glibtop_open_p (glibtop *server, const char *program_name,
 		const unsigned flags)
 {
 #ifdef DEBUG
-	fprintf (stderr, "DEBUG (%d): glibtop_open_p ()\n", getpid ()); 
+    fprintf (stderr, "DEBUG (%d): glibtop_open_p ()\n", getpid ()); 
 #endif
 
-	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
+    /* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
-	server->_priv->machine.uid = getuid ();
-	server->_priv->machine.euid = geteuid ();
-	server->_priv->machine.gid = getgid ();
-	server->_priv->machine.egid = getegid ();
+    server->_priv->machine.uid = getuid ();
+    server->_priv->machine.euid = geteuid ();
+    server->_priv->machine.gid = getgid ();
+    server->_priv->machine.egid = getegid ();
 
 #ifdef __FreeBSD__
-	server->os_version_code = __FreeBSD_version;
+    server->os_version_code = __FreeBSD_version;
 #endif
   
-	/* Setup machine-specific data */
-	server->_priv->machine.kd = kvm_open
-		(NULL, NULL, NULL, O_RDONLY, "kvm_open");
+    /* Setup machine-specific data */
+    server->_priv->machine.kd = kvm_open
+	(NULL, NULL, NULL, O_RDONLY, "kvm_open");
 	
-	if (server->_priv->machine.kd == NULL)
-		glibtop_error_io_r (server, "kvm_open");
+    if (server->_priv->machine.kd == NULL)
+	glibtop_error_io_r (server, "kvm_open");
 	
-	/* Drop priviledges. */	
+    /* Drop priviledges. */	
 
-	if (setreuid (server->_priv->machine.euid,
-		      server->_priv->machine.uid))
-		_exit (1);
+    if (setreuid (server->_priv->machine.euid,
+		  server->_priv->machine.uid))
+	_exit (1);
 	
-	if (setregid (server->_priv->machine.egid,
-		      server->_priv->machine.gid))
-		_exit (1);
+    if (setregid (server->_priv->machine.egid,
+		  server->_priv->machine.gid))
+	_exit (1);
 	
-	/* !!! END OF SUID ROOT PART !!! */
+    /* !!! END OF SUID ROOT PART !!! */
 		
-	/* Our effective uid is now those of the user invoking the server,
-	 * so we do no longer have any priviledges. */
+    /* Our effective uid is now those of the user invoking the server,
+     * so we do no longer have any priviledges. */
 
-	/* NOTE: On FreeBSD, we do not need to be suid root, we just need to
-	 * be sgid kmem.
-	 *
-	 * The server will only use setegid() to get back it's priviledges,
-	 * so it will fail if it is suid root and not sgid kmem. */
+    /* NOTE: On FreeBSD, we do not need to be suid root, we just need to
+     * be sgid kmem.
+     *
+     * The server will only use setegid() to get back it's priviledges,
+     * so it will fail if it is suid root and not sgid kmem. */
 }

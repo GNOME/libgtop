@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -41,9 +43,9 @@ static const unsigned long _required_cpu_flags =
 int
 glibtop_init_uptime_p (glibtop *server)
 {
-	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+    server->sysdeps.uptime = _glibtop_sysdeps_uptime;
 
-	return 0;
+    return 0;
 }
 
 /* Provides uptime and idle time. */
@@ -51,27 +53,27 @@ glibtop_init_uptime_p (glibtop *server)
 int
 glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 {
-	glibtop_cpu cpu;
+    glibtop_cpu cpu;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_UPTIME), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_UPTIME), 0);
 	
-	memset (buf, 0, sizeof (glibtop_uptime));
+    memset (buf, 0, sizeof (glibtop_uptime));
 
-	/* We simply calculate it from the CPU usage. */
+    /* We simply calculate it from the CPU usage. */
 
-	glibtop_get_cpu_p (server, &cpu);
+    glibtop_get_cpu_p (server, &cpu);
 
-	/* Make sure all required fields are present. */
+    /* Make sure all required fields are present. */
 
-	if ((cpu.flags & _required_cpu_flags) != _required_cpu_flags)
-		return -1;
+    if ((cpu.flags & _required_cpu_flags) != _required_cpu_flags)
+	return -1;
 
-	/* Calculate values. */
+    /* Calculate values. */
 
-	buf->uptime = (double) cpu.total / (double) cpu.frequency;
-	buf->idletime = (double) cpu.idle / (double) cpu.frequency;
+    buf->uptime = (double) cpu.total / (double) cpu.frequency;
+    buf->idletime = (double) cpu.idle / (double) cpu.frequency;
 
-	buf->flags = _glibtop_sysdeps_uptime;
+    buf->flags = _glibtop_sysdeps_uptime;
 
-	return 0;
+    return 0;
 }

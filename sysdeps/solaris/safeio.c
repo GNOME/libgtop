@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* Copyright (C) 1999 Drazen Kacar
    This file is part of LibGTop 1.0.
 

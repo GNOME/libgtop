@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -40,12 +42,12 @@ static const unsigned long _glibtop_sysdeps_cpu_smp =
 int
 glibtop_init_cpu_s (glibtop *server)
 {
-	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+    server->sysdeps.cpu = _glibtop_sysdeps_cpu;
 
-	if (server->ncpu)
-		server->sysdeps.cpu |= _glibtop_sysdeps_cpu_smp;
+    if (server->ncpu)
+	server->sysdeps.cpu |= _glibtop_sysdeps_cpu_smp;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about cpu usage. */
@@ -55,69 +57,69 @@ glibtop_init_cpu_s (glibtop *server)
 int
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
-	char buffer [BUFSIZ], *p;
-	int fd, len, i;
-	u_int64_t total;
+    char buffer [BUFSIZ], *p;
+    int fd, len, i;
+    u_int64_t total;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
-	memset (buf, 0, sizeof (glibtop_cpu));
+    memset (buf, 0, sizeof (glibtop_cpu));
 
-	fd = open (FILENAME, O_RDONLY);
-	if (fd < 0) {
-		glibtop_warn_io_r (server, "open (%s)", FILENAME);
-		return -1;
-	}
+    fd = open (FILENAME, O_RDONLY);
+    if (fd < 0) {
+	glibtop_warn_io_r (server, "open (%s)", FILENAME);
+	return -1;
+    }
 
-	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0) {
-		close (fd);
-		glibtop_warn_io_r (server, "read (%s)", FILENAME);
-		return -1;
-	}
-
+    len = read (fd, buffer, BUFSIZ-1);
+    if (len < 0) {
 	close (fd);
+	glibtop_warn_io_r (server, "read (%s)", FILENAME);
+	return -1;
+    }
 
-	buffer [len] = '\0';
+    close (fd);
 
-	p = skip_token (buffer);	/* "cpu" */
+    buffer [len] = '\0';
 
-	buf->user = strtoul (p, &p, 0);
-	buf->nice = strtoul (p, &p, 0);
-	buf->sys  = strtoul (p, &p, 0);
-	buf->idle = strtoul (p, &p, 0);
+    p = skip_token (buffer);	/* "cpu" */
 
-	total = buf->user;
-	total += buf->nice;
-	total += buf->sys;
-	total += buf->idle;
-	buf->total = total;
+    buf->user = strtoul (p, &p, 0);
+    buf->nice = strtoul (p, &p, 0);
+    buf->sys  = strtoul (p, &p, 0);
+    buf->idle = strtoul (p, &p, 0);
 
-	buf->frequency = 100;
-	buf->flags = _glibtop_sysdeps_cpu;
+    total = buf->user;
+    total += buf->nice;
+    total += buf->sys;
+    total += buf->idle;
+    buf->total = total;
 
-	for (i = 0; i < server->ncpu; i++) {
-		if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
-			break;
+    buf->frequency = 100;
+    buf->flags = _glibtop_sysdeps_cpu;
 
-		buf->xcpu_flags |= (1L << (u_int64_t) i);
+    for (i = 0; i < server->ncpu; i++) {
+	if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
+	    break;
 
-		p += 6;
-		buf->xcpu_user [i] = strtoul (p, &p, 0);
-		buf->xcpu_nice [i] = strtoul (p, &p, 0);
-		buf->xcpu_sys  [i] = strtoul (p, &p, 0);
-		buf->xcpu_idle [i] = strtoul (p, &p, 0);
+	buf->xcpu_flags |= (1L << (u_int64_t) i);
 
-		total = buf->xcpu_user [i];
-		total += buf->xcpu_nice [i];
-		total += buf->xcpu_sys [i];
-		total += buf->xcpu_idle [i];
+	p += 6;
+	buf->xcpu_user [i] = strtoul (p, &p, 0);
+	buf->xcpu_nice [i] = strtoul (p, &p, 0);
+	buf->xcpu_sys  [i] = strtoul (p, &p, 0);
+	buf->xcpu_idle [i] = strtoul (p, &p, 0);
 
-		buf->xcpu_total [i] = total;
-	}
+	total = buf->xcpu_user [i];
+	total += buf->xcpu_nice [i];
+	total += buf->xcpu_sys [i];
+	total += buf->xcpu_idle [i];
 
-	if (buf->xcpu_flags)
-		buf->flags |= _glibtop_sysdeps_cpu_smp;
+	buf->xcpu_total [i] = total;
+    }
 
-	return 0;
+    if (buf->xcpu_flags)
+	buf->flags |= _glibtop_sysdeps_cpu_smp;
+
+    return 0;
 }

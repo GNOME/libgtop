@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -31,7 +33,7 @@
 int
 glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 {
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SWAP), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SWAP), 0);
 
-	memset (buf, 0, sizeof (glibtop_swap));
+    memset (buf, 0, sizeof (glibtop_swap));
 }

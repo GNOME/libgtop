@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -46,25 +48,25 @@ glibtop_get_kstats(glibtop *server)
     new_ncpu = sysconf(_SC_NPROCESSORS_CONF);
 
     if(!kc)
-    {
-        server->ncpu = new_ncpu;
-        server->_priv->machine.vminfo_kstat = NULL;
-        server->_priv->machine.system = NULL;
-        server->_priv->machine.syspages = NULL;
-        server->_priv->machine.bunyip = NULL;
-        return;
-    }
+	{
+	    server->ncpu = new_ncpu;
+	    server->_priv->machine.vminfo_kstat = NULL;
+	    server->_priv->machine.system = NULL;
+	    server->_priv->machine.syspages = NULL;
+	    server->_priv->machine.bunyip = NULL;
+	    return;
+	}
 
     do {
 	ksp = kstat_lookup(kc, "unix", -1, "vminfo");
 	server->_priv->machine.vminfo_kstat = ksp;
 	if(ksp)
-	{
-	    kstat_read(kc, ksp, &server->_priv->machine.vminfo);
-	    /* Don't change snaptime if we only need to reinitialize kstats */
-	    if(!(server->_priv->machine.vminfo_snaptime))
-	        server->_priv->machine.vminfo_snaptime = ksp->ks_snaptime;
-	}
+	    {
+		kstat_read(kc, ksp, &server->_priv->machine.vminfo);
+		/* Don't change snaptime if we only need to reinitialize kstats */
+		if(!(server->_priv->machine.vminfo_snaptime))
+		    server->_priv->machine.vminfo_snaptime = ksp->ks_snaptime;
+	    }
 
 	/* We don't know why was kstat chain invalidated. It could have
 	   been because the number of processors changed. The sysconf()
@@ -73,45 +75,45 @@ glibtop_get_kstats(glibtop *server)
 	   the documentation. */
 
 	if((nproc_same = new_ncpu) == server->ncpu)
-	{
-	    int checked, i;
-	    char cpu[20];
-
-	    for(i = 0, checked = 0; i < GLIBTOP_NCPU || checked == new_ncpu; ++i)
-		if(server->_priv->machine.cpu_stat_kstat[i])
-		{
-		    sprintf(cpu, "cpu_stat%d", i);
-		    if(!(server->_priv->machine.cpu_stat_kstat[i] =
-			     kstat_lookup(kc, "cpu_stat", -1, cpu)))
-		    {
-			nproc_same = 0;
-			break;
-		    }
-		    ++checked;
-		}
-	}
-	if(!nproc_same)
-	{
-	    processorid_t p;
-	    int found;
-	    char cpu[20];
-
-	    if(new_ncpu > GLIBTOP_NCPU)
-		new_ncpu = GLIBTOP_NCPU;
-	    server->ncpu = new_ncpu;
-	    for(p = 0, found = 0; p < GLIBTOP_NCPU && found != new_ncpu; ++p)
 	    {
-		if(p_online(p, P_STATUS) < 0)
-		{
-		    server->_priv->machine.cpu_stat_kstat[p] = NULL;
-		    continue;
-		}
-		sprintf(cpu, "cpu_stat%d", (int)p);
-		server->_priv->machine.cpu_stat_kstat[p] =
-			kstat_lookup(kc, "cpu_stat", -1, cpu);
-		++found;
+		int checked, i;
+		char cpu[20];
+
+		for(i = 0, checked = 0; i < GLIBTOP_NCPU || checked == new_ncpu; ++i)
+		    if(server->_priv->machine.cpu_stat_kstat[i])
+			{
+			    sprintf(cpu, "cpu_stat%d", i);
+			    if(!(server->_priv->machine.cpu_stat_kstat[i] =
+				 kstat_lookup(kc, "cpu_stat", -1, cpu)))
+				{
+				    nproc_same = 0;
+				    break;
+				}
+			    ++checked;
+			}
 	    }
-	}
+	if(!nproc_same)
+	    {
+		processorid_t p;
+		int found;
+		char cpu[20];
+
+		if(new_ncpu > GLIBTOP_NCPU)
+		    new_ncpu = GLIBTOP_NCPU;
+		server->ncpu = new_ncpu;
+		for(p = 0, found = 0; p < GLIBTOP_NCPU && found != new_ncpu; ++p)
+		    {
+			if(p_online(p, P_STATUS) < 0)
+			    {
+				server->_priv->machine.cpu_stat_kstat[p] = NULL;
+				continue;
+			    }
+			sprintf(cpu, "cpu_stat%d", (int)p);
+			server->_priv->machine.cpu_stat_kstat[p] =
+			    kstat_lookup(kc, "cpu_stat", -1, cpu);
+			++found;
+		    }
+	    }
 
 	server->_priv->machine.system   = kstat_lookup(kc, "unix", -1, "system_misc");
 	server->_priv->machine.syspages = kstat_lookup(kc, "unix", -1, "system_pages");
@@ -176,32 +178,32 @@ glibtop_open_s (glibtop *server, const char *program_name,
 
     server->_priv->machine.boot = 0;
     if((ksp = server->_priv->machine.system) && kstat_read(kc, ksp, NULL) >= 0)
-    {
-	kn = (kstat_named_t *)kstat_data_lookup(ksp, "boot_time");
-	if(kn)
-	    switch(kn->data_type)
-	    {
+	{
+	    kn = (kstat_named_t *)kstat_data_lookup(ksp, "boot_time");
+	    if(kn)
+		switch(kn->data_type)
+		    {
 #ifdef KSTAT_DATA_INT32
-	        case KSTAT_DATA_INT32:  server->_priv->machine.boot = kn->value.i32;
-				        break;
-	        case KSTAT_DATA_UINT32: server->_priv->machine.boot = kn->value.ui32;
-				        break;
-	        case KSTAT_DATA_INT64:  server->_priv->machine.boot = kn->value.i64;
-				        break;
-	        case KSTAT_DATA_UINT64: server->_priv->machine.boot = kn->value.ui64;
-				        break;
+		    case KSTAT_DATA_INT32:  server->_priv->machine.boot = kn->value.i32;
+			break;
+		    case KSTAT_DATA_UINT32: server->_priv->machine.boot = kn->value.ui32;
+			break;
+		    case KSTAT_DATA_INT64:  server->_priv->machine.boot = kn->value.i64;
+			break;
+		    case KSTAT_DATA_UINT64: server->_priv->machine.boot = kn->value.ui64;
+			break;
 #else
-		case KSTAT_DATA_LONG:      server->_priv->machine.boot = kn->value.l;
-					   break;
-		case KSTAT_DATA_ULONG:     server->_priv->machine.boot = kn->value.ul;
-					   break;
-		case KSTAT_DATA_LONGLONG:  server->_priv->machine.boot = kn->value.ll;
-					   break;
-		case KSTAT_DATA_ULONGLONG: server->_priv->machine.boot = kn->value.ull;
-					   break;
+		    case KSTAT_DATA_LONG:      server->_priv->machine.boot = kn->value.l;
+			break;
+		    case KSTAT_DATA_ULONG:     server->_priv->machine.boot = kn->value.ul;
+			break;
+		    case KSTAT_DATA_LONGLONG:  server->_priv->machine.boot = kn->value.ll;
+			break;
+		    case KSTAT_DATA_ULONGLONG: server->_priv->machine.boot = kn->value.ull;
+			break;
 #endif
-	    }
-    }
+		    }
+	}
 
     /* Now let's have a bit of magic dust... */
 
@@ -210,24 +212,24 @@ glibtop_open_s (glibtop *server, const char *program_name,
     dl = dlopen("/usr/lib/libproc.so", RTLD_LAZY);
     server->_priv->machine.libproc = dl;
     if(dl)
-    {
-       void *func;
+	{
+	    void *func;
 
-       func = dlsym(dl, "Pobjname");		/* Solaris 8 */
-       if(!func)
-	  func = dlsym(dl, "proc_objname");	/* Solaris 7 */
-       server->_priv->machine.objname = (void (*)
-	     			 (void *, uintptr_t, const char *, size_t))func;
-       server->_priv->machine.pgrab = (struct ps_prochandle *(*)(pid_t, int, int *))
-	  		       dlsym(dl, "Pgrab");
-       server->_priv->machine.pfree = (void (*)(void *))dlsym(dl, "Pfree");
-    }
+	    func = dlsym(dl, "Pobjname");		/* Solaris 8 */
+	    if(!func)
+		func = dlsym(dl, "proc_objname");	/* Solaris 7 */
+	    server->_priv->machine.objname = (void (*)
+					      (void *, uintptr_t, const char *, size_t))func;
+	    server->_priv->machine.pgrab = (struct ps_prochandle *(*)(pid_t, int, int *))
+		dlsym(dl, "Pgrab");
+	    server->_priv->machine.pfree = (void (*)(void *))dlsym(dl, "Pfree");
+	}
     else
-    {
-       server->_priv->machine.objname = NULL;
-       server->_priv->machine.pgrab = NULL;
-       server->_priv->machine.pfree = NULL;
-    }
+	{
+	    server->_priv->machine.objname = NULL;
+	    server->_priv->machine.pgrab = NULL;
+	    server->_priv->machine.pfree = NULL;
+	}
 #endif
     server->_priv->machine.me = getpid();
 }

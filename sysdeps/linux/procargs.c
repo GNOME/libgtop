@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,9 +36,9 @@ static const unsigned long _glibtop_sysdeps_proc_args =
 int
 glibtop_init_proc_args_s (glibtop *server)
 {
-	server->sysdeps.proc_args = _glibtop_sysdeps_proc_args;
+    server->sysdeps.proc_args = _glibtop_sysdeps_proc_args;
 
-	return 0;
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -45,51 +47,51 @@ char *
 glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len)
 {
-	char fn [BUFSIZ], buffer [BUFSIZ];
-	int cmdline, len, total = 0;
-	char *retval = NULL;
+    char fn [BUFSIZ], buffer [BUFSIZ];
+    int cmdline, len, total = 0;
+    char *retval = NULL;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_ARGS, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_ARGS, 0);
 	
-	memset (buf, 0, sizeof (glibtop_proc_args));
+    memset (buf, 0, sizeof (glibtop_proc_args));
 
-	sprintf (fn, "/proc/%d/cmdline", pid);
+    sprintf (fn, "/proc/%d/cmdline", pid);
 	
-	cmdline = open (fn, O_RDONLY);
-	if (cmdline < 0) return NULL;
+    cmdline = open (fn, O_RDONLY);
+    if (cmdline < 0) return NULL;
 
-	if (max_len) {
-		retval = glibtop_malloc_r (server, max_len+1);
+    if (max_len) {
+	retval = glibtop_malloc_r (server, max_len+1);
 
-		len = read (cmdline, retval, max_len);
-		if (len < 0) {
-			glibtop_free_r (server, retval);
-			return NULL;
-		}
+	len = read (cmdline, retval, max_len);
+	if (len < 0) {
+	    glibtop_free_r (server, retval);
+	    return NULL;
+	}
 		
-		return retval;
-	}
-
-	while (1) {
-		len = read (cmdline, buffer, BUFSIZ-1);
-		if (len < 0) {
-			glibtop_free_r (server, retval);
-			return NULL;
-		}
-
-		if (len == 0)
-			break;
-
-		retval = glibtop_realloc_r (server, retval, total+len+1);
-		memcpy (retval+total, buffer, len);
-		*(retval+total+len) = 0;
-		total += len;
-	}
-	
-	close (cmdline);
-
-	buf->size = total;
-	buf->flags = _glibtop_sysdeps_proc_args;
-	
 	return retval;
+    }
+
+    while (1) {
+	len = read (cmdline, buffer, BUFSIZ-1);
+	if (len < 0) {
+	    glibtop_free_r (server, retval);
+	    return NULL;
+	}
+
+	if (len == 0)
+	    break;
+
+	retval = glibtop_realloc_r (server, retval, total+len+1);
+	memcpy (retval+total, buffer, len);
+	*(retval+total+len) = 0;
+	total += len;
+    }
+	
+    close (cmdline);
+
+    buf->size = total;
+    buf->flags = _glibtop_sysdeps_proc_args;
+	
+    return retval;
 }

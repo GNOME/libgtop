@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -48,24 +50,24 @@ typedef struct _glibtop_server_private	glibtop_server_private;
 
 struct _glibtop
 {
-	int refcount;			/* Reference count */
-	unsigned flags;
-	unsigned method;		/* Server Method */
-	unsigned error_method;		/* Error Method */
-	int ncpu;			/* Number of CPUs, zero if single-processor */
-	unsigned long os_version_code;	/* Version code of the operating system */
-	const char *name;		/* Program name for error messages */
-	const char *server_command;	/* Command used to invoke server */
-	const char *server_host;	/* Host the server should run on */
-	const char *server_user;	/* Name of the user on the target host */
-	const char *server_rsh;		/* Command used to connect to the target host */
-	unsigned long features;		/* Server is required for this features */
-	unsigned long server_port;	/* Port on which daemon is listening */
-	glibtop_sysdeps sysdeps;	/* Detailed feature list */
-	glibtop_sysdeps required;	/* Required feature list */
-	glibtop_sysdeps wanted;		/* We only want this features */
-	glibtop_server_private *_priv;	/* Private data */
-	unsigned glibtop_errno;
+    int refcount;		/* Reference count */
+    unsigned flags;
+    unsigned method;		/* Server Method */
+    unsigned error_method;	/* Error Method */
+    int ncpu;			/* Number of CPUs, zero if single-processor */
+    unsigned long os_version_code;	/* Version code of the operating system */
+    const char *name;		/* Program name for error messages */
+    const char *server_command;	/* Command used to invoke server */
+    const char *server_host;	/* Host the server should run on */
+    const char *server_user;	/* Name of the user on the target host */
+    const char *server_rsh;	/* Command used to connect to the target host */
+    unsigned long features;	/* Server is required for this features */
+    unsigned long server_port;	/* Port on which daemon is listening */
+    glibtop_sysdeps sysdeps;	/* Detailed feature list */
+    glibtop_sysdeps required;	/* Required feature list */
+    glibtop_sysdeps wanted;	/* We only want this features */
+    glibtop_server_private *_priv;	/* Private data */
+    unsigned glibtop_errno;
 };
 
 extern glibtop *glibtop_global_server;

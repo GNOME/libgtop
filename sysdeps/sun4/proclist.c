@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -42,56 +44,56 @@ unsigned *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 			int64_t which, int64_t arg)
 {
-	register struct proc *pp;
-	register int i, nproc = 0;
-	unsigned *proc_list = NULL;
-	size_t proc_size;
+    register struct proc *pp;
+    register int i, nproc = 0;
+    unsigned *proc_list = NULL;
+    size_t proc_size;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROCLIST), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROCLIST), 0);
 
-	memset (buf, 0, sizeof (glibtop_proclist));
+    memset (buf, 0, sizeof (glibtop_proclist));
 
-	/* Read process table from kernel. */	
+    /* Read process table from kernel. */	
 
-	_glibtop_read_proc_table (server);
+    _glibtop_read_proc_table (server);
 
-	/* Count number of processes. */
+    /* Count number of processes. */
 
-	for (pp = server->machine.proc_table, i = 0;
-	     i < server->machine.nproc; pp++, i++) {
-		if (pp->p_stat == 0)
-			continue;
-		else
-			nproc++;
-	}
+    for (pp = server->machine.proc_table, i = 0;
+	 i < server->machine.nproc; pp++, i++) {
+	if (pp->p_stat == 0)
+	    continue;
+	else
+	    nproc++;
+    }
 
-	if (nproc == 0) /* Should never happen. */
-		return NULL;
+    if (nproc == 0) /* Should never happen. */
+	return NULL;
 
-	/* Allocate space for process list. */
+    /* Allocate space for process list. */
 
-	proc_size = nproc * sizeof (unsigned);
+    proc_size = nproc * sizeof (unsigned);
 
-	proc_list = glibtop_malloc_r (server, proc_size);
+    proc_list = glibtop_malloc_r (server, proc_size);
 
-	/* Write process list. */
+    /* Write process list. */
 
-	for (pp = server->machine.proc_table, i = 0, nproc = 0;
-	     i < server->machine.nproc; pp++, i++) {
-		if (pp->p_stat == 0)
-			continue;
-		proc_list [nproc++] = pp->p_pid;
-	}
+    for (pp = server->machine.proc_table, i = 0, nproc = 0;
+	 i < server->machine.nproc; pp++, i++) {
+	if (pp->p_stat == 0)
+	    continue;
+	proc_list [nproc++] = pp->p_pid;
+    }
 
-	/* Since everything is ok now, we can set buf->flags, fill in the remaining fields
-	   and return proc_list. */
+    /* Since everything is ok now, we can set buf->flags, fill in the remaining fields
+       and return proc_list. */
 
-	buf->flags = _glibtop_sysdeps_proclist;
+    buf->flags = _glibtop_sysdeps_proclist;
 
-	buf->size = sizeof (unsigned);
-	buf->number = nproc;
+    buf->size = sizeof (unsigned);
+    buf->number = nproc;
 
-	buf->total = nproc * sizeof (unsigned);
+    buf->total = nproc * sizeof (unsigned);
 
-	return proc_list;
+    return proc_list;
 }

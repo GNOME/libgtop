@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -66,7 +68,7 @@ glibtop_init_netload_p (glibtop *server)
     if (kvm_nlist (server->_priv->machine.kd, nlst) != 0)
 	glibtop_error_io_r (server, "kvm_nlist");
 
-	return 0;
+    return 0;
 }
 
 /* Provides Network statistics. */
@@ -104,12 +106,12 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 
 	    if (kvm_read (server->_priv->machine.kd, ifnetaddr, &ifnet,
 			  sizeof (ifnet)) != sizeof (ifnet))
-		    glibtop_error_io_r (server, "kvm_read (ifnetaddr)");
+		glibtop_error_io_r (server, "kvm_read (ifnetaddr)");
 
 #if defined(__FreeBSD__) || defined(__bsdi__)
 	    if (kvm_read (server->_priv->machine.kd, (u_long) ifnet.if_name,
 			  tname, 16) != 16)
-		    glibtop_error_io_r (server, "kvm_read (if_name)");
+		glibtop_error_io_r (server, "kvm_read (if_name)");
 #else
 	    strncpy (tname, ifnet.if_xname, 16);
 	    tname [15] = 0;

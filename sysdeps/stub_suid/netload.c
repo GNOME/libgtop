@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -32,9 +34,9 @@ static const unsigned long _glibtop_sysdeps_netload = 0;
 int
 glibtop_init_netload_p (glibtop *server)
 {
-	server->sysdeps.netload = _glibtop_sysdeps_netload;
+    server->sysdeps.netload = _glibtop_sysdeps_netload;
 
-	return 0;
+    return 0;
 }
 
 /* Provides Network statistics. */
@@ -44,7 +46,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 		       const char *interface, unsigned transport,
 		       unsigned protocol)
 {
-	memset (buf, 0, sizeof (glibtop_netload));
+    memset (buf, 0, sizeof (glibtop_netload));
 
-	return 0;
+    return 0;
 }

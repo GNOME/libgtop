@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -46,11 +48,11 @@ typedef struct _glibtop_machine		glibtop_machine;
 
 struct _glibtop_machine
 {
-	pid_t	last_pid;
-	int	no_update;
-	int	fd_stat, fd_meminfo, fd_loadavg;
-	char	proc_stat [BUFSIZ], proc_statm [BUFSIZ];
-	char	proc_status [BUFSIZ];
+    pid_t	last_pid;
+    int	no_update;
+    int	fd_stat, fd_meminfo, fd_loadavg;
+    char	proc_stat [BUFSIZ], proc_statm [BUFSIZ];
+    char	proc_status [BUFSIZ];
 };
 
 END_LIBGTOP_DECLS

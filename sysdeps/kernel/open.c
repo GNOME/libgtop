@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,5 +31,5 @@ void
 glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
-	server->name = program_name;
+    server->name = program_name;
 }

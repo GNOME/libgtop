@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* mountlist.h -- declarations for list of mounted filesystems
    Copyright (C) 1991, 1992 Free Software Foundation, Inc.
 
@@ -18,10 +20,10 @@
 /* A mount table entry. */
 struct mount_entry
 {
-  char *me_devname;		/* Device node pathname, including "/dev/". */
-  char *me_mountdir;		/* Mount point directory pathname. */
-  char *me_type;		/* "nfs", "4.2", etc. */
-  dev_t me_dev;			/* Device number of me_mountdir. */
-  struct mount_entry *me_next;
+    char *me_devname;		/* Device node pathname, including "/dev/". */
+    char *me_mountdir;		/* Mount point directory pathname. */
+    char *me_type;		/* "nfs", "4.2", etc. */
+    dev_t me_dev;			/* Device number of me_mountdir. */
+    struct mount_entry *me_next;
 };
 

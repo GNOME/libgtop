@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 
 /* Define if gethostname () must be declared. */
 #undef NEED_DECLARATION_GETHOSTNAME

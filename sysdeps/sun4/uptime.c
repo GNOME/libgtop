@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -35,27 +37,27 @@ static const unsigned long _glibtop_sysdeps_uptime =
 int
 glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 {
-	glibtop_cpu cpu;
+    glibtop_cpu cpu;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_UPTIME), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_UPTIME), 0);
 
-	/* Get currect cpu usage. */
+    /* Get currect cpu usage. */
 
-	glibtop_get_cpu_p (server, &cpu);
+    glibtop_get_cpu_p (server, &cpu);
 
-	/* Make sure all required fields are present. */
+    /* Make sure all required fields are present. */
 
-	if (((cpu.flags & (1L << GLIBTOP_CPU_TOTAL)) == 0) ||
-	    ((cpu.flags & (1L << GLIBTOP_CPU_IDLE)) == 0) ||
-	    ((cpu.flags & (1L << GLIBTOP_CPU_FREQUENCY)) == 0) ||
-	    (cpu.frequency == 0))
-		return;
+    if (((cpu.flags & (1L << GLIBTOP_CPU_TOTAL)) == 0) ||
+	((cpu.flags & (1L << GLIBTOP_CPU_IDLE)) == 0) ||
+	((cpu.flags & (1L << GLIBTOP_CPU_FREQUENCY)) == 0) ||
+	(cpu.frequency == 0))
+	return;
 
-	/* Simply calculate uptime and idle time from
-	 * cpu usage. */
+    /* Simply calculate uptime and idle time from
+     * cpu usage. */
 
-	buf->uptime = (double) cpu.total / (double) cpu.frequency;
-	buf->idletime = (double) cpu.idle / (double) cpu.frequency;
+    buf->uptime = (double) cpu.total / (double) cpu.frequency;
+    buf->idletime = (double) cpu.idle / (double) cpu.frequency;
 
-	buf->flags = _glibtop_sysdeps_uptime;
+    buf->flags = _glibtop_sysdeps_uptime;
 }

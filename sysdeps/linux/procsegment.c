@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -52,21 +54,21 @@ static int pageshift;		/* log base 2 of the pagesize */
 int
 glibtop_init_proc_segment_s (glibtop *server)
 {
-	register int pagesize;
+    register int pagesize;
 
-	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment |
-	  _glibtop_sysdeps_proc_segment_statm;
+    server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment |
+	_glibtop_sysdeps_proc_segment_statm;
 
-	/* get the page size with "getpagesize" and calculate pageshift
-	 * from it */
-	pagesize = getpagesize ();
-	pageshift = 0;
-	while (pagesize > 1) {
-		pageshift++;
-		pagesize >>= 1;
-	}
+    /* get the page size with "getpagesize" and calculate pageshift
+     * from it */
+    pagesize = getpagesize ();
+    pageshift = 0;
+    while (pagesize > 1) {
+	pageshift++;
+	pagesize >>= 1;
+    }
 
-	return 0;
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -75,45 +77,45 @@ int
 glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 			    pid_t pid)
 {
-	char buffer [BUFSIZ], *p;
+    char buffer [BUFSIZ], *p;
 	
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
 
-	memset (buf, 0, sizeof (glibtop_proc_segment));
+    memset (buf, 0, sizeof (glibtop_proc_segment));
 
-	if (proc_stat_to_buffer (buffer, pid))
-		return -1;
+    if (proc_stat_to_buffer (buffer, pid))
+	return -1;
 
-	p = proc_stat_after_cmd (buffer);
-	if (!p) return -1;
+    p = proc_stat_after_cmd (buffer);
+    if (!p) return -1;
 
-	p = skip_multiple_token (p, 23);
+    p = skip_multiple_token (p, 23);
 
-	buf->start_code = strtoul (p, &p, 0);
-	buf->end_code = strtoul (p, &p, 0);
-	buf->start_stack = strtoul (p, &p, 0);
+    buf->start_code = strtoul (p, &p, 0);
+    buf->end_code = strtoul (p, &p, 0);
+    buf->start_stack = strtoul (p, &p, 0);
 
-	buf->flags = _glibtop_sysdeps_proc_segment;
+    buf->flags = _glibtop_sysdeps_proc_segment;
 
-	if (proc_statm_to_buffer (buffer, pid))
-		return 0;
-
-	p = skip_multiple_token (buffer, 3);
-
-	/* This doesn't work very well due to a bug in the Linux kernel.
-	 * I'll submit a patch to the kernel mailing list soon. */
-
-	buf->text_rss = strtoul (p, &p, 0);
-	buf->shlib_rss = strtoul (p, &p, 0);
-	buf->data_rss = strtoul (p, &p, 0);
-	buf->dirty_size = strtoul (p, &p, 0);
-
-	buf->text_rss   <<= pageshift;
-	buf->shlib_rss  <<= pageshift;
-	buf->data_rss   <<= pageshift;
-	buf->dirty_size <<= pageshift;
-
-	buf->flags |= _glibtop_sysdeps_proc_segment_statm;
-
+    if (proc_statm_to_buffer (buffer, pid))
 	return 0;
+
+    p = skip_multiple_token (buffer, 3);
+
+    /* This doesn't work very well due to a bug in the Linux kernel.
+     * I'll submit a patch to the kernel mailing list soon. */
+
+    buf->text_rss = strtoul (p, &p, 0);
+    buf->shlib_rss = strtoul (p, &p, 0);
+    buf->data_rss = strtoul (p, &p, 0);
+    buf->dirty_size = strtoul (p, &p, 0);
+
+    buf->text_rss   <<= pageshift;
+    buf->shlib_rss  <<= pageshift;
+    buf->data_rss   <<= pageshift;
+    buf->dirty_size <<= pageshift;
+
+    buf->flags |= _glibtop_sysdeps_proc_segment_statm;
+
+    return 0;
 }

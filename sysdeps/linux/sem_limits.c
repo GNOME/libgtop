@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,10 +36,10 @@
 
 union semun
 {
-	int val;
-	struct semid_ds *buf;
-	unsigned short int *array;
-	struct seminfo *__buf;
+    int val;
+    struct semid_ds *buf;
+    unsigned short int *array;
+    struct seminfo *__buf;
 };
 #endif
 
@@ -53,9 +55,9 @@ static unsigned long _glibtop_sysdeps_sem_limits =
 int
 glibtop_init_sem_limits_s (glibtop *server)
 {
-	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+    server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -63,28 +65,28 @@ glibtop_init_sem_limits_s (glibtop *server)
 int
 glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 {
-	struct seminfo	seminfo;
-	union semun	arg;  
+    struct seminfo	seminfo;
+    union semun	arg;  
   
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SEM_LIMITS, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_SEM_LIMITS, 0);
 
-	memset (buf, 0, sizeof (glibtop_sem_limits));
+    memset (buf, 0, sizeof (glibtop_sem_limits));
   
-	buf->flags = _glibtop_sysdeps_sem_limits;
+    buf->flags = _glibtop_sysdeps_sem_limits;
   
-	arg.array = (ushort *) &seminfo;
-	semctl (0, 0, IPC_INFO, arg);
+    arg.array = (ushort *) &seminfo;
+    semctl (0, 0, IPC_INFO, arg);
   
-	buf->semmap = seminfo.semmap;
-	buf->semmni = seminfo.semmni;
-	buf->semmns = seminfo.semmns;
-	buf->semmnu = seminfo.semmnu;
-	buf->semmsl = seminfo.semmsl;
-	buf->semopm = seminfo.semopm;
-	buf->semume = seminfo.semume;
-	buf->semusz = seminfo.semusz;
-	buf->semvmx = seminfo.semvmx;
-	buf->semaem = seminfo.semaem;
+    buf->semmap = seminfo.semmap;
+    buf->semmni = seminfo.semmni;
+    buf->semmns = seminfo.semmns;
+    buf->semmnu = seminfo.semmnu;
+    buf->semmsl = seminfo.semmsl;
+    buf->semopm = seminfo.semopm;
+    buf->semume = seminfo.semume;
+    buf->semusz = seminfo.semusz;
+    buf->semvmx = seminfo.semvmx;
+    buf->semaem = seminfo.semaem;
 
-	return 0;
+    return 0;
 }

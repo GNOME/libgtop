@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -35,7 +37,7 @@ static const unsigned long _glibtop_sysdeps_msg_limits =
 int
 glibtop_init_msg_limits_s (glibtop *server)
 {
-	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+    server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -43,45 +45,45 @@ glibtop_init_msg_limits_s (glibtop *server)
 int
 glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 {
-	int ret, value;
+    int ret, value;
 
-	glibtop_init_s (&server, 0, 0);
+    glibtop_init_s (&server, 0, 0);
 
-	memset (buf, 0, sizeof (glibtop_msg_limits));
+    memset (buf, 0, sizeof (glibtop_msg_limits));
 	
-	ret = table (TBL_MSGINFO, MSGINFO_MAX, (char *) &value, 1,
-		     sizeof (value)); 
+    ret = table (TBL_MSGINFO, MSGINFO_MAX, (char *) &value, 1,
+		 sizeof (value)); 
 
-	if (ret != 1) return;
+    if (ret != 1) return;
 	
-	buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGMAX);
+    buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGMAX);
 
-	buf->msgmax = value;
+    buf->msgmax = value;
 	
-	ret = table (TBL_MSGINFO, MSGINFO_MNB, (char *) &value, 1,
-		     sizeof (value)); 
+    ret = table (TBL_MSGINFO, MSGINFO_MNB, (char *) &value, 1,
+		 sizeof (value)); 
 
-	if (ret != 1) return;
+    if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGMNB);
+    buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGMNB);
 
-	buf->msgmnb = value;
+    buf->msgmnb = value;
 	
-	ret = table (TBL_MSGINFO, MSGINFO_MNI, (char *) &value, 1,
-		     sizeof (value)); 
+    ret = table (TBL_MSGINFO, MSGINFO_MNI, (char *) &value, 1,
+		 sizeof (value)); 
 
-	if (ret != 1) return;
+    if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGMNI);
+    buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGMNI);
 
-	buf->msgmni = value;
+    buf->msgmni = value;
 	
-	ret = table (TBL_MSGINFO, MSGINFO_TQL, (char *) &value, 1,
-		     sizeof (value)); 
+    ret = table (TBL_MSGINFO, MSGINFO_TQL, (char *) &value, 1,
+		 sizeof (value)); 
 
-	if (ret != 1) return;
+    if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGTQL);
+    buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGTQL);
 
-	buf->msgtql = value;
+    buf->msgtql = value;
 }

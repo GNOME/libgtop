@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -82,99 +84,99 @@ BIT_SHIFT(GLIBTOP_PROCDATA_WCHAN);
 void
 glibtop_get_procdata_s (glibtop *server, glibtop_procdata *buf, pid_t pid)
 {
-	char input [BUFSIZ], *tmp;
-	struct stat statb;
-	int nread;
-	FILE *f;
+    char input [BUFSIZ], *tmp;
+    struct stat statb;
+    int nread;
+    FILE *f;
 	
-	glibtop_init_r (&server, 0, 0);
+    glibtop_init_r (&server, 0, 0);
 	
-	memset (buf, 0, sizeof (glibtop_procdata));
+    memset (buf, 0, sizeof (glibtop_procdata));
 
-	if (pid == 0) {
-		/* Client is only interested in the flags. */
-		buf->flags [0] = _glibtop_sysdeps_procdata_0;
-		buf->flags [1] = _glibtop_sysdeps_procdata_1;
-		return;
-	}
-
-	
-	sprintf (input, "/proc/%d/stat", pid);
-
-	if (stat (input, &statb)) return;
-
-	buf->uid = statb.st_uid;
-	
-	f = fopen (input, "r");
-	if (!f) return;
-	
-	nread = fread (input, 1, BUFSIZ, f);
-	
-	if (nread < 0) {
-		fclose (f);
-		return;
-	}
-	
-	input [nread] = 0;
-	
-	/* This is from guile-utils/gtop/proc/readproc.c */
-	
-	/* split into "PID (cmd" and "<rest>" */
-	tmp = strrchr (input, ')');
-	*tmp = '\0';		/* replace trailing ')' with NUL */
-	/* parse these two strings separately, skipping the leading "(". */
-	memset (buf->cmd, 0, sizeof (buf->cmd));
-	sscanf (input, "%d (%39c", &buf->pid, buf->cmd);
-	sscanf(tmp + 2,		/* skip space after ')' too */
-	       "%c %d %d %d %d %d %lu %lu %lu %lu %lu "
-	       "%ld %ld %ld %ld %d %d %lu %lu %ld %lu "
-	       "%lu %lu %lu %lu %lu %lu %lu %d %d %d %d %lu",
-	       &buf->state, &buf->ppid, &buf->pgrp, &buf->session,
-	       &buf->tty, &buf->tpgid, &buf->k_flags, &buf->min_flt,
-	       &buf->cmin_flt, &buf->maj_flt, &buf->cmaj_flt,
-	       &buf->utime, &buf->stime, &buf->cutime, &buf->cstime,
-	       &buf->priority, &buf->nice, &buf->timeout,
-	       &buf->it_real_value, &buf->start_time, &buf->vsize,
-	       &buf->rss, &buf->rss_rlim, &buf->start_code,
-	       &buf->end_code, &buf->start_stack, &buf->kstk_esp,
-	       &buf->kstk_eip, &buf->signal, &buf->blocked,
-	       &buf->sigignore, &buf->sigcatch, &buf->wchan);
-
-	if (buf->tty == 0)
-		/* the old notty val, update elsewhere bef. moving to 0 */
-		buf->tty = -1;
-
-	if (server->os_version_code < LINUX_VERSION(1,3,39)) {
-		/* map old meanings to new */
-		buf->priority = 2*15 - buf->priority;
-		buf->nice = 15 - buf->nice;
-	}
-	if (server->os_version_code < LINUX_VERSION(1,1,30) && buf->tty != -1)
-		/* when tty wasn't full devno */
-		buf->tty = 4*0x100 + buf->tty;
-	
-	fclose (f);
-
-	sprintf (input, "/proc/%d/statm", pid);
-
-	f = fopen (input, "r");
-	if (!f) return;
-
-	nread = fread (input, 1, BUFSIZ, f);
-
-	if (nread < 0) {
-		fclose (f);
-		return;
-	}
-
-	input [nread] = 0;
-
-	sscanf (input, "%ld %ld %ld %ld %ld %ld %ld",
-		&buf->size, &buf->resident, &buf->share,
-		&buf->trs, &buf->lrs, &buf->drs, &buf->dt);
-
-	fclose (f);
-
+    if (pid == 0) {
+	/* Client is only interested in the flags. */
 	buf->flags [0] = _glibtop_sysdeps_procdata_0;
 	buf->flags [1] = _glibtop_sysdeps_procdata_1;
+	return;
+    }
+
+	
+    sprintf (input, "/proc/%d/stat", pid);
+
+    if (stat (input, &statb)) return;
+
+    buf->uid = statb.st_uid;
+	
+    f = fopen (input, "r");
+    if (!f) return;
+	
+    nread = fread (input, 1, BUFSIZ, f);
+	
+    if (nread < 0) {
+	fclose (f);
+	return;
+    }
+	
+    input [nread] = 0;
+	
+    /* This is from guile-utils/gtop/proc/readproc.c */
+	
+    /* split into "PID (cmd" and "<rest>" */
+    tmp = strrchr (input, ')');
+    *tmp = '\0';		/* replace trailing ')' with NUL */
+    /* parse these two strings separately, skipping the leading "(". */
+    memset (buf->cmd, 0, sizeof (buf->cmd));
+    sscanf (input, "%d (%39c", &buf->pid, buf->cmd);
+    sscanf(tmp + 2,		/* skip space after ')' too */
+	   "%c %d %d %d %d %d %lu %lu %lu %lu %lu "
+	   "%ld %ld %ld %ld %d %d %lu %lu %ld %lu "
+	   "%lu %lu %lu %lu %lu %lu %lu %d %d %d %d %lu",
+	   &buf->state, &buf->ppid, &buf->pgrp, &buf->session,
+	   &buf->tty, &buf->tpgid, &buf->k_flags, &buf->min_flt,
+	   &buf->cmin_flt, &buf->maj_flt, &buf->cmaj_flt,
+	   &buf->utime, &buf->stime, &buf->cutime, &buf->cstime,
+	   &buf->priority, &buf->nice, &buf->timeout,
+	   &buf->it_real_value, &buf->start_time, &buf->vsize,
+	   &buf->rss, &buf->rss_rlim, &buf->start_code,
+	   &buf->end_code, &buf->start_stack, &buf->kstk_esp,
+	   &buf->kstk_eip, &buf->signal, &buf->blocked,
+	   &buf->sigignore, &buf->sigcatch, &buf->wchan);
+
+    if (buf->tty == 0)
+	/* the old notty val, update elsewhere bef. moving to 0 */
+	buf->tty = -1;
+
+    if (server->os_version_code < LINUX_VERSION(1,3,39)) {
+	/* map old meanings to new */
+	buf->priority = 2*15 - buf->priority;
+	buf->nice = 15 - buf->nice;
+    }
+    if (server->os_version_code < LINUX_VERSION(1,1,30) && buf->tty != -1)
+	/* when tty wasn't full devno */
+	buf->tty = 4*0x100 + buf->tty;
+	
+    fclose (f);
+
+    sprintf (input, "/proc/%d/statm", pid);
+
+    f = fopen (input, "r");
+    if (!f) return;
+
+    nread = fread (input, 1, BUFSIZ, f);
+
+    if (nread < 0) {
+	fclose (f);
+	return;
+    }
+
+    input [nread] = 0;
+
+    sscanf (input, "%ld %ld %ld %ld %ld %ld %ld",
+	    &buf->size, &buf->resident, &buf->share,
+	    &buf->trs, &buf->lrs, &buf->drs, &buf->dt);
+
+    fclose (f);
+
+    buf->flags [0] = _glibtop_sysdeps_procdata_0;
+    buf->flags [1] = _glibtop_sysdeps_procdata_1;
 }

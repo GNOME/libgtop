@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,5 +31,5 @@
 void
 glibtop_get_procdata_p (glibtop *server, glibtop_procdata *buf, pid_t pid)
 {
-	memset (buf, 0, sizeof (glibtop_procdata));
+    memset (buf, 0, sizeof (glibtop_procdata));
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -46,10 +48,10 @@ static const unsigned long _glibtop_sysdeps_proc_time_user =
 int
 glibtop_init_proc_time_p (glibtop *server)
 {
-	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time |
-		_glibtop_sysdeps_proc_time_user;
+    server->sysdeps.proc_time = _glibtop_sysdeps_proc_time |
+	_glibtop_sysdeps_proc_time_user;
 
-	return 0;
+    return 0;
 }
 
 /* Taken from /usr/src/sys/kern/kern_resource.c */
@@ -66,57 +68,57 @@ calcru(p, up, sp, ip)
      struct timeval *sp;
      struct timeval *ip;
 {
-	quad_t totusec;
-	u_quad_t u, st, ut, it, tot;
+    quad_t totusec;
+    u_quad_t u, st, ut, it, tot;
 #if (__FreeBSD_version < 300003)
-        long sec, usec;
+    long sec, usec;
 #endif
-        struct timeval tv;
+    struct timeval tv;
 
-	st = p->p_sticks;
-	ut = p->p_uticks;
-	it = p->p_iticks;
+    st = p->p_sticks;
+    ut = p->p_uticks;
+    it = p->p_iticks;
 
-	tot = st + ut + it;
-	if (tot == 0) {
-		st = 1;
-		tot = 1;
-	}
+    tot = st + ut + it;
+    if (tot == 0) {
+	st = 1;
+	tot = 1;
+    }
 
 #if (defined __FreeBSD__) && (__FreeBSD_version >= 300003)
 
-	/* This was changed from a `struct timeval' into a `u_int64_t'
-	 * on FreeBSD 3.0 and renamed p_rtime -> p_runtime.
-	 */
+    /* This was changed from a `struct timeval' into a `u_int64_t'
+     * on FreeBSD 3.0 and renamed p_rtime -> p_runtime.
+     */
 
-	totusec = (u_quad_t) p->p_runtime;
+    totusec = (u_quad_t) p->p_runtime;
 #else
-	sec = p->p_rtime.tv_sec;
-	usec = p->p_rtime.tv_usec;
+    sec = p->p_rtime.tv_sec;
+    usec = p->p_rtime.tv_usec;
 
-	totusec = (quad_t)sec * 1000000 + usec;
+    totusec = (quad_t)sec * 1000000 + usec;
 #endif
 
-	if (totusec < 0) {
-		/* XXX no %qd in kernel.  Truncate. */
-		fprintf (stderr, "calcru: negative time: %ld usec\n",
-			 (long)totusec);
-		totusec = 0;
-	}
+    if (totusec < 0) {
+	/* XXX no %qd in kernel.  Truncate. */
+	fprintf (stderr, "calcru: negative time: %ld usec\n",
+		 (long)totusec);
+	totusec = 0;
+    }
 
 
-	u = totusec;
-	st = (u * st) / tot;
-	sp->tv_sec = st / 1000000;
-	sp->tv_usec = st % 1000000;
-	ut = (u * ut) / tot;
-	up->tv_sec = ut / 1000000;
-	up->tv_usec = ut % 1000000;
-	if (ip != NULL) {
-		it = (u * it) / tot;
-		ip->tv_sec = it / 1000000;
-		ip->tv_usec = it % 1000000;
-	}
+    u = totusec;
+    st = (u * st) / tot;
+    sp->tv_sec = st / 1000000;
+    sp->tv_usec = st % 1000000;
+    ut = (u * ut) / tot;
+    up->tv_sec = ut / 1000000;
+    up->tv_usec = ut % 1000000;
+    if (ip != NULL) {
+	it = (u * it) / tot;
+	ip->tv_sec = it / 1000000;
+	ip->tv_usec = it % 1000000;
+    }
 }
 
 /* Provides detailed information about a process. */
@@ -125,110 +127,110 @@ int
 glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 			 pid_t pid)
 {
-	struct kinfo_proc *pinfo;
+    struct kinfo_proc *pinfo;
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
-	register struct rusage *rup;
+    register struct rusage *rup;
 #else
-	struct user *u_addr = (struct user *)USRSTACK;
+    struct user *u_addr = (struct user *)USRSTACK;
 #endif
-	struct pstats pstats;
-	int count;
+    struct pstats pstats;
+    int count;
 
-	char filename [BUFSIZ];
-	struct stat statb;
+    char filename [BUFSIZ];
+    struct stat statb;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_TIME), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_TIME), 0);
 	
-	memset (buf, 0, sizeof (glibtop_proc_time));
+    memset (buf, 0, sizeof (glibtop_proc_time));
 
-	/* It does not work for the swapper task. */
-	if (pid == 0) return -1;
+    /* It does not work for the swapper task. */
+    if (pid == 0) return -1;
 	
 #if !(defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000))
-	if (server->sysdeps.proc_time == 0)
-		return -1;
+    if (server->sysdeps.proc_time == 0)
+	return -1;
 
 #ifndef __bsdi__
-	sprintf (filename, "/proc/%d/mem", (int) pid);
-	if (stat (filename, &statb)) return -1;
+    sprintf (filename, "/proc/%d/mem", (int) pid);
+    if (stat (filename, &statb)) return -1;
 #endif
 #endif
 
-	/* Get the process information */
-	pinfo = kvm_getprocs (server->_priv->machine.kd,
-			      KERN_PROC_PID, pid, &count);
-	if ((pinfo == NULL) || (count != 1))
-		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
+    /* Get the process information */
+    pinfo = kvm_getprocs (server->_priv->machine.kd,
+			  KERN_PROC_PID, pid, &count);
+    if ((pinfo == NULL) || (count != 1))
+	glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
 
 #if (defined __FreeBSD__) && (__FreeBSD_version >= 300003)
-	buf->rtime = pinfo [0].kp_proc.p_runtime;
+    buf->rtime = pinfo [0].kp_proc.p_runtime;
 #else
-	buf->rtime = tv2sec (pinfo [0].kp_proc.p_rtime);
+    buf->rtime = tv2sec (pinfo [0].kp_proc.p_rtime);
 #endif
 
-	buf->frequency = 1000000;
-	buf->flags = _glibtop_sysdeps_proc_time;
+    buf->frequency = 1000000;
+    buf->flags = _glibtop_sysdeps_proc_time;
 
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
-	glibtop_suid_enter (server);
+    glibtop_suid_enter (server);
 
-	if (kvm_read (server->_priv->machine.kd,
-		      (unsigned long) pinfo [0].kp_proc.p_stats,
-		      &pstats, sizeof (pstats)) != sizeof (pstats)) {
-		glibtop_warn_io_r (server, "kvm_read (pstats)");
-		return -1;
+    if (kvm_read (server->_priv->machine.kd,
+		  (unsigned long) pinfo [0].kp_proc.p_stats,
+		  &pstats, sizeof (pstats)) != sizeof (pstats)) {
+	glibtop_warn_io_r (server, "kvm_read (pstats)");
+	return -1;
+    }
+
+    glibtop_suid_leave (server);
+
+    rup = &pstats.p_ru;
+    calcru(&(pinfo [0]).kp_proc,
+	   &rup->ru_utime, &rup->ru_stime, NULL);
+
+    buf->utime = tv2sec (pstats.p_ru.ru_utime);
+    buf->stime = tv2sec (pstats.p_ru.ru_stime);
+			
+    buf->cutime = tv2sec (pstats.p_cru.ru_utime);
+    buf->cstime = tv2sec (pstats.p_cru.ru_stime);
+
+    buf->start_time = (u_int64_t) pstats.p_start.tv_sec;
+
+    buf->flags |= _glibtop_sysdeps_proc_time_user;
+#else
+    glibtop_suid_enter (server);
+
+    if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
+	kvm_uread (server->_priv->machine.kd, &(pinfo [0]).kp_proc,
+		   (unsigned long) &u_addr->u_stats,
+		   (char *) &pstats, sizeof (pstats)) == sizeof (pstats))
+	{
+	    /* This is taken form the kernel source code of
+	     * FreeBSD 2.2.6. */
+
+	    /* Well, we just do the same getrusage () does ... */
+
+	    register struct rusage *rup;
+
+	    glibtop_suid_leave (server);
+
+	    rup = &pstats.p_ru;
+	    calcru(&(pinfo [0]).kp_proc,
+		   &rup->ru_utime, &rup->ru_stime, NULL);
+
+	    buf->utime = tv2sec (pstats.p_ru.ru_utime);
+	    buf->stime = tv2sec (pstats.p_ru.ru_stime);
+			
+	    buf->cutime = tv2sec (pstats.p_cru.ru_utime);
+	    buf->cstime = tv2sec (pstats.p_cru.ru_stime);
+
+	    buf->start_time = tv2sec (pstats.p_start);
+
+	    buf->flags = _glibtop_sysdeps_proc_time_user;
 	}
 
-	glibtop_suid_leave (server);
-
-	rup = &pstats.p_ru;
-	calcru(&(pinfo [0]).kp_proc,
-	       &rup->ru_utime, &rup->ru_stime, NULL);
-
-	buf->utime = tv2sec (pstats.p_ru.ru_utime);
-	buf->stime = tv2sec (pstats.p_ru.ru_stime);
-			
-	buf->cutime = tv2sec (pstats.p_cru.ru_utime);
-	buf->cstime = tv2sec (pstats.p_cru.ru_stime);
-
-	buf->start_time = (u_int64_t) pstats.p_start.tv_sec;
-
-	buf->flags |= _glibtop_sysdeps_proc_time_user;
-#else
-	glibtop_suid_enter (server);
-
-	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
-	    kvm_uread (server->_priv->machine.kd, &(pinfo [0]).kp_proc,
-		       (unsigned long) &u_addr->u_stats,
-		       (char *) &pstats, sizeof (pstats)) == sizeof (pstats))
-		{
-			/* This is taken form the kernel source code of
-			 * FreeBSD 2.2.6. */
-
-			/* Well, we just do the same getrusage () does ... */
-
-			register struct rusage *rup;
-
-			glibtop_suid_leave (server);
-
-			rup = &pstats.p_ru;
-			calcru(&(pinfo [0]).kp_proc,
-			       &rup->ru_utime, &rup->ru_stime, NULL);
-
-			buf->utime = tv2sec (pstats.p_ru.ru_utime);
-			buf->stime = tv2sec (pstats.p_ru.ru_stime);
-			
-			buf->cutime = tv2sec (pstats.p_cru.ru_utime);
-			buf->cstime = tv2sec (pstats.p_cru.ru_stime);
-
-			buf->start_time = tv2sec (pstats.p_start);
-
-			buf->flags = _glibtop_sysdeps_proc_time_user;
-		}
-
-	glibtop_suid_leave (server);
+    glibtop_suid_leave (server);
 #endif
 
-	return 0;
+    return 0;
 }
 

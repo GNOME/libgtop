@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -33,103 +35,103 @@
 int
 main (int argc, char *argv [])
 {
-	GDBM_FILE dbf;
-	char dirname [BUFSIZ];
-	FILE *f;
+    GDBM_FILE dbf;
+    char dirname [BUFSIZ];
+    FILE *f;
 
-	if (argc != 3) {
-		fprintf (stderr, "Usage: %s database filename\n", argv [0]);
-		exit (1);
+    if (argc != 3) {
+	fprintf (stderr, "Usage: %s database filename\n", argv [0]);
+	exit (1);
+    }
+
+    f = fopen (argv [2], "rt");
+    if (!f)
+	glibtop_error_io ("fopen (%s)", argv [2]);
+
+    dbf = gdbm_open (argv [1], 512, GDBM_WRCREAT, 0600, 0);
+    if (!dbf)
+	glibtop_error_io ("gdbm_open (%s)", argv [1]);
+
+    while (fgets (dirname, BUFSIZ-1, f)) {
+	struct dirent *entry;
+	struct stat statb;
+	DIR *directory;
+	size_t len;
+
+	len = strlen (dirname);
+	if (!len) continue;
+
+	if (dirname [len-1] == '\n')
+	    dirname [len-1] = 0;
+		
+	if (stat (dirname, &statb))
+	    continue;
+
+	if (S_ISREG (statb.st_mode)) {
+	    glibtop_inodedb_key key;
+	    datum d_key, d_content;
+			
+	    d_key.dptr = (void *) &key;
+	    d_key.dsize = sizeof (key);
+
+	    d_content.dptr = dirname;
+	    d_content.dsize = strlen (dirname) + 1;
+			
+	    key.device = (u_int64_t) statb.st_dev;
+	    key.inode = (u_int64_t) statb.st_ino;
+			
+	    if (gdbm_store (dbf, d_key, d_content, GDBM_REPLACE))
+		glibtop_error_io ("gdbm_store (%s)", dirname);
+
+	    printf ("%-52s - %8lu - %8lu\n",
+		    dirname, (unsigned long) statb.st_dev,
+		    (unsigned long) statb.st_ino);
+
+	    continue;
 	}
 
-	f = fopen (argv [2], "rt");
-	if (!f)
-		glibtop_error_io ("fopen (%s)", argv [2]);
+	if (!S_ISDIR (statb.st_mode))
+	    continue;
 
-	dbf = gdbm_open (argv [1], 512, GDBM_WRCREAT, 0600, 0);
-	if (!dbf)
-		glibtop_error_io ("gdbm_open (%s)", argv [1]);
+	directory = opendir (dirname);
+	if (!directory) continue;
 
-	while (fgets (dirname, BUFSIZ-1, f)) {
-		struct dirent *entry;
-		struct stat statb;
-		DIR *directory;
-		size_t len;
-
-		len = strlen (dirname);
-		if (!len) continue;
-
-		if (dirname [len-1] == '\n')
-			dirname [len-1] = 0;
-		
-		if (stat (dirname, &statb))
-			continue;
-
-		if (S_ISREG (statb.st_mode)) {
-			glibtop_inodedb_key key;
-			datum d_key, d_content;
+	while ((entry = readdir (directory))) {
+	    glibtop_inodedb_key key;
+	    char filename [BUFSIZ];
+	    datum d_key, d_content;
 			
-			d_key.dptr = (void *) &key;
-			d_key.dsize = sizeof (key);
-
-			d_content.dptr = dirname;
-			d_content.dsize = strlen (dirname) + 1;
+	    sprintf (filename, "%s/%s", dirname, entry->d_name);
 			
-			key.device = (u_int64_t) statb.st_dev;
-			key.inode = (u_int64_t) statb.st_ino;
+	    if (stat (filename, &statb))
+		continue;
+
+	    if (!S_ISREG (statb.st_mode))
+		continue;
+
+	    d_key.dptr = (void *) &key;
+	    d_key.dsize = sizeof (key);
+
+	    d_content.dptr = filename;
+	    d_content.dsize = strlen (filename) + 1;
 			
-			if (gdbm_store (dbf, d_key, d_content, GDBM_REPLACE))
-				glibtop_error_io ("gdbm_store (%s)", dirname);
-
-			printf ("%-52s - %8lu - %8lu\n",
-				dirname, (unsigned long) statb.st_dev,
-				(unsigned long) statb.st_ino);
-
-			continue;
-		}
-
-		if (!S_ISDIR (statb.st_mode))
-			continue;
-
-		directory = opendir (dirname);
-		if (!directory) continue;
-
-		while ((entry = readdir (directory))) {
-			glibtop_inodedb_key key;
-			char filename [BUFSIZ];
-			datum d_key, d_content;
+	    key.device = (u_int64_t) statb.st_dev;
+	    key.inode = (u_int64_t) statb.st_ino;
 			
-			sprintf (filename, "%s/%s", dirname, entry->d_name);
-			
-			if (stat (filename, &statb))
-				continue;
+	    if (gdbm_store (dbf, d_key, d_content, GDBM_REPLACE))
+		glibtop_error_io ("gdbm_store (%s)", filename);
 
-			if (!S_ISREG (statb.st_mode))
-				continue;
-
-			d_key.dptr = (void *) &key;
-			d_key.dsize = sizeof (key);
-
-			d_content.dptr = filename;
-			d_content.dsize = strlen (filename) + 1;
-			
-			key.device = (u_int64_t) statb.st_dev;
-			key.inode = (u_int64_t) statb.st_ino;
-			
-			if (gdbm_store (dbf, d_key, d_content, GDBM_REPLACE))
-				glibtop_error_io ("gdbm_store (%s)", filename);
-
-			printf ("%-52s - %8lu - %8lu\n",
-				filename, (unsigned long) statb.st_dev,
-				(unsigned long) statb.st_ino);
-		}
-		
-		closedir (directory);
+	    printf ("%-52s - %8lu - %8lu\n",
+		    filename, (unsigned long) statb.st_dev,
+		    (unsigned long) statb.st_ino);
 	}
+		
+	closedir (directory);
+    }
 
-	gdbm_close (dbf);
+    gdbm_close (dbf);
 
-	fclose (f);
+    fclose (f);
 
-	exit (0);
+    exit (0);
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* fsusage.h -- declarations for filesystem space usage info
    Copyright (C) 1991, 1992 Free Software Foundation, Inc.
 
@@ -18,10 +20,10 @@
 /* Space usage statistics for a filesystem.  Blocks are 512-byte. */
 struct fs_usage
 {
-  long fsu_blocks;		/* Total blocks. */
-  long fsu_bfree;		/* Free blocks available to superuser. */
-  long fsu_bavail;		/* Free blocks available to non-superuser. */
-  long fsu_files;		/* Total file nodes. */
-  long fsu_ffree;		/* Free file nodes. */
+    long fsu_blocks;		/* Total blocks. */
+    long fsu_bfree;		/* Free blocks available to superuser. */
+    long fsu_bavail;		/* Free blocks available to non-superuser. */
+    long fsu_files;		/* Total file nodes. */
+    long fsu_ffree;		/* Free file nodes. */
 };
 

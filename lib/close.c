@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -31,20 +33,20 @@
 void
 glibtop_close_r (glibtop *server)
 {
-	switch (server->method) {
-	case GLIBTOP_METHOD_UNIX:
-	case GLIBTOP_METHOD_INET:
-		glibtop_call_l (server, GLIBTOP_CMND_QUIT,
-				0, NULL, 0, NULL, NULL);
+    switch (server->method) {
+    case GLIBTOP_METHOD_UNIX:
+    case GLIBTOP_METHOD_INET:
+	glibtop_call_l (server, GLIBTOP_CMND_QUIT,
+			0, NULL, 0, NULL, NULL);
 
-		if (close (server->_priv->socket))
-			glibtop_warn_io ("close");
+	if (close (server->_priv->socket))
+	    glibtop_warn_io ("close");
 
-		break;
-	case GLIBTOP_METHOD_PIPE:
-		kill (server->_priv->pid, SIGKILL);
-		close (server->_priv->input [0]);
-		close (server->_priv->output [1]);
-		break;
-	}
+	break;
+    case GLIBTOP_METHOD_PIPE:
+	kill (server->_priv->pid, SIGKILL);
+	close (server->_priv->input [0]);
+	close (server->_priv->output [1]);
+	break;
+    }
 }

@@ -1,0 +1,8 @@
+The indentation in LibGTop was done with the following command:
+
+	find . -name \*.[ch] | xargs -i emacs -batch {} \
+		-l /gnome/compile/libgtop/misc/format.el -f save-buffer
+
+December 26, 1999
+Martin
+

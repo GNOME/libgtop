@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -71,61 +73,61 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
     if(!kc)
         return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
     switch(kstat_chain_update(kc))
-    {
+	{
         case -1: assert(0);  /* Debugging purposes, shouldn't happen */
 	case 0:  break;
 	default: glibtop_get_kstats(server);
-    }
+	}
 
     if((ksp = server->_priv->machine.syspages) && kstat_read(kc, ksp, NULL) >= 0)
-    {
-	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pagesfree");
-	if(kn)
 	{
+	    kn = (kstat_named_t *)kstat_data_lookup(ksp, "pagesfree");
+	    if(kn)
+		{
 #ifdef _LP64
-	    buf->free = kn->value.ui64 << pagesize << 10;
+		    buf->free = kn->value.ui64 << pagesize << 10;
 #else
-	    buf->free = kn->value.ui32 << pagesize << 10;
+		    buf->free = kn->value.ui32 << pagesize << 10;
 #endif
-	    buf->used = buf->total - buf->free;
-	}
-	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pageslocked");
-	if(kn)
+		    buf->used = buf->total - buf->free;
+		}
+	    kn = (kstat_named_t *)kstat_data_lookup(ksp, "pageslocked");
+	    if(kn)
 #ifdef _LP64
-	    buf->locked = kn->value.ui64 << pagesize;
+		buf->locked = kn->value.ui64 << pagesize;
 #else
 	    buf->locked = kn->value.ui32 << pagesize;
 #endif
-	buf->flags += _glibtop_sysdeps_mem_os_kstat;
-    }
+	    buf->flags += _glibtop_sysdeps_mem_os_kstat;
+	}
 
     /* Bunyip module provides data in multiples of system page size */
 
     if((ksp = server->_priv->machine.bunyip) && kstat_read(kc, ksp, NULL) >= 0)
-    {
-        kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_anon");
-	if(kn)
+	{
+	    kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_anon");
+	    if(kn)
 #ifdef _LP64
-	    buf->user = kn->value.ui64 << pagesize << 10;
+		buf->user = kn->value.ui64 << pagesize << 10;
 #else
 	    buf->user = kn->value.ui32 << pagesize << 10;
 #endif
-	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_exec");
-	if(kn)
+	    kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_exec");
+	    if(kn)
 #ifdef _LP64
-	    buf->shared = kn->value.ui64 << pagesize << 10;
+		buf->shared = kn->value.ui64 << pagesize << 10;
 #else
 	    buf->shared = kn->value.ui32 << pagesize << 10;
 #endif
-	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_vnode");
-	if(kn)
+	    kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_vnode");
+	    if(kn)
 #ifdef _LP64
-	    buf->buffer = kn->value.ui64 << pagesize << 10;
+		buf->buffer = kn->value.ui64 << pagesize << 10;
 #else
 	    buf->buffer = kn->value.ui32 << pagesize << 10;
 #endif
-	buf->flags += _glibtop_sysdeps_mem_bunyip;
-    }
+	    buf->flags += _glibtop_sysdeps_mem_bunyip;
+	}
 
     return 0;
 }

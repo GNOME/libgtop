@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,9 +36,9 @@ static const unsigned long _glibtop_sysdeps_swap = 0;
 int
 glibtop_init_swap_p (glibtop *server)
 {
-	server->sysdeps.swap = _glibtop_sysdeps_swap;
+    server->sysdeps.swap = _glibtop_sysdeps_swap;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about swap usage. */
@@ -44,9 +46,9 @@ glibtop_init_swap_p (glibtop *server)
 int
 glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 {
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_SWAP, 0);
+    glibtop_init_p (server, GLIBTOP_SYSDEPS_SWAP, 0);
 	
-	memset (buf, 0, sizeof (glibtop_swap));
+    memset (buf, 0, sizeof (glibtop_swap));
 
-	return 0;
+    return 0;
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -33,62 +35,62 @@ static glibtop_sysinfo sysinfo;
 static void
 init_sysinfo (glibtop *server)
 {
-	char buffer [BUFSIZ];
-	static int init = 0;
-	glibtop_entry *cpuinfo = NULL;
-	FILE *f;
+    char buffer [BUFSIZ];
+    static int init = 0;
+    glibtop_entry *cpuinfo = NULL;
+    FILE *f;
 
-	if (init) return;
+    if (init) return;
 
-	init = TRUE;
+    init = TRUE;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
-	memset (&sysinfo, 0, sizeof (glibtop_sysinfo));
+    memset (&sysinfo, 0, sizeof (glibtop_sysinfo));
 
-	g_return_if_fail (f = fopen ("/proc/cpuinfo", "r"));
+    g_return_if_fail (f = fopen ("/proc/cpuinfo", "r"));
 
-	while (fgets (buffer, BUFSIZ, f)) {
-		char *p, *start, *key, *value;
+    while (fgets (buffer, BUFSIZ, f)) {
+	char *p, *start, *key, *value;
 
-		if (cpuinfo == NULL) {
-			cpuinfo = &sysinfo.cpuinfo [sysinfo.ncpu++];
+	if (cpuinfo == NULL) {
+	    cpuinfo = &sysinfo.cpuinfo [sysinfo.ncpu++];
 
-			cpuinfo->labels = g_ptr_array_new ();
+	    cpuinfo->labels = g_ptr_array_new ();
 
-			cpuinfo->values = g_hash_table_new (NULL, NULL);
+	    cpuinfo->values = g_hash_table_new (NULL, NULL);
 			
-			if (sysinfo.ncpu > GLIBTOP_NCPU)
-				sysinfo.ncpu = GLIBTOP_NCPU;
-		}
-
-		p = strchr (buffer, ':');
-		if (!p) continue;
-
-		/* Remove leading spaces from `p'. */
-		*p = '\0'; start = p; p++;
-		while (isspace (*p)) p++;
-
-		/* Remove trailing spaces from `buffer'. */
-		while ((start > buffer) && (*start) && isspace (*start))
-			*start-- = '\0';
-
-		key = g_strdup (buffer);
-		value = g_strdup (p);
-
-		g_ptr_array_add (cpuinfo->labels, key);
-
-		g_hash_table_insert (cpuinfo->values, key, value);
+	    if (sysinfo.ncpu > GLIBTOP_NCPU)
+		sysinfo.ncpu = GLIBTOP_NCPU;
 	}
 
-	fclose (f);
+	p = strchr (buffer, ':');
+	if (!p) continue;
 
-	sysinfo.flags = _glibtop_sysdeps_sysinfo;
+	/* Remove leading spaces from `p'. */
+	*p = '\0'; start = p; p++;
+	while (isspace (*p)) p++;
+
+	/* Remove trailing spaces from `buffer'. */
+	while ((start > buffer) && (*start) && isspace (*start))
+	    *start-- = '\0';
+
+	key = g_strdup (buffer);
+	value = g_strdup (p);
+
+	g_ptr_array_add (cpuinfo->labels, key);
+
+	g_hash_table_insert (cpuinfo->values, key, value);
+    }
+
+    fclose (f);
+
+    sysinfo.flags = _glibtop_sysdeps_sysinfo;
 }
 
 glibtop_sysinfo *
 glibtop_get_sysinfo_s (glibtop *server)
 {
-	init_sysinfo (server);
-	return &sysinfo;
+    init_sysinfo (server);
+    return &sysinfo;
 }

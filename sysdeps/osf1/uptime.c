@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -35,7 +37,7 @@ static unsigned long _glibtop_sysdeps_uptime =
 int
 glibtop_init_uptime_s (glibtop *server)
 {
-	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+    server->sysdeps.uptime = _glibtop_sysdeps_uptime;
 }
 
 /* Provides uptime and idle time. */
@@ -43,19 +45,19 @@ glibtop_init_uptime_s (glibtop *server)
 int
 glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
-	struct tbl_sysinfo sysinfo;
-	int ret;
+    struct tbl_sysinfo sysinfo;
+    int ret;
 	
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_UPTIME, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_UPTIME, 0);
 
-	memset (buf, 0, sizeof (glibtop_uptime));
+    memset (buf, 0, sizeof (glibtop_uptime));
 	
-	ret = table (TBL_SYSINFO, 0, (char *) &sysinfo, 1,
-		     sizeof (struct tbl_sysinfo)); 
+    ret = table (TBL_SYSINFO, 0, (char *) &sysinfo, 1,
+		 sizeof (struct tbl_sysinfo)); 
 
-	if (ret != 1) return;
+    if (ret != 1) return;
 		
-	buf->uptime = (double) (time (NULL) - sysinfo.si_boottime);
+    buf->uptime = (double) (time (NULL) - sysinfo.si_boottime);
 
-	buf->flags = _glibtop_sysdeps_uptime;
+    buf->flags = _glibtop_sysdeps_uptime;
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -30,59 +32,59 @@
 static void
 print_server_name (glibtop *server)
 {
-	fprintf (stderr, "%s: ", server ? 
-		 (server->name ? server->name : DEFAULT_NAME)
-		 : DEFAULT_NAME);
+    fprintf (stderr, "%s: ", server ? 
+	     (server->name ? server->name : DEFAULT_NAME)
+	     : DEFAULT_NAME);
 }
 
 void
 glibtop_error_vr (glibtop *server, char *format, va_list args)
 {
-	print_server_name (server);	
-	vfprintf (stderr, format, args);
-	fprintf (stderr, "\n");
+    print_server_name (server);	
+    vfprintf (stderr, format, args);
+    fprintf (stderr, "\n");
 
 #ifdef LIBGTOP_ENABLE_DEBUG
-	abort ();
+    abort ();
 #else
-	exit (1);
+    exit (1);
 #endif
 }
 
 void
 glibtop_error_io_vr (glibtop *server, char *format, int error, va_list args)
 {
-	print_server_name (server);
-	vfprintf (stderr, format, args);
-	fprintf (stderr, ": %s\n", strerror (error));
+    print_server_name (server);
+    vfprintf (stderr, format, args);
+    fprintf (stderr, ": %s\n", strerror (error));
 
 #ifdef LIBGTOP_ENABLE_DEBUG
-	abort ();
+    abort ();
 #else
-	exit (1);
+    exit (1);
 #endif
 }
 
 void
 glibtop_warn_vr (glibtop *server, char *format, va_list args)
 {
-	print_server_name (server);
-	vfprintf (stderr, format, args);
-	fprintf (stderr, "\n");
+    print_server_name (server);
+    vfprintf (stderr, format, args);
+    fprintf (stderr, "\n");
 
 #ifdef LIBGTOP_FATAL_WARNINGS
-	abort ();
+    abort ();
 #endif
 }
 
 void
 glibtop_warn_io_vr (glibtop *server, char *format, int error, va_list args)
 {
-	print_server_name (server);
-	vfprintf (stderr, format, args);
-	fprintf (stderr, ": %s\n", strerror (error));
+    print_server_name (server);
+    vfprintf (stderr, format, args);
+    fprintf (stderr, ": %s\n", strerror (error));
 
 #ifdef LIBGTOP_FATAL_WARNINGS
-	abort ();
+    abort ();
 #endif
 }

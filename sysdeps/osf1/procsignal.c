@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -36,7 +38,7 @@ static const unsigned long _glibtop_sysdeps_proc_signal =
 int
 glibtop_init_proc_signal_p (glibtop *server)
 {
-	server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
+    server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
 }
 
 /* Provides detailed information about a process. */
@@ -45,30 +47,30 @@ int
 glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf,
 			   pid_t pid)
 {
-	struct tbl_procinfo procinfo;
-	int ret;
+    struct tbl_procinfo procinfo;
+    int ret;
 
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_SIGNAL, 0);
+    glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_SIGNAL, 0);
 	
-	memset (buf, 0, sizeof (glibtop_proc_signal));
+    memset (buf, 0, sizeof (glibtop_proc_signal));
 
-	/* !!! THE FOLLOWING CODE RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
+    /* !!! THE FOLLOWING CODE RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
-	glibtop_suid_enter (server);
+    glibtop_suid_enter (server);
 	
-	ret = table (TBL_PROCINFO, pid, (char *) &procinfo, 1,
-		     sizeof (struct tbl_procinfo)); 
+    ret = table (TBL_PROCINFO, pid, (char *) &procinfo, 1,
+		 sizeof (struct tbl_procinfo)); 
 
-	glibtop_suid_leave (server);
+    glibtop_suid_leave (server);
 		     
-	/* !!! END OF SUID ROOT PART !!! */
+    /* !!! END OF SUID ROOT PART !!! */
 	
-	if (ret != 1) return;
+    if (ret != 1) return;
 
-	buf->signal [0] = procinfo.pi_sig;
-	buf->blocked [0] = procinfo.pi_sigmask;
-	buf->sigignore [0] = procinfo.pi_sigignore;
-	buf->sigcatch [0] = procinfo.pi_sigcatch;
+    buf->signal [0] = procinfo.pi_sig;
+    buf->blocked [0] = procinfo.pi_sigmask;
+    buf->sigignore [0] = procinfo.pi_sigignore;
+    buf->sigcatch [0] = procinfo.pi_sigcatch;
 
-	buf->flags = _glibtop_sysdeps_proc_signal;
+    buf->flags = _glibtop_sysdeps_proc_signal;
 }

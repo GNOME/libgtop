@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -45,37 +47,37 @@ static unsigned long _glibtop_sysdeps_sem_limits =
 int
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
-	struct seminfo	seminfo;
+    struct seminfo	seminfo;
   
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
 
-	memset (buf, 0, sizeof (glibtop_sem_limits));
+    memset (buf, 0, sizeof (glibtop_sem_limits));
   
-	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
+    /* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
 	
-	setregid (server->machine.gid, server->machine.egid);
+    setregid (server->machine.gid, server->machine.egid);
 	
-	/* get the load average array */
+    /* get the load average array */
 
-	(void) _glibtop_getkval (server, _glibtop_nlist [X_SEMINFO].n_value,
-				 (int *) &seminfo, sizeof (seminfo),
-				 _glibtop_nlist [X_SEMINFO].n_name);
+    (void) _glibtop_getkval (server, _glibtop_nlist [X_SEMINFO].n_value,
+			     (int *) &seminfo, sizeof (seminfo),
+			     _glibtop_nlist [X_SEMINFO].n_name);
 
-	if (setregid (server->machine.egid, server->machine.gid))
-		_exit (1);
+    if (setregid (server->machine.egid, server->machine.gid))
+	_exit (1);
 	
-	/* !!! END OF SGID KMEM PART !!! */
+    /* !!! END OF SGID KMEM PART !!! */
   
-	buf->semmap = seminfo.semmap;
-	buf->semmni = seminfo.semmni;
-	buf->semmns = seminfo.semmns;
-	buf->semmnu = seminfo.semmnu;
-	buf->semmsl = seminfo.semmsl;
-	buf->semopm = seminfo.semopm;
-	buf->semume = seminfo.semume;
-	buf->semusz = seminfo.semusz;
-	buf->semvmx = seminfo.semvmx;
-	buf->semaem = seminfo.semaem;
+    buf->semmap = seminfo.semmap;
+    buf->semmni = seminfo.semmni;
+    buf->semmns = seminfo.semmns;
+    buf->semmnu = seminfo.semmnu;
+    buf->semmsl = seminfo.semmsl;
+    buf->semopm = seminfo.semopm;
+    buf->semume = seminfo.semume;
+    buf->semusz = seminfo.semusz;
+    buf->semvmx = seminfo.semvmx;
+    buf->semaem = seminfo.semaem;
 
-	buf->flags = _glibtop_sysdeps_sem_limits;
+    buf->flags = _glibtop_sysdeps_sem_limits;
 }

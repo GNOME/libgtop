@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998 Joshua Sled
@@ -40,9 +42,9 @@ static const unsigned long _glibtop_sysdeps_proc_args =
 int
 glibtop_init_proc_args_p (glibtop *server)
 {
-	server->sysdeps.proc_args = _glibtop_sysdeps_proc_args;
+    server->sysdeps.proc_args = _glibtop_sysdeps_proc_args;
 
-	return 0;
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -50,64 +52,64 @@ glibtop_init_proc_args_p (glibtop *server)
 char **
 glibtop_get_proc_args_p (glibtop *server, glibtop_array *buf, pid_t pid)
 {
-	struct kinfo_proc *pinfo;
-	char *retval, **args, **ptr;
-	unsigned size = 0, pos = 0;
-	int max_len = BUFSIZ, count;
+    struct kinfo_proc *pinfo;
+    char *retval, **args, **ptr;
+    unsigned size = 0, pos = 0;
+    int max_len = BUFSIZ, count;
 
 #ifndef __bsdi__
-	char filename [BUFSIZ];
-	struct stat statb;
+    char filename [BUFSIZ];
+    struct stat statb;
 #endif
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_ARGS), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_ARGS), 0);
 	
-	memset (buf, 0, sizeof (glibtop_proc_args));
+    memset (buf, 0, sizeof (glibtop_proc_args));
 
-	/* swapper, init, pagedaemon, vmdaemon, update - this doen't work. */
-	if (pid < 5) return NULL;
+    /* swapper, init, pagedaemon, vmdaemon, update - this doen't work. */
+    if (pid < 5) return NULL;
 
 #ifndef __bsdi__
-	sprintf (filename, "/proc/%d/mem", pid);
-	if (stat (filename, &statb)) return NULL;
+    sprintf (filename, "/proc/%d/mem", pid);
+    if (stat (filename, &statb)) return NULL;
 #endif
 
-	glibtop_suid_enter (server);
+    glibtop_suid_enter (server);
 
-	/* Get the process data */
-	pinfo = kvm_getprocs (server->_priv->machine.kd,
-			      KERN_PROC_PID, pid, &count);
-	if ((pinfo == NULL) || (count < 1)) {
-		glibtop_suid_leave (server);
-		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
-		return NULL;
-	}
-
-	args = kvm_getargv (server->_priv->machine.kd, pinfo, max_len);
-	if (args == NULL) {
-		glibtop_suid_leave (server);
-		glibtop_warn_io_r (server, "kvm_getargv (%d)", pid);
-		return NULL;
-	}
-
+    /* Get the process data */
+    pinfo = kvm_getprocs (server->_priv->machine.kd,
+			  KERN_PROC_PID, pid, &count);
+    if ((pinfo == NULL) || (count < 1)) {
 	glibtop_suid_leave (server);
+	glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
+	return NULL;
+    }
 
-	for (ptr = args; *ptr; ptr++)
-		size += strlen (*ptr)+1;
+    args = kvm_getargv (server->_priv->machine.kd, pinfo, max_len);
+    if (args == NULL) {
+	glibtop_suid_leave (server);
+	glibtop_warn_io_r (server, "kvm_getargv (%d)", pid);
+	return NULL;
+    }
 
-	size += 2;
-	retval = glibtop_malloc_r (server, size);
-	memset (retval, 0, size);
+    glibtop_suid_leave (server);
 
-	for (ptr = args; *ptr; ptr++) {
-		int len = strlen (*ptr)+1;
-		memcpy (retval+pos, *ptr, len);
-		pos += len;
-	}
+    for (ptr = args; *ptr; ptr++)
+	size += strlen (*ptr)+1;
 
-	buf->size = pos ? pos-1 : 0;
+    size += 2;
+    retval = glibtop_malloc_r (server, size);
+    memset (retval, 0, size);
 
-	buf->flags = _glibtop_sysdeps_proc_args;
+    for (ptr = args; *ptr; ptr++) {
+	int len = strlen (*ptr)+1;
+	memcpy (retval+pos, *ptr, len);
+	pos += len;
+    }
 
-	return retval;
+    buf->size = pos ? pos-1 : 0;
+
+    buf->flags = _glibtop_sysdeps_proc_args;
+
+    return retval;
 }

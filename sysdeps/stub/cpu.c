@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -31,9 +33,9 @@ static const unsigned long _glibtop_sysdeps_cpu = 0;
 int
 glibtop_init_cpu_s (glibtop *server)
 {
-	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+    server->sysdeps.cpu = _glibtop_sysdeps_cpu;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about cpu usage. */
@@ -41,7 +43,7 @@ glibtop_init_cpu_s (glibtop *server)
 int
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
-	memset (buf, 0, sizeof (glibtop_cpu));
+    memset (buf, 0, sizeof (glibtop_cpu));
 
-	return 0;
+    return 0;
 }

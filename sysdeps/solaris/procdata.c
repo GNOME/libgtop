@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -49,51 +51,51 @@
 int
 glibtop_get_proc_data_psinfo_s (glibtop *server, struct psinfo *psinfo, pid_t pid)
 {
-	int fd;
-	char buffer [BUFSIZ];
+    int fd;
+    char buffer [BUFSIZ];
 
-	sprintf (buffer, "/proc/%d/psinfo", (int) pid);
-	fd = s_open (buffer, O_RDONLY);
-	if (fd < 0) {
-		glibtop_warn_io_r (server, "open (%s)", buffer);
-		return -1;
-	}
+    sprintf (buffer, "/proc/%d/psinfo", (int) pid);
+    fd = s_open (buffer, O_RDONLY);
+    if (fd < 0) {
+	glibtop_warn_io_r (server, "open (%s)", buffer);
+	return -1;
+    }
 
-	if (s_pread (fd, psinfo, sizeof (struct psinfo), 0) !=
-	             sizeof (struct psinfo))
+    if (s_pread (fd, psinfo, sizeof (struct psinfo), 0) !=
+	sizeof (struct psinfo))
 	{
-		s_close (fd);
-		glibtop_warn_io_r (server, "pread (%s)", buffer);
-		return -1;
+	    s_close (fd);
+	    glibtop_warn_io_r (server, "pread (%s)", buffer);
+	    return -1;
 	}
 
-	s_close (fd);
-	return 0;
+    s_close (fd);
+    return 0;
 }
 
 int
 glibtop_get_proc_data_usage_s (glibtop *server, struct prusage *prusage, pid_t pid)
 {
-	int fd;
-	char buffer [BUFSIZ];
+    int fd;
+    char buffer [BUFSIZ];
 
-	sprintf (buffer, "/proc/%d/usage", (int) pid);
-	fd = s_open (buffer, O_RDONLY);
-	if (fd < 0) {
-		glibtop_warn_io_r (server, "open (%s)", buffer);
-		return -1;
-	}
+    sprintf (buffer, "/proc/%d/usage", (int) pid);
+    fd = s_open (buffer, O_RDONLY);
+    if (fd < 0) {
+	glibtop_warn_io_r (server, "open (%s)", buffer);
+	return -1;
+    }
 
-	if (s_pread (fd, prusage, sizeof (struct prusage), 0) !=
-	             sizeof (struct prusage))
+    if (s_pread (fd, prusage, sizeof (struct prusage), 0) !=
+	sizeof (struct prusage))
 	{
-		s_close (fd);
-		glibtop_warn_io_r (server, "pread (%s)", buffer);
-		return -1;
+	    s_close (fd);
+	    glibtop_warn_io_r (server, "pread (%s)", buffer);
+	    return -1;
 	}
 
-	s_close (fd);
-	return 0;
+    s_close (fd);
+    return 0;
 }
 
 int
@@ -102,25 +104,25 @@ glibtop_get_proc_credentials_s(glibtop *server,
 			       gid_t *groups,
 			       pid_t pid)
 {
-	int fd;
-	size_t toread;
-	char buffer[BUFSIZ];
+    int fd;
+    size_t toread;
+    char buffer[BUFSIZ];
 
-	sprintf(buffer, "/proc/%d/cred", (int)pid);
-	if((fd = s_open(buffer, O_RDONLY)) < 0)
+    sprintf(buffer, "/proc/%d/cred", (int)pid);
+    if((fd = s_open(buffer, O_RDONLY)) < 0)
 	{
-	   	if(errno != EPERM && errno != EACCES)
-		   	glibtop_warn_io_r(server, "open (%s)", buffer);
-		return -1;
+	    if(errno != EPERM && errno != EACCES)
+		glibtop_warn_io_r(server, "open (%s)", buffer);
+	    return -1;
 	}
-	if(s_pread(fd, prcred, sizeof(struct prcred), 0) !=
-	           sizeof(struct prcred))
+    if(s_pread(fd, prcred, sizeof(struct prcred), 0) !=
+       sizeof(struct prcred))
 	{
-	   	s_close(fd);
-		glibtop_warn_io_r(server, "pread (%s)", buffer);
-		return -1;
+	    s_close(fd);
+	    glibtop_warn_io_r(server, "pread (%s)", buffer);
+	    return -1;
 	}
-	if(prcred->pr_ngroups >= 0)
+    if(prcred->pr_ngroups >= 0)
 	{
 	    if(prcred->pr_ngroups <= GLIBTOP_MAX_GROUPS)
 	        toread = prcred->pr_ngroups * sizeof(gid_t);
@@ -128,34 +130,34 @@ glibtop_get_proc_credentials_s(glibtop *server,
 	        toread = GLIBTOP_MAX_GROUPS * sizeof(gid_t);
 	    if(s_pread(fd, groups, toread,
 	               (off_t)&(((struct prcred *)0)->pr_groups[0])) != toread)
-	               prcred->pr_ngroups = 0;
+		prcred->pr_ngroups = 0;
 	}
-	s_close(fd);
-	return 0;
+    s_close(fd);
+    return 0;
 }
 
 int
 glibtop_get_proc_status_s(glibtop *server, struct pstatus *pstatus, pid_t pid)
 {
-	int fd;
-	char buffer[BUFSIZ];
+    int fd;
+    char buffer[BUFSIZ];
 
-	sprintf(buffer, "/proc/%d/status", (int)pid);
-	if((fd = s_open(buffer, O_RDONLY)) < 0)
+    sprintf(buffer, "/proc/%d/status", (int)pid);
+    if((fd = s_open(buffer, O_RDONLY)) < 0)
 	{
-	   	if(errno != EPERM && errno != EACCES)
-		   	glibtop_warn_io_r(server, "open (%s)", buffer);
-		return -1;
+	    if(errno != EPERM && errno != EACCES)
+		glibtop_warn_io_r(server, "open (%s)", buffer);
+	    return -1;
 	}
-	if(s_pread(fd, pstatus, sizeof(struct pstatus), 0) !=
-	           sizeof(struct pstatus))
+    if(s_pread(fd, pstatus, sizeof(struct pstatus), 0) !=
+       sizeof(struct pstatus))
 	{
-	   	s_close(fd);
-		glibtop_warn_io_r(server, "pread (%s)", buffer);
-		return -1;
+	    s_close(fd);
+	    glibtop_warn_io_r(server, "pread (%s)", buffer);
+	    return -1;
 	}
-	s_close(fd);
-	return 0;
+    s_close(fd);
+    return 0;
 }
 
 #else /* old API */
@@ -165,26 +167,26 @@ glibtop_get_proc_data_psinfo_s (glibtop *server,
       				struct prpsinfo *psinfo,
 				pid_t pid)
 {
-	int fd;
-	char buffer [BUFSIZ];
+    int fd;
+    char buffer [BUFSIZ];
 
-	sprintf (buffer, "/proc/%d", (int) pid);
-	fd = s_open (buffer, O_RDONLY);
-	if (fd < 0) {
-	   	if(errno != EPERM && errno != EACCES)
-			glibtop_warn_io_r (server, "open (%s)", buffer);
-		return -1;
-	}
+    sprintf (buffer, "/proc/%d", (int) pid);
+    fd = s_open (buffer, O_RDONLY);
+    if (fd < 0) {
+	if(errno != EPERM && errno != EACCES)
+	    glibtop_warn_io_r (server, "open (%s)", buffer);
+	return -1;
+    }
 
-	if(ioctl(fd, PIOCPSINFO, psinfo) < 0)
+    if(ioctl(fd, PIOCPSINFO, psinfo) < 0)
 	{
-		s_close (fd);
-		glibtop_warn_io_r (server, "ioctl(%s, PIOCPSINFO)", buffer);
-		return -1;
+	    s_close (fd);
+	    glibtop_warn_io_r (server, "ioctl(%s, PIOCPSINFO)", buffer);
+	    return -1;
 	}
 
-	s_close (fd);
-	return 0;
+    s_close (fd);
+    return 0;
 }
 
 int
@@ -192,26 +194,26 @@ glibtop_get_proc_data_usage_s (glibtop *server,
       			       struct prusage *prusage,
 			       pid_t pid)
 {
-	int fd;
-	char buffer [BUFSIZ];
+    int fd;
+    char buffer [BUFSIZ];
 
-	sprintf (buffer, "/proc/%d", (int) pid);
-	fd = s_open (buffer, O_RDONLY);
-	if (fd < 0) {
-	   	if(errno != EPERM && errno != EACCES)
-			glibtop_warn_io_r (server, "open (%s)", buffer);
-		return -1;
-	}
+    sprintf (buffer, "/proc/%d", (int) pid);
+    fd = s_open (buffer, O_RDONLY);
+    if (fd < 0) {
+	if(errno != EPERM && errno != EACCES)
+	    glibtop_warn_io_r (server, "open (%s)", buffer);
+	return -1;
+    }
 
-	if(ioctl(fd, PIOCUSAGE, prusage) < 0)
+    if(ioctl(fd, PIOCUSAGE, prusage) < 0)
 	{
-		s_close (fd);
-		glibtop_warn_io_r (server, "ioctl(%s, PIOCUSAGE)", buffer);
-		return -1;
+	    s_close (fd);
+	    glibtop_warn_io_r (server, "ioctl(%s, PIOCUSAGE)", buffer);
+	    return -1;
 	}
 
-	s_close (fd);
-	return 0;
+    s_close (fd);
+    return 0;
 }
 
 int
@@ -220,47 +222,47 @@ glibtop_get_proc_credentials_s(glibtop *server,
 			       gid_t *groups,
 			       pid_t pid)
 {
-	int fd;
-	size_t toread;
-	char buffer[BUFSIZ];
+    int fd;
+    size_t toread;
+    char buffer[BUFSIZ];
 
-	sprintf(buffer, "/proc/%d", (int)pid);
-	if((fd = s_open(buffer, O_RDONLY)) < 0)
+    sprintf(buffer, "/proc/%d", (int)pid);
+    if((fd = s_open(buffer, O_RDONLY)) < 0)
 	{
-	   	if(errno != EPERM && errno != EACCES)
-		   	glibtop_warn_io_r(server, "open (%s)", buffer);
-		return -1;
+	    if(errno != EPERM && errno != EACCES)
+		glibtop_warn_io_r(server, "open (%s)", buffer);
+	    return -1;
 	}
-	if(ioctl(fd, PIOCCRED, prcred) < 0)
+    if(ioctl(fd, PIOCCRED, prcred) < 0)
 	{
-	   	s_close(fd);
-		glibtop_warn_io_r(server, "ioctl(%s, PIOCCRED)", buffer);
-		return -1;
+	    s_close(fd);
+	    glibtop_warn_io_r(server, "ioctl(%s, PIOCCRED)", buffer);
+	    return -1;
 	}
-	s_close(fd);
-	return 0;
+    s_close(fd);
+    return 0;
 }
 
 int
 glibtop_get_proc_status_s(glibtop *server, struct prstatus *pstatus, pid_t pid)
 {
-	int fd;
-	char buffer[BUFSIZ];
+    int fd;
+    char buffer[BUFSIZ];
 
-	sprintf(buffer, "/proc/%d", (int)pid);
-	if((fd = s_open(buffer, O_RDONLY)) < 0)
+    sprintf(buffer, "/proc/%d", (int)pid);
+    if((fd = s_open(buffer, O_RDONLY)) < 0)
 	{
-	   	if(errno != EPERM && errno != EACCES)
-		   	glibtop_warn_io_r(server, "open (%s)", buffer);
-		return -1;
+	    if(errno != EPERM && errno != EACCES)
+		glibtop_warn_io_r(server, "open (%s)", buffer);
+	    return -1;
 	}
-	if(ioctl(fd, PIOCSTATUS, pstatus) < 0)
+    if(ioctl(fd, PIOCSTATUS, pstatus) < 0)
 	{
-	   	s_close(fd);
-		glibtop_warn_io_r(server, "ioctl(%s, PIOCSTATUS)", buffer);
-		return -1;
+	    s_close(fd);
+	    glibtop_warn_io_r(server, "ioctl(%s, PIOCSTATUS)", buffer);
+	    return -1;
 	}
-	s_close(fd);
-	return 0;
+    s_close(fd);
+    return 0;
 }
 #endif

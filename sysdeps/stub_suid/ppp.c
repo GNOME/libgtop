@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -32,9 +34,9 @@ static const unsigned long _glibtop_sysdeps_ppp = 0;
 int
 glibtop_init_ppp_p (glibtop *server)
 {
-	server->sysdeps.ppp = _glibtop_sysdeps_ppp;
+    server->sysdeps.ppp = _glibtop_sysdeps_ppp;
 
-	return 0;
+    return 0;
 }
 
 /* Provides PPP/ISDN information. */
@@ -42,7 +44,7 @@ glibtop_init_ppp_p (glibtop *server)
 int
 glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device)
 {
-	memset (buf, 0, sizeof (glibtop_ppp));
+    memset (buf, 0, sizeof (glibtop_ppp));
 
-	return 0;
+    return 0;
 }

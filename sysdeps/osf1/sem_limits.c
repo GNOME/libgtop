@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -35,7 +37,7 @@ static unsigned long _glibtop_sysdeps_sem_limits =
 int
 glibtop_init_sem_limits_s (glibtop *server)
 {
-	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+    server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
 }
 
 /* Provides information about sysv sem limits. */
@@ -43,68 +45,68 @@ glibtop_init_sem_limits_s (glibtop *server)
 int
 glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 {
-	int ret, value;
+    int ret, value;
 
-	glibtop_init_s (&server, 0, 0);
+    glibtop_init_s (&server, 0, 0);
 
-	memset (buf, 0, sizeof (glibtop_sem_limits));
+    memset (buf, 0, sizeof (glibtop_sem_limits));
 	
-	ret = table (TBL_SEMINFO, SEMINFO_MNI, (char *) &value, 1,
-		     sizeof (value)); 
+    ret = table (TBL_SEMINFO, SEMINFO_MNI, (char *) &value, 1,
+		 sizeof (value)); 
 
-	if (ret != 1) return;
+    if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMMNI);
+    buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMMNI);
 
-	buf->semmni = value;
-	
-	
-	ret = table (TBL_SEMINFO, SEMINFO_MSL, (char *) &value, 1,
-		     sizeof (value)); 
-
-	if (ret != 1) return;
-
-	buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMMSL);
-
-	buf->semmsl = value;
+    buf->semmni = value;
 	
 	
-	ret = table (TBL_SEMINFO, SEMINFO_OPM, (char *) &value, 1,
-		     sizeof (value)); 
+    ret = table (TBL_SEMINFO, SEMINFO_MSL, (char *) &value, 1,
+		 sizeof (value)); 
 
-	if (ret != 1) return;
+    if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMOPM);
+    buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMMSL);
 
-	buf->semopm = value;
-	
-
-	ret = table (TBL_SEMINFO, SEMINFO_UME, (char *) &value, 1,
-		     sizeof (value)); 
-
-	if (ret != 1) return;
-
-	buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMUME);
-
-	buf->semume = value;
+    buf->semmsl = value;
 	
 	
-	ret = table (TBL_SEMINFO, SEMINFO_VMX, (char *) &value, 1,
-		     sizeof (value)); 
+    ret = table (TBL_SEMINFO, SEMINFO_OPM, (char *) &value, 1,
+		 sizeof (value)); 
 
-	if (ret != 1) return;
+    if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMVMX);
+    buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMOPM);
 
-	buf->semvmx = value;
+    buf->semopm = value;
+	
+
+    ret = table (TBL_SEMINFO, SEMINFO_UME, (char *) &value, 1,
+		 sizeof (value)); 
+
+    if (ret != 1) return;
+
+    buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMUME);
+
+    buf->semume = value;
 	
 	
-	ret = table (TBL_SEMINFO, SEMINFO_AEM, (char *) &value, 1,
-		     sizeof (value)); 
+    ret = table (TBL_SEMINFO, SEMINFO_VMX, (char *) &value, 1,
+		 sizeof (value)); 
 
-	if (ret != 1) return;
+    if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMAEM);
+    buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMVMX);
 
-	buf->semaem = value;
+    buf->semvmx = value;
+	
+	
+    ret = table (TBL_SEMINFO, SEMINFO_AEM, (char *) &value, 1,
+		 sizeof (value)); 
+
+    if (ret != 1) return;
+
+    buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMAEM);
+
+    buf->semaem = value;
 }

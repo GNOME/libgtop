@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -36,72 +38,72 @@ static const unsigned long _glibtop_sysdeps_cpu =
 int
 glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 {
-	long cp_time [CPUSTATES], mp_time [NCPU][CPUSTATES];
-	int i;
+    long cp_time [CPUSTATES], mp_time [NCPU][CPUSTATES];
+    int i;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_CPU), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_CPU), 0);
 	
-	memset (buf, 0, sizeof (glibtop_cpu));
+    memset (buf, 0, sizeof (glibtop_cpu));
 
-	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
+    /* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
 
-	glibtop_suid_enter (server);
+    glibtop_suid_enter (server);
 	
-	/* get the cp_time array */
+    /* get the cp_time array */
 
-	(void) _glibtop_getkval (server, _glibtop_nlist [X_CP_TIME].n_value,
-				 (int *) cp_time, sizeof (cp_time),
-				 _glibtop_nlist [X_CP_TIME].n_name);
+    (void) _glibtop_getkval (server, _glibtop_nlist [X_CP_TIME].n_value,
+			     (int *) cp_time, sizeof (cp_time),
+			     _glibtop_nlist [X_CP_TIME].n_name);
 	
 #ifdef MULTIPROCESSOR
-	/* get the mp_time array as well */
+    /* get the mp_time array as well */
 	
-	if (server->machine.ncpu > 1) {
-		(void) _glibtop_getkval (server, _glibtop_nlist [X_MP_TIME].n_value,
-					 (int *) mp_time, sizeof (mp_time),
-					 _glibtop_nlist [X_MP_TIME].n_name);
-	}
+    if (server->machine.ncpu > 1) {
+	(void) _glibtop_getkval (server, _glibtop_nlist [X_MP_TIME].n_value,
+				 (int *) mp_time, sizeof (mp_time),
+				 _glibtop_nlist [X_MP_TIME].n_name);
+    }
 #endif
 
-	glibtop_suid_leave (server);	
+    glibtop_suid_leave (server);	
 	
-	/* !!! END OF SUID ROOT PART !!! */
+    /* !!! END OF SUID ROOT PART !!! */
 	
 #ifdef MULTIPROCESSOR
-	/* If we have multiple processors, we add the times for each of them
-	 * and set frequency to 100 times the number of the processors. */
+    /* If we have multiple processors, we add the times for each of them
+     * and set frequency to 100 times the number of the processors. */
 
-	/* [FIXME]: I had no machine with more than one processor to test
-	 *          this code !!! */
+    /* [FIXME]: I had no machine with more than one processor to test
+     *          this code !!! */
 
-	if (server->machine.ncpu > 1) {
-		for (i = 0; i < server->machine.ncpu; i++) {
-			buf->user += mp_time [i][CP_USER];
-			buf->nice += mp_time [i][CP_NICE];
-			buf->sys  += mp_time [i][CP_SYS];
-			buf->idle += mp_time [i][CP_IDLE];
-			buf->frequency += 100;
-		}
-	} else {
-		buf->user = cp_time [CP_USER];
-		buf->nice = cp_time [CP_NICE];
-		buf->sys  = cp_time [CP_SYS];
-		buf->idle = cp_time [CP_IDLE];
-		buf->frequency = 100;
+    if (server->machine.ncpu > 1) {
+	for (i = 0; i < server->machine.ncpu; i++) {
+	    buf->user += mp_time [i][CP_USER];
+	    buf->nice += mp_time [i][CP_NICE];
+	    buf->sys  += mp_time [i][CP_SYS];
+	    buf->idle += mp_time [i][CP_IDLE];
+	    buf->frequency += 100;
 	}
-#else
+    } else {
 	buf->user = cp_time [CP_USER];
 	buf->nice = cp_time [CP_NICE];
 	buf->sys  = cp_time [CP_SYS];
 	buf->idle = cp_time [CP_IDLE];
 	buf->frequency = 100;
+    }
+#else
+    buf->user = cp_time [CP_USER];
+    buf->nice = cp_time [CP_NICE];
+    buf->sys  = cp_time [CP_SYS];
+    buf->idle = cp_time [CP_IDLE];
+    buf->frequency = 100;
 #endif
 
-	/* Calculate total time. */
+    /* Calculate total time. */
 
-	buf->total = buf->user + buf->nice + buf->sys + buf->idle;
+    buf->total = buf->user + buf->nice + buf->sys + buf->idle;
 
-	/* Now we can set the flags. */
+    /* Now we can set the flags. */
 
-	buf->flags = _glibtop_sysdeps_cpu;
+    buf->flags = _glibtop_sysdeps_cpu;
 }

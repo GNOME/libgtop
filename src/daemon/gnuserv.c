@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* -*-C-*-
  * Server code for handling requests from clients and forwarding them
  * on to the GNU Emacs process.

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -43,32 +45,32 @@ static unsigned long _glibtop_sysdeps_shm_limits =
 int
 glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
-	struct shminfo	shminfo;
+    struct shminfo	shminfo;
   
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
 
-	memset (buf, 0, sizeof (glibtop_shm_limits));
+    memset (buf, 0, sizeof (glibtop_shm_limits));
   
-	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
+    /* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
 	
-	setregid (server->machine.gid, server->machine.egid);
+    setregid (server->machine.gid, server->machine.egid);
 	
-	/* get the load average array */
+    /* get the load average array */
 
-	(void) _glibtop_getkval (server, _glibtop_nlist [X_SHMINFO].n_value,
-				 (int *) &shminfo, sizeof (shminfo),
-				 _glibtop_nlist [X_SHMINFO].n_name);
+    (void) _glibtop_getkval (server, _glibtop_nlist [X_SHMINFO].n_value,
+			     (int *) &shminfo, sizeof (shminfo),
+			     _glibtop_nlist [X_SHMINFO].n_name);
 
-	if (setregid (server->machine.egid, server->machine.gid))
-		_exit (1);
+    if (setregid (server->machine.egid, server->machine.gid))
+	_exit (1);
 	
-	/* !!! END OF SGID KMEM PART !!! */
+    /* !!! END OF SGID KMEM PART !!! */
 
-  	buf->shmmax = shminfo.shmmax;
-	buf->shmmin = shminfo.shmmin;
-	buf->shmmni = shminfo.shmmni;
-	buf->shmseg = shminfo.shmseg;
-	buf->shmall = shminfo.shmall;
+    buf->shmmax = shminfo.shmmax;
+    buf->shmmin = shminfo.shmmin;
+    buf->shmmni = shminfo.shmmni;
+    buf->shmseg = shminfo.shmseg;
+    buf->shmall = shminfo.shmall;
 
-	buf->flags = _glibtop_sysdeps_shm_limits;
+    buf->flags = _glibtop_sysdeps_shm_limits;
 }

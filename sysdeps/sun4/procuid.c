@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -39,33 +41,33 @@ int
 glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 			pid_t pid)
 {
-	struct proc *pp;
+    struct proc *pp;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_UID), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_UID), 0);
 
-	memset (buf, 0, sizeof (glibtop_proc_uid));
+    memset (buf, 0, sizeof (glibtop_proc_uid));
 
-	/* Read process table from kernel. */	
+    /* Read process table from kernel. */	
 
-	_glibtop_read_proc_table (server);
+    _glibtop_read_proc_table (server);
 
-	/* Find the pid in the process table. */
+    /* Find the pid in the process table. */
 
-	pp = _glibtop_find_pid (server, pid);
+    pp = _glibtop_find_pid (server, pid);
 
-	if (pp == NULL)	return;
+    if (pp == NULL)	return;
 
-	/* Fill in data fields. */
+    /* Fill in data fields. */
 
-	buf->uid = pp->p_uid;
-	buf->euid = pp->p_suid;
-	buf->egid = pp->p_sgid;
-	buf->pid = pp->p_pid;
-	buf->ppid = pp->p_ppid;
-	buf->pgrp = pp->p_pgrp;
-	buf->tpgid = pp->p_pgrp;
-	buf->priority = pp->p_pri;
-	buf->nice = pp->p_nice;
+    buf->uid = pp->p_uid;
+    buf->euid = pp->p_suid;
+    buf->egid = pp->p_sgid;
+    buf->pid = pp->p_pid;
+    buf->ppid = pp->p_ppid;
+    buf->pgrp = pp->p_pgrp;
+    buf->tpgid = pp->p_pgrp;
+    buf->priority = pp->p_pri;
+    buf->nice = pp->p_nice;
 
-	buf->flags = _glibtop_sysdeps_proc_uid;
+    buf->flags = _glibtop_sysdeps_proc_uid;
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -31,9 +33,9 @@ static const unsigned long _glibtop_sysdeps_shm_limits = 0;
 int
 glibtop_init_shm_limits_s (glibtop *server)
 {
-	server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
+    server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -41,7 +43,7 @@ glibtop_init_shm_limits_s (glibtop *server)
 int
 glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 {
-	memset (buf, 0, sizeof (glibtop_shm_limits));
+    memset (buf, 0, sizeof (glibtop_shm_limits));
 
-	return 0;
+    return 0;
 }

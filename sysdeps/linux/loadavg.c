@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -38,9 +40,9 @@ static const unsigned long _glibtop_sysdeps_loadavg_tasks =
 int
 glibtop_init_loadavg_s (glibtop *server)
 {
-	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
+    server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
 
-	return 0;
+    return 0;
 }
 
 /* Provides load load averange. */
@@ -50,54 +52,54 @@ glibtop_init_loadavg_s (glibtop *server)
 int
 glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
-	char buffer [BUFSIZ], *p, *old;
-	int fd, len;
+    char buffer [BUFSIZ], *p, *old;
+    int fd, len;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_LOADAVG, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_LOADAVG, 0);
 
-	memset (buf, 0, sizeof (glibtop_loadavg));
+    memset (buf, 0, sizeof (glibtop_loadavg));
 
-	fd = open (FILENAME, O_RDONLY);
-	if (fd < 0) {
-		glibtop_warn_io_r (server, "open (%s)", FILENAME);
-		return -1;
-	}
+    fd = open (FILENAME, O_RDONLY);
+    if (fd < 0) {
+	glibtop_warn_io_r (server, "open (%s)", FILENAME);
+	return -1;
+    }
 
-	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0) {
-		close (fd);
-		glibtop_warn_io_r (server, "read (%s)", FILENAME);
-		return -1;
-	}
-
+    len = read (fd, buffer, BUFSIZ-1);
+    if (len < 0) {
 	close (fd);
+	glibtop_warn_io_r (server, "read (%s)", FILENAME);
+	return -1;
+    }
 
-	buffer [len] = '\0';
+    close (fd);
 
-	buf->loadavg [0] = (float) strtod (buffer, &p);
-	buf->loadavg [1] = (float) strtod (p, &p);
-	buf->loadavg [2] = (float) strtod (p, &p);
+    buffer [len] = '\0';
 
-	buf->flags = _glibtop_sysdeps_loadavg;
+    buf->loadavg [0] = (float) strtod (buffer, &p);
+    buf->loadavg [1] = (float) strtod (p, &p);
+    buf->loadavg [2] = (float) strtod (p, &p);
 
-        while (isspace(*p)) p++;
+    buf->flags = _glibtop_sysdeps_loadavg;
 
-	/* Older Linux versions don't have the nr_running/nr_tasks fields. */
+    while (isspace(*p)) p++;
 
-	old = p;
-        while (*p) {
-		if (*p == '/')
-			break;
-		if (!isdigit (*p))
-			return 0;
-		p++;
-	}
+    /* Older Linux versions don't have the nr_running/nr_tasks fields. */
 
-	buf->nr_running  = strtoul (old, &p, 0); p++;
-	buf->nr_tasks    = strtoul (p, &p, 0);
-	buf->last_pid    = strtoul (p, &p, 0);
+    old = p;
+    while (*p) {
+	if (*p == '/')
+	    break;
+	if (!isdigit (*p))
+	    return 0;
+	p++;
+    }
 
-	buf->flags |= _glibtop_sysdeps_loadavg_tasks;
+    buf->nr_running  = strtoul (old, &p, 0); p++;
+    buf->nr_tasks    = strtoul (p, &p, 0);
+    buf->last_pid    = strtoul (p, &p, 0);
 
-	return 0;
+    buf->flags |= _glibtop_sysdeps_loadavg_tasks;
+
+    return 0;
 }

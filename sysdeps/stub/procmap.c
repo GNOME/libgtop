@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,9 +36,9 @@ static const unsigned long _glibtop_sysdeps_proc_map = 0;
 int
 glibtop_init_proc_map_s (glibtop *server)
 {
-	server->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
+    server->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
 
-	return 0;
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -44,9 +46,9 @@ glibtop_init_proc_map_s (glibtop *server)
 glibtop_map_entry *
 glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 {
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
 	
-	memset (buf, 0, sizeof (glibtop_proc_map));
+    memset (buf, 0, sizeof (glibtop_proc_map));
 	
-	return NULL;
+    return NULL;
 }

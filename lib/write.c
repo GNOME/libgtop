@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -28,22 +30,22 @@
 void
 glibtop_write_l (glibtop *server, size_t size, void *buf)
 {
-	int ret;
+    int ret;
 
-	glibtop_init_r (&server, 0, 0);
+    glibtop_init_r (&server, 0, 0);
 
-	if (size == 0) return;
+    if (size == 0) return;
 
 #ifdef DEBUG
-	fprintf (stderr, "LIBRARY: really writing %d bytes.\n", size);
+    fprintf (stderr, "LIBRARY: really writing %d bytes.\n", size);
 #endif
 
-	if (server->_priv->socket) {
-		ret = send (server->_priv->socket, buf, size, 0);
-	} else {
-		ret = write (server->_priv->output [1], buf, size);
-	}
+    if (server->_priv->socket) {
+	ret = send (server->_priv->socket, buf, size, 0);
+    } else {
+	ret = write (server->_priv->output [1], buf, size);
+    }
 
-	if (ret < 0)
-		glibtop_error_io_r (server, _("write %d bytes"), size);
+    if (ret < 0)
+	glibtop_error_io_r (server, _("write %d bytes"), size);
 }

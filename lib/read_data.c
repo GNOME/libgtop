@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,43 +31,43 @@
 void *
 glibtop_read_data_l (glibtop *server)
 {
-	size_t size;
-	void *ptr;
-	int ret;
+    size_t size;
+    void *ptr;
+    int ret;
 
-	glibtop_init_r (&server, 0, 0);
-
-#ifdef DEBUG
-	fprintf (stderr, "LIBRARY: reading %d data bytes.\n", sizeof (size_t));
-#endif
-
-	if (server->_priv->socket) {
-		ret = recv (server->_priv->socket, (void *)&size,
-			    sizeof (size_t), 0);
-	} else {
-		ret = read (server->_priv->input [0], (void *)&size,
-			    sizeof (size_t));
-	}
-
-	if (ret < 0)
-		glibtop_error_io_r (server, _("read data size"));
+    glibtop_init_r (&server, 0, 0);
 
 #ifdef DEBUG
-	fprintf (stderr, "LIBRARY: really reading %d data bytes (ret = %d).\n", size, ret);
+    fprintf (stderr, "LIBRARY: reading %d data bytes.\n", sizeof (size_t));
 #endif
 
-	if (!size) return NULL;	
+    if (server->_priv->socket) {
+	ret = recv (server->_priv->socket, (void *)&size,
+		    sizeof (size_t), 0);
+    } else {
+	ret = read (server->_priv->input [0], (void *)&size,
+		    sizeof (size_t));
+    }
 
-	ptr = glibtop_malloc_r (server, size);
+    if (ret < 0)
+	glibtop_error_io_r (server, _("read data size"));
+
+#ifdef DEBUG
+    fprintf (stderr, "LIBRARY: really reading %d data bytes (ret = %d).\n", size, ret);
+#endif
+
+    if (!size) return NULL;	
+
+    ptr = glibtop_malloc_r (server, size);
 	
-	if (server->_priv->socket) {
-		ret = recv (server->_priv->socket, ptr, size, 0);
-	} else {
-		ret = read (server->_priv->input [0], ptr, size);
-	}
+    if (server->_priv->socket) {
+	ret = recv (server->_priv->socket, ptr, size, 0);
+    } else {
+	ret = read (server->_priv->input [0], ptr, size);
+    }
 
-	if (ret < 0)
-		glibtop_error_io_r (server, _("read data %d bytes"));
+    if (ret < 0)
+	glibtop_error_io_r (server, _("read data %d bytes"));
 
-	return ptr;
+    return ptr;
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -36,9 +38,9 @@ static const unsigned long _glibtop_sysdeps_proc_kernel =
 int
 glibtop_init_proc_kernel_s (glibtop *server)
 {
-	server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
+    server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
 
-	return 0;
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -46,36 +48,36 @@ glibtop_init_proc_kernel_s (glibtop *server)
 int
 glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid)
 {
-	char buffer [BUFSIZ], *p;
+    char buffer [BUFSIZ], *p;
 	
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
 
-	memset (buf, 0, sizeof (glibtop_proc_kernel));
+    memset (buf, 0, sizeof (glibtop_proc_kernel));
 
-	if (proc_stat_to_buffer (buffer, pid))
-		return -1;
+    if (proc_stat_to_buffer (buffer, pid))
+	return -1;
 
-	p = proc_stat_after_cmd (buffer);
-	if (!p) return -1;
+    p = proc_stat_after_cmd (buffer);
+    if (!p) return -1;
 
-	p = skip_multiple_token (p, 6);
+    p = skip_multiple_token (p, 6);
 
-	buf->k_flags   = strtoul (p, &p, 0);
-	buf->min_flt   = strtoul (p, &p, 0);
-	buf->cmin_flt  = strtoul (p, &p, 0);
-	buf->maj_flt   = strtoul (p, &p, 0);
-	buf->cmaj_flt  = strtoul (p, &p, 0);
+    buf->k_flags   = strtoul (p, &p, 0);
+    buf->min_flt   = strtoul (p, &p, 0);
+    buf->cmin_flt  = strtoul (p, &p, 0);
+    buf->maj_flt   = strtoul (p, &p, 0);
+    buf->cmaj_flt  = strtoul (p, &p, 0);
 
-	p = skip_multiple_token (p, 15);
+    p = skip_multiple_token (p, 15);
 
-	buf->kstk_esp = strtoul (p, &p, 0);
-	buf->kstk_eip = strtoul (p, &p, 0);
+    buf->kstk_esp = strtoul (p, &p, 0);
+    buf->kstk_eip = strtoul (p, &p, 0);
 	
-	p = skip_multiple_token (p, 4);
+    p = skip_multiple_token (p, 4);
 	
-	buf->nwchan = strtoul (p, &p, 0);
+    buf->nwchan = strtoul (p, &p, 0);
 
-	buf->flags = _glibtop_sysdeps_proc_kernel;
+    buf->flags = _glibtop_sysdeps_proc_kernel;
 
-	return 0;
+    return 0;
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -33,9 +35,9 @@ static unsigned long _glibtop_sysdeps_uptime =
 int
 glibtop_init_uptime_s (glibtop *server)
 {
-	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+    server->sysdeps.uptime = _glibtop_sysdeps_uptime;
 
-	return 0;
+    return 0;
 }
 
 /* Provides uptime and idle time. */
@@ -45,34 +47,34 @@ glibtop_init_uptime_s (glibtop *server)
 int
 glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
-	char buffer [BUFSIZ], *p;
-	int fd, len;
+    char buffer [BUFSIZ], *p;
+    int fd, len;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_UPTIME, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_UPTIME, 0);
 
-	memset (buf, 0, sizeof (glibtop_uptime));
+    memset (buf, 0, sizeof (glibtop_uptime));
 
-	fd = open (FILENAME, O_RDONLY);
-	if (fd < 0) {
-		glibtop_warn_io_r (server, "open (%s)", FILENAME);
-		return -1;
-	}
+    fd = open (FILENAME, O_RDONLY);
+    if (fd < 0) {
+	glibtop_warn_io_r (server, "open (%s)", FILENAME);
+	return -1;
+    }
 
-	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0) {
-		close (fd);
-		glibtop_warn_io_r (server, "read (%s)", FILENAME);
-		return -1;
-	}
-
+    len = read (fd, buffer, BUFSIZ-1);
+    if (len < 0) {
 	close (fd);
+	glibtop_warn_io_r (server, "read (%s)", FILENAME);
+	return -1;
+    }
 
-	buffer [len] = '\0';
+    close (fd);
 
-	buf->uptime   = strtod (buffer, &p);
-	buf->idletime = strtod (p, &p);
+    buffer [len] = '\0';
 
-	buf->flags = _glibtop_sysdeps_uptime;
+    buf->uptime   = strtod (buffer, &p);
+    buf->idletime = strtod (p, &p);
 
-	return 0;
+    buf->flags = _glibtop_sysdeps_uptime;
+
+    return 0;
 }

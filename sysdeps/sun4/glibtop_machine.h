@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -83,19 +85,19 @@ typedef struct _glibtop_machine		glibtop_machine;
 
 struct _glibtop_machine
 {
-	uid_t uid, euid;		/* Real and effective user id */
-	gid_t gid, egid;		/* Real and effective group id */
-	int nlist_count;		/* Number of symbols in the nlist */
-	int ncpu;			/* Number of CPUs we have */
-	int nproc;			/* Number of entries in the process array */
-	size_t ptable_size;		/* Size of process array. */
-	unsigned long ptable_offset;	/* Offset of process array in kernel. */
-	struct proc *proc_table;	/* Process array. */
-	unsigned long pages, epages;
-	struct page *physpage;
-	int bytesize, count;
-	int pageshift;			/* log base 2 of the pagesize */
-	kvm_t *kd;
+    uid_t uid, euid;		/* Real and effective user id */
+    gid_t gid, egid;		/* Real and effective group id */
+    int nlist_count;		/* Number of symbols in the nlist */
+    int ncpu;			/* Number of CPUs we have */
+    int nproc;			/* Number of entries in the process array */
+    size_t ptable_size;		/* Size of process array. */
+    unsigned long ptable_offset;	/* Offset of process array in kernel. */
+    struct proc *proc_table;	/* Process array. */
+    unsigned long pages, epages;
+    struct page *physpage;
+    int bytesize, count;
+    int pageshift;			/* log base 2 of the pagesize */
+    kvm_t *kd;
 };
 
 /* Those functions are used internally in libgtop */

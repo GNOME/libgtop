@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -31,9 +33,9 @@ static const unsigned long _glibtop_sysdeps_uptime = 0;
 int
 glibtop_init_uptime_s (glibtop *server)
 {
-	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+    server->sysdeps.uptime = _glibtop_sysdeps_uptime;
 
-	return 0;
+    return 0;
 }
 
 /* Provides uptime and idle time. */
@@ -41,7 +43,7 @@ glibtop_init_uptime_s (glibtop *server)
 int
 glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
-	memset (buf, 0, sizeof (glibtop_uptime));
+    memset (buf, 0, sizeof (glibtop_uptime));
 
-	return 0;
+    return 0;
 }

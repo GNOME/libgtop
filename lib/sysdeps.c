@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
@@ -47,66 +49,66 @@ GLIBTOP_SUID_PPP;
 
 glibtop_init_func_t _glibtop_init_hook_s [] = {
 #if !GLIBTOP_SUID_CPU
-	glibtop_init_cpu_s,
+    glibtop_init_cpu_s,
 #endif
 #if !GLIBTOP_SUID_MEM
-	glibtop_init_mem_s,
+    glibtop_init_mem_s,
 #endif
 #if !GLIBTOP_SUID_SWAP
-	glibtop_init_swap_s,
+    glibtop_init_swap_s,
 #endif
 #if !GLIBTOP_SUID_UPTIME
-	glibtop_init_uptime_s,
+    glibtop_init_uptime_s,
 #endif
 #if !GLIBTOP_SUID_LOADAVG
-	glibtop_init_loadavg_s,
+    glibtop_init_loadavg_s,
 #endif
 #if !GLIBTOP_SUID_SHM_LIMITS
-	glibtop_init_shm_limits_s,
+    glibtop_init_shm_limits_s,
 #endif
 #if !GLIBTOP_SUID_MSG_LIMITS
-	glibtop_init_msg_limits_s,
+    glibtop_init_msg_limits_s,
 #endif
 #if !GLIBTOP_SUID_SEM_LIMITS
-	glibtop_init_sem_limits_s,
+    glibtop_init_sem_limits_s,
 #endif
 #if !GLIBTOP_SUID_PROCLIST
-	glibtop_init_proclist_s,
+    glibtop_init_proclist_s,
 #endif
 #if !GLIBTOP_SUID_PROC_STATE
-	glibtop_init_proc_state_s,
+    glibtop_init_proc_state_s,
 #endif
 #if !GLIBTOP_SUID_PROC_UID
-	glibtop_init_proc_uid_s,
+    glibtop_init_proc_uid_s,
 #endif
 #if !GLIBTOP_SUID_PROC_MEM
-	glibtop_init_proc_mem_s,
+    glibtop_init_proc_mem_s,
 #endif
 #if !GLIBTOP_SUID_PROC_TIME
-	glibtop_init_proc_time_s,
+    glibtop_init_proc_time_s,
 #endif
 #if !GLIBTOP_SUID_PROC_SIGNAL
-	glibtop_init_proc_signal_s,
+    glibtop_init_proc_signal_s,
 #endif
 #if !GLIBTOP_SUID_PROC_KERNEL
-	glibtop_init_proc_kernel_s,
+    glibtop_init_proc_kernel_s,
 #endif
 #if !GLIBTOP_SUID_PROC_SEGMENT
-	glibtop_init_proc_segment_s,
+    glibtop_init_proc_segment_s,
 #endif
 #if !GLIBTOP_SUID_PROC_ARGS
-	glibtop_init_proc_args_s,
+    glibtop_init_proc_args_s,
 #endif
 #if !GLIBTOP_SUID_PROC_MAP
-	glibtop_init_proc_map_s,
+    glibtop_init_proc_map_s,
 #endif
 #if !GLIBTOP_SUID_NETLOAD
-	glibtop_init_netload_s,
+    glibtop_init_netload_s,
 #endif
 #if !GLIBTOP_SUID_PPP
-	glibtop_init_ppp_s,
+    glibtop_init_ppp_s,
 #endif
-	NULL
+    NULL
 };
 
 /* Checks which features are implemented. */
@@ -114,5 +116,5 @@ glibtop_init_func_t _glibtop_init_hook_s [] = {
 void
 glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf)
 {
-	memcpy (buf, &server->sysdeps, sizeof (glibtop_sysdeps));
+    memcpy (buf, &server->sysdeps, sizeof (glibtop_sysdeps));
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -39,53 +41,53 @@ static const unsigned long _glibtop_sysdeps_mem =
 int
 glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 {
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MEM), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MEM), 0);
 
-	memset (buf, 0, sizeof (glibtop_mem));
+    memset (buf, 0, sizeof (glibtop_mem));
 	
-	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
+    /* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
 	
-	glibtop_suid_enter (server);
+    glibtop_suid_enter (server);
 	
-	/* get the array of physpage descriptors */
+    /* get the array of physpage descriptors */
 	
-	(void) _glibtop_getkval (server, server->machine.pages,
-				 (int *) server->machine.physpage,
-				 server->machine.bytesize,
-				 "array _page");
+    (void) _glibtop_getkval (server, server->machine.pages,
+			     (int *) server->machine.physpage,
+			     server->machine.bytesize,
+			     "array _page");
 
-	glibtop_suid_leave (server);
+    glibtop_suid_leave (server);
 	
-	/* !!! END OF SGID KMEM PART !!! */
+    /* !!! END OF SGID KMEM PART !!! */
 
 
-	{	/* sum memory statistics */
-		register struct page *pp;
-		register int cnt;
-		register int inuse;
-		register int free;
-		register int locked;
+    {	/* sum memory statistics */
+	register struct page *pp;
+	register int cnt;
+	register int inuse;
+	register int free;
+	register int locked;
 		
-		/* bop thru the array counting page types */
+	/* bop thru the array counting page types */
 
-		pp = server->machine.physpage;
-		inuse = free = locked = 0;
-		for (cnt = server->machine.count; --cnt >= 0; pp++) {
-			if (pp->p_free)
-				free++;
-			else if (pp->p_lock || pp->p_keepcnt > 0)
-				locked++;
-			else
-				inuse++;
-		}
-
-		/* convert memory stats to Kbytes */
-		
-		buf->total  = pagetok (inuse + free);
-		buf->used   = pagetok (inuse);
-		buf->free   = pagetok (free);
-		buf->locked = pagetok (locked);
-
-		buf->flags = _glibtop_sysdeps_mem;
+	pp = server->machine.physpage;
+	inuse = free = locked = 0;
+	for (cnt = server->machine.count; --cnt >= 0; pp++) {
+	    if (pp->p_free)
+		free++;
+	    else if (pp->p_lock || pp->p_keepcnt > 0)
+		locked++;
+	    else
+		inuse++;
 	}
+
+	/* convert memory stats to Kbytes */
+		
+	buf->total  = pagetok (inuse + free);
+	buf->used   = pagetok (inuse);
+	buf->free   = pagetok (free);
+	buf->locked = pagetok (locked);
+
+	buf->flags = _glibtop_sysdeps_mem;
+    }
 }

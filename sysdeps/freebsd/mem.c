@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998 Joshua Sled
@@ -58,18 +60,18 @@ static int pageshift;		/* log base 2 of the pagesize */
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
 #if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
-	{ "_bufpages" },
-	{ 0 }
+    { "_bufpages" },
+    { 0 }
 #else
 #if defined(__bsdi__)
-	{ "_bufcachemem" },
+    { "_bufcachemem" },
 #elif defined(__FreeBSD__)
-	{ "_bufspace" },
+    { "_bufspace" },
 #else
-	{ "_bufpages" },
+    { "_bufpages" },
 #endif
-	{ "_cnt" },
-	{ 0 }
+    { "_cnt" },
+    { 0 }
 #endif
 };
 
@@ -90,137 +92,137 @@ static int mib_uvmexp [] = { CTL_VM, VM_UVMEXP };
 int
 glibtop_init_mem_p (glibtop *server)
 {
-	register int pagesize;
+    register int pagesize;
 
-	if (kvm_nlist (server->_priv->machine.kd, nlst) != 0) {
-		glibtop_warn_io_r (server, "kvm_nlist (mem)");
-		return -1;
-	}
+    if (kvm_nlist (server->_priv->machine.kd, nlst) != 0) {
+	glibtop_warn_io_r (server, "kvm_nlist (mem)");
+	return -1;
+    }
 
-	/* get the page size with "getpagesize" and calculate pageshift
-	 * from it */
-	pagesize = getpagesize ();
-	pageshift = 0;
-	while (pagesize > 1) {
-		pageshift++;
-		pagesize >>= 1;
-	}
+    /* get the page size with "getpagesize" and calculate pageshift
+     * from it */
+    pagesize = getpagesize ();
+    pageshift = 0;
+    while (pagesize > 1) {
+	pageshift++;
+	pagesize >>= 1;
+    }
 
-	/* we only need the amount of log(2)1024 for our conversion */
-	pageshift -= LOG1024;
+    /* we only need the amount of log(2)1024 for our conversion */
+    pageshift -= LOG1024;
 
-	server->sysdeps.mem = _glibtop_sysdeps_mem;
+    server->sysdeps.mem = _glibtop_sysdeps_mem;
 
-	return 0;
+    return 0;
 }
 
 int
 glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 {
-	struct vmtotal vmt;
-	size_t length_vmt;
+    struct vmtotal vmt;
+    size_t length_vmt;
 #if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
-	struct uvmexp uvmexp;
-	size_t length_uvmexp;
+    struct uvmexp uvmexp;
+    size_t length_uvmexp;
 #else
-	struct vmmeter vmm;
+    struct vmmeter vmm;
 #endif
-	u_int v_used_count;
-	u_int v_total_count;
-	u_int v_free_count;
-	int bufspace;
+    u_int v_used_count;
+    u_int v_total_count;
+    u_int v_free_count;
+    int bufspace;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MEM), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MEM), 0);
 	
-	memset (buf, 0, sizeof (glibtop_mem));
+    memset (buf, 0, sizeof (glibtop_mem));
 
-	if (server->sysdeps.mem == 0)
-		return -1;
+    if (server->sysdeps.mem == 0)
+	return -1;
 
-	/* [FIXME: On FreeBSD 2.2.6, sysctl () returns an incorrect
-	 *         value for `vmt.vm'. We use some code from Unix top
-	 *         here.] */
+    /* [FIXME: On FreeBSD 2.2.6, sysctl () returns an incorrect
+     *         value for `vmt.vm'. We use some code from Unix top
+     *         here.] */
 
-	/* Get the data from sysctl */
-	length_vmt = sizeof (vmt);
-	if (sysctl (mib, 2, &vmt, &length_vmt, NULL, 0)) {
-		glibtop_warn_io_r (server, "sysctl (vmt)");
-		return -1;
-	}
+    /* Get the data from sysctl */
+    length_vmt = sizeof (vmt);
+    if (sysctl (mib, 2, &vmt, &length_vmt, NULL, 0)) {
+	glibtop_warn_io_r (server, "sysctl (vmt)");
+	return -1;
+    }
 
 #if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
-	length_uvmexp = sizeof (uvmexp);
-	if (sysctl (mib_uvmexp, 2, &uvmexp, &length_uvmexp, NULL, 0)) {
-		glibtop_warn_io_r (server, "sysctl (uvmexp)");
-		return -1;
-	}
+    length_uvmexp = sizeof (uvmexp);
+    if (sysctl (mib_uvmexp, 2, &uvmexp, &length_uvmexp, NULL, 0)) {
+	glibtop_warn_io_r (server, "sysctl (uvmexp)");
+	return -1;
+    }
 #else
-	/* Get the data from kvm_* */
-	if (kvm_read (server->_priv->machine.kd, nlst[1].n_value,
-		      &vmm, sizeof (vmm)) != sizeof (vmm)) {
-		glibtop_warn_io_r (server, "kvm_read (cnt)");
-		return -1;
-	}
+    /* Get the data from kvm_* */
+    if (kvm_read (server->_priv->machine.kd, nlst[1].n_value,
+		  &vmm, sizeof (vmm)) != sizeof (vmm)) {
+	glibtop_warn_io_r (server, "kvm_read (cnt)");
+	return -1;
+    }
 #endif
 
-	if (kvm_read (server->_priv->machine.kd, nlst[0].n_value,
-		      &bufspace, sizeof (bufspace)) != sizeof (bufspace)) {
-		glibtop_warn_io_r (server, "kvm_read (bufspace)");
-		return -1;
-	}
+    if (kvm_read (server->_priv->machine.kd, nlst[0].n_value,
+		  &bufspace, sizeof (bufspace)) != sizeof (bufspace)) {
+	glibtop_warn_io_r (server, "kvm_read (bufspace)");
+	return -1;
+    }
   
-	/* convert memory stats to Kbytes */
+    /* convert memory stats to Kbytes */
 
 #if defined(__FreeBSD__)
-	v_total_count = vmm.v_page_count;
+    v_total_count = vmm.v_page_count;
 #else
 #if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
-	v_total_count = uvmexp.reserve_kernel +
-		uvmexp.reserve_pagedaemon +
-		uvmexp.free + uvmexp.wired + uvmexp.active +
-		uvmexp.inactive;
+    v_total_count = uvmexp.reserve_kernel +
+	uvmexp.reserve_pagedaemon +
+	uvmexp.free + uvmexp.wired + uvmexp.active +
+	uvmexp.inactive;
 #else
-	v_total_count = vmm.v_kernel_pages +
-		vmm.v_free_count + vmm.v_wire_count +
-		vmm.v_active_count + vmm.v_inactive_count;
+    v_total_count = vmm.v_kernel_pages +
+	vmm.v_free_count + vmm.v_wire_count +
+	vmm.v_active_count + vmm.v_inactive_count;
 #endif
 #endif
 
 #if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
-	v_used_count = uvmexp.active + uvmexp.inactive;
-	v_free_count = uvmexp.free;
+    v_used_count = uvmexp.active + uvmexp.inactive;
+    v_free_count = uvmexp.free;
 #else
-	v_used_count = vmm.v_active_count + vmm.v_inactive_count;
-	v_free_count = vmm.v_free_count;
+    v_used_count = vmm.v_active_count + vmm.v_inactive_count;
+    v_free_count = vmm.v_free_count;
 #endif
 
-	buf->total = (u_int64_t) pagetok (v_total_count) << LOG1024;
-	buf->used  = (u_int64_t) pagetok (v_used_count) << LOG1024;
-	buf->free  = (u_int64_t) pagetok (v_free_count) << LOG1024;
+    buf->total = (u_int64_t) pagetok (v_total_count) << LOG1024;
+    buf->used  = (u_int64_t) pagetok (v_used_count) << LOG1024;
+    buf->free  = (u_int64_t) pagetok (v_free_count) << LOG1024;
 
 #ifdef __FreeBSD__
-	buf->cached = (u_int64_t) pagetok (vmm.v_cache_count) << LOG1024;
+    buf->cached = (u_int64_t) pagetok (vmm.v_cache_count) << LOG1024;
 #endif
 
 #if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
-	buf->locked = (u_int64_t) pagetok (uvmexp.wired) << LOG1024;
+    buf->locked = (u_int64_t) pagetok (uvmexp.wired) << LOG1024;
 #else
-	buf->locked = (u_int64_t) pagetok (vmm.v_wire_count) << LOG1024;
+    buf->locked = (u_int64_t) pagetok (vmm.v_wire_count) << LOG1024;
 #endif
 
-	buf->shared = (u_int64_t) pagetok (vmt.t_rmshr) << LOG1024;
+    buf->shared = (u_int64_t) pagetok (vmt.t_rmshr) << LOG1024;
 
 #if __FreeBSD__
-	buf->buffer = (u_int64_t) bufspace;
+    buf->buffer = (u_int64_t) bufspace;
 #else
-	buf->buffer = (u_int64_t) pagetok (bufspace) << LOG1024;
+    buf->buffer = (u_int64_t) pagetok (bufspace) << LOG1024;
 #endif
 
-	/* user */
-	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
+    /* user */
+    buf->user = buf->total - buf->free - buf->shared - buf->buffer;
 
-	/* Set the values to return */
-	buf->flags = _glibtop_sysdeps_mem;
+    /* Set the values to return */
+    buf->flags = _glibtop_sysdeps_mem;
 
-	return 0;
+    return 0;
 }

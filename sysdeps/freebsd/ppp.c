@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -63,9 +65,9 @@ static const unsigned long _glibtop_sysdeps_ppp_acct =
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
 #ifdef HAVE_I4B
-	{ "_i4bisppp_softc" },
+    { "_i4bisppp_softc" },
 #endif
-	{ 0 }
+    { 0 }
 };
 
 /* Init function. */
@@ -75,17 +77,17 @@ glibtop_init_ppp_p (glibtop *server)
 {
 #ifdef HAVE_I4B
 #ifdef HAVE_I4B_ACCT
-	server->sysdeps.ppp = _glibtop_sysdeps_ppp |
-		_glibtop_sysdeps_ppp_acct;
+    server->sysdeps.ppp = _glibtop_sysdeps_ppp |
+	_glibtop_sysdeps_ppp_acct;
 #else
-	server->sysdeps.ppp = _glibtop_sysdeps_ppp;
+    server->sysdeps.ppp = _glibtop_sysdeps_ppp;
 #endif
 #endif /* HAVE_I4B */
 
-	if (kvm_nlist (server->_priv->machine.kd, nlst) != 0)
-		glibtop_error_io_r (server, "kvm_nlist");
+    if (kvm_nlist (server->_priv->machine.kd, nlst) != 0)
+	glibtop_error_io_r (server, "kvm_nlist");
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about ppp usage. */
@@ -95,54 +97,54 @@ glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device)
 {
 #ifdef HAVE_I4B
 #ifdef HAVE_I4B_ACCT
-	struct i4bisppp_softc data;
+    struct i4bisppp_softc data;
 #else
-	struct sppp data;
+    struct sppp data;
 #endif
-	int phase;
+    int phase;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PPP), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PPP), 0);
 	
-	memset (buf, 0, sizeof (glibtop_ppp));
+    memset (buf, 0, sizeof (glibtop_ppp));
 
-	if (kvm_read (server->_priv->machine.kd, nlst [0].n_value,
-		      &data, sizeof (data)) != sizeof (data))
-		glibtop_error_io_r (server, "kvm_read (i4bisppp_softc)");
+    if (kvm_read (server->_priv->machine.kd, nlst [0].n_value,
+		  &data, sizeof (data)) != sizeof (data))
+	glibtop_error_io_r (server, "kvm_read (i4bisppp_softc)");
 
 #ifdef HAVE_I4B_ACCT
-	phase = data.sc_if_un.scu_sp.pp_phase;
+    phase = data.sc_if_un.scu_sp.pp_phase;
 #else
-	/* FIXME: Which FreeBSD version have this field and
-	 *        which not. */
+    /* FIXME: Which FreeBSD version have this field and
+     *        which not. */
 #if 0
-	phase = data.pp_phase;
+    phase = data.pp_phase;
 #endif
 #endif
 
-	switch (phase) {
+    switch (phase) {
 #ifdef HAVE_I4B_ACCT
-	case PHASE_DEAD:
-	case PHASE_TERMINATE:
-		buf->state = GLIBTOP_PPP_STATE_HANGUP;
-		break;
-	case PHASE_ESTABLISH:
-	case PHASE_NETWORK:
-		buf->state = GLIBTOP_PPP_STATE_ONLINE;
-		break;
+    case PHASE_DEAD:
+    case PHASE_TERMINATE:
+	buf->state = GLIBTOP_PPP_STATE_HANGUP;
+	break;
+    case PHASE_ESTABLISH:
+    case PHASE_NETWORK:
+	buf->state = GLIBTOP_PPP_STATE_ONLINE;
+	break;
 #endif
-	default:
-		buf->state = GLIBTOP_PPP_STATE_UNKNOWN;
-		break;
-	}
+    default:
+	buf->state = GLIBTOP_PPP_STATE_UNKNOWN;
+	break;
+    }
 
-	buf->flags = _glibtop_sysdeps_ppp;
+    buf->flags = _glibtop_sysdeps_ppp;
 
 #ifdef HAVE_I4B_ACCT
-	buf->bytes_in = data.sc_inb;
-	buf->bytes_out = data.sc_outb;
-	buf->flags |= _glibtop_sysdeps_ppp_acct;
+    buf->bytes_in = data.sc_inb;
+    buf->bytes_out = data.sc_outb;
+    buf->flags |= _glibtop_sysdeps_ppp_acct;
 #endif
 #endif /* HAVE_I4B */
 
-	return 0;
+    return 0;
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -36,154 +38,154 @@ void
 glibtop_open_l (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
-	int connect_type;
+    int connect_type;
 
-	if (!server->_priv)
-		server->_priv = glibtop_calloc_r
-			(server, 1, sizeof (glibtop_server_private));
+    if (!server->_priv)
+	server->_priv = glibtop_calloc_r
+	    (server, 1, sizeof (glibtop_server_private));
 
-	server->name = program_name;
+    server->name = program_name;
 
-	/* It is important to set _GLIBTOP_INIT_STATE_OPEN here when we
-	 * do recursive calls to glibtop_init_r (). */
+    /* It is important to set _GLIBTOP_INIT_STATE_OPEN here when we
+     * do recursive calls to glibtop_init_r (). */
 
-	server->flags |= _GLIBTOP_INIT_STATE_OPEN;
+    server->flags |= _GLIBTOP_INIT_STATE_OPEN;
 
-	server->error_method = GLIBTOP_ERROR_METHOD_DEFAULT;
+    server->error_method = GLIBTOP_ERROR_METHOD_DEFAULT;
 
 #ifdef DEBUG
-	fprintf (stderr, "SIZEOF: %u - %u - %u - %u - %u - %u\n",
-		 sizeof (glibtop_command), sizeof (glibtop_response),
-		 sizeof (glibtop_mountentry), sizeof (glibtop_union),
-		 sizeof (glibtop_sysdeps), sizeof (glibtop_response_union));
+    fprintf (stderr, "SIZEOF: %u - %u - %u - %u - %u - %u\n",
+	     sizeof (glibtop_command), sizeof (glibtop_response),
+	     sizeof (glibtop_mountentry), sizeof (glibtop_union),
+	     sizeof (glibtop_sysdeps), sizeof (glibtop_response_union));
 #endif
 
-	switch (server->method) {
-	case GLIBTOP_METHOD_DIRECT:
-		server->features = 0;
-		break;
-	case GLIBTOP_METHOD_INET:
+    switch (server->method) {
+    case GLIBTOP_METHOD_DIRECT:
+	server->features = 0;
+	break;
+    case GLIBTOP_METHOD_INET:
 #ifdef DEBUG
-		fprintf (stderr, "Connecting to '%s' port %ld.\n",
-			 server->server_host, server->server_port);
+	fprintf (stderr, "Connecting to '%s' port %ld.\n",
+		 server->server_host, server->server_port);
 #endif
 		
-		connect_type = glibtop_make_connection
-			(server->server_host, server->server_port,
-			 &server->_priv->socket);
+	connect_type = glibtop_make_connection
+	    (server->server_host, server->server_port,
+	     &server->_priv->socket);
 		
 #ifdef DEBUG
-		fprintf (stderr, "Connect Type is %d.\n", connect_type);
+	fprintf (stderr, "Connect Type is %d.\n", connect_type);
 #endif
 		
-		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
+	server->flags |= _GLIBTOP_INIT_STATE_SERVER;
 		
-		server->features = -1;
-		break;
-	case GLIBTOP_METHOD_UNIX:
+	server->features = -1;
+	break;
+    case GLIBTOP_METHOD_UNIX:
 #ifdef DEBUG
-		fprintf (stderr, "Connecting to Unix Domain Socket.\n");
+	fprintf (stderr, "Connecting to Unix Domain Socket.\n");
 #endif
 
-		connect_type = glibtop_make_connection
-			("unix", 0, &server->_priv->socket);
+	connect_type = glibtop_make_connection
+	    ("unix", 0, &server->_priv->socket);
 
 #ifdef DEBUG		
-		fprintf (stderr, "Connect Type is %d.\n", connect_type);
+	fprintf (stderr, "Connect Type is %d.\n", connect_type);
 #endif
 
-		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
+	server->flags |= _GLIBTOP_INIT_STATE_SERVER;
 
-		server->features = -1;
-		break;
-	case GLIBTOP_METHOD_PIPE:
+	server->features = -1;
+	break;
+    case GLIBTOP_METHOD_PIPE:
 #ifdef DEBUG
-		fprintf (stderr, "Opening pipe to server (%s).\n",
-			 LIBGTOP_SERVER);
+	fprintf (stderr, "Opening pipe to server (%s).\n",
+		 LIBGTOP_SERVER);
 #endif
 
-		if (pipe (server->_priv->input) ||
-		    pipe (server->_priv->output))
-			glibtop_error_io_r (server, "cannot make a pipe");
+	if (pipe (server->_priv->input) ||
+	    pipe (server->_priv->output))
+	    glibtop_error_io_r (server, "cannot make a pipe");
 
-		server->_priv->pid  = fork ();
+	server->_priv->pid  = fork ();
 		
-		if (server->_priv->pid < 0) {
-			glibtop_error_io_r (server, "fork failed");
-		} else if (server->_priv->pid == 0) {
-			close (0); close (1);
-			close (server->_priv->input [0]);
-			close (server->_priv->output [1]);
-			dup2 (server->_priv->input [1], 1);
-			dup2 (server->_priv->output [0], 0);
-			execl (LIBGTOP_SERVER, "libgtop-server", NULL);
-			glibtop_error_io_r (server, "execl (%s)",
-					    LIBGTOP_SERVER);
-			_exit (2);
-		}
-
-		close (server->_priv->input [1]);
-		close (server->_priv->output [0]);
-
-		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
-		
-		server->features = -1;
-		break;
+	if (server->_priv->pid < 0) {
+	    glibtop_error_io_r (server, "fork failed");
+	} else if (server->_priv->pid == 0) {
+	    close (0); close (1);
+	    close (server->_priv->input [0]);
+	    close (server->_priv->output [1]);
+	    dup2 (server->_priv->input [1], 1);
+	    dup2 (server->_priv->output [0], 0);
+	    execl (LIBGTOP_SERVER, "libgtop-server", NULL);
+	    glibtop_error_io_r (server, "execl (%s)",
+				LIBGTOP_SERVER);
+	    _exit (2);
 	}
 
-	/* If the server has been started, ask it for its features. */
+	close (server->_priv->input [1]);
+	close (server->_priv->output [0]);
 
-	if (server->flags & _GLIBTOP_INIT_STATE_SERVER) {
-		char version [BUFSIZ], buffer [BUFSIZ];
-		glibtop_sysdeps sysdeps;
-		size_t size, nbytes;
+	server->flags |= _GLIBTOP_INIT_STATE_SERVER;
+		
+	server->features = -1;
+	break;
+    }
 
-		/* First check whether the server version is correct. */
+    /* If the server has been started, ask it for its features. */
 
-		sprintf (version, LIBGTOP_VERSION_STRING,
-			 LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
-			 sizeof (glibtop_command),
-			 sizeof (glibtop_response),
-			 sizeof (glibtop_union),
-			 sizeof (glibtop_sysdeps));
+    if (server->flags & _GLIBTOP_INIT_STATE_SERVER) {
+	char version [BUFSIZ], buffer [BUFSIZ];
+	glibtop_sysdeps sysdeps;
+	size_t size, nbytes;
 
-		size = strlen (version) + 1;
+	/* First check whether the server version is correct. */
+
+	sprintf (version, LIBGTOP_VERSION_STRING,
+		 LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
+		 sizeof (glibtop_command),
+		 sizeof (glibtop_response),
+		 sizeof (glibtop_union),
+		 sizeof (glibtop_sysdeps));
+
+	size = strlen (version) + 1;
 	
-		glibtop_read_l (server, sizeof (nbytes), &nbytes);
+	glibtop_read_l (server, sizeof (nbytes), &nbytes);
 
-		if (nbytes != size)
-			glibtop_error_r (server,
-					 "Requested %u bytes but got %u.",
-					 size, nbytes);
+	if (nbytes != size)
+	    glibtop_error_r (server,
+			     "Requested %u bytes but got %u.",
+			     size, nbytes);
 		
-		glibtop_read_l (server, nbytes, buffer);
+	glibtop_read_l (server, nbytes, buffer);
 		
-		if (memcmp (version, buffer, size))
-			glibtop_error_r (server, "server version is not %s",
-					 LIBGTOP_VERSION);
+	if (memcmp (version, buffer, size))
+	    glibtop_error_r (server, "server version is not %s",
+			     LIBGTOP_VERSION);
 
-		/* Now ask it for its features. */
+	/* Now ask it for its features. */
 		
-		glibtop_call_l (server, GLIBTOP_CMND_SYSDEPS, 0, NULL,
-				sizeof (glibtop_sysdeps), &sysdeps,
-				NULL);
+	glibtop_call_l (server, GLIBTOP_CMND_SYSDEPS, 0, NULL,
+			sizeof (glibtop_sysdeps), &sysdeps,
+			NULL);
 		
-		server->features = sysdeps.features;
+	server->features = sysdeps.features;
 
-		memcpy (&server->sysdeps, &sysdeps, sizeof (glibtop_sysdeps));
+	memcpy (&server->sysdeps, &sysdeps, sizeof (glibtop_sysdeps));
 
 #ifdef DEBUG
-		fprintf (stderr, "Server features are %lu.\n",
-			 server->features);
+	fprintf (stderr, "Server features are %lu.\n",
+		 server->features);
 #endif
-	}
+    }
 
-	/* In any case, we call the open functions of our own sysdeps
-	 * directory. */
+    /* In any case, we call the open functions of our own sysdeps
+     * directory. */
 
 #ifdef DEBUG
-	fprintf (stderr, "Calling sysdeps open function.\n");
+    fprintf (stderr, "Calling sysdeps open function.\n");
 #endif
 	
-	glibtop_init_s (&server, features, flags);
+    glibtop_init_s (&server, features, flags);
 }

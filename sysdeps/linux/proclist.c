@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -42,9 +44,9 @@ static const unsigned long _glibtop_sysdeps_proclist =
 int
 glibtop_init_proclist_s (glibtop *server)
 {
-	server->sysdeps.proclist = _glibtop_sysdeps_proclist;
+    server->sysdeps.proclist = _glibtop_sysdeps_proclist;
 
-	return 0;
+    return 0;
 }
 
 #define BLOCK_COUNT	256
@@ -67,176 +69,176 @@ unsigned *
 glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 			int64_t which, int64_t arg)
 {
-	DIR *proc;
-	struct dirent *entry;
-	char buffer [BUFSIZ];
-	unsigned count, total, pid;
-	unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
-	unsigned pids_size = 0, pids_offset = 0, new_size;
-	struct stat statb;
-	int len, i, ok;
+    DIR *proc;
+    struct dirent *entry;
+    char buffer [BUFSIZ];
+    unsigned count, total, pid;
+    unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
+    unsigned pids_size = 0, pids_offset = 0, new_size;
+    struct stat statb;
+    int len, i, ok;
 
-	glibtop_proc_uid procuid;
-	glibtop_proc_state procstate;
+    glibtop_proc_uid procuid;
+    glibtop_proc_state procstate;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROCLIST, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROCLIST, 0);
 
-	memset (buf, 0, sizeof (glibtop_proclist));
+    memset (buf, 0, sizeof (glibtop_proclist));
 
-	proc = opendir ("/proc");
-	if (!proc) return NULL;
+    proc = opendir ("/proc");
+    if (!proc) return NULL;
 
-	/* read every every entry in /proc */
+    /* read every every entry in /proc */
 
-	for (count = total = 0, entry = readdir (proc);
-	     entry; entry = readdir (proc)) {
-		ok = 1; len = strlen (entry->d_name);
+    for (count = total = 0, entry = readdir (proc);
+	 entry; entry = readdir (proc)) {
+	ok = 1; len = strlen (entry->d_name);
 
-		/* does it consist entirely of digits? */
+	/* does it consist entirely of digits? */
 		
-		for (i = 0; i < len; i++)
-			if (!isdigit (entry->d_name [i])) ok = 0;
-		if (!ok) continue;
+	for (i = 0; i < len; i++)
+	    if (!isdigit (entry->d_name [i])) ok = 0;
+	if (!ok) continue;
 
-		/* convert it in a number */
+	/* convert it in a number */
 
-		if (sscanf (entry->d_name, "%u", &pid) != 1) continue;
+	if (sscanf (entry->d_name, "%u", &pid) != 1) continue;
 
-		/* is it really a directory? */
+	/* is it really a directory? */
 
-		sprintf (buffer, "/proc/%d", pid);
+	sprintf (buffer, "/proc/%d", pid);
 		
-		if (stat (buffer, &statb)) continue;
+	if (stat (buffer, &statb)) continue;
 
-		if (!S_ISDIR (statb.st_mode)) continue;
+	if (!S_ISDIR (statb.st_mode)) continue;
 
-		switch (which & GLIBTOP_KERN_PROC_MASK) {
-		case GLIBTOP_KERN_PROC_ALL:
-			break;
-		case GLIBTOP_KERN_PROC_PID:
-			if ((unsigned) arg != pid)
-				continue;
-			break;
-		case GLIBTOP_KERN_PROC_UID:
-			if ((uid_t) arg != statb.st_uid)
-				continue;
-			break;
-		case GLIBTOP_KERN_PROC_PGRP:
-			/* Do you really, really need this ? */
-			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1L << GLIBTOP_PROC_UID_PGRP))
-				if ((int) arg != procuid.pgrp)
-					continue;
-			break;
-		case GLIBTOP_KERN_PROC_PPID:
-			/* Do you really, really need this ? */
-			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1L << GLIBTOP_PROC_UID_PPID))
-				if ((int) arg != procuid.ppid)
-					continue;
-			break;
-		case GLIBTOP_KERN_PROC_SESSION:
-			/* Do you really, really need this ? */
-			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1L << GLIBTOP_PROC_UID_SESSION))
-				if ((int) arg != procuid.session)
-					continue;
-			break;
-		case GLIBTOP_KERN_PROC_TTY:
-			/* Do you really, really need this ? */
-			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1L << GLIBTOP_PROC_UID_TTY))
-				if ((int) arg != procuid.tty)
-					continue;
-			break;
-		case GLIBTOP_KERN_PROC_RUID:
-			/* Do you really, really need this ? */
-			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1L << GLIBTOP_PROC_UID_EUID))
-				if ((int) arg != procuid.euid)
-					continue;
-			break;
-		}
-
-		if (which & GLIBTOP_EXCLUDE_NOTTY) {
-			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1L << GLIBTOP_PROC_UID_TTY))
-				if (procuid.tty == -1) continue;
-		}
-
-		if (which & GLIBTOP_EXCLUDE_IDLE) {
-			glibtop_get_proc_state_s (server, &procstate, pid);
-			if (procstate.flags & (1L << GLIBTOP_PROC_STATE_STATE))
-				if (!(procstate.state & GLIBTOP_PROCESS_RUNNING)) continue;
-		}
-
-		if (which & GLIBTOP_EXCLUDE_SYSTEM) {
-			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1L << GLIBTOP_PROC_UID_UID))
-				if (procuid.uid == 0) continue;
-		}
-
-		/* Fine. Now we first try to store it in pids. If this buffer is
-		 * full, we copy it to the pids_chain. */
-
-		if (count >= BLOCK_COUNT) {
-			/* The following call to glibtop_realloc will be
-			 * equivalent to glibtop_malloc () if `pids_chain' is
-			 * NULL. We just calculate the new size and copy `pids'
-			 * to the beginning of the newly allocated block. */
-
-			new_size = pids_size + BLOCK_SIZE;
-
-			pids_chain = glibtop_realloc_r
-				(server, pids_chain, new_size);
-
-			memcpy (pids_chain + pids_offset, pids, BLOCK_SIZE);
-
-			pids_size = new_size;
-
-			pids_offset += BLOCK_COUNT;
-
-			count = 0;
-		}
-
-		/* pids is now big enough to hold at least one single pid. */
-		
-		pids [count++] = pid;
-
-		total++;
+	switch (which & GLIBTOP_KERN_PROC_MASK) {
+	case GLIBTOP_KERN_PROC_ALL:
+	    break;
+	case GLIBTOP_KERN_PROC_PID:
+	    if ((unsigned) arg != pid)
+		continue;
+	    break;
+	case GLIBTOP_KERN_PROC_UID:
+	    if ((uid_t) arg != statb.st_uid)
+		continue;
+	    break;
+	case GLIBTOP_KERN_PROC_PGRP:
+	    /* Do you really, really need this ? */
+	    glibtop_get_proc_uid_s (server, &procuid, pid);
+	    if (procuid.flags & (1L << GLIBTOP_PROC_UID_PGRP))
+		if ((int) arg != procuid.pgrp)
+		    continue;
+	    break;
+	case GLIBTOP_KERN_PROC_PPID:
+	    /* Do you really, really need this ? */
+	    glibtop_get_proc_uid_s (server, &procuid, pid);
+	    if (procuid.flags & (1L << GLIBTOP_PROC_UID_PPID))
+		if ((int) arg != procuid.ppid)
+		    continue;
+	    break;
+	case GLIBTOP_KERN_PROC_SESSION:
+	    /* Do you really, really need this ? */
+	    glibtop_get_proc_uid_s (server, &procuid, pid);
+	    if (procuid.flags & (1L << GLIBTOP_PROC_UID_SESSION))
+		if ((int) arg != procuid.session)
+		    continue;
+	    break;
+	case GLIBTOP_KERN_PROC_TTY:
+	    /* Do you really, really need this ? */
+	    glibtop_get_proc_uid_s (server, &procuid, pid);
+	    if (procuid.flags & (1L << GLIBTOP_PROC_UID_TTY))
+		if ((int) arg != procuid.tty)
+		    continue;
+	    break;
+	case GLIBTOP_KERN_PROC_RUID:
+	    /* Do you really, really need this ? */
+	    glibtop_get_proc_uid_s (server, &procuid, pid);
+	    if (procuid.flags & (1L << GLIBTOP_PROC_UID_EUID))
+		if ((int) arg != procuid.euid)
+		    continue;
+	    break;
 	}
+
+	if (which & GLIBTOP_EXCLUDE_NOTTY) {
+	    glibtop_get_proc_uid_s (server, &procuid, pid);
+	    if (procuid.flags & (1L << GLIBTOP_PROC_UID_TTY))
+		if (procuid.tty == -1) continue;
+	}
+
+	if (which & GLIBTOP_EXCLUDE_IDLE) {
+	    glibtop_get_proc_state_s (server, &procstate, pid);
+	    if (procstate.flags & (1L << GLIBTOP_PROC_STATE_STATE))
+		if (!(procstate.state & GLIBTOP_PROCESS_RUNNING)) continue;
+	}
+
+	if (which & GLIBTOP_EXCLUDE_SYSTEM) {
+	    glibtop_get_proc_uid_s (server, &procuid, pid);
+	    if (procuid.flags & (1L << GLIBTOP_PROC_UID_UID))
+		if (procuid.uid == 0) continue;
+	}
+
+	/* Fine. Now we first try to store it in pids. If this buffer is
+	 * full, we copy it to the pids_chain. */
+
+	if (count >= BLOCK_COUNT) {
+	    /* The following call to glibtop_realloc will be
+	     * equivalent to glibtop_malloc () if `pids_chain' is
+	     * NULL. We just calculate the new size and copy `pids'
+	     * to the beginning of the newly allocated block. */
+
+	    new_size = pids_size + BLOCK_SIZE;
+
+	    pids_chain = glibtop_realloc_r
+		(server, pids_chain, new_size);
+
+	    memcpy (pids_chain + pids_offset, pids, BLOCK_SIZE);
+
+	    pids_size = new_size;
+
+	    pids_offset += BLOCK_COUNT;
+
+	    count = 0;
+	}
+
+	/* pids is now big enough to hold at least one single pid. */
+		
+	pids [count++] = pid;
+
+	total++;
+    }
 	
-	closedir (proc);
+    closedir (proc);
 
-	/* count is only zero if an error occured (one a running Linux system,
-	 * we have at least one single process). */
+    /* count is only zero if an error occured (one a running Linux system,
+     * we have at least one single process). */
 
-	if (!count) return NULL;
+    if (!count) return NULL;
 
-	/* The following call to glibtop_realloc will be equivalent to
-	 * glibtop_malloc if pids_chain is NULL. We just calculate the
-	 * new size and copy pids to the beginning of the newly allocated
-	 * block. */
+    /* The following call to glibtop_realloc will be equivalent to
+     * glibtop_malloc if pids_chain is NULL. We just calculate the
+     * new size and copy pids to the beginning of the newly allocated
+     * block. */
 	
-	new_size = pids_size + count * sizeof (unsigned);
+    new_size = pids_size + count * sizeof (unsigned);
 	
-	pids_chain = glibtop_realloc_r (server, pids_chain, new_size);
+    pids_chain = glibtop_realloc_r (server, pids_chain, new_size);
 	
-	memcpy (pids_chain + pids_offset, pids, count * sizeof (unsigned));
+    memcpy (pids_chain + pids_offset, pids, count * sizeof (unsigned));
 	
-	pids_size = new_size;
+    pids_size = new_size;
 	
-	pids_offset += BLOCK_COUNT;
+    pids_offset += BLOCK_COUNT;
 
-	/* Since everything is ok now, we can set buf->flags, fill in the
-	 * remaining fields and return the `pids_chain'. */
+    /* Since everything is ok now, we can set buf->flags, fill in the
+     * remaining fields and return the `pids_chain'. */
 
-	buf->flags = _glibtop_sysdeps_proclist;
+    buf->flags = _glibtop_sysdeps_proclist;
 
-	buf->size = sizeof (unsigned);
-	buf->number = total;
+    buf->size = sizeof (unsigned);
+    buf->number = total;
 
-	buf->total = total * sizeof (unsigned);
+    buf->total = total * sizeof (unsigned);
 
-	return pids_chain;
+    return pids_chain;
 }

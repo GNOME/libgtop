@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,18 +36,18 @@ static const unsigned long _glibtop_sysdeps_proclist = 0;
 int
 glibtop_init_proclist_p (glibtop *server)
 {
-	server->sysdeps.proclist = _glibtop_sysdeps_proclist;
+    server->sysdeps.proclist = _glibtop_sysdeps_proclist;
 
-	return 0;
+    return 0;
 }
 
 unsigned *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 			int64_t which, int64_t arg)
 {
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROCLIST, 0);
+    glibtop_init_p (server, GLIBTOP_SYSDEPS_PROCLIST, 0);
 	
-	memset (buf, 0, sizeof (glibtop_proclist));
+    memset (buf, 0, sizeof (glibtop_proclist));
 
-	return NULL;
+    return NULL;
 }

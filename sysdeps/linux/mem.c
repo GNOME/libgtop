@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -36,9 +38,9 @@ static const unsigned long _glibtop_sysdeps_mem =
 int
 glibtop_init_mem_s (glibtop *server)
 {
-	server->sysdeps.mem = _glibtop_sysdeps_mem;
+    server->sysdeps.mem = _glibtop_sysdeps_mem;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about memory usage. */
@@ -48,44 +50,44 @@ glibtop_init_mem_s (glibtop *server)
 int
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
-	char buffer [BUFSIZ], *p;
-	int fd, len;
+    char buffer [BUFSIZ], *p;
+    int fd, len;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
 
-	memset (buf, 0, sizeof (glibtop_mem));
+    memset (buf, 0, sizeof (glibtop_mem));
 
-	fd = open (FILENAME, O_RDONLY);
-	if (fd < 0) {
-		glibtop_warn_io_r (server, "open (%s)", FILENAME);
-		return -1;
+    fd = open (FILENAME, O_RDONLY);
+    if (fd < 0) {
+	glibtop_warn_io_r (server, "open (%s)", FILENAME);
+	return -1;
 		
-	}
+    }
 
-	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0) {
-		close (fd);
-		glibtop_warn_io_r (server, "read (%s)", FILENAME);
-		return -1;
-	}
-
+    len = read (fd, buffer, BUFSIZ-1);
+    if (len < 0) {
 	close (fd);
+	glibtop_warn_io_r (server, "read (%s)", FILENAME);
+	return -1;
+    }
 
-	buffer [len] = '\0';
+    close (fd);
 
-	p = skip_line (buffer);
-	p = skip_token (p);		/* "Mem:" */
+    buffer [len] = '\0';
 
-	buf->total  = strtoul (p, &p, 0);
-	buf->used   = strtoul (p, &p, 0);
-	buf->free   = strtoul (p, &p, 0);
-	buf->shared = strtoul (p, &p, 0);
-	buf->buffer = strtoul (p, &p, 0);
-	buf->cached = strtoul (p, &p, 0);
+    p = skip_line (buffer);
+    p = skip_token (p);		/* "Mem:" */
 
-	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
+    buf->total  = strtoul (p, &p, 0);
+    buf->used   = strtoul (p, &p, 0);
+    buf->free   = strtoul (p, &p, 0);
+    buf->shared = strtoul (p, &p, 0);
+    buf->buffer = strtoul (p, &p, 0);
+    buf->cached = strtoul (p, &p, 0);
 
-	buf->flags = _glibtop_sysdeps_mem;
+    buf->user = buf->total - buf->free - buf->shared - buf->buffer;
 
-	return 0;
+    buf->flags = _glibtop_sysdeps_mem;
+
+    return 0;
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -35,21 +37,21 @@ void
 glibtop_init_p (glibtop *server, const unsigned long features,
 		const unsigned flags)
 {
-	glibtop_init_func_t *init_fkt;
+    glibtop_init_func_t *init_fkt;
 
-	if (server == NULL)
-		glibtop_error_r (NULL, "glibtop_init_p (server == NULL)");
+    if (server == NULL)
+	glibtop_error_r (NULL, "glibtop_init_p (server == NULL)");
 
-	/* Do the initialization, but only if not already initialized. */
+    /* Do the initialization, but only if not already initialized. */
 
-	if ((server->flags & _GLIBTOP_INIT_STATE_INIT) == 0) {
-		glibtop_open_p (server, "glibtop", features, flags);
+    if ((server->flags & _GLIBTOP_INIT_STATE_INIT) == 0) {
+	glibtop_open_p (server, "glibtop", features, flags);
 
-		for (init_fkt = _glibtop_init_hook_p; *init_fkt; init_fkt++)
-			(*init_fkt) (server);
+	for (init_fkt = _glibtop_init_hook_p; *init_fkt; init_fkt++)
+	    (*init_fkt) (server);
 		
-		server->flags |= _GLIBTOP_INIT_STATE_INIT;
-	}
+	server->flags |= _GLIBTOP_INIT_STATE_INIT;
+    }
 }
 
 /* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
@@ -58,18 +60,18 @@ void
 glibtop_open_p (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
-	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
+    /* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
-	server->name = program_name;
+    server->name = program_name;
 	
-	server->_priv->machine.uid = getuid ();
-	server->_priv->machine.euid = geteuid ();
-	server->_priv->machine.gid = getgid ();
-	server->_priv->machine.egid = getegid ();
+    server->_priv->machine.uid = getuid ();
+    server->_priv->machine.euid = geteuid ();
+    server->_priv->machine.gid = getgid ();
+    server->_priv->machine.egid = getegid ();
 
-	server->_priv->machine.kd = kvm_open(NULL, NULL, NULL, O_RDONLY, NULL);
-	if(!server->_priv->machine.kd)
-		glibtop_warn_io_r(server, "kvm_open()");
+    server->_priv->machine.kd = kvm_open(NULL, NULL, NULL, O_RDONLY, NULL);
+    if(!server->_priv->machine.kd)
+	glibtop_warn_io_r(server, "kvm_open()");
 
 	/* Drop priviledges; we only become root when necessary.
 	
@@ -78,15 +80,15 @@ glibtop_open_p (glibtop *server, const char *program_name,
 	   
 	*/
 	
-	if (setreuid (server->_priv->machine.euid, server->_priv->machine.uid))
-		_exit (1);
+    if (setreuid (server->_priv->machine.euid, server->_priv->machine.uid))
+	_exit (1);
 		
-	if (setregid (server->_priv->machine.egid, server->_priv->machine.gid))
-		_exit (1);
+    if (setregid (server->_priv->machine.egid, server->_priv->machine.gid))
+	_exit (1);
 
-	/* !!! END OF SUID ROOT PART !!! */
+    /* !!! END OF SUID ROOT PART !!! */
     
-	/* Our effective uid is now those of the user invoking the server,
-	   so we do no longer have any priviledges.
-	*/
+    /* Our effective uid is now those of the user invoking the server,
+       so we do no longer have any priviledges.
+    */
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -60,7 +62,7 @@ glibtop_init_netinfo_p (glibtop *server)
     if (kvm_nlist (server->_priv->machine.kd, nlst) != 0)
 	glibtop_error_io_r (server, "kvm_nlist");
 
-	return 0;
+    return 0;
 }
 
 /* Provides Network statistics. */
@@ -97,12 +99,12 @@ glibtop_get_netinfo_p (glibtop *server, glibtop_netinfo *buf,
 
 	    if (kvm_read (server->_priv->machine.kd, ifnetaddr, &ifnet,
 			  sizeof (ifnet)) != sizeof (ifnet))
-		    glibtop_error_io_r (server, "kvm_read (ifnetaddr)");
+		glibtop_error_io_r (server, "kvm_read (ifnetaddr)");
 
 #if defined(__FreeBSD__) || defined(__bsdi__)
 	    if (kvm_read (server->_priv->machine.kd, (u_long) ifnet.if_name,
 			  tname, 16) != 16)
-		    glibtop_error_io_r (server, "kvm_read (if_name)");
+		glibtop_error_io_r (server, "kvm_read (if_name)");
 #else
 	    strncpy (tname, ifnet.if_xname, 16);
 	    tname [15] = 0;
@@ -130,39 +132,39 @@ glibtop_get_netinfo_p (glibtop *server, glibtop_netinfo *buf,
 		sin = (struct sockaddr_in *)sa;
 
 		if (ifnet.if_flags & IFF_UP)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_UP;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_UP;
 		if (ifnet.if_flags & IFF_BROADCAST)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_BROADCAST;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_BROADCAST;
 		if (ifnet.if_flags & IFF_DEBUG)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_DEBUG;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_DEBUG;
 		if (ifnet.if_flags & IFF_LOOPBACK)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_LOOPBACK;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_LOOPBACK;
 		if (ifnet.if_flags & IFF_POINTOPOINT)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_POINTOPOINT;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_POINTOPOINT;
 		if (ifnet.if_flags & IFF_RUNNING)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_RUNNING;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_RUNNING;
 		if (ifnet.if_flags & IFF_NOARP)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_NOARP;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_NOARP;
 		if (ifnet.if_flags & IFF_PROMISC)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_PROMISC;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_PROMISC;
 		if (ifnet.if_flags & IFF_ALLMULTI)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_ALLMULTI;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_ALLMULTI;
 		if (ifnet.if_flags & IFF_OACTIVE)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_OACTIVE;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_OACTIVE;
 		if (ifnet.if_flags & IFF_SIMPLEX)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_SIMPLEX;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_SIMPLEX;
 		if (ifnet.if_flags & IFF_LINK0)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_LINK0;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_LINK0;
 		if (ifnet.if_flags & IFF_LINK1)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_LINK1;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_LINK1;
 		if (ifnet.if_flags & IFF_LINK2)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_LINK2;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_LINK2;
 #ifdef __FreeBSD__
 		if (ifnet.if_flags & IFF_ALTPHYS)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_ALTPHYS;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_ALTPHYS;
 #endif
 		if (ifnet.if_flags & IFF_MULTICAST)
-			buf->if_flags |= GLIBTOP_IF_FLAGS_MULTICAST;
+		    buf->if_flags |= GLIBTOP_IF_FLAGS_MULTICAST;
 
 		buf->subnet = htonl (ifaddr.in.ia_subnet);
 		buf->address = sin->sin_addr.s_addr;

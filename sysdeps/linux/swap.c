@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -39,10 +41,10 @@ static unsigned long _glibtop_sysdeps_swap_paging =
 int
 glibtop_init_swap_s (glibtop *server)
 {
-	server->sysdeps.swap = _glibtop_sysdeps_swap |
-		_glibtop_sysdeps_swap_paging;
+    server->sysdeps.swap = _glibtop_sysdeps_swap |
+	_glibtop_sysdeps_swap_paging;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about swap usage. */
@@ -53,66 +55,66 @@ glibtop_init_swap_s (glibtop *server)
 int
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
-	char buffer [BUFSIZ], *p;
-	int fd, len;
+    char buffer [BUFSIZ], *p;
+    int fd, len;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SWAP, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_SWAP, 0);
 
-	memset (buf, 0, sizeof (glibtop_swap));
+    memset (buf, 0, sizeof (glibtop_swap));
 
-	fd = open (MEMINFO, O_RDONLY);
-	if (fd < 0) {
-		glibtop_warn_io_r (server, "open (%s)", MEMINFO);
-		return -1;
-	}
+    fd = open (MEMINFO, O_RDONLY);
+    if (fd < 0) {
+	glibtop_warn_io_r (server, "open (%s)", MEMINFO);
+	return -1;
+    }
 
-	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0) {
-		close (fd);
-		glibtop_warn_io_r (server, "read (%s)", MEMINFO);
-		return -1;
-	}
-
+    len = read (fd, buffer, BUFSIZ-1);
+    if (len < 0) {
 	close (fd);
+	glibtop_warn_io_r (server, "read (%s)", MEMINFO);
+	return -1;
+    }
 
-	buffer [len] = '\0';
+    close (fd);
 
-	p = skip_line (buffer);
-	p = skip_line (p);
-	p = skip_token (p);		/* "Swap:" */
+    buffer [len] = '\0';
 
-	buf->total  = strtoul (p, &p, 0);
-	buf->used   = strtoul (p, &p, 0);
-	buf->free   = strtoul (p, &p, 0);
+    p = skip_line (buffer);
+    p = skip_line (p);
+    p = skip_token (p);		/* "Swap:" */
 
-	buf->flags = _glibtop_sysdeps_swap;
+    buf->total  = strtoul (p, &p, 0);
+    buf->used   = strtoul (p, &p, 0);
+    buf->free   = strtoul (p, &p, 0);
 
-	fd = open (PROC_STAT, O_RDONLY);
-	if (fd < 0) {
-		glibtop_warn_io_r (server, "open (%s)", PROC_STAT);
-		return -1;
-	}
+    buf->flags = _glibtop_sysdeps_swap;
 
-	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0) {
-		close (fd);
-		glibtop_warn_io_r (server, "read (%s)", PROC_STAT);
-		return -1;
-	}
+    fd = open (PROC_STAT, O_RDONLY);
+    if (fd < 0) {
+	glibtop_warn_io_r (server, "open (%s)", PROC_STAT);
+	return -1;
+    }
 
+    len = read (fd, buffer, BUFSIZ-1);
+    if (len < 0) {
 	close (fd);
+	glibtop_warn_io_r (server, "read (%s)", PROC_STAT);
+	return -1;
+    }
 
-	buffer [len] = '\0';
+    close (fd);
 
-	p = strstr (buffer, "\nswap");
-	if (p == NULL) return 0;
+    buffer [len] = '\0';
 
-	p = skip_token (p);
+    p = strstr (buffer, "\nswap");
+    if (p == NULL) return 0;
 
-	buf->pagein  = strtoul (p, &p, 0);
-	buf->pageout = strtoul (p, &p, 0);
+    p = skip_token (p);
 
-	buf->flags |= _glibtop_sysdeps_swap_paging;
+    buf->pagein  = strtoul (p, &p, 0);
+    buf->pageout = strtoul (p, &p, 0);
 
-	return 0;
+    buf->flags |= _glibtop_sysdeps_swap_paging;
+
+    return 0;
 }

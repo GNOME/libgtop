@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -40,7 +42,7 @@ static const unsigned long _glibtop_sysdeps_mem =
 int
 glibtop_init_mem_s (glibtop *server)
 {
-	server->sysdeps.mem = _glibtop_sysdeps_mem;
+    server->sysdeps.mem = _glibtop_sysdeps_mem;
 }
 
 /* Provides information about memory usage. */
@@ -48,22 +50,22 @@ glibtop_init_mem_s (glibtop *server)
 int
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
-	vm_statistics_data_t vmstats;
+    vm_statistics_data_t vmstats;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
 
-	memset (buf, 0, sizeof (glibtop_mem));
+    memset (buf, 0, sizeof (glibtop_mem));
 
-	buf->flags = _glibtop_sysdeps_mem;
+    buf->flags = _glibtop_sysdeps_mem;
 	
-	(void) vm_statistics(task_self(), &vmstats);
+    (void) vm_statistics(task_self(), &vmstats);
 
-	buf->free = vmstats.free_count   * vmstats.pagesize;
-	buf->used = vmstats.active_count * vmstats.pagesize;
+    buf->free = vmstats.free_count   * vmstats.pagesize;
+    buf->used = vmstats.active_count * vmstats.pagesize;
 
-	/* [FIXME]: Is this correct? */
+    /* [FIXME]: Is this correct? */
 	
-	buf->total = (vmstats.active_count + vmstats.inactive_count +
-		      vmstats.free_count + vmstats.wire_count) *
-		vmstats.pagesize;
+    buf->total = (vmstats.active_count + vmstats.inactive_count +
+		  vmstats.free_count + vmstats.wire_count) *
+	vmstats.pagesize;
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -28,45 +30,45 @@
 void *
 glibtop_malloc_r (glibtop *server, size_t size)
 {
-	void *buf = malloc (size);
+    void *buf = malloc (size);
 	
-	if (!buf)
-		glibtop_error_io_r (server, "malloc %d bytes", size);
+    if (!buf)
+	glibtop_error_io_r (server, "malloc %d bytes", size);
 	
-	return buf;
+    return buf;
 }
 
 void *
 glibtop_calloc_r (glibtop *server, size_t nmemb, size_t size)
 {
-	void *buf = calloc (nmemb, size);
+    void *buf = calloc (nmemb, size);
 	
-	if (!buf)
-		glibtop_error_io_r (server, "calloc %d blocks (%d bytes each)",
-				    nmemb, size);
+    if (!buf)
+	glibtop_error_io_r (server, "calloc %d blocks (%d bytes each)",
+			    nmemb, size);
 	
-	return buf;
+    return buf;
 }
 
 void *
 glibtop_realloc_r (glibtop *server, void *ptr, size_t size)
 {
-	void *buf = realloc (ptr, size);
+    void *buf = realloc (ptr, size);
 	
-	if (!buf)
-		glibtop_error_io_r (server, "realloc %d bytes", size);
+    if (!buf)
+	glibtop_error_io_r (server, "realloc %d bytes", size);
 	
-	return buf;
+    return buf;
 }
 
 char *
 glibtop_strdup_r (glibtop *server, const char *string)
 {
-	return strcpy (glibtop_malloc_r (server, strlen (string) + 1), string);
+    return strcpy (glibtop_malloc_r (server, strlen (string) + 1), string);
 }
 
 void
 glibtop_free_r (glibtop *server, const void *ptr)
 {
-	if (ptr) free ((void *) ptr);
+    if (ptr) free ((void *) ptr);
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,17 +36,17 @@ int
 glibtop_init_shm_limits_p (glibtop *server)
 {
 
-	return 0;
+    return 0;
 }
 
 int
 glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
-        glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
 
-        memset (buf, 0, sizeof (glibtop_shm_limits));
+    memset (buf, 0, sizeof (glibtop_shm_limits));
 
-	return 0;
+    return 0;
 }
 
 #else
@@ -72,8 +74,8 @@ static struct shminfo _shminfo;
   
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
-	{ "_shminfo" },
-	{ 0 }
+    { "_shminfo" },
+    { 0 }
 };
 
 /* Init function. */
@@ -81,20 +83,20 @@ static struct nlist nlst [] = {
 int
 glibtop_init_shm_limits_p (glibtop *server)
 {
-	if (kvm_nlist (server->_priv->machine.kd, nlst) != 0) {
-		glibtop_warn_io_r (server, "kvm_nlist (shm_limits)");
-		return -1;
-	}
+    if (kvm_nlist (server->_priv->machine.kd, nlst) != 0) {
+	glibtop_warn_io_r (server, "kvm_nlist (shm_limits)");
+	return -1;
+    }
 	
-	if (kvm_read (server->_priv->machine.kd, nlst [0].n_value,
-		      &_shminfo, sizeof (_shminfo)) != sizeof (_shminfo)) {
-		glibtop_warn_io_r (server, "kvm_read (shminfo)");
-		return -1;
-	}
+    if (kvm_read (server->_priv->machine.kd, nlst [0].n_value,
+		  &_shminfo, sizeof (_shminfo)) != sizeof (_shminfo)) {
+	glibtop_warn_io_r (server, "kvm_read (shminfo)");
+	return -1;
+    }
 
-	server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
+    server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -102,22 +104,22 @@ glibtop_init_shm_limits_p (glibtop *server)
 int
 glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
 	
-	memset (buf, 0, sizeof (glibtop_shm_limits));
+    memset (buf, 0, sizeof (glibtop_shm_limits));
 
-	if (server->sysdeps.shm_limits == 0)
-		return -1;
+    if (server->sysdeps.shm_limits == 0)
+	return -1;
 
-	buf->shmmax = _shminfo.shmmax;
-	buf->shmmin = _shminfo.shmmin;
-	buf->shmmni = _shminfo.shmmni;
-	buf->shmseg = _shminfo.shmseg;
-	buf->shmall = _shminfo.shmall;
+    buf->shmmax = _shminfo.shmmax;
+    buf->shmmin = _shminfo.shmmin;
+    buf->shmmni = _shminfo.shmmni;
+    buf->shmseg = _shminfo.shmseg;
+    buf->shmall = _shminfo.shmall;
 
-	buf->flags = _glibtop_sysdeps_shm_limits;
+    buf->flags = _glibtop_sysdeps_shm_limits;
 
-	return 0;
+    return 0;
 }
 
 #endif /* either a newer BSDI or no BSDI at all. */

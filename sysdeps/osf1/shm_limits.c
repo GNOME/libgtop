@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,7 +36,7 @@ static unsigned long _glibtop_sysdeps_shm_limits =
 int
 glibtop_init_shm_limits_s (glibtop *server)
 {
-	server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
+    server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -42,48 +44,48 @@ glibtop_init_shm_limits_s (glibtop *server)
 int
 glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 {
-	int ret, value;
+    int ret, value;
 
-	glibtop_init_s (&server, 0, 0);
+    glibtop_init_s (&server, 0, 0);
 
-	memset (buf, 0, sizeof (glibtop_shm_limits));
+    memset (buf, 0, sizeof (glibtop_shm_limits));
 	
-	ret = table (TBL_SHMINFO, SHMINFO_MAX, (char *) &value, 1,
-		     sizeof (value)); 
+    ret = table (TBL_SHMINFO, SHMINFO_MAX, (char *) &value, 1,
+		 sizeof (value)); 
 
-	if (ret != 1) return;
+    if (ret != 1) return;
 
-	buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMMAX);
+    buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMMAX);
 		
-	buf->shmmax = value;
-	
-
-	ret = table (TBL_SHMINFO, SHMINFO_MIN, (char *) &value, 1,
-		     sizeof (value)); 
-
-	if (ret != 1) return;
-		
-	buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMMIN);
-		
-	buf->shmmin = value;
+    buf->shmmax = value;
 	
 
-	ret = table (TBL_SHMINFO, SHMINFO_MNI, (char *) &value, 1,
-		     sizeof (value)); 
+    ret = table (TBL_SHMINFO, SHMINFO_MIN, (char *) &value, 1,
+		 sizeof (value)); 
 
-	if (ret != 1) return;
+    if (ret != 1) return;
 		
-	buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMMNI);
+    buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMMIN);
 		
-	buf->shmmni = value;
+    buf->shmmin = value;
 	
 
-	ret = table (TBL_SHMINFO, SHMINFO_SEG, (char *) &value, 1,
-		     sizeof (value)); 
+    ret = table (TBL_SHMINFO, SHMINFO_MNI, (char *) &value, 1,
+		 sizeof (value)); 
 
-	if (ret != 1) return;
+    if (ret != 1) return;
 		
-	buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMSEG);
+    buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMMNI);
 		
-	buf->shmseg = value;
+    buf->shmmni = value;
+	
+
+    ret = table (TBL_SHMINFO, SHMINFO_SEG, (char *) &value, 1,
+		 sizeof (value)); 
+
+    if (ret != 1) return;
+		
+    buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMSEG);
+		
+    buf->shmseg = value;
 }

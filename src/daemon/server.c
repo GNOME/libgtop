@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -62,35 +64,35 @@ GLIBTOP_SUID_PPP;
 int
 main(int argc, char *argv[])
 {
-	struct utsname uts;
-	int uid, euid, gid, egid;
+    struct utsname uts;
+    int uid, euid, gid, egid;
 
-	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
+    /* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
-	uid = getuid (); euid = geteuid ();
-	gid = getgid (); egid = getegid ();
+    uid = getuid (); euid = geteuid ();
+    gid = getgid (); egid = getegid ();
 
-	if (uname (&uts) < 0) _exit (1);
+    if (uname (&uts) < 0) _exit (1);
 
-	if (strcmp (uts.sysname, LIBGTOP_COMPILE_SYSTEM) ||
-	    strcmp (uts.release, LIBGTOP_COMPILE_RELEASE) ||
-	    strcmp (uts.machine, LIBGTOP_COMPILE_MACHINE)) {
-		fprintf (stderr, "Can only run on %s %s %s\n",
-			 LIBGTOP_COMPILE_SYSTEM,
-			 LIBGTOP_COMPILE_RELEASE,
-			 LIBGTOP_COMPILE_MACHINE);
-		_exit (1);
-	}
+    if (strcmp (uts.sysname, LIBGTOP_COMPILE_SYSTEM) ||
+	strcmp (uts.release, LIBGTOP_COMPILE_RELEASE) ||
+	strcmp (uts.machine, LIBGTOP_COMPILE_MACHINE)) {
+	fprintf (stderr, "Can only run on %s %s %s\n",
+		 LIBGTOP_COMPILE_SYSTEM,
+		 LIBGTOP_COMPILE_RELEASE,
+		 LIBGTOP_COMPILE_MACHINE);
+	_exit (1);
+    }
 	
-	glibtop_init_p (glibtop_global_server, 0, 0);
+    glibtop_init_p (glibtop_global_server, 0, 0);
 
-	if (setreuid (euid, uid)) _exit (1);
+    if (setreuid (euid, uid)) _exit (1);
 
-	if (setregid (egid, gid)) _exit (1);
+    if (setregid (egid, gid)) _exit (1);
 
-	/* !!! END OF SUID ROOT PART !!! */
+    /* !!! END OF SUID ROOT PART !!! */
 
-	handle_slave_connection (0, 0);
+    handle_slave_connection (0, 0);
 
-	_exit (0);
+    _exit (0);
 }

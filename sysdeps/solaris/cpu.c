@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -63,43 +65,43 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
     if(!kc)
         return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
     switch(kstat_chain_update(kc))
-    {
+	{
         case -1: assert(0); /* Debugging purposes, shouldn't happen */
 	case 0:  break;
 	default: glibtop_get_kstats(server);
-    }
+	}
     ncpu = server->ncpu;
     if (ncpu > GLIBTOP_NCPU)
         ncpu = GLIBTOP_NCPU;
 
     for (cpu = 0, found = 0; cpu < GLIBTOP_NCPU && found != ncpu; cpu++)
-    {
-	kstat_t *ksp = server->_priv->machine.cpu_stat_kstat [cpu];
-	if (!ksp) continue;
+	{
+	    kstat_t *ksp = server->_priv->machine.cpu_stat_kstat [cpu];
+	    if (!ksp) continue;
 
-	++found;
-	if(p_online(cpu, P_STATUS) == P_ONLINE)
-	    buf->xcpu_flags |= (1L << cpu);
-	else
-	    continue;
-	ret = kstat_read (kc, ksp, &cpu_stat);
+	    ++found;
+	    if(p_online(cpu, P_STATUS) == P_ONLINE)
+		buf->xcpu_flags |= (1L << cpu);
+	    else
+		continue;
+	    ret = kstat_read (kc, ksp, &cpu_stat);
 
-	if (ret == -1) {
-	    glibtop_warn_io_r (server, "kstat_read (cpu_stat%d)", cpu);
-	    continue;
+	    if (ret == -1) {
+		glibtop_warn_io_r (server, "kstat_read (cpu_stat%d)", cpu);
+		continue;
+	    }
+
+	    buf->xcpu_idle [cpu] = cpu_stat.cpu_sysinfo.cpu [CPU_IDLE];
+	    buf->xcpu_user [cpu] = cpu_stat.cpu_sysinfo.cpu [CPU_USER];
+	    buf->xcpu_sys [cpu] = cpu_stat.cpu_sysinfo.cpu [CPU_KERNEL];
+
+	    buf->xcpu_total [cpu] = buf->xcpu_idle [cpu] + buf->xcpu_user [cpu] +
+		buf->xcpu_sys [cpu];
+
+	    buf->idle += cpu_stat.cpu_sysinfo.cpu [CPU_IDLE];
+	    buf->user += cpu_stat.cpu_sysinfo.cpu [CPU_USER];
+	    buf->sys  += cpu_stat.cpu_sysinfo.cpu [CPU_KERNEL];
 	}
-
-	buf->xcpu_idle [cpu] = cpu_stat.cpu_sysinfo.cpu [CPU_IDLE];
-	buf->xcpu_user [cpu] = cpu_stat.cpu_sysinfo.cpu [CPU_USER];
-	buf->xcpu_sys [cpu] = cpu_stat.cpu_sysinfo.cpu [CPU_KERNEL];
-
-	buf->xcpu_total [cpu] = buf->xcpu_idle [cpu] + buf->xcpu_user [cpu] +
-	    buf->xcpu_sys [cpu];
-
-	buf->idle += cpu_stat.cpu_sysinfo.cpu [CPU_IDLE];
-	buf->user += cpu_stat.cpu_sysinfo.cpu [CPU_USER];
-	buf->sys  += cpu_stat.cpu_sysinfo.cpu [CPU_KERNEL];
-    }
 
     buf->total = buf->idle + buf->user + buf->sys;
     buf->frequency = server->_priv->machine.ticks;

@@ -1,0 +1,5 @@
+(setq c-basic-offset 4)
+(if (not (word-search-forward "Mode: C" nil t))
+    (insert-string "/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */\n\n"))
+(mark-whole-buffer)
+(indent-region (region-beginning) (region-end) nil)

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -36,9 +38,9 @@ static unsigned long _glibtop_sysdeps_shm_limits =
 int
 glibtop_init_shm_limits_s (glibtop *server)
 {
-	server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
+    server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -46,21 +48,21 @@ glibtop_init_shm_limits_s (glibtop *server)
 int
 glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 {
-	struct shminfo	shminfo;
+    struct shminfo	shminfo;
   
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SHM_LIMITS, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_SHM_LIMITS, 0);
 
-	memset (buf, 0, sizeof (glibtop_shm_limits));
+    memset (buf, 0, sizeof (glibtop_shm_limits));
   
-	buf->flags = _glibtop_sysdeps_shm_limits;
+    buf->flags = _glibtop_sysdeps_shm_limits;
   
-	shmctl (0, IPC_INFO, (struct shmid_ds *) &shminfo);
+    shmctl (0, IPC_INFO, (struct shmid_ds *) &shminfo);
   
-	buf->shmmax = shminfo.shmmax;
-	buf->shmmin = shminfo.shmmin;
-	buf->shmmni = shminfo.shmmni;
-	buf->shmseg = shminfo.shmseg;
-	buf->shmall = shminfo.shmall;
+    buf->shmmax = shminfo.shmmax;
+    buf->shmmin = shminfo.shmmin;
+    buf->shmmni = shminfo.shmmni;
+    buf->shmseg = shminfo.shmseg;
+    buf->shmall = shminfo.shmall;
 
-	return 0;
+    return 0;
 }

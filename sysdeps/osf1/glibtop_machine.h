@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -40,9 +42,9 @@ typedef struct _glibtop_machine		glibtop_machine;
 
 struct _glibtop_machine
 {
-	uid_t uid, euid;		/* Real and effective user id */
-	gid_t gid, egid;		/* Real and effective group id */
-	unsigned proctable_entries;	/* Max entries in the proctable */
+    uid_t uid, euid;		/* Real and effective user id */
+    gid_t gid, egid;		/* Real and effective group id */
+    unsigned proctable_entries;	/* Max entries in the proctable */
 };
 
 END_LIBGTOP_DECLS

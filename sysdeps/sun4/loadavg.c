@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,34 +36,34 @@ static const unsigned long _glibtop_sysdeps_loadavg =
 int
 glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
 {
-	load_avg avenrun [3];
-	int i;
+    load_avg avenrun [3];
+    int i;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_LOADAVG), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_LOADAVG), 0);
 
-	memset (buf, 0, sizeof (glibtop_loadavg));
+    memset (buf, 0, sizeof (glibtop_loadavg));
 
-	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
+    /* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
 	
-	setregid (server->machine.gid, server->machine.egid);
+    setregid (server->machine.gid, server->machine.egid);
 	
-	/* get the load average array */
+    /* get the load average array */
 
-	(void) _glibtop_getkval (server, _glibtop_nlist [X_AVENRUN].n_value,
-				 (int *) avenrun, sizeof (avenrun),
-				 _glibtop_nlist [X_AVENRUN].n_name);
+    (void) _glibtop_getkval (server, _glibtop_nlist [X_AVENRUN].n_value,
+			     (int *) avenrun, sizeof (avenrun),
+			     _glibtop_nlist [X_AVENRUN].n_name);
 
-	if (setregid (server->machine.egid, server->machine.gid))
-		_exit (1);
+    if (setregid (server->machine.egid, server->machine.gid))
+	_exit (1);
 	
-	/* !!! END OF SGID KMEM PART !!! */
+    /* !!! END OF SGID KMEM PART !!! */
 
-	for (i = 0; i < 3; i++) {
-		/* Calculate loadavg values from avenrun. */
-		buf->loadavg [i] = loaddouble (avenrun [i]);
-	}
+    for (i = 0; i < 3; i++) {
+	/* Calculate loadavg values from avenrun. */
+	buf->loadavg [i] = loaddouble (avenrun [i]);
+    }
 
-	/* Now we can set the flags. */
+    /* Now we can set the flags. */
 
-	buf->flags = _glibtop_sysdeps_loadavg;
+    buf->flags = _glibtop_sysdeps_loadavg;
 }

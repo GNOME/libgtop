@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -90,7 +92,7 @@ glibtop_init_netload_s (glibtop *server)
 	_glibtop_sysdeps_netload_bytes |
 	_glibtop_sysdeps_netload_packets;
 
-	return 0;
+    return 0;
 }
 
 /* Provides network statistics. */
@@ -107,9 +109,9 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     memset (buf, 0, sizeof (glibtop_netload));
 
     /* Linux 2.1.114 - don't know where exactly this was added, but
-	 * recent kernels have byte count in /proc/net/dev so we don't
-	 * need IP accounting.
-	 */
+     * recent kernels have byte count in /proc/net/dev so we don't
+     * need IP accounting.
+     */
 
     if (server->os_version_code < 131442) {
 
@@ -188,17 +190,17 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     }
 
     /* Ok, either IP accounting is not enabled in the kernel or
-	 * it was not enabled for the requested interface. */
+     * it was not enabled for the requested interface. */
 
     f = fopen ("/proc/net/dev", "r");
     if (!f) return -1;
 
-	/* Skip over the header line. */
+    /* Skip over the header line. */
     fgets (buffer, BUFSIZ-1, f);
     fgets (buffer, BUFSIZ-1, f);
 
-	/* Starting with 2.1.xx (don't know exactly which version)
-	 * /proc/net/dev contains both byte and package counters. */
+    /* Starting with 2.1.xx (don't know exactly which version)
+     * /proc/net/dev contains both byte and package counters. */
 
     p = strchr (buffer, '|');
     if (!p) {
@@ -210,7 +212,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     have_bytes = strncmp (++p, "bytes", 5) == 0;
 
     /* Count remaining 'Receive' fields so we know where
-	 * the first 'Transmit' field starts. */
+     * the first 'Transmit' field starts. */
 	
     fields = 0;
     while (*p != '|') {

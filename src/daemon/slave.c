@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -26,269 +28,269 @@
 void
 handle_slave_connection (int input, int output)
 {
-	glibtop *server G_GNUC_UNUSED = glibtop_global_server;
-	int64_t *param_ptr G_GNUC_UNUSED;
-	const void *ptr G_GNUC_UNUSED;
-	int ret G_GNUC_UNUSED = -1;
+    glibtop *server G_GNUC_UNUSED = glibtop_global_server;
+    int64_t *param_ptr G_GNUC_UNUSED;
+    const void *ptr G_GNUC_UNUSED;
+    int ret G_GNUC_UNUSED = -1;
 
-	u_int64_t interface G_GNUC_UNUSED;
-	u_int64_t number G_GNUC_UNUSED;
-	u_int64_t instance G_GNUC_UNUSED;
-	u_int64_t strategy G_GNUC_UNUSED;
-	u_int64_t transport G_GNUC_UNUSED;
-	u_int64_t protocol G_GNUC_UNUSED;
+    u_int64_t interface G_GNUC_UNUSED;
+    u_int64_t number G_GNUC_UNUSED;
+    u_int64_t instance G_GNUC_UNUSED;
+    u_int64_t strategy G_GNUC_UNUSED;
+    u_int64_t transport G_GNUC_UNUSED;
+    u_int64_t protocol G_GNUC_UNUSED;
 
-	unsigned short max_len G_GNUC_UNUSED;
-	pid_t pid G_GNUC_UNUSED;
+    unsigned short max_len G_GNUC_UNUSED;
+    pid_t pid G_GNUC_UNUSED;
 
-	glibtop_response _resp, *resp = &_resp;
-	glibtop_command _cmnd, *cmnd = &_cmnd;
-	char parameter [BUFSIZ];
+    glibtop_response _resp, *resp = &_resp;
+    glibtop_command _cmnd, *cmnd = &_cmnd;
+    char parameter [BUFSIZ];
 
-	glibtop_send_version (glibtop_global_server, output);
+    glibtop_send_version (glibtop_global_server, output);
 
-	while (do_read (input, cmnd, sizeof (glibtop_command))) {
+    while (do_read (input, cmnd, sizeof (glibtop_command))) {
 #ifdef SLAVE_DEBUG
-		fprintf (stderr, "Slave %d received command "
-			 "%d from client.\n", getpid (), cmnd->command);
+	fprintf (stderr, "Slave %d received command "
+		 "%d from client.\n", getpid (), cmnd->command);
 #endif
 		
-		if (cmnd->data_size >= BUFSIZ)
-			glibtop_error ("Client sent %d bytes, "
-				       "but buffer is %d",
-				       cmnd->size, BUFSIZ);
+	if (cmnd->data_size >= BUFSIZ)
+	    glibtop_error ("Client sent %d bytes, "
+			   "but buffer is %d",
+			   cmnd->size, BUFSIZ);
 
-		memset (resp, 0, sizeof (glibtop_response));
+	memset (resp, 0, sizeof (glibtop_response));
 
-		memset (parameter, 0, sizeof (parameter));
+	memset (parameter, 0, sizeof (parameter));
 		
-		if (cmnd->data_size) {
+	if (cmnd->data_size) {
 #ifdef SLAVE_DEBUG
-			fprintf (stderr, "Client has %d bytes of data.\n",
-				 cmnd->data_size);
+	    fprintf (stderr, "Client has %d bytes of data.\n",
+		     cmnd->data_size);
 #endif
 			
-			do_read (input, parameter, cmnd->data_size);
+	    do_read (input, parameter, cmnd->data_size);
 			
-		} else if (cmnd->size) {
-			memcpy (parameter, cmnd->parameter, cmnd->size);
-		}
+	} else if (cmnd->size) {
+	    memcpy (parameter, cmnd->parameter, cmnd->size);
+	}
     
-		switch (cmnd->command) {
-		case GLIBTOP_CMND_QUIT:
-			do_output (output, resp, 0, 0, NULL, 0);
-			return;
+	switch (cmnd->command) {
+	case GLIBTOP_CMND_QUIT:
+	    do_output (output, resp, 0, 0, NULL, 0);
+	    return;
 #if GLIBTOP_SUID_PROCLIST
-		case GLIBTOP_CMND_PROCLIST:
-			param_ptr = (int64_t *) parameter;
-			ptr = glibtop_get_proclist_p
-				(server, &resp->u.data.proclist,
-				 param_ptr [0], param_ptr [1]);
-			do_output (output, resp, _offset_data (proclist),
-				   resp->u.data.proclist.total,
-				   ptr, (ptr != NULL) ? 0 : -1);
-			glibtop_free_r (server, ptr);
-			break;
+	case GLIBTOP_CMND_PROCLIST:
+	    param_ptr = (int64_t *) parameter;
+	    ptr = glibtop_get_proclist_p
+		(server, &resp->u.data.proclist,
+		 param_ptr [0], param_ptr [1]);
+	    do_output (output, resp, _offset_data (proclist),
+		       resp->u.data.proclist.total,
+		       ptr, (ptr != NULL) ? 0 : -1);
+	    glibtop_free_r (server, ptr);
+	    break;
 #endif
 #if GLIBTOP_SUID_PROC_ARGS
-		case GLIBTOP_CMND_PROC_ARGS:
-			memcpy (&pid, parameter, sizeof (pid_t));
-			memcpy (&max_len, parameter + sizeof (pid_t),
-				sizeof (max_len));
-			ptr = glibtop_get_proc_args_p (server,
-						       &resp->u.data.proc_args,
-						       pid);
-			do_output (output, resp, _offset_data (proc_args),
-				   ptr ? resp->u.data.proc_args.size+1 : 0,
-				   ptr, (ptr != NULL) ? 0 : -1);
-			glibtop_free_r (server, ptr);
-			break;
+	case GLIBTOP_CMND_PROC_ARGS:
+	    memcpy (&pid, parameter, sizeof (pid_t));
+	    memcpy (&max_len, parameter + sizeof (pid_t),
+		    sizeof (max_len));
+	    ptr = glibtop_get_proc_args_p (server,
+					   &resp->u.data.proc_args,
+					   pid);
+	    do_output (output, resp, _offset_data (proc_args),
+		       ptr ? resp->u.data.proc_args.size+1 : 0,
+		       ptr, (ptr != NULL) ? 0 : -1);
+	    glibtop_free_r (server, ptr);
+	    break;
 #endif
 #if GLIBTOP_SUID_PROC_MAP
-		case GLIBTOP_CMND_PROC_MAP:
-			memcpy (&pid, parameter, sizeof (pid_t));
-			ptr = glibtop_get_proc_map_p (server,
-						      &resp->u.data.proc_map,
-						      pid);
-			do_output (output, resp, _offset_data (proc_map),
-				   resp->u.data.proc_map.total,
-				   ptr, (ptr != NULL) ? 0 : -1);
-			glibtop_free_r (server, ptr);
-			break;
+	case GLIBTOP_CMND_PROC_MAP:
+	    memcpy (&pid, parameter, sizeof (pid_t));
+	    ptr = glibtop_get_proc_map_p (server,
+					  &resp->u.data.proc_map,
+					  pid);
+	    do_output (output, resp, _offset_data (proc_map),
+		       resp->u.data.proc_map.total,
+		       ptr, (ptr != NULL) ? 0 : -1);
+	    glibtop_free_r (server, ptr);
+	    break;
 #endif
 #if GLIBTOP_SUID_INTERFACE_NAMES
-		case GLIBTOP_CMND_INTERFACE_NAMES:
-			memcpy (&interface, parameter, sizeof (u_int64_t));
-			memcpy (&number, parameter + sizeof (u_int64_t),
-				sizeof (u_int64_t));
-			memcpy (&instance, parameter + 2 * sizeof (u_int64_t),
-				sizeof (u_int64_t));
-			memcpy (&strategy, parameter + 3 * sizeof (u_int64_t),
-				sizeof (u_int64_t));
-			ptr = glibtop_get_interface_names_p
-				(server, &resp->u.data.interface_names,
-				 interface, number, instance, strategy);
-			do_output (output, resp, _offset_data (interface_names),
-				   ptr ? resp->u.data.interface_names.size+1 : 0,
-				   ptr, (ptr != NULL) ? 0 : -1);
-			glibtop_free_r (server, ptr);
-			break;
+	case GLIBTOP_CMND_INTERFACE_NAMES:
+	    memcpy (&interface, parameter, sizeof (u_int64_t));
+	    memcpy (&number, parameter + sizeof (u_int64_t),
+		    sizeof (u_int64_t));
+	    memcpy (&instance, parameter + 2 * sizeof (u_int64_t),
+		    sizeof (u_int64_t));
+	    memcpy (&strategy, parameter + 3 * sizeof (u_int64_t),
+		    sizeof (u_int64_t));
+	    ptr = glibtop_get_interface_names_p
+		(server, &resp->u.data.interface_names,
+		 interface, number, instance, strategy);
+	    do_output (output, resp, _offset_data (interface_names),
+		       ptr ? resp->u.data.interface_names.size+1 : 0,
+		       ptr, (ptr != NULL) ? 0 : -1);
+	    glibtop_free_r (server, ptr);
+	    break;
 #endif
-		default:
-			ret = handle_slave_command (cmnd, resp, parameter);
-			do_output (output, resp, resp->offset, 0, NULL, ret);
-			break;
-		}
+	default:
+	    ret = handle_slave_command (cmnd, resp, parameter);
+	    do_output (output, resp, resp->offset, 0, NULL, ret);
+	    break;
 	}
+    }
 }
 
 int
 handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 		      const void *parameter)
 {
-	glibtop *server = glibtop_global_server;
-	unsigned device G_GNUC_UNUSED;
-	pid_t pid G_GNUC_UNUSED;
-	int retval G_GNUC_UNUSED = -1;
+    glibtop *server = glibtop_global_server;
+    unsigned device G_GNUC_UNUSED;
+    pid_t pid G_GNUC_UNUSED;
+    int retval G_GNUC_UNUSED = -1;
 
-	switch (cmnd->command) {
-	case GLIBTOP_CMND_SYSDEPS:
-		memcpy (&resp->u.sysdeps, &server->sysdeps, 
-			sizeof (glibtop_sysdeps));
-		resp->u.sysdeps.features = glibtop_server_features;
-		resp->u.sysdeps.pointer_size = sizeof (void*)*8;
-		resp->u.sysdeps.flags = glibtop_server_features;
-		resp->offset = _offset_union (sysdeps);
-		retval = 0;
-		break;
+    switch (cmnd->command) {
+    case GLIBTOP_CMND_SYSDEPS:
+	memcpy (&resp->u.sysdeps, &server->sysdeps, 
+		sizeof (glibtop_sysdeps));
+	resp->u.sysdeps.features = glibtop_server_features;
+	resp->u.sysdeps.pointer_size = sizeof (void*)*8;
+	resp->u.sysdeps.flags = glibtop_server_features;
+	resp->offset = _offset_union (sysdeps);
+	retval = 0;
+	break;
 #if GLIBTOP_SUID_CPU
-	case GLIBTOP_CMND_CPU:
-		retval = glibtop_get_cpu_p (server, &resp->u.data.cpu);
-		resp->offset = _offset_data (cpu);
-		break;
+    case GLIBTOP_CMND_CPU:
+	retval = glibtop_get_cpu_p (server, &resp->u.data.cpu);
+	resp->offset = _offset_data (cpu);
+	break;
 #endif
 #if GLIBTOP_SUID_MEM
-	case GLIBTOP_CMND_MEM:
-		retval = glibtop_get_mem_p (server, &resp->u.data.mem);
-		resp->offset = _offset_data (mem);
-		break;
+    case GLIBTOP_CMND_MEM:
+	retval = glibtop_get_mem_p (server, &resp->u.data.mem);
+	resp->offset = _offset_data (mem);
+	break;
 #endif
 #if GLIBTOP_SUID_SWAP
-	case GLIBTOP_CMND_SWAP:
-		retval = glibtop_get_swap_p (server, &resp->u.data.swap);
-		resp->offset = _offset_data (swap);
-		break;
+    case GLIBTOP_CMND_SWAP:
+	retval = glibtop_get_swap_p (server, &resp->u.data.swap);
+	resp->offset = _offset_data (swap);
+	break;
 #endif
 #if GLIBTOP_SUID_UPTIME
-	case GLIBTOP_CMND_UPTIME:
-		retval = glibtop_get_uptime_p (server, &resp->u.data.uptime);
-		resp->offset = _offset_data (uptime);
-		break;
+    case GLIBTOP_CMND_UPTIME:
+	retval = glibtop_get_uptime_p (server, &resp->u.data.uptime);
+	resp->offset = _offset_data (uptime);
+	break;
 #endif
 #if GLIBTOP_SUID_LOADAVG
-	case GLIBTOP_CMND_LOADAVG:
-		retval = glibtop_get_loadavg_p (server, &resp->u.data.loadavg);
-		resp->offset = _offset_data (loadavg);
-		break;
+    case GLIBTOP_CMND_LOADAVG:
+	retval = glibtop_get_loadavg_p (server, &resp->u.data.loadavg);
+	resp->offset = _offset_data (loadavg);
+	break;
 #endif
 #if GLIBTOP_SUID_SHM_LIMITS
-	case GLIBTOP_CMND_SHM_LIMITS:
-		retval = glibtop_get_shm_limits_p (server, &resp->u.data.shm_limits);
-		resp->offset = _offset_data (shm_limits);
-		break;
+    case GLIBTOP_CMND_SHM_LIMITS:
+	retval = glibtop_get_shm_limits_p (server, &resp->u.data.shm_limits);
+	resp->offset = _offset_data (shm_limits);
+	break;
 #endif
 #if GLIBTOP_SUID_MSG_LIMITS
-	case GLIBTOP_CMND_MSG_LIMITS:
-		retval = glibtop_get_msg_limits_p (server, &resp->u.data.msg_limits);
-		resp->offset = _offset_data (msg_limits);
-		break;
+    case GLIBTOP_CMND_MSG_LIMITS:
+	retval = glibtop_get_msg_limits_p (server, &resp->u.data.msg_limits);
+	resp->offset = _offset_data (msg_limits);
+	break;
 #endif
 #if GLIBTOP_SUID_SEM_LIMITS
-	case GLIBTOP_CMND_SEM_LIMITS:
-		retval = glibtop_get_sem_limits_p (server, &resp->u.data.sem_limits);
-		resp->offset = _offset_data (sem_limits);
-		break;
+    case GLIBTOP_CMND_SEM_LIMITS:
+	retval = glibtop_get_sem_limits_p (server, &resp->u.data.sem_limits);
+	resp->offset = _offset_data (sem_limits);
+	break;
 #endif
 #if GLIBTOP_SUID_PROC_STATE
-	case GLIBTOP_CMND_PROC_STATE:
-		memcpy (&pid, parameter, sizeof (pid_t));
-		retval = glibtop_get_proc_state_p
-			(server, &resp->u.data.proc_state, pid);
-		resp->offset = _offset_data (proc_state);
-		break;
+    case GLIBTOP_CMND_PROC_STATE:
+	memcpy (&pid, parameter, sizeof (pid_t));
+	retval = glibtop_get_proc_state_p
+	    (server, &resp->u.data.proc_state, pid);
+	resp->offset = _offset_data (proc_state);
+	break;
 #endif
 #if GLIBTOP_SUID_PROC_UID
-	case GLIBTOP_CMND_PROC_UID:
-		memcpy (&pid, parameter, sizeof (pid_t));
-		retval = glibtop_get_proc_uid_p
-			(server, &resp->u.data.proc_uid, pid);
-		resp->offset = _offset_data (proc_uid);
-		break;
+    case GLIBTOP_CMND_PROC_UID:
+	memcpy (&pid, parameter, sizeof (pid_t));
+	retval = glibtop_get_proc_uid_p
+	    (server, &resp->u.data.proc_uid, pid);
+	resp->offset = _offset_data (proc_uid);
+	break;
 #endif
 #if GLIBTOP_SUID_PROC_MEM
-	case GLIBTOP_CMND_PROC_MEM:
-		memcpy (&pid, parameter, sizeof (pid_t));
-		retval = glibtop_get_proc_mem_p
-			(server, &resp->u.data.proc_mem, pid);
-		resp->offset = _offset_data (proc_mem);
-		break;
+    case GLIBTOP_CMND_PROC_MEM:
+	memcpy (&pid, parameter, sizeof (pid_t));
+	retval = glibtop_get_proc_mem_p
+	    (server, &resp->u.data.proc_mem, pid);
+	resp->offset = _offset_data (proc_mem);
+	break;
 #endif
 #if GLIBTOP_SUID_PROC_TIME
-	case GLIBTOP_CMND_PROC_TIME:
-		memcpy (&pid, parameter, sizeof (pid_t));
-		retval = glibtop_get_proc_time_p
-			(server, &resp->u.data.proc_time, pid);
-		resp->offset = _offset_data (proc_time);
-		break;
+    case GLIBTOP_CMND_PROC_TIME:
+	memcpy (&pid, parameter, sizeof (pid_t));
+	retval = glibtop_get_proc_time_p
+	    (server, &resp->u.data.proc_time, pid);
+	resp->offset = _offset_data (proc_time);
+	break;
 #endif
 #if GLIBTOP_SUID_PROC_SIGNAL
-	case GLIBTOP_CMND_PROC_SIGNAL:
-		memcpy (&pid, parameter, sizeof (pid_t));
-		retval = glibtop_get_proc_signal_p
-			(server, &resp->u.data.proc_signal, pid);
-		resp->offset = _offset_data (proc_signal);
-		break;
+    case GLIBTOP_CMND_PROC_SIGNAL:
+	memcpy (&pid, parameter, sizeof (pid_t));
+	retval = glibtop_get_proc_signal_p
+	    (server, &resp->u.data.proc_signal, pid);
+	resp->offset = _offset_data (proc_signal);
+	break;
 #endif
 #if GLIBTOP_SUID_PROC_KERNEL
-	case GLIBTOP_CMND_PROC_KERNEL:
-		memcpy (&pid, parameter, sizeof (pid_t));
-		retval = glibtop_get_proc_kernel_p
-			(server, &resp->u.data.proc_kernel, pid);
-		resp->offset = _offset_data (proc_kernel);
-		break;
+    case GLIBTOP_CMND_PROC_KERNEL:
+	memcpy (&pid, parameter, sizeof (pid_t));
+	retval = glibtop_get_proc_kernel_p
+	    (server, &resp->u.data.proc_kernel, pid);
+	resp->offset = _offset_data (proc_kernel);
+	break;
 #endif
 #if GLIBTOP_SUID_PROC_SEGMENT
-	case GLIBTOP_CMND_PROC_SEGMENT:
-		memcpy (&pid, parameter, sizeof (pid_t));
-		retval = glibtop_get_proc_segment_p
-			(server, &resp->u.data.proc_segment, pid);
-		resp->offset = _offset_data (proc_segment);
-		break;
+    case GLIBTOP_CMND_PROC_SEGMENT:
+	memcpy (&pid, parameter, sizeof (pid_t));
+	retval = glibtop_get_proc_segment_p
+	    (server, &resp->u.data.proc_segment, pid);
+	resp->offset = _offset_data (proc_segment);
+	break;
 #endif
 #if GLIBTOP_SUID_NETINFO
-	case GLIBTOP_CMND_NETINFO:
-		retval = glibtop_get_netinfo_p (server, &resp->u.data.netinfo, parameter, 0);
-		resp->offset = _offset_data (netload);
-		break;
+    case GLIBTOP_CMND_NETINFO:
+	retval = glibtop_get_netinfo_p (server, &resp->u.data.netinfo, parameter, 0);
+	resp->offset = _offset_data (netload);
+	break;
 #endif
 #if GLIBTOP_SUID_NETLOAD
-	case GLIBTOP_CMND_NETLOAD:
-		retval = glibtop_get_netload_p (server, &resp->u.data.netload, parameter, 0, 0);
-		resp->offset = _offset_data (netload);
-		break;
+    case GLIBTOP_CMND_NETLOAD:
+	retval = glibtop_get_netload_p (server, &resp->u.data.netload, parameter, 0, 0);
+	resp->offset = _offset_data (netload);
+	break;
 #endif
 #if GLIBTOP_SUID_PPP
-	case GLIBTOP_CMND_PPP:
-		memcpy (&device, parameter, sizeof (unsigned short));
-		retval = glibtop_get_ppp_p (server, &resp->u.data.ppp, device);
-		resp->offset = _offset_data (ppp);
-		break;
+    case GLIBTOP_CMND_PPP:
+	memcpy (&device, parameter, sizeof (unsigned short));
+	retval = glibtop_get_ppp_p (server, &resp->u.data.ppp, device);
+	resp->offset = _offset_data (ppp);
+	break;
 #endif
-	default:
-		glibtop_error ("Child received unknown command %u",
-			       cmnd->command);
-		break;
-	}
+    default:
+	glibtop_error ("Child received unknown command %u",
+		       cmnd->command);
+	break;
+    }
 
-	return retval;
+    return retval;
 }

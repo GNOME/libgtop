@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,76 +36,76 @@ BEGIN_LIBGTOP_DECLS
 static inline char *
 skip_token (const char *p)
 {
-        while (isspace(*p)) p++;
-        while (*p && !isspace(*p)) p++;
-	return (char *)p;
+    while (isspace(*p)) p++;
+    while (*p && !isspace(*p)) p++;
+    return (char *)p;
 }
 
 static inline char *
 skip_multiple_token (const char *p, int count)
 {
-	int i;
+    int i;
 
-	for (i = 0; i < count; i++)
-		p = skip_token (p);
+    for (i = 0; i < count; i++)
+	p = skip_token (p);
 
-	return (char *)p;
+    return (char *)p;
 }
 
 static inline char *
 skip_line (const char *p)
 {
-	while (*p != '\n') p++;
-	return (char *) ++p;
+    while (*p != '\n') p++;
+    return (char *) ++p;
 }
 
 static inline int
 proc_file_to_buffer (char *buffer, const char *fmt, pid_t pid)
 {
-	char filename [BUFSIZ];
-	int fd, len;
+    char filename [BUFSIZ];
+    int fd, len;
 
-	sprintf (filename, fmt, pid);
+    sprintf (filename, fmt, pid);
 
-	fd = open (filename, O_RDONLY);
-	if (fd < 0) return -1;
+    fd = open (filename, O_RDONLY);
+    if (fd < 0) return -1;
 
-	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0) return -1;
+    len = read (fd, buffer, BUFSIZ-1);
+    if (len < 0) return -1;
 
-	close (fd);
+    close (fd);
 
-	buffer [len] = '\0';
+    buffer [len] = '\0';
 
-	return 0;
+    return 0;
 }
 
 static inline int
 proc_stat_to_buffer (char *buffer, pid_t pid)
 {
-	return proc_file_to_buffer (buffer, "/proc/%d/stat", pid);
+    return proc_file_to_buffer (buffer, "/proc/%d/stat", pid);
 }
 
 static inline int
 proc_status_to_buffer (char *buffer, pid_t pid)
 {
-	return proc_file_to_buffer (buffer, "/proc/%d/status", pid);
+    return proc_file_to_buffer (buffer, "/proc/%d/status", pid);
 }
 
 static inline int
 proc_statm_to_buffer (char *buffer, pid_t pid)
 {
-	return proc_file_to_buffer (buffer, "/proc/%d/statm", pid);
+    return proc_file_to_buffer (buffer, "/proc/%d/statm", pid);
 }
 
 static inline char *
 proc_stat_after_cmd (char *p)
 {
-	p = strrchr (p, ')');
-	if (!p) return p;
+    p = strrchr (p, ')');
+    if (!p) return p;
 
-	*p++ = '\0';
-	return p;
+    *p++ = '\0';
+    return p;
 }
 
 #endif

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -61,41 +63,41 @@ glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned long features,
 		const unsigned flags)
 {
-	char buffer [BUFSIZ], *p;
-	int fd, len, i;
+    char buffer [BUFSIZ], *p;
+    int fd, len, i;
 
-	server->name = program_name;
+    server->name = program_name;
 
-	set_linux_version ();
-	server->os_version_code = (unsigned long) linux_version_code;
+    set_linux_version ();
+    server->os_version_code = (unsigned long) linux_version_code;
 
-	server->ncpu = 0;
+    server->ncpu = 0;
 
-	fd = open (FILENAME, O_RDONLY);
-	if (fd < 0)
-		glibtop_error_io_r (server, "open (%s)", FILENAME);
+    fd = open (FILENAME, O_RDONLY);
+    if (fd < 0)
+	glibtop_error_io_r (server, "open (%s)", FILENAME);
 
-	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0)
-		glibtop_error_io_r (server, "read (%s)", FILENAME);
+    len = read (fd, buffer, BUFSIZ-1);
+    if (len < 0)
+	glibtop_error_io_r (server, "read (%s)", FILENAME);
 
-	close (fd);
+    close (fd);
 
-	buffer [len] = '\0';
+    buffer [len] = '\0';
 
-	p = skip_multiple_token (buffer, 5) + 1;
+    p = skip_multiple_token (buffer, 5) + 1;
 
-	for (i = 0; i < GLIBTOP_NCPU; i++) {
+    for (i = 0; i < GLIBTOP_NCPU; i++) {
 		
-		if (strncmp (p, "cpu", 3) || !isdigit (p [3]))
-			break;
+	if (strncmp (p, "cpu", 3) || !isdigit (p [3]))
+	    break;
 
-		server->ncpu++;
+	server->ncpu++;
 
-		p = skip_multiple_token (p, 5) + 1;
-	}
+	p = skip_multiple_token (p, 5) + 1;
+    }
 
 #if DEBUG	
-	printf ("\nThis machine has %d CPUs.\n\n", server->ncpu);
+    printf ("\nThis machine has %d CPUs.\n\n", server->ncpu);
 #endif
 }

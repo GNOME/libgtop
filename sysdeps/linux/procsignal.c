@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,9 +36,9 @@ static const unsigned long _glibtop_sysdeps_proc_signal =
 int
 glibtop_init_proc_signal_s (glibtop *server)
 {
-	server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
+    server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
 
-	return 0;
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -44,26 +46,26 @@ glibtop_init_proc_signal_s (glibtop *server)
 int
 glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf, pid_t pid)
 {
-	char buffer [BUFSIZ], *p;
+    char buffer [BUFSIZ], *p;
 	
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_SIGNAL, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_SIGNAL, 0);
 
-	memset (buf, 0, sizeof (glibtop_proc_signal));
+    memset (buf, 0, sizeof (glibtop_proc_signal));
 
-	if (proc_stat_to_buffer (buffer, pid))
-		return -1;
+    if (proc_stat_to_buffer (buffer, pid))
+	return -1;
 
-	p = proc_stat_after_cmd (buffer);
-	if (!p) return -1;
+    p = proc_stat_after_cmd (buffer);
+    if (!p) return -1;
 
-	p = skip_multiple_token (p, 28);
+    p = skip_multiple_token (p, 28);
 
-	buf->signal [0] = strtoul (p, &p, 0);
-	buf->blocked [0] = strtoul (p, &p, 0);
-	buf->sigignore [0] = strtoul (p, &p, 0);
-	buf->sigcatch [0] = strtoul (p, &p, 0);
+    buf->signal [0] = strtoul (p, &p, 0);
+    buf->blocked [0] = strtoul (p, &p, 0);
+    buf->sigignore [0] = strtoul (p, &p, 0);
+    buf->sigcatch [0] = strtoul (p, &p, 0);
 
-	buf->flags = _glibtop_sysdeps_proc_signal;
+    buf->flags = _glibtop_sysdeps_proc_signal;
 
-	return 0;
+    return 0;
 }

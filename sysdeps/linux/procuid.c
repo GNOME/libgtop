@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -42,10 +44,10 @@ static const unsigned long _glibtop_sysdeps_proc_uid_stat =
 int
 glibtop_init_proc_uid_s (glibtop *server)
 {
-	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid |
-		_glibtop_sysdeps_proc_uid_stat;
+    server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid |
+	_glibtop_sysdeps_proc_uid_stat;
 
-	return 0;
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -53,78 +55,78 @@ glibtop_init_proc_uid_s (glibtop *server)
 int
 glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 {
-	char buffer [BUFSIZ], *p;
+    char buffer [BUFSIZ], *p;
 	
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_UID, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_UID, 0);
 
-	memset (buf, 0, sizeof (glibtop_proc_uid));
+    memset (buf, 0, sizeof (glibtop_proc_uid));
 
-	if (proc_status_to_buffer (buffer, pid))
-		return -1;
+    if (proc_status_to_buffer (buffer, pid))
+	return -1;
 
-	/* Search substring 'Pid:' */
+    /* Search substring 'Pid:' */
 
-	p = strstr (buffer, "\nPid:");
-	if (!p) return -1;
+    p = strstr (buffer, "\nPid:");
+    if (!p) return -1;
 
-	p = skip_token (p); /* "Pid:" */
-	buf->pid = strtoul (p, &p, 0);
+    p = skip_token (p); /* "Pid:" */
+    buf->pid = strtoul (p, &p, 0);
 
-	p = skip_token (p); /* "PPid:" */
-	buf->ppid = strtoul (p, &p, 0);
+    p = skip_token (p); /* "PPid:" */
+    buf->ppid = strtoul (p, &p, 0);
 
-	/* Maybe future Linux versions place something between
-	 * "PPid" and "Uid", so we catch this here. */
-	p = strstr (p, "\nUid:");
-	if (!p) return -1;
+    /* Maybe future Linux versions place something between
+     * "PPid" and "Uid", so we catch this here. */
+    p = strstr (p, "\nUid:");
+    if (!p) return -1;
 
-	p = skip_token (p); /* "Uid:" */
-	buf->uid = strtoul (p, &p, 0);
-	buf->euid = strtoul (p, &p, 0);
+    p = skip_token (p); /* "Uid:" */
+    buf->uid = strtoul (p, &p, 0);
+    buf->euid = strtoul (p, &p, 0);
 
-	/* We don't know how many entries on the "Uid:" line
-	 * future Linux version will have, so we catch this here. */
-	p = strstr (p, "\nGid:");
-	if (!p) return -1;
+    /* We don't know how many entries on the "Uid:" line
+     * future Linux version will have, so we catch this here. */
+    p = strstr (p, "\nGid:");
+    if (!p) return -1;
 
-	p = skip_token (p); /* "Gid:" */
-	buf->gid = strtoul (p, &p, 0);
-	buf->egid = strtoul (p, &p, 0);
+    p = skip_token (p); /* "Gid:" */
+    buf->gid = strtoul (p, &p, 0);
+    buf->egid = strtoul (p, &p, 0);
 
-	buf->flags = _glibtop_sysdeps_proc_uid;
+    buf->flags = _glibtop_sysdeps_proc_uid;
 
-	if (proc_stat_to_buffer (buffer, pid))
-		return -1;
+    if (proc_stat_to_buffer (buffer, pid))
+	return -1;
 
-	p = proc_stat_after_cmd (buffer);
-	if (!p) return -1;
+    p = proc_stat_after_cmd (buffer);
+    if (!p) return -1;
 
-	p = skip_multiple_token (p, 2);
+    p = skip_multiple_token (p, 2);
 
-	buf->pgrp = strtoul (p, &p, 0);
-	buf->session = strtoul (p, &p, 0);
-	buf->tty = strtoul (p, &p, 0);
-	buf->tpgid = strtoul (p, &p, 0);
+    buf->pgrp = strtoul (p, &p, 0);
+    buf->session = strtoul (p, &p, 0);
+    buf->tty = strtoul (p, &p, 0);
+    buf->tpgid = strtoul (p, &p, 0);
 
-	p = skip_multiple_token (p, 9);
+    p = skip_multiple_token (p, 9);
 	
-	buf->priority = strtoul (p, &p, 0);
-	buf->nice = strtoul (p, &p, 0);
+    buf->priority = strtoul (p, &p, 0);
+    buf->nice = strtoul (p, &p, 0);
 
-	if (buf->tty == 0)
-		/* the old notty val, update elsewhere bef. moving to 0 */
-		buf->tty = -1;
+    if (buf->tty == 0)
+	/* the old notty val, update elsewhere bef. moving to 0 */
+	buf->tty = -1;
 
-	if (server->os_version_code < LINUX_VERSION(1,3,39)) {
-		/* map old meanings to new */
-		buf->priority = 2*15 - buf->priority;
-		buf->nice = 15 - buf->nice;
-	}
-	if (server->os_version_code < LINUX_VERSION(1,1,30) && buf->tty != -1)
-		/* when tty wasn't full devno */
-		buf->tty = 4*0x100 + buf->tty;
+    if (server->os_version_code < LINUX_VERSION(1,3,39)) {
+	/* map old meanings to new */
+	buf->priority = 2*15 - buf->priority;
+	buf->nice = 15 - buf->nice;
+    }
+    if (server->os_version_code < LINUX_VERSION(1,1,30) && buf->tty != -1)
+	/* when tty wasn't full devno */
+	buf->tty = 4*0x100 + buf->tty;
 	
-	buf->flags |= _glibtop_sysdeps_proc_uid_stat;
+    buf->flags |= _glibtop_sysdeps_proc_uid_stat;
 
-	return 0;
+    return 0;
 }

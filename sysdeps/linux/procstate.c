@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -38,10 +40,10 @@ static const unsigned long _glibtop_sysdeps_proc_state_uid =
 int
 glibtop_init_proc_state_s (glibtop *server)
 {
-	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state |
-		_glibtop_sysdeps_proc_state_uid;
+    server->sysdeps.proc_state = _glibtop_sysdeps_proc_state |
+	_glibtop_sysdeps_proc_state_uid;
 
-	return 0;
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -49,74 +51,74 @@ glibtop_init_proc_state_s (glibtop *server)
 int
 glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 {
-	char buffer [BUFSIZ], state, *p;
-	struct stat statb;
+    char buffer [BUFSIZ], state, *p;
+    struct stat statb;
 	
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_STATE, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_STATE, 0);
 
-	memset (buf, 0, sizeof (glibtop_proc_state));
+    memset (buf, 0, sizeof (glibtop_proc_state));
 
-	/* IMPORTANT NOTICE: For security reasons it is extremely important
-	 *                   that the 'uid' and 'gid' fields have correct
-	 *                   values; NEVER set their flags values if this
-	 *                   is not the case !!! */
+    /* IMPORTANT NOTICE: For security reasons it is extremely important
+     *                   that the 'uid' and 'gid' fields have correct
+     *                   values; NEVER set their flags values if this
+     *                   is not the case !!! */
 
-	sprintf (buffer, "/proc/%d", pid);
+    sprintf (buffer, "/proc/%d", pid);
 
-	if (stat (buffer, &statb))
-		return -1;
+    if (stat (buffer, &statb))
+	return -1;
 
-	/* For security reasons we use stat () since it is
-	 * more failsafe than parsing the file. */
+    /* For security reasons we use stat () since it is
+     * more failsafe than parsing the file. */
 	
-	buf->uid = statb.st_uid;
-	buf->gid = statb.st_gid;
+    buf->uid = statb.st_uid;
+    buf->gid = statb.st_gid;
 
-	buf->flags = _glibtop_sysdeps_proc_state_uid;
+    buf->flags = _glibtop_sysdeps_proc_state_uid;
 
-	sprintf (buffer, "/proc/%d", pid);
+    sprintf (buffer, "/proc/%d", pid);
 
-	/* Now we read the remaining fields. */
+    /* Now we read the remaining fields. */
 
-	if (proc_stat_to_buffer (buffer, pid))
-		return -1;
+    if (proc_stat_to_buffer (buffer, pid))
+	return -1;
 
-	p = strrchr (buffer, ')'); *p = '\0';
-	state = p [2];
+    p = strrchr (buffer, ')'); *p = '\0';
+    state = p [2];
 
-	p = skip_token (buffer); p++;	/* pid */
-	if (*p++ != '(')
-		glibtop_error_r (server, "Bad data in /proc/%d/stat", pid);
+    p = skip_token (buffer); p++;	/* pid */
+    if (*p++ != '(')
+	glibtop_error_r (server, "Bad data in /proc/%d/stat", pid);
 
-	strncpy (buf->cmd, p, sizeof (buf->cmd)-1);
-	buf->cmd [sizeof (buf->cmd)-1] = 0;
+    strncpy (buf->cmd, p, sizeof (buf->cmd)-1);
+    buf->cmd [sizeof (buf->cmd)-1] = 0;
 
-	buf->flags |= _glibtop_sysdeps_proc_state;
+    buf->flags |= _glibtop_sysdeps_proc_state;
 
-	switch (state) {
-	case 'R':
-	    buf->state = GLIBTOP_PROCESS_RUNNING;
-	    break;
-	case 'S':
-	    buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
-	    break;
-	case 'D':
-	    buf->state = GLIBTOP_PROCESS_UNINTERRUPTIBLE;
-	    break;
-	case 'Z':
-	    buf->state = GLIBTOP_PROCESS_ZOMBIE;
-	    break;
-	case 'T':
-	    buf->state = GLIBTOP_PROCESS_STOPPED;
-	    break;
-	case 'W':
-	    buf->state = GLIBTOP_PROCESS_SWAPPING;
-	    break;
-	default:
-	    return -1;
-	}
+    switch (state) {
+    case 'R':
+	buf->state = GLIBTOP_PROCESS_RUNNING;
+	break;
+    case 'S':
+	buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
+	break;
+    case 'D':
+	buf->state = GLIBTOP_PROCESS_UNINTERRUPTIBLE;
+	break;
+    case 'Z':
+	buf->state = GLIBTOP_PROCESS_ZOMBIE;
+	break;
+    case 'T':
+	buf->state = GLIBTOP_PROCESS_STOPPED;
+	break;
+    case 'W':
+	buf->state = GLIBTOP_PROCESS_SWAPPING;
+	break;
+    default:
+	return -1;
+    }
 
-	buf->flags |= (1L << GLIBTOP_PROC_STATE_STATE);
+    buf->flags |= (1L << GLIBTOP_PROC_STATE_STATE);
 
-	return 0;
+    return 0;
 }

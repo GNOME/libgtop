@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -31,9 +33,9 @@ static const unsigned long _glibtop_sysdeps_proc_signal = 0;
 int
 glibtop_init_proc_signal_s (glibtop *server)
 {
-	server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
+    server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
 
-	return 0;
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -42,7 +44,7 @@ int
 glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 			   pid_t pid)
 {
-	memset (buf, 0, sizeof (glibtop_proc_signal));
+    memset (buf, 0, sizeof (glibtop_proc_signal));
 
-	return 0;
+    return 0;
 }

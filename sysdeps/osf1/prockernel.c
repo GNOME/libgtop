@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,7 +36,7 @@ static const unsigned long _glibtop_sysdeps_proc_kernel = 0;
 int
 glibtop_init_proc_kernel_p (glibtop *server)
 {
-	server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
+    server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
 }
 
 /* Provides detailed information about a process. */
@@ -43,7 +45,7 @@ int
 glibtop_get_proc_kernel_p (glibtop *server, glibtop_proc_kernel *buf,
 			   pid_t pid)
 {
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
+    glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
 	
-	memset (buf, 0, sizeof (glibtop_proc_kernel));
+    memset (buf, 0, sizeof (glibtop_proc_kernel));
 }

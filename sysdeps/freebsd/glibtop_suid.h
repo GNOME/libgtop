@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -37,23 +39,23 @@ BEGIN_LIBGTOP_DECLS
 #define UREADOK(ki)	(FORCEUREAD || (KI_PROC(ki)->p_flag & P_INMEM))
 
 static inline void glibtop_suid_enter (glibtop *server) {
-	setregid (server->_priv->machine.gid,
-		  server->_priv->machine.egid);
+setregid (server->_priv->machine.gid,
+    server->_priv->machine.egid);
 };
 
 static inline void glibtop_suid_leave (glibtop *server) {
-	if (setregid (server->_priv->machine.egid,
-		      server->_priv->machine.gid))
-		_exit (1);
-};
+if (setregid (server->_priv->machine.egid,
+    server->_priv->machine.gid))
+     _exit (1);
+     };
 
-void
-glibtop_init_p (glibtop *server, const unsigned long features,
-		const unsigned flags);
+     void
+     glibtop_init_p (glibtop *server, const unsigned long features,
+	 const unsigned flags);
 void
 glibtop_open_p (glibtop *server, const char *program_name,
-		const unsigned long features,
-		const unsigned flags);
+    const unsigned long features,
+    const unsigned flags);
 
 END_LIBGTOP_DECLS
 

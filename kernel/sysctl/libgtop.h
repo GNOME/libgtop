@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 #ifndef _LINUX_LIBGTOP_H
 #define _LINUX_LIBGTOP_H 1
 

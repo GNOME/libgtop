@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998 Joshua Sled
@@ -35,9 +37,9 @@ static const unsigned long _glibtop_sysdeps_loadavg =
 int
 glibtop_init_loadavg_p (glibtop *server)
 {
-	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
+    server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
 
-	return 0;
+    return 0;
 }
 
 /* Provides load averange. */
@@ -45,20 +47,20 @@ glibtop_init_loadavg_p (glibtop *server)
 int
 glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
 {
-	double ldavg[3]; 
-	int i;
+    double ldavg[3]; 
+    int i;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_LOADAVG), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_LOADAVG), 0);
 	
-	memset (buf, 0, sizeof (glibtop_loadavg));
+    memset (buf, 0, sizeof (glibtop_loadavg));
 
-	getloadavg (ldavg, 3);
+    getloadavg (ldavg, 3);
   
-	/* fill in the struct */
-	buf->flags = _glibtop_sysdeps_loadavg;
-	for (i = 0; i < 3; i++) {
-		buf->loadavg [i] = ldavg [i];
-	} /* end for */
+    /* fill in the struct */
+    buf->flags = _glibtop_sysdeps_loadavg;
+    for (i = 0; i < 3; i++) {
+	buf->loadavg [i] = ldavg [i];
+    } /* end for */
 
-	return 0;
+    return 0;
 }

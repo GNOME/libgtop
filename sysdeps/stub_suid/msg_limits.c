@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,9 +36,9 @@ static const unsigned long _glibtop_sysdeps_msg_limits = 0;
 int
 glibtop_init_msg_limits_p (glibtop *server)
 {
-	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+    server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -44,9 +46,9 @@ glibtop_init_msg_limits_p (glibtop *server)
 int
 glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 {
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_MSG_LIMITS, 0);
+    glibtop_init_p (server, GLIBTOP_SYSDEPS_MSG_LIMITS, 0);
 	
-	memset (buf, 0, sizeof (glibtop_msg_limits));
+    memset (buf, 0, sizeof (glibtop_msg_limits));
 
-	return 0;
+    return 0;
 }

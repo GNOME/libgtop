@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /*
  *  Top - a top users display for Berkeley Unix
  *
@@ -39,7 +41,7 @@
 
 
 #ifdef FIXED_PCTCPU
-  typedef long pctcpu;
+typedef long pctcpu;
 # define pctdouble(p) ((double)(p) / FIXED_PCTCPU)
 #else
 typedef double pctcpu;
@@ -47,11 +49,11 @@ typedef double pctcpu;
 #endif
 
 #ifdef FIXED_LOADAVG
-  typedef long load_avg;
+typedef long load_avg;
 # define loaddouble(la) ((double)(la) / FIXED_LOADAVG)
 # define intload(i) ((int)((i) * FIXED_LOADAVG))
 #else
-  typedef double load_avg;
+typedef double load_avg;
 # define loaddouble(la) (la)
 # define intload(i) ((double)(i))
 #endif

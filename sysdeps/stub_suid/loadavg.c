@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,9 +36,9 @@ static const unsigned long _glibtop_sysdeps_loadavg = 0;
 int
 glibtop_init_loadavg_p (glibtop *server)
 {
-	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
+    server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
 
-	return 0;
+    return 0;
 }
 
 /* Provides load averange. */
@@ -44,9 +46,9 @@ glibtop_init_loadavg_p (glibtop *server)
 int
 glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
 {
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_LOADAVG, 0);
+    glibtop_init_p (server, GLIBTOP_SYSDEPS_LOADAVG, 0);
 	
-	memset (buf, 0, sizeof (glibtop_loadavg));
+    memset (buf, 0, sizeof (glibtop_loadavg));
 
-	return 0;
+    return 0;
 }

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -28,35 +30,35 @@
 void
 glibtop_send_version (glibtop *server, int fd)
 {
-	char buffer [BUFSIZ];
-	size_t size;
+    char buffer [BUFSIZ];
+    size_t size;
 
-	sprintf (buffer, LIBGTOP_VERSION_STRING,
-		 LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
-		 sizeof (glibtop_command),
-		 sizeof (glibtop_response),
-		 sizeof (glibtop_union),
-		 sizeof (glibtop_sysdeps));
+    sprintf (buffer, LIBGTOP_VERSION_STRING,
+	     LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
+	     sizeof (glibtop_command),
+	     sizeof (glibtop_response),
+	     sizeof (glibtop_union),
+	     sizeof (glibtop_sysdeps));
 	
-	size = strlen (buffer) + 1;
+    size = strlen (buffer) + 1;
 
 #ifdef DEBUG
-	fprintf (stderr, "SERVER ID: |%s|\n", buffer);
+    fprintf (stderr, "SERVER ID: |%s|\n", buffer);
 #endif
 
-	if (fd == 0) {
-		if (write (1, (const void *) &size, sizeof (size)) < 0)
-			glibtop_warn_io_r (server, "write");
-	} else {
-		if (send (fd, (const void *) &size, sizeof (size), 0) < 0)
-			glibtop_warn_io_r (server, "send");
-	}
+    if (fd == 0) {
+	if (write (1, (const void *) &size, sizeof (size)) < 0)
+	    glibtop_warn_io_r (server, "write");
+    } else {
+	if (send (fd, (const void *) &size, sizeof (size), 0) < 0)
+	    glibtop_warn_io_r (server, "send");
+    }
 
-	if (fd == 0) {
-		if (write (1, (const void *) buffer, size) < 0)
-			glibtop_warn_io_r (server, "write");
-	} else {
-		if (send (fd, (const void *) buffer, size, 0) < 0)
-			glibtop_warn_io_r (server, "send");
-	}
+    if (fd == 0) {
+	if (write (1, (const void *) buffer, size) < 0)
+	    glibtop_warn_io_r (server, "write");
+    } else {
+	if (send (fd, (const void *) buffer, size, 0) < 0)
+	    glibtop_warn_io_r (server, "send");
+    }
 }

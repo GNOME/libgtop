@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -34,17 +36,17 @@ int
 glibtop_init_sem_limits_p (glibtop *server)
 {
 
-	return 0;
+    return 0;
 }
 
 int
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
-        glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
 
-        memset (buf, 0, sizeof (glibtop_sem_limits));
+    memset (buf, 0, sizeof (glibtop_sem_limits));
 
-	return 0;
+    return 0;
 }
 
 #else
@@ -74,8 +76,8 @@ static struct seminfo _seminfo;
   
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
-	{ "_seminfo" },
-	{ 0 }
+    { "_seminfo" },
+    { 0 }
 };
 
 /* Init function. */
@@ -83,20 +85,20 @@ static struct nlist nlst [] = {
 int
 glibtop_init_sem_limits_p (glibtop *server)
 {
-	if (kvm_nlist (server->_priv->machine.kd, nlst) != 0) {
-		glibtop_warn_io_r (server, "kvm_nlist (sem_limits)");
-		return -1;
-	}
+    if (kvm_nlist (server->_priv->machine.kd, nlst) != 0) {
+	glibtop_warn_io_r (server, "kvm_nlist (sem_limits)");
+	return -1;
+    }
 	
-	if (kvm_read (server->_priv->machine.kd, nlst [0].n_value,
-		      &_seminfo, sizeof (_seminfo)) != sizeof (_seminfo)) {
-		glibtop_warn_io_r (server, "kvm_read (seminfo)");
-		return -1;
-	}
+    if (kvm_read (server->_priv->machine.kd, nlst [0].n_value,
+		  &_seminfo, sizeof (_seminfo)) != sizeof (_seminfo)) {
+	glibtop_warn_io_r (server, "kvm_read (seminfo)");
+	return -1;
+    }
 
-	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+    server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about sysv sem limits. */
@@ -104,25 +106,25 @@ glibtop_init_sem_limits_p (glibtop *server)
 int
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
 	
-	memset (buf, 0, sizeof (glibtop_sem_limits));
+    memset (buf, 0, sizeof (glibtop_sem_limits));
 	
-	if (server->sysdeps.sem_limits == 0)
-		return -1;
+    if (server->sysdeps.sem_limits == 0)
+	return -1;
 
-	buf->semmap = _seminfo.semmap;
-	buf->semmni = _seminfo.semmni;
-	buf->semmns = _seminfo.semmns;
-	buf->semmnu = _seminfo.semmnu;
-	buf->semmsl = _seminfo.semmsl;
-	buf->semopm = _seminfo.semopm;
-	buf->semvmx = _seminfo.semvmx;
-	buf->semaem = _seminfo.semaem;
+    buf->semmap = _seminfo.semmap;
+    buf->semmni = _seminfo.semmni;
+    buf->semmns = _seminfo.semmns;
+    buf->semmnu = _seminfo.semmnu;
+    buf->semmsl = _seminfo.semmsl;
+    buf->semopm = _seminfo.semopm;
+    buf->semvmx = _seminfo.semvmx;
+    buf->semaem = _seminfo.semaem;
 	
-	buf->flags = _glibtop_sysdeps_sem_limits;
+    buf->flags = _glibtop_sysdeps_sem_limits;
 
-	return 0;
+    return 0;
 }
 
 #endif /* either a newer BSDI or no BSDI at all. */

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -50,22 +52,22 @@ static const unsigned long _glibtop_sysdeps_swap =
 
 #if defined(__bsdi__)
 static struct nlist nlst [] = {
-	{ "_swapstats" }, /* general swap info */
-	{ 0 }
+    { "_swapstats" }, /* general swap info */
+    { 0 }
 };
 #elif __FreeBSD__ < 4
 static struct nlist nlst [] = {
 #define VM_SWAPLIST	0
-	{ "_swaplist" },/* list of free swap areas */
+    { "_swaplist" },/* list of free swap areas */
 #define VM_SWDEVT	1
-	{ "_swdevt" },	/* list of swap devices and sizes */
+    { "_swdevt" },	/* list of swap devices and sizes */
 #define VM_NSWAP	2
-	{ "_nswap" },	/* size of largest swap device */
+    { "_nswap" },	/* size of largest swap device */
 #define VM_NSWDEV	3
-	{ "_nswdev" },	/* number of swap devices */
+    { "_nswdev" },	/* number of swap devices */
 #define VM_DMMAX	4
-	{ "_dmmax" },	/* maximum size of a swap block */
-	{ 0 }
+    { "_dmmax" },	/* maximum size of a swap block */
+    { 0 }
 };
 #endif
 
@@ -85,8 +87,8 @@ static int mib_uvmexp [] = { CTL_VM, VM_UVMEXP };
 #else
 /* nlist structure for kernel access */
 static struct nlist nlst2 [] = {
-	{ "_cnt" },
-	{ 0 }
+    { "_cnt" },
+    { 0 }
 };
 #endif
 
@@ -97,30 +99,30 @@ glibtop_init_swap_p (glibtop *server)
 {
 #if defined(__FreeBSD__) || defined(__bsdi__)
 #if __FreeBSD__ < 4 || defined(__bsdi__)
-	if (kvm_nlist (server->machine.kd, nlst) != 0) {
-		glibtop_warn_io_r (server, "kvm_nlist (swap)");
-		return -1;
-	}
+    if (kvm_nlist (server->machine.kd, nlst) != 0) {
+	glibtop_warn_io_r (server, "kvm_nlist (swap)");
+	return -1;
+    }
 #else
-	struct kvm_swap dummy;
+    struct kvm_swap dummy;
 
-	if (kvm_getswapinfo (server->machine.kd, &dummy, 1, 0) != 0) {
-		glibtop_warn_io_r (server, "kvm_swap (swap)");
-		return -1;
-	}
+    if (kvm_getswapinfo (server->machine.kd, &dummy, 1, 0) != 0) {
+	glibtop_warn_io_r (server, "kvm_swap (swap)");
+	return -1;
+    }
 #endif
 #endif
 
 #if !(defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000))
-	if (kvm_nlist (server->machine.kd, nlst2) != 0) {
-		glibtop_warn_io_r (server, "kvm_nlist (cnt)");
-		return -1;
-	}
+    if (kvm_nlist (server->machine.kd, nlst2) != 0) {
+	glibtop_warn_io_r (server, "kvm_nlist (cnt)");
+	return -1;
+    }
 #endif
 
-	server->sysdeps.swap = _glibtop_sysdeps_swap;
+    server->sysdeps.swap = _glibtop_sysdeps_swap;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about swap usage. */
@@ -136,91 +138,91 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 #if defined(__FreeBSD__)
 
 # if __FreeBSD__ < 4
-	char *header;
-	int hlen, nswdev, dmmax;
-	int div, nfree, npfree;
-	struct swdevt *sw;
-	long blocksize, *perdev;
-	struct rlist head;
-	struct rlisthdr swaplist;
-	struct rlist *swapptr;
-	size_t sw_size;
-	u_long ptr;
+    char *header;
+    int hlen, nswdev, dmmax;
+    int div, nfree, npfree;
+    struct swdevt *sw;
+    long blocksize, *perdev;
+    struct rlist head;
+    struct rlisthdr swaplist;
+    struct rlist *swapptr;
+    size_t sw_size;
+    u_long ptr;
 # else
-	int nswdev;
-	struct kvm_swap kvmsw[16];
+    int nswdev;
+    struct kvm_swap kvmsw[16];
 # endif
 
 #elif defined(__bsdi__)	
-	struct swapstats swap;
+    struct swapstats swap;
 #elif defined(__NetBSD__)
-	struct swapent *swaplist;
+    struct swapent *swaplist;
 #endif
 
-	int nswap, i;
-	int avail = 0, inuse = 0;
+    int nswap, i;
+    int avail = 0, inuse = 0;
 
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
-	struct uvmexp uvmexp;
-	size_t length_uvmexp;
+    struct uvmexp uvmexp;
+    size_t length_uvmexp;
 #else
-	/* To get `pagein' and `pageout'. */
-	struct vmmeter vmm;
+    /* To get `pagein' and `pageout'. */
+    struct vmmeter vmm;
 #endif
-        static int swappgsin = -1;
-	static int swappgsout = -1;
+    static int swappgsin = -1;
+    static int swappgsout = -1;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SWAP), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SWAP), 0);
 	
-	memset (buf, 0, sizeof (glibtop_swap));
+    memset (buf, 0, sizeof (glibtop_swap));
 
-	if (server->sysdeps.swap == 0)
-		return -1;
+    if (server->sysdeps.swap == 0)
+	return -1;
 
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
-	length_uvmexp = sizeof (uvmexp);
-	if (sysctl (mib_uvmexp, 2, &uvmexp, &length_uvmexp, NULL, 0)) {
-		glibtop_warn_io_r (server, "sysctl (uvmexp)");
-		return -1;
-	}
+    length_uvmexp = sizeof (uvmexp);
+    if (sysctl (mib_uvmexp, 2, &uvmexp, &length_uvmexp, NULL, 0)) {
+	glibtop_warn_io_r (server, "sysctl (uvmexp)");
+	return -1;
+    }
 #else
-	/* This is used to get the `pagein' and `pageout' members. */
+    /* This is used to get the `pagein' and `pageout' members. */
 	
-	if (kvm_read (server->machine.kd, nlst2[0].n_value,
-		      &vmm, sizeof (vmm)) != sizeof (vmm)) {
-		glibtop_warn_io_r (server, "kvm_read (cnt)");
-		return -1;
-	}
+    if (kvm_read (server->machine.kd, nlst2[0].n_value,
+		  &vmm, sizeof (vmm)) != sizeof (vmm)) {
+	glibtop_warn_io_r (server, "kvm_read (cnt)");
+	return -1;
+    }
 #endif
 
-        if (swappgsin < 0) {
-		buf->pagein = 0;
-		buf->pageout = 0;
-	} else {
+    if (swappgsin < 0) {
+	buf->pagein = 0;
+	buf->pageout = 0;
+    } else {
 #ifdef __FreeBSD__
-		buf->pagein = vmm.v_swappgsin - swappgsin;
-		buf->pageout = vmm.v_swappgsout - swappgsout;
+	buf->pagein = vmm.v_swappgsin - swappgsin;
+	buf->pageout = vmm.v_swappgsout - swappgsout;
 #else
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
-		buf->pagein = uvmexp.swapins - swappgsin;
-		buf->pageout = uvmexp.swapouts - swappgsout;
+	buf->pagein = uvmexp.swapins - swappgsin;
+	buf->pageout = uvmexp.swapouts - swappgsout;
 #else
-		buf->pagein = vmm.v_swpin - swappgsin;
-		buf->pageout = vmm.v_swpout - swappgsout;
+	buf->pagein = vmm.v_swpin - swappgsin;
+	buf->pageout = vmm.v_swpout - swappgsout;
 #endif
 #endif
-	}
+    }
 
 #ifdef __FreeBSD__
-        swappgsin = vmm.v_swappgsin;
-	swappgsout = vmm.v_swappgsout;
+    swappgsin = vmm.v_swappgsin;
+    swappgsout = vmm.v_swappgsout;
 #else
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
-	swappgsin = uvmexp.swapins;
-	swappgsout = uvmexp.swapouts;
+    swappgsin = uvmexp.swapins;
+    swappgsout = uvmexp.swapouts;
 #else
-	swappgsin = vmm.v_swpin;
-	swappgsout = vmm.v_swpout;
+    swappgsin = vmm.v_swpin;
+    swappgsout = vmm.v_swpout;
 #endif
 #endif
 
@@ -228,203 +230,203 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 
 #if __FreeBSD__ < 4
 
-	/* Size of largest swap device. */
+    /* Size of largest swap device. */
 
-	if (kvm_read (server->machine.kd, nlst[VM_NSWAP].n_value,
-		      &nswap, sizeof (nswap)) != sizeof (nswap)) {
-		glibtop_warn_io_r (server, "kvm_read (nswap)");
-		return -1;
+    if (kvm_read (server->machine.kd, nlst[VM_NSWAP].n_value,
+		  &nswap, sizeof (nswap)) != sizeof (nswap)) {
+	glibtop_warn_io_r (server, "kvm_read (nswap)");
+	return -1;
+    }
+
+    /* Number of swap devices. */
+
+    if (kvm_read (server->machine.kd, nlst[VM_NSWDEV].n_value,
+		  &nswdev, sizeof (nswdev)) != sizeof (nswdev)) {
+	glibtop_warn_io_r (server, "kvm_read (nswdev)");
+	return -1;
+    }
+
+    /* Maximum size of a swap block. */
+
+    if (kvm_read (server->machine.kd, nlst[VM_DMMAX].n_value,
+		  &dmmax, sizeof (dmmax)) != sizeof (dmmax)) {
+	glibtop_warn_io_r (server, "kvm_read (dmmax)");
+	return -1;
+    }
+
+    /* List of free swap areas. */
+
+    if (kvm_read (server->machine.kd, nlst[VM_SWAPLIST].n_value,
+		  &swaplist, sizeof (swaplist)) != sizeof (swaplist)) {
+	glibtop_warn_io_r (server, "kvm_read (swaplist)");
+	return -1;
+    }
+
+    /* Kernel offset of list of swap devices and sizes. */
+
+    if (kvm_read (server->machine.kd, nlst[VM_SWDEVT].n_value,
+		  &ptr, sizeof (ptr)) != sizeof (ptr)) {
+	glibtop_warn_io_r (server, "kvm_read (swdevt)");
+	return -1;
+    }
+
+    /* List of swap devices and sizes. */
+
+    sw_size = nswdev * sizeof (*sw);
+    sw = glibtop_malloc_r (server, sw_size);
+
+    if (kvm_read (server->machine.kd, ptr, sw, sw_size) != (ssize_t)sw_size) {
+	glibtop_warn_io_r (server, "kvm_read (*swdevt)");
+	return -1;
+    }
+
+    perdev = glibtop_malloc (nswdev * sizeof (*perdev));
+
+    /* Count up swap space. */
+
+    nfree = 0;
+    memset (perdev, 0, nswdev * sizeof(*perdev));
+
+    swapptr = swaplist.rlh_list;
+
+    while (swapptr) {
+	int	top, bottom, next_block;
+
+	if (kvm_read (server->machine.kd, (int) swapptr, &head,
+		      sizeof (struct rlist)) != sizeof (struct rlist)) {
+	    glibtop_warn_io_r (server, "kvm_read (swapptr)");
+	    return -1;
 	}
 
-	/* Number of swap devices. */
+	top = head.rl_end;
+	bottom = head.rl_start;
 
-	if (kvm_read (server->machine.kd, nlst[VM_NSWDEV].n_value,
-		      &nswdev, sizeof (nswdev)) != sizeof (nswdev)) {
-		glibtop_warn_io_r (server, "kvm_read (nswdev)");
-		return -1;
-	}
-
-	/* Maximum size of a swap block. */
-
-	if (kvm_read (server->machine.kd, nlst[VM_DMMAX].n_value,
-		      &dmmax, sizeof (dmmax)) != sizeof (dmmax)) {
-		glibtop_warn_io_r (server, "kvm_read (dmmax)");
-		return -1;
-	}
-
-	/* List of free swap areas. */
-
-	if (kvm_read (server->machine.kd, nlst[VM_SWAPLIST].n_value,
-		      &swaplist, sizeof (swaplist)) != sizeof (swaplist)) {
-		glibtop_warn_io_r (server, "kvm_read (swaplist)");
-		return -1;
-	}
-
-	/* Kernel offset of list of swap devices and sizes. */
-
-	if (kvm_read (server->machine.kd, nlst[VM_SWDEVT].n_value,
-		      &ptr, sizeof (ptr)) != sizeof (ptr)) {
-		glibtop_warn_io_r (server, "kvm_read (swdevt)");
-		return -1;
-	}
-
-	/* List of swap devices and sizes. */
-
-	sw_size = nswdev * sizeof (*sw);
-	sw = glibtop_malloc_r (server, sw_size);
-
-	if (kvm_read (server->machine.kd, ptr, sw, sw_size) != (ssize_t)sw_size) {
-		glibtop_warn_io_r (server, "kvm_read (*swdevt)");
-		return -1;
-	}
-
-	perdev = glibtop_malloc (nswdev * sizeof (*perdev));
-
-	/* Count up swap space. */
-
-	nfree = 0;
-	memset (perdev, 0, nswdev * sizeof(*perdev));
-
-	swapptr = swaplist.rlh_list;
-
-	while (swapptr) {
-		int	top, bottom, next_block;
-
-		if (kvm_read (server->machine.kd, (int) swapptr, &head,
-			      sizeof (struct rlist)) != sizeof (struct rlist)) {
-			glibtop_warn_io_r (server, "kvm_read (swapptr)");
-			return -1;
-		}
-
-		top = head.rl_end;
-		bottom = head.rl_start;
-
-		nfree += top - bottom + 1;
-
-		/*
-		 * Swap space is split up among the configured disks.
-		 *
-		 * For interleaved swap devices, the first dmmax blocks
-		 * of swap space some from the first disk, the next dmmax
-		 * blocks from the next, and so on up to nswap blocks.
-		 *
-		 * The list of free space joins adjacent free blocks,
-		 * ignoring device boundries.  If we want to keep track
-		 * of this information per device, we'll just have to
-		 * extract it ourselves.
-		 */
-		while (top / dmmax != bottom / dmmax) {
-			next_block = ((bottom + dmmax) / dmmax);
-			perdev[(bottom / dmmax) % nswdev] +=
-				next_block * dmmax - bottom;
-			bottom = next_block * dmmax;
-		}
-		perdev[(bottom / dmmax) % nswdev] +=
-			top - bottom + 1;
-
-		swapptr = head.rl_next;
-	}
-
-	header = getbsize (&hlen, &blocksize);
-
-	div = blocksize / 512;
-	avail = npfree = 0;
-	for (i = 0; i < nswdev; i++) {
-		int xsize, xfree;
-
-		/*
-		 * Don't report statistics for partitions which have not
-		 * yet been activated via swapon(8).
-		 */
-		if (!(sw[i].sw_flags & SW_FREED))
-			continue;
-
-		/* The first dmmax is never allocated to avoid trashing of
-		 * disklabels
-		 */
-		xsize = sw[i].sw_nblks - dmmax;
-		xfree = perdev[i];
-		inuse = xsize - xfree;
-		npfree++;
-		avail += xsize;
-	}
+	nfree += top - bottom + 1;
 
 	/*
-	 * If only one partition has been set up via swapon(8), we don't
-	 * need to bother with totals.
+	 * Swap space is split up among the configured disks.
+	 *
+	 * For interleaved swap devices, the first dmmax blocks
+	 * of swap space some from the first disk, the next dmmax
+	 * blocks from the next, and so on up to nswap blocks.
+	 *
+	 * The list of free space joins adjacent free blocks,
+	 * ignoring device boundries.  If we want to keep track
+	 * of this information per device, we'll just have to
+	 * extract it ourselves.
 	 */
-	inuse = avail - nfree;
+	while (top / dmmax != bottom / dmmax) {
+	    next_block = ((bottom + dmmax) / dmmax);
+	    perdev[(bottom / dmmax) % nswdev] +=
+		next_block * dmmax - bottom;
+	    bottom = next_block * dmmax;
+	}
+	perdev[(bottom / dmmax) % nswdev] +=
+	    top - bottom + 1;
 
-	glibtop_free_r (server, sw);
-	glibtop_free_r (server, perdev);
+	swapptr = head.rl_next;
+    }
 
-	buf->flags = _glibtop_sysdeps_swap;
+    header = getbsize (&hlen, &blocksize);
 
-	buf->used = inuse;
-	buf->free = avail;
+    div = blocksize / 512;
+    avail = npfree = 0;
+    for (i = 0; i < nswdev; i++) {
+	int xsize, xfree;
 
-	buf->total = inuse + avail;
+	/*
+	 * Don't report statistics for partitions which have not
+	 * yet been activated via swapon(8).
+	 */
+	if (!(sw[i].sw_flags & SW_FREED))
+	    continue;
+
+	/* The first dmmax is never allocated to avoid trashing of
+	 * disklabels
+	 */
+	xsize = sw[i].sw_nblks - dmmax;
+	xfree = perdev[i];
+	inuse = xsize - xfree;
+	npfree++;
+	avail += xsize;
+    }
+
+    /*
+     * If only one partition has been set up via swapon(8), we don't
+     * need to bother with totals.
+     */
+    inuse = avail - nfree;
+
+    glibtop_free_r (server, sw);
+    glibtop_free_r (server, perdev);
+
+    buf->flags = _glibtop_sysdeps_swap;
+
+    buf->used = inuse;
+    buf->free = avail;
+
+    buf->total = inuse + avail;
 
 #else
 
-	nswdev = kvm_getswapinfo(server->machine.kd, kvmsw, 16, 0);
+    nswdev = kvm_getswapinfo(server->machine.kd, kvmsw, 16, 0);
 
-	buf->flags = _glibtop_sysdeps_swap;
+    buf->flags = _glibtop_sysdeps_swap;
 
-	buf->used = kvmsw[nswdev].ksw_used;
-	buf->total = kvmsw[nswdev].ksw_total;
+    buf->used = kvmsw[nswdev].ksw_used;
+    buf->total = kvmsw[nswdev].ksw_total;
 
-	buf->free = buf->total - buf->used;
+    buf->free = buf->total - buf->used;
 
 #endif
 
 #elif defined(__bsdi__)
 
-	/* General info about swap devices. */
+    /* General info about swap devices. */
 
-	if (kvm_read (server->machine.kd, nlst[0].n_value,
-		      &swap, sizeof (swap)) != sizeof (swap)) {
-		glibtop_warn_io_r (server, "kvm_read (swap)");
-		return -1;
-	}
+    if (kvm_read (server->machine.kd, nlst[0].n_value,
+		  &swap, sizeof (swap)) != sizeof (swap)) {
+	glibtop_warn_io_r (server, "kvm_read (swap)");
+	return -1;
+    }
 
-	buf->flags = _glibtop_sysdeps_swap;
+    buf->flags = _glibtop_sysdeps_swap;
 
-	buf->used = swap.swap_total - swap.swap_free;
-	buf->free = swap.swap_free;
+    buf->used = swap.swap_total - swap.swap_free;
+    buf->free = swap.swap_free;
 
-	buf->total = swap.swap_total;
+    buf->total = swap.swap_total;
 
 #elif defined(__NetBSD__)
 
-	nswap = swapctl (SWAP_NSWAP, NULL, 0);
-	if (nswap < 0) {
-		glibtop_warn_io_r (server, "swapctl (SWAP_NSWAP)");
-		return -1;
-	}
+    nswap = swapctl (SWAP_NSWAP, NULL, 0);
+    if (nswap < 0) {
+	glibtop_warn_io_r (server, "swapctl (SWAP_NSWAP)");
+	return -1;
+    }
 
-	swaplist = glibtop_calloc_r (server, nswap, sizeof (struct swapent));
+    swaplist = glibtop_calloc_r (server, nswap, sizeof (struct swapent));
 
-	if (swapctl (SWAP_STATS, swaplist, nswap) != nswap) {
-		glibtop_warn_io_r (server, "swapctl (SWAP_STATS)");
-		glibtop_free_r (server, swaplist);
-		return -1;
-	}
-
-	for (i = 0; i < nswap; i++) {
-		avail += swaplist[i].se_nblks;
-		inuse += swaplist[i].se_inuse;
-	}
-
+    if (swapctl (SWAP_STATS, swaplist, nswap) != nswap) {
+	glibtop_warn_io_r (server, "swapctl (SWAP_STATS)");
 	glibtop_free_r (server, swaplist);
+	return -1;
+    }
 
-	buf->flags = _glibtop_sysdeps_swap;
+    for (i = 0; i < nswap; i++) {
+	avail += swaplist[i].se_nblks;
+	inuse += swaplist[i].se_inuse;
+    }
 
-	buf->used = inuse;
-	buf->free = avail;
+    glibtop_free_r (server, swaplist);
 
-	buf->total = inuse + avail;
+    buf->flags = _glibtop_sysdeps_swap;
+
+    buf->used = inuse;
+    buf->free = avail;
+
+    buf->total = inuse + avail;
 #endif
 
-	return 0;
+    return 0;
 }

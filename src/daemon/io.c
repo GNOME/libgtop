@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -28,80 +30,80 @@ do_output (int s, glibtop_response *resp, off_t offset,
 	   size_t data_size, const void *data, int retval)
 {
 #ifdef REAL_DEBUG
-	fprintf (stderr, "Really writing %d bytes at offset %lu.\n",
-		 sizeof (glibtop_response), offset);
+    fprintf (stderr, "Really writing %d bytes at offset %lu.\n",
+	     sizeof (glibtop_response), offset);
 #endif
 
-	resp->offset = offset;
-	resp->data_size = data_size;
+    resp->offset = offset;
+    resp->data_size = data_size;
 
-	if (s == 0) {
-		if (write (1, (const void *) resp, sizeof (glibtop_response)) < 0)
-			glibtop_warn_io ("write");
-	} else {
-		if (send (s, (const void *) resp, sizeof (glibtop_response), 0) < 0)
-			glibtop_warn_io ("send");
-	}
+    if (s == 0) {
+	if (write (1, (const void *) resp, sizeof (glibtop_response)) < 0)
+	    glibtop_warn_io ("write");
+    } else {
+	if (send (s, (const void *) resp, sizeof (glibtop_response), 0) < 0)
+	    glibtop_warn_io ("send");
+    }
 
 
-	if (s == 0) {
-		if (write (1, &retval, sizeof (int)) < 0)
-			glibtop_warn_io ("write retval");
-	} else {
-		if (send (s, &retval, sizeof (int), 0) < 0)
-		glibtop_warn_io ("send retval");
-	}
+    if (s == 0) {
+	if (write (1, &retval, sizeof (int)) < 0)
+	    glibtop_warn_io ("write retval");
+    } else {
+	if (send (s, &retval, sizeof (int), 0) < 0)
+	    glibtop_warn_io ("send retval");
+    }
 
-	if (resp->data_size) {
+    if (resp->data_size) {
 #ifdef REAL_DEBUG
-		fprintf (stderr, "Writing %d bytes of data.\n", resp->data_size);
+	fprintf (stderr, "Writing %d bytes of data.\n", resp->data_size);
 #endif
 
-		if (s == 0) {
-			if (write (1, data, resp->data_size) < 0)
-				glibtop_warn_io ("write");
-		} else {
-			if (send (s, data, resp->data_size, 0) < 0)
-				glibtop_warn_io ("send");
-		}
+	if (s == 0) {
+	    if (write (1, data, resp->data_size) < 0)
+		glibtop_warn_io ("write");
+	} else {
+	    if (send (s, data, resp->data_size, 0) < 0)
+		glibtop_warn_io ("send");
 	}
+    }
 }
 
 int
 do_read (int s, void *ptr, size_t total_size)
 {
-	int nread;
-	char *tmp_ptr;
-	size_t already_read = 0, remaining = total_size;
+    int nread;
+    char *tmp_ptr;
+    size_t already_read = 0, remaining = total_size;
 
-	while (already_read < total_size) {
-		if (s)
-			nread = recv (s, ptr, remaining, 0);
-		else
-			nread = read (0, ptr, remaining);
+    while (already_read < total_size) {
+	if (s)
+	    nread = recv (s, ptr, remaining, 0);
+	else
+	    nread = read (0, ptr, remaining);
 
-		if ((already_read == 0) && (nread == 0)) {
-			glibtop_warn ("pid %d received eof.", getpid ());
-			return 0;
-		}
-
-		if (nread <= 0) {
-			glibtop_warn_io ("recv");
-			return 0;
-		}
-
-		already_read += nread;
-		remaining -= nread;
-		/* (char *) ptr += nread; */
-		tmp_ptr = ptr;
-		tmp_ptr += nread;
-		ptr = tmp_ptr;
-
-#ifdef REAL_DEBUG
-		fprintf (stderr, "READ (%d): %d - %d - %d\n",
-			 nread, already_read, remaining, total_size);
-#endif
+	if ((already_read == 0) && (nread == 0)) {
+	    glibtop_warn ("pid %d received eof.", getpid ());
+	    return 0;
 	}
 
-	return already_read;
+	if (nread <= 0) {
+	    glibtop_warn_io ("recv");
+	    return 0;
+	}
+
+	already_read += nread;
+	remaining -= nread;
+	/* (char *) ptr += nread; */
+	tmp_ptr = ptr;
+	tmp_ptr += nread;
+	ptr = tmp_ptr;
+
+#ifdef REAL_DEBUG
+	fprintf (stderr, "READ (%d): %d - %d - %d\n",
+		 nread, already_read, remaining, total_size);
+#endif
+    }
+
+    return already_read;
 }

@@ -48,7 +48,7 @@ const char *glibtop_labels_proc_kernel[GLIBTOP_MAX_PROC_KERNEL] =
 
 const char *glibtop_descriptions_proc_kernel[GLIBTOP_MAX_PROC_KERNEL] =
 {
-	/* K_Flags */
+    /* K_Flags */
     N_ ("Kernel flags of the process.\n\n"
 	"On Linux, currently every flag has the math bit set, because "
 	"crt0.s checks for math emulation, so this is not included in "
@@ -57,28 +57,28 @@ const char *glibtop_descriptions_proc_kernel[GLIBTOP_MAX_PROC_KERNEL] =
 	"program.\n\n"
 	"The math bit should be a decimal 4, and the traced bit is "
 	"decimal 10."),
-	/* Min_Flt */
+    /* Min_Flt */
     N_ ("The number of minor faults the process has made, those which "
 	"have not required loading a memory page from disk."),
-	/* Maj_Flt */
+    /* Maj_Flt */
     N_ ("The number of major faults the process has made, those which "
 	"have required loading a memory page from disk."),
-	/* CMin_Flt */
+    /* CMin_Flt */
     N_ ("The number of minor faults that the process and its children "
 	"have made."),
-	/* CMaj_Flt */
+    /* CMaj_Flt */
     N_ ("The number of major faults that the process and its children "
 	"have made."),
-	/* KStk_ESP */
+    /* KStk_ESP */
     N_ ("The current value of esp (32-bit stack pointer), as found in "
 	"the kernel stack page for the process."),
-	/* KStk_EIP */
+    /* KStk_EIP */
     N_ ("The current EIP (32-bit instruction pointer)."),
-	/* NWChan */
+    /* NWChan */
     N_ ("This is the \"channel\" in which the process is waiting.  This "
 	"is the address of a system call, and can be looked up in a "
 	"namelist if you need a textual name.  (If you have an up-to-date "
 	"/etc/psdatabase, then try ps -l to see the WCHAN field in action)"),
-	/* WChan */
+    /* WChan */
     N_ ("This is the textual name of the `nwchan' field.")
 };

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -33,33 +35,33 @@
 int
 main (int argc, const char *argv [])
 {
-	glibtop_inodedb *inodedb;
-	const char *filename;
-	unsigned device, inode;
+    glibtop_inodedb *inodedb;
+    const char *filename;
+    unsigned device, inode;
 
-	if (argc != 3) {
-		fprintf (stderr, "Usage: %s device inode\n", argv [0]);
-		exit (1);
-	}
+    if (argc != 3) {
+	fprintf (stderr, "Usage: %s device inode\n", argv [0]);
+	exit (1);
+    }
 
-	if (sscanf (argv [1], "%d", &device) != 1) {
-		fprintf (stderr, "Usage: %s device inode\n", argv [0]);
-		exit (1);
-	}
+    if (sscanf (argv [1], "%d", &device) != 1) {
+	fprintf (stderr, "Usage: %s device inode\n", argv [0]);
+	exit (1);
+    }
 
-	if (sscanf (argv [2], "%d", &inode) != 1) {
-		fprintf (stderr, "Usage: %s device inode\n", argv [0]);
-		exit (1);
-	}
+    if (sscanf (argv [2], "%d", &inode) != 1) {
+	fprintf (stderr, "Usage: %s device inode\n", argv [0]);
+	exit (1);
+    }
 
-	inodedb = glibtop_inodedb_open (0, 0);
-	if (!inodedb) exit (1);
+    inodedb = glibtop_inodedb_open (0, 0);
+    if (!inodedb) exit (1);
 
-	filename = glibtop_inodedb_lookup (inodedb, device, inode);
-	if (!filename) exit (2);
+    filename = glibtop_inodedb_lookup (inodedb, device, inode);
+    if (!filename) exit (2);
 
-	fprintf (stderr, "FILENAME: %d - %d - '%s'\n",
-		 (int) device, (int) inode, filename);
+    fprintf (stderr, "FILENAME: %d - %d - '%s'\n",
+	     (int) device, (int) inode, filename);
 
-	exit (0);
+    exit (0);
 }

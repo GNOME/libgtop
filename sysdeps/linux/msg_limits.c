@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -37,9 +39,9 @@ static const unsigned long _glibtop_sysdeps_msg_limits =
 int
 glibtop_init_msg_limits_s (glibtop *server)
 {
-	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+    server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -47,23 +49,23 @@ glibtop_init_msg_limits_s (glibtop *server)
 int
 glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 {
-	struct msginfo	msginfo;
+    struct msginfo	msginfo;
   
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MSG_LIMITS, 0);
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_MSG_LIMITS, 0);
 
-	memset (buf, 0, sizeof (glibtop_msg_limits));
+    memset (buf, 0, sizeof (glibtop_msg_limits));
   
-	buf->flags = _glibtop_sysdeps_msg_limits;
+    buf->flags = _glibtop_sysdeps_msg_limits;
   
-	msgctl (0, IPC_INFO, (struct msqid_ds *) &msginfo);
+    msgctl (0, IPC_INFO, (struct msqid_ds *) &msginfo);
   
-	buf->msgpool = msginfo.msgpool;
-	buf->msgmap = msginfo.msgmap;
-	buf->msgmax = msginfo.msgmax;
-	buf->msgmnb = msginfo.msgmnb;
-	buf->msgmni = msginfo.msgmni;
-	buf->msgssz = msginfo.msgssz;
-	buf->msgtql = msginfo.msgtql;
+    buf->msgpool = msginfo.msgpool;
+    buf->msgmap = msginfo.msgmap;
+    buf->msgmax = msginfo.msgmax;
+    buf->msgmnb = msginfo.msgmnb;
+    buf->msgmni = msginfo.msgmni;
+    buf->msgssz = msginfo.msgssz;
+    buf->msgtql = msginfo.msgtql;
 
-	return 0;
+    return 0;
 }
