@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.10\n"
-"POT-Creation-Date: 2001-02-05 19:32+0100\n"
-"PO-Revision-Date: 2001-02-05 19:33+0100\n"
+"POT-Creation-Date: 2001-02-10 11:31+0100\n"
+"PO-Revision-Date: 2001-02-10 11:33+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,7 @@ msgstr "écriture de %d octets"
 
 #: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
-msgstr "Active le debuggage"
+msgstr "Active le débogage"
 
 #: src/daemon/gnuserv.c:448
 msgid "DEBUG"
@@ -1108,11 +1108,11 @@ msgstr "Quantité de swap libre"
 
 #: sysdeps/names/swap.c:42
 msgid "Page In"
-msgstr "Pages Entrantes (disque vers mémoire)"
+msgstr "Pages entrantes (disque vers mémoire)"
 
 #: sysdeps/names/swap.c:43
 msgid "Page Out"
-msgstr "Pages Sortantes (mémoire vers disque)"
+msgstr "Pages sortantes (mémoire vers disque)"
 
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
@@ -1120,7 +1120,8 @@ msgstr "Nombre total de pages de swap chargées en mémoire depuis le démarrage"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr "Nombre total de pages de swap sauvées sur disque depuis le démarrage"
+msgstr ""
+"Nombre total de pages de swap sauvegardées sur disque depuis le démarrage"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
@@ -1132,11 +1133,11 @@ msgstr "Utilisation CPU"
 
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "Memory Usage"
-msgstr "Utilisation Mémoire"
+msgstr "Utilisation mémoire"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Swap Usage"
-msgstr "Utilisation du Swap"
+msgstr "Utilisation du swap"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "System Uptime"
@@ -1160,7 +1161,7 @@ msgstr "Limites de l'ensemble de sémaphores"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
-msgstr "Liste des taches en cours d'exécution"
+msgstr "Liste des tâches en cours d'exécution"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Status information"
@@ -1172,11 +1173,11 @@ msgstr "Information sur l'UID et le TTY des processus"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process Memory information"
-msgstr "Information sur la Mémoire du Processus"
+msgstr "Information sur la mémoire du processus"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Time information"
-msgstr "Information Temporelle sur le processus"
+msgstr "Information temporelle sur le processus"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Signal information"
