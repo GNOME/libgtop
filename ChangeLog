@@ -1,6 +1,11 @@
+2000-02-05  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/interfaces.h (glibtop_ipv6_scope): New
+	enum for the IPv6 address scope.
+
 2000-01-31  Yuan-Chung Cheng <platin@linux.org.tw>
 
-        * configure.in: Added "zh_CN.GB2312" to ALL_LINGUAS.
+	* configure.in: Added "zh_CN.GB2312" to ALL_LINGUAS.
 
 2000-01-29  Martin Baulig  <martin@home-of-linux.org>
 

@@ -113,11 +113,12 @@ enum _glibtop_interface_type {
 };
 
 enum _glibtop_ipv6_scope {
-    GLIBTOP_IPV6_SCOPE_UNKNOWN		= 0,
-    GLIBTOP_IPV6_SCOPE_LOOPBACK		= 1 << 0,
-    GLIBTOP_IPV6_SCOPE_LINKLOCAL	= 1 << 1,
-    GLIBTOP_IPV6_SCOPE_SITELOCAL	= 1 << 2,
-    GLIBTOP_IPV6_SCOPE_COMPATv4		= 1 << 3
+    GLIBTOP_IPV6_SCOPE_GLOBAL		= 0,
+    GLIBTOP_IPV6_SCOPE_LOOPBACK		= 1 << 1,
+    GLIBTOP_IPV6_SCOPE_LINKLOCAL	= 1 << 2,
+    GLIBTOP_IPV6_SCOPE_SITELOCAL	= 1 << 3,
+    GLIBTOP_IPV6_SCOPE_COMPATv4		= 1 << 4,
+    GLIBTOP_IPV6_SCOPE_UNKNOWN		= 1 << 5
 };
 
 enum _glibtop_strategy {
