@@ -57,7 +57,8 @@ struct nlist _glibtop_nlist[] = {
 /* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 void
-glibtop_open (glibtop *server, const char *program_name)
+glibtop_open__r (glibtop *server, const char *program_name,
+		 const unsigned long features, const unsigned flags)
 {
 	register int pagesize;
 
