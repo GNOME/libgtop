@@ -1,3 +1,13 @@
+2005-01-03  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* examples/pprint.c: (pprint_get_cpu):
+	* features.def:
+	* include/glibtop/cpu.h:
+	* sysdeps/linux/cpu.c: (glibtop_init_cpu_s), (glibtop_get_cpu_s):
+	Added I/O and IRQ wait time to glibtop_cpu. Closes #160443.
+	
+	* configure.in: Post-release bump 2.9.4
+
 2004-12-29  Benoît Dejean  <tazforever@dlfp.org>
 
 	* lib/read_data.c: (glibtop_read_data_l):

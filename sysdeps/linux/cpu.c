@@ -37,6 +37,14 @@ static const unsigned long _glibtop_sysdeps_cpu_smp =
 (1L << GLIBTOP_XCPU_NICE) + (1L << GLIBTOP_XCPU_SYS) +
 (1L << GLIBTOP_XCPU_IDLE);
 
+static const unsigned long _glibtop_sysdeps_cpu_2_6 =
+(1L << GLIBTOP_CPU_IOWAIT) + (1L << GLIBTOP_CPU_IRQ) +
+(1L << GLIBTOP_CPU_SOFTIRQ);
+
+static const unsigned long _glibtop_sysdeps_cpu_smp_2_6 =
+(1L << GLIBTOP_XCPU_IOWAIT) + (1L << GLIBTOP_XCPU_IRQ) +
+(1L << GLIBTOP_XCPU_SOFTIRQ);
+
 /* Init function. */
 
 void
@@ -46,6 +54,15 @@ glibtop_init_cpu_s (glibtop *server)
 
 	if (server->ncpu)
 		server->sysdeps.cpu |= _glibtop_sysdeps_cpu_smp;
+
+
+	if(server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
+	{
+		server->sysdeps.cpu |= _glibtop_sysdeps_cpu_2_6;
+
+		if (server->ncpu)
+			server->sysdeps.cpu |= _glibtop_sysdeps_cpu_smp_2_6;
+	}
 }
 
 /* Provides information about cpu usage. */
@@ -76,9 +93,15 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	buf->idle = strtoull (p, &p, 0);
 
 	/* 2.6 kernel */
-	buf->idle += strtoull(p, &p, 0); /* "iowait" */
-	buf->sys  += strtoull(p, &p, 0); /* "irq" */
-	buf->sys  += strtoull(p, &p, 0); /* "softirq" */
+	if(server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
+	{
+		buf->iowait  = strtoull(p, &p, 0);
+		buf->irq     = strtoull(p, &p, 0);
+		buf->softirq = strtoull(p, &p, 0);
+
+		buf->idle += buf->iowait;
+		buf->sys  += buf->irq + buf->softirq;
+	}
 
 	buf->total = buf->user + buf->nice + buf->sys + buf->idle;
 
@@ -104,9 +127,15 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 		buf->xcpu_idle [i] = strtoull (p, &p, 0);
 
 		/* 2.6 kernel */
-		buf->xcpu_idle [i]  += strtoull(p, &p, 0); /* "iowait" */
-		buf->xcpu_sys  [i]  += strtoull(p, &p, 0); /* "irq" */
-		buf->xcpu_sys  [i]  += strtoull(p, &p, 0); /* "softirq" */
+		if(server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
+		{
+			buf->xcpu_iowait [i]  = strtoull(p, &p, 0);
+			buf->xcpu_irq [i]     = strtoull(p, &p, 0);
+			buf->xcpu_softirq [i] = strtoull(p, &p, 0);
+
+			buf->xcpu_idle [i]  += buf->xcpu_iowait [i];
+			buf->xcpu_sys  [i]  += buf->xcpu_irq [i] + buf->xcpu_softirq [i];
+		}
 
 		buf->xcpu_total[i] = buf->xcpu_user [i] \
 			+ buf->xcpu_nice [i] \
@@ -116,4 +145,12 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 
 	if(i >= 2) /* ok, that's a real SMP */
 		buf->flags |= _glibtop_sysdeps_cpu_smp;
+
+	if(server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
+	{
+		buf->flags |= _glibtop_sysdeps_cpu_2_6;
+
+		if(i >= 2) /* ok, that's a real SMP */
+			buf->flags |= _glibtop_sysdeps_cpu_smp_2_6;
+	}
 }

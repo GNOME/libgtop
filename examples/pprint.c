@@ -41,12 +41,18 @@ static void pprint_get_cpu()
   PPRINT(nice, "%llu");
   PPRINT(sys, "%llu");
   PPRINT(idle, "%llu");
+  PPRINT(iowait, "%llu");
+  PPRINT(irq, "%llu");
+  PPRINT(softirq, "%llu");
   PPRINT(frequency, "%llu");
   PPRINT_ARRAY(xcpu_total, GLIBTOP_NCPU, "%llu");
   PPRINT_ARRAY(xcpu_user, GLIBTOP_NCPU, "%llu");
   PPRINT_ARRAY(xcpu_nice, GLIBTOP_NCPU, "%llu");
   PPRINT_ARRAY(xcpu_sys, GLIBTOP_NCPU, "%llu");
   PPRINT_ARRAY(xcpu_idle, GLIBTOP_NCPU, "%llu");
+  PPRINT_ARRAY(xcpu_iowait, GLIBTOP_NCPU, "%llu");
+  PPRINT_ARRAY(xcpu_irq, GLIBTOP_NCPU, "%llu");
+  PPRINT_ARRAY(xcpu_softirq, GLIBTOP_NCPU, "%llu");
   PPRINT(xcpu_flags, "%llx");
   FOOTER_PPRINT();
 }

@@ -41,9 +41,16 @@ G_BEGIN_DECLS
 #define GLIBTOP_XCPU_NICE	8
 #define GLIBTOP_XCPU_SYS	9
 #define GLIBTOP_XCPU_IDLE	10
-#define GLIBTOP_XCPU_FLAGS  11
+#define GLIBTOP_XCPU_FLAGS	11
 
-#define GLIBTOP_MAX_CPU		12
+#define GLIBTOP_CPU_IOWAIT	12
+#define GLIBTOP_CPU_IRQ		13
+#define GLIBTOP_CPU_SOFTIRQ	14
+#define GLIBTOP_XCPU_IOWAIT	15
+#define GLIBTOP_XCPU_IRQ	16
+#define GLIBTOP_XCPU_SOFTIRQ	17
+
+#define GLIBTOP_MAX_CPU		18
 
 /* Nobody should really be using more than 4 processors. */
 #define GLIBTOP_NCPU		4
@@ -58,12 +65,18 @@ struct _glibtop_cpu
 		nice,				/* GLIBTOP_CPU_NICE		*/
 		sys,				/* GLIBTOP_CPU_SYS		*/
 		idle,				/* GLIBTOP_CPU_IDLE		*/
+		iowait,				/* GLIBTOP_CPU_IOWAIT		*/
+		irq,				/* GLIBTOP_CPU_IRQ		*/
+		softirq,			/* GLIBTOP_CPU_SOFTIRQ		*/
 		frequency,			/* GLIBTOP_CPU_FREQUENCY	*/
 		xcpu_total [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_TOTAL		*/
 		xcpu_user [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_USER		*/
 		xcpu_nice [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_NICE		*/
 		xcpu_sys  [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_SYS		*/
 		xcpu_idle [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_IDLE		*/
+		xcpu_iowait [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_IOWAIT		*/
+		xcpu_irq [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_IRQ		*/
+		xcpu_softirq  [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_SOFTIRQ		*/
 		xcpu_flags;	                /* GLIBTOP_XCPU_IDLE		*/
 };
 

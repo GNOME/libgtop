@@ -1,4 +1,4 @@
-void|cpu|ulong(total,user,nice,sys,idle,frequency,xcpu_total[4],xcpu_user[4],xcpu_nice[4],xcpu_sys[4],xcpu_idle[4])
+void|cpu|ulong(total,user,nice,sys,idle,iowait,irq,softirq,frequency,xcpu_total[4],xcpu_user[4],xcpu_nice[4],xcpu_sys[4],xcpu_idle[4],xcpu_iowait[4],xcpu_irq[4],xcpu_softirq[4])
 void|mem|ulong(total,used,free,shared,buffer,cached,user,locked)
 void|swap|ulong(total,used,free,pagein,pageout)
 void|uptime|double(uptime,idletime)
