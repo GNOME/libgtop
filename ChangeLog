@@ -1,3 +1,8 @@
+1998-11-20  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* sysdeps/common/mountlist.c: Applied a patch from Kenneth Stailey to
+	make it work on OpenBSD.
+
 1998-11-18  Martin Baulig  <martin@home-of-linux.org>
 
 	* lib/open.c (glibtop_open_l): We need to set argv[0] in call
