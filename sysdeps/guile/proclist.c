@@ -43,7 +43,10 @@ glibtop_guile_get_proclist (void)
 
 	if (ptr) {
 		for (i = 0; i < proclist.number; i++)
-			list = gh_append2 (list, gh_list (gh_ulong2scm ((unsigned long) ptr [i]), SCM_UNDEFINED));
+			list = gh_append (list,
+					  gh_list (gh_ulong2scm ((unsigned long) ptr [i]),
+						   SCM_UNDEFINED),
+					  SCM_UNDEFINED);
 	}
 
 	glibtop_free (ptr);

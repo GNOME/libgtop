@@ -1,3 +1,10 @@
+1998-06-12  Martin Baulig  <baulig@taurus.uni-trier.de>
+
+	* sysdeps/guile/proclist.c: Replaced call to
+	`gh_append2 ()' with `gh_append ()'.
+
+	* sysdeps/guile/names/*.c: dito.
+
 1998-06-08  Martin Baulig  <martin@home-of-linux.org>
 
 	* support: Added again.

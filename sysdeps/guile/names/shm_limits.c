@@ -33,8 +33,10 @@ glibtop_guile_names_shm_limits (void)
 	list = gh_list (SCM_UNDEFINED);
 	
 	for (i = 0; i < GLIBTOP_MAX_SHM_LIMITS; i++)
-		list = gh_append2 (list, gh_list (gh_str02scm (glibtop_names_shm_limits [i]),
-						  SCM_UNDEFINED));
+		list = gh_append (list, gh_list
+				  (gh_str02scm (glibtop_names_shm_limits [i]),
+				   SCM_UNDEFINED),
+				  SCM_UNDEFINED);
 	
 	return list;
 }
@@ -48,8 +50,10 @@ glibtop_guile_types_shm_limits (void)
 	list = gh_list (SCM_UNDEFINED);
 	
 	for (i = 0; i < GLIBTOP_MAX_SHM_LIMITS; i++)
-		list = gh_append2 (list, gh_list (gh_str02scm (gettext (glibtop_types_shm_limits [i])),
-						  SCM_UNDEFINED));
+		list = gh_append (list, gh_list
+				  (gh_str02scm (gettext (glibtop_types_shm_limits [i])),
+				   SCM_UNDEFINED),
+				  SCM_UNDEFINED);
 	
 	return list;
 }
@@ -63,8 +67,10 @@ glibtop_guile_labels_shm_limits (void)
 	list = gh_list (SCM_UNDEFINED);
 	
 	for (i = 0; i < GLIBTOP_MAX_SHM_LIMITS; i++)
-		list = gh_append2 (list, gh_list (gh_str02scm (gettext (glibtop_labels_shm_limits [i])),
-						  SCM_UNDEFINED));
+		list = gh_append (list, gh_list
+				  (gh_str02scm (gettext (glibtop_labels_shm_limits [i])),
+				   SCM_UNDEFINED),
+				  SCM_UNDEFINED);
 	
 	return list;
 }
@@ -78,8 +84,10 @@ glibtop_guile_descriptions_shm_limits (void)
 	list = gh_list (SCM_UNDEFINED);
 	
 	for (i = 0; i < GLIBTOP_MAX_SHM_LIMITS; i++)
-		list = gh_append2 (list, gh_list (gh_str02scm (gettext (glibtop_descriptions_shm_limits [i])),
-						  SCM_UNDEFINED));
+		list = gh_append (list, gh_list
+				  (gh_str02scm (gettext (glibtop_descriptions_shm_limits [i])),
+				   SCM_UNDEFINED),
+				  SCM_UNDEFINED);
 	
 	return list;
 }
