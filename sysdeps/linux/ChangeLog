@@ -1,3 +1,17 @@
+2004-07-03  Benoît Dejean  <tazforever@dlfp.org>
+
+	* glibtop_server.h:
+	* glibtop_server.c: (try_file_to_buffer), (file_to_buffer): Added. These
+	functions are commonly used. Misc cleanups.	
+
+	* cpu.c: (glibtop_get_cpu_s):
+	* loadavg.c: (glibtop_get_loadavg_s):
+	* mem.c: (glibtop_get_mem_s):
+	* open.c: (glibtop_open_s):
+	* swap.c: (glibtop_get_swap_s):
+	* sysinfo.c: (init_sysinfo):
+	* uptime.c: (glibtop_get_uptime_s): Replaced open/read/close by file_to_buffer().
+
 2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
 
 	* loadavg.c: (glibtop_get_loadavg_s): Whitespace cleanup.

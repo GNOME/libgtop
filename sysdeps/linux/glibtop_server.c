@@ -1,9 +1,11 @@
 #include <glibtop.h>
+#include <glibtop/error.h>
 
 #include <glib.h>
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
 #include <fcntl.h>
 
@@ -31,27 +33,57 @@ get_scaled(const char *buffer, const char *key)
 }
 
 
-int
-proc_file_to_buffer (char *buffer, const char *fmt, pid_t pid)
+/*
+ * Read functions
+ */
+enum TRY_FILE_TO_BUFFER
 {
-	char filename [256];
+	TRY_FILE_TO_BUFFER_OK = 0,
+	TRY_FILE_TO_BUFFER_OPEN = -1,
+	TRY_FILE_TO_BUFFER_READ = -2
+};
+
+int try_file_to_buffer(char *buffer, const char *format, ...)
+{
+	char path[4096];
 	int fd;
 	ssize_t len;
+	va_list pa;
 
-	g_snprintf (filename, sizeof filename, fmt, pid);
+	va_start(pa, format);
 
-	fd = open (filename, O_RDONLY);
-	if (fd < 0) return -1;
+	/* C99 also provides vsnprintf */
+	g_vsnprintf(path, sizeof path, format, pa);
+
+	va_end(pa);
+
+	if((fd = open (path, O_RDONLY)) < 0)
+		return TRY_FILE_TO_BUFFER_OPEN;
 
 	len = read (fd, buffer, BUFSIZ-1);
 	close (fd);
 
-	if (len < 0) return -1;
+	if (len < 0)
+		return TRY_FILE_TO_BUFFER_READ;
 
 	buffer [len] = '\0';
 
-	return 0;
+	return TRY_FILE_TO_BUFFER_OK;
 }
+
+
+void
+file_to_buffer(glibtop *server, char *buffer, const char *filename)
+{
+	switch(try_file_to_buffer(buffer, filename))
+	{
+	case TRY_FILE_TO_BUFFER_OPEN:
+		glibtop_error_io_r (server, "open (%s)", filename);
+	case TRY_FILE_TO_BUFFER_READ:
+		glibtop_error_io_r (server, "read (%s)", filename);
+	}
+}
+
 
 #warning "Ignore the following warning"
 unsigned get_pageshift()

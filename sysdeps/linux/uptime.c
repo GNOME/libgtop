@@ -45,23 +45,12 @@ void
 glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
 	char buffer [BUFSIZ], *p;
-	int fd, len;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_UPTIME, 0);
 
 	memset (buf, 0, sizeof (glibtop_uptime));
 
-	fd = open (FILENAME, O_RDONLY);
-	if (fd < 0)
-		glibtop_error_io_r (server, "open (%s)", FILENAME);
-
-	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0)
-		glibtop_error_io_r (server, "read (%s)", FILENAME);
-
-	close (fd);
-
-	buffer [len] = '\0';
+	file_to_buffer(server, buffer, FILENAME);
 
 	buf->uptime   = strtod (buffer, &p);
 	buf->idletime = strtod (p, &p);

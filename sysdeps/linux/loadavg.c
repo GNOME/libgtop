@@ -49,23 +49,12 @@ void
 glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
 	char buffer [BUFSIZ], *p, *old;
-	int fd, len;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_LOADAVG, 0);
 
 	memset (buf, 0, sizeof (glibtop_loadavg));
 
-	fd = open (FILENAME, O_RDONLY);
-	if (fd < 0)
-		glibtop_error_io_r (server, "open (%s)", FILENAME);
-
-	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0)
-		glibtop_error_io_r (server, "read (%s)", FILENAME);
-
-	close (fd);
-
-	buffer [len] = '\0';
+	file_to_buffer(server, buffer, FILENAME);
 
 	buf->loadavg [0] = strtod (buffer, &p);
 	buf->loadavg [1] = strtod (p, &p);

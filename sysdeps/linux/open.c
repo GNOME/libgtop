@@ -66,23 +66,12 @@ glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned flags)
 {
 	char buffer [BUFSIZ], *p = buffer;
-	int fd, len;
 
 	server->name = program_name;
 
 	server->os_version_code = get_linux_version();
 
-	fd = open (FILENAME, O_RDONLY);
-	if (fd < 0)
-		glibtop_error_io_r (server, "open (%s)", FILENAME);
-
-	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0)
-		glibtop_error_io_r (server, "read (%s)", FILENAME);
-
-	close (fd);
-
-	buffer [len] = '\0';
+	file_to_buffer(server, buffer, FILENAME);
 
 	for (server->ncpu = 0; server->ncpu < GLIBTOP_NCPU; server->ncpu++) {
 
