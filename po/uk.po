@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.3\n"
-"POT-Creation-Date: 2000-11-20 13:18+0200\n"
+"POT-Creation-Date: 2001-02-15 12:57+0200\n"
 "PO-Revision-Date: 2000-01-13 17:57+0200\n"
 "Last-Translator: Yuri Syrota <rasta@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -267,11 +267,14 @@ msgstr "К╕льк╕сть такт╕в годинника в╕д старту системи"
 
 #: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
 msgid "Number of clock ticks the system spent in user mode"
-msgstr "К╕льк╕сть такт╕в годинника проведених системою в користувацькому режим╕"
+msgstr ""
+"К╕льк╕сть такт╕в годинника проведених системою в користувацькому режим╕"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "К╕льк╕сть такт╕в годинника проведених системою в користувацькому режим╕ (nice)"
+msgstr ""
+"К╕льк╕сть такт╕в годинника проведених системою в користувацькому режим╕ "
+"(nice)"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in system mode"
@@ -668,7 +671,7 @@ msgstr ""
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr ""
+msgstr "К╕льк╕сть стор╕нок колективно╖ пам'ят╕ (mmap)"
 
 #: sysdeps/names/procmem.c:57
 msgid ""
@@ -943,7 +946,7 @@ msgstr "TPGID"
 
 #: sysdeps/names/procuid.c:58
 msgid "Priority"
-msgstr "Приор╕тет"
+msgstr "Пр╕оритет"
 
 #: sysdeps/names/procuid.c:63
 msgid "User ID"
@@ -987,7 +990,7 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:73
 msgid "Kernel scheduling priority"
-msgstr ""
+msgstr "Пр╕оритет планування ядра"
 
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
@@ -1003,11 +1006,11 @@ msgstr "Максимальна к╕льк╕сть масив╕в"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max semaphores system wide"
-msgstr ""
+msgstr "Максимальна к╕льк╕сть семафор╕в у систем╕"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Number of undo structures system wide"
-msgstr ""
+msgstr "К╕льк╕сть структур в╕дкату у систем╕"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores per array"
@@ -1015,11 +1018,11 @@ msgstr "Максимальна к╕льк╕сть семафор╕в на масив"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max ops per semop call"
-msgstr ""
+msgstr "Максимальна к╕льк╕сть операц╕й на виклик семафора"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max number of undo entries per process"
-msgstr ""
+msgstr "Максимальна к╕льк╕сть запис╕в в╕дкату на процес"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
@@ -1047,39 +1050,39 @@ msgstr "Максимальна к╕льк╕сть сегмент╕в"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max shared segments per process"
-msgstr ""
+msgstr "Максимум колективних се╜мент╕в на процес"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max total shared memory"
-msgstr "Максимум загально╖ к╕лькост╕ пам'ят╕"
+msgstr "Загальний максимум колективно╖ пам'ят╕"
 
 #: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
 msgid "Total Swap Space"
-msgstr "Загальний об'╓м своп╕нгу"
+msgstr "Загальний об'╓м своп╕н╜у"
 
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Used Swap Space"
-msgstr "Використиний об'╓м своп╕нгу"
+msgstr "Використиний об'╓м своп╕н╜у"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Free Swap Space"
-msgstr "В╕льний об'╓м своп╕нгу"
+msgstr "В╕льний об'╓м своп╕н╜у"
 
 #: sysdeps/names/swap.c:42
 msgid "Page In"
-msgstr ""
+msgstr "Стор╕нок внесено"
 
 #: sysdeps/names/swap.c:43
 msgid "Page Out"
-msgstr ""
+msgstr "Стор╕нок винесено"
 
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr ""
+msgstr "Загальна к╕льк╕сть внесених стор╕нок своп╕н╜у з старту системи"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr ""
+msgstr "Загальна к╕льк╕сть винесених стор╕нок своп╕н╜у з старту системи"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
@@ -1219,7 +1222,7 @@ msgstr "Пастка трасування"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr ""
+msgstr "Припинити"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
