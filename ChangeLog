@@ -1,3 +1,9 @@
+2001-01-14  Hasbullah bin Pit <sebol@ikhlas.com>
+
+	* configure.in: Added ms in ALL_LINGUAS.
+	* po/ms.po: Added Malay Translation.
+	* po/.cvsignore: Added 'libgtop-2.0.pot'.
+
 2001-01-14  Abel Cheung  <maddog@linux.org.hk>
 
 	* configure.in: Sync'ed ALL_LINGUAS with files in po directory,

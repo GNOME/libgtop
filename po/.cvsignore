@@ -5,6 +5,7 @@ cat-id-tbl.c
 *.gmo
 *.mo
 libgtop.pot
+libgtop-2.0.pot
 Makefile.in.in
 messages
 stamp-cat-id
