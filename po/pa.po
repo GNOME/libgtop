@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-22 17:17+0530\n"
+"POT-Creation-Date: 2004-07-13 14:38+0200\n"
 "PO-Revision-Date: 2004-03-18 17:50+0530\n"
 "Last-Translator: Amanpreet Singh Alam <amanlinux@netscape.net>\n"
 "Language-Team: Punjabi\n"
@@ -17,32 +17,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: examples/smp.c:74
+#: examples/smp.c:76
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "ਟਿਕ-ਟਿਕ (%ld ਪ੍ਤੀ ਸਕਿੰਟ):"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Total"
 msgstr "ਕੁੱਲ"
 
-#: examples/smp.c:77 sysdeps/names/mem.c:48
+#: examples/smp.c:79 sysdeps/names/mem.c:48
 msgid "User"
 msgstr "ਕਾਮਾ"
 
-#: examples/smp.c:77 sysdeps/names/procuid.c:51
+#: examples/smp.c:79 sysdeps/names/procuid.c:51
 msgid "Nice"
 msgstr "ਨਾੲੀਸ"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Sys"
 msgstr "ਸਿਸਟਮ"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Idle"
 msgstr "ਵਿਹਲਾ"
 
-#: examples/smp.c:79
+#: examples/smp.c:81
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
@@ -51,36 +51,36 @@ msgstr ""
 "ਪਰੋਸੈਸਰ       (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
-#: examples/smp.c:83
+#: examples/smp.c:85
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "ਪਰੋਸੈਸਰ %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:100
+#: examples/smp.c:102
 msgid "Percent:"
 msgstr "ਪ੍ਤੀਸ਼ਤ ਃ"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Total (%)"
 msgstr "ਕੁੱਲ (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "User (%)"
 msgstr "ਕਾਮਾ (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Nice (%)"
 msgstr "ਚੰਗਾ (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Sys (%)"
 msgstr "ਸਿਸਟਮ (%)"
 
-#: examples/smp.c:102
+#: examples/smp.c:104
 msgid "Idle (%)"
 msgstr "ਵਿਹਲਾ(%)"
 
-#: examples/smp.c:104
+#: examples/smp.c:106
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
@@ -89,12 +89,12 @@ msgstr ""
 "ਪਰੋਸੈਸਰ         (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:122
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "ਪਰੋਸੈਸਰ %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:126
+#: examples/smp.c:128
 msgid "Spin:"
 msgstr "ਘੁੰਮਾੳੁਃ"
 
@@ -523,6 +523,7 @@ msgstr "NW ਚੈਨਲ"
 msgid "WChan"
 msgstr "W ਚੈਨਲ"
 
+#. K_Flags
 #: sysdeps/names/prockernel.c:51
 msgid ""
 "Kernel flags of the process.\n"
@@ -543,6 +544,7 @@ msgstr ""
 "\n"
 "ਗਣਿਤ ਬਿੱਟ ਕੋਲ  4 ਦਸ਼ਮਲਵ ਹੋਵੇ ਅਤੇ ਟਰੇਸ ਬਿੱਟ 10 ਦਸ਼ਮਲਵ ਦਾ ਹੋਵੇ੤"
 
+#. Min_Flt
 #: sysdeps/names/prockernel.c:60
 msgid ""
 "The number of minor faults the process has made, those which have not "
@@ -551,6 +553,7 @@ msgstr ""
 "ਛੋਟੇ ਨੁਕਸ੾ ਦੀ ਗਿਣਤੀ ਜੋ ਕਿ ੲਿਸ ਕਾਰਜ ਨੇ ਪੈਦਾ ਕੀਤੇ ਹਨ , ਜਿਹਨ੾ ਨੰੂ ਡਿਸਕ ਤੋ ਮੈਮੂਰੀ ਸਫ਼ਾ ਲੋਡ ਕਰਨ "
 "ਦੀ ਜਰੂਰਤ ਨਹੀ ਹੈ ੤"
 
+#. Maj_Flt
 #: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
@@ -559,14 +562,17 @@ msgstr ""
 "ਵੱਡੇ ਨੁਕਸ੾ ਦੀ ਗਿਣਤੀ ਜੋ ਕਿ ੲਿਸ ਕਾਰਜ ਨੇ ਪੈਦਾ ਕੀਤੇ ਹਨ , ਜਿਹਨ੾ ਨੰੂ ਡਿਸਕ ਤੋ ਮੈਮੂਰੀ ਸਫ਼ਾ ਲੋਡ ਕਰਨ "
 "ਦੀ ਜਰੂਰਤ ਹੈ ੤"
 
+#. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
 msgstr "ਛੋਟੇ ਨੁਕਸ੾ ਦੀ ਗਿਣਤੀ ਜੋ ਕਿ ੲਿਸ ਕਾਰਜ ਅਤੇ ੲਿਸ ਦੇ ਅਗਲੇ ਕਾਰਜ੾ ਨੇ ਪੈਦਾ ਕੀਤੇ ਹਨ ੤"
 
+#. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
 msgstr "ਵੱਡੇ ਨੁਕਸ੾ ਦੀ ਗਿਣਤੀ ਜੋ ਕਿ ੲਿਸ ਕਾਰਜ ਅਤੇ ੲਿਸ ਦੇ ਅਗਲੇ ਕਾਰਜ੾ ਨੇ ਪੈਦਾ ਕੀਤੇ ਹਨ ੤"
 
+#. KStk_ESP
 #: sysdeps/names/prockernel.c:72
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
@@ -580,6 +586,7 @@ msgstr ""
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr "ਮੌਜੂਦਾ ੲੀਅਾੲੀਪੀ(EIP) ( 32-ਬਿੱਟ ਹਦਾੲਿਤ ਸੰਕੇਤਕ)"
 
+#. NWChan
 #: sysdeps/names/prockernel.c:77
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "
