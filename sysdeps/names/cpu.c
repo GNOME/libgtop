@@ -28,7 +28,7 @@ const char *glibtop_names_cpu [GLIBTOP_MAX_CPU] =
 {
 	"total", "user", "nice", "sys", "idle", "frequency",
 	"xcpu_total", "xcpu_user", "xcpu_nice", "xcpu_sys",
-	"xcpu_idle"
+	"xcpu_idle", "xcpu_flags"
 };
 
 const unsigned glibtop_types_cpu [GLIBTOP_MAX_CPU] =
@@ -36,7 +36,7 @@ const unsigned glibtop_types_cpu [GLIBTOP_MAX_CPU] =
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_cpu [GLIBTOP_MAX_CPU] =
@@ -51,7 +51,8 @@ const char *glibtop_labels_cpu [GLIBTOP_MAX_CPU] =
 	N_("SMP CPU Time in User Mode"),
 	N_("SMP CPU Time in User Mode (nice)"),
 	N_("SMP CPU Time in System Mode"),
-	N_("SMP CPU Time in the Idle Task")
+	N_("SMP CPU Time in the Idle Task"),
+	N_("SMP CPU Flags")
 };
 
 const char *glibtop_descriptions_cpu [GLIBTOP_MAX_CPU] =
@@ -67,4 +68,5 @@ const char *glibtop_descriptions_cpu [GLIBTOP_MAX_CPU] =
 	N_("Number of clock ticks the system spent in user mode (nice)"),
 	N_("Number of clock ticks the system spent in system mode"),
 	N_("Number of clock ticks the system spent in the idle task"),
+	N_("Bit field indicating which CPU is currently running"),
 };

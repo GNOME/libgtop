@@ -60,9 +60,11 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 	if(kvm_read(kd, nlst[0].n_value, (void *)&sinfo,
 		    sizeof(struct shminfo)) != sizeof(struct shminfo))
 	        return;
-        buf->shmmax = sinfo.shmmax;
-	buf->shmmin = sinfo.shmmin;
+	buf->shmmax = sinfo.shmmax;
 	buf->shmmni = sinfo.shmmni;
+#if GLIBTOP_SOLARIS_RELEASE < 590
+	buf->shmmin = sinfo.shmmin;
 	buf->shmseg = sinfo.shmseg;
+#endif
 	buf->flags = _glibtop_sysdeps_shm_limits;
 }

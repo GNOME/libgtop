@@ -33,18 +33,26 @@ G_BEGIN_DECLS
 #define GLIBTOP_PROC_UID_EUID		1
 #define GLIBTOP_PROC_UID_GID		2
 #define GLIBTOP_PROC_UID_EGID		3
-#define GLIBTOP_PROC_UID_PID		4
-#define GLIBTOP_PROC_UID_PPID		5
-#define GLIBTOP_PROC_UID_PGRP		6
-#define GLIBTOP_PROC_UID_SESSION	7
-#define GLIBTOP_PROC_UID_TTY		8
-#define GLIBTOP_PROC_UID_TPGID		9
-#define GLIBTOP_PROC_UID_PRIORITY	10
-#define GLIBTOP_PROC_UID_NICE		11
+#define GLIBTOP_PROC_UID_SUID		4
+#define GLIBTOP_PROC_UID_SGID		5
+#define GLIBTOP_PROC_UID_FSUID		6
+#define GLIBTOP_PROC_UID_FSGID		7
+#define GLIBTOP_PROC_UID_PID		8
+#define GLIBTOP_PROC_UID_PPID		9
+#define GLIBTOP_PROC_UID_PGRP		10
+#define GLIBTOP_PROC_UID_SESSION	11
+#define GLIBTOP_PROC_UID_TTY		12
+#define GLIBTOP_PROC_UID_TPGID		13
+#define GLIBTOP_PROC_UID_PRIORITY	14
+#define GLIBTOP_PROC_UID_NICE		15
+#define GLIBTOP_PROC_UID_NGROUPS    16
+#define GLIBTOP_PROC_UID_GROUPS     17
 
-#define GLIBTOP_MAX_PROC_UID		12
+#define GLIBTOP_MAX_PROC_UID		18
 
 typedef struct _glibtop_proc_uid	glibtop_proc_uid;
+
+#define GLIBTOP_MAX_GROUPS          64
 
 /* User, Group, Terminal and session */
 
@@ -55,6 +63,10 @@ struct _glibtop_proc_uid
 		euid,		/* effective user id */
 		gid,		/* group id */
 		egid,		/* effective group id */
+        suid,       /* set user id */
+        sgid,       /* set group id */
+        fsuid,      /* ??? user id */
+        fsgid,      /* ??? group id */
 		pid,		/* process id */
 		ppid,		/* pid of parent process */
 		pgrp,		/* process group id */
@@ -62,7 +74,10 @@ struct _glibtop_proc_uid
 		tty,		/* full device number of controlling terminal */
 		tpgid,		/* terminal process group id */
 		priority,	/* kernel scheduling priority */
-		nice;		/* standard unix nice level of process */
+		nice,		/* standard unix nice level of process */
+		ngroups,
+        groups [GLIBTOP_MAX_GROUPS];
+
 };
 
 #define glibtop_get_proc_uid(p1, p2)	glibtop_get_proc_uid_l(glibtop_global_server, p1, p2)

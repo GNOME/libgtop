@@ -1,5 +1,11 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* shm_limits.c: (glibtop_get_shm_limits_p): Apply patch by
+	the_h1ghlander@yahoo.com and Cory Omand <cory.omand@Sun.com> for
+	Solaris support
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* mem.c: (glibtop_get_mem_s):
 	* swap.c: (glibtop_get_swap_s): s/u_int64_t/guint64/
 

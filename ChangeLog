@@ -1,5 +1,18 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* include/glibtop/cpu.h:
+	* include/glibtop/procstate.h:
+	* include/glibtop/procuid.h:
+	* include/glibtop/uptime.h:
+	* lib/sysdeps.c:
+	* sysdeps/names/cpu.c:
+	* sysdeps/names/procstate.c:
+	* sysdeps/names/procuid.c:
+	* sysdeps/names/uptime.c: Apply patch by the_h1ghlander@yahoo.com and
+	Cory Omand <cory.omand@Sun.com> for Solaris support
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* src/inodedb/Makefile.am: link to libgtop_suid_common-2.0.la
 	(Closes: #107990)
 

@@ -41,8 +41,9 @@ G_BEGIN_DECLS
 #define GLIBTOP_XCPU_NICE	8
 #define GLIBTOP_XCPU_SYS	9
 #define GLIBTOP_XCPU_IDLE	10
+#define GLIBTOP_XCPU_FLAGS  11
 
-#define GLIBTOP_MAX_CPU		11
+#define GLIBTOP_MAX_CPU		12
 
 /* Nobody should really be using more than 4 processors. */
 #define GLIBTOP_NCPU		4
@@ -62,7 +63,8 @@ struct _glibtop_cpu
 		xcpu_user [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_USER		*/
 		xcpu_nice [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_NICE		*/
 		xcpu_sys  [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_SYS		*/
-		xcpu_idle [GLIBTOP_NCPU];	/* GLIBTOP_XCPU_IDLE		*/
+		xcpu_idle [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_IDLE		*/
+		xcpu_flags;	                /* GLIBTOP_XCPU_IDLE		*/
 };
 
 #define glibtop_get_cpu(cpu)	glibtop_get_cpu_l(glibtop_global_server, cpu)

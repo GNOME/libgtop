@@ -27,18 +27,21 @@
 
 const char *glibtop_names_proc_state [GLIBTOP_MAX_PROC_STATE] =
 {
-	"cmd", "state", "uid", "gid"
+	"cmd", "state", "uid", "gid", "ruid", "rgid",
+    "has_cpu", "processor", "last_processor"
 };
 
 const unsigned glibtop_types_proc_state [GLIBTOP_MAX_PROC_STATE] =
 {
-	GLIBTOP_TYPE_STRING, GLIBTOP_TYPE_CHAR,
-	GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT
+	GLIBTOP_TYPE_STRING, GLIBTOP_TYPE_CHAR, GLIBTOP_TYPE_INT,
+    GLIBTOP_TYPE_INT,    GLIBTOP_TYPE_INT,  GLIBTOP_TYPE_INT,
+    GLIBTOP_TYPE_INT,    GLIBTOP_TYPE_INT,  GLIBTOP_TYPE_INT
 };
 
 const char *glibtop_labels_proc_state [GLIBTOP_MAX_PROC_STATE] =
 {
-	N_("Cmd"), N_("State"), N_("UID"), N_("GID")
+	N_("Cmd"), N_("State"), N_("UID"), N_("GID"),
+    N_("RGid"), N_("RUid"), N_("HasCPU"), N_("Proc"), N_("LProc")
 };
 
 const char *glibtop_descriptions_proc_state [GLIBTOP_MAX_PROC_STATE] =
@@ -46,5 +49,10 @@ const char *glibtop_descriptions_proc_state [GLIBTOP_MAX_PROC_STATE] =
 	N_("Basename of executable file in call to exec()"),
 	N_("Single-Char code for process state (S=sleeping)"),
 	N_("UID of process"),
-	N_("GID of process")
+	N_("GID of process"),
+	N_("Real UID of process"),
+	N_("Real GID of process"),
+	N_("Has CPU"),
+	N_("Processor"),
+	N_("Last Processor"),
 };
