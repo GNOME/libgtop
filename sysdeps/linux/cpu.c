@@ -26,14 +26,14 @@
 #include <glibtop/cpu.h>
 
 static const unsigned long _glibtop_sysdeps_cpu =
-(1 << GLIBTOP_CPU_TOTAL) + (1 << GLIBTOP_CPU_USER) +
-(1 << GLIBTOP_CPU_NICE) + (1 << GLIBTOP_CPU_SYS) +
-(1 << GLIBTOP_CPU_IDLE) + (1 << GLIBTOP_CPU_FREQUENCY);
+(1L << GLIBTOP_CPU_TOTAL) + (1L << GLIBTOP_CPU_USER) +
+(1L << GLIBTOP_CPU_NICE) + (1L << GLIBTOP_CPU_SYS) +
+(1L << GLIBTOP_CPU_IDLE) + (1L << GLIBTOP_CPU_FREQUENCY);
 
 static const unsigned long _glibtop_sysdeps_cpu_smp =
-(1 << GLIBTOP_XCPU_TOTAL) + (1 << GLIBTOP_XCPU_USER) +
-(1 << GLIBTOP_XCPU_NICE) + (1 << GLIBTOP_XCPU_SYS) +
-(1 << GLIBTOP_XCPU_IDLE);
+(1L << GLIBTOP_XCPU_TOTAL) + (1L << GLIBTOP_XCPU_USER) +
+(1L << GLIBTOP_XCPU_NICE) + (1L << GLIBTOP_XCPU_SYS) +
+(1L << GLIBTOP_XCPU_IDLE);
 
 /* Init function. */
 

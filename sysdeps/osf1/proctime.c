@@ -30,9 +30,9 @@
 #include <sys/time.h>
 
 static const unsigned long _glibtop_sysdeps_proc_time =
-(1 << GLIBTOP_PROC_TIME_UTIME) + (1 << GLIBTOP_PROC_TIME_CUTIME) +
-(1 << GLIBTOP_PROC_TIME_STIME) + (1 << GLIBTOP_PROC_TIME_CSTIME) +
-(1 << GLIBTOP_PROC_TIME_START_TIME);
+(1L << GLIBTOP_PROC_TIME_UTIME) + (1L << GLIBTOP_PROC_TIME_CUTIME) +
+(1L << GLIBTOP_PROC_TIME_STIME) + (1L << GLIBTOP_PROC_TIME_CSTIME) +
+(1L << GLIBTOP_PROC_TIME_START_TIME);
 
 /* Init function. */
 

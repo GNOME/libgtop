@@ -27,10 +27,10 @@
 #include <sys/msg.h>
 
 static const unsigned long _glibtop_sysdeps_msg_limits =
-(1 << GLIBTOP_IPC_MSGPOOL) + (1 << GLIBTOP_IPC_MSGMAP) +
-(1 << GLIBTOP_IPC_MSGMAX) + (1 << GLIBTOP_IPC_MSGMNB) +
-(1 << GLIBTOP_IPC_MSGMNI) + (1 << GLIBTOP_IPC_MSGSSZ) +
-(1 << GLIBTOP_IPC_MSGTQL);
+(1L << GLIBTOP_IPC_MSGPOOL) + (1L << GLIBTOP_IPC_MSGMAP) +
+(1L << GLIBTOP_IPC_MSGMAX) + (1L << GLIBTOP_IPC_MSGMNB) +
+(1L << GLIBTOP_IPC_MSGMNI) + (1L << GLIBTOP_IPC_MSGSSZ) +
+(1L << GLIBTOP_IPC_MSGTQL);
 
 /* Init function. */
 

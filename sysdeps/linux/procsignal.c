@@ -26,8 +26,8 @@
 #include <glibtop/procsignal.h>
 
 static const unsigned long _glibtop_sysdeps_proc_signal =
-(1 << GLIBTOP_PROC_SIGNAL_SIGNAL) + (1 << GLIBTOP_PROC_SIGNAL_BLOCKED) +
-(1 << GLIBTOP_PROC_SIGNAL_SIGIGNORE) + (1 << GLIBTOP_PROC_SIGNAL_SIGCATCH);
+(1L << GLIBTOP_PROC_SIGNAL_SIGNAL) + (1L << GLIBTOP_PROC_SIGNAL_BLOCKED) +
+(1L << GLIBTOP_PROC_SIGNAL_SIGIGNORE) + (1L << GLIBTOP_PROC_SIGNAL_SIGCATCH);
 
 /* Init function. */
 

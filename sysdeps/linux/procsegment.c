@@ -26,16 +26,16 @@
 #include <glibtop/procsegment.h>
 
 static const unsigned long _glibtop_sysdeps_proc_segment =
-(1 << GLIBTOP_PROC_SEGMENT_START_CODE) +
-(1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
-(1 << GLIBTOP_PROC_SEGMENT_START_STACK);
+(1L << GLIBTOP_PROC_SEGMENT_START_CODE) +
+(1L << GLIBTOP_PROC_SEGMENT_END_CODE) +
+(1L << GLIBTOP_PROC_SEGMENT_START_STACK);
 
 static const unsigned long _glibtop_sysdeps_proc_segment_statm =
-(1 << GLIBTOP_PROC_SEGMENT_TEXT_RSS) +
+(1L << GLIBTOP_PROC_SEGMENT_TEXT_RSS) +
 /* Disabled due to bug in the Linux Kernel. */
-/* (1 << GLIBTOP_PROC_SEGMENT_SHLIB_RSS) + */
-(1 << GLIBTOP_PROC_SEGMENT_DATA_RSS) +
-(1 << GLIBTOP_PROC_SEGMENT_DIRTY_SIZE);
+/* (1L << GLIBTOP_PROC_SEGMENT_SHLIB_RSS) + */
+(1L << GLIBTOP_PROC_SEGMENT_DATA_RSS) +
+(1L << GLIBTOP_PROC_SEGMENT_DIRTY_SIZE);
 
 #ifndef LOG1024
 #define LOG1024		10

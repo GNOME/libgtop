@@ -36,8 +36,8 @@
 #include <mach/task_info.h>
 
 static const unsigned long _glibtop_sysdeps_proc_mem =
-(1 << GLIBTOP_PROC_MEM_VSIZE) + (1 << GLIBTOP_PROC_MEM_RESIDENT) +
-(1 << GLIBTOP_PROC_MEM_RSS);
+(1L << GLIBTOP_PROC_MEM_VSIZE) + (1L << GLIBTOP_PROC_MEM_RESIDENT) +
+(1L << GLIBTOP_PROC_MEM_RSS);
 
 /* Init function. */
 
@@ -98,6 +98,6 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 	buf->share = u.u_ru.ru_ixrss;
 
-	buf->flags |= (1 << GLIBTOP_PROC_MEM_RSS_RLIM) |
-		(1 << GLIBTOP_PROC_MEM_SHARE);
+	buf->flags |= (1L << GLIBTOP_PROC_MEM_RSS_RLIM) |
+		(1L << GLIBTOP_PROC_MEM_SHARE);
 }

@@ -36,11 +36,11 @@
 /* Provides detailed information about a process. */
 
 static const unsigned long _glibtop_sysdeps_proc_uid =
-(1 << GLIBTOP_PROC_UID_UID) + (1 << GLIBTOP_PROC_UID_EUID) +
-(1 << GLIBTOP_PROC_UID_GID) + (1 << GLIBTOP_PROC_UID_EGID) +
-(1 << GLIBTOP_PROC_UID_PID) + (1 << GLIBTOP_PROC_UID_PPID) +
-(1 << GLIBTOP_PROC_UID_PGRP) + (1 << GLIBTOP_PROC_UID_SESSION) +
-(1 << GLIBTOP_PROC_UID_TTY) + (1 << GLIBTOP_PROC_UID_TPGID);
+(1L << GLIBTOP_PROC_UID_UID) + (1L << GLIBTOP_PROC_UID_EUID) +
+(1L << GLIBTOP_PROC_UID_GID) + (1L << GLIBTOP_PROC_UID_EGID) +
+(1L << GLIBTOP_PROC_UID_PID) + (1L << GLIBTOP_PROC_UID_PPID) +
+(1L << GLIBTOP_PROC_UID_PGRP) + (1L << GLIBTOP_PROC_UID_SESSION) +
+(1L << GLIBTOP_PROC_UID_TTY) + (1L << GLIBTOP_PROC_UID_TPGID);
 
 /* Init function. */
 
@@ -118,7 +118,7 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	
 	buf->priority = taskinfo.base_priority;
 	
-	buf->flags += (1 << GLIBTOP_PROC_UID_PRIORITY);
+	buf->flags += (1L << GLIBTOP_PROC_UID_PRIORITY);
 
 	errno = 0;
 	
@@ -128,5 +128,5 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	
 	buf->nice = ret;
 		
-	buf->flags += (1 << GLIBTOP_PROC_UID_NICE);
+	buf->flags += (1L << GLIBTOP_PROC_UID_NICE);
 }

@@ -27,7 +27,7 @@
 #include <glibtop/procargs.h>
 
 static const unsigned long _glibtop_sysdeps_proc_args =
-(1 << GLIBTOP_PROC_ARGS_SIZE);
+(1L << GLIBTOP_PROC_ARGS_SIZE);
 
 /* Init function. */
 

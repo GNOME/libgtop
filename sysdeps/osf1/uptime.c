@@ -28,7 +28,7 @@
 #include <time.h>
 
 static unsigned long _glibtop_sysdeps_uptime =
-(1 << GLIBTOP_UPTIME_UPTIME);
+(1L << GLIBTOP_UPTIME_UPTIME);
 
 /* Init function. */
 

@@ -34,8 +34,8 @@
 #include <ctype.h>
 
 static const unsigned long _glibtop_sysdeps_proclist =
-(1 << GLIBTOP_PROCLIST_TOTAL) + (1 << GLIBTOP_PROCLIST_NUMBER) +
-(1 << GLIBTOP_PROCLIST_SIZE);
+(1L << GLIBTOP_PROCLIST_TOTAL) + (1L << GLIBTOP_PROCLIST_NUMBER) +
+(1L << GLIBTOP_PROCLIST_SIZE);
 
 /* Init function. */
 
@@ -122,28 +122,28 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		case GLIBTOP_KERN_PROC_PGRP:
 			/* Do you really, really need this ? */
 			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1 << GLIBTOP_PROC_UID_PGRP))
+			if (procuid.flags & (1L << GLIBTOP_PROC_UID_PGRP))
 				if ((int) arg != procuid.pgrp)
 					continue;
 			break;
 		case GLIBTOP_KERN_PROC_SESSION:
 			/* Do you really, really need this ? */
 			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1 << GLIBTOP_PROC_UID_SESSION))
+			if (procuid.flags & (1L << GLIBTOP_PROC_UID_SESSION))
 				if ((int) arg != procuid.session)
 					continue;
 			break;
 		case GLIBTOP_KERN_PROC_TTY:
 			/* Do you really, really need this ? */
 			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1 << GLIBTOP_PROC_UID_TTY))
+			if (procuid.flags & (1L << GLIBTOP_PROC_UID_TTY))
 				if ((int) arg != procuid.tty)
 					continue;
 			break;
 		case GLIBTOP_KERN_PROC_RUID:
 			/* Do you really, really need this ? */
 			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1 << GLIBTOP_PROC_UID_EUID))
+			if (procuid.flags & (1L << GLIBTOP_PROC_UID_EUID))
 				if ((int) arg != procuid.euid)
 					continue;
 			break;
@@ -151,19 +151,19 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 
 		if (which & GLIBTOP_EXCLUDE_NOTTY) {
 			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1 << GLIBTOP_PROC_UID_TTY))
+			if (procuid.flags & (1L << GLIBTOP_PROC_UID_TTY))
 				if (procuid.tty == -1) continue;
 		}
 
 		if (which & GLIBTOP_EXCLUDE_IDLE) {
 			glibtop_get_proc_state_s (server, &procstate, pid);
-			if (procstate.flags & (1 << GLIBTOP_PROC_STATE_STATE))
+			if (procstate.flags & (1L << GLIBTOP_PROC_STATE_STATE))
 				if (procstate.state != 'R') continue;
 		}
 
 		if (which & GLIBTOP_EXCLUDE_SYSTEM) {
 			glibtop_get_proc_uid_s (server, &procuid, pid);
-			if (procuid.flags & (1 << GLIBTOP_PROC_UID_UID))
+			if (procuid.flags & (1L << GLIBTOP_PROC_UID_UID))
 				if (procuid.uid == 0) continue;
 		}
 

@@ -51,40 +51,40 @@
 #define _GLIBTOP_IP_FW_ACCTOUT	0x2000	/* Account outgoing packets only. */
 
 static const unsigned long _glibtop_sysdeps_netload = 
-(1 << GLIBTOP_NETLOAD_ERRORS_IN) +
-(1 << GLIBTOP_NETLOAD_ERRORS_OUT) +
-(1 << GLIBTOP_NETLOAD_COLLISIONS);
+(1L << GLIBTOP_NETLOAD_ERRORS_IN) +
+(1L << GLIBTOP_NETLOAD_ERRORS_OUT) +
+(1L << GLIBTOP_NETLOAD_COLLISIONS);
 
 static const unsigned long _glibtop_sysdeps_netload_data =
-(1 << GLIBTOP_NETLOAD_ADDRESS) +
-(1 << GLIBTOP_NETLOAD_SUBNET) +
-(1 << GLIBTOP_NETLOAD_MTU);
+(1L << GLIBTOP_NETLOAD_ADDRESS) +
+(1L << GLIBTOP_NETLOAD_SUBNET) +
+(1L << GLIBTOP_NETLOAD_MTU);
 
 static const unsigned long _glibtop_sysdeps_netload_bytes =
-(1 << GLIBTOP_NETLOAD_BYTES_IN) +
-(1 << GLIBTOP_NETLOAD_BYTES_OUT) +
-(1 << GLIBTOP_NETLOAD_BYTES_TOTAL);
+(1L << GLIBTOP_NETLOAD_BYTES_IN) +
+(1L << GLIBTOP_NETLOAD_BYTES_OUT) +
+(1L << GLIBTOP_NETLOAD_BYTES_TOTAL);
 
 static const unsigned long _glibtop_sysdeps_netload_packets =
-(1 << GLIBTOP_NETLOAD_PACKETS_IN) +
-(1 << GLIBTOP_NETLOAD_PACKETS_OUT) +
-(1 << GLIBTOP_NETLOAD_PACKETS_TOTAL);
+(1L << GLIBTOP_NETLOAD_PACKETS_IN) +
+(1L << GLIBTOP_NETLOAD_PACKETS_OUT) +
+(1L << GLIBTOP_NETLOAD_PACKETS_TOTAL);
 
 static const unsigned long _glibtop_sysdeps_netload_total =
-(1 << GLIBTOP_NETLOAD_PACKETS_TOTAL) +
-(1 << GLIBTOP_NETLOAD_BYTES_TOTAL);
+(1L << GLIBTOP_NETLOAD_PACKETS_TOTAL) +
+(1L << GLIBTOP_NETLOAD_BYTES_TOTAL);
 
 static const unsigned long _glibtop_sysdeps_netload_in =
-(1 << GLIBTOP_NETLOAD_PACKETS_TOTAL) +
-(1 << GLIBTOP_NETLOAD_BYTES_TOTAL) +
-(1 << GLIBTOP_NETLOAD_PACKETS_IN) +
-(1 << GLIBTOP_NETLOAD_BYTES_IN);
+(1L << GLIBTOP_NETLOAD_PACKETS_TOTAL) +
+(1L << GLIBTOP_NETLOAD_BYTES_TOTAL) +
+(1L << GLIBTOP_NETLOAD_PACKETS_IN) +
+(1L << GLIBTOP_NETLOAD_BYTES_IN);
 
 static const unsigned long _glibtop_sysdeps_netload_out =
-(1 << GLIBTOP_NETLOAD_PACKETS_TOTAL) +
-(1 << GLIBTOP_NETLOAD_BYTES_TOTAL) +
-(1 << GLIBTOP_NETLOAD_PACKETS_OUT) +
-(1 << GLIBTOP_NETLOAD_BYTES_OUT);
+(1L << GLIBTOP_NETLOAD_PACKETS_TOTAL) +
+(1L << GLIBTOP_NETLOAD_BYTES_TOTAL) +
+(1L << GLIBTOP_NETLOAD_PACKETS_OUT) +
+(1L << GLIBTOP_NETLOAD_BYTES_OUT);
 
 /* Init function. */
 
@@ -118,47 +118,47 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 
 	strcpy (ifr.ifr_name, interface);
 	if (!ioctl (skfd, SIOCGIFFLAGS, &ifr)) {
-	    buf->flags |= (1 << GLIBTOP_NETLOAD_IF_FLAGS);
+	    buf->flags |= (1L << GLIBTOP_NETLOAD_IF_FLAGS);
 	    flags = ifr.ifr_flags;
 	} else
 	    flags = 0;
 
 	if (flags & IFF_UP)
-	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_UP);
+	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_UP);
 
 	if (flags & IFF_BROADCAST)
-	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_BROADCAST);
+	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_BROADCAST);
 
 	if (flags & IFF_DEBUG)
-	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_DEBUG);
+	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_DEBUG);
 
 	if (flags & IFF_LOOPBACK)
-	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_LOOPBACK);
+	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_LOOPBACK);
 
 	if (flags & IFF_POINTOPOINT)
-	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_POINTOPOINT);
+	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_POINTOPOINT);
 
 	if (flags & IFF_RUNNING)
-	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_RUNNING);
+	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_RUNNING);
 
 	if (flags & IFF_NOARP)
-	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_NOARP);
+	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_NOARP);
 
 	if (flags & IFF_PROMISC)
-	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_PROMISC);
+	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_PROMISC);
 
 	if (flags & IFF_ALLMULTI)
-	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_ALLMULTI);
+	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_ALLMULTI);
 
 	if (flags & IFF_MULTICAST)
-	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_MULTICAST);
+	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_MULTICAST);
 
 	strcpy (ifr.ifr_name, interface);
 	if (!ioctl (skfd, SIOCGIFADDR, &ifr)) {
 	    struct sockaddr_in addr =
 		*(struct sockaddr_in *) &ifr.ifr_addr;
 	    buf->address = addr.sin_addr.s_addr;
-	    buf->flags |= (1 << GLIBTOP_NETLOAD_ADDRESS);
+	    buf->flags |= (1L << GLIBTOP_NETLOAD_ADDRESS);
 	}
 
 	strcpy (ifr.ifr_name, interface);
@@ -166,13 +166,13 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	    struct sockaddr_in addr =
 		*(struct sockaddr_in *) &ifr.ifr_addr;
 	    buf->subnet = addr.sin_addr.s_addr;
-	    buf->flags |= (1 << GLIBTOP_NETLOAD_SUBNET);
+	    buf->flags |= (1L << GLIBTOP_NETLOAD_SUBNET);
 	}
 
 	strcpy (ifr.ifr_name, interface);
 	if (!ioctl (skfd, SIOCGIFMTU, &ifr)) {
 	    buf->mtu = ifr.ifr_mtu;
-	    buf->flags |= (1 << GLIBTOP_NETLOAD_MTU);
+	    buf->flags |= (1L << GLIBTOP_NETLOAD_MTU);
 	}
 
 	close (skfd);
