@@ -158,6 +158,9 @@ sub output {
     }
 
     $sysdeps_code = sprintf
+      ("\tif (!server->_priv)\n\treturn -GLIBTOP_ERROR_NO_BACKEND_OPENED;\n\n");
+
+    $sysdeps_code .= sprintf
       ("\tfor (list = server->_priv->backend_list;\n\t     list; list = list->next) {\n\t\tglibtop_backend *backend = list->data;\n\n\t\tif (!backend->info || !backend->info->call_vector)\n\t\t\tcontinue;\n\n\t\tif (backend->info->call_vector->%s) {\n", $feature);
 
     if ($line_fields[3] eq '') {

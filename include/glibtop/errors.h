@@ -46,10 +46,11 @@ BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_ERROR_NO_SUCH_BACKEND		10
 #define GLIBTOP_ERROR_NOT_IMPLEMENTED		11
+#define GLIBTOP_ERROR_NO_BACKEND_OPENED		12
 
-#define GLIBTOP_ERROR_DEMARSHAL_ERROR		12
+#define GLIBTOP_ERROR_DEMARSHAL_ERROR		13
 
-#define GLIBTOP_MAX_ERROR			13
+#define GLIBTOP_MAX_ERROR			14
 
 char *
 glibtop_get_error_string_l (glibtop *server, unsigned error_number);
