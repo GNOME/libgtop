@@ -34,15 +34,17 @@ void free ();
 #include <strings.h>
 #endif
 
-#include <glib.h>
+#include <glibtop.h>
+#include <glibtop/xmalloc.h>
 
 #undef xmalloc
 #undef xrealloc
 #undef xstrdup
 
-#define xmalloc g_malloc
-#define xrealloc g_realloc
-#define xstrdup g_strdup
+#define xmalloc(p1)	glibtop_malloc_r (NULL, p1)
+#define xrealloc(p1,p2)	glibtop_realloc_r (NULL, p1, p2)
+#define xstrdup(p1)	glibtop_strdup_r (NULL, p1)
+#define xfree(p1)	glibtop_free_r (NULL, p1)
 
 char *strstr ();
 void error ();

@@ -21,6 +21,8 @@
 
 #include <glibtop/error.h>
 
+#define DEFAULT_NAME	"ERROR"
+
 /* Prints error message and exits. */
 
 void
@@ -30,7 +32,7 @@ glibtop_error_r (glibtop *server, char *format, ...)
 	
 	va_start (ap, format);
 	
-	fprintf (stderr, "%s: ", server->name);
+	fprintf (stderr, "%s: ", server ? server->name : DEFAULT_NAME);
 	vfprintf (stderr, format, ap);
 	fprintf (stderr, "\n");
 	
@@ -45,7 +47,7 @@ glibtop_error_io_r (glibtop *server, char *format, ...)
 	
 	va_start (ap, format);
 	
-	fprintf (stderr, "%s: ", server->name);
+	fprintf (stderr, "%s: ", server ? server->name : DEFAULT_NAME);
 	vfprintf (stderr, format, ap);
 	fprintf (stderr, ": %s\n", strerror (errno));
 	
@@ -60,7 +62,7 @@ glibtop_warn_r (glibtop *server, char *format, ...)
 	
 	va_start (ap, format);
 	
-	fprintf (stderr, "%s: ", server->name);
+	fprintf (stderr, "%s: ", server ? server->name : DEFAULT_NAME);
 	vfprintf (stderr, format, ap);
 	fprintf (stderr, "\n");
 	
@@ -74,7 +76,7 @@ glibtop_warn_io_r (glibtop *server, char *format, ...)
 	
 	va_start (ap, format);
 	
-	fprintf (stderr, "%s: ", server->name);
+	fprintf (stderr, "%s: ", server ? server->name : DEFAULT_NAME);
 	vfprintf (stderr, format, ap);
 	fprintf (stderr, ": %s\n", strerror (errno));
 	

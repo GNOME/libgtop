@@ -1,5 +1,20 @@
 1998-07-06  Martin Baulig  <martin@home-of-linux.org>
 
+	* sysdeps/common/mountlist.c: using functions from `xmalloc.c'.
+
+	* sysdeps/common/error.c: all functions now accept NULL as
+	`server' argument.
+
+	* acconfig.h (AFS, MOUNTED_FREAD, MOUNTED_FREAD_FSTYP,
+	MOUNTED_GETFSSTAT, MOUNTED_GETMNT, MOUNTED_GETMNTENT1,
+	MOUNTED_GETMNTENT2, MOUNTED_GETMNTINFO, MOUNTED_LISTMNTENT,
+        MOUNTED_VMOUNT, STAT_STATFS3_OSF1, STAT_READ_FILSYS,
+        STAT_STATFS2_BSIZE, STAT_STATFS2_FSIZE, STAT_STATFS2_FS_DATA,
+        STAT_STATFS4, STAT_STATVFS, STATFS_TRUNCATES_BLOCK_COUNTS):
+        New macros.
+
+	* configure.in: added GNOME_FILEUTILS_CHECKS.
+
 	* sysdeps/common/{fsusage, mountlist}.[ch]:
 	Imported from GNU Fileutils 3.16.
 
