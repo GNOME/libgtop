@@ -1,3 +1,10 @@
+1998-06-14  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/guile/guile.awk: New file.
+	Creates `gulie.c' depending upon `features.def'.
+
+	* sysdeps/guile/*.c: Removed.
+
 1998-06-13  Martin Baulig  <martin@home-of-linux.org>
 
 	* features.def: List of features for `guile-names.awk'.

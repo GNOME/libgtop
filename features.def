@@ -1,17 +1,16 @@
-cpu
-mem
-swap
-uptime
-loadavg
-shm_limits
-msg_limits
-sem_limits
-proclist
-proc_state
-proc_uid
-proc_mem
-proc_time
-proc_signal
-proc_kernel
-proc_segment
-sysdeps
+cpu		ulong(total,user,nice,sys,idle,frequency)
+mem		ulong(total,used,free,shared,buffer,cached,user,locked)
+swap		ulong(total,used,free)
+uptime		double(uptime,idletime)
+loadavg		double(loadavg[0],loadavg[1],loadavg[2])
+shm_limits	ulong(shmmax,shmmin,shmmni,shmseg,shmall)
+msg_limits	ulong(msgpool,msgmap,msgmax,msgmnb,msgmni,msgssz,msgtql)
+sem_limits	ulong(semmap,semmni,semmns,semmnu,semmsl,semopm,semume,semusz,semvmx,semaem)
+proclist	ulong(number,size,total)
+proc_state	str(cmd):char(state):ulong(uid,gid)
+proc_uid	long(uid,euid,gid,egid,pid,ppid,pgrp,session,tty,tpgid,priority,nice)
+proc_mem	long(size,vsize,resident,share,rss,rss_rlim)
+proc_time	long(start_time,utime,stime,cutime,cstime,timeout,it_real_value)
+proc_signal	long(signal,blocked,sigignore,sigcatch)
+proc_kernel	ulong(k_flags,min_flt,maj_flt,cmin_flt,cmaj_flt,kstk_esp,kstk_eip,wchan)
+proc_segment	long(trs,lrs,drs,dt):ulong(start_code,end_code,start_stack)

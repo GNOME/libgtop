@@ -18,3 +18,5 @@ guile-names.c: guile-names.awk $(top_builddir)/config.h $(top_builddir)/features
 
 EXTRA_DIST			= guile-names.awk
 
+CLEANFILES			= guile-names.c
+
