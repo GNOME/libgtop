@@ -33,8 +33,8 @@ msgstr "размер прочетени данни"
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "прочетен %d байт от данните"
-msgstr[1] "прочетени %d байта от данните"
+msgstr[0] "прочетен %lu байт от данните"
+msgstr[1] "прочетени %lu байта от данните"
 
 #: lib/write.c:51
 #, c-format
