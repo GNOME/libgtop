@@ -1,3 +1,7 @@
+1999-05-07  Drazen Kacar <dave@srce.hr>
+
+	* procmem.c: Implemented size, vsize, resident and rss.
+
 1999-05-06  Drazen Kacar <dave@srce.hr>
 
 	* siglist.c: Fixed, valid for Solaris 2.6 & 7.

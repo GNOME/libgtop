@@ -24,7 +24,9 @@
 #include <glibtop.h>
 #include <glibtop/procmem.h>
 
-static const unsigned long _glibtop_sysdeps_proc_mem = 0;
+static const unsigned long _glibtop_sysdeps_proc_mem =
+(1L << GLIBTOP_PROC_MEM_SIZE) + (1L << GLIBTOP_PROC_MEM_VSIZE) +
+(1L << GLIBTOP_PROC_MEM_RESIDENT) + (1L << GLIBTOP_PROC_MEM_RSS);
 
 /* Init function. */
 
@@ -40,5 +42,15 @@ void
 glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
 			pid_t pid)
 {
+   	struct psinfo psinfo;
+
 	memset (buf, 0, sizeof (glibtop_proc_mem));
+
+	if(glibtop_get_proc_data_psinfo_s(server, &psinfo, pid))
+	   	return;
+
+	buf->size = buf->vsize = psinfo.pr_size;
+	buf->resident = buf->rss = psinfo.pr_rssize;
+
+	buf->flags = _glibtop_sysdeps_proc_mem;
 }
