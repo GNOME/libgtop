@@ -39,19 +39,26 @@ glibtop_init_proc_mem_s (glibtop *server)
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
-			pid_t pid)
+glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 {
-   	int pagesize = server->machine.pagesize;
+#ifdef HAVE_PROCFS_H
    	struct psinfo psinfo;
+#else
+	struct prpsinfo psinfo;
+	int pagesize = server->machine.pagesize;
+#endif
 
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 
 	if(glibtop_get_proc_data_psinfo_s(server, &psinfo, pid))
 	   	return;
 
-	buf->size = buf->vsize = psinfo.pr_size;
-	buf->resident = buf->rss = psinfo.pr_rssize;
-
+#ifdef HAVE_PROCFS_H
+	buf->size = buf->vsize = psinfo.pr_size << 10;
+	buf->resident = buf->rss = psinfo.pr_rssize << 10;
+#else
+	buf->size = buf->vsize = psinfo.pr_size << pagesize << 10;
+	buf->resident = buf->rss = psinfo.pr_rssize << pagesize << 10;
+#endif
 	buf->flags = _glibtop_sysdeps_proc_mem;
 }

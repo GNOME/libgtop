@@ -55,25 +55,39 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 {
    	int fd, i, nmaps;
 	prmap_t *maps;
+
+	/* A few defines, to make it shorter down there */
+
+#ifdef HAVE_PROCFS_H
+# define OFFSET  pr_offset
+#else
+# define OFFSET  pr_off
+#endif
+
 	glibtop_map_entry *entry;
 	struct stat inode;
 	char buffer[BUFSIZ];
 	
 	memset (buf, 0, sizeof (glibtop_proc_map));
 
+#ifdef HAVE_PROCFS_H
 	sprintf(buffer, "/proc/%d/map", (int)pid);
+#else
+	sprintf(buffer, "/proc/%d", (int)pid);
+#endif
 	if((fd = s_open(buffer, O_RDONLY)) < 0)
 	{
 	   	if(errno != EPERM && errno != EACCES)
 		   	glibtop_warn_io_r(server, "open (%s)", buffer);
 		return NULL;
 	}
+#ifdef HAVE_PROCFS_H
 	if(fstat(fd, &inode) < 0)
 	{
 	   	if(errno != EOVERFLOW)
 		   	glibtop_warn_io_r(server, "fstat (%s)", buffer);
 		/* else call daemon for 64-bit support */
-		close(fd);
+		s_close(fd);
 		return NULL;
 	}
 	maps = alloca(inode.st_size);
@@ -81,13 +95,28 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	if(s_pread(fd, maps, inode.st_size, 0) != inode.st_size)
 	{
 	   	glibtop_warn_io_r(server, "pread (%s)", buffer);
-		close(fd);
+		s_close(fd);
 		return NULL;
 	}
-	close(fd);
-	if(!(entry = glibtop_malloc_r(server, nmaps * sizeof(glibtop_map_entry))))
+#else
+	if(ioctl(fd, PIOCNMAP, &nmaps) < 0)
+	{
+	   	glibtop_warn_io_r(server, "ioctl(%s, PIOCNMAP)", buffer);
+		s_close(fd);
+		return NULL;
+	}
+	maps = alloca((nmaps + 1) * sizeof(prmap_t));
+	if(ioctl(fd, PIOCMAP, maps) < 0)
+	{
+	   	glibtop_warn_io_r(server, "ioctl(%s, PIOCMAP)", buffer);
+		s_close(fd);
+		return NULL;
+	}
+#endif
+	s_close(fd);
+	if(!(entry = glibtop_malloc_r(server,
+		    		      nmaps * sizeof(glibtop_map_entry))))
 	   	return NULL;
-
 	buf->number = nmaps;
 	buf->size = sizeof(glibtop_map_entry);
 	buf->total = nmaps * sizeof(glibtop_map_entry);
@@ -97,7 +126,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	{
 	   	entry[i].start = maps[i].pr_vaddr;
 		entry[i].end = maps[i].pr_vaddr + maps[i].pr_size;
-		entry[i].offset = maps[i].pr_offset;
+		entry[i].offset = maps[i].OFFSET;
 		if(maps[i].pr_mflags & MA_READ)
 		   	entry[i].perm |= GLIBTOP_MAP_PERM_READ;
 		if(maps[i].pr_mflags & MA_WRITE)
@@ -110,7 +139,6 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		   	entry[i].perm |= GLIBTOP_MAP_PERM_PRIVATE;
 		entry[i].flags = _glibtop_sysdeps_map_entry;
 	}
-	
 	buf->flags = _glibtop_sysdeps_proc_map;
 	return entry;
 }

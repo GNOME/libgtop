@@ -29,6 +29,21 @@
 
 #include "safeio.h"
 
+/*
+ * The differences between old and new procfs API are:
+ * - old has /proc/<pid> file and ioctl() is used to obtain the data.
+ * - new has /proc/<pid>/* files and read() & friends are used to
+ *   obtain the data.
+ * - names of structures and members are different. It's mostly the
+ *   prefix. Old uses `pr' and new uses `ps'.
+ *
+ * Since almost every line would be in #ifdef, I think it would
+ * be more readable to just copy everything twice. This is not a big
+ * file, after all.
+ */
+
+#ifdef HAVE_PROCFS_H
+
 /* Read /proc/<pid>/psinfo. */
 
 int
@@ -135,10 +150,117 @@ glibtop_get_proc_status_s(glibtop *server, struct pstatus *pstatus, pid_t pid)
 	if(s_pread(fd, pstatus, sizeof(struct pstatus), 0) !=
 	           sizeof(struct pstatus))
 	{
-	   	close(fd);
+	   	s_close(fd);
 		glibtop_warn_io_r(server, "pread (%s)", buffer);
 		return -1;
 	}
 	s_close(fd);
 	return 0;
 }
+
+#else /* old API */
+
+int
+glibtop_get_proc_data_psinfo_s (glibtop *server,
+      				struct prpsinfo *psinfo,
+				pid_t pid)
+{
+	int fd;
+	char buffer [BUFSIZ];
+
+	sprintf (buffer, "/proc/%d", (int) pid);
+	fd = s_open (buffer, O_RDONLY);
+	if (fd < 0) {
+	   	if(errno != EPERM && errno != EACCES)
+			glibtop_warn_io_r (server, "open (%s)", buffer);
+		return -1;
+	}
+
+	if(ioctl(fd, PIOCPSINFO, psinfo) < 0)
+	{
+		s_close (fd);
+		glibtop_warn_io_r (server, "ioctl(%s, PIOCPSINFO)", buffer);
+		return -1;
+	}
+
+	s_close (fd);
+	return 0;
+}
+
+int
+glibtop_get_proc_data_usage_s (glibtop *server,
+      			       struct prusage *prusage,
+			       pid_t pid)
+{
+	int fd;
+	char buffer [BUFSIZ];
+
+	sprintf (buffer, "/proc/%d", (int) pid);
+	fd = s_open (buffer, O_RDONLY);
+	if (fd < 0) {
+	   	if(errno != EPERM && errno != EACCES)
+			glibtop_warn_io_r (server, "open (%s)", buffer);
+		return -1;
+	}
+
+	if(ioctl(fd, PIOCUSAGE, prusage) < 0)
+	{
+		s_close (fd);
+		glibtop_warn_io_r (server, "ioctl(%s, PIOCUSAGE)", buffer);
+		return -1;
+	}
+
+	s_close (fd);
+	return 0;
+}
+
+int
+glibtop_get_proc_credentials_s(glibtop *server,
+      			       struct prcred *prcred,
+			       gid_t *groups,
+			       pid_t pid)
+{
+	int fd;
+	size_t toread;
+	char buffer[BUFSIZ];
+
+	sprintf(buffer, "/proc/%d", (int)pid);
+	if((fd = s_open(buffer, O_RDONLY)) < 0)
+	{
+	   	if(errno != EPERM && errno != EACCES)
+		   	glibtop_warn_io_r(server, "open (%s)", buffer);
+		return -1;
+	}
+	if(ioctl(fd, PIOCCRED, prcred) < 0)
+	{
+	   	s_close(fd);
+		glibtop_warn_io_r(server, "ioctl(%s, PIOCCRED)", buffer);
+		return -1;
+	}
+	s_close(fd);
+	return 0;
+}
+
+int
+glibtop_get_proc_status_s(glibtop *server, struct prstatus *pstatus, pid_t pid)
+{
+	int fd;
+	char buffer[BUFSIZ];
+
+	sprintf(buffer, "/proc/%d", (int)pid);
+	if((fd = s_open(buffer, O_RDONLY)) < 0)
+	{
+	   	if(errno != EPERM && errno != EACCES)
+		   	glibtop_warn_io_r(server, "open (%s)", buffer);
+		return -1;
+	}
+	if(ioctl(fd, PIOCSTATUS, pstatus) < 0)
+	{
+	   	s_close(fd);
+		glibtop_warn_io_r(server, "ioctl(%s, PIOCSTATUS)", buffer);
+		return -1;
+	}
+	s_close(fd);
+	return 0;
+}
+#endif

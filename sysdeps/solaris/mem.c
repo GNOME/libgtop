@@ -57,6 +57,10 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
     kstat_named_t *kn;
     int pagesize = server->machine.pagesize;
 
+#ifndef KSTAT_DATA_UINT32
+#define ui32 ul
+#endif
+
     memset (buf, 0, sizeof (glibtop_mem));
 
     buf->total = (u_int64_t)sysconf(_SC_PHYS_PAGES) << pagesize;

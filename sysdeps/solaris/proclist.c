@@ -79,23 +79,31 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		ok = 1; len = strlen (entry->d_name);
 
 		/* does it consist entirely of digits? */
-		
+#if 0
+		/* It does, except for "." and "..". Let's speed up */
+
 		for (i = 0; i < len; i++)
 			if (!isdigit (entry->d_name [i])) ok = 0;
 		if (!ok) continue;
+#else
+		if(entry->d_name[0] == '.')
+		   	continue;
+#endif
 
 		/* convert it in a number */
-
+#if 0
 		if (sscanf (entry->d_name, "%u", &pid) != 1) continue;
-
+#else
+		pid = (unsigned)atol(entry->d_name);
+#endif
+		sprintf (buffer, "/proc/%d", pid);
+#ifdef HAVE_PROCFS_H
 		/* is it really a directory? */
 
-		sprintf (buffer, "/proc/%d", pid);
-		
 		if (s_stat (buffer, &statb)) continue;
 
 		if (!S_ISDIR (statb.st_mode)) continue;
-
+#endif
 		/* Fine. Now we first try to store it in pids. If this buffer is
 		 * full, we copy it to the pids_chain. */
 

@@ -179,6 +179,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
 	if(kn)
 	    switch(kn->data_type)
 	    {
+#ifdef KSTAT_DATA_INT32
 	        case KSTAT_DATA_INT32:  server->machine.boot = kn->value.i32;
 				        break;
 	        case KSTAT_DATA_UINT32: server->machine.boot = kn->value.ui32;
@@ -187,6 +188,16 @@ glibtop_open_s (glibtop *server, const char *program_name,
 				        break;
 	        case KSTAT_DATA_UINT64: server->machine.boot = kn->value.ui64;
 				        break;
+#else
+		case KSTAT_DATA_LONG:      server->machine.boot = kn->value.l;
+					   break;
+		case KSTAT_DATA_ULONG:     server->machine.boot = kn->value.ul;
+					   break;
+		case KSTAT_DATA_LONGLONG:  server->machine.boot = kn->value.ll;
+					   break;
+		case KSTAT_DATA_ULONGLONG: server->machine.boot = kn->value.ull;
+					   break;
 	    }
+#endif
     }
 }

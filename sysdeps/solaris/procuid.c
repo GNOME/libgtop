@@ -34,9 +34,11 @@ static const unsigned long _glibtop_sysdeps_proc_uid_psinfo =
 (1L << GLIBTOP_PROC_UID_TTY) + (1L << GLIBTOP_PROC_UID_PRIORITY) +
 (1L << GLIBTOP_PROC_UID_NICE);
 static const unsigned long _glibtop_sysdeps_proc_uid_prcred =
+#ifdef HAVE_PROCFS_H
+(1L << GLIBTOP_PROC_UID_GROUPS) +
+#endif
 (1L << GLIBTOP_PROC_UID_SUID) + (1L << GLIBTOP_PROC_UID_SGID) +
-(1L << GLIBTOP_PROC_UID_NGROUPS) + (1L << GLIBTOP_PROC_UID_GROUPS);
-
+(1L << GLIBTOP_PROC_UID_NGROUPS);
 /* Init function. */
 
 void
@@ -51,9 +53,14 @@ glibtop_init_proc_uid_s (glibtop *server)
 void
 glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 {
-	struct psinfo psinfo;
 	struct prcred prcred;
+#ifdef HAVE_PROCFS_H
+	struct psinfo psinfo;
 	gid_t groups[GLIBTOP_MAX_GROUPS];
+#else
+	struct prpsinfo psinfo;
+	gid_t groups[1];	/* dummy for consistent function prototype */
+#endif
 
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 
@@ -67,13 +74,22 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 
 	buf->pid = psinfo.pr_pid;
 	buf->ppid = psinfo.pr_ppid;
+#ifdef HAVE_PROCFS_H
 	buf->pgrp = psinfo.pr_pgid;
+#else
+	buf->pgrp = psinfo.pr_pgrp;
+#endif
 
 	buf->session = psinfo.pr_sid;
 	buf->tty = psinfo.pr_ttydev;
 
+#ifdef HAVE_PROCFS_H
 	buf->priority = psinfo.pr_lwp.pr_pri;
 	buf->nice = psinfo.pr_lwp.pr_nice - NZERO;
+#else
+	buf->priority = psinfo.pr_pri;
+	buf->nice = psinfo.pr_nice - NZERO;
+#endif
 
 	buf->flags = _glibtop_sysdeps_proc_uid_psinfo;
 
@@ -85,6 +101,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	buf->ngroups = (prcred.pr_ngroups <= GLIBTOP_MAX_GROUPS) ?
 	   		prcred.pr_ngroups : GLIBTOP_MAX_GROUPS;
 
+#ifdef HAVE_PROCFS_H
 	if(sizeof(int) == sizeof(gid_t))
 	   	memcpy(buf->groups, &groups, buf->ngroups * sizeof(gid_t));
 	else
@@ -94,5 +111,6 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 		for(i = 0; i < buf->ngroups; ++i)
 		   	buf->groups[i] = groups[i];
 	}
+#endif
 	buf->flags += _glibtop_sysdeps_proc_uid_prcred;
 }

@@ -25,7 +25,11 @@
 #define __GLIBTOP_MACHINE_H__
 
 #include <sys/param.h>
+#ifdef HAVE_PROCFS_H
 #include <procfs.h>
+#else
+#include <sys/procfs.h>
+#endif
 #include <fcntl.h>
 
 #include <kstat.h>
@@ -58,6 +62,7 @@ struct _glibtop_machine
     int pagesize;		/* in bits to shift, ie. 2^pagesize gives Kb */
     int ticks;			/* clock ticks, as returned by sysconf() */
     unsigned long long boot;	/* boot time, it's ui32 in kstat */
+    long argvenvp;		/* max length or argv + env */
 };
 
 END_LIBGTOP_DECLS

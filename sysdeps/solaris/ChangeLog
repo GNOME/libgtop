@@ -1,3 +1,13 @@
+1999-05-09  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_machine.h, procdata.c, proclist.c, procmap.c, procmem.c,
+	procsignal.c, procstate.c, procuid.c, open.c, mem.c: Initial
+	Solaris 2.5 port. It's far from being complete and hasn't been
+	tested properly. We'll need setuid root daemon, which is
+	currently not implemented. #ifdef symbols to check are
+	HAVE_PROCFS_H and KSTAT_DATA_UINT32. These will be defined on
+	Solaris 2.6 and later, but not on earlier releases.
+
 1999-05-08  Drazen Kacar  <dave@srce.hr>
 
 	* safeio.c, safeio.h: Added s_open(), s_close() etc. with EINTR
