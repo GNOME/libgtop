@@ -41,7 +41,8 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
 #define NO_SHORTNAMES
 /* gnuserv should not be compiled using SOCKS */
 #define DO_NOT_SOCKSIFY
-#include <../src/config.h>
+#include <glibtop.h>
+#include <glibtop/error.h>
 #undef read
 #undef write
 #undef open
@@ -102,23 +103,6 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
 
 #endif /* No communication method pre-defined */
 
-#include <sys/types.h>
-#include <sys/param.h>
-#include <sys/stat.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <signal.h>
-#include <errno.h>
-
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#endif
-
-#ifdef HAVE_SYS_TIME_H
-#include <sys/time.h>
-#endif
-
 /*
  * If you are using SYSV_IPC, you might want to make the buffer size bigger
  * since it limits the size of requests and responses. Don't make it bigger
@@ -164,19 +148,6 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
 #define HIDE_UNIX_SOCKET	/* put the unix socket in a protected dir */
 #endif /* UNIX_DOMAIN_SOCKETS */
 
-/* On some platforms, we need to do the equivalent of "stty litout" to get
- * characters like ^D to pass through to emacs.  This problem has only
- * been observed under emacs18; fsf19 and lemacs are probably okay without it.
- */
-#ifndef DONT_USE_LITOUT
-#if !defined(HAVE_TERMIO) && !defined(HAVE_TERMIOS) && !defined(VMS)
-#if !defined(MSDOS) && !defined(BSD4_1)
-#define USE_LITOUT
-#endif
-#endif
-#endif
-
-
 #define HOSTNAMSZ 255		/* max size of a hostname */
 #define REPLYSIZ 300		/* max size of reply from server to client */
 #undef FALSE
@@ -211,7 +182,7 @@ int make_connection (char *hostarg, int portarg, int *s);
 void disconnect_from_ipc_server();
 #endif
 #if defined(INTERNET_DOMAIN_SOCKETS) || defined(UNIX_DOMAIN_SOCKETS)
-void send_string (int s, CONST char *msg);
+void send_string (int s, const char *msg);
 void disconnect_from_server (int s, int echo);
 int read_line (int s, char *dest);
 #endif
