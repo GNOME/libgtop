@@ -92,7 +92,7 @@ sub parse_features_def {
   $feature =~ s/^@//;
   $features{$feature} = $feature;
 
-  $structures{$structure_count++} = $feature;
+  $structures{$structure_count++} = 'glibtop_'.$feature;
 }
 
 sub parse_structure_def {

@@ -122,7 +122,6 @@
 #undef HAVE_LIBZ
 #undef HAVE_LIBPNG
 #undef HAVE_GMP2_INCLUDE_DIR
-#undef HAVE_GUILE
 
 #undef ssize_t
 #undef u_int64_t
@@ -131,8 +130,6 @@
 #undef HAVE_GLIBTOP_MACHINE_H
 
 #undef GLIBTOP_NAMES
-#undef GLIBTOP_GUILE
-#undef GLIBTOP_GUILE_NAMES
 #undef GLIBTOP_EXAMPLES
 #undef GLIBTOP_INODEDB
 

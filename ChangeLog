@@ -1,5 +1,16 @@
 1999-12-05  Martin Baulig  <martin@home-of-linux.org>
 
+	Moved all Guile code to the libgtop-bindings module.
+
+	* sysdeps/guile/*: Removed.
+	* sysdeps/guile/names/*: Removed.
+
+	* libgtopConf.sh.in: Removed all guile variables.
+
+	* configure.in: Don't check for guile any longer.
+
+1999-12-05  Martin Baulig  <martin@home-of-linux.org>
+
 	* lib/structures.pl: New script to create `structures.h' which will
 	be used in language bindings code.
 

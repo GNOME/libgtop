@@ -10,6 +10,10 @@ libgtop_la_SOURCES		= init.c open.c close.c command.c read.c \
 
 libgtop_la_LDFLAGS		= $(LT_VERSION_INFO)
 
+glibtopdir			= $(includedir)/glibtop
+
+glibtop_HEADERS			= structures.h
+
 BUILT_SOURCES			= lib.c structures.h
 
 lib.c: lib.pl $(top_builddir)/config.h $(top_srcdir)/features.def $(top_srcdir)/scripts/c_types.pl
