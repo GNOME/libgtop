@@ -110,10 +110,15 @@ glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device)
 #ifdef HAVE_I4B_ACCT
 	phase = data.sc_if_un.scu_sp.pp_phase;
 #else
+	/* FIXME: Which FreeBSD version have this field and
+	 *        which not. */
+#if 0
 	phase = data.pp_phase;
+#endif
 #endif
 
 	switch (phase) {
+#ifdef HAVE_I4B_ACCT
 	case PHASE_DEAD:
 	case PHASE_TERMINATE:
 		buf->state = GLIBTOP_PPP_STATE_HANGUP;
@@ -122,6 +127,7 @@ glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device)
 	case PHASE_NETWORK:
 		buf->state = GLIBTOP_PPP_STATE_ONLINE;
 		break;
+#endif
 	default:
 		buf->state = GLIBTOP_PPP_STATE_UNKNOWN;
 		break;

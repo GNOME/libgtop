@@ -39,7 +39,7 @@
 #include <ufs/ufs/inode.h>
 
 #include <sys/ucred.h>
-#ifndef __OpenBSD__
+#if (!defined __OpenBSD__) && (!defined __bsdi__)
 #include <sys/user.h>
 #endif
 #include <sys/sysctl.h>

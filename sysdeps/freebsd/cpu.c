@@ -34,7 +34,11 @@ static const unsigned long _glibtop_sysdeps_cpu =
 
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
+#ifdef __bsdi__
+	{ "_cpustats" },
+#else
 	{ "_cp_time" },
+#endif
 	{ 0 }
 };
 

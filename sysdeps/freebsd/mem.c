@@ -33,7 +33,8 @@
 
 static const unsigned long _glibtop_sysdeps_mem =
 (1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
-(1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_SHARED) +
+(1 << GLIBTOP_MEM_FREE) +
+(1 << GLIBTOP_MEM_SHARED) +
 (1 << GLIBTOP_MEM_BUFFER) +
 #ifdef __FreeBSD__
 (1 << GLIBTOP_MEM_CACHED) +
@@ -53,7 +54,9 @@ static int pageshift;		/* log base 2 of the pagesize */
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
 	{ "_cnt" },
-#ifdef __FreeBSD__
+#if defined(__bsdi__)
+	{ "_bufcachemem" },
+#elif defined(__FreeBSD__)
 	{ "_bufspace" },
 #else
 	{ "_bufpages" },
@@ -62,8 +65,12 @@ static struct nlist nlst [] = {
 };
 
 /* MIB array for sysctl */
-/* static int mib_length=2; */
+static int mib_length=2;
+#ifdef __bsdi__
+static int mib [] = { CTL_VM, VM_TOTAL };
+#else
 static int mib [] = { CTL_VM, VM_METER };
+#endif
 
 /* Init function. */
 
@@ -135,7 +142,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
   
 	/* convert memory stats to Kbytes */
 
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__)
 	v_total_count = vmm.v_page_count;
 #else
 	v_total_count = vmm.v_kernel_pages +

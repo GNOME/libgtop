@@ -31,10 +31,12 @@
 #include <sys/param.h>
 #include <sys/sysctl.h>
 #include <sys/proc.h>
-#ifndef __OpenBSD__
+#if (!defined __OpenBSD__) && (!defined __bsdi__)
 #include <sys/user.h>
 #endif
+#ifndef __bsdi__
 #include <machine/pcb.h>
+#endif
 #ifdef __FreeBSD__
 #include <machine/tss.h>
 #endif
@@ -122,7 +124,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	/* NOTE: You need to mount the /proc filesystem to make
 	 *       `kvm_uread' work. */
 
-	sprintf (filename, "/proc/%d/mem", pid);
+	sprintf (filename, "/proc/%d/mem", (int) pid);
 	if (stat (filename, &statb)) return;
 
 	glibtop_suid_enter (server);
@@ -162,7 +164,11 @@ glibtop_get_proc_kernel_p (glibtop *server,
 #endif
 #else
 			buf->kstk_esp = (u_int64_t) pcb.pcb_tss.tss_esp0;
+#ifdef __bsdi__
+			buf->kstk_eip = (u_int64_t) pcb.pcb_tss.tss_eip;
+#else
 			buf->kstk_eip = (u_int64_t) pcb.pcb_tss.__tss_eip;
+#endif
 
 			buf->flags |= _glibtop_sysdeps_proc_kernel_pcb;
 #endif

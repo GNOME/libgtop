@@ -1,0 +1,26 @@
+This statistics were made on a PPRO 200 running Linux 2.2.1
+reading everything from /proc while the system was idle.
+
+
+Feature      (Flags     ):   Count -     utime -     stime
+----------------------------------------------------------
+CPU          (0x000007ff):  100000 -     13.90 -    181.80
+Memory       (0x0000007f):   10000 -     32.00 -   8061.00
+Swap         (0x0000001f):   10000 -     46.00 -   8130.00
+Uptime       (0x00000003):  100000 -     19.60 -     72.20
+Loadavg      (0x0000000f):  100000 -     32.40 -     77.10
+
+Proclist     (0x00000007):   10000 -   2250.00 -   4419.00
+
+Proc_State   (0x0000000f):  100000 -     40.70 -    221.00
+Proc_Uid     (0x00000fff):  100000 -     72.40 -    327.30
+Proc_Mem     (0x0000003f):  100000 -     65.70 -    283.90
+Proc_Segment (0x000000f5):  100000 -     76.50 -    281.10
+Proc_Time    (0x000001ff):  100000 -     37.00 -    160.90
+Proc_Signal  (0x0000000f):  100000 -     52.50 -    148.50
+Proc_Kernel  (0x0000017f):  100000 -     56.70 -    153.50
+----------------------------------------------------------
+TOTAL                                 70030000 - 396830000
+
+All timings are in clock ticks (1000000 ticks per second).
+
