@@ -1,3 +1,11 @@
+2004-06-13  Benoît Dejean  <tazforever@dlfp.org>
+
+	* glibtop_server.h:
+	* glibtop_server.c: (get_scaled): Cleaned.
+	(proc_file_to_buffer): Uninlined.	
+	
+	* sysinfo.c: (init_sysinfo): Re-implemented.
+
 2004-06-12  Benoît Dejean  <tazforever@dlfp.org>
 
 	* Makefile.am:

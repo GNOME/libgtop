@@ -22,8 +22,11 @@
 */
 
 #include <config.h>
+#include <glibtop/error.h>
 #include <glibtop/cpu.h>
 #include <glibtop/sysinfo.h>
+
+#define FILENAME "/proc/cpuinfo"
 
 static const unsigned long _glibtop_sysdeps_sysinfo =
 (1L << GLIBTOP_SYSINFO_CPUINFO);
@@ -33,10 +36,9 @@ static glibtop_sysinfo sysinfo = { .flags = 0 };
 static void
 init_sysinfo (glibtop *server)
 {
-
+	int fd;
+	ssize_t len;
 	char buffer [BUFSIZ];
-	glibtop_entry *cpuinfo = NULL;
-	FILE *f;
 
 	if(sysinfo.flags) return;
 
@@ -44,47 +46,72 @@ init_sysinfo (glibtop *server)
 
 	memset (&sysinfo, 0, sizeof (glibtop_sysinfo));
 
-	g_return_if_fail ((f = fopen ("/proc/cpuinfo", "r")));
 
-	while (fgets (buffer, BUFSIZ, f)) {
-		char *p, *start, *key, *value;
+	/* load the file */
 
-		if (cpuinfo == NULL) {
-			cpuinfo = &sysinfo.cpuinfo [sysinfo.ncpu++];
+	fd = open (FILENAME, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", FILENAME);
 
-			cpuinfo->labels = g_ptr_array_new ();
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", FILENAME);
 
-			cpuinfo->values = g_hash_table_new (NULL, NULL);
+	close (fd);
 
-			if (sysinfo.ncpu > GLIBTOP_NCPU)
-				sysinfo.ncpu = GLIBTOP_NCPU;
+	buffer [len] = '\0';
+
+
+	/* cpuinfo records are seperated by a blank line */
+	gchar ** const processors = g_strsplit(buffer, "\n\n", 0);
+
+
+	for(sysinfo.ncpu = 0;
+	    sysinfo.ncpu < GLIBTOP_NCPU && *processors[sysinfo.ncpu];
+	    sysinfo.ncpu++) {
+
+		gchar **parts, **p;
+
+		glibtop_entry * const cpuinfo = &sysinfo.cpuinfo[sysinfo.ncpu];
+
+		cpuinfo->labels = g_ptr_array_new ();
+
+		cpuinfo->values = g_hash_table_new_full(g_str_hash, g_str_equal,
+							g_free, g_free);
+
+		cpuinfo->descriptions = g_hash_table_new_full(g_str_hash, g_str_equal,
+							g_free, g_free);
+
+		/* "<key>    : <value>" */
+		parts = g_strsplit_set(processors[sysinfo.ncpu], ":\n", 0);
+
+		for(p = parts; *p && *(p+1); p += 2) {
+
+			/* stole the allocated memory */
+			gchar * const key   = g_strstrip(   *p   );
+			gchar * const value = g_strstrip( *(p+1) );
+
+			g_hash_table_insert(cpuinfo->values, key, value);
 		}
 
-		p = strchr (buffer, ':');
-		if (!p) continue;
 
-		/* Remove leading spaces from `p'. */
-		*p = '\0'; start = p; p++;
-		while (isspace (*p)) p++;
+		/* the last key has no value and has not been added */
+		if(*p)
+			g_free(*p);
 
-		/* Remove trailing spaces from `buffer'. */
-		while ((start > buffer) && (*start) && isspace (*start))
-			*start-- = '\0';
+		/* just g_free instead of g_strvfree because we stole
+		   the memory*/
 
-		key = g_strdup (buffer);
-		value = g_strdup (p);
+		g_free(processors);
 
-		g_ptr_array_add (cpuinfo->labels, key);
-
-		g_hash_table_insert (cpuinfo->values, key, value);
 	}
 
-	fclose (f);
+	g_strfreev(processors);
 
 	sysinfo.flags = _glibtop_sysdeps_sysinfo;
 }
 
-glibtop_sysinfo *
+const glibtop_sysinfo *
 glibtop_get_sysinfo_s (glibtop *server)
 {
 	init_sysinfo (server);

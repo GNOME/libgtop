@@ -62,27 +62,8 @@ unsigned long long
 get_scaled(const char *buffer, const char *key);
 
 
-static inline int
-proc_file_to_buffer (char *buffer, const char *fmt, pid_t pid)
-{
-	char filename [BUFSIZ];
-	int fd, len;
-
-	sprintf (filename, fmt, pid);
-
-	fd = open (filename, O_RDONLY);
-	if (fd < 0) return -1;
-
-	len = read (fd, buffer, BUFSIZ-1);
-	close (fd);
-
-	if (len < 0)
-	    return -1;
-
-	buffer [len] = '\0';
-
-	return 0;
-}
+int
+proc_file_to_buffer (char *buffer, const char *fmt, pid_t pid);
 
 static inline int
 proc_stat_to_buffer (char *buffer, pid_t pid)
