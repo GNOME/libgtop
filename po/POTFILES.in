@@ -21,7 +21,6 @@ include/glibtop/loadavg.h
 include/glibtop/mem.h
 include/glibtop/msg_limits.h
 include/glibtop/open.h
-include/glibtop/output.h
 include/glibtop/prockernel.h
 include/glibtop/proclist.h
 include/glibtop/procmem.h
