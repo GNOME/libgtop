@@ -19,6 +19,7 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#include <osreldate.h>
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/proctime.h>
@@ -59,7 +60,10 @@ calcru(p, up, sp, ip)
 {
 	quad_t totusec;
 	u_quad_t u, st, ut, it, tot;
-	long sec, usec;
+#if (__FreeBSD_version < 300003)
+        long sec, usec;
+#endif
+        struct timeval tv;
 
 	st = p->p_sticks;
 	ut = p->p_uticks;
@@ -71,7 +75,7 @@ calcru(p, up, sp, ip)
 		tot = 1;
 	}
 
-#if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
+#if (defined __FreeBSD__) && (__FreeBSD_version >= 300003)
 
 	/* This was changed from a `struct timeval' into a `u_int64_t'
 	 * on FreeBSD 3.0 and renamed p_rtime -> p_runtime.
@@ -83,13 +87,14 @@ calcru(p, up, sp, ip)
 	usec = p->p_rtime.tv_usec;
 
 	totusec = (quad_t)sec * 1000000 + usec;
+#endif
+
 	if (totusec < 0) {
 		/* XXX no %qd in kernel.  Truncate. */
 		fprintf (stderr, "calcru: negative time: %ld usec\n",
 			 (long)totusec);
 		totusec = 0;
 	}
-#endif
 
 
 	u = totusec;
@@ -171,7 +176,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 
 	glibtop_suid_leave (server);
 
-#if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
+#if (defined __FreeBSD__) && (__FreeBSD_version >= 300003)
 	buf->rtime = pinfo [0].kp_proc.p_runtime;
 #else
 	buf->rtime = tv2sec (pinfo [0].kp_proc.p_rtime);

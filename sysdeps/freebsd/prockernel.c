@@ -39,6 +39,7 @@
 
 #include <unistd.h>
 #include <fcntl.h>
+#include <osreldate.h>
 
 static const unsigned long _glibtop_sysdeps_proc_kernel_pstats =
 (1 << GLIBTOP_PROC_KERNEL_MIN_FLT) +
@@ -146,17 +147,14 @@ glibtop_get_proc_kernel_p (glibtop *server,
 		       (unsigned long) &u_addr->u_pcb,
 		       (char *) &pcb, sizeof (pcb)) == sizeof (pcb))
 		{
-#if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
-
-			/* Sorry, don't know how to get it for
-			 * FreeBSD 3.0 at the moment.
-			 */
-
-#elif (defined __FreeBSD__)
+#ifdef __FreeBSD__
+#if (__FreeBSD_version >= 300003)
+			buf->kstk_esp = (u_int64_t) pcb.pcb_esp;
+			buf->kstk_eip = (u_int64_t) pcb.pcb_eip;
+#else
 			buf->kstk_esp = (u_int64_t) pcb.pcb_ksp;
 			buf->kstk_eip = (u_int64_t) pcb.pcb_pc;
-			
-			buf->flags |= _glibtop_sysdeps_proc_kernel_pcb;
+#endif
 #else
 			buf->kstk_esp = (u_int64_t) pcb.pcb_tss.tss_esp0;
 			buf->kstk_eip = (u_int64_t) pcb.pcb_tss.__tss_eip;
