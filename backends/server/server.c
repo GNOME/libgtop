@@ -108,12 +108,13 @@ void
 handle_slave_connection (int input, int output)
 {
     glibtop_command _cmnd, *cmnd = &_cmnd;
+    glibtop *server = glibtop_global_server;
 
     // glibtop_send_version_i (glibtop_global_server, output);
 
     while (do_read (input, cmnd, sizeof (glibtop_command))) {
 	size_t recv_size = 0, send_size = 0, recv_data_size = 0;
-	void *recv_ptr = NULL, *recv_data_ptr = NULL;
+	void *recv_ptr = NULL, *recv_data_ptr = NULL, *data_ptr = NULL;
 	char parameter [BUFSIZ];
 	int retval, func_retval;
 	glibtop_response resp;
@@ -147,9 +148,18 @@ handle_slave_connection (int input, int output)
 	    memcpy (parameter, cmnd->parameter, send_size);
 	}
 
-	retval = glibtop_demarshal_func_i (glibtop_global_server, NULL,
-					   cmnd->command, parameter,
-					   send_size, NULL, 0,
+	if (cmnd->data_size) {
+	    fprintf (stderr, "CLIENT has %d bytes of extra data for us.\n",
+		     cmnd->data_size);
+
+	    data_ptr = glibtop_malloc_r (server, cmnd->data_size);
+	    do_read (input, data_ptr, cmnd->data_size);
+	}
+
+	retval = glibtop_demarshal_func_i (server, NULL,
+					   cmnd->command,
+					   parameter, send_size,
+					   data_ptr, cmnd->data_size,
 					   &recv_ptr, &recv_size,
 					   &recv_data_ptr, &recv_data_size,
 					   &func_retval);

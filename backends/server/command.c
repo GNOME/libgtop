@@ -63,8 +63,15 @@ glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
     } else {
 	cmnd.send_size = send_size;
     }
+
+    cmnd.data_size = data_size;
 	
     glibtop_write_i (server, backend, sizeof (glibtop_command), &cmnd);
+
+    if (data_size) {
+	fprintf (stderr, "SENDING %d bytes of DATA.\n", data_size);
+	glibtop_write_i (server, backend, data_size, data_buf);
+    }
 
     glibtop_read_i (server, backend, sizeof (glibtop_response), &resp);
 
