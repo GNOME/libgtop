@@ -59,7 +59,7 @@ static void set_linux_version(void) {
 #define FILENAME	"/proc/stat"
 
 void
-glibtop_open_s (glibtop *server, const char *program_name,
+glibtop_open_s (glibtop_server *server, const char *program_name,
 		const unsigned long features,
 		const unsigned flags)
 {
@@ -69,7 +69,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
     server->name = program_name;
 
     set_linux_version ();
-    server->os_version_code = (unsigned long) linux_version_code;
+    server->_priv->os_version_code = (unsigned long) linux_version_code;
 
     server->ncpu = 0;
 
