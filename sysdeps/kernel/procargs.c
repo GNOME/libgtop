@@ -61,7 +61,7 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 	max_len = BUFSIZ;
 
     ret = glibtop_get_proc_data_proc_args_s (server, pid, ptr, max_len);
-    if (!ret) {
+    if (ret < 0) {
 	if (!retval) glibtop_free_r (server, retval);
 	return NULL;
     }
