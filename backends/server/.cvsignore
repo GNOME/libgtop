@@ -5,3 +5,5 @@ Makefile.in
 *.lo
 *.la
 marshal.c
+demarshal.c
+libgtop_server
