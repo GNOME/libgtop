@@ -1,12 +1,12 @@
 # Ukrainian translation for Libgtop.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# Yuri Syrota <rasta@renome.rovno.ua>, 1999.
+# Copyright (C) 2000 Free Software Foundation, Inc.
+# Yuri Syrota <rasta@renome.rovno.ua>, 2000.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.3\n"
-"POT-Creation-Date: 1999-11-26 14:43+0200\n"
-"PO-Revision-Date: 1999-11-26 14:43+0200\n"
+"POT-Creation-Date: 2000-01-13 17:57+0200\n"
+"PO-Revision-Date: 2000-01-13 17:57+0200\n"
 "Last-Translator: Yuri Syrota <rasta@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -203,24 +203,6 @@ msgstr ""
 
 #: sysdeps/names/mem.c:62
 msgid "Memory in locked pages in kB"
-msgstr ""
-
-#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
-#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
-#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
-msgid "Number of list elements"
-msgstr ""
-
-#: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
-#: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
-#: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
-msgid "Total size of list"
-msgstr ""
-
-#: sysdeps/names/mountlist.c:42 sysdeps/names/mountlist.c:49
-#: sysdeps/names/proclist.c:42 sysdeps/names/proclist.c:49
-#: sysdeps/names/procmap.c:42 sysdeps/names/procmap.c:49
-msgid "Size of a single list element"
 msgstr ""
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
@@ -1152,62 +1134,42 @@ msgstr ""
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr ""
 
-#: lib/read.c:75
-#, c-format
-msgid "read %d bytes"
+#: lib/errors.c:31
+msgid "No error"
+msgstr "Без помилок"
+
+#: lib/errors.c:32
+msgid "Unknown error"
+msgstr "Нев╕дома помилка"
+
+#: lib/errors.c:33
+msgid "Invalid argument"
+msgstr "Нев╕рний аргумент"
+
+#: lib/errors.c:34
+msgid "No such parameter"
 msgstr ""
 
-#: lib/read_data.c:49
-msgid "read data size"
+#: lib/errors.c:35
+msgid "Attempted to modify a read-only value"
 msgstr ""
 
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
+#: lib/errors.c:36
+msgid "Parameter size mismatch"
 msgstr ""
 
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
+#: lib/errors.c:37
+msgid "Communication with LibGTop server failed"
 msgstr ""
 
-#: src/daemon/gnuserv.c:446
-msgid "Enable debugging"
-msgstr "Актив╕зувати налагодження"
-
-#: src/daemon/gnuserv.c:446
-msgid "DEBUG"
-msgstr "НАЛАГОДЖЕННЯ"
-
-#: src/daemon/gnuserv.c:448
-msgid "Enable verbose output"
-msgstr "Актив╕зувати розгорнутий вив╕д"
-
-#: src/daemon/gnuserv.c:448
-msgid "VERBOSE"
-msgstr "РОЗГОРНУТО"
-
-#: src/daemon/gnuserv.c:450
-msgid "Don't fork into background"
-msgstr "Не переходити в тло"
-
-#: src/daemon/gnuserv.c:450
-msgid "NO-DAEMON"
-msgstr "НЕ-ДЕМОН"
-
-#: src/daemon/gnuserv.c:452
-msgid "Invoked from inetd"
-msgstr "Викликанано з inetd"
-
-#: src/daemon/gnuserv.c:452
-msgid "INETD"
-msgstr "INETD"
-
-#: src/daemon/gnuserv.c:486
-#, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
+#: lib/errors.c:38
+msgid "No such process"
 msgstr ""
-"Помилковий параметр %s: %s.\n"
-"Запуст╕ть '%s --help' щоб побачити список можливих параметр╕в.\n"
+
+#: lib/errors.c:39
+msgid "No kernel support"
+msgstr ""
+
+#: lib/errors.c:40
+msgid "Incompatible kernel version"
+msgstr "Несум╕сна верс╕я ядра"
