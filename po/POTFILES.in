@@ -86,7 +86,6 @@ sysdeps/linux/proctime.c
 sysdeps/linux/procuid.c
 sysdeps/linux/sem_limits.c
 sysdeps/linux/shm_limits.c
-sysdeps/linux/siglist.c
 sysdeps/linux/swap.c
 sysdeps/linux/sysinfo.c
 sysdeps/linux/uptime.c
