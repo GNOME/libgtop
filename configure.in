@@ -590,6 +590,7 @@ sysdeps/solaris/Makefile
 src/Makefile
 src/daemon/Makefile
 src/inodedb/Makefile
+scripts/Makefile
 lib/Makefile
 doc/Makefile
 support/Makefile

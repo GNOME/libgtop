@@ -4,7 +4,8 @@ if BUILD_GNOME_SUPPORT
 support = support
 endif
 
-SUBDIRS = po intl $(support) macros misc include sysdeps lib src doc
+SUBDIRS = po intl $(support) macros misc include sysdeps lib src doc \
+	  scripts
 
 include_HEADERS = glibtop.h
 configincludedir = $(pkglibdir)/include

@@ -1,3 +1,8 @@
+1999-11-28  Martin Baulig  <martin@home-of-linux.org>
+
+	* lib/lib.pl: We now have a new, more extensible client/server
+	communication model. Include `$(top_srcdir)/scripts/c_types.pl' here.
+
 1999-11-21  Martin Baulig  <martin@home-of-linux.org>
 
 	Added new feature to get a list of network interface names.
