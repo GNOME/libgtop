@@ -1,3 +1,11 @@
+2001-02-13  Martin Baulig  <baulig@suse.de>
+
+	Fix bug #14076.
+
+	* open.c (glibtop_open_s): Check whether /proc/1/cpu exists to
+	detect SMP support rather than reading /proc/stat; on Linux 2.4.x,
+	/proc/stat has "cpu" and "cpu0" entries even for non-SMP systems.
+
 2000-01-22  Martin Baulig  <martin@home-of-linux.org>
 
 	* procargs.c (glibtop_get_proc_args_s): Set correct `buf->size' and

@@ -62,6 +62,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned flags)
 {
 	char buffer [BUFSIZ], *p;
+	struct stat statb;
 	int fd, len, i;
 
 	server->name = program_name;
@@ -70,6 +71,13 @@ glibtop_open_s (glibtop *server, const char *program_name,
 	server->os_version_code = (unsigned long) linux_version_code;
 
 	server->ncpu = 0;
+
+	/* On Linux 2.4.x, /proc/stat has "cpu" and "cpu0" entries even
+	 * for non-SMP systems. Checking whether /proc/<pid>/cpu exists
+	 * is a much better way to detect SMP. */
+
+	if (stat ("/proc/1/cpu", &statb))
+	    return;
 
 	fd = open (FILENAME, O_RDONLY);
 	if (fd < 0)
