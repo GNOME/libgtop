@@ -2,6 +2,8 @@ if GLIBTOP_NAMES
 SUBDIRS				= names
 endif
 
+DIST_SUBDIRS			= names
+
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 INCLUDES			= -I$(includedir) -I$(top_builddir) -I$(top_srcdir) @machine_incs@ \
