@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-04-18 12:37-0500\n"
+"POT-Creation-Date: 1999-05-28 23:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -309,15 +309,14 @@ msgstr ""
 "\n"
 "Math-bitti on desimaali 4 ja seurattu-bitti on desimaali 10."
 
-
 #. Min_Flt
 #: sysdeps/names/prockernel.c:61
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Prosessin tekemien v‰hempien sivunhakujen m‰‰r‰, eli ne joita varten "
-"ei tarvinnut hakea muistisivua levylt‰."
+"Prosessin tekemien v‰hempien sivunhakujen m‰‰r‰, eli ne joita varten ei "
+"tarvinnut hakea muistisivua levylt‰."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:64
@@ -327,7 +326,6 @@ msgid ""
 msgstr ""
 "Prosessin tekemien suurempien sivunhakujen m‰‰r‰, eli ne joita varten "
 "tarvittiin muistisivu levylt‰."
-
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:67
@@ -361,9 +359,9 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"T‰t‰ \"kanavaa\" prosessi odottaa. T‰m‰ on systeemikutsun osoite ja "
-"voidaan etsi‰ nimiluettelosta jos haluat sen tekstin‰. (Jos sinulla on "
-"p‰ivitetty /etc/psdatabase, koita ps -l jotta n‰et WCHAN-kent‰n toiminnassa)"
+"T‰t‰ \"kanavaa\" prosessi odottaa. T‰m‰ on systeemikutsun osoite ja voidaan "
+"etsi‰ nimiluettelosta jos haluat sen tekstin‰. (Jos sinulla on p‰ivitetty "
+"/etc/psdatabase, koita ps -l jotta n‰et WCHAN-kent‰n toiminnassa)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:83
@@ -426,8 +424,8 @@ msgstr ""
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr ""
-"T‰m‰nhetkinen raja prosessin fyysisess‰ muistissa olevalle koolle "
-"(yleens‰ 2 147 483 647)."
+"T‰m‰nhetkinen raja prosessin fyysisess‰ muistissa olevalle koolle (yleens‰ 2 "
+"147 483 647)."
 
 #: sysdeps/names/procsegment.c:50
 msgid "Text_RSS"
@@ -979,103 +977,112 @@ msgstr ""
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:79
 msgid "Server Features"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:52
+#, fuzzy
+msgid "Pointer Size"
+msgstr "Prosessin muistissa oleva koko"
+
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
 msgid "CPU Usage"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:82
 msgid "Memory Usage"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:83
 msgid "Swap Usage"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:84
 msgid "System Uptime"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:85
 msgid "Load Averange"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:86
 msgid "Shared Memory Limits"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:87
 msgid "Message Queue Limits"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:88
 msgid "Semaphore Set Limits"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:89
 msgid "List of running Processes"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:90
 msgid "Process Status information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:91
 msgid "Process UID and TTY information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:92
 msgid "Process Memory information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:93
 msgid "Process Time information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:94
 msgid "Process Signal information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:95
 msgid "Process Kernel Data information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:96
 msgid "Process Segment information"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:68
+#: sysdeps/names/sysdeps.c:69
 msgid "Process Arguments"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
 msgid "Process Memory Map"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:70
+#: sysdeps/names/sysdeps.c:71
 msgid "Mount List"
 msgstr "Mounttiluettelo"
 
-#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:100
 msgid "File System Usage"
 msgstr "Tiedostoj‰rjestelm‰n k‰yttˆ"
 
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:101
 msgid "Network Load"
 msgstr "Verkon kuormitus"
 
-#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:102
 msgid "PPP Statistics"
 msgstr "PPP-tilastot"
 
-#: sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:80
+msgid "Pointer Size on the Server (in bits)"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:97
 msgid "Command line arguments of the process"
 msgstr "Komentoriviparametrit prosessille"
 
-#: sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:99
 msgid "List of currently mounted filesystems"
 msgstr "Mountatut tiedostoj‰rjestelm‰t"
 
@@ -1166,7 +1173,7 @@ msgstr ""
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr ""
 
-#: lib/read.c:71
+#: lib/read.c:75
 #, c-format
 msgid "read %d bytes"
 msgstr ""

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.2\n"
-"POT-Creation-Date: 1999-04-13 13:45+0200\n"
+"POT-Creation-Date: 1999-05-28 23:30+0200\n"
 "PO-Revision-Date: 1999-04-13 14:19+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@online.no>\n"
 "Language-Team: Norwegian <no@li.org>\n"
@@ -57,27 +57,31 @@ msgstr "SMP Prosessortid i systemmodus"
 msgid "SMP CPU Time in the Idle Task"
 msgstr "SMP Prosessortid i Idle Task"
 
-#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
+#: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
+msgid "SMP CPU Flags"
+msgstr ""
+
+#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
 msgstr "Antall klokketikk siden systemoppstart"
 
-#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
+#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode"
 msgstr "Antall klokketikk systemet har tilbrakt i brukermodus"
 
-#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
+#: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in user mode (nice)"
 msgstr "Antall klokketikk systemet har tilbrakt i brukermodus (nice)"
 
-#: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
+#: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in system mode"
 msgstr "Antall klokketikk systemet har tilbrakt i systemmodus"
 
-#: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
+#: sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
 msgid "Number of clock ticks the system spent in the idle task"
 msgstr "Antall klokketikk systemet har tilbrakt i idle task"
 
-#: sysdeps/names/cpu.c:65
+#: sysdeps/names/cpu.c:66
 msgid "Tick frequency (default is 100)"
 msgstr "Tikkfrekvens (forvalgt er 100)"
 
@@ -689,35 +693,40 @@ msgstr "XCPU_UTid"
 msgid "XCPU_STime"
 msgstr "XCPU_STid"
 
-#: sysdeps/names/proctime.c:53
+#: sysdeps/names/proctime.c:49
+#, fuzzy
+msgid "XCPU_Flags"
+msgstr "K_Flags"
+
+#: sysdeps/names/proctime.c:54
 msgid "Start time of process in seconds since the epoch"
 msgstr "Prosessens starttid i sekunder siden epoken"
 
-#: sysdeps/names/proctime.c:54
+#: sysdeps/names/proctime.c:55
 msgid "Real time accumulated by process (should be utime + stime)"
 msgstr "Reell tid akkumulert av prosessen (skal være utid + stid)"
 
-#: sysdeps/names/proctime.c:55
+#: sysdeps/names/proctime.c:56
 msgid "user-mode CPU time accumulated by process"
 msgstr "bruker-modus prosessortid akkumulert av prosessen"
 
-#: sysdeps/names/proctime.c:56
+#: sysdeps/names/proctime.c:57
 msgid "kernel-mode CPU time accumulated by process"
 msgstr "kjerne-modus prosessortid akkumulert av prosessen"
 
-#: sysdeps/names/proctime.c:57
+#: sysdeps/names/proctime.c:58
 msgid "cumulative utime of process and reaped children"
 msgstr "kumultiv utime for prosessen og døde barn"
 
-#: sysdeps/names/proctime.c:58
+#: sysdeps/names/proctime.c:59
 msgid "cumulative stime of process and reaped children"
 msgstr "kumulativ stime for prosessen og dens døde barn"
 
-#: sysdeps/names/proctime.c:59
+#: sysdeps/names/proctime.c:60
 msgid "The time (in jiffies) of the process's next timeout"
 msgstr "Tiden (i jiffies) for prosessens neste tidsavbrudd"
 
-#: sysdeps/names/proctime.c:60
+#: sysdeps/names/proctime.c:61
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
@@ -725,15 +734,15 @@ msgstr ""
 "Tiden (i jiffies) før neste SIGALARM blir sendt til prosessen på grunn av en "
 "intervallklokke."
 
-#: sysdeps/names/proctime.c:62
+#: sysdeps/names/proctime.c:63
 msgid "Tick frequency"
 msgstr "Tikkfrekvens"
 
-#: sysdeps/names/proctime.c:63
+#: sysdeps/names/proctime.c:64
 msgid "SMP user-mode CPU time accumulated by process"
 msgstr "SMP brukermodus prosessortid akkumulert av prosessen"
 
-#: sysdeps/names/proctime.c:64
+#: sysdeps/names/proctime.c:65
 msgid "SMP kernel-mode CPU time accumulated by process"
 msgstr "SMP kjernemodus prosessortid akkumulert av prosessen"
 
@@ -969,103 +978,112 @@ msgstr "Totalt antall swap-sider som har blitt brakt inn siden systemoppstart"
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "Totalt antall swap-sider som har blitt hentet ut siden systemoppstart"
 
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:79
 msgid "Server Features"
 msgstr "Vertsegenskaper"
 
-#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:52
+#, fuzzy
+msgid "Pointer Size"
+msgstr "Skitten størrelse"
+
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
 msgid "CPU Usage"
 msgstr "Prosessorbruk"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:82
 msgid "Memory Usage"
 msgstr "Minnebruk"
 
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:83
 msgid "Swap Usage"
 msgstr "Swapbruk"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:84
 msgid "System Uptime"
 msgstr "Systemets oppetid"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:85
 msgid "Load Averange"
 msgstr "Gjennomsnittsbelastning"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:86
 msgid "Shared Memory Limits"
 msgstr "Grenser for delt minne"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:87
 msgid "Message Queue Limits"
 msgstr "Grenser for meldingskøer"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:88
 msgid "Semaphore Set Limits"
 msgstr "Grenser for semaforsett"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:89
 msgid "List of running Processes"
 msgstr "Liste over kjørende prosesser"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:90
 msgid "Process Status information"
 msgstr "Prosessens tilstandsinformasjon"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:91
 msgid "Process UID and TTY information"
 msgstr "Prosessens UID- og TTY-informasjon"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:92
 msgid "Process Memory information"
 msgstr "Prosessens minneinformasjon"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:93
 msgid "Process Time information"
 msgstr "Prosessens tidsinformasjon"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:94
 msgid "Process Signal information"
 msgstr "Prosessens signalinformasjon"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:95
 msgid "Process Kernel Data information"
 msgstr "Prosessens kjernedatainformasjon"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:96
 msgid "Process Segment information"
 msgstr "Prosessens segmentinformasjon"
 
-#: sysdeps/names/sysdeps.c:68
+#: sysdeps/names/sysdeps.c:69
 msgid "Process Arguments"
 msgstr "Prosessargumenter"
 
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
 msgid "Process Memory Map"
 msgstr "Prosessens minnekart"
 
-#: sysdeps/names/sysdeps.c:70
+#: sysdeps/names/sysdeps.c:71
 msgid "Mount List"
 msgstr "Monteringsliste"
 
-#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:100
 msgid "File System Usage"
 msgstr "Bruk av filsystemer"
 
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:101
 msgid "Network Load"
 msgstr "Nettverksbelastning"
 
-#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:102
 msgid "PPP Statistics"
 msgstr "PPP-statistikk"
 
-#: sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:80
+msgid "Pointer Size on the Server (in bits)"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:97
 msgid "Command line arguments of the process"
 msgstr "Prosessens kommandolinjeargumenter"
 
-#: sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:99
 msgid "List of currently mounted filesystems"
 msgstr "Liste over monterte filsystemer"
 
@@ -1156,7 +1174,7 @@ msgstr "%s: flagget `-W %s' er flertydig\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: flagget `-W %s' tar ikke argumenter\n"
 
-#: lib/read.c:71
+#: lib/read.c:75
 #, c-format
 msgid "read %d bytes"
 msgstr "les %d bytes"
