@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop CVS\n"
-"POT-Creation-Date: 2002-05-14 19:50+0200\n"
-"PO-Revision-Date: 2002-05-15 22:22+0200\n"
+"POT-Creation-Date: 2002-10-29 05:10+0100\n"
+"PO-Revision-Date: 2002-10-29 13:14+0100\n"
 "Last-Translator: Jeroen van der Vegt <A.J.vanderVegt@ITS.TUDelft.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,8 @@ msgstr "Rust"
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
-msgstr "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+msgstr ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 
 #: examples/smp.c:77
 #, c-format
@@ -56,7 +57,7 @@ msgstr "Percentage:"
 
 #: examples/smp.c:95
 msgid "Total (%)"
-msgstr "Tataal (%)"
+msgstr "Totaal (%)"
 
 #: examples/smp.c:95
 msgid "User (%)"
@@ -79,12 +80,14 @@ msgstr "Rust (%)"
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
-msgstr "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:114
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr ""
+"CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:120
 msgid "Spin:"
@@ -323,27 +326,28 @@ msgstr "Gemiddelde belasting"
 
 #: sysdeps/names/loadavg.c:40
 msgid "Running Tasks"
-msgstr "Lopende taken"
+msgstr "Lopende processen"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Number of Tasks"
-msgstr "Aantal taken"
+msgstr "Aantal processen"
 
 #: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
 msgid "Last PID"
 msgstr "Laatste PID"
 
 #: sysdeps/names/loadavg.c:47
-msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "Aantal simultaan lopende jobs tijdens 1, 5 en 15 minuten"
+msgid ""
+"Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgstr "Aantal simultaan lopende processen tijdens 1, 5 en 15 minuten"
 
 #: sysdeps/names/loadavg.c:48
 msgid "Number of tasks currently running"
-msgstr "Aantal gelijktijdig lopende taken"
+msgstr "Aantal gelijktijdig lopende processen"
 
 #: sysdeps/names/loadavg.c:49
 msgid "Total number of tasks"
-msgstr "Totaal aantal taken"
+msgstr "Totaal aantal processen"
 
 #: sysdeps/names/mem.c:41
 msgid "Total Memory"
@@ -592,8 +596,8 @@ msgstr ""
 "In Linux heeft op dit moment elke vlag de 'math bit' aan staan, omdat crt0.s "
 "op 'math-emulation' controleert. Dus dit komt niet in de uitvoer.\n"
 "\n"
-"Dit is waarschijnlijk een bug, omdat niet elk proces een gecompileerd C-"
-"programm is.\n"
+"Dit is waarschijnlijk een bug, omdat niet elk proces een gecompileerd "
+"C-programm is.\n"
 "\n"
 "De 'math-bit' zou decimaal 4 moeten zijn, en de gevolgde bit is decimaal 10."
 
@@ -603,8 +607,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Het aantal foutjes dat het programma heeft gemaakt (waarvoor geen geheugen-"
-"pagina van de schijf hoefde te worden gehaald)."
+"Het aantal foutjes dat het programma heeft gemaakt (waarvoor geen "
+"geheugen-pagina van de schijf hoefde te worden gehaald)."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -612,24 +616,26 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Het aantal fouten dat het programma heeft gemaakt (waarvoor wel een geheugen-"
-"pagina van de schijf moest worden gehaald)."
+"Het aantal fouten dat het proces heeft gemaakt (waarvoor wel een "
+"geheugen-pagina van de schijf moest worden gehaald)."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
-msgid "The number of minor faults that the process and its children have made."
-msgstr "Het aantal foutjes dat het programma en zijn kinderen hebben gemaakt."
+msgid ""
+"The number of minor faults that the process and its children have made."
+msgstr "Het aantal foutjes dat het proces en zijn kinderen hebben gemaakt."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:68
-msgid "The number of major faults that the process and its children have made."
-msgstr "Het aantal fouten dat het programma en zijn kinderen hebben gemaakt."
+msgid ""
+"The number of major faults that the process and its children have made."
+msgstr "Het aantal fouten dat het proces en zijn kinderen hebben gemaakt."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:71
 msgid ""
-"The current value of esp (32-bit stack pointer), as found in the kernel "
-"stack page for the process."
+"The current value of esp (32-bit stack pointer), as found in the kernel stack "
+"page for the process."
 msgstr ""
 "De huidige waarde van 'esp' (32-bit stack pointer), zoals gevonden in de "
 "kernel stack-page van het proces."
@@ -642,10 +648,10 @@ msgstr "De huidige EIP (32-bit instruction pointer)."
 #. NWChan
 #: sysdeps/names/prockernel.c:76
 msgid ""
-"This is the \"channel\" in which the process is waiting.  This is the "
-"address of a system call, and can be looked up in a namelist if you need a "
-"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
-"see the WCHAN field in action)"
+"This is the \"channel\" in which the process is waiting.  This is the address "
+"of a system call, and can be looked up in a namelist if you need a textual "
+"name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to see the "
+"WCHAN field in action)"
 msgstr ""
 "Dit is de 'rij' waarin het proces wacht. Het is het adres van een 'system "
 "call', die opgezocht kan worden in de 'namelist' als je een echte naam nodig "
@@ -702,8 +708,8 @@ msgid ""
 msgstr ""
 "Het aantal pagina's dat het proces in het echte geheugen heeft, min 3 for "
 "administratieve doeleinden. Dit zijn slechts pagina's die naar text, data of "
-"stack tellen. Het is exclusief de pagina's die niet op aanvraag zijn "
-"geladen, en die geswapped zijn."
+"stack tellen. Het is exclusief de pagina's die niet op aanvraag zijn geladen, "
+"en die geswapped zijn."
 
 #: sysdeps/names/procmem.c:62
 msgid ""
@@ -1109,7 +1115,8 @@ msgid "Total number of swap pages that have been brought in since system boot"
 msgstr "Totaal aantal swap-pagina's dat sinds de systeem-start is ingebracht"
 
 #: sysdeps/names/swap.c:53
-msgid "Total number of swap pages that have been brought out since system boot"
+msgid ""
+"Total number of swap pages that have been brought out since system boot"
 msgstr ""
 "Totaal aantal swap-pagina's dat sinds de systeem-start naar buiten is "
 "ingebracht"
@@ -1340,7 +1347,7 @@ msgstr "Profiling alarm clock"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
-msgstr "Venster grootte verandering"
+msgstr "Venstergrootte verandering"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
