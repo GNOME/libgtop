@@ -55,7 +55,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
 	char buffer [BUFSIZ], *p;
 	int fd, len;
-	guint i;
+	int i;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
@@ -87,19 +87,19 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	/* 2.6 kernel */
 	buf->idle += strtoull(p, &p, 0); /* "iowait" */
 	buf->sys  += strtoull(p, &p, 0); /* "irq" */
-	buf->sys  += strtoull(p, &p, 0); /* "softirq" */	
+	buf->sys  += strtoull(p, &p, 0); /* "softirq" */
 
-	buf->total = buf->user + buf->nice + buf->sys + buf->idle; 
+	buf->total = buf->user + buf->nice + buf->sys + buf->idle;
 
 	buf->frequency = 100;
 	buf->flags = _glibtop_sysdeps_cpu;
 
-	/* 
+	/*
 	 * PER CPU
 	 */
-	
+
 	for (i = 0; i < GLIBTOP_NCPU && i < server->ncpu; i++) {
-	
+
 		p = skip_line(p); /* move to ^ */
 
 		if (strncmp (p, "cpu", 3) || !isdigit (p [3]))

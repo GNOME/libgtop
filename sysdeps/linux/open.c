@@ -31,22 +31,27 @@
  */
 #include <sys/utsname.h>
 
+static unsigned get_linux_version(void) {
 
-static int linux_version_code = 0;
+    static unsigned linux_version_code = 0;
 
-static void set_linux_version(void) {
-    static struct utsname uts;
-    int x = 0, y = 0, z = 0;	/* cleared in case sscanf() < 3 */
-    
-    if (linux_version_code) return;
-    if (uname(&uts) == -1)	/* failure most likely implies impending death */
-	exit(1);
-    if (sscanf(uts.release, "%d.%d.%d", &x, &y, &z) < 3)
-	fprintf(stderr,		/* *very* unlikely to happen by accident */
-		"Non-standard uts for running kernel:\n"
-		"release %s=%d.%d.%d gives version code %d\n",
-		uts.release, x, y, z, LINUX_VERSION(x,y,z));
-    linux_version_code = LINUX_VERSION(x, y, z);
+    if(!linux_version_code) {
+	struct utsname uts;
+	unsigned x = 0, y = 0, z = 0;	/* cleared in case sscanf() < 3 */
+
+	if (uname(&uts) == -1) /* failure most likely implies impending death */
+	    exit(1);
+
+	if (sscanf(uts.release, "%u.%u.%u", &x, &y, &z) < 3)
+	    fprintf(stderr, /* *very* unlikely to happen by accident */
+		    "Non-standard uts for running kernel:\n"
+		    "release %s=%u.%u.%u gives version code %d\n",
+		    uts.release, x, y, z, LINUX_VERSION(x,y,z));
+
+	linux_version_code = LINUX_VERSION(x, y, z);
+    }
+
+    return linux_version_code;
 }
 
 /* ======================================================= */
@@ -65,8 +70,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
 
 	server->name = program_name;
 
-	set_linux_version ();
-	server->os_version_code = (unsigned long) linux_version_code;
+	server->os_version_code = get_linux_version();
 
 	fd = open (FILENAME, O_RDONLY);
 	if (fd < 0)
@@ -79,16 +83,16 @@ glibtop_open_s (glibtop *server, const char *program_name,
 	close (fd);
 
 	buffer [len] = '\0';
-	
+
 	for (server->ncpu = 0; server->ncpu < GLIBTOP_NCPU; server->ncpu++) {
-	  	  
+
 		p = skip_line(p);
-		
+
 		if (strncmp (p, "cpu", 3) || !isdigit (p [3]))
 			break;
 	}
 
-#if DEBUG	
+#if DEBUG
 	printf ("\nThis machine has %d CPUs.\n\n", server->ncpu);
 #endif
 }
