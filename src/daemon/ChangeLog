@@ -1,3 +1,7 @@
+2003-05-11  Andrew Sobala  <aes@gnome.org>
+
+	* gnuserv.c: (permitted): fix buffer overflow vulnerability
+
 2001-11-26  Kevin Vandersloot <kfv101@psu.edu>
 
 	* gnuserv.c: Apply patch fixing security issue from
