@@ -9,7 +9,9 @@ DEFS			= @DEFS@
 # We install it in `libexec' since this will make it more easy
 # to put the examples into an extra RPM package.
 
-libexec_PROGRAMS	= first second\
+libgtopdir		= $(libexecdir)/libgtop
+
+libgtop_PROGRAMS	= first second\
 			  mountlist procmap \
 			  @static_targets@ \
 			  @guile_examples@ @smp_examples@
