@@ -1,3 +1,7 @@
+2004-09-22  Benoît Dejean  <tazforever@dlfp.org>
+
+	* configure.in: CFLAGS: Removed -W, added -Winline.
+
 2004-09-14  Gora Mohanty  <gmohanty@cvs.gnome.org>
                                                                                 
         * configure.in: Added 'or' to ALL_LINGUAS.
