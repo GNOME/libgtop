@@ -16,7 +16,7 @@ msgstr ""
 #: examples/smp.c:71
 #, c-format
 msgid "Ticks (%ld per second):"
-msgstr ""
+msgstr "時鐘中斷頻率 (每秒 %ld 次)："
 
 #: examples/smp.c:74
 msgid "Total"
@@ -247,7 +247,7 @@ msgstr "閒置工作的 CPU 時間"
 
 #: sysdeps/names/cpu.c:48
 msgid "Tick Frequency"
-msgstr ""
+msgstr "時鐘中斷頻率"
 
 #: sysdeps/names/cpu.c:49
 msgid "SMP Total CPU Time"
@@ -271,11 +271,11 @@ msgstr "閑置程序佔用的 CPU 時間 (SMP)"
 
 #: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 msgid "Number of clock ticks since system boot"
-msgstr ""
+msgstr "由系統啟動開始計算，系統時鐘發出中斷訊號的次數"
 
 #: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
 msgid "Number of clock ticks the system spent in user mode"
-msgstr ""
+msgstr "在使用者模式中，系統所消耗的時鐘中斷次數"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks the system spent in user mode (nice)"
@@ -283,15 +283,15 @@ msgstr ""
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in system mode"
-msgstr ""
+msgstr "在系統模式中，系統所消耗的時鐘中斷次數"
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr ""
+msgstr "閒置工作所消耗的時鐘中斷次數"
 
 #: sysdeps/names/cpu.c:63
 msgid "Tick frequency (default is 100)"
-msgstr ""
+msgstr "時鐘中斷頻率 (預設為 100)"
 
 #: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
 msgid "Total blocks"
@@ -307,11 +307,11 @@ msgstr "可用區塊數目"
 
 #: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
 msgid "Total file nodes"
-msgstr ""
+msgstr "檔案系統節點總數"
 
 #: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
 msgid "Free file nodes"
-msgstr ""
+msgstr "可用的檔案系統節點數目"
 
 #: sysdeps/names/fsusage.c:49
 msgid "Free blocks available to the superuser"
@@ -598,6 +598,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
+"該程序所產生的 minor fault 數目，在這情況下不需要在磁碟中重新載入記憶分"
+"頁。"
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -605,16 +607,18 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
+"該程序所產生的 major fault 數目，在這情況下需要在磁碟中重新載入記憶分"
+"頁。"
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
 msgid "The number of minor faults that the process and its children have made."
-msgstr ""
+msgstr "該程序及它的副程序所產生的 minor fault。"
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:68
 msgid "The number of major faults that the process and its children have made."
-msgstr ""
+msgstr "該程序及它的副程序所產生的 major fault。"
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:71
@@ -622,11 +626,12 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
+"目前的 ESP 數值 (32 位元堆疊指標)，出現在該程序的核心堆疊分頁。"
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr ""
+msgstr "目前的 EIP 數值 (32 位元指令指標)。"
 
 #. NWChan
 #: sysdeps/names/prockernel.c:76
@@ -761,7 +766,7 @@ msgstr "訊號"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Blocked"
-msgstr ""
+msgstr "被封閉"
 
 #: sysdeps/names/procsignal.c:40
 msgid "SigIgnore"
@@ -777,7 +782,7 @@ msgstr ""
 
 #: sysdeps/names/procsignal.c:46
 msgid "Mask of blocked signals"
-msgstr ""
+msgstr "所有被封閉的訊號"
 
 #: sysdeps/names/procsignal.c:47
 msgid "Mask of ignored signals"
@@ -881,25 +886,27 @@ msgstr "程序佔用之核心模式 CPU 累積時間"
 
 #: sysdeps/names/proctime.c:55
 msgid "cumulative utime of process and reaped children"
-msgstr ""
+msgstr "程序及它的副程序所累積的 utime"
 
 #: sysdeps/names/proctime.c:56
 msgid "cumulative stime of process and reaped children"
-msgstr ""
+msgstr "程序及它的副程序所累積的 stime"
 
 #: sysdeps/names/proctime.c:57
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr ""
+msgstr "程序下次交出控制權的時間 (以 jiffy 表示)"
 
 #: sysdeps/names/proctime.c:58
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
+"系統因內部計時器而需要發出 SIGALRM 訊號給程序，發出訊號前等待的時間(以 "
+"jiffy 表示)。"
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
-msgstr ""
+msgstr "時鐘中斷頻率"
 
 #: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
@@ -1203,7 +1210,7 @@ msgstr "系統起動至今時間(以秒計)"
 
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "系統起動至今全部閒置工作所佔時間(以秒計)"
+msgstr "系統起動至今全部閒置工作所佔的秒數"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1227,7 +1234,7 @@ msgstr ""
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr "abort() 發出中止訊號"
+msgstr "中止訊號"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
