@@ -66,7 +66,7 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	memset (buf, 0, sizeof (glibtop_cpu));
 
 	if (kvm_read (server->machine.kd, nlst [0].n_value,
-		      &cpts, sizeof (cpts)))
+		      &cpts, sizeof (cpts)) != sizeof (cpts))
 		glibtop_error_io_r (server, "kvm_read (cp_time)");
 
 	/* Get the clockrate data */

@@ -55,7 +55,6 @@ glibtop_init_mem_p (glibtop *server)
 
 	if (kvm_nlist (server->machine.kd, nlst) != 0)
 		glibtop_error_io_r (server, "kvm_nlist");
-
 }
 
 void
@@ -78,11 +77,11 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	
 	/* Get the data from kvm_* */
 	if (kvm_read (server->machine.kd, nlst[0].n_value,
-		      &vmm, sizeof (vmm)))
+		      &vmm, sizeof (vmm)) != sizeof (vmm))
 		glibtop_error_io_r (server, "kvm_read (cnt)");
 
 	if (kvm_read (server->machine.kd, nlst[1].n_value,
-		      &bufspace, sizeof (bufspace)))
+		      &bufspace, sizeof (bufspace)) != sizeof (bufspace))
 		glibtop_error_io_r (server, "kvm_read (bufspace)");
   
 	/* Set the values to return */
