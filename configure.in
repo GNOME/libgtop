@@ -153,6 +153,7 @@ else
 fi
 
 if test "x$ac_cv_guile_found" = "xyes" ; then
+  LIBGTOP_INCS="$LIBGTOP_INCS $GUILE_INCS"
   LIBGTOP_GUILE_INCS="$LIBGTOP_INCS $GUILE_INCS"
   LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $GUILE_LIBS"
 fi

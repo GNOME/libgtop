@@ -12,7 +12,7 @@ DIST_SUBDIRS = po intl support macros include sysdeps src lib examples
 
 include_HEADERS = glibtop.h
 
-EXTRA_DIST = copyright.txt libgtopConf.sh.in
+EXTRA_DIST = autogen.sh libgtop.spec copyright.txt libgtopConf.sh.in
 
 release:
 	$(MAKE) dist distdir=$(PACKAGE)$(VERSION)

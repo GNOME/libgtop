@@ -1,3 +1,16 @@
+1998-06-03  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* libgtop.spec: New file.
+	
+	* Makefile.am (EXTRA_DIST): Added `autogen.sh' and
+	`libgtop.spec'.
+	
+	* configure.in (LIBGTOP_INCS): is now identically to
+	`LIBGTOP_GUILE_INCS'.
+
+	* include/glibtop/global.h: only including intl headers
+	while compiling libgtop.
+
 1998-06-02  Federico Mena Quintero  <federico@nuclecu.unam.mx>
 
 	* src/server/main.c: #include <locale.h>
