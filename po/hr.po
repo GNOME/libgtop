@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-11 03:27+0100\n"
+"POT-Creation-Date: 2004-07-20 15:07+0200\n"
 "PO-Revision-Date: 2004-02-05 23:51+CET\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -13,34 +13,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: TransDict server\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: examples/smp.c:74
+#: examples/smp.c:76
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "Otkucavanja (%ld po sekundi):"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Total"
 msgstr "Ukupno"
 
-#: examples/smp.c:77 sysdeps/names/mem.c:48
+#: examples/smp.c:79 sysdeps/names/mem.c:48
 msgid "User"
 msgstr "Korisnik"
 
-#: examples/smp.c:77 sysdeps/names/procuid.c:51
+#: examples/smp.c:79 sysdeps/names/procuid.c:51
 msgid "Nice"
 msgstr "Nice"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Sys"
 msgstr "Sys"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Idle"
 msgstr "Neiskorišteno"
 
-#: examples/smp.c:79
+#: examples/smp.c:81
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
@@ -49,36 +50,36 @@ msgstr ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
-#: examples/smp.c:83
+#: examples/smp.c:85
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:100
+#: examples/smp.c:102
 msgid "Percent:"
 msgstr "Postotak:"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Total (%)"
 msgstr "Ukupno (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "User (%)"
 msgstr "Korisnik (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Nice (%)"
 msgstr "Nice (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Sys (%)"
 msgstr "Sys (%)"
 
-#: examples/smp.c:102
+#: examples/smp.c:104
 msgid "Idle (%)"
 msgstr "Besposleno (%)"
 
-#: examples/smp.c:104
+#: examples/smp.c:106
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
@@ -87,16 +88,16 @@ msgstr ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:122
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:126
+#: examples/smp.c:128
 msgid "Spin:"
 msgstr "Spin:"
 
-#: lib/read.c:78
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -242,7 +243,7 @@ msgstr "Frekvencija otkucavanja (obično je 100)"
 msgid "Bit field indicating which CPU is currently running"
 msgstr "Polje bitova koji pokazuju koji je CPU trenutno u uporabi"
 
-#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
+#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
 msgstr "Ukupno blokova"
 
@@ -254,19 +255,24 @@ msgstr "Slobodni blokovi"
 msgid "Available blocks"
 msgstr "Dostupni blokovi"
 
-#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:53
 msgid "Total file nodes"
 msgstr "Ukupno indeksnih čvorova datoteka"
 
-#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
+#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:54
 msgid "Free file nodes"
 msgstr "Slobodni indeksni čvorovi"
 
-#: sysdeps/names/fsusage.c:50
+#: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
+#, fuzzy
+msgid "Block size"
+msgstr "Blokirano"
+
+#: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
 msgstr "Slobodni blokovi dostupni suprekorisniku"
 
-#: sysdeps/names/fsusage.c:51
+#: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
 msgstr "Slobodni blokovi dostupni ne-suprekorisniku"
 
@@ -405,7 +411,7 @@ msgstr "Veličina segmenta poruke"
 msgid "Number of system message headers"
 msgstr "Broj sustavski zaglavlja poruka"
 
-#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:64
+#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:67
 msgid "Interface Flags"
 msgstr "Zastavice sučelja"
 
@@ -413,55 +419,70 @@ msgstr "Zastavice sučelja"
 msgid "MTU"
 msgstr "MTU"
 
-#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
-msgid "Subnet"
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
+#, fuzzy
+msgid "IPv4 Subnet"
 msgstr "Pod-mreža (subnet)"
 
-#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
-msgid "Address"
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
+#, fuzzy
+msgid "IPv4 Address"
 msgstr "Adresa"
 
-#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
 msgstr "Paketa u"
 
-#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:72
 msgid "Packets Out"
 msgstr "Paketa van"
 
-#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:73
 msgid "Packets Total"
 msgstr "Ukupno paketa"
 
-#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:74
 msgid "Bytes In"
 msgstr "Bajtova u"
 
-#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:75
 msgid "Bytes Out"
 msgstr "Bajtova van"
 
-#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:76
 msgid "Bytes Total"
 msgstr "Ukupno bajtova"
 
-#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:77
 msgid "Errors In"
 msgstr "Ulazne greške"
 
-#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:78
 msgid "Errors Out"
 msgstr "Izlazne greške"
 
-#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:79
 msgid "Errors Total"
 msgstr "Ukupno grešaka"
 
-#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:77
+#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:80
 msgid "Collisions"
 msgstr "Sukobi"
 
-#: sysdeps/names/netload.c:65
+#: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
+#, fuzzy
+msgid "IPv6 Address"
+msgstr "Adresa"
+
+#: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
+msgid "IPv6 Prefix"
+msgstr ""
+
+#: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
+msgid "IPv6 Scope"
+msgstr ""
+
+#: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
 msgstr "Maksimalna veličina jedinice prijenosa"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop libgtop-GNOME-2-0-port\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-11 03:27+0100\n"
+"POT-Creation-Date: 2004-07-20 15:07+0200\n"
 "PO-Revision-Date: 2003-02-10 18:01+0700\n"
 "Last-Translator: Mohammad DAMT <mdamt@bisnisweb.com>\n"
 "Language-Team: Indonesia <id@li.org>\n"
@@ -15,32 +15,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: examples/smp.c:74
+#: examples/smp.c:76
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "Tik (%ld per detik):"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Total"
 msgstr "Total"
 
-#: examples/smp.c:77 sysdeps/names/mem.c:48
+#: examples/smp.c:79 sysdeps/names/mem.c:48
 msgid "User"
 msgstr "User"
 
-#: examples/smp.c:77 sysdeps/names/procuid.c:51
+#: examples/smp.c:79 sysdeps/names/procuid.c:51
 msgid "Nice"
 msgstr "Nilai Nice"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Sys"
 msgstr "Sys"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Idle"
 msgstr "Waktu nganggur"
 
-#: examples/smp.c:79
+#: examples/smp.c:81
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
@@ -49,36 +49,36 @@ msgstr ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
-#: examples/smp.c:83
+#: examples/smp.c:85
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:100
+#: examples/smp.c:102
 msgid "Percent:"
 msgstr "Persen:"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Total (%)"
 msgstr "Total (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "User (%)"
 msgstr "User (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Nice (%)"
 msgstr "Nilai Nice (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Sys (%)"
 msgstr "Sys (%)"
 
-#: examples/smp.c:102
+#: examples/smp.c:104
 msgid "Idle (%)"
 msgstr "Waktu nganggur (%)"
 
-#: examples/smp.c:104
+#: examples/smp.c:106
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
@@ -87,16 +87,16 @@ msgstr ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:122
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:126
+#: examples/smp.c:128
 msgid "Spin:"
 msgstr "Putaran:"
 
-#: lib/read.c:78
+#: lib/read.c:65
 #, fuzzy, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -239,7 +239,7 @@ msgstr "Frekuensi tik (defaultnya bernilai 100)"
 msgid "Bit field indicating which CPU is currently running"
 msgstr ""
 
-#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
+#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
 msgstr "Blok total"
 
@@ -251,19 +251,24 @@ msgstr "Blok bebas"
 msgid "Available blocks"
 msgstr "Blok yang tersedia"
 
-#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:53
 msgid "Total file nodes"
 msgstr "Total node file"
 
-#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
+#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:54
 msgid "Free file nodes"
 msgstr "Jumlah node file bebas"
 
-#: sysdeps/names/fsusage.c:50
+#: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
+#, fuzzy
+msgid "Block size"
+msgstr "Diblok"
+
+#: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
 msgstr "Jumlah blok tersedia bagi superuser"
 
-#: sysdeps/names/fsusage.c:51
+#: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
 msgstr "Jumlah blok tersedia bagi user biasa"
 
@@ -403,7 +408,7 @@ msgstr "Ukuran segmen message"
 msgid "Number of system message headers"
 msgstr "Jumlah header message sistem"
 
-#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:64
+#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:67
 msgid "Interface Flags"
 msgstr "Tanda Interface"
 
@@ -411,55 +416,70 @@ msgstr "Tanda Interface"
 msgid "MTU"
 msgstr "MTU"
 
-#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
-msgid "Subnet"
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
+#, fuzzy
+msgid "IPv4 Subnet"
 msgstr "Subnet"
 
-#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
-msgid "Address"
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
+#, fuzzy
+msgid "IPv4 Address"
 msgstr "Alamat"
 
-#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
 msgstr "Paket Masuk"
 
-#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:72
 msgid "Packets Out"
 msgstr "Paket Keluar"
 
-#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:73
 msgid "Packets Total"
 msgstr "Total Paket"
 
-#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:74
 msgid "Bytes In"
 msgstr "Byte Masuk"
 
-#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:75
 msgid "Bytes Out"
 msgstr "Byte Keluar"
 
-#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:76
 msgid "Bytes Total"
 msgstr "Total Byte"
 
-#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:77
 msgid "Errors In"
 msgstr "Error Masuk"
 
-#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:78
 msgid "Errors Out"
 msgstr "Error Keluar"
 
-#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:79
 msgid "Errors Total"
 msgstr "Total Error"
 
-#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:77
+#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:80
 msgid "Collisions"
 msgstr "Tabrakan"
 
-#: sysdeps/names/netload.c:65
+#: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
+#, fuzzy
+msgid "IPv6 Address"
+msgstr "Alamat"
+
+#: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
+msgid "IPv6 Prefix"
+msgstr ""
+
+#: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
+msgid "IPv6 Scope"
+msgstr ""
+
+#: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
 msgstr "Satuan Transfer Maksimum (MTU)"
 

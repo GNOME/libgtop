@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-11 03:27+0100\n"
+"POT-Creation-Date: 2004-07-20 15:07+0200\n"
 "PO-Revision-Date: 2004-01-06 02:45+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -19,32 +19,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: examples/smp.c:74
+#: examples/smp.c:76
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "Tick (%ld per sekund):"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Total"
 msgstr "Totalt"
 
-#: examples/smp.c:77 sysdeps/names/mem.c:48
+#: examples/smp.c:79 sysdeps/names/mem.c:48
 msgid "User"
 msgstr "Användare"
 
-#: examples/smp.c:77 sysdeps/names/procuid.c:51
+#: examples/smp.c:79 sysdeps/names/procuid.c:51
 msgid "Nice"
 msgstr "Nice"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Sys"
 msgstr "Sys"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Idle"
 msgstr "Ledigt"
 
-#: examples/smp.c:79
+#: examples/smp.c:81
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
@@ -53,36 +53,36 @@ msgstr ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
-#: examples/smp.c:83
+#: examples/smp.c:85
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:100
+#: examples/smp.c:102
 msgid "Percent:"
 msgstr "Procent:"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Total (%)"
 msgstr "Totalt (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "User (%)"
 msgstr "Användare (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Nice (%)"
 msgstr "Nice (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Sys (%)"
 msgstr "Sys (%)"
 
-#: examples/smp.c:102
+#: examples/smp.c:104
 msgid "Idle (%)"
 msgstr "Ledig (%)"
 
-#: examples/smp.c:104
+#: examples/smp.c:106
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
@@ -91,16 +91,16 @@ msgstr ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:122
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:126
+#: examples/smp.c:128
 msgid "Spin:"
 msgstr "Spinn:"
 
-#: lib/read.c:78
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -243,7 +243,7 @@ msgstr "Tickfrekvens (standard är 100)"
 msgid "Bit field indicating which CPU is currently running"
 msgstr "Bitfält som indikerar vilken processor som för tillfället körs"
 
-#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
+#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
 msgstr "Totalt antal block"
 
@@ -255,19 +255,24 @@ msgstr "Fria block"
 msgid "Available blocks"
 msgstr "Tillgängliga block"
 
-#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:53
 msgid "Total file nodes"
 msgstr "Totalt antal filnoder"
 
-#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
+#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:54
 msgid "Free file nodes"
 msgstr "Fria filnoder"
 
-#: sysdeps/names/fsusage.c:50
+#: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
+#, fuzzy
+msgid "Block size"
+msgstr "Blockerad"
+
+#: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
 msgstr "Fria block tillgängliga för superanvändaren"
 
-#: sysdeps/names/fsusage.c:51
+#: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
 msgstr "Fria block tillgängliga för icke-superanvändare"
 
@@ -405,7 +410,7 @@ msgstr "Meddelandesegmentstorlek"
 msgid "Number of system message headers"
 msgstr "Antal systemmeddelandehuvuden"
 
-#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:64
+#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:67
 msgid "Interface Flags"
 msgstr "Gränssnittsflaggor"
 
@@ -413,55 +418,70 @@ msgstr "Gränssnittsflaggor"
 msgid "MTU"
 msgstr "MTU"
 
-#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
-msgid "Subnet"
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
+#, fuzzy
+msgid "IPv4 Subnet"
 msgstr "Subnät"
 
-#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
-msgid "Address"
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
+#, fuzzy
+msgid "IPv4 Address"
 msgstr "Adress"
 
-#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
 msgstr "Inkommande paket"
 
-#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:72
 msgid "Packets Out"
 msgstr "Utgående paket"
 
-#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:73
 msgid "Packets Total"
 msgstr "Totalt paket"
 
-#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:74
 msgid "Bytes In"
 msgstr "Inkommande byte"
 
-#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:75
 msgid "Bytes Out"
 msgstr "Utgående byte"
 
-#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:76
 msgid "Bytes Total"
 msgstr "Totalt byte"
 
-#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:77
 msgid "Errors In"
 msgstr "Inkommande fel"
 
-#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:78
 msgid "Errors Out"
 msgstr "Utgående fel"
 
-#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:79
 msgid "Errors Total"
 msgstr "Totalt fel"
 
-#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:77
+#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:80
 msgid "Collisions"
 msgstr "Kollisioner"
 
-#: sysdeps/names/netload.c:65
+#: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
+#, fuzzy
+msgid "IPv6 Address"
+msgstr "Adress"
+
+#: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
+msgid "IPv6 Prefix"
+msgstr ""
+
+#: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
+msgid "IPv6 Scope"
+msgstr ""
+
+#: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
 msgstr "Maximal överföringsenhet (MTU)"
 

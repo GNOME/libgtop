@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-11 03:27+0100\n"
+"POT-Creation-Date: 2004-07-20 15:07+0200\n"
 "PO-Revision-Date: 2003-11-02 10:56+0900\n"
 "Last-Translator: KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>\n"
 "Language-Team: Japanese <translation@gnome.gr.jp>\n"
@@ -18,32 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: examples/smp.c:74
+#: examples/smp.c:76
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "回 (一秒に%ld):"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Total"
 msgstr "トータル"
 
-#: examples/smp.c:77 sysdeps/names/mem.c:48
+#: examples/smp.c:79 sysdeps/names/mem.c:48
 msgid "User"
 msgstr "ユーザ"
 
-#: examples/smp.c:77 sysdeps/names/procuid.c:51
+#: examples/smp.c:79 sysdeps/names/procuid.c:51
 msgid "Nice"
 msgstr "ナイス値"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Sys"
 msgstr "システム"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Idle"
 msgstr "アイドル"
 
-#: examples/smp.c:79
+#: examples/smp.c:81
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
@@ -52,36 +52,36 @@ msgstr ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
-#: examples/smp.c:83
+#: examples/smp.c:85
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:100
+#: examples/smp.c:102
 msgid "Percent:"
 msgstr "パーセント:"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Total (%)"
 msgstr "トータル (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "User (%)"
 msgstr "ユーザ (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Nice (%)"
 msgstr "ナイス値 (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Sys (%)"
 msgstr "システム (%)"
 
-#: examples/smp.c:102
+#: examples/smp.c:104
 msgid "Idle (%)"
 msgstr "アイドル (%)"
 
-#: examples/smp.c:104
+#: examples/smp.c:106
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
@@ -90,16 +90,16 @@ msgstr ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:122
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:126
+#: examples/smp.c:128
 msgid "Spin:"
 msgstr "スピン:"
 
-#: lib/read.c:78
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -242,7 +242,7 @@ msgstr "チック周波数(デフォルトは 100)"
 msgid "Bit field indicating which CPU is currently running"
 msgstr "CPU が現在稼働しているかを示すビット・フィールド"
 
-#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
+#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
 msgstr "累積ブロック数"
 
@@ -254,19 +254,24 @@ msgstr "空ブロック"
 msgid "Available blocks"
 msgstr "使用可能ブロック"
 
-#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:53
 msgid "Total file nodes"
 msgstr "累積ファイルノード数"
 
-#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
+#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:54
 msgid "Free file nodes"
 msgstr "空きファイルノード数"
 
-#: sysdeps/names/fsusage.c:50
+#: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
+#, fuzzy
+msgid "Block size"
+msgstr "ブロック"
+
+#: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
 msgstr "特権ユーザが利用できるの空ブロック"
 
-#: sysdeps/names/fsusage.c:51
+#: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
 msgstr "非特権ユーザが利用できる空ブロック"
 
@@ -404,7 +409,7 @@ msgstr "メッセージセグメントサイズ"
 msgid "Number of system message headers"
 msgstr "システムメッセージヘッダの数"
 
-#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:64
+#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:67
 msgid "Interface Flags"
 msgstr "インタフェースフラグ"
 
@@ -412,55 +417,70 @@ msgstr "インタフェースフラグ"
 msgid "MTU"
 msgstr "MTU"
 
-#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
-msgid "Subnet"
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
+#, fuzzy
+msgid "IPv4 Subnet"
 msgstr "サブネット"
 
-#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
-msgid "Address"
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
+#, fuzzy
+msgid "IPv4 Address"
 msgstr "アドレス"
 
-#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
 msgstr "パケットの入力"
 
-#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:72
 msgid "Packets Out"
 msgstr "パケットの出力"
 
-#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:73
 msgid "Packets Total"
 msgstr "パケット(トータル)"
 
-#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:74
 msgid "Bytes In"
 msgstr "バイトの入力"
 
-#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:75
 msgid "Bytes Out"
 msgstr "バイトの出力"
 
-#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:76
 msgid "Bytes Total"
 msgstr "バイト(トータル)"
 
-#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:77
 msgid "Errors In"
 msgstr "エラー(入力)"
 
-#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:78
 msgid "Errors Out"
 msgstr "エラー(出力)"
 
-#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:79
 msgid "Errors Total"
 msgstr "エラー(トータル)"
 
-#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:77
+#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:80
 msgid "Collisions"
 msgstr "コリジョン"
 
-#: sysdeps/names/netload.c:65
+#: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
+#, fuzzy
+msgid "IPv6 Address"
+msgstr "アドレス"
+
+#: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
+msgid "IPv6 Prefix"
+msgstr ""
+
+#: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
+msgid "IPv6 Scope"
+msgstr ""
+
+#: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
 msgstr "最大転送ユニット"
 

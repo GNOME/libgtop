@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-11 03:27+0100\n"
+"POT-Creation-Date: 2004-07-20 15:07+0200\n"
 "PO-Revision-Date: 2004-02-08 01:03+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
@@ -15,32 +15,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: examples/smp.c:74
+#: examples/smp.c:76
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "틱 (초당 %ld):"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Total"
 msgstr "전체"
 
-#: examples/smp.c:77 sysdeps/names/mem.c:48
+#: examples/smp.c:79 sysdeps/names/mem.c:48
 msgid "User"
 msgstr "사용자"
 
-#: examples/smp.c:77 sysdeps/names/procuid.c:51
+#: examples/smp.c:79 sysdeps/names/procuid.c:51
 msgid "Nice"
 msgstr "Nice"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Sys"
 msgstr "시스템"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Idle"
 msgstr "유휴"
 
-#: examples/smp.c:79
+#: examples/smp.c:81
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
@@ -49,36 +49,36 @@ msgstr ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
-#: examples/smp.c:83
+#: examples/smp.c:85
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:100
+#: examples/smp.c:102
 msgid "Percent:"
 msgstr "백분율:"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Total (%)"
 msgstr "총 (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "User (%)"
 msgstr "사용자 (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Nice (%)"
 msgstr "Nice (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Sys (%)"
 msgstr "시스템 (%)"
 
-#: examples/smp.c:102
+#: examples/smp.c:104
 msgid "Idle (%)"
 msgstr "유휴 (%)"
 
-#: examples/smp.c:104
+#: examples/smp.c:106
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
@@ -87,16 +87,16 @@ msgstr ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:122
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:126
+#: examples/smp.c:128
 msgid "Spin:"
 msgstr "Spin:"
 
-#: lib/read.c:78
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -235,7 +235,7 @@ msgstr "틱 주파수 (기본값은 100)"
 msgid "Bit field indicating which CPU is currently running"
 msgstr "어느 CPU가 현재 동작하는 지 나타내는 비트 필드"
 
-#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
+#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
 msgstr "총 블럭"
 
@@ -247,19 +247,24 @@ msgstr "빈 블럭"
 msgid "Available blocks"
 msgstr "사용가능한 블럭"
 
-#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:53
 msgid "Total file nodes"
 msgstr "총 파일 노드"
 
-#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
+#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:54
 msgid "Free file nodes"
 msgstr "유휴 파일 노드"
 
-#: sysdeps/names/fsusage.c:50
+#: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
+#, fuzzy
+msgid "Block size"
+msgstr "Blocked"
+
+#: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
 msgstr "수퍼유저가 사용가능한 빈 블럭"
 
-#: sysdeps/names/fsusage.c:51
+#: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
 msgstr "일반유저가 사용가능한 빈 블럭"
 
@@ -397,7 +402,7 @@ msgstr "메시지 세그먼트 크기"
 msgid "Number of system message headers"
 msgstr "시스템 메시지 헤더의 갯수"
 
-#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:64
+#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:67
 msgid "Interface Flags"
 msgstr "인터페이스 플래그"
 
@@ -405,55 +410,70 @@ msgstr "인터페이스 플래그"
 msgid "MTU"
 msgstr "MTU"
 
-#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
-msgid "Subnet"
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
+#, fuzzy
+msgid "IPv4 Subnet"
 msgstr "하위넷"
 
-#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
-msgid "Address"
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
+#, fuzzy
+msgid "IPv4 Address"
 msgstr "주소"
 
-#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
 msgstr "들어온 패킷"
 
-#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:72
 msgid "Packets Out"
 msgstr "나간 패킷"
 
-#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:73
 msgid "Packets Total"
 msgstr "총 패킷"
 
-#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:74
 msgid "Bytes In"
 msgstr "들어온 바이트"
 
-#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:75
 msgid "Bytes Out"
 msgstr "나간 바이트"
 
-#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:76
 msgid "Bytes Total"
 msgstr "총 바이트"
 
-#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:77
 msgid "Errors In"
 msgstr "들어온 에러"
 
-#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:78
 msgid "Errors Out"
 msgstr "나간 에러"
 
-#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:79
 msgid "Errors Total"
 msgstr "총 에러"
 
-#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:77
+#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:80
 msgid "Collisions"
 msgstr "충돌"
 
-#: sysdeps/names/netload.c:65
+#: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
+#, fuzzy
+msgid "IPv6 Address"
+msgstr "주소"
+
+#: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
+msgid "IPv6 Prefix"
+msgstr ""
+
+#: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
+msgid "IPv6 Scope"
+msgstr ""
+
+#: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
 msgstr "최대 전송 유닛"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-18 16:37-0400\n"
+"POT-Creation-Date: 2004-07-20 15:07+0200\n"
 "PO-Revision-Date: 2004-07-18 15:51-0500\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canada <adamw@FreeBSD.org>\n"
@@ -544,6 +544,7 @@ msgstr "NWChan"
 msgid "WChan"
 msgstr "WChan"
 
+#. K_Flags
 #: sysdeps/names/prockernel.c:51
 msgid ""
 "Kernel flags of the process.\n"
@@ -564,6 +565,7 @@ msgstr ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 
+#. Min_Flt
 #: sysdeps/names/prockernel.c:60
 msgid ""
 "The number of minor faults the process has made, those which have not "
@@ -572,6 +574,7 @@ msgstr ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 
+#. Maj_Flt
 #: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
@@ -580,16 +583,19 @@ msgstr ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 
+#. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
 msgstr ""
 "The number of minor faults that the process and its children have made."
 
+#. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
 msgstr ""
 "The number of major faults that the process and its children have made."
 
+#. KStk_ESP
 #: sysdeps/names/prockernel.c:72
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
@@ -603,6 +609,7 @@ msgstr ""
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr "The current EIP (32-bit instruction pointer)."
 
+#. NWChan
 #: sysdeps/names/prockernel.c:77
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "

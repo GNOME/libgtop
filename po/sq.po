@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-19 04:28+0200\n"
+"POT-Creation-Date: 2004-07-20 15:07+0200\n"
 "PO-Revision-Date: 2004-07-19 16:29+0200\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
@@ -672,7 +672,8 @@ msgstr ""
 "shkarkuara nga swap."
 
 #: sysdeps/names/procmem.c:63
-msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "Limiti aktual në bytes i rss të proçesit (zakonisht 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:43
@@ -1410,4 +1411,3 @@ msgstr "Sinjal 1 i përcaktuar nga përdoruesi"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Sinjal 2 i përcaktuar nga përdoruesi"
-

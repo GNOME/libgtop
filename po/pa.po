@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-22 17:17+0530\n"
+"POT-Creation-Date: 2004-07-20 15:07+0200\n"
 "PO-Revision-Date: 2004-03-18 17:50+0530\n"
 "Last-Translator: Amanpreet Singh Alam <amanlinux@netscape.net>\n"
 "Language-Team: Punjabi\n"
@@ -17,32 +17,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: examples/smp.c:74
+#: examples/smp.c:76
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "ਟਿਕ-ਟਿਕ (%ld ਪ੍ਤੀ ਸਕਿੰਟ):"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Total"
 msgstr "ਕੁੱਲ"
 
-#: examples/smp.c:77 sysdeps/names/mem.c:48
+#: examples/smp.c:79 sysdeps/names/mem.c:48
 msgid "User"
 msgstr "ਕਾਮਾ"
 
-#: examples/smp.c:77 sysdeps/names/procuid.c:51
+#: examples/smp.c:79 sysdeps/names/procuid.c:51
 msgid "Nice"
 msgstr "ਨਾੲੀਸ"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Sys"
 msgstr "ਸਿਸਟਮ"
 
-#: examples/smp.c:77
+#: examples/smp.c:79
 msgid "Idle"
 msgstr "ਵਿਹਲਾ"
 
-#: examples/smp.c:79
+#: examples/smp.c:81
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
@@ -51,36 +51,36 @@ msgstr ""
 "ਪਰੋਸੈਸਰ       (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
-#: examples/smp.c:83
+#: examples/smp.c:85
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "ਪਰੋਸੈਸਰ %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:100
+#: examples/smp.c:102
 msgid "Percent:"
 msgstr "ਪ੍ਤੀਸ਼ਤ ਃ"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Total (%)"
 msgstr "ਕੁੱਲ (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "User (%)"
 msgstr "ਕਾਮਾ (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Nice (%)"
 msgstr "ਚੰਗਾ (%)"
 
-#: examples/smp.c:101
+#: examples/smp.c:103
 msgid "Sys (%)"
 msgstr "ਸਿਸਟਮ (%)"
 
-#: examples/smp.c:102
+#: examples/smp.c:104
 msgid "Idle (%)"
 msgstr "ਵਿਹਲਾ(%)"
 
-#: examples/smp.c:104
+#: examples/smp.c:106
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
@@ -89,16 +89,16 @@ msgstr ""
 "ਪਰੋਸੈਸਰ         (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:122
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "ਪਰੋਸੈਸਰ %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:126
+#: examples/smp.c:128
 msgid "Spin:"
 msgstr "ਘੁੰਮਾੳੁਃ"
 
-#: lib/read.c:78
+#: lib/read.c:65
 #, fuzzy, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -237,7 +237,7 @@ msgstr "ਿਟਕ-ਟਿਕ ਅਾਵਿਰਤੀ (ਮੂਲ ੧੦੦ ਹੈ)"
 msgid "Bit field indicating which CPU is currently running"
 msgstr "ਬਿੱਟ ਖਾਨਾ ਵੇਖਾ ਰਿਹਾ ਹੈ ਕਿ ਪਰੋਸੈਸਰ ਹੁਣ ਚੱਲ ਰਿਹਾ ਹੈ"
 
-#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
+#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
 msgstr "ਕੁੱਲ ਬਲਾਕ"
 
@@ -249,19 +249,24 @@ msgstr "ਖਾਲੀ ਬਲਾਕ"
 msgid "Available blocks"
 msgstr "ੳੁਪਲਬੱਧ ਬਲਾਕ"
 
-#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:53
 msgid "Total file nodes"
 msgstr "ਕੱੁਲ ਫਾੲਿਲ ਨੋਡ"
 
-#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
+#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:54
 msgid "Free file nodes"
 msgstr "ਖਾਲੀ ਫਾੲਿਲ ਨੋਡ"
 
-#: sysdeps/names/fsusage.c:50
+#: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
+#, fuzzy
+msgid "Block size"
+msgstr "ਬੰਦ ਕੀਤੇ"
+
+#: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
 msgstr "ਮੁੱਖ-ਕਾਮੇ ਲੲੀ ੳੁਪਲਬੱਧ ਖਾਲੀ ਬਲਾਕ"
 
-#: sysdeps/names/fsusage.c:51
+#: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
 msgstr "ਅਾਮ-ਕਾਮਿਅਾ ਲੲੀ ੳੁਪਲਬੱਧ ਖਾਲੀ ਬਲਾਕ"
 
@@ -399,7 +404,7 @@ msgstr "ਸੁਨੇਹੇ ਸਿਗਮਿੰਟ ਦਾ ਅਕਾਰ"
 msgid "Number of system message headers"
 msgstr "ਸਿਸਟਮ ਸੁਨੇਹਿਅਾ ਦੇ ਸਿਰਲੇਖ੾ ਦੀ ਗਿਣਤੀ"
 
-#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:64
+#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:67
 msgid "Interface Flags"
 msgstr "ੲਿੰਟਰਫੇਸ ਨਿਸ਼ਾਨ"
 
@@ -407,55 +412,70 @@ msgstr "ੲਿੰਟਰਫੇਸ ਨਿਸ਼ਾਨ"
 msgid "MTU"
 msgstr "ਅੈਮ-ਟੀ-ਯੂ"
 
-#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
-msgid "Subnet"
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
+#, fuzzy
+msgid "IPv4 Subnet"
 msgstr "ਸਬਨੈੱਟ"
 
-#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
-msgid "Address"
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
+#, fuzzy
+msgid "IPv4 Address"
 msgstr "ਪਤਾ"
 
-#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
 msgstr "ਜੇੇਬ ਵਿੱਚ"
 
-#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:72
 msgid "Packets Out"
 msgstr "ਜੇਬੋ ਬਾਹਰ"
 
-#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:73
 msgid "Packets Total"
 msgstr "ਕੁੱਲ ਜੇਬ ਵਿੱਚ"
 
-#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:74
 msgid "Bytes In"
 msgstr "ਬਾੲੀਟ ਅਾੳੁਣ"
 
-#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:75
 msgid "Bytes Out"
 msgstr "ਬਾੲੀਟ ਜਾਣ"
 
-#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:76
 msgid "Bytes Total"
 msgstr "ਬਾੲੀਟ ਕੁੱਲ"
 
-#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:77
 msgid "Errors In"
 msgstr "ਗਲਤੀਅ੾ ਅਾੳੁਣ"
 
-#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:78
 msgid "Errors Out"
 msgstr "ਗਲਤੀਅ੾ ਜਾਣ"
 
-#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:79
 msgid "Errors Total"
 msgstr "ਗਲਤੀਅ੾ ਕੁੱਲ"
 
-#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:77
+#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:80
 msgid "Collisions"
 msgstr "ਅਾਹਮੋ-ਸਾਹਮਣੇ"
 
-#: sysdeps/names/netload.c:65
+#: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
+#, fuzzy
+msgid "IPv6 Address"
+msgstr "ਪਤਾ"
+
+#: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
+msgid "IPv6 Prefix"
+msgstr ""
+
+#: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
+msgid "IPv6 Scope"
+msgstr ""
+
+#: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
 msgstr "ਵੱਧ ਤੋ ਵੱਧ ਤਬਦੀਲ ਹੋੲਿਅਾ"
 
@@ -523,6 +543,7 @@ msgstr "NW ਚੈਨਲ"
 msgid "WChan"
 msgstr "W ਚੈਨਲ"
 
+#. K_Flags
 #: sysdeps/names/prockernel.c:51
 msgid ""
 "Kernel flags of the process.\n"
@@ -543,6 +564,7 @@ msgstr ""
 "\n"
 "ਗਣਿਤ ਬਿੱਟ ਕੋਲ  4 ਦਸ਼ਮਲਵ ਹੋਵੇ ਅਤੇ ਟਰੇਸ ਬਿੱਟ 10 ਦਸ਼ਮਲਵ ਦਾ ਹੋਵੇ੤"
 
+#. Min_Flt
 #: sysdeps/names/prockernel.c:60
 msgid ""
 "The number of minor faults the process has made, those which have not "
@@ -551,6 +573,7 @@ msgstr ""
 "ਛੋਟੇ ਨੁਕਸ੾ ਦੀ ਗਿਣਤੀ ਜੋ ਕਿ ੲਿਸ ਕਾਰਜ ਨੇ ਪੈਦਾ ਕੀਤੇ ਹਨ , ਜਿਹਨ੾ ਨੰੂ ਡਿਸਕ ਤੋ ਮੈਮੂਰੀ ਸਫ਼ਾ ਲੋਡ ਕਰਨ "
 "ਦੀ ਜਰੂਰਤ ਨਹੀ ਹੈ ੤"
 
+#. Maj_Flt
 #: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
@@ -559,14 +582,17 @@ msgstr ""
 "ਵੱਡੇ ਨੁਕਸ੾ ਦੀ ਗਿਣਤੀ ਜੋ ਕਿ ੲਿਸ ਕਾਰਜ ਨੇ ਪੈਦਾ ਕੀਤੇ ਹਨ , ਜਿਹਨ੾ ਨੰੂ ਡਿਸਕ ਤੋ ਮੈਮੂਰੀ ਸਫ਼ਾ ਲੋਡ ਕਰਨ "
 "ਦੀ ਜਰੂਰਤ ਹੈ ੤"
 
+#. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
 msgstr "ਛੋਟੇ ਨੁਕਸ੾ ਦੀ ਗਿਣਤੀ ਜੋ ਕਿ ੲਿਸ ਕਾਰਜ ਅਤੇ ੲਿਸ ਦੇ ਅਗਲੇ ਕਾਰਜ੾ ਨੇ ਪੈਦਾ ਕੀਤੇ ਹਨ ੤"
 
+#. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
 msgstr "ਵੱਡੇ ਨੁਕਸ੾ ਦੀ ਗਿਣਤੀ ਜੋ ਕਿ ੲਿਸ ਕਾਰਜ ਅਤੇ ੲਿਸ ਦੇ ਅਗਲੇ ਕਾਰਜ੾ ਨੇ ਪੈਦਾ ਕੀਤੇ ਹਨ ੤"
 
+#. KStk_ESP
 #: sysdeps/names/prockernel.c:72
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
@@ -580,6 +606,7 @@ msgstr ""
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr "ਮੌਜੂਦਾ ੲੀਅਾੲੀਪੀ(EIP) ( 32-ਬਿੱਟ ਹਦਾੲਿਤ ਸੰਕੇਤਕ)"
 
+#. NWChan
 #: sysdeps/names/prockernel.c:77
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "
