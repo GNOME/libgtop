@@ -22,7 +22,6 @@
 #include <glib.h>
 #include <stdio.h>
 #include <sys/types.h>
-#include "mountlist.h"
 
 #if defined(STDC_HEADERS) || defined(HAVE_STRING_H)
 #include <string.h>
@@ -32,6 +31,17 @@
 
 #include <glibtop.h>
 #include <glibtop/mountlist.h>
+
+/* A mount table entry. */
+struct mount_entry
+{
+  char *me_devname;             /* Device node pathname, including "/dev/". */
+  char *me_mountdir;            /* Mount point directory pathname. */
+  char *me_type;                /* "nfs", "4.2", etc. */
+  dev_t me_dev;                 /* Device number of me_mountdir. */
+  struct mount_entry *me_next;
+};
+
 
 static struct mount_entry *read_filesystem_list (void);
 

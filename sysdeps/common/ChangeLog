@@ -1,3 +1,9 @@
+2004-09-24  Benoît Dejean  <tazforever@dlfp.org>
+
+	* Makefile.am:
+	* mountlist.c:
+	* mountlist.h: Removed mountlist.h.
+
 2004-09-23  Benoît Dejean  <tazforever@dlfp.org>
 
 	* mountlist.c: (ignore_mount_entry): Added openpromfs.
