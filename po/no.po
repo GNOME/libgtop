@@ -1,12 +1,12 @@
 # Norwegian translation for Libgtop (bokmål dialect)
 # Copyright (C) 1998 Free Software Foundation, Inc.
-# Kjartan Maraas <kmaraas@fib.hl.no>, 1998.
+# Kjartan Maraas <kmaraas@fib.hl.no>, 1998,1999.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 0.99.0\n"
-"POT-Creation-Date: 1998-12-25 20:08+0100\n"
-"PO-Revision-Date: 1998-12-27 13:20+0100\n"
+"Project-Id-Version: libgtop 0.99.3\n"
+"POT-Creation-Date: 1999-01-25 20:40-0500\n"
+"PO-Revision-Date: 1999-01-27 23:22+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@fib.hl.no>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
