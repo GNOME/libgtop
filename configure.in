@@ -580,5 +580,6 @@ backends/sysdeps/Makefile
 backends/common/Makefile
 lib/Makefile
 doc/Makefile
+dtd/Makefile
 support/Makefile
 macros/Makefile])

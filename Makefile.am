@@ -5,7 +5,7 @@ support = support
 endif
 
 SUBDIRS = po intl $(support) macros misc include sysdeps backends lib \
-	  src doc scripts
+	  src doc dtd scripts
 
 include_HEADERS = glibtop.h
 configincludedir = $(pkglibdir)/include
