@@ -24,14 +24,25 @@
 #include <glibtop.h>
 #include <glibtop/shm_limits.h>
 
-static const unsigned long _glibtop_sysdeps_shm_limits = 0;
+#include <kvm.h>
+#include <sys/shm.h>
+
+static struct nlist nlst[] = { {"shminfo"}, {NULL} };
+static const unsigned long _glibtop_sysdeps_shm_limits =
+(1L << GLIBTOP_IPC_SHMMAX) + (1L << GLIBTOP_IPC_SHMMIN) +
+(1L << GLIBTOP_IPC_SHMMNI) + (1L << GLIBTOP_IPC_SHMSEG);
 
 /* Init function. */
 
 void
 glibtop_init_shm_limits_s (glibtop *server)
 {
-	server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
+   	kvm_t *kd = server->machine.kd;
+
+   	if(kd && !kvm_nlist(kd, nlst))
+		server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
+	else
+		server->sysdeps.shm_limits = 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -39,5 +50,19 @@ glibtop_init_shm_limits_s (glibtop *server)
 void
 glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 {
+   	kvm_t *kd = server->machine.kd;
+	struct shminfo sinfo;
+
 	memset (buf, 0, sizeof (glibtop_shm_limits));
+
+	if(!(server->sysdeps.shm_limits))
+	   	return;
+	if(kvm_read(kd, nlst[0].n_value, (void *)&sinfo,
+		    sizeof(struct shminfo)) != sizeof(struct shminfo))
+	        return;
+        buf->shmmax = sinfo.shmmax;
+	buf->shmmin = sinfo.shmmin;
+	buf->shmmni = sinfo.shmmni;
+	buf->shmseg = sinfo.shmseg;
+	buf->flags = _glibtop_sysdeps_shm_limits;
 }

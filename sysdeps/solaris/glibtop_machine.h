@@ -29,6 +29,7 @@
 #include <fcntl.h>
 
 #include <kstat.h>
+#include <kvm.h>
 #include <sys/sysinfo.h>
 
 BEGIN_LIBGTOP_DECLS
@@ -39,6 +40,8 @@ struct _glibtop_machine
 {
     uid_t uid, euid;
     gid_t gid, egid;
+
+    kvm_t *kd;
 
     kstat_ctl_t *kc;
     

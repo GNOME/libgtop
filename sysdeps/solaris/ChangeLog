@@ -1,3 +1,11 @@
+1999-04-29  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_machine.h: add field for kvm descriptor.
+
+	* open.c: add code for opening kernel name space.
+
+	* shm_limits.c: implemented.
+
 1999-03-31  Drazen Kacar  <dave@srce.hr>
 
 	* loadavg.c: make it work with Solaris 2.6 and older. A part
