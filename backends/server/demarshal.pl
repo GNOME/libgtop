@@ -197,18 +197,6 @@ sub output {
 			       $demarshal_code);
   }
 
-  if ($need_temp_storage) {
-    $local_var_decl_code .= "\tsize_t _LIBGTOP_TEMP_len;\n";
-    $local_var_decl_code .= "\tsize_t _LIBGTOP_DATA_len;\n";
-    $local_var_decl_code .= "\toff_t _LIBGTOP_DATA_offset;\n";
-    $local_var_decl_code .= "\tchar *_LIBGTOP_DATA_ptr;\n";
-
-    $init_local_var_code .= "\t_LIBGTOP_DATA_len = 0;\n";
-    $init_local_var_code .= "\t_LIBGTOP_DATA_offset = 0;\n";
-    $init_local_var_code .= "\t_LIBGTOP_DATA_ptr = ".
-      "(char *) data_ptr;\n";
-  }
-
   if ($line_fields[3] eq '') {
     $call_code = sprintf
       ("\tretval = glibtop_get_%s_p (server%s);\n",
@@ -295,12 +283,61 @@ sub output {
   $recv_buf_code .= "\t*recv_buf_ptr = _LIBGTOP_RECV_buf;\n";
   $recv_buf_code .= "\t*recv_size_ptr = _LIBGTOP_RECV_len;\n";
 
-  if ($line_fields[3] =~ /^array/) {
+  if ($orig_retval eq 'pointer(string)') {
+    $need_temp_storage = 1;
+    $local_var_decl_code .= "\tchar **_LIBGTOP_TEMP_ptr;\n";
+    $local_var_decl_code .= "\tchar *_LIBGTOP_ARRAY_ptr;\n";
+    $local_var_decl_code .= "\tchar *_LIBGTOP_ARRAY_base;\n";
+    $local_var_decl_code .= "\toff_t _LIBGTOP_ARRAY_offset;\n";
+    $local_var_decl_code .= "\toff_t *_LIBGTOP_ARRAY_off_ptr;\n";
+
+    $recv_buf_code .= "\n";
+    $recv_buf_code .= "\t_LIBGTOP_TEMP_len = 0;\n";
+    $recv_buf_code .= "\t_LIBGTOP_TEMP_ptr = retval;\n";
+    $recv_buf_code .= "\tfor (_LIBGTOP_TEMP_ptr = retval; _LIBGTOP_TEMP_ptr && *_LIBGTOP_TEMP_ptr; _LIBGTOP_TEMP_ptr++)\n";
+    $recv_buf_code .= "\t\t_LIBGTOP_TEMP_len += strlen (*_LIBGTOP_TEMP_ptr)+1;\n";
+    $recv_buf_code .= "\n";
+    $recv_buf_code .= "\t_LIBGTOP_TEMP_len += sizeof (off_t) + 1;\n";
+    $recv_buf_code .= "\t_LIBGTOP_TEMP_len += array.number * sizeof (off_t);\n";
+    $recv_buf_code .= "\t_LIBGTOP_ARRAY_base = glibtop_malloc_r (server, _LIBGTOP_TEMP_len);";
+    $recv_buf_code .= "\t_LIBGTOP_ARRAY_ptr = _LIBGTOP_ARRAY_base;\n";
+    $recv_buf_code .= "\t_LIBGTOP_ARRAY_offset = array.number * sizeof (off_t);\n";
+    $recv_buf_code .= "\t_LIBGTOP_ARRAY_offset += sizeof (off_t);\n";
+    $recv_buf_code .= "\t_LIBGTOP_ARRAY_off_ptr = (off_t *) _LIBGTOP_ARRAY_ptr;\n";
+    $recv_buf_code .= "\n";
+    $recv_buf_code .= "\t*_LIBGTOP_ARRAY_off_ptr++ = _LIBGTOP_ARRAY_offset;\n";
+    $recv_buf_code .= "\tfor (_LIBGTOP_TEMP_ptr = retval; _LIBGTOP_TEMP_ptr && *_LIBGTOP_TEMP_ptr; _LIBGTOP_TEMP_ptr++) {\n";
+    $recv_buf_code .= "\t\t*_LIBGTOP_ARRAY_off_ptr++ = _LIBGTOP_ARRAY_offset;\n";
+    $recv_buf_code .= "\t\t_LIBGTOP_ARRAY_offset += strlen (*_LIBGTOP_TEMP_ptr)+1;\n";
+    $recv_buf_code .= "\t}\n\n";
+    $recv_buf_code .= "\t_LIBGTOP_ARRAY_ptr = (char *) _LIBGTOP_ARRAY_off_ptr;\n";
+    $recv_buf_code .= "\tfor (_LIBGTOP_TEMP_ptr = retval; _LIBGTOP_TEMP_ptr && *_LIBGTOP_TEMP_ptr; _LIBGTOP_TEMP_ptr++) {\n";
+    $recv_buf_code .= "\t\tstrcpy (_LIBGTOP_ARRAY_ptr, *_LIBGTOP_TEMP_ptr);\n";
+    $recv_buf_code .= "\t\t_LIBGTOP_ARRAY_ptr += strlen (*_LIBGTOP_TEMP_ptr)+1;\n";
+    $recv_buf_code .= "\t}\n\n";
+    $recv_buf_code .= "\tif (recv_data_ptr) {\n";
+    $recv_buf_code .= "\t\t*recv_data_ptr = _LIBGTOP_ARRAY_base;\n";
+    $recv_buf_code .= "\t\t*recv_data_size_ptr = _LIBGTOP_TEMP_len;\n";
+    $recv_buf_code .= "\t}\n";
+
+  } elsif ($line_fields[3] =~ /^array/) {
     $recv_buf_code .= "\n";
     $recv_buf_code .= "\tif (recv_data_ptr) {\n";
     $recv_buf_code .= "\t\t*recv_data_ptr = retval;\n";
     $recv_buf_code .= "\t\t*recv_data_size_ptr = array.total;\n";
     $recv_buf_code .= "\t}\n";
+  }
+
+  if ($need_temp_storage) {
+    $local_var_decl_code .= "\tsize_t _LIBGTOP_TEMP_len;\n";
+    $local_var_decl_code .= "\tsize_t _LIBGTOP_DATA_len;\n";
+    $local_var_decl_code .= "\toff_t _LIBGTOP_DATA_offset;\n";
+    $local_var_decl_code .= "\tchar *_LIBGTOP_DATA_ptr;\n";
+
+    $init_local_var_code .= "\t_LIBGTOP_DATA_len = 0;\n";
+    $init_local_var_code .= "\t_LIBGTOP_DATA_offset = 0;\n";
+    $init_local_var_code .= "\t_LIBGTOP_DATA_ptr = ".
+      "(char *) data_ptr;\n";
   }
 
   $func_decl_code = sprintf

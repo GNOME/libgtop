@@ -62,6 +62,7 @@ sub output {
     $features{++$feature_count} = $orig;
     return if $orig =~ /^@/;
 
+    $orig_retval = $retval;
     if ($retval eq 'retval') {
       $retval_param = '&retval';
       $call_prefix = '';
@@ -227,6 +228,22 @@ sub output {
 
     if (!($size_code eq '')) {
       $size_code = sprintf (qq[\t/* send size */\n%s\n], $size_code);
+    }
+
+    if ($orig_retval eq 'pointer(string)') {
+      $call_code .= "\n";
+      $local_var_code .= "\tchar *_LIBGTOP_ARRAY_ptr, **ptrlist;\n";
+      $local_var_code .= "\toff_t *_LIBGTOP_ARRAY_off_ptr;\n";
+      $local_var_code .= "\tint i;\n";
+      $call_code .= "\tptrlist = glibtop_calloc_r (server, array->number+1, sizeof (char *));\n";
+      $call_code .= "\t_LIBGTOP_ARRAY_off_ptr = (off_t *) retval;\n";
+      $call_code .= "\t_LIBGTOP_ARRAY_ptr = (char *) retval;\n";
+      $call_code .= "\t_LIBGTOP_ARRAY_off_ptr++;\n\n";
+      $call_code .= "\tfor (i = 0; i < array->number; i++)\n";
+      $call_code .= "\t\tptrlist [i] = glibtop_strdup_r (server, _LIBGTOP_ARRAY_ptr + *_LIBGTOP_ARRAY_off_ptr++);\n";
+      $call_code .= "\tptrlist [array->number] = NULL;\n\n";
+      $call_code .= "\tglibtop_free_r (server, retval);\n";
+      $call_code .= "\tretval = ptrlist;\n";
     }
 
     $total_code .= sprintf ("%s%s\n%s\n%s\n%s\n",
