@@ -44,3 +44,9 @@ glibtop_get_error_string_l (glibtop *server, unsigned error_number)
 
     return glibtop_strdup_r (server, _(glibtop_error_strings [error_number]));
 }
+
+unsigned
+glibtop_get_errno_l (glibtop *server)
+{
+    return server->glibtop_errno;
+}

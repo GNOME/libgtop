@@ -221,6 +221,14 @@ sub output {
       $sysdeps_code .= sprintf ("\t%sglibtop_get_%s_s (server, buf%s);\n",
 				$prefix, $feature, $call_param);
     }
+
+    if ($line_fields[1] eq 'retval') {
+      $sysdeps_code .= "\tif (retval < 0) {\n";
+      $sysdeps_code .= "\t\tserver->glibtop_errno = -retval;\n";
+      $sysdeps_code .= "\t\tgoto do_return;\n";
+      $sysdeps_code .= "\t} else {\n\t\tserver->glibtop_errno = 0;\n\t}\n\n";
+    }
+      
     $sysdeps_code .= "\tgoto check_missing;\n";
 
     if ($orig !~ /^@/) {
