@@ -741,7 +741,7 @@ msgstr "Glavno ime izvr¹ilne datoteke v klicu exec()"
 
 #: sysdeps/names/procstate.c:53
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Eno-znakovna koda s stanje procesa (S=spi)"
+msgstr "Enoznakovna koda za stanje procesa (S=spi)"
 
 #: sysdeps/names/procstate.c:54
 msgid "effective UID of process"
