@@ -25,6 +25,7 @@
 
 #include <glibtop.h>
 #include <glibtop/error.h>
+#include <glibtop/xmalloc.h>
 #include <glibtop/netinfo.h>
 
 #include <sys/types.h>
@@ -82,7 +83,7 @@ glibtop_init_netinfo_s (glibtop *server)
 
 static int
 _netinfo_ipv4 (glibtop *server, glibtop_netinfo *buf,
-	       const char *interface, int only_common)
+	       const char *interface, glibtop_ifaddr *address)
 {
     int skfd;
 
@@ -91,7 +92,10 @@ _netinfo_ipv4 (glibtop *server, glibtop_netinfo *buf,
 	struct ifreq ifr;
 	unsigned flags;
 
-	if (!only_common) {
+	if (address) {
+	    address->transport = GLIBTOP_TRANSPORT_IPV4;
+	    address->flags |= (1L << GLIBTOP_IFADDR_TRANSPORT);
+
 	    buf->transport = GLIBTOP_TRANSPORT_IPV4;
 	    buf->flags |= (1L << GLIBTOP_NETINFO_TRANSPORT);
 	}
@@ -133,21 +137,26 @@ _netinfo_ipv4 (glibtop *server, glibtop_netinfo *buf,
 	if (flags & IFF_MULTICAST)
 	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_MULTICAST);
 
-	if (!only_common) {
+	if (address) {
 	    strcpy (ifr.ifr_name, interface);
 	    if (!ioctl (skfd, SIOCGIFADDR, &ifr)) {
 		struct sockaddr_in addr =
 		    *(struct sockaddr_in *) &ifr.ifr_addr;
-		memcpy (&buf->address, &addr.sin_addr.s_addr, 4);
-		buf->flags |= (1L << GLIBTOP_NETINFO_ADDRESS);
+
+		address->addr_len = 4;
+		memcpy (&address->address, &addr.sin_addr.s_addr, 4);
+
+		address->flags |= (1L << GLIBTOP_IFADDR_ADDRESS);
+		address->flags |= (1L << GLIBTOP_IFADDR_ADDR_LEN);
 	    }
 
 	    strcpy (ifr.ifr_name, interface);
 	    if (!ioctl (skfd, SIOCGIFNETMASK, &ifr)) {
 		struct sockaddr_in addr =
 		    *(struct sockaddr_in *) &ifr.ifr_addr;
-		memcpy (&buf->subnet, &addr.sin_addr.s_addr, 4);
-		buf->flags |= (1L << GLIBTOP_NETINFO_SUBNET);
+
+		memcpy (&address->subnet, &addr.sin_addr.s_addr, 4);
+		address->flags |= (1L << GLIBTOP_IFADDR_SUBNET);
 	    }
 	}
 
@@ -204,7 +213,7 @@ _parse_ipv6_address (const char *addr_string, u_int8_t *dest)
 
 static int
 _netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
-	       const char *interface)
+	       const char *interface, glibtop_ifaddr *address)
 {
     FILE *f;
     char addr6[40], devname[20];
@@ -212,7 +221,7 @@ _netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
 
 #ifdef HAVE_AFINET6
     /* get common things such as mtu and if_flags */
-    _netinfo_ipv4 (server, buf, interface, 1);
+    _netinfo_ipv4 (server, buf, interface, NULL);
 #endif
 
     buf->transport = GLIBTOP_TRANSPORT_IPV6;
@@ -225,8 +234,14 @@ _netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
 	    if (strcmp (devname, interface))
 		continue;
 
-	    if (!_parse_ipv6_address (addr6, buf->address))
-		buf->flags |= (1L << GLIBTOP_NETINFO_ADDRESS);
+	    if (!_parse_ipv6_address (addr6, address->address))
+		address->flags |= (1L << GLIBTOP_IFADDR_ADDRESS);
+
+	    address->addr_len = 8;
+	    address->scope = scope;
+
+	    address->flags |= (1L << GLIBTOP_IFADDR_ADDR_LEN) |
+		(1L << GLIBTOP_IFADDR_SCOPE);
 
 	    break;
 	}
@@ -241,14 +256,19 @@ _netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
 
 /* Provides network statistics. */
 
-int
-glibtop_get_netinfo_s (glibtop *server, glibtop_netinfo *buf,
-		       const char *interface, u_int64_t transport)
+glibtop_ifaddr *
+glibtop_get_netinfo_s (glibtop *server, glibtop_array *array,
+		       glibtop_netinfo *buf, const char *interface,
+		       u_int64_t transport)
 {
+    GPtrArray *parray;
+    glibtop_ifaddr *retval = NULL;
+    int i;
+
     memset (buf, 0, sizeof (glibtop_netinfo));
 
     if (strlen (interface) >= GLIBTOP_INTERFACE_LEN)
-	return -1;
+	return NULL;
 
     /* Assume IPv4 is the standard until IPv6 becomes more popular. */
     if (transport == GLIBTOP_TRANSPORT_DEFAULT)
@@ -283,16 +303,41 @@ glibtop_get_netinfo_s (glibtop *server, glibtop_netinfo *buf,
 	}
     }
 
-    switch (transport) {
+    parray = g_ptr_array_new ();
+
 #ifdef HAVE_AFINET
-    case GLIBTOP_TRANSPORT_IPV4:
-	return _netinfo_ipv4 (server, buf, interface, 0);
+    if (transport & GLIBTOP_TRANSPORT_IPV4) {
+	glibtop_ifaddr address;
+
+	if (!_netinfo_ipv4 (server, buf, interface, &address))
+	    g_ptr_array_add (parray, g_memdup (&parray, sizeof (array)));
+    }
 #endif /* HAVE_AFINET */
+
 #ifdef HAVE_AFINET6
-    case GLIBTOP_TRANSPORT_IPV6:
-	return _netinfo_ipv6 (server, buf, interface);
+    if (transport & GLIBTOP_TRANSPORT_IPV6) {
+	glibtop_ifaddr address;
+
+	if (!_netinfo_ipv6 (server, buf, interface, &address))
+	    g_ptr_array_add (parray, g_memdup (&parray, sizeof (array)));
+    }
 #endif /* HAVE_AFINET6 */
+
+    if (!parray->len) {
+	g_ptr_array_free (parray, TRUE);
+	return NULL;
     }
 
-    return 0;
+    retval = glibtop_calloc_r (server, parray->len, sizeof (glibtop_ifaddr));
+
+    for (i = 0; i < parray->len; i++)
+	retval [i] = *(glibtop_ifaddr *) parray->pdata [i];
+
+    array->number = parray->len;
+    array->size = sizeof (glibtop_ifaddr);
+    array->total = array->number * array->size;
+
+    g_ptr_array_free (parray, TRUE);
+
+    return retval;
 }

@@ -44,7 +44,16 @@ BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_MAX_INTERFACE		7
 
+#define GLIBTOP_IFADDR_TRANSPORT	0
+#define GLIBTOP_IFADDR_ADDR_LEN		1
+#define GLIBTOP_IFADDR_ADDRESS		2
+#define GLIBTOP_IFADDR_SUBNET		3
+#define GLIBTOP_IFADDR_SCOPE		4
+
+#define GLIBTOP_MAX_IFADDR		5
+
 typedef struct _glibtop_interface	glibtop_interface;
+typedef struct _glibtop_ifaddr		glibtop_ifaddr;
 
 typedef enum _glibtop_interface_type	glibtop_interface_type;
 typedef enum _glibtop_transport		glibtop_transport;
@@ -125,6 +134,16 @@ enum _glibtop_interface_flags {
     GLIBTOP_IF_FLAGS_LINK2,
     GLIBTOP_IF_FLAGS_ALTPHYS,
     GLIBTOP_IF_FLAGS_MULTICAST
+};
+
+struct _glibtop_ifaddr
+{
+    u_int64_t	flags,
+	transport;			/* GLIBTOP_IFADDR_TRANSPORT	*/
+    u_int8_t	addr_len,		/* GLIBTOP_IFADDR_ADDR_LEN	*/
+	address [GLIBTOP_IFADDR_LEN];	/* GLIBTOP_IFADDR_ADDRESS	*/
+    u_int64_t	subnet,			/* GLIBTOP_IFADDR_SUBNET	*/
+	scope;				/* GLIBTOP_IFADDR_SCOPE	*/
 };
 
 struct _glibtop_interface
