@@ -97,9 +97,14 @@ if test "x$gnome_found" != xyes; then
   fi
   GNOME_SUPPORT_CHECKS
 else
-  AM_CONDITIONAL(BUILD_GNOME_SUPPORT, false)
-  AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
+  if test "x$want_gnome" != xno ; then
+    AM_CONDITIONAL(BUILD_GNOME_SUPPORT, false)
+  else
+    GNOME_SUPPORT_CHECKS
+  fi
 fi
+
+AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 
 GNOME_LIBGTOP_SYSDEPS
 GNOME_LIBGTOP_TYPES
