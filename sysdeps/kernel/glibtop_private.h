@@ -69,6 +69,11 @@ glibtop_get_proc_data_proc_kernel_s (glibtop *server,
 				     libgtop_proc_kernel_t *proc_kernel,
 				     pid_t pid);
 
+int
+glibtop_get_proc_data_proc_args_s (glibtop *server, pid_t pid,
+				   char *result, size_t max_len);
+
+
 END_LIBGTOP_DECLS
 
 #endif __GLIBTOP_PRIVATE_H__

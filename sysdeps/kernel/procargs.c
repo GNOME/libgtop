@@ -26,14 +26,17 @@
 #include <glibtop/xmalloc.h>
 #include <glibtop/procargs.h>
 
-static const unsigned long _glibtop_sysdeps_proc_args = 0;
+#include <glibtop_private.h>
+
+static const unsigned long _glibtop_sysdeps_proc_args =
+(1 << GLIBTOP_PROC_ARGS_SIZE);
 
 /* Init function. */
 
 void
 glibtop_init_proc_args_s (glibtop *server)
 {
-	server->sysdeps.proc_args = _glibtop_sysdeps_proc_args;
+    server->sysdeps.proc_args = _glibtop_sysdeps_proc_args;
 }
 
 /* Provides detailed information about a process. */
@@ -42,6 +45,40 @@ char *
 glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len)
 {
-	memset (buf, 0, sizeof (glibtop_proc_args));
+    char buffer [BUFSIZ];
+    char *retval = NULL, *ptr;
+    size_t total;
+    int ret;
+
+    memset (buf, 0, sizeof (glibtop_proc_args));
+
+    if (max_len > BUFSIZ)
+	retval = ptr = glibtop_malloc_r (server, max_len+1);
+    else
+	ptr = buffer;
+
+    if (!max_len)
+	max_len = BUFSIZ;
+
+    ret = glibtop_get_proc_data_proc_args_s (server, pid, ptr, max_len);
+    if (!ret) {
+	if (!retval) glibtop_free_r (server, retval);
 	return NULL;
+    }
+
+    total = ret;
+
+    if (retval) {
+	retval = glibtop_realloc_r (server, retval, total+1);
+    } else {
+	retval = glibtop_malloc_r (server, total+1);
+	memcpy (retval, buffer, total);
+    }
+
+    retval [total] = 0;
+
+    buf->size = total;
+    buf->flags = _glibtop_sysdeps_proc_args;
+
+    return retval;
 }
