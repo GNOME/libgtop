@@ -1,3 +1,8 @@
+2004-12-20  Benoît Dejean  <tazforever@dlfp.org>
+
+	* NEWS:
+	* configure.in: Released 2.9.3.
+
 2004-12-10  Benoît Dejean  <tazforever@dlfp.org>
 
 	* lib/lib.pl: Fixed Argument passing between library and server.
