@@ -24,6 +24,9 @@ AC_CHECK_TOOL(NM,nm)
 NM=`which $NM`
 export CC CXX RANLIB LD AS AR NM
 
+dnl If you want to use libgtop without gnome, comment the following line out.
+GNOME_INIT
+
 AC_LC_SYSDEPS
 
 if test x$libgtop_want_guile = xyes ; then
@@ -60,7 +63,8 @@ AC_PROG_MAKE_SET
 export cross_compiling
 AM_PROG_LIBTOOL
 
-GNOME_SUPPORT_CHECKS
+dnl You need to uncomment the following line if you want to use libgtop without Gnome.
+dnl GNOME_SUPPORT_CHECKS
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
@@ -101,12 +105,24 @@ AC_SUBST(LDFLAGS)
 
 AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]],AC_DEFINE(GNOME_ENABLE_DEBUG),)
 
-LIBSUPPORT=
-SUPPORTINCS=
-if test "$need_gnome_support" = yes; then
-   LIBSUPPORT='$(top_builddir)/support/libgnomesupport.la'
-   SUPPORTINCS='-I$(top_srcdir)/support'
+dnl If you want to use libgtop without gnome, uncomment the following paragraph:
+dnl LIBSUPPORT=
+dnl SUPPORTINCS=
+dnl if test "$need_gnome_support" = yes; then
+dnl    LIBSUPPORT='$(top_builddir)/support/libgnomesupport.la'
+dnl    SUPPORTINCS='-I$(top_srcdir)/support'
+dnl fi
+dnl AC_SUBST(LIBSUPPORT)
+dnl AC_SUBST(SUPPORTINCS)
+
+dnl Some ugly hack; if '-lgnomesupport' is part of $GNOME_LIBS, we include it here.
+echo "$GNOME_LIBS" | grep -q -e '-lgnomesupport'
+if test $? = 0 ; then
+  LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
+  SUPPORTINCS="$GNOME_INCLUDEDIR"
 fi
+AC_SUBST(LIBSUPPORT)
+AC_SUBST(SUPPORTINCS)
 
 dnl These definitions are expanded in make.
 LIBGTOP_LIBS='-L$(libdir)'
@@ -153,6 +169,7 @@ else
 fi
 
 if test "x$ac_cv_guile_found" = "xyes" ; then
+  LIBGTOP_INCS="$LIBGTOP_INCS $GUILE_INCS"
   LIBGTOP_GUILE_INCS="$LIBGTOP_INCS $GUILE_INCS"
   LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $GUILE_LIBS"
 fi
@@ -167,9 +184,6 @@ AC_SUBST(LIBGTOP_GUILE_LIBS)
 AC_SUBST(LIBGTOP_GUILE_INCS)
 AC_SUBST(LIBGTOP_BINDIR)
 AC_SUBST(LIBGTOP_SERVER)
-
-AC_SUBST(LIBSUPPORT)
-AC_SUBST(SUPPORTINCS)
 
 AC_OUTPUT([
 Makefile
@@ -191,5 +205,4 @@ src/server/Makefile
 src/proxy/Makefile
 lib/Makefile
 examples/Makefile
-support/Makefile
 macros/Makefile],[sed -e "/POTFILES =/r po/POTFILES" po/Makefile.in > po/Makefile])

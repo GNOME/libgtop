@@ -17,6 +17,33 @@
 	* sysdeps/names/*.c (glibtop_types_*): Using numeric
 	constants from `types.h' instead of string constants.
 
+1998-06-05  Martin Baulig  <baulig@taurus.uni-trier.de>
+
+	* support: removed that directory.
+
+	* configure.in: we check whether '-lgnomesupport' is
+	included in $GNOME_LIBS and add it together with
+	$GNOME_LIBDIR to LIBSUPPORT in this case.
+
+	Gnome (gnome-libs) is now required to build libgtop,
+	added short comment to configure.in how to revert this
+	change.
+
+	* Makefile.am: removed `support' subdir.
+
+1998-06-03  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* libgtop.spec: New file.
+	
+	* Makefile.am (EXTRA_DIST): Added `autogen.sh' and
+	`libgtop.spec'.
+	
+	* configure.in (LIBGTOP_INCS): is now identically to
+	`LIBGTOP_GUILE_INCS'.
+
+	* include/glibtop/global.h: only including intl headers
+	while compiling libgtop.
+
 1998-06-02  Federico Mena Quintero  <federico@nuclecu.unam.mx>
 
 	* src/server/main.c: #include <locale.h>
