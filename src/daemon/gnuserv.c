@@ -41,7 +41,7 @@
 
 #include <glibtop/gnuserv.h>
 
-#include <gnomesupport-fake.h>
+#include <gnome-argp.h>
 #include <popt-gnome.h>
 
 #include "daemon.h"
