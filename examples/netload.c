@@ -40,6 +40,24 @@
 #define PROFILE_COUNT	1
 #endif
 
+
+static char* hwaddress_format_for_display(glibtop_netload *buf)
+{
+	unsigned i;
+	GString *repr = g_string_new("");
+	char *str;
+
+	for(i = 0; i < sizeof buf->hwaddress; ++i)
+		g_string_append_printf(repr, "%02X:",
+				       (unsigned) ((char*)buf->hwaddress)[i]);
+
+	repr->str [ repr->len - 1] = ' ';
+	str = g_string_free(repr, FALSE);
+	g_strstrip(str);
+	return str;
+}
+
+
 int
 main (int argc, char *argv [])
 {
@@ -47,6 +65,8 @@ main (int argc, char *argv [])
 	unsigned method, count, port;
 	struct in_addr addr, subnet;
 	char *address_string, *subnet_string;
+	char address6_string[INET6_ADDRSTRLEN], prefix6_string[INET6_ADDRSTRLEN];
+	char *hwaddress_string;
 	char buffer [BUFSIZ];
 
 	count = PROFILE_COUNT;
@@ -86,36 +106,50 @@ main (int argc, char *argv [])
 	address_string = g_strdup (inet_ntoa (addr));
 	subnet_string  = g_strdup (inet_ntoa (subnet));
 
-	printf ("Network Load (0x%08lx):\n\n"
-		"\tInterface Flags:\t0x%08lx\n"
-		"\tAddress:\t\t0x%08lx - %s\n"
-		"\tSubnet:\t\t\t0x%08lx - %s\n\n"
-		"\tMTU:\t\t\t%ld\n"
-		"\tCollisions:\t\t%ld\n\n"
-		"\tPackets In:\t\t%ld\n"
-		"\tPackets Out:\t\t%ld\n"
-		"\tPackets Total:\t\t%ld\n\n"
-		"\tBytes In:\t\t%ld\n"
-		"\tBytes Out:\t\t%ld\n"
-		"\tBytes Total:\t\t%ld\n\n"
-		"\tErrors In:\t\t%ld\n"
-		"\tErrors Out:\t\t%ld\n"
-		"\tErrors Total:\t\t%ld\n\n",
-		(unsigned long) netload.flags,
-		(unsigned long) netload.if_flags,
-		(unsigned long) netload.address, address_string,
-		(unsigned long) netload.subnet,  subnet_string,
-		(unsigned long) netload.mtu,
-		(unsigned long) netload.collisions,
-		(unsigned long) netload.packets_in,
-		(unsigned long) netload.packets_out,
-		(unsigned long) netload.packets_total,
-		(unsigned long) netload.bytes_in,
-		(unsigned long) netload.bytes_out,
-		(unsigned long) netload.bytes_total,
-		(unsigned long) netload.errors_in,
-		(unsigned long) netload.errors_out,
-		(unsigned long) netload.errors_total);
+	inet_ntop (AF_INET6, netload.address6, address6_string, INET6_ADDRSTRLEN);
+	inet_ntop (AF_INET6, netload.prefix6,  prefix6_string,  INET6_ADDRSTRLEN);
+
+	hwaddress_string = hwaddress_format_for_display(&netload);
+
+	printf ("Network Load (0x%016llx):\n\n"
+		"\tInterface Flags:\t0x%016llx\n"
+		"\tAddress:\t\t0x%08x - %s\n"
+		"\tSubnet:\t\t\t0x%08x - %s\n\n"
+		"\tMTU:\t\t\t%d\n"
+		"\tCollisions:\t\t%llu\n\n"
+		"\tPackets In:\t\t%llu\n"
+		"\tPackets Out:\t\t%llu\n"
+		"\tPackets Total:\t\t%llu\n\n"
+		"\tBytes In:\t\t%llu\n"
+		"\tBytes Out:\t\t%llu\n"
+		"\tBytes Total:\t\t%llu\n\n"
+		"\tErrors In:\t\t%llu\n"
+		"\tErrors Out:\t\t%llu\n"
+		"\tErrors Total:\t\t%llu\n\n"
+		"\tAddress6:\t\t%s\n"
+		"\tPrefix6:\t\t%s\n"
+		"\tScope6:\t\t\t%#03x\n\n"
+		"\tHarware Address:\t%s\n\n",
+		netload.flags,
+		netload.if_flags,
+		(guint32) netload.address, address_string,
+		(guint32) netload.subnet,  subnet_string,
+		netload.mtu,
+		netload.collisions,
+		netload.packets_in,
+		netload.packets_out,
+		netload.packets_total,
+		netload.bytes_in,
+		netload.bytes_out,
+		netload.bytes_total,
+		netload.errors_in,
+		netload.errors_out,
+		netload.errors_total,
+		address6_string,
+		prefix6_string,
+		(int) netload.scope6,
+		hwaddress_string);
+
 
 	g_free (address_string);
 	g_free (subnet_string);

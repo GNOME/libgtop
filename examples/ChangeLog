@@ -1,3 +1,7 @@
+2004-11-15  Benoît Dejean  <tazforever@dlfp.org>
+
+	* netload.c: (hwaddress_format_for_display), (main): Updated.
+
 2004-11-13  Benoît Dejean  <tazforever@dlfp.org>
 
 	* pprint.c: (pprint_get_fsusage), (pprint_get_mountlist),
