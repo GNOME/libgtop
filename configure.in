@@ -235,6 +235,10 @@ if test x$build_inodedb = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DGLIBTOP_INODEDB"
 fi
 
+if test x$libgtop_have_sysinfo = xyes ; then
+  LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SYSINFO"
+fi
+
 LIBGTOP_INCS="$LIBGTOP_INCS $SUPPORTINCS"
 
 LIBGTOP_GUILE_LIBS="$LIBGTOP_LIBS"

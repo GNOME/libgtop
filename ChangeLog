@@ -1,11 +1,15 @@
 1998-09-12  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/sysinfo.h: New file. This is used in guname to
+	fetch as many information about the system as possible like detailed
+	information about hardware etc.
+
 	* configure.in (AM_PATH_GLIB): LibGTop now requires glib.
 
 1998-09-09  Martin Baulig <baulig@Stud.Informatik.uni-trier.de>
 
-	* include/glibtop/proctime.h (glibtop_proc_time): Added `xcpu_utime' and
-	`xcpu_stime'.
+	* include/glibtop/proctime.h (glibtop_proc_time): Added `xcpu_utime'
+ 	and `xcpu_stime'.
 
 	* sysdeps/linux/ChangeLog: New file.
 
