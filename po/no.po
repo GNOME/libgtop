@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.2\n"
-"POT-Creation-Date: 1999-10-16 20:49+0200\n"
-"PO-Revision-Date: 1999-07-11 03:58+0200\n"
+"POT-Creation-Date: 1999-12-01 10:53+0100\n"
+"PO-Revision-Date: 1999-12-01 10:54+01:00\n"
 "Last-Translator: Kjartan Maraas <kmaraas@online.no>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -977,111 +977,115 @@ msgstr "Totalt antall swap-sider som har blitt brakt inn siden systemoppstart"
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "Totalt antall swap-sider som har blitt hentet ut siden systemoppstart"
 
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
 msgid "Server Features"
 msgstr "Vertsegenskaper"
 
-#: sysdeps/names/sysdeps.c:52
+#: sysdeps/names/sysdeps.c:54
 msgid "Pointer Size"
 msgstr "Pekerstørrelse"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:84
 msgid "CPU Usage"
 msgstr "Prosessorbruk"
 
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:85
 msgid "Memory Usage"
 msgstr "Minnebruk"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:86
 msgid "Swap Usage"
 msgstr "Swapbruk"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:87
 msgid "System Uptime"
 msgstr "Systemets oppetid"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:88
 msgid "Load Averange"
 msgstr "Gjennomsnittsbelastning"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:89
 msgid "Shared Memory Limits"
 msgstr "Grenser for delt minne"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:90
 msgid "Message Queue Limits"
 msgstr "Grenser for meldingskøer"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:91
 msgid "Semaphore Set Limits"
 msgstr "Grenser for semaforsett"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
 msgid "List of running Processes"
 msgstr "Liste over kjørende prosesser"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
 msgid "Process Status information"
 msgstr "Prosessens tilstandsinformasjon"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
 msgid "Process UID and TTY information"
 msgstr "Prosessens UID- og TTY-informasjon"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
 msgid "Process Memory information"
 msgstr "Prosessens minneinformasjon"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:96
 msgid "Process Time information"
 msgstr "Prosessens tidsinformasjon"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:97
 msgid "Process Signal information"
 msgstr "Prosessens signalinformasjon"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:98
 msgid "Process Kernel Data information"
 msgstr "Prosessens kjernedatainformasjon"
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:99
 msgid "Process Segment information"
 msgstr "Prosessens segmentinformasjon"
 
-#: sysdeps/names/sysdeps.c:69
+#: sysdeps/names/sysdeps.c:71
 msgid "Process Arguments"
 msgstr "Prosessargumenter"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
 msgid "Process Memory Map"
 msgstr "Prosessens minnekart"
 
-#: sysdeps/names/sysdeps.c:71
+#: sysdeps/names/sysdeps.c:73
 msgid "Mount List"
 msgstr "Monteringsliste"
 
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
 msgid "File System Usage"
 msgstr "Bruk av filsystemer"
 
-#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:101
+#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:104
 msgid "Network Load"
 msgstr "Nettverksbelastning"
 
-#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:102
+#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
+msgid "Interface Names"
+msgstr "Navn på grensesnitt"
+
+#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
 msgid "PPP Statistics"
 msgstr "PPP-statistikk"
 
-#: sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:83
 msgid "Pointer Size on the Server (in bits)"
 msgstr "Pekerstørrelse på tjeneren (i bits)"
 
-#: sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:100
 msgid "Command line arguments of the process"
 msgstr "Prosessens kommandolinjeargumenter"
 
-#: sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:102
 msgid "List of currently mounted filesystems"
 msgstr "Liste over monterte filsystemer"
 
@@ -1191,39 +1195,39 @@ msgstr "les data %d bytes"
 msgid "write %d bytes"
 msgstr "skriv %d bytes"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
 msgstr "Slå på avlusing"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
 msgstr "Slå på utfyllende utskrift"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
 msgstr "Ikke forgren til bakgrunnen"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
 msgstr "Kalt fra inetd"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:486
+#: src/daemon/gnuserv.c:488
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
