@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: glibtop 0.99.3\n"
-"POT-Creation-Date: 1999-02-27 22:24+0100\n"
+"Project-Id-Version: glibtop 1.0.0\n"
+"POT-Creation-Date: 1999-02-23 13:48+0100\n"
 "PO-Revision-Date: 1998-12-13 04:38+0100\n"
 "Last-Translator: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
 "Language-Team: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
@@ -690,27 +690,27 @@ msgstr "Tiempo CPU multi procesador en modo núcleo acumulado por el proceso"
 
 #: sysdeps/names/procuid.c:56
 msgid "Uid"
-msgstr ""
+msgstr "Uid"
 
 #: sysdeps/names/procuid.c:56
 msgid "EUid"
-msgstr ""
+msgstr "EUid"
 
 #: sysdeps/names/procuid.c:56
 msgid "Gid"
-msgstr ""
+msgstr "Gid"
 
 #: sysdeps/names/procuid.c:56
 msgid "EGid"
-msgstr ""
+msgstr "EGid"
 
 #: sysdeps/names/procuid.c:56
 msgid "Pid"
-msgstr ""
+msgstr "Pid"
 
 #: sysdeps/names/procuid.c:57
 msgid "PPid"
-msgstr ""
+msgstr "PPid"
 
 #: sysdeps/names/procuid.c:57
 msgid "PGrp"
@@ -722,7 +722,7 @@ msgstr "Sesión"
 
 #: sysdeps/names/procuid.c:57
 msgid "Tty"
-msgstr ""
+msgstr "Tty"
 
 #: sysdeps/names/procuid.c:58
 msgid "TPGid"
@@ -986,7 +986,7 @@ msgstr ""
 
 #: sysdeps/names/uptime.c:44
 msgid "Time in seconds since system boot"
-msgstr "Tiempo en segungos desde el inicio del sistema"
+msgstr "Tiempo en segundos desde el inicio del sistema"
 
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
@@ -1106,7 +1106,7 @@ msgstr "Invocado desde inetd"
 
 #: src/daemon/gnuserv.c:451
 msgid "INETD"
-msgstr ""
+msgstr "INETD"
 
 #: src/daemon/gnuserv.c:485
 #, c-format
