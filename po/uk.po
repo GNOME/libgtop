@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.3\n"
-"POT-Creation-Date: 2001-02-15 12:57+0200\n"
+"POT-Creation-Date: 2001-02-20 07:28+0200\n"
 "PO-Revision-Date: 2000-01-13 17:57+0200\n"
 "Last-Translator: Yuri Syrota <rasta@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -243,23 +243,23 @@ msgstr "Частота такт╕в"
 
 #: sysdeps/names/cpu.c:49
 msgid "SMP Total CPU Time"
-msgstr "Загальний час вс╕х ЦП"
+msgstr "Загальний SMP-час ЦП"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in User Mode"
-msgstr "Час вс╕х ЦП в користувацькому режим╕"
+msgstr "SMP-час ЦП в користувацькому режим╕"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "Час вс╕х ЦП в користувацькому режим╕ (замовлено)"
+msgstr "SMP-час ЦП в користувацькому режим╕ (замовлено)"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in System Mode"
-msgstr "Час вс╕х ЦП в системному режим╕"
+msgstr "SMP-час ЦП в системному режим╕"
 
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in the Idle Task"
-msgstr "Час простою вс╕х ЦП"
+msgstr "SMP-час простою ЦП"
 
 #: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 msgid "Number of clock ticks since system boot"
@@ -898,11 +898,11 @@ msgstr "Тактова частота"
 
 #: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "SMP-час ЦП накопичений процесом у режим╕ користувача"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "SMP-час ЦП накопичений процесом у режим╕ ядра"
 
 #: sysdeps/names/procuid.c:56
 msgid "Uid"
@@ -982,11 +982,11 @@ msgstr "╤дентиф╕катор сеансу"
 
 #: sysdeps/names/procuid.c:71
 msgid "Full device number of controlling terminal"
-msgstr ""
+msgstr "Повний номер пристрою контролю терм╕налу"
 
 #: sysdeps/names/procuid.c:72
 msgid "Terminal process group ID"
-msgstr ""
+msgstr "╤дентиф╕катор групи терм╕нально процесу"
 
 #: sysdeps/names/procuid.c:73
 msgid "Kernel scheduling priority"
