@@ -46,36 +46,20 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 		return;
 	}
 
-	if (pid != server->machine.last_pid) {
-		server->machine.last_pid = pid;
-		server->machine.no_update = 0;
-	}
-
-	if (!server->machine.no_update) {
-		server->machine.proc_status [0] = 0;
-		server->machine.proc_statm [0] = 0;
-		server->machine.proc_stat [0] = 0;
-	}
-
-	if (server->machine.proc_stat [0]) {
-		strcpy (buffer, server->machine.proc_stat);
-	} else {
-		sprintf (input, "/proc/%d/stat", pid);
+	sprintf (input, "/proc/%d/stat", pid);
 		
-		fd = open (input, O_RDONLY);
-		if (fd == -1)
-			glibtop_error_r (server, "open (%s): %s",
-					 input, strerror (errno));
+	fd = open (input, O_RDONLY);
+	if (fd == -1)
+		glibtop_error_r (server, "open (%s): %s",
+				 input, strerror (errno));
 		
-		nread = read (fd, buffer, BUFSIZ);
-		if (nread == -1)
-			glibtop_error_r (server, "read (%s): %s",
-					 input, strerror (errno));
+	nread = read (fd, buffer, BUFSIZ);
+	if (nread == -1)
+		glibtop_error_r (server, "read (%s): %s",
+				 input, strerror (errno));
 		
-		buffer [nread] = 0;
-		strcpy (server->machine.proc_stat, buffer);
-		close (fd);
-	}
+	buffer [nread] = 0;
+	close (fd);
 	
 	/* This is from guile-utils/gtop/proc/readproc.c */
 	
@@ -88,25 +72,20 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 	       "%*d %*d %*d %*d %*d %*d %*u %*u %*d %lu "
 	       "%lu %lu", &buf->vsize, &buf->rss, &buf->rss_rlim);
 	
-	if (server->machine.proc_statm [0]) {
-		strcpy (buffer, server->machine.proc_statm);
-	} else {
-		sprintf (input, "/proc/%d/statm", pid);
+	sprintf (input, "/proc/%d/statm", pid);
 		
-		fd = open (input, O_RDONLY);
-		if (fd == -1)
-			glibtop_error_r (server, "open (%s): %s",
-					 input, strerror (errno));
+	fd = open (input, O_RDONLY);
+	if (fd == -1)
+		glibtop_error_r (server, "open (%s): %s",
+				 input, strerror (errno));
 		
-		nread = read (fd, buffer, BUFSIZ);
-		if (nread == -1)
-			glibtop_error_r (server, "read (%s): %s",
-					 input, strerror (errno));
+	nread = read (fd, buffer, BUFSIZ);
+	if (nread == -1)
+		glibtop_error_r (server, "read (%s): %s",
+				 input, strerror (errno));
 
-		buffer [nread] = 0;
-		strcpy (server->machine.proc_statm, buffer);
-		close (fd);
-	}
+	buffer [nread] = 0;
+	close (fd);
 		
 	sscanf (buffer, "%ld %ld %ld",
 		&buf->size, &buf->resident, &buf->share);

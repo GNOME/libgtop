@@ -48,12 +48,6 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 		return;
 	}
 
-	server->machine.last_pid = pid;
-	server->machine.no_update = 0;
-	server->machine.proc_status [0] = 0;
-	server->machine.proc_statm [0] = 0;
-	server->machine.proc_stat [0] = 0;
-
 	sprintf (input, "/proc/%d/stat", pid);
 
 	/* IMPORTANT NOTICE: For security reasons it is extremely important
@@ -80,9 +74,6 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	
 	buffer [nread] = 0;
 
-	server->machine.last_pid = pid;
-	strcpy (server->machine.proc_stat, buffer);
-	
 	/* This is from guile-utils/gtop/proc/readproc.c */
 	
 	/* split into "PID (cmd" and "<rest>" */

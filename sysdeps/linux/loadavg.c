@@ -42,17 +42,10 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 
 	buf->flags = _glibtop_sysdeps_loadavg;
 
-#ifdef GLIBTOP_CACHE_OPEN
-	fd = server->machine.fd_loadavg;
-#endif
-	if (fd == 0) {
-		fd = open (FILENAME, O_RDONLY);
-		if (fd == -1)
-			glibtop_error_r (server, "open (%s): %s",
-					 FILENAME, strerror (errno));
-	} else {
-		lseek (fd, 0, SEEK_SET);
-	}
+	fd = open (FILENAME, O_RDONLY);
+	if (fd == -1)
+		glibtop_error_r (server, "open (%s): %s",
+				 FILENAME, strerror (errno));
 
 	ret = read (fd, buffer, BUFSIZ);
 	if (ret == -1)
@@ -63,9 +56,5 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	buf->loadavg [1] = strtod (tmp, &tmp);
 	buf->loadavg [2] = strtod (tmp, &tmp);
 
-#ifdef GLIBTOP_CACHE_OPEN
-	server->machine.fd_loadavg = fd;
-#else
 	close (fd);
-#endif
 }

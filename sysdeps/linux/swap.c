@@ -43,17 +43,10 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
 	buf->flags = _glibtop_sysdeps_swap;
 
-#ifdef GLIBTOP_CACHE_OPEN
-	fd = server->machine.fd_meminfo;
-#endif
-	if (fd == 0) {
-		fd = open (FILENAME, O_RDONLY);
-		if (fd == -1)
-			glibtop_error_r (server, "open (%s): %s",
-					 FILENAME, strerror (errno));
-	} else {
-		lseek (fd, 0, SEEK_SET);
-	}
+	fd = open (FILENAME, O_RDONLY);
+	if (fd == -1)
+		glibtop_error_r (server, "open (%s): %s",
+				 FILENAME, strerror (errno));
 
 	ret = read (fd, buffer, BUFSIZ);
 	if (ret == -1)
@@ -64,13 +57,10 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	tmp = strchr (tmp+1, '\n');
 	
 	tmp = skip_token (tmp);			/* "Swap:" */
+
 	buf->total = strtoul (tmp, &tmp, 10);
 	buf->used  = strtoul (tmp, &tmp, 10);
 	buf->free  = strtoul (tmp, &tmp, 10);
 
-#ifdef GLIBTOP_CACHE_OPEN
-	server->machine.fd_meminfo = fd;
-#else
 	close (fd);
-#endif
 }

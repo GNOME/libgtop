@@ -45,17 +45,10 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 
 	buf->flags = _glibtop_sysdeps_mem;
 
-#ifdef GLIBTOP_CACHE_OPEN
-	fd = server->machine.fd_meminfo;
-#endif
-	if (fd == 0) {
-		fd = open (FILENAME, O_RDONLY);
-		if (fd == -1)
-			glibtop_error_r (server, "open (%s): %s",
-					 FILENAME, strerror (errno));
-	} else {
-		lseek (fd, 0, SEEK_SET);
-	}
+	fd = open (FILENAME, O_RDONLY);
+	if (fd == -1)
+		glibtop_error_r (server, "open (%s): %s",
+				 FILENAME, strerror (errno));
 
 	ret = read (fd, buffer, BUFSIZ);
 	if (ret == -1)
@@ -75,9 +68,5 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 
 	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
 
-#ifdef GLIBTOP_CACHE_OPEN
-	server->machine.fd_meminfo = fd;
-#else
 	close (fd);
-#endif
 }
