@@ -78,7 +78,8 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 			  break;
 	    case SZOMB:   buf->state = GLIBTOP_PROCESS_ZOMBIE;
 			  break;
-	    case SSLEEP:
+	    case SSLEEP:  buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
+			  break;
 	    case SSTOP:   buf->state = GLIBTOP_PROCESS_STOPPED;
 			  break;
 	    case SIDL:    buf->state = GLIBTOP_PROCESS_UNINTERRUPTIBLE;
