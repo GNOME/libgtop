@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-09-29 02:37+0200\n"
+"POT-Creation-Date: 1999-10-16 20:49+0200\n"
 "PO-Revision-Date: 1999-07-27 18:24+0200\n"
 "Last-Translator: Vincent Renardias <vincent@ldsol.com>\n"
 "Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"

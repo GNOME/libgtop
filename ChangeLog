@@ -1,5 +1,8 @@
 1999-10-18  Martin Baulig  <martin@home-of-linux.org>
 
+	* RELNOTES-1.1.x: New file. We also track all changes since
+	1.0.x here.
+
 	* NEWS: We start maintaining a NEWS file now :)
 
 	* NEWS.old: Removed obsolete file.

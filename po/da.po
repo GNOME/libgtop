@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.99.3\n"
-"POT-Creation-Date: 1999-10-08 21:57+0200\n"
+"POT-Creation-Date: 1999-10-16 20:49+0200\n"
 "PO-Revision-Date: 1999-10-08 22:12+02:00\n"
 "Last-Translator: Kenneth Christiansen <kenneth@ripen.dk>\n"
 "Language-Team: Dansk/Danish <da@li.org>\n"
@@ -375,7 +375,8 @@ msgid ""
 msgstr ""
 "Processens kerneflag.\n"
 "\n"
-"Under Linux har alle flag matematik-biten sat, fordi crt0.s tjekker efter matematikemulering, så dette er ikke inkluderet i uddata.\n"
+"Under Linux har alle flag matematik-biten sat, fordi crt0.s tjekker efter "
+"matematikemulering, så dette er ikke inkluderet i uddata.\n"
 "\n"
 "Dette er nok en fejl, siden ikke alle processer er et kompileret C program.\n"
 "Matematikbiten bør være decimal 4, og den tracede bit er decimal 10."
@@ -386,7 +387,9 @@ msgstr ""
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
-msgstr "Antal mindre fejl processen har lavet, som ikke har gjort det nødvendig at læse en hukommelsesside ind fra disk."
+msgstr ""
+"Antal mindre fejl processen har lavet, som ikke har gjort det nødvendig at "
+"læse en hukommelsesside ind fra disk."
 
 # sysdeps/names/prockernel.c:64
 #. Maj_Flt
@@ -503,7 +506,11 @@ msgid ""
 "purposes. This is just the pages which count towards text, data, or stack "
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
-msgstr "Antal sider processen har i fysisk hukommelse, minus 3 for administrative opgaver. Dette er kun de sider som tæller mht. tekst, data eller stakplads. Dette inkluderer ikke sider som ikke er indlæst ved behov, eller som er swappet ud."
+msgstr ""
+"Antal sider processen har i fysisk hukommelse, minus 3 for administrative "
+"opgaver. Dette er kun de sider som tæller mht. tekst, data eller stakplads. "
+"Dette inkluderer ikke sider som ikke er indlæst ved behov, eller som er "
+"swappet ud."
 
 # sysdeps/names/procmem.c:64
 #: sysdeps/names/procmem.c:64
@@ -891,7 +898,9 @@ msgstr "Tiden (i jiffi'er) for processens næste tidsudløb"
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
-msgstr "Tiden (i jiffi'er) før næste SIGALARM bliver sendt til processen på grund af en intervaltimer."
+msgstr ""
+"Tiden (i jiffi'er) før næste SIGALARM bliver sendt til processen på grund af "
+"en intervaltimer."
 
 # sysdeps/names/proctime.c:63
 #: sysdeps/names/proctime.c:63

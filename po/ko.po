@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.1\n"
-"POT-Creation-Date: 1999-09-29 23:26+0900\n"
+"POT-Creation-Date: 1999-10-16 20:49+0200\n"
 "PO-Revision-Date: 1999-10-04 14:19:43+0900\n"
 "Last-Translator: Sung-Hyun Nam <namsh@kldp.org>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -730,8 +730,7 @@ msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
-"다음 SIGALRM이 간격 타이머에 의해 프로세스에게 보내지기 전 시간 "
-"(in jiffies)"
+"다음 SIGALRM이 간격 타이머에 의해 프로세스에게 보내지기 전 시간 (in jiffies)"
 
 #: sysdeps/names/proctime.c:63
 msgid "Tick frequency"

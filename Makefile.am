@@ -18,7 +18,8 @@ configincludedir = $(pkglibdir)/include
 
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt libgtopConf.sh.in \
 	LIBGTOP-VERSION features.def libgtop-config.in RELNOTES-0.25 \
-	RELNOTES-1.0 libgtop-sysdeps.m4 README libgtop-mirror.sh
+	RELNOTES-1.0 RELNOTES-1.1.x libgtop-sysdeps.m4 README \
+	libgtop-mirror.sh
 
 configinclude_DATA = \
 	glibtop-config.h
