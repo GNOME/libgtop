@@ -1,0 +1,1807 @@
+@node Reference Manual, , White Paper, Top
+@chapter LibGTop Reference Manual
+
+@menu
+* System Dependent::            System Dependent Functions.
+* Common Functions::            Common Functions.
+* Library Functions::           Library Functions.
+@end menu
+
+@node System Dependent, Common Functions, Reference Manual, Reference Manual
+@section System Dependent Functions
+
+@menu
+* glibtop_cpu::                 CPU Usage.
+* glibtop_mem::                 Memory Usage.
+* glibtop_swap::                Swap Usage.
+* glibtop_uptime::              System Uptime.
+* glibtop_loadavg::             Load Average.
+* glibtop_proclist::            Process List.
+* glibtop_proc_state::          Process State.
+* glibtop_proc_uid::            Process UID and TTY Information.
+* glibtop_proc_mem::            Process Memory Information.
+* glibtop_proc_time::           Process Time Information.
+* glibtop_proc_signal::         Process Signal Information.
+* glibtop_proc_kernel::         Process Kernel Data Information.
+* glibtop_proc_segment::        Process Segment Information.
+* glibtop_proc_args::           Process Arguments.
+* glibtop_proc_map::            Process Memory Maps.
+* glibtop_netload::             Network Load.
+* glibtop_ppp::                 PPP Usage.
+@end menu
+
+@node glibtop_cpu, glibtop_mem, System Dependent, System Dependent
+@subsection CPU Usage
+
+Library function @code{glibtop_get_cpu}:
+
+@example
+@cartouche
+void glibtop_get_cpu (glibtop_cpu *buf);
+void glibtop_get_cpu_l (glibtop *server, glibtop_cpu *buf);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_cpu} in @file{<glibtop/cpu.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_cpu     glibtop_cpu;
+
+struct _glibtop_cpu
+@{
+    u_int64_t   flags,
+        total,
+        user,
+        nice,
+        sys,
+        idle,
+        frequency,
+        xcpu_total [GLIBTOP_NCPU],
+        xcpu_user [GLIBTOP_NCPU],
+        xcpu_nice [GLIBTOP_NCPU],
+        xcpu_sys  [GLIBTOP_NCPU],
+@ifset LIBGTOP-1-1
+        xcpu_idle [GLIBTOP_NCPU],
+        xcpu_flags;
+@end ifset
+@ifclear LIBGTOP-1-1
+        xcpu_idle [GLIBTOP_NCPU];
+@end ifclear
+@};
+@end cartouche
+@end example
+
+All CPU units are measured in @dfn{jiffies} which are normally 1/100th of a
+second (in which case @code{frequency} equals 100), but can also be in any
+other unit. To get seconds, divide them by @code{frequency}.
+
+@table @code
+@item total
+Number of clock ticks since system boot.
+
+@item user
+Number of clock ticks the system spent in user mode.
+
+@item nice
+Number of clock ticks the system spent in user mode (nice).
+
+@item sys
+Number of clock ticks the system spent in system mode.
+
+@item idle
+Number of clock ticks the system spent in the idle task.
+
+@item frequency
+Tick frequency (default is 100).
+
+@end table
+
+The @samp{xcpu_} values are for SMP systems - they are the same than
+@code{total}, @code{user}, @code{nice}, @code{sys} and @code{idle}
+except that they are arrays of @code{GLIBTOP_NCPU} (defined in
+@file{<glibtop/limits.h>}) elements and contain one value for each CPU
+in the system.
+
+@ifset LIBGTOP-1-1
+@table @code
+@item xcpu_flags
+This is interpreted as a bit-field: on systems like Solaris, not all CPUs
+need to be running all the time, so we set the corresponding bit for each
+CPU that is currently running.
+@end table
+@end ifset
+
+Please note that all of the cpu values are absolute values measured in
+certain units (to get seconds, divide them by @code{frequency}) since system
+boot. To get percentual values, you need to call @code{glibtop_cpu}, save the
+result, wait some time and then call it again and divide the differences of
+the two values by the time you have waited.
+
+@page
+@node glibtop_mem, glibtop_swap, glibtop_cpu, System Dependent
+@subsection Memory Usage
+
+Library function @code{glibtop_get_mem}:
+
+@example
+@cartouche
+void glibtop_get_mem (glibtop_mem *buf);
+void glibtop_get_mem_l (glibtop *server, glibtop_mem *buf);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_mem} in @file{<glibtop/mem.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_mem     glibtop_mem;
+
+struct _glibtop_mem
+@{
+    u_int64_t   flags,
+        total,
+        used,
+        free,
+        shared,
+        buffer,
+        cached,
+        user,
+        locked;
+@};
+@end cartouche
+@end example
+
+Unless explicitly stated otherwise, all memory units are in bytes.
+
+@table @code
+@item total
+Total physical memory.
+
+@item used
+Used memory size.
+
+@item free
+Free memory size.
+
+@item shared
+Shared memory size.
+
+This are both segments that are @code{mmap()}ed with @code{MAP_SHARED} and
+IPC Shared Memory segments.
+
+@item buffer
+Size of buffers.
+
+@item cached
+Size of cached memory.
+
+@item user
+Memory used from user processes.
+
+This is normally @code{total - free - shared - buffer - cached}.
+
+@item locked
+Memory in locked segments.
+
+@end table
+
+@page
+@node glibtop_swap, glibtop_uptime, glibtop_mem, System Dependent
+@subsection Swap Usage
+
+Library function @code{glibtop_get_swap}:
+
+@example
+@cartouche
+void glibtop_get_swap (glibtop_swap *buf);
+void glibtop_get_swap_l (glibtop *server, glibtop_swap *buf);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_swap} in @file{<glibtop/swap.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_swap    glibtop_swap;
+
+struct _glibtop_swap
+@{
+    u_int64_t   flags,
+        total,
+        used,
+        free,
+        pagein,
+        pageout;
+@};
+@end cartouche
+@end example
+
+The following units are in bytes.
+
+@table @code
+@item total
+Total swap space in the system.
+
+@item used
+Used swap space.
+
+@item free
+Free swap space.
+@end table
+
+You can use @code{pagein} and @code{pageout} to get some measure about how
+much the system is swapping at the moment. They're increased each time a page
+is swapped in or out, so you need to save this values, wait a little bit, get
+them again and then compare the two results to find out how much the system
+swapped in the meantime.
+
+@table @code
+@item pagein
+Total number of swap pages that have been brought in since system boot
+
+@item pageout
+Total number of swap pages that have been brought out since system boot
+
+@end table
+
+@page
+@node glibtop_uptime, glibtop_loadavg, glibtop_swap, System Dependent
+@subsection Uptime
+
+Library function @code{glibtop_get_uptime}:
+
+@example
+@cartouche
+void glibtop_get_uptime (glibtop_uptime *buf);
+void glibtop_get_uptime_l (glibtop *server, glibtop_uptime *buf);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_uptime} in @file{<glibtop/uptime.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_uptime  glibtop_uptime;
+
+struct _glibtop_uptime
+@{
+    u_int64_t flags;
+    double uptime,
+        idletime;
+    u_int64_t boot_time;
+@};
+@end cartouche
+@end example
+
+When porting LibGTop to a new system, you only need to implement @code{uptime}
+and @code{idletime} if there's a faster or better way to obtain them as using
+@code{glibtop_cpu} for it. Look at @file{sysdeps/freebsd/uptime.c} for an
+example on how to obtain them using @code{glibtop_cpu}.
+
+@table @code
+@item uptime
+Time in seconds since system boot.
+
+@item idletime
+Time in seconds the system spent in the idle task since system boot.
+@end table
+
+The following one was from a request on the @samp{linux-kernel} mailing list;
+on a laptop with advanced power management @code{glibtop_cpu.total} may not
+reflect the correct boot time of the system if the power was turned off by
+means of APM in the meantime.
+
+@table @code
+@item boot_time
+Time of last system boot in seconds since the epoch.
+@end table
+
+@page
+@node glibtop_loadavg, glibtop_proclist, glibtop_uptime, System Dependent
+@subsection Load Average
+
+Library function @code{glibtop_get_loadavg}:
+
+@example
+@cartouche
+void glibtop_get_loadavg (glibtop_loadavg *buf);
+void glibtop_get_loadavg_l (glibtop *server, glibtop_loadavg *buf);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_loadavg} in @file{<glibtop/loadavg.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_loadavg glibtop_loadavg;
+
+struct _glibtop_loadavg
+@{
+    u_int64_t flags;
+    double loadavg [3];
+    u_int64_t nr_running,
+        nr_tasks,
+        last_pid;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item loadavg
+
+Number of jobs running simultaneously averaged over 1, 5 and 15 minutes.
+
+@end table
+
+The following fields are Linux specific and deprecated. You don't need to
+implement them when porting LibGTop to a new system as they may be removed
+in a future version.
+
+@table @code
+@item nr_running
+Number of tasks currently running.
+
+@item nr_tasks
+Total number of tasks.
+
+@item last_pid
+Last PID.
+@end table
+
+@page
+@node glibtop_proclist, glibtop_proc_state, glibtop_loadavg, System Dependent
+@subsection Process List
+
+Library function @code{glibtop_get_proclist}:
+
+@example
+@cartouche
+unsigned *
+glibtop_get_proclist (glibtop_proclist *buf,
+                      int64_t which, int64_t arg);
+
+unsigned *
+glibtop_get_proclist_l (glibtop *server, glibtop_proclist *buf,
+                        int64_t which, int64_t arg);
+@end cartouche
+@end example
+
+Constants for the @code{which} argument:
+
+@example
+@cartouche
+#define GLIBTOP_KERN_PROC_ALL           0
+#define GLIBTOP_KERN_PROC_PID           1
+#define GLIBTOP_KERN_PROC_PGRP          2
+#define GLIBTOP_KERN_PROC_SESSION       3
+#define GLIBTOP_KERN_PROC_TTY           4
+#define GLIBTOP_KERN_PROC_UID           5
+#define GLIBTOP_KERN_PROC_RUID          6
+
+#define GLIBTOP_KERN_PROC_MASK          15
+
+#define GLIBTOP_EXCLUDE_IDLE            0x1000
+#define GLIBTOP_EXCLUDE_SYSTEM          0x2000
+#define GLIBTOP_EXCLUDE_NOTTY           0x4000
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proclist} in @file{<glibtop/proclist.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proclist        glibtop_proclist;
+
+struct _glibtop_proclist
+@{
+    u_int64_t   flags,
+        number,
+        total,
+        size;
+@};
+@end cartouche
+@end example
+
+This function returns a list of all or a selected subset of all running
+processes. You can use the @code{which} and @code{arg} arguments to
+specify which processes should be returned.
+
+You can use the following values for the @code{which} argument:
+
+@table @code
+@item GLIBTOP_KERN_PROC_ALL
+Return information about all processes (the @code{arg} argument is ignored).
+
+@item GLIBTOP_KERN_PROC_PID
+Return information about all process with the pid @var{PID} which is passed
+in @code{arg}. You can use this to find out whether some process still exists.
+
+@item GLIBTOP_KERN_PROC_PGRP
+Return all processes in process group @var{PGRP} which is passed in
+@code{arg}.
+
+@item GLIBTOP_KERN_PROC_SESSION
+Return all processes in session @var{SESSION} which is passed in @code{arg}.
+
+@item GLIBTOP_KERN_PROC_TTY
+Return all processes which have the controlling tty @var{TTY} which is passed
+in @code{arg} (@var{TTY} is interpreted as device number).
+
+@item GLIBTOP_KERN_PROC_UID
+Return all processes with effective uid @var{UID} which is passed in @code{arg}.
+
+@item GLIBTOP_KERN_PROC_RUID
+Return all processes with real uid @var{RUID} which is passed in @code{arg}.
+
+@end table
+
+You can alter the list of returned processes by using a binary OR of
+@code{which} and the following constants:
+
+@table @code
+@item GLIBTOP_EXCLUDE_IDLE
+Exclude idle processes.
+@item GLIBTOP_EXCLUDE_SYSTEM
+Exclude system processes.
+@item GLIBTOP_EXCLUDE_NOTTY
+Exclude processes without a controlling terminal.
+@end table
+
+The return value of @code{glibtop_get_proclist} is either @code{NULL} on
+error or a @code{unsigned *} list of pids. Additionally, the following fields
+of @code{glibtop_proclist} are set:
+
+@table @code
+@item number
+Number of entries in the returned list.
+
+@item total
+Total size of the returned list (this equals @code{number * size}).
+
+@item size
+Size of a single entry in the returned list
+(this equals @code{sizeof (unsigned)}).
+@end table
+
+The returned list is allocated using @code{glibtop_malloc} and must be freed
+using @code{glibtop_free} to avoid a memory leak.
+
+@page
+@node glibtop_proc_state, glibtop_proc_uid, glibtop_proclist, System Dependent
+@subsection Process State
+
+Library function @code{glibtop_get_proc_state}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_state (glibtop_proc_state *buf, pid_t pid);
+
+void
+glibtop_get_proc_state_l (glibtop *server, glibtop_proc_state *buf,
+                          pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_state} in @file{<glibtop/proc_state.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_state      glibtop_proc_state;
+
+struct _glibtop_proc_state
+@{
+    u_int64_t flags;
+    char cmd[40];
+@ifset LIBGTOP-1-1
+    unsigned state;
+@end ifset
+@ifclear LIBGTOP-1-1
+    char state;
+@end ifclear
+    int uid,
+        gid,
+        ruid,
+        rgid;
+    int has_cpu,
+        processor,
+        last_processor;
+
+@};
+@end cartouche
+@end example
+
+@table @code
+@item cmd
+Basename of the executable file in the call to @code{exec}.
+@item state
+@ifset LIBGTOP-1-1
+Process state (see the constants defined below).
+@end ifset
+@ifclear LIBGTOP-1-1
+Process state ('R' = running, 'S' = sleeping, 'D' = uninterruptible,
+'Z' = zombie, 'T' = stopped, 'I' = idle).
+
+This was changed to an @code{unsigned} bitfield in LibGTop 1.1.x where there
+are also some constants for it.
+@end ifclear
+@end table
+
+When porting LibGTop, please @emph{try hard} to implement the following
+fields. For security reasons, it is @strong{very important} that you
+@strong{only} set the @code{flags} bits for those fields if their
+@strong{values are correct}.
+
+@table @code
+@item uid
+Effective UID of the process.
+@item gid
+Effective GID of the process.
+@item ruid
+Real UID of the process.
+@item rgid
+Read GID of the process.
+@end table
+
+The following fields are for SMP systems:
+
+@table @code
+@item has_cpu
+This is either 0 or 1 depending on whether the process currently has a CPU
+or not.
+
+@item processor
+This is the processor id of the CPU this process is currently running on
+(which can be used as index in the @samp{xcpu_} fields of @code{glibtop_cpu}
+for instance; since zero is a valid processor id, you must check @code{has_cpu}
+in this case to find out whether the process really has a CPU).
+
+@item last_processor
+The is the processor id of the CPU the process was last running on.
+@end table
+
+@ifset LIBGTOP-1-1
+There are some constants for the @code{state} field:
+
+@example
+@cartouche
+#define GLIBTOP_PROCESS_RUNNING                 1
+#define GLIBTOP_PROCESS_INTERRUPTIBLE           2
+#define GLIBTOP_PROCESS_UNINTERRUPTIBLE         4
+#define GLIBTOP_PROCESS_ZOMBIE                  8
+#define GLIBTOP_PROCESS_STOPPED                 16
+#define GLIBTOP_PROCESS_SWAPPING                32
+@end cartouche
+@end example
+@end ifset
+
+@table @code
+@item GLIBTOP_PROCESS_RUNNING
+The process is currently running.
+@item GLIBTOP_PROCESS_INTERRUPTIBLE
+The process is currently in an interruptible sleep.
+@item GLIBTOP_PROCESS_UNINTERRUPTIBLE
+The process is currently in uninterruptible sleep
+(the so-called @dfn{disk sleep}).
+@item GLIBTOP_PROCESS_ZOMBIE
+The process is a zombie.
+@item GLIBTOP_PROCESS_STOPPED
+The process is currently stopped (received @code{SIGSTOP}
+or attached to a debugger).
+@item GLIBTOP_PROCESS_SWAPPING
+The process is currently swapping.
+@end table
+
+@page
+@node glibtop_proc_uid, glibtop_proc_mem, glibtop_proc_state, System Dependent
+@subsection Process UID and TTY information
+
+Library function @code{glibtop_get_proc_uid}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_uid (glibtop_proc_uid *buf, pid_t pid);
+
+void
+glibtop_get_proc_uid_l (glibtop *server, glibtop_proc_uid *buf,
+                        pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_uid} in @file{<glibtop/procuid.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_uid        glibtop_proc_uid;
+
+struct _glibtop_proc_uid
+@{
+    u_int64_t flags;
+    int uid,
+        euid,
+        gid,
+        egid,
+        suid,
+        sgid,
+        fsuid,
+        fsgid,
+        pid,
+        ppid,
+        pgrp,
+        session,
+        tty,
+        tpgid,
+        priority,
+        nice,
+        ngroups,
+        groups [GLIBTOP_MAX_GROUPS];
+@};
+@end cartouche
+@end example
+
+@table @code
+@item uid
+User ID
+@item euid
+Effective User ID
+@item gid
+Group ID
+@item egid
+Effective Group ID
+@item pid
+Process ID
+@item ppid
+PID of parent process
+@item pgrp
+Process group ID
+@item session
+Session ID
+@item tty
+Full device number of controlling terminal
+@item tpgid
+Terminal process group ID
+@item priority
+Kernel scheduling priority.
+@item nice
+Standard unix nice level of process.
+@item ngroups
+Number of additional process groups.
+@item groups
+Array of additional process groups@*
+(@code{GLIBTOP_MAX_GROUPS} is defined in @file{<glibtop/limits.h>}).
+@end table
+
+@page
+@node glibtop_proc_mem, glibtop_proc_time, glibtop_proc_uid, System Dependent
+@subsection Process Memory information
+
+Library function @code{glibtop_get_proc_mem}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_mem (glibtop_proc_mem *buf, pid_t pid);
+
+void
+glibtop_get_proc_mem_l (glibtop *server, glibtop_proc_mem *buf,
+                        pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_mem} in @file{<glibtop/procmem.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_mem        glibtop_proc_mem;
+
+struct _glibtop_proc_mem
+@{
+    u_int64_t   flags,
+        size,
+        vsize,
+        resident,
+        share,
+        rss,
+        rss_rlim;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item size
+Total number of pages of memory.
+@item vsize
+Number of pages of virtual memory.
+@item resident
+Number of residnet set (non-swapped) pages.
+@item share
+Number of pages of shared (mmap'd) memory.
+@item rss
+Number of pages the process has in real memory, minus 3 for administrative
+purposes.
+
+This is just the pages which count towards text, data, or stack space.
+This does not include pages which have not been demand-loaded in, or which
+are swapped out.
+@item rss_rlim
+Current limit in bytes on the rss of the process (usually 2,147,483,647).
+@end table
+
+The description above is taken from the manual page of the @file{/proc}
+filesystem under Linux and is a little bit confusing, so I make this clear
+here. 
+
+@strong{Note for people porting LibGTop to other systems:}
+Every operating system has its own idea about the memory usage of a process
+and also system utilities like @code{ps} show different things on different
+systems.
+
+Nevertheless, we should try to make LibGTop as system independent as possible,
+so I give you some hints here how @code{glibtop_get_proc_mem} should work. 
+
+@itemize @bullet
+@item
+When you use @code{mmap} with either @code{MAP_SHARED} or @code{MAP_PRIVATE},
+this should only affect the @code{vsize} of the process and none of its
+@code{size}, @code{resident}, @code{shared} and @code{rss} sizes.
+
+@item
+As soon as you read some of the @code{mmap()}ed pages, they will be demand-
+oaded and thus count towards the @code{size} of the process.
+
+Also - we assume there is enough free memory - they are resident in memory
+until they get stolen or swapped out and thus increase the @code{resident} and
+@code{rss} sizes of the process.
+
+@item
+If the process has used @code{MAP_SHARED} and another process attaches the
+same file also @code{MAP_SHARED}, some of the pages are shared with this
+process and thus increase the @code{shared} sizes of both processes.
+
+@item
+If the process has used @code{MAP_PRIVATE} and writes to the @code{mmap()}ed
+pages, the only difference to reading from them is that they get dirty and
+cannot be stolen any longer but will get swapped out.
+
+@item
+When memory gets rare, clean pages are normally stolen, which decreases the
+@code{size}, @code{resident}, @code{shared} and @code{rss} sizes of the process.
+
+@item
+When dirty pages are swapped out, this will not decrease the @code{size} of the
+process but only its @code{resident} and @code{rss} sizes (dirty pages cannot
+be shared).
+
+@item
+The @code{vsize} of a process can @emph{only} be changed by the process
+itself when it requests or frees memory but @emph{never} due to swapping
+activity of the system.
+
+@item
+If the @code{shared} size changes, this @emph{only} means that the number of
+pages that are currently shared with other processes has changed; if this
+happens, this will @emph{never} affect any of the other sizes of the process.
+@end itemize
+
+The hints above describe how it works under Linux - but we should try to make
+@code{glibtop_get_proc_mem} show the same behavior under every other system.
+
+@page
+@node glibtop_proc_time, glibtop_proc_signal, glibtop_proc_mem, System Dependent
+@subsection Process Time information
+
+Library function @code{glibtop_get_proc_time}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_time (glibtop_proc_time *buf, pid_t pid);
+
+void
+glibtop_get_proc_time_l (glibtop *server, glibtop_proc_time *buf,
+                         pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_time} in @file{<glibtop/proctime.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_time       glibtop_proc_time;
+
+struct _glibtop_proc_time
+@{
+    u_int64_t   flags,
+        start_time,
+        rtime,
+        utime,
+        stime,
+        cutime,
+        cstime,
+        timeout,
+        it_real_value,
+        frequency,
+        xcpu_utime [GLIBTOP_NCPU],
+        xcpu_stime [GLIBTOP_NCPU],
+        xcpu_flags;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item start_time
+Start time of process in seconds since the epoch
+@item rtime
+Real time accumulated by process (should be @code{utime} + @code{stime})
+@item utime
+User-mode CPU time accumulated by process
+@item stime
+Kernel-mode CPU time accumulated by process
+@item cutime
+Cumulative utime of process and reaped children
+@item cstime
+Cumulative stime of process and reaped children
+@item timeout
+The time (in jiffies) of the process's next timeout
+@item it_real_value
+The time (in jiffies) before the next SIGALRM is sent to the process due
+to an interval timer.
+@item frequency
+Tick frequency
+@item xcpu_utime
+SMP user-mode CPU time accumulated by process
+@item xcpu_stime
+SMP kernel-mode CPU time accumulated by process
+@end table
+
+@page
+@node glibtop_proc_signal, glibtop_proc_kernel, glibtop_proc_time, System Dependent
+@subsection Process Signal information
+
+Library function @code{glibtop_get_proc_signal}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_signal (glibtop_proc_signal *buf, pid_t pid);
+
+void
+glibtop_get_proc_signal_l (glibtop *server, glibtop_proc_signal *buf,
+                           pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_signal} in @file{<glibtop/procsignal.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_signal     glibtop_proc_signal;
+
+struct _glibtop_proc_signal
+@{
+    u_int64_t   flags,
+        signal [2],
+        blocked [2],
+        sigignore [2],
+        sigcatch [2];
+@};
+@end cartouche
+@end example
+
+@table @code
+@item signal
+Mask of pending signals
+@item blocked
+Mask of blocked signals
+@item sigignore
+Mask of ignored signals
+@item sigcatch
+Mask of caught signals
+@end table
+
+All signal masks are interpreted as bit mask; it is an array of two
+@code{u_int64_t}'s so we can save 128 signals there.
+
+@page
+@node glibtop_proc_kernel, glibtop_proc_segment, glibtop_proc_signal, System Dependent
+@subsection Process Kernel Data information
+
+Library function @code{glibtop_get_proc_kernel}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_kernel (glibtop_proc_kernel *buf, pid_t pid);
+
+void
+glibtop_get_proc_kernel_l (glibtop *server, glibtop_proc_kernel *buf,
+                           pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_kernel} in @file{<glibtop/prockernel.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_kernel     glibtop_proc_kernel;
+
+struct _glibtop_proc_kernel
+@{
+    u_int64_t flags;
+    u_int64_t k_flags,
+        min_flt,
+        maj_flt,
+        cmin_flt,
+        cmaj_flt,
+        kstk_esp,
+        kstk_eip,
+        nwchan;
+    char wchan [40];
+@};
+@end cartouche
+@end example
+
+@table @code
+@item k_flags
+Kernel flags of the process. See the constants defined below.
+@item min_flt
+The number of minor faults the process has made, those which have not required
+loading a memory page from disk.
+@item maj_flt
+The number of major faults the process has made, those which have required loading
+a memory page from disk.
+@item cmin_flt
+The number of minor faults that the process and its children have made.
+@item cmaj_flt
+The number of major faults that the process and its children have made.
+@item kstk_esp
+The current value of @code{esp} (32-bit stack pointer), as found in the kernel stack
+page for the process.
+@item kstk_eip
+The current @code{eip} (32-bit instruction pointer).
+@item nwchan
+This is the "channel" in which the process is waiting. This is the address of a system
+call, and can be looked up in a namelist if you need a textual name.
+(If you have an up-to-date @file{/etc/psdatabase}, then try @code{ps -l} to see the
+WCHAN field in action).
+@item wchan
+This is the textual name of the @code{nwchan} field.
+@end table
+
+There are some constants for the @code{k_flags} field:
+
+@example
+@cartouche
+#define GLIBTOP_KFLAGS_STARTING         1
+#define GLIBTOP_KFLAGS_EXITING          2
+#define GLIBTOP_KFLAGS_PTRACED          4
+#define GLIBTOP_KFLAGS_TRACESYS         8
+#define GLIBTOP_KFLAGS_FORKNOEXEC       16
+#define GLIBTOP_KFLAGS_SUPERPRIV        32
+#define GLIBTOP_KFLAGS_DUMPEDCORE       64
+#define GLIBTOP_KFLAGS_SIGNALED         128
+@end cartouche
+@end example
+
+@table @code
+@item GLIBTOP_KFLAGS_STARTING
+Process is being created.
+@item GLIBTOP_KFLAGS_EXITING
+Process is exiting.
+@item GLIBTOP_KFLAGS_PTRACED
+Process is being traced (via @code{ptrace ()}).
+@item GLIBTOP_KFLAGS_TRACESYS
+Process is tracing system calls.
+@item GLIBTOP_KFLAGS_FORKNOEXEC
+Process @code{fork()}ed, but didn't @code{exec()} yet.
+@item GLIBTOP_KFLAGS_SUPERPRIV
+Process used super-user privileges.
+@item GLIBTOP_KFLAGS_DUMPEDCORE
+Process dumped core.
+@item GLIBTOP_KFLAGS_SIGNALED
+Process was killed by a signal.
+@end table
+
+@page
+@node glibtop_proc_segment, glibtop_proc_args, glibtop_proc_kernel, System Dependent
+@subsection Process Segment information
+
+Library function @code{glibtop_get_proc_segment}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_segment (glibtop_proc_segment *buf, pid_t pid);
+
+void
+glibtop_get_proc_segment_l (glibtop *server, glibtop_proc_segment *buf,
+                            pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_segment} in @file{<glibtop/procsegment.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_segment    glibtop_proc_segment;
+
+struct _glibtop_proc_segment
+@{
+    u_int64_t   flags,
+        text_rss,
+        shlib_rss,
+        data_rss,
+        stack_rss,
+        dirty_size,
+        start_code,
+        end_code,
+        start_data,
+        end_data,
+        start_brk,
+        end_brk,
+        start_stack,
+        start_mmap,
+        arg_start,
+        arg_end,
+        env_start,
+        env_end;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item text_rss
+Text resident set size
+@item shlib_rss
+Shared-Lib resident set size
+@item data_rss
+Data resident set size
+@item stack_rss
+Stack resident set size
+@item dirty_size
+Total size of dirty pages
+@item start_code
+Address of beginning of code segment
+@item end_code
+Address of end of code segment
+@item start_stack
+Address of the bottom of stack segmen
+@end table
+
+@page
+@node glibtop_proc_args, glibtop_proc_map, glibtop_proc_segment, System Dependent
+@subsection Process Arguments
+
+Library function @code{glibtop_get_proc_args}:
+
+@example
+@cartouche
+char *
+glibtop_get_proc_args_l (glibtop_proc_args *buf, pid_t pid,
+                         unsigned max_len);
+
+char *
+glibtop_get_proc_args_l (glibtop *server, glibtop_proc_args *buf,
+                         pid_t pid, unsigned max_len);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_args} in @file{<glibtop/procargs.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_args       glibtop_proc_args;
+
+struct _glibtop_proc_args
+@{
+    u_int64_t   flags,
+        size;
+@};
+@end cartouche
+@end example
+
+Returns a string with all command line arguments of process @code{pid}
+(up to @code{max_len} characters, use zero to get all arguments).
+
+The command line arguments in the returned string are separated by zero bytes;
+the lenght of this string is returned in the @code{size} field.
+
+Remember to @code{glibtop_free} the returned string to avoid a memory leak.
+
+@page
+@node glibtop_proc_map, glibtop_netload, glibtop_proc_args, System Dependent
+@subsection Process Memory Maps
+
+Library function @code{glibtop_get_proc_map}:
+
+@example
+@cartouche
+glibtop_map_entry *
+glibtop_get_proc_map (glibtop_proc_map *buf, pid_t pid);
+
+glibtop_map_entry *
+glibtop_get_proc_map_l (glibtop *server, glibtop_proc_map *buf,
+                        pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_map} in @file{<glibtop/procmap.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_map        glibtop_proc_map;
+
+struct _glibtop_proc_map
+@{
+    u_int64_t   flags,
+        number,
+        total,
+        size;
+@};
+@end cartouche
+@end example
+
+Returns a @code{glibtop_map_entry *} list (which needs to be freed with
+@code{glibtop_free}) of memory maps of process @code{pid}.
+
+@table @code
+@item number
+Number of entries in the returned list.
+
+@item total
+Total size of the returned list (this equals @code{number * size}).
+
+@item size
+Size of a single entry in the returned list
+(this equals @code{sizeof (glibtop_map_entry)}).
+@end table
+
+@example
+@cartouche
+typedef struct _glibtop_map_entry       glibtop_map_entry;
+
+struct _glibtop_map_entry
+@{
+    u_int64_t flags, start, end, offset, perm, inode, device;
+    char filename [GLIBTOP_MAP_FILENAME_LEN+1];
+@};
+@end cartouche
+@end example
+
+The @code{flags} member is a bit field and specifies which of the other
+fields are valid:
+
+@example
+@cartouche
+#define GLIBTOP_MAP_ENTRY_START         1
+#define GLIBTOP_MAP_ENTRY_END           2
+#define GLIBTOP_MAP_ENTRY_OFFSET        3
+#define GLIBTOP_MAP_ENTRY_PERM          4
+#define GLIBTOP_MAP_ENTRY_INODE         5
+#define GLIBTOP_MAP_ENTRY_DEVICE        6
+#define GLIBTOP_MAP_ENTRY_FILENAME      7
+@end cartouche
+@end example
+
+Constants for the @code{perm} member:
+
+@example
+@cartouche
+#define GLIBTOP_MAP_PERM_READ           1
+#define GLIBTOP_MAP_PERM_WRITE          2
+#define GLIBTOP_MAP_PERM_EXECUTE        4
+#define GLIBTOP_MAP_PERM_SHARED         8
+#define GLIBTOP_MAP_PERM_PRIVATE        16
+@end cartouche
+@end example
+
+@page
+@node glibtop_netload, glibtop_ppp, glibtop_proc_map, System Dependent
+@subsection Network Load
+
+Library function @code{glibtop_get_netload}:
+
+@example
+@cartouche
+void
+glibtop_get_netload (glibtop_netload *buf, const char *interface);
+
+void
+glibtop_get_netload_l (glibtop *server, glibtop_netload *buf,
+                       const char *interface);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_netload} in @file{<glibtop/netload.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_netload glibtop_netload;
+
+struct _glibtop_netload
+@{
+    u_int64_t   flags,
+        if_flags,
+        mtu,
+        subnet,
+        address,
+        packets_in,
+        packets_out,
+        packets_total,
+        bytes_in,
+        bytes_out,
+        bytes_total,
+        errors_in,
+        errors_out,
+        errors_total,
+        collisions;
+@};
+@end cartouche
+@end example
+
+Returns network statistics for interface @code{interface} (which is the same
+than in @code{ifconfig}).
+
+@table @code
+@item if_flags
+Interface flags. See the contants defined below.
+@item mtu
+Maximum Transfer Unit (MTU)
+@item subnet
+Subnet Address
+@item address
+Interface Address
+@item packets_in
+Total number of incoming packets
+@item packets_out
+Total number of outgoing packets
+@item packets_total
+Total number of packets
+@item bytes_in
+Total number of incoming bytes
+@item bytes_out
+Total number of outgoing bytes
+@item bytes_total
+Total number of bytes
+@item errors_in
+Total number of errors in incoming direction
+@item errors_out
+Total number of errors in outgoing direction
+@item errors_total
+Total number of errors
+@item collisions
+Total number of collisions
+@end table
+
+Please note that not all operating systems distinguish between incoming/outgoing
+bytes/packets/errors - in this case only the @samp{_total} fields are valid.
+Otherwise, they're just @samp{_in} plus @samp{_out}.
+
+Constants for @code{if_flags}:
+
+@example
+@cartouche
+enum @{
+    GLIBTOP_IF_FLAGS_UP = 1,
+    GLIBTOP_IF_FLAGS_BROADCAST,
+    GLIBTOP_IF_FLAGS_DEBUG,
+    GLIBTOP_IF_FLAGS_LOOPBACK,
+    GLIBTOP_IF_FLAGS_POINTOPOINT,
+    GLIBTOP_IF_FLAGS_RUNNING,
+    GLIBTOP_IF_FLAGS_NOARP,
+    GLIBTOP_IF_FLAGS_PROMISC,
+    GLIBTOP_IF_FLAGS_ALLMULTI,
+    GLIBTOP_IF_FLAGS_OACTIVE,
+    GLIBTOP_IF_FLAGS_SIMPLEX,
+    GLIBTOP_IF_FLAGS_LINK0,
+    GLIBTOP_IF_FLAGS_LINK1,
+    GLIBTOP_IF_FLAGS_LINK2,
+    GLIBTOP_IF_FLAGS_ALTPHYS,
+    GLIBTOP_IF_FLAGS_MULTICAST
+@};
+@end cartouche
+@end example
+
+@page
+@node glibtop_ppp,  , glibtop_netload, System Dependent
+@subsection PPP Statistics
+
+Library function @code{glibtop_get_ppp}:
+
+@example
+@cartouche
+void
+glibtop_get_ppp_l (glibtop *server, glibtop_ppp *buf,
+                   unsigned short device);
+
+void
+glibtop_get_ppp (glibtop_ppp *buf, unsigned short device);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_ppp} in @file{<glibtop/ppp.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_ppp     glibtop_ppp;
+
+struct _glibtop_ppp
+@{
+    u_int64_t   flags,
+        state,
+        bytes_in,
+        bytes_out;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item bytes_in
+Number of input bytes
+@item bytes_out
+Number of output bytes
+@end table
+
+There are some constants for @code{state}:
+
+@example
+@cartouche
+enum @{
+    GLIBTOP_PPP_STATE_UNKNOWN = 0,
+    GLIBTOP_PPP_STATE_HANGUP,
+    GLIBTOP_PPP_STATE_ONLINE
+@};
+@end cartouche
+@end example
+
+@table @code
+@item GLIBTOP_PPP_STATE_UNKNOWN
+LibGTop was unable to determine the current ppp state.
+@item GLIBTOP_PPP_STATE_HANGUP
+We're currently offline.
+@item GLIBTOP_PPP_STATE_ONLINE
+We're currently online.
+@end table
+
+@page
+@node Common Functions, Library Functions, System Dependent, Reference Manual
+@section Common Functions
+
+This are functions which a common implementation for all systems; we never
+use the server for them.
+
+The file system code is taken from GNU Fileutils.
+
+@menu
+* glibtop_mountlist::           Mount List.
+* glibtop_fsusage::             File System Usage.
+@end menu
+
+@node glibtop_mountlist, glibtop_fsusage, Common Functions, Common Functions
+@subsection Mount List
+
+Library function @code{glibtop_get_mountlist}:
+
+@example
+@cartouche
+glibtop_mountentry *
+glibtop_get_mountlist_l (glibtop *server, glibtop_mountlist *buf,
+                         int all_fs);
+
+glibtop_mountentry *
+glibtop_get_mountlist (glibtop_mountlist *buf, int all_fs);
+@end cartouche
+@end example
+
+The @code{all_fs} parameter specifies whether information about all
+filesystems should be returned; this will include filesystem types like
+@code{autofs} and @code{procfs}. You should not use this in disk usage
+programs, but it can be useful to get a list of all currently mounted
+filesystems.
+
+Declaration of @code{glibtop_proc_map} in @file{<glibtop/procmap.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_mountlist       glibtop_mountlist;
+
+struct _glibtop_mountlist
+@{
+    u_int64_t   flags,
+        number,
+        total,
+        size;
+@};
+@end cartouche
+@end example
+
+Returns a @code{glibtop_mountentry *} list (which needs to be freed with
+@code{glibtop_free}) of mounted filesystems.
+
+@table @code
+@item number
+Number of entries in the returned list.
+
+@item total
+Total size of the returned list (this equals @code{number * size}).
+
+@item size
+Size of a single entry in the returned list
+(this equals @code{sizeof (glibtop_mountentry)}).
+@end table
+
+@example
+@cartouche
+typedef struct _glibtop_mountentry      glibtop_mountentry;
+
+struct _glibtop_mountentry
+@{
+    u_int64_t dev;
+    char devname [GLIBTOP_MOUNTENTRY_LEN+1];
+    char mountdir [GLIBTOP_MOUNTENTRY_LEN+1];
+    char type [GLIBTOP_MOUNTENTRY_LEN+1];
+@};
+@end cartouche
+@end example
+
+@ifset LIBGTOP-1-1
+@code{GLIBTOP_MOUNTENTRY_LEN} is defined in @file{<glibtop/limits.h>}.
+@end ifset
+@ifclear LIBGTOP-1-1
+@code{GLIBTOP_MOUNTENTRY_LEN} is defined in @file{<glibtop.h>}
+(this was moved to @file{<glibtop/limits.h>} in LibGTop 1.1.0).
+@end ifclear
+
+@table @code
+@item devname
+Full pathname (such as @samp{/dev/sdb1} for instance) to the mounted device.
+@item mountdir
+Full pathname of the mountpoint (such as @samp{/usr/local} for instance).
+@item type
+Filesystem type as a textual string (such as @samp{ext2fs}).
+@end table
+
+@page
+@node glibtop_fsusage,  , glibtop_mountlist, Common Functions
+@subsection File System Usage
+
+Library function @code{glibtop_get_fsusage}:
+
+@example
+@cartouche
+void
+glibtop_get_fsusage_l (glibtop *server, glibtop_fsusage *buf,
+                       const char *mount_dir);
+
+void
+glibtop_get_fsusage (glibtop_fsusage *buf, const char *mount_dir);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_fsusage} in @file{<glibtop/fsusage.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_fsusage         glibtop_fsusage;
+
+struct _glibtop_fsusage
+@{
+    u_int64_t   flags,
+        blocks,
+        bfree,
+        bavail,
+        files,
+        ffree;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item blocks
+Total blocks in the filesystem.
+@item bfree
+Free blocks available to the superuser.
+@item bavail
+Free blocks available to ordinary users.
+@item files
+Total file nodes.
+@item ffree
+Free file nodes.
+@end table
+
+Blocks are usually 512 bytes.
+
+@page
+@node Library Functions,  , Common Functions, Reference Manual
+@section Library Functions
+
+This are general library functions which can be used to get information
+about the library and to control its behavior.
+
+@menu
+* glibtop_init::                Server Initialization.
+* glibtop_sysdeps::             Server Sysdeps.
+* Library Parameters::          Library Parameters.
+@end menu
+
+@node glibtop_init, glibtop_sysdeps, Library Functions, Library Functions
+@subsection Server Initialization
+
+You do not need to worry about the @code{glibtop *} server structure if
+you don't need - the library exports a @code{glibtop_global_server}
+which you can use everywhere a @code{glibtop *} is expected.
+
+Most of the library and all of the sysdeps function also have an alias
+(which is the function name without the @samp{_l}, @samp{_s} or @samp{_r}
+suffix) which don't take a @code{glibtop *} as argument but uses the
+@code{glibtop_global_server} instead.
+
+@example
+@cartouche
+extern glibtop *glibtop_global_server;
+@end cartouche
+@end example
+
+Library function @code{glibtop_init}:
+
+@example
+@cartouche
+glibtop *
+glibtop_init_r (glibtop **server_ptr, unsigned long features,
+                unsigned flags);
+
+void
+glibtop_init (void);
+@end cartouche
+@end example
+
+This function initializes a LibGTop server. It is automatically called
+when you use any of the LibGTop functions and will use the global server
+in this case.
+
+However, it's appreciated to call @code{glibtop_init} during the
+initialization of your application.
+
+You can for instance use
+
+@example
+glibtop_init ();
+@end example
+
+@noindent
+which is equivalent to
+
+@example
+glibtop_init_r (&glibtop_global_server, 0, 0);
+@end example
+
+Please note that the @code{server_ptr} argument is a pointer to a pointer
+(and thus is of type @code{glibtop **}).
+
+To control what @code{glibtop_init} should actually do, you can use the
+@code{features} and @code{flags} arguments.
+
+The @code{features} argument is a bit-mask (interpreted in the same way
+than @samp{sysdeps.features}) and tells the library which features you're
+interested in. The library will only start the server if this is required
+for any of those features.
+
+You can use the following constants for the @code{flags} parameter to
+control the behavior of the library:
+
+@table @code
+@item GLIBTOP_INIT_NO_INIT
+Tells the library to do nothing. If the value pointed to by the
+@code{server_ptr} argument is @code{NULL}, it will set it to the
+@code{glibtop_global_server} and then return.
+@item GLIBTOP_INIT_NO_OPEN
+Do the initialization, but do not start the server.
+@end table
+
+To modify the way the @code{features} are interpretet, you can use the
+following constants for @code{flags} (as a bit mask):
+
+@table @code
+@item GLIBTOP_FEATURES_NO_SERVER
+Never use the server, always call the sysdeps code directly.
+If you require any privileges to get them and you don't have those
+privileges, the this will obviously not work and the library will
+fail to return some or all of the requested values.
+@item GLIBTOP_FEATURES_EXCEPT
+Inverts the matching of the @code{features} parameter, i.e. if you use
+this flag this means that @code{features} are all the features you are
+@emph{not} interested in.
+Might be useful to say something like "I want everything but ppp".
+@end table
+
+@node glibtop_sysdeps, Library Parameters, glibtop_init, Library Functions
+@subsection Server Sysdeps
+
+Library function @code{glibtop_get_sysdeps}:
+
+@example
+@cartouche
+void
+glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf);
+
+void
+glibtop_get_sysdeps (glibtop_sysdeps *buf);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_sysdeps} in @file{<glibtop/sysdeps.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_sysdeps         glibtop_sysdeps;
+
+struct _glibtop_sysdeps
+@{
+    u_int64_t flags,
+        features,
+        pointer_size,
+        cpu,
+        mem,
+        swap,
+        uptime,
+        loadavg,
+        shm_limits,
+        msg_limits,
+        sem_limits,
+        proclist,
+        proc_state,
+        proc_uid,
+        proc_mem,
+        proc_time,
+        proc_signal,
+        proc_kernel,
+        proc_segment,
+        proc_args,
+        proc_map,
+        mountlist,
+        fsusage,
+        netload,
+        ppp;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item features
+This is a bit field (the so-called @dfn{server features}) stating
+for which features we need to use the server.
+@item pointer_size
+This was added in LibGTop 1.1.0 and tells you the number of bits a
+@code{void*} has in the server (this may be different from the
+size on the client machine if we're talking over the daemon to a
+remove machine).
+@end table
+
+The following constants from @file{<glibtop/sysdeps.h>} serve as bit-indices
+for the @code{features} field:
+
+@example
+@cartouche
+#define GLIBTOP_SYSDEPS_CPU             0
+#define GLIBTOP_SYSDEPS_MEM             1
+#define GLIBTOP_SYSDEPS_SWAP            2
+#define GLIBTOP_SYSDEPS_UPTIME          3
+#define GLIBTOP_SYSDEPS_LOADAVG         4
+#define GLIBTOP_SYSDEPS_SHM_LIMITS      5
+#define GLIBTOP_SYSDEPS_MSG_LIMITS      6
+#define GLIBTOP_SYSDEPS_SEM_LIMITS      7
+#define GLIBTOP_SYSDEPS_PROCLIST        8
+#define GLIBTOP_SYSDEPS_PROC_STATE      9
+#define GLIBTOP_SYSDEPS_PROC_UID        10
+#define GLIBTOP_SYSDEPS_PROC_MEM        11
+#define GLIBTOP_SYSDEPS_PROC_TIME       12
+#define GLIBTOP_SYSDEPS_PROC_SIGNAL     13
+#define GLIBTOP_SYSDEPS_PROC_KERNEL     14
+#define GLIBTOP_SYSDEPS_PROC_SEGMENT    15
+#define GLIBTOP_SYSDEPS_PROC_ARGS       16
+#define GLIBTOP_SYSDEPS_PROC_MAP        17
+#define GLIBTOP_SYSDEPS_MOUNTLIST       18
+#define GLIBTOP_SYSDEPS_FSUSAGE         19
+#define GLIBTOP_SYSDEPS_NETLOAD         20
+#define GLIBTOP_SYSDEPS_PPP             21
+@end cartouche
+@end example
+
+@node Library Parameters,  , glibtop_sysdeps, Library Functions
+@subsection Library Parameters
+
+Library function @code{glibtop_get_parameter}:
+
+@example
+@cartouche
+size_t
+glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
+                         void *data_ptr, size_t data_size);
+
+size_t
+glibtop_get_parameter (const unsigned parameter, void *data_ptr,
+                       size_t data_size);
+@end cartouche
+@end example
+
+This function is used to retrieve a library parameter (see below for a more
+detailed description). It returns the size of the retrieved parameter on
+success, zero on failure or minus the actual size of the parameter if
+@code{data_size} was too small.
+
+You may call this function with @code{data_ptr} set to @code{NULL} to get the
+actual size of a parameter (as a negative value).
+
+@table @code
+@item parameter
+The parameter you want to retrieve (see below for constants).
+@item data_ptr
+Pointer to a place where the parameter should be stored.
+@item data_size
+Maximum size of the parameter.
+@end table
+
+Library function @code{glibtop_set_parameter}:
+
+@example
+@cartouche
+void
+glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
+                         const void *data_ptr, size_t data_size);
+
+void
+glibtop_set_parameter (const unsigned parameter, const void *data_ptr,
+                       size_t data_size);
+@end cartouche
+@end example
+
+This function is used to modify a library parameter. Please not that you
+may not set all parameters since some of them are read-only.
+
+@table @code
+@item parameter
+The parameter you want to modify (see below for constants).
+@item data_ptr
+Pointer to the value which should be set.
+@item data_size
+Size of the new value. For fixed-size parameters, this must match
+the exact size of the parameter or you'll get an error.
+@end table
+
+The following parameters are defined in @file{<glibtop/parameter.h>}:
+
+@table @code
+@item GLIBTOP_PARAM_FEATURES
+This is a read-only @code{unsigned long} representing the @code{features}
+field of @code{glibtop_sysdeps}.
+@item GLIBTOP_PARAM_REQUIRED
+This is a @code{glibtop_sysdeps} structure specifying which features the
+client requires the library return. If it fails to get any of them, you'll
+get an error.
+@item GLIBTOP_PARAM_ERROR_METHOD
+This is an @code{unsigned} telling the library what to do if it fails to
+get any of the features that are marked as required via the
+@code{GLIBTOP_PARAM_REQUIRED} parameter (see below for constants).
+@end table
+
+You can use the following constants for @code{GLIBTOP_PARAM_ERROR_METHOD}
+(defined in @file{<glibtop/open.h>}):
+
+@table @code
+@item GLIBTOP_ERROR_METHOD_IGNORE
+Ignore the error condition.
+@item GLIBTOP_ERROR_METHOD_WARN_ONCE
+Warn once about the absense of some of the required features, then modify
+@code{GLIBTOP_PARAM_REQUIRED} so that the missing ones are no longer
+required. This is the prefered value for applications since it'll only
+print out the warning message once and not each time the library tries to
+get one of those features.
+@item GLIBTOP_ERROR_METHOD_WARN
+Warn each time the library fails to get some of the required features.
+@item GLIBTOP_ERROR_METHOD_ABORT
+Abort if the library fails to get some of the required features. This
+should not be used by applications.
+@end table
+
