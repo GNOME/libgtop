@@ -42,7 +42,7 @@ static char rcsid [] = "!Header: gnuserv.c,v 2.1 95/02/16 11:58:27 arup alpha !"
 #include <sys/select.h>
 #endif
 
-extern void handle_socket_connection __P((int));
+extern void handle_socket_connection __P((glibtop *, int));
 
 #if !defined(SYSV_IPC) && !defined(UNIX_DOMAIN_SOCKETS) && !defined(INTERNET_DOMAIN_SOCKETS)
 main ()
@@ -663,7 +663,7 @@ handle_internet_request (int ls)
   fprintf (stderr, "Accepted connection from %s.\n", inet_ntoa (peer.sin_addr));
 #endif
 
-  handle_socket_connection (s);
+  handle_socket_connection (&glibtop_global_server, s);
 
   close (s);
 

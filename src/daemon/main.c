@@ -38,13 +38,19 @@
 #define GET_MAX_FDS() 256
 #endif
 
+#define _offset_union(p)	((char *) &response.u.p - (char *) &response)
+#define _offset_data(p)		_offset_union (data.p)
+
 static void
-do_output (int s, glibtop_response *response, size_t data_size, const void *data)
+do_output (int s, glibtop_response *response, off_t offset,
+	   size_t data_size, const void *data)
 {
 #ifdef REAL_DEBUG
-	fprintf (stderr, "Really writing %d bytes.\n", sizeof (glibtop_response));
+	fprintf (stderr, "Really writing %d bytes at offset %d.\n",
+		 sizeof (glibtop_response), offset);
 #endif
 
+	response->offset = offset;
 	response->data_size = data_size;
 	
 	if (send (s, response, sizeof (glibtop_response), 0) < 0)
@@ -60,155 +66,152 @@ do_output (int s, glibtop_response *response, size_t data_size, const void *data
 	}
 }
 
+static void
+do_read (int s, void *ptr, size_t total_size)
+{
+	int nread;
+	size_t already_read = 0, remaining = total_size;
+
+	while (already_read < total_size) {
+		nread = recv (s, ptr, remaining, 0);
+
+		if (nread <= 0) {
+			glibtop_error_io ("recv");
+			return;
+		}
+
+		already_read += nread;
+		remaining -= nread;
+		(char *) ptr += nread;
+
+		fprintf (stderr, "READ (%d): %d - %d - %d\n",
+			 nread, already_read, remaining, total_size);
+	}
+}
+
 void
-handle_socket_connection (int s)
+handle_socket_connection (glibtop *server, int s)
 {
 	pid_t pid;
-	int nread;
-	size_t size;
 	char parameter [BUFSIZ];
 	struct timeval tv;
 	glibtop_response response;
 	glibtop_command cmnd;
-	glibtop server;
 	void *ptr;
 
 	tv.tv_sec = 5;
 	tv.tv_usec = 0;
   
 	while(1) {
-		nread = recv (s, &cmnd, sizeof (glibtop_command), 0);
-    
-		if (nread < 0) {
-			glibtop_warn_io ("recv");
-			return;
-		}
-    
-		if (nread == 0)
-			return;
-
-		if (nread != sizeof (glibtop_command))
-			glibtop_warn ("Received %d bytes, but expected %d\n",
-				      nread, sizeof (glibtop_command));
+		do_read (s, &cmnd, sizeof (glibtop_command));
 
 #ifdef REAL_DEBUG
 		fprintf (stderr, "Received command %d from client.\n", cmnd.command);
 #endif
 
-		if (cmnd.size >= BUFSIZ) {
+		if (cmnd.data_size >= BUFSIZ) {
 			glibtop_warn ("Client sent %d bytes, but buffer is %d", cmnd.size, BUFSIZ);
 			return;
 		}
 
 		memset (parameter, 0, sizeof (parameter));
     
-		if (cmnd.size) {
+		if (cmnd.data_size) {
 #ifdef REAL_DEBUG
-			fprintf (stderr, "Client has %d bytes of data.\n", cmnd.size);
+			fprintf (stderr, "Client has %d bytes of data.\n", cmnd.data_size);
 #endif
 
-			nread = recv (s, parameter, cmnd.size, 0);
-      
-			/* will return 0 if parent exits. */
-      
-			if (nread < 0) {
-				glibtop_warn_io ("recv");
-				return;
-			}
-    
-			if (nread == 0)
-				return;
+			do_read (s, parameter, cmnd.data_size);
 
-			if (nread != (int) cmnd.size) {
-				glibtop_warn ("Expected %d bytes but got %d",
-					      cmnd.size, nread);
-				return;
-			}
+		} else if (cmnd.size) {
+			memcpy (parameter, cmnd.parameter, cmnd.size);
 		}
     
 		switch (cmnd.command) {
 		case GLIBTOP_CMND_SYSDEPS:
 			response.u.sysdeps.features = GLIBTOP_SYSDEPS_ALL;
-			do_output (s, &response, 0, NULL);
+			do_output (s, &response, _offset_union (sysdeps), 0, NULL);
 			break;
 		case GLIBTOP_CMND_CPU:
-			glibtop_get_cpu_l (&server, &response.u.data.cpu);
-			do_output (s, &response, 0, NULL);
+			glibtop_get_cpu_l (server, &response.u.data.cpu);
+			do_output (s, &response, _offset_data (cpu), 0, NULL);
 			break;
 		case GLIBTOP_CMND_MEM:
-			glibtop_get_mem_l (&server, &response.u.data.mem);
-			do_output (s, &response, 0, NULL);
+			glibtop_get_mem_l (server, &response.u.data.mem);
+			do_output (s, &response, _offset_data (mem), 0, NULL);
 			break;
 		case GLIBTOP_CMND_SWAP:
-			glibtop_get_swap_l (&server, &response.u.data.swap);
-			do_output (s, &response, 0, NULL);
+			glibtop_get_swap_l (server, &response.u.data.swap);
+			do_output (s, &response, _offset_data (swap), 0, NULL);
 			break;
 		case GLIBTOP_CMND_UPTIME:
-			glibtop_get_uptime_l (&server, &response.u.data.uptime);
-			do_output (s, &response, 0, NULL);
+			glibtop_get_uptime_l (server, &response.u.data.uptime);
+			do_output (s, &response, _offset_data (uptime), 0, NULL);
 			break;
 		case GLIBTOP_CMND_LOADAVG:
-			glibtop_get_loadavg_l (&server, &response.u.data.loadavg);
-			do_output (s, &response, 0, NULL);
+			glibtop_get_loadavg_l (server, &response.u.data.loadavg);
+			do_output (s, &response, _offset_data (loadavg), 0, NULL);
 			break;
 		case GLIBTOP_CMND_SHM_LIMITS:
-			glibtop_get_shm_limits_l (&server, &response.u.data.shm_limits);
-			do_output (s, &response, 0, NULL);
+			glibtop_get_shm_limits_l (server, &response.u.data.shm_limits);
+			do_output (s, &response, _offset_data (shm_limits), 0, NULL);
 			break;
 		case GLIBTOP_CMND_MSG_LIMITS:
-			glibtop_get_msg_limits_l (&server, &response.u.data.msg_limits);
-			do_output (s, &response, 0, NULL);
+			glibtop_get_msg_limits_l (server, &response.u.data.msg_limits);
+			do_output (s, &response, _offset_data (msg_limits), 0, NULL);
 			break;
 		case GLIBTOP_CMND_SEM_LIMITS:
-			glibtop_get_sem_limits_l (&server, &response.u.data.sem_limits);
-			do_output (s, &response, 0, NULL);
+			glibtop_get_sem_limits_l (server, &response.u.data.sem_limits);
+			do_output (s, &response, _offset_data (sem_limits), 0, NULL);
 			break;
 		case GLIBTOP_CMND_PROCLIST:
-			ptr = glibtop_get_proclist_l (&server, &response.u.data.proclist);
-			do_output (s, &response, response.u.data.proclist.total, ptr);
-			glibtop_free_r (&server, ptr);
+			ptr = glibtop_get_proclist_l (server, &response.u.data.proclist);
+			do_output (s, &response, _offset_data (proclist),
+				   response.u.data.proclist.total, ptr);
+			glibtop_free_r (server, ptr);
 			break;
 		case GLIBTOP_CMND_PROC_STATE:
 			memcpy (&pid, parameter, sizeof (pid_t));
 			glibtop_get_proc_state_l
-				(&server, &response.u.data.proc_state, pid);
-			do_output (s, &response, 0, NULL);
+				(server, &response.u.data.proc_state, pid);
+			do_output (s, &response, _offset_data (proc_state), 0, NULL);
 			break;
 		case GLIBTOP_CMND_PROC_UID:
+			pid = 1;
 			memcpy (&pid, parameter, sizeof (pid_t));
 			glibtop_get_proc_uid_l
-				(&server, &response.u.data.proc_uid, pid);
-			do_output (s, &response, 0, NULL);
+				(server, &response.u.data.proc_uid, pid);
+			do_output (s, &response, _offset_data (proc_uid), 0, NULL);
 			break;
 		case GLIBTOP_CMND_PROC_MEM:
 			memcpy (&pid, parameter, sizeof (pid_t));
 			glibtop_get_proc_mem_l
-				(&server, &response.u.data.proc_mem, pid);
-			do_output (s, &response, 0, NULL);
+				(server, &response.u.data.proc_mem, pid);
+			do_output (s, &response, _offset_data (proc_mem), 0, NULL);
 			break;
 		case GLIBTOP_CMND_PROC_TIME:
 			memcpy (&pid, parameter, sizeof (pid_t));
 			glibtop_get_proc_time_l
-				(&server, &response.u.data.proc_time, pid);
-			do_output (s, &response, 0, NULL);
+				(server, &response.u.data.proc_time, pid);
+			do_output (s, &response, _offset_data (proc_time), 0, NULL);
 			break;
 		case GLIBTOP_CMND_PROC_SIGNAL:
 			memcpy (&pid, parameter, sizeof (pid_t));
 			glibtop_get_proc_signal_l
-				(&server, &response.u.data.proc_signal, pid);
-			do_output (s, &response, 0, NULL);
+				(server, &response.u.data.proc_signal, pid);
+			do_output (s, &response, _offset_data (proc_signal), 0, NULL);
 			break;
 		case GLIBTOP_CMND_PROC_KERNEL:
 			memcpy (&pid, parameter, sizeof (pid_t));
 			glibtop_get_proc_kernel_l
-				(&server, &response.u.data.proc_kernel, pid);
-			do_output (s, &response, 0, NULL);
+				(server, &response.u.data.proc_kernel, pid);
+			do_output (s, &response, _offset_data (proc_kernel), 0, NULL);
 			break;
 		case GLIBTOP_CMND_PROC_SEGMENT:
 			memcpy (&pid, parameter, sizeof (pid_t));
 			glibtop_get_proc_segment_l
-				(&server, &response.u.data.proc_segment, pid);
-			do_output (s, &response, 0, NULL);
+				(server, &response.u.data.proc_segment, pid);
+			do_output (s, &response, _offset_data (proc_segment), 0, NULL);
 			break;
 		}
 	}
