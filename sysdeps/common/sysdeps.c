@@ -21,6 +21,16 @@
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
 
+const unsigned long glibtop_server_features =
+(1 << GLIBTOP_SUID_CPU) + (1 << GLIBTOP_SUID_MEM) +
+(1 << GLIBTOP_SUID_SWAP) + (1 << GLIBTOP_SUID_UPTIME) +
+(1 << GLIBTOP_SUID_LOADAVG) + (1 << GLIBTOP_SUID_SHM_LIMITS) +
+(1 << GLIBTOP_SUID_MSG_LIMITS) + (1 << GLIBTOP_SUID_SEM_LIMITS) +
+(1 << GLIBTOP_SUID_PROCLIST) + (1 << GLIBTOP_SUID_PROC_STATE) +
+(1 << GLIBTOP_SUID_PROC_UID) + (1 << GLIBTOP_SUID_PROC_MEM) +
+(1 << GLIBTOP_SUID_PROC_TIME) + (1 << GLIBTOP_SUID_PROC_SIGNAL) +
+(1 << GLIBTOP_SUID_PROC_KERNEL) + (1 << GLIBTOP_SUID_PROC_SEGMENT);
+
 /* Checks which features are implemented. */
 
 void
