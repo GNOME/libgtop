@@ -34,7 +34,7 @@ static unsigned long _glibtop_sysdeps_sem_limits =
 /* Provides information about sysv ipc limits. */
 
 void
-glibtop_get_sem_limits__r (glibtop *server, glibtop_sem_limits *buf)
+glibtop_get_sem_limits__s (glibtop *server, glibtop_sem_limits *buf)
 {
 	struct seminfo	seminfo;
 	union semun	arg;  

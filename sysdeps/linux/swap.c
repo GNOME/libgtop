@@ -29,7 +29,7 @@ static unsigned long _glibtop_sysdeps_swap =
 /* Provides information about swap usage. */
 
 void
-glibtop_get_swap__r (glibtop *server, glibtop_swap *buf)
+glibtop_get_swap__s (glibtop *server, glibtop_swap *buf)
 {
 	FILE *f;
 

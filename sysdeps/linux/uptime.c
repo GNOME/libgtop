@@ -28,7 +28,7 @@ static unsigned long _glibtop_sysdeps_uptime =
 /* Provides uptime and idle time. */
 
 void
-glibtop_get_uptime__r (glibtop *server, glibtop_uptime *buf)
+glibtop_get_uptime__s (glibtop *server, glibtop_uptime *buf)
 {
 	FILE *f;
 

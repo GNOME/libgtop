@@ -49,7 +49,7 @@ static const unsigned long _glibtop_sysdeps_proclist =
  * On error, NULL is returned and buf->flags is zero. */
 
 unsigned *
-glibtop_get_proclist__r (glibtop *server, glibtop_proclist *buf)
+glibtop_get_proclist__s (glibtop *server, glibtop_proclist *buf)
 {
 	DIR *proc;
 	struct dirent *entry;

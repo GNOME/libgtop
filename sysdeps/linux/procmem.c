@@ -30,7 +30,7 @@ static const unsigned long _glibtop_sysdeps_proc_mem =
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_mem__r (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
+glibtop_get_proc_mem__s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 {
 	char input [BUFSIZ], *tmp;
 	int nread;

@@ -78,7 +78,7 @@ BIT_SHIFT(GLIBTOP_PROCDATA_WCHAN);
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_procdata__r (glibtop *server, glibtop_procdata *buf, pid_t pid)
+glibtop_get_procdata__s (glibtop *server, glibtop_procdata *buf, pid_t pid)
 {
 	char input [BUFSIZ], *tmp;
 	struct stat statb;

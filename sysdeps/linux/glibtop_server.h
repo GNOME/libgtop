@@ -19,35 +19,28 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
-#include <glibtop/mem.h>
+#ifndef __GLIBTOP_SERVER_H__
+#define __GLIBTOP_SERVER_H__
 
-static const unsigned long _glibtop_sysdeps_mem =
-(1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
-(1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_SHARED) +
-(1 << GLIBTOP_MEM_BUFFER) + (1 << GLIBTOP_MEM_CACHED) +
-(1 << GLIBTOP_MEM_USER);
+__BEGIN_DECLS
 
-/* Provides information about memory usage. */
+#define GLIBTOP_SUID_CPU		0
+#define GLIBTOP_SUID_MEM		0
+#define GLIBTOP_SUID_SWAP		0
+#define GLIBTOP_SUID_UPTIME		0
+#define GLIBTOP_SUID_LOADAVG		0
+#define GLIBTOP_SUID_SHM_LIMITS		0
+#define GLIBTOP_SUID_MSG_LIMITS		0
+#define GLIBTOP_SUID_SEM_LIMITS		0
+#define GLIBTOP_SUID_PROCLIST		0
+#define GLIBTOP_SUID_PROC_STATE		0
+#define GLIBTOP_SUID_PROC_UID		0
+#define GLIBTOP_SUID_PROC_MEM		0
+#define GLIBTOP_SUID_PROC_TIME		0
+#define GLIBTOP_SUID_PROC_SIGNAL	0
+#define GLIBTOP_SUID_PROC_KERNEL	0
+#define GLIBTOP_SUID_PROC_SEGMENT	0
 
-void
-glibtop_get_mem__s (glibtop *server, glibtop_mem *buf)
-{
-	FILE *f;
+__END_DECLS
 
-	glibtop_init__r (&server);
-
-	memset (buf, 0, sizeof (glibtop_mem));
-
-	buf->flags = _glibtop_sysdeps_mem;
-
-	f = fopen ("/proc/meminfo", "r");
-	if (!f) return;
-
-	fscanf (f, "%*[^\n]\nMem: %lu %lu %lu %lu %lu %lu\n",
-		&buf->total, &buf->used, &buf->free, &buf->shared, &buf->buffer, &buf->cached);
-
-	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
-
-	fclose (f);
-}
+#endif

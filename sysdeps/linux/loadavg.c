@@ -28,7 +28,7 @@ static const unsigned long _glibtop_sysdeps_loadavg =
 /* Provides load load averange. */
 
 void
-glibtop_get_loadavg__r (glibtop *server, glibtop_loadavg *buf)
+glibtop_get_loadavg__s (glibtop *server, glibtop_loadavg *buf)
 {
 	FILE *f;
 

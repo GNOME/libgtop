@@ -30,7 +30,7 @@ static const unsigned long _glibtop_sysdeps_cpu =
 /* Provides information about cpu usage. */
 
 void
-glibtop_get_cpu__r (glibtop *server, glibtop_cpu *buf)
+glibtop_get_cpu__s (glibtop *server, glibtop_cpu *buf)
 {
 	FILE *f;
 
