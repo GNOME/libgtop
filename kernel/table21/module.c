@@ -305,7 +305,7 @@ table_fkt (int type, union table *buf, const void *param)
 	struct sysinfo i;
 	struct task_struct *tsk = NULL;
 	sigset_t sigign, sigcatch;
-	int index, err;
+	int index, tindex, err;
 	pid_t pid;
 
 	if (type == TABLE_VERSION)
@@ -346,13 +346,16 @@ table_fkt (int type, union table *buf, const void *param)
 	switch (type) {
 	case TABLE_PROCLIST:
 		tsk = task [0];
-		for (index = 0; index < nr_tasks; index++) {
-			tbl.proclist.pids [index] = tsk->pid;
+		read_lock (&tasklist_lock);
+		for (index = tindex = 0; index < nr_tasks; index++) {
+			if (tsk->pid)
+				tbl.proclist.pids [tindex++] = tsk->pid;
 			tsk = tsk->next_task;
 		}
 		tbl.proclist.nr_running = nr_running;
-		tbl.proclist.nr_tasks = nr_tasks;
 		tbl.proclist.last_pid = last_pid;
+		tbl.proclist.nr_tasks = tindex;
+		read_unlock(&tasklist_lock);
 		break;
 	case TABLE_CPU:
 		tbl.cpu.total = jiffies;    
@@ -460,7 +463,7 @@ table_fkt (int type, union table *buf, const void *param)
 			tbl.proc_mem.arg_end = tsk->mm->arg_end;
 			tbl.proc_mem.env_start = tsk->mm->env_start;
 			tbl.proc_mem.env_end = tsk->mm->env_end;
-			tbl.proc_mem.rss = tsk->mm->rss;
+			tbl.proc_mem.rss = tsk->mm->rss << PAGE_SHIFT;
 			tbl.proc_mem.total_vm = tsk->mm->total_vm;
 			tbl.proc_mem.locked_vm = tsk->mm->locked_vm;
 		}
@@ -480,7 +483,18 @@ table_fkt (int type, union table *buf, const void *param)
 				vsize += vma->vm_end - vma->vm_start;
 
 				statm_pgd_range (pgd, vma->vm_start, vma->vm_end,
+
 						 &pages, &shared, &dirty, &total);
+
+#if 0
+				printk ("vma %p (%d) - %d, %d, %d, %d - "
+					"%lx - %lx, %lx - %lx - %lx\n",
+					vma, pid, pages, shared, dirty, total,
+					PAGE_SIZE, vma->vm_start, vma->vm_end,
+					vma->vm_end - vma->vm_start,
+					(vma->vm_end - vma->vm_start) >> PAGE_SHIFT);
+#endif
+
 				resident += pages;
 				share += shared;
 				dt += dirty;
@@ -497,12 +511,12 @@ table_fkt (int type, union table *buf, const void *param)
 			}
 
 			tbl.proc_segment.vsize = vsize;
-			tbl.proc_segment.size = size;
-			tbl.proc_segment.resident = resident;
-			tbl.proc_segment.shared = share;
-			tbl.proc_segment.trs = trs;
-			tbl.proc_segment.lrs = lrs;
-			tbl.proc_segment.dt = dt;
+			tbl.proc_segment.size = size << PAGE_SHIFT;
+			tbl.proc_segment.resident = resident << PAGE_SHIFT;
+			tbl.proc_segment.shared = share << PAGE_SHIFT;
+			tbl.proc_segment.trs = trs << PAGE_SHIFT;
+			tbl.proc_segment.lrs = lrs << PAGE_SHIFT;
+			tbl.proc_segment.dt = dt << PAGE_SHIFT;
 		}
 		break;
 	case TABLE_PROC_TIME:

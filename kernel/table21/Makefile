@@ -10,7 +10,7 @@
 O_TARGET := table.o
 OX_OBJS  := main.o
 
-M_TARGET := module.o
+M_TARGET := table_mod.o
 MX_OBJS  := module.o
 
 include $(TOPDIR)/Rules.make

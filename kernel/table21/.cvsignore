@@ -1,0 +1,4 @@
+kernel.patch
+.main.o.flags
+.table.o.flags
+.module.o.flags
