@@ -1,3 +1,11 @@
+1999-03-01  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in (LIBGTOP_LIBS): Move `-lgtop_common' last to
+	make it work with static-only libs. Thanks to Roderik Muit
+	for pointing this out.
+	(PERL): First check for `perl5', then for `perl'. Thanks again
+	to Roderik Muit.
+
 1999-02-24  Martin Baulig  <martin@home-of-linux.org>
 
 	Released LibGTop 1.0.0.
