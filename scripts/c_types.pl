@@ -3,7 +3,7 @@
 my $c_strlen_func = sub {
   local ($_) = @_;
 
-  return "strlen ($_) + sizeof (unsigned) + 1";
+  return "strlen ($_) + 1";
 };
 
 my $c_marshal_func = sub {
@@ -13,10 +13,12 @@ my $c_marshal_func = sub {
   $code .= sprintf ("%s_LIBGTOP_SEND_temp_len = strlen (%s)+1;\n",
 		    $indent, $param);
   $code .= sprintf ("%smemcpy (_LIBGTOP_SEND_ptr, %s, %s);\n",
-		    $indent, "&_LIBGTOP_SEND_temp_len", "sizeof (unsigned)");
-  $code .= sprintf ("%s_LIBGTOP_SEND_ptr += sizeof (unsigned);\n", $indent);
-  $code .= sprintf ("%smemcpy (_LIBGTOP_SEND_ptr, %s, %s);\n",
+		    $indent, "&_LIBGTOP_SEND_temp_len", "sizeof (size_t)");
+  $code .= sprintf ("%s_LIBGTOP_SEND_ptr += sizeof (size_t);\n", $indent);
+  $code .= sprintf ("%smemcpy (_LIBGTOP_DATA_ptr, %s, %s);\n",
 		    $indent, $param, "strlen ($param)+1");
+  $code .= sprintf ("%s_LIBGTOP_DATA_ptr += strlen ($param)+1;\n",
+		    $indent);
 
   $need_temp_len = 1;
 

@@ -70,6 +70,9 @@ BEGIN_LIBGTOP_DECLS
 #define GET_MAX_FDS() 256
 #endif
 
+int
+do_read (int s, void *ptr, size_t total_size);
+
 void
 handle_slave_connection (int input, int output);
 

@@ -41,7 +41,9 @@ glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
 		int *retval_ptr)
 {
     glibtop_command cmnd;
+#if 0
     int retval;
+#endif
 
     glibtop_init_r (&server, 0, 0);
 

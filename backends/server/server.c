@@ -115,7 +115,7 @@ handle_slave_connection (int input, int output)
 
     while (do_read (input, cmnd, sizeof (glibtop_command))) {
 	fprintf (stderr, "Slave %d received command "
-		 "%d from client.\n", getpid (), cmnd->command);
+		 "%ld from client.\n", getpid (), (long) cmnd->command);
 
 	if (cmnd->send_size >= BUFSIZ)
 	    glibtop_error ("Client sent %d bytes, but buffer is %d",

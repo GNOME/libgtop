@@ -34,7 +34,7 @@ print '';
 print '#include <glibtop/backend.h>';
 print '';
 print '#include <glibtop-backend-private.h>';
-print '#include "command.h"';
+print '#include "server.h"';
 print '';
 
 $feature_count = 0;
