@@ -1,3 +1,8 @@
+2001-01-05  Pablo Saratxaga <pablo@mandrakesoft.com>
+
+	* az.po: Added Azeri file
+	* ja.po: fixed a syntax error (missing %c )
+
 2000-10-15  Yukihiro Nakai  <nakai@gnome.gr.jp>
 
 	* ja.po: Update Japanese translation.
