@@ -221,11 +221,11 @@ fi
 
 dnl Some ugly hack; if '-lgnomesupport' is part of $GNOME_LIBS,
 dnl we include it here.
-echo "$GNOME_LIBS" | grep -q -e '-lgnomesupport'
-if test $? = 0 ; then
-  LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
-  SUPPORTINCS="$GNOME_INCLUDEDIR"
-fi
+case "$GNOME_LIBS" in
+	'*-lgnomesupport*' ) 
+	  LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
+          SUPPORTINCS="$GNOME_INCLUDEDIR" ;;
+esac
 AC_SUBST(LIBSUPPORT)
 AC_SUBST(SUPPORTINCS)
 
@@ -260,7 +260,7 @@ fi
 
 AC_SUBST(libgtop_guile_found)
 
-if test -z $LIBGTOP_EXTRA_LIBS ; then
+if test -z "$LIBGTOP_EXTRA_LIBS" ; then
   LIBGTOP_EXTRA_LIBS="$libs_xauth"
 else
   LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $libs_xauth"
