@@ -38,6 +38,8 @@ int
 glibtop_init_cpu_s (glibtop *server)
 {
     server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+
+    return 0;
 }
 
 /* Provides information about cpu usage. */
@@ -55,7 +57,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
     ret = table (TBL_SYSINFO, 0, (char *) &sysinfo, 1,
 		 sizeof (struct tbl_sysinfo)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->flags = _glibtop_sysdeps_cpu;
 		
@@ -68,4 +70,6 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	sysinfo.si_sys + sysinfo.si_idle;
 
     buf->frequency = sysinfo.si_hz;
+
+    return 0;
 }

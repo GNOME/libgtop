@@ -38,6 +38,8 @@ int
 glibtop_init_msg_limits_s (glibtop *server)
 {
     server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+
+    return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -54,7 +56,7 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
     ret = table (TBL_MSGINFO, MSGINFO_MAX, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 	
     buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGMAX);
 
@@ -63,7 +65,7 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
     ret = table (TBL_MSGINFO, MSGINFO_MNB, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGMNB);
 
@@ -72,7 +74,7 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
     ret = table (TBL_MSGINFO, MSGINFO_MNI, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGMNI);
 
@@ -81,9 +83,11 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
     ret = table (TBL_MSGINFO, MSGINFO_TQL, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->flags += (1L << GLIBTOP_MSG_LIMITS_MSGTQL);
 
     buf->msgtql = value;
+
+    return 0;
 }

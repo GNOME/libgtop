@@ -37,6 +37,8 @@ int
 glibtop_init_swap_s (glibtop *server)
 {
     server->sysdeps.swap = _glibtop_sysdeps_swap;
+
+    return 0;
 }
 
 /* Provides information about swap usage. */
@@ -63,4 +65,6 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
     buf->flags = _glibtop_sysdeps_swap;
 	
     buf->used  = buf->total - buf->free;
+
+    return 0;
 }

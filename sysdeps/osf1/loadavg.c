@@ -36,6 +36,8 @@ int
 glibtop_init_loadavg_s (glibtop *server)
 {
     server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
+
+    return 0;
 }
 
 /* Provides load averange. */
@@ -53,7 +55,7 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
     ret = table (TBL_LOADAVG, 0, (char *) &loadavg, 1,
 		 sizeof (struct tbl_loadavg)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->flags = _glibtop_sysdeps_loadavg;
 		
@@ -72,4 +74,6 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	    (double) loadavg.tl_avenrun.l [2] /
 	    (double) loadavg.tl_mach_factor [2];
     }
+
+    return 0;
 }

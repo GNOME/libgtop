@@ -35,13 +35,18 @@ int
 glibtop_init_netload_p (glibtop *server)
 {
     server->sysdeps.netload = _glibtop_sysdeps_netload;
+
+    return 0;
 }
 
 /* Provides Network statistics. */
 
 int
 glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
-		       const char *interface)
+		       const char *interface, unsigned transport,
+		       unsigned protocol)
 {
     memset (buf, 0, sizeof (glibtop_netload));
+
+    return 0;
 }

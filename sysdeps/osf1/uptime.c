@@ -38,6 +38,8 @@ int
 glibtop_init_uptime_s (glibtop *server)
 {
     server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+
+    return 0;
 }
 
 /* Provides uptime and idle time. */
@@ -55,9 +57,11 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
     ret = table (TBL_SYSINFO, 0, (char *) &sysinfo, 1,
 		 sizeof (struct tbl_sysinfo)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 		
     buf->uptime = (double) (time (NULL) - sysinfo.si_boottime);
 
     buf->flags = _glibtop_sysdeps_uptime;
+
+    return 0;
 }

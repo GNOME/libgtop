@@ -43,6 +43,8 @@ int
 glibtop_init_mem_s (glibtop *server)
 {
     server->sysdeps.mem = _glibtop_sysdeps_mem;
+
+    return 0;
 }
 
 /* Provides information about memory usage. */
@@ -68,4 +70,6 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
     buf->total = (vmstats.active_count + vmstats.inactive_count +
 		  vmstats.free_count + vmstats.wire_count) *
 	vmstats.pagesize;
+
+    return 0;
 }

@@ -35,6 +35,8 @@ int
 glibtop_init_ppp_s (glibtop *server)
 {
     server->sysdeps.ppp = _glibtop_sysdeps_ppp;
+
+    return 0;
 }
 
 /* Provides PPP/ISDN information. */
@@ -43,4 +45,5 @@ int
 glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device)
 {
     memset (buf, 0, sizeof (glibtop_ppp));
+    return 0;
 }

@@ -38,6 +38,8 @@ int
 glibtop_init_sem_limits_s (glibtop *server)
 {
     server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+
+    return 0;
 }
 
 /* Provides information about sysv sem limits. */
@@ -54,7 +56,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
     ret = table (TBL_SEMINFO, SEMINFO_MNI, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMMNI);
 
@@ -64,7 +66,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
     ret = table (TBL_SEMINFO, SEMINFO_MSL, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMMSL);
 
@@ -74,7 +76,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
     ret = table (TBL_SEMINFO, SEMINFO_OPM, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMOPM);
 
@@ -84,7 +86,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
     ret = table (TBL_SEMINFO, SEMINFO_UME, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMUME);
 
@@ -94,7 +96,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
     ret = table (TBL_SEMINFO, SEMINFO_VMX, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMVMX);
 
@@ -104,9 +106,11 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
     ret = table (TBL_SEMINFO, SEMINFO_AEM, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->flags += (1L << GLIBTOP_SEM_LIMITS_SEMAEM);
 
     buf->semaem = value;
+
+    return 0;
 }

@@ -37,6 +37,8 @@ int
 glibtop_init_shm_limits_s (glibtop *server)
 {
     server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
+
+    return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -53,7 +55,7 @@ glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
     ret = table (TBL_SHMINFO, SHMINFO_MAX, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMMAX);
 		
@@ -63,7 +65,7 @@ glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
     ret = table (TBL_SHMINFO, SHMINFO_MIN, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 		
     buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMMIN);
 		
@@ -73,7 +75,7 @@ glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
     ret = table (TBL_SHMINFO, SHMINFO_MNI, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 		
     buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMMNI);
 		
@@ -83,9 +85,11 @@ glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
     ret = table (TBL_SHMINFO, SHMINFO_SEG, (char *) &value, 1,
 		 sizeof (value)); 
 
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 		
     buf->flags += (1L << GLIBTOP_SHM_LIMITS_SHMSEG);
 		
     buf->shmseg = value;
+
+    return 0;
 }
