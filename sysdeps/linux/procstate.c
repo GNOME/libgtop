@@ -28,7 +28,7 @@
 #include <sys/stat.h>
 
 static const unsigned long _glibtop_sysdeps_proc_state =
-(1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE);
+(1 << GLIBTOP_PROC_STATE_CMD);
 
 static const unsigned long _glibtop_sysdeps_proc_state_uid =
 (1 << GLIBTOP_PROC_STATE_UID) + (1 << GLIBTOP_PROC_STATE_GID);
@@ -47,7 +47,7 @@ glibtop_init_proc_state_s (glibtop *server)
 void
 glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 {
-	char buffer [BUFSIZ], *p;
+	char buffer [BUFSIZ], state, *p;
 	struct stat statb;
 	
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_STATE, 0);
@@ -78,7 +78,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 		return;
 
 	p = strrchr (buffer, ')'); *p = '\0';
-	buf->state = p [2];
+	state = p [2];
 
 	p = skip_token (buffer); p++;	/* pid */
 	if (*p++ != '(')
@@ -88,4 +88,29 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	buf->cmd [sizeof (buf->cmd)-1] = 0;
 
 	buf->flags |= _glibtop_sysdeps_proc_state;
+
+	switch (state) {
+	case 'R':
+	    buf->state = GLIBTOP_PROCESS_RUNNING;
+	    break;
+	case 'S':
+	    buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
+	    break;
+	case 'D':
+	    buf->state = GLIBTOP_PROCESS_UNINTERRUPTIBLE;
+	    break;
+	case 'Z':
+	    buf->state = GLIBTOP_PROCESS_ZOMBIE;
+	    break;
+	case 'T':
+	    buf->state = GLIBTOP_PROCESS_STOPPED;
+	    break;
+	case 'W':
+	    buf->state = GLIBTOP_PROCESS_SWAPPING;
+	    break;
+	default:
+	    return;
+	}
+
+	buf->flags |= (1 << GLIBTOP_PROC_STATE_STATE);
 }

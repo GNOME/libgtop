@@ -32,8 +32,8 @@
 #endif
 
 static const unsigned long _glibtop_sysdeps_proc_state =
-(1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE) +
-(1 << GLIBTOP_PROC_STATE_UID) + (1 << GLIBTOP_PROC_STATE_GID);
+(1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_UID) +
+(1 << GLIBTOP_PROC_STATE_GID);
 
 /* Init function. */
 
@@ -73,27 +73,28 @@ glibtop_get_proc_state_p (glibtop *server,
 	buf->uid = pinfo [0].kp_eproc.e_pcred.p_svuid;
 	buf->gid = pinfo [0].kp_eproc.e_pcred.p_svgid;
 
-	switch (pinfo [0].kp_proc.p_stat) {
-	case SIDL:
-		buf->state = 'I';
-		break;
-	case SRUN:
-		buf->state = 'R';
-		break;
-	case SSLEEP:
-		buf->state = 'S';
-		break;
-	case SSTOP:
-		buf->state = 'T';
-		break;
-	case SZOMB:
-		buf->state = 'Z';
-		break;
-	default:
-		buf->state = '?';
-		break;
-	}
-
 	/* Set the flags for the data we're about to return*/
 	buf->flags = _glibtop_sysdeps_proc_state;
+
+	switch (pinfo [0].kp_proc.p_stat) {
+	case SIDL:
+		buf->state = 0;
+		break;
+	case SRUN:
+		buf->state = GLIBTOP_PROCESS_RUNNING;
+		break;
+	case SSLEEP:
+		buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
+		break;
+	case SSTOP:
+		buf->state = GLIBTOP_PROCESS_STOPPED;
+		break;
+	case SZOMB:
+		buf->state = GLIBTOP_PROCESS_ZOMBIE;
+		break;
+	default:
+		return;
+	}
+
+	buf->flags |= (1 << GLIBTOP_PROC_STATE_STATE);
 }
