@@ -1533,6 +1533,8 @@ struct _glibtop_fsusage
         files,
         ffree;
     guint32   block_size;
+    guint64 read,
+        write;
 @};
 @end cartouche
 @end example
@@ -1550,9 +1552,11 @@ Total file nodes.
 Free file nodes.
 @item block_size
 Block size in bytes.
+@item read
+Total blocks read.
+@item write
+Total blocks written.
 @end table
-
-Blocks are usually 512 bytes.
 
 @page
 @node Library Functions,  , Common Functions, Reference Manual
