@@ -115,6 +115,15 @@ dnl fi
 dnl AC_SUBST(LIBSUPPORT)
 dnl AC_SUBST(SUPPORTINCS)
 
+dnl Some ugly hack; if '-lgnomesupport' is part of $GNOME_LIBS, we include it here.
+echo "$GNOME_LIBS" | grep -q -e '-lgnomesupport'
+if test $? = 0 ; then
+  LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
+  SUPPORTINCS="$GNOME_INCLUDEDIR"
+fi
+AC_SUBST(LIBSUPPORT)
+AC_SUBST(SUPPORTINCS)
+
 dnl These definitions are expanded in make.
 LIBGTOP_LIBS='-L$(libdir)'
 LIBGTOP_INCS='-I$(includedir)'
