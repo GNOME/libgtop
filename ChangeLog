@@ -1,3 +1,11 @@
+1998-10-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* src/inodedb/Makefile.am: Removed @libs_xauth@ and -lgdbm
+	from the _LDADD variables since libtool automatically gets
+	the dependencies.
+	* src/daemon/Makefile.am: Likewise.
+	* examples/Makefile.am: Likewise.
+
 1998-10-10  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure (LIBGTOP_EXTRA_LIBS): Added `GLIB_LIBS'.
