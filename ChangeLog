@@ -1,3 +1,8 @@
+1998-07-10  Martin Baulig  <martin@home-of-linux.org>
+
+	* src/Makefile.am (SUBDIRS): Removed `proxy'. This directory
+	is considered obsolete and will be removed soon.
+
 1998-07-06  Martin Baulig  <martin@home-of-linux.org>
 
 	* sysdeps/common/mountlist.c: using functions from `xmalloc.c'.

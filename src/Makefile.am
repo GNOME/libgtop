@@ -1,1 +1,1 @@
-SUBDIRS			= server proxy daemon
+SUBDIRS			= server daemon
