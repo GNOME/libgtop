@@ -55,25 +55,8 @@ int main(int argc, char *argv[])
 	uid = getuid (); euid = geteuid ();
 	gid = getgid (); egid = getegid ();
 
-	if (setreuid (euid, uid)) _exit (1);
-
-	if (setregid (egid, gid)) _exit (1);
-
-	/* !!! END OF SUID ROOT PART !!! */
-
-	/* For security reasons, we temporarily drop our priviledges
-	 * before doing the gettext stuff. */
-
-	setlocale (LC_ALL, "");
-	bindtextdomain (PACKAGE, GTOPLOCALEDIR);
-	textdomain (PACKAGE);
-
 	glibtop_version ();
 
-	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
-
-	setreuid (uid, euid); setregid (gid, egid);
-	
 	glibtop_open_r (&server, argv [0], 0, 0);
 
 	if (setreuid (euid, uid)) _exit (1);
@@ -89,7 +72,6 @@ int main(int argc, char *argv[])
 	
 	while(1) {
 		/* block on read from client */
-		/* fprintf (stderr, "waiting for input ...\n"); */
 		nread = read (0, &size, sizeof (size_t));
 
 		/* will return 0 if parent exits. */

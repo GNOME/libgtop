@@ -33,7 +33,9 @@ void
 glibtop_open_l (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
+	char version [BUFSIZ], buffer [BUFSIZ];
 	int connect_type;
+	unsigned nbytes;
 
 	server->name = program_name;
 
@@ -74,6 +76,52 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
 
 		server->features = -1;
+		break;
+	case GLIBTOP_METHOD_PIPE:
+		fprintf (stderr, "Opening pipe to server (%s).\n",
+			 GTOP_SERVER);
+
+#if 0
+		if (socketpair (AF_UNIX, SOCK_STREAM, 0, server->input))
+			glibtop_error_io_r (server, "socketpair");
+
+		if (socketpair (AF_UNIX, SOCK_STREAM, 0, server->output))
+			glibtop_error_io_r (server, "socketpair");
+#endif
+
+		if (pipe (server->input) || pipe (server->output))
+			glibtop_error_io_r (server, "cannot make a pipe");
+
+		server->pid  = fork ();
+		
+		if (server->pid < 0) {
+			glibtop_error_io_r (server, "fork failed");
+		} else if (server->pid == 0) {
+			close (0); close (1);
+			close (server->input [0]); close (server->output [1]);
+			dup2 (server->input [1], 1);
+			dup2 (server->output [0], 0);
+			execl (GTOP_SERVER, NULL);
+			glibtop_error_io_r (server, "execl %s", GTOP_SERVER);
+			_exit (2);
+		}
+
+		close (server->input [1]);
+		close (server->output [0]);
+
+		sprintf (version, "%s server %s ready.\n", PACKAGE, VERSION);
+
+		glibtop_read_l (server, sizeof (nbytes), &nbytes);
+
+		if (nbytes != strlen (version))
+			glibtop_error_r (server, "Requested %u bytes but got %u",
+					 strlen (version), nbytes);
+		
+		glibtop_read_l (server, nbytes, buffer);
+		
+		if (memcmp (version, buffer, strlen (version)))
+			glibtop_error_r (server, "server version is not %s",
+					 VERSION);
 		break;
 	}
 

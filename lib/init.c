@@ -136,6 +136,11 @@ _init_server (glibtop *server, const unsigned features)
 		/* Connect to unix domain socket. */
 		server->method = GLIBTOP_METHOD_UNIX;
 
+	} else if (!strcmp (command, "pipe")) {
+
+		/* Open pipe to server. */
+		server->method = GLIBTOP_METHOD_PIPE;
+
 	} else {
 
 		glibtop_error_r (server, "Unknown server method '%s'",

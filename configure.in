@@ -253,5 +253,6 @@ src/proxy/Makefile
 src/daemon/Makefile
 lib/Makefile
 examples/Makefile
+perl/Makefile.PL
 support/Makefile
 macros/Makefile],[sed -e "/POTFILES =/r po/POTFILES" po/Makefile.in > po/Makefile])
