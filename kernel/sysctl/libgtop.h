@@ -95,13 +95,14 @@ struct libgtop_proc_state
     int session;
     unsigned int tty;
     int tpgid;
-    long priority;
-    long counter;
-    long def_priority;
+    long priority, counter, def_priority;
     long utime, stime, cutime, cstime, start_time;
+    long per_cpu_utime [NR_CPUS], per_cpu_stime [NR_CPUS];
+#if 0
     unsigned long policy, rt_priority;
     unsigned long it_real_value, it_prof_value, it_virt_value;
     unsigned long it_real_incr, it_prof_incr, it_virt_incr;
+#endif
     unsigned long keip, kesp;
     unsigned long min_flt, maj_flt, cmin_flt, cmaj_flt;
     unsigned long nswap, cnswap;

@@ -298,6 +298,7 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 		     struct task_struct *tsk)
 {
     libgtop_proc_state_t *proc_state;
+    int i;
 
     switch (table->ctl_name) {
     case LIBGTOP_PROC_STATE:
@@ -321,12 +322,12 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 	proc_state->pid = tsk->pid;
 	proc_state->pgrp = tsk->pgrp;
 	proc_state->ppid = tsk->p_pptr->pid;
-		
+
 	proc_state->session = tsk->session;
 	proc_state->tty = tsk->tty ?
 	    kdev_t_to_nr (tsk->tty->device) : 0;
 	proc_state->tpgid = tsk->tty ? tsk->tty->pgrp : -1;
-		
+
 	proc_state->priority = tsk->priority;
 	proc_state->counter = tsk->counter;
 	proc_state->def_priority = DEF_PRIORITY;
@@ -337,6 +338,15 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 	proc_state->cstime = tsk->times.tms_cstime;
 
 	proc_state->start_time = tsk->start_time;
+
+#ifdef __SMP__
+	for (i = 0; i < NR_CPUS; i++) {
+	    proc_state->per_cpu_utime [i] = tsk->per_cpu_utime [i];
+	    proc_state->per_cpu_stime [i] = tsk->per_cpu_stime [i];
+	}
+#endif
+
+#if 0
 	proc_state->policy = tsk->policy;
 	proc_state->rt_priority = tsk->rt_priority;
 
@@ -346,6 +356,7 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 	proc_state->it_real_incr = tsk->it_real_incr;
 	proc_state->it_prof_incr = tsk->it_prof_incr;
 	proc_state->it_virt_incr = tsk->it_virt_incr;
+#endif
 	
 	proc_state->min_flt = tsk->min_flt;
 	proc_state->cmin_flt = tsk->cmin_flt;
