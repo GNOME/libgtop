@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.3\n"
-"POT-Creation-Date: 2000-10-23 10:20+0300\n"
+"POT-Creation-Date: 2000-10-31 13:41+0200\n"
 "PO-Revision-Date: 2000-01-13 17:57+0200\n"
 "Last-Translator: Yuri Syrota <rasta@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -749,7 +749,7 @@ msgstr ""
 
 #: sysdeps/names/procsignal.c:40
 msgid "Signal"
-msgstr "Сигнал"
+msgstr "Си╜нал"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Blocked"
@@ -1027,7 +1027,7 @@ msgstr "sizeof struct sem_undo"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Semaphore max value"
-msgstr ""
+msgstr "Максимальне значення семафора"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Adjust on exit max value"
