@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 
 	setreuid (uid, euid); setregid (gid, egid);
 	
-	glibtop_open (&server, argv [0]);
+	glibtop_open (&server, argv [0], 0, 0);
 
 	if (setreuid (euid, uid)) _exit (1);
 
@@ -140,11 +140,6 @@ int main(int argc, char *argv[])
 		}
 
 		switch (cmnd.command) {
-		case GLIBTOP_CMND_SYSDEPS:
-			glibtop_get_sysdeps__r (&server, &sysdeps);
-			glibtop_output (sizeof (glibtop_sysdeps), &sysdeps);
-			glibtop_output (0, NULL);
-			break;
 		case GLIBTOP_CMND_CPU:
 #if GLIBTOP_SUID_CPU
 			glibtop_get_cpu__p (&server, &data.cpu);
@@ -207,6 +202,8 @@ int main(int argc, char *argv[])
 		case GLIBTOP_CMND_PROCLIST:
 #if GLIBTOP_SUID_PROCLIST
 			ptr = glibtop_get_proclist__p (&server, &data.proclist);
+#else
+			ptr = NULL;
 #endif
 			glibtop_output (sizeof (glibtop_proclist),
 					&data.proclist);

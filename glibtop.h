@@ -42,14 +42,21 @@ struct _glibtop
 	int output [2];			/* Pipe client -> server */
 	unsigned long os_version_code;	/* Version code of the operating system */
 	const char *name;		/* Program name for error messages */
+	const char *server_command;	/* Command used to invoke server */
+	const char *server_host;	/* Host the server should run on */
+	const char *server_user;	/* Name of the user on the target host */
+	const char *server_rsh;		/* Command used to connect to the target host */
+	unsigned long features;		/* Server is required for this features */
 	pid_t pid;			/* PID of the server */
 };
 
 extern glibtop *glibtop_global_server;
 
-#define glibtop_init()	glibtop_init__r(&glibtop_global_server);
+extern const unsigned long glibtop_server_features;
 
-extern glibtop *glibtop_init__r __P((glibtop **));
+#define glibtop_init()	glibtop_init__r(&glibtop_global_server, 0, 0);
+
+extern glibtop *glibtop_init__r __P((glibtop **, const unsigned long, const unsigned));
 
 #ifdef HAVE_GUILE
 
