@@ -1,5 +1,9 @@
 1999-02-19  Martin Baulig  <martin@home-of-linux.org>
 
+	* lib/open.c, src/daemon/version.c: For suid/sgid servers the
+	operating system version must match the one the server was
+	compiled on.
+
 	* include/glibtop/error.h: Don't include <glib.h>.
 	* sysdeps/common/error.c: Use `int' not `gint'.
 

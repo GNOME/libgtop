@@ -28,6 +28,8 @@
 
 #include <glibtop/gnuserv.h>
 
+#include <sys/utsname.h>
+
 /* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
 
 void
@@ -126,18 +128,23 @@ glibtop_open_l (glibtop *server, const char *program_name,
 	/* If the server has been started, ask it for its features. */
 
 	if (server->flags & _GLIBTOP_INIT_STATE_SERVER) {
-		char version [BUFSIZ], buffer [BUFSIZ];
+		char version [BUFSIZ+10], buffer [BUFSIZ+10];
 		glibtop_sysdeps sysdeps;
 		size_t size, nbytes;
+		struct utsname uts;
 
 		/* First check whether the server version is correct. */
 
-		sprintf (version, LIBGTOP_VERSION_STRING,
-			 LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
-			 sizeof (glibtop_command),
-			 sizeof (glibtop_response),
-			 sizeof (glibtop_union),
-			 sizeof (glibtop_sysdeps));
+		if (uname (&uts))
+			glibtop_error_io_r (server, "uname");
+
+		snprintf (version, BUFSIZ, LIBGTOP_VERSION_STRING,
+			  LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
+			  sizeof (glibtop_command),
+			  sizeof (glibtop_response),
+			  sizeof (glibtop_union),
+			  sizeof (glibtop_sysdeps),
+			  uts.sysname, uts.release, uts.machine);
 
 		size = strlen (version) + 1;
 	
@@ -151,8 +158,12 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		glibtop_read_l (server, nbytes, buffer);
 		
 		if (memcmp (version, buffer, size))
-			glibtop_error_r (server, "server version is not %s",
-					 LIBGTOP_VERSION);
+			glibtop_error_r
+				(server,
+				 "server version is not %s / %d "
+				 "compiled for %s %s %s",
+				 LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
+				 uts.sysname, uts.release, uts.machine);
 
 		/* Now ask it for its features. */
 		
