@@ -23,7 +23,7 @@
 
 #include <glibtop/xmalloc.h>
 
-#if LIBGTOP_ENABLE_DEBUG
+#ifdef LIBGTOP_USE_GLIB_MALLOC
 #include <glib.h>
 #endif
 
@@ -32,7 +32,7 @@
 void *
 glibtop_malloc_r (glibtop *server, size_t size)
 {
-#if LIBGTOP_ENABLE_DEBUG
+#ifdef LIBGTOP_USE_GLIB_MALLOC
 	return g_malloc0 (size);
 #else
 	void *buf = malloc (size);
@@ -47,7 +47,7 @@ glibtop_malloc_r (glibtop *server, size_t size)
 void *
 glibtop_calloc_r (glibtop *server, size_t nmemb, size_t size)
 {
-#if LIBGTOP_ENABLE_DEBUG
+#ifdef LIBGTOP_USE_GLIB_MALLOC
 	return g_malloc0 (size * nmemb);
 #else
 	void *buf = calloc (nmemb, size);
@@ -63,7 +63,7 @@ glibtop_calloc_r (glibtop *server, size_t nmemb, size_t size)
 void *
 glibtop_realloc_r (glibtop *server, void *ptr, size_t size)
 {
-#if LIBGTOP_ENABLE_DEBUG
+#ifdef LIBGTOP_USE_GLIB_MALLOC
 	return g_realloc (ptr, size);
 #else
 	void *buf = realloc (ptr, size);
@@ -78,7 +78,7 @@ glibtop_realloc_r (glibtop *server, void *ptr, size_t size)
 char *
 glibtop_strdup_r (glibtop *server, const char *string)
 {
-#if LIBGTOP_DEBUG
+#ifdef LIBGTOP_USE_GLIB_MALLOC
 	return g_strdup (string);
 #else
 	return strcpy (glibtop_malloc_r (server, strlen (string) + 1), string);
@@ -88,7 +88,7 @@ glibtop_strdup_r (glibtop *server, const char *string)
 void
 glibtop_free_r (glibtop *server, const void *ptr)
 {
-#if LIBGTOP_DEBUG
+#ifdef LIBGTOP_USE_GLIB_MALLOC
 	g_free (ptr);
 #else
 	if (ptr) free ((void *) ptr);
