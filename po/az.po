@@ -534,7 +534,7 @@ msgstr "Böyüklük"
 
 #: sysdeps/names/procargs.c:43
 msgid "Length in bytes of the returned string."
-msgstr "Dönæn stringin baytlarla uzunluºu."
+msgstr "Dönæn stringin baytlarla uzunluðu."
 
 #: sysdeps/names/prockernel.c:42
 msgid "K_Flags"
@@ -921,7 +921,7 @@ msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
-"Ýnterval timera baºlý olaraq gediþata göndærilæn sonraký SIGALRM "
+"Ýnterval timera baðlý olaraq gediþata göndærilæn sonraký SIGALRM "
 "ævvælindæ keçæn vaxt."
 
 #: sysdeps/names/proctime.c:60
@@ -1111,12 +1111,12 @@ msgstr "Atýlan Sæhifælær"
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
 msgstr ""
-"Sistem baþladýºýndan bæri alýnan Dæyiþ Toqquþ sæhifælæri sayýsý"
+"Sistem baþladýðýndan bæri alýnan Dæyiþ Toqquþ sæhifælæri sayýsý"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
-"Sistem baþladýºýndan bæri atýlan Dæyiþ Toqquþ sæhifælæri sayýsý"
+"Sistem baþladýðýndan bæri atýlan Dæyiþ Toqquþ sæhifælæri sayýsý"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
@@ -1196,7 +1196,7 @@ msgstr "Gediþat Yaddaþý Xæritæsi"
 
 #: sysdeps/names/sysdeps.c:68
 msgid "Mount List"
-msgstr "Baºlanmýþ Avadanlýq Siyahýsý"
+msgstr "Baðlanmýþ Avadanlýq Siyahýsý"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "File System Usage"
@@ -1216,7 +1216,7 @@ msgstr "Gediþatýn æmr sætri arqumentlæri"
 
 #: sysdeps/names/sysdeps.c:95
 msgid "List of currently mounted filesystems"
-msgstr "Hazýrda baºlanmýþ olan dosye sistemlæri sayýsý"
+msgstr "Hazýrda baðlanmýþ olan dosye sistemlæri sayýsý"
 
 #: sysdeps/names/uptime.c:38
 msgid "Uptime"
@@ -1228,11 +1228,11 @@ msgstr "Idletime"
 
 #: sysdeps/names/uptime.c:44
 msgid "Time in seconds since system boot"
-msgstr "Sistem baþladýºýndan bæri keçæn vaxt"
+msgstr "Sistem baþladýðýndan bæri keçæn vaxt"
 
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Sistem baþladýºýndan bæri sistem idle taskda keçirdiyi müddæt"
+msgstr "Sistem baþladýðýndan bæri sistem idle taskda keçirdiyi müddæt"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1256,7 +1256,7 @@ msgstr "Ýzlæmæ trapý"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr "Læºv Et"
+msgstr "Læðv Et"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
@@ -1280,7 +1280,7 @@ msgstr "Seqmentlæræ Bölmæ Qaydasý Pozulmasý"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr "Sistem çaºýrýþý üçün xætalý arqument"
+msgstr "Sistem çaðýrýþý üçün xætalý arqument"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
@@ -1497,10 +1497,10 @@ msgstr "Ýstifadæçi siqnal 2 tæsvir etdi"
 #~ msgstr "Sýrf oxuna bilæn qiymætlæri düzæltmæ haqqý alýndý"
 
 #~ msgid "Parameter size mismatch"
-#~ msgstr "Parametr böyüklüyü uyºun gælmir"
+#~ msgstr "Parametr böyüklüyü uyðun gælmir"
 
 #~ msgid "Communication with LibGTop server failed"
-#~ msgstr "LibGTop vericisi ilæ baºlantý kæsildi"
+#~ msgstr "LibGTop vericisi ilæ baðlantý kæsildi"
 
 #~ msgid "No such process"
 #~ msgstr "Belæ bir gediþat yoxdur"
@@ -1509,4 +1509,4 @@ msgstr "Ýstifadæçi siqnal 2 tæsvir etdi"
 #~ msgstr "Kernel tæræfindæn dæstæklænmir"
 
 #~ msgid "Incompatible kernel version"
-#~ msgstr "Uyºun olmayan Kernel buraxýlýþý"
+#~ msgstr "Uyðun olmayan Kernel buraxýlýþý"
