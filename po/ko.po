@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 1.0.2\n"
-"POT-Creation-Date: 2000-11-12 02:15+0100\n"
-"PO-Revision-Date: 1999-03-30 10:40:01+0900\n"
-"Last-Translator: Sung-Hyun Nam <namsh@lgic.co.kr>\n"
+"Project-Id-Version: libgtop 1.0.10\n"
+"POT-Creation-Date: 2001-02-09 13:37-0500\n"
+"PO-Revision-Date: 2001-02-09 18:56+0900\n"
+"Last-Translator: Sung-Hyun Nam <namsh@kldp.org>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=euc-kr\n"
@@ -16,11 +16,11 @@ msgstr ""
 #: examples/smp.c:68
 #, c-format
 msgid "Ticks (%ld per second):"
-msgstr ""
+msgstr "틱 (초당 %ld):"
 
 #: examples/smp.c:71
 msgid "Total"
-msgstr ""
+msgstr "총"
 
 #: examples/smp.c:71 sysdeps/names/mem.c:47
 msgid "User"
@@ -35,9 +35,8 @@ msgid "Sys"
 msgstr ""
 
 #: examples/smp.c:71
-#, fuzzy
 msgid "Idle"
-msgstr "유휴시간"
+msgstr "유휴"
 
 #: examples/smp.c:73
 #, c-format
@@ -45,24 +44,25 @@ msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 msgstr ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
 
 #: examples/smp.c:77
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr ""
+msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
 #: examples/smp.c:94
 msgid "Percent:"
-msgstr ""
+msgstr "백분율:"
 
 #: examples/smp.c:95
 msgid "Total (%)"
-msgstr ""
+msgstr "총 (%)"
 
 #: examples/smp.c:95
-#, fuzzy
 msgid "User (%)"
-msgstr "사용자"
+msgstr "사용자 (%)"
 
 #: examples/smp.c:95
 msgid "Nice (%)"
@@ -74,7 +74,7 @@ msgstr ""
 
 #: examples/smp.c:96
 msgid "Idle (%)"
-msgstr ""
+msgstr "유휴 (%)"
 
 #: examples/smp.c:98
 #, c-format
@@ -82,66 +82,68 @@ msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 msgstr ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
 
 #: examples/smp.c:114
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr ""
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:120
 msgid "Spin:"
-msgstr ""
+msgstr "Spin:"
 
 #: lib/read.c:75
 #, c-format
 msgid "read %d bytes"
-msgstr ""
+msgstr "%d 바이트 읽음"
 
 #: lib/read_data.c:49
 msgid "read data size"
-msgstr ""
+msgstr "데이타 크기 읽음"
 
 #: lib/read_data.c:66
 #, c-format
 msgid "read data %d bytes"
-msgstr ""
+msgstr "데이타 %d 바이트 읽음"
 
 #: lib/write.c:48
 #, c-format
 msgid "write %d bytes"
-msgstr ""
+msgstr "%d 바이트 씀"
 
 #: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
-msgstr ""
+msgstr "디버깅 사용"
 
 #: src/daemon/gnuserv.c:448
 msgid "DEBUG"
-msgstr ""
+msgstr "디버그"
 
 #: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
-msgstr ""
+msgstr "많은 출력 사용"
 
 #: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
-msgstr ""
+msgstr "VERBOSE"
 
 #: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
-msgstr ""
+msgstr "백그라운드로 실행 않함"
 
 #: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
-msgstr ""
+msgstr "NO-DAEMON"
 
 #: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "inetd에 의해 불림"
 
 #: src/daemon/gnuserv.c:454
 msgid "INETD"
-msgstr ""
+msgstr "INETD"
 
 #: src/daemon/gnuserv.c:488
 #, c-format
@@ -149,6 +151,8 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+"옵션 %s에 에러: %s.\n"
+"'%s --help'를 실행하시면 명령행 옵션에서 사용할 수 있는 목록이 보입니다.\n"
 
 #: support/error.c:109
 msgid "Unknown system error"
@@ -445,86 +449,83 @@ msgstr "시스템 메시지 헤더의 갯수"
 
 #: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
 msgid "Interface Flags"
-msgstr ""
+msgstr "인터페이스 플래그"
 
 #: sysdeps/names/netload.c:46
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 #: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
 msgid "Subnet"
-msgstr ""
+msgstr "하위넷"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
 msgid "Address"
-msgstr ""
+msgstr "주소"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
-#, fuzzy
 msgid "Packets In"
-msgstr "프로세스 ID"
+msgstr "들어온 패킷"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
 msgid "Packets Out"
-msgstr ""
+msgstr "나간 패킷"
 
 #: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
 msgid "Packets Total"
-msgstr ""
+msgstr "총 패킷"
 
 #: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
 msgid "Bytes In"
-msgstr ""
+msgstr "들어온 바이트"
 
 #: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 msgid "Bytes Out"
-msgstr ""
+msgstr "나간 바이트"
 
 #: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 msgid "Bytes Total"
-msgstr ""
+msgstr "총 바이트"
 
 #: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
 msgid "Errors In"
-msgstr ""
+msgstr "들어온 에러"
 
 #: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
 msgid "Errors Out"
-msgstr ""
+msgstr "나간 에러"
 
 #: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
 msgid "Errors Total"
-msgstr ""
+msgstr "총 에러"
 
 #: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
 msgid "Collisions"
-msgstr ""
+msgstr "충돌"
 
 #: sysdeps/names/netload.c:64
 msgid "Maximum Transfer Unit"
-msgstr ""
+msgstr "최대 전송 유닛"
 
 #: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
 msgid "PPP State"
-msgstr ""
+msgstr "PPP 상태"
 
 #: sysdeps/names/ppp.c:39
 msgid "Input bytes"
-msgstr ""
+msgstr "들어온 바이트"
 
 #: sysdeps/names/ppp.c:40
 msgid "Output bytes"
-msgstr ""
+msgstr "나간 바이트"
 
 #: sysdeps/names/ppp.c:46
-#, fuzzy
 msgid "Number of input bytes"
-msgstr "목록 요소의 갯수"
+msgstr "들어온 바이트 수"
 
 #: sysdeps/names/ppp.c:47
-#, fuzzy
 msgid "Number of output bytes"
-msgstr "목록 요소의 갯수"
+msgstr "나간 바이트 수"
 
 #: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
 msgid "Size"
@@ -532,43 +533,43 @@ msgstr "크기"
 
 #: sysdeps/names/procargs.c:43
 msgid "Length in bytes of the returned string."
-msgstr ""
+msgstr "되돌려진 문자열의 바이트 길이."
 
 #: sysdeps/names/prockernel.c:42
 msgid "K_Flags"
-msgstr ""
+msgstr "K_Flags"
 
 #: sysdeps/names/prockernel.c:42
 msgid "Min_Flt"
-msgstr ""
+msgstr "Min_Flt"
 
 #: sysdeps/names/prockernel.c:42
 msgid "Maj_Flt"
-msgstr ""
+msgstr "Maj_Flt"
 
 #: sysdeps/names/prockernel.c:42
 msgid "CMin_Flt"
-msgstr ""
+msgstr "CMin_Flt"
 
 #: sysdeps/names/prockernel.c:43
 msgid "CMaj_Flt"
-msgstr ""
+msgstr "CMaj_Flt"
 
 #: sysdeps/names/prockernel.c:43
 msgid "KStk_ESP"
-msgstr ""
+msgstr "KStk_ESP"
 
 #: sysdeps/names/prockernel.c:43
 msgid "KStk_EIP"
-msgstr ""
+msgstr "KStk_EIP"
 
 #: sysdeps/names/prockernel.c:43
 msgid "NWChan"
-msgstr ""
+msgstr "NWChan"
 
 #: sysdeps/names/prockernel.c:44
 msgid "WChan"
-msgstr ""
+msgstr "WChan"
 
 #. K_Flags
 #: sysdeps/names/prockernel.c:50
@@ -680,7 +681,6 @@ msgid "Number of pages of virtual memory"
 msgstr "가상 메모리에서의 페이지 수"
 
 #: sysdeps/names/procmem.c:55
-#, fuzzy
 msgid "Number of resident set (non-swapped) pages"
 msgstr "상주 세트 (스왑않된) 페이지 수"
 
@@ -707,35 +707,35 @@ msgstr ""
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
-msgstr ""
+msgstr "Text_RSS"
 
 #: sysdeps/names/procsegment.c:42
 msgid "ShLib_RSS"
-msgstr ""
+msgstr "ShLib_RSS"
 
 #: sysdeps/names/procsegment.c:42
 msgid "Data_RSS"
-msgstr ""
+msgstr "Data_RSS"
 
 #: sysdeps/names/procsegment.c:42
 msgid "Stack_RSS"
-msgstr ""
+msgstr "Stack_RSS"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Dirty Size"
-msgstr ""
+msgstr "Dirty Size"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Code"
-msgstr ""
+msgstr "Start_Code"
 
 #: sysdeps/names/procsegment.c:43
 msgid "End_Code"
-msgstr ""
+msgstr "End_Code"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Stack"
-msgstr ""
+msgstr "Start_Stack"
 
 #: sysdeps/names/procsegment.c:48
 msgid "Text resident set size"
@@ -775,15 +775,15 @@ msgstr "시그널"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Blocked"
-msgstr ""
+msgstr "Blocked"
 
 #: sysdeps/names/procsignal.c:40
 msgid "SigIgnore"
-msgstr ""
+msgstr "SigIgnore"
 
 #: sysdeps/names/procsignal.c:40
 msgid "SigCatch"
-msgstr ""
+msgstr "SigCatch"
 
 #: sysdeps/names/procsignal.c:45
 msgid "Mask of pending signals"
@@ -803,19 +803,19 @@ msgstr ""
 
 #: sysdeps/names/procstate.c:40
 msgid "Cmd"
-msgstr ""
+msgstr "명령"
 
 #: sysdeps/names/procstate.c:40
 msgid "State"
-msgstr ""
+msgstr "상태"
 
 #: sysdeps/names/procstate.c:40
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 #: sysdeps/names/procstate.c:40
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: sysdeps/names/procstate.c:45
 msgid "Basename of executable file in call to exec()"
@@ -826,58 +826,56 @@ msgid "Single-Char code for process state (S=sleeping)"
 msgstr "프로세스 상태의 단일문자 코드 (S=sleeping)"
 
 #: sysdeps/names/procstate.c:47
-#, fuzzy
 msgid "UID of process"
 msgstr "프로세스의 UID"
 
 #: sysdeps/names/procstate.c:48
-#, fuzzy
 msgid "GID of process"
 msgstr "프로세스의 GID"
 
 #: sysdeps/names/proctime.c:44
 msgid "Start_Time"
-msgstr ""
+msgstr "시작시간"
 
 #: sysdeps/names/proctime.c:44
 msgid "RTime"
-msgstr ""
+msgstr "RTime"
 
 #: sysdeps/names/proctime.c:44
 msgid "UTime"
-msgstr ""
+msgstr "UTime"
 
 #: sysdeps/names/proctime.c:44
 msgid "STime"
-msgstr ""
+msgstr "STime"
 
 #: sysdeps/names/proctime.c:45
 msgid "CUTime"
-msgstr ""
+msgstr "CUTime"
 
 #: sysdeps/names/proctime.c:45
 msgid "CSTime"
-msgstr ""
+msgstr "CSTime"
 
 #: sysdeps/names/proctime.c:45
 msgid "TimeOut"
-msgstr ""
+msgstr "시간초과"
 
 #: sysdeps/names/proctime.c:45
 msgid "It_Real_Value"
-msgstr ""
+msgstr "It_Real_Value"
 
 #: sysdeps/names/proctime.c:46
 msgid "Frequency"
-msgstr ""
+msgstr "주파수"
 
 #: sysdeps/names/proctime.c:46
 msgid "XCPU_UTime"
-msgstr ""
+msgstr "XCPU_UTime"
 
 #: sysdeps/names/proctime.c:46
 msgid "XCPU_STime"
-msgstr ""
+msgstr "XCPU_STime"
 
 #: sysdeps/names/proctime.c:51
 msgid "Start time of process in seconds since the epoch"
@@ -919,39 +917,39 @@ msgstr "틱 주파수"
 
 #: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "프로세스에 의해 모여진 SMP 사용자 모드 CPU 시간"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "프로세스에 의해 모여진 SMP 커널 모드 CPU 시간"
 
 #: sysdeps/names/procuid.c:56
 msgid "Uid"
-msgstr ""
+msgstr "Uid"
 
 #: sysdeps/names/procuid.c:56
 msgid "EUid"
-msgstr ""
+msgstr "EUid"
 
 #: sysdeps/names/procuid.c:56
 msgid "Gid"
-msgstr ""
+msgstr "Gid"
 
 #: sysdeps/names/procuid.c:56
 msgid "EGid"
-msgstr ""
+msgstr "EGid"
 
 #: sysdeps/names/procuid.c:56
 msgid "Pid"
-msgstr ""
+msgstr "Pid"
 
 #: sysdeps/names/procuid.c:57
 msgid "PPid"
-msgstr ""
+msgstr "PPid"
 
 #: sysdeps/names/procuid.c:57
 msgid "PGrp"
-msgstr ""
+msgstr "PGrp"
 
 #: sysdeps/names/procuid.c:57
 msgid "Session"
@@ -959,15 +957,15 @@ msgstr "세션"
 
 #: sysdeps/names/procuid.c:57
 msgid "Tty"
-msgstr ""
+msgstr "Tty"
 
 #: sysdeps/names/procuid.c:58
 msgid "TPGid"
-msgstr ""
+msgstr "TPGid"
 
 #: sysdeps/names/procuid.c:58
 msgid "Priority"
-msgstr ""
+msgstr "우선순위"
 
 #: sysdeps/names/procuid.c:63
 msgid "User ID"
@@ -1019,7 +1017,7 @@ msgstr "프로세스의 표준 유닉스 나이스 레벨"
 
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 msgid "Number of entries in semaphore map"
-msgstr ""
+msgstr "세마포어 맵의 엔트리 수"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Max number of arrays"
@@ -1047,15 +1045,15 @@ msgstr ""
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
-msgstr ""
+msgstr "sem_undo 구조체 크기"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Semaphore max value"
-msgstr ""
+msgstr "세마포어 최대 값"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Adjust on exit max value"
-msgstr ""
+msgstr "종료시 최대값 조정"
 
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
 msgid "Max segment size"
@@ -1091,11 +1089,11 @@ msgstr "여유 스왑 공간"
 
 #: sysdeps/names/swap.c:42
 msgid "Page In"
-msgstr ""
+msgstr "들어온 페이지"
 
 #: sysdeps/names/swap.c:43
 msgid "Page Out"
-msgstr ""
+msgstr "나간 페이지"
 
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
@@ -1107,7 +1105,7 @@ msgstr "시스템 시동후 내보낸 총 스왑 페이지 수"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
-msgstr ""
+msgstr "서버 기능"
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "CPU Usage"
@@ -1123,11 +1121,11 @@ msgstr "스왑 사용량"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "System Uptime"
-msgstr ""
+msgstr "시스템 Uptime"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Load Averange"
-msgstr ""
+msgstr "로드 평균"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Shared Memory Limits"
@@ -1175,7 +1173,7 @@ msgstr "프로세스 세그먼트 정보"
 
 #: sysdeps/names/sysdeps.c:66
 msgid "Process Arguments"
-msgstr ""
+msgstr "프로세스 인자"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 msgid "Process Memory Map"
@@ -1191,15 +1189,15 @@ msgstr "파일 시스템 사용"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "Network Load"
-msgstr ""
+msgstr "네트워크 로드"
 
 #: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "PPP Statistics"
-msgstr ""
+msgstr "PPP 통계"
 
 #: sysdeps/names/sysdeps.c:93
 msgid "Command line arguments of the process"
-msgstr ""
+msgstr "프로세스의 명령행 인자"
 
 #: sysdeps/names/sysdeps.c:95
 msgid "List of currently mounted filesystems"
@@ -1207,7 +1205,7 @@ msgstr "현재 마운트된 파일시스템의 목록"
 
 #: sysdeps/names/uptime.c:38
 msgid "Uptime"
-msgstr ""
+msgstr "Uptime"
 
 #: sysdeps/names/uptime.c:39
 msgid "Idletime"
@@ -1223,19 +1221,19 @@ msgstr "시스템 시동후에 유휴 태스크가 소비한 초 단위의 시간"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr ""
+msgstr "Hangup"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
-msgstr ""
+msgstr "인터럽트"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
-msgstr ""
+msgstr "Quit"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
-msgstr ""
+msgstr "잘못된 기계명령"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
@@ -1243,60 +1241,59 @@ msgstr ""
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr ""
+msgstr "중지"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
-msgstr ""
+msgstr "EMT 에러"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
-msgstr ""
+msgstr "실수연산 예외"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr ""
+msgstr "죽임"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
-msgstr ""
+msgstr "버스 에러"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
-#, fuzzy
 msgid "Segmentation violation"
-msgstr "프로세스 세그먼트 정보"
+msgstr "세그먼테이션 위반"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr ""
+msgstr "시스템 콜에 잘못된 인자"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr ""
+msgstr "깨진 파이프"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
-msgstr ""
+msgstr "알람 클럭"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
-msgstr ""
+msgstr "Termination"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "소켓에 위급한 조건"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
-msgstr ""
+msgstr "멈춤"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr ""
+msgstr "키보드 멈춤"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
-msgstr ""
+msgstr "계속"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
@@ -1304,108 +1301,44 @@ msgstr ""
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr ""
+msgstr "tty에서 백그라운드 읽기"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr ""
+msgstr "tty로 백그라운드 쓰기"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr ""
+msgstr "I/O 이제 가능"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
-msgstr ""
+msgstr "CPU 한계 초과"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
-msgstr ""
+msgstr "파일 크기 한계 초과"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
-msgstr ""
+msgstr "가상 알람 클럭"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Profiling 알람 클럭"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
-msgstr ""
+msgstr "창 크기 바뀜"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
-msgstr ""
+msgstr "정보 요청"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
-msgstr ""
+msgstr "사용자 정의 신호 1"
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
-msgstr ""
-
-#, fuzzy
-#~ msgid "Address of beginning of data segment"
-#~ msgstr "코드 세그먼트의 시작 주소"
-
-#, fuzzy
-#~ msgid "Address of end of data segment"
-#~ msgstr "코드 세그먼트의 끝 주소"
-
-#, fuzzy
-#~ msgid "Processor"
-#~ msgstr "프로세스 ID"
-
-#, fuzzy
-#~ msgid "effective UID of process"
-#~ msgstr "프로세스의 UID"
-
-#, fuzzy
-#~ msgid "effective GID of process"
-#~ msgstr "프로세스의 GID"
-
-#, fuzzy
-#~ msgid "processor"
-#~ msgstr "프로세스 ID"
-
-#, fuzzy
-#~ msgid "NGroups"
-#~ msgstr "그룹 ID"
-
-#, fuzzy
-#~ msgid "Groups"
-#~ msgstr "그룹 ID"
-
-#, fuzzy
-#~ msgid "Saved User ID"
-#~ msgstr "사용자 ID"
-
-#, fuzzy
-#~ msgid "Saved Group ID"
-#~ msgstr "그룹 ID"
-
-#, fuzzy
-#~ msgid "Filesystem User ID"
-#~ msgstr "파일 시스템 사용"
-
-#, fuzzy
-#~ msgid "Filesystem Group ID"
-#~ msgstr "유효한 그룹 ID"
-
-#, fuzzy
-#~ msgid "Number of additional process groups"
-#~ msgstr "터미널 프로세스 그룹 ID"
-
-#, fuzzy
-#~ msgid "Additional process groups"
-#~ msgstr "터미널 프로세스 그룹 ID"
-
-#, fuzzy
-#~ msgid "Pointer Size"
-#~ msgstr "상주 세트 크기"
-
-#, fuzzy
-#~ msgid "Boot time (seconds sice epoch)"
-#~ msgstr "시스템이 시작된 이후 초로 나타낸 프로세스의 시작 시간"
+msgstr "사용자 정의 신호 2"
