@@ -13,6 +13,12 @@ AC_MSG_ERROR([
 *** The "dc" utility was not found on your system.
 ***
 *** When using RedHat Linux, you need to install the "bc" package.
+***
+*** It is now part of the "bc" package, so you should look at
+*** ftp://ftp.gnu.org/pub/gnu/bc/ if you want to compile it yourself.
+***
+*** Other systems and distributions may also have it in their "bc" package,
+*** so if there's no "dc" one, please look for "bc".
 ***])
 fi
 
