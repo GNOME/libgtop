@@ -109,6 +109,40 @@ static const unsigned long _glibtop_sysdeps_fsusage =
 + (1L << GLIBTOP_FSUSAGE_FFREE) + (1L << GLIBTOP_FSUSAGE_BLOCK_SIZE);
 
 
+
+/*
+ * _glibtop_get_fsusage_read_write
+ * New function to retrieve total read and write
+ *
+ * Each arch should have its own function()
+ * and the proper #define. This is more readable than one single
+ * function full of #something where everything is mixed.
+ * These functions are private.
+ *
+ * void _glibtop_<arch>_get_fsusage_read_write(glibtop*server,
+ *                                               glibtop_fsusage *buf,
+ *                                               const char *path);
+ *
+ * TODO: split this file properly, is possible
+ */
+
+#ifdef linux
+void _glibtop_linux_get_fsusage_read_write(glibtop *server,
+					     glibtop_fsusage *buf,
+					     const char *path);
+
+#define _glibtop_get_fsusage_read_write(S, B, P) \
+        _glibtop_linux_get_fsusage_read_write(S, B, P)
+
+
+#else /* default fallback */
+#define _glibtop_get_fsusage_read_write(S, B, P) ((void)0)
+#endif
+
+/* end _glibtop_get_fsusage_read_write */
+
+
+
 void
 glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 		       const char *path)
@@ -116,6 +150,8 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
   glibtop_init_r (&server, 0, 0);
 
   memset (buf, 0, sizeof (glibtop_fsusage));
+
+  _glibtop_get_fsusage_read_write(server, buf, path);
 
 #ifdef STAT_STATFS3_OSF1
 

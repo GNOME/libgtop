@@ -1,3 +1,10 @@
+2004-07-17  Benoît Dejean  <tazforever@dlfp.org>
+
+	* fsusage.c: (glibtop_get_fsusage_s): Started implementation of read, write.
+	Code should be splitted into arch specific files.
+	
+	* mountlist.c: (glibtop_get_mountlist_s): glibify. Used GArray.
+
 2004-07-07  Benoît Dejean  <tazforever@dlfp.org>
 
 	* Makefile.am:

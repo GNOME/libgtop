@@ -96,7 +96,7 @@ static struct mount_entry *read_filesystem_list (gboolean need_fs_type);
 
 
 #if defined (MOUNTED_GETMNTINFO) && !defined (__NetBSD__) && !defined (__OpenBSD__)
-static char *
+static const char *
 fstype_to_string (short t)
 {
   switch (t)
@@ -192,7 +192,7 @@ fstype_to_string (short t)
 #endif /* MOUNTED_GETMNTINFO */
 
 #ifdef MOUNTED_VMOUNT		/* AIX.  */
-static char *
+static const char *
 fstype_to_string (int t)
 {
   struct vfs_ent *e;
@@ -553,7 +553,9 @@ glibtop_mountentry *
 glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs)
 {
 	struct mount_entry *entries, *cur, *next;
-	glibtop_mountentry *mount_list, *e;
+
+	GArray *mount_array = g_array_new(FALSE, FALSE,
+					  sizeof(glibtop_mountentry));
 
 	glibtop_init_r (&server, 0, 0);
 
@@ -561,37 +563,21 @@ glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs)
 
 	/* Read filesystem list. */
 
-	entries = read_filesystem_list (TRUE);
-
-	if (entries == NULL)
+	if((entries = read_filesystem_list (TRUE)) == NULL)
 		return NULL;
-
-
-	buf->number = 0;
-
-	gsize allocated = 16; /* magic */
-	mount_list = g_new(glibtop_mountentry, allocated);
 
 	for (cur = &entries[0]; cur != NULL; cur = next) {
 
 		if(all_fs || !ignore_mount_entry(cur)) {
-			/* add a new glibtop_mountentry,
-			   resize mount_list if needed */
+			/* add a new glibtop_mountentry */
+			glibtop_mountentry e;
 
-			if(buf->number == allocated) {
-				allocated *= 2;
-				mount_list = g_renew(glibtop_mountentry,
-						     mount_list, allocated);
-			}
+			g_strlcpy(e.devname,  cur->me_devname,  sizeof e.devname);
+			g_strlcpy(e.mountdir, cur->me_mountdir, sizeof e.mountdir);
+			g_strlcpy(e.type,     cur->me_type,     sizeof e.type);
+			e.dev = cur->me_dev;
 
-			e = &mount_list[buf->number];
-
-			g_strlcpy(e->devname,  cur->me_devname,  sizeof e->devname);
-			g_strlcpy(e->mountdir, cur->me_mountdir, sizeof e->mountdir);
-			g_strlcpy(e->type,     cur->me_type,     sizeof e->type);
-			e->dev = cur->me_dev;
-
-			buf->number++;
+			g_array_append_val(mount_array, e);
 		}
 
 		/* free current mount_entry and move to the next */
@@ -602,10 +588,9 @@ glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs)
 		g_free(cur);
 	}
 
-	buf->size  = sizeof (glibtop_mountentry);
-	buf->total = buf->number * buf->size;
-	/* trim mount_list */
-	mount_list  = g_renew(glibtop_mountentry, mount_list, buf->number);
+	buf->size   = sizeof (glibtop_mountentry);
+	buf->number = mount_array->len;
+	buf->total  = buf->number * buf->size;
 
-	return mount_list;
+	return (glibtop_mountentry*) g_array_free(mount_array, FALSE);
 }
