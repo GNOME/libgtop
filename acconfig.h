@@ -24,6 +24,7 @@
 #undef HAVE_LIBSM
 #undef HAVE_LIBINTL_H
 #undef HAVE_GTK_SIGNAL_HANDLER_PENDING
+#undef WITH_SYMBOL_UNDERSCORE
 
 /* Do not remove this comments and the empty lines; they are needed */
 #undef HAVE_PROGRAM_INVOCATION_SHORT_NAME
