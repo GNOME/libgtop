@@ -11,6 +11,6 @@ third_linux
 third_static
 second_static
 second_linux
+smp_static sysdeps_static netload_static procmap_static mountlist_static
 smp sysdeps netload procmap mountlist
-mountlist_static procmap_static netload_static
-sysdeps_static smp_static
+timings timings_static
