@@ -5,150 +5,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: glibtop 1.1.6\n"
-"POT-Creation-Date: 2001-03-15 17:15+0100\n"
-"PO-Revision-Date: 2001-01-06 00:23+0200\n"
-"Last-Translator: Vasif Ismailoglu MD <azerb_linux@hotmail.com>\n"
-"Language-Team: Azerbaijani Turkish\n"
+"POT-Creation-Date: 2001-05-05 11:59+0200\n"
+"PO-Revision-Date: 2001-05-01 17:09GMT +0200\n"
+"Last-Translator: Vasif İsmayıloğlu MD <azerb_linux@hotmail.com>\n"
+"Language-Team: Azerbaijani Turkish <linuxaz@azerimal.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
-msgid "Hangup (POSIX)"
-msgstr "Hangup (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
-msgid "Interrupt (ANSI)"
-msgstr "Interrupt (ANSI)"
-
-#: lib/sysdeps-init-freebsd.c:35 lib/sysdeps-init-linux.c:35
-msgid "Quit (POSIX)"
-msgstr "Çıx (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:36 lib/sysdeps-init-linux.c:36
-msgid "Illegal instruction (ANSI)"
-msgstr "Keçərsiz tə'limat (ANSI)"
-
-#: lib/sysdeps-init-freebsd.c:37 lib/sysdeps-init-linux.c:37
-msgid "Trace trap (POSIX)"
-msgstr "İzləmə trapı (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:38 lib/sysdeps-init-linux.c:38
-msgid "Abort (ANSI)"
-msgstr "Ləğv Et (ANSI)"
-
-#: lib/sysdeps-init-freebsd.c:39
-msgid "EMT instruction"
-msgstr ""
-
-#: lib/sysdeps-init-freebsd.c:40 lib/sysdeps-init-linux.c:40
-msgid "Floating-point exception (ANSI)"
-msgstr "Floating-point exception (ANSI)"
-
-#: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
-#, fuzzy
-msgid "Kill, unblockable (POSIX)"
-msgstr "Zəngli Saat (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
-msgid "BUS error (4.2 BSD)"
-msgstr ""
-
-#: lib/sysdeps-init-freebsd.c:43 lib/sysdeps-init-linux.c:43
-msgid "Segmentation violation (ANSI)"
-msgstr "Seqmentlərə Bölmə Qaydası Pozulması (ANSI)"
-
-#: lib/sysdeps-init-freebsd.c:44
-msgid "Bad argument to system call"
-msgstr "Sistem çağırışı üçün xətalı arqument"
-
-#: lib/sysdeps-init-freebsd.c:45 lib/sysdeps-init-linux.c:45
-msgid "Broken pipe (POSIX)"
-msgstr "Qırıq Boru (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:46 lib/sysdeps-init-linux.c:46
-msgid "Alarm clock (POSIX)"
-msgstr "Zəngli Saat (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
-msgid "Termination (ANSI)"
-msgstr "Qurtarma (ANSI)"
-
-#: lib/sysdeps-init-freebsd.c:48 lib/sysdeps-init-linux.c:55
-msgid "Urgent condition on socket (4.2 BSD)"
-msgstr ""
-
-#: lib/sysdeps-init-freebsd.c:49 lib/sysdeps-init-linux.c:51
-msgid "Stop, unblockable (POSIX)"
-msgstr ""
-
-#: lib/sysdeps-init-freebsd.c:50 lib/sysdeps-init-linux.c:52
-msgid "Keyboard stop (POSIX)"
-msgstr "Klaviaturanı dayandır (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:51 lib/sysdeps-init-linux.c:50
-msgid "Continue (POSIX)"
-msgstr "Davam Et (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:52 lib/sysdeps-init-linux.c:49
-msgid "Child status has changed (POSIX)"
-msgstr "Törəmə halı dəyişdi (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:53 lib/sysdeps-init-linux.c:53
-msgid "Background read from tty (POSIX)"
-msgstr "Tty'dən arxa plan geişatı mə'lumatı (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:54 lib/sysdeps-init-linux.c:54
-msgid "Background write to tty (POSIX)"
-msgstr "Tty'ye yazma əməliyyatı (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:55 lib/sysdeps-init-linux.c:61
-msgid "I/O now possible (4.2 BSD)"
-msgstr ""
-
-#: lib/sysdeps-init-freebsd.c:56 lib/sysdeps-init-linux.c:56
-msgid "CPU limit exceeded (4.2 BSD)"
-msgstr ""
-
-#: lib/sysdeps-init-freebsd.c:57 lib/sysdeps-init-linux.c:57
-msgid "File size limit exceeded (4.2 BSD)"
-msgstr ""
-
-#: lib/sysdeps-init-freebsd.c:58 lib/sysdeps-init-linux.c:58
-msgid "Virtual alarm clock (4.2 BSD)"
-msgstr ""
-
-#: lib/sysdeps-init-freebsd.c:59 lib/sysdeps-init-linux.c:59
-msgid "Profiling alarm clock (4.2 BSD)"
-msgstr ""
-
-#: lib/sysdeps-init-freebsd.c:60 lib/sysdeps-init-linux.c:60
-msgid "Window size change (4.3 BSD, Sun)"
-msgstr ""
-
-#: lib/sysdeps-init-freebsd.c:61
-msgid "Information request"
-msgstr "Sifariş Edilən mə'lumat"
-
-#: lib/sysdeps-init-freebsd.c:62 lib/sysdeps-init-linux.c:42
-msgid "User-defined signal 1 (POSIX)"
-msgstr ""
-
-#: lib/sysdeps-init-freebsd.c:63 lib/sysdeps-init-linux.c:44
-msgid "User-defined signal 2 (POSIX)"
-msgstr ""
-
-#: lib/sysdeps-init-linux.c:62
-msgid "Power failure restart (System V)"
-msgstr ""
-
-#: support/popthelp.c:23
-msgid "Show this help message"
-msgstr ""
-
-#: support/popthelp.c:24
-msgid "Display brief usage message"
-msgstr ""
+"X-Generator: KBabel 0.8\n"
 
 #: sysdeps/names/cpu.c:45
 msgid "Total CPU Time"
@@ -759,12 +623,12 @@ msgstr "gedişatın effektiv GIDi"
 #: sysdeps/names/procstate.c:56
 #, fuzzy
 msgid "real UID of process"
-msgstr "gedişatın effektiv UIDi"
+msgstr "həqiqi əməliyyat UIDi"
 
 #: sysdeps/names/procstate.c:57
 #, fuzzy
 msgid "real GID of process"
-msgstr "gedişatın effektiv GIDi"
+msgstr "gedişatın həqiqi GIDi"
 
 #: sysdeps/names/procstate.c:58
 msgid "has_cpu"
@@ -1183,9 +1047,8 @@ msgid "Process Segment information"
 msgstr "Gedişat Seqment Mə'lumatları"
 
 #: sysdeps/names/sysdeps.c:71
-#, fuzzy
 msgid "Process CWD"
-msgstr "Gedişat IDsi"
+msgstr "Gedişat CWDsi"
 
 #: sysdeps/names/sysdeps.c:72
 msgid "Process Arguments"
@@ -1208,8 +1071,9 @@ msgid "Network Load"
 msgstr "Network Yükü"
 
 #: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
+#, fuzzy
 msgid "Interface Names"
-msgstr ""
+msgstr "Ara Üz Adları"
 
 #: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
 msgid "PPP Statistics"
@@ -1220,9 +1084,8 @@ msgid "Pointer Size on the Server (in bits)"
 msgstr "Vericidəki Pointer böyüklüyü (baytlarla)"
 
 #: sysdeps/names/sysdeps.c:101
-#, fuzzy
 msgid "Current working directory of the process"
-msgstr "Gedişatın əmr sətri arqumentləri"
+msgstr "Gedişatın hazırda fəal qovluğu"
 
 #: sysdeps/names/sysdeps.c:102
 msgid "Command line arguments of the process"
@@ -1255,3 +1118,168 @@ msgstr "Sistem başladığından bəri sistem idle taskda keçirdiyi müddət"
 #: sysdeps/names/uptime.c:49
 msgid "Boot time (seconds sice epoch)"
 msgstr "Başlama müddəti (seconds sice epoch)"
+
+#, fuzzy
+#~ msgid "Idle"
+#~ msgstr "Idletime"
+
+#, fuzzy
+#~ msgid "User (%)"
+#~ msgstr "İstifadəçi"
+
+#, fuzzy
+#~ msgid "Nice (%)"
+#~ msgstr "Nice"
+
+#, fuzzy
+#~ msgid "Number of list elements"
+#~ msgstr "Maksimal seqment sayısı"
+
+#, fuzzy
+#~ msgid "Total size of list"
+#~ msgstr "Ümumi xəsərli səhifə sayısı"
+
+#, fuzzy
+#~ msgid "Packets In"
+#~ msgstr "Alınan Səhifələr"
+
+#, fuzzy
+#~ msgid "Packets Out"
+#~ msgstr "Atılan Səhifələr"
+
+#, fuzzy
+#~ msgid "PPP State"
+#~ msgstr "Vəziyyət"
+
+#, fuzzy
+#~ msgid "Number of input bytes"
+#~ msgstr "Vəzifə Sayısı"
+
+#, fuzzy
+#~ msgid "Number of output bytes"
+#~ msgstr "Arxaya dönüş quruluşları sistemi genişliyi qiyməti"
+
+#, fuzzy
+#~ msgid "Hangup"
+#~ msgstr "Hangup (POSIX)"
+
+#, fuzzy
+#~ msgid "Interrupt"
+#~ msgstr "Interrupt (ANSI)"
+
+#, fuzzy
+#~ msgid "Illegal instruction"
+#~ msgstr "Keçərsiz tə'limat (ANSI)"
+
+#, fuzzy
+#~ msgid "Trace trap"
+#~ msgstr "İzləmə trapı (POSIX)"
+
+#, fuzzy
+#~ msgid "Floating-point exception"
+#~ msgstr "Floating-point exception (ANSI)"
+
+#, fuzzy
+#~ msgid "Segmentation violation"
+#~ msgstr "Seqmentlərə Bölmə Qaydası Pozulması (ANSI)"
+
+#~ msgid "Bad argument to system call"
+#~ msgstr "Sistem çağırışı üçün xətalı arqument"
+
+#, fuzzy
+#~ msgid "Broken pipe"
+#~ msgstr "Qırıq Boru (POSIX)"
+
+#, fuzzy
+#~ msgid "Alarm clock"
+#~ msgstr "Zəngli Saat (POSIX)"
+
+#, fuzzy
+#~ msgid "Termination"
+#~ msgstr "Qurtarma (ANSI)"
+
+#, fuzzy
+#~ msgid "Urgent condition on socket"
+#~ msgstr "Soketdə tə'cili şərait (4.2 BSD)"
+
+#, fuzzy
+#~ msgid "Keyboard stop"
+#~ msgstr "Klaviaturanı dayandır (POSIX)"
+
+#, fuzzy
+#~ msgid "Continue"
+#~ msgstr "Davam Et (POSIX)"
+
+#, fuzzy
+#~ msgid "Child status has changed"
+#~ msgstr "Törəmə halı dəyişdi (POSIX)"
+
+#, fuzzy
+#~ msgid "Background read from tty"
+#~ msgstr "Tty'dən arxa plan geişatı mə'lumatı (POSIX)"
+
+#, fuzzy
+#~ msgid "Background write to tty"
+#~ msgstr "Tty'ye yazma əməliyyatı (POSIX)"
+
+#, fuzzy
+#~ msgid "I/O now possible"
+#~ msgstr "I/O indi mümkündür (4.2 BSD)"
+
+#, fuzzy
+#~ msgid "CPU limit exceeded"
+#~ msgstr "CPU limiti açıldı (4.2 BSD)"
+
+#, fuzzy
+#~ msgid "File size limit exceeded"
+#~ msgstr "Fayk böyüklük limiti aşıldı (4.2 BSD)"
+
+#, fuzzy
+#~ msgid "Virtual alarm clock"
+#~ msgstr "Virtual alarm saatı (4.2 BSD)"
+
+#, fuzzy
+#~ msgid "Profiling alarm clock"
+#~ msgstr "Profil alarm saatı (4.2 BSD)"
+
+#, fuzzy
+#~ msgid "Window size change"
+#~ msgstr "Pəncərə böyüklüyünü dəyişdir (4.3 BSD, Sun)"
+
+#~ msgid "Information request"
+#~ msgstr "Sifariş Edilən mə'lumat"
+
+#, fuzzy
+#~ msgid "User defined signal 1"
+#~ msgstr "İstifadəşi təsvirli siqnal 1 (POSIX)"
+
+#, fuzzy
+#~ msgid "User defined signal 2"
+#~ msgstr "İstifadəşi təsvirli siqnal 2 (POSIX)"
+
+#~ msgid "Quit (POSIX)"
+#~ msgstr "Çıx (POSIX)"
+
+#~ msgid "Abort (ANSI)"
+#~ msgstr "Ləğv Et (ANSI)"
+
+#~ msgid "EMT instruction"
+#~ msgstr "EMT göstərişləri"
+
+#~ msgid "Kill, unblockable (POSIX)"
+#~ msgstr "Öldür, bloklana bilməz (POSIX)"
+
+#~ msgid "BUS error (4.2 BSD)"
+#~ msgstr "BUS xətası (4.2 BSD)"
+
+#~ msgid "Stop, unblockable (POSIX)"
+#~ msgstr "Dayan, bloklana bilməz (POSIX)"
+
+#~ msgid "Power failure restart (System V)"
+#~ msgstr "Güc iflası yenidən başlaması (System V)"
+
+#~ msgid "Show this help message"
+#~ msgstr "Bu yardım ismarıcını göstər"
+
+#~ msgid "Display brief usage message"
+#~ msgstr "Qısa istifadaə ismarıcını göstər"
