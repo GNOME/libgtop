@@ -13,50 +13,6 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/read.c:69
-msgid "read %d bytes"
-msgstr ""
-
-#: lib/read_data.c:47
-msgid "read data size"
-msgstr ""
-
-#: lib/read_data.c:64
-msgid "read data %d bytes"
-msgstr ""
-
-#: lib/write.c:46
-msgid "write %d bytes"
-msgstr ""
-
-#: sysdeps/names/loadavg.c:37
-msgid "Load Average"
-msgstr "Charge Moyenne"
-
-#: sysdeps/names/loadavg.c:38
-msgid "Running Tasks"
-msgstr ""
-
-#: sysdeps/names/loadavg.c:39
-msgid "Number of Tasks"
-msgstr ""
-
-#: sysdeps/names/loadavg.c:40 sysdeps/names/loadavg.c:48
-msgid "Last PID"
-msgstr ""
-
-#: sysdeps/names/loadavg.c:45
-msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "Nombre de processus tournant simultannement en moyenne sur 1, 5 et 15 minutes"
-
-#: sysdeps/names/loadavg.c:46
-msgid "Number of tasks currently running"
-msgstr ""
-
-#: sysdeps/names/loadavg.c:47
-msgid "Total number of tasks"
-msgstr ""
-
 #: sysdeps/names/cpu.c:37
 msgid "Total CPU Time"
 msgstr "Temps CPU Total"
@@ -105,33 +61,61 @@ msgstr ""
 msgid "All of the above values are in jiffies (1/100ths of a second) unless otherwise stated in this field (i.e. 'frequency != 100')"
 msgstr ""
 
-#: sysdeps/names/msg_limits.c:38 sysdeps/names/msg_limits.c:49
-msgid "Size in kilobytes of message pool"
-msgstr "Taille en kilo-octets du pool de messages"
-
-#: sysdeps/names/msg_limits.c:39 sysdeps/names/msg_limits.c:50
-msgid "Number of entries in message map"
+#: sysdeps/names/fsusage.c:37 sysdeps/names/fsusage.c:46
+msgid "Total blocks"
 msgstr ""
 
-#: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
-msgid "Max size of message"
-msgstr "Taille maximum des messages"
+#: sysdeps/names/fsusage.c:38
+msgid "Free blocks"
+msgstr ""
 
-#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
-msgid "Default max size of queue"
-msgstr "Taille maximum par d\351faut de la queue"
+#: sysdeps/names/fsusage.c:39
+msgid "Available blocks"
+msgstr ""
 
-#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
-msgid "Max queues system wide"
-msgstr "Nombre maximum de queues dans le syst\350me"
+#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
+msgid "Total file nodes"
+msgstr ""
 
-#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
-msgid "Message segment size"
-msgstr "Taille des segments de messages"
+#: sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
+msgid "Free file nodes"
+msgstr ""
 
-#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
-msgid "Number of system message headers"
-msgstr "Nombre d'entetes de messages syst\350me"
+#: sysdeps/names/fsusage.c:47
+msgid "Free blocks available to the superuser"
+msgstr ""
+
+#: sysdeps/names/fsusage.c:48
+msgid "Free blocks available to non-superusers"
+msgstr ""
+
+#: sysdeps/names/loadavg.c:37
+msgid "Load Average"
+msgstr "Charge Moyenne"
+
+#: sysdeps/names/loadavg.c:38
+msgid "Running Tasks"
+msgstr ""
+
+#: sysdeps/names/loadavg.c:39
+msgid "Number of Tasks"
+msgstr ""
+
+#: sysdeps/names/loadavg.c:40 sysdeps/names/loadavg.c:48
+msgid "Last PID"
+msgstr ""
+
+#: sysdeps/names/loadavg.c:45
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgstr "Nombre de processus tournant simultannement en moyenne sur 1, 5 et 15 minutes"
+
+#: sysdeps/names/loadavg.c:46
+msgid "Number of tasks currently running"
+msgstr ""
+
+#: sysdeps/names/loadavg.c:47
+msgid "Total number of tasks"
+msgstr ""
 
 #: sysdeps/names/mem.c:39
 msgid "Total Memory"
@@ -196,6 +180,46 @@ msgstr "M\351moire utilis\351e par les processus utilisateurs en Ko"
 #: sysdeps/names/mem.c:58
 msgid "Memory in locked pages in kB"
 msgstr "M\351moire dans les pages v\351rouill\351es en Ko"
+
+#: sysdeps/names/mountlist.c:36 sysdeps/names/mountlist.c:43 sysdeps/names/proclist.c:36 sysdeps/names/proclist.c:43 sysdeps/names/procmap.c:36 sysdeps/names/procmap.c:43
+msgid "Number of list elements"
+msgstr ""
+
+#: sysdeps/names/mountlist.c:37 sysdeps/names/mountlist.c:44 sysdeps/names/proclist.c:37 sysdeps/names/proclist.c:44 sysdeps/names/procmap.c:37 sysdeps/names/procmap.c:44
+msgid "Total size of list"
+msgstr "Taille totalle de la liste"
+
+#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45 sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45 sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
+msgid "Size of a single list element"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:38 sysdeps/names/msg_limits.c:49
+msgid "Size in kilobytes of message pool"
+msgstr "Taille en kilo-octets du pool de messages"
+
+#: sysdeps/names/msg_limits.c:39 sysdeps/names/msg_limits.c:50
+msgid "Number of entries in message map"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
+msgid "Max size of message"
+msgstr "Taille maximum des messages"
+
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
+msgid "Default max size of queue"
+msgstr "Taille maximum par d\351faut de la queue"
+
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
+msgid "Max queues system wide"
+msgstr "Nombre maximum de queues dans le syst\350me"
+
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
+msgid "Message segment size"
+msgstr "Taille des segments de messages"
+
+#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
+msgid "Number of system message headers"
+msgstr "Nombre d'entetes de messages syst\350me"
 
 #: sysdeps/names/prockernel.c:40
 msgid "K_Flags"
@@ -280,18 +304,6 @@ msgstr ""
 #. WChan
 #: sysdeps/names/prockernel.c:79
 msgid "This is the textual name of the `nwchan' field."
-msgstr ""
-
-#: sysdeps/names/proclist.c:36 sysdeps/names/proclist.c:43
-msgid "Number of list elements"
-msgstr ""
-
-#: sysdeps/names/proclist.c:37 sysdeps/names/proclist.c:44
-msgid "Total size of list"
-msgstr "Taille totalle de la liste"
-
-#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
-msgid "Size of a single list element"
 msgstr ""
 
 #: sysdeps/names/procmem.c:45
@@ -726,22 +738,6 @@ msgstr ""
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
 
-#: sysdeps/names/uptime.c:36
-msgid "Uptime"
-msgstr "Uptime"
-
-#: sysdeps/names/uptime.c:37
-msgid "Idletime"
-msgstr "Idletime"
-
-#: sysdeps/names/uptime.c:42
-msgid "Time in seconds since system boot"
-msgstr "Temps en secondes depuis le d\351marrage du syst\350me"
-
-#: sysdeps/names/uptime.c:43
-msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Temps en secondes pass\351 dans le processus inactif depuis le d\351marrage du syst\350me"
-
 #: sysdeps/names/sysdeps.c:46 sysdeps/names/sysdeps.c:70
 msgid "Server Features"
 msgstr ""
@@ -826,128 +822,36 @@ msgstr ""
 msgid "List of currently mounted filesystems"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:26
-msgid "Hangup"
+#: sysdeps/names/uptime.c:36
+msgid "Uptime"
+msgstr "Uptime"
+
+#: sysdeps/names/uptime.c:37
+msgid "Idletime"
+msgstr "Idletime"
+
+#: sysdeps/names/uptime.c:42
+msgid "Time in seconds since system boot"
+msgstr "Temps en secondes depuis le d\351marrage du syst\350me"
+
+#: sysdeps/names/uptime.c:43
+msgid "Time in seconds the system spent in the idle task since system boot"
+msgstr "Temps en secondes pass\351 dans le processus inactif depuis le d\351marrage du syst\350me"
+
+#: lib/read.c:69
+msgid "read %d bytes"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:27
-msgid "Interrupt"
+#: lib/read_data.c:47
+msgid "read data size"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:28
-msgid "Quit"
+#: lib/read_data.c:64
+msgid "read data %d bytes"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:29
-msgid "Illegal instruction"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:30
-msgid "Trace trap"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:31
-msgid "Abort"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:32
-msgid "EMT error"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:33
-msgid "Floating-point exception"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:34
-msgid "Kill"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:35
-msgid "Bus error"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:36
-msgid "Segmentation violation"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:37
-msgid "Bad argument to system call"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:38
-msgid "Broken pipe"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:39
-msgid "Alarm clock"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:40
-msgid "Termination"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:41
-msgid "Urgent condition on socket"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:42
-msgid "Stop"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:43
-msgid "Keyboard stop"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:44
-msgid "Continue"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:45
-msgid "Child status has changed"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:46
-msgid "Background read from tty"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:47
-msgid "Background write to tty"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:48
-msgid "I/O now possible"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:49
-msgid "CPU limit exceeded"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:50
-msgid "File size limit exceeded"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:51
-msgid "Virtual alarm clock"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:52
-msgid "Profiling alarm clock"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:53
-msgid "Window size change"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:54
-msgid "Information request"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:55
-msgid "User defined signal 1"
-msgstr ""
-
-#: sysdeps/osf1/siglist.c:56
-msgid "User defined signal 2"
+#: lib/write.c:46
+msgid "write %d bytes"
 msgstr ""
 
 #: support/argp-help.c:185
@@ -1016,6 +920,10 @@ msgstr ""
 
 #: support/argp-parse.c:780
 msgid "(PROGRAM ERROR) Option should have been recognized!?"
+msgstr ""
+
+#: support/error.c:109
+msgid "Unknown system error"
 msgstr ""
 
 #: support/getopt.c:669
