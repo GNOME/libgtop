@@ -35,7 +35,7 @@
 #include <sys/proc.h>
 
 static const unsigned long _glibtop_sysdeps_proc_args =
-(1L << GLIBTOP_PROC_ARGS_SIZE);
+(1L << GLIBTOP_ARRAY_NUMBER) + (1L << GLIBTOP_ARRAY_SIZE);
 
 /* Init function. */
 
@@ -50,12 +50,12 @@ glibtop_init_proc_args_p (glibtop *server)
 /* Provides detailed information about a process. */
 
 char **
-glibtop_get_proc_args_p (glibtop *server, glibtop_array *buf, pid_t pid)
+glibtop_get_proc_args_p (glibtop *server, glibtop_array *array, pid_t pid)
 {
     struct kinfo_proc *pinfo;
-    char *retval, **args, **ptr;
-    unsigned size = 0, pos = 0;
-    int max_len = BUFSIZ, count;
+    char **args, **ptr, **ptrlist;
+    size_t count;
+    int i;
 
 #ifndef __bsdi__
     char filename [BUFSIZ];
@@ -64,7 +64,7 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_array *buf, pid_t pid)
 
     glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_ARGS), 0);
 	
-    memset (buf, 0, sizeof (glibtop_proc_args));
+    memset (array, 0, sizeof (glibtop_array));
 
     /* swapper, init, pagedaemon, vmdaemon, update - this doen't work. */
     if (pid < 5) return NULL;
@@ -85,7 +85,7 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_array *buf, pid_t pid)
 	return NULL;
     }
 
-    args = kvm_getargv (server->_priv->machine.kd, pinfo, max_len);
+    args = kvm_getargv (server->_priv->machine.kd, pinfo, PAGE_SIZE);
     if (args == NULL) {
 	glibtop_suid_leave (server);
 	glibtop_warn_io_r (server, "kvm_getargv (%d)", pid);
@@ -94,22 +94,21 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_array *buf, pid_t pid)
 
     glibtop_suid_leave (server);
 
+    count = 0;
     for (ptr = args; *ptr; ptr++)
-	size += strlen (*ptr)+1;
+	count++;
 
-    size += 2;
-    retval = glibtop_malloc_r (server, size);
-    memset (retval, 0, size);
+    ptrlist = glibtop_calloc_r (server, count+1, sizeof (char *));
 
-    for (ptr = args; *ptr; ptr++) {
-	int len = strlen (*ptr)+1;
-	memcpy (retval+pos, *ptr, len);
-	pos += len;
+    for (i = 0, ptr = args; *ptr; ptr++, i++) {
+	ptrlist [i] = glibtop_strdup_r (server, *ptr);
     }
 
-    buf->size = pos ? pos-1 : 0;
+    ptrlist [count] = NULL;
 
-    buf->flags = _glibtop_sysdeps_proc_args;
+    array->number = count;
+    array->size = sizeof (char *);
+    array->flags = _glibtop_sysdeps_proc_args;
 
-    return retval;
+    return ptrlist;
 }
