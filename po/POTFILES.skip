@@ -1,0 +1,4 @@
+support/error.c
+support/getopt.c
+support/popt.c
+support/popthelp.c

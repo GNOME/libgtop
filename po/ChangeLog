@@ -1,3 +1,13 @@
+2002-03-10  Christian Rose  <menthos@menthos.com>
+
+	* .cvsignore: Fixed.
+	* POTFILES.in: Sorted.
+	* POTFILES.skip: Added, contains files in the support directory.
+	* README.tools, update.pl, update.sh: Removed, these are obsoleted by
+	intltool.
+	* README.translators: I think the contents of this one is obsoleted too.
+	* stamp-cat-id: Removed, this file should not be stored in cvs.
+
 2002-02-05  Abel Cheung  <maddog@linux.org.hk>
 
 	* zh_CN.GB2312.po -> zh_CN.po
