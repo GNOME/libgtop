@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-02-08 15:28+0100\n"
-"PO-Revision-Date: 2005-02-08 17:23+0200\n"
+"PO-Revision-Date: 2005-02-21 15:01+0200\n"
 "Last-Translator: Leonid Kanter <leon@asplinux.ru>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -191,7 +191,7 @@ msgstr "Превышен предел размера файла"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
-msgstr "Витруальный таймер"
+msgstr "Виртуальный таймер"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
