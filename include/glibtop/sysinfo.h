@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -32,7 +30,7 @@
 
 #include <glib.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_SYSINFO_CPUINFO		0
 
@@ -44,21 +42,23 @@ typedef struct _glibtop_entry	glibtop_entry;
 
 struct _glibtop_entry
 {
-    GPtrArray	*labels;
-    GHashTable	*values;
-    GHashTable	*descriptions;
+	GPtrArray	*labels;
+	GHashTable	*values;
+	GHashTable	*descriptions;
 };
 
 struct _glibtop_sysinfo
 {
-    u_int64_t		flags, ncpu;
-    glibtop_entry	cpuinfo [GLIBTOP_NCPU];
+	u_int64_t	flags, ncpu;
+	glibtop_entry	cpuinfo [GLIBTOP_NCPU];
 };
+
+#define glibtop_get_sysinfo()	glibtop_get_sysinfo_s(glibtop_global_server)
 
 #define glibtop_get_sysinfo_r	glibtop_get_sysinfo_s
 
-glibtop_sysinfo *glibtop_get_sysinfo_s (glibtop_server *server);
+glibtop_sysinfo *glibtop_get_sysinfo_s (glibtop *server);
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

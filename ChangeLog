@@ -1,10 +1,75 @@
+2003-10-19  Carlos Perelló Marín <carlos@gnome.org>
+
+	* libgtop-GNOME-2-0-branch moved to HEAD.
+
+2003-09-30  Laurent Dhima  <laurenti@alblinux.net>
+
+	* configure.in: Added "sq" to ALL_LINGUAS.
+
+2003-09-17  Fatih Demir <kabalak@gtranslator.org>
+
+	* configure.in: Added "ta" (Tamil) to the languages' list.
+
+2003-09-13  Carlos Perelló Marín <carlos@gnome.org>
+
+	* configure.in (ALL_LINGUAS):  Removed es_ES.
+
+2003-09-08  Kevin Vandersloot
+
+	* configure.in: release 2.0.5
+
+2003-09-06  Taneem Ahmed  <taneem@bengalinux.org>
+
+	* configure.in: Added "bn" to ALL_LINGUAS.
+
+2003-08-24  Kevin Vandersloot
+
+	* configure.in: release 2.0.4
+
+2003-08-13  Guntupalli Karunakar  <karunakar@freedomink.org>
+
+	* configure.in: Added "hi" (Hindi) in ALL_LINGUAS.
+
+2003-08-13  Andrew Sobala  <aes@gnome.org>
+
+	* configure.in: release 2.0.3
+
+2003-08-09  Dafydd Harries  <daf@parnassus.ath.cx>
+
+	* configure.in: Added "cy" (Welsh) to ALL_LINGUAS.
+
+2003-08-03  Malcolm Tredinnick <malcolm@commsecure.com.au>
+
+	* Makefile.am: Change subdirectory build order so that
+	'distclean' target work (and other targets remain working).
+	Fixes bug #84622.
+
+2003-06-10  Kjartan Maraas  <set EMAIL_ADDRESS environment variable>
+
+	* libgtop-2.0.pc.in: Fix missing build flags. Patch from
+	Julio Merino. Fixes bug #103086.
+	* sysdeps/linux/mem.c: (glibtop_get_mem_s): Fix memory calculation
+	under Linux. Patch from <rwahl@gmx.de>. Fixes bug #68626.
+
+2003-06-10  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* sysdeps/freebsd/glibtop_machine.h:
+	* sysdeps/kernel/glibtop_private.h:
+	* sysdeps/solaris/glibtop_machine.h:
+	* sysdeps/solaris/glibtop_private.h: Comment out text after
+	#endif to make some compilers happy.
+
+2003-05-11  Andrew Sobala  <aes@gnome.org>
+
+	* configure.in: release 2.0.2
+
 2003-05-10  Danilo Šegan  <dsegan@gmx.net>
 
 	* configure.in: Added "sr" and "sr@Latn" to ALL_LINGUAS.
 
-2003-04-30  Abel Cheung  <maddog@linux.org.hk>
+2003-04-17  Abel Cheung  <maddog@linux.org.hk>
 
-	* configure.in: Added "id" to ALL_LINGUAS.
+	* configure.in: Added "mk" to ALL_LINGUAS.
 
 2003-03-13  Christian Rose  <menthos@menthos.com>
 
@@ -14,1126 +79,329 @@
 
 	* configure.in: Added "fa" to ALL_LINGUAS.
 
+2003-03-08  Gil "Dolfin" Osher <dolfin@rpg.org.il>
+
+	* configure.in: Added he to ALL_LINGUAS.
+
+2003-02-25  T?µivo Leedj?¤rv  <toivo@linux.ee>
+
+	* configure.in: Added et to ALL_LINGUAS.
+
+2003-02-16  Mohammad DAMT  <mdamt@bisnisweb.com>
+
+	* po/id.po: Added Indonesian translation
+	* configure.in: Added "id" to ALL_LINGUAS
+
+2003-01-31  James Henstridge  <james@daa.com.au>
+
+	* acinclude.m4 (GNOME_SUPPORT_CHECKS): use AC_LIBOBJ() to set
+	LIBOBJS variable, since newer autoconf's barf on direct access.
+	This also takes care of setting LTLIBOBJS for us.
+
+2003-01-29  Abel Cheung  <maddog@linux.org.hk>
+
+	* configure.in: Added ar to ALL_LINGUAS
+
 2003-01-25  Alessio Frusciante  <algol@firenze.linux.it>
 
 	* configure.in: Added "it" (Italian) to ALL_LINGUAS.
+
+2003-01-23  Marius Andreiana <marius galuna.ro>
+
+	* configure.in: Added "ro" to ALL_LINGUAS
 
 2003-01-22  Christian Rose  <menthos@menthos.com>
 
 	* configure.in: Added "mn" to ALL_LINGUAS.
 
+2003-01-16  Daniel Yacob <locales@geez.org>
+
+	* configure.in: added am to ALL_LINGUAS
+	
+2003-01-12  Kevin Vandersloot <kfv101@psu.edu>
+
+	* configure.in: release 2.0.1
+
+2002-12-30  Bastien Nocera <hadess@hadess.net>
+
+	* Added sysdeps/aix directory that was missing
+
+2002-10-08  Laurent Vivier <Laurent.Vivier@bull.net>
+
+	* Framework for AIX support
+
+2002-08-07  Vincent Berger <Vincent.Berger@ext.bull.net> 
+
+	* support/: Add alloca management for AIX
+	* configure.in: correct checking for nm
+
+2002-11-03  Dmitry G. Mastrukov  <dmitry@taurussoft.org>
+
+	* configure.in: Added Belarusian to ALL_LINGUAS
+
+2002-09-26  Stanislav Brabec  <sbrabec@suse.cz>
+
+	* configure.in: Added cs to ALL_LINGUAS.
+
+2002-09-26  jacob berkman  <jacob@ximian.com>
+
+	* configure.in (ALL_LINGUAS): remove cs until the file actually
+	gets added
+
+2002-09-26  Stanislav Brabec  <sbrabec@suse.cz>
+
+	* configure.in: Added cs to ALL_LINGUAS.
+
+2002-08-20  Peteris Krisjanis <peteris.krisjanis@os.lv>
+
+	* configure.in: (ALL_LINGUAS) Added Latvian (lv).
+
 2002-06-25  Yanko Kaneti <yaneti@declera.com>
 
 	* configure.in: (ALL_LINGUAS) Added Bulgarian (bg).
+
+2002-05-10  Kevin Vandersloot <kfv101@psu.edu>
+
+	* configure.in: release 2.0.0
+
+2002-05-28  Carlos Perello Marin <carlos@gnome-db.org>
+
+	* configure.in (ALL_LINGUAS): Removed all es_* and added only es_ES.
 
 2002-05-08  Pablo Saratxaga  <pablo@mandrakesoft.com>
 
 	* configure.in: Added Vietnamese (vi) to ALL_LINGUAS
 
-2002-03-11  Duarte Loreto <happyguy_pt@hotmail.com>
+2002-03-12  James Henstridge  <james@daa.com.au>
 
-        * configure.in: Added pt (Portuguese) to ALL_LINGUAS
+	* acinclude.m4 (LIBGTOP_HEACKER_TESTS): AM_CONDITIONAL()
+	statements can't be conditionally executed (automake compat fix).
+	(GNOME_LIBGTOP_SYSDEPS): move the conditional here so that it is
+	always executed.
+
+2002-02-10  Kevin Vandersloot <kfv101@psu.edu>
+
+	* configure.in: bump version
+
+	* release 1.90.2
+
+2002-02-09  Bastien Nocera  <hadess@hadess.net>
+
+	reviewed by: Kevin Vandersloot <kfv101@psu.edu>
+
+	* configure.in: remove need for dc, and clean up
+	* stamp-h.in, .cvsignore: remove
 
 2002-02-05  Abel Cheung  <maddog@linux.org.hk>
 
 	* configure.in (ALL_LINGUAS): zh_CN.GB2312 -> zh_CN
 
+2001-01-14  Hasbullah bin Pit <sebol@ikhlas.com>
+
+	* configure.in: Added ms in ALL_LINGUAS.
+	* po/ms.po: Added Malay Translation.
+	* po/.cvsignore: Added 'libgtop-2.0.pot'.
+
+2001-01-14  Abel Cheung  <maddog@linux.org.hk>
+
+	* configure.in: Sync'ed ALL_LINGUAS with files in po directory,
+	and renamed GETTEXT_PACKAGE to avoid conflict with libgtop 1.0.x.
+
 2002-01-10  Kevin Vandersloot <kfv101@psu.edu>
 
-	* configure.in: Put in error message telling people
-	not to use HEAD for the time being untill I merger the
-	porting branch
+	* acininclude.m4: add back the support stuf but make it really
+	work
 
-2002-01-09  Darin Adler  <darin@bentspoon.com>
+	* configure.in: bump version number, add back GNOME_SUPPORT 
+	check since that was causing a build failure
 
-	* Makefile.am: Fix install problem.
-	* ltmain.sh: Don't check this into cvs.
+	* release 1.90.1
 
-Mon Nov 26 20:11:31 2001  Owen Taylor  <otaylor@redhat.com>
+2002-01-09  Kevin Vandersloot <kfv101@psu.edu>
 
-	* lib/xmalloc.c include/glibtop/xmalloc.h: (glibtop_free_r):
-	Argument to free can't be const!
+	* acinclude.m4: remove gnome support check. Fixes the build
+	for those with automake < 1.4p5.
 
-	* include/glibtop/glibtop-client/backend.h 
-	  lib/glibtop-backend.c lib/glibtop-client.c: Include 
-	glib-object.h, not gobject/gobject.h.
+	* configure.in: remove check for GNOME_SUPPORT
 
-2001-10-13  Bastien Nocera  <hadess@hadess.net>
+2001-14-27  Miles Lane <miles@megapathdsl.net>
 
-	* Makefile.am, configure.in, libgtop-2.0.pc.in, libgtop.pc.in:
-	Renamed libgtop.pc to libgtop-2.0.pc
+	* acconfig.h:  Added "#undef HAVE_GETTEXT" entry.
+	* LIBGTOP_VERSION:  Removed file.
+	* configure.in:  added glib-gettextize support and
+	  moved in the *VERSION* stuff from LIBGTOP_VERSION.
 
-2001-10-13  Bastien Nocera  <hadess@hadess.net>
+2001-11-27  Kevin Vandersloot <kfv101@psu.edu>
 
-	* configure.in, include/glibtop/errors.h, include/glibtop/global.h,
-	lib/glibtop-client.c, lib/test-backends.c: Fixes for glib-1.3.9
+	* acinclude.m4: copy some of the macros that were formerly
+	in gnome-macros
 
-2001-09-10  Abel Cheung  <maddog@linux.org.hk>
+	* configure.in, sysdeps/Makefile.am: comment out guile
+	support for now.
+
+	* release 1.90.0
+
+2001-11-26  Kevin Vandersloot <kfv101@psu.edu>
+
+	* src/daemon/gnuserv.c:  Apply patch fixing security issue from
+        intexxia labs - #1048-261101
+
+2001-11-26  Abel Cheung <maddog@linux.org.hk>
+
+	* src/inodedb/file_by_inode.c: Rename to file_by_inode2.c
+	* src/inodedb/mkinodedb.c: Rename to mkinodedb2.c
+
+	* po/POTFILES.in: Reflect above change
+
+	* */.cvsignore: Add various files
+
+2001-11-25  Kevin Vandersloot <kfv101@psu.edu>
+
+	* port stable libgtop to GNOME 2.0. Too much to detail.
+	pkgconfig is now used. Libs are named libgtop-2.0 etc for
+	parallel install. 
+
+2001-10-17  Abel Chueng  <maddog@linux.org.hk>
+
+	* configure.in, Makefile.am, include/glibtop/Makefile.am: headers
+	moved to $(includedir)/libgtop-1.0/glibtop.
+
+2001-09-16  Abel Chueng  <maddog@linux.org.hk>
 
 	* configure.in: Added "zh_TW" to ALL_LINGUAS.
-	
-2001-07-23  Kjartan Maraas  <kmaraas@gnome.org>
 
-	* configure.in: Added "nn" to ALL_LINGUAS.
-	
-2001-04-21  Martin Baulig  <baulig@suse.de>
+2001-02-13  Martin Baulig  <baulig@suse.de>
 
-	* configure.in: Removed all sysdeps checks.
+	Released LibGTop 1.0.12 "Gerolzhofen".
 
-	* lib/sysdeps-init*.c: Removed.
+	* NEWS: Added news entry to 1.0.12.
 
-	* lib/inodedb.c: Moved here from sysdeps/common/inodedb.c.
+	* LIBGTOP-VERSION: Set version number to 1.0.12, binary age 11,
+	interface age 11.
 
-	* glibtop-config.h: Removed.
+2001-02-19  Simos Xenitellis  <simos@hellug.gr>
 
-2001-04-20  Martin Baulig  <baulig@suse.de>
+	* configure.in: Added "el" to ALL_LINGUAS.
 
-	Moved all sysdeps code to the new libgtop-backends module.
+2001-02-15  Martin Baulig  <baulig@suse.de>
 
-	* sysdeps/freesd/*: Removed.
-	* sysdeps/kernel/*: Removed.
-	* sysdeps/linux/*: Removed.
-	* sysdeps/osf1/*: Removed.
-	* sysdeps/solaris/*: Removed.
-	* sysdeps/stub/*: Removed.
-	* sysdeps/stub_suid/*: Removed.
-	* sysdeps/sun4/*: Removed.
+	Released LibGTop 1.0.11 "Jasmin".
 
-2001-04-20  Martin Baulig  <baulig@suse.de>
+	* NEWS: Added news entry for 1.0.11.
 
-	* lib/Makefile.am (libgtop_la_SOURCES): Added xmalloc.c and
-	error.c.
+2001-02-14  Martin Baulig  <baulig@suse.de>
 
-2001-04-20  Martin Baulig  <baulig@suse.de>
+	Merged from LIBGTOP_1_1_2_PATCHES.
 
-	* include/glibtop/glibtop-server.h (glibtop_init_func_t):
-	Added `glibtop_closure *' argument.
-
-	* include/glibtop/glibtop-backend-info.h
-	(glibtop_backend_close_func_t): Third argument is now
-	`glibtop_closure *'.
-
-	* include/glibtop/call-vector.pl: Reflect latest API changes.
-
-2001-04-20  Martin Baulig  <baulig@suse.de>
-
-	* include/glibtop/*.h: Use G_BEGIN_DECLS and G_END_DECLS
-	instead of LIBGTOP_BEGIN/END_DECLS.
-
-2001-04-20  Martin Baulig  <baulig@suse.de>
-
-	* include/glibtop/glibtop-server.h (glibtop_closure):
-	Typedef this as an opaque struct.
-
-2001-04-20  Martin Baulig  <baulig@suse.de>
-
-	* include/glibtop/*.h (glibtop_get_*_s, glibtop_get_*_pl):
-	Changed `void *closure' to `glibtop_closure *closure'.
-
-	* include/glibtop/*.h
-	(glibtop_init_*_s): Added `glibtop_closure *closure' argument.
-	(glibtop_init_*_p): Changed `glibtop *server' to
-	`glibtop_server *server' and added `glibtop_closure *closure'.
-
-2001-04-20  Martin Baulig  <baulig@suse.de>
-
-	* include/glibtop/glibtop-server.h
-	(glibtop_server_private): Removed this typedef.
-	(glibtop_server): Made the `_priv' field a `void *'.
-
-	* glibtop-server-private.h: Moved to lib/.
-
-	* lib/glibtop-server-private.h
-	(glibtop_server_private): Moved this typedef here.
-
-2001-04-20  Martin Baulig  <baulig@suse.de>
-
-	* include/glibtop/*.h (glibtop_get_*_s, glibtop_get_*_pl):
-	Added `void *closure' argument to all sysdeps functions.
-
-	* include/glibtop/open.h (glibtop_open_s, glibtop_open_p):
-	Removed the `const char *program_name' argument and added
-	`void *closure'.
-
-2001-04-20  Martin Baulig  <baulig@suse.de>
-
-	* libgtop.pc.in: Added pkg-config file.
-
-2001-04-20  Martin Baulig  <baulig@suse.de>
-
-	* acinclude.m4 (GNOME_FILEUTILS_CHECKS): Put this here.
-
-2001-04-04  John Gotts  <jgotts@linuxsavvy.com>
-
-	* libgtop.spec.in: Fixed categories.  Also build examples.  Improved
-	file lists.
-
-2001-03-17  Marius Andreiana  <mandreiana@yahoo.com>
-
-	* configure.in: Added ro (Romanian) to ALL_LINGUAS
-	
-2001-02-13  Stanislav Visnovsky	<visnovsky@nenya.ms.mff.cuni.cz>
-
-	* configure.in: Added sk to ALL_LINGUAS.
-
-2001-01-04  Fatih Demir	<kabalak@gmx.net>
-
-	* configure.in: Added tr to ALL_LINGUAS.
-
-2000-11-27  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/glibtop-backend-info.h
-	(glibtop_backend_close_func_t): Added `void *closure' argument.
-
-	* include/glibtop/call-vector.h: Changed the second argument
-	of all function in the call vector from `glibtop_backend *' to
-	`void *closure'.
-
-2000-11-26  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/glibtop-backend.h (glibtop_backend_open):
-	Renamed to glibtop_backend_get().
-	(glibtop_backend_get_server): New function.
-
-	* include/glibtop/glibtop-backend.h
-	(glibtop_backend_get_call_vector): New function.
-
-	* lib/glibtop-client-private.h: New file.
-	* lib/glibtop-client.h (struct _glibtop_client_private): Moved
-	to glibtop-client-private.h.
-
-	* include/glibtop/glibtop-client.h (glibtop_client_open_backend):
-	Changed return value to void.
-
-	* lib/glibtop-client.c: Implement glibtop_client_add_backend() and
-	glibtop_client_remove_backend().
-
-	* include/glibtop/backend.h: Removed. Split into glibtop-backend.h
-	and glibtop-backend-info.h.
-
-	* include/glibtop/glibtop-backend.h: New file. Switched
-	glibtop_backend to a GObject.
-
-	* include/glibtop/glibtop-backend-info.h: New file.
-
-	* lib/backend.c, lib/init-backends.c, lib/open-backend.c: Removed.
-
-	* lib/glibtop-backend.c: New file.
-	* lib/glibtop-backend-info.c: New file.
-
-2000-11-26  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/call-vector.h (glibtop_call_vector): Moved
-	the typedef to backend.h.
-
-	* include/glibtop/backend.h (glibtop_open_backend_l): Renamed
-	to glibtop_open_backend(), removed the `glibtop_client *'
-	argument and made the `GError *' argument non-optional.
-
-	* include/glibtop/glibtop-client.h
-	(glibtop_client_add_backend, glibtop_client_remove_backend): New
-	functions to add/remove a glibtop_backend to a glibtop_client.
-	(glibtop_client_open_backend): New convenient function; calls
-	glibtop_open_backend() and glibtop_client_add_backend().
-
-2000-11-22  Martin Baulig  <martin@home-of-linux.org>
-
-	* configure.in (INCLUDES): Added -Werror.
-
-	* include/glibtop/open.h (_glibtop_open_sysdeps): The first
-	argument is now a `glibtop_client *', removed the `flags' argument
-	and added `const char **backend_args' and `GError **opt_error'.
-
-	* include/glibtop/backends.h (glibtop_open_backend_l): Allow
-	the `error' argument to be NULL; propagate the error to the
-	glibtop_client in this case.
-
-2000-11-22  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/glibtop-client.h (glibtop_client_class):
-	Added "error" and "warning" signals.
-
-	* lib/glibtop-server.c: New file.
-
-	* lib/test-backends.c: New file.
-	* lib/Makefile.am: Build test-backends test program.
-
-	* lib/init-backends.c: Port this to libxml 2.
-
-	* configure.in: Make this really work.
-	* acinclude.m4: Removed the xml stuff.
-	* Makefile.am (SUBDIRS): Put lib in front of sysdeps and backends.
-
-2000-11-21  Martin Baulig  <martin@home-of-linux.org>
-
-	* configure.in: Removed gnomesupport checks here and started
-	to use pkg-config.
-
-	* acinclude.m4: New file. Put contents of libgtop-sysdeps.m4
-	and xml.m4 and LIBGTOP_CHECK_TYPE here.
-	* libgtop-sysdeps.m4, xml.m4: Removed.
-
-	* Makefile.am (SUBDIRS): Don't compile support and macros.
-
-2000-11-20  Martin Baulig  <baulig@suse.de>
-
-	Started with the big rewrite for GNOME 2.0:
-
-	- split the `glibtop' structure into `glibtop_server' and
-	`glibtop_client' and make `glibtop_client' a GObject.
-	- cleanly separate the library and the backends.
-
-	This stuff currently does not compile.
-	
-	* glibtop.h (glibtop_server_private, glibtop_server_info):
-	Removed typedefs.
-	(struct _glibtop, struct _glibtop_server_info): Removed.
-	(glibtop_global_server, glibtop_server_features): Removed.
-	(glibtop_server_ref, glibtop_server_unref): Removed.
-
-	* glibtop.h (glibtop_init_s): First argument is now a
-	`glibtop_server *'.
-
-	* include/glibtop/*.h: Removed all #defines with the
-	glibtop_global_server.
-	(glibtop_get_*_l): First argument is now a `glibtop_client *'.
-	(glibtop_get_*_s, glibtop_init_*_s): First argument is now a
-	`glibtop_server *'.
-
-	* lib/glibtop-client.c: New file.
-
-	* sysdeps/common/xmalloc.c: Moved to lib/.
-	* sysdeps/common/error.c: Moved to lib/.
-
-	* lib/xmalloc.c: Moved here from sysdeps/common/.
-	* lib/error.c: Moved here from sysdeps/common/.
-
-	* include/glibtop/backend.h
-	(glibtop_backend_open_func_t, glibtop_backend_close_func_t):
-	First argument is now a `glibtop_server *'.
-	(glibtop_backend_info): Added `glibtop_server *server'.
-	(glibtop_open_backend_l): Returns `glibtop_backend *', first
-	argument is `glibtop_client *' and added `GError **'.
-
-	* include/glibtop/close.h (glibtop_close_s, glibtop_close_p):
-	First argument is now a `glibtop_server *'.
-
-	* include/glibtop/error.h (*): 
-	First argument is now a `glibtop_server *'.
-
-	* include/glibtop/errors.h: Switched this to use GError.
-
-2000-11-20  Martin Baulig  <baulig@suse.de>
-
-	* glibtop.h (glibtop_server_info): New type.
-	(glibtop): Added `glibtop_server_info *info', moved
-	`ncpu', `features', `sysdeps', `required' and `wanted'
-	info glibtop_server_info.
-
-2000-11-20  Martin Baulig  <baulig@suse.de>
-
-	* autogen.sh: Use gnome-common.
-	* configure.in: Require glib HEAD.
-
-2000-08-09  Szabolcs BAN <shooby@gnome.hu>
-
-	* po/hu.po: Adding Hungarian translations.
-
-2000-04-24  Martin Baulig  <baulig@suse.de>
-
-	Added `Process current working directory' feature (proc_cwd).
-
-	* include/glibtop/proc_cwd.h: New file.
-	* features.def: Added `proc_cwd'.
-
-	* include/glibtop/sysdeps.h (glibtop_sysdeps): Added `proc_cwd'.
-	* include/glibtop/union.h (glibtop_union): Added `proc_cwd'.
-
-	* sysdeps/stub/proc_cwd.c: New file.
-	* sysdeps/names/proc_cwd.c: New file.
-
-2000-04-19  Pablo Saratxaga <pablo@mandrakesoft.com>
-
-	* configure.in (ALL_LINGUAS): added Catalan
-
-2000-04-16  Valek Filippov  <frob@df.ru>
-
-	* configure.in: Added russian translation.
-
-2000-03-08 Alastair McKinstry <mckinstry@computer.org>
-
-	* configure.in (ALL_LINGUAS): Added Irish (ga) translation.
-
-2000-02-27  Martin Baulig  <martin@home-of-linux.org>
-
-	* dtd/libgtop-backends.dtd: Added XML DTD for the `*.backend' files.
-
-2000-02-27  Martin Baulig  <martin@home-of-linux.org>
-
-	* dtd/: New directory.
-	* dtd/libgtop-backend-info.dtd: This is a XML DTD for "backend info"
-	XML files. In future, each backend will have such a xml file which
-	contains information like a short description of the backend, its
-	authors etc.
-
-	* sysdeps/linux/backend-info.xml: New file. First version of such
-	a "backend info" XML file as described above.
-
-2000-02-27  Martin Baulig  <martin@home-of-linux.org>
-
-	* libgtop-sysdeps.m4 (libgtop_have_sysdeps): Set this to "no" for
-	all systems until I made up my mind how this'll work in future.
-
-2000-02-24  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/error.h (glibtop_error_r, glibtop_warn_r): Moved
-	to sysdeps/common/error.c.
-	(glibtop_error_io_r, glibtop_warn_io_r): Likewise.
-	(glibtop_error, glibtop_warn): Moved the non-GNU-C version of them
-	to sysdeps/common/error.c.
-	(glibtop_error_io, glibtop_warn_io): Likewise.
-
-	* sysdeps/common/error.c (glibtop_error_r, glibtop_warn_r): Moved
-	here from include/glibtop/error.h.
-	(glibtop_error_io_r, glibtop_warn_io_r): Likewise.
-	(glibtop_error, glibtop_warn): Moved the non-GNU-C version of them
-	here from include/glibtop/error.h.
-	(glibtop_error_io, glibtop_warn_io): Likewise.
-
-2000-02-23  Martin Baulig  <martin@home-of-linux.org>
-
-	* autogen.sh: Call it "GNOME Portable System Access Library".
-
-	* LIBGTOP-VERSION (LIBGTOP_VERSION_SUFFIX): Set this to `-snap' so
-	the tarball will be called `libgtop-1.1.6-snap.tar.gz'.
-
-2000-02-23  Martin Baulig  <martin@home-of-linux.org>
-
-	Fix some True64 issues which were reported from Aron Griffis.
-
-	* libgtop-sysdeps.m4 (GNOME_LIBGTOP_TYPES_PRIVATE): Check for
-	<sys/bittype.h> and use AC_LIBGTOP_CHECK_TYPE, not AC_CHECK_TYPE.
-
-	* include/glibtop/global.h: #include <sys/bittypes.h>.
-
-	* ltmain.sh: Added this from libtool 1.3.4 (only used on Solaris).
-
-2000-02-22  Martin Baulig  <martin@home-of-linux.org>
-
-	* lib/init-backends.c (glibtop_backend_*): Removed external declaration.
-	* lib/open-backends.c (backend_init_table): New static variable. This maps
-	backend names to their `glibtop_backend_info' structure.
-	(glibtop_open_backend_l): Make this working for the non-gmodule case.
-	* lib/close.c (close_backend): Likewise.
-
-	* acconfig.h (LIBGTOP_HAVE_SYSDEPS): Added.
-	(LIBGTOP_NEED_SERVER): Added.
-
-2000-02-22  Martin Baulig  <martin@home-of-linux.org>
-
-	* ltconfig: Added this to CVS and hacked it to use `$CC -shared'
-	to create shared libraries on Solaris.
-
-	* automake.sh: Don't run libtoolize on Solaris but use the CVS
-	version instead.
-
-2000-02-16  Martin Baulig  <martin@home-of-linux.org>
-
-	* configure.in (LIBGTOP_LIBS): Add `-lgtop_backend_sysdeps' and
-	`-lgtop_backend_common' if dynamic linking does not work.
-
-	* libgtop-sysdeps.m4 (GNOME_LIBGTOP_DYNLINK): New macro to check
-	whether dynamic linking works.
-	(libgtop_use_gmodule): Set this to `yes' or `no' depending on
-	whether dynamic linking of the backends work on the current system.
-	(LIBGTOP_USE_GMODULE): New automake conditional.
-
-	* acconfig.h (LIBGTOP_USE_GMOUDLE): Define this when dynamic
-	linking of the backends work on the current system.
-
-2000-02-21  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/interfaces.h (GLIBTOP_STRATEGY_FLAGS_MASK):
-	New constant.
-
-2000-02-20  Martin Baulig  <martin@home-of-linux.org>
-
-	* LIBGTOP-VERSION: Set version number to 1.1.6, binary age 0,
-	interface age 0.
-
-2000-02-16  Martin Baulig  <martin@home-of-linux.org>
-
-	Released LibGTop 1.1.5 "Sidney".
-
-2000-02-16  Martin Baulig  <martin@home-of-linux.org>
-
-	* sysdeps/sun4: This is very old and obsolete so we won't
-	include it in the tarballs any longer.
-
-2000-02-16  Martin Baulig  <martin@home-of-linux.org>
-
-	* xml.m4: Check for `xmlDocGetRootElement' to make sure we
-	have a recent enough libxml.
-
-2000-02-13  Martin Baulig  <martin@home-of-linux.org>
-
-	* configure.in (AC_LIBTOOL_DLOPEN): Added.
-
-	* lib/sysdeps-init-linux.c (glibtop_sys_siglist): Added labels.
-	* lib/sysdeps-init-freebsd.c (glibtop_sys_siglist): Provide
-	actual implementation.
-
-2000-02-06  Martin Baulig  <martin@home-of-linux.org>
-
-	* lib/sysdeps-init-*.c (glibtop_sys_siglist): Moved here from
-	the sysdeps directories.
-
-	* sysdeps/*/siglist.c: Removed.
-
-2000-02-06  Martin Baulig  <martin@home-of-linux.org>
-
-	* glibtop.h (glibtop): Removed `method', `server_command',
-	`server_host', `server_user' and `server_rsh'.
-	Added `glibtop_parameter _param' field and moved `error_method'
-	there.
-
-	* include/glibtop/parameter.h (glibtop_parameter): New structure.
-	(GLIBTOP_PARAM_METHOD, GLIBTOP_PARAM_COMMAND): Removed.
-	(GLIBTOP_PARAM_HOST, GLIBTOP_PARAM_PORT): Removed.
-	(GLIBTOP_PARAM_REMOTE_USER, GLIBTOP_PARAM_PATH_RSH): Removed.
-	(GLIBTOP_PARAM_NCPU, GLIBTOP_PARAM_OS_VERSION_CODE): Added.
-
-2000-02-06  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/ppp.h (glibtop_get_ppp): Removed the `lockfile'
-	argument; we now use a configure check to determine the modem
-	lockfile.
-
-	* include/glibtop/error.h (GLIBTOP_ERROR_NEED_MODEM_LOCKFILE):
-	Removed this now obsolete error constant again.
-
-	* configure.in (--with-modem-lockfile): New configure parameter
-	to manually specify the modem lockfile.
-	(LIBGTOP_MODEM_LOCKFILE): Define this to be a printf-format string
-	for the modem lockfile; takes the interface number as argument.
-
-2000-02-05  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/interfaces.h (glibtop_ipv6_scope): New
-	enum for the IPv6 address scope.
-
-2000-01-31  Yuan-Chung Cheng <platin@linux.org.tw>
-
-	* configure.in: Added "zh_CN.GB2312" to ALL_LINGUAS.
-
-2000-01-29  Martin Baulig  <martin@home-of-linux.org>
-
-	* structures.def (glibtop_ifaddr): Added.
-
-2000-01-24  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/netinfo.h (glibtop_netinfo): `address' and
-	`subnet' are now arrays of GLIBTOP_IFADDR_LEN u_int8_t values.
-	(glibtop_get_netinfo): `transport' is now `u_int64_t' and not
-	`unsigned' to make it work with `GLIBTOP_TRANSPORT_ALL'.
-
-	* include/glibtop/limits.h (GLIBTOP_IFADDR_LEN): New constant.
-	This is the length of a network interface address in bytes.
-
-2000-01-24  Martin Baulig  <martin@home-of-linux.org>
-
-	* libgtop-sysdeps.m4 (GNOME_LIBGTOP_TYPES_PRIVATE): New macro.
-	This is the same than `GNOME_LIBGTOP_TYPES' but also checks for
-	`u_int8_t' and `int8_t' and it doesn't force people to put this
-	in their acconfig.h.
-
-	* configure.in: Use GNOME_LIBGTOP_TYPES_PRIVATE instead of
-	GNOME_LIBGTOP_TYPES.
-
-2000-01-23  Martin Baulig  <martin@home-of-linux.org>
-
-	* lib/sysdeps-init-kernel.c: Load the "glibtop-backend-kernel" before
-	"glibtop-backend-command" and "glibtop-backend-sysdeps".
-
-	* libgtop-sysdeps.m4: "kernel" is now a backend and no longer a
-	sysdeps port; we compile the normal "linux" sysdeps dir when we
-	have it.
-
-	* backends/Makefile.am: Only compile `server' and `sysdeps'
-	directories if appropriate.
-
-2000-01-22  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/backend.h (_glibtop_backend_module): Added
-	`extra_libs'.
-
-	* configure.in (LIBGTOP_LIBS): Removed `-lgtop_sysdeps'. This
-	is gmodule loaded from the backend open function.
-
-	* lib/init.c (glibtop_init_s): Don't call glibtop_open_s () here.
-
-	* init-backend.c: Added support for a "ExtraLibs" section in the
-	backend description file.
-
-2000-01-22  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/ppp.h (glibtop_get_ppp): Added `use_isdn' and
-	`lockfile' arguments. When `use_isdn' is TRUE, we return ISDN
-	statistics, otherwise `lockfile' is expected to be the modem
-	lockfile and we return PPP statistics for that Modem.
-
-	Note that for Modem statistics, you need to set both `device' and
-	`lockfile' for some sysdeps ports; so if you have more than one PPP
-	connection active and want to get statistics on the second one you
-	need to set `device' to 1 and `lockfile' to the correct modem lockfile.
-
-	* include/glibtop/error.h (GLIBTOP_ERROR_NEED_MODEM_LOCKFILE): New
-	error constant; this is returned when you call glibtop_get_ppp ()
-	without a modem lockfile and the current sysdeps port requires it.
-
-2000-01-18  Martin Baulig  <martin@home-of-linux.org>
-
-	* lib/sysdeps-init-osf1.c: New file. Added sysdeps initialization
-	code from DEC OSF/1.
-
-2000-01-16  Martin Baulig  <martin@home-of-linux.org>
-
-	We now use `@LIBGTOP_PACKAGE@' as the translation domain so
-	installed `libgtop-1.1.mo' files won't conflict with the ones
-	from LibGTop 1.0 and you can keep both versions installed.
-
-	* po/Makefile.in.in.in: New file. This is a modified version of
-	the usual `Makefile.in.in' which is created by gettextize; we
-	copy this over `Makefile.in.in' in autogen.sh after gettextize'ing.
-
-	* autogen.sh: Copy `po/Makefile.in.in.in' over `po/Makefile.in.in'
-	after running `macros/autogen.sh'.
-
-	* configure.in (LIBGTOP_PACKAGE): AC_SUBST and AC_DEFINE this.
-
-	* include/glibtop/global.h (_): Use `LIBGTOP_PACKAGE' as our
-	translation domain.
-
-2000-01-16  Martin Baulig  <martin@home-of-linux.org>
+	* libgtop-sysdeps.m4 (GLIBTOP_SOLARIS_RELEASE): Define this on Solaris;
+	we use version codes like 270 for SunOS 5.7 and 251 for SunOS 2.5.1.
 
 	* LIBGTOP-VERSION (LIBGTOP_VERSION_SUFFIX): Added this so you can
 	have your tarballs called `libgtop-1.x.y-snap.tar.gz' or whatever.
 	This only affects the `VERSION' variable and thus how the resulting
 	tarball will be called, but not `LIBGTOP_VERSION_CODE' etc.
 
-	* Makefile.am: Make `aclocal.m4' also depend on `LIBGTOP-VERSION'
-	when in maintainer-mode.
-
-2000-01-15  Martin Baulig  <martin@home-of-linux.org>
-
-	* LIBGTOP-VERSION: Set version number to 1.1.5, binary age 0,
-	interface age 0 and increase LIBGTOP_SERVER_VERSION to 53.
-
-2000-01-14  Martin Baulig  <martin@home-of-linux.org>
-
-	Released LibGTop 1.1.4 "Earthquake".
-
-1999-01-13  Yuri Syrota  <rasta@renome.rovno.ua>
-
-	* configure.in: Added Ukrainian (uk) to ALL_LINGUAS
-
-2000-01-13  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/compat_10.h: Add compatibility #defines for
-	`GLIBTOP_XCPU_TOTAL', `GLIBTOP_XCPU_USER', `GLIBTOP_XCPU_NICE',
-	`GLIBTOP_XCPU_SYS', `GLIBTOP_XCPU_IDLE' and `GLIBTOP_XCPU_FLAGS'
-
-	* LIBGTOP-VERSION: Set version number to 1.1.4, binary age 0,
-	interface age 0 and increased LIBGTOP_SERVER_VERSION to 52.
-
-2000-01-13  Martin Baulig  <martin@home-of-linux.org>
-
-	* lib/sysdeps-init-freebsd.c: New file.
-	* lib/sysdeps-init-kernel.c: New file.
-	* lib/sysdeps-init-linux.c: New file.
-	* lib/sysdeps-init-solaris.c: New file.
-	* lib/sysdeps-init-stub-suid.c: New file.
-	* lib/sysdeps-init-stub.c: New file.
-
-	* lib/open.c (glibtop_open_l): Call glibtop_init_backend () and
-	_glibtop_open_sysdeps () here.
-
-	* lib/init.c (glibtop_init_s): Call `_glibtop_open_sysdeps'.
-
-	* include/glibtop/open.h (_glibtop_open_sysdeps): Declare this
-	when we are _IN_LIBGTOP.
-
-	* configure.in (sysdeps_name): Define and AC_SUBST this.
-	(sysdeps_init_file): Define and AC_SUBST this to
-	`sysdeps-init-${sysdeps_name}.c'.
-
-	* libgtop-sysdeps.m4 (GNOME_LIBGTOP_SYSDEPS): Define and AC_SUBST
-	`libgtop_sysdeps_name'.
-
-2000-01-12  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/errors.h (GLIBTOP_ERROR_NO_BACKEND_OPENED):
-	New error constant.
-
-	* lib/lib.pl (glibtop_get_<feature>_l): Don't dump core when there
-	is no backend opened, but return GLIBTOP_ERROR_NO_BACKEND_OPENED.
-
-	* include/glibtop/backend.h (glibtop_backend): Added `_priv_module'
-	pointer (type glibtop_backend_module). Made the `info' field const
-	since this now points to gmodule loaded memory
-	(glibtop_backend_entry): Made the `info' field const since it points
-	to gmodule loaded memory.
-
-	* lib/close.c (glibtop_close_r): Close all currently opened backends.
-
-2000-01-12  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/backend.h (glibtop_backend_entry): New type.
-	(glibtop_backend_module): New private type.
-
-	* lib/backend.c (glibtop_register_backend): This now takes a
-	`glibtop_backend_entry' argument, not a `glibtop_backend_info' one.
-	(glibtop_backend_by_id): Return a `glibtop_backend_entry' type,
-	not a `glibtop_backend_info' one.
-	(glibtop_backend_by_name): Likewise.
-
-	* lib/init-backends.c: If we have libxml, read all `.backend' files
-	in $(LIBGTOP_BACKEND_DIR), XML parse them and register them via
-	`glibtop_backend_register'. This builds a list of all currently
-	supported backends without actually loading them into memory.
-
-	* lib/open-backend.c (glibtop_open_backend_l): GModule load the
-	backend if it's not already in memory.
-
-2000-01-12  Martin Baulig  <martin@home-of-linux.org>
-
-	* lib/init.c (glibtop_init_s): Comment out `_glibtop_init_hook_s'.
-
-	* configure.in: We now require libxml.
-	(LIBGTOP_LIBS): Remove all backend libraries.
-	(LIBGTOP_EXTRA_LIBS): Add $(LIBGTOP_XML_LIB) here.
-
-	* configure.in: Don't check for -lXau any longer.
-
-	* configure.in (LIBGTOP_BACKEND_DIR): Define this to be
-	`$(datadir)/libgtop/backends' and AC_SUBST it.
-
-	* libgtopConf.sh.in (LIBGTOP_BACKEND_DIR): Added.
-
-2000-01-12  Martin Baulig  <martin@home-of-linux.org>
-
-	* xml.m4: New file to check for libxml.
-
-	* acconfig.h (HAVE_LIBXML): Define this if we have libxml.
-
-	* configure.in: Call `LIBGTOP_XML_HOOK' from `xml.m4' and
-	add libxml libraries to `LIBGTOP_EXTRA_LIBS' when found.
-
-2000-01-12  Martin Baulig  <martin@home-of-linux.org>
-
-	* lib/sysdeps.c (_glibtop_init_hook_s): This has been moved
-	into the sysdeps backend.
-
-	* configure.in (LIBGTOP_LIBS): Added `-lgtop_backend_common'.
-	* lib/init-backends.c (glibtop_init_backends): Initialize
-	`glibtop_backend_common' backend.
-
-	* backends/common/: New directory.
-
-2000-01-10  Martin Baulig  <martin@home-of-linux.org>
-
-	* src/daemon/: Removed everything in this directory. This has
-	been obsoleted by the new server code in backends/server.
-
-2000-01-09  Martin Baulig  <martin@bergen.home-of-linux.org>
-
-	* include/glibtop/global.h: Unconditionally #include <sys/types.h>.
-
-2000-01-02  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/errors.h
-	(GLIBTOP_ERROR_DEMARSHAL_ERROR): New error constant.
-
-	* src/Makefile.am: Disable compilation of the `daemon' directory.
-
-	* include/glibtop/command.h: Removed.
-	* include/glibtop/version.h: Removed.
-
-2000-01-02  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/call-vector.pl: All functions in the
-	`glibtop_call_vector' now take an additional `glibtop_backend *'
-	argument.
-
-2000-01-01  Martin Baulig  <martin@home-of-linux.org>
-
-	* backends/: New directory.
-	* backends/server/: New directory.
-	* backends/sysdeps/: New directory.
-
-	* include/glibtop/backend.h: New file.
-
-	* include/glibtop/call-vector.h.in: New file. Template file
-	for `call-vector.h'.
-	* include/glibtop/call-vector.pl: New file. Creates 'call-vector.h'
-	from `call-vector.h.in'.
-
-	* include/glibtop/errors.h
-	(GLIBTOP_ERROR_NO_SUCH_BACKEND): New error constant.
-        (GLIBTOP_ERROR_NOT_IMPLEMENTED): New error constant.
-
-	* include/glibtop/limits.h
-	(GLIBTOP_BACKEND_NAME_LEN): New constant.
-
-	* glibtop-server-private.h (glibtop_server_private):
-	Added `GSList *backend_list' and removed `input', `output',
-	`socket' and `pid'.
-
-	* lib/command.c: Removed. Moved to `backends/server/'.
-	* lib/read.c: Removed. Moved to `backends/server/'.
-	* lib/read_data.c: Removed. Moved to `backends/server/'.
-	* lib/write.c: Removed. Moved to `backends/server/'.
-
-	* include/glibtop/read.h: Removed.
-	* include/glibtop/read_data.h: Removed.
-	* include/glibtop/write.h: Removed.
-
-1999-12-26  Martin Baulig  <martin@home-of-linux.org>
-
-	* libgtop-sysdeps.m4 (LIBGTOP_CHECK_SYSDEPS_DIR): New macro;
-	moved check for the sysdeps directory here.
-	(--with-sysdeps-dir): New hacker mode command line option to
-	manually override the sysdeps dir. Use of this option is highly
-	deprecated; I only added it to be able to do `stub_suid' hackings
-	on my GNU/Linux machine.
-
-1999-12-23  Martin Baulig  <martin@home-of-linux.org>
-
-	Removed all remote communication support from LibGTop.
-
-	* include/glibtop/gnuserv.h: Removed.
-
-	* sysdeps/common/gnuslib.c: Removed.
-
-	* src/daemon/Makefile.am: Don't build the `libgtop_daemon'
-	binary any longer.
-
-	* src/daemon/server_config.pl: Removed.
-	* src/daemon/server_config.h.in: Removed.
-	* src/daemon/server_config.h: Removed.
-
-1999-12-22  Martin Baulig  <martin@home-of-linux.org>
-
-	* lib/errors.c (glibtop_get_errno_l): New global function
-	to return `server->glibtop_errno'.
-	(glibtop_clear_errno_l): New global function to return
-	`server->glibtop_errno' and set it back to 0.
-
-	* include/glibtop/errors.h
-	(GLIBTOP_ERROR_SERVER_COMM_FAILURE): New error constant.
-	(GLIBTOP_ERROR_NO_SUCH_PROCESS): New error constant.
-	(GLIBTOP_ERROR_NO_KERNEL_SUPPORT): New error constant.
-	(GLIBTOP_ERROR_INCOMPATIBLE_KERNEL): New error constant.
-
-	* lib/lib.pl: For functions with a `retval' return type, set
-	`server->glibtop_errno' to the error code on error or to zero
-	on success.
-
-	* glibtop.h (glibtop): Added `glibtop_errno' field.
-
-1999-12-19  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/glib-arrays.h: New file.
-
-	* lib/glib-arrays.c: New file.
-	(glibtop_get_proclist_as_array_l): New function.
-	(glibtop_get_proc_args_as_array_l): New function.
-	(glibtop_get_proc_map_as_array_l): New function.
-	(glibtop_get_mountlist_as_array_l): New function.
-
-1999-12-19  Martin Baulig  <martin@home-of-linux.org>
-
-	* glibtop-server-private.h: New file. This is a private header
-	file which defines `struct _glibtop_server_private'.
-
-	* glibtop.h (glibtop): Added `glibtop_server_private *_priv' field
-	and moved some private fields there.
-
-1999-12-12  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/procargs.h (glibtop_proc_args): Removed.
-	(glibtop_get_proc_args_*): This now takes a `glibtop_array' parameter
-	instead of a `glibtop_proc_args one and returns a `char **'.
-
-1999-12-13  Martin Baulig  <martin@home-of-linux.org>
-
-	* configure.in (LIBGTOP_LIBS): Put `-lgtop' after `-lgtop_common'.
-
-1999-12-19  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/errors.h: New file. We define `GLIBTOP_ERROR_*'
-	error constants here.
-
-	* lib/errors.c: New file.
-	(glibtop_error_strings): Array of error messages.
-	(glibtop_get_error_string_l): Get error message.
-
-	* include/glibtop/parameter.h: Added `GLIBTOP_PARAM_REMOTE_USER' and
-	`GLIBTOP_PARAM_PATH_RSH'.
-
-	* lib/parameter.c (glibtop_get_parameter_l): Changed return value
-	from `size_t' to `ssize_t' and let it return an error constant.
-	(glibtop_get_parameter_size_l): New function.
-	(glibtop_set_parameter_l): Changed return value from `void' to `int'
-	and let it return an error constant on error.
-
-	* structures.def (glibtop_sysdeps): Added.
-
-1999-12-12  Martin Baulig  <martin@home-of-linux.org>
-
-	All functions which return an array now take a `glibtop_array *array'
-	parameter instead of a `glibtop_<feature> *buf' one.
-
-	For compatibility, we typedef the corresponding `glibtop_<feature>'s
-	to `glibtop_array' in <glibtop/compat_10.h>.
-
-	This has the advantage that scripting languages like Guile with an
-	array implementation which stores the length of an array in the
-	array don't need the `glibtop_array' parameter at all any longer.
-
-	We'll also add convenient functions which return GPtrArray's here.
-
-	* include/glibtop/proclist.h (glibtop_proclist): Removed.
-	(glibtop_get_proclist_*): This now takes a `glibtop_array' parameter
-	instead of a `glibtop_proclist' one.
-
-	* include/glibtop/procmap.h (glibtop_proc_map): Removed.
-	(glibtop_get_proc_map_*): This now takes a `glibtop_array' parameter
-	instead of a `glibtop_proc_map' one.
-
-	* include/glibtop/mountlist.h (glibtop_mountlist): Removed.
-	(glibtop_get_mountlist_*): This now takes a `glibtop_array' parameter
-	instead of a `glibtop_mountlist' one.
-
-	* include/glibtop/interfaces.h (glibtop_interface_names): Removed.
-	(glibtop_get_interface_names_*): This now takes a `glibtop_array'
-	parameter instead of a `glibtop_interface_name' one.
-
-	* include/glibtop/compat_10.h: New file. Contains some typedefs and
-	#defines to keep compatibility until the big restructurement is
-	completely done.
-
-1999-12-12  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/array.h: New file.
-
-1999-12-11  Martin Baulig  <martin@home-of-linux.org>
-
-	This is a larger source-incompatible commit, but it'll make it
-	easier to write automatically generated code (for instance for
-	scripting languages).
-
-	Renamed all constants for the flags field to match the field names
-	from the features.def and structures.def where this was not already
-	the case.
-
-	* include/glibtop/cpu.h: s/GLIBTOP_XCPU_/GLIBTOP_CPU_XCPU_/g.
-	* include/glibtop/shm_limits.h: s/GLIBTOP_IPC_/GLIBTOP_SHM_LIMITS_/g.
-	* include/glibtop/sem_limits.h: s/GLIBTOP_IPC_/GLIBTOP_SEM_LIMITS_/g.
-	* include/glibtop/msg_limits.h: s/GLIBTOP_IPC_/GLIBTOP_MSG_LIMITS_/g.
-
-1999-12-11  Martin Baulig  <martin@home-of-linux.org>
-
-	* features.def: Use `string' instead of `str' as type name.
-
-1999-12-05  Martin Baulig  <martin@home-of-linux.org>
-
-	Moved all Guile code to the libgtop-bindings module.
-
-	* sysdeps/guile/*: Removed.
-	* sysdeps/guile/names/*: Removed.
-
-	* libgtopConf.sh.in: Removed all guile variables.
-
-	* configure.in: Don't check for guile any longer.
-
-1999-12-05  Martin Baulig  <martin@home-of-linux.org>
-
-	* lib/structures.pl: New script to create `structures.h' which will
-	be used in language bindings code.
-
-1999-12-05  Martin Baulig  <martin@home-of-linux.org>
-
-	* features.def: Use `pointer(<type>)' as return value for functions
-	returning an array of scalar values (such as `unsigned' etc.).
-
-	* features.def: Use `array(<type>)' as return value for functions
-	returning an array of structures.
-
-1999-12-05  Martin Baulig  <martin@home-of-linux.org>
-
-	* includes/glibtop/interfaces.h (glibtop_get_interface_names):
-	Return array of `glibtop_interface' structures.
-	(glibtop_interface): New structure.
-
-1999-12-05  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/limits.h (GLIBTOP_INTERFACE_LEN): New #define.
-	(GLIBTOP_UNLIMITED): #define this to be `(~(u_int64_t)0)'.
-
-	* glibtop.h (glibtop): Added `refcount' field.
-	* lib/init.c (glibtop_server_ref, glibtop_server_unref): New
-	functions to deal with refcounts.
-
-	* structures.def: New file. This is used by the language bindings
-	code to get the definitions of some of LibGTop's structures.
-
-1999-11-28  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/netload.h (glibtop_get_netload): Added
-	`transport' and `protocol' argument to specify transport method
-	and protocol.
-
-	* include/glibtop/netinfo.h (glibtop_get_netinfo): Added
-	`transport' argument to specify the transport method.
-
-1999-11-28  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/netinfo.h (glibtop_netinfo): Added `transport'
-	field for the transport method.
-
-1999-11-28  Martin Baulig  <martin@home-of-linux.org>
-
-	Split netload into netload and netinfo.
-
-	* include/glibtop/netinfo.h: New file.
-
-	* include/glibtop/netload.h (glibtop_netload): Moved `if_flags',
-	`mtu', `subnet' and `address' into the new `glibtop_netinfo'.
-
-	* include/glibtop/sysdeps.h (GLIBTOP_SYSDEPS_NETINFO): Added.
-	(glibtop_sysdeps): Added `netinfo.
-	* include/glibtop/union.h (glibtop_union): Added `netinfo.
-	* include/glibtop/command.h (GLIBTOP_CMND_NETINFO): Added.
-
-1999-11-28  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/interfaces.h (glibtop_get_interface_names):
-	Added `instance' argument.
-
-1999-11-28  Martin Baulig  <martin@home-of-linux.org>
-
-	* lib/lib.pl: We now have a new, more extensible client/server
-	communication model. Include `$(top_srcdir)/scripts/c_types.pl' here.
-
-1999-11-21  Martin Baulig  <martin@home-of-linux.org>
-
-	Added new feature to get a list of network interface names.
-
-	* features.def: Added `interface_names' feature.
-
-	* include/glibtop/interfaces.h: New file.
-
-	* include/glibtop/sysdeps.h (GLIBTOP_SYSDEPS_INTERFACE_NAMES): Added.
-	(glibtop_sysdeps): Added `interface_names'.
-	* include/glibtop/union.h (glibtop_union): Added `interface_names'.
-	* include/glibtop/command.h (GLIBTOP_CMND_INTERFACE_NAMES): Added.
-
-1999-11-21  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/sysdeps.h (glibtop_init_func_t): Use `int'
-	as return type, not `void'.
-
-	* include/glibtop/proclist.h (GLIBTOP_KERN_PROC_PPID): On a
-	suggestion from Sebastian Fischmeister added a way to return
-	all children of a given process.
-
-1999-11-02  Jesus Bravo Alvarez  <jba@pobox.com>
-
-	* configure.in: Added Galician (gl) to ALL_LINGUAS
-
-1999-10-24  Martin Baulig  <martin@home-of-linux.org>
-
-	* features.def: Use `retval' for the default retval.
-
-	* include/glibtop/command.h (glibtop_command_h): Added
-	`int *retval_ptr' parameter to return the retval from the
-	sysdeps functions.
-
-	* include/glibtop/*.h (glibtop_get_*, glibtop_init*): Changed
-	the return value of all `glibtop_get_<feature>_* ()' and all
- 	`glibtop_init_<feature>_* ()' functions from void to int.
-
-	* features.def: Reflect changes of the return values.
-	* sysdeps/*/*.c: Reflect changes of the return values.
-
-1999-10-24  Martin Baulig  <martin@home-of-linux.org>
-
-	* acconfig.h (LIBGTOP_USE_GLIB_MALLOC): Added.
-	* configure.in (--enable-glib-malloc): New configure parameter
-	to use glib's malloc functions.
-
-	* sysdeps/common/ChangeLog: New file.
-
-1999-10-24  Martin Baulig  <martin@home-of-linux.org>
-
-	The LibGTop examples have been moved into their own top-level
-	module libgtop-examples.
-
-	* examples/*: Removed.
-	* configure.in: Removed all checks for the examples.
-	* libgtop-sysdeps.m4: Removed --with-libgtop-examples parameter.
-	* Makefile.am: Removed examples from the subdir list.
-
-1999-10-24  Martin Baulig  <martin@home-of-linux.org>
-
-	* libgtop-sysdeps.m4: Check for <osreldate.h> on *BSD* systems.
-
-1999-10-19  Martin Baulig  <martin@home-of-linux.org>
-
-	* LIBGTOP-VERSION: Set version number to 1.1.3, binary age 0,
-	interface age 0 and increased LIBGTOP_SERVER_VERSION to 51.
-
- 	This implies that we can now break as much compatibility as
- 	we want.
-
-1999-10-19  Martin Baulig  <martin@home-of-linux.org>
-
-	Released LibGTop 1.1.2 "Hardangervidda".
-
-1999-10-18  Martin Baulig  <martin@home-of-linux.org>
-
-	* RELNOTES-1.1.x: New file. We also track all changes since
-	1.0.x here.
-
-	* NEWS: We start maintaining a NEWS file now :)
-
-	* NEWS.old: Removed obsolete file.
-
-	* TODO: Nuked it. We may need this file later ...
-
-1999-10-17  Martin Baulig  <martin@home-of-linux.org>
+	* configure.in, acconfig.h: Added checks for <procfs.h>
+	and <sys/procfs.h>
 
 	* configure.in (DL_LIB): Check for dlopen() and AC_SUBST this.
 
-1999-10-17  Martin Baulig  <martin@home-of-linux.org>
+	* Makefile.am: Make `aclocal.m4' also depend on `LIBGTOP-VERSION'
+	when in maintainer-mode.
 
-	* configure.in: Fixed typedef syntax for glibtop-config.h.
-	Thanks to Drazen Kacar for pointing this out.
+2001-02-14  Martin Baulig  <baulig@suse.de>
+
+	* include/glibtop/limits.h: Removed; this file doesn't exist
+	in the stable branch.
+
+2001-02-13  Martin Baulig  <baulig@suse.de>
+
+	* LIBGTOP-VERSION: Set version number to 1.0.11, binary age 10,
+	interface age 10.
+
+2001-02-13  Stanislav Visnovsky  <visnovsky@nenya.ms.mff.cuni.cz>
+
+	* configure.in: Added sk to ALL_LINGUAS
+
+2001-02-08  Gustavo Maciel Dias Vieira  <gdvieira@zaz.com.br>
+
+	* configure.in (ALL_LINGUAS): Added pt_BR to ALL_LINGUAS.
+
+2000-11-21  Martin Baulig  <baulig@suse.de>
+
+	* libgtop-config.h.in: Added `--cflags', `--libs' and `--extra-libs'
+	parameters.
+
+2000-11-20  Martin Baulig  <baulig@suse.de>
+
+	Released LibGTop 1.0.10 "November Rain".
+
+	* LIBGTOP-VERSION: Set version number to 1.0.10, binary age 9,
+	interface age 9.
+
+2000-05-25  Martin Baulig  <baulig@suse.de>
+
+	Released LibGTop 1.0.9 "Stuttgart".
+
+	* LIBGTOP-VERSION: Set version number to 1.0.9 binary age 8,
+	interface age 8.
+
+	(LibGTop 1.0.8 "Frankfurt" was not publically released.)
+
+2000-02-20  Martin Baulig  <martin@home-of-linux.org>
+
+	* LIBGTOP-VERSION: Set version number to 1.0.8 binary age 7,
+	interface age 7.
+
+2000-02-15  Martin Baulig  <martin@home-of-linux.org>
+
+	Released LibGTop 1.0.7 "Copenhagen".
+
+1999-10-19  Martin Baulig  <martin@home-of-linux.org>
+
+	* LIBGTOP-VERSION: Set version number to 1.0.7 binary age 6,
+	interface age 6.
+
+1999-10-18  Martin Baulig  <martin@home-of-linux.org>
+
+	Released LibGTop 1.0.6 "October LibGTop".
+
+1999-10-18  Martin Baulig  <martin@home-of-linux.org>
+
+	* NEWS.old: Removed obsolete file.
+
+	* RELNOTES-1.0.x: Added release notes for LibGTop 1.0.6.
+
+	* TODO: Removed obsolete file.
+
+	* NEWS: We start maintaining a NEWS file now :)
 
 1999-10-16  Martin Baulig  <martin@home-of-linux.org>
 
-	* LIBGTOP-VERSION: Set version number to 1.1.2, binary age 2,
-	interface age 2.
+	* LIBGTOP-VERSION: Set version number to 1.0.6 binary age 5,
+	interface age 5.
+
+1999-10-09  Jesus Bravo Alvarez  <jba@pobox.com>
+
+	* configure.in (ALL_LINGUAS): Added Galician (gl)
+
+1999-09-29  Martin Baulig  <martin@home-of-linux.org>
+
+	Released LibGTop 1.0.5.
 
 1999-09-29  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in (libgtop_top_builddir): AC_SUBST this.
 
-1999-09-27  Rodrigo Stulzer Lopes <rodrigo@conectiva.com.br>
+1999-09-24  Martin Baulig  <martin@home-of-linux.org>
 
-	* configure.in: Added "pt_BR" to ALL_LINGUAS.
-	
+	* LIBGTOP-VERSION: Set version number to 1.0.5 binary age 4,
+	interface age 4.
+
+1999-09-24  Martin Baulig  <martin@home-of-linux.org>
+
+	Released LibGTop 1.0.4.
+
 1999-09-22  Kjartan Maraas  <kmaraas@online.no>
 
 	* configure.in: Added "da" to ALL_LINGUAS.
@@ -1145,12 +413,22 @@ Mon Nov 26 20:11:31 2001  Owen Taylor  <otaylor@redhat.com>
 
 1999-09-18  Pablo Saratxaga <pablo@mandrakesoft.com>
 
-	* configure.in, po/pl.po: copied pl.po from stable CVS tree
+	* configure.in, po/*.po: merged *.po files from HEAD CVS
 
 1999-09-17  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in: Make it work if we have GNOME and the user
 	gave use --without-gnome (fixes bug #1735).
+
+1999-09-17  Martin Baulig  <martin@home-of-linux.org>
+
+	* LIBGTOP-VERSION: Set version number to 1.0.4 binary age 3,
+	interface age 3.
+
+1999-09-16  Martin Baulig  <martin@home-of-linux.org>
+
+	Merged everything since May 31 from HEAD and released
+ 	LibGTop 1.0.3.
 
 1999-07-29  Martin Baulig  <martin@home-of-linux.org>
 
@@ -1158,17 +436,6 @@ Mon Nov 26 20:11:31 2001  Owen Taylor  <otaylor@redhat.com>
 
 	* configure.in (ENABLE_STATIC, ENABLE_SHARED): New automake
 	conditionals.
-
-1999-07-27  Martin Baulig  <martin@home-of-linux.org>
-
-	* configure.in (LT_VERSION_INFO): Add `-release ${LT_RELEASE}'.
-	This way you can have both 1.0.x and 1.1.x libraries under the
-	same ${prefix}.
-
-1999-07-27  Martin Baulig  <martin@home-of-linux.org>
-
-	* LIBGTOP-VERSION: Set version number to 1.1.1 binary age 1,
-	interface age 1.
 
 1999-07-11  Tomas Ogren  <stric@ing.umu.se>
 
@@ -1178,21 +445,14 @@ Mon Nov 26 20:11:31 2001  Owen Taylor  <otaylor@redhat.com>
 
 	* sysdeps/names/procmem.c: Fixed a tyop
 
-1999-06-22  Martin Baulig  <martin@home-of-linux.org>
+1999-05-31  Martin Baulig  <martin@home-of-linux.org>
 
-	* configure.in: Some versions of Solaris require -lelf for -lkvm;
-	added appropriate check for this situation.
+	* LIBGTOP-VERSION: Set version number to 1.0.3 binary age 2,
+	interface age 2.
 
-1999-05-28  Martin Baulig  <baulig@Stud.Informatik.Uni-Trier.DE>
+1999-05-31  Martin Baulig  <martin@home-of-linux.org>
 
-	* include/glibtop/sysdeps.h: Remove the `GLIBTOP_SYSDEPS_FEATURES'
-	and `GLIBTOP_SYSDEPS_POINTER_SIZE' constants and let numbering
-	start at zero for `GLIBTOP_SYSDEPS_CPU'.
-
-1999-05-28  Martin Baulig  <martin@home-of-linux.org>
-
-	* glibtop.h (GLIBTOP_MOUNTENTRY_LEN): Move this
-	* include/glibtop/limits.h: here.
+	Released LibGTop 1.0.2.
 
 1999-05-26  Martin Baulig  <martin@home-of-linux.org>
 
@@ -1203,162 +463,9 @@ Mon Nov 26 20:11:31 2001  Owen Taylor  <otaylor@redhat.com>
 
 	* libgtop-sysdeps.m4: Make the I4B check work for NetBSD.
 
-1999-05-15  Martin Baulig  <martin@home-of-linux.org>
+1999-05-16  Martin Baulig  <martin@home-of-linux.org>
 
-	* libgtop-sysdeps.m4: Remove the `--enable-hacker-mode' requirement
-	for the BSDI, Solaris and Digital Unix ports.
-
-1999-05-13  Martin Baulig  <martin@home-of-linux.org>
-
-	* libgtop-sysdeps.m4 (GLIBTOP_SOLARIS_RELEASE): Define this on Solaris;
-	we use version codes like 270 for SunOS 5.7 and 251 for SunOS 2.5.1.
-
-1999-05-12  Martin Baulig  <martin@home-of-linux.org>
-
-	* glibtop-config.h: This is a new generated file which will be
-	included from <glibtop.h>. We define things like `u_int64_t' and
-	LIBGTOP_*_VERSION here so we can compile LibGTop applications with
-	`libgtop-config --cflags`.
-
-	* configure.in: Create glibtop-config.h.
-	(GLIBTOP_*_INCS): Added `-I $(pkglibdir)/include'.
-
-	* libgtop-config.h.in: Added `--cflags', `--libs' and `--extra-libs'
-	parameter so you can now use LibGTop even in no-autoconf apps.
-
-	* Makefile.am: Install `glibtop-config.h' in `$(pkglibdir)/include'.
-
-1999-05-09  Drazen Kacar  <dave@srce.hr>
-
-	* configure.in, acconfig.h: Added checks for <procfs.h>
-	and <sys/procfs.h>
-
-1999-05-09  Martin Baulig  <martin@home-of-linux.org>
-
-	* doc: One should ship the documentation of a package together with
-	the tarball, so I added this back.
-
-1999-05-08  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/limits.h (GLIBTOP_MAX_GROUPS): Define this here.
-	* include/glibtop/procuid.h (GLIBTOP_MAX_GROUPS): Moved to limits.h.
-
-	* features.def: We can use constants from <glibtop/limits.h> here.
-
-1999-05-08  Martin Baulig  <martin@home-of-linux.org>
-
-	* libgtop-sysdeps.m4: Use the setgid sys server for Solaris.
-
-1999-05-06  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/sysdeps.h (glibtop_sysdeps): Added `pointer_size'
-	which is the number of bits of a `void *'.
-
-1999-05-03  Martin Baulig  <martin@home-of-linux.org>
-
-	Set version number to 1.1.0. Also made a `LIBGTOP_STABLE_1_0'
-	branch in CVS while development will go on here in the HEAD.
-
-	* LIBGTOP-VERSION: Set version number to 1.1.0 binary age 0,
-	interface age 0. Set LIBGTOP_SERVER_VERSION to 50.
-
-1999-04-18  Tuomas J. Lukka <lukka@iki.fi>
-
-	* Add missing comma in sysdeps/names/proctime.c
-
-1999-04-18  Tuomas J. Lukka <lukka@iki.fi>
-
-	* Add missing comma in sysdeps/names/cpu.c
-
-1999-04-18  Martin Baulig  <martin@home-of-linux.org>
-
-	Thanks to Drazen Kacar for pointing out that not all processors must
-	be running all the time under Solaris, so we need to have some flag
-	to find out which processors are running.
-
-	* (glibtop_cpu): Added `xcpu_flags' bitmask of running processors.
-	* (glibtop_proc_time): Added `xcpu_flags'.
-
-1999-04-18  Martin Baulig  <martin@home-of-linux.org>
-
-	* include/glibtop/limits.h: New file.
-	(GLIBTOP_NCPU): Define this here and increase it to 64.
-
-1999-03-30  Martin Baulig  <martin@home-of-linux.org>
-
-	Added some new features.
-
-	* (glibtop_uptime): Added `boot_time', boot time in seconds
-	since the epoch.
-	
-	* (glibtop_proc_state): Changed `state' from char to unsigned.
-	`uid' and `gid' are effective uid and gid; added comment.
-	Added `ruid' and `rgid' for guaranteed-to-be-correct real uid/gid.
-	For SMP systems: added `has_cpu', `processor' and `last_processor'.
-
-	* (glibtop_proc_uid): Added suid, sgid, fsuid, fsgid, ngroups, groups.
-
-	* (glibtop_proc_segment): Added start_data, end_data, start_brk,
-	end_brk, start_mmap, arg_start, arg_end, env_start, env_end.
-
-	* include/glibtop/procstate.h: Define some constants for the `state'
-	field of glibtop_proc_state.
-
-	* include/glibtop/prockernel.h: Define some constants for the
-	`k_flags' field of glibtop_proc_kernel.
-	
-1999-03-24  Martin Baulig  <martin@home-of-linux.org>
-
-	* configure.in: Check for getloadavg () and swapctl () for
-	Solaris.
-
-1999-03-23  Martin Baulig  <martin@home-of-linux.org>
-
-	* glibtop.h (glibtop): Added `wanted'. Applications can set the
-	features they are interested in here. This way we don't waste CPU
-	getting expensive data that aren't really needed.
-
-	* LIBGTOP-VERSION: This breaks backward compatibility and also
-	added new functions; set binary	age and interface age to 0.
-
-1999-03-21  Martin Baulig  <martin@home-of-linux.org>
-
-	Added a new sysctl () interface to the Linux Kernel.
-	
-	* kernel/sysctl: Imported.
-	
-	* libgtop-sysdeps.m4: If `--enable-hacker-mode' is given, check
-	for my new sysctl () interface.
-
-1999-03-20  Martin Baulig  <martin@home-of-linux.org>
-
-	Removed all traces of my old table () Linux kernel hack.
-
-	* kernel: Removed.
-	* sysdeps/kernel: Removed.
-	* libgtop-sysdeps.m4: Don't check for table (); it does not
-	exist any longer.
-
-1999-03-19  Martin Baulig  <martin@home-of-linux.org>
-
-	This is *untested* - please read "sysdeps/freebsd/ChangeLog" !
-
-	* libgtop-sysdeps.m4: Use the `freebsd' sysdeps directory for
-	BSDI as well if the `--enable-hacker-mode' parameter was given.
-
-1999-03-18  Martin Baulig  <martin@home-of-linux.org>
-
-	* LIBGTOP-VERSION: Set version number to 1.0.2 binary age 1,
-	intergace age 1.
-
-1999-03-17  Martin Baulig  <martin@home-of-linux.org>
-
-	Imported first version of my Solaris port.
-
-	* configure.in: Check for `kstat_open' in `-lkstat'.
-
-	* libgtop-sysdeps.m4: Recognize the `solaris' sysdeps directory
-	when the `--enable-hacker-mode' parameter was given.
+	* doc: Merged the LibGTop Manual from the HEAD.
 
 1999-03-01  Martin Baulig  <martin@home-of-linux.org>
 

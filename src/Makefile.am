@@ -4,7 +4,7 @@ else
 inodedb_SUBDIRS		=
 endif
 
-SUBDIRS			= $(inodedb_SUBDIRS)
+SUBDIRS			= daemon $(inodedb_SUBDIRS)
 
-DIST_SUBDIRS		= inodedb
+DIST_SUBDIRS		= daemon inodedb
 

@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,7 +27,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_PROC_MEM_SIZE		0
 #define GLIBTOP_PROC_MEM_VSIZE		1
@@ -46,16 +44,18 @@ typedef struct _glibtop_proc_mem	glibtop_proc_mem;
 
 struct _glibtop_proc_mem
 {
-    u_int64_t	flags,
-	size,		/* total # of pages of memory */
-	vsize,		/* number of pages of virtual memory ... */
-	resident,	/* number of resident set
-			 * (non-swapped) pages (4k) */
-	share,		/* number of pages of shared (mmap'd) memory */
-	rss,		/* resident set size */
-	rss_rlim;	/* current limit (in bytes) of the rss
-			 * of the process; usually 2,147,483,647 */
+	u_int64_t	flags,
+		size,		/* total # of pages of memory */
+		vsize,		/* number of pages of virtual memory ... */
+		resident,	/* number of resident set
+				 * (non-swapped) pages (4k) */
+		share,		/* number of pages of shared (mmap'd) memory */
+		rss,		/* resident set size */
+		rss_rlim;	/* current limit (in bytes) of the rss
+				 * of the process; usually 2,147,483,647 */
 };
+
+#define glibtop_get_proc_mem(p1, p2)	glibtop_get_proc_mem_l(glibtop_global_server, p1, p2)
 
 #if GLIBTOP_SUID_PROC_MEM
 #define glibtop_get_proc_mem_r		glibtop_get_proc_mem_p
@@ -63,14 +63,14 @@ struct _glibtop_proc_mem
 #define glibtop_get_proc_mem_r		glibtop_get_proc_mem_s
 #endif
 
-int glibtop_get_proc_mem_l (glibtop_client *client, glibtop_proc_mem *buf, pid_t pid);
+void glibtop_get_proc_mem_l (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_MEM
-int glibtop_init_proc_mem_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_proc_mem_p (glibtop_server *server, glibtop_closure *closure, glibtop_proc_mem *buf, pid_t pid);
+void glibtop_init_proc_mem_p (glibtop *server);
+void glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
 #else
-int glibtop_init_proc_mem_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_proc_mem_s (glibtop_server *server, glibtop_closure *closure, glibtop_proc_mem *buf, pid_t pid);
+void glibtop_init_proc_mem_s (glibtop *server);
+void glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -84,6 +84,6 @@ extern const char *glibtop_descriptions_proc_mem [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

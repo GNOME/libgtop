@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,7 +27,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_PROC_KERNEL_K_FLAGS	0
 #define GLIBTOP_PROC_KERNEL_MIN_FLT	1
@@ -43,39 +41,30 @@ G_BEGIN_DECLS
 
 #define GLIBTOP_MAX_PROC_KERNEL		9
 
-/* Constants for the `k_flags' field. */
-#define GLIBTOP_KFLAGS_STARTING		1	/* being created */
-#define GLIBTOP_KFLAGS_EXITING		2	/* getting shut down */
-#define GLIBTOP_KFLAGS_PTRACED		4	/* set if ptrace (0) has
-						   been called */
-#define GLIBTOP_KFLAGS_TRACESYS		8	/* tracing system calls */
-#define GLIBTOP_KFLAGS_FORKNOEXEC	16	/* forked but didn't exec */
-#define GLIBTOP_KFLAGS_SUPERPRIV	32	/* used super-user privileges */
-#define GLIBTOP_KFLAGS_DUMPEDCORE	64	/* dumped core */
-#define GLIBTOP_KFLAGS_SIGNALED		128	/* killed by a signal */
-
 typedef struct _glibtop_proc_kernel	glibtop_proc_kernel;
 
 /* Kernel stuff */
 
 struct _glibtop_proc_kernel
 {
-    u_int64_t flags;
-    u_int64_t k_flags,	/* kernel flags for the process */
-	min_flt,	/* number of minor page faults since
-			 * process start */
-	maj_flt,	/* number of major page faults since
-			 * process start */
-	cmin_flt,	/* cumulative min_flt of process and
-			 * child processes */
-	cmaj_flt,	/* cumulative maj_flt of process and
-			 * child processes */
-	kstk_esp,	/* kernel stack pointer */
-	kstk_eip,	/* kernel stack pointer */
-	nwchan;		/* address of kernel wait channel
-			 * proc is sleeping in */
-    char wchan [40];
+	u_int64_t flags;
+	u_int64_t k_flags,	/* kernel flags for the process */
+		min_flt,	/* number of minor page faults since
+				 * process start */
+		maj_flt,	/* number of major page faults since
+				 * process start */
+		cmin_flt,	/* cumulative min_flt of process and
+				 * child processes */
+		cmaj_flt,	/* cumulative maj_flt of process and
+				 * child processes */
+		kstk_esp,	/* kernel stack pointer */
+		kstk_eip,	/* kernel stack pointer */
+		nwchan;		/* address of kernel wait channel
+				 * proc is sleeping in */
+	char wchan [40];
 };
+
+#define glibtop_get_proc_kernel(p1, p2)	glibtop_get_proc_kernel_l(glibtop_global_server, p1, p2)
 
 #if GLIBTOP_SUID_PROC_KERNEL
 #define glibtop_get_proc_kernel_r	glibtop_get_proc_kernel_p
@@ -83,14 +72,14 @@ struct _glibtop_proc_kernel
 #define glibtop_get_proc_kernel_r	glibtop_get_proc_kernel_s
 #endif
 
-int glibtop_get_proc_kernel_l (glibtop_client *client, glibtop_proc_kernel *buf, pid_t pid);
+void glibtop_get_proc_kernel_l (glibtop *server, glibtop_proc_kernel *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_KERNEL
-int glibtop_init_proc_kernel_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_proc_kernel_p (glibtop_server *server, glibtop_closure *closure, glibtop_proc_kernel *buf, pid_t pid);
+void glibtop_init_proc_kernel_p (glibtop *server);
+void glibtop_get_proc_kernel_p (glibtop *server, glibtop_proc_kernel *buf, pid_t pid);
 #else
-int glibtop_init_proc_kernel_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_proc_kernel_s (glibtop_server *server, glibtop_closure *closure, glibtop_proc_kernel *buf, pid_t pid);
+void glibtop_init_proc_kernel_s (glibtop *server);
+void glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -104,6 +93,6 @@ extern const char *glibtop_descriptions_proc_kernel [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -24,12 +22,10 @@
 */
 
 #include <glibtop.h>
-#include <glibtop/xmalloc.h>
 #include <glibtop/parameter.h>
 
 #define _write_data(ptr,size)	\
-	if ((data_ptr == NULL) || (data_size < size)) \
-		return -GLIBTOP_ERROR_SIZE_MISMATCH; \
+	if ((data_ptr == NULL) || (data_size < size)) return -size; \
 	if (ptr == NULL) { strcpy (data_ptr, ""); return 1; } \
 	memcpy (data_ptr, ptr, size);	\
 	return size;
@@ -39,76 +35,64 @@
 		glibtop_warn_r (server, "glibtop_set_parameter (%d): " \
 				"Expected %lu bytes but got %lu.", \
 				parameter, size, data_size); \
-		return -GLIBTOP_ERROR_SIZE_MISMATCH; \
+		return; \
 	}
 
 #define _strlen(ptr)	(ptr ? strlen (ptr) : 0)
 
-ssize_t
-glibtop_get_parameter_l (glibtop_client *client, const unsigned parameter,
+size_t
+glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
 			 void *data_ptr, size_t data_size)
 {
-    switch (parameter) {
-    case GLIBTOP_PARAM_ERROR_METHOD:
-	_write_data (&server->_param.error_method,
-		     sizeof (server->_param.error_method));
-    case GLIBTOP_PARAM_FEATURES:
-	_write_data (&server->_param.features,
-		     sizeof (server->_param.features));
-    case GLIBTOP_PARAM_NCPU:
-	_write_data (&server->_param.ncpu,
-		     sizeof (server->_param.ncpu));
-    case GLIBTOP_PARAM_OS_VERSION_CODE:
-	_write_data (&server->_param.os_version_code,
-		     sizeof (server->_param.os_version_code));
-    case GLIBTOP_PARAM_REQUIRED:
-	_write_data (&server->_param.required,
-		     sizeof (server->_param.required));
-    }
+	switch (parameter) {
+	case GLIBTOP_PARAM_METHOD:
+		_write_data (&server->method,
+			     sizeof (server->method));
+	case GLIBTOP_PARAM_FEATURES:
+		_write_data (&server->features,
+			     sizeof (server->features));
+	case GLIBTOP_PARAM_COMMAND:
+		_write_data (server->server_command,
+			     _strlen(server->server_command));
+	case GLIBTOP_PARAM_HOST:
+		_write_data (server->server_host,
+			     _strlen(server->server_host));
+	case GLIBTOP_PARAM_PORT:
+		_write_data (&server->server_port,
+			     sizeof (server->server_port));
+	case GLIBTOP_PARAM_ERROR_METHOD:
+		_write_data (&server->error_method,
+			     sizeof (server->error_method));
+	case GLIBTOP_PARAM_REQUIRED:
+		_write_data (&server->required,
+			     sizeof (server->required));
+	}
 
-    return -GLIBTOP_ERROR_NO_SUCH_PARAMETER;
+	return 0;
 }
 
-int
-glibtop_get_parameter_size_l (glibtop_client *client, const unsigned parameter)
-{
-    switch (parameter) {
-    case GLIBTOP_PARAM_ERROR_METHOD:
-	return sizeof (server->_param.error_method);
-    case GLIBTOP_PARAM_FEATURES:
-	return sizeof (server->_param.features);
-    case GLIBTOP_PARAM_NCPU:
-	return sizeof (server->_param.ncpu);
-    case GLIBTOP_PARAM_OS_VERSION_CODE:
-	return sizeof (server->_param.os_version_code);
-    case GLIBTOP_PARAM_REQUIRED:
-	return sizeof (server->_param.required);
-    }
-
-    return -GLIBTOP_ERROR_NO_SUCH_PARAMETER;
-}
-
-int
-glibtop_set_parameter_l (glibtop_client *client, const unsigned parameter,
+void
+glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
 			 const void *data_ptr, size_t data_size)
 {
-    switch (parameter) {
-    case GLIBTOP_PARAM_ERROR_METHOD:
-	_check_data (sizeof (server->_param.error_method));
-	memcpy (&server->_param.error_method, data_ptr, data_size);
-	break;
-    case GLIBTOP_PARAM_FEATURES:
-    case GLIBTOP_PARAM_NCPU:
-    case GLIBTOP_PARAM_OS_VERSION_CODE:
-	return -GLIBTOP_ERROR_READONLY_VALUE;
-	break;
-    case GLIBTOP_PARAM_REQUIRED:
-	_check_data (sizeof (server->_param.required));
-	memcpy (&server->_param.required, data_ptr, data_size);
-	break;
-    default:
-	return -GLIBTOP_ERROR_NO_SUCH_PARAMETER;
-    }
-
-    return 0;
+	switch (parameter) {
+	case GLIBTOP_PARAM_METHOD:
+		_check_data (sizeof (server->method));
+		memcpy (&server->method, data_ptr, data_size);
+		break;
+	case GLIBTOP_PARAM_FEATURES:
+		/* You should not be allowed to set this field. */
+		glibtop_warn_r (server, "glibtop_set_parameter (%d): " \
+				"Cannot modify read-only value.",
+				parameter);
+		break;
+	case GLIBTOP_PARAM_ERROR_METHOD:
+		_check_data (sizeof (server->error_method));
+		memcpy (&server->error_method, data_ptr, data_size);
+		break;
+	case GLIBTOP_PARAM_REQUIRED:
+		_check_data (sizeof (server->required));
+		memcpy (&server->required, data_ptr, data_size);
+		break;
+	}
 }

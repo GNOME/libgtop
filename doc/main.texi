@@ -4,23 +4,8 @@
 * About::                       About LibGTop
 * White Paper::                 LibGTop White Paper
 * Reference Manual::            LibGTop Reference Manual
-* LibGTop Internals::           LibGTop Internals
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@detailmenu --- The Detailed Node Listing ---
+ --- The Detailed Node Listing ---
 
 About LibGTop
 
@@ -33,7 +18,6 @@ LibGTop White Paper
 
 * Introduction::                Introduction
 * Overview::                    Overview
-* Servers and Daemons::         Servers and Daemons
 
 Overview
 
@@ -45,8 +29,6 @@ LibGTop Reference Manual
 * System Dependent::            System Dependent Functions.
 * Common Functions::            Common Functions.
 * Library Functions::           Library Functions.
-* Generic Structures::          Generic Structures.
-* Enums and Typedefs::          Enums and Typedefs.
 
 System Dependent Functions
 
@@ -65,7 +47,6 @@ System Dependent Functions
 * glibtop_proc_segment::        Process Segment Information.
 * glibtop_proc_args::           Process Arguments.
 * glibtop_proc_map::            Process Memory Maps.
-* glibtop_netinfo::             Network Information.
 * glibtop_netload::             Network Load.
 * glibtop_ppp::                 PPP Usage.
 
@@ -79,40 +60,9 @@ Library Functions
 * glibtop_init::                Server Initialization.
 * glibtop_sysdeps::             Server Sysdeps.
 * Library Parameters::          Library Parameters.
-
-Generic Structures
-
-* glibtop_ifaddr::              Interface Address.
-
-Enums and Typedefs
-
-* Network Interfaces::          Network Interfaces.
-* Address Scope::               Address Scope (IPv6).
-
-Network Interfaces
-
-* Transport Methods::           Transport Methods.
-* Interface Flags::             Interface Flags.
-
-LibGTop Internals
-
-* General Internals::           General Internals
-* Sysdeps Internals::           Sysdeps Internals
-
-General Internals
-
-* glibtop::                     The server structure
-
-Sysdeps Internals
-
-* glibtop_open_s::              Non-privileged initializations
-* glibtop_close_s::             Non-privileged cleanups
-
-@end detailmenu
 @end menu
 
 @include about.texi
 @include white-paper.texi
 @include reference.texi
-@include internals.texi
 

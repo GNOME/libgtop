@@ -1,18 +1,36 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
+/* Define if gethostname () must be declared. */
+#undef NEED_DECLARATION_GETHOSTNAME
+
+/* Define if setreuid () must be declared. */
+#undef NEED_DECLARATION_SETREUID
+
+/* Define if setregid () must be declared. */
+#undef NEED_DECLARATION_SETREGID
+
+/* Define if getpagesize () must be declared. */
+#undef NEED_DECLARATION_GETPAGESIZE
+
+/* Define if program_invocation_name must be declared. */
+#undef NEED_DECLARATION_PROGRAM_INVOCATION_NAME
+
+@TOP@
 
 #undef ENABLE_NLS
 #undef HAVE_CATGETS
+#undef GETTEXT_PACKAGE
 #undef HAVE_GETTEXT
 #undef HAVE_LC_MESSAGES
 #undef HAVE_STPCPY
 #undef HAVE_STRUCT_OSOCKADDR
-#undef LIBGTOP_PACKAGE
 #undef PACKAGE
 #undef VERSION
 #undef HAVE_LIBSM
 #undef HAVE_LIBINTL_H
 #undef HAVE_GTK_SIGNAL_HANDLER_PENDING
 
+/* Do not remove this comments and the empty lines; they are needed */
+#undef HAVE_PROGRAM_INVOCATION_SHORT_NAME
 /* Define if you have the Andrew File System.  */
 #undef AFS
 
@@ -92,23 +110,61 @@
    SunOS 4.1.1 seems not to be affected.]  */
 #undef STATFS_TRUNCATES_BLOCK_COUNTS
 
+
+/* to fix a bug in autoheader on DEC OSF1. */
+#undef HAVE_PROGRAM_INVOCATION_NAME
+
 #undef HAVE_SOCKETS
 #undef HAVE_SOCKADDR_SUN_LEN
+
+#undef HAVE_LIBJPEG
+#undef HAVE_LIBGIF
+#undef HAVE_LIBTIFF
+#undef HAVE_LIBZ
+#undef HAVE_LIBPNG
+#undef HAVE_GMP2_INCLUDE_DIR
+#undef HAVE_GUILE
 
 #undef ssize_t
 #undef u_int64_t
 #undef int64_t
-#undef u_int8_t
-#undef int8_t
 
+#undef HAVE_GLIBTOP_MACHINE_H
+
+#undef GLIBTOP_NAMES
+#undef GLIBTOP_GUILE
+#undef GLIBTOP_GUILE_NAMES
+#undef GLIBTOP_EXAMPLES
 #undef GLIBTOP_INODEDB
 
+#undef NEED_LIBGTOP
+
+#undef HAVE_LINUX_TABLE
+#undef HAVE_LIBGTOP_SMP
+
 #undef HAVE_XAUTH
+
+/* Define if your have the I4B package. */
+#undef HAVE_I4B
+#undef HAVE_I4B_ACCT
 
 /* Define to enable debugging. */
 #undef LIBGTOP_ENABLE_DEBUG
 #undef LIBGTOP_FATAL_WARNINGS
 
-/* Define to use glib's malloc. */
-#undef LIBGTOP_USE_GLIB_MALLOC
+/* Same as LINUX_VERSION_CODE either from <linux/version.h> or from
+ * the running kernel (if we don't have configured kernel sources).
+ */
+#undef GLIBTOP_LINUX_VERSION_CODE
 
+/* Solaris release code (eg. 251 for Solaris 2.5.1). */
+#undef GLIBTOP_SOLARIS_RELEASE
+
+/* Define if you want to use LibGTop without GNOME. */
+#undef WITHOUT_GNOME
+
+/* Define if you have the <procfs.h> header file */
+#undef HAVE_PROCFS_H
+
+/* Define if you have the <sys/procfs.h> header file */
+#undef HAVE_SYS_PROCFS_H

@@ -1,8 +1,8 @@
-info_TEXINFOS		= libgtop.texi
+info_TEXINFOS		= libgtop2.texi
 
-libgtop_TEXINFOS	= libgtop.texi about.texi reference.texi \
+libgtop2_TEXINFOS	= libgtop2.texi about.texi reference.texi \
 			  auto-macros.texi version.texi main.texi \
-			  white-paper.texi internals.texi
+			  white-paper.texi
 
 MAKEINFO		= @MAKEINFO@ -I @libgtop_top_builddir@/doc
 
@@ -11,7 +11,7 @@ EXTRA_DIST		= auto-macros.texi.in
 auto-macros.texi: auto-macros.texi.in Makefile
 ## Use sed and then mv to avoid problems if the user interrupts.
 	sed -e 's#\%LIBGTOP_LIBDIR\%#$(libdir)#g' \
-	  -e 's#\%LIBGTOP_INCLUDEDIR\%#$(includedir)#g' \
+	  -e 's#\%LIBGTOP_INCLUDEDIR\%#$(includedir)/libgtop-2.0#g' \
 	  -e 's#\%LIBGTOP_DATADIR\%#$(datadir)#g' \
 	  -e 's#\%LIBGTOP_EXTRA_LIBS\%#$(LIBGTOP_EXTRA_LIBS)#g' \
 	  -e 's#\%LIBGTOP_LIBS\%#$(LIBGTOP_LIBS)#g' \

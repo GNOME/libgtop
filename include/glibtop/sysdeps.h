@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -28,71 +26,73 @@
 
 #include <glibtop.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_SYSDEPS_CPU		0
-#define GLIBTOP_SYSDEPS_MEM		1
-#define GLIBTOP_SYSDEPS_SWAP		2
-#define GLIBTOP_SYSDEPS_UPTIME		3
-#define GLIBTOP_SYSDEPS_LOADAVG		4
-#define GLIBTOP_SYSDEPS_SHM_LIMITS	5
-#define GLIBTOP_SYSDEPS_MSG_LIMITS	6
-#define GLIBTOP_SYSDEPS_SEM_LIMITS	7
-#define GLIBTOP_SYSDEPS_PROCLIST	8
-#define GLIBTOP_SYSDEPS_PROC_STATE	9
-#define GLIBTOP_SYSDEPS_PROC_UID	10
-#define GLIBTOP_SYSDEPS_PROC_MEM	11
-#define GLIBTOP_SYSDEPS_PROC_TIME	12
-#define GLIBTOP_SYSDEPS_PROC_SIGNAL	13
-#define GLIBTOP_SYSDEPS_PROC_KERNEL	14
-#define GLIBTOP_SYSDEPS_PROC_SEGMENT	15
-#define GLIBTOP_SYSDEPS_PROC_CWD	16
+#define GLIBTOP_SYSDEPS_FEATURES	0
+#define GLIBTOP_SYSDEPS_CPU		1
+#define GLIBTOP_SYSDEPS_MEM		2
+#define GLIBTOP_SYSDEPS_SWAP		3
+#define GLIBTOP_SYSDEPS_UPTIME		4
+#define GLIBTOP_SYSDEPS_LOADAVG		5
+#define GLIBTOP_SYSDEPS_SHM_LIMITS	6
+#define GLIBTOP_SYSDEPS_MSG_LIMITS	7
+#define GLIBTOP_SYSDEPS_SEM_LIMITS	8
+#define GLIBTOP_SYSDEPS_PROCLIST	9
+#define GLIBTOP_SYSDEPS_PROC_STATE	10
+#define GLIBTOP_SYSDEPS_PROC_UID	11
+#define GLIBTOP_SYSDEPS_PROC_MEM	12
+#define GLIBTOP_SYSDEPS_PROC_TIME	13
+#define GLIBTOP_SYSDEPS_PROC_SIGNAL	14
+#define GLIBTOP_SYSDEPS_PROC_KERNEL	15
+#define GLIBTOP_SYSDEPS_PROC_SEGMENT	16
 #define GLIBTOP_SYSDEPS_PROC_ARGS	17
 #define GLIBTOP_SYSDEPS_PROC_MAP	18
 #define GLIBTOP_SYSDEPS_MOUNTLIST	19
 #define GLIBTOP_SYSDEPS_FSUSAGE		20
-#define GLIBTOP_SYSDEPS_INTERFACE_NAMES	21
-#define GLIBTOP_SYSDEPS_NETINFO		22
-#define GLIBTOP_SYSDEPS_NETLOAD		23
-#define GLIBTOP_SYSDEPS_PPP		24
+#define GLIBTOP_SYSDEPS_NETLOAD		21
+#define GLIBTOP_SYSDEPS_PPP		22
 
-#define GLIBTOP_MAX_SYSDEPS		27
+#define GLIBTOP_MAX_SYSDEPS		23
 
 #define GLIBTOP_SYSDEPS_ALL		((1 << GLIBTOP_MAX_SYSDEPS) - 1)
+
+typedef void (*glibtop_init_func_t) (glibtop *);
+extern glibtop_init_func_t _glibtop_init_hook_s [];
+extern glibtop_init_func_t _glibtop_init_hook_p [];
 
 typedef struct _glibtop_sysdeps	glibtop_sysdeps;
 
 struct _glibtop_sysdeps
 {
-    u_int64_t flags,
-	features,		/* server features	*/
-	pointer_size,		/* sizeof(void*)*8	*/
-	cpu,			/* glibtop_cpu		*/
-	mem,			/* glibtop_mem		*/
-	swap,			/* glibtop_swap		*/
-	uptime,			/* glibtop_uptime	*/
-	loadavg,		/* glibtop_loadavg	*/
-	shm_limits,		/* glibtop_shm_limits	*/
-	msg_limits,		/* glibtop_msg_limits	*/
-	sem_limits,		/* glibtop_sem_limits	*/
-	proclist,		/* glibtop_proclist	*/
-	proc_state,		/* glibtop_proc_state	*/
-	proc_uid,		/* glibtop_proc_uid	*/
-	proc_mem,		/* glibtop_proc_mem	*/
-	proc_time,		/* glibtop_proc_time	*/
-	proc_signal,		/* glibtop_proc_signal	*/
-	proc_kernel,		/* glibtop_proc_kernel	*/
-	proc_segment,		/* glibtop_proc_segment	*/
-	proc_cwd,		/* glibtop_proc_cwd	*/
-	proc_args,		/* glibtop_proc_args	*/
-	proc_map,		/* glibtop_proc_map	*/
-	mountlist,		/* glibtop_mountlist	*/
-	fsusage,		/* glibtop_fsusage	*/
-	interface_names,	/* glibtop_interface_names	*/
-	netinfo,		/* glibtop_netinfo	*/
-	netload,		/* glibtop_netload	*/
-	ppp;			/* glibtop_ppp		*/
+	u_int64_t flags,
+		features,		/* server features	*/
+		cpu,			/* glibtop_cpu		*/
+		mem,			/* glibtop_mem		*/
+		swap,			/* glibtop_swap		*/
+		uptime,			/* glibtop_uptime	*/
+		loadavg,		/* glibtop_loadavg	*/
+		shm_limits,		/* glibtop_shm_limits	*/
+		msg_limits,		/* glibtop_msg_limits	*/
+		sem_limits,		/* glibtop_sem_limits	*/
+		proclist,		/* glibtop_proclist	*/
+		proc_state,		/* glibtop_proc_state	*/
+		proc_uid,		/* glibtop_proc_uid	*/
+		proc_mem,		/* glibtop_proc_mem	*/
+		proc_time,		/* glibtop_proc_time	*/
+		proc_signal,		/* glibtop_proc_signal	*/
+		proc_kernel,		/* glibtop_proc_kernel	*/
+		proc_segment,		/* glibtop_proc_segment	*/
+		proc_args,		/* glibtop_proc_args	*/
+		proc_map,		/* glibtop_proc_map	*/
+		mountlist,		/* glibtop_mountlist	*/
+		fsusage,		/* glibtop_fsusage	*/
+		netload,		/* glibtop_netload	*/
+		ppp;			/* glibtop_ppp		*/
 };
+
+#define glibtop_get_sysdeps(sysdeps)	glibtop_get_sysdeps_r(glibtop_global_server,sysdeps)
+
+void glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf);
 
 #ifdef GLIBTOP_NAMES
 
@@ -105,6 +105,6 @@ extern const char *glibtop_descriptions_sysdeps [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -1,12 +1,10 @@
-@node Reference Manual, LibGTop Internals, White Paper, Top
+@node Reference Manual, , White Paper, Top
 @chapter LibGTop Reference Manual
 
 @menu
 * System Dependent::            System Dependent Functions.
 * Common Functions::            Common Functions.
 * Library Functions::           Library Functions.
-* Generic Structures::          Generic Structures.
-* Enums and Typedefs::          Enums and Typedefs.
 @end menu
 
 @node System Dependent, Common Functions, Reference Manual, Reference Manual
@@ -28,7 +26,6 @@
 * glibtop_proc_segment::        Process Segment Information.
 * glibtop_proc_args::           Process Arguments.
 * glibtop_proc_map::            Process Memory Maps.
-* glibtop_netinfo::             Network Information.
 * glibtop_netload::             Network Load.
 * glibtop_ppp::                 PPP Usage.
 @end menu
@@ -1114,7 +1111,7 @@ the lenght of this string is returned in the @code{size} field.
 Remember to @code{glibtop_free} the returned string to avoid a memory leak.
 
 @page
-@node glibtop_proc_map, glibtop_netinfo, glibtop_proc_args, System Dependent
+@node glibtop_proc_map, glibtop_netload, glibtop_proc_args, System Dependent
 @subsection Process Memory Maps
 
 Library function @code{glibtop_get_proc_map}:
@@ -1201,87 +1198,7 @@ Constants for the @code{perm} member:
 @end example
 
 @page
-@node glibtop_netinfo, glibtop_netload, glibtop_proc_map, System Dependent
-@subsection Network Information
-
-Library function @code{glibtop_get_netinfo}:
-
-@example
-@cartouche
-glibtop_ifaddr *
-glibtop_get_netinfo (glibtop_array *array, glibtop_netinfo *buf,
-                     const char *interface, u_int64_t transport);
-
-glibtop_ifaddr *
-glibtop_get_netinfo_l (glibtop *server, glibtop_array *array,
-                       glibtop_netinfo *buf, const char *interface,
-                       u_int64_t transport);
-@end cartouche
-@end example
-
-Declaration of @code{glibtop_ifaddr} in @file{<glibtop/interfaces.h>}:
-
-@example
-@cartouche
-typedef struct _glibtop_ifaddr glibtop_ifaddr;
-
-struct _glibtop_ifaddr
-@{
-    u_int64_t   flags,
-        transport;
-    u_int8_t    addr_len,
-        address [GLIBTOP_IFADDR_LEN];
-    u_int64_t   subnet,
-        scope;
-@};
-@end cartouche
-@end example
-
-Declaration of @code{glibtop_netinfo} in @file{<glibtop/netinfo.h>}:
-
-@example
-@cartouche
-typedef struct _glibtop_netinfo glibtop_netinfo;
-
-struct _glibtop_netinfo
-@{
-    u_int64_t   flags,
-        if_flags,
-        transport,
-        mtu;
-@};
-@end cartouche
-@end example
-
-Returns information about network interface @code{interface}.
-
-@table @code
-@item interface
-The network interface you want to get information about (for instance
-@samp{eth0}).
-@item transport
-Bitmask specifying about which transport methods you want to get information
-or @code{GLIBTOP_TRANSPORT_ALL} if you want information about all possible
-transport methods (@pxref{Transport Methods}).
-@end table
-
-On success, the following fields in @code{glibtop_netinfo} are set:
-
-@table @code
-@item if_flags
-Interface flags (@pxref{Interface Flags}).
-@item transport
-Bitmask of all transport methods which are currently supported on the
-selected interface (@pxref{Transport Methods}).
-@item mtu
-Maximum Transfer Unit (MTU)
-@end table
-
-Additionally, an array of @code{glibtop_ifaddr} structures is returned
-(@pxref{glibtop_ifaddr}).
-
-@page
-@node glibtop_netload, glibtop_ppp, glibtop_netinfo, System Dependent
+@node glibtop_netload, glibtop_ppp, glibtop_proc_map, System Dependent
 @subsection Network Load
 
 Library function @code{glibtop_get_netload}:
@@ -1597,7 +1514,7 @@ Free file nodes.
 Blocks are usually 512 bytes.
 
 @page
-@node Library Functions, Generic Structures, Common Functions, Reference Manual
+@node Library Functions,  , Common Functions, Reference Manual
 @section Library Functions
 
 This are general library functions which can be used to get information
@@ -1887,160 +1804,4 @@ Warn each time the library fails to get some of the required features.
 Abort if the library fails to get some of the required features. This
 should not be used by applications.
 @end table
-
-@node Generic Structures, Enums and Typedefs, Library Functions, Reference Manual
-@section Generic Structures
-
-@menu
-* glibtop_ifaddr::              Interface Address.
-@end menu
-
-@node glibtop_ifaddr,  , Generic Structures, Generic Structures
-@subsection Interface Addresses
-
-The @code{glibtop_ifaddr} structure contains information about a network
-interface.
-
-It is declared in @file{<glibtop/interfaces.h>}:
-
-@example
-@cartouche
-typedef struct _glibtop_ifaddr          glibtop_ifaddr;
-
-struct _glibtop_ifaddr
-@{
-    u_int64_t   flags,
-        transport;
-    u_int8_t    addr_len,
-        address [GLIBTOP_IFADDR_LEN];
-    u_int64_t   subnet,
-        scope;
-@};
-@end cartouche
-@end example
-
-The contents of this structure depends on the @code{transport} field -
-for instance a single network interface can have both an IPv4 address
-and several IPv6 ones. This is why functions like @code{glibtop_get_netinfo}
-return an array of @code{glibtop_ifaddr} structures.
-
-In general, the fields of the @code{glibtop_ifaddr} structure have the
-following meaning:
-
-@table @code
-@item transport
-The "interface address" from the @code{address} field is only valid for
-this transport method (@pxref{Transport Methods}).
-@item addr_len
-Length of the interface address in the @code{address} field in bytes.
-@item address
-This is one of the "interface address" for the selected network interface
-which is used with the transport method from the @code{transport} field.
-@item subnet
-The meaning of this field depends on the transport method and is currently
-only used for IPv4 (where it contains the current subnet mask) and for IPv6
-(where it contains the address length in bits).
-@item scope
-This is only used for IPv6 and contains the address scope
-(@pxref{Address Scope}).
-@end table
-
-@node Enums and Typedefs,  , Generic Structures, Reference Manual
-@section Enums and Typedefs
-
-@menu
-* Network Interfaces::          Network Interfaces.
-* Address Scope::               Address Scope (IPv6).
-@end menu
-
-@node Network Interfaces, Address Scope, Enums and Typedefs, Enums and Typedefs
-@subsection Network Interfaces
-
-@menu
-* Transport Methods::           Transport Methods.
-* Interface Flags::             Interface Flags.
-@end menu
-
-@node Transport Methods, Interface Flags, Network Interfaces, Network Interfaces
-@subsubsection Transport Methods
-
-The following transport methods are defined in @file{<glibtop/interfaces.h>}:
-
-@example
-@cartouche
-enum _glibtop_transport @{
-    GLIBTOP_TRANSPORT_DEFAULT   = 0,
-    GLIBTOP_TRANSPORT_IPV4      = 1 << 0,
-    GLIBTOP_TRANSPORT_IPV6      = 1 << 1,
-    GLIBTOP_TRANSPORT_IPX       = 1 << 2,
-    GLIBTOP_TRANSPORT_X25       = 1 << 3,
-    GLIBTOP_TRANSPORT_DECNET    = 1 << 4,
-    GLIBTOP_TRANSPORT_APPLETALK = 1 << 5,
-    GLIBTOP_TRANSPORT_NETBEUI   = 1 << 6,
-@};
-@end cartouche
-@end example
-
-There is a @code{GLIBTOP_TRANSPORT_ALL} constant which can be used
-when you want information about all possible transport methods:
-
-@example
-@cartouche
-#define GLIBTOP_TRANSPORT_ALL	GLIBTOP_UNLIMITED
-@end cartouche
-@end example
-
-@node Interface Flags,  , Transport Methods, Network Interfaces
-@subsubsection Interface Flags
-
-This is defined in @file{<glibtop/interfaces.h>}:
-
-@example
-@cartouche
-enum _glibtop_interface_flags @{
-    GLIBTOP_IF_FLAGS_UP = 1,
-    GLIBTOP_IF_FLAGS_BROADCAST,
-    GLIBTOP_IF_FLAGS_DEBUG,
-    GLIBTOP_IF_FLAGS_LOOPBACK,
-    GLIBTOP_IF_FLAGS_POINTOPOINT,
-    GLIBTOP_IF_FLAGS_RUNNING,
-    GLIBTOP_IF_FLAGS_NOARP,
-    GLIBTOP_IF_FLAGS_PROMISC,
-    GLIBTOP_IF_FLAGS_ALLMULTI,
-    GLIBTOP_IF_FLAGS_OACTIVE,
-    GLIBTOP_IF_FLAGS_SIMPLEX,
-    GLIBTOP_IF_FLAGS_LINK0,
-    GLIBTOP_IF_FLAGS_LINK1,
-    GLIBTOP_IF_FLAGS_LINK2,
-    GLIBTOP_IF_FLAGS_ALTPHYS,
-    GLIBTOP_IF_FLAGS_MULTICAST
-@};
-@end cartouche
-@end example
-
-They are used as a bit mask like this:
-
-@example
-u_int64_t if_flags;
-
-if_flags = (1L << GLIBTOP_IF_FLAGS_UP) | (1L << GLIBTOP_IF_FLAGS_RUNNING);
-@end example
-
-@node Address Scope,  , Network Interfaces, Enums and Typedefs
-@subsection Address Scope
-
-This is defined in @file{<glibtop/interfaces.h>} for the IPv6 address scope:
-
-@example
-@cartouche
-enum _glibtop_ipv6_scope @{
-    GLIBTOP_IPV6_SCOPE_GLOBAL           = 0,
-    GLIBTOP_IPV6_SCOPE_LOOPBACK         = 1 << 1,
-    GLIBTOP_IPV6_SCOPE_LINKLOCAL        = 1 << 2,
-    GLIBTOP_IPV6_SCOPE_SITELOCAL        = 1 << 3,
-    GLIBTOP_IPV6_SCOPE_COMPATv4         = 1 << 4,
-    GLIBTOP_IPV6_SCOPE_UNKNOWN          = 1 << 5
-@};
-@end cartouche
-@end example
 

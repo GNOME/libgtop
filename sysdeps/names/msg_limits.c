@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -21,40 +19,40 @@
    along with LibGTop; see the file COPYING. If not, write to the
    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
- */
+*/
 
 #include <glibtop/msg_limits.h>
 
-const char *glibtop_names_msg_limits[GLIBTOP_MAX_MSG_LIMITS] =
+const char *glibtop_names_msg_limits [GLIBTOP_MAX_MSG_LIMITS] =
 {
-    "msgpool", "msgmap", "msgmax", "msgmnb", "msgmni", "msgssz", "msgtql"
+	"msgpool", "msgmap", "msgmax", "msgmnb", "msgmni", "msgssz", "msgtql"
 };
 
-const unsigned glibtop_types_msg_limits[GLIBTOP_MAX_MSG_LIMITS] =
+const unsigned glibtop_types_msg_limits [GLIBTOP_MAX_MSG_LIMITS] =
 {
-    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-    GLIBTOP_TYPE_ULONG
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG
 };
 
-const char *glibtop_labels_msg_limits[GLIBTOP_MAX_MSG_LIMITS] =
+const char *glibtop_labels_msg_limits [GLIBTOP_MAX_MSG_LIMITS] =
 {
-    N_ ("Size in kilobytes of message pool"),
-    N_ ("Number of entries in message map"),
-    N_ ("Max size of message"),
-    N_ ("Default max size of queue"),
-    N_ ("Max queues system wide"),
-    N_ ("Message segment size"),
-    N_ ("Number of system message headers")
+	N_("Size in kilobytes of message pool"),
+	N_("Number of entries in message map"),
+	N_("Max size of message"),
+	N_("Default max size of queue"),
+	N_("Max queues system wide"),
+	N_("Message segment size"),
+	N_("Number of system message headers")
 };
 
-const char *glibtop_descriptions_msg_limits[GLIBTOP_MAX_MSG_LIMITS] =
+const char *glibtop_descriptions_msg_limits [GLIBTOP_MAX_MSG_LIMITS] =
 {
-    N_ ("Size in kilobytes of message pool"),
-    N_ ("Number of entries in message map"),
-    N_ ("Max size of message"),
-    N_ ("Default max size of queue"),
-    N_ ("Max queues system wide"),
-    N_ ("Message segment size"),
-    N_ ("Number of system message headers")
+	N_("Size in kilobytes of message pool"),
+	N_("Number of entries in message map"),
+	N_("Max size of message"),
+	N_("Default max size of queue"),
+	N_("Max queues system wide"),
+	N_("Message segment size"),
+	N_("Number of system message headers")
 };

@@ -1,55 +1,23 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-if INODEDB
-inodedb_SRCLIST			= inodedb.c
-inodedb_DEFS			= -DSYSTEM_INODEDB=\"$(prefix)/var/libgtop/inodedb.db\"
-else
-inodedb_SRCLIST			=
-inodedb_DEFS			=
-endif
+INCLUDES			= @INCLUDES@
 
-INCLUDES			= @INCLUDES@ $(inodedb_DEFS)
+lib_LTLIBRARIES			= libgtop-2.0.la
 
-noinst_PROGRAMS			= test-backends
+libgtop_2_0_la_SOURCES		= init.c open.c close.c command.c read.c \
+				  read_data.c write.c lib.c parameter.c \
+				  sysdeps.c
 
-lib_LTLIBRARIES			= libgtop.la
+libgtop_2_0_la_LDFLAGS		= $(LT_VERSION_INFO)
+libgtop_2_0_la_LIBADD		= $(top_builddir)/sysdeps/common/libgtop_common-2.0.la $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps-2.0.la $(sysdeps_suid_lib) $(INTLLIBS)
 
-noinst_LTLIBRARIES		= libgtop_server.la
+BUILT_SOURCES			= lib.c
 
-libgtop_la_SOURCES		= errors.c glibtop-backend-info.c \
-				  glibtop-client.c glibtop-server.c \
-				  glibtop-backend.c glibtop-client-private.h \
-				  glibtop-server-private.h xmalloc.c error.c \
-				  $(inodedb_SRCLIST) $(BUILT_SOURCES)
-
-libgtop_server_la_SOURCES	= error.c xmalloc.c
-
-libgtop_la_LDFLAGS		= $(LT_VERSION_INFO)
-libgtop_la_LIBADD		= $(GLIB_LIBS) $(XML_LIBS)
-
-test_backends_SOURCES		= \
-	test-backends.c
-
-test_backends_LDADD		= libgtop.la
-
-glibtopdir			= $(includedir)/glibtop
-
-glibtop_HEADERS			= structures.h
-
-BUILT_SOURCES			= lib.c structures.h
-
-lib.c: lib.pl $(top_builddir)/config.h $(top_srcdir)/features.def $(top_srcdir)/scripts/c_types.pl
-	$(PERL) -I $(top_srcdir)/scripts $(srcdir)/lib.pl < $(top_srcdir)/features.def > lib-t
+lib.c: lib.pl $(top_builddir)/config.h $(top_srcdir)/features.def
+	$(PERL) $(srcdir)/lib.pl < $(top_srcdir)/features.def > lib-t
 	mv lib-t lib.c
 
-structures.h: structures.pl $(top_builddir)/config.h \
-	      $(top_srcdir)/features.def $(top_srcdir)/structures.def
-	$(PERL) -I $(top_srcdir)/scripts $(srcdir)/structures.pl \
-		$(top_srcdir)/features.def $(top_srcdir)/structures.def \
-		structures.h > tmp-s
-	mv tmp-s structures.h
+EXTRA_DIST			= lib.pl
 
-CLEANFILES			= $(BUILT_SOURCES)
-
-EXTRA_DIST			= lib.pl structures.pl
+CLEANFILES			= lib.c
 

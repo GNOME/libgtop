@@ -93,7 +93,7 @@ do
        sed "s,%$debtype>,," | sed '/^%/d' > $tofile
 done
 
-for postinst in libgtop2$pkgsuffix
+for postinst in libgtop1$pkgsuffix
 do
 
 cat > $postinst.postinst <<EOF

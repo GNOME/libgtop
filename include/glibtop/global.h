@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -30,24 +28,40 @@
 #include <config.h>
 #endif
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/param.h>
-
-#include <stdarg.h>
-
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
+/*
+ * All declarations are enclosed in BEGIN_LIBGTOP_DECLS and
+ * END_LIBGTOP_DECLS so that C++ compilers don't mangle their names.
+ *
+ */
+   
+#undef BEGIN_LIBGTOP_DECLS
+#undef END_LIBGTOP_DECLS
+#ifdef __cplusplus
+# define BEGIN_LIBGTOP_DECLS extern "C" {
+# define END_LIBGTOP_DECLS }
+#else
+# define BEGIN_LIBGTOP_DECLS /* empty */
+# define END_LIBGTOP_DECLS /* empty */
 #endif
 
-#ifdef HAVE_MEMORY_H
-#include <memory.h>
-#endif
+#ifdef _IN_LIBGTOP
 
-#include <string.h>
-#include <sys/types.h>
+/* Provide macros to feature the GCC function attribute.
+ */
+#if __GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ > 4)
+#define G_GNUC_NORETURN				\
+  __attribute__((noreturn))
+#define G_GNUC_CONST				\
+  __attribute__((const))
+#define G_GNUC_UNUSED				\
+  __attribute__((unused))
+#else	/* !__GNUC__ */
+#define G_GNUC_NORETURN
+#define G_GNUC_CONST
+#define	G_GNUC_UNUSED
+#endif	/* !__GNUC__ */
 
-#include <glib/gmacros.h>
+#endif /* _IN_LIBGTOP */
 
 #if TIME_WITH_SYS_TIME
 # include <sys/time.h>
@@ -58,11 +72,6 @@
 # else
 #  include <time.h>
 # endif
-#endif
-
-/* For Tru64 UNIX */
-#ifdef HAVE_SYS_BITYPES_H
-#include <sys/bitypes.h>
 #endif
 
 #ifdef NEED_GNOMESUPPORT_H
@@ -86,8 +95,25 @@
 #endif
 #endif
 
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <stdarg.h>
+
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+
+#ifdef HAVE_MEMORY_H
+#include <memory.h>
+#endif
+
+#include <string.h>
+
 #ifdef _IN_LIBGTOP
 
+#include <sys/types.h>
+#include <sys/param.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
 
@@ -98,10 +124,10 @@
 
 #ifdef _IN_LIBGTOP
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #ifndef _
-#define _(String) dgettext (LIBGTOP_PACKAGE, String)
+#define _(String) dgettext (PACKAGE, String)
 #define N_(String) (String)
 #endif
 
@@ -109,7 +135,7 @@ G_BEGIN_DECLS
 char *strerror (int errno);
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif /* _IN_LIBGTOP */
 

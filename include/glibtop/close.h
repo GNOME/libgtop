@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -28,13 +26,13 @@
 
 #include <glibtop.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 void glibtop_close_r (glibtop *server);
 
-void glibtop_close_s (glibtop_server *server);
-void glibtop_close_p (glibtop_server *server);
+void glibtop_close_s (glibtop *server);
+void glibtop_close_p (glibtop *server);
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

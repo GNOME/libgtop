@@ -66,14 +66,14 @@ install-saved:
 binary-indep: build install
 
 binary-arch: build install \
-		libgtop2@SUFFIX@ \
+		libgtop1@SUFFIX@ \
 		libgtop-dev@SUFFIX@
 
 #
-# libgtop2@SUFFIX@
+# libgtop1@SUFFIX@
 #
 
-libgtop2@SUFFIX@: install
+libgtop1@SUFFIX@: install
 	@echo "--- Building: $@"
 	dh_installdocs       -p$@ -P$(b)/$@ README NEWS AUTHORS
 	dh_installchangelogs -p$@ -P$(b)/$@ ChangeLog
@@ -95,7 +95,7 @@ libgtop2@SUFFIX@: install
 libgtop-dev@SUFFIX@: install
 	@echo "--- Building: $@"
 	mkdir -p $(b)/$@/usr/doc
-	cd $(b)/$@/usr/doc; ln -s libgtop2@SUFFIX@ $@	
+	cd $(b)/$@/usr/doc; ln -s libgtop1@SUFFIX@ $@	
 	dh_movefiles         -p$@ -P$(b)/$@
 	dh_strip             -p$@ -P$(b)/$@ 
 	dh_compress          -p$@ -P$(b)/$@ 

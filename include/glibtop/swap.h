@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,7 +27,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_SWAP_TOTAL	0
 #define GLIBTOP_SWAP_USED	1
@@ -43,13 +41,15 @@ typedef struct _glibtop_swap	glibtop_swap;
 
 struct _glibtop_swap
 {
-    u_int64_t	flags,
-	total,		/* GLIBTOP_SWAP_TOTAL	*/
-	used,		/* GLIBTOP_SWAP_USED	*/
-	free,		/* GLIBTOP_SWAP_FREE	*/
-	pagein,		/* GLIBTOP_SWAP_PAGEIN	*/
-	pageout;	/* GLIBTOP_SWAP_PAGEOUT	*/
+	u_int64_t	flags,
+		total,		/* GLIBTOP_SWAP_TOTAL	*/
+		used,		/* GLIBTOP_SWAP_USED	*/
+		free,		/* GLIBTOP_SWAP_FREE	*/
+		pagein,		/* GLIBTOP_SWAP_PAGEIN	*/
+		pageout;	/* GLIBTOP_SWAP_PAGEOUT	*/
 };
+
+#define glibtop_get_swap(swap)	glibtop_get_swap_l(glibtop_global_server, swap)
 
 #if GLIBTOP_SUID_SWAP
 #define glibtop_get_swap_r		glibtop_get_swap_p
@@ -57,14 +57,14 @@ struct _glibtop_swap
 #define glibtop_get_swap_r		glibtop_get_swap_s
 #endif
 
-int glibtop_get_swap_l (glibtop_client *client, glibtop_swap *buf);
+void glibtop_get_swap_l (glibtop *server, glibtop_swap *buf);
 
 #if GLIBTOP_SUID_SWAP
-int glibtop_init_swap_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_swap_p (glibtop_server *server, glibtop_closure *closure, glibtop_swap *buf);
+void glibtop_init_swap_p (glibtop *server);
+void glibtop_get_swap_p (glibtop *server, glibtop_swap *buf);
 #else
-int glibtop_init_swap_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_swap_s (glibtop_server *server, glibtop_closure *closure, glibtop_swap *buf);
+void glibtop_init_swap_s (glibtop *server);
+void glibtop_get_swap_s (glibtop *server, glibtop_swap *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -78,6 +78,6 @@ extern const char *glibtop_descriptions_swap [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

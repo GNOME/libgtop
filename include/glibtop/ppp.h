@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,7 +27,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_PPP_STATE	0
 #define GLIBTOP_PPP_BYTES_IN	1	
@@ -40,18 +38,20 @@ G_BEGIN_DECLS
 typedef struct _glibtop_ppp	glibtop_ppp;
 
 enum {
-    GLIBTOP_PPP_STATE_UNKNOWN = 0,
-    GLIBTOP_PPP_STATE_HANGUP,
-    GLIBTOP_PPP_STATE_ONLINE
+	GLIBTOP_PPP_STATE_UNKNOWN = 0,
+	GLIBTOP_PPP_STATE_HANGUP,
+	GLIBTOP_PPP_STATE_ONLINE
 };
 
 struct _glibtop_ppp
 {
-    u_int64_t	flags,
-	state,			/* GLIBTOP_PPP_STATE		*/
-	bytes_in,		/* GLIBTOP_PPP_BYTES_IN		*/
-	bytes_out;		/* GLIBTOP_PPP_BYTES_OUT	*/
+	u_int64_t	flags,
+		state,			/* GLIBTOP_PPP_STATE		*/
+		bytes_in,		/* GLIBTOP_PPP_BYTES_IN		*/
+		bytes_out;		/* GLIBTOP_PPP_BYTES_OUT	*/
 };
+
+#define glibtop_get_ppp(ppp,device)	glibtop_get_ppp_l(glibtop_global_server, ppp, device)
 
 #if GLIBTOP_SUID_PPP
 #define glibtop_get_ppp_r	glibtop_get_ppp_p
@@ -59,14 +59,14 @@ struct _glibtop_ppp
 #define glibtop_get_ppp_r	glibtop_get_ppp_s
 #endif
 
-int glibtop_get_ppp_l (glibtop_client *client, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn);
+void glibtop_get_ppp_l (glibtop *server, glibtop_ppp *buf, unsigned short device);
 
 #if GLIBTOP_SUID_PPP
-int glibtop_init_ppp_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_ppp_p (glibtop_server *server, glibtop_closure *closure, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn);
+void glibtop_init_ppp_p (glibtop *server);
+void glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device);
 #else
-int glibtop_init_ppp_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_ppp_s (glibtop_server *server, glibtop_closure *closure, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn);
+void glibtop_init_ppp_s (glibtop *server);
+void glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -80,6 +80,6 @@ extern const char *glibtop_descriptions_ppp [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

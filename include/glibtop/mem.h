@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,7 +27,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_MEM_TOTAL	0
 #define GLIBTOP_MEM_USED	1
@@ -46,16 +44,18 @@ typedef struct _glibtop_mem	glibtop_mem;
 
 struct _glibtop_mem
 {
-    u_int64_t	flags,
-	total,		/* GLIBTOP_MEM_TOTAL	*/
-	used,		/* GLIBTOP_MEM_USED	*/
-	free,		/* GLIBTOP_MEM_FREE	*/
-	shared,		/* GLIBTOP_MEM_SHARED	*/
-	buffer,		/* GLIBTOP_MEM_BUFFER	*/
-	cached,		/* GLIBTOP_MEM_CACHED	*/
-	user,		/* GLIBTOP_MEM_USER	*/
-	locked;		/* GLIBTOP_MEM_LOCKED	*/
+	u_int64_t	flags,
+		total,		/* GLIBTOP_MEM_TOTAL	*/
+		used,		/* GLIBTOP_MEM_USED	*/
+		free,		/* GLIBTOP_MEM_FREE	*/
+		shared,		/* GLIBTOP_MEM_SHARED	*/
+		buffer,		/* GLIBTOP_MEM_BUFFER	*/
+		cached,		/* GLIBTOP_MEM_CACHED	*/
+		user,		/* GLIBTOP_MEM_USER	*/
+		locked;		/* GLIBTOP_MEM_LOCKED	*/
 };
+
+#define glibtop_get_mem(mem)	glibtop_get_mem_l(glibtop_global_server, mem)
 
 #if GLIBTOP_SUID_MEM
 #define glibtop_get_mem_r		glibtop_get_mem_p
@@ -63,14 +63,14 @@ struct _glibtop_mem
 #define glibtop_get_mem_r		glibtop_get_mem_s
 #endif
 
-int glibtop_get_mem_l (glibtop_client *client, glibtop_mem *buf);
+void glibtop_get_mem_l (glibtop *server, glibtop_mem *buf);
 
 #if GLIBTOP_SUID_MEM
-int glibtop_init_mem_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_mem_p (glibtop_server *server, glibtop_closure *closure, glibtop_mem *buf);
+void glibtop_init_mem_p (glibtop *server);
+void glibtop_get_mem_p (glibtop *server, glibtop_mem *buf);
 #else
-int glibtop_init_mem_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_mem_s (glibtop_server *server, glibtop_closure *closure, glibtop_mem *buf);
+void glibtop_init_mem_s (glibtop *server);
+void glibtop_get_mem_s (glibtop *server, glibtop_mem *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -84,6 +84,6 @@ extern const char *glibtop_descriptions_mem [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

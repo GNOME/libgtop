@@ -1,74 +1,57 @@
 dnl
-dnl Configure script for LibGTop
+dnl Configure script for the Gnome library
 dnl
 
 AC_INIT(copyright.txt)
 AM_CONFIG_HEADER(config.h)
 AC_CANONICAL_SYSTEM
 
-if test -z "$I_LIKE_PAIN"; then
-AC_MSG_ERROR([
-*** You don't want this version of libgtop!
-*** If you want the GNOME 2.0 port then check out
-*** the libgtop-GNOME-2-0-port branch of libgtop
-*** You can do this by typing
-*** cvs update -r libgtop-GNOME-2-0-port libgtop/
-*** in the directory above this one.
-*** If you are looking for the stable branch then 
-*** check out the LIBGTOP_STABLE_1_0 branch
-***])
-fi
-  
-dnl This is required at several places
-AC_CHECK_PROG(ac_dc_found, dc, yes, no)
-if test x$ac_dc_found != xyes ; then
-AC_MSG_ERROR([
-*** The "dc" utility was not found on your system.
-***
-*** When using RedHat Linux, you need to install the "bc" package.
-***
-*** It is now part of the "bc" package, so you should look at
-*** ftp://ftp.gnu.org/pub/gnu/bc/ if you want to compile it yourself.
-***
-*** Other systems and distributions may also have it in their "bc" package,
-*** so if there's no "dc" one, please look for "bc".
-***])
-fi
+LIBGTOP_MAJOR_VERSION=2
+LIBGTOP_MINOR_VERSION=0
+LIBGTOP_MICRO_VERSION=5
+LIBGTOP_VERSION=$LIBGTOP_MAJOR_VERSION.$LIBGTOP_MINOR_VERSION.$LIBGTOP_MICRO_VERSION
+AM_INIT_AUTOMAKE(libgtop, $LIBGTOP_VERSION)
+LIBGTOP_INTERFACE_AGE=5
+LIBGTOP_BINARY_AGE=5
 
-. $srcdir/LIBGTOP-VERSION
-AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
+# you can set this to `-snap' for instance to create
+# a `libgtop-1.x.y-snap.tar.gz' tarball.
+LIBGTOP_VERSION_SUFFIX=
+
+# Increase each time you change the client/server protocol.
+LIBGTOP_SERVER_VERSION=5
+
+# Version code calculation
+LIBGTOP_VERSION_CODE=`expr $LIBGTOP_MAJOR_VERSION \* 1000000 + $LIBGTOP_MINOR_VERSION \* 1000 + $LIBGTOP_MICRO_VERSION`
 
 AC_SUBST(LIBGTOP_MAJOR_VERSION)
 AC_SUBST(LIBGTOP_MINOR_VERSION)
 AC_SUBST(LIBGTOP_MICRO_VERSION)
 AC_SUBST(LIBGTOP_INTERFACE_AGE)
 AC_SUBST(LIBGTOP_BINARY_AGE)
+AC_SUBST(LIBGTOP_SERVER_VERSION)
 AC_SUBST(LIBGTOP_VERSION)
 AC_SUBST(LIBGTOP_VERSION_CODE)
 AC_SUBST(LIBGTOP_VERSION_SUFFIX)
-
-AC_SUBST(LIBGTOP_PACKAGE)
-AC_DEFINE_UNQUOTED(LIBGTOP_PACKAGE, "$LIBGTOP_PACKAGE")
 
 # libtool versioning
 LT_RELEASE=$LIBGTOP_MAJOR_VERSION.$LIBGTOP_MINOR_VERSION
 LT_CURRENT=`expr $LIBGTOP_MICRO_VERSION - $LIBGTOP_INTERFACE_AGE`
 LT_REVISION=$LIBGTOP_INTERFACE_AGE
 LT_AGE=`expr $LIBGTOP_BINARY_AGE - $LIBGTOP_INTERFACE_AGE`
-LT_VERSION_INFO='-version-info ${LT_CURRENT}:${LT_REVISION}:${LT_AGE} -release ${LT_RELEASE}'
+LT_VERSION_INFO='-version-info ${LT_CURRENT}:${LT_REVISION}:${LT_AGE}'
 AC_SUBST(LT_VERSION_INFO)
 AC_SUBST(LT_RELEASE)
 AC_SUBST(LT_CURRENT)
 AC_SUBST(LT_REVISION)
 AC_SUBST(LT_AGE)
 
-GNOME_COMMON_INIT
-GNOME_PLATFORM_GNOME_2(yes, force)
+ACLOCAL_FLAGS="$ACLOCAL_FLAGS -I ."
 
 AC_ISC_POSIX
 AC_PROG_CC
 AC_STDC_HEADERS
-AC_ARG_PROGRAM
+dnl AC_ARG_PROGRAM
 
 dnl We need this at some places.
 libgtop_top_builddir=`pwd`
@@ -87,10 +70,8 @@ AC_CHECK_TOOL(CC,gcc)
 AC_CHECK_TOOL(RANLIB,ranlib)
 AC_CHECK_TOOL(AS,as)
 AC_CHECK_TOOL(AR,ar)
-AC_CHECK_TOOL(NM,nm)
 
-NM=`which $NM`
-export CC CXX RANLIB LD AS AR NM
+export CC CXX RANLIB LD AS AR
 
 AC_PROG_INSTALL
 AC_PROG_LN_S
@@ -98,27 +79,54 @@ AC_PROG_MAKE_SET
 
 export cross_compiling
 
-AC_LIBTOOL_DLOPEN
 AM_PROG_LIBTOOL
 
 dnl Let the user enable compiler warnings
-GNOME_COMPILE_WARNINGS
+dnl GNOME_COMPILE_WARNINGS
 
-dnl PKGCONFIG_CHECK_MODULES(GNOMESUPPORT, libgnomesupport-2.0:1.96.0)
-dnl AC_SUBST(GNOMESUPPORT_CFLAGS)
-dnl AC_SUBST(GNOMESUPPORT_LIBS)
+dnl GNOME_INIT_HOOK(gnome_found=yes)
+
+dnl if test "x$gnome_found" != xyes; then
+dnl   if test "x$want_gnome" != xno ; then
+dnl     AC_MSG_ERROR([
+dnl *** GNOME was not found on this system. ***
+dnl 
+dnl *** If you want to use LibGTop without GNOME, you need
+dnl *** to give configure the --without-gnome parameter.
+dnl ])
+dnl   else
+dnl     AC_DEFINE(WITHOUT_GNOME)
+dnl   fi
+dnl   GNOME_SUPPORT_CHECKS
+dnl else
+dnl   if test "x$want_gnome" != xno ; then
+dnl     AM_CONDITIONAL(BUILD_GNOME_SUPPORT, false)
+dnl   else
+dnl     GNOME_SUPPORT_CHECKS
+dnl   fi
+dnl fi
+
+AM_CONDITIONAL(BUILD_GNOME_SUPPORT, false)
 
 AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 
-PKG_CHECK_MODULES(XML, libxml-2.0 >= 2.2.8)
-AC_SUBST(XML_CFLAGS)
-AC_SUBST(XML_LIBS)
+GNOME_LIBGTOP_SYSDEPS
+GNOME_LIBGTOP_TYPES
+
+dnl AC_ARG_WITH(libgtop-guile,
+dnl [  --with-libgtop-guile    Build the libgtop guile interface (default=no)],
+dnl [build_guile="$withval"], [build_guile=yes])
+
+dnl if test x$build_guile != xno ; then
+dnl  GNOME_CHECK_GUILE
+dnl fi
 
 AC_ARG_WITH(libgtop-inodedb,
 [  --with-libgtop-inodedb  Build the inodedb stuff (default=no)],
 [build_inodedb="$withval"], [build_inodedb=no])
 
 LIBGTOP_EXTRA_LIBS=
+
 if test x$build_inodedb = xyes ; then
   AC_CHECK_LIB(gdbm, gdbm_open, LIBGTOP_EXTRA_LIBS='-lgdbm', build_inodedb=no)
 fi
@@ -129,15 +137,57 @@ if test x$build_inodedb = xyes ; then
   AC_DEFINE(GLIBTOP_INODEDB)
 fi
 
+AC_DEFINE(GLIBTOP_NAMES)
+
+if test x$ac_cv_guile_found = xyes ; then
+  AC_DEFINE(GLIBTOP_GUILE)
+  AC_DEFINE(GLIBTOP_GUILE_NAMES)
+  libgtop_guile_found=yes
+  guile_examples='third'
+  guile_static_examples='third_static'
+  guile_subdirs='guile'
+else
+  libgtop_guile_found=no
+  guile_examples=
+  guile_static_examples=
+  guile_subdirs=
+fi
+
+if test x$libgtop_smp = xyes ; then
+  smp_examples='smp'
+  smp_static_examples='smp_static'
+else
+  smp_examples=
+  smp_static_examples=
+fi
+
+if test "x$enable_static" != xno; then
+  static_targets="first_static second_static mountlist_static procmap_static netload_static sysdeps_static timings_static $guile_static_examples $smp_static_examples"
+else
+  static_targets=""
+fi
+
 AM_CONDITIONAL(ENABLE_STATIC, test x$enable_static = xyes)
 AM_CONDITIONAL(ENABLE_SHARED, test x$enable_static = xyes)
 
+AC_SUBST(static_targets)
+AC_SUBST(smp_examples)
+AC_SUBST(guile_examples)
+AC_SUBST(guile_subdirs)
+
 AM_PROG_LIBTOOL
 
-dnl Check for glib
-PKG_CHECK_MODULES(GLIB, glib-2.0 >= 1.3.1 gmodule-2.0 >= 1.3.1 gobject-2.0 >= 1.3.1)
+GLIB_REQUIRED=2.0.0
+
+PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLIB_REQUIRED)
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
+
+dnl (1.2.0,,AC_MSG_ERROR(GLIB >= 1.2.0 is required for LibGTop))
+
+dnl You need to uncomment the following line if you want to use
+dnl libGTop without Gnome.
+GNOME_SUPPORT_CHECKS
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
@@ -150,7 +200,70 @@ AC_HEADER_TIME
 AC_STRUCT_TM
 AC_TYPE_UID_T
 
-dnl Check for Internet sockets.
+dnl For SunOS
+AC_CHECK_TYPE(ssize_t, int)
+AC_CHECK_HEADERS(memory.h)
+AC_CHECK_HEADERS(string.h strings.h, break)
+AC_REPLACE_FUNCS(strerror)
+
+dnl dlopen() and dlsym()
+DL_LIB=
+AC_CHECK_FUNCS(dlopen,,[
+  AC_CHECK_LIB(dl, dlopen, DL_LIB="-ldl", [
+    AC_CHECK_LIB(dld, shl_load, DL_LIB="-ldld", [
+      AC_CHECK_FUNCS(dlopen, DL_LIB="", DL_LIB="")
+    ])
+  ])
+])
+oLIBS="$LIBS"
+LIBS="$LIBS $DL_LIB"
+AC_CHECK_FUNCS(dlerror,,)
+LIBS="$oLIBS"
+AC_SUBST(DL_LIB)
+
+dnl AIX
+AH_TEMPLATE(HAVE_VMGETINFO, [Define to 1 if you have the `vmgetinfo' function in libperfstat])
+AC_CHECK_LIB(perfstat, vmgetinfo, AC_DEFINE(HAVE_VMGETINFO))
+
+dnl Solaris
+AC_CHECK_LIB(kstat, kstat_open)
+AC_CHECK_FUNCS(getloadavg swapctl)
+AC_CHECK_HEADERS(procfs.h sys/procfs.h, break)
+
+dnl Some versions of Solaris require -lelf for -lkvm
+AC_CHECK_LIB(kvm, kvm_open,[
+  LIBS="-lkvm $LIBS"
+],[AC_MSG_CHECKING(for kvm_open in -lkvm with -lelf)
+   AC_CACHE_VAL(ac_cv_lib_kvm_with_elf,
+   [ac_save_LIBS="$LIBS"
+    LIBS="-lkvm -lelf $LIBS"
+    AC_TRY_LINK([char kvm_open();], [kvm_open()],
+                ac_cv_lib_kvm_with_elf=yes, ac_cv_lib_kvm_with_elf=no)
+    LIBS="$ac_save_LIBS"
+   ])
+   if test "$ac_cv_lib_kvm_with_elf" = "yes"; then
+     AC_MSG_RESULT(yes)
+     LIBS="-lkvm -lelf $LIBS"
+   else
+     AC_MSG_RESULT(no)
+   fi
+])
+
+dnl For DEC OSF1
+AC_CHECK_LIB(mach, vm_statistics)
+
+dnl For some broken libc5 systems (Debian 1.3)
+saved_CFLAGS=$CFLAGS
+CFLAGS="$CFLAGS -D_GNU_SOURCE"
+GCC_NEED_DECLARATION(program_invocation_name, [                           
+#include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+])
+
+CFLAGS=$saved_CFLAGS
+
 AC_CHECK_FUNC(socket,
  [AC_CHECK_HEADER(netinet/in.h,
    [AC_CHECK_HEADER(arpa/inet.h, [
@@ -172,93 +285,199 @@ AC_TYPE_SIGNAL
 AC_FUNC_STRFTIME
 AC_CHECK_FUNCS(getcwd gettimeofday getwd putenv strdup strtoul uname)
 
-dnl ## all 'es_??' are only needed for format numbers different of 'es'
-ALL_LINGUAS="am az bg ca da de el es es_DO es_GT es_HN es_MX es_PA es_PE es_SV fa fi fr ga gl hu id it ja ko ml mn nl nn no pl pt pt_BR ro ru sk sl sr sr@Latn sv tr uk vi zh_CN zh_TW"
-AM_GNOME2_GETTEXT
+ALL_LINGUAS="am ar az be bg bn ca cs cy da de el es et fa fi fr ga gl he hi hu id it ja ko lv mk ml mn ms nl nn no pl pt pt_BR ro ru sk sl sq sr sr@Latn sv ta tr uk vi zh_CN zh_TW"
+
+GETTEXT_PACKAGE=libgtop-2.0
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE")
+
+AM_GLIB_GNU_GETTEXT
 
 AC_PATH_XTRA
+
+dnl For Solaris
+dnl Please don't move this before AC_PATH_XTRA
+AC_CHECK_FUNC(gethostbyname,,[AC_CHECK_LIB(nsl,gethostbyname)])
+AC_CHECK_FUNC(connect,,[AC_CHECK_LIB(socket,connect)])
+AC_CHECK_FUNC(inet_aton,,[AC_CHECK_LIB(resolv,inet_aton)])
+
+dnl The construct foo=`echo $w1 $w2 $w3` fails on some systems if $w1 = -e or -n
+dnl So we use the following instead.
+dnl XE_SPACE(var, words)
+define([XE_SPACE],[
+T=""
+for W in $2; do if test -z "$T"; then T="$W"; else T="$T $W"; fi; done
+$1="$T"
+])dnl
+
+dnl Autodetect Xauth
+dnl -lXau is only used by gnuclient, so use a special variable for Xauth X libs
+saved_CPPFLAGS="$CPPFLAGS"
+CPPFLAGS="$CPPFLAGS $X_CFLAGS"
+test -z "$with_xauth" && { AC_CHECK_HEADER(X11/Xauth.h,          ,with_xauth=no) }
+test -z "$with_xauth" && { AC_CHECK_LIB(Xau, XauGetAuthByAddr,[:],with_xauth=no, $X_LIBS) }
+test -z "$with_xauth" && with_xauth=yes
+if test "$with_xauth" = "yes"; then
+  AC_DEFINE(HAVE_XAUTH)
+  XE_SPACE(libs_xauth, $X_LIBS -lXau)
+fi
+CPPFLAGS="$saved_CPPFLAGS"
+AC_SUBST(libs_xauth)
 
 dnl For diskusage stuff
 GNOME_FILEUTILS_CHECKS
 
 dnl Debugging
-AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]], libgtop_enable_debug=yes, libgtop_enable_debug=no)
+AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]],AC_DEFINE(LIBGTOP_ENABLE_DEBUG),)
 AC_ARG_ENABLE(fatal-warnings, [  --enable-fatal-warnings make all warnings fatal [debug=no]],AC_DEFINE(LIBGTOP_FATAL_WARNINGS),)
-AC_ARG_ENABLE(glib-malloc, [  --enable-glib-malloc    use glib's malloc [default=auto]], libgtop_enable_glib_malloc=yes,)
 
-if test "x$libgtop_enable_glib_malloc" != xyes ; then
-  if test "x$libgtop_enable_debug" = xyes ; then
-    libgtop_enable_glib_malloc=yes
-  else
-    libgtop_enable_glib_malloc=no
-  fi
+if test "x$gnome_found" = xyes ; then
+  LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
+  SUPPORTINCS="$GNOME_INCLUDEDIR"
+else
+  LIBSUPPORT='$(top_builddir)/support/libgnomesupport-2.0.la'
+  SUPPORTINCS='-DNEED_GNOMESUPPORT_H -I$(top_builddir)/support -I$(top_srcdir)/support'
 fi
 
-if test "x$libgtop_enable_glib_malloc" = xyes ; then
-  AC_DEFINE(LIBGTOP_USE_GLIB_MALLOC)
-fi
-
-if test "x$libgtop_enable_debug" = xyes ; then
-  AC_DEFINE(LIBGTOP_ENABLE_DEBUG)
-fi
+dnl Some ugly hack; if '-lgnomesupport' is part of $GNOME_LIBS,
+dnl we include it here.
+case "$GNOME_LIBS" in
+	'*-lgnomesupport*' ) 
+	  LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
+          SUPPORTINCS="$GNOME_INCLUDEDIR" ;;
+esac
+AC_SUBST(LIBSUPPORT)
+AC_SUBST(SUPPORTINCS)
 
 dnl These definitions are expanded in make.
 LIBGTOP_LIBS='-L$(libdir)'
-LIBGTOP_INCS='-I$(includedir) -I$(pkglibdir)/include'
+LIBGTOP_INCS='-I$(includedir)/libgtop-2.0'
+
+if test x$libgtop_use_machine_h = xyes ; then
+  LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_GLIBTOP_MACHINE_H"
+fi
 
 if test x$build_inodedb = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DGLIBTOP_INODEDB"
 fi
 
-LIBGTOP_INCS="$LIBGTOP_INCS $GNOMESUPPORT_CFLAGS $GLIB_CFLAGS $XML_CFLAGS"
+if test x$libgtop_smp = xyes ; then
+  LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SMP"
+fi
 
-LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS $XML_LIBS"
+if test x$libgtop_have_sysinfo = xyes ; then
+  LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SYSINFO"
+fi
 
-LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common -lgtop"
+LIBGTOP_INCS="$LIBGTOP_INCS $SUPPORTINCS $GLIB_CFLAGS"
 
-LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names"
+LIBGTOP_GUILE_LIBS="$LIBGTOP_LIBS"
+LIBGTOP_GUILE_INCS="$LIBGTOP_INCS"
+LIBGTOP_BINDIR='$(bindir)'
+LIBGTOP_SERVER='$(bindir)/libgtop_server2'
+
+sysdeps_dir="$libgtop_sysdeps_dir"
+AC_SUBST(sysdeps_dir)
+
+if test x$ac_cv_guile_found = xyes ; then
+  LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_guile-2.0"
+  libgtop_guile_found=yes
+else
+  libgtop_guile_found=no
+fi
+
+AC_SUBST(libgtop_guile_found)
+
+if test -z "$LIBGTOP_EXTRA_LIBS" ; then
+  LIBGTOP_EXTRA_LIBS="$libs_xauth"
+else
+  LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $libs_xauth"
+fi
+
+LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS"
+
+LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop-2.0 -lgtop_sysdeps-2.0 -lgtop_common-2.0"
+LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop-2.0 -lgtop_sysdeps-2.0 -lgtop_common-2.0"
+
+LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names-2.0"
+LIBGTOP_GUILE_NAMES_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_guile_names-2.0 -lgtop_names-2.0"
 
 LIBGTOP_LIBS="$LIBGTOP_LIBS" 
 LIBGTOP_NAMES_LIBS="$LIBGTOP_NAMES_LIBS"
+LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS"
+LIBGTOP_GUILE_NAMES_LIBS="$LIBGTOP_GUILE_NAMES_LIBS"
+
+LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $GUILE_LIBS"
+LIBGTOP_GUILE_INCS="$LIBGTOP_GUILE_INCS $GUILE_INCS -DGLIBTOP_GUILE"
 
 LIBGTOP_NAMES_INCS="$LIBGTOP_INCS -DGLIBTOP_NAMES"
+LIBGTOP_GUILE_NAMES_INCS="$LIBGTOP_GUILE_INCS -DGLIBTOP_GUILE_NAMES"
+LIBGTOP_GUILE_NAMES_INCS="$LIBGTOP_GUILE_INCS -DGLIBTOP_NAMES"
 
 machine_incs="-I\$(top_srcdir)/sysdeps/$sysdeps_dir"
 
 AC_SUBST(machine_incs)
 
-LIBGTOP_BACKEND_DIR="\$(datadir)/libgtop/backends"
+if test x$libgtop_guile_found = xyes ; then
+  guile_def="-DGLIBTOP_GUILE -DGLIBTOP_GUILE_NAMES $GUILE_INCS "
+else
+  guile_def=""
+fi
 
-INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -Werror -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_builddir)/include -I\$(top_srcdir)/intl $GNOMESUPPORT_CFLAGS $GLIB_CFLAGS $XML_CFLAGS $CFLAGS $X_CFLAGS "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_BACKEND_DIR=\"'"$LIBGTOP_BACKEND_DIR"'\"'
+INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $SUPPORTINCS $GLIB_CFLAGS $CFLAGS $X_CFLAGS $guile_def "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
 
 AC_SUBST(INCLUDES)
 
 AC_SUBST(LIBGTOP_EXTRA_LIBS)
-AC_SUBST(LIBGTOP_BACKEND_DIR)
-
+AC_SUBST(GLIB_LIBS)
 AC_SUBST(LIBGTOP_LIBS)
 AC_SUBST(LIBGTOP_INCS)
 AC_SUBST(LIBGTOP_NAMES_LIBS)
 AC_SUBST(LIBGTOP_NAMES_INCS)
+AC_SUBST(LIBGTOP_GUILE_LIBS)
+AC_SUBST(LIBGTOP_GUILE_INCS)
+AC_SUBST(LIBGTOP_GUILE_NAMES_LIBS)
+AC_SUBST(LIBGTOP_GUILE_NAMES_INCS)
+AC_SUBST(LIBGTOP_BINDIR)
+AC_SUBST(LIBGTOP_SERVER)
+
+if test x$libgtop_need_server = xyes ; then
+   sysdeps_suid_lib="\$(top_builddir)/sysdeps/\$(sysdeps_dir)/libgtop_sysdeps_suid-2.0.la"
+   server_programs='libgtop_server2'
+else
+   sysdeps_suid_lib=
+   server_programs=
+fi
+AC_SUBST(sysdeps_suid_lib)
+AC_SUBST(server_programs)
 
 AC_OUTPUT([
 Makefile
+libgtop.spec
 po/Makefile.in
-intl/Makefile
 misc/Makefile
 include/Makefile
 include/glibtop/Makefile
 sysdeps/Makefile
 sysdeps/common/Makefile
 sysdeps/names/Makefile
+sysdeps/guile/Makefile
+sysdeps/guile/names/Makefile
+sysdeps/stub/Makefile
+sysdeps/stub_suid/Makefile
+sysdeps/sun4/Makefile
+sysdeps/osf1/Makefile
+sysdeps/linux/Makefile
+sysdeps/kernel/Makefile
+sysdeps/freebsd/Makefile
+sysdeps/solaris/Makefile
+sysdeps/aix/Makefile
 src/Makefile
+src/daemon/Makefile
 src/inodedb/Makefile
-scripts/Makefile
-backends/Makefile
-backends/server/Makefile
-backends/sysdeps/Makefile
-backends/common/Makefile
 lib/Makefile
+examples/Makefile
 doc/Makefile
-dtd/Makefile
-libgtop-2.0.pc])
+support/Makefile
+libgtop-2.0.pc
+])

@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -39,44 +37,44 @@ glibtop_inodedb *
 glibtop_inodedb_open_s (glibtop *server, unsigned databases,
 			unsigned long cachesize)
 {
-    glibtop_inodedb *inodedb;
-    char filename [BUFSIZ];
-    struct passwd *pwd;
-    struct stat statb;
+	glibtop_inodedb *inodedb;
+	char filename [BUFSIZ];
+	struct passwd *pwd;
+	struct stat statb;
 
-    if (!databases)
-	databases = GLIBTOP_INODEDB_ALL;
+	if (!databases)
+		databases = GLIBTOP_INODEDB_ALL;
 
-    inodedb = glibtop_calloc_r (server, 1, sizeof (glibtop_inodedb));
+	inodedb = glibtop_calloc_r (server, 1, sizeof (glibtop_inodedb));
 
-    if (stat (SYSTEM_INODEDB, &statb))
-	databases &= ~GLIBTOP_INODEDB_SYSTEM;
+	if (stat (SYSTEM_INODEDB, &statb))
+		databases &= ~GLIBTOP_INODEDB_SYSTEM;
 
-    if (databases & GLIBTOP_INODEDB_SYSTEM) {
-	inodedb->system_dbf = gdbm_open
-	    (SYSTEM_INODEDB, 0, GDBM_READER, 0, 0);
-	if (!inodedb->system_dbf)
-	    glibtop_error_io_r
-		(server, "gdbm_open (%s)", SYSTEM_INODEDB);
-    }
+	if (databases & GLIBTOP_INODEDB_SYSTEM) {
+		inodedb->system_dbf = gdbm_open
+			(SYSTEM_INODEDB, 0, GDBM_READER, 0, 0);
+		if (!inodedb->system_dbf)
+			glibtop_error_io_r
+				(server, "gdbm_open (%s)", SYSTEM_INODEDB);
+	}
 
-    pwd = getpwuid (getuid ());
-    if (!pwd) glibtop_error_io_r (server, "getpwuid");
+	pwd = getpwuid (getuid ());
+	if (!pwd) glibtop_error_io_r (server, "getpwuid");
 	
-    sprintf (filename, "%s/var/libgtop/inodedb.db", pwd->pw_dir);
+	sprintf (filename, "%s/var/libgtop/inodedb.db", pwd->pw_dir);
 	
-    if (stat (filename, &statb))
-	databases &= ~GLIBTOP_INODEDB_USER;
+	if (stat (filename, &statb))
+		databases &= ~GLIBTOP_INODEDB_USER;
 
-    if (databases & GLIBTOP_INODEDB_USER) {
-	inodedb->user_dbf = gdbm_open
-	    (filename, 0, GDBM_READER, 0, 0);
-	if (!inodedb->user_dbf)
-	    glibtop_error_io_r
-		(server, "gdbm_open (%s)", filename);
-    }
+	if (databases & GLIBTOP_INODEDB_USER) {
+		inodedb->user_dbf = gdbm_open
+			(filename, 0, GDBM_READER, 0, 0);
+		if (!inodedb->user_dbf)
+			glibtop_error_io_r
+				(server, "gdbm_open (%s)", filename);
+	}
 
-    return inodedb;
+	return inodedb;
 }
 
 const char *
@@ -84,36 +82,36 @@ glibtop_inodedb_lookup_s (glibtop *server,
 			  glibtop_inodedb *inodedb,
 			  u_int64_t device, u_int64_t inode)
 {
-    glibtop_inodedb_key key;
-    datum d_key, d_content;
+	glibtop_inodedb_key key;
+	datum d_key, d_content;
 
-    d_key.dptr = (void *) &key;
-    d_key.dsize = sizeof (key);
+	d_key.dptr = (void *) &key;
+	d_key.dsize = sizeof (key);
 
-    key.device = device;
-    key.inode = inode;
+	key.device = device;
+	key.inode = inode;
 
-    if (inodedb->system_dbf) {
-	d_content = gdbm_fetch (inodedb->system_dbf, d_key);
-	if (d_content.dptr) return d_content.dptr;
-    }
+	if (inodedb->system_dbf) {
+		d_content = gdbm_fetch (inodedb->system_dbf, d_key);
+		if (d_content.dptr) return d_content.dptr;
+	}
 
-    if (inodedb->user_dbf) {
-	d_content = gdbm_fetch (inodedb->user_dbf, d_key);
-	if (d_content.dptr) return d_content.dptr;
-    }
+	if (inodedb->user_dbf) {
+		d_content = gdbm_fetch (inodedb->user_dbf, d_key);
+		if (d_content.dptr) return d_content.dptr;
+	}
 
-    return NULL;
+	return NULL;
 }
 
 void
 glibtop_inodedb_close_s (glibtop *server, glibtop_inodedb *inodedb)
 {
-    if (inodedb->system_dbf)
-	gdbm_close (inodedb->system_dbf);
+	if (inodedb->system_dbf)
+		gdbm_close (inodedb->system_dbf);
 	
-    if (inodedb->user_dbf)
-	gdbm_close (inodedb->user_dbf);
+	if (inodedb->user_dbf)
+		gdbm_close (inodedb->user_dbf);
 
-    glibtop_free_r (server, inodedb);
+	glibtop_free_r (server, inodedb);
 }

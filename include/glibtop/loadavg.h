@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,7 +27,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_LOADAVG_LOADAVG		0
 #define GLIBTOP_LOADAVG_NR_RUNNING	1
@@ -42,12 +40,14 @@ typedef struct _glibtop_loadavg	glibtop_loadavg;
 
 struct _glibtop_loadavg
 {
-    u_int64_t flags;
-    double loadavg [3];		/* GLIBTOP_LOADAVG_LOADAVG	*/
-    u_int64_t nr_running,	/* GLIBTOP_LOADAVG_NR_RUNNING	*/
-	nr_tasks,		/* GLIBTOP_LOADAVG_NR_TASKS	*/
-	last_pid;		/* GLIBTOP_LOADAVG_LAST_PID	*/
+	u_int64_t flags;
+	double loadavg [3];		/* GLIBTOP_LOADAVG_LOADAVG	*/
+	u_int64_t nr_running,		/* GLIBTOP_LOADAVG_NR_RUNNING	*/
+		nr_tasks,		/* GLIBTOP_LOADAVG_NR_TASKS	*/
+		last_pid;		/* GLIBTOP_LOADAVG_LAST_PID	*/
 };
+
+#define glibtop_get_loadavg(loadavg)	glibtop_get_loadavg_l(glibtop_global_server, loadavg)
 
 #if GLIBTOP_SUID_LOADAVG
 #define glibtop_get_loadavg_r		glibtop_get_loadavg_p
@@ -55,14 +55,14 @@ struct _glibtop_loadavg
 #define glibtop_get_loadavg_r		glibtop_get_loadavg_s
 #endif
 
-int glibtop_get_loadavg_l (glibtop_client *client, glibtop_loadavg *buf);
+void glibtop_get_loadavg_l (glibtop *server, glibtop_loadavg *buf);
 
 #if GLIBTOP_SUID_LOADAVG
-int glibtop_init_loadavg_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_loadavg_p (glibtop_server *server, glibtop_closure *closure, glibtop_loadavg *buf);
+void glibtop_init_loadavg_p (glibtop *server);
+void glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf);
 #else
-int glibtop_init_loadavg_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_loadavg_s (glibtop_server *server, glibtop_closure *closure, glibtop_loadavg *buf);
+void glibtop_init_loadavg_s (glibtop *server);
+void glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -76,6 +76,6 @@ extern const char *glibtop_descriptions_loadavg [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

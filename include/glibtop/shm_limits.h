@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,27 +27,29 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_SHM_LIMITS_SHMMAX	0
-#define GLIBTOP_SHM_LIMITS_SHMMIN	1
-#define GLIBTOP_SHM_LIMITS_SHMMNI	2
-#define GLIBTOP_SHM_LIMITS_SHMSEG	3
-#define GLIBTOP_SHM_LIMITS_SHMALL	4
+#define GLIBTOP_IPC_SHMMAX	0
+#define GLIBTOP_IPC_SHMMIN	1
+#define GLIBTOP_IPC_SHMMNI	2
+#define GLIBTOP_IPC_SHMSEG	3
+#define GLIBTOP_IPC_SHMALL	4
 
-#define GLIBTOP_MAX_SHM_LIMITS		5
+#define GLIBTOP_MAX_SHM_LIMITS	5
 
 typedef struct _glibtop_shm_limits	glibtop_shm_limits;
 
 struct _glibtop_shm_limits
 {
-    u_int64_t	flags,
-	shmmax,		/* GLIBTOP_SHM_LIMITS_SHMMAX	*/
-	shmmin,		/* GLIBTOP_SHM_LIMITS_SHMMIN	*/
-	shmmni,		/* GLIBTOP_SHM_LIMITS_SHMMNI	*/
-	shmseg,		/* GLIBTOP_SHM_LIMITS_SHMSEG	*/
-	shmall;		/* GLIBTOP_SHM_LIMITS_SHMALL	*/
+	u_int64_t	flags,
+		shmmax,		/* GLIBTOP_IPC_SHMMAX	*/
+		shmmin,		/* GLIBTOP_IPC_SHMMIN	*/
+		shmmni,		/* GLIBTOP_IPC_SHMMNI	*/
+		shmseg,		/* GLIBTOP_IPC_SHMSEG	*/
+		shmall;		/* GLIBTOP_IPC_SHMALL	*/
 };
+
+#define glibtop_get_shm_limits(shm)	glibtop_get_shm_limits_l(glibtop_global_server, shm)
 
 #if GLIBTOP_SUID_SHM_LIMITS
 #define glibtop_get_shm_limits_r	glibtop_get_shm_limits_p
@@ -57,14 +57,14 @@ struct _glibtop_shm_limits
 #define glibtop_get_shm_limits_r	glibtop_get_shm_limits_s
 #endif
 
-int glibtop_get_shm_limits_l (glibtop_client *client, glibtop_shm_limits *buf);
+void glibtop_get_shm_limits_l (glibtop *server, glibtop_shm_limits *buf);
 
 #if GLIBTOP_SUID_SHM_LIMITS
-int glibtop_init_shm_limits_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_shm_limits_p (glibtop_server *, glibtop_shm_limits *buf);
+void glibtop_init_shm_limits_p (glibtop *server);
+void glibtop_get_shm_limits_p (glibtop *, glibtop_shm_limits *buf);
 #else
-int glibtop_init_shm_limits_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_shm_limits_s (glibtop_server *server, glibtop_closure *closure, glibtop_shm_limits *buf);
+void glibtop_init_shm_limits_s (glibtop *server);
+void glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -78,6 +78,6 @@ extern const char *glibtop_descriptions_shm_limits [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

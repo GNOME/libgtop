@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -26,38 +24,27 @@
 #include <glibtop.h>
 #include <glibtop/open.h>
 #include <glibtop/close.h>
-
-#include <glibtop/backend.h>
+#include <glibtop/command.h>
 
 /* Closes server. */
-
-static void
-close_backend (gpointer value, gpointer user_data)
-{
-    glibtop_backend *backend = (glibtop_backend *) value;
-    glibtop *server = (glibtop *) user_data;
-
-    /* should not happen ... */
-    if (!backend || !backend->_priv_module)
-	return;
-
-    if (backend->info && backend->info->close)
-	backend->info->close (server, backend);
-
-    /* Note that two or more servers may open the same backend. */
-    backend->_priv_module->refcount--;
-    if (!backend->_priv_module->refcount) {
-	g_module_close (backend->_priv_module->module);
-	g_free (backend->_priv_module);
-    }
-
-    g_free (backend);
-}
 
 void
 glibtop_close_r (glibtop *server)
 {
-    g_slist_foreach (server->_priv->backend_list, close_backend, server);
-    g_slist_free (server->_priv->backend_list);
-    server->_priv->backend_list = NULL;
+	switch (server->method) {
+	case GLIBTOP_METHOD_UNIX:
+	case GLIBTOP_METHOD_INET:
+		glibtop_call_l (server, GLIBTOP_CMND_QUIT,
+				0, NULL, 0, NULL);
+
+		if (close (server->socket))
+			glibtop_warn_io ("close");
+
+		break;
+	case GLIBTOP_METHOD_PIPE:
+		kill (server->pid, SIGKILL);
+		close (server->input [0]);
+		close (server->output [1]);
+		break;
+	}
 }

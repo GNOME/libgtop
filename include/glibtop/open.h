@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
@@ -25,8 +23,10 @@
 #define __GLIBTOP_OPEN_H__
 
 #include <glibtop.h>
+#include <glibtop/read.h>
+#include <glibtop/error.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define _GLIBTOP_INIT_STATE_INIT	0x10000
 #define _GLIBTOP_INIT_STATE_OPEN	0x20000
@@ -52,7 +52,7 @@ G_BEGIN_DECLS
 #define GLIBTOP_ERROR_METHOD_DEFAULT	GLIBTOP_ERROR_METHOD_WARN_ONCE
 
 void
-glibtop_open_l (glibtop_client *client, const char *backend_name,
+glibtop_open_l (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags);
 
 void
@@ -60,22 +60,14 @@ glibtop_init_p (glibtop *server, const unsigned long features,
 		const unsigned flags);
 
 void
-glibtop_open_p (glibtop_server *server, glibtop_closure *closure,
+glibtop_open_p (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags);
 
 void
-glibtop_open_s (glibtop_server *server, glibtop_closure *closure,
+glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags);
 
-#ifdef _IN_LIBGTOP
 
-void
-_glibtop_open_sysdeps (glibtop_client *client, const char *program_name,
-		       const u_int64_t features, const char **backend_args,
-		       GError **opt_error);
-
-#endif /* _IN_LIBGTOP */
-
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* fsusage.h -- declarations for filesystem space usage info
    Copyright (C) 1991, 1992 Free Software Foundation, Inc.
 

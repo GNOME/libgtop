@@ -1,412 +1,587 @@
 # libgtop sk.po
-# Copyright (C) 2001 Free Software Foundation, Inc.
-# Marcel Telka <marcel@telka.sk>, 2001.
+# Copyright (C) 2001, 2002 Free Software Foundation, Inc.
+# Marcel Telka <marcel@telka.sk>, 2001, 2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 2001-02-13 10:01+0100\n"
-"PO-Revision-Date: 2001-02-13 10:01+0100\n"
+"Project-Id-Version: libgtop 1.0\n"
+"POT-Creation-Date: 2002-04-24 10:24+0200\n"
+"PO-Revision-Date: 2002-04-24 10:29+0100\n"
 "Last-Translator: Marcel Telka <Marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@rak.isternet.sk>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
-msgid "Hangup (POSIX)"
-msgstr "Zavesenie (POSIX)"
+#: examples/smp.c:68
+#, c-format
+msgid "Ticks (%ld per second):"
+msgstr "Tiky hodÃ­n (%ld za sekundu):"
 
-#: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
-msgid "Interrupt (ANSI)"
-msgstr "Preru¹enie (ANSI)"
+#: examples/smp.c:71
+msgid "Total"
+msgstr "Celkom"
 
-#: lib/sysdeps-init-freebsd.c:35 lib/sysdeps-init-linux.c:35
-msgid "Quit (POSIX)"
-msgstr "Ukonèi» (POSIX)"
+#: examples/smp.c:71 sysdeps/names/mem.c:47
+msgid "User"
+msgstr "PouÅ¾Ã­vateÄ¾"
 
-#: lib/sysdeps-init-freebsd.c:36 lib/sysdeps-init-linux.c:36
-msgid "Illegal instruction (ANSI)"
-msgstr "Neplatná in¹trukcia (ANSI)"
+#: examples/smp.c:71 sysdeps/names/procuid.c:58
+msgid "Nice"
+msgstr "Priorita (nice)"
 
-#: lib/sysdeps-init-freebsd.c:37 lib/sysdeps-init-linux.c:37
-msgid "Trace trap (POSIX)"
-msgstr "Ladiaci bod (POSIX)"
+#: examples/smp.c:71
+msgid "Sys"
+msgstr "Sys"
 
-#: lib/sysdeps-init-freebsd.c:38 lib/sysdeps-init-linux.c:38
-msgid "Abort (ANSI)"
-msgstr "Preru¹i» (ANSI)"
+#: examples/smp.c:71
+msgid "Idle"
+msgstr "NeÄinnosÅ¥"
 
-#: lib/sysdeps-init-freebsd.c:39
-msgid "EMT instruction"
-msgstr "In¹trukcia EMT"
+#: examples/smp.c:73
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+msgstr ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
 
-#: lib/sysdeps-init-freebsd.c:40 lib/sysdeps-init-linux.c:40
-msgid "Floating-point exception (ANSI)"
-msgstr "Vınimka pri práci s pohyblivou rádovou èiarkou (ANSI)"
+#: examples/smp.c:77
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
-msgid "Kill, unblockable (POSIX)"
-msgstr "Zabi», neblokovateµne (POSIX)"
+#: examples/smp.c:94
+msgid "Percent:"
+msgstr "Percento:"
 
-#: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
-msgid "BUS error (4.2 BSD)"
-msgstr "Chyba na zbernici (4.2 BSD)"
+#: examples/smp.c:95
+msgid "Total (%)"
+msgstr "Celkom (%)"
 
-#: lib/sysdeps-init-freebsd.c:43 lib/sysdeps-init-linux.c:43
-msgid "Segmentation violation (ANSI)"
-msgstr "Chyba segmentácie (ANSI)"
+#: examples/smp.c:95
+msgid "User (%)"
+msgstr "PouÅ¾Ã­vateÄ¾ (%)"
 
-#: lib/sysdeps-init-freebsd.c:44
-msgid "Bad argument to system call"
-msgstr "Nesprávny argument v systémvom volaní"
+#: examples/smp.c:95
+msgid "Nice (%)"
+msgstr "Priorita (%)"
 
-#: lib/sysdeps-init-freebsd.c:45 lib/sysdeps-init-linux.c:45
-msgid "Broken pipe (POSIX)"
-msgstr "Preru¹ená rúra (POSIX)"
+#: examples/smp.c:95
+msgid "Sys (%)"
+msgstr "Sys (%)"
 
-#: lib/sysdeps-init-freebsd.c:46 lib/sysdeps-init-linux.c:46
-msgid "Alarm clock (POSIX)"
-msgstr "Budík (POSIX)"
+#: examples/smp.c:96
+msgid "Idle (%)"
+msgstr "NeÄinnosÅ¥ (%)"
 
-#: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
-msgid "Termination (ANSI)"
-msgstr "Ukonèenie (ANSI)"
+#: examples/smp.c:98
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+msgstr ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
 
-#: lib/sysdeps-init-freebsd.c:48 lib/sysdeps-init-linux.c:55
-msgid "Urgent condition on socket (4.2 BSD)"
-msgstr "Naliehavá situácia na zásuvke (4.2 BSD)"
+#: examples/smp.c:114
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: lib/sysdeps-init-freebsd.c:49 lib/sysdeps-init-linux.c:51
-msgid "Stop, unblockable (POSIX)"
-msgstr "Zastavenie, neblokovateµné (POSIX)"
+#: examples/smp.c:120
+msgid "Spin:"
+msgstr "Spin:"
 
-#: lib/sysdeps-init-freebsd.c:50 lib/sysdeps-init-linux.c:52
-msgid "Keyboard stop (POSIX)"
-msgstr "Preru¹enie klávesnice (POSIX)"
+#: lib/read.c:75
+#, c-format
+msgid "read %d bytes"
+msgstr "naÄÃ­tanÃ© %d bajtov"
 
-#: lib/sysdeps-init-freebsd.c:51 lib/sysdeps-init-linux.c:50
-msgid "Continue (POSIX)"
-msgstr "Pokraèovanie (POSIX)"
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "veÄ¾kosÅ¥ naÄÃ­tanÃ½ch dÃ¡t"
 
-#: lib/sysdeps-init-freebsd.c:52 lib/sysdeps-init-linux.c:49
-msgid "Child status has changed (POSIX)"
-msgstr "Stav potomka bol zmenenı (POSIX)"
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr "naÄÃ­tanÃ© %d bajtov dÃ¡t"
 
-#: lib/sysdeps-init-freebsd.c:53 lib/sysdeps-init-linux.c:53
-msgid "Background read from tty (POSIX)"
-msgstr "Èítanie z tty na pozadí (POSIX)"
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr "zapÃ­sanÃ© %d bajtov"
 
-#: lib/sysdeps-init-freebsd.c:54 lib/sysdeps-init-linux.c:54
-msgid "Background write to tty (POSIX)"
-msgstr "Zápis do tty na pozadí (POSIX)"
+#: src/daemon/gnuserv.c:448
+msgid "Enable debugging"
+msgstr "PovoliÅ¥ ladenie"
 
-#: lib/sysdeps-init-freebsd.c:55 lib/sysdeps-init-linux.c:61
-msgid "I/O now possible (4.2 BSD)"
-msgstr "V/V je mo¾né (4.2 BSD)"
+#: src/daemon/gnuserv.c:448
+msgid "DEBUG"
+msgstr "LADENIE"
 
-#: lib/sysdeps-init-freebsd.c:56 lib/sysdeps-init-linux.c:56
-msgid "CPU limit exceeded (4.2 BSD)"
-msgstr "Prekroèenı limit procesora (4.2 BSD)"
+#: src/daemon/gnuserv.c:450
+msgid "Enable verbose output"
+msgstr "PovoliÅ¥ detailnÃ½ vÃ½pis"
 
-#: lib/sysdeps-init-freebsd.c:57 lib/sysdeps-init-linux.c:57
-msgid "File size limit exceeded (4.2 BSD)"
-msgstr "Prekroèenı limit veµkosti súboru (4.2 BSD)"
+#: src/daemon/gnuserv.c:450
+msgid "VERBOSE"
+msgstr "DETAILNE"
 
-#: lib/sysdeps-init-freebsd.c:58 lib/sysdeps-init-linux.c:58
-msgid "Virtual alarm clock (4.2 BSD)"
-msgstr "Virtuálny budík (4.2 BSD)"
+#: src/daemon/gnuserv.c:452
+msgid "Don't fork into background"
+msgstr "Nerozvetvuj sa do pozadia"
 
-#: lib/sysdeps-init-freebsd.c:59 lib/sysdeps-init-linux.c:59
-msgid "Profiling alarm clock (4.2 BSD)"
-msgstr "Nastavenie budíka (4.2 BSD)"
+#: src/daemon/gnuserv.c:452
+msgid "NO-DAEMON"
+msgstr "NO-DAEMON"
 
-#: lib/sysdeps-init-freebsd.c:60 lib/sysdeps-init-linux.c:60
-msgid "Window size change (4.3 BSD, Sun)"
-msgstr "Zmena veµkosti okna (4.3 BSD, Sun)"
+#: src/daemon/gnuserv.c:454
+msgid "Invoked from inetd"
+msgstr "VyvolanÃ½ cez inetd"
 
-#: lib/sysdeps-init-freebsd.c:61
-msgid "Information request"
-msgstr "Po¾iadavka na informáciu"
+#: src/daemon/gnuserv.c:454
+msgid "INETD"
+msgstr "INETD"
 
-#: lib/sysdeps-init-freebsd.c:62 lib/sysdeps-init-linux.c:42
-msgid "User-defined signal 1 (POSIX)"
-msgstr "Pou¾ívateµom definovanı signál 1 (POSIX)"
+#: src/daemon/gnuserv.c:488
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Chyba vo voÄ¾be %s: %s.\n"
+"VÃ½pis vÅ¡etkÃ½ch dostupnÃ½ch volieb prÃ­kazovÃ©ho riadku zÃ­skate spustenÃ­m '%s --"
+"help'.\n"
 
-#: lib/sysdeps-init-freebsd.c:63 lib/sysdeps-init-linux.c:44
-msgid "User-defined signal 2 (POSIX)"
-msgstr "Pou¾ívateµom definovanı signál 2 (POSIX)"
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "NeznÃ¡ma chyba systÃ©mu"
 
-#: lib/sysdeps-init-linux.c:62
-msgid "Power failure restart (System V)"
-msgstr "Re¹tart pri vıpadku napájania (System V)"
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: voÄ¾ba `%s' je nejednoznaÄnÃ¡\n"
 
-#: support/popthelp.c:23
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: voÄ¾ba `--%s' nepodporuje argumenty\n"
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: voÄ¾ba `%c%s' nepodporuje argumenty\n"
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: voÄ¾ba `%s' vyÅ¾aduje parameter\n"
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: nerozoznanÃ¡ voÄ¾ba `--%s'\n"
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: nerozoznanÃ¡ voÄ¾ba `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: nepovolenÃ¡ voÄ¾ba -- %c\n"
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: chybnÃ¡ voÄ¾ba -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: voÄ¾ba vyÅ¾aduje parameter -- %c\n"
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: voÄ¾ba `-W %s' je nejednoznaÄnÃ¡\n"
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: voÄ¾ba `-W %s' nepodporuje argumenty\n"
+
+#: support/popthelp.c:35
 msgid "Show this help message"
-msgstr "Zobrazi» túto pomocnú správu"
+msgstr "UkÃ¡zaÅ¥ tÃºto sprÃ¡vu pomocnÃ­ka"
 
-#: support/popthelp.c:24
+#: support/popthelp.c:36
 msgid "Display brief usage message"
-msgstr "Zobrazi» stuènı návod na pou¾itie"
+msgstr "ZobraziÅ¥ struÄnÃº sprÃ¡vu o pouÅ¾Ã­vanÃ­"
+
+#: sysdeps/names/cpu.c:43
+msgid "Total CPU Time"
+msgstr "CelkovÃ½ Äas procesora"
+
+#: sysdeps/names/cpu.c:44
+msgid "CPU Time in User Mode"
+msgstr "ÄŒas procesora v pouÅ¾Ã­vateÄ¾skom reÅ¾ime"
 
 #: sysdeps/names/cpu.c:45
-msgid "Total CPU Time"
-msgstr "Celkovı èas procesora"
+msgid "CPU Time in User Mode (nice)"
+msgstr "ÄŒas procesora v pouÅ¾Ã­vateÄ¾skom reÅ¾ime (priorita)"
 
 #: sysdeps/names/cpu.c:46
-msgid "CPU Time in User Mode"
-msgstr "Èas procesora v pou¾ívateµskom re¾ime"
+msgid "CPU Time in System Mode"
+msgstr "ÄŒas procesora v systÃ©movom reÅ¾ime"
 
 #: sysdeps/names/cpu.c:47
-msgid "CPU Time in User Mode (nice)"
-msgstr "Èas procesora v pou¾ívateµskom re¾ime (priorita)"
+msgid "CPU Time in the Idle Task"
+msgstr "ÄŒas procesora v neÄinnej Ãºlohe"
 
 #: sysdeps/names/cpu.c:48
-msgid "CPU Time in System Mode"
-msgstr "Èas procesora v systémovom re¾ime"
-
-#: sysdeps/names/cpu.c:49
-msgid "CPU Time in the Idle Task"
-msgstr "Èas procesora v neèinnej úlohe"
-
-#: sysdeps/names/cpu.c:50
 msgid "Tick Frequency"
 msgstr "Frekvencia tikov"
 
-#: sysdeps/names/cpu.c:51
+#: sysdeps/names/cpu.c:49
 msgid "SMP Total CPU Time"
-msgstr "SMP Celkovı èas procesora"
+msgstr "SMP CelkovÃ½ Äas procesora"
+
+#: sysdeps/names/cpu.c:50
+msgid "SMP CPU Time in User Mode"
+msgstr "SMP ÄŒas procesora v pouÅ¾Ã­vateÄ¾skom reÅ¾ime"
+
+#: sysdeps/names/cpu.c:51
+msgid "SMP CPU Time in User Mode (nice)"
+msgstr "SMP ÄŒas procesora v pouÅ¾Ã­vateÄ¾skom reÅ¾ime (priorita)"
 
 #: sysdeps/names/cpu.c:52
-msgid "SMP CPU Time in User Mode"
-msgstr "SMP Èas procesora v pou¾ívateµskom re¾ime"
+msgid "SMP CPU Time in System Mode"
+msgstr "SMP ÄŒas procesora v systÃ©movom reÅ¾ime"
 
 #: sysdeps/names/cpu.c:53
-msgid "SMP CPU Time in User Mode (nice)"
-msgstr "SMP Èas procesora v pou¾ívateµskom re¾ime (priorita)"
-
-#: sysdeps/names/cpu.c:54
-msgid "SMP CPU Time in System Mode"
-msgstr "SMP Èas procesora v systémovom re¾ime"
-
-#: sysdeps/names/cpu.c:55
 msgid "SMP CPU Time in the Idle Task"
-msgstr "SMP Èas procesora v neèinnej úlohe"
+msgstr "SMP ÄŒas procesora v neÄinnej Ãºlohe"
 
-#: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
-msgid "SMP CPU Flags"
-msgstr "SMP Príznaky procesora"
+#: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
+msgid "Number of clock ticks since system boot"
+msgstr "PoÄet tikov hodÃ­n od Å¡tartu systÃ©mu"
+
+#: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
+msgid "Number of clock ticks the system spent in user mode"
+msgstr "PoÄet tikov hodÃ­n, ktorÃ© systÃ©m strÃ¡vil v pouÅ¾Ã­vateÄ¾skom reÅ¾ime"
+
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
+msgid "Number of clock ticks the system spent in user mode (nice)"
+msgstr "PoÄet tikov hodÃ­n, ktorÃ© systÃ©m strÃ¡vil v pouÅ¾Ã­vateÄ¾skom reÅ¾ime (nice)"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
-msgid "Number of clock ticks since system boot"
-msgstr "Poèet tikov hodín od ¹tartu systému"
+msgid "Number of clock ticks the system spent in system mode"
+msgstr "PoÄet tikov hodÃ­n, ktorÃ© systÃ©m strÃ¡vil v reÅ¾ime jadra"
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
-msgid "Number of clock ticks the system spent in user mode"
-msgstr "Poèet tikov hodín, ktoré systém strávil v pou¾ívateµskom re¾ime"
-
-#: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
-msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "Poèet tikov hodín, ktoré systém strávil v pou¾ívateµskom re¾ime (nice)"
-
-#: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
-msgid "Number of clock ticks the system spent in system mode"
-msgstr "Poèet tikov hodín, ktoré systém strávil v re¾ime jadra"
-
-#: sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr "Poèet tikov hodín, ktoré systém strávil v neèinnosti"
+msgstr "PoÄet tikov hodÃ­n, ktorÃ© systÃ©m strÃ¡vil v neÄinnosti"
 
-#: sysdeps/names/cpu.c:66
+#: sysdeps/names/cpu.c:63
 msgid "Tick frequency (default is 100)"
-msgstr "Frekvencia tikov (¹tandardne 100)"
+msgstr "Frekvencia tikov (Å¡tandardne 100)"
 
-#: sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
+#: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
 msgid "Total blocks"
 msgstr "Celkom blokov"
 
-#: sysdeps/names/fsusage.c:42
+#: sysdeps/names/fsusage.c:40
 msgid "Free blocks"
-msgstr "Voµnıch blokov"
+msgstr "VoÄ¾nÃ½ch blokov"
 
-#: sysdeps/names/fsusage.c:43
+#: sysdeps/names/fsusage.c:41
 msgid "Available blocks"
-msgstr "Dostupnıch blokov"
+msgstr "DostupnÃ½ch blokov"
 
-#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
+#: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
 msgid "Total file nodes"
-msgstr "Súborovıch uzlov celkom"
+msgstr "SÃºborovÃ½ch uzlov celkom"
 
-#: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:54
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
 msgid "Free file nodes"
-msgstr "Voµnıch súborovıch uzlov"
+msgstr "VoÄ¾nÃ½ch sÃºborovÃ½ch uzlov"
 
-#: sysdeps/names/fsusage.c:51
+#: sysdeps/names/fsusage.c:49
 msgid "Free blocks available to the superuser"
-msgstr "Voµnıch blokov dostupnıch pre správcu"
+msgstr "VoÄ¾nÃ½ch blokov dostupnÃ½ch pre sprÃ¡vcu"
 
-#: sysdeps/names/fsusage.c:52
+#: sysdeps/names/fsusage.c:50
 msgid "Free blocks available to non-superusers"
-msgstr "Voµnıch blokov dostupnıch pre be¾nıch pou¾ívateµov"
+msgstr "VoÄ¾nÃ½ch blokov dostupnÃ½ch pre beÅ¾nÃ½ch pouÅ¾Ã­vateÄ¾ov"
+
+#: sysdeps/names/loadavg.c:39
+msgid "Load Average"
+msgstr "PriemernÃ¡ zÃ¡Å¥aÅ¾"
+
+#: sysdeps/names/loadavg.c:40
+msgid "Running Tasks"
+msgstr "BeÅ¾iacich Ãºloh"
 
 #: sysdeps/names/loadavg.c:41
-msgid "Load Average"
-msgstr "Priemerná zá»a¾"
-
-#: sysdeps/names/loadavg.c:42
-msgid "Running Tasks"
-msgstr "Be¾iacich úloh"
-
-#: sysdeps/names/loadavg.c:43
 msgid "Number of Tasks"
-msgstr "Poèet úloh"
+msgstr "PoÄet Ãºloh"
 
-#: sysdeps/names/loadavg.c:44 sysdeps/names/loadavg.c:52
+#: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
 msgid "Last PID"
-msgstr "Posledné PID"
+msgstr "PoslednÃ© PID"
+
+#: sysdeps/names/loadavg.c:47
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgstr "PoÄet Ãºloh beÅ¾iacich sÃºÄasne - primer za 1, 5 a 15 minÃºt"
+
+#: sysdeps/names/loadavg.c:48
+msgid "Number of tasks currently running"
+msgstr "PoÄet momentÃ¡lne beÅ¾iacich Ãºloh"
 
 #: sysdeps/names/loadavg.c:49
-msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "Poèet úloh be¾iacich súèasne - primer za 1, 5 a 15 minút"
-
-#: sysdeps/names/loadavg.c:50
-msgid "Number of tasks currently running"
-msgstr "Poèet momentálne be¾iacich úloh"
-
-#: sysdeps/names/loadavg.c:51
 msgid "Total number of tasks"
-msgstr "Celkovı poèet úloh"
+msgstr "CelkovÃ½ poÄet Ãºloh"
+
+#: sysdeps/names/mem.c:41
+msgid "Total Memory"
+msgstr "CelkovÃ¡ pamÃ¤Å¥"
+
+#: sysdeps/names/mem.c:42
+msgid "Used Memory"
+msgstr "PouÅ¾itÃ¡ pamÃ¤Å¥"
 
 #: sysdeps/names/mem.c:43
-msgid "Total Memory"
-msgstr "Celková pamä»"
+msgid "Free Memory"
+msgstr "VoÄ¾nÃ¡ pamÃ¤Å¥"
 
 #: sysdeps/names/mem.c:44
-msgid "Used Memory"
-msgstr "Pou¾itá pamä»"
+msgid "Shared Memory"
+msgstr "ZdieÄ¾anÃ¡ pamÃ¤Å¥"
 
 #: sysdeps/names/mem.c:45
-msgid "Free Memory"
-msgstr "Voµná pamä»"
+msgid "Buffers"
+msgstr "OddeÄ¾ovacie pamÃ¤ti"
 
 #: sysdeps/names/mem.c:46
-msgid "Shared Memory"
-msgstr "Zdieµaná pamä»"
-
-#: sysdeps/names/mem.c:47
-msgid "Buffers"
-msgstr "Oddeµovacie pamäti"
+msgid "Cached"
+msgstr "Vo vyrovnÃ¡vacej pamÃ¤ti"
 
 #: sysdeps/names/mem.c:48
-msgid "Cached"
-msgstr "Vo vyrovnávacej pamäti"
-
-#: sysdeps/names/mem.c:49
-msgid "User"
-msgstr "Pou¾ívateµ"
-
-#: sysdeps/names/mem.c:50
 msgid "Locked"
-msgstr "Zamknuté"
+msgstr "ZamknutÃ©"
+
+#: sysdeps/names/mem.c:53
+msgid "Total physical memory in kB"
+msgstr "CelkovÃ¡ fyzickÃ¡ pamÃ¤Å¥ v kB"
+
+#: sysdeps/names/mem.c:54
+msgid "Used memory size in kB"
+msgstr "VeÄ¾kosÅ¥ pouÅ¾itej pamÃ¤te v kB"
 
 #: sysdeps/names/mem.c:55
-msgid "Total physical memory in kB"
-msgstr "Celková fyzická pamä» v kB"
+msgid "Free memory size in kB"
+msgstr "VeÄ¾kosÅ¥ voÄ¾nej pamÃ¤te v kB"
 
 #: sysdeps/names/mem.c:56
-msgid "Used memory size in kB"
-msgstr "Veµkos» pou¾itej pamäte v kB"
+msgid "Shared memory size in kB"
+msgstr "VeÄ¾kosÅ¥ zdieÄ¾anej pamÃ¤te v kB"
 
 #: sysdeps/names/mem.c:57
-msgid "Free memory size in kB"
-msgstr "Veµkos» voµnej pamäte v kB"
+msgid "Size of buffers kB"
+msgstr "VeÄ¾kosÅ¥ oddeÄ¾ovacÃ­ch pamÃ¤tÃ­ v kB"
 
 #: sysdeps/names/mem.c:58
-msgid "Shared memory size in kB"
-msgstr "Veµkos» zdieµanej pamäte v kB"
+msgid "Size of cached memory in kB"
+msgstr "VeÄ¾kosÅ¥ vyrovnÃ¡vacej pamÃ¤te v kB"
 
 #: sysdeps/names/mem.c:59
-msgid "Size of buffers kB"
-msgstr "Veµkos» oddeµovacích pamätí v kB"
+msgid "Memory used from user processes in kB"
+msgstr "PamÃ¤Å¥ pouÅ¾itÃ¡ pouÅ¾Ã­vateÄ¾skÃ½mi procesmi v kB"
 
 #: sysdeps/names/mem.c:60
-msgid "Size of cached memory in kB"
-msgstr "Veµkos» vyrovnávacej pamäte v kB"
-
-#: sysdeps/names/mem.c:61
-msgid "Memory used from user processes in kB"
-msgstr "Pamä» pou¾itá pou¾ívateµskımi procesmi v kB"
-
-#: sysdeps/names/mem.c:62
 msgid "Memory in locked pages in kB"
-msgstr "Pamä» v zamknutıch stránkach v kB"
+msgstr "PamÃ¤Å¥ v zamknutÃ½ch strÃ¡nkach v kB"
+
+#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
+#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
+#: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
+msgid "Number of list elements"
+msgstr "PoÄet poloÅ¾iek zoznamu"
+
+#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
+#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
+#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
+msgid "Total size of list"
+msgstr "CelkovÃ¡ veÄ¾kosÅ¥ zoznamu"
+
+#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
+#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
+#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
+msgid "Size of a single list element"
+msgstr "VeÄ¾kosÅ¥ poloÅ¾ky jednoduchÃ©ho zoznamu"
+
+#: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
+msgid "Size in kilobytes of message pool"
+msgstr "VeÄ¾kosÅ¥ priestoru sprÃ¡v v kilobajtoch"
+
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
+msgid "Number of entries in message map"
+msgstr "PoÄet poloÅ¾iek v mape pamÃ¤ti"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
-msgid "Size in kilobytes of message pool"
-msgstr "Veµkos» priestoru správ v kilobajtoch"
+msgid "Max size of message"
+msgstr "MaximÃ¡lna veÄ¾kosÅ¥ sprÃ¡vy"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
-msgid "Number of entries in message map"
-msgstr "Poèet polo¾iek v mape pamäti"
+msgid "Default max size of queue"
+msgstr "PredvoenÃ¡ maximÃ¡lna veÄ¾kosÅ¥ radu"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
-msgid "Max size of message"
-msgstr "Maximálna veµkos» správy"
+msgid "Max queues system wide"
+msgstr "MaximÃ¡lny poÄet systÃ©movÃ½ch radov"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
-msgid "Default max size of queue"
-msgstr "Predvoená maximálna veµkos» radu"
+msgid "Message segment size"
+msgstr "VeÄ¾kosÅ¥ segmentu sprÃ¡vy"
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
-msgid "Max queues system wide"
-msgstr "Maximálny poèet systémovıch radov"
-
-#: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
-msgid "Message segment size"
-msgstr "Veµkos» segmentu správy"
-
-#: sysdeps/names/msg_limits.c:48 sysdeps/names/msg_limits.c:59
 msgid "Number of system message headers"
-msgstr "Poèet hlavièiek systémovıch správ"
+msgstr "PoÄet hlaviÄiek systÃ©movÃ½ch sprÃ¡v"
 
-#: sysdeps/names/prockernel.c:44
+#: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+msgid "Interface Flags"
+msgstr "PrÃ­znaky rozhranÃ­"
+
+#: sysdeps/names/netload.c:46
+msgid "MTU"
+msgstr "MTU"
+
+#: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
+msgid "Subnet"
+msgstr "PodsieÅ¥"
+
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
+msgid "Address"
+msgstr "Adresa"
+
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
+msgid "Packets In"
+msgstr "Pakety na vstupe"
+
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+msgid "Packets Out"
+msgstr "Pakety na vÃ½stupe"
+
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+msgid "Packets Total"
+msgstr "Pakety celkom"
+
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+msgid "Bytes In"
+msgstr "Bajty na vstupe"
+
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+msgid "Bytes Out"
+msgstr "Bajty na vÃ½stupe"
+
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+msgid "Bytes Total"
+msgstr "Bajty celkom"
+
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+msgid "Errors In"
+msgstr "Chyby na vstupe"
+
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+msgid "Errors Out"
+msgstr "Chyby na vÃ½stupe"
+
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+msgid "Errors Total"
+msgstr "Chyby celkom"
+
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+msgid "Collisions"
+msgstr "KolÃ­zie"
+
+#: sysdeps/names/netload.c:64
+msgid "Maximum Transfer Unit"
+msgstr "MaximÃ¡lna prenosovÃ¡ jednotka"
+
+#: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
+msgid "PPP State"
+msgstr "Stav PPP"
+
+#: sysdeps/names/ppp.c:39
+msgid "Input bytes"
+msgstr "VstupnÃ© bajty"
+
+#: sysdeps/names/ppp.c:40
+msgid "Output bytes"
+msgstr "VÃ½stupnÃ© bajty"
+
+#: sysdeps/names/ppp.c:46
+msgid "Number of input bytes"
+msgstr "PoÄet vstupnÃ½ch bajtov"
+
+#: sysdeps/names/ppp.c:47
+msgid "Number of output bytes"
+msgstr "PoÄet vÃ½stupnÃ½ch bajtov"
+
+#: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
+msgid "Size"
+msgstr "VeÄ¾kosÅ¥"
+
+#: sysdeps/names/procargs.c:43
+msgid "Length in bytes of the returned string."
+msgstr "DÄºÅ¾ka vrÃ¡tnÃ©ho reÅ¥azca v bajtoch."
+
+#: sysdeps/names/prockernel.c:42
 msgid "K_Flags"
-msgstr "J_Prízn"
+msgstr "J_PrÃ­zn"
 
-#: sysdeps/names/prockernel.c:44
+#: sysdeps/names/prockernel.c:42
 msgid "Min_Flt"
-msgstr "Ved_Vıp"
+msgstr "Ved_VÃ½p"
 
-#: sysdeps/names/prockernel.c:44
+#: sysdeps/names/prockernel.c:42
 msgid "Maj_Flt"
-msgstr "Hla_Vıp"
+msgstr "Hla_VÃ½p"
 
-#: sysdeps/names/prockernel.c:44
+#: sysdeps/names/prockernel.c:42
 msgid "CMin_Flt"
-msgstr "PVed_Vıp"
+msgstr "PVed_VÃ½p"
 
-#: sysdeps/names/prockernel.c:45
+#: sysdeps/names/prockernel.c:43
 msgid "CMaj_Flt"
-msgstr "PHla_Vıp"
+msgstr "PHla_VÃ½p"
 
-#: sysdeps/names/prockernel.c:45
+#: sysdeps/names/prockernel.c:43
 msgid "KStk_ESP"
-msgstr "JZás_ESP"
+msgstr "JZÃ¡s_ESP"
 
-#: sysdeps/names/prockernel.c:45
+#: sysdeps/names/prockernel.c:43
 msgid "KStk_EIP"
-msgstr "JZás_EIP"
+msgstr "JZÃ¡s_EIP"
 
-#: sysdeps/names/prockernel.c:45
+#: sysdeps/names/prockernel.c:43
 msgid "NWChan"
 msgstr "NWKan"
 
-#: sysdeps/names/prockernel.c:46
+#: sysdeps/names/prockernel.c:44
 msgid "WChan"
 msgstr "WKan"
 
 #. K_Flags
-#: sysdeps/names/prockernel.c:52
+#: sysdeps/names/prockernel.c:50
 msgid ""
 "Kernel flags of the process.\n"
 "\n"
@@ -417,829 +592,769 @@ msgid ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
-"Príznaky jadra pre proces.\n"
+"PrÃ­znaky jadra pre proces.\n"
 "\n"
-"Na Linuxe momentálne má ka¾dı príznak nastavenı bit math, preto¾e crt0.s "
-"kontroluje emuláciu matematickıch funkcií. Tento bit nie je zahrnutı vo "
-"vıstupoch.\n"
+"Na Linuxe momentÃ¡lne mÃ¡ kaÅ¾dÃ½ prÃ­znak nastavenÃ½ bit math, pretoÅ¾e crt0.s "
+"kontroluje emulÃ¡ciu matematickÃ½ch funkciÃ­. Tento bit nie je zahrnutÃ½ vo "
+"vÃ½stupoch.\n"
 "\n"
-"Toto je pravdepodobne chyba, preto¾e nie ka¾dı proces je kompilovanı program "
+"Toto je pravdepodobne chyba, pretoÅ¾e nie kaÅ¾dÃ½ proces je kompilovanÃ½ program "
 "v jazyku C.\n"
 "\n"
-"Bit math by mal ma» hodnotu 4 a bit traced je 10 (v desiatkovej sústave)."
+"Bit math by mal maÅ¥ hodnotu 4 a bit traced je 10 (v desiatkovej sÃºstave)."
 
 #. Min_Flt
-#: sysdeps/names/prockernel.c:61
+#: sysdeps/names/prockernel.c:59
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Poèet vedµaj¹ích vıpadkov procesu, ktoré nevy¾adujú nahratie pamä»ovej "
-"stránky z disku."
+"PoÄet vedÄ¾ajÅ¡Ã­ch vÃ½padkov procesu, ktorÃ© nevyÅ¾adujÃº nahratie pamÃ¤Å¥ovej "
+"strÃ¡nky z disku."
 
 #. Maj_Flt
-#: sysdeps/names/prockernel.c:64
+#: sysdeps/names/prockernel.c:62
 msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Poèet hlavnıch vıpadkov procesu, ktoré vy¾adujú nahratie pamä»ovej stránky z "
+"PoÄet hlavnÃ½ch vÃ½padkov procesu, ktorÃ© vyÅ¾adujÃº nahratie pamÃ¤Å¥ovej strÃ¡nky z "
 "disku."
 
 #. CMin_Flt
-#: sysdeps/names/prockernel.c:67
+#: sysdeps/names/prockernel.c:65
 msgid "The number of minor faults that the process and its children have made."
-msgstr "Poèet vedµaj¹ích vıpadkov procesu a jeho potomkov."
+msgstr "PoÄet vedÄ¾ajÅ¡Ã­ch vÃ½padkov procesu a jeho potomkov."
 
 #. CMaj_Flt
-#: sysdeps/names/prockernel.c:70
+#: sysdeps/names/prockernel.c:68
 msgid "The number of major faults that the process and its children have made."
-msgstr "Poèet hlavnıch vıpadkov procesu a jeho potomkov."
+msgstr "PoÄet hlavnÃ½ch vÃ½padkov procesu a jeho potomkov."
 
 #. KStk_ESP
-#: sysdeps/names/prockernel.c:73
+#: sysdeps/names/prockernel.c:71
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
-"Aktuálna hodnota ESP (32 bitovı ukazateµ zásobníka) tak, ako bola nájdená v "
-"zásobníku jadra pre proces."
+"AktuÃ¡lna hodnota ESP (32 bitovÃ½ ukazateÄ¾ zÃ¡sobnÃ­ka) tak, ako bola nÃ¡jdenÃ¡ v "
+"zÃ¡sobnÃ­ku jadra pre proces."
 
 #. KStk_EIP
-#: sysdeps/names/prockernel.c:76
+#: sysdeps/names/prockernel.c:74
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr "Aktuálny EIP (32 bitovı in¹trukènı èítaè)."
+msgstr "AktuÃ¡lny EIP (32 bitovÃ½ inÅ¡trukÄnÃ½ ÄÃ­taÄ)."
 
 #. NWChan
-#: sysdeps/names/prockernel.c:78
+#: sysdeps/names/prockernel.c:76
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "
 "address of a system call, and can be looked up in a namelist if you need a "
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Toto je \"kanál\", v ktorom proces èaká. Toto je adresa systémového volania. "
-"Ak chcete vedie» jej textové meno, mô¾ete sa pozrie» do zoznamu mien. (Ak "
-"máte aktuálne /etc/psdatabase, skúste ps -l aby ste videli pole WKAN v "
-"èinnosti)"
+"Toto je \"kanÃ¡l\", v ktorom proces ÄakÃ¡. Toto je adresa systÃ©movÃ©ho volania. "
+"Ak chcete vedieÅ¥ jej textovÃ© meno, mÃ´Å¾ete sa pozrieÅ¥ do zoznamu mien. (Ak "
+"mÃ¡te aktuÃ¡lne /etc/psdatabase, skÃºste ps -l aby ste videli pole WKAN v "
+"Äinnosti)"
 
 #. WChan
-#: sysdeps/names/prockernel.c:83
+#: sysdeps/names/prockernel.c:81
 msgid "This is the textual name of the `nwchan' field."
-msgstr "Toto je textové meno opµa `nwkan'."
+msgstr "Toto je textovÃ© meno opÄ¾a `nwkan'."
 
-#: sysdeps/names/procmem.c:49
-msgid "Size"
-msgstr "Veµkos»"
-
-#: sysdeps/names/procmem.c:49
+#: sysdeps/names/procmem.c:47
 msgid "Virtual"
-msgstr "Virtuálny"
+msgstr "VirtuÃ¡lny"
 
-#: sysdeps/names/procmem.c:49
+#: sysdeps/names/procmem.c:47
 msgid "Resident"
-msgstr "Rezidentnı"
+msgstr "RezidentnÃ½"
 
-#: sysdeps/names/procmem.c:49
+#: sysdeps/names/procmem.c:47
 msgid "Share"
-msgstr "Zdieµanı"
+msgstr "ZdieÄ¾anÃ½"
 
-#: sysdeps/names/procmem.c:50
+#: sysdeps/names/procmem.c:48
 msgid "Resident Set Size"
-msgstr "Celková veµkos» rezidentnej pamäti"
+msgstr "CelkovÃ¡ veÄ¾kosÅ¥ rezidentnej pamÃ¤ti"
 
-#: sysdeps/names/procmem.c:50
+#: sysdeps/names/procmem.c:48
 msgid "Resident Set Size Limit"
-msgstr "Limit celkovej veµkosti rezidentnej pamäti"
+msgstr "Limit celkovej veÄ¾kosti rezidentnej pamÃ¤ti"
+
+#: sysdeps/names/procmem.c:53
+msgid "Total # of pages of memory"
+msgstr "CelkovÃ½ poÄet pamÃ¤Å¥ovÃ½ch strÃ¡nok"
+
+#: sysdeps/names/procmem.c:54
+msgid "Number of pages of virtual memory"
+msgstr "PoÄet strÃ¡nok virtuÃ¡lnej pamÃ¤ti"
 
 #: sysdeps/names/procmem.c:55
-msgid "Total # of pages of memory"
-msgstr "Celkovı poèet pamä»ovıch stránok"
+msgid "Number of resident set (non-swapped) pages"
+msgstr "PoÄet celkovÃ½ch rezidentnÃ½ch strÃ¡nok (neodloÅ¾enÃ½ch)"
 
 #: sysdeps/names/procmem.c:56
-msgid "Number of pages of virtual memory"
-msgstr "Poèet stránok virtuálnej pamäti"
+msgid "Number of pages of shared (mmap'd) memory"
+msgstr "PoÄet strÃ¡nok zdieÄ¾anej pamÃ¤ti (pomocou mmap)"
 
 #: sysdeps/names/procmem.c:57
-msgid "Number of resident set (non-swapped) pages"
-msgstr "Poèet celkovıch rezidentnıch stránok (neodlo¾enıch)"
-
-#: sysdeps/names/procmem.c:58
-msgid "Number of pages of shared (mmap'd) memory"
-msgstr "Poèet stránok zdieµanej pamäti (pomocou mmap)"
-
-#: sysdeps/names/procmem.c:59
 msgid ""
 "Number of pages the process has in real memory, minus 3 for administrative "
 "purposes. This is just the pages which count towards text, data, or stack "
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
 msgstr ""
-"Poèet stránok, ktoré zaberá proces v reálnej pamäti, zní¾enı o 3 (pre "
-"administratívne úèely). Toto sú len stránky, ktoré zahàòajú kód, údaje a "
-"miesto pre zásobník. Táto hodnota nezahàòa stránky, ktoré neboli nahraté na "
-"¾iados» alebo ktoré sú odlo¾ené."
+"PoÄet strÃ¡nok, ktorÃ© zaberÃ¡ proces v reÃ¡lnej pamÃ¤ti, znÃ­Å¾enÃ½ o 3 (pre "
+"administratÃ­vne ÃºÄely). Toto sÃº len strÃ¡nky, ktorÃ© zahÅ•ÅˆajÃº kÃ³d, Ãºdaje a "
+"miesto pre zÃ¡sobnÃ­k. TÃ¡to hodnota nezahÅ•Åˆa strÃ¡nky, ktorÃ© neboli nahratÃ© na "
+"Å¾iadosÅ¥ alebo ktorÃ© sÃº odloÅ¾enÃ©."
 
-#: sysdeps/names/procmem.c:64
+#: sysdeps/names/procmem.c:62
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "Aktuálny limit CRP procesu v bajtoch (obyèajne 2 147 483 647)."
+msgstr "AktuÃ¡lny limit CRP procesu v bajtoch (obyÄajne 2 147 483 647)."
 
-#: sysdeps/names/procsegment.c:50
+#: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
-msgstr "Kód_CRP"
+msgstr "KÃ³d_CRP"
 
-#: sysdeps/names/procsegment.c:50
+#: sysdeps/names/procsegment.c:42
 msgid "ShLib_RSS"
 msgstr "ZdKni_CRP"
 
-#: sysdeps/names/procsegment.c:50
+#: sysdeps/names/procsegment.c:42
 msgid "Data_RSS"
-msgstr "Údaj_CRP"
+msgstr "Ãšdaj_CRP"
+
+#: sysdeps/names/procsegment.c:42
+msgid "Stack_RSS"
+msgstr "ZÃ¡sob_CRP"
+
+#: sysdeps/names/procsegment.c:43
+msgid "Dirty Size"
+msgstr "ZmenenÃ¡ veÄ¾kosÅ¥"
+
+#: sysdeps/names/procsegment.c:43
+msgid "Start_Code"
+msgstr "ZaÄ_KÃ³du"
+
+#: sysdeps/names/procsegment.c:43
+msgid "End_Code"
+msgstr "Kon_KÃ³du"
+
+#: sysdeps/names/procsegment.c:43
+msgid "Start_Stack"
+msgstr "ZaÄ_ZÃ¡s"
+
+#: sysdeps/names/procsegment.c:48
+msgid "Text resident set size"
+msgstr "CelkovÃ¡ veÄ¾kost rezidentnej pamÃ¤ti kÃ³du"
+
+#: sysdeps/names/procsegment.c:49
+msgid "Shared-Lib resident set size"
+msgstr "CelkovÃ¡ veÄ¾kost rezidentnej pamÃ¤ti zdieÄ¾anÃ½ch kniÅ¾nÃ­c"
 
 #: sysdeps/names/procsegment.c:50
-msgid "Stack_RSS"
-msgstr "Zásob_CRP"
-
-#: sysdeps/names/procsegment.c:51
-msgid "Dirty Size"
-msgstr "Zmenená veµkos»"
-
-#: sysdeps/names/procsegment.c:51
-msgid "Start_Code"
-msgstr "Zaè_Kódu"
-
-#: sysdeps/names/procsegment.c:51
-msgid "End_Code"
-msgstr "Kon_Kódu"
-
-#: sysdeps/names/procsegment.c:52
-msgid "Start_Data"
-msgstr "Zaè_Dáta"
-
-#: sysdeps/names/procsegment.c:52
-msgid "End_Data"
-msgstr "Kon_Dáta"
-
-#: sysdeps/names/procsegment.c:52
-msgid "Start_Brk"
-msgstr "Zaè_Brk"
-
-#: sysdeps/names/procsegment.c:52
-msgid "Brk"
-msgstr "Brk"
-
-#: sysdeps/names/procsegment.c:53
-msgid "Start_Stack"
-msgstr "Zaè_Zás"
-
-#: sysdeps/names/procsegment.c:53
-msgid "Start_MMap"
-msgstr "Zaè_MMap"
-
-#: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
-msgid "Arg_Start"
-msgstr "Par_Zaè"
-
-#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
-msgid "Arg_End"
-msgstr "Par_Kon"
-
-#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
-msgid "Env_Start"
-msgstr "Prostr_Zaè"
-
-#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
-msgid "Env_End"
-msgstr "Postr_Kon"
-
-#: sysdeps/names/procsegment.c:59
-msgid "Text resident set size"
-msgstr "Celková veµkost rezidentnej pamäti kódu"
-
-#: sysdeps/names/procsegment.c:60
-msgid "Shared-Lib resident set size"
-msgstr "Celková veµkost rezidentnej pamäti zdieµanıch kni¾níc"
-
-#: sysdeps/names/procsegment.c:61
 msgid "Data resident set size"
-msgstr "Celková veµkost rezidentnej pamäti údajov"
+msgstr "CelkovÃ¡ veÄ¾kost rezidentnej pamÃ¤ti Ãºdajov"
 
-#: sysdeps/names/procsegment.c:62
+#: sysdeps/names/procsegment.c:51
 msgid "Stack resident set size"
-msgstr "Celková veµkost rezidentnej pamäti zásobníka"
+msgstr "CelkovÃ¡ veÄ¾kost rezidentnej pamÃ¤ti zÃ¡sobnÃ­ka"
 
-#: sysdeps/names/procsegment.c:63
+#: sysdeps/names/procsegment.c:52
 msgid "Total size of dirty pages"
-msgstr "Celková veµkos» zmenenıch stránok"
+msgstr "CelkovÃ¡ veÄ¾kosÅ¥ zmenenÃ½ch strÃ¡nok"
 
-#: sysdeps/names/procsegment.c:64
+#: sysdeps/names/procsegment.c:53
 msgid "Address of beginning of code segment"
-msgstr "Adresa zaèiatku kódového segmentu"
+msgstr "Adresa zaÄiatku kÃ³dovÃ©ho segmentu"
 
-#: sysdeps/names/procsegment.c:65
+#: sysdeps/names/procsegment.c:54
 msgid "Address of end of code segment"
-msgstr "Adresa konca kódového segmentu"
+msgstr "Adresa konca kÃ³dovÃ©ho segmentu"
 
-#: sysdeps/names/procsegment.c:66
-msgid "Address of beginning of data segment"
-msgstr "Adresa zaèiatku dátového segmentu"
-
-#: sysdeps/names/procsegment.c:67
-msgid "Address of end of data segment"
-msgstr "Adresa konca dátového segmentu"
-
-#: sysdeps/names/procsegment.c:68
-msgid "Brk_Start"
-msgstr "Brk_Zaè"
-
-#: sysdeps/names/procsegment.c:69
-msgid "Brk_End"
-msgstr "Brk_Kon"
-
-#: sysdeps/names/procsegment.c:70
+#: sysdeps/names/procsegment.c:55
 msgid "Address of the bottom of stack segment"
-msgstr "Adresa dna zásobníkového segmentu"
+msgstr "Adresa dna zÃ¡sobnÃ­kovÃ©ho segmentu"
 
-#: sysdeps/names/procsegment.c:71
-msgid "Start of mmap()ed areas"
-msgstr "Zaèiatok oblastí namapovanıch pomocou mmap()"
-
-#: sysdeps/names/procsignal.c:42
+#: sysdeps/names/procsignal.c:40
 msgid "Signal"
-msgstr "Signál"
+msgstr "SignÃ¡l"
 
-#: sysdeps/names/procsignal.c:42
+#: sysdeps/names/procsignal.c:40
 msgid "Blocked"
-msgstr "Blokovanı"
+msgstr "BlokovanÃ½"
 
-#: sysdeps/names/procsignal.c:42
+#: sysdeps/names/procsignal.c:40
 msgid "SigIgnore"
-msgstr "SigIgnorovanı"
+msgstr "SigIgnorovanÃ½"
 
-#: sysdeps/names/procsignal.c:42
+#: sysdeps/names/procsignal.c:40
 msgid "SigCatch"
-msgstr "SigZachytenı"
+msgstr "SigZachytenÃ½"
+
+#: sysdeps/names/procsignal.c:45
+msgid "Mask of pending signals"
+msgstr "Maska neobslÃºÅ¾enÃ½ch signÃ¡lov"
+
+#: sysdeps/names/procsignal.c:46
+msgid "Mask of blocked signals"
+msgstr "Maska blokovanÃ½ch signÃ¡lov"
 
 #: sysdeps/names/procsignal.c:47
-msgid "Mask of pending signals"
-msgstr "Maska neobslú¾enıch signálov"
+msgid "Mask of ignored signals"
+msgstr "Maska ignorovanÃ½ch signÃ¡lov"
 
 #: sysdeps/names/procsignal.c:48
-msgid "Mask of blocked signals"
-msgstr "Maska blokovanıch signálov"
-
-#: sysdeps/names/procsignal.c:49
-msgid "Mask of ignored signals"
-msgstr "Maska ignorovanıch signálov"
-
-#: sysdeps/names/procsignal.c:50
 msgid "Mask of caught signals"
-msgstr "Maska chytenıch signálov"
+msgstr "Maska chytenÃ½ch signÃ¡lov"
 
-#: sysdeps/names/procstate.c:45
+#: sysdeps/names/procstate.c:40
 msgid "Cmd"
 msgstr "Prk"
 
-#: sysdeps/names/procstate.c:45
+#: sysdeps/names/procstate.c:40
 msgid "State"
 msgstr "Stav"
 
-#: sysdeps/names/procstate.c:45
+#: sysdeps/names/procstate.c:40
 msgid "UID"
 msgstr "UID"
 
-#: sysdeps/names/procstate.c:45
+#: sysdeps/names/procstate.c:40
 msgid "GID"
 msgstr "GID"
 
 #: sysdeps/names/procstate.c:45
-msgid "RUID"
-msgstr "RUID"
+msgid "Basename of executable file in call to exec()"
+msgstr "ZÃ¡kladnÃ© meno sÃºboru spustiteÄ¾nÃ©ho programu pri volanÃ­ exec()"
 
 #: sysdeps/names/procstate.c:46
-msgid "RGID"
-msgstr "RGID"
-
-#: sysdeps/names/procstate.c:46
-msgid "Has CPU"
-msgstr "Má procesor"
-
-#: sysdeps/names/procstate.c:46
-msgid "Processor"
-msgstr "Procesor"
+msgid "Single-Char code for process state (S=sleeping)"
+msgstr "JednopÃ­smenovÃ½ kÃ³d stavu procesu (S=spiaci)"
 
 #: sysdeps/names/procstate.c:47
-msgid "Last Processor"
-msgstr "Poslednı procesor"
+msgid "UID of process"
+msgstr "UID procesu"
 
-#: sysdeps/names/procstate.c:52
-msgid "Basename of executable file in call to exec()"
-msgstr "Základné meno súboru spustiteµného programu pri volaní exec()"
+#: sysdeps/names/procstate.c:48
+msgid "GID of process"
+msgstr "GID procesu"
 
-#: sysdeps/names/procstate.c:53
-msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Jednopísmenovı kód stavu procesu (S=spiaci)"
-
-#: sysdeps/names/procstate.c:54
-msgid "effective UID of process"
-msgstr "efektívne UID procesu"
-
-#: sysdeps/names/procstate.c:55
-msgid "effective GID of process"
-msgstr "efektívne GID procesu"
-
-#: sysdeps/names/procstate.c:56
-msgid "real UID of process"
-msgstr "reálne UID procesu"
-
-#: sysdeps/names/procstate.c:57
-msgid "real GID of process"
-msgstr "reálne GID procesu"
-
-#: sysdeps/names/procstate.c:58
-msgid "has_cpu"
-msgstr "má_proc"
-
-#: sysdeps/names/procstate.c:59
-msgid "processor"
-msgstr "procesor"
-
-#: sysdeps/names/procstate.c:60
-msgid "last_processor"
-msgstr "posl_procesor"
-
-#: sysdeps/names/proctime.c:46
+#: sysdeps/names/proctime.c:44
 msgid "Start_Time"
-msgstr "Zaè_Èas"
+msgstr "ZaÄ_ÄŒas"
 
-#: sysdeps/names/proctime.c:46
+#: sysdeps/names/proctime.c:44
 msgid "RTime"
-msgstr "RÈas"
+msgstr "RÄŒas"
 
-#: sysdeps/names/proctime.c:46
+#: sysdeps/names/proctime.c:44
 msgid "UTime"
-msgstr "PÈas"
+msgstr "PÄŒas"
+
+#: sysdeps/names/proctime.c:44
+msgid "STime"
+msgstr "SÄŒas"
+
+#: sysdeps/names/proctime.c:45
+msgid "CUTime"
+msgstr "APÄŒas"
+
+#: sysdeps/names/proctime.c:45
+msgid "CSTime"
+msgstr "ASÄŒas"
+
+#: sysdeps/names/proctime.c:45
+msgid "TimeOut"
+msgstr "ÄŒasLimit"
+
+#: sysdeps/names/proctime.c:45
+msgid "It_Real_Value"
+msgstr "Jeho_ReÃ¡lna_Hodnota"
 
 #: sysdeps/names/proctime.c:46
-msgid "STime"
-msgstr "SÈas"
-
-#: sysdeps/names/proctime.c:47
-msgid "CUTime"
-msgstr "APÈas"
-
-#: sysdeps/names/proctime.c:47
-msgid "CSTime"
-msgstr "ASÈas"
-
-#: sysdeps/names/proctime.c:47
-msgid "TimeOut"
-msgstr "ÈasLimit"
-
-#: sysdeps/names/proctime.c:47
-msgid "It_Real_Value"
-msgstr "Jeho_Reálna_Hodnota"
-
-#: sysdeps/names/proctime.c:48
 msgid "Frequency"
 msgstr "Frekvencia"
 
-#: sysdeps/names/proctime.c:48
+#: sysdeps/names/proctime.c:46
 msgid "XCPU_UTime"
-msgstr "XProc_PÈas"
+msgstr "XProc_PÄŒas"
 
-#: sysdeps/names/proctime.c:48
+#: sysdeps/names/proctime.c:46
 msgid "XCPU_STime"
-msgstr "XProc_SÈas"
+msgstr "XProc_SÄŒas"
 
-#: sysdeps/names/proctime.c:49
-msgid "XCPU_Flags"
-msgstr "XProc_Prízn"
+#: sysdeps/names/proctime.c:51
+msgid "Start time of process in seconds since the epoch"
+msgstr "ÄŒas spustenia procesu v sekundÃ¡ch od zaÄiatku epochy"
+
+#: sysdeps/names/proctime.c:52
+msgid "Real time accumulated by process (should be utime + stime)"
+msgstr "ReÃ¡lny Äas nazbieranÃ½ procesom (obyÄajne PÄŒas + SÄŒas)"
+
+#: sysdeps/names/proctime.c:53
+msgid "user-mode CPU time accumulated by process"
+msgstr "ÄŒas procesora v pouÅ¾Ã­vateÄ¾skom reÅ¾ime nazbieranÃ½ procesom"
 
 #: sysdeps/names/proctime.c:54
-msgid "Start time of process in seconds since the epoch"
-msgstr "Èas spustenia procesu v sekundách od zaèiatku epochy"
+msgid "kernel-mode CPU time accumulated by process"
+msgstr "ÄŒas procesora v reÅ¾ime jadra nazbieranÃ½ procesom"
 
 #: sysdeps/names/proctime.c:55
-msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "Reálny èas nazbieranı procesom (obyèajne PÈas + SÈas)"
+msgid "cumulative utime of process and reaped children"
+msgstr "CelkovÃ½ PÄŒas procesu a potomkov"
 
 #: sysdeps/names/proctime.c:56
-msgid "user-mode CPU time accumulated by process"
-msgstr "Èas procesora v pou¾ívateµskom re¾ime nazbieranı procesom"
+msgid "cumulative stime of process and reaped children"
+msgstr "CelkovÃ½ SÄŒas procesu a potomkov"
 
 #: sysdeps/names/proctime.c:57
-msgid "kernel-mode CPU time accumulated by process"
-msgstr "Èas procesora v re¾ime jadra nazbieranı procesom"
+msgid "The time (in jiffies) of the process's next timeout"
+msgstr "ÄŒas (v jiffies) do ÄalÅ¡ieho vyprÅ¡ania ÄasovÃ©ho limitu procesu"
 
 #: sysdeps/names/proctime.c:58
-msgid "cumulative utime of process and reaped children"
-msgstr "Celkovı PÈas procesu a potomkov"
-
-#: sysdeps/names/proctime.c:59
-msgid "cumulative stime of process and reaped children"
-msgstr "Celkovı SÈas procesu a potomkov"
-
-#: sysdeps/names/proctime.c:60
-msgid "The time (in jiffies) of the process's next timeout"
-msgstr "Èas (v jiffies) do ïal¹ieho vypr¹ania èasového limitu procesu"
-
-#: sysdeps/names/proctime.c:61
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
-msgstr "Èas (v jiffies) pred zaslaním ïal¹ieho SIGALARM procesu od èasovaèa."
+msgstr "ÄŒas (v jiffies) pred zaslanÃ­m ÄalÅ¡ieho SIGALARM procesu od ÄasovaÄa."
 
-#: sysdeps/names/proctime.c:63
+#: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
 msgstr "Frekvencia tikov"
 
-#: sysdeps/names/proctime.c:64
+#: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr "SMP èas procesora v pou¾ívateµskom re¾ime nazbieranı procesom"
+msgstr "SMP Äas procesora v pouÅ¾Ã­vateÄ¾skom reÅ¾ime nazbieranÃ½ procesom"
 
-#: sysdeps/names/proctime.c:65
+#: sysdeps/names/proctime.c:62
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "SMP èas procesora v re¾ime jadra nazbieranı procesom"
+msgstr "SMP Äas procesora v reÅ¾ime jadra nazbieranÃ½ procesom"
 
-#: sysdeps/names/procuid.c:48
+#: sysdeps/names/procuid.c:56
 msgid "Uid"
 msgstr "Uid"
 
-#: sysdeps/names/procuid.c:48
+#: sysdeps/names/procuid.c:56
 msgid "EUid"
 msgstr "EUid"
 
-#: sysdeps/names/procuid.c:48
+#: sysdeps/names/procuid.c:56
 msgid "Gid"
 msgstr "Gid"
 
-#: sysdeps/names/procuid.c:48
+#: sysdeps/names/procuid.c:56
 msgid "EGid"
 msgstr "EGid"
 
-#: sysdeps/names/procuid.c:48
-msgid "SUid"
-msgstr "SUid"
-
-#: sysdeps/names/procuid.c:49
-msgid "SGid"
-msgstr "SGid"
-
-#: sysdeps/names/procuid.c:49
-msgid "FsUid"
-msgstr "FsUid"
-
-#: sysdeps/names/procuid.c:49
-msgid "FsGid"
-msgstr "FsGid"
-
-#: sysdeps/names/procuid.c:49
+#: sysdeps/names/procuid.c:56
 msgid "Pid"
 msgstr "Pid"
 
-#: sysdeps/names/procuid.c:50
+#: sysdeps/names/procuid.c:57
 msgid "PPid"
 msgstr "PPid"
 
-#: sysdeps/names/procuid.c:50
+#: sysdeps/names/procuid.c:57
 msgid "PGrp"
 msgstr "PGrp"
 
-#: sysdeps/names/procuid.c:50
+#: sysdeps/names/procuid.c:57
 msgid "Session"
 msgstr "Sedenie"
 
-#: sysdeps/names/procuid.c:50
+#: sysdeps/names/procuid.c:57
 msgid "Tty"
 msgstr "Tty"
 
-#: sysdeps/names/procuid.c:51
+#: sysdeps/names/procuid.c:58
 msgid "TPGid"
 msgstr "TPGid"
 
-#: sysdeps/names/procuid.c:51
+#: sysdeps/names/procuid.c:58
 msgid "Priority"
 msgstr "Priorita"
 
-#: sysdeps/names/procuid.c:51
-msgid "Nice"
-msgstr "Priorita (nice)"
-
-#: sysdeps/names/procuid.c:51
-msgid "NGroups"
-msgstr "NSkupiny"
-
-#: sysdeps/names/procuid.c:52
-msgid "Groups"
-msgstr "Skupiny"
-
-#: sysdeps/names/procuid.c:57
-msgid "User ID"
-msgstr "Pou¾ívateµské ID"
-
-#: sysdeps/names/procuid.c:58
-msgid "Effective User ID"
-msgstr "Efektívne pou¾ívateµské ID"
-
-#: sysdeps/names/procuid.c:59
-msgid "Group ID"
-msgstr "Skupinové ID"
-
-#: sysdeps/names/procuid.c:60
-msgid "Effective Group ID"
-msgstr "Efektívne pou¾ívateµské ID"
-
-#: sysdeps/names/procuid.c:61
-msgid "Saved User ID"
-msgstr "Ulo¾ené pou¾ívateµské ID"
-
-#: sysdeps/names/procuid.c:62
-msgid "Saved Group ID"
-msgstr "Ulo¾ené skupinové ID"
-
 #: sysdeps/names/procuid.c:63
-msgid "Filesystem User ID"
-msgstr "Pou¾ívateµské ID súborového systému"
+msgid "User ID"
+msgstr "PouÅ¾Ã­vateÄ¾skÃ© ID"
 
 #: sysdeps/names/procuid.c:64
-msgid "Filesystem Group ID"
-msgstr "Skupinové ID súborového systému"
+msgid "Effective User ID"
+msgstr "EfektÃ­vne pouÅ¾Ã­vateÄ¾skÃ© ID"
 
 #: sysdeps/names/procuid.c:65
+msgid "Group ID"
+msgstr "SkupinovÃ© ID"
+
+#: sysdeps/names/procuid.c:66
+msgid "Effective Group ID"
+msgstr "EfektÃ­vne pouÅ¾Ã­vateÄ¾skÃ© ID"
+
+#: sysdeps/names/procuid.c:67
 msgid "Process ID"
 msgstr "ID procesu"
 
-#: sysdeps/names/procuid.c:66
-msgid "PID of parent process"
-msgstr "PID rodièovského procesu"
-
-#: sysdeps/names/procuid.c:67
-msgid "Process group ID"
-msgstr "Skupinové ID procesu"
-
 #: sysdeps/names/procuid.c:68
+msgid "PID of parent process"
+msgstr "PID rodiÄovskÃ©ho procesu"
+
+#: sysdeps/names/procuid.c:69
+msgid "Process group ID"
+msgstr "SkupinovÃ© ID procesu"
+
+#: sysdeps/names/procuid.c:70
 msgid "Session ID"
 msgstr "ID sedenia"
 
-#: sysdeps/names/procuid.c:69
-msgid "Full device number of controlling terminal"
-msgstr "Úplné èíslo zariadenia riadiaceho terminál"
-
-#: sysdeps/names/procuid.c:70
-msgid "Terminal process group ID"
-msgstr "Skupinové ID terminálového procesu"
-
 #: sysdeps/names/procuid.c:71
-msgid "Kernel scheduling priority"
-msgstr "Priorita v plánovaèi jadra"
+msgid "Full device number of controlling terminal"
+msgstr "ÃšplnÃ© ÄÃ­slo zariadenia riadiaceho terminÃ¡l"
 
 #: sysdeps/names/procuid.c:72
-msgid "Standard unix nice level of process"
-msgstr "©tandardná úroveò priority procesu v unix-e"
+msgid "Terminal process group ID"
+msgstr "SkupinovÃ© ID terminÃ¡lovÃ©ho procesu"
 
 #: sysdeps/names/procuid.c:73
-msgid "Number of additional process groups"
-msgstr "Poèet prídavnıch skupín procesu"
+msgid "Kernel scheduling priority"
+msgstr "Priorita v plÃ¡novaÄi jadra"
 
 #: sysdeps/names/procuid.c:74
-msgid "Additional process groups"
-msgstr "Prídavné skupiny procesu"
+msgid "Standard unix nice level of process"
+msgstr "Å tandardnÃ¡ ÃºroveÅˆ priority procesu v unix-e"
+
+#: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
+msgid "Number of entries in semaphore map"
+msgstr "PoÄet poloÅ¾iek v mape semafÃ³rov"
+
+#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
+msgid "Max number of arrays"
+msgstr "MaximÃ¡lny poÄet polÃ­"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
-msgid "Number of entries in semaphore map"
-msgstr "Poèet polo¾iek v mape semafórov"
+msgid "Max semaphores system wide"
+msgstr "MaximÃ¡lny poÄet semafÃ³rov v celom systÃ©me"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
-msgid "Max number of arrays"
-msgstr "Maximálny poèet polí"
+msgid "Number of undo structures system wide"
+msgstr "PoÄet Å¡truktÃºr undo v celom systÃ©me"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
-msgid "Max semaphores system wide"
-msgstr "Maximálny poèet semafórov v celom systéme"
+msgid "Max semaphores per array"
+msgstr "MaximÃ¡lny poÄet semafÃ³rov v poli"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
-msgid "Number of undo structures system wide"
-msgstr "Poèet ¹truktúr undo v celom systéme"
+msgid "Max ops per semop call"
+msgstr "MaximÃ¡lny poÄet ops vo volanÃ­ semop"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
-msgid "Max semaphores per array"
-msgstr "Maximálny poèet semafórov v poli"
+msgid "Max number of undo entries per process"
+msgstr "MaximÃ¡lny poÄet poloÅ¾iek undo na proces"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
-msgid "Max ops per semop call"
-msgstr "Maximálny poèet ops vo volaní semop"
+msgid "sizeof struct sem_undo"
+msgstr "veÄ¾kosÅ¥ Å¡truktÃºry sem_undo"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
-msgid "Max number of undo entries per process"
-msgstr "Maximálny poèet polo¾iek undo na proces"
+msgid "Semaphore max value"
+msgstr "MaximÃ¡lna hodnota semafÃ³ra"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
-msgid "sizeof struct sem_undo"
-msgstr "veµkos» ¹truktúry sem_undo"
-
-#: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
-msgid "Semaphore max value"
-msgstr "Maximálna hodnota semafóra"
-
-#: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 msgid "Adjust on exit max value"
-msgstr "Upravi» maximálnu hodnotu pri ukonèení"
+msgstr "UpraviÅ¥ maximÃ¡lnu hodnotu pri ukonÄenÃ­"
+
+#: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
+msgid "Max segment size"
+msgstr "MaximÃ¡lna veÄ¾kosÅ¥ segmentu"
+
+#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
+msgid "Min segment size"
+msgstr "MinimÃ¡lna veÄ¾kosÅ¥ segmentu"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
-msgid "Max segment size"
-msgstr "Maximálna veµkos» segmentu"
+msgid "Max number of segments"
+msgstr "MaximÃ¡lny poÄet segmentov"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
-msgid "Min segment size"
-msgstr "Minimálna veµkos» segmentu"
+msgid "Max shared segments per process"
+msgstr "MaximÃ¡lny poÄet zdieÄ¾anÃ½ch segmentov na proces"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
-msgid "Max number of segments"
-msgstr "Maximálny poèet segmentov"
-
-#: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
-msgid "Max shared segments per process"
-msgstr "Maximálny poèet zdieµanıch segmentov na proces"
-
-#: sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
 msgid "Max total shared memory"
-msgstr "Maximálna celková odkladacia pamä»"
+msgstr "MaximÃ¡lna celkovÃ¡ odkladacia pamÃ¤Å¥"
+
+#: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
+msgid "Total Swap Space"
+msgstr "CelkovÃ¡ veÄ¾kosÅ¥ odkladacej pamÃ¤ti"
+
+#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
+msgid "Used Swap Space"
+msgstr "VyuÅ¾itÃ¡ odkladacia pamÃ¤Å¥"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
-msgid "Total Swap Space"
-msgstr "Celková veµkos» odkladacej pamäti"
-
-#: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
-msgid "Used Swap Space"
-msgstr "Vyu¾itá odkladacia pamä»"
-
-#: sysdeps/names/swap.c:43 sysdeps/names/swap.c:52
 msgid "Free Swap Space"
-msgstr "Voµné miesto v odkladacej pamäti"
+msgstr "VoÄ¾nÃ© miesto v odkladacej pamÃ¤ti"
 
-#: sysdeps/names/swap.c:44
+#: sysdeps/names/swap.c:42
 msgid "Page In"
-msgstr "Nahraté stránky"
+msgstr "NahratÃ© strÃ¡nky"
 
-#: sysdeps/names/swap.c:45
+#: sysdeps/names/swap.c:43
 msgid "Page Out"
-msgstr "Odlo¾ené stránky"
+msgstr "OdloÅ¾enÃ© strÃ¡nky"
 
-#: sysdeps/names/swap.c:53
+#: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
 msgstr ""
-"Celkovı poèet stránok vyrovnávacej pamäte, ktoré boli nahraté od ¹tartu "
-"systému"
+"CelkovÃ½ poÄet strÃ¡nok vyrovnÃ¡vacej pamÃ¤te, ktorÃ© boli nahratÃ© od Å¡tartu "
+"systÃ©mu"
 
-#: sysdeps/names/swap.c:55
+#: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
-"Celkovı poèet stránok vyrovnávacej pamäte, ktoré boli odlo¾ené od ¹tartu "
-"systému"
+"CelkovÃ½ poÄet strÃ¡nok vyrovnÃ¡vacej pamÃ¤te, ktorÃ© boli odloÅ¾enÃ© od Å¡tartu "
+"systÃ©mu"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
 msgstr "Funkcie servra"
 
-#: sysdeps/names/sysdeps.c:54
-msgid "Pointer Size"
-msgstr "Veµkos» ukazovateµa"
-
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "CPU Usage"
-msgstr "Vyu¾itie procesora"
+msgstr "VyuÅ¾itie procesora"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "Memory Usage"
-msgstr "Vyu¾itie pamäti"
+msgstr "VyuÅ¾itie pamÃ¤ti"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Swap Usage"
-msgstr "Vyu¾itie odkladacej pamäti"
+msgstr "VyuÅ¾itie odkladacej pamÃ¤ti"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "System Uptime"
-msgstr "Doba prevádzky systému"
+msgstr "Doba prevÃ¡dzky systÃ©mu"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Load Averange"
-msgstr "Priemerná zá»a¾"
+msgstr "PriemernÃ¡ zÃ¡Å¥aÅ¾"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Shared Memory Limits"
-msgstr "Limity zdieµanej pamäti"
+msgstr "Limity zdieÄ¾anej pamÃ¤ti"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Message Queue Limits"
-msgstr "Limity radu správ"
+msgstr "Limity radu sprÃ¡v"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
-msgstr "Limity nastavenia semafóra"
+msgstr "Limity nastavenia semafÃ³ra"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
-msgstr "Zoznam be¾iacich procesov"
+msgstr "Zoznam beÅ¾iacich procesov"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Status information"
-msgstr "Informácie o stave procesu"
+msgstr "InformÃ¡cie o stave procesu"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process UID and TTY information"
-msgstr "Informácie o UID a TTY procesu"
+msgstr "InformÃ¡cie o UID a TTY procesu"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process Memory information"
-msgstr "Informácie o pamäti procesu"
+msgstr "InformÃ¡cie o pamÃ¤ti procesu"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Time information"
-msgstr "Èasové informácie procesu"
+msgstr "ÄŒasovÃ© informÃ¡cie procesu"
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Signal information"
-msgstr "Informácie o signáloch procesu"
+msgstr "InformÃ¡cie o signÃ¡loch procesu"
 
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Kernel Data information"
-msgstr "Informácie o údajoch jadra procesu"
+msgstr "InformÃ¡cie o Ãºdajoch jadra procesu"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Segment information"
-msgstr "Informácie o segmentoch procesu"
+msgstr "InformÃ¡cie o segmentoch procesu"
 
-#: sysdeps/names/sysdeps.c:71
-msgid "Process CWD"
-msgstr "Aktuálny adresár procesu"
-
-#: sysdeps/names/sysdeps.c:72
+#: sysdeps/names/sysdeps.c:66
 msgid "Process Arguments"
 msgstr "Parametre procesu"
 
-#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 msgid "Process Memory Map"
-msgstr "Mapa pamäti procesu"
+msgstr "Mapa pamÃ¤ti procesu"
 
-#: sysdeps/names/sysdeps.c:74
+#: sysdeps/names/sysdeps.c:68
 msgid "Mount List"
-msgstr "Zoznam pripojení"
+msgstr "Zoznam pripojenÃ­"
 
-#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "File System Usage"
-msgstr "Vyu¾itie súborového systému"
+msgstr "VyuÅ¾itie sÃºborovÃ©ho systÃ©mu"
 
-#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "Network Load"
-msgstr "Zá»a¾ siete"
+msgstr "ZÃ¡Å¥aÅ¾ siete"
 
-#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
-msgid "Interface Names"
-msgstr "Mená rozhraní"
-
-#: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
+#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "PPP Statistics"
-msgstr "©tatistiky PPP"
+msgstr "Å tatistiky PPP"
 
-#: sysdeps/names/sysdeps.c:84
-msgid "Pointer Size on the Server (in bits)"
-msgstr "Veµkos» ukazovateµa na servri (v bitoch)"
-
-#: sysdeps/names/sysdeps.c:101
-msgid "Current working directory of the process"
-msgstr "Aktuálny pracovnı adresár procesu"
-
-#: sysdeps/names/sysdeps.c:102
+#: sysdeps/names/sysdeps.c:93
 msgid "Command line arguments of the process"
-msgstr "Parametre príkazového riadku procesu"
+msgstr "Parametre prÃ­kazovÃ©ho riadku procesu"
 
-#: sysdeps/names/sysdeps.c:104
+#: sysdeps/names/sysdeps.c:95
 msgid "List of currently mounted filesystems"
-msgstr "Zoznam aktuálne primontovanıch súborovıch systémov"
+msgstr "Zoznam aktuÃ¡lne primontovanÃ½ch sÃºborovÃ½ch systÃ©mov"
 
-#: sysdeps/names/uptime.c:40
+#: sysdeps/names/uptime.c:38
 msgid "Uptime"
-msgstr "Doba prevádzky"
+msgstr "Doba prevÃ¡dzky"
 
-#: sysdeps/names/uptime.c:41
+#: sysdeps/names/uptime.c:39
 msgid "Idletime"
-msgstr "Èas neèinnosti"
+msgstr "ÄŒas neÄinnosti"
 
-#: sysdeps/names/uptime.c:42
-msgid "Boot time"
-msgstr "Èas ¹tartu"
-
-#: sysdeps/names/uptime.c:47
+#: sysdeps/names/uptime.c:44
 msgid "Time in seconds since system boot"
-msgstr "Èas v sekundách od ¹tartu systému"
+msgstr "ÄŒas v sekundÃ¡ch od Å¡tartu systÃ©mu"
 
-#: sysdeps/names/uptime.c:48
+#: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr ""
-"Èas v sekundách, ktorı systém strávil v neèinnıch úlohách od ¹tartu systému"
+"ÄŒas v sekundÃ¡ch, ktorÃ½ systÃ©m strÃ¡vil v neÄinnÃ½ch ÃºlohÃ¡ch od Å¡tartu systÃ©mu"
 
-#: sysdeps/names/uptime.c:49
-msgid "Boot time (seconds sice epoch)"
-msgstr "Èas ¹tartu (v sekundách od zaèiatku epochy)"
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Hangup"
+msgstr "Zavesenie"
+
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr "PreruÅ¡enie"
+
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "UkonÄiÅ¥"
+
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
+msgstr "NeplatnÃ¡ inÅ¡trukcia"
+
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
+msgstr "Ladiaci bod"
+
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "PreruÅ¡iÅ¥"
+
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+msgid "EMT error"
+msgstr "Chyba EMT"
+
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+msgid "Floating-point exception"
+msgstr "VÃ½nimka pri prÃ¡ci s pohyblivou rÃ¡dovou Äiarkou"
+
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "ZabiÅ¥"
+
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+msgid "Bus error"
+msgstr "Chyba na spoji"
+
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
+msgstr "Chyba segmentÃ¡cie"
+
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr "NesprÃ¡vny argument v systÃ©mvom volanÃ­"
+
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
+msgstr "PreruÅ¡enÃ¡ rÃºra"
+
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
+msgstr "BudÃ­k"
+
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+msgid "Termination"
+msgstr "UkonÄenie"
+
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
+msgstr "NaliehavÃ¡ situÃ¡cia na zÃ¡suvke"
+
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "ZastaviÅ¥"
+
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+msgid "Keyboard stop"
+msgstr "PreruÅ¡enie klÃ¡vesnice"
+
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "PokraÄovanie"
+
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
+msgstr "Stav potomka bol zmenenÃ½"
+
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+msgid "Background read from tty"
+msgstr "ÄŒÃ­tanie z tty na pozadÃ­"
+
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+msgid "Background write to tty"
+msgstr "ZÃ¡pis do tty na pozadÃ­"
+
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+msgid "I/O now possible"
+msgstr "V/V je moÅ¾nÃ©"
+
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr "PrekroÄenÃ½ limit procesora"
+
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+msgid "File size limit exceeded"
+msgstr "PrekroÄenÃ½ limit veÄ¾kosti sÃºboru"
+
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
+msgstr "VirtuÃ¡lny budÃ­k"
+
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr "Nastavenie budÃ­ka"
+
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+msgid "Window size change"
+msgstr "Zmena veÄ¾kosti okna"
+
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+msgid "Information request"
+msgstr "PoÅ¾iadavka na informÃ¡ciu"
+
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+msgid "User defined signal 1"
+msgstr "PouÅ¾Ã­vateÄ¾om definovanÃ½ signÃ¡l 1"
+
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+msgid "User defined signal 2"
+msgstr "PouÅ¾Ã­vateÄ¾om definovanÃ½ signÃ¡l 2"

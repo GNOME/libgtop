@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,23 +27,23 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_UPTIME_UPTIME		0
 #define GLIBTOP_UPTIME_IDLETIME		1
-#define GLIBTOP_UPTIME_BOOT_TIME	2
 
-#define GLIBTOP_MAX_UPTIME		3
+#define GLIBTOP_MAX_UPTIME		2
 
 typedef struct _glibtop_uptime	glibtop_uptime;
 
 struct _glibtop_uptime
 {
-    u_int64_t flags;
-    double uptime,		/* GLIBTOP_UPTIME_UPTIME	*/
-	idletime;		/* GLIBTOP_UPTIME_IDLETIME	*/
-    u_int64_t boot_time;	/* GLIBTOP_UPTIME_BOOT_TIME	*/
+	u_int64_t flags;
+	double uptime,		/* GLIBTOP_UPTIME_UPTIME	*/
+		idletime;	/* GLIBTOP_UPTIME_IDLETIME	*/
 };
+
+#define glibtop_get_uptime(uptime)	glibtop_get_uptime_l(glibtop_global_server, uptime)
 
 #if GLIBTOP_SUID_UPTIME
 #define glibtop_get_uptime_r		glibtop_get_uptime_p
@@ -53,14 +51,14 @@ struct _glibtop_uptime
 #define glibtop_get_uptime_r		glibtop_get_uptime_s
 #endif
 
-int glibtop_get_uptime_l (glibtop_client *client, glibtop_uptime *buf);
+void glibtop_get_uptime_l (glibtop *server, glibtop_uptime *buf);
 
 #if GLIBTOP_SUID_UPTIME
-int glibtop_init_uptime_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_uptime_p (glibtop_server *server, glibtop_closure *closure, glibtop_uptime *buf);
+void glibtop_init_uptime_p (glibtop *server);
+void glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf);
 #else
-int glibtop_init_uptime_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_uptime_s (glibtop_server *server, glibtop_closure *closure, glibtop_uptime *buf);
+void glibtop_init_uptime_s (glibtop *server);
+void glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -74,6 +72,6 @@ extern const char *glibtop_descriptions_uptime [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,7 +27,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_CPU_TOTAL	0
 #define GLIBTOP_CPU_USER	1
@@ -38,33 +36,36 @@ G_BEGIN_DECLS
 #define GLIBTOP_CPU_IDLE	4
 #define GLIBTOP_CPU_FREQUENCY	5
 
-#define GLIBTOP_CPU_XCPU_TOTAL	6
-#define GLIBTOP_CPU_XCPU_USER	7
-#define GLIBTOP_CPU_XCPU_NICE	8
-#define GLIBTOP_CPU_XCPU_SYS	9
-#define GLIBTOP_CPU_XCPU_IDLE	10
-#define GLIBTOP_CPU_XCPU_FLAGS	11
+#define GLIBTOP_XCPU_TOTAL	6
+#define GLIBTOP_XCPU_USER	7
+#define GLIBTOP_XCPU_NICE	8
+#define GLIBTOP_XCPU_SYS	9
+#define GLIBTOP_XCPU_IDLE	10
 
-#define GLIBTOP_MAX_CPU		12
+#define GLIBTOP_MAX_CPU		11
+
+/* Nobody should really be using more than 4 processors. */
+#define GLIBTOP_NCPU		4
 
 typedef struct _glibtop_cpu	glibtop_cpu;
 
 struct _glibtop_cpu
 {
-    u_int64_t	flags,
-	total,				/* GLIBTOP_CPU_TOTAL		*/
-	user,				/* GLIBTOP_CPU_USER		*/
-	nice,				/* GLIBTOP_CPU_NICE		*/
-	sys,				/* GLIBTOP_CPU_SYS		*/
-	idle,				/* GLIBTOP_CPU_IDLE		*/
-	frequency,			/* GLIBTOP_CPU_FREQUENCY	*/
-	xcpu_total [GLIBTOP_NCPU],	/* GLIBTOP_CPU_XCPU_TOTAL	*/
-	xcpu_user [GLIBTOP_NCPU],	/* GLIBTOP_CPU_XCPU_USER	*/
-	xcpu_nice [GLIBTOP_NCPU],	/* GLIBTOP_CPU_XCPU_NICE	*/
-	xcpu_sys  [GLIBTOP_NCPU],	/* GLIBTOP_CPU_XCPU_SYS		*/
-	xcpu_idle [GLIBTOP_NCPU],	/* GLIBTOP_CPU_XCPU_IDLE	*/
-	xcpu_flags;			/* GLIBTOP_CPU_XCPU_FLAGS	*/
+	u_int64_t	flags,
+		total,				/* GLIBTOP_CPU_TOTAL		*/
+		user,				/* GLIBTOP_CPU_USER		*/
+		nice,				/* GLIBTOP_CPU_NICE		*/
+		sys,				/* GLIBTOP_CPU_SYS		*/
+		idle,				/* GLIBTOP_CPU_IDLE		*/
+		frequency,			/* GLIBTOP_CPU_FREQUENCY	*/
+		xcpu_total [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_TOTAL		*/
+		xcpu_user [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_USER		*/
+		xcpu_nice [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_NICE		*/
+		xcpu_sys  [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_SYS		*/
+		xcpu_idle [GLIBTOP_NCPU];	/* GLIBTOP_XCPU_IDLE		*/
 };
+
+#define glibtop_get_cpu(cpu)	glibtop_get_cpu_l(glibtop_global_server, cpu)
 
 #if GLIBTOP_SUID_CPU
 #define glibtop_get_cpu_r	glibtop_get_cpu_p
@@ -72,14 +73,14 @@ struct _glibtop_cpu
 #define glibtop_get_cpu_r	glibtop_get_cpu_s
 #endif
 
-int glibtop_get_cpu_l (glibtop_client *client, glibtop_cpu *buf);
+void glibtop_get_cpu_l (glibtop *server, glibtop_cpu *buf);
 
 #if GLIBTOP_SUID_CPU
-int glibtop_init_cpu_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_cpu_p (glibtop_server *server, glibtop_closure *closure, glibtop_cpu *buf);
+void glibtop_init_cpu_p (glibtop *server);
+void glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf);
 #else
-int glibtop_init_cpu_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_cpu_s (glibtop_server *server, glibtop_closure *closure, glibtop_cpu *buf);
+void glibtop_init_cpu_s (glibtop *server);
+void glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -93,6 +94,6 @@ extern const char *glibtop_descriptions_cpu [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

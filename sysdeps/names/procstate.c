@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -21,41 +19,31 @@
    along with LibGTop; see the file COPYING. If not, write to the
    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
- */
+*/
 
 #include <glibtop.h>
 #include <glibtop/procstate.h>
 
-const char *glibtop_names_proc_state[GLIBTOP_MAX_PROC_STATE] =
+const char *glibtop_names_proc_state [GLIBTOP_MAX_PROC_STATE] =
 {
-    "cmd", "state", "uid", "gid", "ruid", "rgid", "has_cpu",
-    "processor", "last_processor"
+	"cmd", "state", "uid", "gid"
 };
 
-const unsigned glibtop_types_proc_state[GLIBTOP_MAX_PROC_STATE] =
+const unsigned glibtop_types_proc_state [GLIBTOP_MAX_PROC_STATE] =
 {
-    GLIBTOP_TYPE_STRING, GLIBTOP_TYPE_UNSIGNED,
-    GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
-    GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
-    GLIBTOP_TYPE_INT
+	GLIBTOP_TYPE_STRING, GLIBTOP_TYPE_CHAR,
+	GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT
 };
 
-const char *glibtop_labels_proc_state[GLIBTOP_MAX_PROC_STATE] =
+const char *glibtop_labels_proc_state [GLIBTOP_MAX_PROC_STATE] =
 {
-    N_ ("Cmd"), N_ ("State"), N_ ("UID"), N_ ("GID"), N_ ("RUID"),
-    N_ ("RGID"), N_ ("Has CPU"), N_ ("Processor"),
-    N_ ("Last Processor")
+	N_("Cmd"), N_("State"), N_("UID"), N_("GID")
 };
 
-const char *glibtop_descriptions_proc_state[GLIBTOP_MAX_PROC_STATE] =
+const char *glibtop_descriptions_proc_state [GLIBTOP_MAX_PROC_STATE] =
 {
-    N_ ("Basename of executable file in call to exec()"),
-    N_ ("Single-Char code for process state (S=sleeping)"),
-    N_ ("effective UID of process"),
-    N_ ("effective GID of process"),
-    N_ ("real UID of process"),
-    N_ ("real GID of process"),
-    N_ ("has_cpu"),
-    N_ ("processor"),
-    N_ ("last_processor")
+	N_("Basename of executable file in call to exec()"),
+	N_("Single-Char code for process state (S=sleeping)"),
+	N_("UID of process"),
+	N_("GID of process")
 };

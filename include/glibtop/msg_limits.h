@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,31 +27,33 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_MSG_LIMITS_MSGPOOL	0
-#define GLIBTOP_MSG_LIMITS_MSGMAP	1
-#define GLIBTOP_MSG_LIMITS_MSGMAX	2
-#define GLIBTOP_MSG_LIMITS_MSGMNB	3
-#define GLIBTOP_MSG_LIMITS_MSGMNI	4
-#define GLIBTOP_MSG_LIMITS_MSGSSZ	5
-#define GLIBTOP_MSG_LIMITS_MSGTQL	6
+#define GLIBTOP_IPC_MSGPOOL	0
+#define GLIBTOP_IPC_MSGMAP	1
+#define GLIBTOP_IPC_MSGMAX	2
+#define GLIBTOP_IPC_MSGMNB	3
+#define GLIBTOP_IPC_MSGMNI	4
+#define GLIBTOP_IPC_MSGSSZ	5
+#define GLIBTOP_IPC_MSGTQL	6
 
-#define GLIBTOP_MAX_MSG_LIMITS		7
+#define GLIBTOP_MAX_MSG_LIMITS	7
 
 typedef struct _glibtop_msg_limits	glibtop_msg_limits;
 
 struct _glibtop_msg_limits
 {
-    u_int64_t	flags,
-	msgpool,	/* GLIBTOP_MSG_LIMITS_MSGPOOL	*/
-	msgmap,		/* GLIBTOP_MSG_LIMITS_MSGMAP	*/
-	msgmax,		/* GLIBTOP_MSG_LIMITS_MSGMAX	*/
-	msgmnb,		/* GLIBTOP_MSG_LIMITS_MSGMNB	*/
-	msgmni,		/* GLIBTOP_MSG_LIMITS_MSGMNI	*/
-	msgssz,		/* GLIBTOP_MSG_LIMITS_MSGSSZ	*/
-	msgtql;		/* GLIBTOP_MSG_LIMITS_MSGTQL	*/
+	u_int64_t	flags,
+		msgpool,	/* GLIBTOP_IPC_MSGPOOL	*/
+		msgmap,		/* GLIBTOP_IPC_MSGMAP	*/
+		msgmax,		/* GLIBTOP_IPC_MSGMAX	*/
+		msgmnb,		/* GLIBTOP_IPC_MSGMNB	*/
+		msgmni,		/* GLIBTOP_IPC_MSGMNI	*/
+		msgssz,		/* GLIBTOP_IPC_MSGSSZ	*/
+		msgtql;		/* GLIBTOP_IPC_MSGTQL	*/
 };
+
+#define glibtop_get_msg_limits(msg)	glibtop_get_msg_limits_l(glibtop_global_server, msg)
 
 #if GLIBTOP_SUID_MSG_LIMITS
 #define glibtop_get_msg_limits_r	glibtop_get_msg_limits_p
@@ -61,14 +61,14 @@ struct _glibtop_msg_limits
 #define glibtop_get_msg_limits_r	glibtop_get_msg_limits_s
 #endif
 
-int glibtop_get_msg_limits_l (glibtop_client *client, glibtop_msg_limits *buf);
+void glibtop_get_msg_limits_l (glibtop *server, glibtop_msg_limits *buf);
 
 #if GLIBTOP_SUID_MSG_LIMITS
-int glibtop_init_msg_limits_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_msg_limits_p (glibtop_server *server, glibtop_closure *closure, glibtop_msg_limits *buf);
+void glibtop_init_msg_limits_p (glibtop *server);
+void glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf);
 #else
-int glibtop_init_msg_limits_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_msg_limits_s (glibtop_server *server, glibtop_closure *closure, glibtop_msg_limits *buf);
+void glibtop_init_msg_limits_s (glibtop *server);
+void glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -82,7 +82,7 @@ extern const char *glibtop_descriptions_msg_limits [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif
 

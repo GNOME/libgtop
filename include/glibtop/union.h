@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -46,49 +44,42 @@
 #include <glibtop/procargs.h>
 #include <glibtop/procmap.h>
 
-#include <glibtop/proccwd.h>
-
 #include <glibtop/mountlist.h>
 #include <glibtop/fsusage.h>
 
 #include <glibtop/netload.h>
-#include <glibtop/netinfo.h>
-#include <glibtop/interfaces.h>
 #include <glibtop/ppp.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 typedef union _glibtop_union	glibtop_union;
 
 union _glibtop_union
 {
-    glibtop_cpu			cpu;
-    glibtop_mem			mem;
-    glibtop_swap		swap;
-    glibtop_uptime		uptime;
-    glibtop_loadavg		loadavg;
-    glibtop_shm_limits		shm_limits;
-    glibtop_msg_limits		msg_limits;
-    glibtop_sem_limits		sem_limits;
-    glibtop_array		proclist;
-    glibtop_proc_state		proc_state;
-    glibtop_proc_uid		proc_uid;
-    glibtop_proc_mem		proc_mem;
-    glibtop_proc_time		proc_time;
-    glibtop_proc_signal		proc_signal;
-    glibtop_proc_kernel		proc_kernel;
-    glibtop_proc_segment	proc_segment;
-    glibtop_proc_cwd		proc_cwd;
-    glibtop_array		proc_args;
-    glibtop_array		proc_map;
-    glibtop_array		mountlist;
-    glibtop_fsusage		fsusage;
-    glibtop_array		interface_names;
-    glibtop_netinfo		netinfo;
-    glibtop_netload		netload;
-    glibtop_ppp			ppp;
+	glibtop_cpu		cpu;
+	glibtop_mem		mem;
+	glibtop_swap		swap;
+	glibtop_uptime		uptime;
+	glibtop_loadavg		loadavg;
+	glibtop_shm_limits	shm_limits;
+	glibtop_msg_limits	msg_limits;
+	glibtop_sem_limits	sem_limits;
+	glibtop_proclist	proclist;
+	glibtop_proc_state	proc_state;
+	glibtop_proc_uid	proc_uid;
+	glibtop_proc_mem	proc_mem;
+	glibtop_proc_time	proc_time;
+	glibtop_proc_signal	proc_signal;
+	glibtop_proc_kernel	proc_kernel;
+	glibtop_proc_segment	proc_segment;
+	glibtop_proc_args	proc_args;
+	glibtop_proc_map	proc_map;
+	glibtop_mountlist	mountlist;
+	glibtop_fsusage		fsusage;
+	glibtop_netload		netload;
+	glibtop_ppp		ppp;
 };
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

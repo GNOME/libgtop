@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,27 +27,14 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_PROC_STATE_CMD			0
-#define GLIBTOP_PROC_STATE_STATE		1
-#define GLIBTOP_PROC_STATE_UID			2
-#define GLIBTOP_PROC_STATE_GID			3
-#define GLIBTOP_PROC_STATE_RUID			4
-#define GLIBTOP_PROC_STATE_RGID			5
-#define GLIBTOP_PROC_STATE_HAS_CPU		6
-#define GLIBTOP_PROC_STATE_PROCESSOR		7
-#define GLIBTOP_PROC_STATE_LAST_PROCESSOR	8
+#define GLIBTOP_PROC_STATE_CMD		0
+#define GLIBTOP_PROC_STATE_STATE	1
+#define GLIBTOP_PROC_STATE_UID		2
+#define GLIBTOP_PROC_STATE_GID		3
 
-#define GLIBTOP_MAX_PROC_STATE			9
-
-/* Constants for the `state' field. */
-#define GLIBTOP_PROCESS_RUNNING			1
-#define GLIBTOP_PROCESS_INTERRUPTIBLE		2
-#define GLIBTOP_PROCESS_UNINTERRUPTIBLE		4
-#define GLIBTOP_PROCESS_ZOMBIE			8
-#define GLIBTOP_PROCESS_STOPPED			16
-#define GLIBTOP_PROCESS_SWAPPING		32
+#define GLIBTOP_MAX_PROC_STATE		4
 
 typedef struct _glibtop_proc_state	glibtop_proc_state;
 
@@ -57,25 +42,21 @@ typedef struct _glibtop_proc_state	glibtop_proc_state;
 
 struct _glibtop_proc_state
 {
-    u_int64_t flags;
-    char cmd[40];		/* basename of executable file in 
+	u_int64_t flags;
+	char cmd[40],		/* basename of executable file in 
 				 * call to exec(2) */
-    unsigned state;		/* process state */
-    /* NOTE: when porting the library, TRY HARD to implement the
-     *       following two fields. */
-    /* IMPORTANT NOTICE: For security reasons, it is extremely important
-     *                   only to set the flags value for those two
-     *                   fields if their values are corrent ! */
-    int uid,			/* effective UID of process */
-	gid,			/* effective GID of process */
-	ruid,			/* real UID of process */
-	rgid;			/* real GID of process */
-    /* SMP values. */
-    int has_cpu,
-	processor,
-	last_processor;
-
+		state;		/* single-char code for process state
+				 * (S=sleeping) */
+	/* NOTE: when porting the library, TRY HARD to implement the
+	 *       following two fields. */
+	/* IMPORTANT NOTICE: For security reasons, it is extremely important
+	 *                   only to set the flags value for those two
+	 *                   fields if their values are corrent ! */
+	int uid,		/* UID of process */
+		gid;		/* GID of process */
 };
+
+#define glibtop_get_proc_state(p1, p2)	glibtop_get_proc_state_l(glibtop_global_server, p1, p2)
 
 #if GLIBTOP_SUID_PROC_STATE
 #define glibtop_get_proc_state_r	glibtop_get_proc_state_p
@@ -83,14 +64,14 @@ struct _glibtop_proc_state
 #define glibtop_get_proc_state_r	glibtop_get_proc_state_s
 #endif
 
-int glibtop_get_proc_state_l (glibtop_client *client, glibtop_proc_state *buf, pid_t pid);
+void glibtop_get_proc_state_l (glibtop *server, glibtop_proc_state *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_STATE
-int glibtop_init_proc_state_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_proc_state_p (glibtop_server *server, glibtop_closure *closure, glibtop_proc_state *buf, pid_t pid);
+void glibtop_init_proc_state_p (glibtop *server);
+void glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf, pid_t pid);
 #else
-int glibtop_init_proc_state_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_proc_state_s (glibtop_server *server, glibtop_closure *closure, glibtop_proc_state *buf, pid_t pid);
+void glibtop_init_proc_state_s (glibtop *server);
+void glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid);
 #endif
      
 #ifdef GLIBTOP_NAMES
@@ -104,6 +85,6 @@ extern const char *glibtop_descriptions_proc_state [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

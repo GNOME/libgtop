@@ -7,18 +7,17 @@
 # set LIBGTOP_BINARY_AGE and LIBGTOP_INTERFACE_AGE to 0.
 #
 LIBGTOP_MAJOR_VERSION=1
-LIBGTOP_MINOR_VERSION=1
-LIBGTOP_MICRO_VERSION=6
-
-# you can set this to `-snap' for instance to create
-# a `libgtop-1.x.y-snap.tar.gz' tarball.
-LIBGTOP_VERSION_SUFFIX=-snap
+LIBGTOP_MINOR_VERSION=90
+LIBGTOP_MICRO_VERSION=0
 
 LIBGTOP_INTERFACE_AGE=0
 LIBGTOP_BINARY_AGE=0
+# you can set this to `-snap' for instance to create
+# a `libgtop-1.x.y-snap.tar.gz' tarball.
+LIBGTOP_VERSION_SUFFIX=
 
 # Increase each time you change the client/server protocol.
-LIBGTOP_SERVER_VERSION=53
+LIBGTOP_SERVER_VERSION=5
 
 # Don't change this
 LIBGTOP_VERSION=$LIBGTOP_MAJOR_VERSION.$LIBGTOP_MINOR_VERSION.$LIBGTOP_MICRO_VERSION
@@ -27,6 +26,3 @@ LIBGTOP_VERSION_CODE=`echo "$LIBGTOP_MAJOR_VERSION 1000000 * $LIBGTOP_MINOR_VERS
 # For automake.
 VERSION=$LIBGTOP_VERSION$LIBGTOP_VERSION_SUFFIX
 PACKAGE=libgtop
-
-# This is the default translation domain for LibGTop
-LIBGTOP_PACKAGE=libgtop-$LIBGTOP_MAJOR_VERSION.$LIBGTOP_MINOR_VERSION

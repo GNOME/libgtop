@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,28 +27,22 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_PROC_UID_UID		0
 #define GLIBTOP_PROC_UID_EUID		1
 #define GLIBTOP_PROC_UID_GID		2
 #define GLIBTOP_PROC_UID_EGID		3
-#define GLIBTOP_PROC_UID_SUID		4
-#define GLIBTOP_PROC_UID_SGID		5
-#define GLIBTOP_PROC_UID_FSUID		6
-#define GLIBTOP_PROC_UID_FSGID		7
-#define GLIBTOP_PROC_UID_PID		8
-#define GLIBTOP_PROC_UID_PPID		9
-#define GLIBTOP_PROC_UID_PGRP		10
-#define GLIBTOP_PROC_UID_SESSION	11
-#define GLIBTOP_PROC_UID_TTY		12
-#define GLIBTOP_PROC_UID_TPGID		13
-#define GLIBTOP_PROC_UID_PRIORITY	14
-#define GLIBTOP_PROC_UID_NICE		15
-#define GLIBTOP_PROC_UID_NGROUPS	16
-#define GLIBTOP_PROC_UID_GROUPS		17
+#define GLIBTOP_PROC_UID_PID		4
+#define GLIBTOP_PROC_UID_PPID		5
+#define GLIBTOP_PROC_UID_PGRP		6
+#define GLIBTOP_PROC_UID_SESSION	7
+#define GLIBTOP_PROC_UID_TTY		8
+#define GLIBTOP_PROC_UID_TPGID		9
+#define GLIBTOP_PROC_UID_PRIORITY	10
+#define GLIBTOP_PROC_UID_NICE		11
 
-#define GLIBTOP_MAX_PROC_UID		18
+#define GLIBTOP_MAX_PROC_UID		12
 
 typedef struct _glibtop_proc_uid	glibtop_proc_uid;
 
@@ -58,26 +50,22 @@ typedef struct _glibtop_proc_uid	glibtop_proc_uid;
 
 struct _glibtop_proc_uid
 {
-    u_int64_t flags;
-    int uid,		/* user id */
-	euid,		/* effective user id */
-	gid,		/* group id */
-	egid,		/* effective group id */
-	suid,		/* saved user id */
-	sgid,		/* saved group id */
-	fsuid,		/* file system user id */
-	fsgid,		/* file system group id */
-	pid,		/* process id */
-	ppid,		/* pid of parent process */
-	pgrp,		/* process group id */
-	session,	/* session id */
-	tty,		/* full device number of controlling terminal */
-	tpgid,		/* terminal process group id */
-	priority,	/* kernel scheduling priority */
-	nice,		/* standard unix nice level of process */
-	ngroups,	/* number of additional process groups */
-	groups [GLIBTOP_MAX_GROUPS];	/* additional prcess groups */
+	u_int64_t flags;
+	int uid,		/* user id */
+		euid,		/* effective user id */
+		gid,		/* group id */
+		egid,		/* effective group id */
+		pid,		/* process id */
+		ppid,		/* pid of parent process */
+		pgrp,		/* process group id */
+		session,	/* session id */
+		tty,		/* full device number of controlling terminal */
+		tpgid,		/* terminal process group id */
+		priority,	/* kernel scheduling priority */
+		nice;		/* standard unix nice level of process */
 };
+
+#define glibtop_get_proc_uid(p1, p2)	glibtop_get_proc_uid_l(glibtop_global_server, p1, p2)
 
 #if GLIBTOP_SUID_PROC_UID
 #define glibtop_get_proc_uid_r		glibtop_get_proc_uid_p
@@ -85,14 +73,14 @@ struct _glibtop_proc_uid
 #define glibtop_get_proc_uid_r		glibtop_get_proc_uid_s
 #endif
 
-int glibtop_get_proc_uid_l (glibtop_client *client, glibtop_proc_uid *buf, pid_t pid);
+void glibtop_get_proc_uid_l (glibtop *server, glibtop_proc_uid *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_UID
-int glibtop_init_proc_uid_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_proc_uid_p (glibtop_server *server, glibtop_closure *closure, glibtop_proc_uid *buf, pid_t pid);
+void glibtop_init_proc_uid_p (glibtop *server);
+void glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf, pid_t pid);
 #else
-int glibtop_init_proc_uid_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_proc_uid_s (glibtop_server *server, glibtop_closure *closure, glibtop_proc_uid *buf, pid_t pid);
+void glibtop_init_proc_uid_s (glibtop *server);
+void glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -106,6 +94,6 @@ extern const char *glibtop_descriptions_proc_uid [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

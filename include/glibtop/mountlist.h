@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,28 +27,43 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-#include <glibtop/compat_10.h>
-#include <glibtop/array.h>
+BEGIN_LIBGTOP_DECLS
 
-G_BEGIN_DECLS
+#define GLIBTOP_MOUNTLIST_NUMBER	0
+#define GLIBTOP_MOUNTLIST_TOTAL		1
+#define GLIBTOP_MOUNTLIST_SIZE		2
+
+#define GLIBTOP_MAX_MOUNTLIST		3
 
 typedef struct _glibtop_mountentry	glibtop_mountentry;
 
+typedef struct _glibtop_mountlist	glibtop_mountlist;
+
 struct _glibtop_mountentry
 {
-    u_int64_t dev;
-    char devname [GLIBTOP_MOUNTENTRY_LEN+1];
-    char mountdir [GLIBTOP_MOUNTENTRY_LEN+1];
-    char type [GLIBTOP_MOUNTENTRY_LEN+1];
+	u_int64_t dev;
+	char devname [GLIBTOP_MOUNTENTRY_LEN+1];
+	char mountdir [GLIBTOP_MOUNTENTRY_LEN+1];
+	char type [GLIBTOP_MOUNTENTRY_LEN+1];
 };
+
+struct _glibtop_mountlist
+{
+	u_int64_t	flags,
+		number,			/* GLIBTOP_MOUNTLIST_NUMBER	*/
+		total,			/* GLIBTOP_MOUNTLIST_TOTAL	*/
+		size;			/* GLIBTOP_MOUNTLIST_SIZE	*/
+};
+
+#define glibtop_get_mountlist(mountlist,all_fs)	glibtop_get_mountlist_l(glibtop_global_server, mountlist, all_fs)
 
 #define glibtop_get_mountlist_r		glibtop_get_mountlist_s
 
 glibtop_mountentry *
-glibtop_get_mountlist_l (glibtop_client *client, glibtop_array *array, int all_fs);
+glibtop_get_mountlist_l (glibtop *server, glibtop_mountlist *buf, int all_fs);
 
 glibtop_mountentry *
-glibtop_get_mountlist_s (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, int all_fs);
+glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs);
 
 #ifdef GLIBTOP_NAMES
 
@@ -63,6 +76,6 @@ extern const char *glibtop_descriptions_mountlist [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

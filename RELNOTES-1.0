@@ -87,7 +87,7 @@ LibGTop is currently used in various places in the GNOME Project,
 for instance in some of the applets in gnome-core and - of cause -
 this ultra-cool application called GTop ...
 
-Although LibGTop is not specific to GNOME and under LGPL license, I
+Although LibGTop is not specific to GNOME and under GPL license, I
 spent most my time during the last months to work in the GNOME project
 so this is the primary use for LibGTop (and currently the only one).
 

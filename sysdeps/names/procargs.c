@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -21,26 +19,26 @@
    along with LibGTop; see the file COPYING. If not, write to the
    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
- */
+*/
 
 #include <glibtop/procargs.h>
 
-const char *glibtop_names_proc_args[GLIBTOP_MAX_PROC_ARGS] =
+const char *glibtop_names_proc_args [GLIBTOP_MAX_PROC_ARGS] =
 {
-    "size"
+	"size"
 };
 
-const unsigned glibtop_types_proc_args[GLIBTOP_MAX_PROC_ARGS] =
+const unsigned glibtop_types_proc_args [GLIBTOP_MAX_PROC_ARGS] =
 {
-    GLIBTOP_TYPE_ULONG
+	GLIBTOP_TYPE_ULONG
 };
 
-const char *glibtop_labels_proc_args[GLIBTOP_MAX_PROC_ARGS] =
+const char *glibtop_labels_proc_args [GLIBTOP_MAX_PROC_ARGS] =
 {
-    N_ ("Size")
+	N_("Size")
 };
 
-const char *glibtop_descriptions_proc_args[GLIBTOP_MAX_PROC_ARGS] =
+const char *glibtop_descriptions_proc_args [GLIBTOP_MAX_PROC_ARGS] =
 {
-    N_ ("Length in bytes of the returned string.")
+	N_("Length in bytes of the returned string.")
 };

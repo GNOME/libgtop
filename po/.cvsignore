@@ -1,10 +1,13 @@
 Makefile
 Makefile.in
-Makefile.in.in
 POTFILES
 cat-id-tbl.c
-stamp-cat-id
 *.gmo
 *.mo
-*.pot
+libgtop.pot
+libgtop-2.0.pot
+Makefile.in.in
 messages
+stamp-cat-id
+po2tbl.sed
+missing

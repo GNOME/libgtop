@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -32,18 +30,18 @@
 #include <sys/signal.h>
 #endif
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 typedef struct _glibtop_signame	glibtop_signame;
 
 struct _glibtop_signame
 {
-    const int number;
-    const char *name, *label;
+	const int number;
+	const char *name, *label;
 };
 
 extern const glibtop_signame glibtop_sys_siglist [];
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /*
  * linux/libgtop/libgtop_syms.c
  * Copyright (C) 1999 Martin Baulig
@@ -17,6 +15,7 @@
 extern unsigned long total_forks;
 
 EXPORT_SYMBOL(task);
+EXPORT_SYMBOL(init_mm);
 EXPORT_SYMBOL(pidhash);
 EXPORT_SYMBOL(avenrun);
 EXPORT_SYMBOL(nr_running);

@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -26,16 +24,15 @@
 #ifndef __GLIBTOP_TYPES_H__
 #define __GLIBTOP_TYPES_H__
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_TYPE_LONG	1
 #define GLIBTOP_TYPE_ULONG	2
 #define GLIBTOP_TYPE_DOUBLE	3
 #define GLIBTOP_TYPE_INT	4
-#define GLIBTOP_TYPE_UNSIGNED	5
-#define GLIBTOP_TYPE_CHAR	6
-#define GLIBTOP_TYPE_STRING	7
+#define GLIBTOP_TYPE_CHAR	5
+#define GLIBTOP_TYPE_STRING	6
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

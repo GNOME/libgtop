@@ -1,21 +1,28 @@
-LINK			= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
+LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-INCLUDES		= @INCLUDES@
+INCLUDES			= @INCLUDES@
 
-backenddir		= @LIBGTOP_BACKEND_DIR@
+if INODEDB
+inodedb_SRCLIST			= inodedb.c
+inodedb_DEFS			= -DSYSTEM_INODEDB=\"$(prefix)/var/libgtop/inodedb.db\"
+else
+inodedb_SRCLIST			=
+inodedb_DEFS			=
+endif
 
-backend_DATA		= libgtop-common.backend
+CFLAGS				= @CFLAGS@ $(inodedb_DEFS)
 
-backend_LTLIBRARIES	= libgtop_backend_common.la
+lib_LTLIBRARIES			= libgtop_common-2.0.la libgtop_suid_common-2.0.la
 
-EXTRA_DIST		= $(backend_DATA)
+libgtop_common_2_0_la_SOURCES	= xmalloc.c error.c gnuslib.c \
+				  fsusage.c fsusage.h mountlist.c mountlist.h \
+				  $(inodedb_SRCLIST)
 
-libgtop_backend_common_la_SOURCES = \
-	backend.c fsusage.c mountlist.c
+libgtop_common_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
+libgtop_common_2_0_la_LIBADD	= $(LIBGTOP_EXTRA_LIBS)
 
-libgtop_backend_common_la_LIBADD = \
-	@GLIB_LIBS@
+libgtop_suid_common_2_0_la_SOURCES	= xmalloc.c error.c sysdeps_suid.c
 
-libgtop_backend_common_la_LDFLAGS = \
-	$(LT_VERSION_INFO)
+libgtop_suid_common_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 
+EXTRA_DIST			= inodedb.c

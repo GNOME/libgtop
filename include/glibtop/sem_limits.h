@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,37 +27,39 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_SEM_LIMITS_SEMMAP	0
-#define GLIBTOP_SEM_LIMITS_SEMMNI	1
-#define GLIBTOP_SEM_LIMITS_SEMMNS	2
-#define GLIBTOP_SEM_LIMITS_SEMMNU	3
-#define GLIBTOP_SEM_LIMITS_SEMMSL	4
-#define GLIBTOP_SEM_LIMITS_SEMOPM	5
-#define GLIBTOP_SEM_LIMITS_SEMUME	6
-#define GLIBTOP_SEM_LIMITS_SEMUSZ	7
-#define GLIBTOP_SEM_LIMITS_SEMVMX	8
-#define GLIBTOP_SEM_LIMITS_SEMAEM	9
+#define GLIBTOP_IPC_SEMMAP	0
+#define GLIBTOP_IPC_SEMMNI	1
+#define GLIBTOP_IPC_SEMMNS	2
+#define GLIBTOP_IPC_SEMMNU	3
+#define GLIBTOP_IPC_SEMMSL	4
+#define GLIBTOP_IPC_SEMOPM	5
+#define GLIBTOP_IPC_SEMUME	6
+#define GLIBTOP_IPC_SEMUSZ	7
+#define GLIBTOP_IPC_SEMVMX	8
+#define GLIBTOP_IPC_SEMAEM	9
 
-#define GLIBTOP_MAX_SEM_LIMITS		10
+#define GLIBTOP_MAX_SEM_LIMITS	10
 
 typedef struct _glibtop_sem_limits	glibtop_sem_limits;
 
 struct _glibtop_sem_limits
 {
-    u_int64_t	flags,
-	semmap,		/* GLIBTOP_SEM_LIMITS_SEMMAP	*/
-	semmni,		/* GLIBTOP_SEM_LIMITS_SEMMNI	*/
-	semmns,		/* GLIBTOP_SEM_LIMITS_SEMMNS	*/
-	semmnu,		/* GLIBTOP_SEM_LIMITS_SEMMNU	*/
-	semmsl,		/* GLIBTOP_SEM_LIMITS_SEMMSL	*/
-	semopm,		/* GLIBTOP_SEM_LIMITS_SEMOPM	*/
-	semume,		/* GLIBTOP_SEM_LIMITS_SEMUME	*/
-	semusz,		/* GLIBTOP_SEM_LIMITS_SEMUSZ	*/
-	semvmx,		/* GLIBTOP_SEM_LIMITS_SEMVMX	*/
-	semaem;		/* GLIBTOP_SEM_LIMITS_SEMAEM	*/
+	u_int64_t	flags,
+		semmap,		/* GLIBTOP_IPC_SEMMAP	*/
+		semmni,		/* GLIBTOP_IPC_SEMMNI	*/
+		semmns,		/* GLIBTOP_IPC_SEMMNS	*/
+		semmnu,		/* GLIBTOP_IPC_SEMMNU	*/
+		semmsl,		/* GLIBTOP_IPC_SEMMSL	*/
+		semopm,		/* GLIBTOP_IPC_SEMOPM	*/
+		semume,		/* GLIBTOP_IPC_SEMUME	*/
+		semusz,		/* GLIBTOP_IPC_SEMUSZ	*/
+		semvmx,		/* GLIBTOP_IPC_SEMVMX	*/
+		semaem;		/* GLIBTOP_IPC_SEMAEM	*/
 };
+
+#define glibtop_get_sem_limits(sem)	glibtop_get_sem_limits_l(glibtop_global_server, sem)
 
 #if GLIBTOP_SUID_SEM_LIMITS
 #define glibtop_get_sem_limits_r	glibtop_get_sem_limits_p
@@ -67,14 +67,14 @@ struct _glibtop_sem_limits
 #define glibtop_get_sem_limits_r	glibtop_get_sem_limits_s
 #endif
 
-int glibtop_get_sem_limits_l (glibtop_client *client, glibtop_sem_limits *buf);
+void glibtop_get_sem_limits_l (glibtop *server, glibtop_sem_limits *buf);
 
 #if GLIBTOP_SUID_SEM_LIMITS
-int glibtop_init_sem_limits_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_sem_limits_p (glibtop_server *server, glibtop_closure *closure, glibtop_sem_limits *buf);
+void glibtop_init_sem_limits_p (glibtop *server);
+void glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf);
 #else
-int glibtop_init_sem_limits_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_sem_limits_s (glibtop_server *server, glibtop_closure *closure, glibtop_sem_limits *buf);
+void glibtop_init_sem_limits_s (glibtop *server);
+void glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -88,6 +88,6 @@ extern const char *glibtop_descriptions_sem_limits [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

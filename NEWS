@@ -1,27 +1,68 @@
-February 16, 2000:
+February 27, 2001:
 =================
 
-* Released LibGTop 1.1.5 "Sidney"
+* Released LibGTop 1.0.12 "Gerolzhofen".
 
-  This is a developer's snapshot for the GUADEC CD-ROM. It
-  should work without problems on most recent GNU/Linux and
-  BSD systems. The Solaris port compiles, but has some dynamic
-  linking issues - please use LibGTop 1.1.2.1 on Solaris for
-  the moment until this is fixed.
+  - fix for Solaris 8 from Laszlo PETER (msg_limits, sem_limits).
 
-January 14, 1999:
+  - fix for FreeBSD 4.2 from Rolf Grossmann (FreeBSD now uses
+    `_KERNEL' instead of `KERNEL'). Bug #51334.
+
+  - for BSDI, comment out `subnet' field in netload; this should make
+    it compile, but there may be other problems. Bug #13345.
+
+  This release is for GNOME 1.4 Beta2.
+
+February 14, 2001:
+=================
+
+* Released LibGTop 1.0.11 "Jasmin":
+
+  [The release which was supposed to be called "Gerolzhofen".]
+
+  - merged in the Solaris code from LIBGTOP_1_1_2_PATCHES.
+
+  - minor OpenBSD fixes.
+
+  - again a bunch of updated translations.
+
+  Please test the Solaris stuff and report and bugs and
+  problems as soon as possible; I'll make a new release
+  for the 2nd beta of GNOME 1.4 if necessary.
+
+November 20, 2000:
+=================
+
+* Released LibGTop 1.0.10 "November Rain":
+
+  - this release contains a bunch of updated translations.
+
+May 25, 2000:
+============
+
+* Released LibGTop 1.0.9 "Stuttgart".
+
+  (LibGTop 1.0.8 "Frankfurt" was not publically released.)
+
+February 15, 2000:
+=================
+
+* Released LibGTop 1.0.7 "Copenhagen":
+
+  - this is a bug fix release for the GUADEC CD-ROM;
+    it contains fixes in both the Linux and *BSD sysdeps
+    directory.
+
+October 18, 1999:
 ================
 
-* Released LibGTop 1.1.4 "Earthquake"
+* Released LibGTop 1.0.6 "October LibGTop":
 
-  This is the first developer's snapshot release after a
-  longer development period with a lot of interface changes.
+  - compilation fixes for FreeBSD.
+  - updated reference manual.
 
-October 19, 1999:
-================
+September 29, 1999:
+==================
 
-* Released LibGTop 1.1.2 "Hardangervidda"
-
-  This is a stable release from the development branch
-  of LibGTop for Solaris users of October GNOME.
+* Released LibGTop 1.0.5.
 

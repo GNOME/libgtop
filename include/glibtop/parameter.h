@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
@@ -27,39 +25,27 @@
 #include <glibtop.h>
 #include <glibtop/open.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_PARAM_ERROR_METHOD	1
+#define GLIBTOP_PARAM_METHOD		1
 #define GLIBTOP_PARAM_FEATURES		2
-#define GLIBTOP_PARAM_NCPU		3
-#define GLIBTOP_PARAM_OS_VERSION_CODE	4
-#define GLIBTOP_PARAM_REQUIRED		5
-
-typedef struct _glibtop_parameter	glibtop_parameter;
-
-struct _glibtop_parameter
-{
-    unsigned error_method;	/* Error Method */
-    u_int64_t features;		/* Server is required for this features */
-    unsigned ncpu;		/* Number of CPUs, zero if single-processor */
-    u_int64_t os_version_code;	/* Version code of the operating system */
-    glibtop_sysdeps required;	/* Required feature list */
-};
+#define GLIBTOP_PARAM_COMMAND		3
+#define GLIBTOP_PARAM_HOST		4
+#define GLIBTOP_PARAM_PORT		5
+#define GLIBTOP_PARAM_ERROR_METHOD	6
+#define GLIBTOP_PARAM_REQUIRED		7
 
 #define glibtop_get_parameter(p1,p2,p3)	glibtop_get_parameter_l(glibtop_global_server,p1,p2,p3)
 #define glibtop_set_parameter(p1,p2,p3) glibtop_set_parameter_l(glibtop_global_server,p1,p2,p3)
 
-ssize_t
+size_t
 glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
 			 void *data_ptr, size_t data_size);
 
-int
-glibtop_get_parameter_size_l (glibtop *server, const unsigned parameter);
-
-int
+void
 glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
 			 const void *data_ptr, size_t data_size);
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,54 +27,81 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_NETLOAD_PACKETS_IN	0
-#define GLIBTOP_NETLOAD_PACKETS_OUT	1
-#define GLIBTOP_NETLOAD_PACKETS_TOTAL	2
-#define GLIBTOP_NETLOAD_BYTES_IN	3
-#define GLIBTOP_NETLOAD_BYTES_OUT	4
-#define GLIBTOP_NETLOAD_BYTES_TOTAL	5
-#define GLIBTOP_NETLOAD_ERRORS_IN	6
-#define GLIBTOP_NETLOAD_ERRORS_OUT	7
-#define GLIBTOP_NETLOAD_ERRORS_TOTAL	8
-#define GLIBTOP_NETLOAD_COLLISIONS	9
+#define GLIBTOP_NETLOAD_IF_FLAGS	0
+#define GLIBTOP_NETLOAD_MTU		1
+#define GLIBTOP_NETLOAD_SUBNET		2
+#define GLIBTOP_NETLOAD_ADDRESS		3
+#define GLIBTOP_NETLOAD_PACKETS_IN	4
+#define GLIBTOP_NETLOAD_PACKETS_OUT	5
+#define GLIBTOP_NETLOAD_PACKETS_TOTAL	6
+#define GLIBTOP_NETLOAD_BYTES_IN	7
+#define GLIBTOP_NETLOAD_BYTES_OUT	8
+#define GLIBTOP_NETLOAD_BYTES_TOTAL	9
+#define GLIBTOP_NETLOAD_ERRORS_IN	10
+#define GLIBTOP_NETLOAD_ERRORS_OUT	11
+#define GLIBTOP_NETLOAD_ERRORS_TOTAL	12
+#define GLIBTOP_NETLOAD_COLLISIONS	13
 
-#define GLIBTOP_MAX_NETLOAD		10
+#define GLIBTOP_MAX_NETLOAD		14
 
 typedef struct _glibtop_netload	glibtop_netload;
 
-#include <glibtop/interfaces.h>
+enum {
+	GLIBTOP_IF_FLAGS_UP = 1,
+	GLIBTOP_IF_FLAGS_BROADCAST,
+	GLIBTOP_IF_FLAGS_DEBUG,
+	GLIBTOP_IF_FLAGS_LOOPBACK,
+	GLIBTOP_IF_FLAGS_POINTOPOINT,
+	GLIBTOP_IF_FLAGS_RUNNING,
+	GLIBTOP_IF_FLAGS_NOARP,
+	GLIBTOP_IF_FLAGS_PROMISC,
+	GLIBTOP_IF_FLAGS_ALLMULTI,
+	GLIBTOP_IF_FLAGS_OACTIVE,
+	GLIBTOP_IF_FLAGS_SIMPLEX,
+	GLIBTOP_IF_FLAGS_LINK0,
+	GLIBTOP_IF_FLAGS_LINK1,
+	GLIBTOP_IF_FLAGS_LINK2,
+	GLIBTOP_IF_FLAGS_ALTPHYS,
+	GLIBTOP_IF_FLAGS_MULTICAST
+};
 
 struct _glibtop_netload
 {
-    u_int64_t	flags,
-	packets_in,		/* GLIBTOP_NETLOAD_PACKETS_IN	*/
-	packets_out,		/* GLIBTOP_NETLOAD_PACKETS_OUT	*/
-	packets_total,		/* GLIBTOP_NETLOAD_PACKETS_TOTAL*/
-	bytes_in,		/* GLIBTOP_NETLOAD_BYTES_IN	*/
-	bytes_out,		/* GLIBTOP_NETLOAD_BYTES_OUT	*/
-	bytes_total,		/* GLIBTOP_NETLOAD_BYTES_TOTAL	*/
-	errors_in,		/* GLIBTOP_NETLOAD_ERRORS_IN	*/
-	errors_out,		/* GLIBTOP_NETLOAD_ERRORS_OUT	*/
-	errors_total,		/* GLIBTOP_NETLOAD_ERRORS_TOTAL	*/
-	collisions;		/* GLIBTOP_NETLOAD_COLLISIONS	*/
+	u_int64_t	flags,
+		if_flags,		/* GLIBTOP_NETLOAD_IF_FLAGS	*/
+		mtu,			/* GLIBTOP_NETLOAD_MTU		*/
+		subnet,			/* GLIBTOP_NETLOAD_SUBNET	*/
+		address,		/* GLIBTOP_NETLOAD_ADDRESS	*/
+		packets_in,		/* GLIBTOP_NETLOAD_PACKETS_IN	*/
+		packets_out,		/* GLIBTOP_NETLOAD_PACKETS_OUT	*/
+		packets_total,		/* GLIBTOP_NETLOAD_PACKETS_TOTAL*/
+		bytes_in,		/* GLIBTOP_NETLOAD_BYTES_IN	*/
+		bytes_out,		/* GLIBTOP_NETLOAD_BYTES_OUT	*/
+		bytes_total,		/* GLIBTOP_NETLOAD_BYTES_TOTAL	*/
+		errors_in,		/* GLIBTOP_NETLOAD_ERRORS_IN	*/
+		errors_out,		/* GLIBTOP_NETLOAD_ERRORS_OUT	*/
+		errors_total,		/* GLIBTOP_NETLOAD_ERRORS_TOTAL	*/
+		collisions;		/* GLIBTOP_NETLOAD_COLLISIONS	*/
 };
 
+#define glibtop_get_netload(netload,interface)	glibtop_get_netload_l(glibtop_global_server, netload, interface)
+
 #if GLIBTOP_SUID_NETLOAD
-#define glibtop_get_netload_r		glibtop_get_netload_p
+#define glibtop_get_netload_r	glibtop_get_netload_p
 #else
-#define glibtop_get_netload_r		glibtop_get_netload_s
+#define glibtop_get_netload_r	glibtop_get_netload_s
 #endif
 
-int glibtop_get_netload_l (glibtop_client *client, glibtop_netload *buf, const char *interface, unsigned transport, unsigned protocol);
+void glibtop_get_netload_l (glibtop *server, glibtop_netload *buf, const char *interface);
 
 #if GLIBTOP_SUID_NETLOAD
-int glibtop_init_netload_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_netload_p (glibtop_server *server, glibtop_closure *closure, glibtop_netload *buf, const char *interface, unsigned transport, unsigned protocol);
+void glibtop_init_netload_p (glibtop *server);
+void glibtop_get_netload_p (glibtop *server, glibtop_netload *buf, const char *interface);
 #else
-int glibtop_init_netload_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_netload_s (glibtop_server *server, glibtop_closure *closure, glibtop_netload *buf, const char *interface, unsigned transport, unsigned protocol);
+void glibtop_init_netload_s (glibtop *server);
+void glibtop_get_netload_s (glibtop *server, glibtop_netload *buf, const char *interface);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -90,6 +115,6 @@ extern const char *glibtop_descriptions_netload [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

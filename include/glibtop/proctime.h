@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -30,7 +28,7 @@
 #include <glibtop/cpu.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_PROC_TIME_START_TIME	0
 #define GLIBTOP_PROC_TIME_RTIME		1
@@ -43,9 +41,8 @@ G_BEGIN_DECLS
 #define GLIBTOP_PROC_TIME_FREQUENCY	8
 #define GLIBTOP_PROC_TIME_XCPU_UTIME	9
 #define GLIBTOP_PROC_TIME_XCPU_STIME	10
-#define GLIBTOP_PROC_TIME_XCPU_FLAGS	11
 
-#define GLIBTOP_MAX_PROC_TIME		12
+#define GLIBTOP_MAX_PROC_TIME		11
 
 typedef struct _glibtop_proc_time	glibtop_proc_time;
 
@@ -53,26 +50,27 @@ typedef struct _glibtop_proc_time	glibtop_proc_time;
 
 struct _glibtop_proc_time
 {
-    u_int64_t	flags,
-	start_time,	/* start time of process -- 
-			 * seconds since 1-1-70 */
-	rtime,		/* real time accumulated by process */
-	utime,		/* user-mode CPU time accumulated by process */
-	stime,		/* kernel-mode CPU time accumulated by process */
-	cutime,		/* cumulative utime of process and 
-			 * reaped children */
-	cstime,		/* cumulative stime of process and 
-			 * reaped children */
-	timeout,	/* The time (in jiffies) of the process's
-			 * next timeout */
-	it_real_value,	/* The time (in jiffies) before the
-			 * next SIGALRM is sent to the process
-			 * due to an interval timer. */
-	frequency,	/* Tick frequency. */
-	xcpu_utime [GLIBTOP_NCPU],	/* utime and stime for all CPUs on */
-	xcpu_stime [GLIBTOP_NCPU],	/* SMP machines. */
-	xcpu_flags;
+	u_int64_t	flags,
+		start_time,	/* start time of process -- 
+				 * seconds since 1-1-70 */
+		rtime,		/* real time accumulated by process */
+		utime,		/* user-mode CPU time accumulated by process */
+		stime,		/* kernel-mode CPU time accumulated by process */
+		cutime,		/* cumulative utime of process and 
+				 * reaped children */
+		cstime,		/* cumulative stime of process and 
+				 * reaped children */
+		timeout,	/* The time (in jiffies) of the process's
+				 * next timeout */
+		it_real_value,	/* The time (in jiffies) before the
+				 * next SIGALRM is sent to the process
+				 * due to an interval timer. */
+		frequency,	/* Tick frequency. */
+		xcpu_utime [GLIBTOP_NCPU],	/* utime and stime for all CPUs on */
+		xcpu_stime [GLIBTOP_NCPU];	/* SMP machines. */
 };
+
+#define glibtop_get_proc_time(p1, p2)	glibtop_get_proc_time_l(glibtop_global_server, p1, p2)
 
 #if GLIBTOP_SUID_PROC_TIME
 #define glibtop_get_proc_time_r	glibtop_get_proc_time_p
@@ -80,14 +78,14 @@ struct _glibtop_proc_time
 #define glibtop_get_proc_time_r	glibtop_get_proc_time_s
 #endif
 
-int glibtop_get_proc_time_l (glibtop_client *client, glibtop_proc_time *buf, pid_t pid);
+void glibtop_get_proc_time_l (glibtop *server, glibtop_proc_time *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_TIME
-int glibtop_init_proc_time_p (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_proc_time_p (glibtop_server *server, glibtop_closure *closure, glibtop_proc_time *buf, pid_t pid);
+void glibtop_init_proc_time_p (glibtop *server);
+void glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf, pid_t pid);
 #else
-int glibtop_init_proc_time_s (glibtop_server *server, glibtop_closure *closure);
-int glibtop_get_proc_time_s (glibtop_server *server, glibtop_closure *closure, glibtop_proc_time *buf, pid_t pid);
+void glibtop_init_proc_time_s (glibtop *server);
+void glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -101,6 +99,6 @@ extern const char *glibtop_descriptions_proc_time [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

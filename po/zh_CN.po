@@ -1,277 +1,583 @@
-# libgtop zh_CN.po
-# Copyright (C) 2002 Free Software Foundation, Inc.
-# Dillion Chen <dillon.chen@turbolinux.com.cn>, 1999
-# Wang Jian <lark@linux.net.cn>, 2003
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 2003-08-07 00:17+0800\n"
-"PO-Revision-Date: 2003-08-07 00:20+0800\n"
+"Project-Id-Version: kcmkpanel\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-08-08 04:47+0200\n"
+"PO-Revision-Date: 2003-08-09 02:29+0800\n"
 "Last-Translator: Dillion Chen <dillon.chen@turbolinux.com.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: sysdeps/names/cpu.c:45
-msgid "Total CPU Time"
-msgstr "CPU时间总计"
+#: examples/smp.c:71
+#, c-format
+msgid "Ticks (%ld per second):"
+msgstr "律动(每秒%ld)："
 
-#: sysdeps/names/cpu.c:46
-msgid "CPU Time in User Mode"
-msgstr "用户态下CPU时间"
+#: examples/smp.c:74
+msgid "Total"
+msgstr "总计"
 
-#: sysdeps/names/cpu.c:47
-msgid "CPU Time in User Mode (nice)"
-msgstr "用户态(nice)下CPU时间"
-
-#: sysdeps/names/cpu.c:48
-msgid "CPU Time in System Mode"
-msgstr "核心态下CPU时间"
-
-#: sysdeps/names/cpu.c:49
-msgid "CPU Time in the Idle Task"
-msgstr "空闲任务状态下CPU时间"
-
-#: sysdeps/names/cpu.c:50
-msgid "Tick Frequency"
-msgstr "瞬间频率"
-
-#: sysdeps/names/cpu.c:51
-msgid "SMP Total CPU Time"
-msgstr "SMP CPU时间总计"
-
-#: sysdeps/names/cpu.c:52
-msgid "SMP CPU Time in User Mode"
-msgstr "用户态下SMP CPU时间"
-
-#: sysdeps/names/cpu.c:53
-msgid "SMP CPU Time in User Mode (nice)"
-msgstr "用户态(nice)下SMP CPU时间"
-
-#: sysdeps/names/cpu.c:54
-msgid "SMP CPU Time in System Mode"
-msgstr "核心态下SMP CPU时间"
-
-#: sysdeps/names/cpu.c:55
-msgid "SMP CPU Time in the Idle Task"
-msgstr "空闲状态下的SMP CPU时间"
-
-#: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
-msgid "SMP CPU Flags"
-msgstr ""
-
-#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
-msgid "Number of clock ticks since system boot"
-msgstr "自系统启动以来的时钟计数"
-
-#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
-msgid "Number of clock ticks the system spent in user mode"
-msgstr "系统在用户态下花费的时钟计数"
-
-#: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
-msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "系统在用户态(nice)下花费的时钟计数"
-
-#: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
-msgid "Number of clock ticks the system spent in system mode"
-msgstr "系统在核心态下花费的时钟计数"
-
-#: sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
-msgid "Number of clock ticks the system spent in the idle task"
-msgstr "系统在空闲状态下花费的时钟计数"
-
-#: sysdeps/names/cpu.c:66
-msgid "Tick frequency (default is 100)"
-msgstr "计时频率"
-
-#: sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
-msgid "Total blocks"
-msgstr "块总计"
-
-#: sysdeps/names/fsusage.c:42
-msgid "Free blocks"
-msgstr "自由块"
-
-#: sysdeps/names/fsusage.c:43
-msgid "Available blocks"
-msgstr "可用块"
-
-#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
-msgid "Total file nodes"
-msgstr "文件结点总计"
-
-#: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:54
-msgid "Free file nodes"
-msgstr "未用的文件结点"
-
-#: sysdeps/names/fsusage.c:51
-msgid "Free blocks available to the superuser"
-msgstr "超级用户可用的未用的文件结点"
-
-#: sysdeps/names/fsusage.c:52
-msgid "Free blocks available to non-superusers"
-msgstr "普通用户可用的未用的文件结点"
-
-#: sysdeps/names/loadavg.c:41
-msgid "Load Average"
-msgstr "平均负载"
-
-#: sysdeps/names/loadavg.c:42
-msgid "Running Tasks"
-msgstr "运行任务"
-
-#: sysdeps/names/loadavg.c:43
-msgid "Number of Tasks"
-msgstr "任务数目"
-
-#: sysdeps/names/loadavg.c:44 sysdeps/names/loadavg.c:52
-msgid "Last PID"
-msgstr "最近的进程ID"
-
-#: sysdeps/names/loadavg.c:49
-msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "最近1,5和15分钟同时运行的作业数"
-
-#: sysdeps/names/loadavg.c:50
-msgid "Number of tasks currently running"
-msgstr "当前正在运行的任务数"
-
-#: sysdeps/names/loadavg.c:51
-msgid "Total number of tasks"
-msgstr "任务总数"
-
-#: sysdeps/names/mem.c:43
-msgid "Total Memory"
-msgstr "内存总数"
-
-#: sysdeps/names/mem.c:44
-msgid "Used Memory"
-msgstr "已用内存"
-
-#: sysdeps/names/mem.c:45
-msgid "Free Memory"
-msgstr "空闲内存"
-
-#: sysdeps/names/mem.c:46
-msgid "Shared Memory"
-msgstr "共享内存"
-
-#: sysdeps/names/mem.c:47
-msgid "Buffers"
-msgstr "缓冲区"
-
-#: sysdeps/names/mem.c:48
-msgid "Cached"
-msgstr "高速缓存"
-
-#: sysdeps/names/mem.c:49
+#: examples/smp.c:74 sysdeps/names/mem.c:47
 msgid "User"
 msgstr "用户"
 
-#: sysdeps/names/mem.c:50
+#: examples/smp.c:74 sysdeps/names/procuid.c:58
+msgid "Nice"
+msgstr "Nice"
+
+#: examples/smp.c:74
+msgid "Sys"
+msgstr "系统"
+
+#: examples/smp.c:74
+msgid "Idle"
+msgstr "空闲"
+
+#: examples/smp.c:76
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+msgstr ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+
+#: examples/smp.c:80
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+
+#: examples/smp.c:97
+msgid "Percent:"
+msgstr "百分比："
+
+#: examples/smp.c:98
+msgid "Total (%)"
+msgstr "总计(%)"
+
+#: examples/smp.c:98
+msgid "User (%)"
+msgstr "用户(%)"
+
+#: examples/smp.c:98
+msgid "Nice (%)"
+msgstr "Nice(%)"
+
+#: examples/smp.c:98
+msgid "Sys (%)"
+msgstr "系统(%)"
+
+#: examples/smp.c:99
+msgid "Idle (%)"
+msgstr "空闲(%)"
+
+#: examples/smp.c:101
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+msgstr ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+
+#: examples/smp.c:117
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+
+#: examples/smp.c:123
+msgid "Spin:"
+msgstr "自旋："
+
+#: lib/read.c:75
+#, c-format
+msgid "read %d bytes"
+msgstr "读取 %d 字节"
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "读取数据大小"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr "读取数据 %d 字节"
+
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr "写入数据 %d 字节"
+
+#: src/daemon/gnuserv.c:453
+msgid "Enable debugging"
+msgstr "允许调试"
+
+#: src/daemon/gnuserv.c:453
+msgid "DEBUG"
+msgstr "调试"
+
+#: src/daemon/gnuserv.c:455
+msgid "Enable verbose output"
+msgstr "允许详细输出"
+
+#: src/daemon/gnuserv.c:455
+msgid "VERBOSE"
+msgstr "详细"
+
+#: src/daemon/gnuserv.c:457
+msgid "Don't fork into background"
+msgstr "不能在后台生成子进程"
+
+#: src/daemon/gnuserv.c:457
+msgid "NO-DAEMON"
+msgstr "NO-DAEMON"
+
+#: src/daemon/gnuserv.c:459
+msgid "Invoked from inetd"
+msgstr "从 inetd 调用"
+
+#: src/daemon/gnuserv.c:459
+msgid "INETD"
+msgstr "INETD"
+
+#: src/daemon/gnuserv.c:493
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"错误选项 %s：%s。\n"
+"运行“%s --help”可查看可用命令行选项的完整列表\n"
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "未知系统错误"
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s：选项“%s”不明确\n"
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s：选项“--%s”不允许有一个参数\n"
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: 选项“%c%s”不允许有一个参数\n"
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s：选项“%s'需要一个参数\n"
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: 不可识别的选项“--%s”\n"
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s：不可识别的选项“%c%s”\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s：非法选项 --%c\n"
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s：无效选项 --%c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s：选项需要一个参数 --%c\n"
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s：选项 `-W %s”不明确\n"
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s：选项“-W %s”不允许有一个参数\n"
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr "显示此帮助信息"
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
+msgstr "显示简明用法信息"
+
+#: sysdeps/names/cpu.c:43
+msgid "Total CPU Time"
+msgstr "CPU 时间总计"
+
+#: sysdeps/names/cpu.c:44
+msgid "CPU Time in User Mode"
+msgstr "用户模式下 CPU 时间"
+
+#: sysdeps/names/cpu.c:45
+msgid "CPU Time in User Mode (nice)"
+msgstr "用户态(nice)下CPU时间"
+
+#: sysdeps/names/cpu.c:46
+msgid "CPU Time in System Mode"
+msgstr "核心态下CPU时间"
+
+#: sysdeps/names/cpu.c:47
+msgid "CPU Time in the Idle Task"
+msgstr "空闲任务状态下CPU时间"
+
+#: sysdeps/names/cpu.c:48
+msgid "Tick Frequency"
+msgstr "瞬间频率"
+
+#: sysdeps/names/cpu.c:49
+msgid "SMP Total CPU Time"
+msgstr "SMP CPU时间总计"
+
+#: sysdeps/names/cpu.c:50
+msgid "SMP CPU Time in User Mode"
+msgstr "用户态下SMP CPU时间"
+
+#: sysdeps/names/cpu.c:51
+msgid "SMP CPU Time in User Mode (nice)"
+msgstr "用户态(nice)下SMP CPU时间"
+
+#: sysdeps/names/cpu.c:52
+msgid "SMP CPU Time in System Mode"
+msgstr "核心态下SMP CPU时间"
+
+#: sysdeps/names/cpu.c:53
+msgid "SMP CPU Time in the Idle Task"
+msgstr "空闲状态下的SMP CPU时间"
+
+#: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
+msgid "Number of clock ticks since system boot"
+msgstr "自系统启动以来的时钟计数"
+
+#: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
+msgid "Number of clock ticks the system spent in user mode"
+msgstr "系统在用户态下花费的时钟计数"
+
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
+msgid "Number of clock ticks the system spent in user mode (nice)"
+msgstr "系统在用户态(nice)下花费的时钟计数"
+
+#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
+msgid "Number of clock ticks the system spent in system mode"
+msgstr "系统在核心态下花费的时钟计数"
+
+#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
+msgid "Number of clock ticks the system spent in the idle task"
+msgstr "系统在空闲状态下花费的时钟计数"
+
+#: sysdeps/names/cpu.c:63
+msgid "Tick frequency (default is 100)"
+msgstr "计时频率"
+
+#: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
+msgid "Total blocks"
+msgstr "块总计"
+
+#: sysdeps/names/fsusage.c:40
+msgid "Free blocks"
+msgstr "自由块"
+
+#: sysdeps/names/fsusage.c:41
+msgid "Available blocks"
+msgstr "可用块"
+
+#: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
+msgid "Total file nodes"
+msgstr "文件结点总计"
+
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+msgid "Free file nodes"
+msgstr "未用的文件结点"
+
+#: sysdeps/names/fsusage.c:49
+msgid "Free blocks available to the superuser"
+msgstr "超级用户可用的未用的文件结点"
+
+#: sysdeps/names/fsusage.c:50
+msgid "Free blocks available to non-superusers"
+msgstr "普通用户可用的未用的文件结点"
+
+#: sysdeps/names/loadavg.c:39
+msgid "Load Average"
+msgstr "平均负载"
+
+#: sysdeps/names/loadavg.c:40
+msgid "Running Tasks"
+msgstr "运行任务"
+
+#: sysdeps/names/loadavg.c:41
+msgid "Number of Tasks"
+msgstr "任务数目"
+
+#: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
+msgid "Last PID"
+msgstr "最近的进程ID"
+
+#: sysdeps/names/loadavg.c:47
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgstr "最近1,5和15分钟同时运行的作业数"
+
+#: sysdeps/names/loadavg.c:48
+msgid "Number of tasks currently running"
+msgstr "当前正在运行的任务数"
+
+#: sysdeps/names/loadavg.c:49
+msgid "Total number of tasks"
+msgstr "任务总数"
+
+#: sysdeps/names/mem.c:41
+msgid "Total Memory"
+msgstr "内存总数"
+
+#: sysdeps/names/mem.c:42
+msgid "Used Memory"
+msgstr "已用内存"
+
+#: sysdeps/names/mem.c:43
+msgid "Free Memory"
+msgstr "空闲内存"
+
+#: sysdeps/names/mem.c:44
+msgid "Shared Memory"
+msgstr "共享内存"
+
+#: sysdeps/names/mem.c:45
+msgid "Buffers"
+msgstr "缓冲区"
+
+#: sysdeps/names/mem.c:46
+msgid "Cached"
+msgstr "高速缓存"
+
+#: sysdeps/names/mem.c:48
 msgid "Locked"
 msgstr "锁"
 
-#: sysdeps/names/mem.c:55
+#: sysdeps/names/mem.c:53
 msgid "Total physical memory in kB"
 msgstr "物理内存总计(k)"
 
-#: sysdeps/names/mem.c:56
+#: sysdeps/names/mem.c:54
 msgid "Used memory size in kB"
 msgstr "已用内存大小(k)"
 
-#: sysdeps/names/mem.c:57
+#: sysdeps/names/mem.c:55
 msgid "Free memory size in kB"
 msgstr "未用内存大小(k)"
 
-#: sysdeps/names/mem.c:58
+#: sysdeps/names/mem.c:56
 msgid "Shared memory size in kB"
 msgstr "共享内存大小(k)"
 
-#: sysdeps/names/mem.c:59
+#: sysdeps/names/mem.c:57
 msgid "Size of buffers kB"
 msgstr "缓冲区大小(k)"
 
-#: sysdeps/names/mem.c:60
+#: sysdeps/names/mem.c:58
 msgid "Size of cached memory in kB"
 msgstr "高速缓存内存大小(k)"
 
-#: sysdeps/names/mem.c:61
+#: sysdeps/names/mem.c:59
 msgid "Memory used from user processes in kB"
 msgstr "用户进程使用的内存大小(k)"
 
-#: sysdeps/names/mem.c:62
+#: sysdeps/names/mem.c:60
 msgid "Memory in locked pages in kB"
 msgstr "加锁页面的内存大小(k)"
 
-#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
+#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
+#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
+#: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
+msgid "Number of list elements"
+msgstr "明细表元素个数"
+
+#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
+#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
+#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
+msgid "Total size of list"
+msgstr "明细总的大小"
+
+#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
+#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
+#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
+msgid "Size of a single list element"
+msgstr "单个明细元素的大小"
+
+#: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
 msgid "Size in kilobytes of message pool"
 msgstr "消息池大小(k)"
 
-#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Number of entries in message map"
 msgstr "消息映射入口数目"
 
-#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Max size of message"
 msgstr "最大的消息大小"
 
-#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Default max size of queue"
 msgstr "最大确省队列大小"
 
-#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
+#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Max queues system wide"
 msgstr "最大队列系统宽度"
 
-#: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
+#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Message segment size"
 msgstr "消息段大小"
 
-#: sysdeps/names/msg_limits.c:48 sysdeps/names/msg_limits.c:59
+#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Number of system message headers"
 msgstr "系统消息头数目"
 
-#: sysdeps/names/prockernel.c:44
+#: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+msgid "Interface Flags"
+msgstr "接口标志"
+
+#: sysdeps/names/netload.c:46
+msgid "MTU"
+msgstr "MTU"
+
+#: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
+msgid "Subnet"
+msgstr "子网"
+
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
+msgid "Address"
+msgstr "地址"
+
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
+msgid "Packets In"
+msgstr "传入包数"
+
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+msgid "Packets Out"
+msgstr "传出包数"
+
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+msgid "Packets Total"
+msgstr "总计包数"
+
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+msgid "Bytes In"
+msgstr "传入字节"
+
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+msgid "Bytes Out"
+msgstr "传出字节"
+
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+msgid "Bytes Total"
+msgstr "总计字节"
+
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+msgid "Errors In"
+msgstr "传入错误"
+
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+msgid "Errors Out"
+msgstr "传出错误"
+
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+msgid "Errors Total"
+msgstr "总计错误"
+
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+msgid "Collisions"
+msgstr "冲突"
+
+#: sysdeps/names/netload.c:64
+msgid "Maximum Transfer Unit"
+msgstr "最大传送单元"
+
+#: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
+msgid "PPP State"
+msgstr "PPP 状态"
+
+#: sysdeps/names/ppp.c:39
+msgid "Input bytes"
+msgstr "输入字节"
+
+#: sysdeps/names/ppp.c:40
+msgid "Output bytes"
+msgstr "输出字节"
+
+#: sysdeps/names/ppp.c:46
+msgid "Number of input bytes"
+msgstr "输入字节数"
+
+#: sysdeps/names/ppp.c:47
+msgid "Number of output bytes"
+msgstr "输出字节数"
+
+#: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
+msgid "Size"
+msgstr "大小"
+
+#: sysdeps/names/procargs.c:43
+msgid "Length in bytes of the returned string."
+msgstr "返回字符串的字节长度。"
+
+#: sysdeps/names/prockernel.c:42
 msgid "K_Flags"
 msgstr "K_Flags"
 
-#: sysdeps/names/prockernel.c:44
+#: sysdeps/names/prockernel.c:42
 msgid "Min_Flt"
 msgstr "Min_Flt"
 
-#: sysdeps/names/prockernel.c:44
+#: sysdeps/names/prockernel.c:42
 msgid "Maj_Flt"
 msgstr "Maj_Flt"
 
-#: sysdeps/names/prockernel.c:44
+#: sysdeps/names/prockernel.c:42
 msgid "CMin_Flt"
 msgstr "CMin_Flt"
 
-#: sysdeps/names/prockernel.c:45
+#: sysdeps/names/prockernel.c:43
 msgid "CMaj_Flt"
 msgstr "CMaj_Flt"
 
-#: sysdeps/names/prockernel.c:45
+#: sysdeps/names/prockernel.c:43
 msgid "KStk_ESP"
 msgstr "KStk_ESP"
 
-#: sysdeps/names/prockernel.c:45
+#: sysdeps/names/prockernel.c:43
 msgid "KStk_EIP"
 msgstr "KStk_EIP"
 
-#: sysdeps/names/prockernel.c:45
+#: sysdeps/names/prockernel.c:43
 msgid "NWChan"
 msgstr "NWChan"
 
-#: sysdeps/names/prockernel.c:46
+#: sysdeps/names/prockernel.c:44
 msgid "WChan"
 msgstr "WChan"
 
 #. K_Flags
-#: sysdeps/names/prockernel.c:52
+#: sysdeps/names/prockernel.c:50
 msgid ""
 "Kernel flags of the process.\n"
 "\n"
@@ -285,43 +591,43 @@ msgstr ""
 "Linux进程标志当前每个标志有数学位设置,因为crt0.s要检查这在输出中并不包括"
 
 #. Min_Flt
-#: sysdeps/names/prockernel.c:61
+#: sysdeps/names/prockernel.c:59
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr "进程犯的较小的错误数目它们无需从盘上装入内存页"
 
 #. Maj_Flt
-#: sysdeps/names/prockernel.c:64
+#: sysdeps/names/prockernel.c:62
 msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr "进程犯的重大的错误数目它们需要从盘上装入内存页"
 
 #. CMin_Flt
-#: sysdeps/names/prockernel.c:67
+#: sysdeps/names/prockernel.c:65
 msgid "The number of minor faults that the process and its children have made."
 msgstr "进程及其子进程犯的较小的错误数目"
 
 #. CMaj_Flt
-#: sysdeps/names/prockernel.c:70
+#: sysdeps/names/prockernel.c:68
 msgid "The number of major faults that the process and its children have made."
 msgstr "进程及其子进程犯的重大的错误数目"
 
 #. KStk_ESP
-#: sysdeps/names/prockernel.c:73
+#: sysdeps/names/prockernel.c:71
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr "当前32栈指针esp的值,建立在进程核心栈页"
 
 #. KStk_EIP
-#: sysdeps/names/prockernel.c:76
+#: sysdeps/names/prockernel.c:74
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr "当前32位指令指针EIP"
 
 #. NWChan
-#: sysdeps/names/prockernel.c:78
+#: sysdeps/names/prockernel.c:76
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "
 "address of a system call, and can be looked up in a namelist if you need a "
@@ -332,51 +638,47 @@ msgstr ""
 "搜索到名字如果你有最新的/etc/psdatabase,那试用ps -l命令来看WCHAN域"
 
 #. WChan
-#: sysdeps/names/prockernel.c:83
+#: sysdeps/names/prockernel.c:81
 msgid "This is the textual name of the `nwchan' field."
 msgstr "这是nwchat域的文本名"
 
-#: sysdeps/names/procmem.c:49
-msgid "Size"
-msgstr "大小"
-
-#: sysdeps/names/procmem.c:49
+#: sysdeps/names/procmem.c:47
 msgid "Virtual"
 msgstr "虚存"
 
-#: sysdeps/names/procmem.c:49
+#: sysdeps/names/procmem.c:47
 msgid "Resident"
 msgstr "驻留"
 
-#: sysdeps/names/procmem.c:49
+#: sysdeps/names/procmem.c:47
 msgid "Share"
 msgstr "共享"
 
-#: sysdeps/names/procmem.c:50
+#: sysdeps/names/procmem.c:48
 msgid "Resident Set Size"
 msgstr "驻留内存"
 
-#: sysdeps/names/procmem.c:50
+#: sysdeps/names/procmem.c:48
 msgid "Resident Set Size Limit"
 msgstr "驻留内存固定大小限制"
 
-#: sysdeps/names/procmem.c:55
+#: sysdeps/names/procmem.c:53
 msgid "Total # of pages of memory"
 msgstr "总计#内存页"
 
-#: sysdeps/names/procmem.c:56
+#: sysdeps/names/procmem.c:54
 msgid "Number of pages of virtual memory"
 msgstr "虚存页数目"
 
-#: sysdeps/names/procmem.c:57
+#: sysdeps/names/procmem.c:55
 msgid "Number of resident set (non-swapped) pages"
 msgstr "驻留固定(非交换)页数目"
 
-#: sysdeps/names/procmem.c:58
+#: sysdeps/names/procmem.c:56
 msgid "Number of pages of shared (mmap'd) memory"
 msgstr "共享(mmap'd)内存页数目"
 
-#: sysdeps/names/procmem.c:59
+#: sysdeps/names/procmem.c:57
 msgid ""
 "Number of pages the process has in real memory, minus 3 for administrative "
 "purposes. This is just the pages which count towards text, data, or stack "
@@ -386,827 +688,645 @@ msgstr ""
 "进程在实存的页面数,为管理目的减3这里仅仅计算文本,数据和堆栈空间页数这并不包括"
 "哪些没有被装入和交换出的页"
 
-#: sysdeps/names/procmem.c:64
+#: sysdeps/names/procmem.c:62
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "进程的RSS上的当前字节限制(通常是2,147,483,647)"
 
-#: sysdeps/names/procsegment.c:50
+#: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
 msgstr "Text_RSS"
 
-#: sysdeps/names/procsegment.c:50
+#: sysdeps/names/procsegment.c:42
 msgid "ShLib_RSS"
 msgstr "ShLib_RSS"
 
-#: sysdeps/names/procsegment.c:50
+#: sysdeps/names/procsegment.c:42
 msgid "Data_RSS"
 msgstr "Data_RSS"
 
-#: sysdeps/names/procsegment.c:50
+#: sysdeps/names/procsegment.c:42
 msgid "Stack_RSS"
 msgstr "Stack_RSS"
 
-#: sysdeps/names/procsegment.c:51
+#: sysdeps/names/procsegment.c:43
 msgid "Dirty Size"
 msgstr "Dirty Size"
 
-#: sysdeps/names/procsegment.c:51
+#: sysdeps/names/procsegment.c:43
 msgid "Start_Code"
 msgstr "Start_Code"
 
-#: sysdeps/names/procsegment.c:51
+#: sysdeps/names/procsegment.c:43
 msgid "End_Code"
 msgstr "End_Code"
 
-#: sysdeps/names/procsegment.c:52
-#, fuzzy
-msgid "Start_Data"
-msgstr "Start_Stack"
-
-#: sysdeps/names/procsegment.c:52
-msgid "End_Data"
-msgstr ""
-
-#: sysdeps/names/procsegment.c:52
-#, fuzzy
-msgid "Start_Brk"
-msgstr "Start_Stack"
-
-#: sysdeps/names/procsegment.c:52
-msgid "Brk"
-msgstr ""
-
-#: sysdeps/names/procsegment.c:53
+#: sysdeps/names/procsegment.c:43
 msgid "Start_Stack"
 msgstr "Start_Stack"
 
-#: sysdeps/names/procsegment.c:53
-#, fuzzy
-msgid "Start_MMap"
-msgstr "Start_Stack"
-
-#: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
-msgid "Arg_Start"
-msgstr ""
-
-#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
-msgid "Arg_End"
-msgstr ""
-
-#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
-msgid "Env_Start"
-msgstr ""
-
-#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
-msgid "Env_End"
-msgstr ""
-
-#: sysdeps/names/procsegment.c:59
+#: sysdeps/names/procsegment.c:48
 msgid "Text resident set size"
 msgstr "文本驻留设置大小"
 
-#: sysdeps/names/procsegment.c:60
+#: sysdeps/names/procsegment.c:49
 msgid "Shared-Lib resident set size"
 msgstr "共享库驻留设置大小"
 
-#: sysdeps/names/procsegment.c:61
+#: sysdeps/names/procsegment.c:50
 msgid "Data resident set size"
 msgstr "数据驻留设置大小"
 
-#: sysdeps/names/procsegment.c:62
+#: sysdeps/names/procsegment.c:51
 msgid "Stack resident set size"
 msgstr "堆栈驻留设置大小"
 
-#: sysdeps/names/procsegment.c:63
+#: sysdeps/names/procsegment.c:52
 msgid "Total size of dirty pages"
 msgstr "垃圾页总的大小"
 
-#: sysdeps/names/procsegment.c:64
+#: sysdeps/names/procsegment.c:53
 msgid "Address of beginning of code segment"
 msgstr "代码段起始地址"
 
-#: sysdeps/names/procsegment.c:65
+#: sysdeps/names/procsegment.c:54
 msgid "Address of end of code segment"
 msgstr "代码段结束地址"
 
-#: sysdeps/names/procsegment.c:66
-#, fuzzy
-msgid "Address of beginning of data segment"
-msgstr "代码段起始地址"
-
-#: sysdeps/names/procsegment.c:67
-#, fuzzy
-msgid "Address of end of data segment"
-msgstr "代码段结束地址"
-
-#: sysdeps/names/procsegment.c:68
-msgid "Brk_Start"
-msgstr ""
-
-#: sysdeps/names/procsegment.c:69
-msgid "Brk_End"
-msgstr ""
-
-#: sysdeps/names/procsegment.c:70
+#: sysdeps/names/procsegment.c:55
 msgid "Address of the bottom of stack segment"
 msgstr "堆栈段栈底地址"
 
-#: sysdeps/names/procsegment.c:71
-msgid "Start of mmap()ed areas"
-msgstr ""
-
-#: sysdeps/names/procsignal.c:42
+#: sysdeps/names/procsignal.c:40
 msgid "Signal"
 msgstr "信号"
 
-#: sysdeps/names/procsignal.c:42
+#: sysdeps/names/procsignal.c:40
 msgid "Blocked"
 msgstr "阻塞"
 
-#: sysdeps/names/procsignal.c:42
+#: sysdeps/names/procsignal.c:40
 msgid "SigIgnore"
 msgstr "SigIgnore"
 
-#: sysdeps/names/procsignal.c:42
+#: sysdeps/names/procsignal.c:40
 msgid "SigCatch"
 msgstr "SIgCatch"
 
-#: sysdeps/names/procsignal.c:47
+#: sysdeps/names/procsignal.c:45
 msgid "Mask of pending signals"
 msgstr "等待信号掩码"
 
-#: sysdeps/names/procsignal.c:48
+#: sysdeps/names/procsignal.c:46
 msgid "Mask of blocked signals"
 msgstr "阻塞信号掩码"
 
-#: sysdeps/names/procsignal.c:49
+#: sysdeps/names/procsignal.c:47
 msgid "Mask of ignored signals"
 msgstr "忽略信号掩码"
 
-#: sysdeps/names/procsignal.c:50
+#: sysdeps/names/procsignal.c:48
 msgid "Mask of caught signals"
 msgstr "陷阱信号掩码"
 
-#: sysdeps/names/procstate.c:45
+#: sysdeps/names/procstate.c:40
 msgid "Cmd"
 msgstr "命令"
 
-#: sysdeps/names/procstate.c:45
+#: sysdeps/names/procstate.c:40
 msgid "State"
 msgstr "状态"
 
-#: sysdeps/names/procstate.c:45
+#: sysdeps/names/procstate.c:40
 msgid "UID"
-msgstr "用户ID"
+msgstr "UID"
 
-#: sysdeps/names/procstate.c:45
+#: sysdeps/names/procstate.c:40
 msgid "GID"
-msgstr "组ID"
+msgstr "GID"
 
 #: sysdeps/names/procstate.c:45
-#, fuzzy
-msgid "RUID"
-msgstr "用户ID"
-
-#: sysdeps/names/procstate.c:46
-#, fuzzy
-msgid "RGID"
-msgstr "组ID"
-
-#: sysdeps/names/procstate.c:46
-msgid "Has CPU"
-msgstr ""
-
-#: sysdeps/names/procstate.c:46
-#, fuzzy
-msgid "Processor"
-msgstr "进程ID"
-
-#: sysdeps/names/procstate.c:47
-msgid "Last Processor"
-msgstr ""
-
-#: sysdeps/names/procstate.c:52
 msgid "Basename of executable file in call to exec()"
 msgstr "在调用exec时执行文件的基本名"
 
-#: sysdeps/names/procstate.c:53
+#: sysdeps/names/procstate.c:46
 msgid "Single-Char code for process state (S=sleeping)"
 msgstr "进程状态的单字符编码(S=睡眠)"
 
-#: sysdeps/names/procstate.c:54
-#, fuzzy
-msgid "effective UID of process"
-msgstr "进程的用户ID"
+#: sysdeps/names/procstate.c:47
+msgid "UID of process"
+msgstr "进程的 UID"
 
-#: sysdeps/names/procstate.c:55
-#, fuzzy
-msgid "effective GID of process"
-msgstr "进程的组ID"
+#: sysdeps/names/procstate.c:48
+msgid "GID of process"
+msgstr "进程的 GID"
 
-#: sysdeps/names/procstate.c:56
-#, fuzzy
-msgid "real UID of process"
-msgstr "进程的用户ID"
-
-#: sysdeps/names/procstate.c:57
-#, fuzzy
-msgid "real GID of process"
-msgstr "进程的组ID"
-
-#: sysdeps/names/procstate.c:58
-msgid "has_cpu"
-msgstr ""
-
-#: sysdeps/names/procstate.c:59
-#, fuzzy
-msgid "processor"
-msgstr "进程ID"
-
-#: sysdeps/names/procstate.c:60
-msgid "last_processor"
-msgstr ""
-
-#: sysdeps/names/proctime.c:46
+#: sysdeps/names/proctime.c:44
 msgid "Start_Time"
 msgstr "起始时间"
 
-#: sysdeps/names/proctime.c:46
+#: sysdeps/names/proctime.c:44
 msgid "RTime"
 msgstr "RTime"
 
-#: sysdeps/names/proctime.c:46
+#: sysdeps/names/proctime.c:44
 msgid "UTime"
 msgstr "UTime"
 
-#: sysdeps/names/proctime.c:46
+#: sysdeps/names/proctime.c:44
 msgid "STime"
 msgstr "STime"
 
-#: sysdeps/names/proctime.c:47
+#: sysdeps/names/proctime.c:45
 msgid "CUTime"
 msgstr "CUTime"
 
-#: sysdeps/names/proctime.c:47
+#: sysdeps/names/proctime.c:45
 msgid "CSTime"
 msgstr "CSTime"
 
-#: sysdeps/names/proctime.c:47
+#: sysdeps/names/proctime.c:45
 msgid "TimeOut"
 msgstr "超时"
 
-#: sysdeps/names/proctime.c:47
+#: sysdeps/names/proctime.c:45
 msgid "It_Real_Value"
 msgstr "It_Real_Value"
 
-#: sysdeps/names/proctime.c:48
+#: sysdeps/names/proctime.c:46
 msgid "Frequency"
 msgstr "频率"
 
-#: sysdeps/names/proctime.c:48
+#: sysdeps/names/proctime.c:46
 msgid "XCPU_UTime"
 msgstr "XCPU_UTime"
 
-#: sysdeps/names/proctime.c:48
+#: sysdeps/names/proctime.c:46
 msgid "XCPU_STime"
 msgstr "XCPU_STime"
 
-#: sysdeps/names/proctime.c:49
-#, fuzzy
-msgid "XCPU_Flags"
-msgstr "K_Flags"
-
-#: sysdeps/names/proctime.c:54
+#: sysdeps/names/proctime.c:51
 msgid "Start time of process in seconds since the epoch"
 msgstr "自新纪元起以秒计的进程起始时间"
 
-#: sysdeps/names/proctime.c:55
+#: sysdeps/names/proctime.c:52
 msgid "Real time accumulated by process (should be utime + stime)"
 msgstr "进程累计的实际时间(为utime和stime之和)"
 
-#: sysdeps/names/proctime.c:56
+#: sysdeps/names/proctime.c:53
 msgid "user-mode CPU time accumulated by process"
 msgstr "进程累计的用户态下的CPU时间"
 
-#: sysdeps/names/proctime.c:57
+#: sysdeps/names/proctime.c:54
 msgid "kernel-mode CPU time accumulated by process"
 msgstr "进程累计的核心态下的CPU时间"
 
-#: sysdeps/names/proctime.c:58
+#: sysdeps/names/proctime.c:55
 msgid "cumulative utime of process and reaped children"
 msgstr "进程及其派生子进程累积的utime"
 
-#: sysdeps/names/proctime.c:59
+#: sysdeps/names/proctime.c:56
 msgid "cumulative stime of process and reaped children"
 msgstr "进程及其派生子进程累积的stime"
 
-#: sysdeps/names/proctime.c:60
+#: sysdeps/names/proctime.c:57
 msgid "The time (in jiffies) of the process's next timeout"
 msgstr "进程下次超时的瞬间时间"
 
-#: sysdeps/names/proctime.c:61
+#: sysdeps/names/proctime.c:58
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr "由于间隔计时器在下一个SIGALRM信号被发送到进程时的瞬间时间"
 
-#: sysdeps/names/proctime.c:63
+#: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
 msgstr "瞬间频率"
 
-#: sysdeps/names/proctime.c:64
+#: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
 msgstr "进程累计的SMP用户态下CPU时间"
 
-#: sysdeps/names/proctime.c:65
+#: sysdeps/names/proctime.c:62
 msgid "SMP kernel-mode CPU time accumulated by process"
 msgstr "进程累计的SMP核心态下CPU时间"
 
-#: sysdeps/names/procuid.c:48
+#: sysdeps/names/procuid.c:56
 msgid "Uid"
 msgstr "Uid"
 
-#: sysdeps/names/procuid.c:48
+#: sysdeps/names/procuid.c:56
 msgid "EUid"
 msgstr "EUid"
 
-#: sysdeps/names/procuid.c:48
+#: sysdeps/names/procuid.c:56
 msgid "Gid"
 msgstr "Gid"
 
-#: sysdeps/names/procuid.c:48
+#: sysdeps/names/procuid.c:56
 msgid "EGid"
 msgstr "EGid"
 
-#: sysdeps/names/procuid.c:48
-#, fuzzy
-msgid "SUid"
-msgstr "Uid"
-
-#: sysdeps/names/procuid.c:49
-#, fuzzy
-msgid "SGid"
-msgstr "Gid"
-
-#: sysdeps/names/procuid.c:49
-#, fuzzy
-msgid "FsUid"
-msgstr "Uid"
-
-#: sysdeps/names/procuid.c:49
-#, fuzzy
-msgid "FsGid"
-msgstr "Gid"
-
-#: sysdeps/names/procuid.c:49
+#: sysdeps/names/procuid.c:56
 msgid "Pid"
 msgstr "Pid"
 
-#: sysdeps/names/procuid.c:50
+#: sysdeps/names/procuid.c:57
 msgid "PPid"
 msgstr "PPid"
 
-#: sysdeps/names/procuid.c:50
+#: sysdeps/names/procuid.c:57
 msgid "PGrp"
 msgstr "PGrp"
 
-#: sysdeps/names/procuid.c:50
+#: sysdeps/names/procuid.c:57
 msgid "Session"
 msgstr "Session"
 
-#: sysdeps/names/procuid.c:50
+#: sysdeps/names/procuid.c:57
 msgid "Tty"
 msgstr "Tty"
 
-#: sysdeps/names/procuid.c:51
+#: sysdeps/names/procuid.c:58
 msgid "TPGid"
 msgstr "TPGid"
 
-#: sysdeps/names/procuid.c:51
+#: sysdeps/names/procuid.c:58
 msgid "Priority"
 msgstr "优先级"
 
-#: sysdeps/names/procuid.c:51
-msgid "Nice"
-msgstr "nice"
-
-#: sysdeps/names/procuid.c:51
-#, fuzzy
-msgid "NGroups"
-msgstr "组ID"
-
-#: sysdeps/names/procuid.c:52
-#, fuzzy
-msgid "Groups"
-msgstr "组ID"
-
-#: sysdeps/names/procuid.c:57
+#: sysdeps/names/procuid.c:63
 msgid "User ID"
 msgstr "用户ID"
 
-#: sysdeps/names/procuid.c:58
+#: sysdeps/names/procuid.c:64
 msgid "Effective User ID"
 msgstr "有效用户ID"
 
-#: sysdeps/names/procuid.c:59
+#: sysdeps/names/procuid.c:65
 msgid "Group ID"
 msgstr "组ID"
 
-#: sysdeps/names/procuid.c:60
+#: sysdeps/names/procuid.c:66
 msgid "Effective Group ID"
 msgstr "有效组ID"
 
-#: sysdeps/names/procuid.c:61
-#, fuzzy
-msgid "Saved User ID"
-msgstr "用户ID"
-
-#: sysdeps/names/procuid.c:62
-#, fuzzy
-msgid "Saved Group ID"
-msgstr "组ID"
-
-#: sysdeps/names/procuid.c:63
-#, fuzzy
-msgid "Filesystem User ID"
-msgstr "文件系统使用"
-
-#: sysdeps/names/procuid.c:64
-#, fuzzy
-msgid "Filesystem Group ID"
-msgstr "有效组ID"
-
-#: sysdeps/names/procuid.c:65
+#: sysdeps/names/procuid.c:67
 msgid "Process ID"
 msgstr "进程ID"
 
-#: sysdeps/names/procuid.c:66
+#: sysdeps/names/procuid.c:68
 msgid "PID of parent process"
 msgstr "父进程ID"
 
-#: sysdeps/names/procuid.c:67
+#: sysdeps/names/procuid.c:69
 msgid "Process group ID"
 msgstr "进程组ID"
 
-#: sysdeps/names/procuid.c:68
+#: sysdeps/names/procuid.c:70
 msgid "Session ID"
 msgstr "会话ID"
 
-#: sysdeps/names/procuid.c:69
+#: sysdeps/names/procuid.c:71
 msgid "Full device number of controlling terminal"
 msgstr "控制终端完整设备号"
 
-#: sysdeps/names/procuid.c:70
+#: sysdeps/names/procuid.c:72
 msgid "Terminal process group ID"
 msgstr "终端进程组ID"
 
-#: sysdeps/names/procuid.c:71
+#: sysdeps/names/procuid.c:73
 msgid "Kernel scheduling priority"
 msgstr "核心调度优先级"
 
-#: sysdeps/names/procuid.c:72
+#: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
 msgstr "标准unix进程nice级"
 
-#: sysdeps/names/procuid.c:73
-#, fuzzy
-msgid "Number of additional process groups"
-msgstr "终端进程组ID"
-
-#: sysdeps/names/procuid.c:74
-#, fuzzy
-msgid "Additional process groups"
-msgstr "终端进程组ID"
-
-#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
+#: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 msgid "Number of entries in semaphore map"
 msgstr "信号灯映射表的入口数目"
 
-#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
+#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Max number of arrays"
 msgstr "最大数组数"
 
-#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
+#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max semaphores system wide"
 msgstr "最大信号灯系统宽度"
 
-#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
+#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Number of undo structures system wide"
 msgstr "undo结构系统宽度数目"
 
-#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
+#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores per array"
 msgstr "每个数组最大信号灯数"
 
-#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
+#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max ops per semop call"
 msgstr "每个信号灯调用的最大操作数"
 
-#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
+#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max number of undo entries per process"
 msgstr "每个进程undo入口的最大数"
 
-#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
+#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
 msgstr "sem_undo结构大小"
 
-#: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
+#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Semaphore max value"
 msgstr "信号灯最大值"
 
-#: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
+#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Adjust on exit max value"
 msgstr "调整退出最大值"
 
-#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
+#: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
 msgid "Max segment size"
 msgstr "最大段大小"
 
-#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
+#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Min segment size"
 msgstr "最小段大小"
 
-#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
+#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max number of segments"
 msgstr "最大段数"
 
-#: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
+#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max shared segments per process"
 msgstr "每个进程最大共享段"
 
-#: sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
+#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max total shared memory"
 msgstr "最大共享内存"
 
-#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
+#: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
 msgid "Total Swap Space"
 msgstr "总交换空间"
 
-#: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
+#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Used Swap Space"
 msgstr "已用交换空间"
 
-#: sysdeps/names/swap.c:43 sysdeps/names/swap.c:52
+#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Free Swap Space"
 msgstr "未用交换空间"
 
-#: sysdeps/names/swap.c:44
+#: sysdeps/names/swap.c:42
 msgid "Page In"
 msgstr "页进"
 
-#: sysdeps/names/swap.c:45
+#: sysdeps/names/swap.c:43
 msgid "Page Out"
 msgstr "页出"
 
-#: sysdeps/names/swap.c:53
+#: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
 msgstr "自系统启动起被调进的交换页的总数"
 
-#: sysdeps/names/swap.c:55
+#: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "自系统启动起被调出的交换页的总数"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
 msgstr "服务器特征"
 
-#: sysdeps/names/sysdeps.c:54
-#, fuzzy
-msgid "Pointer Size"
-msgstr "Dirty Size"
-
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "CPU Usage"
 msgstr "CPU使用"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "Memory Usage"
 msgstr "内存使用"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Swap Usage"
 msgstr "交换空间使用"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "System Uptime"
 msgstr "系统已运行时间"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Load Averange"
 msgstr "平均负载"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Shared Memory Limits"
 msgstr "共享内存限制"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Message Queue Limits"
 msgstr "消息队列限制"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
 msgstr "信号灯限制"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
 msgstr "正在运行进程列表"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Status information"
 msgstr "进程状态信息"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process UID and TTY information"
 msgstr "进程ID和TTY信息"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process Memory information"
 msgstr "进程内存信息"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Time information"
 msgstr "进程时间信息"
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Signal information"
 msgstr "进程信号信息"
 
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Kernel Data information"
 msgstr "进程核心数据信息"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Segment information"
 msgstr "进程段信息"
 
-#: sysdeps/names/sysdeps.c:71
-#, fuzzy
-msgid "Process CWD"
-msgstr "进程ID"
-
-#: sysdeps/names/sysdeps.c:72
+#: sysdeps/names/sysdeps.c:66
 msgid "Process Arguments"
 msgstr "进程参数"
 
-#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 msgid "Process Memory Map"
 msgstr "进程内存映像"
 
-#: sysdeps/names/sysdeps.c:74
+#: sysdeps/names/sysdeps.c:68
 msgid "Mount List"
 msgstr "安装列表"
 
-#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "File System Usage"
 msgstr "文件系统使用"
 
-#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "Network Load"
 msgstr "网络负载"
 
-#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
-msgid "Interface Names"
-msgstr ""
-
-#: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
+#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "PPP Statistics"
 msgstr "PPP统计"
 
-#: sysdeps/names/sysdeps.c:84
-msgid "Pointer Size on the Server (in bits)"
-msgstr ""
-
-#: sysdeps/names/sysdeps.c:101
-#, fuzzy
-msgid "Current working directory of the process"
-msgstr "进程命令行参数"
-
-#: sysdeps/names/sysdeps.c:102
+#: sysdeps/names/sysdeps.c:93
 msgid "Command line arguments of the process"
 msgstr "进程命令行参数"
 
-#: sysdeps/names/sysdeps.c:104
+#: sysdeps/names/sysdeps.c:95
 msgid "List of currently mounted filesystems"
 msgstr "当前已安装文件系统列表"
 
-#: sysdeps/names/uptime.c:40
+#: sysdeps/names/uptime.c:38
 msgid "Uptime"
 msgstr "Uptime"
 
-#: sysdeps/names/uptime.c:41
+#: sysdeps/names/uptime.c:39
 msgid "Idletime"
 msgstr "Idletime"
 
-#: sysdeps/names/uptime.c:42
-msgid "Boot time"
-msgstr ""
-
-#: sysdeps/names/uptime.c:47
+#: sysdeps/names/uptime.c:44
 msgid "Time in seconds since system boot"
 msgstr "自系统启动以来运行时间(秒)"
 
-#: sysdeps/names/uptime.c:48
+#: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "自系统启动以来空闲时间(秒)"
 
-#: sysdeps/names/uptime.c:49
-#, fuzzy
-msgid "Boot time (seconds sice epoch)"
-msgstr "自新纪元起以秒计的进程起始时间"
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Hangup"
+msgstr "挂起"
 
-#~ msgid "Unknown system error"
-#~ msgstr "未知系统错误"
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr "打断"
 
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s:选项 `%s'不明确\n"
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "退出"
 
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s:选项 `--%s'不允许有一个参数\n"
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
+msgstr "非法指令"
 
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: 选项`%c%s'不允许有一个参数\n"
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
+msgstr "跟踪陷阱"
 
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s:选项`%s'需要一个参数\n"
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "中止"
 
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: 不可识别的选项`--%s'\n"
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+msgid "EMT error"
+msgstr "EMT 错误"
 
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s:不可识别的选项 `%c%s'\n"
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+msgid "Floating-point exception"
+msgstr "浮点意外"
 
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s:非法选项 --%c\n"
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "杀死"
 
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s:无效选项 --%c\n"
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+msgid "Bus error"
+msgstr "总线错误"
 
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s:选项需要一个参数 --%c\n"
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
+msgstr "进程段异常"
 
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s:选项 `-W %s'不明确\n"
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr "系统调用参数错误"
 
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s:选项 `-W %s'不允许有一个参数\n"
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
+msgstr "损坏的通道"
 
-#, fuzzy
-#~ msgid "Unknown error"
-#~ msgstr "未知系统错误"
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
+msgstr "警告时钟"
 
-#, fuzzy
-#~ msgid "No such process"
-#~ msgstr "进程的用户ID"
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+msgid "Termination"
+msgstr "终止"
 
-#~ msgid "Number of list elements"
-#~ msgstr "明细表元素个数"
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
+msgstr "套接字紧急条件"
 
-#~ msgid "Total size of list"
-#~ msgstr "明细总的大小"
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "停止"
 
-#~ msgid "Size of a single list element"
-#~ msgstr "单个明细元素的大小"
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+msgid "Keyboard stop"
+msgstr "键盘停止"
 
-#~ msgid "read %d bytes"
-#~ msgstr "读%d字节"
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "继续"
 
-#~ msgid "read data size"
-#~ msgstr "读数据大小"
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
+msgstr "子状态变更"
 
-#~ msgid "read data %d bytes"
-#~ msgstr "都数据%d字节"
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+msgid "Background read from tty"
+msgstr "后台从 tty 读取"
 
-#~ msgid "write %d bytes"
-#~ msgstr "写数据%d字节"
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+msgid "Background write to tty"
+msgstr "后台写到 tty"
 
-#~ msgid "Enable debugging"
-#~ msgstr "使能调试"
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+msgid "I/O now possible"
+msgstr "现可以 I/O"
 
-#~ msgid "DEBUG"
-#~ msgstr "调试"
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr "达到 CPU 限制"
 
-#~ msgid "Enable verbose output"
-#~ msgstr "使能冗长的输出"
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+msgid "File size limit exceeded"
+msgstr "达到文件大小限制"
 
-#~ msgid "VERBOSE"
-#~ msgstr "冗长的"
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
+msgstr "虚拟警报时钟"
 
-#~ msgid "Don't fork into background"
-#~ msgstr "不能在后台生成子进程"
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr "个性化警报时钟"
 
-#~ msgid "NO-DAEMON"
-#~ msgstr "NO-DAEMON"
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+msgid "Window size change"
+msgstr "窗口大小更改"
 
-#~ msgid "Invoked from inetd"
-#~ msgstr "从inetd起动"
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+msgid "Information request"
+msgstr "信息请求"
 
-#~ msgid "INETD"
-#~ msgstr "INETD"
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+msgid "User defined signal 1"
+msgstr "用户自定义信号 1"
 
-#~ msgid ""
-#~ "Error on option %s: %s.\n"
-#~ "Run '%s --help' to see a full list of available command line options.\n"
-#~ msgstr ""
-#~ "错误选项%s: %s'\n"
-#~ "运行'%s --help'来查看可用命令行选项的完整列表\n"
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+msgid "User defined signal 2"
+msgstr "用户自定义信号 2"

@@ -4,7 +4,7 @@ Section: libs
 Priority: optional
 Standards-Version: 3.0.0
 
-Package: libgtop2@SUFFIX@
+Package: libgtop1@SUFFIX@
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}
@@ -20,7 +20,7 @@ Description: Portable system access library (part of Gnome)
 Package: libgtop-dev@SUFFIX@
 Architecture: any
 Section: devel
-Depends: libgtop2@SUFFIX@ (= ${Source-Version})
+Depends: libgtop1@SUFFIX@ (= ${Source-Version})
 Description: Dev libraries for the portable system access library (part of Gnome)
  Gnome is the "GNU Network Object Model Environment"
  .

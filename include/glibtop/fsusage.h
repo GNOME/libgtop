@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,7 +27,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_FSUSAGE_BLOCKS		0
 #define GLIBTOP_FSUSAGE_BFREE		1
@@ -43,16 +41,20 @@ typedef struct _glibtop_fsusage		glibtop_fsusage;
 
 struct _glibtop_fsusage
 {
-    u_int64_t	flags,
-	blocks,		/* Total blocks. */
-	bfree,		/* Free blocks available to superuser. */
-	bavail,		/* Free blocks available to non-superuser. */
-	files,		/* Total file nodes. */
-	ffree;		/* Free file nodes. */
+	u_int64_t	flags,
+		blocks,		/* Total blocks. */
+		bfree,		/* Free blocks available to superuser. */
+		bavail,		/* Free blocks available to non-superuser. */
+		files,		/* Total file nodes. */
+		ffree;		/* Free file nodes. */
 };
 
-int glibtop_get_fsusage_l (glibtop_client *client, glibtop_fsusage *buf, const char *mount_dir);
-int glibtop_get_fsusage_s (glibtop_server *server, glibtop_closure *closure, glibtop_fsusage *buf, const char *mount_dir);
+#define glibtop_get_fsusage(fsusage,disk)	glibtop_get_fsusage_l(glibtop_global_server, fsusage, disk)
+
+#define glibtop_get_fsusage_r		glibtop_get_fsusage_s
+
+void glibtop_get_fsusage_l (glibtop *server, glibtop_fsusage *buf, const char *mount_dir);
+void glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf, const char *mount_dir);
 
 #ifdef GLIBTOP_NAMES
 
@@ -65,6 +67,6 @@ extern const char *glibtop_descriptions_fsusage [];
 
 #endif
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -29,14 +27,20 @@
 #include <glibtop.h>
 #include <glibtop/error.h>
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
-void *glibtop_malloc_r	(glibtop_server *server, size_t size);
-void *glibtop_calloc_r	(glibtop_server *server, size_t nmemb, size_t size);
-void *glibtop_realloc_r	(glibtop_server *server, void *ptr, size_t size);
-char *glibtop_strdup_r	(glibtop_server *server, const char *string);
-void glibtop_free_r	(glibtop_server *server, void *ptr);
+#define glibtop_malloc(p1)	glibtop_malloc_r(glibtop_global_server, p1)
+#define glibtop_calloc(p1, p2)	glibtop_calloc_r(glibtop_global_server, p1, p2)
+#define glibtop_realloc(p1, p2)	glibtop_realloc_r(glibtop_global_server, p1, p2)
+#define glibtop_strdup(p1)	glibtop_strdup_r(glibtop_global_server, p1)
+#define glibtop_free(p1)	glibtop_free_r(glibtop_global_server, p1)
 
-G_END_DECLS
+void *glibtop_malloc_r	(glibtop *server, size_t size);
+void *glibtop_calloc_r	(glibtop *server, size_t nmemb, size_t size);
+void *glibtop_realloc_r	(glibtop *server, void *ptr, size_t size);
+char *glibtop_strdup_r	(glibtop *server, const char *string);
+void glibtop_free_r	(glibtop *server, const void *ptr);
+
+END_LIBGTOP_DECLS
 
 #endif

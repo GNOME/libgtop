@@ -1,5 +1,3 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
@@ -33,7 +31,7 @@
 
 #define GLIBTOP_INODEDB_ALL		7
 
-G_BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 typedef struct _glibtop_inodedb		glibtop_inodedb;
 
@@ -41,25 +39,29 @@ typedef struct _glibtop_inodedb_key	glibtop_inodedb_key;
 
 struct _glibtop_inodedb_key
 {
-    u_int64_t device, inode;
+	u_int64_t device, inode;
 };
 
 struct _glibtop_inodedb
 {
-    GDBM_FILE system_dbf, user_dbf;
+	GDBM_FILE system_dbf, user_dbf;
 };
 
+#define glibtop_inodedb_open(p1,p2)	glibtop_inodedb_open_s(glibtop_global_server, p1, p2)
+#define glibtop_inodedb_lookup(p1,p2,p3) glibtop_inodedb_lookup_s(glibtop_global_server, p1, p2, p3)
+#define glibtop_inodedb_close(p1)	glibtop_inodedb_close_s(glibtop_global_server)
+
 glibtop_inodedb *
-glibtop_inodedb_open_s (glibtop_server *server, unsigned databases, unsigned long cache_size);
+glibtop_inodedb_open_s (glibtop *server, unsigned databases, unsigned long cache_size);
 
 const char *
-glibtop_inodedb_lookup_s (glibtop_server *server,
+glibtop_inodedb_lookup_s (glibtop *server,
 			  glibtop_inodedb *inodedb,
 			  u_int64_t device, u_int64_t inode);
 
 void
-glibtop_inodedb_close_s (glibtop_server *server, glibtop_closure *closure, glibtop_inodedb *inodedb);
+glibtop_inodedb_close_s (glibtop *server, glibtop_inodedb *inodedb);
 
-G_END_DECLS
+END_LIBGTOP_DECLS
 
 #endif
