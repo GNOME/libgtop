@@ -32,6 +32,8 @@ gtopConf.sh: gtopConf.sh.in Makefile
 	    -e 's,\@GTOP_INCLUDEDIR\@,$(includedir),g' \
 	    -e 's,\@GTOP_LIBS\@,$(GTOP_LIBS),g' \
 	    -e 's,\@GTOP_INCS\@,$(GTOP_INCS),g' \
+	    -e 's,\@GTOP_GUILE_LIBS\@,$(GTOP_GUILE_LIBS),g' \
+	    -e 's,\@GTOP_GUILE_INCS\@,$(GTOP_GUILE_INCS),g' \
 	    -e 's,\@GTOP_BINDIR\@,$(GTOP_BINDIR),g' \
 	    -e 's,\@GTOP_SERVER\@,$(GTOP_SERVER),g' \
 	    -e 's,\@GTOP_SYSDEPS_DIR\@,$(sysdeps_dir),g' \

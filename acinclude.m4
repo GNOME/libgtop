@@ -29,7 +29,9 @@ AC_DEFUN([AC_LC_CANONICAL_HOST],[
 
 AC_DEFUN([AC_LC_SYSDEPS],[
 	AC_REQUIRE([AC_LC_CANONICAL_HOST])
+
 	AC_MSG_CHECKING(for sysdeps directory)
+
 	AC_ARG_WITH(sysdeps,
 	[  --with-sysdeps=dir      which sysdeps directory should be used [default=auto]],
 	[if test "x$withval" = "xyes" ; then
@@ -39,6 +41,7 @@ AC_DEFUN([AC_LC_SYSDEPS],[
 	 else
 	   ac_cv_sysdeps_dir=$withval
 	 fi],[ac_cv_sysdeps_dir=yes])
+
 	if test "x$ac_cv_sysdeps_dir" = "xyes" ; then
 	  case "$host_os" in
 	  linux*)
@@ -68,12 +71,55 @@ AC_DEFUN([AC_LC_SYSDEPS],[
 	else
 	  sysdeps_dir=stub
 	fi
+
 	test -d $srcdir/sysdeps/$sysdeps_dir || sysdeps_dir=stub
 	AC_MSG_RESULT($sysdeps_dir)
+
+	AC_MSG_CHECKING(whether we need the server)
+
+	AC_ARG_ENABLE(libgtop-server,
+	[  --enable-libgtop-server use gtop_server [default=auto]],
+	[if test "x$enableval" = "xyes" ; then
+	  need_server=yes
+	 elif test "x$enableval" = "xno" ; then
+	  need_server=no
+	 fi])
+
+	AC_MSG_RESULT($need_server)
+
+	AC_MSG_CHECKING(whether building of 'names' subdirs is requested)
+
+	AC_ARG_ENABLE(libgtop-names,
+	[  --enable-libgtop-names  enable building of 'names' subdirs [default=yes]],
+	[if test "x$enableval" = "xyes" ; then
+	  ac_cv_want_names=yes
+	 else
+	  ac_cv_want_names=$enableval
+	 fi],[ac_cv_names_subdir=yes])
+
+	AC_MSG_RESULT($ac_cv_want_names)
+
+	AC_MSG_CHECKING(whether building of the guile interface is requested)
+
+	AC_ARG_ENABLE(libgtop-guile,
+	[  --enable-libgtop-guile  enable building of guile interface [default=yes]],
+	[if test "x$enableval" = "xyes" ; then
+	  ac_cv_want_guile=yes
+	 else
+	  ac_cv_want_guile=$enableval
+	 fi],[ac_cv_want_guile=yes])
+
+	AC_MSG_RESULT($ac_cv_want_guile)
+
+	if test x$ac_cv_want_names = xyes ; then
+	  AC_DEFINE(GLIBTOP_NAMES)
+	fi
+
+	AM_CONDITIONAL(GLIBTOP_NAMES, test x$ac_cv_want_names = xyes)
+
 	AC_SUBST(sysdeps_dir)
 	AC_SUBST(need_server)
 ])
-
 
 # Like AC_CONFIG_HEADER, but automatically create stamp file.
 

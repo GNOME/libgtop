@@ -26,15 +26,23 @@ export CC CXX RANLIB LD AS AR NM
 
 AC_LC_SYSDEPS
 
-GNOME_CHECK_GUILE
-
-if test x$ac_cv_guile_found = xyes ; then
-  guile_examples='third third_static third_linux'
-  guile_subdirs='guile'
+if test x$ac_cv_want_guile = xyes ; then
+  GNOME_CHECK_GUILE
+  if test x$ac_cv_guile_found = xyes ; then
+    if test x$ac_cv_want_names = xyes ; then
+      AC_DEFINE(GLIBTOP_GUILE_NAMES)
+    fi
+    guile_examples='third third_static third_linux'
+    guile_subdirs='guile'
+  else
+    guile_examples=
+    guile_subdirs=
+  fi
 else
   guile_examples=
   guile_subdirs=
 fi
+
 AC_SUBST(guile_examples)
 AC_SUBST(guile_subdirs)
 
@@ -99,24 +107,53 @@ if test "$need_libgtop_support" = yes; then
 fi
 
 dnl These definitions are expanded in make.
-GTOP_LIBS='-L$(libdir) -lgtop_common -lgtop '
+GTOP_LIBS='-L$(libdir)'
 GTOP_INCS='-I$(includedir) -I$(top_builddir) -I$(top_srcdir) -I$(top_srcdir)/include'
+GTOP_GUILE_LIBS="$GTOP_LIBS"
+GTOP_GUILE_INCS="$GTOP_INCS"
 GTOP_BINDIR='$(bindir)'
 GTOP_SERVER='$(bindir)/gtop_server'
 
-GTOP_INCS="$GTOP_INCS -I\$(top_srcdir)/intl -DGTOPLOCALEDIR=\\\"\$(datadir)/locale\\\""
+if test "x$ac_cv_guile_found" = "xyes" ; then
+  GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop_guile"
+fi
+
+if test "x$ac_cv_want_names" = "xyes" ; then
+  if test "x$ac_cv_guile_found" = "xyes" ; then
+    GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop_guile_names"
+  fi
+  GTOP_LIBS="$GTOP_LIBS -lgtop_names"
+  GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop_names"
+fi
+
+GTOP_LIBS="$GTOP_LIBS -lgtop_common"
+GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop_common"
+
+if test "x$need_server" = "xyes" ; then
+  GTOP_LIBS="$GTOP_LIBS -lgtop"
+  GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop"
+else
+  GTOP_LIBS="$GTOP_LIBS -lgtop_sysdeps"
+  GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop_sysdeps"
+fi
 
 if test "x$use_glibtop_machine_h" = "xyes" ; then
   GTOP_INCS="$GTOP_INCS -I\$(top_srcdir)/sysdeps/\$(sysdeps_dir)"
 fi
 
+GTOP_INCS="$GTOP_INCS -I\$(top_srcdir)/intl -DGTOPLOCALEDIR=\\\\\"\$(datadir)/locale\\\\\""
+
+GTOP_GUILE_INCS="$GTOP_INCS"
+
 if test "x$ac_cv_guile_found" = "xyes" ; then
-  GTOP_INCS="$GTOP_INCS $GUILE_INCS"
-  GTOP_LIBS="$GTOP_LIBS $GUILE_LIBS"
+  GTOP_GUILE_INCS="$GTOP_INCS $GUILE_INCS"
+  GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS $GUILE_LIBS"
 fi
 
 AC_SUBST(GTOP_LIBS)
 AC_SUBST(GTOP_INCS)
+AC_SUBST(GTOP_GUILE_LIBS)
+AC_SUBST(GTOP_GUILE_INCS)
 AC_SUBST(GTOP_BINDIR)
 AC_SUBST(GTOP_SERVER)
 
