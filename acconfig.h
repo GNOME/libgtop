@@ -169,3 +169,7 @@
 
 /* Define if you have the <sys/procfs.h> header file */
 #undef HAVE_SYS_PROCFS_H
+
+/* Define if you have the libxml library */
+#undef HAVE_LIBXML
+

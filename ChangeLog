@@ -2,6 +2,8 @@
 
 	* xml.m4: New file to check for libxml.
 
+	* acconfig.h (HAVE_LIBXML): Define this if we have libxml.
+
 	* configure.in: Call `LIBGTOP_XML_HOOK' from `xml.m4' and
 	add libxml libraries to `LIBGTOP_EXTRA_LIBS' when found.
 

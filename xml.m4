@@ -20,6 +20,7 @@ AC_DEFUN([LIBGTOP_XML_HOOK],[
 		AC_CHECK_LIB(xml, xmlNewDoc, [
 			$1
 			LIBGTOP_XML_LIB=`$XML_CONFIG --libs`
+			AC_DEFINE(HAVE_LIBXML)
 		], [
 			if test x$2 = xfailure; then 
 				AC_MSG_ERROR(Could not link sample xml program)
