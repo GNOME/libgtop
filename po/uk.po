@@ -1,4 +1,3 @@
-# Ukrainian translation for Libgtop.
 # Copyright (C) 2000 Free Software Foundation, Inc.
 # Yuri Syrota <rasta@renome.rovno.ua>, 2000.
 #
@@ -651,11 +650,11 @@ msgstr "Сп╕льна"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size"
-msgstr ""
+msgstr "Розм╕р резидентного набору"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size Limit"
-msgstr ""
+msgstr "Обмеження розм╕ру резидентного набору"
 
 #: sysdeps/names/procmem.c:53
 msgid "Total # of pages of memory"
@@ -667,7 +666,7 @@ msgstr "К╕льк╕сть стор╕нок в╕ртуально╖ пам'ят╕"
 
 #: sysdeps/names/procmem.c:55
 msgid "Number of resident set (non-swapped) pages"
-msgstr ""
+msgstr "К╕льк╕сть стор╕нок резидентних набор╕в (не свопуються)"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of shared (mmap'd) memory"
@@ -688,55 +687,55 @@ msgstr ""
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
-msgstr ""
+msgstr "РРН_тексту"
 
 #: sysdeps/names/procsegment.c:42
 msgid "ShLib_RSS"
-msgstr ""
+msgstr "РРН_КолБ╕б"
 
 #: sysdeps/names/procsegment.c:42
 msgid "Data_RSS"
-msgstr ""
+msgstr "РРН_даних"
 
 #: sysdeps/names/procsegment.c:42
 msgid "Stack_RSS"
-msgstr ""
+msgstr "РРН_стеку"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Dirty Size"
-msgstr ""
+msgstr "Брудний розм╕р"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Code"
-msgstr ""
+msgstr "Початок_коду"
 
 #: sysdeps/names/procsegment.c:43
 msgid "End_Code"
-msgstr ""
+msgstr "К╕нець_коду"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Stack"
-msgstr ""
+msgstr "Початок_стеку"
 
 #: sysdeps/names/procsegment.c:48
 msgid "Text resident set size"
-msgstr ""
+msgstr "Розм╕р набору резидентного тексту"
 
 #: sysdeps/names/procsegment.c:49
 msgid "Shared-Lib resident set size"
-msgstr ""
+msgstr "Розм╕р резидентного набору колективних б╕бл╕отек"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Data resident set size"
-msgstr ""
+msgstr "Розм╕р резидентного набору даних"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Stack resident set size"
-msgstr ""
+msgstr "Розм╕р резидентного набору стеку"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Total size of dirty pages"
-msgstr ""
+msgstr "Загальний розм╕р брудних стор╕нок"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Address of beginning of code segment"
@@ -748,7 +747,7 @@ msgstr "Адреса к╕нця се╜менту коду"
 
 #: sysdeps/names/procsegment.c:55
 msgid "Address of the bottom of stack segment"
-msgstr ""
+msgstr "Адреса нижньо╖ меж╕ се╜мента стеку"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Signal"
@@ -816,7 +815,7 @@ msgstr "GID процесу"
 
 #: sysdeps/names/proctime.c:44
 msgid "Start_Time"
-msgstr ""
+msgstr "Час_запуску"
 
 #: sysdeps/names/proctime.c:44
 msgid "RTime"
@@ -1098,7 +1097,7 @@ msgstr "Використання пам'ят╕"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Swap Usage"
-msgstr "Використання своп╕нгу"
+msgstr "Використання своп╕н╜у"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "System Uptime"
