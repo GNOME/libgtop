@@ -42,5 +42,7 @@ int main()
 
   g_free(entries);
 
+  glibtop_close();
+
   return 0;
 }

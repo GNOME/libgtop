@@ -2,7 +2,7 @@ i2004-09-25  Benoît Dejean  <tazforever@dlfp.org>
 
 	* df.c: (main):
 	* pprint.c: (main):
-	* procargs.c: (main): Added missing call to libgtop_init();
+	* procargs.c: (main): Added missing call to glibgtop_init() / glibtop_close()
 
 2004-09-24  Benoît Dejean  <tazforever@dlfp.org>
 

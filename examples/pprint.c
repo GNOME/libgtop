@@ -240,5 +240,7 @@ int main()
 
   pprint_get_uptime();
 
+  glibtop_close();
+
   return 0;
 }

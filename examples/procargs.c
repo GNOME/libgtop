@@ -40,6 +40,8 @@ int main(int argc, char **argv)
       show_args(pid, 15);
     }
 
+  glibtop_close();
+
   return 0;
 }
 
