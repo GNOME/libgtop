@@ -1,3 +1,10 @@
+2002-01-09  Kevin Vandersloot <kfv101@psu.edu>
+
+	* acinclude.m4: remove gnome support check. Fixes the build
+	for those with automake < 1.4p5.
+
+	* configure.in: remove check for GNOME_SUPPORT
+
 2001-14-27  Miles Lane <miles@megapathdsl.net>
 
 	* acconfig.h:  Added "#undef HAVE_GETTEXT" entry.

@@ -1,10 +1,10 @@
 ## Process this file with automake to produce Makefile.in.
 
-## if EXAMPLES
-## examples_SUBDIRS = examples
-## else
+if EXAMPLES
+examples_SUBDIRS = examples
+else
 examples_SUBDIRS =
-## endif
+endif
 
 if BUILD_GNOME_SUPPORT
 support = support

@@ -6,7 +6,7 @@ libgtop2_TEXINFOS	= libgtop2.texi about.texi reference.texi \
 
 MAKEINFO		+= -I @libgtop_top_builddir@/doc
 
-EXTRA_DIST		= auto-macros.texi
+EXTRA_DIST		= auto-macros.texi.in
 
 auto-macros.texi: auto-macros.texi.in Makefile
 ## Use sed and then mv to avoid problems if the user interrupts.
