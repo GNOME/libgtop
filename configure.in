@@ -108,7 +108,7 @@ fi
 
 dnl These definitions are expanded in make.
 GTOP_LIBS='-L$(libdir)'
-GTOP_INCS='-I$(includedir) -I$(top_builddir) -I$(top_srcdir) -I$(top_srcdir)/include'
+GTOP_INCS='-I$(includedir)'
 GTOP_GUILE_LIBS="$GTOP_LIBS"
 GTOP_GUILE_INCS="$GTOP_INCS"
 GTOP_BINDIR='$(bindir)'
@@ -136,14 +136,6 @@ else
   GTOP_LIBS="$GTOP_LIBS -lgtop_sysdeps"
   GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop_sysdeps"
 fi
-
-if test "x$use_glibtop_machine_h" = "xyes" ; then
-  GTOP_INCS="$GTOP_INCS -I\$(top_srcdir)/sysdeps/\$(sysdeps_dir)"
-fi
-
-GTOP_INCS="$GTOP_INCS -I\$(top_srcdir)/intl -DGTOPLOCALEDIR=\\\\\"\$(datadir)/locale\\\\\""
-
-GTOP_GUILE_INCS="$GTOP_INCS"
 
 if test "x$ac_cv_guile_found" = "xyes" ; then
   GTOP_GUILE_INCS="$GTOP_INCS $GUILE_INCS"
