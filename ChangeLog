@@ -1,5 +1,8 @@
 1999-01-05  Martin Baulig  <martin@home-of-linux.org>
 
+	* libgtop.spec: Always build SMP support; binary packages should
+	contain all possible features.
+
 	* configure.in: LibGTop will now require GLIB >= 1.1.11.
 	
 1999-01-05  Martin Baulig  <martin@home-of-linux.org>
