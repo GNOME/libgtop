@@ -160,6 +160,15 @@ handle_parent_connection (int s)
 				   resp->u.data.proc_map.total, ptr);
 			glibtop_free_r (server, ptr);
 			break;
+		case GLIBTOP_CMND_PROC_ARGS:
+			memcpy (&pid, parameter, sizeof (pid_t));
+			ptr = glibtop_get_proc_args_l (server,
+						       &resp->u.data.proc_args,
+						       pid, 0);
+			do_output (s, resp, _offset_data (proc_args),
+				   ptr ? resp->u.data.proc_args.size+1 : 0, ptr);
+			glibtop_free_r (server, ptr);
+			break;
 		case GLIBTOP_CMND_PROC_STATE:
 			memcpy (&pid, parameter, sizeof (pid_t));
 			glibtop_get_proc_state_l
@@ -221,6 +230,12 @@ handle_parent_connection (int s)
 			glibtop_get_ppp_l
 				(server, &resp->u.data.ppp, device);
 			do_output (s, resp, _offset_data (ppp), 0, NULL);
+			break;
+		case GLIBTOP_CMND_NETLOAD:
+			glibtop_get_netload_l
+				(server, &resp->u.data.netload, parameter);
+			do_output (s, resp, _offset_data (netload),
+				   0, NULL);
 			break;
 		default:
 			glibtop_warn ("Parent received unknown command %u",
