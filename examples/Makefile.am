@@ -11,6 +11,7 @@ CFLAGS			= -Wall -W @CFLAGS@ -O0
 DEFS			= @DEFS@
 
 bin_PROGRAMS		= first first_static second second_static \
+			  mountlist mountlist_static \
 			  @guile_examples@
 
 EXTRA_PROGRAMS		= third third_static
@@ -51,3 +52,14 @@ third_LDADD		= $(top_builddir)/sysdeps/guile/libgtop_guile.la \
 third_static_SOURCES	= $(third_SOURCES)
 third_static_LDADD	= $(third_LDADD)
 third_static_LDFLAGS	= -static
+
+mountlist_SOURCES	= mountlist.c
+mountlist_LDADD		= $(top_builddir)/lib/libgtop.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+			  @INTLLIBS@ @LIBSUPPORT@ @libs_xauth@
+
+mountlist_static_SOURCES= $(mountlist_SOURCES)
+mountlist_static_LDADD	= $(mountlist_LDADD)
+mountlist_static_LDFLAGS= -static
+

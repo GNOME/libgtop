@@ -1,0 +1,93 @@
+/* $Id$ */
+
+/* Copyright (C) 1995, 1996, 1997 Free Software Foundation, Inc.
+   This file is part of the Gnome Top Library.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+
+   The Gnome Top Library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public License as
+   published by the Free Software Foundation; either version 2 of the
+   License, or (at your option) any later version.
+
+   The Gnome Top Library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public
+   License along with the GNU C Library; see the file COPYING.LIB.  If not,
+   write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+   Boston, MA 02111-1307, USA.  */
+
+#include <locale.h>
+
+#include <glibtop.h>
+#include <glibtop/open.h>
+#include <glibtop/close.h>
+#include <glibtop/xmalloc.h>
+
+#include <glibtop/parameter.h>
+
+#include <glibtop/mountlist.h>
+
+#ifndef PROFILE_COUNT
+#define PROFILE_COUNT	1000
+#endif
+
+int
+main (int argc, char *argv [])
+{
+	glibtop_mountlist mount_list;
+	glibtop_mountentry *mount_entries;
+	unsigned c, index, method, count, port;
+	char buffer [BUFSIZ];
+
+	setlocale (LC_ALL, "");
+	bindtextdomain (PACKAGE, GTOPLOCALEDIR);
+	textdomain (PACKAGE);
+	
+	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_INIT_NO_OPEN);
+
+	glibtop_get_parameter (GLIBTOP_PARAM_METHOD, &method, sizeof (method));
+	
+	printf ("Method = %d\n", method);
+
+	count = glibtop_get_parameter (GLIBTOP_PARAM_COMMAND, buffer, BUFSIZ);
+	buffer [count] = 0;
+
+	printf ("Command = '%s'\n", buffer);
+
+	count = glibtop_get_parameter (GLIBTOP_PARAM_HOST, buffer, BUFSIZ);
+	buffer [count] = 0;
+
+	glibtop_get_parameter (GLIBTOP_PARAM_PORT, &port, sizeof (port));
+
+	printf ("Host = '%s' - %u\n\n", buffer, port);
+
+	printf ("sbrk (0) = %p\n\n", sbrk (0));
+
+	for (c = 0; c < PROFILE_COUNT; c++) {
+		mount_entries = glibtop_get_mountlist (&mount_list);
+
+		glibtop_free (mount_entries);
+	}
+
+	printf ("sbrk (0) = %p\n\n", sbrk (0));
+
+	mount_entries = glibtop_get_mountlist (&mount_list);
+
+	if (mount_entries == NULL)
+		_exit (1);
+
+	for (index = 0; index < mount_list.number; index++)
+		printf ("Mount_Entry: %-30s %-10s %-20s\n",
+			mount_entries [index].mountdir,
+			mount_entries [index].type,
+			mount_entries [index].devname);
+
+	glibtop_free (mount_entries);
+
+	glibtop_close ();
+
+	exit (0);
+}
