@@ -6,22 +6,6 @@ AC_INIT(copyright.txt)
 AM_CONFIG_HEADER(config.h)
 AC_CANONICAL_SYSTEM
 
-dnl This is required at several places
-AC_CHECK_PROG(ac_dc_found, dc, yes, no)
-if test x$ac_dc_found != xyes ; then
-AC_MSG_ERROR([
-*** The "dc" utility was not found on your system.
-***
-*** When using RedHat Linux, you need to install the "bc" package.
-***
-*** It is now part of the "bc" package, so you should look at
-*** ftp://ftp.gnu.org/pub/gnu/bc/ if you want to compile it yourself.
-***
-*** Other systems and distributions may also have it in their "bc" package,
-*** so if there's no "dc" one, please look for "bc".
-***])
-fi
-
 LIBGTOP_MAJOR_VERSION=1
 LIBGTOP_MINOR_VERSION=90
 LIBGTOP_MICRO_VERSION=1
@@ -37,7 +21,8 @@ LIBGTOP_VERSION_SUFFIX=
 # Increase each time you change the client/server protocol.
 LIBGTOP_SERVER_VERSION=5
 
-LIBGTOP_VERSION_CODE=`echo "$LIBGTOP_MAJOR_VERSION 1000000 * $LIBGTOP_MINOR_VERSION 1000 * + $LIBGTOP_MICRO_VERSION + p q" | dc`
+# Version code calculation
+LIBGTOP_VERSION_CODE=`expr $LIBGTOP_MAJOR_VERSION \* 1000000 + $LIBGTOP_MINOR_VERSION \* 1000 + $LIBGTOP_MICRO_VERSION`
 
 AC_SUBST(LIBGTOP_MAJOR_VERSION)
 AC_SUBST(LIBGTOP_MINOR_VERSION)
@@ -48,22 +33,6 @@ AC_SUBST(LIBGTOP_SERVER_VERSION)
 AC_SUBST(LIBGTOP_VERSION)
 AC_SUBST(LIBGTOP_VERSION_CODE)
 AC_SUBST(LIBGTOP_VERSION_SUFFIX)
-
-dnl This is required at several places
-AC_CHECK_PROG(ac_dc_found, dc, yes, no)
-if test x$ac_dc_found != xyes ; then
-AC_MSG_ERROR([
-*** The "dc" utility was not found on your system.
-***
-*** When using RedHat Linux, you need to install the "bc" package.
-***
-*** It is now part of the "bc" package, so you should look at
-*** ftp://ftp.gnu.org/pub/gnu/bc/ if you want to compile it yourself.
-***
-*** Other systems and distributions may also have it in their "bc" package,
-*** so if there's no "dc" one, please look for "bc".
-***])
-fi
 
 # libtool versioning
 LT_RELEASE=$LIBGTOP_MAJOR_VERSION.$LIBGTOP_MINOR_VERSION

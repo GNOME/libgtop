@@ -1,3 +1,10 @@
+2002-02-09  Bastien Nocera  <hadess@hadess.net>
+
+	reviewed by: Kevin Vandersloot <kfv101@psu.edu>
+
+	* configure.in: remove need for dc, and clean up
+	* stamp-h.in, .cvsignore: remove
+
 2002-02-05  Abel Cheung  <maddog@linux.org.hk>
 
 	* configure.in (ALL_LINGUAS): zh_CN.GB2312 -> zh_CN
