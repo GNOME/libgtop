@@ -47,7 +47,7 @@ char **
 glibtop_get_proc_args_s (glibtop *server, glibtop_array *array, pid_t pid)
 {
     char fn [BUFSIZ], buffer [BUFSIZ], *ptr = NULL, *pos, **ptrlist;
-    size_t count = 0, max_len, total, len;
+    size_t count = 0, max_len, total = 0, len;
     int cmdline, i;
 
     glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_ARGS, 0);

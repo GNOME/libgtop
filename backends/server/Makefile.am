@@ -50,15 +50,16 @@ libgtop_server_LDFLAGS = -static
 endif
 
 BUILT_SOURCES = \
-	marshal.c	\
-	demarshal.c	\
+	marshal.c		\
+	demarshal.c		\
 	command.h
 
 EXTRA_DIST = \
-	marshal.pl	\
-	demarshal.pl	\
-	command.pl	\
-	command.h.in
+	marshal.pl		\
+	demarshal.pl		\
+	command.pl		\
+	command.h.in		\
+	libgtop-server.backend
 
 CLEANFILES = $(BUILT_SOURCES)
 
