@@ -309,12 +309,16 @@ main (int argc, char *argv [])
 		glibtop_get_proc_signal (&data.proc_signal, pid);
 	
 	printf ("Proc_Signal  PID  %5d (0x%08lx): "
-		"%lu %lu %lu %lu\n", (int) pid,
+		"%lx %lx %lx %lx %lx %lx %lx %lx\n", (int) pid,
 		(unsigned long) data.proc_signal.flags,
-		(unsigned long) data.proc_signal.signal,
-		(unsigned long) data.proc_signal.blocked,
-		(unsigned long) data.proc_signal.sigignore,
-		(unsigned long) data.proc_signal.sigcatch);
+		(unsigned long) data.proc_signal.signal [0],
+		(unsigned long) data.proc_signal.signal [1],
+		(unsigned long) data.proc_signal.blocked [0],
+		(unsigned long) data.proc_signal.blocked [1],
+		(unsigned long) data.proc_signal.sigignore [0],
+		(unsigned long) data.proc_signal.sigignore [1],
+		(unsigned long) data.proc_signal.sigcatch [0],
+		(unsigned long) data.proc_signal.sigcatch [1]);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_kernel (&data.proc_kernel, pid);
@@ -419,12 +423,17 @@ main (int argc, char *argv [])
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_signal (&data.proc_signal, ppid);
 
-	printf ("Proc_Signal  PPID %5d (0x%08lx): %lu %lu %lu %lu\n",
+	printf ("Proc_Signal  PPID %5d (0x%08lx): "
+		"%lx %lx %lx %lx %lx %lx %lx %lx\n",
 		(int) ppid, (unsigned long) data.proc_signal.flags,
-		(unsigned long) data.proc_signal.signal,
-		(unsigned long) data.proc_signal.blocked,
-		(unsigned long) data.proc_signal.sigignore,
-		(unsigned long) data.proc_signal.sigcatch);
+		(unsigned long) data.proc_signal.signal [0],
+		(unsigned long) data.proc_signal.signal [1],
+		(unsigned long) data.proc_signal.blocked [0],
+		(unsigned long) data.proc_signal.blocked [1],
+		(unsigned long) data.proc_signal.sigignore [0],
+		(unsigned long) data.proc_signal.sigignore [1],
+		(unsigned long) data.proc_signal.sigcatch [0],
+		(unsigned long) data.proc_signal.sigcatch [1]);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_kernel (&data.proc_kernel, ppid);
@@ -530,12 +539,16 @@ main (int argc, char *argv [])
 		glibtop_get_proc_signal (&data.proc_signal, 1);
 
 	printf ("Proc_Signal  INIT %5d (0x%08lx): "
-		"%lu %lu %lu %lu\n", 1,
+		"%lx %lx %lx %lx %lx %lx %lx %lx\n", 1,
 		(unsigned long) data.proc_signal.flags,
-		(unsigned long) data.proc_signal.signal,
-		(unsigned long) data.proc_signal.blocked,
-		(unsigned long) data.proc_signal.sigignore,
-		(unsigned long) data.proc_signal.sigcatch);
+		(unsigned long) data.proc_signal.signal [0],
+		(unsigned long) data.proc_signal.signal [1],
+		(unsigned long) data.proc_signal.blocked [0],
+		(unsigned long) data.proc_signal.blocked [1],
+		(unsigned long) data.proc_signal.sigignore [0],
+		(unsigned long) data.proc_signal.sigignore [1],
+		(unsigned long) data.proc_signal.sigcatch [0],
+		(unsigned long) data.proc_signal.sigcatch [1]);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_kernel (&data.proc_kernel, 1);

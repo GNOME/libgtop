@@ -58,6 +58,7 @@ static libgtop_proc_state_t libgtop_proc_state;
 static libgtop_proc_kernel_t libgtop_proc_kernel;
 static libgtop_proc_segment_t libgtop_proc_segment;
 static libgtop_proc_mem_t libgtop_proc_mem;
+static libgtop_proc_signal_t libgtop_proc_signal;
 
 static ctl_table libgtop_table[];
 static ctl_table libgtop_root_table[] = {
@@ -89,6 +90,8 @@ ctl_table libgtop_table[] = {
      sizeof (libgtop_proc_segment), 0444, NULL, NULL, &proc_ctl_handler},
     {LIBGTOP_PROC_MEM, NULL, &libgtop_proc_mem,
      sizeof (libgtop_proc_mem), 0444, NULL, NULL, &proc_ctl_handler},
+    {LIBGTOP_PROC_SIGNAL, NULL, &libgtop_proc_signal,
+     sizeof (libgtop_proc_signal), 0444, NULL, NULL, &proc_ctl_handler},
     {0}
 };
 
@@ -467,6 +470,48 @@ get_statm (struct task_struct *tsk, libgtop_proc_mem_t *proc_mem)
     proc_mem->dt = dt; 
 }
 
+static void
+collect_sigign_sigcatch (struct task_struct *p, sigset_t *ign,
+			 sigset_t *catch)
+{
+    struct k_sigaction *k;
+    int i;
+
+    sigemptyset(ign);
+    sigemptyset(catch);
+
+    if (p->sig) {
+	k = p->sig->action;
+	for (i = 1; i <= _NSIG; ++i, ++k) {
+	    if (k->sa.sa_handler == SIG_IGN)
+		sigaddset(ign, i);
+	    else if (k->sa.sa_handler != SIG_DFL)
+		sigaddset(catch, i);
+	}
+    }
+}
+
+static void 
+task_sig (struct task_struct *p, libgtop_proc_signal_t *proc_signal)
+{
+    sigset_t ignore, catch;
+    int i, nsig;
+
+    if (_NSIG_WORDS > LIBGTOP_NSIG)
+	nsig = LIBGTOP_NSIG;
+    else
+	nsig = _NSIG_WORDS;
+
+    collect_sigign_sigcatch (p, &ignore, &catch);
+
+    for (i = 0; i < nsig; i++) {
+	proc_signal->signal [i] = p->signal.sig [i];
+	proc_signal->blocked [i] = p->blocked.sig [i];
+	proc_signal->ignore [i] = ignore.sig [i];
+	proc_signal->catch [i] = catch.sig [i];
+    }
+}
+
 static int
 libgtop_sysctl (ctl_table *table, int nlen, int *name)
 {
@@ -618,8 +663,11 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
     libgtop_proc_state_t *proc_state;
     libgtop_proc_kernel_t *proc_kernel;
     libgtop_proc_segment_t *proc_segment;
+    libgtop_proc_signal_t *proc_signal;
     libgtop_proc_mem_t *proc_mem;
+#ifdef __SMP__
     int i;
+#endif
 
     switch (table->ctl_name) {
     case LIBGTOP_PROC_STATE:
@@ -735,6 +783,12 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 	/* Use LIBGTOP_PROC_STAT if you only want rss and rlim. */
 	proc_mem->rss = tsk->mm->rss << PAGE_SHIFT;
 	proc_mem->rlim = tsk->rlim ? tsk->rlim[RLIMIT_RSS].rlim_cur : 0;
+	break;
+    case LIBGTOP_PROC_SIGNAL:
+	proc_signal = table->data;
+	memset (proc_signal, 0, sizeof (libgtop_proc_signal_t));
+
+	task_sig (tsk, proc_signal);
 	break;
     default:
 	return -EINVAL;

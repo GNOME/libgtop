@@ -116,6 +116,22 @@ glibtop_get_proc_data_proc_mem_s (glibtop *server,
 }
 
 int
+glibtop_get_proc_data_proc_signal_s (glibtop *server,
+				     libgtop_proc_signal_t *proc_signal,
+				     pid_t pid)
+{
+    int name [3] = { CTL_LIBGTOP, LIBGTOP_PROC_SIGNAL, pid };
+    size_t size = sizeof (libgtop_proc_signal_t);
+
+    if (sysctl (name, 3, proc_signal, &size, NULL, 0)) {
+	glibtop_warn_io_r (server, "sysctl (libgtop/proc_signal)");
+	return -1;
+    }
+
+    return 0;
+}
+
+int
 glibtop_get_proc_data_proc_kernel_s (glibtop *server,
 				     libgtop_proc_kernel_t *proc_kernel,
 				     pid_t pid)

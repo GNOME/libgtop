@@ -14,7 +14,8 @@ enum {
     LIBGTOP_PROC_STATE,
     LIBGTOP_PROC_KERNEL,
     LIBGTOP_PROC_SEGMENT,
-    LIBGTOP_PROC_MEM
+    LIBGTOP_PROC_MEM,
+    LIBGTOP_PROC_SIGNAL
 };
 
 enum {
@@ -26,6 +27,8 @@ enum {
     LIBGTOP_PROCLIST_UID,
     LIBGTOP_PROCLIST_RUID
 };
+
+#define LIBGTOP_NSIG			4
 
 #define LIBGTOP_PROCLIST_MASK		15	
 
@@ -44,6 +47,7 @@ typedef struct libgtop_proc_state libgtop_proc_state_t;
 typedef struct libgtop_proc_kernel libgtop_proc_kernel_t;
 typedef struct libgtop_proc_segment libgtop_proc_segment_t;
 typedef struct libgtop_proc_mem libgtop_proc_mem_t;
+typedef struct libgtop_proc_signal libgtop_proc_signal_t;
 
 struct libgtop_cpu
 {
@@ -136,6 +140,14 @@ struct libgtop_proc_mem
     libgtop_proc_segment_t segment;
     int size, resident, share, trs, lrs, drs, dt;
     unsigned long rss, rlim;
+};
+
+struct libgtop_proc_signal
+{
+    unsigned long signal [LIBGTOP_NSIG];
+    unsigned long blocked [LIBGTOP_NSIG];
+    unsigned long ignore [LIBGTOP_NSIG];
+    unsigned long catch [LIBGTOP_NSIG];
 };
 
 #endif

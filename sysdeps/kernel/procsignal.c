@@ -24,14 +24,20 @@
 #include <glibtop.h>
 #include <glibtop/procsignal.h>
 
-static const unsigned long _glibtop_sysdeps_proc_signal = 0;
+#include <glibtop_private.h>
+
+static const unsigned long _glibtop_sysdeps_proc_signal =
+(1 << GLIBTOP_PROC_SIGNAL_SIGNAL) +
+(1 << GLIBTOP_PROC_SIGNAL_BLOCKED) +
+(1 << GLIBTOP_PROC_SIGNAL_SIGIGNORE) +
+(1 << GLIBTOP_PROC_SIGNAL_SIGCATCH);
 
 /* Init function. */
 
 void
 glibtop_init_proc_signal_s (glibtop *server)
 {
-	server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
+    server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
 }
 
 /* Provides detailed information about a process. */
@@ -40,5 +46,20 @@ void
 glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 			   pid_t pid)
 {
-	memset (buf, 0, sizeof (glibtop_proc_signal));
+    libgtop_proc_signal_t proc_signal;
+    int i;
+
+    memset (buf, 0, sizeof (glibtop_proc_signal));
+
+    if (glibtop_get_proc_data_proc_signal_s (server, &proc_signal, pid))
+	return;
+
+    for (i = 0; i < 1; i++) {
+	buf->signal [i] = proc_signal.signal [i];
+	buf->blocked [i] = proc_signal.blocked [i];
+	buf->sigignore [i] = proc_signal.ignore [i];
+	buf->sigcatch [i] = proc_signal.catch [i];
+    }
+
+    buf->flags = _glibtop_sysdeps_proc_signal;
 }

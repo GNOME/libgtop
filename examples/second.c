@@ -116,12 +116,16 @@ output (pid_t pid)
 	glibtop_get_proc_signal (&data.proc_signal, pid);
 	
 	printf ("Proc_Signal  PID  %5d (0x%08lx): "
-		"%lu %lu %lu %lu\n", (int) pid,
+		"%lx %lx %lx %lx %lx %lx %lx %lx\n", (int) pid,
 		(unsigned long) data.proc_signal.flags,
-		(unsigned long) data.proc_signal.signal,
-		(unsigned long) data.proc_signal.blocked,
-		(unsigned long) data.proc_signal.sigignore,
-		(unsigned long) data.proc_signal.sigcatch);
+		(unsigned long) data.proc_signal.signal [0],
+		(unsigned long) data.proc_signal.signal [1],
+		(unsigned long) data.proc_signal.blocked [0],
+		(unsigned long) data.proc_signal.blocked [1],
+		(unsigned long) data.proc_signal.sigignore [0],
+		(unsigned long) data.proc_signal.sigignore [1],
+		(unsigned long) data.proc_signal.sigcatch [0],
+		(unsigned long) data.proc_signal.sigcatch [1]);
 
 	glibtop_get_proc_kernel (&data.proc_kernel, pid);
 
