@@ -48,6 +48,7 @@ handle_parent_connection (int s)
 
     u_int64_t interface G_GNUC_UNUSED;
     u_int64_t number G_GNUC_UNUSED;
+    u_int64_t instance G_GNUC_UNUSED;
     u_int64_t strategy G_GNUC_UNUSED;
 
     glibtop_send_version (glibtop_global_server, s);
@@ -240,11 +241,14 @@ handle_parent_connection (int s)
 	    memcpy (&interface, parameter, sizeof (u_int64_t));
 	    memcpy (&number, parameter + sizeof (u_int64_t),
 		    sizeof (u_int64_t));
-	    memcpy (&strategy, parameter + 2 * sizeof (u_int64_t),
+	    memcpy (&instance, parameter + 2 * sizeof (u_int64_t),
+		    sizeof (u_int64_t));
+	    memcpy (&strategy, parameter + 3 * sizeof (u_int64_t),
 		    sizeof (u_int64_t));
 	    ptr = glibtop_get_interface_names_l (server,
 						 &resp->u.data.interface_names,
-						 interface, number, strategy);
+						 interface, number, instance,
+						 strategy);
 	    do_output (s, resp, _offset_data (interface_names),
 		       ptr ? resp->u.data.interface_names.size+1 : 0, ptr,
 		       (ptr != NULL) ? 0 : -1);

@@ -44,7 +44,7 @@ glibtop_init_interface_names_s (glibtop *server)
 char *
 glibtop_get_interface_names_s (glibtop *server, glibtop_interface_names *buf,
 			       unsigned interface, unsigned number,
-			       unsigned strategy)
+			       unsigned instance, unsigned strategy)
 {
     glibtop_init_s (&server, GLIBTOP_SYSDEPS_INTERFACE_NAMES, 0);
 

@@ -38,21 +38,45 @@ BEGIN_LIBGTOP_DECLS
 
 typedef struct _glibtop_interface_names	glibtop_interface_names;
 
-typedef enum _glibtop_protocol		glibtop_protocol;
 typedef enum _glibtop_interface		glibtop_interface;
+typedef enum _glibtop_transport		glibtop_transport;
+typedef enum _glibtop_protocol		glibtop_protocol;
 
 enum _glibtop_protocol {
     GLIBTOP_NETLOAD_DEFAULT = 0,
-    GLIBTOP_NETLOAD_IPV4,
-    GLIBTOP_NETLOAD_IPV6,
-    GLIBTOP_NETLOAD_IPX,
+    GLIBTOP_NETLOAD_ICMP,
+    GLIBTOP_NETLOAD_TCP,
+    GLIBTOP_NETLOAD_UDP,
+};
+
+enum _glibtop_transport {
+    GLIBTOP_TRANSPORT_DEFAULT = 0,
+    GLIBTOP_TRANSPORT_OTHER,
+    GLIBTOP_TRANSPORT_IPV4,
+    GLIBTOP_TRANSPORT_IPV6,
+    GLIBTOP_TRANSPORT_IPX,
+    GLIBTOP_TRANSPORT_X25,
+    GLIBTOP_TRANSPORT_DECNET,
+    GLIBTOP_TRANSPORT_APPLETALK,
+    GLIBTOP_TRANSPORT_NETBEUI,
 };
 
 enum _glibtop_interface {
     GLIBTOP_INTERFACE_ALL = 0,
-    GLIBTOP_INTERFACE_ETHERNET,
-    GLIBTOP_INTERFACE_LOOPBACK,
+    GLIBTOP_INTERFACE_OTHER,
+    /* Network interfaces */
+    GLIBTOP_INTERFACE_ETHERNET = 101,
+    GLIBTOP_INTERFACE_FDDI,
+    GLIBTOP_INTERFACE_FRAME_RELAY,
+    GLIBTOP_INTERFACE_TOKEN_RING,
+    GLIBTOP_INTERFACE_ARCNET,
+    GLIBTOP_INTERFACE_ATM,
+    /* Dummy interfaces */
+    GLIBTOP_INTERFACE_LOOPBACK = 501,
     GLIBTOP_INTERFACE_DUMMY,
+    /* Dialup interfaces */
+    GLIBTOP_INTERFACE_PARA = 801,
+    GLIBTOP_INTERFACE_SLIP,
     GLIBTOP_INTERFACE_PPP,
     GLIBTOP_INTERFACE_ISDN
 };
@@ -69,7 +93,7 @@ struct _glibtop_interface_names
 	size;			/* GLIBTOP_INTERFACES_SIZE	*/
 };
 
-#define glibtop_get_interface_names(buf, interface,number,strategy)	glibtop_get_interface_names_l(glibtop_global_server, buf, interface, number, strategy)
+#define glibtop_get_interface_names(buf,interface,number,instance,strategy) glibtop_get_interface_names_l (glibtop_global_server, buf, interface, number, instance, strategy)
 
 #if GLIBTOP_SUID_INTERFACE_NAMES
 #define glibtop_get_interface_names_r	glibtop_get_interface_names_p
@@ -77,14 +101,14 @@ struct _glibtop_interface_names
 #define glibtop_get_interface_names_r	glibtop_get_interface_names_s
 #endif
 
-char *glibtop_get_interface_names_l (glibtop *server, glibtop_interface_names *buf, unsigned interface, unsigned number, unsigned strategy);
+char *glibtop_get_interface_names_l (glibtop *server, glibtop_interface_names *buf, unsigned interface, unsigned number, unsigned instance, unsigned strategy);
 
 #if GLIBTOP_SUID_INTERFACE_NAMES
 int glibtop_init_interface_names_p (glibtop *server);
-char *glibtop_get_interface_names_p (glibtop *server, glibtop_interface_names *buf, unsigned interface, unsigned number, unsigned strategy);
+char *glibtop_get_interface_names_p (glibtop *server, glibtop_interface_names *buf, unsigned interface, unsigned number, unsigned instance, unsigned strategy);
 #else
 int glibtop_init_interface_names_s (glibtop *server);
-char *glibtop_get_interface_names_s (glibtop *server, glibtop_interface_names *buf, unsigned interface, unsigned number, unsigned strategy);
+char *glibtop_get_interface_names_s (glibtop *server, glibtop_interface_names *buf, unsigned interface, unsigned number, unsigned instance, unsigned strategy);
 #endif
 
 #ifdef GLIBTOP_NAMES
