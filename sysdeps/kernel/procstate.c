@@ -26,7 +26,8 @@
 #include "kernel.h"
 
 static const unsigned long _glibtop_sysdeps_proc_state =
-(1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE);
+(1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE) +
+(1 << GLIBTOP_PROC_STATE_UID) + (1 << GLIBTOP_PROC_STATE_GID);
 
 /* Init function. */
 
@@ -59,6 +60,9 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
 	buf->flags = _glibtop_sysdeps_proc_state;
 
 	memcpy (buf->cmd, tbl.proc_state.comm, sizeof (tbl.proc_state.comm));
+
+	buf->uid = tbl.proc_state.uid;
+	buf->gid = tbl.proc_state.state;
 
 	state = (unsigned) tbl.proc_state.state;
 

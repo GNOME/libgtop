@@ -189,6 +189,9 @@ sys_table (int type, union table *buf, const void *param)
 	union table tbl;
 	struct sysinfo i;
 	struct task_struct *tsk = NULL;
+	struct ip_chain *chain;
+	struct ip_fwkernel *rule;
+	char devname [9];
 	int index, err;
 	pid_t pid;
 
@@ -218,6 +221,14 @@ sys_table (int type, union table *buf, const void *param)
 		tsk = get_task (pid);
 		if (tsk == NULL)
 			return -ESRCH;
+		break;
+	case TABLE_NETACCT:
+		err = verify_area (VERIFY_READ, param, 5);
+		if (err)
+			return err;
+		copy_from_user (devname, param, 5);
+		devname [5] = 0;
+
 		break;
 	}
 
@@ -425,6 +436,24 @@ sys_table (int type, union table *buf, const void *param)
 		tbl.proc_kernel.cnswap = tsk->cnswap;
 
 		tbl.proc_kernel.wchan = get_wchan (tsk);
+		break;
+	case TABLE_NETACCT:
+		for (chain = ip_fw_chains; chain; chain = chain->next) {
+			for (rule = chain->chain; rule; rule = rule->next) {
+				const char *name = rule->ipfw.fw_vianame;
+				int k;
+				
+				if (name [0] && !strncmp (param, name, 5))
+					continue;
+				
+				for (k = 0; k < NUM_SLOTS; k++) {
+					tbl.netacct.packets +=
+						rule->counters[k].pcnt;
+					tbl.netacct.bytes +=
+						rule->counters[k].bcnt;
+				}
+			}
+		}
 		break;
 	default:
 		return -EINVAL;

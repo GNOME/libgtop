@@ -7,6 +7,20 @@
 #define NR_TASKS		512
 #endif
 
+#define TABLE_KERN_PROC_ALL		0	/* all processes */
+#define TABLE_KERN_PROC_PID		1
+#define TABLE_KERN_PROC_PGRP		2
+#define TABLE_KERN_PROC_SESSION		3
+#define TABLE_KERN_PROC_TTY		4
+#define TABLE_KERN_PROC_UID		5
+#define TABLE_KERN_PROC_RUID		6
+
+#define TABLE_KERN_PROC_MASK		15	
+
+#define TABLE_EXCLUDE_IDLE		0x1000
+#define TABLE_EXCLUDE_SYSTEM		0x2000
+#define TABLE_EXCLUDE_NOTTY		0x4000
+
 #define TABLE_VERSION		0
 #define TABLE_CPU		1
 #define TABLE_MEM		2
@@ -77,6 +91,11 @@ struct table_uptime
 
 /* Process list. */
 
+struct proclist_args
+{
+	int which, arg;
+};
+
 struct table_proclist
 {
 	int nr_running, nr_tasks, last_pid;
@@ -90,6 +109,7 @@ struct table_proc_state
 	long state;
 	unsigned long flags;
 	char comm[16];
+	int uid, gid;
 };
 
 struct table_proc_uid

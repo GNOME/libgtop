@@ -304,8 +304,9 @@ table_fkt (int type, union table *buf, const void *param)
 	union table tbl;
 	struct sysinfo i;
 	struct task_struct *tsk = NULL;
+	struct proclist_args plistargs;
+	int index, tindex, err, tty;
 	sigset_t sigign, sigcatch;
-	int index, tindex, err;
 	pid_t pid;
 
 	if (type == TABLE_VERSION)
@@ -339,6 +340,14 @@ table_fkt (int type, union table *buf, const void *param)
 		if (tsk == NULL)
 			return -ESRCH;
 		break;
+	case TABLE_PROCLIST:
+		err = verify_area (VERIFY_READ, param,
+				   sizeof (struct proclist_args));
+		if (err)
+			return err;
+		copy_from_user (&plistargs, param,
+				sizeof (struct proclist_args));
+		break;
 	}
 
 	/* Main function dispatcher */
@@ -347,10 +356,40 @@ table_fkt (int type, union table *buf, const void *param)
 	case TABLE_PROCLIST:
 		tsk = task [0];
 		read_lock (&tasklist_lock);
-		for (index = tindex = 0; index < nr_tasks; index++) {
-			if (tsk->pid)
-				tbl.proclist.pids [tindex++] = tsk->pid;
-			tsk = tsk->next_task;
+		for (index = tindex = 0; index < nr_tasks;
+		     index++, tsk = tsk->next_task) {
+			if (tsk->pid == 0) continue;
+			switch (plistargs.which & TABLE_KERN_PROC_MASK) {
+			case TABLE_KERN_PROC_PID:
+				if (tsk->pid != plistargs.arg) continue;
+				break;
+			case TABLE_KERN_PROC_PGRP:
+				if (tsk->pgrp != plistargs.arg) continue;
+				break;
+			case TABLE_KERN_PROC_SESSION:
+				if (tsk->session != plistargs.arg) continue;
+			case TABLE_KERN_PROC_TTY:
+				tty = tsk->tty ?
+					kdev_t_to_nr (tsk->tty->device) : 0;
+				if (tty != plistargs.arg) continue;
+				break;
+			case TABLE_KERN_PROC_UID:
+				if (tsk->uid != plistargs.arg) continue;
+				break;
+			case TABLE_KERN_PROC_RUID:
+				if (tsk->euid != plistargs.arg) continue;
+				break;
+			}
+
+			if ((plistargs.which & TABLE_EXCLUDE_IDLE) &&
+			    (tsk->state != 0))
+				continue;
+
+			if ((plistargs.which & TABLE_EXCLUDE_NOTTY) &&
+			    (tsk->tty == NULL))
+				continue;
+			
+			tbl.proclist.pids [tindex++] = tsk->pid;
 		}
 		tbl.proclist.nr_running = nr_running;
 		tbl.proclist.last_pid = last_pid;
@@ -395,6 +434,8 @@ table_fkt (int type, union table *buf, const void *param)
 			task[0]->times.tms_stime;
 		break;
 	case TABLE_PROC_STATE:
+		tbl.proc_state.uid = tsk->uid;
+		tbl.proc_state.gid = tsk->gid;
 		tbl.proc_state.state = tsk->state;
 		tbl.proc_state.flags = tsk->flags;
 		memcpy (tbl.proc_state.comm, tsk->comm,

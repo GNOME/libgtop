@@ -59,12 +59,16 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 {
 	union table tbl;
 	unsigned *pids_chain;
+	struct proclist_args args;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROCLIST, 0);
 
 	memset (buf, 0, sizeof (glibtop_proclist));
 
-	if (table (TABLE_PROCLIST, &tbl, NULL))
+	args.which = which;
+	args.arg = arg;
+
+	if (table (TABLE_PROCLIST, &tbl, &args))
 		glibtop_error_io_r (server, "table(TABLE_PROCLIST)");
 
 	buf->size = sizeof (unsigned);
