@@ -1,5 +1,9 @@
 2001-04-20  Martin Baulig  <baulig@suse.de>
 
+	* libgtop.pc.in: Added pkg-config file.
+
+2001-04-20  Martin Baulig  <baulig@suse.de>
+
 	* acinclude.m4 (GNOME_FILEUTILS_CHECKS): Put this here.
 
 2001-04-04  John Gotts  <jgotts@linuxsavvy.com>

@@ -10,7 +10,7 @@ noinst_HEADERS = glibtop-server-private.h
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt libgtopConf.sh.in \
 	LIBGTOP-VERSION features.def structures.def libgtop-config.in \
 	RELNOTES-0.25 RELNOTES-1.0 RELNOTES-1.1.x libgtop-sysdeps.m4 README \
-	libgtop-mirror.sh
+	libgtop-mirror.sh libgtop.pc.in
 
 configinclude_DATA = \
 	glibtop-config.h
@@ -82,3 +82,5 @@ libgtop-features.def: features.def
 libgtop-structures.def: structures.def
 	@LN_S@ $< $@
 
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = libgtop.pc

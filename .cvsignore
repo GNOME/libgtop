@@ -41,3 +41,4 @@ glibtop-config.h
 stamp-gc-h
 build-debstamp
 install-debstamp
+libgtop.pc
