@@ -1,16 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Spain diffs with es.po for libgtop
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# Carlos Perelló Marín <carlos@gnome-db.org>, 2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: glibtop cvs\n"
-"POT-Creation-Date: 2001-02-13 13:30+0100\n"
-"PO-Revision-Date: 1998-12-13 04:38+0100\n"
-"Last-Translator: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
-"Language-Team: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
+"Project-Id-Version: glibtop 1.90.2\n"
+"POT-Creation-Date: 2002-05-28 15:54+0200\n"
+"PO-Revision-Date: 2002-05-28 15:50+0200\n"
+"Last-Translator: Carlos Perelló Marín <carlos@gnome-db.org>\n"
+"Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: examples/smp.c:68
@@ -209,6 +209,14 @@ msgstr ""
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr ""
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr ""
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
 msgstr ""
 
 #: sysdeps/names/cpu.c:43
@@ -673,11 +681,11 @@ msgid ""
 msgstr ""
 
 #
-# In M�xico, Dominican Republic, Guatemala, Honduras, Panama, Peru
+# In México, Dominican Republic, Guatemala, Honduras, Panama, Peru
 # and El Salvador, Number formats are the same as in the US, so no
-# translation is required for them.
-# But the msgstr MUST be filled; otherwise it will default to es.po
-# which uses different, non US, format for numbers.
+# translation is required for them (the use es.po string).
+# Spain use "." chars instead of "," so the msgstr MUST be filled; otherwise
+# it will default to es.po which uses the US format for numbers.
 # On the other hand, strings that are the same here and in es.po can
 # be left out.
 #
@@ -685,8 +693,8 @@ msgstr ""
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr ""
-"Limite actual en bytes de conjunto compartido (RSS) del proceso "
-"(habitualmente 2,147,483,647)."
+"Límite actual en bytes de conjunto compartido (RSS) del proceso "
+"(habitualmente 2.147.483.647)."
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"

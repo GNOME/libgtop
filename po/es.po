@@ -412,11 +412,17 @@ msgstr ""
 "pila. Esto no incluye páginas que no han sido cargadas a la demanda, o que se "
 "encuentran en el dispositivo de swap."
 
+# In México, Dominican Republic, Guatemala, Honduras, Panama, Peru
+# and El Salvador, Number formats are the same as in the US, so no
+# translation is required for them.
+# Spain use "." chars instead of "," so the msgstr MUST be filled at es_ES.po;
+# otherwise it will default to es.po which uses the US format for numbers.
+#
 #: sysdeps/names/procmem.c:64
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr ""
-"Limite actual en bytes de conjunto compartido (RSS) del proceso "
+"Límite actual en bytes de conjunto compartido (RSS) del proceso "
 "(habitualmente 2.147.483.647)."
 
 #: sysdeps/names/procsegment.c:50

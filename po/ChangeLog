@@ -1,3 +1,12 @@
+2002-05-28  Carlos Perello Marin <carlos@gnome-db.org>
+
+	* es.po, es_ES.po: Updated so the contry dependent string is
+	placed at es_ES.po for Spain and the US like number notation is
+	stored at es.po. It's much more easy mantain the es_ES.po file than
+	4 or 5 files from American countries.
+	* es_DO.pom, es_GT.po, es_HN.po, es_MX.po, es_PA.po, es_PE.po,
+	es_SV.po: Removed, we only need to update es.po and es_ES.po now.
+
 2002-05-19  Vlad Harchev  <hvv@hippo.ru>
 
 	* ru.po: updated russian translation from Dmitry G. Mastrukov
