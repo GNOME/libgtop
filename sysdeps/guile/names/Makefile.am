@@ -17,7 +17,7 @@ guile-names.c: guile-names.pl $(top_builddir)/config.h $(top_srcdir)/features.de
 	mv gnc-t guile-names.c
 
 guile-names.x: guile-names.c
-	guile-snarf $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) $< > $@
+	guile-snarf $< $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) > $@
 
 EXTRA_DIST			= guile-names.pl
 
