@@ -1,3 +1,10 @@
+2004-06-06  Benoît Dejean  <tazforever@dlfp.org>
+
+	* proclist.c: (glibtop_get_proclist_s): Removed useless tests.
+	* procmap.c: (glibtop_get_proc_map_s): Replace g_malloc + memset
+	by g_malloc0
+	* procstate.c: (glibtop_get_proc_state_s): Replace strncpy by g_strlcpy.
+
 2004-05-25  Benoît Dejean  <tazforever@dlfp.org>
 
 	* loadavg.c: (glibtop_get_loadavg_s):

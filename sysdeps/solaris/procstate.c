@@ -116,7 +116,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 #if (LIBGTOP_VERSION_CODE >= 1001002) && defined(HAVE_PROCFS_H)
 	buf->last_processor = psinfo.pr_lwp.pr_onpro;
 #endif
-	strncpy (buf->cmd, psinfo.pr_fname, 39);
+	g_strlcpy (buf->cmd, psinfo.pr_fname, sizeof buf->cmd);
 
 	buf->flags = _glibtop_sysdeps_proc_state;
 }

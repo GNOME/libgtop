@@ -96,8 +96,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	      if(s_stat(buffer, &statb) < 0)
 		 return NULL;
 	   }
-	   if(!(pids_chain = g_malloc(sizeof(unsigned))))
-	      return NULL;
+	   pids_chain = g_malloc(sizeof(unsigned));
 	   *pids_chain = pid;
 	   return pids_chain;
 	}

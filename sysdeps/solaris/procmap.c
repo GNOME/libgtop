@@ -120,13 +120,10 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		return NULL;
 	}
 #endif
-	if(!(entry = g_malloc(nmaps * sizeof(glibtop_map_entry))))
-	   	return NULL;
 	buf->number = nmaps;
 	buf->size = sizeof(glibtop_map_entry);
 	buf->total = nmaps * sizeof(glibtop_map_entry);
-
-	memset(entry, 0, nmaps * sizeof(glibtop_map_entry));
+	entry = g_malloc0(buf->total);
 
 #if GLIBTOP_SOLARIS_RELEASE >= 560
 
