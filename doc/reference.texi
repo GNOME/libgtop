@@ -1505,12 +1505,103 @@ This are general library functions which can be used to get information
 about the library and to control its behavior.
 
 @menu
-* glibtop_sysdeps::             
+* glibtop_init::                Server Initialization.
+* glibtop_sysdeps::             Server Sysdeps.
 * Library Parameters::          Library Parameters.
 @end menu
 
-@node glibtop_sysdeps, Library Parameters, Library Functions, Library Functions
-@subsection Sysdeps
+@node glibtop_init, glibtop_sysdeps, Library Functions, Library Functions
+@subsection Server Initialization
+
+You do not need to worry about the @code{glibtop *} server structure if
+you don't need - the library exports a @code{glibtop_global_server}
+which you can use everywhere a @code{glibtop *} is expected.
+
+Most of the library and all of the sysdeps function also have an alias
+(which is the function name without the @samp{_l}, @samp{_s} or @samp{_r}
+suffix) which don't take a @code{glibtop *} as argument but uses the
+@code{glibtop_global_server} instead.
+
+@example
+@cartouche
+extern glibtop *glibtop_global_server;
+@end cartouche
+@end example
+
+Library function @code{glibtop_init}:
+
+@example
+@cartouche
+glibtop *
+glibtop_init_r (glibtop **server_ptr, unsigned long features,
+                unsigned flags);
+
+void
+glibtop_init (void);
+@end cartouche
+@end example
+
+This function initializes a LibGTop server. It is automatically called
+when you use any of the LibGTop functions and will use the global server
+in this case.
+
+However, it's appreciated to call @code{glibtop_init} during the
+initialization of your application.
+
+You can for instance use
+
+@example
+glibtop_init ();
+@end example
+
+@noindent
+which is equivalent to
+
+@example
+glibtop_init_r (&glibtop_global_server, 0, 0);
+@end example
+
+Please note that the @code{server_ptr} argument is a pointer to a pointer
+(and thus is of type @code{glibtop **}).
+
+To control what @code{glibtop_init} should actually do, you can use the
+@code{features} and @code{flags} arguments.
+
+The @code{features} argument is a bit-mask (interpreted in the same way
+than @samp{sysdeps.features}) and tells the library which features you're
+interested in. The library will only start the server if this is required
+for any of those features.
+
+You can use the following constants for the @code{flags} parameter to
+control the behavior of the library:
+
+@table @code
+@item GLIBTOP_INIT_NO_INIT
+Tells the library to do nothing. If the value pointed to by the
+@code{server_ptr} argument is @code{NULL}, it will set it to the
+@code{glibtop_global_server} and then return.
+@item GLIBTOP_INIT_NO_OPEN
+Do the initialization, but do not start the server.
+@end table
+
+To modify the way the @code{features} are interpretet, you can use the
+following constants for @code{flags} (as a bit mask):
+
+@table @code
+@item GLIBTOP_FEATURES_NO_SERVER
+Never use the server, always call the sysdeps code directly.
+If you require any privileges to get them and you don't have those
+privileges, the this will obviously not work and the library will
+fail to return some or all of the requested values.
+@item GLIBTOP_FEATURES_EXCEPT
+Inverts the matching of the @code{features} parameter, i.e. if you use
+this flag this means that @code{features} are all the features you are
+@emph{not} interested in.
+Might be useful to say something like "I want everything but ppp".
+@end table
+
+@node glibtop_sysdeps, Library Parameters, glibtop_init, Library Functions
+@subsection Server Sysdeps
 
 Library function @code{glibtop_get_sysdeps}:
 

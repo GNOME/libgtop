@@ -19,6 +19,11 @@
 
 
 
+
+
+
+
+
  --- The Detailed Node Listing ---
 
 About LibGTop
@@ -32,6 +37,7 @@ LibGTop White Paper
 
 * Introduction::                Introduction
 * Overview::                    Overview
+* Servers and Daemons::         Servers and Daemons
 
 Overview
 
@@ -71,7 +77,8 @@ Common Functions
 
 Library Functions
 
-* glibtop_sysdeps::             
+* glibtop_init::                Server Initialization.
+* glibtop_sysdeps::             Server Sysdeps.
 * Library Parameters::          Library Parameters.
 
 LibGTop Internals

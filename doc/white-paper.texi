@@ -4,6 +4,7 @@
 @menu
 * Introduction::                Introduction
 * Overview::                    Overview
+* Servers and Daemons::         Servers and Daemons
 @end menu
 
 @node Introduction, Overview, White Paper, White Paper
@@ -47,7 +48,7 @@ since there's more than just one single program that wants to use them - for
 instance @code{gtop} and the @code{multiload}, @code{cpumemusage} and
 @code{netload} panel applets.
 
-@node Overview,  , Introduction, White Paper
+@node Overview, Servers and Daemons, Introduction, White Paper
 @section Overview
 
 This section should give you a short overview on how LibGTop was developed, which
@@ -88,3 +89,48 @@ only contains the @dfn{features} which need privileges.
 Whenever we do not need any privileges to get all the data for some of the requested
 structures (here called @dfn{features}) the library calls the sysdeps code directly
 rather than using the server.
+
+@node Servers and Daemons,  , Overview, White Paper
+@section Servers and Daemons
+
+LibGTop gives you the possibility to use different LibGTop "servers" and
+"daemons" in your application.
+
+Normally you do not need to worry about this things since LibGTop auto-
+matically opens a pipe to its server it it's required, but this can also
+be customized to fit your needs.
+
+For instance if you have a small applet which is only interested in disk
+usage there's no need to fork a separate server process since you don't
+need any privileges to get them on any of the supported systems. This can
+be archieved with a special call to @code{glibtop_init_r} on startup.
+
+There's also an option to tell @code{glibtop_init_r} that you're only
+interested in several features - for instance cpu and memory usage. In
+this case LibGTop will only fork a server process if it's required to get
+cpu and memory.
+
+You can also tell @code{glibtop_init_r} to start the server only on demand,
+this might become useful in command-line based programs. For graphical
+applications it's normally best to start the server directly during their
+initialization. The same applies for any time critical applications (since
+@code{fork} is an expensive operation on some systems this may lead to
+incorrect statistics).
+
+LibGTop also allows you to talk to a remote machine using the
+@dfn{LibGTop daemon}. This daemon is based on @code{gnuserv} from
+GNU Emacs and should be run as an unprivileged user. It has support
+for either @code{xauth} or host based authorization.
+
+This daemon itself behaves like a LibGTop client application, i.e. it
+forks a server process if this is required.
+
+The main use for this daemon is when you want to monitor a machine which
+is either very slow or has very low disk space. In this case you don't need
+to install the whole client application (for instance GTop) on the remote
+machine but only a very small (maybe also statically linked) executable and
+run the graphical application on a more powerful machine.
+
+It can also be used to monitor a remote machine over a very slow link such
+as a dialup connection since the conversation between LibGTop client and
+daemon uses much less bandwith than an ordinary X11 connection.
