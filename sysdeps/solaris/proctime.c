@@ -55,8 +55,7 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf,
 		if (glibtop_get_proc_data_usage_s (server, &prusage, pid))
 			return;
 
-		buf->start_time = prusage.pr_create.tv_sec * 1E+6 +
-			prusage.pr_create.tv_nsec / 1E+3;
+		buf->start_time = prusage.pr_create.tv_sec;
 
 		buf->rtime = prusage.pr_rtime.tv_sec * 1E+6 +
 			prusage.pr_rtime.tv_nsec / 1E+3;

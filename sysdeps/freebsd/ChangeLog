@@ -1,3 +1,9 @@
+1999-07-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* proctime.c (glibtop_get_proc_time_p): Fix bug reported by
+	Takis Psarogiannakopoulos: `start_time' are seconds since the
+ 	epoch as it is stated in the manual.
+
 Tue Jun 15 16:04:10 1999 Timur Bakeyev <mc@bat.ru>
 
 	* procuid.c: A fix to a ommitted case, when nor NetBSD, nor  

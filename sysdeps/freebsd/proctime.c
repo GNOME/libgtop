@@ -188,7 +188,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	buf->cutime = tv2sec (pstats.p_cru.ru_utime);
 	buf->cstime = tv2sec (pstats.p_cru.ru_stime);
 
-	buf->start_time = tv2sec (pstats.p_start);
+	buf->start_time = (u_int64_t) pstats.p_start.tv_sec;
 
 	buf->flags |= _glibtop_sysdeps_proc_time_user;
 #else

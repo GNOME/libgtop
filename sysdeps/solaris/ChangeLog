@@ -1,3 +1,9 @@
+1999-07-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* proctime.c (glibtop_get_proc_time_p): Fix bug reported by
+	Takis Psarogiannakopoulos: `start_time' are seconds since the
+ 	epoch as it is stated in the manual.
+
 1999-07-16  Drazen Kacar  <dave@srce.hr>
 
 	* proclist.c: Bug fix. All Solaris versions have RUID and
