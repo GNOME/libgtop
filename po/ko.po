@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-20 15:07+0200\n"
-"PO-Revision-Date: 2004-02-08 01:03+0900\n"
+"POT-Creation-Date: 2004-08-03 13:34+0900\n"
+"PO-Revision-Date: 2004-08-03 13:35+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -256,9 +256,8 @@ msgid "Free file nodes"
 msgstr "유휴 파일 노드"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Blocked"
+msgstr "블록 크기"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -411,14 +410,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "하위넷"
+msgstr "IPv4 서브네트"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "주소"
+msgstr "IPv4 주소"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -461,17 +458,16 @@ msgid "Collisions"
 msgstr "충돌"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "주소"
+msgstr "IPv6 주소"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "IPv6 접두어"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "IPv6 범위"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
