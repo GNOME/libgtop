@@ -1,3 +1,10 @@
+1999-05-10  Drazen Kacar  <dave@srce.hr>
+
+	There be some useful documentation now. Syncing...
+
+	* mem.c: Output values in bytes, as the documentation requires.
+	It was a bit odd when gtop reported 256K of total memory.
+
 1999-05-09  Drazen Kacar  <dave@srce.hr>
 
 	* glibtop_machine.h, procdata.c, proclist.c, procmap.c, procmem.c,
