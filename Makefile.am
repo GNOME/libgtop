@@ -16,7 +16,8 @@ SUBDIRS = po intl $(support) macros misc include sysdeps lib src \
 include_HEADERS = glibtop.h
 
 EXTRA_DIST = autogen.sh libgtop.spec copyright.txt libgtopConf.sh.in \
-	LIBGTOP-VERSION features.def libgtop-config.in RELNOTES-0.25
+	LIBGTOP-VERSION features.def libgtop-config.in RELNOTES-0.25 \
+	libgtop-sysdeps.m4
 
 release:
 	$(MAKE) dist distdir=$(PACKAGE)-$(VERSION)
