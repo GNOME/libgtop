@@ -55,6 +55,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
 	char buffer [BUFSIZ], *p;
 	int fd, len, i;
+	u_int64_t total;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
@@ -79,7 +80,11 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	buf->sys  = strtoul (p, &p, 0);
 	buf->idle = strtoul (p, &p, 0);
 
-	buf->total = buf->user + buf->nice + buf->sys + buf->idle;
+	total = buf->user;
+	total += buf->nice;
+	total += buf->sys;
+	total += buf->idle;
+	buf->total = total;
 
 	buf->frequency = 100;
 	buf->flags = _glibtop_sysdeps_cpu;
@@ -94,8 +99,12 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 		buf->xcpu_sys  [i] = strtoul (p, &p, 0);
 		buf->xcpu_idle [i] = strtoul (p, &p, 0);
 
-		buf->xcpu_total [i] = buf->xcpu_user [i] + buf->xcpu_nice [i] +
-			buf->xcpu_sys [i] + buf->xcpu_idle [i];
+		total = buf->xcpu_user [i];
+		total += buf->xcpu_nice [i];
+		total += buf->xcpu_sys [i];
+		total += buf->xcpu_idle [i];
+
+		buf->xcpu_total [i] = total;
 	}
 
 	buf->flags |= _glibtop_sysdeps_cpu_smp;
