@@ -65,16 +65,6 @@ void glibtop_init_loadavg_s (glibtop *server);
 void glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_loadavg [];
-extern const unsigned glibtop_types_loadavg [];
-extern const char *glibtop_labels_loadavg [];
-extern const char *glibtop_descriptions_loadavg [];
-
-#endif
 
 G_END_DECLS
 

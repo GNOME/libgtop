@@ -60,16 +60,6 @@ struct _glibtop_fsusage
 void glibtop_get_fsusage_l (glibtop *server, glibtop_fsusage *buf, const char *mount_dir);
 void glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf, const char *mount_dir);
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_fsusage [];
-extern const unsigned glibtop_types_fsusage [];
-extern const char *glibtop_labels_fsusage [];
-extern const char *glibtop_descriptions_fsusage [];
-
-#endif
 
 G_END_DECLS
 

@@ -69,16 +69,6 @@ void glibtop_init_ppp_s (glibtop *server);
 void glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_ppp [];
-extern const unsigned glibtop_types_ppp [];
-extern const char *glibtop_labels_ppp [];
-extern const char *glibtop_descriptions_ppp [];
-
-#endif
 
 G_END_DECLS
 

@@ -12,7 +12,7 @@ noinst_PROGRAMS	= 	first second pprint procargs df netlist \
 
 EXTRA_PROGRAMS		= first_static second_static \
 			  mountlist_static procmap_static \
-			  third third_static smp smp_static \
+			  smp smp_static \
 			  netload_static sysdeps_static \
 			  timings_static pprint_static procargs_static \
 			  df_static netlist_static
@@ -52,16 +52,6 @@ sysdeps_static_SOURCES	= $(sysdeps_SOURCES)
 sysdeps_static_LDADD	= $(sysdeps_LDADD)
 sysdeps_static_LDFLAGS	= -static
 
-third_names_LIBS	= $(top_builddir)/sysdeps/names/libgtop_names-2.0.la
-
-third_SOURCES		= third.c
-third_LDADD		= $(third_names_LIBS) \
-			  $(top_builddir)/lib/libgtop-2.0.la \
-			  @INTLLIBS@
-
-third_static_SOURCES	= $(third_SOURCES)
-third_static_LDADD	= $(third_LDADD)
-third_static_LDFLAGS	= -static
 
 mountlist_SOURCES	= mountlist.c
 mountlist_LDADD		= $(top_builddir)/lib/libgtop-2.0.la

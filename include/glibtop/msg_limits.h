@@ -71,16 +71,6 @@ void glibtop_init_msg_limits_s (glibtop *server);
 void glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_msg_limits [];
-extern const unsigned glibtop_types_msg_limits [];
-extern const char *glibtop_labels_msg_limits [];
-extern const char *glibtop_descriptions_msg_limits [];
-
-#endif
 
 G_END_DECLS
 

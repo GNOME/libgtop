@@ -125,16 +125,6 @@ void glibtop_init_netload_s (glibtop *server);
 void glibtop_get_netload_s (glibtop *server, glibtop_netload *buf, const char *interface);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_netload [];
-extern const unsigned glibtop_types_netload [];
-extern const char *glibtop_labels_netload [];
-extern const char *glibtop_descriptions_netload [];
-
-#endif
 
 G_END_DECLS
 

@@ -112,7 +112,6 @@ if test x$build_inodedb = xyes ; then
   AC_DEFINE(GLIBTOP_INODEDB)
 fi
 
-AC_DEFINE(GLIBTOP_NAMES)
 
 if test x$libgtop_smp = xyes ; then
   smp_examples='smp'
@@ -338,12 +337,8 @@ fi
 LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS"
 
 LIBGTOP_LIBS="$LIBGTOP_LIBS"
-LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS"
 
 LIBGTOP_LIBS="$LIBGTOP_LIBS" 
-LIBGTOP_NAMES_LIBS="$LIBGTOP_NAMES_LIBS"
-
-LIBGTOP_NAMES_INCS="$LIBGTOP_INCS -DGLIBTOP_NAMES"
 
 machine_incs="-I\$(top_srcdir)/sysdeps/$sysdeps_dir"
 
@@ -361,7 +356,7 @@ if test "$GCC" = "yes" ; then
 	$CFLAGS"
 fi
 
-INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $CFLAGS $X_CFLAGS "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
+INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $CFLAGS $X_CFLAGS "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
 
 AC_SUBST(INCLUDES)
 
@@ -369,8 +364,6 @@ AC_SUBST(LIBGTOP_EXTRA_LIBS)
 AC_SUBST(GLIB_LIBS)
 AC_SUBST(LIBGTOP_LIBS)
 AC_SUBST(LIBGTOP_INCS)
-AC_SUBST(LIBGTOP_NAMES_LIBS)
-AC_SUBST(LIBGTOP_NAMES_INCS)
 AC_SUBST(LIBGTOP_BINDIR)
 AC_SUBST(LIBGTOP_SERVER)
 
@@ -393,7 +386,6 @@ include/Makefile
 include/glibtop/Makefile
 sysdeps/Makefile
 sysdeps/common/Makefile
-sysdeps/names/Makefile
 sysdeps/stub/Makefile
 sysdeps/stub_suid/Makefile
 sysdeps/sun4/Makefile

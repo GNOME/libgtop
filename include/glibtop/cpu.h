@@ -85,16 +85,6 @@ void glibtop_init_cpu_s (glibtop *server);
 void glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_cpu [];
-extern const unsigned glibtop_types_cpu [];
-extern const char *glibtop_labels_cpu [];
-extern const char *glibtop_descriptions_cpu [];
-
-#endif
 
 G_END_DECLS
 

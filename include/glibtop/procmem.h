@@ -73,16 +73,6 @@ void glibtop_init_proc_mem_s (glibtop *server);
 void glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_proc_mem [];
-extern const unsigned glibtop_types_proc_mem [];
-extern const char *glibtop_labels_proc_mem [];
-extern const char *glibtop_descriptions_proc_mem [];
-
-#endif
 
 G_END_DECLS
 

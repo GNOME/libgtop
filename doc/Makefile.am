@@ -16,8 +16,6 @@ auto-macros.texi: auto-macros.texi.in Makefile
 	  -e 's#\%LIBGTOP_EXTRA_LIBS\%#$(LIBGTOP_EXTRA_LIBS)#g' \
 	  -e 's#\%LIBGTOP_LIBS\%#$(LIBGTOP_LIBS)#g' \
 	  -e 's#\%LIBGTOP_INCS\%#$(LIBGTOP_INCS)#g' \
-	  -e 's#\%LIBGTOP_NAMES_LIBS\%#$(LIBGTOP_NAMES_LIBS)#g' \
-	  -e 's#\%LIBGTOP_NAMES_INCS\%#$(LIBGTOP_NAMES_INCS)#g' \
 	  -e 's#\%LIBGTOP_BINDIR\%#$(LIBGTOP_BINDIR)#g' \
 	  -e 's#\%LIBGTOP_SERVER\%#$(LIBGTOP_SERVER)#g' \
 	  -e 's#\%LIBGTOP_MAJOR_VERSION\%#$(LIBGTOP_MAJOR_VERSION)#g' \

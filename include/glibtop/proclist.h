@@ -88,16 +88,6 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 			gint64 which, gint64 arg);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_proclist [];
-extern const unsigned glibtop_types_proclist [];
-extern const char *glibtop_labels_proclist [];
-extern const char *glibtop_descriptions_proclist [];
-
-#endif
 
 G_END_DECLS
 

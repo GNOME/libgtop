@@ -1,17 +1,14 @@
 @PREFIX@/lib/libgtop.a
 @PREFIX@/lib/libgtop_common.a
-@PREFIX@/lib/libgtop_names.a
 @PREFIX@/lib/libgtop_suid_common.a
 @PREFIX@/lib/libgtop_sysdeps.a
 @PREFIX@/lib/libgtop.la
 @PREFIX@/lib/libgtop_common.la
-@PREFIX@/lib/libgtop_names.la
 @PREFIX@/lib/libgtop_suid_common.la
 @PREFIX@/lib/libgtop_sysdeps.la
 @PREFIX@/lib/libgtopConf.sh
 @PREFIX@/lib/libgtop.so
 @PREFIX@/lib/libgtop_common.so
-@PREFIX@/lib/libgtop_names.so
 @PREFIX@/lib/libgtop_suid_common.so
 @PREFIX@/lib/libgtop_sysdeps.so
 @PREFIX@/lib/libgtop-features.def

@@ -92,16 +92,6 @@ void glibtop_init_proc_state_s (glibtop *server);
 void glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_proc_state [];
-extern const unsigned glibtop_types_proc_state [];
-extern const char *glibtop_labels_proc_state [];
-extern const char *glibtop_descriptions_proc_state [];
-
-#endif
 
 G_END_DECLS
 

@@ -67,16 +67,6 @@ void glibtop_init_swap_s (glibtop *server);
 void glibtop_get_swap_s (glibtop *server, glibtop_swap *buf);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_swap [];
-extern const unsigned glibtop_types_swap [];
-extern const char *glibtop_labels_swap [];
-extern const char *glibtop_descriptions_swap [];
-
-#endif
 
 G_END_DECLS
 

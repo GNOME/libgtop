@@ -94,16 +94,6 @@ glibtop_map_entry *
 glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf, pid_t pid);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_proc_map [];
-extern const unsigned glibtop_types_proc_map [];
-extern const char *glibtop_labels_proc_map [];
-extern const char *glibtop_descriptions_proc_map [];
-
-#endif
 
 G_END_DECLS
 

@@ -63,16 +63,6 @@ void glibtop_init_uptime_s (glibtop *server);
 void glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_uptime [];
-extern const unsigned glibtop_types_uptime [];
-extern const char *glibtop_labels_uptime [];
-extern const char *glibtop_descriptions_uptime [];
-
-#endif
 
 G_END_DECLS
 

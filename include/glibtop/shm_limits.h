@@ -67,16 +67,6 @@ void glibtop_init_shm_limits_s (glibtop *server);
 void glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_shm_limits [];
-extern const unsigned glibtop_types_shm_limits [];
-extern const char *glibtop_labels_shm_limits [];
-extern const char *glibtop_descriptions_shm_limits [];
-
-#endif
 
 G_END_DECLS
 

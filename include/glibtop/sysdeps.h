@@ -96,16 +96,6 @@ struct _glibtop_sysdeps
 
 void glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf);
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_sysdeps [];
-extern const unsigned glibtop_types_sysdeps [];
-extern const char *glibtop_labels_sysdeps [];
-extern const char *glibtop_descriptions_sysdeps [];
-
-#endif
 
 G_END_DECLS
 

@@ -1,3 +1,64 @@
+2004-12-06  Benoît Dejean  <tazforever@dlfp.org>
+
+	* acconfig.h:
+	* configure.in:
+	* debian/libgtop-dev.files.in:
+	* doc/Makefile.am:
+	* examples/Makefile.am:
+	* examples/third.c:
+	* include/glibtop/cpu.h:
+	* include/glibtop/fsusage.h:
+	* include/glibtop/loadavg.h:
+	* include/glibtop/mem.h:
+	* include/glibtop/mountlist.h:
+	* include/glibtop/msg_limits.h:
+	* include/glibtop/netlist.h:
+	* include/glibtop/netload.h:
+	* include/glibtop/ppp.h:
+	* include/glibtop/procargs.h:
+	* include/glibtop/prockernel.h:
+	* include/glibtop/proclist.h:
+	* include/glibtop/procmap.h:
+	* include/glibtop/procmem.h:
+	* include/glibtop/procsegment.h:
+	* include/glibtop/procsignal.h:
+	* include/glibtop/procstate.h:
+	* include/glibtop/proctime.h:
+	* include/glibtop/procuid.h:
+	* include/glibtop/sem_limits.h:
+	* include/glibtop/shm_limits.h:
+	* include/glibtop/swap.h:
+	* include/glibtop/sysdeps.h:
+	* include/glibtop/uptime.h:
+	* po/POTFILES.in:
+	* sysdeps/Makefile.am:
+	* sysdeps/names/.cvsignore:
+	* sysdeps/names/Makefile.am:
+	* sysdeps/names/cpu.c:
+	* sysdeps/names/fsusage.c:
+	* sysdeps/names/loadavg.c:
+	* sysdeps/names/mem.c:
+	* sysdeps/names/mountlist.c:
+	* sysdeps/names/msg_limits.c:
+	* sysdeps/names/netlist.c:
+	* sysdeps/names/netload.c:
+	* sysdeps/names/ppp.c:
+	* sysdeps/names/procargs.c:
+	* sysdeps/names/prockernel.c:
+	* sysdeps/names/proclist.c:
+	* sysdeps/names/procmap.c:
+	* sysdeps/names/procmem.c:
+	* sysdeps/names/procsegment.c:
+	* sysdeps/names/procsignal.c:
+	* sysdeps/names/procstate.c:
+	* sysdeps/names/proctime.c:
+	* sysdeps/names/procuid.c:
+	* sysdeps/names/sem_limits.c:
+	* sysdeps/names/shm_limits.c:
+	* sysdeps/names/swap.c:
+	* sysdeps/names/sysdeps.c:
+	* sysdeps/names/uptime.c: Removed libgtop_names :)
+
 2004-11-30  Benoît Dejean  <tazforever@dlfp.org>
 
 	* configure.in: post-release bump to 2.9.1.

@@ -55,16 +55,6 @@ void glibtop_init_netlist_s (glibtop *server);
 char** glibtop_get_netlist_s (glibtop *server, glibtop_netlist *buf);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_netlist [];
-extern const unsigned glibtop_types_netlist [];
-extern const char *glibtop_labels_netlist [];
-extern const char *glibtop_descriptions_netlist [];
-
-#endif
 
 G_END_DECLS
 

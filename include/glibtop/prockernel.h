@@ -82,16 +82,6 @@ void glibtop_init_proc_kernel_s (glibtop *server);
 void glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_proc_kernel [];
-extern const unsigned glibtop_types_proc_kernel [];
-extern const char *glibtop_labels_proc_kernel [];
-extern const char *glibtop_descriptions_proc_kernel [];
-
-#endif
 
 G_END_DECLS
 

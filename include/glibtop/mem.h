@@ -73,16 +73,6 @@ void glibtop_init_mem_s (glibtop *server);
 void glibtop_get_mem_s (glibtop *server, glibtop_mem *buf);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_mem [];
-extern const unsigned glibtop_types_mem [];
-extern const char *glibtop_labels_mem [];
-extern const char *glibtop_descriptions_mem [];
-
-#endif
 
 G_END_DECLS
 

@@ -77,16 +77,6 @@ void glibtop_init_sem_limits_s (glibtop *server);
 void glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf);
 #endif
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_sem_limits [];
-extern const unsigned glibtop_types_sem_limits [];
-extern const char *glibtop_labels_sem_limits [];
-extern const char *glibtop_descriptions_sem_limits [];
-
-#endif
 
 G_END_DECLS
 

@@ -85,16 +85,6 @@ glibtop_get_proc_argv_l (glibtop *server, glibtop_proc_args *buf,
 #define glibtop_get_proc_argv(proc_args,pid,max_len) glibtop_get_proc_argv_l(glibtop_global_server, proc_args, pid, max_len)
 
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_proc_args [];
-extern const unsigned glibtop_types_proc_args [];
-extern const char *glibtop_labels_proc_args [];
-extern const char *glibtop_descriptions_proc_args [];
-
-#endif
 
 G_END_DECLS
 

@@ -65,16 +65,6 @@ glibtop_get_mountlist_l (glibtop *server, glibtop_mountlist *buf, int all_fs);
 glibtop_mountentry *
 glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs);
 
-#ifdef GLIBTOP_NAMES
-
-/* You need to link with -lgtop_names to get this stuff here. */
-
-extern const char *glibtop_names_mountlist [];
-extern const unsigned glibtop_types_mountlist [];
-extern const char *glibtop_labels_mountlist [];
-extern const char *glibtop_descriptions_mountlist [];
-
-#endif
 
 G_END_DECLS
 
