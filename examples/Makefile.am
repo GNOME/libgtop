@@ -24,7 +24,7 @@ first_SOURCES		= first.c
 first_LDADD		= $(top_builddir)/lib/libgtop.la \
 			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
-			  @INTLLIBS@ @LIBSUPPORT@
+			  @LIBSUPPORT@ @INTLLIBS@
 
 first_static_SOURCES	= $(first_SOURCES)
 first_static_LDADD	= $(first_LDADD)
@@ -34,7 +34,7 @@ second_SOURCES		= second.c
 second_LDADD		= $(top_builddir)/lib/libgtop.la \
 			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
-			  @INTLLIBS@ @LIBSUPPORT@
+			  @LIBSUPPORT@ @INTLLIBS@
 
 second_static_SOURCES	= $(second_SOURCES)
 second_static_LDADD	= $(second_LDADD)
@@ -44,7 +44,7 @@ procmap_SOURCES		= procmap.c
 procmap_LDADD		= $(top_builddir)/lib/libgtop.la \
 			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
-			  @INTLLIBS@ @LIBSUPPORT@
+			  @LIBSUPPORT@ @INTLLIBS@
 
 
 
@@ -56,7 +56,7 @@ netload_SOURCES		= netload.c
 netload_LDADD		= $(top_builddir)/lib/libgtop.la \
 			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
-			  @INTLLIBS@ @LIBSUPPORT@
+			  @LIBSUPPORT@ @INTLLIBS@
 
 netload_static_SOURCES	= $(netload_SOURCES)
 netload_static_LDADD	= $(netload_LDADD)
@@ -66,7 +66,7 @@ sysdeps_SOURCES		= sysdeps.c
 sysdeps_LDADD		= $(top_builddir)/lib/libgtop.la \
 			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
-			  @INTLLIBS@ @LIBSUPPORT@
+			  @LIBSUPPORT@ @INTLLIBS@
 
 sysdeps_static_SOURCES	= $(sysdeps_SOURCES)
 sysdeps_static_LDADD	= $(sysdeps_LDADD)
@@ -81,7 +81,7 @@ third_LDADD		= $(top_builddir)/sysdeps/guile/libgtop_guile.la \
 			  $(top_builddir)/lib/libgtop.la \
 			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
-			  @GUILE_LIBS@ @INTLLIBS@ @LIBSUPPORT@
+			  @GUILE_LIBS@ @LIBSUPPORT@ @INTLLIBS@
 
 third_static_SOURCES	= $(third_SOURCES)
 third_static_LDADD	= $(third_LDADD)
@@ -91,7 +91,7 @@ mountlist_SOURCES	= mountlist.c
 mountlist_LDADD		= $(top_builddir)/lib/libgtop.la \
 			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
-			  @INTLLIBS@ @LIBSUPPORT@
+			  @LIBSUPPORT@ @INTLLIBS@
 
 mountlist_static_SOURCES= $(mountlist_SOURCES)
 mountlist_static_LDADD	= $(mountlist_LDADD)
@@ -102,7 +102,7 @@ smp_SOURCES		= smp.c
 smp_LDADD		= $(top_builddir)/lib/libgtop.la \
 			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
-			  @INTLLIBS@ @LIBSUPPORT@
+			  @LIBSUPPORT@ @INTLLIBS@
 
 smp_static_SOURCES	= $(smp_SOURCES)
 smp_static_LDADD	= $(smp_LDADD)
