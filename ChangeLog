@@ -1,3 +1,7 @@
+2003-09-13  Carlos Perelló Marín <carlos@gnome.org>
+
+	* configure.in (ALL_LINGUAS):  Removed es_ES.
+
 2003-09-08  Kevin Vandersloot
 
 	* configure.in: release 2.0.5
