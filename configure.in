@@ -70,10 +70,8 @@ AC_CHECK_TOOL(CC,gcc)
 AC_CHECK_TOOL(RANLIB,ranlib)
 AC_CHECK_TOOL(AS,as)
 AC_CHECK_TOOL(AR,ar)
-AC_CHECK_TOOL(NM,nm)
 
-NM=`which $NM`
-export CC CXX RANLIB LD AS AR NM
+export CC CXX RANLIB LD AS AR
 
 AC_PROG_INSTALL
 AC_PROG_LN_S
@@ -107,6 +105,7 @@ dnl   else
 dnl     GNOME_SUPPORT_CHECKS
 dnl   fi
 dnl fi
+
 AM_CONDITIONAL(BUILD_GNOME_SUPPORT, false)
 
 AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
@@ -221,6 +220,10 @@ LIBS="$LIBS $DL_LIB"
 AC_CHECK_FUNCS(dlerror,,)
 LIBS="$oLIBS"
 AC_SUBST(DL_LIB)
+
+dnl AIX
+AH_TEMPLATE(HAVE_VMGETINFO, [Define to 1 if you have the `vmgetinfo' function in libperfstat])
+AC_CHECK_LIB(perfstat, vmgetinfo, AC_DEFINE(HAVE_VMGETINFO))
 
 dnl Solaris
 AC_CHECK_LIB(kstat, kstat_open)
@@ -372,7 +375,7 @@ LIBGTOP_INCS="$LIBGTOP_INCS $SUPPORTINCS $GLIB_CFLAGS"
 LIBGTOP_GUILE_LIBS="$LIBGTOP_LIBS"
 LIBGTOP_GUILE_INCS="$LIBGTOP_INCS"
 LIBGTOP_BINDIR='$(bindir)'
-LIBGTOP_SERVER='$(bindir)/libgtop_server'
+LIBGTOP_SERVER='$(bindir)/libgtop_server2'
 
 sysdeps_dir="$libgtop_sysdeps_dir"
 AC_SUBST(sysdeps_dir)
@@ -441,7 +444,7 @@ AC_SUBST(LIBGTOP_SERVER)
 
 if test x$libgtop_need_server = xyes ; then
    sysdeps_suid_lib="\$(top_builddir)/sysdeps/\$(sysdeps_dir)/libgtop_sysdeps_suid-2.0.la"
-   server_programs='libgtop_server'
+   server_programs='libgtop_server2'
 else
    sysdeps_suid_lib=
    server_programs=
@@ -469,6 +472,7 @@ sysdeps/linux/Makefile
 sysdeps/kernel/Makefile
 sysdeps/freebsd/Makefile
 sysdeps/solaris/Makefile
+sysdeps/aix/Makefile
 src/Makefile
 src/daemon/Makefile
 src/inodedb/Makefile

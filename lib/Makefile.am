@@ -9,6 +9,7 @@ libgtop_2_0_la_SOURCES		= init.c open.c close.c command.c read.c \
 				  sysdeps.c
 
 libgtop_2_0_la_LDFLAGS		= $(LT_VERSION_INFO)
+libgtop_2_0_la_LIBADD		= $(top_builddir)/sysdeps/common/libgtop_common-2.0.la $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps-2.0.la $(sysdeps_suid_lib) $(INTLLIBS)
 
 BUILT_SOURCES			= lib.c
 

@@ -677,6 +677,9 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  linux*)
 	    libgtop_smp=yes
 	    ;;
+	  aix*)
+	    libgtop_smp=yes
+	    ;;
 	  *)
 	    libgtop_smp=no
 	    ;;
@@ -716,6 +719,13 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  libgtop_need_server=yes
 	  libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
 	  ;;
+        aix*)
+	  libgtop_sysdeps_dir=aix
+	  libgtop_use_machine_h=yes
+	  libgtop_need_server=yes
+	  libgtop_have_sysinfo=yes
+	  libgtop_postinstall='chgrp system $(bindir)/libgtop_server && chmod g+s $(bindir)/libgtop_server2'
+          ;;
 	*)
 	  if test x$hacker_mode = xyes ; then
 	    case "$host_os" in

@@ -22,6 +22,7 @@
 */
 
 #include <locale.h>
+#include <math.h>
 
 #include <glibtop.h>
 #include <glibtop/open.h>

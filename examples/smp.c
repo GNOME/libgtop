@@ -22,6 +22,7 @@
 */
 
 #include <locale.h>
+#include <math.h>
 
 #include <glibtop.h>
 #include <glibtop/cpu.h>
@@ -42,6 +43,8 @@ main (int argc, char *argv [])
 	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
 	textdomain (GETTEXT_PACKAGE);
 	
+	glibtop_init();
+
 	glibtop_get_cpu (&cpu);
 
 	ncpu = glibtop_global_server->ncpu ? glibtop_global_server->ncpu : 1;

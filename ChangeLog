@@ -1,3 +1,12 @@
+2002-10-08  Laurent Vivier <Laurent.Vivier@bull.net>
+
+	* Framework for AIX support
+
+2002-08-07  Vincent Berger <Vincent.Berger@ext.bull.net> 
+
+	* support/: Add alloca management for AIX
+	* configure.in: correct checking for nm
+
 2002-11-03  Dmitry G. Mastrukov  <dmitry@taurussoft.org>
 
 	* configure.in: Added Belarusian to ALL_LINGUAS

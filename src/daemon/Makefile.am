@@ -15,9 +15,10 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 INCLUDES			= $(LIBGTOP_CFLAGS) @INCLUDES@ -D_BSD \
-				  -DLIBGTOP_COMPILE_SYSTEM=\"`uname -s`\" \
-				  -DLIBGTOP_COMPILE_RELEASE=\"`uname -r`\" \
-				  -DLIBGTOP_COMPILE_MACHINE=\"`uname -m`\"
+				  -DLIBGTOP_COMPILE_SYSTEM="\"`uname -s`\"" \
+				  -DLIBGTOP_COMPILE_RELEASE="\"`uname -r`\"" \
+				  -DLIBGTOP_COMPILE_VERSION="\"`uname -v`\"" \
+				  -DLIBGTOP_COMPILE_MACHINE="\"`uname -m`\""
 
 if NEED_LIBGTOP
 suid_sysdeps			= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid-2.0.la
@@ -41,17 +42,9 @@ libgtop_daemon2_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
 				  $(LIBGTOP_LIBS)\
 				  @LIBSUPPORT@ @INTLLIBS@ @libs_xauth@
 
-if ENABLE_STATIC
-libgtop_daemon2_LDFLAGS		= -static
-endif
-
 libgtop_server2_SOURCES		= server.c slave.c io.c version.c daemon.h
 libgtop_server2_LDADD		= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid-2.0.la \
 				  $(top_builddir)/sysdeps/common/libgtop_suid_common-2.0.la
-
-if ENABLE_STATIC
-libgtop_server2_LDFLAGS		= -static
-endif
 
 EXTRA_DIST			= server_config.h.in server_config.pl
 
