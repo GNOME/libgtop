@@ -39,6 +39,11 @@
 
 __BEGIN_DECLS
 
+/* Some don't have LOG_PERROR */
+#ifndef LOG_PERROR
+#define LOG_PERROR 0
+#endif
+
 #if defined(HAVE_GETDTABLESIZE)
 #define GET_MAX_FDS() getdtablesize()
 #else
