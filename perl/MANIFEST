@@ -1,5 +1,4 @@
 .cvsignore
-Changes
 Libgtop.pm
 MANIFEST
 Makefile.PL.in
