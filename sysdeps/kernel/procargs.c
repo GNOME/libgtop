@@ -36,7 +36,7 @@ static const unsigned long _glibtop_sysdeps_proc_args =
 /* Init function. */
 
 int
-glibtop_init_proc_args_s (glibtop *server)
+glibtop_init_proc_args_k (glibtop *server)
 {
     server->sysdeps.proc_args = _glibtop_sysdeps_proc_args;
 
@@ -46,7 +46,7 @@ glibtop_init_proc_args_s (glibtop *server)
 /* Provides detailed information about a process. */
 
 char **
-glibtop_get_proc_args_s (glibtop *server, glibtop_array *array, pid_t pid)
+glibtop_get_proc_args_k (glibtop *server, glibtop_array *array, pid_t pid)
 {
     char *ptr = NULL, *pos, **ptrlist;
     size_t count = 0, max_len, total;
@@ -57,7 +57,7 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_array *array, pid_t pid)
     max_len = PAGE_SIZE;
     ptr = glibtop_malloc_r (server, max_len + 1);
 
-    ret = glibtop_get_proc_data_proc_args_s (server, pid, ptr, max_len);
+    ret = glibtop_get_proc_data_proc_args_k (server, pid, ptr, max_len);
     if (ret < 0) {
 	glibtop_free_r (server, ptr);
 	return NULL;

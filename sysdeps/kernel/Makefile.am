@@ -1,18 +1,48 @@
-LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
+LINK = \
+	$(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-INCLUDES			= @INCLUDES@
+INCLUDES = \
+	@INCLUDES@
 
-lib_LTLIBRARIES			= libgtop_sysdeps.la
+backenddir = \
+	@LIBGTOP_BACKEND_DIR@
 
-libgtop_sysdeps_la_SOURCES	= open.c close.c siglist.c cpu.c mem.c swap.c \
-				  uptime.c loadavg.c shm_limits.c msg_limits.c \
-				  sem_limits.c proclist.c procstate.c procuid.c \
-				  proctime.c procmem.c procsignal.c prockernel.c \
-				  procsegment.c procargs.c procmap.c netload.c \
-				  netinfo.c interfaces.c ppp.c procdata.c \
-				  sysinfo.c
+backend_LTLIBRARIES = \
+	libgtop_backend_kernel.la
 
-libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO)
+backend_DATA = \
+	libgtop-kernel.backend
 
-include_HEADERS			= glibtop_server.h glibtop_private.h
+libgtop_backend_kernel_la_SOURCES = \
+	cpu.c mem.c swap.c uptime.c loadavg.c \
+	proclist.c procstate.c procuid.c \
+	proctime.c procmem.c procsignal.c prockernel.c \
+	procsegment.c procargs.c procmap.c netload.c \
+	netinfo.c interfaces.c procdata.c \
+	backend-kernel.c marshal.c
+
+libgtop_backend_kernel_la_LDFLAGS = \
+	$(LT_VERSION_INFO)
+
+noinst_HEADERS	= \
+	glibtop_server.h glibtop_private.h
+
+BUILT_SOURCES = \
+	marshal.c \
+	backend-kernel.h
+
+EXTRA_DIST = \
+	marshal.pl	\
+	backend-kernel.pl \
+	libgtop-sysdeps.backend
+
+CLEANFILES = $(BUILT_SOURCES)
+
+marshal.c: marshal.pl $(top_builddir)/config.h $(top_srcdir)/features.def $(top_srcdir)/scripts/c_types.pl
+	$(PERL) -I $(top_srcdir)/scripts $(srcdir)/marshal.pl < $(top_srcdir)/features.def > tmp-t
+	mv tmp-t marshal.c
+
+backend-kernel.h: backend-kernel.pl $(top_builddir)/config.h $(top_srcdir)/features.def $(top_srcdir)/scripts/c_types.pl
+	$(PERL) -I $(top_srcdir)/scripts $(srcdir)/backend-kernel.pl < $(top_srcdir)/features.def > tmp-t
+	mv tmp-t backend-kernel.h
 

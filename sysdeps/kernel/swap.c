@@ -38,7 +38,7 @@ static const unsigned long _glibtop_sysdeps_swap_stat =
 /* Init function. */
 
 int
-glibtop_init_swap_s (glibtop *server)
+glibtop_init_swap_k (glibtop *server)
 {
     server->sysdeps.swap = _glibtop_sysdeps_swap |
 	_glibtop_sysdeps_swap_stat;
@@ -49,7 +49,7 @@ glibtop_init_swap_s (glibtop *server)
 /* Provides information about swap usage. */
 
 int
-glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
+glibtop_get_swap_k (glibtop *server, glibtop_swap *buf)
 {
     libgtop_stat_t stat;
     libgtop_swap_t swap;
@@ -57,7 +57,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
     memset (buf, 0, sizeof (glibtop_swap));
 
-    retval = glibtop_get_proc_data_swap_s (server, &swap);
+    retval = glibtop_get_proc_data_swap_k (server, &swap);
     if (retval)
 	return retval;
 
@@ -67,7 +67,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
     buf->flags = _glibtop_sysdeps_swap;
 
-    retval = glibtop_get_proc_data_stat_s (server, &stat);
+    retval = glibtop_get_proc_data_stat_k (server, &stat);
     if (retval)
 	return retval;
 

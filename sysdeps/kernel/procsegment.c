@@ -53,7 +53,7 @@ static int pageshift;		/* log base 2 of the pagesize */
 /* Init function. */
 
 int
-glibtop_init_proc_segment_s (glibtop *server)
+glibtop_init_proc_segment_k (glibtop *server)
 {
     register int pagesize;
 
@@ -74,7 +74,7 @@ glibtop_init_proc_segment_s (glibtop *server)
 /* Provides detailed information about a process. */
 
 int
-glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
+glibtop_get_proc_segment_k (glibtop *server, glibtop_proc_segment *buf,
 			    pid_t pid)
 {
     libgtop_proc_mem_t proc_mem;
@@ -83,7 +83,7 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 
     memset (buf, 0, sizeof (glibtop_proc_segment));
 
-    retval = glibtop_get_proc_data_proc_mem_s (server, &proc_mem, pid);
+    retval = glibtop_get_proc_data_proc_mem_k (server, &proc_mem, pid);
     if (retval)
 	return retval;
 
@@ -101,7 +101,7 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 
     buf->flags = _glibtop_sysdeps_proc_segment;
 
-    retval = glibtop_get_proc_data_proc_state_s (server, &proc_state, pid);
+    retval = glibtop_get_proc_data_proc_state_k (server, &proc_state, pid);
     if (retval)
 	return retval;
 

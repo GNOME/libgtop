@@ -27,6 +27,8 @@
 #include <glibtop/error.h>
 #include <glibtop/interfaces.h>
 
+#include <glibtop_private.h>
+
 static const unsigned long _glibtop_sysdeps_interface_names = 
 (1L << GLIBTOP_INTERFACE_NAMES_NUMBER) +
 (1L << GLIBTOP_INTERFACE_NAMES_SIZE);
@@ -34,7 +36,7 @@ static const unsigned long _glibtop_sysdeps_interface_names =
 /* Init function. */
 
 int
-glibtop_init_interface_names_s (glibtop *server)
+glibtop_init_interface_names_k (glibtop *server)
 {
     server->sysdeps.interface_names = _glibtop_sysdeps_interface_names;
 
@@ -44,7 +46,7 @@ glibtop_init_interface_names_s (glibtop *server)
 /* Provides network statistics. */
 
 glibtop_interface *
-glibtop_get_interface_names_s (glibtop *server, glibtop_interface_names *buf,
+glibtop_get_interface_names_k (glibtop *server, glibtop_interface_names *buf,
 			       u_int64_t interface, u_int64_t number,
 			       u_int64_t instance, u_int64_t strategy)
 {

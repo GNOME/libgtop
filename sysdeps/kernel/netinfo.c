@@ -63,7 +63,7 @@ static const unsigned long _glibtop_sysdeps_netinfo =
 /* Init function. */
 
 int
-glibtop_init_netinfo_s (glibtop *server)
+glibtop_init_netinfo_k (glibtop *server)
 {
     server->sysdeps.netinfo = _glibtop_sysdeps_netinfo;
 
@@ -73,7 +73,7 @@ glibtop_init_netinfo_s (glibtop *server)
 /* Provides network statistics. */
 
 int
-glibtop_get_netinfo_s (glibtop *server, glibtop_netinfo *buf,
+glibtop_get_netinfo_k (glibtop *server, glibtop_netinfo *buf,
 		       const char *interface, unsigned transport)
 {
     int skfd;

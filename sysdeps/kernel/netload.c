@@ -70,7 +70,7 @@ static const unsigned long _glibtop_sysdeps_netload =
 /* Init function. */
 
 int
-glibtop_init_netload_s (glibtop *server)
+glibtop_init_netload_k (glibtop *server)
 {
     server->sysdeps.netload = _glibtop_sysdeps_netload;
 
@@ -80,7 +80,7 @@ glibtop_init_netload_s (glibtop *server)
 /* Provides network statistics. */
 
 int
-glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
+glibtop_get_netload_k (glibtop *server, glibtop_netload *buf,
 		       const char *interface, unsigned transport,
 		       unsigned protocol)
 {
@@ -89,7 +89,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 
     memset (buf, 0, sizeof (glibtop_netload));
 
-    retval = glibtop_get_proc_data_netload_s (server, &netload, interface);
+    retval = glibtop_get_proc_data_netload_k (server, &netload, interface);
     if (retval)
 	return retval;
 

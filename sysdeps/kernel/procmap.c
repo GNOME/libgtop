@@ -46,7 +46,7 @@ static const unsigned long _glibtop_sysdeps_map_entry_vmfile =
 /* Init function. */
 
 int
-glibtop_init_proc_map_s (glibtop *server)
+glibtop_init_proc_map_k (glibtop *server)
 {
     server->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
 
@@ -56,7 +56,7 @@ glibtop_init_proc_map_s (glibtop *server)
 /* Provides detailed information about a process. */
 
 glibtop_map_entry *
-glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
+glibtop_get_proc_map_k (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 {
     glibtop_map_entry *retval = NULL;
     libgtop_proc_maps_t *maps;
@@ -68,13 +68,13 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
     memset (buf, 0, sizeof (glibtop_proc_map));
 
     /* Get number of map entries. */
-    count = glibtop_get_proc_data_proc_maps_s (server, pid, NULL, 0);
+    count = glibtop_get_proc_data_proc_maps_k (server, pid, NULL, 0);
 
     /* Allocate memory. */
     maps = glibtop_calloc_r (server, count, sizeof (libgtop_proc_maps_t));
     max_len = count * sizeof (libgtop_proc_maps_t);
 
-    ret = glibtop_get_proc_data_proc_maps_s (server, pid, maps, max_len);
+    ret = glibtop_get_proc_data_proc_maps_k (server, pid, maps, max_len);
     if (ret < 0) {
 	glibtop_free_r (server, maps);
 	return NULL;

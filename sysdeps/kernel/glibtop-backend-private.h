@@ -23,10 +23,12 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop/close.h>
+#ifndef __GLIBTOP_BACKEND_PRIVATE_H__
+#define __GLIBTOP_BACKEND_PRIVATE_H__
 
-/* Closes pipe to gtop server. */
+struct _glibtop_backend_private
+{
+    u_int64_t flags;
+};
 
-void
-glibtop_close_s (glibtop *server)
-{ }
+#endif

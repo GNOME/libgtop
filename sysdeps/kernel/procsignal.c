@@ -37,7 +37,7 @@ static const unsigned long _glibtop_sysdeps_proc_signal =
 /* Init function. */
 
 int
-glibtop_init_proc_signal_s (glibtop *server)
+glibtop_init_proc_signal_k (glibtop *server)
 {
     server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
 
@@ -47,7 +47,7 @@ glibtop_init_proc_signal_s (glibtop *server)
 /* Provides detailed information about a process. */
 
 int
-glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
+glibtop_get_proc_signal_k (glibtop *server, glibtop_proc_signal *buf,
 			   pid_t pid)
 {
     libgtop_proc_signal_t proc_signal;
@@ -55,7 +55,7 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 
     memset (buf, 0, sizeof (glibtop_proc_signal));
 
-    retval = glibtop_get_proc_data_proc_signal_s (server, &proc_signal, pid);
+    retval = glibtop_get_proc_data_proc_signal_k (server, &proc_signal, pid);
     if (retval)
 	return retval;
 

@@ -2,5 +2,7 @@
 .libs
 Makefile
 Makefile.in
-libgtop_sysdeps.la
 *.lo
+*.la
+marshal.c
+backend-kernel.h

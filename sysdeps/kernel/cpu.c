@@ -41,7 +41,7 @@ static const unsigned long _glibtop_sysdeps_cpu_smp =
 /* Init function. */
 
 int
-glibtop_init_cpu_s (glibtop *server)
+glibtop_init_cpu_k (glibtop *server)
 {
     server->sysdeps.cpu = _glibtop_sysdeps_cpu;
 
@@ -54,14 +54,14 @@ glibtop_init_cpu_s (glibtop *server)
 /* Provides information about cpu usage. */
 
 int
-glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
+glibtop_get_cpu_k (glibtop *server, glibtop_cpu *buf)
 {
     libgtop_stat_t stat;
     int retval, i;
 
     memset (buf, 0, sizeof (glibtop_cpu));
 
-    retval = glibtop_get_proc_data_stat_s (server, &stat);
+    retval = glibtop_get_proc_data_stat_k (server, &stat);
     if (retval)
 	return retval;
 

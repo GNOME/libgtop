@@ -35,7 +35,7 @@ static unsigned long _glibtop_sysdeps_uptime =
 /* Init function. */
 
 int
-glibtop_init_uptime_s (glibtop *server)
+glibtop_init_uptime_k (glibtop *server)
 {
     server->sysdeps.uptime = _glibtop_sysdeps_uptime;
 
@@ -45,7 +45,7 @@ glibtop_init_uptime_s (glibtop *server)
 /* Provides uptime and idle time. */
 
 int
-glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
+glibtop_get_uptime_k (glibtop *server, glibtop_uptime *buf)
 {
     libgtop_stat_t stat;
     unsigned long total;
@@ -53,7 +53,7 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 
     memset (buf, 0, sizeof (glibtop_uptime));
 
-    retval = glibtop_get_proc_data_stat_s (server, &stat);
+    retval = glibtop_get_proc_data_stat_k (server, &stat);
     if (retval)
 	return retval;
 

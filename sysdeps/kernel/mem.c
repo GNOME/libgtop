@@ -36,7 +36,7 @@ static const unsigned long _glibtop_sysdeps_mem =
 /* Init function. */
 
 int
-glibtop_init_mem_s (glibtop *server)
+glibtop_init_mem_k (glibtop *server)
 {
     server->sysdeps.mem = _glibtop_sysdeps_mem;
 
@@ -46,14 +46,14 @@ glibtop_init_mem_s (glibtop *server)
 /* Provides information about memory usage. */
 
 int
-glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
+glibtop_get_mem_k (glibtop *server, glibtop_mem *buf)
 {
     libgtop_mem_t mem;
     int retval;
 
     memset (buf, 0, sizeof (glibtop_mem));
 
-    retval = glibtop_get_proc_data_mem_s (server, &mem);
+    retval = glibtop_get_proc_data_mem_k (server, &mem);
     if (retval)
 	return retval;
 

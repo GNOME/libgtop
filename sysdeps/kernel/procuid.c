@@ -46,7 +46,7 @@ static const unsigned long _glibtop_sysdeps_proc_uid =
 /* Init function. */
 
 int
-glibtop_init_proc_uid_s (glibtop *server)
+glibtop_init_proc_uid_k (glibtop *server)
 {
     server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
 
@@ -56,7 +56,7 @@ glibtop_init_proc_uid_s (glibtop *server)
 /* Provides detailed information about a process. */
 
 int
-glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
+glibtop_get_proc_uid_k (glibtop *server, glibtop_proc_uid *buf,
 			pid_t pid)
 {
     libgtop_proc_state_t proc_state;
@@ -65,7 +65,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
 
     memset (buf, 0, sizeof (glibtop_proc_uid));
 
-    retval = glibtop_get_proc_data_proc_state_s (server, &proc_state, pid);
+    retval = glibtop_get_proc_data_proc_state_k (server, &proc_state, pid);
     if (retval)
 	return retval;
 

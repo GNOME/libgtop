@@ -38,54 +38,56 @@
 
 BEGIN_LIBGTOP_DECLS
 
-int
-glibtop_get_proc_data_stat_s (glibtop *server, libgtop_stat_t *stat);
+#include "backend-kernel.h"
 
 int
-glibtop_get_proc_data_mem_s (glibtop *server, libgtop_mem_t *mem);
+glibtop_get_proc_data_stat_k (glibtop *server, libgtop_stat_t *stat);
 
 int
-glibtop_get_proc_data_swap_s (glibtop *server, libgtop_swap_t *swap);
+glibtop_get_proc_data_mem_k (glibtop *server, libgtop_mem_t *mem);
 
 int
-glibtop_get_proc_data_proclist_s (glibtop *server,
+glibtop_get_proc_data_swap_k (glibtop *server, libgtop_swap_t *swap);
+
+int
+glibtop_get_proc_data_proclist_k (glibtop *server,
 				  libgtop_proclist_t *proclist,
 				  u_int64_t which, u_int64_t arg);
 
 int
-glibtop_get_proc_data_proc_state_s (glibtop *server,
+glibtop_get_proc_data_proc_state_k (glibtop *server,
 				    libgtop_proc_state_t *proc_state,
 				    pid_t pid);
 
 int
-glibtop_get_proc_data_proc_mem_s (glibtop *server,
+glibtop_get_proc_data_proc_mem_k (glibtop *server,
 				  libgtop_proc_mem_t *proc_mem,
 				  pid_t pid);
 
 int
-glibtop_get_proc_data_proc_signal_s (glibtop *server,
+glibtop_get_proc_data_proc_signal_k (glibtop *server,
 				     libgtop_proc_signal_t *proc_signal,
 				     pid_t pid);
 
 int
-glibtop_get_proc_data_proc_kernel_s (glibtop *server,
+glibtop_get_proc_data_proc_kernel_k (glibtop *server,
 				     libgtop_proc_kernel_t *proc_kernel,
 				     pid_t pid);
 
 int
-glibtop_get_proc_data_proc_args_s (glibtop *server, pid_t pid,
+glibtop_get_proc_data_proc_args_k (glibtop *server, pid_t pid,
 				   char *result, size_t max_len);
 
 int
-glibtop_get_proc_data_proc_maps_s (glibtop *server, pid_t pid,
+glibtop_get_proc_data_proc_maps_k (glibtop *server, pid_t pid,
 				   libgtop_proc_maps_t *result,
 				   size_t max_len);
 
 int
-glibtop_get_proc_data_netload_s (glibtop *server,
+glibtop_get_proc_data_netload_k (glibtop *server,
 				 libgtop_netload_t *netload,
 				 const char *device);
 
 END_LIBGTOP_DECLS
 
-#endif __GLIBTOP_PRIVATE_H__
+#endif /* __GLIBTOP_PRIVATE_H__ */

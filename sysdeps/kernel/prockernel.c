@@ -42,7 +42,7 @@ static const unsigned long _glibtop_sysdeps_proc_kernel_kernel =
 /* Init function. */
 
 int
-glibtop_init_proc_kernel_s (glibtop *server)
+glibtop_init_proc_kernel_k (glibtop *server)
 {
     server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel |
 	_glibtop_sysdeps_proc_kernel_kernel;
@@ -53,7 +53,7 @@ glibtop_init_proc_kernel_s (glibtop *server)
 /* Provides detailed information about a process. */
 
 int
-glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
+glibtop_get_proc_kernel_k (glibtop *server, glibtop_proc_kernel *buf,
 			   pid_t pid)
 {
     libgtop_proc_state_t proc_state;
@@ -62,7 +62,7 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
 
     memset (buf, 0, sizeof (glibtop_proc_kernel));
 
-    retval = glibtop_get_proc_data_proc_state_s (server, &proc_state, pid);
+    retval = glibtop_get_proc_data_proc_state_k (server, &proc_state, pid);
     if (retval)
 	return retval;
 
@@ -75,7 +75,7 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
 
     buf->flags = _glibtop_sysdeps_proc_kernel;
 
-    retval = glibtop_get_proc_data_proc_kernel_s (server, &proc_kernel, pid);
+    retval = glibtop_get_proc_data_proc_kernel_k (server, &proc_kernel, pid);
     if (retval)
 	return retval;
 

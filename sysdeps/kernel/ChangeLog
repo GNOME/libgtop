@@ -1,3 +1,29 @@
+2000-01-23  Martin Baulig  <martin@home-of-linux.org>
+
+	This is now a LibGTop backend which can be loaded additionally
+	to the normal Linux sysdeps code.
+
+	* open.c, close.c: Removed.
+	* shm_limits.c, msg_limits.c, sem_limits.c, ppp.c: Removed.
+	* siglist.c, sysinfo.c: Removed.
+
+	* backend-kernel.c: New file.
+	* glibtop-backend-private.h: New file.
+	* libgtop-kernel.backend: New file.
+
+	* backend-kernel.pl: New file. Automatically creates
+	`backend-kernel.h'.
+
+	* marshal.pl: New file. Automatically creates `marshal.c'.
+
+	* glibtop_server.h: Replaced all `GLIBTOP_SUID_<feature>' constants
+	with `GLIBTOP_IMPL_<feature>' ones; they're used in marshal.c to
+	find out which features this backend implements.
+
+	* *.c: Renamed all `glibtop_get_<feature>_s' functions to
+	`glibtop_get_<feature>_k' and all `glibtop_init_<feature>_s' ones
+	to `glibtop_init_<feature>_k'.
+
 1999-12-22  Martin Baulig  <martin@home-of-linux.org>
 
 	* procdata.c: Distinguish between GLIBTOP_ERROR_NO_KERNEL_SUPPORT
