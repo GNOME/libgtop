@@ -1,5 +1,11 @@
 1998-10-11  Martin Baulig  <martin@home-of-linux.org>
 
+	* perl: Removed everything in this subdirectory. This was
+	only experimental. The real perl bindings for LibGTop are
+	in the libgtop-bindings module.
+
+1998-10-11  Martin Baulig  <martin@home-of-linux.org>
+
 	* src/inodedb/Makefile.am: Removed @libs_xauth@ and -lgdbm
 	from the _LDADD variables since libtool automatically gets
 	the dependencies.

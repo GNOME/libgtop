@@ -33,8 +33,6 @@ confexec_DATA = $(top_builddir)/libgtopConf.sh
 
 bin_SCRIPTS = $(top_builddir)/libgtop-config
 
-noinst_DATA = $(top_builddir)/perl/features.def
-
 ## to automatically rebuild aclocal.m4 if any of the macros in
 ## `macros/' change
 @MAINT@include macros/macros.dep
@@ -80,5 +78,3 @@ libgtop-config: libgtop-config.in Makefile
 	  && mv libgtop-config.tmp libgtop-config && \
 		chmod 755 libgtop-config
 
-perl/features.def: features.def
-	cd perl && @LN_S@ $(srcdir)/features.def
