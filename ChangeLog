@@ -1,3 +1,7 @@
+2002-05-08  Pablo Saratxaga  <pablo@mandrakesoft.com>
+
+	* configure.in: Added Vietnamese (vi) to ALL_LINGUAS
+
 2002-03-12  James Henstridge  <james@daa.com.au>
 
 	* acinclude.m4 (LIBGTOP_HEACKER_TESTS): AM_CONDITIONAL()
