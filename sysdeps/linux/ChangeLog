@@ -1,5 +1,12 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* glibtop_server.h:
+	* mem.c: (glibtop_get_mem_s):
+	* swap.c: (glibtop_get_swap_s): committing patch from Sebastien
+	Bacher <seb128@debian.org> for Linux 2.6 support (Closes: #104747)
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* cpu.c: (glibtop_get_cpu_s):
 	* procmap.c: (glibtop_get_proc_map_s): s/u_int64_t/guint64/
 

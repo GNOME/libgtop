@@ -57,6 +57,25 @@ skip_line (const char *p)
 	return (char *) ++p;
 }
 
+static inline unsigned long
+get_scaled(const char *buffer, const char *key)
+{
+  const char    *ptr;
+  char          *next;
+  unsigned long value = 0;
+  
+  if ((ptr = strstr(buffer, key)))
+    {
+      ptr += strlen(key);
+      value = strtoul(ptr, &next, 0);
+      if (strchr(next, 'k'))
+	value *= 1024;
+      else if (strchr(next, 'M'))
+	value *= 1024 * 1024;
+    }
+  return value;
+}
+
 static inline int
 proc_file_to_buffer (char *buffer, const char *fmt, pid_t pid)
 {
