@@ -95,77 +95,34 @@ glibtop_client_warning_handler (glibtop_client *client, GError *error)
 }
 
 static void
-glibtop_client_marshal_VOID__POINTER (GClosure     *closure,
-				      GValue       *return_value,
-				      guint         n_param_values,
-				      const GValue *param_values,
-				      gpointer      invocation_hint,
-				      gpointer      marshal_data)
-{
-    typedef void (*GSignalFunc_VOID__POINTER) (gpointer     data1,
-					       gpointer     arg_1,
-					       gpointer     data2);
-    register GSignalFunc_VOID__POINTER callback;
-    register GCClosure *cc = (GCClosure*) closure;
-    register gpointer data1, data2;
-
-    g_return_if_fail (n_param_values >= 2);
-
-    if (G_CCLOSURE_SWAP_DATA (closure))
-	{
-	    data1 = closure->data;
-	    data2 = g_value_get_as_pointer (param_values + 0);
-	}
-    else
-	{
-	    data1 = g_value_get_as_pointer (param_values + 0);
-	    data2 = closure->data;
-	}
-    callback = (GSignalFunc_VOID__POINTER) (marshal_data ? marshal_data : cc->callback);
-
-    callback (data1,
-	      g_value_get_as_pointer (param_values + 1),
-	      data2);
-}
-
-static void
-glibtop_client_class_init (glibtop_client_class *class)
+glibtop_client_class_init (glibtop_client_class *klass)
 {
     GObjectClass *gobject_class;
-    GType *param_types;
-    GClosure *closure;
 
-    gobject_class = (GObjectClass *) class;
+    gobject_class = (GObjectClass *) klass;
   
-    parent_class = g_type_class_ref (G_TYPE_OBJECT);
+    parent_class = g_type_class_peek_parent (klass);
 
-    closure = g_signal_type_closure_new (G_TYPE_FROM_CLASS (class),
-					 G_STRUCT_OFFSET (glibtop_client_class,
-							  error));
-
-    param_types = g_new0 (GType, 1);
-    param_types [0] = G_TYPE_POINTER;
-  
     glibtop_client_signals [GLIBTOP_CLIENT_SIGNAL_ERROR] =
-	g_signal_newv ("error", G_TYPE_FROM_CLASS (class),
-		       G_SIGNAL_RUN_LAST, closure, NULL,
-		       glibtop_client_marshal_VOID__POINTER,
-		       G_TYPE_NONE, 1, param_types);
+	g_signal_newc ("error",
+		       G_TYPE_FROM_CLASS (klass),
+		       G_SIGNAL_RUN_LAST,
+		       G_STRUCT_OFFSET (glibtop_client_class, error),
+		       NULL, NULL,
+		       g_cclosure_marshal_VOID__POINTER,
+		       G_TYPE_NONE, 1, G_TYPE_POINTER);
 
-    closure = g_signal_type_closure_new (G_TYPE_FROM_CLASS (class),
-					 G_STRUCT_OFFSET (glibtop_client_class,
-							  warning));
-  
     glibtop_client_signals [GLIBTOP_CLIENT_SIGNAL_WARNING] =
-	g_signal_newv ("warning", G_TYPE_FROM_CLASS (class),
-		       G_SIGNAL_RUN_LAST, closure, NULL,
-		       glibtop_client_marshal_VOID__POINTER,
-		       G_TYPE_NONE, 1, param_types);
+	g_signal_newc ("warning",
+		       G_TYPE_FROM_CLASS (klass),
+		       G_SIGNAL_RUN_LAST,
+		       G_STRUCT_OFFSET (glibtop_client_class, warning),
+		       NULL, NULL,
+		       g_cclosure_marshal_VOID__POINTER,
+		       G_TYPE_NONE, 1, G_TYPE_POINTER);
 
-    g_free (param_types);
-
-    class->error = glibtop_client_error_handler;
-    class->warning = glibtop_client_warning_handler;
+    klass->error = glibtop_client_error_handler;
+    klass->warning = glibtop_client_warning_handler;
   
     gobject_class->finalize = glibtop_client_finalize;
 }
