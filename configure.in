@@ -125,7 +125,10 @@ AC_SUBST(guile_subdirs)
 
 AM_PROG_LIBTOOL
 
-dnl You need to uncomment the following line if you want to use libgtop without Gnome.
+AM_PATH_GLIB
+
+dnl You need to uncomment the following line if you want to use
+dnl libGTop without Gnome.
 dnl GNOME_SUPPORT_CHECKS
 
 dnl Checks for typedefs, structures, and compiler characteristics.
