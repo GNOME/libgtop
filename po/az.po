@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: glibtop 1.1.6\n"
-"POT-Creation-Date: 2001-01-05 16:34+0100\n"
-"PO-Revision-Date: 2001-01-03 00:23+0200\n"
+"POT-Creation-Date: 2001-03-15 17:15+0100\n"
+"PO-Revision-Date: 2001-01-06 00:23+0200\n"
 "Last-Translator: Vasif Ismailoglu MD <azerb_linux@hotmail.com>\n"
 "Language-Team: Azerbaijani Turkish\n"
 "MIME-Version: 1.0\n"
@@ -15,27 +15,27 @@ msgstr ""
 
 #: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
 msgid "Hangup (POSIX)"
-msgstr ""
+msgstr "Hangup (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
 msgid "Interrupt (ANSI)"
-msgstr ""
+msgstr "Interrupt (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:35 lib/sysdeps-init-linux.c:35
 msgid "Quit (POSIX)"
-msgstr ""
+msgstr "Çıx (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:36 lib/sysdeps-init-linux.c:36
 msgid "Illegal instruction (ANSI)"
-msgstr ""
+msgstr "Keçərsiz tə'limat (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:37 lib/sysdeps-init-linux.c:37
 msgid "Trace trap (POSIX)"
-msgstr ""
+msgstr "İzləmə trapı (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:38 lib/sysdeps-init-linux.c:38
 msgid "Abort (ANSI)"
-msgstr ""
+msgstr "Ləğv Et (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:39
 msgid "EMT instruction"
@@ -43,36 +43,36 @@ msgstr ""
 
 #: lib/sysdeps-init-freebsd.c:40 lib/sysdeps-init-linux.c:40
 msgid "Floating-point exception (ANSI)"
-msgstr ""
+msgstr "Floating-point exception (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
+#, fuzzy
 msgid "Kill, unblockable (POSIX)"
-msgstr ""
+msgstr "Zəngli Saat (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
 msgid "BUS error (4.2 BSD)"
 msgstr ""
 
 #: lib/sysdeps-init-freebsd.c:43 lib/sysdeps-init-linux.c:43
-#, fuzzy
 msgid "Segmentation violation (ANSI)"
-msgstr "Gedişat Seqment Mə'lumatları"
+msgstr "Seqmentlərə Bölmə Qaydası Pozulması (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:44
 msgid "Bad argument to system call"
-msgstr ""
+msgstr "Sistem çağırışı üçün xətalı arqument"
 
 #: lib/sysdeps-init-freebsd.c:45 lib/sysdeps-init-linux.c:45
 msgid "Broken pipe (POSIX)"
-msgstr ""
+msgstr "Qırıq Boru (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:46 lib/sysdeps-init-linux.c:46
 msgid "Alarm clock (POSIX)"
-msgstr ""
+msgstr "Zəngli Saat (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
 msgid "Termination (ANSI)"
-msgstr ""
+msgstr "Qurtarma (ANSI)"
 
 #: lib/sysdeps-init-freebsd.c:48 lib/sysdeps-init-linux.c:55
 msgid "Urgent condition on socket (4.2 BSD)"
@@ -84,23 +84,23 @@ msgstr ""
 
 #: lib/sysdeps-init-freebsd.c:50 lib/sysdeps-init-linux.c:52
 msgid "Keyboard stop (POSIX)"
-msgstr ""
+msgstr "Klaviaturanı dayandır (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:51 lib/sysdeps-init-linux.c:50
 msgid "Continue (POSIX)"
-msgstr ""
+msgstr "Davam Et (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:52 lib/sysdeps-init-linux.c:49
 msgid "Child status has changed (POSIX)"
-msgstr ""
+msgstr "Törəmə halı dəyişdi (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:53 lib/sysdeps-init-linux.c:53
 msgid "Background read from tty (POSIX)"
-msgstr ""
+msgstr "Tty'dən arxa plan geişatı mə'lumatı (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:54 lib/sysdeps-init-linux.c:54
 msgid "Background write to tty (POSIX)"
-msgstr ""
+msgstr "Tty'ye yazma əməliyyatı (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:55 lib/sysdeps-init-linux.c:61
 msgid "I/O now possible (4.2 BSD)"
@@ -128,17 +128,15 @@ msgstr ""
 
 #: lib/sysdeps-init-freebsd.c:61
 msgid "Information request"
-msgstr ""
+msgstr "Sifariş Edilən mə'lumat"
 
 #: lib/sysdeps-init-freebsd.c:62 lib/sysdeps-init-linux.c:42
-#, fuzzy
 msgid "User-defined signal 1 (POSIX)"
-msgstr "Rədd edilmiş signal maskası"
+msgstr ""
 
 #: lib/sysdeps-init-freebsd.c:63 lib/sysdeps-init-linux.c:44
-#, fuzzy
 msgid "User-defined signal 2 (POSIX)"
-msgstr "Rədd edilmiş signal maskası"
+msgstr ""
 
 #: lib/sysdeps-init-linux.c:62
 msgid "Power failure restart (System V)"
@@ -752,7 +750,7 @@ msgstr "Əmaliyyət gedişatının Single-Char kodu (S=yuxudakı)"
 
 #: sysdeps/names/procstate.c:54
 msgid "effective UID of process"
-msgstr "gedişatın effektiv UIDi "
+msgstr "gedişatın effektiv UIDi"
 
 #: sysdeps/names/procstate.c:55
 msgid "effective GID of process"
@@ -761,12 +759,12 @@ msgstr "gedişatın effektiv GIDi"
 #: sysdeps/names/procstate.c:56
 #, fuzzy
 msgid "real UID of process"
-msgstr "gedişatın həqiqi UIDi"
+msgstr "gedişatın effektiv UIDi"
 
 #: sysdeps/names/procstate.c:57
 #, fuzzy
 msgid "real GID of process"
-msgstr "gedişatın həqiqi GIDi"
+msgstr "gedişatın effektiv GIDi"
 
 #: sysdeps/names/procstate.c:58
 msgid "has_cpu"
@@ -863,7 +861,7 @@ msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
-"İnterval timera baǧlı olaraq gedişata göndərilən sonrakı SIGALRM "
+"İnterval timera bağlı olaraq gedişata göndərilən sonrakı SIGALRM "
 "əvvəlində keçən vaxt."
 
 #: sysdeps/names/proctime.c:63
@@ -1105,12 +1103,12 @@ msgstr "Atılan Səhifələr"
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought in since system boot"
 msgstr ""
-"Sistem başladıǧından bəri alınan Dəyiş Toqquş səhifələri sayısı"
+"Sistem başladığından bəri alınan Dəyiş Toqquş səhifələri sayısı"
 
 #: sysdeps/names/swap.c:55
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
-"Sistem başladıǧından bəri atılan Dəyiş Toqquş səhifələri sayısı"
+"Sistem başladığından bəri atılan Dəyiş Toqquş səhifələri sayısı"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
@@ -1137,7 +1135,6 @@ msgid "System Uptime"
 msgstr "Sistem Uptime'ı"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
-#, fuzzy
 msgid "Load Averange"
 msgstr "Ortalama Yük"
 
@@ -1200,7 +1197,7 @@ msgstr "Gedişat Yaddaşı Xəritəsi"
 
 #: sysdeps/names/sysdeps.c:74
 msgid "Mount List"
-msgstr "Baǧlanmış Avadanlıq Siyahısı"
+msgstr "Bağlanmış Avadanlıq Siyahısı"
 
 #: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
 msgid "File System Usage"
@@ -1211,9 +1208,8 @@ msgid "Network Load"
 msgstr "Network Yükü"
 
 #: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
-#, fuzzy
 msgid "Interface Names"
-msgstr "Ara üz adları"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
 msgid "PPP Statistics"
@@ -1234,7 +1230,7 @@ msgstr "Gedişatın əmr sətri arqumentləri"
 
 #: sysdeps/names/sysdeps.c:104
 msgid "List of currently mounted filesystems"
-msgstr "Hazırda baǧlanmış olan dosye sistemləri sayısı"
+msgstr "Hazırda bağlanmış olan dosye sistemləri sayısı"
 
 #: sysdeps/names/uptime.c:40
 msgid "Uptime"
@@ -1250,75 +1246,12 @@ msgstr "Başlama vaxtı"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds since system boot"
-msgstr "Sistem başladıǧından bəri keçən vaxt"
+msgstr "Sistem başladığından bəri keçən vaxt"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Sistem başladıǧından bəri sistem idle taskda keçirdiyi müddət"
+msgstr "Sistem başladığından bəri sistem idle taskda keçirdiyi müddət"
 
 #: sysdeps/names/uptime.c:49
 msgid "Boot time (seconds sice epoch)"
 msgstr "Başlama müddəti (seconds sice epoch)"
-
-#~ msgid "Unknown system error"
-#~ msgstr "Namə'lum sistem xətası"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s:  '%s' seçənəyi cütdür\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: '--%s' seçənəyi arqument almır\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s;  '%c%s' seçənəyi arqument almır\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s:  '%s' seçənəyi arqumentə ehtiyac hiss edər\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: namə'lum seçənək '--%s'\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: namə'lum seçənək '%c%s'\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s:  %c -- keçərsizdir\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s:  %c -- seçənəyi keçərsizdir\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: seçənəyi arqumentə ehtiyac hiss edir --%c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: seçənək '-W %s' cütdür\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: seçənək '-W%s' arqument almır\n"
-
-#~ msgid "Unknown error"
-#~ msgstr "Namə'lum xəta"
-
-#~ msgid "Invalid argument"
-#~ msgstr "Arqument keçərsizdir"
-
-#~ msgid "No such parameter"
-#~ msgstr "Belə bir parametr yoxdur"
-
-#~ msgid "Attempted to modify a read-only value"
-#~ msgstr "Sırf oxuna bilən qiymətləri düzəltmə haqqı alındı"
-
-#~ msgid "Parameter size mismatch"
-#~ msgstr "Parametr böyüklüyü uyǧun gəlmir"
-
-#~ msgid "Communication with LibGTop server failed"
-#~ msgstr "LibGTop vericisi ilə baǧlantı kəsildi"
-
-#~ msgid "No such process"
-#~ msgstr "Belə bir gedişat yoxdur"
-
-#~ msgid "No kernel support"
-#~ msgstr "Kernel tərəfindən dəstəklənmir"
-
-#~ msgid "Incompatible kernel version"
-#~ msgstr "Uyǧun olmayan Kernel buraxılışı"
