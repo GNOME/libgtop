@@ -15,7 +15,7 @@ static void show_args(pid_t pid)
 
   while(*parg)
     {
-      printf("\"%s\"\t", *parg);
+      printf("\"%s\" ", *parg);
       parg++;
     }
 
