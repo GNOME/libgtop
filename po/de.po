@@ -1,15 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# german op for libgtop.
+# Copyright (C) 2000 Free Software Foundation, Inc.
+# FIRST AUTHOR <kl@li>, YEAR.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 2000-02-23 00:23+0100\n"
+"Project-Id-Version: libgtop 1.0.6\n"
+"POT-Creation-Date: 2000-07-15 00:08+0200\n"
 "PO-Revision-Date: 1999-07-11 12:44+02:00\n"
-"Last-Translator: Martin Baulig <martin@home-of-linux.org>\n"
-"Language-Team: Martin Baulig <martin@home-of-linux.org>\n"
+"Last-Translator: Kai Lahmann <kl@linuxfaqs.de>\n"
+"Language-Team: de <de@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: sysdeps/names/cpu.c:45
@@ -131,7 +132,8 @@ msgid "Last PID"
 msgstr "Letzte PID"
 
 #: sysdeps/names/loadavg.c:49
-msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgid ""
+"Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
 msgstr "Anzahl gleichzeitig laufender Jobs im Mittel über 1, 5 und 15 Minuten"
 
 #: sysdeps/names/loadavg.c:50
@@ -314,7 +316,8 @@ msgstr ""
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:67
-msgid "The number of minor faults that the process and its children have made."
+msgid ""
+"The number of minor faults that the process and its children have made."
 msgstr ""
 "Anzahl weniger schwerer Seitenfehler eines Prozesses und seiner Kinder, d.h. "
 "diejenigen die es nicht erforderlich gemacht haben, eine Seite von der "
@@ -322,7 +325,8 @@ msgstr ""
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:70
-msgid "The number of major faults that the process and its children have made."
+msgid ""
+"The number of major faults that the process and its children have made."
 msgstr ""
 "Anzahl schwerwiegender Seitenfehler eines Prozesses und seiner Kinder, d.h. "
 "diejenigen, die es erforderten eine Seite von der Platte zu laden."
@@ -721,7 +725,8 @@ msgstr ""
 #: sysdeps/names/proctime.c:60
 msgid "The time (in jiffies) of the process's next timeout"
 msgstr ""
-"Zeit (in 1/100stel Sekunden) bis der Prozess seinen nächsten Timeout empfängt"
+"Zeit (in 1/100stel Sekunden) bis der Prozess seinen nächsten Timeout "
+"empfängt"
 
 #: sysdeps/names/proctime.c:61
 msgid ""
@@ -974,12 +979,13 @@ msgstr ""
 "wurden"
 
 #: sysdeps/names/swap.c:55
-msgid "Total number of swap pages that have been brought out since system boot"
+msgid ""
+"Total number of swap pages that have been brought out since system boot"
 msgstr ""
 "Anzahl der Seiten, die insgesamt seit dem letzten Systemstart eingelagert "
 "wurden"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
 msgstr "Server Features"
 
@@ -987,107 +993,115 @@ msgstr "Server Features"
 msgid "Pointer Size"
 msgstr "Zeigergröße"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
 msgid "CPU Usage"
 msgstr "Prozessorlast"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
 msgid "Memory Usage"
 msgstr "Speicherbelegung"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
 msgid "Swap Usage"
 msgstr "Auslagerungsspeicher"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
 msgid "System Uptime"
 msgstr "Laufzeit des Systems"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
 msgid "Load Averange"
 msgstr "Systemlast"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
 msgid "Shared Memory Limits"
 msgstr "Limits für gemeinsam genutzten Speicher"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
 msgid "Message Queue Limits"
 msgstr "Limits für Nachrichtenwarteschlangen"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
 msgid "Semaphore Set Limits"
 msgstr "Semaphor-Setzbegrenzungen"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
 msgid "List of running Processes"
 msgstr "Prozessliste"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 msgid "Process Status information"
 msgstr "Prozess Status"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
 msgid "Process UID and TTY information"
 msgstr "Prozess Eigentümer und Terminal"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 msgid "Process Memory information"
 msgstr "Speicherbelegung des Prozesses"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
 msgid "Process Time information"
 msgstr "Prozess-Zeitinformation"
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
 msgid "Process Signal information"
 msgstr "Prozess-Signalinformation"
 
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
 msgid "Process Kernel Data information"
 msgstr "Prozess-Kerneldateninformation"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
 msgid "Process Segment information"
 msgstr "Prozess-Segmentinformation"
 
 #: sysdeps/names/sysdeps.c:71
+msgid "Process CWD"
+msgstr "Prozess-CWD"
+
+#: sysdeps/names/sysdeps.c:72
 msgid "Process Arguments"
 msgstr "Prozessargumente"
 
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
+#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
 msgid "Process Memory Map"
 msgstr "Prozess-Speicherplan"
 
-#: sysdeps/names/sysdeps.c:73
+#: sysdeps/names/sysdeps.c:74
 msgid "Mount List"
 msgstr "Mountliste"
 
-#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
+#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
 msgid "File System Usage"
 msgstr "Dateisystemnutzung"
 
-#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:104
+#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
 msgid "Network Load"
 msgstr "Netzlast"
 
-#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
+#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
 msgid "Interface Names"
 msgstr "Interface Namen"
 
-#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
+#: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
 msgid "PPP Statistics"
 msgstr "PPP Statistik"
 
-#: sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:84
 msgid "Pointer Size on the Server (in bits)"
 msgstr "Zeigergröße auf dem Server (in Bits)"
 
-#: sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:101
+msgid "Current working directory of the process"
+msgstr "Aktuelles Arbeitsverzeichnis des Prozesses"
+
+#: sysdeps/names/sysdeps.c:102
 msgid "Command line arguments of the process"
 msgstr "Kommandozeilenparameter des Prozesses"
 
-#: sysdeps/names/sysdeps.c:102
+#: sysdeps/names/sysdeps.c:104
 msgid "List of currently mounted filesystems"
 msgstr "Liste gegenwärtig gemounteter Dateisysteme"
 
@@ -1205,70 +1219,17 @@ msgstr "Parametergröße stimmt nicht"
 
 #: lib/errors.c:37
 msgid "Communication with LibGTop server failed"
-msgstr ""
+msgstr "Communikation mit dem LibGTop-Server gescheitert"
 
 #: lib/errors.c:38
-#, fuzzy
 msgid "No such process"
 msgstr "Kein solcher Parameter"
 
 #: lib/errors.c:39
 msgid "No kernel support"
-msgstr ""
+msgstr "Keine Kernel-Unterstützung"
 
 #: lib/errors.c:40
 msgid "Incompatible kernel version"
-msgstr ""
+msgstr "Inkompatible Kernel-Version"
 
-#~ msgid "read %d bytes"
-#~ msgstr "%d bytes gelesen"
-
-#~ msgid "read data size"
-#~ msgstr "lese Datenmenge"
-
-#~ msgid "read data %d bytes"
-#~ msgstr "%d Datenbytes gelesen"
-
-#~ msgid "write %d bytes"
-#~ msgstr "schreibe %d bytes"
-
-#~ msgid "Enable debugging"
-#~ msgstr "Fehlerdiagnose einschalten"
-
-#~ msgid "DEBUG"
-#~ msgstr "DIAGNOSE"
-
-#~ msgid "Enable verbose output"
-#~ msgstr "Gesprächige Ausgabe einschalten"
-
-#~ msgid "VERBOSE"
-#~ msgstr "GESPRAECHIG"
-
-#~ msgid "Don't fork into background"
-#~ msgstr "Nicht in den Hintergrund abforken"
-
-#~ msgid "NO-DAEMON"
-#~ msgstr "KEIN-DÄMON"
-
-#~ msgid "Invoked from inetd"
-#~ msgstr "Durch inetd aufgerufen"
-
-#~ msgid "INETD"
-#~ msgstr "INETD"
-
-#~ msgid ""
-#~ "Error on option %s: %s.\n"
-#~ "Run '%s --help' to see a full list of available command line options.\n"
-#~ msgstr ""
-#~ "Fehler bei Option %s: %s.\n"
-#~ "Führen Sie `%s --help' aus, um eine volle Liste der verfügbaren Optionen zu "
-#~ "sehen.\n"
-
-#~ msgid "Number of list elements"
-#~ msgstr "Anzahl der Elemente in der Liste"
-
-#~ msgid "Total size of list"
-#~ msgstr "Größe (in Bytes) der Liste"
-
-#~ msgid "Size of a single list element"
-#~ msgstr "Größe eines einzigen Listenelements"
