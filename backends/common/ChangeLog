@@ -1,3 +1,9 @@
+2000-11-22  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am: Link libgtop_backend_common.la against
+	$(top_builddir)/sysdeps/common/libgtop_common.la and
+	$(top_builddir)/lib/libgtop_server.la.
+
 2000-02-22  Martin Baulig  <martin@home-of-linux.org>
 
 	* backend-sysdeps.c (LibGTopBackendInfo): Call this
