@@ -8,6 +8,7 @@ DEFS			= @DEFS@
 
 bin_PROGRAMS		= first first_static second second_static \
 			  mountlist mountlist_static \
+			  procmap procmap_static \
 			  @guile_examples@
 
 EXTRA_PROGRAMS		= third third_static
@@ -31,6 +32,18 @@ second_LDADD		= $(top_builddir)/lib/libgtop.la \
 second_static_SOURCES	= $(second_SOURCES)
 second_static_LDADD	= $(second_LDADD)
 second_static_LDFLAGS	= -static
+
+procmap_SOURCES		= procmap.c
+procmap_LDADD		= $(top_builddir)/lib/libgtop.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+			  @INTLLIBS@ @LIBSUPPORT@ @libs_xauth@
+
+procmap_static_SOURCES	= $(procmap_SOURCES)
+procmap_static_LDADD	= $(procmap_LDADD)
+procmap_static_LDFLAGS	= -static
+
+
 
 third_guile_names_LIBS	= $(top_builddir)/sysdeps/guile/names/libgtop_guile_names.la
 third_names_LIBS	= $(top_builddir)/sysdeps/names/libgtop_names.la

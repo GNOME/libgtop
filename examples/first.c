@@ -32,6 +32,7 @@
 #include <glibtop/sysdeps.h>
 
 #include <sys/resource.h>
+#include <sys/mman.h>
 
 #ifndef PROFILE_COUNT
 #define PROFILE_COUNT	1
@@ -43,10 +44,12 @@ main (int argc, char *argv [])
 	glibtop_union data;
 	glibtop_sysdeps sysdeps;
 	unsigned c, method, count, port, i, *ptr;
-	char buffer [BUFSIZ];
+	char buffer [BUFSIZ], *mmap_ptr;
 	struct rlimit rlim;
 	struct rusage ru;
+	struct stat statb;
 	pid_t pid, ppid;
+	int fd;
 
 	count = PROFILE_COUNT;
 
@@ -73,6 +76,18 @@ main (int argc, char *argv [])
 	printf ("Host = '%s' - %u\n\n", buffer, port);
 
 	glibtop_init_r (&glibtop_global_server, 0, 0);
+
+	fd = open ("/COPYRIGHT", O_RDONLY);
+	if (!fd) glibtop_error_io ("open (/COPYRIGHT)");
+
+	if (stat ("/COPYRIGHT", &statb))
+		glibtop_error_io ("stat (/COPYRIGHT)");
+
+	mmap_ptr = mmap (NULL, statb.st_size, PROT_READ | PROT_WRITE,
+			 MAP_PRIVATE, fd, 0);
+	if (!mmap_ptr) glibtop_error_io ("mmap (/COPYRIGHT)");
+
+	fprintf (stderr, "MMAP: %p - %lu\n", mmap_ptr, statb.st_size);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 	  	glibtop_get_cpu (&data.cpu);
@@ -246,6 +261,20 @@ main (int argc, char *argv [])
 		 (unsigned long) rlim.rlim_cur,
 		 (unsigned long) rlim.rlim_max,
 		 (unsigned long) ((1 << 63) - 1));
+
+	printf ("Proc_Mem     PID  %5u (0x%08lx): "
+		"%lu %lu %lu %lu %lu %lu\n", pid,
+		(unsigned long) data.proc_mem.flags,
+		(unsigned long) data.proc_mem.size,
+		(unsigned long) data.proc_mem.vsize,
+		(unsigned long) data.proc_mem.resident,
+		(unsigned long) data.proc_mem.share,
+		(unsigned long) data.proc_mem.rss,
+		(unsigned long) data.proc_mem.rss_rlim);
+
+	mmap_ptr [0] = 'M';
+	
+	glibtop_get_proc_mem (&data.proc_mem, pid);
 
 	printf ("Proc_Mem     PID  %5u (0x%08lx): "
 		"%lu %lu %lu %lu %lu %lu\n", pid,

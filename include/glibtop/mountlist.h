@@ -33,8 +33,6 @@ __BEGIN_DECLS
 
 #define GLIBTOP_MAX_MOUNTLIST		3
 
-#define GLIBTOP_MOUNTENTRY_LEN		79
-
 typedef struct _glibtop_mountentry	glibtop_mountentry;
 
 typedef struct _glibtop_mountlist	glibtop_mountlist;

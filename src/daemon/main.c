@@ -141,6 +141,15 @@ handle_parent_connection (int s)
 				   resp->u.data.proclist.total, ptr);
 			glibtop_free_r (server, ptr);
 			break;
+		case GLIBTOP_CMND_PROC_MAP:
+			memcpy (&pid, parameter, sizeof (pid_t));
+			ptr = glibtop_get_proc_map_l (server,
+						      &resp->u.data.proc_map,
+						      pid);
+			do_output (s, resp, _offset_data (proc_map),
+				   resp->u.data.proc_map.total, ptr);
+			glibtop_free_r (server, ptr);
+			break;
 		case GLIBTOP_CMND_PROC_STATE:
 			memcpy (&pid, parameter, sizeof (pid_t));
 			glibtop_get_proc_state_l

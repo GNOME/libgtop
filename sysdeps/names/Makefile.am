@@ -9,4 +9,4 @@ libgtop_names_la_SOURCES	= cpu.c mem.c swap.c uptime.c loadavg.c \
 				  proclist.c sysdeps.c procstate.c procuid.c \
 				  proctime.c procmem.c procsignal.c \
 				  prockernel.c procsegment.c fsusage.c \
-				  mountlist.c
+				  mountlist.c procmap.c

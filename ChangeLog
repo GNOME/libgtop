@@ -1,5 +1,8 @@
 1998-08-10  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/procmap.h (glibtop_proc_map): New file.
+	* features.def: Added definition of `proc_map'.
+
 	* include/glibtop/proctime.h (glibtop_proc_time): Added new
 	fields `rtime' and `frequency'.
 

@@ -31,6 +31,10 @@
 #include <glibtop_machine.h>
 #endif
 
+#ifndef GLIBTOP_MOUNTENTRY_LEN
+#define GLIBTOP_MOUNTENTRY_LEN	79
+#endif
+
 typedef struct _glibtop		glibtop;
 
 #include <glibtop/sysdeps.h>

@@ -21,7 +21,8 @@
 
 #include <glibtop.h>
 #include <glibtop/error.h>
-#include <glibtop/procmem.h>
+#include <glibtop/xmalloc.h>
+#include <glibtop/procmap.h>
 
 #include <glibtop_suid.h>
 
@@ -33,6 +34,7 @@
 #include <vm/vm_map.h>
 
 #include <sys/vnode.h>
+#include <sys/mount.h>
 #include <ufs/ufs/quota.h>
 #include <ufs/ufs/inode.h>
 
@@ -41,61 +43,36 @@
 #include <sys/sysctl.h>
 #include <vm/vm.h>
 
-static const unsigned long _glibtop_sysdeps_proc_mem =
-(1 << GLIBTOP_PROC_MEM_SIZE) +
-(1 << GLIBTOP_PROC_MEM_VSIZE) +
-(1 << GLIBTOP_PROC_MEM_SHARE) +
-(1 << GLIBTOP_PROC_MEM_RESIDENT) +
-(1 << GLIBTOP_PROC_MEM_RSS) +
-(1 << GLIBTOP_PROC_MEM_RSS_RLIM);
-
-#ifndef LOG1024
-#define LOG1024		10
-#endif
-
-/* these are for getting the memory statistics */
-static int pageshift;		/* log base 2 of the pagesize */
-
-/* define pagetok in terms of pageshift */
-#define pagetok(size) ((size) << pageshift)
+static const unsigned long _glibtop_sysdeps_proc_map =
+(1 << GLIBTOP_PROC_MAP_TOTAL) + (1 << GLIBTOP_PROC_MAP_NUMBER) +
+(1 << GLIBTOP_PROC_MAP_SIZE);
 
 /* Init function. */
 
 void
-glibtop_init_proc_mem_p (glibtop *server)
+glibtop_init_proc_map_p (glibtop *server)
 {
 	register int pagesize;
 
-	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
-
-	/* get the page size with "getpagesize" and calculate pageshift
-	 * from it */
-	pagesize = getpagesize ();
-	pageshift = 0;
-	while (pagesize > 1) {
-		pageshift++;
-		pagesize >>= 1;
-	}
-
-	/* we only need the amount of log(2)1024 for our conversion */
-	pageshift -= LOG1024;
+	server->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
 }
 
 /* Provides detailed information about a process. */
 
-void
-glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
+glibtop_map_entry *
+glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			pid_t pid)
 {
 	struct kinfo_proc *pinfo;
-	struct user *u_addr = (struct user *)USRSTACK;
 	struct vm_map_entry entry, *first;
 	struct vmspace *vms, vmspace;
 	struct vm_object object;
-	struct plimit plimit;
+	glibtop_map_entry *maps;
 	struct vnode vnode;
 	struct inode inode;
-	int count;
+	struct mount mount;
+	int count, i = 0;
+	int update = 0;
 
 	glibtop_suid_enter (server);
 
@@ -104,25 +81,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	if ((pinfo == NULL) || (count < 1))
 		glibtop_error_io_r (server, "kvm_getprocs (proclist)");
 
-	if (kvm_read (server->machine.kd,
-		      (unsigned long) pinfo [0].kp_proc.p_limit,
-		      (char *) &plimit, sizeof (plimit)) != sizeof (plimit))
-		glibtop_error_io_r (server, "kvm_read (plimit)");
-
-	buf->rss_rlim = (u_int64_t) 
-		(plimit.pl_rlimit [RLIMIT_RSS].rlim_cur);
-	
-	glibtop_suid_leave (server);
-
-	vms = &pinfo [0].kp_eproc.e_vm;
-
-	buf->vsize = buf->size = (u_int64_t) pagetok
-		(vms->vm_tsize + vms->vm_dsize + vms->vm_ssize) << LOG1024;
-	
-	buf->resident = buf->rss = (u_int64_t) pagetok
-		(vms->vm_rssize) << LOG1024;
-
-	/* Now we get the shared memory. */
+	/* Now we get the memory maps. */
 
 	if (kvm_read (server->machine.kd,
 		      (unsigned long) pinfo [0].kp_proc.p_vmspace,
@@ -136,20 +95,41 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 		      (char *) &entry, sizeof (entry)) != sizeof (entry))
 		glibtop_error_io_r (server, "kvm_read (entry)");
 
+	/* Allocate space. */
+
+	buf->number = vmspace.vm_map.nentries;
+	buf->size = sizeof (glibtop_map_entry);
+
+	buf->total = buf->number * buf->size;
+
+	maps = glibtop_malloc_r (server, buf->total);
+
+	memset (maps, 0, buf->total);
+
+	buf->flags = _glibtop_sysdeps_proc_map;
+
 	/* Walk through the `vm_map_entry' list ... */
 
 	/* I tested this a few times with `mmap'; as soon as you write
 	 * to the mmap'ed area, the object type changes from OBJT_VNODE
 	 * to OBJT_DEFAULT so if seems this really works. */
 
-	while (entry.next != first) {
-		if (kvm_read (server->machine.kd,
-			      (unsigned long) entry.next,
-			      &entry, sizeof (entry)) != sizeof (entry))
-			glibtop_error_io_r (server, "kvm_read (entry)");
+	do {
+		if (update) {
+			if (kvm_read (server->machine.kd,
+				      (unsigned long) entry.next,
+				      &entry, sizeof (entry)) != sizeof (entry))
+				glibtop_error_io_r (server, "kvm_read (entry)");
+		} else {
+			update = 1;
+		}
 
 		if (entry.eflags & (MAP_ENTRY_IS_A_MAP|MAP_ENTRY_IS_SUB_MAP))
 			continue;
+
+		maps [i].start = entry.start;
+		maps [i].end   = entry.end;
+		i++;
 
 		if (!entry.object.vm_object)
 			continue;
@@ -165,8 +145,6 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 		if (object.type != OBJT_VNODE)
 			continue;
-
-		buf->share += object.un_pager.vnp.vnp_size;
 
 		if (!object.handle)
 			continue;
@@ -184,9 +162,15 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 			      &inode, sizeof (inode)) != sizeof (inode))
 			glibtop_error_io_r (server, "kvm_read (inode)");
 
-		fprintf (stderr, "INODE: %ld\n", inode.i_number);
+		if (kvm_read (server->machine.kd,
+			      (unsigned long) vnode.v_mount,
+			      &mount, sizeof (mount)) != sizeof (mount))
+			glibtop_error_io_r (server, "kvm_read (mount)");
 
-	}
+		maps [i-1].inode  = inode.i_number;
+		maps [i-1].device = inode.i_dev;
 
-	buf->flags = _glibtop_sysdeps_proc_mem;
+	} while (entry.next != first);
+
+	return maps;
 }

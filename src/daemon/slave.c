@@ -30,6 +30,7 @@ handle_slave_connection (int input, int output)
 	char parameter [BUFSIZ];
 	int64_t *param_ptr;
 	void *ptr;
+	pid_t pid;
 
 	glibtop_send_version (glibtop_global_server, output);
 
@@ -72,6 +73,17 @@ handle_slave_connection (int input, int output)
 				 param_ptr [0], param_ptr [1]);
 			do_output (output, resp, _offset_data (proclist),
 				   resp->u.data.proclist.total, ptr);
+			glibtop_free_r (server, ptr);
+			break;
+#endif
+#if GLIBTOP_SUID_PROC_MAP
+		case GLIBTOP_CMND_PROC_MAP:
+			memcpy (&pid, parameter, sizeof (pid_t));
+			ptr = glibtop_get_proc_map_p (server,
+						      &resp->u.data.proc_map,
+						      pid);
+			do_output (output, resp, _offset_data (proc_map),
+				   resp->u.data.proc_map.total, ptr);
 			glibtop_free_r (server, ptr);
 			break;
 #endif
