@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-07 17:09+0200\n"
+"POT-Creation-Date: 2004-12-28 01:08+0100\n"
 "PO-Revision-Date: 2004-08-07 17:11+0200\n"
 "Last-Translator: Marcel Telka <Marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -17,88 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural= (n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
 
-#: examples/smp.c:76
-#, c-format
-msgid "Ticks (%ld per second):"
-msgstr "Tiky hodín (%ld za sekundu):"
-
-#: examples/smp.c:79
-msgid "Total"
-msgstr "Celkom"
-
-#: examples/smp.c:79 sysdeps/names/mem.c:48
-msgid "User"
-msgstr "Používateľ"
-
-#: examples/smp.c:79 sysdeps/names/procuid.c:51
-msgid "Nice"
-msgstr "Priorita (nice)"
-
-#: examples/smp.c:79
-msgid "Sys"
-msgstr "Sys"
-
-#: examples/smp.c:79
-msgid "Idle"
-msgstr "Nečinnosť"
-
-#: examples/smp.c:81
-#, c-format
-msgid ""
-"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-"\n"
-msgstr ""
-"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-"\n"
-
-#: examples/smp.c:85
-#, c-format
-msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-
-#: examples/smp.c:102
-msgid "Percent:"
-msgstr "Percento:"
-
-#: examples/smp.c:103
-msgid "Total (%)"
-msgstr "Celkom (%)"
-
-#: examples/smp.c:103
-msgid "User (%)"
-msgstr "Používateľ (%)"
-
-#: examples/smp.c:103
-msgid "Nice (%)"
-msgstr "Priorita (%)"
-
-#: examples/smp.c:103
-msgid "Sys (%)"
-msgstr "Sys (%)"
-
-#: examples/smp.c:104
-msgid "Idle (%)"
-msgstr "Nečinnosť (%)"
-
-#: examples/smp.c:106
-#, c-format
-msgid ""
-"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-"\n"
-msgstr ""
-"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-"\n"
-
-#: examples/smp.c:122
-#, c-format
-msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-
-#: examples/smp.c:128
-msgid "Spin:"
-msgstr "Spin:"
-
-#: lib/read.c:65
+#: lib/read.c:64
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -106,17 +25,17 @@ msgstr[0] "načítaných %d bajtov"
 msgstr[1] "načítaný %d bajt"
 msgstr[2] "načítané %d bajty"
 
-#: lib/read_data.c:51
+#: lib/read_data.c:52
 msgid "read data size"
 msgstr "veľkosť načítaných dát"
 
-#: lib/read_data.c:68
+#: lib/read_data.c:71
 #, c-format
-msgid "read data %d byte"
-msgid_plural "read data %d bytes"
-msgstr[0] "načítaných %d bajtov dát"
-msgstr[1] "načítaný %d bajt dát"
-msgstr[2] "načítané %d bajty dát"
+msgid "read data %lu byte"
+msgid_plural "read data %lu bytes"
+msgstr[0] "načítaných %lu bajtov dát"
+msgstr[1] "načítaný %lu bajt dát"
+msgstr[2] "načítané %lu bajty dát"
 
 #: lib/write.c:51
 #, c-format
@@ -126,39 +45,39 @@ msgstr[0] "zapísaných %d bajtov"
 msgstr[1] "zapísaný %d bajt"
 msgstr[2] "zapísané %d bajty"
 
-#: src/daemon/gnuserv.c:456
+#: src/daemon/gnuserv.c:461
 msgid "Enable debugging"
 msgstr "Povoliť ladenie"
 
-#: src/daemon/gnuserv.c:456
+#: src/daemon/gnuserv.c:461
 msgid "DEBUG"
 msgstr "LADENIE"
 
-#: src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:463
 msgid "Enable verbose output"
 msgstr "Povoliť detailný výpis"
 
-#: src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:463
 msgid "VERBOSE"
 msgstr "DETAILNE"
 
-#: src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:465
 msgid "Don't fork into background"
 msgstr "Nerozvetvuj sa do pozadia"
 
-#: src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:465
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:467
 msgid "Invoked from inetd"
 msgstr "Vyvolaný cez inetd"
 
-#: src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:467
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:496
+#: src/daemon/gnuserv.c:501
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -167,1135 +86,6 @@ msgstr ""
 "Chyba vo voľbe %s: %s.\n"
 "Výpis všetkých dostupných volieb príkazového riadku získate spustením '%s --"
 "help'.\n"
-
-#: sysdeps/names/cpu.c:44
-msgid "Total CPU Time"
-msgstr "Celkový čas procesora"
-
-#: sysdeps/names/cpu.c:45
-msgid "CPU Time in User Mode"
-msgstr "Čas procesora v používateľskom režime"
-
-#: sysdeps/names/cpu.c:46
-msgid "CPU Time in User Mode (nice)"
-msgstr "Čas procesora v používateľskom režime (priorita)"
-
-#: sysdeps/names/cpu.c:47
-msgid "CPU Time in System Mode"
-msgstr "Čas procesora v systémovom režime"
-
-#: sysdeps/names/cpu.c:48
-msgid "CPU Time in the Idle Task"
-msgstr "Čas procesora v nečinnej úlohe"
-
-#: sysdeps/names/cpu.c:49
-msgid "Tick Frequency"
-msgstr "Frekvencia tikov"
-
-#: sysdeps/names/cpu.c:50
-msgid "SMP Total CPU Time"
-msgstr "SMP Celkový čas procesora"
-
-#: sysdeps/names/cpu.c:51
-msgid "SMP CPU Time in User Mode"
-msgstr "SMP Čas procesora v používateľskom režime"
-
-#: sysdeps/names/cpu.c:52
-msgid "SMP CPU Time in User Mode (nice)"
-msgstr "SMP Čas procesora v používateľskom režime (priorita)"
-
-#: sysdeps/names/cpu.c:53
-msgid "SMP CPU Time in System Mode"
-msgstr "SMP Čas procesora v systémovom režime"
-
-#: sysdeps/names/cpu.c:54
-msgid "SMP CPU Time in the Idle Task"
-msgstr "SMP Čas procesora v nečinnej úlohe"
-
-#: sysdeps/names/cpu.c:55
-msgid "SMP CPU Flags"
-msgstr "SMP príznaky procesora"
-
-#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
-msgid "Number of clock ticks since system boot"
-msgstr "Počet tikov hodín od štartu systému"
-
-#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
-msgid "Number of clock ticks the system spent in user mode"
-msgstr "Počet tikov hodín, ktoré systém strávil v používateľskom režime"
-
-#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
-msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "Počet tikov hodín, ktoré systém strávil v používateľskom režime (nice)"
-
-#: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
-msgid "Number of clock ticks the system spent in system mode"
-msgstr "Počet tikov hodín, ktoré systém strávil v režime jadra"
-
-#: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
-msgid "Number of clock ticks the system spent in the idle task"
-msgstr "Počet tikov hodín, ktoré systém strávil v nečinnosti"
-
-#: sysdeps/names/cpu.c:65
-msgid "Tick frequency (default is 100)"
-msgstr "Frekvencia tikov (štandardne 100)"
-
-#: sysdeps/names/cpu.c:71
-msgid "Bit field indicating which CPU is currently running"
-msgstr "Bitové pole ukazujúce, ktorý procesor práve beží"
-
-#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
-msgid "Total blocks"
-msgstr "Celkom blokov"
-
-#: sysdeps/names/fsusage.c:41
-msgid "Free blocks"
-msgstr "Voľných blokov"
-
-#: sysdeps/names/fsusage.c:42
-msgid "Available blocks"
-msgstr "Dostupných blokov"
-
-#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:53
-msgid "Total file nodes"
-msgstr "Súborových uzlov celkom"
-
-#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:54
-msgid "Free file nodes"
-msgstr "Voľných súborových uzlov"
-
-#: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-msgid "Block size"
-msgstr "Veľkosť bloku"
-
-#: sysdeps/names/fsusage.c:51
-msgid "Free blocks available to the superuser"
-msgstr "Voľných blokov dostupných pre správcu"
-
-#: sysdeps/names/fsusage.c:52
-msgid "Free blocks available to non-superusers"
-msgstr "Voľných blokov dostupných pre bežných používateľov"
-
-#: sysdeps/names/loadavg.c:40
-msgid "Load Average"
-msgstr "Priemerná záťaž"
-
-#: sysdeps/names/loadavg.c:41
-msgid "Running Tasks"
-msgstr "Bežiacich úloh"
-
-#: sysdeps/names/loadavg.c:42
-msgid "Number of Tasks"
-msgstr "Počet úloh"
-
-#: sysdeps/names/loadavg.c:43 sysdeps/names/loadavg.c:51
-msgid "Last PID"
-msgstr "Posledné PID"
-
-#: sysdeps/names/loadavg.c:48
-msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "Počet úloh bežiacich súčasne - primer za 1, 5 a 15 minút"
-
-#: sysdeps/names/loadavg.c:49
-msgid "Number of tasks currently running"
-msgstr "Počet momentálne bežiacich úloh"
-
-#: sysdeps/names/loadavg.c:50
-msgid "Total number of tasks"
-msgstr "Celkový počet úloh"
-
-#: sysdeps/names/mem.c:42
-msgid "Total Memory"
-msgstr "Celková pamäť"
-
-#: sysdeps/names/mem.c:43
-msgid "Used Memory"
-msgstr "Použitá pamäť"
-
-#: sysdeps/names/mem.c:44
-msgid "Free Memory"
-msgstr "Voľná pamäť"
-
-#: sysdeps/names/mem.c:45
-msgid "Shared Memory"
-msgstr "Zdieľaná pamäť"
-
-#: sysdeps/names/mem.c:46
-msgid "Buffers"
-msgstr "Oddeľovacie pamäti"
-
-#: sysdeps/names/mem.c:47
-msgid "Cached"
-msgstr "Vo vyrovnávacej pamäti"
-
-#: sysdeps/names/mem.c:49
-msgid "Locked"
-msgstr "Zamknuté"
-
-#: sysdeps/names/mem.c:54
-msgid "Total physical memory in kB"
-msgstr "Celková fyzická pamäť v kB"
-
-#: sysdeps/names/mem.c:55
-msgid "Used memory size in kB"
-msgstr "Veľkosť použitej pamäte v kB"
-
-#: sysdeps/names/mem.c:56
-msgid "Free memory size in kB"
-msgstr "Veľkosť voľnej pamäte v kB"
-
-#: sysdeps/names/mem.c:57
-msgid "Shared memory size in kB"
-msgstr "Veľkosť zdieľanej pamäte v kB"
-
-#: sysdeps/names/mem.c:58
-msgid "Size of buffers kB"
-msgstr "Veľkosť oddeľovacích pamätí v kB"
-
-#: sysdeps/names/mem.c:59
-msgid "Size of cached memory in kB"
-msgstr "Veľkosť vyrovnávacej pamäte v kB"
-
-#: sysdeps/names/mem.c:60
-msgid "Memory used from user processes in kB"
-msgstr "Pamäť použitá používateľskými procesmi v kB"
-
-#: sysdeps/names/mem.c:61
-msgid "Memory in locked pages in kB"
-msgstr "Pamäť v zamknutých stránkach v kB"
-
-#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
-#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
-#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
-msgid "Number of list elements"
-msgstr "Počet položiek zoznamu"
-
-#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
-#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
-#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
-msgid "Total size of list"
-msgstr "Celková veľkosť zoznamu"
-
-#: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
-#: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
-#: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
-msgid "Size of a single list element"
-msgstr "Veľkosť položky jednoduchého zoznamu"
-
-#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
-msgid "Size in kilobytes of message pool"
-msgstr "Veľkosť priestoru správ v kilobajtoch"
-
-#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
-msgid "Number of entries in message map"
-msgstr "Počet položiek v mape pamäti"
-
-#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
-msgid "Max size of message"
-msgstr "Maximálna veľkosť správy"
-
-#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
-msgid "Default max size of queue"
-msgstr "Predvoená maximálna veľkosť radu"
-
-#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
-msgid "Max queues system wide"
-msgstr "Maximálny počet systémových radov"
-
-#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
-msgid "Message segment size"
-msgstr "Veľkosť segmentu správy"
-
-#: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
-msgid "Number of system message headers"
-msgstr "Počet hlavičiek systémových správ"
-
-#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:67
-msgid "Interface Flags"
-msgstr "Príznaky rozhraní"
-
-#: sysdeps/names/netload.c:47
-msgid "MTU"
-msgstr "MTU"
-
-#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-msgid "IPv4 Subnet"
-msgstr "IPv4 podsieť"
-
-#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-msgid "IPv4 Address"
-msgstr "IPv4 adresa"
-
-#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
-msgid "Packets In"
-msgstr "Pakety na vstupe"
-
-#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:72
-msgid "Packets Out"
-msgstr "Pakety na výstupe"
-
-#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:73
-msgid "Packets Total"
-msgstr "Pakety celkom"
-
-#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:74
-msgid "Bytes In"
-msgstr "Bajty na vstupe"
-
-#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:75
-msgid "Bytes Out"
-msgstr "Bajty na výstupe"
-
-#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:76
-msgid "Bytes Total"
-msgstr "Bajty celkom"
-
-#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:77
-msgid "Errors In"
-msgstr "Chyby na vstupe"
-
-#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:78
-msgid "Errors Out"
-msgstr "Chyby na výstupe"
-
-#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:79
-msgid "Errors Total"
-msgstr "Chyby celkom"
-
-#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:80
-msgid "Collisions"
-msgstr "Kolízie"
-
-#: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-msgid "IPv6 Address"
-msgstr "IPv6 adresa"
-
-#: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
-msgid "IPv6 Prefix"
-msgstr "IPv6 predpona"
-
-#: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
-msgid "IPv6 Scope"
-msgstr "IPv6 rozsah"
-
-#: sysdeps/names/netload.c:68
-msgid "Maximum Transfer Unit"
-msgstr "Maximálna prenosová jednotka"
-
-#: sysdeps/names/ppp.c:39 sysdeps/names/ppp.c:46
-msgid "PPP State"
-msgstr "Stav PPP"
-
-#: sysdeps/names/ppp.c:40
-msgid "Input bytes"
-msgstr "Vstupné bajty"
-
-#: sysdeps/names/ppp.c:41
-msgid "Output bytes"
-msgstr "Výstupné bajty"
-
-#: sysdeps/names/ppp.c:47
-msgid "Number of input bytes"
-msgstr "Počet vstupných bajtov"
-
-#: sysdeps/names/ppp.c:48
-msgid "Number of output bytes"
-msgstr "Počet výstupných bajtov"
-
-#: sysdeps/names/procargs.c:39 sysdeps/names/procmem.c:48
-msgid "Size"
-msgstr "Veľkosť"
-
-#: sysdeps/names/procargs.c:44
-msgid "Length in bytes of the returned string."
-msgstr "Dĺžka vrátného reťazca v bajtoch."
-
-#: sysdeps/names/prockernel.c:43
-msgid "K_Flags"
-msgstr "J_Prízn"
-
-#: sysdeps/names/prockernel.c:43
-msgid "Min_Flt"
-msgstr "Ved_Výp"
-
-#: sysdeps/names/prockernel.c:43
-msgid "Maj_Flt"
-msgstr "Hla_Výp"
-
-#: sysdeps/names/prockernel.c:43
-msgid "CMin_Flt"
-msgstr "PVed_Výp"
-
-#: sysdeps/names/prockernel.c:44
-msgid "CMaj_Flt"
-msgstr "PHla_Výp"
-
-#: sysdeps/names/prockernel.c:44
-msgid "KStk_ESP"
-msgstr "JZás_ESP"
-
-#: sysdeps/names/prockernel.c:44
-msgid "KStk_EIP"
-msgstr "JZás_EIP"
-
-#: sysdeps/names/prockernel.c:44
-msgid "NWChan"
-msgstr "NWKan"
-
-#: sysdeps/names/prockernel.c:45
-msgid "WChan"
-msgstr "WKan"
-
-#. K_Flags
-#: sysdeps/names/prockernel.c:51
-msgid ""
-"Kernel flags of the process.\n"
-"\n"
-"On Linux, currently every flag has the math bit set, because crt0.s checks "
-"for math emulation, so this is not included in the output.\n"
-"\n"
-"This is probably a bug, as not every process is a compiled C program.\n"
-"\n"
-"The math bit should be a decimal 4, and the traced bit is decimal 10."
-msgstr ""
-"Príznaky jadra pre proces.\n"
-"\n"
-"Na Linuxe momentálne má každý príznak nastavený bit math, pretože crt0.s "
-"kontroluje emuláciu matematických funkcií. Tento bit nie je zahrnutý vo "
-"výstupoch.\n"
-"\n"
-"Toto je pravdepodobne chyba, pretože nie každý proces je kompilovaný program "
-"v jazyku C.\n"
-"\n"
-"Bit math by mal mať hodnotu 4 a bit traced je 10 (v desiatkovej sústave)."
-
-#. Min_Flt
-#: sysdeps/names/prockernel.c:60
-msgid ""
-"The number of minor faults the process has made, those which have not "
-"required loading a memory page from disk."
-msgstr ""
-"Počet vedľajších výpadkov procesu, ktoré nevyžadujú nahratie pamäťovej "
-"stránky z disku."
-
-#. Maj_Flt
-#: sysdeps/names/prockernel.c:63
-msgid ""
-"The number of major faults the process has made, those which have required "
-"loading a memory page from disk."
-msgstr ""
-"Počet hlavných výpadkov procesu, ktoré vyžadujú nahratie pamäťovej stránky z "
-"disku."
-
-#. CMin_Flt
-#: sysdeps/names/prockernel.c:66
-msgid "The number of minor faults that the process and its children have made."
-msgstr "Počet vedľajších výpadkov procesu a jeho potomkov."
-
-#. CMaj_Flt
-#: sysdeps/names/prockernel.c:69
-msgid "The number of major faults that the process and its children have made."
-msgstr "Počet hlavných výpadkov procesu a jeho potomkov."
-
-#. KStk_ESP
-#: sysdeps/names/prockernel.c:72
-msgid ""
-"The current value of esp (32-bit stack pointer), as found in the kernel "
-"stack page for the process."
-msgstr ""
-"Aktuálna hodnota ESP (32 bitový ukazateľ zásobníka) tak, ako bola nájdená v "
-"zásobníku jadra pre proces."
-
-#. KStk_EIP
-#: sysdeps/names/prockernel.c:75
-msgid "The current EIP (32-bit instruction pointer)."
-msgstr "Aktuálny EIP (32 bitový inštrukčný čítač)."
-
-#. NWChan
-#: sysdeps/names/prockernel.c:77
-msgid ""
-"This is the \"channel\" in which the process is waiting.  This is the "
-"address of a system call, and can be looked up in a namelist if you need a "
-"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
-"see the WCHAN field in action)"
-msgstr ""
-"Toto je \"kanál\", v ktorom proces čaká. Toto je adresa systémového volania. "
-"Ak chcete vedieť jej textové meno, môžete sa pozrieť do zoznamu mien. (Ak "
-"máte aktuálne /etc/psdatabase, skúste ps -l aby ste videli pole WKAN v "
-"činnosti)"
-
-#. WChan
-#: sysdeps/names/prockernel.c:82
-msgid "This is the textual name of the `nwchan' field."
-msgstr "Toto je textové meno opľa `nwkan'."
-
-#: sysdeps/names/procmem.c:48
-msgid "Virtual"
-msgstr "Virtuálny"
-
-#: sysdeps/names/procmem.c:48
-msgid "Resident"
-msgstr "Rezidentný"
-
-#: sysdeps/names/procmem.c:48
-msgid "Share"
-msgstr "Zdieľaný"
-
-#: sysdeps/names/procmem.c:49
-msgid "Resident Set Size"
-msgstr "Celková veľkosť rezidentnej pamäti"
-
-#: sysdeps/names/procmem.c:49
-msgid "Resident Set Size Limit"
-msgstr "Limit celkovej veľkosti rezidentnej pamäti"
-
-#: sysdeps/names/procmem.c:54
-msgid "Total # of pages of memory"
-msgstr "Celkový počet pamäťových stránok"
-
-#: sysdeps/names/procmem.c:55
-msgid "Number of pages of virtual memory"
-msgstr "Počet stránok virtuálnej pamäti"
-
-#: sysdeps/names/procmem.c:56
-msgid "Number of resident set (non-swapped) pages"
-msgstr "Počet celkových rezidentných stránok (neodložených)"
-
-#: sysdeps/names/procmem.c:57
-msgid "Number of pages of shared (mmap'd) memory"
-msgstr "Počet stránok zdieľanej pamäti (pomocou mmap)"
-
-#: sysdeps/names/procmem.c:58
-msgid ""
-"Number of pages the process has in real memory, minus 3 for administrative "
-"purposes. This is just the pages which count towards text, data, or stack "
-"space. This does not include pages which have not been demand-loaded in, or "
-"which are swapped out."
-msgstr ""
-"Počet stránok, ktoré zaberá proces v reálnej pamäti, znížený o 3 (pre "
-"administratívne účely). Toto sú len stránky, ktoré zahŕňajú kód, údaje a "
-"miesto pre zásobník. Táto hodnota nezahŕňa stránky, ktoré neboli nahraté na "
-"žiadosť alebo ktoré sú odložené."
-
-#: sysdeps/names/procmem.c:63
-msgid ""
-"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "Aktuálny limit CRP procesu v bajtoch (obyčajne 2 147 483 647)."
-
-#: sysdeps/names/procsegment.c:43
-msgid "Text_RSS"
-msgstr "Kód_CRP"
-
-#: sysdeps/names/procsegment.c:43
-msgid "ShLib_RSS"
-msgstr "ZdKni_CRP"
-
-#: sysdeps/names/procsegment.c:43
-msgid "Data_RSS"
-msgstr "Údaj_CRP"
-
-#: sysdeps/names/procsegment.c:43
-msgid "Stack_RSS"
-msgstr "Zásob_CRP"
-
-#: sysdeps/names/procsegment.c:44
-msgid "Dirty Size"
-msgstr "Zmenená veľkosť"
-
-#: sysdeps/names/procsegment.c:44
-msgid "Start_Code"
-msgstr "Zač_Kódu"
-
-#: sysdeps/names/procsegment.c:44
-msgid "End_Code"
-msgstr "Kon_Kódu"
-
-#: sysdeps/names/procsegment.c:44
-msgid "Start_Stack"
-msgstr "Zač_Zás"
-
-#: sysdeps/names/procsegment.c:49
-msgid "Text resident set size"
-msgstr "Celková veľkost rezidentnej pamäti kódu"
-
-#: sysdeps/names/procsegment.c:50
-msgid "Shared-Lib resident set size"
-msgstr "Celková veľkost rezidentnej pamäti zdieľaných knižníc"
-
-#: sysdeps/names/procsegment.c:51
-msgid "Data resident set size"
-msgstr "Celková veľkost rezidentnej pamäti údajov"
-
-#: sysdeps/names/procsegment.c:52
-msgid "Stack resident set size"
-msgstr "Celková veľkost rezidentnej pamäti zásobníka"
-
-#: sysdeps/names/procsegment.c:53
-msgid "Total size of dirty pages"
-msgstr "Celková veľkosť zmenených stránok"
-
-#: sysdeps/names/procsegment.c:54
-msgid "Address of beginning of code segment"
-msgstr "Adresa začiatku kódového segmentu"
-
-#: sysdeps/names/procsegment.c:55
-msgid "Address of end of code segment"
-msgstr "Adresa konca kódového segmentu"
-
-#: sysdeps/names/procsegment.c:56
-msgid "Address of the bottom of stack segment"
-msgstr "Adresa dna zásobníkového segmentu"
-
-#: sysdeps/names/procsignal.c:41
-msgid "Signal"
-msgstr "Signál"
-
-#: sysdeps/names/procsignal.c:41
-msgid "Blocked"
-msgstr "Blokovaný"
-
-#: sysdeps/names/procsignal.c:41
-msgid "SigIgnore"
-msgstr "SigIgnorovaný"
-
-#: sysdeps/names/procsignal.c:41
-msgid "SigCatch"
-msgstr "SigZachytený"
-
-#: sysdeps/names/procsignal.c:46
-msgid "Mask of pending signals"
-msgstr "Maska neobslúžených signálov"
-
-#: sysdeps/names/procsignal.c:47
-msgid "Mask of blocked signals"
-msgstr "Maska blokovaných signálov"
-
-#: sysdeps/names/procsignal.c:48
-msgid "Mask of ignored signals"
-msgstr "Maska ignorovaných signálov"
-
-#: sysdeps/names/procsignal.c:49
-msgid "Mask of caught signals"
-msgstr "Maska chytených signálov"
-
-#: sysdeps/names/procstate.c:43
-msgid "Cmd"
-msgstr "Prk"
-
-#: sysdeps/names/procstate.c:43
-msgid "State"
-msgstr "Stav"
-
-#: sysdeps/names/procstate.c:43
-msgid "UID"
-msgstr "UID"
-
-#: sysdeps/names/procstate.c:43
-msgid "GID"
-msgstr "GID"
-
-#: sysdeps/names/procstate.c:44
-msgid "RGid"
-msgstr "RGid"
-
-#: sysdeps/names/procstate.c:44
-msgid "RUid"
-msgstr "RUid"
-
-#: sysdeps/names/procstate.c:44
-msgid "HasCPU"
-msgstr "MáProc"
-
-#: sysdeps/names/procstate.c:44
-msgid "Proc"
-msgstr "Proc"
-
-#: sysdeps/names/procstate.c:44
-msgid "LProc"
-msgstr "LProc"
-
-#: sysdeps/names/procstate.c:49
-msgid "Basename of executable file in call to exec()"
-msgstr "Základné meno súboru spustiteľného programu pri volaní exec()"
-
-#: sysdeps/names/procstate.c:50
-msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Jednopísmenový kód stavu procesu (S=spiaci)"
-
-#: sysdeps/names/procstate.c:51
-msgid "UID of process"
-msgstr "UID procesu"
-
-#: sysdeps/names/procstate.c:52
-msgid "GID of process"
-msgstr "GID procesu"
-
-#: sysdeps/names/procstate.c:53
-msgid "Real UID of process"
-msgstr "Reálne UID procesu"
-
-#: sysdeps/names/procstate.c:54
-msgid "Real GID of process"
-msgstr "Reálne GID procesu"
-
-#: sysdeps/names/procstate.c:55
-msgid "Has CPU"
-msgstr "Má procesor"
-
-#: sysdeps/names/procstate.c:56
-msgid "Processor"
-msgstr "Procesor"
-
-#: sysdeps/names/procstate.c:57
-msgid "Last Processor"
-msgstr "Posledný procesor"
-
-#: sysdeps/names/proctime.c:45
-msgid "Start_Time"
-msgstr "Zač_Čas"
-
-#: sysdeps/names/proctime.c:45
-msgid "RTime"
-msgstr "RČas"
-
-#: sysdeps/names/proctime.c:45
-msgid "UTime"
-msgstr "PČas"
-
-#: sysdeps/names/proctime.c:45
-msgid "STime"
-msgstr "SČas"
-
-#: sysdeps/names/proctime.c:46
-msgid "CUTime"
-msgstr "APČas"
-
-#: sysdeps/names/proctime.c:46
-msgid "CSTime"
-msgstr "ASČas"
-
-#: sysdeps/names/proctime.c:46
-msgid "TimeOut"
-msgstr "ČasLimit"
-
-#: sysdeps/names/proctime.c:46
-msgid "It_Real_Value"
-msgstr "Jeho_Reálna_Hodnota"
-
-#: sysdeps/names/proctime.c:47
-msgid "Frequency"
-msgstr "Frekvencia"
-
-#: sysdeps/names/proctime.c:47
-msgid "XCPU_UTime"
-msgstr "XProc_PČas"
-
-#: sysdeps/names/proctime.c:47
-msgid "XCPU_STime"
-msgstr "XProc_SČas"
-
-#: sysdeps/names/proctime.c:52
-msgid "Start time of process in seconds since the epoch"
-msgstr "Čas spustenia procesu v sekundách od začiatku epochy"
-
-#: sysdeps/names/proctime.c:53
-msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "Reálny čas nazbieraný procesom (obyčajne PČas + SČas)"
-
-#: sysdeps/names/proctime.c:54
-msgid "user-mode CPU time accumulated by process"
-msgstr "Čas procesora v používateľskom režime nazbieraný procesom"
-
-#: sysdeps/names/proctime.c:55
-msgid "kernel-mode CPU time accumulated by process"
-msgstr "Čas procesora v režime jadra nazbieraný procesom"
-
-#: sysdeps/names/proctime.c:56
-msgid "cumulative utime of process and reaped children"
-msgstr "Celkový PČas procesu a potomkov"
-
-#: sysdeps/names/proctime.c:57
-msgid "cumulative stime of process and reaped children"
-msgstr "Celkový SČas procesu a potomkov"
-
-#: sysdeps/names/proctime.c:58
-msgid "The time (in jiffies) of the process's next timeout"
-msgstr "Čas (v jiffies) do ďalšieho vypršania časového limitu procesu"
-
-#: sysdeps/names/proctime.c:59
-msgid ""
-"The time (in jiffies) before the next SIGALRM is sent to the process due to "
-"an interval timer."
-msgstr "Čas (v jiffies) pred zaslaním ďalšieho SIGALARM procesu od časovača."
-
-#: sysdeps/names/proctime.c:61
-msgid "Tick frequency"
-msgstr "Frekvencia tikov"
-
-#: sysdeps/names/proctime.c:62
-msgid "SMP user-mode CPU time accumulated by process"
-msgstr "SMP čas procesora v používateľskom režime nazbieraný procesom"
-
-#: sysdeps/names/proctime.c:63
-msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "SMP čas procesora v režime jadra nazbieraný procesom"
-
-#: sysdeps/names/procuid.c:48
-msgid "Uid"
-msgstr "Uid"
-
-#: sysdeps/names/procuid.c:48
-msgid "EUid"
-msgstr "EUid"
-
-#: sysdeps/names/procuid.c:48
-msgid "Gid"
-msgstr "Gid"
-
-#: sysdeps/names/procuid.c:48
-msgid "EGid"
-msgstr "EGid"
-
-#: sysdeps/names/procuid.c:48
-msgid "SUid"
-msgstr "SUid"
-
-#: sysdeps/names/procuid.c:49
-msgid "SGid"
-msgstr "SGid"
-
-#: sysdeps/names/procuid.c:49
-msgid "FSUid"
-msgstr "FUid"
-
-#: sysdeps/names/procuid.c:49
-msgid "FSGid"
-msgstr "FGid"
-
-#: sysdeps/names/procuid.c:49
-msgid "Pid"
-msgstr "Pid"
-
-#: sysdeps/names/procuid.c:50
-msgid "PPid"
-msgstr "PPid"
-
-#: sysdeps/names/procuid.c:50
-msgid "PGrp"
-msgstr "PGrp"
-
-#: sysdeps/names/procuid.c:50
-msgid "Session"
-msgstr "Sedenie"
-
-#: sysdeps/names/procuid.c:50
-msgid "Tty"
-msgstr "Tty"
-
-#: sysdeps/names/procuid.c:51
-msgid "TPGid"
-msgstr "TPGid"
-
-#: sysdeps/names/procuid.c:51
-msgid "Priority"
-msgstr "Priorita"
-
-#: sysdeps/names/procuid.c:51
-msgid "NGroups"
-msgstr "NSkupiny"
-
-#: sysdeps/names/procuid.c:51
-msgid "Groups"
-msgstr "Skupiny"
-
-#: sysdeps/names/procuid.c:56
-msgid "User ID"
-msgstr "Používateľské ID"
-
-#: sysdeps/names/procuid.c:57
-msgid "Effective User ID"
-msgstr "Efektívne používateľské ID"
-
-#: sysdeps/names/procuid.c:58
-msgid "Group ID"
-msgstr "Skupinové ID"
-
-#: sysdeps/names/procuid.c:59
-msgid "Effective Group ID"
-msgstr "Efektívne používateľské ID"
-
-#: sysdeps/names/procuid.c:60
-msgid "Set User ID"
-msgstr "Nastaviť používateľské ID"
-
-#: sysdeps/names/procuid.c:61
-msgid "Set Group ID"
-msgstr "Nastaviť skupinové ID"
-
-#: sysdeps/names/procuid.c:62
-msgid "Filesystem User ID"
-msgstr "Používateľské ID súborového systému"
-
-#: sysdeps/names/procuid.c:63
-msgid "Filesystem Group ID"
-msgstr "Skupinové ID súborového systému"
-
-#: sysdeps/names/procuid.c:64
-msgid "Process ID"
-msgstr "ID procesu"
-
-#: sysdeps/names/procuid.c:65
-msgid "PID of parent process"
-msgstr "PID rodičovského procesu"
-
-#: sysdeps/names/procuid.c:66
-msgid "Process group ID"
-msgstr "Skupinové ID procesu"
-
-#: sysdeps/names/procuid.c:67
-msgid "Session ID"
-msgstr "ID sedenia"
-
-#: sysdeps/names/procuid.c:68
-msgid "Full device number of controlling terminal"
-msgstr "Úplné číslo zariadenia riadiaceho terminál"
-
-#: sysdeps/names/procuid.c:69
-msgid "Terminal process group ID"
-msgstr "Skupinové ID terminálového procesu"
-
-#: sysdeps/names/procuid.c:70
-msgid "Kernel scheduling priority"
-msgstr "Priorita v plánovači jadra"
-
-#: sysdeps/names/procuid.c:71
-msgid "Standard unix nice level of process"
-msgstr "Štandardná úroveň priority procesu v unix-e"
-
-#: sysdeps/names/procuid.c:72
-msgid "Number of additional process groups"
-msgstr "Počet prídavných skupín procesu"
-
-#: sysdeps/names/procuid.c:73
-msgid "Array of additional process groups"
-msgstr "Pole prídavných skupín procesu"
-
-#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
-msgid "Number of entries in semaphore map"
-msgstr "Počet položiek v mape semafórov"
-
-#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
-msgid "Max number of arrays"
-msgstr "Maximálny počet polí"
-
-#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
-msgid "Max semaphores system wide"
-msgstr "Maximálny počet semafórov v celom systéme"
-
-#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
-msgid "Number of undo structures system wide"
-msgstr "Počet štruktúr undo v celom systéme"
-
-#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
-msgid "Max semaphores per array"
-msgstr "Maximálny počet semafórov v poli"
-
-#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
-msgid "Max ops per semop call"
-msgstr "Maximálny počet ops vo volaní semop"
-
-#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
-msgid "Max number of undo entries per process"
-msgstr "Maximálny počet položiek undo na proces"
-
-#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
-msgid "sizeof struct sem_undo"
-msgstr "veľkosť štruktúry sem_undo"
-
-#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
-msgid "Semaphore max value"
-msgstr "Maximálna hodnota semafóra"
-
-#: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
-msgid "Adjust on exit max value"
-msgstr "Upraviť maximálnu hodnotu pri ukončení"
-
-#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
-msgid "Max segment size"
-msgstr "Maximálna veľkosť segmentu"
-
-#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
-msgid "Min segment size"
-msgstr "Minimálna veľkosť segmentu"
-
-#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
-msgid "Max number of segments"
-msgstr "Maximálny počet segmentov"
-
-#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
-msgid "Max shared segments per process"
-msgstr "Maximálny počet zdieľaných segmentov na proces"
-
-#: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
-msgid "Max total shared memory"
-msgstr "Maximálna celková odkladacia pamäť"
-
-#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
-msgid "Total Swap Space"
-msgstr "Celková veľkosť odkladacej pamäti"
-
-#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
-msgid "Used Swap Space"
-msgstr "Využitá odkladacia pamäť"
-
-#: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
-msgid "Free Swap Space"
-msgstr "Voľné miesto v odkladacej pamäti"
-
-#: sysdeps/names/swap.c:43
-msgid "Page In"
-msgstr "Nahraté stránky"
-
-#: sysdeps/names/swap.c:44
-msgid "Page Out"
-msgstr "Odložené stránky"
-
-#: sysdeps/names/swap.c:52
-msgid "Total number of swap pages that have been brought in since system boot"
-msgstr ""
-"Celkový počet stránok vyrovnávacej pamäte, ktoré boli nahraté od štartu "
-"systému"
-
-#: sysdeps/names/swap.c:54
-msgid "Total number of swap pages that have been brought out since system boot"
-msgstr ""
-"Celkový počet stránok vyrovnávacej pamäte, ktoré boli odložené od štartu "
-"systému"
-
-#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
-msgid "Server Features"
-msgstr "Funkcie servra"
-
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
-msgid "CPU Usage"
-msgstr "Využitie procesora"
-
-#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
-msgid "Memory Usage"
-msgstr "Využitie pamäti"
-
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
-msgid "Swap Usage"
-msgstr "Využitie odkladacej pamäti"
-
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
-msgid "System Uptime"
-msgstr "Doba prevádzky systému"
-
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
-msgid "Load Averange"
-msgstr "Priemerná záťaž"
-
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
-msgid "Shared Memory Limits"
-msgstr "Limity zdieľanej pamäti"
-
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
-msgid "Message Queue Limits"
-msgstr "Limity radu správ"
-
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
-msgid "Semaphore Set Limits"
-msgstr "Limity nastavenia semafóra"
-
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
-msgid "List of running Processes"
-msgstr "Zoznam bežiacich procesov"
-
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
-msgid "Process Status information"
-msgstr "Informácie o stave procesu"
-
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
-msgid "Process UID and TTY information"
-msgstr "Informácie o UID a TTY procesu"
-
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
-msgid "Process Memory information"
-msgstr "Informácie o pamäti procesu"
-
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
-msgid "Process Time information"
-msgstr "Časové informácie procesu"
-
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
-msgid "Process Signal information"
-msgstr "Informácie o signáloch procesu"
-
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
-msgid "Process Kernel Data information"
-msgstr "Informácie o údajoch jadra procesu"
-
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:93
-msgid "Process Segment information"
-msgstr "Informácie o segmentoch procesu"
-
-#: sysdeps/names/sysdeps.c:67
-msgid "Process Arguments"
-msgstr "Parametre procesu"
-
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
-msgid "Process Memory Map"
-msgstr "Mapa pamäti procesu"
-
-#: sysdeps/names/sysdeps.c:69
-msgid "Mount List"
-msgstr "Zoznam pripojení"
-
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
-msgid "File System Usage"
-msgstr "Využitie súborového systému"
-
-#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
-msgid "Network Load"
-msgstr "Záťaž siete"
-
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:99
-msgid "PPP Statistics"
-msgstr "Štatistiky PPP"
-
-#: sysdeps/names/sysdeps.c:94
-msgid "Command line arguments of the process"
-msgstr "Parametre príkazového riadku procesu"
-
-#: sysdeps/names/sysdeps.c:96
-msgid "List of currently mounted filesystems"
-msgstr "Zoznam aktuálne primontovaných súborových systémov"
-
-#: sysdeps/names/uptime.c:39
-msgid "Uptime"
-msgstr "Doba prevádzky"
-
-#: sysdeps/names/uptime.c:40
-msgid "Idletime"
-msgstr "Čas nečinnosti"
-
-#: sysdeps/names/uptime.c:41
-msgid "BootTime"
-msgstr "ZavČas"
-
-#: sysdeps/names/uptime.c:46
-msgid "Time in seconds since system boot"
-msgstr "Čas v sekundách od štartu systému"
-
-#: sysdeps/names/uptime.c:47
-msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr ""
-"Čas v sekundách, ktorý systém strávil v nečinných úlohách od štartu systému"
-
-#: sysdeps/names/uptime.c:48
-msgid "Time of last system boot in seconds since the epoch"
-msgstr "Čas posledného zavedenia systému v sekundách od začiatku epochy"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1420,3 +210,919 @@ msgstr "Používateľom definovaný signál 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Používateľom definovaný signál 2"
+
+#~ msgid "Ticks (%ld per second):"
+#~ msgstr "Tiky hodín (%ld za sekundu):"
+
+#~ msgid "Total"
+#~ msgstr "Celkom"
+
+#~ msgid "User"
+#~ msgstr "Používateľ"
+
+#~ msgid "Nice"
+#~ msgstr "Priorita (nice)"
+
+#~ msgid "Sys"
+#~ msgstr "Sys"
+
+#~ msgid "Idle"
+#~ msgstr "Nečinnosť"
+
+#~ msgid ""
+#~ "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+#~ "\n"
+#~ msgstr ""
+#~ "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+#~ "\n"
+
+#~ msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+#~ msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+
+#~ msgid "Percent:"
+#~ msgstr "Percento:"
+
+#~ msgid "Total (%)"
+#~ msgstr "Celkom (%)"
+
+#~ msgid "User (%)"
+#~ msgstr "Používateľ (%)"
+
+#~ msgid "Nice (%)"
+#~ msgstr "Priorita (%)"
+
+#~ msgid "Sys (%)"
+#~ msgstr "Sys (%)"
+
+#~ msgid "Idle (%)"
+#~ msgstr "Nečinnosť (%)"
+
+#~ msgid ""
+#~ "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+#~ "\n"
+#~ msgstr ""
+#~ "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+#~ "\n"
+
+#~ msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+#~ msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+
+#~ msgid "Spin:"
+#~ msgstr "Spin:"
+
+#~ msgid "Total CPU Time"
+#~ msgstr "Celkový čas procesora"
+
+#~ msgid "CPU Time in User Mode"
+#~ msgstr "Čas procesora v používateľskom režime"
+
+#~ msgid "CPU Time in User Mode (nice)"
+#~ msgstr "Čas procesora v používateľskom režime (priorita)"
+
+#~ msgid "CPU Time in System Mode"
+#~ msgstr "Čas procesora v systémovom režime"
+
+#~ msgid "CPU Time in the Idle Task"
+#~ msgstr "Čas procesora v nečinnej úlohe"
+
+#~ msgid "Tick Frequency"
+#~ msgstr "Frekvencia tikov"
+
+#~ msgid "SMP Total CPU Time"
+#~ msgstr "SMP Celkový čas procesora"
+
+#~ msgid "SMP CPU Time in User Mode"
+#~ msgstr "SMP Čas procesora v používateľskom režime"
+
+#~ msgid "SMP CPU Time in User Mode (nice)"
+#~ msgstr "SMP Čas procesora v používateľskom režime (priorita)"
+
+#~ msgid "SMP CPU Time in System Mode"
+#~ msgstr "SMP Čas procesora v systémovom režime"
+
+#~ msgid "SMP CPU Time in the Idle Task"
+#~ msgstr "SMP Čas procesora v nečinnej úlohe"
+
+#~ msgid "SMP CPU Flags"
+#~ msgstr "SMP príznaky procesora"
+
+#~ msgid "Number of clock ticks since system boot"
+#~ msgstr "Počet tikov hodín od štartu systému"
+
+#~ msgid "Number of clock ticks the system spent in user mode"
+#~ msgstr "Počet tikov hodín, ktoré systém strávil v používateľskom režime"
+
+#~ msgid "Number of clock ticks the system spent in user mode (nice)"
+#~ msgstr ""
+#~ "Počet tikov hodín, ktoré systém strávil v používateľskom režime (nice)"
+
+#~ msgid "Number of clock ticks the system spent in system mode"
+#~ msgstr "Počet tikov hodín, ktoré systém strávil v režime jadra"
+
+#~ msgid "Number of clock ticks the system spent in the idle task"
+#~ msgstr "Počet tikov hodín, ktoré systém strávil v nečinnosti"
+
+#~ msgid "Tick frequency (default is 100)"
+#~ msgstr "Frekvencia tikov (štandardne 100)"
+
+#~ msgid "Bit field indicating which CPU is currently running"
+#~ msgstr "Bitové pole ukazujúce, ktorý procesor práve beží"
+
+#~ msgid "Total blocks"
+#~ msgstr "Celkom blokov"
+
+#~ msgid "Free blocks"
+#~ msgstr "Voľných blokov"
+
+#~ msgid "Available blocks"
+#~ msgstr "Dostupných blokov"
+
+#~ msgid "Total file nodes"
+#~ msgstr "Súborových uzlov celkom"
+
+#~ msgid "Free file nodes"
+#~ msgstr "Voľných súborových uzlov"
+
+#~ msgid "Block size"
+#~ msgstr "Veľkosť bloku"
+
+#~ msgid "Free blocks available to the superuser"
+#~ msgstr "Voľných blokov dostupných pre správcu"
+
+#~ msgid "Free blocks available to non-superusers"
+#~ msgstr "Voľných blokov dostupných pre bežných používateľov"
+
+#~ msgid "Load Average"
+#~ msgstr "Priemerná záťaž"
+
+#~ msgid "Running Tasks"
+#~ msgstr "Bežiacich úloh"
+
+#~ msgid "Number of Tasks"
+#~ msgstr "Počet úloh"
+
+#~ msgid "Last PID"
+#~ msgstr "Posledné PID"
+
+#~ msgid ""
+#~ "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+#~ msgstr "Počet úloh bežiacich súčasne - primer za 1, 5 a 15 minút"
+
+#~ msgid "Number of tasks currently running"
+#~ msgstr "Počet momentálne bežiacich úloh"
+
+#~ msgid "Total number of tasks"
+#~ msgstr "Celkový počet úloh"
+
+#~ msgid "Total Memory"
+#~ msgstr "Celková pamäť"
+
+#~ msgid "Used Memory"
+#~ msgstr "Použitá pamäť"
+
+#~ msgid "Free Memory"
+#~ msgstr "Voľná pamäť"
+
+#~ msgid "Shared Memory"
+#~ msgstr "Zdieľaná pamäť"
+
+#~ msgid "Buffers"
+#~ msgstr "Oddeľovacie pamäti"
+
+#~ msgid "Cached"
+#~ msgstr "Vo vyrovnávacej pamäti"
+
+#~ msgid "Locked"
+#~ msgstr "Zamknuté"
+
+#~ msgid "Total physical memory in kB"
+#~ msgstr "Celková fyzická pamäť v kB"
+
+#~ msgid "Used memory size in kB"
+#~ msgstr "Veľkosť použitej pamäte v kB"
+
+#~ msgid "Free memory size in kB"
+#~ msgstr "Veľkosť voľnej pamäte v kB"
+
+#~ msgid "Shared memory size in kB"
+#~ msgstr "Veľkosť zdieľanej pamäte v kB"
+
+#~ msgid "Size of buffers kB"
+#~ msgstr "Veľkosť oddeľovacích pamätí v kB"
+
+#~ msgid "Size of cached memory in kB"
+#~ msgstr "Veľkosť vyrovnávacej pamäte v kB"
+
+#~ msgid "Memory used from user processes in kB"
+#~ msgstr "Pamäť použitá používateľskými procesmi v kB"
+
+#~ msgid "Memory in locked pages in kB"
+#~ msgstr "Pamäť v zamknutých stránkach v kB"
+
+#~ msgid "Number of list elements"
+#~ msgstr "Počet položiek zoznamu"
+
+#~ msgid "Total size of list"
+#~ msgstr "Celková veľkosť zoznamu"
+
+#~ msgid "Size of a single list element"
+#~ msgstr "Veľkosť položky jednoduchého zoznamu"
+
+#~ msgid "Size in kilobytes of message pool"
+#~ msgstr "Veľkosť priestoru správ v kilobajtoch"
+
+#~ msgid "Number of entries in message map"
+#~ msgstr "Počet položiek v mape pamäti"
+
+#~ msgid "Max size of message"
+#~ msgstr "Maximálna veľkosť správy"
+
+#~ msgid "Default max size of queue"
+#~ msgstr "Predvoená maximálna veľkosť radu"
+
+#~ msgid "Max queues system wide"
+#~ msgstr "Maximálny počet systémových radov"
+
+#~ msgid "Message segment size"
+#~ msgstr "Veľkosť segmentu správy"
+
+#~ msgid "Number of system message headers"
+#~ msgstr "Počet hlavičiek systémových správ"
+
+#~ msgid "Interface Flags"
+#~ msgstr "Príznaky rozhraní"
+
+#~ msgid "MTU"
+#~ msgstr "MTU"
+
+#~ msgid "IPv4 Subnet"
+#~ msgstr "IPv4 podsieť"
+
+#~ msgid "IPv4 Address"
+#~ msgstr "IPv4 adresa"
+
+#~ msgid "Packets In"
+#~ msgstr "Pakety na vstupe"
+
+#~ msgid "Packets Out"
+#~ msgstr "Pakety na výstupe"
+
+#~ msgid "Packets Total"
+#~ msgstr "Pakety celkom"
+
+#~ msgid "Bytes In"
+#~ msgstr "Bajty na vstupe"
+
+#~ msgid "Bytes Out"
+#~ msgstr "Bajty na výstupe"
+
+#~ msgid "Bytes Total"
+#~ msgstr "Bajty celkom"
+
+#~ msgid "Errors In"
+#~ msgstr "Chyby na vstupe"
+
+#~ msgid "Errors Out"
+#~ msgstr "Chyby na výstupe"
+
+#~ msgid "Errors Total"
+#~ msgstr "Chyby celkom"
+
+#~ msgid "Collisions"
+#~ msgstr "Kolízie"
+
+#~ msgid "IPv6 Address"
+#~ msgstr "IPv6 adresa"
+
+#~ msgid "IPv6 Prefix"
+#~ msgstr "IPv6 predpona"
+
+#~ msgid "IPv6 Scope"
+#~ msgstr "IPv6 rozsah"
+
+#~ msgid "Maximum Transfer Unit"
+#~ msgstr "Maximálna prenosová jednotka"
+
+#~ msgid "PPP State"
+#~ msgstr "Stav PPP"
+
+#~ msgid "Input bytes"
+#~ msgstr "Vstupné bajty"
+
+#~ msgid "Output bytes"
+#~ msgstr "Výstupné bajty"
+
+#~ msgid "Number of input bytes"
+#~ msgstr "Počet vstupných bajtov"
+
+#~ msgid "Number of output bytes"
+#~ msgstr "Počet výstupných bajtov"
+
+#~ msgid "Size"
+#~ msgstr "Veľkosť"
+
+#~ msgid "Length in bytes of the returned string."
+#~ msgstr "Dĺžka vrátného reťazca v bajtoch."
+
+#~ msgid "K_Flags"
+#~ msgstr "J_Prízn"
+
+#~ msgid "Min_Flt"
+#~ msgstr "Ved_Výp"
+
+#~ msgid "Maj_Flt"
+#~ msgstr "Hla_Výp"
+
+#~ msgid "CMin_Flt"
+#~ msgstr "PVed_Výp"
+
+#~ msgid "CMaj_Flt"
+#~ msgstr "PHla_Výp"
+
+#~ msgid "KStk_ESP"
+#~ msgstr "JZás_ESP"
+
+#~ msgid "KStk_EIP"
+#~ msgstr "JZás_EIP"
+
+#~ msgid "NWChan"
+#~ msgstr "NWKan"
+
+#~ msgid "WChan"
+#~ msgstr "WKan"
+
+#~ msgid ""
+#~ "Kernel flags of the process.\n"
+#~ "\n"
+#~ "On Linux, currently every flag has the math bit set, because crt0.s "
+#~ "checks for math emulation, so this is not included in the output.\n"
+#~ "\n"
+#~ "This is probably a bug, as not every process is a compiled C program.\n"
+#~ "\n"
+#~ "The math bit should be a decimal 4, and the traced bit is decimal 10."
+#~ msgstr ""
+#~ "Príznaky jadra pre proces.\n"
+#~ "\n"
+#~ "Na Linuxe momentálne má každý príznak nastavený bit math, pretože crt0.s "
+#~ "kontroluje emuláciu matematických funkcií. Tento bit nie je zahrnutý vo "
+#~ "výstupoch.\n"
+#~ "\n"
+#~ "Toto je pravdepodobne chyba, pretože nie každý proces je kompilovaný "
+#~ "program v jazyku C.\n"
+#~ "\n"
+#~ "Bit math by mal mať hodnotu 4 a bit traced je 10 (v desiatkovej sústave)."
+
+#~ msgid ""
+#~ "The number of minor faults the process has made, those which have not "
+#~ "required loading a memory page from disk."
+#~ msgstr ""
+#~ "Počet vedľajších výpadkov procesu, ktoré nevyžadujú nahratie pamäťovej "
+#~ "stránky z disku."
+
+#~ msgid ""
+#~ "The number of major faults the process has made, those which have "
+#~ "required loading a memory page from disk."
+#~ msgstr ""
+#~ "Počet hlavných výpadkov procesu, ktoré vyžadujú nahratie pamäťovej "
+#~ "stránky z disku."
+
+#~ msgid ""
+#~ "The number of minor faults that the process and its children have made."
+#~ msgstr "Počet vedľajších výpadkov procesu a jeho potomkov."
+
+#~ msgid ""
+#~ "The number of major faults that the process and its children have made."
+#~ msgstr "Počet hlavných výpadkov procesu a jeho potomkov."
+
+#~ msgid ""
+#~ "The current value of esp (32-bit stack pointer), as found in the kernel "
+#~ "stack page for the process."
+#~ msgstr ""
+#~ "Aktuálna hodnota ESP (32 bitový ukazateľ zásobníka) tak, ako bola nájdená "
+#~ "v zásobníku jadra pre proces."
+
+#~ msgid "The current EIP (32-bit instruction pointer)."
+#~ msgstr "Aktuálny EIP (32 bitový inštrukčný čítač)."
+
+#~ msgid ""
+#~ "This is the \"channel\" in which the process is waiting.  This is the "
+#~ "address of a system call, and can be looked up in a namelist if you need "
+#~ "a textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -"
+#~ "l to see the WCHAN field in action)"
+#~ msgstr ""
+#~ "Toto je \"kanál\", v ktorom proces čaká. Toto je adresa systémového "
+#~ "volania. Ak chcete vedieť jej textové meno, môžete sa pozrieť do zoznamu "
+#~ "mien. (Ak máte aktuálne /etc/psdatabase, skúste ps -l aby ste videli pole "
+#~ "WKAN v činnosti)"
+
+#~ msgid "This is the textual name of the `nwchan' field."
+#~ msgstr "Toto je textové meno opľa `nwkan'."
+
+#~ msgid "Virtual"
+#~ msgstr "Virtuálny"
+
+#~ msgid "Resident"
+#~ msgstr "Rezidentný"
+
+#~ msgid "Share"
+#~ msgstr "Zdieľaný"
+
+#~ msgid "Resident Set Size"
+#~ msgstr "Celková veľkosť rezidentnej pamäti"
+
+#~ msgid "Resident Set Size Limit"
+#~ msgstr "Limit celkovej veľkosti rezidentnej pamäti"
+
+#~ msgid "Total # of pages of memory"
+#~ msgstr "Celkový počet pamäťových stránok"
+
+#~ msgid "Number of pages of virtual memory"
+#~ msgstr "Počet stránok virtuálnej pamäti"
+
+#~ msgid "Number of resident set (non-swapped) pages"
+#~ msgstr "Počet celkových rezidentných stránok (neodložených)"
+
+#~ msgid "Number of pages of shared (mmap'd) memory"
+#~ msgstr "Počet stránok zdieľanej pamäti (pomocou mmap)"
+
+#~ msgid ""
+#~ "Number of pages the process has in real memory, minus 3 for "
+#~ "administrative purposes. This is just the pages which count towards text, "
+#~ "data, or stack space. This does not include pages which have not been "
+#~ "demand-loaded in, or which are swapped out."
+#~ msgstr ""
+#~ "Počet stránok, ktoré zaberá proces v reálnej pamäti, znížený o 3 (pre "
+#~ "administratívne účely). Toto sú len stránky, ktoré zahŕňajú kód, údaje a "
+#~ "miesto pre zásobník. Táto hodnota nezahŕňa stránky, ktoré neboli nahraté "
+#~ "na žiadosť alebo ktoré sú odložené."
+
+#~ msgid ""
+#~ "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+#~ msgstr "Aktuálny limit CRP procesu v bajtoch (obyčajne 2 147 483 647)."
+
+#~ msgid "Text_RSS"
+#~ msgstr "Kód_CRP"
+
+#~ msgid "ShLib_RSS"
+#~ msgstr "ZdKni_CRP"
+
+#~ msgid "Data_RSS"
+#~ msgstr "Údaj_CRP"
+
+#~ msgid "Stack_RSS"
+#~ msgstr "Zásob_CRP"
+
+#~ msgid "Dirty Size"
+#~ msgstr "Zmenená veľkosť"
+
+#~ msgid "Start_Code"
+#~ msgstr "Zač_Kódu"
+
+#~ msgid "End_Code"
+#~ msgstr "Kon_Kódu"
+
+#~ msgid "Start_Stack"
+#~ msgstr "Zač_Zás"
+
+#~ msgid "Text resident set size"
+#~ msgstr "Celková veľkost rezidentnej pamäti kódu"
+
+#~ msgid "Shared-Lib resident set size"
+#~ msgstr "Celková veľkost rezidentnej pamäti zdieľaných knižníc"
+
+#~ msgid "Data resident set size"
+#~ msgstr "Celková veľkost rezidentnej pamäti údajov"
+
+#~ msgid "Stack resident set size"
+#~ msgstr "Celková veľkost rezidentnej pamäti zásobníka"
+
+#~ msgid "Total size of dirty pages"
+#~ msgstr "Celková veľkosť zmenených stránok"
+
+#~ msgid "Address of beginning of code segment"
+#~ msgstr "Adresa začiatku kódového segmentu"
+
+#~ msgid "Address of end of code segment"
+#~ msgstr "Adresa konca kódového segmentu"
+
+#~ msgid "Address of the bottom of stack segment"
+#~ msgstr "Adresa dna zásobníkového segmentu"
+
+#~ msgid "Signal"
+#~ msgstr "Signál"
+
+#~ msgid "Blocked"
+#~ msgstr "Blokovaný"
+
+#~ msgid "SigIgnore"
+#~ msgstr "SigIgnorovaný"
+
+#~ msgid "SigCatch"
+#~ msgstr "SigZachytený"
+
+#~ msgid "Mask of pending signals"
+#~ msgstr "Maska neobslúžených signálov"
+
+#~ msgid "Mask of blocked signals"
+#~ msgstr "Maska blokovaných signálov"
+
+#~ msgid "Mask of ignored signals"
+#~ msgstr "Maska ignorovaných signálov"
+
+#~ msgid "Mask of caught signals"
+#~ msgstr "Maska chytených signálov"
+
+#~ msgid "Cmd"
+#~ msgstr "Prk"
+
+#~ msgid "State"
+#~ msgstr "Stav"
+
+#~ msgid "UID"
+#~ msgstr "UID"
+
+#~ msgid "GID"
+#~ msgstr "GID"
+
+#~ msgid "RGid"
+#~ msgstr "RGid"
+
+#~ msgid "RUid"
+#~ msgstr "RUid"
+
+#~ msgid "HasCPU"
+#~ msgstr "MáProc"
+
+#~ msgid "Proc"
+#~ msgstr "Proc"
+
+#~ msgid "LProc"
+#~ msgstr "LProc"
+
+#~ msgid "Basename of executable file in call to exec()"
+#~ msgstr "Základné meno súboru spustiteľného programu pri volaní exec()"
+
+#~ msgid "Single-Char code for process state (S=sleeping)"
+#~ msgstr "Jednopísmenový kód stavu procesu (S=spiaci)"
+
+#~ msgid "UID of process"
+#~ msgstr "UID procesu"
+
+#~ msgid "GID of process"
+#~ msgstr "GID procesu"
+
+#~ msgid "Real UID of process"
+#~ msgstr "Reálne UID procesu"
+
+#~ msgid "Real GID of process"
+#~ msgstr "Reálne GID procesu"
+
+#~ msgid "Has CPU"
+#~ msgstr "Má procesor"
+
+#~ msgid "Processor"
+#~ msgstr "Procesor"
+
+#~ msgid "Last Processor"
+#~ msgstr "Posledný procesor"
+
+#~ msgid "Start_Time"
+#~ msgstr "Zač_Čas"
+
+#~ msgid "RTime"
+#~ msgstr "RČas"
+
+#~ msgid "UTime"
+#~ msgstr "PČas"
+
+#~ msgid "STime"
+#~ msgstr "SČas"
+
+#~ msgid "CUTime"
+#~ msgstr "APČas"
+
+#~ msgid "CSTime"
+#~ msgstr "ASČas"
+
+#~ msgid "TimeOut"
+#~ msgstr "ČasLimit"
+
+#~ msgid "It_Real_Value"
+#~ msgstr "Jeho_Reálna_Hodnota"
+
+#~ msgid "Frequency"
+#~ msgstr "Frekvencia"
+
+#~ msgid "XCPU_UTime"
+#~ msgstr "XProc_PČas"
+
+#~ msgid "XCPU_STime"
+#~ msgstr "XProc_SČas"
+
+#~ msgid "Start time of process in seconds since the epoch"
+#~ msgstr "Čas spustenia procesu v sekundách od začiatku epochy"
+
+#~ msgid "Real time accumulated by process (should be utime + stime)"
+#~ msgstr "Reálny čas nazbieraný procesom (obyčajne PČas + SČas)"
+
+#~ msgid "user-mode CPU time accumulated by process"
+#~ msgstr "Čas procesora v používateľskom režime nazbieraný procesom"
+
+#~ msgid "kernel-mode CPU time accumulated by process"
+#~ msgstr "Čas procesora v režime jadra nazbieraný procesom"
+
+#~ msgid "cumulative utime of process and reaped children"
+#~ msgstr "Celkový PČas procesu a potomkov"
+
+#~ msgid "cumulative stime of process and reaped children"
+#~ msgstr "Celkový SČas procesu a potomkov"
+
+#~ msgid "The time (in jiffies) of the process's next timeout"
+#~ msgstr "Čas (v jiffies) do ďalšieho vypršania časového limitu procesu"
+
+#~ msgid ""
+#~ "The time (in jiffies) before the next SIGALRM is sent to the process due "
+#~ "to an interval timer."
+#~ msgstr ""
+#~ "Čas (v jiffies) pred zaslaním ďalšieho SIGALARM procesu od časovača."
+
+#~ msgid "Tick frequency"
+#~ msgstr "Frekvencia tikov"
+
+#~ msgid "SMP user-mode CPU time accumulated by process"
+#~ msgstr "SMP čas procesora v používateľskom režime nazbieraný procesom"
+
+#~ msgid "SMP kernel-mode CPU time accumulated by process"
+#~ msgstr "SMP čas procesora v režime jadra nazbieraný procesom"
+
+#~ msgid "Uid"
+#~ msgstr "Uid"
+
+#~ msgid "EUid"
+#~ msgstr "EUid"
+
+#~ msgid "Gid"
+#~ msgstr "Gid"
+
+#~ msgid "EGid"
+#~ msgstr "EGid"
+
+#~ msgid "SUid"
+#~ msgstr "SUid"
+
+#~ msgid "SGid"
+#~ msgstr "SGid"
+
+#~ msgid "FSUid"
+#~ msgstr "FUid"
+
+#~ msgid "FSGid"
+#~ msgstr "FGid"
+
+#~ msgid "Pid"
+#~ msgstr "Pid"
+
+#~ msgid "PPid"
+#~ msgstr "PPid"
+
+#~ msgid "PGrp"
+#~ msgstr "PGrp"
+
+#~ msgid "Session"
+#~ msgstr "Sedenie"
+
+#~ msgid "Tty"
+#~ msgstr "Tty"
+
+#~ msgid "TPGid"
+#~ msgstr "TPGid"
+
+#~ msgid "Priority"
+#~ msgstr "Priorita"
+
+#~ msgid "NGroups"
+#~ msgstr "NSkupiny"
+
+#~ msgid "Groups"
+#~ msgstr "Skupiny"
+
+#~ msgid "User ID"
+#~ msgstr "Používateľské ID"
+
+#~ msgid "Effective User ID"
+#~ msgstr "Efektívne používateľské ID"
+
+#~ msgid "Group ID"
+#~ msgstr "Skupinové ID"
+
+#~ msgid "Effective Group ID"
+#~ msgstr "Efektívne používateľské ID"
+
+#~ msgid "Set User ID"
+#~ msgstr "Nastaviť používateľské ID"
+
+#~ msgid "Set Group ID"
+#~ msgstr "Nastaviť skupinové ID"
+
+#~ msgid "Filesystem User ID"
+#~ msgstr "Používateľské ID súborového systému"
+
+#~ msgid "Filesystem Group ID"
+#~ msgstr "Skupinové ID súborového systému"
+
+#~ msgid "Process ID"
+#~ msgstr "ID procesu"
+
+#~ msgid "PID of parent process"
+#~ msgstr "PID rodičovského procesu"
+
+#~ msgid "Process group ID"
+#~ msgstr "Skupinové ID procesu"
+
+#~ msgid "Session ID"
+#~ msgstr "ID sedenia"
+
+#~ msgid "Full device number of controlling terminal"
+#~ msgstr "Úplné číslo zariadenia riadiaceho terminál"
+
+#~ msgid "Terminal process group ID"
+#~ msgstr "Skupinové ID terminálového procesu"
+
+#~ msgid "Kernel scheduling priority"
+#~ msgstr "Priorita v plánovači jadra"
+
+#~ msgid "Standard unix nice level of process"
+#~ msgstr "Štandardná úroveň priority procesu v unix-e"
+
+#~ msgid "Number of additional process groups"
+#~ msgstr "Počet prídavných skupín procesu"
+
+#~ msgid "Array of additional process groups"
+#~ msgstr "Pole prídavných skupín procesu"
+
+#~ msgid "Number of entries in semaphore map"
+#~ msgstr "Počet položiek v mape semafórov"
+
+#~ msgid "Max number of arrays"
+#~ msgstr "Maximálny počet polí"
+
+#~ msgid "Max semaphores system wide"
+#~ msgstr "Maximálny počet semafórov v celom systéme"
+
+#~ msgid "Number of undo structures system wide"
+#~ msgstr "Počet štruktúr undo v celom systéme"
+
+#~ msgid "Max semaphores per array"
+#~ msgstr "Maximálny počet semafórov v poli"
+
+#~ msgid "Max ops per semop call"
+#~ msgstr "Maximálny počet ops vo volaní semop"
+
+#~ msgid "Max number of undo entries per process"
+#~ msgstr "Maximálny počet položiek undo na proces"
+
+#~ msgid "sizeof struct sem_undo"
+#~ msgstr "veľkosť štruktúry sem_undo"
+
+#~ msgid "Semaphore max value"
+#~ msgstr "Maximálna hodnota semafóra"
+
+#~ msgid "Adjust on exit max value"
+#~ msgstr "Upraviť maximálnu hodnotu pri ukončení"
+
+#~ msgid "Max segment size"
+#~ msgstr "Maximálna veľkosť segmentu"
+
+#~ msgid "Min segment size"
+#~ msgstr "Minimálna veľkosť segmentu"
+
+#~ msgid "Max number of segments"
+#~ msgstr "Maximálny počet segmentov"
+
+#~ msgid "Max shared segments per process"
+#~ msgstr "Maximálny počet zdieľaných segmentov na proces"
+
+#~ msgid "Max total shared memory"
+#~ msgstr "Maximálna celková odkladacia pamäť"
+
+#~ msgid "Total Swap Space"
+#~ msgstr "Celková veľkosť odkladacej pamäti"
+
+#~ msgid "Used Swap Space"
+#~ msgstr "Využitá odkladacia pamäť"
+
+#~ msgid "Free Swap Space"
+#~ msgstr "Voľné miesto v odkladacej pamäti"
+
+#~ msgid "Page In"
+#~ msgstr "Nahraté stránky"
+
+#~ msgid "Page Out"
+#~ msgstr "Odložené stránky"
+
+#~ msgid ""
+#~ "Total number of swap pages that have been brought in since system boot"
+#~ msgstr ""
+#~ "Celkový počet stránok vyrovnávacej pamäte, ktoré boli nahraté od štartu "
+#~ "systému"
+
+#~ msgid ""
+#~ "Total number of swap pages that have been brought out since system boot"
+#~ msgstr ""
+#~ "Celkový počet stránok vyrovnávacej pamäte, ktoré boli odložené od štartu "
+#~ "systému"
+
+#~ msgid "Server Features"
+#~ msgstr "Funkcie servra"
+
+#~ msgid "CPU Usage"
+#~ msgstr "Využitie procesora"
+
+#~ msgid "Memory Usage"
+#~ msgstr "Využitie pamäti"
+
+#~ msgid "Swap Usage"
+#~ msgstr "Využitie odkladacej pamäti"
+
+#~ msgid "System Uptime"
+#~ msgstr "Doba prevádzky systému"
+
+#~ msgid "Load Averange"
+#~ msgstr "Priemerná záťaž"
+
+#~ msgid "Shared Memory Limits"
+#~ msgstr "Limity zdieľanej pamäti"
+
+#~ msgid "Message Queue Limits"
+#~ msgstr "Limity radu správ"
+
+#~ msgid "Semaphore Set Limits"
+#~ msgstr "Limity nastavenia semafóra"
+
+#~ msgid "List of running Processes"
+#~ msgstr "Zoznam bežiacich procesov"
+
+#~ msgid "Process Status information"
+#~ msgstr "Informácie o stave procesu"
+
+#~ msgid "Process UID and TTY information"
+#~ msgstr "Informácie o UID a TTY procesu"
+
+#~ msgid "Process Memory information"
+#~ msgstr "Informácie o pamäti procesu"
+
+#~ msgid "Process Time information"
+#~ msgstr "Časové informácie procesu"
+
+#~ msgid "Process Signal information"
+#~ msgstr "Informácie o signáloch procesu"
+
+#~ msgid "Process Kernel Data information"
+#~ msgstr "Informácie o údajoch jadra procesu"
+
+#~ msgid "Process Segment information"
+#~ msgstr "Informácie o segmentoch procesu"
+
+#~ msgid "Process Arguments"
+#~ msgstr "Parametre procesu"
+
+#~ msgid "Process Memory Map"
+#~ msgstr "Mapa pamäti procesu"
+
+#~ msgid "Mount List"
+#~ msgstr "Zoznam pripojení"
+
+#~ msgid "File System Usage"
+#~ msgstr "Využitie súborového systému"
+
+#~ msgid "Network Load"
+#~ msgstr "Záťaž siete"
+
+#~ msgid "PPP Statistics"
+#~ msgstr "Štatistiky PPP"
+
+#~ msgid "Command line arguments of the process"
+#~ msgstr "Parametre príkazového riadku procesu"
+
+#~ msgid "List of currently mounted filesystems"
+#~ msgstr "Zoznam aktuálne primontovaných súborových systémov"
+
+#~ msgid "Uptime"
+#~ msgstr "Doba prevádzky"
+
+#~ msgid "Idletime"
+#~ msgstr "Čas nečinnosti"
+
+#~ msgid "BootTime"
+#~ msgstr "ZavČas"
+
+#~ msgid "Time in seconds since system boot"
+#~ msgstr "Čas v sekundách od štartu systému"
+
+#~ msgid "Time in seconds the system spent in the idle task since system boot"
+#~ msgstr ""
+#~ "Čas v sekundách, ktorý systém strávil v nečinných úlohách od štartu "
+#~ "systému"
+
+#~ msgid "Time of last system boot in seconds since the epoch"
+#~ msgstr "Čas posledného zavedenia systému v sekundách od začiatku epochy"
