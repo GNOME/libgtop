@@ -23,12 +23,14 @@
 
 const char *glibtop_names_netload [GLIBTOP_MAX_NETLOAD] =
 {
-	"mtu", "packets_in", "packets_out", "bytes_in", "bytes_out",
-	"errors_in", "errors_out", "collisions"
+	"mtu", "packets_in", "packets_out", "packets_total",
+	"bytes_in", "bytes_out", "bytes_total", "errors_in",
+	"errors_out", "errors_total", "collisions"
 };
 
 const unsigned glibtop_types_netload [GLIBTOP_MAX_NETLOAD] =
 { 
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
@@ -39,10 +41,13 @@ const char *glibtop_labels_netload [GLIBTOP_MAX_NETLOAD] =
 	N_("MTU"),
 	N_("Packets In"),
 	N_("Packets Out"),
+	N_("Packets Total"),
 	N_("Bytes In"),
 	N_("Bytes Out"),
+	N_("Bytes Total"),
 	N_("Errors In"),
 	N_("Errors Out"),
+	N_("Errors Total"),
 	N_("Collisions")
 };
 
@@ -51,9 +56,12 @@ const char *glibtop_descriptions_netload [GLIBTOP_MAX_NETLOAD] =
 	N_("Maximum Transfer Unit"),
 	N_("Packets In"),
 	N_("Packets Out"),
+	N_("Packets Total"),
 	N_("Bytes In"),
 	N_("Bytes Out"),
+	N_("Bytes Total"),
 	N_("Errors In"),
 	N_("Errors Out"),
+	N_("Errors Total"),
 	N_("Collisions")
 };
