@@ -479,5 +479,6 @@ lib/Makefile
 examples/Makefile
 doc/Makefile
 support/Makefile
+support/gnome-support-2.0.pc
 libgtop-2.0.pc
 ])

@@ -1,3 +1,7 @@
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in: make it compile
+
 2003-10-19  Carlos Perelló Marín <carlos@gnome.org>
 
 	* support/*: Reverted libgtop changes. It's a common module

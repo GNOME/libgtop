@@ -1,3 +1,7 @@
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am: make it compile
+
 2003-05-11  Andrew Sobala  <aes@gnome.org>
 
 	* gnuserv.c: (permitted): fix buffer overflow vulnerability
