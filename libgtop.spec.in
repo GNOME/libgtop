@@ -8,7 +8,7 @@ Summary: LibGTop library
 Name: libgtop
 Version: %ver
 Release: %rel
-Copyright: LGPL
+License: GPL
 Group: X11/Libraries
 Source: ftp://ftp.gnome.org/pub/GNOME/sources/libgtop/libgtop-%{ver}.tar.gz
 BuildRoot: /tmp/libgtop-root
