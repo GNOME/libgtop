@@ -1,3 +1,7 @@
+2000-05-17  Kjartan Maraas  <kmaraas@online.no>
+
+	* no.po: Updated translation.
+	
 2000-05-16  Kenneth Christiansen  <kenneth@gnome.org>
 
         * POTFILES.in: New strings added
@@ -14,7 +18,7 @@
 
 2000-05-09  Andreas Hyden  <a.hyden@cyberpoint.se>
 
-	* Added update.sh script.
+	* update.sh: Added update.sh script.
 
 2000-04-01  Jesus Bravo Alvarez  <jba@pobox.com>
 
