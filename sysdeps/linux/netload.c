@@ -385,7 +385,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 			    break;
 	    }
 
-	    if(!ifr6) return;
+	    if(!ifr6) goto free_ipv6;
 
 	    memcpy(buf->address6,
 		   &((struct sockaddr_in6 *) ifr6->ifa_addr)->sin6_addr,
@@ -416,8 +416,9 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	    else
 		    buf->scope6 = GLIBTOP_IF_IN6_SCOPE_UNKNOWN;
 
-	    freeifaddrs(ifa0);
-
 	    buf->flags |= _glibtop_sysdeps_netload_6;
+
+    free_ipv6:
+	    freeifaddrs(ifa0);
     } /* IPV6 */
 }
