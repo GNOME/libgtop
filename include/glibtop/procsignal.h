@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -42,11 +44,11 @@ typedef struct _glibtop_proc_signal	glibtop_proc_signal;
 
 struct _glibtop_proc_signal
 {
-	u_int64_t	flags,
-		signal [2],		/* mask of pending signals */
-		blocked [2],		/* mask of blocked signals */
-		sigignore [2],		/* mask of ignored signals */
-		sigcatch [2];		/* mask of caught  signals */
+    u_int64_t	flags,
+	signal [2],		/* mask of pending signals */
+	blocked [2],		/* mask of blocked signals */
+	sigignore [2],		/* mask of ignored signals */
+	sigcatch [2];		/* mask of caught  signals */
 };
 
 #define glibtop_get_proc_signal(p1, p2)	glibtop_get_proc_signal_l(glibtop_global_server, p1, p2)

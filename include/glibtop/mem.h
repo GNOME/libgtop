@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -44,15 +46,15 @@ typedef struct _glibtop_mem	glibtop_mem;
 
 struct _glibtop_mem
 {
-	u_int64_t	flags,
-		total,		/* GLIBTOP_MEM_TOTAL	*/
-		used,		/* GLIBTOP_MEM_USED	*/
-		free,		/* GLIBTOP_MEM_FREE	*/
-		shared,		/* GLIBTOP_MEM_SHARED	*/
-		buffer,		/* GLIBTOP_MEM_BUFFER	*/
-		cached,		/* GLIBTOP_MEM_CACHED	*/
-		user,		/* GLIBTOP_MEM_USER	*/
-		locked;		/* GLIBTOP_MEM_LOCKED	*/
+    u_int64_t	flags,
+	total,		/* GLIBTOP_MEM_TOTAL	*/
+	used,		/* GLIBTOP_MEM_USED	*/
+	free,		/* GLIBTOP_MEM_FREE	*/
+	shared,		/* GLIBTOP_MEM_SHARED	*/
+	buffer,		/* GLIBTOP_MEM_BUFFER	*/
+	cached,		/* GLIBTOP_MEM_CACHED	*/
+	user,		/* GLIBTOP_MEM_USER	*/
+	locked;		/* GLIBTOP_MEM_LOCKED	*/
 };
 
 #define glibtop_get_mem(mem)	glibtop_get_mem_l(glibtop_global_server, mem)

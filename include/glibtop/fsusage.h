@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -41,12 +43,12 @@ typedef struct _glibtop_fsusage		glibtop_fsusage;
 
 struct _glibtop_fsusage
 {
-	u_int64_t	flags,
-		blocks,		/* Total blocks. */
-		bfree,		/* Free blocks available to superuser. */
-		bavail,		/* Free blocks available to non-superuser. */
-		files,		/* Total file nodes. */
-		ffree;		/* Free file nodes. */
+    u_int64_t	flags,
+	blocks,		/* Total blocks. */
+	bfree,		/* Free blocks available to superuser. */
+	bavail,		/* Free blocks available to non-superuser. */
+	files,		/* Total file nodes. */
+	ffree;		/* Free file nodes. */
 };
 
 #define glibtop_get_fsusage(fsusage,disk)	glibtop_get_fsusage_l(glibtop_global_server, fsusage, disk)

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -47,21 +49,21 @@ typedef struct _glibtop_proc_kernel	glibtop_proc_kernel;
 
 struct _glibtop_proc_kernel
 {
-	u_int64_t flags;
-	u_int64_t k_flags,	/* kernel flags for the process */
-		min_flt,	/* number of minor page faults since
-				 * process start */
-		maj_flt,	/* number of major page faults since
-				 * process start */
-		cmin_flt,	/* cumulative min_flt of process and
-				 * child processes */
-		cmaj_flt,	/* cumulative maj_flt of process and
-				 * child processes */
-		kstk_esp,	/* kernel stack pointer */
-		kstk_eip,	/* kernel stack pointer */
-		nwchan;		/* address of kernel wait channel
-				 * proc is sleeping in */
-	char wchan [40];
+    u_int64_t flags;
+    u_int64_t k_flags,	/* kernel flags for the process */
+	min_flt,	/* number of minor page faults since
+			 * process start */
+	maj_flt,	/* number of major page faults since
+			 * process start */
+	cmin_flt,	/* cumulative min_flt of process and
+			 * child processes */
+	cmaj_flt,	/* cumulative maj_flt of process and
+			 * child processes */
+	kstk_esp,	/* kernel stack pointer */
+	kstk_eip,	/* kernel stack pointer */
+	nwchan;		/* address of kernel wait channel
+			 * proc is sleeping in */
+    char wchan [40];
 };
 
 #define glibtop_get_proc_kernel(p1, p2)	glibtop_get_proc_kernel_l(glibtop_global_server, p1, p2)

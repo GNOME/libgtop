@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -37,41 +39,41 @@ void glibtop_warn_io_vr (glibtop *server, char *format, int, va_list args);
 static void
 glibtop_error_r (glibtop *server, char *format, ...)
 {
-	va_list args;
+    va_list args;
 
-	va_start (args, format);
-	glibtop_error_vr (server, format, args);
-	va_end (args);
+    va_start (args, format);
+    glibtop_error_vr (server, format, args);
+    va_end (args);
 }
 
 static void
 glibtop_warn_r (glibtop *server, char *format, ...)
 {
-	va_list args;
+    va_list args;
 
-	va_start (args, format);
-	glibtop_warn_vr (server, format, args);
-	va_end (args);
+    va_start (args, format);
+    glibtop_warn_vr (server, format, args);
+    va_end (args);
 }
 
 static void
 glibtop_error_io_r (glibtop *server, char *format, ...)
 {
-	va_list args;
+    va_list args;
 
-	va_start (args, format);
-	glibtop_error_io_vr (server, format, errno, args);
-	va_end (args);
+    va_start (args, format);
+    glibtop_error_io_vr (server, format, errno, args);
+    va_end (args);
 }
 
 static void
 glibtop_warn_io_r (glibtop *server, char *format, ...)
 {
-	va_list args;
+    va_list args;
 
-	va_start (args, format);
-	glibtop_warn_io_vr (server, format, errno, args);
-	va_end (args);
+    va_start (args, format);
+    glibtop_warn_io_vr (server, format, errno, args);
+    va_end (args);
 }
 
 #ifdef  __GNUC__
@@ -87,37 +89,37 @@ glibtop_warn_io_r (glibtop *server, char *format, ...)
 static void
 glibtop_error (char *format, ...)
 {
-	va_list args;
-	va_start (args, format);
-	glibtop_error_vr (glibtop_global_server, format, args);
-	va_end (args);
+    va_list args;
+    va_start (args, format);
+    glibtop_error_vr (glibtop_global_server, format, args);
+    va_end (args);
 }
 
 static void
 glibtop_warn (char *format, ...)
 {
-	va_list args;
-	va_start (args, format);
-	glibtop_warn_vr (glibtop_global_server, format, args);
-	va_end (args);
+    va_list args;
+    va_start (args, format);
+    glibtop_warn_vr (glibtop_global_server, format, args);
+    va_end (args);
 }
 
 static void
 glibtop_error_io (char *format, ...)
 {
-	va_list args;
-	va_start (args, format);
-	glibtop_error_io_vr (glibtop_global_server, format, errno, args);
-	va_end (args);
+    va_list args;
+    va_start (args, format);
+    glibtop_error_io_vr (glibtop_global_server, format, errno, args);
+    va_end (args);
 }
 
 static void
 glibtop_warn_io (char *format, ...)
 {
-	va_list args;
-	va_start (args, format);
-	glibtop_warn_io_vr (glibtop_global_server, format, errno, args);
-	va_end (args);
+    va_list args;
+    va_start (args, format);
+    glibtop_warn_io_vr (glibtop_global_server, format, errno, args);
+    va_end (args);
 }
 
 #endif /* no __GNUC__ */

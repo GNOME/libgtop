@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
@@ -39,12 +41,12 @@ typedef struct _glibtop_inodedb_key	glibtop_inodedb_key;
 
 struct _glibtop_inodedb_key
 {
-	u_int64_t device, inode;
+    u_int64_t device, inode;
 };
 
 struct _glibtop_inodedb
 {
-	GDBM_FILE system_dbf, user_dbf;
+    GDBM_FILE system_dbf, user_dbf;
 };
 
 #define glibtop_inodedb_open(p1,p2)	glibtop_inodedb_open_s(glibtop_global_server, p1, p2)

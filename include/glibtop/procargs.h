@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -37,8 +39,8 @@ typedef struct _glibtop_proc_args	glibtop_proc_args;
 
 struct _glibtop_proc_args
 {
-	u_int64_t	flags,
-		size;			/* GLIBTOP_PROC_ARGS_SIZE	*/
+    u_int64_t	flags,
+	size;			/* GLIBTOP_PROC_ARGS_SIZE	*/
 };
 
 #define glibtop_get_proc_args(proc_args,pid,max_len) glibtop_get_proc_args_l(glibtop_global_server, proc_args, pid, max_len)

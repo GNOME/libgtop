@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -44,15 +46,15 @@ typedef struct _glibtop_proc_mem	glibtop_proc_mem;
 
 struct _glibtop_proc_mem
 {
-	u_int64_t	flags,
-		size,		/* total # of pages of memory */
-		vsize,		/* number of pages of virtual memory ... */
-		resident,	/* number of resident set
-				 * (non-swapped) pages (4k) */
-		share,		/* number of pages of shared (mmap'd) memory */
-		rss,		/* resident set size */
-		rss_rlim;	/* current limit (in bytes) of the rss
-				 * of the process; usually 2,147,483,647 */
+    u_int64_t	flags,
+	size,		/* total # of pages of memory */
+	vsize,		/* number of pages of virtual memory ... */
+	resident,	/* number of resident set
+			 * (non-swapped) pages (4k) */
+	share,		/* number of pages of shared (mmap'd) memory */
+	rss,		/* resident set size */
+	rss_rlim;	/* current limit (in bytes) of the rss
+			 * of the process; usually 2,147,483,647 */
 };
 
 #define glibtop_get_proc_mem(p1, p2)	glibtop_get_proc_mem_l(glibtop_global_server, p1, p2)

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -43,14 +45,14 @@ typedef struct _glibtop_msg_limits	glibtop_msg_limits;
 
 struct _glibtop_msg_limits
 {
-	u_int64_t	flags,
-		msgpool,	/* GLIBTOP_IPC_MSGPOOL	*/
-		msgmap,		/* GLIBTOP_IPC_MSGMAP	*/
-		msgmax,		/* GLIBTOP_IPC_MSGMAX	*/
-		msgmnb,		/* GLIBTOP_IPC_MSGMNB	*/
-		msgmni,		/* GLIBTOP_IPC_MSGMNI	*/
-		msgssz,		/* GLIBTOP_IPC_MSGSSZ	*/
-		msgtql;		/* GLIBTOP_IPC_MSGTQL	*/
+    u_int64_t	flags,
+	msgpool,	/* GLIBTOP_IPC_MSGPOOL	*/
+	msgmap,		/* GLIBTOP_IPC_MSGMAP	*/
+	msgmax,		/* GLIBTOP_IPC_MSGMAX	*/
+	msgmnb,		/* GLIBTOP_IPC_MSGMNB	*/
+	msgmni,		/* GLIBTOP_IPC_MSGMNI	*/
+	msgssz,		/* GLIBTOP_IPC_MSGSSZ	*/
+	msgtql;		/* GLIBTOP_IPC_MSGTQL	*/
 };
 
 #define glibtop_get_msg_limits(msg)	glibtop_get_msg_limits_l(glibtop_global_server, msg)

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -64,30 +66,30 @@ typedef struct _glibtop_sysdeps	glibtop_sysdeps;
 
 struct _glibtop_sysdeps
 {
-	u_int64_t flags,
-		features,		/* server features	*/
-		cpu,			/* glibtop_cpu		*/
-		mem,			/* glibtop_mem		*/
-		swap,			/* glibtop_swap		*/
-		uptime,			/* glibtop_uptime	*/
-		loadavg,		/* glibtop_loadavg	*/
-		shm_limits,		/* glibtop_shm_limits	*/
-		msg_limits,		/* glibtop_msg_limits	*/
-		sem_limits,		/* glibtop_sem_limits	*/
-		proclist,		/* glibtop_proclist	*/
-		proc_state,		/* glibtop_proc_state	*/
-		proc_uid,		/* glibtop_proc_uid	*/
-		proc_mem,		/* glibtop_proc_mem	*/
-		proc_time,		/* glibtop_proc_time	*/
-		proc_signal,		/* glibtop_proc_signal	*/
-		proc_kernel,		/* glibtop_proc_kernel	*/
-		proc_segment,		/* glibtop_proc_segment	*/
-		proc_args,		/* glibtop_proc_args	*/
-		proc_map,		/* glibtop_proc_map	*/
-		mountlist,		/* glibtop_mountlist	*/
-		fsusage,		/* glibtop_fsusage	*/
-		netload,		/* glibtop_netload	*/
-		ppp;			/* glibtop_ppp		*/
+    u_int64_t flags,
+	features,		/* server features	*/
+	cpu,			/* glibtop_cpu		*/
+	mem,			/* glibtop_mem		*/
+	swap,			/* glibtop_swap		*/
+	uptime,			/* glibtop_uptime	*/
+	loadavg,		/* glibtop_loadavg	*/
+	shm_limits,		/* glibtop_shm_limits	*/
+	msg_limits,		/* glibtop_msg_limits	*/
+	sem_limits,		/* glibtop_sem_limits	*/
+	proclist,		/* glibtop_proclist	*/
+	proc_state,		/* glibtop_proc_state	*/
+	proc_uid,		/* glibtop_proc_uid	*/
+	proc_mem,		/* glibtop_proc_mem	*/
+	proc_time,		/* glibtop_proc_time	*/
+	proc_signal,		/* glibtop_proc_signal	*/
+	proc_kernel,		/* glibtop_proc_kernel	*/
+	proc_segment,		/* glibtop_proc_segment	*/
+	proc_args,		/* glibtop_proc_args	*/
+	proc_map,		/* glibtop_proc_map	*/
+	mountlist,		/* glibtop_mountlist	*/
+	fsusage,		/* glibtop_fsusage	*/
+	netload,		/* glibtop_netload	*/
+	ppp;			/* glibtop_ppp		*/
 };
 
 #define glibtop_get_sysdeps(sysdeps)	glibtop_get_sysdeps_r(glibtop_global_server,sysdeps)

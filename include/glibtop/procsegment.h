@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -46,16 +48,16 @@ typedef struct _glibtop_proc_segment	glibtop_proc_segment;
 
 struct _glibtop_proc_segment
 {
-	u_int64_t	flags,
-		text_rss,	/* text resident set size */
-		shlib_rss,	/* shared-lib resident set size */
-		data_rss,	/* data resident set size */
-		stack_rss,	/* stack resident set size */
-		dirty_size,	/* size of dirty pages */
-		start_code,
+    u_int64_t	flags,
+	text_rss,	/* text resident set size */
+	shlib_rss,	/* shared-lib resident set size */
+	data_rss,	/* data resident set size */
+	stack_rss,	/* stack resident set size */
+	dirty_size,	/* size of dirty pages */
+	start_code,
 				/* address of beginning of code segment */
-		end_code,	/* address of end of code segment */
-		start_stack;	/* address of the bottom of stack segment */
+	end_code,	/* address of end of code segment */
+	start_stack;	/* address of the bottom of stack segment */
 };
 
 #define glibtop_get_proc_segment(p1, p2)	glibtop_get_proc_segment_l(glibtop_global_server, p1, p2)

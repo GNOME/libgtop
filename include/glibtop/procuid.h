@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -50,19 +52,19 @@ typedef struct _glibtop_proc_uid	glibtop_proc_uid;
 
 struct _glibtop_proc_uid
 {
-	u_int64_t flags;
-	int uid,		/* user id */
-		euid,		/* effective user id */
-		gid,		/* group id */
-		egid,		/* effective group id */
-		pid,		/* process id */
-		ppid,		/* pid of parent process */
-		pgrp,		/* process group id */
-		session,	/* session id */
-		tty,		/* full device number of controlling terminal */
-		tpgid,		/* terminal process group id */
-		priority,	/* kernel scheduling priority */
-		nice;		/* standard unix nice level of process */
+    u_int64_t flags;
+    int uid,		/* user id */
+	euid,		/* effective user id */
+	gid,		/* group id */
+	egid,		/* effective group id */
+	pid,		/* process id */
+	ppid,		/* pid of parent process */
+	pgrp,		/* process group id */
+	session,	/* session id */
+	tty,		/* full device number of controlling terminal */
+	tpgid,		/* terminal process group id */
+	priority,	/* kernel scheduling priority */
+	nice;		/* standard unix nice level of process */
 };
 
 #define glibtop_get_proc_uid(p1, p2)	glibtop_get_proc_uid_l(glibtop_global_server, p1, p2)

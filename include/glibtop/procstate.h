@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -42,18 +44,18 @@ typedef struct _glibtop_proc_state	glibtop_proc_state;
 
 struct _glibtop_proc_state
 {
-	u_int64_t flags;
-	char cmd[40],		/* basename of executable file in 
+    u_int64_t flags;
+    char cmd[40],		/* basename of executable file in 
 				 * call to exec(2) */
-		state;		/* single-char code for process state
+	state;			/* single-char code for process state
 				 * (S=sleeping) */
-	/* NOTE: when porting the library, TRY HARD to implement the
-	 *       following two fields. */
-	/* IMPORTANT NOTICE: For security reasons, it is extremely important
-	 *                   only to set the flags value for those two
-	 *                   fields if their values are corrent ! */
-	int uid,		/* UID of process */
-		gid;		/* GID of process */
+    /* NOTE: when porting the library, TRY HARD to implement the
+     *       following two fields. */
+    /* IMPORTANT NOTICE: For security reasons, it is extremely important
+     *                   only to set the flags value for those two
+     *                   fields if their values are corrent ! */
+    int uid,			/* UID of process */
+	gid;			/* GID of process */
 };
 
 #define glibtop_get_proc_state(p1, p2)	glibtop_get_proc_state_l(glibtop_global_server, p1, p2)

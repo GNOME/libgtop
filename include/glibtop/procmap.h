@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -59,16 +61,16 @@ typedef struct _glibtop_proc_map	glibtop_proc_map;
 
 struct _glibtop_map_entry
 {
-	u_int64_t flags, start, end, offset, perm, inode, device;
-	char filename [GLIBTOP_MAP_FILENAME_LEN+1];
+    u_int64_t flags, start, end, offset, perm, inode, device;
+    char filename [GLIBTOP_MAP_FILENAME_LEN+1];
 };
 
 struct _glibtop_proc_map
 {
-	u_int64_t	flags,
-		number,			/* GLIBTOP_PROC_MAP_NUMBER	*/
-		total,			/* GLIBTOP_PROC_MAP_TOTAL	*/
-		size;			/* GLIBTOP_PROC_MAP_SIZE	*/
+    u_int64_t	flags,
+	number,			/* GLIBTOP_PROC_MAP_NUMBER	*/
+	total,			/* GLIBTOP_PROC_MAP_TOTAL	*/
+	size;			/* GLIBTOP_PROC_MAP_SIZE	*/
 };
 
 #define glibtop_get_proc_map(proc_map,pid) glibtop_get_proc_map_l(glibtop_global_server, proc_map, pid)

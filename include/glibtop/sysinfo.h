@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -42,15 +44,15 @@ typedef struct _glibtop_entry	glibtop_entry;
 
 struct _glibtop_entry
 {
-	GPtrArray	*labels;
-	GHashTable	*values;
-	GHashTable	*descriptions;
+    GPtrArray	*labels;
+    GHashTable	*values;
+    GHashTable	*descriptions;
 };
 
 struct _glibtop_sysinfo
 {
-	u_int64_t	flags, ncpu;
-	glibtop_entry	cpuinfo [GLIBTOP_NCPU];
+    u_int64_t		flags, ncpu;
+    glibtop_entry	cpuinfo [GLIBTOP_NCPU];
 };
 
 #define glibtop_get_sysinfo()	glibtop_get_sysinfo_s(glibtop_global_server)

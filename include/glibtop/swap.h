@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -41,12 +43,12 @@ typedef struct _glibtop_swap	glibtop_swap;
 
 struct _glibtop_swap
 {
-	u_int64_t	flags,
-		total,		/* GLIBTOP_SWAP_TOTAL	*/
-		used,		/* GLIBTOP_SWAP_USED	*/
-		free,		/* GLIBTOP_SWAP_FREE	*/
-		pagein,		/* GLIBTOP_SWAP_PAGEIN	*/
-		pageout;	/* GLIBTOP_SWAP_PAGEOUT	*/
+    u_int64_t	flags,
+	total,		/* GLIBTOP_SWAP_TOTAL	*/
+	used,		/* GLIBTOP_SWAP_USED	*/
+	free,		/* GLIBTOP_SWAP_FREE	*/
+	pagein,		/* GLIBTOP_SWAP_PAGEIN	*/
+	pageout;	/* GLIBTOP_SWAP_PAGEOUT	*/
 };
 
 #define glibtop_get_swap(swap)	glibtop_get_swap_l(glibtop_global_server, swap)

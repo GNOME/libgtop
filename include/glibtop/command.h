@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -69,22 +71,22 @@ typedef union  _glibtop_response_union	glibtop_response_union;
 
 struct _glibtop_command
 {
-	u_int64_t	command;
-	u_int64_t	size, data_size;
-	char		parameter [_GLIBTOP_PARAM_SIZE];
+    u_int64_t	command;
+    u_int64_t	size, data_size;
+    char	parameter [_GLIBTOP_PARAM_SIZE];
 };
 
 union _glibtop_response_union
 {
-	glibtop_union	data;
-	glibtop_sysdeps	sysdeps;
+    glibtop_union	data;
+    glibtop_sysdeps	sysdeps;
 };
 
 struct _glibtop_response
 {
-	int64_t offset;
-	u_int64_t size, data_size;
-	glibtop_response_union u;
+    int64_t offset;
+    u_int64_t size, data_size;
+    glibtop_response_union u;
 };
 
 #define glibtop_call(p1, p2, p3, p4)	glibtop_call_r(glibtop_global_server, p1, p2, p3, p4)

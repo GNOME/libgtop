@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -56,10 +58,10 @@ typedef struct _glibtop_proclist	glibtop_proclist;
 
 struct _glibtop_proclist
 {
-	u_int64_t	flags,
-		number,			/* GLIBTOP_PROCLIST_NUMBER	*/
-		total,			/* GLIBTOP_PROCLIST_TOTAL	*/
-		size;			/* GLIBTOP_PROCLIST_SIZE	*/
+    u_int64_t	flags,
+	number,			/* GLIBTOP_PROCLIST_NUMBER	*/
+	total,			/* GLIBTOP_PROCLIST_TOTAL	*/
+	size;			/* GLIBTOP_PROCLIST_SIZE	*/
 };
 
 #define glibtop_get_proclist(proclist,which,arg) glibtop_get_proclist_l(glibtop_global_server, proclist, which, arg)

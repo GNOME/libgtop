@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -49,41 +51,41 @@ BEGIN_LIBGTOP_DECLS
 typedef struct _glibtop_netload	glibtop_netload;
 
 enum {
-	GLIBTOP_IF_FLAGS_UP = 1,
-	GLIBTOP_IF_FLAGS_BROADCAST,
-	GLIBTOP_IF_FLAGS_DEBUG,
-	GLIBTOP_IF_FLAGS_LOOPBACK,
-	GLIBTOP_IF_FLAGS_POINTOPOINT,
-	GLIBTOP_IF_FLAGS_RUNNING,
-	GLIBTOP_IF_FLAGS_NOARP,
-	GLIBTOP_IF_FLAGS_PROMISC,
-	GLIBTOP_IF_FLAGS_ALLMULTI,
-	GLIBTOP_IF_FLAGS_OACTIVE,
-	GLIBTOP_IF_FLAGS_SIMPLEX,
-	GLIBTOP_IF_FLAGS_LINK0,
-	GLIBTOP_IF_FLAGS_LINK1,
-	GLIBTOP_IF_FLAGS_LINK2,
-	GLIBTOP_IF_FLAGS_ALTPHYS,
-	GLIBTOP_IF_FLAGS_MULTICAST
+    GLIBTOP_IF_FLAGS_UP = 1,
+    GLIBTOP_IF_FLAGS_BROADCAST,
+    GLIBTOP_IF_FLAGS_DEBUG,
+    GLIBTOP_IF_FLAGS_LOOPBACK,
+    GLIBTOP_IF_FLAGS_POINTOPOINT,
+    GLIBTOP_IF_FLAGS_RUNNING,
+    GLIBTOP_IF_FLAGS_NOARP,
+    GLIBTOP_IF_FLAGS_PROMISC,
+    GLIBTOP_IF_FLAGS_ALLMULTI,
+    GLIBTOP_IF_FLAGS_OACTIVE,
+    GLIBTOP_IF_FLAGS_SIMPLEX,
+    GLIBTOP_IF_FLAGS_LINK0,
+    GLIBTOP_IF_FLAGS_LINK1,
+    GLIBTOP_IF_FLAGS_LINK2,
+    GLIBTOP_IF_FLAGS_ALTPHYS,
+    GLIBTOP_IF_FLAGS_MULTICAST
 };
 
 struct _glibtop_netload
 {
-	u_int64_t	flags,
-		if_flags,		/* GLIBTOP_NETLOAD_IF_FLAGS	*/
-		mtu,			/* GLIBTOP_NETLOAD_MTU		*/
-		subnet,			/* GLIBTOP_NETLOAD_SUBNET	*/
-		address,		/* GLIBTOP_NETLOAD_ADDRESS	*/
-		packets_in,		/* GLIBTOP_NETLOAD_PACKETS_IN	*/
-		packets_out,		/* GLIBTOP_NETLOAD_PACKETS_OUT	*/
-		packets_total,		/* GLIBTOP_NETLOAD_PACKETS_TOTAL*/
-		bytes_in,		/* GLIBTOP_NETLOAD_BYTES_IN	*/
-		bytes_out,		/* GLIBTOP_NETLOAD_BYTES_OUT	*/
-		bytes_total,		/* GLIBTOP_NETLOAD_BYTES_TOTAL	*/
-		errors_in,		/* GLIBTOP_NETLOAD_ERRORS_IN	*/
-		errors_out,		/* GLIBTOP_NETLOAD_ERRORS_OUT	*/
-		errors_total,		/* GLIBTOP_NETLOAD_ERRORS_TOTAL	*/
-		collisions;		/* GLIBTOP_NETLOAD_COLLISIONS	*/
+    u_int64_t	flags,
+	if_flags,		/* GLIBTOP_NETLOAD_IF_FLAGS	*/
+	mtu,			/* GLIBTOP_NETLOAD_MTU		*/
+	subnet,			/* GLIBTOP_NETLOAD_SUBNET	*/
+	address,		/* GLIBTOP_NETLOAD_ADDRESS	*/
+	packets_in,		/* GLIBTOP_NETLOAD_PACKETS_IN	*/
+	packets_out,		/* GLIBTOP_NETLOAD_PACKETS_OUT	*/
+	packets_total,		/* GLIBTOP_NETLOAD_PACKETS_TOTAL*/
+	bytes_in,		/* GLIBTOP_NETLOAD_BYTES_IN	*/
+	bytes_out,		/* GLIBTOP_NETLOAD_BYTES_OUT	*/
+	bytes_total,		/* GLIBTOP_NETLOAD_BYTES_TOTAL	*/
+	errors_in,		/* GLIBTOP_NETLOAD_ERRORS_IN	*/
+	errors_out,		/* GLIBTOP_NETLOAD_ERRORS_OUT	*/
+	errors_total,		/* GLIBTOP_NETLOAD_ERRORS_TOTAL	*/
+	collisions;		/* GLIBTOP_NETLOAD_COLLISIONS	*/
 };
 
 #define glibtop_get_netload(netload,interface)	glibtop_get_netload_l(glibtop_global_server, netload, interface)

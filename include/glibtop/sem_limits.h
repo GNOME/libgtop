@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -46,17 +48,17 @@ typedef struct _glibtop_sem_limits	glibtop_sem_limits;
 
 struct _glibtop_sem_limits
 {
-	u_int64_t	flags,
-		semmap,		/* GLIBTOP_IPC_SEMMAP	*/
-		semmni,		/* GLIBTOP_IPC_SEMMNI	*/
-		semmns,		/* GLIBTOP_IPC_SEMMNS	*/
-		semmnu,		/* GLIBTOP_IPC_SEMMNU	*/
-		semmsl,		/* GLIBTOP_IPC_SEMMSL	*/
-		semopm,		/* GLIBTOP_IPC_SEMOPM	*/
-		semume,		/* GLIBTOP_IPC_SEMUME	*/
-		semusz,		/* GLIBTOP_IPC_SEMUSZ	*/
-		semvmx,		/* GLIBTOP_IPC_SEMVMX	*/
-		semaem;		/* GLIBTOP_IPC_SEMAEM	*/
+    u_int64_t	flags,
+	semmap,		/* GLIBTOP_IPC_SEMMAP	*/
+	semmni,		/* GLIBTOP_IPC_SEMMNI	*/
+	semmns,		/* GLIBTOP_IPC_SEMMNS	*/
+	semmnu,		/* GLIBTOP_IPC_SEMMNU	*/
+	semmsl,		/* GLIBTOP_IPC_SEMMSL	*/
+	semopm,		/* GLIBTOP_IPC_SEMOPM	*/
+	semume,		/* GLIBTOP_IPC_SEMUME	*/
+	semusz,		/* GLIBTOP_IPC_SEMUSZ	*/
+	semvmx,		/* GLIBTOP_IPC_SEMVMX	*/
+	semaem;		/* GLIBTOP_IPC_SEMAEM	*/
 };
 
 #define glibtop_get_sem_limits(sem)	glibtop_get_sem_limits_l(glibtop_global_server, sem)

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -56,28 +58,28 @@ typedef union _glibtop_union	glibtop_union;
 
 union _glibtop_union
 {
-	glibtop_cpu		cpu;
-	glibtop_mem		mem;
-	glibtop_swap		swap;
-	glibtop_uptime		uptime;
-	glibtop_loadavg		loadavg;
-	glibtop_shm_limits	shm_limits;
-	glibtop_msg_limits	msg_limits;
-	glibtop_sem_limits	sem_limits;
-	glibtop_proclist	proclist;
-	glibtop_proc_state	proc_state;
-	glibtop_proc_uid	proc_uid;
-	glibtop_proc_mem	proc_mem;
-	glibtop_proc_time	proc_time;
-	glibtop_proc_signal	proc_signal;
-	glibtop_proc_kernel	proc_kernel;
-	glibtop_proc_segment	proc_segment;
-	glibtop_proc_args	proc_args;
-	glibtop_proc_map	proc_map;
-	glibtop_mountlist	mountlist;
-	glibtop_fsusage		fsusage;
-	glibtop_netload		netload;
-	glibtop_ppp		ppp;
+    glibtop_cpu			cpu;
+    glibtop_mem			mem;
+    glibtop_swap		swap;
+    glibtop_uptime		uptime;
+    glibtop_loadavg		loadavg;
+    glibtop_shm_limits		shm_limits;
+    glibtop_msg_limits		msg_limits;
+    glibtop_sem_limits		sem_limits;
+    glibtop_proclist		proclist;
+    glibtop_proc_state		proc_state;
+    glibtop_proc_uid		proc_uid;
+    glibtop_proc_mem		proc_mem;
+    glibtop_proc_time		proc_time;
+    glibtop_proc_signal		proc_signal;
+    glibtop_proc_kernel		proc_kernel;
+    glibtop_proc_segment	proc_segment;
+    glibtop_proc_args		proc_args;
+    glibtop_proc_map		proc_map;
+    glibtop_mountlist		mountlist;
+    glibtop_fsusage		fsusage;
+    glibtop_netload		netload;
+    glibtop_ppp			ppp;
 };
 
 END_LIBGTOP_DECLS

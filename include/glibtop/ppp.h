@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -38,17 +40,17 @@ BEGIN_LIBGTOP_DECLS
 typedef struct _glibtop_ppp	glibtop_ppp;
 
 enum {
-	GLIBTOP_PPP_STATE_UNKNOWN = 0,
-	GLIBTOP_PPP_STATE_HANGUP,
-	GLIBTOP_PPP_STATE_ONLINE
+    GLIBTOP_PPP_STATE_UNKNOWN = 0,
+    GLIBTOP_PPP_STATE_HANGUP,
+    GLIBTOP_PPP_STATE_ONLINE
 };
 
 struct _glibtop_ppp
 {
-	u_int64_t	flags,
-		state,			/* GLIBTOP_PPP_STATE		*/
-		bytes_in,		/* GLIBTOP_PPP_BYTES_IN		*/
-		bytes_out;		/* GLIBTOP_PPP_BYTES_OUT	*/
+    u_int64_t	flags,
+	state,			/* GLIBTOP_PPP_STATE		*/
+	bytes_in,		/* GLIBTOP_PPP_BYTES_IN		*/
+	bytes_out;		/* GLIBTOP_PPP_BYTES_OUT	*/
 };
 
 #define glibtop_get_ppp(ppp,device)	glibtop_get_ppp_l(glibtop_global_server, ppp, device)

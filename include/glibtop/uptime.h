@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -38,9 +40,10 @@ typedef struct _glibtop_uptime	glibtop_uptime;
 
 struct _glibtop_uptime
 {
-	u_int64_t flags;
-	double uptime,		/* GLIBTOP_UPTIME_UPTIME	*/
-		idletime;	/* GLIBTOP_UPTIME_IDLETIME	*/
+    u_int64_t flags;
+    double uptime,		/* GLIBTOP_UPTIME_UPTIME	*/
+	idletime;		/* GLIBTOP_UPTIME_IDLETIME	*/
+    u_int64_t boot_time;	/* GLIBTOP_UPTIME_BOOT_TIME	*/
 };
 
 #define glibtop_get_uptime(uptime)	glibtop_get_uptime_l(glibtop_global_server, uptime)

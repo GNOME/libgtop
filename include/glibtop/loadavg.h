@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -40,11 +42,11 @@ typedef struct _glibtop_loadavg	glibtop_loadavg;
 
 struct _glibtop_loadavg
 {
-	u_int64_t flags;
-	double loadavg [3];		/* GLIBTOP_LOADAVG_LOADAVG	*/
-	u_int64_t nr_running,		/* GLIBTOP_LOADAVG_NR_RUNNING	*/
-		nr_tasks,		/* GLIBTOP_LOADAVG_NR_TASKS	*/
-		last_pid;		/* GLIBTOP_LOADAVG_LAST_PID	*/
+    u_int64_t flags;
+    double loadavg [3];		/* GLIBTOP_LOADAVG_LOADAVG	*/
+    u_int64_t nr_running,	/* GLIBTOP_LOADAVG_NR_RUNNING	*/
+	nr_tasks,		/* GLIBTOP_LOADAVG_NR_TASKS	*/
+	last_pid;		/* GLIBTOP_LOADAVG_LAST_PID	*/
 };
 
 #define glibtop_get_loadavg(loadavg)	glibtop_get_loadavg_l(glibtop_global_server, loadavg)

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -41,12 +43,12 @@ typedef struct _glibtop_shm_limits	glibtop_shm_limits;
 
 struct _glibtop_shm_limits
 {
-	u_int64_t	flags,
-		shmmax,		/* GLIBTOP_IPC_SHMMAX	*/
-		shmmin,		/* GLIBTOP_IPC_SHMMIN	*/
-		shmmni,		/* GLIBTOP_IPC_SHMMNI	*/
-		shmseg,		/* GLIBTOP_IPC_SHMSEG	*/
-		shmall;		/* GLIBTOP_IPC_SHMALL	*/
+    u_int64_t	flags,
+	shmmax,		/* GLIBTOP_IPC_SHMMAX	*/
+	shmmin,		/* GLIBTOP_IPC_SHMMIN	*/
+	shmmni,		/* GLIBTOP_IPC_SHMMNI	*/
+	shmseg,		/* GLIBTOP_IPC_SHMSEG	*/
+	shmall;		/* GLIBTOP_IPC_SHMALL	*/
 };
 
 #define glibtop_get_shm_limits(shm)	glibtop_get_shm_limits_l(glibtop_global_server, shm)
