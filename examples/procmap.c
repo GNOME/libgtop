@@ -95,7 +95,7 @@ main (int argc, char *argv [])
 		unsigned device, device_major, device_minor;
 		char perm [5];
 		
-		if (maps [i].flags & GLIBTOP_MAP_ENTRY_FILENAME)
+		if (maps [i].flags & (1 << GLIBTOP_MAP_ENTRY_FILENAME))
 			filename = maps [i].filename;
 
 #ifdef GLIBTOP_INODEDB
