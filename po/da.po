@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.99.3\n"
-"POT-Creation-Date: 1999-10-16 20:49+0200\n"
-"PO-Revision-Date: 1999-10-08 22:12+02:00\n"
+"POT-Creation-Date: 1999-10-25 01:33+0200\n"
+"PO-Revision-Date: 1999-10-25 01:35+02:00\n"
 "Last-Translator: Kenneth Christiansen <kenneth@ripen.dk>\n"
 "Language-Team: Dansk/Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -166,7 +166,7 @@ msgstr "Antal samtidig kørende job med snit over 1, 5 og 15 minutter"
 # sysdeps/names/loadavg.c:50
 #: sysdeps/names/loadavg.c:50
 msgid "Number of tasks currently running"
-msgstr "Antal opgaver som kører nu"
+msgstr "Antal opgaver som kører lige nu"
 
 # sysdeps/names/loadavg.c:51
 #: sysdeps/names/loadavg.c:51
