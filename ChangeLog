@@ -1,9 +1,7 @@
 2004-09-13  Benoît Dejean  <tazforever@dlfp.org>
 
-	reviewed by: <delete if not using a buddy>
-
 	* NEWS:
-	* configure.in:
+	* configure.in: 2.8.0
 
 2004-08-30  Benoît Dejean  <tazforever@dlfp.org>
 
