@@ -63,11 +63,11 @@ BEGIN_LIBGTOP_DECLS
 
 void handle_parent_connection (int s);
 void handle_slave_connection (int input, int output);
-void handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
-			   const void *parameter);
+int handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
+			  const void *parameter);
 
 void do_output (int s, glibtop_response *resp, off_t offset,
-		size_t data_size, const void *data);
+		size_t data_size, const void *data, int retval);
 int do_read (int s, void *ptr, size_t total_size);
 
 void syslog_message (int priority, char *format, ...);

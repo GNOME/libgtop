@@ -25,7 +25,7 @@
 
 void
 do_output (int s, glibtop_response *resp, off_t offset,
-	   size_t data_size, const void *data)
+	   size_t data_size, const void *data, int retval)
 {
 #ifdef REAL_DEBUG
 	fprintf (stderr, "Really writing %d bytes at offset %lu.\n",
@@ -43,6 +43,15 @@ do_output (int s, glibtop_response *resp, off_t offset,
 			glibtop_warn_io ("send");
 	}
 
+
+	if (s == 0) {
+		if (write (1, &retval, sizeof (int)) < 0)
+			glibtop_warn_io ("write retval");
+	} else {
+		if (send (s, &retval, sizeof (int), 0) < 0)
+		glibtop_warn_io ("send retval");
+	}
+
 	if (resp->data_size) {
 #ifdef REAL_DEBUG
 		fprintf (stderr, "Writing %d bytes of data.\n", resp->data_size);
@@ -52,7 +61,7 @@ do_output (int s, glibtop_response *resp, off_t offset,
 			if (write (1, data, resp->data_size) < 0)
 				glibtop_warn_io ("write");
 		} else {
-			if (send (s, data, resp->data_size, 0) , 0)
+			if (send (s, data, resp->data_size, 0) < 0)
 				glibtop_warn_io ("send");
 		}
 	}

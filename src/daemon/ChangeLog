@@ -1,3 +1,8 @@
+1999-10-24  Martin Baulig  <martin@home-of-linux.org>
+
+	* io.c (do_output): Added additional `int' parameter for the
+	retval from the sysdeps functions.
+
 1999-07-29  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am: Link the `libgtop_daemon' and the `libgtop_server'
