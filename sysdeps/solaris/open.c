@@ -189,11 +189,4 @@ glibtop_open_s (glibtop *server, const char *program_name,
 				        break;
 	    }
     }
-
-    server->machine.kd = kvm_open(NULL, NULL, NULL, O_RDONLY, NULL);
-    if(!server->machine.kd)
-        glibtop_warn_io_r(server, "kvm_open()");
-
-    fprintf (stderr, "Sleeping 2 seconds, please wait ...\n");
-    sleep (2);
 }

@@ -21,31 +21,27 @@
    Boston, MA 02111-1307, USA.
 */
 
-#ifndef __GLIBTOP_SERVER_H__
-#define __GLIBTOP_SERVER_H__
+#ifndef __GLIBTOP_SUID_H__
+#define __GLIBTOP_SUID_H__
 
 BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_SUID_CPU		0
-#define GLIBTOP_SUID_MEM		0
-#define GLIBTOP_SUID_SWAP		0
-#define GLIBTOP_SUID_UPTIME		0
-#define GLIBTOP_SUID_LOADAVG		0
-#define GLIBTOP_SUID_SHM_LIMITS		(1L << GLIBTOP_SYSDEPS_SHM_LIMITS)
-#define GLIBTOP_SUID_MSG_LIMITS		(1L << GLIBTOP_SYSDEPS_MSG_LIMITS)
-#define GLIBTOP_SUID_SEM_LIMITS		(1L << GLIBTOP_SYSDEPS_SEM_LIMITS)
-#define GLIBTOP_SUID_PROCLIST		0
-#define GLIBTOP_SUID_PROC_STATE		0
-#define GLIBTOP_SUID_PROC_UID		0
-#define GLIBTOP_SUID_PROC_MEM		0
-#define GLIBTOP_SUID_PROC_TIME		0
-#define GLIBTOP_SUID_PROC_SIGNAL	0
-#define GLIBTOP_SUID_PROC_KERNEL	0
-#define GLIBTOP_SUID_PROC_SEGMENT	0
-#define GLIBTOP_SUID_PROC_ARGS		0
-#define GLIBTOP_SUID_PROC_MAP		0
-#define GLIBTOP_SUID_NETLOAD		0
-#define GLIBTOP_SUID_PPP		0
+static inline void glibtop_suid_enter (glibtop *server) {
+	setreuid (server->machine.uid, server->machine.euid);
+};
+
+static inline void glibtop_suid_leave (glibtop *server) {
+	if (setreuid (server->machine.euid, server->machine.uid))
+		_exit (1);
+};
+
+void
+glibtop_init_p (glibtop *server, const unsigned long features,
+		const unsigned flags);
+void
+glibtop_open_p (glibtop *server, const char *program_name,
+		const unsigned long features,
+		const unsigned flags);
 
 END_LIBGTOP_DECLS
 
