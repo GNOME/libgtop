@@ -6,7 +6,6 @@ close.lo
 cpu.lo
 libgtop_sysdeps.la
 libsysdeps.la
-loadavg.c
 loadavg.lo
 mem.lo
 msg_limits.lo
@@ -16,6 +15,5 @@ sem_limits.lo
 shm_limits.lo
 swap.lo
 sysdeps.lo
-uptime.c
 uptime.lo
 so_locations
