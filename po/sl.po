@@ -152,7 +152,7 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Napaka ob mo¾nosti %s: %s.\n"
-"Po¾enite '%s --help, èe ¾elite videti popoln seznam mo¾nosti ukaznevrstice.\n"
+"Po¾enite '%s --help', èe ¾elite videti popoln seznam mo¾nosti ukazne vrstice.\n" 
 
 #: support/error.c:109
 msgid "Unknown system error"
