@@ -43,8 +43,6 @@ dnl
 AC_DEFUN([GNOME_LIBGTOP_TYPES],
 [
         AC_CHECK_HEADERS(sys/bitypes.h)
-        AC_LIBGTOP_CHECK_TYPE(guint64, unsigned long long int)
-        AC_LIBGTOP_CHECK_TYPE(int64_t, signed long long int)
 ])
 
 dnl See whether we need a declaration for a function.

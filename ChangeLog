@@ -1,3 +1,9 @@
+2003-12-22  Bastien Nocera  <hadess@hadess.net>
+
+	* acinclude.m4:
+	* configure.in: remove linking to libgtop and checks for 64-bit
+	integer bytes (fixes warning on build on glib 2.0 systems)
+
 2003-11-02  Žygimantas Beručka  <uid0@tuxfamily.org>
 
 	* configure.in: Added "lt" to ALL_LINGUAS.
