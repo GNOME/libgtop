@@ -112,5 +112,5 @@ glibtop_inodedb_close_s (glibtop *server, glibtop_inodedb *inodedb)
 	if (inodedb->user_dbf)
 		gdbm_close (inodedb->user_dbf);
 
-	g_free (server, inodedb);
+	g_free (inodedb);
 }

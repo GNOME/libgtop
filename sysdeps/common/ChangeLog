@@ -1,5 +1,9 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* inodedb.c: (glibtop_inodedb_close_s): fix compilation, thanks Jeff
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* ChangeLog:
 	* backend.c: (_open_common):
 	* fsusage.c:
