@@ -41,11 +41,12 @@ glibtop_init_netinfo_s (glibtop *server)
 
 /* Provides network statistics. */
 
-int
-glibtop_get_netinfo_s (glibtop *server, glibtop_netinfo *buf,
-		       const char *interface, unsigned transport)
+glibtop_ifaddr *
+glibtop_get_netinfo_s (glibtop *server, glibtop_array *array,
+		       glibtop_netinfo *buf, const char *interface,
+		       u_int64_t transport)
 {
     memset (buf, 0, sizeof (glibtop_netinfo));
 
-    return 0;
+    return NULL;
 }
