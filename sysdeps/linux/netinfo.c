@@ -82,7 +82,7 @@ glibtop_init_netinfo_s (glibtop *server)
 
 static int
 _netinfo_ipv4 (glibtop *server, glibtop_netinfo *buf,
-	       const char *interface)
+	       const char *interface, int only_common)
 {
     int skfd;
 
@@ -91,8 +91,10 @@ _netinfo_ipv4 (glibtop *server, glibtop_netinfo *buf,
 	struct ifreq ifr;
 	unsigned flags;
 
-	buf->transport = GLIBTOP_TRANSPORT_IPV4;
-	buf->flags |= (1L << GLIBTOP_NETINFO_TRANSPORT);
+	if (!only_common) {
+	    buf->transport = GLIBTOP_TRANSPORT_IPV4;
+	    buf->flags |= (1L << GLIBTOP_NETINFO_TRANSPORT);
+	}
 
 	strcpy (ifr.ifr_name, interface);
 	if (!ioctl (skfd, SIOCGIFFLAGS, &ifr)) {
@@ -131,20 +133,22 @@ _netinfo_ipv4 (glibtop *server, glibtop_netinfo *buf,
 	if (flags & IFF_MULTICAST)
 	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_MULTICAST);
 
-	strcpy (ifr.ifr_name, interface);
-	if (!ioctl (skfd, SIOCGIFADDR, &ifr)) {
-	    struct sockaddr_in addr =
-		*(struct sockaddr_in *) &ifr.ifr_addr;
-	    memcpy (&buf->address, &addr.sin_addr.s_addr, 4);
-	    buf->flags |= (1L << GLIBTOP_NETINFO_ADDRESS);
-	}
+	if (!only_common) {
+	    strcpy (ifr.ifr_name, interface);
+	    if (!ioctl (skfd, SIOCGIFADDR, &ifr)) {
+		struct sockaddr_in addr =
+		    *(struct sockaddr_in *) &ifr.ifr_addr;
+		memcpy (&buf->address, &addr.sin_addr.s_addr, 4);
+		buf->flags |= (1L << GLIBTOP_NETINFO_ADDRESS);
+	    }
 
-	strcpy (ifr.ifr_name, interface);
-	if (!ioctl (skfd, SIOCGIFNETMASK, &ifr)) {
-	    struct sockaddr_in addr =
-		*(struct sockaddr_in *) &ifr.ifr_addr;
-	    memcpy (&buf->subnet, &addr.sin_addr.s_addr, 4);
-	    buf->flags |= (1L << GLIBTOP_NETINFO_SUBNET);
+	    strcpy (ifr.ifr_name, interface);
+	    if (!ioctl (skfd, SIOCGIFNETMASK, &ifr)) {
+		struct sockaddr_in addr =
+		    *(struct sockaddr_in *) &ifr.ifr_addr;
+		memcpy (&buf->subnet, &addr.sin_addr.s_addr, 4);
+		buf->flags |= (1L << GLIBTOP_NETINFO_SUBNET);
+	    }
 	}
 
 	strcpy (ifr.ifr_name, interface);
@@ -204,9 +208,15 @@ _netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
 {
     FILE *f;
     char addr6[40], devname[20];
-    struct sockaddr_in6 sap;
     int plen, scope, dad_status, if_idx;
-    extern struct aftype inet6_aftype;
+
+#ifdef HAVE_AFINET6
+    /* get common things such as mtu and if_flags */
+    _netinfo_ipv4 (server, buf, interface, 1);
+#endif
+
+    buf->transport = GLIBTOP_TRANSPORT_IPV6;
+    buf->flags |= (1L << GLIBTOP_NETINFO_TRANSPORT);
 
     if ((f = fopen (_PATH_PROCNET_IFINET6, "r")) != NULL) {
 	while (fscanf (f, "%64s %02x %02x %02x %02x %20s\n",
@@ -221,6 +231,8 @@ _netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
 	    break;
 	}
     }
+
+    fclose (f);
 
     return 0;
 }
@@ -274,7 +286,7 @@ glibtop_get_netinfo_s (glibtop *server, glibtop_netinfo *buf,
     switch (transport) {
 #ifdef HAVE_AFINET
     case GLIBTOP_TRANSPORT_IPV4:
-	return _netinfo_ipv4 (server, buf, interface);
+	return _netinfo_ipv4 (server, buf, interface, 0);
 #endif /* HAVE_AFINET */
 #ifdef HAVE_AFINET6
     case GLIBTOP_TRANSPORT_IPV6:
