@@ -37,9 +37,33 @@
 
 #include <glib.h>
 
+#if !defined (_LIBC) && defined (__GNU_LIBRARY__) && __GNU_LIBRARY__ > 1
+/* GNU LibC */
+#include <net/if.h>
+#include <netinet/ip_icmp.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
+#include <net/if.h>
+#include <net/if_ppp.h>
+#else /* Libc 5 */
+#include <linux/if.h>
+#include <linux/in.h>
+#include <linux/ip.h>
+#include <linux/icmp.h>
+#include <linux/tcp.h>
+#include <linux/udp.h>
+#include <linux/isdn.h>
+#endif
+
 static const unsigned long _glibtop_sysdeps_ppp =
 (1L << GLIBTOP_PPP_STATE) + (1L << GLIBTOP_PPP_BYTES_IN) +
 (1L << GLIBTOP_PPP_BYTES_OUT);
+
+#ifdef SIOCDEVPRIVATE
+static int ip_socket;
+#endif
 
 /* Init function. */
 
@@ -47,6 +71,12 @@ int
 glibtop_init_ppp_s (glibtop *server)
 {
     server->sysdeps.ppp = _glibtop_sysdeps_ppp;
+
+#ifdef SIOCDEVPRIVATE
+    /* open ip socket */
+    if ((ip_socket = socket (AF_INET, SOCK_DGRAM, 0)) < 0)
+	return -GLIBTOP_ERROR_NO_KERNEL_SUPPORT; /* should never happen */
+#endif
 
     return 0;
 }
@@ -85,7 +115,8 @@ get_ISDN_stats (glibtop *server, int *in, int *out)
     return TRUE;
 }
 
-static int is_ISDN_on (glibtop *server, int *online)
+static int
+is_ISDN_on (glibtop *server, int *online)
 {
     FILE *f = 0;
     char buffer [BUFSIZ], *p;
@@ -179,10 +210,72 @@ static int is_ISDN_on (glibtop *server, int *online)
     return TRUE;
 }
 
+static int
+is_Modem_on (glibtop *server, const char *lock_file)
+{
+    FILE *f = 0;
+    gchar buf[64];
+    pid_t pid = -1;
+
+    f = fopen (lock_file, "r");
+
+    if(!f) return FALSE;
+
+    if (fgets (buf, sizeof(buf), f) == NULL) {
+	fclose (f);
+	return FALSE;
+    }
+
+    fclose (f);
+
+    pid = (pid_t) strtol (buf, NULL, 10);
+    if (pid < 1 || (kill (pid, 0) == -1 && errno != EPERM)) return FALSE;
+
+    return TRUE;
+}
+
+static int
+get_Modem_stats (int device, int *in, int *out)
+{
+    struct 	ifreq ifreq;
+    struct 	ppp_stats stats;
+    char	device_name [IFNAMSIZ];
+
+    sprintf (device_name, "ppp%d", device);
+
+    memset (&ifreq, 0, sizeof(ifreq));
+    strncpy (ifreq.ifr_ifrn.ifrn_name, device_name, IFNAMSIZ);
+    ifreq.ifr_ifru.ifru_data = (caddr_t)&stats;
+
+#ifdef SIOCDEVPRIVATE
+    /* open ip socket */
+    if ((ip_socket = socket(AF_INET, SOCK_DGRAM, 0)) < 0)
+		{
+		g_print("could not open an ip socket\n");
+		return 1;
+		}
+
+
+
+    if ((ioctl (ip_socket, SIOCDEVPRIVATE, (caddr_t)&ifreq) < 0)) {
+	*in = *out = 0;		/* failure means ppp is not up */
+	return FALSE;
+    } else {
+	*in = stats.p.ppp_ibytes;
+	*out = stats.p.ppp_obytes;
+	return TRUE;
+    }
+#else /* not SIOCDEVPRIVATE */
+    *in = *out = 0;
+    return FALSE;
+#endif /* not SIOCDEVPRIVATE */
+}
+
 /* Provides PPP/ISDN information. */
 
 int
-glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device)
+glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device,
+		   unsigned short use_isdn, const char *lockfile)
 {
     int in, out, online;
 
@@ -190,17 +283,35 @@ glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device)
 
     memset (buf, 0, sizeof (glibtop_ppp));
 
-    if (is_ISDN_on (server, &online)) {
-	buf->state = online ? GLIBTOP_PPP_STATE_ONLINE :
-	    GLIBTOP_PPP_STATE_HANGUP;
-	buf->flags |= (1L << GLIBTOP_PPP_STATE);
-    }
+    if (use_isdn) {
+	/* ISDN */
+	if (is_ISDN_on (server, &online)) {
+	    buf->state = online ? GLIBTOP_PPP_STATE_ONLINE :
+		GLIBTOP_PPP_STATE_HANGUP;
+	    buf->flags |= (1L << GLIBTOP_PPP_STATE);
+	}
 
-    if (get_ISDN_stats (server, &in, &out)) {
-	buf->bytes_in = in;
-	buf->bytes_out = out;
-	buf->flags |= (1L << GLIBTOP_PPP_BYTES_IN) |
-	    (1L << GLIBTOP_PPP_BYTES_OUT);
+	if (get_ISDN_stats (server, &in, &out)) {
+	    buf->bytes_in = in;
+	    buf->bytes_out = out;
+	    buf->flags |= (1L << GLIBTOP_PPP_BYTES_IN) |
+		(1L << GLIBTOP_PPP_BYTES_OUT);
+	}
+    } else {
+	/* Modem */
+	if (!lockfile)
+	    return -GLIBTOP_ERROR_NEED_MODEM_LOCKFILE;
+
+	buf->state = is_Modem_on (server, lockfile) ?
+	    GLIBTOP_PPP_STATE_ONLINE : GLIBTOP_PPP_STATE_HANGUP;
+	buf->flags |= (1L << GLIBTOP_PPP_STATE);
+
+	if (get_Modem_stats (device, &in, &out)) {
+	    buf->bytes_in = in;
+	    buf->bytes_out = out;
+	    buf->flags |= (1L << GLIBTOP_PPP_BYTES_IN) |
+		(1L << GLIBTOP_PPP_BYTES_OUT);
+	}
     }
 
     return 0;

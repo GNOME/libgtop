@@ -182,7 +182,8 @@ static int is_ISDN_on (glibtop *server, int *online)
 /* Provides PPP/ISDN information. */
 
 int
-glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device)
+glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device,
+		   unsigned short isdn, const char *lockfile)
 {
     int in, out, online;
 

@@ -1,3 +1,19 @@
+2000-01-22  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/ppp.h (glibtop_get_ppp): Added `use_isdn' and
+	`lockfile' arguments. When `use_isdn' is TRUE, we return ISDN
+	statistics, otherwise `lockfile' is expected to be the modem
+	lockfile and we return PPP statistics for that Modem.
+
+	Note that for Modem statistics, you need to set both `device' and
+	`lockfile' for some sysdeps ports; so if you have more than one PPP
+	connection active and want to get statistics on the second one you
+	need to set `device' to 1 and `lockfile' to the correct modem lockfile.
+
+	* include/glibtop/error.h (GLIBTOP_ERROR_NEED_MODEM_LOCKFILE): New
+	error constant; this is returned when you call glibtop_get_ppp ()
+	without a modem lockfile and the current sysdeps port requires it.
+
 2000-01-18  Martin Baulig  <martin@home-of-linux.org>
 
 	* lib/sysdeps-init-osf1.c: New file. Added sysdeps initialization
