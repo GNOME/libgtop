@@ -48,6 +48,7 @@
 #endif
 
 static const unsigned long _glibtop_sysdeps_netinfo =
+(1L << GLIBTOP_NETINFO_IF_FLAGS) +
 (1L << GLIBTOP_NETINFO_ADDRESS) +
 (1L << GLIBTOP_NETINFO_SUBNET) +
 (1L << GLIBTOP_NETINFO_MTU);
