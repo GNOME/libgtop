@@ -1,3 +1,7 @@
+1999-09-22  Kjartan Maraas  <kmaraas@online.no>
+
+	* configure.in: Added "da" to ALL_LINGUAS.
+	
 1999-09-19  Martin Baulig  <martin@home-of-linux.org>
 
 	* libgtopConf.sh.in: Added MODULE_VERSION on Miguel's
