@@ -37,7 +37,11 @@ BEGIN_LIBGTOP_DECLS
 #define GLIBTOP_ERROR_READONLY_VALUE		4
 #define GLIBTOP_ERROR_SIZE_MISMATCH		5
 
-#define GLIBTOP_MAX_ERROR			6
+#define GLIBTOP_ERROR_SERVER_COMM_FAILURE	6
+
+#define GLIBTOP_ERROR_NO_SUCH_PROCESS		7
+
+#define GLIBTOP_MAX_ERROR			8
 
 char *
 glibtop_get_error_string_l (glibtop *server, unsigned error_number);

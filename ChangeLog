@@ -1,3 +1,11 @@
+1999-12-22  Martin Baulig  <martin@home-of-linux.org>
+
+	* glibtop.h (glibtop): Added `errno' field.
+
+	* include/glibtop/errors.h
+	(GLIBTOP_ERROR_SERVER_COMM_FAILURE): New error constant.
+	(GLIBTOP_ERROR_NO_SUCH_PROCESS): New error constant.
+
 1999-12-19  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/glib-arrays.h: New file.
