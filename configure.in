@@ -242,7 +242,7 @@ AC_SUBST(LIBSUPPORT)
 AC_SUBST(SUPPORTINCS)
 
 dnl These definitions are expanded in make.
-LIBGTOP_LIBS='-L$(libdir) -lgtop'
+LIBGTOP_LIBS='-L$(libdir)'
 LIBGTOP_INCS='-I$(includedir)'
 
 if test x$build_inodedb = xyes ; then
@@ -280,12 +280,11 @@ fi
 
 LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS"
 
-LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common -lgtop_sysdeps"
-LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_common -lgtop_sysdeps"
+LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common -lgtop -lgtop_sysdeps"
+LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_common -lgtop -lgtop_sysdeps"
 
 LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names"
-LIBGTOP_GUILE_NAMES_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_guile_names"
-LIBGTOP_GUILE_NAMES_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_names"
+LIBGTOP_GUILE_NAMES_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_guile_names -lgtop_names"
 
 LIBGTOP_LIBS="$LIBGTOP_LIBS" 
 LIBGTOP_NAMES_LIBS="$LIBGTOP_NAMES_LIBS"
