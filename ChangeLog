@@ -1,3 +1,7 @@
+1998-06-02  Federico Mena Quintero  <federico@nuclecu.unam.mx>
+
+	* src/server/main.c: #include <locale.h>
+
 1998-05-24  Martin Baulig  <martin@home-of-linux.org>
 
 	* sysdeps/sun4/{open.c, mem.c, glibtop_machine.h}: added
