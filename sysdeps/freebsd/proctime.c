@@ -190,7 +190,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 
 	buf->start_time = tv2sec (pstats.p_start);
 
-	buf->flags = _glibtop_sysdeps_proc_time_user;
+	buf->flags |= _glibtop_sysdeps_proc_time_user;
 #else
 	glibtop_suid_enter (server);
 
