@@ -45,7 +45,7 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 {
    	struct psinfo pinfo;
 	int len;
-	char *ret;
+	char *ret, *p;
 
 	memset (buf, 0, sizeof (glibtop_proc_args));
 
@@ -60,13 +60,18 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 		   	len = max_len;
 		memcpy(ret, pinfo.pr_psargs, len);
 		ret[len] = 0;
-		return ret;
 	}
-	ret = glibtop_malloc_r(server, len + 1);
-	memcpy(ret, pinfo.pr_psargs, len);
-	ret[len] = 0;
+	else
+	{
+	   ret = glibtop_malloc_r(server, len + 1);
+	   memcpy(ret, pinfo.pr_psargs, len);
+	   ret[len] = 0;
 
-	buf->size = len;
-	buf->flags = _glibtop_sysdeps_proc_args;
+	   buf->size = len;
+	   buf->flags = _glibtop_sysdeps_proc_args;
+	}
+	for(p = ret; *p; ++p)
+	   if(*p == ' ')
+	      *p = 0;
 	return ret;
 }
