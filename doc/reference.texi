@@ -629,8 +629,8 @@ Standard unix nice level of process.
 @item ngroups
 Number of additional process groups.
 @item groups
-Array of additional process groups (@code{GLIBTOP_MAX_GROUPS} is
-defined in @file{<glibtop/limits.h>}).
+Array of additional process groups@*
+(@code{GLIBTOP_MAX_GROUPS} is defined in @file{<glibtop/limits.h>}).
 @end table
 
 @page
@@ -679,9 +679,72 @@ Number of residnet set (non-swapped) pages.
 @item share
 Number of pages of shared (mmap'd) memory.
 @item rss
-Number of pages the process has in real memory, minus 3 for administrative purposes.
-This is just the pages which count towards text, data, or stack space. This does not
-include pages which have not been demand-loaded in, or which are swapped out.
+Number of pages the process has in real memory, minus 3 for administrative
+purposes.
+
+This is just the pages which count towards text, data, or stack space.
+This does not include pages which have not been demand-loaded in, or which
+are swapped out.
 @item rss_rlim
 Current limit in bytes on the rss of the process (usually 2,147,483,647).
 @end table
+
+The description above is taken from the manual page of the @file{/proc}
+filesystem under Linux and is a little bit confusing, so I make this clear
+here. 
+
+@strong{Note for people porting LibGTop to other systems:}
+Every operating system has its own idea about the memory usage of a process
+and also system utilities like @code{ps} show different things on different
+systems.
+
+Nevertheless, we should try to make LibGTop as system independent as possible,
+so I give you some hints here how @code{glibtop_get_proc_mem} should work. 
+
+@itemize @bullet
+@item
+When you use @code{mmap} with either @code{MAP_SHARED} or @code{MAP_PRIVATE},
+this should only affect the @code{vsize} of the process and none of its
+@code{size}, @code{resident}, @code{shared} and @code{rss} sizes.
+
+@item
+As soon as you read some of the @code{mmap()}ed pages, they will be demand-
+oaded and thus count towards the @code{size} of the process.
+
+Also - we assume there is enough free memory - they are resident in memory
+until they get stolen or swapped out and thus increase the @code{resident} and
+@code{rss} sizes of the process.
+
+@item
+If the process has used @code{MAP_SHARED} and another process attaches the
+same file also @code{MAP_SHARED}, some of the pages are shared with this
+process and thus increase the @code{shared} sizes of both processes.
+
+@item
+If the process has used @code{MAP_PRIVATE} and writes to the @code{mmap()}ed
+pages, the only difference to reading from them is that they get dirty and
+cannot be stolen any longer but will get swapped out.
+
+@item
+When memory gets rare, clean pages are normally stolen, which decreases the
+@code{size}, @code{resident}, @code{shared} and @code{rss} sizes of the process.
+
+@item
+When dirty pages are swapped out, this will not decrease the @code{size} of the
+process but only its @code{resident} and @code{rss} sizes (dirty pages cannot
+be shared).
+
+@item
+The @code{vsize} of a process can @emph{only} be changed by the process
+itself when it requests or frees memory but @emph{never} due to swapping
+activity of the system.
+
+@item
+If the @code{shared} size changes, this @emph{only} means that the number of
+pages that are currently shared with other processes has changed; if this
+happens, this will @emph{never} affect any of the other sizes of the process.
+@end itemize
+
+The hints above describe how it works under Linux - but we should try to make
+@code{glibtop_get_proc_mem} show the same behavior under every other system.
+
