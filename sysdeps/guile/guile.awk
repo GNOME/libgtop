@@ -30,6 +30,10 @@ BEGIN {
       output = "SCM\nglibtop_guile_get_"$1" (SCM pid)\n{\n";
       output = output"\tglibtop_"$1" "$1";\n\n";
       output = output"\tglibtop_get_"$1" (&"$1", (pid_t) gh_scm2long (pid));\n\n";
+    } else if ($1 ~ /^fsusage$/) {
+      output = "SCM\nglibtop_guile_get_"$1" (SCM mountdir)\n{\n";
+      output = output"\tglibtop_"$1" "$1";\n\n";
+      output = output"\tglibtop_get_"$1" (&"$1", gh_scm2newstr (mountdir, NULL));\n\n";
     } else {
       output = "SCM\nglibtop_guile_get_"$1" (void)\n{\n";
       output = output"\tglibtop_"$1" "$1";\n\n";
@@ -76,6 +80,8 @@ END {
 
   for (feature in features) {
     if (feature ~ /^proc_/) {
+      print "\tgh_new_procedure1_0";
+    } else if (feature ~ /^fsusage$/) {
       print "\tgh_new_procedure1_0";
     } else {
       print "\tgh_new_procedure0_0";

@@ -166,6 +166,12 @@ handle_parent_connection (int s)
 				   resp->u.data.mountlist.total, mount_list);
 			glibtop_free_r (server, mount_list);
 			break;
+		case GLIBTOP_CMND_FSUSAGE:
+			glibtop_get_fsusage_l
+				(server, &resp->u.data.fsusage, parameter);
+			do_output (s, resp, _offset_data (fsusage),
+				   0, NULL);
+			break;
 		default:
 			glibtop_warn ("Parent received unknown command %u",
 				      cmnd->command);

@@ -1,5 +1,14 @@
 1998-07-22  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/fsusage.h: New file.
+
+	* features.def: Added new feature `fsusage'.
+
+	* sysdeps/common/fsusage.c (glibtop_get_fsusage_s): New function.
+	(get_fs_usage): Declared as `static'.
+
+	* sysdeps/names/fsusage.c: New file.
+
 	* include/glibtop/mountlist.h: New file.
 
 	* features.def: Added new feature `mountlist'.

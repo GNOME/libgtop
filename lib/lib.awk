@@ -26,6 +26,8 @@ function output(feature) {
   }
   if (feature ~ /^proc_/) {
     param = ", pid_t pid";
+  } else if (feature ~ /^fsusage$/) {
+    param = ", const char *mountdir";
   } else {
     param = "";
   }
@@ -46,6 +48,13 @@ function output(feature) {
     print "\t} else {";
     print "#if (!GLIBTOP_SUID_"toupper(feature)")";
     print "\t\tglibtop_get_"feature"_r (server, buf, pid);";
+  } else if (feature ~ /^fsusage$/) {
+    print "\t\tglibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)",";
+    print "\t\t\t\tstrlen (mountdir) + 1, mountdir,";
+    print "\t\t\t\tsizeof (glibtop_"feature"), buf);";
+    print "\t} else {";
+    print "#if (!GLIBTOP_SUID_"toupper(feature)")";
+    print "\t\tglibtop_get_"feature"_r (server, buf, mountdir);";
   } else {
     if (feature ~ /^mountlist$/) {
       print "\t\treturn glibtop_call_l (server, GLIBTOP_CMND_MOUNTLIST,";

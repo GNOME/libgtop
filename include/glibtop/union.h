@@ -41,6 +41,7 @@
 #include <glibtop/procsegment.h>
 
 #include <glibtop/mountlist.h>
+#include <glibtop/fsusage.h>
 
 __BEGIN_DECLS
 
@@ -65,6 +66,7 @@ union _glibtop_union
 	glibtop_proc_kernel	proc_kernel;
 	glibtop_proc_segment	proc_segment;
 	glibtop_mountlist	mountlist;
+	glibtop_fsusage		fsusage;
 };
 
 __END_DECLS

@@ -29,6 +29,7 @@
 #include <glibtop/parameter.h>
 
 #include <glibtop/mountlist.h>
+#include <glibtop/fsusage.h>
 
 #ifndef PROFILE_COUNT
 #define PROFILE_COUNT	1000
@@ -37,6 +38,7 @@
 int
 main (int argc, char *argv [])
 {
+	glibtop_fsusage fsusage;
 	glibtop_mountlist mount_list;
 	glibtop_mountentry *mount_entries;
 	unsigned c, index, method, count, port;
@@ -85,7 +87,23 @@ main (int argc, char *argv [])
 			mount_entries [index].type,
 			mount_entries [index].devname);
 
+	printf ("\n\n%-23s %9s %9s %9s %9s %9s\n\n",
+		"", "Blocks", "Free", "Avail", "Files", "Free");
+
+	for (index = 0; index < mount_list.number; index++) {
+		glibtop_get_fsusage (&fsusage,
+				     mount_entries [index].mountdir);
+
+		printf ("Usage: %-16s %9lu %9lu %9lu %9lu %9lu\n",
+			mount_entries [index].mountdir,
+			fsusage.blocks, fsusage.bfree,
+			fsusage.bavail, fsusage.files,
+			fsusage.ffree);
+	}
+
 	glibtop_free (mount_entries);
+
+	printf ("\nsbrk (0) = %p\n\n", sbrk (0));
 
 	glibtop_close ();
 

@@ -62,6 +62,13 @@ int statfs ();
 int statvfs ();
 #endif
 
+#include <glibtop.h>
+#include <glibtop/error.h>
+#include <glibtop/fsusage.h>
+
+static int get_fs_usage __P ((const char *, const char *,
+			      struct fs_usage *));
+
 int safe_read ();
 
 /* Return the number of TOSIZE-byte blocks used by
@@ -93,7 +100,7 @@ adjust_blocks (blocks, fromsize, tosize)
    Return 0 if successful, -1 if not.  When returning -1, ensure that
    ERRNO is either a system error value, or zero if DISK is NULL
    on a system that requires a non-NULL value.  */
-int
+static int
 get_fs_usage (path, disk, fsp)
      const char *path;
      const char *disk;
@@ -272,3 +279,23 @@ statfs (path, fsb)
 }
 
 #endif /* _AIX && _I386 */
+
+void
+glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
+		       const char *disk)
+{
+	struct fs_usage fsp;
+
+	glibtop_init_r (&server, 0, 0);
+	
+	memset (buf, 0, sizeof (glibtop_fsusage));
+	
+	if (get_fs_usage (disk, disk, &fsp))
+		return;
+
+	buf->blocks = fsp.fsu_blocks;
+	buf->bfree = fsp.fsu_bfree;
+	buf->bavail = fsp.fsu_bavail;
+	buf->files = fsp.fsu_files;
+	buf->ffree = fsp.fsu_ffree;
+}
