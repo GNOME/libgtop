@@ -344,7 +344,7 @@ LIBGTOP_LIBS="$LIBGTOP_LIBS"
 LIBGTOP_NAMES_LIBS="$LIBGTOP_NAMES_LIBS"
 
 LIBGTOP_NAMES_INCS="$LIBGTOP_INCS -DGLIBTOP_NAMES"
-wx
+
 machine_incs="-I\$(top_srcdir)/sysdeps/$sysdeps_dir"
 
 AC_SUBST(machine_incs)
