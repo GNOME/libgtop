@@ -1,0 +1,233 @@
+# translation of libgtop to Kinyarwanda.
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as the libgtop package.
+# Steve Murphy <murf@e-tools.com>, 2005
+# Steve performed initial rough translation from compendium built from translations provided by the following translators:
+# Philibert Ndandali  <ndandali@yahoo.fr>, 2005.
+# Viateur MUGENZI <muvia1@yahoo.fr>, 2005.
+# Noëlla Mupole <s24211045@tuks.co.za>, 2005.
+# Carole Karema <karemacarole@hotmail.com>, 2005.
+# JEAN BAPTISTE NGENDAHAYO <ngenda_denis@yahoo.co.uk>, 2005.
+# Augustin KIBERWA  <akiberwa@yahoo.co.uk>, 2005.
+# Donatien NSENGIYUMVA <ndonatienuk@yahoo.co.uk>, 2005..
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop 2.12\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-03-31 18:21-0700\n"
+"PO-Revision-Date: 2005-03-28 19:35-0700\n"
+"Last-Translator: Steve Murphy <murf@e-tools.com>\n"
+"Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lib/read.c:65
+#, fuzzy, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "Gusoma Bayite"
+
+#: lib/read_data.c:53
+#, fuzzy
+msgid "read data size"
+msgstr "Gusoma Ibyatanzwe Ingano"
+
+#: lib/read_data.c:72
+#, fuzzy, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "Gusoma Bayite Bya Ibyatanzwe"
+
+#: lib/write.c:52
+#, fuzzy, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "Bayite"
+
+#: src/daemon/gnuserv.c:460
+msgid "Enable debugging"
+msgstr ""
+
+# Debug menu items
+#: src/daemon/gnuserv.c:460
+#, fuzzy
+msgid "DEBUG"
+msgstr "Kosora amakosa"
+
+#: src/daemon/gnuserv.c:462
+#, fuzzy
+msgid "Enable verbose output"
+msgstr "Ibisohoka"
+
+#: src/daemon/gnuserv.c:462
+msgid "VERBOSE"
+msgstr ""
+
+#: src/daemon/gnuserv.c:464
+#, fuzzy
+msgid "Don't fork into background"
+msgstr "Mbuganyuma"
+
+#: src/daemon/gnuserv.c:464
+msgid "NO-DAEMON"
+msgstr ""
+
+#: src/daemon/gnuserv.c:466
+#, fuzzy
+msgid "Invoked from inetd"
+msgstr "Bivuye"
+
+#: src/daemon/gnuserv.c:466
+msgid "INETD"
+msgstr ""
+
+#: src/daemon/gnuserv.c:500
+#, fuzzy, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr "ku Ihitamo Kuri a Urutonde Bya Bihari Komandi: Umurongo Amahitamo"
+
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Hangup"
+msgstr ""
+
+# 3225
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr "Hagarikira aho"
+
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "Kuvamo"
+
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "Ntibyakunze"
+
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#, fuzzy
+msgid "EMT error"
+msgstr "Ikosa"
+
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#, fuzzy
+msgid "Floating-point exception"
+msgstr "Akadomo Irengayobora(-)"
+
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#, fuzzy
+msgid "Bus error"
+msgstr "Ikosa"
+
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#, fuzzy
+msgid "Bad argument to system call"
+msgstr "Kuri Sisitemu"
+
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+msgid "Termination"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#, fuzzy
+msgid "Urgent condition on socket"
+msgstr "Ibisabwa ku"
+
+# basctl/source\basicide\basidesh.src:RID_BASICIDE_OBJECTBAR.SID_BASICSTOP.text
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "Guhagarara"
+
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#, fuzzy
+msgid "Keyboard stop"
+msgstr "Guhagarara"
+
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "Gukomeza"
+
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#, fuzzy
+msgid "Child status has changed"
+msgstr "Imimerere Byahinduwe"
+
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#, fuzzy
+msgid "Background read from tty"
+msgstr "Gusoma Bivuye"
+
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#, fuzzy
+msgid "Background write to tty"
+msgstr "Kuri"
+
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#, fuzzy
+msgid "I/O now possible"
+msgstr "NONEAHA"
+
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#, fuzzy
+msgid "File size limit exceeded"
+msgstr "Idosiye Ingano"
+
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#, fuzzy
+msgid "Window size change"
+msgstr "Ingano Guhindura>>"
+
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#, fuzzy
+msgid "Information request"
+msgstr "Kubaza..."
+
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#, fuzzy
+msgid "User defined signal 1"
+msgstr "1."
+
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#, fuzzy
+msgid "User defined signal 2"
+msgstr "2."
