@@ -19,6 +19,8 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#include <locale.h>
+
 #include <glibtop.h>
 #include <glibtop/open.h>
 #include <glibtop/close.h>
