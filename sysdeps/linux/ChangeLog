@@ -1,3 +1,7 @@
+2000-01-22  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am: Install the library in $(backenddir).
+
 1999-12-11  Martin Baulig  <martin@home-of-linux.org>
 
 	* cpu.c: Only set smp flags when we're really on a SMP machine.
