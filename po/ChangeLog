@@ -1,3 +1,8 @@
+2005-03-05  Abel Cheung  <maddog@linuxhall.org>
+
+	* zh_TW.po: Updated traditional Chinese translation from GNOME HK Team
+	* bg.po: Mark wrong entry as fuzzy (msgfmt check failed).
+
 2005-03-04  Laszlo Dvornik  <dvornik@gnome.hu>
 
 	* hu.po: Hungarian translation updated by Gabor Kelemen.
