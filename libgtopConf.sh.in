@@ -8,11 +8,21 @@ LIBGTOP_INCLUDEDIR="@LIBGTOP_INCLUDEDIR@"
 LIBGTOP_LIBS="@LIBGTOP_LIBS@"
 LIBGTOP_INCS="@LIBGTOP_INCS@"
 
+LIBGTOP_NAMES_LIBS="@LIBGTOP_NAMES_LIBS@"
+LIBGTOP_NAMES_INCS="@LIBGTOP_NAMES_INCS@"
+
 LIBGTOP_GUILE_LIBS="@LIBGTOP_GUILE_LIBS@"
 LIBGTOP_GUILE_INCS="@LIBGTOP_GUILE_INCS@"
 
+LIBGTOP_GUILE_NAMES_LIBS="@LIBGTOP_GUILE_NAMES_LIBS@"
+LIBGTOP_GUILE_NAMES_INCS="@LIBGTOP_GUILE_NAMES_INCS@"
+
 LIBGTOP_BINDIR="@LIBGTOP_BINDIR@"
 LIBGTOP_SERVER="@LIBGTOP_SERVER@"
+
+LIBGTOP_MAJOR_VERSION="@LIBGTOP_MAJOR_VERSION@"
+LIBGTOP_MINOR_VERSION="@LIBGTOP_MINOR_VERSION@"
+LIBGTOP_VERSION="@LIBGTOP_VERSION@"
 
 libgtop_sysdeps_dir="@libgtop_sysdeps_dir@"
 libgtop_need_server="@libgtop_need_server@"
@@ -20,6 +30,4 @@ libgtop_use_machine_h="@libgtop_use_machine_h@"
 
 libgtop_guile_found="@libgtop_guile_found@"
 
-libgtop_want_names="@libgtop_want_names@"
-libgtop_want_guile_names="@libgtop_want_guile_names@"
 libgtop_want_examples="@libgtop_want_examples@"

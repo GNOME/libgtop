@@ -1,9 +1,5 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-INCLUDES			= -I$(top_builddir) -I$(top_srcdir) @machine_incs@ \
-				  -I$(top_srcdir)/include -I$(top_srcdir)/intl @GUILE_INCS@ \
-				  -DGTOPLOCALEDIR=\"$(datadir)/locale\" -D_GNU_SOURCE
-
 CFLAGS				= -Wall -W @CFLAGS@
 
 lib_LTLIBRARIES			= libgtop_names.la
@@ -11,5 +7,6 @@ lib_LTLIBRARIES			= libgtop_names.la
 libgtop_names_la_SOURCES	= cpu.c mem.c swap.c uptime.c loadavg.c \
 				  shm_limits.c msg_limits.c sem_limits.c \
 				  proclist.c sysdeps.c procstate.c procuid.c \
-				  proctime.c procmem.c procsignal.c prockernel.c \
-				  procsegment.c fsusage.c
+				  proctime.c procmem.c procsignal.c \
+				  prockernel.c procsegment.c fsusage.c \
+				  mountlist.c

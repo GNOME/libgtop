@@ -92,7 +92,14 @@ function output(feature) {
   print "";
 }
 
-/^(\w+)/	{ features[$1] = $1 }
+/^[^#]/		{
+  line = $0;
+  split (line, line_fields, /\|/);
+  feature = line_fields[2];
+  sub(/^@/,"",feature);
+
+  features[feature] = feature;
+}
 
 END {
   for (feature in features) {

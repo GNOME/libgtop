@@ -41,7 +41,7 @@ _init_server (glibtop *server, const unsigned features)
 
 	if (server->server_command == NULL) {
 		const char *temp = getenv ("LIBGTOP_SERVER") ?
-			getenv ("LIBGTOP_SERVER") : GTOP_SERVER;
+			getenv ("LIBGTOP_SERVER") : LIBGTOP_SERVER;
 
 		server->server_command = glibtop_strdup_r (server, temp);
 	}

@@ -11,90 +11,87 @@ BEGIN {
   print "";
 }
 
-function output(feature) {
-  orig = feature;
-  sub(/@/,"",feature);
-  if (feature ~ /^proclist$/) {
-    print "unsigned *";
+function output(line) {
+  split (line, line_fields, /\|/);
+  retval = line_fields[1];
+  feature = line_fields[2];
+  param_typ = line_fields[4];
+  param = line_fields[5];
+  param_size = line_fields[6];
+
+  if (param_typ == "") {
+    param_size = "0";
+    param_ptr = "NULL";
+  } else {
+    if (param_size == "")
+      param_size = "sizeof ("param_typ")";
+
+    if (param_typ ~ /*/)
+      param_ptr = param;
+    else
+      param_ptr = "&"param;
+  }
+
+  orig = feature; sub(/^@/,"",feature);
+  space = feature; gsub(/./," ",space);
+
+  print retval;
+  if (retval !~ /^void$/) {
     prefix = "return ";
-  } else if (feature ~ /^mountlist$/) {
-    print "glibtop_mountentry *";
-    prefix = "return ";
+    prefix_space = "       ";
   } else {
     prefix = "";
-    print "void";
+    prefix_space = "";
   }
-  if (feature ~ /^proc_/) {
-    param = ", pid_t pid";
-  } else if (feature ~ /^fsusage$/) {
-    param = ", const char *mountdir";
-  } else if (feature ~ /^mountlist$/) {
-    param = ", int all_fs";
+
+  if (param_typ != "") {
+    print "glibtop_get_"feature"_l (glibtop *server, glibtop_"feature" *buf,";
+    print "            "space"    "param_typ" "param")";
   } else {
-    param = "";
+    print "glibtop_get_"feature"_l (glibtop *server, glibtop_"feature" *buf)";
   }
-  
-  print "glibtop_get_"feature"_l (glibtop *server, glibtop_"feature" *buf"param")";
+
   print "{";
   print "\tglibtop_init_r (&server, GLIBTOP_SYSDEPS_"toupper(feature)", 0);";
   print "";
   print "\tif ((server->flags & _GLIBTOP_INIT_STATE_SERVER) &&";
   print "\t    (server->features & (1 << GLIBTOP_SYSDEPS_"toupper(feature)")))";
   print "\t{";
-  
-  if (feature ~ /^proc_/) {
-    print "\t\tglibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)",";
-    print "\t\t\t\tsizeof (pid_t), &pid,";
-    print "\t\t\t\tsizeof (glibtop_"feature"),";
-    print "\t\t\t\tbuf);";
-    print "\t} else {";
-    print "#if (!GLIBTOP_SUID_"toupper(feature)")";
-    print "\t\tglibtop_get_"feature"_r (server, buf, pid);";
-  } else if (feature ~ /^fsusage$/) {
-    print "\t\tglibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)",";
-    print "\t\t\t\tstrlen (mountdir) + 1, mountdir,";
-    print "\t\t\t\tsizeof (glibtop_"feature"), buf);";
-    print "\t} else {";
-    print "#if (!GLIBTOP_SUID_"toupper(feature)")";
-    print "\t\tglibtop_get_"feature"_r (server, buf, mountdir);";
+
+  if (param == "")
+    print "\t\t"prefix"glibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)", 0, NULL,";
+  else
+    print "\t\t"prefix"glibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)",";
+
+  if (param == "") {
+    print "\t\t\t\t"prefix_space"sizeof (glibtop_"feature"), buf);";
   } else {
-    if (feature ~ /^mountlist$/) {
-      print "\t\treturn glibtop_call_l (server, GLIBTOP_CMND_MOUNTLIST,";
-      print "\t\t\t\t       sizeof (all_fs), &all_fs,";
-      print "\t\t\t\t       sizeof (glibtop_mountlist),";
-      print "\t\t\t\t       buf);";
-    } else if (feature ~ /^proclist$/) {
-      print "\t\treturn glibtop_call_l (server, GLIBTOP_CMND_PROCLIST,";
-      print "\t\t\t\t       0, NULL, sizeof (glibtop_proclist),";
-      print "\t\t\t\t       buf);";
-    } else {
-      print "\t\tglibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)", 0, NULL,";
-      print "\t\t\t\tsizeof (glibtop_"feature"), buf);";
-    }
-    print "\t} else {";
-    if (orig ~ /^@/) {
-      if (feature ~ /^mountlist$/) {
-	print "\t\t"prefix"glibtop_get_"feature"_r (server, buf, all_fs);";
-      } else {
-	print "\t\t"prefix"glibtop_get_"feature"_s (server, buf);";
-      }
-    } else {
-      print "#if (!GLIBTOP_SUID_"toupper(feature)")";
-      print "\t\t"prefix"glibtop_get_"feature"_r (server, buf);";
-    }
+    print "\t\t\t\t"prefix_space""param_size", "param_ptr",";
+    print "\t\t\t\t"prefix_space"sizeof (glibtop_"feature"),";
+    print "\t\t\t\t"prefix_space"buf);";
   }
-  if (!(orig ~ /^@/)) {
+  
+  print "\t} else {";
+
+  if (orig !~ /^@/)
+    print "#if (!GLIBTOP_SUID_"toupper(feature)")";
+
+  if (param == "")
+    print "\t\t"prefix"glibtop_get_"feature"_r (server, buf);";
+  else
+    print "\t\t"prefix"glibtop_get_"feature"_r (server, buf, "param");";
+
+  if (orig !~ /^@/) {
     print "#else";
     print "\t\terrno = ENOSYS;";
     print "\t\tglibtop_error_io_r (server, \"glibtop_get_"feature"\");";
     print "#endif";
   }
+
   print "\t}";
   print "}";
   print "";
 }
 	
-/^@(\w+)/	{ output($1) }
-
-/^(\w+)/	{ output($1) }
+/^[^#]/		{ output($0) }
 

@@ -2,10 +2,6 @@
 
 LINK			= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-INCLUDES		= -I$(top_builddir) -I$(top_srcdir) @machine_incs@ \
-			  -I$(top_srcdir)/include -I$(top_srcdir)/intl @GUILE_INCS@ \
-			  -DGTOPLOCALEDIR=\"$(datadir)/locale\" -D_GNU_SOURCE
-
 CFLAGS			= -Wall -W @CFLAGS@ -O0
 
 DEFS			= @DEFS@
@@ -36,10 +32,8 @@ second_static_SOURCES	= $(second_SOURCES)
 second_static_LDADD	= $(second_LDADD)
 second_static_LDFLAGS	= -static
 
-if GLIBTOP_NAMES
 third_guile_names_LIBS	= $(top_builddir)/sysdeps/guile/names/libgtop_guile_names.la
 third_names_LIBS	= $(top_builddir)/sysdeps/names/libgtop_names.la
-endif
 
 third_SOURCES		= third.c
 third_LDADD		= $(top_builddir)/sysdeps/guile/libgtop_guile.la \

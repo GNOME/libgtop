@@ -101,7 +101,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		break;
 	case GLIBTOP_METHOD_PIPE:
 		fprintf (stderr, "Opening pipe to server (%s).\n",
-			 GTOP_SERVER);
+			 LIBGTOP_SERVER);
 
 		if (pipe (server->input) || pipe (server->output))
 			glibtop_error_io_r (server, "cannot make a pipe");
@@ -115,15 +115,17 @@ glibtop_open_l (glibtop *server, const char *program_name,
 			close (server->input [0]); close (server->output [1]);
 			dup2 (server->input [1], 1);
 			dup2 (server->output [0], 0);
-			execl (GTOP_SERVER, NULL);
-			glibtop_error_io_r (server, "execl (%s)", GTOP_SERVER);
+			execl (LIBGTOP_SERVER, NULL);
+			glibtop_error_io_r (server, "execl (%s)",
+					    LIBGTOP_SERVER);
 			_exit (2);
 		}
 
 		close (server->input [1]);
 		close (server->output [0]);
 
-		sprintf (version, "%s server %s ready.\n", PACKAGE, VERSION);
+		sprintf (version, "Libgtop server %s ready.\n",
+			 LIBGTOP_VERSION);
 
 		glibtop_read_l (server, sizeof (nbytes), &nbytes);
 
@@ -135,7 +137,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		
 		if (memcmp (version, buffer, strlen (version)))
 			glibtop_error_r (server, "server version is not %s",
-					 VERSION);
+					 LIBGTOP_VERSION);
 		break;
 	}
 

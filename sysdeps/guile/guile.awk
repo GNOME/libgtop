@@ -16,32 +16,53 @@ BEGIN {
   convert["double"] = "gh_double2scm";
   convert["str"]    = "gh_str02scm  ";
   convert["char"]   = "gh_char2scm  ";
+
+  backconv["int"]          = "gh_scm2long";
+  backconv["pid_t"]        = "gh_scm2ulong";
 }
 
-/^(\w+)/	{
-  features[$1] = $1;
-  if ($1 ~ /^proclist$/) {
-    output = "SCM\nglibtop_guile_get_proclist (void)\n{\n";
-    output = output"\tglibtop_proclist proclist;\n\tunsigned i, *ptr;\n";
-    output = output"\tSCM list;\n\n\tptr = glibtop_get_proclist (&proclist);\n\n";
-    output = output"\tlist = gh_list (gh_ulong2scm  ("$1".flags),\n\t\t\t";
-  } else {
-    if ($1 ~ /^proc_/) {
-      output = "SCM\nglibtop_guile_get_"$1" (SCM pid)\n{\n";
-      output = output"\tglibtop_"$1" "$1";\n\n";
-      output = output"\tglibtop_get_"$1" (&"$1", (pid_t) gh_scm2long (pid));\n\n";
-    } else if ($1 ~ /^fsusage$/) {
-      output = "SCM\nglibtop_guile_get_"$1" (SCM mountdir)\n{\n";
-      output = output"\tglibtop_"$1" "$1";\n\n";
-      output = output"\tglibtop_get_"$1" (&"$1", gh_scm2newstr (mountdir, NULL));\n\n";
-    } else {
-      output = "SCM\nglibtop_guile_get_"$1" (void)\n{\n";
-      output = output"\tglibtop_"$1" "$1";\n\n";
-      output = output"\tglibtop_get_"$1" (&"$1");\n\n";
-    }
-    output = output"\treturn gh_list (gh_ulong2scm  ("$1".flags),\n\t\t\t";
-  }
-  nr_elements = split ($2, elements, /:/);
+function make_output(line) {
+  split (line, line_fields, /\|/);
+  retval = line_fields[1];
+  element_def = line_fields[3];
+  feature = line_fields[2];
+  param_typ = line_fields[4];
+  param = line_fields[5];
+  param_size = line_fields[6];
+
+  sub(/^@/,"",feature);
+  features[feature] = feature;
+
+  if (param == "")
+    output = "SCM\nglibtop_guile_get_"feature" (void)\n{\n";
+  else
+    output = "SCM\nglibtop_guile_get_"feature" (SCM "param")\n{\n";
+
+  output = output"\tglibtop_"feature" "feature";\n";
+  if (retval != "void")
+    output = output"\t"retval" retval;\n";
+  if (feature ~ /^proclist$/)
+    output = output"\tunsigned i;\n";
+  output = output"\tSCM list;\n\n";
+  
+  if (retval != "void")
+    prefix="retval = ";
+  else
+    prefix="";
+
+  if (param_typ == "const char *")
+    param_conv = "gh_scm2newstr ("param", NULL)";
+  else if (param_typ != "")
+    param_conv = backconv[param_typ]" ("param")";
+
+  if (param == "")
+    output = output"\t"prefix"glibtop_get_"feature" (&"feature");\n\n";
+  else
+    output = output"\t"prefix"glibtop_get_"feature" (&"feature", "param_conv");\n\n";
+  
+  output = output"\tlist = gh_list (gh_ulong2scm  ("feature".flags),\n\t\t\t";
+
+  nr_elements = split (element_def, elements, /:/);
   for (element = 1; element <= nr_elements; element++) {
     list = elements[element];
     type = elements[element];
@@ -49,29 +70,32 @@ BEGIN {
     sub(/^\w+\(/, "", list); sub(/\)$/, "", list);
     count = split (list, fields, /,/);
     for (field = 1; field <= count; field++) {
-      output = output""convert[type]" ("$1"."fields[field]"),\n\t\t\t";
+      output = output""convert[type]" ("feature"."fields[field]"),\n\t\t\t";
     }
   }
-  output = output"SCM_UNDEFINED);";
+  output = output"SCM_UNDEFINED);\n";
+
   print output;
 
-  if ($1 ~ /^proclist$/) {
+  if (feature ~ /^proclist$/) {
+    print "\tif (retval == NULL)";
+    print "\t\treturn list;";
     print "";
-    print "\tif (ptr) {";
-    print "\t\tfor (i = 0; i < proclist.number; i++)";
-    print "\t\t\tlist = scm_append";
-    print "\t\t\t\t(gh_list (list,";
-    print "\t\t\t\t\t  gh_list (gh_ulong2scm ((unsigned long) ptr [i])),";
-    print "\t\t\t\t\t  SCM_UNDEFINED));";
-    print "\t}";
+    print "\tfor (i = 0; i < proclist.number; i++)";
+    print "\t\tlist = scm_append";
+    print "\t\t\t(gh_list (list,";
+    print "\t\t\t\t  gh_list (gh_ulong2scm ((unsigned long) retval [i])),";
+    print "\t\t\t\t  SCM_UNDEFINED));";
     print "";
-    print "\tglibtop_free (ptr);";
-    print "";
-    print "\treturn list;";
+    print "\tglibtop_free (retval);\n";
   }
+
+  print "\treturn list;";
   print "}";
   print "";
 }
+
+/^[^#]/		{ make_output($0) }
 
 END {
   print "void";

@@ -1,3 +1,51 @@
+1998-07-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* guile/ChangeLog: New file.
+
+	* features.def: New format - now includes type of return value
+	and parameters.
+
+	* lib/lib.awk: Changed to use new `features.def'.
+	* sysdeps/guile/guile.awk: Dito;
+	* sysdeps/guile/names/guile-names.awk: Dito.
+
+	* libgtopConf.sh.in: Added
+	`LIBGTOP_NAMES_LIBS', `LIBGTOP_NAMES_INCS',
+	`LIBGTOP_GUILE_NAMES_LIBS', `LIBGTOP_GUILE_NAMES_INCS',
+	`LIBGTOP_MAJOR_VERSION', `LIBGTOP_MINOR_VERSION'
+	`LIBGTOP_VERSION', `libgtop_sysdeps_dir'.
+
+	* acinclude.m4 (AC_LC_SYSDEPS): Removed since this has been
+	replaced with `GNOME_LIBGTOP_SYSDEPS' long ago.
+
+	* LIBGTOP-VERSION: New file.
+
+	* */Makefile.am (INCLUDES): Removed; now defined in `configure.in'.
+
+	* sysdeps/names/mountlist.c: New file.
+
+	* lib/{init, open}.c (GTOP_SERVER): Renamed to `LIBGTOP_SERVER'.
+
+	* configure.in (INCLUDES): Added definition.
+	(libgtop_want_names): Always true; `libgtop_names.la' is now
+	always created since some other programs rely upon it - but
+	have to use `LIBGTOP_NAMES_LIBS' and `LIBGTOP_NAMES_INCS' to
+	use it in your application.
+	(libgtop_want_guile_names): Always true; but you have to use
+	`LIBGTOP_GUILE_NAMES_LIBS' and `LIBGTOP_GUILE_NAMES_INCS' to
+	use it in your application.
+	(LIBGTOP_LIBS): Removed `-lgtop_names' and `-lgtop_guile_names'.
+	(LIBGTOP_NAMES_LIBS): New variable. Use it to link your
+	application with the names interface.
+	(LIBGTOP_NAMES_INCS): New variable. Also #defines `GLIBTOP_NAMES'
+	which is now required if your application wants to use the names
+	interface.
+	(LIBGTOP_GUILE_NAMES_LIBS): New variable. Use it to link your
+	application with the guile names interface.
+	(LIBGTOP_GUILE_NAMES_INCS): New variable. Also #defines
+	`GLIBTOP_NAMES' and `GLIBTOP_GUILE_NAMES' which are now required
+	if your application wants to use the guile names interface.
+
 1998-07-24  Martin Baulig  <martin@home-of-linux.org>
 
 	* sysdeps/common/mountlist.c (glibtop_get_mountlist_s):

@@ -1,14 +1,18 @@
 ## Process this file with automake to produce Makefile.in.
 
-if GLIBTOP_EXAMPLES
-examples_SUBDIRS	= examples
+examples_SUBDIRS = examples
+
+if GUILE
+guile_SUBDIRS = guile
+else
+guile_SUBDIRS =
 endif
 
-built_SUBDIRS = include sysdeps lib src
 
-SUBDIRS = po intl support macros $(built_SUBDIRS) $(examples_SUBDIRS)
+SUBDIRS = po intl support macros include sysdeps lib src \
+	  $(guile_subdirs) $(examples_SUBDIRS)
 
-DIST_SUBDIRS = po intl macros include sysdeps src lib examples
+DIST_SUBDIRS = po intl macros include sysdeps src lib guile examples
 
 include_HEADERS = glibtop.h
 
@@ -41,16 +45,21 @@ libgtopConf.sh: libgtopConf.sh.in Makefile
 	    -e 's,\@LIBGTOP_INCLUDEDIR\@,$(includedir),g' \
 	    -e 's,\@LIBGTOP_LIBS\@,$(LIBGTOP_LIBS),g' \
 	    -e 's,\@LIBGTOP_INCS\@,$(LIBGTOP_INCS),g' \
+	    -e 's,\@LIBGTOP_NAMES_LIBS\@,$(LIBGTOP_NAMES_LIBS),g' \
+	    -e 's,\@LIBGTOP_NAMES_INCS\@,$(LIBGTOP_NAMES_INCS),g' \
 	    -e 's,\@LIBGTOP_GUILE_LIBS\@,$(LIBGTOP_GUILE_LIBS),g' \
 	    -e 's,\@LIBGTOP_GUILE_INCS\@,$(LIBGTOP_GUILE_INCS),g' \
+	    -e 's,\@LIBGTOP_GUILE_NAMES_LIBS\@,$(LIBGTOP_GUILE_NAMES_LIBS),g' \
+	    -e 's,\@LIBGTOP_GUILE_NAMES_INCS\@,$(LIBGTOP_GUILE_NAMES_INCS),g' \
 	    -e 's,\@LIBGTOP_BINDIR\@,$(LIBGTOP_BINDIR),g' \
 	    -e 's,\@LIBGTOP_SERVER\@,$(LIBGTOP_SERVER),g' \
+	    -e 's,\@LIBGTOP_MAJOR_VERSION\@,$(LIBGTOP_MAJOR_VERSION),g' \
+	    -e 's,\@LIBGTOP_MINOR_VERSION\@,$(LIBGTOP_MINOR_VERSION),g' \
+	    -e 's,\@LIBGTOP_VERSION\@,$(LIBGTOP_VERSION),g' \
 	    -e 's,\@libgtop_sysdeps_dir\@,$(libgtop_sysdeps_dir),g' \
 	    -e 's,\@libgtop_need_server\@,$(libgtop_need_server),g' \
 	    -e 's,\@libgtop_use_machine_h\@,$(libgtop_use_machine_h),g' \
 	    -e 's,\@libgtop_guile_found\@,$(libgtop_guile_found),g' \
-	    -e 's,\@libgtop_want_names\@,$(libgtop_want_names),g' \
-	    -e 's,\@libgtop_want_guile_names\@,$(libgtop_want_guile_names),g' \
 	    -e 's,\@libgtop_want_examples\@,$(libgtop_want_examples),g' \
 	      < $(srcdir)/libgtopConf.sh.in > libgtopConf.tmp \
 	  && mv libgtopConf.tmp libgtopConf.sh

@@ -6,7 +6,12 @@ AC_INIT(copyright.txt)
 AM_CONFIG_HEADER(config.h)
 AC_CANONICAL_SYSTEM
 
-AM_INIT_AUTOMAKE(libgtop, 0.01)
+. $srcdir/LIBGTOP-VERSION
+AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
+
+AC_SUBST(LIBGTOP_MAJOR_VERSION)
+AC_SUBST(LIBGTOP_MINOR_VERSION)
+AC_SUBST(LIBGTOP_VERSION)
 
 AM_ACLOCAL_INCLUDE(macros)
 
@@ -47,20 +52,15 @@ else
   AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 fi
 
-AC_LC_SYSDEPS
+GNOME_LIBGTOP_SYSDEPS
+
+libgtop_want_guile=yes
 
 if test x$libgtop_want_guile = xyes ; then
   GNOME_CHECK_GUILE
-  if test x$ac_cv_guile_found = xyes ; then
-    if test x$libgtop_want_names = xyes ; then
-      AC_DEFINE(GLIBTOP_GUILE_NAMES)
-    fi
-    guile_examples='third third_static'
-    guile_subdirs='guile'
-  else
-    guile_examples=
-    guile_subdirs=
-  fi
+  AC_DEFINE(GLIBTOP_GUILE_NAMES)
+  guile_examples='third third_static'
+  guile_subdirs='guile'
 else
   guile_examples=
   guile_subdirs=
@@ -131,12 +131,6 @@ AC_SUBST(libs_xauth)
 dnl For diskusage stuff
 GNOME_FILEUTILS_CHECKS
 
-CFLAGS="$CFLAGS -D_IN_LIBGTOP"
-
-AC_SUBST(CFLAGS)
-AC_SUBST(CPPFLAGS)
-AC_SUBST(LDFLAGS)
-
 AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]],AC_DEFINE(GNOME_ENABLE_DEBUG),)
 
 dnl If you want to use libgtop without gnome, uncomment the following paragraph:
@@ -178,44 +172,41 @@ fi
 
 AC_SUBST(libgtop_guile_found)
 
-if test x$libgtop_want_names = xyes ; then
-  if test x$ac_cv_guile_found = xyes ; then
-    LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_guile_names"
-    libgtop_want_guile_names=yes
-  else
-    libgtop_want_guile_names=no
-  fi
-  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_names"
-  LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_names"
-fi
+LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common -lgtop_sysdeps"
+LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_common -lgtop_sysdeps"
 
-AC_SUBST(libgtop_want_guile_names)
+LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names"
+LIBGTOP_GUILE_NAMES_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_guile_names"
+LIBGTOP_GUILE_NAMES_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_names"
 
-LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common $libs_xauth" 
-LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_common $libs_xauth"
+LIBGTOP_LIBS="$LIBGTOP_LIBS $libs_xauth" 
+LIBGTOP_NAMES_LIBS="$LIBGTOP_NAMES_LIBS $libs_xauth"
+LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $libs_xauth"
+LIBGTOP_GUILE_NAMES_LIBS="$LIBGTOP_GUILE_NAMES_LIBS $libs_xauth"
 
-if test "x$need_server" = "xyes" ; then
-  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop"
-  LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop"
-else
-  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_sysdeps"
-  LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_sysdeps"
-fi
+LIBGTOP_NAMES_INCS="$LIBGTOP_INCS -DGLIBTOP_NAMES"
+LIBGTOP_GUILE_NAMES_INCS="$LIBGTOP_GUILE_INCS -DGLIBTOP_GUILE_NAMES"
+LIBGTOP_GUILE_NAMES_INCS="$LIBGTOP_GUILE_INCS -DGLIBTOP_NAMES"
 
-if test "x$ac_cv_guile_found" = "xyes" ; then
-  LIBGTOP_INCS="$LIBGTOP_INCS $GUILE_INCS"
-  LIBGTOP_GUILE_INCS="$LIBGTOP_INCS $GUILE_INCS"
-  LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $GUILE_LIBS"
-fi
+LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $GUILE_LIBS"
+LIBGTOP_GUILE_INCS="$LIBGTOP_GUILE_INCS $GUILE_INCS"
 
-machine_incs='-I$(top_srcdir)/sysdeps/@sysdeps_dir@'
+machine_incs="-I\$(top_srcdir)/sysdeps/$sysdeps_dir"
 
 AC_SUBST(machine_incs)
 
+INCLUDES="$CFLAGS -D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -DGLIBTOP_GUILE -DGLIBTOP_GUILE_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_srcdir)/intl $GUILE_INCS "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
+
+AC_SUBST(INCLUDES)
+
 AC_SUBST(LIBGTOP_LIBS)
 AC_SUBST(LIBGTOP_INCS)
+AC_SUBST(LIBGTOP_NAMES_LIBS)
+AC_SUBST(LIBGTOP_NAMES_INCS)
 AC_SUBST(LIBGTOP_GUILE_LIBS)
 AC_SUBST(LIBGTOP_GUILE_INCS)
+AC_SUBST(LIBGTOP_GUILE_NAMES_LIBS)
+AC_SUBST(LIBGTOP_GUILE_NAMES_INCS)
 AC_SUBST(LIBGTOP_BINDIR)
 AC_SUBST(LIBGTOP_SERVER)
 
@@ -258,6 +249,7 @@ src/Makefile
 src/server/Makefile
 src/daemon/Makefile
 lib/Makefile
+guile/Makefile
 examples/Makefile
 perl/Makefile.PL
 support/Makefile
