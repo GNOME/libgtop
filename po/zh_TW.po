@@ -1,12 +1,12 @@
 # Traditional chinese translation for libgtop.
-# Copyright (C) 2001 Free Software Foundation, Inc.
-# Abel Cheung <maddog@linux.org.hk>, 2001.
+# Copyright (C) 2001-2002 Free Software Foundation, Inc.
+# Abel Cheung <maddog@linux.org.hk>, 2001-2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2001-09-16 07:15+0800\n"
-"PO-Revision-Date: 2001-09-11 02:39+0800\n"
+"Project-Id-Version: libgtop 1.0.13\n"
+"POT-Creation-Date: 2002-02-07 00:51+0800\n"
+"PO-Revision-Date: 2002-02-09 00:59+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -449,7 +449,7 @@ msgstr "系統訊息標頭數目"
 
 #: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
 msgid "Interface Flags"
-msgstr ""
+msgstr "網絡介面旗標"
 
 #: sysdeps/names/netload.c:46
 msgid "MTU"
@@ -685,19 +685,19 @@ msgstr ""
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
-msgstr ""
+msgstr "Text_RSS"
 
 #: sysdeps/names/procsegment.c:42
 msgid "ShLib_RSS"
-msgstr ""
+msgstr "ShLib_RSS"
 
 #: sysdeps/names/procsegment.c:42
 msgid "Data_RSS"
-msgstr ""
+msgstr "Data_RSS"
 
 #: sysdeps/names/procsegment.c:42
 msgid "Stack_RSS"
-msgstr ""
+msgstr "Stack_RSS"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Dirty Size"
@@ -705,15 +705,15 @@ msgstr ""
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Code"
-msgstr ""
+msgstr "Start_Code"
 
 #: sysdeps/names/procsegment.c:43
 msgid "End_Code"
-msgstr ""
+msgstr "End_Code"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Stack"
-msgstr ""
+msgstr "Start_Stack"
 
 #: sysdeps/names/procsegment.c:48
 msgid "Text resident set size"
@@ -813,7 +813,7 @@ msgstr "程序的群組代號"
 
 #: sysdeps/names/proctime.c:44
 msgid "Start_Time"
-msgstr ""
+msgstr "Start_Time"
 
 #: sysdeps/names/proctime.c:44
 msgid "RTime"
@@ -837,11 +837,11 @@ msgstr "CSTime"
 
 #: sysdeps/names/proctime.c:45
 msgid "TimeOut"
-msgstr ""
+msgstr "TimeOut"
 
 #: sysdeps/names/proctime.c:45
 msgid "It_Real_Value"
-msgstr ""
+msgstr "It_Real_Value"
 
 #: sysdeps/names/proctime.c:46
 msgid "Frequency"
@@ -987,7 +987,7 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:73
 msgid "Kernel scheduling priority"
-msgstr ""
+msgstr "核心排程的優先度"
 
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
@@ -1035,11 +1035,11 @@ msgstr ""
 
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
 msgid "Max segment size"
-msgstr "區段最大值"
+msgstr "最大區段長度"
 
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Min segment size"
-msgstr "區段最小值"
+msgstr "最小區段長度"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max number of segments"
@@ -1147,7 +1147,7 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Segment information"
-msgstr ""
+msgstr "程序區段資訊"
 
 #: sysdeps/names/sysdeps.c:66
 msgid "Process Arguments"
@@ -1159,7 +1159,7 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:68
 msgid "Mount List"
-msgstr ""
+msgstr "掛載列表"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "File System Usage"
