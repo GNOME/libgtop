@@ -1,5 +1,7 @@
 1998-08-07  Martin Baulig  <martin@home-of-linux.org>
 
+	* sysdeps/freebsd/ChangeLog: New file.
+
 	* src/server: Removed.
 	* src/daemon/{server, version}.c: New files.
 	* src/daemon/Makefile.am: Added `libgtop_server'; this has been
