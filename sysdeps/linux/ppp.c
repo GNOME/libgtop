@@ -177,13 +177,11 @@ is_ISDN_on (glibtop *server, int device, int *online)
 
     p = buffer+6;
 
-    while (*p) {
+    for (i = 0; i <= device; i++) {
 	char *end = p;
 
-	if (isspace (*p)) {
+	while (isspace (*p))
 	    p++;
-	    continue;
-	}
 
 	for (end = p; *end && !isspace (*end); end++)
 	    ;
@@ -191,23 +189,32 @@ is_ISDN_on (glibtop *server, int device, int *online)
 	if (*end == 0)
 	    break;
 	else
-	    *end = 0;
+	    *end++ = 0;
 
-	if (!strcmp (p, "?") || !strcmp (p, "0")) {
-	    p = end+1;
+	if (i < device) {
+	    p = end;
 	    continue;
 	}
 
 	fclose (f);
 
-	*online = TRUE;
-	return TRUE;
+	if (strlen (p) != 1)
+	    return FALSE;
+
+	if (*p == '0') {
+	    *online = FALSE;
+	    return TRUE;
+	} else if (*p == '1') {
+	    *online = TRUE;
+	    return TRUE;
+	}
+
+	return FALSE;
     }
 
     fclose (f);
 
-    *online = FALSE;
-    return TRUE;
+    return FALSE;
 }
 
 static int

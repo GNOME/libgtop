@@ -1,3 +1,7 @@
+2000-02-06  Martin Baulig  <martin@home-of-linux.org>
+
+	* ppp.c: Make this work with multiple ISDN devices.
+
 2000-01-22  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am: Install the library in $(backenddir).
