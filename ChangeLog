@@ -1,3 +1,8 @@
+1998-07-14  Martin Baulig  <baulig@Stud.Informatik.uni-trier.de>
+
+	* configure.in (AC_PROG_AWK): Replaced this test with explicit test
+	for `gawk' and `awk' since `mawk' doesn't work.
+
 1998-07-14  Martin Baulig  <martin@home-of-linux.org>
 
 	* src/daemon/gnuserv.c: Doing correct server initialization
