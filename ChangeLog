@@ -1,3 +1,13 @@
+1998-11-27  Martin Baulig  <martin@home-of-linux.org>
+
+	* LIBGTOP-VERSION: Set version number to 0.29.0.
+
+	* TODO: Add things that need to be done before Dec 15.
+
+	This is basically a feature freeze for the C language part
+	of LibGTop except for things that are marked with (***) in
+	the TODO.
+
 1998-11-20  Martin Baulig  <baulig@merkur.uni-trier.de>
 
 	* sysdeps/common/mountlist.c: Applied a patch from Kenneth Stailey to

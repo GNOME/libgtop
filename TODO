@@ -1,21 +1,62 @@
-This is just a short list for me so I know what I have to do
-before I can make the next release.
+This is LibGTop 0.29.0,
 
-* Add `netload' and `ppp' with modems for Linux.
+a pre-stable version that is basically a feature-freeze for the C language
+part except for things that are marked with (***).
+
+You need to use the latest version of LibGTop from CVS for Gnome, it will
+no longer work with older releases.
+
+Martin
+
+---------------------------------------------------------------------------
+
+Things that need to be implemented before Dec 15 (***):
+======================================================
+
+* [More or less important]: Add a better error handling; the _init_XXX_s ()
+  functions set the features that are supported on the current system,
+  it if fails to get on of them this is most likely an error (/proc not
+  mounted).
+
+Things that need to be done before Dec 15:
+============================================
+
+* [IMPORTANT] Add `netload' and `ppp' with modems for Linux.
+
+* [IMPORTANT] Check with Linux on 32 and 64 machines !
+              (we have one at the university, so I can do this)
+
+* [IMPORTANT] Check whether the daemon works on all supported systems
+              and has all features the server has. (***)
+
+* Check it with NetBSD and OpenBSD (I have a large hard disk but less
+  time - so is there anybody out there having those systems already
+  installed who can test this ?)
 
 * Signals: Does this work now (Matthias Scheler reported problems
   with NetBSD).
 
-* Check error handling (partially done).
-
-* Fix the daemon, some new features were added to the server but
-  not to the daemon. Check if it really works also 32 <-> 64 bit.
+Guile-Port:
+===========
 
 * Guile-Port: Add glibtop_sysdeps (), glibtop_get/set_parameter () etc.
 
 * Guile-Port: Provide some way to use multiple servers (with #f for
-  to global server). Low priority.
+  to global server).
+
+Perl-Port:
+=========
+
+* Either make it work or put it out of the normal build process.
+
+Things that need to be done before Gnome 1.0:
+============================================
 
 * kernel, sysdeps/kernel: Make it work with the latest modifications.
-  Very low priority. Perhaps not for this release.
 
+* Add sysdeps code for Solaris (anybody out there who can do this ?)
+
+
+Oct 27 1998
+
+Martin
