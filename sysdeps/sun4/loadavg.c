@@ -19,15 +19,45 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
 #include <glibtop/loadavg.h>
+
+static const unsigned long _glibtop_sysdeps_loadavg =
+(1 << GLIBTOP_LOADAVG_LOADAVG);
 
 /* Provides load averange. */
 
 void
 glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
 {
+	load_avg avenrun [3];
+	int i;
+
 	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_loadavg));
+
+	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
+	
+	setregid (server->machine.gid, server->machine.egid);
+	
+	/* get the load average array */
+
+	(void) _glibtop_getkval (server, _glibtop_nlist [X_AVENRUN].n_value,
+				 (int *) avenrun, sizeof (avenrun),
+				 _glibtop_nlist [X_AVENRUN].n_name);
+
+	if (setregid (server->machine.egid, server->machine.gid))
+		_exit (1);
+	
+	/* !!! END OF SGID KMEM PART !!! */
+
+	for (i = 0; i < 3; i++) {
+		/* Calculate loadavg values from avenrun. */
+		buf->loadavg [i] = loaddouble (avenrun [i]);
+	}
+
+	/* Now we can set the flags. */
+
+	buf->flags = _glibtop_sysdeps_loadavg;
 }
