@@ -40,7 +40,9 @@
 #include <ufs/ufs/inode.h>
 
 #include <sys/ucred.h>
+#ifndef __OpenBSD__
 #include <sys/user.h>
+#endif
 #include <sys/sysctl.h>
 #include <vm/vm.h>
 

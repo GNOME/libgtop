@@ -25,7 +25,9 @@
 
 #include <glibtop_suid.h>
 
+#ifndef __OpenBSD__
 #include <sys/user.h>
+#endif
 
 static const unsigned long _glibtop_sysdeps_proc_state =
 (1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE) +

@@ -29,7 +29,9 @@
 #include <sys/param.h>
 #include <sys/sysctl.h>
 #include <sys/proc.h>
+#ifndef __OpenBSD__
 #include <sys/user.h>
+#endif
 #include <machine/pcb.h>
 #ifdef __FreeBSD__
 #include <machine/tss.h>
