@@ -18,8 +18,9 @@ release:
 
 ## Put `exec' in the name because this should be installed by
 ## `install-exec', not `install-data'.
-confexecdir=$(libdir)
-confexec_DATA = $(top_builddir)/libgtopConf.sh features.def
+confexecdir	= $(libdir)
+confexec_DATA	= $(top_builddir)/libgtopConf.sh \
+		  $(top_builddir)/libgtop-features.def
 
 bin_SCRIPTS = $(top_builddir)/libgtop-config
 
@@ -67,4 +68,7 @@ libgtop-config: libgtop-config.in Makefile
 	      < $(srcdir)/libgtop-config.in > libgtop-config.tmp \
 	  && mv libgtop-config.tmp libgtop-config && \
 		chmod 755 libgtop-config
+
+libgtop-features.def: features.def
+	@LN_S@ $< $@
 

@@ -6,7 +6,7 @@ usage="\
 config_file="@LIBGTOP_LIBDIR@/libgtopConf.sh"
 . $config_file
 
-features_def_file="@LIBGTOP_LIBDIR@/features.def"
+features_def_file="@LIBGTOP_LIBDIR@/libgtop-features.def"
 
 if test $# -eq 0; then
       echo "${usage}" 1>&2
