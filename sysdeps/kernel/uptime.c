@@ -27,7 +27,8 @@
 #include <glibtop_private.h>
 
 static unsigned long _glibtop_sysdeps_uptime =
-(1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME);
+(1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME) +
+(1 << GLIBTOP_UPTIME_BOOT_TIME);
 
 /* Init function. */
 
@@ -54,6 +55,8 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 
     buf->uptime = (double) total / (double) stat.frequency;
     buf->idletime = (double) stat.cpu.idle / (double) stat.frequency;
+
+    buf->boot_time = stat.boot_time;
 
     buf->flags = _glibtop_sysdeps_uptime;
 }

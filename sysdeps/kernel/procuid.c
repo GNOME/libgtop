@@ -29,10 +29,17 @@
 static const unsigned long _glibtop_sysdeps_proc_uid =
 (1 << GLIBTOP_PROC_UID_UID) + (1 << GLIBTOP_PROC_UID_EUID) +
 (1 << GLIBTOP_PROC_UID_GID) + (1 << GLIBTOP_PROC_UID_EGID) +
+(1 << GLIBTOP_PROC_UID_SUID) + (1 << GLIBTOP_PROC_UID_SGID) +
+(1 << GLIBTOP_PROC_UID_FSUID) + (1 << GLIBTOP_PROC_UID_FSGID) +
 (1 << GLIBTOP_PROC_UID_PID) + (1 << GLIBTOP_PROC_UID_PPID) +
 (1 << GLIBTOP_PROC_UID_PGRP) + (1 << GLIBTOP_PROC_UID_SESSION) +
 (1 << GLIBTOP_PROC_UID_TTY) + (1 << GLIBTOP_PROC_UID_TPGID) +
-(1 << GLIBTOP_PROC_UID_PRIORITY) + (1 << GLIBTOP_PROC_UID_NICE);
+(1 << GLIBTOP_PROC_UID_PRIORITY) + (1 << GLIBTOP_PROC_UID_NICE) +
+(1 << GLIBTOP_PROC_UID_NGROUPS) + (1 << GLIBTOP_PROC_UID_GROUPS);
+
+#ifndef min
+#define min(a,b) ((a < b) ? a : b)
+#endif
 
 /* Init function. */
 
@@ -50,6 +57,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
 {
     libgtop_proc_state_t proc_state;
     long priority, nice;
+    int i;
 
     memset (buf, 0, sizeof (glibtop_proc_uid));
 
@@ -60,6 +68,11 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
     buf->euid = proc_state.euid;
     buf->gid = proc_state.gid;
     buf->egid = proc_state.egid;
+
+    buf->suid = proc_state.suid;
+    buf->sgid = proc_state.sgid;
+    buf->fsuid = proc_state.fsuid;
+    buf->fsgid = proc_state.fsgid;
 
     buf->pid = proc_state.pid;
     buf->ppid = proc_state.ppid;
@@ -78,6 +91,10 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
 
     buf->priority = priority;
     buf->nice = nice;
+
+    buf->ngroups = min (proc_state.ngroups, GLIBTOP_MAX_GROUPS);
+    for (i = 0; i < buf->ngroups; i++)
+	buf->groups [i] = proc_state.groups [i];
 
     buf->flags = _glibtop_sysdeps_proc_uid;
 }

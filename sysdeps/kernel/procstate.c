@@ -28,7 +28,10 @@
 
 static const unsigned long _glibtop_sysdeps_proc_state =
 (1 << GLIBTOP_PROC_STATE_UID) + (1 << GLIBTOP_PROC_STATE_GID) +
-(1 << GLIBTOP_PROC_STATE_CMD);
+(1 << GLIBTOP_PROC_STATE_RUID) + (1 << GLIBTOP_PROC_STATE_RGID) +
+(1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE) +
+(1 << GLIBTOP_PROC_STATE_HAS_CPU) + (1 << GLIBTOP_PROC_STATE_PROCESSOR) +
+(1 << GLIBTOP_PROC_STATE_LAST_PROCESSOR);
 
 /* Init function. */
 
@@ -52,8 +55,28 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
 	return;
 
     memcpy (buf->cmd, proc_state.comm, sizeof (buf->cmd));
-    buf->uid = proc_state.uid;
-    buf->gid = proc_state.gid;
+
+    if (proc_state.state & LIBGTOP_TASK_RUNNING)
+	buf->state |= GLIBTOP_PROCESS_RUNNING;
+    if (proc_state.state & LIBGTOP_TASK_INTERRUPTIBLE)
+	buf->state |= GLIBTOP_PROCESS_INTERRUPTIBLE;
+    if (proc_state.state & LIBGTOP_TASK_UNINTERRUPTIBLE)
+	buf->state |= GLIBTOP_PROCESS_UNINTERRUPTIBLE;
+    if (proc_state.state & LIBGTOP_TASK_ZOMBIE)
+	buf->state |= GLIBTOP_PROCESS_ZOMBIE;
+    if (proc_state.state & LIBGTOP_TASK_STOPPED)
+	buf->state |= GLIBTOP_PROCESS_STOPPED;
+    if (proc_state.state & LIBGTOP_TASK_SWAPPING)
+	buf->state |= GLIBTOP_PROCESS_SWAPPING;
+
+    buf->uid = proc_state.euid;
+    buf->gid = proc_state.egid;
+    buf->ruid = proc_state.uid;
+    buf->rgid = proc_state.gid;
+
+    buf->has_cpu = proc_state.has_cpu;
+    buf->processor = proc_state.processor;
+    buf->last_processor = proc_state.last_processor;
 
     buf->flags = _glibtop_sysdeps_proc_state;
 }
