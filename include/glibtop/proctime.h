@@ -43,8 +43,9 @@ BEGIN_LIBGTOP_DECLS
 #define GLIBTOP_PROC_TIME_FREQUENCY	8
 #define GLIBTOP_PROC_TIME_XCPU_UTIME	9
 #define GLIBTOP_PROC_TIME_XCPU_STIME	10
+#define GLIBTOP_PROC_TIME_XCPU_FLAGS	11
 
-#define GLIBTOP_MAX_PROC_TIME		11
+#define GLIBTOP_MAX_PROC_TIME		12
 
 typedef struct _glibtop_proc_time	glibtop_proc_time;
 
@@ -69,7 +70,8 @@ struct _glibtop_proc_time
 			 * due to an interval timer. */
 	frequency,	/* Tick frequency. */
 	xcpu_utime [GLIBTOP_NCPU],	/* utime and stime for all CPUs on */
-	xcpu_stime [GLIBTOP_NCPU];	/* SMP machines. */
+	xcpu_stime [GLIBTOP_NCPU],	/* SMP machines. */
+	xcpu_flags;
 };
 
 #define glibtop_get_proc_time(p1, p2)	glibtop_get_proc_time_l(glibtop_global_server, p1, p2)

@@ -1,5 +1,14 @@
 1999-04-18  Martin Baulig  <martin@home-of-linux.org>
 
+	Thanks to Drazen Kacar for pointing out that not all processors must
+	be running all the time under Solaris, so we need to have some flag
+	to find out which processors are running.
+
+	* (glibtop_cpu): Added `xcpu_flags' bitmask of running processors.
+	* (glibtop_proc_time): Added `xcpu_flags'.
+
+1999-04-18  Martin Baulig  <martin@home-of-linux.org>
+
 	* include/glibtop/limits.h: New file.
 	(GLIBTOP_NCPU): Define this here and increase it to 256.
 

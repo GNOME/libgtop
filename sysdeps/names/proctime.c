@@ -30,7 +30,7 @@ const char *glibtop_names_proc_time[GLIBTOP_MAX_PROC_TIME] =
 {
     "start_time", "rtime", "utime", "stime", "cutime", "cstime",
     "timeout", "it_real_value", "timeout", "xcpu_utime",
-    "xcpu_stime"
+    "xcpu_stime", "xcpu_flags"
 };
 
 const unsigned glibtop_types_proc_time[GLIBTOP_MAX_PROC_TIME] =
@@ -38,14 +38,15 @@ const unsigned glibtop_types_proc_time[GLIBTOP_MAX_PROC_TIME] =
     GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
     GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
     GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
-    GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG
+    GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG
 };
 
 const char *glibtop_labels_proc_time[GLIBTOP_MAX_PROC_TIME] =
 {
     N_ ("Start_Time"), N_ ("RTime"), N_ ("UTime"), N_ ("STime"),
     N_ ("CUTime"), N_ ("CSTime"), N_ ("TimeOut"), N_ ("It_Real_Value"),
-    N_ ("Frequency"), N_ ("XCPU_UTime"), N_ ("XCPU_STime")
+    N_ ("Frequency"), N_ ("XCPU_UTime"), N_ ("XCPU_STime"),
+    N_ ("XCPU_Flags")
 };
 
 const char *glibtop_descriptions_proc_time[GLIBTOP_MAX_PROC_TIME] =
@@ -62,4 +63,5 @@ const char *glibtop_descriptions_proc_time[GLIBTOP_MAX_PROC_TIME] =
     N_ ("Tick frequency"),
     N_ ("SMP user-mode CPU time accumulated by process"),
     N_ ("SMP kernel-mode CPU time accumulated by process")
+    N_ ("SMP CPU Flags")
 };
