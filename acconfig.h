@@ -129,6 +129,8 @@
 #undef ssize_t
 #undef u_int64_t
 #undef int64_t
+#undef u_int8_t
+#undef int8_t
 
 #undef HAVE_GLIBTOP_MACHINE_H
 
