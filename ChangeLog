@@ -6,8 +6,7 @@
 	  sysdeps/linux/Makefile.am, sysdeps/names/Makefile.am,
 	  sysdeps/osf1/Makefile.am, sysdeps/stub/Makefile.am,
 	  sysdeps/stub_suid/Makefile.am, sysdeps/sun4/Makefile.am:
-	Removed hardcoded gcc arguments.
-	Converted remaining CFLAGS settings to use correct INCLUDES.
+	Removed hardcoded gcc arguments from CFLAGS.
 
 	* include/glibtop/error.h:
 	Added FIXME comment about varargs macros breaking Sun cc
