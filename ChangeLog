@@ -1,5 +1,8 @@
 1998-07-17  Martin Baulig  <baulig@Stud.Informatik.uni-trier.de>
 
+	* lib/lib.awk (glibtop_get_*): Now correctly using
+	`(1 << GLIBTOP_SYSDEPS_*)' instead of `GLIBTOP_SYSDEPS_*'.
+	
 	* sysdeps/sun4/proclist.c (glibtop_get_proclist_p): Added
 	implementation of that feature.
 

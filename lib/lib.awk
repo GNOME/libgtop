@@ -31,7 +31,7 @@ function output(feature) {
   print "\tglibtop_init_r (&server, GLIBTOP_SYSDEPS_"toupper(feature)", 0);";
   print "";
   print "\tif ((server->flags & _GLIBTOP_INIT_STATE_SERVER) &&";
-  print "\t    (server->features & GLIBTOP_SYSDEPS_"toupper(feature)"))";
+  print "\t    (server->features & (1 << GLIBTOP_SYSDEPS_"toupper(feature)")))";
   print "\t{";
 
   if (feature ~ /^proc_/) {
