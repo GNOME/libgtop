@@ -80,7 +80,6 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	
 	buffer [nread] = 0;
 
-	server->machine.no_update = 1;
 	server->machine.last_pid = pid;
 	strcpy (server->machine.proc_stat, buffer);
 	
