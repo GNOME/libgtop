@@ -1,3 +1,7 @@
+2001-04-20  Martin Baulig  <baulig@suse.de>
+
+	* acinclude.m4 (GNOME_FILEUTILS_CHECKS): Put this here.
+
 2001-04-04  John Gotts  <jgotts@linuxsavvy.com>
 
 	* libgtop.spec.in: Fixed categories.  Also build examples.  Improved
