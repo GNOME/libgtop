@@ -1,5 +1,9 @@
 2004-06-13  Benoît Dejean  <tazforever@dlfp.org>
 
+	* procargs.c: (glibtop_get_proc_args_s): Replaced by g_file_get_contents.
+
+2004-06-13  Benoît Dejean  <tazforever@dlfp.org>
+
 	* glibtop_server.h:
 	* glibtop_server.c: (get_scaled): Cleaned.
 	(proc_file_to_buffer): Uninlined.	

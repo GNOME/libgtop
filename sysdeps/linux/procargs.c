@@ -59,9 +59,9 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 		return NULL;
 	}
 
-	if(max_len) {
-		args = g_realloc(args, max_len);
-		args[max_len-1] = '\0';
+	if(max_len && max_len < length) {
+		args = g_realloc(args, max_len+1);
+		args[max_len] = '\0';
 		length = max_len;
 	}
 
