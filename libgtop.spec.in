@@ -119,7 +119,6 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/lib/*.sh
 %{prefix}/lib/*.def
 %{prefix}/include/*
-%{prefix}/lib/libgtop
 
 %files examples
 %defattr(-,root,root)
