@@ -29,120 +29,76 @@ AC_DEFUN([AC_LC_CANONICAL_HOST],[
 
 AC_DEFUN([AC_LC_SYSDEPS],[
 	AC_REQUIRE([AC_LC_CANONICAL_HOST])
+	AC_REQUIRE([GNOME_LIBGTOP_SYSDEPS])
 
-	AC_MSG_CHECKING(for sysdeps directory)
-
-	AC_ARG_WITH(sysdeps,
-	[  --with-sysdeps=dir      which sysdeps directory should be used [default=auto]],
-	[if test "x$withval" = "xyes" ; then
-	   ac_cv_sysdeps_dir=yes
-	 elif test "x$withval" = "xauto" ; then
-	   ac_cv_sysdeps_dir=yes
-	 else
-	   ac_cv_sysdeps_dir=$withval
-	 fi],[ac_cv_sysdeps_dir=yes])
-
-	if test "x$ac_cv_sysdeps_dir" = "xyes" ; then
-	  case "$host_os" in
-	  linux*)
-	    sysdeps_dir=linux
-	    use_glibtop_machine_h=no
-	    need_server=no
-	    ;;
-	  sunos4*)
-	    sysdeps_dir=sun4
-	    use_glibtop_machine_h=no
-	    need_server=yes
-	    ;;
-	  osf*)
-	    sysdeps_dir=osf1
-	    use_glibtop_machine_h=yes
-	    AC_DEFINE(HAVE_GLIBTOP_MACHINE_H)
-	    need_server=yes
-	    ;;
-	  *)
-	    sysdeps_dir=stub
-	    use_glibtop_machine_h=no
-	    need_server=no
-	    ;;
-	  esac
-	elif test "x$ac_cv_sysdeps_dir" = "xno" ; then
-	  sysdeps_dir=stub
-	else
-	  sysdeps_dir=stub
-	fi
-
-	test -d $srcdir/sysdeps/$sysdeps_dir || sysdeps_dir=stub
-	AC_MSG_RESULT($sysdeps_dir)
-
-	AC_MSG_CHECKING(whether we need the server)
-
+	AC_MSG_CHECKING(whether we need the gtop_server)
+	
 	AC_ARG_ENABLE(libgtop-server,
 	[  --enable-libgtop-server use gtop_server [default=auto]],
 	[if test "x$enableval" = "xyes" ; then
-	  need_server=yes
+	  libgtop_need_server=yes
 	 elif test "x$enableval" = "xno" ; then
-	  need_server=no
+	  libgtop_need_server=no
 	 fi])
 
-	AC_MSG_RESULT($need_server)
+	AC_MSG_RESULT($libgtop_need_server)
 
-	AC_MSG_CHECKING(whether building of 'names' subdirs is requested)
+	AC_MSG_CHECKING(whether building of libgtop names is requested)
 
 	AC_ARG_ENABLE(libgtop-names,
 	[  --enable-libgtop-names  enable building of 'names' subdirs [default=yes]],
 	[if test "x$enableval" = "xyes" ; then
-	  ac_cv_want_names=yes
+	  libgtop_want_names=yes
 	 else
-	  ac_cv_want_names=$enableval
-	 fi],[ac_cv_want_names=yes])
+	  libgtop_want_names=$enableval
+	 fi],[libgtop_want_names=yes])
 
-	AC_MSG_RESULT($ac_cv_want_names)
+	AC_MSG_RESULT($libgtop_want_names)
 
-	if test x$ac_cv_want_names = xyes ; then
+	if test x$libgtop_want_names = xyes ; then
 	  AC_DEFINE(GLIBTOP_NAMES)
 	fi
 
-	AM_CONDITIONAL(GLIBTOP_NAMES, test x$ac_cv_want_names = xyes)
+	AM_CONDITIONAL(GLIBTOP_NAMES, test x$libgtop_want_names = xyes)
 
 	AC_MSG_CHECKING(whether building of the guile interface is requested)
 
 	AC_ARG_ENABLE(libgtop-guile,
-	[  --enable-libgtop-guile  enable building of guile interface [default=yes]],
+	[  --enable-libgtop-guile  enable building of the guile interface [default=yes]],
 	[if test "x$enableval" = "xyes" ; then
-	  ac_cv_want_guile=yes
+	  libgtop_want_guile=yes
 	 else
-	  ac_cv_want_guile=$enableval
-	 fi],[ac_cv_want_guile=yes])
+	  libgtop_want_guile=$enableval
+	 fi],[libgtop_want_guile=yes])
 
-	AC_MSG_RESULT($ac_cv_want_guile)
+	AC_MSG_RESULT($libgtop_want_guile)
 
 	AC_MSG_CHECKING(whether building of the examples is requested)
 
-	AC_ARG_WITH(libgtop-examples,
-	[  --without-examples      disable building of the examples],
-	[if test "x$withval" = "xyes" ; then
-	  ac_cv_want_examples=yes
+	AC_ARG_ENABLE(libgtop-examples,
+	[  --disable-libgtop-examples disable building of the examples],
+	[if test "x$enableval" = "xyes" ; then
+	  libgtop_want_examples=yes
 	 else
-	  ac_cv_want_examples=$withval
-	 fi],[ac_cv_want_examples=yes])
+	  libgtop_want_examples=$enableval
+	 fi],[libgtop_want_examples=yes])
 
-	AC_MSG_RESULT($ac_cv_want_examples)
+	AC_MSG_RESULT($libgtop_want_examples)
 
-	if test x$ac_cv_want_examples = xyes ; then
+	if test x$libgtop_want_examples = xyes ; then
 	  AC_DEFINE(GLIBTOP_EXAMPLES)
 	fi
 
-	AM_CONDITIONAL(GLIBTOP_EXAMPLES, test x$ac_cv_want_examples = xyes)
+	AM_CONDITIONAL(GLIBTOP_EXAMPLES, test x$libgtop_want_examples = xyes)
 
-	if test x$use_glibtop_machine_h = xyes ; then
+	if test x$libgtop_use_machine_h = xyes ; then
 	  machine_incs="-I\$(top_srcdir)/sysdeps/$sysdeps_dir"
 	fi
 
 	AC_SUBST(machine_incs)
-	AC_SUBST(sysdeps_dir)
-	AC_SUBST(use_glibtop_machine_h)
-	AC_SUBST(need_server)
+	AC_SUBST(libgtop_want_names)
+	AC_SUBST(libgtop_want_guile)
+	AC_SUBST(libgtop_want_examples)
 ])
 
 # Like AC_CONFIG_HEADER, but automatically create stamp file.
