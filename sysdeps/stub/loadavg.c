@@ -19,8 +19,18 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
 #include <glibtop/loadavg.h>
+
+static const unsigned long _glibtop_sysdeps_loadavg = 0;
+
+/* Init function. */
+
+void
+glibtop_init_loadavg_s (glibtop *server)
+{
+	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
+}
 
 /* Provides load averange. */
 

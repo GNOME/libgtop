@@ -19,8 +19,18 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
 #include <glibtop/procmem.h>
+
+static const unsigned long _glibtop_sysdeps_proc_mem = 0;
+
+/* Init function. */
+
+void
+glibtop_init_proc_mem_s (glibtop *server)
+{
+	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
+}
 
 /* Provides detailed information about a process. */
 
