@@ -26,7 +26,7 @@ handle_slave_connection (int input, int output)
 {
 	glibtop *server = glibtop_global_server;
 	int64_t *param_ptr;
-	void *ptr;
+	const void *ptr;
 
 	unsigned short max_len;
 	pid_t pid;
@@ -228,6 +228,12 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 		glibtop_get_proc_segment_p
 			(server, &resp->u.data.proc_segment, pid);
 		resp->offset = _offset_data (proc_segment);
+		break;
+#endif
+#if GLIBTOP_SUID_NETLOAD
+	case GLIBTOP_CMND_NETLOAD:
+		glibtop_get_netload_p (server, &resp->u.data.netload, parameter);
+		resp->offset = _offset_data (netload);
 		break;
 #endif
 #if GLIBTOP_SUID_PPP

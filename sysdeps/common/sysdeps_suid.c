@@ -77,6 +77,9 @@ glibtop_init_func_t _glibtop_init_hook_p [] = {
 #if GLIBTOP_SUID_PROC_MAP
 	glibtop_init_proc_map_p,
 #endif
+#if GLIBTOP_SUID_NETLOAD
+	glibtop_init_netload_p,
+#endif
 #if GLIBTOP_SUID_PPP
 	glibtop_init_ppp_p,
 #endif

@@ -19,32 +19,41 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#ifndef __GLIBTOP_SERVER_H__
-#define __GLIBTOP_SERVER_H__
+#include <glibtop/netload.h>
 
-__BEGIN_DECLS
+const char *glibtop_names_netload [GLIBTOP_MAX_NETLOAD] =
+{
+	"mtu", "packets_in", "packets_out", "bytes_in", "bytes_out",
+	"errors_in", "errors_out", "collisions"
+};
 
-#define GLIBTOP_SUID_CPU		0
-#define GLIBTOP_SUID_MEM		0
-#define GLIBTOP_SUID_SWAP		0
-#define GLIBTOP_SUID_UPTIME		0
-#define GLIBTOP_SUID_LOADAVG		0
-#define GLIBTOP_SUID_SHM_LIMITS		0
-#define GLIBTOP_SUID_MSG_LIMITS		0
-#define GLIBTOP_SUID_SEM_LIMITS		0
-#define GLIBTOP_SUID_PROCLIST		0
-#define GLIBTOP_SUID_PROC_STATE		0
-#define GLIBTOP_SUID_PROC_UID		0
-#define GLIBTOP_SUID_PROC_MEM		0
-#define GLIBTOP_SUID_PROC_TIME		0
-#define GLIBTOP_SUID_PROC_SIGNAL	0
-#define GLIBTOP_SUID_PROC_KERNEL	0
-#define GLIBTOP_SUID_PROC_SEGMENT	0
-#define GLIBTOP_SUID_PROC_ARGS		0
-#define GLIBTOP_SUID_PROC_MAP		0
-#define GLIBTOP_SUID_NETLOAD		0
-#define GLIBTOP_SUID_PPP		0
+const unsigned glibtop_types_netload [GLIBTOP_MAX_NETLOAD] =
+{ 
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
+};
 
-__END_DECLS
+const char *glibtop_labels_netload [GLIBTOP_MAX_NETLOAD] =
+{
+	N_("MTU"),
+	N_("Packets In"),
+	N_("Packets Out"),
+	N_("Bytes In"),
+	N_("Bytes Out"),
+	N_("Errors In"),
+	N_("Errors Out"),
+	N_("Collisions")
+};
 
-#endif
+const char *glibtop_descriptions_netload [GLIBTOP_MAX_NETLOAD] =
+{
+	N_("Maximum Transfer Unit"),
+	N_("Packets In"),
+	N_("Packets Out"),
+	N_("Bytes In"),
+	N_("Bytes Out"),
+	N_("Errors In"),
+	N_("Errors Out"),
+	N_("Collisions")
+};

@@ -1,5 +1,10 @@
 1998-10-26  Martin Baulig  <martin@home-of-linux.org>
 
+	* netload.c: New file. Gets network load for the interface
+	given as command line argument.
+
+1998-10-26  Martin Baulig  <martin@home-of-linux.org>
+
 	* first.c (glibtop_get_proc_args): Get command line arguments.
 	* second.c: Likewise.
 

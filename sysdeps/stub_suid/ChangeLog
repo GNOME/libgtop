@@ -1,5 +1,9 @@
 1998-10-26  Martin Baulig  <martin@home-of-linux.org>
 
+	* netload.c: New file.
+
+1998-10-26  Martin Baulig  <martin@home-of-linux.org>
+
 	* procargs.c: New file.
 	* procmap.c: New file.
 

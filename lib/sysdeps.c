@@ -39,6 +39,7 @@ GLIBTOP_SUID_PROC_SIGNAL +
 GLIBTOP_SUID_PROC_KERNEL +
 GLIBTOP_SUID_PROC_SEGMENT +
 GLIBTOP_SUID_PROC_MAP +
+GLIBTOP_SUID_NETLOAD +
 GLIBTOP_SUID_PPP;
 
 glibtop_init_func_t _glibtop_init_hook_s [] = {
@@ -95,6 +96,9 @@ glibtop_init_func_t _glibtop_init_hook_s [] = {
 #endif
 #if !GLIBTOP_SUID_PROC_MAP
 	glibtop_init_proc_map_s,
+#endif
+#if !GLIBTOP_SUID_NETLOAD
+	glibtop_init_netload_s,
 #endif
 #if !GLIBTOP_SUID_PPP
 	glibtop_init_ppp_s,

@@ -124,7 +124,7 @@ else
 fi
 
 if test "x$enable_static" != xno; then
-  static_targets="first_static second_static mountlist_static procmap_static $guile_static_example $smp_static_examples"
+  static_targets="first_static second_static mountlist_static procmap_static netload_static $guile_static_example $smp_static_examples"
 else
   static_targets=""
 fi

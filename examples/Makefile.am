@@ -12,13 +12,14 @@ DEFS			= @DEFS@
 libgtopdir		= $(libexecdir)/libgtop
 
 libgtop_PROGRAMS	= first second\
-			  mountlist procmap \
+			  mountlist procmap netload \
 			  @static_targets@ \
 			  @guile_examples@ @smp_examples@
 
 EXTRA_PROGRAMS		= first_static second_static \
 			  mountlist_static procmap_static \
-			  third third_static smp smp_static
+			  third third_static smp smp_static \
+			  netload_static
 
 first_SOURCES		= first.c
 first_LDADD		= $(top_builddir)/lib/libgtop.la \
@@ -46,9 +47,21 @@ procmap_LDADD		= $(top_builddir)/lib/libgtop.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
 			  @INTLLIBS@ @LIBSUPPORT@
 
+
+
 procmap_static_SOURCES	= $(procmap_SOURCES)
 procmap_static_LDADD	= $(procmap_LDADD)
 procmap_static_LDFLAGS	= -static
+
+netload_SOURCES		= netload.c
+netload_LDADD		= $(top_builddir)/lib/libgtop.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+			  @INTLLIBS@ @LIBSUPPORT@
+
+netload_static_SOURCES	= $(netload_SOURCES)
+netload_static_LDADD	= $(netload_LDADD)
+netload_static_LDFLAGS	= -static
 
 
 
