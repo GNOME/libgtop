@@ -48,7 +48,7 @@ struct _glibtop_fsusage
 		bavail,		/* Free blocks available to non-superuser. */
 		files,		/* Total file nodes. */
 		ffree;		/* Free file nodes. */
-	gint	block_size;	/* Size of a block in bytes. */
+	guint32	block_size;	/* Size of a block in bytes. */
 };
 
 #define glibtop_get_fsusage(fsusage,disk)	glibtop_get_fsusage_l(glibtop_global_server, fsusage, disk)

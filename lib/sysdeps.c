@@ -178,5 +178,5 @@ glibtop_init_func_t _glibtop_init_hook_p [] = {
 void
 glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf)
 {
-	memcpy (buf, &server->sysdeps, sizeof (glibtop_sysdeps));
+	*buf = server->sysdeps;
 }
