@@ -1,3 +1,8 @@
+1998-12-18  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am: Applied patch from Edward Jason Riedy to use '#'
+	as separator in sed commands.
+
 1998-12-15  Martin Baulig  <martin@home-of-linux.org>
 
 	Released LibGTop 0.99.0 which is a feature-freezed version
