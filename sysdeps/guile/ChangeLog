@@ -1,3 +1,9 @@
+1998-10-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am: Let the `Makefile' depend upon $(BUILT_SOURCES).
+	This is required to get dependencies correctly.
+	* names/Makefile.am: Likewise.
+
 1998-10-11  Martin Baulig  <martin@home-of-linux.org>
 
 	* names/Makefile.am (BUILT_SOURCES, CLEANFILES): Added

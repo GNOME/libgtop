@@ -4,11 +4,13 @@ CFLAGS				= -Wall -W @CFLAGS@
 
 lib_LTLIBRARIES			= libgtop_guile_names.la
 
-libgtop_guile_names_la_SOURCES	= guile-names.c
+BUILT_SOURCES			= guile-names.c guile-names.x
+
+libgtop_guile_names_la_SOURCES	= $(BUILT_SOURCES)
 
 libgtop_guile_names_la_LDFLAGS	= $(LT_VERSION_INFO)
 
-BUILT_SOURCES			= guile-names.c guile-names.x
+Makefile: $(BUILT_SOURCES)
 
 guile-names.c: guile-names.awk $(top_builddir)/config.h $(top_srcdir)/features.def
 	$(AWK) -f $(srcdir)/guile-names.awk < $(top_srcdir)/features.def > gnc-t
