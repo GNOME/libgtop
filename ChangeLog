@@ -1,5 +1,8 @@
 1998-09-09  Martin Baulig <baulig@Stud.Informatik.uni-trier.de>
 
+	* include/glibtop/proctime.h (glibtop_proc_time): Added `xcpu_utime' and
+	`xcpu_stime'.
+
 	* sysdeps/linux/ChangeLog: New file.
 
 	* glibtop.h (glibtop): Added `ncpu'. This is zero for single processor

@@ -23,6 +23,7 @@
 #define __GLIBTOP_PROCTIME_H__
 
 #include <glibtop.h>
+#include <glibtop/cpu.h>
 #include <glibtop/global.h>
 
 __BEGIN_DECLS
@@ -36,8 +37,10 @@ __BEGIN_DECLS
 #define GLIBTOP_PROC_TIME_TIMEOUT	6
 #define GLIBTOP_PROC_TIME_IT_REAL_VALUE	7
 #define GLIBTOP_PROC_TIME_FREQUENCY	8
+#define GLIBTOP_PROC_TIME_XCPU_UTIME	9
+#define GLIBTOP_PROC_TIME_XCPU_STIME	10
 
-#define GLIBTOP_MAX_PROC_TIME		9
+#define GLIBTOP_MAX_PROC_TIME		11
 
 typedef struct _glibtop_proc_time	glibtop_proc_time;
 
@@ -60,7 +63,9 @@ struct _glibtop_proc_time
 		it_real_value,	/* The time (in jiffies) before the
 				 * next SIGALRM is sent to the process
 				 * due to an interval timer. */
-		frequency;	/* Tick frequency. */
+		frequency,	/* Tick frequency. */
+		xcpu_utime [GLIBTOP_NCPU],	/* utime and stime for all CPUs on */
+		xcpu_stime [GLIBTOP_NCPU];	/* SMP machines. */
 };
 
 #define glibtop_get_proc_time(p1, p2)	glibtop_get_proc_time_l(glibtop_global_server, p1, p2)
