@@ -1,5 +1,9 @@
 2004-09-24  Benoît Dejean  <tazforever@dlfp.org>
 
+	* fsusage.c: (glibtop_get_fsusage_s): Fixed .block_size on Solaris.
+
+2004-09-24  Benoît Dejean  <tazforever@dlfp.org>
+
 	* Makefile.am:
 	* mountlist.c:
 	* mountlist.h: Removed mountlist.h.
