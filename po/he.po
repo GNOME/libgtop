@@ -189,7 +189,7 @@ msgstr "%s: אפשרות לא מזוהה `--%s'\n"
 
 #. +option or -option
 #: support/getopt.c:748
-#, c-format
+#, fuzzy, c-format
 msgid "%s: unrecognized option `%c%s'\n"
 msgstr "%s: אפשרות לא מזוהה `%s%c'\n"
 

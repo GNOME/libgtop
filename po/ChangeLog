@@ -1,3 +1,7 @@
+2003-05-25  Abel Cheung  <maddog@linux.org.hk>
+
+	* he.po: Mark wrong entry as fuzzy (msgfmt check failed).
+
 2003-05-16  Danilo ©egan  <dsegan@gmx.net>
 
 	* sr.po, sr@Latn.po: Updated Serbian translation by Serbian 
