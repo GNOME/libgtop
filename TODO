@@ -29,12 +29,8 @@ Things that need to be done before Dec 15:
 * [IMPORTANT] Check whether the daemon works on all supported systems
               and has all features the server has. (***)
 
-* Check it with NetBSD and OpenBSD (I have a large hard disk but less
-  time - so is there anybody out there having those systems already
-  installed who can test this ?)
-
-* Signals: Does this work now (Matthias Scheler reported problems
-  with NetBSD).
+* NetBSD/OpenBSD: Support was added on Dec 6, but we need to check
+  whether all data are valid (I'll do this next week).
 
 Guile-Port:
 ===========
