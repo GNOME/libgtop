@@ -23,33 +23,22 @@
 
 #include <glibtop/xmalloc.h>
 
-#if LIBGTOP_ENABLE_DEBUG
-#include <glib.h>
-#endif
-
 /* Wrappers to malloc, calloc, realloc ... */
 
 void *
 glibtop_malloc_r (glibtop *server, size_t size)
 {
-#if LIBGTOP_ENABLE_DEBUG
-	return g_malloc0 (size);
-#else
 	void *buf = malloc (size);
 	
 	if (!buf)
 		glibtop_error_io_r (server, "malloc %d bytes", size);
 	
 	return buf;
-#endif
 }
 
 void *
 glibtop_calloc_r (glibtop *server, size_t nmemb, size_t size)
 {
-#if LIBGTOP_ENABLE_DEBUG
-	return g_malloc0 (size * nmemb);
-#else
 	void *buf = calloc (nmemb, size);
 	
 	if (!buf)
@@ -57,40 +46,27 @@ glibtop_calloc_r (glibtop *server, size_t nmemb, size_t size)
 				    nmemb, size);
 	
 	return buf;
-#endif
 }
 
 void *
 glibtop_realloc_r (glibtop *server, void *ptr, size_t size)
 {
-#if LIBGTOP_ENABLE_DEBUG
-	return g_realloc (ptr, size);
-#else
 	void *buf = realloc (ptr, size);
 	
 	if (!buf)
 		glibtop_error_io_r (server, "realloc %d bytes", size);
 	
 	return buf;
-#endif
 }
 
 char *
 glibtop_strdup_r (glibtop *server, const char *string)
 {
-#if LIBGTOP_DEBUG
-	return g_strdup (string);
-#else
 	return strcpy (glibtop_malloc_r (server, strlen (string) + 1), string);
-#endif
 }
 
 void
 glibtop_free_r (glibtop *server, const void *ptr)
 {
-#if LIBGTOP_DEBUG
-	g_free (ptr);
-#else
 	if (ptr) free ((void *) ptr);
-#endif
 }
