@@ -49,40 +49,48 @@ glibtop_init_proc_open_files_s (glibtop *server)
 }
 
 
-static void
-get_socket_endpoint(char *buf, int *prmtport, int s)
+
+struct SocketEndPoint
 {
-	FILE *f;
+	char host[GLIBTOP_OPEN_DEST_HOST_LEN + 1];
+	int port;
+	int sock;
+};
+
+
+
+static GArray* get_all_sockets()
+{
+	GArray *socks;
+	FILE *tcp;
 	char line[1024];
 
-	buf[0] = '\0';
-	*prmtport = 0;
+	socks = g_array_new(FALSE, FALSE, sizeof(struct SocketEndPoint));
 
-	f = fopen("/proc/net/tcp", "r");
-	if(!f)
-		return;
+	g_return_val_if_fail((tcp = fopen("/proc/net/tcp", "r")), socks);
 
-	if(!fgets(line, sizeof line, f)) goto eof;
+	if(!fgets(line, sizeof line, tcp)) goto eof;
 
-
-	while(fgets(line, sizeof line, f))
+	while(fgets(line, sizeof line, tcp))
 	{
-		unsigned int rmt;
-		int sock = -42;
+		struct SocketEndPoint sep;
+		unsigned addr;
 
-		sscanf(line, "%*d: %*x:%*x %8x:%4x %*x %*x:%*x %*x:%*x %*d %*d %*d %d",
-		       &rmt, prmtport, &sock);
+		if(sscanf(line, "%*d: %*x:%*x %8x:%4x %*x %*x:%*x %*x:%*x %*d %*d %*d %d",
+			  &addr, &sep.port, &sep.sock) != 3)
+			continue;
 
-		if(sock == s)
-		{
-			inet_ntop(AF_INET, &rmt, buf, GLIBTOP_OPEN_DEST_HOST_LEN);
-			break;
-		}
+		if(!inet_ntop(AF_INET, &addr, sep.host, sizeof sep.host))
+			continue;
+
+		g_array_append_val(socks, sep);
 	}
 
  eof:
-	fclose(f);
+	fclose(tcp);
+	return socks;
 }
+
 
 /* Provides detailed information about a process' open files */
 
@@ -91,8 +99,8 @@ glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pi
 {
 	char fn [BUFSIZ];
 	GArray *entries;
+	GArray *socks = NULL;
 	struct dirent *direntry;
-	int rv;
 	DIR *dir;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_OPEN_FILES, 0);
@@ -108,6 +116,7 @@ glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pi
 
 	while((direntry = readdir(dir))) {
 		char tgt [BUFSIZ];
+		int rv;
 		glibtop_open_files_entry entry = {0};
 
 
@@ -125,12 +134,33 @@ glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pi
 
 		if(g_str_has_prefix(tgt, "socket:["))
 		{
+			unsigned i;
 			int sockfd;
+
+			if(!socks)
+				socks = get_all_sockets();
+
 			entry.type = GLIBTOP_FILE_TYPE_INETSOCKET;
+
 			sockfd = atoi(tgt + 8);
-			get_socket_endpoint(entry.info.sock.dest_host,
-					    &(entry.info.sock.dest_port),
-					    sockfd);
+
+			for(i = 0; i < socks->len; ++i)
+			{
+				const struct SocketEndPoint *sep;
+
+				sep = & g_array_index(socks,
+						      struct SocketEndPoint,
+						      i);
+
+				if(sep->sock == sockfd)
+				{
+					entry.info.sock.dest_port = sep->port;
+					memcpy(entry.info.sock.dest_host,
+					       sep->host,
+					       sizeof sep->host);
+					break;
+				}
+			}
 		}
 		else if(g_str_has_prefix(tgt, "pipe:["))
 		{
@@ -146,6 +176,9 @@ glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pi
 	}
 
 	closedir (dir);
+
+	if(socks)
+		g_array_free(socks, TRUE);
 
 	buf->flags = _glibtop_sysdeps_proc_open_files;
 	buf->number = entries->len;
