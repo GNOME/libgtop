@@ -6,7 +6,10 @@ CFLAGS			= -Wall -W @CFLAGS@ -O0
 
 DEFS			= @DEFS@
 
-bin_PROGRAMS		= first first_static second second_static \
+# We install it in `libexec' since this will make it more easy
+# to put the examples into an extra RPM package.
+
+libexec_PROGRAMS	= first first_static second second_static \
 			  mountlist mountlist_static \
 			  procmap procmap_static \
 			  @guile_examples@
