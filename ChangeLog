@@ -1,3 +1,7 @@
+1998-10-07  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in (ALL_LINGUAS): Added `de'.
+
 1998-10-03  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/global.h: Only include system header files
