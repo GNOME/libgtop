@@ -1,5 +1,8 @@
 1998-07-24  Martin Baulig  <martin@home-of-linux.org>
 
+	* sysdeps/common/mountlist.c (glibtop_get_mountlist_s):
+	Added `all_fs' parameter.
+
 	* sysdeps/{kernel, linux}/*.c: Replaced `glibtop_init_r' with
 	`glibtop_init_s'.
 

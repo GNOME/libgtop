@@ -29,6 +29,7 @@ handle_parent_connection (int s)
 	glibtop_command _cmnd, *cmnd = &_cmnd;
 	glibtop_mountentry *mount_list;
 	char parameter [BUFSIZ];
+	int all_fs;
 	pid_t pid;
 	void *ptr;
 
@@ -160,8 +161,9 @@ handle_parent_connection (int s)
 			do_output (s, resp, _offset_data (proc_segment), 0, NULL);
 			break;
 		case GLIBTOP_CMND_MOUNTLIST:
+		  memcpy (&all_fs, parameter, sizeof (all_fs));
 			mount_list = glibtop_get_mountlist_l
-				(server, &resp->u.data.mountlist);
+				(server, &resp->u.data.mountlist, all_fs);
 			do_output (s, resp, _offset_data (mountlist),
 				   resp->u.data.mountlist.total, mount_list);
 			glibtop_free_r (server, mount_list);

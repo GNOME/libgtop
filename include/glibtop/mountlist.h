@@ -55,13 +55,13 @@ struct _glibtop_mountlist
 		size;			/* GLIBTOP_MOUNTLIST_SIZE	*/
 };
 
-#define glibtop_get_mountlist(mountlist)	glibtop_get_mountlist_l(glibtop_global_server, mountlist)
+#define glibtop_get_mountlist(mountlist,all_fs)	glibtop_get_mountlist_l(glibtop_global_server, mountlist, all_fs)
 
 #define glibtop_get_mountlist_r		glibtop_get_mountlist_s
 
-extern glibtop_mountentry *glibtop_get_mountlist_l __P((glibtop *, glibtop_mountlist *));
+extern glibtop_mountentry *glibtop_get_mountlist_l __P((glibtop *, glibtop_mountlist *, int));
 
-extern glibtop_mountentry *glibtop_get_mountlist_s __P((glibtop *, glibtop_mountlist *));
+extern glibtop_mountentry *glibtop_get_mountlist_s __P((glibtop *, glibtop_mountlist *, int));
 
 __END_DECLS
 

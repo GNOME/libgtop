@@ -28,6 +28,8 @@ function output(feature) {
     param = ", pid_t pid";
   } else if (feature ~ /^fsusage$/) {
     param = ", const char *mountdir";
+  } else if (feature ~ /^mountlist$/) {
+    param = ", int all_fs";
   } else {
     param = "";
   }
@@ -58,7 +60,8 @@ function output(feature) {
   } else {
     if (feature ~ /^mountlist$/) {
       print "\t\treturn glibtop_call_l (server, GLIBTOP_CMND_MOUNTLIST,";
-      print "\t\t\t\t       0, NULL, sizeof (glibtop_mountlist),";
+      print "\t\t\t\t       sizeof (all_fs), &all_fs,";
+      print "\t\t\t\t       sizeof (glibtop_mountlist),";
       print "\t\t\t\t       buf);";
     } else if (feature ~ /^proclist$/) {
       print "\t\treturn glibtop_call_l (server, GLIBTOP_CMND_PROCLIST,";
@@ -70,7 +73,11 @@ function output(feature) {
     }
     print "\t} else {";
     if (orig ~ /^@/) {
-      print "\t\t"prefix"glibtop_get_"feature"_s (server, buf);";
+      if (feature ~ /^mountlist$/) {
+	print "\t\t"prefix"glibtop_get_"feature"_r (server, buf, all_fs);";
+      } else {
+	print "\t\t"prefix"glibtop_get_"feature"_s (server, buf);";
+      }
     } else {
       print "#if (!GLIBTOP_SUID_"toupper(feature)")";
       print "\t\t"prefix"glibtop_get_"feature"_r (server, buf);";
