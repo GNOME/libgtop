@@ -41,6 +41,15 @@ under the above conditions for modified versions,
 except that this permission notice may be stated in a
 translation approved by the Free Software Foundation.
 
+@format
+@dircategory Libraries:
+@direntry
+* libgtop: (libgtop).			Library to get system specific data
+					such as cpu and memory usage, active
+					processes
+@end direntry
+@end format
+
 @end ifinfo
 
 @titlepage
