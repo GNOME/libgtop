@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: glibtop 1.0.0\n"
-"POT-Creation-Date: 1999-03-01 22:58+0100\n"
+"Project-Id-Version: glibtop 1.0.1\n"
+"POT-Creation-Date: 1999-03-25 09:25+0100\n"
 "PO-Revision-Date: 1998-12-13 04:38+0100\n"
 "Last-Translator: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
 "Language-Team: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
@@ -53,6 +53,129 @@ msgstr ""
 "sysdeps/linux/siglist.c sysdeps/linux/swap.c sysdeps/linux/sysinfo.c "
 "sysdeps/linux/uptime.c sysdeps/linux/glibtop_machine.h "
 "sysdeps/linux/glibtop_server.h\n"
+
+#: lib/read.c:71
+#, c-format
+msgid "read %d bytes"
+msgstr "leídos %d bytes"
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "leído tamaño de datos"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr "leídos %d bytes de datos"
+
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr "escritos %d bytes"
+
+#: src/daemon/gnuserv.c:445
+msgid "DEBUG"
+msgstr "DEPURACIÓN"
+
+#: src/daemon/gnuserv.c:445
+msgid "Enable debugging"
+msgstr "Activar depuración"
+
+#: src/daemon/gnuserv.c:447
+msgid "Enable verbose output"
+msgstr "Activa salida detallada"
+
+#: src/daemon/gnuserv.c:447
+msgid "VERBOSE"
+msgstr ""
+
+#: src/daemon/gnuserv.c:449
+msgid "Don't fork into background"
+msgstr "No abrir un proceso de fondo"
+
+#: src/daemon/gnuserv.c:449
+msgid "NO-DAEMON"
+msgstr ""
+
+#: src/daemon/gnuserv.c:451
+msgid "INETD"
+msgstr "INETD"
+
+#: src/daemon/gnuserv.c:451
+msgid "Invoked from inetd"
+msgstr "Invocado desde inetd"
+
+#: src/daemon/gnuserv.c:485
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Error con la opción %s: %s.\n"
+"Lance '%s --help' para ver una lista completa de las opciones disponibles.\n"
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "Error sistema desconocido"
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: la opción `%s' es ambigua\n"
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: la opción `--%s' no admite un argumento\n"
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: la opción `%c%s' no admite un argumento\n"
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: la opción `%s' requiere un argumento\n"
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: opción no reconocida `--%s'\n"
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: opción no reconocida `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: opción ilegal -- %c\n"
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: opción no válida -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: la opción require un argumento -- %c\n"
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: la opción `-W %s' es ambigua\n"
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: la opción `-W %s' no admite argumentos\n"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
@@ -291,11 +414,11 @@ msgid "Number of system message headers"
 msgstr "Cantidad de cabeceras de mensajes sistema"
 
 #: sysdeps/names/prockernel.c:42
-msgid "K_Flags"
+msgid "CMin_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:42
-msgid "Min_Flt"
+msgid "K_Flags"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:42
@@ -303,7 +426,7 @@ msgid "Maj_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:42
-msgid "CMin_Flt"
+msgid "Min_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:43
@@ -311,11 +434,11 @@ msgid "CMaj_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:43
-msgid "KStk_ESP"
+msgid "KStk_EIP"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:43
-msgid "KStk_EIP"
+msgid "KStk_ESP"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:43
@@ -410,20 +533,20 @@ msgid "This is the textual name of the `nwchan' field."
 msgstr "Este es el nombre textual del campo `nwchan'."
 
 #: sysdeps/names/procmem.c:47
-msgid "Size"
-msgstr "Tamaño"
-
-#: sysdeps/names/procmem.c:47
-msgid "Virtual"
-msgstr "Virtual"
-
-#: sysdeps/names/procmem.c:47
 msgid "Resident"
 msgstr "Residente"
 
 #: sysdeps/names/procmem.c:47
 msgid "Share"
 msgstr "Compartido"
+
+#: sysdeps/names/procmem.c:47
+msgid "Size"
+msgstr "Tamaño"
+
+#: sysdeps/names/procmem.c:47
+msgid "Virtual"
+msgstr "Virtual"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size"
@@ -469,7 +592,7 @@ msgstr ""
 "(habitualmente 2.147.483.647)."
 
 #: sysdeps/names/procsegment.c:42
-msgid "Text_RSS"
+msgid "Data_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:42
@@ -477,11 +600,11 @@ msgid "ShLib_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:42
-msgid "Data_RSS"
+msgid "Stack_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:42
-msgid "Stack_RSS"
+msgid "Text_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:43
@@ -489,11 +612,11 @@ msgid "Dirty Size"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:43
-msgid "Start_Code"
+msgid "End_Code"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:43
-msgid "End_Code"
+msgid "Start_Code"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:43
@@ -533,20 +656,20 @@ msgid "Address of the bottom of stack segment"
 msgstr "Dirección de la base del segmento de pila"
 
 #: sysdeps/names/procsignal.c:40
-msgid "Signal"
-msgstr "Señal"
-
-#: sysdeps/names/procsignal.c:40
 msgid "Blocked"
 msgstr "Bloqueado"
+
+#: sysdeps/names/procsignal.c:40
+msgid "SigCatch"
+msgstr ""
 
 #: sysdeps/names/procsignal.c:40
 msgid "SigIgnore"
 msgstr ""
 
 #: sysdeps/names/procsignal.c:40
-msgid "SigCatch"
-msgstr ""
+msgid "Signal"
+msgstr "Señal"
 
 #: sysdeps/names/procsignal.c:45
 msgid "Mask of pending signals"
@@ -569,15 +692,15 @@ msgid "Cmd"
 msgstr ""
 
 #: sysdeps/names/procstate.c:40
+msgid "GID"
+msgstr ""
+
+#: sysdeps/names/procstate.c:40
 msgid "State"
 msgstr "Estado"
 
 #: sysdeps/names/procstate.c:40
 msgid "UID"
-msgstr ""
-
-#: sysdeps/names/procstate.c:40
-msgid "GID"
 msgstr ""
 
 #: sysdeps/names/procstate.c:45
@@ -597,23 +720,19 @@ msgid "GID of process"
 msgstr "GID del proceso"
 
 #: sysdeps/names/proctime.c:44
-msgid "Start_Time"
-msgstr ""
-
-#: sysdeps/names/proctime.c:44
 msgid "RTime"
-msgstr ""
-
-#: sysdeps/names/proctime.c:44
-msgid "UTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:44
 msgid "STime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:45
-msgid "CUTime"
+#: sysdeps/names/proctime.c:44
+msgid "Start_Time"
+msgstr ""
+
+#: sysdeps/names/proctime.c:44
+msgid "UTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:45
@@ -621,11 +740,15 @@ msgid "CSTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:45
-msgid "TimeOut"
+msgid "CUTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:45
 msgid "It_Real_Value"
+msgstr ""
+
+#: sysdeps/names/proctime.c:45
+msgid "TimeOut"
 msgstr ""
 
 #: sysdeps/names/proctime.c:46
@@ -633,11 +756,11 @@ msgid "Frequency"
 msgstr "Frecuencia"
 
 #: sysdeps/names/proctime.c:46
-msgid "XCPU_UTime"
+msgid "XCPU_STime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:46
-msgid "XCPU_STime"
+msgid "XCPU_UTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:51
@@ -689,8 +812,8 @@ msgid "SMP kernel-mode CPU time accumulated by process"
 msgstr "Tiempo CPU multi procesador en modo núcleo acumulado por el proceso"
 
 #: sysdeps/names/procuid.c:56
-msgid "Uid"
-msgstr "Uid"
+msgid "EGid"
+msgstr "EGid"
 
 #: sysdeps/names/procuid.c:56
 msgid "EUid"
@@ -701,20 +824,20 @@ msgid "Gid"
 msgstr "Gid"
 
 #: sysdeps/names/procuid.c:56
-msgid "EGid"
-msgstr "EGid"
-
-#: sysdeps/names/procuid.c:56
 msgid "Pid"
 msgstr "Pid"
 
-#: sysdeps/names/procuid.c:57
-msgid "PPid"
-msgstr "PPid"
+#: sysdeps/names/procuid.c:56
+msgid "Uid"
+msgstr "Uid"
 
 #: sysdeps/names/procuid.c:57
 msgid "PGrp"
 msgstr ""
+
+#: sysdeps/names/procuid.c:57
+msgid "PPid"
+msgstr "PPid"
 
 #: sysdeps/names/procuid.c:57
 msgid "Session"
@@ -725,7 +848,7 @@ msgid "Tty"
 msgstr "Tty"
 
 #: sysdeps/names/procuid.c:58
-msgid "TPGid"
+msgid "Nice"
 msgstr ""
 
 #: sysdeps/names/procuid.c:58
@@ -733,7 +856,7 @@ msgid "Priority"
 msgstr "Prioridad"
 
 #: sysdeps/names/procuid.c:58
-msgid "Nice"
+msgid "TPGid"
 msgstr ""
 
 #: sysdeps/names/procuid.c:63
@@ -994,149 +1117,26 @@ msgstr ""
 "Tiempo en segundos pasado por el sistema desocupado, desde el inicio del "
 "sistema"
 
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "Error sistema desconocido"
-
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: la opción `%s' es ambigua\n"
-
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: la opción `--%s' no admite un argumento\n"
-
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: la opción `%c%s' no admite un argumento\n"
-
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: la opción `%s' requiere un argumento\n"
-
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: opción no reconocida `--%s'\n"
-
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: opción no reconocida `%c%s'\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: opción ilegal -- %c\n"
-
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: opción no válida -- %c\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: la opción require un argumento -- %c\n"
-
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: la opción `-W %s' es ambigua\n"
-
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: la opción `-W %s' no admite argumentos\n"
-
-#: lib/read.c:71
-#, c-format
-msgid "read %d bytes"
-msgstr "leídos %d bytes"
-
-#: lib/read_data.c:49
-msgid "read data size"
-msgstr "leído tamaño de datos"
-
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
-msgstr "leídos %d bytes de datos"
-
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
-msgstr "escritos %d bytes"
-
-#: src/daemon/gnuserv.c:445
-msgid "Enable debugging"
-msgstr "Activar depuración"
-
-#: src/daemon/gnuserv.c:445
-msgid "DEBUG"
-msgstr "DEPURACIÓN"
-
-#: src/daemon/gnuserv.c:447
-msgid "Enable verbose output"
-msgstr "Activa salida detallada"
-
-#: src/daemon/gnuserv.c:447
-msgid "VERBOSE"
-msgstr ""
-
-#: src/daemon/gnuserv.c:449
-msgid "Don't fork into background"
-msgstr "No abrir un proceso de fondo"
-
-#: src/daemon/gnuserv.c:449
-msgid "NO-DAEMON"
-msgstr ""
-
-#: src/daemon/gnuserv.c:451
-msgid "Invoked from inetd"
-msgstr "Invocado desde inetd"
-
-#: src/daemon/gnuserv.c:451
-msgid "INETD"
-msgstr "INETD"
-
-#: src/daemon/gnuserv.c:485
-#, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"Error con la opción %s: %s.\n"
-"Lance '%s --help' para ver una lista completa de las opciones disponibles.\n"
-
-#~ msgid "(PROGRAM ERROR) Option should have been recognized!?"
-#~ msgstr "(ERROR PROGRAMA) ¿¡La opción debería haber sido reconocida!?"
-
-#~ msgid "%s: Too many arguments\n"
-#~ msgstr "%s: Demasiados argumentos\n"
-
-#~ msgid "(PROGRAM ERROR) No version known!?"
-#~ msgstr "(ERROR PROGRAMA) ¿¡ Sin versión !?"
-
-#~ msgid "Print program version"
-#~ msgstr "Muestra la versión del programa"
-
-#~ msgid "Hang for SECS seconds (default 3600)"
-#~ msgstr "Colgar por SECS segundos (3600 por omisión)"
-
-#~ msgid "Set the program name"
-#~ msgstr "Define el nombre del programa"
+#~ msgid "Give this help list"
+#~ msgstr "Muestra esta lista de ayuda"
 
 #~ msgid "Give a short usage message"
 #~ msgstr "Muestra una síntesis del uso de la memoria"
 
-#~ msgid "Give this help list"
-#~ msgstr "Muestra esta lista de ayuda"
+#~ msgid "Set the program name"
+#~ msgstr "Define el nombre del programa"
+
+#~ msgid "Hang for SECS seconds (default 3600)"
+#~ msgstr "Colgar por SECS segundos (3600 por omisión)"
+
+#~ msgid "Print program version"
+#~ msgstr "Muestra la versión del programa"
+
+#~ msgid "(PROGRAM ERROR) No version known!?"
+#~ msgstr "(ERROR PROGRAMA) ¿¡ Sin versión !?"
+
+#~ msgid "%s: Too many arguments\n"
+#~ msgstr "%s: Demasiados argumentos\n"
+
+#~ msgid "(PROGRAM ERROR) Option should have been recognized!?"
+#~ msgstr "(ERROR PROGRAMA) ¿¡La opción debería haber sido reconocida!?"
