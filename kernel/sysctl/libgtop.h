@@ -16,7 +16,8 @@ enum {
     LIBGTOP_PROC_SEGMENT,
     LIBGTOP_PROC_MEM,
     LIBGTOP_PROC_SIGNAL,
-    LIBGTOP_PROC_ARGS
+    LIBGTOP_PROC_ARGS,
+    LIBGTOP_PROC_MAPS
 };
 
 enum {
@@ -45,6 +46,27 @@ enum {
 #define LIBGTOP_TASK_STOPPED		16
 #define LIBGTOP_TASK_SWAPPING		32
 
+#define LIBGTOP_VM_READ		0x0001	/* currently active flags */
+#define LIBGTOP_VM_WRITE	0x0002
+#define LIBGTOP_VM_EXEC		0x0004
+#define LIBGTOP_VM_SHARED	0x0008
+
+#define LIBGTOP_VM_MAYREAD	0x0010	/* limits for mprotect() etc */
+#define LIBGTOP_VM_MAYWRITE	0x0020
+#define LIBGTOP_VM_MAYEXEC	0x0040
+#define LIBGTOP_VM_MAYSHARE	0x0080
+
+#define LIBGTOP_VM_GROWSDOWN	0x0100	/* general info on the segment */
+#define LIBGTOP_VM_GROWSUP	0x0200
+#define LIBGTOP_VM_SHM		0x0400	/* shared memory area, don't swap out */
+#define LIBGTOP_VM_DENYWRITE	0x0800	/* ETXTBSY on write attempts.. */
+
+#define LIBGTOP_VM_EXECUTABLE	0x1000
+#define LIBGTOP_VM_LOCKED	0x2000
+#define LIBGTOP_VM_IO		0x4000  /* Memory mapped I/O or similar */
+
+#define LIBGTOP_MAP_PATH_LEN	(PAGE_SIZE - sizeof (libgtop_proc_maps_header_t))
+
 #ifndef min
 #define min(a,b) ((a < b) ? a : b)
 #endif
@@ -61,6 +83,9 @@ typedef struct libgtop_proc_kernel libgtop_proc_kernel_t;
 typedef struct libgtop_proc_segment libgtop_proc_segment_t;
 typedef struct libgtop_proc_mem libgtop_proc_mem_t;
 typedef struct libgtop_proc_signal libgtop_proc_signal_t;
+
+typedef struct libgtop_proc_maps_header libgtop_proc_maps_header_t;
+typedef struct libgtop_proc_maps libgtop_proc_maps_t;
 
 struct libgtop_cpu
 {
@@ -163,6 +188,20 @@ struct libgtop_proc_signal
     unsigned long blocked [LIBGTOP_NSIG];
     unsigned long ignore [LIBGTOP_NSIG];
     unsigned long catch [LIBGTOP_NSIG];
+};
+
+struct libgtop_proc_maps_header
+{
+    unsigned long start, end, offset, perm;
+    off_t filename_offset;
+    ino_t inode;
+    dev_t device;
+} __attribute__ ((aligned (64)));
+
+struct libgtop_proc_maps
+{
+    libgtop_proc_maps_header_t header;
+    char filename [LIBGTOP_MAP_PATH_LEN];
 };
 
 #endif

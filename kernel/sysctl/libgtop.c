@@ -43,8 +43,14 @@ static int proc_ctl_handler (ctl_table *table, int *name, int nlen,
 			     size_t newlen, void **context);
 
 static int proc_args_ctl_handler (ctl_table *table, int *name, int nlen,
-				  void *oldval, size_t *oldlenp, void *newval,
-				  size_t newlen, void **context);
+				  void *oldval, size_t *oldlenp,
+				  void *newval, size_t newlen,
+				  void **context);
+
+static int proc_maps_ctl_handler (ctl_table *table, int *name, int nlen,
+				  void *oldval, size_t *oldlenp,
+				  void *newval, size_t newlen,
+				  void **context);
 
 static int libgtop_sysctl_version = 1;
 static int libgtop_update_expensive = 5000;
@@ -98,6 +104,8 @@ ctl_table libgtop_table[] = {
      sizeof (libgtop_proc_signal), 0444, NULL, NULL, &proc_ctl_handler},
     {LIBGTOP_PROC_ARGS, NULL, NULL, 0, 0444, NULL, NULL,
      &proc_args_ctl_handler},
+    {LIBGTOP_PROC_MAPS, NULL, NULL, 0, 0444, NULL, NULL,
+     &proc_maps_ctl_handler},
     {0}
 };
 
@@ -1008,4 +1016,134 @@ proc_args_ctl_handler (ctl_table *table, int *name, int nlen,
  err_fault_free_page:
     free_page (page);
     return -EFAULT;
+}
+
+static int
+proc_maps_ctl_handler (ctl_table *table, int *name, int nlen,
+		       void *oldval, size_t *oldlenp, void *newval,
+		       size_t newlen, void **context)
+{
+    struct task_struct *p = NULL;
+    struct vm_area_struct * map, * next;
+    int i, len, len_name, retval = -EINVAL;
+    libgtop_proc_maps_t *proc_maps;
+    size_t count, wrote = 0;
+    loff_t lineno = 0;
+    int volatile_task;
+
+    if (!oldlenp || get_user (len, oldlenp))
+	return -EFAULT;
+
+    if (!name || !nlen || get_user (len_name, name))
+	return -EFAULT;
+
+    if (nlen != 2)
+	return -EFAULT;
+
+    read_lock (&tasklist_lock);
+    p = find_task_by_pid (name [1]);
+    /* FIXME!! This should be done after the last use */
+    read_unlock (&tasklist_lock);
+
+    if (!p || !p->mm)
+	return -ESRCH;
+
+    if (len % sizeof (libgtop_proc_maps_t))
+	return -EINVAL;
+
+    count = len / sizeof (libgtop_proc_maps_t);
+
+    if (!(proc_maps = kmalloc (sizeof (libgtop_proc_maps_t), GFP_KERNEL)))
+	return -ENOMEM;
+
+    if (!p->mm || p->mm == &init_mm)
+	goto write_len_out;
+
+    /* Check whether the mmaps could change if we sleep */
+    volatile_task = (p != current || atomic_read (&p->mm->count) > 1);
+
+    if (count == 0) {
+	/* Only get total count. */
+	for (map = p->mm->mmap, i = 0; map; map = map->vm_next, i++)
+	    continue;
+	wrote = i;
+	goto write_len_success;
+    }
+
+    /* quickly go to line lineno */
+    for (map = p->mm->mmap, i = 0; map && (i < lineno);
+	 map = map->vm_next, i++)
+	continue;
+
+    for ( ; map; map = next) {
+	memset (proc_maps, 0, sizeof (libgtop_proc_maps_t));
+
+	/*
+	 * Get the next vma now (but it won't be used if we sleep).
+	 */
+	next = map->vm_next;
+
+	proc_maps->header.start = map->vm_start;
+	proc_maps->header.end = map->vm_end;
+	proc_maps->header.offset = map->vm_offset;
+
+	proc_maps->header.perm = map->vm_flags;
+
+	if (map->vm_file != NULL) {
+	    char *line = d_path	(map->vm_file->f_dentry, proc_maps->filename,
+				 LIBGTOP_MAP_PATH_LEN);
+
+	    proc_maps->filename [LIBGTOP_MAP_PATH_LEN-1] = '\0';
+	    proc_maps->header.filename_offset = line - proc_maps->filename;
+
+	    proc_maps->header.device = 
+		map->vm_file->f_dentry->d_inode->i_dev;
+	    proc_maps->header.inode =
+		map->vm_file->f_dentry->d_inode->i_ino;
+	}
+
+	/* Copy current entry to user space. */
+	if (copy_to_user (oldval, proc_maps, sizeof (*proc_maps))) {
+	    retval = -EFAULT;
+	    goto free_page_out;
+	}
+
+	wrote += sizeof (*proc_maps);
+
+	oldval += sizeof (*proc_maps);
+	len -= sizeof (*proc_maps);
+	count--;
+
+	/* If there are no more entries, we don't have to worry about space. */
+	if (next == NULL)
+	    goto write_len_success;
+
+	if (len < sizeof (*proc_maps)) {
+	    retval = -EFAULT;
+	    goto write_len_out;
+	}
+
+	if (count == 0) {
+	    retval = -E2BIG;
+	    goto write_len_out;
+	}
+    }
+
+    retval = -ENOSYS;
+    goto free_page_out;
+
+    return retval;
+
+ write_len_success:
+    retval = 1;
+
+ write_len_out:
+    if (put_user (wrote, oldlenp)) {
+	retval = -EFAULT;
+	goto free_page_out;
+    }
+
+ free_page_out:
+    kfree (proc_maps);
+    return retval;
 }
