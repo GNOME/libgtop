@@ -1,5 +1,4 @@
 # translation of libgtop.HEAD.az.po to Azerbaijani Turkish
-# libgtop faylının Azərbaycan dilinə tərcüməsi.
 # Copyright (C) 2001, 2004 Free Software Foundation, Inc.
 # Vasif Ismailoglu MD <azerb_linux@hotmail.com>, 2001.
 # Mətin Əmirov <metin@karegen.com>, 2004.
@@ -8,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.HEAD.az\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-27 20:42+0100\n"
+"POT-Creation-Date: 2004-03-05 15:20+0100\n"
 "PO-Revision-Date: 2004-01-12 19:43+0200\n"
 "Last-Translator: Mətin Əmirov <metin@karegen.com>\n"
-"Language-Team: Azerbaijani Turkish <gnome@azitt.com>\n"
+"Language-Team: Azerbaijani Turkish <translation-team-az@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -163,7 +162,7 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "%s şərhində xəta oldü %s.\n"
-"'%s --help' əmrindən bütün əmr sətiri seçənəkləri üçün işə salın.\n"
+"'%s --help' əmrindən bütün əmr sətiri seçimləri üçün işə salın.\n"
 
 #: sysdeps/names/cpu.c:44
 msgid "Total CPU Time"
@@ -235,7 +234,7 @@ msgstr "Sistemin idle oturumunda keçirdiyi saat tikləri"
 
 #: sysdeps/names/cpu.c:65
 msgid "Tick frequency (default is 100)"
-msgstr "Tick sıxlığı (əsas 100 dür)"
+msgstr "Tick sıxlığı (ön qurğulusu 100-dür)"
 
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
@@ -389,7 +388,7 @@ msgstr "Maksimal xəbər böyüklüyü"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Default max size of queue"
-msgstr "Maksimal əsas istək böyüklüyü"
+msgstr "Maksimal ön qurğulu istək böyüklüyü"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Max queues system wide"
@@ -659,7 +658,8 @@ msgstr ""
 "deyildir."
 
 #: sysdeps/names/procmem.c:63
-msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr ""
 "Gedişatın rss'sinin baytlarla göstərilan hazırkı sərhədləri (çox vaxt "
 "2.147.483.647)."
@@ -802,15 +802,15 @@ msgstr "exec() cağırışındakı işə salınabilən dosyenin  əsas adı"
 
 #: sysdeps/names/procstate.c:50
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr "əmaliyyət gedişatının Single-Char kodu (S=yuxudakı)"
+msgstr "Əmaliyyət gedişatının Single-Char kodu (S=yuxudakı)"
 
 #: sysdeps/names/procstate.c:51
 msgid "UID of process"
-msgstr "Gedişatın UIDi"
+msgstr "Gedişatın UID-si"
 
 #: sysdeps/names/procstate.c:52
 msgid "GID of process"
-msgstr "Gedişatın GIDi"
+msgstr "Gedişatın GID-si"
 
 #: sysdeps/names/procstate.c:53
 msgid "Real UID of process"
@@ -878,7 +878,8 @@ msgstr "XUCP_STime"
 
 #: sysdeps/names/proctime.c:52
 msgid "Start time of process in seconds since the epoch"
-msgstr "Gedişatın başlanğıc vaxtının epoch'dan e'tibarən keçən saniyəlarlə müddəti"
+msgstr ""
+"Gedişatın başlanğıc vaxtının epoch'dan e'tibarən keçən saniyəlarlə müddəti"
 
 #: sysdeps/names/proctime.c:53
 msgid "Real time accumulated by process (should be utime + stime)"
@@ -1294,7 +1295,7 @@ msgstr "Hökmsüz tə'limat"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
-msgstr "İzləmə trapı"
+msgstr "İzləmə yolu"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
@@ -1302,7 +1303,7 @@ msgstr "Ləğv Et"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
-msgstr "EMT Xətası"
+msgstr "EMT xətası"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
@@ -1314,7 +1315,7 @@ msgstr "Öldür"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
-msgstr "Bus Xətası"
+msgstr "Yol Xətası"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
@@ -1326,11 +1327,11 @@ msgstr "Sistem çağırışı üçün xətalı arqument"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr "Qırıq Boru"
+msgstr "Qırıq boru"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
-msgstr "Zəngli Saat"
+msgstr "Zəngli saat"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
@@ -1358,11 +1359,11 @@ msgstr "Törəmə halı dəyişdi"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr "tty'dən arxa plan gedişatı mə'lumatı"
+msgstr "tty-dən arxa plan gedişatı mə'lumatı"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr "tty'yə yazma əməliyyatı"
+msgstr "tty-yə yazma əməliyyatı"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
@@ -1399,4 +1400,3 @@ msgstr "İstifadəçi siqnal 1 təsvir etdi"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "İstifadəçi siqnal 2 təsvir etdi"
-
