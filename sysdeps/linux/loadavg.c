@@ -20,17 +20,21 @@
    Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
+#include <glibtop/error.h>
 #include <glibtop/loadavg.h>
 
 static const unsigned long _glibtop_sysdeps_loadavg =
 (1 << GLIBTOP_LOADAVG_LOADAVG);
+
+#define FILENAME	"/proc/loadavg"
 
 /* Provides load load averange. */
 
 void
 glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
-	FILE *f;
+	char buffer [BUFSIZ];
+	int fd = 0, ret;
 
 	glibtop_init_r (&server, 0, 0);
 
@@ -38,11 +42,29 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 
 	buf->flags = _glibtop_sysdeps_loadavg;
 
-	f = fopen ("/proc/loadavg", "r");
-	if (!f) return;
+#ifdef GLIBTOP_CACHE_OPEN
+	fd = server->machine.fd_loadavg;
+#endif
+	if (fd == 0) {
+		fd = open (FILENAME, O_RDONLY);
+		if (fd == -1)
+			glibtop_error_r (server, "open (%s): %s",
+					 FILENAME, strerror (errno));
+	} else {
+		lseek (fd, 0, SEEK_SET);
+	}
 
-	fscanf (f, "%lf %lf %lf\n",
+	ret = read (fd, buffer, BUFSIZ);
+	if (ret == -1)
+		glibtop_error_r (server, "read (%s): %s",
+				 FILENAME, strerror (errno));
+
+	sscanf (buffer, "%lf %lf %lf\n",
 		&buf->loadavg [0], &buf->loadavg [1], &buf->loadavg [2]);
   
-	fclose (f);
+#ifdef GLIBTOP_CACHE_OPEN
+	server->machine.fd_loadavg = fd;
+#else
+	close (fd);
+#endif
 }

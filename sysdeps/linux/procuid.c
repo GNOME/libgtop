@@ -20,6 +20,7 @@
    Boston, MA 02111-1307, USA.  */
 
 #include <glibtop.h>
+#include <glibtop/error.h>
 #include <glibtop/procuid.h>
 
 static const unsigned long _glibtop_sysdeps_proc_uid =
@@ -37,9 +38,8 @@ static const unsigned long _glibtop_sysdeps_proc_uid =
 void
 glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 {
-	char input [BUFSIZ], *tmp;
-	int nread;
-	FILE *f;
+	char buffer [BUFSIZ], input [BUFSIZ], *tmp;
+	int fd = 0, nread;
 	
 	glibtop_init_r (&server, 0, 0);
 
@@ -51,23 +51,40 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 		return;
 	}
 
-	sprintf (input, "/proc/%d/status", pid);
-	
-	f = fopen (input, "r");
-	if (!f) return;
-
-	nread = fread (input, 1, BUFSIZ, f);
-	
-	if (nread < 0) {
-		fclose (f);
-		return;
+	if (pid != server->machine.last_pid) {
+		server->machine.last_pid = pid;
+		server->machine.no_update = 0;
 	}
+
+	if (!server->machine.no_update) {
+		server->machine.proc_status [0] = 0;
+		server->machine.proc_statm [0] = 0;
+		server->machine.proc_stat [0] = 0;
+	}
+
+	if (server->machine.proc_status [0]) {
+		strcpy (buffer, server->machine.proc_status);
+	} else {
+		sprintf (input, "/proc/%d/status", pid);
+		
+		fd = open (input, O_RDONLY);
+		if (fd == -1)
+			glibtop_error_r (server, "open (%s): %s",
+					 input, strerror (errno));
+
+		nread = read (fd, buffer, BUFSIZ);
+		if (nread == -1)
+			glibtop_error_r (server, "read (%s): %s",
+					 input, strerror (errno));
 	
-	input [nread] = 0;
+		buffer [nread] = 0;
+		strcpy (server->machine.proc_status, buffer);
+		close (fd);
+	}
 
 	/* Search substring 'Pid:' */
 
-	tmp = strstr (input, "Pid:");
+	tmp = strstr (buffer, "Pid:");
 
 	if (tmp == NULL) return;
 
@@ -75,26 +92,30 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 		"Gid: %u %u %*u %*u\n", &buf->pid, &buf->ppid,
 		&buf->uid, &buf->euid, &buf->gid, &buf->egid);
 	
-	fclose (f);
-
-	sprintf (input, "/proc/%d/stat", pid);
-
-	f = fopen (input, "r");
-	if (!f) return;
-	
-	nread = fread (input, 1, BUFSIZ, f);
-	
-	if (nread < 0) {
-		fclose (f);
-		return;
+	if (server->machine.proc_stat [0]) {
+		strcpy (buffer, server->machine.proc_stat);
+	} else {
+		sprintf (input, "/proc/%d/stat", pid);
+		
+		fd = open (input, O_RDONLY);
+		if (fd == -1)
+			glibtop_error_r (server, "open (%s): %s",
+					 input, strerror (errno));
+		
+		nread = read (fd, buffer, BUFSIZ);
+		if (nread == -1)
+			glibtop_error_r (server, "read (%s): %s",
+					 input, strerror (errno));
+		
+		buffer [nread] = 0;
+		strcpy (server->machine.proc_stat, buffer);
+		close (fd);
 	}
-	
-	input [nread] = 0;
 	
 	/* This is from guile-utils/gtop/proc/readproc.c */
 	
 	/* split into "PID (cmd" and "<rest>" */
-	tmp = strrchr (input, ')');
+	tmp = strrchr (buffer, ')');
 	*tmp = '\0';		/* replace trailing ')' with NUL */
 	/* parse these two strings separately, skipping the leading "(". */
 	sscanf(tmp + 2,		/* skip space after ')' too */
@@ -116,7 +137,5 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 		/* when tty wasn't full devno */
 		buf->tty = 4*0x100 + buf->tty;
 	
-	fclose (f);
-
 	buf->flags = _glibtop_sysdeps_proc_uid;
 }

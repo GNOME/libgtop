@@ -20,18 +20,22 @@
    Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
+#include <glibtop/error.h>
 #include <glibtop/swap.h>
 
 static unsigned long _glibtop_sysdeps_swap =
 (1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
 (1 << GLIBTOP_SWAP_FREE);
 
+#define FILENAME	"/proc/meminfo"
+
 /* Provides information about swap usage. */
 
 void
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
-	FILE *f;
+	char buffer [BUFSIZ];
+	int fd = 0, ret;
 
 	glibtop_init_r (&server, 0, 0);
 
@@ -39,11 +43,29 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
 	buf->flags = _glibtop_sysdeps_swap;
 
-	f = fopen ("/proc/meminfo", "r");
-	if (!f) return;
+#ifdef GLIBTOP_CACHE_OPEN
+	fd = server->machine.fd_meminfo;
+#endif
+	if (fd == 0) {
+		fd = open (FILENAME, O_RDONLY);
+		if (fd == -1)
+			glibtop_error_r (server, "open (%s): %s",
+					 FILENAME, strerror (errno));
+	} else {
+		lseek (fd, 0, SEEK_SET);
+	}
 
-	fscanf (f, "%*[^\n]\n%*[^\n]\nSwap: %lu %lu %lu\n",
+	ret = read (fd, buffer, BUFSIZ);
+	if (ret == -1)
+		glibtop_error_r (server, "read (%s): %s",
+				 FILENAME, strerror (errno));
+
+	sscanf (buffer, "%*[^\n]\n%*[^\n]\nSwap: %lu %lu %lu\n",
 		&buf->total, &buf->used, &buf->free);
 
-	fclose (f);
+#ifdef GLIBTOP_CACHE_OPEN
+	server->machine.fd_meminfo = fd;
+#else
+	close (fd);
+#endif
 }

@@ -20,6 +20,7 @@
    Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
+#include <glibtop/error.h>
 #include <glibtop/cpu.h>
 
 static const unsigned long _glibtop_sysdeps_cpu =
@@ -29,10 +30,13 @@ static const unsigned long _glibtop_sysdeps_cpu =
 
 /* Provides information about cpu usage. */
 
+#define FILENAME	"/proc/stat"
+
 void
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
-	FILE *f;
+	char buffer [BUFSIZ];
+	int fd = 0, ret;
 
 	glibtop_init_r (&server, 0, 0);
 
@@ -40,15 +44,33 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 
 	buf->flags = _glibtop_sysdeps_cpu;
 
-	f = fopen ("/proc/stat", "r");
-	if (!f) return;
+#ifdef GLIBTOP_CACHE_OPEN
+	fd = server->machine.fd_stat;
+#endif
+	if (fd == 0) {
+		fd = open (FILENAME, O_RDONLY);
+		if (fd == -1)
+			glibtop_error_r (server, "open (%s): %s",
+					 FILENAME, strerror (errno));
+	} else {
+		lseek (fd, 0, SEEK_SET);
+	}
 
-	fscanf (f, "cpu %lu %lu %lu %lu\n",
+	ret = read (fd, buffer, BUFSIZ);
+	if (ret == -1)
+		glibtop_error_r (server, "read (%s): %s",
+				 FILENAME, strerror (errno));
+
+	sscanf (buffer, "cpu %lu %lu %lu %lu\n",
 		&buf->user, &buf->nice, &buf->sys, &buf->idle);
 
 	buf->total = buf->user + buf->nice + buf->sys + buf->idle;
 
 	buf->frequency = 100;
   
-	fclose (f);
+#ifdef GLIBTOP_CACHE_OPEN
+	server->machine.fd_stat = fd;
+#else
+	close (fd);
+#endif
 }

@@ -19,40 +19,25 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
-#include <glibtop/error.h>
-#include <glibtop/uptime.h>
+#ifndef __GLIBTOP_MACHINE_H__
+#define __GLIBTOP_MACHINE_H__
 
-static unsigned long _glibtop_sysdeps_uptime =
-(1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME);
+#include <unistd.h>
+#include <fcntl.h>
 
-#define FILENAME	"/proc/uptime"
+__BEGIN_DECLS
 
-/* Provides uptime and idle time. */
+typedef struct _glibtop_machine		glibtop_machine;
 
-void
-glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
+struct _glibtop_machine
 {
-	int fd, ret;
-	char buffer [BUFSIZ];
+	pid_t	last_pid;
+	int	no_update;
+	int	fd_stat, fd_meminfo, fd_loadavg;
+	char	proc_stat [BUFSIZ], proc_statm [BUFSIZ];
+	char	proc_status [BUFSIZ];
+};
 
-	glibtop_init_r (&server, 0, 0);
+__END_DECLS
 
-	memset (buf, 0, sizeof (glibtop_uptime));
-
-	buf->flags = _glibtop_sysdeps_uptime;
-
-	fd = open (FILENAME, O_RDONLY);
-	if (fd == -1)
-		glibtop_error_r (server, "open (%s): %s",
-				 FILENAME, strerror (errno));
-
-	ret = read (fd, buffer, BUFSIZ);
-	if (ret == -1)
-		glibtop_error_r (server, "read (%s): %s",
-				 FILENAME, strerror (errno));
-
-	sscanf (buffer, "%lf %lf\n", &buf->uptime, &buf->idletime);
-
-	close (fd);
-}
+#endif

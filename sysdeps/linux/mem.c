@@ -20,6 +20,7 @@
    Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
+#include <glibtop/error.h>
 #include <glibtop/mem.h>
 
 static const unsigned long _glibtop_sysdeps_mem =
@@ -28,12 +29,15 @@ static const unsigned long _glibtop_sysdeps_mem =
 (1 << GLIBTOP_MEM_BUFFER) + (1 << GLIBTOP_MEM_CACHED) +
 (1 << GLIBTOP_MEM_USER);
 
+#define FILENAME	"/proc/meminfo"
+
 /* Provides information about memory usage. */
 
 void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
-	FILE *f;
+	char buffer [BUFSIZ];
+	int fd = 0, ret;
 
 	glibtop_init_r (&server, 0, 0);
 
@@ -41,13 +45,32 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 
 	buf->flags = _glibtop_sysdeps_mem;
 
-	f = fopen ("/proc/meminfo", "r");
-	if (!f) return;
+#ifdef GLIBTOP_CACHE_OPEN
+	fd = server->machine.fd_meminfo;
+#endif
+	if (fd == 0) {
+		fd = open (FILENAME, O_RDONLY);
+		if (fd == -1)
+			glibtop_error_r (server, "open (%s): %s",
+					 FILENAME, strerror (errno));
+	} else {
+		lseek (fd, 0, SEEK_SET);
+	}
 
-	fscanf (f, "%*[^\n]\nMem: %lu %lu %lu %lu %lu %lu\n",
-		&buf->total, &buf->used, &buf->free, &buf->shared, &buf->buffer, &buf->cached);
+	ret = read (fd, buffer, BUFSIZ);
+	if (ret == -1)
+		glibtop_error_r (server, "read (%s): %s",
+				 FILENAME, strerror (errno));
+
+	sscanf (buffer, "%*[^\n]\nMem: %lu %lu %lu %lu %lu %lu\n",
+		&buf->total, &buf->used, &buf->free, &buf->shared,
+		&buf->buffer, &buf->cached);
 
 	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
 
-	fclose (f);
+#ifdef GLIBTOP_CACHE_OPEN
+	server->machine.fd_meminfo = fd;
+#else
+	close (fd);
+#endif
 }

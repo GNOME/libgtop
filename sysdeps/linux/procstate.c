@@ -20,6 +20,7 @@
    Boston, MA 02111-1307, USA.  */
 
 #include <glibtop.h>
+#include <glibtop/error.h>
 #include <glibtop/procstate.h>
 
 #include <sys/stat.h>
@@ -33,10 +34,9 @@ static const unsigned long _glibtop_sysdeps_proc_state =
 void
 glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 {
-	char input [BUFSIZ], *tmp;
+	char buffer [BUFSIZ], input [BUFSIZ], *tmp;
 	struct stat statb;
-	int nread;
-	FILE *f;
+	int fd, nread;
 	
 	glibtop_init_r (&server, 0, 0);
 
@@ -47,6 +47,12 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 		buf->flags = _glibtop_sysdeps_proc_state;
 		return;
 	}
+
+	server->machine.last_pid = pid;
+	server->machine.no_update = 0;
+	server->machine.proc_status [0] = 0;
+	server->machine.proc_statm [0] = 0;
+	server->machine.proc_stat [0] = 0;
 
 	sprintf (input, "/proc/%d/stat", pid);
 
@@ -61,28 +67,34 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	
 	buf->uid = statb.st_uid;
 	buf->gid = statb.st_gid;
+
+	fd = open (input, O_RDONLY);
+	if (fd == -1)
+		glibtop_error_r (server, "open (%s): %s",
+				 input, strerror (errno));
+
+	nread = read (fd, buffer, BUFSIZ);
+	if (nread == -1)
+		glibtop_error_r (server, "read (%s): %s",
+				 input, strerror (errno));
 	
-	f = fopen (input, "r");
-	if (!f) return;
-	
-	nread = fread (input, 1, BUFSIZ, f);
-	
-	if (nread < 0) {
-		fclose (f);
-		return;
-	}
-	
-	input [nread] = 0;
+	buffer [nread] = 0;
+
+	server->machine.no_update = 1;
+	server->machine.last_pid = pid;
+	strcpy (server->machine.proc_stat, buffer);
 	
 	/* This is from guile-utils/gtop/proc/readproc.c */
 	
 	/* split into "PID (cmd" and "<rest>" */
-	tmp = strrchr (input, ')');
+	tmp = strrchr (buffer, ')');
 	*tmp = '\0';		/* replace trailing ')' with NUL */
 	/* parse these two strings separately, skipping the leading "(". */
 	memset (buf->cmd, 0, sizeof (buf->cmd));
-	sscanf (input, "%d (%39c", &pid, buf->cmd);
+	sscanf (buffer, "%d (%39c", &pid, buf->cmd);
 	sscanf(tmp + 2, "%c", &buf->state); /* skip space after ')' too */
+
+	close (fd);
 
 	buf->flags = _glibtop_sysdeps_proc_state;
 }
