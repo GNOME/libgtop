@@ -1,3 +1,12 @@
+2001-02-13  Martin Baulig  <baulig@suse.de>
+
+	Released LibGTop 1.0.12 "Gerolzhofen".
+
+	* NEWS: Added news entry to 1.0.12.
+
+	* LIBGTOP-VERSION: Set version number to 1.0.12, binary age 11,
+	interface age 11.
+
 2001-02-19  Simos Xenitellis  <simos@hellug.gr>
 
 	* configure.in: Added "el" to ALL_LINGUAS.
