@@ -1,5 +1,7 @@
 1998-07-30  Martin Baulig  <martin@home-of-linux.org>
 
+	* acconfig.h (u_int64_t, int64_t): Added.
+
 	* lib/lib.awk: Using correct `(1 << GLIBTOP_SYSDEPS_<feature>)'
 	in call to `glibtop_init_r'.
 

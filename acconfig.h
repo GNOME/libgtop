@@ -103,7 +103,10 @@
 #undef GNOME_ENABLE_DEBUG
 #undef HAVE_GMP2_INCLUDE_DIR
 #undef HAVE_GUILE
+
 #undef ssize_t
+#undef u_int64_t
+#undef int64_t
 
 #undef HAVE_GLIBTOP_MACHINE_H
 
@@ -116,3 +119,4 @@
 #undef HAVE_LINUX_TABLE
 
 #undef HAVE_XAUTH
+
