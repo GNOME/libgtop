@@ -1,13 +1,15 @@
 # libgtop sk.po
-# Copyright (C) 2001, 2002, 2003 Free Software Foundation, Inc.
-# Marcel Telka <marcel@telka.sk>, 2001, 2002, 2003.
+# Copyright (C) 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+# Marcel Telka <marcel@telka.sk>, 2001, 2002, 2003, 2004.
+#
+# $Id$
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2003-11-01 07:43+0100\n"
+"POT-Creation-Date: 2004-08-07 17:09+0200\n"
+"PO-Revision-Date: 2004-08-07 17:11+0200\n"
 "Last-Translator: Marcel Telka <Marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -263,9 +265,8 @@ msgid "Free file nodes"
 msgstr "Voľných súborových uzlov"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Blokovaný"
+msgstr "Veľkosť bloku"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -418,14 +419,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Podsieť"
+msgstr "IPv4 podsieť"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Adresa"
+msgstr "IPv4 adresa"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -468,17 +467,16 @@ msgid "Collisions"
 msgstr "Kolízie"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Adresa"
+msgstr "IPv6 adresa"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "IPv6 predpona"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "IPv6 rozsah"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
@@ -1422,45 +1420,3 @@ msgstr "Používateľom definovaný signál 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Používateľom definovaný signál 2"
-
-#~ msgid "Unknown system error"
-#~ msgstr "Neznáma chyba systému"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: voľba `%s' je nejednoznačná\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: voľba `--%s' nepodporuje argumenty\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: voľba `%c%s' nepodporuje argumenty\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: voľba `%s' vyžaduje parameter\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: nerozoznaná voľba `--%s'\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: nerozoznaná voľba `%c%s'\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: nepovolená voľba -- %c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: chybná voľba -- %c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: voľba vyžaduje parameter -- %c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: voľba `-W %s' je nejednoznačná\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: voľba `-W %s' nepodporuje argumenty\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "Ukázať túto správu pomocníka"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "Zobraziť stručnú správu o používaní"
