@@ -1,3 +1,13 @@
+2004-06-12  Benoît Dejean  <tazforever@dlfp.org>
+
+	* mountlist.c: (xatoi) Removed, replaced by ISO strtoull. 
+	(fstype_to_string): Cleaned.
+	(read_filesystem_list) : Changed prototype. Cleaned and secured.
+	Replaced broken free by g_free.
+	(ignore_mount_entry): Added.
+	(glibtop_get_mountlist_s): Cleaned. Better allocation algorithm.
+	@all_fs has now a real meaning, see the documentation.
+
 2004-06-06  Benoît Dejean  <tazforever@dlfp.org>
 
 	* gnuslib.c: (connect_to_internet_server): Cleaned.
