@@ -9,6 +9,7 @@
 * glibtop_loadavg::             Load Average.
 * glibtop_proclist::            Process List.
 * glibtop_proc_state::          Process State.
+* glibtop_proc_uid::            Process UID and TTY Information.
 @end menu
 
 @node glibtop_cpu, glibtop_mem, Reference Manual, Reference Manual
@@ -23,7 +24,7 @@ void glibtop_get_cpu_l (glibtop *server, glibtop_cpu *buf);
 @end cartouche
 @end example
 
-Declaration of @code{glibtop_cpu} in @file{<glibtop/cpu.h}:
+Declaration of @code{glibtop_cpu} in @file{<glibtop/cpu.h>}:
 
 @example
 @cartouche
@@ -105,7 +106,7 @@ void glibtop_get_mem_l (glibtop *server, glibtop_mem *buf);
 @end cartouche
 @end example
 
-Declaration of @code{glibtop_mem} in @file{<glibtop/mem.h}:
+Declaration of @code{glibtop_mem} in @file{<glibtop/mem.h>}:
 
 @example
 @cartouche
@@ -173,7 +174,7 @@ void glibtop_get_swap_l (glibtop *server, glibtop_swap *buf);
 @end cartouche
 @end example
 
-Declaration of @code{glibtop_swap} in @file{<glibtop/swap.h}:
+Declaration of @code{glibtop_swap} in @file{<glibtop/swap.h>}:
 
 @example
 @cartouche
@@ -232,7 +233,7 @@ void glibtop_get_uptime_l (glibtop *server, glibtop_uptime *buf);
 @end cartouche
 @end example
 
-Declaration of @code{glibtop_uptime} in @file{<glibtop/uptime.h}:
+Declaration of @code{glibtop_uptime} in @file{<glibtop/uptime.h>}:
 
 @example
 @cartouche
@@ -284,7 +285,7 @@ void glibtop_get_loadavg_l (glibtop *server, glibtop_loadavg *buf);
 @end cartouche
 @end example
 
-Declaration of @code{glibtop_loadavg} in @file{<glibtop/loadavg.h}:
+Declaration of @code{glibtop_loadavg} in @file{<glibtop/loadavg.h>}:
 
 @example
 @cartouche
@@ -361,7 +362,7 @@ Constants for the @code{which} argument:
 @end cartouche
 @end example
 
-Declaration of @code{glibtop_proclist} in @file{<glibtop/proclist.h}:
+Declaration of @code{glibtop_proclist} in @file{<glibtop/proclist.h>}:
 
 @example
 @cartouche
@@ -442,7 +443,7 @@ The returned list is allocated using @code{glibtop_malloc} and must be freed
 using @code{glibtop_free} to avoid a memory leak.
 
 @page
-@node glibtop_proc_state,  , glibtop_proclist, Reference Manual
+@node glibtop_proc_state, glibtop_proc_uid, glibtop_proclist, Reference Manual
 @section Process State
 
 Library function @code{glibtop_get_proc_state}:
@@ -458,7 +459,7 @@ glibtop_get_proc_state_l (glibtop *server, glibtop_proc_state *buf,
 @end cartouche
 @end example
 
-Declaration of @code{glibtop_proc_state} in @file{<glibtop/proc_state.h}:
+Declaration of @code{glibtop_proc_state} in @file{<glibtop/proc_state.h>}:
 
 @example
 @cartouche
@@ -551,5 +552,83 @@ or attached to a debugger).
 The process is currently swapping.
 @end table
 
+@page
+@node glibtop_proc_uid,  , glibtop_proc_state, Reference Manual
+@section Process UID and TTY information
 
+Library function @code{glibtop_get_proc_uid}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_uid (glibtop_proc_uid *buf, pid_t pid);
+
+void
+glibtop_get_proc_uid_l (glibtop *server, glibtop_proc_uid *buf,
+                        pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_uid} in @file{<glibtop/procuid.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_uid	glibtop_proc_uid;
+
+struct _glibtop_proc_uid
+@{
+    u_int64_t flags;
+    int uid,
+	euid,
+	gid,
+	egid,
+	suid,
+	sgid,
+	fsuid,
+	fsgid,
+	pid,
+	ppid,
+	pgrp,
+	session,
+	tty,
+	tpgid,
+	priority,
+	nice,
+	ngroups,
+	groups [GLIBTOP_MAX_GROUPS];
+@};
+@end cartouche
+@end example
+
+@table @code
+@item uid
+User ID
+@item euid
+Effective User ID
+@item gid
+Group ID
+@item egid
+Effective Group ID
+@item pid
+Process ID
+@item ppid
+PID of parent process
+@item pgrp
+Process group ID
+@item session
+Session ID
+@item tty
+Full device number of controlling terminal
+@item tpgid
+Terminal process group ID
+@item priority
+Kernel scheduling priority.
+@item nice
+Standard unix nice level of process.
+@item ngroups
+Number of additional process groups.
+@item groups
+Array of additional process groups (@code{GLIBTOP_MAX_GROUPS} is
+defined in @file{<glibtop/limits.h>}).
+@end table
 

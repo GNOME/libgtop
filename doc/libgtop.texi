@@ -24,7 +24,10 @@
 
 
 
- --- The Detailed Node Listing ---
+
+
+
+@detailmenu --- The Detailed Node Listing ---
 
 About LibGTop
 
@@ -42,6 +45,9 @@ LibGTop Reference Manual
 * glibtop_loadavg::             Load Average.
 * glibtop_proclist::            Process List.
 * glibtop_proc_state::          Process State.
+* glibtop_proc_uid::            Process UID and TTY Information.
+
+@end detailmenu
 @end menu
 
 @include about.texi
