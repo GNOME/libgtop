@@ -31,7 +31,8 @@ const char *glibtop_names_sysdeps[GLIBTOP_MAX_SYSDEPS] =
     "loadavg", "shm_limits", "msg_limits", "sem_limits", "proclist",
     "proc_state", "proc_uid", "proc_mem", "proc_time",
     "proc_signal", "proc_kernel", "proc_segment", "proc_args",
-    "proc_map", "mountlist", "fsusage", "netload", "ppp"
+    "proc_map", "mountlist", "fsusage", "netload", "interface_names",
+    "ppp"
 };
 
 const unsigned glibtop_types_sysdeps[GLIBTOP_MAX_SYSDEPS] =
@@ -43,7 +44,8 @@ const unsigned glibtop_types_sysdeps[GLIBTOP_MAX_SYSDEPS] =
     GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
     GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
     GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+    GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_sysdeps[GLIBTOP_MAX_SYSDEPS] =
@@ -71,6 +73,7 @@ const char *glibtop_labels_sysdeps[GLIBTOP_MAX_SYSDEPS] =
     N_ ("Mount List"),
     N_ ("File System Usage"),
     N_ ("Network Load"),
+    N_ ("Interface Names"),
     N_ ("PPP Statistics")
 };
 
@@ -99,5 +102,6 @@ const char *glibtop_descriptions_sysdeps[GLIBTOP_MAX_SYSDEPS] =
     N_ ("List of currently mounted filesystems"),
     N_ ("File System Usage"),
     N_ ("Network Load"),
+    N_ ("Interface Names"),
     N_ ("PPP Statistics")
 };

@@ -51,9 +51,10 @@ BEGIN_LIBGTOP_DECLS
 #define GLIBTOP_SYSDEPS_MOUNTLIST	18
 #define GLIBTOP_SYSDEPS_FSUSAGE		19
 #define GLIBTOP_SYSDEPS_NETLOAD		20
-#define GLIBTOP_SYSDEPS_PPP		21
+#define GLIBTOP_SYSDEPS_INTERFACE_NAMES	21
+#define GLIBTOP_SYSDEPS_PPP		22
 
-#define GLIBTOP_MAX_SYSDEPS		24
+#define GLIBTOP_MAX_SYSDEPS		25
 
 #define GLIBTOP_SYSDEPS_ALL		((1 << GLIBTOP_MAX_SYSDEPS) - 1)
 
@@ -89,6 +90,7 @@ struct _glibtop_sysdeps
 	mountlist,		/* glibtop_mountlist	*/
 	fsusage,		/* glibtop_fsusage	*/
 	netload,		/* glibtop_netload	*/
+	interface_names,	/* glibtop_interface_names	*/
 	ppp;			/* glibtop_ppp		*/
 };
 

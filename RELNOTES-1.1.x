@@ -11,6 +11,10 @@ Please use LibGTop 1.0.x if you're not on a Solaris system
 IMPORTANT CHANGES SINCE 1.0:
 ----------------------------
 
+* All `glibtop_get_<feature>_* ()' and all `glibtop_init_<feature>_* ()'
+  functions now have an `int' return value and return 0 on success and -1
+  on failure.
+
 * glibtop_cpu: Added `xcpu_flags'
 
 * glibtop_proc_state: Changed `state' from char to unsigned and added

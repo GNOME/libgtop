@@ -50,6 +50,8 @@ BEGIN_LIBGTOP_DECLS
 
 typedef struct _glibtop_netload	glibtop_netload;
 
+#include <glibtop/interfaces.h>
+
 enum {
     GLIBTOP_IF_FLAGS_UP = 1,
     GLIBTOP_IF_FLAGS_BROADCAST,
@@ -91,9 +93,9 @@ struct _glibtop_netload
 #define glibtop_get_netload(netload,interface)	glibtop_get_netload_l(glibtop_global_server, netload, interface)
 
 #if GLIBTOP_SUID_NETLOAD
-#define glibtop_get_netload_r	glibtop_get_netload_p
+#define glibtop_get_netload_r		glibtop_get_netload_p
 #else
-#define glibtop_get_netload_r	glibtop_get_netload_s
+#define glibtop_get_netload_r		glibtop_get_netload_s
 #endif
 
 int glibtop_get_netload_l (glibtop *server, glibtop_netload *buf, const char *interface);

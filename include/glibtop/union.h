@@ -50,6 +50,7 @@
 #include <glibtop/fsusage.h>
 
 #include <glibtop/netload.h>
+#include <glibtop/interfaces.h>
 #include <glibtop/ppp.h>
 
 BEGIN_LIBGTOP_DECLS
@@ -79,6 +80,7 @@ union _glibtop_union
     glibtop_mountlist		mountlist;
     glibtop_fsusage		fsusage;
     glibtop_netload		netload;
+    glibtop_interface_names	interface_names;
     glibtop_ppp			ppp;
 };
 

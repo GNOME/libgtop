@@ -71,6 +71,7 @@ $convert{'int'} = 'int';
 $convert{'retval'} = 'int';
 $convert{'ushort'} = 'unsigned short';
 $convert{'unsigned'} = 'unsigned';
+$convert{'string'} = 'const char *';
 
 while (<>) {
     chop;	# strip record separator
@@ -176,9 +177,12 @@ sub output {
 	}
     }
 
-    print 'glibtop_get_' . $feature . '_l (glibtop *server, glibtop_' .
-
-      $feature . ' *buf' . $param_decl . ')';
+    if ($line_fields[3] eq '') {
+      print 'glibtop_get_' . $feature . '_l (glibtop *server' . $param_decl . ')';
+    } else {
+      print 'glibtop_get_' . $feature . '_l (glibtop *server, glibtop_' .
+	$feature . ' *buf' . $param_decl . ')';
+    }
 
     print '{' . $send_ptr . '' . $send_size;
     if ($retval !~ /^void$/) {
@@ -205,9 +209,12 @@ sub output {
 
       &toupper($feature) . ',';
     print "\t\t\t\t" . $call_prefix_space . 'send_size, send_ptr,';
-    print "\t\t\t\t" . $call_prefix_space . 'sizeof (glibtop_' . $feature .
-
-      '), buf,';
+    if ($line_fields[3] eq '') {
+      print "\t\t\t\t". $call_prefix_space . "0, NULL,";
+    } else {
+      print "\t\t\t\t" . $call_prefix_space . 'sizeof (glibtop_' . $feature .
+	'), buf,';
+    }
     print "\t\t\t\t" . $call_prefix_space . $retval_param . ');';
 
     print "\t} else {";
@@ -215,9 +222,14 @@ sub output {
     if ($orig !~ /^@/) {
 	print '#if (!GLIBTOP_SUID_' . &toupper($feature) . ')';
     }
-    print "\t\t" . $prefix . 'glibtop_get_' . $feature . '_s (server, buf' .
 
-      $call_param . ');';
+    if ($line_fields[3] eq '') {
+      print "\t\t" . $prefix . 'glibtop_get_' . $feature . '_s (server' .
+	$call_param . ');';
+    } else {
+      print "\t\t" . $prefix . 'glibtop_get_' . $feature . '_s (server, buf' .
+	$call_param . ');';
+    }
 
     if ($orig !~ /^@/) {
 	print '#else';
@@ -231,14 +243,16 @@ sub output {
     print "\t}";
 
     print '';
-    print "\t/* Make sure that all required fields are present. */";
-    print '';
 
-    print "\tif (buf->flags & server->required." . $feature . ')';
-    print "\t\t_glibtop_missing_feature (server, \"" . $feature .
+    if (!($line_fields[3] eq '')) {
+      print "\t/* Make sure that all required fields are present. */";
+      print '';
 
-      "\", buf->flags,";
-    print "\t\t\t\t\t  &server->required." . $feature . ');';
+      print "\tif (buf->flags & server->required." . $feature . ')';
+      print "\t\t_glibtop_missing_feature (server, \"" . $feature .
+	"\", buf->flags,";
+      print "\t\t\t\t\t  &server->required." . $feature . ');';
+    }
 
     if ($retval !~ /^void$/) {
 	print "\n\t/* Now we can return. */";
