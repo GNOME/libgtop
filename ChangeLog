@@ -1,3 +1,10 @@
+1998-08-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* LIBGTOP-VERSION (LIBGTOP_INTERFACE_AGE, LIBGTOP_BINARY_AGE): Added.
+	* configure.in (LIBGTOP_INTERFACE_AGE, LIBGTOP_BINARY_AGE): AC_SUBST.
+	(LT_RELEASE, LT_CURRENT, LT_REVISION, LT_AGE): AC_SUBST.
+	(LT_VERSION_INFO): Sets `-version-info' for libtool.
+
 1998-08-25  Martin Baulig  <martin@home-of-linux.org>
 
 	* src/daemon/ChangeLog: New file.
