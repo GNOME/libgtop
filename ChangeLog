@@ -1,5 +1,8 @@
 2000-01-22  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/backend.h (_glibtop_backend_module): Added
+	`extra_libs'.
+
 	* configure.in (LIBGTOP_LIBS): Removed `-lgtop_sysdeps'. This
 	is gmodule loaded from the backend open function.
 

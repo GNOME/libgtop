@@ -63,6 +63,7 @@ struct _glibtop_backend_module
 {
     int refcount;
     GModule *module;
+    GSList *extra_modules;
 };
 
 #endif /* _IN_LIBGTOP */
@@ -72,6 +73,8 @@ struct _glibtop_backend_entry
     char *name;
     char *libtool_name;
     char *shlib_name;
+
+    GSList *extra_libs;
 
     /* This is const since you must not attempt to
      * write into gmodule loaded memory. */
