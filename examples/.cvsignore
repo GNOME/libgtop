@@ -1,0 +1,13 @@
+.deps
+.libs
+Makefile
+Makefile.in
+first
+first_linux
+first_static
+second
+third
+third_linux
+third_static
+second_static
+second_linux

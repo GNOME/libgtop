@@ -1,0 +1,96 @@
+$Id$
+
+May/17/1998
+===========
+
+* we have now 'const char *glibtop_types_* []' consisting
+  of the C types of the corresponding files of '_glibtop_*'.
+
+* added guile function '(glibtop-types-*)' and '(glibtop-descriptions-*)'.
+
+May/10/1998
+===========
+
+* Port to DEC OSF1 3.0 has been made:
+
+  cpu		(total, user, nice, sys, idle)
+  mem		(total, used, free)
+
+  loadavg	(loadavg)
+  uptime	(uptime)
+
+  msg_limits	(map, max, mnb, mni, tql)
+  sem_limits	(mni, msl, opm, vmx, aem)
+  shm_limits	(max, min, mni, seg)
+
+  The following need the server to be SUID root:
+
+  proclist	(total, number, size)
+  procdata	(cmd, state, uid, pid, ppid, pgrp, tty, k_flags,
+		 session, tpgid, sigignore, sigcatch, signal, nice, 
+		 priority, resident, rss, vsize, utime, stime,
+		 cutime, cstime, trs, drs)
+
+May/07/1998
+===========
+
+* 'flags' member of sysdeps/linux/procdata.c is now
+  'unsigned long flags [2]'.
+
+* When we give glibtop_get_procdata () a pid of zero, only
+  the flags are returned.
+
+* We now use static constants instead of #defines for sysdeps flags.
+
+May/03/1998
+===========
+
+* VPATH-Build now working; sometimes it's necessary to copy
+  $(top_srcdir)/po/cat-id-tbl.c to $(top_builddir)/po.
+
+* The library has been tested on the following systems:
+
+  - i686-pc-linux-gnu
+  - sparc-sun-sunos4.1.1
+  - alpha-dec-osf1 (that's DEC OSF1 3.0 and 3.2)
+
+* Compilation has been tested on the following systems (I have no root
+  access there and cannot test the library because of this):
+
+  - sparc-sun-solaris2
+  - i386-bsdi
+
+* Does no longer require Gnome.
+
+* Guile-Parts are compiled only if guile can be found.
+
+* Some of the executables are statically linked to copy them more easily
+  between machines.
+
+May/02/1998
+===========
+
+ * Global changes to the interfaces, all functions except glibtop_open()
+   and glibtop_close() that took a server argument have now a '__r' suffix;
+   the original name is now a macro that uses glibtop_global_server.
+
+Apr/10/1998
+===========
+Added new directory sysdeps/guile/names. It is the guile interface
+to the gtop_names library found in sysdeps/names. Changed
+GLIBTOP_DESCRIPTIONS to GLIBTOP_NAMES and added GLIBTOP_GUILE_NAMES
+to the header files.
+
+Apr/09/1998
+===========
+Added new directories guile and names to sysdeps. In names are
+some string constants about the data stored in the structures.
+guile is a guile interface for the library. It is used in
+examples/third (which has been completely rewritten).
+The header files define things from names when GLIBTOP_DESCRIPTIONS
+if defined and/or from guile when HAVE_GUILE is defined.
+
+Apr/08/1998
+===========
+
+Added guile wrapper for the library (see examples/third).

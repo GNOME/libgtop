@@ -1,0 +1,393 @@
+1998-05-17  Martin Baulig  <martin@home-of-linux.org>
+
+	* NEWS: added some stuff from 'README.LATEST'.
+
+	* README.LATEST: incorporated content of this file
+	into 'NEWS'.
+
+	* include/glibtop: added references to
+	'glibtop_types_* []' and 'glibtop_guile_types_*'.
+		
+	* sysdeps/guile/names: added implementations of
+	'glibtop_types_*' and 'glibtop_description_*'.
+
+	* sysdeps/names: added 'glibtop_types_* []',
+	changed 'glibtop_descriptions_* []'.
+
+1998-05-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/linux: finished the remaining proc_*
+	functions.
+
+	* sysdeps/guile: all guile functions now return
+	the 'flags' member as first element of the list.
+
+	* include/glibtop/procstate.h (glibtop_proc_state): 
+	added 'uid' and 'gid' members; the library tries hard
+	to set those values; it will never set the corresponding
+	'flags' value unless the values are correct.
+
+	* examples/first.c: added some nice features.
+
+	* examples/second.c: new file - dumps out all
+	currently running processes.
+
+1998-05-11  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* sysdeps/linux/cpu.c: added 'frequency' member
+	to 'struct _glibtop_cpu'.
+
+	* include/glibtop/cpu.h (glibtop_cpu):
+	added 'frequency' member
+
+	* sysdeps/guile/names/procdata.c: splitted into
+	procstate.c, procuid.c, procmem.c, proctime.c,
+	procsignal.c, prockernel.c and procsegment.c
+
+	* sysdeps/guile/procdata.c: splitted into
+	procstate.c, procuid.c, procmem.c, proctime.c,
+	procsignal.c, prockernel.c and procsegment.c
+
+	* lib/procdata.c: splitted into
+	procstate.c, procuid.c, procmem.c, proctime.c,
+	procsignal.c, prockernel.c and procsegment.c
+
+	* include/glibtop/procdata.h: splitted into
+	procstate.h, procuid.h, procmem.h, proctime.h,
+	procsignal.h, prockernel.h and procsegment.h
+
+1998-05-10  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/osf1: port to OSF1 has been made.
+
+1998-05-07  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/guile/sysdeps.c: changes to reflect the
+	new flags of procdata.
+	
+	* sysdeps/common/sysdeps.c: changes to reflect the
+	new flags of procdata.
+
+	* sysdeps/linux/procdata.c: 'flags' member is now
+	'unsigned long flags [2]'.  When we give
+	glibtop_get_procdata () a pid of zero, only
+	the flags are returned.
+
+	* sysdeps/linux: now using static constant instead
+	of #define for sysdeps.
+
+	* include/glibtop/procdata.h: flags is now
+	'unsigned long flags [2]'.
+
+	* examples/first.c: output sysdeps
+
+1998-05-03  Martin Baulig  <martin@home-of-linux.org>
+
+	* ltconfig.diff: ugly hack: when cross compiling, we assume
+	building shared libraries work.
+
+1998-05-02  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/stub/init.c: new file - initializes global server.
+
+	* sysdeps/linux/init.c: new file - initializes global server.
+
+	* lib/init.c: new file - initializes global server.
+
+	* glibtop.h: global changes to the interfaces, all functions except
+	glibtop_open() and glibtop_close() that took a server argument have
+	now a '__r' suffix; the original name is now a macro that uses
+	glibtop_global_server.
+
+1998-04-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/linux/open.c: we set server->os_version_code here,
+	copied from gnome-utils/gtop/proc/version.c
+
+	* sysdeps/linux/procdata.c: added implementation for this feature,
+	mainly copied from gnome-utils/gtop/proc/readproc.c
+
+	* glibtop.h: added os_version_code member to struct _glibtop
+
+	* src/server/Makefile.am: moved here from src
+
+	* src/server/version.c: moved here from src
+
+	* src/server/output.c: moved here from src
+
+	* src/server/main.c: moved here from src
+
+	* src/mico/server.cc: new file - simple mico client
+
+	* src/mico/client.cc: new file - simple mico client
+
+	* src/mico/proclist.idl: new file - simple mico interface
+
+	* src/version.c: moved to src/server
+	
+	* src/output.c: moved to src/server
+	
+	* src/main.c: moved to src/server
+
+1998-04-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* doc/libgtop.sgml: added chapter on how to extend the library
+
+	* sysdeps/names/procdata.c: new file - names for glibtop_procdata
+
+	* sysdeps/linux/procdata.c: new file - copy from sysdeps/stub
+
+	* sysdeps/stub/procdata.c: new file - stub for glibtop_procdata
+
+	* sysdeps/guile/names/procdata.c: new file - guile names for glibtop_procdata
+
+	* sysdeps/guile/procdata.c: new file - guile interface for glibtop_procdata
+
+	* lib/procdata.c: new file - library function for glibtop_procdata
+
+	* include/glibtop/procdata.h: new file - interface for glibtop_procdata -
+	get detailed information about a process
+
+1998-04-10  Martin Baulig  <martin@home-of-linux.org>
+
+	* doc/libgtop.sgml: wrote some more documentation
+
+	* NEWS: Added new directory sysdeps/guile/names. It is the guile interface
+	to the gtop_names library found in sysdeps/names. Changed
+	GLIBTOP_DESCRIPTIONS to GLIBTOP_NAMES and added GLIBTOP_GUILE_NAMES
+	to the header files.
+
+	* sysdeps/guile/names/boot.c: new file - added also
+	cpu.c, mem.c, swap.c, uptime.c, loadavg.c, shm_limits.c,
+	msg_limits.c, sem_limits.c, proclist.c and sysdeps.c
+	to this directory.
+
+	* sysdeps/guile/cpu.c: bugfixes
+
+	* sysdeps/guile/proclist.c: bugfixes
+
+	* sysdeps/names/sysdeps.c (glibtop_labels_sysdeps): more verbose now
+
+	* examples/third.c: added gtop_guile_names library
+
+	* doc/libgtop.sgml: documented guile interface
+
+	* glibtop.h: changed GLIBTOP_DESCRIPTIONS to GLIBTOP_NAMES;
+	added GLIBTOP_GUILE_NAMES when we have the gtop_guile_names
+	library added in sysdeps/guile/names
+
+1998-04-09  Martin Baulig  <martin@home-of-linux.org>
+
+	* NEWS: Added new directories guile and names to sysdeps. In names are
+	some string constants about the data stored in the structures.
+	guile is a guile interface for the library. It is used in
+	examples /third (which has been completely rewritten).
+	The header files define things from names when GLIBTOP_DESCRIPTIONS
+	if defined and/or from guile when HAVE_GUILE is defined.
+
+	* sysdeps/names/cpu.c: new file, also added
+	cpu.c, mem.c, swap.c, uptime.c loadavg.c, shm_limits.c,
+	msg_limits.c, sem_limits.c, proclist.c and sysdeps.c to
+	this directory
+
+	* sysdeps/guile/boot.c: new file, also added
+	cpu.c, mem.c, swap.c, uptime.c loadavg.c, shm_limits.c,
+	msg_limits.c, sem_limits.c, proclist.c and sysdeps.c to
+	this directory
+
+	* sysdeps/common/sem_limits.c: moved to sysdeps/names
+	
+	* sysdeps/common/msg_limits.c: moved to sysdeps/names
+
+	* sysdeps/common/sem_limits.c: moved to sysdeps/names
+
+	* examples/third.c: completely rewritten - simple guile interpreter linked
+	with libgtop_guile
+
+	* examples/second.c: removed
+
+1998-04-08  Martin Baulig  <martin@home-of-linux.org>
+
+	* ANNOUNCE: new file
+
+	* examples/third.scm: new file - sample guile file
+
+	* examples/third.c: new file - guile wrapper for libgtop
+
+	* examples/second.c: new file - simple guile test from guile-tut.info
+
+	* README: new file
+
+	* libgtop-mirror.sh: new file: mirror script for my web site
+
+	* doc/dbtohtml.dsl: renamed to libgtop.dsl
+
+1998-04-06  Martin Baulig  <martin@home-of-linux.org>
+
+	* lib/command.c: some changes in the interface
+
+	* src/main.c: some changes in the interface, we can now return
+		some arbitrary data
+
+	* lib/proclist.c: new file - library function for glibtop_proclist
+	
+	* sysdeps/linux/proclist.c: new file - implementation for glibtop_proclist
+	
+	* sysdeps/stub/proclist.c: new file - stub for glibtop_proclist
+	
+	* include/glibtop/proclist.h: new file - glibtop_proclist
+
+	* include/glibtop/union.h: new file
+
+	* lib/read_data.c: new file
+	
+	* include/glibtop/read_data.h: new file
+
+	* sysdeps/common/xmalloc.c: new file - moved here from lib
+	
+	* sysdeps/common/error.c: new file - moved here from lib
+	
+	* lib/xmalloc.c: moved to sysdeps/common
+	
+	* lib/error.c: moved to sysdeps/common
+
+1998-04-05  Martin Baulig  <martin@home-of-linux.org>
+
+	* lib/shm_limits.c: new file - library function for
+		glibtop_shm_limits
+
+	* lib/msg_limits.c: new file - library function for
+		glibtop_msg_limits
+
+	* lib/sem_limits.c: new file - library function for
+		glibtop_sem_limits
+
+	* sysdeps/linux/shm_limits.c: new file - implementation for
+		glibtop_shm_limits
+
+	* sysdeps/linux/msg_limits.c: new file - implementation for
+		glibtop_msg_limits
+
+	* sysdeps/linux/sem_limits.c: new file - implementation for
+		glibtop_sem_limits
+
+	* sysdeps/stub/shm_limits.c: new file - stub for
+		glibtop_shm_limits
+
+	* sysdeps/stub/msg_limits.c: new file - stub for
+		glibtop_msg_limits
+
+	* sysdeps/stub/sem_limits.c: new file - stub for
+		glibtop_sem_limits
+
+	* sysdeps/common/shm_limits.c: new file - limit names
+
+	* sysdeps/common/msg_limits.c: new file - limit names
+
+	* sysdeps/common/sem_limits.c: new file - limit names
+	
+	* include/glibtop/shm_limits.h: new file - glibtop_shm_limits
+	
+	* include/glibtop/msg_limits.h: new file - glibtop_msg_limits
+
+	* include/glibtop/sem_limits.h: new file - glibtop_sem_limits
+
+	* sysdeps/common/sysdeps.c: moved here from sysdeps/stub
+
+	* sysdeps/linux/sysdeps.c: moved to sysdeps/common
+
+	* sysdeps/stub/sysdeps.c: moved to sysdeps/common
+
+	* sysdeps/stub/ipc_limits.c: splitted info shm_limits.c, msg_limits.c
+		and sem_limits.c
+
+	* sysdeps/linux/ipc_limits.c: splitted into shm_limits.c, msg_limits.c
+		and sem_limits.c
+
+	* lib/ipc_limits.c: splitted into shm_limits.c, msg_limits.c
+		and sem_limits.c
+
+	* include/ipc_limits.h: splitted into shm_limits.h, msg_limits.h
+		and sem_limits.s
+
+	* lib/ipc_limits.c: new file - library function for
+		glibtop_ipc_limits
+	
+	* sysdeps/linux/ipc_limits.c: new file - implementation for
+		glibtop_ipc_limits
+	
+	* sysdeps/stub/ipc_limits.c: new file - stub for
+		glibtop_ipc_limits
+	
+	* include/glibtop/ipc_limits.h: new file - glibtop_ipc_limits -
+		sysv ipc limits
+
+	* doc/libgtop.sgml: worked on documentation
+
+	* lib/uptime.c: new file - library function for
+		glibtop_uptime
+	
+	* lib/loadavg.c: new file - library function for
+		glibtop_loadavg
+
+	* lib/sysinfo.c: removed - splitted into
+		uptime.c and loadavg.c
+
+	* sysdeps/linux/uptime.c: new file - implementation for
+		glibtop_uptime
+
+	* sysdeps/linux/loadavg.c: new file - implementation for
+		glibtop_loadavg
+
+	* sysdeps/linux/sysinfo.c: removed - splitted into
+		uptime.c and loadavg.c
+
+	* sysdeps/stub/uptime.c: new file - stub for
+		glibtop_uptime
+
+	* sysdeps/stub/loadavg.c: new file - stub for
+		glibtop_loadavg
+
+	* sysdeps/stub/sysinfo.c: removed - splitted into
+		uptime.c and loadavg.c
+	
+	* src/main.c: added GLIBTOP_CMND_UPTIME and
+		GLIBTOP_CMND_LOADAVG implementation
+
+	* include/glibtop/loadavg.h: new file - glibtop_loadavg
+	
+	* include/glibtop/uptime.h: new file - glibtop_uptime
+	
+	* include/glibtop/loadavg.h: removed - splitted into
+		uptime.h and loadavg.h
+
+	* src/main.c: added GLIBTOP_CMND_SYSDEPS implementation
+
+	* lib/sysdeps.c: new file - library function for glibtop_sysdeps
+
+	* sysdeps/linux/sysdeps.c: new file - copied from sysdeps/stub
+	
+	* sysdeps/stub/sysdeps.c: new file - implementation for glibtop_sysinfo -
+		this is really the implementation and not just a stub
+	
+	* src/sysdeps.c: moved to sysdeps/stub - this file is now part
+		of the library
+
+	* lib/sysinfo.c: new file - library function for glibtop_sysinfo
+
+	* sysdeps/linux/sysinfo.c: new file - linux version for glibtop_sysinfo
+
+	* sysdeps/stub/sysinfo.c: new file - stub for glibtop_sysinfo
+
+	* include/glibtop/sysinfo.h: new file - provides uptime, idle time
+		and load averange.
+
+	* po/libgtop.pot: removed file
+
+	* sysdeps/linux/cpu.c: using long unsigned format
+	* sysdeps/linux/mem.c: using long usigned format
+	* sysdeps/linux/swap.c: using long unsigned format
+	* examples/first.c: using long unsigned format
+
+	* initial version.
+

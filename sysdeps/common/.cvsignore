@@ -1,0 +1,12 @@
+.deps
+.libs
+Makefile
+Makefile.in
+error.lo
+libgtop_common.la
+msg_limits.lo
+sem_limits.lo
+shm_limits.lo
+sysdeps.lo
+xmalloc.lo
+so_locations

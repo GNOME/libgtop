@@ -1,0 +1,1332 @@
+<!-- $Id$ -->
+
+<!doctype book PUBLIC "-//Davenport//DTD DocBook V3.0//EN" [
+]>
+<book>
+  <bookinfo>
+    <title>GTop Library Project Documentation</title>
+    <authorgroup>
+      <author>
+	<firstname>Martin</firstname>
+	<surname>Baulig</surname>
+	<affiliation>
+	  <address>
+	    <email>martin@home-of-linux.org</email>
+	  </address>
+	</affiliation>
+      </author>
+    </authorgroup>
+    <copyright>
+      <year>1998</year>
+      <holder>Martin Baulig</holder>
+    </copyright>
+    <legalnotice>
+
+      <para>
+	This documentation is free software; you can redistribute
+	it and/or modify it under the terms of the GNU General Public
+	License as published by the Free Software Foundation; either
+	version 2 of the License, or (at your option) any later
+	version.
+	
+      <para>
+	This library is distributed in the hope that it will be
+	useful, but WITHOUT ANY WARRANTY; without even the implied
+	warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+	PURPOSE.  See the GNU General Public License for more
+	details.
+
+      <para>
+	You should have received a copy of the GNU General Public
+	License along with this program; if not, write to the Free
+	Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+	MA 02111-1307 USA
+
+      <para>
+	For more details see the file COPYING in the source
+	distribution of LibGTop.</para>
+
+    </legalnotice>
+  </bookinfo>
+
+  <toc></toc>
+
+  <chapter id="intro">
+    <title>Introduction</title>
+
+    <sect1 id="about">
+      <title>About the GTop Library Project</title>
+
+      <para>
+	On some systems like <emphasis/Solaris/ or <emphasis/SunOS/ every
+	program that wants to fetch information like those displayed in
+	<emphasis/GTop/ needs to be SGID kmem or even SUID root. This is
+	because either it has to access the kernel memory directly or
+	because the system only allows root to fetch those information
+	(like <emphasis>DEC OSF/1</emphasis>).
+
+      <para>
+	Of cause making a program that uses some toolkit like <emphasis/Gtk/
+	SUID root would be a very big security hole.
+
+      <para>
+	Because of this, some kind of server is needed that reada some
+	commands from standard input and dumps the requested information
+	to standard output. When written in a secure manner, it can be
+	SUID root on systems where this is needed.
+
+      <para>
+	Any program such as <emphasis/GTop/ can then use this server program
+	to fetch the required information.
+
+      <para>
+	This is what the <emphasis/GTop Library Project/ is about.
+
+    <sect1 id="steps">
+      <title>Project Overview</title>
+
+      <para>
+	The following steps have to be taken:
+
+	<variablelist>
+
+	  <varlistentry>
+	    <term>Interface Design
+	    <listitem>
+
+	      <para>
+		First, it is necessary to collect all sorts of information
+		that can be returned from the library and design some C
+		structures to hold them. Also, there has to be some method
+		to find out which elements are supported by the operating
+		system and which are not.
+
+	      <para>
+		These C structures and definitions are then put in some
+		header files which are shared between server and client.
+		The idea behind this is that if they both use the same
+		header files - and thus the same interface - programs can
+		be linked directly with the server library on systems where
+		this is supported (where the server does not need any
+		priviledges such as under <emphasis/Linux/).
+
+	  <varlistentry>
+	    <term>Server Implementation
+	    <listitem>
+
+	      <para>
+		After the general interface is designed, the server part of
+		the library can be written. We will put both the server and
+		the client code in two distinct libraries.
+
+	  <varlistentry>
+	    <term>Client Implementation
+	    <listitem>
+
+	      <para>
+		As the next step, we can implement the client side library.
+		This library will open a pipe to the server, pass it the
+		request as input and parse its output.
+		
+	  <varlistentry>
+	    <term>Rewriting existing applications
+	    <listitem>
+
+	      <para>
+		At this point, the library is ready for use. We can now
+		begin to rewrite existing applications to use it (or even
+		write some very new applications).
+
+	  <varlistentry>
+	    <term>Porting
+	    <listitem>
+
+	      <para>
+		As the very last step - once everything is running under
+		<emphasis/Linux/ - we can start porting it to other systems.
+
+	      <para>
+		During development, I'll start under <emphasis/Linux/ but
+		periodically test it under <emphasis/SunOS/ and
+		<emphasis>DEC OSF/1 V3.0/3.2</emphasis>.
+
+	</variablelist>
+
+    <sect1 id="feedback">
+      <title>Feedback</title>
+
+      <para>
+	Please feel free to contact the author,
+	<ulink url="mailto:martin@home-of-linux.org">Martin Baulig</ulink>
+	if you have any comments.
+
+  <chapter id="getting-started">
+    <title>Getting Started</title>
+
+    <sect1 id="using-guile-interface">
+      <title>Using the Guile Interface</title>
+
+      <para>
+	In <filename>examples/third</filename> there is a simple guile
+	interpreter.
+
+      <para>
+	On Linux systems, you should use the <filename>third_linux</filename>
+	executable, this is statically linked with the system dependent library
+	and works without installing the server first.
+
+      <para>
+	Let's start with a simple example:
+
+	<screen>
+	  <prompt>$</prompt> <userinput>./third</userinput>
+	  <prompt>guile></prompt> <userinput>(glibtop-get-cpu)</userinput>
+	  (1107488 39049 0 21981 1046458)
+	  <prompt>guile></prompt> <userinput>(quit)</userinput>
+	</screen>
+
+      <para>
+	Fine, this is our current CPU usage, but what do this five numbers
+	really mean? Well, of cause one can look a the C header file:
+
+	<programlisting>
+	  typedef struct _glibtop_cpu	glibtop_cpu;
+
+	  struct _glibtop_cpu
+	  {
+	  unsigned long	flags,
+	  total,			/* GLIBTOP_CPU_TOTAL	*/
+	  user,			/* GLIBTOP_CPU_USER	*/
+	  nice,			/* GLIBTOP_CPU_NICE	*/
+	  sys,			/* GLIBTOP_CPU_SYS	*/
+	  idle;			/* GLIBTOP_CPU_IDLE	*/
+	  };
+	</programlisting>
+
+      <para>
+	But there's also some easier way:
+
+	<screen>
+	  <prompt>$</prompt> <userinput>./third_linux</userinput>
+	  <prompt>guile></prompt> <userinput>(glibtop-get-cpu)</userinput>
+	  (1604151 105343 0 63334 1435474)
+	  <prompt>guile></prompt> <userinput>(glibtop-names-cpu)</userinput>
+	  ("total" "user" "nice" "sys" "idle")
+	  <prompt>guile></prompt> <userinput>(quit)</userinput>
+	</screen>
+
+      <para>
+	This displays the field names of the C structure
+	<structname>glibtop_cpu</structname>. They are not translated into
+	native language so that one can use guile to generate some C code
+	that deals with this data.
+
+      <para>
+	If you want to use this names in an application program, you should
+	use the following:
+
+	<screen>
+	  <prompt>$</prompt> <userinput>./third_linux</userinput>
+	  <prompt>guile></prompt> <userinput>(glibtop-get-cpu)</userinput>
+	  (1642347 106696 0 63810 1471841)
+	  <prompt>guile></prompt> <userinput>(glibtop-labels-cpu)</userinput>
+	  ("total" "user" "nice" "sys" "idle")
+	  <prompt>guile></prompt> <userinput>(quit)</userinput>
+	</screen>
+
+      <para>
+	There's no difference? You're correct, while I'm writing this manual,
+	translations in other languaged have not yet been made and labels have
+	not been written.
+
+      <para>
+	Let's use another example where this is already working:
+
+	<screen>
+	  <prompt>$</prompt> <userinput>./third_linux</userinput>
+	  <prompt>guile></prompt> <userinput>(glibtop-get-shm_limits)</userinput>
+	  (33554432 1 128 128 4194304)
+	  <prompt>guile></prompt> <userinput>(glibtop-names-shm_limits)</userinput>
+	  ("shmmax" "shmmin" "shmmni" "shmseg" "shmall")
+	  <prompt>guile></prompt> <userinput>(glibtop-labels-shm_limits)</userinput>
+	  ("Max segment size" "Min segment size" "Max number of segments"
+	  "Max shared segments per process" "Max total shared memory")
+	  <prompt>guile></prompt> <userinput>(quit)</userinput>
+	</screen>
+
+      <para>
+	Great! But how can I know what features are currently implemented by the
+	library? Well, basically there are two ways.
+
+      <para>
+	First, you can use
+
+	<screen>
+	  <prompt>$</prompt> <userinput>./third_linux</userinput>
+	  <prompt>guile></prompt> <userinput>(apropos "glibtop-get")</userinput>
+	  the-root-module: glibtop-get-cpu	#&lt;primitive-procedure glibtop-get-cpu>
+	  the-root-module: glibtop-get-uptime	#&lt;primitive-procedure glibtop-get-uptime>
+	  the-root-module: glibtop-get-sysdeps	#&lt;primitive-procedure glibtop-get-sysdeps>
+	  the-root-module: glibtop-get-loadavg	#&lt;primitive-procedure glibtop-get-loadavg>
+	  the-root-module: glibtop-get-swap	#&lt;primitive-procedure glibtop-get-swap>
+	  the-root-module: glibtop-get-proclist	#&lt;primitive-procedure glibtop-get-proclist>
+	  the-root-module: glibtop-get-sem_limits	#&lt;primitive-procedure glibtop-get-sem_limits>
+	  the-root-module: glibtop-get-msg_limits	#&lt;primitive-procedure glibtop-get-msg_limits>
+	  the-root-module: glibtop-get-shm_limits	#&lt;primitive-procedure glibtop-get-shm_limits>
+	  the-root-module: glibtop-get-mem	#&lt;primitive-procedure glibtop-get-mem>
+	  <prompt>guile></prompt> <userinput>(quit)</userinput>
+	</screen>
+
+      <para>
+	This gives you a basic idea which functions are defined in the library.
+	But there's also a better way:
+
+	<screen>
+	  <prompt>$</prompt> <userinput>./third_linux</userinput>
+	  <prompt>guile></prompt> <userinput>(glibtop-get-sysdeps)</userinput>
+	  (31 127 7 3 1 31 127 1023 3)
+	  <prompt>guile></prompt> <userinput>(glibtop-names-sysdeps)</userinput>
+	  ("cpu" "mem" "swap" "uptime" "loadavg" "shm_limits" "msg_limits" "sem_limits"
+	  "proclist")
+	  <prompt>guile></prompt> <userinput>(glibtop-labels-sysdeps)</userinput>
+	  ("CPU Usage" "Memory Usage" "Swap Usage" "System Uptime" "Load Averange"
+	  "Shared Memory Limits" "Message Queue Limits" "Semaphore Set Limits"
+	  "List of running Processes")
+	  <prompt>guile></prompt> <userinput>(quit)</userinput>
+	</screen>
+
+      <para>
+	Back to the <function>glibtop_get_cpu</function>. Here is a nice example
+	on how you can convert the returned data to percents:
+
+      <para>
+	[FIXME: not yet written]
+
+    <sect1 id="guile-sysdeps">
+      <title>Using system dependent features</title>
+
+      <para>
+	Some of the features of the library are only implemented on some systems.
+	For instance, in our last example:
+
+	<screen>
+	  <prompt>guile></prompt> <userinput>(glibtop-get-cpu)</userinput>
+	  (2091847 130894 17 70602 1890334)
+	</screen>
+
+      <para>
+	Well fine - some process is running with nice now on my system - but in
+	the last section, we always got zero in the <structfield>nice</structfield>
+	field. When some feature is not implemented on a particular system, it is
+	set to zero. So how can we find out whether a feature is not implemented on
+	the current system or whether it is really zero all the time?
+
+      <para>
+	This is what the <structfield>flags</structfield> member of the C structure
+	is for. Since theese flags never change during the lifetime of a process,
+	on can call <function>glibtop_get_sysdeps</function> to get a structure
+	<structname>glibtop_sysdeps</structname> containing the
+	<structfield>flags</structfield> members of all currently available features.
+	The contents of the structure remains constant during the lifetime of a
+	process.
+
+      <para>
+	In guile, on can use <function>glibgtop-get-sysdeps</function>, too:
+
+	<screen>
+	  <prompt>guile></prompt> <userinput>(glibtop-get-sysdeps)</userinput>
+	  (31 127 7 3 1 31 127 1023 3)
+	</screen>
+
+      <para>
+	We already know that the first member of this list corresponds to
+	<structname>glibtop_cpu</structname>. So this <literal>31</literal>
+	tells us which features of <structname>glibtop_cpu</structname> are
+	implemented on this systems. The binary representation of
+	<literal>31</literal> is <literal>11111</literal>. If the lowest bit
+	of this constant is set, this means that the first list element is
+	implemented on the current system and so on. If, for instance, the
+	<structname>user</structname> member of <structname>glibtop_cpu</structname>
+	is not implemented, this constant will be <literal>11101</literal>
+	or <literal>29</literal> in decimal representation.
+
+    <sect1 id="c-basics">
+<title>Using the library in a C program</title>
+
+<para>
+Well, in C things are a little bit more complicated than in guile.
+Let's start with a very simple example:
+
+<example>
+<title>First steps</title>
+
+<programlisting>
+#include &lt;glibtop/open.h>
+#include &lt;glibtop/close.h>
+
+#include &lt;glibtop/cpu.h>
+
+int
+main (int argc, char *argv [])
+{
+	glibtop server;
+	glibtop_cpu cpu;
+
+	glibtop_open (&amp;server, argv [0]);
+
+	glibtop_get_cpu (&amp;server, &amp;cpu);
+
+	fprintf (stderr, "CPU: %lu, %lu, %lu, %lu, %lu\n",
+		 cpu.total, cpu.user, cpu.nice, cpu.sys, cpu.idle);
+
+	glibtop_close (&amp;server);
+}
+</programlisting>
+</example>
+
+<para>
+This will print out:
+
+<screen>
+<prompt>$</prompt> <userinput>./first_linux</userinput>
+CPU: 2262741, 136828, 17, 72569, 2053327
+</screen>
+
+<para>
+Make sure to open a connection to the server by a call to
+<function>glibtop_open</function> before calling any other function
+of the library and to close that connection upon termination by a call to
+<function>glibtop_close</function>. Otherwise your program may either
+not work correctly or simply dump core.
+
+<sect1 id="c-names">
+<title>Using names and labels in C</title>
+
+<para>
+To dump out the field names of <structname>glibtop_cpu</structname>:
+
+<example>
+<title>Dump field names of <structname>glibtop_cpu</structname>:
+
+<programlisting>
+#include &lt;glibtop/open.h>
+#include &lt;glibtop/close.h>
+
+#include &lt;glibtop/cpu.h>
+
+int
+main (int argc, char *argv [])
+{
+	fprintf (stderr, "CPU Names: %s, %s, %s, %s, %s\n",
+		 glibtop_names_cpu [GLIBTOP_CPU_TOTAL],
+		 glibtop_names_cpu [GLIBTOP_CPU_USER],
+		 glibtop_names_cpu [GLIBTOP_CPU_NICE],
+		 glibtop_names_cpu [GLIBTOP_CPU_SYS],
+		 glibtop_names_cpu [GLIBTOP_CPU_IDLE]);
+}
+</programlisting>
+</example>
+
+<para>
+Since this are constants, they also work without the server connection.
+
+<para>
+To dump all members of <structname>glibtop_cpu</structname> no matter
+how many there are:
+
+<example>
+<title>Dump all members of <structname>glibtop_cpu</structname> no matter
+how many</title>
+
+<programlisting>
+#include &lt;glibtop/open.h>
+#include &lt;glibtop/close.h>
+
+#include &lt;glibtop/cpu.h>
+
+int
+main (int argc, char *argv [])
+{
+	int i;
+
+	for (i = 0; i < GLIBTOP_MAX_CPU; i++)
+		fprintf (stderr,"#%d: %s\n", i, glibtop_names_cpu [i]);
+}
+</programlisting>
+</example>
+
+<para>
+Finaly, let's dump the internationalized labels:
+
+<example>
+<title>Dump internationalized labels</title>
+
+<programlisting>
+#include &lt;glibtop.h>
+#include &lt;glibtop/open.h>
+#include &lt;glibtop/close.h>
+
+#include &lt;glibtop/cpu.h>
+
+int
+main (int argc, char *argv [])
+{
+	int i;
+
+	setlocale (LC_ALL, "");
+	bindtextdomain (PACKAGE, GTOPLOCALEDIR);
+	textdomain (PACKAGE);
+
+	for (i = 0; i < GLIBTOP_MAX_CPU; i++)
+		fprintf (stderr,"#%d: %s\n", i,
+			 gettext (glibtop_labels_cpu [i]));
+}
+</programlisting>
+</example>
+
+<sect1 id="c-sysdeps">
+<title>Using system dependent features in C</title>
+
+<para>
+In C, there are some constants defined in the header files:
+
+<programlisting>
+#define GLIBTOP_CPU_TOTAL	0
+#define GLIBTOP_CPU_USER	1
+#define GLIBTOP_CPU_NICE	2
+#define GLIBTOP_CPU_SYS		3
+#define GLIBTOP_CPU_IDLE	4
+</programlisting>
+
+<para>
+The value used in the <structfield>flags</structfield> member to indicate
+whether some feature is implemented on the current system is always
+<literal>2</literal> at the power of the corresponding constant.
+
+<para>
+For instance, if you want to print out the <structfield>user</structfield>
+field of <structname>glibtop_cpu</structname> when it's implemented on the
+current system, you can use:
+
+<example><title>
+Only print <structfield>user</structfield> member of
+<structname>glibtop_cpu</structname> when it's implemented
+</title>
+
+<programlisting>
+#include &lt;glibtop/open.h>
+#include &lt;glibtop/close.h>
+
+#include &lt;glibtop/cpu.h>
+
+int
+main (int argc, char *argv [])
+{
+	glibtop server;
+	glibtop_cpu cpu;
+
+	glibtop_open (&amp;server, argv [0]);
+
+	glibtop_get_cpu (&amp;server, &amp;cpu);
+
+	fprintf (stderr, "CPU: %lu, ", cpu.total);
+
+	/* FIXME: is this correct? */
+
+	if (cpu.flags & (1 << GLIBTOP_CPU_USER))
+		fprintf (stderr, "%lu, ", cpu.user);
+
+	fprintf (stderr, "%lu, %lu, %lu\n", cpu.nice, cpu.sys, cpu.idle);
+
+	glibtop_close (&amp;server);
+}
+</programlisting>
+</example>
+
+<chapter id="hacker-guide">
+<title>Hacker's Guide</title>
+
+<sect1 id="extending">
+<title>Extending the Library</title>
+
+<para>
+This section will give you a step by step tutorial on how to extend the
+library to add a new feature. It is not yet really complete.
+
+<sect2 id="extending-header">
+<title>The Header File</title>
+
+<para>
+First, we'll start writing the C header file for our new feature we want
+to add. Currently there is no support for getting information about a
+particular process, so we'll add it here.
+
+<para>
+All header files are put into <filename>includes/glibtop</filename> and
+are named after the feature they define. So we'll put everything into
+<filename>procdata.h</filename>:
+
+<example>
+<title>Start of <filename>procdata.h</filename>
+
+<programlisting>
+#ifndef __GLIBTOP_PROCDATA_H__
+#define __GLIBTOP_PROCDATA_H__
+
+#include &lt;glibtop.h>
+#include &lt;glibtop/global.h>
+</programlisting>
+</example>
+
+<para>
+This is how we start every header file. Make sure to include at lease
+<filename>glibtop.h</filename> and <filename>glibtop/global.h</filename>.
+They contain important declarations and include some other important
+header files.
+
+<para>
+Next, we look at the <filename>/proc</filename> filesystem of Linux to
+find out which information can be fetched about a particular process:
+
+<screen>
+<prompt>$</prompt> <userinput>cat /proc/self/stat</userinput>
+14919 (cat) R 14886 14919 14886 1220 14919 1048576 24 0 63 0 0 1 0 0 15 0 -1
+0 1915281 835584 67 2147483647 134512640 134527808 3221222564 3221222372
+1074212972 0 0 2147483648 0 0 0 0
+</screen>
+
+<para>
+Well, this is a rather complex example, but those are the most important
+information we need about a process. I think it would be best to start
+with the definition of the C structure
+<structname>glibtop_procdata</structname> that will be used to store all
+those information. We'll copy most from
+<filename>gnome-utils/gtop/proc/readproc.h</filename>:
+
+<example>
+<title>Definition of <structname>glibtop_procdata</structname>
+
+<programlisting>
+typedef struct _glibtop_procdata	glibtop_procdata;
+
+struct _glibtop_procdata
+{
+	unsigned long flags;
+	char cmd[40],		/* basename of executable file in call to exec(2) */
+		state;		/* single-char code for process state (S=sleeping) */
+	int uid,		/* user id */
+		pid,		/* process id */
+		ppid,		/* pid of parent process */
+		pgrp,		/* process group id */
+		session,	/* session id */
+		tty,		/* full device number of controlling terminal */
+		tpgid,		/* terminal process group id */
+		priority,	/* kernel scheduling priority */
+		nice,		/* standard unix nice level of process */
+		signal,		/* mask of pending signals */
+		blocked,	/* mask of blocked signals */
+		sigignore,	/* mask of ignored signals */
+		sigcatch;	/* mask of caught  signals */
+	long start_time,	/* start time of process -- seconds since 1-1-70 */
+		utime,		/* user-mode CPU time accumulated by process */
+		stime,		/* kernel-mode CPU time accumulated by process */
+		cutime,		/* cumulative utime of process and reaped children */
+		cstime,		/* cumulative stime of process and reaped children */
+		/* the next 7 members come from /proc/#/statm */
+		size,		/* total # of pages of memory */
+		resident,	/* number of resident set (non-swapped) pages (4k) */
+		share,		/* number of pages of shared (mmap'd) memory */
+		trs,		/* text resident set size */
+		lrs,		/* shared-lib resident set size */
+		drs,		/* data resident set size */
+		dt;		/* dirty pages */
+	unsigned long vsize,	/* number of pages of virtual memory ... */
+		rss,		/* resident set size from /proc/#/stat */
+		rss_rlim,	/* resident set size ... ? */
+		timeout,	/* ? */
+		it_real_value,	/* ? */
+		k_flags,	/* kernel flags for the process */
+		min_flt,	/* number of minor page faults since process start */
+		maj_flt,	/* number of major page faults since process start */
+		cmin_flt,	/* cumulative min_flt of process and child processes */
+		cmaj_flt,	/* cumulative maj_flt of process and child processes */
+		start_code,	/* address of beginning of code segment */
+		end_code,	/* address of end of code segment */
+		start_stack,	/* address of the bottom of stack for the process */
+		kstk_esp,	/* kernel stack pointer */
+		kstk_eip,	/* kernel stack pointer */
+		wchan;		/* address of kernel wait channel proc is sleeping in */
+};
+</programlisting>
+</example>
+
+<para>
+For each field we now have to define an unique constant:
+
+<example>
+<title>Constant definitions for <structname>glibtop_procdata</structname>:</title>
+
+<programlisting>
+#define GLIBTOP_PROCDATA_CMD		0
+#define GLIBTOP_PROCDATA_STATE		1
+#define GLIBTOP_PROCDATA_UID		2
+#define GLIBTOP_PROCDATA_PID		3
+#define GLIBTOP_PROCDATA_PPID		4
+#define GLIBTOP_PROCDATA_PGRP		5
+#define GLIBTOP_PROCDATA_SESSION	6
+#define GLIBTOP_PROCDATA_TTY		7
+#define GLIBTOP_PROCDATA_TPGID		8
+#define GLIBTOP_PROCDATA_PRIORITY	9
+#define GLIBTOP_PROCDATA_NICE		10
+#define GLIBTOP_PROCDATA_SIGNAL		11
+#define GLIBTOP_PROCDATA_BLOCKED	12
+#define GLIBTOP_PROCDATA_SIGIGNORE	13
+#define GLIBTOP_PROCDATA_SIGCATCH	14
+#define GLIBTOP_PROCDATA_START_TIME	15
+#define GLIBTOP_PROCDATA_UTIME		16
+#define GLIBTOP_PROCDATA_STIME		17
+#define GLIBTOP_PROCDATA_CUTIME		18
+#define GLIBTOP_PROCDATA_CSTIME		19
+#define GLIBTOP_PROCDATA_SIZE		20
+#define GLIBTOP_PROCDATA_RESIDENT	21
+#define GLIBTOP_PROCDATA_SHARE		22
+#define GLIBTOP_PROCDATA_TRS		23
+#define GLIBTOP_PROCDATA_LRS		24
+#define GLIBTOP_PROCDATA_DRS		25
+#define GLIBTOP_PROCDATA_DT		26
+#define GLIBTOP_PROCDATA_VSIZE		27
+#define GLIBTOP_PROCDATA_RSS		28
+#define GLIBTOP_PROCDATA_RSS_RLIM	29
+#define GLIBTOP_PROCDATA_TIMEOUT	30
+#define GLIBTOP_PROCDATA_IT_REAL_VALUE	31
+#define GLIBTOP_PROCDATA_K_FLAGS	32
+#define GLIBTOP_PROCDATA_MIN_FLT	33
+#define GLIBTOP_PROCDATA_MAJ_FLT	34
+#define GLIBTOP_PROCDATA_CMIN_FLT	35
+#define GLIBTOP_PROCDATA_CMAJ_FLT	36
+#define GLIBTOP_PROCDATA_START_CODE	37
+#define GLIBTOP_PROCDATA_END_CODE	38
+#define GLIBTOP_PROCDATA_START_STACK	39
+#define GLIBTOP_PROCDATA_KSTK_ESP	40
+#define GLIBTOP_PROCDATA_KSTK_EIP	41
+#define GLIBTOP_PROCDATA_WCHAN		42
+
+#define GLIBTOP_MAX_PROCDATA		43
+</programlisting>
+</example>
+
+<para>
+Finally, we'll need some external definitions. They are discussed in detail
+later. Basically, you can copy them from any other header file and just
+change the names - in our example, we also have to add an additional
+parameter to <function>glibtop_get_procdata</function> and
+<function>glibtop_guile_get_procdata</function>:
+
+<example>
+<title>External definitions</title>
+
+<programlisting>
+extern void glibtop_get_procdata (glibtop *, glibtop_procdata *, pid_t);
+
+#ifdef HAVE_GUILE
+
+/* You need to link with -lgtop_guile to get this stuff here. */
+
+extern SCM glibtop_guile_get_procdata (SCM);
+
+#endif
+
+#ifdef GLIBTOP_GUILE_NAMES
+
+/* You need to link with -lgtop_guile_names to get this stuff here. */
+
+extern SCM glibtop_guile_names_procdata (void);
+extern SCM glibtop_guile_labels_procdata (void);
+extern SCM glibtop_guile_descriptions_procdata (void);
+
+#endif
+
+#ifdef GLIBTOP_NAMES
+
+/* You need to link with -lgtop_names to get this stuff here. */
+
+extern const char *glibtop_names_procdata [];
+extern const char *glibtop_labels_procdata [];
+extern const char *glibtop_descriptions_procdata [];
+
+#endif
+</programlisting>
+</example>
+
+<sect1 id="extendig-stub">
+<title>The Stub File</title>
+
+<para>
+The stub file is used when the library has not yet been ported to the
+system it is used on. It goes into <filename>sysdeps/stub</filename>
+and sets the whole structure <structname>glibtop_procdata</structname>
+to zero:
+
+<example>
+<title><filename>sysdeps/stub/procdata.c</filename></title>
+
+<programlisting>
+/* Provides detailed information about a process. */
+
+void
+glibtop_get_procdata (glibtop *server, glibtop_procdata *buf, pid_t pid)
+{
+	memset (buf, 0, sizeof (glibtop_procdata));
+}
+</programlisting>
+</example>
+
+<para>
+We'll see later how to port this stub to a particular operating system.
+At the moment it's enough to simply copy it to each of the other sysdeps
+directories (except for <filename>common</filename>,
+<filename>names</filename> and <filename>guile</filename>).
+
+<sect1 id="names">
+<title><filename>sysdeps/names</filename></title>
+
+<para>
+In <filename>sysdeps/names</filename>, we create the following file:
+
+<example>
+<title><filename>sysdeps/names/procdata.c</filename></title>
+
+<programlisting>
+#include &lt;glibtop/procdata.h>
+
+const char *glibtop_names_procdata [GLIBTOP_MAX_PROCDATA] =
+{ "cmd", "state", "uid", "pid", "ppid", "pgrp", "session",
+  "tty", "tpgid", "priority", "nice", "signal", "blocked",
+  "sigignore", "sigcatch", "start_time", "utime", "stime",
+  "cutime", "cstime", "size", "resident", "share", "trs",
+  "lrs", "drs", "dt", "vsize", "rss", "rss_rlim", "timeout",
+  "it_real_value", "k_flags", "min_flt", "maj_flt", "cmin_flt",
+  "cmaj_flt", "start_code", "end_code", "start_stack",
+  "kstk_esp", "kstk_eip", "wchan"
+};
+
+const char *glibtop_labels_procdata [GLIBTOP_MAX_PROCDATA] =
+{ N_("Cmd"), N_("Stat"), N_("UID"), N_("PID"), N_("PPID"), N_("PGRP"),
+  N_("Session"), N_("Tty"), N_("TPGID"), N_("Priority"), N_("Nice"),
+  N_("Signal"), N_("Blocked"), N_("SigIgnore"), N_("SigCatch"),
+  N_("Start_Time"), N_("UTime"), N_("STime"), N_("CUTime"), N_("CSTime"),
+  N_("Size"), N_("Resident"), N_("Share"), N_("TRS"), N_("LRS"), N_("DRS"),
+  N_("DT"), N_("VSize"), N_("RSS"), N_("RSS_RLim"), N_("Timeout"),
+  N_("It_Real_Value"), N_("Flags"), N_("Min_Flt"), N_("Maj_Flt"),
+  N_("CMin_Flt"), N_("Cmaj_Flt"), N_("Start_Code"), N_("End_Code"),
+  N_("Start_Stack"), N_("KSTK_ESP"), N_("KSTK_EIP"), N_("WChan")
+};
+
+const char *glibtop_descriptions_procdata [GLIBTOP_MAX_PROCDATA] =
+{ NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+  NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+  NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+  NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+  NULL, NULL
+};
+</programlisting>
+</example>
+
+<sect1 id="extending-guile">
+<title>The Guile Interface</title>
+
+<para>
+The next step is to create the guile interface. It goes into
+<filename>sysdeps/guile</filename>:
+
+<example>
+<title><filename>sysdeps/guile/procdata.c</filename></title>
+
+<programlisting>
+SCM
+glibtop_guile_get_procdata (SCM pid)
+{
+	glibtop_procdata p;
+	
+	glibtop_get_procdata (&amp;glibtop_global_server, &amp;p, (pid_t) gh_scm2long (pid));
+	
+	return gh_list (gh_str02scm (p.cmd),
+			gh_char2scm (p.state),
+			gh_long2scm (p.pid),
+			gh_long2scm (p.ppid),
+			gh_long2scm (p.pgrp),
+			gh_long2scm (p.session),
+			gh_long2scm (p.tty),
+			gh_long2scm (p.tpgid),
+			gh_long2scm (p.priority),
+			gh_long2scm (p.nice),
+			gh_long2scm (p.signal),
+			gh_long2scm (p.blocked),
+			gh_long2scm (p.sigignore),
+			gh_long2scm (p.sigcatch),
+			gh_long2scm (p.utime),
+			gh_long2scm (p.stime),
+			gh_long2scm (p.cutime),
+			gh_long2scm (p.cstime),
+			gh_long2scm (p.size),
+			gh_long2scm (p.resident),
+			gh_long2scm (p.share),
+			gh_long2scm (p.trs),
+			gh_long2scm (p.lrs),
+			gh_long2scm (p.drs),
+			gh_long2scm (p.dt),
+			gh_ulong2scm (p.vsize),
+			gh_ulong2scm (p.rss),
+			gh_ulong2scm (p.rss_rlim),
+			gh_ulong2scm (p.timeout),
+			gh_ulong2scm (p.it_real_value),
+			gh_ulong2scm (p.k_flags),
+			gh_ulong2scm (p.min_flt),
+			gh_ulong2scm (p.maj_flt),
+			gh_ulong2scm (p.cmin_flt),
+			gh_ulong2scm (p.cmaj_flt),
+			gh_ulong2scm (p.start_code),
+			gh_ulong2scm (p.end_code),
+			gh_ulong2scm (p.start_stack),
+			gh_ulong2scm (p.kstk_esp),
+			gh_ulong2scm (p.kstk_eip),
+			gh_ulong2scm (p.wchan),
+			SCM_UNDEFINED);
+}
+</programlisting>
+</example>
+
+<sect1 id="extending-guile-names">
+<title>Guile Names and Labels</title>
+
+<para>
+This is a little bit shorter again - all you have to do is copy one of
+the other files and change the names:
+
+<example>
+<title><filename>sysdeps/guile/names/procdata.c</filename></title>
+
+<programlisting>
+#include &lt;glibtop.h>
+#include &lt;glibtop/procdata.h>
+
+#include &lt;guile/gh.h>
+
+SCM
+glibtop_guile_names_procdata (void)
+{
+	int i;
+	SCM list;
+	
+	list = gh_list (SCM_UNDEFINED);
+	
+	for (i = 0; i < GLIBTOP_MAX_PROCDATA; i++)
+		list = gh_append2 (list, gh_list (gh_str02scm (glibtop_names_procdata [i]), SCM_UNDEFINED));
+	
+	return list;
+}
+
+SCM
+glibtop_guile_labels_procdata (void)
+{
+	int i;
+	SCM list;
+	
+	list = gh_list (SCM_UNDEFINED);
+	
+	for (i = 0; i < GLIBTOP_MAX_PROCDATA; i++)
+		list = gh_append2 (list, gh_list (gh_str02scm (gettext (glibtop_labels_procdata [i])),
+						  SCM_UNDEFINED));
+	
+	return list;
+}
+</programlisting>
+</example>
+
+<sect1 id="extending-library">
+<title>The Library File</title>
+
+<para>
+The last one is the library file:
+
+<example>
+<title><filename>lib/procdata.c</filename></title>
+
+<programlisting>
+#include &lt;glibtop/procdata.h>
+#include &lt;glibtop/command.h>
+
+/* Provides detailed information about a process. */
+
+void
+glibtop_get_procdata (glibtop *server, glibtop_procdata *buf, pid_t pid)
+{
+	glibtop_call (server, GLIBTOP_CMND_PROCDATA, sizeof (pid_t), &amp;pid,
+		      sizeof (glibtop_procdata), buf);
+}
+</programlisting>
+</example>
+
+<para>
+Make sure to define <literal>GLIBTOP_CMND_PROCDATA</literal> in
+<filename>command.h</filename>. The call to
+<function>glibtop_call</function> is simple - we send
+<parameter>pid</parameter> and its size and we get
+<parameter>buf</parameter> which is of type
+<structname>glibtop_procdata</structname>.
+
+<sect1 id="extending-sysdeps">
+<title>Sysdeps</title>
+
+<para>
+Finally, we add an entry to <filename>sysdeps.h</filename> and
+<filename>sysdeps.c</filename>:
+
+<example>
+<title><filename>includes/glibtop/sysdeps.h</filename></title>
+
+<programlisting>
+#include &lt;glibtop.h>
+#include &lt;glibtop/cpu.h>
+#include &lt;glibtop/mem.h>
+#include &lt;glibtop/swap.h>
+#include &lt;glibtop/uptime.h>
+#include &lt;glibtop/loadavg.h>
+#include &lt;glibtop/shm_limits.h>
+#include &lt;glibtop/msg_limits.h>
+#include &lt;glibtop/sem_limits.h>
+#include &lt;glibtop/proclist.h>
+#include &lt;glibtop/procdata.h>
+
+#define GLIBTOP_SYSDEPS_CPU		0
+#define GLIBTOP_SYSDEPS_MEM		1
+#define GLIBTOP_SYSDEPS_SWAP		2
+#define GLIBTOP_SYSDEPS_UPTIME		3
+#define GLIBTOP_SYSDEPS_LOADAVG		4
+#define GLIBTOP_SYSDEPS_SHM_LIMITS	5
+#define GLIBTOP_SYSDEPS_MSG_LIMITS	6
+#define GLIBTOP_SYSDEPS_SEM_LIMITS	7
+#define GLIBTOP_SYSDEPS_PROCLIST	8
+#define GLIBTOP_SYSDEPS_PROCDATA	9
+
+#define GLIBTOP_MAX_SYSDEPS		10
+
+typedef struct _glibtop_sysdeps	glibtop_sysdeps;
+
+struct _glibtop_sysdeps
+{
+	unsigned long	flags,
+		cpu,			/* glibtop_cpu		*/
+		mem,			/* glibtop_mem		*/
+		swap,			/* glibtop_swap		*/
+		uptime,			/* glibtop_uptime	*/
+		loadavg,		/* glibtop_loadavg	*/
+		shm_limits,		/* glibtop_shm_limits	*/
+		msg_limits,		/* glibtop_msg_limits	*/
+		sem_limits,		/* glibtop_sem_limits	*/
+		proclist,		/* glibtop_proclist	*/
+		procdata;		/* glibtop_procdata	*/
+};
+</programlisting>
+</example>
+
+<para>
+Just make sure to include <filename>procdata.h</filename>, to define
+<literal>GLIBTOP_SYSDEPS_PROCDATA</literal>, to increase
+<literal>GLIBTOP_MAX_SYSDEPS</literal> by one and to add to new element
+<structfield>procdata</structfield> to
+<structname>glibtop_sysdeps</structname>.
+
+<para>
+After that, add a <structfield>procdata</structfield> to
+<structname>glibtop_union</structname>
+(it's defined in <filename>union.h</filename>) and include
+<filename>procdata.h</filename> in that file:
+
+<example>
+<title><filename>include/glibtop/union.h</filename></title>
+
+<programlisting>
+#include &lt;glibtop/cpu.h>
+#include &lt;glibtop/mem.h>
+#include &lt;glibtop/swap.h>
+#include &lt;glibtop/uptime.h>
+#include &lt;glibtop/loadavg.h>
+#include &lt;glibtop/shm_limits.h>
+#include &lt;glibtop/msg_limits.h>
+#include &lt;glibtop/sem_limits.h>
+#include &lt;glibtop/proclist.h>
+#include &lt;glibtop/procdata.h>
+
+typedef union _glibtop_union	glibtop_union;
+
+union _glibtop_union
+{
+	glibtop_cpu		cpu;
+	glibtop_mem		mem;
+	glibtop_swap		swap;
+	glibtop_uptime		uptime;
+	glibtop_loadavg		loadavg;
+	glibtop_shm_limits	shm_limits;
+	glibtop_msg_limits	msg_limits;
+	glibtop_sem_limits	sem_limits;
+	glibtop_proclist	proclist;
+	glibtop_procdata	procdata;
+};
+</programlisting>
+</example>
+
+<para>
+Now we can append the following to <function>glibtop_get_sysdeps</function>
+in <filename>sysdeps/common/sysdeps.c</filename>:
+
+<example><title>Add this at the end of
+<function>glibtop_get_sysdeps</function> in
+<filename>sysdeps/common/sysdeps.c</filename>
+</title>
+
+<programlisting>
+	glibtop_get_procdata (server, &amp;data.procdata, 0);
+	buf->procdata = data.procdata.flags;
+</programlisting>
+</example>
+
+<para>
+Also add the new name and label to <filename>sysdeps/names/sysdeps.c</filename>
+
+<sect1 id="extendig-server">
+<title>Adding the new command to the server</title>
+
+<para>
+We have to add the following <literal>switch</literal> case:
+
+<example><title>Add this to <filename>src/main.c</filename>:</title>
+
+<programlisting>
+		case GLIBTOP_CMND_PROCDATA:
+			if (sscanf (parameter, "%d", &amp;pid) != 1) pid = 0;
+			glibtop_get_procdata (&amp;server, &amp;data.procdata, pid);
+			glibtop_output (sizeof (glibtop_procdata), &amp;data.procdata);
+			glibtop_output (0, NULL);
+			break;
+</programlisting>
+</example>
+
+<sect1 id="extending-compile">
+<title>Compiling ...</title>
+
+<para>
+Now it's time to add <filename>procdata.c</filename> to the
+<filename>Makefile.am</filename> in each directory we added
+this file and run a <command>make</command>.
+
+<chapter id="interface-description">
+<title>Interface Description</title>
+
+<sect1 id="system-information-interface">
+<title>General information</title>
+
+<sect2 id="glibtop-cpu">
+<title><structname>glibtop_cpu</structname> - CPU usage</title>
+
+<programlisting>
+typedef struct _glibtop_cpu	glibtop_cpu;
+
+struct _glibtop_cpu
+{
+  unsigned long	flags,
+    total,			/* GLIBTOP_CPU_TOTAL	*/
+    user,			/* GLIBTOP_CPU_USER	*/
+    nice,			/* GLIBTOP_CPU_NICE	*/
+    sys,			/* GLIBTOP_CPU_SYS	*/
+    idle;			/* GLIBTOP_CPU_IDLE	*/
+};
+</programlisting>
+
+<sect2 id="glibtop-mem">
+<title><structname>glibtop_mem</structname> - Memory usage</title>
+
+<programlisting>
+typedef struct _glibtop_mem	glibtop_mem;
+
+struct _glibtop_mem
+{
+  unsigned long	flags,
+    total,			/* GLIBTOP_MEM_TOTAL	*/
+    used,			/* GLIBTOP_MEM_USED	*/
+    free,			/* GLIBTOP_MEM_FREE	*/
+    shared,			/* GLIBTOP_MEM_SHARED	*/
+    buffer,			/* GLIBTOP_MEM_BUFFER	*/
+    cached,			/* GLIBTOP_MEM_CACHED	*/
+    user;			/* GLIBTOP_MEM_USER	*/
+};
+</programlisting>
+
+<sect2 id="glibtop-swap">
+<title><structname>glibtop_swap</structname> - Swap usage</title>
+
+<programlisting>
+typedef struct _glibtop_swap	glibtop_swap;
+
+struct _glibtop_swap
+{
+  unsigned long	flags,
+    total,			/* GLIBTOP_SWAP_TOTAL	*/
+    used,			/* GLIBTOP_SWAP_USED	*/
+    free;			/* GLIBTOP_SWAP_FREE	*/
+};
+</programlisting>
+
+<sect2 id="glibtop-uptime">
+<title><structname>glibtop_uptime</structname> - uptime and idletime</title>
+
+<programlisting>
+typedef struct _glibtop_uptime	glibtop_uptime;
+
+struct _glibtop_uptime
+{
+  unsigned long	flags;
+  double uptime,		/* GLIBTOP_UPTIME_UPTIME	*/
+    idletime;			/* GLIBTOP_UPTIME_IDLETIME	*/
+};
+</programlisting>
+
+<sect2 id="glibtop-loadavg">
+<title><structname>glibtop_loadavg</structname> - load averange</title>
+
+<programlisting>
+typedef struct _glibtop_loadavg	glibtop_loadavg;
+
+struct _glibtop_loadavg
+{
+  unsigned long	flags;
+  double loadavg [3];		/* GLIBTOP_LOADAVG_LOADAVG	*/
+};
+</programlisting>
+
+<chapter id="function-descriptions">
+<title>Function Descriptions</title>
+
+<sect1 id="open-and-close">
+<title>Opening and Closing</title>
+
+<para>
+Before you can use the library, you have to open a connection to the server.
+
+<sect2 id="glibtop-open">
+<title><function>glibtop_open()</function> - connect to server</title>
+
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h>
+#include &lt;glibtop/open.h></funcsynopsisinfo>
+<funcdef>void <function>glibtop_open</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, const char *<parameter>program_name</parameter>
+</paramdef></funcsynopsis>
+
+<variablelist>
+<varlistentry>
+<term><replaceable class="parameter">server</replaceable>
+<listitem>
+
+<para>
+some data about the server (input and output pipes etc.) are stored here.
+
+<varlistentry>
+<term><replaceable class="parameter">program_name</replaceable>
+<listitem>
+
+<para>
+program name (used in error messages).
+</variablelist>
+
+<sect2 id="glibtop-close">
+<title><function>glibtop_close()</function> - close connection to server</title>
+
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h>
+#include &lt;glibtop/close.h></funcsynopsisinfo>
+<funcdef>void <function>glibtop_close</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>
+</paramdef></funcsynopsis>
+
+<variablelist>
+<varlistentry>
+<term><replaceable class="parameter">server</replaceable>
+<listitem>
+
+<para>
+the server you connected to.
+</variablelist>
+
+<sect2 id="glibtop-get-sysdeps">
+<title><function>glibtop_get_sysdeps()</function> - which features are implemented?</title>
+
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h>
+#include &lt;glibtop/sysdeps.h></funcsynopsisinfo>
+<funcdef>void <function>glibtop_get_sysdeps</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_sysdeps *<parameter>sysdeps</parameter>
+</paramdef></funcsynopsis>
+
+<sect1 id="system-information">
+<title>General information</title>
+
+<sect2 id="glibtop-get-cpu">
+<title><function>glibtop_get_cpu()</function> - get CPU usage</title>
+
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h>
+#include &lt;glibtop/cpu.h></funcsynopsisinfo>
+<funcdef>void <function>glibtop_get_cpu</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_cpu *<parameter>cpu_usage</parameter>
+</paramdef></funcsynopsis>
+
+<sect2 id="glibtop-get-mem">
+<title><function>glibtop_get_mem()</function> - get memory usage</title>
+
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h>
+#include &lt;glibtop/mem.h></funcsynopsisinfo>
+<funcdef>void <function>glibtop_get_mem</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_mem *<parameter>memory_usage</parameter>
+</paramdef></funcsynopsis>
+
+<sect2 id="glibtop-get-swap">
+<title><function>glibtop_get_swap()</function> - get swap usage</title>
+
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h>
+#include &lt;glibtop/swap.h></funcsynopsisinfo>
+<funcdef>void <function>glibtop_get_swap</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_swap *<parameter>swap_usage</parameter>
+</paramdef></funcsynopsis>
+
+<sect2 id="glibtop-get-uptime">
+<title><function>glibtop_get_uptime()</function> - get uptime and idle time</title>
+
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h>
+#include &lt;glibtop/uptime.h></funcsynopsisinfo>
+<funcdef>void <function>glibtop_get_uptime</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_uptime *<parameter>uptime</parameter>
+</paramdef></funcsynopsis>
+
+<sect2 id="glibtop-get-loadavg">
+<title><function>glibtop_get_loadavg()</function> - get load averange</title>
+
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h>
+#include &lt;glibtop/loadavg.h></funcsynopsisinfo>
+<funcdef>void <function>glibtop_get_loadavg</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_loadavg *<parameter>loadavg</parameter>
+</paramdef></funcsynopsis>
+
+</book>
