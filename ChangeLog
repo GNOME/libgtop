@@ -1,6 +1,11 @@
-1999-02-22  Martin Baulig  <martin@home-of-linux.org>
+1999-02-23  Martin Baulig  <martin@home-of-linux.org>
 
-	Set the copyright of LibGTop to the GNU General Public License.
+	Released LibGTop 0.100.0.
+
+	Make the copyright of LibGTop be the GNU General Public License.
+
+	* LIBGTOP-VERSION: Set version number to 0.100.0 binary age 0,
+	interface age 0.
 
 	* copyright.txt: Set the year to 1998-99 and pretty-format it a
 	little bit. Same in all C source and header files.
