@@ -28,7 +28,7 @@
 
 #include <glib.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_SYSINFO_CPUINFO		0
 
@@ -57,6 +57,6 @@ struct _glibtop_sysinfo
 
 glibtop_sysinfo *glibtop_get_sysinfo_s (glibtop *server);
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -25,7 +25,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_PROC_KERNEL_K_FLAGS	0
 #define GLIBTOP_PROC_KERNEL_MIN_FLT	1
@@ -91,6 +91,6 @@ extern const char *glibtop_descriptions_proc_kernel [];
 
 #endif
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -25,7 +25,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_PROC_STATE_CMD		0
 #define GLIBTOP_PROC_STATE_STATE	1
@@ -83,6 +83,6 @@ extern const char *glibtop_descriptions_proc_state [];
 
 #endif
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

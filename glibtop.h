@@ -72,14 +72,21 @@ extern const unsigned long glibtop_server_features;
 
 #define glibtop_close()	glibtop_close_r(glibtop_global_server);
 
-extern glibtop *glibtop_init_r __P((glibtop **, unsigned long, unsigned));
-extern glibtop *glibtop_init_s __P((glibtop **, unsigned long, unsigned));
+glibtop *
+glibtop_init_r (glibtop **server_ptr,
+		unsigned long features,
+		unsigned flags);
+
+glibtop *
+glibtop_init_s (glibtop **server_ptr,
+		unsigned long features,
+		unsigned flags);
 
 #ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 
-extern void glibtop_boot_guile __P((void));
+void glibtop_boot_guile (void);
 
 #endif
 
@@ -87,7 +94,7 @@ extern void glibtop_boot_guile __P((void));
 
 /* You need to link with -lgtop_guile_names to get this stuff here. */
 
-extern void glibtop_boot_guile_names __P((void));
+void glibtop_boot_guile_names (void);
 
 #ifndef GLIBTOP_NAMES
 #define GLIBTOP_NAMES

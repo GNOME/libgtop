@@ -25,7 +25,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_MOUNTLIST_NUMBER	0
 #define GLIBTOP_MOUNTLIST_TOTAL		1
@@ -74,6 +74,6 @@ extern const char *glibtop_descriptions_mountlist [];
 
 #endif
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

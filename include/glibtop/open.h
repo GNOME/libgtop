@@ -24,7 +24,7 @@
 #include <glibtop/read.h>
 #include <glibtop/error.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define _GLIBTOP_INIT_STATE_INIT	0x10000
 #define _GLIBTOP_INIT_STATE_OPEN	0x20000
@@ -66,6 +66,6 @@ glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags);
 
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

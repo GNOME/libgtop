@@ -26,7 +26,7 @@
 #include <fcntl.h>
 #include <ctype.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #if _IN_LIBGTOP
 
@@ -51,6 +51,6 @@ struct _glibtop_machine
 	char	proc_status [BUFSIZ];
 };
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

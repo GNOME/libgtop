@@ -25,7 +25,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_IPC_SEMMAP	0
 #define GLIBTOP_IPC_SEMMNI	1
@@ -86,6 +86,6 @@ extern const char *glibtop_descriptions_sem_limits [];
 
 #endif
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -25,7 +25,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_LOADAVG_LOADAVG		0
 #define GLIBTOP_LOADAVG_NR_RUNNING	1
@@ -74,6 +74,6 @@ extern const char *glibtop_descriptions_loadavg [];
 
 #endif
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

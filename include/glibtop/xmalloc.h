@@ -25,7 +25,7 @@
 #include <glibtop.h>
 #include <glibtop/error.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define glibtop_malloc(p1)	glibtop_malloc_r(glibtop_global_server, p1)
 #define glibtop_calloc(p1, p2)	glibtop_calloc_r(glibtop_global_server, p1, p2)
@@ -39,6 +39,6 @@ void *glibtop_realloc_r	(glibtop *server, void *ptr, size_t size);
 char *glibtop_strdup_r	(glibtop *server, const char *string);
 void glibtop_free_r	(glibtop *server, const void *ptr);
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

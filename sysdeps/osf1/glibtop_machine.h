@@ -30,9 +30,9 @@
 #undef user
 #undef idle
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
-extern int table __P((int id, int index, char *addr, int nel, u_int lel));
+int table (int id, int index, char *addr, int nel, u_int lel);
 
 typedef struct _glibtop_machine		glibtop_machine;
 
@@ -43,6 +43,6 @@ struct _glibtop_machine
 	unsigned proctable_entries;	/* Max entries in the proctable */
 };
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

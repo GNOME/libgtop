@@ -27,7 +27,7 @@
 
 #define LIBGTOP_VERSION_STRING "Libgtop %s server version %s (%u,%u,%u,%u)."
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #if _IN_LIBGTOP
 
@@ -35,6 +35,6 @@ void glibtop_send_version (glibtop *server, int fd);
 
 #endif
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

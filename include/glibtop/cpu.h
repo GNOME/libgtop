@@ -25,7 +25,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_CPU_TOTAL	0
 #define GLIBTOP_CPU_USER	1
@@ -71,7 +71,7 @@ struct _glibtop_cpu
 #define glibtop_get_cpu_r	glibtop_get_cpu_s
 #endif
 
-void glibtop_get_cpu_l __P((glibtop *, glibtop_cpu *));
+void glibtop_get_cpu_l (glibtop *server, glibtop_cpu *buf);
 
 #if GLIBTOP_SUID_CPU
 void glibtop_init_cpu_p (glibtop *server);
@@ -92,6 +92,6 @@ extern const char *glibtop_descriptions_cpu [];
 
 #endif
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -29,7 +29,7 @@
 
 #define GLIBTOP_INODEDB_ALL		7
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 typedef struct _glibtop_inodedb		glibtop_inodedb;
 
@@ -60,6 +60,6 @@ glibtop_inodedb_lookup_s (glibtop *server,
 void
 glibtop_inodedb_close_s (glibtop *server, glibtop_inodedb *inodedb);
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -48,7 +48,7 @@
 #include <glibtop/netload.h>
 #include <glibtop/ppp.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 typedef union _glibtop_union	glibtop_union;
 
@@ -78,6 +78,6 @@ union _glibtop_union
 	glibtop_ppp		ppp;
 };
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -46,7 +46,7 @@
 
 #include "loadavg.h"
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 /* Older versions of SunOS don't have a typedef for pid_t.
    Hopefully this will catch all those cases without causing other problems.
@@ -102,16 +102,14 @@ struct _glibtop_machine
 
 extern struct nlist _glibtop_nlist[];
 
-extern int _glibtop_check_nlist __P((void *, register struct nlist *));
-
-extern int _glibtop_getkval __P((void *, unsigned long, int *, int, char *));
-
-extern void _glibtop_read_proc_table __P((void *));
-
-extern struct proc *_glibtop_find_pid __P((void *, pid_t));
+int _glibtop_check_nlist (void *server, register struct nlist *nlst);
+int _glibtop_getkval (void *void_server, unsigned long offset, int *ptr,
+		      int size, char *refstr);
+void _glibtop_read_proc_table (void *void_server);
+struct proc *_glibtop_find_pid (void *void_server, pid_t pid);
 
 #endif
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

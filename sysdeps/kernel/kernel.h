@@ -29,10 +29,10 @@
 
 #include <syscall.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 extern int table (int, union table *, const void *);
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -25,13 +25,13 @@
 #include <glibtop.h>
 #include <glibtop/error.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define glibtop_write(p1, p2)	glibtop_write(glibtop_global_server, p1, p2)
 
 void glibtop_write_l (glibtop *server, size_t size, void *buf);
 void glibtop_write_s (glibtop *server, size_t size, void *buf);
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

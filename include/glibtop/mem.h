@@ -25,7 +25,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_MEM_TOTAL	0
 #define GLIBTOP_MEM_USED	1
@@ -82,6 +82,6 @@ extern const char *glibtop_descriptions_mem [];
 
 #endif
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

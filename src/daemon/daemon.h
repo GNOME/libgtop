@@ -38,7 +38,7 @@
 #include <sys/socket.h>
 #include <syslog.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 /* Some don't have LOG_PERROR */
 #ifndef LOG_PERROR
@@ -59,19 +59,21 @@ __BEGIN_DECLS
 #define MSG_BUFSZ		sizeof (struct _glibtop_ipc_message)
 #define MSG_MSGSZ		(MSG_BUFSZ - sizeof (long))
 
-extern void handle_parent_connection __P((int));
-extern void handle_slave_connection __P((int, int));
-extern void handle_slave_command __P((glibtop_command *, glibtop_response *, const void *));
+void handle_parent_connection (int s);
+void handle_slave_connection (int input, int output);
+void handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
+			   const void *parameter);
 
-extern void do_output __P((int, glibtop_response *, off_t, size_t, const void *));
-extern int do_read __P((int, void *, size_t));
+void do_output (int s, glibtop_response *resp, off_t offset,
+		size_t data_size, const void *data);
+int do_read (int s, void *ptr, size_t total_size);
 
-extern void syslog_message __P((int, char *, ...));
-extern void syslog_io_message __P((int, char *, ...));
+void syslog_message (int priority, char *format, ...);
+void syslog_io_message (int priority, char *format, ...);
 
 extern int enable_debug;
 extern int verbose_output;
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

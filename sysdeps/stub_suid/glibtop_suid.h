@@ -22,7 +22,7 @@
 #ifndef __GLIBTOP_SUID_H__
 #define __GLIBTOP_SUID_H__
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 static inline void glibtop_suid_enter (glibtop *server) {
 	setreuid (server->machine.uid, server->machine.euid);
@@ -33,10 +33,14 @@ static inline void glibtop_suid_leave (glibtop *server) {
 		_exit (1);
 };
 
-extern void glibtop_init_p __P((glibtop *, const unsigned long, const unsigned));
+void
+glibtop_init_p (glibtop *server, const unsigned long features,
+		const unsigned flags);
+void
+glibtop_open_p (glibtop *server, const char *program_name,
+		const unsigned long features,
+		const unsigned flags);
 
-extern void glibtop_open_p __P((glibtop *, const char *, const unsigned long, const unsigned));
-
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

@@ -26,7 +26,7 @@
 #include <glibtop/cpu.h>
 #include <glibtop/global.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_PROC_TIME_START_TIME	0
 #define GLIBTOP_PROC_TIME_RTIME		1
@@ -97,6 +97,6 @@ extern const char *glibtop_descriptions_proc_time [];
 
 #endif
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

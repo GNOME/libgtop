@@ -25,7 +25,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_PROC_MAP_NUMBER		0
 #define GLIBTOP_PROC_MAP_TOTAL		1
@@ -103,6 +103,6 @@ extern const char *glibtop_descriptions_proc_map [];
 
 #endif
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

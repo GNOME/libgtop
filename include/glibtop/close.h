@@ -24,13 +24,13 @@
 
 #include <glibtop.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 void glibtop_close_r (glibtop *server);
 
 void glibtop_close_s (glibtop *server);
 void glibtop_close_p (glibtop *server);
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

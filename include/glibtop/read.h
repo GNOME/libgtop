@@ -25,13 +25,13 @@
 #include <glibtop.h>
 #include <glibtop/error.h>
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #define glibtop_read(p1, p2)	glibtop_read(glibtop_global_server, p1, p2)
 
 void glibtop_read_l (glibtop *server, size_t size, void *buf);
 void glibtop_read_s (glibtop *server, size_t size, void *buf);
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif

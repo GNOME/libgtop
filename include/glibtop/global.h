@@ -26,36 +26,21 @@
 #include <config.h>
 #endif
 
-#ifdef WITHOUT_GNOME
-
-/* __BEGIN_DECLS should be used at the beginning of your declarations,
-   so that C++ compilers don't mangle their names.  Use __END_DECLS at
-   the end of C declarations. */
+/*
+ * All declarations are enclosed in BEGIN_LIBGTOP_DECLS and
+ * END_LIBGTOP_DECLS so that C++ compilers don't mangle their names.
+ *
+ */
    
-#undef __BEGIN_DECLS
-#undef __END_DECLS
+#undef BEGIN_LIBGTOP_DECLS
+#undef END_LIBGTOP_DECLS
 #ifdef __cplusplus
-# define __BEGIN_DECLS extern "C" {
-# define __END_DECLS }
+# define BEGIN_LIBGTOP_DECLS extern "C" {
+# define END_LIBGTOP_DECLS }
 #else
-# define __BEGIN_DECLS /* empty */
-# define __END_DECLS /* empty */
+# define BEGIN_LIBGTOP_DECLS /* empty */
+# define END_LIBGTOP_DECLS /* empty */
 #endif
-
-/* __P is a macro used to wrap function prototypes, so that compilers
-   that don't understand ANSI C prototypes still work, and ANSI C
-   compilers can issue warnings about type mismatches. */
-
-#undef __P
-#if defined (__STDC__) || defined (_AIX) \
-|| (defined (__mips) && defined (_SYSTYPE_SVR4)) \
-     || defined(WIN32) || defined(__cplusplus)
-# define __P(protos) protos
-#else
-# define __P(protos) ()
-#endif
-
-#endif /* WITHOUT_GNOME */
 
 #ifdef _IN_LIBGTOP
 
@@ -137,7 +122,7 @@
 
 #ifdef _IN_LIBGTOP
 
-__BEGIN_DECLS
+BEGIN_LIBGTOP_DECLS
 
 #ifndef _
 #define _(String) dgettext (PACKAGE, String)
@@ -145,10 +130,10 @@ __BEGIN_DECLS
 #endif
 
 #ifndef HAVE_STRERROR
-extern char *strerror __P((int));
+char *strerror (int errno);
 #endif
 
-__END_DECLS
+END_LIBGTOP_DECLS
 
 #endif /* _IN_LIBGTOP */
 
