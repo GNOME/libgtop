@@ -1,16 +1,18 @@
 # Hungarian translation of libgtop.
-# Copyright (C) 2000-2004 Free Software Foundation, Inc.
-# Robert Vanyi <robi@mora.u-szeged.hu>, 2000.
-# Andras Timar <timar@gnome.hu>, 2001-2003.
-# Laszlo Dvornik <dvornikl@mailbox.hu>, 2004.
+# Copyright (C) 2000, 2001, 2002, 2003, 2004 Free Software Foundation, Inc.
+# This file is distributed under the same license as the libgtop package.
+# Robert Vanyi <robi@mora.u-szeged.hu>, 2000, 2001.
+# Andras Timar <timar@gnome.hu>, 2002, 2003.
+# Laszlo Dvornik <dvornik@gnome.hu>, 2004.
+# Gabor Kelemen <kelemeng@gnome.hu>, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-20 15:07+0200\n"
-"PO-Revision-Date: 2004-04-14 15:54+0200\n"
-"Last-Translator: Laszlo Dvornik <dvornikl@mailbox.hu>\n"
+"POT-Creation-Date: 2004-07-31 12:03+0200\n"
+"PO-Revision-Date: 2004-07-31 20:21+0200\n"
+"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -248,7 +250,7 @@ msgstr "SMP CPU-idő üresjáratban"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "SMP CPU jelzők"
 
 # sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
@@ -282,7 +284,7 @@ msgstr "Óraütések gyakorisága (alapértelmezés 100)"
 
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
-msgstr ""
+msgstr "A jelenleg futó CPU-t jelző bitmező"
 
 # sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
@@ -311,9 +313,8 @@ msgstr "Szabad fájl node-ok"
 
 # sysdeps/names/procsignal.c:40
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Blokkolt"
+msgstr "Blokkméret"
 
 # sysdeps/names/fsusage.c:49
 #: sysdeps/names/fsusage.c:51
@@ -509,15 +510,13 @@ msgstr "MTU"
 
 # sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Alhálózat"
+msgstr "IPv4 alhálózat"
 
 # sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Cím"
+msgstr "IPv4 cím"
 
 # sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
@@ -571,17 +570,16 @@ msgstr "Ütközések"
 
 # sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Cím"
+msgstr "IPv6 cím"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "IPv6 előtag"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "IPv6 hatókör"
 
 # sysdeps/names/netload.c:64
 #: sysdeps/names/netload.c:68
@@ -621,7 +619,7 @@ msgstr "Méret"
 # sysdeps/names/procargs.c:43
 #: sysdeps/names/procargs.c:44
 msgid "Length in bytes of the returned string."
-msgstr "A visszaadott karakterlánc hossza bájtokban"
+msgstr "A visszaadott karakterlánc hossza bájtokban."
 
 # sysdeps/names/prockernel.c:42
 #: sysdeps/names/prockernel.c:43
@@ -681,6 +679,15 @@ msgid ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
+"A folyamat kernel flag-jei.\n"
+"\n"
+"Jelenleg Linuxon minden flaghez be van állítva a math bit, mivel a crt0.s "
+"ellenőrzi a matematikai emulációhoz, így ez nem kerül bele a kimenetbe.\n"
+"\n"
+"Ez valószínűleg hiba, mivel nem minden folyamat lefordított c program.\n"
+"\n"
+"A math bitnek decimális 4-nek kellene lennie, a traced bitnek pedig "
+"decimális 10-nek."
 
 # sysdeps/names/prockernel.c:59
 #. Min_Flt
@@ -689,6 +696,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
+"A folyamat által okozott kis laphibák száma, amelyekhez nem kellett a "
+"lemezről memórialapokat betölteni."
 
 # sysdeps/names/prockernel.c:62
 #. Maj_Flt
@@ -697,18 +706,20 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
+"A folyamat által okozott nagy laphibák száma, amelyekhez a lemezről kellett "
+"memórialapokat betölteni."
 
 # sysdeps/names/prockernel.c:65
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
-msgstr ""
+msgstr "A folyamat és gyermekei által okozott kis laphibák száma."
 
 # sysdeps/names/prockernel.c:68
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
-msgstr ""
+msgstr "A folyamat és gyermekei által okozott nagy laphibák száma."
 
 # sysdeps/names/prockernel.c:71
 #. KStk_ESP
@@ -717,6 +728,8 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
+"Az esp (32 bites veremmutató) jelenlegi értéke, a folyamat kernelbeli "
+"veremlapja alapján."
 
 # sysdeps/names/prockernel.c:74
 #. KStk_EIP
@@ -733,12 +746,16 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
+"Ez a \"csatorna\" neve, amelyben a folyamat várakozik. Ez a rendszerhívás "
+"címe és kikereshető egy névlistából, ha egy szöveges névre van szüksége. (Ha "
+"rendelkezik egy naprakész /etc/psdatabase-zel, próbálja ki a \"ps -l\" "
+"parancsot, így láthatja a WCHAN mezőt akció közben)"
 
 # sysdeps/names/prockernel.c:81
 #. WChan
 #: sysdeps/names/prockernel.c:82
 msgid "This is the textual name of the `nwchan' field."
-msgstr ""
+msgstr "Ez az `nwchan` mező szöveges neve."
 
 # sysdeps/names/procmem.c:47
 #: sysdeps/names/procmem.c:48
@@ -778,12 +795,12 @@ msgstr "A virtuális memória lapjainak száma"
 # sysdeps/names/procmem.c:55
 #: sysdeps/names/procmem.c:56
 msgid "Number of resident set (non-swapped) pages"
-msgstr ""
+msgstr "A rezidens (nem-lapozható) lapok száma"
 
 # sysdeps/names/procmem.c:56
 #: sysdeps/names/procmem.c:57
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr ""
+msgstr "A megosztott (mmap()) memórialapok száma"
 
 # sysdeps/names/procmem.c:57
 #: sysdeps/names/procmem.c:58
@@ -793,12 +810,17 @@ msgid ""
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
 msgstr ""
+"A folyamat által a memóriában tartott lapok száma, -3 adminisztratív "
+"célokra. Ezek azok a lapok, amelyek szöveget, adatokat vagy veremadatokat "
+"tartalmaznak. Ebben nincsenek benne azok a lapok, amelyek még nem töltődtek "
+"be (nem volt még szükség rájuk) vagy ki lettek cserélve."
 
 # sysdeps/names/procmem.c:62
 #: sysdeps/names/procmem.c:63
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr ""
+"A folyamat rss-ének jelenlegi határa bájtokban (általában 2,147,483,647)."
 
 # sysdeps/names/procsegment.c:42
 #: sysdeps/names/procsegment.c:43
@@ -843,27 +865,27 @@ msgstr "Start_Stack"
 # sysdeps/names/procsegment.c:48
 #: sysdeps/names/procsegment.c:49
 msgid "Text resident set size"
-msgstr ""
+msgstr "Rezidens szöveges lapok mérete"
 
 # sysdeps/names/procsegment.c:49
 #: sysdeps/names/procsegment.c:50
 msgid "Shared-Lib resident set size"
-msgstr ""
+msgstr "Rezidens megosztott könyvtárlapok mérete"
 
 # sysdeps/names/procsegment.c:50
 #: sysdeps/names/procsegment.c:51
 msgid "Data resident set size"
-msgstr ""
+msgstr "Rezidens adatlapok mérete"
 
 # sysdeps/names/procsegment.c:51
 #: sysdeps/names/procsegment.c:52
 msgid "Stack resident set size"
-msgstr ""
+msgstr "Rezidens veremlapok mérete"
 
 # sysdeps/names/procsegment.c:52
 #: sysdeps/names/procsegment.c:53
 msgid "Total size of dirty pages"
-msgstr ""
+msgstr "\"Piszkos\" lapok összes mérete"
 
 # sysdeps/names/procsegment.c:53
 #: sysdeps/names/procsegment.c:54
@@ -903,7 +925,7 @@ msgstr "SigCatch"
 # sysdeps/names/procsignal.c:45
 #: sysdeps/names/procsignal.c:46
 msgid "Mask of pending signals"
-msgstr ""
+msgstr "Függőben lévő szignálok maszkja"
 
 # sysdeps/names/procsignal.c:46
 #: sysdeps/names/procsignal.c:47
@@ -913,7 +935,7 @@ msgstr "Blokkolt szignálok maszkja"
 # sysdeps/names/procsignal.c:47
 #: sysdeps/names/procsignal.c:48
 msgid "Mask of ignored signals"
-msgstr "Ignorált szignálok maszkja"
+msgstr "Mellőzött szignálok maszkja"
 
 # sysdeps/names/procsignal.c:48
 #: sysdeps/names/procsignal.c:49
@@ -965,7 +987,7 @@ msgstr "LProc"
 # sysdeps/names/procstate.c:45
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
-msgstr ""
+msgstr "A végrehajtható fájl neve az exec() hívásban"
 
 # sysdeps/names/procstate.c:46
 #: sysdeps/names/procstate.c:50
@@ -994,7 +1016,7 @@ msgstr "A folyamat valós GID-je"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
-msgstr ""
+msgstr "Van CPU-ja"
 
 # sysdeps/names/procuid.c:67
 #: sysdeps/names/procstate.c:56
@@ -1063,12 +1085,12 @@ msgstr "XCPU_STime"
 # sysdeps/names/proctime.c:51
 #: sysdeps/names/proctime.c:52
 msgid "Start time of process in seconds since the epoch"
-msgstr ""
+msgstr "A folyamat indításának ideje másodpercben 1970. 01. 01. óta"
 
 # sysdeps/names/proctime.c:52
 #: sysdeps/names/proctime.c:53
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr ""
+msgstr "A folyamat által összegyűjtött valós idő (elvileg utime+stime)"
 
 # sysdeps/names/proctime.c:53
 #: sysdeps/names/proctime.c:54
@@ -1083,17 +1105,18 @@ msgstr "a folyamat által összegyűjtött rendszer CPU-idő"
 # sysdeps/names/proctime.c:55
 #: sysdeps/names/proctime.c:56
 msgid "cumulative utime of process and reaped children"
-msgstr ""
+msgstr "A folyamat és befejezett gyermekeinek összesített utime-ja"
 
 # sysdeps/names/proctime.c:56
 #: sysdeps/names/proctime.c:57
 msgid "cumulative stime of process and reaped children"
-msgstr ""
+msgstr "A folyamat és befejezett gyermekeinek összesített stime-ja"
 
 # sysdeps/names/proctime.c:57
 #: sysdeps/names/proctime.c:58
 msgid "The time (in jiffies) of the process's next timeout"
 msgstr ""
+"Idő (századmásodpercben) amíg a folyamat a következő időtúllépését elfogja"
 
 # sysdeps/names/proctime.c:58
 #: sysdeps/names/proctime.c:59
@@ -1285,12 +1308,12 @@ msgstr "A folyamat szabványos unix nice-szintje"
 # sysdeps/names/procuid.c:72
 #: sysdeps/names/procuid.c:72
 msgid "Number of additional process groups"
-msgstr ""
+msgstr "A kiegészítő folyamatcsoportok száma"
 
 # sysdeps/names/procuid.c:72
 #: sysdeps/names/procuid.c:73
 msgid "Array of additional process groups"
-msgstr ""
+msgstr "A kiegészítő folyamatcsoportok tömbje"
 
 # sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
@@ -1325,7 +1348,7 @@ msgstr "Ops-ok maximális száma semop-hívásonként"
 # sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max number of undo entries per process"
-msgstr ""
+msgstr "A folyamatonkénti visszavonás bejegyzések maximális száma"
 
 # sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
@@ -1435,17 +1458,17 @@ msgstr "Átlagos terhelés"
 # sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Shared Memory Limits"
-msgstr ""
+msgstr "Megosztott memória határai"
 
 # sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Message Queue Limits"
-msgstr ""
+msgstr "Üzenetsor határai"
 
 # sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "Semaphore Set Limits"
-msgstr ""
+msgstr "Szemafortábla határai"
 
 # sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
@@ -1555,7 +1578,7 @@ msgstr "A rendszerindítás óta üresjáratban töltött idő másodpercben"
 # sysdeps/names/uptime.c:44
 #: sysdeps/names/uptime.c:48
 msgid "Time of last system boot in seconds since the epoch"
-msgstr ""
+msgstr "Az utolsó rendszerindítás ideje másodpercben 1970. 01. 01. óta"
 
 # sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
