@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 
 	setreuid (uid, euid); setregid (gid, egid);
 	
-	glibtop_open (&server, argv [0], 0, 0);
+	glibtop_open__r (&server, argv [0], 0, 0);
 
 	if (setreuid (euid, uid)) _exit (1);
 

@@ -28,7 +28,9 @@ __BEGIN_DECLS
 
 #define GLIBTOP_OPEN_NO_OVERRIDE	1
 
-extern void glibtop_open __P((glibtop *, const char *, const unsigned long, const unsigned));
+extern void glibtop_open__l __P((glibtop *, const char *, const unsigned long, const unsigned));
+
+extern void glibtop_open__r __P((glibtop *, const char *, const unsigned long, const unsigned));
 
 __END_DECLS
 

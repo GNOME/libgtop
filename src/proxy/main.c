@@ -54,7 +54,7 @@ main(int argc, char *argv[])
 
 	glibtop_version ();
 
-	glibtop_open (&server, argv [0], 0, GLIBTOP_OPEN_NO_OVERRIDE);
+	glibtop_open__l (&server, argv [0], 0, GLIBTOP_OPEN_NO_OVERRIDE);
 
 	/* close all file descriptors except ones used by the pipes (0 and 1). */
 	max_fd = GET_MAX_FDS();

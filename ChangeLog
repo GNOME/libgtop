@@ -1,5 +1,10 @@
 1998-06-02  Martin Baulig  <baulig@merkur.uni-trier.de>
 
+	* lib/open.c (glibtop_open): renamed to `glibtop_open__l'.
+
+	* sysdeps/linux/open.c (glibtop_open): renamed to
+	`glibtop_open__r'.
+
 	* include/glibtop/open.h (GLIBTOP_OPEN_NO_OVERRIDE):
 	tells `glibtop_open' to use the default server and not
 	to check the environment variables.
