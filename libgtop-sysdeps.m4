@@ -118,7 +118,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  fi
 	  libgtop_need_server=no
 	  ;;
-	freebsd*|netbsd*|openbsd*)
+	freebsd*|netbsd*|openbsd*|bsdi*)
 	  libgtop_sysdeps_dir=freebsd
 	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
