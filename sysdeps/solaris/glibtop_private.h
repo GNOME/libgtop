@@ -44,7 +44,7 @@ int glibtop_get_proc_data_usage_s (glibtop *server, struct prusage *prusage, pid
 int glibtop_get_proc_credentials_s(glibtop *, struct prcred *, pid_t);
 
 /* Read /proc/<pid>/status */
-glibtop_get_proc_status_s(glibtop *, struct pstatus *, pid_t);
+int glibtop_get_proc_status_s(glibtop *, struct pstatus *, pid_t);
 
 /* Reread kstat chains */
 void glibtop_get_kstats(glibtop *);

@@ -27,7 +27,16 @@
 #include <glibtop/xmalloc.h>
 #include <glibtop/procmap.h>
 
-static const unsigned long _glibtop_sysdeps_proc_map = 0;
+#include <errno.h>
+#include <alloca.h>
+
+static const unsigned long _glibtop_sysdeps_proc_map =
+(1L << GLIBTOP_PROC_MAP_NUMBER) + (1L << GLIBTOP_PROC_MAP_TOTAL) +
+(1L << GLIBTOP_PROC_MAP_SIZE);
+static const unsigned long _glibtop_sysdeps_map_entry =
+(1L << GLIBTOP_MAP_ENTRY_START) + (1L << GLIBTOP_MAP_ENTRY_END) +
+(1L << GLIBTOP_MAP_ENTRY_OFFSET) + (1L << GLIBTOP_MAP_ENTRY_PERM);
+
 
 /* Init function. */
 
@@ -42,9 +51,64 @@ glibtop_init_proc_map_s (glibtop *server)
 glibtop_map_entry *
 glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 {
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
+   	int fd, i, nmaps;
+	prmap_t *maps;
+	glibtop_map_entry *entry;
+	struct stat inode;
+	char buffer[BUFSIZ];
 	
 	memset (buf, 0, sizeof (glibtop_proc_map));
+
+	sprintf(buffer, "/proc/%d/map", (int)pid);
+	if((fd = open(buffer, O_RDONLY)) < 0)
+	{
+	   	if(errno != EPERM && errno != EACCES)
+		   	glibtop_warn_io_r(server, "open (%s)", buffer);
+		return;
+	}
+	if(fstat(fd, &inode) < 0)
+	{
+	   	if(errno != EOVERFLOW)
+		   	glibtop_warn_io_r(server, "fstat (%s)", buffer);
+		/* else call daemon for 64-bit support */
+		close(fd);
+		return;
+	}
+	maps = alloca(inode.st_size);
+	nmaps = inode.st_size / sizeof(prmap_t);
+	if(pread(fd, maps, inode.st_size, 0) != inode.st_size)
+	{
+	   	glibtop_warn_io_r(server, "pread (%s)", buffer);
+		close(fd);
+		return;
+	}
+	close(fd);
+	if(!(entry = glibtop_malloc_r(server, nmaps * sizeof(glibtop_map_entry))))
+	   	return;
+
+	buf->number = nmaps;
+	buf->size = sizeof(glibtop_map_entry);
+	buf->total = nmaps * sizeof(glibtop_map_entry);
+
+	memset(entry, 0, nmaps * sizeof(glibtop_map_entry));
+	for(i = 0; i < nmaps; ++i)
+	{
+	   	entry[i].start = maps[i].pr_vaddr;
+		entry[i].end = maps[i].pr_vaddr + maps[i].pr_size;
+		entry[i].offset = maps[i].pr_offset;
+		if(maps[i].pr_mflags & MA_READ)
+		   	entry[i].perm |= GLIBTOP_MAP_PERM_READ;
+		if(maps[i].pr_mflags & MA_WRITE)
+		   	entry[i].perm |= GLIBTOP_MAP_PERM_WRITE;
+		if(maps[i].pr_mflags & MA_EXEC)
+		   	entry[i].perm |= GLIBTOP_MAP_PERM_EXECUTE;
+		if(maps[i].pr_mflags & MA_SHARED)
+		   	entry[i].perm |= GLIBTOP_MAP_PERM_SHARED;
+		else
+		   	entry[i].perm |= GLIBTOP_MAP_PERM_PRIVATE;
+		entry[i].flags = _glibtop_sysdeps_map_entry;
+	}
 	
-	return NULL;
+	buf->flags = _glibtop_sysdeps_proc_map;
+	return entry;
 }

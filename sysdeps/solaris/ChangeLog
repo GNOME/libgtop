@@ -1,6 +1,16 @@
 1999-05-03  Drazen Kacar  <dave@srce.hr>
 
-	* glibtop_private.h, procdata.c (glibtop_get_proc_signal_s):
+	* glibtop_private.h: Fixed typoo.
+
+	* procmap.c (glibtop_get_proc_map_s): Implemented start, end,
+	offset and perm for mapped segments. File name and inode
+	should be accessible from bunyip kstat data. The only
+	obstacle is that the data format is undocumented and
+	possibly not the same accross releases.
+
+1999-05-03  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_private.h, procdata.c (glibtop_get_proc_status_s):
 	Read pstatus info from /proc
 
 	* procsignal.c (glibtop_get_proc_signal_s): Implemented
