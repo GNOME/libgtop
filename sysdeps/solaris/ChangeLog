@@ -1,3 +1,7 @@
+1999-05-06  Drazen Kacar <dave@srce.hr>
+
+	* siglist.c: Fixed, valid for Solaris 2.6 & 7.
+
 1999-05-06  Drazen Kacar  <dave@srce.hr>
 
 	* glibtop_private.h, procuid.c, procdata.c: List of supplementary
