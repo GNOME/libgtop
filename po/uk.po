@@ -131,11 +131,11 @@ msgstr "ДЕТАЛЬНО"
 
 #: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
-msgstr ""
+msgstr "Не запускатись на тл╕"
 
 #: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
-msgstr ""
+msgstr "БЕЗ-ДЕМОНУ"
 
 #: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
@@ -151,6 +151,8 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+"Помилка в параметр╕ %s: %s.\n"
+"Запуст╕ть '%s --help' щоб побачити повний список доступних параметр╕в.\n"
 
 #: support/error.c:109
 msgid "Unknown system error"
@@ -397,7 +399,7 @@ msgstr "Пам'ять використана в користувацьких процесах в Кб"
 
 #: sysdeps/names/mem.c:60
 msgid "Memory in locked pages in kB"
-msgstr ""
+msgstr "Пам'ять в заблокованих стор╕нках (в Кб)"
 
 #: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
 #: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
@@ -423,7 +425,7 @@ msgstr ""
 
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Number of entries in message map"
-msgstr ""
+msgstr "К╕льк╕сть елемент╕в у мап╕ пов╕домлень"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Max size of message"
@@ -439,11 +441,11 @@ msgstr ""
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Message segment size"
-msgstr ""
+msgstr "Розм╕р се╜менту пов╕домлення"
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Number of system message headers"
-msgstr ""
+msgstr "К╕льк╕сть заголовк╕в системних пов╕домлень"
 
 #: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
 msgid "Interface Flags"
@@ -499,7 +501,7 @@ msgstr "Всього помилок"
 
 #: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
 msgid "Collisions"
-msgstr ""
+msgstr "Кол╕з╕╖"
 
 #: sysdeps/names/netload.c:64
 msgid "Maximum Transfer Unit"
@@ -630,7 +632,7 @@ msgstr ""
 #. WChan
 #: sysdeps/names/prockernel.c:81
 msgid "This is the textual name of the `nwchan' field."
-msgstr ""
+msgstr "Це текстова назва поля \"nwchan\"."
 
 #: sysdeps/names/procmem.c:47
 msgid "Virtual"
@@ -735,11 +737,11 @@ msgstr ""
 
 #: sysdeps/names/procsegment.c:53
 msgid "Address of beginning of code segment"
-msgstr ""
+msgstr "Адреса початку се╜менту коду"
 
 #: sysdeps/names/procsegment.c:54
 msgid "Address of end of code segment"
-msgstr ""
+msgstr "Адреса к╕нця се╜менту коду"
 
 #: sysdeps/names/procsegment.c:55
 msgid "Address of the bottom of stack segment"
@@ -993,7 +995,7 @@ msgstr "Стандартний р╕вень UNIX Nice для процес╕в"
 
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 msgid "Number of entries in semaphore map"
-msgstr ""
+msgstr "К╕льк╕сть елемент╕в у мап╕ семафор╕в"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Max number of arrays"
@@ -1021,7 +1023,7 @@ msgstr ""
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
-msgstr ""
+msgstr "sizeof struct sem_undo"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Semaphore max value"
@@ -1049,7 +1051,7 @@ msgstr ""
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max total shared memory"
-msgstr ""
+msgstr "Максимум загально╖ к╕лькост╕ пам'ят╕"
 
 #: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
 msgid "Total Swap Space"
@@ -1121,23 +1123,23 @@ msgstr "Список запущених процес╕в"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Status information"
-msgstr ""
+msgstr "╤нформац╕я про стан процесу"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process UID and TTY information"
-msgstr ""
+msgstr "╤нформац╕я про UID та TTY процесу"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process Memory information"
-msgstr ""
+msgstr "╤нформац╕я про пам'ять процесу"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Time information"
-msgstr ""
+msgstr "╤нформац╕я про час процесу"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Signal information"
-msgstr ""
+msgstr "╤нформац╕я про си╜нали процесу"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Kernel Data information"
