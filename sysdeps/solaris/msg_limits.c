@@ -24,14 +24,27 @@
 #include <glibtop.h>
 #include <glibtop/msg_limits.h>
 
-static const unsigned long _glibtop_sysdeps_msg_limits = 0;
+#include <kvm.h>
+#include <sys/msg.h>
+
+static struct nlist nlst[] = { {"msginfo"}, {NULL} };
+static const unsigned long _glibtop_sysdeps_msg_limits =
+(1L << GLIBTOP_IPC_MSGPOOL) + (1L << GLIBTOP_IPC_MSGMAP) +
+(1L << GLIBTOP_IPC_MSGMAX) + (1L << GLIBTOP_IPC_MSGMNB) +
+(1L << GLIBTOP_IPC_MSGMNI) + (1L << GLIBTOP_IPC_MSGSSZ) +
+(1L << GLIBTOP_IPC_MSGTQL);
 
 /* Init function. */
 
 void
 glibtop_init_msg_limits_s (glibtop *server)
 {
-	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+   	kvm_t *kd = server->machine.kd;
+
+	if(kd && !kvm_nlist(kd, nlst))
+		server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+	else
+	   	server->sysdeps.msg_limits = 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -39,5 +52,23 @@ glibtop_init_msg_limits_s (glibtop *server)
 void
 glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 {
+   	kvm_t *kd = server->machine.kd;
+	struct msginfo minfo;
+
 	memset (buf, 0, sizeof (glibtop_msg_limits));
+
+	if(!(server->sysdeps.msg_limits))
+	   	return;
+	if(kvm_read(kd, nlst[0].n_value, (void *)&minfo,
+		    sizeof(struct msginfo)) != sizeof(struct msginfo))
+	   	return;
+
+	buf->msgmap = minfo.msgmap;
+	buf->msgmax = minfo.msgmax;
+	buf->msgmnb = minfo.msgmnb;
+	buf->msgmni = minfo.msgmni;
+	buf->msgssz = minfo.msgssz;
+	buf->msgtql = minfo.msgtql;
+	buf->msgpool = minfo.msgmni * minfo.msgmnb >> 10;
+	buf->flags = _glibtop_sysdeps_msg_limits;
 }
