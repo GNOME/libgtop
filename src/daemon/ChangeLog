@@ -1,3 +1,11 @@
+1998-11-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* gnuserv.c (main): Set `server->features' directly rather than
+	calling glibtop_set_parameter_l () since this function no longer
+	allows to modify the features.
+
+	* gnuserv.c, main.c: Use LIBGTOP_ENABLE_DEBUG rather than DEBUG.
+
 1998-11-01  Marc Ewing  <marc@tasmanian.redhat.com>
 
 	* Makefile.am: Added $(GLIB_LIBS) to libs.  Not sure

@@ -21,6 +21,15 @@
 
 #include "daemon.h"
 
+#ifdef LIBGTOP_ENABLE_DEBUG
+#ifndef PARENT_DEBUG
+#define PARENT_DEBUG 1
+#endif
+#ifndef DEBUG
+#define DEBUG 1
+#endif
+#endif
+
 void
 handle_parent_connection (int s)
 {

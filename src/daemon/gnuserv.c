@@ -135,7 +135,7 @@ permitted (u_long host_addr, int fd)
 		if (timed_read (fd, auth_protocol, AUTH_NAMESZ, AUTH_TIMEOUT, 1) <= 0)
 			return FALSE;
 
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 		fprintf (stderr, "Client sent authenticatin protocol '%s'\n",
 			 auth_protocol);
 #endif
@@ -186,13 +186,13 @@ permitted (u_long host_addr, int fd)
 	
 	/* Now, try the old GNU_SECURE stuff... */
 	
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 	fprintf (stderr, "Doing GNU_SECURE auth ...\n");
 #endif
 
 	/* Now check the chain for that hash key */
 	for (i = 0; i < HOST_TABLE_ENTRIES; i++) {
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 		fprintf (stderr, "Trying %lx - %lx\n",
 			 host_addr, permitted_hosts [i]);
 #endif
@@ -243,7 +243,7 @@ setup_table (void)
 	/* Resolv host names from permitted_host_names []. */
 
 	for (i = 0; i < HOST_TABLE_ENTRIES; i++) {
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 		fprintf (stderr, "Resolving %s ...\n",
 			 permitted_host_names [i]);
 #endif
@@ -254,7 +254,7 @@ setup_table (void)
 				       permitted_host_names [i]);
 	}
 
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 	for (i = 0; i < HOST_TABLE_ENTRIES; i++)
 		fprintf (stderr, "Host %s - %lx\n",
 			 permitted_host_names [i],
@@ -326,7 +326,7 @@ handle_internet_request (int ls)
 	if ((s = accept (ls, (struct sockaddr *) &peer, (void *) &addrlen)) == -1)
 		glibtop_error_io ("accept");
 
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 	fprintf (stderr, "Connection was made from %s.\n",
 		 inet_ntoa (peer.sin_addr));
 #endif
@@ -339,7 +339,7 @@ handle_internet_request (int ls)
 		return;
 	}			/* if */
 
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 	fprintf (stderr, "Accepted connection from %s (%u) on socket %d.\n",
 		 inet_ntoa (peer.sin_addr), ntohs (peer.sin_port), s);
 #endif
@@ -356,7 +356,7 @@ handle_internet_request (int ls)
 
 	close (s);
 	
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 	fprintf (stderr, "Closed connection to %s (%d).\n",
 		 inet_ntoa (peer.sin_addr), ntohs (peer.sin_port));
 #endif
@@ -452,7 +452,7 @@ handle_unix_request (int ls)
 	if ((s = accept (ls, (struct sockaddr *) &server, (void *) &len)) < 0)
 		glibtop_error_io ("accept");
 
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 	fprintf (stderr, "Accepted connection on socket %d.\n", s);
 #endif
 
@@ -470,7 +470,7 @@ handle_unix_request (int ls)
 
 	close (s);
 
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 	fprintf (stderr, "Closed connection on socket %d.\n", s);
 #endif
 
@@ -522,7 +522,7 @@ main (int argc, char *argv [])
 
 		/* Temporarily drop our priviledges. */
 
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 		fprintf (stderr, "Child ID: (%d, %d) - (%d, %d)\n",
 			 (int) getuid (), (int) geteuid (),
 			 (int) getgid (), (int) getegid ());
@@ -534,7 +534,7 @@ main (int argc, char *argv [])
 		if (setregid (getegid (), getgid ()))
 			glibtop_error_io ("setregid (egid <-> gid)");
 		
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 		fprintf (stderr, "Child ID: (%d, %d) - (%d, %d)\n",
 			 (int) getuid (), (int) geteuid (),
 			 (int) getgid (), (int) getegid ());
@@ -547,10 +547,8 @@ main (int argc, char *argv [])
 		
 		glibtop_set_parameter_l (server, GLIBTOP_PARAM_METHOD,
 					 &method, sizeof (method));
-		
-		glibtop_set_parameter_l (server, GLIBTOP_PARAM_FEATURES,
-					 &glibtop_server_features,
-					 sizeof (glibtop_server_features));
+	
+		server->features = glibtop_server_features;
 
 		glibtop_init_r (&server, 0, 0);
 
@@ -569,7 +567,7 @@ main (int argc, char *argv [])
 		 * SERVER_GID. Otherwise we completely drop any priviledges.
 		 */
 		
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 		fprintf (stderr, "Parent ID: (%d, %d) - (%d, %d)\n",
 			 getuid (), geteuid (), getgid (), getegid ());
 #endif
@@ -580,7 +578,7 @@ main (int argc, char *argv [])
 		if (setregid (getegid (), getgid ()))
 			glibtop_error_io ("setregid (egid <-> gid)");
 		
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 		fprintf (stderr, "Parent ID: (%d, %d) - (%d, %d)\n",
 			 getuid (), geteuid (), getgid (), getegid ());
 #endif
@@ -590,7 +588,7 @@ main (int argc, char *argv [])
 				glibtop_error_io ("setreuid (root)");
 		}
 
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 		fprintf (stderr, "Parent ID: (%d, %d) - (%d, %d)\n",
 			 getuid (), geteuid (), getgid (), getegid ());
 #endif
@@ -605,7 +603,7 @@ main (int argc, char *argv [])
 				glibtop_error_io ("setreuid (euid)");
 		}
 
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 		fprintf (stderr, "Parent ID: (%d, %d) - (%d, %d)\n",
 			 getuid (), geteuid (), getgid (), getegid ());
 #endif
@@ -620,9 +618,8 @@ main (int argc, char *argv [])
 
 		glibtop_set_parameter_l (server, GLIBTOP_PARAM_METHOD,
 					 &method, sizeof (method));
-		
-		glibtop_set_parameter_l (server, GLIBTOP_PARAM_FEATURES,
-					 &features, sizeof (features));
+
+		server->features = features;
 
 		glibtop_init_r (&server, 0, 0);
 
@@ -657,7 +654,7 @@ main (int argc, char *argv [])
 		if (ils >= 0)
 			FD_SET (ils, &rmask);
 
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 		fprintf (stderr, "Server ready and waiting for connections.\n");
 #endif
 
