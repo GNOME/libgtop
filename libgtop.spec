@@ -67,7 +67,6 @@ make prefix=$RPM_BUILD_ROOT%{prefix} install
 %docdir doc
 %{prefix}/bin/*
 %{prefix}/lib/lib*.so.*
-%{prefix}/share/*
 %{prefix}/lib/libgtop/*
 %{prefix}/lib/libgtopConf.sh
 %{prefix}/lib/*a
