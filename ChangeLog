@@ -1,5 +1,11 @@
 1998-07-14  Martin Baulig  <baulig@Stud.Informatik.uni-trier.de>
 
+	* src/daemon/server_config.h.in: Added some comments.
+	
+	* src/daemon/server_config.pl: New file. This is a script you can use
+	to create `server_config.h'. It will query you for some configuration
+	options.
+
 	* configure.in (AC_PROG_AWK): Replaced this test with explicit test
 	for `gawk' and `awk' since `mawk' doesn't work.
 
