@@ -33,11 +33,11 @@ auto-macros.texi: auto-macros.texi.in Makefile
 	  -e 's#\%libgtop_use_machine_h\%#$(libgtop_use_machine_h)#g' \
 	  -e 's#\%libgtop_guile_found\%#$(libgtop_guile_found)#g' \
 	  -e 's#\%libgtop_want_examples\%#$(libgtop_want_examples)#g' \
-	      < $(srcdir)/auto-macros.texi.in > auto-macros.tmp
-	echo '@c Set this if this is LibGTop 1.1.x' >> auto-macros.tmp
+	      < $(srcdir)/auto-macros.texi.in > $(srcdir)/auto-macros.tmp
+	echo '@c Set this if this is LibGTop 1.1.x' >> $(srcdir)/auto-macros.tmp
 	if [ $(LIBGTOP_VERSION_CODE) -ge 1001000 ] ; then \
-	  echo '@set LIBGTOP-1-1' >> auto-macros.tmp ; \
+	  echo '@set LIBGTOP-1-1' >> $(srcdir)/auto-macros.tmp ; \
 	else \
-	  echo '@clear LIBGTOP-1-1' >> auto-macros.tmp ; \
+	  echo '@clear LIBGTOP-1-1' >> $(srcdir)/auto-macros.tmp ; \
 	fi
-	mv auto-macros.tmp auto-macros.texi
+	mv $(srcdir)/auto-macros.tmp $(srcdir)/auto-macros.texi
