@@ -5,3 +5,4 @@ cat-id-tbl.c
 *.gmo
 libgtop.pot
 Makefile.in.in
+messages
