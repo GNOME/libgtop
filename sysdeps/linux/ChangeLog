@@ -1,5 +1,10 @@
 2004-09-19  Benoît Dejean  <tazforever@dlfp.org>
 
+	* fsusage.c: (linux_2_6_0), (linux_2_4_0),
+	(_glibtop_linux_get_fsusage_read_write): Updated to match new prototype.
+
+2004-09-19  Benoît Dejean  <tazforever@dlfp.org>
+
 	* mem.c: (glibtop_get_mem_s): Added missing memset( , 0, ).
 
 2004-08-03  Benoît Dejean  <tazforever@dlfp.org>

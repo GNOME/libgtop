@@ -11,7 +11,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-void _glibtop_linux_get_fsusage_read_write(glibtop *server,
+gboolean _glibtop_linux_get_fsusage_read_write(glibtop *server,
 					   glibtop_fsusage *buf,
 					   const char *path);
 
@@ -20,17 +20,16 @@ void _glibtop_linux_get_fsusage_read_write(glibtop *server,
  * linux/Documentation/iostats.txt
  */
 
-static void linux_2_6_0(glibtop *server, glibtop_fsusage *buf, const char *path)
+static gboolean linux_2_6_0(glibtop *server, glibtop_fsusage *buf, const char *path)
 {
   FILE *mtab = setmntent("/etc/mtab", "r");
 
   struct mntent *emnt;
+  gboolean ret = FALSE;
 
   while((emnt = getmntent(mtab)) != NULL)
     {
-      if(strcmp(emnt->mnt_dir, path) != 0)
-	continue;
-      else
+      if(strcmp(emnt->mnt_dir, path) == 0)
       {
       char filename[64]; /* magic */
 
@@ -76,28 +75,36 @@ static void linux_2_6_0(glibtop *server, glibtop_fsusage *buf, const char *path)
       buf->read = strtoull(p, &p, 0);
       p = skip_token(p);
       buf->write = strtoull(p, &p, 0);
+
+      ret = TRUE;
+      break;
       }
     }
 
   endmntent(mtab);
+
+  return ret;
 }
 
 
-static void linux_2_4_0(glibtop *server, glibtop_fsusage *buf, const char *path)
+static gboolean linux_2_4_0(glibtop *server, glibtop_fsusage *buf, const char *path)
 {
+  return FALSE;
 }
 
 
-void _glibtop_linux_get_fsusage_read_write(glibtop *server,
-					   glibtop_fsusage *buf,
-					   const char *path)
+gboolean _glibtop_linux_get_fsusage_read_write(glibtop *server,
+					       glibtop_fsusage *buf,
+					       const char *path)
 {
   if(server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
     {
-      linux_2_6_0(server, buf, path);
+      return linux_2_6_0(server, buf, path);
     }
   else if(server->os_version_code >= LINUX_VERSION_CODE(2, 4, 0))
     {
-      linux_2_4_0(server, buf, path);
+      return linux_2_4_0(server, buf, path);
     }
+
+  return FALSE;
 }
