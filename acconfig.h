@@ -137,6 +137,7 @@
 #undef NEED_LIBGTOP
 
 #undef HAVE_LINUX_TABLE
+#undef HAVE_LIBGTOP_SMP
 
 #undef HAVE_XAUTH
 
