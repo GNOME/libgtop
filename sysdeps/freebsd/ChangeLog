@@ -1,5 +1,10 @@
 2005-02-28  Benoît Dejean  <TazForEver@dlfp.org>
 
+	* fsusage.c: (_glibtop_freebsd_get_fsusage_read_write): Forgot to add
+	this file :)
+
+2005-02-28  Benoît Dejean  <TazForEver@dlfp.org>
+
 	* Makefile.am:
 	* cpu.c: (glibtop_get_cpu_p):
 	* netlist.c: (glibtop_get_netlist_s):
