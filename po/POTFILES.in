@@ -57,6 +57,8 @@ support/easy-vsnprintf.c
 support/error.c
 support/error.h
 support/getopt.c
+support/popt.c
+support/popthelp.c
 sysdeps/common/error.c
 sysdeps/common/fsusage.c
 sysdeps/common/fsusage.h

@@ -10,3 +10,4 @@ Makefile.in.in
 messages
 stamp-cat-id
 po2tbl.sed
+missing
