@@ -1,9 +1,5 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-INCLUDES			= -I$(top_builddir) -I$(top_srcdir) @machine_incs@ \
-				  -I$(top_srcdir)/include -I$(top_srcdir)/intl @GUILE_INCS@ \
-				  -DGTOPLOCALEDIR=\"$(datadir)/locale\" -D_GNU_SOURCE
-
 lib_LTLIBRARIES			= libgtop_sysdeps.la libgtop_sysdeps_suid.la
 
 libgtop_sysdeps_la_SOURCES	= nosuid.c siglist.c
