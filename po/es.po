@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Date: 1998-11-08 01:56:01+0100\n"
+"Date: 1998-11-14 01:56:01+0100\n"
 "Project-Id-Version: glibtop 0.26.5\n"
 "POT-Creation-Date: 1998-11-08 01:56+0100\n"
-"PO-Revision-Date: 1998-11-08 01:56+0100\n"
+"PO-Revision-Date: 1998-11-14 01:56+0100\n"
 "From: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
 "Last-Translator: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
 "Language-Team: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
@@ -435,7 +435,7 @@ msgstr "Tamaño conjunto residente de pila"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Total size of dirty pages"
-msgstr ""
+msgstr "Tamaño total de páginas recientemente modificadas"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Address of beginning of code segment"
@@ -467,15 +467,15 @@ msgstr ""
 
 #: sysdeps/names/procsignal.c:43
 msgid "Mask of pending signals"
-msgstr ""
+msgstr "Máscara de señales pendientes"
 
 #: sysdeps/names/procsignal.c:44
 msgid "Mask of blocked signals"
-msgstr ""
+msgstr "Máscara de señales bloqueados"
 
 #: sysdeps/names/procsignal.c:45
 msgid "Mask of ignored signals"
-msgstr ""
+msgstr "Máscara de señales ignorados"
 
 #: sysdeps/names/procsignal.c:46
 msgid "Mask of caught signals"
@@ -487,7 +487,7 @@ msgstr ""
 
 #: sysdeps/names/procstate.c:38
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #: sysdeps/names/procstate.c:38
 msgid "UID"
@@ -499,7 +499,7 @@ msgstr ""
 
 #: sysdeps/names/procstate.c:43
 msgid "Basename of executable file in call to exec()"
-msgstr ""
+msgstr "nombre (sin ruta) del archivo ejecutable llamado por exec()"
 
 #: sysdeps/names/procstate.c:44
 msgid "Single-Char code for process state (S=sleeping)"
@@ -507,11 +507,11 @@ msgstr ""
 
 #: sysdeps/names/procstate.c:45
 msgid "UID of process"
-msgstr ""
+msgstr "UID del proceso"
 
 #: sysdeps/names/procstate.c:46
 msgid "GID of process"
-msgstr ""
+msgstr "GID del proceso"
 
 #: sysdeps/names/proctime.c:42
 msgid "Start_Time"
@@ -559,19 +559,19 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:49
 msgid "Start time of process in seconds since the epoch"
-msgstr ""
+msgstr "Momento de inicio del proceso, en segundos des \"la Época\""
 
 #: sysdeps/names/proctime.c:50
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr ""
+msgstr "Tiempo real acumulado por el proceso (debe ser utime + stime)"
 
 #: sysdeps/names/proctime.c:51
 msgid "user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Tiempo CPU en modo usuario acumulado por el proceso"
 
 #: sysdeps/names/proctime.c:52
 msgid "kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Tiempo cpu en modo núcleo acumulado por el proceso"
 
 #: sysdeps/names/proctime.c:53
 msgid "cumulative utime of process and reaped children"
@@ -583,7 +583,7 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:55
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr ""
+msgstr "Tiempo (en jiffies) para la próxima expiración del proceso"
 
 #: sysdeps/names/proctime.c:56
 msgid "The time (in jiffies) before the next SIGALRM is sent to the process due to an interval timer."
@@ -591,15 +591,15 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:58
 msgid "Tick frequency"
-msgstr ""
+msgstr "Frecuencia del tick"
 
 #: sysdeps/names/proctime.c:59
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Tiempo CPU multi procesador en modo usuario acumulado por el proceso"
 
 #: sysdeps/names/proctime.c:60
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Tiempo CPU multi procesador en modo núcleo acumulado por el proceso"
 
 #: sysdeps/names/procuid.c:54
 msgid "Uid"
@@ -631,7 +631,7 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:55
 msgid "Session"
-msgstr ""
+msgstr "Sesión"
 
 #: sysdeps/names/procuid.c:55
 msgid "Tty"
@@ -643,7 +643,7 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:56
 msgid "Priority"
-msgstr ""
+msgstr "Prioridad"
 
 #: sysdeps/names/procuid.c:56
 msgid "Nice"
@@ -651,39 +651,39 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:61
 msgid "User ID"
-msgstr ""
+msgstr "ID de usuario"
 
 #: sysdeps/names/procuid.c:62
 msgid "Effective User ID"
-msgstr ""
+msgstr "ID de usuario efectivo"
 
 #: sysdeps/names/procuid.c:63
 msgid "Group ID"
-msgstr ""
+msgstr "ID de grupo"
 
 #: sysdeps/names/procuid.c:64
 msgid "Effective Group ID"
-msgstr ""
+msgstr "ID de grupo efectivo"
 
 #: sysdeps/names/procuid.c:65
 msgid "Process ID"
-msgstr ""
+msgstr "ID de proceso"
 
 #: sysdeps/names/procuid.c:66
 msgid "PID of parent process"
-msgstr ""
+msgstr "PID del proceso padre"
 
 #: sysdeps/names/procuid.c:67
 msgid "Process group ID"
-msgstr ""
+msgstr "GID del proceso"
 
 #: sysdeps/names/procuid.c:68
 msgid "Session ID"
-msgstr ""
+msgstr "ID de sesión"
 
 #: sysdeps/names/procuid.c:69
 msgid "Full device number of controlling terminal"
-msgstr ""
+msgstr "Número completo del dispositivo del terminal que controla el proceso"
 
 #: sysdeps/names/procuid.c:70
 msgid "Terminal process group ID"
@@ -759,15 +759,15 @@ msgstr ""
 
 #: sysdeps/names/swap.c:37 sysdeps/names/swap.c:46
 msgid "Total Swap Space"
-msgstr ""
+msgstr "Espacio de swap total"
 
 #: sysdeps/names/swap.c:38 sysdeps/names/swap.c:47
 msgid "Used Swap Space"
-msgstr ""
+msgstr "Espacio de swap usado"
 
 #: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
 msgid "Free Swap Space"
-msgstr ""
+msgstr "Espacio de swap libre"
 
 #: sysdeps/names/swap.c:40
 msgid "Page In"
@@ -787,19 +787,19 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:46 sysdeps/names/sysdeps.c:70
 msgid "Server Features"
-msgstr ""
+msgstr "Particularidades del Servidor"
 
 #: sysdeps/names/sysdeps.c:47 sysdeps/names/sysdeps.c:71
 msgid "CPU Usage"
-msgstr ""
+msgstr "Uso del CPU"
 
 #: sysdeps/names/sysdeps.c:48 sysdeps/names/sysdeps.c:72
 msgid "Memory Usage"
-msgstr ""
+msgstr "Uso de la Memoria"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:73
 msgid "Swap Usage"
-msgstr ""
+msgstr "Uso del Swap"
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:74
 msgid "System Uptime"
@@ -807,7 +807,7 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:75
 msgid "Load Averange"
-msgstr ""
+msgstr "Carga Promedio"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:76
 msgid "Shared Memory Limits"
@@ -823,7 +823,7 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:79
 msgid "List of running Processes"
-msgstr ""
+msgstr "Lista de Procesos activos"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:80
 msgid "Process Status information"
@@ -831,11 +831,11 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:81
 msgid "Process UID and TTY information"
-msgstr ""
+msgstr "Información sobre UID y TTY del proceso"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:82
 msgid "Process Memory information"
-msgstr ""
+msgstr "Información sobre la memoria del proceso"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:83
 msgid "Process Time information"
@@ -859,11 +859,11 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:64
 msgid "Mount List"
-msgstr ""
+msgstr "Lista de Montaje"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:89
 msgid "File System Usage"
-msgstr ""
+msgstr "Uso del Sistema de Archivos"
 
 #: sysdeps/names/sysdeps.c:88
 msgid "List of currently mounted filesystems"
@@ -903,71 +903,71 @@ msgstr ""
 
 #: support/argp-parse.c:151
 msgid "Print program version"
-msgstr ""
+msgstr "Muestra la versión del programa"
 
 #: support/argp-parse.c:167
 msgid "(PROGRAM ERROR) No version known!?"
-msgstr ""
+msgstr "(ERROR PROGRAMA) ¿¡ Sin versión !?"
 
 #: support/argp-parse.c:641
 msgid "%s: Too many arguments\n"
-msgstr ""
+msgstr "%s: Demasiados argumentos\n"
 
 #: support/argp-parse.c:780
 msgid "(PROGRAM ERROR) Option should have been recognized!?"
-msgstr ""
+msgstr "(ERROR PROGRAMA) ¿¡La opción debería haber sido reconocida!?"
 
 #: support/error.c:109
 msgid "Unknown system error"
-msgstr ""
+msgstr "Error sistema desconocido"
 
 #: support/getopt.c:669
 msgid "%s: option `%s' is ambiguous\n"
-msgstr ""
+msgstr "%s: la opción `%s' es ambigua\n"
 
 #. --option
 #: support/getopt.c:693
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: la opción `--%s' no admite un argumento\n"
 
 #: support/getopt.c:698
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: la opción `%c%s' no admite un argumento\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 msgid "%s: option `%s' requires an argument\n"
-msgstr ""
+msgstr "%s: la opción `%s' requiere un argumento\n"
 
 #. --option
 #: support/getopt.c:744
 msgid "%s: unrecognized option `--%s'\n"
-msgstr ""
+msgstr "%s: opción no reconocida `--%s'\n"
 
 #: support/getopt.c:748
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr ""
+msgstr "%s: opción no reconocida `%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
 msgid "%s: illegal option -- %c\n"
-msgstr ""
+msgstr "%s: opción ilegal -- %c\n"
 
 #: support/getopt.c:777
 msgid "%s: invalid option -- %c\n"
-msgstr ""
+msgstr "%s: opción no válida -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937
 msgid "%s: option requires an argument -- %c\n"
-msgstr ""
+msgstr "%s: la opción require un argumento -- %c\n"
 
 #: support/getopt.c:854
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr ""
+msgstr "%s: la opción `-W %s' es ambigua\n"
 
 #: support/getopt.c:872
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: la opción `-W %s' no admite argumentos\n"
 
 #: lib/read.c:69
 msgid "read %d bytes"
