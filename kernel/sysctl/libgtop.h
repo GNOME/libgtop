@@ -17,7 +17,8 @@ enum {
     LIBGTOP_PROC_MEM,
     LIBGTOP_PROC_SIGNAL,
     LIBGTOP_PROC_ARGS,
-    LIBGTOP_PROC_MAPS
+    LIBGTOP_PROC_MAPS,
+    LIBGTOP_NETLOAD
 };
 
 enum {
@@ -86,6 +87,8 @@ typedef struct libgtop_proc_signal libgtop_proc_signal_t;
 
 typedef struct libgtop_proc_maps_header libgtop_proc_maps_header_t;
 typedef struct libgtop_proc_maps libgtop_proc_maps_t;
+
+typedef struct libgtop_netload libgtop_netload_t;
 
 struct libgtop_cpu
 {
@@ -202,6 +205,39 @@ struct libgtop_proc_maps
 {
     libgtop_proc_maps_header_t header;
     char filename [LIBGTOP_MAP_PATH_LEN];
+};
+
+struct libgtop_netload
+{
+    unsigned long rx_packets;		/* total packets received	*/
+    unsigned long tx_packets;		/* total packets transmitted	*/
+    unsigned long rx_bytes;		/* total bytes received 	*/
+    unsigned long tx_bytes;		/* total bytes transmitted	*/
+    unsigned long rx_errors;		/* bad packets received		*/
+    unsigned long tx_errors;		/* packet transmit problems	*/
+    unsigned long rx_dropped;		/* no space in linux buffers	*/
+    unsigned long tx_dropped;		/* no space available in linux	*/
+    unsigned long multicast;		/* multicast packets received	*/
+    unsigned long collisions;
+    
+    /* detailed rx_errors: */
+    unsigned long rx_length_errors;
+    unsigned long rx_over_errors;	/* receiver ring buff overflow	*/
+    unsigned long rx_crc_errors;	/* recved pkt with crc error	*/
+    unsigned long rx_frame_errors;	/* recv'd frame alignment error */
+    unsigned long rx_fifo_errors;	/* recv'r fifo overrun		*/
+    unsigned long rx_missed_errors;	/* receiver missed packet	*/
+    
+    /* detailed tx_errors */
+    unsigned long tx_aborted_errors;
+    unsigned long tx_carrier_errors;
+    unsigned long tx_fifo_errors;
+    unsigned long tx_heartbeat_errors;
+    unsigned long tx_window_errors;
+    
+    /* for cslip etc */
+    unsigned long rx_compressed;
+    unsigned long tx_compressed;
 };
 
 #endif

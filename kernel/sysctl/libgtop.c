@@ -52,6 +52,17 @@ static int proc_maps_ctl_handler (ctl_table *table, int *name, int nlen,
 				  void *newval, size_t newlen,
 				  void **context);
 
+#if CONFIG_NET
+
+#include <linux/netdevice.h>
+
+static int proc_net_ctl_handler (ctl_table *table, int *name, int nlen,
+				 void *oldval, size_t *oldlenp,
+				 void *newval, size_t newlen,
+				 void **context);
+
+#endif /* CONFIG_NET */
+
 static int libgtop_sysctl_version = 1;
 static int libgtop_update_expensive = 5000;
 
@@ -106,6 +117,12 @@ ctl_table libgtop_table[] = {
      &proc_args_ctl_handler},
     {LIBGTOP_PROC_MAPS, NULL, NULL, 0, 0444, NULL, NULL,
      &proc_maps_ctl_handler},
+#if CONFIG_NET
+    /* You cannot actually "write" this value; we just use this to
+     * pass the device name as parameter. */
+    {LIBGTOP_NETLOAD, NULL, NULL, 0, 0666, NULL, NULL,
+     &proc_net_ctl_handler},
+#endif
     {0}
 };
 
@@ -1147,3 +1164,105 @@ proc_maps_ctl_handler (ctl_table *table, int *name, int nlen,
     kfree (proc_maps);
     return retval;
 }
+
+#if CONFIG_NET
+
+static int
+proc_net_ctl_handler (ctl_table *table, int *name, int nlen,
+		      void *oldval, size_t *oldlenp, void *newval,
+		      size_t newlen, void **context)
+{
+    int len, len_name, retval = -ENOSYS;
+    struct net_device_stats *stats;
+    libgtop_netload_t netload;
+    struct device *dev;
+    char *dev_name;
+
+    if (!oldlenp || get_user (len, oldlenp))
+	return -EFAULT;
+
+    if (len != sizeof (libgtop_netload_t))
+	return -EFAULT;
+
+    if (!name || !nlen || get_user (len_name, name))
+	return -EFAULT;
+
+    if (nlen != 1)
+	return -EFAULT;
+
+    /* Allocate memory for device name. */
+    if (newlen > PAGE_SIZE)
+	return -ENOMEM;
+
+    if (!(dev_name = kmalloc (newlen+1, GFP_KERNEL)))
+	return -ENOMEM;
+
+    /* Copy device name from user space. */
+    if (copy_from_user (dev_name, newval, newlen)) {
+	retval = -EFAULT;
+	goto free_name_out;
+    }
+    dev_name [newlen] = '\0';
+
+    dev = dev_get (dev_name);
+    if (!dev) {
+	retval = -ENODEV;
+	goto free_name_out;
+    }
+
+    if (!dev->get_stats) {
+	retval = -ENODEV;
+	goto free_name_out;
+    }
+
+    stats = dev->get_stats (dev);
+
+    if (!stats) {
+	retval = -ENODEV;
+	goto free_name_out;
+    }
+
+    netload.rx_packets = stats->rx_packets;
+    netload.tx_packets = stats->tx_packets;
+
+    netload.rx_bytes = stats->rx_bytes;
+    netload.tx_bytes = stats->tx_bytes;
+
+    netload.rx_errors = stats->rx_errors;
+    netload.tx_errors = stats->tx_errors;
+
+    netload.rx_dropped = stats->rx_dropped;
+    netload.tx_dropped = stats->tx_dropped;
+
+    netload.multicast = stats->multicast;
+    netload.collisions = stats->collisions;
+
+    netload.rx_length_errors = stats->rx_length_errors;
+    netload.rx_over_errors = stats->rx_over_errors;
+    netload.rx_crc_errors = stats->rx_crc_errors;
+    netload.rx_frame_errors = stats->rx_frame_errors;
+    netload.rx_fifo_errors = stats->rx_fifo_errors;
+    netload.rx_missed_errors = stats->rx_missed_errors;
+    
+    netload.tx_aborted_errors = stats->tx_aborted_errors;
+    netload.tx_carrier_errors = stats->tx_carrier_errors;
+    netload.tx_fifo_errors = stats->tx_fifo_errors;
+    netload.tx_heartbeat_errors = stats->tx_heartbeat_errors;
+    netload.tx_window_errors = stats->tx_window_errors;
+    
+    netload.rx_compressed = stats->rx_compressed;
+    netload.tx_compressed = stats->tx_compressed;
+
+    if (copy_to_user (oldval, (void *) &netload, len)) {
+	retval = -EFAULT;
+	goto free_name_out;
+    }
+
+    retval = 1;
+
+ free_name_out:
+    kfree (dev_name);
+    return retval;
+}
+
+#endif /* CONFIG_NET */
