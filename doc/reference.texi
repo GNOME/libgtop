@@ -1079,7 +1079,7 @@ Library function @code{glibtop_get_proc_args}:
 @example
 @cartouche
 char *
-glibtop_get_proc_args_l (glibtop_proc_args *buf, pid_t pid,
+glibtop_get_proc_args(glibtop_proc_args *buf, pid_t pid,
                          unsigned max_len);
 
 char *
@@ -1109,6 +1109,30 @@ The command line arguments in the returned string are separated by zero bytes;
 the lenght of this string is returned in the @code{size} field.
 
 Remember to @code{g_free} the returned string to avoid a memory leak.
+
+@strong{New functions}
+
+@example
+@cartouche
+char **
+glibtop_get_proc_argv(glibtop_proc_args *buf, pid_t pid,
+                         unsigned max_len);
+
+char **
+glibtop_get_proc_argv_l (glibtop *server, glibtop_proc_args *buf,
+                         pid_t pid, unsigned max_len);
+@end cartouche
+@end example
+
+Returns a NULL-terminated array of strings with all arguments of
+process @code{pid} (up to @code{max_len} characters, use zero to get
+all arguments). @code{glibtop_get_proc_argv()} and
+@code{glibtop_get_proc_argv_l()} are wrappers to
+@code{glibtop_get_proc_args()} and @code{glibtop_get_proc_args_l()}
+that return process' arguments like the C @code{argv}.
+
+Remember to @code{g_strfreev} the returned array to avoid a memory
+leak.
 
 @page
 @node glibtop_proc_map, glibtop_netload, glibtop_proc_args, System Dependent
@@ -1494,6 +1518,7 @@ struct _glibtop_fsusage
         bavail,
         files,
         ffree;
+    guint32   block_size;
 @};
 @end cartouche
 @end example
@@ -1509,6 +1534,8 @@ Free blocks available to ordinary users.
 Total file nodes.
 @item ffree
 Free file nodes.
+@item block_size
+Block size in bytes.
 @end table
 
 Blocks are usually 512 bytes.
