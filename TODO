@@ -1,0 +1,21 @@
+This is just a short list for me so I know what I have to do
+before I can make the next release.
+
+* Add `netload' and `ppp' with modems for Linux.
+
+* Signals: Does this work now (Matthias Scheler reported problems
+  with NetBSD).
+
+* Check error handling (partially done).
+
+* Fix the daemon, some new features were added to the server but
+  not to the daemon. Check if it really works also 32 <-> 64 bit.
+
+* Guile-Port: Add glibtop_sysdeps (), glibtop_get/set_parameter () etc.
+
+* Guile-Port: Provide some way to use multiple servers (with #f for
+  to global server). Low priority.
+
+* kernel, sysdeps/kernel: Make it work with the latest modifications.
+  Very low priority. Perhaps not for this release.
+
