@@ -1,3 +1,8 @@
+1999-02-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/global.h: Applied patch from Frederic Devernay;
+	__BEGIN_DECLS and __END_DECLS are only defined inside _IN_LIBGTOP.
+
 1999-02-10  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in (program_invocation_name): Check whether we need

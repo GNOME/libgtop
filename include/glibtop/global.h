@@ -129,9 +129,9 @@
 #include <signal.h>
 #include <errno.h>
 
-__BEGIN_DECLS
-
 #ifdef _IN_LIBGTOP
+
+__BEGIN_DECLS
 
 #ifndef _
 #define _(String) dgettext (PACKAGE, String)
@@ -142,8 +142,8 @@ __BEGIN_DECLS
 extern char *strerror __P((int));
 #endif
 
-#endif /* _IN_LIBGTOP */
-
 __END_DECLS
+
+#endif /* _IN_LIBGTOP */
 
 #endif
