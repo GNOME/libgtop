@@ -1,17 +1,18 @@
 # ----------------------------------------------------
 # Copyright (C) YEAR Free Software Foundation, Inc.
-# Görkem Çetin <gorkem@gelecek.com.tr>, 2001
+# Görkem Çetin <gorkem@gelecek.com.tr>, 2001.
+# Ömer Fadýl USTA <omer_fad@hotmail.com>,2002.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.12\n"
-"POT-Creation-Date: 2001-03-18 10:44+0100\n"
-"PO-Revision-Date: 2001-02-02 01:00+0200\n"
-"Last-Translator: Görkem Çetin <gorkem@gelecek.com.tr>\n"
-"Language-Team: Gnome-Turk <gnome-turk@gnome.org>\n"
+"POT-Creation-Date: 2002-09-17 05:08+0200\n"
+"PO-Revision-Date: 2002-09-18 05:37+0300\n"
+"Last-Translator: Ömer Fadýl USTA <omer_fad@hotmail.com>\n"
+"Language-Team: GNOME Turk <gnome-turk@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-9\n"
-"Content-Transfer-Encoding: 8-bit\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: examples/smp.c:68
 #, c-format
@@ -216,6 +217,14 @@ msgstr "%s: `-W %s' belirsiz seçenek\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: '-W %s' seçeneði bir argüman kullanmaya izin vermiyor\n"
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr "Bu yardým mesajýný göster"
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
+msgstr "Kullanýmý anlatan mesajý göster"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
@@ -586,9 +595,9 @@ msgstr ""
 "Sürecin çekirdek bayraklarý\n"
 "\n"
 "Linux altýnda, her bayraktaki math biti ektindir, çünkü crt0.s matematik "
-"emülasyonunu denetler."
-"\n"
-"Bu bir hata olarak görülebilir, çünkü her süreç derlenmiþ C programý deðildir.\n"
+"emülasyonunu denetler.\n"
+"Bu bir hata olarak görülebilir, çünkü her süreç derlenmiþ C programý "
+"deðildir.\n"
 "\n"
 "Math biti 4, ve takip biti 10 deðerini almalýdýr."
 
@@ -598,8 +607,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Sürecin oluþturduðu küçük hatalardan dolayý "
-"diskten tekrar bellek sayfasý yüklemeye gerek yoktur."
+"Sürecin oluþturduðu küçük hatalardan dolayý diskten tekrar bellek sayfasý "
+"yüklemeye gerek yoktur."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -607,8 +616,8 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Sürecin oluþturduðu büyük hatalardan dolayý "
-"diskten tekrar bellek sayfasýný yüklemek gereklidir."
+"Sürecin oluþturduðu büyük hatalardan dolayý diskten tekrar bellek sayfasýný "
+"yüklemek gereklidir."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
@@ -626,8 +635,8 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
-"Yýðýn iþaretçinin deðeri, çekirdek içinde "
-"süreçleri için yýðýn sayfasý olarak bulunur."
+"Yýðýn iþaretçinin deðeri, çekirdek içinde süreçleri için yýðýn sayfasý "
+"olarak bulunur."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
@@ -643,8 +652,8 @@ msgid ""
 "see the WCHAN field in action)"
 msgstr ""
 "Bu, sürecin beklediði \"kanal\"dýr. Baþka türlü belirtmek gerekirse, bir "
-"sistem çaðrýsýnýn adresidir. Eðer güncel bir /etc/psdatabase dosyanýz "
-"var ise ps -l komutu yardýmýyla WCHAN bilgisini görebilirsiniz."
+"sistem çaðrýsýnýn adresidir. Eðer güncel bir /etc/psdatabase dosyanýz var "
+"ise ps -l komutu yardýmýyla WCHAN bilgisini görebilirsiniz."
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
@@ -698,8 +707,7 @@ msgstr ""
 "Metin, veri ve yýðýn alanlarýnýn toplamýný verir."
 
 #: sysdeps/names/procmem.c:62
-msgid ""
-"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "Sürecin rss limit boyu (genellikle 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:42
@@ -908,8 +916,7 @@ msgid ""
 "an interval timer."
 msgstr ""
 "Ýç zamanlayýcý nedeniyle sürece sonraki SIGALRM'ýn gönderilmesinden önce "
-"geçen zaman (jiffy cinsinden)" 
-
+"geçen zaman (jiffy cinsinden)"
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
