@@ -53,6 +53,16 @@ rm -rf $RPM_BUILD_ROOT
 
 make prefix=$RPM_BUILD_ROOT%{prefix} install
 
+#
+# msf - remove these as they are really supposed to come from gnome-libs
+#
+rm -f $RPM_BUILD_ROOT/%{prefix}/lib/libgnomesupport.a
+rm -f $RPM_BUILD_ROOT/%{prefix}/lib/libgnomesupport.la
+rm -f $RPM_BUILD_ROOT/%{prefix}/lib/libgnomesupport.so.0
+rm -f $RPM_BUILD_ROOT/%{prefix}/lib/libgnomesupport.so.0.0.0
+
+rm -fr $RPM_BUILD_ROOT/%{prefix}/include/libgtop
+
 %clean
 #rm -rf $RPM_BUILD_ROOT
 
@@ -66,7 +76,6 @@ make prefix=$RPM_BUILD_ROOT%{prefix} install
 %doc ANNOUNCE AUTHORS ChangeLog NEWS README README.LATEST copyright.txt doc
 %{prefix}/bin/*
 %{prefix}/lib/lib*.so.*
-%{prefix}/lib/libgtop/*
 %{prefix}/lib/libgtopConf.sh
 %{prefix}/lib/*a
 %{prefix}/include/*
