@@ -1,3 +1,7 @@
+2005-03-29  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* fsusage.c: (get_partition): Removed a g_return_if_fail.
+
 2005-03-27  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* loadavg.c: (glibtop_get_loadavg_s):

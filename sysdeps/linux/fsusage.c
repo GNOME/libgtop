@@ -38,7 +38,8 @@ get_partition(const char *mountpoint)
 	if(stat(mountpoint, &statb) == -1)
 		return NULL;
 
-	g_return_val_if_fail((partitions = fopen("/proc/partitions", "r")), NULL);
+	if((partitions = fopen("/proc/partitions", "r")) == NULL)
+		return NULL;
 
 	while(fgets(line, sizeof line, partitions))
 	{
