@@ -60,6 +60,9 @@ struct	_glibtop_client
 struct	_glibtop_client_class
 {
     GObjectClass parent_class;;
+
+    void (*error) (glibtop_client *client, GError *error);
+    void (*warning) (glibtop_client *client, GError *error);
 };
 
 GType

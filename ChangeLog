@@ -1,5 +1,8 @@
 2000-11-22  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/glibtop-client.h (glibtop_client_class):
+	Added "error" and "warning" signals.
+
 	* lib/glibtop-server.c: New file.
 
 	* lib/test-backends.c: New file.
