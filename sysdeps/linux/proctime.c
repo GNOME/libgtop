@@ -28,6 +28,7 @@
 
 static const unsigned long _glibtop_sysdeps_proc_time =
 (1L << GLIBTOP_PROC_TIME_UTIME) + (1L << GLIBTOP_PROC_TIME_CUTIME) +
+(1L << GLIBTOP_PROC_TIME_RTIME) +
 (1L << GLIBTOP_PROC_TIME_STIME) + (1L << GLIBTOP_PROC_TIME_CSTIME) +
 (1L << GLIBTOP_PROC_TIME_FREQUENCY) + (1L << GLIBTOP_PROC_TIME_TIMEOUT) +
 (1L << GLIBTOP_PROC_TIME_IT_REAL_VALUE) + (1L << GLIBTOP_PROC_TIME_START_TIME);
@@ -69,6 +70,8 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 	/* clock_t  (1/100 s) */
 	buf->utime  = strtoull (p, &p, 0);
 	buf->stime  = strtoull (p, &p, 0);
+	buf->rtime = buf->utime + buf->stime;
+
 	buf->cutime = strtoull (p, &p, 0);
 	buf->cstime = strtoull (p, &p, 0);
 
@@ -117,12 +120,11 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 	if (!server->ncpu)
 		return;
 
+	/* FIXME: doesn't work with 2.6 */
 	if (proc_file_to_buffer (buffer, "/proc/%d/cpu", pid))
 		return;
 
-	p = skip_token (buffer);
-	buf->utime  = strtoull (p, &p, 0);
-	buf->stime  = strtoull (p, &p, 0);
+	p = skip_multiple_token (p, 3);
 
 	for (i = 0; i < GLIBTOP_NCPU; i++) {
 		if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
