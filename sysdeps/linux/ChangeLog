@@ -1,3 +1,7 @@
+1998-09-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysinfo.c: New file.
+
 1998-09-09  Martin Baulig <baulig@Stud.Informatik.uni-trier.de>
 
 	* proctime.c (glibtop_get_proc_time_s): Added SMP support.
