@@ -1,155 +1,19 @@
-# libgtop fr.po
-# Copyright (C) 1998-2001 Free Software Foundation, Inc.
+# French translation of libgtop.
+# Copyright (C) 1998-2002 Free Software Foundation, Inc.
 # Vincent Renardias <vincent@ldsol.com>, 1998-1999.
 # Fabrice Bellet <Fabrice.Bellet@imag.fr>, 1999.
-# Christophe Merlet (RedFox) <redfox@eikonex.org>, 2000-2001.
+# maintainer: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>, 2000-2002.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2001-02-10 11:20+0100\n"
-"PO-Revision-Date: 2001-02-10 11:23+0100\n"
-"Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
-"Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"
+"POT-Creation-Date: 2002-12-18 17:24+0100\n"
+"PO-Revision-Date: 2002-12-18 17:21+0100\n"
+"Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
+"Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
-msgid "Hangup (POSIX)"
-msgstr "Raccrochement (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
-msgid "Interrupt (ANSI)"
-msgstr "Interruption (ANSI)"
-
-#: lib/sysdeps-init-freebsd.c:35 lib/sysdeps-init-linux.c:35
-msgid "Quit (POSIX)"
-msgstr "Quitter (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:36 lib/sysdeps-init-linux.c:36
-msgid "Illegal instruction (ANSI)"
-msgstr "Instruction illégale (ANSI)"
-
-#: lib/sysdeps-init-freebsd.c:37 lib/sysdeps-init-linux.c:37
-msgid "Trace trap (POSIX)"
-msgstr "Point d'arrêt rencontré (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:38 lib/sysdeps-init-linux.c:38
-msgid "Abort (ANSI)"
-msgstr "Arrêt depuis abort() (ANSI)"
-
-#: lib/sysdeps-init-freebsd.c:39
-msgid "EMT instruction"
-msgstr "Instruction EMT"
-
-#: lib/sysdeps-init-freebsd.c:40 lib/sysdeps-init-linux.c:40
-msgid "Floating-point exception (ANSI)"
-msgstr "Exception virgule flottante (ANSI)"
-
-#: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
-msgid "Kill, unblockable (POSIX)"
-msgstr "Signal « Kill », non blocable (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
-msgid "BUS error (4.2 BSD)"
-msgstr "Erreur de Bus (BSD 4.2)"
-
-#: lib/sysdeps-init-freebsd.c:43 lib/sysdeps-init-linux.c:43
-msgid "Segmentation violation (ANSI)"
-msgstr "Violation de segmentation (ANSI)"
-
-#: lib/sysdeps-init-freebsd.c:44
-msgid "Bad argument to system call"
-msgstr "Mauvais argument d'appel système"
-
-#: lib/sysdeps-init-freebsd.c:45 lib/sysdeps-init-linux.c:45
-msgid "Broken pipe (POSIX)"
-msgstr "Tube cassé (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:46 lib/sysdeps-init-linux.c:46
-msgid "Alarm clock (POSIX)"
-msgstr "Alarme d'horloge (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
-msgid "Termination (ANSI)"
-msgstr "Signal de fin (ANSI)"
-
-#: lib/sysdeps-init-freebsd.c:48 lib/sysdeps-init-linux.c:55
-msgid "Urgent condition on socket (4.2 BSD)"
-msgstr "Condition urgente sur socket (BSD 4.2)"
-
-#: lib/sysdeps-init-freebsd.c:49 lib/sysdeps-init-linux.c:51
-msgid "Stop, unblockable (POSIX)"
-msgstr "Arrêt du processus, non blocable (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:50 lib/sysdeps-init-linux.c:52
-msgid "Keyboard stop (POSIX)"
-msgstr "Arrêt depuis le clavier (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:51 lib/sysdeps-init-linux.c:50
-msgid "Continue (POSIX)"
-msgstr "Continuer (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:52 lib/sysdeps-init-linux.c:49
-msgid "Child status has changed (POSIX)"
-msgstr "L'état du fils a changé (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:53 lib/sysdeps-init-linux.c:53
-msgid "Background read from tty (POSIX)"
-msgstr "Lecture sur tty en arrière-plan (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:54 lib/sysdeps-init-linux.c:54
-msgid "Background write to tty (POSIX)"
-msgstr "Écriture sur tty en arrière-plan (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:55 lib/sysdeps-init-linux.c:61
-msgid "I/O now possible (4.2 BSD)"
-msgstr "E/S maintenant possible (BSD 4.2)"
-
-#: lib/sysdeps-init-freebsd.c:56 lib/sysdeps-init-linux.c:56
-msgid "CPU limit exceeded (4.2 BSD)"
-msgstr "Limite de temps CPU dépassée (BSD 4.2)"
-
-#: lib/sysdeps-init-freebsd.c:57 lib/sysdeps-init-linux.c:57
-msgid "File size limit exceeded (4.2 BSD)"
-msgstr "Taille de fichier excessive (BSD 4.2)"
-
-#: lib/sysdeps-init-freebsd.c:58 lib/sysdeps-init-linux.c:58
-msgid "Virtual alarm clock (4.2 BSD)"
-msgstr "Alarme virtuelle (BSD 4.2)"
-
-#: lib/sysdeps-init-freebsd.c:59 lib/sysdeps-init-linux.c:59
-msgid "Profiling alarm clock (4.2 BSD)"
-msgstr "Profile de l'alarme (BSD 4.2)"
-
-#: lib/sysdeps-init-freebsd.c:60 lib/sysdeps-init-linux.c:60
-msgid "Window size change (4.3 BSD, Sun)"
-msgstr "Redimensionnement de la fenêtre (BSD 4.3, Sun)"
-
-#: lib/sysdeps-init-freebsd.c:61
-msgid "Information request"
-msgstr "Demande d'information"
-
-#: lib/sysdeps-init-freebsd.c:62 lib/sysdeps-init-linux.c:42
-msgid "User-defined signal 1 (POSIX)"
-msgstr "Signal utilisateur 1 (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:63 lib/sysdeps-init-linux.c:44
-msgid "User-defined signal 2 (POSIX)"
-msgstr "Signal utilisateur 2 (POSIX)"
-
-#: lib/sysdeps-init-linux.c:62
-msgid "Power failure restart (System V)"
-msgstr "Chute d'alimentation (System V)"
-
-#: support/popthelp.c:23
-msgid "Show this help message"
-msgstr "Afficher ce message d'aide"
-
-#: support/popthelp.c:24
-msgid "Display brief usage message"
-msgstr "Affiche un bref message d'utilisation"
 
 #: sysdeps/names/cpu.c:45
 msgid "Total CPU Time"
@@ -165,15 +29,15 @@ msgstr "Temps CPU en mode utilisateur (nice)"
 
 #: sysdeps/names/cpu.c:48
 msgid "CPU Time in System Mode"
-msgstr "Temps CPU en mode système"
+msgstr "Temps CPU en mode systÃ¨me"
 
 #: sysdeps/names/cpu.c:49
 msgid "CPU Time in the Idle Task"
-msgstr "Temps CPU pour la tâche inactive"
+msgstr "Temps CPU pour la tÃ¢che inactive"
 
 #: sysdeps/names/cpu.c:50
 msgid "Tick Frequency"
-msgstr "Fréquence des ticks"
+msgstr "FrÃ©quence des ticks"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP Total CPU Time"
@@ -189,11 +53,11 @@ msgstr "Temps CPU SMP en mode utilisateur (nice)"
 
 #: sysdeps/names/cpu.c:54
 msgid "SMP CPU Time in System Mode"
-msgstr "Temps CPU SMP en mode système"
+msgstr "Temps CPU SMP en mode systÃ¨me"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Time in the Idle Task"
-msgstr "Temps CPU SMP dans la tâche inactive"
+msgstr "Temps CPU SMP dans la tÃ¢che inactive"
 
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 msgid "SMP CPU Flags"
@@ -201,27 +65,27 @@ msgstr "Drapeaux CPU SMP"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
-msgstr "Nombre de tics d'horloge depuis le dernier redémarrage"
+msgstr "Nombre de tics d'horloge depuis le dernier redÃ©marrage"
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode"
-msgstr "Nombre de tics d'horloge passés en mode utilisateur"
+msgstr "Nombre de tics d'horloge passÃ©s en mode utilisateur"
 
 #: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "Nombre de tics d'horloge passés en mode utilisateur (nice)"
+msgstr "Nombre de tics d'horloge passÃ©s en mode utilisateur (nice)"
 
 #: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in system mode"
-msgstr "Nombre de tics d'horloge passés en mode système"
+msgstr "Nombre de tics d'horloge passÃ©s en mode systÃ¨me"
 
 #: sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr "Nombre de tics d'horloge passés dans la tâche inactive"
+msgstr "Nombre de tics d'horloge passÃ©s dans la tÃ¢che inactive"
 
 #: sysdeps/names/cpu.c:66
 msgid "Tick frequency (default is 100)"
-msgstr "Fréquence des tics (100 par défaut)"
+msgstr "FrÃ©quence des tics (100 par dÃ©faut)"
 
 #: sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
@@ -249,7 +113,7 @@ msgstr "Blocs libres disponibles pour le super-utilisateur"
 
 #: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
-msgstr "Blocs libres disponibles pour les utilisateurs non-privilégiés"
+msgstr "Blocs libres disponibles pour les utilisateurs non-privilÃ©giÃ©s"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Load Average"
@@ -257,11 +121,11 @@ msgstr "Charge Moyenne"
 
 #: sysdeps/names/loadavg.c:42
 msgid "Running Tasks"
-msgstr "Tâches en cours d'exécution"
+msgstr "TÃ¢ches en cours d'exÃ©cution"
 
 #: sysdeps/names/loadavg.c:43
 msgid "Number of Tasks"
-msgstr "Nombre de tâches"
+msgstr "Nombre de tÃ¢ches"
 
 #: sysdeps/names/loadavg.c:44 sysdeps/names/loadavg.c:52
 msgid "Last PID"
@@ -270,31 +134,31 @@ msgstr "Dernier PID"
 #: sysdeps/names/loadavg.c:49
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
 msgstr ""
-"Nombre de processus tournant simultanément en moyenne sur 1, 5 et 15 minutes"
+"Nombre de processus tournant simultanÃ©ment en moyenne sur 1, 5 et 15 minutes"
 
 #: sysdeps/names/loadavg.c:50
 msgid "Number of tasks currently running"
-msgstr "Nombre de tâches en cours d'exécution"
+msgstr "Nombre de tÃ¢ches en cours d'exÃ©cution"
 
 #: sysdeps/names/loadavg.c:51
 msgid "Total number of tasks"
-msgstr "Nombre total de tâches"
+msgstr "Nombre total de tÃ¢ches"
 
 #: sysdeps/names/mem.c:43
 msgid "Total Memory"
-msgstr "Mémoire totale"
+msgstr "MÃ©moire totale"
 
 #: sysdeps/names/mem.c:44
 msgid "Used Memory"
-msgstr "Mémoire utilisée"
+msgstr "MÃ©moire utilisÃ©e"
 
 #: sysdeps/names/mem.c:45
 msgid "Free Memory"
-msgstr "Mémoire libre"
+msgstr "MÃ©moire libre"
 
 #: sysdeps/names/mem.c:46
 msgid "Shared Memory"
-msgstr "Mémoire partagée"
+msgstr "MÃ©moire partagÃ©e"
 
 #: sysdeps/names/mem.c:47
 msgid "Buffers"
@@ -310,23 +174,23 @@ msgstr "Utilisateur"
 
 #: sysdeps/names/mem.c:50
 msgid "Locked"
-msgstr "Verrouillé"
+msgstr "VerrouillÃ©"
 
 #: sysdeps/names/mem.c:55
 msgid "Total physical memory in kB"
-msgstr "Mémoire physique totale en Ko"
+msgstr "MÃ©moire physique totale en Ko"
 
 #: sysdeps/names/mem.c:56
 msgid "Used memory size in kB"
-msgstr "Mémoire utilisée en Ko"
+msgstr "MÃ©moire utilisÃ©e en Ko"
 
 #: sysdeps/names/mem.c:57
 msgid "Free memory size in kB"
-msgstr "Mémoire libre en Ko"
+msgstr "MÃ©moire libre en Ko"
 
 #: sysdeps/names/mem.c:58
 msgid "Shared memory size in kB"
-msgstr "Mémoire partagée en Ko"
+msgstr "MÃ©moire partagÃ©e en Ko"
 
 #: sysdeps/names/mem.c:59
 msgid "Size of buffers kB"
@@ -334,15 +198,15 @@ msgstr "Taille des tampons en Ko"
 
 #: sysdeps/names/mem.c:60
 msgid "Size of cached memory in kB"
-msgstr "Taille de la mémoire cache en Ko"
+msgstr "Taille de la mÃ©moire cache en Ko"
 
 #: sysdeps/names/mem.c:61
 msgid "Memory used from user processes in kB"
-msgstr "Mémoire utilisée par les processus utilisateurs en Ko"
+msgstr "MÃ©moire utilisÃ©e par les processus utilisateurs en Ko"
 
 #: sysdeps/names/mem.c:62
 msgid "Memory in locked pages in kB"
-msgstr "Mémoire dans les pages verrouillées en Ko"
+msgstr "MÃ©moire dans les pages verrouillÃ©es en Ko"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Size in kilobytes of message pool"
@@ -350,7 +214,7 @@ msgstr "Taille en kilo-octets de l'ensemble de messages"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Number of entries in message map"
-msgstr "Nombre d'entrées dans la table des messages"
+msgstr "Nombre d'entrÃ©es dans la table des messages"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Max size of message"
@@ -358,11 +222,11 @@ msgstr "Taille maximum des messages"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Default max size of queue"
-msgstr "Taille maximum par défaut de la queue"
+msgstr "Taille maximum par dÃ©faut de la queue"
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Max queues system wide"
-msgstr "Nombre maximum de queues dans le système"
+msgstr "Nombre maximum de queues dans le systÃ¨me"
 
 #: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
 msgid "Message segment size"
@@ -370,7 +234,7 @@ msgstr "Taille des segments de messages"
 
 #: sysdeps/names/msg_limits.c:48 sysdeps/names/msg_limits.c:59
 msgid "Number of system message headers"
-msgstr "Nombre d'entêtes de messages système"
+msgstr "Nombre d'entÃªtes de messages systÃ¨me"
 
 #: sysdeps/names/prockernel.c:44
 msgid "K_Flags"
@@ -422,15 +286,15 @@ msgid ""
 msgstr ""
 "Flags Noyau du processus.\n"
 "\n"
-"Avec Linux actuellement, tous les processus ont le bit mathématique à un, "
-"parce que crt0.s teste l'émulation du mode mathématique. Donc ce bit "
-"mathématique n'est pas proposé à l'affichage.\n"
+"Avec Linux actuellement, tous les processus ont le bit mathÃ©matique Ã  un, "
+"parce que crt0.s teste l'Ã©mulation du mode mathÃ©matique. Donc ce bit "
+"mathÃ©matique n'est pas proposÃ© Ã  l'affichage.\n"
 "\n"
 "Il s'agit propablement d'un bug, puisque tout programme n'est pas issu d'un "
 "code en langage C.\n"
 "\n"
-"Le bit mathématique devrait donner 4 en décimal, et le bit tracé vaut 10 en "
-"décimal."
+"Le bit mathÃ©matique devrait donner 4 en dÃ©cimal, et le bit tracÃ© vaut 10 en "
+"dÃ©cimal."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:61
@@ -438,8 +302,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Le nombre de défauts de page mineurs d'un processus, c'est-à-dire ceux qui "
-"n'ont pas nécessité de charger une page mémoire depuis le disque."
+"Le nombre de dÃ©fauts de page mineurs d'un processus, c'est-Ã -dire ceux qui "
+"n'ont pas nÃ©cessitÃ© de charger une page mÃ©moire depuis le disque."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:64
@@ -447,22 +311,22 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Le nombre de défauts de page majeurs d'un processus, c'est-à-dire ceux qui "
-"ont nécessité de charger une page mémoire depuis le disque."
+"Le nombre de dÃ©fauts de page majeurs d'un processus, c'est-Ã -dire ceux qui "
+"ont nÃ©cessitÃ© de charger une page mÃ©moire depuis le disque."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:67
 msgid "The number of minor faults that the process and its children have made."
 msgstr ""
-"Le nombre de défauts de page mineurs qu'un processus et ses fils ont "
-"réalisés."
+"Le nombre de dÃ©fauts de page mineurs qu'un processus et ses fils ont "
+"rÃ©alisÃ©s."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:70
 msgid "The number of major faults that the process and its children have made."
 msgstr ""
-"Le nombre de défauts de page majeurs qu'un processus et ses fils ont "
-"réalisés."
+"Le nombre de dÃ©fauts de page majeurs qu'un processus et ses fils ont "
+"rÃ©alisÃ©s."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:73
@@ -471,7 +335,7 @@ msgid ""
 "stack page for the process."
 msgstr ""
 "La valeur courante du registre ESP (pointeur de pile 32 bits), tel qu'il "
-"apparaît dans la page mémoire noyau du processus."
+"apparaÃ®t dans la page mÃ©moire noyau du processus."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:76
@@ -486,18 +350,18 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Il s'agit du « canal » dans lequel le processus est en attente, constitué "
-"par l'adresse d'un appel système dans lequel le processus est bloqué. La "
-"correspondance entre l'adresse et le nom de l'appel système est disponible "
-"si le fichier /etc/psdatabase est à jour par rapport à la version du noyau "
+"Il s'agit du Â« canal Â» dans lequel le processus est en attente, constituÃ© "
+"par l'adresse d'un appel systÃ¨me dans lequel le processus est bloquÃ©. La "
+"correspondance entre l'adresse et le nom de l'appel systÃ¨me est disponible "
+"si le fichier /etc/psdatabase est Ã  jour par rapport Ã Â la version du noyau "
 "(Essayer un ps -l)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:83
 msgid "This is the textual name of the `nwchan' field."
 msgstr ""
-"Il s'agit du nom en clair de l'appel système sur lequel le processus est "
-"bloqué."
+"Il s'agit du nom en clair de l'appel systÃ¨me sur lequel le processus est "
+"bloquÃ©."
 
 #: sysdeps/names/procmem.c:49
 msgid "Size"
@@ -509,35 +373,35 @@ msgstr "Virtuelle"
 
 #: sysdeps/names/procmem.c:49
 msgid "Resident"
-msgstr "Résidente"
+msgstr "RÃ©sidente"
 
 #: sysdeps/names/procmem.c:49
 msgid "Share"
-msgstr "Partagée"
+msgstr "PartagÃ©e"
 
 #: sysdeps/names/procmem.c:50
 msgid "Resident Set Size"
-msgstr "Taille pages résidentes (RSS)"
+msgstr "Taille pages rÃ©sidentes (RSS)"
 
 #: sysdeps/names/procmem.c:50
 msgid "Resident Set Size Limit"
-msgstr "Limite de taille des pages résidentes (RSSL)"
+msgstr "Limite de taille des pages rÃ©sidentes (RSSL)"
 
 #: sysdeps/names/procmem.c:55
 msgid "Total # of pages of memory"
-msgstr "Nb total de pages mémoire"
+msgstr "Nb total de pages mÃ©moire"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of virtual memory"
-msgstr "Nb de pages de mémoire virtuelle"
+msgstr "Nb de pages de mÃ©moire virtuelle"
 
 #: sysdeps/names/procmem.c:57
 msgid "Number of resident set (non-swapped) pages"
-msgstr "Nombre de pages résidentes (non swappées)"
+msgstr "Nombre de pages rÃ©sidentes (non swappÃ©es)"
 
 #: sysdeps/names/procmem.c:58
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr "Nombre de pages partagées (par mmap())"
+msgstr "Nombre de pages partagÃ©es (par mmap())"
 
 #: sysdeps/names/procmem.c:59
 msgid ""
@@ -546,16 +410,16 @@ msgid ""
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
 msgstr ""
-"Nombre de pages dont le processus dispose en mémoire réelle, moins 3 pour "
-"des raisons administratives. Cela comptabilise les pages utilisées pour "
-"l'espace de Texte, de Données et de Pile du processus. Cela ne tient pas "
-"compte des pages qui n'ont pas encore été demandées (ie accédées), ainsi que "
-"de celle qui ont été swappées."
+"Nombre de pages dont le processus dispose en mÃ©moire rÃ©elle, moins 3 pour "
+"des raisons administratives. Cela comptabilise les pages utilisÃ©es pour "
+"l'espace de Texte, de DonnÃ©es et de Pile du processus. Cela ne tient pas "
+"compte des pages qui n'ont pas encore Ã©tÃ© demandÃ©es (ie accÃ©dÃ©es), ainsi que "
+"de celle qui ont Ã©tÃ© swappÃ©es."
 
 #: sysdeps/names/procmem.c:64
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "Limite courante du RSS du processus (2147483647 en général)."
+msgstr "Limite courante du RSS du processus (2147483647 en gÃ©nÃ©ral)."
 
 #: sysdeps/names/procsegment.c:50
 msgid "Text_RSS"
@@ -567,7 +431,7 @@ msgstr "RSS Libs Part."
 
 #: sysdeps/names/procsegment.c:50
 msgid "Data_RSS"
-msgstr "RSS Données"
+msgstr "RSS DonnÃ©es"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Stack_RSS"
@@ -575,11 +439,11 @@ msgstr "RSS Pile"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Dirty Size"
-msgstr "Taille Pages modifiées"
+msgstr "Taille Pages modifiÃ©es"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Start_Code"
-msgstr "Début_code"
+msgstr "DÃ©but_code"
 
 #: sysdeps/names/procsegment.c:51
 msgid "End_Code"
@@ -587,15 +451,15 @@ msgstr "Fin_code"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Start_Data"
-msgstr "Début_données"
+msgstr "DÃ©but_donnÃ©es"
 
 #: sysdeps/names/procsegment.c:52
 msgid "End_Data"
-msgstr "Fin_données"
+msgstr "Fin_donnÃ©es"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Start_Brk"
-msgstr "Début_Brk"
+msgstr "DÃ©but_Brk"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Brk"
@@ -603,15 +467,15 @@ msgstr "Brk"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_Stack"
-msgstr "Début_Pile"
+msgstr "DÃ©but_Pile"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_MMap"
-msgstr "Début_MMap"
+msgstr "DÃ©but_MMap"
 
 #: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
 msgid "Arg_Start"
-msgstr "Début_Arg"
+msgstr "DÃ©but_Arg"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
 msgid "Arg_End"
@@ -619,7 +483,7 @@ msgstr "Fin_Arg"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
 msgid "Env_Start"
-msgstr "Début_Env"
+msgstr "DÃ©but_Env"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
 msgid "Env_End"
@@ -627,27 +491,27 @@ msgstr "Fin_Env"
 
 #: sysdeps/names/procsegment.c:59
 msgid "Text resident set size"
-msgstr "Taille texte résident"
+msgstr "Taille texte rÃ©sident"
 
 #: sysdeps/names/procsegment.c:60
 msgid "Shared-Lib resident set size"
-msgstr "Taille résidence des bibs. partagées"
+msgstr "Taille rÃ©sidence des bibs. partagÃ©es"
 
 #: sysdeps/names/procsegment.c:61
 msgid "Data resident set size"
-msgstr "Taille données résidentes"
+msgstr "Taille donnÃ©es rÃ©sidentes"
 
 #: sysdeps/names/procsegment.c:62
 msgid "Stack resident set size"
-msgstr "Taille Pile résidente"
+msgstr "Taille Pile rÃ©sidente"
 
 #: sysdeps/names/procsegment.c:63
 msgid "Total size of dirty pages"
-msgstr "Taille totale pages modifiées"
+msgstr "Taille totale pages modifiÃ©es"
 
 #: sysdeps/names/procsegment.c:64
 msgid "Address of beginning of code segment"
-msgstr "Adresse de début du segment de code"
+msgstr "Adresse de dÃ©but du segment de code"
 
 #: sysdeps/names/procsegment.c:65
 msgid "Address of end of code segment"
@@ -655,15 +519,15 @@ msgstr "Adresse de fin du segment de code"
 
 #: sysdeps/names/procsegment.c:66
 msgid "Address of beginning of data segment"
-msgstr "Adresse du début du segment de données"
+msgstr "Adresse du dÃ©but du segment de donnÃ©es"
 
 #: sysdeps/names/procsegment.c:67
 msgid "Address of end of data segment"
-msgstr "Adresse de fin du segment de données"
+msgstr "Adresse de fin du segment de donnÃ©es"
 
 #: sysdeps/names/procsegment.c:68
 msgid "Brk_Start"
-msgstr "Début_Brk"
+msgstr "DÃ©but_Brk"
 
 #: sysdeps/names/procsegment.c:69
 msgid "Brk_End"
@@ -675,7 +539,7 @@ msgstr "Adresse du bas du segment de pile"
 
 #: sysdeps/names/procsegment.c:71
 msgid "Start of mmap()ed areas"
-msgstr "Début des zones allouées par mmap()"
+msgstr "DÃ©but des zones allouÃ©es par mmap()"
 
 #: sysdeps/names/procsignal.c:42
 msgid "Signal"
@@ -683,7 +547,7 @@ msgstr "Signal"
 
 #: sysdeps/names/procsignal.c:42
 msgid "Blocked"
-msgstr "Bloqué"
+msgstr "BloquÃ©"
 
 #: sysdeps/names/procsignal.c:42
 msgid "SigIgnore"
@@ -699,15 +563,15 @@ msgstr "Masque des signaux en attente"
 
 #: sysdeps/names/procsignal.c:48
 msgid "Mask of blocked signals"
-msgstr "Masque des signaux bloqués"
+msgstr "Masque des signaux bloquÃ©s"
 
 #: sysdeps/names/procsignal.c:49
 msgid "Mask of ignored signals"
-msgstr "Masque des signaux ignorés"
+msgstr "Masque des signaux ignorÃ©s"
 
 #: sysdeps/names/procsignal.c:50
 msgid "Mask of caught signals"
-msgstr "Masque des signaux capturés"
+msgstr "Masque des signaux capturÃ©s"
 
 #: sysdeps/names/procstate.c:45
 msgid "Cmd"
@@ -715,7 +579,7 @@ msgstr "Commande"
 
 #: sysdeps/names/procstate.c:45
 msgid "State"
-msgstr "État"
+msgstr "Ã‰tat"
 
 #: sysdeps/names/procstate.c:45
 msgid "UID"
@@ -743,15 +607,15 @@ msgstr "Processeur"
 
 #: sysdeps/names/procstate.c:47
 msgid "Last Processor"
-msgstr "Processeur préc"
+msgstr "Processeur prÃ©c"
 
 #: sysdeps/names/procstate.c:52
 msgid "Basename of executable file in call to exec()"
-msgstr "Chemin du fichier executable lors de l'appel à exec()"
+msgstr "Chemin du fichier executable lors de l'appel Ã  exec()"
 
 #: sysdeps/names/procstate.c:53
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Code de l'état du processus (S=sommeil)"
+msgstr "Code de l'Ã©tat du processus (S=sommeil)"
 
 #: sysdeps/names/procstate.c:54
 msgid "effective UID of process"
@@ -763,11 +627,11 @@ msgstr "ID effectif du groupe du processus"
 
 #: sysdeps/names/procstate.c:56
 msgid "real UID of process"
-msgstr "ID réel de l'utilisateur du processus"
+msgstr "ID rÃ©el de l'utilisateur du processus"
 
 #: sysdeps/names/procstate.c:57
 msgid "real GID of process"
-msgstr "ID réel du groupe du processus"
+msgstr "ID rÃ©el du groupe du processus"
 
 #: sysdeps/names/procstate.c:58
 msgid "has_cpu"
@@ -779,7 +643,7 @@ msgstr "processeur"
 
 #: sysdeps/names/procstate.c:60
 msgid "last_processor"
-msgstr "processeur précédent"
+msgstr "processeur prÃ©cÃ©dent"
 
 #: sysdeps/names/proctime.c:46
 msgid "Start_Time"
@@ -811,11 +675,11 @@ msgstr "TimeOut"
 
 #: sysdeps/names/proctime.c:47
 msgid "It_Real_Value"
-msgstr "Val_Réelle_Int"
+msgstr "Val_RÃ©elle_Int"
 
 #: sysdeps/names/proctime.c:48
 msgid "Frequency"
-msgstr "Fréquence"
+msgstr "FrÃ©quence"
 
 #: sysdeps/names/proctime.c:48
 msgid "XCPU_UTime"
@@ -835,15 +699,15 @@ msgstr "Date du lancement du processus en secondes depuis le 01/01/1970."
 
 #: sysdeps/names/proctime.c:55
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "Temps réel accumulé par le processus (corresponds à TempsU + TempsS)"
+msgstr "Temps rÃ©el accumulÃ© par le processus (corresponds Ã  TempsU + TempsS)"
 
 #: sysdeps/names/proctime.c:56
 msgid "user-mode CPU time accumulated by process"
-msgstr "Temps CPU passé par le processus en mode utilisateur"
+msgstr "Temps CPU passÃ© par le processus en mode utilisateur"
 
 #: sysdeps/names/proctime.c:57
 msgid "kernel-mode CPU time accumulated by process"
-msgstr "Temps CPU passé par le processus en mode noyau"
+msgstr "Temps CPU passÃ© par le processus en mode noyau"
 
 #: sysdeps/names/proctime.c:58
 msgid "cumulative utime of process and reaped children"
@@ -856,28 +720,28 @@ msgstr "Cumul du TempsS du processus et de ses fils"
 #: sysdeps/names/proctime.c:60
 msgid "The time (in jiffies) of the process's next timeout"
 msgstr ""
-"Le temps (en jiffies, càd tics d'horloge) avant la prochaine expiration du "
-"timer de séquencement du processus."
+"Le temps (en jiffies, cÃ d tics d'horloge) avant la prochaine expiration du "
+"timer de sÃ©quencement du processus."
 
 #: sysdeps/names/proctime.c:61
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
-"Le temps restant (en jiffies, càd tics d'horloge) avant l'envoi du prochaine "
+"Le temps restant (en jiffies, cÃ d tics d'horloge) avant l'envoi du prochaine "
 "signal SIGALRM au processus sur expiration d'un timer de type intervalle."
 
 #: sysdeps/names/proctime.c:63
 msgid "Tick frequency"
-msgstr "Fréquence des tics d'horloge"
+msgstr "FrÃ©quence des tics d'horloge"
 
 #: sysdeps/names/proctime.c:64
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr "Temps utilisateur accumulé par le processus en architecture SMP"
+msgstr "Temps utilisateur accumulÃ© par le processus en architecture SMP"
 
 #: sysdeps/names/proctime.c:65
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "Temps noyau accumulé par le processus en architecture SMP"
+msgstr "Temps noyau accumulÃ© par le processus en architecture SMP"
 
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
@@ -937,7 +801,7 @@ msgstr "TPGid"
 
 #: sysdeps/names/procuid.c:51
 msgid "Priority"
-msgstr "Priorité"
+msgstr "PrioritÃ©"
 
 #: sysdeps/names/procuid.c:51
 msgid "Nice"
@@ -969,19 +833,19 @@ msgstr "ID de groupe effectif"
 
 #: sysdeps/names/procuid.c:61
 msgid "Saved User ID"
-msgstr "ID d'utilisateur sauvegardé"
+msgstr "ID d'utilisateur sauvegardÃ©"
 
 #: sysdeps/names/procuid.c:62
 msgid "Saved Group ID"
-msgstr "ID de groupe sauvegardé"
+msgstr "ID de groupe sauvegardÃ©"
 
 #: sysdeps/names/procuid.c:63
 msgid "Filesystem User ID"
-msgstr "ID d'utilisateur du système de fichiers"
+msgstr "ID d'utilisateur du systÃ¨me de fichiers"
 
 #: sysdeps/names/procuid.c:64
 msgid "Filesystem Group ID"
-msgstr "ID de groupe du système de fichiers"
+msgstr "ID de groupe du systÃ¨me de fichiers"
 
 #: sysdeps/names/procuid.c:65
 msgid "Process ID"
@@ -989,7 +853,7 @@ msgstr "ID du processus"
 
 #: sysdeps/names/procuid.c:66
 msgid "PID of parent process"
-msgstr "ID du processus père"
+msgstr "ID du processus pÃ¨re"
 
 #: sysdeps/names/procuid.c:67
 msgid "Process group ID"
@@ -1001,7 +865,7 @@ msgstr "ID de session"
 
 #: sysdeps/names/procuid.c:69
 msgid "Full device number of controlling terminal"
-msgstr "Numéro du périphérique controllant le terminal"
+msgstr "NumÃ©ro du pÃ©riphÃ©rique controllant le terminal"
 
 #: sysdeps/names/procuid.c:70
 msgid "Terminal process group ID"
@@ -1009,23 +873,23 @@ msgstr "ID de groupe du processus de control du terminal"
 
 #: sysdeps/names/procuid.c:71
 msgid "Kernel scheduling priority"
-msgstr "Priorité de séquencement noyau"
+msgstr "PrioritÃ© de sÃ©quencement noyau"
 
 #: sysdeps/names/procuid.c:72
 msgid "Standard unix nice level of process"
-msgstr "Niveau de « nice » (standard unix) du processus"
+msgstr "Niveau de Â« nice Â» (standard unix) du processus"
 
 #: sysdeps/names/procuid.c:73
 msgid "Number of additional process groups"
-msgstr "Nombre de groupes supplémentaires"
+msgstr "Nombre de groupes supplÃ©mentaires"
 
 #: sysdeps/names/procuid.c:74
 msgid "Additional process groups"
-msgstr "Groupes supplémentaires"
+msgstr "Groupes supplÃ©mentaires"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Number of entries in semaphore map"
-msgstr "Nombre d'entrées dans la table des sémaphores"
+msgstr "Nombre d'entrÃ©es dans la table des sÃ©maphores"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max number of arrays"
@@ -1033,23 +897,23 @@ msgstr "Nombre maximum de tables"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores system wide"
-msgstr "Nombre maximum de sémaphores dans le système"
+msgstr "Nombre maximum de sÃ©maphores dans le systÃ¨me"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Number of undo structures system wide"
-msgstr "Nombre de structures 'undo' dans le système"
+msgstr "Nombre de structures 'undo' dans le systÃ¨me"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max semaphores per array"
-msgstr "Nombre maximum de sémaphores par table"
+msgstr "Nombre maximum de sÃ©maphores par table"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max ops per semop call"
-msgstr "Nombre maximum d'opérations par appel à semop()"
+msgstr "Nombre maximum d'opÃ©rations par appel Ã  semop()"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Max number of undo entries per process"
-msgstr "Nombre maximum de structures « undo » par processus"
+msgstr "Nombre maximum de structures Â« undo Â» par processus"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "sizeof struct sem_undo"
@@ -1057,11 +921,11 @@ msgstr "sizeof struct sem_undo"
 
 #: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 msgid "Semaphore max value"
-msgstr "Valeur maximum d'un sémaphore"
+msgstr "Valeur maximum d'un sÃ©maphore"
 
 #: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 msgid "Adjust on exit max value"
-msgstr "Valeur maximum de « Adjust on exit »"
+msgstr "Valeur maximum de Â« Adjust on exit Â»"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max segment size"
@@ -1077,11 +941,11 @@ msgstr "Nombre maximum des segments"
 
 #: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max shared segments per process"
-msgstr "Nombre maximum de segments partagés par processus"
+msgstr "Nombre maximum de segments partagÃ©s par processus"
 
 #: sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
 msgid "Max total shared memory"
-msgstr "Taille totale de la mémoire partagée"
+msgstr "Taille totale de la mÃ©moire partagÃ©e"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Total Swap Space"
@@ -1089,32 +953,32 @@ msgstr "Taille totale de la zone de swap"
 
 #: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 msgid "Used Swap Space"
-msgstr "Quantité de swap utilisée"
+msgstr "QuantitÃ© de swap utilisÃ©e"
 
 #: sysdeps/names/swap.c:43 sysdeps/names/swap.c:52
 msgid "Free Swap Space"
-msgstr "Quantité de swap libre"
+msgstr "QuantitÃ© de swap libre"
 
 #: sysdeps/names/swap.c:44
 msgid "Page In"
-msgstr "Pages entrantes (disque vers mémoire)"
+msgstr "Pages entrantes (disque vers mÃ©moire)"
 
 #: sysdeps/names/swap.c:45
 msgid "Page Out"
-msgstr "Pages sortantes (mémoire vers disque)"
+msgstr "Pages sortantes (mÃ©moire vers disque)"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr "Nombre total de pages de swap chargées en mémoire depuis le démarrage"
+msgstr "Nombre total de pages de swap chargÃ©es en mÃ©moire depuis le dÃ©marrage"
 
 #: sysdeps/names/swap.c:55
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
-"Nombre total de pages de swap sauvegardées sur disque depuis le démarrage"
+"Nombre total de pages de swap sauvegardÃ©es sur disque depuis le dÃ©marrage"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
-msgstr "Caractéristiques serveur"
+msgstr "CaractÃ©ristiques serveur"
 
 #: sysdeps/names/sysdeps.c:54
 msgid "Pointer Size"
@@ -1126,7 +990,7 @@ msgstr "Utilisation CPU"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
 msgid "Memory Usage"
-msgstr "Utilisation mémoire"
+msgstr "Utilisation mÃ©moire"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
 msgid "Swap Usage"
@@ -1134,7 +998,7 @@ msgstr "Utilisation du swap"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
 msgid "System Uptime"
-msgstr "Durée de fonctionnement"
+msgstr "DurÃ©e de fonctionnement"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
 msgid "Load Averange"
@@ -1142,7 +1006,7 @@ msgstr "Charge moyenne"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
 msgid "Shared Memory Limits"
-msgstr "Limites de la mémoire partagée"
+msgstr "Limites de la mÃ©moire partagÃ©e"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
 msgid "Message Queue Limits"
@@ -1150,15 +1014,15 @@ msgstr "Limites de la queue de messages"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
 msgid "Semaphore Set Limits"
-msgstr "Limites de l'ensemble de sémaphores"
+msgstr "Limites de l'ensemble de sÃ©maphores"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
 msgid "List of running Processes"
-msgstr "Liste des tâches en cours d'exécution"
+msgstr "Liste des tÃ¢ches en cours d'exÃ©cution"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 msgid "Process Status information"
-msgstr "Information sur l'état des processus"
+msgstr "Information sur l'Ã©tat des processus"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
 msgid "Process UID and TTY information"
@@ -1166,7 +1030,7 @@ msgstr "Information sur l'UID et le TTY des processus"
 
 #: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 msgid "Process Memory information"
-msgstr "Information sur la mémoire du processus"
+msgstr "Information sur la mÃ©moire du processus"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
 msgid "Process Time information"
@@ -1178,7 +1042,7 @@ msgstr "Information sur les signaux du processus"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
 msgid "Process Kernel Data information"
-msgstr "Information sur les données noyau du processus"
+msgstr "Information sur les donnÃ©es noyau du processus"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
 msgid "Process Segment information"
@@ -1194,7 +1058,7 @@ msgstr "Arguments du processus"
 
 #: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
 msgid "Process Memory Map"
-msgstr "Table mémoire du processus"
+msgstr "Table mÃ©moire du processus"
 
 #: sysdeps/names/sysdeps.c:74
 msgid "Mount List"
@@ -1202,11 +1066,11 @@ msgstr "Liste montages"
 
 #: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
 msgid "File System Usage"
-msgstr "Utilisation des systèmes de fichiers"
+msgstr "Utilisation des systÃ¨mes de fichiers"
 
 #: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
 msgid "Network Load"
-msgstr "Charge réseau"
+msgstr "Charge rÃ©seau"
 
 #: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
 msgid "Interface Names"
@@ -1222,7 +1086,7 @@ msgstr "Taille du pointeur sur le serveur (en bits)"
 
 #: sysdeps/names/sysdeps.c:101
 msgid "Current working directory of the process"
-msgstr "Répertoire de travail courant du processus"
+msgstr "RÃ©pertoire de travail courant du processus"
 
 #: sysdeps/names/sysdeps.c:102
 msgid "Command line arguments of the process"
@@ -1230,69 +1094,171 @@ msgstr "Arguments de la ligne de commande du processus"
 
 #: sysdeps/names/sysdeps.c:104
 msgid "List of currently mounted filesystems"
-msgstr "Liste des systèmes de fichiers montés"
+msgstr "Liste des systÃ¨mes de fichiers montÃ©s"
 
 #: sysdeps/names/uptime.c:40
 msgid "Uptime"
-msgstr "Durée de fonctionnement"
+msgstr "DurÃ©e de fonctionnement"
 
 #: sysdeps/names/uptime.c:41
 msgid "Idletime"
-msgstr "Durée d'inactivité"
+msgstr "DurÃ©e d'inactivitÃ©"
 
 #: sysdeps/names/uptime.c:42
 msgid "Boot time"
-msgstr "Date de démarrage"
+msgstr "Date de dÃ©marrage"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds since system boot"
-msgstr "Temps en secondes depuis le démarrage du système"
+msgstr "Temps en secondes depuis le dÃ©marrage du systÃ¨me"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr ""
-"Temps en secondes passé dans le processus inactif depuis le démarrage du "
-"système"
+"Temps en secondes passÃ© dans le processus inactif depuis le dÃ©marrage du "
+"systÃ¨me"
 
 #: sysdeps/names/uptime.c:49
 msgid "Boot time (seconds sice epoch)"
-msgstr "Date de démarrage (en secondes depuis le 01/01/1970)"
+msgstr "Date de dÃ©marrage (en secondes depuis le 01/01/1970)"
+
+#~ msgid "Hangup (POSIX)"
+#~ msgstr "Raccrochement (POSIX)"
+
+#~ msgid "Interrupt (ANSI)"
+#~ msgstr "Interruption (ANSI)"
+
+#~ msgid "Quit (POSIX)"
+#~ msgstr "Quitter (POSIX)"
+
+#~ msgid "Illegal instruction (ANSI)"
+#~ msgstr "Instruction illÃ©gale (ANSI)"
+
+#~ msgid "Trace trap (POSIX)"
+#~ msgstr "Point d'arrÃªt rencontrÃ© (POSIX)"
+
+#~ msgid "Abort (ANSI)"
+#~ msgstr "ArrÃªt depuis abort() (ANSI)"
+
+#~ msgid "EMT instruction"
+#~ msgstr "Instruction EMT"
+
+#~ msgid "Floating-point exception (ANSI)"
+#~ msgstr "Exception virgule flottante (ANSI)"
+
+#~ msgid "Kill, unblockable (POSIX)"
+#~ msgstr "Signal Â« Kill Â», non blocable (POSIX)"
+
+#~ msgid "BUS error (4.2 BSD)"
+#~ msgstr "Erreur de Bus (BSD 4.2)"
+
+#~ msgid "Segmentation violation (ANSI)"
+#~ msgstr "Violation de segmentation (ANSI)"
+
+#~ msgid "Bad argument to system call"
+#~ msgstr "Mauvais argument d'appel systÃ¨me"
+
+#~ msgid "Broken pipe (POSIX)"
+#~ msgstr "Tube cassÃ© (POSIX)"
+
+#~ msgid "Alarm clock (POSIX)"
+#~ msgstr "Alarme d'horloge (POSIX)"
+
+#~ msgid "Termination (ANSI)"
+#~ msgstr "Signal de fin (ANSI)"
+
+#~ msgid "Urgent condition on socket (4.2 BSD)"
+#~ msgstr "Condition urgente sur socket (BSD 4.2)"
+
+#~ msgid "Stop, unblockable (POSIX)"
+#~ msgstr "ArrÃªt du processus, non blocable (POSIX)"
+
+#~ msgid "Keyboard stop (POSIX)"
+#~ msgstr "ArrÃªt depuis le clavier (POSIX)"
+
+#~ msgid "Continue (POSIX)"
+#~ msgstr "Continuer (POSIX)"
+
+#~ msgid "Child status has changed (POSIX)"
+#~ msgstr "L'Ã©tat du fils a changÃ© (POSIX)"
+
+#~ msgid "Background read from tty (POSIX)"
+#~ msgstr "Lecture sur tty en arriÃ¨re-plan (POSIX)"
+
+#~ msgid "Background write to tty (POSIX)"
+#~ msgstr "Ã‰criture sur tty en arriÃ¨re-plan (POSIX)"
+
+#~ msgid "I/O now possible (4.2 BSD)"
+#~ msgstr "E/S maintenant possible (BSD 4.2)"
+
+#~ msgid "CPU limit exceeded (4.2 BSD)"
+#~ msgstr "Limite de temps CPU dÃ©passÃ©e (BSD 4.2)"
+
+#~ msgid "File size limit exceeded (4.2 BSD)"
+#~ msgstr "Taille de fichier excessive (BSD 4.2)"
+
+#~ msgid "Virtual alarm clock (4.2 BSD)"
+#~ msgstr "Alarme virtuelle (BSD 4.2)"
+
+#~ msgid "Profiling alarm clock (4.2 BSD)"
+#~ msgstr "Profile de l'alarme (BSD 4.2)"
+
+#~ msgid "Window size change (4.3 BSD, Sun)"
+#~ msgstr "Redimensionnement de la fenÃªtre (BSD 4.3, Sun)"
+
+#~ msgid "Information request"
+#~ msgstr "Demande d'information"
+
+#~ msgid "User-defined signal 1 (POSIX)"
+#~ msgstr "Signal utilisateur 1 (POSIX)"
+
+#~ msgid "User-defined signal 2 (POSIX)"
+#~ msgstr "Signal utilisateur 2 (POSIX)"
+
+#~ msgid "Power failure restart (System V)"
+#~ msgstr "Chute d'alimentation (System V)"
+
+#~ msgid "Show this help message"
+#~ msgstr "Afficher ce message d'aide"
+
+#~ msgid "Display brief usage message"
+#~ msgstr "Affiche un bref message d'utilisation"
 
 #~ msgid "Unknown system error"
-#~ msgstr "Erreur système inconnue"
+#~ msgstr "Erreur systÃ¨me inconnue"
 
 #~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s : l'option « %s » est ambigüe\n"
+#~ msgstr "%sÂ : l'option Â« %s Â» est ambigÃ¼e\n"
 
 #~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s : l'option « --%s » ne supporte pas d'arguments\n"
+#~ msgstr "%sÂ : l'option Â« --%s Â» ne supporte pas d'arguments\n"
 
 #~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s : l'option « %c%s » ne supporte pas d'arguments\n"
+#~ msgstr "%sÂ : l'option Â« %c%s Â» ne supporte pas d'arguments\n"
 
 #~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s : l'option « %s » nécessite un argument\n"
+#~ msgstr "%sÂ : l'option Â« %s Â» nÃ©cessite un argument\n"
 
 #~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s : option inconnue « --%s »\n"
+#~ msgstr "%sÂ : option inconnue Â« --%s Â»\n"
 
 #~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s : option inconnue « %c%s »\n"
+#~ msgstr "%sÂ : option inconnue Â« %c%s Â»\n"
 
 #~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s : option illégale -- %c\n"
+#~ msgstr "%sÂ : option illÃ©gale -- %c\n"
 
 #~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s : option non valide -- %c\n"
+#~ msgstr "%sÂ : option non valide -- %c\n"
 
 #~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s : l'option nécessite un argument -- %c\n"
+#~ msgstr "%sÂ : l'option nÃ©cessite un argument -- %c\n"
 
 #~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s : l'option « -W %s » is ambigüe\n"
+#~ msgstr "%sÂ : l'option Â« -W %s Â» is ambigÃ¼e\n"
 
 #~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s : l'option « -W %s » ne supporte pas d'arguments\n"
+#~ msgstr "%sÂ : l'option Â« -W %s Â» ne supporte pas d'arguments\n"
 
 #~ msgid "No error"
 #~ msgstr "Pas d'erreurs"
@@ -1304,16 +1270,16 @@ msgstr "Date de démarrage (en secondes depuis le 01/01/1970)"
 #~ msgstr "Argument invalide"
 
 #~ msgid "No such parameter"
-#~ msgstr "N'est pas un paramètre"
+#~ msgstr "N'est pas un paramÃ¨tre"
 
 #~ msgid "Attempted to modify a read-only value"
 #~ msgstr "Tentative de modification d'une valeur en lecture seule"
 
 #~ msgid "Parameter size mismatch"
-#~ msgstr "Taille de paramèter incohérent"
+#~ msgstr "Taille de paramÃ¨ter incohÃ©rent"
 
 #~ msgid "Communication with LibGTop server failed"
-#~ msgstr "La communication avec le serveur LibGTop a échoué"
+#~ msgstr "La communication avec le serveur LibGTop a Ã©chouÃ©"
 
 #~ msgid "No such process"
 #~ msgstr "Plus de processus"
@@ -1328,13 +1294,13 @@ msgstr "Date de démarrage (en secondes depuis le 01/01/1970)"
 #~ msgstr "%d octets lus"
 
 #~ msgid "read data size"
-#~ msgstr "taille des données lues"
+#~ msgstr "taille des donnÃ©es lues"
 
 #~ msgid "read data %d bytes"
-#~ msgstr "lecture de %d octets de données"
+#~ msgstr "lecture de %d octets de donnÃ©es"
 
 #~ msgid "write %d bytes"
-#~ msgstr "écriture de %d octets"
+#~ msgstr "Ã©criture de %d octets"
 
 #~ msgid "Enable debugging"
 #~ msgstr "Active le debuggage"
@@ -1349,13 +1315,13 @@ msgstr "Date de démarrage (en secondes depuis le 01/01/1970)"
 #~ msgstr "BAVARD"
 
 #~ msgid "Don't fork into background"
-#~ msgstr "Ne pas lancer en tâche de fond"
+#~ msgstr "Ne pas lancer en tÃ¢che de fond"
 
 #~ msgid "NO-DAEMON"
 #~ msgstr "NON-DEMON"
 
 #~ msgid "Invoked from inetd"
-#~ msgstr "Invoqué à partir de inetd"
+#~ msgstr "InvoquÃ© Ã Â partir de inetd"
 
 #~ msgid "INETD"
 #~ msgstr "INETD"
@@ -1365,14 +1331,14 @@ msgstr "Date de démarrage (en secondes depuis le 01/01/1970)"
 #~ "Run '%s --help' to see a full list of available command line options.\n"
 #~ msgstr ""
 #~ "Erreur sur l'option %s: %s.\n"
-#~ "Executer « %s --help » pour avoir la liste des options de la ligne de "
+#~ "Executer Â« %s --help Â» pour avoir la liste des options de la ligne de "
 #~ "commande.\n"
 
 #~ msgid "Number of list elements"
-#~ msgstr "Nombre d'éléments de liste"
+#~ msgstr "Nombre d'Ã©lÃ©ments de liste"
 
 #~ msgid "Total size of list"
 #~ msgstr "Taille totale de la liste"
 
 #~ msgid "Size of a single list element"
-#~ msgstr "Taille d'un élément de liste"
+#~ msgstr "Taille d'un Ã©lÃ©ment de liste"
