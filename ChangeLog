@@ -1,5 +1,7 @@
 1998-07-30  Martin Baulig  <martin@home-of-linux.org>
 
+	* configure.in (GNOME_LIBGTOP_TYPES): New check.
+
 	* include/glibtop/*.h: Using `u_int64_t' instead of `unsigned long'
 	and `long' to avoid problems when client is on a 32bit system and
 	the server on a 64bit system.
