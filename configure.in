@@ -8,23 +8,12 @@ AC_CANONICAL_SYSTEM
 
 AM_ACLOCAL_INCLUDE(macros)
 
-dnl This is necessary for cross-compiling for programs
-dnl that need to run on the build host.
-
-AC_CHECK_PROG(build_CC, gcc, gcc)
-if test -z "$build_CC" ; then
-  AC_CHECK_PROG(build_CC, cc, cc, , , /usr/ucb/cc)
-  test -z "$build_CC" && \
-	AC_MSG_ERROR([no acceptable cc found in \$PATH])
-fi
-
-AC_CHECK_TOOL(CC,gcc)
-
 AC_ISC_POSIX
 AC_PROG_CC
 AC_STDC_HEADERS
 AC_ARG_PROGRAM
 
+AC_CHECK_TOOL(CC,gcc)
 AC_CHECK_TOOL(RANLIB,ranlib)
 AC_CHECK_TOOL(AS,as)
 AC_CHECK_TOOL(AR,ar)
@@ -226,6 +215,7 @@ sysdeps/stub/Makefile
 sysdeps/sun4/Makefile
 sysdeps/osf1/Makefile
 sysdeps/linux/Makefile
+sysdeps/kernel/Makefile
 src/Makefile
 src/server/Makefile
 src/proxy/Makefile

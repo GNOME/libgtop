@@ -33,6 +33,14 @@
 #define PROFILE_COUNT	1
 #endif
 
+#include <unistd.h>
+#include <linux/unistd.h>
+#include <linux/table.h>
+
+#include <syscall.h>
+
+_syscall3 (int, table, int, type, union table *, tbl, const void *, param);
+
 int
 main (int argc, char *argv [])
 {
