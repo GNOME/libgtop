@@ -177,8 +177,6 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 		uvmexp.reserve_pagedaemon +
 		uvmexp.free + uvmexp.wired + uvmexp.active +
 		uvmexp.inactive;
-	fprintf (stderr, "TEST: %d - %d\n", v_total_count,
-		 uvmexp.npages);
 #else
 	v_total_count = vmm.v_kernel_pages +
 		vmm.v_free_count + vmm.v_wire_count +
