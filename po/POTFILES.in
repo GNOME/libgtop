@@ -98,5 +98,4 @@ support/error.h
 support/getopt.h
 support/gnome-argp.h
 support/gnomesupport-fake.h
-support/gnomesupport.h
 support/long-options.h
