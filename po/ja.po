@@ -1,17 +1,154 @@
 # libgtop ja.po.
-# Copyright (C) 1998 Free Software Foundation, Inc.
+# Copyright (C) 1998-2000 Free Software Foundation, Inc.
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1998
+# Yukihiro Nakai <nakai@gnome.gr.jp>, 2000.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
 "POT-Creation-Date: 2000-02-23 00:23+0100\n"
-"PO-Revision-Date: 1998-12-11 06:53+09:00\n"
-"Last-Translator: Eiichiro ITANI <emu@ceres.dti.ne.jp>\n"
-"Language-Team: <gnome@lists.hypercore.co.jp>\n"
+"PO-Revision-Date: 2000-10-10 06:53+09:00\n"
+"Last-Translator: Yukihiro Nakai <nakai@gnome.gr.jp>\n"
+"Language-Team: Japanese <translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=euc-jp\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
+msgid "Hangup (POSIX)"
+msgstr "Hangup (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
+msgid "Interrupt (ANSI)"
+msgstr "Interrupt (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:35 lib/sysdeps-init-linux.c:35
+msgid "Quit (POSIX)"
+msgstr "Quit (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:36 lib/sysdeps-init-linux.c:36
+msgid "Illegal instruction (ANSI)"
+msgstr "Illegal instruction (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:37 lib/sysdeps-init-linux.c:37
+msgid "Trace trap (POSIX)"
+msgstr "Trace¥È¥é¥Ã¥× (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:38 lib/sysdeps-init-linux.c:38
+msgid "Abort (ANSI)"
+msgstr "Abort (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:39
+msgid "EMT instruction"
+msgstr "EMT¥¤¥ó¥¹¥È¥é¥¯¥·¥ç¥ó"
+
+#: lib/sysdeps-init-freebsd.c:40 lib/sysdeps-init-linux.c:40
+msgid "Floating-point exception (ANSI)"
+msgstr "ÉâÆ°¾®¿ôÅÀÎã³° (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
+msgid "Kill, unblockable (POSIX)"
+msgstr "Kill, ¥Ö¥í¥Ã¥¯ÉÔÇ½ (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
+msgid "BUS error (4.2 BSD)"
+msgstr "¥Ð¥¹¥¨¥é¡¼ (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:43 lib/sysdeps-init-linux.c:43
+msgid "Segmentation violation (ANSI)"
+msgstr "¥»¥°¥á¥ó¥Æ¡¼¥·¥ç¥ó¥Ð¥¤¥ª¥ì¡¼¥·¥ç¥ó (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:44
+msgid "Bad argument to system call"
+msgstr "¥·¥¹¥Æ¥à¥³¡¼¥ë¤Î°ú¿ô¤¬°ã¤¤¤Þ¤¹"
+
+#: lib/sysdeps-init-freebsd.c:45 lib/sysdeps-init-linux.c:45
+msgid "Broken pipe (POSIX)"
+msgstr "¥Ö¥í¡¼¥¯¥ó¥Ñ¥¤¥× (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:46 lib/sysdeps-init-linux.c:46
+msgid "Alarm clock (POSIX)"
+msgstr "¥¢¥é¡¼¥à¥¯¥í¥Ã¥¯ (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
+msgid "Termination (ANSI)"
+msgstr "¥¿¡¼¥ß¥Í¡¼¥·¥ç¥ó (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:48 lib/sysdeps-init-linux.c:55
+msgid "Urgent condition on socket (4.2 BSD)"
+msgstr "Urgent condition on socket (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:49 lib/sysdeps-init-linux.c:51
+msgid "Stop, unblockable (POSIX)"
+msgstr "¥¹¥È¥Ã¥×¡¢¥Ö¥í¥Ã¥¯ÉÔÇ½ (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:50 lib/sysdeps-init-linux.c:52
+msgid "Keyboard stop (POSIX)"
+msgstr "¥­¡¼¥Ü¡¼¥É¥¹¥È¥Ã¥× (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:51 lib/sysdeps-init-linux.c:50
+msgid "Continue (POSIX)"
+msgstr "Continue (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:52 lib/sysdeps-init-linux.c:49
+msgid "Child status has changed (POSIX)"
+msgstr "»Ò¥×¥í¥»¥¹¤Î¾õÂÖÊÑ¹¹ (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:53 lib/sysdeps-init-linux.c:53
+msgid "Background read from tty (POSIX)"
+msgstr "TTY¤«¤é¤ÎÆÉ¤ß¹þ¤ß (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:54 lib/sysdeps-init-linux.c:54
+msgid "Background write to tty (POSIX)"
+msgstr "TTY¤Ø¤Î½ñ¤­¹þ¤ß (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:55 lib/sysdeps-init-linux.c:61
+msgid "I/O now possible (4.2 BSD)"
+msgstr "I/O¤¬»ÈÍÑ²ÄÇ½ (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:56 lib/sysdeps-init-linux.c:56
+msgid "CPU limit exceeded (4.2 BSD)"
+msgstr "CPU¤Î¾å¸ÂÅþÃ£ (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:57 lib/sysdeps-init-linux.c:57
+msgid "File size limit exceeded (4.2 BSD)"
+msgstr "¥Õ¥¡¥¤¥ë¥µ¥¤¥º¸Â³¦ÅþÃ£ (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:58 lib/sysdeps-init-linux.c:58
+msgid "Virtual alarm clock (4.2 BSD)"
+msgstr "²¾ÁÛ¥¢¥é¡¼¥à¥¯¥í¥Ã¥¯ (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:59 lib/sysdeps-init-linux.c:59
+msgid "Profiling alarm clock (4.2 BSD)"
+msgstr "¥×¥í¥Õ¥¡¥¤¥ê¥ó¥°¥¢¥é¡¼¥à¥¯¥í¥Ã¥¯(4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:60 lib/sysdeps-init-linux.c:60
+msgid "Window size change (4.3 BSD, Sun)"
+msgstr "¥¦¥£¥ó¥É¥¦¥µ¥¤¥ºÊÑ¹¹ (4.3 BSD, Sun)"
+
+#: lib/sysdeps-init-freebsd.c:61
+msgid "Information request"
+msgstr "¾ðÊó¥ê¥¯¥¨¥¹¥È"
+
+#: lib/sysdeps-init-freebsd.c:62 lib/sysdeps-init-linux.c:42
+msgid "User-defined signal 1 (POSIX)"
+msgstr "¥æ¡¼¥¶ÄêµÁ¥·¥°¥Ê¥ë1 (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:63 lib/sysdeps-init-linux.c:44
+msgid "User-defined signal 2 (POSIX)"
+msgstr "¥æ¡¼¥¶ÄêµÁ¥·¥°¥Ê¥ë2 (POSIX)"
+
+#: lib/sysdeps-init-linux.c:62
+msgid "Power failure restart (System V)"
+msgstr "ÅÅ¸»ÌäÂê»þ¤ÎºÆµ¯Æ° (System V)"
+
+#: support/popthelp.c:23
+msgid "Show this help message"
+msgstr "¤³¤Î¥Ø¥ë¥×¥á¥Ã¥»¡¼¥¸¤ÎÉ½¼¨"
+
+#: support/popthelp.c:24
+msgid "Display brief usage message"
+msgstr "´ÊÃ±¤Ê»È¤¤Êý¤Î¥á¥Ã¥»¡¼¥¸¤òÉ½¼¨"
 
 #: sysdeps/names/cpu.c:45
 msgid "Total CPU Time"
@@ -59,7 +196,7 @@ msgstr "µÙÌ²Ãæ¥¿¥¹¥¯¤Ç¤ÎSMP CPU»þ´Ö"
 
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "SMP CPU¥Õ¥é¥°"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
@@ -235,39 +372,39 @@ msgstr "¥·¥¹¥Æ¥à¥á¥Ã¥»¡¼¥¸¥Ø¥Ã¥À¤Î¿ô"
 
 #: sysdeps/names/prockernel.c:44
 msgid "K_Flags"
-msgstr ""
+msgstr "K¥Õ¥é¥°(_F)"
 
 #: sysdeps/names/prockernel.c:44
 msgid "Min_Flt"
-msgstr ""
+msgstr "Min_Flt"
 
 #: sysdeps/names/prockernel.c:44
 msgid "Maj_Flt"
-msgstr ""
+msgstr "Maj_Flt"
 
 #: sysdeps/names/prockernel.c:44
 msgid "CMin_Flt"
-msgstr ""
+msgstr "CMin_Flt"
 
 #: sysdeps/names/prockernel.c:45
 msgid "CMaj_Flt"
-msgstr ""
+msgstr "CMaj_Flt"
 
 #: sysdeps/names/prockernel.c:45
 msgid "KStk_ESP"
-msgstr ""
+msgstr "KStk_ESP"
 
 #: sysdeps/names/prockernel.c:45
 msgid "KStk_EIP"
-msgstr ""
+msgstr "KStk_EIP"
 
 #: sysdeps/names/prockernel.c:45
 msgid "NWChan"
-msgstr ""
+msgstr "NWChan"
 
 #: sysdeps/names/prockernel.c:46
 msgid "WChan"
-msgstr ""
+msgstr "WChan"
 
 #. K_Flags
 #: sysdeps/names/prockernel.c:52
@@ -383,7 +520,6 @@ msgid "Number of pages of virtual memory"
 msgstr "²¾ÁÛ¥á¥â¥ê¤Î¥Ú¡¼¥¸¿ô"
 
 #: sysdeps/names/procmem.c:57
-#, fuzzy
 msgid "Number of resident set (non-swapped) pages"
 msgstr "¾ïÃó¥»¥Ã¥È(¥¹¥ï¥Ã¥×¤µ¤ì¤Ê¤¤)¥Ú¡¼¥¸¿ô"
 
@@ -400,8 +536,8 @@ msgid ""
 msgstr ""
 "¼Â¥á¥â¥êÃæ¤ËÂ¸ºß¤¹¤ë³ºÅö¥×¥í¥»¥¹¤Î¥Ú¡¼¥¸¿ô¤«¤é¡¢´ÉÍýÍÑ¤Î3¤Ä¤ò°ú¤¤¤¿¤â¤Î¡£ "
 "Ã±¤Ë ¥Æ¥­¥¹¥È¡¢¥Ç¡¼¥¿¤È¥¹¥¿¥Ã¥¯¶õ´Ö¤Ë ¿ô¤¨¤é¤ì¤Æ¤¤¤ë¥Ú¡¼¥¸¤Ç¤¹¡£ "
-"¤Þ¤ÀÆÉ¤ß¹þ¤àÉ¬Í×¤¬À¸¤¸¤Æ¤¤¤Ê¤¤ÉôÊ¬¤ä¡¢¥¹¥ï¥Ã¥×¥¢¥¦¥È¤µ¤ì¤Æ¤¤¤ë¥Ú¡¼¥¸¤Ï´Þ¤ß¤Þ¤"
-"»¤ó¡£"
+"¤Þ¤ÀÆÉ¤ß¹þ¤àÉ¬Í×¤¬À¸¤¸¤Æ¤¤¤Ê¤¤ÉôÊ¬¤ä¡¢¥¹¥ï¥Ã¥×¥¢¥¦¥È¤µ¤ì¤Æ¤¤¤ë¥Ú¡¼¥¸¤Ï"
+"´Þ¤ß¤Þ¤»¤ó¡£"
 
 #: sysdeps/names/procmem.c:64
 msgid ""
@@ -411,74 +547,71 @@ msgstr ""
 
 #: sysdeps/names/procsegment.c:50
 msgid "Text_RSS"
-msgstr ""
+msgstr "Text_RSS"
 
 #: sysdeps/names/procsegment.c:50
 msgid "ShLib_RSS"
-msgstr ""
+msgstr "ShLib_RSS"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Data_RSS"
-msgstr ""
+msgstr "Data_RSS"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Stack_RSS"
-msgstr ""
+msgstr "Stack_RSS"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Dirty Size"
-msgstr ""
+msgstr "¥À¡¼¥Æ¥£¡¼¥µ¥¤¥º"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Start_Code"
-msgstr ""
+msgstr "Start_Code"
 
 #: sysdeps/names/procsegment.c:51
 msgid "End_Code"
-msgstr ""
+msgstr "End_Code"
 
 #: sysdeps/names/procsegment.c:52
-#, fuzzy
 msgid "Start_Data"
 msgstr "µ¯Æ°»þ¹ï"
 
 #: sysdeps/names/procsegment.c:52
 msgid "End_Data"
-msgstr ""
+msgstr "½ªÎ»»þ¹ï"
 
 #: sysdeps/names/procsegment.c:52
-#, fuzzy
 msgid "Start_Brk"
-msgstr "µ¯Æ°»þ¹ï"
+msgstr "Start_Brk"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Brk"
-msgstr ""
+msgstr "Brk"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_Stack"
-msgstr ""
+msgstr "Start_Stack"
 
 #: sysdeps/names/procsegment.c:53
-#, fuzzy
 msgid "Start_MMap"
-msgstr "µ¯Æ°»þ¹ï"
+msgstr "Start_MMap"
 
 #: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
 msgid "Arg_Start"
-msgstr ""
+msgstr "Arg_Start"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
 msgid "Arg_End"
-msgstr ""
+msgstr "Arg_End"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
 msgid "Env_Start"
-msgstr ""
+msgstr "Env_Start"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
 msgid "Env_End"
-msgstr ""
+msgstr "Env_End"
 
 #: sysdeps/names/procsegment.c:59
 msgid "Text resident set size"
@@ -509,22 +642,20 @@ msgid "Address of end of code segment"
 msgstr "¥³¡¼¥É¥»¥°¥á¥ó¥È¤Î½ªÅÀ¥¢¥É¥ì¥¹"
 
 #: sysdeps/names/procsegment.c:66
-#, fuzzy
 msgid "Address of beginning of data segment"
 msgstr "¥³¡¼¥É¥»¥°¥á¥ó¥È»ÏÅÀ¤Î¥¢¥É¥ì¥¹"
 
 #: sysdeps/names/procsegment.c:67
-#, fuzzy
 msgid "Address of end of data segment"
 msgstr "¥³¡¼¥É¥»¥°¥á¥ó¥È¤Î½ªÅÀ¥¢¥É¥ì¥¹"
 
 #: sysdeps/names/procsegment.c:68
 msgid "Brk_Start"
-msgstr ""
+msgstr "Brk_Start"
 
 #: sysdeps/names/procsegment.c:69
 msgid "Brk_End"
-msgstr ""
+msgstr "Brk_End"
 
 #: sysdeps/names/procsegment.c:70
 msgid "Address of the bottom of stack segment"
@@ -532,7 +663,7 @@ msgstr "¥¹¥¿¥Ã¥¯¥»¥°¥á¥ó¥È¤ÎÄì¤Î¥¢¥É¥ì¥¹"
 
 #: sysdeps/names/procsegment.c:71
 msgid "Start of mmap()ed areas"
-msgstr ""
+msgstr "mmap()¤µ¤ì¤¿¥¨¥ê¥¢¤ÎºÇ½é"
 
 #: sysdeps/names/procsignal.c:42
 msgid "Signal"
@@ -544,11 +675,11 @@ msgstr "¥Ö¥í¥Ã¥¯"
 
 #: sysdeps/names/procsignal.c:42
 msgid "SigIgnore"
-msgstr ""
+msgstr "SigIgnore"
 
 #: sysdeps/names/procsignal.c:42
 msgid "SigCatch"
-msgstr ""
+msgstr "SigCatch"
 
 #: sysdeps/names/procsignal.c:47
 msgid "Mask of pending signals"
@@ -568,40 +699,39 @@ msgstr "ÊáÂª¤¹¤ë¥·¥°¥Ê¥ë¤Î¥Þ¥¹¥¯"
 
 #: sysdeps/names/procstate.c:45
 msgid "Cmd"
-msgstr ""
+msgstr "Cmd"
 
 #: sysdeps/names/procstate.c:45
 msgid "State"
-msgstr ""
+msgstr "¾õÂÖ"
 
 #: sysdeps/names/procstate.c:45
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 #: sysdeps/names/procstate.c:45
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: sysdeps/names/procstate.c:45
 msgid "RUID"
-msgstr ""
+msgstr "RUID"
 
 #: sysdeps/names/procstate.c:46
 msgid "RGID"
-msgstr ""
+msgstr "RGID"
 
 #: sysdeps/names/procstate.c:46
 msgid "Has CPU"
-msgstr ""
+msgstr "CPUÀêÍ­"
 
 #: sysdeps/names/procstate.c:46
-#, fuzzy
 msgid "Processor"
-msgstr "¥×¥í¥»¥¹ID"
+msgstr "¥×¥í¥»¥Ã¥µ"
 
 #: sysdeps/names/procstate.c:47
 msgid "Last Processor"
-msgstr ""
+msgstr "ºÇ¸å¤Î¥×¥í¥»¥Ã¥µ"
 
 #: sysdeps/names/procstate.c:52
 msgid "Basename of executable file in call to exec()"
@@ -612,37 +742,32 @@ msgid "Single-Char code for process state (S=sleeping)"
 msgstr "¥×¥í¥»¥¹¾õÂÖ¤Î1Ê¸»ú¤Ç¤ÎÉ½¸½ (S=µÙÌ²Ãæ)"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "effective UID of process"
-msgstr "¥×¥í¥»¥¹UID"
+msgstr "¼Â¸ú¥×¥í¥»¥¹UID"
 
 #: sysdeps/names/procstate.c:55
-#, fuzzy
 msgid "effective GID of process"
-msgstr "¥×¥í¥»¥¹GID"
+msgstr "¼Â¸ú¥×¥í¥»¥¹GID"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "real UID of process"
-msgstr "¥×¥í¥»¥¹UID"
+msgstr "¼Â¥×¥í¥»¥¹UID"
 
 #: sysdeps/names/procstate.c:57
-#, fuzzy
 msgid "real GID of process"
-msgstr "¥×¥í¥»¥¹GID"
+msgstr "¼Â¥×¥í¥»¥¹GID"
 
 #: sysdeps/names/procstate.c:58
 msgid "has_cpu"
-msgstr ""
+msgstr "has_cpu"
 
 #: sysdeps/names/procstate.c:59
-#, fuzzy
 msgid "processor"
-msgstr "¥×¥í¥»¥¹ID"
+msgstr "¥×¥í¥»¥Ã¥µ"
 
 #: sysdeps/names/procstate.c:60
 msgid "last_processor"
-msgstr ""
+msgstr "last_processor"
 
 #: sysdeps/names/proctime.c:46
 msgid "Start_Time"
@@ -650,47 +775,47 @@ msgstr "µ¯Æ°»þ¹ï"
 
 #: sysdeps/names/proctime.c:46
 msgid "RTime"
-msgstr ""
+msgstr "RTime"
 
 #: sysdeps/names/proctime.c:46
 msgid "UTime"
-msgstr ""
+msgstr "UTime"
 
 #: sysdeps/names/proctime.c:46
 msgid "STime"
-msgstr ""
+msgstr "STime"
 
 #: sysdeps/names/proctime.c:47
 msgid "CUTime"
-msgstr ""
+msgstr "CUTime"
 
 #: sysdeps/names/proctime.c:47
 msgid "CSTime"
-msgstr ""
+msgstr "CSTime"
 
 #: sysdeps/names/proctime.c:47
 msgid "TimeOut"
-msgstr ""
+msgstr "¥¿¥¤¥à¥¢¥¦¥È"
 
 #: sysdeps/names/proctime.c:47
 msgid "It_Real_Value"
-msgstr ""
+msgstr "It_Real_Value"
 
 #: sysdeps/names/proctime.c:48
 msgid "Frequency"
-msgstr ""
+msgstr "ÉÑÅÙ"
 
 #: sysdeps/names/proctime.c:48
 msgid "XCPU_UTime"
-msgstr ""
+msgstr "XCPU_UTime"
 
 #: sysdeps/names/proctime.c:48
 msgid "XCPU_STime"
-msgstr ""
+msgstr "XCPU_STime"
 
 #: sysdeps/names/proctime.c:49
 msgid "XCPU_Flags"
-msgstr ""
+msgstr "XCPU_Flags"
 
 #: sysdeps/names/proctime.c:54
 msgid "Start time of process in seconds since the epoch"
@@ -742,77 +867,75 @@ msgstr "¥×¥í¥»¥¹¤¬¥«¡¼¥Í¥ë¥â¡¼¥É¤Ç»ÈÍÑ¤·¤¿ SMP CPU»þ´Ö"
 
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
-msgstr ""
+msgstr "Uid"
 
 #: sysdeps/names/procuid.c:48
 msgid "EUid"
-msgstr ""
+msgstr "EUid"
 
 #: sysdeps/names/procuid.c:48
 msgid "Gid"
-msgstr ""
+msgstr "Gid"
 
 #: sysdeps/names/procuid.c:48
 msgid "EGid"
-msgstr ""
+msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
 msgid "SUid"
-msgstr ""
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
 msgid "SGid"
-msgstr ""
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "FsUid"
-msgstr ""
+msgstr "FsUid"
 
 #: sysdeps/names/procuid.c:49
 msgid "FsGid"
-msgstr ""
+msgstr "FsGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
-msgstr ""
+msgstr "Pid"
 
 #: sysdeps/names/procuid.c:50
 msgid "PPid"
-msgstr ""
+msgstr "PPid"
 
 #: sysdeps/names/procuid.c:50
 msgid "PGrp"
-msgstr ""
+msgstr "PGrp"
 
 #: sysdeps/names/procuid.c:50
 msgid "Session"
-msgstr ""
+msgstr "¥»¥Ã¥·¥ç¥ó"
 
 #: sysdeps/names/procuid.c:50
 msgid "Tty"
-msgstr ""
+msgstr "TTY"
 
 #: sysdeps/names/procuid.c:51
 msgid "TPGid"
-msgstr ""
+msgstr "TPGid"
 
 #: sysdeps/names/procuid.c:51
 msgid "Priority"
-msgstr ""
+msgstr "Í¥ÀèÅÙ"
 
 #: sysdeps/names/procuid.c:51
 msgid "Nice"
-msgstr ""
+msgstr "¥Ê¥¤¥¹ÃÍ"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "¥°¥ë¡¼¥×ID"
+msgstr "¥°¥ë¡¼¥×¿ô"
 
 #: sysdeps/names/procuid.c:52
-#, fuzzy
 msgid "Groups"
-msgstr "¥°¥ë¡¼¥×ID"
+msgstr "¥°¥ë¡¼¥×"
 
 #: sysdeps/names/procuid.c:57
 msgid "User ID"
@@ -831,22 +954,18 @@ msgid "Effective Group ID"
 msgstr "¼Â¸ú¥°¥ë¡¼¥×ID"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Saved User ID"
 msgstr "¥æ¡¼¥¶ID"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Saved Group ID"
 msgstr "¥°¥ë¡¼¥×ID"
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem User ID"
 msgstr "¥Õ¥¡¥¤¥ë¥·¥¹¥Æ¥à»ÈÍÑ¾õ¶·"
 
 #: sysdeps/names/procuid.c:64
-#, fuzzy
 msgid "Filesystem Group ID"
 msgstr "¼Â¸ú¥°¥ë¡¼¥×ID"
 
@@ -883,12 +1002,10 @@ msgid "Standard unix nice level of process"
 msgstr "¥×¥í¥»¥¹¤ÎÉ¸½à unix nice ¥ì¥Ù¥ë"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Number of additional process groups"
 msgstr "Ã¼Ëö¥×¥í¥»¥¹¤Î¥°¥ë¡¼¥×ID"
 
 #: sysdeps/names/procuid.c:74
-#, fuzzy
 msgid "Additional process groups"
 msgstr "Ã¼Ëö¥×¥í¥»¥¹¤Î¥°¥ë¡¼¥×ID"
 
@@ -930,7 +1047,7 @@ msgstr "¥»¥Þ¥Õ¥©¤ÎºÇÂçÃÍ"
 
 #: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 msgid "Adjust on exit max value"
-msgstr ""
+msgstr "½ªÎ»»þ¤ÎºÇÂçÃÍ¤òÊäÀµ"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max segment size"
@@ -980,116 +1097,123 @@ msgstr "¥·¥¹¥Æ¥àµ¯Æ°¸å¤ËÆÉ¤ß¹þ¤Þ¤ì¤¿¥¹¥ï¥Ã¥×¥Ú¡¼¥¸¤ÎÎßÀÑÎÌ"
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "¥·¥¹¥Æ¥àµ¯Æ°¸å¤Ë½ñ¤­½Ð¤µ¤ì¤¿¥¹¥ï¥Ã¥×¥Ú¡¼¥¸¤ÎÎßÀÑÎÌ"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
 msgstr "¥µ¡¼¥Ð¡¼¤ÎÆÃÀ­"
 
 #: sysdeps/names/sysdeps.c:54
-#, fuzzy
 msgid "Pointer Size"
 msgstr "¾ïÃó¥»¥Ã¥È¥µ¥¤¥º"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
 msgid "CPU Usage"
 msgstr "CPU»ÈÍÑÎÌ"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
 msgid "Memory Usage"
 msgstr "¥á¥â¥ê»ÈÍÑÎÌ"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
 msgid "Swap Usage"
 msgstr "¥¹¥ï¥Ã¥×»ÈÍÑÎÌ"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
 msgid "System Uptime"
 msgstr "¥·¥¹¥Æ¥à²ÔÆ¯»þ´Ö"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
 msgid "Load Averange"
 msgstr "Éé²ÙÊ¿¶Ñ"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
 msgid "Shared Memory Limits"
 msgstr "¶¦Í­¥á¥â¥ê¥ê¥ß¥Ã¥È"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
 msgid "Message Queue Limits"
 msgstr "¥á¥Ã¥»¡¼¥¸¥­¥å¡¼¥ê¥ß¥Ã¥È"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
 msgid "Semaphore Set Limits"
 msgstr "¥»¥Þ¥Õ¥©¥»¥Ã¥È¥ê¥ß¥Ã¥È"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
 msgid "List of running Processes"
 msgstr "Áö¹ÔÃæ¥×¥í¥»¥¹°ìÍ÷"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 msgid "Process Status information"
 msgstr "¥×¥í¥»¥¹¾õÂÖ¤Î¾ðÊó"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
 msgid "Process UID and TTY information"
 msgstr "¥×¥í¥»¥¹¤ÎUID¤ÈTTY¾ðÊó"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 msgid "Process Memory information"
 msgstr "¥×¥í¥»¥¹¤Î¥á¥â¥ê¾ðÊó"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
 msgid "Process Time information"
 msgstr "¥×¥í¥»¥¹¤Î»þ´Ö¾ðÊó"
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
 msgid "Process Signal information"
 msgstr "¥×¥í¥»¥¹¤Î¥·¥°¥Ê¥ë¾ðÊó"
 
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
 msgid "Process Kernel Data information"
 msgstr "¥×¥í¥»¥¹¤Î¥«¡¼¥Í¥ë¥Ç¡¼¥¿¾ðÊó"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
 msgid "Process Segment information"
 msgstr "¥×¥í¥»¥¹¤Î¥»¥°¥á¥ó¥È¾ðÊó"
 
 #: sysdeps/names/sysdeps.c:71
+msgid "Process CWD"
+msgstr "¥×¥í¥»¥¹CWD"
+
+#: sysdeps/names/sysdeps.c:72
 msgid "Process Arguments"
 msgstr "¥×¥í¥»¥¹°ú¿ô"
 
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
+#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
 msgid "Process Memory Map"
 msgstr "¥×¥í¥»¥¹¤Î¥á¥â¥ê¥Þ¥Ã¥×"
 
-#: sysdeps/names/sysdeps.c:73
+#: sysdeps/names/sysdeps.c:74
 msgid "Mount List"
 msgstr "¥Þ¥¦¥ó¥È°ìÍ÷"
 
-#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
+#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
 msgid "File System Usage"
 msgstr "¥Õ¥¡¥¤¥ë¥·¥¹¥Æ¥à»ÈÍÑ¾õ¶·"
 
-#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:104
+#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
 msgid "Network Load"
 msgstr "¥Í¥Ã¥È¥ï¡¼¥¯Éé²Ù"
 
-#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
+#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
 msgid "Interface Names"
-msgstr ""
+msgstr "¥¤¥ó¥¿¡¼¥Õ¥§¡¼¥¹Ì¾"
 
-#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
+#: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
 msgid "PPP Statistics"
 msgstr "PPPÅý·×"
 
-#: sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:84
 msgid "Pointer Size on the Server (in bits)"
-msgstr ""
+msgstr "¥µ¡¼¥Ð¤Î¥Ý¥¤¥ó¥¿¥µ¥¤¥º(¥Ó¥Ã¥È)"
 
-#: sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:101
+msgid "Current working directory of the process"
+msgstr "¥×¥í¥»¥¹¤Î¥«¥ì¥ó¥È¥Ç¥£¥ì¥¯¥È¥ê"
+
+#: sysdeps/names/sysdeps.c:102
 msgid "Command line arguments of the process"
 msgstr "¥×¥í¥»¥¹¤Î¥³¥Þ¥ó¥É¹Ô°ú¿ô"
 
-#: sysdeps/names/sysdeps.c:102
+#: sysdeps/names/sysdeps.c:104
 msgid "List of currently mounted filesystems"
 msgstr "¸½ºß¥Þ¥¦¥ó¥ÈÃæ¤Î¥Õ¥¡¥¤¥ë¥·¥¹¥Æ¥à°ìÍ÷"
 
@@ -1103,7 +1227,7 @@ msgstr "µÙÌ²»þ´Ö"
 
 #: sysdeps/names/uptime.c:42
 msgid "Boot time"
-msgstr ""
+msgstr "¥Ö¡¼¥È»þ´Ö"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds since system boot"
@@ -1114,7 +1238,6 @@ msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "¥·¥¹¥Æ¥àµ¯Æ°°Ê¸åµÙÌ²Ãæ¤Î¥¿¥¹¥¯¤ËÈñ¤ä¤·¤¿»þ´Ö(ÉÃ)"
 
 #: sysdeps/names/uptime.c:49
-#, fuzzy
 msgid "Boot time (seconds sice epoch)"
 msgstr "¥×¥í¥»¥¹¤Îµ¯Æ°»þ´Ö¤òepoch¤«¤é¤ÎÉÃ¿ô¤ÇÉ½µ­¤·¤¿¤â¤Î"
 
@@ -1125,132 +1248,98 @@ msgstr "ÉÔÌÀ¤Ê¥·¥¹¥Æ¥à¥¨¥é¡¼"
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr ""
+msgstr "%s: ¥ª¥×¥·¥ç¥ó`%s'¤Ï¤¢¤¤¤Þ¤¤¤Ç¤¹\n"
 
 #: support/getopt.c:693
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: ¥ª¥×¥·¥ç¥ó`--%s'¤Ë¤Ï°ú¿ô¤Ï»ØÄê¤Ç¤­¤Þ¤»¤ó\n"
 
 #: support/getopt.c:698
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: ¥ª¥×¥·¥ç¥ó`%c%s'¤Ë¤Ï°ú¿ô¤Ï»ØÄê¤Ç¤­¤Þ¤»¤ó\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr ""
+msgstr "%s: ¥ª¥×¥·¥ç¥ó`%s'¤Ë¤Ï°ú¿ô¤¬É¬Í×¤Ç¤¹\n"
 
 #. --option
 #: support/getopt.c:744
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr ""
+msgstr "%s: Ç§¼±¤Ç¤­¤Ê¤¤¥ª¥×¥·¥ç¥ó¤Ç¤¹ `--%s'\n"
 
 #. +option or -option
 #: support/getopt.c:748
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr ""
+msgstr "%s: Ç§¼±¤Ç¤­¤Ê¤¤¥ª¥×¥·¥ç¥ó¤Ç¤¹ `--%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr ""
+msgstr "%s: ÉÔÀµ¤Ê¥ª¥×¥·¥ç¥ó¤Ç¤¹-- %c\n"
 
 #: support/getopt.c:777
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr ""
+msgstr "%s: ÉÔÅ¬ÀÚ¤Ê¥ª¥×¥·¥ç¥ó¤Ç¤¹ -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr ""
+msgstr "%s: ¥ª¥×¥·¥ç¥ó¤Ë¤Ï°ú¿ô¤¬É¬Í×¤Ç¤¹ -- %c\n"
 
 #: support/getopt.c:854
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr ""
+msgstr "%s: ¥ª¥×¥·¥ç¥ó `-W %s'¤Ï¤¢¤¤¤Þ¤¤¤Ç¤¹\n"
 
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: ¥ª¥×¥·¥ç¥ó `-W %s' ¤Ï°ú¿ô¤ò¤È¤ì¤Þ¤»¤ó\n"
 
 #: lib/errors.c:31
 msgid "No error"
-msgstr ""
+msgstr "¥¨¥é¡¼¤Ê¤·"
 
 #: lib/errors.c:32
-#, fuzzy
 msgid "Unknown error"
 msgstr "ÉÔÌÀ¤Ê¥·¥¹¥Æ¥à¥¨¥é¡¼"
 
 #: lib/errors.c:33
 msgid "Invalid argument"
-msgstr ""
+msgstr "ÉÔÅ¬ÀÚ¤Ê°ú¿ô¤Ç¤¹"
 
 #: lib/errors.c:34
 msgid "No such parameter"
-msgstr ""
+msgstr "¤½¤Î¤è¤¦¤Ê¥Ñ¥é¥á¡¼¥¿¤Ï¤¢¤ê¤Þ¤»¤ó"
 
 #: lib/errors.c:35
 msgid "Attempted to modify a read-only value"
-msgstr ""
+msgstr "ÆÉ¤ß¹þ¤ßÀìÍÑ¤ÎÃÍ¤ò½¤Àµ¤·¤è¤¦¤È¤·¤Þ¤·¤¿"
 
 #: lib/errors.c:36
 msgid "Parameter size mismatch"
-msgstr ""
+msgstr "¥Ñ¥é¥á¡¼¥¿¥µ¥¤¥º¤¬¹ç¤¤¤Þ¤»¤ó"
 
 #: lib/errors.c:37
 msgid "Communication with LibGTop server failed"
-msgstr ""
+msgstr "LibGTop¥µ¡¼¥Ð¤È¤ÎÄÌ¿®¤Ë¼ºÇÔ¤·¤Þ¤·¤¿"
 
 #: lib/errors.c:38
 msgid "No such process"
-msgstr ""
+msgstr "¤½¤Î¤è¤¦¤Ê¥×¥í¥»¥¹¤Ï¤¢¤ê¤Þ¤»¤ó"
 
 #: lib/errors.c:39
 msgid "No kernel support"
-msgstr ""
+msgstr "¥«¡¼¥Í¥ë¥µ¥Ý¡¼¥È¤Ï¤¢¤ê¤Þ¤»¤ó"
 
 #: lib/errors.c:40
 msgid "Incompatible kernel version"
-msgstr ""
-
-#~ msgid "Number of list elements"
-#~ msgstr "¥ê¥¹¥È¤ÎÍ×ÁÇ¿ô"
-
-#~ msgid "Total size of list"
-#~ msgstr "¥ê¥¹¥ÈÁ´ÂÎ¤ÎÂç¤­¤µ"
-
-#~ msgid "Size of a single list element"
-#~ msgstr "¥ê¥¹¥ÈÍ×ÁÇ°ì¤Ä¤ÎÂç¤­¤µ"
-
-#~ msgid "Give this help list"
-#~ msgstr "¤³¤Î¥Ø¥ë¥×¤ò½ÐÎÏ"
-
-#~ msgid "Give a short usage message"
-#~ msgstr "´ÊÃ±¤Ê»È¤¤Êý¤ò½ÐÎÏ"
-
-#~ msgid "Set the program name"
-#~ msgstr "¥×¥í¥°¥é¥àÌ¾¤òÀßÄê"
-
-#~ msgid "Hang for SECS seconds (default 3600)"
-#~ msgstr "SECSÉÃ´ÖÂÔ¤Ä(¥Ç¥Õ¥©¥ë¥È 3600)"
-
-#~ msgid "Print program version"
-#~ msgstr "¥×¥í¥°¥é¥à¤Î¥Ð¡¼¥¸¥ç¥ó¤ò½ÐÎÏ"
-
-#~ msgid "(PROGRAM ERROR) No version known!?"
-#~ msgstr "(¥×¥í¥°¥é¥à¥¨¥é¡¼) ¥Ð¡¼¥¸¥ç¥ó¤¬¤ï¤«¤ê¤Þ¤»¤ó"
-
-#~ msgid "%s: Too many arguments\n"
-#~ msgstr "%s: °ú¿ô¤¬Â¿²á¤®¤Þ¤¹\n"
-
-#~ msgid "(PROGRAM ERROR) Option should have been recognized!?"
-#~ msgstr "(¥×¥í¥°¥é¥à¥¨¥é¡¼)Ç§¼±¤µ¤ì¤Æ¤¤¤Ê¤¤¥ª¥×¥·¥ç¥ó»ØÄê!?"
+msgstr "¸ß´¹À­¤Î¤Ê¤¤¥«¡¼¥Í¥ë¤Î¥Ð¡¼¥¸¥ç¥ó¤Ç¤¹"
