@@ -12,17 +12,17 @@ endif
 
 CFLAGS				= @CFLAGS@ $(inodedb_DEFS)
 
-lib_LTLIBRARIES			= libgtop_common.la libgtop_suid_common.la
+lib_LTLIBRARIES			= libgtop_common-2.0.la libgtop_suid_common-2.0.la
 
-libgtop_common_la_SOURCES	= xmalloc.c error.c gnuslib.c \
+libgtop_common_2_0_la_SOURCES	= xmalloc.c error.c gnuslib.c \
 				  fsusage.c fsusage.h mountlist.c mountlist.h \
 				  $(inodedb_SRCLIST)
 
-libgtop_common_la_LDFLAGS	= $(LT_VERSION_INFO)
-libgtop_common_la_LIBADD	= $(LIBGTOP_EXTRA_LIBS)
+libgtop_common_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
+libgtop_common_2_0_la_LIBADD	= $(LIBGTOP_EXTRA_LIBS)
 
-libgtop_suid_common_la_SOURCES	= xmalloc.c error.c sysdeps_suid.c
+libgtop_suid_common_2_0_la_SOURCES	= xmalloc.c error.c sysdeps_suid.c
 
-libgtop_suid_common_la_LDFLAGS	= $(LT_VERSION_INFO)
+libgtop_suid_common_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 
 EXTRA_DIST			= inodedb.c

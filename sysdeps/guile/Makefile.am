@@ -6,11 +6,11 @@ INCLUDES			= @INCLUDES@
 
 BUILT_SOURCES			= guile.c guile.x
 
-lib_LTLIBRARIES			= libgtop_guile.la
+lib_LTLIBRARIES			= libgtop_guile-2.0.la
 
-libgtop_guile_la_SOURCES	= $(BUILT_SOURCES)
+libgtop_guile_2_0_la_SOURCES	= $(BUILT_SOURCES)
 
-libgtop_guile_la_LDFLAGS	= $(LT_VERSION_INFO)
+libgtop_guile_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 
 Makefile: $(BUILT_SOURCES)
 

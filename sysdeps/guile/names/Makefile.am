@@ -2,13 +2,13 @@ LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 INCLUDES			= @INCLUDES@
 
-lib_LTLIBRARIES			= libgtop_guile_names.la
+lib_LTLIBRARIES			= libgtop_guile_names-2.0.la
 
 BUILT_SOURCES			= guile-names.c guile-names.x
 
-libgtop_guile_names_la_SOURCES	= $(BUILT_SOURCES)
+libgtop_guile_names_2_0_la_SOURCES	= $(BUILT_SOURCES)
 
-libgtop_guile_names_la_LDFLAGS	= $(LT_VERSION_INFO)
+libgtop_guile_names_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 
 Makefile: $(BUILT_SOURCES)
 

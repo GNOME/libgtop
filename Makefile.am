@@ -1,25 +1,25 @@
 ## Process this file with automake to produce Makefile.in.
 
-if EXAMPLES
-examples_SUBDIRS = examples
-else
+## if EXAMPLES
+## examples_SUBDIRS = examples
+## else
 examples_SUBDIRS =
-endif
+## endif
 
 if BUILD_GNOME_SUPPORT
 support = support
 endif
 
-SUBDIRS = po intl $(support) macros misc include sysdeps lib src \
+SUBDIRS = po $(support) misc include sysdeps lib src \
 	  $(examples_SUBDIRS) doc
 
 libgtopinclude_HEADERS = glibtop.h
-libgtopincludedir = $(includedir)/libgtop-1.0
+libgtopincludedir = $(includedir)/libgtop-2.0
 
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt libgtopConf.sh.in \
 	LIBGTOP-VERSION features.def libgtop-config.in RELNOTES-0.25 \
 	RELNOTES-1.0 RELNOTES-1.0.x libgtop-sysdeps.m4 README \
-	libgtop-mirror.sh
+	libgtop-mirror.sh libgtop-2.0.pc.in
 
 dist-hook:
 	cp libgtop.spec $(distdir)
@@ -29,19 +29,22 @@ release:
 
 ## Put `exec' in the name because this should be installed by
 ## `install-exec', not `install-data'.
-confexecdir	= $(libdir)
-confexec_DATA	= $(top_builddir)/libgtopConf.sh \
-		  $(top_builddir)/libgtop-features.def
+## confexecdir	= $(libdir)
+## confexec_DATA	= $(top_builddir)/libgtopConf.sh \
+##		  $(top_builddir)/libgtop-features.def
+		  
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = libgtop-2.0.pc
 
 CLEANFILES=libgtopConf.sh
 
-bin_SCRIPTS = $(top_builddir)/libgtop-config
+## bin_SCRIPTS = $(top_builddir)/libgtop-config
 
 ## to automatically rebuild aclocal.m4 if any of the macros in
 ## `macros/' change
-@MAINT@ include macros/macros.dep
-@MAINT@macros/macros.dep: macros/Makefile.am
-@MAINT@	cd macros && $(MAKE) macros.dep
+## @MAINT@ include macros/macros.dep
+## @MAINT@macros/macros.dep: macros/Makefile.am
+## @MAINT@	cd macros && $(MAKE) macros.dep
 
 @MAINT@$(top_srcdir)/aclocal.m4: libgtop-sysdeps.m4 LIBGTOP-VERSION
 
@@ -52,7 +55,7 @@ bin_SCRIPTS = $(top_builddir)/libgtop-config
 libgtopConf.sh: libgtopConf.sh.in Makefile
 ## Use sed and then mv to avoid problems if the user interrupts.
 	sed -e 's#\@LIBGTOP_LIBDIR\@#$(libdir)#g' \
-	  -e 's#\@LIBGTOP_INCLUDEDIR\@#$(includedir)/libgtop-1.0#g' \
+	  -e 's#\@LIBGTOP_INCLUDEDIR\@#$(includedir)/libgtop-2.0#g' \
 	  -e 's#\@LIBGTOP_DATADIR\@#$(datadir)#g' \
 	  -e 's#\@LIBGTOP_EXTRA_LIBS\@#$(LIBGTOP_EXTRA_LIBS)#g' \
 	  -e 's#\@LIBGTOP_LIBS\@#$(LIBGTOP_LIBS)#g' \
@@ -79,11 +82,11 @@ libgtopConf.sh: libgtopConf.sh.in Makefile
 	      < $(srcdir)/libgtopConf.sh.in > libgtopConf.tmp \
 	  && mv libgtopConf.tmp libgtopConf.sh
 
-libgtop-config: libgtop-config.in Makefile
-	sed -e 's#\@LIBGTOP_LIBDIR\@#$(libdir)#g' \
-	      < $(srcdir)/libgtop-config.in > libgtop-config.tmp \
-	  && mv libgtop-config.tmp libgtop-config && \
-		chmod 755 libgtop-config
+# libgtop-config: libgtop-config.in Makefile
+#	sed -e 's#\@LIBGTOP_LIBDIR\@#$(libdir)#g' \
+#	      < $(srcdir)/libgtop-config.in > libgtop-config.tmp \
+#	  && mv libgtop-config.tmp libgtop-config && \
+#		chmod 755 libgtop-config
 
 libgtop-features.def: features.def
 	@LN_S@ $< $@

@@ -2,13 +2,13 @@ LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 INCLUDES			= @INCLUDES@
 
-lib_LTLIBRARIES			= libgtop.la
+lib_LTLIBRARIES			= libgtop-2.0.la
 
-libgtop_la_SOURCES		= init.c open.c close.c command.c read.c \
+libgtop_2_0_la_SOURCES		= init.c open.c close.c command.c read.c \
 				  read_data.c write.c lib.c parameter.c \
 				  sysdeps.c
 
-libgtop_la_LDFLAGS		= $(LT_VERSION_INFO)
+libgtop_2_0_la_LDFLAGS		= $(LT_VERSION_INFO)
 
 BUILT_SOURCES			= lib.c
 

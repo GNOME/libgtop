@@ -1,0 +1,38 @@
+1999-10-18  Martin Baulig  <martin@home-of-linux.org>
+
+	* about.texi: Added a note about LibGTop and GNOME.
+
+	* reference.texi (glibtop_proc_state): Fix description of the `state'
+ 	field for LibGTop 1.0.x.
+
+1999-09-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am (MAKEINFO): Add `-I @libgtop_top_builddir@/doc' here.
+
+1999-05-16  Martin Baulig  <martin@home-of-linux.org>
+
+	* main.texi: This is now the main file which will @include all
+	chapter files so we can use `texinfo-multiple-files-update'.
+
+	* reference.texi: Added all missing sections with a "not yet written"
+	notice.
+
+1999-05-16  Martin Baulig  <martin@home-of-linux.org>
+
+	* white-paper.texi: Initial version of the LibGTop White Paper.
+
+	* Makefile.am: Create `auto-macros.texi' from `auto-macros.texi.in'
+ 	which will contain some `@set' commands for the LibGTop version etc.
+
+	* auto-macros.texi.in: New file. This is a template for
+	`auto-macros.texi' which will be automatically generated.
+
+1999-05-09  Martin Baulig  <martin@home-of-linux.org>
+
+	* about.texi: Split the `libgtop.texi' into one file pro chapter,
+	this is the "About LibGTop".
+
+	* reference.texi: The "LibGTop Reference Manual".
+
+	* libgtop.texi: Initial version of the new LibGTop Manual.
+

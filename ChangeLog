@@ -1,3 +1,9 @@
+2001-11-25  Kevin Vandersloot <kfv101@psu.edu>
+
+	* port stable libgtop to GNOME 2.0. Too much to detail.
+	pkgconfig is now used. Libs are named libgtop-2.0 etc for
+	parallel install. 
+
 2001-10-17  Abel Chueng  <maddog@linux.org.hk>
 
 	* configure.in, Makefile.am, include/glibtop/Makefile.am: headers

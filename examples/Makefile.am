@@ -22,9 +22,9 @@ EXTRA_PROGRAMS		= first_static second_static \
 			  timings_static
 
 first_SOURCES		= first.c
-first_LDADD		= $(top_builddir)/lib/libgtop.la \
-			  $(top_builddir)/sysdeps/common/libgtop_common.la \
-			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+first_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common-2.0.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps-2.0.la \
 			  @LIBSUPPORT@ @INTLLIBS@
 
 first_static_SOURCES	= $(first_SOURCES)
@@ -32,9 +32,9 @@ first_static_LDADD	= $(first_LDADD)
 first_static_LDFLAGS	= -static
 
 second_SOURCES		= second.c
-second_LDADD		= $(top_builddir)/lib/libgtop.la \
-			  $(top_builddir)/sysdeps/common/libgtop_common.la \
-			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+second_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common-2.0.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps-2.0.la \
 			  @LIBSUPPORT@ @INTLLIBS@
 
 second_static_SOURCES	= $(second_SOURCES)
@@ -42,9 +42,9 @@ second_static_LDADD	= $(second_LDADD)
 second_static_LDFLAGS	= -static
 
 procmap_SOURCES		= procmap.c
-procmap_LDADD		= $(top_builddir)/lib/libgtop.la \
-			  $(top_builddir)/sysdeps/common/libgtop_common.la \
-			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+procmap_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common-2.0.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps-2.0.la \
 			  @LIBSUPPORT@ @INTLLIBS@
 
 
@@ -54,9 +54,9 @@ procmap_static_LDADD	= $(procmap_LDADD)
 procmap_static_LDFLAGS	= -static
 
 netload_SOURCES		= netload.c
-netload_LDADD		= $(top_builddir)/lib/libgtop.la \
-			  $(top_builddir)/sysdeps/common/libgtop_common.la \
-			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+netload_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common-2.0.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps-2.0.la \
 			  @LIBSUPPORT@ @INTLLIBS@
 
 netload_static_SOURCES	= $(netload_SOURCES)
@@ -73,15 +73,15 @@ sysdeps_static_SOURCES	= $(sysdeps_SOURCES)
 sysdeps_static_LDADD	= $(sysdeps_LDADD)
 sysdeps_static_LDFLAGS	= -static
 
-third_guile_names_LIBS	= $(top_builddir)/sysdeps/guile/names/libgtop_guile_names.la
-third_names_LIBS	= $(top_builddir)/sysdeps/names/libgtop_names.la
+third_guile_names_LIBS	= $(top_builddir)/sysdeps/guile/names/libgtop_guile_names-2.0.la
+third_names_LIBS	= $(top_builddir)/sysdeps/names/libgtop_names-2.0.la
 
 third_SOURCES		= third.c
-third_LDADD		= $(top_builddir)/sysdeps/guile/libgtop_guile.la \
+third_LDADD		= $(top_builddir)/sysdeps/guile/libgtop_guile-2.0.la \
 			  $(third_guile_names_LIBS) $(third_names_LIBS) \
-			  $(top_builddir)/lib/libgtop.la \
-			  $(top_builddir)/sysdeps/common/libgtop_common.la \
-			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+			  $(top_builddir)/lib/libgtop-2.0.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common-2.0.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps-2.0.la \
 			  @GUILE_LIBS@ @LIBSUPPORT@ @INTLLIBS@
 
 third_static_SOURCES	= $(third_SOURCES)
@@ -89,9 +89,9 @@ third_static_LDADD	= $(third_LDADD)
 third_static_LDFLAGS	= -static
 
 mountlist_SOURCES	= mountlist.c
-mountlist_LDADD		= $(top_builddir)/lib/libgtop.la \
-			  $(top_builddir)/sysdeps/common/libgtop_common.la \
-			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+mountlist_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common-2.0.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps-2.0.la \
 			  @LIBSUPPORT@ @INTLLIBS@
 
 mountlist_static_SOURCES= $(mountlist_SOURCES)
@@ -100,9 +100,9 @@ mountlist_static_LDFLAGS= -static
 
 
 smp_SOURCES		= smp.c
-smp_LDADD		= $(top_builddir)/lib/libgtop.la \
-			  $(top_builddir)/sysdeps/common/libgtop_common.la \
-			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+smp_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common-2.0.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps-2.0.la \
 			  @LIBSUPPORT@ @INTLLIBS@
 
 smp_static_SOURCES	= $(smp_SOURCES)
@@ -110,9 +110,9 @@ smp_static_LDADD	= $(smp_LDADD)
 smp_static_LDFLAGS	= -static
 
 timings_SOURCES		= timings.c
-timings_LDADD		= $(top_builddir)/lib/libgtop.la \
-			  $(top_builddir)/sysdeps/common/libgtop_common.la \
-			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+timings_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common-2.0.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps-2.0.la \
 			  @LIBSUPPORT@ @INTLLIBS@
 
 timings_static_SOURCES	= $(timings_SOURCES)

@@ -14,43 +14,43 @@
 
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-INCLUDES			= @INCLUDES@ -D_BSD \
+INCLUDES			= $(LIBGTOP_CFLAGS) @INCLUDES@ -D_BSD \
 				  -DLIBGTOP_COMPILE_SYSTEM=\"`uname -s`\" \
 				  -DLIBGTOP_COMPILE_RELEASE=\"`uname -r`\" \
 				  -DLIBGTOP_COMPILE_MACHINE=\"`uname -m`\"
 
 if NEED_LIBGTOP
-suid_sysdeps			= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid.la
-suid_common			= $(top_builddir)/sysdeps/common/libgtop_suid_common.la
+suid_sysdeps			= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid-2.0.la
+suid_common			= $(top_builddir)/sysdeps/common/libgtop_suid_common-2.0.la
 else
 suid_sysdeps			=
 suid_common			=
 endif
 
-bin_PROGRAMS			= libgtop_daemon @server_programs@
+bin_PROGRAMS			= libgtop_daemon2 @server_programs@
 
-EXTRA_PROGRAMS			= libgtop_server
+EXTRA_PROGRAMS			= libgtop_server2
 
-libgtop_daemon_SOURCES		= gnuserv.c slave.c main.c io.c version.c \
+libgtop_daemon2_SOURCES		= gnuserv.c slave.c main.c io.c version.c \
 				  daemon.h server_config.h
-libgtop_daemon_LDADD		= $(top_builddir)/lib/libgtop.la \
-				  $(top_builddir)/sysdeps/common/libgtop_common.la \
-				  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+libgtop_daemon2_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
+				  $(top_builddir)/sysdeps/common/libgtop_common-2.0.la \
+				  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps-2.0.la \
 				  @sysdeps_suid_lib@ \
 				  $(suid_sysdeps) $(suid_common)\
-				  $(GLIB_LIBS)\
+				  $(LIBGTOP_LIBS)\
 				  @LIBSUPPORT@ @INTLLIBS@ @libs_xauth@
 
 if ENABLE_STATIC
-libgtop_daemon_LDFLAGS		= -static
+libgtop_daemon2_LDFLAGS		= -static
 endif
 
-libgtop_server_SOURCES		= server.c slave.c io.c version.c daemon.h
-libgtop_server_LDADD		= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid.la \
-				  $(top_builddir)/sysdeps/common/libgtop_suid_common.la
+libgtop_server2_SOURCES		= server.c slave.c io.c version.c daemon.h
+libgtop_server2_LDADD		= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid-2.0.la \
+				  $(top_builddir)/sysdeps/common/libgtop_suid_common-2.0.la
 
 if ENABLE_STATIC
-libgtop_server_LDFLAGS		= -static
+libgtop_server2_LDFLAGS		= -static
 endif
 
 EXTRA_DIST			= server_config.h.in server_config.pl

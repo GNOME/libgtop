@@ -3,6 +3,7 @@
 
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
+ACLOCAL_FLAGS="$ACLOCAL_FLAGS -I ."
 
 PKG_NAME="Gnome Top Library"
 
@@ -14,4 +15,8 @@ PKG_NAME="Gnome Top Library"
     exit 1
 }
 
-. $srcdir/macros/autogen.sh
+which gnome-autogen.sh || {
+    echo "You need to install gnome-common from the GNOME CVS"
+    exit 1
+}
+USE_GNOME2_MACROS=1 . gnome-autogen.sh
