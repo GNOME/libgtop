@@ -1,3 +1,7 @@
+1999-09-27  Rodrigo Stulzer Lopes <rodrigo@conectiva.com.br>
+
+	* configure.in: Added "pt_BR" to ALL_LINGUAS.
+	
 1999-09-22  Kjartan Maraas  <kmaraas@online.no>
 
 	* configure.in: Added "da" to ALL_LINGUAS.
