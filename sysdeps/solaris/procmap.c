@@ -120,8 +120,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		return NULL;
 	}
 #endif
-	if(!(entry = g_malloc(server,
-		    		      nmaps * sizeof(glibtop_map_entry))))
+	if(!(entry = g_malloc(nmaps * sizeof(glibtop_map_entry))))
 	   	return NULL;
 	buf->number = nmaps;
 	buf->size = sizeof(glibtop_map_entry);

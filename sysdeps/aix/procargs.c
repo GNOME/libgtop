@@ -73,7 +73,7 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 	}
 	
 	size = max_len != 0 ? max_len : 4096;
-	args_buffer = g_malloc (server, size);
+	args_buffer = g_malloc (size);
 	if (args_buffer == NULL)
 	{
 		glibtop_error_io_r (server, "Cannot malloc procsinfo");
@@ -111,7 +111,7 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 		len += strlen(args_buffer + len) + 1;
 	}
 
-	args = g_malloc (server, len);
+	args = g_malloc (len);
 	if (args == NULL)
 	{
 		glibtop_error_io_r (server, "Cannot malloc procsinfo");

@@ -60,7 +60,7 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 	      break;
 	if(max_len)
 	{
-	   	ret = g_malloc(server, max_len + 1);
+	   	ret = g_malloc(max_len + 1);
 		if(max_len < len)
 		   	len = max_len;
 		memcpy(ret, pinfo.pr_psargs, len);
@@ -68,7 +68,7 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 	}
 	else
 	{
-	   ret = g_malloc(server, len + 1);
+	   ret = g_malloc(len + 1);
 	   memcpy(ret, pinfo.pr_psargs, len);
 	   ret[len] = 0;
 

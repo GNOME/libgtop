@@ -155,7 +155,7 @@ handle_slave_connection (int input, int output)
 		     cmnd->data_size);
 #endif
 
-	    data_ptr = g_malloc (server, cmnd->data_size);
+	    data_ptr = g_malloc (cmnd->data_size);
 	    do_read (input, data_ptr, cmnd->data_size);
 	}
 

@@ -181,7 +181,7 @@ sub output {
     $send_buf_code = "\t/* send buffer */\n";
     $send_buf_code .= "\t_LIBGTOP_SEND_buf = ";
     if ($need_temp_storage) {
-      $send_buf_code .= "g_malloc (server, _LIBGTOP_SEND_len+1)";
+      $send_buf_code .= "g_malloc (_LIBGTOP_SEND_len+1)";
     } else {
       $send_buf_code .= '(void *) &'.$first_param_name;
     }
@@ -190,7 +190,7 @@ sub output {
     $send_buf_code .= "\t/* data buffer */\n";
     $send_buf_code .= "\t_LIBGTOP_DATA_buf = ";
     if ($need_temp_storage) {
-      $send_buf_code .= "g_malloc (server, _LIBGTOP_DATA_len+1)";
+      $send_buf_code .= "g_malloc (_LIBGTOP_DATA_len+1)";
     } else {
       $send_buf_code .= 'NULL';
     }
@@ -231,7 +231,7 @@ sub output {
       $local_var_code .= "\tchar *_LIBGTOP_ARRAY_ptr, **ptrlist;\n";
       $local_var_code .= "\toff_t *_LIBGTOP_ARRAY_off_ptr;\n";
       $local_var_code .= "\tint i;\n";
-      $call_code .= "\tptrlist = g_malloc (server, array->number+1 * sizeof (char *));\n";
+      $call_code .= "\tptrlist = g_malloc (array->number+1 * sizeof (char *));\n";
       $call_code .= "\t_LIBGTOP_ARRAY_off_ptr = (off_t *) retval;\n";
       $call_code .= "\t_LIBGTOP_ARRAY_ptr = (char *) retval;\n";
       $call_code .= "\t_LIBGTOP_ARRAY_off_ptr++;\n\n";

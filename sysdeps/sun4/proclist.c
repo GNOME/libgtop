@@ -71,7 +71,7 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 
 	proc_size = nproc * sizeof (unsigned);
 
-	proc_list = g_malloc (server, proc_size);
+	proc_list = g_malloc (proc_size);
 
 	/* Write process list. */
 

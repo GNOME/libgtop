@@ -1,3 +1,9 @@
+2004-03-09  Bastien Nocera  <hadess@hadess.net>
+
+	* open.c: (glibtop_open_p):
+	* proclist.c: (glibtop_get_proclist_p): fix g_malloc usage on non-Linux
+        platforms (patch by Benoit Dejean <bnet@ifrance.com>)
+
 2003-10-21  Bastien Nocera  <hadess@hadess.net>
 
 	* Makefile.am: install only one library, libgtop-2.0

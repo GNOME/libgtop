@@ -169,7 +169,7 @@ glibtop_open_p (glibtop *server, const char *program_name,
 		sizeof (struct page);
 
 	server->machine.physpage = (struct page *)
-		g_malloc (server, server->machine.bytesize);
+		g_malloc (server->machine.bytesize);
 
 	/* get the page size with "getpagesize" and
 	 * calculate pageshift from it */

@@ -89,7 +89,7 @@ glibtop_call_i (glibtop_server *server, backend_server_private *priv,
 	glibtop_read_i (priv, recv_size, recv_ptr);
 
     if (resp.data_size) {
-	void *ptr = g_malloc (server, resp.data_size);
+	void *ptr = g_malloc (resp.data_size);
 
 	glibtop_read_i (priv, resp.data_size, ptr);
 

@@ -93,7 +93,7 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 		size += strlen (*ptr)+1;
 
 	size += 2;
-	retval = g_malloc (server, size);
+	retval = g_malloc (size);
 	memset (retval, 0, size);
 
 	for (ptr = args; *ptr; ptr++) {
