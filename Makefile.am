@@ -11,8 +11,8 @@ include_HEADERS = glibtop.h
 configincludedir = $(pkglibdir)/include
 
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt libgtopConf.sh.in \
-	LIBGTOP-VERSION features.def libgtop-config.in RELNOTES-0.25 \
-	RELNOTES-1.0 RELNOTES-1.1.x libgtop-sysdeps.m4 README \
+	LIBGTOP-VERSION features.def structures.def libgtop-config.in \
+	RELNOTES-0.25 RELNOTES-1.0 RELNOTES-1.1.x libgtop-sysdeps.m4 README \
 	libgtop-mirror.sh
 
 configinclude_DATA = \
@@ -35,7 +35,8 @@ release:
 ## `install-exec', not `install-data'.
 confexecdir	= $(libdir)
 confexec_DATA	= $(top_builddir)/libgtopConf.sh \
-		  $(top_builddir)/libgtop-features.def
+		  $(top_builddir)/libgtop-features.def \
+		  $(top_builddir)/libgtop-structures.def
 
 CLEANFILES=libgtopConf.sh
 
@@ -89,5 +90,8 @@ libgtop-config: libgtop-config.in Makefile
 		chmod 755 libgtop-config
 
 libgtop-features.def: features.def
+	@LN_S@ $< $@
+
+libgtop-structures.def: structures.def
 	@LN_S@ $< $@
 

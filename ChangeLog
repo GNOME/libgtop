@@ -1,3 +1,8 @@
+1999-12-05  Martin Baulig  <martin@home-of-linux.org>
+
+	* structures.def: New file. This is used by the language bindings
+	code to get the definitions of some of LibGTop's structures.
+
 1999-11-28  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/netload.h (glibtop_get_netload): Added

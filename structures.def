@@ -1,0 +1,3 @@
+glibtop_map_entry|ulong(flags,start,end,offset,perm,inode,device):string(filename)
+glibtop_mountentry|ulong(dev):string(devname,mountdir,type)
+glibtop_interface|ulong(flags,if_flags,transport,type,number,instance,num_logical):string(name)
