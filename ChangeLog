@@ -1,3 +1,13 @@
+1998-08-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* LIBGTOP-VERSION (LIBGTOP_INTERFACE_AGE, LIBGTOP_BINARY_AGE): Added.
+	* configure.in (LIBGTOP_INTERFACE_AGE, LIBGTOP_BINARY_AGE): AC_SUBST.
+	(LT_RELEASE, LT_CURRENT, LT_REVISION, LT_AGE): AC_SUBST.
+	(LT_VERSION_INFO): Sets `-version-info' for libtool.
+
+	* */Makefile.am: We now use the correct `-version-info' parameter
+	for libtool.
+
 1998-08-25  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/command.h (glibtop_call): Third argument is
@@ -5,6 +15,8 @@
 
 	* include/glibtop/xmalloc.h (glibtop_free): Now taking a
 	`const void *'.
+
+1998-08-25  Martin Baulig  <martin@home-of-linux.org>
 
 	* src/daemon/ChangeLog: New file.
 

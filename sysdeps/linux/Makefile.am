@@ -10,4 +10,6 @@ libgtop_sysdeps_la_SOURCES	= open.c close.c cpu.c mem.c swap.c \
 				  proctime.c procmem.c procsignal.c prockernel.c \
 				  procsegment.c procmap.c siglist.c
 
+libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO)
+
 include_HEADERS			= glibtop_server.h glibtop_machine.h

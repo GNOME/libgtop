@@ -6,6 +6,8 @@ lib_LTLIBRARIES			= libgtop_guile_names.la
 
 libgtop_guile_names_la_SOURCES	= guile-names.c
 
+libgtop_guile_names_la_LDFLAGS	= $(LT_VERSION_INFO)
+
 BUILT_SOURCES			= guile-names.c
 
 guile-names.c: guile-names.awk $(top_builddir)/config.h $(top_srcdir)/features.def

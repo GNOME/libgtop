@@ -10,6 +10,8 @@ libgtop_sysdeps_la_SOURCES	= open.c close.c kernel.s cpu.c mem.c swap.c \
 				  proctime.c procmem.c procsignal.c prockernel.c \
 				  procsegment.c siglist.c procmap.c
 
+libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO)
+
 include_HEADERS			= glibtop_server.h
 
 kernel.o kernel.lo: $(srcdir)/kernel.s

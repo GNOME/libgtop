@@ -10,3 +10,6 @@ libgtop_names_la_SOURCES	= cpu.c mem.c swap.c uptime.c loadavg.c \
 				  proctime.c procmem.c procsignal.c \
 				  prockernel.c procsegment.c fsusage.c \
 				  mountlist.c procmap.c
+
+libgtop_names_la_LDFLAGS	= $(LT_VERSION_INFO)
+
