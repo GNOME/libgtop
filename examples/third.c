@@ -22,6 +22,8 @@
 */
 
 #include <locale.h>
+#include <libintl.h>
+#include <stdio.h>
 
 #include <glibtop.h>
      

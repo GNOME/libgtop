@@ -22,6 +22,8 @@
 */
 
 #include <locale.h>
+#include <libintl.h>
+#include <stdio.h>
 
 #include <glibtop.h>
 #include <glibtop/open.h>
@@ -152,7 +154,7 @@ main (int argc, char *argv [])
 		}
 
 		if (filename && (filename != maps [i].filename))
-			g_free (filename);
+			g_free ((void*)filename);
 	}
 
 	g_free (maps);

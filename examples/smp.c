@@ -24,7 +24,9 @@
 #include <config.h>
 
 #include <locale.h>
+#include <libintl.h>
 #include <math.h>
+#include <stdio.h>
 
 #include <glibtop.h>
 #include <glibtop/cpu.h>

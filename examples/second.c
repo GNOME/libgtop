@@ -23,6 +23,8 @@
 
 #include <locale.h>
 #include <math.h>
+#include <stdio.h>
+#include <libintl.h>
 
 #include <glibtop.h>
 #include <glibtop/open.h>
@@ -44,7 +46,7 @@ output (pid_t pid)
 	double b_total, b_utime, b_stime;
 	double s_total, s_utime, s_stime;
 	double my_utime, my_stime;
-	int ncpu;
+	unsigned int ncpu;
 #endif
 
 	printf ("\n");
