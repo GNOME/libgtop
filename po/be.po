@@ -1,18 +1,23 @@
-# ver. 0.0.1
-# Copyright (C) 1999 Free Software Foundation, Inc.
+# Беларускі пераклад libgtop.HEAD.
+# Беларускі пераклад libgtop.HEAD
+# Copyright (C) 1999, 2004 Free Software Foundation, Inc.
+# Vital Khilko <dojlid@mova.org>, 2003.
+# Ales Nyakhaychyk <nab@mail.by>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop-1.0.1\n"
+"Project-Id-Version: libgtop.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-11 03:27+0100\n"
-"PO-Revision-Date: 2002-10-27 23:57GMT+2\n"
-"Last-Translator: Vital Khilko <dojlid@mova.org>\n"
-"Language-Team: belarusian <i18n@mova.org>\n"
+"POT-Creation-Date: 2004-03-13 05:17+0100\n"
+"PO-Revision-Date: 2004-03-13 14:28+0200\n"
+"Last-Translator: Ales Nyakhaychyk <nab@mail.by>\n"
+"Language-Team: Belarusian <i18n@mova.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 0.9.5\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: KBabel 1.0.2\n"
 
 #: examples/smp.c:74
 #, c-format
@@ -96,37 +101,40 @@ msgid "Spin:"
 msgstr "Спін:"
 
 #: lib/read.c:78
-#, fuzzy, c-format
+#, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "прачыт: %d байтаў"
-msgstr[1] "прачыт: %d байтаў"
+msgstr[0] "прачытаны %d байт"
+msgstr[1] "прачытаны %d байты"
+msgstr[2] "прачытана %d байтаў"
 
 #: lib/read_data.c:51
 msgid "read data size"
 msgstr "памер прачытаных даньняў"
 
 #: lib/read_data.c:68
-#, fuzzy, c-format
+#, c-format
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
-msgstr[0] "прачытана %d байтаў даньняў"
-msgstr[1] "прачытана %d байтаў даньняў"
+msgstr[0] "прачытаны %d байт даньняў"
+msgstr[1] "прачытаны %d байты даньняў"
+msgstr[2] "прачытана %d байтаў даньняў"
 
 #: lib/write.c:51
-#, fuzzy, c-format
+#, c-format
 msgid "write %d byte"
 msgid_plural "write %d bytes"
-msgstr[0] "запісана %d байтаў"
-msgstr[1] "запісана %d байтаў"
+msgstr[0] "запісаны %d байт"
+msgstr[1] "запісаны %d байты"
+msgstr[2] "запісана %d байтаў"
 
 #: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
-msgstr "Уключыць атладку"
+msgstr "Уключыць адладку"
 
 #: src/daemon/gnuserv.c:456
 msgid "DEBUG"
-msgstr "АТЛАДКА"
+msgstr "АДЛАДКА"
 
 #: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
@@ -207,7 +215,7 @@ msgstr "Час SMP ЦПУ у рэжыме чаканьня"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "Сьцягі SMP ЦП"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks since system boot"
@@ -219,8 +227,7 @@ msgstr "Колькасьць цікаў часу, праведзенага сы�
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr ""
-"Колькасьць цікаў часу, праведзенага сыстэмай у рэжыме карыстальніку (nice)"
+msgstr "Колькасьць цікаў часу, праведзенага сыстэмай у рэжыме карыстальніку (nice)"
 
 #: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in system mode"
@@ -236,7 +243,7 @@ msgstr "Часьціня цікаў (дапомна 100)"
 
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
-msgstr ""
+msgstr "Бітавае поле, якое сьведчыць, які ЦП зараз задзейнічаны"
 
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
 msgid "Total blocks"
@@ -658,8 +665,7 @@ msgstr ""
 "па запыце ці выгружаны з памяці."
 
 #: sysdeps/names/procmem.c:63
-msgid ""
-"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "Бягучыя межы ў байтох для rss працэсу (звычайна 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:43
@@ -775,26 +781,24 @@ msgid "GID"
 msgstr "GID"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RGid"
-msgstr "Gid"
+msgstr "RGid"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RUid"
-msgstr "Uid"
+msgstr "RUid"
 
 #: sysdeps/names/procstate.c:44
 msgid "HasCPU"
-msgstr ""
+msgstr "HasCPU"
 
 #: sysdeps/names/procstate.c:44
 msgid "Proc"
-msgstr ""
+msgstr "Proc"
 
 #: sysdeps/names/procstate.c:44
 msgid "LProc"
-msgstr ""
+msgstr "LProc"
 
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
@@ -813,31 +817,28 @@ msgid "GID of process"
 msgstr "GID працэсу"
 
 #: sysdeps/names/procstate.c:53
-#, fuzzy
 msgid "Real UID of process"
-msgstr "UID працэсу"
+msgstr "Сапраўдны UID працэса"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "Real GID of process"
-msgstr "GID працэсу"
+msgstr "Сапраўдны GID працэса"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
-msgstr ""
+msgstr "Мае ЦП"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "Processor"
-msgstr "ID працэсу"
+msgstr "Працэсар"
 
 #: sysdeps/names/procstate.c:57
 msgid "Last Processor"
-msgstr ""
+msgstr "Апошні працэсар"
 
 #: sysdeps/names/proctime.c:45
 msgid "Start_Time"
-msgstr "Час_запуску"
+msgstr "Час _запуску"
 
 #: sysdeps/names/proctime.c:45
 msgid "RTime"
@@ -944,28 +945,24 @@ msgid "EGid"
 msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "Uid"
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "Gid"
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSUid"
-msgstr "Uid"
+msgstr "FSUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSGid"
-msgstr "Gid"
+msgstr "FSGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
-msgstr "FsGid"
+msgstr "Pid"
 
 #: sysdeps/names/procuid.c:50
 msgid "PPid"
@@ -992,22 +989,20 @@ msgid "Priority"
 msgstr "Прыярытэт"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "ID групы"
+msgstr "NGroups"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "Groups"
-msgstr "ID групы"
+msgstr "Групы"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
-msgstr "ID карыстальніку"
+msgstr "ID карыстальніка"
 
 #: sysdeps/names/procuid.c:57
 msgid "Effective User ID"
-msgstr "Эфектыўны ID карыстальніку"
+msgstr "Эфектыўны ID карыстальніка"
 
 #: sysdeps/names/procuid.c:58
 msgid "Group ID"
@@ -1018,24 +1013,20 @@ msgid "Effective Group ID"
 msgstr "Эфектыўны ID групы"
 
 #: sysdeps/names/procuid.c:60
-#, fuzzy
 msgid "Set User ID"
-msgstr "ID карыстальніку"
+msgstr "Усталяваны ID карыстальніка"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Set Group ID"
-msgstr "ID групы"
+msgstr "Усталяваны ID групы"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Выкарыстаньне файлавае сыстэмы"
+msgstr "UID файлавае сыстэмы"
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "Эфектыўны ID групы"
+msgstr "GID файлавае сыстэмы"
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
@@ -1070,14 +1061,12 @@ msgid "Standard unix nice level of process"
 msgstr "Стандартны для unix узровень nice працэсу"
 
 #: sysdeps/names/procuid.c:72
-#, fuzzy
 msgid "Number of additional process groups"
-msgstr "ID групы тэрмінальнага працэсу"
+msgstr "Колькасьць груп дадатковага працэса"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Array of additional process groups"
-msgstr "ID групы тэрмінальнага працэсу"
+msgstr "Масыў груп дадатковага працэса"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
@@ -1280,9 +1269,8 @@ msgid "Idletime"
 msgstr "Час чаканьня"
 
 #: sysdeps/names/uptime.c:41
-#, fuzzy
 msgid "BootTime"
-msgstr "RTime"
+msgstr "Час загрузкі"
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
@@ -1293,9 +1281,8 @@ msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "Час у сэкундах, згублены сыстэмай на чаканьне з моманту загрузкі"
 
 #: sysdeps/names/uptime.c:48
-#, fuzzy
 msgid "Time of last system boot in seconds since the epoch"
-msgstr "Час запуску працэсу ў сэкундах, лічацца ад Эпохі"
+msgstr "Час апошняга запуску сыстэмы ў сэкундах, адлічаных ад пачатку эпохі"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1462,3 +1449,4 @@ msgstr "Сыгнал карыстальніку 2"
 
 #~ msgid "Display brief usage message"
 #~ msgstr "Паказаць кароткую інструкцыю"
+
