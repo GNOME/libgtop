@@ -1,5 +1,5 @@
 # traditional Chinese translation for libgtop.
-# Copyright (C) 2001-2003 Free Software Foundation, Inc.
+# Copyright (C) 2001, 02, 03 Free Software Foundation, Inc.
 # Abel Cheung <maddog@linux.org.hk>, 2001-2003.
 #
 msgid ""
@@ -44,13 +44,13 @@ msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 msgstr ""
-"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"CPU          (0x%08lx)：%12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
 #: examples/smp.c:80
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "CPU %3d      (0x%08lx)：%12lu %12lu %12lu %12lu %12lu\n"
 
 #: examples/smp.c:97
 msgid "Percent:"
@@ -82,13 +82,13 @@ msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 msgstr ""
-"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"CPU          (0x%08lx)：%12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
 #: examples/smp.c:117
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU %3d      (0x%08lx)：%12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:123
 msgid "Spin:"
@@ -135,11 +135,11 @@ msgstr "不要放置於背景執行"
 
 #: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
-msgstr ""
+msgstr "NO-DAEMON"
 
 #: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
-msgstr "由 inetd 執行"
+msgstr "透過 inetd 執行"
 
 #: src/daemon/gnuserv.c:454
 msgid "INETD"
@@ -152,7 +152,7 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "選項 %s 發生錯誤：%s。\n"
-"請執行‘%s --help’查看完整的指令列選項列表。\n"
+"請執行‘%s --help’查看完整的指令列選項清單。\n"
 
 #: support/error.c:109
 msgid "Unknown system error"
@@ -303,7 +303,7 @@ msgstr "可用區塊"
 
 #: sysdeps/names/fsusage.c:41
 msgid "Available blocks"
-msgstr ""
+msgstr "可用區塊數目"
 
 #: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
 msgid "Total file nodes"
@@ -413,23 +413,23 @@ msgstr "已鎖定記憶大小(以 kB 計)"
 #: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
 #: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
 msgid "Number of list elements"
-msgstr "列表元素數目"
+msgstr "清單元素數目"
 
 #: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
 #: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
 #: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
 msgid "Total size of list"
-msgstr "列表大小"
+msgstr "清單大小"
 
 #: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
 #: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
 #: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
 msgid "Size of a single list element"
-msgstr "列表元素大小"
+msgstr "清單元素大小"
 
 #: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
 msgid "Size in kilobytes of message pool"
-msgstr ""
+msgstr "message pool 的大小，以 kB 計算"
 
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Number of entries in message map"
@@ -441,11 +441,11 @@ msgstr "message 大小上限"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Default max size of queue"
-msgstr "queue 大小上限"
+msgstr "佇列大小上限"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Max queues system wide"
-msgstr ""
+msgstr "系統整體佇列數目上限"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Message segment size"
@@ -785,7 +785,7 @@ msgstr "所有忽略的訊號"
 
 #: sysdeps/names/procsignal.c:48
 msgid "Mask of caught signals"
-msgstr ""
+msgstr "所有會捕捉的訊號"
 
 #: sysdeps/names/procstate.c:40
 msgid "Cmd"
@@ -869,7 +869,7 @@ msgstr "程序啟動的時間，以從 epoch 開始相隔的秒數來表示"
 
 #: sysdeps/names/proctime.c:52
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr ""
+msgstr "程序實際佔用的累積時間 (應該是 utime + stime)"
 
 #: sysdeps/names/proctime.c:53
 msgid "user-mode CPU time accumulated by process"
@@ -999,11 +999,11 @@ msgstr "核心排程的優先度"
 
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
-msgstr ""
+msgstr "程序的標準 unix 優先值"
 
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 msgid "Number of entries in semaphore map"
-msgstr ""
+msgstr "semaphore map 中項目的數目"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Max number of arrays"
@@ -1083,11 +1083,11 @@ msgstr "分頁(出)"
 
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr ""
+msgstr "由系統啟動開始計算，從記憶體寫入交換記憶分頁的頁數"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr ""
+msgstr "由系統啟動開始計算，從交換記憶分頁寫入記憶體的頁數"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
@@ -1123,11 +1123,11 @@ msgstr "Message Queue 限制"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
-msgstr ""
+msgstr "Semaphore Set 限制"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
-msgstr "執行中的程序的列表"
+msgstr "執行中的程序的清單"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Status information"
@@ -1151,7 +1151,7 @@ msgstr "程序訊號資訊"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Kernel Data information"
-msgstr ""
+msgstr "程序的核心數據資訊"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Segment information"
@@ -1167,7 +1167,7 @@ msgstr "程序的記憶體映射表"
 
 #: sysdeps/names/sysdeps.c:68
 msgid "Mount List"
-msgstr "掛載列表"
+msgstr "掛載清單"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "File System Usage"
@@ -1187,7 +1187,7 @@ msgstr "程序的指令列參數"
 
 #: sysdeps/names/sysdeps.c:95
 msgid "List of currently mounted filesystems"
-msgstr "目前已掛載的檔案系統的列表"
+msgstr "目前已掛載的檔案系統的清單"
 
 #: sysdeps/names/uptime.c:38
 msgid "Uptime"
@@ -1295,7 +1295,7 @@ msgstr "背景程序向 tty 輸出資料"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr ""
+msgstr "可重新進行輸入/輸出"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
@@ -1323,8 +1323,8 @@ msgstr "資訊要求"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
-msgstr "用戶自訂訊號 1"
+msgstr "用戶自定訊號 1"
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
-msgstr "用戶自訂訊號 2"
+msgstr "用戶自定訊號 2"
