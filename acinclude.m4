@@ -99,6 +99,12 @@ AC_DEFUN([AC_LC_SYSDEPS],[
 
 	AC_MSG_RESULT($ac_cv_want_names)
 
+	if test x$ac_cv_want_names = xyes ; then
+	  AC_DEFINE(GLIBTOP_NAMES)
+	fi
+
+	AM_CONDITIONAL(GLIBTOP_NAMES, test x$ac_cv_want_names = xyes)
+
 	AC_MSG_CHECKING(whether building of the guile interface is requested)
 
 	AC_ARG_ENABLE(libgtop-guile,
@@ -111,11 +117,23 @@ AC_DEFUN([AC_LC_SYSDEPS],[
 
 	AC_MSG_RESULT($ac_cv_want_guile)
 
-	if test x$ac_cv_want_names = xyes ; then
-	  AC_DEFINE(GLIBTOP_NAMES)
+	AC_MSG_CHECKING(whether building of the examples is requested)
+
+	AC_ARG_WITH(libgtop-examples,
+	[  --without-examples      disable building of the examples],
+	[if test "x$withval" = "xyes" ; then
+	  ac_cv_want_examples=yes
+	 else
+	  ac_cv_want_examples=$withval
+	 fi],[ac_cv_want_examples=yes])
+
+	AC_MSG_RESULT($ac_cv_want_examples)
+
+	if test x$ac_cv_want_examples = xyes ; then
+	  AC_DEFINE(GLIBTOP_EXAMPLES)
 	fi
 
-	AM_CONDITIONAL(GLIBTOP_NAMES, test x$ac_cv_want_names = xyes)
+	AM_CONDITIONAL(GLIBTOP_EXAMPLES, test x$ac_cv_want_examples = xyes)
 
 	if test x$use_glibtop_machine_h = xyes ; then
 	  machine_incs="-I\$(top_srcdir)/sysdeps/$sysdeps_dir"
