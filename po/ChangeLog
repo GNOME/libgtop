@@ -1,7 +1,11 @@
+2002-12-14  Christophe Merlet  <redfox@redfoxcenter.org>
+
+	* fr.po: Updated French translation and converted to UTF-8.
+
 2002-11-25  Yanko Kaneti  <yaneti@declera.com>
 
 	* *.po: Convert all to UTF-8.
-	
+
 2002-11-07  Simos Xenitellis  <simos74@gmx.net>
 
 	* el.po: Updated Greek translation.
@@ -284,7 +288,7 @@
 	* fi.po: Reverted Jarkko Ranta's change; please do
 	not commit any compressed files in future.
 
-2001-02-10  Christophe Merlet  <redfox@eikonex.org>
+2001-02-10  Christophe Merlet  <christophe@merlet.net>
 
 	* fr.po: Updated French translation.
 
@@ -300,7 +304,7 @@
 
 	* ru.po: Updated russian translation.
 
-2001-02-05  Christophe Merlet  <redfox@eikonex.org>
+2001-02-05  Christophe Merlet  <christophe@merlet.net>
 
 	* fr.po: Updated French translation.
 
