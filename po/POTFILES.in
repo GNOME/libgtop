@@ -1,3 +1,8 @@
+lib/sysdeps-init-freebsd.c
+lib/sysdeps-init-linux.c
+support/popt.c
+support/popthelp.c
+support/poptint.h
 sysdeps/names/cpu.c
 sysdeps/names/fsusage.c
 sysdeps/names/loadavg.c
