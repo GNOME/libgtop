@@ -1,4 +1,4 @@
-RELEASE NOTES FOR LIBGTOP 1.0.6
+RELEASE NOTES FOR LIBGTOP 1.0.7
 ===============================
 
 OVERVIEW

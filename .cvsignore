@@ -32,3 +32,5 @@ ABOUT-NLS
 libgtop.spec
 libgtop-0.99.*.tar.gz
 libgtop-0.99.*
+*-debstamp
+libgtop-1.*.*.tar.gz
