@@ -25,7 +25,7 @@
 #include <glibtop/error.h>
 #include <glibtop/swap.h>
 
-static unsigned long _glibtop_sysdeps_swap =
+static const unsigned long _glibtop_sysdeps_swap =
 (1L << GLIBTOP_SWAP_TOTAL) + (1L << GLIBTOP_SWAP_USED) +
 (1L << GLIBTOP_SWAP_FREE);
 

@@ -25,9 +25,11 @@
 #include <glibtop/error.h>
 #include <glibtop/uptime.h>
 
+#include <time.h>
+
 #include "kernel.h"
 
-static unsigned long _glibtop_sysdeps_uptime =
+static const unsigned long _glibtop_sysdeps_uptime =
 (1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME);
 
 /* Init function. */
@@ -61,4 +63,5 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 
 	buf->uptime = (double) tbl.uptime.uptime / HZ;
 	buf->idletime = (double) tbl.uptime.idle / HZ;
+	buf->boot_time = (guint64) time(NULL) - (tbl.uptime.uptime / HZ);
 }

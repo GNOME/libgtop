@@ -41,7 +41,7 @@ union semun
 };
 #endif
 
-static unsigned long _glibtop_sysdeps_sem_limits =
+static const unsigned long _glibtop_sysdeps_sem_limits =
 (1 << GLIBTOP_IPC_SEMMAP) + (1 << GLIBTOP_IPC_SEMMNI) +
 (1 << GLIBTOP_IPC_SEMMNS) + (1 << GLIBTOP_IPC_SEMMNU) +
 (1 << GLIBTOP_IPC_SEMMSL) + (1 << GLIBTOP_IPC_SEMOPM) +

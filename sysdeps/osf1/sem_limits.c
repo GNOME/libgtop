@@ -25,7 +25,7 @@
 #include <glibtop/error.h>
 #include <glibtop/sem_limits.h>
 
-static unsigned long _glibtop_sysdeps_sem_limits =
+static const unsigned long _glibtop_sysdeps_sem_limits =
 (1L << GLIBTOP_IPC_SEMMNI) + (1L << GLIBTOP_IPC_SEMMSL) +
 (1L << GLIBTOP_IPC_SEMOPM) + (1L << GLIBTOP_IPC_SEMVMX) +
 (1L << GLIBTOP_IPC_SEMAEM);

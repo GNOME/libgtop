@@ -1,3 +1,11 @@
+2004-05-25  Benoît Dejean  <tazforever@dlfp.org>
+
+	* sem_limits.c:
+	* shm_limits.c:
+	* swap.c: Added missing const qualifiers.
+	
+	* uptime.c: (glibtop_get_uptime_s): Cleaned up. Added boot_time.
+
 2004-03-09  Bastien Nocera  <hadess@hadess.net>
 
 	* proclist.c: (glibtop_get_proclist_s): fix g_malloc usage on non-Linux
