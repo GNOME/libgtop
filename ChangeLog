@@ -1,24 +1,19 @@
 1999-02-19  Martin Baulig  <martin@home-of-linux.org>
 
+	Released LibGTop 0.99.9.
+
+	* LIBGTOP-VERSION: Set version number to 0.99.9 binary age 0,
+	interface age 0.
+
 	* include/glibtop/error.h: Don't include <glib.h>.
 	* sysdeps/common/error.c: Use `int' not `gint'.
-
-	* src/daemon/Makefile.am (libgtop_server_SOURCES): Don't use
-	`@INTLLIBS@' for the server.
 
 	* misc/porting-libgtop.txt: Added a few instructions on how
 	to port LibGTop to Solaris.
 
-1999-02-19  Martin Baulig  <martin@home-of-linux.org>
-
-	Released LibGTop 0.99.9.
-
 	* Replace all __BEGIN_DELCS with LIBGTOP_BEGIN_DECLS and all
 	__END_DECLS with LIBGTOP_END_DECLS; remove all __P macros and
 	use real function prototypes.
-
-	* LIBGTOP-VERSION: Set version number to 0.99.9 binary age 0,
-	interface age 0.
 
 1999-02-18  Martin Baulig  <martin@home-of-linux.org>
 

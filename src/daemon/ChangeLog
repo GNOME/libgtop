@@ -4,6 +4,9 @@
 	(LIBGTOP_COMPILE_RELEASE): Hardcoded system release.
 	(LIBGTOP_COMPILE_MACHINE): Hardcoded machine type.
 
+	* src/daemon/Makefile.am (libgtop_server_SOURCES): Don't use
+	`@INTLLIBS@' for the server.
+
 	* server.c (main): Abort if not running on the system the server
 	was compiled on.
 
