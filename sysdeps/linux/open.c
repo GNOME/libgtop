@@ -46,9 +46,9 @@ static unsigned get_linux_version(void) {
 	    fprintf(stderr, /* *very* unlikely to happen by accident */
 		    "Non-standard uts for running kernel:\n"
 		    "release %s=%u.%u.%u gives version code %d\n",
-		    uts.release, x, y, z, LINUX_VERSION(x,y,z));
+		    uts.release, x, y, z, LINUX_VERSION_CODE(x,y,z));
 
-	linux_version_code = LINUX_VERSION(x, y, z);
+	linux_version_code = LINUX_VERSION_CODE(x, y, z);
     }
 
     return linux_version_code;

@@ -128,58 +128,53 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     skfd = socket (AF_INET, SOCK_DGRAM, 0);
     if (skfd) {
 	struct ifreq ifr;
-	unsigned long long flags;
 
 	g_strlcpy (ifr.ifr_name, interface, sizeof ifr.ifr_name);
 	if (!ioctl (skfd, SIOCGIFFLAGS, &ifr)) {
+	    const unsigned long long flags = ifr.ifr_flags;
+
 	    buf->flags |= (1L << GLIBTOP_NETLOAD_IF_FLAGS);
-	    flags = ifr.ifr_flags;
-	} else
-	    flags = 0;
 
-	if (flags & IFF_UP)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_UP);
+	    if (flags & IFF_UP)
+		buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_UP);
 
-	if (flags & IFF_BROADCAST)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_BROADCAST);
+	    if (flags & IFF_BROADCAST)
+		buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_BROADCAST);
 
-	if (flags & IFF_DEBUG)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_DEBUG);
+	    if (flags & IFF_DEBUG)
+		buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_DEBUG);
 
-	if (flags & IFF_LOOPBACK)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_LOOPBACK);
+	    if (flags & IFF_LOOPBACK)
+		buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_LOOPBACK);
 
-	if (flags & IFF_POINTOPOINT)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_POINTOPOINT);
+	    if (flags & IFF_POINTOPOINT)
+		buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_POINTOPOINT);
 
-	if (flags & IFF_RUNNING)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_RUNNING);
+	    if (flags & IFF_RUNNING)
+		buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_RUNNING);
 
-	if (flags & IFF_NOARP)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_NOARP);
+	    if (flags & IFF_NOARP)
+		buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_NOARP);
 
-	if (flags & IFF_PROMISC)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_PROMISC);
+	    if (flags & IFF_PROMISC)
+		buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_PROMISC);
 
-	if (flags & IFF_ALLMULTI)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_ALLMULTI);
+	    if (flags & IFF_ALLMULTI)
+		buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_ALLMULTI);
 
-	if (flags & IFF_MULTICAST)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_MULTICAST);
+	    if (flags & IFF_MULTICAST)
+		buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_MULTICAST);
+	    }
 
 	g_strlcpy (ifr.ifr_name, interface, sizeof ifr.ifr_name);
 	if (!ioctl (skfd, SIOCGIFADDR, &ifr)) {
-	    struct sockaddr_in addr =
-		*(struct sockaddr_in *) &ifr.ifr_addr;
-	    buf->address = addr.sin_addr.s_addr;
+	    buf->address = ((struct sockaddr_in *) &ifr.ifr_addr)->sin_addr.s_addr;
 	    buf->flags |= (1L << GLIBTOP_NETLOAD_ADDRESS);
 	}
 
 	g_strlcpy (ifr.ifr_name, interface, sizeof ifr.ifr_name);
 	if (!ioctl (skfd, SIOCGIFNETMASK, &ifr)) {
-	    struct sockaddr_in addr =
-		*(struct sockaddr_in *) &ifr.ifr_addr;
-	    buf->subnet = addr.sin_addr.s_addr;
+	    buf->subnet = ((struct sockaddr_in *) &ifr.ifr_addr)->sin_addr.s_addr;
 	    buf->flags |= (1L << GLIBTOP_NETLOAD_SUBNET);
 	}
 
@@ -187,6 +182,12 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	if (!ioctl (skfd, SIOCGIFMTU, &ifr)) {
 	    buf->mtu = ifr.ifr_mtu;
 	    buf->flags |= (1L << GLIBTOP_NETLOAD_MTU);
+	}
+
+	g_strlcpy (ifr.ifr_name, interface, sizeof ifr.ifr_name);
+	if (!ioctl (skfd, SIOCGIFHWADDR, &ifr)) {
+	    memcpy(buf->hwaddress, &ifr.ifr_hwaddr.sa_data, 8);
+	    buf->flags |= (1L << GLIBTOP_NETLOAD_HWADDRESS);
 	}
 
 	close (skfd);
@@ -197,7 +198,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	 * need IP accounting.
 	 */
 
-    if (server->os_version_code < 131442) {
+    if (server->os_version_code < LINUX_VERSION_CODE(2, 1, 14)) {
 
 	/* If IP accounting is enabled in the kernel and it is
 	 * enabled for the requested interface, we use it to

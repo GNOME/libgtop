@@ -36,7 +36,7 @@ G_BEGIN_DECLS
 
 #ifdef _IN_LIBGTOP
 
-#define LINUX_VERSION(x,y,z)   (0x10000*(x) + 0x100*(y) + z)
+#define LINUX_VERSION_CODE(x,y,z)   (0x10000*(x) + 0x100*(y) + z)
 
 
 unsigned get_pageshift();

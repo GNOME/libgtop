@@ -1,3 +1,22 @@
+2004-07-17  Benoît Dejean  <tazforever@dlfp.org>
+
+	* Makefile.am:
+	* fsusage.c: (linux_2_6_0), (linux_2_4_0),
+	(_glibtop_linux_get_fsusage_read_write): Added to repository. WIP.
+	
+
+	* glibtop_server.h: LINUX_VERSION -> LINUX_VERSION_CODE
+	
+	* netload.c: (glibtop_get_netload_s): Cleanups. Added support for 
+	hardware address. s/LINUX_VERSION/LINUX_VERSION_CODE/
+	
+	* open.c: (get_linux_version): s/LINUX_VERSION/LINUX_VERSION_CODE/
+	
+	* procmap.c: (glibtop_get_proc_map_s): glibify: used GArray
+	
+	* procuid.c: (glibtop_get_proc_uid_s): s/LINUX_VERSION/LINUX_VERSION_CODE/.
+	Used Linux MKDEV.
+
 2004-07-15  Benoît Dejean  <tazforever@dlfp.org>
 
 	* procstate.c: (glibtop_get_proc_state_s): Wake, we're libgtop2.7.x,
