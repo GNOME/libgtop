@@ -1,14 +1,14 @@
-# Çox Əziyyətli LibGTop'un Azərbaycan Türkçəsinə tərcüməsi.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# Vasif ISmailoglu MD <azerb_linux@hotmail.com>, 2001.
+# libgtop faylının Azərbaycan dilinə tərcüməsi.
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Vasif Ismailoglu MD <azerb_linux@hotmail.com>, 2001.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: glibtop 1.1.1\n"
-"POT-Creation-Date: 2003-02-04 05:03+0100\n"
-"PO-Revision-Date: 2003-02-21 13:20+0200\n"
+"Project-Id-Version: libgtop\n"
+"POT-Creation-Date: 2003-07-10 05:08+0200\n"
+"PO-Revision-Date: 2003-07-10 21:45+0200\n"
 "Last-Translator: Mətin Əmirov <metin@karegen.com>\n"
-"Language-Team: Azerbaijani Turkish <az@li.org>\n"
+"Language-Team: Azerbaijani <gnome@azitt.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +20,7 @@ msgstr "Tiklər (saniyə başına %ld):"
 
 #: examples/smp.c:74
 msgid "Total"
-msgstr "Ümumi"
+msgstr "Toplam"
 
 #: examples/smp.c:74
 #: sysdeps/names/mem.c:47
@@ -99,51 +99,51 @@ msgstr "%d bayt oxunub"
 
 #: lib/read_data.c:49
 msgid "read data size"
-msgstr "verilən böyüklüyünü oxu"
+msgstr "mə'lumat böyüklüyünü oxu"
 
 #: lib/read_data.c:66
 #, c-format
 msgid "read data %d bytes"
-msgstr "%d bayt verilən oxundu"
+msgstr "%d bayt mə'lumat oxundu"
 
 #: lib/write.c:48
 #, c-format
 msgid "write %d bytes"
 msgstr "%d bayt yaz"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
 msgstr "Xəta yoxlamsını fəallaşdır"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
 msgstr "Sözlü çıxış ver"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
 msgstr "Arxaya qaçma"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr "NO-DEAMON"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr "inetd tərəfindən oyandırıldı"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
@@ -217,11 +217,11 @@ msgstr "%s: seçənək '-W%s' arqument almır\n"
 
 #: support/popthelp.c:35
 msgid "Show this help message"
-msgstr "Bu yardım ismarişını göstər"
+msgstr "Bu yardım ismarışını göstər"
 
 #: support/popthelp.c:36
 msgid "Display brief usage message"
-msgstr "Ətraflı işlədmə ismarışını göstər"
+msgstr "Əhatəli istifadə ismarışını göstər"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
@@ -579,7 +579,7 @@ msgstr "Böyüklük"
 
 #: sysdeps/names/procargs.c:43
 msgid "Length in bytes of the returned string."
-msgstr "Dönən stringin baytlarla uzunluğu."
+msgstr "Dönən qatarın baytlarla uzunluğu."
 
 #: sysdeps/names/prockernel.c:42
 msgid "K_Flags"
@@ -669,12 +669,12 @@ msgstr "Hazırkı EIP (32-bit instruction pointer)."
 #. NWChan
 #: sysdeps/names/prockernel.c:76
 msgid "This is the \"channel\" in which the process is waiting.  This is the address of a system call, and can be looked up in a namelist if you need a textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to see the WCHAN field in action)"
-msgstr "Bu, əmaliyyatın gözlədiyi \"canal\"dır. Bu ayrıcasistem çağırışı ünvanıdır və mətni adını istəyirsəniz adlar siyahısında görəbilərsiniz. ( Əgər güncəl /etc/psdatabase veriniz varsa, ps -l'i sınayın və per harəkətlar qismindəki WCHAN qiymətinə baxın)"
+msgstr "Bu, əmaliyyatın gözlədiyi kanaldır. Bu ayrıca sistem çağırışı ünvanıdır və mətni adını istəyirsəniz adlar siyahısında görəbilərsiniz. ( əgər güncəl /etc/psdatabase mə'lumatınız varsa, ps -l'i sınayın və per harəkətlar qismindəki WCHAN qiymətinə baxın)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
 msgid "This is the textual name of the `nwchan' field."
-msgstr "Bu, 'nwchan'girişinin mətni adıdır."
+msgstr "Bu, 'nwchan' girişinin mətni adıdır."
 
 #: sysdeps/names/procmem.c:47
 msgid "Virtual"
@@ -718,7 +718,7 @@ msgstr "Həqiqi yaddaşdakı səhifə sayısından idari məqsədlilərdəki 3 n
 
 #: sysdeps/names/procmem.c:62
 msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "Gedişatın rss'sının baytlarla göstərilən hazırkı sərhədləri (çox vaxt 2.147.483.647)."
+msgstr "Gedişatın rss'sinin baytlarla göstərilan hazırkı sərhədləri (çox vaxt 2.147.483.647)."
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
@@ -838,7 +838,7 @@ msgstr "exec() cağırışındakı işə salınabilən dosyenin  əsas adı"
 
 #: sysdeps/names/procstate.c:46
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Əmaliyyət gedişatının Single-Char kodu (S=yuxudakı)"
+msgstr "əmaliyyət gedişatının Single-Char kodu (S=yuxudakı)"
 
 #: sysdeps/names/procstate.c:47
 msgid "UID of process"
@@ -1289,7 +1289,7 @@ msgstr "Çıx"
 #: sysdeps/osf1/siglist.c:31
 #: sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
-msgstr "Keçərsiz tə'limat"
+msgstr "Hökmsüz tə'limat"
 
 #: sysdeps/osf1/siglist.c:32
 #: sysdeps/sun4/siglist.c:32
@@ -1349,7 +1349,7 @@ msgstr "Qurtarma"
 #: sysdeps/osf1/siglist.c:43
 #: sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr "Socketdəki tə'cili hal"
+msgstr "Qapıdakı tə'cili hal"
 
 #: sysdeps/osf1/siglist.c:44
 #: sysdeps/sun4/siglist.c:44
@@ -1359,7 +1359,7 @@ msgstr "Dayandır"
 #: sysdeps/osf1/siglist.c:45
 #: sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr "Klaviaturanı dayandır"
+msgstr "Klaviaturadan dayandır"
 
 #: sysdeps/osf1/siglist.c:46
 #: sysdeps/sun4/siglist.c:46
@@ -1374,12 +1374,12 @@ msgstr "Törəmə halı dəyişdi"
 #: sysdeps/osf1/siglist.c:48
 #: sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr "Tty'dən arxa plan geişatı mə'lumatı"
+msgstr "tty'dən arxa plan gedişatı mə'lumatı"
 
 #: sysdeps/osf1/siglist.c:49
 #: sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr "Tty'ye yazma əməliyyatı"
+msgstr "tty'yə yazma əməliyyatı"
 
 #: sysdeps/osf1/siglist.c:50
 #: sysdeps/sun4/siglist.c:50
@@ -1414,15 +1414,15 @@ msgstr "Pəncərə Böyüklüyü Dəyişikliyi"
 #: sysdeps/osf1/siglist.c:56
 #: sysdeps/sun4/siglist.c:56
 msgid "Information request"
-msgstr "Mə'lumat sorğusu"
+msgstr "Mə'lumat sifarişi"
 
 #: sysdeps/osf1/siglist.c:57
 #: sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
-msgstr "İstifadəçinin müəyyən ettiyi siqnal 1"
+msgstr "İstifadəçi siqnal 1 təsvir etdi"
 
 #: sysdeps/osf1/siglist.c:58
 #: sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
-msgstr "İstifadəçinin müəyyən ettiyi siqnal 2"
+msgstr "İstifadəçi siqnal 2 təsvir etdi"
 
