@@ -59,25 +59,6 @@ extern void glibtop_init_uptime_s __P((glibtop *));
 extern void glibtop_get_uptime_s __P((glibtop *, glibtop_uptime *));
 #endif
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-extern SCM glibtop_guile_get_uptime __P((void));
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-extern SCM glibtop_guile_names_uptime __P((void));
-extern SCM glibtop_guile_types_uptime __P((void));
-extern SCM glibtop_guile_labels_uptime __P((void));
-extern SCM glibtop_guile_descriptions_uptime __P((void));
-
-#endif
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

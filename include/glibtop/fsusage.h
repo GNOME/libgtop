@@ -55,25 +55,6 @@ extern void glibtop_get_fsusage_l __P((glibtop *, glibtop_fsusage *, const char 
 
 extern void glibtop_get_fsusage_s __P((glibtop *, glibtop_fsusage *, const char *));
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-extern SCM glibtop_guile_get_fsusage __P((SCM));
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-extern SCM glibtop_guile_names_fsusage __P((void));
-extern SCM glibtop_guile_types_fsusage __P((void));
-extern SCM glibtop_guile_labels_fsusage __P((void));
-extern SCM glibtop_guile_descriptions_fsusage __P((void));
-
-#endif
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

@@ -81,25 +81,6 @@ extern void glibtop_init_cpu_s __P((glibtop *));
 extern void glibtop_get_cpu_s __P((glibtop *, glibtop_cpu *));
 #endif
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-extern SCM glibtop_guile_get_cpu __P((void));
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-extern SCM glibtop_guile_names_cpu __P((void));
-extern SCM glibtop_guile_types_cpu __P((void));
-extern SCM glibtop_guile_labels_cpu __P((void));
-extern SCM glibtop_guile_descriptions_cpu __P((void));
-
-#endif
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

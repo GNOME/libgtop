@@ -63,25 +63,6 @@ extern void glibtop_init_loadavg_s __P((glibtop *));
 extern void glibtop_get_loadavg_s __P((glibtop *, glibtop_loadavg *));
 #endif
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-extern SCM glibtop_guile_get_loadavg __P((void));
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-extern SCM glibtop_guile_names_loadavg __P((void));
-extern SCM glibtop_guile_types_loadavg __P((void));
-extern SCM glibtop_guile_labels_loadavg __P((void));
-extern SCM glibtop_guile_descriptions_loadavg __P((void));
-
-#endif
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

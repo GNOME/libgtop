@@ -65,25 +65,6 @@ extern void glibtop_init_swap_s __P((glibtop *));
 extern void glibtop_get_swap_s __P((glibtop *, glibtop_swap *));
 #endif
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-extern SCM glibtop_guile_get_swap __P((void));
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-extern SCM glibtop_guile_names_swap __P((void));
-extern SCM glibtop_guile_types_swap __P((void));
-extern SCM glibtop_guile_labels_swap __P((void));
-extern SCM glibtop_guile_descriptions_swap __P((void));
-
-#endif
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

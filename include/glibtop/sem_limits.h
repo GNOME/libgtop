@@ -75,25 +75,6 @@ extern void glibtop_init_sem_limits_s __P((glibtop *));
 extern void glibtop_get_sem_limits_s __P((glibtop *, glibtop_sem_limits *));
 #endif
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-extern SCM glibtop_guile_get_sem_limits __P((void));
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-extern SCM glibtop_guile_names_sem_limits __P((void));
-extern SCM glibtop_guile_types_sem_limits __P((void));
-extern SCM glibtop_guile_labels_sem_limits __P((void));
-extern SCM glibtop_guile_descriptions_sem_limits __P((void));
-
-#endif
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

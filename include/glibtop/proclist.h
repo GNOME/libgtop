@@ -78,25 +78,6 @@ extern void glibtop_init_proclist_s __P((glibtop *));
 extern unsigned *glibtop_get_proclist_s __P((glibtop *, glibtop_proclist *, int64_t, int64_t));
 #endif
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-extern SCM glibtop_guile_get_proclist __P((SCM, SCM));
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-extern SCM glibtop_guile_names_proclist __P((void));
-extern SCM glibtop_guile_types_proclist __P((void));
-extern SCM glibtop_guile_labels_proclist __P((void));
-extern SCM glibtop_guile_descriptions_proclist __P((void));
-
-#endif
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

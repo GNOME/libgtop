@@ -86,25 +86,6 @@ struct _glibtop_sysdeps
 
 extern void glibtop_get_sysdeps_r __P((glibtop *, glibtop_sysdeps *));
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-extern SCM glibtop_guile_get_sysdeps __P((void));
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-extern SCM glibtop_guile_names_sysdeps __P((void));
-extern SCM glibtop_guile_types_sysdeps __P((void));
-extern SCM glibtop_guile_labels_sysdeps __P((void));
-extern SCM glibtop_guile_descriptions_sysdeps __P((void));
-
-#endif
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

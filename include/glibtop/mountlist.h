@@ -61,25 +61,6 @@ extern glibtop_mountentry *glibtop_get_mountlist_l __P((glibtop *, glibtop_mount
 
 extern glibtop_mountentry *glibtop_get_mountlist_s __P((glibtop *, glibtop_mountlist *, int));
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-extern SCM glibtop_guile_get_mountlist __P((SCM));
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-extern SCM glibtop_guile_names_mountlist __P((void));
-extern SCM glibtop_guile_types_mountlist __P((void));
-extern SCM glibtop_guile_labels_mountlist __P((void));
-extern SCM glibtop_guile_descriptions_mountlist __P((void));
-
-#endif
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

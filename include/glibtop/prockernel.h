@@ -80,25 +80,6 @@ extern void glibtop_init_proc_kernel_s __P((glibtop *));
 extern void glibtop_get_proc_kernel_s __P((glibtop *, glibtop_proc_kernel *, pid_t));
 #endif
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-extern SCM glibtop_guile_get_proc_kernel __P((SCM));
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-extern SCM glibtop_guile_types_proc_kernel __P((void));
-extern SCM glibtop_guile_names_proc_kernel __P((void));
-extern SCM glibtop_guile_labels_proc_kernel __P((void));
-extern SCM glibtop_guile_descriptions_proc_kernel __P((void));
-
-#endif
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

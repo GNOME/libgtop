@@ -71,25 +71,6 @@ extern void glibtop_init_proc_mem_s __P((glibtop *));
 extern void glibtop_get_proc_mem_s __P((glibtop *, glibtop_proc_mem *, pid_t));
 #endif
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-extern SCM glibtop_guile_get_proc_mem __P((SCM));
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-extern SCM glibtop_guile_types_proc_mem __P((void));
-extern SCM glibtop_guile_names_proc_mem __P((void));
-extern SCM glibtop_guile_labels_proc_mem __P((void));
-extern SCM glibtop_guile_descriptions_proc_mem __P((void));
-
-#endif
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */
