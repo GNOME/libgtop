@@ -286,7 +286,7 @@ AC_SUBST(SUPPORTINCS)
 
 dnl These definitions are expanded in make.
 LIBGTOP_LIBS='-L$(libdir)'
-LIBGTOP_INCS='-I$(includedir)'
+LIBGTOP_INCS='-I$(includedir) -I$(pkglibdir)/include'
 
 if test x$libgtop_use_machine_h = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_GLIBTOP_MACHINE_H"
@@ -385,6 +385,137 @@ else
 fi
 AC_SUBST(sysdeps_suid_lib)
 AC_SUBST(server_programs)
+
+
+dnl The following one is copied from glib/configure.in
+
+AC_OUTPUT_COMMANDS([
+
+## Generate `glibconfig.h' in two cases
+## 1. `config.status' is run either explicitly, or via configure.
+##     Esp. not when it is run in `Makefile' to generate makefiles and
+##     config.h
+## 2. CONFIG_OTHER is set explicitly
+##
+## Case 1 is difficult.  We know that `automake' sets one of
+## CONFIG_FILES or CONFIG_HEADERS to empty.  This heuristic works
+## only when AM_CONFIG_HEADER is set, however.
+
+if test -n "${CONFIG_FILES}" && test -n "${CONFIG_HEADERS}"; then
+  # Both CONFIG_FILES and CONFIG_HEADERS are non-empty ==> Case 1
+  CONFIG_OTHER=${CONFIG_OTHER:-glibtop-config.h}
+fi
+case "$CONFIG_OTHER" in
+*glibtop-config.h*)
+	echo creating glibtop-config.h
+	outfile=glibtop-config.h-tmp
+	cat > $outfile <<\_______EOF
+/* glibtop-config.h
+ *
+ * This is a generated file.  Please modify `configure.in'
+ */
+
+#ifndef GLIBTOP_CONFIG_H
+#define GLIBTOP_CONFIG_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif /* __cplusplus */
+_______EOF
+
+	did_typedefs=no
+
+	if test x$glibtop_uint64_t != xyes ; then
+	  did_typedefs=yes
+	  cat > $outfile <<\_______EOF
+
+#undef u_int64_t
+typedef u_int64_t unsigned long long int
+_______EOF
+	fi
+
+	if test x$glibtop_int64_t != xyes ; then
+	  did_typedefs=yes
+	  cat > $outfile <<\_______EOF
+
+#undef int64_t
+typedef int64_t signed long long int
+_______EOF
+	fi
+
+	if test x$did_typedefs = xyes ; then
+	  cat >>$outfile <<_______EOF
+
+/*
+ * NOTE:  If your application checks for `u_int64_t' or `int64_t' in its own
+ *        config.h, you must not include it after any of the LibGTop headers.
+ */
+_______EOF
+	fi
+
+	cat >>$outfile <<_______EOF
+
+/* Define if we need the LibGTop server. */
+_______EOF
+
+	if test x$glibtop_need_libgtop = xyes ; then
+	  echo '#define NEED_LIBGTOP 1' >> $outfile
+	else
+	  echo '#undef NEED_LIBGTOP' >> $outfile
+	fi
+
+	cat >>$outfile <<_______EOF
+
+/* Define if LibGTop has support for multiple processors. */
+_______EOF
+
+	if test x$glibtop_have_smp = xyes ; then
+	  echo '#define HAVE_LIBGTOP_SMP 1' >> $outfile
+	else
+	  echo '#undef HAVE_LIBGTOP_SMP' >> $outfile
+	fi
+
+	cat >>$outfile <<_______EOF
+
+/* LibGTop major, minor and micro version. */
+#define LIBGTOP_MAJOR_VERSION $libgtop_major_version
+#define LIBGTOP_MINOR_VERSION $libgtop_minor_version
+#define LIBGTOP_MICRO_VERSION $libgtop_micro_version
+
+/* LibGTop version and numerical version code ("1.234.567" -> 1234567). */
+#define LIBGTOP_VERSION "$libgtop_version"
+#define LIBGTOP_VERSION_CODE $libgtop_version_code
+
+/* LibGTop server version, increased each time the protocol changes. */
+#define LIBGTOP_SERVER_VERSION $libgtop_server_version
+
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
+
+#endif /* GLIBCONFIG_H */
+_______EOF
+
+	if cmp -s $outfile glibtop-config.h; then
+	  echo glibtop-config.h is unchanged
+	  rm -f $outfile
+	else
+	  mv $outfile glibtop-config.h
+	fi ;;
+esac
+],[
+glibtop_uint64_t=$ac_cv_type_u_int64_t
+glibtop_int64_t=$ac_cv_type_int64_t
+libgtop_major_version=$LIBGTOP_MAJOR_VERSION
+libgtop_minor_version=$LIBGTOP_MINOR_VERSION
+libgtop_micro_version=$LIBGTOP_MICRO_VERSION
+libgtop_version_code=$LIBGTOP_VERSION_CODE
+libgtop_server_version=$LIBGTOP_SERVER_VERSION
+libgtop_version=$LIBGTOP_VERSION
+glibtop_need_libgtop=$libgtop_need_server
+glibtop_have_smp=$libgtop_smp
+])
+
 
 AC_OUTPUT([
 Makefile

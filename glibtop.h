@@ -24,6 +24,10 @@
 #ifndef __GLIBTOP_H__
 #define __GLIBTOP_H__
 
+#ifndef _IN_LIBGTOP
+#include <glibtop-config.h>
+#endif
+
 #include <glibtop/global.h>
 #include <glibtop/limits.h>
 

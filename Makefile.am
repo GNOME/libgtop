@@ -14,10 +14,21 @@ SUBDIRS = po intl $(support) macros misc include sysdeps lib src \
 	  $(examples_SUBDIRS) doc
 
 include_HEADERS = glibtop.h
+configincludedir = $(pkglibdir)/include
 
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt libgtopConf.sh.in \
 	LIBGTOP-VERSION features.def libgtop-config.in RELNOTES-0.25 \
 	RELNOTES-1.0 libgtop-sysdeps.m4 README NEWS.old libgtop-mirror.sh
+
+configinclude_DATA = \
+	glibtop-config.h
+
+BUILT_SOURCES = stamp-gc-h #note: not glibtop-config.h
+glibtop-config.h: stamp-gc-h
+	@:
+stamp-gc-h: config.status
+	CONFIG_FILES= CONFIG_HEADERS= CONFIG_OTHER=glibtop-config.h ./config.status
+	echo timestamp > stamp-gc-h
 
 dist-hook:
 	cp libgtop.spec $(distdir)

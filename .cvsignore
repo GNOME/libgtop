@@ -38,3 +38,5 @@ mkinstalldirs
 missing
 INSTALL
 COPYING
+glibtop-config.h
+stamp-gc-h
