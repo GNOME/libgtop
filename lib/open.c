@@ -43,6 +43,12 @@ glibtop_open_l (glibtop *server, const char *program_name,
 	server->flags |= _GLIBTOP_INIT_STATE_OPEN;
 
 	switch (server->method) {
+	case GLIBTOP_METHOD_DIRECT:
+		fprintf (stderr, "Calling sysdeps open function.\n");
+
+		glibtop_open_r (server, program_name, features, flags);
+
+		break;
 	case GLIBTOP_METHOD_INET:
 		fprintf (stderr, "Connecting to '%s' port %ld.\n",
 			 server->server_host, server->server_port);

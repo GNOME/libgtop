@@ -64,7 +64,6 @@ glibtop_open_r (glibtop *server, const char *program_name,
 
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
-	memset (server, 0, sizeof (glibtop));
 	server->name = program_name;
 
 	server->machine.uid = getuid ();

@@ -35,6 +35,8 @@
 #include <glibtop/command.h>
 #include <glibtop/xmalloc.h>
 
+#include <glibtop/parameter.h>
+
 #include "server_config.h"
 
 #include <glibtop/gnuserv.h>
@@ -483,11 +485,13 @@ handle_signal (int sig)
 int
 main (int argc, char *argv [])
 {
+	glibtop *server = glibtop_global_server;
+
 	int ils = -1;		/* internet domain listen socket */
 	int uls = -1;		/* unix domain listen socket */
 	pid_t pid;
 
-	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_OPEN_NO_OVERRIDE);
+	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_INIT_NO_INIT);
 
 	/* Fork a child.
 	 *
@@ -504,6 +508,8 @@ main (int argc, char *argv [])
 		glibtop_error_io ("fork failed");
 	else if (pid == 0) {
 		/* We are the child. */
+		
+		const unsigned method = GLIBTOP_METHOD_DIRECT;
 
 		/* Temporarily drop our priviledges. */
 
@@ -523,8 +529,22 @@ main (int argc, char *argv [])
 		/* get a unix domain socket to listen on. */
 		uls = unix_init ();
 #endif
+		
+		glibtop_set_parameter_l (server, GLIBTOP_PARAM_METHOD,
+					 &method, sizeof (method));
+		
+		glibtop_set_parameter_l (server, GLIBTOP_PARAM_FEATURES,
+					 &glibtop_server_features,
+					 sizeof (glibtop_server_features));
+
+		glibtop_init_r (&server, 0, 0);
+
 	} else {
 		/* We are the parent. */
+		
+		const unsigned method = GLIBTOP_METHOD_UNIX;
+
+		const unsigned long features = GLIBTOP_SYSDEPS_ALL;
 
 		/* If we are root, completely switch to SERVER_UID and
 		 * SERVER_GID. Otherwise we completely drop any priviledges.
@@ -575,6 +595,15 @@ main (int argc, char *argv [])
 		/* get a internet domain socket to listen on. */
 		ils = internet_init ();
 #endif
+
+		glibtop_set_parameter_l (server, GLIBTOP_PARAM_METHOD,
+					 &method, sizeof (method));
+		
+		glibtop_set_parameter_l (server, GLIBTOP_PARAM_FEATURES,
+					 &features, sizeof (features));
+
+		glibtop_init_r (&server, 0, 0);
+
 	}
 
 	while (1) {

@@ -117,18 +117,8 @@ handle_parent_connection (int s)
 	glibtop_response _resp, *resp = &_resp;
 	glibtop_command _cmnd, *cmnd = &_cmnd;
 	char parameter [BUFSIZ];
-	unsigned method;
 	pid_t pid;
 	void *ptr;
-
-	method = GLIBTOP_METHOD_UNIX;
-	
-	glibtop_set_parameter_l (server, GLIBTOP_PARAM_METHOD,
-				 &method, sizeof (method));
-
-	glibtop_set_parameter_l (server, GLIBTOP_PARAM_FEATURES,
-				 &glibtop_server_features,
-				 sizeof (glibtop_server_features));
 
 	fprintf (stderr, "Parent features = %lu\n", glibtop_server_features);
 

@@ -27,6 +27,5 @@ void
 glibtop_open_r (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
-	memset (server, 0, sizeof (glibtop));
 	server->name = program_name;
 }

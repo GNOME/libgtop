@@ -1,5 +1,17 @@
 1998-07-14  Martin Baulig  <martin@home-of-linux.org>
 
+	* src/daemon/gnuserv.c: Doing correct server initialization
+	using `glibtop_set_parameter_l' and `glibtop_init_r'.
+
+	* src/daemon/main.c: Removed call to `glibtop_init_r'.
+
+	* lib/open.c (glibtop_open_l): We now call the open function
+	of the sysdeps directory (glibtop_open_r) for server method
+	`GLIBTOP_METHOD_DIRECT'.
+
+	* sysdeps/{linux, sun4, stub}/open.c: No longer `memset'
+	server to zero.
+
 	* src/daemon/slave.c: New file.
 
 	* src/daemon/*.c: Done some more work on the daemon.
