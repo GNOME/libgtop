@@ -36,13 +36,15 @@ output (pid_t pid)
 {
 	glibtop_union data;
 	char *args;
+	unsigned i;
+
 #if HAVE_LIBGTOP_SMP
 	unsigned long total;
 	double p_total, p_utime, p_stime;
 	double b_total, b_utime, b_stime;
 	double s_total, s_utime, s_stime;
 	double my_utime, my_stime;
-	int ncpu, i;
+	int ncpu;
 #endif
 
 	printf ("\n");
@@ -137,6 +139,11 @@ output (pid_t pid)
 	printf ("\n");
 
 	args = glibtop_get_proc_args (&data.proc_args, pid, 0);
+
+	for (i = 0; i < data.proc_args.size; i++) {
+		if (args [i]) continue;
+		args [i] = '|';
+	}
 
 	printf ("Proc_Args    PID  %5d (0x%08lx): %lu - '%s'\n", (int) pid,
 		(unsigned long) data.proc_args.flags,

@@ -36,7 +36,7 @@ glibtop_init_proc_args_p (glibtop *server)
 
 /* Provides detailed information about a process. */
 
-const char *
+char *
 glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len)
 {

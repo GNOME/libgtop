@@ -47,14 +47,14 @@ struct _glibtop_proc_args
 #define glibtop_get_proc_args_r		glibtop_get_proc_args_s
 #endif
 
-extern const char  *glibtop_get_proc_args_l __P((glibtop *, glibtop_proc_args *, pid_t, unsigned));
+extern char  *glibtop_get_proc_args_l __P((glibtop *, glibtop_proc_args *, pid_t, unsigned));
 
 #if GLIBTOP_SUID_PROC_ARGS
 extern void glibtop_init_proc_args_p __P((glibtop *));
-extern const char *glibtop_get_proc_args_p __P((glibtop *, glibtop_proc_args *, pid_t, unsigned));
+extern char *glibtop_get_proc_args_p __P((glibtop *, glibtop_proc_args *, pid_t, unsigned));
 #else
 extern void glibtop_init_proc_args_s __P((glibtop *));
-extern const char *glibtop_get_proc_args_s __P((glibtop *, glibtop_proc_args *, pid_t, unsigned));
+extern char *glibtop_get_proc_args_s __P((glibtop *, glibtop_proc_args *, pid_t, unsigned));
 #endif
 
 #ifdef GLIBTOP_NAMES

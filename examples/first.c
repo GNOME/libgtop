@@ -44,8 +44,8 @@ main (int argc, char *argv [])
 	glibtop_sysdeps sysdeps;
 	unsigned c, method, count, port, i, *ptr;
 	char buffer [BUFSIZ];
-	const char *args;
 	pid_t pid, ppid;
+	char *args;
 
 	count = PROFILE_COUNT;
 
@@ -334,6 +334,11 @@ main (int argc, char *argv [])
 
 	args = glibtop_get_proc_args (&data.proc_args, pid, 0);
 
+	for (i = 0; i < data.proc_args.size; i++) {
+		if (args [i]) continue;
+		args [i] = '|';
+	}
+
 	printf ("Proc_Args    PID  %5d (0x%08lx): %lu - '%s'\n", (int) pid,
 		(unsigned long) data.proc_args.flags,
 		(unsigned long) data.proc_args.size,
@@ -438,6 +443,11 @@ main (int argc, char *argv [])
 	printf ("\n");
 
 	args = glibtop_get_proc_args (&data.proc_args, ppid, 0);
+
+	for (i = 0; i < data.proc_args.size; i++) {
+		if (args [i]) continue;
+		args [i] = '|';
+	}
 
 	printf ("Proc_Args    PID  %5d (0x%08lx): %lu - '%s'\n", (int) ppid,
 		(unsigned long) data.proc_args.flags,
@@ -544,6 +554,11 @@ main (int argc, char *argv [])
 	printf ("\n");
 
 	args = glibtop_get_proc_args (&data.proc_args, 1, 0);
+
+	for (i = 0; i < data.proc_args.size; i++) {
+		if (args [i]) continue;
+		args [i] = '|';
+	}
 
 	printf ("Proc_Args    PID  %5d (0x%08lx): %lu - '%s'\n", 1,
 		(unsigned long) data.proc_args.flags,
