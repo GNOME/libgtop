@@ -51,6 +51,8 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf,
 {
 	struct procsinfo *pinfo;
 
+	glibtop_init_s (&server, (1L << GLIBTOP_SYSDEPS_PROC_TIME), 0);
+
 	memset (buf, 0, sizeof (glibtop_proc_time));
 
 	pinfo = _glibtop_get_procinfo(server, pid);

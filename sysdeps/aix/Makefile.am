@@ -3,16 +3,18 @@ INCLUDES			= @INCLUDES@
 
 noinst_LTLIBRARIES		= libgtop_sysdeps-2.0.la libgtop_sysdeps_suid-2.0.la
 
-libgtop_sysdeps_2_0_la_SOURCES  = siglist.c nosuid.c
+libgtop_sysdeps_2_0_la_SOURCES  = siglist.c nosuid.c mem.c swap.c uptime.c \
+				  procargs.c prockernel.c proclist.c procmap.c \
+				  procmem.c procsegment.c procsignal.c \
+				  proctime.c procuid.c procmem.c utils.c \
+				  procstate.c sysinfo.c
+				
 
 libgtop_sysdeps_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 
-libgtop_sysdeps_suid_2_0_la_SOURCES = open.c close.c cpu.c mem.c swap.c \
-				  uptime.c loadavg.c shm_limits.c msg_limits.c \
-				  sem_limits.c proclist.c procstate.c procuid.c \
-				  proctime.c procmem.c procsignal.c prockernel.c \
-				  procsegment.c procargs.c procmap.c netload.c \
-				  ppp.c utils.c utils.h sysinfo.c
+libgtop_sysdeps_suid_2_0_la_SOURCES = open.c close.c cpu.c loadavg.c \
+				  msg_limits.c shm_limits.c sem_limits.c \
+				  netload.c ppp.c utils.c
 
 libgtop_sysdeps_suid_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 libgtop_sysdeps_suid_2_0_la_LIBADD	= $(top_builddir)/sysdeps/common/libgtop_suid_common-2.0.la $(GLIB_LIBS)

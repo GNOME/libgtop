@@ -57,6 +57,8 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
 	tid_t thid;
 	int result;
 
+	glibtop_init_s (&server, (1L << GLIBTOP_SYSDEPS_PROC_KERNEL), 0);
+
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
 
 	pinfo = _glibtop_get_procinfo(server, pid);

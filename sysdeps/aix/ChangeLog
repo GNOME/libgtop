@@ -1,3 +1,29 @@
+2004-10-04  Benoît Dejean  <tazforever@dlfp.org>
+
+	* Makefile.am:
+	* cpu.c: (glibtop_init_cpu_p), (glibtop_get_cpu_p):
+	* glibtop_machine.h:
+	* glibtop_server.h:
+	* mem.c: (glibtop_get_mem_s):
+	* netload.c: (glibtop_get_netload_p):
+	* procargs.c: (glibtop_get_proc_args_s):
+	* prockernel.c: (glibtop_get_proc_kernel_s):
+	* proclist.c: (glibtop_get_proclist_s):
+	* procmem.c: (glibtop_get_proc_mem_s):
+	* procsegment.c: (glibtop_get_proc_segment_s):
+	* procsignal.c: (glibtop_get_proc_signal_s):
+	* procstate.c: (glibtop_get_proc_state_s):
+	* proctime.c: (glibtop_get_proc_time_s):
+	* procuid.c: (glibtop_get_proc_uid_s):
+	* swap.c: (glibtop_get_swap_s):
+	* sysinfo.c: (add_info), (init_sysinfo):
+	* uptime.c: (glibtop_init_uptime_s), (glibtop_get_uptime_s):
+	
+	AIX support updated by Laurent Vivier <Laurent.Vivier@BULL.NET>.
+	
+	Fixed cpu/uptime/sysinfo.
+	Added missing calls to glibtop_init_s.
+
 2004-06-13  Benoît Dejean  <tazforever@dlfp.org>
 
 	* sysinfo.c: Added missing const qualifier.

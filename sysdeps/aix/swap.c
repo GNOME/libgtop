@@ -57,6 +57,8 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	int comment = 0;
 	int pos = 0;
 
+	glibtop_init_s (&server, (1L << GLIBTOP_SYSDEPS_SWAP), 0);
+
 	memset (buf, 0, sizeof (glibtop_swap));
 
 	pagesize = sysconf(_SC_PAGESIZE);

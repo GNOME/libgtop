@@ -31,10 +31,16 @@ static const unsigned long _glibtop_sysdeps_sysinfo =
 
 static glibtop_sysinfo sysinfo;
 
-static void add_info(glibtop_entry* entry, char* label, char* value)
+static void add_info(glibtop_entry* entry, char* label, char* attribute)
 {
-	g_ptr_array_add(entry->labels, g_strdup(label));
-	g_hash_table_insert(entry->values, label, g_strdup(value));
+	char* key;
+	char* value;
+
+	key = g_strdup(label);
+	value = g_strdup(attribute);
+
+	g_ptr_array_add(entry->labels, key);
+	g_hash_table_insert(entry->values, key, value);
 }
 
 static void init_sysinfo(void)
@@ -60,22 +66,22 @@ static void init_sysinfo(void)
 			case POWER_RS:
 				add_info( &sysinfo.cpuinfo[cpu]
 					, "architecture"
-					, "Power Classic architecture");
+					, "Power Classic");
 				break;
 			case POWER_PC:
 				add_info( &sysinfo.cpuinfo[cpu]
 					, "architecture"
-					, "Power PC architecture");
+					, "Power PC");
 				break;
 			case IA64:
 				add_info( &sysinfo.cpuinfo[cpu]
 					, "architecture"
-					, "Intel IA64 architecture");
+					, "Intel IA64");
 				break;
 			default:
 				add_info( &sysinfo.cpuinfo[cpu]
 					, "architecture"
-					, "Unknown architecture");
+					, "Unknown");
 				break;
 		}
 
@@ -161,7 +167,7 @@ static void init_sysinfo(void)
 		sprintf(buf,"%d", _system_configuration.width);
 		add_info( &sysinfo.cpuinfo[cpu], "width", buf);
 
-		if (_system_configuration.cache_attrib & (1 << 31))
+		if (_system_configuration.cache_attrib & 1 )
 		{
 			/* L1 cache is present */
 

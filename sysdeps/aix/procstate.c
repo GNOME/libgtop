@@ -53,6 +53,8 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
 	tid_t thid;
 	int result;
 
+	glibtop_init_s (&server, (1L << GLIBTOP_SYSDEPS_PROC_STATE), 0);
+
 	memset (buf, 0, sizeof (glibtop_proc_state));
 
 	pinfo = _glibtop_get_procinfo(server, pid);

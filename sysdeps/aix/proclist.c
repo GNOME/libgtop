@@ -59,6 +59,8 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	pid_t current;
 	int result;
 
+	glibtop_init_s (&server, (1L << GLIBTOP_SYSDEPS_PROCLIST), 0);
+
 	memset (buf, 0, sizeof (glibtop_proclist));
 
 	for( count = total = 0, current = 0

@@ -49,6 +49,8 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	int pagesize;
 	int result;
 
+	glibtop_init_s (&server, (1L << GLIBTOP_SYSDEPS_MEM), 0);
+
 	memset (buf, 0, sizeof (glibtop_mem));
 
 	pagesize = sysconf(_SC_PAGESIZE);

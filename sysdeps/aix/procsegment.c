@@ -53,6 +53,8 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 	struct procsinfo *pinfo;
 	int pagesize;
 
+	glibtop_init_s (&server, (1L << GLIBTOP_SYSDEPS_PROC_SEGMENT), 0);
+
 	memset (buf, 0, sizeof (glibtop_proc_segment));
 
 	pinfo = _glibtop_get_procinfo(server, pid);

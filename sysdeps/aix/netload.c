@@ -119,6 +119,8 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	long mask;
 	char name[16];
 
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_UPTIME), 0);
+
 	memset (buf, 0, sizeof (glibtop_netload));
 
 	for ( offset = server->machine.ifnet_offset;

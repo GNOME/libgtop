@@ -54,6 +54,8 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 	int i;
 	long bit;
 
+	glibtop_init_s (&server, (1L << GLIBTOP_SYSDEPS_PROC_SIGNAL), 0);
+
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 
 	pinfo = _glibtop_get_procinfo(server, pid);

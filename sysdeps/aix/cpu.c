@@ -52,6 +52,13 @@ glibtop_init_cpu_p (glibtop *server)
 		server->ncpu = 0; /* means single-processor, see glibtop.h */
 	}
 
+	result = _glibtop_get_kmem_offset(server, "sysinfo");
+	if (result == -1)
+	{
+		return;
+	}
+	server->machine.sysinfo_offset = result;
+
 	result = _glibtop_get_kmem_offset(server, "cpuinfo");
 	if (result == -1)
 	{
@@ -73,10 +80,26 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 {
 	int result;
 	int cpu;
+	struct sysinfo sysinfo;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_CPU), 0);
 
 	memset (buf, 0, sizeof (glibtop_cpu));
+
+	result = _glibtop_get_kmem_info(server, server->machine.sysinfo_offset,
+					&sysinfo, sizeof(struct sysinfo));
+	if (result <= 0)
+	{
+		glibtop_error_io_r (server, "Cannot read sysinfo");
+		return;
+	}
+
+	buf->idle = sysinfo.cpu[CPU_IDLE];
+	buf->user = sysinfo.cpu[CPU_USER];
+	buf->sys  = sysinfo.cpu[CPU_KERNEL];
+	buf->nice = sysinfo.cpu[CPU_WAIT];
+
+	buf->total = buf->idle + buf->user + buf->sys + buf->nice ;
 
 	result = _glibtop_get_kmem_info(server, server->machine.cpuinfo_offset,
 					server->machine.cpuinfo,
@@ -89,36 +112,24 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 		return;
 	}
 
-	buf->idle = 0;
-	buf->user = 0;
-	buf->sys = 0;
-	buf->nice = 0;
-	for (cpu = 0; cpu < _system_configuration.ncpus; cpu++)
+
+	for (cpu = 0; cpu < MIN(GLIBTOP_NCPU, _system_configuration.ncpus); cpu++)
 	{
-		if (cpu < GLIBTOP_NCPU)
-		{
-			buf->xcpu_idle[cpu] =
-				server->machine.cpuinfo[cpu].cpu[CPU_IDLE];
-			buf->xcpu_user[cpu] =
-				server->machine.cpuinfo[cpu].cpu[CPU_USER];
-			buf->xcpu_sys[cpu] =
-				server->machine.cpuinfo[cpu].cpu[CPU_KERNEL];
-			buf->xcpu_nice[cpu] =
-				server->machine.cpuinfo[cpu].cpu[CPU_WAIT];
+		buf->xcpu_idle[cpu] =
+			server->machine.cpuinfo[cpu].cpu[CPU_IDLE];
+		buf->xcpu_user[cpu] =
+			server->machine.cpuinfo[cpu].cpu[CPU_USER];
+		buf->xcpu_sys[cpu] =
+			server->machine.cpuinfo[cpu].cpu[CPU_KERNEL];
+		buf->xcpu_nice[cpu] =
+			server->machine.cpuinfo[cpu].cpu[CPU_WAIT];
 
-			buf->xcpu_total[cpu] = buf->xcpu_idle[cpu] +
-					       buf->xcpu_user[cpu] +
-					       buf->xcpu_sys[cpu] +
-					       buf->xcpu_nice[cpu];
-		}
-
-		buf->idle += server->machine.cpuinfo[cpu].cpu[CPU_IDLE];
-		buf->user += server->machine.cpuinfo[cpu].cpu[CPU_USER];
-		buf->sys  += server->machine.cpuinfo[cpu].cpu[CPU_KERNEL];
-		buf->nice += server->machine.cpuinfo[cpu].cpu[CPU_WAIT];
-
-		buf->total = buf->idle + buf->user + buf->sys + buf->nice ;
+		buf->xcpu_total[cpu] = buf->xcpu_idle[cpu] +
+			buf->xcpu_user[cpu] +
+			buf->xcpu_sys[cpu] +
+			buf->xcpu_nice[cpu];
 	}
+
 
 	buf->frequency = sysconf(_SC_CLK_TCK);
 	buf->flags = _glibtop_sysdeps_cpu;

@@ -21,6 +21,8 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <sys/times.h>
+
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/uptime.h>
@@ -32,16 +34,13 @@
 #include <time.h>
 
 static const unsigned long _glibtop_sysdeps_uptime =
-(1L << GLIBTOP_UPTIME_UPTIME) + (1L << GLIBTOP_UPTIME_IDLETIME);
+(1L << GLIBTOP_UPTIME_UPTIME) + (1L << GLIBTOP_UPTIME_BOOT_TIME);
 
-static const unsigned long _required_cpu_flags =
-(1L << GLIBTOP_CPU_TOTAL) + (1L << GLIBTOP_CPU_IDLE) +
-(1L << GLIBTOP_CPU_FREQUENCY);
 
 /* Init function. */
 
 void
-glibtop_init_uptime_p (glibtop *server)
+glibtop_init_uptime_s (glibtop *server)
 {
 	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
 }
@@ -49,28 +48,17 @@ glibtop_init_uptime_p (glibtop *server)
 /* Provides uptime and idle time. */
 
 void
-glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
+glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
-	glibtop_cpu cpu;
+	time_t uptime;
+	struct tms tbuf;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_UPTIME), 0);
+	glibtop_init_s (&server, (1L << GLIBTOP_SYSDEPS_UPTIME), 0);
 
 	memset (buf, 0, sizeof (glibtop_uptime));
 
-	/* We simply calculate it from the CPU usage. */
-
-	glibtop_get_cpu_p (server, &cpu);
-
-	/* Make sure all required fields are present. */
-
-	if ((cpu.flags & _required_cpu_flags) != _required_cpu_flags)
-		return;
-
-	/* Calculate values. */
-
-	buf->uptime = (double) cpu.total / (double) cpu.frequency;
-	buf->idletime = (double) cpu.idle / (double) cpu.frequency;
+	buf->uptime = (double)times(&tbuf) / (double)sysconf(_SC_CLK_TCK);
 	buf->boot_time = (guint64) time(NULL) - (guint64) buf->uptime;
-
 	buf->flags = _glibtop_sysdeps_uptime;
 }
+

@@ -38,6 +38,7 @@ struct _glibtop_machine
 	int kmem_fd;
 
 	off_t cpuinfo_offset;
+	off_t sysinfo_offset;
 	off_t ifnet_offset;
 	off_t loadavg_offset;
 	off_t shminfo_offset;
