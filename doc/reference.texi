@@ -1352,6 +1352,11 @@ We're currently online.
 @node Common Functions,  , System Dependent, Reference Manual
 @section Common Functions
 
+This are functions which a common implementation for all systems; we never
+use the server for them.
+
+The file system code is taken from GNU Fileutils.
+
 @menu
 * glibtop_mountlist::           Mount List.
 * glibtop_fsusage::             File System Usage.
