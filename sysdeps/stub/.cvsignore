@@ -24,3 +24,4 @@ swap.lo
 sysdeps.lo
 uptime.lo
 *.lo
+so_locations
