@@ -39,7 +39,7 @@ static const unsigned long _glibtop_sysdeps_proclist =
 
 unsigned *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
-			int64_t which, int64_t arg)
+			gint64 which, gint64 arg)
 {
 	register struct proc *pp;
 	register int i, nproc = 0;

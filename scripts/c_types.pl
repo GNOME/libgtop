@@ -49,7 +49,7 @@ my $c_demarshal_func = sub {
 # * Flag specifying whether we need to copy the parameter into temp storage
 #
 
-$typeinfo = {'long'	=> ['int64_t',		0],
+$typeinfo = {'long'	=> ['gint64',		0],
 	     'ulong'	=> ['guint64',	0],
 	     'pid_t'	=> ['pid_t',		0],
 	     'int'	=> ['int',		0],

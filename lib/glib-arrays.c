@@ -29,8 +29,8 @@
 #include <glibtop/glib-arrays.h>
 
 GArray *
-glibtop_get_proclist_as_array_l (glibtop_client *client, int64_t which,
-				 int64_t arg)
+glibtop_get_proclist_as_array_l (glibtop_client *client, gint64 which,
+				 gint64 arg)
 {
     glibtop_array array;
     GArray *retval;

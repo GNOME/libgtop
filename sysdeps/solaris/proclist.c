@@ -55,7 +55,7 @@ glibtop_init_proclist_s (glibtop *server)
 
 unsigned *
 glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
-			int64_t which, int64_t arg)
+			gint64 which, gint64 arg)
 {
 	DIR *proc;
 	struct dirent *entry;

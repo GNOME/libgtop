@@ -82,7 +82,7 @@ union _glibtop_response_union
 
 struct _glibtop_response
 {
-	int64_t offset;
+	gint64 offset;
 	guint64 size, data_size;
 	glibtop_response_union u;
 };

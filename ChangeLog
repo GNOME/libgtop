@@ -1,3 +1,29 @@
+2004-07-18  Benoît Dejean  <tazforever@dlfp.org>
+
+	* doc/reference.texi:
+	* include/glibtop/command.h:
+	* include/glibtop/glib-arrays.h:
+	* include/glibtop/proclist.h:
+	* lib/glib-arrays.c: (glibtop_get_proclist_as_array_l):
+	* lib/lib.pl:
+	* scripts/c_types.pl:
+	* src/daemon/main.c: (handle_parent_connection):
+	* src/daemon/slave.c: (handle_slave_connection):
+	* support/mkstemp.c:
+	* sysdeps/aix/proclist.c: (glibtop_get_proclist_s):
+	* sysdeps/freebsd/cpu.c: (glibtop_get_cpu_p):
+	* sysdeps/freebsd/prockernel.c: (glibtop_get_proc_kernel_p):
+	* sysdeps/freebsd/proclist.c: (glibtop_get_proclist_p):
+	* sysdeps/freebsd/procmem.c: (glibtop_get_proc_mem_p):
+	* sysdeps/kernel/proclist.c: (glibtop_get_proclist_s):
+	* sysdeps/linux/proclist.c: (glibtop_get_proclist_s):
+	* sysdeps/osf1/proclist.c: (glibtop_get_proclist_p):
+	* sysdeps/solaris/proclist.c: (glibtop_get_proclist_s):
+	* sysdeps/stub/proclist.c: (glibtop_get_proclist_s):
+	* sysdeps/stub_suid/proclist.c: (glibtop_get_proclist_p):
+	* sysdeps/sun4/proclist.c: (glibtop_get_proclist_p): Glibify a bit more.
+	Closes #147618.
+
 2004-07-17  Benoît Dejean  <tazforever@dlfp.org>
 
 	* include/glibtop/fsusage.h: Added read, write. This members provides

@@ -225,27 +225,27 @@ glibtop_get_proc_kernel_p (glibtop *server,
 #else
 #if defined(__NetBSD__)
 #if defined(__m68k__)
-			buf->kstk_esp = (u_int64_t) pcb.pcb_usp;
-			buf->kstk_eip = (u_int64_t) 0;
+			buf->kstk_esp = (guint64) pcb.pcb_usp;
+			buf->kstk_eip = (guint64) 0;
 #elif defined(__x86_64__)
-			buf->kstk_esp = (u_int64_t) pcb.pcb_usersp;
-			buf->kstk_eip = (u_int64_t) 0;
+			buf->kstk_esp = (guint64) pcb.pcb_usersp;
+			buf->kstk_eip = (guint64) 0;
 #elif (defined(__arm32__) || defined(__powerpc__))
-			buf->kstk_esp = (u_int64_t) pcb.pcb_sp;
-			buf->kstk_eip = (u_int64_t) 0;
+			buf->kstk_esp = (guint64) pcb.pcb_sp;
+			buf->kstk_eip = (guint64) 0;
 #elif defined(__mipsel__)
-			buf->kstk_esp = (u_int64_t) pcb.pcb_context[8];
-			buf->kstk_eip = (u_int64_t) 0;
+			buf->kstk_esp = (guint64) pcb.pcb_context[8];
+			buf->kstk_eip = (guint64) 0;
 #elif defined(__sparc__)
-			buf->kstk_esp = (u_int64_t) pcb.pcb_sp;
-			buf->kstk_eip = (u_int64_t) pcb.pcb_pc;
+			buf->kstk_esp = (guint64) pcb.pcb_sp;
+			buf->kstk_eip = (guint64) pcb.pcb_pc;
 #elif defined(__alpha__)
-			buf->kstk_esp = (u_int64_t) pcb.pcb_context[9];
-			buf->kstk_eip = (u_int64_t) pcb.pcb_context[8];
+			buf->kstk_esp = (guint64) pcb.pcb_context[9];
+			buf->kstk_eip = (guint64) pcb.pcb_context[8];
 #else
 			/* provide some defaults for other platforms */
-			buf->kstk_esp = (u_int64_t) 0;
-			buf->kstk_eip = (u_int64_t) 0;
+			buf->kstk_esp = (guint64) 0;
+			buf->kstk_eip = (guint64) 0;
 #endif /* ${MACHINE_ARCH} */
 #endif /* __NetBSD__ */
 			buf->flags |= _glibtop_sysdeps_proc_kernel_pcb;

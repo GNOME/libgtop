@@ -77,7 +77,7 @@ void
 glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 {
 #ifdef KERN_CP_TIME
-	u_int64_t cpts [CPUSTATES];
+	guint64 cpts [CPUSTATES];
 #else
 	long cpts [CPUSTATES];
 #endif

@@ -67,7 +67,7 @@ print '';
 print '/* Library functions. */';
 print '';
 
-$convert{'long'} = 'int64_t';
+$convert{'long'} = 'gint64';
 $convert{'ulong'} = 'guint64';
 $convert{'pid_t'} = 'pid_t';
 $convert{'int'} = 'int';

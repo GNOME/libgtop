@@ -59,7 +59,7 @@ glibtop_init_proclist_p (glibtop *server)
 
 unsigned *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
-			int64_t real_which, int64_t arg)
+			gint64 real_which, gint64 arg)
 {
 	struct kinfo_proc *pinfo;
 	unsigned *pids = NULL;

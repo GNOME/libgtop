@@ -27,7 +27,7 @@ void
 handle_slave_connection (int input, int output)
 {
 	glibtop *server G_GNUC_UNUSED = glibtop_global_server;
-	int64_t *param_ptr G_GNUC_UNUSED;
+	gint64 *param_ptr G_GNUC_UNUSED;
 	const void *ptr G_GNUC_UNUSED;
 
 	unsigned short max_len G_GNUC_UNUSED;
@@ -72,7 +72,7 @@ handle_slave_connection (int input, int output)
 			return;
 #if GLIBTOP_SUID_PROCLIST
 		case GLIBTOP_CMND_PROCLIST:
-			param_ptr = (int64_t *) parameter;
+			param_ptr = (gint64 *) parameter;
 			ptr = glibtop_get_proclist_p
 				(server, &resp->u.data.proclist,
 				 param_ptr [0], param_ptr [1]);

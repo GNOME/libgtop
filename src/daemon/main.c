@@ -41,7 +41,7 @@ handle_parent_connection (int s)
     glibtop_mountentry *mount_list;
     char parameter [BUFSIZ];
     unsigned short device;
-    int64_t *param_ptr;
+    gint64 *param_ptr;
     int all_fs;
     pid_t pid;
     void *ptr;
@@ -133,7 +133,7 @@ handle_parent_connection (int s)
 	    do_output (s, resp, _offset_data (sem_limits), 0, NULL);
 	    break;
 	case GLIBTOP_CMND_PROCLIST:
-	    param_ptr = (int64_t *) parameter;
+	    param_ptr = (gint64 *) parameter;
 	    ptr = glibtop_get_proclist_l (server,
 					  &resp->u.data.proclist,
 					  param_ptr [0],

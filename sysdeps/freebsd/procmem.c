@@ -150,10 +150,10 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
        buf->rss_rlim = pinfo [0].ki_rssize;
 
-       buf->vsize = buf->size = (u_int64_t) pagetok
+       buf->vsize = buf->size = (guint64) pagetok
                (pinfo [0].ki_tsize + pinfo [0].ki_dsize + pinfo[0].ki_ssize)
                        << LOG1024;
-       buf->resident = buf->rss = (u_int64_t) pagetok
+       buf->resident = buf->rss = (guint64) pagetok
                (pinfo [0].ki_rssize) << LOG1024;
 
 #else

@@ -39,7 +39,7 @@ glibtop_init_proclist_p (glibtop *server)
 
 unsigned *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
-			int64_t which, int64_t arg)
+			gint64 which, gint64 arg)
 {
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROCLIST, 0);
 

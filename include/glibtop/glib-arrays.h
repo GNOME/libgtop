@@ -38,7 +38,7 @@ GPtrArray *
 glibtop_get_proc_args_as_array_l (glibtop_client *client, pid_t pid);
 
 GArray *
-glibtop_get_proclist_as_array_l (glibtop_client *client, int64_t which, int64_t arg);
+glibtop_get_proclist_as_array_l (glibtop_client *client, gint64 which, gint64 arg);
 
 GPtrArray *
 glibtop_get_proc_map_as_array_l (glibtop_client *client, pid_t pid);

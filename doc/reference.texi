@@ -359,11 +359,11 @@ Library function @code{glibtop_get_proclist}:
 @cartouche
 unsigned *
 glibtop_get_proclist (glibtop_proclist *buf,
-                      int64_t which, int64_t arg);
+                      gint64 which, gint64 arg);
 
 unsigned *
 glibtop_get_proclist_l (glibtop *server, glibtop_proclist *buf,
-                        int64_t which, int64_t arg);
+                        gint64 which, gint64 arg);
 @end cartouche
 @end example
 
