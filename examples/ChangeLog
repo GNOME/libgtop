@@ -1,3 +1,8 @@
+2004-12-23  Benoît Dejean  <tazforever@dlfp.org>
+
+	* netload.c: (main):
+	* procmap.c: (main): s/glibtop_error/g_error/g
+
 2004-11-15  Benoît Dejean  <tazforever@dlfp.org>
 
 	* netload.c: (hwaddress_format_for_display), (main): Updated.

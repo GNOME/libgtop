@@ -83,7 +83,7 @@ main (int argc, char *argv [])
 	glibtop_init_r (&glibtop_global_server, 0, 0);
 
 	if ((argc != 2) || (sscanf (argv [1], "%d", (int *) &pid) != 1))
-		glibtop_error ("Usage: %s pid", argv [0]);
+		g_error ("Usage: %s pid", argv [0]);
 
 #ifdef GLIBTOP_INODEDB
 	inodedb = glibtop_inodedb_open (0, 0);

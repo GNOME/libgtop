@@ -96,7 +96,7 @@ main (int argc, char *argv [])
 	glibtop_init_r (&glibtop_global_server, 0, 0);
 
 	if (argc != 2)
-		glibtop_error ("Usage: %s interface", argv [0]);
+		g_error ("Usage: %s interface", argv [0]);
 
 	glibtop_get_netload (&netload, argv [1]);
 
