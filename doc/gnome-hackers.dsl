@@ -2,10 +2,10 @@
 <!ENTITY dbtohtml.dsl SYSTEM "dbtohtml.dsl" CDATA DSSSL >
 ]>
 
-<style-specification id="libgtopdbtohtml" use="dbtohtml">
+<style-specification id="gnomehackersdbotohtml" use="dbtohtml">
 
-(define %output-basename% "libgtop")
-(define %output-directory% "libgtop")
+(define %output-basename% "gnome-hackers")
+(define %output-directory% "gnome-hackers")
 
 </style-specification>
 
