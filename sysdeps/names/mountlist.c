@@ -25,10 +25,10 @@
 
 #include <glibtop/mountlist.h>
 
-const char *glibtop_names_mountlist[] = { };
+const char *glibtop_names_mountlist[] = { 0 };
 
-const unsigned glibtop_types_mountlist[] = { };
+const unsigned glibtop_types_mountlist[] = { 0 };
 
-const char *glibtop_labels_mountlist[] = { };
+const char *glibtop_labels_mountlist[] = { 0 };
 
-const char *glibtop_descriptions_mountlist[] = { };
+const char *glibtop_descriptions_mountlist[] = { 0 };

@@ -25,10 +25,10 @@
 
 #include <glibtop/procmap.h>
 
-const char *glibtop_names_proc_map[] = { };
+const char *glibtop_names_proc_map[] = { 0 };
 
-const unsigned glibtop_types_proc_map[] = { };
+const unsigned glibtop_types_proc_map[] = { 0 };
 
-const char *glibtop_labels_proc_map[] = { };
+const char *glibtop_labels_proc_map[] = { 0 };
 
-const char *glibtop_descriptions_proc_map[] = { };
+const char *glibtop_descriptions_proc_map[] = { 0 };

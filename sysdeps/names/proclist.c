@@ -25,10 +25,10 @@
 
 #include <glibtop/proclist.h>
 
-const char *glibtop_names_proclist[] = { };
+const char *glibtop_names_proclist[] = { 0 };
 
-const unsigned glibtop_types_proclist[] = { };
+const unsigned glibtop_types_proclist[] = { 0 };
 
-const char *glibtop_labels_proclist[] = { };
+const char *glibtop_labels_proclist[] = { 0 };
 
-const char *glibtop_descriptions_proclist[] = { };
+const char *glibtop_descriptions_proclist[] = { 0 };
