@@ -38,12 +38,10 @@ static const unsigned long _glibtop_sysdeps_proc_time_smp =
 void
 glibtop_init_proc_time_s (glibtop *server)
 {
-#if HAVE_LIBGTOP_SMP
-	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time |
-		_glibtop_sysdeps_proc_time_smp;
-#else
 	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
-#endif
+
+	if (server->ncpu)
+		server->sysdeps.proc_time |= _glibtop_sysdeps_proc_time_smp;
 }
 
 /* Provides detailed information about a process. */
@@ -83,7 +81,9 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 
 	buf->flags = _glibtop_sysdeps_proc_time;
 
-#if HAVE_LIBGTOP_SMP
+	if (!server->ncpu)
+		return;
+
 	if (proc_file_to_buffer (buffer, "/proc/%d/cpu", pid))
 		return;
 
@@ -101,5 +101,4 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 	}
 
 	buf->flags |= _glibtop_sysdeps_proc_time_smp;
-#endif
 }

@@ -38,11 +38,10 @@ static const unsigned long _glibtop_sysdeps_cpu_smp =
 void
 glibtop_init_cpu_s (glibtop *server)
 {
-#if HAVE_LIBGTOP_SMP
-	server->sysdeps.cpu = _glibtop_sysdeps_cpu | _glibtop_sysdeps_cpu_smp;
-#else
 	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
-#endif
+
+	if (server->ncpu)
+		server->sysdeps.cpu |= _glibtop_sysdeps_cpu_smp;
 }
 
 /* Provides information about cpu usage. */
@@ -83,8 +82,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	buf->frequency = 100;
 	buf->flags = _glibtop_sysdeps_cpu;
 
-#if HAVE_LIBGTOP_SMP
-	for (i = 0; i < GLIBTOP_NCPU; i++) {
+	for (i = 0; i < server->ncpu; i++) {
 		if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
 			break;
 
@@ -99,5 +97,4 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	}
 
 	buf->flags |= _glibtop_sysdeps_cpu_smp;
-#endif
 }

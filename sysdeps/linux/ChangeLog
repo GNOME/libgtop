@@ -1,3 +1,13 @@
+1999-01-06  Martin Baulig  <martin@home-of-linux.org>
+
+	Unconditionally enable SMP support for linux.
+
+	* open.c (_glibtop_open_s): Always determine the number of CPUs
+	we have here, not only when SMP support was enabled.
+
+	* cpu.c, proctime.c: Use `server->ncpu' to determine whether to
+ 	enable SMP support.
+
 1998-12-28  Martin Baulig  <martin@home-of-linux.org>
 
 	* netload.c: When using glibc, don't include <netinet/ip_fw.h>

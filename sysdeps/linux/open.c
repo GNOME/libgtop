@@ -59,10 +59,8 @@ glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned long features,
 		const unsigned flags)
 {
-#ifdef HAVE_LIBGTOP_SMP
 	char buffer [BUFSIZ], *p;
 	int fd, len, i;
-#endif
 
 	server->name = program_name;
 
@@ -71,7 +69,6 @@ glibtop_open_s (glibtop *server, const char *program_name,
 
 	server->ncpu = 0;
 
-#ifdef HAVE_LIBGTOP_SMP
 	fd = open (FILENAME, O_RDONLY);
 	if (fd < 0)
 		glibtop_error_io_r (server, "open (%s)", FILENAME);
@@ -98,7 +95,5 @@ glibtop_open_s (glibtop *server, const char *program_name,
 
 #if DEBUG	
 	printf ("\nThis machine has %d CPUs.\n\n", server->ncpu);
-#endif
-
 #endif
 }
