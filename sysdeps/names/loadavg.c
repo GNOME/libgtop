@@ -23,7 +23,7 @@
 
 const char *glibtop_names_loadavg [GLIBTOP_MAX_LOADAVG] =
 {
-	"loadavg [3]", "nr_running", "nr_tasks", "last_pid"
+	"loadavg", "nr_running", "nr_tasks", "last_pid"
 };
 
 const unsigned glibtop_types_loadavg [GLIBTOP_MAX_LOADAVG] =
