@@ -1175,13 +1175,13 @@ fields are valid:
 
 @example
 @cartouche
-#define GLIBTOP_MAP_ENTRY_START         1
-#define GLIBTOP_MAP_ENTRY_END           2
-#define GLIBTOP_MAP_ENTRY_OFFSET        3
-#define GLIBTOP_MAP_ENTRY_PERM          4
-#define GLIBTOP_MAP_ENTRY_INODE         5
-#define GLIBTOP_MAP_ENTRY_DEVICE        6
-#define GLIBTOP_MAP_ENTRY_FILENAME      7
+#define GLIBTOP_MAP_ENTRY_START         0
+#define GLIBTOP_MAP_ENTRY_END           1
+#define GLIBTOP_MAP_ENTRY_OFFSET        2
+#define GLIBTOP_MAP_ENTRY_PERM          3
+#define GLIBTOP_MAP_ENTRY_INODE         4
+#define GLIBTOP_MAP_ENTRY_DEVICE        5
+#define GLIBTOP_MAP_ENTRY_FILENAME      6
 @end cartouche
 @end example
 
