@@ -22,6 +22,7 @@
 #ifndef __GLIBTOP_MACHINE_H__
 #define __GLIBTOP_MACHINE_H__
 
+#include <sys/param.h>
 #include <nlist.h>
 #include <kvm.h>
 #include <sys/dkstat.h>
