@@ -953,7 +953,7 @@ msgstr "╤дентиф╕катор користувача"
 
 #: sysdeps/names/procuid.c:64
 msgid "Effective User ID"
-msgstr "Ефективний ╕дентиф╕катор користувача"
+msgstr "Чинний ╕дентиф╕катор користувача"
 
 #: sysdeps/names/procuid.c:65
 msgid "Group ID"
@@ -961,7 +961,7 @@ msgstr "╤дентиф╕катор групи"
 
 #: sysdeps/names/procuid.c:66
 msgid "Effective Group ID"
-msgstr "Ефективний ╕дентиф╕катор групи"
+msgstr "Чинний ╕дентиф╕катор групи"
 
 #: sysdeps/names/procuid.c:67
 msgid "Process ID"
