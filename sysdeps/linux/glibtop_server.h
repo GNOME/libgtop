@@ -71,9 +71,10 @@ proc_file_to_buffer (char *buffer, const char *fmt, pid_t pid)
     if (fd < 0) return -1;
 
     len = read (fd, buffer, BUFSIZ-1);
-    if (len < 0) return -1;
-
     close (fd);
+
+    if (len < 0)
+	return -1;
 
     buffer [len] = '\0';
 

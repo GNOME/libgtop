@@ -65,6 +65,7 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_array *array, pid_t pid)
     while (1) {
 	len = read (cmdline, buffer, BUFSIZ-1);
 	if (len < 0) {
+	    close (cmdline);
 	    glibtop_free_r (server, ptr);
 	    return NULL;
 	}

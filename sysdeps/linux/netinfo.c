@@ -237,7 +237,9 @@ _netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
     buf->transport = GLIBTOP_TRANSPORT_IPV6;
     buf->flags |= (1L << GLIBTOP_NETINFO_TRANSPORT);
 
-    if ((f = fopen (_PATH_PROCNET_IFINET6, "r")) != NULL) {
+    f = fopen (_PATH_PROCNET_IFINET6, "r");
+
+    if (f != NULL) {
 	while (fscanf (f, "%64s %02x %02x %02x %02x %20s\n",
 		       addr6, &if_idx, &plen, &scope, &dad_status,
 		       devname) != EOF) {
