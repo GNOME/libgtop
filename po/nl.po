@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop CVS\n"
 "POT-Creation-Date: 2002-03-07 01:22+0100\n"
-"PO-Revision-Date: 2002-03-07 01:16+0100\n"
+"PO-Revision-Date: 2002-03-07 22:37+0100\n"
 "Last-Translator: Jeroen van der Vegt <A.J.vanderVegt@ITS.TUDelft.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 #: examples/smp.c:68
 #, c-format
 msgid "Ticks (%ld per second):"
-msgstr ""
+msgstr "Ticks (%ld per seconde):"
 
 #: examples/smp.c:71
 msgid "Total"
@@ -88,7 +88,7 @@ msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:120
 msgid "Spin:"
-msgstr ""
+msgstr "Draaiing:"
 
 #: lib/read.c:75
 #, c-format
@@ -326,7 +326,8 @@ msgid "Last PID"
 msgstr "Laatste PID"
 
 #: sysdeps/names/loadavg.c:47
-msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgid ""
+"Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
 msgstr "Aantal simultaan lopende jobs tijdens 1, 5 en 15 minuten"
 
 #: sysdeps/names/loadavg.c:48
@@ -444,9 +445,8 @@ msgid "Number of system message headers"
 msgstr "Aantal systeem boodschap headers"
 
 #: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
-#, fuzzy
 msgid "Interface Flags"
-msgstr "Interface namen"
+msgstr "Interface vlaggen"
 
 #: sysdeps/names/netload.c:46
 msgid "MTU"
@@ -585,8 +585,8 @@ msgstr ""
 "In Linux heeft op dit moment elke vlag de 'math bit' aan staan, omdat crt0.s "
 "op 'math-emulation' controleert. Dus dit komt niet in de uitvoer.\n"
 "\n"
-"Dit is waarschijnlijk een bug, omdat niet elk proces een gecompileerd C-"
-"programm is.\n"
+"Dit is waarschijnlijk een bug, omdat niet elk proces een gecompileerd "
+"C-programm is.\n"
 "\n"
 "De 'math-bit' zou decimaal 4 moeten zijn, en de gevolgde bit is decimaal 10."
 
@@ -596,8 +596,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Het aantal foutjes dat het programma heeft gemaakt (waarvoor geen geheugen-"
-"pagina van de schijf hoefde te worden gehaald)."
+"Het aantal foutjes dat het programma heeft gemaakt (waarvoor geen "
+"geheugen-pagina van de schijf hoefde te worden gehaald)."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -605,24 +605,26 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Het aantal fouten dat het programma heeft gemaakt (waarvoor wel een geheugen-"
-"pagina van de schijf moest worden gehaald)."
+"Het aantal fouten dat het programma heeft gemaakt (waarvoor wel een "
+"geheugen-pagina van de schijf moest worden gehaald)."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
-msgid "The number of minor faults that the process and its children have made."
+msgid ""
+"The number of minor faults that the process and its children have made."
 msgstr "Het aantal foutjes dat het programma en zijn kinderen hebben gemaakt."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:68
-msgid "The number of major faults that the process and its children have made."
+msgid ""
+"The number of major faults that the process and its children have made."
 msgstr "Het aantal fouten dat het programma en zijn kinderen hebben gemaakt."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:71
 msgid ""
-"The current value of esp (32-bit stack pointer), as found in the kernel "
-"stack page for the process."
+"The current value of esp (32-bit stack pointer), as found in the kernel stack "
+"page for the process."
 msgstr ""
 "De huidige waarde van 'esp' (32-bit stack pointer), zoals gevonden in de "
 "kernel stack-page van het proces."
@@ -635,10 +637,10 @@ msgstr "De huidige EIP (32-bit instruction pointer)."
 #. NWChan
 #: sysdeps/names/prockernel.c:76
 msgid ""
-"This is the \"channel\" in which the process is waiting.  This is the "
-"address of a system call, and can be looked up in a namelist if you need a "
-"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
-"see the WCHAN field in action)"
+"This is the \"channel\" in which the process is waiting.  This is the address "
+"of a system call, and can be looked up in a namelist if you need a textual "
+"name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to see the "
+"WCHAN field in action)"
 msgstr ""
 "Dit is de 'rij' waarin het proces wacht. Het is het adres van een 'system "
 "call', die opgezocht kan worden in de 'namelist' als je een echte naam nodig "
@@ -695,8 +697,8 @@ msgid ""
 msgstr ""
 "Het aantal pagina's dat het proces in het echte geheugen heeft, min 3 for "
 "administratieve doeleinden. Dit zijn slechts pagina's die naar text, data of "
-"stack tellen. Het is exclusief de pagina's die niet op aanvraag zijn "
-"geladen, en die geswapped zijn."
+"stack tellen. Het is exclusief de pagina's die niet op aanvraag zijn geladen, "
+"en die geswapped zijn."
 
 #: sysdeps/names/procmem.c:62
 msgid ""
@@ -825,12 +827,10 @@ msgid "Single-Char code for process state (S=sleeping)"
 msgstr "Enkel-karakter code voor de proces-status (S=slapend)"
 
 #: sysdeps/names/procstate.c:47
-#, fuzzy
 msgid "UID of process"
 msgstr "UID van het proces"
 
 #: sysdeps/names/procstate.c:48
-#, fuzzy
 msgid "GID of process"
 msgstr "GID van het proces"
 
@@ -1104,7 +1104,8 @@ msgid "Total number of swap pages that have been brought in since system boot"
 msgstr "Totaal aantal swap-pagina's dat sinds de systeem-start is ingebracht"
 
 #: sysdeps/names/swap.c:53
-msgid "Total number of swap pages that have been brought out since system boot"
+msgid ""
+"Total number of swap pages that have been brought out since system boot"
 msgstr ""
 "Totaal aantal swap-pagina's dat sinds de systeem-start naar buiten is "
 "ingebracht"
@@ -1227,130 +1228,127 @@ msgstr "Tijd in seconden dat het systeem niets doet sinds het aan staat"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr ""
+msgstr "Ophangen"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
-msgstr ""
+msgstr "Interrupt"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
-msgstr ""
+msgstr "Einde"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
-msgstr ""
+msgstr "Verboden instruktie"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
-msgstr ""
+msgstr "Trace trap"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr ""
+msgstr "Afbreken"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
-msgstr ""
+msgstr "EMT fout"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
-msgstr ""
+msgstr "Floating-point uitzondering"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr ""
+msgstr "Vernietig"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
-msgstr ""
+msgstr "Bus fout"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
-#, fuzzy
 msgid "Segmentation violation"
-msgstr "Procesdeel informatie"
+msgstr "Segmentatie fout"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr ""
+msgstr "Verkeerd argument voor systeemaanroep"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr ""
+msgstr "Gebroken pipe"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
-msgstr ""
+msgstr "Alarm klok"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
-msgstr ""
+msgstr "Beeindiging"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Dringende situatie bij de socket"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
-msgstr ""
+msgstr "Stop"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr ""
+msgstr "Keyboard stop"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
-msgstr ""
+msgstr "Doorgaan"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
-msgstr ""
+msgstr "De status van een kind is veranderd"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr ""
+msgstr "In de achtergrond wordt tty uitgelezen"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr ""
+msgstr "In de achtergrond wordt naar tty geschreven"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr ""
+msgstr "I/O is nu mogelijk"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
-msgstr ""
+msgstr "CPU begrenzing overschreden"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
-msgstr ""
+msgstr "Bestandsomvanglimiet overschreden"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
-msgstr ""
+msgstr "Virtuele alarm klok"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Profiling alarm clock"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
-msgstr ""
+msgstr "Venster grootte verandering"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
-msgstr ""
+msgstr "Verzoek om informatie"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
-#, fuzzy
 msgid "User defined signal 1"
-msgstr "Masker van de genegeerde signalen"
+msgstr "Gebruiker gedefinieerd signaal 1"
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
-#, fuzzy
 msgid "User defined signal 2"
-msgstr "Masker van de genegeerde signalen"
+msgstr "Gebruiker gedefinieerd signaal 2"
 
 #~ msgid "SMP CPU Flags"
 #~ msgstr "SMP CPU vlaggen"
