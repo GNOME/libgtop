@@ -1,3 +1,9 @@
+2004-12-29  Benoît Dejean  <tazforever@dlfp.org>
+
+	* lib/read_data.c: (glibtop_read_data_l):
+	* lib/write.c: (glibtop_write_l): Fixed error messages.
+	Closes #162406.
+
 2004-12-23  Benoît Dejean  <tazforever@dlfp.org>
 
 	* include/glibtop/error.h:

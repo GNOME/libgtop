@@ -68,7 +68,8 @@ glibtop_read_data_l (glibtop *server)
 
 	if (ret < 0)
 		glibtop_error_io_r (server,
-				    ngettext ("read data %lu byte", "read data %lu bytes",
+				    ngettext ("read %lu byte of data",
+					      "read %lu bytes of data",
 					      (unsigned long) size));
 
 	return ptr;
