@@ -82,7 +82,7 @@ static backend_init_table_entry backend_init_table [] = {
 #ifdef LIBGTOP_HAVE_SYSDEPS
     { "glibtop-backend-sysdeps", &LibGTopBackendInfo_Sysdeps },
 #endif
-    { "glibtop-backend-common", &LibGTopBackendInfo_Sysdeps },
+    { "glibtop-backend-common", &LibGTopBackendInfo_Common },
 #ifdef LIBGTOP_NEED_SERVER
     { "glibtop-backend-server", &LibGTopBackendInfo_Server },
 #endif
