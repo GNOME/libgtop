@@ -79,7 +79,7 @@ struct _glibtop_interface_names
 
 char *glibtop_get_interface_names_l (glibtop *server, glibtop_interface_names *buf, unsigned interface, unsigned number, unsigned strategy);
 
-#if GLIBTOP_SUID_INTERFACES
+#if GLIBTOP_SUID_INTERFACE_NAMES
 int glibtop_init_interface_names_p (glibtop *server);
 char *glibtop_get_interface_names_p (glibtop *server, glibtop_interface_names *buf, unsigned interface, unsigned number, unsigned strategy);
 #else
