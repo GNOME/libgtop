@@ -124,7 +124,7 @@ glibtop_get_proc_state_p (glibtop *server,
 #else
 	switch (pinfo [0].PROC_STAT) {
 	case SIDL:
-		buf->state = 'S';
+		buf->state = 'D';
 		break;
 	case SRUN:
 		buf->state = 'R';

@@ -1,3 +1,8 @@
+2004-07-15  Benoît Dejean  <tazforever@dlfp.org>
+
+	* procstate.c: (glibtop_get_proc_state_p): Fixed copy/paste error
+	while setting buf->state.
+
 2004-06-07  Benoît Dejean  <tazforever@dlfp.org>
 
 	* netload.c: (glibtop_get_netload_p):
