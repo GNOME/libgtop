@@ -81,9 +81,7 @@ glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf,
 		return;
 	}
 
-	strncpy (buf->cmd, procinfo.pi_comm, sizeof (buf->cmd)-1);
-
-	buf->cmd [sizeof (buf->cmd)-1] = 0;
+	g_strlcpy (buf->cmd, procinfo.pi_comm, sizeof buf->cmd);
 
 	buf->uid = procinfo.pi_svuid;
 	buf->gid = procinfo.pi_svgid;

@@ -63,8 +63,6 @@ glibtop_get_procdata_r (glibtop *server, glibtop_procdata *buf, pid_t pid)
 	task_t thistask;
 	int ret, info_count;
 
-	memset (buf, 0, sizeof (glibtop_procdata));
-
 	glibtop_init ();
 
 	memset (buf, 0, sizeof (glibtop_procdata));
