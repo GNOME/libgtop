@@ -34,7 +34,7 @@ static void show_open_files(pid_t pid)
 		  break;
 
 	  case GLIBTOP_FILE_TYPE_LOCALSOCKET:
-		  printf("localsocket\n");
+		  printf("localsocket %s\n", files[i].info.localsock.name);
 		  break;
 	  }
   }
