@@ -42,7 +42,17 @@
 #define HAVE_AFINET6 1
 #endif
 
+#ifdef HAVE_AFINET6
+
 #define _PATH_PROCNET_IFINET6	"/proc/net/if_inet6"
+
+#define IPV6_ADDR_LOOPBACK	0x0010U
+#define IPV6_ADDR_LINKLOCAL	0x0020U
+#define IPV6_ADDR_SITELOCAL	0x0040U
+
+#define IPV6_ADDR_COMPATv4	0x0080U
+
+#endif /* HAVE_AFINET6 */
 
 #if !defined (_LIBC) && defined (__GNU_LIBRARY__) && __GNU_LIBRARY__ > 1
 /* GNU LibC */
@@ -242,11 +252,34 @@ _netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
 		address.flags |= (1L << GLIBTOP_IFADDR_ADDRESS);
 
 	    address.transport = GLIBTOP_TRANSPORT_IPV6;
-	    address.addr_len = plen;
-	    address.scope = scope;
+	    address.subnet = plen;
+
+	    switch (scope) {
+	    case 0:
+		address.scope = GLIBTOP_IPV6_SCOPE_GLOBAL;
+		break;
+	    case IPV6_ADDR_LINKLOCAL:
+		address.scope = GLIBTOP_IPV6_SCOPE_LINKLOCAL;
+		break;
+	    case IPV6_ADDR_SITELOCAL:
+		address.scope = GLIBTOP_IPV6_SCOPE_SITELOCAL;
+		break;
+	    case IPV6_ADDR_COMPATv4:
+		address.scope = GLIBTOP_IPV6_SCOPE_COMPATv4;
+		break;
+	    case IPV6_ADDR_LOOPBACK:
+		address.scope = GLIBTOP_IPV6_SCOPE_LOOPBACK;
+		break;
+	    default:
+		address.scope = GLIBTOP_IPV6_SCOPE_UNKNOWN;
+		break;
+	    }
+
+	    address.addr_len = 8;
 
 	    address.flags |= (1L << GLIBTOP_IFADDR_TRANSPORT) |
 		(1L << GLIBTOP_IFADDR_ADDR_LEN) |
+		(1L << GLIBTOP_IFADDR_SUBNET) |
 		(1L << GLIBTOP_IFADDR_SCOPE);
 
 	    g_ptr_array_add (parray, g_memdup (&address, sizeof (address)));
