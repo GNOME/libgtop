@@ -18,5 +18,5 @@ const char *|proc_args|ulong(size)|pid_t(pid):unsigned(max_len)
 glibtop_map_entry *|proc_map|ulong(number,size,total)|pid_t(pid)
 glibtop_mountentry *|@mountlist|ulong(number,size,total)|int(all_fs)
 void|@fsusage|ulong(blocks,bfree,bavail,files,ffree)|string|mount_dir
-void|netload|ulong(mtu,address,packets_in,packets_out,packets_total,bytes_in,bytes_out,bytes_total,errors_in,errors_out,errors_total,collisions)|string|interface
+void|netload|ulong(if_flags,mtu,subnet,address,packets_in,packets_out,packets_total,bytes_in,bytes_out,bytes_total,errors_in,errors_out,errors_total,collisions)|string|interface
 void|ppp|ulong(state,bytes_in,bytes_out)|ushort(device)

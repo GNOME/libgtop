@@ -72,17 +72,36 @@ main (int argc, char *argv [])
 	
 	glibtop_get_netload (&netload, argv [1]);
 
-	printf ("Network Load (0x%08lx): "
-		"%lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu\n",
+	printf ("Network Load (0x%08lx):\n\n"
+		"\tInterface Flags:\t0x%08lx\n"
+		"\tSubnet:\t\t\t0x%08lx\n"
+		"\tAddress:\t\t0x%08lx\n\n"
+		"\tMTU:\t\t\t%ld\n"
+		"\tCollisions:\t\t%ld\n\n"
+		"\tPackets In:\t\t%ld\n"
+		"\tPackets Out:\t\t%ld\n"
+		"\tPackets Total:\t\t%ld\n\n"
+		"\tBytes In:\t\t%ld\n"
+		"\tBytes Out:\t\t%ld\n"
+		"\tBytes Total:\t\t%ld\n\n"
+		"\tErrors In:\t\t%ld\n"
+		"\tErrors Out:\t\t%ld\n"
+		"\tErrors Total:\t\t%ld\n\n",
 		(unsigned long) netload.flags,
+		(unsigned long) netload.if_flags,
+		(unsigned long) netload.subnet,
+		(unsigned long) netload.address,
 		(unsigned long) netload.mtu,
+		(unsigned long) netload.collisions,
 		(unsigned long) netload.packets_in,
 		(unsigned long) netload.packets_out,
+		(unsigned long) netload.packets_total,
 		(unsigned long) netload.bytes_in,
 		(unsigned long) netload.bytes_out,
+		(unsigned long) netload.bytes_total,
 		(unsigned long) netload.errors_in,
 		(unsigned long) netload.errors_out,
-		(unsigned long) netload.collisions);
+		(unsigned long) netload.errors_total);
 
 	glibtop_close ();
 

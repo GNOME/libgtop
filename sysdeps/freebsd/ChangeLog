@@ -1,6 +1,6 @@
 1998-10-26  Martin Baulig  <martin@home-of-linux.org>
 
-	* netload.c: New file. Currently empty.
+	* netload.c: New file to get network load.
 
 1998-10-26  Martin Baulig  <martin@home-of-linux.org>
 

@@ -23,13 +23,15 @@
 
 const char *glibtop_names_netload [GLIBTOP_MAX_NETLOAD] =
 {
-	"mtu", "packets_in", "packets_out", "packets_total",
-	"bytes_in", "bytes_out", "bytes_total", "errors_in",
-	"errors_out", "errors_total", "collisions"
+	"if_flags", "mtu", "subnet", "address", "packets_in",
+	"packets_out", "packets_total", "bytes_in", "bytes_out",
+	"bytes_total", "errors_in", "errors_out", "errors_total",
+	"collisions"
 };
 
 const unsigned glibtop_types_netload [GLIBTOP_MAX_NETLOAD] =
 { 
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
@@ -38,7 +40,10 @@ const unsigned glibtop_types_netload [GLIBTOP_MAX_NETLOAD] =
 
 const char *glibtop_labels_netload [GLIBTOP_MAX_NETLOAD] =
 {
+	N_("Interface Flags"),
 	N_("MTU"),
+	N_("Subnet"),
+	N_("Address"),
 	N_("Packets In"),
 	N_("Packets Out"),
 	N_("Packets Total"),
@@ -53,7 +58,10 @@ const char *glibtop_labels_netload [GLIBTOP_MAX_NETLOAD] =
 
 const char *glibtop_descriptions_netload [GLIBTOP_MAX_NETLOAD] =
 {
+	N_("Interface Flags"),
 	N_("Maximum Transfer Unit"),
+	N_("Subnet"),
+	N_("Address"),
 	N_("Packets In"),
 	N_("Packets Out"),
 	N_("Packets Total"),
