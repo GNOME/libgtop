@@ -348,12 +348,12 @@ msgid ""
 msgstr ""
 "Processens kerneflag.\n"
 "\n"
-"Under Linux har alle flag matematik-biten sat, fordi crt0.s tjekker efter "
+"Under Linux har alle flag matematik-bitten sat, fordi crt0.s tjekker efter "
 "matematikemulering, så dette er ikke inkluderet i uddata.\n"
 "\n"
 "Dette er sikkert en fejl, da ikke enhver proces er et kompileret C program.\n"
 "\n"
-"Matematikbiten bør være decimal 4, og den tracede bit er decimal 10."
+"Matematikbitten bør være decimal 4, og den tracede bit er decimal 10."
 
 # sysdeps/names/prockernel.c:61
 #. Min_Flt
@@ -1465,77 +1465,3 @@ msgstr "Ingen kerneunderstøttelse"
 #: lib/errors.c:40
 msgid "Incompatible kernel version"
 msgstr "Inkompatibel kerneversion"
-
-# lib/read.c:75
-#~ msgid "read %d bytes"
-#~ msgstr "læs %d byte"
-
-# lib/read_data.c:49
-#~ msgid "read data size"
-#~ msgstr "læs datastørrelse"
-
-# lib/read_data.c:66
-#~ msgid "read data %d bytes"
-#~ msgstr "læs data %d byte"
-
-# lib/write.c:48
-#~ msgid "write %d bytes"
-#~ msgstr "skriv %d byte"
-
-# src/daemon/gnuserv.c:446
-#~ msgid "Enable debugging"
-#~ msgstr "Slå aflusning til"
-
-# src/daemon/gnuserv.c:446
-#~ msgid "DEBUG"
-#~ msgstr "DEBUG"
-
-# src/daemon/gnuserv.c:448
-#~ msgid "Enable verbose output"
-#~ msgstr "Slå meddelsom uddata til"
-
-# src/daemon/gnuserv.c:448
-#~ msgid "VERBOSE"
-#~ msgstr "VERBOSE"
-
-# src/daemon/gnuserv.c:450
-#~ msgid "Don't fork into background"
-#~ msgstr "Forgren ikke til baggrund"
-
-# src/daemon/gnuserv.c:450
-#~ msgid "NO-DAEMON"
-#~ msgstr "NO-DAEMON"
-
-# src/daemon/gnuserv.c:452
-#~ msgid "Invoked from inetd"
-#~ msgstr "Kaldt fra inetd"
-
-# src/daemon/gnuserv.c:452
-#~ msgid "INETD"
-#~ msgstr "INETD"
-
-# src/daemon/gnuserv.c:486
-#~ msgid ""
-#~ "Error on option %s: %s.\n"
-#~ "Run '%s --help' to see a full list of available command line options.\n"
-#~ msgstr ""
-#~ "Fejl ved flag %s: %s.\n"
-#~ "Kør '%s --help' for at få liste over alle disponible kommandolinieflag.\n"
-
-# sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
-# sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
-# sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
-#~ msgid "Number of list elements"
-#~ msgstr "Antal elementer i listen"
-
-# sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
-# sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
-# sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
-#~ msgid "Total size of list"
-#~ msgstr "Total listestørrelse"
-
-# sysdeps/names/mountlist.c:42 sysdeps/names/mountlist.c:49
-# sysdeps/names/proclist.c:42 sysdeps/names/proclist.c:49
-# sysdeps/names/procmap.c:42 sysdeps/names/procmap.c:49
-#~ msgid "Size of a single list element"
-#~ msgstr "Størrelsen på et enkelt element i listen"
