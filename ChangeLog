@@ -1,3 +1,8 @@
+2000-01-18  Martin Baulig  <martin@home-of-linux.org>
+
+	* lib/sysdeps-init-osf1.c: New file. Added sysdeps initialization
+	code from DEC OSF/1.
+
 2000-01-16  Martin Baulig  <martin@home-of-linux.org>
 
 	We now use `@LIBGTOP_PACKAGE@' as the translation domain so
