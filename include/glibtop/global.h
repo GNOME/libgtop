@@ -132,7 +132,7 @@
 __BEGIN_DECLS
 
 #ifndef _
-#define _(String) gettext (String)
+#define _(String) dgettext (PACKAGE, String)
 #define N_(String) (String)
 #endif
 
