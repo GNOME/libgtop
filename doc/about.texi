@@ -1,0 +1,122 @@
+@node About, White Paper, Top, Top
+@chapter About LibGTop
+
+LibGTop is a library to get system specific data such as CPU and Memory Usage
+and information about running Processes.
+
+On Systems like Solaris or Digital Unix where you need special privileges to
+get those data, it uses a setuid/setgid server to do so.
+
+Even if LibGTop is a part of the GNOME desktop environment
+(@uref{http://www.gnome.org}), the main interface of LibGTop is totally
+independent from any particular desktop environment, so you can also use it
+as a standalone library in any piece of GPLed software.
+
+@menu
+* Availability::                Where to get LibGTop
+* Supported Platforms::         Supported Platforms
+* Mailing List::                Helping with LibGTop development
+* Thanks::                      People who contributed to LibGTop
+@end menu
+
+@node Availability, Supported Platforms, About, About
+@section Availability
+
+The master source of LibGTop is the GNOME CVS tree
+(see @uref{http://www.gnome.org} for details), but you can also get the
+latest release tarballs from
+
+@display
+@uref{ftp://ftp.gnome.org/pub/GNOME/sources/libgtop/}
+@end display
+
+@noindent
+or any of its mirror sites.
+
+The latest stable version of LibGTop is 1.0.1 which is also the one that comes
+together with GNOME 1.0. In CVS, there is a @code{LIBGTOP_STABLE_1_0} branch
+which is rooted at the @code{LIBGTOP_1_0_1} tag while actual development occurs
+in the @code{HEAD} which currently has version 1.1.0.
+
+@node Supported Platforms, Mailing List, Availability, About
+@section Supported Platforms
+
+The stable branch currently supports the following platforms:
+
+@itemize @bullet
+@item All versions of Linux
+
+LibGTop was tested under Linux 2.0.x and 2.2.x on the ix86 and the alpha, but
+it should also work without problems on SparcLinux.
+
+Note: I'm speaking of the Linux kernel here, not the GNU/Linux operating system.
+
+@item FreeBSD, NetBSD and OpenBSD
+
+LibGTop was tested under FreeBSD 2.2.6 and 3.0, NetBSD 1.3.2 and OpenBSD 2.4.
+Support for NetBSD 1.4 was added in LibGTop 1.0.2.
+
+@end itemize
+
+The platforms listed above are known to be stable and working. However, if
+you're using the latest development version, you can use it on the following
+platforms as well:
+
+@itemize @bullet
+@item BSD/OS
+
+There is a port for BSD/OS (aka BSDI) 2.x and 3.x from Timur Bakeyev which
+should also work with 4.x. This isn't tested very well, but it should be
+working.
+
+@item Digital Unix
+
+There is some basic support for Digital Unix (formerly DEC OSF/1) V3.2C, but
+this may still be a bit unstable. I'm currently working on this port as time
+permits so it should be fully supported soon.
+
+@item Solaris
+
+The Solaris port currently works on Solaris 7 and maybe also on other releases.
+Thanks a lot to Drazen Kacar and everyone who helped working on this port. They
+have really done excellent work here and I'm pretty sure that this port will be
+fully functional on most Solaris versions in near future.
+
+@end itemize
+
+@node Mailing List, Thanks, Supported Platforms, About
+@section Mailing List
+
+There is a @email{libgtop-devel-list@@egroups.com} mailing list for people who
+want to help with the development of LibGTop.
+
+It is meant as a low-traffic, but high content-list where we can discuss
+technical details such as adding new sysdeps ports etc. 
+
+Especially, I'd like to see people with a deeper knowledge of operating systems
+internals joining my list so we can discuss technical details of the sysdeps
+code. 
+
+It is *not* for users that want to know how to compile LibGTop etc.
+
+You can subscribe to this mailing list and view the mailing list archives
+on the LibGTop Page at @uref{http://www.home-of-linux.org/gnome/libgtop}.
+
+@node Thanks,  , Mailing List, About
+@section Thanks
+
+At the place I'd like to thank the following people who contributed to
+LibGTop (listed in chronological order):
+
+@itemize @bullet
+@item Sebastian Wilhelmi who had the initial idea of LibGTop and helped
+me a lot in the early beginning.
+@item Josh Sled for the initial FreeBSD port.
+@item Jeremy Lea for his BSD patches.
+@item Timur Bakeyev for the BSDI port.
+@item Drazen Kacar and the other people on the LibGTop development mailing
+list for the Solaris port.
+@item All people sending me patches, having good ideas, ...
+@item Everyone I have forgotten in this list ...
+@end itemize
+

@@ -17,7 +17,8 @@ include_HEADERS = glibtop.h
 
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt libgtopConf.sh.in \
 	LIBGTOP-VERSION features.def libgtop-config.in RELNOTES-0.25 \
-	RELNOTES-1.0 libgtop-sysdeps.m4 README NEWS.old libgtop-mirror.sh
+	RELNOTES-1.0 RELNOTES-1.0.x libgtop-sysdeps.m4 README \
+	libgtop-mirror.sh
 
 dist-hook:
 	cp libgtop.spec $(distdir)
