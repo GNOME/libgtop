@@ -29,13 +29,10 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
+#include <glibtop/compat_10.h>
+#include <glibtop/array.h>
+
 BEGIN_LIBGTOP_DECLS
-
-#define GLIBTOP_PROC_MAP_NUMBER		0
-#define GLIBTOP_PROC_MAP_TOTAL		1
-#define GLIBTOP_PROC_MAP_SIZE		2
-
-#define GLIBTOP_MAX_PROC_MAP		3
 
 #define GLIBTOP_MAP_ENTRY_START		1
 #define GLIBTOP_MAP_ENTRY_END		2
@@ -57,23 +54,13 @@ BEGIN_LIBGTOP_DECLS
 
 typedef struct _glibtop_map_entry	glibtop_map_entry;
 
-typedef struct _glibtop_proc_map	glibtop_proc_map;
-
 struct _glibtop_map_entry
 {
     u_int64_t flags, start, end, offset, perm, inode, device;
     char filename [GLIBTOP_MAP_FILENAME_LEN+1];
 };
 
-struct _glibtop_proc_map
-{
-    u_int64_t	flags,
-	number,			/* GLIBTOP_PROC_MAP_NUMBER	*/
-	total,			/* GLIBTOP_PROC_MAP_TOTAL	*/
-	size;			/* GLIBTOP_PROC_MAP_SIZE	*/
-};
-
-#define glibtop_get_proc_map(proc_map,pid) glibtop_get_proc_map_l(glibtop_global_server, proc_map, pid)
+#define glibtop_get_proc_map(array,pid) glibtop_get_proc_map_l(glibtop_global_server, array, pid)
 
 #if GLIBTOP_SUID_PROC_MAP
 #define glibtop_get_proc_map_r		glibtop_get_proc_map_p
@@ -82,18 +69,18 @@ struct _glibtop_proc_map
 #endif
 
 glibtop_map_entry *
-glibtop_get_proc_map_l (glibtop *server, glibtop_proc_map *buf, pid_t pid);
+glibtop_get_proc_map_l (glibtop *server, glibtop_array *array, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_MAP
 int glibtop_init_proc_map_p (glibtop *server);
 
 glibtop_map_entry *
-glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf, pid_t pid);
+glibtop_get_proc_map_p (glibtop *server, glibtop_array *array, pid_t pid);
 #else
 int glibtop_init_proc_map_s (glibtop *server);
 
 glibtop_map_entry *
-glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf, pid_t pid);
+glibtop_get_proc_map_s (glibtop *server, glibtop_array *array, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

@@ -29,13 +29,10 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
+#include <glibtop/compat_10.h>
+#include <glibtop/array.h>
+
 BEGIN_LIBGTOP_DECLS
-
-#define GLIBTOP_PROCLIST_NUMBER	0
-#define GLIBTOP_PROCLIST_TOTAL	1
-#define GLIBTOP_PROCLIST_SIZE	2
-
-#define GLIBTOP_MAX_PROCLIST	3
 
 /* You can use the folowing constants as the `which' member of
  * glibtop_get_proclist () to specify which processes to fetch. */
@@ -55,17 +52,7 @@ BEGIN_LIBGTOP_DECLS
 #define GLIBTOP_EXCLUDE_SYSTEM		0x2000
 #define GLIBTOP_EXCLUDE_NOTTY		0x4000
 
-typedef struct _glibtop_proclist	glibtop_proclist;
-
-struct _glibtop_proclist
-{
-    u_int64_t	flags,
-	number,			/* GLIBTOP_PROCLIST_NUMBER	*/
-	total,			/* GLIBTOP_PROCLIST_TOTAL	*/
-	size;			/* GLIBTOP_PROCLIST_SIZE	*/
-};
-
-#define glibtop_get_proclist(proclist,which,arg) glibtop_get_proclist_l(glibtop_global_server, proclist, which, arg)
+#define glibtop_get_proclist(array,which,arg) glibtop_get_proclist_l(glibtop_global_server, array, which, arg)
 
 #if GLIBTOP_SUID_PROCLIST
 #define glibtop_get_proclist_r		glibtop_get_proclist_p
@@ -74,20 +61,20 @@ struct _glibtop_proclist
 #endif
 
 unsigned *
-glibtop_get_proclist_l (glibtop *server, glibtop_proclist *buf,
+glibtop_get_proclist_l (glibtop *server, glibtop_array *array,
 			int64_t which, int64_t arg);
 
 #if GLIBTOP_SUID_PROCLIST
 int glibtop_init_proclist_p (glibtop *server);
 
 unsigned *
-glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
+glibtop_get_proclist_p (glibtop *server, glibtop_array *array,
 			int64_t which, int64_t arg);
 #else
 int glibtop_init_proclist_s (glibtop *server);
 
 unsigned *
-glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
+glibtop_get_proclist_s (glibtop *server, glibtop_array *array,
 			int64_t which, int64_t arg);
 #endif
 

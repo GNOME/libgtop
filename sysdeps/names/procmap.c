@@ -25,26 +25,10 @@
 
 #include <glibtop/procmap.h>
 
-const char *glibtop_names_proc_map[GLIBTOP_MAX_PROC_MAP] =
-{
-    "number", "total", "size"
-};
+const char *glibtop_names_proc_map[] = { };
 
-const unsigned glibtop_types_proc_map[GLIBTOP_MAX_PROC_MAP] =
-{
-    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
-};
+const unsigned glibtop_types_proc_map[] = { };
 
-const char *glibtop_labels_proc_map[GLIBTOP_MAX_PROC_MAP] =
-{
-    N_ ("Number of list elements"),
-    N_ ("Total size of list"),
-    N_ ("Size of a single list element")
-};
+const char *glibtop_labels_proc_map[] = { };
 
-const char *glibtop_descriptions_proc_map[GLIBTOP_MAX_PROC_MAP] =
-{
-    N_ ("Number of list elements"),
-    N_ ("Total size of list"),
-    N_ ("Size of a single list element")
-};
+const char *glibtop_descriptions_proc_map[] = { };

@@ -25,26 +25,10 @@
 
 #include <glibtop/mountlist.h>
 
-const char *glibtop_names_mountlist[GLIBTOP_MAX_MOUNTLIST] =
-{
-    "number", "total", "size"
-};
+const char *glibtop_names_mountlist[] = { };
 
-const unsigned glibtop_types_mountlist[GLIBTOP_MAX_MOUNTLIST] =
-{
-    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
-};
+const unsigned glibtop_types_mountlist[] = { };
 
-const char *glibtop_labels_mountlist[GLIBTOP_MAX_MOUNTLIST] =
-{
-    N_ ("Number of list elements"),
-    N_ ("Total size of list"),
-    N_ ("Size of a single list element")
-};
+const char *glibtop_labels_mountlist[] = { };
 
-const char *glibtop_descriptions_mountlist[GLIBTOP_MAX_MOUNTLIST] =
-{
-    N_ ("Number of list elements"),
-    N_ ("Total size of list"),
-    N_ ("Size of a single list element")
-};
+const char *glibtop_descriptions_mountlist[] = { };

@@ -68,7 +68,7 @@ union _glibtop_union
     glibtop_shm_limits		shm_limits;
     glibtop_msg_limits		msg_limits;
     glibtop_sem_limits		sem_limits;
-    glibtop_proclist		proclist;
+    glibtop_array		proclist;
     glibtop_proc_state		proc_state;
     glibtop_proc_uid		proc_uid;
     glibtop_proc_mem		proc_mem;
@@ -77,10 +77,10 @@ union _glibtop_union
     glibtop_proc_kernel		proc_kernel;
     glibtop_proc_segment	proc_segment;
     glibtop_proc_args		proc_args;
-    glibtop_proc_map		proc_map;
-    glibtop_mountlist		mountlist;
+    glibtop_array		proc_map;
+    glibtop_array		mountlist;
     glibtop_fsusage		fsusage;
-    glibtop_interface_names	interface_names;
+    glibtop_array		interface_names;
     glibtop_netinfo		netinfo;
     glibtop_netload		netload;
     glibtop_ppp			ppp;

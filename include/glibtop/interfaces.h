@@ -29,6 +29,9 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
+#include <glibtop/compat_10.h>
+#include <glibtop/array.h>
+
 BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_INTERFACE_IF_FLAGS	0
@@ -42,14 +45,6 @@ BEGIN_LIBGTOP_DECLS
 #define GLIBTOP_MAX_INTERFACE		7
 
 typedef struct _glibtop_interface	glibtop_interface;
-
-#define GLIBTOP_INTERFACE_NAMES_NUMBER	0
-#define GLIBTOP_INTERFACE_NAMES_SIZE	1
-#define GLIBTOP_INTERFACE_NAMES_TOTAL	2
-
-#define GLIBTOP_MAX_INTERFACE_NAMES	3
-
-typedef struct _glibtop_interface_names	glibtop_interface_names;
 
 typedef enum _glibtop_interface_type	glibtop_interface_type;
 typedef enum _glibtop_transport		glibtop_transport;
@@ -144,15 +139,7 @@ struct _glibtop_interface
     char name [GLIBTOP_INTERFACE_LEN];
 };
 
-struct _glibtop_interface_names
-{
-    u_int64_t	flags,
-	number,			/* GLIBTOP_INTERFACES_NUMBER	*/
-	size,			/* GLIBTOP_INTERFACES_SIZE	*/
-	total;			/* GLIBTOP_INTERFACES_TOTAL	*/
-};
-
-#define glibtop_get_interface_names(buf,interface,number,instance,strategy) glibtop_get_interface_names_l (glibtop_global_server, buf, interface, number, instance, strategy)
+#define glibtop_get_interface_names(array,interface,number,instance,strategy) glibtop_get_interface_names_l (glibtop_global_server, array, interface, number, instance, strategy)
 
 #if GLIBTOP_SUID_INTERFACE_NAMES
 #define glibtop_get_interface_names_r	glibtop_get_interface_names_p
@@ -160,14 +147,14 @@ struct _glibtop_interface_names
 #define glibtop_get_interface_names_r	glibtop_get_interface_names_s
 #endif
 
-glibtop_interface *glibtop_get_interface_names_l (glibtop *server, glibtop_interface_names *buf, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
+glibtop_interface *glibtop_get_interface_names_l (glibtop *server, glibtop_array *array, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
 
 #if GLIBTOP_SUID_INTERFACE_NAMES
 int glibtop_init_interface_names_p (glibtop *server);
-glibtop_interface *glibtop_get_interface_names_p (glibtop *server, glibtop_interface_names *buf, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
+glibtop_interface *glibtop_get_interface_names_p (glibtop *server, glibtop_array *array, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
 #else
 int glibtop_init_interface_names_s (glibtop *server);
-glibtop_interface *glibtop_get_interface_names_s (glibtop *server, glibtop_interface_names *buf, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
+glibtop_interface *glibtop_get_interface_names_s (glibtop *server, glibtop_array *array, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
 #endif
 
 #ifdef GLIBTOP_NAMES

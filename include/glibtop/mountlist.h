@@ -29,17 +29,12 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
+#include <glibtop/compat_10.h>
+#include <glibtop/array.h>
+
 BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_MOUNTLIST_NUMBER	0
-#define GLIBTOP_MOUNTLIST_TOTAL		1
-#define GLIBTOP_MOUNTLIST_SIZE		2
-
-#define GLIBTOP_MAX_MOUNTLIST		3
-
 typedef struct _glibtop_mountentry	glibtop_mountentry;
-
-typedef struct _glibtop_mountlist	glibtop_mountlist;
 
 struct _glibtop_mountentry
 {
@@ -49,23 +44,15 @@ struct _glibtop_mountentry
     char type [GLIBTOP_MOUNTENTRY_LEN+1];
 };
 
-struct _glibtop_mountlist
-{
-    u_int64_t	flags,
-	number,			/* GLIBTOP_MOUNTLIST_NUMBER	*/
-	total,			/* GLIBTOP_MOUNTLIST_TOTAL	*/
-	size;			/* GLIBTOP_MOUNTLIST_SIZE	*/
-};
-
-#define glibtop_get_mountlist(mountlist,all_fs)	glibtop_get_mountlist_l(glibtop_global_server, mountlist, all_fs)
+#define glibtop_get_mountlist(array,all_fs)	glibtop_get_mountlist_l(glibtop_global_server, array, all_fs)
 
 #define glibtop_get_mountlist_r		glibtop_get_mountlist_s
 
 glibtop_mountentry *
-glibtop_get_mountlist_l (glibtop *server, glibtop_mountlist *buf, int all_fs);
+glibtop_get_mountlist_l (glibtop *server, glibtop_array *array, int all_fs);
 
 glibtop_mountentry *
-glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs);
+glibtop_get_mountlist_s (glibtop *server, glibtop_array *array, int all_fs);
 
 #ifdef GLIBTOP_NAMES
 

@@ -31,16 +31,20 @@
 
 BEGIN_LIBGTOP_DECLS
 
+#define GLIBTOP_ARRAY_NUMBER		0
+#define GLIBTOP_ARRAY_SIZE		1
+#define GLIBTOP_ARRAY_TOTAL		2
+
+#define GLIBTOP_MAX_ARRAY		3
+
 typedef struct _glibtop_array	glibtop_array;
 
 struct _glibtop_array
 {
-	u_int64_t number,		/* Number of elements		*/
-		size,			/* Size of a single element	*/
-		size;			/* Total size of the array	*/
+	u_int64_t flags,
+	    number,		/* GLIBTOP_ARRAY_NUMBER	*/
+	    size,		/* GLIBTOP_ARRAY_SIZE	*/
+	    total;		/* GLIBTOP_ARRAY_TOTAL	*/
 };
-
-GPtrArray *		/* internal use only */
-_glibtop_list_to_array (glibtop *array, gpointer data);
 
 #endif

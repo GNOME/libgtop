@@ -1,5 +1,39 @@
 1999-12-12  Martin Baulig  <martin@home-of-linux.org>
 
+	All functions which return an array now take a `glibtop_array *array'
+	parameter instead of a `glibtop_<feature> *buf' one.
+
+	For compatibility, we typedef the corresponding `glibtop_<feature>'s
+	to `glibtop_array' in <glibtop/compat_10.h>.
+
+	This has the advantage that scripting languages like Guile with an
+	array implementation which stores the length of an array in the
+	array don't need the `glibtop_array' parameter at all any longer.
+
+	We'll also add convenient functions which return GPtrArray's here.
+
+	* include/glibtop/proclist.h (glibtop_proclist): Removed.
+	(glibtop_get_proclist_*): This now takes a `glibtop_array' parameter
+	instead of a `glibtop_proclist' one.
+
+	* include/glibtop/procmap.h (glibtop_proc_map): Removed.
+	(glibtop_get_proc_map_*): This now takes a `glibtop_array' parameter
+	instead of a `glibtop_proc_map' one.
+
+	* include/glibtop/mountlist.h (glibtop_mountlist): Removed.
+	(glibtop_get_mountlist_*): This now takes a `glibtop_array' parameter
+	instead of a `glibtop_mountlist' one.
+
+	* include/glibtop/interfaces.h (glibtop_interface_names): Removed.
+	(glibtop_get_interface_names_*): This now takes a `glibtop_array'
+	parameter instead of a `glibtop_interface_name' one.
+
+	* include/glibtop/compat_10.h: New file. Contains some typedefs and
+	#defines to keep compatibility until the big restructurement is
+	completely done.
+
+1999-12-12  Martin Baulig  <martin@home-of-linux.org>
+
 	* include/glibtop/array.h: New file.
 
 1999-12-11  Martin Baulig  <martin@home-of-linux.org>

@@ -211,6 +211,12 @@ sub output {
     if ($line_fields[3] eq '') {
       $sysdeps_code .= sprintf ("\t%sglibtop_get_%s_s (server%s);\n",
 				$prefix, $feature, $call_param);
+    } elsif ($line_fields[3] eq 'array') {
+      $sysdeps_code .= sprintf ("\t%sglibtop_get_%s_s (server, array%s);\n",
+				$prefix, $feature, $call_param);
+    } elsif ($line_fields[3] =~ /^array/) {
+      $sysdeps_code .= sprintf ("\t%sglibtop_get_%s_s (server, array, buf%s);\n",
+				$prefix, $feature, $call_param);
     } else {
       $sysdeps_code .= sprintf ("\t%sglibtop_get_%s_s (server, buf%s);\n",
 				$prefix, $feature, $call_param);
@@ -243,6 +249,9 @@ sub output {
 			   "_LIBGTOP_SEND_len", "_LIBGTOP_SEND_ptr");
     if ($line_fields[3] eq '') {
       $call_code .= sprintf ("\t\t\t%s0, NULL,\n", $call_prefix_space);
+    } elsif ($line_fields[3] eq  'array') {
+      $call_code .= sprintf ("\t\t\t%ssizeof (glibtop_array), array,\n",
+			     $call_prefix_space);
     } else {
       $call_code .= sprintf ("\t\t\t%ssizeof (glibtop_%s), buf,\n",
 			     $call_prefix_space, $feature);
@@ -263,7 +272,7 @@ sub output {
 
     $check_code = "check_missing:\n";
     $check_code .= "\t/* Make sure that all required fields are present. */\n";
-    if (!($line_fields[3] eq '')) {
+    if (!(($line_fields[3] eq '') or ($line_fields[3] eq 'array'))) {
       $check_code .= "\tif (buf->flags & server->required." . $feature . ")\n";
       $check_code .= "\t\t_glibtop_missing_feature (server, \"" . $feature .
 	"\", buf->flags,\n\t\t\t\t\t  &server->required." . $feature . ");\n";
@@ -284,6 +293,12 @@ sub output {
     if ($line_fields[3] eq '') {
       $func_decl .= sprintf ("glibtop_get_%s_l (glibtop *server%s)\n",
 			     $feature, $param_decl);
+    } elsif ($line_fields[3] eq 'array') {
+      $func_decl .= sprintf ("glibtop_get_%s_l (glibtop *server, glibtop_array *array%s)\n",
+			     $feature, $param_decl);
+    } elsif ($line_fields[3] =~ /^array/) {
+      $func_decl .= sprintf ("glibtop_get_%s_l (glibtop *server, glibtop_array *array, %s *buf%s)\n",
+			     $feature, 'glibtop_'.$feature, $param_decl);
     } else {
       $func_decl .= sprintf ("glibtop_get_%s_l (glibtop *server, %s *buf%s)\n",
 			     $feature, 'glibtop_'.$feature, $param_decl);

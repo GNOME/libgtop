@@ -25,24 +25,10 @@
 
 #include <glibtop/interfaces.h>
 
-const char *glibtop_names_interface_names[GLIBTOP_MAX_INTERFACE_NAMES] =
-{
-    "number", "size"
-};
+const char *glibtop_names_interface_names[] = { };
 
-const unsigned glibtop_types_interface_names[GLIBTOP_MAX_INTERFACE_NAMES] =
-{
-    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
-};
+const unsigned glibtop_types_interface_names[] = { };
 
-const char *glibtop_labels_interface_names[GLIBTOP_MAX_INTERFACE_NAMES] =
-{
-    N_ ("Number"),
-    N_ ("Size")
-};
+const char *glibtop_labels_interface_names[] = { };
 
-const char *glibtop_descriptions_interface_names[GLIBTOP_MAX_INTERFACE_NAMES] =
-{
-    N_ ("Number"),
-    N_ ("Size")
-};
+const char *glibtop_descriptions_interface_names[] = { };

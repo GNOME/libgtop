@@ -25,26 +25,10 @@
 
 #include <glibtop/proclist.h>
 
-const char *glibtop_names_proclist[GLIBTOP_MAX_PROCLIST] =
-{
-    "number", "total", "size"
-};
+const char *glibtop_names_proclist[] = { };
 
-const unsigned glibtop_types_proclist[GLIBTOP_MAX_PROCLIST] =
-{
-    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
-};
+const unsigned glibtop_types_proclist[] = { };
 
-const char *glibtop_labels_proclist[GLIBTOP_MAX_PROCLIST] =
-{
-    N_ ("Number of list elements"),
-    N_ ("Total size of list"),
-    N_ ("Size of a single list element")
-};
+const char *glibtop_labels_proclist[] = { };
 
-const char *glibtop_descriptions_proclist[GLIBTOP_MAX_PROCLIST] =
-{
-    N_ ("Number of list elements"),
-    N_ ("Total size of list"),
-    N_ ("Size of a single list element")
-};
+const char *glibtop_descriptions_proclist[] = { };
