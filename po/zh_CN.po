@@ -1,21 +1,234 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkpanel\n"
-"POT-Creation-Date: 2000-05-14 17:02+0200\n"
-"PO-Revision-Date: 1999-11-11 05:04+0800\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-08-08 04:47+0200\n"
+"PO-Revision-Date: 2003-08-09 02:29+0800\n"
 "Last-Translator: Dillion Chen <dillon.chen@turbolinux.com.cn>\n"
-"Language-Team: TLDN\n"
+"Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: examples/smp.c:71
+#, c-format
+msgid "Ticks (%ld per second):"
+msgstr "律动(每秒%ld)："
+
+#: examples/smp.c:74
+msgid "Total"
+msgstr "总计"
+
+#: examples/smp.c:74 sysdeps/names/mem.c:47
+msgid "User"
+msgstr "用户"
+
+#: examples/smp.c:74 sysdeps/names/procuid.c:58
+msgid "Nice"
+msgstr "Nice"
+
+#: examples/smp.c:74
+msgid "Sys"
+msgstr "系统"
+
+#: examples/smp.c:74
+msgid "Idle"
+msgstr "空闲"
+
+#: examples/smp.c:76
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+msgstr ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+
+#: examples/smp.c:80
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+
+#: examples/smp.c:97
+msgid "Percent:"
+msgstr "百分比："
+
+#: examples/smp.c:98
+msgid "Total (%)"
+msgstr "总计(%)"
+
+#: examples/smp.c:98
+msgid "User (%)"
+msgstr "用户(%)"
+
+#: examples/smp.c:98
+msgid "Nice (%)"
+msgstr "Nice(%)"
+
+#: examples/smp.c:98
+msgid "Sys (%)"
+msgstr "系统(%)"
+
+#: examples/smp.c:99
+msgid "Idle (%)"
+msgstr "空闲(%)"
+
+#: examples/smp.c:101
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+msgstr ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+
+#: examples/smp.c:117
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+
+#: examples/smp.c:123
+msgid "Spin:"
+msgstr "自旋："
+
+#: lib/read.c:75
+#, c-format
+msgid "read %d bytes"
+msgstr "读取 %d 字节"
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "读取数据大小"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr "读取数据 %d 字节"
+
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr "写入数据 %d 字节"
+
+#: src/daemon/gnuserv.c:453
+msgid "Enable debugging"
+msgstr "允许调试"
+
+#: src/daemon/gnuserv.c:453
+msgid "DEBUG"
+msgstr "调试"
+
+#: src/daemon/gnuserv.c:455
+msgid "Enable verbose output"
+msgstr "允许详细输出"
+
+#: src/daemon/gnuserv.c:455
+msgid "VERBOSE"
+msgstr "详细"
+
+#: src/daemon/gnuserv.c:457
+msgid "Don't fork into background"
+msgstr "不能在后台生成子进程"
+
+#: src/daemon/gnuserv.c:457
+msgid "NO-DAEMON"
+msgstr "NO-DAEMON"
+
+#: src/daemon/gnuserv.c:459
+msgid "Invoked from inetd"
+msgstr "从 inetd 调用"
+
+#: src/daemon/gnuserv.c:459
+msgid "INETD"
+msgstr "INETD"
+
+#: src/daemon/gnuserv.c:493
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"错误选项 %s：%s。\n"
+"运行“%s --help”可查看可用命令行选项的完整列表\n"
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "未知系统错误"
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s：选项“%s”不明确\n"
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s：选项“--%s”不允许有一个参数\n"
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: 选项“%c%s”不允许有一个参数\n"
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s：选项“%s'需要一个参数\n"
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: 不可识别的选项“--%s”\n"
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s：不可识别的选项“%c%s”\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s：非法选项 --%c\n"
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s：无效选项 --%c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s：选项需要一个参数 --%c\n"
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s：选项 `-W %s”不明确\n"
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s：选项“-W %s”不允许有一个参数\n"
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr "显示此帮助信息"
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
+msgstr "显示简明用法信息"
+
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
-msgstr "CPU时间总计"
+msgstr "CPU 时间总计"
 
 #: sysdeps/names/cpu.c:44
 msgid "CPU Time in User Mode"
-msgstr "用户态下CPU时间"
+msgstr "用户模式下 CPU 时间"
 
 #: sysdeps/names/cpu.c:45
 msgid "CPU Time in User Mode (nice)"
@@ -157,10 +370,6 @@ msgstr "缓冲区"
 msgid "Cached"
 msgstr "高速缓存"
 
-#: sysdeps/names/mem.c:47
-msgid "User"
-msgstr "用户"
-
 #: sysdeps/names/mem.c:48
 msgid "Locked"
 msgstr "锁"
@@ -242,6 +451,94 @@ msgstr "消息段大小"
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Number of system message headers"
 msgstr "系统消息头数目"
+
+#: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+msgid "Interface Flags"
+msgstr "接口标志"
+
+#: sysdeps/names/netload.c:46
+msgid "MTU"
+msgstr "MTU"
+
+#: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
+msgid "Subnet"
+msgstr "子网"
+
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
+msgid "Address"
+msgstr "地址"
+
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
+msgid "Packets In"
+msgstr "传入包数"
+
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+msgid "Packets Out"
+msgstr "传出包数"
+
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+msgid "Packets Total"
+msgstr "总计包数"
+
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+msgid "Bytes In"
+msgstr "传入字节"
+
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+msgid "Bytes Out"
+msgstr "传出字节"
+
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+msgid "Bytes Total"
+msgstr "总计字节"
+
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+msgid "Errors In"
+msgstr "传入错误"
+
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+msgid "Errors Out"
+msgstr "传出错误"
+
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+msgid "Errors Total"
+msgstr "总计错误"
+
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+msgid "Collisions"
+msgstr "冲突"
+
+#: sysdeps/names/netload.c:64
+msgid "Maximum Transfer Unit"
+msgstr "最大传送单元"
+
+#: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
+msgid "PPP State"
+msgstr "PPP 状态"
+
+#: sysdeps/names/ppp.c:39
+msgid "Input bytes"
+msgstr "输入字节"
+
+#: sysdeps/names/ppp.c:40
+msgid "Output bytes"
+msgstr "输出字节"
+
+#: sysdeps/names/ppp.c:46
+msgid "Number of input bytes"
+msgstr "输入字节数"
+
+#: sysdeps/names/ppp.c:47
+msgid "Number of output bytes"
+msgstr "输出字节数"
+
+#: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
+msgid "Size"
+msgstr "大小"
+
+#: sysdeps/names/procargs.c:43
+msgid "Length in bytes of the returned string."
+msgstr "返回字符串的字节长度。"
 
 #: sysdeps/names/prockernel.c:42
 msgid "K_Flags"
@@ -344,10 +641,6 @@ msgstr ""
 #: sysdeps/names/prockernel.c:81
 msgid "This is the textual name of the `nwchan' field."
 msgstr "这是nwchat域的文本名"
-
-#: sysdeps/names/procmem.c:47
-msgid "Size"
-msgstr "大小"
 
 #: sysdeps/names/procmem.c:47
 msgid "Virtual"
@@ -506,11 +799,11 @@ msgstr "状态"
 
 #: sysdeps/names/procstate.c:40
 msgid "UID"
-msgstr "用户ID"
+msgstr "UID"
 
 #: sysdeps/names/procstate.c:40
 msgid "GID"
-msgstr "组ID"
+msgstr "GID"
 
 #: sysdeps/names/procstate.c:45
 msgid "Basename of executable file in call to exec()"
@@ -521,14 +814,12 @@ msgid "Single-Char code for process state (S=sleeping)"
 msgstr "进程状态的单字符编码(S=睡眠)"
 
 #: sysdeps/names/procstate.c:47
-#, fuzzy
 msgid "UID of process"
-msgstr "进程的用户ID"
+msgstr "进程的 UID"
 
 #: sysdeps/names/procstate.c:48
-#, fuzzy
 msgid "GID of process"
-msgstr "进程的组ID"
+msgstr "进程的 GID"
 
 #: sysdeps/names/proctime.c:44
 msgid "Start_Time"
@@ -663,10 +954,6 @@ msgstr "TPGid"
 #: sysdeps/names/procuid.c:58
 msgid "Priority"
 msgstr "优先级"
-
-#: sysdeps/names/procuid.c:58
-msgid "Nice"
-msgstr "nice"
 
 #: sysdeps/names/procuid.c:63
 msgid "User ID"
@@ -920,237 +1207,126 @@ msgstr "自系统启动以来运行时间(秒)"
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "自系统启动以来空闲时间(秒)"
 
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "未知系统错误"
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Hangup"
+msgstr "挂起"
 
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s:选项 `%s'不明确\n"
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr "打断"
 
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s:选项 `--%s'不允许有一个参数\n"
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "退出"
 
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: 选项`%c%s'不允许有一个参数\n"
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
+msgstr "非法指令"
 
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s:选项`%s'需要一个参数\n"
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
+msgstr "跟踪陷阱"
 
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: 不可识别的选项`--%s'\n"
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "中止"
 
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s:不可识别的选项 `%c%s'\n"
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+msgid "EMT error"
+msgstr "EMT 错误"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s:非法选项 --%c\n"
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+msgid "Floating-point exception"
+msgstr "浮点意外"
 
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s:无效选项 --%c\n"
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "杀死"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s:选项需要一个参数 --%c\n"
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+msgid "Bus error"
+msgstr "总线错误"
 
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s:选项 `-W %s'不明确\n"
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
+msgstr "进程段异常"
 
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s:选项 `-W %s'不允许有一个参数\n"
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr "系统调用参数错误"
 
-#: lib/read.c:75
-#, c-format
-msgid "read %d bytes"
-msgstr "读%d字节"
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
+msgstr "损坏的通道"
 
-#: lib/read_data.c:49
-msgid "read data size"
-msgstr "读数据大小"
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
+msgstr "警告时钟"
 
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
-msgstr "都数据%d字节"
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+msgid "Termination"
+msgstr "终止"
 
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
-msgstr "写数据%d字节"
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
+msgstr "套接字紧急条件"
 
-#: src/daemon/gnuserv.c:448
-msgid "Enable debugging"
-msgstr "使能调试"
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "停止"
 
-#: src/daemon/gnuserv.c:448
-msgid "DEBUG"
-msgstr "调试"
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+msgid "Keyboard stop"
+msgstr "键盘停止"
 
-#: src/daemon/gnuserv.c:450
-msgid "Enable verbose output"
-msgstr "使能冗长的输出"
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "继续"
 
-#: src/daemon/gnuserv.c:450
-msgid "VERBOSE"
-msgstr "冗长的"
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
+msgstr "子状态变更"
 
-#: src/daemon/gnuserv.c:452
-msgid "Don't fork into background"
-msgstr "不能在后台生成子进程"
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+msgid "Background read from tty"
+msgstr "后台从 tty 读取"
 
-#: src/daemon/gnuserv.c:452
-msgid "NO-DAEMON"
-msgstr "NO-DAEMON"
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+msgid "Background write to tty"
+msgstr "后台写到 tty"
 
-#: src/daemon/gnuserv.c:454
-msgid "Invoked from inetd"
-msgstr "从inetd起动"
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+msgid "I/O now possible"
+msgstr "现可以 I/O"
 
-#: src/daemon/gnuserv.c:454
-msgid "INETD"
-msgstr "INETD"
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr "达到 CPU 限制"
 
-#: src/daemon/gnuserv.c:488
-#, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"错误选项%s: %s'\n"
-"运行'%s --help'来查看可用命令行选项的完整列表\n"
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+msgid "File size limit exceeded"
+msgstr "达到文件大小限制"
 
-#, fuzzy
-#~ msgid "Start_Data"
-#~ msgstr "Start_Stack"
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
+msgstr "虚拟警报时钟"
 
-#, fuzzy
-#~ msgid "Start_Brk"
-#~ msgstr "Start_Stack"
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr "个性化警报时钟"
 
-#, fuzzy
-#~ msgid "Start_MMap"
-#~ msgstr "Start_Stack"
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+msgid "Window size change"
+msgstr "窗口大小更改"
 
-#, fuzzy
-#~ msgid "Address of beginning of data segment"
-#~ msgstr "代码段起始地址"
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+msgid "Information request"
+msgstr "信息请求"
 
-#, fuzzy
-#~ msgid "Address of end of data segment"
-#~ msgstr "代码段结束地址"
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+msgid "User defined signal 1"
+msgstr "用户自定义信号 1"
 
-#, fuzzy
-#~ msgid "RUID"
-#~ msgstr "用户ID"
-
-#, fuzzy
-#~ msgid "RGID"
-#~ msgstr "组ID"
-
-#, fuzzy
-#~ msgid "Processor"
-#~ msgstr "进程ID"
-
-#, fuzzy
-#~ msgid "effective UID of process"
-#~ msgstr "进程的用户ID"
-
-#, fuzzy
-#~ msgid "effective GID of process"
-#~ msgstr "进程的组ID"
-
-#, fuzzy
-#~ msgid "processor"
-#~ msgstr "进程ID"
-
-#, fuzzy
-#~ msgid "XCPU_Flags"
-#~ msgstr "K_Flags"
-
-#, fuzzy
-#~ msgid "SUid"
-#~ msgstr "Uid"
-
-#, fuzzy
-#~ msgid "SGid"
-#~ msgstr "Gid"
-
-#, fuzzy
-#~ msgid "FsUid"
-#~ msgstr "Uid"
-
-#, fuzzy
-#~ msgid "FsGid"
-#~ msgstr "Gid"
-
-#, fuzzy
-#~ msgid "NGroups"
-#~ msgstr "组ID"
-
-#, fuzzy
-#~ msgid "Groups"
-#~ msgstr "组ID"
-
-#, fuzzy
-#~ msgid "Saved User ID"
-#~ msgstr "用户ID"
-
-#, fuzzy
-#~ msgid "Saved Group ID"
-#~ msgstr "组ID"
-
-#, fuzzy
-#~ msgid "Filesystem User ID"
-#~ msgstr "文件系统使用"
-
-#, fuzzy
-#~ msgid "Filesystem Group ID"
-#~ msgstr "有效组ID"
-
-#, fuzzy
-#~ msgid "Number of additional process groups"
-#~ msgstr "终端进程组ID"
-
-#, fuzzy
-#~ msgid "Additional process groups"
-#~ msgstr "终端进程组ID"
-
-#, fuzzy
-#~ msgid "Pointer Size"
-#~ msgstr "Dirty Size"
-
-#, fuzzy
-#~ msgid "Boot time (seconds sice epoch)"
-#~ msgstr "自新纪元起以秒计的进程起始时间"
-
-#, fuzzy
-#~ msgid "Unknown error"
-#~ msgstr "未知系统错误"
-
-#, fuzzy
-#~ msgid "No such process"
-#~ msgstr "进程的用户ID"
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+msgid "User defined signal 2"
+msgstr "用户自定义信号 2"
