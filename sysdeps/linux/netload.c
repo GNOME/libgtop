@@ -182,82 +182,81 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	 * need IP accounting.
 	 */
 
-#if GLIBTOP_LINUX_VERSION_CODE < 131442
+    if (server->os_version_code < 131442) {
 
-    /* If IP accounting is enabled in the kernel and it is
+	/* If IP accounting is enabled in the kernel and it is
 	 * enabled for the requested interface, we use it to
 	 * get the data. In this case, we don't use /proc/net/dev
 	 * to get errors and collisions.
 	 */
 
-    f = fopen ("/proc/net/ip_acct", "r");
-    if (f) {
-	int success = 0;
+	f = fopen ("/proc/net/ip_acct", "r");
+	if (f) {
+	    int success = 0;
 
-	/* Skip over the header line. */
-	fgets (buffer, BUFSIZ-1, f);
+	    /* Skip over the header line. */
+	    fgets (buffer, BUFSIZ-1, f);
 
-	while (fgets (buffer, BUFSIZ-1, f)) {
-	    unsigned long flags, packets, bytes;
-	    char *p, *dev;
+	    while (fgets (buffer, BUFSIZ-1, f)) {
+		unsigned long flags, packets, bytes;
+		char *p, *dev;
 
-	    /* Skip over the network thing. */		
-	    dev = skip_token (buffer) + 1;
-	    p = skip_token (dev);
-	    *p++ = 0;
+		/* Skip over the network thing. */		
+		dev = skip_token (buffer) + 1;
+		p = skip_token (dev);
+		*p++ = 0;
 
-	    if (strcmp (dev, interface))
-		continue;
+		if (strcmp (dev, interface))
+		    continue;
 
-	    success = 1;
+		success = 1;
 
-	    p = skip_token (p);
+		p = skip_token (p);
 
-	    flags   = strtoul (p, &p, 16);
+		flags   = strtoul (p, &p, 16);
 
-	    p = skip_multiple_token (p, 2);
+		p = skip_multiple_token (p, 2);
 
-	    packets = strtoul (p, &p, 0);
-	    bytes   = strtoul (p, &p, 0);
+		packets = strtoul (p, &p, 0);
+		bytes   = strtoul (p, &p, 0);
 
-	    if (flags & _GLIBTOP_IP_FW_ACCTIN) {
-		/* Incoming packets only. */
+		if (flags & _GLIBTOP_IP_FW_ACCTIN) {
+		    /* Incoming packets only. */
 
-		buf->packets_total += packets;
-		buf->packets_in += packets;
+		    buf->packets_total += packets;
+		    buf->packets_in += packets;
 
-		buf->bytes_total += bytes;
-		buf->bytes_in += bytes;
+		    buf->bytes_total += bytes;
+		    buf->bytes_in += bytes;
 
-		buf->flags |= _glibtop_sysdeps_netload_in;
+		    buf->flags |= _glibtop_sysdeps_netload_in;
 
-	    } else if (flags & _GLIBTOP_IP_FW_ACCTOUT) {
-		/* Outgoing packets only. */
+		} else if (flags & _GLIBTOP_IP_FW_ACCTOUT) {
+		    /* Outgoing packets only. */
 
-		buf->packets_total += packets;
-		buf->packets_out += packets;
+		    buf->packets_total += packets;
+		    buf->packets_out += packets;
 
-		buf->bytes_total += bytes;
-		buf->bytes_out += bytes;
+		    buf->bytes_total += bytes;
+		    buf->bytes_out += bytes;
 
-		buf->flags |= _glibtop_sysdeps_netload_out;
+		    buf->flags |= _glibtop_sysdeps_netload_out;
 
-	    } else {
-		/* Only have total values. */
+		} else {
+		    /* Only have total values. */
 
-		buf->packets_total += packets;
-		buf->bytes_total += bytes;
+		    buf->packets_total += packets;
+		    buf->bytes_total += bytes;
 
-		buf->flags |= _glibtop_sysdeps_netload_total;
+		    buf->flags |= _glibtop_sysdeps_netload_total;
+		}
 	    }
+
+	    fclose (f);
+
+	    if (success) return;
 	}
-
-	fclose (f);
-
-	if (success) return;
     }
-
-#endif
 
     /* Ok, either IP accounting is not enabled in the kernel or
 	 * it was not enabled for the requested interface. */
