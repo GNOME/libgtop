@@ -43,8 +43,11 @@ G_BEGIN_DECLS
 #define GLIBTOP_NETLOAD_ERRORS_OUT	11
 #define GLIBTOP_NETLOAD_ERRORS_TOTAL	12
 #define GLIBTOP_NETLOAD_COLLISIONS	13
+#define GLIBTOP_NETLOAD_ADDRESS6	14
+#define GLIBTOP_NETLOAD_PREFIX6		15
+#define GLIBTOP_NETLOAD_SCOPE6		16
 
-#define GLIBTOP_MAX_NETLOAD		14
+#define GLIBTOP_MAX_NETLOAD		17
 
 typedef struct _glibtop_netload	glibtop_netload;
 
@@ -67,6 +70,15 @@ enum {
 	GLIBTOP_IF_FLAGS_MULTICAST
 };
 
+enum GLIBTOP_IF_IN6_SCOPE
+{
+	GLIBTOP_IF_IN6_SCOPE_UNKNOWN = 0,
+	GLIBTOP_IF_IN6_SCOPE_LINK    = 1,
+	GLIBTOP_IF_IN6_SCOPE_SITE    = 2,
+	GLIBTOP_IF_IN6_SCOPE_GLOBAL  = 4,
+	GLIBTOP_IF_IN6_SCOPE_HOST    = 8
+};
+
 struct _glibtop_netload
 {
 	guint64	flags,
@@ -84,6 +96,10 @@ struct _glibtop_netload
 		errors_out,		/* GLIBTOP_NETLOAD_ERRORS_OUT	*/
 		errors_total,		/* GLIBTOP_NETLOAD_ERRORS_TOTAL	*/
 		collisions;		/* GLIBTOP_NETLOAD_COLLISIONS	*/
+
+	guint8 address6[16];
+	guint8 prefix6[16];
+	guint8 scope6;
 };
 
 #define glibtop_get_netload(netload,interface)	glibtop_get_netload_l(glibtop_global_server, netload, interface)

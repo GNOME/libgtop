@@ -1,3 +1,10 @@
+2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
+
+	* sysdeps/names/netload.c:
+	* include/glibtop/netload.h: Added IPv6 feature : provides address,
+	prefix and scope. This breaks the ABI. Not documented yet : check
+	this file.
+
 2004-06-13  Benoît Dejean  <tazforever@dlfp.org>
 
 	* include/glibtop/sysinfo.h: Changed get_sysinfo prototype so that it
