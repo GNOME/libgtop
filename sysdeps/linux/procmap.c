@@ -66,11 +66,15 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	do {
 		short dev_major, dev_minor;
 		unsigned long start, end, offset, inode, perm;
-		char flags [5];
+		char flags [5], *format;
 		size_t size;
 
-		rv = fscanf (maps,
-			     "%08lx-%08lx %4c\n %08lx %02hx:%02hx %ld",
+		if (sizeof (void*) == 8)
+			format = "%16lx-%16lx %4c\n %16lx %02hx:%02hx %ld";
+		else
+			format = "%08lx-%08lx %4c\n %08lx %02hx:%02hx %ld";
+
+		rv = fscanf (maps, format,
 			     &start, &end, flags, &offset,
 			     &dev_major, &dev_minor, &inode);
 
