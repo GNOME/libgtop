@@ -1,3 +1,12 @@
+1998-09-09  Martin Baulig <baulig@Stud.Informatik.uni-trier.de>
+
+	* glibtop.h (glibtop): Added `ncpu'. This is zero for single processor
+	systems and the number of CPUs otherwise.
+
+	* include/glibtop/cpu.h (glibtop_cpu): Added `xcpu_total', `xcpu_user',
+	`xcpu_nice', `xcpu_sys' and `xcpu_idle'.
+	(GLIBTOP_NCPU): #define this to 4.
+
 1998-09-08  Martin Baulig  <baulig@merkur.uni-trier.de>
 
 	* configure.in: Make the default to disable guile.
