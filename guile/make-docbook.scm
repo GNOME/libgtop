@@ -26,7 +26,7 @@
     )
   )
 
-(define make-docbook
+(define make-function-reference
   (lambda (feature)
     (let* ((names (eval-string (string "(glibtop-names-" feature ")")))
 	   (types (eval-string (string "(glibtop-types-" feature ")")))
@@ -37,7 +37,7 @@
 	   (description (assoc-ref sysdeps 'description))
 	   (descriptions (eval-string (string "(glibtop-descriptions-" feature ")")))
 	   (decl-list '()) (field-list '())
-	   
+
 	   (synopsis-start-string
 	    (string "<para>Automatically generated function synopsis:\n\n"))
 
@@ -299,8 +299,13 @@
 
 (begin
   (make-sysdeps-list)
+
+  (display (string "<chapter id=\"functions\">\n"
+		   "<title>Function Reference List</title>\n\n")
+	   )
+
   (for-each (lambda (x)
-	      (display (make-docbook x))
+	      (display (make-function-reference x))
 	      )
 	    (glibtop-names-sysdeps))
   )

@@ -17,6 +17,16 @@
 	</affiliation>
       </author>
     </authorgroup>
+    <abstract>
+      <para>
+	<literal>$Id$</literal>
+
+      <para>
+	This reference manual is automatically generated from <filename>doc/make-docbook.scm</filename>.
+	It uses the guile interface of <productname>libgtop</productname> to get the names of all
+	features the library defines and a description of the structures.
+    </abstract>
+
     <copyright>
       <year>1998</year>
       <holder>Martin Baulig</holder>
@@ -49,12 +59,9 @@
 
     </legalnotice>
   </bookinfo>
-
+  
   <toc></toc>
-
-  <chapter id="reference">
-    <title>Function Reference List</title>
-
+  
     &reference.sgml;
 
 </book>
