@@ -1,6 +1,6 @@
 1999-12-22  Martin Baulig  <martin@home-of-linux.org>
 
-	* glibtop.h (glibtop): Added `errno' field.
+	* glibtop.h (glibtop): Added `glibtop_errno' field.
 
 	* include/glibtop/errors.h
 	(GLIBTOP_ERROR_SERVER_COMM_FAILURE): New error constant.

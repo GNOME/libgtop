@@ -65,7 +65,7 @@ struct _glibtop
 	glibtop_sysdeps required;	/* Required feature list */
 	glibtop_sysdeps wanted;		/* We only want this features */
 	glibtop_server_private *_priv;	/* Private data */
-	unsigned errno;
+	unsigned glibtop_errno;
 };
 
 extern glibtop *glibtop_global_server;
