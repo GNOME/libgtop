@@ -1,5 +1,7 @@
 # Translation into spanish of glibtop
 #
+# Pablo Saratxaga <srtxg@chanae.alphanet.ch>, 1998-2000
+#
 # FIXME: the strings still left empty are the ones I've no idea how
 #	to translate them; if anyone has a suggestion...
 #
@@ -134,7 +136,7 @@ msgstr "Último PID"
 #: sysdeps/names/loadavg.c:49
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
 msgstr ""
-"Cantidad de procesos corriendo simultaneamente, media de los últimos 1, 5 y "
+"Cantidad de procesos corriendo simultáneamente, media de los últimos 1, 5 y "
 "15 minutos"
 
 #: sysdeps/names/loadavg.c:50
@@ -303,7 +305,7 @@ msgid ""
 "required loading a memory page from disk."
 msgstr ""
 "La cantidad de faltas menores que hizo el proceso, aquellas que no "
-"requisieron cargar una página desde el disco."
+"requirieron cargar una página desde el disco."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:64
@@ -311,7 +313,7 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"La cantidad de faltas menores que hizo el proceso, aquellas que requisieron "
+"La cantidad de faltas menores que hizo el proceso, aquellas que requirieron "
 "cargar una página desde el disco."
 
 #. CMin_Flt
@@ -390,7 +392,7 @@ msgstr "Cantidad de páginas de memoria virtual"
 
 #: sysdeps/names/procmem.c:57
 msgid "Number of resident set (non-swapped) pages"
-msgstr "Cantidad de páginas de conjuntos residentes (que no estan en swap)"
+msgstr "Cantidad de páginas de conjuntos residentes (que no están en swap)"
 
 #: sysdeps/names/procmem.c:58
 msgid "Number of pages of shared (mmap'd) memory"
@@ -533,7 +535,7 @@ msgstr "Dirección de la base del segmento de pila"
 
 #: sysdeps/names/procsegment.c:71
 msgid "Start of mmap()ed areas"
-msgstr "Inicio de las areas mmap()eadas"
+msgstr "Inicio de las áreas mmap()eadas"
 
 #: sysdeps/names/procsignal.c:42
 msgid "Signal"
@@ -565,7 +567,7 @@ msgstr "Máscara de señales ignorados"
 
 #: sysdeps/names/procsignal.c:50
 msgid "Mask of caught signals"
-msgstr "Máscar de señales recogidos"
+msgstr "Máscara de señales recogidos"
 
 #: sysdeps/names/procstate.c:45
 msgid "Cmd"
@@ -869,7 +871,7 @@ msgstr "Prioridad de la planificación de tareas del núcleo"
 
 #: sysdeps/names/procuid.c:72
 msgid "Standard unix nice level of process"
-msgstr "Nivel del 'nice' unix estándar del proceso"
+msgstr "Nivel del 'nice' Unix estándar del proceso"
 
 #: sysdeps/names/procuid.c:73
 msgid "Number of additional process groups"
@@ -1065,7 +1067,7 @@ msgstr "Carga de la Red"
 
 #: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
 msgid "Interface Names"
-msgstr ""
+msgstr "Nombres de la interfaz"
 
 #: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
 msgid "PPP Statistics"
@@ -1160,7 +1162,7 @@ msgstr "%s: opción no válida -- %c\n"
 #: support/getopt.c:807 support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: la opción require un argumento -- %c\n"
+msgstr "%s: la opción requiere un argumento -- %c\n"
 
 #: support/getopt.c:854
 #, c-format
@@ -1174,44 +1176,43 @@ msgstr "%s: la opción `-W %s' no admite argumentos\n"
 
 #: lib/errors.c:31
 msgid "No error"
-msgstr ""
+msgstr "Ningún error"
 
 #: lib/errors.c:32
-#, fuzzy
 msgid "Unknown error"
-msgstr "Error sistema desconocido"
+msgstr "Error desconocido"
 
 #: lib/errors.c:33
 msgid "Invalid argument"
-msgstr ""
+msgstr "Argumento no válido"
 
 #: lib/errors.c:34
 msgid "No such parameter"
-msgstr ""
+msgstr "No existe ese parámetro"
 
 #: lib/errors.c:35
 msgid "Attempted to modify a read-only value"
-msgstr ""
+msgstr "Se intentó modificar un valor que está en solo-lectura"
 
 #: lib/errors.c:36
 msgid "Parameter size mismatch"
-msgstr ""
+msgstr "El tamaño del parámetro no corresponde"
 
 #: lib/errors.c:37
 msgid "Communication with LibGTop server failed"
-msgstr ""
+msgstr "Falló la comunicación con el servidor LibGTop"
 
 #: lib/errors.c:38
 msgid "No such process"
-msgstr ""
+msgstr "No existe ese proceso"
 
 #: lib/errors.c:39
 msgid "No kernel support"
-msgstr ""
+msgstr "No hay soporte en el núcleo"
 
 #: lib/errors.c:40
 msgid "Incompatible kernel version"
-msgstr ""
+msgstr "Versión del núcleo incompatible"
 
 #~ msgid "read %d bytes"
 #~ msgstr "leídos %d bytes"
