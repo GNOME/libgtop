@@ -36,7 +36,7 @@ static const unsigned long _glibtop_sysdeps_mem =
 void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
-	char buffer [BUFSIZ];
+	char buffer [BUFSIZ], *tmp;
 	int fd = 0, ret;
 
 	glibtop_init_r (&server, 0, 0);
@@ -62,9 +62,16 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 		glibtop_error_r (server, "read (%s): %s",
 				 FILENAME, strerror (errno));
 
-	sscanf (buffer, "%*[^\n]\nMem: %lu %lu %lu %lu %lu %lu\n",
-		&buf->total, &buf->used, &buf->free, &buf->shared,
-		&buf->buffer, &buf->cached);
+	tmp = strchr (buffer, '\n');
+	tmp = skip_token (tmp);			/* "Mem:" */
+	tmp = skip_token (tmp);			/* total memory */
+
+	buf->total  = strtoul (tmp, &tmp, 10);
+	buf->used   = strtoul (tmp, &tmp, 10);
+	buf->free   = strtoul (tmp, &tmp, 10);
+	buf->shared = strtoul (tmp, &tmp, 10);
+	buf->buffer = strtoul (tmp, &tmp, 10);
+	buf->cached = strtoul (tmp, &tmp, 10);
 
 	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
 

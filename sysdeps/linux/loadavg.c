@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_loadavg =
 void
 glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
-	char buffer [BUFSIZ];
+	char buffer [BUFSIZ], *tmp;
 	int fd = 0, ret;
 
 	glibtop_init_r (&server, 0, 0);
@@ -59,9 +59,10 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 		glibtop_error_r (server, "read (%s): %s",
 				 FILENAME, strerror (errno));
 
-	sscanf (buffer, "%lf %lf %lf\n",
-		&buf->loadavg [0], &buf->loadavg [1], &buf->loadavg [2]);
-  
+	buf->loadavg [0] = strtod (buffer, &tmp);
+	buf->loadavg [1] = strtod (tmp, &tmp);
+	buf->loadavg [2] = strtod (tmp, &tmp);
+
 #ifdef GLIBTOP_CACHE_OPEN
 	server->machine.fd_loadavg = fd;
 #else

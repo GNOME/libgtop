@@ -35,7 +35,7 @@ static const unsigned long _glibtop_sysdeps_cpu =
 void
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
-	char buffer [BUFSIZ];
+	char buffer [BUFSIZ], *tmp;
 	int fd = 0, ret;
 
 	glibtop_init_r (&server, 0, 0);
@@ -61,8 +61,12 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 		glibtop_error_r (server, "read (%s): %s",
 				 FILENAME, strerror (errno));
 
-	sscanf (buffer, "cpu %lu %lu %lu %lu\n",
-		&buf->user, &buf->nice, &buf->sys, &buf->idle);
+	tmp = strchr (buffer, '\n');
+	tmp = skip_token (tmp);			/* "cpu" */
+	buf->user  = strtoul (tmp, &tmp, 10);
+	buf->nice  = strtoul (tmp, &tmp, 10);
+	buf->sys   = strtoul (tmp, &tmp, 10);
+	buf->idle  = strtoul (tmp, &tmp, 10);
 
 	buf->total = buf->user + buf->nice + buf->sys + buf->idle;
 
