@@ -4,13 +4,12 @@
 # Adam Weinberger <adamw@gnome.org>, 2004.
 # 
 # 
-# 
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2004-07-18 15:51-0500\n"
+"POT-Creation-Date: 2004-09-26 11:19-0400\n"
+"PO-Revision-Date: 2004-09-26 15:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: English/Canada <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -124,39 +123,39 @@ msgid_plural "write %d bytes"
 msgstr[0] "write %d byte"
 msgstr[1] "write %d bytes"
 
-#: src/daemon/gnuserv.c:456
+#: src/daemon/gnuserv.c:461
 msgid "Enable debugging"
 msgstr "Enable debugging"
 
-#: src/daemon/gnuserv.c:456
+#: src/daemon/gnuserv.c:461
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:463
 msgid "Enable verbose output"
 msgstr "Enable verbose output"
 
-#: src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:463
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:465
 msgid "Don't fork into background"
 msgstr "Don't fork into background"
 
-#: src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:465
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:467
 msgid "Invoked from inetd"
 msgstr "Invoked from inetd"
 
-#: src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:467
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:496
+#: src/daemon/gnuserv.c:501
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -544,7 +543,6 @@ msgstr "NWChan"
 msgid "WChan"
 msgstr "WChan"
 
-#. K_Flags
 #: sysdeps/names/prockernel.c:51
 msgid ""
 "Kernel flags of the process.\n"
@@ -565,7 +563,6 @@ msgstr ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 
-#. Min_Flt
 #: sysdeps/names/prockernel.c:60
 msgid ""
 "The number of minor faults the process has made, those which have not "
@@ -574,7 +571,6 @@ msgstr ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 
-#. Maj_Flt
 #: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
@@ -583,19 +579,16 @@ msgstr ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 
-#. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
 msgstr ""
 "The number of minor faults that the process and its children have made."
 
-#. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
 msgstr ""
 "The number of major faults that the process and its children have made."
 
-#. KStk_ESP
 #: sysdeps/names/prockernel.c:72
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
@@ -609,7 +602,6 @@ msgstr ""
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr "The current EIP (32-bit instruction pointer)."
 
-#. NWChan
 #: sysdeps/names/prockernel.c:77
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "
@@ -943,47 +935,47 @@ msgstr "SMP kernel-mode CPU time accumulated by process"
 
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
-msgstr "Uid"
+msgstr "UID"
 
 #: sysdeps/names/procuid.c:48
 msgid "EUid"
-msgstr "EUid"
+msgstr "EUID"
 
 #: sysdeps/names/procuid.c:48
 msgid "Gid"
-msgstr "Gid"
+msgstr "GID"
 
 #: sysdeps/names/procuid.c:48
 msgid "EGid"
-msgstr "EGid"
+msgstr "EGID"
 
 #: sysdeps/names/procuid.c:48
 msgid "SUid"
-msgstr "SUid"
+msgstr "SUID"
 
 #: sysdeps/names/procuid.c:49
 msgid "SGid"
-msgstr "SGid"
+msgstr "SGID"
 
 #: sysdeps/names/procuid.c:49
 msgid "FSUid"
-msgstr "FSUid"
+msgstr "FSUID"
 
 #: sysdeps/names/procuid.c:49
 msgid "FSGid"
-msgstr "FSGid"
+msgstr "FSGID"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
-msgstr "Pid"
+msgstr "PID"
 
 #: sysdeps/names/procuid.c:50
 msgid "PPid"
-msgstr "PPid"
+msgstr "PPID"
 
 #: sysdeps/names/procuid.c:50
 msgid "PGrp"
-msgstr "PGrp"
+msgstr "PGRP"
 
 #: sysdeps/names/procuid.c:50
 msgid "Session"
@@ -991,11 +983,11 @@ msgstr "Session"
 
 #: sysdeps/names/procuid.c:50
 msgid "Tty"
-msgstr "Tty"
+msgstr "TTY"
 
 #: sysdeps/names/procuid.c:51
 msgid "TPGid"
-msgstr "TPGid"
+msgstr "TPGID"
 
 #: sysdeps/names/procuid.c:51
 msgid "Priority"
@@ -1071,7 +1063,7 @@ msgstr "Kernel scheduling priority"
 
 #: sysdeps/names/procuid.c:71
 msgid "Standard unix nice level of process"
-msgstr "Standard unix nice level of process"
+msgstr "Standard UNIX nice level of process"
 
 #: sysdeps/names/procuid.c:72
 msgid "Number of additional process groups"
@@ -1091,11 +1083,11 @@ msgstr "Max number of arrays"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max semaphores system wide"
-msgstr "Max semaphores system wide"
+msgstr "Max semaphores, system-wide"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Number of undo structures system wide"
-msgstr "Number of undo structures system wide"
+msgstr "Number of undo structures, system-wide"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max semaphores per array"
