@@ -1,8 +1,0 @@
-.deps
-.libs
-Makefile
-Makefile.in
-libgtop_common.la
-so_locations
-*.lo
-*.la

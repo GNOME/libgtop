@@ -1,6 +1,0 @@
-Makefile.in
-Makefile
-libgtop_daemon
-server.conf
-.libs
-.deps

@@ -1,1 +1,0 @@
-#define _TABLE_VERSION	1
