@@ -33,6 +33,7 @@ print '#include <glibtop/union.h>';
 print '';
 print '#include "command.h"';
 print '#include <glibtop/backend.h>';
+print '#include <glibtop/call-vector.h>';
 print '';
 print '#include <glibtop-backend-private.h>';
 print '';

@@ -94,8 +94,6 @@ struct _glibtop_sysdeps
 	ppp;			/* glibtop_ppp		*/
 };
 
-void glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf);
-
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

@@ -29,6 +29,8 @@
 #include <glibtop.h>
 #include <gobject/gobject.h>
 
+#include <glibtop/backend.h>
+
 BEGIN_LIBGTOP_DECLS
 
 #define	GLIBTOP_TYPE_CLIENT		(glibtop_client_get_type ())
@@ -76,6 +78,18 @@ glibtop_client_propagate_error (glibtop_client *client, GError *error);
 
 void
 glibtop_client_propagate_warning (glibtop_client *client, GError *error);
+
+glibtop_backend *
+glibtop_client_open_backend (glibtop_client *client, const char *backend_name,
+			     u_int64_t features, const char **backend_args);
+
+void
+glibtop_client_add_backend (glibtop_client *client,
+			    glibtop_backend *backend);
+
+void
+glibtop_client_remove_backend (glibtop_client *client,
+			       glibtop_backend *backend);
 
 END_LIBGTOP_DECLS
 

@@ -37,8 +37,8 @@ _glibtop_open_sysdeps (glibtop_client *client, const char *program_name,
 		       const u_int64_t features, const char **backend_args,
 		       GError **opt_error)
 {
-    glibtop_open_backend_l (client, "glibtop-backend-common",
-			    features, backend_args, opt_error);
-    glibtop_open_backend_l (client, "glibtop-backend-server",
-			    features, backend_args, opt_error);
+    glibtop_client_open_backend (client, "glibtop-backend-common",
+			    features, backend_args);
+    glibtop_client_open_backend (client, "glibtop-backend-server",
+			    features, backend_args);
 }

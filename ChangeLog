@@ -1,3 +1,18 @@
+2000-11-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/call-vector.h (glibtop_call_vector): Moved
+	the typedef to backend.h.
+
+	* include/glibtop/backend.h (glibtop_open_backend_l): Renamed
+	to glibtop_open_backend(), removed the `glibtop_client *'
+	argument and made the `GError *' argument non-optional.
+
+	* include/glibtop/glibtop-client.h
+	(glibtop_client_add_backend, glibtop_client_remove_backend): New
+	functions to add/remove a glibtop_backend to a glibtop_client.
+	(glibtop_client_open_backend): New convenient function; calls
+	glibtop_open_backend() and glibtop_client_add_backend().
+
 2000-11-22  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in (INCLUDES): Added -Werror.

@@ -252,3 +252,43 @@ glibtop_client_propagate_warning (glibtop_client *client, GError *error)
     g_value_unset (params + 1);
     g_value_unset (params + 0);
 }
+
+glibtop_backend *
+glibtop_client_open_backend (glibtop_client *client, const char *backend_name,
+			     u_int64_t features, const char **backend_args)
+{
+    glibtop_backend *backend;
+    GError *error = NULL;
+
+    g_return_val_if_fail (GLIBTOP_IS_CLIENT (client), NULL);
+
+    backend = glibtop_open_backend (backend_name, features, backend_args,
+				    &error);
+    if (!backend) {
+	glibtop_client_propagate_error (client, error);
+	g_error_free (error);
+	return NULL;
+    }
+
+    glibtop_client_add_backend (client, backend);
+
+    return backend;
+}
+
+void
+glibtop_client_add_backend (glibtop_client *client,
+			    glibtop_backend *backend)
+{
+    g_return_if_fail (GLIBTOP_IS_CLIENT (client));
+    g_return_if_fail (backend != NULL);
+
+}
+
+void
+glibtop_client_remove_backend (glibtop_client *client,
+			       glibtop_backend *backend)
+{
+    g_return_if_fail (GLIBTOP_IS_CLIENT (client));
+    g_return_if_fail (backend != NULL);
+
+}

@@ -31,9 +31,9 @@
 #include <glibtop.h>
 #include <glibtop/union.h>
 
-BEGIN_LIBGTOP_DECLS
+#include <glibtop/backend.h>
 
-typedef struct _glibtop_call_vector	glibtop_call_vector;
+BEGIN_LIBGTOP_DECLS
 
 struct _glibtop_call_vector
 {
