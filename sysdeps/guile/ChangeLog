@@ -1,5 +1,7 @@
 1998-10-11  Martin Baulig  <martin@home-of-linux.org>
 
+	* guile.awk: Declared all `glibtop_guile_get_*' functions static.
+
 	* Makefile.am (BUILT_SOURCES, CLEANFILES): Added `guile.x'.
 	Added rule to make `guile.x' from `guile.c' using guile-snarf.
 

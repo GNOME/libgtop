@@ -69,7 +69,7 @@ function make_output(line) {
   output = output" "nr_params_field[feature]", 0, 0, ";
   output = output"glibtop_guile_get_"feature");\n\n";
   
-  output = output"SCM\nglibtop_guile_get_"feature" ("param_decl")\n{\n";
+  output = output"static SCM\nglibtop_guile_get_"feature" ("param_decl")\n{\n";
 
   output = output"\tglibtop_"feature" "feature";\n";
   if (retval != "void")
@@ -126,7 +126,6 @@ END {
   print "void";
   print "glibtop_boot_guile (void)";
   print "{";
-  print "fprintf (stderr, \"glibtop_boot_guile ()\\n\");";
   print "#include \"guile.x\"";
   print "}";
 }
