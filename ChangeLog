@@ -1,3 +1,16 @@
+2004-08-09  Benoît Dejean  <tazforever@dlfp.org>
+
+	* configure.in: Added -gnu89 to CFLAGS.
+
+	* examples/Makefile.am: Fixed LDFLAGS.
+
+	* sysdeps/common/fsusage.c: (glibtop_get_fsusage_s):
+	* sysdeps/linux/fsusage.c: (linux_2_6_0):
+	* sysdeps/linux/proctime.c: (glibtop_get_proc_time_s):
+	* sysdeps/linux/sysinfo.c: (init_sysinfo): Fixed C89 issues.
+
+	Closes #149375.
+
 2004-08-03  Benoît Dejean  <tazforever@dlfp.org>
 
 	* NEWS:

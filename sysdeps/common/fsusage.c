@@ -134,8 +134,8 @@ void _glibtop_linux_get_fsusage_read_write(glibtop *server,
 #define _glibtop_get_fsusage_read_write(S, B, P) \
         _glibtop_linux_get_fsusage_read_write(S, B, P)
 
-
 #else /* default fallback */
+#warning glibtop_get_fsusage .read .write are not implemented.
 #define _glibtop_get_fsusage_read_write(S, B, P) ((void)0)
 #endif
 
@@ -147,6 +147,20 @@ void
 glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 		       const char *path)
 {
+#if defined STAT_STATFS3_OSF1 
+  struct statfs fsd;
+#elif defined STAT_STATFS2_FS_DATA  /* Ultrix */
+  struct fs_data fsd;
+#elif defined STAT_STATFS2_BSIZE    /* 4.3BSD, SunOS 4, HP-UX, AIX */
+  struct statfs fsd;
+#elif defined STAT_STATVFS          /* SVR4 */
+  struct statvfs fsd;
+#elif defined STAT_STATFS2_FSIZE    /* 4.4BSD */
+  struct statfs fsd;
+#elif defined STAT_STATFS4         /* SVR3, Dynix, Irix, AIX */
+  struct stafs fsd;
+#endif
+
   glibtop_init_r (&server, 0, 0);
 
   memset (buf, 0, sizeof (glibtop_fsusage));
@@ -154,8 +168,6 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
   _glibtop_get_fsusage_read_write(server, buf, path);
 
 #ifdef STAT_STATFS3_OSF1
-
-  struct statfs fsd;
 
   if (statfs (path, &fsd, sizeof (struct statfs)) != 0)
     return;
@@ -166,8 +178,6 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 
 #ifdef STAT_STATFS2_FS_DATA	/* Ultrix */
 
-  struct fs_data fsd;
-
   if (statfs (path, &fsd) != 1)
     return;
 
@@ -175,15 +185,13 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
   buf->blocks = PROPAGATE_ALL_ONES (fsd.fd_req.btot);
   buf->bfree = PROPAGATE_ALL_ONES (fsd.fd_req.bfree);
   buf->bavail = PROPAGATE_TOP_BIT (fsd.fd_req.bfreen);
-  // buf->bavail_top_bit_set = EXTRACT_TOP_BIT (fsd.fd_req.bfreen) != 0;
+  /* buf->bavail_top_bit_set = EXTRACT_TOP_BIT (fsd.fd_req.bfreen) != 0; */
   buf->files = PROPAGATE_ALL_ONES (fsd.fd_req.gtot);
   buf->ffree = PROPAGATE_ALL_ONES (fsd.fd_req.gfree);
 
 #endif /* STAT_STATFS2_FS_DATA */
 
 #ifdef STAT_STATFS2_BSIZE	/* 4.3BSD, SunOS 4, HP-UX, AIX */
-
-  struct statfs fsd;
 
   if (statfs (path, &fsd) < 0)
     return;
@@ -209,8 +217,6 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 
 #ifdef STAT_STATFS2_FSIZE	/* 4.4BSD */
 
-  struct statfs fsd;
-
   if (statfs (path, &fsd) < 0)
     return;
 
@@ -223,8 +229,6 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 # if !_AIX && !defined _SEQUENT_ && !defined DOLPHIN
 #  define f_bavail f_bfree
 # endif
-
-  struct statfs fsd;
 
   if (statfs (path, &fsd, sizeof fsd, 0) < 0)
     return;
@@ -242,8 +246,6 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 
 #ifdef STAT_STATVFS		/* SVR4 */
 
-  struct statvfs fsd;
-
   if (statvfs (path, &fsd) < 0)
     return;
 
@@ -260,7 +262,7 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
   buf->blocks = PROPAGATE_ALL_ONES (fsd.f_blocks);
   buf->bfree = PROPAGATE_ALL_ONES (fsd.f_bfree);
   buf->bavail = PROPAGATE_TOP_BIT (fsd.f_bavail);
-  // buf->bavail_top_bit_set = EXTRACT_TOP_BIT (fsd.f_bavail) != 0;
+  /* buf->bavail_top_bit_set = EXTRACT_TOP_BIT (fsd.f_bavail) != 0; */
   buf->files = PROPAGATE_ALL_ONES (fsd.f_files);
   buf->ffree = PROPAGATE_ALL_ONES (fsd.f_ffree);
 

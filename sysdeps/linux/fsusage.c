@@ -30,7 +30,8 @@ static void linux_2_6_0(glibtop *server, glibtop_fsusage *buf, const char *path)
     {
       if(strcmp(emnt->mnt_dir, path) != 0)
 	continue;
-
+      else
+      {
       char filename[64]; /* magic */
 
       char buffer[1024]; /* magic */
@@ -75,6 +76,7 @@ static void linux_2_6_0(glibtop *server, glibtop_fsusage *buf, const char *path)
       buf->read = strtoull(p, &p, 0);
       p = skip_token(p);
       buf->write = strtoull(p, &p, 0);
+      }
     }
 
   endmntent(mtab);

@@ -347,6 +347,7 @@ AC_SUBST(machine_incs)
 if test "$GCC" = "yes" ; then
         CFLAGS="\
 	-Wall \
+	-std=gnu89 \
 	-Wchar-subscripts -Wmissing-declarations -Wmissing-prototypes \
 	-Wnested-externs -Wpointer-arith \
 	-Wcast-align -Wsign-compare \

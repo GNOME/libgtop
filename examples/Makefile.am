@@ -24,7 +24,7 @@ first_static_LDADD	= $(first_LDADD)
 first_static_LDFLAGS	= -static
 
 second_SOURCES		= second.c
-second_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
+second_LDADD		= $(top_builddir)/lib/libgtop-2.0.la -lm
 
 second_static_SOURCES	= $(second_SOURCES)
 second_static_LDADD	= $(second_LDADD)
@@ -71,7 +71,7 @@ mountlist_static_LDFLAGS= -static
 
 
 smp_SOURCES		= smp.c
-smp_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
+smp_LDADD		= $(top_builddir)/lib/libgtop-2.0.la -lm
 
 smp_static_SOURCES	= $(smp_SOURCES)
 smp_static_LDADD	= $(smp_LDADD)

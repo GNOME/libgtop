@@ -74,9 +74,10 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 
 	p = skip_multiple_token (p, 3);
 
-	// timeout is 0 on 2.4 and "thread_number" on 2.6
-	// lets skip it (using previous skip_multiple_token)
-	// buf->timeout       = strtoull (p, &p, 0);
+	/* timeout is 0 on 2.4 and "thread_number" on 2.6
+	   lets skip it (using previous skip_multiple_token)
+	   buf->timeout       = strtoull (p, &p, 0);
+	*/
 	buf->it_real_value = strtoull (p, &p, 0);
 
 	/* seconds since epoch */

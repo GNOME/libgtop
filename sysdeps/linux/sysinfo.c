@@ -37,6 +37,7 @@ static void
 init_sysinfo (glibtop *server)
 {
 	char buffer [BUFSIZ];
+	gchar ** processors;
 
 	if(G_LIKELY(sysinfo.flags)) return;
 
@@ -45,8 +46,7 @@ init_sysinfo (glibtop *server)
 	file_to_buffer(server, buffer, FILENAME);
 
 	/* cpuinfo records are seperated by a blank line */
-	gchar ** const processors = g_strsplit(buffer, "\n\n", 0);
-
+	processors = g_strsplit(buffer, "\n\n", 0);
 
 	for(sysinfo.ncpu = 0;
 	    sysinfo.ncpu < GLIBTOP_NCPU && processors[sysinfo.ncpu] && *processors[sysinfo.ncpu];
