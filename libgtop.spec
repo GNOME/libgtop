@@ -89,7 +89,7 @@ make prefix=$RPM_BUILD_ROOT%{prefix} install
 rm -fr $RPM_BUILD_ROOT/%{prefix}/include/libgtop
 
 %clean
-#rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 
 %post -p /sbin/ldconfig
 
