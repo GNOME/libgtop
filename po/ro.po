@@ -1,20 +1,21 @@
 # Romanian translation for libgtop
-# Copyright (C) 2003 Free Software Foundation, Inc.
+# Copyright (C) 2003, 2004, FreeSoftware Foundation, Inc.
 # Mişu Moldovan <dumol@go.ro>, 2003.
 #
 # OBS. Nu sunt programator, m-am inspirat din celelalte localizări 
 # libgtop, orice sugestie sau corectură este binevenită.
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop-2.0.3\n"
+"Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-11 03:27+0100\n"
-"PO-Revision-Date: 2003-09-08 00:16+0300\n"
+"POT-Creation-Date: 2004-03-18 23:25+0200\n"
+"PO-Revision-Date: 2004-03-18 20:29+0200\n"
 "Last-Translator: Mişu Moldovan <dumol@go.ro>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: examples/smp.c:74
 #, c-format
@@ -98,10 +99,10 @@ msgid "Spin:"
 msgstr "Spin:"
 
 #: lib/read.c:78
-#, fuzzy, c-format
+#, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "citeşte %d octeţi"
+msgstr[0] "citeşte %d octet"
 msgstr[1] "citeşte %d octeţi"
 
 #: lib/read_data.c:51
@@ -109,17 +110,17 @@ msgid "read data size"
 msgstr "citeşte lungimea datelor"
 
 #: lib/read_data.c:68
-#, fuzzy, c-format
+#, c-format
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
-msgstr[0] "citeşte %d octeţi de date"
+msgstr[0] "citeşte %d octet de date"
 msgstr[1] "citeşte %d octeţi de date"
 
 #: lib/write.c:51
-#, fuzzy, c-format
+#, c-format
 msgid "write %d byte"
 msgid_plural "write %d bytes"
-msgstr[0] "scrie %d octeţi"
+msgstr[0] "scrie %d octet"
 msgstr[1] "scrie %d octeţi"
 
 #: src/daemon/gnuserv.c:456
@@ -128,7 +129,7 @@ msgstr "Activează depanarea"
 
 #: src/daemon/gnuserv.c:456
 msgid "DEBUG"
-msgstr "DEPANARE"
+msgstr "DEBUG"
 
 #: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
@@ -136,7 +137,7 @@ msgstr "Activează mesajele de ieşire explicite"
 
 #: src/daemon/gnuserv.c:458
 msgid "VERBOSE"
-msgstr "EXPLICIT"
+msgstr "VERBOSE"
 
 #: src/daemon/gnuserv.c:460
 msgid "Don't fork into background"
@@ -144,7 +145,7 @@ msgstr "Nu clona în fundal"
 
 #: src/daemon/gnuserv.c:460
 msgid "NO-DAEMON"
-msgstr "FĂRĂ-DEMON"
+msgstr "NO-DAEMON"
 
 #: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
@@ -161,7 +162,7 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Eroare la opţiunea %s: %s.\n"
-"Încercaţi „%s --help“ pentru a vedea o listă completă a opţiunilor.\n"
+"Încercaţi „%s --help” pentru a vedea o listă completă a opţiunilor.\n"
 
 #: sysdeps/names/cpu.c:44
 msgid "Total CPU Time"
@@ -209,7 +210,7 @@ msgstr "Timp CPU SMP în mod idle"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "Indicatoare CPU SMP"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks since system boot"
@@ -237,7 +238,7 @@ msgstr "Frecvenţa bătăilor de ceas (implicit 100)"
 
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
-msgstr ""
+msgstr "Câmp-octet ce indică care CPU este activ curent"
 
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
 msgid "Total blocks"
@@ -265,7 +266,7 @@ msgstr "Blocuri libere disponibile pentru superutilizator"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to non-superusers"
-msgstr "Blocuri libere disponibile utilizatorilor „non-root“"
+msgstr "Blocuri libere disponibile utilizatorilor „non-root”"
 
 #: sysdeps/names/loadavg.c:40
 msgid "Load Average"
@@ -539,11 +540,11 @@ msgid ""
 msgstr ""
 "Indicatoare kernel de proces.\n"
 "\n"
-"În Linux, toate indicatoarele au bitul „math“ setat, deoarece crt0.s "
+"În Linux, toate indicatoarele au bitul „math” setat, deoarece crt0.s "
 "verifică dacă există emulare matematică, deci acest indicator nu e inclus în "
 "ieşire.\n"
 "\n"
-"Bitul „math“ ar trebui să aiba 4 zecimale, iar cel „traced“ 10."
+"Bitul „math” ar trebui să aiba 4 zecimale, iar cel „traced” 10."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:60
@@ -551,7 +552,7 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Numărul de „fault“-uri minore făcute de proces, adică acelea care nu au "
+"Numărul de „fault”-uri minore făcute de proces, adică acelea care nu au "
 "necesitat încărcarea unei pagini de memorie din swap."
 
 #. Maj_Flt
@@ -560,18 +561,18 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Numărul de „fault“-uri majore făcute de proces, adică acelea care au "
+"Numărul de „fault”-uri majore făcute de proces, adică acelea care au "
 "necesitat încărcarea unei pagini de memorie din swap."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
-msgstr "Numărul de „fault“-uri minore făcute de proces şi copiii săi."
+msgstr "Numărul de „fault”-uri minore făcute de proces şi copiii săi."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
-msgstr "Numărul de „fault“-uri majore făcute de proces şi copiii săi."
+msgstr "Numărul de „fault”-uri majore făcute de proces şi copiii săi."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:72
@@ -579,8 +580,8 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
-"Valoarea curentă a „esp“ (stack pointer pe 32 de biţi), aşa cum apare el în "
-"pagina „stack“ a procesului."
+"Valoarea curentă a „esp” (stack pointer pe 32 de biţi), aşa cum apare el în "
+"pagina „stack” a procesului."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:75
@@ -595,15 +596,15 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Acesta este „canalul“ în care procesul aşteaptă. Aceasta este adresa unei "
-"chemări sistem şi poate fi găsită într-un „namelist“ dacă aveţi nevoie de un "
-"nume textul. (Dacă aveţi un fişier /etc/psdatabase la zi încercaţi „ps -l“ "
+"Acesta este „canalul” în care procesul aşteaptă. Aceasta este adresa unei "
+"chemări sistem şi poate fi găsită într-un „namelist” dacă aveţi nevoie de un "
+"nume textul. (Dacă aveţi un fişier /etc/psdatabase la zi încercaţi „ps -l” "
 "pentru a vedea în acţiune valoarea WCHAN)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:82
 msgid "This is the textual name of the `nwchan' field."
-msgstr "Acesta este numele textual al câmpului „nwchan“."
+msgstr "Acesta este numele textual al câmpului „nwchan”."
 
 #: sysdeps/names/procmem.c:48
 msgid "Virtual"
@@ -639,7 +640,7 @@ msgstr "Număr de pagini în seturi rezidente (nu în swap)"
 
 #: sysdeps/names/procmem.c:57
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr "Număr de pagini în memorie „shared“ (mmap-ed)"
+msgstr "Număr de pagini în memorie „shared” (mmap-ed)"
 
 #: sysdeps/names/procmem.c:58
 msgid ""
@@ -697,7 +698,7 @@ msgstr "Mărime set rezident text"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Shared-Lib resident set size"
-msgstr "Mărime set rezident „Shared-Lib“"
+msgstr "Mărime set rezident „Shared-Lib”"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Data resident set size"
@@ -709,7 +710,7 @@ msgstr "Mărime set rezident stive"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Total size of dirty pages"
-msgstr "Număr total de pagini „dirty“"
+msgstr "Număr total de pagini „dirty”"
 
 #: sysdeps/names/procsegment.c:54
 msgid "Address of beginning of code segment"
@@ -772,34 +773,32 @@ msgid "GID"
 msgstr "GID"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RGid"
-msgstr "Gid"
+msgstr "RGid"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RUid"
-msgstr "Uid"
+msgstr "RUid"
 
 #: sysdeps/names/procstate.c:44
 msgid "HasCPU"
-msgstr ""
+msgstr "AreCPU"
 
 #: sysdeps/names/procstate.c:44
 msgid "Proc"
-msgstr ""
+msgstr "CPU"
 
 #: sysdeps/names/procstate.c:44
 msgid "LProc"
-msgstr ""
+msgstr "LProc"
 
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
-msgstr "Nume de bază al fişierului executabil apelat cu „exec()“"
+msgstr "Nume de bază al fişierului executabil apelat cu „exec()”"
 
 #: sysdeps/names/procstate.c:50
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Cod „Single-Char“ al stării procesului (S=doarme)"
+msgstr "Cod „Single-Char” al stării procesului (S=doarme)"
 
 #: sysdeps/names/procstate.c:51
 msgid "UID of process"
@@ -810,27 +809,24 @@ msgid "GID of process"
 msgstr "GID-ul procesului"
 
 #: sysdeps/names/procstate.c:53
-#, fuzzy
 msgid "Real UID of process"
-msgstr "UID-ul procesului"
+msgstr "UID-ul real al procesului"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "Real GID of process"
-msgstr "GID-ul procesului"
+msgstr "GID-ul real al procesului"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
-msgstr ""
+msgstr "Are CPU"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "Processor"
-msgstr "ID proces"
+msgstr "Procesor"
 
 #: sysdeps/names/procstate.c:57
 msgid "Last Processor"
-msgstr ""
+msgstr "Ultimul procesor"
 
 #: sysdeps/names/proctime.c:45
 msgid "Start_Time"
@@ -882,7 +878,7 @@ msgstr "Timpul la pornirea procesului în secunde de la 01.01.1970"
 
 #: sysdeps/names/proctime.c:53
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "Timp real cumulat de proces (at trebui să fie „utime“ + „stime“)"
+msgstr "Timp real cumulat de proces (at trebui să fie „utime” + „stime”)"
 
 #: sysdeps/names/proctime.c:54
 msgid "user-mode CPU time accumulated by process"
@@ -914,7 +910,7 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:61
 msgid "Tick frequency"
-msgstr "Frecenţă ceas"
+msgstr "Frecvenţă ceas"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP user-mode CPU time accumulated by process"
@@ -941,24 +937,20 @@ msgid "EGid"
 msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "Uid"
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "Gid"
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSUid"
-msgstr "Uid"
+msgstr "FUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSGid"
-msgstr "Gid"
+msgstr "FGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
@@ -989,14 +981,12 @@ msgid "Priority"
 msgstr "Prioritate"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "ID Grup"
+msgstr "NGrupuri"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "Groups"
-msgstr "ID Grup"
+msgstr "Grupuri"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
@@ -1015,24 +1005,20 @@ msgid "Effective Group ID"
 msgstr "ID efectiv grup"
 
 #: sysdeps/names/procuid.c:60
-#, fuzzy
 msgid "Set User ID"
-msgstr "ID utilizator"
+msgstr "ID utilizator setat"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Set Group ID"
-msgstr "ID Grup"
+msgstr "ID Grup setat"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Utilizare sistem fişiere"
+msgstr "ID utilizator sistem fişiere"
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "ID efectiv grup"
+msgstr "ID grup sistem de fişiere"
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
@@ -1052,7 +1038,7 @@ msgstr "ID sesiune"
 
 #: sysdeps/names/procuid.c:68
 msgid "Full device number of controlling terminal"
-msgstr "Întreg numărul de dispozitiv al terminalului de control"
+msgstr "Numărul întreg de dispozitiv al terminalului de control"
 
 #: sysdeps/names/procuid.c:69
 msgid "Terminal process group ID"
@@ -1064,17 +1050,15 @@ msgstr "Ordine priorităţi kernel"
 
 #: sysdeps/names/procuid.c:71
 msgid "Standard unix nice level of process"
-msgstr "Nivel „nice“ standard în Unix pentru proces"
+msgstr "Nivel „nice” standard în Unix pentru proces"
 
 #: sysdeps/names/procuid.c:72
-#, fuzzy
 msgid "Number of additional process groups"
-msgstr "ID grup al procesului terminalului"
+msgstr "Număr de grupuri de procese adiţionale"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Array of additional process groups"
-msgstr "ID grup al procesului terminalului"
+msgstr "Tablou al grupurilor proceselor adiţionale"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
@@ -1082,7 +1066,7 @@ msgstr "Număr de intrări în harta de semafoare"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max number of arrays"
-msgstr "Număr maxim de matrici"
+msgstr "Număr maxim de tablouri"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max semaphores system wide"
@@ -1090,19 +1074,19 @@ msgstr "Număr maxim semafoare în sistem"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Number of undo structures system wide"
-msgstr "Număr de structuri „undo“ în sistem"
+msgstr "Număr de structuri „undo” în sistem"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max semaphores per array"
-msgstr "Număr maxim de semafoare în matrice"
+msgstr "Număr maxim de semafoare în tablou"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max ops per semop call"
-msgstr "Număr maxim de op-uri într-un apel „semop“"
+msgstr "Număr maxim de op-uri într-un apel „semop”"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max number of undo entries per process"
-msgstr "Număr maxim de intrări „undo“ într-un proces"
+msgstr "Număr maxim de intrări „undo” într-un proces"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "sizeof struct sem_undo"
@@ -1114,7 +1098,7 @@ msgstr "Valoare maximă semafoare"
 
 #: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 msgid "Adjust on exit max value"
-msgstr "Valoare maximă la ajustarea la ieşire"
+msgstr "Valoare maximă a ajustării la ieşire"
 
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Max segment size"
@@ -1130,7 +1114,7 @@ msgstr "Număr maxim de segmente"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max shared segments per process"
-msgstr "Număr maxim de segmente „shared“ într-un proces"
+msgstr "Număr maxim de segmente „shared” într-un proces"
 
 #: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max total shared memory"
@@ -1138,7 +1122,7 @@ msgstr "Maxim total de memorie shared"
 
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Total Swap Space"
-msgstr "Spaţiu total de swap"
+msgstr "Spaţiu swap total"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Used Swap Space"
@@ -1186,7 +1170,7 @@ msgstr "Uptime sistem"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Load Averange"
-msgstr "Încărcarea medie"
+msgstr "Încărcare medie"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Shared Memory Limits"
@@ -1226,7 +1210,7 @@ msgstr "Informaţii despre semnalele proceselor"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Kernel Data information"
-msgstr "Informaţii despre datele de nucleu ale proceselor"
+msgstr "Informaţii despre datele kernel ale proceselor"
 
 #: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:93
 msgid "Process Segment information"
@@ -1273,9 +1257,8 @@ msgid "Idletime"
 msgstr "Timp idle"
 
 #: sysdeps/names/uptime.c:41
-#, fuzzy
 msgid "BootTime"
-msgstr "RTime"
+msgstr "Timp de boot"
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
@@ -1287,9 +1270,8 @@ msgstr ""
 "Timpul în secunde petrecut de sistem în mod idle de la pornirea sistemului"
 
 #: sysdeps/names/uptime.c:48
-#, fuzzy
 msgid "Time of last system boot in seconds since the epoch"
-msgstr "Timpul la pornirea procesului în secunde de la 01.01.1970"
+msgstr "Timpul în momentul ultimului boot în secunde de la 01.01.1970"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1353,7 +1335,7 @@ msgstr "Terminare"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr "Condiţie de urgeţă în soclu"
+msgstr "Condiţie de urgenţă în soclu"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
@@ -1397,7 +1379,7 @@ msgstr "Ceas de alarmă virtual"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr "Ceas de alarmă „profiling“"
+msgstr "Ceas de alarmă „profiling”"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
@@ -1414,45 +1396,3 @@ msgstr "Semnal 1 definit de utilizator"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Semnal 2 definit de utilizator"
-
-#~ msgid "Unknown system error"
-#~ msgstr "Eroare de sistem necunoscută"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: opţiunea „%s“ este ambiguă\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: opţiunea „--%s“ nu permite un argument\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: opţiunea „%c%s“ nu permite un argument\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: opţiunea „%s“ necesită un argument\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: opţiune nerecunoscută „--%s“\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: opţiune nerecunoscută „%c%s“\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: opţiune ilegală -- %c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: opţiune invalidă -- %c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: opţiunea necesită un argument -- %c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: opţiunea „-W %s“ este ambiguă\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: opţiunea „-W %s“ nu permite un argument\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "Arată acest mesaj de ajutor"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "Arată acest scurt mesaj de utilizare"
