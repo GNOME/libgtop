@@ -58,7 +58,7 @@ glibtop_init_proclist_p (glibtop *server)
 
 unsigned *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
-			int64_t method, int64_t param)
+			int64_t which, int64_t arg)
 {
 	struct kinfo_proc *pinfo;
 	unsigned *pids = NULL;
@@ -70,8 +70,7 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 	memset (buf, 0, sizeof (glibtop_proclist));
 
 	/* Get the process data */
-	pinfo = kvm_getprocs (server->machine.kd,
-			      KERN_PROC_ALL, NULL, &count);
+	pinfo = kvm_getprocs (server->machine.kd, which, arg, &count);
 	/* Allocate count objects in the pids_chain array
 	 * Same as malloc is pids is NULL, which it is. */
 	pids = glibtop_realloc_r (server, pids, count * sizeof (unsigned));

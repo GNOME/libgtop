@@ -34,9 +34,10 @@ __BEGIN_DECLS
 #define GLIBTOP_PROC_KERNEL_CMAJ_FLT	4
 #define GLIBTOP_PROC_KERNEL_KSTK_ESP	5
 #define GLIBTOP_PROC_KERNEL_KSTK_EIP	6
-#define GLIBTOP_PROC_KERNEL_WCHAN	7
+#define GLIBTOP_PROC_KERNEL_NWCHAN	7
+#define GLIBTOP_PROC_KERNEL_WCHAN	8
 
-#define GLIBTOP_MAX_PROC_KERNEL		8
+#define GLIBTOP_MAX_PROC_KERNEL		9
 
 typedef struct _glibtop_proc_kernel	glibtop_proc_kernel;
 
@@ -56,8 +57,9 @@ struct _glibtop_proc_kernel
 				 * child processes */
 		kstk_esp,	/* kernel stack pointer */
 		kstk_eip,	/* kernel stack pointer */
-		wchan;		/* address of kernel wait channel
+		nwchan;		/* address of kernel wait channel
 				 * proc is sleeping in */
+	char wchan [40];
 };
 
 #define glibtop_get_proc_kernel(p1, p2)	glibtop_get_proc_kernel_l(glibtop_global_server, p1, p2)

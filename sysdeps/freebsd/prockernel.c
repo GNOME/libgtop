@@ -36,24 +36,28 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-static const unsigned long _glibtop_sysdeps_proc_kernel =
-(1 << GLIBTOP_PROC_KERNEL_K_FLAGS) +
-(1 << GLIBTOP_PROC_KERNEL_KSTK_ESP) +
-(1 << GLIBTOP_PROC_KERNEL_KSTK_EIP) +
-(1 << GLIBTOP_PROC_KERNEL_WCHAN);
-
-static const unsigned long _glibtop_sysdeps_proc_kernel_user =
+static const unsigned long _glibtop_sysdeps_proc_kernel_pstats =
 (1 << GLIBTOP_PROC_KERNEL_MIN_FLT) +
 (1 << GLIBTOP_PROC_KERNEL_MAJ_FLT) +
 (1 << GLIBTOP_PROC_KERNEL_CMIN_FLT) +
 (1 << GLIBTOP_PROC_KERNEL_CMAJ_FLT);
+
+static const unsigned long _glibtop_sysdeps_proc_kernel_pcb =
+(1 << GLIBTOP_PROC_KERNEL_KSTK_EIP) +
+(1 << GLIBTOP_PROC_KERNEL_KSTK_ESP);
+
+static const unsigned long _glibtop_sysdeps_proc_kernel_wchan =
+(1 << GLIBTOP_PROC_KERNEL_NWCHAN) +
+(1 << GLIBTOP_PROC_KERNEL_WCHAN);
 
 /* Init function. */
 
 void
 glibtop_init_proc_kernel_p (glibtop *server)
 {
-	server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
+	server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel_pstats |
+		_glibtop_sysdeps_proc_kernel_pcb |
+		_glibtop_sysdeps_proc_kernel_wchan;
 }
 
 void
@@ -62,9 +66,9 @@ glibtop_get_proc_kernel_p (glibtop *server,
 			   pid_t pid)
 {
 	struct kinfo_proc *pinfo;
-	struct i386tss *pcb_tss;
 	struct user *u_addr = (struct user *)USRSTACK;
 	struct pstats pstats;
+	struct pcb pcb;
 	int f, count;
 
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
@@ -78,32 +82,59 @@ glibtop_get_proc_kernel_p (glibtop *server,
 
 	/* Taken from `saveuser ()' in `/usr/src/bin/ps/ps.c'. */
 
-	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
-	    kvm_uread (server->machine.kd, pinfo [0].kp_proc,
-		       (unsigned long) &u_addr->u_stats,
-		       (char *) &pstats, sizeof (pstats)) == sizeof (pstats)) {
-		/*
-		 * The u-area might be swapped out, and we can't get
-		 * at it because we have a crashdump and no swap.
-		 * If it's here fill in these fields, otherwise, just
-		 * leave them 0.
-		 */
+	/* [FIXME]: /usr/include/sys/user.h tells me that the user area
+	 *          may or may not be at the same kernel address in all
+	 *          processes, but I don't see any way to get that address.
+	 *          Since `ps' simply uses its own address, I think it's
+	 *          safe to do this here, too. */
 
-		buf->min_flt = (u_int64_t) pstats.p_ru.ru_minflt;
-		buf->maj_flt = (u_int64_t) pstats.p_ru.ru_majflt;
-		buf->cmin_flt = (u_int64_t) pstats.p_cru.ru_minflt;
-		buf->cmaj_flt = (u_int64_t) pstats.p_cru.ru_majflt;
-
-		buf->flags |= _glibtop_sysdeps_proc_kernel_user;
-	}
-
-#if 0
-	/* kstk_esp: pcb_tss.tss_esp */
-	buf->kstk_esp = (u_int64_t) usr.u_pcb.pcb_ksp;
-	/* kstk_eip: pcb_tss.tss_eip */
-	buf->kstk_eip = (u_int64_t) usr.u_pcb.pcb_pc;
-#endif
+	/* NOTE: You need to mount the /proc filesystem to make
+	 *       `kvm_uread' work. */
 	
-	/* wchan : kinfo_proc.proc.p_wchan */
-	buf->wchan = (u_int64_t) pinfo [0].kp_proc.p_wchan;
+	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
+	    kvm_uread (server->machine.kd, &(pinfo [0]).kp_proc,
+		       (unsigned long) &u_addr->u_stats,
+		       (char *) &pstats, sizeof (pstats)) == sizeof (pstats))
+		{
+			/*
+			 * The u-area might be swapped out, and we can't get
+			 * at it because we have a crashdump and no swap.
+			 * If it's here fill in these fields, otherwise, just
+			 * leave them 0.
+			 */
+
+			buf->min_flt = (u_int64_t) pstats.p_ru.ru_minflt;
+			buf->maj_flt = (u_int64_t) pstats.p_ru.ru_majflt;
+			buf->cmin_flt = (u_int64_t) pstats.p_cru.ru_minflt;
+			buf->cmaj_flt = (u_int64_t) pstats.p_cru.ru_majflt;
+			
+			buf->flags |= _glibtop_sysdeps_proc_kernel_pstats;
+		}
+
+	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
+	    kvm_uread (server->machine.kd, &(pinfo [0]).kp_proc,
+		       (unsigned long) &u_addr->u_pcb,
+		       (char *) &pcb, sizeof (pcb)) == sizeof (pcb))
+		{
+			/* Same like with pstats above. */
+			
+			buf->kstk_esp = (u_int64_t) pcb.pcb_ksp;
+			buf->kstk_eip = (u_int64_t) pcb.pcb_pc;
+			
+			buf->flags |= _glibtop_sysdeps_proc_kernel_pcb;
+		}
+
+	/* Taken from `wchan ()' in `/usr/src/bin/ps/print.c'. */
+
+	buf->nwchan = (u_int64_t) pinfo [0].kp_proc.p_wchan &~ KERNBASE;
+
+	if (pinfo [0].kp_proc.p_wchan && pinfo [0].kp_proc.p_wmesg) {
+		strncpy (buf->wchan, pinfo [0].kp_eproc.e_wmesg,
+			 sizeof (buf->wchan) - 1);
+		buf->wchan [sizeof (buf->wchan) - 1] = 0;
+	} else {
+		buf->wchan [0] = 0;
+	}
+	
+	buf->flags |= _glibtop_sysdeps_proc_kernel_wchan;
 }

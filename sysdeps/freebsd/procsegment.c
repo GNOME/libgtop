@@ -60,6 +60,7 @@ glibtop_get_proc_segment_p (glibtop *server,
 	
 	memset (buf, 0, sizeof (glibtop_proc_segment));
 
+#if 0
 	/* Get the process info from the kernel */
 	kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, count);
 	if (*count != 1) {
@@ -84,5 +85,6 @@ glibtop_get_proc_segment_p (glibtop *server,
 	 */
 	/* start_stack: address of the bottom of stack segment
 	 */
+#endif
 }
 

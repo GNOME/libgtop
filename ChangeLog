@@ -1,5 +1,8 @@
 1998-08-09  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/prockernel.h (glibtop_proc_kernel): Renamed
+	`wchan' field to `nwchan'; added `wchan' which is of type `char [40]'.
+
 	* features.def: Changed format of this file to support multiple
 	arguments to be passed to a function.
 

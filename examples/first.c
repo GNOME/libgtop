@@ -275,7 +275,7 @@ main (int argc, char *argv [])
 		glibtop_get_proc_kernel (&data.proc_kernel, pid);
 
 	printf ("Proc_Kernel  PID  %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu\n", pid,
+		"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", pid,
 		(unsigned long) data.proc_kernel.flags,
 		(unsigned long) data.proc_kernel.k_flags,
 		(unsigned long) data.proc_kernel.min_flt,
@@ -284,7 +284,8 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_kernel.cmaj_flt,
 		(unsigned long) data.proc_kernel.kstk_esp,
 		(unsigned long) data.proc_kernel.kstk_eip,
-		(unsigned long) data.proc_kernel.wchan);
+		(unsigned long) data.proc_kernel.nwchan,
+		data.proc_kernel.wchan);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_segment (&data.proc_segment, pid);
@@ -364,7 +365,7 @@ main (int argc, char *argv [])
 		glibtop_get_proc_kernel (&data.proc_kernel, ppid);
 
 	printf ("Proc_Kernel  PPID %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu\n", ppid,
+		"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", ppid,
 		(unsigned long) data.proc_kernel.flags,
 		(unsigned long) data.proc_kernel.k_flags,
 		(unsigned long) data.proc_kernel.min_flt,
@@ -373,7 +374,8 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_kernel.cmaj_flt,
 		(unsigned long) data.proc_kernel.kstk_esp,
 		(unsigned long) data.proc_kernel.kstk_eip,
-		(unsigned long) data.proc_kernel.wchan);
+		(unsigned long) data.proc_kernel.nwchan,
+		data.proc_kernel.wchan);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_segment (&data.proc_segment, ppid);
@@ -454,7 +456,7 @@ main (int argc, char *argv [])
 		glibtop_get_proc_kernel (&data.proc_kernel, 1);
 
 	printf ("Proc_Kernel  INIT %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu\n", 1,
+		"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", 1,
 		(unsigned long) data.proc_kernel.flags,
 		(unsigned long) data.proc_kernel.k_flags,
 		(unsigned long) data.proc_kernel.min_flt,
@@ -463,7 +465,8 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_kernel.cmaj_flt,
 		(unsigned long) data.proc_kernel.kstk_esp,
 		(unsigned long) data.proc_kernel.kstk_eip,
-		(unsigned long) data.proc_kernel.wchan);
+		(unsigned long) data.proc_kernel.nwchan,
+		data.proc_kernel.wchan);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_segment (&data.proc_segment, 1);

@@ -25,20 +25,21 @@
 const char *glibtop_names_proc_kernel [GLIBTOP_MAX_PROC_KERNEL] =
 {
 	"k_flags", "min_flt", "maj_flt", "cmin_flt", "cmaj_flt",
-	"kstk_esp", "kstk_eip", "wchan"
+	"kstk_esp", "kstk_eip", "nwchan", "wchan"
 };
 
 const unsigned glibtop_types_proc_kernel [GLIBTOP_MAX_PROC_KERNEL] =
 {
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_STRING
 };
 
 const char *glibtop_labels_proc_kernel [GLIBTOP_MAX_PROC_KERNEL] =
 {
 	N_("K_Flags"), N_("Min_Flt"), N_("Maj_Flt"), N_("CMin_Flt"),
-	N_("CMaj_Flt"), N_("KStk_ESP"), N_("KStk_EIP"), N_("WChan")
+	N_("CMaj_Flt"), N_("KStk_ESP"), N_("KStk_EIP"), N_("NWChan"),
+	N_("WChan")
 };
 
 const char *glibtop_descriptions_proc_kernel [GLIBTOP_MAX_PROC_KERNEL] =
@@ -69,9 +70,11 @@ const char *glibtop_descriptions_proc_kernel [GLIBTOP_MAX_PROC_KERNEL] =
 	   "the kernel stack page for the process."),
 	/* KStk_EIP */
 	N_("The current EIP (32-bit instruction pointer)."),
-	/* WChan */
+	/* NWChan */
 	N_("This is the \"channel\" in which the process is waiting.  This "
 	   "is the address of a system call, and can be looked up in a "
 	   "namelist if you need a textual name.  (If you have an up-to-date "
-	   "/etc/psdatabase, then try ps -l to see the WCHAN field in action)")
+	   "/etc/psdatabase, then try ps -l to see the WCHAN field in action)"),
+	/* WChan */
+	N_("This is the textual name of the `nwchan' field.")
 };

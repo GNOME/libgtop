@@ -141,7 +141,7 @@ main (int argc, char *argv [])
 		glibtop_get_proc_kernel (&data.proc_kernel, pid);
 
 		printf ("Proc_Kernel  PID  %5u (0x%08lx): "
-			"%lu %lu %lu %lu %lu %lu %lu %lu\n", pid,
+			"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", pid,
 			(unsigned long) data.proc_kernel.flags,
 			(unsigned long) data.proc_kernel.k_flags,
 			(unsigned long) data.proc_kernel.min_flt,
@@ -150,7 +150,8 @@ main (int argc, char *argv [])
 			(unsigned long) data.proc_kernel.cmaj_flt,
 			(unsigned long) data.proc_kernel.kstk_esp,
 			(unsigned long) data.proc_kernel.kstk_eip,
-			(unsigned long) data.proc_kernel.wchan);
+			(unsigned long) data.proc_kernel.nwchan,
+			data.proc_kernel.wchan);
 
 		glibtop_get_proc_segment (&data.proc_segment, pid);
 

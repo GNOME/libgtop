@@ -33,6 +33,17 @@ __BEGIN_DECLS
 
 #define GLIBTOP_MAX_PROCLIST	3
 
+/* You can use the folowing constants as the `which' member of
+ * glibtop_get_proclist () to specify which processes to fetch. */
+
+#define GLIBTOP_KERN_PROC_ALL		0	/* all processes */
+#define GLIBTOP_KERN_PROC_PID		1
+#define GLIBTOP_KERN_PROC_PGRP		2
+#define GLIBTOP_KERN_PROC_SESSION	3
+#define GLIBTOP_KERN_PROC_TTY		4
+#define GLIBTOP_KERN_PROC_UID		5
+#define GLIBTOP_KERN_PROC_RUID		6
+
 typedef struct _glibtop_proclist	glibtop_proclist;
 
 struct _glibtop_proclist
@@ -43,7 +54,7 @@ struct _glibtop_proclist
 		size;			/* GLIBTOP_PROCLIST_SIZE	*/
 };
 
-#define glibtop_get_proclist(proclist,method,param)	glibtop_get_proclist_l(glibtop_global_server, proclist, method, param)
+#define glibtop_get_proclist(proclist,which,arg) glibtop_get_proclist_l(glibtop_global_server, proclist, which, arg)
 
 #if GLIBTOP_SUID_PROCLIST
 #define glibtop_get_proclist_r		glibtop_get_proclist_p
