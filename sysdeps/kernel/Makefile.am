@@ -18,8 +18,7 @@ libgtop_backend_kernel_la_SOURCES = \
 	proclist.c procstate.c procuid.c \
 	proctime.c procmem.c procsignal.c prockernel.c \
 	procsegment.c procargs.c procmap.c netload.c \
-	netinfo.c interfaces.c procdata.c \
-	backend-kernel.c marshal.c
+	procdata.c backend-kernel.c marshal.c
 
 libgtop_backend_kernel_la_LDFLAGS = \
 	$(LT_VERSION_INFO)

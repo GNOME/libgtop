@@ -1,3 +1,7 @@
+2000-01-24  Martin Baulig  <martin@home-of-linux.org>
+
+	* interfaces.c, netinfo.c: Removed.
+
 2000-01-23  Martin Baulig  <martin@home-of-linux.org>
 
 	This is now a LibGTop backend which can be loaded additionally
