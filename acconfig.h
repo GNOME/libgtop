@@ -184,3 +184,8 @@
 /* Define to enable dynamic linking of the backends. */
 #undef USE_GMODULE
 
+/* Define if we need the LibGTop server. */
+#undef LIBGTOP_NEED_SERVER
+
+/* Define if we have a non-suid backend library. */
+#undef LIBGTOP_HAVE_SYSDEPS

@@ -475,6 +475,14 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	AC_SUBST(libgtop_use_gmodule)
 
+	if test x$libgtop_have_sysdeps = xyes ; then
+	  AC_DEFINE(LIBGTOP_HAVE_SYSDEPS)
+	fi
+
+	if test x$libgtop_need_server = xyes ; then
+	  AC_DEFINE(LIBGTOP_NEED_SERVER)
+	fi
+
 	AM_CONDITIONAL(NEED_LIBGTOP, test x$libgtop_need_server = xyes)
 	AM_CONDITIONAL(HAVE_SYSDEPS, test x$libgtop_have_sysdeps = xyes)
 	AM_CONDITIONAL(LIBGTOP_USE_GMODULE, test x$libgtop_use_gmodule = xyes)
