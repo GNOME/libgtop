@@ -31,66 +31,125 @@
 
 BEGIN_LIBGTOP_DECLS
 
+#define GLIBTOP_INTERFACE_IF_FLAGS	0
+#define GLIBTOP_INTERFACE_TRANSPORT	1
+#define GLIBTOP_INTERFACE_TYPE		2
+#define GLIBTOP_INTERFACE_NUMBER	3
+#define GLIBTOP_INTERFACE_INSTANCE	4
+#define GLIBTOP_INTERFACE_NUM_LOGICAL	5
+#define GLIBTOP_INTERFACE_NAME		6
+
+#define GLIBTOP_MAX_INTERFACE		7
+
+typedef struct _glibtop_interface	glibtop_interface;
+
 #define GLIBTOP_INTERFACE_NAMES_NUMBER	0
 #define GLIBTOP_INTERFACE_NAMES_SIZE	1
+#define GLIBTOP_INTERFACE_NAMES_TOTAL	2
 
-#define GLIBTOP_MAX_INTERFACE_NAMES	2
+#define GLIBTOP_MAX_INTERFACE_NAMES	3
 
 typedef struct _glibtop_interface_names	glibtop_interface_names;
 
-typedef enum _glibtop_interface		glibtop_interface;
+typedef enum _glibtop_interface_type	glibtop_interface_type;
 typedef enum _glibtop_transport		glibtop_transport;
 typedef enum _glibtop_protocol		glibtop_protocol;
 
+typedef enum _glibtop_strategy		glibtop_strategy;
+typedef enum _glibtop_interface_flags	glibtop_interface_flags;
+
 enum _glibtop_protocol {
-    GLIBTOP_NETLOAD_DEFAULT = 0,
-    GLIBTOP_NETLOAD_ICMP,
-    GLIBTOP_NETLOAD_TCP,
-    GLIBTOP_NETLOAD_UDP,
+    GLIBTOP_PROTOCOL_OTHERS	= 0,
+    GLIBTOP_PROTOCOL_ICMP	= 1 << 0,
+    GLIBTOP_PROTOCOL_TCP	= 1 << 1,
+    GLIBTOP_PROTOCOL_UDP	= 1 << 2,
+    GLIBTOP_PROTOCOL_IGMP	= 1 << 3,
+    GLIBTOP_PROTOCOL_RAW	= 1 << 4,
+    GLIBTOP_PROTOCOL_ICMP6	= 1 << 5,
+    GLIBTOP_PROTOCOL_TCP6	= 1 << 6,
+    GLIBTOP_PROTOCOL_UDP6	= 1 << 7,
+    GLIBTOP_PROTOCOL_IGMP6	= 1 << 8,
+    GLIBTOP_PROTOCOL_RAW6	= 1 << 9
 };
 
 enum _glibtop_transport {
-    GLIBTOP_TRANSPORT_DEFAULT = 0,
-    GLIBTOP_TRANSPORT_OTHER,
-    GLIBTOP_TRANSPORT_IPV4,
-    GLIBTOP_TRANSPORT_IPV6,
-    GLIBTOP_TRANSPORT_IPX,
-    GLIBTOP_TRANSPORT_X25,
-    GLIBTOP_TRANSPORT_DECNET,
-    GLIBTOP_TRANSPORT_APPLETALK,
-    GLIBTOP_TRANSPORT_NETBEUI,
+    GLIBTOP_TRANSPORT_DEFAULT	= 0,
+    GLIBTOP_TRANSPORT_IPV4	= 1 << 0,
+    GLIBTOP_TRANSPORT_IPV6	= 1 << 1,
+    GLIBTOP_TRANSPORT_IPX	= 1 << 2,
+    GLIBTOP_TRANSPORT_X25	= 1 << 3,
+    GLIBTOP_TRANSPORT_DECNET	= 1 << 4,
+    GLIBTOP_TRANSPORT_APPLETALK	= 1 << 5,
+    GLIBTOP_TRANSPORT_NETBEUI	= 1 << 6,
 };
 
-enum _glibtop_interface {
-    GLIBTOP_INTERFACE_ALL = 0,
+#define GLIBTOP_TRANSPORT_ALL	GLIBTOP_UNLIMITED
+#define GLIBTOP_PROTOCOL_ALL	GLIBTOP_UNLIMITED
+
+enum _glibtop_interface_type {
+    GLIBTOP_INTERFACE_ALL		= 0,
     GLIBTOP_INTERFACE_OTHER,
     /* Network interfaces */
-    GLIBTOP_INTERFACE_ETHERNET = 101,
+    GLIBTOP_INTERFACE_ETHERNET		= 101,
     GLIBTOP_INTERFACE_FDDI,
     GLIBTOP_INTERFACE_FRAME_RELAY,
     GLIBTOP_INTERFACE_TOKEN_RING,
     GLIBTOP_INTERFACE_ARCNET,
     GLIBTOP_INTERFACE_ATM,
     /* Dummy interfaces */
-    GLIBTOP_INTERFACE_LOOPBACK = 501,
+    GLIBTOP_INTERFACE_LOOPBACK		= 501,
     GLIBTOP_INTERFACE_DUMMY,
     /* Dialup interfaces */
-    GLIBTOP_INTERFACE_PARA = 801,
+    GLIBTOP_INTERFACE_PARA		= 801,
     GLIBTOP_INTERFACE_SLIP,
     GLIBTOP_INTERFACE_PPP,
     GLIBTOP_INTERFACE_ISDN
 };
 
-enum {
-    GLIBTOP_INTERFACES_ALL = 0,
+enum _glibtop_strategy {
+    GLIBTOP_INTERFACES_ALL		= 0,
     GLIBTOP_INTERFACES_BEST_MATCHING,
+    GLIBTOP_INTERFACES_ONLY_THIS_ONE,
+    GLIBTOP_INTERFACES_INCLUDE_LOGICAL	= 1 << 7,
+};
+
+enum _glibtop_interface_flags {
+    GLIBTOP_IF_FLAGS_UP = 1,
+    GLIBTOP_IF_FLAGS_BROADCAST,
+    GLIBTOP_IF_FLAGS_DEBUG,
+    GLIBTOP_IF_FLAGS_LOOPBACK,
+    GLIBTOP_IF_FLAGS_POINTOPOINT,
+    GLIBTOP_IF_FLAGS_RUNNING,
+    GLIBTOP_IF_FLAGS_NOARP,
+    GLIBTOP_IF_FLAGS_PROMISC,
+    GLIBTOP_IF_FLAGS_ALLMULTI,
+    GLIBTOP_IF_FLAGS_OACTIVE,
+    GLIBTOP_IF_FLAGS_SIMPLEX,
+    GLIBTOP_IF_FLAGS_LINK0,
+    GLIBTOP_IF_FLAGS_LINK1,
+    GLIBTOP_IF_FLAGS_LINK2,
+    GLIBTOP_IF_FLAGS_ALTPHYS,
+    GLIBTOP_IF_FLAGS_MULTICAST
+};
+
+struct _glibtop_interface
+{
+    u_int64_t	flags,
+	if_flags,		/* GLIBTOP_INTERFACE_IF_FLAGS		*/
+	transport,		/* GLIBTOP_INTERFACE_TRANSPORT		*/
+	type,			/* GLIBTOP_INTERFACE_TYPE		*/
+	number,			/* GLIBTOP_INTERFACE_NUMBER		*/
+	instance,		/* GLIBTOP_INTERFACE_INSTANCE		*/
+	num_logical;		/* GLIBTOP_INTERFACE_NUM_LOGICAL	*/
+    char name [GLIBTOP_INTERFACE_LEN];
 };
 
 struct _glibtop_interface_names
 {
     u_int64_t	flags,
 	number,			/* GLIBTOP_INTERFACES_NUMBER	*/
-	size;			/* GLIBTOP_INTERFACES_SIZE	*/
+	size,			/* GLIBTOP_INTERFACES_SIZE	*/
+	total;			/* GLIBTOP_INTERFACES_TOTAL	*/
 };
 
 #define glibtop_get_interface_names(buf,interface,number,instance,strategy) glibtop_get_interface_names_l (glibtop_global_server, buf, interface, number, instance, strategy)
@@ -101,14 +160,14 @@ struct _glibtop_interface_names
 #define glibtop_get_interface_names_r	glibtop_get_interface_names_s
 #endif
 
-char *glibtop_get_interface_names_l (glibtop *server, glibtop_interface_names *buf, unsigned interface, unsigned number, unsigned instance, unsigned strategy);
+glibtop_interface *glibtop_get_interface_names_l (glibtop *server, glibtop_interface_names *buf, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
 
 #if GLIBTOP_SUID_INTERFACE_NAMES
 int glibtop_init_interface_names_p (glibtop *server);
-char *glibtop_get_interface_names_p (glibtop *server, glibtop_interface_names *buf, unsigned interface, unsigned number, unsigned instance, unsigned strategy);
+glibtop_interface *glibtop_get_interface_names_p (glibtop *server, glibtop_interface_names *buf, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
 #else
 int glibtop_init_interface_names_s (glibtop *server);
-char *glibtop_get_interface_names_s (glibtop *server, glibtop_interface_names *buf, unsigned interface, unsigned number, unsigned instance, unsigned strategy);
+glibtop_interface *glibtop_get_interface_names_s (glibtop *server, glibtop_interface_names *buf, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
 #endif
 
 #ifdef GLIBTOP_NAMES

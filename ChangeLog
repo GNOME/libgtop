@@ -1,5 +1,11 @@
 1999-12-05  Martin Baulig  <martin@home-of-linux.org>
 
+	* includes/glibtop/interfaces.h (glibtop_get_interface_names):
+	Return array of `glibtop_interface' structures.
+	(glibtop_interface): New structure.
+
+1999-12-05  Martin Baulig  <martin@home-of-linux.org>
+
 	* include/glibtop/limits.h (GLIBTOP_INTERFACE_LEN): New #define.
 	(GLIBTOP_UNLIMITED): #define this to be `(~(u_int64_t)0)'.
 
