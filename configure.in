@@ -352,7 +352,13 @@ LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS $LIBGTOP_XML_LIB"
 LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common -lgtop"
 
 if test x$libgtop_use_gmodule != xyes ; then
-  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_backend_sysdeps -lgtop_sysdeps -lgtop_backend_common"
+  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_backend_common"
+  if test x$libgtop_have_sysdeps = xyes ; then
+    LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_backend_sysdeps -lgtop_sysdeps"
+  fi
+  if test x$libgtop_need_server = xyes ; then
+    LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_backend_server"
+  fi
 fi
 
 LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names"
