@@ -1,17 +1,157 @@
 # Swedish translation for libgtop.
-# Copyright (C) 1999 Free Software Foundation, Inc.
+# Copyright (C) 1999-2001 Free Software Foundation, Inc.
 # Tomas Ögren <stric@ing.umu.se>, 1999.
 # Andreas Hyden <a.hyden@cyberpoint.se>
+# Christian Rose <menthos@menthos.com>, 2001.
+#
+# $Id$
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 1.1.0\n"
-"POT-Creation-Date: 2000-04-29 21:42+0200\n"
-"PO-Revision-Date: 1999-06-22 22:42+0200\n"
-"Last-Translator: Andreas Hyden  <a.hyden@cyberpoint.se>\n"
+"Project-Id-Version: libgtop\n"
+"POT-Creation-Date: 2001-02-15 14:11+0100\n"
+"PO-Revision-Date: 2001-02-15 14:12+0100\n"
+"Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
+msgid "Hangup (POSIX)"
+msgstr "Lägg på (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
+msgid "Interrupt (ANSI)"
+msgstr "Avbrott (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:35 lib/sysdeps-init-linux.c:35
+msgid "Quit (POSIX)"
+msgstr "Avslut (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:36 lib/sysdeps-init-linux.c:36
+msgid "Illegal instruction (ANSI)"
+msgstr "Ogiltig instruktion (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:37 lib/sysdeps-init-linux.c:37
+msgid "Trace trap (POSIX)"
+msgstr "Spårfälla (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:38 lib/sysdeps-init-linux.c:38
+msgid "Abort (ANSI)"
+msgstr "Avbryt (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:39
+msgid "EMT instruction"
+msgstr "EMT-instruktion"
+
+#: lib/sysdeps-init-freebsd.c:40 lib/sysdeps-init-linux.c:40
+msgid "Floating-point exception (ANSI)"
+msgstr "Flyttalsundantag (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
+msgid "Kill, unblockable (POSIX)"
+msgstr "Dödande, oblockerbar (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
+msgid "BUS error (4.2 BSD)"
+msgstr "Bussfel (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:43 lib/sysdeps-init-linux.c:43
+msgid "Segmentation violation (ANSI)"
+msgstr "Segmenteringsfel (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:44
+msgid "Bad argument to system call"
+msgstr "Felaktigt argument till systemanrop"
+
+#: lib/sysdeps-init-freebsd.c:45 lib/sysdeps-init-linux.c:45
+msgid "Broken pipe (POSIX)"
+msgstr "Brutet rör (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:46 lib/sysdeps-init-linux.c:46
+msgid "Alarm clock (POSIX)"
+msgstr "Väckarklocka (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
+msgid "Termination (ANSI)"
+msgstr "Terminering (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:48 lib/sysdeps-init-linux.c:55
+msgid "Urgent condition on socket (4.2 BSD)"
+msgstr "Brådskande tillstånd i uttag (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:49 lib/sysdeps-init-linux.c:51
+msgid "Stop, unblockable (POSIX)"
+msgstr "Stopp, oblockerbar (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:50 lib/sysdeps-init-linux.c:52
+msgid "Keyboard stop (POSIX)"
+msgstr "Tangentbordsstopp (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:51 lib/sysdeps-init-linux.c:50
+msgid "Continue (POSIX)"
+msgstr "Fortsätt (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:52 lib/sysdeps-init-linux.c:49
+msgid "Child status has changed (POSIX)"
+msgstr "Barnstatus har ändrats (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:53 lib/sysdeps-init-linux.c:53
+msgid "Background read from tty (POSIX)"
+msgstr "Bakgrundsläsning från tty (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:54 lib/sysdeps-init-linux.c:54
+msgid "Background write to tty (POSIX)"
+msgstr "Bakgrundsskrivning till tty (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:55 lib/sysdeps-init-linux.c:61
+msgid "I/O now possible (4.2 BSD)"
+msgstr "IO nu möjligt (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:56 lib/sysdeps-init-linux.c:56
+msgid "CPU limit exceeded (4.2 BSD)"
+msgstr "CPU-gränsen överskreds (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:57 lib/sysdeps-init-linux.c:57
+msgid "File size limit exceeded (4.2 BSD)"
+msgstr "Filstorleksgränsen överskreds (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:58 lib/sysdeps-init-linux.c:58
+msgid "Virtual alarm clock (4.2 BSD)"
+msgstr "Virtuell väckarklocka (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:59 lib/sysdeps-init-linux.c:59
+msgid "Profiling alarm clock (4.2 BSD)"
+msgstr "Profilerande väckarklocka (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:60 lib/sysdeps-init-linux.c:60
+msgid "Window size change (4.3 BSD, Sun)"
+msgstr "Fönsterstorleksändring (4.3 BSD, Sun)"
+
+#: lib/sysdeps-init-freebsd.c:61
+msgid "Information request"
+msgstr "Informationsbegäran"
+
+#: lib/sysdeps-init-freebsd.c:62 lib/sysdeps-init-linux.c:42
+msgid "User-defined signal 1 (POSIX)"
+msgstr "Användardefinierad signal 1 (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:63 lib/sysdeps-init-linux.c:44
+msgid "User-defined signal 2 (POSIX)"
+msgstr "Användardefinierad signal 2 (POSIX)"
+
+#: lib/sysdeps-init-linux.c:62
+msgid "Power failure restart (System V)"
+msgstr "Omstart vid strömavbrott (System V)"
+
+#: support/popthelp.c:23
+msgid "Show this help message"
+msgstr "Visa denna hjälptext"
+
+#: support/popthelp.c:24
+msgid "Display brief usage message"
+msgstr "Visa en kort användningstext"
 
 #: sysdeps/names/cpu.c:45
 msgid "Total CPU Time"
@@ -31,7 +171,7 @@ msgstr "Processortid i systemläge"
 
 #: sysdeps/names/cpu.c:49
 msgid "CPU Time in the Idle Task"
-msgstr "Processortid i Idle Task"
+msgstr "Processortid i tomgång"
 
 #: sysdeps/names/cpu.c:50
 msgid "Tick Frequency"
@@ -39,47 +179,47 @@ msgstr "Tickfrekvens"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP Total CPU Time"
-msgstr "SMP total processortid"
+msgstr "Total SMP-processortid"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in User Mode"
-msgstr "SMP processortid i användarläge"
+msgstr "SMP-processortid i användarläge"
 
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "SMP processortid i användarläge (nice)"
+msgstr "SMP-processortid i användarläge (nice)"
 
 #: sysdeps/names/cpu.c:54
 msgid "SMP CPU Time in System Mode"
-msgstr "SMP processortid i systemläge"
+msgstr "SMP-processortid i systemläge"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Time in the Idle Task"
-msgstr "SMP processortid i Idle Task"
+msgstr "SMP-processortid i tomgång"
 
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 msgid "SMP CPU Flags"
-msgstr "SMP processorflaggor"
+msgstr "SMP-processorflaggor"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
-msgstr "Antal klockticks sen systemstart"
+msgstr "Antal klocktick sedan systemstart"
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode"
-msgstr "Antal klockticks systemet har använt i användarläge"
+msgstr "Antal klocktick systemet har använt i användarläge"
 
 #: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "Antal klockticks systemet har använt i användarläge (nice)"
+msgstr "Antal klocktick systemet har använt i användarläge (nice)"
 
 #: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in system mode"
-msgstr "Antal klockticks systemet har använt i systemläge"
+msgstr "Antal klocktick systemet har använt i systemläge"
 
 #: sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr "Antal klockticks systemet har använt i Idle Task"
+msgstr "Antal klocktick systemet har använt i tomgång"
 
 #: sysdeps/names/cpu.c:66
 msgid "Tick frequency (default is 100)"
@@ -115,15 +255,15 @@ msgstr "Fria block tillgängliga för icke-superanvändare"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Load Average"
-msgstr "Medel last"
+msgstr "Medellast"
 
 #: sysdeps/names/loadavg.c:42
 msgid "Running Tasks"
-msgstr "Körande program"
+msgstr "Körande jobb"
 
 #: sysdeps/names/loadavg.c:43
 msgid "Number of Tasks"
-msgstr "Antal program"
+msgstr "Antal jobb"
 
 #: sysdeps/names/loadavg.c:44 sysdeps/names/loadavg.c:52
 msgid "Last PID"
@@ -167,7 +307,7 @@ msgstr "Cachat"
 
 #: sysdeps/names/mem.c:49
 msgid "User"
-msgstr "Användar"
+msgstr "Användare"
 
 #: sysdeps/names/mem.c:50
 msgid "Locked"
@@ -191,11 +331,11 @@ msgstr "Delat minne i kB"
 
 #: sysdeps/names/mem.c:59
 msgid "Size of buffers kB"
-msgstr "Storleken på buffertar kB"
+msgstr "Storleken på buffertar i kB"
 
 #: sysdeps/names/mem.c:60
 msgid "Size of cached memory in kB"
-msgstr "Storleken cachat minne i kB"
+msgstr "Storleken på cachat minne i kB"
 
 #: sysdeps/names/mem.c:61
 msgid "Memory used from user processes in kB"
@@ -219,7 +359,7 @@ msgstr "Maxstorlek på meddelande"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Default max size of queue"
-msgstr "Standard maxstorlek på kö"
+msgstr "Standardmaxstorlek på kö"
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Max queues system wide"
@@ -227,11 +367,11 @@ msgstr "Max köer i hela systemet"
 
 #: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
 msgid "Message segment size"
-msgstr "Meddelande-segment storlek"
+msgstr "Storlek på meddelandesegment"
 
 #: sysdeps/names/msg_limits.c:48 sysdeps/names/msg_limits.c:59
 msgid "Number of system message headers"
-msgstr "Antal systemmeddelande-huvuden"
+msgstr "Antal systemmeddelandehuvuden"
 
 #: sysdeps/names/prockernel.c:44
 msgid "K_Flags"
@@ -281,15 +421,15 @@ msgid ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
-"Kernel-flaggor för processen.\n"
+"Kärnflaggor för processen.\n"
 "\n"
-"I Linux så har varje flagga matte-biten satt eftersom crt0.s kollar efter "
-"matte-emulering, så den tas ej med i utskriften.\n"
+"I Linux har varje flagga matematikbiten satt, eftersom crt0.s kontrollerar "
+"om matematikemulering finns, så detta tas inte med i utskriften.\n"
 "\n"
 "Detta är troligen en bugg, eftersom alla processer inte är ett kompilerat "
 "C-program.\n"
 "\n"
-"Mattebiten ska vara decimalt 4, och spår-biten är decimalt 10."
+"Matematikbiten ska vara decimalt 4, och spårbiten är decimalt 10."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:61
@@ -297,7 +437,7 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Antal mindre sidfel processen har gjort, vilka inte kräver att en sida "
+"Antal mindre sidfel processen har gjort, de som inte krävt att en minnessida "
 "laddas från disk."
 
 #. Maj_Flt
@@ -306,8 +446,8 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Antalet större sidfel processen gjort, vilka kräver att sidan laddas in från "
-"disk."
+"Antalet större sidfel processen gjort, de som krävt att en minnessida laddas "
+"från disk."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:67
@@ -341,15 +481,15 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Detta är den \"kanal\" som processen väntar i.  Detta är en adress till ett "
-"systemanrop, och kan letas upp i en namnlista om du vill ha den i textform. "
-"(Om du har en korrekt uppdaterad /etc/psdatabase, testa ps -l för att se "
+"Detta är den \"kanal\" som processen väntar i. Detta är adresse till "
+"systemanropet, och kan slås upp i en namnlista om du vill ha den i textform. "
+"(Om du har en uppdaterad /etc/psdatabase kan du testa ps -l för att se "
 "fältet WCHAN)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:83
 msgid "This is the textual name of the `nwchan' field."
-msgstr "Detta är textnamnet för fältet `nwchan'"
+msgstr "Detta är textnamnet för fältet \"nwchan\"."
 
 #: sysdeps/names/procmem.c:49
 msgid "Size"
@@ -369,27 +509,27 @@ msgstr "Delat"
 
 #: sysdeps/names/procmem.c:50
 msgid "Resident Set Size"
-msgstr "Resident-set storlek"
+msgstr "Resident-set-storlek"
 
 #: sysdeps/names/procmem.c:50
 msgid "Resident Set Size Limit"
-msgstr "Resident-set storleksgränsning"
+msgstr "Resident-set-storleksgräns"
 
 #: sysdeps/names/procmem.c:55
 msgid "Total # of pages of memory"
-msgstr "Antal sidor minne"
+msgstr "Totalt antal minnessidor"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of virtual memory"
-msgstr "Antal sidor virtuellt minne"
+msgstr "Antal sidor med virtuellt minne"
 
 #: sysdeps/names/procmem.c:57
 msgid "Number of resident set (non-swapped) pages"
-msgstr "Antal resident set (icke-swappade) sidor"
+msgstr "Antal resident-set-sidor (som inte har swappats)"
 
 #: sysdeps/names/procmem.c:58
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr "Antal sidor med delat (mmap'at) minne"
+msgstr "Antal sidor med delat (mmap:at) minne"
 
 #: sysdeps/names/procmem.c:59
 msgid ""
@@ -398,15 +538,16 @@ msgid ""
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
 msgstr ""
-"Antal sidor som processen har i riktigt minne, minus 3 för administrativa "
+"Antal sidor som processen har i verkligt minne, minus 3 för administrativa "
 "syften. Detta är endast sidor som kan räknas till text, data eller "
-"stack-utrymme. Detta inkluderar ej sidor som inte har laddats in per "
+"stackutrymme. Detta inkluderar inte sidor som inte har laddats in per "
 "förfrågan eller som har swappats ut."
 
 #: sysdeps/names/procmem.c:64
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "Nuvarande gräns i bytes på rss:en för processen (normalt 2147483647)."
+msgstr ""
+"Nuvarande gräns i bytes på rss:en för processen (normalt 2 147 483 647)."
 
 #: sysdeps/names/procsegment.c:50
 msgid "Text_RSS"
@@ -426,7 +567,7 @@ msgstr "Stack_RSS"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Dirty Size"
-msgstr "Smutsig storlek"
+msgstr "Smutsstorlek"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Start_Code"
@@ -478,19 +619,19 @@ msgstr "Env_End"
 
 #: sysdeps/names/procsegment.c:59
 msgid "Text resident set size"
-msgstr "Text resident set storlek"
+msgstr "Text resident-set-storlek"
 
 #: sysdeps/names/procsegment.c:60
 msgid "Shared-Lib resident set size"
-msgstr "Delade bibliotek resident set storlek"
+msgstr "Resident-set-storlek för delade bibliotek"
 
 #: sysdeps/names/procsegment.c:61
 msgid "Data resident set size"
-msgstr "Data resident set storlek"
+msgstr "Storlek på data-resident-set"
 
 #: sysdeps/names/procsegment.c:62
 msgid "Stack resident set size"
-msgstr "Stack resident set storlek"
+msgstr "Storlek på stack-resident-set"
 
 #: sysdeps/names/procsegment.c:63
 msgid "Total size of dirty pages"
@@ -502,7 +643,7 @@ msgstr "Adress till början av kodsegmentet"
 
 #: sysdeps/names/procsegment.c:65
 msgid "Address of end of code segment"
-msgstr "Adressen till slutet av kodsegmentet"
+msgstr "Adress till slutet av kodsegmentet"
 
 #: sysdeps/names/procsegment.c:66
 msgid "Address of beginning of data segment"
@@ -522,7 +663,7 @@ msgstr "Brk_End"
 
 #: sysdeps/names/procsegment.c:70
 msgid "Address of the bottom of stack segment"
-msgstr "Adressen till botten av stacksegmentet"
+msgstr "Adress till botten av stacksegmentet"
 
 #: sysdeps/names/procsegment.c:71
 msgid "Start of mmap()ed areas"
@@ -562,11 +703,11 @@ msgstr "Mask med fångade signaler"
 
 #: sysdeps/names/procstate.c:45
 msgid "Cmd"
-msgstr "Cmd"
+msgstr "Kmdo"
 
 #: sysdeps/names/procstate.c:45
 msgid "State"
-msgstr "State"
+msgstr "Tillst"
 
 #: sysdeps/names/procstate.c:45
 msgid "UID"
@@ -602,7 +743,7 @@ msgstr "Grundnamnet på den körbara filen vid anrop till exec()"
 
 #: sysdeps/names/procstate.c:53
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Singelbokstavs-kod för processläge (S=sovande)"
+msgstr "Enbokstavskod för processläge (S=sovande)"
 
 #: sysdeps/names/procstate.c:54
 msgid "effective UID of process"
@@ -614,11 +755,11 @@ msgstr "effektiv GID för processen"
 
 #: sysdeps/names/procstate.c:56
 msgid "real UID of process"
-msgstr "riktig UID för processen"
+msgstr "verklig UID för processen"
 
 #: sysdeps/names/procstate.c:57
 msgid "real GID of process"
-msgstr "riktig GID för processen"
+msgstr "verklig GID för processen"
 
 #: sysdeps/names/procstate.c:58
 msgid "has_cpu"
@@ -634,7 +775,7 @@ msgstr "senaste_processor"
 
 #: sysdeps/names/proctime.c:46
 msgid "Start_Time"
-msgstr "Start_Tid"
+msgstr "Starttid"
 
 #: sysdeps/names/proctime.c:46
 msgid "RTime"
@@ -682,19 +823,19 @@ msgstr "XCPU_Flags"
 
 #: sysdeps/names/proctime.c:54
 msgid "Start time of process in seconds since the epoch"
-msgstr "Starttid för processen i sekunder sen epoken"
+msgstr "Starttid för processen i sekunder sedan epoken"
 
 #: sysdeps/names/proctime.c:55
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "Riktig tid ackumulerad av processen (ska vara atid + stid)"
+msgstr "Verklig tid ackumulerad av processen (ska vara atid + stid)"
 
 #: sysdeps/names/proctime.c:56
 msgid "user-mode CPU time accumulated by process"
-msgstr "användar-läge CPU-tid ackumulerad av processen"
+msgstr "CPU-tid i användarläge ackumulerad av processen"
 
 #: sysdeps/names/proctime.c:57
 msgid "kernel-mode CPU time accumulated by process"
-msgstr "kernel-läge CPU-tid ackumulerad av processen"
+msgstr "CPU-tid i kernelläge ackumulerad av processen"
 
 #: sysdeps/names/proctime.c:58
 msgid "cumulative utime of process and reaped children"
@@ -713,20 +854,20 @@ msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
-"Tiden (i jiffies) tills nästa SIGALRM skickas till processen p.g.a en intern "
-"timer."
+"Tiden (i jiffies) tills nästa SIGALRM skickas till processen p.g.a en "
+"intervalltimer."
 
 #: sysdeps/names/proctime.c:63
 msgid "Tick frequency"
-msgstr "Tick-frekvens"
+msgstr "Tickfrekvens"
 
 #: sysdeps/names/proctime.c:64
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr "SMP användar-läge CPU-tid ackumulerad av processen"
+msgstr "CPU-tid i SMP-användarläge ackumulerad av processen"
 
 #: sysdeps/names/proctime.c:65
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "SMP kernel-läge CPU-tid ackumulerad av processen"
+msgstr "CPU-tid i SMP-kernelläge ackumulerad av processen"
 
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
@@ -826,11 +967,11 @@ msgstr "Sparad grupp-id"
 
 #: sysdeps/names/procuid.c:63
 msgid "Filesystem User ID"
-msgstr "Filsystem användar-id"
+msgstr "Filsystemets användar-id"
 
 #: sysdeps/names/procuid.c:64
 msgid "Filesystem Group ID"
-msgstr "Filsystemgrupp-id"
+msgstr "Filsystemets grupp-id"
 
 #: sysdeps/names/procuid.c:65
 msgid "Process ID"
@@ -838,11 +979,11 @@ msgstr "Process-id"
 
 #: sysdeps/names/procuid.c:66
 msgid "PID of parent process"
-msgstr "PID till förälderprocessen"
+msgstr "Förälderprocessens PID"
 
 #: sysdeps/names/procuid.c:67
 msgid "Process group ID"
-msgstr "Processgrupp-id"
+msgstr "Processens grupp-id"
 
 #: sysdeps/names/procuid.c:68
 msgid "Session ID"
@@ -850,7 +991,7 @@ msgstr "Sessions-id"
 
 #: sysdeps/names/procuid.c:69
 msgid "Full device number of controlling terminal"
-msgstr "Fulla device-nummret till den kontrollerande terminalen"
+msgstr "Den kontrollerande terminalens fullständiga enhetsnummer"
 
 #: sysdeps/names/procuid.c:70
 msgid "Terminal process group ID"
@@ -858,11 +999,11 @@ msgstr "Terminalens processgrupp-id"
 
 #: sysdeps/names/procuid.c:71
 msgid "Kernel scheduling priority"
-msgstr "Kernel scheduling prioritet"
+msgstr "Prioritet för kärnschedulering"
 
 #: sysdeps/names/procuid.c:72
 msgid "Standard unix nice level of process"
-msgstr "Standard unix nice-nivå för processen"
+msgstr "Standard unix nice-nivå för process"
 
 #: sysdeps/names/procuid.c:73
 msgid "Number of additional process groups"
@@ -874,15 +1015,15 @@ msgstr "Ytterligare processgrupper"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Number of entries in semaphore map"
-msgstr "Antal poster i semafor-kartan"
+msgstr "Antal poster i semaforkartan"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max number of arrays"
-msgstr "Max antal arrayer"
+msgstr "Maximalt antal arrayer"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores system wide"
-msgstr "Max semaforer i hela systemet"
+msgstr "Maximalt antal semaforer i hela systemet"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Number of undo structures system wide"
@@ -890,15 +1031,15 @@ msgstr "Antal ångra-strukturer i hela systemet"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max semaphores per array"
-msgstr "Max semaforer per array"
+msgstr "Maximalt antal semaforer per array"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max ops per semop call"
-msgstr "Max operationer semaforanrop"
+msgstr "Maximalt antal operationer per semaforanrop"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Max number of undo entries per process"
-msgstr "Max antal ångrasteg per process"
+msgstr "Maximalt antal antal ångraposter per process"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "sizeof struct sem_undo"
@@ -910,39 +1051,39 @@ msgstr "Maxvärde för semafor"
 
 #: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 msgid "Adjust on exit max value"
-msgstr "Justera vid avslut, maxvärde"
+msgstr "Maxvärde för justera vid avslut"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max segment size"
-msgstr "Max segmentsstorlek"
+msgstr "Maximal segmentstorlek"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Min segment size"
-msgstr "Min segmentsstorlek"
+msgstr "Minimal segmentstorlek"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max number of segments"
-msgstr "Max antal segment"
+msgstr "Maximalt antal segment"
 
 #: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max shared segments per process"
-msgstr "Max antal delade segment per process"
+msgstr "Maximalt antal delade segment per process"
 
 #: sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
 msgid "Max total shared memory"
-msgstr "Max totalt delat minne"
+msgstr "Maximalt totalt delat minne"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Total Swap Space"
-msgstr "Totalt swap-utrymme"
+msgstr "Totalt växlingsutrymme"
 
 #: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 msgid "Used Swap Space"
-msgstr "Använt swap-utrymme"
+msgstr "Använt växlingsutrymme"
 
 #: sysdeps/names/swap.c:43 sysdeps/names/swap.c:52
 msgid "Free Swap Space"
-msgstr "Fritt swap-utrymme"
+msgstr "Ledigt växlingsutrymme"
 
 #: sysdeps/names/swap.c:44
 msgid "Page In"
@@ -954,15 +1095,15 @@ msgstr "Page ut"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr "Totalt antal swapsidor som tagits in sen systemstart"
+msgstr "Totalt antal växlingssidor som tagits in sen systemstart"
 
 #: sysdeps/names/swap.c:55
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr "Totalt antal swapsidor som tagits ut sen systemstart"
+msgstr "Totalt antal växlingssidor som tagits ut sen systemstart"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
-msgstr "Server-features"
+msgstr "Serverfinesser"
 
 #: sysdeps/names/sysdeps.c:54
 msgid "Pointer Size"
@@ -970,7 +1111,7 @@ msgstr "Pekarstorlek"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
 msgid "CPU Usage"
-msgstr "CPU-användning"
+msgstr "Processoranvändning"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
 msgid "Memory Usage"
@@ -978,11 +1119,11 @@ msgstr "Minnesanvändning"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
 msgid "Swap Usage"
-msgstr "Swapanvändning"
+msgstr "Växlingsanvändning"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
 msgid "System Uptime"
-msgstr "Systemets igångtid"
+msgstr "Systemets drifttid"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
 msgid "Load Averange"
@@ -990,15 +1131,15 @@ msgstr "Meddellast"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
 msgid "Shared Memory Limits"
-msgstr "Delat minne gränser"
+msgstr "Gränser för delat minne"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
 msgid "Message Queue Limits"
-msgstr "Meddelandekö gränser"
+msgstr "Gränser för meddelandekö"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
 msgid "Semaphore Set Limits"
-msgstr "Semafor-set gränser"
+msgstr "Gränser för semafor-set"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
 msgid "List of running Processes"
@@ -1006,43 +1147,43 @@ msgstr "Lista med körande processer"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 msgid "Process Status information"
-msgstr "Processens statusinformation"
+msgstr "Statusinformation för processen"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
 msgid "Process UID and TTY information"
-msgstr "Processens UID och TTY information"
+msgstr "UID- och TTY-information för processen"
 
 #: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 msgid "Process Memory information"
-msgstr "Processens minnesinformation"
+msgstr "Minnesinformation för processen"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
 msgid "Process Time information"
-msgstr "Processens tidsinformation"
+msgstr "Tidsinformation för processen"
 
 #: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
 msgid "Process Signal information"
-msgstr "Processens signalinformation"
+msgstr "Signalinformation för processen"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
 msgid "Process Kernel Data information"
-msgstr "Processens kernel-datainformation"
+msgstr "Kärndatainformation för processen"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
 msgid "Process Segment information"
-msgstr "Processens segmentinformation"
+msgstr "Segmentinformation för processen"
 
 #: sysdeps/names/sysdeps.c:71
 msgid "Process CWD"
-msgstr "Process CWD"
+msgstr "Process-CWD"
 
 #: sysdeps/names/sysdeps.c:72
 msgid "Process Arguments"
-msgstr "Processens argument"
+msgstr "Processargument"
 
 #: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
 msgid "Process Memory Map"
-msgstr "Processens minneskarta"
+msgstr "Minneskarta för processen"
 
 #: sysdeps/names/sysdeps.c:74
 msgid "Mount List"
@@ -1050,7 +1191,7 @@ msgstr "Lista med monteringar"
 
 #: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
 msgid "File System Usage"
-msgstr "Filsystemets användning"
+msgstr "Filsystemsanvändning"
 
 #: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
 msgid "Network Load"
@@ -1058,7 +1199,7 @@ msgstr "Nätverkslast"
 
 #: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
 msgid "Interface Names"
-msgstr "Gränssnitt namn"
+msgstr "Gränssnittsnamn"
 
 #: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
 msgid "PPP Statistics"
@@ -1070,173 +1211,137 @@ msgstr "Pekarstorlek på servern (i bitar)"
 
 #: sysdeps/names/sysdeps.c:101
 msgid "Current working directory of the process"
-msgstr "Aktuella arbetande katalogen av processen"
+msgstr "Processens nuvarande arbetskatalog"
 
 #: sysdeps/names/sysdeps.c:102
 msgid "Command line arguments of the process"
-msgstr "Kommandoradsargument till processen"
+msgstr "Processens kommandoradsargument"
 
 #: sysdeps/names/sysdeps.c:104
 msgid "List of currently mounted filesystems"
-msgstr "Lista av för närvarande monterade filsystem"
+msgstr "Lista med för närvarande monterade filsystem"
 
 #: sysdeps/names/uptime.c:40
 msgid "Uptime"
-msgstr "Igångtid"
+msgstr "Drifttid"
 
 #: sysdeps/names/uptime.c:41
 msgid "Idletime"
-msgstr "Idletid"
+msgstr "Tomgångstid"
 
 #: sysdeps/names/uptime.c:42
 msgid "Boot time"
-msgstr "Start-tid"
+msgstr "Starttid"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds since system boot"
-msgstr "Tid i sekunder sen systemstart"
+msgstr "Tid i sekunder sedan systemstart"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr ""
-"Tiden i sekunder som systemet har spenderat i Idle-jobbet sedan systemstart"
+"Tid i sekunder som systemet har tillbringat i tomgångsjobbet sedan "
+"systemstart"
 
 #: sysdeps/names/uptime.c:49
 msgid "Boot time (seconds sice epoch)"
-msgstr "Startup tid (sekunder sen epoken)"
+msgstr "Uppstartstid (sekunder sedan epoken)"
 
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "Okänt systemfel"
+#~ msgid "Unknown system error"
+#~ msgstr "Okänt systemfel"
 
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: flaggan `%s' är tvetydig\n"
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s: flaggan \"%s\" är tvetydig\n"
 
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: flaggan `--%s' tillåter inga argument\n"
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s: flaggan \"--%s\" tillåter inga argument\n"
 
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: flaggan `%c%s' tillåter inga argument\n"
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: flaggan \"%c%s\" tillåter inga argument\n"
 
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: flaggan `%s' kräver ett argument\n"
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s: flaggan \"%s\" kräver ett argument\n"
 
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: okänd flagga `--%s'\n"
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s: okänd flagga \"--%s\"\n"
 
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: okänd flagga `%c%s'\n"
+#~ msgid "%s: unrecognized option `%c%s'\n"
+#~ msgstr "%s: okänd flagga \"%c%s\"\n"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: illegal flagga -- %c\n"
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s: illegal flagga -- %c\n"
 
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: ej giltig flagga -- %c\n"
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s: ogiltig flagga -- %c\n"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: flaggan kräver ett argument -- %c\n"
+#~ msgid "%s: option requires an argument -- %c\n"
+#~ msgstr "%s: flaggan kräver ett argument -- %c\n"
 
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: flaggan `-W %s' är tvetydig\n"
+#~ msgid "%s: option `-W %s' is ambiguous\n"
+#~ msgstr "%s: flaggan \"-W %s\" är tvetydig\n"
 
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: flaggan `-W %s' tillåter inga argument\n"
+#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: flaggan \"-W %s\" tillåter inga argument\n"
 
-#: lib/errors.c:31
-msgid "No error"
-msgstr "Inget fel"
+#~ msgid "No error"
+#~ msgstr "Inget fel"
 
-#: lib/errors.c:32
-msgid "Unknown error"
-msgstr "Okänt fel"
+#~ msgid "Unknown error"
+#~ msgstr "Okänt fel"
 
-#: lib/errors.c:33
-msgid "Invalid argument"
-msgstr "Ogiltigt argument"
+#~ msgid "Invalid argument"
+#~ msgstr "Ogiltigt argument"
 
-#: lib/errors.c:34
-msgid "No such parameter"
-msgstr "Det finns ingen sådan parameter"
+#~ msgid "No such parameter"
+#~ msgstr "Det finns ingen sådan parameter"
 
-#: lib/errors.c:35
-msgid "Attempted to modify a read-only value"
-msgstr "Försökte att modifiera ett skrivskyddat värde"
+#~ msgid "Attempted to modify a read-only value"
+#~ msgstr "Försökte att modifiera ett skrivskyddat värde"
 
-#: lib/errors.c:36
-msgid "Parameter size mismatch"
-msgstr "Parameterstorlek matchar inte"
+#~ msgid "Parameter size mismatch"
+#~ msgstr "Parameterstorlek matchar inte"
 
-#: lib/errors.c:37
-msgid "Communication with LibGTop server failed"
-msgstr "Kommunikation med LibGTop server misslyckades"
+#~ msgid "Communication with LibGTop server failed"
+#~ msgstr "Kommunikation med LibGTop-servern misslyckades"
 
-#: lib/errors.c:38
-msgid "No such process"
-msgstr "Det finns ingen sådan process"
+#~ msgid "No such process"
+#~ msgstr "Det finns ingen sådan process"
 
-#: lib/errors.c:39
-msgid "No kernel support"
-msgstr "Ingen kernel support"
+#~ msgid "No kernel support"
+#~ msgstr "Inget stöd i kärnan"
 
-#: lib/errors.c:40
-msgid "Incompatible kernel version"
-msgstr "Ej kompatibel kernelversion"
+#~ msgid "Incompatible kernel version"
+#~ msgstr "Inkompatibel version av kärnan"
 
 #~ msgid "read %d bytes"
-#~ msgstr "läsa %d tecken"
+#~ msgstr "läs %d tecken"
 
 #~ msgid "read data size"
-#~ msgstr "läsa datastorlek"
+#~ msgstr "läs datastorlek"
 
 #~ msgid "read data %d bytes"
-#~ msgstr "läste %d tecken data"
+#~ msgstr "läs %d tecken med data"
 
 #~ msgid "write %d bytes"
-#~ msgstr "skrev %d tecken"
+#~ msgstr "skriv %d tecken"
 
 #~ msgid "Enable debugging"
-#~ msgstr "Aktivera felsökning"
+#~ msgstr "Använd felsökning"
 
 #~ msgid "DEBUG"
-#~ msgstr "DEBUG"
+#~ msgstr "FELSÖK"
 
 #~ msgid "Enable verbose output"
-#~ msgstr "Aktivera utförlig utskrift"
+#~ msgstr "Använd utförlig utskrift"
 
 #~ msgid "VERBOSE"
-#~ msgstr "VERBOSE"
+#~ msgstr "UTFÖRLIG"
 
 #~ msgid "Don't fork into background"
-#~ msgstr "Starta ej bakgrunds-gren"
+#~ msgstr "Grena inte till bakgrunden"
 
 #~ msgid "NO-DAEMON"
-#~ msgstr "NO-DAEMON"
+#~ msgstr "INGEN-DEMON"
 
 #~ msgid "Invoked from inetd"
 #~ msgstr "Startad från inetd"
@@ -1248,8 +1353,8 @@ msgstr "Ej kompatibel kernelversion"
 #~ "Error on option %s: %s.\n"
 #~ "Run '%s --help' to see a full list of available command line options.\n"
 #~ msgstr ""
-#~ "Fel vid flagga %s: %s.\n"
-#~ "Kör '%s --help' för att se hela listan av alla tillgängliga "
+#~ "Fel vid flaggan %s: %s.\n"
+#~ "Kör \"%s --help\" för att se hela listan med alla tillgängliga "
 #~ "kommandoflaggor.\n"
 
 #~ msgid "Number of list elements"
