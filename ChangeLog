@@ -1,3 +1,12 @@
+1999-03-21  Martin Baulig  <martin@home-of-linux.org>
+
+	Added a new sysctl () interface to the Linux Kernel.
+	
+	* kernel/sysctl: Imported.
+	
+	* libgtop-sysdeps.m4: If `--enable-hacker-mode' is given, check
+	for my new sysctl () interface.
+
 1999-03-20  Martin Baulig  <martin@home-of-linux.org>
 
 	Removed all traces of my old table () Linux kernel hack.

@@ -15,6 +15,44 @@ AC_DEFUN([LIBGTOP_HACKER_TESTS],[
 
 	case "$host_os" in
 	linux*)
+	  AC_ARG_WITH(linux-sysctl,
+	  [  --with-linux-sysctl      Use the sysctl () interface from Martin Baulig],[
+	  linux_sysctl="$withval"],[linux_sysctl=auto])
+	  if test $linux_sysctl = yes ; then
+	    AC_CHECK_HEADER(linux/libgtop.h, linux_sysctl=yes, linux_sysctl=no)
+	  elif test $linux_sysctl = auto ; then
+	    AC_MSG_CHECKING(for LibGTop sysctl support in Linux Kernel)
+	    AC_TRY_RUN([
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <sys/sysctl.h>
+#include <linux/libgtop.h>
+
+#define SIZE(x) sizeof(x)/sizeof(x[0])
+
+int name[2] = { CTL_LIBGTOP, LIBGTOP_VERSION };
+
+int
+main (void)
+{
+    unsigned version;
+    size_t size = sizeof (version);
+
+    if (sysctl (name, SIZE (name), &version, &size, NULL, 0))
+	exit (1);
+    else if (version < 1)
+	exit (2);
+    else
+	exit (0);
+}
+], linux_sysctl=yes, linux_sysctl=no, linux_sysctl=no)
+	    AC_MSG_RESULT($linux_sysctl)
+	  fi
+	  if test $linux_sysctl = yes ; then
+	    AC_DEFINE(HAVE_LINUX_SYSCTL)
+	  fi
+	  AM_CONDITIONAL(LINUX_SYSCTL, test $linux_sysctl = yes)
 	  ;;
 	esac
 ])
@@ -69,8 +107,13 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	case "$host_os" in
 	linux*)
-	  libgtop_sysdeps_dir=linux
-	  libgtop_use_machine_h=no
+	  if test x$linux_sysctl = xyes ; then
+	    libgtop_sysdeps_dir=kernel
+	    libgtop_use_machine_h=no
+	  else
+	    libgtop_sysdeps_dir=linux
+	    libgtop_use_machine_h=no
+	  fi
 	  libgtop_have_sysinfo=yes
 	  libgtop_need_server=no
 	  ;;
