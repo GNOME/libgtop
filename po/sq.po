@@ -5,21 +5,21 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop.HEAD.sq\n"
+"Project-Id-Version: libgtop.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-02 11:29+0100\n"
-"PO-Revision-Date: 2004-02-02 13:41+0100\n"
+"POT-Creation-Date: 2004-02-23 15:07+0100\n"
+"PO-Revision-Date: 2004-02-23 15:10+0100\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: examples/smp.c:74
 #, c-format
 msgid "Ticks (%ld per second):"
-msgstr "Tick (%ld për sekondë):"
+msgstr "Ticks (%ld për sekondë):"
 
 #: examples/smp.c:77
 msgid "Total"
@@ -39,7 +39,7 @@ msgstr "Sys"
 
 #: examples/smp.c:77
 msgid "Idle"
-msgstr "Joaktiv"
+msgstr "Jo në përdorim"
 
 #: examples/smp.c:79
 #, c-format
@@ -77,7 +77,7 @@ msgstr "Sys (%)"
 
 #: examples/smp.c:102
 msgid "Idle (%)"
-msgstr "Idle (%)"
+msgstr "Jo në përdorim (%)"
 
 #: examples/smp.c:104
 #, c-format
@@ -95,14 +95,14 @@ msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:126
 msgid "Spin:"
-msgstr "Spin:"
+msgstr "Rrutullimi:"
 
 #: lib/read.c:78
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "u lexua %d byte"
-msgstr[1] "u lexua %d byte"
+msgstr[1] "u lexuan %d bytes"
 
 #: lib/read_data.c:51
 msgid "read data size"
@@ -113,14 +113,14 @@ msgstr "madhësia e të dhënave të lexuara"
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
 msgstr[0] "u lexua %d byte me të dhëna"
-msgstr[1] "u lexua %d byte me të dhëna"
+msgstr[1] "u lexuan %d bytes me të dhëna"
 
 #: lib/write.c:51
 #, c-format
 msgid "write %d byte"
 msgid_plural "write %d bytes"
 msgstr[0] "u shkrua %d byte"
-msgstr[1] "u shkrua %d byte"
+msgstr[1] "u shkruan %d bytes"
 
 #: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
@@ -181,7 +181,7 @@ msgstr "Koha e CPU në modalitet sistemi"
 
 #: sysdeps/names/cpu.c:48
 msgid "CPU Time in the Idle Task"
-msgstr "Koha e CPU në idle"
+msgstr "Koha e CPU në pritje"
 
 #: sysdeps/names/cpu.c:49
 msgid "Tick Frequency"
@@ -205,7 +205,7 @@ msgstr "Koha e CPU SMP në modalitet sistemi"
 
 #: sysdeps/names/cpu.c:54
 msgid "SMP CPU Time in the Idle Task"
-msgstr "Koha e CPU SMP në idle"
+msgstr "Koha e CPU SMP në pritje"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Flags"
@@ -229,7 +229,7 @@ msgstr "Numri i tick të shpenzuar në modalitet sistemi"
 
 #: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr "Numri i tick të shpenzuar në idle"
+msgstr "Numri i tick të shpenzuar në pritje"
 
 #: sysdeps/names/cpu.c:65
 msgid "Tick frequency (default is 100)"
@@ -273,11 +273,11 @@ msgstr "Ngarkesa Mesatare"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Running Tasks"
-msgstr "Procese në ekzekutim"
+msgstr "Proçese në ekzekutim"
 
 #: sysdeps/names/loadavg.c:42
 msgid "Number of Tasks"
-msgstr "Numri i proceseve"
+msgstr "Numri i proçeseve"
 
 #: sysdeps/names/loadavg.c:43 sysdeps/names/loadavg.c:51
 msgid "Last PID"
@@ -289,11 +289,11 @@ msgstr "Numri i job të zbatuar njëkohësisht (mesatarja mbi 1, 5 dhe 15 minuta
 
 #: sysdeps/names/loadavg.c:49
 msgid "Number of tasks currently running"
-msgstr "Numri i proceseve aktualisht në ekzekutim"
+msgstr "Numri i proçeseve aktualisht në ekzekutim"
 
 #: sysdeps/names/loadavg.c:50
 msgid "Total number of tasks"
-msgstr "Numri i plotë i proceseve"
+msgstr "Numri i plotë i proçeseve"
 
 #: sysdeps/names/mem.c:42
 msgid "Total Memory"
@@ -349,7 +349,7 @@ msgstr "Madhësia e kujtesës në cache në kB"
 
 #: sysdeps/names/mem.c:60
 msgid "Memory used from user processes in kB"
-msgstr "Kujtesa e përdorur nga proceset e përdoruesit në kB"
+msgstr "Kujtesa e përdorur nga proçeset e përdoruesit në kB"
 
 #: sysdeps/names/mem.c:61
 msgid "Memory in locked pages in kB"
@@ -542,7 +542,8 @@ msgstr ""
 "Në Linux, aktualisht çdo flag ka të vendosur math, sepse crt0.s kontrollon "
 "për emulimin matematik, prandaj nuk përfshihet në output.\n"
 "\n"
-"Ky mund të jetë një difekt, se jo çdo proçes është një program i kompiluar në C.\n"
+"Ky mund të jetë një difekt, se jo çdo proçes është një program i kompiluar "
+"në C.\n"
 "\n"
 "Bit math duhet të jetë një dhjetore 4, dhe bit i marrë është dhjetor 10."
 
@@ -552,7 +553,7 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Numri i dështimeve të vogla të proçesit, për të cilat nuk ka nevojë ngarkimi "
+"Numri i dështimeve të vegjël të proçesit, për të cilat nuk ka nevojë ngarkimi "
 "i një faqe kujteseje nga disku."
 
 #. Maj_Flt
@@ -561,18 +562,18 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Numri i dështimeve të renda të proçesit, për të cilat ka nevojë ngarkimi "
-"i një faqe kujteseje nga disku."
+"Numri i dështimeve të rënda të proçesit, për të cilat ka nevojë ngarkimi i "
+"një faqe kujteseje nga disku."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
-msgstr "Numri i dështimeve të vogla që proçesi dhe bijtë e tij kanë patur."
+msgstr "Numri i dështimeve të vegjël që proçesi dhe bijtë e tij kanë patur."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
-msgstr "Numri i dështimeve të renda që proçesi dhe bijtë e tij kanë patur."
+msgstr "Numri i dështimeve të rënda që proçesi dhe bijtë e tij kanë patur."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:72
@@ -580,8 +581,8 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
-"Vlera aktuale e ESP (stack pointer me 32 bit) sikurse dhënë nga faqja estack "
-"të procesit."
+"Vlera aktuale e ESP (stack pointer me 32 bit) sikurse dhënë nga faqja e stack "
+"të proçesit."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:75
@@ -596,10 +597,10 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Ky është \"kanali\" në të cilin proçesi është në pritje.  Është adresa e "
-"një thirrje të sistemit, dhe mund të shihet në një listë emrore nëse ju nevoitet "
-"një emër në tekst.  (Nëse keni një /etc/psdatabase të rifreskuar, provo ps -l për "
-"të shikuar fushën e WCHAN në veprim)"
+"Ky është \"kanali\" në të cilin proçesi është në pritje.  Është adresa e një "
+"thirrje të sistemit, dhe mund të shihet në një listë emrore nëse ju nevoitet "
+"një emër në tekst.  (Nëse keni një /etc/psdatabase të rifreskuar, provo ps -"
+"l për të shikuar fushën e WCHAN në veprim)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:82
@@ -649,9 +650,10 @@ msgid ""
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
 msgstr ""
-"Numri i faqeve që proçesi ka në kujtesën reale, minus 3 për qëllime administrative. "
-"Janë vetëm faqet që përmbajnë tekst, të dhëna, apo stivë me hapësirë. Nuk "
-"përfshihen faqet që nuk janë kërkuar të ngarkohen, apo të shkarkuara nga swap."
+"Numri i faqeve që proçesi ka në kujtesën reale, minus 3 për qëllime "
+"administrative. Janë vetëm faqet që përmbajnë tekst, të dhëna, apo stivë me "
+"hapësirë. Nuk përfshihen faqet që nuk janë kërkuar të ngarkohen, apo të "
+"shkarkuara nga swap."
 
 #: sysdeps/names/procmem.c:63
 msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
@@ -799,23 +801,23 @@ msgstr "Kodi për gjendjen e proçesit (S=sleeping)"
 
 #: sysdeps/names/procstate.c:51
 msgid "UID of process"
-msgstr "UID e procesit"
+msgstr "UID e proçesit"
 
 #: sysdeps/names/procstate.c:52
 msgid "GID of process"
-msgstr "GID e procesit"
+msgstr "GID e proçesit"
 
 #: sysdeps/names/procstate.c:53
 msgid "Real UID of process"
-msgstr "UID real i procesit"
+msgstr "UID real i proçesit"
 
 #: sysdeps/names/procstate.c:54
 msgid "Real GID of process"
-msgstr "DID real i procesit"
+msgstr "DID real i proçesit"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
-msgstr "Has CPU"
+msgstr "Ka CPU"
 
 #: sysdeps/names/procstate.c:56
 msgid "Processor"
@@ -823,7 +825,7 @@ msgstr "Proçesori"
 
 #: sysdeps/names/procstate.c:57
 msgid "Last Processor"
-msgstr "Procesori i fundit"
+msgstr "Proçesori i fundit"
 
 #: sysdeps/names/proctime.c:45
 msgid "Start_Time"
@@ -902,8 +904,8 @@ msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
-"Koha (në jiffies) para se sinjali tjetër SIGALRM t'i dërgohet proçesit në një "
-"interval kohe."
+"Koha (në jiffies) para se sinjali tjetër SIGALRM t'i dërgohet proçesit në "
+"një interval kohe."
 
 #: sysdeps/names/proctime.c:61
 msgid "Tick frequency"
@@ -1231,7 +1233,7 @@ msgstr "File sistem i përdorur"
 
 #: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "Network Load"
-msgstr "Ngarkesa rrjetit"
+msgstr "Ngarkesa e rrjetit"
 
 #: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:99
 msgid "PPP Statistics"
@@ -1283,7 +1285,7 @@ msgstr "Dil"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
-msgstr "Instruksion ilegal"
+msgstr "Instruktim ilegal"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
@@ -1331,7 +1333,7 @@ msgstr "Përfundimi"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr "Kondicion urgjent në socket "
+msgstr "Konditë urgjente në socket "
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
@@ -1339,7 +1341,7 @@ msgstr "Ndalo"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr "Keyboard stop"
+msgstr "Ndalim nga tastiera"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
