@@ -73,7 +73,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
         switch(psinfo.pr_state)
 #endif
 	{
-		case SONPROC: 
+		case SONPROC:
 #if (LIBGTOP_VERSION_CODE >= 1001002) && defined(HAVE_PROCFS_H)
 			buf->has_cpu = 1;
 			buf->processor = psinfo.pr_lwp.pr_onpro;

@@ -22,13 +22,13 @@
 */
 
 #include <unistd.h>
-#include <sys/vminfo.h> 
+#include <sys/vminfo.h>
 
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/mem.h>
 
-static const unsigned long _glibtop_sysdeps_mem = 
+static const unsigned long _glibtop_sysdeps_mem =
 (1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
 (1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_LOCKED);
 

@@ -30,7 +30,7 @@
 
 #include "utils.h"
 
-static const unsigned long _glibtop_sysdeps_proc_state = 
+static const unsigned long _glibtop_sysdeps_proc_state =
 (1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE) +
 (1 << GLIBTOP_PROC_STATE_UID) + (1 << GLIBTOP_PROC_STATE_GID);
 
@@ -79,7 +79,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
 
 	buf->uid = pinfo->pi_uid;
 	buf->gid = pinfo->pi_cred.cr_gid;
-	
+
 	if (pinfo->pi_state == SZOMB)
 	{
 		buf->state = 'Z';

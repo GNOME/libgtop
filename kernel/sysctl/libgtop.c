@@ -212,7 +212,7 @@ get_wchan (struct task_struct *p)
 	    return ((unsigned long *)schedule_frame)[12];
 	}
 	return pc;
-    }	
+    }
 #elif defined(__mc68000__)
     {
 	unsigned long fp, pc;
@@ -318,7 +318,7 @@ static inline void
 task_mem (struct task_struct *p, libgtop_proc_segment_t *proc_segment)
 {
     struct mm_struct * mm = p->mm;
-    
+
     if (mm && mm != &init_mm) {
 	struct vm_area_struct * vma = mm->mmap;
 	unsigned long data = 0, stack = 0;
@@ -486,7 +486,7 @@ get_statm (struct task_struct *tsk, libgtop_proc_mem_t *proc_mem)
 	}
     }
 
-    proc_mem->segment.vsize = vsize;    
+    proc_mem->segment.vsize = vsize;
     proc_mem->segment.data = data;
     proc_mem->segment.stack = stack;
     proc_mem->segment.exec = exec;
@@ -498,7 +498,7 @@ get_statm (struct task_struct *tsk, libgtop_proc_mem_t *proc_mem)
     proc_mem->trs = trs;
     proc_mem->lrs = lrs;
     proc_mem->drs = drs;
-    proc_mem->dt = dt; 
+    proc_mem->dt = dt;
 }
 
 static void
@@ -522,7 +522,7 @@ collect_sigign_sigcatch (struct task_struct *p, sigset_t *ign,
     }
 }
 
-static void 
+static void
 task_sig (struct task_struct *p, libgtop_proc_signal_t *proc_signal)
 {
     sigset_t ignore, catch;
@@ -670,7 +670,7 @@ libgtop_sysctl (ctl_table *table, int nlen, int *name)
 
 	    if ((which & LIBGTOP_EXCLUDE_NOTTY) && (tsk->tty == NULL))
 		continue;
-			
+
 	    proclist->pids [tindex++] = tsk->pid;
 	}
 
@@ -702,7 +702,7 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
     case LIBGTOP_PROC_STATE:
 	proc_state = table->data;
 	memset (proc_state, 0, sizeof (libgtop_proc_state_t));
-	
+
 	proc_state->uid = tsk->uid;
 	proc_state->gid = tsk->gid;
 	proc_state->flags = tsk->flags;
@@ -711,12 +711,12 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 	proc_state->euid = tsk->euid;
 	proc_state->suid = tsk->suid;
 	proc_state->fsuid = tsk->fsuid;
-		
+
 	proc_state->gid = tsk->gid;
 	proc_state->egid = tsk->egid;
 	proc_state->sgid = tsk->sgid;
 	proc_state->fsgid = tsk->fsgid;
-		
+
 	proc_state->pid = tsk->pid;
 	proc_state->pgrp = tsk->pgrp;
 	proc_state->ppid = tsk->p_pptr->pid;
@@ -757,12 +757,12 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 	proc_state->it_real_incr = tsk->it_real_incr;
 	proc_state->it_prof_incr = tsk->it_prof_incr;
 	proc_state->it_virt_incr = tsk->it_virt_incr;
-	
+
 	proc_state->min_flt = tsk->min_flt;
 	proc_state->cmin_flt = tsk->cmin_flt;
 	proc_state->maj_flt = tsk->maj_flt;
 	proc_state->cmaj_flt = tsk->cmaj_flt;
-		
+
 	proc_state->nswap = tsk->nswap;
 	proc_state->cnswap = tsk->cnswap;
 
@@ -794,7 +794,7 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 	proc_state->ngroups = tsk->ngroups;
 	for (i = 0; i < min (tsk->ngroups, LIBGTOP_MAX_GROUPS); i++)
 	    proc_state->groups [i] = tsk->groups [i];
-	
+
 	if (tsk->state & TASK_INTERRUPTIBLE)
 	    proc_state->state |= LIBGTOP_TASK_INTERRUPTIBLE;
 	if (tsk->state & TASK_UNINTERRUPTIBLE)
@@ -1023,7 +1023,7 @@ proc_args_ctl_handler (ctl_table *table, int *name, int nlen,
 
     if (put_user (len, oldlenp))
 	goto err_fault_free_page;
-    
+
     if (copy_to_user (oldval, (void *) page, len))
 	goto err_fault_free_page;
 
@@ -1113,7 +1113,7 @@ proc_maps_ctl_handler (ctl_table *table, int *name, int nlen,
 	    proc_maps->filename [LIBGTOP_MAP_PATH_LEN-1] = '\0';
 	    proc_maps->header.filename_offset = line - proc_maps->filename;
 
-	    proc_maps->header.device = 
+	    proc_maps->header.device =
 		map->vm_file->f_dentry->d_inode->i_dev;
 	    proc_maps->header.inode =
 		map->vm_file->f_dentry->d_inode->i_ino;
@@ -1243,13 +1243,13 @@ proc_net_ctl_handler (ctl_table *table, int *name, int nlen,
     netload.rx_frame_errors = stats->rx_frame_errors;
     netload.rx_fifo_errors = stats->rx_fifo_errors;
     netload.rx_missed_errors = stats->rx_missed_errors;
-    
+
     netload.tx_aborted_errors = stats->tx_aborted_errors;
     netload.tx_carrier_errors = stats->tx_carrier_errors;
     netload.tx_fifo_errors = stats->tx_fifo_errors;
     netload.tx_heartbeat_errors = stats->tx_heartbeat_errors;
     netload.tx_window_errors = stats->tx_window_errors;
-    
+
     netload.rx_compressed = stats->rx_compressed;
     netload.tx_compressed = stats->tx_compressed;
 

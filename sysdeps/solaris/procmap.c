@@ -74,7 +74,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	glibtop_map_entry *entry;
 	struct stat inode;
 	char buffer[BUFSIZ];
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_map));
 
 #ifdef HAVE_PROCFS_H

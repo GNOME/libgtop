@@ -1,5 +1,5 @@
 /* fsusage-frontend.c -- return space usage of mounted filesystems.
-   
+
    Copyright (C) 2003 Ole Laursen.
 
    This program is free software; you can redistribute it and/or modify
@@ -51,10 +51,10 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 	struct fs_usage fsp;
 
 	glibtop_init_r (&server, 0, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_fsusage));
 	memset (&fsp, 0, sizeof (struct fs_usage));
-	
+
 	if (glibtop_private_get_fs_usage (disk, disk, &fsp) != 0)
 		return;
 

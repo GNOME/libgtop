@@ -164,7 +164,7 @@ static void init_sysinfo(void)
 		if (_system_configuration.cache_attrib & (1 << 31))
 		{
 			/* L1 cache is present */
-			
+
 			sprintf(buf,"%d", _system_configuration.icache_size);
 			add_info( &sysinfo.cpuinfo[cpu], "L1 instruction cache size", buf);
 

@@ -42,9 +42,9 @@ glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
 	memset (buf, 0, sizeof (glibtop_loadavg));
 
 	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
-	
+
 	setregid (server->machine.gid, server->machine.egid);
-	
+
 	/* get the load average array */
 
 	(void) _glibtop_getkval (server, _glibtop_nlist [X_AVENRUN].n_value,
@@ -53,7 +53,7 @@ glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
 
 	if (setregid (server->machine.egid, server->machine.gid))
 		_exit (1);
-	
+
 	/* !!! END OF SGID KMEM PART !!! */
 
 	for (i = 0; i < 3; i++) {

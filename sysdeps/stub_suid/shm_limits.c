@@ -43,6 +43,6 @@ void
 glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_SHM_LIMITS, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_shm_limits));
 }

@@ -47,7 +47,7 @@ main (int argc, char *argv [])
 	setlocale (LC_ALL, "");
 	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
 	textdomain (GETTEXT_PACKAGE);
-	
+
 	glibtop_init();
 
 	glibtop_get_cpu (&cpu);
@@ -102,7 +102,7 @@ main (int argc, char *argv [])
 	printf ("%-26s %12s %12s %12s %12s %12s\n%s\n", _("Percent:"),
 		_("Total (%)"), _("User (%)"), _("Nice (%)"), _("Sys (%)"),
 		_("Idle (%)"), separator);
-	
+
 	printf (_("CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n\n"),
 		(unsigned long) cpu.flags, (double) total * 100.0 / total,
 		(double) user  * 100.0 / total,

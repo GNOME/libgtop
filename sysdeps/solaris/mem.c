@@ -52,7 +52,7 @@ glibtop_init_mem_s (glibtop *server)
 void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
-    kstat_ctl_t *kc = server->machine.kc; 
+    kstat_ctl_t *kc = server->machine.kc;
     kstat_t *ksp;
     kstat_named_t *kn;
     int pagesize = server->machine.pagesize;

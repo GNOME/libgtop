@@ -27,7 +27,7 @@
 
 static const unsigned long _glibtop_sysdeps_msg_limits =
 (1L << GLIBTOP_IPC_MSGMAP) + (1L << GLIBTOP_IPC_MSGMAX) +
-(1L << GLIBTOP_IPC_MSGMNB) + (1L << GLIBTOP_IPC_MSGMNI) + 
+(1L << GLIBTOP_IPC_MSGMNB) + (1L << GLIBTOP_IPC_MSGMNI) +
 (1L << GLIBTOP_IPC_MSGTQL);
 
 /* Init function. */
@@ -48,36 +48,36 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 	glibtop_init_s (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_msg_limits));
-	
+
 	ret = table (TBL_MSGINFO, MSGINFO_MAX, (char *) &value, 1,
-		     sizeof (value)); 
+		     sizeof (value));
 
 	if (ret != 1) return;
-	
+
 	buf->flags += (1L << GLIBTOP_IPC_MSGMAX);
 
 	buf->msgmax = value;
-	
+
 	ret = table (TBL_MSGINFO, MSGINFO_MNB, (char *) &value, 1,
-		     sizeof (value)); 
+		     sizeof (value));
 
 	if (ret != 1) return;
 
 	buf->flags += (1L << GLIBTOP_IPC_MSGMNB);
 
 	buf->msgmnb = value;
-	
+
 	ret = table (TBL_MSGINFO, MSGINFO_MNI, (char *) &value, 1,
-		     sizeof (value)); 
+		     sizeof (value));
 
 	if (ret != 1) return;
 
 	buf->flags += (1L << GLIBTOP_IPC_MSGMNI);
 
 	buf->msgmni = value;
-	
+
 	ret = table (TBL_MSGINFO, MSGINFO_TQL, (char *) &value, 1,
-		     sizeof (value)); 
+		     sizeof (value));
 
 	if (ret != 1) return;
 

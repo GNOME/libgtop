@@ -51,14 +51,14 @@ typedef struct _glibtop_proc_time	glibtop_proc_time;
 struct _glibtop_proc_time
 {
 	guint64	flags,
-		start_time,	/* start time of process -- 
+		start_time,	/* start time of process --
 				 * seconds since 1-1-70 */
 		rtime,		/* real time accumulated by process */
 		utime,		/* user-mode CPU time accumulated by process */
 		stime,		/* kernel-mode CPU time accumulated by process */
-		cutime,		/* cumulative utime of process and 
+		cutime,		/* cumulative utime of process and
 				 * reaped children */
-		cstime,		/* cumulative stime of process and 
+		cstime,		/* cumulative stime of process and
 				 * reaped children */
 		timeout,	/* The time (in jiffies) of the process's
 				 * next timeout */

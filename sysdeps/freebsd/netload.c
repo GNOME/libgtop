@@ -89,15 +89,15 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	struct ifaddr ifa;
 	struct in_ifaddr in;
     } ifaddr;
-    
+
     glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_NETLOAD), 0);
-	
+
     memset (buf, 0, sizeof (glibtop_netload));
 
     if (kvm_read (server->machine.kd, nlst [0].n_value,
 		  &ifnetaddr, sizeof (ifnetaddr)) != sizeof (ifnetaddr))
 	glibtop_error_io_r (server, "kvm_read (ifnet)");
-    
+
     ifaddraddr = 0;
     while (ifnetaddr || ifaddraddr) {
 	struct sockaddr_in *sin;
@@ -134,11 +134,11 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	    if ((kvm_read (server->machine.kd, ifaddraddr, &ifaddr,
 			   sizeof (ifaddr)) != sizeof (ifaddr)))
 		glibtop_error_io_r (server, "kvm_read (ifaddraddr)");
-	
+
 #define CP(x) ((char *)(x))
 	    cp = (CP(ifaddr.ifa.ifa_addr) - CP(ifaddraddr)) +
 		CP(&ifaddr); sa = (struct sockaddr *)cp;
-	
+
 	    if (!strcmp (interface, tname) && (sa->sa_family == AF_INET)) {
 		sin = (struct sockaddr_in *)sa;
 
@@ -210,7 +210,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	    ifaddraddr = (u_long)ifaddr.ifa.ifa_list.tqe_next;
 #endif
 	}
-	
+
 #if defined(__FreeBSD__) && (__FreeBSD_version >= 300000)
 	ifnetaddr = (u_long) ifnet.if_link.tqe_next;
 #elif defined(__FreeBSD__) || defined(__bsdi__)

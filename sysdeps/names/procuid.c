@@ -27,7 +27,7 @@
 
 const char *glibtop_names_proc_uid [GLIBTOP_MAX_PROC_UID] =
 {
-	"uid", "euid", "gid", "egid", "suid", "sgid", 
+	"uid", "euid", "gid", "egid", "suid", "sgid",
 	"fsuid", "fsgid", "pid", "ppid", "pgrp",
 	"session", "tty", "tpgid", "priority", "nice",
 	"ngroups", "groups"

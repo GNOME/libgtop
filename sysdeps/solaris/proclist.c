@@ -206,12 +206,12 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		}
 
 		/* pids is now big enough to hold at least one single pid. */
-		
+
 		pids [count++] = pid;
 
 		total++;
 	}
-	
+
 	s_closedir (proc);
 
 	/* count is only zero if an error occured (one a running Linux system,
@@ -223,15 +223,15 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	 * g_malloc if pids_chain is NULL. We just calculate the
 	 * new size and copy pids to the beginning of the newly allocated
 	 * block. */
-	
+
 	new_size = pids_size + count * sizeof (unsigned);
-	
+
 	pids_chain = g_realloc (pids_chain, new_size);
-	
+
 	memcpy (pids_chain + pids_offset, pids, count * sizeof (unsigned));
-	
+
 	pids_size = new_size;
-	
+
 	pids_offset += BLOCK_COUNT;
 
 	/* Since everything is ok now, we can set buf->flags, fill in the

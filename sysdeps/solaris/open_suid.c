@@ -47,7 +47,7 @@ glibtop_init_p (glibtop *server, const unsigned long features,
 
 		for (init_fkt = _glibtop_init_hook_p; *init_fkt; init_fkt++)
 			(*init_fkt) (server);
-		
+
 		server->flags |= _GLIBTOP_INIT_STATE_INIT;
 	}
 }
@@ -61,7 +61,7 @@ glibtop_open_p (glibtop *server, const char *program_name,
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
 	server->name = program_name;
-	
+
 	server->machine.uid = getuid ();
 	server->machine.euid = geteuid ();
 	server->machine.gid = getgid ();
@@ -72,20 +72,20 @@ glibtop_open_p (glibtop *server, const char *program_name,
 		glibtop_warn_io_r(server, "kvm_open()");
 
 	/* Drop priviledges; we only become root when necessary.
-	
+
 	   setreuid (ruid, euid) - set real and effective user id;
 	   setregid (rgid, egid) - set real and effective group id;
-	   
+
 	*/
-	
+
 	if (setreuid (server->machine.euid, server->machine.uid))
 		_exit (1);
-		
+
 	if (setregid (server->machine.egid, server->machine.gid))
 		_exit (1);
 
 	/* !!! END OF SUID ROOT PART !!! */
-    
+
 	/* Our effective uid is now those of the user invoking the server,
 	   so we do no longer have any priviledges.
 	*/

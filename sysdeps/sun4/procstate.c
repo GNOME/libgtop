@@ -41,7 +41,7 @@ glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf,
 
 	memset (buf, 0, sizeof (glibtop_proc_state));
 
-	/* Read process table from kernel. */	
+	/* Read process table from kernel. */
 
 	_glibtop_read_proc_table (server);
 

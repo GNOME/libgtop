@@ -29,7 +29,7 @@
 
 #include "utils.h"
 
-static const unsigned long _glibtop_sysdeps_proc_args = 
+static const unsigned long _glibtop_sysdeps_proc_args =
 	(1 << GLIBTOP_PROC_ARGS_SIZE);
 
 /* Init function. */
@@ -71,7 +71,7 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 
 		return NULL;
 	}
-	
+
 	size = max_len != 0 ? max_len : 4096;
 	args_buffer = g_malloc (size);
 

@@ -55,7 +55,7 @@ main (int argc, char *argv [])
 	setlocale (LC_ALL, "");
 	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
 	textdomain (GETTEXT_PACKAGE);
-	
+
 	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_INIT_NO_OPEN);
 
 	glibtop_get_parameter (GLIBTOP_PARAM_METHOD, &method, sizeof (method));
@@ -135,7 +135,7 @@ main (int argc, char *argv [])
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_shm_limits (&data.shm_limits);
-	
+
 	printf ("Shm Limits   (0x%08lx): %lu, %lu, %lu, %lu, %lu\n",
 		(unsigned long) data.shm_limits.flags,
 		(unsigned long) data.shm_limits.shmmax,
@@ -159,7 +159,7 @@ main (int argc, char *argv [])
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_sem_limits (&data.sem_limits);
-	
+
 	printf ("Sem Limits   (0x%08lx): "
 		"%lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu\n",
 		(unsigned long) data.sem_limits.flags,
@@ -217,7 +217,7 @@ main (int argc, char *argv [])
 		(unsigned long) sysdeps.ppp);
 
 	printf ("\n");
-	
+
 	ptr = glibtop_get_proclist (&data.proclist, 0, 0);
 
 	printf ("Proclist     (0x%08lx): %lu, %lu, %lu\n",
@@ -308,7 +308,7 @@ main (int argc, char *argv [])
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_signal (&data.proc_signal, pid);
-	
+
 	printf ("Proc_Signal  PID  %5d (0x%08lx): "
 		"%lu %lu %lu %lu\n", (int) pid,
 		(unsigned long) data.proc_signal.flags,

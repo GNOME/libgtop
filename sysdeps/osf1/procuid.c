@@ -60,50 +60,50 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	task_t thistask;
 
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_UID, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_uid));
-	
+
 	/* !!! THE FOLLOWING CODE RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 	glibtop_suid_enter (server);
-	
+
 	ret = table (TBL_PROCINFO, pid, (char *) &procinfo, 1,
-		     sizeof (struct tbl_procinfo)); 
+		     sizeof (struct tbl_procinfo));
 
 	glibtop_suid_leave (server);
-		     
+
 	/* !!! END OF SUID ROOT PART !!! */
-	
+
 	if (ret != 1) return;
 
 	buf->uid = procinfo.pi_ruid;
-	buf->euid = procinfo.pi_svuid;	
+	buf->euid = procinfo.pi_svuid;
 	buf->gid = procinfo.pi_rgid;
-	buf->egid = procinfo.pi_svgid;	
-	
+	buf->egid = procinfo.pi_svgid;
+
 	buf->pid = procinfo.pi_pid;
 	buf->ppid = procinfo.pi_ppid;
 	buf->pgrp = procinfo.pi_pgrp;
 	buf->tty = procinfo.pi_ttyd;
 	buf->session = procinfo.pi_session;
 	buf->tpgid = procinfo.pi_tpgrp;
-	
+
 	buf->flags = _glibtop_sysdeps_proc_uid;
-		
+
 	/* !!! THE FOLLOWING CODE RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 	glibtop_suid_enter (server);
-		
+
 	/* Get task structure. */
-	
+
 	ret = task_by_unix_pid (task_self(), procinfo.pi_pid, &thistask);
-	
+
 	if (ret == KERN_SUCCESS) {
 
 		/* Get taskinfo about this task. */
-	
+
 		info_count = TASK_BASIC_INFO_COUNT;
-	
+
 		ret = task_info (thistask, TASK_BASIC_INFO,
 				 (task_info_t) &taskinfo, &info_count);
 
@@ -111,22 +111,22 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	}
 
 	glibtop_suid_leave (server);
-	
+
 	/* !!! END OF SUID ROOT PART !!! */
-	
+
 	if (ret != KERN_SUCCESS) return;
-	
+
 	buf->priority = taskinfo.base_priority;
-	
+
 	buf->flags += (1L << GLIBTOP_PROC_UID_PRIORITY);
 
 	errno = 0;
-	
+
 	ret = getpriority (PRIO_PROCESS, pid);
-	
+
 	if ((ret == -1) && (errno != 0)) return;
-	
+
 	buf->nice = ret;
-		
+
 	buf->flags += (1L << GLIBTOP_PROC_UID_NICE);
 }

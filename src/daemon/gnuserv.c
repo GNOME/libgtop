@@ -1,22 +1,22 @@
 /* -*-C-*-
  * Server code for handling requests from clients and forwarding them
  * on to the GNU Emacs process.
- * 
+ *
  * This file is part of GNU Emacs.
- * 
+ *
  * Copying is permitted under those conditions described by the GNU
  * General Public License.
- * 
+ *
  * Copyright (C) 1989 Free Software Foundation, Inc.
- * 
+ *
  * Author: Andy Norman (ange@hplb.hpl.hp.com), based on 'etc/server.c'
  * from the 18.52 GNU Emacs distribution.
- * 
+ *
  * Please mail bugs and suggestions to the author at the above address.
  */
 
-/* HISTORY 
- * 11-Nov-1990                bristor@simba   
+/* HISTORY
+ * 11-Nov-1990                bristor@simba
  *    Added EOT stuff.
  */
 
@@ -192,17 +192,17 @@ permitted (u_long host_addr, int fd)
 			auth_protocol);
 	return FALSE;
     }
-	
+
     if (!strcmp (auth_protocol, MCOOKIE_NAME)) {
-	/* 
+	/*
 	 * doing magic cookie auth
 	 */
-			
+
 	if (timed_read (fd, buf, 10, AUTH_TIMEOUT, 1) <= 0)
 	    return FALSE;
 
 	auth_data_len = atoi (buf);
-	
+
 	if (auth_data_len < 1 || (size_t)auth_data_len > sizeof(buf)) {
 	    syslog_message(LOG_WARNING, "Invalid data length supplied by client");
 	    return FALSE;
@@ -222,7 +222,7 @@ permitted (u_long host_addr, int fd)
 			"not compiled with Xauth");
 #endif
 
-	/* 
+	/*
 	 * auth failed, but allow this to fall through to the
 	 * GNU_SECURE protocol....
 	 */
@@ -238,12 +238,12 @@ permitted (u_long host_addr, int fd)
 				"trying GNU_SECURE auth...");
 	}
     }
-    
+
     /* Other auth protocols go here, and should execute only if
      * the * auth_protocol name matches. */
 
     /* Now, try the old GNU_SECURE stuff... */
-	
+
     if (enable_debug)
 	syslog_message (LOG_DEBUG, "Doing GNU_SECURE auth ...");
 
@@ -257,7 +257,7 @@ permitted (u_long host_addr, int fd)
 	if (host_addr == permitted_hosts [i])
 	    return (TRUE);
     }
-	
+
     return (FALSE);
 }
 
@@ -362,7 +362,7 @@ internet_init (void)
 	syslog_io_message (LOG_ERR, "unable to create socket");
 	exit (1);
     }
-	
+
     /* Bind the listen address to the socket. */
     if (bind (ls, (struct sockaddr *) &server,
 	      sizeof (struct sockaddr_in)) == -1) {
@@ -433,7 +433,7 @@ handle_internet_request (int ls)
 
     close (s);
 
-    if (verbose_output)	
+    if (verbose_output)
 	syslog_message (LOG_INFO, "Closed connection to %s port %u.",
 			inet_ntoa (peer.sin_addr), ntohs (peer.sin_port));
 
@@ -477,7 +477,7 @@ main (int argc, const char **argv)
     /* On non-glibc systems, this is not set up for us.  */
     if (!program_invocation_name) {
 	char *arg;
-	  
+
 	program_invocation_name = (char *) argv[0];
 	arg = strrchr (argv[0], '/');
 	program_invocation_short_name =
@@ -533,7 +533,7 @@ main (int argc, const char **argv)
      * SERVER_GID. Otherwise we completely drop any priviledges.
      */
 
-    if (enable_debug)		
+    if (enable_debug)
 	syslog_message (LOG_DEBUG, "Parent ID: (%d, %d) - (%d, %d)",
 			getuid (), geteuid (), getgid (), getegid ());
 
@@ -618,7 +618,7 @@ main (int argc, const char **argv)
 	    if (verbose_output)
 		syslog_message (LOG_INFO, "Child %d exited.", ret);
 	}
-		
+
 	FD_ZERO (&rmask);
 
 	/* Only the child accepts connections from standard

@@ -31,7 +31,7 @@
 
 #include "utils.h"
 
-static const unsigned long _glibtop_sysdeps_proc_uid = 
+static const unsigned long _glibtop_sysdeps_proc_uid =
 (1 << GLIBTOP_PROC_UID_UID) + (1 << GLIBTOP_PROC_UID_EUID) +
 (1 << GLIBTOP_PROC_UID_GID) + (1 << GLIBTOP_PROC_UID_EGID) +
 (1 << GLIBTOP_PROC_UID_PID) + (1 << GLIBTOP_PROC_UID_PPID) +

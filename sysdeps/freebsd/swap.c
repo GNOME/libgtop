@@ -147,7 +147,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	struct kvm_swap kvmsw[16];
 # endif
 
-#elif defined(__bsdi__)	
+#elif defined(__bsdi__)
 	struct swapstats swap;
 #elif defined(__NetBSD__)
 	struct swapent *swaplist;
@@ -167,7 +167,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	static int swappgsout = -1;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SWAP), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_swap));
 
 	if (server->sysdeps.swap == 0)
@@ -181,7 +181,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	}
 #else
 	/* This is used to get the `pagein' and `pageout' members. */
-	
+
 	if (kvm_read (server->machine.kd, nlst2[0].n_value,
 		      &vmm, sizeof (vmm)) != sizeof (vmm)) {
 		glibtop_warn_io_r (server, "kvm_read (cnt)");

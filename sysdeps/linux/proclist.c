@@ -90,7 +90,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		ok = 1; len = strlen (entry->d_name);
 
 		/* does it consist entirely of digits? */
-		
+
 		for (i = 0; i < len; i++)
 			if (!isdigit (entry->d_name [i])) ok = 0;
 		if (!ok) continue;
@@ -102,7 +102,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		/* is it really a directory? */
 
 		sprintf (buffer, "/proc/%d", pid);
-		
+
 		if (stat (buffer, &statb)) continue;
 
 		if (!S_ISDIR (statb.st_mode)) continue;
@@ -189,12 +189,12 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		}
 
 		/* pids is now big enough to hold at least one single pid. */
-		
+
 		pids [count++] = pid;
 
 		total++;
 	}
-	
+
 	closedir (proc);
 
 	/* count is only zero if an error occured (one a running Linux system,
@@ -206,15 +206,15 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	 * g_malloc if pids_chain is NULL. We just calculate the
 	 * new size and copy pids to the beginning of the newly allocated
 	 * block. */
-	
+
 	new_size = pids_size + count * sizeof (unsigned);
-	
+
 	pids_chain = g_realloc (pids_chain, new_size);
-	
+
 	memcpy (pids_chain + pids_offset, pids, count * sizeof (unsigned));
-	
+
 	pids_size = new_size;
-	
+
 	pids_offset += BLOCK_COUNT;
 
 	/* Since everything is ok now, we can set buf->flags, fill in the

@@ -49,7 +49,7 @@ struct _glibtop_machine
     kvm_t *kd;
 
     kstat_ctl_t *kc;
-    
+
     kstat_t *vminfo_kstat;
     hrtime_t vminfo_snaptime;
     vminfo_t vminfo;

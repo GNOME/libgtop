@@ -86,9 +86,9 @@ glibtop_get_procdata_s (glibtop *server, glibtop_procdata *buf, pid_t pid)
 	struct stat statb;
 	int nread;
 	FILE *f;
-	
+
 	glibtop_init_r (&server, 0, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_procdata));
 
 	if (pid == 0) {
@@ -98,27 +98,27 @@ glibtop_get_procdata_s (glibtop *server, glibtop_procdata *buf, pid_t pid)
 		return;
 	}
 
-	
+
 	sprintf (input, "/proc/%d/stat", pid);
 
 	if (stat (input, &statb)) return;
 
 	buf->uid = statb.st_uid;
-	
+
 	f = fopen (input, "r");
 	if (!f) return;
-	
+
 	nread = fread (input, 1, BUFSIZ, f);
-	
+
 	if (nread < 0) {
 		fclose (f);
 		return;
 	}
-	
+
 	input [nread] = 0;
-	
+
 	/* This is from guile-utils/gtop/proc/readproc.c */
-	
+
 	/* split into "PID (cmd" and "<rest>" */
 	tmp = strrchr (input, ')');
 	*tmp = '\0';		/* replace trailing ')' with NUL */
@@ -152,7 +152,7 @@ glibtop_get_procdata_s (glibtop *server, glibtop_procdata *buf, pid_t pid)
 	if (server->os_version_code < LINUX_VERSION(1,1,30) && buf->tty != -1)
 		/* when tty wasn't full devno */
 		buf->tty = 4*0x100 + buf->tty;
-	
+
 	fclose (f);
 
 	sprintf (input, "/proc/%d/statm", pid);

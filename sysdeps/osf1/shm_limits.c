@@ -47,43 +47,43 @@ glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 	glibtop_init_s (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_shm_limits));
-	
+
 	ret = table (TBL_SHMINFO, SHMINFO_MAX, (char *) &value, 1,
-		     sizeof (value)); 
+		     sizeof (value));
 
 	if (ret != 1) return;
 
 	buf->flags += (1L << GLIBTOP_IPC_SHMMAX);
-		
+
 	buf->shmmax = value;
-	
+
 
 	ret = table (TBL_SHMINFO, SHMINFO_MIN, (char *) &value, 1,
-		     sizeof (value)); 
+		     sizeof (value));
 
 	if (ret != 1) return;
-		
+
 	buf->flags += (1L << GLIBTOP_IPC_SHMMIN);
-		
+
 	buf->shmmin = value;
-	
+
 
 	ret = table (TBL_SHMINFO, SHMINFO_MNI, (char *) &value, 1,
-		     sizeof (value)); 
+		     sizeof (value));
 
 	if (ret != 1) return;
-		
+
 	buf->flags += (1L << GLIBTOP_IPC_SHMMNI);
-		
+
 	buf->shmmni = value;
-	
+
 
 	ret = table (TBL_SHMINFO, SHMINFO_SEG, (char *) &value, 1,
-		     sizeof (value)); 
+		     sizeof (value));
 
 	if (ret != 1) return;
-		
+
 	buf->flags += (1L << GLIBTOP_IPC_SHMSEG);
-		
+
 	buf->shmseg = value;
 }

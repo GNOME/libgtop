@@ -44,7 +44,7 @@ handle_slave_connection (int input, int output)
 		fprintf (stderr, "Slave %d received command "
 			 "%d from client.\n", getpid (), cmnd->command);
 #endif
-		
+
 		if (cmnd->data_size >= BUFSIZ)
 			glibtop_error ("Client sent %d bytes, "
 				       "but buffer is %d",
@@ -53,19 +53,19 @@ handle_slave_connection (int input, int output)
 		memset (resp, 0, sizeof (glibtop_response));
 
 		memset (parameter, 0, sizeof (parameter));
-		
+
 		if (cmnd->data_size) {
 #ifdef SLAVE_DEBUG
 			fprintf (stderr, "Client has %d bytes of data.\n",
 				 cmnd->data_size);
 #endif
-			
+
 			do_read (input, parameter, cmnd->data_size);
-			
+
 		} else if (cmnd->size) {
 			memcpy (parameter, cmnd->parameter, cmnd->size);
 		}
-    
+
 		switch (cmnd->command) {
 		case GLIBTOP_CMND_QUIT:
 			do_output (output, resp, 0, 0, NULL);
@@ -124,7 +124,7 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 
 	switch (cmnd->command) {
 	case GLIBTOP_CMND_SYSDEPS:
-		memcpy (&resp->u.sysdeps, &server->sysdeps, 
+		memcpy (&resp->u.sysdeps, &server->sysdeps,
 			sizeof (glibtop_sysdeps));
 		resp->u.sysdeps.features = glibtop_server_features;
 		resp->u.sysdeps.flags = glibtop_server_features |

@@ -42,8 +42,8 @@ glibtop_map_entry *
 glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 {
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_map));
-	
+
 	return NULL;
 }

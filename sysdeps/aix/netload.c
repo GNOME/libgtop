@@ -31,7 +31,7 @@
 
 #include "utils.h"
 
-static const unsigned long _glibtop_sysdeps_netload = 
+static const unsigned long _glibtop_sysdeps_netload =
 (1 << GLIBTOP_NETLOAD_IF_FLAGS) + (1 << GLIBTOP_NETLOAD_MTU) +
 (1 << GLIBTOP_NETLOAD_SUBNET) + (1 << GLIBTOP_NETLOAD_ADDRESS) +
 (1 << GLIBTOP_NETLOAD_PACKETS_IN) + (1 << GLIBTOP_NETLOAD_PACKETS_OUT) +
@@ -182,7 +182,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 			buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_MULTICAST);
 
 		buf->mtu = ifnet.if_mtu;
-	
+
 		get_ifaddr(server, ifnet.if_addrlist, &addr, &mask);
 
 		buf->subnet = addr & mask;

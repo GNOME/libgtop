@@ -1,6 +1,6 @@
 /* $Id$ */
 
-/* 
+/*
    This file is part of LibGTop 1.0.
 
    Contributed by Martin Baulig <martin@home-of-linux.org>, March 1999.

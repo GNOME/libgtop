@@ -35,7 +35,7 @@ init_sysinfo (glibtop *server)
 {
 	static gboolean is_init = FALSE;
 
-	char buffer [BUFSIZ];	
+	char buffer [BUFSIZ];
 	glibtop_entry *cpuinfo = NULL;
 	FILE *f;
 
@@ -58,7 +58,7 @@ init_sysinfo (glibtop *server)
 			cpuinfo->labels = g_ptr_array_new ();
 
 			cpuinfo->values = g_hash_table_new (NULL, NULL);
-			
+
 			if (sysinfo.ncpu > GLIBTOP_NCPU)
 				sysinfo.ncpu = GLIBTOP_NCPU;
 		}

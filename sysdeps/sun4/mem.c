@@ -42,20 +42,20 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_MEM), 0);
 
 	memset (buf, 0, sizeof (glibtop_mem));
-	
+
 	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
-	
+
 	glibtop_suid_enter (server);
-	
+
 	/* get the array of physpage descriptors */
-	
+
 	(void) _glibtop_getkval (server, server->machine.pages,
 				 (int *) server->machine.physpage,
 				 server->machine.bytesize,
 				 "array _page");
 
 	glibtop_suid_leave (server);
-	
+
 	/* !!! END OF SGID KMEM PART !!! */
 
 
@@ -65,7 +65,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 		register int inuse;
 		register int free;
 		register int locked;
-		
+
 		/* bop thru the array counting page types */
 
 		pp = server->machine.physpage;
@@ -80,7 +80,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 		}
 
 		/* convert memory stats to Kbytes */
-		
+
 		buf->total  = pagetok (inuse + free);
 		buf->used   = pagetok (inuse);
 		buf->free   = pagetok (free);

@@ -64,7 +64,7 @@ static unsigned long _glibtop_sysdeps_shm_limits =
  * read it once during initialization. We have to use the name `_shminfo'
  * since `shminfo' is already declared external in <sys/shm.h>. */
 static struct shminfo _shminfo;
-  
+
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
 	{ "_shminfo" },
@@ -80,7 +80,7 @@ glibtop_init_shm_limits_p (glibtop *server)
 		glibtop_warn_io_r (server, "kvm_nlist (shm_limits)");
 		return;
 	}
-	
+
 	if (kvm_read (server->machine.kd, nlst [0].n_value,
 		      &_shminfo, sizeof (_shminfo)) != sizeof (_shminfo)) {
 		glibtop_warn_io_r (server, "kvm_read (shminfo)");
@@ -96,7 +96,7 @@ void
 glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_shm_limits));
 
 	if (server->sysdeps.shm_limits == 0)

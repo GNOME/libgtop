@@ -47,7 +47,7 @@ void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
 	union table tbl;
-	
+
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
 
 	memset (buf, 0, sizeof (glibtop_mem));

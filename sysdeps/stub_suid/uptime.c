@@ -43,6 +43,6 @@ void
 glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 {
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_UPTIME, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_uptime));
 }

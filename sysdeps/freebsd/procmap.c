@@ -112,12 +112,12 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 	int update = 0;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_MAP), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_map));
 
 	/* It does not work for the swapper task. */
 	if (pid == 0) return NULL;
-	
+
 	glibtop_suid_enter (server);
 
 	/* Get the process data */
@@ -132,7 +132,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 		      (unsigned long) pinfo [0].ki_vmspace,
 #else
 		      (unsigned long) pinfo [0].kp_proc.p_vmspace,
-#endif 
+#endif
 		      (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace))
 		glibtop_error_io_r (server, "kvm_read (vmspace)");
 
@@ -255,7 +255,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 		if (!object.handle)
 			continue;
-		
+
 		if (kvm_read (server->machine.kd,
 			      (unsigned long) object.handle,
 			      &vnode, sizeof (vnode)) != sizeof (vnode))

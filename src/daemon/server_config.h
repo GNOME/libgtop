@@ -5,7 +5,7 @@
 
 #define HOST_TABLE_ENTRIES	1
 
-const char *permitted_host_names [HOST_TABLE_ENTRIES] = 
+const char *permitted_host_names [HOST_TABLE_ENTRIES] =
 { NULL };
 
 unsigned long permitted_hosts [HOST_TABLE_ENTRIES];

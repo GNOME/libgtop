@@ -59,9 +59,9 @@ glibtop_inodedb_open_s (glibtop *server, unsigned databases,
 
 	pwd = getpwuid (getuid ());
 	if (!pwd) glibtop_error_io_r (server, "getpwuid");
-	
+
 	sprintf (filename, "%s/var/libgtop/inodedb.db", pwd->pw_dir);
-	
+
 	if (stat (filename, &statb))
 		databases &= ~GLIBTOP_INODEDB_USER;
 
@@ -108,7 +108,7 @@ glibtop_inodedb_close_s (glibtop *server, glibtop_inodedb *inodedb)
 {
 	if (inodedb->system_dbf)
 		gdbm_close (inodedb->system_dbf);
-	
+
 	if (inodedb->user_dbf)
 		gdbm_close (inodedb->user_dbf);
 

@@ -605,7 +605,7 @@ glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs)
 
 	for (count = 0, tmp = me; tmp; count++, tmp = next) {
 
-		g_strlcpy (mount_list [count].devname, tmp->me_devname, 
+		g_strlcpy (mount_list [count].devname, tmp->me_devname,
 			 GLIBTOP_MOUNTENTRY_LEN);
 		g_strlcpy (mount_list [count].mountdir, tmp->me_mountdir,
 			 GLIBTOP_MOUNTENTRY_LEN);

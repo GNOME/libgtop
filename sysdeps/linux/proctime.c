@@ -52,7 +52,7 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 {
 	char buffer [BUFSIZ], *p;
 	int i;
-	
+
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_TIME, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_time));

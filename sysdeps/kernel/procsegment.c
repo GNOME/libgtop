@@ -59,7 +59,7 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 
 	if (table (TABLE_PROC_MEM, &tbl, &pid))
 		glibtop_error_io_r (server, "table(TABLE_PROC_MEM)");
-	
+
 	buf->start_code = tbl.proc_mem.start_code;
 	buf->end_code = tbl.proc_mem.end_code;
 	buf->start_stack = tbl.proc_mem.start_stack;

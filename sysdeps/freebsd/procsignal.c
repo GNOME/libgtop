@@ -56,12 +56,12 @@ glibtop_get_proc_signal_p (glibtop *server,
 	int count = 0;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_SIGNAL), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 
 	/* It does not work for the swapper task. */
 	if (pid == 0) return;
-	
+
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1)) {
@@ -108,7 +108,7 @@ glibtop_get_proc_signal_p (glibtop *server,
 #else
 	buf->blocked [0] = pinfo [0].kp_proc.p_sigmask;
 #endif
-	
+
 	/* sigignore: mask of ignored signals.
 	 *            pinfo [0].kp_proc.p_sigignore
 	*/
@@ -120,7 +120,7 @@ glibtop_get_proc_signal_p (glibtop *server,
 #else
 	buf->sigignore [0] = pinfo [0].kp_proc.p_sigignore;
 #endif
-	
+
 	/* sigcatch: mask of caught signals.
 	 *           pinfo [0].kp_proc.p_sigcatch
 	*/

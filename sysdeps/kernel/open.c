@@ -36,7 +36,7 @@ static int linux_version_code = 0;
 static void set_linux_version(void) {
     static struct utsname uts;
     int x = 0, y = 0, z = 0;	/* cleared in case sscanf() < 3 */
-    
+
     if (linux_version_code) return;
     if (uname(&uts) == -1)	/* failure most likely implies impending death */
 	exit(1);
@@ -57,7 +57,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
 	server->name = program_name;
-	
+
 	set_linux_version ();
 	server->os_version_code = (unsigned long) linux_version_code;
 }

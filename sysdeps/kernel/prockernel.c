@@ -48,16 +48,16 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
 			   pid_t pid)
 {
 	union table tbl;
-	
+
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
-	
+
 	if (table (TABLE_PROC_KERNEL, &tbl, &pid))
 		glibtop_error_io_r (server, "table(TABLE_PROC_KERNEL)");
-	
+
 	buf->flags = _glibtop_sysdeps_proc_kernel;
-	
+
 	buf->min_flt = tbl.proc_kernel.min_flt;
 	buf->cmin_flt = tbl.proc_kernel.cmin_flt;
 	buf->maj_flt = tbl.proc_kernel.maj_flt;

@@ -50,7 +50,7 @@ output (pid_t pid)
 #endif
 
 	printf ("\n");
-		
+
 	glibtop_get_proc_state (&data.proc_state, pid);
 
 	printf ("Proc_State   PID  %5d (0x%08lx): "
@@ -59,9 +59,9 @@ output (pid_t pid)
 		data.proc_state.cmd, data.proc_state.state,
 		(unsigned long) data.proc_state.uid,
 		(unsigned long) data.proc_state.gid);
-		
+
 	glibtop_get_proc_uid (&data.proc_uid, pid);
-	
+
 	printf ("Proc_Uid     PID  %5d (0x%08lx): "
 		"%d %d %d %d %d %d %d %d %d %d %d %d\n", (int) pid,
 		(unsigned long) data.proc_uid.flags,
@@ -73,7 +73,7 @@ output (pid_t pid)
 		data.proc_uid.priority, data.proc_uid.nice);
 
 	glibtop_get_proc_mem (&data.proc_mem, pid);
-		
+
 	printf ("Proc_Mem     PID  %5d (0x%08lx): "
 		"%lu %lu %lu %lu %lu %lu\n", (int) pid,
 		(unsigned long) data.proc_mem.flags,
@@ -83,7 +83,7 @@ output (pid_t pid)
 		(unsigned long) data.proc_mem.share,
 		(unsigned long) data.proc_mem.rss,
 		(unsigned long) data.proc_mem.rss_rlim);
-		
+
 	glibtop_get_proc_segment (&data.proc_segment, pid);
 
 	printf ("Proc_Segment PID  %5d (0x%08lx): "
@@ -99,7 +99,7 @@ output (pid_t pid)
 		(unsigned long) data.proc_segment.start_stack);
 
 	glibtop_get_proc_time (&data.proc_time, pid);
-		
+
 	printf ("Proc_Time    PID  %5d (0x%08lx): "
 		"%lu %lu %lu %lu %lu %lu %lu %lu %lu\n", (int) pid,
 		(unsigned long) data.proc_time.flags,
@@ -114,7 +114,7 @@ output (pid_t pid)
 		(unsigned long) data.proc_time.frequency);
 
 	glibtop_get_proc_signal (&data.proc_signal, pid);
-	
+
 	printf ("Proc_Signal  PID  %5d (0x%08lx): "
 		"%lu %lu %lu %lu\n", (int) pid,
 		(unsigned long) data.proc_signal.flags,
@@ -160,7 +160,7 @@ output (pid_t pid)
 	ncpu = glibtop_global_server->ncpu;
 
 	glibtop_get_proc_time (&data.proc_time, pid);
-		
+
 	total = (unsigned long) data.proc_time.utime +
 		(unsigned long) data.proc_time.stime;
 
@@ -242,7 +242,7 @@ main (int argc, char *argv [])
 	setlocale (LC_ALL, "");
 	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
 	textdomain (GETTEXT_PACKAGE);
-	
+
 	glibtop_init ();
 
 	glibtop_get_sysdeps (&sysdeps);
@@ -288,7 +288,7 @@ main (int argc, char *argv [])
 	for (i = 0; i < proclist.number; i++) {
 
 		pid = ptr [i];
-		
+
 		output (pid);
 	}
 

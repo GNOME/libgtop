@@ -27,7 +27,7 @@
 
 #include "utils.h"
 
-static const unsigned long _glibtop_sysdeps_sem_limits = 
+static const unsigned long _glibtop_sysdeps_sem_limits =
 (1 << GLIBTOP_IPC_SEMMNI) + (1 << GLIBTOP_IPC_SEMMSL) +
 (1 << GLIBTOP_IPC_SEMOPM) + (1 << GLIBTOP_IPC_SEMUME) +
 (1 << GLIBTOP_IPC_SEMUSZ) + (1 << GLIBTOP_IPC_SEMVMX) +

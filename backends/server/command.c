@@ -57,7 +57,7 @@ glibtop_call_i (glibtop_server *server, backend_server_private *priv,
     }
 
     cmnd.data_size = data_size;
-	
+
     glibtop_write_i (priv, sizeof (glibtop_command), &cmnd);
 
     if (data_size) {
@@ -75,7 +75,7 @@ glibtop_call_i (glibtop_server *server, backend_server_private *priv,
 	     (long) resp.recv_size, (long) resp.data_size,
 	     recv_ptr, (long) recv_size);
 #endif
-    
+
     if (retval_ptr)
 	*retval_ptr = resp.glibtop_errno;
 

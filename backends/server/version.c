@@ -37,7 +37,7 @@ glibtop_send_version_i (glibtop *server, int fd)
 	     sizeof (glibtop_response),
 	     sizeof (glibtop_union),
 	     sizeof (glibtop_sysdeps));
-	
+
     size = strlen (buffer) + 1;
 
 #ifdef DEBUG

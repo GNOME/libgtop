@@ -49,20 +49,20 @@ glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf,
 	int ret;
 
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_SIGNAL, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 
 	/* !!! THE FOLLOWING CODE RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 	glibtop_suid_enter (server);
-	
+
 	ret = table (TBL_PROCINFO, pid, (char *) &procinfo, 1,
-		     sizeof (struct tbl_procinfo)); 
+		     sizeof (struct tbl_procinfo));
 
 	glibtop_suid_leave (server);
-		     
+
 	/* !!! END OF SUID ROOT PART !!! */
-	
+
 	if (ret != 1) return;
 
 	buf->signal [0] = procinfo.pi_sig;

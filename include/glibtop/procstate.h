@@ -55,7 +55,7 @@ typedef struct _glibtop_proc_state	glibtop_proc_state;
 struct _glibtop_proc_state
 {
 	guint64 flags;
-	char cmd[40];		/* basename of executable file in 
+	char cmd[40];		/* basename of executable file in
 				 * call to exec(2) */
 	unsigned state;		/* single-char code for process state
 				 * (S=sleeping) */
@@ -90,7 +90,7 @@ void glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf, pid_t p
 void glibtop_init_proc_state_s (glibtop *server);
 void glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid);
 #endif
-     
+
 #ifdef GLIBTOP_NAMES
 
 /* You need to link with -lgtop_names to get this stuff here. */

@@ -50,7 +50,7 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 	} else {
 		cmnd.data_size = send_size;
 	}
-	
+
 	glibtop_write_l (server, sizeof (glibtop_command), &cmnd);
 
 	glibtop_read_l (server, sizeof (glibtop_response), &response);

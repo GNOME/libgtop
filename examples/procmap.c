@@ -61,7 +61,7 @@ main (int argc, char *argv [])
 	setlocale (LC_ALL, "");
 	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
 	textdomain (GETTEXT_PACKAGE);
-	
+
 	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_INIT_NO_OPEN);
 
 	glibtop_get_parameter (GLIBTOP_PARAM_METHOD, &method, sizeof (method));
@@ -97,7 +97,7 @@ main (int argc, char *argv [])
 		const char *filename = NULL;
 		unsigned device, device_major, device_minor;
 		char perm [5];
-		
+
 		if (maps [i].flags & (1L << GLIBTOP_MAP_ENTRY_FILENAME))
 			filename = maps [i].filename;
 

@@ -50,7 +50,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	memset (buf, 0, sizeof (glibtop_swap));
 
 	i = 0;
-	
+
 	while (table (TBL_SWAPINFO, i, (char *) &swapinfo, 1,
 		      sizeof (struct tbl_swapinfo)) > 0) {
 		buf->total += swapinfo.size * getpagesize ();
@@ -59,6 +59,6 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	}
 
 	buf->flags = _glibtop_sysdeps_swap;
-	
+
 	buf->used  = buf->total - buf->free;
 }

@@ -42,7 +42,7 @@ glibtop_get_proc_segment_p (glibtop *server, glibtop_proc_segment *buf,
 
 	memset (buf, 0, sizeof (glibtop_proc_segment));
 
-	/* Read process table from kernel. */	
+	/* Read process table from kernel. */
 
 	_glibtop_read_proc_table (server);
 

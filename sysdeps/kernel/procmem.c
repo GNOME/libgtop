@@ -54,13 +54,13 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
 
 	if (table (TABLE_PROC_MEM, &tbl, &pid))
 		glibtop_error_io_r (server, "table(TABLE_PROC_MEM)");
-	
+
 	buf->rss = tbl.proc_mem.rss;
 	buf->rss_rlim = tbl.proc_mem.rlim;
 
 	if (table (TABLE_PROC_SEGMENT, &tbl, &pid))
 		glibtop_error_io_r (server, "table(TABLE_PROC_SEGMENT)");
-	
+
 	buf->flags = _glibtop_sysdeps_proc_mem;
 
 	buf->vsize = tbl.proc_segment.vsize;

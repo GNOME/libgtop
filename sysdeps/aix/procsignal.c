@@ -32,7 +32,7 @@
 
 #include "utils.h"
 
-static const unsigned long _glibtop_sysdeps_proc_signal = 
+static const unsigned long _glibtop_sysdeps_proc_signal =
 (1 <<GLIBTOP_PROC_SIGNAL_SIGNAL) + (1 <<GLIBTOP_PROC_SIGNAL_BLOCKED) +
 (1 <<GLIBTOP_PROC_SIGNAL_SIGIGNORE) + (1 <<GLIBTOP_PROC_SIGNAL_SIGCATCH);
 
@@ -63,7 +63,7 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 
 		return;
 	}
-	
+
 	/* pending signals */
 
 #define NB_BITS	(8 * sizeof(guint64))
@@ -84,6 +84,6 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 		if (pinfo->pi_signal[i] == (long)SIG_CATCH)
 			buf->sigcatch[i / NB_BITS] |= bit;
 	}
-	
+
 	buf->flags = _glibtop_sysdeps_proc_signal;
 }

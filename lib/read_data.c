@@ -54,10 +54,10 @@ glibtop_read_data_l (glibtop *server)
 	fprintf (stderr, "LIBRARY: really reading %d data bytes (ret = %d).\n", size, ret);
 #endif
 
-	if (!size) return NULL;	
+	if (!size) return NULL;
 
 	ptr = g_malloc (size);
-	
+
 	if (server->socket) {
 		ret = recv (server->socket, ptr, size, 0);
 	} else {

@@ -15,7 +15,7 @@
 #define TABLE_KERN_PROC_UID		5
 #define TABLE_KERN_PROC_RUID		6
 
-#define TABLE_KERN_PROC_MASK		15	
+#define TABLE_KERN_PROC_MASK		15
 
 #define TABLE_EXCLUDE_IDLE		0x1000
 #define TABLE_EXCLUDE_SYSTEM		0x2000
@@ -178,7 +178,7 @@ union table
 	struct table_proc_mem proc_mem;
 	struct table_proc_segment proc_segment;
 	struct table_proc_time proc_time;
-	struct table_proc_state proc_state;	
+	struct table_proc_state proc_state;
 	struct table_proc_signal proc_signal;
 	struct table_proc_kernel proc_kernel;
 };

@@ -43,6 +43,6 @@ void
 glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 {
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_SWAP, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_swap));
 }

@@ -23,7 +23,7 @@
  *      without specific prior written permission.
  *   4. Altered versions must be plainly marked as such, and must not be
  *      misrepresented as being the original software and/or documentation.
- *   
+ *
  *   THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
  *   ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  *   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE

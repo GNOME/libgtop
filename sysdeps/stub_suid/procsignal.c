@@ -44,6 +44,6 @@ glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf,
 			   pid_t pid)
 {
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_SIGNAL, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 }

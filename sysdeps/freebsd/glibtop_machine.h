@@ -55,7 +55,7 @@ struct _glibtop_machine
 {
 	uid_t uid, euid;
 	gid_t gid, egid;
-	
+
 	/* The kernel descriptor, used by kvm_* calls.  We keep and re-use
 	 * it rather than re-getting it for almost all function
 	 * invocations. */

@@ -84,9 +84,9 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	/* sysctl vars*/
 	struct clockinfo ci;
 	size_t length;
-	
+
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_CPU), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_cpu));
 
 	/* If this fails, the nlist may not be valid. */
@@ -106,7 +106,7 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 		return;
 	}
 #endif
-	
+
 	/* Get the clockrate data */
 	length = sizeof (struct clockinfo);
 	if (sysctl (mib, mib_length, &ci, &length, NULL, 0)) {
@@ -122,12 +122,12 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	buf->sys = cpts [CP_SYS];
 	/* set idle time */
 	buf->idle = cpts [CP_IDLE];
-	
+
 	/* set frequency */
-	/* 
+	/*
 	   FIXME --  is hz, tick, profhz or stathz wanted?
-	   buf->frequency = sysctl("kern.clockrate", ...); 
-	   
+	   buf->frequency = sysctl("kern.clockrate", ...);
+
 	   struct clockinfo
 	*/
 	buf->frequency = ci.hz;

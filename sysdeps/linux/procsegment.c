@@ -74,7 +74,7 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 			    pid_t pid)
 {
 	char buffer [BUFSIZ], *p;
-	
+
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_segment));

@@ -218,7 +218,7 @@ struct libgtop_netload
     unsigned long tx_dropped;		/* no space available in linux	*/
     unsigned long multicast;		/* multicast packets received	*/
     unsigned long collisions;
-    
+
     /* detailed rx_errors: */
     unsigned long rx_length_errors;
     unsigned long rx_over_errors;	/* receiver ring buff overflow	*/
@@ -226,14 +226,14 @@ struct libgtop_netload
     unsigned long rx_frame_errors;	/* recv'd frame alignment error */
     unsigned long rx_fifo_errors;	/* recv'r fifo overrun		*/
     unsigned long rx_missed_errors;	/* receiver missed packet	*/
-    
+
     /* detailed tx_errors */
     unsigned long tx_aborted_errors;
     unsigned long tx_carrier_errors;
     unsigned long tx_fifo_errors;
     unsigned long tx_heartbeat_errors;
     unsigned long tx_window_errors;
-    
+
     /* for cslip etc */
     unsigned long rx_compressed;
     unsigned long tx_compressed;

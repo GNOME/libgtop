@@ -26,7 +26,7 @@
 #include <stdio.h>
 
 #include <glibtop.h>
-     
+
 #include <glibtop/open.h>
 #include <glibtop/close.h>
 
@@ -35,7 +35,7 @@
 
 void main_prog(int argc, char *argv[]);
 
-int     
+int
 main (int argc, char *argv[])
 {
 	setlocale (LC_ALL, "");

@@ -53,7 +53,7 @@ GType
 glibtop_backend_get_type (void)
 {
     static GType glibtop_backend_type = 0;
-  
+
     if (!glibtop_backend_type) {
 	static const GTypeInfo glibtop_backend_info = {
 	    sizeof (glibtop_backend_class),
@@ -66,7 +66,7 @@ glibtop_backend_get_type (void)
 	    16,			/* n_preallocs */
 	    (GInstanceInitFunc) glibtop_backend_init,
 	};
-      
+
 	glibtop_backend_type = g_type_register_static
 	    (G_TYPE_OBJECT, "glibtop_backend", &glibtop_backend_info, 0);
     }
@@ -80,7 +80,7 @@ glibtop_backend_class_init (glibtop_backend_class *class)
     GObjectClass *gobject_class;
 
     gobject_class = (GObjectClass *) class;
-  
+
     parent_class = g_type_class_ref (G_TYPE_OBJECT);
 
     gobject_class->finalize = glibtop_backend_finalize;
@@ -100,12 +100,12 @@ glibtop_backend_finalize (GObject *object)
 {
     glibtop_backend *glibtop;
     glibtop_backend_private *priv = NULL;
-  
+
     glibtop = GLIBTOP_BACKEND (object);
     priv = glibtop->_priv;
 
     g_free (priv);
-  
+
     if (G_OBJECT_CLASS (parent_class)->finalize)
 	G_OBJECT_CLASS (parent_class)->finalize (object);
 }

@@ -50,11 +50,11 @@ main (int argc, char *argv [])
 	setlocale (LC_ALL, "");
 	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
 	textdomain (GETTEXT_PACKAGE);
-	
+
 	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_INIT_NO_OPEN);
 
 	glibtop_get_parameter (GLIBTOP_PARAM_METHOD, &method, sizeof (method));
-	
+
 	printf ("Method = %d\n", method);
 
 	count = glibtop_get_parameter (GLIBTOP_PARAM_COMMAND, buffer, BUFSIZ);

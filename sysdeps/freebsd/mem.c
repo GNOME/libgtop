@@ -130,7 +130,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	int bufspace;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MEM), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_mem));
 
 	if (server->sysdeps.mem == 0)
@@ -167,7 +167,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 		glibtop_warn_io_r (server, "kvm_read (bufspace)");
 		return;
 	}
-  
+
 	/* convert memory stats to Kbytes */
 
 #if defined(__FreeBSD__)

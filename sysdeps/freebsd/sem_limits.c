@@ -66,7 +66,7 @@ static unsigned long _glibtop_sysdeps_sem_limits =
  * read it once during initialization. We have to use the name `_seminfo'
  * since `seminfo' is already declared external in <sys/sem.h>. */
 static struct seminfo _seminfo;
-  
+
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
 	{ "_seminfo" },
@@ -82,7 +82,7 @@ glibtop_init_sem_limits_p (glibtop *server)
 		glibtop_warn_io_r (server, "kvm_nlist (sem_limits)");
 		return;
 	}
-	
+
 	if (kvm_read (server->machine.kd, nlst [0].n_value,
 		      &_seminfo, sizeof (_seminfo)) != sizeof (_seminfo)) {
 		glibtop_warn_io_r (server, "kvm_read (seminfo)");
@@ -98,9 +98,9 @@ void
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_sem_limits));
-	
+
 	if (server->sysdeps.sem_limits == 0)
 		return;
 
@@ -112,7 +112,7 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 	buf->semopm = _seminfo.semopm;
 	buf->semvmx = _seminfo.semvmx;
 	buf->semaem = _seminfo.semaem;
-	
+
 	buf->flags = _glibtop_sysdeps_sem_limits;
 }
 

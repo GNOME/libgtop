@@ -26,7 +26,7 @@
 #include <glibtop.h>
 #include <glibtop/proclist.h>
 
-static const unsigned long _glibtop_sysdeps_proclist = 
+static const unsigned long _glibtop_sysdeps_proclist =
 (1 << GLIBTOP_PROCLIST_NUMBER) + (1 << GLIBTOP_PROCLIST_TOTAL) +
 (1 << GLIBTOP_PROCLIST_SIZE);
 
@@ -116,7 +116,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 				{
 					continue;
 				}
-				
+
 				break;
 
 			case GLIBTOP_KERN_PROC_PGRP:
@@ -184,7 +184,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 
 				break;
 		}
-	
+
 		if (count >= BLOCK_COUNT)
 		{
 			/* The following call to g_realloc will be

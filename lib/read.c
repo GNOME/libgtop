@@ -34,7 +34,7 @@ do_read (int s, void *ptr, size_t total_size)
 	int nread;
 	size_t already_read = 0, remaining = total_size;
 	char *tmp_ptr;
-	
+
 	while (already_read < total_size) {
 		nread = recv (s, ptr, remaining, 0);
 
@@ -42,12 +42,12 @@ do_read (int s, void *ptr, size_t total_size)
 			close (s);
 			continue;
 		}
-		
+
 		if (nread <= 0) {
 			glibtop_error_io ("recv");
 			return;
 		}
-		
+
 		already_read += nread;
 		remaining -= nread;
 		/* (char *) ptr += nread; */

@@ -50,7 +50,7 @@
 #define _GLIBTOP_IP_FW_ACCTIN	0x1000	/* Account incoming packets only. */
 #define _GLIBTOP_IP_FW_ACCTOUT	0x2000	/* Account outgoing packets only. */
 
-static const unsigned long _glibtop_sysdeps_netload = 
+static const unsigned long _glibtop_sysdeps_netload =
 (1L << GLIBTOP_NETLOAD_ERRORS_IN) +
 (1L << GLIBTOP_NETLOAD_ERRORS_OUT) +
 (1L << GLIBTOP_NETLOAD_COLLISIONS);
@@ -200,7 +200,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 		unsigned long long flags, packets, bytes;
 		char *p, *dev;
 
-		/* Skip over the network thing. */		
+		/* Skip over the network thing. */
 		dev = skip_token (buffer) + 1;
 		p = skip_token (dev);
 		*p++ = 0;
@@ -281,7 +281,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 
     /* Count remaining 'Receive' fields so we know where
 	 * the first 'Transmit' field starts. */
-	
+
     fields = 0;
     while (*p != '|') {
 	if (!isspace (*p++)) continue;

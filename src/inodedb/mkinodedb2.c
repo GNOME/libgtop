@@ -61,23 +61,23 @@ main (int argc, char *argv [])
 
 		if (dirname [len-1] == '\n')
 			dirname [len-1] = 0;
-		
+
 		if (stat (dirname, &statb))
 			continue;
 
 		if (S_ISREG (statb.st_mode)) {
 			glibtop_inodedb_key key;
 			datum d_key, d_content;
-			
+
 			d_key.dptr = (void *) &key;
 			d_key.dsize = sizeof (key);
 
 			d_content.dptr = dirname;
 			d_content.dsize = strlen (dirname) + 1;
-			
+
 			key.device = (guint64) statb.st_dev;
 			key.inode = (guint64) statb.st_ino;
-			
+
 			if (gdbm_store (dbf, d_key, d_content, GDBM_REPLACE))
 				glibtop_error_io ("gdbm_store (%s)", dirname);
 
@@ -98,9 +98,9 @@ main (int argc, char *argv [])
 			glibtop_inodedb_key key;
 			char filename [BUFSIZ];
 			datum d_key, d_content;
-			
+
 			sprintf (filename, "%s/%s", dirname, entry->d_name);
-			
+
 			if (stat (filename, &statb))
 				continue;
 
@@ -112,10 +112,10 @@ main (int argc, char *argv [])
 
 			d_content.dptr = filename;
 			d_content.dsize = strlen (filename) + 1;
-			
+
 			key.device = (guint64) statb.st_dev;
 			key.inode = (guint64) statb.st_ino;
-			
+
 			if (gdbm_store (dbf, d_key, d_content, GDBM_REPLACE))
 				glibtop_error_io ("gdbm_store (%s)", filename);
 
@@ -123,7 +123,7 @@ main (int argc, char *argv [])
 				filename, (unsigned long) statb.st_dev,
 				(unsigned long) statb.st_ino);
 		}
-		
+
 		closedir (directory);
 	}
 

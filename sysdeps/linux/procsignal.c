@@ -43,7 +43,7 @@ void
 glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf, pid_t pid)
 {
 	char buffer [BUFSIZ], *p;
-	
+
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_SIGNAL, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_signal));

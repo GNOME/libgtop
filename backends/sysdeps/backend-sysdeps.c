@@ -60,7 +60,7 @@ _open_sysdeps (glibtop_server *server, glibtop_backend *backend,
 	    (*init_fkt) (server);
 
 	server->info->sysdeps.pointer_size = sizeof (void*)*8;
-		
+
 	server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;
     }
 

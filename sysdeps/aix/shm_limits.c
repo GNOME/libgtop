@@ -27,7 +27,7 @@
 #include <glibtop/error.h>
 #include <glibtop/shm_limits.h>
 
-static const unsigned long _glibtop_sysdeps_shm_limits = 
+static const unsigned long _glibtop_sysdeps_shm_limits =
 (1L << GLIBTOP_IPC_SHMMAX) + (1L << GLIBTOP_IPC_SHMMIN) +
 (1L << GLIBTOP_IPC_SHMMNI);
 

@@ -47,7 +47,7 @@ GType
 glibtop_client_get_type (void)
 {
     static GType glibtop_client_type = 0;
-  
+
     if (!glibtop_client_type) {
 	static const GTypeInfo glibtop_client_info = {
 	    sizeof (glibtop_client_class),
@@ -60,7 +60,7 @@ glibtop_client_get_type (void)
 	    16,			/* n_preallocs */
 	    (GInstanceInitFunc) glibtop_client_init,
 	};
-      
+
 	glibtop_client_type = g_type_register_static
 	    (G_TYPE_OBJECT, "glibtop_client", &glibtop_client_info, 0);
     }
@@ -99,7 +99,7 @@ glibtop_client_class_init (glibtop_client_class *klass)
     GObjectClass *gobject_class;
 
     gobject_class = (GObjectClass *) klass;
-  
+
     parent_class = g_type_class_peek_parent (klass);
 
     glibtop_client_signals [GLIBTOP_CLIENT_SIGNAL_ERROR] =
@@ -122,7 +122,7 @@ glibtop_client_class_init (glibtop_client_class *klass)
 
     klass->error = glibtop_client_error_handler;
     klass->warning = glibtop_client_warning_handler;
-  
+
     gobject_class->finalize = glibtop_client_finalize;
 }
 
@@ -130,7 +130,7 @@ static void
 glibtop_client_init (glibtop_client *glibtop)
 {
     glibtop_client_private *priv;
-  
+
     priv = g_new0 (glibtop_client_private, 1);
     glibtop->_priv = priv;
 }
@@ -141,16 +141,16 @@ glibtop_client_finalize (GObject *object)
     glibtop_client *glibtop;
     glibtop_client_private *priv = NULL;
     GSList *c;
-  
+
     glibtop = GLIBTOP_CLIENT (object);
     priv = glibtop->_priv;
 
     for (c = priv->backend_list; c; c = c->next)
 	g_object_unref (G_OBJECT (c->data));
     g_slist_free (priv->backend_list);
-  
+
     g_free (priv);
-  
+
     if (G_OBJECT_CLASS (parent_class)->finalize)
 	G_OBJECT_CLASS (parent_class)->finalize (object);
 }
@@ -180,7 +180,7 @@ glibtop_client_propagate_error (glibtop_client *client, GError *error)
     g_signal_emitv (params,
 		    glibtop_client_signals [GLIBTOP_CLIENT_SIGNAL_ERROR],
 		    0, NULL);
-  
+
     g_value_unset (params + 1);
     g_value_unset (params + 0);
 }
@@ -204,7 +204,7 @@ glibtop_client_propagate_warning (glibtop_client *client, GError *error)
     g_signal_emitv (params,
 		    glibtop_client_signals [GLIBTOP_CLIENT_SIGNAL_WARNING],
 		    0, NULL);
-  
+
     g_value_unset (params + 1);
     g_value_unset (params + 0);
 }

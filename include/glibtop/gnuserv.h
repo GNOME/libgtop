@@ -9,15 +9,15 @@
 
  Copyright (C) 1989 Free Software Foundation, Inc.
 
- Author: Andy Norman (ange@hplb.hpl.hp.com), based on 
+ Author: Andy Norman (ange@hplb.hpl.hp.com), based on
          'etc/server.c' and 'etc/emacsclient.c' from the 18.52 GNU
          Emacs distribution.
 
  Please mail bugs and suggestions to the author at the above address.
 */
 
-/* HISTORY 
- * 11-Nov-1990		bristor@simba	
+/* HISTORY
+ * 11-Nov-1990		bristor@simba
  *    Added EOT stuff.
  */
 
@@ -76,7 +76,7 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
  */
 
 #if 0
-#define MCOOKIE_SCREEN "42980"   /* screen # to use as the gnuserv cookie */ 
+#define MCOOKIE_SCREEN "42980"   /* screen # to use as the gnuserv cookie */
 #endif
 #define MCOOKIE_NAME   "MAGIC-1" /* authentication protocol name */
 #define MCOOKIE_X_NAME "MIT-MAGIC-COOKIE-1"  /* as needed by X */
@@ -106,7 +106,7 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
  * since it limits the size of requests and responses. Don't make it bigger
  * than your system's max message size though (usually a couple of k) or else
  * msgsend will start failing. For sockets, using the system BUFSIZ is usually
- * what you want. 
+ * what you want.
  */
 
 #if defined(INTERNET_DOMAIN_SOCKETS) || defined(UNIX_DOMAIN_SOCKETS)

@@ -45,7 +45,7 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 
-	/* Read process table from kernel. */	
+	/* Read process table from kernel. */
 
 	_glibtop_read_proc_table (server);
 

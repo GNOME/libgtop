@@ -49,7 +49,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 {
 	char buffer [BUFSIZ], *p;
 	struct stat statb;
-	
+
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_STATE, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_state));
@@ -66,7 +66,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 
 	/* For security reasons we use stat () since it is
 	 * more failsafe than parsing the file. */
-	
+
 	buf->uid = statb.st_uid;
 	buf->gid = statb.st_gid;
 

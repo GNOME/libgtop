@@ -1,6 +1,6 @@
 /* $Id$ */
 
-/* 
+/*
    This file is part of LibGTop 1.0.
 
    Contributed by Martin Baulig <martin@home-of-linux.org>, March 1999.
@@ -26,7 +26,7 @@
 
 G_BEGIN_DECLS
 
-extern off_t 
+extern off_t
 _glibtop_get_kmem_offset(glibtop* server, char* kname);
 
 extern int

@@ -44,15 +44,15 @@ void
 glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
 	struct tbl_sysinfo sysinfo;
-	
+
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_UPTIME, 0);
 
 	memset (buf, 0, sizeof (glibtop_uptime));
-	
+
 	if(table (TBL_SYSINFO, 0, (char *) &sysinfo, 1,
 		   sizeof (struct tbl_sysinfo)) != 1)
 	  return;
-		
+
 	buf->uptime = (double) (time (NULL) - sysinfo.si_boottime);
 	buf->boot_time = sysinfo.si_boottime;
 

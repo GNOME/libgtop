@@ -47,24 +47,24 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_LOADAVG, 0);
 
 	memset (buf, 0, sizeof (glibtop_loadavg));
-	
+
 	ret = table (TBL_LOADAVG, 0, (char *) &loadavg, 1,
-		     sizeof (struct tbl_loadavg)); 
+		     sizeof (struct tbl_loadavg));
 
 	if (ret != 1) return;
 
 	buf->flags = _glibtop_sysdeps_loadavg;
-		
+
 	if (loadavg.tl_lscale == 0) {
 		buf->loadavg [0] = loadavg.tl_avenrun.d [0];
 		buf->loadavg [1] = loadavg.tl_avenrun.d [1];
 		buf->loadavg [2] = loadavg.tl_avenrun.d [2];
 	} else {
-		buf->loadavg [0] = 
+		buf->loadavg [0] =
 			(double) loadavg.tl_avenrun.l [0] /
 			(double) loadavg.tl_mach_factor [0];
 		buf->loadavg [1] =
-			(double) loadavg.tl_avenrun.l [1] 
+			(double) loadavg.tl_avenrun.l [1]
 			/ (double) loadavg.tl_mach_factor [1];
 		buf->loadavg [2] =
 			(double) loadavg.tl_avenrun.l [2] /

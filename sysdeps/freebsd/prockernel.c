@@ -104,7 +104,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	struct stat statb;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_KERNEL), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
 
 	if (server->sysdeps.proc_time == 0)
@@ -112,7 +112,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 
 	/* It does not work for the swapper task. */
 	if (pid == 0) return;
-	
+
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1))
@@ -189,7 +189,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 			buf->maj_flt = (guint64) pstats.p_ru.ru_majflt;
 			buf->cmin_flt = (guint64) pstats.p_cru.ru_minflt;
 			buf->cmaj_flt = (guint64) pstats.p_cru.ru_majflt;
-			
+
 			buf->flags |= _glibtop_sysdeps_proc_kernel_pstats;
 		}
 

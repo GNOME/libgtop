@@ -45,15 +45,15 @@ void
 glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 {
 	struct shminfo	shminfo;
-  
+
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SHM_LIMITS, 0);
 
 	memset (buf, 0, sizeof (glibtop_shm_limits));
-  
+
 	buf->flags = _glibtop_sysdeps_shm_limits;
-  
+
 	shmctl (0, IPC_INFO, (struct shmid_ds *) &shminfo);
-  
+
 	buf->shmmax = shminfo.shmmax;
 	buf->shmmin = shminfo.shmmin;
 	buf->shmmni = shminfo.shmmni;

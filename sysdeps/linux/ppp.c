@@ -57,7 +57,7 @@ get_ISDN_stats (glibtop *server, int *in, int *out)
 {
 	unsigned long *isdn_stats, *ptr;
 	int fd, i;
-	
+
 	*in = *out = 0;
 
 	isdn_stats = g_malloc (ISDN_MAX_CHANNELS * 2 * sizeof (unsigned long));
@@ -71,7 +71,7 @@ get_ISDN_stats (glibtop *server, int *in, int *out)
 	if ((ioctl (fd, IIOCGETCPS, isdn_stats) < 0) && (errno != 0)) {
 		g_free (isdn_stats);
 		close (fd);
-		
+
 		return FALSE;
 	}
 

@@ -30,7 +30,7 @@ const char *glibtop_names_ppp [GLIBTOP_MAX_PPP] =
 };
 
 const unsigned glibtop_types_ppp [GLIBTOP_MAX_PPP] =
-{ 
+{
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 

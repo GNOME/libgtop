@@ -50,7 +50,7 @@ static struct task_struct *
 get_task (pid_t pid)
 {
 	struct task_struct ** p;
-	
+
 	p = task;
 	while (++p < task+NR_TASKS) {
 		if (*p && (*p)->pid == pid)
@@ -171,7 +171,7 @@ get_wchan (struct task_struct *p)
 	{
 		unsigned long schedule_frame;
 		unsigned long pc;
-		
+
 		pc = thread_saved_pc(&p->tss);
 		if (pc >= (unsigned long) interruptible_sleep_on && pc < (unsigned long) add_timer) {
 			schedule_frame = ((unsigned long *)p->tss.ksp)[6];
@@ -246,7 +246,7 @@ sys_table (int type, union table *buf, const void *param)
 		tbl.proclist.last_pid = last_pid;
 		break;
 	case TABLE_CPU:
-		tbl.cpu.total = jiffies;    
+		tbl.cpu.total = jiffies;
 		tbl.cpu.user  = kstat.cpu_user;
 		tbl.cpu.nice  = kstat.cpu_nice;
 		tbl.cpu.sys   = kstat.cpu_system;
@@ -294,21 +294,21 @@ sys_table (int type, union table *buf, const void *param)
 		tbl.proc_uid.euid = tsk->euid;
 		tbl.proc_uid.suid = tsk->suid;
 		tbl.proc_uid.fsuid = tsk->fsuid;
-		
+
 		tbl.proc_uid.gid = tsk->gid;
 		tbl.proc_uid.egid = tsk->egid;
 		tbl.proc_uid.sgid = tsk->sgid;
 		tbl.proc_uid.fsgid = tsk->fsgid;
-		
+
 		tbl.proc_uid.pid = tsk->pid;
 		tbl.proc_uid.pgrp = tsk->pgrp;
 		tbl.proc_uid.ppid = tsk->p_pptr->pid;
-		
+
 		tbl.proc_uid.session = tsk->session;
 	        tbl.proc_uid.tty = tsk->tty ?
 			kdev_t_to_nr (tsk->tty->device) : 0;
 		tbl.proc_uid.tpgid = tsk->tty ? tsk->tty->pgrp : -1;
-		
+
 		tbl.proc_uid.priority = tsk->priority;
 		tbl.proc_uid.counter = tsk->counter;
 		tbl.proc_uid.def_priority = DEF_PRIORITY;
@@ -322,7 +322,7 @@ sys_table (int type, union table *buf, const void *param)
 			unsigned long sig_ign = 0, sig_caught = 0;
 			unsigned long bit = 1;
 			int i;
-			
+
 			for (i = 0; i < 32; i++) {
 				switch((unsigned long) action->sa_handler) {
 				case 0:
@@ -376,7 +376,7 @@ sys_table (int type, union table *buf, const void *param)
 			while (vma) {
 				pgd_t *pgd = pgd_offset(tsk->mm, vma->vm_start);
 				int pages = 0, shared = 0, dirty = 0, total = 0;
-				
+
 				vsize += vma->vm_end - vma->vm_start;
 
 				statm_pgd_range (pgd, vma->vm_start, vma->vm_end,
@@ -428,10 +428,10 @@ sys_table (int type, union table *buf, const void *param)
 		tbl.proc_kernel.cmin_flt = tsk->cmin_flt;
 		tbl.proc_kernel.maj_flt = tsk->maj_flt;
 		tbl.proc_kernel.cmaj_flt = tsk->cmaj_flt;
-		
+
 		tbl.proc_kernel.kesp = tsk->kernel_stack_page ? KSTK_EIP(tsk) : 0;
 		tbl.proc_kernel.keip = tsk->kernel_stack_page ? KSTK_ESP(tsk) : 0;
-		
+
 		tbl.proc_kernel.nswap = tsk->nswap;
 		tbl.proc_kernel.cnswap = tsk->cnswap;
 
@@ -442,10 +442,10 @@ sys_table (int type, union table *buf, const void *param)
 			for (rule = chain->chain; rule; rule = rule->next) {
 				const char *name = rule->ipfw.fw_vianame;
 				int k;
-				
+
 				if (name [0] && !strncmp (param, name, 5))
 					continue;
-				
+
 				for (k = 0; k < NUM_SLOTS; k++) {
 					tbl.netacct.packets +=
 						rule->counters[k].pcnt;

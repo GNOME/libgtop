@@ -57,7 +57,7 @@ init_sysinfo (glibtop *server)
 			cpuinfo->labels = g_ptr_array_new ();
 
 			cpuinfo->values = g_hash_table_new (NULL, NULL);
-			
+
 			if (sysinfo.ncpu > GLIBTOP_NCPU)
 				sysinfo.ncpu = GLIBTOP_NCPU;
 		}

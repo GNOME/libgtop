@@ -63,12 +63,12 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 #endif
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_UID), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 
 	/* It does not work for the swapper task. */
 	if (pid == 0) return;
-	
+
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1)) {

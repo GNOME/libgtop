@@ -27,7 +27,7 @@
 #include <glibtop/error.h>
 #include <glibtop/msg_limits.h>
 
-static const unsigned long _glibtop_sysdeps_msg_limits = 
+static const unsigned long _glibtop_sysdeps_msg_limits =
 (1 << GLIBTOP_IPC_MSGMAX) + (1 << GLIBTOP_IPC_MSGMNB) +
 (1 << GLIBTOP_IPC_MSGMNI) + (1 << GLIBTOP_IPC_MSGTQL);
 

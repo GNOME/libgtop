@@ -43,6 +43,6 @@ void
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_SEM_LIMITS, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_sem_limits));
 }

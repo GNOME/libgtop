@@ -42,7 +42,7 @@ glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf,
 
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 
-	/* Read process table from kernel. */	
+	/* Read process table from kernel. */
 
 	_glibtop_read_proc_table (server);
 
@@ -58,6 +58,6 @@ glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf,
 	buf->blocked [0] = pp->p_sigmask;
 	buf->sigignore [0] = pp->p_sigignore;
 	buf->sigcatch [0] = pp->p_sigcatch;
-	
+
 	buf->flags = _glibtop_sysdeps_proc_signal;
 }

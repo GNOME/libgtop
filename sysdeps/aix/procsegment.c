@@ -31,7 +31,7 @@
 
 #include "utils.h"
 
-static const unsigned long _glibtop_sysdeps_proc_segment = 
+static const unsigned long _glibtop_sysdeps_proc_segment =
 (1 << GLIBTOP_PROC_SEGMENT_TEXT_RSS) + (1 << GLIBTOP_PROC_SEGMENT_SHLIB_RSS) +
 (1 << GLIBTOP_PROC_SEGMENT_DATA_RSS) + (1 << GLIBTOP_PROC_SEGMENT_STACK_RSS);
 

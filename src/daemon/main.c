@@ -64,18 +64,18 @@ handle_parent_connection (int s)
 	    syslog_message (LOG_DEBUG,
 			    "Parent (%d) received command %d from client.",
 			    getpid (), (int) cmnd->command);
-	
+
 	if (cmnd->data_size >= BUFSIZ) {
 	    syslog_message (LOG_WARNING,
 			    "Client sent %d bytes, but buffer is %d",
 			    cmnd->data_size, BUFSIZ);
 	    return;
 	}
-		
+
 	memset (resp, 0, sizeof (glibtop_response));
 
 	memset (parameter, 0, sizeof (parameter));
-		
+
 	if (cmnd->data_size) {
 	    if (enable_debug)
 		syslog_message (LOG_DEBUG, "Client has %d bytes of data.",
@@ -92,7 +92,7 @@ handle_parent_connection (int s)
 	    do_output (s, resp, 0, 0, NULL);
 	    return;
 	case GLIBTOP_CMND_SYSDEPS:
-	    memcpy (&resp->u.sysdeps, &server->sysdeps, 
+	    memcpy (&resp->u.sysdeps, &server->sysdeps,
 		    sizeof (glibtop_sysdeps));
 	    resp->u.sysdeps.features = GLIBTOP_SYSDEPS_ALL;
 	    do_output (s, resp, _offset_union (sysdeps), 0, NULL);

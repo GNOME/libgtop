@@ -41,7 +41,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 
 	memset (buf, 0, sizeof (glibtop_proc_time));
 
-	/* Read process table from kernel. */	
+	/* Read process table from kernel. */
 
 	_glibtop_read_proc_table (server);
 

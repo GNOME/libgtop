@@ -54,7 +54,7 @@ glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 	glibtop_cpu cpu;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_UPTIME), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_uptime));
 
 	/* We simply calculate it from the CPU usage. */

@@ -1,3 +1,7 @@
+2004-06-09  Benoît Dejean <TazForEver@dlfp.org>
+
+	* *.{c,h} : whitespace clean up.
+
 2004-06-07  Benoît Dejean  <tazforever@dlfp.org>
 
 	* lib/parameter.c:

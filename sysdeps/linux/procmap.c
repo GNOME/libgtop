@@ -54,7 +54,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	FILE *maps;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_map));
 
 	sprintf (fn, "/proc/%d/maps", pid);
@@ -99,9 +99,9 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		fn [0] = fgetc (maps);
 
 		if (fn [0] != '\n' && fn [0] != EOF) {
-			
+
 			fscanf (maps, "%*[ ]%[^\n]\n", fn);
-			
+
 		} else fn [0] = 0;
 
 		size = (n+1) * sizeof (glibtop_map_entry);
@@ -121,11 +121,11 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		entry_list [n].inode = (guint64) inode;
 
 		g_strlcpy (entry_list [n].filename, fn, sizeof entry_list [n].filename);
-	
+
 		n++;
 
 	} while (rv != EOF && rv && fn [0] != EOF);
-	
+
 	fclose (maps);
 
 	buf->number = n;

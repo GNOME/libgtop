@@ -59,22 +59,22 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	struct user u;
 
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_MEM, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 
 	/* Get task structure. */
-	
+
 	ret = task_by_unix_pid (task_self(), pid, &thistask);
-	
+
 	if (ret != KERN_SUCCESS) return;
-	
+
 	/* Get taskinfo about this task. */
-	
+
 	info_count = TASK_BASIC_INFO_COUNT;
-	
+
 	ret = task_info (thistask, TASK_BASIC_INFO,
 			 (task_info_t) &taskinfo, &info_count);
-	
+
 	if (ret != KERN_SUCCESS) return;
 
 	buf->resident = taskinfo.resident_size;
@@ -84,16 +84,16 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	/* !!! THE FOLLOWING CODE RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 	glibtop_suid_enter (server);
-	
+
 	ret = table (TBL_UAREA, pid, (char *) &u, 1,
 		     sizeof (struct user));
 
 	glibtop_suid_leave (server);
-		     
+
 	/* !!! END OF SUID ROOT PART !!! */
-	
+
 	if (ret != 1) return;
-	
+
 	buf->rss_rlim = u.u_rlimit [RLIMIT_RSS].rlim_cur;
 
 	buf->share = u.u_ru.ru_ixrss;

@@ -49,7 +49,7 @@ glibtop_get_proc_segment_p (glibtop *server,
 			    pid_t pid)
 {
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_SEGMENT), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_segment));
 
 #if 0
@@ -71,7 +71,7 @@ glibtop_get_proc_segment_p (glibtop *server,
 	/* dt: dirty pages
 	 */
 	/* start_code: address of beginning of code segment
-	   
+
 	 */
 	/* end_code: address of end of code segment
 	 */

@@ -47,11 +47,11 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 	char *retval = NULL;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_ARGS, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_args));
 
 	sprintf (fn, "/proc/%d/cmdline", pid);
-	
+
 	cmdline = open (fn, O_RDONLY);
 	if (cmdline < 0) return NULL;
 
@@ -90,11 +90,11 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 		*(retval+total+len) = 0;
 		total += len;
 	}
-	
+
 	close (cmdline);
 
 	buf->size = total;
 	buf->flags = _glibtop_sysdeps_proc_args;
-	
+
 	return retval;
 }

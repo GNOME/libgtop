@@ -86,7 +86,7 @@ main(int argc, char *argv[])
     }
 
     server = glibtop_global_server;
-	
+
     if (!server->_priv)
 	server->_priv = g_malloc (sizeof (glibtop_server_private));
 
@@ -185,5 +185,5 @@ handle_slave_connection (int input, int output)
 	resp.data_size = recv_data_size;
 
 	do_output (output, &resp, recv_ptr, recv_data_ptr);
-    }		
+    }
 }

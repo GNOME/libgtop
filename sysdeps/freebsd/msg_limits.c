@@ -64,7 +64,7 @@ static const unsigned long _glibtop_sysdeps_msg_limits =
  * read it once during initialization. We have to use the name `_msginfo'
  * since `msginfo' is already declared external in <sys/msg.h>. */
 static struct msginfo _msginfo;
-  
+
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
 	{ "_msginfo" },
@@ -80,7 +80,7 @@ glibtop_init_msg_limits_p (glibtop *server)
 		glibtop_warn_io_r (server, "kvm_nlist (msg_limits)");
 		return;
 	}
-	
+
 	if (kvm_read (server->machine.kd, nlst [0].n_value,
 		      &_msginfo, sizeof (_msginfo)) != sizeof (_msginfo)) {
 		glibtop_warn_io_r (server, "kvm_read (msginfo)");
@@ -96,7 +96,7 @@ void
 glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 {
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MSG_LIMITS), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_msg_limits));
 
 	if (server->sysdeps.msg_limits == 0)
@@ -107,8 +107,8 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 	buf->msgmnb = _msginfo.msgmnb;
 	buf->msgtql = _msginfo.msgtql;
 	buf->msgssz = _msginfo.msgtql;
-	
-	buf->flags = _glibtop_sysdeps_msg_limits; 
+
+	buf->flags = _glibtop_sysdeps_msg_limits;
 }
 
 #endif /* either a newer BSDI or no BSDI at all. */

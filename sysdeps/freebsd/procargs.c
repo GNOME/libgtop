@@ -59,7 +59,7 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 #endif
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_ARGS), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_args));
 
 	/* swapper, init, pagedaemon, vmdaemon, update - this doen't work. */

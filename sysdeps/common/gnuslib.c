@@ -1,22 +1,22 @@
 /* -*-C-*-
  * Common library code for the GNU Emacs server and client.
- * 
+ *
  * This file is part of GNU Emacs.
- * 
+ *
  * Copying is permitted under those conditions described by the GNU
  * General Public License.
- * 
+ *
  * Copyright (C) 1989 Free Software Foundation, Inc.
- * 
- * Author: Andy Norman (ange@hplb.hpl.hp.com), based on 
+ *
+ * Author: Andy Norman (ange@hplb.hpl.hp.com), based on
  * 'etc/server.c' and 'etc/emacsclient.c' from the 18.52 GNU
  * Emacs distribution.
- * 
+ *
  * Please mail bugs and suggestions to the author at the above address.
  */
 
-/* HISTORY 
- * 11-Nov-1990                bristor@simba   
+/* HISTORY
+ * 11-Nov-1990                bristor@simba
  *    Added EOT stuff.
  */
 
@@ -200,7 +200,7 @@ connect_to_unix_server (void)
  * internet_addr -- return the internet addr of the hostname or
  * internet address passed. Return -1 on error.
  */
-long 
+long
 glibtop_internet_addr (host)
      const char *host;
 {
@@ -228,7 +228,7 @@ static Xauth *server_xauth = NULL;
 #endif
 
 /*
- * connect_to_internet_server -- establish connection with server process via 
+ * connect_to_internet_server -- establish connection with server process via
  * an internet domain socket. Returns socket
  * descriptor for server if successful.
  */
@@ -257,7 +257,7 @@ connect_to_internet_server (const char *serverhost, u_short port)
 		else
 			peeraddr_in.sin_port = sp->s_port;
 	}
-	/* if */ 
+	/* if */
 	else
 		peeraddr_in.sin_port = htons (port);
 
@@ -326,7 +326,7 @@ disconnect_from_server (s, echo)
 	send_string (s, EOT_STR);	/* make sure server gets string */
 
 #if !defined (linux)  && !defined (_SCO_DS)
-	/* 
+	/*
 	 * shutdown is completely hozed under linux. If s is a unix domain socket,
 	 * you'll get EOPNOTSUPP back from it. If s is an internet socket, you get
 	 * a broken pipe when you try to read a bit later. The latter

@@ -62,17 +62,17 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		fprintf (stderr, "Connecting to '%s' port %ld.\n",
 			 server->server_host, server->server_port);
 #endif
-		
+
 		connect_type = glibtop_make_connection
 			(server->server_host, server->server_port,
 			 &server->socket);
-		
+
 #ifdef DEBUG
 		fprintf (stderr, "Connect Type is %d.\n", connect_type);
 #endif
-		
+
 		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
-		
+
 		server->features = -1;
 		break;
 	case GLIBTOP_METHOD_UNIX:
@@ -83,7 +83,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		connect_type = glibtop_make_connection
 			("unix", 0, &server->socket);
 
-#ifdef DEBUG		
+#ifdef DEBUG
 		fprintf (stderr, "Connect Type is %d.\n", connect_type);
 #endif
 
@@ -101,7 +101,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 			glibtop_error_io_r (server, "cannot make a pipe");
 
 		server->pid  = fork ();
-		
+
 		if (server->pid < 0) {
 			glibtop_error_io_r (server, "fork failed");
 		} else if (server->pid == 0) {
@@ -119,7 +119,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		close (server->output [0]);
 
 		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
-		
+
 		server->features = -1;
 		break;
 	}
@@ -141,25 +141,25 @@ glibtop_open_l (glibtop *server, const char *program_name,
 			 sizeof (glibtop_sysdeps));
 
 		size = strlen (version) + 1;
-	
+
 		glibtop_read_l (server, sizeof (nbytes), &nbytes);
 
 		if (nbytes != size)
 			glibtop_error_r (server,
 					 "Requested %u bytes but got %u.",
 					 size, nbytes);
-		
+
 		glibtop_read_l (server, nbytes, buffer);
-		
+
 		if (memcmp (version, buffer, size))
 			glibtop_error_r (server, "server version is not %s",
 					 LIBGTOP_VERSION);
 
 		/* Now ask it for its features. */
-		
+
 		glibtop_call_l (server, GLIBTOP_CMND_SYSDEPS, 0, NULL,
 				sizeof (glibtop_sysdeps), &sysdeps);
-		
+
 		server->features = sysdeps.features;
 
 		memcpy (&server->sysdeps, &sysdeps, sizeof (glibtop_sysdeps));
@@ -176,6 +176,6 @@ glibtop_open_l (glibtop *server, const char *program_name,
 #ifdef DEBUG
 	fprintf (stderr, "Calling sysdeps open function.\n");
 #endif
-	
+
 	glibtop_init_s (&server, features, flags);
 }

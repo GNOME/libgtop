@@ -53,7 +53,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
 {
 	union table tbl;
 	long def_priority, priority, nice;
-	
+
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_UID, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_uid));
@@ -91,7 +91,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
 	if (buf->tty == 0)
 		/* the old notty val, update elsewhere bef. moving to 0 */
 		buf->tty = -1;
-	
+
 	if (server->os_version_code < LINUX_VERSION(1,3,39)) {
 		/* map old meanings to new */
 		buf->priority = 2*15 - buf->priority;
@@ -100,6 +100,6 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
 	if (server->os_version_code < LINUX_VERSION(1,1,30) && buf->tty != -1)
 		/* when tty wasn't full devno */
 		buf->tty = 4*0x100 + buf->tty;
-	
+
 	buf->flags = _glibtop_sysdeps_proc_uid;
 }

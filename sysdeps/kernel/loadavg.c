@@ -45,14 +45,14 @@ void
 glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
 	union table tbl;
-	
+
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_LOADAVG, 0);
 
 	memset (buf, 0, sizeof (glibtop_loadavg));
 
 	if (table (TABLE_LOADAVG, &tbl, NULL))
 		glibtop_error_io_r (server, "table(TABLE_LOADAVG)");
-	
+
 	buf->flags = _glibtop_sysdeps_loadavg;
 
 	buf->loadavg [0] = tbl.loadavg.loadavg [0];

@@ -95,7 +95,7 @@ main(int argc, char *argv[])
 		_exit (1);
 	}
 #endif
-	
+
 	glibtop_init_p (glibtop_global_server, 0, 0);
 
 	if (setreuid (euid, uid)) _exit (1);

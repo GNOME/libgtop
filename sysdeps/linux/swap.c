@@ -71,7 +71,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	buffer [len] = '\0';
 
 	/* Kernel 2.6 with multiple lines */
- 
+
 	buf->total = get_scaled(buffer, "SwapTotal:");
 	buf->free = get_scaled(buffer, "SwapFree:");
 	buf->used = buf->total - buf->free;

@@ -30,7 +30,7 @@
 static void
 print_server_name (glibtop *server)
 {
-	fprintf (stderr, "%s: ", server ? 
+	fprintf (stderr, "%s: ", server ?
 		 (server->name ? server->name : DEFAULT_NAME)
 		 : DEFAULT_NAME);
 }
@@ -38,7 +38,7 @@ print_server_name (glibtop *server)
 void
 glibtop_error_vr (glibtop *server, char *format, va_list args)
 {
-	print_server_name (server);	
+	print_server_name (server);
 	vfprintf (stderr, format, args);
 	fprintf (stderr, "\n");
 

@@ -25,13 +25,13 @@
 #include "libgtop-i18n.h"
 
 const char *glibtop_names_mem [GLIBTOP_MAX_MEM] =
-{ 
+{
 	"total", "used", "free", "shared", "buffer",
 	"cached", "user", "locked"
 };
 
 const unsigned glibtop_types_mem [GLIBTOP_MAX_MEM] =
-{ 
+{
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG

@@ -40,6 +40,6 @@ glibtop_init_r (glibtop **server,
 		glibtop_open (glibtop_global_server, "glibtop",
 			      features, flags);
 	}
-	
+
 	return *server = glibtop_global_server;
 }

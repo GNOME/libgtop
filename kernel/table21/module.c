@@ -140,7 +140,7 @@ static unsigned long get_wchan(struct task_struct *p)
 		return ((unsigned long *)schedule_frame)[12];
 	    }
 	    return pc;
-	}	
+	}
 #elif defined(__mc68000__)
 	{
 	    unsigned long fp, pc;
@@ -388,7 +388,7 @@ table_fkt (int type, union table *buf, const void *param)
 			if ((plistargs.which & TABLE_EXCLUDE_NOTTY) &&
 			    (tsk->tty == NULL))
 				continue;
-			
+
 			tbl.proclist.pids [tindex++] = tsk->pid;
 		}
 		tbl.proclist.nr_running = nr_running;
@@ -397,7 +397,7 @@ table_fkt (int type, union table *buf, const void *param)
 		read_unlock(&tasklist_lock);
 		break;
 	case TABLE_CPU:
-		tbl.cpu.total = jiffies;    
+		tbl.cpu.total = jiffies;
 		tbl.cpu.user  = kstat.cpu_user;
 		tbl.cpu.nice  = kstat.cpu_nice;
 		tbl.cpu.sys   = kstat.cpu_system;
@@ -446,21 +446,21 @@ table_fkt (int type, union table *buf, const void *param)
 		tbl.proc_uid.euid = tsk->euid;
 		tbl.proc_uid.suid = tsk->suid;
 		tbl.proc_uid.fsuid = tsk->fsuid;
-		
+
 		tbl.proc_uid.gid = tsk->gid;
 		tbl.proc_uid.egid = tsk->egid;
 		tbl.proc_uid.sgid = tsk->sgid;
 		tbl.proc_uid.fsgid = tsk->fsgid;
-		
+
 		tbl.proc_uid.pid = tsk->pid;
 		tbl.proc_uid.pgrp = tsk->pgrp;
 		tbl.proc_uid.ppid = tsk->p_pptr->pid;
-		
+
 		tbl.proc_uid.session = tsk->session;
 	        tbl.proc_uid.tty = tsk->tty ?
 			kdev_t_to_nr (tsk->tty->device) : 0;
 		tbl.proc_uid.tpgid = tsk->tty ? tsk->tty->pgrp : -1;
-		
+
 		tbl.proc_uid.priority = tsk->priority;
 		tbl.proc_uid.counter = tsk->counter;
 		tbl.proc_uid.def_priority = DEF_PRIORITY;
@@ -520,7 +520,7 @@ table_fkt (int type, union table *buf, const void *param)
 			while (vma) {
 				pgd_t *pgd = pgd_offset(tsk->mm, vma->vm_start);
 				int pages = 0, shared = 0, dirty = 0, total = 0;
-				
+
 				vsize += vma->vm_end - vma->vm_start;
 
 				statm_pgd_range (pgd, vma->vm_start, vma->vm_end,
@@ -584,10 +584,10 @@ table_fkt (int type, union table *buf, const void *param)
 		tbl.proc_kernel.cmin_flt = tsk->cmin_flt;
 		tbl.proc_kernel.maj_flt = tsk->maj_flt;
 		tbl.proc_kernel.cmaj_flt = tsk->cmaj_flt;
-		
+
 		tbl.proc_kernel.kesp = KSTK_ESP(tsk);
 		tbl.proc_kernel.keip = KSTK_EIP(tsk);
-		
+
 		tbl.proc_kernel.nswap = tsk->nswap;
 		tbl.proc_kernel.cnswap = tsk->cnswap;
 

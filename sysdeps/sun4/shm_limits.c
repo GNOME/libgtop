@@ -44,15 +44,15 @@ void
 glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
 	struct shminfo	shminfo;
-  
+
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
 
 	memset (buf, 0, sizeof (glibtop_shm_limits));
-  
+
 	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
-	
+
 	setregid (server->machine.gid, server->machine.egid);
-	
+
 	/* get the load average array */
 
 	(void) _glibtop_getkval (server, _glibtop_nlist [X_SHMINFO].n_value,
@@ -61,7 +61,7 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 
 	if (setregid (server->machine.egid, server->machine.gid))
 		_exit (1);
-	
+
 	/* !!! END OF SGID KMEM PART !!! */
 
   	buf->shmmax = shminfo.shmmax;

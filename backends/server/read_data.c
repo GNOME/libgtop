@@ -45,10 +45,10 @@ glibtop_read_data_i (backend_server_private *priv)
     fprintf (stderr, "LIBRARY: really reading %d data bytes (ret = %d).\n", size, ret);
 #endif
 
-    if (!size) return NULL;	
+    if (!size) return NULL;
 
     ptr = g_malloc (size);
-	
+
     ret = read (priv->input [0], ptr, size);
 
     if (ret < 0)

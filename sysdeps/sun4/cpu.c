@@ -40,22 +40,22 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	int i;
 
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_CPU), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_cpu));
 
 	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
 
 	glibtop_suid_enter (server);
-	
+
 	/* get the cp_time array */
 
 	(void) _glibtop_getkval (server, _glibtop_nlist [X_CP_TIME].n_value,
 				 (int *) cp_time, sizeof (cp_time),
 				 _glibtop_nlist [X_CP_TIME].n_name);
-	
+
 #ifdef MULTIPROCESSOR
 	/* get the mp_time array as well */
-	
+
 	if (server->machine.ncpu > 1) {
 		(void) _glibtop_getkval (server, _glibtop_nlist [X_MP_TIME].n_value,
 					 (int *) mp_time, sizeof (mp_time),
@@ -63,10 +63,10 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	}
 #endif
 
-	glibtop_suid_leave (server);	
-	
+	glibtop_suid_leave (server);
+
 	/* !!! END OF SUID ROOT PART !!! */
-	
+
 #ifdef MULTIPROCESSOR
 	/* If we have multiple processors, we add the times for each of them
 	 * and set frequency to 100 times the number of the processors. */

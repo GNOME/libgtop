@@ -43,6 +43,6 @@ void
 glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 {
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_CPU, 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_cpu));
 }

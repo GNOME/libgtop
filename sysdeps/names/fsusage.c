@@ -30,7 +30,7 @@ const char *glibtop_names_fsusage [GLIBTOP_MAX_FSUSAGE] =
 };
 
 const unsigned glibtop_types_fsusage [GLIBTOP_MAX_FSUSAGE] =
-{ 
+{
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };

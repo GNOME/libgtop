@@ -31,9 +31,9 @@
 
 #include "utils.h"
 
-static const unsigned long _glibtop_sysdeps_proc_mem = 
+static const unsigned long _glibtop_sysdeps_proc_mem =
 (1 << GLIBTOP_PROC_MEM_SIZE) + (1 << GLIBTOP_PROC_MEM_VSIZE) +
-(1 << GLIBTOP_PROC_MEM_RESIDENT) + (1 << GLIBTOP_PROC_MEM_RSS) + 
+(1 << GLIBTOP_PROC_MEM_RESIDENT) + (1 << GLIBTOP_PROC_MEM_RSS) +
 (1 << GLIBTOP_PROC_MEM_RSS_RLIM);
 
 /* Init function. */
@@ -62,7 +62,7 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
 
 		return;
         }
-	
+
 	pagesize = sysconf(_SC_PAGESIZE);
 
 	buf->vsize = buf->size = pinfo->pi_size * pagesize;

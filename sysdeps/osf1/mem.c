@@ -55,14 +55,14 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	memset (buf, 0, sizeof (glibtop_mem));
 
 	buf->flags = _glibtop_sysdeps_mem;
-	
+
 	(void) vm_statistics(task_self(), &vmstats);
 
 	buf->free = vmstats.free_count   * vmstats.pagesize;
 	buf->used = vmstats.active_count * vmstats.pagesize;
 
 	/* [FIXME]: Is this correct? */
-	
+
 	buf->total = (vmstats.active_count + vmstats.inactive_count +
 		      vmstats.free_count + vmstats.wire_count) *
 		vmstats.pagesize;

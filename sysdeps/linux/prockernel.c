@@ -45,7 +45,7 @@ void
 glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid)
 {
 	char buffer [BUFSIZ], *p;
-	
+
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
@@ -68,9 +68,9 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid)
 
 	buf->kstk_esp = strtoull (p, &p, 0);
 	buf->kstk_eip = strtoull (p, &p, 0);
-	
+
 	p = skip_multiple_token (p, 4);
-	
+
 	buf->nwchan = strtoull (p, &p, 0);
 
 	buf->flags = _glibtop_sysdeps_proc_kernel;

@@ -100,7 +100,7 @@ glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device)
 	int phase;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PPP), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_ppp));
 
 	if (kvm_read (server->machine.kd, nlst [0].n_value,

@@ -87,7 +87,7 @@ main (int argc, char *argv [])
 		"Feature", "Flags", "Count", "utime", "stime");
 	printf ("-------------------------------------------"
 		"---------------\n");
-	
+
 	glibtop_init_r (&glibtop_global_server, 0, 0);
 
 	getrusage (RUSAGE_SELF, &total_start);
@@ -303,7 +303,7 @@ main (int argc, char *argv [])
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_signal (&data.proc_signal, pid);
-	
+
 	getrusage (RUSAGE_SELF, &rusage_end);
 
 	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
@@ -334,7 +334,7 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_kernel.flags, PROFILE_COUNT,
 		(long double) ELAPSED_UTIME / PROFILE_COUNT,
 		(long double) ELAPSED_STIME / PROFILE_COUNT);
-	
+
 	getrusage (RUSAGE_SELF, &total_end);
 
 	libgtop_timersub (&total_end.ru_utime, &total_start.ru_utime,

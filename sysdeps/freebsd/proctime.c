@@ -138,12 +138,12 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	struct stat statb;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_TIME), 0);
-	
+
 	memset (buf, 0, sizeof (glibtop_proc_time));
 
 	/* It does not work for the swapper task. */
 	if (pid == 0) return;
-	
+
 #if (defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000))
 	if (server->sysdeps.proc_time == 0)
 		return;
@@ -188,7 +188,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 
 	buf->utime = tv2sec (pstats.p_ru.ru_utime);
 	buf->stime = tv2sec (pstats.p_ru.ru_stime);
-			
+
 	buf->cutime = tv2sec (pstats.p_cru.ru_utime);
 	buf->cstime = tv2sec (pstats.p_cru.ru_stime);
 
@@ -250,7 +250,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 
 			buf->utime = tv2sec (pstats.p_ru.ru_utime);
 			buf->stime = tv2sec (pstats.p_ru.ru_stime);
-			
+
 			buf->cutime = tv2sec (pstats.p_cru.ru_utime);
 			buf->cstime = tv2sec (pstats.p_cru.ru_stime);
 
