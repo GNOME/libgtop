@@ -29,7 +29,8 @@ const char *glibtop_names_proc_state [GLIBTOP_MAX_PROC_STATE] =
 
 const char *glibtop_types_proc_state [GLIBTOP_MAX_PROC_STATE] =
 {
-	"char *", "char", "int", "int"
+	GLIBTOP_TYPE_STRING, GLIBTOP_TYPE_CHAR,
+	GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT
 };
 
 const char *glibtop_labels_proc_state [GLIBTOP_MAX_PROC_STATE] =

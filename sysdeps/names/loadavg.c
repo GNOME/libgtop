@@ -28,7 +28,7 @@ const char *glibtop_names_loadavg [GLIBTOP_MAX_LOADAVG] =
 
 const char *glibtop_types_loadavg [GLIBTOP_MAX_LOADAVG] =
 {
-	"double"
+	GLIBTOP_TYPE_DOUBLE
 };
 
 const char *glibtop_labels_loadavg [GLIBTOP_MAX_LOADAVG] =

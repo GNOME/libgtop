@@ -30,8 +30,9 @@ const char *glibtop_names_proc_kernel [GLIBTOP_MAX_PROC_KERNEL] =
 
 const char *glibtop_types_proc_kernel [GLIBTOP_MAX_PROC_KERNEL] =
 {
-	"unsigned long", "unsigned long", "unsigned long", "unsigned long",
-	"unsigned long", "unsigned long", "unsigned long", "unsigned long"
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_proc_kernel [GLIBTOP_MAX_PROC_KERNEL] =

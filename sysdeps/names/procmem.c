@@ -36,7 +36,8 @@ const char *glibtop_names_proc_mem [GLIBTOP_MAX_PROC_MEM] =
 
 const char *glibtop_types_proc_mem [GLIBTOP_MAX_PROC_MEM] =
 {
-	"long", "long", "long", "long", "long", "long"
+	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
+	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG
 };
 
 const char *glibtop_labels_proc_mem [GLIBTOP_MAX_PROC_MEM] =

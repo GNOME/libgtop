@@ -28,8 +28,8 @@ const char *glibtop_names_cpu [GLIBTOP_MAX_CPU] =
 
 const char *glibtop_types_cpu [GLIBTOP_MAX_CPU] =
 { 
-	"unsigned long", "unsigned long", "unsigned long",
-	"unsigned long", "unsigned long", "unsigned long"
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_cpu [GLIBTOP_MAX_CPU] =

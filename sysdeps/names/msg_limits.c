@@ -28,8 +28,9 @@ const char *glibtop_names_msg_limits [GLIBTOP_MAX_MSG_LIMITS] =
 
 const char *glibtop_types_msg_limits [GLIBTOP_MAX_MSG_LIMITS] =
 {
-	"unsigned long", "unsigned long", "unsigned long", "unsigned long",
-	"unsigned long", "unsigned long", "unsigned long"
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_msg_limits [GLIBTOP_MAX_MSG_LIMITS] =

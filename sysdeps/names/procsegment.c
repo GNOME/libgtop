@@ -29,8 +29,9 @@ const char *glibtop_names_proc_segment [GLIBTOP_MAX_PROC_SEGMENT] =
 
 const char *glibtop_types_proc_segment [GLIBTOP_MAX_PROC_SEGMENT] =
 {
-	"long", "long", "long", "long", "unsigned long",
-	"unsigned long", "unsigned long"
+	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
+	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_proc_segment [GLIBTOP_MAX_PROC_SEGMENT] =

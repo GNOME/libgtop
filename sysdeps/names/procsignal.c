@@ -29,7 +29,8 @@ const char *glibtop_names_proc_signal [GLIBTOP_MAX_PROC_SIGNAL] =
 
 const char *glibtop_types_proc_signal [GLIBTOP_MAX_PROC_SIGNAL] =
 {
-	"int", "int", "int", "int"
+	GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
+	GLIBTOP_TYPE_INT
 };
 
 const char *glibtop_labels_proc_signal [GLIBTOP_MAX_PROC_SIGNAL] =

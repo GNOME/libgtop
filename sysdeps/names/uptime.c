@@ -28,7 +28,7 @@ const char *glibtop_names_uptime [GLIBTOP_MAX_UPTIME] =
 
 const char *glibtop_types_uptime [GLIBTOP_MAX_UPTIME] =
 {
-	"double", "double"
+	GLIBTOP_TYPE_DOUBLE, GLIBTOP_TYPE_DOUBLE
 };
 
 const char *glibtop_labels_uptime [GLIBTOP_MAX_UPTIME] =

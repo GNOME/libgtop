@@ -28,7 +28,7 @@ const char *glibtop_names_proclist [GLIBTOP_MAX_PROCLIST] =
 
 const char *glibtop_types_proclist [GLIBTOP_MAX_PROCLIST] =
 {
-	"unsigned long", "unsigned long", "unsigned long"
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_proclist [GLIBTOP_MAX_PROCLIST] =

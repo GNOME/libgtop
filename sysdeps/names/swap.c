@@ -28,7 +28,7 @@ const char *glibtop_names_swap [GLIBTOP_MAX_SWAP] =
 
 const char *glibtop_types_swap [GLIBTOP_MAX_SWAP] =
 {
-	"unsigned long", "unsigned long", "unsigned long"
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_swap [GLIBTOP_MAX_SWAP] =

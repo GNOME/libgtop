@@ -29,9 +29,9 @@ const char *glibtop_names_mem [GLIBTOP_MAX_MEM] =
 
 const char *glibtop_types_mem [GLIBTOP_MAX_MEM] =
 { 
-	"unsigned long", "unsigned long", "unsigned long",
-	"unsigned long", "unsigned long", "unsigned long",
-	"unsigned long", "unsigned long"
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_mem [GLIBTOP_MAX_MEM] =

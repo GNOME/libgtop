@@ -29,9 +29,10 @@ const char *glibtop_names_sem_limits [GLIBTOP_MAX_SEM_LIMITS] =
 
 const char *glibtop_types_sem_limits [GLIBTOP_MAX_SEM_LIMITS] =
 {
-	"unsigned long", "unsigned long", "unsigned long", "unsigned long",
-	"unsigned long", "unsigned long", "unsigned long", "unsigned long",
-	"unsigned long", "unsigned long"
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_sem_limits [GLIBTOP_MAX_SEM_LIMITS] =

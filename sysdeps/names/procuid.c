@@ -43,8 +43,10 @@ const char *glibtop_names_proc_uid [GLIBTOP_MAX_PROC_UID] =
 
 const char *glibtop_types_proc_uid [GLIBTOP_MAX_PROC_UID] =
 {
-	"int", "int", "int", "int", "int", "int", "int",
-	"int", "int", "int", "int", "int"
+	GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
+	GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
+	GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
+	GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT
 };
 
 const char *glibtop_labels_proc_uid [GLIBTOP_MAX_PROC_UID] =

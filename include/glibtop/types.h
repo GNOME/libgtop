@@ -19,33 +19,18 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <glibtop/shm_limits.h>
+#ifndef __GLIBTOP_TYPES_H__
+#define __GLIBTOP_TYPES_H__
 
-const char *glibtop_names_shm_limits [GLIBTOP_MAX_SHM_LIMITS] =
-{
-	"shmmax", "shmmin", "shmmni", "shmseg", "shmall"
-};
+__BEGIN_DECLS
 
-const char *glibtop_types_shm_limits [GLIBTOP_MAX_SHM_LIMITS] =
-{
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
-};
+#define GLIBTOP_TYPE_LONG	1
+#define GLIBTOP_TYPE_ULONG	2
+#define GLIBTOP_TYPE_DOUBLE	3
+#define GLIBTOP_TYPE_INT	4
+#define GLIBTOP_TYPE_CHAR	5
+#define GLIBTOP_TYPE_STRING	6
 
-const char *glibtop_labels_shm_limits [GLIBTOP_MAX_SHM_LIMITS] =
-{
-	N_("Max segment size"),
-	N_("Min segment size"),
-	N_("Max number of segments"),
-	N_("Max shared segments per process"),
-	N_("Max total shared memory")
-};
+__END_DECLS
 
-const char *glibtop_descriptions_shm_limits [GLIBTOP_MAX_SHM_LIMITS] =
-{
-	N_("Max segment size"),
-	N_("Min segment size"),
-	N_("Max number of segments"),
-	N_("Max shared segments per process"),
-	N_("Max total shared memory")
-};
+#endif
