@@ -36,8 +36,6 @@
 #include <sys/times.h>
 #include <sys/resource.h>
 
-#include <glibtop_private.h>
-
 #ifndef PROFILE_COUNT
 #define PROFILE_COUNT			100000L
 #endif
