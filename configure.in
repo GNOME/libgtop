@@ -352,7 +352,7 @@ LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS $LIBGTOP_XML_LIB"
 LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common -lgtop"
 
 if test x$linux_use_gmodule != xyes ; then
-  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_backend_sysdeps -lgtop_backend_common"
+  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_backend_sysdeps -lgtop_sysdeps -lgtop_backend_common"
 fi
 
 LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names"
