@@ -1,6 +1,7 @@
 2001-04-20  Martin Baulig  <baulig@suse.de>
 
-	* include/glibtop/closure.h: New file.
+	* include/glibtop/glibtop-server.h (glibtop_closure):
+	Typedef this as an opaque struct.
 
 2001-04-20  Martin Baulig  <baulig@suse.de>
 

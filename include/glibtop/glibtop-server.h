@@ -28,12 +28,13 @@
 
 #include <glibtop/global.h>
 #include <glibtop/sysdeps.h>
-#include <glibtop/closure.h>
 
 BEGIN_LIBGTOP_DECLS
 
 typedef struct _glibtop_server		glibtop_server;
 typedef struct _glibtop_server_info	glibtop_server_info;
+
+typedef struct _glibtop_closure		glibtop_closure;
 
 typedef int (*glibtop_init_func_t)	(glibtop_server *);
 

@@ -11,7 +11,7 @@ glibtop_HEADERS		= close.h loadavg.h prockernel.h procstate.h \
 			  netinfo.h interfaces.h limits.h array.h compat_10.h \
 			  glib-arrays.h call-vector.h \
 			  glibtop-client.h glibtop-server.h glibtop-backend.h \
-			  glibtop-backend-info.h errors.h closure.h
+			  glibtop-backend-info.h errors.h
 
 BUILT_SOURCES		= call-vector.h
 
