@@ -54,8 +54,8 @@ void
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
 	char buffer [BUFSIZ], *p;
-	int fd, len, i;
-	guint64 total;
+	int fd, len;
+	guint i;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
@@ -73,6 +73,10 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 
 	buffer [len] = '\0';
 
+	/*
+	 * GLOBAL
+	 */
+
 	p = skip_token (buffer);	/* "cpu" */
 
 	buf->user = strtoull (p, &p, 0);
@@ -85,20 +89,24 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	buf->sys  += strtoull(p, &p, 0); /* "irq" */
 	buf->sys  += strtoull(p, &p, 0); /* "softirq" */	
 
-	total = buf->user;
-	total += buf->nice;
-	total += buf->sys;
-	total += buf->idle;
-	buf->total = total;
+	buf->total = buf->user + buf->nice + buf->sys + buf->idle; 
 
 	buf->frequency = 100;
 	buf->flags = _glibtop_sysdeps_cpu;
 
-	for (i = 0; i < server->ncpu; i++) {
-		if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
+	/* 
+	 * PER CPU
+	 */
+	
+	for (i = 0; i < GLIBTOP_NCPU && i < server->ncpu; i++) {
+	
+		p = skip_line(p); /* move to ^ */
+
+		if (strncmp (p, "cpu", 3) || !isdigit (p [3]))
 			break;
 
-		p += 6;
+		p = skip_token(p); /* "cpuN" */
+
 		buf->xcpu_user [i] = strtoull (p, &p, 0);
 		buf->xcpu_nice [i] = strtoull (p, &p, 0);
 		buf->xcpu_sys  [i] = strtoull (p, &p, 0);
@@ -109,13 +117,12 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 		buf->xcpu_sys  [i]  += strtoull(p, &p, 0); /* "irq" */
 		buf->xcpu_sys  [i]  += strtoull(p, &p, 0); /* "softirq" */
 
-		total = buf->xcpu_user [i];
-		total += buf->xcpu_nice [i];
-		total += buf->xcpu_sys [i];
-		total += buf->xcpu_idle [i];
-
-		buf->xcpu_total [i] = total;
+		buf->xcpu_total[i] = buf->xcpu_user [i] \
+			+ buf->xcpu_nice [i] \
+			+ buf->xcpu_sys  [i] \
+			+ buf->xcpu_idle [i];
 	}
 
-	buf->flags |= _glibtop_sysdeps_cpu_smp;
+	if(i >= 2) /* ok, that's a real SMP */
+		buf->flags |= _glibtop_sysdeps_cpu_smp;
 }

@@ -53,8 +53,8 @@ skip_multiple_token (const char *p, int count)
 static inline char *
 skip_line (const char *p)
 {
-	while (*p != '\n') p++;
-	return (char *) ++p;
+	while (*p && *p != '\n') p++;
+	return (char *) (*p ? p+1 : p);
 }
 
 static inline unsigned long long
@@ -62,11 +62,12 @@ get_scaled(const char *buffer, const char *key)
 {
   const char    *ptr;
   char          *next;
+  const size_t len = strlen(key);
   unsigned long long value = 0;
   
   if ((ptr = strstr(buffer, key)))
     {
-      ptr += strlen(key);
+      ptr += len;
       value = strtoull(ptr, &next, 0);
       if (strchr(next, 'k'))
 	value *= 1024;

@@ -1,3 +1,13 @@
+2004-05-19 Benoit Dejean  <TazForEver@dlfp.org>
+
+	* glibtop_server.h (skip_line): Added test for end of string.
+	(get_scaled): Cleaned.
+
+	* cpu.c (glibtop_get_cpu_s):
+	* open.c (glibtop_open_s): Fixed SMP detection. Closes #142597.
+
+	* uptime.c (glibtop_get_uptime_s): Added boot_time.
+
 2004-03-09  Bastien Nocera  <hadess@hadess.net>
 
 	* cpu.c: (glibtop_get_cpu_s): fixup CPU usage calculation on 2.6
