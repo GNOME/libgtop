@@ -23,8 +23,10 @@
 #define __GLIBTOP_GLOBAL_H__
 
 #ifdef _IN_LIBGTOP
-
 #include <config.h>
+#endif
+
+#ifdef WITHOUT_GNOME
 
 /* __BEGIN_DECLS should be used at the beginning of your declarations,
    so that C++ compilers don't mangle their names.  Use __END_DECLS at
@@ -52,6 +54,10 @@
 #else
 # define __P(protos) ()
 #endif
+
+#endif /* WITHOUT_GNOME */
+
+#ifdef _IN_LIBGTOP
 
 /* Provide macros to feature the GCC function attribute.
  */

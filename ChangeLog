@@ -1,5 +1,15 @@
 1999-02-12  Martin Baulig  <martin@home-of-linux.org>
 
+	Thanks to Frederic Devernay for pointing out that we need to define
+	__BEGIN_DECLS and __END_DECLS when not using GNOME.
+
+	* configure.in: Define `WITHOUT_GNOME' if appropriate.
+
+	* include/glibtop/global.h: Define __BEGIN_DECLS and __END_DECLS
+	when WITHOUT_GNOME not when _IN_LIBGTOP.
+
+1999-02-12  Martin Baulig  <martin@home-of-linux.org>
+
 	* include/glibtop/global.h: Applied patch from Frederic Devernay;
 	__BEGIN_DECLS and __END_DECLS are only defined inside _IN_LIBGTOP.
 
