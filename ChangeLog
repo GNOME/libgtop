@@ -1,5 +1,11 @@
 2004-07-07  Benoît Dejean  <tazforever@dlfp.org>
 
+	* include/glibtop/procargs.h: Added new glibtop_get_proc_argv*() functions.
+	These are more easier to use than glibtop_get_proc_args*(). They return
+	a NULL-terminated array of string (like main's char* argv[]).
+
+2004-07-07  Benoît Dejean  <tazforever@dlfp.org>
+
 	* include/glibtop/netinfo.h:
 	* structures.def:
 	* sysdeps/names/netinfo.c: Removed netinfo.[ch] that were never used.
