@@ -5,12 +5,13 @@
 #
 # sarantis: ~134 messages, (unknown), initial translation.
 # simos: 240 messages, 19Feb2001, added more messages, still 65 left.
+# simos: 308 messages, 25Feb2001, completed.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2001-02-23 13:15+0000\n"
-"PO-Revision-Date: 2001-02-23 13:30:54+0900\n"
+"POT-Creation-Date: 2001-02-25 20:01+0000\n"
+"PO-Revision-Date: 2001-02-25 20:17:13+0900\n"
 "Last-Translator: Simos Xenitellis <simos@hellug.gr>\n"
 "Language-Team: Greek <nsl@tux.hellug.gr>\n"
 "MIME-Version: 1.0\n"
@@ -159,7 +160,8 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Σφάλμα στην επιλογή %s: %s.\n"
-"Εκτελέστε '%s --help' για να δείτε την πλήρη λίστα των διαθέσιμων επιλογών γραμμής εντολής.\n"
+"Εκτελέστε '%s --help' για να δείτε την πλήρη λίστα των διαθέσιμων επιλογών "
+"γραμμής εντολής.\n"
 
 # support/error.c:109
 #: support/error.c:109
@@ -1059,12 +1061,12 @@ msgstr "χρόνος ΚΜΕ της διεργασίας σε κατάσταση πυρήνα"
 # sysdeps/names/proctime.c:58
 #: sysdeps/names/proctime.c:55
 msgid "cumulative utime of process and reaped children"
-msgstr ""
+msgstr "αθροιστικός χρόνος utime διεργασίας και παιδιών της"
 
 # sysdeps/names/proctime.c:59
 #: sysdeps/names/proctime.c:56
 msgid "cumulative stime of process and reaped children"
-msgstr ""
+msgstr "αθροιστικός χρόνος stime διεργασίας και παιδιών της"
 
 # sysdeps/names/proctime.c:60
 #: sysdeps/names/proctime.c:57
@@ -1077,6 +1079,8 @@ msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
+"Ο χρόνος (σε τζίφια) πριν σταλθεί το επόμενο SIGALRM στη διεργασία λόγω "
+"κάποιου χρονιστή διαλείμματος."
 
 # sysdeps/names/proctime.c:63
 #: sysdeps/names/proctime.c:60
@@ -1256,67 +1260,67 @@ msgstr "Μέγιστη τιμή σηματοφόρου"
 # sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Adjust on exit max value"
-msgstr ""
+msgstr "Ρύθμιση στην έξοδο μέγιστη τιμή"
 
 # sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
 msgid "Max segment size"
-msgstr ""
+msgstr "Μέγ. μέγεθος τμήματος"
 
 # sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Min segment size"
-msgstr ""
+msgstr "Ελάχ. μέγεθος τμήματος"
 
 # sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max number of segments"
-msgstr ""
+msgstr "Μεγ. αριθμός τμημάτων"
 
 # sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max shared segments per process"
-msgstr ""
+msgstr "Μέγ. αριθμός διαμοιραζόμενων τμημάτων ανά διεργασία"
 
 # sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max total shared memory"
-msgstr ""
+msgstr "Μέγιστη συνολική διαμοιραζόμενη μνήμη"
 
 # sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 #: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
 msgid "Total Swap Space"
-msgstr ""
+msgstr "Συνολικός Χώρος Ενναλαγής"
 
 # sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Used Swap Space"
-msgstr ""
+msgstr "Χρησιμοποιημένος Χώρος Ενναλαγής"
 
 # sysdeps/names/swap.c:43 sysdeps/names/swap.c:52
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Free Swap Space"
-msgstr ""
+msgstr "Ελεύθερος Χώρος Ενναλαγής"
 
 # sysdeps/names/swap.c:44
 #: sysdeps/names/swap.c:42
 msgid "Page In"
-msgstr ""
+msgstr "Εισερχ. Σελίδα"
 
 # sysdeps/names/swap.c:45
 #: sysdeps/names/swap.c:43
 msgid "Page Out"
-msgstr ""
+msgstr "Εξερχ. Σελίδα"
 
 # sysdeps/names/swap.c:53
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr ""
+msgstr "Συνολικός αριθμός σελίδων εναλλαγής που εισήχθησαν από την εκκίνηση συστήματος."
 
 # sysdeps/names/swap.c:55
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr ""
+msgstr "Συνολικός αριθμός σελίδων εναλλαγής που εξήχθησαν από την εκκίνηση συστήματος."
 
 # sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
@@ -1376,7 +1380,7 @@ msgstr "Πληροφορίες Κατάστασης Διεργασίας"
 # sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process UID and TTY information"
-msgstr ""
+msgstr "Πληροφορίες UID και TTY διεργασίας"
 
 # sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
@@ -1461,11 +1465,11 @@ msgstr "Χρόνος σε δεύτερα από την εκκίνηση συστήματος"
 # sysdeps/names/uptime.c:48
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr ""
+msgstr "Χρόνος σε δευ/πτα που το σύστημα ξόδεψε μένοντας ανενεργό από την εκκίνησή του"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr ""
+msgstr "Αποτελμάτωση"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
@@ -1481,51 +1485,51 @@ msgstr "Ακατάλληλη εντολή"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
-msgstr ""
+msgstr "Παγίδευση παρακολούθησης"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr ""
+msgstr "Αποβολή"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
-msgstr ""
+msgstr "Σφάλμα EMT"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
-msgstr ""
+msgstr "Εξαίρεση κιν. υποδιαστολής"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr ""
+msgstr "Σκότωμα"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
-msgstr ""
+msgstr "Σφάλμα διαύλου"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
-msgstr ""
+msgstr "Παραβίαση τμηματοποίησης"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr ""
+msgstr "Ακατάλληλο όρισμα σε κλήση συστήματος"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr ""
+msgstr "Διακοπείσα σωλήνωση"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
-msgstr ""
+msgstr "Ξυπνητήρι"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
-msgstr ""
+msgstr "Τερματισμός"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Επείγουσα συνθήκη σε υποδοχέα"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
@@ -1545,11 +1549,11 @@ msgstr "Η κατάσταση θυγατρικής διεργασίας έχει αλλάξει"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr ""
+msgstr "Ανάγνωση παρασκηνίου από tty"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr ""
+msgstr "Εγγραφή παρασκηνίου σε tty"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
@@ -1569,11 +1573,11 @@ msgstr "Ιδεατό ξυπνητήρι"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Έλεγχος απόδοσης ξυπνητηριού"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
-msgstr ""
+msgstr "Αλλαγή μεγέθους παραθύρου"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
