@@ -1,0 +1,8 @@
+2000-01-20  Martin Baulig  <martin@home-of-linux.org>
+
+	* fsusage.c (adjust_blocks): Use `u_int64_t' arguments and
+	return value to avoid long int overflows on machines with large
+	disks.
+
+	* fsusage.h (struct fs_usage): Use `u_int64_t' here as well.
+
