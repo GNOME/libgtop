@@ -1,3 +1,8 @@
+1999-05-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in (INCLUDES): Define `LIBGTOP_VERSION_CODE' here so we
+	can use version conditionals in the sysdeps code.
+
 1999-05-25  Martin Baulig  <martin@home-of-linux.org>
 
 	* libgtop-sysdeps.m4: Make the I4B check work for NetBSD.
