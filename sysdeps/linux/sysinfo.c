@@ -40,7 +40,7 @@ init_sysinfo (glibtop *server)
 	ssize_t len;
 	char buffer [BUFSIZ];
 
-	if(sysinfo.flags) return;
+	if(G_LIKELY(sysinfo.flags)) return;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 

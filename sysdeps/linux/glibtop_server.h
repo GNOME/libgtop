@@ -24,15 +24,19 @@
 #ifndef __GLIBTOP_SERVER_H__
 #define __GLIBTOP_SERVER_H__
 
+#include <glib.h>
 
 #include <fcntl.h>
 #include <ctype.h>
+#include <string.h>
 
 G_BEGIN_DECLS
 
 #ifdef _IN_LIBGTOP
 
 #define LINUX_VERSION(x,y,z)   (0x10000*(x) + 0x100*(y) + z)
+
+unsigned get_pageshift();
 
 static inline char *
 skip_token (const char *p)
@@ -87,9 +91,8 @@ static inline char *
 proc_stat_after_cmd (char *p)
 {
 	p = strrchr (p, ')');
-	if (!p) return p;
-
-	*p++ = '\0';
+	if (G_LIKELY(p))
+		*p++ = '\0';
 	return p;
 }
 

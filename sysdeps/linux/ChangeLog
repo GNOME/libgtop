@@ -1,5 +1,23 @@
 2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
 
+	* loadavg.c: (glibtop_get_loadavg_s): Whitespace cleanup.
+
+	* ppp.c: (get_ISDN_stats), (is_ISDN_on): Replace g_malloc by an
+	array.
+
+	* glibtop_server.c: (get_pageshift):
+	* glibtop_server.h:
+	* procmem.c: (glibtop_init_proc_mem_s), (glibtop_get_proc_mem_s):
+	* procsegment.c: (glibtop_init_proc_segment_s),
+	(glibtop_get_proc_segment_s): Moved the pageshift calculation to
+	glibtop_server.[ch]
+
+	* procstate.c: (glibtop_get_proc_state_s):
+	* procuid.c: (glibtop_get_proc_uid_s):
+	* sysinfo.c: (init_sysinfo): Minor cleanups.
+
+2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
+
 	* netload.c: (glibtop_get_netload_s): Implemented new IPv6 feature.
 
 2004-06-13  Benoît Dejean  <tazforever@dlfp.org>

@@ -52,40 +52,35 @@ glibtop_init_ppp_s (glibtop *server)
 	server->sysdeps.ppp = _glibtop_sysdeps_ppp;
 }
 
-static int
+static gboolean
 get_ISDN_stats (glibtop *server, int *in, int *out)
 {
-	unsigned long *isdn_stats, *ptr;
-	int fd, i;
+	unsigned long isdn_stats[2 * ISDN_MAX_CHANNELS], *ptr;
+	int fd;
 
 	*in = *out = 0;
 
-	isdn_stats = g_malloc (ISDN_MAX_CHANNELS * 2 * sizeof (unsigned long));
-
 	fd = open ("/dev/isdninfo", O_RDONLY);
 	if (fd < 0) {
-		g_free (isdn_stats);
 		return FALSE;
 	}
 
 	if ((ioctl (fd, IIOCGETCPS, isdn_stats) < 0) && (errno != 0)) {
-		g_free (isdn_stats);
-		close (fd);
-
+		close(fd);
 		return FALSE;
 	}
 
-	for (i = 0, ptr = isdn_stats; i < ISDN_MAX_CHANNELS; i++) {
+	for (ptr = isdn_stats;
+	     ptr != (isdn_stats + G_N_ELEMENTS(isdn_stats));
+	     /* NOOP */) {
 		*in  += *ptr++; *out += *ptr++;
 	}
 
-	g_free (isdn_stats);
 	close (fd);
-
 	return TRUE;
 }
 
-static int is_ISDN_on (glibtop *server, int *online)
+static gboolean is_ISDN_on (glibtop *server, int *online)
 {
 	FILE *f = 0;
 	char buffer [BUFSIZ], *p;

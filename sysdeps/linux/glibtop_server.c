@@ -7,6 +7,9 @@
 
 #include <fcntl.h>
 
+/* gcc warning bug */
+unsigned get_pageshift();
+
 
 unsigned long long
 get_scaled(const char *buffer, const char *key)
@@ -50,3 +53,21 @@ proc_file_to_buffer (char *buffer, const char *fmt, pid_t pid)
 	return 0;
 }
 
+#warning "Ignore the following warning"
+unsigned get_pageshift()
+{
+	static unsigned pageshift = 0;
+
+	if(G_UNLIKELY(!pageshift))
+	{
+		register unsigned pagesize = getpagesize();
+
+		while( pagesize > 1 )
+		{
+			pagesize >>= 1;
+			pageshift++;
+		}
+	}
+
+	return pageshift;
+}
