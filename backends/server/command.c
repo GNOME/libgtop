@@ -34,14 +34,8 @@ glibtop_call_i (glibtop_server *server, backend_server_private *priv,
 		size_t recv_size, void *recv_ptr,
 		int *retval_ptr)
 {
-    glibtop_command cmnd;
-    glibtop_response resp;
-#if 0
-    int retval;
-#endif
-
-    memset (&cmnd, 0, sizeof (glibtop_command));
-    memset (&resp, 0, sizeof (glibtop_response));
+    glibtop_command cmnd = {0};
+    glibtop_response resp = {0};
 
     cmnd.command = command;
 

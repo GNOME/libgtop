@@ -1,3 +1,19 @@
+2004-08-28  Benoît Dejean  <tazforever@dlfp.org>
+
+	* backends/server/command.c: (glibtop_call_i): Zeroed all args.	
+	
+	* configure.in: Bumped soname (thanks to seb128 and Dodji even if i've
+	fully understand everything.	
+	
+	* include/glibtop/array.h:
+	* include/glibtop/compat_10.h:
+	* include/glibtop/glib-arrays.h:
+	* include/glibtop/interfaces.h:
+	* include/glibtop/proccwd.h:
+	* lib/glib-arrays.c:
+	* sysdeps/names/interfaces.c:
+	* sysdeps/names/proccwd.c: Got rid of never-used / never-implemented files.
+
 2004-08-28  Akagic Amila  <bono@linux.org.ba>
 
         * configure.in: Added 'bs' to ALL_LINGUAS.
