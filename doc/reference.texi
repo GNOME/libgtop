@@ -172,7 +172,7 @@ Size of cached memory.
 @item user
 Memory used from user processes.
 
-This is normally @code{total - free - shared - buffer}.
+This is normally @code{total - free - shared - buffer - cached}.
 
 @item locked
 Memory in locked segments.
@@ -769,25 +769,280 @@ The hints above describe how it works under Linux - but we should try to make
 @node glibtop_proc_time, glibtop_proc_signal, glibtop_proc_mem, Reference Manual
 @section Process Time information
 
-[Not yet written.]
+Library function @code{glibtop_get_proc_time}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_time (glibtop_proc_time *buf, pid_t pid);
+
+void
+glibtop_get_proc_time_l (glibtop *server, glibtop_proc_time *buf,
+                         pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_time} in @file{<glibtop/proctime.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_time       glibtop_proc_time;
+
+struct _glibtop_proc_time
+@{
+    u_int64_t   flags,
+        start_time,
+        rtime,
+        utime,
+        stime,
+        cutime,
+        cstime,
+        timeout,
+        it_real_value,
+        frequency,
+        xcpu_utime [GLIBTOP_NCPU],
+        xcpu_stime [GLIBTOP_NCPU],
+        xcpu_flags;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item start_time
+Start time of process in seconds since the epoch
+@item rtime
+Real time accumulated by process (should be @code{utime} + @code{stime})
+@item utime
+User-mode CPU time accumulated by process
+@item stime
+Kernel-mode CPU time accumulated by process
+@item cutime
+Cumulative utime of process and reaped children
+@item cstime
+Cumulative stime of process and reaped children
+@item timeout
+The time (in jiffies) of the process's next timeout
+@item it_real_value
+The time (in jiffies) before the next SIGALRM is sent to the process due
+to an interval timer.
+@item frequency
+Tick frequency
+@item xcpu_utime
+SMP user-mode CPU time accumulated by process
+@item xcpu_stime
+SMP kernel-mode CPU time accumulated by process
+@end table
 
 @page
 @node glibtop_proc_signal, glibtop_proc_kernel, glibtop_proc_time, Reference Manual
 @section Process Signal information
 
-[Not yet written.]
+Library function @code{glibtop_get_proc_signal}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_signal (glibtop_proc_signal *buf, pid_t pid);
+
+void
+glibtop_get_proc_signal_l (glibtop *server, glibtop_proc_signal *buf,
+                           pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_signal} in @file{<glibtop/procsignal.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_signal     glibtop_proc_signal;
+
+struct _glibtop_proc_signal
+@{
+    u_int64_t   flags,
+        signal [2],
+        blocked [2],
+        sigignore [2],
+        sigcatch [2];
+@};
+@end cartouche
+@end example
+
+@table @code
+@item signal
+Mask of pending signals
+@item blocked
+Mask of blocked signals
+@item sigignore
+Mask of ignored signals
+@item sigcatch
+Mask of caught signals
+@end table
 
 @page
 @node glibtop_proc_kernel, glibtop_proc_segment, glibtop_proc_signal, Reference Manual
 @section Process Kernel Data information
 
-[Not yet written.]
+Library function @code{glibtop_get_proc_kernel}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_kernel (glibtop_proc_kernel *buf, pid_t pid);
+
+void
+glibtop_get_proc_kernel_l (glibtop *server, glibtop_proc_kernel *buf,
+                           pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_kernel} in @file{<glibtop/prockernel.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_kernel     glibtop_proc_kernel;
+
+struct _glibtop_proc_kernel
+@{
+    u_int64_t flags;
+    u_int64_t k_flags,
+        min_flt,
+        maj_flt,
+        cmin_flt,
+        cmaj_flt,
+        kstk_esp,
+        kstk_eip,
+        nwchan;
+    char wchan [40];
+@};
+@end cartouche
+@end example
+
+@table @code
+@item k_flags
+Kernel flags of the process. See the constants defined below.
+@item min_flt
+The number of minor faults the process has made, those which have not required
+loading a memory page from disk.
+@item maj_flt
+The number of major faults the process has made, those which have required loading
+a memory page from disk.
+@item cmin_flt
+The number of minor faults that the process and its children have made.
+@item cmaj_flt
+The number of major faults that the process and its children have made.
+@item kstk_esp
+The current value of @code{esp} (32-bit stack pointer), as found in the kernel stack
+page for the process.
+@item kstk_eip
+The current @code{eip} (32-bit instruction pointer).
+@item nwchan
+This is the "channel" in which the process is waiting. This is the address of a system
+call, and can be looked up in a namelist if you need a textual name.
+(If you have an up-to-date @file{/etc/psdatabase}, then try @code{ps -l} to see the
+WCHAN field in action).
+@item wchan
+This is the textual name of the @code{nwchan} field.
+@end table
+
+There are some constants for the @code{k_flags} field:
+
+@example
+@cartouche
+#define GLIBTOP_KFLAGS_STARTING         1
+#define GLIBTOP_KFLAGS_EXITING          2
+#define GLIBTOP_KFLAGS_PTRACED          4
+#define GLIBTOP_KFLAGS_TRACESYS         8
+#define GLIBTOP_KFLAGS_FORKNOEXEC       16
+#define GLIBTOP_KFLAGS_SUPERPRIV        32
+#define GLIBTOP_KFLAGS_DUMPEDCORE       64
+#define GLIBTOP_KFLAGS_SIGNALED         128
+@end cartouche
+@end example
+
+@table @code
+@item GLIBTOP_KFLAGS_STARTING
+Process is being created.
+@item GLIBTOP_KFLAGS_EXITING
+Process is exiting.
+@item GLIBTOP_KFLAGS_PTRACED
+Process is being traced (via @code{ptrace ()}).
+@item GLIBTOP_KFLAGS_TRACESYS
+Process is tracing system calls.
+@item GLIBTOP_KFLAGS_FORKNOEXEC
+Process @code{fork()}ed, but didn't @code{exec()} yet.
+@item GLIBTOP_KFLAGS_SUPERPRIV
+Process used super-user privileges.
+@item GLIBTOP_KFLAGS_DUMPEDCORE
+Process dumped core.
+@item GLIBTOP_KFLAGS_SIGNALED
+Process was killed by a signal.
+@end table
 
 @page
 @node glibtop_proc_segment, glibtop_proc_args, glibtop_proc_kernel, Reference Manual
 @section Process Segment information
 
-[Not yet written.]
+Library function @code{glibtop_get_proc_segment}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_segment (glibtop_proc_segment *buf, pid_t pid);
+
+void
+glibtop_get_proc_segment_l (glibtop *server, glibtop_proc_segment *buf,
+                            pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_segment} in @file{<glibtop/procsegment.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_segment    glibtop_proc_segment;
+
+struct _glibtop_proc_segment
+@{
+    u_int64_t   flags,
+        text_rss,
+        shlib_rss,
+        data_rss,
+        stack_rss,
+        dirty_size,
+        start_code,
+        end_code,
+        start_data,
+        end_data,
+        start_brk,
+        end_brk,
+        start_stack,
+        start_mmap,
+        arg_start,
+        arg_end,
+        env_start,
+        env_end;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item text_rss
+Text resident set size
+@item shlib_rss
+Shared-Lib resident set size
+@item data_rss
+Data resident set size
+@item stack_rss
+Stack resident set size
+@item dirty_size
+Total size of dirty pages
+@item start_code
+Address of beginning of code segment
+@item end_code
+Address of end of code segment
+@item start_stack
+Address of the bottom of stack segmen
+@end table
 
 @page
 @node glibtop_proc_args, glibtop_proc_map, glibtop_proc_segment, Reference Manual
