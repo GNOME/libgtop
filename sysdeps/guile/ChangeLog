@@ -1,5 +1,12 @@
 1998-10-11  Martin Baulig  <martin@home-of-linux.org>
 
+	* names/Makefile.am (BUILT_SOURCES, CLEANFILES): Added
+ 	`guile-names.x' here and a rule to make it from `guile-names.c'
+ 	using guile-snarf.
+
+	* names/guile-names.awk: Use the SCM_GLOBAL_VCELL macros and
+	guile-snarf here; declared all `glibtop_guile_*' functions static.
+	
 	* guile.awk: Declared all `glibtop_guile_get_*' functions static.
 
 	* Makefile.am (BUILT_SOURCES, CLEANFILES): Added `guile.x'.

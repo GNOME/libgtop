@@ -14,7 +14,7 @@ BEGIN {
 }
 
 function output(feature) {
-  print "SCM";
+  print "static SCM";
   print "glibtop_guile_names_"feature" (void)";
   print "{";
   print "\tint i;";
@@ -33,7 +33,7 @@ function output(feature) {
   
   print "";
   
-  print "SCM";
+  print "static SCM";
   print "glibtop_guile_types_"feature" (void)";
   print "{";
   print "\tint i;";
@@ -52,7 +52,7 @@ function output(feature) {
   
   print "";
   
-  print "SCM";
+  print "static SCM";
   print "glibtop_guile_labels_"feature" (void)";
   print "{";
   print "\tint i;";
@@ -72,7 +72,7 @@ function output(feature) {
   
   print "";
   
-  print "SCM";
+  print "static SCM";
   print "glibtop_guile_descriptions_"feature" (void)";
   print "{";
   print "\tint i;";
@@ -109,22 +109,24 @@ END {
     output(feature);
   }
 
+  for (feature in features) {
+    feature_name = feature; sub(/_/, "-", feature_name);
+    print "SCM_GLOBAL_VCELL (s_names_"feature", \"glibtop-names-"feature_name"\");";
+    print "SCM_GLOBAL_VCELL (s_labels_"feature", \"glibtop-labels-"feature_name"\");";
+    print "SCM_GLOBAL_VCELL (s_types_"feature", \"glibtop-types-"feature_name"\");";
+    print "SCM_GLOBAL_VCELL (s_descriptions_"feature", \"glibtop-descriptions-"feature_name"\");";
+  }
+  print "";
+
   print "void";
   print "glibtop_boot_guile_names (void)";
   print "{";
-
+  print "#include \"guile-names.x\"";
   for (feature in features) {
-    print "\tgh_new_procedure0_0";
-    print "\t\t(\"glibtop-names-"feature"\", glibtop_guile_names_"feature");";
-    print "";
-    print "\tgh_new_procedure0_0";
-    print "\t\t(\"glibtop-types-"feature"\", glibtop_guile_types_"feature");";
-    print "";
-    print "\tgh_new_procedure0_0";
-    print "\t\t(\"glibtop-labels-"feature"\", glibtop_guile_labels_"feature");";
-    print "";
-    print "\tgh_new_procedure0_0";
-    print "\t\t(\"glibtop-descriptions-"feature"\", glibtop_guile_descriptions_"feature");";
+    print "SCM_SETCDR (s_names_"feature", glibtop_guile_names_"feature" ());";
+    print "SCM_SETCDR (s_labels_"feature", glibtop_guile_labels_"feature" ());";
+    print "SCM_SETCDR (s_types_"feature", glibtop_guile_types_"feature" ());";
+    print "SCM_SETCDR (s_descriptions_"feature", glibtop_guile_descriptions_"feature" ());";
   }
   print "}";
 }
