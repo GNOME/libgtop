@@ -13,12 +13,13 @@ gtopConf.sh
 i386-bsdi
 i686-pc-linux-gnu
 intl
+libgtop-0.01.tar.gz
 libgtop-mirror.sh.swp
 libtool
 ltconfig
+ltmain.sh
+macros
 stamp-h
 sun4
 sun4sol2
-ltmain.sh
-macros
 support

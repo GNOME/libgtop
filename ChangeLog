@@ -1,5 +1,34 @@
 1998-05-21  Martin Baulig  <martin@home-of-linux.org>
 
+	* doc/gnome-hackers.sgml: added information about latest
+	changes in 'acinclude.m4' and 'gtopConf.sh.in'.
+
+	* Makefile.am: conditionally building 'examples' subdir,
+	added 'copyright.txt' to EXTRA_DIST.
+
+	* configure.in: added 'gtop_guile_found', 'gtop_want_names',
+	'gtop_want_guile_names' and 'gtop_want_examples' for use in
+	'gtopConf.sh.in'; added 'include' and 'include/glibtop' subdirs.
+
+	* acconfig.h: added 'GLIBTOP_EXAMPLES'.
+
+	* acinclude.m4 (AC_LC_SYSDEPS): define 'GLIBTOP_NAMES' when
+	building libgtop and a new conditional 'GLIBTOP_NAMES'; added
+	new parameter '--without-examples'; define 'GLIBTOP_EXAMPLES'
+	and conditional 'GLIBTOP_EXAMPLES'.
+
+	* gtopConf.sh.in: added 'GTOP_GUILE_FOUND', 'GTOP_WANT_NAMES',
+	'GTOP_WANT_GUILE_NAMES' and 'GTOP_WANT_EXAMPLES'.
+
+	* include/glibtop/Makefile.am: new file - header file
+	now get properly installed and go into the distribution.
+
+	* include/Makefile.am: new file
+
+	* sysdeps/guile/Makefile.am: added 'DIST_SUBDIRS'
+
+	* sysdeps/Makefile.am: added 'DIST_SUBDIRS'
+
 	* doc/gnome-hackers.sgml: new file - short intro on how
 	to use libgtop in the gnome project; especially 'configure'
 	and 'gtopConf.sh'.
