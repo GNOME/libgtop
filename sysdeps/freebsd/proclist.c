@@ -85,13 +85,25 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 	pids = g_realloc (pids, count * sizeof (unsigned));
 	/* Copy the pids over to this chain */
 	for (i=j=0; i < count; i++) {
+#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
+#define PROC_STAT	ki_stat
+#define PROC_RUID	ki_ruid
+#define PROC_PID	ki_pid
+
+#else
+#define PROC_STAT	kp_proc.p_stat
+#define PROC_RUID	kp_eproc.e_pcred.p_ruid
+#define PROC_PID	kp_proc.p_pid
+
+#endif
+
 		if ((real_which & GLIBTOP_EXCLUDE_IDLE) &&
-		    (pinfo[i].kp_proc.p_stat != SRUN))
+		    (pinfo[i].PROC_STAT != SRUN))
 			continue;
 		else if ((real_which & GLIBTOP_EXCLUDE_SYSTEM) &&
-			 (pinfo[i].kp_eproc.e_pcred.p_ruid == 0))
+			 (pinfo[i].PROC_RUID == 0))
 			continue;
-		pids [j++] = (unsigned) pinfo[i].kp_proc.p_pid;
+		pids [j++] = (unsigned) pinfo[i].PROC_PID;
 	} /* end for */
 	/* Set the fields in buf */
 	buf->number = j;

@@ -37,11 +37,7 @@ static const unsigned long _glibtop_sysdeps_proc_state =
 (1L << GLIBTOP_PROC_STATE_GID);
 
 static const unsigned long _glibtop_sysdeps_proc_state_new =
-#if LIBGTOP_VERSION_CODE >= 1001000
-(1L << GLIBTOP_PROC_STATE_RUID) + (1L << GLIBTOP_PROC_STATE_RGID);
-#else
 0;
-#endif
 
 /* Init function. */
 
@@ -76,32 +72,47 @@ glibtop_get_proc_state_p (glibtop *server,
 		return;
 	}
 
-	strncpy (buf->cmd, pinfo [0].kp_proc.p_comm, sizeof (buf->cmd)-1);
+#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
+#define	PROC_COMM	ki_comm
+#define	PROC_SVUID	ki_svuid
+#define	PROC_SVGID	ki_svgid
+#define	PROC_RUID	ki_ruid
+#define	PROC_RGID	ki_rgid
+#define PROC_STAT	ki_stat
+
+#else
+#define	PROC_COMM	kp_proc.p_comm
+#define	PROC_SVUID	kp_eproc.e_pcred.p_svuid
+#define	PROC_SVGID	kp_eproc.e_pcred.p_svgid
+#define	PROC_RUID	kp_eproc.e_pcred.p_ruid
+#define	PROC_RGID	kp_eproc.e_pcred.p_rgid
+#define	PROC_STAT	kp_proc.p_stat
+
+#endif
+
+	strncpy (buf->cmd, pinfo [0].PROC_COMM, sizeof (buf->cmd)-1);
 	buf->cmd [sizeof (buf->cmd)-1] = 0;
 
-	buf->uid = pinfo [0].kp_eproc.e_pcred.p_svuid;
-	buf->gid = pinfo [0].kp_eproc.e_pcred.p_svgid;
-
-#if LIBGTOP_VERSION_CODE >= 1001000
-	buf->ruid = pinfo [0].kp_eproc.e_pcred.p_ruid;
-	buf->rgid = pinfo [0].kp_eproc.e_pcred.p_rgid;
-#endif
+	buf->uid = pinfo [0].PROC_SVUID;
+	buf->gid = pinfo [0].PROC_SVGID;
 
 	/* Set the flags for the data we're about to return*/
 	buf->flags = _glibtop_sysdeps_proc_state |
 		_glibtop_sysdeps_proc_state_new;
 
 #if LIBGTOP_VERSION_CODE >= 1001000
-	switch (pinfo [0].kp_proc.p_stat) {
+	switch (pinfo [0].PROC_STAT) {
 	case SIDL:
 		buf->state = 0;
 		break;
 	case SRUN:
 		buf->state = GLIBTOP_PROCESS_RUNNING;
 		break;
+#ifdef SSLEEP
 	case SSLEEP:
 		buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
 		break;
+#endif
 	case SSTOP:
 		buf->state = GLIBTOP_PROCESS_STOPPED;
 		break;
@@ -112,16 +123,18 @@ glibtop_get_proc_state_p (glibtop *server,
 		return;
 	}
 #else
-	switch (pinfo [0].kp_proc.p_stat) {
+	switch (pinfo [0].PROC_STAT) {
 	case SIDL:
 		buf->state = 'S';
 		break;
 	case SRUN:
 		buf->state = 'R';
 		break;
+#ifdef SSLEEP
 	case SSLEEP:
 		buf->state = 'S';
 		break;
+#endif
 	case SSTOP:
 		buf->state = 'T';
 		break;

@@ -29,7 +29,9 @@
 
 #include <sys/sysctl.h>
 #include <sys/vmmeter.h>
+#if defined(__NetBSD__)  && (__NetBSD_Version__ < 105020000)
 #include <vm/vm_param.h>
+#endif
 
 #if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
 #include <uvm/uvm_extern.h>
@@ -74,7 +76,6 @@ static struct nlist nlst [] = {
 };
 
 /* MIB array for sysctl */
-static int mib_length=2;
 #ifdef __bsdi__
 static int mib [] = { CTL_VM, VM_TOTAL };
 #else

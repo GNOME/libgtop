@@ -1,5 +1,23 @@
 2004-03-09  Bastien Nocera  <hadess@hadess.net>
 
+	* Makefile.am:
+	* cpu.c: (glibtop_init_cpu_p), (glibtop_get_cpu_p):
+	* glibtop_machine.h:
+	* mem.c:
+	* netload.c: (glibtop_get_netload_p):
+	* prockernel.c: (glibtop_get_proc_kernel_p):
+	* proclist.c: (glibtop_get_proclist_p):
+	* procmap.c: (glibtop_get_proc_map_p):
+	* procmem.c: (glibtop_get_proc_mem_p):
+	* procsignal.c: (glibtop_get_proc_signal_p):
+	* procstate.c: (glibtop_get_proc_state_p):
+	* proctime.c:
+	* procuid.c: (glibtop_get_proc_uid_p):
+	* uptime.c: (glibtop_get_uptime_p): implement NetBSD support, and
+	some build problems on FreeBSD (Closes: #135674)
+
+2004-03-09  Bastien Nocera  <hadess@hadess.net>
+
 	* procargs.c: (glibtop_get_proc_args_p):
 	* procmap.c: (glibtop_get_proc_map_p):
 	* swap.c: (glibtop_get_swap_p): fix g_malloc usage on non-Linux

@@ -57,6 +57,8 @@ glibtop_init_proc_time_p (glibtop *server)
  * system, and interrupt time usage.
  */
 
+#ifndef __FreeBSD__
+
 static void
 calcru(p, up, sp, ip)
      struct proc *p;
@@ -66,9 +68,7 @@ calcru(p, up, sp, ip)
 {
 	quad_t totusec;
 	u_quad_t u, st, ut, it, tot;
-#if (__FreeBSD_version < 300003)
         long sec, usec;
-#endif
         struct timeval tv;
 
 	st = p->p_sticks;
@@ -117,6 +117,8 @@ calcru(p, up, sp, ip)
 	}
 }
 
+#endif /* !__FreeBSD__ */
+
 /* Provides detailed information about a process. */
 
 void
@@ -142,7 +144,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	/* It does not work for the swapper task. */
 	if (pid == 0) return;
 	
-#if !(defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000))
+#if (defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000))
 	if (server->sysdeps.proc_time == 0)
 		return;
 
@@ -157,7 +159,9 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	if ((pinfo == NULL) || (count != 1))
 		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
 
-#if (defined __FreeBSD__) && (__FreeBSD_version >= 300003)
+#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
+	buf->rtime = pinfo [0].ki_runtime;
+#elif (defined __FreeBSD__) && (__FreeBSD_version <= 500013)
 	buf->rtime = pinfo [0].kp_proc.p_runtime;
 #else
 	buf->rtime = tv2sec (pinfo [0].kp_proc.p_rtime);
@@ -192,7 +196,39 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 
 	buf->flags |= _glibtop_sysdeps_proc_time_user;
 #else
+#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
+#if __FreeBSD_version >= 500016
+       if ((pinfo [0].ki_flag & PS_INMEM)) {
+#else
+       if ((pinfo [0].ki_flag & P_INMEM)) {
+#endif
+           buf->utime = pinfo [0].ki_runtime;
+           buf->stime = 0; /* XXX */
+           buf->cutime = tv2sec (pinfo [0].ki_childtime);
+           buf->cstime = 0; /* XXX */
+           buf->start_time = tv2sec (pinfo [0].ki_start);
+           buf->flags = _glibtop_sysdeps_proc_time_user;
+       }
+
 	glibtop_suid_enter (server);
+
+#elif (__FreeBSD_version <= 500013)
+
+        if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
+            kvm_uread (server->machine.kd, &(pinfo [0]).kp_proc,
+                       (unsigned long) &u_addr->u_stats,
+                       (char *) &pstats, sizeof (pstats)) == sizeof (pstats))
+		{
+
+                       buf->utime = tv2sec (pinfo[0].kp_eproc.e_stats.p_ru.ru_utime);
+                       buf->stime = tv2sec (pinfo[0].kp_eproc.e_stats.p_ru.ru_stime);
+                       buf->cutime = tv2sec (pinfo[0].kp_eproc.e_stats.p_cru.ru_utime);
+                       buf->cstime = tv2sec (pinfo[0].kp_eproc.e_stats.p_cru.ru_stime);
+                       buf->start_time = tv2sec (pinfo[0].kp_eproc.e_stats.p_start);
+                       buf->flags = _glibtop_sysdeps_proc_time_user;
+                       glibtop_suid_leave (server);
+		}
+#else
 
 	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
 	    kvm_uread (server->machine.kd, &(pinfo [0]).kp_proc,
@@ -222,7 +258,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 
 			buf->flags = _glibtop_sysdeps_proc_time_user;
 		}
-
+#endif
 	glibtop_suid_leave (server);
 #endif
 }
