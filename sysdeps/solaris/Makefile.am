@@ -16,14 +16,14 @@ libgtop_sysdeps_la_SOURCES	= open.c close.c cpu.c mem.c \
 				  procmap.c netload.c netinfo.c ppp.c \
 				  procdata.c interfaces.c
 
-libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO)
+libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO) -export-dynamic
 
 libgtop_sysdeps_la_LIBADD	= @DL_LIB@
 
 libgtop_sysdeps_suid_la_SOURCES	= open_suid.c close_suid.c \
 				  shm_limits.c msg_limits.c sem_limits.c
 
-libgtop_sysdeps_suid_la_LDFLAGS	= $(LT_VERSION_INFO)
+libgtop_sysdeps_suid_la_LDFLAGS	= $(LT_VERSION_INFO) -export-dynamic
 
 
 include_HEADERS			= glibtop_server.h glibtop_machine.h
