@@ -24,6 +24,7 @@
 #include <glibtop/open.h>
 
 #include <unistd.h>
+#include <dlfcn.h>
 #include <sys/types.h>
 #include <sys/processor.h>
 
@@ -131,6 +132,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
     kstat_t *ksp;
     kstat_named_t *kn;
     int i, page;
+    void *dl;
 
     server->name = program_name;
 
@@ -200,4 +202,29 @@ glibtop_open_s (glibtop *server, const char *program_name,
 #endif
 	    }
     }
+
+    /* Now let's have a bit of magic dust... */
+
+    dl = dlopen("/usr/lib/libproc.so", RTLD_LAZY);
+    server->machine.libproc = dl;
+    if(dl)
+    {
+       void *func;
+
+       func = dlsym(dl, "Pobjname");		/* Solaris 8 */
+       if(!func)
+	  func = dlsym(dl, "proc_objname");	/* Solaris 7 */
+       server->machine.objname = (void (*)
+	     			 (void *, uintptr_t, const char *, size_t))func;
+       server->machine.pgrab = (struct ps_prochandle *(*)(pid_t, int, int *))
+	  		       dlsym(dl, "Pgrab");
+       server->machine.pfree = (void (*)(void *))dlsym(dl, "Pfree");
+    }
+    else
+    {
+       server->machine.objname = NULL;
+       server->machine.pgrab = NULL;
+       server->machine.pfree = NULL;
+    }
+    server->machine.me = getpid();
 }

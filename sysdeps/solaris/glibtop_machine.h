@@ -44,6 +44,7 @@ struct _glibtop_machine
 {
     uid_t uid, euid;
     gid_t gid, egid;
+    pid_t me;			/* Don't ask why we need this */
 
     kvm_t *kd;
 
@@ -61,8 +62,11 @@ struct _glibtop_machine
 
     int pagesize;		/* in bits to shift, ie. 2^pagesize gives Kb */
     int ticks;			/* clock ticks, as returned by sysconf() */
-    unsigned long long boot;	/* boot time, it's ui32 in kstat */
-    long argvenvp;		/* max length or argv + env */
+    unsigned long long boot;	/* boot time, although it's ui32 in kstat */
+    void *libproc;		/* libproc handle */
+    void (*objname)(void *, uintptr_t, const char *, size_t);
+    struct ps_prochandle *(*pgrab)(pid_t, int, int *);
+    void (*pfree)(void *);
 };
 
 END_LIBGTOP_DECLS
