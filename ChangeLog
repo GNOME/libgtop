@@ -1,3 +1,8 @@
+1999-05-03  Martin Baulig  <martin@home-of-linux.org>
+
+	Set version number to 1.1.0. Also made a `LIBGTOP_STABLE_1_0'
+	branch in CVS while development will go on here in the HEAD.
+
 1999-04-18  Tuomas J. Lukka <lukka@iki.fi>
 
 	* Add missing comma in sysdeps/names/proctime.c
