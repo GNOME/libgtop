@@ -1,5 +1,12 @@
 1998-07-22  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/mountlist.h: New file.
+
+	* features.def: Added new feature `mountlist'.
+
+	* sysdeps/common/mountlist.c (glibtop_get_mountlist_s): New function.
+	(read_filesystem_list): Declared as `static'.
+
 	* sysdeps/common/Makefile.am (libgtop_common_la_SOURCES):
 	Added `fsusage.[ch]' and `mountlist.[ch]'.
 

@@ -44,6 +44,17 @@ glibtop_open_l (glibtop *server, const char *program_name,
 
 	server->flags |= _GLIBTOP_INIT_STATE_OPEN;
 
+	if (flags & GLIBTOP_FEATURES_EXCEPT)
+		features = ~features & GLIBTOP_SYSDEPS_ALL;
+
+	if (features == 0)
+		features = GLIBTOP_SYSDEPS_ALL;
+
+	if (flags & GLIBTOP_FEATURES_NO_SERVER) {
+		server->method = GLIBTOP_METHOD_DIRECT;
+		features = 0;
+	}
+	
 	server->features = features;
 
 	switch (server->method) {

@@ -12,8 +12,13 @@ BEGIN {
 }
 
 function output(feature) {
+  orig = feature;
+  sub(/@/,"",feature);
   if (feature ~ /^proclist$/) {
     print "unsigned *";
+    prefix = "return ";
+  } else if (feature ~ /^mountlist$/) {
+    print "glibtop_mountentry *";
     prefix = "return ";
   } else {
     prefix = "";
@@ -42,7 +47,11 @@ function output(feature) {
     print "#if (!GLIBTOP_SUID_"toupper(feature)")";
     print "\t\tglibtop_get_"feature"_r (server, buf, pid);";
   } else {
-    if (feature ~ /^proclist$/) {
+    if (feature ~ /^mountlist$/) {
+      print "\t\treturn glibtop_call_l (server, GLIBTOP_CMND_MOUNTLIST,";
+      print "\t\t\t\t       0, NULL, sizeof (glibtop_mountlist),";
+      print "\t\t\t\t       buf);";
+    } else if (feature ~ /^proclist$/) {
       print "\t\treturn glibtop_call_l (server, GLIBTOP_CMND_PROCLIST,";
       print "\t\t\t\t       0, NULL, sizeof (glibtop_proclist),";
       print "\t\t\t\t       buf);";
@@ -51,18 +60,25 @@ function output(feature) {
       print "\t\t\t\tsizeof (glibtop_"feature"), buf);";
     }
     print "\t} else {";
-    print "#if (!GLIBTOP_SUID_"toupper(feature)")";
-    print "\t\t"prefix"glibtop_get_"feature"_r (server, buf);";
+    if (orig ~ /^@/) {
+      print "\t\t"prefix"glibtop_get_"feature"_s (server, buf);";
+    } else {
+      print "#if (!GLIBTOP_SUID_"toupper(feature)")";
+      print "\t\t"prefix"glibtop_get_"feature"_r (server, buf);";
+    }
   }
-  print "#else";
-  print "\t\terrno = ENOSYS;";
-  print "\t\tglibtop_error_io_r (server, \"glibtop_get_"feature"\");";
-  print "#endif";
+  if (!(orig ~ /^@/)) {
+    print "#else";
+    print "\t\terrno = ENOSYS;";
+    print "\t\tglibtop_error_io_r (server, \"glibtop_get_"feature"\");";
+    print "#endif";
+  }
   print "\t}";
   print "}";
   print "";
 }
 	
-/^(\w+)/	{ output($1) }
+/^@(\w+)/	{ output($1) }
 
+/^(\w+)/	{ output($1) }
 

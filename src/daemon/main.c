@@ -27,6 +27,7 @@ handle_parent_connection (int s)
 	glibtop *server = glibtop_global_server;
 	glibtop_response _resp, *resp = &_resp;
 	glibtop_command _cmnd, *cmnd = &_cmnd;
+	glibtop_mountentry *mount_list;
 	char parameter [BUFSIZ];
 	pid_t pid;
 	void *ptr;
@@ -157,6 +158,13 @@ handle_parent_connection (int s)
 			glibtop_get_proc_segment_l
 				(server, &resp->u.data.proc_segment, pid);
 			do_output (s, resp, _offset_data (proc_segment), 0, NULL);
+			break;
+		case GLIBTOP_CMND_MOUNTLIST:
+			mount_list = glibtop_get_mountlist_l
+				(server, &resp->u.data.mountlist);
+			do_output (s, resp, _offset_data (mountlist),
+				   resp->u.data.mountlist.total, mount_list);
+			glibtop_free_r (server, mount_list);
 			break;
 		default:
 			glibtop_warn ("Parent received unknown command %u",

@@ -23,6 +23,8 @@
 #include <sys/types.h>
 #include "mountlist.h"
 
+static struct mount_entry *read_filesystem_list __P((int, int));
+
 #ifdef STDC_HEADERS
 #include <stdlib.h>
 #else
@@ -36,6 +38,7 @@ void free ();
 
 #include <glibtop.h>
 #include <glibtop/xmalloc.h>
+#include <glibtop/mountlist.h>
 
 #undef xmalloc
 #undef xrealloc
@@ -255,7 +258,7 @@ fstype_to_string (t)
    If ALL_FS is zero, do not return entries for filesystems that
    are automounter (dummy) entries.  */
 
-struct mount_entry *
+static struct mount_entry *
 read_filesystem_list (need_fs_type, all_fs)
      int need_fs_type, all_fs;
 {
@@ -583,4 +586,62 @@ read_filesystem_list (need_fs_type, all_fs)
   mount_list = mount_list->me_next;
   free (me);
   return mount_list;
+}
+
+glibtop_mountentry *
+glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf)
+{
+	struct mount_entry *me, *tmp, *next;
+	glibtop_mountentry *mount_list;
+	int count;
+
+	glibtop_init_r (&server, 0, 0);
+
+	memset (buf, 0, sizeof (glibtop_mountlist));
+
+	/* Read filesystem list. */
+
+	me = read_filesystem_list (1, 0);
+
+	if (me == NULL)
+		return NULL;
+
+	/* Count entries. */
+
+	for (count = 0, tmp = me; tmp; count++, tmp = tmp->me_next)
+		;
+
+	buf->size = sizeof (glibtop_mountentry);
+	buf->number = count;
+
+	buf->total = buf->number * buf->size;
+
+	mount_list = glibtop_malloc_r (server, buf->total);
+
+	/* Write data into mount_list. */
+
+	for (count = 0, tmp = me; tmp; count++, tmp = tmp->me_next) {
+		strncpy (mount_list [count].devname, tmp->me_devname, 
+			 GLIBTOP_MOUNTENTRY_LEN);
+		strncpy (mount_list [count].mountdir, tmp->me_mountdir,
+			 GLIBTOP_MOUNTENTRY_LEN);
+		strncpy (mount_list [count].type, tmp->me_type,
+			 GLIBTOP_MOUNTENTRY_LEN);
+		mount_list [count].devname [GLIBTOP_MOUNTENTRY_LEN] = 0;
+		mount_list [count].mountdir [GLIBTOP_MOUNTENTRY_LEN] = 0;
+		mount_list [count].type [GLIBTOP_MOUNTENTRY_LEN] = 0;
+		mount_list [count].dev = tmp->me_dev;
+	}
+
+	/* Free memory. */
+
+	for (count = 0, tmp = me; tmp; count++, tmp = next) {
+		next = tmp->me_next;
+		xfree (tmp->me_devname);
+		xfree (tmp->me_mountdir);
+		xfree (tmp->me_type);
+		xfree (tmp);
+	}
+
+	return mount_list;
 }

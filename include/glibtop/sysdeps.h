@@ -44,8 +44,9 @@ __BEGIN_DECLS
 #define GLIBTOP_SYSDEPS_PROC_SIGNAL	14
 #define GLIBTOP_SYSDEPS_PROC_KERNEL	15
 #define GLIBTOP_SYSDEPS_PROC_SEGMENT	16
+#define GLIBTOP_SYSDEPS_MOUNTLIST	17
 
-#define GLIBTOP_MAX_SYSDEPS		17
+#define GLIBTOP_MAX_SYSDEPS		18
 
 #define GLIBTOP_SYSDEPS_ALL		((1 << GLIBTOP_MAX_SYSDEPS) - 1)
 
@@ -70,7 +71,8 @@ struct _glibtop_sysdeps
 		proc_time,		/* glibtop_proc_time	*/
 		proc_signal,		/* glibtop_proc_signal	*/
 		proc_kernel,		/* glibtop_proc_kernel	*/
-		proc_segment;		/* glibtop_proc_segment	*/
+		proc_segment,		/* glibtop_proc_segment	*/
+		mountlist;		/* glibtop_mountlist	*/
 };
 
 #define glibtop_get_sysdeps(sysdeps)	glibtop_get_sysdeps_r(glibtop_global_server,sysdeps)

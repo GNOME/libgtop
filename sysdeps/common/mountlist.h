@@ -25,8 +25,3 @@ struct mount_entry
   struct mount_entry *me_next;
 };
 
-#if __STDC__
-struct mount_entry *read_filesystem_list (int need_fs_type, int all_fs);
-#else
-struct mount_entry *read_filesystem_list ();
-#endif

@@ -40,6 +40,8 @@
 #include <glibtop/prockernel.h>
 #include <glibtop/procsegment.h>
 
+#include <glibtop/mountlist.h>
+
 __BEGIN_DECLS
 
 typedef union _glibtop_union	glibtop_union;
@@ -62,6 +64,7 @@ union _glibtop_union
 	glibtop_proc_signal	proc_signal;
 	glibtop_proc_kernel	proc_kernel;
 	glibtop_proc_segment	proc_segment;
+	glibtop_mountlist	mountlist;
 };
 
 __END_DECLS

@@ -8,8 +8,9 @@ CFLAGS				= -Wall -W @CFLAGS@ -DGTOP_SERVER=\""@LIBGTOP_SERVER@"\"
 
 lib_LTLIBRARIES			= libgtop.la
 
-libgtop_la_SOURCES		= init.c open.c close.c command.c read.c read_data.c \
-				  write.c lib.c parameter.c
+libgtop_la_SOURCES		= init.c open.c close.c command.c read.c \
+				  read_data.c write.c lib.c parameter.c \
+				  sysdeps.c
 
 BUILT_SOURCES			= lib.c
 
