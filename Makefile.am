@@ -10,7 +10,7 @@ if BUILD_GNOME_SUPPORT
 support = support
 endif
 
-SUBDIRS = po $(support) misc include sysdeps lib src \
+SUBDIRS = . po $(support) misc include sysdeps lib src \
 	  $(examples_SUBDIRS) doc
 
 libgtopinclude_HEADERS = glibtop.h
