@@ -71,8 +71,6 @@ init_sysinfo (glibtop *server)
 		g_ptr_array_add (cpuinfo->labels, key);
 
 		g_hash_table_insert (cpuinfo->values, key, value);
-
-		printf ("CPUINFO: |%s|%s|\n", key, value);
 	}
 
 	fclose (f);
