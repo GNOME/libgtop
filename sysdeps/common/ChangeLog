@@ -1,3 +1,9 @@
+2005-02-23  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* fsusage.c: (glibtop_get_fsusage_s): Correct file system size calculations.
+	Patch from marcus@freebsd.org (Joe Marcus Clarke).
+	Closes #168232.
+
 2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* fsusage.c: (_glibtop_get_fsusage_read_write): Fixed G_GNUC attribute usage.

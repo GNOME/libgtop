@@ -260,8 +260,9 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
   if (statvfs (path, &fsd) < 0)
     return;
 
-#if (defined(sun) || defined(__sun)) && (defined(__SVR4) || defined(__svr4__))
-  /* Solaris but not SunOS */
+#if (defined(sun) || defined(__sun)) && (defined(__SVR4) || defined(__svr4__)) \
+	|| defined(__FreeBSD__)
+  /* Solaris but not SunOS and FreeBSD */
   buf->block_size = fsd.f_frsize;
 #else
   /* else, including Linux */
