@@ -48,7 +48,8 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	if (!f) return;
 
 	fscanf (f, "%*[^\n]\nMem: %lu %lu %lu %lu %lu %lu\n",
-		&buf->total, &buf->used, &buf->free, &buf->shared, &buf->buffer, &buf->cached);
+		&buf->total, &buf->used, &buf->free, &buf->shared,
+		&buf->buffer, &buf->cached);
 
 	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
 
