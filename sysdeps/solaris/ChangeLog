@@ -1,5 +1,11 @@
 1999-05-07  Drazen Kacar <dave@srce.hr>
 
+	* glibtop_machine.h, open.c, mem.c, procmem.c: machine.pagesize
+	is now number of bits we need for shifting, ie. 2^pagesize
+	will give pagesize in Kb.
+
+1999-05-07  Drazen Kacar <dave@srce.hr>
+
 	* procmem.c: Implemented size, vsize, resident and rss.
 
 1999-05-06  Drazen Kacar <dave@srce.hr>
