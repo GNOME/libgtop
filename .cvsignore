@@ -33,3 +33,4 @@ libgtop.spec
 libgtop*.tar.gz
 *-debstamp
 libgtop*.pc
+autom4te.cache

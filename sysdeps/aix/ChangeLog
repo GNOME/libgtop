@@ -1,3 +1,7 @@
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
+	* .cvsignore: added
+
 2002-09-24  Laurent Vivier <Laurent.Vivier@bull.net>
 
 	* Create sysdeps/aix (from stub)

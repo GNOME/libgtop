@@ -1,5 +1,11 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* .cvsignore: updated
+	* configure.in: removed all traces of guile stuff
+	* sysdeps/guile/.cvsignore: removed
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* sysdeps/Makefile.am:
 	* sysdeps/guile/ChangeLog:
 	* sysdeps/guile/Makefile.am:

@@ -91,10 +91,6 @@ AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 GNOME_LIBGTOP_SYSDEPS
 GNOME_LIBGTOP_TYPES
 
-dnl AC_ARG_WITH(libgtop-guile,
-dnl [  --with-libgtop-guile    Build the libgtop guile interface (default=no)],
-dnl [build_guile="$withval"], [build_guile=yes])
-
 AC_ARG_WITH(libgtop-inodedb,
 [  --with-libgtop-inodedb  Build the inodedb stuff (default=no)],
 [build_inodedb="$withval"], [build_inodedb=no])
@@ -122,7 +118,7 @@ else
 fi
 
 if test "x$enable_static" != xno; then
-  static_targets="first_static second_static mountlist_static procmap_static netload_static sysdeps_static timings_static $guile_static_examples $smp_static_examples"
+  static_targets="first_static second_static mountlist_static procmap_static netload_static sysdeps_static timings_static $smp_static_examples"
 else
   static_targets=""
 fi
@@ -331,7 +327,7 @@ machine_incs="-I\$(top_srcdir)/sysdeps/$sysdeps_dir"
 
 AC_SUBST(machine_incs)
 
-INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $CFLAGS $X_CFLAGS $guile_def "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
+INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $CFLAGS $X_CFLAGS "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
 
 AC_SUBST(INCLUDES)
 
