@@ -28,8 +28,8 @@
 /* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
 
 void
-glibtop_open (glibtop *server, const char *program_name,
-	      const unsigned long features, const unsigned flags)
+glibtop_open__l (glibtop *server, const char *program_name,
+		 const unsigned long features, const unsigned flags)
 {
 	char	version [BUFSIZ], buffer [BUFSIZ];
 	char	*server_command, *server_rsh, *temp;
