@@ -5,13 +5,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 1.0.9\n"
-"POT-Creation-Date: 2000-09-10 16:59+0200\n"
-"PO-Revision-Date: 2000-09-10 16:59+0200\n"
-"Last-Translator: Christian Meyer <linux@chrisime.de>\n"
+"Project-Id-Version: libgtop cvs\n"
+"POT-Creation-Date: 2000-09-19 23:56+0200\n"
+"PO-Revision-Date: 2000-09-20 00:05+0200\n"
+"Last-Translator: Christian Meyer <linux@chrisim.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: examples/smp.c:68
@@ -133,7 +133,7 @@ msgstr "AUSFÜHRLICH"
 #: src/daemon/gnuserv.c:452
 #, fuzzy
 msgid "Don't fork into background"
-msgstr "Nicht in den Hintergrund aufteilen"
+msgstr "Nicht in den Hintergrund forken"
 
 #: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
@@ -337,7 +337,8 @@ msgid "Last PID"
 msgstr "Letzte PID"
 
 #: sysdeps/names/loadavg.c:47
-msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgid ""
+"Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
 msgstr "Anzahl gleichzeitig laufender Jobs im Mittel über 1, 5 und 15 Minuten"
 
 #: sysdeps/names/loadavg.c:48
@@ -622,20 +623,22 @@ msgstr ""
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
-msgid "The number of minor faults that the process and its children have made."
+msgid ""
+"The number of minor faults that the process and its children have made."
 msgstr ""
 "Anzahl weniger schwerer Seitenfehler eines Prozesses und seiner Kinder."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:68
-msgid "The number of major faults that the process and its children have made."
+msgid ""
+"The number of major faults that the process and its children have made."
 msgstr "Anzahl schwerwiegender Seitenfehler eines Prozesses und seiner Kinder."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:71
 msgid ""
-"The current value of esp (32-bit stack pointer), as found in the kernel "
-"stack page for the process."
+"The current value of esp (32-bit stack pointer), as found in the kernel stack "
+"page for the process."
 msgstr ""
 "Aktueller Wert des 32-Bit Stack-Zeigers des Kernels entnommen aus der "
 "Stack-Seite des Prozesses im Kernel."
@@ -648,10 +651,10 @@ msgstr "Aktueller 32-Bit Befehlszeiger des Prozessors."
 #. NWChan
 #: sysdeps/names/prockernel.c:76
 msgid ""
-"This is the \"channel\" in which the process is waiting.  This is the "
-"address of a system call, and can be looked up in a namelist if you need a "
-"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
-"see the WCHAN field in action)"
+"This is the \"channel\" in which the process is waiting.  This is the address "
+"of a system call, and can be looked up in a namelist if you need a textual "
+"name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to see the "
+"WCHAN field in action)"
 msgstr ""
 "Dies ist der \"Kanal\" in dem der Prozess gerade wartet.  Es handelt sich "
 "dabei um die Adresse eines Systemaufrufs dessen Namen man in der Namensliste "
@@ -707,9 +710,9 @@ msgid ""
 "which are swapped out."
 msgstr ""
 "Anzahl der Seiten, die der Prozess im Speicher hält minus drei für "
-"administrative Zwecke, d.h. alle Seiten im Text, Daten und Stack-Bereich "
-"ohne solche die nur bei Bedarf geladen werden (und momentan nicht geladen "
-"sind) und ausgelagerte Seiten."
+"administrative Zwecke, d.h. alle Seiten im Text, Daten und Stack-Bereich ohne "
+"solche die nur bei Bedarf geladen werden (und momentan nicht geladen sind) "
+"und ausgelagerte Seiten."
 
 #: sysdeps/names/procmem.c:62
 msgid ""
@@ -1123,7 +1126,8 @@ msgstr ""
 "wurden"
 
 #: sysdeps/names/swap.c:53
-msgid "Total number of swap pages that have been brought out since system boot"
+msgid ""
+"Total number of swap pages that have been brought out since system boot"
 msgstr ""
 "Anzahl der Seiten, die insgesamt seit dem letzten Systemstart eingelagert "
 "wurden"
@@ -1350,7 +1354,6 @@ msgid "Virtual alarm clock"
 msgstr "Virtuelle Alarmuhr"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
-#, fuzzy
 msgid "Profiling alarm clock"
 msgstr "Profiling alarm clock"
 
@@ -1369,3 +1372,4 @@ msgstr "Benutzerdefiniertes Signal 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Benutzerdefiniertes Signal 2"
+
