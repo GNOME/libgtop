@@ -21,11 +21,15 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <config.h>
+
 #include <locale.h>
 #include <math.h>
 
 #include <glibtop.h>
 #include <glibtop/cpu.h>
+
+#include <libgnome/gnome-i18n.h>
 
 int
 main (int argc, char *argv [])

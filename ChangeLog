@@ -1,3 +1,12 @@
+2003-10-21  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am:
+	* configure.in:
+	* src/inodedb/.cvsignore:
+	* sysdeps/names/Makefile.am:
+	install only one library, libgtop-2.0
+	Fix build-time warnings due to the redefinition of guint64
+
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
 	* lib/read.c: (glibtop_read_l):

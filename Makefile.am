@@ -1,13 +1,5 @@
-## Process this file with automake to produce Makefile.in.
 
-if EXAMPLES
-examples_SUBDIRS = examples
-else
-examples_SUBDIRS =
-endif
-
-SUBDIRS = . po misc include sysdeps lib src \
-	  $(examples_SUBDIRS) doc
+SUBDIRS = po misc include sysdeps lib src examples doc
 
 libgtopinclude_HEADERS = glibtop.h
 libgtopincludedir = $(includedir)/libgtop-2.0
@@ -19,9 +11,6 @@ EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt \
 
 dist-hook:
 	cp libgtop.spec $(distdir)
-
-release:
-	$(MAKE) dist distdir=$(PACKAGE)-$(VERSION)
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libgtop-2.0.pc

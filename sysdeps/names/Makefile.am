@@ -1,8 +1,7 @@
-LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 INCLUDES			= @INCLUDES@
 
-lib_LTLIBRARIES			= libgtop_names-2.0.la
+noinst_LTLIBRARIES		= libgtop_names-2.0.la
 
 libgtop_names_2_0_la_SOURCES	= cpu.c mem.c swap.c uptime.c loadavg.c \
 				  shm_limits.c msg_limits.c sem_limits.c \

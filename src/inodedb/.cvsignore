@@ -1,5 +1,5 @@
 Makefile.in
 Makefile
-mkinodedb
-file_by_inode
+mkinodedb2
+file_by_inode2
 .deps

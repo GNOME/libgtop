@@ -1,3 +1,11 @@
+2003-10-21  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am:
+	* smp.c:
+	* sysdeps.c: (main): install only one library, libgtop-2.0
+	Fix build-time warnings due to the redefinition of guint64
+	Fix building smp.c and sysdeps.c
+
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
 	* first.c:

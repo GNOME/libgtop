@@ -26,6 +26,7 @@
 #include <glibtop.h>
 #include <glibtop/open.h>
 #include <glibtop/close.h>
+#include <glibtop/sysdeps.h>
 
 #include <glibtop/parameter.h>
 
@@ -68,7 +69,7 @@ main (int argc, char *argv [])
 
 	glibtop_get_sysdeps (&sysdeps);
 
-#define FEATURE_CHECK(f) ((sysdeps.features & (1L << GLIBTOP_SYSDEPS_##f##)) ? 1 : 0)
+#define FEATURE_CHECK(f) ((sysdeps.features & (1L << GLIBTOP_SYSDEPS_##f)) ? 1 : 0)
 
 	printf ("Sysdeps (0x%08lx):\n\n"
 		"\tfeatures:\t\t0x%08lx\n\n"
