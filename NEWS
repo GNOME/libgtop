@@ -1,3 +1,10 @@
+August 3, 2004:
+==============
+* Some cleanups.
+* Fixed the behaviour of some linux proc_*() functions.
+* Updated the documentation.
+
+
 July 19, 2004: Overview of Changes from 2.6.1 to 2.7.4
 ======================================================
 * Plenty of code cleanups. Uninlined a lot of functions. ~5-10KB object size
