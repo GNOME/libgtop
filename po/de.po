@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 2000-01-22 00:22+0100\n"
+"POT-Creation-Date: 2000-02-14 15:46+0100\n"
 "PO-Revision-Date: 1999-07-11 12:44+02:00\n"
 "Last-Translator: Martin Baulig <martin@home-of-linux.org>\n"
 "Language-Team: Martin Baulig <martin@home-of-linux.org>\n"
