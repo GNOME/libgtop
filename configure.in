@@ -62,10 +62,17 @@ AM_PROG_LIBTOOL
 dnl Let the user enable compiler warnings
 GNOME_COMPILE_WARNINGS
 
-dnl If you want to use libgtop without gnome, comment the following line out.
 GNOME_INIT_HOOK(gnome_found=yes)
 
 if test "x$gnome_found" != xyes; then
+  if test "x$want_gnome" != xno ; then
+    AC_MSG_ERROR([
+*** GNOME was not found on this system. ***
+
+*** If you want to use LibGTop without GNOME, you need
+*** to give configure the --without-gnome parameter.
+])
+  fi
   GNOME_SUPPORT_CHECKS
 else
   AM_CONDITIONAL(BUILD_GNOME_SUPPORT, false)

@@ -1,3 +1,8 @@
+1998-12-06  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in: Make it abort if GNOME cannot be found and
+	the --without-gnome parameter was not given.
+
 1998-12-03  Martin Baulig  <martin@home-of-linux.org>
 
 	* LIBGTOP-VERSION (LIBGTOP_VERSION_CODE): Pipe the expression
