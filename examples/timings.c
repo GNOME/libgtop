@@ -47,8 +47,7 @@
 #define ELAPSED_UTIME ((unsigned long) elapsed_utime.tv_sec * 1000000 +	(unsigned long) elapsed_utime.tv_usec)
 #define ELAPSED_STIME ((unsigned long) elapsed_stime.tv_sec * 1000000 + (unsigned long) elapsed_stime.tv_usec)
 
-#if defined(__bsdi__)
-#define timeradd(tvp, uvp, vvp)						\
+#define libgtop_timeradd(tvp, uvp, vvp)						\
 	do {								\
 		(vvp)->tv_sec = (tvp)->tv_sec + (uvp)->tv_sec;		\
 		(vvp)->tv_usec = (tvp)->tv_usec + (uvp)->tv_usec;	\
@@ -57,7 +56,7 @@
 			(vvp)->tv_usec -= 1000000;			\
 		}							\
 	} while (0)
-#define timersub(tvp, uvp, vvp)						\
+#define libgtop_timersub(tvp, uvp, vvp)						\
 	do {								\
 		(vvp)->tv_sec = (tvp)->tv_sec - (uvp)->tv_sec;		\
 		(vvp)->tv_usec = (tvp)->tv_usec - (uvp)->tv_usec;	\
@@ -66,7 +65,6 @@
 			(vvp)->tv_usec += 1000000;			\
 		}							\
 	} while (0)
-#endif
 
 int
 main (int argc, char *argv [])
@@ -103,11 +101,11 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("CPU          (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.cpu.flags, PROFILE_COUNT,
@@ -121,11 +119,11 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("Memory       (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.mem.flags, PROFILE_COUNT_EXPENSIVE,
@@ -139,11 +137,11 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("Swap         (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.swap.flags, PROFILE_COUNT_EXPENSIVE,
@@ -157,11 +155,11 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("Uptime       (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.uptime.flags, PROFILE_COUNT,
@@ -175,11 +173,11 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("Loadavg      (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.loadavg.flags, PROFILE_COUNT,
@@ -197,11 +195,11 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("Proclist     (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.proclist.flags,
@@ -220,11 +218,11 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("Proc_State   (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.proc_state.flags, PROFILE_COUNT,
@@ -238,11 +236,11 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("Proc_Uid     (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.proc_uid.flags, PROFILE_COUNT,
@@ -256,11 +254,11 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("Proc_Mem     (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.proc_mem.flags, PROFILE_COUNT,
@@ -274,11 +272,11 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("Proc_Segment (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.proc_segment.flags, PROFILE_COUNT,
@@ -292,11 +290,11 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("Proc_Time    (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.proc_time.flags, PROFILE_COUNT,
@@ -310,11 +308,11 @@ main (int argc, char *argv [])
 	
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("Proc_Signal  (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.proc_signal.flags, PROFILE_COUNT,
@@ -328,11 +326,11 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
-	timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("Proc_Kernel  (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.proc_kernel.flags, PROFILE_COUNT,
@@ -341,11 +339,11 @@ main (int argc, char *argv [])
 	
 	getrusage (RUSAGE_SELF, &total_end);
 
-	timersub (&total_end.ru_utime, &total_start.ru_utime,
-		  &elapsed_utime);
+	libgtop_timersub (&total_end.ru_utime, &total_start.ru_utime,
+			  &elapsed_utime);
 
-	timersub (&total_end.ru_stime, &total_start.ru_stime,
-		  &elapsed_stime);
+	libgtop_timersub (&total_end.ru_stime, &total_start.ru_stime,
+			  &elapsed_stime);
 
 	printf ("-------------------------------------------"
 		"---------------\n");
