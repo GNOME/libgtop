@@ -255,11 +255,11 @@ msgstr "Átlagos terhelés"
 
 #: sysdeps/names/loadavg.c:42
 msgid "Running Tasks"
-msgstr "Futó taszkok"
+msgstr "Futó feladatok"
 
 #: sysdeps/names/loadavg.c:43
 msgid "Number of Tasks"
-msgstr "Taszkok száma"
+msgstr "feladatok száma"
 
 #: sysdeps/names/loadavg.c:44 sysdeps/names/loadavg.c:52
 msgid "Last PID"
@@ -271,11 +271,11 @@ msgstr "Az egyidejûleg futó folyamatok száma 1, 5 és 15 percre átlagolva"
 
 #: sysdeps/names/loadavg.c:50
 msgid "Number of tasks currently running"
-msgstr "A jelenleg futó taszkok száma"
+msgstr "A jelenleg futó feladatok száma"
 
 #: sysdeps/names/loadavg.c:51
 msgid "Total number of tasks"
-msgstr "Az összes taszk száma"
+msgstr "Az összes feladat száma"
 
 #: sysdeps/names/mem.c:43
 msgid "Total Memory"
@@ -1183,7 +1183,7 @@ msgstr "Hálózati terhelés"
 
 #: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
 msgid "Interface Names"
-msgstr "Interfész nevek"
+msgstr "Csatolónevek"
 
 #: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
 msgid "PPP Statistics"
