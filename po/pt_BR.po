@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LibGTOP\n"
-"POT-Creation-Date: 1999-11-29 16:53-0200\n"
+"POT-Creation-Date: 1999-12-19 00:33+0100\n"
 "PO-Revision-Date: 1999-04-28 16:40-0300\n"
 "Last-Translator: Ricardo Soares Guimarães <ricardo@conectiva.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
@@ -204,24 +204,6 @@ msgstr "Memória utilizada em processos de usuários em Kb"
 #: sysdeps/names/mem.c:62
 msgid "Memory in locked pages in kB"
 msgstr "Memória em páginas reservadas em Kb"
-
-#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
-#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
-#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
-msgid "Number of list elements"
-msgstr "Número de elementos na lista"
-
-#: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
-#: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
-#: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
-msgid "Total size of list"
-msgstr "Tamanho total da lista"
-
-#: sysdeps/names/mountlist.c:42 sysdeps/names/mountlist.c:49
-#: sysdeps/names/proclist.c:42 sysdeps/names/proclist.c:49
-#: sysdeps/names/procmap.c:42 sysdeps/names/procmap.c:49
-msgid "Size of a single list element"
-msgstr "Tamanho de um elemento da lista"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Size in kilobytes of message pool"
@@ -1201,6 +1183,31 @@ msgstr "ler %d bytes de dados"
 msgid "write %d bytes"
 msgstr "escrever %d bytes"
 
+#: lib/errors.c:29
+msgid "No error"
+msgstr ""
+
+#: lib/errors.c:30
+#, fuzzy
+msgid "Unknown error"
+msgstr "Erro desconhecido de sistema"
+
+#: lib/errors.c:31
+msgid "Invalid argument"
+msgstr ""
+
+#: lib/errors.c:32
+msgid "No such parameter"
+msgstr ""
+
+#: lib/errors.c:33
+msgid "Attempted to modify a read-only value"
+msgstr ""
+
+#: lib/errors.c:34
+msgid "Parameter size mismatch"
+msgstr ""
+
 #: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
 msgstr "Habilitar depuração"
@@ -1242,3 +1249,12 @@ msgstr ""
 "Erro na opção %s: %s.\n"
 "Execute '%s --help' para uma lista completa das opções\n"
 "de linha de comando.\n"
+
+#~ msgid "Number of list elements"
+#~ msgstr "Número de elementos na lista"
+
+#~ msgid "Total size of list"
+#~ msgstr "Tamanho total da lista"
+
+#~ msgid "Size of a single list element"
+#~ msgstr "Tamanho de um elemento da lista"

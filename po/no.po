@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.2\n"
-"POT-Creation-Date: 1999-12-01 10:53+0100\n"
+"POT-Creation-Date: 1999-12-19 00:33+0100\n"
 "PO-Revision-Date: 1999-12-01 10:54+01:00\n"
 "Last-Translator: Kjartan Maraas <kmaraas@online.no>\n"
 "Language-Team: Norwegian <no@li.org>\n"
@@ -204,24 +204,6 @@ msgstr "Minne brukt av brukerprosesser i kB"
 #: sysdeps/names/mem.c:62
 msgid "Memory in locked pages in kB"
 msgstr "Minne i låste sider i kB"
-
-#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
-#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
-#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
-msgid "Number of list elements"
-msgstr "Antall elementer i listen"
-
-#: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
-#: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
-#: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
-msgid "Total size of list"
-msgstr "Total størrelse på listen"
-
-#: sysdeps/names/mountlist.c:42 sysdeps/names/mountlist.c:49
-#: sysdeps/names/proclist.c:42 sysdeps/names/proclist.c:49
-#: sysdeps/names/procmap.c:42 sysdeps/names/procmap.c:49
-msgid "Size of a single list element"
-msgstr "Størrelsen på et enkelt element i listen"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Size in kilobytes of message pool"
@@ -1195,6 +1177,31 @@ msgstr "les data %d bytes"
 msgid "write %d bytes"
 msgstr "skriv %d bytes"
 
+#: lib/errors.c:29
+msgid "No error"
+msgstr ""
+
+#: lib/errors.c:30
+#, fuzzy
+msgid "Unknown error"
+msgstr "Ukjent systemfeil"
+
+#: lib/errors.c:31
+msgid "Invalid argument"
+msgstr ""
+
+#: lib/errors.c:32
+msgid "No such parameter"
+msgstr ""
+
+#: lib/errors.c:33
+msgid "Attempted to modify a read-only value"
+msgstr ""
+
+#: lib/errors.c:34
+msgid "Parameter size mismatch"
+msgstr ""
+
 #: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
 msgstr "Slå på avlusing"
@@ -1236,3 +1243,12 @@ msgstr ""
 "Feil ved flagg %s: %s.\n"
 "Kjør '%s --help' for å se en full liste av tilgjengelige "
 "kommandolinjeflagg.\n"
+
+#~ msgid "Number of list elements"
+#~ msgstr "Antall elementer i listen"
+
+#~ msgid "Total size of list"
+#~ msgstr "Total størrelse på listen"
+
+#~ msgid "Size of a single list element"
+#~ msgstr "Størrelsen på et enkelt element i listen"

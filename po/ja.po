@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-10-16 20:49+0200\n"
+"POT-Creation-Date: 1999-12-19 00:33+0100\n"
 "PO-Revision-Date: 1998-12-11 06:53+09:00\n"
 "Last-Translator: Eiichiro ITANI <emu@ceres.dti.ne.jp>\n"
 "Language-Team: <gnome@lists.hypercore.co.jp>\n"
@@ -204,24 +204,6 @@ msgstr "ユーザプロセスが使用したメモリ量(kB)"
 #: sysdeps/names/mem.c:62
 msgid "Memory in locked pages in kB"
 msgstr "ロックされたページのメモリ量(kb)"
-
-#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
-#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
-#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
-msgid "Number of list elements"
-msgstr "リストの要素数"
-
-#: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
-#: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
-#: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
-msgid "Total size of list"
-msgstr "リスト全体の大きさ"
-
-#: sysdeps/names/mountlist.c:42 sysdeps/names/mountlist.c:49
-#: sysdeps/names/proclist.c:42 sysdeps/names/proclist.c:49
-#: sysdeps/names/procmap.c:42 sysdeps/names/procmap.c:49
-msgid "Size of a single list element"
-msgstr "リスト要素一つの大きさ"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Size in kilobytes of message pool"
@@ -998,112 +980,116 @@ msgstr "システム起動後に読み込まれたスワップページの累積量"
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "システム起動後に書き出されたスワップページの累積量"
 
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
 msgid "Server Features"
 msgstr "サーバーの特性"
 
-#: sysdeps/names/sysdeps.c:52
+#: sysdeps/names/sysdeps.c:54
 #, fuzzy
 msgid "Pointer Size"
 msgstr "常駐セットサイズ"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:84
 msgid "CPU Usage"
 msgstr "CPU使用量"
 
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:85
 msgid "Memory Usage"
 msgstr "メモリ使用量"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:86
 msgid "Swap Usage"
 msgstr "スワップ使用量"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:87
 msgid "System Uptime"
 msgstr "システム稼働時間"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:88
 msgid "Load Averange"
 msgstr "負荷平均"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:89
 msgid "Shared Memory Limits"
 msgstr "共有メモリリミット"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:90
 msgid "Message Queue Limits"
 msgstr "メッセージキューリミット"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:91
 msgid "Semaphore Set Limits"
 msgstr "セマフォセットリミット"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
 msgid "List of running Processes"
 msgstr "走行中プロセス一覧"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
 msgid "Process Status information"
 msgstr "プロセス状態の情報"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
 msgid "Process UID and TTY information"
 msgstr "プロセスのUIDとTTY情報"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
 msgid "Process Memory information"
 msgstr "プロセスのメモリ情報"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:96
 msgid "Process Time information"
 msgstr "プロセスの時間情報"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:97
 msgid "Process Signal information"
 msgstr "プロセスのシグナル情報"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:98
 msgid "Process Kernel Data information"
 msgstr "プロセスのカーネルデータ情報"
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:99
 msgid "Process Segment information"
 msgstr "プロセスのセグメント情報"
 
-#: sysdeps/names/sysdeps.c:69
+#: sysdeps/names/sysdeps.c:71
 msgid "Process Arguments"
 msgstr "プロセス引数"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
 msgid "Process Memory Map"
 msgstr "プロセスのメモリマップ"
 
-#: sysdeps/names/sysdeps.c:71
+#: sysdeps/names/sysdeps.c:73
 msgid "Mount List"
 msgstr "マウント一覧"
 
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
 msgid "File System Usage"
 msgstr "ファイルシステム使用状況"
 
-#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:101
+#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:104
 msgid "Network Load"
 msgstr "ネットワーク負荷"
 
-#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:102
+#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
+msgid "Interface Names"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
 msgid "PPP Statistics"
 msgstr "PPP統計"
 
-#: sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:83
 msgid "Pointer Size on the Server (in bits)"
 msgstr ""
 
-#: sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:100
 msgid "Command line arguments of the process"
 msgstr "プロセスのコマンド行引数"
 
-#: sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:102
 msgid "List of currently mounted filesystems"
 msgstr "現在マウント中のファイルシステム一覧"
 
@@ -1214,44 +1200,78 @@ msgstr ""
 msgid "write %d bytes"
 msgstr ""
 
-#: src/daemon/gnuserv.c:446
+#: lib/errors.c:29
+msgid "No error"
+msgstr ""
+
+#: lib/errors.c:30
+#, fuzzy
+msgid "Unknown error"
+msgstr "不明なシステムエラー"
+
+#: lib/errors.c:31
+msgid "Invalid argument"
+msgstr ""
+
+#: lib/errors.c:32
+msgid "No such parameter"
+msgstr ""
+
+#: lib/errors.c:33
+msgid "Attempted to modify a read-only value"
+msgstr ""
+
+#: lib/errors.c:34
+msgid "Parameter size mismatch"
+msgstr ""
+
+#: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
 msgstr ""
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "DEBUG"
 msgstr ""
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
 msgstr ""
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
 msgstr ""
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
 msgstr ""
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
 msgstr ""
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
 msgstr ""
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "INETD"
 msgstr ""
 
-#: src/daemon/gnuserv.c:486
+#: src/daemon/gnuserv.c:488
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+
+#~ msgid "Number of list elements"
+#~ msgstr "リストの要素数"
+
+#~ msgid "Total size of list"
+#~ msgstr "リスト全体の大きさ"
+
+#~ msgid "Size of a single list element"
+#~ msgstr "リスト要素一つの大きさ"
 
 #~ msgid "Give this help list"
 #~ msgstr "このヘルプを出力"

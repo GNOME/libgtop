@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.3\n"
-"POT-Creation-Date: 1999-11-29 13:08+0900\n"
+"POT-Creation-Date: 1999-12-19 00:33+0100\n"
 "PO-Revision-Date: 1999-11-29 04:21:16+0900\n"
 "Last-Translator: Sung-Hyun Nam <namsh@kldp.org>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -204,24 +204,6 @@ msgstr "사용자 프로세스가 차지한 메모리 (kB)"
 #: sysdeps/names/mem.c:62
 msgid "Memory in locked pages in kB"
 msgstr "막힌 페이지 메모리 (kB)"
-
-#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
-#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
-#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
-msgid "Number of list elements"
-msgstr "목록 요소의 갯수"
-
-#: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
-#: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
-#: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
-msgid "Total size of list"
-msgstr "목록의 총 크기"
-
-#: sysdeps/names/mountlist.c:42 sysdeps/names/mountlist.c:49
-#: sysdeps/names/proclist.c:42 sysdeps/names/proclist.c:49
-#: sysdeps/names/procmap.c:42 sysdeps/names/procmap.c:49
-msgid "Size of a single list element"
-msgstr "목록 요소 하나의 크기"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Size in kilobytes of message pool"
@@ -1194,6 +1176,31 @@ msgstr "데이타 %d 바이트 읽음"
 msgid "write %d bytes"
 msgstr "%d 바이트 씀"
 
+#: lib/errors.c:29
+msgid "No error"
+msgstr ""
+
+#: lib/errors.c:30
+#, fuzzy
+msgid "Unknown error"
+msgstr "알려지지 않은 시스템 에러"
+
+#: lib/errors.c:31
+msgid "Invalid argument"
+msgstr ""
+
+#: lib/errors.c:32
+msgid "No such parameter"
+msgstr ""
+
+#: lib/errors.c:33
+msgid "Attempted to modify a read-only value"
+msgstr ""
+
+#: lib/errors.c:34
+msgid "Parameter size mismatch"
+msgstr ""
+
 #: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
 msgstr "디버깅 함"
@@ -1234,3 +1241,12 @@ msgid ""
 msgstr ""
 "옵션 %s에서 에러: %s.\n"
 "가능한 명령행 옵션을 보려면 '%s --help'를 실행하세요.\n"
+
+#~ msgid "Number of list elements"
+#~ msgstr "목록 요소의 갯수"
+
+#~ msgid "Total size of list"
+#~ msgstr "목록의 총 크기"
+
+#~ msgid "Size of a single list element"
+#~ msgstr "목록 요소 하나의 크기"

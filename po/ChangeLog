@@ -1,3 +1,7 @@
+1999-12-19  Martin Baulig  <martin@home-of-linux.org>
+
+	* POTFILES.in: Added `lib/errors.c'.
+
 1999-12-01  Kjartan Maraas  <kmaraas@online.no>
 
 	* no.po: Updated Norwegian translation.

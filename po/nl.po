@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-10-16 20:49+0200\n"
+"POT-Creation-Date: 1999-12-19 00:33+0100\n"
 "PO-Revision-Date: 1999-09-29 00:24+0200\n"
 "Last-Translator: Gert Dewit <Gert.Dewit@sos.be>\n"
 "Language-Team: nl <nl@li.org>\n"
@@ -204,24 +204,6 @@ msgstr "Geheugen gebruikt voor gebruikersprocessen in kB"
 #: sysdeps/names/mem.c:62
 msgid "Memory in locked pages in kB"
 msgstr "Geheugen in vergrendelde pagina's in kB"
-
-#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
-#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
-#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
-msgid "Number of list elements"
-msgstr "Aantal elementen in een lijst"
-
-#: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
-#: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
-#: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
-msgid "Total size of list"
-msgstr "Totale grootte van een lijst"
-
-#: sysdeps/names/mountlist.c:42 sysdeps/names/mountlist.c:49
-#: sysdeps/names/proclist.c:42 sysdeps/names/proclist.c:49
-#: sysdeps/names/procmap.c:42 sysdeps/names/procmap.c:49
-msgid "Size of a single list element"
-msgstr "Grootte van 1 element in een lijst"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Size in kilobytes of message pool"
@@ -980,111 +962,115 @@ msgstr "Totaal aantal swap pagina's dat toegevoegd is sinds de systeemboot"
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "Totaal aantal swap pagina's dat weggenomen is sinds de systeemboot"
 
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
 msgid "Server Features"
 msgstr "Server eigenschappen"
 
-#: sysdeps/names/sysdeps.c:52
+#: sysdeps/names/sysdeps.c:54
 msgid "Pointer Size"
 msgstr "Pointer grootte"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:84
 msgid "CPU Usage"
 msgstr "CPU gebruik"
 
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:85
 msgid "Memory Usage"
 msgstr "Geheugen gebruik"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:86
 msgid "Swap Usage"
 msgstr "Swap gebruik"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:87
 msgid "System Uptime"
 msgstr "Uptime van het systeem"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:88
 msgid "Load Averange"
 msgstr "Gemiddelde belasting"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:89
 msgid "Shared Memory Limits"
 msgstr "Gedeeld geheugen limieten"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:90
 msgid "Message Queue Limits"
 msgstr "Berichtenrij limieten"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:91
 msgid "Semaphore Set Limits"
 msgstr "Semaforen limieten"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
 msgid "List of running Processes"
 msgstr "Lijst van de lopende processen"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
 msgid "Process Status information"
 msgstr "Proces status informatie"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
 msgid "Process UID and TTY information"
 msgstr "Proces UID en TTY informatie"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
 msgid "Process Memory information"
 msgstr "Proces geheugen infromatie"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:96
 msgid "Process Time information"
 msgstr "Procestijd informatie"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:97
 msgid "Process Signal information"
 msgstr "Proces signalen informatie"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:98
 msgid "Process Kernel Data information"
 msgstr "Proces Kernal data informatie"
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:99
 msgid "Process Segment information"
 msgstr "Proces segment informatie"
 
-#: sysdeps/names/sysdeps.c:69
+#: sysdeps/names/sysdeps.c:71
 msgid "Process Arguments"
 msgstr "Proces argumenten"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
 msgid "Process Memory Map"
 msgstr "Proces geheugenmap"
 
-#: sysdeps/names/sysdeps.c:71
+#: sysdeps/names/sysdeps.c:73
 msgid "Mount List"
 msgstr "Mount lijst"
 
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
 msgid "File System Usage"
 msgstr "Bestandssyteem gebruik"
 
-#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:101
+#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:104
 msgid "Network Load"
 msgstr "Netwerk belasting"
 
-#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:102
+#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
+msgid "Interface Names"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
 msgid "PPP Statistics"
 msgstr "PPP statistieken"
 
-#: sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:83
 msgid "Pointer Size on the Server (in bits)"
 msgstr "Pointer grootte op de server (in bits)"
 
-#: sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:100
 msgid "Command line arguments of the process"
 msgstr "Command line argumenten van het proces"
 
-#: sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:102
 msgid "List of currently mounted filesystems"
 msgstr "Lijst van de huidig gemounte bestandssystemen"
 
@@ -1196,39 +1182,64 @@ msgstr "lees %d bytes"
 msgid "write %d bytes"
 msgstr "schrijf %d bytes"
 
-#: src/daemon/gnuserv.c:446
+#: lib/errors.c:29
+msgid "No error"
+msgstr ""
+
+#: lib/errors.c:30
+#, fuzzy
+msgid "Unknown error"
+msgstr "Onbekende systeemfout"
+
+#: lib/errors.c:31
+msgid "Invalid argument"
+msgstr ""
+
+#: lib/errors.c:32
+msgid "No such parameter"
+msgstr ""
+
+#: lib/errors.c:33
+msgid "Attempted to modify a read-only value"
+msgstr ""
+
+#: lib/errors.c:34
+msgid "Parameter size mismatch"
+msgstr ""
+
+#: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
 msgstr "Debugging aan"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
 msgstr "Overvloedige output aan"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
 msgstr "Fork niet naar de achtergrond"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
 msgstr "Opgestart vanuit inetd"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:486
+#: src/daemon/gnuserv.c:488
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -1236,3 +1247,12 @@ msgid ""
 msgstr ""
 "Fout bij optie %s: %s.\n"
 "Start '%s --help' om een volledige optielijst te zien.\n"
+
+#~ msgid "Number of list elements"
+#~ msgstr "Aantal elementen in een lijst"
+
+#~ msgid "Total size of list"
+#~ msgstr "Totale grootte van een lijst"
+
+#~ msgid "Size of a single list element"
+#~ msgstr "Grootte van 1 element in een lijst"

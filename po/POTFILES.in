@@ -31,6 +31,7 @@ lib/read.c
 lib/read_data.c
 lib/sysdeps.c
 lib/write.c
+lib/errors.c
 include/glibtop/close.h
 include/glibtop/command.h
 include/glibtop/cpu.h
