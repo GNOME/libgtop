@@ -884,6 +884,9 @@ Mask of ignored signals
 Mask of caught signals
 @end table
 
+All signal masks are interpreted as bit mask; it is an array of two
+@code{u_int64_t}'s so we can save 128 signals there.
+
 @page
 @node glibtop_proc_kernel, glibtop_proc_segment, glibtop_proc_signal, System Dependent
 @subsection Process Kernel Data information
@@ -1288,7 +1291,62 @@ enum @{
 @node glibtop_ppp,  , glibtop_netload, System Dependent
 @subsection PPP Statistics
 
-[Not yet written.]
+Library function @code{glibtop_get_ppp}:
+
+@example
+@cartouche
+void
+glibtop_get_ppp_l (glibtop *server, glibtop_ppp *buf,
+                   unsigned short device);
+
+void
+glibtop_get_ppp (glibtop_ppp *buf, unsigned short device);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_ppp} in @file{<glibtop/ppp.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_ppp     glibtop_ppp;
+
+struct _glibtop_ppp
+@{
+    u_int64_t   flags,
+        state,
+        bytes_in,
+        bytes_out;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item bytes_in
+Number of input bytes
+@item bytes_out
+Number of output bytes
+@end table
+
+There are some constants for @code{state}:
+
+@example
+@cartouche
+enum @{
+    GLIBTOP_PPP_STATE_UNKNOWN = 0,
+    GLIBTOP_PPP_STATE_HANGUP,
+    GLIBTOP_PPP_STATE_ONLINE
+@};
+@end cartouche
+@end example
+
+@table @code
+@item GLIBTOP_PPP_STATE_UNKNOWN
+LibGTop was unable to determine the current ppp state.
+@item GLIBTOP_PPP_STATE_HANGUP
+We're currently offline.
+@item GLIBTOP_PPP_STATE_ONLINE
+We're currently online.
+@end table
 
 @page
 @node Common Functions,  , System Dependent, Reference Manual
@@ -1303,11 +1361,134 @@ enum @{
 @node glibtop_mountlist, glibtop_fsusage, Common Functions, Common Functions
 @subsection Mount List
 
-[Not yet written.]
+Library function @code{glibtop_get_mountlist}:
+
+@example
+@cartouche
+glibtop_mountentry *
+glibtop_get_mountlist_l (glibtop *server, glibtop_mountlist *buf,
+                         int all_fs);
+
+glibtop_mountentry *
+glibtop_get_mountlist (glibtop_mountlist *buf, int all_fs);
+@end cartouche
+@end example
+
+The @code{all_fs} parameter specifies whether information about all
+filesystems should be returned; this will include filesystem types like
+@code{autofs} and @code{procfs}. You should not use this in disk usage
+programs, but it can be useful to get a list of all currently mounted
+filesystems.
+
+Declaration of @code{glibtop_proc_map} in @file{<glibtop/procmap.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_mountlist       glibtop_mountlist;
+
+struct _glibtop_mountlist
+@{
+    u_int64_t   flags,
+        number,
+        total,
+        size;
+@};
+@end cartouche
+@end example
+
+Returns a @code{glibtop_mountentry *} list (which needs to be freed with
+@code{glibtop_free}) of mounted filesystems.
+
+@table @code
+@item number
+Number of entries in the returned list.
+
+@item total
+Total size of the returned list (this equals @code{number * size}).
+
+@item size
+Size of a single entry in the returned list
+(this equals @code{sizeof (glibtop_mountentry)}).
+@end table
+
+@example
+@cartouche
+typedef struct _glibtop_mountentry      glibtop_mountentry;
+
+struct _glibtop_mountentry
+@{
+    u_int64_t dev;
+    char devname [GLIBTOP_MOUNTENTRY_LEN+1];
+    char mountdir [GLIBTOP_MOUNTENTRY_LEN+1];
+    char type [GLIBTOP_MOUNTENTRY_LEN+1];
+@};
+@end cartouche
+@end example
+
+@ifset LIBGTOP-1-1
+@code{GLIBTOP_MOUNTENTRY_LEN} is defined in @file{<glibtop/limits.h>}.
+@end ifset
+@ifclear LIBGTOP-1-1
+@code{GLIBTOP_MOUNTENTRY_LEN} is defined in @file{<glibtop.h>}
+(this was moved to @file{<glibtop/limits.h>} in LibGTop 1.1.0).
+@end ifclear
+
+@table @code
+@item devname
+Full pathname (such as @samp{/dev/sdb1} for instance) to the mounted device.
+@item mountdir
+Full pathname of the mountpoint (such as @samp{/usr/local} for instance).
+@item type
+Filesystem type as a textual string (such as @samp{ext2fs}).
+@end table
 
 @page
 @node glibtop_fsusage,  , glibtop_mountlist, Common Functions
 @subsection File System Usage
 
-[Not yet written.]
+Library function @code{glibtop_get_fsusage}:
+
+@example
+@cartouche
+void
+glibtop_get_fsusage_l (glibtop *server, glibtop_fsusage *buf,
+                       const char *mount_dir);
+
+void
+glibtop_get_fsusage (glibtop_fsusage *buf, const char *mount_dir);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_fsusage} in @file{<glibtop/fsusage.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_fsusage         glibtop_fsusage;
+
+struct _glibtop_fsusage
+@{
+    u_int64_t   flags,
+        blocks,
+        bfree,
+        bavail,
+        files,
+        ffree;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item blocks
+Total blocks in the filesystem.
+@item bfree
+Free blocks available to the superuser.
+@item bavail
+Free blocks available to ordinary users.
+@item files
+Total file nodes.
+@item ffree
+Free file nodes.
+@end table
+
+Blocks are usually 512 bytes.
 
