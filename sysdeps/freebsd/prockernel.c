@@ -70,6 +70,8 @@ glibtop_init_proc_kernel_p (glibtop *server)
 	server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel_pstats |
 		_glibtop_sysdeps_proc_kernel_pcb |
 		_glibtop_sysdeps_proc_kernel_wchan;
+
+	return 0;
 }
 
 int
@@ -91,10 +93,10 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
 
 	if (server->sysdeps.proc_time == 0)
-		return;
+		return -1;
 
 	/* It does not work for the swapper task. */
-	if (pid == 0) return;
+	if (pid == 0) return -1;
 	
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
@@ -125,7 +127,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	 *       `kvm_uread' work. */
 
 	sprintf (filename, "/proc/%d/mem", (int) pid);
-	if (stat (filename, &statb)) return;
+	if (stat (filename, &statb)) return -1;
 
 	glibtop_suid_enter (server);
 
@@ -181,4 +183,6 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	/* Taken from `wchan ()' in `/usr/src/bin/ps/print.c'. */
 
 	glibtop_suid_leave (server);
+
+	return 0;
 }

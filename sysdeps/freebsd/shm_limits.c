@@ -32,7 +32,10 @@
 
 int
 glibtop_init_shm_limits_p (glibtop *server)
-{ }
+{
+
+	return 0;
+}
 
 int
 glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
@@ -40,6 +43,8 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
         glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
 
         memset (buf, 0, sizeof (glibtop_shm_limits));
+
+	return 0;
 }
 
 #else
@@ -78,16 +83,18 @@ glibtop_init_shm_limits_p (glibtop *server)
 {
 	if (kvm_nlist (server->machine.kd, nlst) != 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (shm_limits)");
-		return;
+		return -1;
 	}
 	
 	if (kvm_read (server->machine.kd, nlst [0].n_value,
 		      &_shminfo, sizeof (_shminfo)) != sizeof (_shminfo)) {
 		glibtop_warn_io_r (server, "kvm_read (shminfo)");
-		return;
+		return -1;
 	}
 
 	server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
+
+	return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -100,7 +107,7 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 	memset (buf, 0, sizeof (glibtop_shm_limits));
 
 	if (server->sysdeps.shm_limits == 0)
-		return;
+		return -1;
 
 	buf->shmmax = _shminfo.shmmax;
 	buf->shmmin = _shminfo.shmmin;
@@ -109,6 +116,8 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 	buf->shmall = _shminfo.shmall;
 
 	buf->flags = _glibtop_sysdeps_shm_limits;
+
+	return 0;
 }
 
 #endif /* either a newer BSDI or no BSDI at all. */

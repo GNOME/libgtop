@@ -52,6 +52,8 @@ glibtop_init_proc_uid_p (glibtop *server)
 {
 	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid |
 		_glibtop_sysdeps_proc_uid_groups;
+
+	return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -75,13 +77,13 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 
 	/* It does not work for the swapper task. */
-	if (pid == 0) return;
+	if (pid == 0) return -1;
 	
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1)) {
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
-		return;
+		return -1;
 	}
 
 	buf->uid  = pinfo [0].kp_eproc.e_pcred.p_ruid;
@@ -125,4 +127,6 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	}
 #endif
 #endif
+
+	return 0;
 }

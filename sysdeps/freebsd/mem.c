@@ -94,7 +94,7 @@ glibtop_init_mem_p (glibtop *server)
 
 	if (kvm_nlist (server->machine.kd, nlst) != 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (mem)");
-		return;
+		return -1;
 	}
 
 	/* get the page size with "getpagesize" and calculate pageshift
@@ -110,6 +110,8 @@ glibtop_init_mem_p (glibtop *server)
 	pageshift -= LOG1024;
 
 	server->sysdeps.mem = _glibtop_sysdeps_mem;
+
+	return 0;
 }
 
 int
@@ -133,7 +135,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	memset (buf, 0, sizeof (glibtop_mem));
 
 	if (server->sysdeps.mem == 0)
-		return;
+		return -1;
 
 	/* [FIXME: On FreeBSD 2.2.6, sysctl () returns an incorrect
 	 *         value for `vmt.vm'. We use some code from Unix top
@@ -143,28 +145,28 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	length_vmt = sizeof (vmt);
 	if (sysctl (mib, 2, &vmt, &length_vmt, NULL, 0)) {
 		glibtop_warn_io_r (server, "sysctl (vmt)");
-		return;
+		return -1;
 	}
 
 #if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
 	length_uvmexp = sizeof (uvmexp);
 	if (sysctl (mib_uvmexp, 2, &uvmexp, &length_uvmexp, NULL, 0)) {
 		glibtop_warn_io_r (server, "sysctl (uvmexp)");
-		return;
+		return -1;
 	}
 #else
 	/* Get the data from kvm_* */
 	if (kvm_read (server->machine.kd, nlst[1].n_value,
 		      &vmm, sizeof (vmm)) != sizeof (vmm)) {
 		glibtop_warn_io_r (server, "kvm_read (cnt)");
-		return;
+		return -1;
 	}
 #endif
 
 	if (kvm_read (server->machine.kd, nlst[0].n_value,
 		      &bufspace, sizeof (bufspace)) != sizeof (bufspace)) {
 		glibtop_warn_io_r (server, "kvm_read (bufspace)");
-		return;
+		return -1;
 	}
   
 	/* convert memory stats to Kbytes */
@@ -219,4 +221,6 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 
 	/* Set the values to return */
 	buf->flags = _glibtop_sysdeps_mem;
+
+	return 0;
 }

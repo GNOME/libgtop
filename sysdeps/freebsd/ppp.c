@@ -84,6 +84,8 @@ glibtop_init_ppp_p (glibtop *server)
 
 	if (kvm_nlist (server->machine.kd, nlst) != 0)
 		glibtop_error_io_r (server, "kvm_nlist");
+
+	return 0;
 }
 
 /* Provides information about ppp usage. */
@@ -141,4 +143,6 @@ glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device)
 	buf->flags |= _glibtop_sysdeps_ppp_acct;
 #endif
 #endif /* HAVE_I4B */
+
+	return 0;
 }

@@ -69,6 +69,8 @@ glibtop_init_netload_p (glibtop *server)
 
     if (kvm_nlist (server->machine.kd, nlst) != 0)
 	glibtop_error_io_r (server, "kvm_nlist");
+
+	return 0;
 }
 
 /* Provides Network statistics. */
@@ -191,7 +193,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 
 		buf->collisions = ifnet.if_collisions;
 		buf->flags = _glibtop_sysdeps_netload;
-		return;
+		return -1;
 	    }
 
 #if defined(__FreeBSD__) && (__FreeBSD_version >= 300000)
@@ -211,4 +213,6 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	ifnetaddr = (u_long) ifnet.if_list.tqe_next;
 #endif
     }
+
+    return 0;
 }

@@ -39,6 +39,8 @@ int
 glibtop_init_proc_segment_p (glibtop *server)
 {
 	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
+
+	return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -56,7 +58,7 @@ glibtop_get_proc_segment_p (glibtop *server,
 	/* Get the process info from the kernel */
 	kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, count);
 	if (*count != 1) {
-		return; /* the zeroed-out buffer indicating no data */
+		return -1; /* the zeroed-out buffer indicating no data */
 	}
 
 	/* trs: text resident set size
@@ -78,5 +80,7 @@ glibtop_get_proc_segment_p (glibtop *server,
 	/* start_stack: address of the bottom of stack segment
 	 */
 #endif
+
+	return 0;
 }
 

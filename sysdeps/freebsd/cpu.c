@@ -53,11 +53,13 @@ glibtop_init_cpu_p (glibtop *server)
 {
 	if (kvm_nlist (server->machine.kd, nlst) != 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (cpu)");
-		return;
+		return -1;
 	}
 
 	/* Set this only if kvm_nlist () succeeded. */
 	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+
+	return 0;
 }
 
 /* Provides information about cpu usage. */
@@ -76,19 +78,19 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 
 	/* If this fails, the nlist may not be valid. */
 	if (server->sysdeps.cpu == 0)
-		return;
+		return -1;
 
 	if (kvm_read (server->machine.kd, nlst [0].n_value,
 		      &cpts, sizeof (cpts)) != sizeof (cpts)) {
 		glibtop_warn_io_r (server, "kvm_read (cp_time)");
-		return;
+		return -1;
 	}
 	
 	/* Get the clockrate data */
 	length = sizeof (struct clockinfo);
 	if (sysctl (mib, mib_length, &ci, &length, NULL, 0)) {
 		glibtop_warn_io_r (server, "sysctl");
-		return;
+		return -1;
 	}
 
 	/* set user time */
@@ -114,4 +116,6 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 
 	/* Set the flags last. */
 	buf->flags = _glibtop_sysdeps_cpu;
+
+	return 0;
 }

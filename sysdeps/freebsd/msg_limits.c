@@ -32,7 +32,9 @@
 
 int
 glibtop_init_msg_limits_p (glibtop *server)
-{ }
+{
+	return 0;
+}
 
 int
 glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
@@ -40,6 +42,8 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
         glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MSG_LIMITS), 0);
 
         memset (buf, 0, sizeof (glibtop_msg_limits));
+
+	return 0;
 }
 
 #else
@@ -78,16 +82,18 @@ glibtop_init_msg_limits_p (glibtop *server)
 {
 	if (kvm_nlist (server->machine.kd, nlst) != 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (msg_limits)");
-		return;
+		return -1;
 	}
 	
 	if (kvm_read (server->machine.kd, nlst [0].n_value,
 		      &_msginfo, sizeof (_msginfo)) != sizeof (_msginfo)) {
 		glibtop_warn_io_r (server, "kvm_read (msginfo)");
-		return;
+		return -1;
 	}
 
 	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+
+	return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -100,7 +106,7 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 	memset (buf, 0, sizeof (glibtop_msg_limits));
 
 	if (server->sysdeps.msg_limits == 0)
-		return;
+		return -1;
 
 	buf->msgmax = _msginfo.msgmax;
 	buf->msgmni = _msginfo.msgmni;
@@ -109,6 +115,8 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 	buf->msgssz = _msginfo.msgtql;
 	
 	buf->flags = _glibtop_sysdeps_msg_limits; 
+
+	return 0;
 }
 
 #endif /* either a newer BSDI or no BSDI at all. */

@@ -100,6 +100,8 @@ glibtop_init_proc_mem_p (glibtop *server)
 
 	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem |
 		_glibtop_sysdeps_proc_mem_share;
+
+	return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -125,23 +127,23 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 
 	if (server->sysdeps.proc_mem == 0)
-		return;
+		return -1;
 
 	/* It does not work for the swapper task. */
-	if (pid == 0) return;
+	if (pid == 0) return -1;
 	
 	/* Get the process data */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count < 1)) {
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
-		return;
+		return -1;
 	}
 
 	if (kvm_read (server->machine.kd,
 		      (unsigned long) pinfo [0].kp_proc.p_limit,
 		      (char *) &plimit, sizeof (plimit)) != sizeof (plimit)) {
 		glibtop_warn_io_r (server, "kvm_read (plimit)");
-		return;
+		return -1;
 	}
 
 	buf->rss_rlim = (u_int64_t) 
@@ -161,7 +163,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 		      (unsigned long) pinfo [0].kp_proc.p_vmspace,
 		      (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace)) {
 		glibtop_warn_io_r (server, "kvm_read (vmspace)");
-		return;
+		return -1;
 	}
 
 	first = vmspace.vm_map.header.next;
@@ -170,7 +172,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 		      (unsigned long) vmspace.vm_map.header.next,
 		      (char *) &entry, sizeof (entry)) != sizeof (entry)) {
 		glibtop_warn_io_r (server, "kvm_read (entry)");
-		return;
+		return -1;
 	}
 
 	/* Walk through the `vm_map_entry' list ... */
@@ -184,7 +186,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 			      (unsigned long) entry.next,
 			      &entry, sizeof (entry)) != sizeof (entry)) {
 			glibtop_warn_io_r (server, "kvm_read (entry)");
-			return;
+			return -1;
 		}
 
 #ifdef __FreeBSD__
@@ -215,7 +217,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 			      (unsigned long) entry.object.uvm_obj,
 			      &vnode, sizeof (vnode)) != sizeof (vnode)) {
 			glibtop_warn_io_r (server, "kvm_read (vnode)");
-			return;
+			return -1;
 		}
 #else
 		if (!entry.object.vm_object)
@@ -227,7 +229,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 			      (unsigned long) entry.object.vm_object,
 			      &object, sizeof (object)) != sizeof (object)) {
 			glibtop_warn_io_r (server, "kvm_read (object)");
-			return;
+			return -1;
 		}
 #endif
 		/* If the object is of type vnode, add its size */
@@ -256,4 +258,6 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 	buf->flags = _glibtop_sysdeps_proc_mem |
 		_glibtop_sysdeps_proc_mem_share;
+
+	return 0;
 }

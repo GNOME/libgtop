@@ -36,6 +36,8 @@ int
 glibtop_init_loadavg_p (glibtop *server)
 {
 	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
+
+	return 0;
 }
 
 /* Provides load averange. */
@@ -57,4 +59,6 @@ glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
 	for (i = 0; i < 3; i++) {
 		buf->loadavg [i] = ldavg [i];
 	} /* end for */
+
+	return 0;
 }

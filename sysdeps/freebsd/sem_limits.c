@@ -32,7 +32,10 @@
 
 int
 glibtop_init_sem_limits_p (glibtop *server)
-{ }
+{
+
+	return 0;
+}
 
 int
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
@@ -40,6 +43,8 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
         glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
 
         memset (buf, 0, sizeof (glibtop_sem_limits));
+
+	return 0;
 }
 
 #else
@@ -80,16 +85,18 @@ glibtop_init_sem_limits_p (glibtop *server)
 {
 	if (kvm_nlist (server->machine.kd, nlst) != 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (sem_limits)");
-		return;
+		return -1;
 	}
 	
 	if (kvm_read (server->machine.kd, nlst [0].n_value,
 		      &_seminfo, sizeof (_seminfo)) != sizeof (_seminfo)) {
 		glibtop_warn_io_r (server, "kvm_read (seminfo)");
-		return;
+		return -1;
 	}
 
 	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+
+	return 0;
 }
 
 /* Provides information about sysv sem limits. */
@@ -102,7 +109,7 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 	memset (buf, 0, sizeof (glibtop_sem_limits));
 	
 	if (server->sysdeps.sem_limits == 0)
-		return;
+		return -1;
 
 	buf->semmap = _seminfo.semmap;
 	buf->semmni = _seminfo.semmni;
@@ -114,6 +121,8 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 	buf->semaem = _seminfo.semaem;
 	
 	buf->flags = _glibtop_sysdeps_sem_limits;
+
+	return 0;
 }
 
 #endif /* either a newer BSDI or no BSDI at all. */

@@ -48,6 +48,8 @@ glibtop_init_proc_time_p (glibtop *server)
 {
 	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time |
 		_glibtop_sysdeps_proc_time_user;
+
+	return 0;
 }
 
 /* Taken from /usr/src/sys/kern/kern_resource.c */
@@ -140,15 +142,15 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	memset (buf, 0, sizeof (glibtop_proc_time));
 
 	/* It does not work for the swapper task. */
-	if (pid == 0) return;
+	if (pid == 0) return -1;
 	
 #if !(defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000))
 	if (server->sysdeps.proc_time == 0)
-		return;
+		return -1;
 
 #ifndef __bsdi__
 	sprintf (filename, "/proc/%d/mem", (int) pid);
-	if (stat (filename, &statb)) return;
+	if (stat (filename, &statb)) return -1;
 #endif
 #endif
 
@@ -173,7 +175,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 		      (unsigned long) pinfo [0].kp_proc.p_stats,
 		      &pstats, sizeof (pstats)) != sizeof (pstats)) {
 		glibtop_warn_io_r (server, "kvm_read (pstats)");
-		return;
+		return -1;
 	}
 
 	glibtop_suid_leave (server);
@@ -225,5 +227,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 
 	glibtop_suid_leave (server);
 #endif
+
+	return 0;
 }
 

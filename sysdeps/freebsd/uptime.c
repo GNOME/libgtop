@@ -42,6 +42,8 @@ int
 glibtop_init_uptime_p (glibtop *server)
 {
 	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+
+	return 0;
 }
 
 /* Provides uptime and idle time. */
@@ -62,7 +64,7 @@ glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 	/* Make sure all required fields are present. */
 
 	if ((cpu.flags & _required_cpu_flags) != _required_cpu_flags)
-		return;
+		return -1;
 
 	/* Calculate values. */
 
@@ -70,4 +72,6 @@ glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 	buf->idletime = (double) cpu.idle / (double) cpu.frequency;
 
 	buf->flags = _glibtop_sysdeps_uptime;
+
+	return 0;
 }
