@@ -1,3 +1,7 @@
+2004-07-07  Benoît Dejean  <tazforever@dlfp.org>
+
+	* procargs.c: Added glibtop_get_proc_argv demo.
+
 2003-12-27  Ole Laursen  <olau@hardworking.dk>
 
 	* mountlist.c: Updated to display block size too.
