@@ -1,5 +1,8 @@
 1999-12-22  Martin Baulig  <martin@home-of-linux.org>
 
+	* procdata.c: Distinguish between GLIBTOP_ERROR_NO_KERNEL_SUPPORT
+	and GLIBTOP_ERROR_NO_SUCH_PROCESS.
+
 	* procdata.c (glibtop_get_proc_data_proc_state_s): Return
 	-GLIBTOP_ERROR_NO_SUCH_PROCESS if the process doesn't exist.
 	(glibtop_get_proc_data_proc_mem_s): Likewise.

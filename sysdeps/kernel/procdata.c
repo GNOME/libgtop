@@ -31,7 +31,10 @@ glibtop_get_proc_data_stat_s (glibtop *server, libgtop_stat_t *stat)
     size_t size = sizeof (libgtop_stat_t);
 
     if (sysctl (name, 2, stat, &size, NULL, 0)) {
-	glibtop_warn_io_r (server, "sysctl (libgtop/stat)");
+	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_KERNEL_SUPPORT;
+	else
+	    glibtop_warn_io_r (server, "sysctl (libgtop/stat)");
 	return -1;
     }
 
@@ -45,7 +48,10 @@ glibtop_get_proc_data_mem_s (glibtop *server, libgtop_mem_t *mem)
     size_t size = sizeof (libgtop_mem_t);
 
     if (sysctl (name, 2, mem, &size, NULL, 0)) {
-	glibtop_warn_io_r (server, "sysctl (libgtop/mem)");
+	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_KERNEL_SUPPORT;
+	else
+	    glibtop_warn_io_r (server, "sysctl (libgtop/mem)");
 	return -1;
     }
 
@@ -59,7 +65,10 @@ glibtop_get_proc_data_swap_s (glibtop *server, libgtop_swap_t *swap)
     size_t size = sizeof (libgtop_swap_t);
 
     if (sysctl (name, 2, swap, &size, NULL, 0)) {
-	glibtop_warn_io_r (server, "sysctl (libgtop/swap)");
+	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_KERNEL_SUPPORT;
+	else
+	    glibtop_warn_io_r (server, "sysctl (libgtop/swap)");
 	return -1;
     }
 
@@ -75,7 +84,10 @@ glibtop_get_proc_data_proclist_s (glibtop *server,
     size_t size = sizeof (libgtop_proclist_t);
 
     if (sysctl (name, 4, proclist, &size, NULL, 0)) {
-	glibtop_warn_io_r (server, "sysctl (libgtop/proclist)");
+	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_KERNEL_SUPPORT;
+	else
+	    glibtop_warn_io_r (server, "sysctl (libgtop/proclist)");
 	return -1;
     }
 
@@ -93,6 +105,8 @@ glibtop_get_proc_data_proc_state_s (glibtop *server,
 
     if (sysctl (name, 3, proc_state, &size, NULL, 0)) {
 	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_KERNEL_SUPPORT;
+	else if (errno == ESRCH)
 	    return -GLIBTOP_ERROR_NO_SUCH_PROCESS;
 	else
 	    glibtop_warn_io_r (server, "sysctl (libgtop/proc_state)");
@@ -112,6 +126,8 @@ glibtop_get_proc_data_proc_mem_s (glibtop *server,
 
     if (sysctl (name, 3, proc_mem, &size, NULL, 0)) {
 	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_KERNEL_SUPPORT;
+	else if (errno == ESRCH)
 	    return -GLIBTOP_ERROR_NO_SUCH_PROCESS;
 	else
 	    glibtop_warn_io_r (server, "sysctl (libgtop/proc_mem)");
@@ -131,6 +147,8 @@ glibtop_get_proc_data_proc_signal_s (glibtop *server,
 
     if (sysctl (name, 3, proc_signal, &size, NULL, 0)) {
 	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_KERNEL_SUPPORT;
+	else if (errno == ESRCH)
 	    return -GLIBTOP_ERROR_NO_SUCH_PROCESS;
 	else
 	    glibtop_warn_io_r (server, "sysctl (libgtop/proc_signal)");
@@ -150,6 +168,8 @@ glibtop_get_proc_data_proc_kernel_s (glibtop *server,
 
     if (sysctl (name, 3, proc_kernel, &size, NULL, 0)) {
 	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_KERNEL_SUPPORT;
+	else if (errno == ESRCH)
 	    return -GLIBTOP_ERROR_NO_SUCH_PROCESS;
 	else
 	    glibtop_warn_io_r (server, "sysctl (libgtop/proc_kernel)");
@@ -168,6 +188,8 @@ glibtop_get_proc_data_proc_args_s (glibtop *server, pid_t pid,
 
     if (sysctl (name, 3, result, &size, NULL, 0)) {
 	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_KERNEL_SUPPORT;
+	else if (errno == ESRCH)
 	    return -GLIBTOP_ERROR_NO_SUCH_PROCESS;
 	else
 	    glibtop_warn_io_r (server, "sysctl (libgtop/proc_args)");
@@ -187,6 +209,8 @@ glibtop_get_proc_data_proc_maps_s (glibtop *server, pid_t pid,
 
     if (sysctl (name, 3, result, &size, NULL, 0)) {
 	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_KERNEL_SUPPORT;
+	else if (errno == ESRCH)
 	    return -GLIBTOP_ERROR_NO_SUCH_PROCESS;
 	else
 	    glibtop_warn_io_r (server, "sysctl (libgtop/proc_maps)");
@@ -205,7 +229,10 @@ glibtop_get_proc_data_netload_s (glibtop *server,
     size_t size = sizeof (libgtop_netload_t);
 
     if (sysctl (name, 2, netload, &size, (char *) device, strlen (device)+1)) {
-	glibtop_warn_io_r (server, "sysctl (libgtop/netload)");
+	if (errno == ENOTDIR)
+	    return -GLIBTOP_ERROR_NO_KERNEL_SUPPORT;
+	else
+	    glibtop_warn_io_r (server, "sysctl (libgtop/netload)");
 	return -1;
     }
 
