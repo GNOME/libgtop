@@ -1,5 +1,10 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* configure.in: fix the library versioning to be hand-made rather
+	than uber-calculated from some esoteric numbers
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* glibtop.h:
 	* include/glibtop/close.h:
 	* include/glibtop/command.h:
