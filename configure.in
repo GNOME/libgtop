@@ -53,7 +53,7 @@ AC_CHECK_PROGS(AWK, gawk awk, )
 test -z "$AWK" && AC_MSG_ERROR([Sorry, you need a working awk interpreter.])
 
 dnl Most people should have a working perl interpreter on their system
-AC_PATH_PROG(PERL, perl5 perl)
+AC_CHECK_PROGS(PERL, perl5 perl)
 test -z "$PERL" && AC_MSG_ERROR([You need to have a working perl interpreter.])
 
 AC_CHECK_TOOL(CC,gcc)
