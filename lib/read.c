@@ -23,10 +23,35 @@
 
 /* Reads some data from server. */
 
+static void
+do_read (int s, void *ptr, size_t total_size)
+{
+	int nread;
+	size_t already_read = 0, remaining = total_size;
+	
+	while (already_read < total_size) {
+		nread = recv (s, ptr, remaining, 0);
+
+		if (nread == 0) {
+			close (s);
+			continue;
+		}
+		
+		if (nread <= 0) {
+			glibtop_error_io ("recv");
+			return;
+		}
+		
+		already_read += nread;
+		remaining -= nread;
+		(char *) ptr += nread;
+	}
+}
+
 void
 glibtop_read_l (glibtop *server, size_t size, void *buf)
 {
-	int ret;
+	int ret = 0;
 
 	glibtop_init_r (&server, 0, 0);
 
@@ -35,7 +60,7 @@ glibtop_read_l (glibtop *server, size_t size, void *buf)
 #endif
 
 	if (server->socket) {
-		ret = recv (server->socket, buf, size, 0);
+		do_read (server->socket, buf, size);
 	} else {
 		ret = read (server->input [0], buf, size);
 	}

@@ -33,144 +33,97 @@ void
 glibtop_open_l (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
-	char	version [BUFSIZ], buffer [BUFSIZ];
-	char	*server_command, *server_rsh, *temp;
-	char	*server_host, *server_user;
+	char	version [BUFSIZ], buffer [BUFSIZ], *temp, *temp2;
 	glibtop_sysdeps sysdeps;
-	int	connect_type;
+	int	connect_type, ret;
 
 	memset (server, 0, sizeof (glibtop));
 
 	server->name = program_name;
 
 	/* Is the user allowed to override the server ? */
+
+	if (flags & GLIBTOP_OPEN_NO_OVERRIDE)
+		return;
 	
-	if ((flags & GLIBTOP_OPEN_NO_OVERRIDE) == 0) {
-		connect_type = glibtop_make_connection
-			(NULL, (u_short) 0, &server->socket);
+	/* Try to get data from environment. */
+	
+	temp = getenv ("LIBGTOP_SERVER") ?
+		getenv ("LIBGTOP_SERVER") : GTOP_SERVER;
+
+	server->server_command = glibtop_strdup_r (server, temp);
+	
+	temp = getenv ("LIBGTOP_RSH") ?
+		getenv ("LIBGTOP_RSH") : "rsh";
+
+	server->server_rsh = glibtop_strdup_r (server, temp);
+	
+	/* If the first character of 'server_command' is a colon,
+	 * the first field is the method to connect to the server. */
+	
+	if (server->server_command [0] == ':') {
 		
-#ifdef INTERNET_DOMAIN_SOCKETS
-		if (connect_type == (int) CONN_INTERNET) {
-			fprintf (stderr, "Calling GLITOP_CMND_SYSDEPS ...\n");
+		/* Everything up to the next colon is the method. */
 		
-			glibtop_call_l (server, GLIBTOP_CMND_SYSDEPS, 0, NULL,
-					sizeof (glibtop_sysdeps), &sysdeps);
+		temp = strstr (server->server_command+1, ":");
+		if (temp) *temp = 0;
+
+		/* Dispatch method. */
 			
-			server->features = sysdeps.features;
+		if (!strcmp (server->server_command+1, "direct")) {
+
+			/* Use sysdeps dir instead of connecting to server
+			 * even if using the server would be required on
+			 * the current system. */
+
+			return;
 			
-			fprintf (stderr, "Features: %lu\n", server->features);
+		} else if (!strcmp (server->server_command+1, "inet")) {
+
+			/* Connect to internet server. */
+
+			if (temp == NULL) {
+				server->server_host = glibtop_strdup_r
+					(server, "localhost");
+			} else {
+				temp2 = strstr (temp+1, ":");
+				if (temp2) *temp2 = 0;
+
+				server->server_host = glibtop_strdup_r
+					(server, temp+1);
+
+				temp = temp2;
+			}
+			
+			if (temp == NULL) {
+				server->server_port = DEFAULT_PORT;
+			} else {
+				temp2 = strstr (temp+1, ":");
+				if (temp2) *temp2 = 0;
+
+				ret = sscanf (temp+1, "%d", &server->server_port);
+
+				if (ret != 1)
+					server->server_port = DEFAULT_PORT;
+
+				temp = temp2 ? temp2 + 1 : temp2;
+			}
+
+			fprintf (stderr, "Connecting to '%s' port %d.\n",
+				 server->server_host, server->server_port);
+
+			connect_type = glibtop_make_connection
+				(server->server_host, server->server_port,
+				 &server->socket);
+
+			server->features = -1;
 
 			return;
 		}
-#endif /* INTERNET_DOMAIN_SOCKETS */
-		
-		/* Try to get data from environment. */
-		
-		temp = getenv ("LIBGTOP_SERVER") ?
-			getenv ("LIBGTOP_SERVER") : GTOP_SERVER;
-		
-		server_command = glibtop_malloc_r (server, strlen (temp) + 1);
-		
-		strcpy (server_command, temp);
-		
-		temp = getenv ("LIBGTOP_RSH") ?
-			getenv ("LIBGTOP_RSH") : "rsh";
-		
-		server_rsh = glibtop_malloc_r (server, strlen (temp) + 1);
-		
-		strcpy (server_rsh, temp);
-		
-		/* Extract host and user information. */
-		
-		temp = strstr (server_command, ":");
-		
-		if (temp) {
-			*temp = 0;
-			server_host = server_command;
-			server_command = temp+1;
-			
-			temp = strstr (server_host, "@");
-			
-			if (temp) {
-				*temp = 0;
-				server_user = server_host;
-				server_host = temp+1;
-			} else {
-				server_user = NULL;
-			}
-		} else {
-			server_host = NULL;
-			server_user = NULL;
-		}
-		
-		/* Store everything in `server'. */
-		
-		server->server_command = server_command;
-		server->server_host = server_host;
-		server->server_user = server_user;
-		server->server_rsh = server_rsh;
 	}
-	
-	/* Get server features. */
-	
-	if (server->server_host == NULL) {
-		server->features = glibtop_server_features;
-		
-		if (server->features == 0)
-			return;
-	}
-
-	/* Fork and exec server. */
-
-	if (pipe (server->input) || pipe (server->output))
-		glibtop_error_r (server, _("cannot make a pipe: %s\n"),
-				  strerror (errno));
-
-	server->pid  = fork ();
-
-	if (server->pid < 0) {
-		glibtop_error_r (server, _("%s: fork failed: %s\n"),
-				  strerror (errno));
-	} else if (server->pid == 0) {
-		close (0); close (1); /* close (2); */
-		close (server->input [0]); close (server->output [1]);
-		dup2 (server->input [1], 1); /* dup2 (server->input [1], 2); */
-		dup2 (server->output [0], 0);
-
-		if (server_host) {
-			if (server_user) {
-				execl (server->server_rsh, "-l",
-				       server->server_user, server->server_host,
-				       server->server_command, NULL);
-			} else {
-				execl (server->server_rsh,
-				       server->server_host, server_command, NULL);
-			}
-		} else {
-			execl (server->server_command, NULL);
-		}
-
-		_exit (2);
-	}
-
-	fprintf (stderr, "PID: %d\n", server->pid);
-
-	close (server->input [1]);
-	close (server->output [0]);
-
-	sprintf (version, "%s server %s ready.\n", PACKAGE, VERSION);
-
-	glibtop_read_l (server, strlen (version), buffer);
-
-	if (memcmp (version, buffer, strlen (version)))
-		glibtop_error_r (server, _("server version is not %s"), VERSION);
-
-	fprintf (stderr, "Calling GLITOP_CMND_SYSDEPS ...\n");
 
 	glibtop_call_l (server, GLIBTOP_CMND_SYSDEPS, 0, NULL,
-			 sizeof (glibtop_sysdeps), &sysdeps);
-
+			sizeof (glibtop_sysdeps), &sysdeps);
+	
 	server->features = sysdeps.features;
-
-	fprintf (stderr, "Features: %lu\n", server->features);
 }

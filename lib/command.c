@@ -32,7 +32,6 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size, void *send_
 {
 	glibtop_command cmnd;
 	glibtop_response response;
-	void *ptr;
 
 	glibtop_init_r (&server, 0, 0);
 
@@ -47,24 +46,34 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size, void *send_
 	 * of two. */
 
 #ifdef DEBUG
-	fprintf (stderr, "COMMAND: send_size = %d; command = %d; sizeof (cmnd) = %d\n",
-		 send_size, command, sizeof (glibtop_command));
+	//	fprintf (stderr, "COMMAND: send_size = %d; command = %d; sizeof (cmnd) = %d\n",
+	// send_size, command, sizeof (glibtop_command));
 #endif
 
-
-	if (send_size <= _GLIBTOP_PARAM_SIZE)
+	if (send_size <= _GLIBTOP_PARAM_SIZE) {
 		memcpy (cmnd.parameter, send_buf, send_size);
-	else
 		cmnd.size = send_size;
+	} else {
+		cmnd.data_size = send_size;
+	}
 	
 	glibtop_write_l (server, sizeof (glibtop_command), &cmnd);
-	glibtop_write_l (server, send_size, send_buf);
+	//	glibtop_write_l (server, cmnd.data_size, send_buf);
 
 	glibtop_read_l (server, sizeof (glibtop_response), &response);
 
-	/*	glibtop_read_l  (server, recv_size, recv_buf); */
-	
-	/* ptr = glibtop_read_data_l (server); */
-	
+	fprintf (stderr, "RESPONSE: %d - %d\n", response.offset, response.data_size);
+
+	if (recv_buf)
+		memcpy (recv_buf, ((char *) &response) + response.offset, recv_size);
+
+	if (response.data_size) {
+		void *ptr = glibtop_malloc_r (server, response.data_size);
+
+		glibtop_read_l (server, response.data_size, ptr);
+
+		return ptr;
+	}
+
 	return NULL;
 }

@@ -71,7 +71,8 @@ union _glibtop_response_union
 
 struct _glibtop_response
 {
-	size_t data_size;
+	off_t offset;
+	size_t size, data_size;
 	union _glibtop_response_union u;
 };
 
