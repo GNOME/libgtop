@@ -58,7 +58,10 @@ GNOME_LIBGTOP_TYPES
 
 GNOME_CHECK_GUILE
 
+AC_DEFINE(GLIBTOP_NAMES)
+
 if test x$ac_cv_guile_found = xyes ; then
+  AC_DEFINE(GLIBTOP_GUILE)
   AC_DEFINE(GLIBTOP_GUILE_NAMES)
   libgtop_guile_found=yes
   guile_examples='third third_static'
