@@ -24,7 +24,8 @@ BUILT_SOURCES = \
 	marshal.c
 
 EXTRA_DIST = \
-	marshal.pl
+	marshal.pl	\
+	libgtop-server.backend
 
 CLEANFILES = $(BUILT_SOURCES)
 

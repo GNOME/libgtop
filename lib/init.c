@@ -264,8 +264,6 @@ glibtop_init_s (glibtop **server_ptr, unsigned long features, unsigned flags)
     if ((server->flags & _GLIBTOP_INIT_STATE_SYSDEPS) == 0) {
 	glibtop_open_s (server, "glibtop", features, flags);
 
-	_glibtop_open_sysdeps (server, "glibtop", features, flags);
-
 	server->sysdeps.pointer_size = sizeof (void*)*8;
 		
 	server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;
