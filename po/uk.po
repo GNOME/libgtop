@@ -5,13 +5,215 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.3\n"
-"POT-Creation-Date: 2000-05-14 17:02+0200\n"
+"POT-Creation-Date: 2000-05-26 13:34+0300\n"
 "PO-Revision-Date: 2000-01-13 17:57+0200\n"
 "Last-Translator: Yuri Syrota <rasta@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=koi8-u\n"
 "Content-Transfer-Encoding: 8-bit\n"
+
+#: examples/smp.c:68
+#, c-format
+msgid "Ticks (%ld per second):"
+msgstr ""
+
+#: examples/smp.c:71
+msgid "Total"
+msgstr "Всього"
+
+#: examples/smp.c:71 sysdeps/names/mem.c:47
+msgid "User"
+msgstr "Користувач"
+
+#: examples/smp.c:71 sysdeps/names/procuid.c:58
+msgid "Nice"
+msgstr "Nice"
+
+#: examples/smp.c:71
+msgid "Sys"
+msgstr "Система"
+
+#: examples/smp.c:71
+msgid "Idle"
+msgstr "Прост╕й"
+
+#: examples/smp.c:73
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+msgstr ""
+"ЦП           (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+
+#: examples/smp.c:77
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "ЦП %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+
+#: examples/smp.c:94
+msgid "Percent:"
+msgstr "В╕дсоток:"
+
+#: examples/smp.c:95
+msgid "Total (%)"
+msgstr "Всього (%)"
+
+#: examples/smp.c:95
+msgid "User (%)"
+msgstr "Користувач (%)"
+
+#: examples/smp.c:95
+msgid "Nice (%)"
+msgstr "Nice (%)"
+
+#: examples/smp.c:95
+msgid "Sys (%)"
+msgstr "Система (%)"
+
+#: examples/smp.c:96
+msgid "Idle (%)"
+msgstr "Прост╕й (%)"
+
+#: examples/smp.c:98
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+msgstr ""
+"ЦП           (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+
+#: examples/smp.c:114
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "ЦП %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+
+#: examples/smp.c:120
+msgid "Spin:"
+msgstr ""
+
+#: lib/read.c:75
+#, c-format
+msgid "read %d bytes"
+msgstr ""
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr ""
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr ""
+
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr ""
+
+#: src/daemon/gnuserv.c:448
+msgid "Enable debugging"
+msgstr "Ув╕мкнути налагодження"
+
+#: src/daemon/gnuserv.c:448
+msgid "DEBUG"
+msgstr "НАЛАГОДЖЕННЯ"
+
+#: src/daemon/gnuserv.c:450
+msgid "Enable verbose output"
+msgstr "Ув╕мкнути детальний вив╕д"
+
+#: src/daemon/gnuserv.c:450
+msgid "VERBOSE"
+msgstr "ДЕТАЛЬНО"
+
+#: src/daemon/gnuserv.c:452
+msgid "Don't fork into background"
+msgstr ""
+
+#: src/daemon/gnuserv.c:452
+msgid "NO-DAEMON"
+msgstr ""
+
+#: src/daemon/gnuserv.c:454
+msgid "Invoked from inetd"
+msgstr ""
+
+#: src/daemon/gnuserv.c:454
+msgid "INETD"
+msgstr ""
+
+#: src/daemon/gnuserv.c:488
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "Нев╕дома системна помилка"
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: параметр \"%s\" - неоднозначний\n"
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: параметр \"--%s\" не може мати аргумент╕в\n"
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: параметр \"%c%s\" не може мати аргумент╕в\n"
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: параметру \"%s\" необх╕дний аргумент\n"
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: не розп╕знано параметр \"--%s\"\n"
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: не розп╕знано параметр \"%c%s\"\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: нев╕рний параметр -- %c\n"
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: нев╕рний параметр -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: параметру необх╕дний аргумент -- %c\n"
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: параметр \"-W %s\" неоднозначний\n"
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: параметр \"-W %s\" не може мати аргумент╕в\n"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
@@ -115,7 +317,7 @@ msgstr "Середня завантажен╕сть"
 
 #: sysdeps/names/loadavg.c:40
 msgid "Running Tasks"
-msgstr ""
+msgstr "Запущен╕ завдання"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Number of Tasks"
@@ -131,7 +333,7 @@ msgstr ""
 
 #: sysdeps/names/loadavg.c:48
 msgid "Number of tasks currently running"
-msgstr ""
+msgstr "К╕льк╕сть зараз запущених програм"
 
 #: sysdeps/names/loadavg.c:49
 msgid "Total number of tasks"
@@ -155,15 +357,11 @@ msgstr "Колективна пам'ять"
 
 #: sysdeps/names/mem.c:45
 msgid "Buffers"
-msgstr ""
+msgstr "Буфери"
 
 #: sysdeps/names/mem.c:46
 msgid "Cached"
 msgstr ""
-
-#: sysdeps/names/mem.c:47
-msgid "User"
-msgstr "Користувач"
 
 #: sysdeps/names/mem.c:48
 msgid "Locked"
@@ -187,7 +385,7 @@ msgstr "Розм╕р колективно╖ пам'ят╕ в Кб"
 
 #: sysdeps/names/mem.c:57
 msgid "Size of buffers kB"
-msgstr ""
+msgstr "Розм╕р буфер╕в у Кб"
 
 #: sysdeps/names/mem.c:58
 msgid "Size of cached memory in kB"
@@ -195,7 +393,7 @@ msgstr ""
 
 #: sysdeps/names/mem.c:59
 msgid "Memory used from user processes in kB"
-msgstr ""
+msgstr "Пам'ять використана в користувацьких процесах в Кб"
 
 #: sysdeps/names/mem.c:60
 msgid "Memory in locked pages in kB"
@@ -204,22 +402,20 @@ msgstr ""
 #: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
 #: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
 #: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
-#, fuzzy
 msgid "Number of list elements"
-msgstr "Максимальна к╕льк╕сть сегмент╕в"
+msgstr "К╕льк╕сть елемент╕в списку"
 
 #: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
 #: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
 #: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
-#, fuzzy
 msgid "Total size of list"
-msgstr "Загалом i-вузл╕в"
+msgstr "Загальний розм╕р списку"
 
 #: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
 #: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
 #: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
 msgid "Size of a single list element"
-msgstr ""
+msgstr "Розм╕р одного елементу списку"
 
 #: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
 msgid "Size in kilobytes of message pool"
@@ -231,11 +427,11 @@ msgstr ""
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Max size of message"
-msgstr ""
+msgstr "Максимальний розм╕р пов╕домлення"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Default max size of queue"
-msgstr ""
+msgstr "Типовий максимальний розм╕р черги"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Max queues system wide"
@@ -248,6 +444,94 @@ msgstr ""
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Number of system message headers"
 msgstr ""
+
+#: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+msgid "Interface Flags"
+msgstr ""
+
+#: sysdeps/names/netload.c:46
+msgid "MTU"
+msgstr ""
+
+#: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
+msgid "Subnet"
+msgstr "П╕дмережа"
+
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
+msgid "Address"
+msgstr "Адреса"
+
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
+msgid "Packets In"
+msgstr "Вх╕дн╕ пакети"
+
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+msgid "Packets Out"
+msgstr "Вих╕дн╕ пакети"
+
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+msgid "Packets Total"
+msgstr "Всього пакет╕в"
+
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+msgid "Bytes In"
+msgstr "Вх╕дн╕ байти"
+
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+msgid "Bytes Out"
+msgstr "Вих╕дн╕ байти"
+
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+msgid "Bytes Total"
+msgstr "Всього байт╕в"
+
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+msgid "Errors In"
+msgstr "Вх╕дн╕ помилки"
+
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+msgid "Errors Out"
+msgstr "Вих╕дн╕ помилки"
+
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+msgid "Errors Total"
+msgstr "Всього помилок"
+
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+msgid "Collisions"
+msgstr ""
+
+#: sysdeps/names/netload.c:64
+msgid "Maximum Transfer Unit"
+msgstr ""
+
+#: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
+msgid "PPP State"
+msgstr "Стан PPP"
+
+#: sysdeps/names/ppp.c:39
+msgid "Input bytes"
+msgstr "Вх╕дн╕ байти"
+
+#: sysdeps/names/ppp.c:40
+msgid "Output bytes"
+msgstr "Вих╕дн╕ пакети"
+
+#: sysdeps/names/ppp.c:46
+msgid "Number of input bytes"
+msgstr "К╕льк╕сть вх╕дних байт╕в"
+
+#: sysdeps/names/ppp.c:47
+msgid "Number of output bytes"
+msgstr "К╕льк╕сть вих╕дних байт╕в"
+
+#: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
+msgid "Size"
+msgstr "Розм╕р"
+
+#: sysdeps/names/procargs.c:43
+msgid "Length in bytes of the returned string."
+msgstr "Розм╕р в байтах поверненого рядка."
 
 #: sysdeps/names/prockernel.c:42
 msgid "K_Flags"
@@ -347,10 +631,6 @@ msgstr ""
 #: sysdeps/names/prockernel.c:81
 msgid "This is the textual name of the `nwchan' field."
 msgstr ""
-
-#: sysdeps/names/procmem.c:47
-msgid "Size"
-msgstr "Розм╕р"
 
 #: sysdeps/names/procmem.c:47
 msgid "Virtual"
@@ -471,7 +751,7 @@ msgstr "Сигнал"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Blocked"
-msgstr ""
+msgstr "Блоковано"
 
 #: sysdeps/names/procsignal.c:40
 msgid "SigIgnore"
@@ -523,11 +803,11 @@ msgstr ""
 
 #: sysdeps/names/procstate.c:47
 msgid "UID of process"
-msgstr ""
+msgstr "UID процесу"
 
 #: sysdeps/names/procstate.c:48
 msgid "GID of process"
-msgstr ""
+msgstr "GID процесу"
 
 #: sysdeps/names/proctime.c:44
 msgid "Start_Time"
@@ -625,7 +905,7 @@ msgstr "Uid"
 
 #: sysdeps/names/procuid.c:56
 msgid "EUid"
-msgstr ""
+msgstr "EUid"
 
 #: sysdeps/names/procuid.c:56
 msgid "Gid"
@@ -633,11 +913,11 @@ msgstr "Gid"
 
 #: sysdeps/names/procuid.c:56
 msgid "EGid"
-msgstr ""
+msgstr "EGid"
 
 #: sysdeps/names/procuid.c:56
 msgid "Pid"
-msgstr ""
+msgstr "Pid"
 
 #: sysdeps/names/procuid.c:57
 msgid "PPid"
@@ -645,31 +925,27 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:57
 msgid "PGrp"
-msgstr ""
+msgstr "PGrp"
 
 #: sysdeps/names/procuid.c:57
 msgid "Session"
-msgstr ""
+msgstr "Сеанс"
 
 #: sysdeps/names/procuid.c:57
 msgid "Tty"
-msgstr ""
+msgstr "Tty"
 
 #: sysdeps/names/procuid.c:58
 msgid "TPGid"
-msgstr ""
+msgstr "TPGid"
 
 #: sysdeps/names/procuid.c:58
 msgid "Priority"
 msgstr "Приор╕тет"
 
-#: sysdeps/names/procuid.c:58
-msgid "Nice"
-msgstr ""
-
 #: sysdeps/names/procuid.c:63
 msgid "User ID"
-msgstr ""
+msgstr "╤дентиф╕катор користувача"
 
 #: sysdeps/names/procuid.c:64
 msgid "Effective User ID"
@@ -677,7 +953,7 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:65
 msgid "Group ID"
-msgstr ""
+msgstr "╤дентиф╕катор групи"
 
 #: sysdeps/names/procuid.c:66
 msgid "Effective Group ID"
@@ -821,11 +1097,11 @@ msgstr "Використання своп╕нгу"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "System Uptime"
-msgstr ""
+msgstr "Час працездатност╕ системи"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Load Averange"
-msgstr ""
+msgstr "Середн╓ завантаження"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Shared Memory Limits"
@@ -877,11 +1153,11 @@ msgstr "Аргументи процесу"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 msgid "Process Memory Map"
-msgstr ""
+msgstr "Мапа пам'ят╕ процесу"
 
 #: sysdeps/names/sysdeps.c:68
 msgid "Mount List"
-msgstr ""
+msgstr "Список монтувань"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "File System Usage"
@@ -889,7 +1165,7 @@ msgstr "Використання файлово╖ системи"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "Network Load"
-msgstr ""
+msgstr "Завантаження мереж╕"
 
 #: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "PPP Statistics"
@@ -919,141 +1195,126 @@ msgstr "Час в секундах в╕д старту системи"
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr ""
 
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "Нев╕дома системна помилка"
-
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: параметр `%s' - неоднозначний\n"
-
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: параметр `--%s' не може мати аргумент╕в\n"
-
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: параметр `%c%s' не може мати аргументу\n"
-
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: параметру `%s' необх╕дний аргумент\n"
-
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: не розп╕знано параметру `--%s'\n"
-
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: не розп╕знано параметру `%c%s'\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: нев╕рний параметр -- %c\n"
-
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: нев╕рний параметр -- %c\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: параметру необх╕дний аргумент -- %c\n"
-
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Hangup"
 msgstr ""
 
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
 msgstr ""
 
-#: lib/read.c:75
-#, c-format
-msgid "read %d bytes"
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "Вийти"
+
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
 msgstr ""
 
-#: lib/read_data.c:49
-msgid "read data size"
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
 msgstr ""
 
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "Abort"
 msgstr ""
 
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+msgid "EMT error"
 msgstr ""
 
-#: src/daemon/gnuserv.c:448
-msgid "Enable debugging"
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+msgid "Floating-point exception"
 msgstr ""
 
-#: src/daemon/gnuserv.c:448
-msgid "DEBUG"
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "Знищити"
+
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+msgid "Bus error"
 msgstr ""
 
-#: src/daemon/gnuserv.c:450
-msgid "Enable verbose output"
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
 msgstr ""
 
-#: src/daemon/gnuserv.c:450
-msgid "VERBOSE"
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr "Нев╕рний аргумент у системному виклику"
+
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
 msgstr ""
 
-#: src/daemon/gnuserv.c:452
-msgid "Don't fork into background"
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
 msgstr ""
 
-#: src/daemon/gnuserv.c:452
-msgid "NO-DAEMON"
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+msgid "Termination"
 msgstr ""
 
-#: src/daemon/gnuserv.c:454
-msgid "Invoked from inetd"
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
 msgstr ""
 
-#: src/daemon/gnuserv.c:454
-msgid "INETD"
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "Зупинити"
+
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+msgid "Keyboard stop"
 msgstr ""
 
-#: src/daemon/gnuserv.c:488
-#, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "Продовжити"
+
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
 msgstr ""
 
-#~ msgid "Processor"
-#~ msgstr "Процесор"
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+msgid "Background read from tty"
+msgstr ""
 
-#~ msgid "Groups"
-#~ msgstr "Групи"
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+msgid "Background write to tty"
+msgstr ""
 
-#~ msgid "No error"
-#~ msgstr "Без помилок"
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+msgid "I/O now possible"
+msgstr ""
 
-#~ msgid "Unknown error"
-#~ msgstr "Нев╕дома помилка"
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr ""
 
-#~ msgid "Invalid argument"
-#~ msgstr "Нев╕рний аргумент"
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+msgid "File size limit exceeded"
+msgstr ""
 
-#~ msgid "Incompatible kernel version"
-#~ msgstr "Несум╕сна верс╕я ядра"
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+msgid "Window size change"
+msgstr ""
+
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+msgid "Information request"
+msgstr "╤нформац╕йний запит"
+
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+msgid "User defined signal 1"
+msgstr "Визначений користувачем сигнал 1"
+
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+msgid "User defined signal 2"
+msgstr "Визначений користувачем сигнал 2"
