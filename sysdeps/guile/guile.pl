@@ -133,14 +133,10 @@ sub make_output {
   $temp_string_count = 0;
   $have_count_var = 0;
   
-  if ($retval eq 'retval') {
-    $retval = 'int';
-  }
-
   $pre_call_code = '';
   $post_call_code = '';
   
-  $local_var_decl_code = sprintf (qq[\tglibtop_%s *%s;\n], $feature, $feature);
+  $local_var_decl_code = sprintf (qq[\tglibtop_%s %s;\n], $feature, $feature);
   $local_var_decl_code .= sprintf (qq[\tSCM smob_answer;\n]);
   $local_var_decl_code .= sprintf (qq[\tglibtop *server;\n]);
 
@@ -205,10 +201,10 @@ sub make_output {
   
   if ($retval =~ /^array\((.*)\)$/) {
     $retval_type = "$1 *";
-    $retval_name = $1;
+  } elsif ($retval eq 'retval') {
+    $retval_type = 'int';
   } else {
     $retval_type = $retval;
-    $retval_name = $retval;
   }
 
   if ($retval ne 'void') {
@@ -222,15 +218,23 @@ sub make_output {
   }
 
   $libgtop_call_code = sprintf
-    (qq[\tsmob_answer = scm_make_smob (scm_glibtop_smob_tags [GLIBTOP_STRUCTURE_GLIBTOP_%s]);\n], toupper($feature));
-
-  $libgtop_call_code .= sprintf
-    (qq[\t%s = (glibtop_%s *) SCM_SMOB_DATA (smob_answer);\n\n], $feature, $feature);
-  
-  $libgtop_call_code .= sprintf
-    (qq[\t%sglibtop_get_%s_l (server, %s%s);\n\n], $prefix, $feature,
+    (qq[\t%sglibtop_get_%s_l (server, &%s%s);\n\n], $prefix, $feature,
      $feature, $call_param);
-  
+
+  if ($retval eq 'retval') {
+    $check_retval_code = sprintf
+      (qq[\tif (retval < 0)\n\t\treturn SCM_BOOL_F;\n]);
+  } else {
+    $check_retval_code = '';
+  }
+
+  $make_smob_code = sprintf
+    (qq[\tsmob_answer = scm_make_smob\n\t\t(scm_glibtop_smob_tags [GLIBTOP_STRUCTURE_GLIBTOP_%s]);\n], toupper($feature));
+
+  $make_smob_code .= sprintf
+    (qq[\t*(glibtop_%s *) SCM_SMOB_DATA (smob_answer) = %s;\n\n],
+     $feature, $feature);
+
   $nr_elements = (@elements = split(/:/, $element_def, 9999));
   for ($element = 1; $element <= $nr_elements; $element++) {
     $list = $elements[$element];
@@ -262,11 +266,11 @@ sub make_output {
   $return_smob_code = sprintf
     (qq[\treturn smob_answer;]);
   
-  $total = sprintf ("%s\n\n%s\n\n%s\n{\n%s\n\n%s\n%s\n%s%s\n\n%s\n%s\n}\n",
+  $total = sprintf ("%s\n\n%s\n\n%s\n{\n%s\n\n%s\n%s\n%s%s\n\n%s\n%s\n%s\n%s\n}\n",
 		    $scm_proc_code, $scm_fields_code, $func_decl_code,
 		    $local_var_decl_code, $init_server_code,
 		    $pre_call_code, $libgtop_call_code, $post_call_code,
-		    $return_smob_code);
+		    $check_retval_code, $make_smob_code, $return_smob_code);
   
   print $total;
 }
