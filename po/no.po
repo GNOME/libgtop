@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.2\n"
-"POT-Creation-Date: 2000-02-23 00:23+0100\n"
-"PO-Revision-Date: 1999-12-01 10:54+01:00\n"
+"POT-Creation-Date: 2000-04-18 15:38+0200\n"
+"PO-Revision-Date: 2000-04-18 15:39+02:00\n"
 "Last-Translator: Kjartan Maraas <kmaraas@online.no>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1160,94 +1160,40 @@ msgstr "%s: flagget `-W %s' tar ikke argumenter\n"
 
 #: lib/errors.c:31
 msgid "No error"
-msgstr ""
+msgstr "Ingen feil"
 
 #: lib/errors.c:32
-#, fuzzy
 msgid "Unknown error"
-msgstr "Ukjent systemfeil"
+msgstr "Ukjent feil"
 
 #: lib/errors.c:33
 msgid "Invalid argument"
-msgstr ""
+msgstr "Ugyldig argument"
 
 #: lib/errors.c:34
 msgid "No such parameter"
-msgstr ""
+msgstr "Ingen slik parameter"
 
 #: lib/errors.c:35
 msgid "Attempted to modify a read-only value"
-msgstr ""
+msgstr "Forsøk på å endre en skrivebeskyttet verdi"
 
 #: lib/errors.c:36
 msgid "Parameter size mismatch"
-msgstr ""
+msgstr "Parameterstørrelsen stemmer ikke overens"
 
 #: lib/errors.c:37
 msgid "Communication with LibGTop server failed"
-msgstr ""
+msgstr "Kommunikasjon med LigGTop-tjeneren feilet"
 
 #: lib/errors.c:38
 msgid "No such process"
-msgstr ""
+msgstr "Ingen slik prosess"
 
 #: lib/errors.c:39
 msgid "No kernel support"
-msgstr ""
+msgstr "Ingen kjerne-støtte"
 
 #: lib/errors.c:40
 msgid "Incompatible kernel version"
-msgstr ""
-
-#~ msgid "read %d bytes"
-#~ msgstr "les %d bytes"
-
-#~ msgid "read data size"
-#~ msgstr "les størrelse på data"
-
-#~ msgid "read data %d bytes"
-#~ msgstr "les data %d bytes"
-
-#~ msgid "write %d bytes"
-#~ msgstr "skriv %d bytes"
-
-#~ msgid "Enable debugging"
-#~ msgstr "Slå på avlusing"
-
-#~ msgid "DEBUG"
-#~ msgstr "DEBUG"
-
-#~ msgid "Enable verbose output"
-#~ msgstr "Slå på utfyllende utskrift"
-
-#~ msgid "VERBOSE"
-#~ msgstr "VERBOSE"
-
-#~ msgid "Don't fork into background"
-#~ msgstr "Ikke forgren til bakgrunnen"
-
-#~ msgid "NO-DAEMON"
-#~ msgstr "NO-DAEMON"
-
-#~ msgid "Invoked from inetd"
-#~ msgstr "Kalt fra inetd"
-
-#~ msgid "INETD"
-#~ msgstr "INETD"
-
-#~ msgid ""
-#~ "Error on option %s: %s.\n"
-#~ "Run '%s --help' to see a full list of available command line options.\n"
-#~ msgstr ""
-#~ "Feil ved flagg %s: %s.\n"
-#~ "Kjør '%s --help' for å se en full liste av tilgjengelige "
-#~ "kommandolinjeflagg.\n"
-
-#~ msgid "Number of list elements"
-#~ msgstr "Antall elementer i listen"
-
-#~ msgid "Total size of list"
-#~ msgstr "Total størrelse på listen"
-
-#~ msgid "Size of a single list element"
-#~ msgstr "Størrelsen på et enkelt element i listen"
+msgstr "Inkompatibel kjerneversjon"
