@@ -1,5 +1,16 @@
 2001-04-20  Martin Baulig  <baulig@suse.de>
 
+	* include/glibtop/glibtop-server.h (glibtop_init_func_t):
+	Added `glibtop_closure *' argument.
+
+	* include/glibtop/glibtop-backend-info.h
+	(glibtop_backend_close_func_t): Third argument is now
+	`glibtop_closure *'.
+
+	* include/glibtop/call-vector.pl: Reflect latest API changes.
+
+2001-04-20  Martin Baulig  <baulig@suse.de>
+
 	* include/glibtop/*.h: Use G_BEGIN_DECLS and G_END_DECLS
 	instead of LIBGTOP_BEGIN/END_DECLS.
 

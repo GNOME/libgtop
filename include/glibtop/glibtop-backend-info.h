@@ -42,7 +42,7 @@ typedef struct _glibtop_call_vector	glibtop_call_vector;
 typedef int (*glibtop_backend_open_func_t)  (glibtop_server *, glibtop_backend *,
 					     u_int64_t, const char **);
 typedef int (*glibtop_backend_close_func_t) (glibtop_server *, glibtop_backend *,
-					     void *);
+					     glibtop_closure *);
 
 struct _glibtop_backend_info
 {
