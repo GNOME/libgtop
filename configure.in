@@ -125,6 +125,8 @@ if test "$with_xauth" = "yes"; then
 fi
 AC_SUBST(libs_xauth)
 
+dnl For diskusage stuff
+GNOME_FILEUTILS_CHECKS
 
 CFLAGS="$CFLAGS -D_IN_LIBGTOP"
 
