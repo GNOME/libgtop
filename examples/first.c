@@ -122,10 +122,14 @@ main (int argc, char *argv [])
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_loadavg (&data.loadavg);
 
-	printf ("Loadavg      (0x%08lx): %f, %f, %f\n",
+	printf ("Loadavg      (0x%08lx): %f, %f, %f - %lu, %lu, %lu\n",
 		(unsigned long) data.loadavg.flags,
-		data.loadavg.loadavg [0], data.loadavg.loadavg [1],
-		data.loadavg.loadavg [2]);
+		(double) data.loadavg.loadavg [0],
+		(double) data.loadavg.loadavg [1],
+		(double) data.loadavg.loadavg [2],
+		(unsigned long) data.loadavg.nr_running,
+		(unsigned long) data.loadavg.nr_tasks,
+		(unsigned long) data.loadavg.last_pid);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_shm_limits (&data.shm_limits);

@@ -23,20 +23,27 @@
 
 const char *glibtop_names_loadavg [GLIBTOP_MAX_LOADAVG] =
 {
-	"loadavg [3]"
+	"loadavg [3]", "nr_running", "nr_tasks", "last_pid"
 };
 
 const unsigned glibtop_types_loadavg [GLIBTOP_MAX_LOADAVG] =
 {
-	GLIBTOP_TYPE_DOUBLE
+	GLIBTOP_TYPE_DOUBLE, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_loadavg [GLIBTOP_MAX_LOADAVG] =
 {
-	N_("Load Average")
+	N_("Load Average"),
+	N_("Running Tasks"),
+	N_("Number of Tasks"),
+	N_("Last PID")
 };
 
 const char *glibtop_descriptions_loadavg [GLIBTOP_MAX_LOADAVG] =
 {
-	N_("Number of jobs running simultaneously averaged over 1, 5 and 15 minutes")
+	N_("Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"),
+	N_("Number of tasks currently running"),
+	N_("Total number of tasks"),
+	N_("Last PID")
 };

@@ -28,8 +28,11 @@
 __BEGIN_DECLS
 
 #define GLIBTOP_LOADAVG_LOADAVG		0
+#define GLIBTOP_LOADAVG_NR_RUNNING	1
+#define GLIBTOP_LOADAVG_NR_TASKS	2
+#define GLIBTOP_LOADAVG_LAST_PID	3
 
-#define GLIBTOP_MAX_LOADAVG		1
+#define GLIBTOP_MAX_LOADAVG		4
 
 typedef struct _glibtop_loadavg	glibtop_loadavg;
 
@@ -37,6 +40,9 @@ struct _glibtop_loadavg
 {
 	u_int64_t flags;
 	double loadavg [3];		/* GLIBTOP_LOADAVG_LOADAVG	*/
+	u_int64_t nr_running,		/* GLIBTOP_LOADAVG_NR_RUNNING	*/
+		nr_tasks,		/* GLIBTOP_LOADAVG_NR_TASKS	*/
+		last_pid;		/* GLIBTOP_LOADAVG_LAST_PID	*/
 };
 
 #define glibtop_get_loadavg(loadavg)	glibtop_get_loadavg_l(glibtop_global_server, loadavg)
