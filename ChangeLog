@@ -1,3 +1,7 @@
+2003-09-17  Fatih Demir <kabalak@gtranslator.org>
+
+	* configure.in: Added "ta" (Tamil) to the languages' list.
+
 2003-09-13  Carlos Perelló Marín <carlos@gnome.org>
 
 	* configure.in (ALL_LINGUAS):  Removed es_ES.
