@@ -4,10 +4,10 @@
 
 #include <unistd.h>
 
-static void show_args(pid_t pid)
+static void show_args(pid_t pid, unsigned max_len)
 {
   glibtop_proc_args buf;
-  char ** const pargv = glibtop_get_proc_argv(&buf, pid, 0);
+  char ** const pargv = glibtop_get_proc_argv(&buf, pid, max_len);
 
   char **parg = pargv;
 
@@ -27,12 +27,14 @@ static void show_args(pid_t pid)
 
 int main(int argc, char **argv)
 {
-  show_args(getpid());
+  show_args(getpid(), 0);
+  show_args(getpid(), 15);
 
   while(*++argv)
     {
       pid_t pid = strtol(*argv, NULL, 10);
-      show_args(pid);
+      show_args(pid, 0);
+      show_args(pid, 15);
     }
 
   return 0;
