@@ -4,4 +4,4 @@ Makefile.in
 Makefile
 *.log *.toc *.dvi *.aux *.cp *.fn *.vr *.tp *.ky *.pg
 *.ps
-version.texi
+auto-macros.texi

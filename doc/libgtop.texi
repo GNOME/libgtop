@@ -33,7 +33,8 @@ LibGTop Reference Manual
 * glibtop_proc_mem::            Process Memory Information.
 @end menu
 
-@include version.texi
+@include auto-macros.texi
+
 @include about.texi
 @include reference.texi
 

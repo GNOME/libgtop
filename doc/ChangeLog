@@ -1,10 +1,10 @@
 1999-05-16  Martin Baulig  <martin@home-of-linux.org>
 
-	* Makefile.am: Create `version.texi' from `version.texi.in' which
-	will contain some `@set' commands for the LibGTop version etc.
+	* Makefile.am: Create `auto-macros.texi' from `auto-macros.texi.in'
+ 	which will contain some `@set' commands for the LibGTop version etc.
 
-	* version.texi.in: New file. This is a template for `version.texi'
-	which will be generated from Makefile.am.
+	* auto-macros.texi.in: New file. This is a template for
+	`auto-macros.texi' which will be automatically generated.
 
 1999-05-09  Martin Baulig  <martin@home-of-linux.org>
 

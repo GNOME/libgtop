@@ -1,10 +1,11 @@
 info_TEXINFOS		= libgtop.texi
 
-libgtop_TEXINFOS	= libgtop.texi about.texi reference.texi version.texi
+libgtop_TEXINFOS	= libgtop.texi about.texi reference.texi \
+			  auto-macros.texi
 
-EXTRA_DIST		= version.texi.in
+EXTRA_DIST		= auto-macros.texi.in
 
-version.texi: version.texi.in Makefile
+auto-macros.texi: auto-macros.texi.in Makefile
 ## Use sed and then mv to avoid problems if the user interrupts.
 	sed -e 's#\%LIBGTOP_LIBDIR\%#$(libdir)#g' \
 	  -e 's#\%LIBGTOP_INCLUDEDIR\%#$(includedir)#g' \
@@ -31,11 +32,11 @@ version.texi: version.texi.in Makefile
 	  -e 's#\%libgtop_use_machine_h\%#$(libgtop_use_machine_h)#g' \
 	  -e 's#\%libgtop_guile_found\%#$(libgtop_guile_found)#g' \
 	  -e 's#\%libgtop_want_examples\%#$(libgtop_want_examples)#g' \
-	      < $(srcdir)/version.texi.in > version.tmp
-	echo '@c Set this if this is LibGTop 1.1.x' >> version.tmp
+	      < $(srcdir)/auto-macros.texi.in > auto-macros.tmp
+	echo '@c Set this if this is LibGTop 1.1.x' >> auto-macros.tmp
 	if [ $(LIBGTOP_VERSION_CODE) -ge 1001000 ] ; then \
-	  echo '@set LIBGTOP_1_1' >> version.tmp ; \
+	  echo '@set LIBGTOP_1_1' >> auto-macros.tmp ; \
 	else \
-	  echo '@clear LIBGTOP_1_1' >> version.tmp ; \
+	  echo '@clear LIBGTOP_1_1' >> auto-macros.tmp ; \
 	fi
-	mv version.tmp version.texi
+	mv auto-macros.tmp auto-macros.texi
