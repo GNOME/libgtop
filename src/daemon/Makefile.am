@@ -40,7 +40,7 @@ libgtop_daemon2_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
 				  @sysdeps_suid_lib@ \
 				  $(suid_sysdeps) $(suid_common)\
 				  $(LIBGTOP_LIBS)\
-				  @LIBSUPPORT@ @INTLLIBS@ @libs_xauth@ -lpopt
+				  @INTLLIBS@ @libs_xauth@ -lpopt
 
 libgtop_server2_SOURCES		= server.c slave.c io.c version.c daemon.h
 libgtop_server2_LDADD		= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid-2.0.la \

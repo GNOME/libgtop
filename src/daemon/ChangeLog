@@ -1,5 +1,10 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* Makefile.am:
+	* gnuserv.c: remove guile and libgnome-support stuff
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* Makefile.am: make it compile
 
 2003-05-11  Andrew Sobala  <aes@gnome.org>

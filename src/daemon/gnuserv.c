@@ -42,7 +42,7 @@
 #include <glibtop/gnuserv.h>
 
 #include <errno.h>
-#include <popt-gnome.h>
+#include <popt.h>
 
 #include "daemon.h"
 

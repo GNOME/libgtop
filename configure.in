@@ -86,28 +86,6 @@ dnl GNOME_COMPILE_WARNINGS
 
 dnl GNOME_INIT_HOOK(gnome_found=yes)
 
-dnl if test "x$gnome_found" != xyes; then
-dnl   if test "x$want_gnome" != xno ; then
-dnl     AC_MSG_ERROR([
-dnl *** GNOME was not found on this system. ***
-dnl 
-dnl *** If you want to use LibGTop without GNOME, you need
-dnl *** to give configure the --without-gnome parameter.
-dnl ])
-dnl   else
-dnl     AC_DEFINE(WITHOUT_GNOME)
-dnl   fi
-dnl   GNOME_SUPPORT_CHECKS
-dnl else
-dnl   if test "x$want_gnome" != xno ; then
-dnl     AM_CONDITIONAL(BUILD_GNOME_SUPPORT, false)
-dnl   else
-dnl     GNOME_SUPPORT_CHECKS
-dnl   fi
-dnl fi
-
-AM_CONDITIONAL(BUILD_GNOME_SUPPORT, false)
-
 AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 
 GNOME_LIBGTOP_SYSDEPS
@@ -116,10 +94,6 @@ GNOME_LIBGTOP_TYPES
 dnl AC_ARG_WITH(libgtop-guile,
 dnl [  --with-libgtop-guile    Build the libgtop guile interface (default=no)],
 dnl [build_guile="$withval"], [build_guile=yes])
-
-dnl if test x$build_guile != xno ; then
-dnl  GNOME_CHECK_GUILE
-dnl fi
 
 AC_ARG_WITH(libgtop-inodedb,
 [  --with-libgtop-inodedb  Build the inodedb stuff (default=no)],
@@ -138,20 +112,6 @@ if test x$build_inodedb = xyes ; then
 fi
 
 AC_DEFINE(GLIBTOP_NAMES)
-
-if test x$ac_cv_guile_found = xyes ; then
-  AC_DEFINE(GLIBTOP_GUILE)
-  AC_DEFINE(GLIBTOP_GUILE_NAMES)
-  libgtop_guile_found=yes
-  guile_examples='third'
-  guile_static_examples='third_static'
-  guile_subdirs='guile'
-else
-  libgtop_guile_found=no
-  guile_examples=
-  guile_static_examples=
-  guile_subdirs=
-fi
 
 if test x$libgtop_smp = xyes ; then
   smp_examples='smp'
@@ -172,22 +132,14 @@ AM_CONDITIONAL(ENABLE_SHARED, test x$enable_static = xyes)
 
 AC_SUBST(static_targets)
 AC_SUBST(smp_examples)
-AC_SUBST(guile_examples)
-AC_SUBST(guile_subdirs)
-
-AM_PROG_LIBTOOL
 
 GLIB_REQUIRED=2.0.0
 
-PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLIB_REQUIRED)
+PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLIB_REQUIRED libgnome-2.0)
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
 
 dnl (1.2.0,,AC_MSG_ERROR(GLIB >= 1.2.0 is required for LibGTop))
-
-dnl You need to uncomment the following line if you want to use
-dnl libGTop without Gnome.
-GNOME_SUPPORT_CHECKS
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
@@ -222,7 +174,7 @@ LIBS="$oLIBS"
 AC_SUBST(DL_LIB)
 
 dnl AIX
-AH_TEMPLATE(HAVE_VMGETINFO, [Define to 1 if you have the `vmgetinfo' function in libperfstat])
+AH_TEMPLATE(HAVE_VMGETINFO, [Define to 1 if you have the 'vmgetinfo' function in libperfstat])
 AC_CHECK_LIB(perfstat, vmgetinfo, AC_DEFINE(HAVE_VMGETINFO))
 
 dnl Solaris
@@ -331,24 +283,6 @@ dnl Debugging
 AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]],AC_DEFINE(LIBGTOP_ENABLE_DEBUG),)
 AC_ARG_ENABLE(fatal-warnings, [  --enable-fatal-warnings make all warnings fatal [debug=no]],AC_DEFINE(LIBGTOP_FATAL_WARNINGS),)
 
-if test "x$gnome_found" = xyes ; then
-  LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
-  SUPPORTINCS="$GNOME_INCLUDEDIR"
-else
-  LIBSUPPORT='$(top_builddir)/support/libgnomesupport-2.0.la'
-  SUPPORTINCS='-DNEED_GNOMESUPPORT_H -I$(top_builddir)/support -I$(top_srcdir)/support'
-fi
-
-dnl Some ugly hack; if '-lgnomesupport' is part of $GNOME_LIBS,
-dnl we include it here.
-case "$GNOME_LIBS" in
-	'*-lgnomesupport*' ) 
-	  LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
-          SUPPORTINCS="$GNOME_INCLUDEDIR" ;;
-esac
-AC_SUBST(LIBSUPPORT)
-AC_SUBST(SUPPORTINCS)
-
 dnl These definitions are expanded in make.
 LIBGTOP_LIBS='-L$(libdir)'
 LIBGTOP_INCS='-I$(includedir)/libgtop-2.0'
@@ -369,24 +303,13 @@ if test x$libgtop_have_sysinfo = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SYSINFO"
 fi
 
-LIBGTOP_INCS="$LIBGTOP_INCS $SUPPORTINCS $GLIB_CFLAGS"
+LIBGTOP_INCS="$LIBGTOP_INCS $GLIB_CFLAGS"
 
-LIBGTOP_GUILE_LIBS="$LIBGTOP_LIBS"
-LIBGTOP_GUILE_INCS="$LIBGTOP_INCS"
 LIBGTOP_BINDIR='$(bindir)'
 LIBGTOP_SERVER='$(bindir)/libgtop_server2'
 
 sysdeps_dir="$libgtop_sysdeps_dir"
 AC_SUBST(sysdeps_dir)
-
-if test x$ac_cv_guile_found = xyes ; then
-  LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_guile-2.0"
-  libgtop_guile_found=yes
-else
-  libgtop_guile_found=no
-fi
-
-AC_SUBST(libgtop_guile_found)
 
 if test -z "$LIBGTOP_EXTRA_LIBS" ; then
   LIBGTOP_EXTRA_LIBS="$libs_xauth"
@@ -397,34 +320,18 @@ fi
 LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS"
 
 LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop-2.0 -lgtop_sysdeps-2.0 -lgtop_common-2.0"
-LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop-2.0 -lgtop_sysdeps-2.0 -lgtop_common-2.0"
-
 LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names-2.0"
-LIBGTOP_GUILE_NAMES_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_guile_names-2.0 -lgtop_names-2.0"
 
 LIBGTOP_LIBS="$LIBGTOP_LIBS" 
 LIBGTOP_NAMES_LIBS="$LIBGTOP_NAMES_LIBS"
-LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS"
-LIBGTOP_GUILE_NAMES_LIBS="$LIBGTOP_GUILE_NAMES_LIBS"
-
-LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $GUILE_LIBS"
-LIBGTOP_GUILE_INCS="$LIBGTOP_GUILE_INCS $GUILE_INCS -DGLIBTOP_GUILE"
 
 LIBGTOP_NAMES_INCS="$LIBGTOP_INCS -DGLIBTOP_NAMES"
-LIBGTOP_GUILE_NAMES_INCS="$LIBGTOP_GUILE_INCS -DGLIBTOP_GUILE_NAMES"
-LIBGTOP_GUILE_NAMES_INCS="$LIBGTOP_GUILE_INCS -DGLIBTOP_NAMES"
 
 machine_incs="-I\$(top_srcdir)/sysdeps/$sysdeps_dir"
 
 AC_SUBST(machine_incs)
 
-if test x$libgtop_guile_found = xyes ; then
-  guile_def="-DGLIBTOP_GUILE -DGLIBTOP_GUILE_NAMES $GUILE_INCS "
-else
-  guile_def=""
-fi
-
-INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $SUPPORTINCS $GLIB_CFLAGS $CFLAGS $X_CFLAGS $guile_def "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
+INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $CFLAGS $X_CFLAGS $guile_def "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
 
 AC_SUBST(INCLUDES)
 
@@ -434,10 +341,6 @@ AC_SUBST(LIBGTOP_LIBS)
 AC_SUBST(LIBGTOP_INCS)
 AC_SUBST(LIBGTOP_NAMES_LIBS)
 AC_SUBST(LIBGTOP_NAMES_INCS)
-AC_SUBST(LIBGTOP_GUILE_LIBS)
-AC_SUBST(LIBGTOP_GUILE_INCS)
-AC_SUBST(LIBGTOP_GUILE_NAMES_LIBS)
-AC_SUBST(LIBGTOP_GUILE_NAMES_INCS)
 AC_SUBST(LIBGTOP_BINDIR)
 AC_SUBST(LIBGTOP_SERVER)
 
@@ -461,8 +364,6 @@ include/glibtop/Makefile
 sysdeps/Makefile
 sysdeps/common/Makefile
 sysdeps/names/Makefile
-sysdeps/guile/Makefile
-sysdeps/guile/names/Makefile
 sysdeps/stub/Makefile
 sysdeps/stub_suid/Makefile
 sysdeps/sun4/Makefile
@@ -478,7 +379,5 @@ src/inodedb/Makefile
 lib/Makefile
 examples/Makefile
 doc/Makefile
-support/Makefile
-support/gnome-support-2.0.pc
 libgtop-2.0.pc
 ])
