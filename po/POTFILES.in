@@ -3,6 +3,7 @@
 lib/close.c
 lib/command.c
 lib/init.c
+lib/lib.c
 lib/open.c
 lib/parameter.c
 lib/read.c
