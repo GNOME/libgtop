@@ -1494,13 +1494,13 @@ msgstr "Uporabni¹ko definiran signal 2"
 #~ msgstr "Velikost Kazalca"
 
 #~ msgid "Process CWD"
-#~ msgstr "Procesov trenutni delavni imenik"
+#~ msgstr "Procesov trenutni delovni imenik"
 
 #~ msgid "Pointer Size on the Server (in bits)"
 #~ msgstr "Velikost kazalca na stre¾niku (v bitih)"
 
 #~ msgid "Current working directory of the process"
-#~ msgstr "Trenutni delavni imenik procesa"
+#~ msgstr "Trenutni delovni imenik procesa"
 
 #~ msgid "Boot time"
 #~ msgstr "Èas zagona"
