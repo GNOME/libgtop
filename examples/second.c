@@ -39,7 +39,7 @@ main (int argc, char *argv [])
 	bindtextdomain (PACKAGE, GTOPLOCALEDIR);
 	textdomain (PACKAGE);
 	
-	glibtop_init__r (&glibtop_global_server);
+	glibtop_init ();
 
 	glibtop_get_sysdeps (&sysdeps);
 
