@@ -11,30 +11,6 @@
 * About::                       About LibGTop
 * Reference Manual::            LibGTop Reference Manual
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@detailmenu --- The Detailed Node Listing ---
-
-About LibGTop
-
-
-
-
-
  --- The Detailed Node Listing ---
 
 About LibGTop
