@@ -553,12 +553,10 @@ msgid "Single-Char code for process state (S=sleeping)"
 msgstr "Prozessstatus (S=schläft)"
 
 #: sysdeps/names/procstate.c:47
-#, fuzzy
 msgid "UID of process"
 msgstr "echte UID des Prozesses"
 
 #: sysdeps/names/procstate.c:48
-#, fuzzy
 msgid "GID of process"
 msgstr "echte GID des Prozesses"
 
