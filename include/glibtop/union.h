@@ -76,7 +76,7 @@ union _glibtop_union
     glibtop_proc_signal		proc_signal;
     glibtop_proc_kernel		proc_kernel;
     glibtop_proc_segment	proc_segment;
-    glibtop_proc_args		proc_args;
+    glibtop_array		proc_args;
     glibtop_array		proc_map;
     glibtop_array		mountlist;
     glibtop_fsusage		fsusage;

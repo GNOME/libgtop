@@ -29,7 +29,7 @@
 #include <glibtop_private.h>
 
 static const unsigned long _glibtop_sysdeps_proc_args =
-(1L << GLIBTOP_PROC_ARGS_SIZE);
+(1L << GLIBTOP_ARRAY_NUMBER) + (1L << GLIBTOP_ARRAY_SIZE);
 
 /* Init function. */
 
@@ -43,44 +43,46 @@ glibtop_init_proc_args_s (glibtop *server)
 
 /* Provides detailed information about a process. */
 
-char *
-glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
-			 pid_t pid, unsigned max_len)
+char **
+glibtop_get_proc_args_s (glibtop *server, glibtop_array *array, pid_t pid)
 {
-    char buffer [BUFSIZ];
-    char *retval = NULL, *ptr;
-    size_t total;
-    int ret;
+    char *ptr = NULL, *pos, **ptrlist;
+    size_t count = 0, max_len, total;
+    int i, ret;
 
-    memset (buf, 0, sizeof (glibtop_proc_args));
+    memset (array, 0, sizeof (glibtop_array));
 
-    if (max_len > BUFSIZ)
-	retval = ptr = glibtop_malloc_r (server, max_len+1);
-    else
-	ptr = buffer;
-
-    if (!max_len)
-	max_len = BUFSIZ;
+    max_len = PAGE_SIZE;
+    ptr = glibtop_malloc_r (server, max_len + 1);
 
     ret = glibtop_get_proc_data_proc_args_s (server, pid, ptr, max_len);
     if (ret < 0) {
-	if (!retval) glibtop_free_r (server, retval);
+	glibtop_free_r (server, ptr);
 	return NULL;
     }
 
     total = ret;
+    ptr [total] = '\0';
 
-    if (retval) {
-	retval = glibtop_realloc_r (server, retval, total+1);
-    } else {
-	retval = glibtop_malloc_r (server, total+1);
-	memcpy (retval, buffer, total);
+    for (i = 0; i <= total; i++) {
+	if (ptr [i]) continue;
+	count++;
     }
 
-    retval [total] = 0;
+    ptrlist = glibtop_calloc_r (server, count+1, sizeof (char *));
 
-    buf->size = total;
-    buf->flags = _glibtop_sysdeps_proc_args;
+    for (i = 0, pos = ptr; i < count; i++) {
+	ptrlist [i] = glibtop_strdup_r (server, pos);
+	pos += strlen (pos) + 1;
+    }
 
-    return retval;
+    ptrlist [count] = NULL;
+
+    glibtop_free_r (server, ptr);
+
+    array->number = count;
+    array->size = sizeof (char *);
+    array->flags = _glibtop_sysdeps_proc_args;
+
+    return ptrlist;
 }

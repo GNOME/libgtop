@@ -113,7 +113,7 @@ sub output {
     }
 
     if ($retval =~ /^(array|pointer)\((.*)\)$/) {
-      $retval = "$2 *";
+      $retval = ($2 eq 'string') ? 'char **' : "$2 *";
     }
 
     $check_server_code = "\n";

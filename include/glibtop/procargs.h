@@ -34,7 +34,7 @@
 
 BEGIN_LIBGTOP_DECLS
 
-#define glibtop_get_proc_args(proc_args) glibtop_get_proc_args_l(glibtop_global_server, pid)
+#define glibtop_get_proc_args(array,pid) glibtop_get_proc_args_l(glibtop_global_server, array, pid)
 
 #if GLIBTOP_SUID_PROC_ARGS
 #define glibtop_get_proc_args_r		glibtop_get_proc_args_p

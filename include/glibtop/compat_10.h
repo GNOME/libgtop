@@ -51,6 +51,14 @@ typedef struct _glibtop_array		glibtop_proclist;
 
 typedef struct _glibtop_array		glibtop_mountlist;
 
+/* glibtop_proc_args */
+
+#define GLIBTOP_PROC_ARGS_SIZE		0
+
+#define GLIBTOP_MAX_PROC_ARGS		1
+
+typedef struct _glibtop_array		glibtop_proc_args;
+
 /* glibtop_proc_map */
 
 #define GLIBTOP_PROC_MAP_NUMBER		GLIBTOP_ARRAY_NUMBER

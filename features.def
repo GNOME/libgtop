@@ -14,7 +14,7 @@ retval|proc_time|long(start_time,rtime,utime,stime,cutime,cstime,timeout,it_real
 retval|proc_signal|ulong(signal[2],blocked[2],sigignore[2],sigcatch[2])|pid_t(pid)
 retval|proc_kernel|ulong(k_flags,min_flt,maj_flt,cmin_flt,cmaj_flt,kstk_esp,kstk_eip,nwchan):string(wchan)|pid_t(pid)
 retval|proc_segment|ulong(text_rss,shlib_rss,data_rss,stack_rss,dirty_size,start_code,end_code,start_data,end_data,start_brk,end_brk,start_stack,start_mmap,arg_start,arg_end,env_start,env_end)|pid_t(pid)
-char *|proc_args|ulong(size)|pid_t(pid):unsigned(max_len)
+pointer(string)|proc_args|array|pid_t(pid)
 array(glibtop_map_entry)|proc_map|array|pid_t(pid)
 array(glibtop_mountentry)|@mountlist|array|int(all_fs)
 retval|@fsusage|ulong(blocks,bfree,bavail,files,ffree)|string(mount_dir)

@@ -164,7 +164,7 @@ handle_parent_connection (int s)
 	    memcpy (&pid, parameter, sizeof (pid_t));
 	    ptr = glibtop_get_proc_args_l (server,
 					   &resp->u.data.proc_args,
-					   pid, 0);
+					   pid);
 	    do_output (s, resp, _offset_data (proc_args),
 		       ptr ? resp->u.data.proc_args.size+1 : 0, ptr,
 		       (ptr != NULL) ? 0 : -1);
