@@ -52,6 +52,10 @@ dnl does not work for libgtop.
 AC_CHECK_PROGS(AWK, gawk awk, )
 test -z "$AWK" && AC_MSG_ERROR([Sorry, you need a working awk interpreter.])
 
+dnl Most people should have a working perl interpreter on their system
+AC_PATH_PROG(PERL,perl)
+test -z "$PERL" && AC_MSG_ERROR([You need to have a working perl interpreter.])
+
 AC_CHECK_TOOL(CC,gcc)
 AC_CHECK_TOOL(RANLIB,ranlib)
 AC_CHECK_TOOL(AS,as)
