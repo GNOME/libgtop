@@ -1,3 +1,7 @@
+2004-08-28  Akagic Amila  <bono@linux.org.ba>
+
+        * configure.in: Added 'bs' to ALL_LINGUAS.
+
 2004-08-22  Benoît Dejean  <tazforever@dlfp.org>
 
 	* lib/command.c: (glibtop_call_l): Zeroed all args.
