@@ -24,11 +24,11 @@ fi
 
 LIBGTOP_MAJOR_VERSION=1
 LIBGTOP_MINOR_VERSION=90
-LIBGTOP_MICRO_VERSION=0
+LIBGTOP_MICRO_VERSION=1
 LIBGTOP_VERSION=$LIBGTOP_MAJOR_VERSION.$LIBGTOP_MINOR_VERSION.$LIBGTOP_MICRO_VERSION
 AM_INIT_AUTOMAKE(libgtop, $LIBGTOP_VERSION)
-LIBGTOP_INTERFACE_AGE=0
-LIBGTOP_BINARY_AGE=0
+LIBGTOP_INTERFACE_AGE=1
+LIBGTOP_BINARY_AGE=1
 
 # you can set this to `-snap' for instance to create
 # a `libgtop-1.x.y-snap.tar.gz' tarball.
@@ -215,7 +215,11 @@ PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLIB_REQUIRED)
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
 
-dnl AM_PATH_GLIB(1.2.0,,AC_MSG_ERROR(GLIB >= 1.2.0 is required for LibGTop))
+dnl (1.2.0,,AC_MSG_ERROR(GLIB >= 1.2.0 is required for LibGTop))
+
+dnl You need to uncomment the following line if you want to use
+dnl libGTop without Gnome.
+GNOME_SUPPORT_CHECKS
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST

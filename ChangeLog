@@ -1,3 +1,13 @@
+2002-01-10  Kevin Vandersloot <kfv101@psu.edu>
+
+	* acininclude.m4: add back the support stuf but make it really
+	work
+
+	* configure.in: bump version number, add back GNOME_SUPPORT 
+	check since that was causing a build failure
+
+	* release 1.90.1
+
 2002-01-09  Kevin Vandersloot <kfv101@psu.edu>
 
 	* acinclude.m4: remove gnome support check. Fixes the build
