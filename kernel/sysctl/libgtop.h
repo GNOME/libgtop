@@ -11,7 +11,10 @@ enum {
     LIBGTOP_MEM,
     LIBGTOP_SWAP,
     LIBGTOP_PROCLIST,
-    LIBGTOP_PROC_STATE
+    LIBGTOP_PROC_STATE,
+    LIBGTOP_PROC_KERNEL,
+    LIBGTOP_PROC_SEGMENT,
+    LIBGTOP_PROC_MEM
 };
 
 enum {
@@ -38,6 +41,9 @@ typedef struct libgtop_swap libgtop_swap_t;
 typedef struct libgtop_proclist libgtop_proclist_t;
 
 typedef struct libgtop_proc_state libgtop_proc_state_t;
+typedef struct libgtop_proc_kernel libgtop_proc_kernel_t;
+typedef struct libgtop_proc_segment libgtop_proc_segment_t;
+typedef struct libgtop_proc_mem libgtop_proc_mem_t;
 
 struct libgtop_cpu
 {
@@ -98,14 +104,37 @@ struct libgtop_proc_state
     long priority, counter, def_priority;
     long utime, stime, cutime, cstime, start_time;
     long per_cpu_utime [NR_CPUS], per_cpu_stime [NR_CPUS];
-#if 0
+    int has_cpu, processor, last_processor;
+
+    unsigned long context;
+    unsigned long start_code, end_code, start_data, end_data;
+    unsigned long start_brk, brk, start_stack, start_mmap;
+    unsigned long arg_start, arg_end, env_start, env_end;
+    unsigned long rss, rlim, total_vm, locked_vm;
+
     unsigned long policy, rt_priority;
     unsigned long it_real_value, it_prof_value, it_virt_value;
     unsigned long it_real_incr, it_prof_incr, it_virt_incr;
-#endif
+
     unsigned long keip, kesp;
     unsigned long min_flt, maj_flt, cmin_flt, cmaj_flt;
     unsigned long nswap, cnswap;
+};
+
+struct libgtop_proc_kernel
+{
+    unsigned long wchan;
+};
+
+struct libgtop_proc_segment
+{
+    unsigned long data, exec, stack, lib;
+};
+
+struct libgtop_proc_mem
+{
+    libgtop_proc_segment_t segment;
+    int size, resident, share, trs, lrs, drs, dt;
 };
 
 #endif

@@ -52,8 +52,12 @@ static unsigned int libgtop_mem_timestamp = 0;
 static libgtop_mem_t libgtop_mem;
 static unsigned int libgtop_swap_timestamp = 0;
 static libgtop_swap_t libgtop_swap;
+
 static libgtop_proclist_t libgtop_proclist;
 static libgtop_proc_state_t libgtop_proc_state;
+static libgtop_proc_kernel_t libgtop_proc_kernel;
+static libgtop_proc_segment_t libgtop_proc_segment;
+static libgtop_proc_mem_t libgtop_proc_mem;
 
 static ctl_table libgtop_table[];
 static ctl_table libgtop_root_table[] = {
@@ -79,6 +83,12 @@ ctl_table libgtop_table[] = {
      0444, NULL, NULL, &system_ctl_handler},
     {LIBGTOP_PROC_STATE, NULL, &libgtop_proc_state,
      sizeof (libgtop_proc_state), 0444, NULL, NULL, &proc_ctl_handler},
+    {LIBGTOP_PROC_KERNEL, NULL, &libgtop_proc_kernel,
+     sizeof (libgtop_proc_kernel), 0444, NULL, NULL, &proc_ctl_handler},
+    {LIBGTOP_PROC_SEGMENT, NULL, &libgtop_proc_segment,
+     sizeof (libgtop_proc_segment), 0444, NULL, NULL, &proc_ctl_handler},
+    {LIBGTOP_PROC_MEM, NULL, &libgtop_proc_mem,
+     sizeof (libgtop_proc_mem), 0444, NULL, NULL, &proc_ctl_handler},
     {0}
 };
 
@@ -114,6 +124,126 @@ void cleanup_module(void)
 
 #endif /* MODULE */
 
+/*
+ * These bracket the sleeping functions..
+ */
+extern void scheduling_functions_start_here(void);
+extern void scheduling_functions_end_here(void);
+#define first_sched	((unsigned long) scheduling_functions_start_here)
+#define last_sched	((unsigned long) scheduling_functions_end_here)
+
+static unsigned long
+get_wchan (struct task_struct *p)
+{
+    if (!p || p == current || p->state == TASK_RUNNING)
+	return 0;
+#if defined(__i386__)
+    {
+	unsigned long ebp, esp, eip;
+	unsigned long stack_page;
+	int count = 0;
+
+	stack_page = (unsigned long)p;
+	esp = p->tss.esp;
+	if (!stack_page || esp < stack_page || esp >= 8188+stack_page)
+	    return 0;
+	/* include/asm-i386/system.h:switch_to() pushes ebp last. */
+	ebp = *(unsigned long *) esp;
+	do {
+	    if (ebp < stack_page || ebp >= 8188+stack_page)
+		return 0;
+	    eip = *(unsigned long *) (ebp+4);
+	    if (eip < first_sched || eip >= last_sched)
+		return eip;
+	    ebp = *(unsigned long *) ebp;
+	} while (count++ < 16);
+    }
+#elif defined(__alpha__)
+    /*
+     * This one depends on the frame size of schedule().  Do a
+     * "disass schedule" in gdb to find the frame size.  Also, the
+     * code assumes that sleep_on() follows immediately after
+     * interruptible_sleep_on() and that add_timer() follows
+     * immediately after interruptible_sleep().  Ugly, isn't it?
+     * Maybe adding a wchan field to task_struct would be better,
+     * after all...
+     */
+    {
+	unsigned long schedule_frame;
+	unsigned long pc;
+
+	pc = thread_saved_pc(&p->tss);
+	if (pc >= first_sched && pc < last_sched) {
+	    schedule_frame = ((unsigned long *)p->tss.ksp)[6];
+	    return ((unsigned long *)schedule_frame)[12];
+	}
+	return pc;
+    }	
+#elif defined(__mc68000__)
+    {
+	unsigned long fp, pc;
+	unsigned long stack_page;
+	int count = 0;
+
+	stack_page = (unsigned long)p;
+	fp = ((struct switch_stack *)p->tss.ksp)->a6;
+	do {
+	    if (fp < stack_page+sizeof(struct task_struct) ||
+		fp >= 8184+stack_page)
+		return 0;
+	    pc = ((unsigned long *)fp)[1];
+	    /* FIXME: This depends on the order of these functions. */
+	    if (pc < first_sched || pc >= last_sched)
+		return pc;
+	    fp = *(unsigned long *) fp;
+	} while (count++ < 16);
+    }
+#elif defined(__powerpc__)
+    return (p->tss.wchan);
+#elif defined (CONFIG_ARM)
+    {
+	unsigned long fp, lr;
+	unsigned long stack_page;
+	int count = 0;
+
+	stack_page = 4096 + (unsigned long)p;
+	fp = get_css_fp (&p->tss);
+	do {
+	    if (fp < stack_page || fp > 4092+stack_page)
+		return 0;
+	    lr = pc_pointer (((unsigned long *)fp)[-1]);
+	    if (lr < first_sched || lr > last_sched)
+		return lr;
+	    fp = *(unsigned long *) (fp - 12);
+	} while (count ++ < 16);
+    }
+#elif defined (__sparc__)
+    {
+	unsigned long pc, fp, bias = 0;
+	unsigned long task_base = (unsigned long) p;
+	struct reg_window *rw;
+	int count = 0;
+
+#ifdef __sparc_v9__
+	bias = STACK_BIAS;
+#endif
+	fp = p->tss.ksp + bias;
+	do {
+	    /* Bogus frame pointer? */
+	    if (fp < (task_base + sizeof(struct task_struct)) ||
+		fp >= (task_base + (2 * PAGE_SIZE)))
+		break;
+	    rw = (struct reg_window *) fp;
+	    pc = rw->ins[7];
+	    if (pc < first_sched || pc >= last_sched)
+		return pc;
+	    fp = rw->ins[6] + bias;
+	} while (++count < 16);
+    }
+#endif
+    return 0;
+}
+
 #if defined(__i386__)
 # define KSTK_EIP(tsk)	(((unsigned long *)(4096+(unsigned long)(tsk)))[1019])
 # define KSTK_ESP(tsk)	(((unsigned long *)(4096+(unsigned long)(tsk)))[1022])
@@ -148,6 +278,187 @@ void cleanup_module(void)
 # define KSTK_EIP(tsk)  ((tsk)->tss.kregs->pc)
 # define KSTK_ESP(tsk)  ((tsk)->tss.kregs->u_regs[UREG_FP])
 #endif
+;
+
+static inline void
+task_mem (struct task_struct *p, libgtop_proc_segment_t *proc_segment)
+{
+    struct mm_struct * mm = p->mm;
+    
+    if (mm && mm != &init_mm) {
+	struct vm_area_struct * vma = mm->mmap;
+	unsigned long data = 0, stack = 0;
+	unsigned long exec = 0, lib = 0;
+
+	for (vma = mm->mmap; vma; vma = vma->vm_next) {
+	    unsigned long len = (vma->vm_end - vma->vm_start) >> 10;
+	    if (!vma->vm_file) {
+		data += len;
+		if (vma->vm_flags & VM_GROWSDOWN)
+		    stack += len;
+		continue;
+	    }
+	    if (vma->vm_flags & VM_WRITE)
+		continue;
+	    if (vma->vm_flags & VM_EXEC) {
+		exec += len;
+		if (vma->vm_flags & VM_EXECUTABLE)
+		    continue;
+		lib += len;
+	    }
+	}
+
+	proc_segment->data = data;
+	proc_segment->stack = stack;
+	proc_segment->exec = exec;
+	proc_segment->lib = lib;
+    }
+}
+
+static inline void
+statm_pte_range (pmd_t * pmd, unsigned long address, unsigned long size,
+		 int * pages, int * shared, int * dirty, int * total)
+{
+    pte_t * pte;
+    unsigned long end;
+
+    if (pmd_none(*pmd))
+	return;
+    if (pmd_bad(*pmd)) {
+	printk("statm_pte_range: bad pmd (%08lx)\n", pmd_val(*pmd));
+	pmd_clear(pmd);
+	return;
+    }
+    pte = pte_offset(pmd, address);
+    address &= ~PMD_MASK;
+    end = address + size;
+    if (end > PMD_SIZE)
+	end = PMD_SIZE;
+    do {
+	pte_t page = *pte;
+
+	address += PAGE_SIZE;
+	pte++;
+	if (pte_none(page))
+	    continue;
+	++*total;
+	if (!pte_present(page))
+	    continue;
+	++*pages;
+	if (pte_dirty(page))
+	    ++*dirty;
+	if (MAP_NR(pte_page(page)) >= max_mapnr)
+	    continue;
+	if (atomic_read(&mem_map[MAP_NR(pte_page(page))].count) > 1)
+	    ++*shared;
+    } while (address < end);
+}
+
+static inline void
+statm_pmd_range (pgd_t * pgd, unsigned long address, unsigned long size,
+		 int * pages, int * shared, int * dirty, int * total)
+{
+    pmd_t * pmd;
+    unsigned long end;
+
+    if (pgd_none(*pgd))
+	return;
+    if (pgd_bad(*pgd)) {
+	printk("statm_pmd_range: bad pgd (%08lx)\n", pgd_val(*pgd));
+	pgd_clear(pgd);
+	return;
+    }
+    pmd = pmd_offset(pgd, address);
+    address &= ~PGDIR_MASK;
+    end = address + size;
+    if (end > PGDIR_SIZE)
+	end = PGDIR_SIZE;
+    do {
+	statm_pte_range (pmd, address, end - address, pages,
+			 shared, dirty, total);
+	address = (address + PMD_SIZE) & PMD_MASK;
+	pmd++;
+    } while (address < end);
+}
+
+static void
+statm_pgd_range (pgd_t * pgd, unsigned long address, unsigned long end,
+		 int * pages, int * shared, int * dirty, int * total)
+{
+    while (address < end) {
+	statm_pmd_range (pgd, address, end - address, pages,
+			 shared, dirty, total);
+	address = (address + PGDIR_SIZE) & PGDIR_MASK;
+		pgd++;
+	}
+}
+
+static void
+get_statm (struct task_struct *tsk, libgtop_proc_mem_t *proc_mem)
+{
+    int size=0, resident=0, share=0, trs=0, lrs=0, drs=0, dt=0;
+    unsigned long data=0, stack=0, exec=0, lib=0;
+
+    if (tsk->mm && tsk->mm != &init_mm) {
+	struct vm_area_struct * vma = tsk->mm->mmap;
+
+	while (vma) {
+	    unsigned long len = (vma->vm_end - vma->vm_start) >> 10;
+	    pgd_t *pgd = pgd_offset(tsk->mm, vma->vm_start);
+	    int pages = 0, shared = 0, dirty = 0, total = 0;
+
+	    statm_pgd_range (pgd, vma->vm_start, vma->vm_end,
+			     &pages, &shared, &dirty, &total);
+	    resident += pages;
+	    share += shared;
+	    dt += dirty;
+	    size += total;
+	    if (vma->vm_flags & VM_EXECUTABLE)
+		trs += pages;	/* text */
+	    else if (vma->vm_flags & VM_GROWSDOWN)
+		drs += pages;	/* stack */
+	    else if (vma->vm_end > 0x60000000)
+		lrs += pages;	/* library */
+	    else
+		drs += pages;
+
+	    if (!vma->vm_file) {
+		data += len;
+		if (vma->vm_flags & VM_GROWSDOWN)
+		    stack += len;
+		vma = vma->vm_next;
+		continue;
+	    }
+	    if (vma->vm_flags & VM_WRITE) {
+		vma = vma->vm_next;
+		continue;
+	    }
+	    if (vma->vm_flags & VM_EXEC) {
+		exec += len;
+		if (vma->vm_flags & VM_EXECUTABLE) {
+		    vma = vma->vm_next;
+		    continue;
+		}
+		lib += len;
+	    }
+
+	    vma = vma->vm_next;
+	}
+    }
+    
+    proc_mem->segment.data = data;
+    proc_mem->segment.stack = stack;
+    proc_mem->segment.exec = exec;
+    proc_mem->segment.lib = lib;
+
+    proc_mem->size = size;
+    proc_mem->resident = resident;
+    proc_mem->share = share;
+    proc_mem->trs = trs;
+    proc_mem->lrs = lrs;
+    proc_mem->drs = drs;
+    proc_mem->dt = dt; 
+}
 
 static int
 libgtop_sysctl (ctl_table *table, int nlen, int *name)
@@ -245,7 +556,7 @@ libgtop_sysctl (ctl_table *table, int nlen, int *name)
 
 	tsk = task [0];
 	read_lock (&tasklist_lock);
-	for (index = tindex = 0; index < nr_tasks;
+	for (index = tindex = 0; (index <= nr_tasks) && tsk->next_task;
 	     index++, tsk = tsk->next_task) {
 	    if (tsk->pid == 0) continue;
 	    switch (which & LIBGTOP_PROCLIST_MASK) {
@@ -298,11 +609,15 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 		     struct task_struct *tsk)
 {
     libgtop_proc_state_t *proc_state;
+    libgtop_proc_kernel_t *proc_kernel;
+    libgtop_proc_segment_t *proc_segment;
+    libgtop_proc_mem_t *proc_mem;
     int i;
 
     switch (table->ctl_name) {
     case LIBGTOP_PROC_STATE:
 	proc_state = table->data;
+	memset (proc_state, 0, sizeof (libgtop_proc_state_t));
 	
 	proc_state->uid = tsk->uid;
 	proc_state->gid = tsk->gid;
@@ -346,7 +661,10 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 	}
 #endif
 
-#if 0
+	proc_state->has_cpu = tsk->has_cpu;
+	proc_state->processor = tsk->processor;
+	proc_state->last_processor = tsk->last_processor;
+
 	proc_state->policy = tsk->policy;
 	proc_state->rt_priority = tsk->rt_priority;
 
@@ -356,7 +674,6 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 	proc_state->it_real_incr = tsk->it_real_incr;
 	proc_state->it_prof_incr = tsk->it_prof_incr;
 	proc_state->it_virt_incr = tsk->it_virt_incr;
-#endif
 	
 	proc_state->min_flt = tsk->min_flt;
 	proc_state->cmin_flt = tsk->cmin_flt;
@@ -368,6 +685,46 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 
 	proc_state->kesp = KSTK_ESP(tsk);
 	proc_state->keip = KSTK_EIP(tsk);
+
+	if (tsk->mm && tsk->mm != &init_mm) {
+	    proc_state->context = tsk->mm->context;
+	    proc_state->start_code = tsk->mm->start_code;
+	    proc_state->end_code = tsk->mm->end_code;
+	    proc_state->start_data = tsk->mm-> start_data;
+	    proc_state->end_data = tsk->mm->end_data;
+	    proc_state->start_brk = tsk->mm->start_brk;
+	    proc_state->brk = tsk->mm->brk;
+	    proc_state->start_stack = tsk->mm->start_stack;
+	    proc_state->start_mmap = tsk->mm->mmap ?
+		tsk->mm->mmap->vm_start : 0;
+	    proc_state->arg_start = tsk->mm->arg_start;
+	    proc_state->arg_end = tsk->mm->arg_end;
+	    proc_state->env_start = tsk->mm->env_start;
+	    proc_state->env_end = tsk->mm->env_end;
+	    proc_state->rss = tsk->mm->rss << PAGE_SHIFT;
+	    proc_state->total_vm = tsk->mm->total_vm;
+	    proc_state->locked_vm = tsk->mm->locked_vm;
+
+	}
+	proc_state->rlim = tsk->rlim ? tsk->rlim[RLIMIT_RSS].rlim_cur : 0;
+	break;
+    case LIBGTOP_PROC_KERNEL:
+	proc_kernel = table->data;
+	memset (proc_kernel, 0, sizeof (libgtop_proc_kernel_t));
+
+	proc_kernel->wchan = get_wchan (tsk);
+	break;
+    case LIBGTOP_PROC_SEGMENT:
+	proc_segment = table->data;
+	memset (proc_segment, 0, sizeof (libgtop_proc_segment_t));
+
+	task_mem (tsk, proc_segment);
+	break;
+    case LIBGTOP_PROC_MEM:
+	proc_mem = table->data;
+	memset (proc_mem, 0, sizeof (libgtop_proc_mem_t));
+
+	get_statm (tsk, proc_mem);
 	break;
     default:
 	return -EINVAL;
