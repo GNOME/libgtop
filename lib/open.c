@@ -108,7 +108,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 			close (server->input [0]); close (server->output [1]);
 			dup2 (server->input [1], 1);
 			dup2 (server->output [0], 0);
-			execl (LIBGTOP_SERVER, NULL);
+			execl (LIBGTOP_SERVER, "libgtop-server", NULL);
 			glibtop_error_io_r (server, "execl (%s)",
 					    LIBGTOP_SERVER);
 			_exit (2);

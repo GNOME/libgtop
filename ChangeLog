@@ -1,3 +1,8 @@
+1998-11-18  Martin Baulig  <martin@home-of-linux.org>
+
+	* lib/open.c (glibtop_open_l): We need to set argv[0] in call
+	to execl () to avoid a core dump in _init () on FreeBSD 3.0.
+
 1998-11-11  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/gnuserv.h (MCOOKIE_SCREEN): Don't define this
