@@ -1,3 +1,8 @@
+2000-05-16  Kenneth Christiansen  <kenneth@gnome.org>
+
+        * da.po: New da translation
+	* update.sh: New update.sh script
+
 2000-05-16  Jesus Bravo Alvarez  <jba@pobox.com>
 
 	* *.po: Added and merged ca, el, ga, pt_BR, ru, uk and zh_CN

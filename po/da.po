@@ -5,13 +5,161 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.99.3\n"
-"POT-Creation-Date: 2000-02-14 15:46+0100\n"
+"POT-Creation-Date: 2000-05-16 21:28+0200\n"
 "PO-Revision-Date: 1999-09-28 22:43+02:00\n"
 "Last-Translator: Kenneth Christiansen <kenneth@ripen.dk>\n"
 "Language-Team: Dansk/Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8-bit\n"
+
+# lib/read.c:75
+#: lib/read.c:75
+#, c-format
+msgid "read %d bytes"
+msgstr "læs %d byte"
+
+# lib/read_data.c:49
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "læs størrelse på data"
+
+# lib/read_data.c:66
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr "læs data %d byte"
+
+# lib/write.c:48
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr "skriv %d byte"
+
+# src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
+msgid "Enable debugging"
+msgstr "Slå aflusning til"
+
+# src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
+msgid "DEBUG"
+msgstr "DEBUG"
+
+# src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
+msgid "Enable verbose output"
+msgstr "Slå meddelsom udskrift til"
+
+# src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
+msgid "VERBOSE"
+msgstr "VERBOSE"
+
+# src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
+msgid "Don't fork into background"
+msgstr "Forgren ikke til baggrund"
+
+# src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
+msgid "NO-DAEMON"
+msgstr "NO-DAEMON"
+
+# src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
+msgid "Invoked from inetd"
+msgstr "Kaldt fra inetd"
+
+# src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
+msgid "INETD"
+msgstr "INETD"
+
+# src/daemon/gnuserv.c:486
+#: src/daemon/gnuserv.c:488
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Fejl ved flag %s: %s.\n"
+"Kør '%s --help' for at få liste over alle tilgængelige kommandolinieflag.\n"
+
+# support/error.c:109
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "Ukendt systemfejl"
+
+# support/getopt.c:669
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: flaget `%s' er flertydigt\n"
+
+# support/getopt.c:693
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: flaget `--%s' tillader ikke argumenter\n"
+
+# support/getopt.c:698
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: flaget `%c%s' tillader ikke argumenter\n"
+
+# support/getopt.c:715 support/getopt.c:888
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: flaget `%s' kræver et argument\n"
+
+# support/getopt.c:744
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: ukendt flag `--%s'\n"
+
+# support/getopt.c:748
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: ukendt flag `%c%s'\n"
+
+# support/getopt.c:774
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: ulovlig flag -- %c\n"
+
+# support/getopt.c:777
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: ugyldig flag -- %c\n"
+
+# support/getopt.c:807 support/getopt.c:937
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: flaget kærver et argument -- %c\n"
+
+# support/getopt.c:854
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: flaget `-W %s' er flertydigt\n"
+
+# support/getopt.c:872
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: flaget `-W %s' tillader ikke argumenter\n"
 
 # sysdeps/names/cpu.c:45
 #: sysdeps/names/cpu.c:43
@@ -665,15 +813,13 @@ msgstr "Enkelttegnskode for processens tilstand (S=sovende)"
 
 # sysdeps/names/procstate.c:56
 #: sysdeps/names/procstate.c:47
-#, fuzzy
 msgid "UID of process"
-msgstr "Rigtig proces UID"
+msgstr "Processens UID"
 
 # sysdeps/names/procstate.c:57
 #: sysdeps/names/procstate.c:48
-#, fuzzy
 msgid "GID of process"
-msgstr "Rigtig proces GID"
+msgstr "Processens GID"
 
 # sysdeps/names/proctime.c:46
 #: sysdeps/names/proctime.c:44
@@ -1163,154 +1309,6 @@ msgstr "Tid i sekunder siden opstart"
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "Tid i sekunder som systemet har brugt i Idle Task siden opstart"
-
-# support/error.c:109
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "Ukendt systemfejl"
-
-# support/getopt.c:669
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: flaget `%s' er flertydigt\n"
-
-# support/getopt.c:693
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: flaget `--%s' tillader ikke argumenter\n"
-
-# support/getopt.c:698
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: flaget `%c%s' tillader ikke argumenter\n"
-
-# support/getopt.c:715 support/getopt.c:888
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: flaget `%s' kræver et argument\n"
-
-# support/getopt.c:744
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: ukendt flag `--%s'\n"
-
-# support/getopt.c:748
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: ukendt flag `%c%s'\n"
-
-# support/getopt.c:774
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: ulovlig flag -- %c\n"
-
-# support/getopt.c:777
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: ugyldig flag -- %c\n"
-
-# support/getopt.c:807 support/getopt.c:937
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: flaget kærver et argument -- %c\n"
-
-# support/getopt.c:854
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: flaget `-W %s' er flertydigt\n"
-
-# support/getopt.c:872
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: flaget `-W %s' tillader ikke argumenter\n"
-
-# lib/read.c:75
-#: lib/read.c:75
-#, c-format
-msgid "read %d bytes"
-msgstr "læs %d byte"
-
-# lib/read_data.c:49
-#: lib/read_data.c:49
-msgid "read data size"
-msgstr "læs størrelse på data"
-
-# lib/read_data.c:66
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
-msgstr "læs data %d byte"
-
-# lib/write.c:48
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
-msgstr "skriv %d byte"
-
-# src/daemon/gnuserv.c:446
-#: src/daemon/gnuserv.c:448
-msgid "Enable debugging"
-msgstr "Slå aflusning til"
-
-# src/daemon/gnuserv.c:446
-#: src/daemon/gnuserv.c:448
-msgid "DEBUG"
-msgstr "DEBUG"
-
-# src/daemon/gnuserv.c:448
-#: src/daemon/gnuserv.c:450
-msgid "Enable verbose output"
-msgstr "Slå meddelsom udskrift til"
-
-# src/daemon/gnuserv.c:448
-#: src/daemon/gnuserv.c:450
-msgid "VERBOSE"
-msgstr "VERBOSE"
-
-# src/daemon/gnuserv.c:450
-#: src/daemon/gnuserv.c:452
-msgid "Don't fork into background"
-msgstr "Forgren ikke til baggrund"
-
-# src/daemon/gnuserv.c:450
-#: src/daemon/gnuserv.c:452
-msgid "NO-DAEMON"
-msgstr "NO-DAEMON"
-
-# src/daemon/gnuserv.c:452
-#: src/daemon/gnuserv.c:454
-msgid "Invoked from inetd"
-msgstr "Kaldt fra inetd"
-
-# src/daemon/gnuserv.c:452
-#: src/daemon/gnuserv.c:454
-msgid "INETD"
-msgstr "INETD"
-
-# src/daemon/gnuserv.c:486
-#: src/daemon/gnuserv.c:488
-#, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"Fejl ved flag %s: %s.\n"
-"Kør '%s --help' for at få liste over alle tilgængelige kommandolinieflag.\n"
 
 # sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 #~ msgid "SMP CPU Flags"
