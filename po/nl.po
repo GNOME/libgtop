@@ -1,16 +1,16 @@
 # libgtop nl.po
 # Copyright (C) 1998,1999 Free Software Foundation, Inc.
 # Gert Dewit <Gert.Dewit@sos.be>
-#
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 2001-02-13 13:30+0100\n"
-"PO-Revision-Date: 1999-09-18 00:24+0200\n"
-"Last-Translator: Gert Dewit <Gert.Dewit@sos.be>\n"
-"Language-Team: nl <nl@li.org>\n"
+"Project-Id-Version: libgtop CVS\n"
+"POT-Creation-Date: 2002-03-07 01:22+0100\n"
+"PO-Revision-Date: 2002-03-07 01:16+0100\n"
+"Last-Translator: Jeroen van der Vegt <A.J.vanderVegt@ITS.TUDelft.nl>\n"
+"Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: examples/smp.c:68
@@ -20,7 +20,7 @@ msgstr ""
 
 #: examples/smp.c:71
 msgid "Total"
-msgstr ""
+msgstr "Totaal"
 
 #: examples/smp.c:71 sysdeps/names/mem.c:47
 msgid "User"
@@ -28,64 +28,63 @@ msgstr "Gebruiker"
 
 #: examples/smp.c:71 sysdeps/names/procuid.c:58
 msgid "Nice"
-msgstr ""
+msgstr "'Nice'"
 
 #: examples/smp.c:71
 msgid "Sys"
-msgstr ""
+msgstr "Sys"
 
 #: examples/smp.c:71
 msgid "Idle"
-msgstr ""
+msgstr "Rust"
 
 #: examples/smp.c:73
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
-msgstr ""
+msgstr "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 
 #: examples/smp.c:77
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr ""
+msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
 #: examples/smp.c:94
 msgid "Percent:"
-msgstr ""
+msgstr "Percentage:"
 
 #: examples/smp.c:95
 msgid "Total (%)"
-msgstr ""
+msgstr "Tataal (%)"
 
 #: examples/smp.c:95
-#, fuzzy
 msgid "User (%)"
-msgstr "Gebruiker"
+msgstr "Gebruiker (%)"
 
 #: examples/smp.c:95
 msgid "Nice (%)"
-msgstr ""
+msgstr "'Nice' (%)"
 
 #: examples/smp.c:95
 msgid "Sys (%)"
-msgstr ""
+msgstr "Sys (%)"
 
 #: examples/smp.c:96
 msgid "Idle (%)"
-msgstr ""
+msgstr "Rust (%)"
 
 #: examples/smp.c:98
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
-msgstr ""
+msgstr "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:114
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr ""
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:120
 msgid "Spin:"
@@ -112,7 +111,7 @@ msgstr "schrijf %d bytes"
 
 #: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
-msgstr ""
+msgstr "Schakel debuggen in"
 
 #: src/daemon/gnuserv.c:448
 msgid "DEBUG"
@@ -120,7 +119,7 @@ msgstr "DEBUG"
 
 #: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
-msgstr ""
+msgstr "Schakel overvloedige uitvoer in"
 
 #: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
@@ -128,15 +127,15 @@ msgstr "VERBOSE"
 
 #: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
-msgstr ""
+msgstr "Splits niet naar de achtergrond"
 
 #: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
-msgstr ""
+msgstr "NO-DEAMON"
 
 #: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "Aangeroepen vanuit inetd"
 
 #: src/daemon/gnuserv.c:454
 msgid "INETD"
@@ -148,6 +147,8 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+"Fout bij optie %s: %s.\n"
+"Start '%s --help' om een lijst met command-line opties te zien.\n"
 
 #: support/error.c:109
 msgid "Unknown system error"
@@ -156,61 +157,61 @@ msgstr "Onbekende systeemfout"
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr ""
+msgstr "%s: optie ' %s' is dubbelzinnig\n"
 
 #: support/getopt.c:693
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: optie '-- %s' staat geen argument toe\n"
 
 #: support/getopt.c:698
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: optie '%c %s' staat geen argument toe\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr ""
+msgstr "%s: optie ' %s' vereist een argument\n"
 
 #. --option
 #: support/getopt.c:744
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr ""
+msgstr "%s: ongeldige optie '-- %s'\n"
 
 #. +option or -option
 #: support/getopt.c:748
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr ""
+msgstr "%s: niet-herkende optie ' %c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr ""
+msgstr "%s: ongeldige optie -- %c\n"
 
 #: support/getopt.c:777
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr ""
+msgstr "%s: ongeldige optie -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr ""
+msgstr "%s: optie vereist een argument -- %c\n"
 
 #: support/getopt.c:854
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr ""
+msgstr "%s: optie '-W %s' is dubbelzinnig\n"
 
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: optie '-W %s' staat geen argument toe\n"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
@@ -218,19 +219,19 @@ msgstr "Totale CPU tijd"
 
 #: sysdeps/names/cpu.c:44
 msgid "CPU Time in User Mode"
-msgstr "CPU tijd in user mode"
+msgstr "CPU tijd in gebruikersmodus"
 
 #: sysdeps/names/cpu.c:45
 msgid "CPU Time in User Mode (nice)"
-msgstr "CPU tijd in user mode (nice)"
+msgstr "CPU tijd in gebruikersmodus (nice)"
 
 #: sysdeps/names/cpu.c:46
 msgid "CPU Time in System Mode"
-msgstr "CPU tijd in system mode"
+msgstr "CPU tijd in systemmodus"
 
 #: sysdeps/names/cpu.c:47
 msgid "CPU Time in the Idle Task"
-msgstr "CPU tijd in de \"Idle Task\""
+msgstr "CPU tijd in de rustmodus"
 
 #: sysdeps/names/cpu.c:48
 msgid "Tick Frequency"
@@ -242,39 +243,39 @@ msgstr "Totale SMP CPU tijd"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in User Mode"
-msgstr "SMP CPU tijd in user mode"
+msgstr "SMP CPU tijd in gebruikersmodus"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "SMP CPU tijd in user mode (nice)"
+msgstr "SMP CPU tijd in gebruikersmodus (nice)"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in System Mode"
-msgstr "SMP CPU tijd in system mode"
+msgstr "SMP CPU tijd in systemmodus"
 
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in the Idle Task"
-msgstr "SMP CPU tijd in de \"Idle Task\""
+msgstr "SMP CPU tijd in de rustmodus"
 
 #: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 msgid "Number of clock ticks since system boot"
-msgstr "Aantal klok tiks sinds laatste reboot"
+msgstr "Aantal kloktikken sinds laatste herstart"
 
 #: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
 msgid "Number of clock ticks the system spent in user mode"
-msgstr "Aantal klok tiks in user mode"
+msgstr "Aantal kloktikken in gebruikersmodus"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "Aantal klok tiks in user mode (nice)"
+msgstr "Aantal kloktikken in gebruikersmodus (nice)"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in system mode"
-msgstr "Aantal klok tiks in system mode"
+msgstr "Aantal kloktikken in systemmodus"
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr "Aantal klok tiks in de \"Idle Task\""
+msgstr "Aantal kloktikken in de rustmodus"
 
 #: sysdeps/names/cpu.c:63
 msgid "Tick frequency (default is 100)"
@@ -306,7 +307,7 @@ msgstr "Vrije blokken voor de \"superuser\""
 
 #: sysdeps/names/fsusage.c:50
 msgid "Free blocks available to non-superusers"
-msgstr "Vrije blokken voor niet gepriviligeerde gebruikers"
+msgstr "Vrije blokken voor niet-gepriviligeerde gebruikers"
 
 #: sysdeps/names/loadavg.c:39
 msgid "Load Average"
@@ -366,163 +367,162 @@ msgstr "Vergrendeld"
 
 #: sysdeps/names/mem.c:53
 msgid "Total physical memory in kB"
-msgstr "Totaal fysisch geheugen in kB"
+msgstr "Totaal fysisch geheugen in KB"
 
 #: sysdeps/names/mem.c:54
 msgid "Used memory size in kB"
-msgstr "Gebruikt geheugen in kB"
+msgstr "Gebruikt geheugen in KB"
 
 #: sysdeps/names/mem.c:55
 msgid "Free memory size in kB"
-msgstr "Vrij geheugen in kB"
+msgstr "Vrij geheugen in KB"
 
 #: sysdeps/names/mem.c:56
 msgid "Shared memory size in kB"
-msgstr "Gedeeld geheugen in kB"
+msgstr "Gedeeld geheugen in KB"
 
 #: sysdeps/names/mem.c:57
 msgid "Size of buffers kB"
-msgstr "Grootte van de buffers in kB"
+msgstr "Grootte van de buffers in KB"
 
 #: sysdeps/names/mem.c:58
 msgid "Size of cached memory in kB"
-msgstr "Groote van het cache geheugen in kB"
+msgstr "Grootte van het cache geheugen in KB"
 
 #: sysdeps/names/mem.c:59
 msgid "Memory used from user processes in kB"
-msgstr "Geheugen gebruikt voor gebruikersprocessen in kB"
+msgstr "Geheugengebruik van gebruikersprocessen in KB"
 
 #: sysdeps/names/mem.c:60
 msgid "Memory in locked pages in kB"
-msgstr ""
+msgstr "Geheugen in vergrendelde pagina's in KB"
 
 #: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
 #: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
 #: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
 msgid "Number of list elements"
-msgstr ""
+msgstr "Aantal items in de lijst"
 
 #: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
 #: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
 #: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
 msgid "Total size of list"
-msgstr ""
+msgstr "Totale grootte van de lijst"
 
 #: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
 #: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
 #: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
 msgid "Size of a single list element"
-msgstr ""
+msgstr "Grootte van een enkel item"
 
 #: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
 msgid "Size in kilobytes of message pool"
-msgstr ""
+msgstr "Geheugengebruik van berichtenbuffer in KB"
 
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Number of entries in message map"
-msgstr ""
+msgstr "Aantal ingangen in de 'message map'"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Max size of message"
-msgstr ""
+msgstr "Maximale grootte van een boodschap"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Default max size of queue"
-msgstr ""
+msgstr "Standaard maximum grootte van een rij"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Max queues system wide"
-msgstr ""
+msgstr "Maximale aantal rijen op het hele systeem"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Message segment size"
-msgstr ""
+msgstr "Boodschap segment grootte"
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Number of system message headers"
-msgstr ""
+msgstr "Aantal systeem boodschap headers"
 
 #: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+#, fuzzy
 msgid "Interface Flags"
-msgstr ""
+msgstr "Interface namen"
 
 #: sysdeps/names/netload.c:46
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 #: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
 msgid "Subnet"
-msgstr ""
+msgstr "Subnet"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
 msgid "Address"
-msgstr ""
+msgstr "Adres"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
 msgid "Packets In"
-msgstr ""
+msgstr "Ingaande pakketten"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
 msgid "Packets Out"
-msgstr ""
+msgstr "Uitgaande pakketten"
 
 #: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
 msgid "Packets Total"
-msgstr ""
+msgstr "Pakketten totaal"
 
 #: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
 msgid "Bytes In"
-msgstr ""
+msgstr "Ingaande bytes"
 
 #: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 msgid "Bytes Out"
-msgstr ""
+msgstr "Uitgaande bytes"
 
 #: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 msgid "Bytes Total"
-msgstr ""
+msgstr "Bytes totaal"
 
 #: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
 msgid "Errors In"
-msgstr ""
+msgstr "Inkomende fouten"
 
 #: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
 msgid "Errors Out"
-msgstr ""
+msgstr "Uitgaande fouten"
 
 #: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
 msgid "Errors Total"
-msgstr ""
+msgstr "Fouten totaal"
 
 #: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
 msgid "Collisions"
-msgstr ""
+msgstr "Botsingen"
 
 #: sysdeps/names/netload.c:64
 msgid "Maximum Transfer Unit"
-msgstr ""
+msgstr "'Maximum Transfer Unit'"
 
 #: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
-#, fuzzy
 msgid "PPP State"
-msgstr "Status"
+msgstr "PPP Status"
 
 #: sysdeps/names/ppp.c:39
 msgid "Input bytes"
-msgstr ""
+msgstr "Ingaande bytes"
 
 #: sysdeps/names/ppp.c:40
 msgid "Output bytes"
-msgstr ""
+msgstr "Uitgaande bytes"
 
 #: sysdeps/names/ppp.c:46
-#, fuzzy
 msgid "Number of input bytes"
-msgstr "Aantal taken"
+msgstr "Aantal ingaande bytes"
 
 #: sysdeps/names/ppp.c:47
 msgid "Number of output bytes"
-msgstr ""
+msgstr "Aantal uitgaande bytes"
 
 #: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
 msgid "Size"
@@ -530,43 +530,43 @@ msgstr "Grootte"
 
 #: sysdeps/names/procargs.c:43
 msgid "Length in bytes of the returned string."
-msgstr ""
+msgstr "Grootte van de string in bytes"
 
 #: sysdeps/names/prockernel.c:42
 msgid "K_Flags"
-msgstr ""
+msgstr "K_Flags"
 
 #: sysdeps/names/prockernel.c:42
 msgid "Min_Flt"
-msgstr ""
+msgstr "Min_Flt"
 
 #: sysdeps/names/prockernel.c:42
 msgid "Maj_Flt"
-msgstr ""
+msgstr "Maj_Flt"
 
 #: sysdeps/names/prockernel.c:42
 msgid "CMin_Flt"
-msgstr ""
+msgstr "CMin_Flt"
 
 #: sysdeps/names/prockernel.c:43
 msgid "CMaj_Flt"
-msgstr ""
+msgstr "CMaj_Flt"
 
 #: sysdeps/names/prockernel.c:43
 msgid "KStk_ESP"
-msgstr ""
+msgstr "KStk_ESP"
 
 #: sysdeps/names/prockernel.c:43
 msgid "KStk_EIP"
-msgstr ""
+msgstr "KStk_EIP"
 
 #: sysdeps/names/prockernel.c:43
 msgid "NWChan"
-msgstr ""
+msgstr "NWChan"
 
 #: sysdeps/names/prockernel.c:44
 msgid "WChan"
-msgstr ""
+msgstr "WChan"
 
 #. K_Flags
 #: sysdeps/names/prockernel.c:50
@@ -580,6 +580,15 @@ msgid ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
+"Kernel vlag van het proces.\n"
+"\n"
+"In Linux heeft op dit moment elke vlag de 'math bit' aan staan, omdat crt0.s "
+"op 'math-emulation' controleert. Dus dit komt niet in de uitvoer.\n"
+"\n"
+"Dit is waarschijnlijk een bug, omdat niet elk proces een gecompileerd C-"
+"programm is.\n"
+"\n"
+"De 'math-bit' zou decimaal 4 moeten zijn, en de gevolgde bit is decimaal 10."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:59
@@ -587,6 +596,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
+"Het aantal foutjes dat het programma heeft gemaakt (waarvoor geen geheugen-"
+"pagina van de schijf hoefde te worden gehaald)."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -594,16 +605,18 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
+"Het aantal fouten dat het programma heeft gemaakt (waarvoor wel een geheugen-"
+"pagina van de schijf moest worden gehaald)."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
 msgid "The number of minor faults that the process and its children have made."
-msgstr ""
+msgstr "Het aantal foutjes dat het programma en zijn kinderen hebben gemaakt."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:68
 msgid "The number of major faults that the process and its children have made."
-msgstr ""
+msgstr "Het aantal fouten dat het programma en zijn kinderen hebben gemaakt."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:71
@@ -611,11 +624,13 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
+"De huidige waarde van 'esp' (32-bit stack pointer), zoals gevonden in de "
+"kernel stack-page van het proces."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr ""
+msgstr "De huidige EIP (32-bit instruction pointer)."
 
 #. NWChan
 #: sysdeps/names/prockernel.c:76
@@ -625,11 +640,15 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
+"Dit is de 'rij' waarin het proces wacht. Het is het adres van een 'system "
+"call', die opgezocht kan worden in de 'namelist' als je een echte naam nodig "
+"hebt. (als /etc/psdatabase up-to-date is, kan je 'ps -l' gebruiken om het "
+"WCHAN veld actief te zien)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
 msgid "This is the textual name of the `nwchan' field."
-msgstr ""
+msgstr "Dit is de naam van het 'nwchan' veld."
 
 #: sysdeps/names/procmem.c:47
 msgid "Virtual"
@@ -645,27 +664,27 @@ msgstr "Gedeeld"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size"
-msgstr ""
+msgstr "Vast geheugen omvang"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size Limit"
-msgstr ""
+msgstr "Vast geheugen omvangslimiet"
 
 #: sysdeps/names/procmem.c:53
 msgid "Total # of pages of memory"
-msgstr ""
+msgstr "Aantal pagina's geheugen"
 
 #: sysdeps/names/procmem.c:54
 msgid "Number of pages of virtual memory"
-msgstr ""
+msgstr "Aantal pagina's virtueel geheugen"
 
 #: sysdeps/names/procmem.c:55
 msgid "Number of resident set (non-swapped) pages"
-msgstr ""
+msgstr "Aantal residente pagina's (niet geswapped) geheugen"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr ""
+msgstr "Aantal pagina's gedeeld (mmap'd) geheugen"
 
 #: sysdeps/names/procmem.c:57
 msgid ""
@@ -674,75 +693,80 @@ msgid ""
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
 msgstr ""
+"Het aantal pagina's dat het proces in het echte geheugen heeft, min 3 for "
+"administratieve doeleinden. Dit zijn slechts pagina's die naar text, data of "
+"stack tellen. Het is exclusief de pagina's die niet op aanvraag zijn "
+"geladen, en die geswapped zijn."
 
 #: sysdeps/names/procmem.c:62
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr ""
+"Huidige limiet in bytes van de rss van het proces (gewoonlijk 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
-msgstr ""
+msgstr "Text_RSS"
 
 #: sysdeps/names/procsegment.c:42
 msgid "ShLib_RSS"
-msgstr ""
+msgstr "ShLib_RSS"
 
 #: sysdeps/names/procsegment.c:42
 msgid "Data_RSS"
-msgstr ""
+msgstr "Data_RSS"
 
 #: sysdeps/names/procsegment.c:42
 msgid "Stack_RSS"
-msgstr ""
+msgstr "Stack_RSS"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Dirty Size"
-msgstr ""
+msgstr "'Dirty' omvang"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Code"
-msgstr ""
+msgstr "Start_Code"
 
 #: sysdeps/names/procsegment.c:43
 msgid "End_Code"
-msgstr ""
+msgstr "End_Code"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Stack"
-msgstr ""
+msgstr "Start_Stack"
 
 #: sysdeps/names/procsegment.c:48
 msgid "Text resident set size"
-msgstr ""
+msgstr "Omschrijving vast geheugen omvang"
 
 #: sysdeps/names/procsegment.c:49
 msgid "Shared-Lib resident set size"
-msgstr ""
+msgstr "Gedeeldgeheugen omvang"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Data resident set size"
-msgstr ""
+msgstr "Gegevensgeheugen omvang"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Stack resident set size"
-msgstr ""
+msgstr "Stack geheugen omvang"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Total size of dirty pages"
-msgstr ""
+msgstr "Totale omvang van 'dirty' pagina's"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Address of beginning of code segment"
-msgstr ""
+msgstr "Adres van het begin van het stuk code"
 
 #: sysdeps/names/procsegment.c:54
 msgid "Address of end of code segment"
-msgstr ""
+msgstr "Adres van het eind van het stuk code"
 
 #: sysdeps/names/procsegment.c:55
 msgid "Address of the bottom of stack segment"
-msgstr ""
+msgstr "Adres van het einde van het stuk stack"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Signal"
@@ -762,19 +786,19 @@ msgstr "SigCatch"
 
 #: sysdeps/names/procsignal.c:45
 msgid "Mask of pending signals"
-msgstr ""
+msgstr "Masker van de wachtende signalen"
 
 #: sysdeps/names/procsignal.c:46
 msgid "Mask of blocked signals"
-msgstr ""
+msgstr "Masker van de geblokkeerdede signalen"
 
 #: sysdeps/names/procsignal.c:47
 msgid "Mask of ignored signals"
-msgstr ""
+msgstr "Masker van de genegeerde signalen"
 
 #: sysdeps/names/procsignal.c:48
 msgid "Mask of caught signals"
-msgstr ""
+msgstr "Masker van de ontvangen signalen"
 
 #: sysdeps/names/procstate.c:40
 msgid "Cmd"
@@ -794,25 +818,25 @@ msgstr "GID"
 
 #: sysdeps/names/procstate.c:45
 msgid "Basename of executable file in call to exec()"
-msgstr ""
+msgstr "Naam van het uitvoerbare bestand om te gebruiken in exec()"
 
 #: sysdeps/names/procstate.c:46
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr ""
+msgstr "Enkel-karakter code voor de proces-status (S=slapend)"
 
 #: sysdeps/names/procstate.c:47
 #, fuzzy
 msgid "UID of process"
-msgstr "processor"
+msgstr "UID van het proces"
 
 #: sysdeps/names/procstate.c:48
 #, fuzzy
 msgid "GID of process"
-msgstr "processor"
+msgstr "GID van het proces"
 
 #: sysdeps/names/proctime.c:44
 msgid "Start_Time"
-msgstr "Start_Time"
+msgstr "Start_tijd"
 
 #: sysdeps/names/proctime.c:44
 msgid "RTime"
@@ -844,7 +868,7 @@ msgstr "It_Real_Value"
 
 #: sysdeps/names/proctime.c:46
 msgid "Frequency"
-msgstr "Frequency"
+msgstr "Frequentie"
 
 #: sysdeps/names/proctime.c:46
 msgid "XCPU_UTime"
@@ -856,49 +880,52 @@ msgstr "XCPU_STime"
 
 #: sysdeps/names/proctime.c:51
 msgid "Start time of process in seconds since the epoch"
-msgstr ""
+msgstr "Starttijd van het proces in seconden sinds het begin"
 
 #: sysdeps/names/proctime.c:52
 msgid "Real time accumulated by process (should be utime + stime)"
 msgstr ""
+"Werkelijke tijd gebruikt door het proces (zou utime + stime moeten zijn)"
 
 #: sysdeps/names/proctime.c:53
 msgid "user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Gebruikersmodus CPU-tijd gebruikt door dit proces"
 
 #: sysdeps/names/proctime.c:54
 msgid "kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Kernelmodus CPU-tijd gebruikt door dit proces"
 
 #: sysdeps/names/proctime.c:55
 msgid "cumulative utime of process and reaped children"
-msgstr ""
+msgstr "Gezamelijke utime van het proces en zijn kinderen"
 
 #: sysdeps/names/proctime.c:56
 msgid "cumulative stime of process and reaped children"
-msgstr ""
+msgstr "Gezamelijke stime van het proces en zijn kinderen"
 
 #: sysdeps/names/proctime.c:57
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr ""
+msgstr "De tijd (in jiffies) van het proces z'n volgende time-out."
 
 #: sysdeps/names/proctime.c:58
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
+"De tijd (in jiffies) voordat het volgende SIGALRM naar het proces wordt "
+"gestuurd door een timer."
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
-msgstr ""
+msgstr "Tick frequentie"
 
 #: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Gebruikersmodus SMP CPU-tijd gebruikt door dit proces"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Kernelmodus SMP CPU-tijd gebruikt door dit proces"
 
 #: sysdeps/names/procuid.c:56
 msgid "Uid"
@@ -930,7 +957,7 @@ msgstr "PGrp"
 
 #: sysdeps/names/procuid.c:57
 msgid "Session"
-msgstr "Session"
+msgstr "Sessie"
 
 #: sysdeps/names/procuid.c:57
 msgid "Tty"
@@ -942,259 +969,261 @@ msgstr "TPGid"
 
 #: sysdeps/names/procuid.c:58
 msgid "Priority"
-msgstr ""
+msgstr "Prioriteit"
 
 #: sysdeps/names/procuid.c:63
 msgid "User ID"
-msgstr ""
+msgstr "Gebruikers ID"
 
 #: sysdeps/names/procuid.c:64
 msgid "Effective User ID"
-msgstr ""
+msgstr "Effectieve gebruikers ID"
 
 #: sysdeps/names/procuid.c:65
 msgid "Group ID"
-msgstr ""
+msgstr "Groep ID"
 
 #: sysdeps/names/procuid.c:66
 msgid "Effective Group ID"
-msgstr ""
+msgstr "Effectieve Groep ID"
 
 #: sysdeps/names/procuid.c:67
 msgid "Process ID"
-msgstr ""
+msgstr "Proces ID"
 
 #: sysdeps/names/procuid.c:68
 msgid "PID of parent process"
-msgstr ""
+msgstr "PID van het ouder-proces"
 
 #: sysdeps/names/procuid.c:69
 msgid "Process group ID"
-msgstr ""
+msgstr "Proces groep ID"
 
 #: sysdeps/names/procuid.c:70
 msgid "Session ID"
-msgstr ""
+msgstr "Sessie ID"
 
 #: sysdeps/names/procuid.c:71
 msgid "Full device number of controlling terminal"
-msgstr ""
+msgstr "Volledige apparaatnummer van de beheerende terminal"
 
 #: sysdeps/names/procuid.c:72
 msgid "Terminal process group ID"
-msgstr ""
+msgstr "Groeps ID van terminal proces"
 
 #: sysdeps/names/procuid.c:73
 msgid "Kernel scheduling priority"
-msgstr ""
+msgstr "Kernel plannings-prioriteit"
 
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
-msgstr ""
+msgstr "Standaard 'nice' waarde van het proces"
 
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 msgid "Number of entries in semaphore map"
-msgstr ""
+msgstr "Aantal ingangen in de semaforen lijst."
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Max number of arrays"
-msgstr ""
+msgstr "Maximum aantal arrays"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max semaphores system wide"
-msgstr ""
+msgstr "Maximaal aantal semaforen op het systeem"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Number of undo structures system wide"
-msgstr ""
+msgstr "Aantal herstelniveau's op het systeem"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores per array"
-msgstr ""
+msgstr "Maximaal aantal semaforen per array"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max ops per semop call"
-msgstr ""
+msgstr "Maximaal aantal operaties per 'semop' aanroep."
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max number of undo entries per process"
-msgstr ""
+msgstr "Maximaal herstelniveau per proces."
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
-msgstr ""
+msgstr "sizeof struct sem_undo"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Semaphore max value"
-msgstr ""
+msgstr "Maximale waarde van een semafoor"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Adjust on exit max value"
-msgstr ""
+msgstr "Aanpassen bij verlaten 'maximale waarde'"
 
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
 msgid "Max segment size"
-msgstr ""
+msgstr "Max segment grootte"
 
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Min segment size"
-msgstr ""
+msgstr "Min segment grootte"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max number of segments"
-msgstr ""
+msgstr "Maximum aantal segmenten"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max shared segments per process"
-msgstr ""
+msgstr "Maximum aantal gedeelde segmenten per proces"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max total shared memory"
-msgstr ""
+msgstr "Maximum hoeveelheid gedeeld geheugen"
 
 #: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
 msgid "Total Swap Space"
-msgstr ""
+msgstr "Hoeveelheid swap ruimte"
 
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Used Swap Space"
-msgstr ""
+msgstr "Gebruikte swap ruimte"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Free Swap Space"
-msgstr ""
+msgstr "Vrije swap ruimte"
 
 #: sysdeps/names/swap.c:42
 msgid "Page In"
-msgstr ""
+msgstr "Page In"
 
 #: sysdeps/names/swap.c:43
 msgid "Page Out"
-msgstr ""
+msgstr "Page Out"
 
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr ""
+msgstr "Totaal aantal swap-pagina's dat sinds de systeem-start is ingebracht"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
+"Totaal aantal swap-pagina's dat sinds de systeem-start naar buiten is "
+"ingebracht"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
-msgstr ""
+msgstr "Server mogelijkheden"
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "CPU Usage"
-msgstr ""
+msgstr "Processor gebruik"
 
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "Memory Usage"
-msgstr ""
+msgstr "Geheugen gebruik"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Swap Usage"
-msgstr ""
+msgstr "Swap gebruik"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "System Uptime"
-msgstr ""
+msgstr "Systeem uptime"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Load Averange"
-msgstr ""
+msgstr "Gemiddelde belasting"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Shared Memory Limits"
-msgstr ""
+msgstr "Gedeeld geheugen begrenzingen"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Message Queue Limits"
-msgstr ""
+msgstr "Berichten rij begrenzingen"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
-msgstr ""
+msgstr "Semaforen begrenzingen"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
-msgstr ""
+msgstr "Lijst van actieve processen"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Status information"
-msgstr ""
+msgstr "Proces status informatie"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process UID and TTY information"
-msgstr ""
+msgstr "Proces UID en TTY informatie"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process Memory information"
-msgstr ""
+msgstr "Proces geheugen informatie"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Time information"
-msgstr ""
+msgstr "Proces tijd informatie"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Signal information"
-msgstr ""
+msgstr "Proces signaal informatie"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Kernel Data information"
-msgstr ""
+msgstr "Proces kernelgegevens informatie"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Segment information"
-msgstr ""
+msgstr "Procesdeel informatie"
 
 #: sysdeps/names/sysdeps.c:66
 msgid "Process Arguments"
-msgstr ""
+msgstr "Proces argumenten"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 msgid "Process Memory Map"
-msgstr ""
+msgstr "Proces geheugenverdeling"
 
 #: sysdeps/names/sysdeps.c:68
 msgid "Mount List"
-msgstr ""
+msgstr "Koppellijst"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "File System Usage"
-msgstr ""
+msgstr "Bestandssysteem gebruik"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "Network Load"
-msgstr ""
+msgstr "Netwerkbelasting"
 
 #: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "PPP Statistics"
-msgstr ""
+msgstr "PPP statistieken"
 
 #: sysdeps/names/sysdeps.c:93
 msgid "Command line arguments of the process"
-msgstr ""
+msgstr "Command line argumenten van het proces"
 
 #: sysdeps/names/sysdeps.c:95
 msgid "List of currently mounted filesystems"
-msgstr ""
+msgstr "Lijst van gekoppelde bestandssystemen"
 
 #: sysdeps/names/uptime.c:38
 msgid "Uptime"
-msgstr ""
+msgstr "Uptime"
 
 #: sysdeps/names/uptime.c:39
 msgid "Idletime"
-msgstr ""
+msgstr "Idletime"
 
 #: sysdeps/names/uptime.c:44
 msgid "Time in seconds since system boot"
-msgstr ""
+msgstr "Tijd in seconden dat het systeem aan staat"
 
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr ""
+msgstr "Tijd in seconden dat het systeem niets doet sinds het aan staat"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1237,8 +1266,9 @@ msgid "Bus error"
 msgstr ""
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#, fuzzy
 msgid "Segmentation violation"
-msgstr ""
+msgstr "Procesdeel informatie"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
@@ -1313,18 +1343,50 @@ msgid "Information request"
 msgstr ""
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#, fuzzy
 msgid "User defined signal 1"
-msgstr ""
+msgstr "Masker van de genegeerde signalen"
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#, fuzzy
 msgid "User defined signal 2"
-msgstr ""
+msgstr "Masker van de genegeerde signalen"
 
 #~ msgid "SMP CPU Flags"
 #~ msgstr "SMP CPU vlaggen"
 
+#~ msgid "Start_Data"
+#~ msgstr "Start_Data"
+
+#~ msgid "End_Data"
+#~ msgstr "End_Data"
+
+#~ msgid "Start_Brk"
+#~ msgstr "Start_Brk"
+
 #~ msgid "Brk"
 #~ msgstr "Brk"
+
+#~ msgid "Start_MMap"
+#~ msgstr "Start_MMAP"
+
+#~ msgid "Arg_Start"
+#~ msgstr "Arg_Start"
+
+#~ msgid "Arg_End"
+#~ msgstr "Arg_End"
+
+#~ msgid "Env_Start"
+#~ msgstr "Env_Start"
+
+#~ msgid "Env_End"
+#~ msgstr "Env_End"
+
+#~ msgid "Address of beginning of data segment"
+#~ msgstr "Adres van het begin van het stuk data"
+
+#~ msgid "Address of end of data segment"
+#~ msgstr "Adres van het eind van het stuk data"
 
 #~ msgid "Brk_Start"
 #~ msgstr "Brk_Start"
@@ -1332,17 +1394,35 @@ msgstr ""
 #~ msgid "Brk_End"
 #~ msgstr "Brk_End"
 
+#~ msgid "Start of mmap()ed areas"
+#~ msgstr "Begin van de ge-mmap()-de gebieden."
+
 #~ msgid "RUID"
 #~ msgstr "RUID"
-
-#~ msgid "Processor"
-#~ msgstr "Processor"
 
 #~ msgid "RGID"
 #~ msgstr "RGID"
 
+#~ msgid "Has CPU"
+#~ msgstr "Heeft CPU"
+
+#~ msgid "Processor"
+#~ msgstr "Processor"
+
+#~ msgid "Last Processor"
+#~ msgstr "Last Processor"
+
+#~ msgid "effective UID of process"
+#~ msgstr "UID van het proces"
+
+#~ msgid "effective GID of process"
+#~ msgstr "GID van het proces"
+
 #~ msgid "has_cpu"
 #~ msgstr "has_cpu"
+
+#~ msgid "processor"
+#~ msgstr "processor"
 
 #~ msgid "last_processor"
 #~ msgstr "last_processor"
@@ -1353,11 +1433,53 @@ msgstr ""
 #~ msgid "SUid"
 #~ msgstr "SUid"
 
-#~ msgid "FsGid"
-#~ msgstr "FsGid"
+#~ msgid "SGid"
+#~ msgstr "SGid"
 
 #~ msgid "FsUid"
 #~ msgstr "FsUid"
 
-#~ msgid "SGid"
-#~ msgstr "SGid"
+#~ msgid "FsGid"
+#~ msgstr "FsGid"
+
+#~ msgid "NGroups"
+#~ msgstr "NGroups"
+
+#~ msgid "Groups"
+#~ msgstr "Groepen"
+
+#~ msgid "Saved User ID"
+#~ msgstr "Opgeslagen gebruikers ID"
+
+#~ msgid "Saved Group ID"
+#~ msgstr "Opgeslagen groep ID"
+
+#~ msgid "Filesystem User ID"
+#~ msgstr "Bestandssysteem gebruikers ID"
+
+#~ msgid "Filesystem Group ID"
+#~ msgstr "Bestandssysteem Groep ID"
+
+#~ msgid "Number of additional process groups"
+#~ msgstr "Aantal extra proces groepen."
+
+#~ msgid "Additional process groups"
+#~ msgstr "Extra proces groepen."
+
+#~ msgid "Pointer Size"
+#~ msgstr "Pointer grootte"
+
+#~ msgid "Process CWD"
+#~ msgstr "Proces CWD"
+
+#~ msgid "Pointer Size on the Server (in bits)"
+#~ msgstr "Pointer grootte op de server (in bits)"
+
+#~ msgid "Current working directory of the process"
+#~ msgstr "Werk directory van het proces"
+
+#~ msgid "Boot time"
+#~ msgstr "Opstarttijd"
+
+#~ msgid "Boot time (seconds sice epoch)"
+#~ msgstr "Tijd in seconden dat het systeem aan staat"
