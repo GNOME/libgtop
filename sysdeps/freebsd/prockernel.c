@@ -228,6 +228,9 @@ glibtop_get_proc_kernel_p (glibtop *server,
 #if defined(__m68k__)
 			buf->kstk_esp = (u_int64_t) pcb.pcb_usp;
 			buf->kstk_eip = (u_int64_t) 0;
+#elif defined(__x86_64__)
+			buf->kstk_esp = (u_int64_t) pcb.pcb_usersp;
+			buf->kstk_eip = (u_int64_t) 0;
 #elif (defined(__arm32__) || defined(__powerpc__))
 			buf->kstk_esp = (u_int64_t) pcb.pcb_sp;
 			buf->kstk_eip = (u_int64_t) 0;

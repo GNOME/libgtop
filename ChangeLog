@@ -1,3 +1,8 @@
+2004-04-07  Bastien Nocera  <hadess@hadess.net>
+
+	* include/glibtop/fsusage.h: fix typo in the #defines for
+	FSUSAGE_BLOCK_SIZE (patch by Benoît Dejean <TazForEver@free.fr>)
+
 2004-03-30  Adam Weinberger  <adamw@gnome.org>
 
 	* configure.in: Added en_CA (Canadian English) to ALL_LINGUAS.
