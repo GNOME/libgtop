@@ -1,3 +1,7 @@
+2001-07-23  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* configure.in: Added "nn" to ALL_LINGUAS.
+	
 2001-04-21  Martin Baulig  <baulig@suse.de>
 
 	* configure.in: Removed all sysdeps checks.
