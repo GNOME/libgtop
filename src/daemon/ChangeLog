@@ -1,3 +1,7 @@
+2001-02-14  Martin Baulig  <baulig@suse.de>
+
+	* Makefile.am (libgtop_server_LDADD): Removed @LIBSUPPORT@.
+
 1999-11-28  Martin Baulig  <martin@home-of-linux.org>
 
 	* gnuserv.c (setup_table): Don't dump core when the table of

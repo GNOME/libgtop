@@ -47,8 +47,7 @@ endif
 
 libgtop_server_SOURCES		= server.c slave.c io.c version.c daemon.h
 libgtop_server_LDADD		= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid.la \
-				  $(top_builddir)/sysdeps/common/libgtop_suid_common.la \
-				  @LIBSUPPORT@
+				  $(top_builddir)/sysdeps/common/libgtop_suid_common.la
 
 if ENABLE_STATIC
 libgtop_server_LDFLAGS		= -static
