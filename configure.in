@@ -427,19 +427,21 @@ _______EOF
 
 	if test x$glibtop_uint64_t != xyes ; then
 	  did_typedefs=yes
-	  cat > $outfile <<\_______EOF
+	  cat >> $outfile <<\_______EOF
 
-#undef u_int64_t
+#ifndef u_int64_t
 typedef u_int64_t unsigned long long int
+#endif
 _______EOF
 	fi
 
 	if test x$glibtop_int64_t != xyes ; then
 	  did_typedefs=yes
-	  cat > $outfile <<\_______EOF
+	  cat >> $outfile <<\_______EOF
 
-#undef int64_t
+#ifndef int64_t
 typedef int64_t signed long long int
+#endif
 _______EOF
 	fi
 
