@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.0\n"
-"POT-Creation-Date: 2000-04-20 23:40+0200\n"
+"POT-Creation-Date: 2000-04-29 21:42+0200\n"
 "PO-Revision-Date: 1999-06-22 22:42+0200\n"
 "Last-Translator: Andreas Hyden  <a.hyden@cyberpoint.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -960,7 +960,7 @@ msgstr "Totalt antal swapsidor som tagits in sen systemstart"
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "Totalt antal swapsidor som tagits ut sen systemstart"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
 msgstr "Server-features"
 
@@ -968,107 +968,115 @@ msgstr "Server-features"
 msgid "Pointer Size"
 msgstr "Pekarstorlek"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
 msgid "CPU Usage"
 msgstr "CPU-användning"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
 msgid "Memory Usage"
 msgstr "Minnesanvändning"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
 msgid "Swap Usage"
 msgstr "Swapanvändning"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
 msgid "System Uptime"
 msgstr "Systemets igångtid"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
 msgid "Load Averange"
 msgstr "Meddellast"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
 msgid "Shared Memory Limits"
 msgstr "Delat minne gränser"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
 msgid "Message Queue Limits"
 msgstr "Meddelandekö gränser"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
 msgid "Semaphore Set Limits"
 msgstr "Semafor-set gränser"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
 msgid "List of running Processes"
 msgstr "Lista med körande processer"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 msgid "Process Status information"
 msgstr "Processens statusinformation"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
 msgid "Process UID and TTY information"
 msgstr "Processens UID och TTY information"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 msgid "Process Memory information"
 msgstr "Processens minnesinformation"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
 msgid "Process Time information"
 msgstr "Processens tidsinformation"
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
 msgid "Process Signal information"
 msgstr "Processens signalinformation"
 
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
 msgid "Process Kernel Data information"
 msgstr "Processens kernel-datainformation"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
 msgid "Process Segment information"
 msgstr "Processens segmentinformation"
 
 #: sysdeps/names/sysdeps.c:71
+msgid "Process CWD"
+msgstr "Process CWD"
+
+#: sysdeps/names/sysdeps.c:72
 msgid "Process Arguments"
 msgstr "Processens argument"
 
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
+#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
 msgid "Process Memory Map"
 msgstr "Processens minneskarta"
 
-#: sysdeps/names/sysdeps.c:73
+#: sysdeps/names/sysdeps.c:74
 msgid "Mount List"
 msgstr "Lista med monteringar"
 
-#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
+#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
 msgid "File System Usage"
 msgstr "Filsystemets användning"
 
-#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:104
+#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
 msgid "Network Load"
 msgstr "Nätverkslast"
 
-#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
+#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
 msgid "Interface Names"
 msgstr "Gränssnitt namn"
 
-#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
+#: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
 msgid "PPP Statistics"
 msgstr "PPP-statistik"
 
-#: sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:84
 msgid "Pointer Size on the Server (in bits)"
 msgstr "Pekarstorlek på servern (i bitar)"
 
-#: sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:101
+msgid "Current working directory of the process"
+msgstr "Aktuella arbetande katalogen av processen"
+
+#: sysdeps/names/sysdeps.c:102
 msgid "Command line arguments of the process"
 msgstr "Kommandoradsargument till processen"
 
-#: sysdeps/names/sysdeps.c:102
+#: sysdeps/names/sysdeps.c:104
 msgid "List of currently mounted filesystems"
 msgstr "Lista av för närvarande monterade filsystem"
 
