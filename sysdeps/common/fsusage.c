@@ -82,9 +82,9 @@ int safe_read ();
    BLOCKS FROMSIZE-byte blocks, rounding away from zero.
    TOSIZE must be positive.  Return -1 if FROMSIZE is not positive.  */
 
-static long
+static u_int64_t
 adjust_blocks (blocks, fromsize, tosize)
-     long blocks;
+     u_int64_t blocks;
      int fromsize, tosize;
 {
     if (tosize <= 0)
@@ -95,9 +95,9 @@ adjust_blocks (blocks, fromsize, tosize)
     if (fromsize == tosize)	/* e.g., from 512 to 512 */
 	return blocks;
     else if (fromsize > tosize)	/* e.g., from 2048 to 512 */
-	return blocks * (fromsize / tosize);
+	return blocks * (u_int64_t)(fromsize / tosize);
     else				/* e.g., from 256 to 512 */
-	return (blocks + (blocks < 0 ? -1 : 1)) / (tosize / fromsize);
+	return (blocks + (blocks < 0 ? -1 : 1)) / (u_int64_t)(tosize / fromsize);
 }
 
 /* Fill in the fields of FSP with information about space usage for
@@ -114,7 +114,7 @@ get_fs_usage (path, disk, fsp)
      struct fs_usage *fsp;
 {
 #ifdef STAT_STATFS3_OSF1
-# define CONVERT_BLOCKS(B) adjust_blocks ((B), fsd.f_fsize, 512)
+# define CONVERT_BLOCKS(B) adjust_blocks ((u_int64_t)(B), fsd.f_fsize, 512)
 
     struct statfs fsd;
 
@@ -124,7 +124,7 @@ get_fs_usage (path, disk, fsp)
 #endif /* STAT_STATFS3_OSF1 */
 
 #ifdef STAT_STATFS2_FS_DATA	/* Ultrix */
-# define CONVERT_BLOCKS(B) adjust_blocks ((B), 1024, 512)
+# define CONVERT_BLOCKS(B) adjust_blocks ((u_int64_t)(B), 1024, 512)
 
     struct fs_data fsd;
 
@@ -143,7 +143,7 @@ get_fs_usage (path, disk, fsp)
 #  define SUPERBOFF (SUPERB * 512)
 # endif
 # define CONVERT_BLOCKS(B) \
-    adjust_blocks ((B), (fsd.s_type == Fs2b ? 1024 : 512), 512)
+    adjust_blocks ((u_int64_t)(B), (fsd.s_type == Fs2b ? 1024 : 512), 512)
 
     struct filsys fsd;
     int fd;
@@ -173,7 +173,7 @@ get_fs_usage (path, disk, fsp)
 #endif /* STAT_READ_FILSYS */
 
 #ifdef STAT_STATFS2_BSIZE	/* 4.3BSD, SunOS 4, HP-UX, AIX */
-# define CONVERT_BLOCKS(B) adjust_blocks ((B), fsd.f_bsize, 512)
+# define CONVERT_BLOCKS(B) adjust_blocks ((u_int64_t)(B), fsd.f_bsize, 512)
 
     struct statfs fsd;
 
@@ -198,7 +198,7 @@ get_fs_usage (path, disk, fsp)
 #endif /* STAT_STATFS2_BSIZE */
 
 #ifdef STAT_STATFS2_FSIZE	/* 4.4BSD */
-# define CONVERT_BLOCKS(B) adjust_blocks ((B), fsd.f_fsize, 512)
+# define CONVERT_BLOCKS(B) adjust_blocks ((u_int64_t)(B), fsd.f_fsize, 512)
 
     struct statfs fsd;
 
@@ -209,7 +209,7 @@ get_fs_usage (path, disk, fsp)
 
 #ifdef STAT_STATFS4		/* SVR3, Dynix, Irix, AIX */
 # if _AIX || defined(_CRAY)
-#  define CONVERT_BLOCKS(B) adjust_blocks ((B), fsd.f_bsize, 512)
+#  define CONVERT_BLOCKS(B) adjust_blocks ((u_int64_t)(B), fsd.f_bsize, 512)
 #  ifdef _CRAY
 #   define f_bavail f_bfree
 #  endif
@@ -234,7 +234,7 @@ get_fs_usage (path, disk, fsp)
 
 #ifdef STAT_STATVFS		/* SVR4 */
 # define CONVERT_BLOCKS(B) \
-    adjust_blocks ((B), fsd.f_frsize ? fsd.f_frsize : fsd.f_bsize, 512)
+    adjust_blocks ((u_int64_t)(B), fsd.f_frsize ? fsd.f_frsize : fsd.f_bsize, 512)
 
     struct statvfs fsd;
 
@@ -296,6 +296,7 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
     glibtop_init_r (&server, 0, 0);
 	
     memset (buf, 0, sizeof (glibtop_fsusage));
+    memset (&fsp, 0, sizeof (struct fs_usage));
 	
     if (get_fs_usage (disk, disk, &fsp))
 	return -1;
