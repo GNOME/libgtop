@@ -232,7 +232,7 @@ AC_FUNC_STRFTIME
 AC_CHECK_FUNCS(getcwd gettimeofday getwd putenv strdup strtoul uname)
 
 dnl ## all 'es_??' are only needed for format numbers different of 'es'
-ALL_LINGUAS="az ca da de el es es_DO es_GT es_HN es_MX es_PA es_PE es_SV fi fr ga gl hu ja ko nl no pl pt_BR ru sl sv tr uk zh_CN.GB2312"
+ALL_LINGUAS="az ca da de el es es_DO es_GT es_HN es_MX es_PA es_PE es_SV fi fr ga gl hu ja ko nl no pl pt_BR ru sk sl sv tr uk zh_CN.GB2312"
 AM_GNOME2_GETTEXT
 
 AC_PATH_XTRA

@@ -1,3 +1,7 @@
+2001-02-13  Stanislav Visnovsky	<visnovsky@nenya.ms.mff.cuni.cz>
+
+	* configure.in: Added sk to ALL_LINGUAS.
+
 2001-01-04  Fatih Demir	<kabalak@gmx.net>
 
 	* configure.in: Added tr to ALL_LINGUAS.
