@@ -5,7 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.0.0\n"
-"POT-Creation-Date: 2003-02-22 23:04+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-10-26 19:04+0100\n"
 "PO-Revision-Date: 2003-02-22 23:05+0100\n"
 "Last-Translator: Jordi Mallach <jordi@sindominio.net>\n"
 "Language-Team: Catalan <gnome@softcatala.net>\n"
@@ -113,39 +114,39 @@ msgstr "llegeix els %d bytes de les dades"
 msgid "write %d bytes"
 msgstr "escriu els %d bytes"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
 msgstr "Activa la depuració"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
 msgstr "DEPURACIÓ"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
 msgstr "Activa la sortida detallada"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr "DETALLA"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
 msgstr "No bifurquis dintre del fons"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr "SENSE DIMONIS"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr "Ha estat cridat des d'inetd"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -162,7 +163,7 @@ msgstr "Error del sitema desconegut"
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: L'opció '%s' és ambígua\n"
+msgstr "%s: L'opció '%s' és ambigua\n"
 
 #: support/getopt.c:693
 #, c-format
@@ -211,18 +212,18 @@ msgstr "%s: Cal un argument per a l'opció --%c\n"
 #: support/getopt.c:854
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: L'opció '-W %s' és ambígua\n"
+msgstr "%s: L'opció '-W %s' és ambigua\n"
 
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: L'opció '-W%s' no permet un argument\n"
 
-#: support/popthelp.c:35
+#: support/popthelp.c:23
 msgid "Show this help message"
 msgstr "Mostra aquest missatge d'ajuda"
 
-#: support/popthelp.c:36
+#: support/popthelp.c:24
 msgid "Display brief usage message"
 msgstr "Mostra un breu missatge d'ús"
 
@@ -657,7 +658,7 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Aquest és el \"canal\" on el procés està esperant. Aquesta és la adreça de "
+"Aquest és el \"canal\" on el procés està esperant. Aquesta és l'adreça de "
 "la crida al sistema, i pot ser consultada en una llista si us cal un nom "
 "textual. (Si teniu un /etc/psdatabase actualitzat, intenteu llavors ps -lper "
 "veure el camp WCHAN en acció)"
@@ -763,7 +764,7 @@ msgstr "Mida del conjunt resident de biblioteques compartides"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Data resident set size"
-msgstr "Mida del conjut de dades"
+msgstr "Mida del conjunt de dades"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Stack resident set size"
@@ -1327,11 +1328,11 @@ msgstr "L'estat del fill ha canviat"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr "Llegida de tty en segón pla"
+msgstr "Llegida de tty en segon pla"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr "Escriptura a tty en segón pla"
+msgstr "Escriptura a tty en segon pla"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
