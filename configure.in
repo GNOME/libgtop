@@ -447,7 +447,7 @@ _______EOF
 	  cat >>$outfile <<_______EOF
 
 /*
- * NOTE:  If your application checks for `u_int64_t' or `int64_t' in its own
+ * NOTE:  If your application checks for "u_int64_t" or "int64_t" in its own
  *        config.h, you must not include it after any of the LibGTop headers.
  */
 _______EOF
