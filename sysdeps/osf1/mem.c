@@ -37,7 +37,7 @@ static const unsigned long _glibtop_sysdeps_mem =
 
 /* Init function. */
 
-void
+int
 glibtop_init_mem_s (glibtop *server)
 {
 	server->sysdeps.mem = _glibtop_sysdeps_mem;
@@ -45,7 +45,7 @@ glibtop_init_mem_s (glibtop *server)
 
 /* Provides information about memory usage. */
 
-void
+int
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
 	vm_statistics_data_t vmstats;

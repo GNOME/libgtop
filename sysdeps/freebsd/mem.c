@@ -87,7 +87,7 @@ static int mib_uvmexp [] = { CTL_VM, VM_UVMEXP };
 
 /* Init function. */
 
-void
+int
 glibtop_init_mem_p (glibtop *server)
 {
 	register int pagesize;
@@ -112,7 +112,7 @@ glibtop_init_mem_p (glibtop *server)
 	server->sysdeps.mem = _glibtop_sysdeps_mem;
 }
 
-void
+int
 glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 {
 	struct vmtotal vmt;

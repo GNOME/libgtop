@@ -37,7 +37,7 @@ static const unsigned long _glibtop_sysdeps_sem_limits =
 
 /* Init function. */
 
-void
+int
 glibtop_init_sem_limits_p (glibtop *server)
 {
    	kvm_t *kd = server->machine.kd;
@@ -50,7 +50,7 @@ glibtop_init_sem_limits_p (glibtop *server)
 
 /* Provides information about sysv sem limits. */
 
-void
+int
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
    	kvm_t *kd = server->machine.kd;

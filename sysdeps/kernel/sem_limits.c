@@ -50,7 +50,7 @@ static unsigned long _glibtop_sysdeps_sem_limits =
 
 /* Init function. */
 
-void
+int
 glibtop_init_sem_limits_s (glibtop *server)
 {
     server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
@@ -58,7 +58,7 @@ glibtop_init_sem_limits_s (glibtop *server)
 
 /* Provides information about sysv ipc limits. */
 
-void
+int
 glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 {
     struct seminfo seminfo;

@@ -59,14 +59,14 @@ struct _glibtop_swap
 #define glibtop_get_swap_r		glibtop_get_swap_s
 #endif
 
-void glibtop_get_swap_l (glibtop *server, glibtop_swap *buf);
+int glibtop_get_swap_l (glibtop *server, glibtop_swap *buf);
 
 #if GLIBTOP_SUID_SWAP
-void glibtop_init_swap_p (glibtop *server);
-void glibtop_get_swap_p (glibtop *server, glibtop_swap *buf);
+int glibtop_init_swap_p (glibtop *server);
+int glibtop_get_swap_p (glibtop *server, glibtop_swap *buf);
 #else
-void glibtop_init_swap_s (glibtop *server);
-void glibtop_get_swap_s (glibtop *server, glibtop_swap *buf);
+int glibtop_init_swap_s (glibtop *server);
+int glibtop_get_swap_s (glibtop *server, glibtop_swap *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

@@ -88,7 +88,7 @@ static const unsigned long _glibtop_sysdeps_netload_out =
 
 /* Init function. */
 
-void
+int
 glibtop_init_netload_s (glibtop *server)
 {
     server->sysdeps.netload = _glibtop_sysdeps_netload |
@@ -99,7 +99,7 @@ glibtop_init_netload_s (glibtop *server)
 
 /* Provides network statistics. */
 
-void
+int
 glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 		       const char *interface)
 {

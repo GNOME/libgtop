@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_proc_kernel =
 
 /* Provides detailed information about a process. */
 
-void
+int
 glibtop_get_proc_kernel_p (glibtop *server, glibtop_proc_kernel *buf,
 			   pid_t pid)
 {

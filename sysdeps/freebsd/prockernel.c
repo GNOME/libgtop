@@ -64,7 +64,7 @@ static const unsigned long _glibtop_sysdeps_proc_kernel_wchan =
 
 /* Init function. */
 
-void
+int
 glibtop_init_proc_kernel_p (glibtop *server)
 {
 	server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel_pstats |
@@ -72,7 +72,7 @@ glibtop_init_proc_kernel_p (glibtop *server)
 		_glibtop_sysdeps_proc_kernel_wchan;
 }
 
-void
+int
 glibtop_get_proc_kernel_p (glibtop *server,
 			   glibtop_proc_kernel *buf,
 			   pid_t pid)

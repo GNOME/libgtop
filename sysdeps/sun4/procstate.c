@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_proc_state =
 
 /* Provides detailed information about a process. */
 
-void
+int
 glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf,
 			  pid_t pid)
 {

@@ -74,14 +74,14 @@ struct _glibtop_cpu
 #define glibtop_get_cpu_r	glibtop_get_cpu_s
 #endif
 
-void glibtop_get_cpu_l (glibtop *server, glibtop_cpu *buf);
+int glibtop_get_cpu_l (glibtop *server, glibtop_cpu *buf);
 
 #if GLIBTOP_SUID_CPU
-void glibtop_init_cpu_p (glibtop *server);
-void glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf);
+int glibtop_init_cpu_p (glibtop *server);
+int glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf);
 #else
-void glibtop_init_cpu_s (glibtop *server);
-void glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf);
+int glibtop_init_cpu_s (glibtop *server);
+int glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

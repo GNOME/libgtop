@@ -1,5 +1,14 @@
 1999-10-24  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/*.h (glibtop_get_*, glibtop_init*): Changed
+	the return value of all `glibtop_get_<feature>_* ()' and all
+ 	`glibtop_init_<feature>_* ()' functions from void to int.
+
+	* features.def: Reflect changes of the return values.
+	* sysdeps/*/*.c: Reflect changes of the return values.
+
+1999-10-24  Martin Baulig  <martin@home-of-linux.org>
+
 	* acconfig.h (LIBGTOP_USE_GLIB_MALLOC): Added.
 	* configure.in (--enable-glib-malloc): New configure parameter
 	to use glib's malloc functions.

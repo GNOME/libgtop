@@ -92,7 +92,7 @@ static struct nlist nlst2 [] = {
 
 /* Init function. */
 
-void
+int
 glibtop_init_swap_p (glibtop *server)
 {
 #if defined(__FreeBSD__) || defined(__bsdi__)
@@ -128,7 +128,7 @@ glibtop_init_swap_p (glibtop *server)
  * by Kevin Lahey <kml@rokkaku.atl.ga.us>.
  */
 
-void
+int
 glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 {
 #if defined(__FreeBSD__)

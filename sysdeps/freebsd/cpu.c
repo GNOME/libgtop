@@ -48,7 +48,7 @@ static int mib [] = { CTL_KERN, KERN_CLOCKRATE };
 
 /* Init function. */
 
-void
+int
 glibtop_init_cpu_p (glibtop *server)
 {
 	if (kvm_nlist (server->machine.kd, nlst) != 0) {
@@ -62,7 +62,7 @@ glibtop_init_cpu_p (glibtop *server)
 
 /* Provides information about cpu usage. */
 
-void
+int
 glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 {
 	long cpts [CPUSTATES];

@@ -43,7 +43,7 @@ static const unsigned long _glibtop_sysdeps_proc_time_user =
 
 /* Init function. */
 
-void
+int
 glibtop_init_proc_time_p (glibtop *server)
 {
 	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time |
@@ -119,7 +119,7 @@ calcru(p, up, sp, ip)
 
 /* Provides detailed information about a process. */
 
-void
+int
 glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 			 pid_t pid)
 {

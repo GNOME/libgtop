@@ -65,14 +65,14 @@ struct _glibtop_proc_mem
 #define glibtop_get_proc_mem_r		glibtop_get_proc_mem_s
 #endif
 
-void glibtop_get_proc_mem_l (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
+int glibtop_get_proc_mem_l (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_MEM
-void glibtop_init_proc_mem_p (glibtop *server);
-void glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
+int glibtop_init_proc_mem_p (glibtop *server);
+int glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
 #else
-void glibtop_init_proc_mem_s (glibtop *server);
-void glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
+int glibtop_init_proc_mem_s (glibtop *server);
+int glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

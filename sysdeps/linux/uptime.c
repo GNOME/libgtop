@@ -30,7 +30,7 @@ static unsigned long _glibtop_sysdeps_uptime =
 
 /* Init function. */
 
-void
+int
 glibtop_init_uptime_s (glibtop *server)
 {
 	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
@@ -40,7 +40,7 @@ glibtop_init_uptime_s (glibtop *server)
 
 #define FILENAME	"/proc/uptime"
 
-void
+int
 glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
 	char buffer [BUFSIZ], *p;

@@ -28,7 +28,7 @@
 
 /* Provides information about swap usage. */
 
-void
+int
 glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 {
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SWAP), 0);

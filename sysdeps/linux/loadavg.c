@@ -35,7 +35,7 @@ static const unsigned long _glibtop_sysdeps_loadavg_tasks =
 
 /* Init function. */
 
-void
+int
 glibtop_init_loadavg_s (glibtop *server)
 {
 	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
@@ -45,7 +45,7 @@ glibtop_init_loadavg_s (glibtop *server)
 
 #define FILENAME	"/proc/loadavg"
 
-void
+int
 glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
 	char buffer [BUFSIZ], *p, *old;

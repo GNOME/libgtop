@@ -280,7 +280,7 @@ statfs (path, fsb)
 
 #endif /* _AIX && _I386 */
 
-void
+int
 glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 		       const char *disk)
 {

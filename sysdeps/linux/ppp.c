@@ -41,7 +41,7 @@ static const unsigned long _glibtop_sysdeps_ppp =
 
 /* Init function. */
 
-void
+int
 glibtop_init_ppp_s (glibtop *server)
 {
 	server->sysdeps.ppp = _glibtop_sysdeps_ppp;
@@ -177,7 +177,7 @@ static int is_ISDN_on (glibtop *server, int *online)
 
 /* Provides PPP/ISDN information. */
 
-void
+int
 glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device)
 {
 	int in, out, online;

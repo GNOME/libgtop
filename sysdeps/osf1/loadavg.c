@@ -30,7 +30,7 @@ static const unsigned long _glibtop_sysdeps_loadavg =
 
 /* Init function. */
 
-void
+int
 glibtop_init_loadavg_s (glibtop *server)
 {
 	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
@@ -38,7 +38,7 @@ glibtop_init_loadavg_s (glibtop *server)
 
 /* Provides load averange. */
 
-void
+int
 glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
 	struct tbl_loadavg loadavg;

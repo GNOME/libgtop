@@ -77,13 +77,13 @@ glibtop_get_proclist_l (glibtop *server, glibtop_proclist *buf,
 			int64_t which, int64_t arg);
 
 #if GLIBTOP_SUID_PROCLIST
-void glibtop_init_proclist_p (glibtop *server);
+int glibtop_init_proclist_p (glibtop *server);
 
 unsigned *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 			int64_t which, int64_t arg);
 #else
-void glibtop_init_proclist_s (glibtop *server);
+int glibtop_init_proclist_s (glibtop *server);
 
 unsigned *
 glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,

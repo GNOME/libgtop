@@ -35,7 +35,7 @@ static const unsigned long _glibtop_sysdeps_proc_uid =
 
 /* Provides detailed information about a process. */
 
-void
+int
 glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 			pid_t pid)
 {

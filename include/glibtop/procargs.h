@@ -56,13 +56,13 @@ glibtop_get_proc_args_l (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len);
 
 #if GLIBTOP_SUID_PROC_ARGS
-void glibtop_init_proc_args_p (glibtop *server);
+int glibtop_init_proc_args_p (glibtop *server);
 
 char *
 glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len);
 #else
-void glibtop_init_proc_args_s (glibtop *server);
+int glibtop_init_proc_args_s (glibtop *server);
 
 char *
 glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,

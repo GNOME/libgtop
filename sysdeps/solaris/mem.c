@@ -40,7 +40,7 @@ static const unsigned long _glibtop_sysdeps_mem_bunyip =
 
 /* Init function. */
 
-void
+int
 glibtop_init_mem_s (glibtop *server)
 {
     server->sysdeps.mem = _glibtop_sysdeps_mem_os_sysconf +
@@ -49,7 +49,7 @@ glibtop_init_mem_s (glibtop *server)
 
 /* Provides information about memory usage. */
 
-void
+int
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
     kstat_ctl_t *kc = server->machine.kc; 

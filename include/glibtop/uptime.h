@@ -55,14 +55,14 @@ struct _glibtop_uptime
 #define glibtop_get_uptime_r		glibtop_get_uptime_s
 #endif
 
-void glibtop_get_uptime_l (glibtop *server, glibtop_uptime *buf);
+int glibtop_get_uptime_l (glibtop *server, glibtop_uptime *buf);
 
 #if GLIBTOP_SUID_UPTIME
-void glibtop_init_uptime_p (glibtop *server);
-void glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf);
+int glibtop_init_uptime_p (glibtop *server);
+int glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf);
 #else
-void glibtop_init_uptime_s (glibtop *server);
-void glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf);
+int glibtop_init_uptime_s (glibtop *server);
+int glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

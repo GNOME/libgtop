@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_proc_args =
 
 /* Init function. */
 
-void
+int
 glibtop_init_proc_args_s (glibtop *server)
 {
 	server->sysdeps.proc_args = _glibtop_sysdeps_proc_args;

@@ -28,7 +28,7 @@ static const unsigned long _glibtop_sysdeps_msg_limits = 0;
 
 /* Init function. */
 
-void
+int
 glibtop_init_msg_limits_s (glibtop *server)
 {
 	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
@@ -36,7 +36,7 @@ glibtop_init_msg_limits_s (glibtop *server)
 
 /* Provides information about sysv ipc limits. */
 
-void
+int
 glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 {
 	memset (buf, 0, sizeof (glibtop_msg_limits));

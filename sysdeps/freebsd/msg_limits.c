@@ -30,11 +30,11 @@
 #if (defined __bsdi__) && (_BSDI_VERSION < 199700)
 /* Older versions of BSDI don't seem to have this. */
 
-void
+int
 glibtop_init_msg_limits_p (glibtop *server)
 { }
 
-void
+int
 glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 {
         glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MSG_LIMITS), 0);
@@ -73,7 +73,7 @@ static struct nlist nlst [] = {
 
 /* Init function. */
 
-void
+int
 glibtop_init_msg_limits_p (glibtop *server)
 {
 	if (kvm_nlist (server->machine.kd, nlst) != 0) {
@@ -92,7 +92,7 @@ glibtop_init_msg_limits_p (glibtop *server)
 
 /* Provides information about sysv ipc limits. */
 
-void
+int
 glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 {
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MSG_LIMITS), 0);

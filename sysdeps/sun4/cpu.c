@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_cpu =
 
 /* Provides information about cpu usage. */
 
-void
+int
 glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 {
 	long cp_time [CPUSTATES], mp_time [NCPU][CPUSTATES];

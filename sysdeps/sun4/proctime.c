@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_proc_time =
 
 /* Provides detailed information about a process. */
 
-void
+int
 glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 			 pid_t pid)
 {

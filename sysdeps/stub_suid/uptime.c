@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_uptime = 0;
 
 /* Init function. */
 
-void
+int
 glibtop_init_uptime_p (glibtop *server)
 {
 	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
@@ -39,7 +39,7 @@ glibtop_init_uptime_p (glibtop *server)
 
 /* Provides uptime and idle time. */
 
-void
+int
 glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 {
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_UPTIME, 0);

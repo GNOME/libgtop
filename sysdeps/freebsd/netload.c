@@ -62,7 +62,7 @@ static struct nlist nlst [] = {
 
 /* Init function. */
 
-void
+int
 glibtop_init_netload_p (glibtop *server)
 {
     server->sysdeps.netload = _glibtop_sysdeps_netload;
@@ -73,7 +73,7 @@ glibtop_init_netload_p (glibtop *server)
 
 /* Provides Network statistics. */
 
-void
+int
 glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 		       const char *interface)
 {

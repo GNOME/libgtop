@@ -96,14 +96,14 @@ struct _glibtop_netload
 #define glibtop_get_netload_r	glibtop_get_netload_s
 #endif
 
-void glibtop_get_netload_l (glibtop *server, glibtop_netload *buf, const char *interface);
+int glibtop_get_netload_l (glibtop *server, glibtop_netload *buf, const char *interface);
 
 #if GLIBTOP_SUID_NETLOAD
-void glibtop_init_netload_p (glibtop *server);
-void glibtop_get_netload_p (glibtop *server, glibtop_netload *buf, const char *interface);
+int glibtop_init_netload_p (glibtop *server);
+int glibtop_get_netload_p (glibtop *server, glibtop_netload *buf, const char *interface);
 #else
-void glibtop_init_netload_s (glibtop *server);
-void glibtop_get_netload_s (glibtop *server, glibtop_netload *buf, const char *interface);
+int glibtop_init_netload_s (glibtop *server);
+int glibtop_get_netload_s (glibtop *server, glibtop_netload *buf, const char *interface);
 #endif
 
 #ifdef GLIBTOP_NAMES

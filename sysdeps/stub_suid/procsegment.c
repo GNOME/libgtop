@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_proc_segment = 0;
 
 /* Init function. */
 
-void
+int
 glibtop_init_proc_segment_p (glibtop *server)
 {
 	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
@@ -39,7 +39,7 @@ glibtop_init_proc_segment_p (glibtop *server)
 
 /* Provides detailed information about a process. */
 
-void
+int
 glibtop_get_proc_segment_p (glibtop *server, glibtop_proc_segment *buf,
 			    pid_t pid)
 {

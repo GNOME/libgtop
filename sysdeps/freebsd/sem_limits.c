@@ -30,11 +30,11 @@
 #if defined(__bsdi__) && (_BSDI_VERSION < 199700)
 /* Older versions of BSDI don't seem to have this. */
 
-void
+int
 glibtop_init_sem_limits_p (glibtop *server)
 { }
 
-void
+int
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
         glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
@@ -75,7 +75,7 @@ static struct nlist nlst [] = {
 
 /* Init function. */
 
-void
+int
 glibtop_init_sem_limits_p (glibtop *server)
 {
 	if (kvm_nlist (server->machine.kd, nlst) != 0) {
@@ -94,7 +94,7 @@ glibtop_init_sem_limits_p (glibtop *server)
 
 /* Provides information about sysv sem limits. */
 
-void
+int
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);

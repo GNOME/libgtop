@@ -38,7 +38,7 @@ static const unsigned long _glibtop_sysdeps_proc_state =
 
 /* Init function. */
 
-void
+int
 glibtop_init_proc_state_p (glibtop *server)
 {
 	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
@@ -46,7 +46,7 @@ glibtop_init_proc_state_p (glibtop *server)
 
 /* Provides detailed information about a process. */
 
-void
+int
 glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf,
 			  pid_t pid)
 {

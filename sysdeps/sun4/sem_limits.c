@@ -42,7 +42,7 @@ static unsigned long _glibtop_sysdeps_sem_limits =
 
 /* Provides information about sysv sem limits. */
 
-void
+int
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
 	struct seminfo	seminfo;

@@ -36,7 +36,7 @@ static unsigned long _glibtop_sysdeps_swap_paging =
 
 /* Init function. */
 
-void
+int
 glibtop_init_swap_s (glibtop *server)
 {
 	server->sysdeps.swap = _glibtop_sysdeps_swap |
@@ -48,7 +48,7 @@ glibtop_init_swap_s (glibtop *server)
 #define MEMINFO		"/proc/meminfo"
 #define PROC_STAT	"/proc/stat"
 
-void
+int
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
 	char buffer [BUFSIZ], *p;

@@ -41,7 +41,7 @@ static const unsigned long _glibtop_sysdeps_proc_uid_prcred =
 (1L << GLIBTOP_PROC_UID_NGROUPS);
 /* Init function. */
 
-void
+int
 glibtop_init_proc_uid_s (glibtop *server)
 {
 	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid_psinfo +
@@ -50,7 +50,7 @@ glibtop_init_proc_uid_s (glibtop *server)
 
 /* Provides detailed information about a process. */
 
-void
+int
 glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 {
 	struct prcred prcred;

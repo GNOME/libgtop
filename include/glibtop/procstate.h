@@ -85,14 +85,14 @@ struct _glibtop_proc_state
 #define glibtop_get_proc_state_r	glibtop_get_proc_state_s
 #endif
 
-void glibtop_get_proc_state_l (glibtop *server, glibtop_proc_state *buf, pid_t pid);
+int glibtop_get_proc_state_l (glibtop *server, glibtop_proc_state *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_STATE
-void glibtop_init_proc_state_p (glibtop *server);
-void glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf, pid_t pid);
+int glibtop_init_proc_state_p (glibtop *server);
+int glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf, pid_t pid);
 #else
-void glibtop_init_proc_state_s (glibtop *server);
-void glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid);
+int glibtop_init_proc_state_s (glibtop *server);
+int glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid);
 #endif
      
 #ifdef GLIBTOP_NAMES

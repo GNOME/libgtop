@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_sem_limits = 0;
 
 /* Init function. */
 
-void
+int
 glibtop_init_sem_limits_p (glibtop *server)
 {
 	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
@@ -39,7 +39,7 @@ glibtop_init_sem_limits_p (glibtop *server)
 
 /* Provides information about sysv sem limits. */
 
-void
+int
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_SEM_LIMITS, 0);

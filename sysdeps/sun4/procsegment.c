@@ -32,7 +32,7 @@ static const unsigned long _glibtop_sysdeps_proc_segment =
 
 /* Provides detailed information about a process. */
 
-void
+int
 glibtop_get_proc_segment_p (glibtop *server, glibtop_proc_segment *buf,
 			    pid_t pid)
 {

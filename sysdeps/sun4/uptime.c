@@ -32,7 +32,7 @@ static const unsigned long _glibtop_sysdeps_uptime =
 
 /* Provides uptime and idle time. */
 
-void
+int
 glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 {
 	glibtop_cpu cpu;

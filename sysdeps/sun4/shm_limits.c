@@ -40,7 +40,7 @@ static unsigned long _glibtop_sysdeps_shm_limits =
 
 /* Provides information about sysv ipc limits. */
 
-void
+int
 glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
 	struct shminfo	shminfo;
