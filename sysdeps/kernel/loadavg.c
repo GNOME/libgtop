@@ -26,7 +26,8 @@
 #include "kernel.h"
 
 static const unsigned long _glibtop_sysdeps_loadavg =
-(1 << GLIBTOP_LOADAVG_LOADAVG);
+(1 << GLIBTOP_LOADAVG_LOADAVG) + (1 << GLIBTOP_LOADAVG_NR_RUNNING) +
+(1 << GLIBTOP_LOADAVG_NR_TASKS) + (1 << GLIBTOP_LOADAVG_LAST_PID);
 
 /* Init function. */
 
@@ -55,4 +56,8 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	buf->loadavg [0] = tbl.loadavg.loadavg [0];
 	buf->loadavg [1] = tbl.loadavg.loadavg [1];
 	buf->loadavg [2] = tbl.loadavg.loadavg [2];
+
+	buf->nr_running = tbl.loadavg.nr_running;
+	buf->nr_tasks = tbl.loadavg.nr_tasks;
+	buf->last_pid = tbl.loadavg.last_pid;
 }
