@@ -1,3 +1,8 @@
+1998-12-09  Martin Baulig  <martin@home-of-linux.org>
+
+	* libgtop-sysdeps.m4: Moved here from the macros directory,
+	formerly known as `macros/gnome-libgtop-sysdeps.m4'.
+
 1998-12-06  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in: Make it abort if GNOME cannot be found and
