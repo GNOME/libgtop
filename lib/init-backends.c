@@ -31,6 +31,7 @@
 
 extern glibtop_backend_info glibtop_backend_server;
 extern glibtop_backend_info glibtop_backend_sysdeps;
+extern glibtop_backend_info glibtop_backend_common;
 
 void
 glibtop_init_backends (void)
@@ -43,4 +44,5 @@ glibtop_init_backends (void)
 
     glibtop_register_backend (&glibtop_backend_server);
     glibtop_register_backend (&glibtop_backend_sysdeps);
+    glibtop_register_backend (&glibtop_backend_common);
 }

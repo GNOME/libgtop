@@ -1,5 +1,9 @@
 2000-01-12  Martin Baulig  <martin@home-of-linux.org>
 
+	* configure.in (LIBGTOP_LIBS): Added `-lgtop_backend_common'.
+	* lib/init-backends.c (glibtop_init_backends): Initialize
+	`glibtop_backend_common' backend.
+
 	* backends/common/: New directory.
 
 2000-01-10  Martin Baulig  <martin@home-of-linux.org>
