@@ -20,3 +20,5 @@ glibtop_mountentry *|@mountlist|ulong(number,size,total)|int(all_fs)
 void|@fsusage|ulong(blocks,bfree,bavail,files,ffree)|string|mount_dir
 void|netload|ulong(if_flags,mtu,subnet,address,packets_in,packets_out,packets_total,bytes_in,bytes_out,bytes_total,errors_in,errors_out,errors_total,collisions)|string|interface
 void|ppp|ulong(state,bytes_in,bytes_out)|ushort(device)
+char **|netlist|unsigned(number)
+

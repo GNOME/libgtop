@@ -6,7 +6,7 @@ INCLUDES		= @INCLUDES@
 
 DEFS			= @DEFS@
 
-noinst_PROGRAMS	= 	first second pprint procargs df \
+noinst_PROGRAMS	= 	first second pprint procargs df netlist \
 			  mountlist procmap netload sysdeps timings \
 			  @static_targets@ @smp_examples@
 
@@ -15,7 +15,7 @@ EXTRA_PROGRAMS		= first_static second_static \
 			  third third_static smp smp_static \
 			  netload_static sysdeps_static \
 			  timings_static pprint_static procargs_static \
-			  df_static
+			  df_static netlist_static
 
 first_SOURCES		= first.c
 first_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
@@ -108,4 +108,13 @@ df_LDADD		  = $(top_builddir)/lib/libgtop-2.0.la
 df_static_SOURCES   = $(df_SOURCES)
 df_static_LDADD	  = $(df_LDADD)
 df_static_LDFLAGS   = -static
+
+
+netlist_SOURCES		= netlist.c
+netlist_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
+
+netlist_static_SOURCES	= $(netlist_SOURCES)
+netlist_static_LDADD	= $(netlist_LDADD)
+netlist_static_LDFLAGS	= -static
+
 

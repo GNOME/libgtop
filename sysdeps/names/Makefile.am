@@ -9,7 +9,7 @@ libgtop_names_2_0_la_SOURCES	= cpu.c mem.c swap.c uptime.c loadavg.c \
 				  proctime.c procmem.c procsignal.c \
 				  prockernel.c procsegment.c fsusage.c \
 				  mountlist.c procargs.c procmap.c netload.c \
-				  ppp.c
+				  ppp.c netlist.c
 
 libgtop_names_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 

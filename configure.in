@@ -7,8 +7,8 @@ AM_CONFIG_HEADER(config.h)
 AC_CANONICAL_SYSTEM
 
 LIBGTOP_MAJOR_VERSION=2
-LIBGTOP_MINOR_VERSION=8
-LIBGTOP_MICRO_VERSION=1
+LIBGTOP_MINOR_VERSION=9
+LIBGTOP_MICRO_VERSION=0
 LIBGTOP_VERSION=$LIBGTOP_MAJOR_VERSION.$LIBGTOP_MINOR_VERSION.$LIBGTOP_MICRO_VERSION
 AM_INIT_AUTOMAKE(libgtop, $LIBGTOP_VERSION)
 
@@ -22,7 +22,7 @@ LIBGTOP_REVISION=0
 dnl  increment if any interfaces have been added; set to 0
 dnl  if any interfaces have been removed. removal has
 dnl  precedence over adding, so set to 0 if both happened.
-LIBGTOP_AGE=0
+LIBGTOP_AGE=1
 
 # you can set this to `-snap' for instance to create
 # a `libgtop-1.x.y-snap.tar.gz' tarball.
@@ -123,7 +123,7 @@ else
 fi
 
 if test "x$enable_static" != xno; then
-  static_targets="first_static second_static mountlist_static procmap_static netload_static sysdeps_static timings_static $smp_static_examples pprint_static procargs_static df_static"
+  static_targets="first_static second_static mountlist_static procmap_static netload_static sysdeps_static timings_static $smp_static_examples pprint_static procargs_static df_static netlist netlist_static"
 else
   static_targets=""
 fi

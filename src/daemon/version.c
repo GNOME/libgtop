@@ -24,6 +24,9 @@
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/version.h>
+#include <glibtop/union.h>
+#include <glibtop/command.h>
+
 
 void
 glibtop_send_version (glibtop *server, int fd)

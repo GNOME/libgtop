@@ -1,7 +1,6 @@
-/* Copyright (C) 1998-99 Martin Baulig
-   This file is part of LibGTop 1.0.
+/* Copyright (C) 2004 Benoît Dejean
+   This file is part of LibGTop 2.0.
 
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -19,21 +18,29 @@
    Boston, MA 02111-1307, USA.
 */
 
-#ifndef __GLIBTOP_VERSION_H__
-#define __GLIBTOP_VERSION_H__
+#include <stdio.h>
 
 #include <glibtop.h>
+#include <glibtop/netlist.h>
 
-#define LIBGTOP_VERSION_STRING "Libgtop %s server version %s (%u,%u,%u,%u)."
 
-G_BEGIN_DECLS
+int main(int argc, char *argv [])
+{
+	glibtop_netlist buf;
+	char **devices;
+	guint32 i;
 
-#if _IN_LIBGTOP
+	glibtop_init();
 
-void glibtop_send_version (glibtop *server, int fd);
+	devices = glibtop_get_netlist(&buf);
 
-#endif
+	for(i = 0; i < buf.number; ++i)
+	{
+		printf("net device '%s'\n", devices[i]);
+	}
 
-G_END_DECLS
+	g_strfreev(devices);
 
-#endif
+	glibtop_close();
+	return 0;
+}

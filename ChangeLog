@@ -1,3 +1,29 @@
+2004-11-13  Benoît Dejean  <tazforever@dlfp.org>
+
+	* configure.in: Bumped to 2.9.0
+	
+	* configure.in:
+	* examples/.cvsignore:
+	* examples/Makefile.am:
+	* examples/netlist.c: (main):
+	* features.def:
+	* include/glibtop/Makefile.am:
+	* include/glibtop/command.h:
+	* include/glibtop/netlist.h:
+	* include/glibtop/sysdeps.h:
+	* include/glibtop/union.h:
+	* include/glibtop/version.h:
+	* src/daemon/version.c:
+	* sysdeps/linux/Makefile.am:
+	* sysdeps/linux/netlist.c: (glibtop_init_netlist_s),
+	(glibtop_get_netlist_s):
+	* sysdeps/names/Makefile.am:
+	* sysdeps/names/netlist.c:
+	* sysdeps/solaris/Makefile.am:
+	* sysdeps/solaris/netlist.c: (glibtop_init_netlist_s),
+	(glibtop_get_netlist_s): Added new function glibtop_get_netlist().
+	Implemented for linux and solaris. Doc needed.
+
 2004-10-11  Benoît Dejean  <tazforever@dlfp.org>
 
 	* NEWS: Released 2.8.1.

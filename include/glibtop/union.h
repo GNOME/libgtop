@@ -48,6 +48,7 @@
 #include <glibtop/fsusage.h>
 
 #include <glibtop/netload.h>
+#include <glibtop/netlist.h>
 #include <glibtop/ppp.h>
 
 G_BEGIN_DECLS
@@ -76,6 +77,7 @@ union _glibtop_union
 	glibtop_proc_map	proc_map;
 	glibtop_mountlist	mountlist;
 	glibtop_fsusage		fsusage;
+	glibtop_netlist		netlist;
 	glibtop_netload		netload;
 	glibtop_ppp		ppp;
 };

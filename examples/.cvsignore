@@ -20,4 +20,6 @@ procargs
 procargs_static
 df
 df_static
+netlist
+netlist_static
 
