@@ -22,6 +22,8 @@
 #include <glibtop.h>
 #include <glibtop/mem.h>
 
+#include <glibtop_suid.h>
+
 static const unsigned long _glibtop_sysdeps_mem =
 (1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
 (1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_LOCKED);
@@ -35,13 +37,13 @@ static const unsigned long _glibtop_sysdeps_mem =
 void
 glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 {
-	glibtop_init_p (&server, 0, 0);
+	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_MEM), 0);
 
 	memset (buf, 0, sizeof (glibtop_mem));
 	
 	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
 	
-	setregid (server->machine.gid, server->machine.egid);
+	glibtop_suid_enter (server);
 	
 	/* get the array of physpage descriptors */
 	
@@ -49,9 +51,8 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 				 (int *) server->machine.physpage,
 				 server->machine.bytesize,
 				 "array _page");
-	
-	if (setregid (server->machine.egid, server->machine.gid))
-		_exit (1);
+
+	glibtop_suid_leave (server);
 	
 	/* !!! END OF SGID KMEM PART !!! */
 

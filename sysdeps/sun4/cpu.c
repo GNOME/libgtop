@@ -22,6 +22,8 @@
 #include <glibtop.h>
 #include <glibtop/cpu.h>
 
+#include <glibtop_suid.h>
+
 static const unsigned long _glibtop_sysdeps_cpu =
 (1 << GLIBTOP_CPU_TOTAL) + (1 << GLIBTOP_CPU_USER) +
 (1 << GLIBTOP_CPU_NICE) + (1 << GLIBTOP_CPU_SYS) +
@@ -35,13 +37,13 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	long cp_time [CPUSTATES], mp_time [NCPU][CPUSTATES];
 	int i;
 
-	glibtop_init_p (&server, 0, 0);
-
+	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_CPU), 0);
+	
 	memset (buf, 0, sizeof (glibtop_cpu));
 
 	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
-	
-	setregid (server->machine.gid, server->machine.egid);
+
+	glibtop_suid_enter (server);
 	
 	/* get the cp_time array */
 
@@ -58,17 +60,17 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 					 _glibtop_nlist [X_MP_TIME].n_name);
 	}
 #endif
-	
-	if (setregid (server->machine.egid, server->machine.gid))
-		_exit (1);
+
+	glibtop_suid_leave (server);	
 	
 	/* !!! END OF SUID ROOT PART !!! */
 	
 #ifdef MULTIPROCESSOR
-	/* If we have multiple processors, we add the times for each of them and set
-	   frequency to 100 times the number of the processors. */
+	/* If we have multiple processors, we add the times for each of them
+	 * and set frequency to 100 times the number of the processors. */
 
-	/* [FIXME]: I had no machine with more than one processor to test this code !!! */
+	/* [FIXME]: I had no machine with more than one processor to test
+	 *          this code !!! */
 
 	if (server->machine.ncpu > 1) {
 		for (i = 0; i < server->machine.ncpu; i++) {

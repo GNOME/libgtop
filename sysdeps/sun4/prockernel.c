@@ -22,6 +22,8 @@
 #include <glibtop.h>
 #include <glibtop/prockernel.h>
 
+#include <glibtop_suid.h>
+
 static const unsigned long _glibtop_sysdeps_proc_kernel =
 (1 << GLIBTOP_PROC_KERNEL_K_FLAGS) + (1 << GLIBTOP_PROC_KERNEL_WCHAN);
 
@@ -33,7 +35,7 @@ glibtop_get_proc_kernel_p (glibtop *server, glibtop_proc_kernel *buf,
 {
 	struct proc *pp;
 
-	glibtop_init_p (&server, 0, 0);
+	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_KERNEL), 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
 
@@ -50,7 +52,7 @@ glibtop_get_proc_kernel_p (glibtop *server, glibtop_proc_kernel *buf,
 	/* Fill in data fields. */
 
 	buf->k_flags = pp->p_flag;
-	buf->wchan = pp->p_wchan;
+	buf->nwchan = (unsigned long) pp->p_wchan;
 
 	buf->flags = _glibtop_sysdeps_proc_kernel;
 }

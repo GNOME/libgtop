@@ -22,6 +22,8 @@
 #include <glibtop.h>
 #include <glibtop/shm_limits.h>
 
+#include <glibtop_suid.h>
+
 /* #define KERNEL to get declaration of `struct shminfo'. */
 
 #define KERNEL
@@ -41,7 +43,7 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
 	struct shminfo	shminfo;
   
-	glibtop_init_p (&server, 0, 0);
+	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
 
 	memset (buf, 0, sizeof (glibtop_shm_limits));
   

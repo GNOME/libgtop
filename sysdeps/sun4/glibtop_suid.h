@@ -19,40 +19,24 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <glibtop.h>
-#include <glibtop/proctime.h>
+#ifndef __GLIBTOP_SUID_H__
+#define __GLIBTOP_SUID_H__
 
-#include <glibtop_suid.h>
+__BEGIN_DECLS
 
-static const unsigned long _glibtop_sysdeps_proc_time =
-(1 << GLIBTOP_PROC_TIME_START_TIME) + (1 << GLIBTOP_PROC_TIME_UTIME);
+static inline void glibtop_suid_enter (glibtop *server) {
+	setregid (server->machine.gid, server->machine.egid);
+};
 
-/* Provides detailed information about a process. */
+static inline void glibtop_suid_leave (glibtop *server) {
+	if (setregid (server->machine.egid, server->machine.gid))
+		_exit (1);
+};
 
-void
-glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
-			 pid_t pid)
-{
-	struct proc *pp;
+extern void glibtop_init_p __P((glibtop *, const unsigned long, const unsigned));
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_TIME), 0);
+extern void glibtop_open_p __P((glibtop *, const char *, const unsigned long, const unsigned));
 
-	memset (buf, 0, sizeof (glibtop_proc_time));
+__END_DECLS
 
-	/* Read process table from kernel. */	
-
-	_glibtop_read_proc_table (server);
-
-	/* Find the pid in the process table. */
-
-	pp = _glibtop_find_pid (server, pid);
-
-	if (pp == NULL)	return;
-
-	/* Fill in data fields. */
-
-	buf->start_time = pp->p_time;
-	buf->utime = pp->p_cpticks;
-
-	buf->flags = _glibtop_sysdeps_proc_time;
-}
+#endif

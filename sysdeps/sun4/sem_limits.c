@@ -22,6 +22,8 @@
 #include <glibtop.h>
 #include <glibtop/sem_limits.h>
 
+#include <glibtop_suid.h>
+
 /* #define KERNEL to get declaration of `struct seminfo'. */
 
 #define KERNEL
@@ -43,7 +45,7 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
 	struct seminfo	seminfo;
   
-	glibtop_init_p (&server, 0, 0);
+	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
 
 	memset (buf, 0, sizeof (glibtop_sem_limits));
   

@@ -23,6 +23,8 @@
 #include <glibtop/cpu.h>
 #include <glibtop/uptime.h>
 
+#include <glibtop_suid.h>
+
 static const unsigned long _glibtop_sysdeps_uptime =
 (1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME);
 
@@ -33,7 +35,7 @@ glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 {
 	glibtop_cpu cpu;
 
-	glibtop_init_p (&server, 0, 0);
+	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_UPTIME), 0);
 
 	/* Get currect cpu usage. */
 
