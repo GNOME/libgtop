@@ -1,3 +1,11 @@
+2004-07-17  Benoît Dejean  <tazforever@dlfp.org>
+
+	* include/glibtop/fsusage.h: Added read, write. This members provides
+	total read and write in bytes since boot_time.
+	
+	* include/glibtop/netload.h: Added hwaddress : provides harware address,
+	eg MAC address. mtu, address and subnet are now guint32.
+
 2004-07-15  Benoît Dejean  <tazforever@dlfp.org>
 
 	* include/glibtop/procstate.h: Added GLIBTOP_PROCESS_DEAD constant.

@@ -34,8 +34,9 @@ G_BEGIN_DECLS
 #define GLIBTOP_FSUSAGE_FILES		3
 #define GLIBTOP_FSUSAGE_FFREE		4
 #define GLIBTOP_FSUSAGE_BLOCK_SIZE	5
-
-#define GLIBTOP_MAX_FSUSAGE		6
+#define GLIBTOP_FSUSAGE_READ           6
+#define GLIBTOP_FSUSAGE_WRITE          7
+#define GLIBTOP_MAX_FSUSAGE		8
 
 
 typedef struct _glibtop_fsusage		glibtop_fsusage;
@@ -49,6 +50,7 @@ struct _glibtop_fsusage
 		files,		/* Total file nodes. */
 		ffree;		/* Free file nodes. */
 	guint32	block_size;	/* Size of a block in bytes. */
+	guint64 read, write;    /* Total blocks read and written */
 };
 
 #define glibtop_get_fsusage(fsusage,disk)	glibtop_get_fsusage_l(glibtop_global_server, fsusage, disk)
