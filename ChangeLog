@@ -1,3 +1,7 @@
+2005-02-21  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* lib/Makefile.am: don't export private symbols.
+
 2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* backends/server/server.h:
