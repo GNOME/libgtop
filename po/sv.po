@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 2003-10-21 13:10+0200\n"
-"PO-Revision-Date: 2003-10-21 13:10+0200\n"
+"POT-Creation-Date: 2003-10-22 00:07+0200\n"
+"PO-Revision-Date: 2003-10-22 00:08+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -101,10 +101,8 @@ msgstr "Spinn:"
 
 #: lib/read.c:75
 #, c-format
-msgid "read %d byte"
-msgid_plural "read %d bytes"
-msgstr[0] "läste %d byte"
-msgstr[1] "läste %d byte"
+msgid "read %d bytes"
+msgstr "läste %d byte"
 
 #: lib/read_data.c:49
 msgid "read data size"
@@ -112,17 +110,13 @@ msgstr "läste datastorlek"
 
 #: lib/read_data.c:66
 #, c-format
-msgid "read data %d byte"
-msgid_plural "read data %d bytes"
-msgstr[0] "läste %d byte data"
-msgstr[1] "läste %d byte data"
+msgid "read data %d bytes"
+msgstr "läste %d byte data"
 
 #: lib/write.c:48
 #, c-format
-msgid "write %d byte"
-msgid_plural "write %d bytes"
-msgstr[0] "skrev %d byte"
-msgstr[1] "skrev %d byte"
+msgid "write %d bytes"
+msgstr "skrev %d byte"
 
 #: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
