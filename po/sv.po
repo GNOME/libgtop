@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.0\n"
-"POT-Creation-Date: 1999-07-11 02:20+0200\n"
+"POT-Creation-Date: 1999-07-30 10:37-0400\n"
 "PO-Revision-Date: 1999-06-22 22:42+0200\n"
 "Last-Translator: Tomas Ögren <stric@ing.umu.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -304,7 +304,8 @@ msgstr ""
 "I Linux så har varje flagga matte-biten satt eftersom crt0.s kollar efter "
 "matte-emulering, så den tas ej med i utskriften.\n"
 "\n"
-"Detta är troligen en bugg, eftersom alla processer inte är ett kompilerat C-program.\n"
+"Detta är troligen en bugg, eftersom alla processer inte är ett kompilerat "
+"C-program.\n"
 "\n"
 "Mattebiten ska vara decimalt 4, och spår-biten är decimalt 10."
 
@@ -423,8 +424,7 @@ msgstr ""
 #: sysdeps/names/procmem.c:64
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr ""
-"Nuvarande gräns i bytes på rss:en för processen (normalt 2147483647)."
+msgstr "Nuvarande gräns i bytes på rss:en för processen (normalt 2147483647)."
 
 #: sysdeps/names/procsegment.c:50
 msgid "Text_RSS"
@@ -1104,7 +1104,8 @@ msgstr "Tid i sekunder sen systemstart"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Tiden i sekunder som systemet har spenderat i Idle-jobbet sedan systemstart"
+msgstr ""
+"Tiden i sekunder som systemet har spenderat i Idle-jobbet sedan systemstart"
 
 #: sysdeps/names/uptime.c:49
 msgid "Boot time (seconds sice epoch)"
