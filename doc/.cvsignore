@@ -7,3 +7,4 @@ Makefile
 auto-macros.texi
 version.texi
 stamp-vti
+*.html *.pdf
