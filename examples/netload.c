@@ -85,8 +85,8 @@ main (int argc, char *argv [])
 
 	printf ("Network Load (0x%08lx):\n\n"
 		"\tInterface Flags:\t0x%08lx\n"
-		"\tAddress:\t\t0x%08lx - %s\n\n"
-		"\tSubnet:\t\t\t0x%08lx - %s\n"
+		"\tAddress:\t\t0x%08lx - %s\n"
+		"\tSubnet:\t\t\t0x%08lx - %s\n\n"
 		"\tMTU:\t\t\t%ld\n"
 		"\tCollisions:\t\t%ld\n\n"
 		"\tPackets In:\t\t%ld\n"
