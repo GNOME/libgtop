@@ -1,3 +1,7 @@
+2001-09-16  Abel Chueng  <maddog@linux.org.hk>
+
+	* configure.in: Added "zh_TW" to ALL_LINGUAS.
+
 2001-02-13  Martin Baulig  <baulig@suse.de>
 
 	Released LibGTop 1.0.12 "Gerolzhofen".
