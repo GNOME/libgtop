@@ -1,0 +1,8 @@
+1998-09-09  Martin Baulig <baulig@Stud.Informatik.uni-trier.de>
+
+	* open.c (glibtop_init_s): Initialize `ncpu' on SMP systems.
+
+	* cpu.c (glibtop_get_cpu_s): Added SMP support.
+
+	* ChangeLog: New file.
+

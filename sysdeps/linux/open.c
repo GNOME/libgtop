@@ -19,6 +19,8 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#include <glibtop.h>
+#include <glibtop/cpu.h>
 #include <glibtop/open.h>
 
 /* =====================================================
@@ -50,12 +52,52 @@ static void set_linux_version(void) {
 
 /* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
 
+#define FILENAME	"/proc/stat"
+
 void
 glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
+#ifdef HAVE_LIBGTOP_SMP
+	char buffer [BUFSIZ], *p;
+	int fd, len, i;
+#endif
+
 	server->name = program_name;
 
 	set_linux_version ();
 	server->os_version_code = (unsigned long) linux_version_code;
+
+	server->ncpu = 0;
+
+#ifdef HAVE_LIBGTOP_SMP
+	fd = open (FILENAME, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", FILENAME);
+
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", FILENAME);
+
+	close (fd);
+
+	buffer [len] = '\0';
+
+	p = skip_multiple_token (buffer, 5) + 1;
+
+	for (i = 0; i < GLIBTOP_NCPU; i++) {
+		
+		if (strncmp (p, "cpu", 3) || !isdigit (p [3]))
+			break;
+
+		server->ncpu++;
+
+		p = skip_multiple_token (p, 5) + 1;
+	}
+
+#if DEBUG	
+	printf ("\nThis machine has %d CPUs.\n\n", server->ncpu);
+#endif
+
+#endif
 }

@@ -28,12 +28,21 @@ static const unsigned long _glibtop_sysdeps_cpu =
 (1 << GLIBTOP_CPU_NICE) + (1 << GLIBTOP_CPU_SYS) +
 (1 << GLIBTOP_CPU_IDLE) + (1 << GLIBTOP_CPU_FREQUENCY);
 
+static const unsigned long _glibtop_sysdeps_cpu_smp =
+(1 << GLIBTOP_XCPU_TOTAL) + (1 << GLIBTOP_XCPU_USER) +
+(1 << GLIBTOP_XCPU_NICE) + (1 << GLIBTOP_XCPU_SYS) +
+(1 << GLIBTOP_XCPU_IDLE);
+
 /* Init function. */
 
 void
 glibtop_init_cpu_s (glibtop *server)
 {
+#if HAVE_LIBGTOP_SMP
+	server->sysdeps.cpu = _glibtop_sysdeps_cpu | _glibtop_sysdeps_cpu_smp;
+#else
 	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+#endif
 }
 
 /* Provides information about cpu usage. */
@@ -44,13 +53,11 @@ void
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
 	char buffer [BUFSIZ], *p;
-	int fd, len;
+	int fd, len, i;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
 	memset (buf, 0, sizeof (glibtop_cpu));
-
-	buf->flags = _glibtop_sysdeps_cpu;
 
 	fd = open (FILENAME, O_RDONLY);
 	if (fd < 0)
@@ -74,4 +81,30 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	buf->total = buf->user + buf->nice + buf->sys + buf->idle;
 
 	buf->frequency = 100;
+	buf->flags = _glibtop_sysdeps_cpu;
+
+#if HAVE_LIBGTOP_SMP
+	for (i = 0; i < GLIBTOP_NCPU; i++) {
+		u_int64_t user, nice, sys, idle;
+
+		if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
+			break;
+
+		p += 6;
+		user = strtoul (p, &p, 0);
+		nice = strtoul (p, &p, 0);
+		sys  = strtoul (p, &p, 0);
+		idle = strtoul (p, &p, 0);
+
+		buf->xcpu_user [i] = strtoul (p, &p, 0);
+		buf->xcpu_nice [i] = strtoul (p, &p, 0);
+		buf->xcpu_sys  [i] = strtoul (p, &p, 0);
+		buf->xcpu_idle [i] = strtoul (p, &p, 0);
+
+		buf->xcpu_total [i] = buf->xcpu_user [i] + buf->xcpu_nice [i] +
+			buf->xcpu_sys [i] + buf->xcpu_idle [i];
+	}
+
+	buf->flags |= _glibtop_sysdeps_cpu_smp;
+#endif
 }
