@@ -35,6 +35,8 @@ auto-macros.texi: auto-macros.texi.in Makefile
 	      < $(srcdir)/auto-macros.texi.in > auto-macros.tmp
 	echo '@c Set this if this is LibGTop 1.1.x' >> auto-macros.tmp
 	if [ $(LIBGTOP_VERSION_CODE) -ge 1001000 ] ; then \
-	  echo '@set LIBGTOP_1_1' >> auto-macros.tmp ; \
+	  echo '@set LIBGTOP-1-1' >> auto-macros.tmp ; \
+	else \
+	  echo '@clear LIBGTOP-1-1' >> auto-macros.tmp ; \
 	fi
 	mv auto-macros.tmp auto-macros.texi
