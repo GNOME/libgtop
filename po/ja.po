@@ -4,134 +4,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-09-18 18:59+0200\n"
+"POT-Creation-Date: 1999-09-16 23:16+0200\n"
 "PO-Revision-Date: 1998-12-11 06:53+09:00\n"
 "Last-Translator: Eiichiro ITANI <emu@ceres.dti.ne.jp>\n"
 "Language-Team: <gnome@lists.hypercore.co.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=euc-japan\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: lib/read.c:75
-#, c-format
-msgid "read %d bytes"
-msgstr ""
-
-#: lib/read_data.c:49
-msgid "read data size"
-msgstr ""
-
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
-msgstr ""
-
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
-msgstr ""
-
-#: src/daemon/gnuserv.c:446
-msgid "DEBUG"
-msgstr ""
-
-#: src/daemon/gnuserv.c:446
-msgid "Enable debugging"
-msgstr ""
-
-#: src/daemon/gnuserv.c:448
-msgid "Enable verbose output"
-msgstr ""
-
-#: src/daemon/gnuserv.c:448
-msgid "VERBOSE"
-msgstr ""
-
-#: src/daemon/gnuserv.c:450
-msgid "Don't fork into background"
-msgstr ""
-
-#: src/daemon/gnuserv.c:450
-msgid "NO-DAEMON"
-msgstr ""
-
-#: src/daemon/gnuserv.c:452
-msgid "INETD"
-msgstr ""
-
-#: src/daemon/gnuserv.c:452
-msgid "Invoked from inetd"
-msgstr ""
-
-#: src/daemon/gnuserv.c:486
-#, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "不明なシステムエラー"
-
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr ""
-
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr ""
-
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr ""
-
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr ""
-
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr ""
-
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr ""
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr ""
-
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr ""
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr ""
-
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr ""
-
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr ""
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
@@ -368,11 +247,11 @@ msgid "Number of system message headers"
 msgstr "システムメッセージヘッダの数"
 
 #: sysdeps/names/prockernel.c:42
-msgid "CMin_Flt"
+msgid "K_Flags"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:42
-msgid "K_Flags"
+msgid "Min_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:42
@@ -380,7 +259,7 @@ msgid "Maj_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:42
-msgid "Min_Flt"
+msgid "CMin_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:43
@@ -388,11 +267,11 @@ msgid "CMaj_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:43
-msgid "KStk_EIP"
+msgid "KStk_ESP"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:43
-msgid "KStk_ESP"
+msgid "KStk_EIP"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:43
@@ -485,20 +364,20 @@ msgid "This is the textual name of the `nwchan' field."
 msgstr "`nwchan' フィールドの文字表記の名前です。"
 
 #: sysdeps/names/procmem.c:47
-msgid "Resident"
-msgstr "常駐"
-
-#: sysdeps/names/procmem.c:47
-msgid "Share"
-msgstr "共有"
-
-#: sysdeps/names/procmem.c:47
 msgid "Size"
 msgstr "サイズ"
 
 #: sysdeps/names/procmem.c:47
 msgid "Virtual"
 msgstr "仮想"
+
+#: sysdeps/names/procmem.c:47
+msgid "Resident"
+msgstr "常駐"
+
+#: sysdeps/names/procmem.c:47
+msgid "Share"
+msgstr "共有"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size"
@@ -544,7 +423,7 @@ msgstr ""
 "現時点での該当プロセスの RSS リミットのバイト表記(一般には 2,147,483,647)。"
 
 #: sysdeps/names/procsegment.c:42
-msgid "Data_RSS"
+msgid "Text_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:42
@@ -552,11 +431,11 @@ msgid "ShLib_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:42
-msgid "Stack_RSS"
+msgid "Data_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:42
-msgid "Text_RSS"
+msgid "Stack_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:43
@@ -564,11 +443,11 @@ msgid "Dirty Size"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:43
-msgid "End_Code"
+msgid "Start_Code"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:43
-msgid "Start_Code"
+msgid "End_Code"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:43
@@ -608,20 +487,20 @@ msgid "Address of the bottom of stack segment"
 msgstr "スタックセグメントの底のアドレス"
 
 #: sysdeps/names/procsignal.c:40
-msgid "Blocked"
-msgstr "ブロック"
+msgid "Signal"
+msgstr "シグナル"
 
 #: sysdeps/names/procsignal.c:40
-msgid "SigCatch"
-msgstr ""
+msgid "Blocked"
+msgstr "ブロック"
 
 #: sysdeps/names/procsignal.c:40
 msgid "SigIgnore"
 msgstr ""
 
 #: sysdeps/names/procsignal.c:40
-msgid "Signal"
-msgstr "シグナル"
+msgid "SigCatch"
+msgstr ""
 
 #: sysdeps/names/procsignal.c:45
 msgid "Mask of pending signals"
@@ -644,15 +523,15 @@ msgid "Cmd"
 msgstr ""
 
 #: sysdeps/names/procstate.c:40
-msgid "GID"
-msgstr ""
-
-#: sysdeps/names/procstate.c:40
 msgid "State"
 msgstr ""
 
 #: sysdeps/names/procstate.c:40
 msgid "UID"
+msgstr ""
+
+#: sysdeps/names/procstate.c:40
+msgid "GID"
 msgstr ""
 
 #: sysdeps/names/procstate.c:45
@@ -672,23 +551,19 @@ msgid "GID of process"
 msgstr "プロセスGID"
 
 #: sysdeps/names/proctime.c:44
-msgid "RTime"
-msgstr ""
-
-#: sysdeps/names/proctime.c:44
-msgid "STime"
-msgstr ""
-
-#: sysdeps/names/proctime.c:44
 msgid "Start_Time"
 msgstr "起動時刻"
+
+#: sysdeps/names/proctime.c:44
+msgid "RTime"
+msgstr ""
 
 #: sysdeps/names/proctime.c:44
 msgid "UTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:45
-msgid "CSTime"
+#: sysdeps/names/proctime.c:44
+msgid "STime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:45
@@ -696,11 +571,15 @@ msgid "CUTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:45
-msgid "It_Real_Value"
+msgid "CSTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:45
 msgid "TimeOut"
+msgstr ""
+
+#: sysdeps/names/proctime.c:45
+msgid "It_Real_Value"
 msgstr ""
 
 #: sysdeps/names/proctime.c:46
@@ -708,11 +587,11 @@ msgid "Frequency"
 msgstr ""
 
 #: sysdeps/names/proctime.c:46
-msgid "XCPU_STime"
+msgid "XCPU_UTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:46
-msgid "XCPU_UTime"
+msgid "XCPU_STime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:51
@@ -764,7 +643,7 @@ msgid "SMP kernel-mode CPU time accumulated by process"
 msgstr "プロセスがカーネルモードで使用した SMP CPU時間"
 
 #: sysdeps/names/procuid.c:56
-msgid "EGid"
+msgid "Uid"
 msgstr ""
 
 #: sysdeps/names/procuid.c:56
@@ -776,19 +655,19 @@ msgid "Gid"
 msgstr ""
 
 #: sysdeps/names/procuid.c:56
-msgid "Pid"
+msgid "EGid"
 msgstr ""
 
 #: sysdeps/names/procuid.c:56
-msgid "Uid"
-msgstr ""
-
-#: sysdeps/names/procuid.c:57
-msgid "PGrp"
+msgid "Pid"
 msgstr ""
 
 #: sysdeps/names/procuid.c:57
 msgid "PPid"
+msgstr ""
+
+#: sysdeps/names/procuid.c:57
+msgid "PGrp"
 msgstr ""
 
 #: sysdeps/names/procuid.c:57
@@ -800,7 +679,7 @@ msgid "Tty"
 msgstr ""
 
 #: sysdeps/names/procuid.c:58
-msgid "Nice"
+msgid "TPGid"
 msgstr ""
 
 #: sysdeps/names/procuid.c:58
@@ -808,7 +687,7 @@ msgid "Priority"
 msgstr ""
 
 #: sysdeps/names/procuid.c:58
-msgid "TPGid"
+msgid "Nice"
 msgstr ""
 
 #: sysdeps/names/procuid.c:63
@@ -1062,3 +941,124 @@ msgstr "システム起動後の時間(秒)"
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "システム起動以後休眠中のタスクに費やした時間(秒)"
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "不明なシステムエラー"
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr ""
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr ""
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr ""
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr ""
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr ""
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr ""
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr ""
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr ""
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr ""
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr ""
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr ""
+
+#: lib/read.c:75
+#, c-format
+msgid "read %d bytes"
+msgstr ""
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr ""
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr ""
+
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr ""
+
+#: src/daemon/gnuserv.c:446
+msgid "Enable debugging"
+msgstr ""
+
+#: src/daemon/gnuserv.c:446
+msgid "DEBUG"
+msgstr ""
+
+#: src/daemon/gnuserv.c:448
+msgid "Enable verbose output"
+msgstr ""
+
+#: src/daemon/gnuserv.c:448
+msgid "VERBOSE"
+msgstr ""
+
+#: src/daemon/gnuserv.c:450
+msgid "Don't fork into background"
+msgstr ""
+
+#: src/daemon/gnuserv.c:450
+msgid "NO-DAEMON"
+msgstr ""
+
+#: src/daemon/gnuserv.c:452
+msgid "Invoked from inetd"
+msgstr ""
+
+#: src/daemon/gnuserv.c:452
+msgid "INETD"
+msgstr ""
+
+#: src/daemon/gnuserv.c:486
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""

@@ -297,7 +297,8 @@ msgid ""
 msgstr ""
 "Processens kerneflag.\n"
 "\n"
-"Under Linux har alle flag matematik biten sat, fordi crt0.s tjekker efter matematikemulering, så dette er ikke inkluderet i udskriften.\n"
+"Under Linux har alle flag matematik biten sat, fordi crt0.s tjekker efter "
+"matematikemulering, så dette er ikke inkluderet i udskriften.\n"
 "\n"
 "Dette er nok en fejl, siden ikke alle processer er et kompileret C program.\n"
 "Matematikbiten bør være decimal 4, og den tracede bit er decimal 10."
@@ -307,14 +308,18 @@ msgstr ""
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
-msgstr "Antal mindre fejl processen har lavet, dem som ikke har gjort det nødvendig at læse en hukommelsesside ind fra disk."
+msgstr ""
+"Antal mindre fejl processen har lavet, dem som ikke har gjort det nødvendig "
+"at læse en hukommelsesside ind fra disk."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
 msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
-msgstr "Antal store fejl processen har lavet, dem som har gjort det nødvendig at læse en hukommelsesside ind fra disk."
+msgstr ""
+"Antal store fejl processen har lavet, dem som har gjort det nødvendig at "
+"læse en hukommelsesside ind fra disk."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
@@ -331,7 +336,9 @@ msgstr "Antal store fejl processen og dens børn har lavet."
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
-msgstr "Den nuværende værdi af esp (32-bits stakpeger), som fundet i kernens stakside for processen."
+msgstr ""
+"Den nuværende værdi af esp (32-bits stakpeger), som fundet i kernens "
+"stakside for processen."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
@@ -345,7 +352,11 @@ msgid ""
 "address of a system call, and can be looked up in a namelist if you need a "
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
-msgstr "Dette er \"kanalen\" hvor processen venter. Dette er adressen til systemkaldet, og kan slås op i en navneliste hvis du behøver et tekstnavn. (Hvis du har en opdateret /etc/psdatabase, så prøv ps -l for at se WCHAN feltet i aktion)"
+msgstr ""
+"Dette er \"kanalen\" hvor processen venter. Dette er adressen til "
+"systemkaldet, og kan slås op i en navneliste hvis du behøver et tekstnavn. "
+"(Hvis du har en opdateret /etc/psdatabase, så prøv ps -l for at se WCHAN "
+"feltet i aktion)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
@@ -400,9 +411,9 @@ msgid ""
 "which are swapped out."
 msgstr ""
 "Antal sider processen har i fysisk hukommelse, minus 3 for administrative "
-"opgaver. Dette er kun de sider som tæller mht. tekst, data eller stak "
-"plads. Dette inkluderer ikke sider som ikke er indlæst ved behov, eller som "
-"er swappet ud."
+"opgaver. Dette er kun de sider som tæller mht. tekst, data eller stak plads. "
+"Dette inkluderer ikke sider som ikke er indlæst ved behov, eller som er "
+"swappet ud."
 
 #: sysdeps/names/procmem.c:62
 msgid ""
@@ -613,7 +624,9 @@ msgstr "Tiden (i jiffi'er) for processens næste tidsudløb"
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
-msgstr "Tiden (i jiffi'er) før næste SIGALARM bliver sendt til processen på grund af en intervalklokke."
+msgstr ""
+"Tiden (i jiffi'er) før næste SIGALARM bliver sendt til processen på grund af "
+"en intervalklokke."
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
