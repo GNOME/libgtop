@@ -73,10 +73,10 @@ int glibtop_get_netload_l (glibtop_client *client, glibtop_netload *buf, const c
 
 #if GLIBTOP_SUID_NETLOAD
 int glibtop_init_netload_p (glibtop *server);
-int glibtop_get_netload_p (glibtop *server, glibtop_netload *buf, const char *interface, unsigned transport, unsigned protocol);
+int glibtop_get_netload_p (glibtop *server, void *closure, glibtop_netload *buf, const char *interface, unsigned transport, unsigned protocol);
 #else
 int glibtop_init_netload_s (glibtop_server *server);
-int glibtop_get_netload_s (glibtop_server *server, glibtop_netload *buf, const char *interface, unsigned transport, unsigned protocol);
+int glibtop_get_netload_s (glibtop_server *server, void *closure, glibtop_netload *buf, const char *interface, unsigned transport, unsigned protocol);
 #endif
 
 #ifdef GLIBTOP_NAMES

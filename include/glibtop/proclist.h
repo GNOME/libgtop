@@ -66,13 +66,13 @@ glibtop_get_proclist_l (glibtop_client *client, glibtop_array *array,
 int glibtop_init_proclist_p (glibtop *server);
 
 unsigned *
-glibtop_get_proclist_p (glibtop *server, glibtop_array *array,
+glibtop_get_proclist_p (glibtop *server, void *closure, glibtop_array *array,
 			int64_t which, int64_t arg);
 #else
 int glibtop_init_proclist_s (glibtop_server *server);
 
 unsigned *
-glibtop_get_proclist_s (glibtop_server *server, glibtop_array *array,
+glibtop_get_proclist_s (glibtop_server *server, void *closure, glibtop_array *array,
 			int64_t which, int64_t arg);
 #endif
 

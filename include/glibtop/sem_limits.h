@@ -71,10 +71,10 @@ int glibtop_get_sem_limits_l (glibtop_client *client, glibtop_sem_limits *buf);
 
 #if GLIBTOP_SUID_SEM_LIMITS
 int glibtop_init_sem_limits_p (glibtop *server);
-int glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf);
+int glibtop_get_sem_limits_p (glibtop *server, void *closure, glibtop_sem_limits *buf);
 #else
 int glibtop_init_sem_limits_s (glibtop_server *server);
-int glibtop_get_sem_limits_s (glibtop_server *server, glibtop_sem_limits *buf);
+int glibtop_get_sem_limits_s (glibtop_server *server, void *closure, glibtop_sem_limits *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

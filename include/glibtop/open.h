@@ -60,11 +60,11 @@ glibtop_init_p (glibtop *server, const unsigned long features,
 		const unsigned flags);
 
 void
-glibtop_open_p (glibtop_server *server, const char *program_name,
+glibtop_open_p (glibtop_server *server, void *closure,
 		const unsigned long features, const unsigned flags);
 
 void
-glibtop_open_s (glibtop_server *server, const char *program_name,
+glibtop_open_s (glibtop_server *server, void *closure,
 		const unsigned long features, const unsigned flags);
 
 #ifdef _IN_LIBGTOP

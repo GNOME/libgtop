@@ -61,10 +61,10 @@ char *glibtop_get_proc_cwd_l (glibtop_client *client, glibtop_proc_cwd *buf, pid
 
 #if GLIBTOP_SUID_PROC_CWD
 int glibtop_init_proc_cwd_p (glibtop *server);
-char *glibtop_get_proc_cwd_p (glibtop *server, glibtop_proc_cwd *buf, pid_t pid);
+char *glibtop_get_proc_cwd_p (glibtop *server, void *closure, glibtop_proc_cwd *buf, pid_t pid);
 #else
 int glibtop_init_proc_cwd_s (glibtop_server *server);
-char *glibtop_get_proc_cwd_s (glibtop_server *server, glibtop_proc_cwd *buf, pid_t pid);
+char *glibtop_get_proc_cwd_s (glibtop_server *server, void *closure, glibtop_proc_cwd *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

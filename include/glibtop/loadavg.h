@@ -59,10 +59,10 @@ int glibtop_get_loadavg_l (glibtop_client *client, glibtop_loadavg *buf);
 
 #if GLIBTOP_SUID_LOADAVG
 int glibtop_init_loadavg_p (glibtop *server);
-int glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf);
+int glibtop_get_loadavg_p (glibtop *server, void *closure, glibtop_loadavg *buf);
 #else
 int glibtop_init_loadavg_s (glibtop_server *server);
-int glibtop_get_loadavg_s (glibtop_server *server, glibtop_loadavg *buf);
+int glibtop_get_loadavg_s (glibtop_server *server, void *closure, glibtop_loadavg *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

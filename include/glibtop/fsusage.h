@@ -52,7 +52,7 @@ struct _glibtop_fsusage
 };
 
 int glibtop_get_fsusage_l (glibtop_client *client, glibtop_fsusage *buf, const char *mount_dir);
-int glibtop_get_fsusage_s (glibtop_server *server, glibtop_fsusage *buf, const char *mount_dir);
+int glibtop_get_fsusage_s (glibtop_server *server, void *closure, glibtop_fsusage *buf, const char *mount_dir);
 
 #ifdef GLIBTOP_NAMES
 

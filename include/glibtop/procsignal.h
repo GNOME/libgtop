@@ -61,10 +61,10 @@ int glibtop_get_proc_signal_l (glibtop_client *client, glibtop_proc_signal *buf,
 
 #if GLIBTOP_SUID_PROC_SIGNAL
 int glibtop_init_proc_signal_p (glibtop *server);
-int glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf, pid_t pid);
+int glibtop_get_proc_signal_p (glibtop *server, void *closure, glibtop_proc_signal *buf, pid_t pid);
 #else
 int glibtop_init_proc_signal_s (glibtop_server *server);
-int glibtop_get_proc_signal_s (glibtop_server *server, glibtop_proc_signal *buf, pid_t pid);
+int glibtop_get_proc_signal_s (glibtop_server *server, void *closure, glibtop_proc_signal *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

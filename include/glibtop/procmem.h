@@ -67,10 +67,10 @@ int glibtop_get_proc_mem_l (glibtop_client *client, glibtop_proc_mem *buf, pid_t
 
 #if GLIBTOP_SUID_PROC_MEM
 int glibtop_init_proc_mem_p (glibtop *server);
-int glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
+int glibtop_get_proc_mem_p (glibtop *server, void *closure, glibtop_proc_mem *buf, pid_t pid);
 #else
 int glibtop_init_proc_mem_s (glibtop_server *server);
-int glibtop_get_proc_mem_s (glibtop_server *server, glibtop_proc_mem *buf, pid_t pid);
+int glibtop_get_proc_mem_s (glibtop_server *server, void *closure, glibtop_proc_mem *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

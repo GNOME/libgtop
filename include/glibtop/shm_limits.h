@@ -64,7 +64,7 @@ int glibtop_init_shm_limits_p (glibtop *server);
 int glibtop_get_shm_limits_p (glibtop *, glibtop_shm_limits *buf);
 #else
 int glibtop_init_shm_limits_s (glibtop_server *server);
-int glibtop_get_shm_limits_s (glibtop_server *server, glibtop_shm_limits *buf);
+int glibtop_get_shm_limits_s (glibtop_server *server, void *closure, glibtop_shm_limits *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

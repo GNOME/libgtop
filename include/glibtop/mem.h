@@ -67,10 +67,10 @@ int glibtop_get_mem_l (glibtop_client *client, glibtop_mem *buf);
 
 #if GLIBTOP_SUID_MEM
 int glibtop_init_mem_p (glibtop *server);
-int glibtop_get_mem_p (glibtop *server, glibtop_mem *buf);
+int glibtop_get_mem_p (glibtop *server, void *closure, glibtop_mem *buf);
 #else
 int glibtop_init_mem_s (glibtop_server *server);
-int glibtop_get_mem_s (glibtop_server *server, glibtop_mem *buf);
+int glibtop_get_mem_s (glibtop_server *server, void *closure, glibtop_mem *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

@@ -1,5 +1,14 @@
 2001-04-20  Martin Baulig  <baulig@suse.de>
 
+	* include/glibtop/*.h (glibtop_get_*_s, glibtop_get_*_pl):
+	Added `void *closure' argument to all sysdeps functions.
+
+	* include/glibtop/open.h (glibtop_open_s, glibtop_open_p):
+	Removed the `const char *program_name' argument and added
+	`void *closure'.
+
+2001-04-20  Martin Baulig  <baulig@suse.de>
+
 	* libgtop.pc.in: Added pkg-config file.
 
 2001-04-20  Martin Baulig  <baulig@suse.de>

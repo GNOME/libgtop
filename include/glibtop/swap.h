@@ -61,10 +61,10 @@ int glibtop_get_swap_l (glibtop_client *client, glibtop_swap *buf);
 
 #if GLIBTOP_SUID_SWAP
 int glibtop_init_swap_p (glibtop *server);
-int glibtop_get_swap_p (glibtop *server, glibtop_swap *buf);
+int glibtop_get_swap_p (glibtop *server, void *closure, glibtop_swap *buf);
 #else
 int glibtop_init_swap_s (glibtop_server *server);
-int glibtop_get_swap_s (glibtop_server *server, glibtop_swap *buf);
+int glibtop_get_swap_s (glibtop_server *server, void *closure, glibtop_swap *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

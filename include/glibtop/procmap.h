@@ -73,12 +73,12 @@ glibtop_get_proc_map_l (glibtop_client *client, glibtop_array *array, pid_t pid)
 int glibtop_init_proc_map_p (glibtop *server);
 
 glibtop_map_entry *
-glibtop_get_proc_map_p (glibtop *server, glibtop_array *array, pid_t pid);
+glibtop_get_proc_map_p (glibtop *server, void *closure, glibtop_array *array, pid_t pid);
 #else
 int glibtop_init_proc_map_s (glibtop_server *server);
 
 glibtop_map_entry *
-glibtop_get_proc_map_s (glibtop_server *server, glibtop_array *array, pid_t pid);
+glibtop_get_proc_map_s (glibtop_server *server, void *closure, glibtop_array *array, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES
