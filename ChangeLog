@@ -1,5 +1,10 @@
 2001-04-20  Martin Baulig  <baulig@suse.de>
 
+	* lib/Makefile.am (libgtop_la_SOURCES): Added xmalloc.c and
+	error.c.
+
+2001-04-20  Martin Baulig  <baulig@suse.de>
+
 	* include/glibtop/glibtop-server.h (glibtop_init_func_t):
 	Added `glibtop_closure *' argument.
 
