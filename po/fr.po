@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2001-02-05 19:19+0100\n"
-"PO-Revision-Date: 2001-02-05 19:26+0100\n"
+"POT-Creation-Date: 2001-02-05 19:35+0100\n"
+"PO-Revision-Date: 2001-02-05 19:36+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -1049,7 +1049,7 @@ msgstr "Nombre maximum d'opérations par appel à semop()"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Max number of undo entries per process"
-msgstr "Nombre maximum de structures 'undo' par processus"
+msgstr "Nombre maximum de structures « undo » par processus"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "sizeof struct sem_undo"
@@ -1061,7 +1061,7 @@ msgstr "Valeur maximum d'un sémaphore"
 
 #: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 msgid "Adjust on exit max value"
-msgstr "Valeur maximum de 'Adjust on exit'"
+msgstr "Valeur maximum de « Adjust on exit »"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max segment size"
