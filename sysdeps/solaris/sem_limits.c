@@ -24,14 +24,28 @@
 #include <glibtop.h>
 #include <glibtop/sem_limits.h>
 
-static const unsigned long _glibtop_sysdeps_sem_limits = 0;
+#include <kvm.h>
+#include <sys/sem.h>
+
+static struct nlist nlst[] = { {"seminfo"}, {NULL} };
+static const unsigned long _glibtop_sysdeps_sem_limits =
+(1L << GLIBTOP_IPC_SEMMAP) + (1L << GLIBTOP_IPC_SEMMNI) +
+(1L << GLIBTOP_IPC_SEMMNS) + (1L << GLIBTOP_IPC_SEMMNU) +
+(1L << GLIBTOP_IPC_SEMMSL) + (1L << GLIBTOP_IPC_SEMOPM) +
+(1L << GLIBTOP_IPC_SEMUME) + (1L << GLIBTOP_IPC_SEMUSZ) +
+(1L << GLIBTOP_IPC_SEMVMX) + (1L << GLIBTOP_IPC_SEMAEM);
 
 /* Init function. */
 
 void
 glibtop_init_sem_limits_s (glibtop *server)
 {
-	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+   	kvm_t *kd = server->machine.kd;
+
+	if(kd && !kvm_nlist(kd, nlst))
+		server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+	else
+	   	server->sysdeps.sem_limits = 0;
 }
 
 /* Provides information about sysv sem limits. */
@@ -39,5 +53,25 @@ glibtop_init_sem_limits_s (glibtop *server)
 void
 glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 {
+   	kvm_t *kd = server->machine.kd;
+	struct seminfo sinfo;
+
 	memset (buf, 0, sizeof (glibtop_sem_limits));
+
+	if(!(server->sysdeps.sem_limits))
+	   	return;
+	if(kvm_read(kd, nlst[0].n_value, (void *)&sinfo,
+		    sizeof(struct seminfo)) != sizeof(struct seminfo))
+	   	return;
+	buf->semmap = sinfo.semmap;
+	buf->semmni = sinfo.semmni;
+	buf->semmns = sinfo.semmns;
+	buf->semmnu = sinfo.semmnu;
+	buf->semmsl = sinfo.semmsl;
+	buf->semopm = sinfo.semopm;
+	buf->semume = sinfo.semume;
+	buf->semusz = sinfo.semusz;
+	buf->semvmx = sinfo.semvmx;
+	buf->semaem = sinfo.semaem;
+	buf->flags = _glibtop_sysdeps_sem_limits;
 }
