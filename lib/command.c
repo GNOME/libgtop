@@ -27,8 +27,8 @@
 #include <glibtop/xmalloc.h>
 
 void *
-glibtop_call_l (glibtop *server, unsigned command, size_t send_size, void *send_buf,
-		size_t recv_size, void *recv_buf)
+glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
+		void *send_buf, size_t recv_size, void *recv_buf)
 {
 	glibtop_command cmnd;
 	glibtop_response response;
@@ -45,11 +45,6 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size, void *send_
 	 * send it together with command, so we only need one system call instead
 	 * of two. */
 
-#ifdef DEBUG
-	//	fprintf (stderr, "COMMAND: send_size = %d; command = %d; sizeof (cmnd) = %d\n",
-	// send_size, command, sizeof (glibtop_command));
-#endif
-
 	if (send_size <= _GLIBTOP_PARAM_SIZE) {
 		memcpy (cmnd.parameter, send_buf, send_size);
 		cmnd.size = send_size;
@@ -58,14 +53,17 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size, void *send_
 	}
 	
 	glibtop_write_l (server, sizeof (glibtop_command), &cmnd);
-	//	glibtop_write_l (server, cmnd.data_size, send_buf);
 
 	glibtop_read_l (server, sizeof (glibtop_response), &response);
 
-	fprintf (stderr, "RESPONSE: %d - %d\n", response.offset, response.data_size);
+#ifdef DEBUG
+	fprintf (stderr, "RESPONSE: %d - %d\n",
+		 response.offset, response.data_size);
+#endif
 
 	if (recv_buf)
-		memcpy (recv_buf, ((char *) &response) + response.offset, recv_size);
+		memcpy (recv_buf, ((char *) &response) + response.offset,
+			recv_size);
 
 	if (response.data_size) {
 		void *ptr = glibtop_malloc_r (server, response.data_size);
