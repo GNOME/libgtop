@@ -5,23 +5,23 @@
 # translation of mk.po to Macedonian
 # translation of libgtop.libgtop-GNOME-2-0-port.po to Macedonian
 # This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# Ivan Stojmirov <stojmir@linux.net.mk>, 2002,2003
-# Jovan Kostovski <chombium@freemail.com.mk>, 2003
-# Глигор Костоски <gigo@ajvar.com.mk>, 2003
+# Copyright (C) 2004 THE PACKAGE'S COPYRIGHT HOLDER.
+# Ivan Stojmirov <stojmir@linux.net.mk>, 2002,2003.
+# Jovan Kostovski <chombium@freemail.com.mk>, 2003.
+# Глигор Костоски <gigo@ajvar.com.mk>, 2003.
+# Arangel Angov <ufo@linux.net.mk>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop-GNOME-2-0-port.mk\n"
+"Project-Id-Version: mk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2003-06-15 10:09+0200\n"
-"Last-Translator: Ivan Stojmirov <stojmir@linux.net.mk>\n"
-"Language-Team: Macedonian <lug@lists.linux.net.mk>\n"
+"PO-Revision-Date: 2004-09-21 23:37+0200\n"
+"Last-Translator: Arangel Angov <ufo@linux.net.mk>\n"
+"Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.0\n"
+"Content-Transfer-Encoding: 8bit"
 
 #: examples/smp.c:76
 #, c-format
@@ -105,29 +105,23 @@ msgid "Spin:"
 msgstr "Ротација:"
 
 #: lib/read.c:65
-#, fuzzy, c-format
+#, c-format
 msgid "read %d byte"
-msgid_plural "read %d bytes"
-msgstr[0] "прочитани %d бајти"
-msgstr[1] "прочитани %d бајти"
+msgstr "прочитани %d бајт"
 
 #: lib/read_data.c:51
 msgid "read data size"
 msgstr "големина на прочитаните податоци"
 
 #: lib/read_data.c:68
-#, fuzzy, c-format
+#, c-format
 msgid "read data %d byte"
-msgid_plural "read data %d bytes"
-msgstr[0] "прочитани %d бајти"
-msgstr[1] "прочитани %d бајти"
+msgstr "прочитани податоци %d бајти"
 
 #: lib/write.c:51
-#, fuzzy, c-format
+#, c-format
 msgid "write %d byte"
-msgid_plural "write %d bytes"
-msgstr[0] "запишани %d бајти"
-msgstr[1] "запишани %d бајти"
+msgstr "запишани %d бајт"
 
 #: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
@@ -216,7 +210,7 @@ msgstr "Процесорско време за SMP без задачи"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "SMP CPU знаменца"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks since system boot"
@@ -244,7 +238,7 @@ msgstr "Фреквенција на такт (стандардно 100)"
 
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
-msgstr ""
+msgstr "Поле кое покажува кој процесор работи"
 
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
@@ -267,9 +261,8 @@ msgid "Free file nodes"
 msgstr "Слободни јазли за датотеки"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Блокиран"
+msgstr "Големина на блокот"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -422,14 +415,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Subnet"
+msgstr "IPv4 подмрежа"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Адреса"
+msgstr "IPv4 адреса"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -472,17 +463,16 @@ msgid "Collisions"
 msgstr "Колизии"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Адреса"
+msgstr "IPv6 адреса"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "Префикс за IPv6"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "Опсег на IPv6"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
@@ -682,10 +672,8 @@ msgstr ""
 "свопувани"
 
 #: sysdeps/names/procmem.c:63
-msgid ""
-"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr ""
-"Моментална граница во бајти на rss на процесот (вообичаено 2,147,483,647)"
+msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr "Моментална граница во бајти на rss на процесот (вообичаено 2,147,483,647)"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Text_RSS"
@@ -800,26 +788,24 @@ msgid "GID"
 msgstr "GID"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RGid"
-msgstr "Gid"
+msgstr "RGid"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RUid"
-msgstr "Uid"
+msgstr "RUid"
 
 #: sysdeps/names/procstate.c:44
 msgid "HasCPU"
-msgstr ""
+msgstr "Има процесор"
 
 #: sysdeps/names/procstate.c:44
 msgid "Proc"
-msgstr ""
+msgstr "Proc"
 
 #: sysdeps/names/procstate.c:44
 msgid "LProc"
-msgstr ""
+msgstr "LProc"
 
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
@@ -838,31 +824,28 @@ msgid "GID of process"
 msgstr "GID на процес"
 
 #: sysdeps/names/procstate.c:53
-#, fuzzy
 msgid "Real UID of process"
-msgstr "UID на процес"
+msgstr "Вистински UID на процесот"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "Real GID of process"
-msgstr "GID на процес"
+msgstr "Вистински GID на процесот"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
-msgstr ""
+msgstr "Има процесор"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "Processor"
-msgstr "ИД на процесот"
+msgstr "Процесор"
 
 #: sysdeps/names/procstate.c:57
 msgid "Last Processor"
-msgstr ""
+msgstr "Последен процесор"
 
 #: sysdeps/names/proctime.c:45
 msgid "Start_Time"
-msgstr "Start_Time"
+msgstr "Почетно време"
 
 #: sysdeps/names/proctime.c:45
 msgid "RTime"
@@ -890,7 +873,7 @@ msgstr "TimeOut"
 
 #: sysdeps/names/proctime.c:46
 msgid "It_Real_Value"
-msgstr "It_Real_Value"
+msgstr "Реална вредност"
 
 #: sysdeps/names/proctime.c:47
 msgid "Frequency"
@@ -906,7 +889,7 @@ msgstr "XCPU_STime"
 
 #: sysdeps/names/proctime.c:52
 msgid "Start time of process in seconds since the epoch"
-msgstr "Стартно време  на процесот од во секунди од epoch"
+msgstr "Почетно време  на процесот од во секунди од епохата"
 
 #: sysdeps/names/proctime.c:53
 msgid "Real time accumulated by process (should be utime + stime)"
@@ -918,19 +901,19 @@ msgstr "Кориснични режим, процесорско време ак�
 
 #: sysdeps/names/proctime.c:55
 msgid "kernel-mode CPU time accumulated by process"
-msgstr "Кернел режим, процесорско време акумулирано од процесот"
+msgstr "Режим на кернелот, процесорското време акумулирано од процесот"
 
 #: sysdeps/names/proctime.c:56
 msgid "cumulative utime of process and reaped children"
-msgstr "Вкупно utime на процесот собрано со времето од децата"
+msgstr "cumulative utime of process and reaped children"
 
 #: sysdeps/names/proctime.c:57
 msgid "cumulative stime of process and reaped children"
-msgstr "Вкупно stime на процесот собрано со времето од децата"
+msgstr "cumulative stime of process and reaped children"
 
 #: sysdeps/names/proctime.c:58
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr "Време (во jiffies) за следниот тајмаут на процесот"
+msgstr "Време (во jiffies) за следното истекување на процесот"
 
 #: sysdeps/names/proctime.c:59
 msgid ""
@@ -969,24 +952,20 @@ msgid "EGid"
 msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "Uid"
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "Gid"
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSUid"
-msgstr "Uid"
+msgstr "FSUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSGid"
-msgstr "Gid"
+msgstr "FSGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
@@ -1017,66 +996,60 @@ msgid "Priority"
 msgstr "Приоритет"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "Група ИД"
+msgstr "NGroups"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "Groups"
-msgstr "Група ИД"
+msgstr "Групи"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
-msgstr "ID на Корисник"
+msgstr "ID на корисник"
 
 #: sysdeps/names/procuid.c:57
 msgid "Effective User ID"
-msgstr "Корисничко име"
+msgstr "Ефективен кориснички ID"
 
 #: sysdeps/names/procuid.c:58
 msgid "Group ID"
-msgstr "Група ИД"
+msgstr "ID на група"
 
 #: sysdeps/names/procuid.c:59
 msgid "Effective Group ID"
 msgstr "ID на ефективна Група"
 
 #: sysdeps/names/procuid.c:60
-#, fuzzy
 msgid "Set User ID"
-msgstr "ID на Корисник"
+msgstr "Поставете ID за корисникот"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Set Group ID"
-msgstr "Група ИД"
+msgstr "Поставете ID на група"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Искористеност на фајл системот"
+msgstr "Кориснички ID на датотечниот систем"
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "ID на ефективна Група"
+msgstr "Групен ID на датотечниот систем"
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
-msgstr "ИД на процесот"
+msgstr "ID на процесот"
 
 #: sysdeps/names/procuid.c:65
 msgid "PID of parent process"
-msgstr "ИД на родителскиот процес"
+msgstr "ID на родителскиот процес"
 
 #: sysdeps/names/procuid.c:66
 msgid "Process group ID"
-msgstr "ИД на групата"
+msgstr "ID на групата"
 
 #: sysdeps/names/procuid.c:67
 msgid "Session ID"
-msgstr "ИД на сесијата"
+msgstr "ID на сесијата"
 
 #: sysdeps/names/procuid.c:68
 msgid "Full device number of controlling terminal"
@@ -1092,17 +1065,15 @@ msgstr "Кернел приоритет при распоредување"
 
 #: sysdeps/names/procuid.c:71
 msgid "Standard unix nice level of process"
-msgstr "Стандардно Unix ниво на процеси"
+msgstr "Стандардно јуникс ниво на процеси"
 
 #: sysdeps/names/procuid.c:72
-#, fuzzy
 msgid "Number of additional process groups"
-msgstr "ID на група терминални процеси"
+msgstr "Број на додатни групи за процеси"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Array of additional process groups"
-msgstr "ID на група терминални процеси"
+msgstr "Низа на додатни групи за процеси"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
@@ -1166,15 +1137,15 @@ msgstr "Максимална големина на поделена мемори
 
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Total Swap Space"
-msgstr "Вкупно Swap простор"
+msgstr "Вкупен swap простор"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Used Swap Space"
-msgstr "Искористен Swap простор"
+msgstr "Искористен swap простор"
 
 #: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 msgid "Free Swap Space"
-msgstr "Слободен Swap простор"
+msgstr "Слободен swap простор"
 
 #: sysdeps/names/swap.c:43
 msgid "Page In"
@@ -1301,9 +1272,8 @@ msgid "Idletime"
 msgstr "Време на неактивност"
 
 #: sysdeps/names/uptime.c:41
-#, fuzzy
 msgid "BootTime"
-msgstr "RTime"
+msgstr "При подигнување"
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
@@ -1311,13 +1281,11 @@ msgstr "Време во секунди од последното бутирањ�
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr ""
-"Време во секунди што поминале за неактивна задача од последното бутирање"
+msgstr "Време во секунди што поминале за неактивна задача од последното бутирање"
 
 #: sysdeps/names/uptime.c:48
-#, fuzzy
 msgid "Time of last system boot in seconds since the epoch"
-msgstr "Стартно време  на процесот од во секунди од epoch"
+msgstr "Времето од последното подигнување на системот во секунди од епохата"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1329,7 +1297,7 @@ msgstr "Прекин"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
-msgstr "Напушти"
+msgstr "Излез"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
@@ -1443,44 +1411,3 @@ msgstr "Сигнал 1 дефиниран од корисникот"
 msgid "User defined signal 2"
 msgstr "Сигнал 2 дефиниран од корисникот"
 
-#~ msgid "Unknown system error"
-#~ msgstr "Непозната системска грешка"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: опцијата s %s e премногу општ\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: опцијa. --%s не дозволува аргументи\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: опцијa. --%c%s не дозволува аргументи\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: опцијa. --%s бара аргументи\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: непрепознаена опција --%s\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: непрепознаена опција --%c%s\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: невалидна опција --%c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: невалидна опција --%c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: опцијaбара аргументи --%c \n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s опција  W %s е премногу општа\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s опција W %s не дозволува аргументи\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "Прикажи ја оваа порака за помош"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "Прикажи помош за користење"
