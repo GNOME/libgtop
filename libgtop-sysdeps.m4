@@ -144,8 +144,8 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  if test x$hacker_mode = xyes ; then
 	    case "$host_os" in
 	    sunos4*)
-	      ;; Please note that this port is obsolete and not working at
-	      ;; all. It is only useful for people who want to fix it ... :-)
+	      #Please note that this port is obsolete and not working at
+	      #all. It is only useful for people who want to fix it ... :-)
 	      libgtop_sysdeps_dir=sun4
 	      libgtop_use_machine_h=yes
 	      libgtop_need_server=yes
