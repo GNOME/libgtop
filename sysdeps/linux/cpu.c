@@ -104,6 +104,11 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 		buf->xcpu_sys  [i] = strtoull (p, &p, 0);
 		buf->xcpu_idle [i] = strtoull (p, &p, 0);
 
+		/* 2.6 kernel */
+		buf->xcpu_idle [i]  += strtoull(p, &p, 0); /* "iowait" */
+		buf->xcpu_sys  [i]  += strtoull(p, &p, 0); /* "irq" */
+		buf->xcpu_sys  [i]  += strtoull(p, &p, 0); /* "softirq" */
+
 		total = buf->xcpu_user [i];
 		total += buf->xcpu_nice [i];
 		total += buf->xcpu_sys [i];
