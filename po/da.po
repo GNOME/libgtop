@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.99.3\n"
-"POT-Creation-Date: 2000-05-17 00:15+0200\n"
+"POT-Creation-Date: 2000-05-18 13:18+0200\n"
 "PO-Revision-Date: 1999-09-28 22:43+02:00\n"
 "Last-Translator: Kenneth Christiansen <kenneth@ripen.dk>\n"
 "Language-Team: Dansk/Danish <da@li.org>\n"
@@ -1362,7 +1362,7 @@ msgstr "Systemets oppetid"
 # sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:85
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Load Averange"
-msgstr "Gennemsnitsbelastning"
+msgstr "Middelbelastning"
 
 # sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:86
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
@@ -1452,7 +1452,7 @@ msgstr "PPP-statistik"
 # sysdeps/names/sysdeps.c:97
 #: sysdeps/names/sysdeps.c:93
 msgid "Command line arguments of the process"
-msgstr "Processens kommandolinieargumenter"
+msgstr "Processens kommandolinjeargumenter"
 
 # sysdeps/names/sysdeps.c:99
 #: sysdeps/names/sysdeps.c:95
@@ -1477,7 +1477,7 @@ msgstr "Tid i sekunder siden opstart"
 # sysdeps/names/uptime.c:48
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Tid i sekunder som systemet har brugt i Idle Task siden opstart"
+msgstr "Tid i sekunder som systemet har brugt i passive opgaver siden opstart"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1485,7 +1485,7 @@ msgstr "Hæng på"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
-msgstr "Interrupt"
+msgstr "Afbrud"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
@@ -1497,7 +1497,7 @@ msgstr "Ugyldig instruktion"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
-msgstr ""
+msgstr "Spor fælle"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
@@ -1527,23 +1527,23 @@ msgstr "Processens segmentinformation"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr ""
+msgstr "Ugyldig argument til systemkald"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr ""
+msgstr "Brukket rør"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
-msgstr ""
+msgstr "Alarmklokke"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
-msgstr ""
+msgstr "Terminering"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Vigtig tilstand på sokkel"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
@@ -1551,7 +1551,7 @@ msgstr "Stop"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr ""
+msgstr "Tastaturstop"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
@@ -1559,52 +1559,50 @@ msgstr "Fortsæt"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
-msgstr ""
+msgstr "Barnets status er ændret"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr ""
+msgstr "Læsing fra tty i baggrunden"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr ""
+msgstr "Skriving til tty i baggrunden"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr ""
+msgstr "I/O nu muligt"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
-msgstr ""
+msgstr "Processor-grænse oversteget"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
-msgstr ""
+msgstr "Grænse for filstørrelse overskredet"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
-msgstr ""
+msgstr "Virtuel alarmklokke"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Profilerer alarmklokken"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
-msgstr ""
+msgstr "Ændring i vinduesstørrelse"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
-msgstr ""
+msgstr "Informationsforespørsel"
 
 # sysdeps/names/procsignal.c:49
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
-#, fuzzy
 msgid "User defined signal 1"
-msgstr "Maske af ignorerede signaler"
+msgstr "Brugerdefineret signal 2"
 
 # sysdeps/names/procsignal.c:49
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
-#, fuzzy
 msgid "User defined signal 2"
-msgstr "Maske af ignorerede signaler"
+msgstr "Brugerdefineret signal 2"
