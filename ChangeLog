@@ -1,5 +1,9 @@
 1999-09-29  Martin Baulig  <martin@home-of-linux.org>
 
+	Released LibGTop 1.0.5.
+
+1999-09-29  Martin Baulig  <martin@home-of-linux.org>
+
 	* configure.in (libgtop_top_builddir): AC_SUBST this.
 
 1999-09-24  Martin Baulig  <martin@home-of-linux.org>
