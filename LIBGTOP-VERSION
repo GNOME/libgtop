@@ -8,7 +8,7 @@
 #
 LIBGTOP_MAJOR_VERSION=1
 LIBGTOP_MINOR_VERSION=1
-LIBGTOP_MICRO_VERSION=5
+LIBGTOP_MICRO_VERSION=6
 
 # you can set this to `-snap' for instance to create
 # a `libgtop-1.x.y-snap.tar.gz' tarball.

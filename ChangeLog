@@ -1,3 +1,8 @@
+2000-02-20  Martin Baulig  <martin@home-of-linux.org>
+
+	* LIBGTOP-VERSION: Set version number to 1.1.6, binary age 0,
+	interface age 0.
+
 2000-02-16  Martin Baulig  <martin@home-of-linux.org>
 
 	Released LibGTop 1.1.5 "Sidney".
