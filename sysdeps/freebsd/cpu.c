@@ -51,7 +51,7 @@ static int mib [] = { CTL_KERN, KERN_CLOCKRATE };
 int
 glibtop_init_cpu_p (glibtop *server)
 {
-	if (kvm_nlist (server->machine.kd, nlst) != 0) {
+	if (kvm_nlist (server->_priv->machine.kd, nlst) != 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (cpu)");
 		return -1;
 	}
@@ -80,7 +80,7 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	if (server->sysdeps.cpu == 0)
 		return -1;
 
-	if (kvm_read (server->machine.kd, nlst [0].n_value,
+	if (kvm_read (server->_priv->machine.kd, nlst [0].n_value,
 		      &cpts, sizeof (cpts)) != sizeof (cpts)) {
 		glibtop_warn_io_r (server, "kvm_read (cp_time)");
 		return -1;

@@ -80,7 +80,8 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	if (pid == 0) return -1;
 	
 	/* Get the process information */
-	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	pinfo = kvm_getprocs (server->_priv->machine.kd,
+			      KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1)) {
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
 		return -1;
@@ -110,7 +111,8 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	ucred_ptr = (void *) pinfo [0].kp_eproc.e_pcred.pc_ucred;
 
 	if (ucred_ptr) {
-		if (kvm_read (server->machine.kd, (unsigned long) ucred_ptr,
+		if (kvm_read (server->_priv->machine.kd,
+			      (unsigned long) ucred_ptr,
 			      &ucred, sizeof (ucred)) != sizeof (ucred)) {
 			glibtop_warn_io_r (server, "kvm_read (ucred)");
 		} else {

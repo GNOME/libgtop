@@ -99,7 +99,8 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	if (pid == 0) return -1;
 	
 	/* Get the process information */
-	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	pinfo = kvm_getprocs (server->_priv->machine.kd,
+			      KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1))
 		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
 
@@ -132,7 +133,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	glibtop_suid_enter (server);
 
 	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
-	    kvm_uread (server->machine.kd, &(pinfo [0]).kp_proc,
+	    kvm_uread (server->_priv->machine.kd, &(pinfo [0]).kp_proc,
 		       (unsigned long) &u_addr->u_stats,
 		       (char *) &pstats, sizeof (pstats)) == sizeof (pstats))
 		{
@@ -152,7 +153,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 		}
 
 	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
-	    kvm_uread (server->machine.kd, &(pinfo [0]).kp_proc,
+	    kvm_uread (server->_priv->machine.kd, &(pinfo [0]).kp_proc,
 		       (unsigned long) &u_addr->u_pcb,
 		       (char *) &pcb, sizeof (pcb)) == sizeof (pcb))
 		{

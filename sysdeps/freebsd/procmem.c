@@ -133,13 +133,14 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	if (pid == 0) return -1;
 	
 	/* Get the process data */
-	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	pinfo = kvm_getprocs (server->_priv->machine.kd,
+			      KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count < 1)) {
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
 		return -1;
 	}
 
-	if (kvm_read (server->machine.kd,
+	if (kvm_read (server->_priv->machine.kd,
 		      (unsigned long) pinfo [0].kp_proc.p_limit,
 		      (char *) &plimit, sizeof (plimit)) != sizeof (plimit)) {
 		glibtop_warn_io_r (server, "kvm_read (plimit)");
@@ -159,7 +160,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 	/* Now we get the shared memory. */
 
-	if (kvm_read (server->machine.kd,
+	if (kvm_read (server->_priv->machine.kd,
 		      (unsigned long) pinfo [0].kp_proc.p_vmspace,
 		      (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace)) {
 		glibtop_warn_io_r (server, "kvm_read (vmspace)");
@@ -168,7 +169,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 	first = vmspace.vm_map.header.next;
 
-	if (kvm_read (server->machine.kd,
+	if (kvm_read (server->_priv->machine.kd,
 		      (unsigned long) vmspace.vm_map.header.next,
 		      (char *) &entry, sizeof (entry)) != sizeof (entry)) {
 		glibtop_warn_io_r (server, "kvm_read (entry)");
@@ -182,7 +183,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	 * to OBJT_DEFAULT so if seems this really works. */
 
 	while (entry.next != first) {
-		if (kvm_read (server->machine.kd,
+		if (kvm_read (server->_priv->machine.kd,
 			      (unsigned long) entry.next,
 			      &entry, sizeof (entry)) != sizeof (entry)) {
 			glibtop_warn_io_r (server, "kvm_read (entry)");
@@ -213,7 +214,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 		/* We're only interested in vnodes */
 
-		if (kvm_read (server->machine.kd,
+		if (kvm_read (server->_priv->machine.kd,
 			      (unsigned long) entry.object.uvm_obj,
 			      &vnode, sizeof (vnode)) != sizeof (vnode)) {
 			glibtop_warn_io_r (server, "kvm_read (vnode)");
@@ -225,7 +226,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 		/* We're only interested in `vm_object's */
 
-		if (kvm_read (server->machine.kd,
+		if (kvm_read (server->_priv->machine.kd,
 			      (unsigned long) entry.object.vm_object,
 			      &object, sizeof (object)) != sizeof (object)) {
 			glibtop_warn_io_r (server, "kvm_read (object)");

@@ -47,14 +47,13 @@ glibtop_init_proc_args_p (glibtop *server)
 
 /* Provides detailed information about a process. */
 
-char *
-glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
-			 pid_t pid, unsigned max_len)
+char **
+glibtop_get_proc_args_p (glibtop *server, glibtop_array *buf, pid_t pid)
 {
 	struct kinfo_proc *pinfo;
 	char *retval, **args, **ptr;
 	unsigned size = 0, pos = 0;
-	int count;
+	int max_len = BUFSIZ, count;
 
 #ifndef __bsdi__
 	char filename [BUFSIZ];
@@ -76,14 +75,15 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 	glibtop_suid_enter (server);
 
 	/* Get the process data */
-	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	pinfo = kvm_getprocs (server->_priv->machine.kd,
+			      KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count < 1)) {
 		glibtop_suid_leave (server);
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
 		return NULL;
 	}
 
-	args = kvm_getargv (server->machine.kd, pinfo, max_len);
+	args = kvm_getargv (server->_priv->machine.kd, pinfo, max_len);
 	if (args == NULL) {
 		glibtop_suid_leave (server);
 		glibtop_warn_io_r (server, "kvm_getargv (%d)", pid);

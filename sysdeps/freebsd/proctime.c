@@ -155,7 +155,8 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 #endif
 
 	/* Get the process information */
-	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	pinfo = kvm_getprocs (server->_priv->machine.kd,
+			      KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1))
 		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
 
@@ -171,7 +172,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
 	glibtop_suid_enter (server);
 
-	if (kvm_read (server->machine.kd,
+	if (kvm_read (server->_priv->machine.kd,
 		      (unsigned long) pinfo [0].kp_proc.p_stats,
 		      &pstats, sizeof (pstats)) != sizeof (pstats)) {
 		glibtop_warn_io_r (server, "kvm_read (pstats)");
@@ -197,7 +198,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	glibtop_suid_enter (server);
 
 	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
-	    kvm_uread (server->machine.kd, &(pinfo [0]).kp_proc,
+	    kvm_uread (server->_priv->machine.kd, &(pinfo [0]).kp_proc,
 		       (unsigned long) &u_addr->u_stats,
 		       (char *) &pstats, sizeof (pstats)) == sizeof (pstats))
 		{

@@ -72,7 +72,8 @@ glibtop_get_proc_state_p (glibtop *server,
 	if (pid == 0) return -1;
 	
 	/* Get the process information */
-	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	pinfo = kvm_getprocs (server->_priv->machine.kd,
+			      KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1)) {
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
 		return -1;
