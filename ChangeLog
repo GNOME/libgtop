@@ -1,3 +1,7 @@
+1999-09-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in (libgtop_top_builddir): AC_SUBST this.
+
 1999-09-27  Rodrigo Stulzer Lopes <rodrigo@conectiva.com.br>
 
 	* configure.in: Added "pt_BR" to ALL_LINGUAS.

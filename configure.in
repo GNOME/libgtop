@@ -53,6 +53,10 @@ AC_PROG_CC
 AC_STDC_HEADERS
 AC_ARG_PROGRAM
 
+dnl We need this at some places.
+libgtop_top_builddir=`pwd`
+AC_SUBST(libgtop_top_builddir)
+
 dnl We don't use `AC_PROG_AWK' since it checks for mawk first which
 dnl does not work for libgtop.
 AC_CHECK_PROGS(AWK, gawk awk, )
