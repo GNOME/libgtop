@@ -23,6 +23,11 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <config.h>
+
+#include <glib/gstrfuncs.h>
+#include <errno.h>
+
 #include <glibtop/error.h>
 
 #define DEFAULT_NAME	"LibGTop-Server"
@@ -56,7 +61,7 @@ glibtop_error_io_vr (glibtop_server *server, char *format, int error, va_list ar
 {
     print_server_name (server);
     vfprintf (stderr, format, args);
-    fprintf (stderr, ": %s\n", strerror (error));
+    fprintf (stderr, ": %s\n", g_strerror (error));
 
 #ifdef LIBGTOP_ENABLE_DEBUG
     abort ();
@@ -82,7 +87,7 @@ glibtop_warn_io_vr (glibtop_server *server, char *format, int error, va_list arg
 {
     print_server_name (server);
     vfprintf (stderr, format, args);
-    fprintf (stderr, ": %s\n", strerror (error));
+    fprintf (stderr, ": %s\n", g_strerror (error));
 
 #ifdef LIBGTOP_FATAL_WARNINGS
     abort ();
