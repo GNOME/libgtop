@@ -1,3 +1,23 @@
+1999-12-19  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/errors.h: New file. We define `GLIBTOP_ERROR_*'
+	error constants here.
+
+	* lib/errors.c: New file.
+	(glibtop_error_strings): Array of error messages.
+	(glibtop_get_error_string_l): Get error message.
+
+	* include/glibtop/parameter.h: Added `GLIBTOP_PARAM_REMOTE_USER' and
+	`GLIBTOP_PARAM_PATH_RSH'.
+
+	* lib/parameter.c (glibtop_get_parameter_l): Changed return value
+	from `size_t' to `ssize_t' and let it return an error constant.
+	(glibtop_get_parameter_size_l): New function.
+	(glibtop_set_parameter_l): Changed return value from `void' to `int'
+	and let it return an error constant on error.
+
+	* structures.def (glibtop_sysdeps): Added.
+
 1999-12-12  Martin Baulig  <martin@home-of-linux.org>
 
 	All functions which return an array now take a `glibtop_array *array'

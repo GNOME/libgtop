@@ -41,6 +41,7 @@
 typedef struct _glibtop		glibtop;
 
 #include <glibtop/sysdeps.h>
+#include <glibtop/errors.h>
 
 struct _glibtop
 {

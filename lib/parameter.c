@@ -22,10 +22,12 @@
 */
 
 #include <glibtop.h>
+#include <glibtop/xmalloc.h>
 #include <glibtop/parameter.h>
 
 #define _write_data(ptr,size)	\
-	if ((data_ptr == NULL) || (data_size < size)) return -size; \
+	if ((data_ptr == NULL) || (data_size < size)) \
+		return -GLIBTOP_ERROR_SIZE_MISMATCH; \
 	if (ptr == NULL) { strcpy (data_ptr, ""); return 1; } \
 	memcpy (data_ptr, ptr, size);	\
 	return size;
@@ -35,12 +37,12 @@
 		glibtop_warn_r (server, "glibtop_set_parameter (%d): " \
 				"Expected %lu bytes but got %lu.", \
 				parameter, size, data_size); \
-		return; \
+		return -GLIBTOP_ERROR_SIZE_MISMATCH; \
 	}
 
 #define _strlen(ptr)	(ptr ? strlen (ptr) : 0)
 
-size_t
+ssize_t
 glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
 			 void *data_ptr, size_t data_size)
 {
@@ -60,6 +62,12 @@ glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
 	case GLIBTOP_PARAM_PORT:
 		_write_data (&server->server_port,
 			     sizeof (server->server_port));
+	case GLIBTOP_PARAM_REMOTE_USER:
+		_write_data (server->server_user,
+			     _strlen(server->server_user));
+	case GLIBTOP_PARAM_PATH_RSH:
+		_write_data (server->server_rsh,
+			     _strlen(server->server_rsh));
 	case GLIBTOP_PARAM_ERROR_METHOD:
 		_write_data (&server->error_method,
 			     sizeof (server->error_method));
@@ -68,10 +76,37 @@ glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
 			     sizeof (server->required));
 	}
 
-	return 0;
+	return -GLIBTOP_ERROR_NO_SUCH_PARAMETER;
 }
 
-void
+int
+glibtop_get_parameter_size_l (glibtop *server, const unsigned parameter)
+{
+	switch (parameter) {
+	case GLIBTOP_PARAM_METHOD:
+	    return sizeof (server->method);
+	case GLIBTOP_PARAM_FEATURES:
+	    return sizeof (server->features);
+	case GLIBTOP_PARAM_COMMAND:
+	    return _strlen(server->server_command);
+	case GLIBTOP_PARAM_HOST:
+	    return _strlen(server->server_host);
+	case GLIBTOP_PARAM_PORT:
+	    return sizeof (server->server_port);
+	case GLIBTOP_PARAM_REMOTE_USER:
+	    return _strlen(server->server_user);
+	case GLIBTOP_PARAM_PATH_RSH:
+	    return _strlen(server->server_rsh);
+	case GLIBTOP_PARAM_ERROR_METHOD:
+	    return sizeof (server->error_method);
+	case GLIBTOP_PARAM_REQUIRED:
+	    return sizeof (server->required);
+	}
+
+	return -GLIBTOP_ERROR_NO_SUCH_PARAMETER;
+}
+
+int
 glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
 			 const void *data_ptr, size_t data_size)
 {
@@ -81,10 +116,31 @@ glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
 		memcpy (&server->method, data_ptr, data_size);
 		break;
 	case GLIBTOP_PARAM_FEATURES:
-		/* You should not be allowed to set this field. */
-		glibtop_warn_r (server, "glibtop_set_parameter (%d): " \
-				"Cannot modify read-only value.",
-				parameter);
+		return -GLIBTOP_ERROR_READONLY_VALUE;
+		break;
+	case GLIBTOP_PARAM_COMMAND:
+		if (server->server_command)
+			glibtop_free_r (server, server->server_command);
+		server->server_command = glibtop_strdup_r (server, data_ptr);
+		break;
+	case GLIBTOP_PARAM_HOST:
+		if (server->server_host)
+			glibtop_free_r (server, server->server_host);
+		server->server_host = glibtop_strdup_r (server, data_ptr);
+		break;
+	case GLIBTOP_PARAM_PORT:
+		_check_data (sizeof (server->server_port));
+		memcpy (&server->server_port, data_ptr, data_size);
+		break;
+	case GLIBTOP_PARAM_REMOTE_USER:
+		if (server->server_user)
+			glibtop_free_r (server, server->server_user);
+		server->server_user = glibtop_strdup_r (server, data_ptr);
+		break;
+	case GLIBTOP_PARAM_PATH_RSH:
+		if (server->server_rsh)
+			glibtop_free_r (server, server->server_rsh);
+		server->server_rsh = glibtop_strdup_r (server, data_ptr);
 		break;
 	case GLIBTOP_PARAM_ERROR_METHOD:
 		_check_data (sizeof (server->error_method));
@@ -94,5 +150,9 @@ glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
 		_check_data (sizeof (server->required));
 		memcpy (&server->required, data_ptr, data_size);
 		break;
+	default:
+	  return -GLIBTOP_ERROR_NO_SUCH_PARAMETER;
 	}
+
+	return 0;
 }
