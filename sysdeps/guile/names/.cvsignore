@@ -7,3 +7,4 @@ Makefile.in
 libgtop_guile.la
 libgtop_guile_names.la
 *.lo
+*.x

@@ -14,6 +14,8 @@
 
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
+CFLAGS				= @CFLAGS@ -D_BSD
+
 if NEED_LIBGTOP
 suid_sysdeps			= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid.la
 suid_common			= $(top_builddir)/sysdeps/common/libgtop_suid_common.la

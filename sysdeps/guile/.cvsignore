@@ -6,3 +6,4 @@ guile.c
 so_locations
 libgtop_guile.la
 *.lo
+*.x

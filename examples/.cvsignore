@@ -11,3 +11,4 @@ third_linux
 third_static
 second_static
 second_linux
+smp sysdeps netload procmap mountlist
