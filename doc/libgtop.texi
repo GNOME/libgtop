@@ -16,6 +16,10 @@
 
 
 
+
+
+
+
  --- The Detailed Node Listing ---
 
 About LibGTop
@@ -29,6 +33,9 @@ LibGTop Reference Manual
 
 * glibtop_cpu::                 CPU Usage.
 * glibtop_mem::                 Memory Usage.
+* glibtop_swap::                Swap Usage.
+* glibtop_uptime::              System Uptime.
+* glibtop_loadavg::             Load Average.
 @end menu
 
 @include about.texi

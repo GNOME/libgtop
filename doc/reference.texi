@@ -5,6 +5,8 @@
 * glibtop_cpu::                 CPU Usage.
 * glibtop_mem::                 Memory Usage.
 * glibtop_swap::                Swap Usage.
+* glibtop_uptime::              System Uptime.
+* glibtop_loadavg::             Load Average.
 @end menu
 
 @node glibtop_cpu, glibtop_mem, Reference Manual, Reference Manual
@@ -131,7 +133,7 @@ Memory in locked segments.
 
 @end table
 
-@node glibtop_swap,  , glibtop_mem, Reference Manual
+@node glibtop_swap, glibtop_uptime, glibtop_mem, Reference Manual
 @section Swap Usage
 
 Declaration of @code{glibtop_swap} in @file{<glibtop/swap.h}:
@@ -179,3 +181,89 @@ Total number of swap pages that have been brought in since system boot
 Total number of swap pages that have been brought out since system boot
 
 @end table
+
+@node glibtop_uptime, glibtop_loadavg, glibtop_swap, Reference Manual
+@section Uptime
+
+Declaration of @code{glibtop_uptime} in @file{<glibtop/uptime.h}:
+
+@example
+@cartouche
+typedef struct _glibtop_uptime  glibtop_uptime;
+
+struct _glibtop_uptime
+{
+    u_int64_t flags;
+    double uptime,
+        idletime;
+    u_int64_t boot_time;
+};
+@end cartouche
+@end example
+
+When porting LibGTop to a new system, you only need to implement @code{uptime}
+and @code{idletime} if there's a faster or better way to obtain them as using
+@code{glibtop_cpu} for it. Look at @file{sysdeps/freebsd/uptime.c} for an
+example on how to obtain them using @code{glibtop_cpu}.
+
+@table @code
+@item uptime
+Time in seconds since system boot.
+
+@item idletime
+Time in seconds the system spent in the idle task since system boot.
+@end table
+
+The following one was from a request on the @samp{linux-kernel} mailing list;
+on a laptop with advanced power management @code{glibtop_cpu.total} may not
+reflect the correct boot time of the system if the power was turned off by
+means of APM in the meantime.
+
+@table @code
+@item boot_time
+Time of last system boot in seconds since the epoch.
+@end table
+
+@node glibtop_loadavg,  , glibtop_uptime, Reference Manual
+@section Load Average
+
+Declaration of @code{glibtop_loadavg} in @file{<glibtop/loadavg.h}:
+
+@example
+@cartouche
+typedef struct _glibtop_loadavg glibtop_loadavg;
+
+struct _glibtop_loadavg
+{
+    u_int64_t flags;
+    double loadavg [3];
+    u_int64_t nr_running,
+        nr_tasks,
+        last_pid;
+};
+@end cartouche
+@end example
+
+@table @code
+@item loadavg
+
+Number of jobs running simultaneously averaged over 1, 5 and 15 minutes.
+
+@end table
+
+The following fields are Linux specific and deprecated. You don't need to
+implement them when porting LibGTop to a new system as they may be removed
+in a future version.
+
+@table @code
+@item nr_running
+Number of tasks currently running.
+
+@item nr_tasks
+Total number of tasks.
+
+@item last_pid
+Last PID.
+@end table
+
+
