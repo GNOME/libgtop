@@ -1,5 +1,7 @@
 1999-07-29  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/error.h: Use G_GNUC_UNUSED.
+
 	* configure.in (ENABLE_STATIC, ENABLE_SHARED): New automake
 	conditionals.
 
