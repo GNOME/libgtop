@@ -50,7 +50,7 @@ glibtop_guile_types_swap (void)
 	
 	for (i = 0; i < GLIBTOP_MAX_SWAP; i++)
 		list = gh_append (gh_list (list,
-					   gh_list (gh_str02scm (gettext (glibtop_types_swap [i]))),
+					   gh_list (gh_ulong2scm (glibtop_types_swap [i])),
 					   SCM_UNDEFINED));
 	
 	return list;

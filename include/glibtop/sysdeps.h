@@ -27,7 +27,7 @@
 
 __BEGIN_DECLS
 
-#define GLIBTOP_SYSDEPS_DUMMY		0
+#define GLIBTOP_SYSDEPS_FEATURES	0
 #define GLIBTOP_SYSDEPS_CPU		1
 #define GLIBTOP_SYSDEPS_MEM		2
 #define GLIBTOP_SYSDEPS_SWAP		3
@@ -101,7 +101,7 @@ extern SCM glibtop_guile_descriptions_sysdeps __P((void));
 /* You need to link with -lgtop_names to get this stuff here. */
 
 extern const char *glibtop_names_sysdeps [];
-extern const char *glibtop_types_sysdeps [];
+extern const unsigned glibtop_types_sysdeps [];
 extern const char *glibtop_labels_sysdeps [];
 extern const char *glibtop_descriptions_sysdeps [];
 

@@ -1,5 +1,16 @@
 1998-06-12  Martin Baulig  <baulig@taurus.uni-trier.de>
 
+	* include/glibtop/sysdeps.h (glibtop_types_sysdeps):
+	Forgot to change declaration on Jun 6.
+	
+	* sysdeps/names/sysdeps.c (glibtop_types_sysdeps):
+	Using numeric constants from `types.h' instead of string
+	constants; forgot to change this on Jun 6. Added information
+	about new `features' field of `_glibtop_sysdeps'.
+
+	* sysdeps/guile/names/*.c (glibtop_guile_types_*):
+	Using `gh_ulong2scm' instead of `gh_str02scm'.
+
 	* sysdeps/guile/proclist.c: Replaced call to
 	`gh_append2 ()' with `gh_append ()'.
 

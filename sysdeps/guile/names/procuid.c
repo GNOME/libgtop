@@ -52,7 +52,7 @@ glibtop_guile_types_proc_uid (void)
 	for (i = 0; i < GLIBTOP_MAX_PROC_UID; i++)
 		list = gh_append
 			(gh_list (list,
-				  gh_list (gh_str02scm (glibtop_types_proc_uid [i])),
+				  gh_list (gh_ulong2scm (glibtop_types_proc_uid [i])),
 				  SCM_UNDEFINED));
 	
 	return list;

@@ -23,22 +23,25 @@
 
 const char *glibtop_names_sysdeps [GLIBTOP_MAX_SYSDEPS] =
 {
-	"cpu", "mem", "swap", "uptime", "loadavg", "shm_limits",
-	"msg_limits", "sem_limits", "proclist", "proc_state",
-	"proc_uid", "proc_mem", "proc_time", "proc_signal",
-	"proc_kernel", "proc_segment"
+	"features", "cpu", "mem", "swap", "uptime", "loadavg",
+	"shm_limits", "msg_limits", "sem_limits", "proclist",
+	"proc_state", "proc_uid", "proc_mem", "proc_time",
+	"proc_signal", "proc_kernel", "proc_segment"
 };
 
-const char *glibtop_types_sysdeps [GLIBTOP_MAX_SYSDEPS] =
+const unsigned glibtop_types_sysdeps [GLIBTOP_MAX_SYSDEPS] =
 {
-	"unsigned long", "unsigned long", "unsigned long", "unsigned long",
-	"unsigned long", "unsigned long", "unsigned long", "unsigned long",
-	"unsigned long", "unsigned long", "unsigned long", "unsigned long",
-	"unsigned long", "unsigned long", "unsigned long", "unsigned long"
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_sysdeps [GLIBTOP_MAX_SYSDEPS] =
 {
+	N_("Server Features"),
 	N_("CPU Usage"),
 	N_("Memory Usage"),
 	N_("Swap Usage"),
@@ -59,6 +62,7 @@ const char *glibtop_labels_sysdeps [GLIBTOP_MAX_SYSDEPS] =
 
 const char *glibtop_descriptions_sysdeps [GLIBTOP_MAX_SYSDEPS] =
 {
+	N_("Server Features"),
 	N_("CPU Usage"),
 	N_("Memory Usage"),
 	N_("Swap Usage"),

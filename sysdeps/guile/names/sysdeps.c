@@ -50,7 +50,7 @@ glibtop_guile_types_sysdeps (void)
 	
 	for (i = 0; i < GLIBTOP_MAX_SYSDEPS; i++)
 		list = gh_append (gh_list (list,
-					   gh_list (gh_str02scm (gettext (glibtop_types_sysdeps [i]))),
+					   gh_list (gh_ulong2scm (glibtop_types_sysdeps [i])),
 					   SCM_UNDEFINED));
 	
 	return list;

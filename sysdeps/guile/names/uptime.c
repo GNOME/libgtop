@@ -50,7 +50,7 @@ glibtop_guile_types_uptime (void)
 	
 	for (i = 0; i < GLIBTOP_MAX_UPTIME; i++)
 		list = gh_append (gh_list (list,
-					   gh_list (gh_str02scm (gettext (glibtop_types_uptime [i]))),
+					   gh_list (gh_ulong2scm (glibtop_types_uptime [i])),
 					   SCM_UNDEFINED));
 	
 	return list;
