@@ -41,11 +41,12 @@ BEGIN {
   print "/* Library functions. */";
   print "";
 
-  convert["long"]   = "int64_t";
-  convert["ulong"]  = "u_int64_t";
-  convert["pid_t"]  = "pid_t";
-  convert["int"]    = "int";
-  convert["ushort"] = "unsigned short";
+  convert["long"]     = "int64_t";
+  convert["ulong"]    = "u_int64_t";
+  convert["pid_t"]    = "pid_t";
+  convert["int"]      = "int";
+  convert["ushort"]   = "unsigned short";
+  convert["unsigned"] = "unsigned";
 }
 
 function output(line) {

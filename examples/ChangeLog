@@ -1,3 +1,8 @@
+1998-10-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* first.c (glibtop_get_proc_args): Get command line arguments.
+	* second.c: Likewise.
+
 1998-10-25  Martin Baulig  <martin@home-of-linux.org>
 
 	* first.c (glibtop_get_ppp): Get PPP/ISDN statistics.

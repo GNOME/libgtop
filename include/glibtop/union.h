@@ -39,6 +39,7 @@
 #include <glibtop/procsignal.h>
 #include <glibtop/prockernel.h>
 #include <glibtop/procsegment.h>
+#include <glibtop/procargs.h>
 #include <glibtop/procmap.h>
 
 #include <glibtop/mountlist.h>
@@ -68,6 +69,7 @@ union _glibtop_union
 	glibtop_proc_signal	proc_signal;
 	glibtop_proc_kernel	proc_kernel;
 	glibtop_proc_segment	proc_segment;
+	glibtop_proc_args	proc_args;
 	glibtop_proc_map	proc_map;
 	glibtop_mountlist	mountlist;
 	glibtop_fsusage		fsusage;

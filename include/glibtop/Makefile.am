@@ -7,4 +7,4 @@ glibtop_HEADERS		= close.h loadavg.h prockernel.h procstate.h \
 			  procsegment.h read.h sysdeps.h xmalloc.h global.h \
 			  procsignal.h read_data.h union.h types.h gnuserv.h \
 			  parameter.h mountlist.h fsusage.h procmap.h signal.h \
-			  inodedb.h sysinfo.h ppp.h
+			  inodedb.h sysinfo.h ppp.h procargs.h

@@ -90,6 +90,9 @@ glibtop_init_func_t _glibtop_init_hook_s [] = {
 #if !GLIBTOP_SUID_PROC_SEGMENT
 	glibtop_init_proc_segment_s,
 #endif
+#if !GLIBTOP_SUID_PROC_ARGS
+	glibtop_init_proc_args_s,
+#endif
 #if !GLIBTOP_SUID_PROC_MAP
 	glibtop_init_proc_map_s,
 #endif

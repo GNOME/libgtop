@@ -29,6 +29,7 @@ handle_parent_connection (int s)
 	glibtop_command _cmnd, *cmnd = &_cmnd;
 	glibtop_mountentry *mount_list;
 	char parameter [BUFSIZ];
+	unsigned short device;
 	int64_t *param_ptr;
 	int all_fs;
 	pid_t pid;
@@ -193,7 +194,7 @@ handle_parent_connection (int s)
 			do_output (s, resp, _offset_data (proc_segment), 0, NULL);
 			break;
 		case GLIBTOP_CMND_MOUNTLIST:
-		  memcpy (&all_fs, parameter, sizeof (all_fs));
+			memcpy (&all_fs, parameter, sizeof (all_fs));
 			mount_list = glibtop_get_mountlist_l
 				(server, &resp->u.data.mountlist, all_fs);
 			do_output (s, resp, _offset_data (mountlist),
@@ -205,6 +206,12 @@ handle_parent_connection (int s)
 				(server, &resp->u.data.fsusage, parameter);
 			do_output (s, resp, _offset_data (fsusage),
 				   0, NULL);
+			break;
+		case GLIBTOP_CMND_PPP:
+			memcpy (&device, parameter, sizeof (device));
+			glibtop_get_ppp_l
+				(server, &resp->u.data.ppp, device);
+			do_output (s, resp, _offset_data (ppp), 0, NULL);
 			break;
 		default:
 			glibtop_warn ("Parent received unknown command %u",

@@ -43,7 +43,7 @@ main (int argc, char *argv [])
 	glibtop_union data;
 	glibtop_sysdeps sysdeps;
 	unsigned c, method, count, port, i, *ptr;
-	char buffer [BUFSIZ];
+	char buffer [BUFSIZ], *args;
 	pid_t pid, ppid;
 
 	count = PROFILE_COUNT;
@@ -324,6 +324,17 @@ main (int argc, char *argv [])
 
 	printf ("\n");
 
+	args = glibtop_get_proc_args (&data.proc_args, pid, 0);
+
+	printf ("Proc_Args    PID  %5d (0x%08lx): %lu - '%s'\n", (int) pid,
+		(unsigned long) data.proc_args.flags,
+		(unsigned long) data.proc_args.size,
+		args);
+
+	glibtop_free (args);
+
+	printf ("\n");
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_state (&data.proc_state, ppid);
 
@@ -415,6 +426,17 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_kernel.kstk_eip,
 		(unsigned long) data.proc_kernel.nwchan,
 		data.proc_kernel.wchan);
+
+	printf ("\n");
+
+	args = glibtop_get_proc_args (&data.proc_args, ppid, 0);
+
+	printf ("Proc_Args    PID  %5d (0x%08lx): %lu - '%s'\n", (int) ppid,
+		(unsigned long) data.proc_args.flags,
+		(unsigned long) data.proc_args.size,
+		args);
+
+	glibtop_free (args);
 
 	printf ("\n");
 
@@ -510,6 +532,17 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_kernel.kstk_eip,
 		(unsigned long) data.proc_kernel.nwchan,
 		data.proc_kernel.wchan);
+
+	printf ("\n");
+
+	args = glibtop_get_proc_args (&data.proc_args, 1, 0);
+
+	printf ("Proc_Args    PID  %5d (0x%08lx): %lu - '%s'\n", 1,
+		(unsigned long) data.proc_args.flags,
+		(unsigned long) data.proc_args.size,
+		args);
+
+	glibtop_free (args);
 
 	glibtop_close ();
 

@@ -35,6 +35,7 @@ static void
 output (pid_t pid)
 {
 	glibtop_union data;
+	char *args;
 #if HAVE_LIBGTOP_SMP
 	unsigned long total;
 	double p_total, p_utime, p_stime;
@@ -132,6 +133,17 @@ output (pid_t pid)
 		(unsigned long) data.proc_kernel.kstk_eip,
 		(unsigned long) data.proc_kernel.nwchan,
 		data.proc_kernel.wchan);
+
+	printf ("\n");
+
+	args = glibtop_get_proc_args (&data.proc_args, pid, 0);
+
+	printf ("Proc_Args    PID  %5d (0x%08lx): %lu - '%s'\n", (int) pid,
+		(unsigned long) data.proc_args.flags,
+		(unsigned long) data.proc_args.size,
+		args);
+
+	glibtop_free (args);
 
 	printf ("\n");
 

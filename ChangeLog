@@ -1,3 +1,13 @@
+1998-10-26  Martin Baulig  <martin@home-of-linux.org>
+
+	Added `Command Line Parameters' feature (proc_args).
+
+	* include/glibtop/proc_args.h: New file.
+	* features.def: Added new feature `proc_args'.
+
+	* lib/lib.awk: New type `unsigned' for the features.def which
+	is `unsigned'.
+
 1998-10-25  Martin Baulig  <martin@home-of-linux.org>
 
 	Added PPP/ISDN support.

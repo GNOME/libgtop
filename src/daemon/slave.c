@@ -27,6 +27,8 @@ handle_slave_connection (int input, int output)
 	glibtop *server = glibtop_global_server;
 	int64_t *param_ptr;
 	void *ptr;
+
+	unsigned short max_len;
 	pid_t pid;
 
 	glibtop_response _resp, *resp = &_resp;
@@ -77,6 +79,19 @@ handle_slave_connection (int input, int output)
 			glibtop_free_r (server, ptr);
 			break;
 #endif
+#if GLIBTOP_SUID_PROC_ARGS
+		case GLIBTOP_CMND_PROC_ARGS:
+			memcpy (&pid, parameter, sizeof (pid_t));
+			memcpy (&max_len, parameter + sizeof (pid_t),
+				sizeof (max_len));
+			ptr = glibtop_get_proc_args_p (server,
+						       &resp->u.data.proc_args,
+						       pid, max_len);
+			do_output (output, resp, _offset_data (proc_args),
+				   resp->u.data.proc_args.size, ptr);
+			glibtop_free_r (server, ptr);
+			break;
+#endif
 #if GLIBTOP_SUID_PROC_MAP
 		case GLIBTOP_CMND_PROC_MAP:
 			memcpy (&pid, parameter, sizeof (pid_t));
@@ -101,7 +116,7 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 		      const void *parameter)
 {
 	glibtop *server = glibtop_global_server;
-	unsigned short device;
+	unsigned device;
 	pid_t pid;
 
 	switch (cmnd->command) {

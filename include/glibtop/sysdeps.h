@@ -43,12 +43,13 @@ __BEGIN_DECLS
 #define GLIBTOP_SYSDEPS_PROC_SIGNAL	14
 #define GLIBTOP_SYSDEPS_PROC_KERNEL	15
 #define GLIBTOP_SYSDEPS_PROC_SEGMENT	16
-#define GLIBTOP_SYSDEPS_PROC_MAP	17
-#define GLIBTOP_SYSDEPS_MOUNTLIST	18
-#define GLIBTOP_SYSDEPS_FSUSAGE		19
-#define GLIBTOP_SYSDEPS_PPP		20
+#define GLIBTOP_SYSDEPS_PROC_ARGS	17
+#define GLIBTOP_SYSDEPS_PROC_MAP	18
+#define GLIBTOP_SYSDEPS_MOUNTLIST	19
+#define GLIBTOP_SYSDEPS_FSUSAGE		20
+#define GLIBTOP_SYSDEPS_PPP		21
 
-#define GLIBTOP_MAX_SYSDEPS		21
+#define GLIBTOP_MAX_SYSDEPS		22
 
 #define GLIBTOP_SYSDEPS_ALL		((1 << GLIBTOP_MAX_SYSDEPS) - 1)
 
@@ -78,6 +79,7 @@ struct _glibtop_sysdeps
 		proc_signal,		/* glibtop_proc_signal	*/
 		proc_kernel,		/* glibtop_proc_kernel	*/
 		proc_segment,		/* glibtop_proc_segment	*/
+		proc_args,		/* glibtop_proc_args	*/
 		proc_map,		/* glibtop_proc_map	*/
 		mountlist,		/* glibtop_mountlist	*/
 		fsusage,		/* glibtop_fsusage	*/
