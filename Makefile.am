@@ -20,6 +20,9 @@ EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt libgtopConf.sh.in \
 	libgtop-sysdeps.m4 ANNOUNCE ANNOUNCE-0.25 README.LATEST \
 	libgtop-mirror.sh
 
+dist-hook:
+	cp libgtop.spec $(distdir)
+
 release:
 	$(MAKE) dist distdir=$(PACKAGE)-$(VERSION)
 
