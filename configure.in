@@ -54,14 +54,15 @@ fi
 
 GNOME_LIBGTOP_SYSDEPS
 
-libgtop_want_guile=yes
+GNOME_CHECK_GUILE
 
-if test x$libgtop_want_guile = xyes ; then
-  GNOME_CHECK_GUILE
+if test x$ac_cv_guile_found = xyes ; then
   AC_DEFINE(GLIBTOP_GUILE_NAMES)
+  libgtop_guile_found=yes
   guile_examples='third third_static'
   guile_subdirs='guile'
 else
+  libgtop_guile_found=no
   guile_examples=
   guile_subdirs=
 fi
@@ -184,18 +185,24 @@ LIBGTOP_NAMES_LIBS="$LIBGTOP_NAMES_LIBS $libs_xauth"
 LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $libs_xauth"
 LIBGTOP_GUILE_NAMES_LIBS="$LIBGTOP_GUILE_NAMES_LIBS $libs_xauth"
 
+LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $GUILE_LIBS"
+LIBGTOP_GUILE_INCS="$LIBGTOP_GUILE_INCS $GUILE_INCS -DGLIBTOP_GUILE"
+
 LIBGTOP_NAMES_INCS="$LIBGTOP_INCS -DGLIBTOP_NAMES"
 LIBGTOP_GUILE_NAMES_INCS="$LIBGTOP_GUILE_INCS -DGLIBTOP_GUILE_NAMES"
 LIBGTOP_GUILE_NAMES_INCS="$LIBGTOP_GUILE_INCS -DGLIBTOP_NAMES"
-
-LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $GUILE_LIBS"
-LIBGTOP_GUILE_INCS="$LIBGTOP_GUILE_INCS $GUILE_INCS"
 
 machine_incs="-I\$(top_srcdir)/sysdeps/$sysdeps_dir"
 
 AC_SUBST(machine_incs)
 
-INCLUDES="$CFLAGS -D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -DGLIBTOP_GUILE -DGLIBTOP_GUILE_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_srcdir)/intl $GUILE_INCS "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
+if test x$libgtop_guile_found = xyes ; then
+  guile_def="-DGLIBTOP_GUILE -DGLIBTOP_GUILE_NAMES $GUILE_INCS "
+else
+  guile_def=""
+fi
+
+INCLUDES="$CFLAGS -D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES $guile_def -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_srcdir)/intl "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
 
 AC_SUBST(INCLUDES)
 
