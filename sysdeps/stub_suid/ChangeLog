@@ -1,3 +1,8 @@
+2000-02-06  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am: Removed the non-suid `libgtop-sysdeps.la'.
+	* nosuid.c: Removed.
+
 1999-12-26  Martin Baulig  <martin@home-of-linux.org>
 
 	* netinfo.c: New file.

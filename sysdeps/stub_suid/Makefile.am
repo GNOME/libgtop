@@ -2,11 +2,7 @@ LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 INCLUDES			= @INCLUDES@
 
-lib_LTLIBRARIES			= libgtop_sysdeps.la libgtop_sysdeps_suid.la
-
-libgtop_sysdeps_la_SOURCES	= nosuid.c
-
-libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO)
+lib_LTLIBRARIES			= libgtop_sysdeps_suid.la
 
 libgtop_sysdeps_suid_la_SOURCES	= open.c close.c siglist.c cpu.c mem.c swap.c \
 				  uptime.c loadavg.c shm_limits.c msg_limits.c \
