@@ -108,6 +108,8 @@ static const unsigned long _glibtop_sysdeps_fsusage =
 + (1L << GLIBTOP_FSUSAGE_BAVAIL) + (1L << GLIBTOP_FSUSAGE_FILES)
 + (1L << GLIBTOP_FSUSAGE_FFREE) + (1L << GLIBTOP_FSUSAGE_BLOCK_SIZE);
 
+static const unsigned long _glibtop_sysdeps_fsusage_read_write =
+(1L << GLIBTOP_FSUSAGE_READ) + (1L << GLIBTOP_FSUSAGE_WRITE);
 
 
 /*
@@ -119,24 +121,30 @@ static const unsigned long _glibtop_sysdeps_fsusage =
  * function full of #something where everything is mixed.
  * These functions are private.
  *
- * void _glibtop_<arch>_get_fsusage_read_write(glibtop*server,
- *                                               glibtop_fsusage *buf,
- *                                               const char *path);
+ * gboolean _glibtop_<arch>_get_fsusage_read_write(glibtop*server,
+ *                                                 glibtop_fsusage *buf,
+ *                                                 const char *path);
  *
  * TODO: split this file properly, is possible
  */
 
 #ifdef linux
-void _glibtop_linux_get_fsusage_read_write(glibtop *server,
-					     glibtop_fsusage *buf,
-					     const char *path);
+gboolean _glibtop_linux_get_fsusage_read_write(glibtop *server,
+					       glibtop_fsusage *buf,
+					       const char *path);
 
 #define _glibtop_get_fsusage_read_write(S, B, P) \
         _glibtop_linux_get_fsusage_read_write(S, B, P)
 
 #else /* default fallback */
 #warning glibtop_get_fsusage .read .write are not implemented.
-#define _glibtop_get_fsusage_read_write(S, B, P) ((void)0)
+static inline gboolean
+_glibtop_get_fsusage_read_write(glibtop *server,
+				glibtop_fsusage *buf,
+				const char *path)
+{
+  return FALSE;
+}
 #endif
 
 /* end _glibtop_get_fsusage_read_write */
@@ -147,7 +155,7 @@ void
 glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 		       const char *path)
 {
-#if defined STAT_STATFS3_OSF1 
+#if defined STAT_STATFS3_OSF1
   struct statfs fsd;
 #elif defined STAT_STATFS2_FS_DATA  /* Ultrix */
   struct fs_data fsd;
@@ -164,8 +172,6 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
   glibtop_init_r (&server, 0, 0);
 
   memset (buf, 0, sizeof (glibtop_fsusage));
-
-  _glibtop_get_fsusage_read_write(server, buf, path);
 
 #ifdef STAT_STATFS3_OSF1
 
@@ -245,6 +251,7 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 #endif /* STAT_STATFS4 */
 
 #ifdef STAT_STATVFS		/* SVR4 */
+   /* Linux */
 
   if (statvfs (path, &fsd) < 0)
     return;
@@ -258,6 +265,7 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 
 #if !defined STAT_STATFS2_FS_DATA && !defined STAT_READ_FILSYS
 				/* !Ultrix && !SVR2 */
+  /* Linux */
 
   buf->blocks = PROPAGATE_ALL_ONES (fsd.f_blocks);
   buf->bfree = PROPAGATE_ALL_ONES (fsd.f_bfree);
@@ -268,7 +276,10 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 
 #endif /* not STAT_STATFS2_FS_DATA && not STAT_READ_FILSYS */
 
-  buf->flags= _glibtop_sysdeps_fsusage;
+  buf->flags = _glibtop_sysdeps_fsusage;
+
+  if(_glibtop_get_fsusage_read_write(server, buf, path))
+    buf->flags |= _glibtop_sysdeps_fsusage_read_write;
 }
 
 #if defined _AIX && defined _I386

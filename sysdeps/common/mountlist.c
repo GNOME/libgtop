@@ -33,7 +33,7 @@
 #include <glibtop.h>
 #include <glibtop/mountlist.h>
 
-static struct mount_entry *read_filesystem_list (gboolean need_fs_type);
+static struct mount_entry *read_filesystem_list (void);
 
 #ifdef HAVE_SYS_PARAM_H
 #include <sys/param.h>
@@ -207,12 +207,10 @@ fstype_to_string (int t)
 
 /* Return a list of the currently mounted filesystems, or NULL on error.
    Add each entry to the tail of the list so that they stay in order.
-   If NEED_FS_TYPE is nonzero, ensure that the filesystem type fields in
-   the returned list are valid.  Otherwise, they might not be.
 */
 
 static struct mount_entry *
-read_filesystem_list (gboolean need_fs_type)
+read_filesystem_list (void)
 {
   struct mount_entry *mount_list;
   struct mount_entry *me;
@@ -396,9 +394,8 @@ read_filesystem_list (gboolean need_fs_type)
 #endif
 	me->me_mountdir = g_strdup (mnt.mt_filsys);
 	me->me_dev = (dev_t) -1;	/* Magic; means not known yet. */
-	me->me_type = g_strdup ("");
+
 #ifdef GETFSTYP			/* SVR3.  */
-	if (need_fs_type)
 	  {
 	    struct statfs fsd;
 	    char typebuf[FSTYPSZ];
@@ -407,7 +404,10 @@ read_filesystem_list (gboolean need_fs_type)
 		&& sysfs (GETFSTYP, fsd.f_fstyp, typebuf) != -1)
 	      me->me_type = g_strdup (typebuf);
 	  }
+#else
+	me->me_type = g_strdup ("");
 #endif
+
 	me->me_next = NULL;
 
 	/* Add to the linked list. */
@@ -530,6 +530,7 @@ static gboolean ignore_mount_entry(const struct mount_entry *me)
 		"procfs",
 		"autofs",
 		"sysfs",
+		"usbfs",
 		"none",
 		"devpts",
 		"usbdevfs",
@@ -563,7 +564,7 @@ glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs)
 
 	/* Read filesystem list. */
 
-	if((entries = read_filesystem_list (TRUE)) == NULL)
+	if((entries = read_filesystem_list ()) == NULL)
 		return NULL;
 
 	for (cur = &entries[0]; cur != NULL; cur = next) {

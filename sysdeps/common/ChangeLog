@@ -1,3 +1,19 @@
+2004-09-19  Benoît Dejean  <tazforever@dlfp.org>
+
+	* fsusage.c: (_glibtop_get_fsusage_read_write) : Added new flag.
+	(_glibtop_get_fsusage_read_write): Changed prototype. Returns TRUE on
+	success, then _glibtop_get_fsusage_read_write is set.
+	
+	Added comment to locate Linux code.
+	
+	* mountlist.c: (read_filesystem_list): Dropped unused need_fs_type parameter.
+	This is now default.
+	Fixed possible leak.
+	
+	(ignore_mount_entry): Added "usbfs" to ignored FS.
+	
+	(glibtop_get_mountlist_s): Updated.
+
 2004-08-22  Benoît Dejean  <tazforever@dlfp.org>
 
 	* mountlist.c: (read_filesystem_list): Merged FreeBSD Marcus' patch.
