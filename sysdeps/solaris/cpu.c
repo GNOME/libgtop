@@ -50,7 +50,7 @@ glibtop_init_cpu_s (glibtop *server)
 int
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
-    kstat_ctl_t *kc = server->machine.kc;
+    kstat_ctl_t *kc = server->_priv->machine.kc;
     cpu_stat_t cpu_stat;
     processorid_t cpu;
     int ncpu, found;
@@ -72,7 +72,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 
     for (cpu = 0, found = 0; cpu < GLIBTOP_NCPU && found != ncpu; cpu++)
     {
-	kstat_t *ksp = server->machine.cpu_stat_kstat [cpu];
+	kstat_t *ksp = server->_priv->machine.cpu_stat_kstat [cpu];
 	if (!ksp) continue;
 
 	++found;
@@ -100,7 +100,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
     }
 
     buf->total = buf->idle + buf->user + buf->sys;
-    buf->frequency = server->machine.ticks;
+    buf->frequency = server->_priv->machine.ticks;
 
     buf->flags = _glibtop_sysdeps_cpu;
 }

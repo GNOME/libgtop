@@ -44,10 +44,10 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
 	memset (buf, 0, sizeof (glibtop_uptime));
 
-	if(!(server->machine.boot))
+	if(!(server->_priv->machine.boot))
 	    return;
-	buf->boot_time = server->machine.boot;
-	buf->uptime = time(NULL) - server->machine.boot;
+	buf->boot_time = server->_priv->machine.boot;
+	buf->uptime = time(NULL) - server->_priv->machine.boot;
 
 	buf->flags = _glibtop_sysdeps_uptime;
 }

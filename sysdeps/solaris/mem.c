@@ -52,10 +52,10 @@ glibtop_init_mem_s (glibtop *server)
 int
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
-    kstat_ctl_t *kc = server->machine.kc; 
+    kstat_ctl_t *kc = server->_priv->machine.kc; 
     kstat_t *ksp;
     kstat_named_t *kn;
-    int pagesize = server->machine.pagesize;
+    int pagesize = server->_priv->machine.pagesize;
 
 #ifndef KSTAT_DATA_UINT32
 #define ui32 ul
@@ -75,7 +75,7 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	default: glibtop_get_kstats(server);
     }
 
-    if((ksp = server->machine.syspages) && kstat_read(kc, ksp, NULL) >= 0)
+    if((ksp = server->_priv->machine.syspages) && kstat_read(kc, ksp, NULL) >= 0)
     {
 	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pagesfree");
 	if(kn)
@@ -99,7 +99,7 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 
     /* Bunyip module provides data in multiples of system page size */
 
-    if((ksp = server->machine.bunyip) && kstat_read(kc, ksp, NULL) >= 0)
+    if((ksp = server->_priv->machine.bunyip) && kstat_read(kc, ksp, NULL) >= 0)
     {
         kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_anon");
 	if(kn)

@@ -45,7 +45,7 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
    	struct psinfo psinfo;
 #else
 	struct prpsinfo psinfo;
-	int pagesize = server->machine.pagesize;
+	int pagesize = server->_priv->machine.pagesize;
 #endif
 
 	memset (buf, 0, sizeof (glibtop_proc_mem));

@@ -39,7 +39,7 @@ static const unsigned long _glibtop_sysdeps_msg_limits =
 int
 glibtop_init_msg_limits_p (glibtop *server)
 {
-   	kvm_t *kd = server->machine.kd;
+   	kvm_t *kd = server->_priv->machine.kd;
 
 	if(kd && !kvm_nlist(kd, nlst))
 		server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
@@ -52,7 +52,7 @@ glibtop_init_msg_limits_p (glibtop *server)
 int
 glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 {
-   	kvm_t *kd = server->machine.kd;
+   	kvm_t *kd = server->_priv->machine.kd;
 	struct msginfo minfo;
 
 	memset (buf, 0, sizeof (glibtop_msg_limits));

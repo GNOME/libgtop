@@ -47,8 +47,8 @@ glibtop_init_swap_s (glibtop *server)
 int
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
-    kstat_ctl_t *kc = server->machine.kc;
-    kstat_t *ksp = server->machine.vminfo_kstat;
+    kstat_ctl_t *kc = server->_priv->machine.kc;
+    kstat_t *ksp = server->_priv->machine.vminfo_kstat;
     u_int64_t swap_resv, swap_alloc, swap_avail, swap_free;
     vminfo_t vminfo;
     double rate;
@@ -71,15 +71,15 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	return;
     }
 
-    rate = (ksp->ks_snaptime - server->machine.vminfo_snaptime) / 1E+9;
+    rate = (ksp->ks_snaptime - server->_priv->machine.vminfo_snaptime) / 1E+9;
 
-    swap_resv = (vminfo.swap_resv - server->machine.vminfo.swap_resv) / rate;
-    swap_alloc = (vminfo.swap_alloc - server->machine.vminfo.swap_alloc) / rate;
-    swap_avail = (vminfo.swap_avail - server->machine.vminfo.swap_avail) / rate;
-    swap_free = (vminfo.swap_free - server->machine.vminfo.swap_free) / rate;
+    swap_resv = (vminfo.swap_resv - server->_priv->machine.vminfo.swap_resv) / rate;
+    swap_alloc = (vminfo.swap_alloc - server->_priv->machine.vminfo.swap_alloc) / rate;
+    swap_avail = (vminfo.swap_avail - server->_priv->machine.vminfo.swap_avail) / rate;
+    swap_free = (vminfo.swap_free - server->_priv->machine.vminfo.swap_free) / rate;
 
-    memcpy (&server->machine.vminfo, &vminfo, sizeof (vminfo_t));
-    server->machine.vminfo_snaptime = ksp->ks_snaptime;
+    memcpy (&server->_priv->machine.vminfo, &vminfo, sizeof (vminfo_t));
+    server->_priv->machine.vminfo_snaptime = ksp->ks_snaptime;
 
     buf->total = swap_resv + swap_avail;
     buf->used = swap_alloc;

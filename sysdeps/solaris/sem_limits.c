@@ -40,7 +40,7 @@ static const unsigned long _glibtop_sysdeps_sem_limits =
 int
 glibtop_init_sem_limits_p (glibtop *server)
 {
-   	kvm_t *kd = server->machine.kd;
+   	kvm_t *kd = server->_priv->machine.kd;
 
 	if(kd && !kvm_nlist(kd, nlst))
 		server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
@@ -53,7 +53,7 @@ glibtop_init_sem_limits_p (glibtop *server)
 int
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
-   	kvm_t *kd = server->machine.kd;
+   	kvm_t *kd = server->_priv->machine.kd;
 	struct seminfo sinfo;
 
 	memset (buf, 0, sizeof (glibtop_sem_limits));

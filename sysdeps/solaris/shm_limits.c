@@ -37,7 +37,7 @@ static const unsigned long _glibtop_sysdeps_shm_limits =
 int
 glibtop_init_shm_limits_p (glibtop *server)
 {
-   	kvm_t *kd = server->machine.kd;
+   	kvm_t *kd = server->_priv->machine.kd;
 
    	if(kd && !kvm_nlist(kd, nlst))
 		server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
@@ -50,7 +50,7 @@ glibtop_init_shm_limits_p (glibtop *server)
 int
 glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
-   	kvm_t *kd = server->machine.kd;
+   	kvm_t *kd = server->_priv->machine.kd;
 	struct shminfo sinfo;
 
 	memset (buf, 0, sizeof (glibtop_shm_limits));
