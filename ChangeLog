@@ -9,7 +9,6 @@
 	* configure.in: Added check for `-lsocket'.
 	(LIBGTOP_INCS): Added $(SUPPORTINCS).
 	(INCLUDES): Added $(SUPPORTINCS).
-	(LIBGTOP_EXTRA_LIBS): Added $(LIBSUPPORT).
 
 	* acconfig.h: Added `NEED_DECLARATION_GETHOSTNAME',
 	`NEED_DECLARATION_SETREUID', `NEED_DECLARATION_SETREGID'
