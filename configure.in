@@ -113,14 +113,13 @@ AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 GNOME_LIBGTOP_SYSDEPS
 GNOME_LIBGTOP_TYPES
 
-LIBGTOP_XML_HOOK([],)
+LIBGTOP_XML_CHECK
 
 AC_ARG_WITH(libgtop-inodedb,
 [  --with-libgtop-inodedb  Build the inodedb stuff (default=no)],
 [build_inodedb="$withval"], [build_inodedb=no])
 
-LIBGTOP_EXTRA_LIBS="$LIBGTOP_XML_LIBS"
-
+LIBGTOP_EXTRA_LIBS=
 if test x$build_inodedb = xyes ; then
   AC_CHECK_LIB(gdbm, gdbm_open, LIBGTOP_EXTRA_LIBS='-lgdbm', build_inodedb=no)
 fi
@@ -257,20 +256,6 @@ for W in $2; do if test -z "$T"; then T="$W"; else T="$T $W"; fi; done
 $1="$T"
 ])dnl
 
-dnl Autodetect Xauth
-dnl -lXau is only used by gnuclient, so use a special variable for Xauth X libs
-saved_CPPFLAGS="$CPPFLAGS"
-CPPFLAGS="$CPPFLAGS $X_CFLAGS"
-test -z "$with_xauth" && { AC_CHECK_HEADER(X11/Xauth.h,          ,with_xauth=no) }
-test -z "$with_xauth" && { AC_CHECK_LIB(Xau, XauGetAuthByAddr,[:],with_xauth=no, $X_LIBS) }
-test -z "$with_xauth" && with_xauth=yes
-if test "$with_xauth" = "yes"; then
-  AC_DEFINE(HAVE_XAUTH)
-  XE_SPACE(libs_xauth, $X_LIBS -lXau)
-fi
-CPPFLAGS="$saved_CPPFLAGS"
-AC_SUBST(libs_xauth)
-
 dnl For diskusage stuff
 GNOME_FILEUTILS_CHECKS
 
@@ -341,15 +326,9 @@ LIBGTOP_SERVER='$(bindir)/libgtop_server'
 sysdeps_dir="$libgtop_sysdeps_dir"
 AC_SUBST(sysdeps_dir)
 
-if test -z "$LIBGTOP_EXTRA_LIBS" ; then
-  LIBGTOP_EXTRA_LIBS="$libs_xauth"
-else
-  LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $libs_xauth"
-fi
+LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS $LIBGTOP_XML_LIB"
 
-LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS"
-
-LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_sysdeps -lgtop_common -lgtop -lgtop_backend_server -lgtop_backend_sysdeps -lgtop_backend_common"
+LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_sysdeps -lgtop_common -lgtop"
 
 LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names"
 
