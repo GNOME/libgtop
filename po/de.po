@@ -1,14 +1,14 @@
 # German translation of libgtop
+# Martin Baulig <martin@home-of-linux.org>, 1998, 1999, 2000
 # Christian Meyer <linux@chrisime.de>, 2000.
-# ????????? ????? <?????@????????.??>, ????.
-# Wer war vorher Maintainer? Bitte bei mir melden!
+#
 # hmm... ein paar englische Strings sollte man lieber in Ruhe lassen...! -cm-
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.9\n"
 "POT-Creation-Date: 2000-08-15 13:35+0200\n"
-"PO-Revision-Date: 2000-08-15 13:29+0200\n"
+"PO-Revision-Date: 2000-08-16 20:29+02:00\n"
 "Last-Translator: Christian Meyer <linux@chrisime.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
