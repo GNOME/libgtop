@@ -58,9 +58,9 @@ Examples for LibGTop.
 %build
 # Needed for snapshot releases.
 if [ ! -f configure ]; then
-  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --without-linux-table --with-libgtop-inodedb
+  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --without-linux-table --with-libgtop-inodedb --with-libgtop-examples
 else
-  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --without-linux-table --with-libgtop-inodedb
+  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --without-linux-table --with-libgtop-inodedb --with-libgtop-examples
 fi
 
 if [ "$SMP" != "" ]; then
