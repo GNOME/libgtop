@@ -1,11 +1,6 @@
 #include <glibtop.h>
 
-#include <glibtop/cpu.h>
-#include <glibtop/fsusage.h>
-#include <glibtop/loadavg.h>
-#include <glibtop/mem.h>
-#include <glibtop/mountlist.h>
-#include <glibtop/msg_limits.h>
+#include <glibtop/union.h>
 
 
 #include <stdio.h>
@@ -138,7 +133,7 @@ static void pprint_get_mountlist(gboolean allfs)
       printf("\t\t .%lu = { .dev = %#llx,"
 	     " .devname = \"%s\","
 	     " .mountir = \"%s\","
-	     " .type - \"%s\" }\n",
+	     " .type = \"%s\" }\n",
 	     (unsigned long) i, entries[i].dev,
 	     entries[i].devname,
 	     entries[i].mountdir,
@@ -173,6 +168,34 @@ static void pprint_get_msg_limits()
 
 
 
+static void pprint_get_netload(const char *iface)
+{
+  glibtop_netload buf;
+
+  glibtop_get_netload(&buf, iface);
+
+  HEADER_PPRINT(glibtop_get_netload);
+  FOOTER_PPRINT();
+}
+
+
+
+static void pprint_get_uptime()
+{
+  glibtop_uptime buf;
+
+  glibtop_get_uptime(&buf);
+
+  HEADER_PPRINT(glibtop_get_uptime);
+  PPRINT(flags, "%#llx");
+  PPRINT(uptime, "%f");
+  PPRINT(idletime, "%f");
+  PPRINT(boot_time, "%llu");
+  FOOTER_PPRINT();
+}
+
+
+
 int main()
 {
   pprint_get_cpu();
@@ -187,6 +210,13 @@ int main()
   pprint_get_mountlist(FALSE);
 
   pprint_get_msg_limits();
+
+  pprint_get_netload("lo");
+
+
+
+
+  pprint_get_uptime();
 
   return 0;
 }

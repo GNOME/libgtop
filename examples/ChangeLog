@@ -1,5 +1,10 @@
 2004-09-21  Benoît Dejean  <tazforever@dlfp.org>
 
+	* pprint.c: (pprint_get_mountlist), (pprint_get_netload),
+	(pprint_get_uptime), (main): Updated.
+
+2004-09-21  Benoît Dejean  <tazforever@dlfp.org>
+
 	* pprint.c: (pprint_get_mountlist): Updated.
 
 2004-09-21  Benoît Dejean  <tazforever@dlfp.org>
