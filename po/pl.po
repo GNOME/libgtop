@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 2000-11-12 02:15+0100\n"
+"POT-Creation-Date: 2001-02-13 13:30+0100\n"
 "PO-Revision-Date: 1999-09-17 04:26+0200\n"
 "Last-Translator: GNOME PL Team\n"
 "Language-Team: Polish <gnomepl@pandora.info.bielsko.pl>\n"

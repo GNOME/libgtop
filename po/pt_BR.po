@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LibGTOP\n"
-"POT-Creation-Date: 2001-02-08 12:15-0200\n"
+"POT-Creation-Date: 2001-02-13 13:30+0100\n"
 "PO-Revision-Date: 2001-02-08 14:59GMT-0300\n"
 "Last-Translator: E. A. Tacão <tacao@conectiva.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
@@ -701,7 +701,8 @@ msgstr ""
 "na área de troca."
 
 #: sysdeps/names/procmem.c:62
-msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "Limite atual em bytes do RSS de um processo (normalmente 2.1 GB)."
 
 #: sysdeps/names/procsegment.c:42
@@ -1349,4 +1350,3 @@ msgstr "Sinal 1 definido pelo usuário"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Sinal 2 definido pelo usuário"
-
