@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.26.2\n"
-"POT-Creation-Date: 1998-10-21 20:38+0200\n"
+"POT-Creation-Date: 1998-11-05 01:28+0100\n"
 "PO-Revision-Date: 1998-10-25 11:26+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@fib.hl.no>\n"
 "Language-Team: Norwegian <no@li.org>\n"
@@ -301,8 +301,7 @@ msgstr ""
 "matteemulering, så dette er ikke inkludert i utskriften.\n"
 "\n"
 "Dette er sannsynligvis en feil, siden ikke alle prosesser er et kompilert\n"
-"C program."
-"\n"
+"C program.\n"
 "Mattebiten skal være desimal 4, og den tracete biten er desimal 10."
 
 #. Min_Flt
@@ -320,8 +319,8 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Antallet større feil prosessen har laget; de som har gjort det nødvendig "
-"å lese en minneside inn fra disk."
+"Antallet større feil prosessen har laget; de som har gjort det nødvendig å "
+"lese en minneside inn fra disk."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:63
@@ -414,14 +413,13 @@ msgid ""
 msgstr ""
 "Antallet sider prosessen har i fysisk minne, minus 3 for administrative "
 "hensikter. Dette er bare de sidene som teller av tekst, data eller stakk "
-"plass. Dette inkluderer ikke sider som ikke er lastet ved behov, eller "
-"som er swappet ut."
+"plass. Dette inkluderer ikke sider som ikke er lastet ved behov, eller som "
+"er swappet ut."
 
 #: sysdeps/names/procmem.c:60
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr ""
-"Nåværende grense i bytes på prosessens rss (vanligvis 2,147,483,647)."
+msgstr "Nåværende grense i bytes på prosessens rss (vanligvis 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:40
 msgid "Text_RSS"
@@ -628,8 +626,8 @@ msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
-"Tiden (i jiffies) før neste SIGALARM blir sendt til prosessen på grunn av "
-"en intervallklokke."
+"Tiden (i jiffies) før neste SIGALARM blir sendt til prosessen på grunn av en "
+"intervallklokke."
 
 #: sysdeps/names/proctime.c:58
 msgid "Tick frequency"
