@@ -13,6 +13,8 @@ libgtop_sysdeps_la_SOURCES	= open.c close.c siglist.c cpu.c mem.c \
 
 libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO)
 
+libgtop_sysdeps_la_LIBADD	= @DL_LIB@
+
 libgtop_sysdeps_suid_la_SOURCES	= open_suid.c close_suid.c \
 				  shm_limits.c msg_limits.c sem_limits.c
 
