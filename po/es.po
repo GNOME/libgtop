@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: glibtop 1.1.1\n"
-"POT-Creation-Date: 2000-05-20 13:07+0200\n"
+"POT-Creation-Date: 2000-05-25 14:38+0000\n"
 "PO-Revision-Date: 2000-05-20 04:38+0100\n"
 "Last-Translator: Manuel de Vega Barreiro <barreiro@arrakis.es>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -45,7 +45,9 @@ msgstr "Inactivo"
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
-msgstr "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n\n"
+msgstr ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
 
 #: examples/smp.c:77
 #, c-format
