@@ -1,3 +1,7 @@
+2004-10-27  Gora Mohanty  <gmohanty@cvs.gnome.org>
+                                                                                
+        * configure.in: Added 'or' to ALL_LINGUAS.
+         
 2004-06-13  Benoît Dejean  <tazforever@dlfp.org>
 
 	* configure.in: version 2.6.1
