@@ -1,5 +1,11 @@
 1999-07-27  Martin Baulig  <martin@home-of-linux.org>
 
+	* configure.in (LT_VERSION_INFO): Add `-release ${LT_RELEASE}'.
+	This way you can have both 1.0.x and 1.1.x libraries under the
+	same ${prefix}.
+
+1999-07-27  Martin Baulig  <martin@home-of-linux.org>
+
 	* LIBGTOP-VERSION: Set version number to 1.1.1 binary age 1,
 	interface age 1.
 
