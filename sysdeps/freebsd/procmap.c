@@ -140,8 +140,13 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 		}
 
 #ifdef __FreeBSD__
-		if (entry.eflags & MAP_ENTRY_IS_SUB_MAP)
+#if __FreeBSD__ >= 4
+		if (entry.eflags & (MAP_ENTRY_IS_SUB_MAP))
 			continue;
+#else
+ 		if (entry.eflags & (MAP_ENTRY_IS_A_MAP|MAP_ENTRY_IS_SUB_MAP))
+ 			continue;
+#endif
 #else
 		if (entry.is_a_map || entry.is_sub_map)
 			continue;
