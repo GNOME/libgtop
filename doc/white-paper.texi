@@ -1,0 +1,41 @@
+@node White Paper, Reference Manual, About, Top
+@chapter LibGTop White Paper
+
+@menu
+* Introduction::                
+@end menu
+
+@node Introduction,  , White Paper, White Paper
+@section Introduction
+
+Many modern UNIX systems like Solaris, BSD or Digitial Unix only allow
+priviledged processes to read information like CPU and Memory Usage or
+information about running processes.
+
+@itemize @bullet
+@item
+BSD, for instance, doesn't have any other way to get those data than reading
+directly from @file{/dev/kmem} and you need to be in the @code{kmem} group to
+be able to read this.
+
+@item
+Other systems, like Digital Unix, allow all users to get things like CPU and
+Memory statistics, but only root may read information about any process other
+than the current one (you may not even get information about your own processes
+if you're not root).
+
+@item
+Linux has a very nice @file{/proc} filesystem, but reading and parsing
+@file{/proc} is very slow and inefficient.
+
+@item
+Solaris is a bit better, but you still need to be in the @code{sys} group or
+even root to get some data.
+@end itemize
+
+Because of this system utilities like @code{ps}, @code{uptime} or @code{top}
+often are setgid kmem or setuid root. Usually, they're also very specific to
+the system they're written for and not easily portable to other systems without
+a lot of work.
+
+
