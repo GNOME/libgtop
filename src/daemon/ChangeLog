@@ -1,3 +1,7 @@
+2005-03-25  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* gnuserv.c: (syslog_io_message): s/strerror/g_strerror.
+
 2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* daemon.h:

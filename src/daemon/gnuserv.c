@@ -37,6 +37,7 @@
 #include <glibtop/close.h>
 #include <glibtop/command.h>
 
+#include <glib/gstrfuncs.h>
 
 #include <glibtop/parameter.h>
 
@@ -108,7 +109,7 @@ syslog_io_message (int priority, const char *format, ...)
     vsnprintf (buffer, BUFSIZ-1, format, ap);
     va_end (ap);
 
-    snprintf (buffer2, BUFSIZ-1, "%s: %s", buffer, strerror (errno));
+    snprintf (buffer2, BUFSIZ-1, "%s: %s", buffer, g_strerror (errno));
     syslog (priority, "%s", buffer2);
 }
 
