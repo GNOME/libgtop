@@ -36,6 +36,9 @@ BEGIN_LIBGTOP_DECLS
 /* Maximum number of process groups in glibtop_proc_uid. */
 #define GLIBTOP_MAX_GROUPS	32
 
+/* Maximum length of a mountpoint/device name in glibtop_mountlist. */
+#define GLIBTOP_MOUNTENTRY_LEN	79
+
 END_LIBGTOP_DECLS
 
 #endif
