@@ -12,8 +12,8 @@ libgtop_guile_names_la_SOURCES	= guile-names.c
 
 BUILT_SOURCES			= guile-names.c
 
-guile-names.c: guile-names.awk $(top_builddir)/config.h $(top_builddir)/features.def
-	$(AWK) -f $(srcdir)/guile-names.awk < $(top_builddir)/features.def > gnc-t
+guile-names.c: guile-names.awk $(top_builddir)/config.h $(top_srcdir)/features.def
+	$(AWK) -f $(srcdir)/guile-names.awk < $(top_srcdir)/features.def > gnc-t
 	mv gnc-t guile-names.c
 
 EXTRA_DIST			= guile-names.awk
