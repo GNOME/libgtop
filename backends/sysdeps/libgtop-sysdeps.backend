@@ -6,6 +6,12 @@
     <libgtop:Location>
       <libgtop:LibtoolName>libgtop_backend_sysdeps.la</libgtop:LibtoolName>
       <libgtop:ShlibName>libgtop_backend_sysdeps.so</libgtop:ShlibName>
+      <libgtop:ExtraLibs>
+        <libgtop:ExtraLib>
+          <libgtop:LibtoolName>libgtop_sysdeps.la</libgtop:LibtoolName>
+          <libgtop:ShlibName>libgtop_sysdeps.so</libgtop:ShlibName>
+        </libgtop:ExtraLib>
+      </libgtop:ExtraLibs>
     </libgtop:Location>
   </libgtop:Backend>
 
