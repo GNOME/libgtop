@@ -1,3 +1,35 @@
+1998-06-01  Martin Baulig  <martin@home-of-linux.org>
+
+	* NEWS: added more detailed description of today's and
+	yesterday's changes.
+	
+	* include/glibtop/*.h: to use the ChangeLog entry from May 28:
+	'__l' is a function defined in the client part;
+	'__s' is a function defined in the sysdeps part and
+	'__p' is a function that needs special priviledges.
+	'__r' is mapped either on '__p' or on '__s'.
+	the function without suffix is mapped on '__l'.
+
+	* sysdeps/common/sysdeps.c: now using '__r' functions,
+	they are #defined either as the '__p' or the '__s' ones.
+
+	* sysdeps/linux/*.c: changed call of 'glibtop_init__r',
+	it now takes two additional arguments.
+
+	* examples/{first.c, second.c}: now using 'glibtop_init'
+	instead of 'glibtop_init__r'.
+
+	* include/glibtop/sysdeps.h: added 'dummy' member so
+	'GLIBTOP_SYSDEPS_<feature>' now start with 1.
+
+	* include/glibtop/*.h: we now #define 'glibtop_get_<feature>'
+	as 'glibtop_get_<feature>__l' and 'glibtop_get_<feature>__r'
+	either as the '__p' or the '__s' function.
+
+	* lib/*.c: removed #if's - we now decide at runtime
+	whether to use the server or to call the appropriate
+	function for the sysdeps directory.
+
 1998-05-28  Martin Baulig  <baulig@merkur.uni-trier.de>
 
 	* src/server/main.c: we now use the '__p' functions,
@@ -17,7 +49,7 @@
 	to '__l'; we only emit code for those functions if the
  	corresponding 'GLIBTOP_SUID_<feature>' has a positive value.
 	
-	* sysdeps/linux/*.h: added some new function suffixes:
+	* include/glibtop/*.h: added some new function suffixes:
 	'__l' is a function defined in the client part;
 	'__s' is a function defined in the sysdeps part and
 	'__p' is a function that needs special priviledges.

@@ -1,5 +1,116 @@
 $Id$
 
+Jun/01/1998
+===========
+
+	* We have some new ``suffix rules'':
+
+	  '__l' is a function defined in the client part;
+	  '__s' is a function defined in the sysdeps part and
+	  '__p' is a function that needs special priviledges.
+	  '__r' is mapped either on '__p' or on '__s'.
+	  the function without suffix is mapped on '__l'.
+
+	* We now decide at runtime whether or not using the server
+	is required for a particular function. All user programs
+	now call the '__l' function defined in '-lgtop' (in the lib
+	subdir). These functions either use 'glibtop_call__l' to
+	call the server or call the '__r' function.
+
+	* A function in the sysdeps directory now has the '__s' suffix
+	if it do not need any priviledges (and thus can be called directly
+	from client code) and the '__p' suffix otherwise (when it has to
+	be called from the server).
+
+	* If you call one of these functions:
+
+	  -> use the '__p' suffix to be sure to get the SUID-safe one
+	     (used in the server).
+	  -> use the '__s' suffix to be sure to get a function that
+	     doesn't need any priviledges.
+	  -> use the '__r' suffix otherwise (it is mapped either on the
+	     '__p' or on the '__s' one).
+
+	Only use the '__p' and '__s' functions in a 'GLIBTOP_SUID_<feature>'
+	conditional, otherwise you'll get undefined symbols !
+
+	* The server is now started from 'glibtop_init__r', but only when
+	it's really needed; for instance on DEC OSF/1 you only need it
+	for the proc* features - if you program only fetches the CPU usage,
+	now server will be started.
+
+	* Sorry, at the moment everything is a little bit unstable, I'm doing
+	heavy changes. I've just some great ideas which still need some work:
+
+	  -> I want to have a SUID server that only implements those features
+	     that need to be SUID; everything else uses the sysdeps code directly.
+
+	  -> If a program only uses stuff that do not need the server, the
+	     server will not be started at all.
+
+	  -> I'm working on some kind of proxy server that can be used on a remote
+	     host; in feature one can then use the MDI stuff from ghex in gtop to
+	     have notebook pages displaying processes from different hosts.
+
+	* Well it is as much unstable that it only works under Linux at the moment.
+
+1998-06-01  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/common/sysdeps.c: now using '__r' functions,
+	they are #defined either as the '__p' or the '__s' ones.
+
+	* sysdeps/linux/*.c: changed call of 'glibtop_init__r',
+	it now takes two additional arguments.
+
+	* examples/{first.c, second.c}: now using 'glibtop_init'
+	instead of 'glibtop_init__r'.
+
+	* include/glibtop/sysdeps.h: added 'dummy' member so
+	'GLIBTOP_SYSDEPS_<feature>' now start with 1.
+
+	* include/glibtop/*.h: we now #define 'glibtop_get_<feature>'
+	as 'glibtop_get_<feature>__l' and 'glibtop_get_<feature>__r'
+	either as the '__p' or the '__s' function.
+
+	* lib/*.c: removed #if's - we now decide at runtime
+	whether to use the server or to call the appropriate
+	function for the sysdeps directory.
+
+1998-05-28  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* src/server/main.c: we now use the '__p' functions,
+	but only if the appropriate 'GLIBTOP_SUID_<feature>'
+	has a non-zero value.
+	
+	* configure.in (@machine_incs@): always use 
+	`-I$(top_srcdir)/sysdeps/@sysdeps_dir@'; it's no
+	longer conditional.
+
+	* examples/Makefile.am: removed the '_linux' examples.
+	
+	* sysdeps/linux/*.c: renamed all functions implementing
+	features to '__s'.
+	
+	* lib/*.c: renamed all functions implementing features
+	to '__l'; we only emit code for those functions if the
+ 	corresponding 'GLIBTOP_SUID_<feature>' has a positive value.
+	
+	* include/glibtop/*.h: added some new function suffixes:
+	'__l' is a function defined in the client part;
+	'__s' is a function defined in the sysdeps part and
+	'__p' is a function that needs special priviledges.
+	'__r' is mapped either on '__l' or on '__s'.
+	
+	* sysdeps/linux/glibtop_server.h: New file -
+	defines system dependent constants 'GLIBTOP_SUID_<feature>'
+	being either 'GLIBTOP_SYSDEPS_<feature>'+1 depending upon
+ 	whether or not this feature requires using the server.
+
+	* lib/sysdeps.c: removed that file; it is no longer
+	needed.
+
+
+
 May/21/1998
 ===========
 
