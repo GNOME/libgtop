@@ -114,7 +114,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	struct ifreq ifr;
 	unsigned long long flags;
 
-	strcpy (ifr.ifr_name, interface);
+	g_strlcpy (ifr.ifr_name, interface, sizeof ifr.ifr_name);
 	if (!ioctl (skfd, SIOCGIFFLAGS, &ifr)) {
 	    buf->flags |= (1L << GLIBTOP_NETLOAD_IF_FLAGS);
 	    flags = ifr.ifr_flags;
@@ -151,7 +151,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	if (flags & IFF_MULTICAST)
 	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_MULTICAST);
 
-	strcpy (ifr.ifr_name, interface);
+	g_strlcpy (ifr.ifr_name, interface, sizeof ifr.ifr_name);
 	if (!ioctl (skfd, SIOCGIFADDR, &ifr)) {
 	    struct sockaddr_in addr =
 		*(struct sockaddr_in *) &ifr.ifr_addr;
@@ -159,7 +159,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	    buf->flags |= (1L << GLIBTOP_NETLOAD_ADDRESS);
 	}
 
-	strcpy (ifr.ifr_name, interface);
+	g_strlcpy (ifr.ifr_name, interface, sizeof ifr.ifr_name);
 	if (!ioctl (skfd, SIOCGIFNETMASK, &ifr)) {
 	    struct sockaddr_in addr =
 		*(struct sockaddr_in *) &ifr.ifr_addr;
@@ -167,7 +167,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	    buf->flags |= (1L << GLIBTOP_NETLOAD_SUBNET);
 	}
 
-	strcpy (ifr.ifr_name, interface);
+	g_strlcpy (ifr.ifr_name, interface, sizeof ifr.ifr_name);
 	if (!ioctl (skfd, SIOCGIFMTU, &ifr)) {
 	    buf->mtu = ifr.ifr_mtu;
 	    buf->flags |= (1L << GLIBTOP_NETLOAD_MTU);

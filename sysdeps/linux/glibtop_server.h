@@ -42,9 +42,9 @@ skip_token (const char *p)
 }
 
 static inline char *
-skip_multiple_token (const char *p, int count)
+skip_multiple_token (const char *p, size_t count)
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < count; i++)
 		p = skip_token (p);

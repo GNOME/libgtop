@@ -1,3 +1,12 @@
+2004-06-07  Benoît Dejean  <tazforever@dlfp.org>
+
+	* glibtop_machine.h (skip_token): Removed.
+	* glibtop_server.h (skip_multiple_token): Cleaned.
+	* netload.c: (glibtop_get_netload_s): Replaced unsafe strcpy by g_strlcpy.
+	* procmap.c: (glibtop_get_proc_map_s): s/strncpy/g_strlcpy/.
+	* procstate.c: (glibtop_get_proc_state_s): Likewise.
+	* sysinfo.c: (init_sysinfo): Cleaned.
+
 2004-05-26  Benoît Dejean  <tazforever@dlfp.org>
 
 	* cpu.c: (glibtop_get_cpu_s): Cleaned whitespaces.

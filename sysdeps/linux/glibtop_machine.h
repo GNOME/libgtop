@@ -30,18 +30,6 @@
 
 G_BEGIN_DECLS
 
-#if _IN_LIBGTOP
-
-static inline char *
-skip_token(const char *p)
-{
-    while (isspace(*p)) p++;
-    while (*p && !isspace(*p)) p++;
-    return (char *)p;
-}
-
-#endif
-
 typedef struct _glibtop_machine		glibtop_machine;
 
 struct _glibtop_machine

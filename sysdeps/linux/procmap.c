@@ -120,9 +120,8 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 			(guint64) dev_minor;
 		entry_list [n].inode = (guint64) inode;
 
-		strncpy (entry_list [n].filename, fn, GLIBTOP_MAP_FILENAME_LEN);
-		entry_list [n].filename [GLIBTOP_MAP_FILENAME_LEN] = 0;
-		
+		g_strlcpy (entry_list [n].filename, fn, sizeof entry_list [n].filename);
+	
 		n++;
 
 	} while (rv != EOF && rv && fn [0] != EOF);

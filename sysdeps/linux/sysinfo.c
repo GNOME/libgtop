@@ -33,14 +33,15 @@ static glibtop_sysinfo sysinfo;
 static void
 init_sysinfo (glibtop *server)
 {
-	char buffer [BUFSIZ];
-	static int init = 0;
+	static gboolean is_init = FALSE;
+
+	char buffer [BUFSIZ];	
 	glibtop_entry *cpuinfo = NULL;
 	FILE *f;
 
-	if (init) return;
+	if (is_init) return;
 
-	init = TRUE;
+	is_init = TRUE;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 

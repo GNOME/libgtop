@@ -86,8 +86,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	if (*p++ != '(')
 		glibtop_error_r (server, "Bad data in /proc/%d/stat", pid);
 
-	strncpy (buf->cmd, p, sizeof (buf->cmd)-1);
-	buf->cmd [sizeof (buf->cmd)-1] = 0;
+	g_strlcpy (buf->cmd, p, sizeof buf->cmd);
 
 	buf->flags |= _glibtop_sysdeps_proc_state;
 }
