@@ -50,11 +50,11 @@ void G_GNUC_UNUSED glibtop_warn_io_r (glibtop *server, char *format, ...);
 
 #elif defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
 
-#define glibtop_error(p1, ...)	glibtop_error_r(glibtop_global_server , p1 , __VA_ARGS__)
-#define glibtop_warn(p1, ...)	glibtop_warn_r(glibtop_global_server , p1 , __VA_ARGS__)
+#define glibtop_error(...)	glibtop_error_r(glibtop_global_server , __VA_ARGS__)
+#define glibtop_warn(...)	glibtop_warn_r(glibtop_global_server , __VA_ARGS__)
 
-#define glibtop_error_io(p1, ...)	glibtop_error_io_r(glibtop_global_server , p1 , __VA_ARGS__)
-#define glibtop_warn_io(p1, ...)	glibtop_warn_io_r(glibtop_global_server , p1 , __VA_ARGS__)
+#define glibtop_error_io(...)	glibtop_error_io_r(glibtop_global_server , __VA_ARGS__)
+#define glibtop_warn_io(...)	glibtop_warn_io_r(glibtop_global_server , __VA_ARGS__)
 
 #else /* no __GNUC__, no C99*/
 

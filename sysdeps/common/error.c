@@ -129,7 +129,7 @@ glibtop_warn_io_r (glibtop *server, char *format, ...)
 	va_end (args);
 }
 
-#ifndef __GNUC__
+#if !defined(__GNUC__) && (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L)
 
 void
 glibtop_error (char *format, ...)
@@ -167,4 +167,4 @@ glibtop_warn_io (char *format, ...)
 	va_end (args);
 }
 
-#endif /* __GNUC__ */
+#endif /* !defined(__GNUC__) && (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) */

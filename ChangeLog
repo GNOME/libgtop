@@ -1,3 +1,9 @@
+2004-12-22  Benoît Dejean  <tazforever@dlfp.org>
+
+	* include/glibtop/error.h:
+	* sysdeps/common/error.c: Fixed C99 macros. Closes #161994.
+	Patch by Vincent Berger <vincent.berger@ext.bull.net>.
+
 2004-12-04  Benoît Dejean  <tazforever@dlfp.org>
 
 	* NEWS:
