@@ -21,6 +21,11 @@
    Boston, MA 02111-1307, USA.
 */
 
+
+/*
+ * This is private API
+ */
+
 #ifndef __GLIBTOP_ERROR_H__
 #define __GLIBTOP_ERROR_H__
 
@@ -28,20 +33,20 @@
 
 G_BEGIN_DECLS
 
-void glibtop_error_vr (glibtop *server, const char *format, va_list args) G_GNUC_NORETURN;
-void glibtop_warn_vr (glibtop *server, const char *format, va_list args);
-void glibtop_error_io_vr (glibtop *server, const char *format, int, va_list args) G_GNUC_NORETURN;
-void glibtop_warn_io_vr (glibtop *server, const char *format, int, va_list args);
+void glibtop_error_vr (glibtop *server, const char *format, va_list args) G_GNUC_INTERNAL G_GNUC_NORETURN;
+void glibtop_warn_vr (glibtop *server, const char *format, va_list args) G_GNUC_INTERNAL;
+void glibtop_error_io_vr (glibtop *server, const char *format, int, va_list args) G_GNUC_INTERNAL G_GNUC_NORETURN;
+void glibtop_warn_io_vr (glibtop *server, const char *format, int, va_list args) G_GNUC_INTERNAL;
 
-void glibtop_error_r (glibtop *server, const char *format, ...) G_GNUC_PRINTF(2, 3) G_GNUC_NORETURN;
-void glibtop_warn_r (glibtop *server, const char *format, ...) G_GNUC_PRINTF(2, 3);
-void glibtop_error_io_r (glibtop *server, const char *format, ...) G_GNUC_PRINTF(2, 3) G_GNUC_NORETURN;
-void glibtop_warn_io_r (glibtop *server, const char *format, ...) G_GNUC_PRINTF(2, 3);
+void glibtop_error_r (glibtop *server, const char *format, ...) G_GNUC_INTERNAL G_GNUC_PRINTF(2, 3) G_GNUC_NORETURN;
+void glibtop_warn_r (glibtop *server, const char *format, ...) G_GNUC_INTERNAL G_GNUC_PRINTF(2, 3);
+void glibtop_error_io_r (glibtop *server, const char *format, ...) G_GNUC_INTERNAL G_GNUC_PRINTF(2, 3) G_GNUC_NORETURN;
+void glibtop_warn_io_r (glibtop *server, const char *format, ...) G_GNUC_INTERNAL G_GNUC_PRINTF(2, 3);
 
-void glibtop_error (const char *format, ...) G_GNUC_PRINTF(1, 2) G_GNUC_NORETURN;
-void glibtop_warn (const char *format, ...) G_GNUC_PRINTF(1, 2);
-void glibtop_error_io (const char *format, ...) G_GNUC_PRINTF(1, 2) G_GNUC_NORETURN;
-void glibtop_warn_io (const char *format, ...) G_GNUC_PRINTF(1, 2);
+void glibtop_error (const char *format, ...) G_GNUC_INTERNAL G_GNUC_PRINTF(1, 2) G_GNUC_NORETURN;
+void glibtop_warn (const char *format, ...) G_GNUC_INTERNAL G_GNUC_PRINTF(1, 2);
+void glibtop_error_io (const char *format, ...) G_GNUC_INTERNAL G_GNUC_PRINTF(1, 2) G_GNUC_NORETURN;
+void glibtop_warn_io (const char *format, ...) G_GNUC_INTERNAL G_GNUC_PRINTF(1, 2);
 
 G_END_DECLS
 

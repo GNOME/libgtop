@@ -1,5 +1,9 @@
 2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>
 
+	* include/glibtop/error.h: Don't export private symbols.
+
+2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>
+
 	* include/glibtop/error.h: G_GNUC_NORETURN love.
 
 	* include/glibtop/errors.h:
