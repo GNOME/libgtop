@@ -21,40 +21,54 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop.h>
+
 #include <glibtop/signal.h>
 
+#include <signal.h>
+
+
+#if 0 /* comment */
+perl -nle 'print "{$1,\t\"$1\",\t\"$2\"}," if m|^#define\s*(SIG[A-Z0-9]+).*?/\*\s*(.*?)\s*\*/|'
+	< /usr/include/bits/signum.h
+#endif
+
+
 const glibtop_signame glibtop_sys_siglist [] =
-{ {  1, "SIGHUP",    NULL },	/* Hangup (POSIX).  */
-  {  2, "SIGINT",    NULL },	/* Interrupt (ANSI).  */
-  {  3, "SIGQUIT",   NULL },	/* Quit (POSIX).  */
-  {  4, "SIGILL",    NULL },	/* Illegal instruction (ANSI).  */
-  {  5, "SIGTRAP",   NULL },	/* Trace trap (POSIX).  */
-  {  6, "SIGABRT",   NULL },	/* Abort (ANSI).  */
-  {  7, "SIGBUS",    NULL },	/* BUS error (4.2 BSD).  */
-  {  8, "SIGFPE",    NULL },	/* Floating-point exception (ANSI).  */
-  {  9, "SIGKILL",   NULL },	/* Kill, unblockable (POSIX).  */
-  { 10, "SIGUSR1",   NULL },	/* User-defined signal 1 (POSIX).  */
-  { 11, "SIGSEGV",   NULL },	/* Segmentation violation (ANSI).  */
-  { 12, "SIGUSR2",   NULL },	/* User-defined signal 2 (POSIX).  */
-  { 13, "SIGPIPE",   NULL },	/* Broken pipe (POSIX).  */
-  { 14, "SIGALRM",   NULL },	/* Alarm clock (POSIX).  */
-  { 15, "SIGTERM",   NULL },	/* Termination (ANSI).  */
-  { 16, "SIGSTKFLT", NULL },	/* ??? */
-  { 17, "SIGCHLD",   NULL },	/* Child status has changed (POSIX).  */
-  { 18, "SIGCONT",   NULL },	/* Continue (POSIX).  */
-  { 19, "SIGSTOP",   NULL },	/* Stop, unblockable (POSIX).  */
-  { 20, "SIGTSTP",   NULL },	/* Keyboard stop (POSIX).  */
-  { 21, "SIGTTIN",   NULL },	/* Background read from tty (POSIX).  */
-  { 22, "SIGTTOU",   NULL },	/* Background write to tty (POSIX).  */
-  { 23, "SIGURG",    NULL },	/* Urgent condition on socket (4.2 BSD).  */
-  { 24, "SIGXCPU",   NULL },	/* CPU limit exceeded (4.2 BSD).  */
-  { 25, "SIGXFSZ",   NULL },	/* File size limit exceeded (4.2 BSD).  */
-  { 26, "SIGVTALRM", NULL },	/* Virtual alarm clock (4.2 BSD).  */
-  { 27, "SIGPROF",   NULL },	/* Profiling alarm clock (4.2 BSD).  */
-  { 28, "SIGWINCH",  NULL },	/* Window size change (4.3 BSD, Sun).  */
-  { 29, "SIGIO",     NULL },	/* I/O now possible (4.2 BSD).  */
-  { 30, "SIGPWR",    NULL },	/* Power failure restart (System V).  */
-  { 31, "SIGUNUSED", NULL },
-  {  0, NULL,        NULL },
+{
+	{SIGHUP,	"SIGHUP",       "Hangup (POSIX)."},
+	{SIGINT,	"SIGINT",       "Interrupt (ANSI)."},
+	{SIGQUIT,       "SIGQUIT",      "Quit (POSIX)."},
+	{SIGILL,	"SIGILL",       "Illegal instruction (ANSI)."},
+	{SIGTRAP,       "SIGTRAP",      "Trace trap (POSIX)."},
+	{SIGABRT,       "SIGABRT",      "Abort (ANSI)."},
+	{SIGIOT,	"SIGIOT",       "IOT trap (4.2 BSD)."},
+	{SIGBUS,	"SIGBUS",       "BUS error (4.2 BSD)."},
+	{SIGFPE,	"SIGFPE",       "Floating-point exception (ANSI)."},
+	{SIGKILL,       "SIGKILL",      "Kill, unblockable (POSIX)."},
+	{SIGUSR1,	"SIGUSR1",      "User-defined signal 1 (POSIX)."},
+	{SIGSEGV,	"SIGSEGV",      "Segmentation violation (ANSI)."},
+	{SIGUSR2,	"SIGUSR2",      "User-defined signal 2 (POSIX)."},
+	{SIGPIPE,       "SIGPIPE",      "Broken pipe (POSIX)."},
+	{SIGALRM,       "SIGALRM",      "Alarm clock (POSIX)."},
+	{SIGTERM,       "SIGTERM",      "Termination (ANSI)."},
+	{SIGSTKFLT,     "SIGSTKFLT",    "Stack fault."},
+	{SIGCLD,	"SIGCLD",       "Same as SIGCHLD (System V)."},
+	{SIGCHLD,       "SIGCHLD",      "Child status has changed (POSIX)."},
+	{SIGCONT,       "SIGCONT",      "Continue (POSIX)."},
+	{SIGSTOP,       "SIGSTOP",      "Stop, unblockable (POSIX)."},
+	{SIGTSTP,       "SIGTSTP",      "Keyboard stop (POSIX)."},
+	{SIGTTIN,       "SIGTTIN",      "Background read from tty (POSIX)."},
+	{SIGTTOU,       "SIGTTOU",      "Background write to tty (POSIX)."},
+	{SIGURG,	"SIGURG",       "Urgent condition on socket (4.2 BSD)."},
+	{SIGXCPU,       "SIGXCPU",      "CPU limit exceeded (4.2 BSD)."},
+	{SIGXFSZ,       "SIGXFSZ",      "File size limit exceeded (4.2 BSD)."},
+	{SIGVTALRM,     "SIGVTALRM",    "Virtual alarm clock (4.2 BSD)."},
+	{SIGPROF,       "SIGPROF",      "Profiling alarm clock (4.2 BSD)."},
+	{SIGWINCH,      "SIGWINCH",     "Window size change (4.3 BSD, Sun)."},
+	{SIGPOLL,       "SIGPOLL",      "Pollable event occurred (System V)."},
+	{SIGIO,		"SIGIO",	"I/O now possible (4.2 BSD)."},
+	{SIGPWR,	"SIGPWR",       "Power failure restart (System V)."},
+	{SIGSYS,	"SIGSYS",       "Bad system call."},
+	{SIGUNUSED,	"SIGUNUSED",	""},
+	{0,		NULL,		NULL}
 };
