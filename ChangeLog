@@ -1,3 +1,7 @@
+2004-09-25  Benoît Dejean  <tazforever@dlfp.org>
+
+	* glibtop.h: Added missing include <glibtop/close.h>.
+
 2004-09-22  Benoît Dejean  <tazforever@dlfp.org>
 
 	* configure.in: CFLAGS: Removed -W, added -Winline.

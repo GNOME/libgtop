@@ -43,6 +43,7 @@ typedef struct _glibtop		glibtop;
 
 #include <glibtop/sysdeps.h>
 
+#include <glibtop/close.h>
 
 struct _glibtop
 {
