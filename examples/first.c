@@ -359,7 +359,5 @@ main (int argc, char *argv [])
 		 data.proc_segment.start_code, data.proc_segment.end_code,
 		 data.proc_segment.start_stack);
 
-	fcloseall ();
-
 	exit (0);
 }
