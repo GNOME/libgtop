@@ -29,11 +29,14 @@
 
 static struct nlist nlst[] = { {"seminfo"}, {NULL} };
 static const unsigned long _glibtop_sysdeps_sem_limits =
-(1L << GLIBTOP_IPC_SEMMAP) + (1L << GLIBTOP_IPC_SEMMNI) +
-(1L << GLIBTOP_IPC_SEMMNS) + (1L << GLIBTOP_IPC_SEMMNU) +
-(1L << GLIBTOP_IPC_SEMMSL) + (1L << GLIBTOP_IPC_SEMOPM) +
-(1L << GLIBTOP_IPC_SEMUME) + (1L << GLIBTOP_IPC_SEMUSZ) +
-(1L << GLIBTOP_IPC_SEMVMX) + (1L << GLIBTOP_IPC_SEMAEM);
+#if GLIBTOP_SOLARIS_RELEASE <= 570
+(1L << GLIBTOP_IPC_SEMMAP) +
+#endif
+(1L << GLIBTOP_IPC_SEMMNI) + (1L << GLIBTOP_IPC_SEMMNS) +
+(1L << GLIBTOP_IPC_SEMMNU) + (1L << GLIBTOP_IPC_SEMMSL) +
+(1L << GLIBTOP_IPC_SEMOPM) + (1L << GLIBTOP_IPC_SEMUME) +
+(1L << GLIBTOP_IPC_SEMUSZ) + (1L << GLIBTOP_IPC_SEMVMX) +
+(1L << GLIBTOP_IPC_SEMAEM);
 
 /* Init function. */
 
@@ -63,7 +66,12 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 	if(kvm_read(kd, nlst[0].n_value, (void *)&sinfo,
 		    sizeof(struct seminfo)) != sizeof(struct seminfo))
 	   	return;
+
+#if GLIBTOP_SOLARIS_RELEASE <= 570
+	/* This field don't exist anymore in Solaris 8.
+	 * Thanks to Laszlo PETER <Laszlo.Peter@ireland.sun.com>. */
 	buf->semmap = sinfo.semmap;
+#endif
 	buf->semmni = sinfo.semmni;
 	buf->semmns = sinfo.semmns;
 	buf->semmnu = sinfo.semmnu;

@@ -1,3 +1,11 @@
+2001-02-18  Martin Baulig  <baulig@suse.de>
+
+	Applied a patch from Laszlo PETER <Laszlo.Peter@ireland.sun.com>
+	for Solaris 8.
+
+	* msg_limits.c: `struct msginfo' no longer has msgmap and msgssz.
+	* sem_limits.c: `struct seminfo' no longer has a semmap field.
+
 1999-10-17  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am (libgtop_sysdeps_la_LIBADD): Added `@DL_LIB@'.

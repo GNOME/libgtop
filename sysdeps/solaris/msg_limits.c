@@ -29,9 +29,11 @@
 
 static struct nlist nlst[] = { {"msginfo"}, {NULL} };
 static const unsigned long _glibtop_sysdeps_msg_limits =
-(1L << GLIBTOP_IPC_MSGPOOL) + (1L << GLIBTOP_IPC_MSGMAP) +
-(1L << GLIBTOP_IPC_MSGMAX) + (1L << GLIBTOP_IPC_MSGMNB) +
-(1L << GLIBTOP_IPC_MSGMNI) + (1L << GLIBTOP_IPC_MSGSSZ) +
+#if GLIBTOP_SOLARIS_RELEASE <= 570
+(1L << GLIBTOP_IPC_MSGMAP) +  (1L << GLIBTOP_IPC_MSGSSZ) +
+#endif
+(1L << GLIBTOP_IPC_MSGPOOL) + (1L << GLIBTOP_IPC_MSGMAX) +
+(1L << GLIBTOP_IPC_MSGMNB) + (1L << GLIBTOP_IPC_MSGMNI) +
 (1L << GLIBTOP_IPC_MSGTQL);
 
 /* Init function. */
@@ -63,11 +65,15 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 		    sizeof(struct msginfo)) != sizeof(struct msginfo))
 	   	return;
 
+#if GLIBTOP_SOLARIS_RELEASE <= 570
+	/* These fields don't exist anymore in Solaris 8.
+	 * Thanks to Laszlo PETER <Laszlo.Peter@ireland.sun.com>. */
 	buf->msgmap = minfo.msgmap;
+	buf->msgssz = minfo.msgssz;
+#endif
 	buf->msgmax = minfo.msgmax;
 	buf->msgmnb = minfo.msgmnb;
 	buf->msgmni = minfo.msgmni;
-	buf->msgssz = minfo.msgssz;
 	buf->msgtql = minfo.msgtql;
 	buf->msgpool = minfo.msgmni * minfo.msgmnb >> 10;
 	buf->flags = _glibtop_sysdeps_msg_limits;
