@@ -1,25 +1,25 @@
-# Copyright (C) 1998 Free Software Foundation, Inc.
+# Copyright (C) 1998,2000 Free Software Foundation, Inc.
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1998
-#
+# Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2000.
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 2000-05-25 14:38+0000\n"
-"PO-Revision-Date: 1998-12-11 06:53+09:00\n"
-"Last-Translator: Eiichiro ITANI <emu@ceres.dti.ne.jp>\n"
-"Language-Team: <gnome@lists.hypercore.co.jp>\n"
+"Project-Id-Version: libgtop 1.0.9\n"
+"POT-Creation-Date: 2000-06-25 20:21+0900\n"
+"PO-Revision-Date: 2000-06-25 20:57+09:00\n"
+"Last-Translator: Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>\n"
+"Language-Team: Japanese <translation@gnome.gr.jp\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=euc-japan\n"
+"Content-Type: text/plain; charset=euc-jp\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: examples/smp.c:68
 #, c-format
 msgid "Ticks (%ld per second):"
-msgstr ""
+msgstr "Ticks (ËèÉÃ %ld):"
 
 #: examples/smp.c:71
 msgid "Total"
-msgstr ""
+msgstr "¹ç·×"
 
 #: examples/smp.c:71 sysdeps/names/mem.c:47
 msgid "User"
@@ -31,10 +31,9 @@ msgstr ""
 
 #: examples/smp.c:71
 msgid "Sys"
-msgstr ""
+msgstr "¥·¥¹¥Æ¥à"
 
 #: examples/smp.c:71
-#, fuzzy
 msgid "Idle"
 msgstr "µÙÌ²»þ´Ö"
 
@@ -52,16 +51,15 @@ msgstr ""
 
 #: examples/smp.c:94
 msgid "Percent:"
-msgstr ""
+msgstr "Î¨:"
 
 #: examples/smp.c:95
 msgid "Total (%)"
-msgstr ""
+msgstr "¹ç·× (%)"
 
 #: examples/smp.c:95
-#, fuzzy
 msgid "User (%)"
-msgstr "¥æ¡¼¥¶"
+msgstr "¥æ¡¼¥¶ (%)"
 
 #: examples/smp.c:95
 msgid "Nice (%)"
@@ -69,11 +67,11 @@ msgstr ""
 
 #: examples/smp.c:95
 msgid "Sys (%)"
-msgstr ""
+msgstr "¥·¥¹¥Æ¥à (%)"
 
 #: examples/smp.c:96
 msgid "Idle (%)"
-msgstr ""
+msgstr "µÙÌ²»þ´Ö (%)"
 
 #: examples/smp.c:98
 #, c-format
@@ -94,25 +92,25 @@ msgstr ""
 #: lib/read.c:75
 #, c-format
 msgid "read %d bytes"
-msgstr ""
+msgstr "%d ¥Ð¥¤¥ÈÆÉ¤ß¹þ¤ß"
 
 #: lib/read_data.c:49
 msgid "read data size"
-msgstr ""
+msgstr "¥Ç¡¼¥¿ÆÉ¤ß¤³¤ß¤Î¥µ¥¤¥º"
 
 #: lib/read_data.c:66
 #, c-format
 msgid "read data %d bytes"
-msgstr ""
+msgstr "¥Ç¡¼¥¿ %d ¥Ð¥¤¥ÈÆÉ¤ß¹þ¤ß"
 
 #: lib/write.c:48
 #, c-format
 msgid "write %d bytes"
-msgstr ""
+msgstr "%d ¥Ð¥¤¥È½ÐÎÏ"
 
 #: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
-msgstr ""
+msgstr "¥Ç¥Ð¥Ã¥°¤òÍ­¸ú¤Ë¤¹¤ë"
 
 #: src/daemon/gnuserv.c:448
 msgid "DEBUG"
@@ -128,7 +126,7 @@ msgstr ""
 
 #: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
-msgstr ""
+msgstr "¥Ð¥Ã¥¯¥°¥é¥ó¥ÉÆ°ºî¤·¤Ê¤¤"
 
 #: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
@@ -136,7 +134,7 @@ msgstr ""
 
 #: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "inetd ¤«¤éµ¯Æ°"
 
 #: src/daemon/gnuserv.c:454
 msgid "INETD"
@@ -444,7 +442,7 @@ msgstr "¥·¥¹¥Æ¥à¥á¥Ã¥»¡¼¥¸¥Ø¥Ã¥À¤Î¿ô"
 
 #: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
 msgid "Interface Flags"
-msgstr ""
+msgstr "¥¤¥ó¥¿¡¼¥Õ¥§¥¤¥¹¤Î¥Õ¥é¥°"
 
 #: sysdeps/names/netload.c:46
 msgid "MTU"
@@ -459,30 +457,28 @@ msgid "Address"
 msgstr ""
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
-#, fuzzy
 msgid "Packets In"
-msgstr "¥Ú¡¼¥¸¥¤¥ó"
+msgstr "ÆþÎÏ¥Ñ¥±¥Ã¥È"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
-#, fuzzy
 msgid "Packets Out"
-msgstr "¥Ú¡¼¥¸¥¢¥¦¥È"
+msgstr "½ÐÎÏ¥Ñ¥±¥Ã¥È"
 
 #: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
 msgid "Packets Total"
-msgstr ""
+msgstr "¥Ñ¥±¥Ã¥È¹ç·×"
 
 #: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
 msgid "Bytes In"
-msgstr ""
+msgstr "ÆþÎÏ¥Ð¥¤¥È¿ô"
 
 #: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 msgid "Bytes Out"
-msgstr ""
+msgstr "½ÐÎÏ¥Ð¥¤¥È¿ô"
 
 #: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 msgid "Bytes Total"
-msgstr ""
+msgstr "¥Ð¥¤¥È¹ç·×"
 
 #: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
 msgid "Errors In"
@@ -498,34 +494,31 @@ msgstr ""
 
 #: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
 msgid "Collisions"
-msgstr ""
+msgstr "¾×ÆÍ"
 
 #: sysdeps/names/netload.c:64
 msgid "Maximum Transfer Unit"
 msgstr ""
 
 #: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
-#, fuzzy
 msgid "PPP State"
-msgstr "PPPÅý·×"
+msgstr "PPP¤Î¾õÂÖ"
 
 #: sysdeps/names/ppp.c:39
 msgid "Input bytes"
-msgstr ""
+msgstr "ÆþÎÏ¥Ð¥¤¥È"
 
 #: sysdeps/names/ppp.c:40
 msgid "Output bytes"
-msgstr ""
+msgstr "½ÐÎÏ¥Ð¥¤¥È"
 
 #: sysdeps/names/ppp.c:46
-#, fuzzy
 msgid "Number of input bytes"
-msgstr "¥ê¥¹¥È¤ÎÍ×ÁÇ¿ô"
+msgstr "ÆþÎÏ¥Ð¥¤¥È¿ô"
 
 #: sysdeps/names/ppp.c:47
-#, fuzzy
 msgid "Number of output bytes"
-msgstr "¥ê¥¹¥È¤ÎÍ×ÁÇ¿ô"
+msgstr "½ÐÎÏ¥Ð¥¤¥È¿ô"
 
 #: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
 msgid "Size"
@@ -681,9 +674,8 @@ msgid "Number of pages of virtual memory"
 msgstr "²¾ÁÛ¥á¥â¥ê¤Î¥Ú¡¼¥¸¿ô"
 
 #: sysdeps/names/procmem.c:55
-#, fuzzy
 msgid "Number of resident set (non-swapped) pages"
-msgstr "¾ïÃó¥»¥Ã¥È(¥¹¥ï¥Ã¥×¤µ¤ì¤Ê¤¤)¥Ú¡¼¥¸¿ô"
+msgstr "¾ïÃó¥»¥Ã¥È(¥¹¥ï¥Ã¥×¤µ¤ì¤Æ¤Ê¤¤)¥Ú¡¼¥¸¿ô"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of shared (mmap'd) memory"
@@ -697,9 +689,8 @@ msgid ""
 "which are swapped out."
 msgstr ""
 "¼Â¥á¥â¥êÃæ¤ËÂ¸ºß¤¹¤ë³ºÅö¥×¥í¥»¥¹¤Î¥Ú¡¼¥¸¿ô¤«¤é¡¢´ÉÍýÍÑ¤Î3¤Ä¤ò°ú¤¤¤¿¤â¤Î¡£ "
-"Ã±¤Ë ¥Æ¥­¥¹¥È¡¢¥Ç¡¼¥¿¤È¥¹¥¿¥Ã¥¯¶õ´Ö¤Ë ¿ô¤¨¤é¤ì¤Æ¤¤¤ë¥Ú¡¼¥¸¤Ç¤¹¡£ "
-"¤Þ¤ÀÆÉ¤ß¹þ¤àÉ¬Í×¤¬À¸¤¸¤Æ¤¤¤Ê¤¤ÉôÊ¬¤ä¡¢¥¹¥ï¥Ã¥×¥¢¥¦¥È¤µ¤ì¤Æ¤¤¤ë¥Ú¡¼¥¸¤Ï´Þ¤ß¤Þ¤"
-"»¤ó¡£"
+"Ã±¤Ë¥Æ¥­¥¹¥È¡¢¥Ç¡¼¥¿¤È¥¹¥¿¥Ã¥¯¶õ´Ö¤Ë¿ô¤¨¤é¤ì¤Æ¤¤¤ë¥Ú¡¼¥¸¤Ç¤¹¡£¤Þ¤ÀÆÉ¤ß "
+"¹þ¤àÉ¬Í×¤¬À¸¤¸¤Æ¤¤¤Ê¤¤ÉôÊ¬¤ä¡¢¥¹¥ï¥Ã¥×¥¢¥¦¥È¤µ¤ì¤Æ¤¤¤ë¥Ú¡¼¥¸¤Ï´Þ¤ß¤Þ¤»¤ó"
 
 #: sysdeps/names/procmem.c:62
 msgid ""
@@ -1264,9 +1255,8 @@ msgid "Bus error"
 msgstr ""
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
-#, fuzzy
 msgid "Segmentation violation"
-msgstr "¥×¥í¥»¥¹¤Î¥»¥°¥á¥ó¥È¾ðÊó"
+msgstr "¥»¥°¥á¥ó¥Æ¡¼¥·¥ç¥ó°ãÈ¿"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
@@ -1341,11 +1331,9 @@ msgid "Information request"
 msgstr ""
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
-#, fuzzy
 msgid "User defined signal 1"
-msgstr "Ìµ»ë¤¹¤ë¥·¥°¥Ê¥ë¤Î¥Þ¥¹¥¯"
+msgstr "¥æ¡¼¥¶ÄêµÁ¥·¥°¥Ê¥ë 1"
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
-#, fuzzy
 msgid "User defined signal 2"
-msgstr "Ìµ»ë¤¹¤ë¥·¥°¥Ê¥ë¤Î¥Þ¥¹¥¯"
+msgstr "¥æ¡¼¥¶ÄêµÁ¥·¥°¥Ê¥ë 2"
