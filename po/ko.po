@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-17 02:31+0900\n"
+"POT-Creation-Date: 2004-03-11 03:27+0100\n"
 "PO-Revision-Date: 2004-02-08 01:03+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
@@ -521,6 +521,7 @@ msgstr "NWChan"
 msgid "WChan"
 msgstr "WChan"
 
+#. K_Flags
 #: sysdeps/names/prockernel.c:51
 msgid ""
 "Kernel flags of the process.\n"
@@ -542,37 +543,48 @@ msgstr ""
 "\n"
 "수학 비트는 십진수 4이어야 하며, 추적(trace) 비트는 십진수 10이어야 합니다."
 
+#. Min_Flt
 #: sysdeps/names/prockernel.c:60
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
-msgstr "디스크로부터 메모리 페이지 적재를 필요로 하지 않는 프로세스로부터 발생된 사소한 폴트 갯수."
+msgstr ""
+"디스크로부터 메모리 페이지 적재를 필요로 하지 않는 프로세스로부터 발생된 사소"
+"한 폴트 갯수."
 
+#. Maj_Flt
 #: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
-msgstr "디스크로부터 메모리 페이지 적재를 필요로 하는 프로세스로부터 발생된 중대한 폴트 갯수."
+msgstr ""
+"디스크로부터 메모리 페이지 적재를 필요로 하는 프로세스로부터 발생된 중대한 폴"
+"트 갯수."
 
+#. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
 msgstr "프로세스와 그 하위 프로세스로부터 발생된 사소한 폴트 갯수."
 
+#. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
 msgstr "프로세스와 그 하위 프로세스로부터 발생된 중대한 폴트 갯수."
 
+#. KStk_ESP
 #: sysdeps/names/prockernel.c:72
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
-msgstr "프로세스의 커널 스택 페이지에서 찾아진 esp (32비트 스택 포인터)의 현재 값."
+msgstr ""
+"프로세스의 커널 스택 페이지에서 찾아진 esp (32비트 스택 포인터)의 현재 값."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:75
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr "현재의 EIP (32비트 전산명령 포인터)."
 
+#. NWChan
 #: sysdeps/names/prockernel.c:77
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "

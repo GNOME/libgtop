@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-22 01:30+0200\n"
+"POT-Creation-Date: 2004-03-11 03:27+0100\n"
 "PO-Revision-Date: 2003-10-22 01:44+0200\n"
 "Last-Translator: Branko Ivanović <popeye@one.ekof.bg.ac.yu>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
@@ -605,8 +605,8 @@ msgid ""
 msgstr ""
 "Ovo je „kanal“ u kom proces čeka. To je adresa sistemskog poziva i može se "
 "pronaći u spisku imena ukoliko vam je potreban tekstualni naziv. (Ako "
-"posedujete ažuriran /etc/psdatabase, probajte „ps -l“ da vidite WCHAN polje u "
-"akciji)"
+"posedujete ažuriran /etc/psdatabase, probajte „ps -l“ da vidite WCHAN polje "
+"u akciji)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:82
@@ -664,7 +664,8 @@ msgstr ""
 #: sysdeps/names/procmem.c:63
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "Trenutno ograničenje u bajtovima na RSS procesa (obično 2,147,483,647)."
+msgstr ""
+"Trenutno ograničenje u bajtovima na RSS procesa (obično 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:43
 msgid "Text_RSS"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Libgtop 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-26 18:33+0530\n"
+"POT-Creation-Date: 2004-03-11 03:27+0100\n"
 "PO-Revision-Date: 2003-08-13 18:19+0530\n"
 "Last-Translator: Ashutosh Sahu <ashutosh_sahu@rediffmail.com>\n"
 "Language-Team: Gnome Hindi Team <indlinux-hindi-gnome@lists.sourceforge."
@@ -523,6 +523,7 @@ msgstr "NWChan"
 msgid "WChan"
 msgstr "WChan"
 
+#. K_Flags
 #: sysdeps/names/prockernel.c:51
 msgid ""
 "Kernel flags of the process.\n"
@@ -535,26 +536,31 @@ msgid ""
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
 
+#. Min_Flt
 #: sysdeps/names/prockernel.c:60
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
 
+#. Maj_Flt
 #: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
 
+#. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
 msgstr "क्रिया और उसके बच्चों द्वारा किए छोटे दोषों की संख्या "
 
+#. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
 msgstr "किसी कार्य या उसके बच्चे द्वारा किए बड़े दोषों की संख्या "
 
+#. KStk_ESP
 #: sysdeps/names/prockernel.c:72
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
@@ -566,6 +572,7 @@ msgstr ""
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr "सामियक EIP (32-bit निर्देश सूचकांक)"
 
+#. NWChan
 #: sysdeps/names/prockernel.c:77
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "
@@ -1381,4 +1388,3 @@ msgstr "उपयोगकर्ता निर्धारित संके�
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "उपयोगकर्ता निर्धारित संकेत २"
-

@@ -4,7 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop (libgtop-GNOME-2-0-port)\n"
-"POT-Creation-Date: 2003-11-11 03:33+0800\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-03-11 03:27+0100\n"
 "PO-Revision-Date: 2003-11-11 03:36+0800\n"
 "Last-Translator: Hasbullah Bin Pit <sebol@ikhlas.com>\n"
 "Language-Team: Projek Gabai <gabai-penyumbang@list.sourceforge.net>\n"
@@ -21,13 +22,11 @@ msgstr "Denyutan (%ld per saat):"
 msgid "Total"
 msgstr "Jumlah"
 
-#: examples/smp.c:77
-#: sysdeps/names/mem.c:48
+#: examples/smp.c:77 sysdeps/names/mem.c:48
 msgid "User"
 msgstr "Pengguna"
 
-#: examples/smp.c:77
-#: sysdeps/names/procuid.c:51
+#: examples/smp.c:77 sysdeps/names/procuid.c:51
 msgid "Nice"
 msgstr "Elok"
 
@@ -44,20 +43,14 @@ msgstr "Leka"
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
-""
 msgstr ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
-""
 
 #: examples/smp.c:83
 #, c-format
-msgid ""
-"CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-""
-msgstr ""
-"CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-""
+msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
 #: examples/smp.c:100
 msgid "Percent:"
@@ -88,35 +81,45 @@ msgstr "Leka (%s)"
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
-""
 msgstr ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
-""
 
 #: examples/smp.c:120
 #, c-format
-msgid ""
-"CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-""
-msgstr ""
-"CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-""
+msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:126
 msgid "Spin:"
 msgstr "Putar:"
 
 #: lib/read.c:78
+#, fuzzy, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "baca saiz data"
+msgstr[1] "baca saiz data"
+
 #: lib/read_data.c:51
-#, c-format
 msgid "read data size"
 msgstr "baca saiz data"
 
 #: lib/read_data.c:68
+#, fuzzy, c-format
+msgid "read data %d byte"
+msgid_plural "read data %d bytes"
+msgstr[0] "baca saiz data"
+msgstr[1] "baca saiz data"
+
 #: lib/write.c:51
-#: src/daemon/gnuserv.c:456
 #, c-format
+msgid "write %d byte"
+msgid_plural "write %d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "Hidupkan pengnyahpepijatan"
 
@@ -153,11 +156,10 @@ msgstr "INETD"
 msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-""
 msgstr ""
 "Ralat pada opsyen %s: %s.\n"
-"Laksanakan '%s --help' untuk melihat senarai penuh opsyen arahan baris yang ada.\n"
-""
+"Laksanakan '%s --help' untuk melihat senarai penuh opsyen arahan baris yang "
+"ada.\n"
 
 #: sysdeps/names/cpu.c:44
 msgid "Total CPU Time"
@@ -207,28 +209,23 @@ msgstr "Masa CPU SMP dalam Task Leka"
 msgid "SMP CPU Flags"
 msgstr "Tanda CPUI SMP"
 
-#: sysdeps/names/cpu.c:60
-#: sysdeps/names/cpu.c:66
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks since system boot"
 msgstr "Bilangan denyutan jam sejak boot sistem"
 
-#: sysdeps/names/cpu.c:61
-#: sysdeps/names/cpu.c:67
+#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in user mode"
 msgstr "Bilangan denyutan jam diluangkan dalam mod pengguna"
 
-#: sysdeps/names/cpu.c:62
-#: sysdeps/names/cpu.c:68
+#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode (nice)"
 msgstr "Bilangan denyutan jam diluangkan dalam mod pengguna (nice)"
 
-#: sysdeps/names/cpu.c:63
-#: sysdeps/names/cpu.c:69
+#: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in system mode"
 msgstr "Bilangan denyutan jam diluangkan dalam mod sistem"
 
-#: sysdeps/names/cpu.c:64
-#: sysdeps/names/cpu.c:70
+#: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in the idle task"
 msgstr "Bilangan denyutan jam diluangkan dalam task leka"
 
@@ -240,8 +237,7 @@ msgstr "Frekuensi denyutan (default ialah 100)"
 msgid "Bit field indicating which CPU is currently running"
 msgstr "Medan bit menunjukkan CPU mana sedang terlaksana"
 
-#: sysdeps/names/fsusage.c:40
-#: sysdeps/names/fsusage.c:49
+#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
 msgid "Total blocks"
 msgstr "Jumlah blok"
 
@@ -253,13 +249,11 @@ msgstr "Blok kosong"
 msgid "Available blocks"
 msgstr "Blok yang tinggal"
 
-#: sysdeps/names/fsusage.c:43
-#: sysdeps/names/fsusage.c:52
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
 msgid "Total file nodes"
 msgstr "Jumlah nod fail"
 
-#: sysdeps/names/fsusage.c:44
-#: sysdeps/names/fsusage.c:53
+#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
 msgid "Free file nodes"
 msgstr "Nod fail kosong"
 
@@ -283,14 +277,15 @@ msgstr "Task Terlaksana"
 msgid "Number of Tasks"
 msgstr "Bilangan Task"
 
-#: sysdeps/names/loadavg.c:43
-#: sysdeps/names/loadavg.c:51
+#: sysdeps/names/loadavg.c:43 sysdeps/names/loadavg.c:51
 msgid "Last PID"
 msgstr "PID Terakhir"
 
 #: sysdeps/names/loadavg.c:48
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "Bilangan job yang dilaksanakan serentak berpurata lebih daripada 1,5 dan 15 minit"
+msgstr ""
+"Bilangan job yang dilaksanakan serentak berpurata lebih daripada 1,5 dan 15 "
+"minit"
 
 #: sysdeps/names/loadavg.c:49
 msgid "Number of tasks currently running"
@@ -360,70 +355,53 @@ msgstr "Memori yang digunakan untuk proses pengguna dalam kB"
 msgid "Memory in locked pages in kB"
 msgstr "Memori dalam page terkunci dalam kB"
 
-#: sysdeps/names/mountlist.c:39
-#: sysdeps/names/mountlist.c:46
-#: sysdeps/names/proclist.c:39
-#: sysdeps/names/proclist.c:46
-#: sysdeps/names/procmap.c:39
-#: sysdeps/names/procmap.c:46
+#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
+#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
+#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
 msgid "Number of list elements"
 msgstr "Bilangan unsur senarai"
 
-#: sysdeps/names/mountlist.c:40
-#: sysdeps/names/mountlist.c:47
-#: sysdeps/names/proclist.c:40
-#: sysdeps/names/proclist.c:47
-#: sysdeps/names/procmap.c:40
-#: sysdeps/names/procmap.c:47
+#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
+#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
+#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
 msgid "Total size of list"
 msgstr "Jumlah saiz senarai"
 
-#: sysdeps/names/mountlist.c:41
-#: sysdeps/names/mountlist.c:48
-#: sysdeps/names/proclist.c:41
-#: sysdeps/names/proclist.c:48
-#: sysdeps/names/procmap.c:41
-#: sysdeps/names/procmap.c:48
+#: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
+#: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
+#: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
 msgid "Size of a single list element"
 msgstr "Saiz unsur senarai tunggal"
 
-#: sysdeps/names/msg_limits.c:41
-#: sysdeps/names/msg_limits.c:52
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Size in kilobytes of message pool"
 msgstr "Saiz dalam kilobyte pool mesej"
 
-#: sysdeps/names/msg_limits.c:42
-#: sysdeps/names/msg_limits.c:53
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Number of entries in message map"
 msgstr "Bilangan kemasukan di peta mesej"
 
-#: sysdeps/names/msg_limits.c:43
-#: sysdeps/names/msg_limits.c:54
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Max size of message"
 msgstr "Saiz max mesej"
 
-#: sysdeps/names/msg_limits.c:44
-#: sysdeps/names/msg_limits.c:55
+#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Default max size of queue"
 msgstr "Saiz max default untuk queuqe"
 
-#: sysdeps/names/msg_limits.c:45
-#: sysdeps/names/msg_limits.c:56
+#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Max queues system wide"
 msgstr "Maksikum giliran seluruh sistem"
 
-#: sysdeps/names/msg_limits.c:46
-#: sysdeps/names/msg_limits.c:57
+#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Message segment size"
 msgstr "Saiz segmen mesej"
 
-#: sysdeps/names/msg_limits.c:47
-#: sysdeps/names/msg_limits.c:58
+#: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
 msgid "Number of system message headers"
 msgstr "Bilangan kepala mesej sistem"
 
-#: sysdeps/names/netload.c:46
-#: sysdeps/names/netload.c:64
+#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:64
 msgid "Interface Flags"
 msgstr "Flag Antaramuka"
 
@@ -431,63 +409,51 @@ msgstr "Flag Antaramuka"
 msgid "MTU"
 msgstr "MTU"
 
-#: sysdeps/names/netload.c:48
-#: sysdeps/names/netload.c:66
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
 msgid "Subnet"
 msgstr "Subnet"
 
-#: sysdeps/names/netload.c:49
-#: sysdeps/names/netload.c:67
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
 msgid "Address"
 msgstr "Alamat"
 
-#: sysdeps/names/netload.c:50
-#: sysdeps/names/netload.c:68
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
 msgid "Packets In"
 msgstr "Paket Masuk"
 
-#: sysdeps/names/netload.c:51
-#: sysdeps/names/netload.c:69
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
 msgid "Packets Out"
 msgstr "Paket Keluar"
 
-#: sysdeps/names/netload.c:52
-#: sysdeps/names/netload.c:70
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
 msgid "Packets Total"
 msgstr "Jumlah Paket"
 
-#: sysdeps/names/netload.c:53
-#: sysdeps/names/netload.c:71
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 msgid "Bytes In"
 msgstr "Byte Masuk"
 
-#: sysdeps/names/netload.c:54
-#: sysdeps/names/netload.c:72
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 msgid "Bytes Out"
 msgstr "Byte Keluar"
 
-#: sysdeps/names/netload.c:55
-#: sysdeps/names/netload.c:73
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
 msgid "Bytes Total"
 msgstr "Jumlah Byte"
 
-#: sysdeps/names/netload.c:56
-#: sysdeps/names/netload.c:74
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
 msgid "Errors In"
 msgstr "Ralat Masuk"
 
-#: sysdeps/names/netload.c:57
-#: sysdeps/names/netload.c:75
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
 msgid "Errors Out"
 msgstr "Ralat Keluar"
 
-#: sysdeps/names/netload.c:58
-#: sysdeps/names/netload.c:76
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
 msgid "Errors Total"
 msgstr "Jumlah Ralat"
 
-#: sysdeps/names/netload.c:59
-#: sysdeps/names/netload.c:77
+#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:77
 msgid "Collisions"
 msgstr "Perlanggaran"
 
@@ -495,8 +461,7 @@ msgstr "Perlanggaran"
 msgid "Maximum Transfer Unit"
 msgstr "Unit Pemindahan Maksimum"
 
-#: sysdeps/names/ppp.c:39
-#: sysdeps/names/ppp.c:46
+#: sysdeps/names/ppp.c:39 sysdeps/names/ppp.c:46
 msgid "PPP State"
 msgstr "Keadaan PPP"
 
@@ -516,8 +481,7 @@ msgstr "Bilangan byte input"
 msgid "Number of output bytes"
 msgstr "Bilangan byte output"
 
-#: sysdeps/names/procargs.c:39
-#: sysdeps/names/procmem.c:48
+#: sysdeps/names/procargs.c:39 sysdeps/names/procmem.c:48
 msgid "Size"
 msgstr "Saiz"
 
@@ -566,7 +530,8 @@ msgstr "WChan"
 msgid ""
 "Kernel flags of the process.\n"
 "\n"
-"On Linux, currently every flag has the math bit set, because crt0.s checks for math emulation, so this is not included in the output.\n"
+"On Linux, currently every flag has the math bit set, because crt0.s checks "
+"for math emulation, so this is not included in the output.\n"
 "\n"
 "This is probably a bug, as not every process is a compiled C program.\n"
 "\n"
@@ -574,7 +539,8 @@ msgid ""
 msgstr ""
 "Flag kernel bagi proses.\n"
 "\n"
-"Di dlaam linux, semua flag mempunyai set bit math, kerana crt0.s memeriksa emulati math, oleh itu ia tidak akan disertakan di dalam output.\n"
+"Di dlaam linux, semua flag mempunyai set bit math, kerana crt0.s memeriksa "
+"emulati math, oleh itu ia tidak akan disertakan di dalam output.\n"
 "\n"
 "Ini mungkin pejijat, kerana bukan semua program dikompil oleh C.\n"
 "\n"
@@ -582,13 +548,21 @@ msgstr ""
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:60
-msgid "The number of minor faults the process has made, those which have not required loading a memory page from disk."
-msgstr "Bilangan kesalahan kecil yang proses lakukan, yang mana tidak memerlukan memuatan page memori daripada cakera."
+msgid ""
+"The number of minor faults the process has made, those which have not "
+"required loading a memory page from disk."
+msgstr ""
+"Bilangan kesalahan kecil yang proses lakukan, yang mana tidak memerlukan "
+"memuatan page memori daripada cakera."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:63
-msgid "The number of major faults the process has made, those which have required loading a memory page from disk."
-msgstr "Bilangan kesalahan besar yang proses lakukan, yang mana tidak memerlukan memuatkan page memori daripada cakera."
+msgid ""
+"The number of major faults the process has made, those which have required "
+"loading a memory page from disk."
+msgstr ""
+"Bilangan kesalahan besar yang proses lakukan, yang mana tidak memerlukan "
+"memuatkan page memori daripada cakera."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:66
@@ -602,8 +576,12 @@ msgstr "Bilangan kesalahan besar yang proses dan anaknya telah lakukan."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:72
-msgid "The current value of esp (32-bit stack pointer), as found in the kernel stack page for the process."
-msgstr "Nilai semasa bagi esp (pentuding tindanan 32-bit), yg dijumpai pada page tindanan bagi proses."
+msgid ""
+"The current value of esp (32-bit stack pointer), as found in the kernel "
+"stack page for the process."
+msgstr ""
+"Nilai semasa bagi esp (pentuding tindanan 32-bit), yg dijumpai pada page "
+"tindanan bagi proses."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:75
@@ -612,7 +590,11 @@ msgstr "EIP semasa(pentuding arahan 32-bit)."
 
 #. NWChan
 #: sysdeps/names/prockernel.c:77
-msgid "This is the \"channel\" in which the process is waiting.  This is the address of a system call, and can be looked up in a namelist if you need a textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to see the WCHAN field in action)"
+msgid ""
+"This is the \"channel\" in which the process is waiting.  This is the "
+"address of a system call, and can be looked up in a namelist if you need a "
+"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
+"see the WCHAN field in action)"
 msgstr ""
 
 #. WChan
@@ -657,11 +639,18 @@ msgid "Number of pages of shared (mmap'd) memory"
 msgstr "Bilangan page bagi memori shared (mmap'd)"
 
 #: sysdeps/names/procmem.c:58
-msgid "Number of pages the process has in real memory, minus 3 for administrative purposes. This is just the pages which count towards text, data, or stack space. This does not include pages which have not been demand-loaded in, or which are swapped out."
-msgstr "Bilangan page yang proses ada pada memori sebenar, tolak 3 untuk kegunaan pentadbiran. Ini hanya page yang mengira teks, data, atak ruang stack "
+msgid ""
+"Number of pages the process has in real memory, minus 3 for administrative "
+"purposes. This is just the pages which count towards text, data, or stack "
+"space. This does not include pages which have not been demand-loaded in, or "
+"which are swapped out."
+msgstr ""
+"Bilangan page yang proses ada pada memori sebenar, tolak 3 untuk kegunaan "
+"pentadbiran. Ini hanya page yang mengira teks, data, atak ruang stack "
 
 #: sysdeps/names/procmem.c:63
-msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "Had semasa dalam byte pada rss proses (usually 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:43
@@ -905,8 +894,12 @@ msgid "The time (in jiffies) of the process's next timeout"
 msgstr "Masa (dalam jiffies) bagi hadmasa proses seterusnya"
 
 #: sysdeps/names/proctime.c:59
-msgid "The time (in jiffies) before the next SIGALRM is sent to the process due to an interval timer."
-msgstr "Masa (dalam jiffies) sebelum SIGALRM seterusnya di hantar ke proses kerana selangwaktu timer"
+msgid ""
+"The time (in jiffies) before the next SIGALRM is sent to the process due to "
+"an interval timer."
+msgstr ""
+"Masa (dalam jiffies) sebelum SIGALRM seterusnya di hantar ke proses kerana "
+"selangwaktu timer"
 
 #: sysdeps/names/proctime.c:61
 msgid "Tick frequency"
@@ -1060,93 +1053,75 @@ msgstr "Bilangan kumpulan proses tambahan"
 msgid "Array of additional process groups"
 msgstr "Array kumpulan proses tambahan"
 
-#: sysdeps/names/sem_limits.c:43
-#: sysdeps/names/sem_limits.c:57
+#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
 msgstr "Bilangan kemasukan pada peta semaphore"
 
-#: sysdeps/names/sem_limits.c:44
-#: sysdeps/names/sem_limits.c:58
+#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max number of arrays"
 msgstr "Bilangan maksimum array"
 
-#: sysdeps/names/sem_limits.c:45
-#: sysdeps/names/sem_limits.c:59
+#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max semaphores system wide"
 msgstr "Maksimum semaphore seluruh sistem"
 
-#: sysdeps/names/sem_limits.c:46
-#: sysdeps/names/sem_limits.c:60
+#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Number of undo structures system wide"
 msgstr "Bilangan struktur nyahcara seluruh sistem"
 
-#: sysdeps/names/sem_limits.c:47
-#: sysdeps/names/sem_limits.c:61
+#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max semaphores per array"
 msgstr "Maksimum semaphore per array"
 
-#: sysdeps/names/sem_limits.c:48
-#: sysdeps/names/sem_limits.c:62
+#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max ops per semop call"
 msgstr "Maksimum operasi per panggilan semop"
 
-#: sysdeps/names/sem_limits.c:49
-#: sysdeps/names/sem_limits.c:63
+#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max number of undo entries per process"
 msgstr "Bilangan maksimum kemasukan nyahcara per proses"
 
-#: sysdeps/names/sem_limits.c:50
-#: sysdeps/names/sem_limits.c:64
+#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "sizeof struct sem_undo"
 msgstr "sizeof struct sem_undo"
 
-#: sysdeps/names/sem_limits.c:51
-#: sysdeps/names/sem_limits.c:65
+#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Semaphore max value"
 msgstr "Nilai maksimum Semaphore"
 
-#: sysdeps/names/sem_limits.c:52
-#: sysdeps/names/sem_limits.c:66
+#: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 msgid "Adjust on exit max value"
 msgstr "Sesuaikan pada nilai maksimum keluar"
 
-#: sysdeps/names/shm_limits.c:40
-#: sysdeps/names/shm_limits.c:49
+#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Max segment size"
 msgstr "Saiz segmen maksimum"
 
-#: sysdeps/names/shm_limits.c:41
-#: sysdeps/names/shm_limits.c:50
+#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Min segment size"
 msgstr "Saiz segmen minima"
 
-#: sysdeps/names/shm_limits.c:42
-#: sysdeps/names/shm_limits.c:51
+#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max number of segments"
 msgstr "Bilangan segmen maksimum"
 
-#: sysdeps/names/shm_limits.c:43
-#: sysdeps/names/shm_limits.c:52
+#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max shared segments per process"
 msgstr "Segmen terkongsi maksimum per proses"
 
-#: sysdeps/names/shm_limits.c:44
-#: sysdeps/names/shm_limits.c:53
+#: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max total shared memory"
 msgstr "Jumlah maksma memori terkongsi"
 
-#: sysdeps/names/swap.c:40
-#: sysdeps/names/swap.c:49
+#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Total Swap Space"
 msgstr "Jumlah Ruang Swap"
 
-#: sysdeps/names/swap.c:41
-#: sysdeps/names/swap.c:50
+#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Used Swap Space"
 msgstr "Ruang Swap Digunakan"
 
-#: sysdeps/names/swap.c:42
-#: sysdeps/names/swap.c:51
+#: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 msgid "Free Swap Space"
 msgstr "Swap Space Bebas"
 
@@ -1166,88 +1141,71 @@ msgstr "Jumlah bilangan page swap yang dibawa masuk sejak sistem dihidupkan"
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "Jumlah bilangan page swap yang dibawa keluar sejak sistem dihidupkan"
 
-#: sysdeps/names/sysdeps.c:50
-#: sysdeps/names/sysdeps.c:77
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "Server Features"
 msgstr "Sifat Pelayan"
 
-#: sysdeps/names/sysdeps.c:51
-#: sysdeps/names/sysdeps.c:78
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "CPU Usage"
 msgstr "Penggunaan CPU"
 
-#: sysdeps/names/sysdeps.c:52
-#: sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Memory Usage"
 msgstr "Penggunaan Memori"
 
-#: sysdeps/names/sysdeps.c:53
-#: sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "Swap Usage"
 msgstr "Penggunaan Swap"
 
-#: sysdeps/names/sysdeps.c:54
-#: sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "System Uptime"
 msgstr "Uptime Sistem"
 
-#: sysdeps/names/sysdeps.c:55
-#: sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Load Averange"
 msgstr "Purata Muatan"
 
-#: sysdeps/names/sysdeps.c:56
-#: sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Shared Memory Limits"
 msgstr "Had Memori Terkongsi"
 
-#: sysdeps/names/sysdeps.c:57
-#: sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Message Queue Limits"
 msgstr "Had Queue Mesej"
 
-#: sysdeps/names/sysdeps.c:58
-#: sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "Semaphore Set Limits"
 msgstr "Had Set Semaphore"
 
-#: sysdeps/names/sysdeps.c:59
-#: sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "List of running Processes"
 msgstr "Senarai proses terlaksana"
 
-#: sysdeps/names/sysdeps.c:60
-#: sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process Status information"
 msgstr "Maklumat Status proses"
 
-#: sysdeps/names/sysdeps.c:61
-#: sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process UID and TTY information"
 msgstr "Maklumat UID dan TTY proses"
 
-#: sysdeps/names/sysdeps.c:62
-#: sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Memory information"
 msgstr "Maklumat Memori proses"
 
-#: sysdeps/names/sysdeps.c:63
-#: sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Time information"
 msgstr "Maklumat Masa proses"
 
-#: sysdeps/names/sysdeps.c:64
-#: sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Signal information"
 msgstr "Maklumat Isyarat proses"
 
-#: sysdeps/names/sysdeps.c:65
-#: sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Kernel Data information"
 msgstr "Maklumat Data Kernel proses"
 
-#: sysdeps/names/sysdeps.c:66
-#: sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:93
 msgid "Process Segment information"
 msgstr "Makluman Segmen proses"
 
@@ -1255,8 +1213,7 @@ msgstr "Makluman Segmen proses"
 msgid "Process Arguments"
 msgstr "Hujah Proses"
 
-#: sysdeps/names/sysdeps.c:68
-#: sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
 msgid "Process Memory Map"
 msgstr "Peta Meori Proses"
 
@@ -1264,18 +1221,15 @@ msgstr "Peta Meori Proses"
 msgid "Mount List"
 msgstr "Senarai lekapan"
 
-#: sysdeps/names/sysdeps.c:70
-#: sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "File System Usage"
 msgstr "Penggunaan Sistem Fail"
 
-#: sysdeps/names/sysdeps.c:71
-#: sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "Network Load"
 msgstr "Muatan Rangkaian"
 
-#: sysdeps/names/sysdeps.c:72
-#: sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:99
 msgid "PPP Statistics"
 msgstr "Statistik PPP"
 
@@ -1305,164 +1259,133 @@ msgstr "Masa dalam saat sejak sistem dihidupkan"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Masa dalam saat sistem peruntukkan pada task leka sejak sistem dihidupkan"
+msgstr ""
+"Masa dalam saat sistem peruntukkan pada task leka sejak sistem dihidupkan"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time of last system boot in seconds since the epoch"
 msgstr "Masa bagi proses but akhir dalam saat sejak epok"
 
-#: sysdeps/osf1/siglist.c:28
-#: sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "Letak"
 
-#: sysdeps/osf1/siglist.c:29
-#: sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "Gangguan"
 
-#: sysdeps/osf1/siglist.c:30
-#: sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "Keluar"
 
-#: sysdeps/osf1/siglist.c:31
-#: sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "Arahan terlarang"
 
-#: sysdeps/osf1/siglist.c:32
-#: sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "Jerangkap Surih"
 
-#: sysdeps/osf1/siglist.c:33
-#: sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "Batal"
 
-#: sysdeps/osf1/siglist.c:34
-#: sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "Ralat EMT"
 
-#: sysdeps/osf1/siglist.c:35
-#: sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "Pengecualian Floating-point"
 
-#: sysdeps/osf1/siglist.c:36
-#: sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "Bunuh"
 
-#: sysdeps/osf1/siglist.c:37
-#: sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "Ralat Bas"
 
-#: sysdeps/osf1/siglist.c:38
-#: sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:39
-#: sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "Hujah teruk ke panggilan sistem"
 
-#: sysdeps/osf1/siglist.c:40
-#: sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "Paip pecah"
 
-#: sysdeps/osf1/siglist.c:41
-#: sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "Jam loceng"
 
-#: sysdeps/osf1/siglist.c:42
-#: sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "Penamatan"
 
-#: sysdeps/osf1/siglist.c:43
-#: sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "Keadaan segera pada soket"
 
-#: sysdeps/osf1/siglist.c:44
-#: sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "Henti"
 
-#: sysdeps/osf1/siglist.c:45
-#: sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "Hentian papankekunci"
 
-#: sysdeps/osf1/siglist.c:46
-#: sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "Teruskan"
 
-#: sysdeps/osf1/siglist.c:47
-#: sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "Status anak berubah"
 
-#: sysdeps/osf1/siglist.c:48
-#: sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "Bacaan latar belakang daripada tty"
 
-#: sysdeps/osf1/siglist.c:49
-#: sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "Penulisan latar belakang daripada tty"
 
-#: sysdeps/osf1/siglist.c:50
-#: sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "I/O sekarang dibolehkan"
 
-#: sysdeps/osf1/siglist.c:51
-#: sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "CPU melebihi had"
 
-#: sysdeps/osf1/siglist.c:52
-#: sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "Saiz fail melebihi had"
 
-#: sysdeps/osf1/siglist.c:53
-#: sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "Jam loceng maya"
 
-#: sysdeps/osf1/siglist.c:54
-#: sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "Memprofil jam loceng"
 
-#: sysdeps/osf1/siglist.c:55
-#: sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "Penukaran saiz tetingkap"
 
-#: sysdeps/osf1/siglist.c:56
-#: sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "Permintaan maklumat"
 
-#: sysdeps/osf1/siglist.c:57
-#: sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "Isyarat dinyatakan pengguna 1"
 
-#: sysdeps/osf1/siglist.c:58
-#: sysdeps/sun4/siglist.c:58
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Isyarat dinyatakan pengguna 2"
-

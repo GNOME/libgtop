@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-04 13:08+0100\n"
+"POT-Creation-Date: 2004-03-11 03:27+0100\n"
 "PO-Revision-Date: 2004-01-04 13:01+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -532,6 +532,7 @@ msgstr "Chan_NA"
 msgid "WChan"
 msgstr "Chan_N"
 
+#. K_Flags
 #: sysdeps/names/prockernel.c:51
 msgid ""
 "Kernel flags of the process.\n"
@@ -555,6 +556,7 @@ msgstr ""
 "Le bit mathématique devrait donner 4 en décimal, et le bit tracé vaut 10 en "
 "décimal."
 
+#. Min_Flt
 #: sysdeps/names/prockernel.c:60
 msgid ""
 "The number of minor faults the process has made, those which have not "
@@ -563,6 +565,7 @@ msgstr ""
 "Le nombre de défauts de page mineurs d'un processus, c'est-à-dire ceux qui "
 "n'ont pas nécessité de charger une page mémoire depuis le disque."
 
+#. Maj_Flt
 #: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
@@ -571,18 +574,21 @@ msgstr ""
 "Le nombre de défauts de page majeurs d'un processus, c'est-à-dire ceux qui "
 "ont nécessité de charger une page mémoire depuis le disque."
 
+#. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
 msgstr ""
 "Le nombre de défauts de page mineurs qu'un processus et ses fils ont "
 "réalisés."
 
+#. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
 msgstr ""
 "Le nombre de défauts de page majeurs qu'un processus et ses fils ont "
 "réalisés."
 
+#. KStk_ESP
 #: sysdeps/names/prockernel.c:72
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
@@ -596,6 +602,7 @@ msgstr ""
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr "La valeur courante du registre EIP (pointeur d'instruction 32 bits)"
 
+#. NWChan
 #: sysdeps/names/prockernel.c:77
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "

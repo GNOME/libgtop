@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-05 23:55+0100\n"
+"POT-Creation-Date: 2004-03-11 03:27+0100\n"
 "PO-Revision-Date: 2004-01-06 00:10+0100\n"
 "Last-Translator: Åsmund Skjæveland <aasmunds@fys.uio.no>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
@@ -636,7 +636,8 @@ msgid ""
 msgstr ""
 
 #: sysdeps/names/procmem.c:63
-msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr ""
 
 #: sysdeps/names/procsegment.c:43
@@ -1408,4 +1409,3 @@ msgstr "Eigendefinert 2"
 
 #~ msgid "%s: option `-W %s' doesn't allow an argument\n"
 #~ msgstr "%s: valet «-W %s» kan ikkje ha argument\n"
-

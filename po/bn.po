@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-09-06 00:56-0400\n"
+"POT-Creation-Date: 2004-03-11 03:27+0100\n"
 "PO-Revision-Date: 2003-05-23 11:39+0200\n"
 "Last-Translator: Vat <vatzcar@yahoo.co.in>\n"
 "Language-Team: Bengali <gnome-translation@bengalinux.org>\n"
@@ -15,36 +15,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "টিক (প্রতি সেকেন্ডে %ld সংখ্যক):"
 
-#: examples/smp.c:74
+#: examples/smp.c:77
 msgid "Total"
 msgstr "মোট"
 
-#: examples/smp.c:74 sysdeps/names/mem.c:47
+#: examples/smp.c:77 sysdeps/names/mem.c:48
 msgid "User"
 msgstr "ব্যবহারকারী"
 
-#: examples/smp.c:74 sysdeps/names/procuid.c:58
+#: examples/smp.c:77 sysdeps/names/procuid.c:51
 msgid "Nice"
 msgstr "নাইস"
 
 # msgstr "সুন্দর"
 # "Nice" একটা প্রোগ্রামের নাম; সুতরাং বাংলা করার দরকার নাই। আরো জানার জন্য Nice-এর ম্যানপেজ দেখেন।
-#: examples/smp.c:74
+#: examples/smp.c:77
 msgid "Sys"
 msgstr ""
 
-#: examples/smp.c:74
+#: examples/smp.c:77
 msgid "Idle"
 msgstr "নিস্ক্রিয়"
 
 # msgstr "নিষ্ক্রিয়"
 # ২ বানান ভুল করছেন; ভাল করে খেয়াল করেন
-#: examples/smp.c:76
+#: examples/smp.c:79
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
@@ -53,37 +53,37 @@ msgstr ""
 "সিপিইউ          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
-#: examples/smp.c:80
+#: examples/smp.c:83
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "সিপিইউ %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:97
+#: examples/smp.c:100
 msgid "Percent:"
 msgstr "শতাংশ:"
 
-#: examples/smp.c:98
+#: examples/smp.c:101
 msgid "Total (%)"
 msgstr "মোট (%)"
 
-#: examples/smp.c:98
+#: examples/smp.c:101
 msgid "User (%)"
 msgstr "ব্যবহারকারী (%)"
 
-#: examples/smp.c:98
+#: examples/smp.c:101
 msgid "Nice (%)"
 msgstr "সুন্দর (%)"
 
-#: examples/smp.c:98
+#: examples/smp.c:101
 msgid "Sys (%)"
 msgstr ""
 
-#: examples/smp.c:99
+#: examples/smp.c:102
 msgid "Idle (%)"
 msgstr "নিস্ক্রিয় (%)"
 
 # বানান
-#: examples/smp.c:101
+#: examples/smp.c:104
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
@@ -92,25 +92,27 @@ msgstr ""
 "সিপিইউ          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
-#: examples/smp.c:117
+#: examples/smp.c:120
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "সিপিইউ %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:123
+#: examples/smp.c:126
 msgid "Spin:"
 msgstr "আবর্তন:"
 
-#: lib/read.c:75
-#, c-format
-msgid "read %d bytes"
-msgstr "%d বাইট পড়া গিয়েছে"
+#: lib/read.c:78
+#, fuzzy, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "%d বাইট পড়া গিয়েছে"
+msgstr[1] "%d বাইট পড়া গিয়েছে"
 
 # msgstr "%d বাইট পড়া গেছে"  "ড়" এর জায়গায় "ডহ্হা" লেখা 
 # #########################################
 # দয়া করে "গেছে" এর পরিবর্তে "গিয়েছে" লিখেন
 # #########################################
-#: lib/read_data.c:49
+#: lib/read_data.c:51
 msgid "read data size"
 msgstr "তথ্যের মাপ পড়া গিয়েছে"
 
@@ -119,58 +121,62 @@ msgstr "তথ্যের মাপ পড়া গিয়েছে"
 # #############################################
 # #############################################
 # ২ আচ্ছা
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
-msgstr "%d বাইট তথ্য পড়া গিয়েছে"
+#: lib/read_data.c:68
+#, fuzzy, c-format
+msgid "read data %d byte"
+msgid_plural "read data %d bytes"
+msgstr[0] "%d বাইট তথ্য পড়া গিয়েছে"
+msgstr[1] "%d বাইট তথ্য পড়া গিয়েছে"
 
 # msgstr "%d বাইট তথ্য পড়া গেছে"
 # msgstr "%d বাইট তথ্য পড়া হোক"
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
-msgstr "%d বাইট লেখা গিয়েছে"
+#: lib/write.c:51
+#, fuzzy, c-format
+msgid "write %d byte"
+msgid_plural "write %d bytes"
+msgstr[0] "%d বাইট লেখা গিয়েছে"
+msgstr[1] "%d বাইট লেখা গিয়েছে"
 
 # msgstr "%d বাইট লেখা হয়েছে"
-#: src/daemon/gnuserv.c:453
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "ত্রুটিমুক্তকরণ চালু করুন"
 
 # msgstr "ডিবাগ প্রক্রিয়া সক্রিয় করা হোক"
 # ২ এটা কি বিবেচনা করা যায় না? অন্যান্য জায়গায় "ডিবাগ" লেখা হইছে, তাই এখানে অন্য রকম হয়ে যায়।
 # আপনার আপত্তি থাকলে অবশ্য কোন কথা নাই।
-#: src/daemon/gnuserv.c:453
+#: src/daemon/gnuserv.c:456
 msgid "DEBUG"
 msgstr "ডিবাগ"
 
 # msgstr "ডিবাগ"
-#: src/daemon/gnuserv.c:455
+#: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
 msgstr "বর্ণনাযুক্ত (Verbose) ফলাফল দেখানো হোক"
 
 # msgstr "ভার্বোস (Verbose) ফলাফল চালু করুন"
 # msgstr "বর্ণনাযুক্ত ফলাফল দেখানো হোক"
-#: src/daemon/gnuserv.c:455
+#: src/daemon/gnuserv.c:458
 msgid "VERBOSE"
 msgstr "বর্ণনাযুক্ত"
 
-#: src/daemon/gnuserv.c:457
+#: src/daemon/gnuserv.c:460
 msgid "Don't fork into background"
 msgstr "পশ্চাতে ফর্ক (Fork) করা হবে না"
 
-#: src/daemon/gnuserv.c:457
+#: src/daemon/gnuserv.c:460
 msgid "NO-DAEMON"
 msgstr "ডিমনবিহীন"
 
-#: src/daemon/gnuserv.c:459
+#: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
 msgstr "inetd এর থেকে নেওয়া হয়েছে"
 
-#: src/daemon/gnuserv.c:459
+#: src/daemon/gnuserv.c:462
 msgid "INETD"
 msgstr "আইনেটডি (INetd)"
 
-#: src/daemon/gnuserv.c:493
+#: src/daemon/gnuserv.c:496
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -179,101 +185,12 @@ msgstr ""
 "অপশন %s এ ভুল হয়েছে: %s.\n"
 "কমান্ড লাইন অপশনের সম্পূর্ণ তালিকা দেখার জন্য '%s --help' লিখুন।\n"
 
-# msgstr "কমান্ড লাইন অপশন সম্পূর্ণ তালিকা দেখার জন্য '%s --help' লিখুন।\n"
-# Option এর বাংলা করার দরকার নাই
-# ২ আপনি কি এটার ব্যাপারে নিশ্চিত ?
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "সিস্টেম সংক্রান্ত অজ্ঞাত ভুল"
-
-# msgstr "সিস্টেম সংক্রান্ত অজানা ভুল"
-# msgstr "সিস্টেম সংক্রান্ত অজ্ঞাত ভুল"
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: '%s' অপশন অনিশ্চিত\n"
-
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: '--%s' অপশনের জন্য কোন মান প্রদান করা অনুমোদিত নয়\n"
-
-# msgstr "%s: '--%s' অপশনের জন্য কোন মান প্রদান করা অনুমোদিত নয়"
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: '%c%s' অপশনের জন্য কোন মান প্রদান করা অনুমোদিত নয়\n"
-
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: '--%s' অপশনের জন্য মান প্রেরন করা প্রয়োজন\n"
-
-# msgstr "%s: বিকল্প '--%s' এ মান প্রেরন প্রয়োজন" <-- "প্রেরণ" বানান ভুল আছে
-# msgstr "%s: '--%s' অপশনের জন্য মান প্রেরণ করা প্রয়োজন"
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: '--%s' অপরিচিত অপশন\n"
-
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: '%c%s' অপরিচিত অপশন\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: -- %c অবৈধ অপশন\n"
-
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: বেঠিক বিকল্প -- %c\n"
-
-# msgstr "%s: অবৈধ বিকল্প"
-# msgstr "%s: অসিদ্ধ বিকল্প" <- "অসিদ্ধ" মানে যেটা সিদ্ধ/প্রমাণ করা যায় নাই
-# "Illegal=Invalid=অবৈধ" লিখলে কোন সমস্যা নাই; কারণ অর্থ ঠিকই বোঝা যাচ্ছে 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: -- %c অপশনের জন্য মান প্রেরন করা প্রয়োজন\n"
-
-# msgstr "%s: বিকল্পে মান প্রেরন প্রয়োজন -- %c\n"
-# msgstr "%s: অপশনের জন্য মান প্রেরণ করা প্রয়োজন -- %c\n"
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: অপশন '-W %s' অনিশ্চিত অর্থবোধক\n"
-
-# msgstr "%s: অপশন '-W %s' অনিশ্চিত অর্থবোধক"
-# msgstr "%s: অপশন '-W %s' দ্ব্যর্থক"
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: '--W %s' অপশন কোন মান প্রদান অনুমোদন করে না\n"
-
-#: support/popthelp.c:35
-msgid "Show this help message"
-msgstr "এই সাহাযয্ বার্তাটি দেখানো হোক"
-
-# msgstr "এই সাহাযয্ বার্তা দেখাও"
-# msgstr "এই সাহায্য বার্তাটি দেখানো হোক"
-# ২ "সাহায্য" বানান খেয়াল করেন
-#: support/popthelp.c:36
-msgid "Display brief usage message"
-msgstr "সংক্ষেপে ব্যবহার সংক্রান্ত বার্তা দেখান হোক"
-
 # msgstr "সংক্ষিপ্ত ব্যবহার বিধি প্রদর্শন করা হোক"
-#: sysdeps/names/cpu.c:43
+#: sysdeps/names/cpu.c:44
 msgid "Total CPU Time"
 msgstr "মোট সিপিইউ সময়"
 
-#: sysdeps/names/cpu.c:44
+#: sysdeps/names/cpu.c:45
 msgid "CPU Time in User Mode"
 msgstr "ইউজার মোডে (User Mode) ব্যয়িত সিপিইউ সময়"
 
@@ -281,412 +198,420 @@ msgstr "ইউজার মোডে (User Mode) ব্যয়িত সিপি
 # আরো ভাল কিছু মাথায় না আসলে এইটা Try করে:
 # msgstr "ইউজার মোডে (User Mode) ব্যয়িত সিপিইউ সময়"
 # User Mode এর বাংলা না করাই ভাল; কারণ এটা একটা Technical Term
-#: sysdeps/names/cpu.c:45
+#: sysdeps/names/cpu.c:46
 msgid "CPU Time in User Mode (nice)"
 msgstr "ইউজার মোডে (User Mode) ব্যয়িত সিপিইউ সময় (নাইস)"
 
-#: sysdeps/names/cpu.c:46
+#: sysdeps/names/cpu.c:47
 msgid "CPU Time in System Mode"
 msgstr "সিস্টেম মোডে ব্যয়িত সিপিইউ সময়"
 
 # msgstr "সিস্টেম মোডে ব্যয়িত সিপিইউ সময়"
-#: sysdeps/names/cpu.c:47
+#: sysdeps/names/cpu.c:48
 msgid "CPU Time in the Idle Task"
 msgstr "নিস্ক্রিয় অবস্থায় ব্যয়িত সিপিইউ সময়"
 
 # msgstr "কর্মহীন অবস্থায় ব্যয়িত সিপিইউ সময়"
-#: sysdeps/names/cpu.c:48
+#: sysdeps/names/cpu.c:49
 msgid "Tick Frequency"
 msgstr "টিক (Tick) কম্পাঙ্ক"
 
-#: sysdeps/names/cpu.c:49
+#: sysdeps/names/cpu.c:50
 msgid "SMP Total CPU Time"
 msgstr "এসএমপি মোট সিপিইউ সময়"
 
 # msgstr "মোট এসএমপি সিপিইউ সময়"
-#: sysdeps/names/cpu.c:50
+#: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in User Mode"
 msgstr "ইউজার মোডে ব্যয়িত এসএমপি সিপিইউ সময়"
 
 # msgstr "ইউজার মোডে ব্যয়িত এসএমপি সিপিইউ সময়"
-#: sysdeps/names/cpu.c:51
+#: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in User Mode (nice)"
 msgstr "ইউজার মোডে ব্যয়িত এসএমপি সিপিইউ সময় (নাইস)"
 
 # msgstr "ইউজার মোডে ব্যয়িত এসএমপি সিপিইউ সময় (নাইস)"
-#: sysdeps/names/cpu.c:52
+#: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in System Mode"
 msgstr "সিস্টেম মোডে ব্যয়িত এসএমপি সিপিইউ সময়"
 
 # msgstr "সিস্টেম মোডে ব্যয়িত এসএমপি সিপিইউ সময়"
-#: sysdeps/names/cpu.c:53
+#: sysdeps/names/cpu.c:54
 msgid "SMP CPU Time in the Idle Task"
 msgstr "নিস্ক্রিয় কাজের পেছনে ব্যয়িত এসএমপি সিপিইউ সময়"
 
+#: sysdeps/names/cpu.c:55
+msgid "SMP CPU Flags"
+msgstr ""
+
 # msgstr "নিষ্ক্রিয় টাস্কের পেছনে ব্যয়িত এসএমপি সিপিইউ সময়"
 # Task একটা Technical term
-#: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks since system boot"
 msgstr "সিস্টেম বুট হওয়ার পর অতিক্রান্ত ঘড়ির টিক (Tick) সংখ্যা"
 
-#: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
+#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in user mode"
 msgstr "ইউজার মোডে সিস্টেমটি যে সংখ্যক ঘড়ির টিক (Tick) অতিবাহিত করেছে"
 
-#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
+#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode (nice)"
 msgstr "ইউজার মোডে সিস্টেমটি যে সংখ্যক ঘড়ির টিক (Tick) অতিবাহিত করেছে (নাইস)"
 
-#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
+#: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in system mode"
 msgstr "সিস্টেম মোডে সিস্টেমটি যে সংখ্যক ঘড়ির টিক (Tick) অতিবাহিত করেছে"
 
-#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
+#: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in the idle task"
 msgstr "নিস্ক্রিয় অবস্থায় সিস্টেমটি যে সংখ্যক ঘড়ির টিক (Tick) অতিবাহিত করেছে"
 
-#: sysdeps/names/cpu.c:63
+#: sysdeps/names/cpu.c:65
 msgid "Tick frequency (default is 100)"
 msgstr "টিক কম্পাঙ্ক (ডিফল্ট হল ১০০)"
 
-#: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
+#: sysdeps/names/cpu.c:71
+msgid "Bit field indicating which CPU is currently running"
+msgstr ""
+
+#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
 msgid "Total blocks"
 msgstr "মোট ব্লক"
 
 # msgstr "মোট ব্লক"
-#: sysdeps/names/fsusage.c:40
+#: sysdeps/names/fsusage.c:41
 msgid "Free blocks"
 msgstr "ফাঁকা ব্লক"
 
 # msgstr "ফাঁকা ব্লক"
-#: sysdeps/names/fsusage.c:41
+#: sysdeps/names/fsusage.c:42
 msgid "Available blocks"
 msgstr "ব্যবহারযোগ্য ব্লক"
 
 # msgstr "ব্যবহারযোগ্য ব্লক"
-#: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
 msgid "Total file nodes"
 msgstr "মোট ফাইল নোড"
 
 # msgstr "মোট ফাইল নোড"
-#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
 msgid "Free file nodes"
 msgstr "ফাঁকা ফাইল নোড"
 
 # msgstr "ফাঁকা ফাইল নোড"
-#: sysdeps/names/fsusage.c:49
+#: sysdeps/names/fsusage.c:50
 msgid "Free blocks available to the superuser"
 msgstr "সুপারইউজারের ব্যবহারযোগ্য মুক্ত ব্লক"
 
 # msgstr "প্রধানব্যবহারকারীর ব্যবহারযোগ্য ফাঁকা ব্লক"
 # msgstr "সুপারইউজারের ব্যবহারযোগ্য ফাঁকা ব্লক" <-- এইটার ব্যাপারে নিশ্চিত না
-#: sysdeps/names/fsusage.c:50
+#: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to non-superusers"
 msgstr "সাধারন ব্যবহারকারীদের ব্যবহারযোগ্য মুক্ত ব্লক"
 
 # আগেরটার মত
-#: sysdeps/names/loadavg.c:39
+#: sysdeps/names/loadavg.c:40
 msgid "Load Average"
 msgstr "গড় বোঝা"
 
 # msgstr "গড় বোঝা" <- "গড়" বানান "গড" কেন ?
 # msgstr "গড় কাজের পরিমাণ"
-#: sysdeps/names/loadavg.c:40
+#: sysdeps/names/loadavg.c:41
 msgid "Running Tasks"
 msgstr "চলন্ত কার্যসমূহ"
 
 # টাস্ক
-#: sysdeps/names/loadavg.c:41
+#: sysdeps/names/loadavg.c:42
 msgid "Number of Tasks"
 msgstr "কার্যসমূহের সংখ্যা"
 
 # msgstr "টাস্কের সংখ্যা"
-#: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
+#: sysdeps/names/loadavg.c:43 sysdeps/names/loadavg.c:51
 msgid "Last PID"
 msgstr "শেষ পিআইডি"
 
-#: sysdeps/names/loadavg.c:47
+#: sysdeps/names/loadavg.c:48
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
 msgstr "গড়ে ১, ৫ ও ১৫ মিনিটের বেশি যুগপত্‍ চলা কাজগুলি সংখ্যায়"
 
 # msgstr "গড়ে ১,৫ ও ১৫ মিনিটের বেশি যুগপত্ চলা কাজগুলি সংখ্যায়"
 # msgstr "গড়ে ১, ৫ ও ১৫ মিনিটের বেশি যুগপত্‍ত্চচলন্ত কাজের সংখ্যা"
 # ইংরেজিটা বোঝা যাচ্ছে না বলে বাংলা নিয়েও Confusion আছে
-#: sysdeps/names/loadavg.c:48
+#: sysdeps/names/loadavg.c:49
 msgid "Number of tasks currently running"
 msgstr "বর্তমানে চলা কার্যসমূহের সংখ্যা"
 
 # msgstr "বর্তমানে চলন্ত টাস্কের সংখ্যা"
 # "সংখ্যায়" না, বরং "সংখ্যা"
 # "চলন্ত" কি ভাল শোনায় না ?
-#: sysdeps/names/loadavg.c:49
+#: sysdeps/names/loadavg.c:50
 msgid "Total number of tasks"
 msgstr "কার্যসমূহের মোট সংখ্যা"
 
 # msgstr "টাস্কের মোট সংখ্যা"
-#: sysdeps/names/mem.c:41
+#: sysdeps/names/mem.c:42
 msgid "Total Memory"
 msgstr "মোট মেমরি"
 
 # Memory-এর বাংলা করার দরকার নাই
-#: sysdeps/names/mem.c:42
+#: sysdeps/names/mem.c:43
 msgid "Used Memory"
 msgstr "ব্যবহৃত মেমরি"
 
-#: sysdeps/names/mem.c:43
+#: sysdeps/names/mem.c:44
 msgid "Free Memory"
 msgstr "মুক্ত মেমরি"
 
 # msgstr "মুক্ত মেমরি"
 # msgstr "ফাঁকা মেমরি"
-#: sysdeps/names/mem.c:44
+#: sysdeps/names/mem.c:45
 msgid "Shared Memory"
 msgstr "বন্টিত মেমরি"
 
 # msgstr "বন্টিত মেমরি"
 # "Shared=বন্টিত", এটা সুন্দর হইছে
-#: sysdeps/names/mem.c:45
+#: sysdeps/names/mem.c:46
 msgid "Buffers"
 msgstr "বাফার"
 
-#: sysdeps/names/mem.c:46
+#: sysdeps/names/mem.c:47
 msgid "Cached"
 msgstr "ক্যাশ-এ রক্ষিত"
 
-#: sysdeps/names/mem.c:48
+#: sysdeps/names/mem.c:49
 msgid "Locked"
 msgstr "আটকান (Locked)"
 
 # msgstr "লক'কৃত (Locked)"
-#: sysdeps/names/mem.c:53
+#: sysdeps/names/mem.c:54
 msgid "Total physical memory in kB"
 msgstr "প্রকৃত মেমরির পরিমাণ (কিলোবাইট)"
 
 # msgstr "প্রকৃত মেমরির পরিমাণ (কিলোবাইট)"
-#: sysdeps/names/mem.c:54
+#: sysdeps/names/mem.c:55
 msgid "Used memory size in kB"
 msgstr "ব্যবহৃত মেমরির পরিমাণ (কিলোবাইট)"
 
 # আগেরটার মত
-#: sysdeps/names/mem.c:55
+#: sysdeps/names/mem.c:56
 msgid "Free memory size in kB"
 msgstr "মুক্ত মেমরির পরিমাণ (কিলোবাইট)"
 
-#: sysdeps/names/mem.c:56
+#: sysdeps/names/mem.c:57
 msgid "Shared memory size in kB"
 msgstr "বন্টিত মেমরির পরিমাণ (কিলোবাইট)"
 
-#: sysdeps/names/mem.c:57
+#: sysdeps/names/mem.c:58
 msgid "Size of buffers kB"
 msgstr "বাফারের আকার (কিলোবাইট)"
 
-#: sysdeps/names/mem.c:58
+#: sysdeps/names/mem.c:59
 msgid "Size of cached memory in kB"
 msgstr "ক্যাশ মেমরির আকার (কিলোবাইট)"
 
-#: sysdeps/names/mem.c:59
+#: sysdeps/names/mem.c:60
 msgid "Memory used from user processes in kB"
 msgstr "ইউজার প্রসেসসমূহের ব্যবহৃত মেমরির পরিমাণ (কিলোবাইট)"
 
 # msgstr "ইউজার প্রসেসসমূহের ব্যবহৃত মেমরির পরিমাণ (কিলোবাইট)"
-#: sysdeps/names/mem.c:60
+#: sysdeps/names/mem.c:61
 msgid "Memory in locked pages in kB"
 msgstr "আটকান (Locked) পৃষ্ঠাতে রক্ষিত মেমেরির পরিমাণ (কিলোবাইট)"
 
 # msgstr "লক'কৃত (Locked) পেজ-এ রক্ষিত মেমেরির পরিমাণ (কিলোবাইট)"
-#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
-#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
-#: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
+#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
+#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
+#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
 msgid "Number of list elements"
 msgstr "তালিকাস্থ উপাদানের সংখ্যা"
 
 # msgstr "তালিকার উপাদানের সংখ্যা"
 # msgstr "তালিকাস্থ উপাদানের সংখ্যা"
-#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
-#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
-#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
-msgid "Total size of list"
-msgstr "তালিকার মোট আয়তন"
-
 #: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
 #: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
 #: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
+msgid "Total size of list"
+msgstr "তালিকার মোট আয়তন"
+
+#: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
+#: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
+#: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
 msgid "Size of a single list element"
 msgstr "একক তালিকা উপাদানের আয়তন"
 
 # ২ এইটা কি আরেকটু ভাল করে লেখা যায় ?
-#: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Size in kilobytes of message pool"
 msgstr "সঞ্চিত বার্তাসমূহের (Message pool) আকার (কিলোবাইট)"
 
 # এইটা নিয়ে Confusion আছে
-#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Number of entries in message map"
 msgstr "বার্তা ম্যাপে লিপিভুক্ত বিষয়গুলি সংখ্যায়"
 
 # ২ "সংখ্যা" 
 # ২ "গুলো" <- Sayamindu will ultimately change it and so it's better to change it now.
-#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Max size of message"
 msgstr "বার্তার সর্বাধিক আয়তন"
 
-#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
+#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Default max size of queue"
 msgstr "সারির সর্বাধিক ডিফল্ট আয়তন"
 
 # msgstr "সারির সাধারন সর্বাধিক আয়তন" <-- বানান ভুল আছে
 # বোঝা যাচ্ছে না
 # Default এর বাংলা করলে বোঝা যায় না; তাই না করাই ভাল
-#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
+#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Max queues system wide"
 msgstr "নিয়মানুগ সর্বাধিক সারি"
 
-#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
+#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Message segment size"
 msgstr "বার্তা-অংশের আয়তন"
 
-#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
+#: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
 msgid "Number of system message headers"
 msgstr "সিস্টেম বার্তা শিরোনামে সংখ্যা"
 
 # ২ ভাল করে পড়ে দেখেন  
-#: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:64
 msgid "Interface Flags"
 msgstr "ইন্টারফেস পতাকা"
 
 # msgstr "ইন্টারফেস পতাকা"
 # msgstr "ইন্টারফেস ফ্ল্যাগ"
-#: sysdeps/names/netload.c:46
+#: sysdeps/names/netload.c:47
 msgid "MTU"
 msgstr "এমটিইউ"
 
-#: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
 msgid "Subnet"
 msgstr "সাবনেট"
 
-#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
 msgid "Address"
 msgstr "ঠিকানা"
 
-#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
 msgid "Packets In"
 msgstr "আগত প্যাকেট"
 
-#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
 msgid "Packets Out"
 msgstr "বহিরাগত প্যাকেট"
 
 # msgstr "প্যাকেট গেছে"
 # msgstr "প্রেরিত প্যাকেট"
 # ২ "বহিরাগত" মানে "বাইরে থেকে আগত" - মনে হয় আপনি এটা বোঝাতে চাচ্ছেন না
-#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
 msgid "Packets Total"
 msgstr "মোট প্যাকেট সংখ্যা"
 
-#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 msgid "Bytes In"
 msgstr "আগত বাইট"
 
-#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 msgid "Bytes Out"
 msgstr "বহিরাগত বাইট"
 
 # msgstr "বাইট গেছে"
-#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
 msgid "Bytes Total"
 msgstr "মোট বাইট"
 
-#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
 msgid "Errors In"
 msgstr "আগত ভুল"
 
-#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
 msgid "Errors Out"
 msgstr "বহিরাগত ভুল"
 
 # আগের মত
-#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
 msgid "Errors Total"
 msgstr "মোট ভুল"
 
-#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:77
 msgid "Collisions"
 msgstr "সংঘর্ষ"
 
-#: sysdeps/names/netload.c:64
+#: sysdeps/names/netload.c:65
 msgid "Maximum Transfer Unit"
 msgstr "সর্বাধিক স্থানান্তরিত একক"
 
 # msgstr "সর্বাধিক একক স্থানান্তকরন"
 # msgstr "সর্বাধিক স্থানান্তরিত একক"
-#: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
+#: sysdeps/names/ppp.c:39 sysdeps/names/ppp.c:46
 msgid "PPP State"
 msgstr "পিপিপি অবস্থা"
 
-#: sysdeps/names/ppp.c:39
+#: sysdeps/names/ppp.c:40
 msgid "Input bytes"
 msgstr "আগত বাইট"
 
 # এটা ভাল হইছে; এটার মত "আগত প্যাকেট" লিখলে আরো ভাল হয়।
-#: sysdeps/names/ppp.c:40
+#: sysdeps/names/ppp.c:41
 msgid "Output bytes"
 msgstr "বহিরাগত বাইট"
 
-#: sysdeps/names/ppp.c:46
+#: sysdeps/names/ppp.c:47
 msgid "Number of input bytes"
 msgstr "আগত বাইট সংখ্যা"
 
-#: sysdeps/names/ppp.c:47
+#: sysdeps/names/ppp.c:48
 msgid "Number of output bytes"
 msgstr "বহিরাগত বাইট সংখ্যা"
 
-#: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
+#: sysdeps/names/procargs.c:39 sysdeps/names/procmem.c:48
 msgid "Size"
 msgstr "আয়তন"
 
-#: sysdeps/names/procargs.c:43
+#: sysdeps/names/procargs.c:44
 msgid "Length in bytes of the returned string."
 msgstr "ফিরিয়ে দেওয়া পংক্তির দৈর্ঘ্য (বাইটে)।"
 
 # msgstr "ফিরিয়ে দেওয়া পঙতির দৈর্ঘ (বাইটে)"
-#: sysdeps/names/prockernel.c:42
+#: sysdeps/names/prockernel.c:43
 msgid "K_Flags"
 msgstr ""
 
-#: sysdeps/names/prockernel.c:42
+#: sysdeps/names/prockernel.c:43
 msgid "Min_Flt"
 msgstr ""
 
-#: sysdeps/names/prockernel.c:42
+#: sysdeps/names/prockernel.c:43
 msgid "Maj_Flt"
 msgstr ""
 
-#: sysdeps/names/prockernel.c:42
+#: sysdeps/names/prockernel.c:43
 msgid "CMin_Flt"
 msgstr ""
 
-#: sysdeps/names/prockernel.c:43
+#: sysdeps/names/prockernel.c:44
 msgid "CMaj_Flt"
 msgstr ""
 
-#: sysdeps/names/prockernel.c:43
+#: sysdeps/names/prockernel.c:44
 msgid "KStk_ESP"
 msgstr ""
 
-#: sysdeps/names/prockernel.c:43
+#: sysdeps/names/prockernel.c:44
 msgid "KStk_EIP"
 msgstr ""
 
-#: sysdeps/names/prockernel.c:43
+#: sysdeps/names/prockernel.c:44
 msgid "NWChan"
 msgstr ""
 
-#: sysdeps/names/prockernel.c:44
+#: sysdeps/names/prockernel.c:45
 msgid "WChan"
 msgstr ""
 
 #. K_Flags
-#: sysdeps/names/prockernel.c:50
+#: sysdeps/names/prockernel.c:51
 msgid ""
 "Kernel flags of the process.\n"
 "\n"
@@ -719,7 +644,7 @@ msgstr ""
 # *************** Process এর বাংলা করার দরকার নাই ***************************
 # ২ ৩য় লাইনে, "গাণিতিক বিট" কি অবস্থায় থাকে ?
 #. Min_Flt
-#: sysdeps/names/prockernel.c:59
+#: sysdeps/names/prockernel.c:60
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
@@ -730,7 +655,7 @@ msgstr ""
 # এখানে Fault একটা Technical Term। তবে সব জায়গায় না ;-)
 # ২ "প্রসেস" লিখলে খুবই ভাল হইতো
 #. Maj_Flt
-#: sysdeps/names/prockernel.c:62
+#: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
@@ -739,19 +664,19 @@ msgstr ""
 
 # msgstr "প্রসেসটির গৌণ ফল্ট-এর সংখ্যা যার জন্য ডিস্ক থেকে মেমরি পেজ আনতে হয়েছে।"
 #. CMin_Flt
-#: sysdeps/names/prockernel.c:65
+#: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
 msgstr "প্রসেস ও তার child দের করা গৌণ ফল্ট-এর সংখ্যা"
 
 # ঠিক করেন
 #. CMaj_Flt
-#: sysdeps/names/prockernel.c:68
+#: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
 msgstr "প্রসেস ও তার child দের করা মুখ্য ফল্ট-এর সংখ্যা"
 
 # ঠিক করেন
 #. KStk_ESP
-#: sysdeps/names/prockernel.c:71
+#: sysdeps/names/prockernel.c:72
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
@@ -760,12 +685,12 @@ msgstr ""
 "মান।"
 
 #. KStk_EIP
-#: sysdeps/names/prockernel.c:74
+#: sysdeps/names/prockernel.c:75
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr "EIP এর বর্তমান মান (৩২-বিট ইনস্ট্রাকশন পয়েন্টার)।"
 
 #. NWChan
-#: sysdeps/names/prockernel.c:76
+#: sysdeps/names/prockernel.c:77
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "
 "address of a system call, and can be looked up in a namelist if you need a "
@@ -779,55 +704,55 @@ msgstr ""
 
 # ২ এটি সেই চ্যানেল যেখানে প্রসেসটি অপেক্ষা করছে...............
 #. WChan
-#: sysdeps/names/prockernel.c:81
+#: sysdeps/names/prockernel.c:82
 msgid "This is the textual name of the `nwchan' field."
 msgstr "এটি 'nwchan' ক্ষেত্রের (Field) পাঠযোগ্য নাম"
 
 # msgstr "এটি 'nwchan' ক্ষেত্রের (Field) পাঠযোগ্য নাম"
-#: sysdeps/names/procmem.c:47
+#: sysdeps/names/procmem.c:48
 msgid "Virtual"
 msgstr "ভার্চুয়াল"
 
 # msgstr "ভার্চুয়াল"
 # এখানে Virtual একটা Technical term। "ভার্চুয়াল মেমরি" থেকে আসছে।
-#: sysdeps/names/procmem.c:47
+#: sysdeps/names/procmem.c:48
 msgid "Resident"
 msgstr "রেসিডেন্ট"
 
 # msgstr "রেসিডেন্ট"
 # আগেরটার মতই
-#: sysdeps/names/procmem.c:47
+#: sysdeps/names/procmem.c:48
 msgid "Share"
 msgstr "বন্টন"
 
-#: sysdeps/names/procmem.c:48
+#: sysdeps/names/procmem.c:49
 msgid "Resident Set Size"
 msgstr ""
 
-#: sysdeps/names/procmem.c:48
+#: sysdeps/names/procmem.c:49
 msgid "Resident Set Size Limit"
 msgstr ""
 
-#: sysdeps/names/procmem.c:53
+#: sysdeps/names/procmem.c:54
 msgid "Total # of pages of memory"
 msgstr "মেমরির মোট পাতার সংখ্যা"
 
 # মেমরি
-#: sysdeps/names/procmem.c:54
+#: sysdeps/names/procmem.c:55
 msgid "Number of pages of virtual memory"
 msgstr "ভার্চুয়াল মেমরির মোট পাতার সংখ্যা"
 
 # ভার্চুয়াল মেমরি
-#: sysdeps/names/procmem.c:55
+#: sysdeps/names/procmem.c:56
 msgid "Number of resident set (non-swapped) pages"
 msgstr ""
 
-#: sysdeps/names/procmem.c:56
+#: sysdeps/names/procmem.c:57
 msgid "Number of pages of shared (mmap'd) memory"
 msgstr "বন্টিত মেমরির (mmap'd) মোট পাতার সংখ্যা"
 
 # "শেয়ার্‌ড মেমরি" বা "বন্টিত মেমরি"। বাংলা না করাই মনে হয় ভাল।
-#: sysdeps/names/procmem.c:57
+#: sysdeps/names/procmem.c:58
 msgid ""
 "Number of pages the process has in real memory, minus 3 for administrative "
 "purposes. This is just the pages which count towards text, data, or stack "
@@ -840,234 +765,282 @@ msgstr ""
 
 # ২ "গণনা", "অন্তর্ভুক্ত"
 # ২ আগেরবার এটা কোন কারণে আমার চোখে পরে নাই ;-(
-#: sysdeps/names/procmem.c:62
+#: sysdeps/names/procmem.c:63
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "বাইটে প্রকাশিত প্রসেসের বর্তমান rss সীমা (সাধারণত ২,১৪৭,৪৮৩,৬৪৭)।"
 
-#: sysdeps/names/procsegment.c:42
+#: sysdeps/names/procsegment.c:43
 msgid "Text_RSS"
 msgstr ""
 
-#: sysdeps/names/procsegment.c:42
+#: sysdeps/names/procsegment.c:43
 msgid "ShLib_RSS"
 msgstr ""
 
-#: sysdeps/names/procsegment.c:42
+#: sysdeps/names/procsegment.c:43
 msgid "Data_RSS"
 msgstr ""
 
-#: sysdeps/names/procsegment.c:42
+#: sysdeps/names/procsegment.c:43
 msgid "Stack_RSS"
 msgstr ""
 
-#: sysdeps/names/procsegment.c:43
+#: sysdeps/names/procsegment.c:44
 msgid "Dirty Size"
 msgstr "অপরিচ্ছন্ন (Dirty) আয়তন"
 
 # msgstr "অপরিচ্ছন্ন (Dirty) আয়তন"
-#: sysdeps/names/procsegment.c:43
+#: sysdeps/names/procsegment.c:44
 msgid "Start_Code"
 msgstr "কোড_আরম্ভ"
 
-#: sysdeps/names/procsegment.c:43
+#: sysdeps/names/procsegment.c:44
 msgid "End_Code"
 msgstr "কোড_শেষ"
 
-#: sysdeps/names/procsegment.c:43
+#: sysdeps/names/procsegment.c:44
 msgid "Start_Stack"
 msgstr "স্ট্যাক_আরম্ভ"
 
-#: sysdeps/names/procsegment.c:48
+#: sysdeps/names/procsegment.c:49
 msgid "Text resident set size"
 msgstr ""
 
-#: sysdeps/names/procsegment.c:49
+#: sysdeps/names/procsegment.c:50
 msgid "Shared-Lib resident set size"
 msgstr ""
 
-#: sysdeps/names/procsegment.c:50
+#: sysdeps/names/procsegment.c:51
 msgid "Data resident set size"
 msgstr ""
 
-#: sysdeps/names/procsegment.c:51
+#: sysdeps/names/procsegment.c:52
 msgid "Stack resident set size"
 msgstr ""
 
-#: sysdeps/names/procsegment.c:52
+#: sysdeps/names/procsegment.c:53
 msgid "Total size of dirty pages"
 msgstr "অপরিচ্ছন্ন (Dirty) পেজ-এর মোট আয়তন"
 
 # msgstr "অপরিচ্ছন্ন (Dirty) পেজ-এর মোট আয়তন"
-#: sysdeps/names/procsegment.c:53
+#: sysdeps/names/procsegment.c:54
 msgid "Address of beginning of code segment"
 msgstr "কোড সেগমেন্ট আরম্ভের ঠিকানা"
 
 # msgstr "কোড সেগমেন্ট আরম্ভের ঠিকানা"
-#: sysdeps/names/procsegment.c:54
+#: sysdeps/names/procsegment.c:55
 msgid "Address of end of code segment"
 msgstr "কোড সেগমেন্ট শেষের ঠিকানা"
 
 # msgstr "কোড সেগমেন্ট শেষ হওয়ার ঠিকানা"
-#: sysdeps/names/procsegment.c:55
+#: sysdeps/names/procsegment.c:56
 msgid "Address of the bottom of stack segment"
 msgstr "স্ট্যাক সেগমেন্ট-এর তলদেশের ঠিকানা"
 
 # msgstr "কোড অংশের নিচের ঠিকানা" <-- স্ট্যাক নাই
 # সেগমেন্ট
-#: sysdeps/names/procsignal.c:40
+#: sysdeps/names/procsignal.c:41
 msgid "Signal"
 msgstr "সংকেত (Signal)"
 
 # msgstr "সংকেত (Signal)"
 # msgstr "সিগন্যাল"
 # এখানে Signal একটা Technical Term
-#: sysdeps/names/procsignal.c:40
+#: sysdeps/names/procsignal.c:41
 msgid "Blocked"
 msgstr "আটকান আছে"
 
-#: sysdeps/names/procsignal.c:40
+#: sysdeps/names/procsignal.c:41
 msgid "SigIgnore"
 msgstr ""
 
-#: sysdeps/names/procsignal.c:40
+#: sysdeps/names/procsignal.c:41
 msgid "SigCatch"
 msgstr ""
 
-#: sysdeps/names/procsignal.c:45
+#: sysdeps/names/procsignal.c:46
 msgid "Mask of pending signals"
 msgstr "অমীমাংসিত সংকেতের (Signal) মুখোশ"
 
 # msgstr "অমীমাংসিত সিগন্যাল-এর মুখোশ"
-#: sysdeps/names/procsignal.c:46
+#: sysdeps/names/procsignal.c:47
 msgid "Mask of blocked signals"
 msgstr "আটকে রাখা সংকেতের (Signal) মুখোশ"
 
 # সিগন্যাল
 # ২ msgstr "সংকেত আটকে রাখার (Signal) মুখোশ"
-#: sysdeps/names/procsignal.c:47
+#: sysdeps/names/procsignal.c:48
 msgid "Mask of ignored signals"
 msgstr "প্রত্যাখ্যাত সংকেতের (Signal) মুখোশ"
 
 # সিগন্যাল
-#: sysdeps/names/procsignal.c:48
+#: sysdeps/names/procsignal.c:49
 msgid "Mask of caught signals"
 msgstr "গ্রহণ করা সংকেতের মুখোশ"
 
 # msgstr "গ্রহন করা সংকেতের মুখোশ" <-- বানান ভুল আছে
-#: sysdeps/names/procstate.c:40
+#: sysdeps/names/procstate.c:43
 msgid "Cmd"
 msgstr ""
 
-#: sysdeps/names/procstate.c:40
+#: sysdeps/names/procstate.c:43
 msgid "State"
 msgstr "অবস্থা"
 
-#: sysdeps/names/procstate.c:40
+#: sysdeps/names/procstate.c:43
 msgid "UID"
 msgstr "ইউআইডি (UID)"
 
-#: sysdeps/names/procstate.c:40
+#: sysdeps/names/procstate.c:43
 msgid "GID"
 msgstr "জিআইডি (GID)"
 
-#: sysdeps/names/procstate.c:45
+#: sysdeps/names/procstate.c:44
+#, fuzzy
+msgid "RGid"
+msgstr "জিআইডি (Gid)"
+
+# msgstr "প্রসেসটি কার্নেল মোডে যে পরিমাণ এসএমপি সিপিইউ সময় ব্যয় করেছে"
+#: sysdeps/names/procstate.c:44
+#, fuzzy
+msgid "RUid"
+msgstr "ইউআইডি (Uid)"
+
+#: sysdeps/names/procstate.c:44
+msgid "HasCPU"
+msgstr ""
+
+#: sysdeps/names/procstate.c:44
+msgid "Proc"
+msgstr ""
+
+#: sysdeps/names/procstate.c:44
+msgid "LProc"
+msgstr ""
+
+#: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
 msgstr "exec() ডাকা এক্সিকিউটেবল ফাইলের মূল নাম"
 
 # ইংরেজি স্পষ্ট না; exec()'কে এক্সিকিউটেবল ডাকতেছে নাকি এক্সিকিউটেবল'কে exec() ডাকতেছে ?
-#: sysdeps/names/procstate.c:46
+#: sysdeps/names/procstate.c:50
 msgid "Single-Char code for process state (S=sleeping)"
 msgstr "একটি অক্ষর দিয়ে প্রসেসের অবস্থা প্রকাশের সংকেত (Code) (S=নিস্ক্রিয়)"
 
 # msgstr "একটি অক্ষর দিয়ে প্রসেসের অবস্থা প্রকাশের সংকেত (Code) (S=নিষ্ক্রিয়)"
-#: sysdeps/names/procstate.c:47
+#: sysdeps/names/procstate.c:51
 msgid "UID of process"
 msgstr "প্রসেসের UID"
 
 # প্রসেস
-#: sysdeps/names/procstate.c:48
+#: sysdeps/names/procstate.c:52
 msgid "GID of process"
 msgstr "প্রসেসের GID"
 
-#: sysdeps/names/proctime.c:44
+# msgstr "একটি অক্ষর দিয়ে প্রসেসের অবস্থা প্রকাশের সংকেত (Code) (S=নিষ্ক্রিয়)"
+#: sysdeps/names/procstate.c:53
+#, fuzzy
+msgid "Real UID of process"
+msgstr "প্রসেসের UID"
+
+# প্রসেস
+#: sysdeps/names/procstate.c:54
+#, fuzzy
+msgid "Real GID of process"
+msgstr "প্রসেসের GID"
+
+#: sysdeps/names/procstate.c:55
+msgid "Has CPU"
+msgstr ""
+
+#: sysdeps/names/procstate.c:56
+#, fuzzy
+msgid "Processor"
+msgstr "প্রসেস আইডি"
+
+#: sysdeps/names/procstate.c:57
+msgid "Last Processor"
+msgstr ""
+
+#: sysdeps/names/proctime.c:45
 msgid "Start_Time"
 msgstr "আরম্ভের_সময়"
 
-#: sysdeps/names/proctime.c:44
+#: sysdeps/names/proctime.c:45
 msgid "RTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:44
+#: sysdeps/names/proctime.c:45
 msgid "UTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:44
+#: sysdeps/names/proctime.c:45
 msgid "STime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:45
+#: sysdeps/names/proctime.c:46
 msgid "CUTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:45
+#: sysdeps/names/proctime.c:46
 msgid "CSTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:45
+#: sysdeps/names/proctime.c:46
 msgid "TimeOut"
 msgstr "সময় শেষ"
 
-#: sysdeps/names/proctime.c:45
+#: sysdeps/names/proctime.c:46
 msgid "It_Real_Value"
 msgstr ""
 
-#: sysdeps/names/proctime.c:46
+#: sysdeps/names/proctime.c:47
 msgid "Frequency"
 msgstr "কম্পাঙ্ক"
 
-#: sysdeps/names/proctime.c:46
+#: sysdeps/names/proctime.c:47
 msgid "XCPU_UTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:46
+#: sysdeps/names/proctime.c:47
 msgid "XCPU_STime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:51
+#: sysdeps/names/proctime.c:52
 msgid "Start time of process in seconds since the epoch"
 msgstr "epoch এর পর থেকে প্রসেস শুরুর সময় (সেকেন্ডে)"
 
-#: sysdeps/names/proctime.c:52
+#: sysdeps/names/proctime.c:53
 msgid "Real time accumulated by process (should be utime + stime)"
 msgstr "যে প্রকৃত সময় যাবত্‍ প্রসেসটি চলছে (utime+stime হওয়া উচিত্‍)"
 
 # msgstr "যে প্রকৃত সময় যাবত্‍ প্রসেসটি চলছে (utime+stime হওয়া উচিত্‍)"
-#: sysdeps/names/proctime.c:53
+#: sysdeps/names/proctime.c:54
 msgid "user-mode CPU time accumulated by process"
 msgstr "প্রসেসটি ইউজার মোডে যে পরিমাণ সিপিইউ সময় ব্যয় করেছে"
 
-#: sysdeps/names/proctime.c:54
+#: sysdeps/names/proctime.c:55
 msgid "kernel-mode CPU time accumulated by process"
 msgstr "প্রসেসটি কার্নেল মোডে যে পরিমাণ সিপিইউ সময় ব্যয় করেছে"
 
 # msgstr "প্রসেসটি কার্নেল মোডে যে পরিমাণ সিপিইউ সময় ব্যয় করেছে"
-#: sysdeps/names/proctime.c:55
+#: sysdeps/names/proctime.c:56
 msgid "cumulative utime of process and reaped children"
 msgstr "প্রসেসের ক্রমবর্ধিত utime এবং অর্জিত children"
 
 # আরেকটু সহজ করা যায় না ? ;-)
-#: sysdeps/names/proctime.c:56
+#: sysdeps/names/proctime.c:57
 msgid "cumulative stime of process and reaped children"
 msgstr "প্রmsmsj ক্রমবর্ধিত stime এবং অর্জিত children"
 
 # ২ এইটা কিরকম  হইলো ???
-#: sysdeps/names/proctime.c:57
+#: sysdeps/names/proctime.c:58
 msgid "The time (in jiffies) of the process's next timeout"
 msgstr "পরবর্তীতে যখন প্রসেসটির সময় শেষ হয়ে যাবে (jiffies এ)"
 
 # msgstr "পরবর্তীতে যখন প্রসেসটির সময় শেষ হয়ে যাবে (jiffies এ)"
-#: sysdeps/names/proctime.c:58
+#: sysdeps/names/proctime.c:59
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
@@ -1075,381 +1048,459 @@ msgstr ""
 "ইন্টারভেল টাইমারের কারণে আর যে সময় পর প্রসেসটির নিকট SIGALRM প্রেরণ করা হবে। "
 "(jiffies এ)"
 
-#: sysdeps/names/proctime.c:60
+#: sysdeps/names/proctime.c:61
 msgid "Tick frequency"
 msgstr "টিক কম্পাঙ্ক"
 
-#: sysdeps/names/proctime.c:61
+#: sysdeps/names/proctime.c:62
 msgid "SMP user-mode CPU time accumulated by process"
 msgstr "প্রসেসটি ইউজার মোডে যে পরিমাণ এসএমপি সিপিইউ সময় ব্যয় করেছে"
 
-#: sysdeps/names/proctime.c:62
+#: sysdeps/names/proctime.c:63
 msgid "SMP kernel-mode CPU time accumulated by process"
 msgstr "প্রসেসটি কার্নেল মোডে যে পরিমাণ এসএমপি সিপিইউ সময় ব্যয় করেছে"
 
 # msgstr "প্রসেসটি কার্নেল মোডে যে পরিমাণ এসএমপি সিপিইউ সময় ব্যয় করেছে"
-#: sysdeps/names/procuid.c:56
+#: sysdeps/names/procuid.c:48
 msgid "Uid"
 msgstr "ইউআইডি (Uid)"
 
-#: sysdeps/names/procuid.c:56
+#: sysdeps/names/procuid.c:48
 msgid "EUid"
 msgstr "ইইউআইডি (EUid)"
 
-#: sysdeps/names/procuid.c:56
+#: sysdeps/names/procuid.c:48
 msgid "Gid"
 msgstr "জিআইডি (Gid)"
 
 # ২ ( এর আগে একটা Space দিয়ে দিছি
-#: sysdeps/names/procuid.c:56
+#: sysdeps/names/procuid.c:48
 msgid "EGid"
 msgstr "ইজিআইডি (EGid)"
 
-#: sysdeps/names/procuid.c:56
+# msgstr "প্রসেসটি কার্নেল মোডে যে পরিমাণ এসএমপি সিপিইউ সময় ব্যয় করেছে"
+#: sysdeps/names/procuid.c:48
+#, fuzzy
+msgid "SUid"
+msgstr "ইউআইডি (Uid)"
+
+#: sysdeps/names/procuid.c:49
+#, fuzzy
+msgid "SGid"
+msgstr "জিআইডি (Gid)"
+
+# msgstr "প্রসেসটি কার্নেল মোডে যে পরিমাণ এসএমপি সিপিইউ সময় ব্যয় করেছে"
+#: sysdeps/names/procuid.c:49
+#, fuzzy
+msgid "FSUid"
+msgstr "ইউআইডি (Uid)"
+
+#: sysdeps/names/procuid.c:49
+#, fuzzy
+msgid "FSGid"
+msgstr "জিআইডি (Gid)"
+
+#: sysdeps/names/procuid.c:49
 msgid "Pid"
 msgstr "পিআইডি (Pid)"
 
-#: sysdeps/names/procuid.c:57
+#: sysdeps/names/procuid.c:50
 msgid "PPid"
 msgstr "পিপিআইডি (PPid)"
 
-#: sysdeps/names/procuid.c:57
+#: sysdeps/names/procuid.c:50
 msgid "PGrp"
 msgstr "পিজিআরপি (PGrp)"
 
-#: sysdeps/names/procuid.c:57
+#: sysdeps/names/procuid.c:50
 msgid "Session"
 msgstr "অধিবেশন (session)"
 
 # msgstr "সেশন"
-#: sysdeps/names/procuid.c:57
+#: sysdeps/names/procuid.c:50
 msgid "Tty"
 msgstr "টিটিআই (Tty)"
 
 # ২ টিটিওয়াই - মনে হয় আমারই ভুল ;-( 
-#: sysdeps/names/procuid.c:58
+#: sysdeps/names/procuid.c:51
 msgid "TPGid"
 msgstr "টিপিজিআইডি (TiGid)"
 
-#: sysdeps/names/procuid.c:58
+#: sysdeps/names/procuid.c:51
 msgid "Priority"
 msgstr "অগ্রাধিকার"
 
-#: sysdeps/names/procuid.c:63
+#: sysdeps/names/procuid.c:51
+#, fuzzy
+msgid "NGroups"
+msgstr "গ্রুপের আইডি"
+
+#: sysdeps/names/procuid.c:51
+#, fuzzy
+msgid "Groups"
+msgstr "গ্রুপের আইডি"
+
+#: sysdeps/names/procuid.c:56
 msgid "User ID"
 msgstr "ব্যবহারকারীর আইডি"
 
 # msgstr "ব্যবহারকারীর আইডি"
 # অন্যান্য ফাইলে আইডি-ই লেখা হইছে
-#: sysdeps/names/procuid.c:64
+#: sysdeps/names/procuid.c:57
 msgid "Effective User ID"
 msgstr "সক্রিয় ব্যবহারকারীর আইডি"
 
-#: sysdeps/names/procuid.c:65
+#: sysdeps/names/procuid.c:58
 msgid "Group ID"
 msgstr "গ্রুপের আইডি"
 
 # msgstr "গ্রুপ পরিচয়"
-#: sysdeps/names/procuid.c:66
+#: sysdeps/names/procuid.c:59
 msgid "Effective Group ID"
 msgstr "সক্রিয় গ্রুপের আইডি"
 
-#: sysdeps/names/procuid.c:67
+#: sysdeps/names/procuid.c:60
+#, fuzzy
+msgid "Set User ID"
+msgstr "ব্যবহারকারীর আইডি"
+
+#: sysdeps/names/procuid.c:61
+#, fuzzy
+msgid "Set Group ID"
+msgstr "গ্রুপের আইডি"
+
+#: sysdeps/names/procuid.c:62
+#, fuzzy
+msgid "Filesystem User ID"
+msgstr "ফাইল সিস্টেমের ব্যবহার"
+
+# msgstr "গ্রুপ পরিচয়"
+#: sysdeps/names/procuid.c:63
+#, fuzzy
+msgid "Filesystem Group ID"
+msgstr "সক্রিয় গ্রুপের আইডি"
+
+#: sysdeps/names/procuid.c:64
 msgid "Process ID"
 msgstr "প্রসেস আইডি"
 
 # msgstr "প্রক্রিয়াকরন পরিচয়" <-- "করণ"
 # msgstr "প্রসেস আইডি"
-#: sysdeps/names/procuid.c:68
+#: sysdeps/names/procuid.c:65
 msgid "PID of parent process"
 msgstr "মূল (Parent) প্রসেসের পিআইডি"
 
 # msgstr "মূল (Parent) প্রসেসের পিআইডি"
-#: sysdeps/names/procuid.c:69
+#: sysdeps/names/procuid.c:66
 msgid "Process group ID"
 msgstr "প্রসেস গ্রুপ আইডি"
 
 # msgstr "গোষ্ঠি প্রক্রিয়াকরন পরিচয়"
 # msgstr "প্রসেস গ্রুপ আইডি"
-#: sysdeps/names/procuid.c:70
+#: sysdeps/names/procuid.c:67
 msgid "Session ID"
 msgstr "অধিবেশন (session) আইডি"
 
 # msgstr "সেশন আইডি"
-#: sysdeps/names/procuid.c:71
+#: sysdeps/names/procuid.c:68
 msgid "Full device number of controlling terminal"
 msgstr "নিয়ন্ত্রণকারী প্রান্তের সমস্ত যন্ত্রের সংখ্যা"
 
 # msgstr "নিয়ন্ত্রন প্রান্তের সমস্ত যন্ত্রের সংখ্যা"  <-- "নিয়ন্ত্রণ" বানান ভুল আছে
 # msgstr "নিয়ন্ত্রণকারী টার্মিনালের পূর্ণ ডিভাইস নম্বর"
 # ২ এটা কি ভাল করে খেয়াল করে ঠিক করছেন ?
-#: sysdeps/names/procuid.c:72
+#: sysdeps/names/procuid.c:69
 msgid "Terminal process group ID"
 msgstr "প্রান্তিক প্রসেসের গ্রুপ আইডি"
 
 # msgstr "টার্মিনাল প্রসেসের গ্রুপ আইডি"
-#: sysdeps/names/procuid.c:73
+#: sysdeps/names/procuid.c:70
 msgid "Kernel scheduling priority"
 msgstr "কার্নেল শিডিউলিং (scheduling) এর অগ্রাধিকার"
 
 # msgstr "কার্নেল শিডিউলিং (scheduling) এর অগ্রাধিকার"
 # scheduling একটা দুর্ধর্ষ Technical Term।
-#: sysdeps/names/procuid.c:74
+#: sysdeps/names/procuid.c:71
 msgid "Standard unix nice level of process"
 msgstr "প্রসেসের সাধারণ ইউনিক্স নাইস স্তর"
+
+# msgstr "নিয়ন্ত্রন প্রান্তের সমস্ত যন্ত্রের সংখ্যা"  <-- "নিয়ন্ত্রণ" বানান ভুল আছে
+# msgstr "নিয়ন্ত্রণকারী টার্মিনালের পূর্ণ ডিভাইস নম্বর"
+# ২ এটা কি ভাল করে খেয়াল করে ঠিক করছেন ?
+#: sysdeps/names/procuid.c:72
+#, fuzzy
+msgid "Number of additional process groups"
+msgstr "প্রান্তিক প্রসেসের গ্রুপ আইডি"
+
+# msgstr "নিয়ন্ত্রন প্রান্তের সমস্ত যন্ত্রের সংখ্যা"  <-- "নিয়ন্ত্রণ" বানান ভুল আছে
+# msgstr "নিয়ন্ত্রণকারী টার্মিনালের পূর্ণ ডিভাইস নম্বর"
+# ২ এটা কি ভাল করে খেয়াল করে ঠিক করছেন ?
+#: sysdeps/names/procuid.c:73
+#, fuzzy
+msgid "Array of additional process groups"
+msgstr "প্রান্তিক প্রসেসের গ্রুপ আইডি"
 
 # msgstr "সাধারন ইউনিক্স সুন্দর স্তরের প্রক্রিয়া" 
 # msgstr "প্রসেসের প্রমিত ইউনিক্স নাইস স্তর"
 # নাইস
-#: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
+#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
 msgstr "সিমাফোর (semaphore) ম্যাপে অন্তর্ভুক্তির (Entry) সংখ্যা"
 
 # msgstr "সিমাফোর (semaphore) ম্যাপে অন্তর্ভুক্তির (Entry) সংখ্যা"
-#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
+#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max number of arrays"
 msgstr "সর্বাধিক array এর সংখ্যা"
 
-#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
+#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max semaphores system wide"
 msgstr "নিয়মানুগ সর্বাধিক semaphore গুলো"
 
 # msgstr "নিয়মানুগ সর্বাধিক semaphore গুলি"
 # msgstr "সিস্টেমে ব্যবহারযোগ্য সর্বাধিক সিমাফোর (Semaphor)"
-#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
+#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Number of undo structures system wide"
 msgstr "নিয়মানুগ শেষ পরিবর্তন বাতিলের গঠন সংখ্যা"
 
-#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
+#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max semaphores per array"
 msgstr "গুচ্ছ (Array) প্রতি সর্বাধিক সিমাফোর (Semaphore)"
 
 # msgstr "গুচ্ছ (Array) প্রতি সর্বাধিক সিমাফোর (Semaphore)"
-#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
+#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max ops per semop call"
 msgstr "semop call প্রতি সর্বাধিক ops"
 
-#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
+#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max number of undo entries per process"
 msgstr "প্রসেস প্রতি শেষ পরিবর্তন বাতিল (Undo) অন্তর্ভুক্তির (Entry) সর্বাধিক সংখ্যা"
 
 # msgstr "প্রসেস প্রতি শেষ পরিবর্তন বাতিল (Undo) অন্তর্ভুক্তির (Entry) সর্বাধিক সংখ্যা"
-#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
+#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "sizeof struct sem_undo"
 msgstr "struct sem_undo এর আয়তন"
 
-#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
+#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Semaphore max value"
 msgstr "সিমাফোর (Semaphor) এর সর্বাধিক মান"
 
 # msgstr "সিমাফোর (Semaphor) এর সর্বাধিক মান"
-#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
+#: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 msgid "Adjust on exit max value"
 msgstr "বাহির হবার সময় সর্বাধিক মান বিন্যস্ত কর"
 
 # এটার বাংলা বা ইংরেজি কোনটাই বোঝা যাচ্ছে না
-#: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
+#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Max segment size"
 msgstr "সেগমেন্টের সর্বোচ্চ আকার"
 
 # msgstr "সেগমেন্টের সর্বোচ্চ আকার"
-#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
+#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Min segment size"
 msgstr "সেগমেন্টের ন্যুনতম আকার"
 
 # আগেরটার মতই
-#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
+#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max number of segments"
 msgstr "সেগমেন্টের সর্বোচ্চ সংখ্যা"
 
 # ঐ
-#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
+#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max shared segments per process"
 msgstr "প্রসেস প্রতি সর্বাধিক বন্টিত সেগমেন্ট"
 
 # msgstr "প্রসেস প্রতি সর্বাধিক বন্টিত (Shared) সেগমেন্ট"
-#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
+#: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max total shared memory"
 msgstr "সর্বাধিক মোট বন্টিত মেমরি"
 
 # মেমরি
-#: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
+#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Total Swap Space"
 msgstr "মোট সোয়াপ (Swap) জায়গা"
 
 # msgstr "মোট সোয়াপ (Swap)" 
-#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
+#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Used Swap Space"
 msgstr "ব্যবহৃত সোয়াপ (Swap) জায়গা"
 
 # ঐ
-#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
+#: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 msgid "Free Swap Space"
 msgstr "মুক্ত সোয়াপ (Swap) জায়গা"
 
-#: sysdeps/names/swap.c:42
+#: sysdeps/names/swap.c:43
 msgid "Page In"
 msgstr "আগত পাতা"
 
-#: sysdeps/names/swap.c:43
+#: sysdeps/names/swap.c:44
 msgid "Page Out"
 msgstr "পাতা গেছে"
 
 # msgstr "পাতা (Page) গিয়েছে"
 # ২ এটা মনে হয় খেয়াল করেন নাই
-#: sysdeps/names/swap.c:51
+#: sysdeps/names/swap.c:52
 msgid "Total number of swap pages that have been brought in since system boot"
 msgstr "সিস্টেম চালু হবার পর থেকে মোট যে সংখ্যক সোয়াপ (Swap) পাতা আনা হয়েছে"
 
 # msgstr "সিস্টেম চালু হবার পর থেকে মোট যে সংখ্যক সোয়াপ (Swap) পাতা (Page) আনা হয়েছে"
-#: sysdeps/names/swap.c:53
+#: sysdeps/names/swap.c:54
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "সিস্টেম চালু হবার পর থেকে মোট যে সংখ্যক সোয়াপ পাতা আনা হয়েছে"
 
 # আগেরটার মতই
-#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "Server Features"
 msgstr "সার্ভারের বৈশিষ্ট্যগুলো"
 
 # msgstr "সার্ভারের বৈশিষ্ট্যগুলি" <-- "গুলি" ভাল শোনায় না
 # msgstr "সার্ভারের বৈশিষ্ট্যাবলী"
-#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "CPU Usage"
 msgstr "সিপিইউ-এর ব্যবহার"
 
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Memory Usage"
 msgstr "মেমরির ব্যবহার"
 
 # মেমরি
-#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "Swap Usage"
 msgstr "সোয়াপের ব্যবহার"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "System Uptime"
 msgstr "সিস্টেম চালু থাকার সময়"
 
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Load Averange"
 msgstr "গড় ভার"
 
 # msgstr "গড় ভার" <- "গড"
 # msgstr "গড় কাজের মাত্রা"
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Shared Memory Limits"
 msgstr "বন্টিত মেমরি সীমা"
 
 # মেমরি
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Message Queue Limits"
 msgstr "বার্তা সারির (Message Queue) সীমা"
 
 # msgstr "বার্তা সারির (Message Queue) ধারণক্ষমতা"
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "Semaphore Set Limits"
 msgstr "Semaphore Set এর সীমা"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "List of running Processes"
 msgstr "চলন্ত প্রসেসসমূহের তালিকা"
 
 # msgstr "চলন্ত প্রক্রিয়াকরনগুলির তালিকা" <- "করণ"
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process Status information"
 msgstr "প্রসেসের অবস্থাসূচক তথ্যাবলী"
 
 # এটা কিছু বোঝা যাচ্ছে না। তাছাড়া "করুন" শব্দটা এখানে আসার কথা না।
 # msgstr "প্রসেসের অবস্থাসূচক তথ্যাবলী"
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process UID and TTY information"
 msgstr "ইউআইডি এবং টিটিওয়াই তথ্য প্রক্রিয়াকরন করুন"
 
 # msgstr "প্রসেসের ইউআইডি (UID) ও টিটিওয়াই (TTY) সংক্রান্ত তথ্যাবলী"
 # ২ "প্রক্রিয়াকরণ"
 # ২ এটা কি ভাল করে খেয়াল করছেন ?
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Memory information"
 msgstr "প্রসেসের মেমরি সংক্রান্ত তথ্যাবলী"
 
 # msgstr "প্রসেসের মেমরি সংক্রান্ত তথ্যাবলী"
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Time information"
 msgstr "প্রসেসের সময় সংক্রান্ত তথ্যাবলী"
 
 # msgstr "প্রসেসের সময় সংক্রান্ত তথ্যাবলী"
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Signal information"
 msgstr "প্রসেসের সিগন্যাল সংক্রান্ত তথ্যাবলী"
 
 # msgstr "প্রসেসের সিগন্যাল সংক্রান্ত তথ্যাবলী"
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Kernel Data information"
 msgstr "প্রসেসের কার্নেল তথ্যবিষয়ক তথ্যাবলী"
 
 # msgstr "প্রসেসের কার্নেল তথ্যবিষয়ক তথ্যাবলী"
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:93
 msgid "Process Segment information"
 msgstr "প্রসেসের সেগমেন্ট সংক্রান্ত তথ্যাবলী"
 
 # msgstr "প্রসেসের সেগমেন্ট সংক্রান্ত তথ্যাবলী"
-#: sysdeps/names/sysdeps.c:66
+#: sysdeps/names/sysdeps.c:67
 msgid "Process Arguments"
 msgstr "প্রসেসে প্রেরিত মান"
 
 # msgstr "প্রসেসের নিকট প্রেরিত মান"
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
 msgid "Process Memory Map"
 msgstr "প্রসেসের মেমরি ম্যাপ"
 
 # msgstr "প্রসেসের মেমরি ম্যাপ"
-#: sysdeps/names/sysdeps.c:68
+#: sysdeps/names/sysdeps.c:69
 msgid "Mount List"
 msgstr "মাউন্টের তালিকা"
 
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "File System Usage"
 msgstr "ফাইল সিস্টেমের ব্যবহার"
 
 # msgstr "ফাইলসিস্টেমের ব্যবহার"
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "Network Load"
 msgstr "নেটওয়ার্ক ভার"
 
 # msgstr "নেটওয়ার্কের কাজের মাত্রা"
-#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:99
 msgid "PPP Statistics"
 msgstr "পিপিপি পরিসংখ্যান"
 
-#: sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:94
 msgid "Command line arguments of the process"
 msgstr "কমান্ড লাইন থেকে প্রসেসকে প্রেরিত মান"
 
 # msgstr "কমান্ড লাইন থেকে প্রসেসকে প্রেরিত মান"
-#: sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:96
 msgid "List of currently mounted filesystems"
 msgstr "বর্তমানে মাউন্ট করা ফাইল-সিস্টেমের তালিকা"
 
 # msgstr "বর্তমানে মাউন্ট করা ফাইল-সিস্টেমের তালিকা"
-#: sysdeps/names/uptime.c:38
+#: sysdeps/names/uptime.c:39
 msgid "Uptime"
 msgstr "চালু থাকা সময়"
 
 # msgstr "চালু থাকার সময়"
 # msgstr "সচল থাকার সময়"
-#: sysdeps/names/uptime.c:39
+#: sysdeps/names/uptime.c:40
 msgid "Idletime"
 msgstr "নিস্ক্রিয়ভাবে ব্যয়িত সময়"
 
+#: sysdeps/names/uptime.c:41
+msgid "BootTime"
+msgstr ""
+
 # msgstr "নিষ্ক্রিয়ভাবে ব্যয়িত সময়"
 # নিষ্ক্রিয়
-#: sysdeps/names/uptime.c:44
+#: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
 msgstr "সিস্টেম বুট হবার পর থেকে অতিবাহিত সময় (সেকেন্ডে)"
 
-#: sysdeps/names/uptime.c:45
+#: sysdeps/names/uptime.c:47
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "সিস্টেম বুট হবার পর থেকে নিস্ক্রিয় কাজে অতিবাহিত সময় (সেকেন্ডে)"
+
+#: sysdeps/names/uptime.c:48
+#, fuzzy
+msgid "Time of last system boot in seconds since the epoch"
+msgstr "epoch এর পর থেকে প্রসেস শুরুর সময় (সেকেন্ডে)"
 
 # msgstr "সিস্টেম বুট হবার পর থেকে নিষ্ক্রিয় কাজে অতিবাহিত সময় (সেকেন্ডে)"
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
@@ -1592,3 +1643,63 @@ msgstr "ব্যবহারকারী নির্ধারিত সিগ�
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "ব্যবহারকারী নির্ধারিত সিগনাল ২"
+
+# msgstr "কমান্ড লাইন অপশন সম্পূর্ণ তালিকা দেখার জন্য '%s --help' লিখুন।\n"
+# Option এর বাংলা করার দরকার নাই
+# ২ আপনি কি এটার ব্যাপারে নিশ্চিত ?
+#~ msgid "Unknown system error"
+#~ msgstr "সিস্টেম সংক্রান্ত অজ্ঞাত ভুল"
+
+# msgstr "সিস্টেম সংক্রান্ত অজানা ভুল"
+# msgstr "সিস্টেম সংক্রান্ত অজ্ঞাত ভুল"
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s: '%s' অপশন অনিশ্চিত\n"
+
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s: '--%s' অপশনের জন্য কোন মান প্রদান করা অনুমোদিত নয়\n"
+
+# msgstr "%s: '--%s' অপশনের জন্য কোন মান প্রদান করা অনুমোদিত নয়"
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: '%c%s' অপশনের জন্য কোন মান প্রদান করা অনুমোদিত নয়\n"
+
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s: '--%s' অপশনের জন্য মান প্রেরন করা প্রয়োজন\n"
+
+# msgstr "%s: বিকল্প '--%s' এ মান প্রেরন প্রয়োজন" <-- "প্রেরণ" বানান ভুল আছে
+# msgstr "%s: '--%s' অপশনের জন্য মান প্রেরণ করা প্রয়োজন"
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s: '--%s' অপরিচিত অপশন\n"
+
+#~ msgid "%s: unrecognized option `%c%s'\n"
+#~ msgstr "%s: '%c%s' অপরিচিত অপশন\n"
+
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s: -- %c অবৈধ অপশন\n"
+
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s: বেঠিক বিকল্প -- %c\n"
+
+# msgstr "%s: অবৈধ বিকল্প"
+# msgstr "%s: অসিদ্ধ বিকল্প" <- "অসিদ্ধ" মানে যেটা সিদ্ধ/প্রমাণ করা যায় নাই
+# "Illegal=Invalid=অবৈধ" লিখলে কোন সমস্যা নাই; কারণ অর্থ ঠিকই বোঝা যাচ্ছে 
+#~ msgid "%s: option requires an argument -- %c\n"
+#~ msgstr "%s: -- %c অপশনের জন্য মান প্রেরন করা প্রয়োজন\n"
+
+# msgstr "%s: বিকল্পে মান প্রেরন প্রয়োজন -- %c\n"
+# msgstr "%s: অপশনের জন্য মান প্রেরণ করা প্রয়োজন -- %c\n"
+#~ msgid "%s: option `-W %s' is ambiguous\n"
+#~ msgstr "%s: অপশন '-W %s' অনিশ্চিত অর্থবোধক\n"
+
+# msgstr "%s: অপশন '-W %s' অনিশ্চিত অর্থবোধক"
+# msgstr "%s: অপশন '-W %s' দ্ব্যর্থক"
+#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: '--W %s' অপশন কোন মান প্রদান অনুমোদন করে না\n"
+
+#~ msgid "Show this help message"
+#~ msgstr "এই সাহাযয্ বার্তাটি দেখানো হোক"
+
+# msgstr "এই সাহাযয্ বার্তা দেখাও"
+# msgstr "এই সাহায্য বার্তাটি দেখানো হোক"
+# ২ "সাহায্য" বানান খেয়াল করেন
+#~ msgid "Display brief usage message"
+#~ msgstr "সংক্ষেপে ব্যবহার সংক্রান্ত বার্তা দেখান হোক"

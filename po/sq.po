@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-02-23 15:07+0100\n"
+"POT-Creation-Date: 2004-03-11 03:27+0100\n"
 "PO-Revision-Date: 2004-02-23 15:10+0100\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
@@ -553,8 +553,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Numri i dështimeve të vegjël të proçesit, për të cilat nuk ka nevojë ngarkimi "
-"i një faqe kujteseje nga disku."
+"Numri i dështimeve të vegjël të proçesit, për të cilat nuk ka nevojë "
+"ngarkimi i një faqe kujteseje nga disku."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:63
@@ -581,8 +581,8 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
-"Vlera aktuale e ESP (stack pointer me 32 bit) sikurse dhënë nga faqja e stack "
-"të proçesit."
+"Vlera aktuale e ESP (stack pointer me 32 bit) sikurse dhënë nga faqja e "
+"stack të proçesit."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:75
@@ -656,7 +656,8 @@ msgstr ""
 "shkarkuara nga swap."
 
 #: sysdeps/names/procmem.c:63
-msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "Limiti aktual në bytes i rss të proçesit (zakonisht 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:43
@@ -1394,4 +1395,3 @@ msgstr "Sinjal 1 i përcaktuar nga përdoruesi"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Sinjal 2 i përcaktuar nga përdoruesi"
-

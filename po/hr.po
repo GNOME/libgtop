@@ -4,7 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0\n"
-"POT-Creation-Date: 2004-02-01 17:11+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-03-11 03:27+0100\n"
 "PO-Revision-Date: 2004-02-05 23:51+CET\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -94,7 +95,6 @@ msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgid "Spin:"
 msgstr "Spin:"
 
-#. plural form
 #: lib/read.c:78
 #, c-format
 msgid "read %d byte"
@@ -106,7 +106,6 @@ msgstr[1] "čitaj %d bajtova"
 msgid "read data size"
 msgstr "veličina pročitanih podataka"
 
-#. plural form
 #: lib/read_data.c:68
 #, c-format
 msgid "read data %d byte"
@@ -114,7 +113,6 @@ msgid_plural "read data %d bytes"
 msgstr[0] "čitaj podatak %d bajt"
 msgstr[1] "čitaj podatak %d bajtova"
 
-#. plural form
 #: lib/write.c:51
 #, c-format
 msgid "write %d byte"
@@ -161,7 +159,8 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Greška na opciji %s: %s.\n"
-"Pokrenite '%s --help' za potpuni popis svih opcija mogućih u naredbenoj liniji.\n"
+"Pokrenite '%s --help' za potpuni popis svih opcija mogućih u naredbenoj "
+"liniji.\n"
 
 #: sysdeps/names/cpu.c:44
 msgid "Total CPU Time"
@@ -285,7 +284,8 @@ msgstr "Posljedni PID"
 
 #: sysdeps/names/loadavg.c:48
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "Broj poslova koji su istovremeni pokrenuti u proteklih 1, 5 i 15 minuta"
+msgstr ""
+"Broj poslova koji su istovremeni pokrenuti u proteklih 1, 5 i 15 minuta"
 
 #: sysdeps/names/loadavg.c:49
 msgid "Number of tasks currently running"
@@ -539,12 +539,13 @@ msgid ""
 msgstr ""
 "Kernel zastavice procesa.\n"
 "\n"
-"Na linuxu, trenutno svaka zastavica ima postavljenu math zastavicum jer crt0.s provjerava "
-"matematički emulaciju, tako da to nije uključeno u izlaz.\n"
+"Na linuxu, trenutno svaka zastavica ima postavljenu math zastavicum jer crt0."
+"s provjerava matematički emulaciju, tako da to nije uključeno u izlaz.\n"
 "\n"
 "Ovo je vjerojatno greška, jer svaki proces nije kompajlirani C program.\n"
 "\n"
-"Math zastavica bi trebala biti decimalni broj 4, a pronađeni bit je decimalni broj 10."
+"Math zastavica bi trebala biti decimalni broj 4, a pronađeni bit je "
+"decimalni broj 10."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:60
@@ -596,10 +597,10 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Ovo je \"kanal\" u kojem proces čeka. To je adresa sistemskog poziva "
-"i može se pronaći u listi imena ako trebate tekstualno ime."
-"(Ako imate ažuriran /etc/psdatabase, tada pokušajte ps -l kako "
-"biste pogledali što sve može WCHAN polje)"
+"Ovo je \"kanal\" u kojem proces čeka. To je adresa sistemskog poziva i može "
+"se pronaći u listi imena ako trebate tekstualno ime.(Ako imate ažuriran /etc/"
+"psdatabase, tada pokušajte ps -l kako biste pogledali što sve može WCHAN "
+"polje)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:82
@@ -649,13 +650,14 @@ msgid ""
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
 msgstr ""
-"Broj stranica koje proces ima u stvarnoj memoriji, minus 3 za administrativne svrhe. "
-"To su samo stranice koje se broje prema području teksta, podataka ili stoga. "
-"To ne uključuje stranice koje nisu učitane na zahtijev, ili koje se "
-"nalaze na swapu."
+"Broj stranica koje proces ima u stvarnoj memoriji, minus 3 za "
+"administrativne svrhe. To su samo stranice koje se broje prema području "
+"teksta, podataka ili stoga. To ne uključuje stranice koje nisu učitane na "
+"zahtijev, ili koje se nalaze na swapu."
 
 #: sysdeps/names/procmem.c:63
-msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "Trenutna grćnica u bajtovima za rss procesa (obično 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:43
@@ -876,7 +878,8 @@ msgstr "Početno vrije procesa u sekundama od početka epohe"
 
 #: sysdeps/names/proctime.c:53
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "Stvarno vrijeme akumulirano od strane procesa (trebalo bi biti utime + stime)"
+msgstr ""
+"Stvarno vrijeme akumulirano od strane procesa (trebalo bi biti utime + stime)"
 
 #: sysdeps/names/proctime.c:54
 msgid "user-mode CPU time accumulated by process"
@@ -912,7 +915,8 @@ msgstr "Frekvencija otkucavanja"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr "SMP CPU vrijeme u korisničkom načinu rada akumulirano od strane procesa"
+msgstr ""
+"SMP CPU vrijeme u korisničkom načinu rada akumulirano od strane procesa"
 
 #: sysdeps/names/proctime.c:63
 msgid "SMP kernel-mode CPU time accumulated by process"
@@ -1264,7 +1268,8 @@ msgstr "Vrijeme u sekundama od podizanja sustava"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Vrijeme u sekundama koje je sustav proveo besposlen od podizanja sustava"
+msgstr ""
+"Vrijeme u sekundama koje je sustav proveo besposlen od podizanja sustava"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time of last system boot in seconds since the epoch"
@@ -1393,4 +1398,3 @@ msgstr "Korisnički definiran signal 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Korisnički definiran signal 2"
-

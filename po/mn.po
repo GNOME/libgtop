@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-05 21:45+0100\n"
+"POT-Creation-Date: 2004-03-11 03:27+0100\n"
 "PO-Revision-Date: 2004-01-05 21:47+0100\n"
 "Last-Translator: Sanlig Badral <Badral@openmn.org>\n"
 "Language-Team: Mongolian <openmn-core@lists.sf.net>\n"
@@ -102,6 +102,7 @@ msgid "Spin:"
 msgstr "Spin:"
 
 #: lib/read.c:78
+#, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "%d байт унших"
@@ -112,6 +113,7 @@ msgid "read data size"
 msgstr "өгөгдлийн хэмжээг унших"
 
 #: lib/read_data.c:68
+#, c-format
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
 msgstr[0] "%d байт өгөгдөл унших"
@@ -659,8 +661,10 @@ msgstr ""
 "мужийн зай юм. Энэ нь зөөгддгүй хуудсууд байдаг."
 
 #: sysdeps/names/procmem.c:63
-msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "Процессын RSS -н одоогийн хязгаар байтаар (ер нь 2.147.483.647 байдаг)."
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr ""
+"Процессын RSS -н одоогийн хязгаар байтаар (ер нь 2.147.483.647 байдаг)."
 
 #: sysdeps/names/procsegment.c:43
 msgid "Text_RSS"
@@ -892,11 +896,13 @@ msgstr "Kernel горимд процессын хэрэглэх хугацаа"
 
 #: sysdeps/names/proctime.c:56
 msgid "cumulative utime of process and reaped children"
-msgstr "Процессын эсвэл хэдийнэ үхсэн хүүгийн хэрэглэгчийн горимд хэрэглэсэн хугацаа"
+msgstr ""
+"Процессын эсвэл хэдийнэ үхсэн хүүгийн хэрэглэгчийн горимд хэрэглэсэн хугацаа"
 
 #: sysdeps/names/proctime.c:57
 msgid "cumulative stime of process and reaped children"
-msgstr "Процессын эсвэл хэдийнэ үхсэн хүүгийн kernel-ийн горимд хэрэглэсэн хугацаа"
+msgstr ""
+"Процессын эсвэл хэдийнэ үхсэн хүүгийн kernel-ийн горимд хэрэглэсэн хугацаа"
 
 #: sysdeps/names/proctime.c:58
 msgid "The time (in jiffies) of the process's next timeout"
@@ -922,7 +928,8 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:63
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "kernel горимд процессын хэрэглэх хугацаа, бүх процессорууд хамттооцогдсон"
+msgstr ""
+"kernel горимд процессын хэрэглэх хугацаа, бүх процессорууд хамттооцогдсон"
 
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
@@ -1399,4 +1406,3 @@ msgstr "Хэрэглэгчийн тодорхойлсон сигнал 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Хэрэглэгчийн тодорхойлсон сигнал 2"
-
