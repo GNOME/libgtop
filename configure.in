@@ -207,7 +207,8 @@ $1="$T"
 
 dnl Autodetect Xauth
 dnl -lXau is only used by gnuclient, so use a special variable for Xauth X libs
-test -z "$with_xauth" && test "$window_system" = "none" && with_xauth=no
+saved_CPPFLAGS="$CPPFLAGS"
+CPPFLAGS="$CPPFLAGS $X_CFLAGS"
 test -z "$with_xauth" && { AC_CHECK_HEADER(X11/Xauth.h,          ,with_xauth=no) }
 test -z "$with_xauth" && { AC_CHECK_LIB(Xau, XauGetAuthByAddr,[:],with_xauth=no, $X_LIBS) }
 test -z "$with_xauth" && with_xauth=yes
@@ -215,6 +216,7 @@ if test "$with_xauth" = "yes"; then
   AC_DEFINE(HAVE_XAUTH)
   XE_SPACE(libs_xauth, $X_LIBS -lXau)
 fi
+CPPFLAGS="$saved_CPPFLAGS"
 AC_SUBST(libs_xauth)
 
 dnl For diskusage stuff
