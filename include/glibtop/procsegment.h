@@ -43,12 +43,12 @@ typedef struct _glibtop_proc_segment	glibtop_proc_segment;
 
 struct _glibtop_proc_segment
 {
-	unsigned long flags;
-	long trs,		/* text resident set size */
+	u_int64_t	flags,
+		trs,		/* text resident set size */
 		lrs,		/* shared-lib resident set size */
 		drs,		/* data resident set size */
-		dt;		/* dirty pages */
-	unsigned long start_code,
+		dt,		/* dirty pages */
+		start_code,
 				/* address of beginning of code segment */
 		end_code,	/* address of end of code segment */
 		start_stack;	/* address of the bottom of stack segment */

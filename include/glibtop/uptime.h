@@ -36,7 +36,7 @@ typedef struct _glibtop_uptime	glibtop_uptime;
 
 struct _glibtop_uptime
 {
-	unsigned long	flags;
+	u_int64_t flags;
 	double uptime,		/* GLIBTOP_UPTIME_UPTIME	*/
 		idletime;	/* GLIBTOP_UPTIME_IDLETIME	*/
 };

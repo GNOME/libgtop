@@ -1,5 +1,9 @@
 1998-07-30  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/*.h: Using `u_int64_t' instead of `unsigned long'
+	and `long' to avoid problems when client is on a 32bit system and
+	the server on a 64bit system.
+
 	* sysdeps/common/gnuslib.c: Using `0xffffffff' instead of -1
 	as error code for inet_addr () since on 64bit systems,
 	`inet_addr (some_error) != (INET_ADDR) -1'.

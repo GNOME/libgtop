@@ -45,7 +45,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	f = fopen ("/proc/meminfo", "r");
 	if (!f) return;
 
-	fscanf (f, "%*[^\n]\n%*[^\n]\nSwap: %lu %lu %lu\n",
+	fscanf (f, "%*[^\n]\n%*[^\n]\nSwap: %Lu %Lu %Lu\n",
 		&buf->total, &buf->used, &buf->free);
 
 	fclose (f);

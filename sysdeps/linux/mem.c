@@ -47,7 +47,7 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	f = fopen ("/proc/meminfo", "r");
 	if (!f) return;
 
-	fscanf (f, "%*[^\n]\nMem: %lu %lu %lu %lu %lu %lu\n",
+	fscanf (f, "%*[^\n]\nMem: %Lu %Lu %Lu %Lu %Lu %Lu\n",
 		&buf->total, &buf->used, &buf->free, &buf->shared,
 		&buf->buffer, &buf->cached);
 

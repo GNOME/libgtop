@@ -37,7 +37,7 @@ typedef struct _glibtop_swap	glibtop_swap;
 
 struct _glibtop_swap
 {
-	unsigned long	flags,
+	u_int64_t	flags,
 		total,		/* GLIBTOP_SWAP_TOTAL	*/
 		used,		/* GLIBTOP_SWAP_USED	*/
 		free;		/* GLIBTOP_SWAP_FREE	*/

@@ -94,7 +94,7 @@ main (int argc, char *argv [])
 		glibtop_get_fsusage (&fsusage,
 				     mount_entries [index].mountdir);
 
-		printf ("Usage: %-16s %9lu %9lu %9lu %9lu %9lu\n",
+		printf ("Usage: %-16s %9Lu %9Lu %9Lu %9Lu %9Lu\n",
 			mount_entries [index].mountdir,
 			fsusage.blocks, fsusage.bfree,
 			fsusage.bavail, fsusage.files,

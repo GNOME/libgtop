@@ -35,7 +35,7 @@ typedef struct _glibtop_loadavg	glibtop_loadavg;
 
 struct _glibtop_loadavg
 {
-	unsigned long	flags;
+	u_int64_t flags;
 	double loadavg [3];		/* GLIBTOP_LOADAVG_LOADAVG	*/
 };
 

@@ -43,8 +43,8 @@ typedef struct _glibtop_proc_time	glibtop_proc_time;
 
 struct _glibtop_proc_time
 {
-	unsigned long flags;
-	long start_time,	/* start time of process -- 
+	u_int64_t	flags,
+		start_time,	/* start time of process -- 
 				 * seconds since 1-1-70 */
 		utime,		/* user-mode CPU time accumulated by process */
 		stime,		/* kernel-mode CPU time accumulated by process */

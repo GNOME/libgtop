@@ -69,8 +69,8 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 	/* parse these two strings separately, skipping the leading "(". */
 	sscanf(tmp + 2,		/* skip space after ')' too */
 	       "%*c %*d %*d %*d %*d %*d %*u %*u %*u %*u %*u "
-	       "%*d %*d %*d %*d %*d %*d %*u %*u %*d %lu "
-	       "%lu %lu", &buf->vsize, &buf->rss, &buf->rss_rlim);
+	       "%*d %*d %*d %*d %*d %*d %*u %*u %*d %Lu "
+	       "%Lu %Lu", &buf->vsize, &buf->rss, &buf->rss_rlim);
 	
 	fclose (f);
 
@@ -88,7 +88,7 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 
 	input [nread] = 0;
 
-	sscanf (input, "%ld %ld %ld",
+	sscanf (input, "%Lu %Lu %Lu",
 		&buf->size, &buf->resident, &buf->share);
 
 	fclose (f);

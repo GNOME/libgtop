@@ -70,9 +70,9 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid)
 	/* parse these two strings separately, skipping the leading "(". */
 
 	sscanf(tmp + 2,		/* skip space after ')' too */
-	       "%*c %*d %*d %*d %*d %*d %lu %lu %lu %lu %lu "
+	       "%*c %*d %*d %*d %*d %*d %Lu %Lu %Lu %Lu %Lu "
 	       "%*d %*d %*d %*d %*d %*d %*u %*u %*d %*u "
-	       "%*u %*u %*u %*u %*u %lu %lu %*d %*d %*d %*d %lu",
+	       "%*u %*u %*u %*u %*u %Lu %Lu %*d %*d %*d %*d %Lu",
 	       &buf->k_flags, &buf->min_flt, &buf->cmin_flt,
 	       &buf->maj_flt, &buf->cmaj_flt, &buf->kstk_esp,
 	       &buf->kstk_eip, &buf->wchan);

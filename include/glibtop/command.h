@@ -62,9 +62,8 @@ typedef union  _glibtop_response_union	glibtop_response_union;
 
 struct _glibtop_command
 {
-	glibtop		server;
-	unsigned	command;
-	size_t		size, data_size;
+	u_int64_t	command;
+	u_int64_t	size, data_size;
 	char		parameter [_GLIBTOP_PARAM_SIZE];
 };
 
@@ -76,8 +75,8 @@ union _glibtop_response_union
 
 struct _glibtop_response
 {
-	off_t offset;
-	size_t size, data_size;
+	int64_t offset;
+	u_int64_t size, data_size;
 	glibtop_response_union u;
 };
 

@@ -72,7 +72,7 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 	sscanf(tmp + 2,		/* skip space after ')' too */
 	       "%*c %*d %*d %*d %*d %*d %*u %*u %*u %*u %*u "
 	       "%*d %*d %*d %*d %*d %*d %*u %*u %*d %*u "
-	       "%*u %*u %lu %lu %lu", &buf->start_code,
+	       "%*u %*u %Lu %Lu %Lu", &buf->start_code,
 	       &buf->end_code, &buf->start_stack);
 	
 	fclose (f);
@@ -91,7 +91,7 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 
 	input [nread] = 0;
 
-	sscanf (input, "%*d %*d %*d %ld %ld %ld %ld",
+	sscanf (input, "%*d %*d %*d %Lu %Lu %Lu %Lu",
 		&buf->trs, &buf->lrs, &buf->drs, &buf->dt);
 
 	fclose (f);

@@ -33,7 +33,7 @@ __BEGIN_DECLS
 
 #define GLIBTOP_MAX_MOUNTLIST		3
 
-#define GLIBTOP_MOUNTENTRY_LEN		80
+#define GLIBTOP_MOUNTENTRY_LEN		79
 
 typedef struct _glibtop_mountentry	glibtop_mountentry;
 
@@ -41,15 +41,15 @@ typedef struct _glibtop_mountlist	glibtop_mountlist;
 
 struct _glibtop_mountentry
 {
+	u_int64_t dev;
 	char devname [GLIBTOP_MOUNTENTRY_LEN+1];
 	char mountdir [GLIBTOP_MOUNTENTRY_LEN+1];
 	char type [GLIBTOP_MOUNTENTRY_LEN+1];
-	dev_t dev;
 };
 
 struct _glibtop_mountlist
 {
-	unsigned long	flags,
+	u_int64_t	flags,
 		number,			/* GLIBTOP_MOUNTLIST_NUMBER	*/
 		total,			/* GLIBTOP_MOUNTLIST_TOTAL	*/
 		size;			/* GLIBTOP_MOUNTLIST_SIZE	*/

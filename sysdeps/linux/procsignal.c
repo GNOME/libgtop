@@ -69,7 +69,7 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf, pid_t pid)
 	sscanf(tmp + 2,		/* skip space after ')' too */
 	       "%*c %*d %*d %*d %*d %*d %*u %*u %*u %*u %*u "
 	       "%*d %*d %*d %*d %*d %*d %*u %*u %*d %*u "
-	       "%*u %*u %*u %*u %*u %*u %*u %d %d %d %d",
+	       "%*u %*u %*u %*u %*u %*u %*u %Lu %Lu %Lu %Lu",
 	       &buf->signal, &buf->blocked, &buf->sigignore,
 	       &buf->sigcatch);
 	

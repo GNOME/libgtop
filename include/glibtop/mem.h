@@ -42,7 +42,7 @@ typedef struct _glibtop_mem	glibtop_mem;
 
 struct _glibtop_mem
 {
-	unsigned long	flags,
+	u_int64_t	flags,
 		total,		/* GLIBTOP_MEM_TOTAL	*/
 		used,		/* GLIBTOP_MEM_USED	*/
 		free,		/* GLIBTOP_MEM_FREE	*/

@@ -40,7 +40,7 @@ typedef struct _glibtop_proc_state	glibtop_proc_state;
 
 struct _glibtop_proc_state
 {
-	unsigned long flags;
+	u_int64_t flags;
 	char cmd[40],		/* basename of executable file in 
 				 * call to exec(2) */
 		state;		/* single-char code for process state

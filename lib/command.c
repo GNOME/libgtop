@@ -37,8 +37,6 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 
 	memset (&cmnd, 0, sizeof (glibtop_command));
 
-	memcpy (&cmnd.server, server, sizeof (glibtop));
-	
 	cmnd.command = command;
 
 	/* If send_size is less than _GLIBTOP_PARAM_SIZE (normally 16 Bytes), we

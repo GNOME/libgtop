@@ -70,7 +70,7 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 	/* parse these two strings separately, skipping the leading "(". */
 	sscanf(tmp + 2,		/* skip space after ')' too */
 	       "%*c %*d %*d %*d %*d %*d %*u %*u %*u %*u %*u "
-	       "%ld %ld %ld %ld %*d %*d %lu %lu %ld",
+	       "%Lu %Lu %Lu %Lu %*d %*d %Lu %Lu %Lu",
 	       &buf->utime, &buf->stime, &buf->cutime, &buf->cstime,
 	       &buf->timeout, &buf->it_real_value, &buf->start_time);
 	

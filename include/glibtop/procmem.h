@@ -42,8 +42,8 @@ typedef struct _glibtop_proc_mem	glibtop_proc_mem;
 
 struct _glibtop_proc_mem
 {
-	unsigned long flags;
-	long size,		/* total # of pages of memory */
+	u_int64_t	flags,
+		size,		/* total # of pages of memory */
 		vsize,		/* number of pages of virtual memory ... */
 		resident,	/* number of resident set
 				 * (non-swapped) pages (4k) */

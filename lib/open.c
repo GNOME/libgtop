@@ -57,6 +57,13 @@ glibtop_open_l (glibtop *server, const char *program_name,
 	
 	server->features = features;
 
+#ifdef DEBUG
+	fprintf (stderr, "SIZEOF: %u - %u - %u - %u - %u - %u\n",
+		 sizeof (glibtop_command), sizeof (glibtop_response),
+		 sizeof (glibtop_mountentry), sizeof (glibtop_union),
+		 sizeof (glibtop_sysdeps), sizeof (glibtop_response_union));
+#endif
+
 	switch (server->method) {
 	case GLIBTOP_METHOD_PIPE:
 	case GLIBTOP_METHOD_UNIX:

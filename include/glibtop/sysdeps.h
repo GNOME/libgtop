@@ -55,7 +55,7 @@ typedef struct _glibtop_sysdeps	glibtop_sysdeps;
 
 struct _glibtop_sysdeps
 {
-	unsigned long	flags,
+	u_int64_t flags,
 		features,		/* server features	*/
 		cpu,			/* glibtop_cpu		*/
 		mem,			/* glibtop_mem		*/

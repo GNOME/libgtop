@@ -46,7 +46,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	f = fopen ("/proc/stat", "r");
 	if (!f) return;
 
-	fscanf (f, "cpu %lu %lu %lu %lu\n",
+	fscanf (f, "cpu %Lu %Lu %Lu %Lu\n",
 		&buf->user, &buf->nice, &buf->sys, &buf->idle);
 
 	buf->total = buf->user + buf->nice + buf->sys + buf->idle;

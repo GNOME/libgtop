@@ -35,6 +35,13 @@ handle_parent_connection (int s)
 
 	fprintf (stderr, "Parent features = %lu\n", glibtop_server_features);
 
+#ifdef DEBUG
+	fprintf (stderr, "SIZEOF: %u - %u - %u - %u - %u - %u\n",
+		 sizeof (glibtop_command), sizeof (glibtop_response),
+		 sizeof (glibtop_mountentry), sizeof (glibtop_union),
+		 sizeof (glibtop_sysdeps), sizeof (glibtop_response_union));
+#endif
+
 	while (do_read (s, cmnd, sizeof (glibtop_command))) {
 #ifdef PARENT_DEBUG
 		fprintf (stderr, "Parent (%d) received command %d from client.\n",
@@ -42,15 +49,17 @@ handle_parent_connection (int s)
 #endif
 
 		if (cmnd->data_size >= BUFSIZ) {
-			glibtop_warn ("Client sent %d bytes, but buffer is %d", cmnd->size, BUFSIZ);
+			glibtop_warn ("Client sent %d bytes, but buffer is %d",
+				      cmnd->data_size, BUFSIZ);
 			return;
 		}
-
+		
 		memset (parameter, 0, sizeof (parameter));
-    
+		
 		if (cmnd->data_size) {
 #ifdef PARENT_DEBUG
-			fprintf (stderr, "Client has %d bytes of data.\n", cmnd->data_size);
+			fprintf (stderr, "Client has %d bytes of data.\n",
+				 cmnd->data_size);
 #endif
 
 			do_read (s, parameter, cmnd->data_size);
