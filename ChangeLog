@@ -1,3 +1,8 @@
+1999-09-17  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in: Make it work if we have GNOME and the user
+	gave use --without-gnome (fixes bug #1735).
+
 1999-07-29  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/error.h: Use G_GNUC_UNUSED.
