@@ -42,8 +42,7 @@ do_read (int s, void *ptr, size_t total_size)
 
 	if(nread == 0)
 		close (s);
-
-	if (nread < 0)
+	else if (nread < 0)
 		glibtop_error_io ("recv");
 }
 

@@ -1,3 +1,9 @@
+2004-10-10  Benoît Dejean  <tazforever@dlfp.org>
+
+	* lib/init.c: Replaced C99 initializer.
+	
+	* lib/read.c: (do_read): 1-line cleanup.
+
 2004-10-09  Benoît Dejean  <tazforever@dlfp.org>
 
 	* configure.in: Depends on glib 2.4.0

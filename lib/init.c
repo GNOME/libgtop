@@ -29,7 +29,7 @@
 #define DEFAULT_PORT 42800
 #endif
 
-static glibtop _glibtop_global_server = { .flags = 0 };
+static glibtop _glibtop_global_server = { 0 };
 glibtop *glibtop_global_server = &_glibtop_global_server;
 
 static void
