@@ -1,5 +1,5 @@
 glibtop_map_entry|ulong(flags,start,end,offset,perm,inode,device):string(filename)
 glibtop_mountentry|ulong(dev):string(devname,mountdir,type)
 glibtop_interface|ulong(flags,if_flags,transport,type,number,instance,num_logical):string(name)
-glibtop_sysdeps|ulong(features,pointer_size,cpu,mem,swap,uptime,loadavg,shm_limits,msg_limits,sem_limits,proclist,proc_state,proc_uid,proc_mem,proc_time,proc_signal,proc_kernel,proc_segment,proc_args,proc_map,mountlist,fsusage,interface_names,netinfo,netload,ppp)
+glibtop_sysdeps|ulong(features,pointer_size,cpu,mem,swap,uptime,loadavg,shm_limits,msg_limits,sem_limits,proclist,proc_state,proc_uid,proc_mem,proc_time,proc_signal,proc_kernel,proc_segment,proc_args,proc_map,mountlist,fsusage,interface_names,netload,ppp)
 glibtop_ifaddr|ulong(flags,transport):ushort(addr_len,address[GLIBTOP_IFADDR_LEN]):ulong(subnet,scope)

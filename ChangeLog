@@ -1,3 +1,9 @@
+2004-07-07  Benoît Dejean  <tazforever@dlfp.org>
+
+	* include/glibtop/netinfo.h:
+	* structures.def:
+	* sysdeps/names/netinfo.c: Removed netinfo.[ch] that were never used.
+
 2004-07-03  Benoît Dejean  <tazforever@dlfp.org>
 
 	* sysdeps/names/fsusage.c: Added missing fsusage names.
