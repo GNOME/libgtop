@@ -25,9 +25,16 @@
 
 #include <glibtop.h>
 #include <glibtop/open.h>
+#include <glibtop/backend.h>
 
 void
 _glibtop_open_sysdeps (glibtop *server, const char *program_name,
 		       const unsigned long features, const unsigned flags)
 {
+    glibtop_open_backend_l (server, "glibtop-backend-common",
+			    features, NULL);
+    glibtop_open_backend_l (server, "glibtop-backend-sysdeps",
+			    features, NULL);
+    glibtop_open_backend_l (server, "glibtop-backend-server",
+			    features, NULL);
 }
