@@ -1,3 +1,22 @@
+1998-11-22  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* netload.c (glibtop_get_netload_s): Added implementation
+	for this function.
+ 	
+	The code here is smart enough to use /proc/net/ip_acct if
+ 	IP accounting is enabled in the kernel and activated on the
+ 	requested device and /proc/net/dev if not.
+
+	To get separate statistics for received and transmitted
+	packets you need to use two accounting rules:
+
+	ipfwadm -A in -a -P all -W eth0
+	ipfwadm -A out -a -P all -W eth0
+
+	But before you activate IP accounting, please have a look
+	at /proc/net/dev - if if already contains byte counters,
+	then don't use IP accounting.
+
 1998-10-28  Martin Baulig  <martin@home-of-linux.org>
 
 	* ppp.c: Added code for ISDN here.
