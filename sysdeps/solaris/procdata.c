@@ -39,7 +39,7 @@ glibtop_get_proc_data_psinfo_s (glibtop *server, struct psinfo *psinfo, pid_t pi
 		return -1;
 	}
 
-	if (read (fd, psinfo, sizeof (struct psinfo)) != sizeof (struct psinfo)) {
+	if (pread (fd, psinfo, sizeof (struct psinfo), 0) != sizeof (struct psinfo)) {
 		close (fd);
 		glibtop_warn_io_r (server, "read (%s)", buffer);
 		return -1;
@@ -62,7 +62,7 @@ glibtop_get_proc_data_usage_s (glibtop *server, struct prusage *prusage, pid_t p
 		return -1;
 	}
 
-	if (read (fd, prusage, sizeof (struct prusage)) != sizeof (struct prusage)) {
+	if (pread (fd, prusage, sizeof (struct prusage), 0) != sizeof (struct prusage)) {
 		close (fd);
 		glibtop_warn_io_r (server, "read (%s)", buffer);
 		return -1;
