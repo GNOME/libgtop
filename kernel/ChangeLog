@@ -1,0 +1,6 @@
+1998-06-14  Martin Baulig  <baulig@taurus.uni-trier.de>
+
+	* README: Added README.
+
+	* kernel.patch: Patch for the Linux kernel to add the
+	new system call.
