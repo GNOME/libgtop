@@ -1,3 +1,9 @@
+1999-10-18  Martin Baulig  <martin@home-of-linux.org>
+
+	* NEWS.old: Removed obsolete file.
+
+	* TODO: Nuked it. We may need this file later ...
+
 1999-10-17  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in (DL_LIB): Check for dlopen() and AC_SUBST this.
