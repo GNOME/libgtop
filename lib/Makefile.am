@@ -30,7 +30,8 @@ structures.h: structures.pl $(top_builddir)/config.h \
 	mv tmp-s structures.h
 
 sysdeps-init.c:
-	@LN_S@ @sysdeps_init_file@ sysdeps-init.c
+	rm -f sysdeps-init.c
+	cp $(srcdir)/@sysdeps_init_file@ sysdeps-init.c
 
 CLEANFILES			= $(BUILT_SOURCES)
 

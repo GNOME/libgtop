@@ -6,3 +6,4 @@ libgtop.la
 *.lo
 lib.c
 structures.h
+sysdeps-init.c
