@@ -39,47 +39,47 @@ msgstr "Takt-Frequenz"
 
 #: sysdeps/names/cpu.c:47
 msgid "SMP Total CPU Time"
-msgstr ""
+msgstr "CPU-Zeit aller Prozessoren insgesamt"
 
 #: sysdeps/names/cpu.c:48
 msgid "SMP CPU Time in User Mode"
-msgstr ""
+msgstr "CPU-Zeit aller Prozessoren im Benutzer-Mode"
 
 #: sysdeps/names/cpu.c:49
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr ""
+msgstr "CPU-Zeit aller Prozessoren im Benutzer-Mode (Priorität)"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in System Mode"
-msgstr ""
+msgstr "CPU-Zeit aller Prozessoren im System-Mode"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in the Idle Task"
-msgstr ""
+msgstr "CPU-Zeit aller Prozessoren im Leerlaufprozess"
 
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:62
 msgid "Number of clock ticks since system boot"
-msgstr ""
+msgstr "Anzahl der Clock-Ticks seit Systemboot"
 
 #: sysdeps/names/cpu.c:57 sysdeps/names/cpu.c:63
 msgid "Number of clock ticks the system spent in user mode"
-msgstr ""
+msgstr "Anzahl der Clock-Ticks, die das System im Benutzer-Mode verbracht hat"
 
 #: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr ""
+msgstr "Anzahl der Clock-Ticks, die das System im Benutzer-Mode mit erhöhter Priorität verbracht hat"
 
 #: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
 msgid "Number of clock ticks the system spent in system mode"
-msgstr ""
+msgstr "Anzahl der Clock-Ticks, die das System im Kernel-Mode verbracht hat"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr ""
+msgstr "Anzahl der Clock-Ticks, die das System im Leerlauf war"
 
 #: sysdeps/names/cpu.c:61
 msgid "Tick frequency (default is 100)"
-msgstr ""
+msgstr "Tickfrequenz (Default ist 100)"
 
 #: sysdeps/names/fsusage.c:37 sysdeps/names/fsusage.c:46
 msgid "Total blocks"
@@ -598,7 +598,7 @@ msgstr "Startzeit des Prozesses in Sekunden seit dem 1. Januar 1970"
 
 #: sysdeps/names/proctime.c:50
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr ""
+msgstr "Realzeit des Prozesses (sollte utime + stime sein)"
 
 #: sysdeps/names/proctime.c:51
 msgid "user-mode CPU time accumulated by process"
@@ -610,28 +610,21 @@ msgstr "Zeit, die der Prozess im Kernel verbracht hat"
 
 #: sysdeps/names/proctime.c:53
 msgid "cumulative utime of process and reaped children"
-msgstr ""
-"Zeit, die der Prozess und seine bereits gestorbe Kinder im Benutzer-Mode "
-"verbracht haben"
+msgstr "Zeit, die der Prozess und seine bereits gestorbe Kinder im Benutzer-Mode verbracht haben"
 
 #: sysdeps/names/proctime.c:54
 msgid "cumulative stime of process and reaped children"
-msgstr ""
-"Zeit, die der Prozess und seine bereits gestorbe Kinder im Kernel verbracht "
-"haben"
+msgstr "Zeit, die der Prozess und seine bereits gestorbe Kinder im Kernel verbracht haben"
 
 #: sysdeps/names/proctime.c:55
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr ""
-"Zeit (in 1/100stel Sekunden) bis der Prozess seinen nächsten Timeout empfängt"
+msgstr "Zeit (in 1/100stel Sekunden) bis der Prozess seinen nächsten Timeout empfängt"
 
 #: sysdeps/names/proctime.c:56
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
-msgstr ""
-"Zeit (in 1/100stel Sekunden) bevor das nächste SIGALRM Signal aufgrund eines "
-"Intervall-Timers an den Prozess geschickt wird"
+msgstr "Zeit (in 1/100stel Sekunden) bevor das nächste SIGALRM Signal aufgrund eines Intervall-Timers an den Prozess geschickt wird"
 
 #: sysdeps/names/proctime.c:58
 msgid "Tick frequency"
@@ -639,11 +632,11 @@ msgstr "Taktfrequenz"
 
 #: sysdeps/names/proctime.c:59
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Zeit aller Prozessoren, die der Prozess im Benutzer-Mode verbracht hat"
 
 #: sysdeps/names/proctime.c:60
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Zeit aller Prozessoren, die der Prozess im Kernel-Mode verbracht hat"
 
 #: sysdeps/names/procuid.c:54
 msgid "Uid"
@@ -859,11 +852,11 @@ msgstr "Systemlast"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "Shared Memory Limits"
-msgstr ""
+msgstr "Limits für gemeinsam genutzten Speicher"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Message Queue Limits"
-msgstr ""
+msgstr "Limits für Nachrichtenwarteschlangen"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Semaphore Set Limits"
@@ -875,15 +868,15 @@ msgstr "Prozessliste"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Process Status information"
-msgstr ""
+msgstr "Prozess Status"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "Process UID and TTY information"
-msgstr ""
+msgstr "Prozess Eigentümer und Terminal"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Memory information"
-msgstr ""
+msgstr "Speicherbelegung des Prozesses"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process Time information"
@@ -920,19 +913,19 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
 msgid "Network Load"
-msgstr ""
+msgstr "Netzlast"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "PPP Statistics"
-msgstr ""
+msgstr "PPP Statistik"
 
 #: sysdeps/names/sysdeps.c:91
 msgid "Command line arguments of the process"
-msgstr ""
+msgstr "Kommandozeilenparameter des Prozesses"
 
 #: sysdeps/names/sysdeps.c:93
 msgid "List of currently mounted filesystems"
-msgstr ""
+msgstr "Liste gegenwärtig gemounteter Dateisysteme"
 
 #: sysdeps/names/uptime.c:36
 msgid "Uptime"
@@ -940,11 +933,11 @@ msgstr ""
 
 #: sysdeps/names/uptime.c:37
 msgid "Idletime"
-msgstr ""
+msgstr "Leerlaufzeit"
 
 #: sysdeps/names/uptime.c:42
 msgid "Time in seconds since system boot"
-msgstr ""
+msgstr "Zeit in Sekunden seit System-Boot"
 
 #: sysdeps/names/uptime.c:43
 msgid "Time in seconds the system spent in the idle task since system boot"
@@ -952,7 +945,7 @@ msgstr ""
 
 #: support/error.c:109
 msgid "Unknown system error"
-msgstr ""
+msgstr "Unbekannter Systemfehler"
 
 #: support/getopt.c:669
 #, c-format
