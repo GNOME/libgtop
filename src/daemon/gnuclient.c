@@ -198,7 +198,7 @@ filename_expand (char *fullpath, char *filename)
 /* Encase the string in quotes, escape all the backslashes and quotes
    in string.  */
 static char *
-clean_string (CONST char *s)
+clean_string (const char *s)
 {
   int i = 0;
   char *p, *res;
@@ -256,7 +256,7 @@ clean_string (CONST char *s)
 
 /* A strdup immitation. */
 static char *
-my_strdup (CONST char *s)
+my_strdup (const char *s)
 {
   char *new = malloc (strlen (s) + 1);
   if (new)

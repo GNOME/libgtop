@@ -35,14 +35,6 @@ static char rcsid [] = "!Header: gnuserv.c,v 2.1 95/02/16 11:58:27 arup alpha !"
 
 #include "gnuserv.h"
 
-#ifdef USE_LITOUT
-#ifdef linux
-#include <bsd/sgtty.h>
-#else
-#include <sgtty.h>
-#endif
-#endif
-
 #ifdef AIX
 #include <sys/select.h>
 #endif
@@ -851,14 +843,6 @@ main(argc,argv)
 
   for(chan=3; chan < _NFILE; close(chan++)) /* close unwanted channels */
     ;
-
-#ifdef USE_LITOUT
-  {
-    /* this is to allow ^D to pass to emacs */
-    int d = LLITOUT;
-    (void) ioctl(fileno(stdout), TIOCLBIS, &d);
-  }
-#endif
 
 #ifdef SYSV_IPC
   ipc_init(&msgp);		/* get a msqid to listen on, and a message buffer */

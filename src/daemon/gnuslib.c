@@ -196,7 +196,7 @@ void disconnect_from_ipc_server(s,msgp,echo)
 */
 void send_string(s,msg)
      int s;
-     CONST char *msg;
+     const char *msg;
 {
 #if 0
   if (send(s,msg,strlen(msg),0) < 0) {
