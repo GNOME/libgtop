@@ -30,7 +30,12 @@
 #if !defined (_LIBC) && defined (__GNU_LIBRARY__) && __GNU_LIBRARY__ > 1
 /* GNU LibC */
 #include <net/if.h>
-#include <netinet/ip_fw.h>
+#include <netinet/ip_icmp.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
+#include <net/if.h>
 #else /* Libc 5 */
 #include <linux/if.h>
 #include <linux/in.h>
