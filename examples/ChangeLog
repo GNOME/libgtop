@@ -1,3 +1,9 @@
+1999-05-08  Drazen Kacar  <dave@srce.hr>
+
+	* mountlist.c: Changed pfintf formats to "%lld" when printing
+	u_int64_t. This is still utterly unportable, but will
+	hopefully work on all supported architectures. For now.
+
 1999-05-07  Martin Baulig  <martin@home-of-linux.org>
 
 	* timings.c (timersub): Renamed this to `libgtop_timersub' and define
