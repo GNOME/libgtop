@@ -22,6 +22,14 @@
 	* sysdeps/stub/*.c: changed suffix of all functions
 	from '_s' to '_r'; see also ChangeLog entry from Jun 6.
 
+1998-07-13  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* src/daemon/server_config.h: Removed from CVS.
+	This is a config file which needs to be edited.
+
+	* src/daemon/server_config.h.in: Added. This is just
+	an example for `server_config.h'.
+
 1998-07-13  Martin Baulig  <martin@home-of-linux.org>
 
 	* glibtop.h: Fixed invocation of `glibtop_close_r'.
