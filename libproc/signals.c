@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include "proc/signals.h"
+#include "signals.h"
 
 
 typedef struct {

@@ -22,9 +22,9 @@
 #include <sys/stat.h>
 #include <sys/mman.h>
 #include <sys/utsname.h>
-#include "proc/psdata.h"
-#include "proc/ps.h"
-#include "proc/version.h"
+#include "psdata.h"
+#include "ps.h"
+#include "version.h"
 
 #define MAX_ADDR_SZ 32
 static char *sysmap, *sysmap_last, sysmap_fmt[10];

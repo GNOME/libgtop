@@ -9,8 +9,8 @@
 
 #include <string.h>		/* for strcmp */
 #include <stdio.h>		/* for parse error output */
-#include "proc/readproc.h"	/* for proc_t */
-#include "proc/tree.h"		/* for struct tree_node */
+#include "readproc.h"		/* for proc_t */
+#include "tree.h"		/* for struct tree_node */
 
 /*
   This module was written by Charles Blake for procps.

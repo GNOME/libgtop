@@ -21,8 +21,8 @@
 #include <time.h>
 #include <utmp.h>
 #include <sys/ioctl.h>
-#include "proc/whattime.h"
-#include "proc/sysinfo.h"
+#include "whattime.h"
+#include "sysinfo.h"
 
 static char buf[128];
 double av[3];

@@ -1,5 +1,5 @@
 /* File for parsing top-level /proc entities. */
-#include "proc/sysinfo.h"
+#include "sysinfo.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,7 +8,7 @@
 
 #include <unistd.h>
 #include <fcntl.h>
-#include "proc/version.h"
+#include "version.h"
 
 #define BAD_OPEN_MESSAGE					\
 "Error: /proc must be mounted\n"				\

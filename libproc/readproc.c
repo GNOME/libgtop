@@ -2,10 +2,10 @@
  * New Interface to Process Table -- PROCTAB Stream (a la Directory streams)
  * Copyright(C) 1996. Charles L. Blake.
  */
-#include "proc/version.h"
-#include "proc/readproc.h"
-#include "proc/devname.h"
-#include "proc/ps.h"
+#include "version.h"
+#include "readproc.h"
+#include "devname.h"
+#include "ps.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>

@@ -1,5 +1,5 @@
-#include "proc/ps.h"
-#include "proc/readproc.h"
+#include "ps.h"
+#include "readproc.h"
 
 char * status(proc_t* task) {
     static char buf[4] = "   ";

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pwd.h>
-#include "proc/ps.h"
+#include "ps.h"
 
 #define	HASHSIZE	16			/* power of 2 */
 #define	HASH(x)		((x) & (HASHSIZE - 1))
