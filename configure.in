@@ -72,8 +72,6 @@ fi
 GNOME_LIBGTOP_SYSDEPS
 GNOME_LIBGTOP_TYPES
 
-GNOME_CHECK_GUILE
-
 dnl For Solaris
 AC_CHECK_LIB(resolv, _getnetbyaddr)
 AC_CHECK_LIB(socket, socket)
@@ -83,7 +81,9 @@ AC_ARG_WITH(libgtop-guile,
 [  --with-libgtop-guile    Build the libgtop guile interface (default=no)],
 [build_guile="$withval"], [build_guile=no])
 
-test x$build_guile = xno && ac_cv_guile_found=no
+if test x$build_guile = xyes ; then
+  GNOME_CHECK_GUILE
+fi
 
 AC_ARG_WITH(libgtop-inodedb,
 [  --with-libgtop-inodedb  Build the inodedb stuff (default=no)],

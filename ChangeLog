@@ -1,3 +1,7 @@
+1998-09-27  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in: Do not even check for guile if it is disabled.
+
 1998-09-12  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/sysinfo.h: New file. This is used in guname to
