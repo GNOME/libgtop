@@ -1,23 +1,22 @@
 # Serbian translation of libgtop
-# Courtesy of Prevod.org team (http://www.prevod.org/) -- 2003.
-# 
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2003, 2004.
+#
 # This file is distributed under the same license as the libgtop package.
-# 
+#
 # Maintainer: Бранко Ивановић <popeye@one.ekof.bg.ac.yu>
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 2.2\n"
+"Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2003-10-22 01:44+0200\n"
+"POT-Creation-Date: 2004-08-07 15:03+0200\n"
+"PO-Revision-Date: 2004-08-07 15:04+0200\n"
 "Last-Translator: Бранко Ивановић <popeye@one.ekof.bg.ac.yu>\n"
-"Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
+"Language-Team: Serbian (sr) <gnom@prevod.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3;    plural=n%10==1 && n%100!=11 ? 0 :    n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3;    plural=n%10==1 && n%100!=11 ? 0 :    n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: examples/smp.c:76
 #, c-format
@@ -266,9 +265,8 @@ msgid "Free file nodes"
 msgstr "Слободни датотечки чворови"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Блокирано"
+msgstr "Величина блока"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -421,14 +419,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Подмрежа"
+msgstr "ИПв4 подмрежа"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Адреса"
+msgstr "ИПв4 адреса"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -471,17 +467,16 @@ msgid "Collisions"
 msgstr "Сукоба"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Адреса"
+msgstr "ИПв6 адреса"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "ИПв6 префикс"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "ИПв6 опсег"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
