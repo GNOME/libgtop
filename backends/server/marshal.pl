@@ -179,7 +179,7 @@ sub output {
     $call_code .= sprintf ("\t%sglibtop_call_i (server, backend, GLIBTOP_CMND_%s,\n",
 			   $call_prefix, &toupper($feature));
     $call_code .= sprintf ("\t\t\t%s%s, %s,\n", $call_prefix_space,
-			   "_LIBGTOP_SEND_len", "_LIBGTOP_SEND_ptr");
+			   "_LIBGTOP_SEND_len", "_LIBGTOP_SEND_buf");
     if ($line_fields[3] eq '') {
       $call_code .= sprintf ("\t\t\t%s0, NULL,\n", $call_prefix_space);
     } elsif ($line_fields[3] eq  'array') {
