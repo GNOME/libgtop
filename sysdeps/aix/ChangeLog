@@ -1,3 +1,8 @@
+2004-12-23  Benoît Dejean  <tazforever@dlfp.org>
+
+	* netlist.c:
+	* Makefile.am: Added dummy glibtop_get_netlist.
+
 2004-10-22  Benoît Dejean  <tazforever@dlfp.org>
 
 	* procargs.c: (glibtop_get_proc_args_s):

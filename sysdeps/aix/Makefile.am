@@ -7,8 +7,8 @@ libgtop_sysdeps_2_0_la_SOURCES  = siglist.c nosuid.c mem.c swap.c uptime.c \
 				  procargs.c prockernel.c proclist.c procmap.c \
 				  procmem.c procsegment.c procsignal.c \
 				  proctime.c procuid.c procmem.c utils.c \
-				  procstate.c sysinfo.c
-				
+				  procstate.c sysinfo.c netlist.c
+
 
 libgtop_sysdeps_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 
