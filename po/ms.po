@@ -110,7 +110,7 @@ msgstr "data dibaca %d byte"
 #: lib/write.c:48
 #, c-format
 msgid "write %d bytes"
-msgstr "ditulis %s byte"
+msgstr "ditulis %d byte"
 
 #: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
