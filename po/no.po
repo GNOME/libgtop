@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.26.2\n"
-"POT-Creation-Date: 1998-12-15 12:58+0100\n"
+"POT-Creation-Date: 1998-12-17 20:10+0100\n"
 "PO-Revision-Date: 1998-10-25 11:26+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@fib.hl.no>\n"
 "Language-Team: Norwegian <no@li.org>\n"
@@ -894,9 +894,8 @@ msgid "Process Segment information"
 msgstr "Prosessens segmentinformasjon"
 
 #: sysdeps/names/sysdeps.c:64
-#, fuzzy
 msgid "Process Arguments"
-msgstr "Prosess gruppeID"
+msgstr "Prosessargumenter"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Memory Map"
@@ -912,15 +911,15 @@ msgstr "Bruk av filsystemer"
 
 #: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
 msgid "Network Load"
-msgstr ""
+msgstr "Nettverksbelastning"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "PPP Statistics"
-msgstr ""
+msgstr "PPP-statistikk"
 
 #: sysdeps/names/sysdeps.c:91
 msgid "Command line arguments of the process"
-msgstr ""
+msgstr "Prosessens kommandolinjeargumenter"
 
 #: sysdeps/names/sysdeps.c:93
 msgid "List of currently mounted filesystems"
@@ -1024,65 +1023,43 @@ msgstr "les data %d bytes"
 msgid "write %d bytes"
 msgstr "skriv %d bytes"
 
-#: src/daemon/gnuserv.c:432
+#: src/daemon/gnuserv.c:439
 msgid "Enable debugging"
-msgstr ""
+msgstr "Slå på avlusing"
 
-#: src/daemon/gnuserv.c:432
+#: src/daemon/gnuserv.c:439
 msgid "DEBUG"
-msgstr ""
+msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:434
+#: src/daemon/gnuserv.c:441
 msgid "Enable verbose output"
-msgstr ""
+msgstr "Slå på utfyllende utskrift"
 
-#: src/daemon/gnuserv.c:434
+#: src/daemon/gnuserv.c:441
 msgid "VERBOSE"
-msgstr ""
+msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:436
+#: src/daemon/gnuserv.c:443
 msgid "Don't fork into background"
-msgstr ""
+msgstr "Ikke forgren til bakgrunnen"
 
-#: src/daemon/gnuserv.c:436
+#: src/daemon/gnuserv.c:443
 msgid "NO-DAEMON"
-msgstr ""
+msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:438
+#: src/daemon/gnuserv.c:445
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "Kalt fra inetd"
 
-#: src/daemon/gnuserv.c:438
+#: src/daemon/gnuserv.c:445
 msgid "INETD"
-msgstr ""
+msgstr "INETD"
 
-#: src/daemon/gnuserv.c:472
+#: src/daemon/gnuserv.c:479
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-
-#~ msgid "Give this help list"
-#~ msgstr "Vis denne hjelpeteksten"
-
-#~ msgid "Give a short usage message"
-#~ msgstr "Vis en kort bruksmelding"
-
-#~ msgid "Set the program name"
-#~ msgstr "Sett programnavnet"
-
-#~ msgid "Hang for SECS seconds (default 3600)"
-#~ msgstr "Vent i SECS sekunder (forvalgt 3600)"
-
-#~ msgid "Print program version"
-#~ msgstr "Skriv ut programversjon"
-
-#~ msgid "(PROGRAM ERROR) No version known!?"
-#~ msgstr "(PROGRAMFEIL) Versjon ikke kjent!?"
-
-#~ msgid "%s: Too many arguments\n"
-#~ msgstr "%s: For mange argumenter\n"
-
-#~ msgid "(PROGRAM ERROR) Option should have been recognized!?"
-#~ msgstr "(PROGRAMFEIL) Flagget skulle vært gjenkjent!?"
+"Feil ved flagg %s: %s.\n"
+"Kjør '%s --help' for å se en full liste av tilgjengelige kommandolinjeflagg.\n"
