@@ -36,12 +36,20 @@ static const unsigned long _glibtop_sysdeps_proc_state =
 (1L << GLIBTOP_PROC_STATE_CMD) + (1L << GLIBTOP_PROC_STATE_UID) +
 (1L << GLIBTOP_PROC_STATE_GID);
 
+static const unsigned long _glibtop_sysdeps_proc_state_new =
+#if LIBGTOP_VERSION_CODE >= 1001000
+(1L << GLIBTOP_PROC_STATE_RUID) + (1L << GLIBTOP_PROC_STATE_RGID);
+#else
+0;
+#endif
+
 /* Init function. */
 
 void
 glibtop_init_proc_state_p (glibtop *server)
 {
-	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
+	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state |
+		_glibtop_sysdeps_proc_state_new;
 }
 
 /* Provides detailed information about a process. */
@@ -74,8 +82,14 @@ glibtop_get_proc_state_p (glibtop *server,
 	buf->uid = pinfo [0].kp_eproc.e_pcred.p_svuid;
 	buf->gid = pinfo [0].kp_eproc.e_pcred.p_svgid;
 
+#if LIBGTOP_VERSION_CODE >= 1001000
+	buf->ruid = pinfo [0].kp_eproc.e_pcred.p_ruid;
+	buf->rgid = pinfo [0].kp_eproc.e_pcred.p_rgid;
+#endif
+
 	/* Set the flags for the data we're about to return*/
-	buf->flags = _glibtop_sysdeps_proc_state;
+	buf->flags = _glibtop_sysdeps_proc_state |
+		_glibtop_sysdeps_proc_state_new;
 
 	switch (pinfo [0].kp_proc.p_stat) {
 	case SIDL:

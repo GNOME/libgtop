@@ -31,6 +31,10 @@
 #include <sys/vmmeter.h>
 #include <vm/vm_param.h>
 
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+#include <uvm/uvm_extern.h>
+#endif
+
 static const unsigned long _glibtop_sysdeps_mem =
 (1L << GLIBTOP_MEM_TOTAL) + (1L << GLIBTOP_MEM_USED) +
 (1L << GLIBTOP_MEM_FREE) +
@@ -53,7 +57,10 @@ static int pageshift;		/* log base 2 of the pagesize */
 
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
-	{ "_cnt" },
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+	{ "_bufpages" },
+	{ 0 }
+#else
 #if defined(__bsdi__)
 	{ "_bufcachemem" },
 #elif defined(__FreeBSD__)
@@ -61,7 +68,9 @@ static struct nlist nlst [] = {
 #else
 	{ "_bufpages" },
 #endif
+	{ "_cnt" },
 	{ 0 }
+#endif
 };
 
 /* MIB array for sysctl */
@@ -70,6 +79,10 @@ static int mib_length=2;
 static int mib [] = { CTL_VM, VM_TOTAL };
 #else
 static int mib [] = { CTL_VM, VM_METER };
+#endif
+
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+static int mib_uvmexp [] = { CTL_VM, VM_UVMEXP };
 #endif
 
 /* Init function. */
@@ -104,9 +117,15 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 {
 	struct vmtotal vmt;
 	size_t length_vmt;
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+	struct uvmexp uvmexp;
+	size_t length_uvmexp;
+#else
 	struct vmmeter vmm;
+#endif
 	u_int v_used_count;
 	u_int v_total_count;
+	u_int v_free_count;
 	int bufspace;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MEM), 0);
@@ -123,18 +142,26 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	/* Get the data from sysctl */
 	length_vmt = sizeof (vmt);
 	if (sysctl (mib, 2, &vmt, &length_vmt, NULL, 0)) {
-		glibtop_warn_io_r (server, "sysctl");
+		glibtop_warn_io_r (server, "sysctl (vmt)");
 		return;
 	}
-	
+
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+	length_uvmexp = sizeof (uvmexp);
+	if (sysctl (mib_uvmexp, 2, &uvmexp, &length_uvmexp, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (uvmexp)");
+		return;
+	}
+#else
 	/* Get the data from kvm_* */
-	if (kvm_read (server->machine.kd, nlst[0].n_value,
+	if (kvm_read (server->machine.kd, nlst[1].n_value,
 		      &vmm, sizeof (vmm)) != sizeof (vmm)) {
 		glibtop_warn_io_r (server, "kvm_read (cnt)");
 		return;
 	}
+#endif
 
-	if (kvm_read (server->machine.kd, nlst[1].n_value,
+	if (kvm_read (server->machine.kd, nlst[0].n_value,
 		      &bufspace, sizeof (bufspace)) != sizeof (bufspace)) {
 		glibtop_warn_io_r (server, "kvm_read (bufspace)");
 		return;
@@ -145,22 +172,40 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 #if defined(__FreeBSD__)
 	v_total_count = vmm.v_page_count;
 #else
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+	v_total_count = uvmexp.reserve_kernel +
+		uvmexp.reserve_pagedaemon +
+		uvmexp.free + uvmexp.wired + uvmexp.active +
+		uvmexp.inactive;
+#else
 	v_total_count = vmm.v_kernel_pages +
 		vmm.v_free_count + vmm.v_wire_count +
 		vmm.v_active_count + vmm.v_inactive_count;
 #endif
+#endif
 
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+	v_used_count = uvmexp.active + uvmexp.inactive;
+	v_free_count = uvmexp.free;
+#else
 	v_used_count = vmm.v_active_count + vmm.v_inactive_count;
+	v_free_count = vmm.v_free_count;
+#endif
 
 	buf->total = (u_int64_t) pagetok (v_total_count) << LOG1024;
 	buf->used  = (u_int64_t) pagetok (v_used_count) << LOG1024;
-	buf->free  = (u_int64_t) pagetok (vmm.v_free_count) << LOG1024;
+	buf->free  = (u_int64_t) pagetok (v_free_count) << LOG1024;
 
 #ifdef __FreeBSD__
 	buf->cached = (u_int64_t) pagetok (vmm.v_cache_count) << LOG1024;
 #endif
 
+#if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
+	buf->locked = (u_int64_t) pagetok (uvmexp.wired) << LOG1024;
+#else
 	buf->locked = (u_int64_t) pagetok (vmm.v_wire_count) << LOG1024;
+#endif
+
 	buf->shared = (u_int64_t) pagetok (vmt.t_rmshr) << LOG1024;
 
 #if __FreeBSD__

@@ -69,15 +69,24 @@ static struct nlist nlst [] = {
 
 #elif defined(__NetBSD__)
 
+#if (__NetBSD_Version__ >= 104000000)
+#include <uvm/uvm_extern.h>
+#include <sys/swap.h>
+#else
 #include <vm/vm_swap.h>
+#endif
 
 #endif
 
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+static int mib_uvmexp [] = { CTL_VM, VM_UVMEXP };
+#else
 /* nlist structure for kernel access */
 static struct nlist nlst2 [] = {
 	{ "_cnt" },
 	{ 0 }
 };
+#endif
 
 /* Init function. */
 
@@ -100,10 +109,12 @@ glibtop_init_swap_p (glibtop *server)
 #endif
 #endif
 
+#if !(defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000))
 	if (kvm_nlist (server->machine.kd, nlst2) != 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (cnt)");
 		return;
 	}
+#endif
 
 	server->sysdeps.swap = _glibtop_sysdeps_swap;
 }
@@ -145,8 +156,13 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	int nswap, i;
 	int avail = 0, inuse = 0;
 
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+	struct uvmexp uvmexp;
+	size_t length_uvmexp;
+#else
 	/* To get `pagein' and `pageout'. */
 	struct vmmeter vmm;
+#endif
         static int swappgsin = -1;
 	static int swappgsout = -1;
 
@@ -157,6 +173,13 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	if (server->sysdeps.swap == 0)
 		return;
 
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+	length_uvmexp = sizeof (uvmexp);
+	if (sysctl (mib_uvmexp, 2, &uvmexp, &length_uvmexp, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (uvmexp)");
+		return;
+	}
+#else
 	/* This is used to get the `pagein' and `pageout' members. */
 	
 	if (kvm_read (server->machine.kd, nlst2[0].n_value,
@@ -164,6 +187,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		glibtop_warn_io_r (server, "kvm_read (cnt)");
 		return;
 	}
+#endif
 
         if (swappgsin < 0) {
 		buf->pagein = 0;
@@ -173,8 +197,13 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		buf->pagein = vmm.v_swappgsin - swappgsin;
 		buf->pageout = vmm.v_swappgsout - swappgsout;
 #else
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+		buf->pagein = uvmexp.swapins - swappgsin;
+		buf->pageout = uvmexp.swapouts - swappgsout;
+#else
 		buf->pagein = vmm.v_swpin - swappgsin;
 		buf->pageout = vmm.v_swpout - swappgsout;
+#endif
 #endif
 	}
 
@@ -182,8 +211,13 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
         swappgsin = vmm.v_swappgsin;
 	swappgsout = vmm.v_swappgsout;
 #else
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+	swappgsin = uvmexp.swapins;
+	swappgsout = uvmexp.swapouts;
+#else
 	swappgsin = vmm.v_swpin;
 	swappgsout = vmm.v_swpout;
+#endif
 #endif
 
 #if defined(__FreeBSD__)

@@ -1,3 +1,17 @@
+1999-05-26  Martin Baulig  <martin@home-of-linux.org>
+
+	More NetBSD 1.4 fixes.
+
+	* mem.c, procmap.c, procmem.c: Make this work with the new UVM code.
+
+	[FIXME: This following most likely works on all BSD systems, but
+	this needs to be tested; I made it conditional to NetBSD 1.4 at
+	the moment. Please extend the conditionals to any other systems
+	where this works ...]
+	
+	* procstate.c: Added `ruid' and `rgid' for LibGTop >= 1.1.0.
+	* procuid.c: Added `ngroups' and `groups' for LibGTop >= 1.1.0.
+
 1999-05-25  Martin Baulig  <martin@home-of-linux.org>
 
 	* ppp.c: Make this work on NetBSD.

@@ -36,7 +36,8 @@ static const unsigned long _glibtop_sysdeps_proc_time =
 
 static const unsigned long _glibtop_sysdeps_proc_time_user =
 (1L << GLIBTOP_PROC_TIME_UTIME) + (1L << GLIBTOP_PROC_TIME_STIME) +
-(1L << GLIBTOP_PROC_TIME_CUTIME) + (1L << GLIBTOP_PROC_TIME_CSTIME);
+(1L << GLIBTOP_PROC_TIME_CUTIME) + (1L << GLIBTOP_PROC_TIME_CSTIME) +
+(1L << GLIBTOP_PROC_TIME_START_TIME);
 
 #define tv2sec(tv)	(((u_int64_t) tv.tv_sec * 1000000) + (u_int64_t) tv.tv_usec)
 
@@ -123,7 +124,11 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 			 pid_t pid)
 {
 	struct kinfo_proc *pinfo;
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+	register struct rusage *rup;
+#else
 	struct user *u_addr = (struct user *)USRSTACK;
+#endif
 	struct pstats pstats;
 	int count;
 
@@ -134,15 +139,17 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	
 	memset (buf, 0, sizeof (glibtop_proc_time));
 
-	if (server->sysdeps.proc_time == 0)
-		return;
-
 	/* It does not work for the swapper task. */
 	if (pid == 0) return;
 	
+#if !(defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000))
+	if (server->sysdeps.proc_time == 0)
+		return;
+
 #ifndef __bsdi__
 	sprintf (filename, "/proc/%d/mem", (int) pid);
 	if (stat (filename, &statb)) return;
+#endif
 #endif
 
 	/* Get the process information */
@@ -150,6 +157,41 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	if ((pinfo == NULL) || (count != 1))
 		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
 
+#if (defined __FreeBSD__) && (__FreeBSD_version >= 300003)
+	buf->rtime = pinfo [0].kp_proc.p_runtime;
+#else
+	buf->rtime = tv2sec (pinfo [0].kp_proc.p_rtime);
+#endif
+
+	buf->frequency = 1000000;
+	buf->flags = _glibtop_sysdeps_proc_time;
+
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+	glibtop_suid_enter (server);
+
+	if (kvm_read (server->machine.kd,
+		      (unsigned long) pinfo [0].kp_proc.p_stats,
+		      &pstats, sizeof (pstats)) != sizeof (pstats)) {
+		glibtop_warn_io_r (server, "kvm_read (pstats)");
+		return;
+	}
+
+	glibtop_suid_leave (server);
+
+	rup = &pstats.p_ru;
+	calcru(&(pinfo [0]).kp_proc,
+	       &rup->ru_utime, &rup->ru_stime, NULL);
+
+	buf->utime = tv2sec (pstats.p_ru.ru_utime);
+	buf->stime = tv2sec (pstats.p_ru.ru_stime);
+			
+	buf->cutime = tv2sec (pstats.p_cru.ru_utime);
+	buf->cstime = tv2sec (pstats.p_cru.ru_stime);
+
+	buf->start_time = tv2sec (pstats.p_start);
+
+	buf->flags |= _glibtop_sysdeps_proc_time_user;
+#else
 	glibtop_suid_enter (server);
 
 	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
@@ -182,15 +224,6 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 		}
 
 	glibtop_suid_leave (server);
-
-#if (defined __FreeBSD__) && (__FreeBSD_version >= 300003)
-	buf->rtime = pinfo [0].kp_proc.p_runtime;
-#else
-	buf->rtime = tv2sec (pinfo [0].kp_proc.p_rtime);
 #endif
-
-	buf->frequency = 1000000;
-
-	buf->flags |= _glibtop_sysdeps_proc_time;
 }
 
