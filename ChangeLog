@@ -1,5 +1,8 @@
 1998-12-09  Martin Baulig  <martin@home-of-linux.org>
 
+	* configure.in: We need to define LIBSUPPORT and SUPPORTINCS under
+	all circumstances as it is in gnome-libs.
+
 	* include/glibtop/procargs.h (glibtop_get_proc_args): Make the
 	return value a `char *' instead of a `const char *'.
 
