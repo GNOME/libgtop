@@ -136,7 +136,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
 
     page = sysconf(_SC_PAGESIZE) >> 10;
     for(i = 0; page; ++i, page >>= 1);
-    server->machine.pagesize = i;
+    server->machine.pagesize = i - 1;
     server->machine.ticks = sysconf(_SC_CLK_TCK);
     server->machine.kc = kc = kstat_open ();
 
