@@ -91,6 +91,7 @@ init_sysinfo (glibtop *server)
 			gchar * const key   = g_strstrip(   *p   );
 			gchar * const value = g_strstrip( *(p+1) );
 
+			g_ptr_array_add(cpuinfo->labels, key);
 			g_hash_table_insert(cpuinfo->values, key, value);
 		}
 
