@@ -21,8 +21,7 @@ DIST_SUBDIRS = po intl support macros include sysdeps src lib guile examples
 include_HEADERS = glibtop.h
 
 EXTRA_DIST = autogen.sh libgtop.spec copyright.txt libgtopConf.sh.in \
-	LIBGTOP-VERSION features.def perl/Makefile.PL.in perl/perl.awk \
-	perl/MANIFEST perl/Changes libgtop-config.in RELNOTES-0.25
+	LIBGTOP-VERSION features.def libgtop-config.in RELNOTES-0.25
 
 release:
 	$(MAKE) dist distdir=$(PACKAGE)-$(VERSION)
@@ -34,8 +33,7 @@ confexec_DATA = $(top_builddir)/libgtopConf.sh
 
 bin_SCRIPTS = $(top_builddir)/libgtop-config
 
-noinst_DATA = $(top_builddir)/perl/Libgtop.xs \
-	      $(top_builddir)/perl/Names/Names.xs
+noinst_DATA = $(top_builddir)/perl/features.def
 
 ## to automatically rebuild aclocal.m4 if any of the macros in
 ## `macros/' change
@@ -82,10 +80,5 @@ libgtop-config: libgtop-config.in Makefile
 	  && mv libgtop-config.tmp libgtop-config && \
 		chmod 755 libgtop-config
 
-perl/Libgtop.xs: perl/perl.awk $(top_builddir)/config.h $(top_srcdir)/features.def
-	$(AWK) -f $(top_srcdir)/perl/perl.awk < $(top_srcdir)/features.def > perl/lgt-t
-	mv perl/lgt-t perl/Libgtop.xs
-
-perl/Names/Names.xs: perl/Names/names.awk $(top_builddir)/config.h $(top_srcdir)/features.def
-	$(AWK) -f $(top_srcdir)/perl/Names/names.awk < $(top_srcdir)/features.def > perl/Names/lgtn-t
-	mv perl/Names/lgtn-t perl/Names/Names.xs
+perl/features.def: features.def
+	cd perl && @LN_S@ $(srcdir)/features.def
