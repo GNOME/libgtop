@@ -30,7 +30,39 @@
 #include <glibtop/signal.h>
 
 const glibtop_signame glibtop_sys_siglist [] =
-{ { 0, NULL, NULL } };
+{ {  1, "SIGHUP",    N_("Hangup (POSIX)") },
+  {  2, "SIGINT",    N_("Interrupt (ANSI)") },
+  {  3, "SIGQUIT",   N_("Quit (POSIX)") },
+  {  4, "SIGILL",    N_("Illegal instruction (ANSI)") },
+  {  5, "SIGTRAP",   N_("Trace trap (POSIX)") },
+  {  6, "SIGABRT",   N_("Abort (ANSI)") },
+  {  7, "SIGEMT",    N_("EMT instruction") },
+  {  8, "SIGFPE",    N_("Floating-point exception (ANSI)") },
+  {  9, "SIGKILL",   N_("Kill, unblockable (POSIX)") },
+  { 10, "SIGBUS",    N_("BUS error (4.2 BSD)") },
+  { 11, "SIGSEGV",   N_("Segmentation violation (ANSI)") },
+  { 12, "SIGSYS",    N_("Bad argument to system call") },
+  { 13, "SIGPIPE",   N_("Broken pipe (POSIX)") },
+  { 14, "SIGALRM",   N_("Alarm clock (POSIX)") },
+  { 15, "SIGTERM",   N_("Termination (ANSI)") },
+  { 16, "SIGURG",    N_("Urgent condition on socket (4.2 BSD)") },
+  { 17, "SIGSTOP",   N_("Stop, unblockable (POSIX)") },
+  { 18, "SIGTSTP",   N_("Keyboard stop (POSIX)") },
+  { 19, "SIGCONT",   N_("Continue (POSIX)") },
+  { 20, "SIGCHLD",   N_("Child status has changed (POSIX)") },
+  { 21, "SIGTTIN",   N_("Background read from tty (POSIX)") },
+  { 22, "SIGTTOU",   N_("Background write to tty (POSIX)") },
+  { 23, "SIGIO",     N_("I/O now possible (4.2 BSD)") },
+  { 24, "SIGXCPU",   N_("CPU limit exceeded (4.2 BSD)") },
+  { 25, "SIGXFSZ",   N_("File size limit exceeded (4.2 BSD)") },
+  { 26, "SIGVTALRM", N_("Virtual alarm clock (4.2 BSD)") },
+  { 27, "SIGPROF",   N_("Profiling alarm clock (4.2 BSD)") },
+  { 28, "SIGWINCH",  N_("Window size change (4.3 BSD, Sun)") },
+  { 29, "SIGINFO",   N_("Information request") },
+  { 30, "SIGUSR1",   N_("User-defined signal 1 (POSIX)") },
+  { 31, "SIGUSR2",   N_("User-defined signal 2 (POSIX)") },
+  {  0, NULL,        NULL },
+};
 
 void
 _glibtop_open_sysdeps (glibtop *server, const char *program_name,
