@@ -1,3 +1,7 @@
+2000-02-16  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am: Install libraries in $(backenddir).
+
 1999-12-25  Martin Baulig  <martin@home-of-linux.org>
 
 	* safeio.h: Removed. This is now included in <glibtop_private.h>.

@@ -2,7 +2,11 @@ LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 INCLUDES			= @INCLUDES@
 
-lib_LTLIBRARIES			= libgtop_sysdeps.la libgtop_sysdeps_suid.la
+backenddir			= @LIBGTOP_BACKEND_DIR@
+
+backend_LTLIBRARIES		= libgtop_sysdeps.la
+
+backend_LTLIBRARIES		= libgtop_sysdeps.la libgtop_sysdeps_suid.la
 
 libgtop_sysdeps_la_SOURCES	= open.c close.c cpu.c mem.c \
 				  safeio.c swap.c uptime.c loadavg.c \
