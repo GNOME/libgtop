@@ -59,6 +59,9 @@ GNOME_LIBGTOP_TYPES
 
 GNOME_CHECK_GUILE
 
+dnl For Solaris
+AC_CHECK_LIB(socket, socket)
+
 AC_ARG_WITH(libgtop-guile,
 [  --with-libgtop-guile    Build the libgtop guile interface (default=yes)],
 [build_guile="$withval"], [build_guile=yes])
@@ -177,17 +180,20 @@ GNOME_FILEUTILS_CHECKS
 
 AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]],AC_DEFINE(GNOME_ENABLE_DEBUG),)
 
-dnl If you want to use libgtop without gnome, uncomment the following paragraph:
-dnl LIBSUPPORT=
-dnl SUPPORTINCS=
-dnl if test "$need_gnome_support" = yes; then
-dnl    LIBSUPPORT='$(top_builddir)/support/libgnomesupport.la'
-dnl    SUPPORTINCS='-I$(top_srcdir)/support'
-dnl fi
-dnl AC_SUBST(LIBSUPPORT)
-dnl AC_SUBST(SUPPORTINCS)
+LIBSUPPORT=
+SUPPORTINCS=
+if test "$need_gnome_support" = yes; then
+   if test "x$gnome_found" = xyes ; then
+     LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
+     SUPPORTINCS="$GNOME_INCLUDEDIR"
+   else
+     LIBSUPPORT='$(top_builddir)/support/libgnomesupport.la'
+     SUPPORTINCS='-DNEED_GNOMESUPPORT_H -I$(top_builddir)/support -I$(top_srcdir)/support'
+   fi
+fi
 
-dnl Some ugly hack; if '-lgnomesupport' is part of $GNOME_LIBS, we include it here.
+dnl Some ugly hack; if '-lgnomesupport' is part of $GNOME_LIBS,
+dnl we include it here.
 echo "$GNOME_LIBS" | grep -q -e '-lgnomesupport'
 if test $? = 0 ; then
   LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
@@ -203,6 +209,9 @@ LIBGTOP_INCS='-I$(includedir)'
 if test x$build_inodedb = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DGLIBTOP_INODEDB"
 fi
+
+LIBGTOP_INCS="$LIBGTOP_INCS $SUPPORTINCS"
+LIBGTOP_EXTRA_LIBS="$LIBGTOP_LIBS $LIBSUPPORT"
 
 LIBGTOP_GUILE_LIBS="$LIBGTOP_LIBS"
 LIBGTOP_GUILE_INCS="$LIBGTOP_INCS"
@@ -256,7 +265,7 @@ else
   guile_def=""
 fi
 
-INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_srcdir)/intl $CFLAGS $guile_def "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
+INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_srcdir)/intl $SUPPORTINCS -W -Wall -Wmissing-prototypes -Wmissing-declarations -Wpointer-arith $CFLAGS $guile_def "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
 
 AC_SUBST(INCLUDES)
 
@@ -272,18 +281,6 @@ AC_SUBST(LIBGTOP_GUILE_NAMES_LIBS)
 AC_SUBST(LIBGTOP_GUILE_NAMES_INCS)
 AC_SUBST(LIBGTOP_BINDIR)
 AC_SUBST(LIBGTOP_SERVER)
-
-LIBSUPPORT=
-SUPPORTINCS=
-if test "$need_gnome_support" = yes; then
-   if test "x$gnome_found" = xyes ; then
-     LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
-     SUPPORTINCS="$GNOME_INCLUDEDIR"
-   else
-     LIBSUPPORT='$(top_builddir)/support/libgnomesupport.la'
-     SUPPORTINCS='-DNEED_GNOMESUPPORT_H -I$(top_builddir)/support -I$(top_srcdir)/support'
-   fi
-fi
 
 if test x$libgtop_need_server = xyes ; then
    sysdeps_suid_lib="\$(top_builddir)/sysdeps/\$(sysdeps_dir)/libgtop_sysdeps_suid.la"

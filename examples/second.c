@@ -38,16 +38,17 @@ output (pid_t pid)
 		
 	glibtop_get_proc_state (&data.proc_state, pid);
 		
-	printf ("Proc_State   PID  %5u (0x%08lx): "
-		"'%s', %c, %u, %u\n", pid,
+	printf ("Proc_State   PID  %5d (0x%08lx): "
+		"'%s', %c, %lu, %lu\n", (int) pid,
 		(unsigned long) data.proc_state.flags,
 		data.proc_state.cmd, data.proc_state.state,
-		data.proc_state.uid, data.proc_state.gid);
+		(unsigned long) data.proc_state.uid,
+		(unsigned long) data.proc_state.gid);
 		
 	glibtop_get_proc_uid (&data.proc_uid, pid);
 		
-	printf ("Proc_Uid     PID  %5u (0x%08lx): "
-		"%d %d %d %d %d %d %d %d %d %d %d %d\n", pid,
+	printf ("Proc_Uid     PID  %5d (0x%08lx): "
+		"%d %d %d %d %d %d %d %d %d %d %d %d\n", (int) pid,
 		(unsigned long) data.proc_uid.flags,
 		data.proc_uid.uid, data.proc_uid.euid,
 		data.proc_uid.gid, data.proc_uid.egid,
@@ -58,8 +59,8 @@ output (pid_t pid)
 		
 	glibtop_get_proc_mem (&data.proc_mem, pid);
 		
-	printf ("Proc_Mem     PID  %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu\n", pid,
+	printf ("Proc_Mem     PID  %5d (0x%08lx): "
+		"%lu %lu %lu %lu %lu %lu\n", (int) pid,
 		(unsigned long) data.proc_mem.flags,
 		(unsigned long) data.proc_mem.size,
 		(unsigned long) data.proc_mem.vsize,
@@ -70,8 +71,8 @@ output (pid_t pid)
 		
 	glibtop_get_proc_segment (&data.proc_segment, pid);
 
-	printf ("Proc_Segment PID  %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu\n", pid,
+	printf ("Proc_Segment PID  %5d (0x%08lx): "
+		"%lu %lu %lu %lu %lu %lu %lu %lu\n", (int) pid,
 		(unsigned long) data.proc_segment.flags,
 		(unsigned long) data.proc_segment.text_rss,
 		(unsigned long) data.proc_segment.shlib_rss,
@@ -84,8 +85,8 @@ output (pid_t pid)
 
 	glibtop_get_proc_time (&data.proc_time, pid);
 		
-	printf ("Proc_Time    PID  %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu %lu\n", pid,
+	printf ("Proc_Time    PID  %5d (0x%08lx): "
+		"%lu %lu %lu %lu %lu %lu %lu %lu %lu\n", (int) pid,
 		(unsigned long) data.proc_time.flags,
 		(unsigned long) data.proc_time.start_time,
 		(unsigned long) data.proc_time.rtime,
@@ -99,8 +100,8 @@ output (pid_t pid)
 
 	glibtop_get_proc_signal (&data.proc_signal, pid);
 	
-	printf ("Proc_Signal  PID  %5u (0x%08lx): "
-		"%lu %lu %lu %lu\n", pid,
+	printf ("Proc_Signal  PID  %5d (0x%08lx): "
+		"%lu %lu %lu %lu\n", (int) pid,
 		(unsigned long) data.proc_signal.flags,
 		(unsigned long) data.proc_signal.signal,
 		(unsigned long) data.proc_signal.blocked,
@@ -109,8 +110,8 @@ output (pid_t pid)
 
 	glibtop_get_proc_kernel (&data.proc_kernel, pid);
 
-	printf ("Proc_Kernel  PID  %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", pid,
+	printf ("Proc_Kernel  PID  %5d (0x%08lx): "
+		"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", (int) pid,
 		(unsigned long) data.proc_kernel.flags,
 		(unsigned long) data.proc_kernel.k_flags,
 		(unsigned long) data.proc_kernel.min_flt,

@@ -31,7 +31,7 @@
 static glibtop _glibtop_global_server;
 glibtop *glibtop_global_server = &_glibtop_global_server;
 
-void
+static void
 _init_server (glibtop *server, const unsigned features)
 {
 	char *command, *temp;

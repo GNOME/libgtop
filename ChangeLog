@@ -1,4 +1,26 @@
-1998-08-24  Martin Baulig  <martin@home-of-linux.org>
+1998-08-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* src/daemon/ChangeLog: New file.
+
+	* sysdeps/sun4/ChangeLog: New file.
+
+	* sysdeps/stub/ChangeLog: New file.
+
+	* configure.in: Added check for `-lsocket'.
+	(LIBGTOP_INCS): Added $(SUPPORTINCS).
+	(INCLUDES): Added $(SUPPORTINCS).
+	(LIBGTOP_EXTRA_LIBS): Added $(LIBSUPPORT).
+
+	* acconfig.h: Added `NEED_DECLARATION_GETHOSTNAME',
+	`NEED_DECLARATION_SETREUID', `NEED_DECLARATION_SETREGID'
+	and `NEED_DECLARATION_GETPAGESIZE'.
+
+	* includue/glibtop/global.h (<gnomesupport.h>): Include this.
+
+	* lib/init.c (_init_server): Declared `static'.
+
+	* lib/read_data.c: Added cast to `const void *' in calls to
+	`recv' and `read' to avoid compiler warnings.
 
 	* configure.in (INCLUDES): No longer using installed header files.
 

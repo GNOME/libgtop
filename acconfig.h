@@ -1,3 +1,18 @@
+
+/* Define if gethostname () must be declared. */
+#undef NEED_DECLARATION_GETHOSTNAME
+
+/* Define if setreuid () must be declared. */
+#undef NEED_DECLARATION_SETREUID
+
+/* Define if setregid () must be declared. */
+#undef NEED_DECLARATION_SETREGID
+
+/* Define if getpagesize () must be declared. */
+#undef NEED_DECLARATION_GETPAGESIZE
+
+@TOP@
+
 #undef ENABLE_NLS
 #undef HAVE_CATGETS
 #undef HAVE_GETTEXT
