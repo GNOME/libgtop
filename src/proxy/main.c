@@ -55,7 +55,7 @@ main(int argc, char *argv[])
 
 	glibtop_version ();
 
-	glibtop_open__l (&server, argv [0], 0, GLIBTOP_OPEN_NO_OVERRIDE);
+	glibtop_open_l (&server, argv [0], 0, GLIBTOP_OPEN_NO_OVERRIDE);
 
 	/* close all file descriptors except ones used by the pipes (0 and 1). */
 	max_fd = GET_MAX_FDS();
@@ -122,58 +122,58 @@ main(int argc, char *argv[])
 			glibtop_output (0, NULL);
 			break;
 		case GLIBTOP_CMND_CPU:
-			glibtop_get_cpu__l (&server, &data.cpu);
+			glibtop_get_cpu_l (&server, &data.cpu);
 			glibtop_output (sizeof (glibtop_cpu), &data.cpu);
 			glibtop_output (0, NULL);
 			break;
 		case GLIBTOP_CMND_MEM:
-			glibtop_get_mem__l (&server, &data.mem);
+			glibtop_get_mem_l (&server, &data.mem);
 			glibtop_output (sizeof (glibtop_mem), &data.mem);
 			glibtop_output (0, NULL);
 			break;
 		case GLIBTOP_CMND_SWAP:
-			glibtop_get_swap__l (&server, &data.swap);
+			glibtop_get_swap_l (&server, &data.swap);
 			glibtop_output (sizeof (glibtop_swap), &data.swap);
 			glibtop_output (0, NULL);
 			break;
 		case GLIBTOP_CMND_UPTIME:
-			glibtop_get_uptime__l (&server, &data.uptime);
+			glibtop_get_uptime_l (&server, &data.uptime);
 			glibtop_output (sizeof (glibtop_uptime), &data.uptime);
 			glibtop_output (0, NULL);
 			break;
 		case GLIBTOP_CMND_LOADAVG:
-			glibtop_get_loadavg__l (&server, &data.loadavg);
+			glibtop_get_loadavg_l (&server, &data.loadavg);
 			glibtop_output (sizeof (glibtop_loadavg), &data.loadavg);
 			glibtop_output (0, NULL);
 			break;
 		case GLIBTOP_CMND_SHM_LIMITS:
-			glibtop_get_shm_limits__l (&server, &data.shm_limits);
+			glibtop_get_shm_limits_l (&server, &data.shm_limits);
 			glibtop_output (sizeof (glibtop_shm_limits),
 					&data.shm_limits);
 			glibtop_output (0, NULL);
 			break;
 		case GLIBTOP_CMND_MSG_LIMITS:
-			glibtop_get_msg_limits__l (&server, &data.msg_limits);
+			glibtop_get_msg_limits_l (&server, &data.msg_limits);
 			glibtop_output (sizeof (glibtop_msg_limits),
 					&data.msg_limits);
 			glibtop_output (0, NULL);
 			break;
 		case GLIBTOP_CMND_SEM_LIMITS:
-			glibtop_get_sem_limits__l (&server, &data.sem_limits);
+			glibtop_get_sem_limits_l (&server, &data.sem_limits);
 			glibtop_output (sizeof (glibtop_sem_limits),
 					&data.sem_limits);
 			glibtop_output (0, NULL);
 			break;
 		case GLIBTOP_CMND_PROCLIST:
-			ptr = glibtop_get_proclist__l (&server, &data.proclist);
+			ptr = glibtop_get_proclist_l (&server, &data.proclist);
 			glibtop_output (sizeof (glibtop_proclist),
 					&data.proclist);
 			glibtop_output (data.proclist.total, ptr);
-			glibtop_free__r (&server, ptr);
+			glibtop_free_r (&server, ptr);
 			break;
 		case GLIBTOP_CMND_PROC_STATE:
 			memcpy (&pid, parameter, sizeof (pid_t));
-			glibtop_get_proc_state__l
+			glibtop_get_proc_state_l
 				(&server, &data.proc_state, pid);
 			glibtop_output (sizeof (glibtop_proc_state),
 					&data.proc_state);
@@ -181,7 +181,7 @@ main(int argc, char *argv[])
 			break;
 		case GLIBTOP_CMND_PROC_UID:
 			memcpy (&pid, parameter, sizeof (pid_t));
-			glibtop_get_proc_uid__l
+			glibtop_get_proc_uid_l
 				(&server, &data.proc_uid, pid);
 			glibtop_output (sizeof (glibtop_proc_uid),
 					&data.proc_uid);
@@ -189,7 +189,7 @@ main(int argc, char *argv[])
 			break;
 		case GLIBTOP_CMND_PROC_MEM:
 			memcpy (&pid, parameter, sizeof (pid_t));
-			glibtop_get_proc_mem__l
+			glibtop_get_proc_mem_l
 				(&server, &data.proc_mem, pid);
 			glibtop_output (sizeof (glibtop_proc_mem),
 					&data.proc_mem);
@@ -197,7 +197,7 @@ main(int argc, char *argv[])
 			break;
 		case GLIBTOP_CMND_PROC_TIME:
 			memcpy (&pid, parameter, sizeof (pid_t));
-			glibtop_get_proc_time__l
+			glibtop_get_proc_time_l
 				(&server, &data.proc_time, pid);
 			glibtop_output (sizeof (glibtop_proc_time),
 					&data.proc_time);
@@ -205,7 +205,7 @@ main(int argc, char *argv[])
 			break;
 		case GLIBTOP_CMND_PROC_SIGNAL:
 			memcpy (&pid, parameter, sizeof (pid_t));
-			glibtop_get_proc_signal__l
+			glibtop_get_proc_signal_l
 				(&server, &data.proc_signal, pid);
 			glibtop_output (sizeof (glibtop_proc_signal),
 					&data.proc_signal);
@@ -213,7 +213,7 @@ main(int argc, char *argv[])
 			break;
 		case GLIBTOP_CMND_PROC_KERNEL:
 			memcpy (&pid, parameter, sizeof (pid_t));
-			glibtop_get_proc_kernel__l
+			glibtop_get_proc_kernel_l
 				(&server, &data.proc_kernel, pid);
 			glibtop_output (sizeof (glibtop_proc_kernel),
 					&data.proc_kernel);
@@ -221,7 +221,7 @@ main(int argc, char *argv[])
 			break;
 		case GLIBTOP_CMND_PROC_SEGMENT:
 			memcpy (&pid, parameter, sizeof (pid_t));
-			glibtop_get_proc_segment__l
+			glibtop_get_proc_segment_l
 				(&server, &data.proc_segment, pid);
 			glibtop_output (sizeof (glibtop_proc_segment),
 					&data.proc_segment);

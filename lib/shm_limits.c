@@ -25,14 +25,14 @@
 /* Provides information about sysv ipc limits. */
 
 void
-glibtop_get_shm_limits__l (glibtop *server, glibtop_shm_limits *buf)
+glibtop_get_shm_limits_l (glibtop *server, glibtop_shm_limits *buf)
 {
-	glibtop_init__r (&server, GLIBTOP_SYSDEPS_SHM_LIMITS, 0);
+	glibtop_init_r (&server, GLIBTOP_SYSDEPS_SHM_LIMITS, 0);
 
 	if (server->features & GLIBTOP_SYSDEPS_SHM_LIMITS) {
-		glibtop_call__l (server, GLIBTOP_CMND_SHM_LIMITS, 0, NULL,
+		glibtop_call_l (server, GLIBTOP_CMND_SHM_LIMITS, 0, NULL,
 				 sizeof (glibtop_shm_limits), buf);
 	} else {
-		glibtop_get_shm_limits__r (server, buf);
+		glibtop_get_shm_limits_r (server, buf);
 	}
 }

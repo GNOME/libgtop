@@ -26,14 +26,14 @@
 /* Provides load averange. */
 
 void
-glibtop_get_loadavg__l (glibtop *server, glibtop_loadavg *buf)
+glibtop_get_loadavg_l (glibtop *server, glibtop_loadavg *buf)
 {
-	glibtop_init__r (&server, GLIBTOP_SYSDEPS_LOADAVG, 0);
+	glibtop_init_r (&server, GLIBTOP_SYSDEPS_LOADAVG, 0);
 
 	if (server->features & GLIBTOP_SYSDEPS_LOADAVG) {
-		glibtop_call__l (server, GLIBTOP_CMND_LOADAVG, 0, NULL,
+		glibtop_call_l (server, GLIBTOP_CMND_LOADAVG, 0, NULL,
 				 sizeof (glibtop_loadavg), buf);
 	} else {
-		glibtop_get_loadavg__r (server, buf);
+		glibtop_get_loadavg_r (server, buf);
 	}
 }

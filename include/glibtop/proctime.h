@@ -59,20 +59,20 @@ struct _glibtop_proc_time
 				 * due to an interval timer. */
 };
 
-#define glibtop_get_proc_time(p1, p2)	glibtop_get_proc_time__l(glibtop_global_server, p1, p2)
+#define glibtop_get_proc_time(p1, p2)	glibtop_get_proc_time_l(glibtop_global_server, p1, p2)
 
 #if GLIBTOP_SUID_PROC_TIME
-#define glibtop_get_proc_time__r	glibtop_get_proc_time__p
+#define glibtop_get_proc_time_r	glibtop_get_proc_time_p
 #else
-#define glibtop_get_proc_time__r	glibtop_get_proc_time__s
+#define glibtop_get_proc_time_r	glibtop_get_proc_time_s
 #endif
 
-extern void glibtop_get_proc_time__l __P((glibtop *, glibtop_proc_time *, pid_t));
+extern void glibtop_get_proc_time_l __P((glibtop *, glibtop_proc_time *, pid_t));
 
 #if GLIBTOP_SUID_PROC_TIME
-extern void glibtop_get_proc_time__p __P((glibtop *, glibtop_proc_time *, pid_t));
+extern void glibtop_get_proc_time_p __P((glibtop *, glibtop_proc_time *, pid_t));
 #else
-extern void glibtop_get_proc_time__s __P((glibtop *, glibtop_proc_time *, pid_t));
+extern void glibtop_get_proc_time_s __P((glibtop *, glibtop_proc_time *, pid_t));
 #endif
 
 #ifdef HAVE_GUILE

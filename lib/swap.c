@@ -25,14 +25,14 @@
 /* Provides information about swap usage. */
 
 void
-glibtop_get_swap__l (glibtop *server, glibtop_swap *buf)
+glibtop_get_swap_l (glibtop *server, glibtop_swap *buf)
 {
-	glibtop_init__r (&server, GLIBTOP_SYSDEPS_SWAP, 0);
+	glibtop_init_r (&server, GLIBTOP_SYSDEPS_SWAP, 0);
 
 	if (server->features & GLIBTOP_SYSDEPS_SWAP) {
-		glibtop_call__l (server, GLIBTOP_CMND_SWAP, 0, NULL,
+		glibtop_call_l (server, GLIBTOP_CMND_SWAP, 0, NULL,
 				 sizeof (glibtop_swap), buf);
 	} else {
-		glibtop_get_swap__r (server, buf);
+		glibtop_get_swap_r (server, buf);
 	}
 }

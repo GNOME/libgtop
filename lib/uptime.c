@@ -26,14 +26,14 @@
 /* Provides uptime and idle time. */
 
 void
-glibtop_get_uptime__l (glibtop *server, glibtop_uptime *buf)
+glibtop_get_uptime_l (glibtop *server, glibtop_uptime *buf)
 {
-	glibtop_init__r (&server, GLIBTOP_SYSDEPS_UPTIME, 0);
+	glibtop_init_r (&server, GLIBTOP_SYSDEPS_UPTIME, 0);
 
 	if (server->features & GLIBTOP_SYSDEPS_UPTIME) {
-		glibtop_call__l (server, GLIBTOP_CMND_UPTIME, 0, NULL,
+		glibtop_call_l (server, GLIBTOP_CMND_UPTIME, 0, NULL,
 				 sizeof (glibtop_uptime), buf);
 	} else {
-		glibtop_get_uptime__r (server, buf);
+		glibtop_get_uptime_r (server, buf);
 	}
 }

@@ -24,7 +24,7 @@
 /* Prints error message and exits. */
 
 void
-glibtop_error__r (glibtop *server, char *format, ...)
+glibtop_error_r (glibtop *server, char *format, ...)
 {
 	va_list	ap;
 	

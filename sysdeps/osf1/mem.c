@@ -36,7 +36,7 @@ static const unsigned long _glibtop_sysdeps_mem =
 /* Provides information about memory usage. */
 
 void
-glibtop_get_mem__s (glibtop *server, glibtop_mem *buf)
+glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
 	vm_statistics_data_t vmstats;
 

@@ -25,14 +25,14 @@
 /* Provides information about sysv ipc limits. */
 
 void
-glibtop_get_msg_limits__l (glibtop *server, glibtop_msg_limits *buf)
+glibtop_get_msg_limits_l (glibtop *server, glibtop_msg_limits *buf)
 {
-	glibtop_init__r (&server, GLIBTOP_SYSDEPS_MSG_LIMITS, 0);
+	glibtop_init_r (&server, GLIBTOP_SYSDEPS_MSG_LIMITS, 0);
 
 	if (server->features & GLIBTOP_SYSDEPS_MSG_LIMITS) {
-		glibtop_call__l (server, GLIBTOP_CMND_MSG_LIMITS, 0, NULL,
+		glibtop_call_l (server, GLIBTOP_CMND_MSG_LIMITS, 0, NULL,
 				 sizeof (glibtop_msg_limits), buf);
 	} else {
-		glibtop_get_msg_limits__r (server, buf);
+		glibtop_get_msg_limits_r (server, buf);
 	}
 }

@@ -26,15 +26,15 @@
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_uid__l (glibtop *server, glibtop_proc_uid *buf,
+glibtop_get_proc_uid_l (glibtop *server, glibtop_proc_uid *buf,
 			   pid_t pid)
 {
-	glibtop_init__r (&server, GLIBTOP_SYSDEPS_PROC_UID, 0);
+	glibtop_init_r (&server, GLIBTOP_SYSDEPS_PROC_UID, 0);
 
 	if (server->features & GLIBTOP_SYSDEPS_PROC_UID) {
-		glibtop_call__l (server, GLIBTOP_CMND_PROC_UID, sizeof (pid_t),
+		glibtop_call_l (server, GLIBTOP_CMND_PROC_UID, sizeof (pid_t),
 				 &pid, sizeof (glibtop_proc_uid), buf);
 	} else {
-		glibtop_get_proc_uid__r (server, buf, pid);
+		glibtop_get_proc_uid_r (server, buf, pid);
 	}
 }

@@ -57,7 +57,7 @@ struct nlist _glibtop_nlist[] = {
 /* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 void
-glibtop_open__r (glibtop *server, const char *program_name,
+glibtop_open_r (glibtop *server, const char *program_name,
 		 const unsigned long features, const unsigned flags)
 {
 	register int pagesize;
@@ -77,14 +77,14 @@ glibtop_open__r (glibtop *server, const char *program_name,
 	server->machine.kd = kvm_open (NULL, NULL, NULL, O_RDONLY, "libgtop");
 	
 	if (server->machine.kd == NULL)
-		glibtop_error__r (server, "kvm_open: %s", strerror (errno));
+		glibtop_error_r (server, "kvm_open: %s", strerror (errno));
 	
 	/* get the list of symbols we want to access in the kernel */
 	
 	server->machine.nlist_count = kvm_nlist (server->machine.kd, _glibtop_nlist);
 	
 	if (server->machine.nlist_count < 0)
-		glibtop_error__r (server, "nlist: %s", strerror (errno));
+		glibtop_error_r (server, "nlist: %s", strerror (errno));
 
 #ifdef MULTIPROCESSOR
 	/* were ncpu and xp_time not found in the nlist? */
@@ -130,7 +130,7 @@ glibtop_open__r (glibtop *server, const char *program_name,
 	server->machine.count = server->machine.bytesize / sizeof (struct page);
 
 	server->machine.physpage =
-		(struct page *) glibtop_malloc__r (server, server->machine.bytesize);
+		(struct page *) glibtop_malloc_r (server, server->machine.bytesize);
 
 	/* get the page size with "getpagesize" and calculate pageshift from it */
 
@@ -183,12 +183,12 @@ _glibtop_check_nlist (void *server, register struct nlist *nlst)
 
 #ifdef i386
 		if (nlst->n_value == 0) {
-			glibtop_error__r (server, "kernel: no symbol named `%s'", nlst->n_name);
+			glibtop_error_r (server, "kernel: no symbol named `%s'", nlst->n_name);
 			not_found++;
 		}
 #else
 		if (nlst->n_type == 0) {
-			glibtop_error__r (server, "kernel: no symbol named `%s'", nlst->n_name);
+			glibtop_error_r (server, "kernel: no symbol named `%s'", nlst->n_name);
 			not_found++;
 		}
 #endif
@@ -210,7 +210,7 @@ _glibtop_getkval (void *void_server, unsigned long offset, int *ptr, int size, c
 		{
 			if (*refstr == '!') return 0;
 
-			glibtop_error__r (server, "kvm_read(%s): %s",
+			glibtop_error_r (server, "kvm_read(%s): %s",
 					  refstr, strerror (errno));
 		}
 

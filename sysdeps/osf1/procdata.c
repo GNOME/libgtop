@@ -53,7 +53,7 @@ BIT_SHIFT(GLIBTOP_PROCDATA_NICE);
 static const unsigned long _glibtop_sysdeps_procdata_1 = 0;
 
 void
-glibtop_get_procdata__r (glibtop *server, glibtop_procdata *buf, pid_t pid)
+glibtop_get_procdata_r (glibtop *server, glibtop_procdata *buf, pid_t pid)
 {
 	struct tbl_procinfo procinfo;
 	task_basic_info_data_t taskinfo;

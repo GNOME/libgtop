@@ -55,9 +55,11 @@ extern glibtop *glibtop_global_server;
 
 extern const unsigned long glibtop_server_features;
 
-#define glibtop_init()	glibtop_init__r(&glibtop_global_server, 0, 0);
+#define glibtop_init()	glibtop_init_r(&glibtop_global_server, 0, 0);
 
-extern glibtop *glibtop_init__r __P((glibtop **, const unsigned long, const unsigned));
+#define glibtop_close()	glibtop_close_r(&glibtop_global_server);
+
+extern glibtop *glibtop_init_r __P((glibtop **, const unsigned long, const unsigned));
 
 #ifdef HAVE_GUILE
 

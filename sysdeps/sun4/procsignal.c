@@ -25,10 +25,10 @@
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_signal__p (glibtop *server, glibtop_proc_signal *buf,
+glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf,
 			    pid_t pid)
 {
-	glibtop_init__r (&server, 0, 0);
+	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 }

@@ -26,7 +26,7 @@
 
 __BEGIN_DECLS
 
-extern void glibtop_close __P((glibtop *));
+extern void glibtop_close_r __P((glibtop *));
 
 __END_DECLS
 

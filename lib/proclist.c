@@ -25,14 +25,14 @@
 /* Fetch list of currently running processes. */
 
 unsigned *
-glibtop_get_proclist__l (glibtop *server, glibtop_proclist *buf)
+glibtop_get_proclist_l (glibtop *server, glibtop_proclist *buf)
 {
-	glibtop_init__r (&server, GLIBTOP_SYSDEPS_PROCLIST, 0);
+	glibtop_init_r (&server, GLIBTOP_SYSDEPS_PROCLIST, 0);
 
 	if (server->features & GLIBTOP_SYSDEPS_PROCLIST) {
-		return glibtop_call__l (server, GLIBTOP_CMND_PROCLIST, 0, NULL,
+		return glibtop_call_l (server, GLIBTOP_CMND_PROCLIST, 0, NULL,
 					sizeof (glibtop_proclist), buf);
 	} else {
-		return glibtop_get_proclist__r (server, buf);
+		return glibtop_get_proclist_r (server, buf);
 	}
 }

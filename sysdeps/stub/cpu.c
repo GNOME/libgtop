@@ -25,7 +25,7 @@
 /* Provides information about cpu usage. */
 
 void
-glibtop_get_cpu__r (glibtop *server, glibtop_cpu *buf)
+glibtop_get_cpu_r (glibtop *server, glibtop_cpu *buf)
 {
 	memset (buf, 0, sizeof (glibtop_cpu));
 }

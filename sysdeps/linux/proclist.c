@@ -49,7 +49,7 @@ static const unsigned long _glibtop_sysdeps_proclist =
  * On error, NULL is returned and buf->flags is zero. */
 
 unsigned *
-glibtop_get_proclist__s (glibtop *server, glibtop_proclist *buf)
+glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf)
 {
 	DIR *proc;
 	struct dirent *entry;
@@ -60,7 +60,7 @@ glibtop_get_proclist__s (glibtop *server, glibtop_proclist *buf)
 	struct stat statb;
 	int len, i, ok;
 
-	glibtop_init__r (&server, 0, 0);
+	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proclist));
 
@@ -101,7 +101,7 @@ glibtop_get_proclist__s (glibtop *server, glibtop_proclist *buf)
 
 			new_size = pids_size + BLOCK_SIZE;
 
-			pids_chain = glibtop_realloc__r (server, pids_chain, new_size);
+			pids_chain = glibtop_realloc_r (server, pids_chain, new_size);
 
 			memcpy (pids_chain + pids_offset, pids, BLOCK_SIZE);
 
@@ -133,7 +133,7 @@ glibtop_get_proclist__s (glibtop *server, glibtop_proclist *buf)
 	
 	new_size = pids_size + count * sizeof (unsigned);
 	
-	pids_chain = glibtop_realloc__r (server, pids_chain, new_size);
+	pids_chain = glibtop_realloc_r (server, pids_chain, new_size);
 	
 	memcpy (pids_chain + pids_offset, pids, count * sizeof (unsigned));
 	

@@ -26,15 +26,15 @@
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_segment__l (glibtop *server, glibtop_proc_segment *buf,
+glibtop_get_proc_segment_l (glibtop *server, glibtop_proc_segment *buf,
 			     pid_t pid)
 {
-	glibtop_init__r (&server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
+	glibtop_init_r (&server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
 
 	if (server->features & GLIBTOP_SYSDEPS_PROC_SEGMENT) {
-		glibtop_call__l (server, GLIBTOP_CMND_PROC_SEGMENT, sizeof (pid_t),
+		glibtop_call_l (server, GLIBTOP_CMND_PROC_SEGMENT, sizeof (pid_t),
 				 &pid, sizeof (glibtop_proc_segment), buf);
 	} else {
-		glibtop_get_proc_segment__r (server, buf, pid);
+		glibtop_get_proc_segment_r (server, buf, pid);
 	}
 }

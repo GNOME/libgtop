@@ -57,20 +57,20 @@ struct _glibtop_sem_limits
 		semaem;		/* GLIBTOP_IPC_SEMAEM	*/
 };
 
-#define glibtop_get_sem_limits(sem)	glibtop_get_sem_limits__l(glibtop_global_server, sem)
+#define glibtop_get_sem_limits(sem)	glibtop_get_sem_limits_l(glibtop_global_server, sem)
 
 #if GLIBTOP_SUID_SEM_LIMITS
-#define glibtop_get_sem_limits__r	glibtop_get_sem_limits__p
+#define glibtop_get_sem_limits_r	glibtop_get_sem_limits_p
 #else
-#define glibtop_get_sem_limits__r	glibtop_get_sem_limits__s
+#define glibtop_get_sem_limits_r	glibtop_get_sem_limits_s
 #endif
 
-extern void glibtop_get_sem_limits__l __P((glibtop *, glibtop_sem_limits *));
+extern void glibtop_get_sem_limits_l __P((glibtop *, glibtop_sem_limits *));
 
 #if GLIBTOP_SUID_SEM_LIMITS
-extern void glibtop_get_sem_limits__p __P((glibtop *, glibtop_sem_limits *));
+extern void glibtop_get_sem_limits_p __P((glibtop *, glibtop_sem_limits *));
 #else
-extern void glibtop_get_sem_limits__s __P((glibtop *, glibtop_sem_limits *));
+extern void glibtop_get_sem_limits_s __P((glibtop *, glibtop_sem_limits *));
 #endif
 
 #ifdef HAVE_GUILE

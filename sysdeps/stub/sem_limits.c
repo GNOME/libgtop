@@ -24,7 +24,7 @@
 /* Provides information about sysv sem limits. */
 
 void
-glibtop_get_sem_limits__r (glibtop *server, glibtop_sem_limits *buf)
+glibtop_get_sem_limits_r (glibtop *server, glibtop_sem_limits *buf)
 {
 	memset (buf, 0, sizeof (glibtop_sem_limits));
 }

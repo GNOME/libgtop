@@ -25,7 +25,7 @@
 /* Provides load averange. */
 
 void
-glibtop_get_loadavg__r (glibtop *server, glibtop_loadavg *buf)
+glibtop_get_loadavg_r (glibtop *server, glibtop_loadavg *buf)
 {
 	memset (buf, 0, sizeof (glibtop_loadavg));
 }

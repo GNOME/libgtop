@@ -26,7 +26,7 @@ static glibtop	_glibtop_global_server;
 glibtop		*glibtop_global_server = NULL;
 
 glibtop *
-glibtop_init__r (glibtop **server)
+glibtop_init_r (glibtop **server)
 {
 	if (*server != NULL)
 		return *server;

@@ -54,20 +54,20 @@ struct _glibtop_proc_segment
 		start_stack;	/* address of the bottom of stack segment */
 };
 
-#define glibtop_get_proc_segment(p1, p2)	glibtop_get_proc_segment__l(glibtop_global_server, p1, p2)
+#define glibtop_get_proc_segment(p1, p2)	glibtop_get_proc_segment_l(glibtop_global_server, p1, p2)
 
 #if GLIBTOP_SUID_PROC_SEGMENT
-#define glibtop_get_proc_segment__r	glibtop_get_proc_segment__p
+#define glibtop_get_proc_segment_r	glibtop_get_proc_segment_p
 #else
-#define glibtop_get_proc_segment__r	glibtop_get_proc_segment__s
+#define glibtop_get_proc_segment_r	glibtop_get_proc_segment_s
 #endif
 
-extern void glibtop_get_proc_segment__l __P((glibtop *, glibtop_proc_segment *, pid_t));
+extern void glibtop_get_proc_segment_l __P((glibtop *, glibtop_proc_segment *, pid_t));
 
 #if GLIBTOP_SUID_PROC_SEGMENT
-extern void glibtop_get_proc_segment__p __P((glibtop *, glibtop_proc_segment *, pid_t));
+extern void glibtop_get_proc_segment_p __P((glibtop *, glibtop_proc_segment *, pid_t));
 #else
-extern void glibtop_get_proc_segment__s __P((glibtop *, glibtop_proc_segment *, pid_t));
+extern void glibtop_get_proc_segment_s __P((glibtop *, glibtop_proc_segment *, pid_t));
 #endif
 
 #ifdef HAVE_GUILE

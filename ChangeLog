@@ -1,3 +1,9 @@
+1998-06-07  Martin Baulig  <martin@home-of-linux.org>
+
+	* *.[ch]: Using single underscore instead of two underscores
+	for function prefixes (regexp: ``s,__([rspl])\b,_$1,g'') to
+	avoid ambiguity with mangled C++ names.
+	
 1998-06-06  Martin Baulig  <martin@home-of-linux.org>
 
 	* sysdeps/osf1/glibtop_server.h: New file.

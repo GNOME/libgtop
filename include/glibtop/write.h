@@ -29,8 +29,8 @@ __BEGIN_DECLS
 
 #define glibtop_write(p1, p2)	glibtop_write(glibtop_global_server, p1, p2)
 
-extern void glibtop_write__l __P((glibtop *, size_t, void *));
-extern void glibtop_write__s __P((glibtop *, size_t, void *));
+extern void glibtop_write_l __P((glibtop *, size_t, void *));
+extern void glibtop_write_s __P((glibtop *, size_t, void *));
 
 __END_DECLS
 

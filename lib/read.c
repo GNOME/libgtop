@@ -24,18 +24,18 @@
 /* Reads some data from server. */
 
 void
-glibtop_read__l (glibtop *server, size_t size, void *buf)
+glibtop_read_l (glibtop *server, size_t size, void *buf)
 {
 	size_t	ssize;
 
-	glibtop_init__r (&server, 0, 0);
+	glibtop_init_r (&server, 0, 0);
 	
 	if (read (server->input [0], &ssize, sizeof (size_t)) < 0)
-		glibtop_error__r (server, _("read size: %s"), strerror (errno));
+		glibtop_error_r (server, _("read size: %s"), strerror (errno));
 	
 	if (size != ssize)
-		glibtop_error__r (server, _("got %d bytes but requested %d"), ssize, size);
+		glibtop_error_r (server, _("got %d bytes but requested %d"), ssize, size);
 	
 	if (read (server->input [0], buf, size) < 0)
-		glibtop_error__r (server, _("read %d bytes: %s"), size, strerror (errno));
+		glibtop_error_r (server, _("read %d bytes: %s"), size, strerror (errno));
 }

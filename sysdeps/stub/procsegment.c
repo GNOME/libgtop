@@ -25,7 +25,7 @@
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_segment__r (glibtop *server, glibtop_proc_segment *buf,
+glibtop_get_proc_segment_r (glibtop *server, glibtop_proc_segment *buf,
 			     pid_t pid)
 {
 	memset (buf, 0, sizeof (glibtop_proc_segment));

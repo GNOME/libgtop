@@ -43,20 +43,20 @@ struct _glibtop_proclist
 		size;			/* GLIBTOP_PROCLIST_SIZE	*/
 };
 
-#define glibtop_get_proclist(proclist)	glibtop_get_proclist__l(glibtop_global_server, proclist)
+#define glibtop_get_proclist(proclist)	glibtop_get_proclist_l(glibtop_global_server, proclist)
 
 #if GLIBTOP_SUID_PROCLIST
-#define glibtop_get_proclist__r		glibtop_get_proclist__p
+#define glibtop_get_proclist_r		glibtop_get_proclist_p
 #else
-#define glibtop_get_proclist__r		glibtop_get_proclist__s
+#define glibtop_get_proclist_r		glibtop_get_proclist_s
 #endif
 
-extern unsigned *glibtop_get_proclist__l __P((glibtop *, glibtop_proclist *));
+extern unsigned *glibtop_get_proclist_l __P((glibtop *, glibtop_proclist *));
 
 #if GLIBTOP_SUID_PROCLIST
-extern unsigned *glibtop_get_proclist__p __P((glibtop *, glibtop_proclist *));
+extern unsigned *glibtop_get_proclist_p __P((glibtop *, glibtop_proclist *));
 #else
-extern unsigned *glibtop_get_proclist__s __P((glibtop *, glibtop_proclist *));
+extern unsigned *glibtop_get_proclist_s __P((glibtop *, glibtop_proclist *));
 #endif
 
 #ifdef HAVE_GUILE

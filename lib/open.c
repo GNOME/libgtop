@@ -28,7 +28,7 @@
 /* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
 
 void
-glibtop_open__l (glibtop *server, const char *program_name,
+glibtop_open_l (glibtop *server, const char *program_name,
 		 const unsigned long features, const unsigned flags)
 {
 	char	version [BUFSIZ], buffer [BUFSIZ];
@@ -49,14 +49,14 @@ glibtop_open__l (glibtop *server, const char *program_name,
 		temp = getenv ("LIBGTOP_SERVER") ?
 			getenv ("LIBGTOP_SERVER") : GTOP_SERVER;
 		
-		server_command = glibtop_malloc__r (server, strlen (temp) + 1);
+		server_command = glibtop_malloc_r (server, strlen (temp) + 1);
 		
 		strcpy (server_command, temp);
 		
 		temp = getenv ("LIBGTOP_RSH") ?
 			getenv ("LIBGTOP_RSH") : "rsh";
 		
-		server_rsh = glibtop_malloc__r (server, strlen (temp) + 1);
+		server_rsh = glibtop_malloc_r (server, strlen (temp) + 1);
 		
 		strcpy (server_rsh, temp);
 		
@@ -103,13 +103,13 @@ glibtop_open__l (glibtop *server, const char *program_name,
 	/* Fork and exec server. */
 
 	if (pipe (server->input) || pipe (server->output))
-		glibtop_error__r (server, _("cannot make a pipe: %s\n"),
+		glibtop_error_r (server, _("cannot make a pipe: %s\n"),
 				  strerror (errno));
 
 	server->pid  = fork ();
 
 	if (server->pid < 0) {
-		glibtop_error__r (server, _("%s: fork failed: %s\n"),
+		glibtop_error_r (server, _("%s: fork failed: %s\n"),
 				  strerror (errno));
 	} else if (server->pid == 0) {
 		close (0); close (1); /* close (2); */
@@ -140,14 +140,14 @@ glibtop_open__l (glibtop *server, const char *program_name,
 
 	sprintf (version, "%s server %s ready.\n", PACKAGE, VERSION);
 
-	glibtop_read__l (server, strlen (version), buffer);
+	glibtop_read_l (server, strlen (version), buffer);
 
 	if (memcmp (version, buffer, strlen (version)))
-		glibtop_error__r (server, _("server version is not %s"), VERSION);
+		glibtop_error_r (server, _("server version is not %s"), VERSION);
 
 	fprintf (stderr, "Calling GLITOP_CMND_SYSDEPS ...\n");
 
-	glibtop_call__l (server, GLIBTOP_CMND_SYSDEPS, 0, NULL,
+	glibtop_call_l (server, GLIBTOP_CMND_SYSDEPS, 0, NULL,
 			 sizeof (glibtop_sysdeps), &sysdeps);
 
 	server->features = sysdeps.features;

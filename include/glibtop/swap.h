@@ -43,20 +43,20 @@ struct _glibtop_swap
 		free;		/* GLIBTOP_SWAP_FREE	*/
 };
 
-#define glibtop_get_swap(swap)	glibtop_get_swap__l(glibtop_global_server, swap)
+#define glibtop_get_swap(swap)	glibtop_get_swap_l(glibtop_global_server, swap)
 
 #if GLIBTOP_SUID_SWAP
-#define glibtop_get_swap__r		glibtop_get_swap__p
+#define glibtop_get_swap_r		glibtop_get_swap_p
 #else
-#define glibtop_get_swap__r		glibtop_get_swap__s
+#define glibtop_get_swap_r		glibtop_get_swap_s
 #endif
 
-extern void glibtop_get_swap__l __P((glibtop *, glibtop_swap *));
+extern void glibtop_get_swap_l __P((glibtop *, glibtop_swap *));
 
 #if GLIBTOP_SUID_SWAP
-extern void glibtop_get_swap__p __P((glibtop *, glibtop_swap *));
+extern void glibtop_get_swap_p __P((glibtop *, glibtop_swap *));
 #else
-extern void glibtop_get_swap__s __P((glibtop *, glibtop_swap *));
+extern void glibtop_get_swap_s __P((glibtop *, glibtop_swap *));
 #endif
 
 #ifdef HAVE_GUILE

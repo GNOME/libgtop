@@ -26,9 +26,9 @@
 
 __BEGIN_DECLS
 
-#define glibtop_error(p1, args...)	glibtop_error__r(glibtop_global_server , p1 , ## args)
+#define glibtop_error(p1, args...)	glibtop_error_r(glibtop_global_server , p1 , ## args)
 
-extern void glibtop_error__r __P((glibtop *, char *, ...));
+extern void glibtop_error_r __P((glibtop *, char *, ...));
 
 __END_DECLS
 

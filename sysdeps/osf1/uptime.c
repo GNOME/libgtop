@@ -31,7 +31,7 @@ static unsigned long _glibtop_sysdeps_uptime =
 /* Provides uptime and idle time. */
 
 void
-glibtop_get_uptime__s (glibtop *server, glibtop_uptime *buf)
+glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
 	struct tbl_sysinfo sysinfo;
 	int ret;

@@ -27,15 +27,15 @@
 
 __BEGIN_DECLS
 
-#define glibtop_malloc(p1)	glibtop_malloc__r(glibtop_global_server, p1)
-#define glibtop_calloc(p1, p2)	glibtop_calloc__r(glibtop_global_server, p1, p2)
-#define glibtop_realloc(p1, p2)	glibtop_realloc__r(glibtop_global_server, p1, p2)
-#define glibtop_free(p1)	glibtop_free__r(glibtop_global_server, p1)
+#define glibtop_malloc(p1)	glibtop_malloc_r(glibtop_global_server, p1)
+#define glibtop_calloc(p1, p2)	glibtop_calloc_r(glibtop_global_server, p1, p2)
+#define glibtop_realloc(p1, p2)	glibtop_realloc_r(glibtop_global_server, p1, p2)
+#define glibtop_free(p1)	glibtop_free_r(glibtop_global_server, p1)
 
-extern void *glibtop_malloc__r	__P((glibtop *, size_t));
-extern void *glibtop_calloc__r	__P((glibtop *, size_t, size_t));
-extern void *glibtop_realloc__r	__P((glibtop *, void *, size_t));
-extern void glibtop_free__r	__P((glibtop *, void *));
+extern void *glibtop_malloc_r	__P((glibtop *, size_t));
+extern void *glibtop_calloc_r	__P((glibtop *, size_t, size_t));
+extern void *glibtop_realloc_r	__P((glibtop *, void *, size_t));
+extern void glibtop_free_r	__P((glibtop *, void *));
 
 __END_DECLS
 

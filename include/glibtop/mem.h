@@ -53,20 +53,20 @@ struct _glibtop_mem
 		locked;		/* GLIBTOP_MEM_LOCKED	*/
 };
 
-#define glibtop_get_mem(mem)	glibtop_get_mem__l(glibtop_global_server, mem)
+#define glibtop_get_mem(mem)	glibtop_get_mem_l(glibtop_global_server, mem)
 
 #if GLIBTOP_SUID_MEM
-#define glibtop_get_mem__r		glibtop_get_mem__p
+#define glibtop_get_mem_r		glibtop_get_mem_p
 #else
-#define glibtop_get_mem__r		glibtop_get_mem__s
+#define glibtop_get_mem_r		glibtop_get_mem_s
 #endif
 
-extern void glibtop_get_mem__l __P((glibtop *, glibtop_mem *));
+extern void glibtop_get_mem_l __P((glibtop *, glibtop_mem *));
 
 #if GLIBTOP_SUID_MEM
-extern void glibtop_get_mem__p __P((glibtop *, glibtop_mem *));
+extern void glibtop_get_mem_p __P((glibtop *, glibtop_mem *));
 #else
-extern void glibtop_get_mem__s __P((glibtop *, glibtop_mem *));
+extern void glibtop_get_mem_s __P((glibtop *, glibtop_mem *));
 #endif
 
 #ifdef HAVE_GUILE

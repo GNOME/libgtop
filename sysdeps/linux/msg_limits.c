@@ -33,11 +33,11 @@ static const unsigned long _glibtop_sysdeps_msg_limits =
 /* Provides information about sysv ipc limits. */
 
 void
-glibtop_get_msg_limits__s (glibtop *server, glibtop_msg_limits *buf)
+glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 {
 	struct msginfo	msginfo;
   
-	glibtop_init__r (&server, 0, 0);
+	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_msg_limits));
   

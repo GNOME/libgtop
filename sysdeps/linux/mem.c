@@ -31,11 +31,11 @@ static const unsigned long _glibtop_sysdeps_mem =
 /* Provides information about memory usage. */
 
 void
-glibtop_get_mem__s (glibtop *server, glibtop_mem *buf)
+glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
 	FILE *f;
 
-	glibtop_init__r (&server, 0, 0);
+	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_mem));
 

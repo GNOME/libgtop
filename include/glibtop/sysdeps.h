@@ -73,9 +73,9 @@ struct _glibtop_sysdeps
 		proc_segment;		/* glibtop_proc_segment	*/
 };
 
-#define glibtop_get_sysdeps(sysdeps)	glibtop_get_sysdeps__r(glibtop_global_server,sysdeps)
+#define glibtop_get_sysdeps(sysdeps)	glibtop_get_sysdeps_r(glibtop_global_server,sysdeps)
 
-extern void glibtop_get_sysdeps__r __P((glibtop *, glibtop_sysdeps *));
+extern void glibtop_get_sysdeps_r __P((glibtop *, glibtop_sysdeps *));
 
 #ifdef HAVE_GUILE
 

@@ -26,15 +26,17 @@ static glibtop	_glibtop_global_server;
 glibtop		*glibtop_global_server = NULL;
 
 glibtop *
-glibtop_init__r (glibtop **server, const unsigned long features,
+glibtop_init_r (glibtop **server, const unsigned long features,
 		 const unsigned flags)
 {
 	if (*server != NULL)
 		return *server;
 
+	fprintf (stderr, "DEBUG: %s (%d)\n", __FILE__, __LINE__);
+
 	if (glibtop_global_server == NULL) {
 		glibtop_global_server = &_glibtop_global_server;
-		glibtop_open__r (glibtop_global_server, "glibtop",
+		glibtop_open_r (glibtop_global_server, "glibtop",
 				 features, flags);
 	}
 	

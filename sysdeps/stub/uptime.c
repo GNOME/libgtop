@@ -25,7 +25,7 @@
 /* Provides uptime and idle time. */
 
 void
-glibtop_get_uptime__r (glibtop *server, glibtop_uptime *buf)
+glibtop_get_uptime_r (glibtop *server, glibtop_uptime *buf)
 {
 	memset (buf, 0, sizeof (glibtop_uptime));
 }

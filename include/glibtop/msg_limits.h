@@ -51,20 +51,20 @@ struct _glibtop_msg_limits
 		msgtql;		/* GLIBTOP_IPC_MSGTQL	*/
 };
 
-#define glibtop_get_msg_limits(msg)	glibtop_get_msg_limits__l(glibtop_global_server, msg)
+#define glibtop_get_msg_limits(msg)	glibtop_get_msg_limits_l(glibtop_global_server, msg)
 
 #if GLIBTOP_SUID_MSG_LIMITS
-#define glibtop_get_msg_limits__r	glibtop_get_msg_limits__p
+#define glibtop_get_msg_limits_r	glibtop_get_msg_limits_p
 #else
-#define glibtop_get_msg_limits__r	glibtop_get_msg_limits__s
+#define glibtop_get_msg_limits_r	glibtop_get_msg_limits_s
 #endif
 
-extern void glibtop_get_msg_limits__l __P((glibtop *, glibtop_msg_limits *));
+extern void glibtop_get_msg_limits_l __P((glibtop *, glibtop_msg_limits *));
 
 #if GLIBTOP_SUID_MSG_LIMITS
-extern void glibtop_get_msg_limits__p __P((glibtop *, glibtop_msg_limits *));
+extern void glibtop_get_msg_limits_p __P((glibtop *, glibtop_msg_limits *));
 #else
-extern void glibtop_get_msg_limits__s __P((glibtop *, glibtop_msg_limits *));
+extern void glibtop_get_msg_limits_s __P((glibtop *, glibtop_msg_limits *));
 #endif
 
 #ifdef HAVE_GUILE

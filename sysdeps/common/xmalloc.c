@@ -24,43 +24,43 @@
 /* Wrappers to malloc, calloc, realloc ... */
 
 void *
-glibtop_malloc__r (glibtop *server, size_t size)
+glibtop_malloc_r (glibtop *server, size_t size)
 {
 	void *buf = malloc (size);
 	
 	if (!buf)
-		glibtop_error__r (server, _("malloc %d bytes: %s"),
+		glibtop_error_r (server, _("malloc %d bytes: %s"),
 				  size, strerror (errno));
 	
 	return buf;
 }
 
 void *
-glibtop_calloc__r (glibtop *server, size_t nmemb, size_t size)
+glibtop_calloc_r (glibtop *server, size_t nmemb, size_t size)
 {
 	void *buf = calloc (nmemb, size);
 	
 	if (!buf)
-		glibtop_error__r (server, _("calloc %d block (%d bytes each): %s"),
+		glibtop_error_r (server, _("calloc %d block (%d bytes each): %s"),
 				  nmemb, size, strerror (errno));
 	
 	return buf;
 }
 
 void *
-glibtop_realloc__r (glibtop *server, void *ptr, size_t size)
+glibtop_realloc_r (glibtop *server, void *ptr, size_t size)
 {
 	void *buf = realloc (ptr, size);
 	
 	if (!buf)
-		glibtop_error__r (server, _("realloc %d bytes: %s"),
+		glibtop_error_r (server, _("realloc %d bytes: %s"),
 				  size, strerror (errno));
 	
 	return buf;
 }
 
 void
-glibtop_free__r (glibtop *server, void *ptr)
+glibtop_free_r (glibtop *server, void *ptr)
 {
 	if (ptr) free (ptr);
 }
