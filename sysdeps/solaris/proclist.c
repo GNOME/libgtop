@@ -33,8 +33,8 @@
 #define GLIBTOP_PROCLIST_FLAGS	3
 
 static const unsigned long _glibtop_sysdeps_proclist =
-(1 << GLIBTOP_PROCLIST_TOTAL) + (1 << GLIBTOP_PROCLIST_NUMBER) +
-(1 << GLIBTOP_PROCLIST_SIZE);
+(1L << GLIBTOP_PROCLIST_TOTAL) + (1L << GLIBTOP_PROCLIST_NUMBER) +
+(1L << GLIBTOP_PROCLIST_SIZE);
 
 /* Init function. */
 
@@ -61,13 +61,47 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	DIR *proc;
 	struct dirent *entry;
 	char buffer [BUFSIZ];
-	unsigned count, total, pid;
+	unsigned count, total, pid, mask;
 	unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
 	unsigned pids_size = 0, pids_offset = 0, new_size;
 	struct stat statb;
 	int len, i, ok;
 
 	memset (buf, 0, sizeof (glibtop_proclist));
+	mask = which & ~GLIBTOP_KERN_PROC_MASK;
+	which &= GLIBTOP_KERN_PROC_MASK;
+
+	/* Check if the user wanted only one process */
+
+	if(which == GLIBTOP_KERN_PROC_PID)
+	{
+	   if(mask)
+	   {
+#ifdef HAVE_PROCFS_H
+	      struct psinfo psinfo;
+#else
+	      struct prpsinfo psinfo;
+#endif
+	      if(glibtop_get_proc_data_psinfo_s(server, &psinfo, pid))
+		 return NULL;
+	      if(mask & GLIBTOP_EXCLUDE_IDLE && !psinfo.pr_pctcpu)
+		 return NULL;
+	      if(mask & GLIBTOP_EXCLUDE_SYSTEM && psinfo.pr_flag & SSYS)
+		 return NULL;
+	      if(mask & GLIBTOP_EXCLUDE_NOTTY && psinfo.pr_ttydev == PRNODEV)
+		 return NULL;
+	   }
+	   else
+	   {
+	      sprintf(buffer, "/proc/%d", arg);
+	      if(s_stat(buffer, &statb) < 0)
+		 return NULL;
+	   }
+	   if(!(pids_chain = glibtop_malloc(sizeof(unsigned))))
+	      return NULL;
+	   *pids_chain = pid;
+	   return pids_chain;
+	}
 
 	proc = opendir ("/proc");
 	if (!proc) return NULL;
@@ -79,23 +113,78 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		ok = 1; len = strlen (entry->d_name);
 
 		/* does it consist entirely of digits? */
-		
+#if 0
+		/* It does, except for "." and "..". Let's speed up */
+
 		for (i = 0; i < len; i++)
 			if (!isdigit (entry->d_name [i])) ok = 0;
 		if (!ok) continue;
+#else
+		if(entry->d_name[0] == '.')
+		   continue;
+#endif
 
 		/* convert it in a number */
-
+#if 0
 		if (sscanf (entry->d_name, "%u", &pid) != 1) continue;
+#else
+		pid = (unsigned)atol(entry->d_name);
+#endif
 
-		/* is it really a directory? */
+#ifdef HAVE_PROCFS_H
 
-		sprintf (buffer, "/proc/%d", pid);
-		
-		if (stat (buffer, &statb)) continue;
+		/* Can we skip it based on the request? We have
+		   RUID and RGID in struct stat. But we can't do it
+		   like this for LP64 process, because stat() will fail.
+		   XXX Unimplemented for now */
 
-		if (!S_ISDIR (statb.st_mode)) continue;
+		if(!mask && which == GLIBTOP_KERN_PROC_RUID)
+		{
+		   sprintf (buffer, "/proc/%d", pid);
+		   if (s_stat (buffer, &statb)) continue;
 
+		   if (!S_ISDIR (statb.st_mode)) continue;
+
+		   if(statb.st_uid != arg) continue;
+		}
+
+		if(mask || which != GLIBTOP_KERN_PROC_ALL)
+		{
+		   struct psinfo psinfo;
+
+		   if(glibtop_get_proc_data_psinfo_s(server, &psinfo, pid))
+		      continue;
+		   if(mask)
+		   {
+		      if(mask & GLIBTOP_EXCLUDE_IDLE && !psinfo.pr_pctcpu)
+			 continue;
+		      if(mask & GLIBTOP_EXCLUDE_SYSTEM && psinfo.pr_flag & SSYS)
+			 continue;
+		      if(mask & GLIBTOP_EXCLUDE_NOTTY
+			 && psinfo.pr_ttydev == PRNODEV)
+			 continue;
+		   }
+		   switch(which)
+		   {
+		      case GLIBTOP_KERN_PROC_PGRP:    if(psinfo.pr_pgid != arg)
+						         continue;
+						      break;
+		      case GLIBTOP_KERN_PROC_SESSION: if(psinfo.pr_sid != arg)
+							 continue;
+						      break;
+		      case GLIBTOP_KERN_PROC_TTY:    if(psinfo.pr_ttydev != arg)
+						         continue;
+						      break;
+		      case GLIBTOP_KERN_PROC_UID:     if(psinfo.pr_euid != arg)
+							 continue;
+						      break;
+		      case GLIBTOP_KERN_PROC_RUID:    if(psinfo.pr_uid != arg)
+						         continue;
+						      break;
+		      default:			      break;
+		   }
+		}
+#endif
 		/* Fine. Now we first try to store it in pids. If this buffer is
 		 * full, we copy it to the pids_chain. */
 
@@ -126,7 +215,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		total++;
 	}
 	
-	closedir (proc);
+	s_closedir (proc);
 
 	/* count is only zero if an error occured (one a running Linux system,
 	 * we have at least one single process). */

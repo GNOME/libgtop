@@ -28,23 +28,37 @@
 #include <glibtop/error.h>
 
 #include <sys/param.h>
-#include <procfs.h>
 #include <kstat.h>
 #include <fcntl.h>
+#if defined(HAVE_PROCFS_H)
+# include <procfs.h>
+#elif defined(HAVE_SYS_PROCFS_H)
+# include <sys/procfs.h>
+#else
+# error Cannot compile without <procfs.h> or <sys/procfs.h>
+#endif
 
 BEGIN_LIBGTOP_DECLS
 
+#ifdef HAVE_PROCFS_H
+
 /* Read /proc/<pid>/psinfo */
-int glibtop_get_proc_data_psinfo_s (glibtop *server, struct psinfo *psinfo, pid_t pid);
-
-/* Read /proc/<pid>/usage */
-int glibtop_get_proc_data_usage_s (glibtop *server, struct prusage *prusage, pid_t pid);
-
-/* Read /proc/<pid>/cred */
-int glibtop_get_proc_credentials_s(glibtop *, struct prcred *, pid_t);
+int glibtop_get_proc_data_psinfo_s(glibtop *, struct psinfo *, pid_t pid);
 
 /* Read /proc/<pid>/status */
 int glibtop_get_proc_status_s(glibtop *, struct pstatus *, pid_t);
+#else
+int glibtop_get_proc_data_psinfo_s(glibtop *, struct prpsinfo *, pid_t);
+int glibtop_get_proc_status_s(glibtop *, struct prstatus *, pid_t);
+#endif
+
+/* Read /proc/<pid>/usage */
+int glibtop_get_proc_data_usage_s(glibtop *, struct prusage *, pid_t);
+
+#if LIBGTOP_VERSION_CODE >= 1001002
+/* Read /proc/<pid>/cred */
+int glibtop_get_proc_credentials_s(glibtop *, struct prcred *, gid_t *, pid_t);
+#endif
 
 /* Reread kstat chains */
 void glibtop_get_kstats(glibtop *);

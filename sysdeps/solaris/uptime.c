@@ -27,7 +27,10 @@
 #include <time.h>
 
 static const unsigned long _glibtop_sysdeps_uptime =
-(1L << GLIBTOP_UPTIME_UPTIME) + (1L <<GLIBTOP_UPTIME_BOOT_TIME);
+#if LIBGTOP_VERSION_CODE >= 1001002
+(1L <<GLIBTOP_UPTIME_BOOT_TIME) +
+#endif
+(1L << GLIBTOP_UPTIME_UPTIME);
 
 /* Init function. */
 
@@ -46,7 +49,9 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 
 	if(!(server->machine.boot))
 	    return;
+#if LIBGTOP_VERSION_CODE >= 1001002
 	buf->boot_time = server->machine.boot;
+#endif
 	buf->uptime = time(NULL) - server->machine.boot;
 
 	buf->flags = _glibtop_sysdeps_uptime;

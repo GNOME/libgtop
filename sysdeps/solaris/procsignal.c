@@ -43,7 +43,11 @@ void
 glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 			   pid_t pid)
 {
+#ifdef HAVE_PROCFS_H
    	struct pstatus pstatus;
+#else
+	struct prstatus pstatus;
+#endif
 	int size;
 
 	memset (buf, 0, sizeof (glibtop_proc_signal));
@@ -57,7 +61,11 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 	   	size = sizeof(sigset_t);
 
 	memcpy(buf->signal, &pstatus.pr_sigpend, size);
+#ifdef HAVE_PROCFS_H
 	memcpy(buf->blocked, &pstatus.pr_lwp.pr_lwphold, size);
+#else
+	memcpy(buf->blocked, &pstatus.pr_lwppend, size);
+#endif
 
 	/* Technically, most of this is meaningless on a process level,
 	   but this should be a good enough approximation. */

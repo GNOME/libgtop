@@ -22,8 +22,10 @@
 */
 
 #include <glibtop/open.h>
+#include <glibtop/cpu.h>
 
 #include <unistd.h>
+#include <dlfcn.h>
 #include <sys/types.h>
 #include <sys/processor.h>
 
@@ -60,7 +62,9 @@ glibtop_get_kstats(glibtop *server)
 	if(ksp)
 	{
 	    kstat_read(kc, ksp, &server->machine.vminfo);
-	    server->machine.vminfo_snaptime = ksp->ks_snaptime;
+	    /* Don't change snaptime if we only need to reinitialize kstats */
+	    if(!(server->machine.vminfo_snaptime))
+	        server->machine.vminfo_snaptime = ksp->ks_snaptime;
 	}
 
 	/* We don't know why was kstat chain invalidated. It could have
@@ -69,7 +73,7 @@ glibtop_get_kstats(glibtop *server)
 	   life time of a process, but let's hope that's just an error in
 	   the documentation. */
 
-	if(nproc_same = new_ncpu == server->ncpu)
+	if((nproc_same = new_ncpu) == server->ncpu)
 	{
 	    int checked, i;
 	    char cpu[20];
@@ -128,10 +132,14 @@ glibtop_open_s (glibtop *server, const char *program_name,
     kstat_ctl_t *kc;
     kstat_t *ksp;
     kstat_named_t *kn;
+    int i, page;
+    void *dl;
 
     server->name = program_name;
 
-    server->machine.pagesize = sysconf(_SC_PAGESIZE) >> 10;
+    page = sysconf(_SC_PAGESIZE) >> 10;
+    for(i = 0; page; ++i, page >>= 1);
+    server->machine.pagesize = i - 1;
     server->machine.ticks = sysconf(_SC_CLK_TCK);
     server->machine.kc = kc = kstat_open ();
 
@@ -164,6 +172,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
 	glibtop_warn_io_r (server, "kstat_open ()");
 
     server->ncpu = -1;  /* Force processor detection */
+    server->machine.vminfo_snaptime = 0;  /* Force snaptime read */
     glibtop_get_kstats(server);
 
     server->machine.boot = 0;
@@ -171,13 +180,55 @@ glibtop_open_s (glibtop *server, const char *program_name,
     {
 	kn = (kstat_named_t *)kstat_data_lookup(ksp, "boot_time");
 	if(kn)
-	    server->machine.boot = kn->value.ui32;
+	    switch(kn->data_type)
+	    {
+#ifdef KSTAT_DATA_INT32
+	        case KSTAT_DATA_INT32:  server->machine.boot = kn->value.i32;
+				        break;
+	        case KSTAT_DATA_UINT32: server->machine.boot = kn->value.ui32;
+				        break;
+	        case KSTAT_DATA_INT64:  server->machine.boot = kn->value.i64;
+				        break;
+	        case KSTAT_DATA_UINT64: server->machine.boot = kn->value.ui64;
+				        break;
+#else
+		case KSTAT_DATA_LONG:      server->machine.boot = kn->value.l;
+					   break;
+		case KSTAT_DATA_ULONG:     server->machine.boot = kn->value.ul;
+					   break;
+		case KSTAT_DATA_LONGLONG:  server->machine.boot = kn->value.ll;
+					   break;
+		case KSTAT_DATA_ULONGLONG: server->machine.boot = kn->value.ull;
+					   break;
+#endif
+	    }
     }
 
-    server->machine.kd = kvm_open(NULL, NULL, NULL, O_RDONLY, NULL);
-    if(!server->machine.kd)
-        glibtop_warn_io_r(server, "kvm_open()");
+    /* Now let's have a bit of magic dust... */
 
-    fprintf (stderr, "Sleeping 2 seconds, please wait ...\n");
-    sleep (2);
+#if GLIBTOP_SOLARIS_RELEASE >= 560
+
+    dl = dlopen("/usr/lib/libproc.so", RTLD_LAZY);
+    server->machine.libproc = dl;
+    if(dl)
+    {
+       void *func;
+
+       func = dlsym(dl, "Pobjname");		/* Solaris 8 */
+       if(!func)
+	  func = dlsym(dl, "proc_objname");	/* Solaris 7 */
+       server->machine.objname = (void (*)
+	     			 (void *, uintptr_t, const char *, size_t))func;
+       server->machine.pgrab = (struct ps_prochandle *(*)(pid_t, int, int *))
+	  		       dlsym(dl, "Pgrab");
+       server->machine.pfree = (void (*)(void *))dlsym(dl, "Pfree");
+    }
+    else
+    {
+       server->machine.objname = NULL;
+       server->machine.pgrab = NULL;
+       server->machine.pfree = NULL;
+    }
+#endif
+    server->machine.me = getpid();
 }

@@ -4,3 +4,4 @@ Makefile
 Makefile.in
 libgtop_sysdeps.la
 *.lo
+libgtop_sysdeps_suid.la

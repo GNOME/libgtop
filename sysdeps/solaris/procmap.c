@@ -30,12 +30,17 @@
 #include <errno.h>
 #include <alloca.h>
 
+#include "safeio.h"
+
+
 static const unsigned long _glibtop_sysdeps_proc_map =
 (1L << GLIBTOP_PROC_MAP_NUMBER) + (1L << GLIBTOP_PROC_MAP_TOTAL) +
 (1L << GLIBTOP_PROC_MAP_SIZE);
 static const unsigned long _glibtop_sysdeps_map_entry =
 (1L << GLIBTOP_MAP_ENTRY_START) + (1L << GLIBTOP_MAP_ENTRY_END) +
 (1L << GLIBTOP_MAP_ENTRY_OFFSET) + (1L << GLIBTOP_MAP_ENTRY_PERM);
+static const unsigned long _glibtop_sysdeps_map_device =
+(1L << GLIBTOP_MAP_ENTRY_DEVICE) + (1L << GLIBTOP_MAP_ENTRY_INODE);
 
 
 /* Init function. */
@@ -51,51 +56,103 @@ glibtop_init_proc_map_s (glibtop *server)
 glibtop_map_entry *
 glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 {
-   	int fd, i, nmaps;
+   	int fd, i, nmaps, pr_err, heap;
+#if GLIBTOP_SOLARIS_RELEASE >= 560
+	prxmap_t *maps;
+	struct ps_prochandle *Pr;
+#else
 	prmap_t *maps;
+#endif
+
+	/* A few defines, to make it shorter down there */
+
+#ifdef HAVE_PROCFS_H
+# define OFFSET  pr_offset
+#else
+# define OFFSET  pr_off
+#endif
+
 	glibtop_map_entry *entry;
 	struct stat inode;
 	char buffer[BUFSIZ];
 	
 	memset (buf, 0, sizeof (glibtop_proc_map));
 
-	sprintf(buffer, "/proc/%d/map", (int)pid);
-	if((fd = open(buffer, O_RDONLY)) < 0)
+#ifdef HAVE_PROCFS_H
+	sprintf(buffer, "/proc/%d/xmap", (int)pid);
+#else
+	sprintf(buffer, "/proc/%d", (int)pid);
+#endif
+	if((fd = s_open(buffer, O_RDONLY)) < 0)
 	{
 	   	if(errno != EPERM && errno != EACCES)
 		   	glibtop_warn_io_r(server, "open (%s)", buffer);
 		return NULL;
 	}
+#ifdef HAVE_PROCFS_H
 	if(fstat(fd, &inode) < 0)
 	{
 	   	if(errno != EOVERFLOW)
 		   	glibtop_warn_io_r(server, "fstat (%s)", buffer);
 		/* else call daemon for 64-bit support */
-		close(fd);
+		s_close(fd);
 		return NULL;
 	}
 	maps = alloca(inode.st_size);
-	nmaps = inode.st_size / sizeof(prmap_t);
-	if(pread(fd, maps, inode.st_size, 0) != inode.st_size)
+	nmaps = inode.st_size / sizeof(prxmap_t);
+	if(s_pread(fd, maps, inode.st_size, 0) != inode.st_size)
 	{
 	   	glibtop_warn_io_r(server, "pread (%s)", buffer);
-		close(fd);
+		s_close(fd);
 		return NULL;
 	}
-	close(fd);
-	if(!(entry = glibtop_malloc_r(server, nmaps * sizeof(glibtop_map_entry))))
+#else
+	if(ioctl(fd, PIOCNMAP, &nmaps) < 0)
+	{
+	   	glibtop_warn_io_r(server, "ioctl(%s, PIOCNMAP)", buffer);
+		s_close(fd);
+		return NULL;
+	}
+	maps = alloca((nmaps + 1) * sizeof(prmap_t));
+	if(ioctl(fd, PIOCMAP, maps) < 0)
+	{
+	   	glibtop_warn_io_r(server, "ioctl(%s, PIOCMAP)", buffer);
+		s_close(fd);
+		return NULL;
+	}
+#endif
+	if(!(entry = glibtop_malloc_r(server,
+		    		      nmaps * sizeof(glibtop_map_entry))))
 	   	return NULL;
-
 	buf->number = nmaps;
 	buf->size = sizeof(glibtop_map_entry);
 	buf->total = nmaps * sizeof(glibtop_map_entry);
 
 	memset(entry, 0, nmaps * sizeof(glibtop_map_entry));
-	for(i = 0; i < nmaps; ++i)
+
+#if GLIBTOP_SOLARIS_RELEASE >= 560
+
+	if(server->machine.objname && server->machine.pgrab &&
+	   server->machine.pfree)
+	   Pr = (server->machine.pgrab)(pid, 1, &pr_err);
+#endif
+	for(heap = 0,i = 0; i < nmaps; ++i)
 	{
+	   	int len;
+
 	   	entry[i].start = maps[i].pr_vaddr;
 		entry[i].end = maps[i].pr_vaddr + maps[i].pr_size;
-		entry[i].offset = maps[i].pr_offset;
+
+#if GLIBTOP_SOLARIS_RELEASE >= 560
+
+		if(maps[i].pr_dev != PRNODEV)
+		{
+		   entry[i].device = maps[i].pr_dev;
+		   entry[i].inode = maps[i].pr_ino;
+		   entry[i].flags |= _glibtop_sysdeps_map_device;
+		}
+#endif
+		entry[i].offset = maps[i].OFFSET;
 		if(maps[i].pr_mflags & MA_READ)
 		   	entry[i].perm |= GLIBTOP_MAP_PERM_READ;
 		if(maps[i].pr_mflags & MA_WRITE)
@@ -107,8 +164,44 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		else
 		   	entry[i].perm |= GLIBTOP_MAP_PERM_PRIVATE;
 		entry[i].flags = _glibtop_sysdeps_map_entry;
+
+#if GLIBTOP_SOLARIS_RELEASE >= 560
+
+		if(maps[i].pr_mflags & MA_ANON)
+		{
+		   if(!heap)
+		   {
+		      ++heap;
+		      strcpy(entry[i].filename, "[ heap ]");
+		   }
+		   else
+		      if(i == nmaps - 1)
+			 strcpy(entry[i].filename, "[ stack ]");
+		      else
+			 strcpy(entry[i].filename, "[ anon ]");
+		   entry[i].flags |= (1L << GLIBTOP_MAP_ENTRY_FILENAME);
+		}
+		else
+		   if(Pr)
+		   {
+		      server->machine.objname(Pr, maps[i].pr_vaddr, buffer,
+					      BUFSIZ);
+		      if((len = resolvepath(buffer, entry[i].filename,
+					    GLIBTOP_MAP_FILENAME_LEN)) > 0)
+		      {
+			 entry[i].filename[len] = 0;
+			 entry[i].flags |= (1L << GLIBTOP_MAP_ENTRY_FILENAME);
+		      }
+		   }
+#endif
 	}
-	
+
+#if GLIBTOP_SOLARIS_RELEASE >= 560
+
+	if(Pr)
+	   	server->machine.pfree(Pr);
+#endif
 	buf->flags = _glibtop_sysdeps_proc_map;
+	s_close(fd);
 	return entry;
 }

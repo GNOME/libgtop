@@ -27,11 +27,15 @@
 #include <glibtop_private.h>
 
 static const unsigned long _glibtop_sysdeps_proc_state =
-(1L << GLIBTOP_PROC_STATE_CMD) + (1L << GLIBTOP_PROC_STATE_STATE) +
-(1L << GLIBTOP_PROC_STATE_UID) + (1L << GLIBTOP_PROC_STATE_GID) +
-(1L << GLIBTOP_PROC_STATE_RUID) + (1L << GLIBTOP_PROC_STATE_RGID) +
+#if (LIBGTOP_VERSION_CODE >= 1001002) && defined(HAVE_PROCFS_H)
 (1L << GLIBTOP_PROC_STATE_HAS_CPU) + (1L << GLIBTOP_PROC_STATE_PROCESSOR) +
-(1L << GLIBTOP_PROC_STATE_LAST_PROCESSOR);
+(1L << GLIBTOP_PROC_STATE_LAST_PROCESSOR) +
+#endif
+#if LIBGTOP_VERSION_CODE >= 1001002
+(1L << GLIBTOP_PROC_STATE_RUID) + (1L << GLIBTOP_PROC_STATE_RGID) +
+#endif
+(1L << GLIBTOP_PROC_STATE_CMD) + (1L << GLIBTOP_PROC_STATE_STATE) +
+(1L << GLIBTOP_PROC_STATE_UID) + (1L << GLIBTOP_PROC_STATE_GID);
 
 /* Init function. */
 
@@ -46,7 +50,11 @@ glibtop_init_proc_state_s (glibtop *server)
 void
 glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 {
+#ifdef HAVE_PROCFS_H
 	struct psinfo psinfo;
+#else
+	struct prpsinfo psinfo;
+#endif
 
 	memset (buf, 0, sizeof (glibtop_proc_state));
 
@@ -55,24 +63,59 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 
 	buf->uid = psinfo.pr_euid;
 	buf->gid = psinfo.pr_egid;
+#if LIBGTOP_VERSION_CODE >= 1001002
 	buf->ruid = psinfo.pr_uid;
 	buf->rgid = psinfo.pr_gid;
+#endif
+#ifdef HAVE_PROCFS_H
 	switch(psinfo.pr_lwp.pr_state)
+#else
+        switch(psinfo.pr_state)
+#endif
 	{
-	    case SONPROC: buf->has_cpu = 1;
-			  buf->processor = psinfo.pr_lwp.pr_onpro;
-	    case SRUN:    buf->state = GLIBTOP_PROCESS_RUNNING;
-			  break;
-	    case SZOMB:   buf->state = GLIBTOP_PROCESS_ZOMBIE;
-			  break;
-	    case SSLEEP:
-	    case SSTOP:   buf->state = GLIBTOP_PROCESS_STOPPED;
-			  break;
-	    case SIDL:    buf->state = GLIBTOP_PROCESS_UNINTERRUPTIBLE;
+		case SONPROC: 
+#if (LIBGTOP_VERSION_CODE >= 1001002) && defined(HAVE_PROCFS_H)
+			buf->has_cpu = 1;
+			buf->processor = psinfo.pr_lwp.pr_onpro;
+#endif
+		case SRUN:
+#if LIBGTOP_VERSION_CODE >= 1001002
+			buf->state = GLIBTOP_PROCESS_RUNNING;
+#else
+			buf->state = 'R';
+#endif
+			break;
+		case SZOMB:
+#if LIBGTOP_VERSION_CODE >= 1001002
+			buf->state = GLIBTOP_PROCESS_ZOMBIE;
+#else
+			buf->state = 'Z';
+#endif
+			break;
+		case SSLEEP:
+#if LIBGTOP_VERSION_CODE >= 1001002
+			buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
+#else
+			buf->state = 'S';
+#endif
+			break;
+		case SSTOP:
+#if LIBGTOP_VERSION_CODE >= 1001002
+			buf->state = GLIBTOP_PROCESS_STOPPED;
+#else
+			buf->state = 'T';
+#endif
+			break;
+		case SIDL:
+#if LIBGTOP_VERSION_CODE >= 1001002
+			buf->state = GLIBTOP_PROCESS_UNINTERRUPTIBLE;
+#else
+			buf->state = 'D';
+#endif
 	}
+#if (LIBGTOP_VERSION_CODE >= 1001002) && defined(HAVE_PROCFS_H)
 	buf->last_processor = psinfo.pr_lwp.pr_onpro;
-
-
+#endif
 	strncpy (buf->cmd, psinfo.pr_fname, 39);
 
 	buf->flags = _glibtop_sysdeps_proc_state;

@@ -37,7 +37,7 @@ static const unsigned long _glibtop_sysdeps_msg_limits =
 /* Init function. */
 
 void
-glibtop_init_msg_limits_s (glibtop *server)
+glibtop_init_msg_limits_p (glibtop *server)
 {
    	kvm_t *kd = server->machine.kd;
 
@@ -50,7 +50,7 @@ glibtop_init_msg_limits_s (glibtop *server)
 /* Provides information about sysv ipc limits. */
 
 void
-glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
+glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 {
    	kvm_t *kd = server->machine.kd;
 	struct msginfo minfo;

@@ -35,7 +35,10 @@ static const unsigned long _glibtop_sysdeps_cpu =
 (1L << GLIBTOP_CPU_SYS) + (1L << GLIBTOP_CPU_IDLE) +
 (1L << GLIBTOP_XCPU_TOTAL) + (1L << GLIBTOP_XCPU_USER) +
 (1L << GLIBTOP_XCPU_SYS) + (1L << GLIBTOP_XCPU_IDLE) +
-(1L << GLIBTOP_CPU_FREQUENCY) + (1L << GLIBTOP_XCPU_FLAGS);
+#if LIBGTOP_VERSION_CODE >= 1001002
+(1L << GLIBTOP_XCPU_FLAGS) +
+#endif
+(1L << GLIBTOP_CPU_FREQUENCY);
 
 /* Init function. */
 
@@ -77,7 +80,11 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 
 	++found;
 	if(p_online(cpu, P_STATUS) == P_ONLINE)
+#if LIBGTOP_VERSION_CODE >= 1001002
 	    buf->xcpu_flags |= (1L << cpu);
+#else
+	    ;
+#endif
 	else
 	    continue;
 	ret = kstat_read (kc, ksp, &cpu_stat);

@@ -25,7 +25,11 @@
 #define __GLIBTOP_MACHINE_H__
 
 #include <sys/param.h>
+#ifdef HAVE_PROCFS_H
 #include <procfs.h>
+#else
+#include <sys/procfs.h>
+#endif
 #include <fcntl.h>
 
 #include <kstat.h>
@@ -40,6 +44,7 @@ struct _glibtop_machine
 {
     uid_t uid, euid;
     gid_t gid, egid;
+    pid_t me;			/* Don't ask why we need this */
 
     kvm_t *kd;
 
@@ -51,13 +56,21 @@ struct _glibtop_machine
 
     kstat_t *cpu_stat_kstat [64];
 
-    kstat_t *system;	/* boot_time & avenrun* where needed */
-    kstat_t *syspages;	/* memory usage */
-    kstat_t *bunyip;	/* more memory usage */
+    kstat_t *system;		/* boot_time & avenrun* where needed */
+    kstat_t *syspages;		/* memory usage */
+    kstat_t *bunyip;		/* more memory usage */
 
-    int pagesize;	/* in kilobytes */
-    int ticks;		/* clock ticks, as returned by sysconf(_SC_CLK_TCK) */
-    unsigned boot;	/* boot time, it's ui32 in kstat */
+    int pagesize;		/* in bits to shift, ie. 2^pagesize gives Kb */
+    int ticks;			/* clock ticks, as returned by sysconf() */
+    unsigned long long boot;	/* boot time, although it's ui32 in kstat */
+    void *libproc;		/* libproc handle */
+#if GLIBTOP_SOLARIS_RELEASE >= 560
+    void (*objname)(void *, uintptr_t, const char *, size_t);
+    struct ps_prochandle *(*pgrab)(pid_t, int, int *);
+    void (*pfree)(void *);
+#else
+    void *filler[3];
+#endif
 };
 
 END_LIBGTOP_DECLS

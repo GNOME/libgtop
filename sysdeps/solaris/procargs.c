@@ -26,7 +26,8 @@
 #include <glibtop/xmalloc.h>
 #include <glibtop/procargs.h>
 
-static const unsigned long _glibtop_sysdeps_proc_args = 0;
+static const unsigned long _glibtop_sysdeps_proc_args =
+(1L << GLIBTOP_PROC_ARGS_SIZE);
 
 /* Init function. */
 
@@ -42,6 +43,41 @@ char *
 glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len)
 {
+#ifdef HAVE_PROCFS_H
+   	struct psinfo pinfo;
+#else
+	struct prpsinfo pinfo;
+#endif
+	int len, i;
+	char *ret, *p;
+
 	memset (buf, 0, sizeof (glibtop_proc_args));
-	return NULL;
+
+	if(glibtop_get_proc_data_psinfo_s(server, &pinfo, pid))
+	   	return NULL;
+
+	for(len = 0; len < PRARGSZ; ++len)
+	   if(!(pinfo.pr_psargs[len]))
+	      break;
+	if(max_len)
+	{
+	   	ret = glibtop_malloc_r(server, max_len + 1);
+		if(max_len < len)
+		   	len = max_len;
+		memcpy(ret, pinfo.pr_psargs, len);
+		ret[len] = 0;
+	}
+	else
+	{
+	   ret = glibtop_malloc_r(server, len + 1);
+	   memcpy(ret, pinfo.pr_psargs, len);
+	   ret[len] = 0;
+
+	   buf->size = len;
+	   buf->flags = _glibtop_sysdeps_proc_args;
+	}
+	for(p = ret; *p; ++p)
+	   if(*p == ' ')
+	      *p = 0;
+	return ret;
 }

@@ -35,7 +35,7 @@ static const unsigned long _glibtop_sysdeps_shm_limits =
 /* Init function. */
 
 void
-glibtop_init_shm_limits_s (glibtop *server)
+glibtop_init_shm_limits_p (glibtop *server)
 {
    	kvm_t *kd = server->machine.kd;
 
@@ -48,7 +48,7 @@ glibtop_init_shm_limits_s (glibtop *server)
 /* Provides information about sysv ipc limits. */
 
 void
-glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
+glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
    	kvm_t *kd = server->machine.kd;
 	struct shminfo sinfo;
