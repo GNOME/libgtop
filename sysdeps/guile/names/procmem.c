@@ -52,7 +52,7 @@ glibtop_guile_types_proc_mem (void)
 	for (i = 0; i < GLIBTOP_MAX_PROC_MEM; i++)
 		list = gh_append2
 			(list, gh_list
-			 (gh_str02scm (glibtop_labels_proc_mem [i]),
+			 (gh_str02scm (glibtop_types_proc_mem [i]),
 			  SCM_UNDEFINED));
 	
 	return list;

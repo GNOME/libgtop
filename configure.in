@@ -26,10 +26,10 @@ export CC CXX RANLIB LD AS AR NM
 
 AC_LC_SYSDEPS
 
-if test x$ac_cv_want_guile = xyes ; then
+if test x$libgtop_want_guile = xyes ; then
   GNOME_CHECK_GUILE
   if test x$ac_cv_guile_found = xyes ; then
-    if test x$ac_cv_want_names = xyes ; then
+    if test x$libgtop_want_names = xyes ; then
       AC_DEFINE(GLIBTOP_GUILE_NAMES)
     fi
     guile_examples='third third_static third_linux'
