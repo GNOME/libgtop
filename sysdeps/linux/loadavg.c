@@ -25,6 +25,8 @@
 #include <glibtop/error.h>
 #include <glibtop/loadavg.h>
 
+#include "glibtop_private.h"
+
 static const unsigned long _glibtop_sysdeps_loadavg =
 (1L << GLIBTOP_LOADAVG_LOADAVG);
 

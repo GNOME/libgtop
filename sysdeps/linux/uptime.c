@@ -24,6 +24,9 @@
 #include <config.h>
 #include <glibtop/error.h>
 #include <glibtop/uptime.h>
+
+#include "glibtop_private.h"
+
 #include <time.h>
 
 static const unsigned long _glibtop_sysdeps_uptime =

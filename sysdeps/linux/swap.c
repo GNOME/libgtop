@@ -25,6 +25,8 @@
 #include <glibtop/error.h>
 #include <glibtop/swap.h>
 
+#include "glibtop_private.h"
+
 #include <fcntl.h>
 
 static const unsigned long _glibtop_sysdeps_swap =

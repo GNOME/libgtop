@@ -1,6 +1,8 @@
 #include <glibtop.h>
 #include <glibtop/error.h>
 
+#include "glibtop_private.h"
+
 #include <glib.h>
 
 #include <string.h>

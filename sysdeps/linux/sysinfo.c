@@ -26,6 +26,8 @@
 #include <glibtop/cpu.h>
 #include <glibtop/sysinfo.h>
 
+#include "glibtop_private.h"
+
 #define FILENAME "/proc/cpuinfo"
 
 static const unsigned long _glibtop_sysdeps_sysinfo =

@@ -25,6 +25,8 @@
 #include <glibtop/error.h>
 #include <glibtop/procmem.h>
 
+#include "glibtop_private.h"
+
 static const unsigned long _glibtop_sysdeps_proc_mem =
 (1L << GLIBTOP_PROC_MEM_VSIZE) + (1L << GLIBTOP_PROC_MEM_RSS) +
 (1L << GLIBTOP_PROC_MEM_RSS_RLIM);

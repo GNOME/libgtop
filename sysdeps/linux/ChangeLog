@@ -1,3 +1,29 @@
+2004-11-28  Benoît Dejean  <tazforever@dlfp.org>
+
+	* Makefile.am:
+	* cpu.c:
+	* fsusage.c:
+	* glibtop_private.c: (get_scaled), (try_file_to_buffer),
+	(file_to_buffer): Added
+	* glibtop_private.h: Added
+	* glibtop_server.c: Removed
+	* glibtop_server.h:
+	* loadavg.c:
+	* mem.c:
+	* netload.c:
+	* open.c:
+	* prockernel.c:
+	* procmem.c:
+	* procsegment.c:
+	* procsignal.c:
+	* procstate.c:
+	* proctime.c:
+	* procuid.c:
+	* swap.c:
+	* sysinfo.c:
+	* uptime.c: Moved linux impl utils function from glibtop_server.* to
+	glibtob_private.* because glibtop_server.h is a public header.
+
 2004-11-15  Benoît Dejean  <tazforever@dlfp.org>
 
 	* netload.c: (get_ipv6), (glibtop_get_netload_s): Added a check for NULL

@@ -25,6 +25,8 @@
 #include <glibtop/error.h>
 #include <glibtop/procsegment.h>
 
+#include "glibtop_private.h"
+
 static const unsigned long _glibtop_sysdeps_proc_segment =
 (1L << GLIBTOP_PROC_SEGMENT_START_CODE) +
 (1L << GLIBTOP_PROC_SEGMENT_END_CODE) +

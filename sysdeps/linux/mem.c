@@ -25,6 +25,8 @@
 #include <glibtop/error.h>
 #include <glibtop/mem.h>
 
+#include "glibtop_private.h"
+
 static const unsigned long _glibtop_sysdeps_mem =
 (1L << GLIBTOP_MEM_TOTAL) + (1L << GLIBTOP_MEM_USED) +
 (1L << GLIBTOP_MEM_FREE) + (1L << GLIBTOP_MEM_SHARED) +

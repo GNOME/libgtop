@@ -25,6 +25,8 @@
 #include <glibtop/error.h>
 #include <glibtop/procstate.h>
 
+#include "glibtop_private.h"
+
 #include <sys/stat.h>
 
 static const unsigned long _glibtop_sysdeps_proc_state =

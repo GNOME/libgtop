@@ -26,6 +26,8 @@
 #include <glibtop/proctime.h>
 #include <glibtop/uptime.h>
 
+#include "glibtop_private.h"
+
 static const unsigned long _glibtop_sysdeps_proc_time =
 (1L << GLIBTOP_PROC_TIME_UTIME) + (1L << GLIBTOP_PROC_TIME_CUTIME) +
 (1L << GLIBTOP_PROC_TIME_RTIME) +

@@ -25,6 +25,8 @@
 #include <glibtop/cpu.h>
 #include <glibtop/open.h>
 
+#include "glibtop_private.h"
+
 /* =====================================================
  * Linux kernel version information for procps utilities
  * Copyright (c) 1996 Charles Blake <cblake@bbn.com>

@@ -25,6 +25,8 @@
 #include <glibtop/error.h>
 #include <glibtop/cpu.h>
 
+#include "glibtop_private.h"
+
 static const unsigned long _glibtop_sysdeps_cpu =
 (1L << GLIBTOP_CPU_TOTAL) + (1L << GLIBTOP_CPU_USER) +
 (1L << GLIBTOP_CPU_NICE) + (1L << GLIBTOP_CPU_SYS) +

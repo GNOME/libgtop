@@ -25,6 +25,8 @@
 #include <glibtop/error.h>
 #include <glibtop/netload.h>
 
+#include "glibtop_private.h"
+
 #include <errno.h>
 #include <string.h>
 

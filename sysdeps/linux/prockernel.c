@@ -25,6 +25,8 @@
 #include <glibtop/error.h>
 #include <glibtop/prockernel.h>
 
+#include "glibtop_private.h"
+
 static const unsigned long _glibtop_sysdeps_proc_kernel =
 (1L << GLIBTOP_PROC_KERNEL_K_FLAGS) + (1L << GLIBTOP_PROC_KERNEL_MIN_FLT) +
 (1L << GLIBTOP_PROC_KERNEL_MAJ_FLT) + (1L << GLIBTOP_PROC_KERNEL_CMIN_FLT) +

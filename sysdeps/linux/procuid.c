@@ -25,6 +25,8 @@
 #include <glibtop/error.h>
 #include <glibtop/procuid.h>
 
+#include "glibtop_private.h"
+
 static const unsigned long _glibtop_sysdeps_proc_uid =
 (1L << GLIBTOP_PROC_UID_UID) + (1L << GLIBTOP_PROC_UID_EUID) +
 (1L << GLIBTOP_PROC_UID_GID) + (1L << GLIBTOP_PROC_UID_EGID);
