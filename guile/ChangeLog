@@ -1,3 +1,9 @@
+1998-10-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* make-docbook.scm: Use `load-primitive' instead of `load'.
+	* Makefile.am: Make `make-docbook.sm' depend upon `features.scm'
+	and `dist-hook' depend upon `reference.sgml'.
+
 1998-10-11  Martin Baulig  <martin@home-of-linux.org>
 
 	* reference.sgml: Removed. This is a generated file.

@@ -2,7 +2,7 @@
 
 (use-modules (libgtop names))
 
-(load "features.scm")
+(primitive-load "features.scm")
 
 (define sysdeps-list '())
 
