@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.4\n"
-"POT-Creation-Date: 2000-02-14 15:46+0100\n"
-"PO-Revision-Date: 1999-10-09 23:45+0200\n"
+"POT-Creation-Date: 1999-09-29 01:00+0200\n"
+"PO-Revision-Date: 2000-01-16 20:05+0100\n"
 "Last-Translator: Jesus Bravo Alvarez <jba@pobox.com>\n"
 "Language-Team: Galician <gpul-traduccion@ceu.fi.udc.es>\n"
 "MIME-Version: 1.0\n"
@@ -972,12 +972,12 @@ msgstr "%s: a opción `%s' é ambigua\n"
 #: support/getopt.c:693
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: a opción `--%s' non permete ningún argumento\n"
+msgstr "%s: a opción `--%s' non permite ningún argumento\n"
 
 #: support/getopt.c:698
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: a opción `%c%s' non permete ningún argumento\n"
+msgstr "%s: a opción `%c%s' non permite ningún argumento\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 #, c-format
@@ -1021,7 +1021,7 @@ msgstr "%s: a opción `-W %s' é ambigua\n"
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: a opción `-W %s' non permete ningún argumento\n"
+msgstr "%s: a opción `-W %s' non permite ningún argumento\n"
 
 #: lib/read.c:75
 #, c-format
