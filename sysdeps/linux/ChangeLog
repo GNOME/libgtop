@@ -1,5 +1,9 @@
 2004-06-08  Benoît Dejean  <tazforever@dlfp.org>
 
+	* procuid.c: (glibtop_get_proc_uid_s): Whitespace clean up.
+
+2004-06-08  Benoît Dejean  <tazforever@dlfp.org>
+
 	* glibtop_server.h: Small clean up.
 
 2004-06-07  Benoît Dejean  <tazforever@dlfp.org>

@@ -51,7 +51,7 @@ void
 glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 {
 	char buffer [BUFSIZ], *p;
-	
+
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_UID, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_uid));
@@ -104,7 +104,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	buf->tpgid   = strtol (p, &p, 0);
 
 	p = skip_multiple_token (p, 9);
-	
+
 	buf->priority = strtol (p, &p, 0);
 	buf->nice     = strtol (p, &p, 0);
 
@@ -120,6 +120,6 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	if (server->os_version_code < LINUX_VERSION(1,1,30) && buf->tty != -1)
 		/* when tty wasn't full devno */
 		buf->tty = 4*0x100 + buf->tty;
-	
+
 	buf->flags |= _glibtop_sysdeps_proc_uid_stat;
 }
