@@ -1,13 +1,13 @@
 # Swedish translation for libgtop.
 # Copyright (C) 1999 Free Software Foundation, Inc.
 # Tomas Ögren <stric@ing.umu.se>, 1999.
-#
+# Andreas Hyden <a.hyden@cyberpoint.se>
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.0\n"
-"POT-Creation-Date: 2000-02-23 00:23+0100\n"
+"POT-Creation-Date: 2000-04-20 23:40+0200\n"
 "PO-Revision-Date: 1999-06-22 22:42+0200\n"
-"Last-Translator: Tomas Ögren <stric@ing.umu.se>\n"
+"Last-Translator: Andreas Hyden  <a.hyden@cyberpoint.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso8859-1\n"
@@ -1054,7 +1054,7 @@ msgstr "Nätverkslast"
 
 #: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
 msgid "Interface Names"
-msgstr ""
+msgstr "Gränssnitt namn"
 
 #: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
 msgid "PPP Statistics"
@@ -1162,44 +1162,43 @@ msgstr "%s: flaggan `-W %s' tillåter inga argument\n"
 
 #: lib/errors.c:31
 msgid "No error"
-msgstr ""
+msgstr "Inget fel"
 
 #: lib/errors.c:32
-#, fuzzy
 msgid "Unknown error"
-msgstr "Okänt systemfel"
+msgstr "Okänt fel"
 
 #: lib/errors.c:33
 msgid "Invalid argument"
-msgstr ""
+msgstr "Ogiltigt argument"
 
 #: lib/errors.c:34
 msgid "No such parameter"
-msgstr ""
+msgstr "Det finns ingen sådan parameter"
 
 #: lib/errors.c:35
 msgid "Attempted to modify a read-only value"
-msgstr ""
+msgstr "Försökte att modifiera ett skrivskyddat värde"
 
 #: lib/errors.c:36
 msgid "Parameter size mismatch"
-msgstr ""
+msgstr "Parameterstorlek matchar inte"
 
 #: lib/errors.c:37
 msgid "Communication with LibGTop server failed"
-msgstr ""
+msgstr "Kommunikation med LibGTop server misslyckades"
 
 #: lib/errors.c:38
 msgid "No such process"
-msgstr ""
+msgstr "Det finns ingen sådan process"
 
 #: lib/errors.c:39
 msgid "No kernel support"
-msgstr ""
+msgstr "Ingen kernel support"
 
 #: lib/errors.c:40
 msgid "Incompatible kernel version"
-msgstr ""
+msgstr "Ej kompatibel kernelversion"
 
 #~ msgid "read %d bytes"
 #~ msgstr "läsa %d tecken"
