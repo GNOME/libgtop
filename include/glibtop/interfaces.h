@@ -151,17 +151,17 @@ enum _glibtop_interface_flags {
 
 struct _glibtop_ifaddr
 {
-    u_int64_t	flags,
+    guint64	flags,
 	transport;			/* GLIBTOP_IFADDR_TRANSPORT	*/
     u_int8_t	addr_len,		/* GLIBTOP_IFADDR_ADDR_LEN	*/
 	address [GLIBTOP_IFADDR_LEN];	/* GLIBTOP_IFADDR_ADDRESS	*/
-    u_int64_t	subnet,			/* GLIBTOP_IFADDR_SUBNET	*/
+    guint64	subnet,			/* GLIBTOP_IFADDR_SUBNET	*/
 	scope;				/* GLIBTOP_IFADDR_SCOPE	*/
 };
 
 struct _glibtop_interface
 {
-    u_int64_t	flags,
+    guint64	flags,
 	if_flags,		/* GLIBTOP_INTERFACE_IF_FLAGS		*/
 	transport,		/* GLIBTOP_INTERFACE_TRANSPORT		*/
 	type,			/* GLIBTOP_INTERFACE_TYPE		*/
@@ -177,14 +177,14 @@ struct _glibtop_interface
 #define glibtop_get_interface_names_r	glibtop_get_interface_names_s
 #endif
 
-glibtop_interface *glibtop_get_interface_names_l (glibtop_client *client, glibtop_array *array, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
+glibtop_interface *glibtop_get_interface_names_l (glibtop_client *client, glibtop_array *array, guint64 interface, guint64 number, guint64 instance, guint64 strategy);
 
 #if GLIBTOP_SUID_INTERFACE_NAMES
 int glibtop_init_interface_names_p (glibtop_server *server, glibtop_closure *closure);
-glibtop_interface *glibtop_get_interface_names_p (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
+glibtop_interface *glibtop_get_interface_names_p (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, guint64 interface, guint64 number, guint64 instance, guint64 strategy);
 #else
 int glibtop_init_interface_names_s (glibtop_server *server, glibtop_closure *closure);
-glibtop_interface *glibtop_get_interface_names_s (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
+glibtop_interface *glibtop_get_interface_names_s (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, guint64 interface, guint64 number, guint64 instance, guint64 strategy);
 #endif
 
 #ifdef GLIBTOP_NAMES

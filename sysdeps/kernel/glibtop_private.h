@@ -48,7 +48,7 @@ glibtop_get_proc_data_swap_s (glibtop *server, libgtop_swap_t *swap);
 int
 glibtop_get_proc_data_proclist_s (glibtop *server,
 				  libgtop_proclist_t *proclist,
-				  u_int64_t which, u_int64_t arg);
+				  guint64 which, guint64 arg);
 
 int
 glibtop_get_proc_data_proc_state_s (glibtop *server,

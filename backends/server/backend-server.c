@@ -26,7 +26,7 @@
 #include <backend-server.h>
 
 static int
-_open_server (glibtop_server *, glibtop_backend *, u_int64_t, const char **);
+_open_server (glibtop_server *, glibtop_backend *, guint64, const char **);
 
 static int
 _close_server (glibtop_server *, glibtop_backend *, void *);
@@ -47,7 +47,7 @@ glibtop_backend_info LibGTopBackendInfo_Server = {
 
 static int
 _open_server (glibtop_server *server, glibtop_backend *backend,
-	      u_int64_t features, const char **backend_args)
+	      guint64 features, const char **backend_args)
 {
     backend_server_private *priv;
 

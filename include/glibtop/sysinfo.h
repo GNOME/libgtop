@@ -49,7 +49,7 @@ struct _glibtop_entry
 
 struct _glibtop_sysinfo
 {
-	u_int64_t	flags, ncpu;
+	guint64	flags, ncpu;
 	glibtop_entry	cpuinfo [GLIBTOP_NCPU];
 };
 

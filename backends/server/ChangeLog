@@ -1,5 +1,11 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* backend-server.c: (_open_server):
+	* backend-server.h:
+	* command.h.in: s/u_int64_t/guint64/
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* backend-server.h:
 	* command.h.in:
 	* demarshal.pl:

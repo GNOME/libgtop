@@ -41,7 +41,7 @@ typedef struct _glibtop_fsusage		glibtop_fsusage;
 
 struct _glibtop_fsusage
 {
-	u_int64_t	flags,
+	guint64	flags,
 		blocks,		/* Total blocks. */
 		bfree,		/* Free blocks available to superuser. */
 		bavail,		/* Free blocks available to non-superuser. */

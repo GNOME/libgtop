@@ -69,7 +69,7 @@ enum {
 
 struct _glibtop_netload
 {
-	u_int64_t	flags,
+	guint64	flags,
 		if_flags,		/* GLIBTOP_NETLOAD_IF_FLAGS	*/
 		mtu,			/* GLIBTOP_NETLOAD_MTU		*/
 		subnet,			/* GLIBTOP_NETLOAD_SUBNET	*/

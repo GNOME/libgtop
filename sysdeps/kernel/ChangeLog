@@ -1,5 +1,9 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* glibtop_private.h: s/u_int64_t/guint64/
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* glibtop_private.h:
 	* glibtop_server.h:
 	* kernel.h:

@@ -37,7 +37,7 @@ typedef struct _glibtop_proc_args	glibtop_proc_args;
 
 struct _glibtop_proc_args
 {
-	u_int64_t	flags,
+	guint64	flags,
 		size;			/* GLIBTOP_PROC_ARGS_SIZE	*/
 };
 

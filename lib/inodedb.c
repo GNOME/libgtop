@@ -79,7 +79,7 @@ glibtop_inodedb_open_s (glibtop *server, unsigned databases,
 const char *
 glibtop_inodedb_lookup_s (glibtop *server,
 			  glibtop_inodedb *inodedb,
-			  u_int64_t device, u_int64_t inode)
+			  guint64 device, guint64 inode)
 {
 	glibtop_inodedb_key key;
 	datum d_key, d_content;

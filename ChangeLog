@@ -1,5 +1,50 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* acconfig.h:
+	* acinclude.m4:
+	* include/glibtop/array.h:
+	* include/glibtop/command.h:
+	* include/glibtop/cpu.h:
+	* include/glibtop/fsusage.h:
+	* include/glibtop/glibtop-backend-info.h:
+	* include/glibtop/glibtop-backend.h:
+	* include/glibtop/glibtop-client.h:
+	* include/glibtop/inodedb.h:
+	* include/glibtop/interfaces.h:
+	* include/glibtop/limits.h:
+	* include/glibtop/loadavg.h:
+	* include/glibtop/mem.h:
+	* include/glibtop/mountlist.h:
+	* include/glibtop/msg_limits.h:
+	* include/glibtop/netinfo.h:
+	* include/glibtop/netload.h:
+	* include/glibtop/ppp.h:
+	* include/glibtop/procargs.h:
+	* include/glibtop/proccwd.h:
+	* include/glibtop/prockernel.h:
+	* include/glibtop/proclist.h:
+	* include/glibtop/procmap.h:
+	* include/glibtop/procmem.h:
+	* include/glibtop/procsegment.h:
+	* include/glibtop/procsignal.h:
+	* include/glibtop/procstate.h:
+	* include/glibtop/proctime.h:
+	* include/glibtop/procuid.h:
+	* include/glibtop/sem_limits.h:
+	* include/glibtop/shm_limits.h:
+	* include/glibtop/swap.h:
+	* include/glibtop/sysdeps.h:
+	* include/glibtop/sysinfo.h:
+	* include/glibtop/uptime.h:
+	* lib/glibtop-backend.c: (glibtop_backend_get):
+	* lib/glibtop-client.c: (glibtop_client_open_backend):
+	* lib/inodedb.c: (glibtop_inodedb_lookup_s):
+	* lib/lib.pl:
+	* src/inodedb/README.inodedb:
+	* src/inodedb/mkinodedb2.c: (main): s/u_int64_t/guint64/
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* Makefile.am: fix distchecking, release 2.5.0
 
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
@@ -929,7 +974,7 @@
 1998-10-20  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/proc_signal.h: Use a 2-element-array of
-	type `u_int64_t' for all signal masks instead of just
+	type `guint64' for all signal masks instead of just
 	scalar numbers. This avoids problems on systems with more
 	than 64 signals.
 
@@ -939,7 +984,7 @@
 
 	[NOTE for people porting libgtop:
 	
- 	 Please use all 64 bits of the `u_int64_t' and not just 32 - the
+ 	 Please use all 64 bits of the `guint64' and not just 32 - the
 	 signal number (as it is used in calls to kill () ...) should be
 	 a bit-index into this field; if a process ignores for instance
 	 signal 64, it has the 0-bit of sigcatch[1] set, if it ignores 63,
@@ -1280,14 +1325,14 @@
 
 1998-07-30  Martin Baulig  <martin@home-of-linux.org>
 
-	* acconfig.h (u_int64_t, int64_t): Added.
+	* acconfig.h (guint64, int64_t): Added.
 
 	* lib/lib.awk: Using correct `(1 << GLIBTOP_SYSDEPS_<feature>)'
 	in call to `glibtop_init_r'.
 
 	* configure.in (GNOME_LIBGTOP_TYPES): New check.
 
-	* include/glibtop/*.h: Using `u_int64_t' instead of `unsigned long'
+	* include/glibtop/*.h: Using `guint64' instead of `unsigned long'
 	and `long' to avoid problems when client is on a 32bit system and
 	the server on a 64bit system.
 

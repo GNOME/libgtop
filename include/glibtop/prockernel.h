@@ -47,8 +47,8 @@ typedef struct _glibtop_proc_kernel	glibtop_proc_kernel;
 
 struct _glibtop_proc_kernel
 {
-	u_int64_t flags;
-	u_int64_t k_flags,	/* kernel flags for the process */
+	guint64 flags;
+	guint64 k_flags,	/* kernel flags for the process */
 		min_flt,	/* number of minor page faults since
 				 * process start */
 		maj_flt,	/* number of major page faults since

@@ -192,26 +192,26 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	v_free_count = vmm.v_free_count;
 #endif
 
-	buf->total = (u_int64_t) pagetok (v_total_count) << LOG1024;
-	buf->used  = (u_int64_t) pagetok (v_used_count) << LOG1024;
-	buf->free  = (u_int64_t) pagetok (v_free_count) << LOG1024;
+	buf->total = (guint64) pagetok (v_total_count) << LOG1024;
+	buf->used  = (guint64) pagetok (v_used_count) << LOG1024;
+	buf->free  = (guint64) pagetok (v_free_count) << LOG1024;
 
 #ifdef __FreeBSD__
-	buf->cached = (u_int64_t) pagetok (vmm.v_cache_count) << LOG1024;
+	buf->cached = (guint64) pagetok (vmm.v_cache_count) << LOG1024;
 #endif
 
 #if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
-	buf->locked = (u_int64_t) pagetok (uvmexp.wired) << LOG1024;
+	buf->locked = (guint64) pagetok (uvmexp.wired) << LOG1024;
 #else
-	buf->locked = (u_int64_t) pagetok (vmm.v_wire_count) << LOG1024;
+	buf->locked = (guint64) pagetok (vmm.v_wire_count) << LOG1024;
 #endif
 
-	buf->shared = (u_int64_t) pagetok (vmt.t_rmshr) << LOG1024;
+	buf->shared = (guint64) pagetok (vmt.t_rmshr) << LOG1024;
 
 #if __FreeBSD__
-	buf->buffer = (u_int64_t) bufspace;
+	buf->buffer = (guint64) bufspace;
 #else
-	buf->buffer = (u_int64_t) pagetok (bufspace) << LOG1024;
+	buf->buffer = (guint64) pagetok (bufspace) << LOG1024;
 #endif
 
 	/* user */

@@ -46,7 +46,7 @@ typedef struct _glibtop_sem_limits	glibtop_sem_limits;
 
 struct _glibtop_sem_limits
 {
-	u_int64_t	flags,
+	guint64	flags,
 		semmap,		/* GLIBTOP_IPC_SEMMAP	*/
 		semmni,		/* GLIBTOP_IPC_SEMMNI	*/
 		semmns,		/* GLIBTOP_IPC_SEMMNS	*/

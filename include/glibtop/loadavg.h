@@ -40,9 +40,9 @@ typedef struct _glibtop_loadavg	glibtop_loadavg;
 
 struct _glibtop_loadavg
 {
-	u_int64_t flags;
+	guint64 flags;
 	double loadavg [3];		/* GLIBTOP_LOADAVG_LOADAVG	*/
-	u_int64_t nr_running,		/* GLIBTOP_LOADAVG_NR_RUNNING	*/
+	guint64 nr_running,		/* GLIBTOP_LOADAVG_NR_RUNNING	*/
 		nr_tasks,		/* GLIBTOP_LOADAVG_NR_TASKS	*/
 		last_pid;		/* GLIBTOP_LOADAVG_LAST_PID	*/
 };

@@ -1,5 +1,12 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* mem.c: (glibtop_get_mem_p):
+	* prockernel.c: (glibtop_get_proc_kernel_p):
+	* procmem.c: (glibtop_get_proc_mem_p):
+	* proctime.c: (glibtop_get_proc_time_p): s/u_int64_t/guint64/
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* swap.c: (glibtop_get_swap_p): fix swap sizes in FreeBSD,
 	patch by edwin@mavetju.org
 

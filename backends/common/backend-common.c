@@ -26,7 +26,7 @@
 #include <backend-common.h>
 
 static int
-_open_common (glibtop_server *, glibtop_backend *, u_int64_t, const char **);
+_open_common (glibtop_server *, glibtop_backend *, guint64, const char **);
 
 static int
 _close_common (glibtop_server *, glibtop_backend *, void *closure);
@@ -47,7 +47,7 @@ glibtop_backend_info LibGTopBackendInfo_Common = {
 
 static int
 _open_common (glibtop_server *server, glibtop_backend *backend,
-	      u_int64_t features, const char **backend_args)
+	      guint64 features, const char **backend_args)
 {
     return 0;
 }

@@ -37,7 +37,7 @@ typedef struct _backend_server_private backend_server_private;
 
 struct _backend_server_private
 {
-    u_int64_t flags;
+    guint64 flags;
     int input [2];		/* Pipe client <- server */
     int output [2];		/* Pipe client -> server */
     pid_t pid;			/* PID of the server */

@@ -55,7 +55,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
 	char buffer [BUFSIZ], *p;
 	int fd, len, i;
-	u_int64_t total;
+	guint64 total;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 

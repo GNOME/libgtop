@@ -1,5 +1,9 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* backend-sysdeps.c: (_open_sysdeps): s/u_int64_t/guint64/
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* backend-sysdeps.h: fixed compilation
 
 2000-11-26  Martin Baulig  <martin@home-of-linux.org>

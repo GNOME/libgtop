@@ -45,7 +45,7 @@ enum {
 
 struct _glibtop_ppp
 {
-	u_int64_t	flags,
+	guint64	flags,
 		state,			/* GLIBTOP_PPP_STATE		*/
 		bytes_in,		/* GLIBTOP_PPP_BYTES_IN		*/
 		bytes_out;		/* GLIBTOP_PPP_BYTES_OUT	*/

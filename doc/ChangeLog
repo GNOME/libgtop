@@ -1,5 +1,9 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* reference.texi: s/u_int64_t/guint64/
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* Makefile.am: removed traces of guile, intllibs and libgnomesupport
 
 2002-03-12  James Henstridge  <james@daa.com.au>

@@ -39,7 +39,7 @@ static const unsigned long _glibtop_sysdeps_proc_time_user =
 (1L << GLIBTOP_PROC_TIME_CUTIME) + (1L << GLIBTOP_PROC_TIME_CSTIME) +
 (1L << GLIBTOP_PROC_TIME_START_TIME);
 
-#define tv2sec(tv)	(((u_int64_t) tv.tv_sec * 1000000) + (u_int64_t) tv.tv_usec)
+#define tv2sec(tv)	(((guint64) tv.tv_sec * 1000000) + (guint64) tv.tv_usec)
 
 /* Init function. */
 
@@ -83,7 +83,7 @@ calcru(p, up, sp, ip)
 
 #if (defined __FreeBSD__) && (__FreeBSD_version >= 300003)
 
-	/* This was changed from a `struct timeval' into a `u_int64_t'
+	/* This was changed from a `struct timeval' into a `guint64'
 	 * on FreeBSD 3.0 and renamed p_rtime -> p_runtime.
 	 */
 
@@ -188,7 +188,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	buf->cutime = tv2sec (pstats.p_cru.ru_utime);
 	buf->cstime = tv2sec (pstats.p_cru.ru_stime);
 
-	buf->start_time = (u_int64_t) pstats.p_start.tv_sec;
+	buf->start_time = (guint64) pstats.p_start.tv_sec;
 
 	buf->flags |= _glibtop_sysdeps_proc_time_user;
 #else

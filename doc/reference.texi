@@ -50,7 +50,7 @@ typedef struct _glibtop_cpu     glibtop_cpu;
 
 struct _glibtop_cpu
 @{
-    u_int64_t   flags,
+    guint64   flags,
         total,
         user,
         nice,
@@ -139,7 +139,7 @@ typedef struct _glibtop_mem     glibtop_mem;
 
 struct _glibtop_mem
 @{
-    u_int64_t   flags,
+    guint64   flags,
         total,
         used,
         free,
@@ -207,7 +207,7 @@ typedef struct _glibtop_swap    glibtop_swap;
 
 struct _glibtop_swap
 @{
-    u_int64_t   flags,
+    guint64   flags,
         total,
         used,
         free,
@@ -266,10 +266,10 @@ typedef struct _glibtop_uptime  glibtop_uptime;
 
 struct _glibtop_uptime
 @{
-    u_int64_t flags;
+    guint64 flags;
     double uptime,
         idletime;
-    u_int64_t boot_time;
+    guint64 boot_time;
 @};
 @end cartouche
 @end example
@@ -318,9 +318,9 @@ typedef struct _glibtop_loadavg glibtop_loadavg;
 
 struct _glibtop_loadavg
 @{
-    u_int64_t flags;
+    guint64 flags;
     double loadavg [3];
-    u_int64_t nr_running,
+    guint64 nr_running,
         nr_tasks,
         last_pid;
 @};
@@ -395,7 +395,7 @@ typedef struct _glibtop_proclist        glibtop_proclist;
 
 struct _glibtop_proclist
 @{
-    u_int64_t   flags,
+    guint64   flags,
         number,
         total,
         size;
@@ -492,7 +492,7 @@ typedef struct _glibtop_proc_state      glibtop_proc_state;
 
 struct _glibtop_proc_state
 @{
-    u_int64_t flags;
+    guint64 flags;
     char cmd[40];
 @ifset LIBGTOP-1-1
     unsigned state;
@@ -618,7 +618,7 @@ typedef struct _glibtop_proc_uid        glibtop_proc_uid;
 
 struct _glibtop_proc_uid
 @{
-    u_int64_t flags;
+    guint64 flags;
     int uid,
         euid,
         gid,
@@ -698,7 +698,7 @@ typedef struct _glibtop_proc_mem        glibtop_proc_mem;
 
 struct _glibtop_proc_mem
 @{
-    u_int64_t   flags,
+    guint64   flags,
         size,
         vsize,
         resident,
@@ -813,7 +813,7 @@ typedef struct _glibtop_proc_time       glibtop_proc_time;
 
 struct _glibtop_proc_time
 @{
-    u_int64_t   flags,
+    guint64   flags,
         start_time,
         rtime,
         utime,
@@ -881,7 +881,7 @@ typedef struct _glibtop_proc_signal     glibtop_proc_signal;
 
 struct _glibtop_proc_signal
 @{
-    u_int64_t   flags,
+    guint64   flags,
         signal [2],
         blocked [2],
         sigignore [2],
@@ -902,7 +902,7 @@ Mask of caught signals
 @end table
 
 All signal masks are interpreted as bit mask; it is an array of two
-@code{u_int64_t}'s so we can save 128 signals there.
+@code{guint64}'s so we can save 128 signals there.
 
 @page
 @node glibtop_proc_kernel, glibtop_proc_segment, glibtop_proc_signal, System Dependent
@@ -929,8 +929,8 @@ typedef struct _glibtop_proc_kernel     glibtop_proc_kernel;
 
 struct _glibtop_proc_kernel
 @{
-    u_int64_t flags;
-    u_int64_t k_flags,
+    guint64 flags;
+    guint64 k_flags,
         min_flt,
         maj_flt,
         cmin_flt,
@@ -1029,7 +1029,7 @@ typedef struct _glibtop_proc_segment    glibtop_proc_segment;
 
 struct _glibtop_proc_segment
 @{
-    u_int64_t   flags,
+    guint64   flags,
         text_rss,
         shlib_rss,
         data_rss,
@@ -1096,7 +1096,7 @@ typedef struct _glibtop_proc_args       glibtop_proc_args;
 
 struct _glibtop_proc_args
 @{
-    u_int64_t   flags,
+    guint64   flags,
         size;
 @};
 @end cartouche
@@ -1135,7 +1135,7 @@ typedef struct _glibtop_proc_map        glibtop_proc_map;
 
 struct _glibtop_proc_map
 @{
-    u_int64_t   flags,
+    guint64   flags,
         number,
         total,
         size;
@@ -1164,7 +1164,7 @@ typedef struct _glibtop_map_entry       glibtop_map_entry;
 
 struct _glibtop_map_entry
 @{
-    u_int64_t flags, start, end, offset, perm, inode, device;
+    guint64 flags, start, end, offset, perm, inode, device;
     char filename [GLIBTOP_MAP_FILENAME_LEN+1];
 @};
 @end cartouche
@@ -1222,7 +1222,7 @@ typedef struct _glibtop_netload glibtop_netload;
 
 struct _glibtop_netload
 @{
-    u_int64_t   flags,
+    guint64   flags,
         if_flags,
         mtu,
         subnet,
@@ -1329,7 +1329,7 @@ typedef struct _glibtop_ppp     glibtop_ppp;
 
 struct _glibtop_ppp
 @{
-    u_int64_t   flags,
+    guint64   flags,
         state,
         bytes_in,
         bytes_out;
@@ -1409,7 +1409,7 @@ typedef struct _glibtop_mountlist       glibtop_mountlist;
 
 struct _glibtop_mountlist
 @{
-    u_int64_t   flags,
+    guint64   flags,
         number,
         total,
         size;
@@ -1438,7 +1438,7 @@ typedef struct _glibtop_mountentry      glibtop_mountentry;
 
 struct _glibtop_mountentry
 @{
-    u_int64_t dev;
+    guint64 dev;
     char devname [GLIBTOP_MOUNTENTRY_LEN+1];
     char mountdir [GLIBTOP_MOUNTENTRY_LEN+1];
     char type [GLIBTOP_MOUNTENTRY_LEN+1];
@@ -1488,7 +1488,7 @@ typedef struct _glibtop_fsusage         glibtop_fsusage;
 
 struct _glibtop_fsusage
 @{
-    u_int64_t   flags,
+    guint64   flags,
         blocks,
         bfree,
         bavail,
@@ -1639,7 +1639,7 @@ typedef struct _glibtop_sysdeps         glibtop_sysdeps;
 
 struct _glibtop_sysdeps
 @{
-    u_int64_t flags,
+    guint64 flags,
         features,
         pointer_size,
         cpu,

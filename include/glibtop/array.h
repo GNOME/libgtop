@@ -41,7 +41,7 @@ typedef struct _glibtop_array	glibtop_array;
 
 struct _glibtop_array
 {
-    u_int64_t flags,
+    guint64 flags,
 	number,		/* GLIBTOP_ARRAY_NUMBER	*/
 	size,		/* GLIBTOP_ARRAY_SIZE	*/
 	total;		/* GLIBTOP_ARRAY_TOTAL	*/

@@ -58,10 +58,10 @@ To look up an entry, use the `glibtop_inodedb_lookup ()' function:
 
 const char *
 glibtop_inodedb_lookup (glibtop_inodedb *inodedb,
-			u_int64_t device, u_int64_t inode)
+			guint64 device, guint64 inode)
 const char *
 glibtop_inodedb_lookup_s (glibtop *server, glibtop_inodedb *inodedb,
-			  u_int64_t device, u_int64_t inode)
+			  guint64 device, guint64 inode)
 
 It will either return a pointer to the filename - which you have to
 `g_free ()' once done with it - or NULL on error.

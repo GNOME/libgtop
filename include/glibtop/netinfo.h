@@ -45,7 +45,7 @@ typedef struct _glibtop_netinfo	glibtop_netinfo;
 
 struct _glibtop_netinfo
 {
-    u_int64_t	flags,
+    guint64	flags,
 	if_flags,			/* GLIBTOP_NETINFO_IF_FLAGS	*/
 	transport,			/* GLIBTOP_NETINFO_TRANSPORT	*/
 	mtu;				/* GLIBTOP_NETINFO_MTU		*/
@@ -57,14 +57,14 @@ struct _glibtop_netinfo
 #define glibtop_get_netinfo_r		glibtop_get_netinfo_s
 #endif
 
-glibtop_ifaddr *glibtop_get_netinfo_l (glibtop_client *client, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
+glibtop_ifaddr *glibtop_get_netinfo_l (glibtop_client *client, glibtop_array *array, glibtop_netinfo *buf, const char *interface, guint64 transport);
 
 #if GLIBTOP_SUID_NETINFO
 int glibtop_init_netinfo_p (glibtop_server *server, glibtop_closure *closure);
-glibtop_ifaddr *glibtop_get_netinfo_p (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
+glibtop_ifaddr *glibtop_get_netinfo_p (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, glibtop_netinfo *buf, const char *interface, guint64 transport);
 #else
 int glibtop_init_netinfo_s (glibtop_server *server, glibtop_closure *closure);
-glibtop_ifaddr *glibtop_get_netinfo_s (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
+glibtop_ifaddr *glibtop_get_netinfo_s (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, glibtop_netinfo *buf, const char *interface, guint64 transport);
 #endif
 
 #ifdef GLIBTOP_NAMES

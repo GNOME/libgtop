@@ -41,7 +41,7 @@ typedef struct _glibtop_mountlist	glibtop_mountlist;
 
 struct _glibtop_mountentry
 {
-	u_int64_t dev;
+	guint64 dev;
 	char devname [GLIBTOP_MOUNTENTRY_LEN+1];
 	char mountdir [GLIBTOP_MOUNTENTRY_LEN+1];
 	char type [GLIBTOP_MOUNTENTRY_LEN+1];
@@ -49,7 +49,7 @@ struct _glibtop_mountentry
 
 struct _glibtop_mountlist
 {
-	u_int64_t	flags,
+	guint64	flags,
 		number,			/* GLIBTOP_MOUNTLIST_NUMBER	*/
 		total,			/* GLIBTOP_MOUNTLIST_TOTAL	*/
 		size;			/* GLIBTOP_MOUNTLIST_SIZE	*/

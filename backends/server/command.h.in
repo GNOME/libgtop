@@ -42,8 +42,8 @@ typedef struct _glibtop_response	glibtop_response;
 
 struct _glibtop_command
 {
-    u_int64_t	command;
-    u_int64_t	param_size, send_size, data_size;
+    guint64	command;
+    guint64	param_size, send_size, data_size;
     char	parameter [_GLIBTOP_PARAM_SIZE];
 };
 
@@ -51,7 +51,7 @@ struct _glibtop_response
 {
     int retval;
     int glibtop_errno;
-    u_int64_t recv_size, data_size;
+    guint64 recv_size, data_size;
 };
 
 G_END_DECLS

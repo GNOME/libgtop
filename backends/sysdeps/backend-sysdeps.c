@@ -26,7 +26,7 @@
 #include <backend-sysdeps.h>
 
 static int
-_open_sysdeps (glibtop_server *, glibtop_backend *, u_int64_t, const char **);
+_open_sysdeps (glibtop_server *, glibtop_backend *, guint64, const char **);
 
 static int
 _close_sysdeps (glibtop_server *, glibtop_backend *, void *);
@@ -47,7 +47,7 @@ glibtop_backend_info LibGTopBackendInfo_Sysdeps = {
 
 static int
 _open_sysdeps (glibtop_server *server, glibtop_backend *backend,
-	       u_int64_t features, const char **backend_args)
+	       guint64 features, const char **backend_args)
 {
     glibtop_init_func_t *init_fkt;
 

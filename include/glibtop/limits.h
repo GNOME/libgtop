@@ -45,8 +45,8 @@ G_BEGIN_DECLS
 /* Length of a network interface address in bytes. */
 #define GLIBTOP_IFADDR_LEN	16
 
-/* This is ((u_int64_t)-1) */
-#define GLIBTOP_UNLIMITED	(~(u_int64_t)0)
+/* This is ((guint64)-1) */
+#define GLIBTOP_UNLIMITED	(~(guint64)0)
 
 /* Maximum length of a backend name. */
 #define GLIBTOP_BACKEND_NAME_LEN	40

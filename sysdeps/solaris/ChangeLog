@@ -1,5 +1,10 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* mem.c: (glibtop_get_mem_s):
+	* swap.c: (glibtop_get_swap_s): s/u_int64_t/guint64/
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* glibtop_machine.h:
 	* glibtop_private.h:
 	* glibtop_server.h:

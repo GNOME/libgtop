@@ -144,15 +144,15 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 		return;
 	}
 
-	buf->rss_rlim = (u_int64_t) 
+	buf->rss_rlim = (guint64) 
 		(plimit.pl_rlimit [RLIMIT_RSS].rlim_cur);
 	
 	vms = &pinfo [0].kp_eproc.e_vm;
 
-	buf->vsize = buf->size = (u_int64_t) pagetok
+	buf->vsize = buf->size = (guint64) pagetok
 		(vms->vm_tsize + vms->vm_dsize + vms->vm_ssize) << LOG1024;
 	
-	buf->resident = buf->rss = (u_int64_t) pagetok
+	buf->resident = buf->rss = (guint64) pagetok
 		(vms->vm_rssize) << LOG1024;
 
 	/* Now we get the shared memory. */

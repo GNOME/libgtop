@@ -65,7 +65,7 @@ GType
 glibtop_backend_get_type (void);
 
 glibtop_backend *
-glibtop_backend_get (const char *backend_name, u_int64_t features,
+glibtop_backend_get (const char *backend_name, guint64 features,
 		     const char **backend_args, GError **error);
 
 void

@@ -1,5 +1,10 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* cpu.c: (glibtop_get_cpu_s):
+	* procmap.c: (glibtop_get_proc_map_s): s/u_int64_t/guint64/
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* glibtop_machine.h:
 	* glibtop_server.h:
 	* ppp.c:

@@ -43,7 +43,7 @@ typedef struct _glibtop_msg_limits	glibtop_msg_limits;
 
 struct _glibtop_msg_limits
 {
-	u_int64_t	flags,
+	guint64	flags,
 		msgpool,	/* GLIBTOP_IPC_MSGPOOL	*/
 		msgmap,		/* GLIBTOP_IPC_MSGMAP	*/
 		msgmax,		/* GLIBTOP_IPC_MSGMAX	*/

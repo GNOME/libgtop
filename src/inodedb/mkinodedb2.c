@@ -75,8 +75,8 @@ main (int argc, char *argv [])
 			d_content.dptr = dirname;
 			d_content.dsize = strlen (dirname) + 1;
 			
-			key.device = (u_int64_t) statb.st_dev;
-			key.inode = (u_int64_t) statb.st_ino;
+			key.device = (guint64) statb.st_dev;
+			key.inode = (guint64) statb.st_ino;
 			
 			if (gdbm_store (dbf, d_key, d_content, GDBM_REPLACE))
 				glibtop_error_io ("gdbm_store (%s)", dirname);
@@ -113,8 +113,8 @@ main (int argc, char *argv [])
 			d_content.dptr = filename;
 			d_content.dsize = strlen (filename) + 1;
 			
-			key.device = (u_int64_t) statb.st_dev;
-			key.inode = (u_int64_t) statb.st_ino;
+			key.device = (guint64) statb.st_dev;
+			key.inode = (guint64) statb.st_ino;
 			
 			if (gdbm_store (dbf, d_key, d_content, GDBM_REPLACE))
 				glibtop_error_io ("gdbm_store (%s)", filename);

@@ -66,7 +66,7 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 	
 	/* pending signals */
 
-#define NB_BITS	(8 * sizeof(u_int64_t))
+#define NB_BITS	(8 * sizeof(guint64))
 
 	for (i = 0; (i < NSIG) && (i < 2 * NB_BITS); i++)
 	{

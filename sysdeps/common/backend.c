@@ -33,7 +33,7 @@
 
 static int
 _open_common (glibtop_server *server, glibtop_backend *backend,
-	      u_int64_t features, const char **backend_args)
+	      guint64 features, const char **backend_args)
 {
     return 0;
 }

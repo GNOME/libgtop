@@ -18,10 +18,10 @@
 /* Space usage statistics for a filesystem.  Blocks are 512-byte. */
 struct fs_usage
 {
-    u_int64_t fsu_blocks;	/* Total blocks. */
-    u_int64_t fsu_bfree;	/* Free blocks available to superuser. */
-    u_int64_t fsu_bavail;	/* Free blocks available to non-superuser. */
-    u_int64_t fsu_files;	/* Total file nodes. */
-    u_int64_t fsu_ffree;	/* Free file nodes. */
+    guint64 fsu_blocks;	/* Total blocks. */
+    guint64 fsu_bfree;	/* Free blocks available to superuser. */
+    guint64 fsu_bavail;	/* Free blocks available to non-superuser. */
+    guint64 fsu_files;	/* Total file nodes. */
+    guint64 fsu_ffree;	/* Free file nodes. */
 };
 

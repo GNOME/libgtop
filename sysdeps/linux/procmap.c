@@ -112,13 +112,13 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 
 		entry_list [n].flags = _glibtop_sysdeps_map_entry;
 
-		entry_list [n].start = (u_int64_t) start;
-		entry_list [n].end = (u_int64_t) end;
-		entry_list [n].offset = (u_int64_t) offset;
-		entry_list [n].perm = (u_int64_t) perm;
-		entry_list [n].device = (u_int64_t) (dev_major << 8) +
-			(u_int64_t) dev_minor;
-		entry_list [n].inode = (u_int64_t) inode;
+		entry_list [n].start = (guint64) start;
+		entry_list [n].end = (guint64) end;
+		entry_list [n].offset = (guint64) offset;
+		entry_list [n].perm = (guint64) perm;
+		entry_list [n].device = (guint64) (dev_major << 8) +
+			(guint64) dev_minor;
+		entry_list [n].inode = (guint64) inode;
 
 		strncpy (entry_list [n].filename, fn, GLIBTOP_MAP_FILENAME_LEN);
 		entry_list [n].filename [GLIBTOP_MAP_FILENAME_LEN] = 0;

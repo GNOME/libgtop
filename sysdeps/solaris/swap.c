@@ -49,7 +49,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
     kstat_ctl_t *kc = server->machine.kc;
     kstat_t *ksp = server->machine.vminfo_kstat;
-    u_int64_t swap_resv, swap_alloc, swap_avail, swap_free;
+    guint64 swap_resv, swap_alloc, swap_avail, swap_free;
     vminfo_t vminfo;
     double rate;
     kid_t ret;

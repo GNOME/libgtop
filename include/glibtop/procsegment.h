@@ -46,7 +46,7 @@ typedef struct _glibtop_proc_segment	glibtop_proc_segment;
 
 struct _glibtop_proc_segment
 {
-	u_int64_t	flags,
+	guint64	flags,
 		text_rss,	/* text resident set size */
 		shlib_rss,	/* shared-lib resident set size */
 		data_rss,	/* data resident set size */

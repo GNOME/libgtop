@@ -50,7 +50,7 @@ my $c_demarshal_func = sub {
 #
 
 $typeinfo = {'long'	=> ['int64_t',		0],
-	     'ulong'	=> ['u_int64_t',	0],
+	     'ulong'	=> ['guint64',	0],
 	     'pid_t'	=> ['pid_t',		0],
 	     'int'	=> ['int',		0],
 	     'retval'	=> ['int',		0],

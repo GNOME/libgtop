@@ -1,3 +1,7 @@
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
+	* c_types.pl: s/u_int64_t/guint64/
+
 2000-01-02  Martin Baulig  <martin@home-of-linux.org>
 
 	* c_types.pl ($demarshal_funcs): New variable.

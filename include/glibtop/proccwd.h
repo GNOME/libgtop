@@ -45,7 +45,7 @@ typedef struct _glibtop_proc_cwd	glibtop_proc_cwd;
 
 struct _glibtop_proc_cwd
 {
-    u_int64_t	flags,
+    guint64	flags,
 	size,
 	device,
 	inode;

@@ -59,13 +59,13 @@ typedef struct _glibtop_proc_map	glibtop_proc_map;
 
 struct _glibtop_map_entry
 {
-	u_int64_t flags, start, end, offset, perm, inode, device;
+	guint64 flags, start, end, offset, perm, inode, device;
 	char filename [GLIBTOP_MAP_FILENAME_LEN+1];
 };
 
 struct _glibtop_proc_map
 {
-	u_int64_t	flags,
+	guint64	flags,
 		number,			/* GLIBTOP_PROC_MAP_NUMBER	*/
 		total,			/* GLIBTOP_PROC_MAP_TOTAL	*/
 		size;			/* GLIBTOP_PROC_MAP_SIZE	*/

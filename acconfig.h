@@ -126,7 +126,7 @@
 #undef HAVE_GUILE
 
 #undef ssize_t
-#undef u_int64_t
+#undef guint64
 #undef int64_t
 
 #undef HAVE_GLIBTOP_MACHINE_H

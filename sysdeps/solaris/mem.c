@@ -63,7 +63,7 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 
     memset (buf, 0, sizeof (glibtop_mem));
 
-    buf->total = (u_int64_t)sysconf(_SC_PHYS_PAGES) << pagesize << 10;
+    buf->total = (guint64)sysconf(_SC_PHYS_PAGES) << pagesize << 10;
     buf->flags = _glibtop_sysdeps_mem_os_sysconf;
 
     if(!kc)

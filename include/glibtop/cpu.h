@@ -51,7 +51,7 @@ typedef struct _glibtop_cpu	glibtop_cpu;
 
 struct _glibtop_cpu
 {
-	u_int64_t	flags,
+	guint64	flags,
 		total,				/* GLIBTOP_CPU_TOTAL		*/
 		user,				/* GLIBTOP_CPU_USER		*/
 		nice,				/* GLIBTOP_CPU_NICE		*/

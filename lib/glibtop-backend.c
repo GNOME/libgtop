@@ -146,7 +146,7 @@ load_extra_libs (glibtop_backend_entry *entry, GError **error)
 }
 
 glibtop_backend *
-glibtop_backend_get (const char *backend_name, u_int64_t features,
+glibtop_backend_get (const char *backend_name, guint64 features,
 		     const char **backend_args, GError **error)
 {
     const glibtop_backend_info *info;
