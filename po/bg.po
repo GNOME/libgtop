@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-24 12:33+0200\n"
-"PO-Revision-Date: 2005-01-24 12:33+0200\n"
+"POT-Creation-Date: 2005-01-27 12:05+0200\n"
+"PO-Revision-Date: 2005-01-26 10:48+0200\n"
 "Last-Translator: Rostislav Raykov <zbrox@i-space.org>\n"
 "Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
 "MIME-Version: 1.0\n"
@@ -33,8 +33,8 @@ msgstr "размер прочетени данни"
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "прочетен %lu байт от данните"
-msgstr[1] "прочетени %lu байта от данните"
+msgstr[0] "прочетен %d байт от данните"
+msgstr[1] "прочетени %d байта от данните"
 
 #: lib/write.c:51
 #, c-format
@@ -103,7 +103,7 @@ msgstr "Недопустима инструкция"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
-msgstr "Захваща трасировка"
+msgstr "Точка на прекъсване"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
@@ -115,11 +115,11 @@ msgstr "EMT грешка"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
-msgstr "'Изключение' на плаваща точка"
+msgstr "Изключение с плаваща запетая"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr "Убива"
+msgstr "Убиване"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
@@ -127,11 +127,11 @@ msgstr "Грешка в шината"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
-msgstr "Нарушена сегментация"
+msgstr "Сегментация"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr "Лош аргумент за системно повикване"
+msgstr "Грешен аргумент на системно извикване"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
@@ -139,7 +139,7 @@ msgstr "Нарушен програмен канал"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
-msgstr "Часовник на аларма"
+msgstr "Алармен часовник"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
@@ -155,7 +155,7 @@ msgstr "Стоп"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr "Стоп на клавиатура"
+msgstr "Стоп от клавиатурата"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
@@ -163,7 +163,7 @@ msgstr "Продължаване"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
-msgstr "Статуса на потомството е променено"
+msgstr "Промяна в състоянието на дъщерни процеси"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
@@ -175,15 +175,15 @@ msgstr "Фонов запис в tty"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr "I/O не е възможно"
+msgstr "I/O сега е възможно"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
-msgstr "Надхвърлен лимит на CPU"
+msgstr "Превишено ограничение за CPU"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
-msgstr "Надхвърлен лимит за размер на файл"
+msgstr "Превишено ограничение за размер на файл"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
@@ -199,7 +199,7 @@ msgstr "Променяне размера на прозорец"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
-msgstr "Заявена информация"
+msgstr "Заявка за данни"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
