@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LibGTOP\n"
-"POT-Creation-Date: 2000-02-06 15:39+0100\n"
+"POT-Creation-Date: 2000-02-16 17:20+0100\n"
 "PO-Revision-Date: 1999-04-28 16:40-0300\n"
 "Last-Translator: Ricardo Soares Guimarães <ricardo@conectiva.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
