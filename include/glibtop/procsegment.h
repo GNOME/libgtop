@@ -56,7 +56,18 @@ struct _glibtop_proc_segment
 
 #define glibtop_get_proc_segment(p1, p2)	glibtop_get_proc_segment__r(glibtop_global_server, p1, p2)
 
-extern void glibtop_get_proc_segment__r __P((glibtop *, glibtop_proc_segment *, pid_t));
+#if GLIBTOP_SUID_PROC_SEGMENT
+#define glibtop_get_proc_segment__r	glibtop_get_proc_segment__l
+#else
+#define glibtop_get_proc_segment__r	glibtop_get_proc_segment__s
+#endif
+
+#if GLIBTOP_SUID_PROC_SEGMENT
+extern void glibtop_get_proc_segment__l __P((glibtop *, glibtop_proc_segment *, pid_t));
+extern void glibtop_get_proc_segment__p __P((glibtop *, glibtop_proc_segment *, pid_t));
+#else
+extern void glibtop_get_proc_segment__s __P((glibtop *, glibtop_proc_segment *, pid_t));
+#endif
 
 #ifdef HAVE_GUILE
 

@@ -61,7 +61,18 @@ struct _glibtop_proc_time
 
 #define glibtop_get_proc_time(p1, p2)	glibtop_get_proc_time__r(glibtop_global_server, p1, p2)
 
-extern void glibtop_get_proc_time__r __P((glibtop *, glibtop_proc_time *, pid_t));
+#if GLIBTOP_SUID_PROC_TIME
+#define glibtop_get_proc_time__r	glibtop_get_proc_time__l
+#else
+#define glibtop_get_proc_time__r	glibtop_get_proc_time__s
+#endif
+
+#if GLIBTOP_SUID_PROC_TIME
+extern void glibtop_get_proc_time__l __P((glibtop *, glibtop_proc_time *, pid_t));
+extern void glibtop_get_proc_time__p __P((glibtop *, glibtop_proc_time *, pid_t));
+#else
+extern void glibtop_get_proc_time__s __P((glibtop *, glibtop_proc_time *, pid_t));
+#endif
 
 #ifdef HAVE_GUILE
 

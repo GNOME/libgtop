@@ -29,7 +29,8 @@ __BEGIN_DECLS
 
 #define glibtop_read(p1, p2)	glibtop_read(glibtop_global_server, p1, p2)
 
-extern void glibtop_read__r __P((glibtop *, size_t, void *));
+extern void glibtop_read__l __P((glibtop *, size_t, void *));
+extern void glibtop_read__s __P((glibtop *, size_t, void *));
 
 __END_DECLS
 

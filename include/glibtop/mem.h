@@ -55,7 +55,18 @@ struct _glibtop_mem
 
 #define glibtop_get_mem(mem)	glibtop_get_mem__r(glibtop_global_server, mem)
 
-extern void glibtop_get_mem__r __P((glibtop *, glibtop_mem *));
+#if GLIBTOP_SUID_MEM
+#define glibtop_get_mem__r		glibtop_get_mem__l
+#else
+#define glibtop_get_mem__r		glibtop_get_mem__s
+#endif
+
+#if GLIBTOP_SUID_MEM
+extern void glibtop_get_mem__l __P((glibtop *, glibtop_mem *));
+extern void glibtop_get_mem__p __P((glibtop *, glibtop_mem *));
+#else
+extern void glibtop_get_mem__s __P((glibtop *, glibtop_mem *));
+#endif
 
 #ifdef HAVE_GUILE
 

@@ -59,7 +59,18 @@ struct _glibtop_sem_limits
 
 #define glibtop_get_sem_limits(sem)	glibtop_get_sem_limits__r(glibtop_global_server, sem)
 
-extern void glibtop_get_sem_limits__r __P((glibtop *, glibtop_sem_limits *));
+#if GLIBTOP_SUID_SEM_LIMITS
+#define glibtop_get_sem_limits__r	glibtop_get_sem_limits__l
+#else
+#define glibtop_get_sem_limits__r	glibtop_get_sem_limits__s
+#endif
+
+#if GLIBTOP_SUID_SEM_LIMITS
+extern void glibtop_get_sem_limits__l __P((glibtop *, glibtop_sem_limits *));
+extern void glibtop_get_sem_limits__p __P((glibtop *, glibtop_sem_limits *));
+#else
+extern void glibtop_get_sem_limits__s __P((glibtop *, glibtop_sem_limits *));
+#endif
 
 #ifdef HAVE_GUILE
 

@@ -45,7 +45,18 @@ struct _glibtop_proclist
 
 #define glibtop_get_proclist(proclist)	glibtop_get_proclist__r(glibtop_global_server, proclist)
 
-extern unsigned *glibtop_get_proclist__r __P((glibtop *, glibtop_proclist *));
+#if GLIBTOP_SUID_PROCLIST
+#define glibtop_get_proclist__r		glibtop_get_proclist__l
+#else
+#define glibtop_get_proclist__r		glibtop_get_proclist__s
+#endif
+
+#if GLIBTOP_SUID_PROCLIST
+extern unsigned *glibtop_get_proclist__l __P((glibtop *, glibtop_proclist *));
+extern unsigned *glibtop_get_proclist__p __P((glibtop *, glibtop_proclist *));
+#else
+extern unsigned *glibtop_get_proclist__s __P((glibtop *, glibtop_proclist *));
+#endif
 
 #ifdef HAVE_GUILE
 

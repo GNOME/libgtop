@@ -43,7 +43,18 @@ struct _glibtop_uptime
 
 #define glibtop_get_uptime(uptime)	glibtop_get_uptime__r(glibtop_global_server, uptime)
 
-extern void glibtop_get_uptime__r __P((glibtop *, glibtop_uptime *));
+#if GLIBTOP_SUID_UPTIME
+#define glibtop_get_uptime__r		glibtop_get_uptime__l
+#else
+#define glibtop_get_uptime__r		glibtop_get_uptime__s
+#endif
+
+#if GLIBTOP_SUID_UPTIME
+extern void glibtop_get_uptime__l __P((glibtop *, glibtop_uptime *));
+extern void glibtop_get_uptime__p __P((glibtop *, glibtop_uptime *));
+#else
+extern void glibtop_get_uptime__s __P((glibtop *, glibtop_uptime *));
+#endif
 
 #ifdef HAVE_GUILE
 

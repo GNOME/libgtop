@@ -55,7 +55,18 @@ struct _glibtop_proc_mem
 
 #define glibtop_get_proc_mem(p1, p2)	glibtop_get_proc_mem__r(glibtop_global_server, p1, p2)
 
-extern void glibtop_get_proc_mem__r __P((glibtop *, glibtop_proc_mem *, pid_t));
+#if GLIBTOP_SUID_PROC_MEM
+#define glibtop_get_proc_mem__r		glibtop_get_proc_mem__l
+#else
+#define glibtop_get_proc_mem__r		glibtop_get_proc_mem__s
+#endif
+
+#if GLIBTOP_SUID_PROC_MEM
+extern void glibtop_get_proc_mem__l __P((glibtop *, glibtop_proc_mem *, pid_t));
+extern void glibtop_get_proc_mem__p __P((glibtop *, glibtop_proc_mem *, pid_t));
+#else
+extern void glibtop_get_proc_mem__s __P((glibtop *, glibtop_proc_mem *, pid_t));
+#endif
 
 #ifdef HAVE_GUILE
 

@@ -65,7 +65,18 @@ struct _glibtop_proc_uid
 
 #define glibtop_get_proc_uid(p1, p2)	glibtop_get_proc_uid__r(glibtop_global_server, p1, p2)
 
-extern void glibtop_get_proc_uid__r __P((glibtop *, glibtop_proc_uid *, pid_t));
+#if GLIBTOP_SUID_PROC_UID
+#define glibtop_get_proc_uid__r		glibtop_get_proc_uid__l
+#else
+#define glibtop_get_proc_uid__r		glibtop_get_proc_uid__s
+#endif
+
+#if GLIBTOP_SUID_PROC_UID
+extern void glibtop_get_proc_uid__l __P((glibtop *, glibtop_proc_uid *, pid_t));
+extern void glibtop_get_proc_uid__p __P((glibtop *, glibtop_proc_uid *, pid_t));
+#else
+extern void glibtop_get_proc_uid__s __P((glibtop *, glibtop_proc_uid *, pid_t));
+#endif
 
 #ifdef HAVE_GUILE
 

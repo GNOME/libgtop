@@ -51,7 +51,18 @@ struct _glibtop_cpu
 
 #define glibtop_get_cpu(cpu)	glibtop_get_cpu__r(glibtop_global_server, cpu)
 
-extern void glibtop_get_cpu__r __P((glibtop *, glibtop_cpu *));
+#if GLIBTOP_SUID_CPU
+#define glibtop_get_cpu__r	glibtop_get_cpu__l
+#else
+#define glibtop_get_cpu__r	glibtop_get_cpu__s
+#endif
+
+#if GLIBTOP_SUID_CPU
+extern void glibtop_get_cpu__l __P((glibtop *, glibtop_cpu *));
+extern void glibtop_get_cpu__p __P((glibtop *, glibtop_cpu *));
+#else
+extern void glibtop_get_cpu__s __P((glibtop *, glibtop_cpu *));
+#endif
 
 #ifdef HAVE_GUILE
 

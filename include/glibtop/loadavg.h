@@ -41,7 +41,18 @@ struct _glibtop_loadavg
 
 #define glibtop_get_loadavg(loadavg)	glibtop_get_loadavg__r(glibtop_global_server, loadavg)
 
-extern void glibtop_get_loadavg__r __P((glibtop *, glibtop_loadavg *));
+#if GLIBTOP_SUID_LOADAVG
+#define glibtop_get_loadavg__r		glibtop_get_loadavg__l
+#else
+#define glibtop_get_loadavg__r		glibtop_get_loadavg__s
+#endif
+
+#if GLIBTOP_SUID_LOADAVG
+extern void glibtop_get_loadavg__l __P((glibtop *, glibtop_loadavg *));
+extern void glibtop_get_loadavg__p __P((glibtop *, glibtop_loadavg *));
+#else
+extern void glibtop_get_loadavg__s __P((glibtop *, glibtop_loadavg *));
+#endif
 
 #ifdef HAVE_GUILE
 

@@ -60,7 +60,8 @@ struct _glibtop_command
 
 #define glibtop_call(p1, p2, p3, p4)	glibtop_call__r(glibtop_global_server, p1, p2, p3, p4)
 
-extern void *glibtop_call__r __P((glibtop *, unsigned, size_t, void *, size_t, void *));
+extern void *glibtop_call__l __P((glibtop *, unsigned, size_t, void *, size_t, void *));
+extern void *glibtop_call__s __P((glibtop *, unsigned, size_t, void *, size_t, void *));
 
 __END_DECLS
 

@@ -49,7 +49,18 @@ struct _glibtop_shm_limits
 
 #define glibtop_get_shm_limits(shm)	glibtop_get_shm_limits__r(glibtop_global_server, shm)
 
-extern void glibtop_get_shm_limits__r __P((glibtop *, glibtop_shm_limits *));
+#if GLIBTOP_SUID_SHM_LIMITS
+#define glibtop_get_shm_limits__r	glibtop_get_shm_limits__l
+#else
+#define glibtop_get_shm_limits__r	glibtop_get_shm_limits__s
+#endif
+
+#if GLIBTOP_SUID_SHM_LIMITS
+extern void glibtop_get_shm_limits__l __P((glibtop *, glibtop_shm_limits *));
+extern void glibtop_get_shm_limits__p __P((glibtop *, glibtop_shm_limits *));
+#else
+extern void glibtop_get_shm_limits__s __P((glibtop *, glibtop_shm_limits *));
+#endif
 
 #ifdef HAVE_GUILE
 

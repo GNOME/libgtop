@@ -56,7 +56,18 @@ struct _glibtop_proc_state
 
 #define glibtop_get_proc_state(p1, p2)	glibtop_get_proc_state__r(glibtop_global_server, p1, p2)
 
-extern void glibtop_get_proc_state__r __P((glibtop *, glibtop_proc_state *, pid_t));
+#if GLIBTOP_SUID_PROC_STATE
+#define glibtop_get_proc_state__r	glibtop_get_proc_state__l
+#else
+#define glibtop_get_proc_state__r	glibtop_get_proc_state__s
+#endif
+
+#if GLIBTOP_SUID_PROC_STATE
+extern void glibtop_get_proc_state__l __P((glibtop *, glibtop_proc_state *, pid_t));
+extern void glibtop_get_proc_state__p __P((glibtop *, glibtop_proc_state *, pid_t));
+#else
+extern void glibtop_get_proc_state__s __P((glibtop *, glibtop_proc_state *, pid_t));
+#endif
      
 #ifdef HAVE_GUILE
 
