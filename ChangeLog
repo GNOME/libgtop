@@ -1,6 +1,9 @@
-2000-02-15  Martin Baulig  <baulig@Stud.Informatik.Uni-Trier.DE>
+2000-02-16  Martin Baulig  <martin@home-of-linux.org>
 
-	* LIBGTOP-VERSION: Set version number to 1.1.2.1.
+	Released LibGTop 1.1.2.1 "Hardangervidda goes Paris".
+
+	* LIBGTOP-VERSION: Set version number to 1.1.2.1 and let the
+	tarball be called `libgtop-1.1.2.1-solaris.tar.gz'.
 
 2000-01-16  Martin Baulig  <martin@home-of-linux.org>
 
