@@ -15,10 +15,9 @@
 #include <stdlib.h>
 
 void
-G_GNUC_INTERNAL
 _glibtop_linux_get_fsusage_read_write(glibtop *server,
 				      glibtop_fsusage *buf,
-				      const char *path);
+				      const char *path) G_GNUC_INTERNAL;
 
 /*
  * Linux 2.6.x
