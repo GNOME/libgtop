@@ -1,3 +1,9 @@
+2003-01-31  James Henstridge  <james@daa.com.au>
+
+	* acinclude.m4 (GNOME_SUPPORT_CHECKS): use AC_LIBOBJ() to set
+	LIBOBJS variable, since newer autoconf's barf on direct access.
+	This also takes care of setting LTLIBOBJS for us.
+
 2003-01-29  Abel Cheung  <maddog@linux.org.hk>
 
 	* configure.in: Added ar to ALL_LINGUAS

@@ -477,8 +477,8 @@ fi
 
 if test -n "$list_mounted_fs" && test $space != no; then
 DF_PROG="df"
-# LIBOBJS="$LIBOBJS fsusage.o"
-# LIBOBJS="$LIBOBJS mountlist.o"
+# AC_LIBOBJ(fsusage)
+# AC_LIBOBJ(mountlist)
 fi
 
 # Check for SunOS statfs brokenness wrt partitions 2GB and larger.
@@ -517,10 +517,9 @@ AC_DEFUN([GNOME_SUPPORT_CHECKS],[
   # this should go away soon
   need_gnome_support=yes
 
-  save_LIBOBJS="$LIBOBJS"
-  LIBOBJS=
-
-  AC_CHECK_FUNCS(getopt_long,,LIBOBJS="$LIBOBJS getopt.o getopt1.o")
+  AC_CHECK_FUNCS(getopt_long,,
+   [AC_LIBOBJ(getopt)
+    AC_LIBOBJ(getopt1)])
 
   # for `scandir'
   AC_HEADER_DIRENT
@@ -545,7 +544,7 @@ AC_DEFUN([GNOME_SUPPORT_CHECKS],[
   AC_REPLACE_FUNCS(memmove mkstemp scandir strcasecmp strerror strndup strnlen)
   AC_REPLACE_FUNCS(strtok_r strtod strtol strtoul vasprintf vsnprintf)
 
-  AC_CHECK_FUNCS(realpath,,LIBOBJS="$LIBOBJS canonicalize.o")
+  AC_CHECK_FUNCS(realpath,,AC_LIBOBJ(canonicalize))
 
   # to include `error.c' error.c has some HAVE_* checks
   AC_CHECK_FUNCS(vprintf doprnt strerror_r)
@@ -555,9 +554,8 @@ AC_DEFUN([GNOME_SUPPORT_CHECKS],[
               am_cv_lib_error_at_line=yes,
               am_cv_lib_error_at_line=no)])
   if test $am_cv_lib_error_at_line = no; then
-   LIBOBJS="$LIBOBJS error.o"
+    AC_LIBOBJ(error)
   fi
-  AC_SUBST(LIBOBJS)dnl
   
   # This is required if we declare setreuid () and setregid ().
   AC_TYPE_UID_T
@@ -572,13 +570,8 @@ AC_DEFUN([GNOME_SUPPORT_CHECKS],[
 #endif
 ])
 
-  # Turn our LIBOBJS into libtool objects.  This is gross, but it
-  # requires changes to autoconf before it goes away.
-  LTLIBOBJS=`echo "$LIBOBJS" | sed 's/\.o/.lo/g'`
   AC_SUBST(need_gnome_support)
-  AC_SUBST(LTLIBOBJS)
 
-  LIBOBJS="$save_LIBOBJS"
   AM_CONDITIONAL(BUILD_GNOME_SUPPORT, test "$need_gnome_support" = yes)
 ])
 
