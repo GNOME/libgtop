@@ -128,6 +128,8 @@ enum _glibtop_strategy {
     GLIBTOP_INTERFACES_INCLUDE_LOGICAL	= 1 << 7,
 };
 
+#define GLIBTOP_STRATEGY_FLAGS_MASK	(1 << 7)
+
 enum _glibtop_interface_flags {
     GLIBTOP_IF_FLAGS_UP = 1,
     GLIBTOP_IF_FLAGS_BROADCAST,

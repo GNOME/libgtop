@@ -1,3 +1,8 @@
+2000-02-21  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/interfaces.h (GLIBTOP_STRATEGY_FLAGS_MASK):
+	New constant.
+
 2000-02-20  Martin Baulig  <martin@home-of-linux.org>
 
 	* LIBGTOP-VERSION: Set version number to 1.1.6, binary age 0,
