@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop CVS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-21 19:07+0200\n"
+"POT-Creation-Date: 2003-10-29 14:00+0100\n"
 "PO-Revision-Date: 2002-10-29 13:14+0100\n"
 "Last-Translator: Jeroen van der Vegt <A.J.vanderVegt@ITS.TUDelft.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -94,10 +94,8 @@ msgstr "Draaiing:"
 
 #: lib/read.c:75
 #, c-format
-msgid "read %d byte"
-msgid_plural "read %d bytes"
-msgstr[0] "%d byte gelezen"
-msgstr[1] "%d bytes gelezen"
+msgid "read %d bytes"
+msgstr "%d bytes gelezen"
 
 #: lib/read_data.c:49
 msgid "read data size"
@@ -105,17 +103,13 @@ msgstr "grootte van de gelezen data"
 
 #: lib/read_data.c:66
 #, c-format
-msgid "read data %d byte"
-msgid_plural "read data %d bytes"
-msgstr[0] "lees %d byte"
-msgstr[1] "lees %d bytes"
+msgid "read data %d bytes"
+msgstr "data lezen %d bytes"
 
 #: lib/write.c:48
 #, c-format
-msgid "write %d byte"
-msgid_plural "write %d bytes"
-msgstr[0] "schrijf %d byte"
-msgstr[1] "schrijf %d bytes"
+msgid "write %d bytes"
+msgstr "schrijven %d bytes"
 
 #: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
