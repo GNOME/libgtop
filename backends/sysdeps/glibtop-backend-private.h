@@ -26,6 +26,10 @@
 #ifndef __GLIBTOP_BACKEND_PRIVATE_H__
 #define __GLIBTOP_BACKEND_PRIVATE_H__
 
+#include <glibtop/open.h>
+#include <glibtop/glibtop-backend.h>
+#include <glibtop/glibtop-backend-info.h>
+
 struct _glibtop_backend_private
 {
     u_int64_t flags;

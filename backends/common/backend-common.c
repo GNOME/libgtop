@@ -28,7 +28,6 @@
 #include <glibtop/xmalloc.h>
 
 #include <glibtop/open.h>
-#include <glibtop/backend.h>
 #include <glibtop-backend-private.h>
 
 static int

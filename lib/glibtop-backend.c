@@ -3,7 +3,7 @@
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
-   This file is part of LibGTop 1.0.
+   This file is part of LibGTop 2.0.
 
    Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
 
@@ -24,11 +24,90 @@
 */
 
 #include <glibtop.h>
-#include <glibtop/global.h>
 
-#include <glibtop/backend.h>
+#include <gobject/gsignal.h>
+#include <gobject/gvaluetypes.h>
 
-#include <gmodule.h>
+#include <glibtop/glibtop-backend.h>
+#include <glibtop/glibtop-backend-info.h>
+
+static void glibtop_backend_class_init    (glibtop_backend_class  *klass);
+static void glibtop_backend_init          (glibtop_backend        *backend);
+static void glibtop_backend_finalize      (GObject                *object);
+
+static gpointer parent_class = NULL;
+
+
+/* Internal data */
+
+struct _glibtop_backend_private
+{
+    const glibtop_backend_info *info;
+
+    glibtop_server *server;
+    glibtop_backend_module *module;
+};
+
+GType
+glibtop_backend_get_type (void)
+{
+    static GType glibtop_backend_type = 0;
+  
+    if (!glibtop_backend_type) {
+	static const GTypeInfo glibtop_backend_info = {
+	    sizeof (glibtop_backend_class),
+	    NULL,		/* base_class_init */
+	    NULL,		/* base_class_finalize */
+	    (GClassInitFunc) glibtop_backend_class_init,
+	    NULL,		/* class_finalize */
+	    NULL,		/* class_data */
+	    sizeof (glibtop_backend),
+	    16,			/* n_preallocs */
+	    (GInstanceInitFunc) glibtop_backend_init,
+	};
+      
+	glibtop_backend_type = g_type_register_static
+	    (G_TYPE_OBJECT, "glibtop_backend", &glibtop_backend_info, 0);
+    }
+
+    return glibtop_backend_type;
+}
+
+static void
+glibtop_backend_class_init (glibtop_backend_class *class)
+{
+    GObjectClass *gobject_class;
+
+    gobject_class = (GObjectClass *) class;
+  
+    parent_class = g_type_class_ref (G_TYPE_OBJECT);
+
+    gobject_class->finalize = glibtop_backend_finalize;
+}
+
+static void
+glibtop_backend_init (glibtop_backend *glibtop)
+{
+    glibtop_backend_private *priv;
+
+    priv = g_new0 (glibtop_backend_private, 1);
+    glibtop->_priv = priv;
+}
+
+static void
+glibtop_backend_finalize (GObject *object)
+{
+    glibtop_backend *glibtop;
+    glibtop_backend_private *priv = NULL;
+  
+    glibtop = GLIBTOP_BACKEND (object);
+    priv = glibtop->_priv;
+  
+    g_free (priv);
+  
+    if (G_OBJECT_CLASS (parent_class)->finalize)
+	G_OBJECT_CLASS (parent_class)->finalize (object);
+}
 
 static void
 unload_module (gpointer data, gpointer user_data)
@@ -66,12 +145,14 @@ load_extra_libs (glibtop_backend_entry *entry, GError **error)
 }
 
 glibtop_backend *
-glibtop_open_backend (const char *backend_name, u_int64_t features,
+glibtop_backend_open (const char *backend_name, u_int64_t features,
 		      const char **backend_args, GError **error)
 {
     const glibtop_backend_info *info;
     glibtop_backend_entry *entry;
     glibtop_backend *backend;
+
+    glibtop_init_backends ();
 
     entry = glibtop_backend_by_name (backend_name);
     if (!entry) {
@@ -124,23 +205,23 @@ glibtop_open_backend (const char *backend_name, u_int64_t features,
 	return NULL;
     }
 
-    backend = g_new0 (glibtop_backend, 1);
-    backend->_priv_module = entry->_priv;
-    backend->info = info;
+    backend = g_object_new (GLIBTOP_TYPE_BACKEND, NULL);
 
-    backend->server = glibtop_server_new ();
+    backend->_priv->module = entry->_priv;
+    backend->_priv->info = info;
+
+    backend->_priv->server = glibtop_server_new ();
 
     if (info->open) {
 	int retval;
 
-	retval = info->open (backend->server, backend, features, backend_args);
+	retval = info->open (backend->_priv->server, backend, features,
+			     backend_args);
 	if (retval) {
 	    g_set_error (error, GLIBTOP_ERROR, GLIBTOP_ERROR_NO_SUCH_BACKEND,
 			 "Backend open function return error condition");
 
-	    glibtop_server_unref (backend->server);
-	    g_free (backend->_priv);
-	    g_free (backend);
+	    g_object_unref (G_OBJECT (backend));
 	    return NULL;
 	}
     }
@@ -149,4 +230,3 @@ glibtop_open_backend (const char *backend_name, u_int64_t features,
 
     return backend;
 }
-

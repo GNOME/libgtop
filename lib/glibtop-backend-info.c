@@ -25,9 +25,12 @@
 
 #include <glibtop.h>
 #include <glibtop/global.h>
-#include <glibtop/xmalloc.h>
 
-#include <glibtop/backend.h>
+#include <glibtop/glibtop-backend.h>
+#include <glibtop/glibtop-backend-info.h>
+
+static GHashTable *_glibtop_backend_list = NULL;
+static long _glibtop_backend_nr = 0;
 
 #if HAVE_LIBXML
 
@@ -225,3 +228,63 @@ _glibtop_init_gmodule_backends (const char *directory)
 }
 
 #endif /* HAVE_LIBXML */
+
+long
+glibtop_register_backend (glibtop_backend_entry *entry)
+{
+    long id;
+
+    if (!_glibtop_backend_list)
+	_glibtop_backend_list = g_hash_table_new (NULL, NULL);
+
+    id = ++_glibtop_backend_nr;
+
+    g_hash_table_insert (_glibtop_backend_list,
+			 GINT_TO_POINTER (id),
+			 entry);
+
+    return id;
+}
+
+void
+glibtop_unregister_backend (long id)
+{
+    g_hash_table_remove (_glibtop_backend_list,
+			 GINT_TO_POINTER (id));
+}
+
+glibtop_backend_entry *
+glibtop_backend_by_id (long id)
+{
+    return g_hash_table_lookup (_glibtop_backend_list,
+				GINT_TO_POINTER (id));
+}
+
+typedef struct {
+    const char *backend_name;
+    glibtop_backend_entry *entry;
+} _find_by_name_param_t;
+
+static void
+find_by_name (gpointer key, gpointer value, gpointer user_data)
+{
+    _find_by_name_param_t *param = (_find_by_name_param_t *) user_data;
+    glibtop_backend_entry *entry = (glibtop_backend_entry *) value;
+
+    if (!entry || !entry->name || param->entry)
+	return;
+
+    if (!strcmp (entry->name, param->backend_name))
+	param->entry = entry;
+}
+
+glibtop_backend_entry *
+glibtop_backend_by_name (const char *backend_name)
+{
+    _find_by_name_param_t param = { backend_name, NULL };
+
+    g_hash_table_foreach (_glibtop_backend_list,
+			  find_by_name, &param);
+
+    return param.entry;
+}

@@ -262,7 +262,7 @@ glibtop_client_open_backend (glibtop_client *client, const char *backend_name,
 
     g_return_val_if_fail (GLIBTOP_IS_CLIENT (client), NULL);
 
-    backend = glibtop_open_backend (backend_name, features, backend_args,
+    backend = glibtop_backend_open (backend_name, features, backend_args,
 				    &error);
     if (!backend) {
 	glibtop_client_propagate_error (client, error);
@@ -280,7 +280,7 @@ glibtop_client_add_backend (glibtop_client *client,
 			    glibtop_backend *backend)
 {
     g_return_if_fail (GLIBTOP_IS_CLIENT (client));
-    g_return_if_fail (backend != NULL);
+    g_return_if_fail (GLIBTOP_IS_BACKEND (backend));
 
 }
 
@@ -289,6 +289,6 @@ glibtop_client_remove_backend (glibtop_client *client,
 			       glibtop_backend *backend)
 {
     g_return_if_fail (GLIBTOP_IS_CLIENT (client));
-    g_return_if_fail (backend != NULL);
+    g_return_if_fail (GLIBTOP_IS_BACKEND (backend));
 
 }

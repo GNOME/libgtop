@@ -31,7 +31,6 @@ print '';
 print '#include <glibtop/sysdeps.h>';
 print '#include <glibtop/union.h>';
 print '';
-print '#include <glibtop/backend.h>';
 print '#include <glibtop/call-vector.h>';
 print '';
 print '#include <glibtop-backend-private.h>';

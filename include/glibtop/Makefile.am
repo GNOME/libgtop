@@ -9,8 +9,9 @@ glibtop_HEADERS		= close.h loadavg.h prockernel.h procstate.h \
 			  mountlist.h fsusage.h procmap.h signal.h \
 			  inodedb.h sysinfo.h ppp.h procargs.h netload.h \
 			  netinfo.h interfaces.h limits.h array.h compat_10.h \
-			  glib-arrays.h backend.h call-vector.h \
-			  glibtop-client.h glibtop-server.h
+			  glib-arrays.h call-vector.h \
+			  glibtop-client.h glibtop-server.h glibtop-backend.h \
+			  glibtop-backend-info.h
 
 BUILT_SOURCES		= call-vector.h
 

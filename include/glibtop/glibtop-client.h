@@ -29,7 +29,7 @@
 #include <glibtop.h>
 #include <gobject/gobject.h>
 
-#include <glibtop/backend.h>
+#include <glibtop/glibtop-backend.h>
 
 BEGIN_LIBGTOP_DECLS
 

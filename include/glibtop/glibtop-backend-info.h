@@ -23,8 +23,8 @@
    Boston, MA 02111-1307, USA.
 */
 
-#ifndef __GLIBTOP_BACKEND_H__
-#define __GLIBTOP_BACKEND_H__
+#ifndef __GLIBTOP_BACKEND_INFO_H__
+#define __GLIBTOP_BACKEND_INFO_H__
 
 #include <glibtop.h>
 #include <glibtop/global.h>
@@ -36,11 +36,8 @@ BEGIN_LIBGTOP_DECLS
 typedef struct _glibtop_backend_info	glibtop_backend_info;
 typedef struct _glibtop_backend_entry	glibtop_backend_entry;
 typedef struct _glibtop_backend_module	glibtop_backend_module;
-typedef struct _glibtop_backend_private	glibtop_backend_private;
 
 typedef struct _glibtop_call_vector	glibtop_call_vector;
-
-typedef struct _glibtop_backend		glibtop_backend;
 
 typedef int (*glibtop_backend_open_func_t) (glibtop_server *, glibtop_backend *,
 					    u_int64_t, const char **);
@@ -66,8 +63,6 @@ struct _glibtop_backend_module
     GSList *extra_modules;
 };
 
-#endif /* _IN_LIBGTOP */
-
 struct _glibtop_backend_entry
 {
     char *name;
@@ -84,16 +79,7 @@ struct _glibtop_backend_entry
     glibtop_backend_module *_priv;
 };
 
-struct _glibtop_backend
-{
-    const glibtop_backend_info *info;
-
-    glibtop_server *server;
-
-    /* private pointers */
-    glibtop_backend_private *_priv;
-    glibtop_backend_module *_priv_module;
-};
+#endif /* _IN_LIBGTOP */
 
 long
 glibtop_register_backend (glibtop_backend_entry *entry);
@@ -109,10 +95,6 @@ glibtop_backend_by_name (const char *backend_name);
 
 void
 glibtop_init_backends (void);
-
-glibtop_backend *
-glibtop_open_backend (const char *backend_name, u_int64_t features,
-		      const char **backend_args, GError **error);
 
 END_LIBGTOP_DECLS
 

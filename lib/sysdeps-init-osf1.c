@@ -25,7 +25,7 @@
 
 #include <glibtop.h>
 #include <glibtop/open.h>
-#include <glibtop/backend.h>
+#include <glibtop/glibtop-backend.h>
 
 #include <glibtop/signal.h>
 

@@ -24,7 +24,7 @@
 */
 
 #include <glibtop.h>
-#include <glibtop/backend.h>
+#include <glibtop/glibtop-backend.h>
 
 #include <glibtop/cpu.h>
 
@@ -37,8 +37,6 @@ main (int argc, char *argv [])
     /* glibtop_cpu cpu; */
 
     g_type_init ();
-
-    glibtop_init_backends ();
 
     client = glibtop_client_new ();
 
