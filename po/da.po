@@ -6,15 +6,13 @@
 # Ole Laursen <olau@hardworking.dk>, 2002, 03.
 # Martin Willemoes Hansen <mwh@sysrq.dk>, 2004.
 #
-# BEMÆRK: oversættelsen er overhovedet ikke blevet rettet igennem.
-#     
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-23 12:21+0200\n"
-"PO-Revision-Date: 2004-08-23 12:21+0200\n"
-"Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
+"POT-Creation-Date: 2004-11-23 13:36+0100\n"
+"PO-Revision-Date: 2004-11-23 13:35+0100\n"
+"Last-Translator: Martin Willemoes Hansen <mwh@sysrq.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,7 +100,7 @@ msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgid "Spin:"
 msgstr "Spin:"
 
-#: lib/read.c:65
+#: lib/read.c:64
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -127,39 +125,39 @@ msgid_plural "write %d bytes"
 msgstr[0] "skriv %d byte"
 msgstr[1] "skriv %d byte"
 
-#: src/daemon/gnuserv.c:456
+#: src/daemon/gnuserv.c:461
 msgid "Enable debugging"
 msgstr "Slå fejlfinding til"
 
-#: src/daemon/gnuserv.c:456
+#: src/daemon/gnuserv.c:461
 msgid "DEBUG"
-msgstr "DEBUG"
+msgstr "FEJLFINDING"
 
-#: src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:463
 msgid "Enable verbose output"
 msgstr "Slå meddelsom udskrift til"
 
-#: src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:463
 msgid "VERBOSE"
-msgstr "VERBOSE"
+msgstr "MEDDELSOM"
 
-#: src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:465
 msgid "Don't fork into background"
 msgstr "Forgren ikke til baggrund"
 
-#: src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:465
 msgid "NO-DAEMON"
-msgstr "NO-DAEMON"
+msgstr "INGEN-SERVER"
 
-#: src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:467
 msgid "Invoked from inetd"
 msgstr "Kaldt fra inetd"
 
-#: src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:467
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:496
+#: src/daemon/gnuserv.c:501
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -1317,7 +1315,7 @@ msgstr "Afbryd"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
-msgstr "EMT fejl"
+msgstr "EMT-fejl"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
@@ -1325,7 +1323,7 @@ msgstr "Flydende tals-undtagelse"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr "Dræb"
+msgstr "Afslut"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
