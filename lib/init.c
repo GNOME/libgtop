@@ -173,9 +173,32 @@ glibtop_init_r (glibtop **server_ptr, const unsigned long features,
 	/* Do the initialization, but only if not already initialized. */
 
 	if ((server->flags & _GLIBTOP_INIT_STATE_INIT) == 0) {
+		if (flags & GLIBTOP_FEATURES_EXCEPT)
+			features = ~features & GLIBTOP_SYSDEPS_ALL;
+		
+		if (features == 0)
+			features = GLIBTOP_SYSDEPS_ALL;
+		
+		if (flags & GLIBTOP_FEATURES_NO_SERVER) {
+			server->method = GLIBTOP_METHOD_DIRECT;
+			features = 0;
+		}
+		
+		server->features = features;
+		
 		_init_server (server, features);
 		
 		server->flags |= _GLIBTOP_INIT_STATE_INIT;
+		
+		switch (server->method) {
+		case GLIBTOP_METHOD_PIPE:
+		case GLIBTOP_METHOD_UNIX:
+			if (glibtop_server_features & features)
+				break;
+			
+			server->method = GLIBTOP_METHOD_DIRECT;
+			break;
+		}
 	}
 
 	/* Should we open the server? */

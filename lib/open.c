@@ -43,19 +43,6 @@ glibtop_open_l (glibtop *server, const char *program_name,
 
 	server->flags |= _GLIBTOP_INIT_STATE_OPEN;
 
-	if (flags & GLIBTOP_FEATURES_EXCEPT)
-		features = ~features & GLIBTOP_SYSDEPS_ALL;
-
-	if (features == 0)
-		features = GLIBTOP_SYSDEPS_ALL;
-
-	if (flags & GLIBTOP_FEATURES_NO_SERVER) {
-		server->method = GLIBTOP_METHOD_DIRECT;
-		features = 0;
-	}
-	
-	server->features = features;
-
 	server->error_method = GLIBTOP_ERROR_METHOD_DEFAULT;
 
 #ifdef DEBUG
@@ -64,18 +51,6 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		 sizeof (glibtop_mountentry), sizeof (glibtop_union),
 		 sizeof (glibtop_sysdeps), sizeof (glibtop_response_union));
 #endif
-
-	switch (server->method) {
-	case GLIBTOP_METHOD_PIPE:
-	case GLIBTOP_METHOD_UNIX:
-		if (glibtop_server_features & features)
-			break;
-
-		fprintf (stderr, "Using the server is not required.\n");
-
-		server->method = GLIBTOP_METHOD_DIRECT;
-		break;
-	}
 
 	switch (server->method) {
 	case GLIBTOP_METHOD_DIRECT:
