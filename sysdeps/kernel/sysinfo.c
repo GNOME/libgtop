@@ -25,6 +25,8 @@
 #include <glibtop/cpu.h>
 #include <glibtop/sysinfo.h>
 
+#include <ctype.h>
+
 static const unsigned long _glibtop_sysdeps_sysinfo =
 (1L << GLIBTOP_SYSINFO_CPUINFO);
 

@@ -187,7 +187,7 @@ glibtop_get_proc_data_netload_s (glibtop *server,
     int name [2] = { CTL_LIBGTOP, LIBGTOP_NETLOAD };
     size_t size = sizeof (libgtop_netload_t);
 
-    if (sysctl (name, 2, netload, &size, device, strlen (device)+1)) {
+    if (sysctl (name, 2, netload, &size, (char *) device, strlen (device)+1)) {
 	glibtop_warn_io_r (server, "sysctl (libgtop/netload)");
 	return -1;
     }

@@ -112,8 +112,6 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     skfd = socket (AF_INET, SOCK_DGRAM, 0);
     if (skfd) {
 	struct ifreq ifr;
-	struct sockaddr_in addr;
-	char *address;
 	unsigned flags;
 
 	strcpy (ifr.ifr_name, interface);

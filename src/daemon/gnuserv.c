@@ -243,7 +243,7 @@ permitted (u_long host_addr, int fd)
 	if (enable_debug)
 	    syslog_message (LOG_DEBUG, "Trying %lx - %lx",
 			    host_addr, permitted_hosts [i]);
-	if (permitted_hosts [i] == NULL)
+	if (permitted_hosts [i] == 0L)
 	    return (FALSE);
 	if (host_addr == permitted_hosts [i])
 	    return (TRUE);

@@ -67,7 +67,7 @@ main (int argc, char *argv [])
 	memset (separator, '-', 91);
 	separator [92] = '\0';
 
-	sprintf (buffer, _("Ticks (%d per second):"), frequency);
+	sprintf (buffer, _("Ticks (%ld per second):"), frequency);
 
 	printf ("\n\n%-26s %12s %12s %12s %12s %12s\n%s\n", buffer,
 		_("Total"), _("User"), _("Nice"), _("Sys"), _("Idle"), separator);

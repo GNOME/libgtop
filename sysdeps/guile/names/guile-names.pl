@@ -113,7 +113,6 @@ sub output {
     print 'static SCM';
     print 'glibtop_guile_types_' . $feature . ' (void)';
     print '{';
-    print "\tint i;";
     print "\tSCM list;";
     print '';
 

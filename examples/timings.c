@@ -70,14 +70,11 @@ int
 main (int argc, char *argv [])
 {
 	glibtop_union data;
-	glibtop_sysdeps sysdeps;
-	unsigned c, count, port, i, *ptr;
+	unsigned c, count, *ptr;
 	struct rusage total_start, total_end;
 	struct rusage rusage_start, rusage_end;
 	struct timeval elapsed_utime, elapsed_stime;
-	char buffer [BUFSIZ];
-	pid_t pid, ppid;
-	char *args;
+	pid_t pid;
 
 	count = PROFILE_COUNT;
 
