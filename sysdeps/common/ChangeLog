@@ -1,3 +1,10 @@
+2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
+
+	* error.c: (print_server_name), (glibtop_error_r),
+	(glibtop_warn_r), (glibtop_error_io_r), (glibtop_warn_io_r),
+	(glibtop_error), (glibtop_warn), (glibtop_error_io),
+	(glibtop_warn_io): These functions are now globally defined.
+
 2004-06-12  Benoît Dejean  <tazforever@dlfp.org>
 
 	* Makefile.am:
