@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-09-16 23:16+0200\n"
+"POT-Creation-Date: 1999-09-29 01:00+0200\n"
 "PO-Revision-Date: 1998-12-11 06:53+09:00\n"
 "Last-Translator: Eiichiro ITANI <emu@ceres.dti.ne.jp>\n"
 "Language-Team: <gnome@lists.hypercore.co.jp>\n"
