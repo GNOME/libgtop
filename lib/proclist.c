@@ -22,11 +22,16 @@
 #include <glibtop/proclist.h>
 #include <glibtop/command.h>
 
+#if GLIBTOP_SUID_PROCLIST
+
 /* Fetch list of currently running processes. */
 
 unsigned *
-glibtop_get_proclist__r (glibtop *server, glibtop_proclist *buf)
+glibtop_get_proclist__l (glibtop *server, glibtop_proclist *buf)
 {
 	glibtop_init__r (&server);
-	return glibtop_call__r (server, GLIBTOP_CMND_PROCLIST, 0, NULL, sizeof (glibtop_proclist), buf);
+	return glibtop_call__l (server, GLIBTOP_CMND_PROCLIST, 0, NULL,
+				sizeof (glibtop_proclist), buf);
 }
+
+#endif

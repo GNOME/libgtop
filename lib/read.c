@@ -24,7 +24,7 @@
 /* Reads some data from server. */
 
 void
-glibtop_read__r (glibtop *server, size_t size, void *buf)
+glibtop_read__l (glibtop *server, size_t size, void *buf)
 {
 	size_t	ssize;
 

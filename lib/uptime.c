@@ -23,11 +23,16 @@
 #include <glibtop/uptime.h>
 #include <glibtop/command.h>
 
+#if GLIBTOP_SUID_UPTIME
+
 /* Provides uptime and idle time. */
 
 void
-glibtop_get_uptime__r (glibtop *server, glibtop_uptime *buf)
+glibtop_get_uptime__l (glibtop *server, glibtop_uptime *buf)
 {
 	glibtop_init__r (&server);
-	glibtop_call__r (server, GLIBTOP_CMND_UPTIME, 0, NULL, sizeof (glibtop_uptime), buf);
+	glibtop_call__l (server, GLIBTOP_CMND_UPTIME, 0, NULL,
+			 sizeof (glibtop_uptime), buf);
 }
+
+#endif

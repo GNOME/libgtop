@@ -19,14 +19,20 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#include <glibtop.h>
 #include <glibtop/cpu.h>
 #include <glibtop/command.h>
+
+#if GLIBTOP_SUID_CPU
 
 /* Provides information about cpu usage. */
 
 void
-glibtop_get_cpu__r (glibtop *server, glibtop_cpu *buf)
+glibtop_get_cpu__l (glibtop *server, glibtop_cpu *buf)
 {
 	glibtop_init__r (&server);
-	glibtop_call__r (server, GLIBTOP_CMND_CPU, 0, NULL, sizeof (glibtop_cpu), buf);
+	glibtop_call__l (server, GLIBTOP_CMND_CPU, 0, NULL,
+			 sizeof (glibtop_cpu), buf);
 }
+
+#endif

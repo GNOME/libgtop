@@ -22,11 +22,16 @@
 #include <glibtop/shm_limits.h>
 #include <glibtop/command.h>
 
+#if GLIBTOP_SUID_SHM_LIMITS
+
 /* Provides information about sysv ipc limits. */
 
 void
-glibtop_get_shm_limits__r (glibtop *server, glibtop_shm_limits *buf)
+glibtop_get_shm_limits__l (glibtop *server, glibtop_shm_limits *buf)
 {
 	glibtop_init__r (&server);
-	glibtop_call__r (server, GLIBTOP_CMND_SHM_LIMITS, 0, NULL, sizeof (glibtop_shm_limits), buf);
+	glibtop_call__l (server, GLIBTOP_CMND_SHM_LIMITS, 0, NULL,
+			 sizeof (glibtop_shm_limits), buf);
 }
+
+#endif

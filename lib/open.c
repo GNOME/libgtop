@@ -53,7 +53,7 @@ glibtop_open (glibtop *server, const char *program_name)
 
 	sprintf (version, "%s server %s ready.\n", PACKAGE, VERSION);
 
-	glibtop_read__r (server, strlen (version), buffer);
+	glibtop_read__l (server, strlen (version), buffer);
 
 	if (memcmp (version, buffer, strlen (version)))
 		glibtop_error__r (server, _("server version is not %s"), VERSION);

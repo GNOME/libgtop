@@ -24,7 +24,7 @@
 /* Writes some data to server. */
 
 void
-glibtop_write__r (glibtop *server, size_t size, void *buf)
+glibtop_write__l (glibtop *server, size_t size, void *buf)
 {
 	glibtop_init__r (&server);
 

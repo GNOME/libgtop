@@ -25,7 +25,7 @@
 /* Reads some data from server. */
 
 void *
-glibtop_read_data__r (glibtop *server)
+glibtop_read_data__l (glibtop *server)
 {
 	size_t	size;
 	void *ptr;
@@ -33,7 +33,8 @@ glibtop_read_data__r (glibtop *server)
 	glibtop_init__r (&server);
 
 	if (read (server->input [0], &size, sizeof (size_t)) < 0)
-		glibtop_error__r (server, _("read data size: %s"), strerror (errno));
+		glibtop_error__r (server, _("read data size: %s"),
+				  strerror (errno));
 
 	if (!size) return NULL;	
 
@@ -42,7 +43,8 @@ glibtop_read_data__r (glibtop *server)
 	ptr = glibtop_malloc__r (server, size);
 	
 	if (read (server->input [0], ptr, size) < 0)
-		glibtop_error__r (server, _("read data %d bytes: %s"), size, strerror (errno));
+		glibtop_error__r (server, _("read data %d bytes: %s"),
+				  size, strerror (errno));
 
 	return ptr;
 }

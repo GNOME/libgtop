@@ -27,7 +27,7 @@
 #include <glibtop/xmalloc.h>
 
 void *
-glibtop_call__r (glibtop *server, unsigned command, size_t send_size, void *send_buf,
+glibtop_call__l (glibtop *server, unsigned command, size_t send_size, void *send_buf,
 		 size_t recv_size, void *recv_buf)
 {
 	glibtop_command *cmnd;
@@ -42,11 +42,11 @@ glibtop_call__r (glibtop *server, unsigned command, size_t send_size, void *send
 	cmnd->command = command;
 	cmnd->size = send_size;
 	
-	glibtop_write__r (server, sizeof (glibtop_command), cmnd);
-	glibtop_write__r (server, send_size, send_buf);
-	glibtop_read__r  (server, recv_size, recv_buf);
+	glibtop_write__l (server, sizeof (glibtop_command), cmnd);
+	glibtop_write__l (server, send_size, send_buf);
+	glibtop_read__l  (server, recv_size, recv_buf);
 	
-	ptr = glibtop_read_data__r (server);
+	ptr = glibtop_read_data__l (server);
 	
 	glibtop_free__r (server, cmnd);
 	
