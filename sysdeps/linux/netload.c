@@ -258,13 +258,13 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	
 	fields = 0;
 	while (*p != '|') {
-		if (isspace (*p))
-			fields++;
-		p++;
+		if (!isspace (*p++)) continue;
+		while (isspace (*p++)) ;
+		fields++;
 	}
 
 	/* Should never happen. */
-	if (!fields) return;
+	if (fields < 2) return;
 	fields--;
 
 	while (fgets (buffer, BUFSIZ-1, f)) {
@@ -287,8 +287,10 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 
 		/* Only read byte counts if we really have them. */
 
-		if (have_bytes)
+		if (have_bytes) {
 			buf->bytes_in = strtoul (p, &p, 0);
+			fields--;
+		}
 
 		buf->packets_in = strtoul (p, &p, 0);
 		buf->errors_in  = strtoul (p, &p, 0);
