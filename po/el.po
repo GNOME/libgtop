@@ -1,6 +1,6 @@
 # translation of el.po to Greek
 # libgtop greek .po file
-# Copyright (C) 2000-2001,2003 Free Software Foundation, Inc.
+# Copyright (C) 2000-2001,2003, 2004 Free Software Foundation, Inc.
 #
 # sarantis: ~134 messages, (unknown), initial translation.
 # simos: 240 messages, 19Feb2001, added more messages, still 65 left.
@@ -8,23 +8,25 @@
 # simos: 310 messages, 07Nov2002, completed.
 # kostas: 322 messages,30Oct2003, update for Gnome 2.6
 # Nikos: add plurals, minor fixes, 21Feb2004.
+# Nikos: small update, 30Aug2004.
 # Sarantis Paskalis <paskalis@di.uoa.gr>, 2000.
 # Simos Xenitellis <simos@hellug.gr>, 2001.
 # Kostas Papadimas <pkst@gnome.org>, 2003.
-# Nikos Charonitakis <frolix68@yahoo.gr>, 2004.
+# Nikos Charonitakis <charosn@her.forthnet.gr>, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2004-02-21 12:47+0200\n"
-"Last-Translator: Nikos Charonitakis <frolix68@yahoo.gr>\n"
-"Language-Team: Greek <nls@tux.hellug.gr>\n"
+"POT-Creation-Date: 2004-08-30 11:19-0300\n"
+"PO-Revision-Date: 2004-08-30 11:20-0300\n"
+"Last-Translator: Nikos Charonitakis <charosn@her.forthnet.gr>\n"
+"Language-Team:  <nls@tux.hellug.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.3.1\n"
 
 #: examples/smp.c:76
 #, c-format
@@ -174,8 +176,8 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Σφάλμα στην επιλογή %s: %s.\n"
-"Εκτελέστε '%s --help' για να δείτε την πλήρη λίστα των διαθέσιμων επιλογών "
-"γραμμής εντολής.\n"
+"Εκτελέστε '%s --help' για να δείτε μια πλήρη λίστα των διαθέσιμων επιλογών "
+"της γραμμής εντολών.\n"
 
 # sysdeps/names/cpu.c:45
 #: sysdeps/names/cpu.c:44
@@ -250,8 +252,7 @@ msgstr "Αριθμός χτύπων ρολογιού που το σύστημα 
 # sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr ""
-"Αριθμός χτύπων ρολογιού που το σύστημα κατανάλωσε σε τρόπο χρήστη (ευγενή)"
+msgstr "Αριθμός χτύπων ρολογιού που το σύστημα κατανάλωσε σε τρόπο χρήστη (ευγενή)"
 
 # sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 #: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
@@ -275,7 +276,7 @@ msgstr "Το πεδίο bit δείχνει ποιά CPU εργάζεται αυ�
 # sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
-msgstr "Συνολικά μπλοκ"
+msgstr "Σύνολο μπλοκ"
 
 # sysdeps/names/fsusage.c:42
 #: sysdeps/names/fsusage.c:41
@@ -299,9 +300,8 @@ msgstr "Ελεύθεροι κόμβοι αρχείων"
 
 # sysdeps/names/procsignal.c:42
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Φραγμένο"
+msgstr "Μέγεθος μπλοκ"
 
 # sysdeps/names/fsusage.c:51
 #: sysdeps/names/fsusage.c:51
@@ -494,9 +494,8 @@ msgid "IPv4 Subnet"
 msgstr "Επίθεμα"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Διεύθυνση"
+msgstr "Διεύθυνση IPv4"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -520,7 +519,7 @@ msgstr "Byte Εξερχόμενα"
 
 #: sysdeps/names/netload.c:55 sysdeps/names/netload.c:76
 msgid "Bytes Total"
-msgstr "Byte Συνολικά"
+msgstr "Bytes Συνολικά"
 
 #: sysdeps/names/netload.c:56 sysdeps/names/netload.c:77
 msgid "Errors In"
@@ -539,13 +538,12 @@ msgid "Collisions"
 msgstr "Συγκρούσεις"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Διεύθυνση"
+msgstr "Διεύθυνση IPv6"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "Πρόθεμα IPv6"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
@@ -687,8 +685,7 @@ msgstr "Ο αριθμός ήσσονων λαθών που έχει κάνει �
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
-msgstr ""
-"Ο αριθμός των μείζονων λαθών που έχει κάνει η διεργασία και τα παιδιά της."
+msgstr "Ο αριθμός των μείζονων λαθών που έχει κάνει η διεργασία και τα παιδιά της."
 
 # sysdeps/names/prockernel.c:73
 #. KStk_ESP
@@ -786,8 +783,7 @@ msgstr ""
 
 # sysdeps/names/procmem.c:64
 #: sysdeps/names/procmem.c:63
-msgid ""
-"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "Τρέχον όριο σε bytes στο rss της διεργασίας (συνήθως 2.147.483.547)."
 
 # sysdeps/names/procsegment.c:50
@@ -1559,8 +1555,7 @@ msgstr ""
 # sysdeps/names/proctime.c:54
 #: sysdeps/names/uptime.c:48
 msgid "Time of last system boot in seconds since the epoch"
-msgstr ""
-"Χρόνος της τελευταίας εκκίνησης συστήματος σε δευτερόλεπτα από την εποχή"
+msgstr "Χρόνος της τελευταίας εκκίνησης συστήματος σε δευτερόλεπτα από την εποχή"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1572,7 +1567,7 @@ msgstr "Διακοπή"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
-msgstr "Τερματισμός"
+msgstr "Έξοδος"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
@@ -1628,15 +1623,15 @@ msgstr "Επείγουσα συνθήκη σε υποδοχέα"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
-msgstr "Σταμάτημα"
+msgstr "Διακοπή"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr "Σταμάτημα πληκτρολογίου"
+msgstr "Διακοπή πληκτρολογίου"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
-msgstr "Συνέχιση"
+msgstr "Συνέχεια"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
@@ -1688,149 +1683,3 @@ msgstr "Σήμα 1 οριζόμενο από το χρήστη"
 msgid "User defined signal 2"
 msgstr "Σήμα 2 οριζόμενο από το χρήστη"
 
-# support/error.c:109
-#~ msgid "Unknown system error"
-#~ msgstr "Άγνωστο σφάλμα συστήματος"
-
-# support/getopt.c:669
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: η επιλογή `%s' είναι ασαφής\n"
-
-# support/getopt.c:693
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: η επιλογή `--%s' δεν επιτρέπει ορίσματα\n"
-
-# support/getopt.c:698
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: η επιλογή `%c%s' δεν επιτρέπει ορίσματα\n"
-
-# support/getopt.c:715 support/getopt.c:888
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: η επιλογή `%s' απαιτεί ένα όρισμα\n"
-
-# support/getopt.c:744
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: μη αναγνωρίσιμη επιλογή `--%s'\n"
-
-# support/getopt.c:748
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: μη αναγνωρίσιμη επιλογή `%c%s'\n"
-
-# support/getopt.c:774
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: ακατάλληλη επιλογή -- %c\n"
-
-# support/getopt.c:777
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: μη έγκυρη επιλογή -- %c\n"
-
-# support/getopt.c:807 support/getopt.c:937
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: η επιλογή απαιτεί όρισμα -- %c\n"
-
-# support/getopt.c:854
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: η επιλογή `-W %s' είναι αόριστη\n"
-
-# support/getopt.c:872
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: η επιλογή `-W %s' δεν επιτρέπει ορίσματα\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "Εμφάνιση αυτού του μηνύματος βοήθειας"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "Εμφάνιση σύντομου μηνύματος βοήθειας"
-
-# sysdeps/names/procsegment.c:52
-#~ msgid "Start_Data"
-#~ msgstr "Αρχή_Δεδομένων"
-
-# sysdeps/names/procsegment.c:52
-#~ msgid "End_Data"
-#~ msgstr "Τέλος_Δεδομένων"
-
-# sysdeps/names/procsegment.c:52
-#, fuzzy
-#~ msgid "Start_Brk"
-#~ msgstr "Αρχή_Brk"
-
-# sysdeps/names/procsegment.c:52
-#, fuzzy
-#~ msgid "Brk"
-#~ msgstr "Brk"
-
-# sysdeps/names/procsegment.c:53
-#, fuzzy
-#~ msgid "Start_MMap"
-#~ msgstr "Αρχή_MMap"
-
-# sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
-#~ msgid "Arg_Start"
-#~ msgstr "Αρχή_Ορισμάτων"
-
-# sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
-#, fuzzy
-#~ msgid "Arg_End"
-#~ msgstr "Τέλος_Ορισμάτων"
-
-# sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
-#, fuzzy
-#~ msgid "Env_Start"
-#~ msgstr "Αρχή_Env"
-
-# sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
-#, fuzzy
-#~ msgid "Env_End"
-#~ msgstr "Τέλος_Env"
-
-# sysdeps/names/procsegment.c:66
-#~ msgid "Address of beginning of data segment"
-#~ msgstr "Διεύθυνση αρχής του τμήματος δεδομένων"
-
-# sysdeps/names/procsegment.c:67
-#~ msgid "Address of end of data segment"
-#~ msgstr "Διεύθυνση τέλους του τμήματος δεδομένων"
-
-# sysdeps/names/procsegment.c:68
-#, fuzzy
-#~ msgid "Brk_Start"
-#~ msgstr "Brk_Start"
-
-# sysdeps/names/procsegment.c:69
-#, fuzzy
-#~ msgid "Brk_End"
-#~ msgstr "Brk_End"
-
-# sysdeps/names/procsegment.c:71
-#, fuzzy
-#~ msgid "Start of mmap()ed areas"
-#~ msgstr "Αρχή περιοχών mmap"
-
-# sysdeps/names/procstate.c:45
-#~ msgid "RUID"
-#~ msgstr "RUID"
-
-# sysdeps/names/procstate.c:46
-#~ msgid "RGID"
-#~ msgstr "RGID"
-
-# sysdeps/names/procstate.c:54
-#~ msgid "effective UID of process"
-#~ msgstr "ουσιαστικό UID διεργασίας"
-
-# sysdeps/names/procstate.c:55
-#~ msgid "effective GID of process"
-#~ msgstr "ουσιαστικό GID διεργασίας"
-
-# sysdeps/names/procstate.c:58
-#~ msgid "has_cpu"
-#~ msgstr "έχει_cpu"
-
-# sysdeps/names/procstate.c:59
-#~ msgid "processor"
-#~ msgstr "επεξεργαστής"
-
-# sysdeps/names/procstate.c:60
-#~ msgid "last_processor"
-#~ msgstr "τελευταίος_επεξεργαστής"
