@@ -32,10 +32,11 @@
 static const unsigned long _glibtop_sysdeps_mem =
 (1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
 (1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_SHARED) +
+(1 << GLIBTOP_MEM_BUFFER) +
 #ifdef __FreeBSD__
-(1 << GLIBTOP_MEM_BUFFER) + (1 << GLIBTOP_MEM_CACHED) +
+(1 << GLIBTOP_MEM_CACHED) +
 #endif
-(1 << GLIBTOP_MEM_USER);
+(1 << GLIBTOP_MEM_USER) + (1 << GLIBTOP_MEM_LOCKED);
 
 #ifndef LOG1024
 #define LOG1024		10
@@ -52,6 +53,8 @@ static struct nlist nlst [] = {
 	{ "_cnt" },
 #ifdef __FreeBSD__
 	{ "_bufspace" },
+#else
+	{ "_bufpages" },
 #endif
 	{ 0 }
 };
@@ -93,9 +96,9 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	struct vmtotal vmt;
 	size_t length_vmt;
 	struct vmmeter vmm;
-#if __FreeBSD__
+	u_int v_used_count;
+	u_int v_total_count;
 	int bufspace;
-#endif
 
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_MEM), 0);
 	
@@ -122,38 +125,39 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 		return;
 	}
 
-#if __FreeBSD__
 	if (kvm_read (server->machine.kd, nlst[1].n_value,
 		      &bufspace, sizeof (bufspace)) != sizeof (bufspace)) {
 		glibtop_warn_io_r (server, "kvm_read (bufspace)");
 		return;
 	}
-#endif
   
 	/* convert memory stats to Kbytes */
 
 #ifdef __FreeBSD__
-	buf->total = (u_int64_t) pagetok (vmm.v_page_count) << LOG1024;
+	v_total_count = vmm.v_page_count;
 #else
-	{
-		u_int total_count = vmm.v_kernel_pages +
-			vmm.v_free_count + vmm.v_wire_count +
-			vmm.v_active_count + vmm.v_inactive_count;
-
-		buf->total = (u_int64_t) pagetok (total_count) << LOG1024;
-	}
+	v_total_count = vmm.v_kernel_pages +
+		vmm.v_free_count + vmm.v_wire_count +
+		vmm.v_active_count + vmm.v_inactive_count;
 #endif
 
-	buf->used = (u_int64_t) pagetok (vmm.v_active_count) << LOG1024;
-	buf->free = (u_int64_t) pagetok (vmm.v_free_count) << LOG1024;
+	v_used_count = vmm.v_active_count + vmm.v_inactive_count;
+
+	buf->total = (u_int64_t) pagetok (v_total_count) << LOG1024;
+	buf->used  = (u_int64_t) pagetok (v_used_count) << LOG1024;
+	buf->free  = (u_int64_t) pagetok (vmm.v_free_count) << LOG1024;
 
 #ifdef __FreeBSD__
 	buf->cached = (u_int64_t) pagetok (vmm.v_cache_count) << LOG1024;
 #endif
-	buf->shared = (u_int64_t) pagetok (vmt.t_vmshr) << LOG1024;
+
+	buf->locked = (u_int64_t) pagetok (vmm.v_wire_count) << LOG1024;
+	buf->shared = (u_int64_t) pagetok (vmt.t_rmshr) << LOG1024;
 
 #if __FreeBSD__
 	buf->buffer = (u_int64_t) bufspace;
+#else
+	buf->buffer = (u_int64_t) pagetok (bufspace) << LOG1024;
 #endif
 
 	/* user */
