@@ -40,7 +40,9 @@ static const unsigned long _glibtop_sysdeps_swap =
 #ifdef __bsdi__
 #include <vm/swap_pager.h>
 #else
+#if __FreeBSD_version < 400005
 #include <sys/rlist.h>
+#endif
 #endif
 #include <sys/vmmeter.h>
 

@@ -26,6 +26,7 @@
 #include <glibtop/procsignal.h>
 
 #include <glibtop_suid.h>
+#include <osreldate.h>
 
 static const unsigned long _glibtop_sysdeps_proc_signal =
 (1L << GLIBTOP_PROC_SIGNAL_SIGNAL) +
@@ -66,7 +67,7 @@ glibtop_get_proc_signal_p (glibtop *server,
 	/* signal: mask of pending signals.
 	 *         pinfo [0].kp_proc.p_siglist
 	 */
-#if defined(__NetBSD__) && (NSIG > 32)
+#if (defined(__NetBSD__) && (NSIG > 32)) || (__FreeBSD_version >= 400011)
 	buf->signal [0] = pinfo [0].kp_proc.p_siglist.__bits[0];
 #else
 	buf->signal [0] = pinfo [0].kp_proc.p_siglist;
@@ -75,7 +76,7 @@ glibtop_get_proc_signal_p (glibtop *server,
 	/* blocked: mask of blocked signals.
 	 *          pinfo [0].kp_proc.p_sigmask
 	 */
-#if defined(__NetBSD__) && (NSIG > 32)
+#if (defined(__NetBSD__) && (NSIG > 32)) || (__FreeBSD_version >= 400011)
 	buf->blocked [0] = pinfo [0].kp_proc.p_sigmask.__bits[0];
 #else
 	buf->blocked [0] = pinfo [0].kp_proc.p_sigmask;
@@ -84,16 +85,16 @@ glibtop_get_proc_signal_p (glibtop *server,
 	/* sigignore: mask of ignored signals.
 	 *            pinfo [0].kp_proc.p_sigignore
 	*/
-#if defined(__NetBSD__) && (NSIG > 32)
+#if (defined(__NetBSD__) && (NSIG > 32)) || (__FreeBSD_version >= 400011)
 	buf->sigignore [0] = pinfo [0].kp_proc.p_sigignore.__bits[0];
 #else
-	buf->sigignore [0] = pinfo [0].kp_proc.p_sigignore;
+	buf->sigignore [0] = pinfo [0].kp_proc.p_sigignore.__bits[0];
 #endif
 	
 	/* sigcatch: mask of caught signals.
 	 *           pinfo [0].kp_proc.p_sigcatch
 	*/
-#if defined(__NetBSD__) && (NSIG > 32)
+#if (defined(__NetBSD__) && (NSIG > 32)) || (__FreeBSD_version >= 400011)
 	buf->sigcatch [0] = pinfo [0].kp_proc.p_sigcatch.__bits[0];
 #else
 	buf->sigcatch [0] = pinfo [0].kp_proc.p_sigcatch;

@@ -1,5 +1,15 @@
 1999-10-16  Martin Baulig  <martin@home-of-linux.org>
 
+	Applied all patches from the FreeBSD 3.3 ports collection.
+
+	* swap.c: Only #include <rlist.h> for __FreeBSD_version < 400005.
+
+	* prockernel.c: Make it compile on FreeBSD / alpha.
+
+	* procsignal.c: Some fixes for FreeBSD-current.
+
+1999-10-16  Martin Baulig  <martin@home-of-linux.org>
+
 	* procstate.c (glibtop_get_proc_state_p): Don't use the
 	`GLIBTOP_PROCESS_*' constants for process states for
 	LibGTop 1.0.x.
