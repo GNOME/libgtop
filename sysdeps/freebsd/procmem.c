@@ -29,6 +29,7 @@
 #include <sys/param.h>
 #include <sys/proc.h>
 #include <sys/resource.h>
+#include <vm/vm_object.h>
 #include <vm/vm_map.h>
 
 #include <sys/ucred.h>
@@ -39,6 +40,7 @@
 static const unsigned long _glibtop_sysdeps_proc_mem =
 (1 << GLIBTOP_PROC_MEM_SIZE) +
 (1 << GLIBTOP_PROC_MEM_VSIZE) +
+(1 << GLIBTOP_PROC_MEM_SHARE) +
 (1 << GLIBTOP_PROC_MEM_RESIDENT) +
 (1 << GLIBTOP_PROC_MEM_RSS) +
 (1 << GLIBTOP_PROC_MEM_RSS_RLIM);
@@ -83,8 +85,10 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 {
 	struct kinfo_proc *pinfo;
 	struct user *u_addr = (struct user *)USRSTACK;
+	struct vm_map_entry entry, *first;
+	struct vmspace *vms, vmspace;
+	struct vm_object object;
 	struct plimit plimit;
-	struct vmspace *vms;
 	int count;
 
 	glibtop_suid_enter (server);
@@ -111,6 +115,51 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	
 	buf->resident = buf->rss = (u_int64_t) pagetok
 		(vms->vm_rssize) << LOG1024;
+
+	/* Now we get the shared memory. */
+
+	if (kvm_read (server->machine.kd,
+		      (unsigned long) pinfo [0].kp_proc.p_vmspace,
+		      (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace))
+		glibtop_error_io_r (server, "kvm_read (vmspace)");
+
+	first = vmspace.vm_map.header.next;
+
+	if (kvm_read (server->machine.kd,
+		      (unsigned long) vmspace.vm_map.header.next,
+		      (char *) &entry, sizeof (entry)) != sizeof (entry))
+		glibtop_error_io_r (server, "kvm_read (entry)");
+
+	/* Walk through the `vm_map_entry' list ... */
+
+	/* I tested this a few times with `mmap'; as soon as you write
+	 * to the mmap'ed area, the object type changes from OBJT_VNODE
+	 * to OBJT_DEFAULT so if seems this really works. */
+
+	while (entry.next != first) {
+		if (kvm_read (server->machine.kd,
+			      (unsigned long) entry.next,
+			      &entry, sizeof (entry)) != sizeof (entry))
+			glibtop_error_io_r (server, "kvm_read (entry)");
+
+		if (entry.eflags & (MAP_ENTRY_IS_A_MAP|MAP_ENTRY_IS_SUB_MAP))
+			continue;
+
+		if (!entry.object.vm_object)
+			continue;
+
+		/* We're only interested in `vm_object's */
+
+		if (kvm_read (server->machine.kd,
+			      (unsigned long) entry.object.vm_object,
+			      &object, sizeof (object)) != sizeof (object))
+			glibtop_error_io_r (server, "kvm_read (object)");
+
+		/* If the object is of type vnode, add its size */
+
+		if (object.type == OBJT_VNODE)
+			buf->share += object.un_pager.vnp.vnp_size;
+	}
 
 	buf->flags = _glibtop_sysdeps_proc_mem;
 }
