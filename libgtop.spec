@@ -1,5 +1,5 @@
 # Note that this is NOT a relocatable package
-%define ver      0.01
+%define ver      0.25
 %define rel      SNAP
 %define prefix   /usr
 
@@ -9,24 +9,25 @@ Version: %ver
 Release: %rel
 Copyright: LGPL
 Group: X11/Libraries
-Source: ftp://ftp.gnome.org/pub/libgtop-%{ver}.tar.gz
+Source: ftp://ftp.home-of-linux.org/pub/libgtop-%{ver}.tar.gz
 BuildRoot: /tmp/libgtop-root
-Packager: Michael Fulbright <msf@redhat.com>
-URL: http://www.gnome.org
+Packager: Martin Baulig <martin@home-of-linux.org>
+URL: http://www.home-of-linux.org/gnome/libgtop/
 Prereq: /sbin/install-info
 Docdir: %{prefix}/doc
 
 %description
 
-A library that fetches 
-information about the running system such as cpu and memory usage,
-active processes etc. On Linux systems, these information are taken
-directly from the /proc filesystem. 
+A library that fetches information about the running system such as
+cpu and memory usage, active processes etc.
 
+On Linux systems, these information are taken directly from the /proc
+filesystem while on other systems a server is used to read those
+information from /dev/kmem or whatever. 
 
 %changelog
 
-* Tue Jun  2 1998 Michael Fulbright <msf@redhat.com>
+* Sun Aug 16 1998 Martin Baulig <martin@home-of-linux.org>
 
 - first version of the RPM
 
@@ -36,9 +37,9 @@ directly from the /proc filesystem.
 %build
 # Needed for snapshot releases.
 if [ ! -f configure ]; then
-  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --disable-libgtop-examples
+  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --without-linux-table
 else
-  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --disable-libgtop-examples
+  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --without-linux-table
 fi
 
 if [ "$SMP" != "" ]; then

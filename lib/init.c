@@ -109,7 +109,8 @@ _init_server (glibtop *server, const unsigned features)
 					
 			/* Override default. */
 			if (server->server_host)
-				glibtop_free_r (server, server->server_host);
+				glibtop_free_r (server,
+						(char *) server->server_host);
 
 			server->server_host = glibtop_strdup_r
 				(server, temp+1);
@@ -152,8 +153,7 @@ _init_server (glibtop *server, const unsigned features)
 }
 
 glibtop *
-glibtop_init_r (glibtop **server_ptr, const unsigned long features,
-		const unsigned flags)
+glibtop_init_r (glibtop **server_ptr, unsigned long features, unsigned flags)
 {
 	glibtop *server;
 
@@ -216,8 +216,7 @@ glibtop_init_r (glibtop **server_ptr, const unsigned long features,
 }
 
 glibtop *
-glibtop_init_s (glibtop **server_ptr, const unsigned long features,
-		const unsigned flags)
+glibtop_init_s (glibtop **server_ptr, unsigned long features, unsigned flags)
 {
 	glibtop *server;
 	glibtop_init_func_t *init_fkt;

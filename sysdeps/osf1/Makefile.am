@@ -13,3 +13,5 @@ libgtop_sysdeps_suid_la_SOURCES	= open_suid.c close_suid.c proclist.c \
 				  procstate.c procuid.c proctime.c procmem.c \
 				  procsignal.c prockernel.c procsegment.c
 libgtop_sysdeps_suid_la_LIBADD	= -lmach
+
+include_HEADERS			= glibtop_server.h glibtop_machine.h

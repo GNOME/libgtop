@@ -278,7 +278,6 @@ sysdeps/linux/Makefile
 sysdeps/kernel/Makefile
 sysdeps/freebsd/Makefile
 src/Makefile
-src/server/Makefile
 src/daemon/Makefile
 lib/Makefile
 guile/Makefile

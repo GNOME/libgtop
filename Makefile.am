@@ -1,6 +1,10 @@
 ## Process this file with automake to produce Makefile.in.
 
+if EXAMPLES
 examples_SUBDIRS = examples
+else
+examples_SUBDIRS =
+endif
 
 if GUILE
 guile_SUBDIRS = guile
@@ -12,11 +16,13 @@ endif
 SUBDIRS = po intl support macros include sysdeps lib src \
 	  $(examples_SUBDIRS)
 
-DIST_SUBDIRS = po intl macros include sysdeps src lib guile examples
+DIST_SUBDIRS = po intl support macros include sysdeps src lib guile examples
 
 include_HEADERS = glibtop.h
 
-EXTRA_DIST = autogen.sh libgtop.spec copyright.txt libgtopConf.sh.in
+EXTRA_DIST = autogen.sh libgtop.spec copyright.txt libgtopConf.sh.in \
+	LIBGTOP-VERSION features.def perl/Makefile.PL.in perl/perl.awk \
+	perl/MANIFEST perl/Changes
 
 release:
 	$(MAKE) dist distdir=$(PACKAGE)$(VERSION)
