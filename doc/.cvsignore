@@ -1,6 +1,7 @@
 *.shml
 .timestamp
 .timestamp2
+.timestamp3
 dbtohtml-1.shtml
 dbtohtml-2.shtml
 dbtohtml-3.shtml
@@ -14,6 +15,7 @@ libgtop-3.shtml
 libgtop-4.shtml
 libgtop-5.shtml
 libgtop-INDEX.shtml
+libgtop-ref
 libgtop.ced
 libgtop.fot
 libgtop.shtml

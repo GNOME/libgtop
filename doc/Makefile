@@ -1,4 +1,4 @@
-all:	.timestamp .timestamp2
+all:	.timestamp .timestamp2 .timestamp3
 
 .timestamp:	libgtop.sgml
 	rm -rf libgtop
@@ -13,3 +13,10 @@ all:	.timestamp .timestamp2
 	jade -D /usr/lib/sgml/jade_dsl -d gnome-hackers.dsl -t sgml \
 		-V %no-make-index% gnome-hackers.sgml > /dev/null && \
 		touch .timestamp2
+
+.timestamp3:	libgtop-ref.sgml ../guile/reference.sgml
+	rm -rf libgtop-ref
+	mkdir libgtop-ref
+	jade -D /usr/lib/sgml/jade_dsl -d libgtop-ref.dsl -t sgml \
+		-V %no-make-index% libgtop-ref.sgml > /dev/null && \
+		touch .timestamp3
