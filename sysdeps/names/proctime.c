@@ -25,21 +25,23 @@
 const char *glibtop_names_proc_time [GLIBTOP_MAX_PROC_TIME] =
 {
 	"start_time", "rtime", "utime", "stime", "cutime", "cstime",
-	"timeout", "it_real_value", "timeout"
+	"timeout", "it_real_value", "timeout", "xcpu_utime",
+	"xcpu_stime"
 };
 
 const unsigned glibtop_types_proc_time [GLIBTOP_MAX_PROC_TIME] =
 {
 	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
 	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
-	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG
+	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
+	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG
 };
 
 const char *glibtop_labels_proc_time [GLIBTOP_MAX_PROC_TIME] =
 {
 	N_("Start_Time"), N_("RTime"), N_("UTime"), N_("STime"),
 	N_("CUTime"), N_("CSTime"), N_("TimeOut"), N_("It_Real_Value"),
-	N_("Frequency")
+	N_("Frequency"), N_("XCPU_UTime"), N_("XCPU_STime")
 };
 
 const char *glibtop_descriptions_proc_time [GLIBTOP_MAX_PROC_TIME] =
@@ -53,7 +55,9 @@ const char *glibtop_descriptions_proc_time [GLIBTOP_MAX_PROC_TIME] =
 	N_("The time (in jiffies) of the process's next timeout"),
 	N_("The time (in jiffies) before the next SIGALRM is sent "
 	   "to the process due to an interval timer."),
-	N_("Tick frequency")
+	N_("Tick frequency"),
+	N_("SMP user-mode CPU time accumulated by process"),
+	N_("SMP kernel-mode CPU time accumulated by process")
 };
 
 

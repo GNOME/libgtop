@@ -23,13 +23,17 @@
 
 const char *glibtop_names_cpu [GLIBTOP_MAX_CPU] =
 {
-	"total", "user", "nice", "sys", "idle", "frequency"
+	"total", "user", "nice", "sys", "idle", "frequency",
+	"xcpu_total", "xcpu_user", "xcpu_nice", "xcpu_sys",
+	"xcpu_idle"
 };
 
 const unsigned glibtop_types_cpu [GLIBTOP_MAX_CPU] =
 { 
 	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_cpu [GLIBTOP_MAX_CPU] =
@@ -39,22 +43,25 @@ const char *glibtop_labels_cpu [GLIBTOP_MAX_CPU] =
 	N_("CPU Time in User Mode (nice)"),
 	N_("CPU Time in System Mode"),
 	N_("CPU Time in the Idle Task"),
-	N_("Tick Frequency")
+	N_("Tick Frequency"),
+	N_("SMP Total CPU Time"),
+	N_("SMP CPU Time in User Mode"),
+	N_("SMP CPU Time in User Mode (nice)"),
+	N_("SMP CPU Time in System Mode"),
+	N_("SMP CPU Time in the Idle Task")
 };
 
 const char *glibtop_descriptions_cpu [GLIBTOP_MAX_CPU] =
 {
-	N_("The number of jiffies (1/100ths of a second) since "
-	   "system boot"),
-	N_("The number of jiffies (1/100ths of a second) that "
-	   "the system spent in user mode"),
-	N_("The number of jiffies (1/100ths of a second) that "
-	   "the system spent in user mode with low priority (nice)"),
-	N_("The number of jiffies (1/100ths of a second) that "
-	   "the system spent in system mode"),
-	N_("The number of jiffies (1/100ths of a second) that "
-	   "the system spend in the idle task"),
-	N_("All of the above values are in jiffies (1/100ths of "
-	   "a second) unless otherwise stated in this field "
-	   "(i.e. 'frequency != 100')")
+	N_("Number of clock ticks since system boot"),
+	N_("Number of clock ticks the system spent in user mode"),
+	N_("Number of clock ticks the system spent in user mode (nice)"),
+	N_("Number of clock ticks the system spent in system mode"),
+	N_("Number of clock ticks the system spent in the idle task"),
+	N_("Tick frequency (default is 100)"),
+	N_("Number of clock ticks since system boot"),
+	N_("Number of clock ticks the system spent in user mode"),
+	N_("Number of clock ticks the system spent in user mode (nice)"),
+	N_("Number of clock ticks the system spent in system mode"),
+	N_("Number of clock ticks the system spent in the idle task"),
 };
