@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_cpu =
 static const unsigned long _glibtop_sysdeps_cpu_smp =
 (1L << GLIBTOP_CPU_XCPU_TOTAL) + (1L << GLIBTOP_CPU_XCPU_USER) +
 (1L << GLIBTOP_CPU_XCPU_NICE) + (1L << GLIBTOP_CPU_XCPU_SYS) +
-(1L << GLIBTOP_CPU_XCPU_IDLE);
+(1L << GLIBTOP_CPU_XCPU_IDLE) + (1L << GLIBTOP_CPU_XCPU_FLAGS);
 
 /* Init function. */
 
@@ -100,6 +100,8 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 		if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
 			break;
 
+		buf->xcpu_flags |= (1L << (u_int64_t) i);
+
 		p += 6;
 		buf->xcpu_user [i] = strtoul (p, &p, 0);
 		buf->xcpu_nice [i] = strtoul (p, &p, 0);
@@ -114,7 +116,8 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 		buf->xcpu_total [i] = total;
 	}
 
-	buf->flags |= _glibtop_sysdeps_cpu_smp;
+	if (buf->xcpu_flags)
+		buf->flags |= _glibtop_sysdeps_cpu_smp;
 
 	return 0;
 }

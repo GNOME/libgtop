@@ -1,3 +1,7 @@
+1999-12-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* cpu.c: Only set smp flags when we're really on a SMP machine.
+
 1999-11-28  Martin Baulig  <martin@home-of-linux.org>
 
 	* procstate.c (glibtop_get_procstate_s): Stat "/proc/<pid>" instead
