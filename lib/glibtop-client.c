@@ -25,8 +25,7 @@
 
 #include <glibtop.h>
 
-#include <gobject/gsignal.h>
-#include <gobject/gvaluetypes.h>
+#include <glib-object.h>
 
 static void glibtop_client_class_init    (glibtop_client_class   *klass);
 static void glibtop_client_init          (glibtop_client         *client);

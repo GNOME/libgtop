@@ -88,7 +88,7 @@ glibtop_strdup_r (glibtop_server *server, const char *string)
 }
 
 void
-glibtop_free_r (glibtop_server *server, const void *ptr)
+glibtop_free_r (glibtop_server *server, void *ptr)
 {
 #ifdef LIBGTOP_USE_GLIB_MALLOC
     g_free (ptr);

@@ -1,3 +1,12 @@
+Mon Nov 26 20:11:31 2001  Owen Taylor  <otaylor@redhat.com>
+
+	* lib/xmalloc.c include/glibtop/xmalloc.h: (glibtop_free_r):
+	Argument to free can't be const!
+
+	* include/glibtop/glibtop-client/backend.h 
+	  lib/glibtop-backend.c lib/glibtop-client.c: Include 
+	glib-object.h, not gobject/gobject.h.
+
 2001-10-13  Bastien Nocera  <hadess@hadess.net>
 
 	* Makefile.am, configure.in, libgtop-2.0.pc.in, libgtop.pc.in:

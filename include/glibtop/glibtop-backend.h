@@ -27,7 +27,7 @@
 #define __GLIBTOP_BACKEND_H__
 
 #include <glibtop.h>
-#include <gobject/gobject.h>
+#include <glib-object.h>
 
 G_BEGIN_DECLS
 

@@ -25,8 +25,7 @@
 
 #include <glibtop.h>
 
-#include <gobject/gsignal.h>
-#include <gobject/gvaluetypes.h>
+#include <glib-object.h>
 
 #include <glibtop/glibtop-backend.h>
 #include <glibtop/glibtop-backend-info.h>

@@ -27,7 +27,8 @@
 #define __GLIBTOP_CLIENT_H__
 
 #include <glibtop.h>
-#include <gobject/gobject.h>
+
+#include <glib-object.h>
 
 #include <glibtop/glibtop-backend.h>
 
