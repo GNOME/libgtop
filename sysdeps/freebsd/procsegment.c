@@ -29,14 +29,7 @@
 #include <sys/param.h>
 #include <sys/sysctl.h>
 
-static const unsigned long _glibtop_sysdeps_proc_segment =
-(1 << GLIBTOP_PROC_SEGMENT_TRS);
-/* (1 << GLIBTOP_PROC_SEGMENT_LRS) +
-(1 << GLIBTOP_PROC_SEGMENT_DRS) + 
-(1 << GLIBTOP_PROC_SEGMENT_DT) +
-(1 << GLIBTOP_PROC_SEGMENT_START_CODE) +
-(1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
-(1 << GLIBTOP_PROC_SEGMENT_START_STACK) */
+static const unsigned long _glibtop_sysdeps_proc_segment = 0;
 
 /* Init function. */
 

@@ -112,8 +112,6 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	buf->rss_rlim = (u_int64_t) 
 		(plimit.pl_rlimit [RLIMIT_RSS].rlim_cur);
 	
-	glibtop_suid_leave (server);
-
 	vms = &pinfo [0].kp_eproc.e_vm;
 
 	buf->vsize = buf->size = (u_int64_t) pagetok
@@ -167,26 +165,9 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 			continue;
 
 		buf->share += object.un_pager.vnp.vnp_size;
-
-		if (!object.handle)
-			continue;
-		
-		if (kvm_read (server->machine.kd,
-			      (unsigned long) object.handle,
-			      &vnode, sizeof (vnode)) != sizeof (vnode))
-			glibtop_error_io_r (server, "kvm_read (vnode)");
-
-		if ((vnode.v_type != VREG) || (vnode.v_tag != VT_UFS) ||
-		    !vnode.v_data) continue;
-
-		if (kvm_read (server->machine.kd,
-			      (unsigned long) vnode.v_data,
-			      &inode, sizeof (inode)) != sizeof (inode))
-			glibtop_error_io_r (server, "kvm_read (inode)");
-
-		fprintf (stderr, "INODE: %ld\n", inode.i_number);
-
 	}
+
+	glibtop_suid_leave (server);
 
 	buf->flags = _glibtop_sysdeps_proc_mem;
 }
