@@ -1,3 +1,9 @@
+August 30, 2004:
+===============
+* Applied some *BSD patches.
+* Removed old files.
+
+
 August 15, 2004:
 ===============
 * Fixed compilation with C89-only compilers and old libc.
