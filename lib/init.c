@@ -247,7 +247,9 @@ glibtop *
 glibtop_init_s (glibtop **server_ptr, unsigned long features, unsigned flags)
 {
     glibtop *server;
+#if 0
     glibtop_init_func_t *init_fkt;
+#endif
 	
     if (server_ptr == NULL)
 	return NULL;
@@ -262,6 +264,7 @@ glibtop_init_s (glibtop **server_ptr, unsigned long features, unsigned flags)
     if (flags & GLIBTOP_INIT_NO_INIT)
 	return server;
 
+#if 0
     /* Do the initialization, but only if not already initialized. */
 
     if ((server->flags & _GLIBTOP_INIT_STATE_SYSDEPS) == 0) {
@@ -274,6 +277,7 @@ glibtop_init_s (glibtop **server_ptr, unsigned long features, unsigned flags)
 		
 	server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;
     }
+#endif
 
     return server;
 }

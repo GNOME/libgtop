@@ -1,5 +1,7 @@
 2000-01-12  Martin Baulig  <martin@home-of-linux.org>
 
+	* lib/init.c (glibtop_init_s): Comment out `_glibtop_init_hook_s'.
+
 	* configure.in: We now require libxml.
 	(LIBGTOP_LIBS): Remove all backend libraries.
 	(LIBGTOP_EXTRA_LIBS): Add $(LIBGTOP_XML_LIB) here.
