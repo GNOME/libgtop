@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.0.1\n"
 "POT-Creation-Date: 2003-01-18 17:36+0800\n"
-"PO-Revision-Date: 2003-01-18 05:10+0800\n"
+"PO-Revision-Date: 2003-04-18 01:26+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -90,9 +90,11 @@ msgstr ""
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "CPU %3d      (0x%08lx)：%12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
+# I think spin means something more specific, but have no knowledge about
+# this, even after searching in google. -- Abel
 #: examples/smp.c:123
 msgid "Spin:"
-msgstr ""
+msgstr "使用分佈："
 
 #: lib/read.c:75
 #, c-format
@@ -235,7 +237,7 @@ msgstr "用戶模式的 CPU 時間"
 
 #: sysdeps/names/cpu.c:45
 msgid "CPU Time in User Mode (nice)"
-msgstr ""
+msgstr "用戶模式的 CPU 時間 (nice)"
 
 #: sysdeps/names/cpu.c:46
 msgid "CPU Time in System Mode"
@@ -255,11 +257,11 @@ msgstr "CPU 時間總數 (SMP)"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in User Mode"
-msgstr "使用者模式 CPU 時間 (SMP)"
+msgstr "使用者模式 SMP CPU 時間"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr ""
+msgstr "使用者模式 SMP CPU 時間 (nice)"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in System Mode"
@@ -279,7 +281,7 @@ msgstr "在使用者模式中，系統所消耗的時鐘中斷次數"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr ""
+msgstr "在使用者模式中，系統所消耗的時鐘中斷次數 (nice)"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in system mode"
@@ -335,7 +337,7 @@ msgstr "工作數目"
 
 #: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
 msgid "Last PID"
-msgstr ""
+msgstr "最後的 PID"
 
 #: sysdeps/names/loadavg.c:47
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
@@ -598,8 +600,7 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"該程序所產生的 minor fault 數目，在這情況下不需要在磁碟中重新載入記憶分"
-"頁。"
+"該程序所產生的 minor fault 數目，在這情況下不需要在磁碟中重新載入記憶分頁。"
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -607,8 +608,7 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"該程序所產生的 major fault 數目，在這情況下需要在磁碟中重新載入記憶分"
-"頁。"
+"該程序所產生的 major fault 數目，在這情況下需要在磁碟中重新載入記憶分頁。"
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
@@ -625,8 +625,7 @@ msgstr "該程序及它的副程序所產生的 major fault。"
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
-msgstr ""
-"目前的 ESP 數值 (32 位元堆疊指標)，出現在該程序的核心堆疊分頁。"
+msgstr "目前的 ESP 數值 (32 位元堆疊指標)，出現在該程序的核心堆疊分頁。"
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
@@ -714,7 +713,7 @@ msgstr "Stack_RSS"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Dirty Size"
-msgstr ""
+msgstr "Dirty Size"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Code"
@@ -730,7 +729,7 @@ msgstr "Start_Stack"
 
 #: sysdeps/names/procsegment.c:48
 msgid "Text resident set size"
-msgstr ""
+msgstr "Text resident set 大小"
 
 #: sysdeps/names/procsegment.c:49
 msgid "Shared-Lib resident set size"
@@ -746,7 +745,7 @@ msgstr "常駐堆疊大小"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Total size of dirty pages"
-msgstr ""
+msgstr "dirty page 大小"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Address of beginning of code segment"
@@ -901,8 +900,8 @@ msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
-"系統因內部計時器而需要發出 SIGALRM 訊號給程序，發出訊號前等待的時間(以 "
-"jiffy 表示)。"
+"系統因內部計時器而需要發出 SIGALRM 訊號給程序，發出訊號前等待的時間(以 jiffy "
+"表示)。"
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
@@ -966,7 +965,7 @@ msgstr "使用者代號"
 
 #: sysdeps/names/procuid.c:64
 msgid "Effective User ID"
-msgstr "有效使用者代號"
+msgstr "有效使用者代號 (euid)"
 
 #: sysdeps/names/procuid.c:65
 msgid "Group ID"
@@ -974,7 +973,7 @@ msgstr "群組代號"
 
 #: sysdeps/names/procuid.c:66
 msgid "Effective Group ID"
-msgstr "有效群組代號"
+msgstr "有效群組代號 (egid)"
 
 #: sysdeps/names/procuid.c:67
 msgid "Process ID"
@@ -1022,7 +1021,7 @@ msgstr "整個系統的 semaphore 數目上限"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Number of undo structures system wide"
-msgstr ""
+msgstr "整個系統共用的還原資料結構的數目"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores per array"
@@ -1034,7 +1033,7 @@ msgstr ""
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max number of undo entries per process"
-msgstr ""
+msgstr "每個程序的還原次數上限"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
@@ -1214,15 +1213,15 @@ msgstr "系統起動至今全部閒置工作所佔的秒數"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr "掛斷"
+msgstr "掛斷 (Hangup)"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
-msgstr "鍵盤發出中斷訊號"
+msgstr "中斷 (Interrupt)"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
-msgstr "鍵盤發出退出訊號"
+msgstr "退出 (Quit)"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
@@ -1234,7 +1233,7 @@ msgstr ""
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr "中止訊號"
+msgstr "中止 (Abort)"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
@@ -1246,11 +1245,11 @@ msgstr "浮點數運算出現例外情況"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr "強行中止"
+msgstr "強行中止 (Kill)"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
-msgstr ""
+msgstr "匯流排錯誤"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
@@ -1258,7 +1257,7 @@ msgstr "記憶體區段錯誤"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr "系統呼叫參數錯誤"
+msgstr "系統函式參數錯誤"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
@@ -1270,11 +1269,11 @@ msgstr ""
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
-msgstr "程序中止"
+msgstr "程序中止 (Term)"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr "socket 發生緊急情況"
+msgstr "socket 緊急情況"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
