@@ -39,7 +39,7 @@ _close_sysdeps (glibtop *, glibtop_backend *);
 
 extern glibtop_call_vector glibtop_backend_sysdeps_call_vector;
 
-glibtop_backend_info glibtop_backend_sysdeps = {
+glibtop_backend_info LibGTopBackendInfo = {
     "glibtop-backend-sysdeps", _open_sysdeps, _close_sysdeps,
     &glibtop_backend_sysdeps_call_vector
 };
