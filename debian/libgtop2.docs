@@ -1,5 +1,7 @@
-debian/RELNOTES-0.25
-debian/RELNOTES-1.0
-debian/NEWS
-debian/AUTHORS
+RELNOTES-0.25
+RELNOTES-1.0
+RELNOTES-1.1.x
+NEWS
+AUTHORS
+TODO
 debian/changelog

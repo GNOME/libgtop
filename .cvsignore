@@ -15,7 +15,8 @@ gtopConf.sh
 i386-bsdi
 i686-pc-linux-gnu
 intl
-libgtop-0.01.tar.gz
+libgtop-1.*.*.tar.gz
+libgtop-1.*.*
 libgtop-mirror.sh.swp
 libgtopConf.sh
 libtool
@@ -33,8 +34,6 @@ i686-pc-linux-gnu-linux
 libgtop-config
 ABOUT-NLS
 libgtop.spec
-libgtop-0.99.*.tar.gz
-libgtop-0.99.*
 install-sh
 mkinstalldirs
 missing
@@ -42,3 +41,5 @@ INSTALL
 COPYING
 glibtop-config.h
 stamp-gc-h
+build-debstamp
+install-debstamp

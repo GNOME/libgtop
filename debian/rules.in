@@ -31,10 +31,12 @@ build-debstamp:
 clean: Makefile
 	@echo "--- Cleaning"
 	dh_testdir
+	dh_clean
 	-rm -rf static shared
 	-rm -f build-debstamp install-debstamp
-	-make distclean
+	-make -k distclean
 	-rm -f `find . -name "*~"`
+	-rm -f `find . -name "*\.la"`
 	-rm -rf `find . -name "\.deps"`
 	-rm -rf `find . -name "\.libs"`
 	-rm -rf `find . -name "*\.rej"`
@@ -46,7 +48,6 @@ install-debstamp:
 	@echo "--- Installing"
 	dh_testdir
 	dh_testroot
-	dh_clean
 	rm -rf $(b)
 	$(MAKE) install prefix=$(i)/@PREFIX@ exec_prefix=$(i)/@PREFIX@ \
 	  localstatedir=$(i)/@LOCALSTATEDIR@
@@ -72,7 +73,7 @@ binary-arch: build install \
 # libgtop2@SUFFIX@
 #
 
-libgnome2@SUFFIX@: install
+libgtop2@SUFFIX@: install
 	@echo "--- Building: $@"
 	dh_installdocs       -p$@ -P$(b)/$@ README NEWS AUTHORS
 	dh_installchangelogs -p$@ -P$(b)/$@ ChangeLog
