@@ -42,6 +42,10 @@ static int proc_ctl_handler (ctl_table *table, int *name, int nlen,
 			     void *oldval, size_t *oldlenp, void *newval,
 			     size_t newlen, void **context);
 
+static int proc_args_ctl_handler (ctl_table *table, int *name, int nlen,
+				  void *oldval, size_t *oldlenp, void *newval,
+				  size_t newlen, void **context);
+
 static int libgtop_sysctl_version = 1;
 static int libgtop_update_expensive = 5000;
 
@@ -92,6 +96,8 @@ ctl_table libgtop_table[] = {
      sizeof (libgtop_proc_mem), 0444, NULL, NULL, &proc_ctl_handler},
     {LIBGTOP_PROC_SIGNAL, NULL, &libgtop_proc_signal,
      sizeof (libgtop_proc_signal), 0444, NULL, NULL, &proc_ctl_handler},
+    {LIBGTOP_PROC_ARGS, NULL, NULL, 0, 0444, NULL, NULL,
+     &proc_args_ctl_handler},
     {0}
 };
 
@@ -880,4 +886,126 @@ proc_ctl_handler (ctl_table *table, int *name, int nlen,
 	return -EFAULT;
 
     return 1;
+}
+
+static unsigned long
+get_phys_addr (struct task_struct * p, unsigned long ptr)
+{
+    pgd_t *page_dir;
+    pmd_t *page_middle;
+    pte_t pte;
+
+    if (!p || !p->mm || ptr >= TASK_SIZE)
+	return 0;
+    /* Check for NULL pgd .. shouldn't happen! */
+    if (!p->mm->pgd) {
+	printk("get_phys_addr: pid %d has NULL pgd!\n", p->pid);
+	return 0;
+    }
+
+    page_dir = pgd_offset(p->mm,ptr);
+    if (pgd_none(*page_dir))
+	return 0;
+    if (pgd_bad(*page_dir)) {
+	printk("bad page directory entry %08lx\n", pgd_val(*page_dir));
+	pgd_clear(page_dir);
+	return 0;
+    }
+    page_middle = pmd_offset(page_dir,ptr);
+    if (pmd_none(*page_middle))
+	return 0;
+    if (pmd_bad(*page_middle)) {
+	printk("bad page middle entry %08lx\n", pmd_val(*page_middle));
+	pmd_clear(page_middle);
+	return 0;
+    }
+    pte = *pte_offset(page_middle,ptr);
+    if (!pte_present(pte))
+	return 0;
+    return pte_page(pte) + (ptr & ~PAGE_MASK);
+}
+
+static int
+get_array (struct task_struct *p, unsigned long start, unsigned long end,
+	   char * buffer)
+{
+    unsigned long addr;
+    int size = 0, result = 0;
+    char c;
+
+    if (start >= end)
+	return result;
+    for (;;) {
+	addr = get_phys_addr (p, start);
+	if (!addr)
+	    return result;
+	do {
+	    c = *(char *) addr;
+	    if (!c)
+		result = size;
+	    if (size < PAGE_SIZE)
+		buffer[size++] = c;
+	    else
+		return result;
+	    addr++;
+	    start++;
+	    if (!c && start >= end)
+		return result;
+	} while (addr & ~PAGE_MASK);
+    }
+
+    return result;
+}
+
+static int
+proc_args_ctl_handler (ctl_table *table, int *name, int nlen,
+		       void *oldval, size_t *oldlenp, void *newval,
+		       size_t newlen, void **context)
+{
+    struct task_struct *tsk = NULL;
+    int ret, len, len_name;
+    unsigned long page;
+
+    if (!oldval || !oldlenp || get_user (len, oldlenp))
+	return -EFAULT;
+
+    if (!name || !nlen || get_user (len_name, name))
+	return -EFAULT;
+
+    if (nlen != 2)
+	return -EFAULT;
+
+    read_lock (&tasklist_lock);
+    tsk = find_task_by_pid (name [1]);
+    /* FIXME!! This should be done after the last use */
+    read_unlock (&tasklist_lock);
+
+    if (!tsk || !tsk->mm)
+	return -ESRCH;
+
+    if (!(page = __get_free_page (GFP_KERNEL)))
+	return -ENOMEM;
+
+    ret = get_array (tsk, tsk->mm->arg_start,
+		     tsk->mm->arg_end, (char *) page);
+    if (ret < 0) {
+	free_page (page);
+	return ret;
+    }
+
+    if (ret < len)
+	len = ret;
+
+    if (put_user (len, oldlenp))
+	goto err_fault_free_page;
+    
+    if (copy_to_user (oldval, (void *) page, len))
+	goto err_fault_free_page;
+
+    free_page (page);
+    return 1;
+
+ err_fault_free_page:
+    free_page (page);
+    return -EFAULT;
 }
