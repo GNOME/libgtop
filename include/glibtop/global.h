@@ -62,6 +62,10 @@
 # endif
 #endif
 
+#ifdef NEED_GNOMESUPPORT_H
+#include <gnomesupport.h>
+#endif
+
 #ifdef WITHOUT_GUILE
 #undef GLIBTOP_GUILE
 #undef GLIBTOP_GUILE_NAMES
