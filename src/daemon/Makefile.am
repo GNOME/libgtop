@@ -10,7 +10,7 @@ bin_PROGRAMS			= gnuserv
 
 EXTRA_PROGRAMS			= gtop_daemon
 
-gnuserv_SOURCES			= gnuserv.c main.c
+gnuserv_SOURCES			= gnuserv.c main.c slave.c
 gnuserv_LDADD			= $(top_builddir)/lib/libgtop.la \
 				  $(top_builddir)/sysdeps/common/libgtop_common.la \
 				  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \

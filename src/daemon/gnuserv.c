@@ -29,11 +29,11 @@
  * ../etc/gnuserv.README relative to the directory containing this file)
  */
 
-static char rcsid[] = "!Header: gnuserv.c,v 2.1 95/02/16 11:58:27 arup alpha !";
-
 #include <glibtop.h>
 #include <glibtop/open.h>
 #include <glibtop/close.h>
+#include <glibtop/command.h>
+#include <glibtop/xmalloc.h>
 
 #include "server_config.h"
 
@@ -46,195 +46,13 @@ static char rcsid[] = "!Header: gnuserv.c,v 2.1 95/02/16 11:58:27 arup alpha !";
 #include <sys/select.h>
 #endif
 
-extern void handle_parent_connection __P ((glibtop *, int));
-extern void handle_child_connection __P ((glibtop *, int));
+extern void handle_parent_connection __P ((int));
+extern void handle_child_connection __P ((int));
+extern void handle_ipc_connection __P ((int));
 
-#if !defined(SYSV_IPC) && !defined(UNIX_DOMAIN_SOCKETS) && !defined(INTERNET_DOMAIN_SOCKETS)
-main ()
-{
-	fprintf (stderr, "Sorry, the Emacs server is only supported on systems that have\n");
-	fprintf (stderr, "Unix Domain sockets, Internet Domain sockets or System V IPC\n");
-	exit (1);
-}				/* main */
-
-#else /* SYSV_IPC || UNIX_DOMAIN_SOCKETS || INTERNET_DOMAIN_SOCKETS */
-
-#ifdef SYSV_IPC
-
-int ipc_qid = 0;		/* ipc message queue id */
-int ipc_wpid = 0;		/* watchdog task pid */
-
-
-/*
- * ipc_exit -- clean up the queue id and queue, then kill the watchdog task
- * if it exists. exit with the given status.
- */
-void
-ipc_exit (int stat)
-{
-	msgctl (ipc_qid, IPC_RMID, 0);
-
-	if (ipc_wpid != 0)
-		kill (ipc_wpid, SIGKILL);
-
-	exit (stat);
-}				/* ipc_exit */
-
-
-/*
- * ipc_handle_signal -- catch the signal given and clean up.
- */
-void
-ipc_handle_signal (int sig)
-{
-	ipc_exit (0);
-}				/* ipc_handle_signal */
-
-
-/* 
- * ipc_spawn_watchdog -- spawn a watchdog task to clean up the message queue should the
- * server process die.
- */
-void
-ipc_spawn_watchdog (void)
-{
-	if ((ipc_wpid = fork ()) == 0) {	/* child process */
-		int ppid = getppid ();	/* parent's process id */
-
-		setpgrp ();	/* gnu kills process group on exit */
-
-		while (1) {
-			if (kill (ppid, 0) < 0) {	/* ppid is no longer
-							 * valid, parent may
-							 * have died */
-				ipc_exit (0);
-			}	/* if */
-			sleep (10);	/* have another go later */
-		}		/* while */
-	}			/* if */
-}				/* ipc_spawn_watchdog */
-
-
-/*
- * ipc_init -- initialize server, setting the global msqid that can be listened on.
- */
-void
-ipc_init (struct msgbuf **msgpp)
-{
-	key_t key;		/* messge key */
-	char buf[GSERV_BUFSZ];	/* pathname for key */
-
-	sprintf (buf, "/tmp/lgtd%d", (int) geteuid ());
-	creat (buf, 0600);
-	key = ftok (buf, 1);
-
-	if ((ipc_qid = msgget (key, 0600 | IPC_CREAT)) == -1)
-		glibtop_error_io ("unable to create msg queue");
-
-	ipc_spawn_watchdog ();
-
-	signal (SIGTERM, ipc_handle_signal);
-	signal (SIGINT, ipc_handle_signal);
-
-	if ((*msgpp = (struct msgbuf *)
-	     malloc (sizeof **msgpp + GSERV_BUFSZ)) == NULL) {
-		glibtop_warn_io ("unable to allocate space for message buffer");
-		ipc_exit (1);
-	}			/* if */
-}				/* ipc_init */
-
-
-/*
- * handle_ipc_request -- accept a request from a client, pass the request on
- * to the GNU Emacs process, then wait for its reply and
- * pass that on to the client.
- */
-void
-handle_ipc_request (struct msgbuf *msgp)
-{
-#if 0
-	struct msqid_ds msg_st;	/* message status */
-	char buf[GSERV_BUFSZ];
-	int len;		/* length of message / read */
-	int s, result_len;	/* tag fields on the response from emacs */
-	int offset = 0;
-	int total = 1;		/* # bytes that will actually be sent off */
-
-	if ((len = msgrcv (ipc_qid, msgp, GSERV_BUFSZ - 1, 1, 0)) < 0) {
-		glibtop_warn_io ("msgrcv");
-		ipc_exit (1);
-	}			/* if */
-	msgctl (ipc_qid, IPC_STAT, &msg_st);
-	strncpy (buf, msgp->mtext, len);
-	buf[len] = '\0';	/* terminate */
-
-	printf ("%d %s", ipc_qid, buf);
-	fflush (stdout);
-
-	/* now for the response from gnu */
-	msgp->mtext[0] = '\0';
-
-#if 0
-	if ((len = read (0, buf, GSERV_BUFSZ - 1)) < 0) {
-		glibtop_warn_io ("read");
-		ipc_exit (1);
-	}			/* if */
-	sscanf (buf, "%d:%[^\n]\n", &junk, msgp->mtext);
-#else
-
-	/* read in "n/m:" (n=client fd, m=message length) */
-
-	while (offset < (GSERV_BUFSZ - 1) &&
-	       ((len = read (0, buf + offset, 1)) > 0) &&
-	       buf[offset] != ':') {
-		offset += len;
-	}
-
-	if (len < 0)
-		glibtop_error_io ("read");
-
-	/* parse the response from emacs, getting client fd & result length */
-	buf[offset] = '\0';
-	sscanf (buf, "%d/%d", &s, &result_len);
-
-	while (result_len > 0) {
-		if ((len = read (0, buf, min2 (result_len, GSERV_BUFSZ - 1))) < 0)
-			glibtop_error_io ("read");
-
-		/* Send this string off, but only if we have enough space */
-
-		if (GSERV_BUFSZ > total) {
-			if (total + len <= GSERV_BUFSZ)
-				buf[len] = 0;
-			else
-				buf[GSERV_BUFSZ - total] = 0;
-
-			send_string (s, buf);
-			total += strlen (buf);
-		}
-		result_len -= len;
-	}
-
-	/* eat the newline */
-	while ((len = read (0, buf, 1)) == 0);
-	if (len < 0)
-		glibtop_error_io ("read");
-
-	if (buf[0] != '\n')
-		glibtop_error ("garbage after result [%c]", buf[0]);
+#if !defined(UNIX_DOMAIN_SOCKETS) && !defined(INTERNET_DOMAIN_SOCKETS)
+#error "Unix Domain sockets or Internet Domain sockets are required"
 #endif
-
-	/* Send a response back to the client. */
-
-	msgp->mtype = msg_st.msg_lspid;
-	if (msgsnd (ipc_qid, msgp, strlen (msgp->mtext) + 1, 0) < 0)
-		glibtop_warn_io ("msgsend(gnuserv)");
-#else
-	glibtop_error ("handle_ipc_request (): Function not implemented");
-#endif
-}				/* handle_ipc_request */
-#endif /* SYSV_IPC */
-
 
 #ifdef INTERNET_DOMAIN_SOCKETS
 
@@ -244,7 +62,11 @@ handle_ipc_request (struct msgbuf *msgp)
 
 static Xauth *server_xauth = NULL;
 
-#endif
+#endif /* INTERNET_DOMAIN_SOCKETS */
+
+/*
+ * timed_read - Read with timeout.
+ */
 
 static int
 timed_read (int fd, char *buf, int max, int timeout, int one_line)
@@ -289,10 +111,10 @@ timed_read (int fd, char *buf, int max, int timeout, int one_line)
 }
 
 
-
 /*
  * permitted -- return whether a given host is allowed to connect to the server.
  */
+
 static int
 permitted (u_long host_addr, int fd)
 {
@@ -311,21 +133,22 @@ permitted (u_long host_addr, int fd)
 			return FALSE;
 
 #ifdef DEBUG
-		fprintf (stderr, "Client sent authenticatin protocol '%s'\n", auth_protocol);
+		fprintf (stderr, "Client sent authenticatin protocol '%s'\n",
+			 auth_protocol);
 #endif
 
 		if (strcmp (auth_protocol, DEFAUTH_NAME) &&
 		    strcmp (auth_protocol, MCOOKIE_NAME)) {
-			glibtop_warn ("Authentication protocol from client is invalid", auth_protocol);
-
+			glibtop_warn ("Invalid authentication protocol "
+				      "'%s' from client", auth_protocol);
 			return FALSE;
 		}
-		if (!strcmp (auth_protocol, MCOOKIE_NAME)) {
 
+		if (!strcmp (auth_protocol, MCOOKIE_NAME)) {
 			/* 
 			 * doing magic cookie auth
 			 */
-
+			
 			if (timed_read (fd, buf, 10, AUTH_TIMEOUT, 1) <= 0)
 				return FALSE;
 
@@ -336,27 +159,30 @@ permitted (u_long host_addr, int fd)
 
 #ifdef AUTH_MAGIC_COOKIE
 			if (server_xauth && server_xauth->data &&
-			 !memcmp (buf, server_xauth->data, auth_data_len)) {
+			    !memcmp (buf, server_xauth->data, auth_data_len)) {
 				return TRUE;
 			}
 #else
-			glibtop_warn ("client tried Xauth, but server is not compiled with Xauth");
+			glibtop_warn ("Client tried Xauth, but server is "
+				      "not compiled with Xauth");
 #endif
 
 			/* 
-			 * auth failed, but allow this to fall through to the GNU_SECURE
-			 * protocol....
+			 * auth failed, but allow this to fall through to the
+			 * GNU_SECURE protocol....
 			 */
 
-			glibtop_warn ("Xauth authentication failed, trying GNU_SECURE auth...");
-
+			glibtop_warn ("Xauth authentication failed, "
+				      "trying GNU_SECURE auth...");
+			
 		}
+		
 		/* Other auth protocols go here, and should execute only if
 		 * the * auth_protocol name matches. */
-
 	}
+	
 	/* Now, try the old GNU_SECURE stuff... */
-
+	
 #ifdef DEBUG
 	fprintf (stderr, "Doing GNU_SECURE auth ...\n");
 #endif
@@ -370,9 +196,9 @@ permitted (u_long host_addr, int fd)
 		if (host_addr == permitted_hosts [i])
 			return (TRUE);
 	}
-
+	
 	return (FALSE);
-}				/* permitted */
+}
 
 
 /*
@@ -383,6 +209,7 @@ permitted (u_long host_addr, int fd)
  * add each host that is named in the file.
  * Return the number of hosts added.
  */
+
 static int
 setup_table (void)
 {
@@ -436,11 +263,11 @@ setup_table (void)
 	return hosts;
 }				/* setup_table */
 
-
 /*
  * internet_init -- initialize server, returning an internet socket that can
  * be listened on.
  */
+
 static int
 internet_init (void)
 {
@@ -479,9 +306,10 @@ internet_init (void)
 
 
 /*
- * handle_internet_request -- accept a request from a client and send the information
- * to stdout (the gnu process).
+ * handle_internet_request -- accept a request from a client and send the
+ * information to stdout (the gnu process).
  */
+
 static void
 handle_internet_request (int ls)
 {
@@ -519,7 +347,7 @@ handle_internet_request (int ls)
 	if (pid)
 		return;
 
-	handle_parent_connection (glibtop_global_server, s);
+	handle_parent_connection (s);
 
 	close (s);
 	
@@ -631,7 +459,7 @@ handle_unix_request (int ls)
 	if (pid)
 		return;
 
-	handle_child_connection (glibtop_global_server, s);
+	handle_child_connection (s);
 
 	close (s);
 
@@ -659,18 +487,13 @@ main (int argc, char *argv [])
 	int uls = -1;		/* unix domain listen socket */
 	pid_t pid;
 
-#ifdef SYSV_IPC
-	struct msgbuf *msgp;	/* message buffer */
-
-#endif /* SYSV_IPC */
-
 	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_OPEN_NO_OVERRIDE);
 
 	/* Fork a child.
 	 *
 	 * The parent will listen for incoming internet connections
 	 * and the child will listen for connections from the local
-	 * host using unix domain name sockets or SysV IPC.
+	 * host using unix domain name sockets.
 	 */
 
 	signal (SIGCHLD, handle_signal);
@@ -696,15 +519,10 @@ main (int argc, char *argv [])
 		fprintf (stderr, "Child ID: (%d, %d) - (%d, %d)\n",
 			 getuid (), geteuid (), getgid (), getegid ());
 
-#ifdef SYSV_IPC
-		/* get a msqid to listen on, and a message buffer. */
-		ipc_init (&msgp);
-#endif /* SYSV_IPC */
-
 #ifdef UNIX_DOMAIN_SOCKETS
 		/* get a unix domain socket to listen on. */
 		uls = unix_init ();
-#endif /* UNIX_DOMAIN_SOCKETS */
+#endif
 	} else {
 		/* We are the parent. */
 
@@ -756,13 +574,10 @@ main (int argc, char *argv [])
 #ifdef INTERNET_DOMAIN_SOCKETS
 		/* get a internet domain socket to listen on. */
 		ils = internet_init ();
-#endif /* INTERNET_DOMAIN_SOCKETS */
+#endif
 	}
 
 	while (1) {
-#ifdef SYSV_IPC
-		handle_ipc_request (msgp);
-#else /* NOT SYSV_IPC */
 		fd_set rmask;
 		int ret;
 
@@ -770,8 +585,7 @@ main (int argc, char *argv [])
 			if ((ret == -1) && (errno == ECHILD))
 				break;
 
-			if ((ret == -1) && ((errno == EAGAIN) ||
-					    (errno == ERESTART)))
+			if ((ret == -1) && ((errno == EAGAIN)))
 				continue;
 			if (ret > 0)
 				fprintf (stderr, "Child %d exited.\n", ret);
@@ -812,14 +626,11 @@ main (int argc, char *argv [])
 #ifdef INTERNET_DOMAIN_SOCKETS
 		if (ils > 0 && FD_ISSET (ils, &rmask))
 			handle_internet_request (ils);
-#endif /* INTERNET_DOMAIN_SOCKETS */
+#endif
 
 		if (FD_ISSET (fileno (stdin), &rmask))
-			handle_child_connection (glibtop_global_server, fileno (stdin));
-#endif /* NOT SYSV_IPC */
-	}			/* while */
+			handle_child_connection (fileno (stdin));
+	}
 
 	return 0;
-}				/* main */
-
-#endif /* SYSV_IPC || UNIX_DOMAIN_SOCKETS || INTERNET_DOMAIN_SOCKETS */
+}

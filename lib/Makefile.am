@@ -13,8 +13,8 @@ libgtop_la_SOURCES		= init.c open.c close.c command.c read.c read_data.c \
 
 BUILT_SOURCES			= lib.c
 
-lib.c: lib.awk $(top_builddir)/config.h $(top_builddir)/features.def
-	$(AWK) -f $(srcdir)/lib.awk < $(top_builddir)/features.def > lib-t
+lib.c: lib.awk $(top_builddir)/config.h $(top_srcdir)/features.def
+	$(AWK) -f $(srcdir)/lib.awk < $(top_srcdir)/features.def > lib-t
 	mv lib-t lib.c
 
 EXTRA_DIST			= lib.awk

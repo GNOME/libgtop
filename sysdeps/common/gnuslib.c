@@ -29,26 +29,17 @@
  * ../etc/gnuserv.README relative to the directory containing this file)
  */
 
-#if 0
-static char rcsid[] = "!Header: gnuslib.c,v 2.4 95/02/16 11:57:37 arup alpha !";
-
-#endif
-
+#include <glibtop.h>
 #include <glibtop/gnuserv.h>
 
 #include <fcntl.h>
 
-#ifdef SYSV_IPC
-static int connect_to_ipc_server (void);
-
-#endif
 #ifdef UNIX_DOMAIN_SOCKETS
-static int connect_to_unix_server (void);
-
+static int connect_to_unix_server __P((void));
 #endif
-#ifdef INTERNET_DOMAIN_SOCKETS
-static int connect_to_internet_server (const char *serverhost, u_short port);
 
+#ifdef INTERNET_DOMAIN_SOCKETS
+static int connect_to_internet_server __P((const char *, u_short));
 #endif
 
 /* On some systems, e.g. DGUX, inet_addr returns a 'struct in_addr'. */
@@ -94,10 +85,6 @@ glibtop_make_connection (hostarg, portarg, s)
 		*s = connect_to_internet_server (hostarg, portarg);
 		return (int) CONN_INTERNET;
 #endif
-#ifdef SYSV_IPC
-		return -1;	/* hostarg should always be NULL for SYSV_IPC 
-				 */
-#endif
 	} else {
 		/* no hostname given.  Use unix-domain/sysv-ipc, or *
 		 * internet-domain connection to local host if they're not
@@ -105,9 +92,6 @@ glibtop_make_connection (hostarg, portarg, s)
 #if   defined(UNIX_DOMAIN_SOCKETS)
 		*s = connect_to_unix_server ();
 		return (int) CONN_UNIX;
-#elif defined(SYSV_IPC)
-		*s = connect_to_ipc_server ();
-		return (int) CONN_IPC;
 #elif defined(INTERNET_DOMAIN_SOCKETS)
 		{
 			char localhost[HOSTNAMSZ];
@@ -121,69 +105,6 @@ glibtop_make_connection (hostarg, portarg, s)
 #endif /* IPC type */
 	}
 }
-
-#ifdef SYSV_IPC
-/*
- * connect_to_ipc_server -- establish connection with server process via SYSV IPC
- * Returns msqid for server if successful.
- */
-static int
-connect_to_ipc_server (void)
-{
-	int s;			/* connected msqid */
-	key_t key;		/* message key */
-	char buf[GSERV_BUFSZ + 1];	/* buffer for filename */
-
-	sprintf (buf, "/tmp/lgtd%d", (int) geteuid ());
-	creat (buf, 0600);
-	if ((key = ftok (buf, 1)) == -1)
-		glibtop_error_io ("unable to get ipc key from %s", buf);
-
-	if ((s = msgget (key, 0600)) == -1)
-		glibtop_error_io ("unable to access msg queue");
-
-	return (s);
-
-}				/* connect_to_ipc_server */
-
-
-/*
- * disconnect_from_ipc_server -- inform the server that sending has finished,
- * and wait for its reply.
- */
-void 
-disconnect_from_ipc_server (s, msgp, echo)
-     int s;
-     struct msgbuf *msgp;
-     int echo;
-{
-	int len;		/* length of received message */
-
-	send_string (s, EOT_STR);	/* EOT terminates this message */
-	msgp->mtype = 1;
-
-	if (msgsnd (s, msgp, strlen (msgp->mtext) + 1, 0) < 0) {
-		perror (progname);
-		fprintf (stderr, "%s: unable to send message to server\n", progname);
-		exit (1);
-	};			/* if */
-
-	if ((len = msgrcv (s, msgp, GSERV_BUFSZ, getpid (), 0)) < 0) {
-		perror (progname);
-		fprintf (stderr, "%s: unable to receive message from server\n", progname);
-		exit (1);
-	};			/* if */
-
-	if (echo) {
-		msgp->mtext[len] = '\0';	/* string terminate message */
-		fputs (msgp->mtext, stdout);
-		if (msgp->mtext[len - 1] != '\n')
-			putchar ('\n');
-	};			/* if */
-
-}				/* disconnect_from_ipc_server */
-#endif /* SYSV_IPC */
-
 
 #if defined(INTERNET_DOMAIN_SOCKETS) || defined(UNIX_DOMAIN_SOCKETS)
 /*

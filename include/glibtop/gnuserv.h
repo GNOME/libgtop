@@ -55,8 +55,7 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
  */
 
 #define INTERNET_DOMAIN_SOCKETS
-#define UNIX_DOMAIN_SOCKETS 
-// #define SYSV_IPC
+#define UNIX_DOMAIN_SOCKETS
 
 /*
  * Define additional authentication protocols to be used. These methods will
@@ -90,15 +89,13 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
  * Pick a default communication scheme, if none was specified.
  */
 
-#if !defined(SYSV_IPC) && !defined(UNIX_DOMAIN_SOCKETS) && !defined(INTERNET_DOMAIN_SOCKETS)
+#if !defined(UNIX_DOMAIN_SOCKETS) && !defined(INTERNET_DOMAIN_SOCKETS)
 
-#ifdef HAVE_SYSVIPC
-#define SYSV_IPC		/* SYSV systems use SYSV IPC by default */
-#endif /* HAVE_SYSVIPC */
+/* BSD systems use Unix Domain sockets by default */
 
 #ifdef BSD
-#define UNIX_DOMAIN_SOCKETS	/* BSD systems use Unix Domain sockets by default */
-#endif /* BSD */
+#define UNIX_DOMAIN_SOCKETS
+#endif
 
 #endif /* No communication method pre-defined */
 
@@ -109,24 +106,6 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
  * msgsend will start failing. For sockets, using the system BUFSIZ is usually
  * what you want. 
  */
-
-# define GSERV_BUFSZ BUFSIZ
-
-
-#ifdef SYSV_IPC
-#include <sys/ipc.h>
-#include <sys/msg.h>
-
-#define send_string(s,str) \
-  if (strlen(msgp->mtext) + strlen(str) < GSERV_BUFSZ) \
-     strcat(msgp->mtext,str); \
-  else \
-  { \
-    fprintf(stderr,"%s: not enough message buffer space\n",progname); \
-     exit(1); \
-  } \
-
-#endif /* SYSV_IPC */
 
 #if defined(INTERNET_DOMAIN_SOCKETS) || defined(UNIX_DOMAIN_SOCKETS)
 #include <sys/socket.h>
@@ -154,9 +133,6 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
 #undef TRUE
 #define TRUE 1
 
-// extern char *optarg;
-// extern int optind;
-
 /* The casts shut Sun's compiler up and are safe in the context these
    are actually used. */
 #define max2(x,y) (((int) (x) > (int) (y)) ? (x) : (y))
@@ -176,16 +152,6 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
 
 /* function declarations */
 extern int glibtop_make_connection __P((const char *, int, int *));
-
-#ifdef SYSV_IPC
-void disconnect_from_ipc_server();
-#endif
-
-#if defined(INTERNET_DOMAIN_SOCKETS) || defined(UNIX_DOMAIN_SOCKETS)
-// void send_string (int s, const char *msg);
-// void disconnect_from_server (int s, int echo);
-// int read_line (int s, char *dest);
-#endif
 
 #ifdef INTERNET_DOMAIN_SOCKETS
 extern long glibtop_internet_addr __P((const char *));

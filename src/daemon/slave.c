@@ -1,0 +1,155 @@
+/* $Id$ */
+
+/* Copyright (C) 1995, 1996, 1997 Free Software Foundation, Inc.
+   This file is part of the Gnome Top Library.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+
+   The Gnome Top Library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public License as
+   published by the Free Software Foundation; either version 2 of the
+   License, or (at your option) any later version.
+
+   The Gnome Top Library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public
+   License along with the GNU C Library; see the file COPYING.LIB.  If not,
+   write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+   Boston, MA 02111-1307, USA.  */
+
+#include <glibtop.h>
+#include <glibtop/gnuserv.h>
+
+#include <glibtop/open.h>
+#include <glibtop/union.h>
+
+#include <glibtop/command.h>
+#include <glibtop/parameter.h>
+
+#define _offset_union(p)	((char *) &resp->u.p - (char *) resp)
+#define _offset_data(p)		_offset_union (data.p)
+
+void
+handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
+		      const void *parameter)
+{
+	glibtop *server = glibtop_global_server;
+	pid_t pid;
+
+	switch (cmnd->command) {
+	case GLIBTOP_CMND_SYSDEPS:
+		resp->u.sysdeps.features = glibtop_server_features;
+		resp->offset = _offset_union (sysdeps);
+		break;
+#if GLIBTOP_SUID_CPU
+	case GLIBTOP_CMND_CPU:
+		glibtop_get_cpu_p (server, &resp->u.data.cpu);
+		resp->offset = _offset_data (cpu);
+		break;
+#endif
+#if GLIBTOP_SUID_MEM
+	case GLIBTOP_CMND_MEM:
+		glibtop_get_mem_p (server, &resp->u.data.mem);
+		resp->offset = _offset_data (mem);
+		break;
+#endif
+#if GLIBTOP_SUID_SWAP
+	case GLIBTOP_CMND_SWAP:
+		glibtop_get_swap_p (server, &resp->u.data.swap);
+		resp->offset = _offset_data (swap);
+		break;
+#endif
+#if GLIBTOP_SUID_UPTIME
+	case GLIBTOP_CMND_UPTIME:
+		glibtop_get_uptime_p (server, &resp->u.data.uptime);
+		resp->offset = _offset_data (uptime);
+		break;
+#endif
+#if GLIBTOP_SUID_LOADAVG
+	case GLIBTOP_CMND_LOADAVG:
+		glibtop_get_loadavg_p (server, &resp->u.data.loadavg);
+		resp->offset = _offset_data (loadavg);
+		break;
+#endif
+#if GLIBTOP_SUID_SHM_LIMITS
+	case GLIBTOP_CMND_SHM_LIMITS:
+		glibtop_get_shm_limits_p (server, &resp->u.data.shm_limits);
+		resp->offset = _offset_data (shm_limits);
+		break;
+#endif
+#if GLIBTOP_SUID_MSG_LIMITS
+	case GLIBTOP_CMND_MSG_LIMITS:
+		glibtop_get_msg_limits_p (server, &resp->u.data.msg_limits);
+		resp->offset = _offset_data (msg_limits);
+		break;
+#endif
+#if GLIBTOP_SUID_SEM_LIMITS
+	case GLIBTOP_CMND_SEM_LIMITS:
+		glibtop_get_sem_limits_p (server, &resp->u.data.sem_limits);
+		resp->offset = _offset_data (sem_limits);
+		break;
+#endif
+#if GLIBTOP_SUID_PROC_STATE
+	case GLIBTOP_CMND_PROC_STATE:
+		memcpy (&pid, parameter, sizeof (pid_t));
+		glibtop_get_proc_state_p
+			(server, &resp->u.data.proc_state, pid);
+		resp->offset = _offset_data (proc_state);
+		break;
+#endif
+#if GLIBTOP_SUID_PROC_UID
+	case GLIBTOP_CMND_PROC_UID:
+		memcpy (&pid, parameter, sizeof (pid_t));
+		glibtop_get_proc_uid_p
+			(server, &resp->u.data.proc_uid, pid);
+		resp->offset = _offset_data (proc_uid);
+		break;
+#endif
+#if GLIBTOP_SUID_PROC_MEM
+	case GLIBTOP_CMND_PROC_MEM:
+		memcpy (&pid, parameter, sizeof (pid_t));
+		glibtop_get_proc_mem_p
+			(server, &resp->u.data.proc_mem, pid);
+		resp->offset = _offset_data (proc_mem);
+		break;
+#endif
+#if GLIBTOP_SUID_PROC_TIME
+	case GLIBTOP_CMND_PROC_TIME:
+		memcpy (&pid, parameter, sizeof (pid_t));
+		glibtop_get_proc_time_p
+			(server, &resp->u.data.proc_time, pid);
+		resp->offset = _offset_data (proc_time);
+		break;
+#endif
+#if GLIBTOP_SUID_PROC_SIGNAL
+	case GLIBTOP_CMND_PROC_SIGNAL:
+		memcpy (&pid, parameter, sizeof (pid_t));
+		glibtop_get_proc_signal_p
+			(server, &resp->u.data.proc_signal, pid);
+		resp->offset = _offset_data (proc_signal);
+		break;
+#endif
+#if GLIBTOP_SUID_PROC_KERNEL
+	case GLIBTOP_CMND_PROC_KERNEL:
+		memcpy (&pid, parameter, sizeof (pid_t));
+		glibtop_get_proc_kernel_p
+			(server, &resp->u.data.proc_kernel, pid);
+		resp->offset = _offset_data (proc_kernel);
+		break;
+#endif
+#if GLIBTOP_SUID_PROC_SEGMENT
+	case GLIBTOP_CMND_PROC_SEGMENT:
+		memcpy (&pid, parameter, sizeof (pid_t));
+		glibtop_get_proc_segment_p
+			(server, &resp->u.data.proc_segment, pid);
+		resp->offset = _offset_data (proc_segment);
+		break;
+#endif
+	default:
+		glibtop_error ("Child received unknown command %u",
+			       cmnd->command);
+		break;
+	}
+}

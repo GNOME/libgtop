@@ -53,7 +53,9 @@ __BEGIN_DECLS
 #define _GLIBTOP_PARAM_SIZE		16
 
 typedef struct _glibtop_command		glibtop_command;
+
 typedef struct _glibtop_response	glibtop_response;
+typedef union  _glibtop_response_union	glibtop_response_union;
 
 struct _glibtop_command
 {
@@ -73,7 +75,7 @@ struct _glibtop_response
 {
 	off_t offset;
 	size_t size, data_size;
-	union _glibtop_response_union u;
+	glibtop_response_union u;
 };
 
 #define glibtop_call(p1, p2, p3, p4)	glibtop_call_r(glibtop_global_server, p1, p2, p3, p4)

@@ -1,3 +1,27 @@
+1998-07-14  Martin Baulig  <martin@home-of-linux.org>
+
+	* src/daemon/slave.c: New file.
+
+	* src/daemon/*.c: Done some more work on the daemon.
+	
+	* sysdeps/common/gnuslib.c: Removed IPC stuff.
+	
+	* include/glibtop/gnuserv.h: Removed IPC stuff.
+	
+	* include/glibtop/command.h (glibtop_response_unit): Added
+	typedef for `struct _glibtop_response_unit'.
+
+	* lib/Makefile.am: Using `$(top_srcdir)/features.def'
+	instead of `$(top_builddir)/features.def'.
+
+	* sysdeps/guile/Makefile.am: Using `$(top_srcdir)/features.def'
+	instead of `$(top_builddir)/features.def'.
+
+	* sysdeps/guile/names/Makefile.am: Dito.
+
+	* sysdeps/stub/*.c: changed suffix of all functions
+	from '_s' to '_r'; see also ChangeLog entry from Jun 6.
+
 1998-07-13  Martin Baulig  <martin@home-of-linux.org>
 
 	* glibtop.h: Fixed invocation of `glibtop_close_r'.
