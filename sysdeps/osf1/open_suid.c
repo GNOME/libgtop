@@ -64,12 +64,12 @@ glibtop_open_p (glibtop *server, const char *program_name,
 
     server->name = program_name;
 	
-    server->machine.uid = getuid ();
-    server->machine.euid = geteuid ();
-    server->machine.gid = getgid ();
-    server->machine.egid = getegid ();
+    server->_priv->machine.uid = getuid ();
+    server->_priv->machine.euid = geteuid ();
+    server->_priv->machine.gid = getgid ();
+    server->_priv->machine.egid = getegid ();
 
-    server->machine.proctable_entries = table
+    server->_priv->machine.proctable_entries = table
 	(TBL_PROCINFO, 0, NULL, INT_MAX, 0);
         
 	/* Drop priviledges; we only become root when necessary.
@@ -79,10 +79,10 @@ glibtop_open_p (glibtop *server, const char *program_name,
 	   
 	 */
 	
-    if (setreuid (server->machine.euid, server->machine.uid))
+    if (setreuid (server->_priv->machine.euid, server->_priv->machine.uid))
 	_exit (1);
 		
-    if (setregid (server->machine.egid, server->machine.gid))
+    if (setregid (server->_priv->machine.egid, server->_priv->machine.gid))
 	_exit (1);
 
     /* !!! END OF SUID ROOT PART !!! */
