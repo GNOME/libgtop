@@ -1,20 +1,22 @@
+# translation of libgtop.gnome-2-4.po to Mongolian
 # translation of libgtop.libgtop-GNOME-2-0-port.de.po to Mongolian
 # This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# Sanlig Badral <badral@chinggis.com>, 2003
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Sanlig Badral <badral@chinggis.com>, 2003.
+# Sanlig Badral <badral@openmn.org>, 2003.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop.libgtop-GNOME-2-0-port.de\n"
+"Project-Id-Version: libgtop.gnome-2-4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-12-03 02:55+0100\n"
-"PO-Revision-Date: 2003-01-21 06:09+0100\n"
-"Last-Translator: Sanlig Badral <badral@chinggis.com>\n"
-"Language-Team: Mongolian <mn@li.org>\n"
+"POT-Creation-Date: 2003-12-26 02:55+0100\n"
+"PO-Revision-Date: 2003-12-27 02:19+0100\n"
+"Last-Translator: Sanlig Badral <badral@openmn.org>\n"
+"Language-Team: Mongolian <openmn-core@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.1\n"
+"X-Generator: KBabel 1.0.2\n"
 
 #: examples/smp.c:71
 #, c-format
@@ -612,8 +614,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Anzahl weniger schwerer Seitenfehler einesпроцессынs, d.h. diejenigen die es "
-"nicht erforderlich gemacht haben, eine Seite von der Platte zu laden."
+"Процессын ноцтой бус хуудсын алдааны тоо, энэ нь тухайн процесс дискнээс санах "
+"ойн хуудсанд ачаалахыг шаардсан гэсэн үг."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -714,10 +716,8 @@ msgstr ""
 "мужийн зай юм. Энэ нь зөөгддгүй хуудсууд байдаг."
 
 #: sysdeps/names/procmem.c:62
-msgid ""
-"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr ""
-"Процессын RSS -н одоогийн хязгаар байтаар (ер нь 2.147.483.647 байдаг)."
+msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr "Процессын RSS -н одоогийн хязгаар байтаар (ер нь 2.147.483.647 байдаг)."
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
@@ -909,13 +909,11 @@ msgstr "Kernel горимд процессын хэрэглэх хугацаа"
 
 #: sysdeps/names/proctime.c:55
 msgid "cumulative utime of process and reaped children"
-msgstr ""
-"Процессын эсвэл хэдийнэ үхсэн хүүгийн хэрэглэгчийн горимд хэрэглэсэн хугацаа"
+msgstr "Процессын эсвэл хэдийнэ үхсэн хүүгийн хэрэглэгчийн горимд хэрэглэсэн хугацаа"
 
 #: sysdeps/names/proctime.c:56
 msgid "cumulative stime of process and reaped children"
-msgstr ""
-"Процессын эсвэл хэдийнэ үхсэн хүүгийн kernel-ийн горимд хэрэглэсэн хугацаа"
+msgstr "Процессын эсвэл хэдийнэ үхсэн хүүгийн kernel-ийн горимд хэрэглэсэн хугацаа"
 
 #: sysdeps/names/proctime.c:57
 msgid "The time (in jiffies) of the process's next timeout"
@@ -941,8 +939,7 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr ""
-"kernel горимд процессын хэрэглэх хугацаа, бүх процессорууд хамттооцогдсон"
+msgstr "kernel горимд процессын хэрэглэх хугацаа, бүх процессорууд хамттооцогдсон"
 
 #: sysdeps/names/procuid.c:56
 msgid "Uid"
@@ -1363,3 +1360,4 @@ msgstr "Хэрэглэгчийн тодорхойлсон сигнал 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Хэрэглэгчийн тодорхойлсон сигнал 2"
+
