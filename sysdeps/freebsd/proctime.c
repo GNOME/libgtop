@@ -124,7 +124,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 			 pid_t pid)
 {
 	struct kinfo_proc *pinfo;
-#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+#if (defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)) || (defined(OpenBSD) && (OpenBSD >= 199912))
 	register struct rusage *rup;
 #else
 	struct user *u_addr = (struct user *)USRSTACK;
@@ -166,7 +166,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	buf->frequency = 1000000;
 	buf->flags = _glibtop_sysdeps_proc_time;
 
-#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+#if (defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)) || (defined(OpenBSD) && (OpenBSD >= 199912))
 	glibtop_suid_enter (server);
 
 	if (kvm_read (server->machine.kd,

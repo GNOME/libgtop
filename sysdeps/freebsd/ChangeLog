@@ -1,3 +1,8 @@
+2001-02-14  Martin Baulig  <baulig@suse.de>
+
+	* proctime.c (glibtop_get_proc_time_p): Make things work on
+	OpenBSD 2.6; this is basically the same than on NetBSD.
+
 2000-02-13  Martin Baulig  <martin@home-of-linux.org>
 
 	* *.c: kvm_nlist () returns -1 on error, but a positive return value
