@@ -64,22 +64,38 @@ glibtop_get_proc_signal_p (glibtop *server,
 	/* signal: mask of pending signals.
 	 *         pinfo [0].kp_proc.p_siglist
 	 */
+#if defined(__NetBSD__) && (NSIG > 32)
+	buf->signal [0] = pinfo [0].kp_proc.p_siglist.__bits[0];
+#else
 	buf->signal [0] = pinfo [0].kp_proc.p_siglist;
+#endif
 
 	/* blocked: mask of blocked signals.
 	 *          pinfo [0].kp_proc.p_sigmask
 	 */
+#if defined(__NetBSD__) && (NSIG > 32)
+	buf->blocked [0] = pinfo [0].kp_proc.p_sigmask.__bits[0];
+#else
 	buf->blocked [0] = pinfo [0].kp_proc.p_sigmask;
+#endif
 	
 	/* sigignore: mask of ignored signals.
 	 *            pinfo [0].kp_proc.p_sigignore
 	*/
+#if defined(__NetBSD__) && (NSIG > 32)
+	buf->sigignore [0] = pinfo [0].kp_proc.p_sigignore.__bits[0];
+#else
 	buf->sigignore [0] = pinfo [0].kp_proc.p_sigignore;
+#endif
 	
 	/* sigcatch: mask of caught signals.
 	 *           pinfo [0].kp_proc.p_sigcatch
 	*/
+#if defined(__NetBSD__) && (NSIG > 32)
+	buf->sigcatch [0] = pinfo [0].kp_proc.p_sigcatch.__bits[0];
+#else
 	buf->sigcatch [0] = pinfo [0].kp_proc.p_sigcatch;
+#endif
 
 	buf->flags = _glibtop_sysdeps_proc_signal;
 }

@@ -1,3 +1,8 @@
+1999-02-21  Martin Baulig  <martin@home-of-linux.org>
+
+	* procsignal.c: Applied patch from the NetBSD-current ports
+	collection.
+
 1998-12-06  Martin Baulig  <martin@home-of-linux.org>
 
 	* Make it work with OpenBSD 2.4.
