@@ -1,3 +1,28 @@
+2005-01-10  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* configure.in:
+	* examples/.cvsignore:
+	* examples/Makefile.am:
+	* examples/openfiles.c: (show_open_files), (main):
+	* features.def:
+	* include/glibtop/Makefile.am:
+	* include/glibtop/command.h:
+	* include/glibtop/procopenfiles.h:
+	* include/glibtop/sysdeps.h:
+	* include/glibtop/union.h:
+	* structures.def:
+	* sysdeps/linux/Makefile.am:
+	* sysdeps/linux/procopenfiles.c: (glibtop_init_proc_open_files_s),
+	(get_socket_endpoint), (glibtop_get_proc_open_files_s):
+	* sysdeps/stub/Makefile.am:
+	* sysdeps/stub/procopenfiles.c: (glibtop_init_proc_open_files_s),
+	(glibtop_get_proc_open_files_s):
+	
+	New feature by nick@reloco.com.ar (Nicolás Lichtmaier).
+	
+	glibtop_get_open_files(pid) -> list of files by process.
+	TODO: Add documentation.
+
 2005-01-03  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* examples/pprint.c: (pprint_get_cpu):

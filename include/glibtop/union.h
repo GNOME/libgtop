@@ -43,6 +43,7 @@
 #include <glibtop/procsegment.h>
 #include <glibtop/procargs.h>
 #include <glibtop/procmap.h>
+#include <glibtop/procopenfiles.h>
 
 #include <glibtop/mountlist.h>
 #include <glibtop/fsusage.h>
@@ -80,6 +81,7 @@ union _glibtop_union
 	glibtop_netlist		netlist;
 	glibtop_netload		netload;
 	glibtop_ppp		ppp;
+	glibtop_proc_open_files proc_open_files;
 };
 
 G_END_DECLS

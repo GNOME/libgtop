@@ -52,8 +52,9 @@ G_BEGIN_DECLS
 #define GLIBTOP_SYSDEPS_NETLOAD		21
 #define GLIBTOP_SYSDEPS_PPP		22
 #define GLIBTOP_SYSDEPS_NETLIST		23
+#define GLIBTOP_SYSDEPS_PROC_OPEN_FILES	24
 
-#define GLIBTOP_MAX_SYSDEPS		24
+#define GLIBTOP_MAX_SYSDEPS		25
 
 #define GLIBTOP_SYSDEPS_ALL		((1 << GLIBTOP_MAX_SYSDEPS) - 1)
 
@@ -85,6 +86,7 @@ struct _glibtop_sysdeps
 		proc_segment,		/* glibtop_proc_segment	*/
 		proc_args,		/* glibtop_proc_args	*/
 		proc_map,		/* glibtop_proc_map	*/
+		proc_open_files,	/* glibtop_proc_open_files */
 		mountlist,		/* glibtop_mountlist	*/
 		fsusage,		/* glibtop_fsusage	*/
 		netlist,		/* glibtop_netlist	*/

@@ -8,11 +8,12 @@ DEFS			= @DEFS@
 
 noinst_PROGRAMS	= 	first second pprint procargs df netlist \
 			  mountlist procmap netload sysdeps timings \
+			  openfiles \
 			  @static_targets@ @smp_examples@
 
 EXTRA_PROGRAMS		= first_static second_static \
 			  mountlist_static procmap_static \
-			  smp smp_static \
+			  smp smp_static openfiles_static \
 			  netload_static sysdeps_static \
 			  timings_static pprint_static procargs_static \
 			  df_static netlist_static
@@ -106,5 +107,13 @@ netlist_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
 netlist_static_SOURCES	= $(netlist_SOURCES)
 netlist_static_LDADD	= $(netlist_LDADD)
 netlist_static_LDFLAGS	= -static
+
+
+openfiles_SOURCES	= openfiles.c
+openfiles_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
+
+openfiles_static_SOURCES	= $(openfiles_SOURCES)
+openfiles_static_LDADD		= $(openfiles_LDADD)
+openfiles_static_LDFLAGS	= -static
 
 
