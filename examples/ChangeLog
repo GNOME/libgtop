@@ -1,0 +1,7 @@
+1998-06-07  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am (CFLAGS): Disable optimize.
+	
+	* first.c (PROFILE_COUNT): Number of times each function
+	should be called. Defaults to 1; to profile the code, you
+	can increase this when compiling.
