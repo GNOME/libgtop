@@ -291,8 +291,8 @@ statfs (path, fsb)
 #endif /* _AIX && _I386 */
 
 int
-glibtop_get_fsusage_s (glibtop_server *server, glibtop_fsusage *buf,
-		       const char *disk)
+glibtop_get_fsusage_s (glibtop_server *server, glibtop_closure *machine,
+		       glibtop_fsusage *buf, const char *disk)
 {
     struct fs_usage fsp;
 

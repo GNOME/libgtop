@@ -1,3 +1,11 @@
+2001-04-21  Martin Baulig  <baulig@suse.de>
+
+	* Makefile.am: Install this as a backend.
+
+	* libgtop-common.backend, backend.c: New files.
+
+	* inodedb.c: Removed; moved to ~/lib.
+
 2000-11-22  Martin Baulig  <martin@home-of-linux.org>
 
 	* error_suid.c: New file, formerly known as error.c.
