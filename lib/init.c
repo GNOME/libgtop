@@ -154,6 +154,30 @@ _init_server (glibtop *server, const unsigned features)
 	glibtop_free_r (server, command);
 }
 
+void
+glibtop_server_ref (glibtop *server)
+{
+	if (server == NULL)
+		return;
+
+	server->refcount++;
+}
+
+void
+glibtop_server_unref (glibtop *server)
+{
+	if (server == NULL)
+		return;
+
+	if (!server->refcount) {
+		glibtop_warn_r (server, "Attempted to unref server "
+				"which refcount == 0");
+		return;
+	}
+
+	server->refcount--;
+}
+
 glibtop *
 glibtop_init_r (glibtop **server_ptr, unsigned long features, unsigned flags)
 {

@@ -44,6 +44,7 @@ typedef struct _glibtop		glibtop;
 
 struct _glibtop
 {
+	int refcount;			/* Reference count */
 	unsigned flags;
 	unsigned method;		/* Server Method */
 	unsigned error_method;		/* Error Method */
@@ -85,6 +86,12 @@ glibtop *
 glibtop_init_s (glibtop **server_ptr,
 		unsigned long features,
 		unsigned flags);
+
+void
+glibtop_server_ref (glibtop *server);
+
+void
+glibtop_server_unref (glibtop *server);
 
 #ifdef GLIBTOP_GUILE
 
