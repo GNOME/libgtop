@@ -4,92 +4,90 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.3\n"
-"POT-Creation-Date: 2001-12-05 16:10+0200\n"
-"PO-Revision-Date: 2000-01-13 17:57+0200\n"
-"Last-Translator: Yuri Syrota <rasta@renome.rovno.ua>\n"
+"POT-Creation-Date: 2003-01-27 21:17+0200\n"
+"PO-Revision-Date: 2003-01-27 10:42--500\n"
+"Last-Translator: Yuriy Syrota <yuri@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8-bit\n"
+"Content-Transfer-Encoding: 8bit\n"
 
-#: examples/smp.c:68
+#: examples/smp.c:71
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "Такти  (%ld на секунду):"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Total"
 msgstr "Всього"
 
-#: examples/smp.c:71 sysdeps/names/mem.c:47
+#: examples/smp.c:74
+#: sysdeps/names/mem.c:47
 msgid "User"
 msgstr "Користувач"
 
-#: examples/smp.c:71 sysdeps/names/procuid.c:58
+#: examples/smp.c:74
+#: sysdeps/names/procuid.c:58
 msgid "Nice"
 msgstr "Nice"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Sys"
 msgstr "Система"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Idle"
 msgstr "Простій"
 
-#: examples/smp.c:73
+#: examples/smp.c:76
 #, c-format
-msgid ""
-"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+msgid "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
-msgstr ""
-"ЦП           (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+msgstr "ЦП           (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
-#: examples/smp.c:77
+#: examples/smp.c:80
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "ЦП %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:94
+#: examples/smp.c:97
 msgid "Percent:"
 msgstr "Відсоток:"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Total (%)"
 msgstr "Всього (%)"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "User (%)"
 msgstr "Користувач (%)"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Nice (%)"
 msgstr "Nice (%)"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Sys (%)"
 msgstr "Система (%)"
 
-#: examples/smp.c:96
+#: examples/smp.c:99
 msgid "Idle (%)"
 msgstr "Простій (%)"
 
-#: examples/smp.c:98
+#: examples/smp.c:101
 #, c-format
-msgid ""
-"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgid "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
-msgstr ""
-"ЦП           (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "ЦП           (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
-#: examples/smp.c:114
+#: examples/smp.c:117
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "ЦП %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:123
 msgid "Spin:"
 msgstr "Спін:"
 
@@ -146,11 +144,9 @@ msgstr "INETD"
 
 #: src/daemon/gnuserv.c:488
 #, c-format
-msgid ""
-"Error on option %s: %s.\n"
+msgid "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"Помилка в параметрі %s: %s.\n"
+msgstr "Помилка в параметрі %s: %s.\n"
 "Запустіть '%s --help' щоб побачити повний список доступних параметрів.\n"
 
 #: support/error.c:109
@@ -172,7 +168,8 @@ msgstr "%s: параметр \"--%s\" не може мати аргументі�
 msgid "%s: option `%c%s' doesn't allow an argument\n"
 msgstr "%s: параметр \"%c%s\" не може мати аргументів\n"
 
-#: support/getopt.c:715 support/getopt.c:888
+#: support/getopt.c:715
+#: support/getopt.c:888
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
 msgstr "%s: параметру \"%s\" необхідний аргумент\n"
@@ -201,7 +198,8 @@ msgid "%s: invalid option -- %c\n"
 msgstr "%s: невірний параметр -- %c\n"
 
 #. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
+#: support/getopt.c:807
+#: support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
 msgstr "%s: параметру необхідний аргумент -- %c\n"
@@ -215,6 +213,14 @@ msgstr "%s: параметр \"-W %s\" неоднозначний\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: параметр \"-W %s\" не може мати аргументів\n"
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr "Показати це довідкове повідомлення"
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
+msgstr "Відобразити коротку інформацію про використання"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
@@ -260,26 +266,28 @@ msgstr "SMP-час ЦП в системному режимі"
 msgid "SMP CPU Time in the Idle Task"
 msgstr "SMP-час простою ЦП"
 
-#: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
+#: sysdeps/names/cpu.c:58
+#: sysdeps/names/cpu.c:64
 msgid "Number of clock ticks since system boot"
 msgstr "Кількість тактів годинника від старту системи"
 
-#: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
+#: sysdeps/names/cpu.c:59
+#: sysdeps/names/cpu.c:65
 msgid "Number of clock ticks the system spent in user mode"
-msgstr ""
-"Кількість тактів годинника проведених системою в користувацькому режимі"
+msgstr "Кількість тактів годинника проведених системою в користувацькому режимі"
 
-#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
+#: sysdeps/names/cpu.c:60
+#: sysdeps/names/cpu.c:66
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr ""
-"Кількість тактів годинника проведених системою в користувацькому режимі "
-"(nice)"
+msgstr "Кількість тактів годинника проведених системою в користувацькому режимі (nice)"
 
-#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
+#: sysdeps/names/cpu.c:61
+#: sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in system mode"
 msgstr "Кількість тактів годинника проведених системою в системному режимі"
 
-#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
+#: sysdeps/names/cpu.c:62
+#: sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in the idle task"
 msgstr "Кількість тактів годинника проведених системою в очікуванні"
 
@@ -287,7 +295,8 @@ msgstr "Кількість тактів годинника проведених 
 msgid "Tick frequency (default is 100)"
 msgstr "Частота тактів (типово - 100)"
 
-#: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
+#: sysdeps/names/fsusage.c:39
+#: sysdeps/names/fsusage.c:48
 msgid "Total blocks"
 msgstr "Загалом блоків"
 
@@ -299,11 +308,13 @@ msgstr "Вільних блоків"
 msgid "Available blocks"
 msgstr "Доступних блоків"
 
-#: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
+#: sysdeps/names/fsusage.c:42
+#: sysdeps/names/fsusage.c:51
 msgid "Total file nodes"
 msgstr "Загалом i-вузлів"
 
-#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+#: sysdeps/names/fsusage.c:43
+#: sysdeps/names/fsusage.c:52
 msgid "Free file nodes"
 msgstr "Вільних i-вузлів"
 
@@ -327,7 +338,8 @@ msgstr "Запущені завдання"
 msgid "Number of Tasks"
 msgstr "Кількість завдань"
 
-#: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
+#: sysdeps/names/loadavg.c:42
+#: sysdeps/names/loadavg.c:50
 msgid "Last PID"
 msgstr "Останній PID"
 
@@ -403,53 +415,70 @@ msgstr "Пам'ять використана в користувацьких п�
 msgid "Memory in locked pages in kB"
 msgstr "Пам'ять в заблокованих сторінках (в Кб)"
 
-#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
-#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
-#: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
+#: sysdeps/names/mountlist.c:38
+#: sysdeps/names/mountlist.c:45
+#: sysdeps/names/proclist.c:38
+#: sysdeps/names/proclist.c:45
+#: sysdeps/names/procmap.c:38
+#: sysdeps/names/procmap.c:45
 msgid "Number of list elements"
 msgstr "Кількість елементів списку"
 
-#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
-#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
-#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
+#: sysdeps/names/mountlist.c:39
+#: sysdeps/names/mountlist.c:46
+#: sysdeps/names/proclist.c:39
+#: sysdeps/names/proclist.c:46
+#: sysdeps/names/procmap.c:39
+#: sysdeps/names/procmap.c:46
 msgid "Total size of list"
 msgstr "Загальний розмір списку"
 
-#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
-#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
-#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
+#: sysdeps/names/mountlist.c:40
+#: sysdeps/names/mountlist.c:47
+#: sysdeps/names/proclist.c:40
+#: sysdeps/names/proclist.c:47
+#: sysdeps/names/procmap.c:40
+#: sysdeps/names/procmap.c:47
 msgid "Size of a single list element"
 msgstr "Розмір одного елементу списку"
 
-#: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
+#: sysdeps/names/msg_limits.c:40
+#: sysdeps/names/msg_limits.c:51
 msgid "Size in kilobytes of message pool"
 msgstr "Розмір накопичувача повідомлень в Кб"
 
-#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
+#: sysdeps/names/msg_limits.c:41
+#: sysdeps/names/msg_limits.c:52
 msgid "Number of entries in message map"
 msgstr "Кількість елементів у мапі повідомлень"
 
-#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
+#: sysdeps/names/msg_limits.c:42
+#: sysdeps/names/msg_limits.c:53
 msgid "Max size of message"
 msgstr "Максимальний розмір повідомлення"
 
-#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
+#: sysdeps/names/msg_limits.c:43
+#: sysdeps/names/msg_limits.c:54
 msgid "Default max size of queue"
 msgstr "Типовий максимальний розмір черги"
 
-#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
+#: sysdeps/names/msg_limits.c:44
+#: sysdeps/names/msg_limits.c:55
 msgid "Max queues system wide"
 msgstr "Максимальна кількість черг в системі"
 
-#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
+#: sysdeps/names/msg_limits.c:45
+#: sysdeps/names/msg_limits.c:56
 msgid "Message segment size"
 msgstr "Розмір сеґменту повідомлення"
 
-#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
+#: sysdeps/names/msg_limits.c:46
+#: sysdeps/names/msg_limits.c:57
 msgid "Number of system message headers"
 msgstr "Кількість заголовків системних повідомлень"
 
-#: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+#: sysdeps/names/netload.c:45
+#: sysdeps/names/netload.c:63
 msgid "Interface Flags"
 msgstr "Ознаки інтерфейса"
 
@@ -457,51 +486,63 @@ msgstr "Ознаки інтерфейса"
 msgid "MTU"
 msgstr "MTU"
 
-#: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
+#: sysdeps/names/netload.c:47
+#: sysdeps/names/netload.c:65
 msgid "Subnet"
 msgstr "Підмережа"
 
-#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
+#: sysdeps/names/netload.c:48
+#: sysdeps/names/netload.c:66
 msgid "Address"
 msgstr "Адреса"
 
-#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
+#: sysdeps/names/netload.c:49
+#: sysdeps/names/netload.c:67
 msgid "Packets In"
 msgstr "Вхідні пакети"
 
-#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+#: sysdeps/names/netload.c:50
+#: sysdeps/names/netload.c:68
 msgid "Packets Out"
 msgstr "Вихідні пакети"
 
-#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+#: sysdeps/names/netload.c:51
+#: sysdeps/names/netload.c:69
 msgid "Packets Total"
 msgstr "Всього пакетів"
 
-#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+#: sysdeps/names/netload.c:52
+#: sysdeps/names/netload.c:70
 msgid "Bytes In"
 msgstr "Вхідні байти"
 
-#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+#: sysdeps/names/netload.c:53
+#: sysdeps/names/netload.c:71
 msgid "Bytes Out"
 msgstr "Вихідні байти"
 
-#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+#: sysdeps/names/netload.c:54
+#: sysdeps/names/netload.c:72
 msgid "Bytes Total"
 msgstr "Всього байтів"
 
-#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+#: sysdeps/names/netload.c:55
+#: sysdeps/names/netload.c:73
 msgid "Errors In"
 msgstr "Вхідні помилки"
 
-#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+#: sysdeps/names/netload.c:56
+#: sysdeps/names/netload.c:74
 msgid "Errors Out"
 msgstr "Вихідні помилки"
 
-#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+#: sysdeps/names/netload.c:57
+#: sysdeps/names/netload.c:75
 msgid "Errors Total"
 msgstr "Всього помилок"
 
-#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+#: sysdeps/names/netload.c:58
+#: sysdeps/names/netload.c:76
 msgid "Collisions"
 msgstr "Колізії"
 
@@ -509,7 +550,8 @@ msgstr "Колізії"
 msgid "Maximum Transfer Unit"
 msgstr "Максимальна одиниця передачі"
 
-#: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
+#: sysdeps/names/ppp.c:38
+#: sysdeps/names/ppp.c:45
 msgid "PPP State"
 msgstr "Стан PPP"
 
@@ -529,7 +571,8 @@ msgstr "Кількість вхідних байтів"
 msgid "Number of output bytes"
 msgstr "Кількість вихідних байтів"
 
-#: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
+#: sysdeps/names/procargs.c:38
+#: sysdeps/names/procmem.c:47
 msgid "Size"
 msgstr "Розмір"
 
@@ -578,8 +621,7 @@ msgstr "WChan"
 msgid ""
 "Kernel flags of the process.\n"
 "\n"
-"On Linux, currently every flag has the math bit set, because crt0.s checks "
-"for math emulation, so this is not included in the output.\n"
+"On Linux, currently every flag has the math bit set, because crt0.s checks for math emulation, so this is not included in the output.\n"
 "\n"
 "This is probably a bug, as not every process is a compiled C program.\n"
 "\n"
@@ -588,16 +630,12 @@ msgstr ""
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:59
-msgid ""
-"The number of minor faults the process has made, those which have not "
-"required loading a memory page from disk."
+msgid "The number of minor faults the process has made, those which have not required loading a memory page from disk."
 msgstr ""
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
-msgid ""
-"The number of major faults the process has made, those which have required "
-"loading a memory page from disk."
+msgid "The number of major faults the process has made, those which have required loading a memory page from disk."
 msgstr ""
 
 #. CMin_Flt
@@ -612,23 +650,17 @@ msgstr ""
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:71
-msgid ""
-"The current value of esp (32-bit stack pointer), as found in the kernel "
-"stack page for the process."
-msgstr ""
+msgid "The current value of esp (32-bit stack pointer), as found in the kernel stack page for the process."
+msgstr "Поточне значення ESP (32-бітовий вказівник стека), виявлене в сторінці стека ядра для процесу."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr "Поточний EIP (32-бітний вказівник на інструкції)."
+msgstr "Поточний EIP (32-бітний вказівник інструкції)."
 
 #. NWChan
 #: sysdeps/names/prockernel.c:76
-msgid ""
-"This is the \"channel\" in which the process is waiting.  This is the "
-"address of a system call, and can be looked up in a namelist if you need a "
-"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
-"see the WCHAN field in action)"
+msgid "This is the \"channel\" in which the process is waiting.  This is the address of a system call, and can be looked up in a namelist if you need a textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to see the WCHAN field in action)"
 msgstr ""
 
 #. WChan
@@ -673,16 +705,11 @@ msgid "Number of pages of shared (mmap'd) memory"
 msgstr "Кількість сторінок колективної пам'яті (mmap)"
 
 #: sysdeps/names/procmem.c:57
-msgid ""
-"Number of pages the process has in real memory, minus 3 for administrative "
-"purposes. This is just the pages which count towards text, data, or stack "
-"space. This does not include pages which have not been demand-loaded in, or "
-"which are swapped out."
-msgstr ""
+msgid "Number of pages the process has in real memory, minus 3 for administrative purposes. This is just the pages which count towards text, data, or stack space. This does not include pages which have not been demand-loaded in, or which are swapped out."
+msgstr "Кількість сторінок, які процес займає в реальній пам'яті, мінус 3 для адміністративних потреб. Це значення — просто сторінки коду, даних чи ділянки стека. Це число не включає сторінки, які не було завантажено завантажено на запит, чи вивантажено з пам'яті."
 
 #: sysdeps/names/procmem.c:62
-msgid ""
-"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr "Поточна межа в байтах для процесу РРН (зазвичай 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:42
@@ -875,20 +902,18 @@ msgstr "час ЦП накопичений процесом в режимі яд
 
 #: sysdeps/names/proctime.c:55
 msgid "cumulative utime of process and reaped children"
-msgstr ""
+msgstr "загальний час процесу і завершених спадкоємних процесів витрачаний в режимі користувача"
 
 #: sysdeps/names/proctime.c:56
 msgid "cumulative stime of process and reaped children"
-msgstr ""
+msgstr "загальний час процесу і завершених спадкоємних процесів витрачаний в системному режимі"
 
 #: sysdeps/names/proctime.c:57
 msgid "The time (in jiffies) of the process's next timeout"
 msgstr ""
 
 #: sysdeps/names/proctime.c:58
-msgid ""
-"The time (in jiffies) before the next SIGALRM is sent to the process due to "
-"an interval timer."
+msgid "The time (in jiffies) before the next SIGALRM is sent to the process due to an interval timer."
 msgstr ""
 
 #: sysdeps/names/proctime.c:60
@@ -995,75 +1020,93 @@ msgstr "Пріоритет планування ядра"
 msgid "Standard unix nice level of process"
 msgstr "Стандартний рівень UNIX Nice для процесів"
 
-#: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
+#: sysdeps/names/sem_limits.c:42
+#: sysdeps/names/sem_limits.c:56
 msgid "Number of entries in semaphore map"
 msgstr "Кількість елементів у мапі семафорів"
 
-#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
+#: sysdeps/names/sem_limits.c:43
+#: sysdeps/names/sem_limits.c:57
 msgid "Max number of arrays"
 msgstr "Максимальна кількість масивів"
 
-#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
+#: sysdeps/names/sem_limits.c:44
+#: sysdeps/names/sem_limits.c:58
 msgid "Max semaphores system wide"
 msgstr "Максимальна кількість семафорів у системі"
 
-#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
+#: sysdeps/names/sem_limits.c:45
+#: sysdeps/names/sem_limits.c:59
 msgid "Number of undo structures system wide"
 msgstr "Кількість структур відкату у системі"
 
-#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
+#: sysdeps/names/sem_limits.c:46
+#: sysdeps/names/sem_limits.c:60
 msgid "Max semaphores per array"
 msgstr "Максимальна кількість семафорів на масив"
 
-#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
+#: sysdeps/names/sem_limits.c:47
+#: sysdeps/names/sem_limits.c:61
 msgid "Max ops per semop call"
 msgstr "Максимальна кількість операцій на виклик семафора"
 
-#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
+#: sysdeps/names/sem_limits.c:48
+#: sysdeps/names/sem_limits.c:62
 msgid "Max number of undo entries per process"
 msgstr "Максимальна кількість записів відкату на процес"
 
-#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
+#: sysdeps/names/sem_limits.c:49
+#: sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
 msgstr "sizeof struct sem_undo"
 
-#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
+#: sysdeps/names/sem_limits.c:50
+#: sysdeps/names/sem_limits.c:64
 msgid "Semaphore max value"
 msgstr "Максимальне значення семафора"
 
-#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
+#: sysdeps/names/sem_limits.c:51
+#: sysdeps/names/sem_limits.c:65
 msgid "Adjust on exit max value"
 msgstr ""
 
-#: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
+#: sysdeps/names/shm_limits.c:39
+#: sysdeps/names/shm_limits.c:48
 msgid "Max segment size"
 msgstr "Максимальний розмір сегменту"
 
-#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
+#: sysdeps/names/shm_limits.c:40
+#: sysdeps/names/shm_limits.c:49
 msgid "Min segment size"
 msgstr "Мінімальний розмір сегменту"
 
-#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
+#: sysdeps/names/shm_limits.c:41
+#: sysdeps/names/shm_limits.c:50
 msgid "Max number of segments"
 msgstr "Максимальна кількість сегментів"
 
-#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
+#: sysdeps/names/shm_limits.c:42
+#: sysdeps/names/shm_limits.c:51
 msgid "Max shared segments per process"
 msgstr "Максимум колективних сеґментів на процес"
 
-#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
+#: sysdeps/names/shm_limits.c:43
+#: sysdeps/names/shm_limits.c:52
 msgid "Max total shared memory"
 msgstr "Загальний максимум колективної пам'яті"
 
-#: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
+#: sysdeps/names/swap.c:39
+#: sysdeps/names/swap.c:48
 msgid "Total Swap Space"
 msgstr "Загальний об'єм свопінґу"
 
-#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
+#: sysdeps/names/swap.c:40
+#: sysdeps/names/swap.c:49
 msgid "Used Swap Space"
 msgstr "Використиний об'єм свопінґу"
 
-#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
+#: sysdeps/names/swap.c:41
+#: sysdeps/names/swap.c:50
 msgid "Free Swap Space"
 msgstr "Вільний об'єм свопінґу"
 
@@ -1083,71 +1126,88 @@ msgstr "Загальна кількість внесених сторінок с
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "Загальна кількість винесених сторінок свопінґу з старту системи"
 
-#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
+#: sysdeps/names/sysdeps.c:49
+#: sysdeps/names/sysdeps.c:76
 msgid "Server Features"
 msgstr "Властивості сервера"
 
-#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
+#: sysdeps/names/sysdeps.c:50
+#: sysdeps/names/sysdeps.c:77
 msgid "CPU Usage"
 msgstr "Використання CPU"
 
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
+#: sysdeps/names/sysdeps.c:51
+#: sysdeps/names/sysdeps.c:78
 msgid "Memory Usage"
 msgstr "Використання пам'яті"
 
-#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:52
+#: sysdeps/names/sysdeps.c:79
 msgid "Swap Usage"
 msgstr "Використання свопінґу"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:53
+#: sysdeps/names/sysdeps.c:80
 msgid "System Uptime"
 msgstr "Час працездатності системи"
 
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:54
+#: sysdeps/names/sysdeps.c:81
 msgid "Load Averange"
 msgstr "Середнє завантаження"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:55
+#: sysdeps/names/sysdeps.c:82
 msgid "Shared Memory Limits"
 msgstr "Обмеження колективної пам'яті"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:56
+#: sysdeps/names/sysdeps.c:83
 msgid "Message Queue Limits"
 msgstr "Обмеження черги повідомлень"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:57
+#: sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
 msgstr "Обмеження множини семафорів"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:58
+#: sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
 msgstr "Список запущених процесів"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:59
+#: sysdeps/names/sysdeps.c:86
 msgid "Process Status information"
 msgstr "Інформація про стан процесу"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:60
+#: sysdeps/names/sysdeps.c:87
 msgid "Process UID and TTY information"
 msgstr "Інформація про UID та TTY процесу"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:61
+#: sysdeps/names/sysdeps.c:88
 msgid "Process Memory information"
 msgstr "Інформація про пам'ять процесу"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:62
+#: sysdeps/names/sysdeps.c:89
 msgid "Process Time information"
 msgstr "Інформація про час процесу"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:63
+#: sysdeps/names/sysdeps.c:90
 msgid "Process Signal information"
 msgstr "Інформація про сиґнали процесу"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:64
+#: sysdeps/names/sysdeps.c:91
 msgid "Process Kernel Data information"
 msgstr "Інформація про дані процесу ядра"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:65
+#: sysdeps/names/sysdeps.c:92
 msgid "Process Segment information"
 msgstr "Інформація про сеґменти процесу"
 
@@ -1155,7 +1215,8 @@ msgstr "Інформація про сеґменти процесу"
 msgid "Process Arguments"
 msgstr "Аргументи процесу"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:67
+#: sysdeps/names/sysdeps.c:94
 msgid "Process Memory Map"
 msgstr "Мапа пам'яті процесу"
 
@@ -1163,15 +1224,18 @@ msgstr "Мапа пам'яті процесу"
 msgid "Mount List"
 msgstr "Список монтувань"
 
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:69
+#: sysdeps/names/sysdeps.c:96
 msgid "File System Usage"
 msgstr "Використання файлової системи"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:70
+#: sysdeps/names/sysdeps.c:97
 msgid "Network Load"
 msgstr "Завантаження мережі"
 
-#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:71
+#: sysdeps/names/sysdeps.c:98
 msgid "PPP Statistics"
 msgstr "Статистика PPP"
 
@@ -1199,126 +1263,158 @@ msgstr "Час в секундах від старту системи"
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "Час в секундах проведений системою в очікуванні з часу завантаження"
 
-#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28
+#: sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "Відбій"
 
-#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29
+#: sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "Переривання"
 
-#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30
+#: sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "Вихід"
 
-#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31
+#: sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "Невірна команда"
 
-#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32
+#: sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "Пастка трасування"
 
-#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33
+#: sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "Припинити"
 
-#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34
+#: sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "Помилка EMT"
 
-#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35
+#: sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "Виключення операції з плаваючою крапкою"
 
-#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36
+#: sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "Знищення"
 
-#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37
+#: sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "Помлка в непрямій адресації"
 
-#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38
+#: sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "Помилка сеґментації"
 
-#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39
+#: sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "Невірний арґумент системного виклику"
 
-#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40
+#: sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "Розірвано канал"
 
-#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41
+#: sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "Сиґнал тривоги"
 
-#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42
+#: sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "Програмне завершення"
 
-#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43
+#: sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "Критичний стан сокету"
 
-#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44
+#: sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "Зупинка"
 
-#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45
+#: sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "Клавіатурний сиґнал зупинки"
 
-#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46
+#: sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "Продовжити"
 
-#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47
+#: sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "Було змінено стан нащадка"
 
-#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48
+#: sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "Зчитування з TTY на тлі"
 
-#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49
+#: sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "Запис у TTY на тлі"
 
-#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50
+#: sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "Можливість вводу-виводу"
 
-#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51
+#: sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "Перевищення обмеження часу ЦП"
 
-#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52
+#: sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "Перевищення обмеження роміру файлу"
 
-#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53
+#: sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "Віртуальний будильник"
 
-#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54
+#: sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "Сиґнал таймера профілювання"
 
-#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55
+#: sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "Зміна розмірів вікна"
 
-#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56
+#: sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "Інформаційний запит"
 
-#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57
+#: sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "Визначений користувачем сигнал 1"
 
-#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#: sysdeps/osf1/siglist.c:58
+#: sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Визначений користувачем сигнал 2"
+
