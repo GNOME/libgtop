@@ -13,7 +13,8 @@ endif
 SUBDIRS = po intl $(support) macros misc include sysdeps lib src \
 	  $(examples_SUBDIRS) doc
 
-include_HEADERS = glibtop.h
+libgtopinclude_HEADERS = glibtop.h
+libgtopincludedir = $(includedir)/libgtop-1.0
 
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt libgtopConf.sh.in \
 	LIBGTOP-VERSION features.def libgtop-config.in RELNOTES-0.25 \
@@ -51,7 +52,7 @@ bin_SCRIPTS = $(top_builddir)/libgtop-config
 libgtopConf.sh: libgtopConf.sh.in Makefile
 ## Use sed and then mv to avoid problems if the user interrupts.
 	sed -e 's#\@LIBGTOP_LIBDIR\@#$(libdir)#g' \
-	  -e 's#\@LIBGTOP_INCLUDEDIR\@#$(includedir)#g' \
+	  -e 's#\@LIBGTOP_INCLUDEDIR\@#$(includedir)/libgtop-1.0#g' \
 	  -e 's#\@LIBGTOP_DATADIR\@#$(datadir)#g' \
 	  -e 's#\@LIBGTOP_EXTRA_LIBS\@#$(LIBGTOP_EXTRA_LIBS)#g' \
 	  -e 's#\@LIBGTOP_LIBS\@#$(LIBGTOP_LIBS)#g' \

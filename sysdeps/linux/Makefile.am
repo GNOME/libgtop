@@ -14,4 +14,5 @@ libgtop_sysdeps_la_LIBADD	= @GLIB_LIBS@
 
 libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO)
 
-include_HEADERS			= glibtop_server.h glibtop_machine.h
+libgtopinclude_HEADERS		= glibtop_server.h glibtop_machine.h
+libgtopincludedir		= $(includedir)/libgtop-1.0

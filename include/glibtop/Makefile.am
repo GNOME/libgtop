@@ -1,4 +1,4 @@
-glibtopdir		= $(includedir)/glibtop
+glibtopdir		= $(includedir)/libgtop-1.0/glibtop
 
 glibtop_HEADERS		= close.h loadavg.h prockernel.h procstate.h \
 			  sem_limits.h uptime.h command.h mem.h proclist.h \

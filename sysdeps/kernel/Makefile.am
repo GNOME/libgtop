@@ -13,7 +13,8 @@ libgtop_sysdeps_la_SOURCES	= open.c close.c kernel.s cpu.c mem.c swap.c \
 
 libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO)
 
-include_HEADERS			= glibtop_server.h
+libgtopinclude_HEADERS		= glibtop_server.h
+libgtopincludedir		= $(includedir)/libgtop-1.0
 
 noinst_HEADERS			= kernel.h
 

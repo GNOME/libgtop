@@ -1,3 +1,7 @@
+2001-10-17  Abel Cheung <maddog@linux.org.hk>
+
+	* Makefile.am: move header to $(includedir)/libgtop-1.0/glibtop.
+
 2001-02-13  Martin Baulig  <baulig@suse.de>
 
 	Fix bug #14076.

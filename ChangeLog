@@ -1,3 +1,8 @@
+2001-10-17  Abel Chueng  <maddog@linux.org.hk>
+
+	* configure.in, Makefile.am, include/glibtop/Makefile.am: headers
+	moved to $(includedir)/libgtop-1.0/glibtop.
+
 2001-09-16  Abel Chueng  <maddog@linux.org.hk>
 
 	* configure.in: Added "zh_TW" to ALL_LINGUAS.
