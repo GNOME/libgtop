@@ -61,10 +61,6 @@ include/glibtop/uptime.h
 include/glibtop/xmalloc.h
 src/inodedb/file_by_inode.c
 src/inodedb/mkinodedb.c
-src/daemon/io.c
-src/daemon/server.c
-src/daemon/slave.c
-src/daemon/version.c
 sysdeps/common/error.c
 sysdeps/common/fsusage.c
 sysdeps/common/inodedb.c

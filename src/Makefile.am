@@ -6,5 +6,5 @@ endif
 
 SUBDIRS			= $(inodedb_SUBDIRS)
 
-DIST_SUBDIRS		= daemon inodedb
+DIST_SUBDIRS		= inodedb
 

@@ -536,7 +536,6 @@ sysdeps/kernel/Makefile
 sysdeps/freebsd/Makefile
 sysdeps/solaris/Makefile
 src/Makefile
-src/daemon/Makefile
 src/inodedb/Makefile
 scripts/Makefile
 backends/Makefile
