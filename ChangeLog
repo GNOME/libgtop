@@ -1,5 +1,9 @@
 2000-01-13  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/compat_10.h: Add compatibility #defines for
+	`GLIBTOP_XCPU_TOTAL', `GLIBTOP_XCPU_USER', `GLIBTOP_XCPU_NICE',
+	`GLIBTOP_XCPU_SYS', `GLIBTOP_XCPU_IDLE' and `GLIBTOP_XCPU_FLAGS'
+
 	* LIBGTOP-VERSION: Set version number to 1.1.4, binary age 0,
 	interface age 0 and increased LIBGTOP_SERVER_VERSION to 52.
 
