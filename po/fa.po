@@ -1,23 +1,25 @@
 # Persian translation of libgtop.
-# Copyright (C) 2003 The FarsiWeb Project Group
-# Roozbeh Pournader <roozbeh@sharif.edu>, 2003.
+# Copyright (C) 2003, 2005 Sharif FarsiWeb, Inc.
+# Roozbeh Pournader <roozbeh@farsiweb.info>, 2003.
+# Azin Azadi <aazadi@gmail.com>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop\n"
+"Project-Id-Version: libgtop HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2003-03-10 15:31+0330\n"
-"Last-Translator: Roozbeh Pournader <roozbeh@sharif.edu>\n"
+"PO-Revision-Date: 2005-02-03 13:40+0330\n"
+"Last-Translator: Azin Azadi <aazadi@gmail.com>\n"
 "Language-Team: Persian <farsi@lists.sharif.edu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: examples/smp.c:76
 #, c-format
 msgid "Ticks (%ld per second):"
-msgstr ""
+msgstr "تیک (%Ild بر ثانیه)"
 
 #: examples/smp.c:79
 msgid "Total"
@@ -29,11 +31,11 @@ msgstr "کاربر"
 
 #: examples/smp.c:79 sysdeps/names/procuid.c:51
 msgid "Nice"
-msgstr ""
+msgstr "Nice"
 
 #: examples/smp.c:79
 msgid "Sys"
-msgstr ""
+msgstr "Sys"
 
 #: examples/smp.c:79
 msgid "Idle"
@@ -45,11 +47,13 @@ msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 msgstr ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
 
 #: examples/smp.c:85
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr ""
+msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
 #: examples/smp.c:102
 msgid "Percent:"
@@ -61,15 +65,15 @@ msgstr "مجموع (%)"
 
 #: examples/smp.c:103
 msgid "User (%)"
-msgstr "کاربر (%)"
+msgstr "کاربر (٪)"
 
 #: examples/smp.c:103
 msgid "Nice (%)"
-msgstr ""
+msgstr "Nice (٪)"
 
 #: examples/smp.c:103
 msgid "Sys (%)"
-msgstr ""
+msgstr "Sys (٪)"
 
 #: examples/smp.c:104
 msgid "Idle (%)"
@@ -81,11 +85,13 @@ msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 msgstr ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
 
 #: examples/smp.c:122
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr ""
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:128
 msgid "Spin:"
@@ -95,26 +101,23 @@ msgstr ""
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "خوانده شد %Id بایت"
 
 #: lib/read_data.c:51
 msgid "read data size"
-msgstr ""
+msgstr "‌اندازه‌ی داده‌های خوانده شده"
 
 #: lib/read_data.c:68
 #, c-format
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "داده‌های خوانده شده %Id بایت"
 
 #: lib/write.c:51
 #, c-format
 msgid "write %d byte"
 msgid_plural "write %d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%Id بایت نوشته شد"
 
 #: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
@@ -122,19 +125,19 @@ msgstr "به کار انداختن اشکال‌زدایی"
 
 #: src/daemon/gnuserv.c:456
 msgid "DEBUG"
-msgstr ""
+msgstr "اشکال‌زدایی"
 
 #: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
-msgstr ""
+msgstr "به کار انداختن خروجی مفصل"
 
 #: src/daemon/gnuserv.c:458
 msgid "VERBOSE"
-msgstr ""
+msgstr "مفصل"
 
 #: src/daemon/gnuserv.c:460
 msgid "Don't fork into background"
-msgstr ""
+msgstr "عدم انشعاب در پس‌زمینه"
 
 #: src/daemon/gnuserv.c:460
 msgid "NO-DAEMON"
@@ -142,11 +145,11 @@ msgstr "NO-DAEMON"
 
 #: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "از inetd احضار شد"
 
 #: src/daemon/gnuserv.c:462
 msgid "INETD"
-msgstr ""
+msgstr "INETD"
 
 #: src/daemon/gnuserv.c:496
 #, c-format
@@ -154,6 +157,8 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+"خطا در گزینه‌ی ‎.\n%s: %s"
+"برای دیدن فهرست کاملی از گزینه‌های موجود برای سطر فرمان، «%s --help» را اجرا کنید.\n"
 
 #: sysdeps/names/cpu.c:44
 msgid "Total CPU Time"
@@ -161,23 +166,23 @@ msgstr "مجموع زمان واحد پردازش مرکزی"
 
 #: sysdeps/names/cpu.c:45
 msgid "CPU Time in User Mode"
-msgstr ""
+msgstr "زمان واحد پردازش مرکزی در حالت کاربر‍"
 
 #: sysdeps/names/cpu.c:46
 msgid "CPU Time in User Mode (nice)"
-msgstr ""
+msgstr "زمان واحد پردازش مرکزی در حالت کاربر‍ (nice)"
 
 #: sysdeps/names/cpu.c:47
 msgid "CPU Time in System Mode"
-msgstr ""
+msgstr "زمان واحد پردازش مرکزی در حالت سیستم"
 
 #: sysdeps/names/cpu.c:48
 msgid "CPU Time in the Idle Task"
-msgstr ""
+msgstr "زمان واحد پردازش مرکزی در تکلیف عاطل"
 
 #: sysdeps/names/cpu.c:49
 msgid "Tick Frequency"
-msgstr "فرکانس تیک"
+msgstr "بسامد تیک"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP Total CPU Time"
@@ -205,31 +210,31 @@ msgstr ""
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks since system boot"
-msgstr ""
+msgstr "تعداد تیک‌های ساعت از راه‌اندازی سیستم"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in user mode"
-msgstr ""
+msgstr "تعداد تیک‌های ساعتی که سیستم در حالت کاربر صرف کرده است"
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr ""
+msgstr "تعداد تیک‌های ساعتی که سیستم در حالت کاربر صرف کرده است (nice)"
 
 #: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in system mode"
-msgstr ""
+msgstr "تعداد تیک‌های ساعتی که سیستم در حالت سیستم صرف کرده است"
 
 #: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr ""
+msgstr "تعداد تیک‌های ساعتی که سیستم در حالت تکلیف عاطل صرف کرده است"
 
 #: sysdeps/names/cpu.c:65
 msgid "Tick frequency (default is 100)"
-msgstr "فرکانس تیک (پیش‌فرض ۱۰۰ است)"
+msgstr "بسامد تیک (پیش‌فرض ۱۰۰ است)"
 
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
-msgstr ""
+msgstr "فیلد بیتی که نشان می‌دهند کدام واحد پردازش مرکزی در حال اجرا است"
 
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
@@ -237,28 +242,27 @@ msgstr "مجموع بلوک‌ها"
 
 #: sysdeps/names/fsusage.c:41
 msgid "Free blocks"
-msgstr ""
+msgstr "بلوک‌های آزاد"
 
 #: sysdeps/names/fsusage.c:42
 msgid "Available blocks"
-msgstr ""
+msgstr "بلوک‌های موجود"
 
 #: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:53
 msgid "Total file nodes"
-msgstr ""
+msgstr "جمع کل گره‌های پرونده‌ای"
 
 #: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:54
 msgid "Free file nodes"
-msgstr ""
+msgstr "گره‌های پرونده‌ای آزاد"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "بلوکه‌شده"
+msgstr "اندازه‌ی بلوک"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
-msgstr ""
+msgstr "بلوک‌های آزاد موجود برای فوق‌کاربر"
 
 #: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
@@ -266,7 +270,7 @@ msgstr ""
 
 #: sysdeps/names/loadavg.c:40
 msgid "Load Average"
-msgstr ""
+msgstr "میانگین بار"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Running Tasks"
@@ -286,11 +290,11 @@ msgstr ""
 
 #: sysdeps/names/loadavg.c:49
 msgid "Number of tasks currently running"
-msgstr ""
+msgstr "تعداد تکلیف‌های درحال اجرا"
 
 #: sysdeps/names/loadavg.c:50
 msgid "Total number of tasks"
-msgstr ""
+msgstr "تعداد کل تکلیف‌ها"
 
 #: sysdeps/names/mem.c:42
 msgid "Total Memory"
@@ -298,11 +302,11 @@ msgstr "کل حافظه"
 
 #: sysdeps/names/mem.c:43
 msgid "Used Memory"
-msgstr ""
+msgstr "حافظه‌ی مصرف شده"
 
 #: sysdeps/names/mem.c:44
 msgid "Free Memory"
-msgstr ""
+msgstr "حافظه‌ی آزاد"
 
 #: sysdeps/names/mem.c:45
 msgid "Shared Memory"
@@ -310,15 +314,15 @@ msgstr "حافظه‌ی اشتراکی"
 
 #: sysdeps/names/mem.c:46
 msgid "Buffers"
-msgstr ""
+msgstr "میانگیرها"
 
 #: sysdeps/names/mem.c:47
 msgid "Cached"
-msgstr ""
+msgstr "حافظه‌ی نهان"
 
 #: sysdeps/names/mem.c:49
 msgid "Locked"
-msgstr ""
+msgstr "قفل شده"
 
 #: sysdeps/names/mem.c:54
 msgid "Total physical memory in kB"
@@ -326,37 +330,37 @@ msgstr "کل حافظه‌ی فیزیکی به کیلوبایت"
 
 #: sysdeps/names/mem.c:55
 msgid "Used memory size in kB"
-msgstr ""
+msgstr "اندازه‌ی حافظه‌ی مصرف شده به کیلوبایت"
 
 #: sysdeps/names/mem.c:56
 msgid "Free memory size in kB"
-msgstr ""
+msgstr "اندازه‌ی حافظه‌ی آزاد به کیلوبایت"
 
 #: sysdeps/names/mem.c:57
 msgid "Shared memory size in kB"
-msgstr ""
+msgstr "اندازه‌ی حافظه‌ی اشتراکی به کیلوبایت"
 
 #: sysdeps/names/mem.c:58
 msgid "Size of buffers kB"
-msgstr ""
+msgstr "اندازه‌‌ی میانگیر به کیلوبایت"
 
 #: sysdeps/names/mem.c:59
 msgid "Size of cached memory in kB"
-msgstr ""
+msgstr "اندازه‌ی حافظه‌ی نهان به کلیوبایت"
 
 #: sysdeps/names/mem.c:60
 msgid "Memory used from user processes in kB"
-msgstr ""
+msgstr "اندازه‌ی حافظه‌ی مصرف شده در فراروندهای کاربر به کیلوبایت"
 
 #: sysdeps/names/mem.c:61
 msgid "Memory in locked pages in kB"
-msgstr ""
+msgstr "حافظه‌ی صفحه‌های قفل شده به کلیوبایت"
 
 #: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
 #: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
 #: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
 msgid "Number of list elements"
-msgstr ""
+msgstr "تعداد عناصر فهرست"
 
 #: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
 #: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
@@ -368,7 +372,7 @@ msgstr "مجموع اندازه‌ی فهرست"
 #: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
 #: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
 msgid "Size of a single list element"
-msgstr ""
+msgstr "اندازه یک تک عنصر فهرست"
 
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Size in kilobytes of message pool"
@@ -384,7 +388,7 @@ msgstr "حداکثر اندازه‌ی پیغام"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Default max size of queue"
-msgstr ""
+msgstr "پیش‌فرض حداکثر اندازه‌ی صف"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Max queues system wide"
@@ -392,41 +396,39 @@ msgstr ""
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Message segment size"
-msgstr ""
+msgstr "اندازه هر قطعه‌ی پیام"
 
 #: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
 msgid "Number of system message headers"
-msgstr ""
+msgstr "تعداد سرصفحه‌های پیغام‌های سیستم"
 
 #: sysdeps/names/netload.c:46 sysdeps/names/netload.c:67
 msgid "Interface Flags"
-msgstr ""
+msgstr "پرچم‌های واسط"
 
 #: sysdeps/names/netload.c:47
 msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "زیرشبکه"
+msgstr "زیرشبکه‌ی IPv4"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "نشانی"
+msgstr "نشانی IPv4"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
-msgstr ""
+msgstr "بسته‌های ورودی"
 
 #: sysdeps/names/netload.c:51 sysdeps/names/netload.c:72
 msgid "Packets Out"
-msgstr ""
+msgstr "بسته‌های خروجی"
 
 #: sysdeps/names/netload.c:52 sysdeps/names/netload.c:73
 msgid "Packets Total"
-msgstr ""
+msgstr "کل بسته‌ها"
 
 #: sysdeps/names/netload.c:53 sysdeps/names/netload.c:74
 msgid "Bytes In"
@@ -442,28 +444,27 @@ msgstr "کل بایت‌ها"
 
 #: sysdeps/names/netload.c:56 sysdeps/names/netload.c:77
 msgid "Errors In"
-msgstr ""
+msgstr "خطا‌های ورودی"
 
 #: sysdeps/names/netload.c:57 sysdeps/names/netload.c:78
 msgid "Errors Out"
-msgstr ""
+msgstr "خطاهای خروجی"
 
 #: sysdeps/names/netload.c:58 sysdeps/names/netload.c:79
 msgid "Errors Total"
-msgstr ""
+msgstr "کل خطاها"
 
 #: sysdeps/names/netload.c:59 sysdeps/names/netload.c:80
 msgid "Collisions"
 msgstr "برخوردها"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "نشانی"
+msgstr "نشانی IPv6"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "پیشوند IPv6"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
@@ -499,7 +500,7 @@ msgstr "اندازه"
 
 #: sysdeps/names/procargs.c:44
 msgid "Length in bytes of the returned string."
-msgstr ""
+msgstr "طول در بایت‌های رشته‌ی برگشت داده شده"
 
 #: sysdeps/names/prockernel.c:43
 msgid "K_Flags"
@@ -614,35 +615,38 @@ msgstr "به اشتراک گذاشتن"
 
 #: sysdeps/names/procmem.c:49
 msgid "Resident Set Size"
-msgstr ""
+msgstr "اندازه مجموعه‌ی مقیم"
 
 #: sysdeps/names/procmem.c:49
 msgid "Resident Set Size Limit"
-msgstr ""
+msgstr "محدودیت اندازه‌ی مجموعه‌ی مقیم"
 
 #: sysdeps/names/procmem.c:54
 msgid "Total # of pages of memory"
-msgstr ""
+msgstr "تعداد کلی صفحه‌های حافظه"
 
 #: sysdeps/names/procmem.c:55
 msgid "Number of pages of virtual memory"
-msgstr ""
+msgstr "تعداد صفحه‌های حافظه‌ی مجازی"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of resident set (non-swapped) pages"
-msgstr ""
+msgstr "تعداد صفحه‌های مجموعه‌های مقیم (تعویض نشده‌ی)"
 
 #: sysdeps/names/procmem.c:57
 msgid "Number of pages of shared (mmap'd) memory"
 msgstr ""
 
 #: sysdeps/names/procmem.c:58
+#, fuzzy
 msgid ""
 "Number of pages the process has in real memory, minus 3 for administrative "
 "purposes. This is just the pages which count towards text, data, or stack "
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
-msgstr ""
+msgstr "تعداد صفحه‌‌هایی که فراروند در حافظه‌ی واقعی دارد، منهای ۳ برای کاربردهای مدیریتی."
+"فقط شامل صفحه‌هایی است که در رابطه با متن، داده یا فضای پشته به حساب می‌آیند. "
+"شامل صفحه‌هایی که demand-load نشده‌اند و یا بیرون رفته‌اند نمیشود."
 
 #: sysdeps/names/procmem.c:63
 msgid ""
@@ -683,7 +687,7 @@ msgstr ""
 
 #: sysdeps/names/procsegment.c:49
 msgid "Text resident set size"
-msgstr ""
+msgstr "اندازه‌ی مجموعه‌ی مقیم متنی"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Shared-Lib resident set size"
@@ -691,31 +695,31 @@ msgstr ""
 
 #: sysdeps/names/procsegment.c:51
 msgid "Data resident set size"
-msgstr ""
+msgstr "اندازه‌ی مجموعه‌ی مقیم داده‌ای"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Stack resident set size"
-msgstr ""
+msgstr "اندازه‌ی مجموعه‌ی مقیم پشته‌ای"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Total size of dirty pages"
-msgstr ""
+msgstr "کل اندازه‌ی صفحه‌های کثیف"
 
 #: sysdeps/names/procsegment.c:54
 msgid "Address of beginning of code segment"
-msgstr ""
+msgstr "نشانی ابتدای قطعه‌ی کد"
 
 #: sysdeps/names/procsegment.c:55
 msgid "Address of end of code segment"
-msgstr ""
+msgstr "نشانی انتهای قطعه‌ی کد"
 
 #: sysdeps/names/procsegment.c:56
 msgid "Address of the bottom of stack segment"
-msgstr ""
+msgstr "نشانی وسط قطعه‌ی پشته"
 
 #: sysdeps/names/procsignal.c:41
 msgid "Signal"
-msgstr ""
+msgstr "سیگنال"
 
 #: sysdeps/names/procsignal.c:41
 msgid "Blocked"
@@ -729,21 +733,22 @@ msgstr ""
 msgid "SigCatch"
 msgstr ""
 
+
 #: sysdeps/names/procsignal.c:46
 msgid "Mask of pending signals"
-msgstr ""
+msgstr "نقاب سیگنال‌های معلق"
 
 #: sysdeps/names/procsignal.c:47
 msgid "Mask of blocked signals"
-msgstr ""
+msgstr "نقاب سیگنال‌های بلوکه شده"
 
 #: sysdeps/names/procsignal.c:48
 msgid "Mask of ignored signals"
-msgstr ""
+msgstr "نقاب سیگنال‌های نادیده گرفته شده"
 
 #: sysdeps/names/procsignal.c:49
 msgid "Mask of caught signals"
-msgstr ""
+msgstr "نقاب سیگنال‌های گرفته شده"
 
 #: sysdeps/names/procstate.c:43
 msgid "Cmd"
@@ -783,7 +788,7 @@ msgstr ""
 
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
-msgstr ""
+msgstr "اسم اصلی پرونده‌ی اجرایی در فراخوانی exec()"
 
 #: sysdeps/names/procstate.c:50
 msgid "Single-Char code for process state (S=sleeping)"
@@ -810,13 +815,12 @@ msgid "Has CPU"
 msgstr ""
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "Processor"
-msgstr "شناسه‌ی فراروند"
+msgstr "پردازنده"
 
 #: sysdeps/names/procstate.c:57
 msgid "Last Processor"
-msgstr ""
+msgstr "پردازنده‌ی آخر"
 
 #: sysdeps/names/proctime.c:45
 msgid "Start_Time"
@@ -844,7 +848,7 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:46
 msgid "TimeOut"
-msgstr ""
+msgstr "انقضای مدت"
 
 #: sysdeps/names/proctime.c:46
 msgid "It_Real_Value"
@@ -852,7 +856,7 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:47
 msgid "Frequency"
-msgstr "فرکانس"
+msgstr "بسامد"
 
 #: sysdeps/names/proctime.c:47
 msgid "XCPU_UTime"
@@ -898,7 +902,7 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:61
 msgid "Tick frequency"
-msgstr "فرکانس تیک"
+msgstr "بسامد تیک"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP user-mode CPU time accumulated by process"
@@ -962,21 +966,19 @@ msgstr "Tty"
 
 #: sysdeps/names/procuid.c:51
 msgid "TPGid"
-msgstr ""
+msgstr "TPGid"
 
 #: sysdeps/names/procuid.c:51
 msgid "Priority"
 msgstr "اولویت"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "شناسه‌ی گروه"
+msgstr ""
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "Groups"
-msgstr "شناسه‌ی گروه"
+msgstr "گروه‌ها"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
@@ -995,22 +997,20 @@ msgid "Effective Group ID"
 msgstr ""
 
 #: sysdeps/names/procuid.c:60
-#, fuzzy
 msgid "Set User ID"
-msgstr "شناسه‌ی کاربر"
+msgstr "تنظیم شناسه‌ی کاربر"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Set Group ID"
-msgstr "شناسه‌ی گروه"
+msgstr "تنظیم شناسه‌ی گروه"
 
 #: sysdeps/names/procuid.c:62
 msgid "Filesystem User ID"
-msgstr ""
+msgstr "شناسه‌ی کابر سیستم پرونده‌ها"
 
 #: sysdeps/names/procuid.c:63
 msgid "Filesystem Group ID"
-msgstr ""
+msgstr "شناسه‌ی گروه سیستم پرونده‌ها"
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
@@ -1018,11 +1018,11 @@ msgstr "شناسه‌ی فراروند"
 
 #: sysdeps/names/procuid.c:65
 msgid "PID of parent process"
-msgstr ""
+msgstr "شناسه‌ی کاربر فراروند ولی"
 
 #: sysdeps/names/procuid.c:66
 msgid "Process group ID"
-msgstr ""
+msgstr "شناسه‌ی گروه فراروند"
 
 #: sysdeps/names/procuid.c:67
 msgid "Session ID"
@@ -1034,11 +1034,11 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:69
 msgid "Terminal process group ID"
-msgstr ""
+msgstr "شناسه‌ی گروه فراروند پایانه"
 
 #: sysdeps/names/procuid.c:70
 msgid "Kernel scheduling priority"
-msgstr ""
+msgstr "اولویت زمان‌بندی هسته"
 
 #: sysdeps/names/procuid.c:71
 msgid "Standard unix nice level of process"
@@ -1046,23 +1046,23 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:72
 msgid "Number of additional process groups"
-msgstr ""
+msgstr "تعداد گروه‌های فراروند اضافی"
 
 #: sysdeps/names/procuid.c:73
 msgid "Array of additional process groups"
-msgstr ""
+msgstr "آرایه از گروه‌های فراروند اضافی"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
-msgstr ""
+msgstr "تعداد داده‌ها در نقشه‌ی نشان‌بر"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max number of arrays"
-msgstr ""
+msgstr "حداکثر تعداد آرایه‌ها"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max semaphores system wide"
-msgstr ""
+msgstr "حداکثر نشان‌برهای در سراسر سیستم"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Number of undo structures system wide"
@@ -1070,7 +1070,7 @@ msgstr ""
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max semaphores per array"
-msgstr ""
+msgstr "حداکثر نشان‌برها برای هر آرایه"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max ops per semop call"
@@ -1078,7 +1078,7 @@ msgstr ""
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max number of undo entries per process"
-msgstr ""
+msgstr "حداکثر تعداد مدخل‌های برگردان برای هر فراروند"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "sizeof struct sem_undo"
@@ -1086,7 +1086,7 @@ msgstr ""
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Semaphore max value"
-msgstr ""
+msgstr "مقدار حداکثر نشان‌برها"
 
 #: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 msgid "Adjust on exit max value"
@@ -1094,51 +1094,51 @@ msgstr ""
 
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Max segment size"
-msgstr ""
+msgstr "حداکثر اندازه‌ی پشته"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Min segment size"
-msgstr ""
+msgstr "حداقل اندازه‌ی پشته"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max number of segments"
-msgstr ""
+msgstr "حداکثر تعداد قطعه‌ها"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max shared segments per process"
-msgstr ""
+msgstr "حداکثر قطعه‌های مشترک برای هر فراروند"
 
 #: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max total shared memory"
-msgstr ""
+msgstr "حداکثر کل حافظه‌ی مشترک"
 
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Total Swap Space"
-msgstr ""
+msgstr "کل فضای مبادله"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Used Swap Space"
-msgstr ""
+msgstr "فضای مبادله‌ی مصرف شده"
 
 #: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 msgid "Free Swap Space"
-msgstr ""
+msgstr "فضای مصرف شده‌ی آزاد"
 
 #: sysdeps/names/swap.c:43
 msgid "Page In"
-msgstr "صفحه ورودی"
+msgstr "صفحه‌ی ورودی"
 
 #: sysdeps/names/swap.c:44
 msgid "Page Out"
-msgstr "صفحه خروجی"
+msgstr "صفحه‌ی خروجی"
 
 #: sysdeps/names/swap.c:52
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr ""
+msgstr "تعداد کل صفحه‌های مبادله که از زمان بارگذاری سیستم وارد شده‌اند"
 
 #: sysdeps/names/swap.c:54
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr ""
+msgstr "تعداد کل صفحه‌های مبادله که از زمان بارگذاری سیسنم خارج شده‌اند"
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "Server Features"
@@ -1146,15 +1146,15 @@ msgstr "امکانات کارگزار"
 
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "CPU Usage"
-msgstr "استفاده از واحد پردازش مرکزی"
+msgstr "کاربرد واحد پردازش مرکزی"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Memory Usage"
-msgstr "استفاده از حافظه"
+msgstr "کاربرد حافظه"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "Swap Usage"
-msgstr ""
+msgstr "کاربرد مبادله"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "System Uptime"
@@ -1162,67 +1162,67 @@ msgstr "زمان کار سیستم"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Load Averange"
-msgstr ""
+msgstr "بار میانگین"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Shared Memory Limits"
-msgstr ""
+msgstr "محدودیت‌های حافظه‌ی اشتراکی"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Message Queue Limits"
-msgstr ""
+msgstr "محدودیت‌های صف پیام‌ها"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "Semaphore Set Limits"
-msgstr ""
+msgstr "محدودیت‌های مجموعه‌های نشان‌بر"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "List of running Processes"
-msgstr ""
+msgstr "فهرست فراروندهای در حال اجرا"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process Status information"
-msgstr ""
+msgstr "اطلاعات وضعیت فراروند"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process UID and TTY information"
-msgstr ""
+msgstr "اطلاعات UID و  TTY فراروند"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Memory information"
-msgstr ""
+msgstr "اطلاعات حافظه‌ی فراروند"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Time information"
-msgstr ""
+msgstr "اطلاعات زمانی فراروند"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Signal information"
-msgstr ""
+msgstr "اطلاعات سیگنال فراروند"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Kernel Data information"
-msgstr ""
+msgstr "اطلاعات داده‌‌های هسته‌ی فراروند"
 
 #: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:93
 msgid "Process Segment information"
-msgstr ""
+msgstr "اطلاعات قطعه‌ی فراروند"
 
 #: sysdeps/names/sysdeps.c:67
 msgid "Process Arguments"
-msgstr ""
+msgstr "آرگومان‌های فراروند"
 
 #: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
 msgid "Process Memory Map"
-msgstr ""
+msgstr "نقشه‌ی حافظه‌ی فراروند"
 
 #: sysdeps/names/sysdeps.c:69
 msgid "Mount List"
-msgstr ""
+msgstr "فهرست سوار شده‌ها"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "File System Usage"
-msgstr ""
+msgstr "میزان کاربرد سیستم پرونده‌ها"
 
 #: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "Network Load"
@@ -1234,11 +1234,11 @@ msgstr "آمار PPP"
 
 #: sysdeps/names/sysdeps.c:94
 msgid "Command line arguments of the process"
-msgstr ""
+msgstr "آرگومان‌های خط فرمان فراروند"
 
 #: sysdeps/names/sysdeps.c:96
 msgid "List of currently mounted filesystems"
-msgstr ""
+msgstr "فهرست سیستم پرونده‌های سوار شده"
 
 #: sysdeps/names/uptime.c:39
 msgid "Uptime"
@@ -1246,19 +1246,19 @@ msgstr "زمان کار"
 
 #: sysdeps/names/uptime.c:40
 msgid "Idletime"
-msgstr ""
+msgstr "زمان عاطل بودن"
 
 #: sysdeps/names/uptime.c:41
 msgid "BootTime"
-msgstr ""
+msgstr "زمان راه‌اندازی"
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
-msgstr ""
+msgstr "زمان به ثانیه از هنگام راه‌اندازی سیستم"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr ""
+msgstr "زمانی به ثانیه که سیستم از هنگام راه‌اندازی در تکلیف عاطل صرف کرده است"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time of last system boot in seconds since the epoch"
@@ -1266,7 +1266,7 @@ msgstr ""
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr ""
+msgstr "معوق گذاشتن"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
@@ -1282,19 +1282,19 @@ msgstr "دستورالعمل غیرمجاز"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
-msgstr ""
+msgstr "ردگیری تله"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr ""
+msgstr "قطع کردن"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
-msgstr ""
+msgstr "خطای EMT"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
-msgstr ""
+msgstr "استثنای ممیز شناور"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
@@ -1306,35 +1306,35 @@ msgstr "خطای گذرگاه"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
-msgstr ""
+msgstr "تخلف قطعه قطعه کردن"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr ""
+msgstr "آرگومان بد به فراخوانی سیستم"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr ""
+msgstr "لوله‌ی شکسته"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
-msgstr ""
+msgstr "ساعت زنگی"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
-msgstr ""
+msgstr "پایان دادن"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "وضعیت اورژانس برای سوکت"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
-msgstr "پایان"
+msgstr "توقف"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr ""
+msgstr "توقف صفحه‌کلید"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
@@ -1342,31 +1342,32 @@ msgstr "ادامه"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
-msgstr ""
+msgstr "وضعیت بچه عوض شد"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr ""
+msgstr "خواندن پس‌زمینه از tty"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr ""
+msgstr "نوشتن پس‌زمینه در tty"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr ""
+msgstr "ورودی/خروجی اکنون امکان دارد"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
-msgstr ""
+msgstr "بیشتر از محدودیت واحد پردازش مرکزی شد"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
-msgstr ""
+msgstr "بیشتر از محدودیت اندازه‌ی پرونده شد"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#, fuzzy
 msgid "Virtual alarm clock"
-msgstr ""
+msgstr "ساعت هشدار مجازی"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
@@ -1382,11 +1383,12 @@ msgstr "درخواست اطلاعات"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
-msgstr ""
+msgstr "سیگنال تعریف شده توسط کاربر ۱"
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
-msgstr ""
+msgstr "سیگنال تعریف شده توسط کاربر ۲"
 
 #~ msgid "Show this help message"
 #~ msgstr "نمایش این پیغام راهنما"
+
