@@ -1,5 +1,15 @@
 1998-06-07  Martin Baulig  <martin@home-of-linux.org>
 
+	* examples/ChangeLog: New file.
+	
+	* macros/gnome-libgtop-sysdeps.m4: Include
+	`glibtop_machine.h' for Linux.
+	
+	* sysdeps/linux/glibtop_machine.h: New file.
+	
+	* sysdeps/linux/*.c: Performance optimizations. We now use
+	`open' and `read' instead of `fopen' and `fscanf'.
+	
 	* *.[ch]: Using single underscore instead of two underscores
 	for function prefixes (regexp: ``s,__([rspl])\b,_$1,g'') to
 	avoid ambiguity with mangled C++ names.
