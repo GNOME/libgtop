@@ -1,3 +1,7 @@
+2004-11-29  Benoît Dejean  <tazforever@dlfp.org>
+
+	* proclist.c: (glibtop_get_proclist_s): Fixed procstate test.
+
 2004-11-15  Benoît Dejean  <tazforever@dlfp.org>
 
 	* netload.c: (get_ipv6), (glibtop_get_netload_s): Added a check for NULL

@@ -157,7 +157,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		if (which & GLIBTOP_EXCLUDE_IDLE) {
 			glibtop_get_proc_state_s (server, &procstate, pid);
 			if (procstate.flags & (1L << GLIBTOP_PROC_STATE_STATE))
-				if (procstate.state != 'R') continue;
+				if (procstate.state != GLIBTOP_PROCESS_RUNNING) continue;
 		}
 
 		if (which & GLIBTOP_EXCLUDE_SYSTEM) {
