@@ -1,3 +1,7 @@
+1998-06-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* test.scm: New file.
+	
 1998-06-07  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am (CFLAGS): Disable optimize.
