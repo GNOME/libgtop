@@ -1,3 +1,17 @@
+2000-02-16  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in (LIBGTOP_LIBS): Add `-lgtop_backend_sysdeps' and
+	`-lgtop_backend_common' if dynamic linking does not work.
+
+	* libgtop-sysdeps.m4 (GNOME_LIBGTOP_DYNLINK): New macro to check
+	whether dynamic linking works.
+	(libgtop_use_gmodule): Set this to `yes' or `no' depending on
+	whether dynamic linking of the backends work on the current system.
+	(LIBGTOP_USE_GMODULE): New automake conditional.
+
+	* acconfig.h (LIBGTOP_USE_GMOUDLE): Define this when dynamic
+	linking of the backends work on the current system.
+
 2000-02-21  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/interfaces.h (GLIBTOP_STRATEGY_FLAGS_MASK):

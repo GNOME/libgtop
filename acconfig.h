@@ -180,3 +180,7 @@
  * which takes the interface number as argument
  * (default '/var/lock/LCK..ttyS%u'). */
 #undef LIBGTOP_MODEM_LOCKFILE
+
+/* Define to enable dynamic linking of the backends. */
+#undef USE_GMODULE
+

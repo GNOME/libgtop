@@ -79,6 +79,7 @@ AC_DEFUN([LIBGTOP_CHECK_SYSDEPS_DIR],[
 	  libgtop_have_sysinfo=yes
 	  libgtop_need_server=no
 	  libgtop_have_sysdeps=yes
+	  libgtop_dynlink_ok=yes
 	  ;;
 	freebsd*|netbsd*|openbsd*)
 	  libgtop_sysdeps_dir=freebsd
@@ -86,6 +87,7 @@ AC_DEFUN([LIBGTOP_CHECK_SYSDEPS_DIR],[
 	  libgtop_need_server=yes
 	  libgtop_have_sysdeps=no
 	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	  libgtop_dynlink_ok=yes
 	  ;;
         bsdi*)
 	  libgtop_sysdeps_dir=freebsd
@@ -93,6 +95,7 @@ AC_DEFUN([LIBGTOP_CHECK_SYSDEPS_DIR],[
 	  libgtop_need_server=yes
 	  libgtop_have_sysdeps=no
 	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	  libgtop_dynlink_ok=yes
 	  ;;
 	solaris*)
 	  libgtop_sysdeps_dir=solaris
@@ -100,12 +103,14 @@ AC_DEFUN([LIBGTOP_CHECK_SYSDEPS_DIR],[
 	  libgtop_need_server=yes
 	  libgtop_have_sysdeps=yes
 	  libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	  libgtop_dynlink_ok=no
 	  ;;
 	osf*)
 	  libgtop_sysdeps_dir=osf1
 	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
 	  libgtop_have_sysdeps=yes
+	  libgtop_dynlink_ok=yes
 	  ;;
 	*)
 	  if test x$hacker_mode = xyes ; then
@@ -117,12 +122,14 @@ AC_DEFUN([LIBGTOP_CHECK_SYSDEPS_DIR],[
 	      libgtop_use_machine_h=yes
 	      libgtop_need_server=yes
 	      libgtop_have_sysdeps=no
+	      libgtop_dynlink_ok=no
 	      ;;
 	    *)
 	      libgtop_sysdeps_dir=stub
 	      libgtop_use_machine_h=no
 	      libgtop_need_server=no
 	      libgtop_have_sysdeps=yes
+	      libgtop_dynlink_ok=yes
 	      ;;
 	    esac
 	  else
@@ -130,6 +137,7 @@ AC_DEFUN([LIBGTOP_CHECK_SYSDEPS_DIR],[
 	    libgtop_use_machine_h=no
 	    libgtop_need_server=no
 	    libgtop_have_sysdeps=yes
+	    libgtop_dynlink_ok=yes
 	  fi
 	  ;;
 	esac
@@ -137,6 +145,72 @@ AC_DEFUN([LIBGTOP_CHECK_SYSDEPS_DIR],[
 	test -z "$libgtop_postinstall" && libgtop_postinstall=:
 
 	AC_MSG_RESULT($libgtop_sysdeps_dir)
+])
+
+AC_DEFUN([GNOME_LIBGTOP_DYNLINK],[
+	AC_MSG_CHECKING(whether to build gmodulized LibGTop)
+
+	AC_ARG_ENABLE(modules,
+	[  --disable-modules       Disables dynamic module loading],[
+	if test x$withval = xyes; then 
+	  with_modules=yes
+        else
+          with_modules=no
+	fi
+	])
+
+	dynworks=false
+	deps=
+	if test x$with_modules = xno; then
+	  AC_MSG_RESULT(no)
+	else
+	  AC_MSG_RESULT(yes)
+	  AC_MSG_CHECKING(whether dynamic modules work)
+	  oLIBS="$LIBS"
+	  oCFLAGS="$CFLAGS"
+	  LIBS="`glib-config --libs gmodule`"
+	  CFLAGS="`glib-config --cflags gmodule`"
+	  AC_TRY_RUN([
+	    #include <glib.h>
+	    #include <gmodule.h>
+	    main ()
+	    {
+	    	if (g_module_supported ())
+	    	    exit (0);
+	    	else
+	    	    exit (1);
+	    }
+	  ], dynworks=true, dynworks=false, dynworks=true)
+	  LIBS="$oLIBS"
+	  CFLAGS="$oCFLAGS"
+	fi
+    
+	dnl Now we check to see if our libtool supports shared lib deps
+	dnl (in a rather ugly way even)
+	if $dynworks; then
+	  libgtop_libtool_config="${CONFIG_SHELL-/bin/sh} libtool --config"
+	  libgtop_deplibs_check=`$libgtop_libtool_config | \
+	    grep '^[[a-z_]]*check[[a-z_]]*_method=[['\''\"]]' | \
+	      sed 's/.*[['\''"]]\(.*\)[['\''"]]$/\1/'`
+	  if test "x$libgtop_deplibs_check" = "xnone" || \
+	    test "x$libgtop_deplibs_check" = "xunknown" || \
+	    test "x$libgtop_deplibs_check" = "x"; then
+	      dynworks=false
+	  fi
+	fi
+
+	if $dynworks; then
+	  AC_DEFINE(USE_GMODULE)
+	  GMODULE_LIBS="`glib-config --libs gmodule`"
+	  GMODULE_FLAGS="`glib-config --cflags gmodule`"
+	  AC_SUBST(GMODULE_LIBS)
+	  AC_SUBST(GMODULE_FLAGS)
+	  libgtop_use_gmodule=yes
+	else
+	  libgtop_use_gmodule=no
+	fi
+
+	AC_MSG_RESULT($libgtop_use_gmodule)
 ])
 
 AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
@@ -195,6 +269,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	    libgtop_have_sysinfo=no
 	    libgtop_need_server=no
 	    libgtop_have_sysdeps=yes
+	    libgtop_dynlink_ok=yes
 	    ;;
 	  stub_suid)
 	    libgtop_sysdeps_dir=stub_suid
@@ -202,6 +277,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	    libgtop_have_sysinfo=no
 	    libgtop_need_server=yes
 	    libgtop_have_sysdeps=no
+	    libgtop_dynlink_ok=yes
 	    ;;
 	  linux|kernel)
 	    libgtop_sysdeps_dir=linux
@@ -209,6 +285,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	    libgtop_have_sysinfo=yes
 	    libgtop_need_server=no
 	    libgtop_have_sysdeps=yes
+	    libgtop_dynlink_ok=yes
 	    ;;
 	  bsd)
 	    libgtop_sysdeps_dir=freebsd
@@ -216,6 +293,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	    libgtop_need_server=yes
 	    libgtop_have_sysdeps=no
 	    libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	    libgtop_dynlink_ok=yes
 	    ;;
 	  solaris)
 	    libgtop_sysdeps_dir=solaris
@@ -223,12 +301,14 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	    libgtop_need_server=yes
 	    libgtop_have_sysdeps=yes
 	    libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	    libgtop_dynlink_ok=no
 	    ;;
 	  osf)
 	    libgtop_sysdeps_dir=osf1
 	    libgtop_use_machine_h=yes
 	    libgtop_need_server=yes
 	    libgtop_have_sysdeps=yes
+	    libgtop_dynlink_ok=yes
 	    ;;
 	  *)
 	    AC_MSG_ERROR(Invalid value for --with-sysdeps-dir)
@@ -239,6 +319,9 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	AC_MSG_CHECKING(for libgtop sysdeps name)
 	libgtop_sysdeps_name=`echo $libgtop_sysdeps_dir | sed -e 's/_/-/g'`
 	AC_MSG_RESULT($libgtop_sysdeps_name)
+
+	AC_MSG_CHECKING(whether to use dynamic linking in LibGtop)
+	AC_MSG_RESULT($libgtop_dynlink_ok)
 
 	AC_SUBST(libgtop_sysdeps_dir)
 	AC_SUBST(libgtop_postinstall)
@@ -373,7 +456,16 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  AC_DEFINE(HAVE_GLIBTOP_MACHINE_H)
 	fi
 
+	if test x$libgtop_dynlink_ok = xyes ; then
+	  GNOME_LIBGTOP_DYNLINK
+	else
+	  libgtop_use_gmodule=no
+	fi
+
+	AC_SUBST(libgtop_use_gmodule)
+
 	AM_CONDITIONAL(NEED_LIBGTOP, test x$libgtop_need_server = xyes)
 	AM_CONDITIONAL(HAVE_SYSDEPS, test x$libgtop_have_sysdeps = xyes)
+	AM_CONDITIONAL(LIBGTOP_USE_GMODULE, test x$libgtop_use_gmodule = xyes)
 ])
 

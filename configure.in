@@ -156,8 +156,12 @@ AM_CONDITIONAL(ENABLE_SHARED, test x$enable_static = xyes)
 
 AM_PROG_LIBTOOL
 
-AM_PATH_GLIB(1.2.0,,AC_MSG_ERROR(GLIB >= 1.2.0 is required for LibGTop),
-             [gmodule])
+if test x$libgtop_use_gmodule = xyes ; then
+  AM_PATH_GLIB(1.2.0,,AC_MSG_ERROR(GLIB >= 1.2.0 is required for LibGTop),
+               [gmodule])
+else
+  AM_PATH_GLIB(1.2.0,,AC_MSG_ERROR(GLIB >= 1.2.0 is required for LibGTop))
+fi
 
 dnl You need to uncomment the following line if you want to use
 dnl libGTop without Gnome.
@@ -346,6 +350,10 @@ LIBGTOP_SERVER='$(bindir)/libgtop_server'
 LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS $LIBGTOP_XML_LIB"
 
 LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common -lgtop"
+
+if test x$linux_use_gmodule != xyes ; then
+  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_backend_sysdeps -lgtop_backend_common"
+fi
 
 LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names"
 
