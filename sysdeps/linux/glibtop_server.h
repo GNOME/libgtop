@@ -41,12 +41,19 @@ G_BEGIN_DECLS
 
 unsigned get_pageshift();
 
+static inline char*
+next_token(const char *p)
+{
+	while (isspace(*p)) p++;
+	return (char*) p;
+}
 
 static inline char *
 skip_token (const char *p)
 {
-	while (isspace(*p)) p++;
+	p = next_token(p);
 	while (*p && !isspace(*p)) p++;
+	p = next_token(p);
 	return (char *)p;
 }
 

@@ -24,6 +24,7 @@
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/proctime.h>
+#include <glibtop/uptime.h>
 
 static const unsigned long _glibtop_sysdeps_proc_time =
 (1L << GLIBTOP_PROC_TIME_UTIME) + (1L << GLIBTOP_PROC_TIME_CUTIME) +
@@ -65,6 +66,7 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 
 	p = skip_multiple_token (p, 11);
 
+	/* clock_t  (1/100 s) */
 	buf->utime  = strtoull (p, &p, 0);
 	buf->stime  = strtoull (p, &p, 0);
 	buf->cutime = strtoull (p, &p, 0);
@@ -76,7 +78,36 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 	// lets skip it (using previous skip_multiple_token)
 	// buf->timeout       = strtoull (p, &p, 0);
 	buf->it_real_value = strtoull (p, &p, 0);
-	buf->start_time    = strtoull (p, &p, 0);
+
+	/* seconds since epoch */
+	{
+	  /* Linux provides start_time as clock_t representing
+	     the start of <pid> after boot_time.
+	     Let's use glibtop_get_uptime to get boot_time.
+	     But i'm not sure if this is safe
+
+	     See libgtop documentation.
+
+	     #ifdef __KERNEL__
+	     ...
+	     *
+	     * Have the 32 bit jiffies value wrap 5 minutes after boot
+	     * so jiffies wrap bugs show up earlier.
+	     *
+	     #define INITIAL_JIFFIES ((unsigned long)(unsigned int) (-300*HZ))
+	     ...
+	     #endif
+
+	     start_time may be incremented by INITIAL_JIFFIES, so start_time
+	     may be not be exact. You may also get wrong start_time if your
+	     system clock is not synchronised with you hardware clock.
+	     'man hwclock'
+	  */
+	  glibtop_uptime up;
+	  glibtop_get_uptime_s(server, &up);
+
+	  buf->start_time = up.boot_time + strtoull (p, &p, 0) / 100;
+	}
 
 	buf->frequency = 100;
 

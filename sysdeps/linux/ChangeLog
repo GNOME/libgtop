@@ -1,3 +1,11 @@
+2004-08-03  Benoît Dejean  <tazforever@dlfp.org>
+
+	* glibtop_server.h: Added next_token(). Changed skip_token(),
+	i hope it won't break any bad code.
+	* procstate.c: (glibtop_get_proc_state_s): Used next_token.
+	* proctime.c: (glibtop_get_proc_time_s): Implemented .start_time
+	the way it ought to be. Clean ups
+
 2004-07-22  Benoît Dejean  <tazforever@dlfp.org>
 
 	* netload.c: (glibtop_get_netload_s): Fixed leak.

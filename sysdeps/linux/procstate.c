@@ -72,16 +72,15 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 
 	buf->flags = _glibtop_sysdeps_proc_state_uid;
 
-	sprintf (buffer, "/proc/%d", pid);
-
 	/* Now we read the remaining fields. */
 
 	if (proc_stat_to_buffer (buffer, pid))
 		return;
 
-	p = strrchr (buffer, ')'); *p = '\0';
+	p = proc_stat_after_cmd(buffer);
+	p = next_token(p);
 
-	switch(p[2])
+	switch(*p)
 	  {
 	  case 'R':
 	    buf->state = GLIBTOP_PROCESS_RUNNING;
@@ -112,7 +111,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	    break;
 	  }
 
-	p = skip_token (buffer); p++;	/* pid */
+	p = skip_token (buffer); /* pid */
 	if (G_UNLIKELY(*p++ != '('))
 		glibtop_error_r (server, "Bad data in /proc/%d/stat", pid);
 
