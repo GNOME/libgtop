@@ -1,18 +1,19 @@
 # libgtop ja.po.
-# Copyright (C) 1998,2000,2002,2003 Free Software Foundation, Inc.
+# Copyright (C) 1998,2000,2002-2004 Free Software Foundation, Inc.
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1998
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2000, 2002.
 # Yukihiro Nakai <nakai@gnome.gr.jp>, 2000.
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
+# Takeshi AIHANA <aihana@gnome.gr.jp>, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-20 15:07+0200\n"
-"PO-Revision-Date: 2003-11-02 10:56+0900\n"
-"Last-Translator: KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>\n"
-"Language-Team: Japanese <translation@gnome.gr.jp>\n"
+"POT-Creation-Date: 2004-07-21 23:21+0900\n"
+"PO-Revision-Date: 2004-07-21 23:20+0900\n"
+"Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
+"Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,11 +22,11 @@ msgstr ""
 #: examples/smp.c:76
 #, c-format
 msgid "Ticks (%ld per second):"
-msgstr "回 (一秒に%ld):"
+msgstr "回 (%ld/秒):"
 
 #: examples/smp.c:79
 msgid "Total"
-msgstr "トータル"
+msgstr "合計"
 
 #: examples/smp.c:79 sysdeps/names/mem.c:48
 msgid "User"
@@ -63,7 +64,7 @@ msgstr "パーセント:"
 
 #: examples/smp.c:103
 msgid "Total (%)"
-msgstr "トータル (%)"
+msgstr "合計 (%)"
 
 #: examples/smp.c:103
 msgid "User (%)"
@@ -130,27 +131,27 @@ msgstr "デバッグを有効にする"
 
 #: src/daemon/gnuserv.c:456
 msgid "DEBUG"
-msgstr "デバッグ"
+msgstr "DEBUG"
 
 #: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
-msgstr "冗長出力有効"
+msgstr "詳細な出力にする"
 
 #: src/daemon/gnuserv.c:458
 msgid "VERBOSE"
-msgstr "バーバス"
+msgstr "VERBOSE"
 
 #: src/daemon/gnuserv.c:460
 msgid "Don't fork into background"
-msgstr "バックグランド動作しない"
+msgstr "子プロセスをバックグラウンドに回さない"
 
 #: src/daemon/gnuserv.c:460
 msgid "NO-DAEMON"
-msgstr "デーモンなし"
+msgstr "NO-DAEMON"
 
 #: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
-msgstr "inetd から起動"
+msgstr "`inetd` から起動する"
 
 #: src/daemon/gnuserv.c:462
 msgid "INETD"
@@ -263,9 +264,8 @@ msgid "Free file nodes"
 msgstr "空きファイルノード数"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "ブロック"
+msgstr "ブロック・サイズ"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -418,14 +418,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "サブネット"
+msgstr "IPv4 サブネット"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "アドレス"
+msgstr "IPv4 アドレス"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -437,7 +435,7 @@ msgstr "パケットの出力"
 
 #: sysdeps/names/netload.c:52 sysdeps/names/netload.c:73
 msgid "Packets Total"
-msgstr "パケット(トータル)"
+msgstr "パケット (合計)"
 
 #: sysdeps/names/netload.c:53 sysdeps/names/netload.c:74
 msgid "Bytes In"
@@ -449,36 +447,35 @@ msgstr "バイトの出力"
 
 #: sysdeps/names/netload.c:55 sysdeps/names/netload.c:76
 msgid "Bytes Total"
-msgstr "バイト(トータル)"
+msgstr "バイト (合計)"
 
 #: sysdeps/names/netload.c:56 sysdeps/names/netload.c:77
 msgid "Errors In"
-msgstr "エラー(入力)"
+msgstr "エラー (入力)"
 
 #: sysdeps/names/netload.c:57 sysdeps/names/netload.c:78
 msgid "Errors Out"
-msgstr "エラー(出力)"
+msgstr "エラー (出力)"
 
 #: sysdeps/names/netload.c:58 sysdeps/names/netload.c:79
 msgid "Errors Total"
-msgstr "エラー(トータル)"
+msgstr "エラー (合計)"
 
 #: sysdeps/names/netload.c:59 sysdeps/names/netload.c:80
 msgid "Collisions"
 msgstr "コリジョン"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "アドレス"
+msgstr "IPv6 アドレス"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "IPv6 プリフィックス"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "IPv6 スコープ"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
@@ -884,7 +881,7 @@ msgstr "It_Real_Value"
 
 #: sysdeps/names/proctime.c:47
 msgid "Frequency"
-msgstr "頻度"
+msgstr "周期"
 
 #: sysdeps/names/proctime.c:47
 msgid "XCPU_UTime"
@@ -1417,45 +1414,3 @@ msgstr "ユーザ定義シグナル 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "ユーザ定義シグナル 2"
-
-#~ msgid "Unknown system error"
-#~ msgstr "不明なシステムエラー"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: オプション`%s'はあいまいです\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: オプション`--%s'には引数は指定できません\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: オプション`%c%s'には引数は指定できません\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: オプション`%s'には引数が必要です\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: 認識できないオプションです `--%s'\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: 認識できないオプションです `%c%s'\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: 不正なオプションです-- %c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: 不適切なオプションです -- %c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: オプションには引数が必要です -- %c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: オプション `-W %s'はあいまいです\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: オプション `-W %s' は引数をとれません\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "このヘルプメッセージを表示"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "使用方法を短かく表示"
