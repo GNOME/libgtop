@@ -2,8 +2,6 @@
 
 LINK			= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-INCLUDES		= -O0
-
 DEFS			= @DEFS@
 
 # We install it in `libexec' since this will make it more easy

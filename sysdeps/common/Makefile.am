@@ -8,7 +8,7 @@ inodedb_SRCLIST			=
 inodedb_DEFS			=
 endif
 
-INCLUDES			= $(inodedb_DEFS)
+CFLAGS				= @CFLAGS@ $(inodedb_DEFS)
 
 lib_LTLIBRARIES			= libgtop_common.la libgtop_suid_common.la
 
