@@ -35,6 +35,7 @@ LIBGTOP_SERVER_VERSION="@LIBGTOP_SERVER_VERSION@"
 
 libgtop_sysdeps_dir="@libgtop_sysdeps_dir@"
 libgtop_need_server="@libgtop_need_server@"
+libgtop_have_sysdeps="@libgtop_have_sysdeps@"
 libgtop_use_machine_h="@libgtop_use_machine_h@"
 
 libgtop_want_examples="@libgtop_want_examples@"

@@ -78,6 +78,7 @@ libgtopConf.sh: libgtopConf.sh.in Makefile
 	  -e 's#\@LIBGTOP_PACKAGE\@#$(LIBGTOP_PACKAGE)#g' \
 	  -e 's#\@libgtop_sysdeps_dir\@#$(libgtop_sysdeps_dir)#g' \
 	  -e 's#\@libgtop_need_server\@#$(libgtop_need_server)#g' \
+	  -e 's#\@libgtop_have_sysdeps\@#$(libgtop_have_sysdeps)#g' \
 	  -e 's#\@libgtop_use_machine_h\@#$(libgtop_use_machine_h)#g' \
 	      < $(srcdir)/libgtopConf.sh.in > libgtopConf.tmp \
 	  && mv libgtopConf.tmp libgtopConf.sh
