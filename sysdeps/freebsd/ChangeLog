@@ -1,3 +1,9 @@
+1999-03-18  Martin Baulig  <martin@home-of-linux.org>
+
+	* ppp.c: Don't use `sppp.pp_phase' if we don't HAVE_I4B_ACCT.
+	This is an ugly hack until someone tells me which versions have
+	this field and which not.
+
 1999-02-25  Martin Baulig  <martin@home-of-linux.org>
 
 	* prockernel.c, proctime.c: Applied patch Stanislav Grozev for
