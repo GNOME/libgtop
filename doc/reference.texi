@@ -573,29 +573,29 @@ Declaration of @code{glibtop_proc_uid} in @file{<glibtop/procuid.h>}:
 
 @example
 @cartouche
-typedef struct _glibtop_proc_uid	glibtop_proc_uid;
+typedef struct _glibtop_proc_uid        glibtop_proc_uid;
 
 struct _glibtop_proc_uid
 @{
     u_int64_t flags;
     int uid,
-	euid,
-	gid,
-	egid,
-	suid,
-	sgid,
-	fsuid,
-	fsgid,
-	pid,
-	ppid,
-	pgrp,
-	session,
-	tty,
-	tpgid,
-	priority,
-	nice,
-	ngroups,
-	groups [GLIBTOP_MAX_GROUPS];
+        euid,
+        gid,
+        egid,
+        suid,
+        sgid,
+        fsuid,
+        fsgid,
+        pid,
+        ppid,
+        pgrp,
+        session,
+        tty,
+        tpgid,
+        priority,
+        nice,
+        ngroups,
+        groups [GLIBTOP_MAX_GROUPS];
 @};
 @end cartouche
 @end example
