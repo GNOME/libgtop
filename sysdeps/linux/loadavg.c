@@ -26,6 +26,11 @@
 static const unsigned long _glibtop_sysdeps_loadavg =
 (1 << GLIBTOP_LOADAVG_LOADAVG);
 
+static const unsigned long _glibtop_sysdeps_loadavg_tasks =
+(1 << GLIBTOP_LOADAVG_NR_RUNNING) +
+(1 << GLIBTOP_LOADAVG_NR_TASKS) +
+(1 << GLIBTOP_LOADAVG_LAST_PID);
+
 /* Init function. */
 
 void
@@ -41,19 +46,47 @@ glibtop_init_loadavg_s (glibtop *server)
 void
 glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
-	FILE *f;
+	char buffer [BUFSIZ], *p, *old;
+	int fd, len;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_LOADAVG, 0);
 
 	memset (buf, 0, sizeof (glibtop_loadavg));
 
+	fd = open (FILENAME, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", FILENAME);
+
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", FILENAME);
+
+	close (fd);
+
+	buffer [len] = '\0';
+
+	buf->loadavg [0] = (float) strtod (buffer, &p);
+	buf->loadavg [1] = (float) strtod (p, &p);
+	buf->loadavg [2] = (float) strtod (p, &p);
+
 	buf->flags = _glibtop_sysdeps_loadavg;
 
-	f = fopen ("/proc/loadavg", "r");
-	if (!f) return;
+        while (isspace(*p)) p++;
 
-	fscanf (f, "%lf %lf %lf\n",
-		&buf->loadavg [0], &buf->loadavg [1], &buf->loadavg [2]);
-  
-	fclose (f);
+	/* Older Linux versions don't have the nr_running/nr_tasks fields. */
+
+	old = p;
+        while (*p) {
+		if (*p == '/')
+			break;
+		if (!isdigit (*p))
+			return;
+		p++;
+	}
+
+	buf->nr_running  = strtoul (old, &p, 0); p++;
+	buf->nr_tasks    = strtoul (p, &p, 0);
+	buf->last_pid    = strtoul (p, &p, 0);
+
+	buf->flags |= _glibtop_sysdeps_loadavg_tasks;
 }

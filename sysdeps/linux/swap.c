@@ -27,49 +27,76 @@
 
 static unsigned long _glibtop_sysdeps_swap =
 (1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
-(1 << GLIBTOP_SWAP_FREE) + (1 << GLIBTOP_SWAP_PAGEIN) +
-(1 << GLIBTOP_SWAP_PAGEOUT);
+(1 << GLIBTOP_SWAP_FREE);
+
+static unsigned long _glibtop_sysdeps_swap_paging =
+(1 << GLIBTOP_SWAP_PAGEIN) + (1 << GLIBTOP_SWAP_PAGEOUT);
 
 /* Init function. */
 
 void
 glibtop_init_swap_s (glibtop *server)
 {
-	server->sysdeps.swap = _glibtop_sysdeps_swap;
+	server->sysdeps.swap = _glibtop_sysdeps_swap |
+		_glibtop_sysdeps_swap_paging;
 }
 
 /* Provides information about swap usage. */
 
-#define FILENAME	"/proc/meminfo"
+#define MEMINFO		"/proc/meminfo"
+#define PROC_STAT	"/proc/stat"
 
 void
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
-	char buffer [BUFSIZ+1], *ptr;
+	char buffer [BUFSIZ], *p;
 	int fd, len;
-	FILE *f;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SWAP, 0);
 
 	memset (buf, 0, sizeof (glibtop_swap));
 
+	fd = open (MEMINFO, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", MEMINFO);
+
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", MEMINFO);
+
+	close (fd);
+
+	buffer [len] = '\0';
+
+	p = skip_line (buffer);
+	p = skip_line (buffer);
+	p = skip_token (p);		/* "Swap:" */
+
+	buf->total  = strtoul (p, &p, 0);
+	buf->used   = strtoul (p, &p, 0);
+	buf->free   = strtoul (p, &p, 0);
+
 	buf->flags = _glibtop_sysdeps_swap;
 
-	f = fopen ("/proc/meminfo", "r");
-	if (!f) return;
+	fd = open (PROC_STAT, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", PROC_STAT);
 
-	fscanf (f, "%*[^\n]\n%*[^\n]\nSwap: %Lu %Lu %Lu\n",
-		&buf->total, &buf->used, &buf->free);
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", PROC_STAT);
 
-	fclose (f);
+	close (fd);
 
-        fd = open ("/proc/stat", O_RDONLY);
-        len = read (fd, buffer, BUFSIZ);
-        close (fd);
+	buffer [len] = '\0';
 
-	ptr = strstr (buffer, "\nswap");
-	if (ptr == NULL) return;
-	
-	sscanf (ptr, "\nSwap: %Lu %Lu\n",
-		&buf->pagein, &buf->pageout);
+	p = strstr (buffer, "\nswap");
+	if (p == NULL) return;
+
+	p = skip_token (p);
+
+	buf->pagein  = strtoul (p, &p, 0);
+	buf->pageout = strtoul (p, &p, 0);
+
+	buf->flags |= _glibtop_sysdeps_swap_paging;
 }

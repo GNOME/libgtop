@@ -22,7 +22,25 @@
 #ifndef __GLIBTOP_SERVER_H__
 #define __GLIBTOP_SERVER_H__
 
+#include <fcntl.h>
+#include <ctype.h>
+
 __BEGIN_DECLS
+
+static inline char *
+skip_token (const char *p)
+{
+        while (isspace(*p)) p++;
+        while (*p && !isspace(*p)) p++;
+	return (char *)p;
+}
+
+static inline char *
+skip_line (const char *p)
+{
+	while (*p != '\n') p++;
+	return (char *) p++;
+}
 
 #define GLIBTOP_SUID_CPU		0
 #define GLIBTOP_SUID_MEM		0

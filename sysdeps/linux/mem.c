@@ -44,22 +44,36 @@ glibtop_init_mem_s (glibtop *server)
 void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
-	FILE *f;
+	char buffer [BUFSIZ], *p;
+	int fd, len;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
 
 	memset (buf, 0, sizeof (glibtop_mem));
 
-	buf->flags = _glibtop_sysdeps_mem;
+	fd = open (FILENAME, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", FILENAME);
 
-	f = fopen ("/proc/meminfo", "r");
-	if (!f) return;
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", FILENAME);
 
-	fscanf (f, "%*[^\n]\nMem: %Lu %Lu %Lu %Lu %Lu %Lu\n",
-		&buf->total, &buf->used, &buf->free, &buf->shared,
-		&buf->buffer, &buf->cached);
+	close (fd);
+
+	buffer [len] = '\0';
+
+	p = skip_line (buffer);
+	p = skip_token (p);		/* "Mem:" */
+
+	buf->total  = strtoul (p, &p, 0);
+	buf->used   = strtoul (p, &p, 0);
+	buf->free   = strtoul (p, &p, 0);
+	buf->shared = strtoul (p, &p, 0);
+	buf->buffer = strtoul (p, &p, 0);
+	buf->cached = strtoul (p, &p, 0);
 
 	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
 
-	fclose (f);
+	buf->flags = _glibtop_sysdeps_mem;
 }

@@ -41,18 +41,27 @@ glibtop_init_uptime_s (glibtop *server)
 void
 glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
-	FILE *f;
+	char buffer [BUFSIZ], *p;
+	int fd, len;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_UPTIME, 0);
 
 	memset (buf, 0, sizeof (glibtop_uptime));
 
+	fd = open (FILENAME, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", FILENAME);
+
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", FILENAME);
+
+	close (fd);
+
+	buffer [len] = '\0';
+
+	buf->uptime   = (float) strtod (buffer, &p);
+	buf->idletime = (float) strtod (p, &p);
+
 	buf->flags = _glibtop_sysdeps_uptime;
-
-	f = fopen ("/proc/uptime", "r");
-	if (!f) return;
-
-	fscanf (f, "%lf %lf\n", &buf->uptime, &buf->idletime);
-
-	fclose (f);
 }

@@ -43,7 +43,8 @@ glibtop_init_cpu_s (glibtop *server)
 void
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
-	FILE *f;
+	char buffer [BUFSIZ], *p;
+	int fd, len;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
@@ -51,15 +52,26 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 
 	buf->flags = _glibtop_sysdeps_cpu;
 
-	f = fopen ("/proc/stat", "r");
-	if (!f) return;
+	fd = open (FILENAME, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", FILENAME);
 
-	fscanf (f, "cpu %Lu %Lu %Lu %Lu\n",
-		&buf->user, &buf->nice, &buf->sys, &buf->idle);
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", FILENAME);
+
+	close (fd);
+
+	buffer [len] = '\0';
+
+	p = skip_token (buffer);	/* "cpu" */
+
+	buf->user = strtoul (p, &p, 0);
+	buf->nice = strtoul (p, &p, 0);
+	buf->sys  = strtoul (p, &p, 0);
+	buf->idle = strtoul (p, &p, 0);
 
 	buf->total = buf->user + buf->nice + buf->sys + buf->idle;
 
 	buf->frequency = 100;
-  
-	fclose (f);
 }
