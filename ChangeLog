@@ -1,3 +1,8 @@
+2005-03-25  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* lib/error.c: (glibtop_error_io_vr), (glibtop_warn_io_vr):
+	s/strerror/g_strerror.
+
 2005-03-11  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* configure.in: Post release version bump.
