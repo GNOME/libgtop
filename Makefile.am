@@ -5,9 +5,9 @@ libgtopinclude_HEADERS = glibtop.h
 libgtopincludedir = $(includedir)/libgtop-2.0
 
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt \
-	LIBGTOP-VERSION features.def \
+	 features.def libgtopconfig.h.in \
 	libgtop-sysdeps.m4 README \
-	libgtop-mirror.sh libgtop-2.0.pc.in acinclude.m4
+	 libgtop-2.0.pc.in acinclude.m4
 
 dist-hook:
 	cp libgtop.spec $(distdir)

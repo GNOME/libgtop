@@ -26,6 +26,27 @@
 
 typedef struct _glibtop		glibtop;
 
+/**
+ *  LIBGTOP_CHECK_VERSION
+ *  @major: Major version number
+ *  @minor: Minor version number
+ *  @micro: Micro version number
+ *
+ *  Checks if the version given is compatable with this version of the
+ *  library.  For example, LIBGTOP_CHECK_VERSION(1.2.3) would return TRUE
+ *  if the version is 1.2.5, and FALSE if 1.1.0.  This can be used in
+ *  build tests.
+ *
+ **/
+
+#include <libgtopconfig.h>
+
+#define LIBGTOP_CHECK_VERSION(major, minor, micro)    \
+(LIBGTOP_MAJOR_VERSION > (major) || \
+(LIBGTOP_MAJOR_VERSION == (major) && LIBGTOP_MINOR_VERSION > (minor)) || \
+(LIBGTOP_MAJOR_VERSION == (major) && LIBGTOP_MINOR_VERSION == (minor) && \
+LIBGTOP_MICRO_VERSION >= (micro)))
+
 
 #include <glibtop/global.h>
 

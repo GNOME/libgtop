@@ -1,3 +1,14 @@
+2004-11-18  Benoît Dejean  <tazforever@dlfp.org>
+	
+	* LIBGTOP-VERSION:
+	* libgtop-mirror.sh: Removed unused files.
+
+	* libgtopconfig.h.in: Added.
+	* Makefile.am:
+	* configure.in:
+	* glibtop.h: Added libgtopconfig.h and LIBGTOP_VERSION_CHECK(X, Y, Z).
+	This can be used in build tests.
+
 2004-11-15  Benoît Dejean  <tazforever@dlfp.org>
 
 	* copyright.txt: Added myself.

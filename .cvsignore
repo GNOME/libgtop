@@ -39,3 +39,4 @@ INSTALL
 install-sh
 missing
 mkinstalldirs
+libgtopconfig.h
