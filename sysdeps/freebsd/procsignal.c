@@ -26,7 +26,10 @@
 #include <glibtop/procsignal.h>
 
 #include <glibtop_suid.h>
+
+#ifdef __FreeBSD__
 #include <osreldate.h>
+#endif
 
 static const unsigned long _glibtop_sysdeps_proc_signal =
 (1L << GLIBTOP_PROC_SIGNAL_SIGNAL) +
