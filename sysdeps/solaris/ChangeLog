@@ -1,3 +1,9 @@
+1999-05-17  Drazen Kacar  <dave@srce.hr>
+
+	* procargs.c: Implemented what Solaris has to offer cheaply.
+	It sucks, but digging in process address space would be
+	too slow.
+
 1999-05-11  Drazen Kacar  <dave@srce.hr>
 
 	* proctime.c: Return 0 usage times for scheaduler (PID 0).
