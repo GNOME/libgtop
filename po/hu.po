@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
 "POT-Creation-Date: 2003-07-11 10:31+0200\n"
-"PO-Revision-Date: 2003-07-11 10:32+0200\n"
+"PO-Revision-Date: 2003-07-14 00:44+0200\n"
 "Last-Translator: Andras Timar <timar@gnome.hu>\n"
 "Language-Team: Hungarian Gnome Project <hu@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr "Órajel (%ld másodpercenként):"
 # examples/smp.c:71
 #: examples/smp.c:74
 msgid "Total"
-msgstr "Összes"
+msgstr "Összesen"
 
 # examples/smp.c:71 sysdeps/names/mem.c:47
 #: examples/smp.c:74 sysdeps/names/mem.c:47
@@ -1353,12 +1353,12 @@ msgstr "CPU használat"
 # sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "Memory Usage"
-msgstr "Memória használat"
+msgstr "Memóriahasználat"
 
 # sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Swap Usage"
-msgstr "Swap használat"
+msgstr "Swaphasználat"
 
 # sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
