@@ -10,6 +10,7 @@
 * glibtop_proclist::            Process List.
 * glibtop_proc_state::          Process State.
 * glibtop_proc_uid::            Process UID and TTY Information.
+* glibtop_proc_mem::            Process Memory Information.
 @end menu
 
 @node glibtop_cpu, glibtop_mem, Reference Manual, Reference Manual
@@ -553,7 +554,7 @@ The process is currently swapping.
 @end table
 
 @page
-@node glibtop_proc_uid,  , glibtop_proc_state, Reference Manual
+@node glibtop_proc_uid, glibtop_proc_mem, glibtop_proc_state, Reference Manual
 @section Process UID and TTY information
 
 Library function @code{glibtop_get_proc_uid}:
@@ -632,3 +633,55 @@ Array of additional process groups (@code{GLIBTOP_MAX_GROUPS} is
 defined in @file{<glibtop/limits.h>}).
 @end table
 
+@page
+@node glibtop_proc_mem,  , glibtop_proc_uid, Reference Manual
+@section Process Memory information
+
+Library function @code{glibtop_get_proc_mem}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_mem (glibtop_proc_mem *buf, pid_t pid);
+
+void
+glibtop_get_proc_mem_l (glibtop *server, glibtop_proc_mem *buf,
+                        pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_mem} in @file{<glibtop/procmem.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_mem        glibtop_proc_mem;
+
+struct _glibtop_proc_mem
+@{
+    u_int64_t   flags,
+        size,
+        vsize,
+        resident,
+        share,
+        rss,
+        rss_rlim;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item size
+Total number of pages of memory.
+@item vsize
+Number of pages of virtual memory.
+@item resident
+Number of residnet set (non-swapped) pages.
+@item share
+Number of pages of shared (mmap'd) memory.
+@item rss
+Number of pages the process has in real memory, minus 3 for administrative purposes.
+This is just the pages which count towards text, data, or stack space. This does not
+include pages which have not been demand-loaded in, or which are swapped out.
+@item rss_rlim
+Current limit in bytes on the rss of the process (usually 2,147,483,647).
+@end table

@@ -31,6 +31,14 @@
 
 About LibGTop
 
+
+
+
+
+ --- The Detailed Node Listing ---
+
+About LibGTop
+
 * Availability::                Where to get LibGTop
 * Supported Platforms::         Supported Platforms
 * Mailing List::                Helping with LibGTop development
@@ -46,8 +54,7 @@ LibGTop Reference Manual
 * glibtop_proclist::            Process List.
 * glibtop_proc_state::          Process State.
 * glibtop_proc_uid::            Process UID and TTY Information.
-
-@end detailmenu
+* glibtop_proc_mem::            Process Memory Information.
 @end menu
 
 @include about.texi
