@@ -25,6 +25,7 @@
 
 #include <glibtop.h>
 #include <glibtop/error.h>
+#include <glibtop/xmalloc.h>
 #include <glibtop/netinfo.h>
 
 #include <glibtop_suid.h>
@@ -42,9 +43,7 @@
 
 static const unsigned long _glibtop_sysdeps_netinfo =
 (1L << GLIBTOP_NETINFO_IF_FLAGS) +
-(1L << GLIBTOP_NETINFO_MTU) +
-(1L << GLIBTOP_NETINFO_SUBNET) +
-(1L << GLIBTOP_NETINFO_ADDRESS);
+(1L << GLIBTOP_NETINFO_MTU);
 
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
@@ -65,15 +64,12 @@ glibtop_init_netinfo_p (glibtop *server)
     return 0;
 }
 
-/* Provides Network statistics. */
-
-int
-glibtop_get_netinfo_p (glibtop *server, glibtop_netinfo *buf,
-		       const char *interface, unsigned transport)
+static int
+_netinfo_ipv4 (glibtop *server, glibtop_netinfo *buf,
+	       const char *interface, glibtop_ifaddr *address)
 {
     struct ifnet ifnet;
     u_long ifnetaddr, ifnetfound, ifaddraddr;
-    struct sockaddr *sa;
     char tname [16];
 
     union {
@@ -81,13 +77,11 @@ glibtop_get_netinfo_p (glibtop *server, glibtop_netinfo *buf,
 	struct in_ifaddr in;
     } ifaddr;
     
-    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_NETINFO), 0);
-	
-    memset (buf, 0, sizeof (glibtop_netinfo));
-
     if (kvm_read (server->_priv->machine.kd, nlst [0].n_value,
-		  &ifnetaddr, sizeof (ifnetaddr)) != sizeof (ifnetaddr))
-	glibtop_error_io_r (server, "kvm_read (ifnet)");
+		  &ifnetaddr, sizeof (ifnetaddr)) != sizeof (ifnetaddr)) {
+	glibtop_warn_io_r (server, "kvm_read (ifnet)");
+	return -1;
+    }
     
     ifaddraddr = 0;
     while (ifnetaddr || ifaddraddr) {
@@ -98,13 +92,17 @@ glibtop_get_netinfo_p (glibtop *server, glibtop_netinfo *buf,
 	    ifnetfound = ifnetaddr;
 
 	    if (kvm_read (server->_priv->machine.kd, ifnetaddr, &ifnet,
-			  sizeof (ifnet)) != sizeof (ifnet))
-		glibtop_error_io_r (server, "kvm_read (ifnetaddr)");
+			  sizeof (ifnet)) != sizeof (ifnet)) {
+		glibtop_warn_io_r (server, "kvm_read (ifnetaddr)");
+		return -1;
+	    }
 
 #if defined(__FreeBSD__) || defined(__bsdi__)
 	    if (kvm_read (server->_priv->machine.kd, (u_long) ifnet.if_name,
-			  tname, 16) != 16)
-		glibtop_error_io_r (server, "kvm_read (if_name)");
+			  tname, 16) != 16) {
+		glibtop_warn_io_r (server, "kvm_read (if_name)");
+		return -1;
+	    }
 #else
 	    strncpy (tname, ifnet.if_xname, 16);
 	    tname [15] = 0;
@@ -120,13 +118,18 @@ glibtop_get_netinfo_p (glibtop *server, glibtop_netinfo *buf,
 	}
 
 	if (ifaddraddr) {
+	    struct sockaddr *sa;
+
 	    if ((kvm_read (server->_priv->machine.kd, ifaddraddr, &ifaddr,
-			   sizeof (ifaddr)) != sizeof (ifaddr)))
-		glibtop_error_io_r (server, "kvm_read (ifaddraddr)");
+			   sizeof (ifaddr)) != sizeof (ifaddr))) {
+		glibtop_warn_io_r (server, "kvm_read (ifaddraddr)");
+		return -1;
+	    }
 	
 #define CP(x) ((char *)(x))
-	    cp = (CP(ifaddr.ifa.ifa_addr) - CP(ifaddraddr)) +
-		CP(&ifaddr); sa = (struct sockaddr *)cp;
+
+	    cp = (CP(ifaddr.ifa.ifa_addr) - CP(ifaddraddr)) + CP(&ifaddr);
+	    sa = (struct sockaddr *)cp;
 	
 	    if (!strcmp (interface, tname) && (sa->sa_family == AF_INET)) {
 		sin = (struct sockaddr_in *)sa;
@@ -166,13 +169,19 @@ glibtop_get_netinfo_p (glibtop *server, glibtop_netinfo *buf,
 		if (ifnet.if_flags & IFF_MULTICAST)
 		    buf->if_flags |= GLIBTOP_IF_FLAGS_MULTICAST;
 
-		buf->subnet = htonl (ifaddr.in.ia_subnet);
-		buf->address = sin->sin_addr.s_addr;
-
 		buf->mtu = ifnet.if_mtu;
-
 		buf->flags = _glibtop_sysdeps_netinfo;
-		return -1;
+
+		address->subnet = htonl (ifaddr.in.ia_subnet);
+		address->flags |= (1L << GLIBTOP_IFADDR_SUBNET);
+
+		address->addr_len = 4;
+		memcpy (&address->address, &sin->sin_addr.s_addr, 4);
+
+		address->flags |= (1L << GLIBTOP_IFADDR_ADDRESS);
+		address->flags |= (1L << GLIBTOP_IFADDR_ADDR_LEN);
+
+		return 0;
 	    }
 
 #if defined(__FreeBSD__) && (__FreeBSD_version >= 300000)
@@ -194,4 +203,36 @@ glibtop_get_netinfo_p (glibtop *server, glibtop_netinfo *buf,
     }
 
     return 0;
+}
+
+/* Provides Network statistics. */
+
+glibtop_ifaddr *
+glibtop_get_netinfo_p (glibtop *server, glibtop_array *array,
+		       glibtop_netinfo *buf, const char *interface,
+		       u_int64_t transport)
+{
+    glibtop_ifaddr address, *retval = NULL;
+
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_NETINFO), 0);
+	
+    memset (buf, 0, sizeof (glibtop_netinfo));
+    memset (&address, 0, sizeof (glibtop_ifaddr));
+
+    if (transport & GLIBTOP_TRANSPORT_IPV4) {
+	/* IPv4 */
+
+	if (!_netinfo_ipv4 (server, buf, interface, &address)) {
+	    retval = glibtop_calloc_r (server, 1, sizeof (glibtop_ifaddr));
+	    *retval = address;
+
+	    array->number = 1;
+	    array->size = sizeof (glibtop_ifaddr);
+	    array->total = array->number * array->size;
+
+	    return retval;
+	}
+    }
+
+    return NULL;
 }

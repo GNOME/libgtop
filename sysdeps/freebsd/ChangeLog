@@ -1,5 +1,9 @@
 2000-02-13  Martin Baulig  <martin@home-of-linux.org>
 
+	* netinfo.c: Reflect latest interface changes.
+
+2000-02-13  Martin Baulig  <martin@home-of-linux.org>
+
 	* *.c: kvm_nlist () returns -1 on error, but a positive return value
 	does not necessarily mean failure. Fixes #3302 which was reported by
 	Matthias Scheler some time ago.
