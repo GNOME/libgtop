@@ -2,7 +2,7 @@ info_TEXINFOS		= libgtop.texi
 
 libgtop_TEXINFOS	= libgtop.texi about.texi reference.texi \
 			  auto-macros.texi version.texi main.texi \
-			  white-paper.texi
+			  white-paper.texi internals.texi
 
 MAKEINFO		+= -I @libgtop_top_builddir@/doc
 
