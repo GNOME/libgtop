@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.1\n"
-"POT-Creation-Date: 2001-02-26 15:46+0100\n"
-"PO-Revision-Date: 2001-02-24 13:59+0100\n"
+"POT-Creation-Date: 2001-02-27 20:22+0100\n"
+"PO-Revision-Date: 2001-02-26 20:18+0100\n"
 "Last-Translator: Softcatalà <tradgnome@softcatala.org>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -58,9 +58,8 @@ msgid "SMP CPU Time in the Idle Task"
 msgstr "Temps SMP de la UCP en repòs"
 
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
-#, fuzzy
 msgid "SMP CPU Flags"
-msgstr "Etiquetes_XCPU"
+msgstr "Etiquetes CPU SMP"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
@@ -470,38 +469,36 @@ msgid "End_Data"
 msgstr "Acabament_dades"
 
 #: sysdeps/names/procsegment.c:52
-#, fuzzy
 msgid "Start_Brk"
-msgstr "Inicia_Pila"
+msgstr "Start_Brk"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Brk"
-msgstr ""
+msgstr "Brk"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_Stack"
 msgstr "Inicia_Pila"
 
 #: sysdeps/names/procsegment.c:53
-#, fuzzy
 msgid "Start_MMap"
-msgstr "Inici_dades"
+msgstr "Start_MMap"
 
 #: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
 msgid "Arg_Start"
-msgstr ""
+msgstr "Arg_Start"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
 msgid "Arg_End"
-msgstr ""
+msgstr "Arg_End"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
 msgid "Env_Start"
-msgstr ""
+msgstr "Env_Start"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
 msgid "Env_End"
-msgstr ""
+msgstr "Env_End"
 
 #: sysdeps/names/procsegment.c:59
 msgid "Text resident set size"
@@ -541,11 +538,11 @@ msgstr "Adreça de final de segment de dades"
 
 #: sysdeps/names/procsegment.c:68
 msgid "Brk_Start"
-msgstr ""
+msgstr "Brk_Start"
 
 #: sysdeps/names/procsegment.c:69
 msgid "Brk_End"
-msgstr ""
+msgstr "Brk_End"
 
 #: sysdeps/names/procsegment.c:70
 msgid "Address of the bottom of stack segment"
@@ -553,7 +550,7 @@ msgstr "Adreça de la part inferior del segment de pila"
 
 #: sysdeps/names/procsegment.c:71
 msgid "Start of mmap()ed areas"
-msgstr ""
+msgstr "Inici de les àrees mmap()ed"
 
 #: sysdeps/names/procsignal.c:42
 msgid "Signal"
@@ -640,14 +637,12 @@ msgid "effective GID of process"
 msgstr "GID efectiva del procés"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "real UID of process"
-msgstr "UID del procés"
+msgstr "UID real del procés"
 
 #: sysdeps/names/procstate.c:57
-#, fuzzy
 msgid "real GID of process"
-msgstr "GID del procés"
+msgstr "GID real del procés"
 
 #: sysdeps/names/procstate.c:58
 msgid "has_cpu"
@@ -774,24 +769,20 @@ msgid "EGid"
 msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "Uid"
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "Gid"
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FsUid"
-msgstr "Uid"
+msgstr "FsUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FsGid"
-msgstr "Gid"
+msgstr "FsGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
