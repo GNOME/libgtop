@@ -8,6 +8,7 @@
 * glibtop_uptime::              System Uptime.
 * glibtop_loadavg::             Load Average.
 * glibtop_proclist::            Process List.
+* glibtop_proc_state::          Process State.
 @end menu
 
 @node glibtop_cpu, glibtop_mem, Reference Manual, Reference Manual
@@ -323,7 +324,7 @@ Last PID.
 @end table
 
 @page
-@node glibtop_proclist,  , glibtop_loadavg, Reference Manual
+@node glibtop_proclist, glibtop_proc_state, glibtop_loadavg, Reference Manual
 @section Process List
 
 Library function @code{glibtop_get_proclist}:
@@ -439,3 +440,116 @@ Size of a single entry in the returned list
 
 The returned list is allocated using @code{glibtop_malloc} and must be freed
 using @code{glibtop_free} to avoid a memory leak.
+
+@page
+@node glibtop_proc_state,  , glibtop_proclist, Reference Manual
+@section Process State
+
+Library function @code{glibtop_get_proc_state}:
+
+@example
+@cartouche
+void
+glibtop_get_proc_state (glibtop_proc_state *buf, pid_t pid);
+
+void
+glibtop_get_proc_state_l (glibtop *server, glibtop_proc_state *buf,
+                          pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_state} in @file{<glibtop/proc_state.h}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_state      glibtop_proc_state;
+
+struct _glibtop_proc_state
+@{
+    u_int64_t flags;
+    char cmd[40];
+    unsigned state;
+    int uid,
+        gid,
+        ruid,
+        rgid;
+    int has_cpu,
+        processor,
+        last_processor;
+
+@};
+@end cartouche
+@end example
+
+@table @code
+@item cmd
+Basename of the executable file in the call to @code{exec}.
+@item state
+Process state (see the constants defined below).
+@end table
+
+When porting LibGTop, please @emph{try hard} to implement the following
+fields. For security reasons, it is @strong{very important} that you
+@strong{only} set the @code{flags} bits for those fields if their
+@strong{values are correct}.
+
+@table @code
+@item uid
+Effective UID of the process.
+@item gid
+Effective GID of the process.
+@item ruid
+Real UID of the process.
+@item rgid
+Read GID of the process.
+@end table
+
+The following fields are for SMP systems:
+
+@table @code
+@item has_cpu
+This is either 0 or 1 depending on whether the process currently has a CPU
+or not.
+
+@item processor
+This is the processor id of the CPU this process is currently running on
+(which can be used as index in the @samp{xcpu_} fields of @code{glibtop_cpu}
+for instance; since zero is a valid processor id, you must check @code{has_cpu}
+in this case to find out whether the process really has a CPU).
+
+@item last_processor
+The is the processor id of the CPU the process was last running on.
+@end table
+
+There are some constants for the @code{state} field:
+
+@example
+@cartouche
+#define GLIBTOP_PROCESS_RUNNING                 1
+#define GLIBTOP_PROCESS_INTERRUPTIBLE           2
+#define GLIBTOP_PROCESS_UNINTERRUPTIBLE         4
+#define GLIBTOP_PROCESS_ZOMBIE                  8
+#define GLIBTOP_PROCESS_STOPPED                 16
+#define GLIBTOP_PROCESS_SWAPPING                32
+@end cartouche
+@end example
+
+@table @code
+@item GLIBTOP_PROCESS_RUNNING
+The process is currently running.
+@item GLIBTOP_PROCESS_INTERRUPTIBLE
+The process is currently in an interruptible sleep.
+@item GLIBTOP_PROCESS_UNINTERRUPTIBLE
+The process is currently in uninterruptible sleep
+(the so-called @dfn{disk sleep}).
+@item GLIBTOP_PROCESS_ZOMBIE
+The process is a zombie.
+@item GLIBTOP_PROCESS_STOPPED
+The process is currently stopped (received @code{SIGSTOP}
+or attached to a debugger).
+@item GLIBTOP_PROCESS_SWAPPING
+The process is currently swapping.
+@end table
+
+
+
