@@ -112,8 +112,8 @@ sub output {
       $prefix_space = '';
     }
 
-    if ($retval =~ /^array\((.*)\)$/) {
-      $retval = "$1 *";
+    if ($retval =~ /^(array|pointer)\((.*)\)$/) {
+      $retval = "$2 *";
     }
 
     $check_server_code = "\n";
