@@ -542,6 +542,7 @@ static gboolean ignore_mount_entry(const struct mount_entry *me)
 		"binfmt_misc",
 		"devpts",
 		"mntfs",
+		"mqueue",
 		"none",
 		"openpromfs",
 		"proc",

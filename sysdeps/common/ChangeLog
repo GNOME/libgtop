@@ -1,3 +1,7 @@
+2005-03-11  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* mountlist.c: (ignore_mount_entry): Added mqueue to ignore list.
+
 2005-02-28  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* fsusage.c: * Add support for file system read and write counting
