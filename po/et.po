@@ -2,18 +2,19 @@
 # Copyright (C) 2003 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgtop package.
 # Tõivo Leedjärv <toivo@linux.ee>, 2003.
-#
+
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
+"POT-Creation-Date: 2004-08-06 12:07+0200\n"
 "PO-Revision-Date: 2003-02-25 01:05+0200\n"
 "Last-Translator: Tõivo Leedjärv <toivo@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: examples/smp.c:76
 #, c-format
@@ -100,8 +101,8 @@ msgstr ""
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "loetud %d bait"
+msgstr[1] "loetud %d baiti"
 
 #: lib/read_data.c:51
 msgid "read data size"
@@ -111,8 +112,8 @@ msgstr ""
 #, c-format
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "andmeid loetud %d bait"
+msgstr[1] "andmeid loetud %d baiti"
 
 #: lib/write.c:51
 #, c-format
@@ -411,14 +412,12 @@ msgid "MTU"
 msgstr ""
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Alamvõrk"
+msgstr "IPv4 alamvõrk"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Aadress"
+msgstr "IPv4 aadress"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -461,9 +460,8 @@ msgid "Collisions"
 msgstr "Põrkumisi"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Aadress"
+msgstr "IPv6 aadress"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
@@ -1004,9 +1002,8 @@ msgid "Set Group ID"
 msgstr ""
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Failisüsteemide kasutus"
+msgstr "Failisüsteemi kasutaja ID"
 
 #: sysdeps/names/procuid.c:63
 msgid "Filesystem Group ID"
@@ -1261,9 +1258,8 @@ msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "Kui kaua on protsessor käivitamisest alates jõude seisnud (sekundites)"
 
 #: sysdeps/names/uptime.c:48
-#, fuzzy
 msgid "Time of last system boot in seconds since the epoch"
-msgstr "Aega süsteemi käivitamisest (sekundites)"
+msgstr "Aega viimasest süsteemi alglaadimisest (sekundites aasta 1970 algusest)"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1299,7 +1295,7 @@ msgstr ""
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr ""
+msgstr "Kõrvaldamine"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
