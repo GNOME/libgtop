@@ -8,9 +8,13 @@ CFLAGS				= -Wall -W @CFLAGS@
 
 lib_LTLIBRARIES			= libgtop_guile_names.la
 
-libgtop_guile_names_la_SOURCES	= boot.c sysdeps.c cpu.c mem.c swap.c uptime.c \
-				  loadavg.c shm_limits.c msg_limits.c \
-				  sem_limits.c proclist.c procstate.c procuid.c \
-				  proctime.c procmem.c procsignal.c prockernel.c \
-				  procsegment.c
+libgtop_guile_names_la_SOURCES	= guile-names.c
+
+BUILT_SOURCES			= guile-names.c
+
+guile-names.c: guile-names.awk $(top_builddir)/config.h $(top_builddir)/features.def
+	$(AWK) -f $(srcdir)/guile-names.awk < $(top_builddir)/features.def > gnc-t
+	mv gnc-t guile-names.c
+
+EXTRA_DIST			= guile-names.awk
 

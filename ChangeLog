@@ -1,5 +1,12 @@
 1998-06-13  Martin Baulig  <martin@home-of-linux.org>
 
+	* features.def: List of features for `guile-names.awk'.
+
+	* sysdeps/guile/names/guile-names.awk: New file.
+	Creates `guile-names.c' depending upon `features.def'.
+
+	* sysdeps/guile/names/*.c: Removed.
+
 	* kernel: New directory. Contains some kernel code to
 	implement a new system call table () to fetch information
 	directly from the Linux kernel.

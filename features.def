@@ -1,0 +1,17 @@
+cpu
+mem
+swap
+uptime
+loadavg
+shm_limits
+msg_limits
+sem_limits
+proclist
+proc_state
+proc_uid
+proc_mem
+proc_time
+proc_signal
+proc_kernel
+proc_segment
+sysdeps

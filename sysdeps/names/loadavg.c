@@ -26,7 +26,7 @@ const char *glibtop_names_loadavg [GLIBTOP_MAX_LOADAVG] =
 	"loadavg"
 };
 
-const char *glibtop_types_loadavg [GLIBTOP_MAX_LOADAVG] =
+const unsigned glibtop_types_loadavg [GLIBTOP_MAX_LOADAVG] =
 {
 	GLIBTOP_TYPE_DOUBLE
 };
