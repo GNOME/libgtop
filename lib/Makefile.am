@@ -1,6 +1,14 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-INCLUDES			= @INCLUDES@
+if INODEDB
+inodedb_SRCLIST			= inodedb.c
+inodedb_DEFS			= -DSYSTEM_INODEDB=\"$(prefix)/var/libgtop/inodedb.db\"
+else
+inodedb_SRCLIST			=
+inodedb_DEFS			=
+endif
+
+INCLUDES			= @INCLUDES@ $(inodedb_DEFS)
 
 noinst_PROGRAMS			= test-backends
 
@@ -12,7 +20,7 @@ libgtop_la_SOURCES		= errors.c glibtop-backend-info.c \
 				  glibtop-client.c glibtop-server.c \
 				  glibtop-backend.c glibtop-client-private.h \
 				  glibtop-server-private.h xmalloc.c error.c \
-				  $(BUILT_SOURCES)
+				  $(inodedb_SRCLIST) $(BUILT_SOURCES)
 
 libgtop_server_la_SOURCES	= error.c xmalloc.c
 
@@ -28,7 +36,7 @@ glibtopdir			= $(includedir)/glibtop
 
 glibtop_HEADERS			= structures.h
 
-BUILT_SOURCES			= lib.c structures.h sysdeps-init.c
+BUILT_SOURCES			= lib.c structures.h
 
 lib.c: lib.pl $(top_builddir)/config.h $(top_srcdir)/features.def $(top_srcdir)/scripts/c_types.pl
 	$(PERL) -I $(top_srcdir)/scripts $(srcdir)/lib.pl < $(top_srcdir)/features.def > lib-t
@@ -41,17 +49,7 @@ structures.h: structures.pl $(top_builddir)/config.h \
 		structures.h > tmp-s
 	mv tmp-s structures.h
 
-sysdeps-init.c:
-	rm -f sysdeps-init.c
-	cp $(srcdir)/@sysdeps_init_file@ sysdeps-init.c
-
 CLEANFILES			= $(BUILT_SOURCES)
 
-EXTRA_DIST			= lib.pl structures.pl \
-				  sysdeps-init-freebsd.c \
-				  sysdeps-init-kernel.c \
-				  sysdeps-init-linux.c \
-				  sysdeps-init-solaris.c \
-				  sysdeps-init-stub-suid.c \
-				  sysdeps-init-stub.c
+EXTRA_DIST			= lib.pl structures.pl
 

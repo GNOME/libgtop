@@ -26,19 +26,12 @@
 #ifndef __GLIBTOP_SERVER_PRIVATE_H__
 #define __GLIBTOP_SERVER_PRIVATE_H__
 
-#ifdef HAVE_GLIBTOP_MACHINE_H
-#include <glibtop_machine.h>
-#endif
-
 #include <glib.h>
 
 typedef struct _glibtop_server_private glibtop_server_private;
 
 struct _glibtop_server_private
 {
-#ifdef HAVE_GLIBTOP_MACHINE_H
-    glibtop_machine machine;	/* Machine dependent data */
-#endif
     GSList *backend_list;
 };
 

@@ -30,7 +30,6 @@ AC_SUBST(LIBGTOP_MINOR_VERSION)
 AC_SUBST(LIBGTOP_MICRO_VERSION)
 AC_SUBST(LIBGTOP_INTERFACE_AGE)
 AC_SUBST(LIBGTOP_BINARY_AGE)
-AC_SUBST(LIBGTOP_SERVER_VERSION)
 AC_SUBST(LIBGTOP_VERSION)
 AC_SUBST(LIBGTOP_VERSION_CODE)
 AC_SUBST(LIBGTOP_VERSION_SUFFIX)
@@ -98,25 +97,7 @@ AC_SUBST(GNOMESUPPORT_LIBS)
 
 AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 
-GNOME_LIBGTOP_SYSDEPS
-GNOME_LIBGTOP_TYPES_PRIVATE
-
-sysdeps_dir="$libgtop_sysdeps_dir"
-sysdeps_name="$libgtop_sysdeps_name"
-AC_SUBST(sysdeps_dir)
-AC_SUBST(sysdeps_name)
-
-AC_MSG_CHECKING(for sysdeps_init_file)
-if test x$linux_sysctl = xyes ; then
-  sysdeps_init_file='sysdeps-init-kernel.c'
-else
-  sysdeps_init_file='sysdeps-init-'"$libgtop_sysdeps_name"'.c'
-fi
-AC_SUBST(sysdeps_init_file)
-AC_MSG_RESULT($sysdeps_init_file)
-
 GNOME_PKGCONFIG_CHECK_MODULES(XML, libxml-2.0:2.2.8)
-AC_DEFINE(HAVE_LIBXML)
 AC_SUBST(XML_CFLAGS)
 AC_SUBST(XML_LIBS)
 
@@ -135,18 +116,13 @@ if test x$build_inodedb = xyes ; then
   AC_DEFINE(GLIBTOP_INODEDB)
 fi
 
-AC_DEFINE(GLIBTOP_NAMES)
-
 AM_CONDITIONAL(ENABLE_STATIC, test x$enable_static = xyes)
 AM_CONDITIONAL(ENABLE_SHARED, test x$enable_static = xyes)
 
 AM_PROG_LIBTOOL
 
-if test x$libgtop_use_gmodule = xyes ; then
-  GNOME_PKGCONFIG_CHECK_MODULES(GLIB, glib-2.0:1.3.1 gmodule-2.0:1.3.1 gobject-2.0:1.3.1)
-else
-  GNOME_PKGCONFIG_CHECK_MODULES(GLIB, glib-2.0:1.3.1 gobject-2.0:1.3.1)
-fi
+dnl Check for glib
+GNOME_PKGCONFIG_CHECK_MODULES(GLIB, glib-2.0:1.3.1 gmodule-2.0:1.3.1 gobject-2.0:1.3.1)
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
 
@@ -160,54 +136,6 @@ AC_STRUCT_ST_RDEV
 AC_HEADER_TIME
 AC_STRUCT_TM
 AC_TYPE_UID_T
-
-dnl For SunOS
-AC_CHECK_TYPE(ssize_t, int)
-AC_CHECK_HEADERS(memory.h)
-AC_CHECK_HEADERS(string.h strings.h, break)
-AC_REPLACE_FUNCS(strerror)
-
-dnl dlopen() and dlsym()
-DL_LIB=
-AC_CHECK_FUNCS(dlopen,,[
-  AC_CHECK_LIB(dl, dlopen, DL_LIB="-ldl", [
-    AC_CHECK_LIB(dld, shl_load, DL_LIB="-ldld", [
-      AC_CHECK_FUNCS(dlopen, DL_LIB="", DL_LIB="")
-    ])
-  ])
-])
-oLIBS="$LIBS"
-LIBS="$LIBS $DL_LIB"
-AC_CHECK_FUNCS(dlerror,,)
-LIBS="$oLIBS"
-AC_SUBST(DL_LIB)
-
-dnl Solaris
-AC_CHECK_LIB(kstat, kstat_open)
-AC_CHECK_FUNCS(getloadavg swapctl)
-AC_CHECK_HEADERS(procfs.h sys/procfs.h, break)
-
-dnl Some versions of Solaris require -lelf for -lkvm
-AC_CHECK_LIB(kvm, kvm_open,[
-  LIBS="-lkvm $LIBS"
-],[AC_MSG_CHECKING(for kvm_open in -lkvm with -lelf)
-   AC_CACHE_VAL(ac_cv_lib_kvm_with_elf,
-   [ac_save_LIBS="$LIBS"
-    LIBS="-lkvm -lelf $LIBS"
-    AC_TRY_LINK([char kvm_open();], [kvm_open()],
-                ac_cv_lib_kvm_with_elf=yes, ac_cv_lib_kvm_with_elf=no)
-    LIBS="$ac_save_LIBS"
-   ])
-   if test "$ac_cv_lib_kvm_with_elf" = "yes"; then
-     AC_MSG_RESULT(yes)
-     LIBS="-lkvm -lelf $LIBS"
-   else
-     AC_MSG_RESULT(no)
-   fi
-])
-
-dnl For DEC OSF1
-AC_CHECK_LIB(mach, vm_statistics)
 
 dnl Check for Internet sockets.
 AC_CHECK_FUNC(socket,
@@ -237,21 +165,6 @@ AM_GNOME2_GETTEXT
 
 AC_PATH_XTRA
 
-dnl For Solaris
-dnl Please don't move this before AC_PATH_XTRA
-AC_CHECK_FUNC(gethostbyname,,[AC_CHECK_LIB(nsl,gethostbyname)])
-AC_CHECK_FUNC(connect,,[AC_CHECK_LIB(socket,connect)])
-AC_CHECK_FUNC(inet_aton,,[AC_CHECK_LIB(resolv,inet_aton)])
-
-dnl The construct foo=`echo $w1 $w2 $w3` fails on some systems if $w1 = -e or -n
-dnl So we use the following instead.
-dnl XE_SPACE(var, words)
-define([XE_SPACE],[
-T=""
-for W in $2; do if test -z "$T"; then T="$W"; else T="$T $W"; fi; done
-$1="$T"
-])dnl
-
 dnl For diskusage stuff
 GNOME_FILEUTILS_CHECKS
 
@@ -280,40 +193,15 @@ dnl These definitions are expanded in make.
 LIBGTOP_LIBS='-L$(libdir)'
 LIBGTOP_INCS='-I$(includedir) -I$(pkglibdir)/include'
 
-if test x$libgtop_use_machine_h = xyes ; then
-  LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_GLIBTOP_MACHINE_H"
-fi
-
 if test x$build_inodedb = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DGLIBTOP_INODEDB"
 fi
 
-if test x$libgtop_smp = xyes ; then
-  LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SMP"
-fi
-
-if test x$libgtop_have_sysinfo = xyes ; then
-  LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SYSINFO"
-fi
-
 LIBGTOP_INCS="$LIBGTOP_INCS $GNOMESUPPORT_CFLAGS $GLIB_CFLAGS $XML_CFLAGS"
-
-LIBGTOP_BINDIR='$(bindir)'
-LIBGTOP_SERVER='$(bindir)/libgtop_server'
 
 LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS $XML_LIBS"
 
-if test x$libgtop_use_gmodule != xyes ; then
-  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop -lgtop_backend_common -lgtop_common"
-  if test x$libgtop_have_sysdeps = xyes ; then
-    LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_backend_sysdeps -lgtop_sysdeps"
-  fi
-  if test x$libgtop_need_server = xyes ; then
-    LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_backend_server"
-  fi
-else
-  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common -lgtop"
-fi
+LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common -lgtop"
 
 LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names"
 
@@ -328,7 +216,7 @@ AC_SUBST(machine_incs)
 
 LIBGTOP_BACKEND_DIR="\$(datadir)/libgtop/backends"
 
-INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -Werror -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_builddir)/include -I\$(top_srcdir)/intl $GNOMESUPPORT_CFLAGS $GLIB_CFLAGS $XML_CFLAGS $CFLAGS $X_CFLAGS "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\" -DLIBGTOP_BACKEND_DIR=\"'"$LIBGTOP_BACKEND_DIR"'\"'
+INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -Werror -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_builddir)/include -I\$(top_srcdir)/intl $GNOMESUPPORT_CFLAGS $GLIB_CFLAGS $XML_CFLAGS $CFLAGS $X_CFLAGS "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_BACKEND_DIR=\"'"$LIBGTOP_BACKEND_DIR"'\"'
 
 AC_SUBST(INCLUDES)
 
@@ -339,177 +227,9 @@ AC_SUBST(LIBGTOP_LIBS)
 AC_SUBST(LIBGTOP_INCS)
 AC_SUBST(LIBGTOP_NAMES_LIBS)
 AC_SUBST(LIBGTOP_NAMES_INCS)
-AC_SUBST(LIBGTOP_BINDIR)
-AC_SUBST(LIBGTOP_SERVER)
-
-if test x$libgtop_need_server = xyes ; then
-   sysdeps_suid_lib="\$(top_builddir)/sysdeps/\$(sysdeps_dir)/libgtop_sysdeps_suid.la"
-   server_programs='libgtop_server'
-else
-   sysdeps_suid_lib=
-   server_programs=
-fi
-AC_SUBST(sysdeps_suid_lib)
-AC_SUBST(server_programs)
-
-
-dnl The following one is copied from glib/configure.in
-
-AC_OUTPUT_COMMANDS([
-
-## Generate `glibconfig.h' in two cases
-## 1. `config.status' is run either explicitly, or via configure.
-##     Esp. not when it is run in `Makefile' to generate makefiles and
-##     config.h
-## 2. CONFIG_OTHER is set explicitly
-##
-## Case 1 is difficult.  We know that `automake' sets one of
-## CONFIG_FILES or CONFIG_HEADERS to empty.  This heuristic works
-## only when AM_CONFIG_HEADER is set, however.
-
-if test -n "${CONFIG_FILES}" && test -n "${CONFIG_HEADERS}"; then
-  # Both CONFIG_FILES and CONFIG_HEADERS are non-empty ==> Case 1
-  CONFIG_OTHER=${CONFIG_OTHER:-glibtop-config.h}
-fi
-case "$CONFIG_OTHER" in
-*glibtop-config.h*)
-	echo creating glibtop-config.h
-	outfile=glibtop-config.h-tmp
-	cat > $outfile <<\_______EOF
-/* glibtop-config.h
- *
- * This is a generated file.  Please modify `configure.in'
- */
-
-#ifndef GLIBTOP_CONFIG_H
-#define GLIBTOP_CONFIG_H
-
-#ifdef __cplusplus
-extern "C" {
-#endif /* __cplusplus */
-_______EOF
-
-	did_typedefs=no
-
-	if test x$glibtop_uint64_t != xyes ; then
-	  did_typedefs=yes
-	  cat >> $outfile <<\_______EOF
-
-#ifndef u_int64_t
-typedef unsigned long long int u_int64_t;
-#endif
-_______EOF
-	fi
-
-	if test x$glibtop_int64_t != xyes ; then
-	  did_typedefs=yes
-	  cat >> $outfile <<\_______EOF
-
-#ifndef int64_t
-typedef signed long long int int64_t;
-#endif
-_______EOF
-	fi
-
-	if test x$glibtop_uint8_t != xyes ; then
-	  did_typedefs=yes
-	  cat >> $outfile <<\_______EOF
-
-#ifndef u_int8_t
-typedef unsigned char u_int8_t;
-#endif
-_______EOF
-	fi
-
-	if test x$glibtop_int8_t != xyes ; then
-	  did_typedefs=yes
-	  cat >> $outfile <<\_______EOF
-
-#ifndef int8_t
-typedef signed char int8_t;
-#endif
-_______EOF
-	fi
-
-	if test x$did_typedefs = xyes ; then
-	  cat >>$outfile <<_______EOF
-
-/*
- * NOTE:  If your application checks for "u_int64_t" or "int64_t" in its own
- *        config.h, you must not include it after any of the LibGTop headers.
- */
-_______EOF
-	fi
-
-	cat >>$outfile <<_______EOF
-
-/* Define if we need the LibGTop server. */
-_______EOF
-
-	if test x$glibtop_need_libgtop = xyes ; then
-	  echo '#define NEED_LIBGTOP 1' >> $outfile
-	else
-	  echo '#undef NEED_LIBGTOP' >> $outfile
-	fi
-
-	cat >>$outfile <<_______EOF
-
-/* Define if LibGTop has support for multiple processors. */
-_______EOF
-
-	if test x$glibtop_have_smp = xyes ; then
-	  echo '#define HAVE_LIBGTOP_SMP 1' >> $outfile
-	else
-	  echo '#undef HAVE_LIBGTOP_SMP' >> $outfile
-	fi
-
-	cat >>$outfile <<_______EOF
-
-/* LibGTop major, minor and micro version. */
-#define LIBGTOP_MAJOR_VERSION $libgtop_major_version
-#define LIBGTOP_MINOR_VERSION $libgtop_minor_version
-#define LIBGTOP_MICRO_VERSION $libgtop_micro_version
-
-/* LibGTop version and numerical version code ("1.234.567" -> 1234567). */
-#define LIBGTOP_VERSION "$libgtop_version"
-#define LIBGTOP_VERSION_CODE $libgtop_version_code
-
-/* LibGTop server version, increased each time the protocol changes. */
-#define LIBGTOP_SERVER_VERSION $libgtop_server_version
-
-#ifdef __cplusplus
-}
-#endif /* __cplusplus */
-
-#endif /* GLIBCONFIG_H */
-_______EOF
-
-	if cmp -s $outfile glibtop-config.h; then
-	  echo glibtop-config.h is unchanged
-	  rm -f $outfile
-	else
-	  mv $outfile glibtop-config.h
-	fi ;;
-esac
-],[
-glibtop_uint64_t=$ac_cv_type_u_int64_t
-glibtop_int64_t=$ac_cv_type_int64_t
-glibtop_uint8_t=$ac_cv_type_u_int8_t
-glibtop_int8_t=$ac_cv_type_int8_t
-libgtop_major_version=$LIBGTOP_MAJOR_VERSION
-libgtop_minor_version=$LIBGTOP_MINOR_VERSION
-libgtop_micro_version=$LIBGTOP_MICRO_VERSION
-libgtop_version_code=$LIBGTOP_VERSION_CODE
-libgtop_server_version=$LIBGTOP_SERVER_VERSION
-libgtop_version=$LIBGTOP_VERSION
-glibtop_need_libgtop=$libgtop_need_server
-glibtop_have_smp=$libgtop_smp
-])
-
 
 AC_OUTPUT([
 Makefile
-libgtop.spec
 po/Makefile.in
 intl/Makefile
 misc/Makefile
@@ -518,13 +238,6 @@ include/glibtop/Makefile
 sysdeps/Makefile
 sysdeps/common/Makefile
 sysdeps/names/Makefile
-sysdeps/stub/Makefile
-sysdeps/stub_suid/Makefile
-sysdeps/osf1/Makefile
-sysdeps/linux/Makefile
-sysdeps/kernel/Makefile
-sysdeps/freebsd/Makefile
-sysdeps/solaris/Makefile
 src/Makefile
 src/inodedb/Makefile
 scripts/Makefile

@@ -1,3 +1,13 @@
+2001-04-21  Martin Baulig  <baulig@suse.de>
+
+	* configure.in: Removed all sysdeps checks.
+
+	* lib/sysdeps-init*.c: Removed.
+
+	* lib/inodedb.c: Moved here from sysdeps/common/inodedb.c.
+
+	* glibtop-config.h: Removed.
+
 2001-04-20  Martin Baulig  <baulig@suse.de>
 
 	Moved all sysdeps code to the new libgtop-backends module.
