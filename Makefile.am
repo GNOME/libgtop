@@ -22,7 +22,7 @@ include_HEADERS = glibtop.h
 
 EXTRA_DIST = autogen.sh libgtop.spec copyright.txt libgtopConf.sh.in \
 	LIBGTOP-VERSION features.def perl/Makefile.PL.in perl/perl.awk \
-	perl/MANIFEST perl/Changes
+	perl/MANIFEST perl/Changes libgtop-config.in
 
 release:
 	$(MAKE) dist distdir=$(PACKAGE)$(VERSION)
@@ -31,6 +31,8 @@ release:
 ## `install-exec', not `install-data'.
 confexecdir=$(libdir)
 confexec_DATA = $(top_builddir)/libgtopConf.sh
+
+bin_SCRIPTS = $(top_builddir)/libgtop-config
 
 noinst_DATA = $(top_builddir)/perl/Makefile.PL \
 		$(top_builddir)/perl/Libgtop.xs
@@ -70,6 +72,12 @@ libgtopConf.sh: libgtopConf.sh.in Makefile
 	    -e 's,\@libgtop_want_examples\@,$(libgtop_want_examples),g' \
 	      < $(srcdir)/libgtopConf.sh.in > libgtopConf.tmp \
 	  && mv libgtopConf.tmp libgtopConf.sh
+
+libgtop-config: libgtop-config.in Makefile
+	sed -e 's,\@LIBGTOP_LIBDIR\@,$(libdir),g' \
+	      < $(srcdir)/libgtop-config.in > libgtop-config.tmp \
+	  && mv libgtop-config.tmp libgtop-config && \
+		chmod 755 libgtop-config
 
 perl/Makefile.PL: perl/Makefile.PL.in Makefile
 ## Use sed and then mv to avoid problems if the user interrupts.
