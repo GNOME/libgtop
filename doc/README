@@ -1,0 +1,9 @@
+This directory is shared between the HEAD and the LIBGTOP_STABLE_1_0
+branch (`LIBGTOP_STABLE_1_0' is just an ordinary tag and no branch tag
+here).
+
+Whenever we make a new release of LibGTop 1.0.x, we'll move that tag to
+point to a "stable" version of the documentation.
+
+May 16, 1999
+Martin Baulig
