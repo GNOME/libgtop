@@ -1,5 +1,7 @@
 1999-02-22  Martin Baulig  <martin@home-of-linux.org>
 
+	Set the copyright of LibGTop to the GNU General Public License.
+
 	* copyright.txt: Set the year to 1998-99 and pretty-format it a
 	little bit. Same in all C source and header files.
 
