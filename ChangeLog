@@ -1,5 +1,14 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* lib/Makefile.am:
+	* libgtop-config.in:
+	* libgtop.spec.in:
+	* libgtopConf.sh.in:
+	* src/inodedb/Makefile.am: removed traces of guile, intllibs and
+	libgnomesupport
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* .cvsignore: updated
 	* configure.in: removed all traces of guile stuff
 	* sysdeps/guile/.cvsignore: removed

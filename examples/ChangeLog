@@ -1,3 +1,7 @@
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am: removed traces of guile, intllibs and libgnomesupport
+
 2001-01-14  Abel Cheung  <maddog@linux.org.hk>
 
 	* \*.c: bindtextdomain and textdomain uses GETTEXT_PACKAGE.

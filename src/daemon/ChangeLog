@@ -1,5 +1,9 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* Makefile.am: removed traces of guile, intllibs and libgnomesupport
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* Makefile.am:
 	* gnuserv.c: remove guile and libgnome-support stuff
 

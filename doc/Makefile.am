@@ -18,10 +18,6 @@ auto-macros.texi: auto-macros.texi.in Makefile
 	  -e 's#\%LIBGTOP_INCS\%#$(LIBGTOP_INCS)#g' \
 	  -e 's#\%LIBGTOP_NAMES_LIBS\%#$(LIBGTOP_NAMES_LIBS)#g' \
 	  -e 's#\%LIBGTOP_NAMES_INCS\%#$(LIBGTOP_NAMES_INCS)#g' \
-	  -e 's#\%LIBGTOP_GUILE_LIBS\%#$(LIBGTOP_GUILE_LIBS)#g' \
-	  -e 's#\%LIBGTOP_GUILE_INCS\%#$(LIBGTOP_GUILE_INCS)#g' \
-	  -e 's#\%LIBGTOP_GUILE_NAMES_LIBS\%#$(LIBGTOP_GUILE_NAMES_LIBS)#g' \
-	  -e 's#\%LIBGTOP_GUILE_NAMES_INCS\%#$(LIBGTOP_GUILE_NAMES_INCS)#g' \
 	  -e 's#\%LIBGTOP_BINDIR\%#$(LIBGTOP_BINDIR)#g' \
 	  -e 's#\%LIBGTOP_SERVER\%#$(LIBGTOP_SERVER)#g' \
 	  -e 's#\%LIBGTOP_MAJOR_VERSION\%#$(LIBGTOP_MAJOR_VERSION)#g' \
@@ -33,7 +29,6 @@ auto-macros.texi: auto-macros.texi.in Makefile
 	  -e 's#\%libgtop_sysdeps_dir\%#$(libgtop_sysdeps_dir)#g' \
 	  -e 's#\%libgtop_need_server\%#$(libgtop_need_server)#g' \
 	  -e 's#\%libgtop_use_machine_h\%#$(libgtop_use_machine_h)#g' \
-	  -e 's#\%libgtop_guile_found\%#$(libgtop_guile_found)#g' \
 	  -e 's#\%libgtop_want_examples\%#$(libgtop_want_examples)#g' \
 	      < $(srcdir)/auto-macros.texi.in > auto-macros.tmp
 	echo '@c Set this if this is LibGTop 1.1.x' >> auto-macros.tmp
