@@ -23,18 +23,106 @@
 
 #include <glibtop/open.h>
 
-/* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/processor.h>
+
+/* We need to call this when kstat_chain_update() returns new KID.
+ * In that case all kstat pointers and data are invalid, so we
+ * need to reread everything. The condition shouldn't happen very
+ * often.
+ */
+
+void
+glibtop_get_kstats(glibtop *server)
+{
+    kstat_ctl_t *kc = server->machine.kc;
+    kstat_t *ksp;
+    int nproc_same, new_ncpu;
+
+    new_ncpu = sysconf(_SC_NPROCESSORS_CONF);
+
+    if(!kc)
+    {
+        server->ncpu = new_ncpu;
+        server->machine.vminfo_kstat = NULL;
+        server->machine.system = NULL;
+        server->machine.bunyip = NULL;
+        return;
+    }
+
+    ksp = kstat_lookup(kc, "unix", -1, "vminfo");
+    server->machine.vminfo_kstat = ksp;
+    if(ksp)
+    {
+        kstat_read(kc, ksp, &server->machine.vminfo);
+	server->machine.vminfo_snaptime = ksp->ks_snaptime;
+    }
+
+    /* We don't know why was kstat chain invalidated. It could have
+       been because the number of processors changed. The sysconf()
+       man page says that values returned won't change during the
+       life time of a process, but let's hope that's just an error in
+       the documentation. */
+
+    if(nproc_same = new_ncpu == server->ncpu)
+    {
+        int checked, i;
+	char cpu[20];
+
+        for(i = 0, checked = 0; i < GLIBTOP_NCPU || checked == new_ncpu; ++i)
+	    if(server->machine.cpu_stat_kstat[i])
+	    {
+	        sprintf(cpu, "cpu_stat%d", i);
+	        if(!(server->machine.cpu_stat_kstat[i] =
+			 kstat_lookup(kc, "cpu_stat", -1, cpu)))
+		{
+		    nproc_same = 0;
+		    break;
+		}
+		++checked;
+	    }
+    }
+    if(!nproc_same)
+    {
+        processorid_t p;
+	int found;
+	char cpu[20];
+
+        if(new_ncpu > GLIBTOP_NCPU)
+	    new_ncpu = GLIBTOP_NCPU;
+	server->ncpu = new_ncpu;
+	for(p = 0, found = 0; p < GLIBTOP_NCPU && found != new_ncpu; ++p)
+	{
+	    if(p_online(p, P_STATUS) < 0)
+	        continue;
+	    sprintf(cpu, "cpu_stat%d", (int)p);
+	    server->machine.cpu_stat_kstat[p] =
+	            kstat_lookup(kc, "cpu_stat", -1, cpu);
+	    ++found;
+	}
+    }
+
+    server->machine.system   = kstat_lookup(kc, "unix", -1, "system_misc");
+    server->machine.syspages = kstat_lookup(kc, "unix", -1, "system_pages");
+    server->machine.bunyip   = kstat_lookup(kc, "bunyip", -1, "mempages");
+}
 
 void
 glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
+    kstat_ctl_t *kc;
     kstat_t *ksp;
+    kstat_named_t *kn;
 
     server->name = program_name;
 
-    server->machine.kc = kstat_open ();
+    server->machine.pagesize = sysconf(_SC_PAGESIZE) >> 10;
+    server->machine.ticks = sysconf(_SC_CLK_TCK);
+    server->machine.kc = kc = kstat_open ();
 
+#if 0
     for (ksp = server->machine.kc->kc_chain; ksp != NULL; ksp = ksp->ks_next) {
 	if (!strcmp (ksp->ks_class, "vm") && !strcmp (ksp->ks_name, "vminfo")) {
 	    server->machine.vminfo_kstat = ksp;
@@ -57,8 +145,21 @@ glibtop_open_s (glibtop *server, const char *program_name,
 	}
     }
 
-    if (!server->machine.kc)
-	glibtop_error_io_r (server, "kstat_open ()");
+#endif
+
+    if (!kc)
+	glibtop_warn_io_r (server, "kstat_open ()");
+
+    server->ncpu = -1;  /* Force processor detection */
+    glibtop_get_kstats(server);
+
+    server->machine.boot = 0;
+    if((ksp = server->machine.system) && kstat_read(kc, ksp, NULL) >= 0)
+    {
+	kn = (kstat_named_t *)kstat_data_lookup(ksp, "boot_time");
+	if(kn)
+	    server->machine.boot = kn->value.ui32;
+    }
 
     server->machine.kd = kvm_open(NULL, NULL, NULL, O_RDONLY, NULL);
     if(!server->machine.kd)

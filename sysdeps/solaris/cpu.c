@@ -25,11 +25,15 @@
 #include <glibtop/error.h>
 #include <glibtop/cpu.h>
 
+#include <assert.h>
+#include <sys/processor.h>
+
 static const unsigned long _glibtop_sysdeps_cpu =
-(1 << GLIBTOP_CPU_TOTAL) + (1 << GLIBTOP_CPU_USER) +
-(1 << GLIBTOP_CPU_SYS) + (1 << GLIBTOP_CPU_IDLE) +
-(1 << GLIBTOP_XCPU_TOTAL) + (1 << GLIBTOP_XCPU_USER) +
-(1 << GLIBTOP_XCPU_SYS) + (1 << GLIBTOP_XCPU_IDLE);
+(1L << GLIBTOP_CPU_TOTAL) + (1L << GLIBTOP_CPU_USER) +
+(1L << GLIBTOP_CPU_SYS) + (1L << GLIBTOP_CPU_IDLE) +
+(1L << GLIBTOP_XCPU_TOTAL) + (1L << GLIBTOP_XCPU_USER) +
+(1L << GLIBTOP_XCPU_SYS) + (1L << GLIBTOP_XCPU_IDLE) +
+(1L << GLIBTOP_CPU_FREQUENCY) + (1L << GLIBTOP_XCPU_FLAGS);
 
 /* Init function. */
 
@@ -46,18 +50,34 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
     kstat_ctl_t *kc = server->machine.kc;
     cpu_stat_t cpu_stat;
-    int cpu, ncpu;
+    processorid_t cpu;
+    int ncpu, found;
     kid_t ret;
 
     memset (buf, 0, sizeof (glibtop_cpu));
 
+    if(!kc)
+        return;
+    switch(kstat_chain_update(kc))
+    {
+        case -1: assert(0); /* Debugging purposes, shouldn't happen */
+	case 0:  break;
+	default: glibtop_get_kstats(server);
+    }
     ncpu = server->ncpu;
-    if (ncpu > GLIBTOP_NCPU) ncpu = GLIBTOP_NCPU;
+    if (ncpu > GLIBTOP_NCPU)
+        ncpu = GLIBTOP_NCPU;
 
-    for (cpu = 0; cpu < ncpu; cpu++) {
+    for (cpu = 0, found = 0; cpu < GLIBTOP_NCPU && found != ncpu; cpu++)
+    {
 	kstat_t *ksp = server->machine.cpu_stat_kstat [cpu];
 	if (!ksp) continue;
 
+	++found;
+	if(p_online(cpu, P_STATUS) == P_ONLINE)
+	    buf->xcpu_flags |= (1L << cpu);
+	else
+	    continue;
 	ret = kstat_read (kc, ksp, &cpu_stat);
 
 	if (ret == -1) {
@@ -66,8 +86,8 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	}
 
 	buf->xcpu_idle [cpu] = cpu_stat.cpu_sysinfo.cpu [CPU_IDLE];
-	buf->xcpu_user [cpu] = cpu_stat.cpu_sysinfo.cpu [CPU_IDLE];
-	buf->xcpu_sys [cpu] = cpu_stat.cpu_sysinfo.cpu [CPU_IDLE];
+	buf->xcpu_user [cpu] = cpu_stat.cpu_sysinfo.cpu [CPU_USER];
+	buf->xcpu_sys [cpu] = cpu_stat.cpu_sysinfo.cpu [CPU_KERNEL];
 
 	buf->xcpu_total [cpu] = buf->xcpu_idle [cpu] + buf->xcpu_user [cpu] +
 	    buf->xcpu_sys [cpu];
@@ -78,6 +98,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
     }
 
     buf->total = buf->idle + buf->user + buf->sys;
+    buf->frequency = server->machine.ticks;
 
     buf->flags = _glibtop_sysdeps_cpu;
 }

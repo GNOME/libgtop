@@ -50,6 +50,14 @@ struct _glibtop_machine
     vminfo_t vminfo;
 
     kstat_t *cpu_stat_kstat [64];
+
+    kstat_t *system;	/* boot_time & avenrun* where needed */
+    kstat_t *syspages;	/* memory usage */
+    kstat_t *bunyip;	/* more memory usage */
+
+    int pagesize;	/* in kilobytes */
+    int ticks;		/* clock ticks, as returned by sysconf(_SC_CLK_TCK) */
+    unsigned boot;	/* boot time, it's ui32 in kstat */
 };
 
 END_LIBGTOP_DECLS

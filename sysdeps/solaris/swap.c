@@ -25,11 +25,12 @@
 #include <glibtop/error.h>
 #include <glibtop/swap.h>
 
+#include <assert.h>
 #include <sys/sysinfo.h>
 
 static const unsigned long _glibtop_sysdeps_swap =
-(1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
-(1 << GLIBTOP_SWAP_FREE);
+(1L << GLIBTOP_SWAP_TOTAL) + (1L << GLIBTOP_SWAP_USED) +
+(1L << GLIBTOP_SWAP_FREE);
 
 /* Init function. */
 
@@ -55,6 +56,12 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
     if (!ksp) return;
 
+    switch(kstat_chain_update(kc))
+    {
+        case -1: assert(0); /* Debugging, shouldn't happen */
+	case 0:  break;
+	default: glibtop_get_kstats(server);
+    }
     ret = kstat_read (kc, ksp, &vminfo);
 
     if (ret == -1) {

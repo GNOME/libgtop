@@ -24,14 +24,25 @@
 #include <glibtop.h>
 #include <glibtop/mem.h>
 
-static const unsigned long _glibtop_sysdeps_mem = 0;
+#include <assert.h>
+#include <unistd.h>
+
+static const unsigned long _glibtop_sysdeps_mem_os_sysconf =
+(1L << GLIBTOP_MEM_TOTAL);
+static const unsigned long _glibtop_sysdeps_mem_os_kstat =
+(1L << GLIBTOP_MEM_FREE) + (1L << GLIBTOP_MEM_USED) +
+(1L << GLIBTOP_MEM_LOCKED);
+static const unsigned long _glibtop_sysdeps_mem_bunyip =
+(1L << GLIBTOP_MEM_SHARED) + (1L << GLIBTOP_MEM_BUFFER) +
+(1L << GLIBTOP_MEM_USER);
 
 /* Init function. */
 
 void
 glibtop_init_mem_s (glibtop *server)
 {
-	server->sysdeps.mem = _glibtop_sysdeps_mem;
+    server->sysdeps.mem = _glibtop_sysdeps_mem_os_sysconf +
+        _glibtop_sysdeps_mem_os_kstat + _glibtop_sysdeps_mem_bunyip;
 }
 
 /* Provides information about memory usage. */
@@ -39,5 +50,72 @@ glibtop_init_mem_s (glibtop *server)
 void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
-	memset (buf, 0, sizeof (glibtop_mem));
+    kstat_ctl_t *kc = server->machine.kc; 
+    kstat_t *ksp;
+    kstat_named_t *kn;
+    int pagesize = server->machine.pagesize;
+
+    memset (buf, 0, sizeof (glibtop_mem));
+
+    buf->total = (u_int64_t)sysconf(_SC_PHYS_PAGES) * pagesize;
+    buf->flags = _glibtop_sysdeps_mem_os_sysconf;
+
+    if(!kc)
+        return;
+    switch(kstat_chain_update(kc))
+    {
+        case -1: assert(0);  /* Debugging purposes, shouldn't happen */
+	case 0:  break;
+	default: glibtop_get_kstats(server);
+    }
+
+    if((ksp = server->machine.syspages) && kstat_read(kc, ksp, NULL) >= 0)
+    {
+	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pagesfree");
+	if(kn)
+	{
+#ifdef _LP64
+	    buf->free = kn->value.ui64 * pagesize;
+#else
+	    buf->free = kn->value.ui32 * pagesize;
+#endif
+	    buf->used = buf->total - buf->free;
+	}
+	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pageslocked");
+	if(kn)
+#ifdef _LP64
+	    buf->locked = kn->value.ui64 * pagesize;
+#else
+	    buf->locked = kn->value.ui32 * pagesize;
+#endif
+	buf->flags += _glibtop_sysdeps_mem_os_kstat;
+    }
+
+    /* Bunyip module provides data in multiples of system page size */
+
+    if((ksp = server->machine.bunyip) && kstat_read(kc, ksp, NULL) >= 0)
+    {
+        kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_anon");
+	if(kn)
+#ifdef _LP64
+	    buf->user = kn->value.ui64 * pagesize;
+#else
+	    buf->user = kn->value.ui32 * pagesize;
+#endif
+	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_exec");
+	if(kn)
+#ifdef _LP64
+	    buf->shared = kn->value.ui64 * pagesize;
+#else
+	    buf->shared = kn->value.ui32 * pagesize;
+#endif
+	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_vnode");
+	if(kn)
+#ifdef _LP64
+	    buf->buffer = kn->value.ui64 * pagesize;
+#else
+	    buf->buffer = kn->value.ui32 * pagesize;
+#endif
+	buf->flags += _glibtop_sysdeps_mem_bunyip;
+    }
 }

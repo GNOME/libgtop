@@ -24,7 +24,10 @@
 #include <glibtop.h>
 #include <glibtop/uptime.h>
 
-static const unsigned long _glibtop_sysdeps_uptime = 0;
+#include <time.h>
+
+static const unsigned long _glibtop_sysdeps_uptime =
+(1L << GLIBTOP_UPTIME_UPTIME) + (1L <<GLIBTOP_UPTIME_BOOT_TIME);
 
 /* Init function. */
 
@@ -40,4 +43,11 @@ void
 glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
 	memset (buf, 0, sizeof (glibtop_uptime));
+
+	if(!(server->machine.boot))
+	    return;
+	buf->boot_time = server->machine.boot;
+	buf->uptime = time(NULL) - server->machine.boot;
+
+	buf->flags = _glibtop_sysdeps_uptime;
 }
