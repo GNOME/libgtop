@@ -40,6 +40,8 @@ static const unsigned long _glibtop_sysdeps_swap =
 #include <sys/rlist.h>
 #include <sys/vmmeter.h>
 
+#if __FreeBSD__ < 4
+
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
 #define VM_SWAPLIST	0
@@ -54,6 +56,8 @@ static struct nlist nlst [] = {
 	{ "_dmmax" },	/* maximum size of a swap block */
 	{ 0 }
 };
+
+#endif
 
 #elif (defined __NetBSD__)
 
@@ -73,7 +77,15 @@ void
 glibtop_init_swap_p (glibtop *server)
 {
 #ifdef __FreeBSD__
+#if __FreeBSD__ < 4
 	if (kvm_nlist (server->machine.kd, nlst) != 0) {
+		glibtop_warn_io_r (server, "kvm_nlist (swap)");
+		return;
+	}
+#else
+	struct kvm_swap dummy;
+
+	if (kvm_getswapinfo (server->machine.kd, &dummy, 1, 0) != 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (swap)");
 		return;
 	}
@@ -98,6 +110,7 @@ void
 glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 {
 #ifdef __FreeBSD__
+#if __FreeBSD__ < 4
 	char *header;
 	int hlen, nswdev, dmmax;
 	int div, nfree, npfree;
@@ -108,6 +121,10 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	struct rlist *swapptr;
 	size_t sw_size;
 	u_long ptr;
+#else
+	int nswdev;
+	struct kvm_swap kvmsw[16];
+#endif
 #elif (defined __NetBSD__)
 	struct swapent *swaplist;
 #endif
@@ -157,6 +174,8 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 #endif
 
 #ifdef __FreeBSD__
+
+#if __FreeBSD__ < 4
 
 	/* Size of largest swap device. */
 
@@ -294,6 +313,19 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	buf->free = avail;
 
 	buf->total = inuse + avail;
+
+#else
+
+	nswdev = kvm_getswapinfo(server->machine.kd, kvmsw, 16, 0);
+
+	buf->flags = _glibtop_sysdeps_swap;
+
+	buf->used = kvmsw[nswdev].ksw_used;
+	buf->total = kvmsw[nswdev].ksw_total;
+
+	buf->free = buf->total - buf->used;
+
+#endif
 
 #elif (defined __NetBSD__)
 
