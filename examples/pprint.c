@@ -9,7 +9,7 @@
 
 #define buf_offsetof(MEMBER) ((ptrdiff_t)&(buf.MEMBER) - (ptrdiff_t)&buf)
 
-#define HEADER_PPRINT(FUNC) printf(#FUNC "\tsizeof = %lu B\n", \
+#define HEADER_PPRINT(FUNC) printf("### " #FUNC " ###\nsizeof *buf = %lu B\n", \
 (unsigned long) sizeof buf)
 
 #define PPRINT(DATA, FORMAT) printf("\t%4lu B %3lu " #DATA " = " FORMAT "\n", \
@@ -24,7 +24,7 @@ for(i = 0; i < (SIZE - 1); ++i) printf(".%u = " FORMAT ", ", i, buf.ARRAY[i]); \
 printf(".%u = " FORMAT " }\n", SIZE - 1 , buf.ARRAY[SIZE - 1]); \
 } while(0)
 
-#define FOOTER_PPRINT() putchar('\n')
+#define FOOTER_PPRINT() putchar('\n');
 
 
 
@@ -60,6 +60,7 @@ static void pprint_get_fsusage(const char *mountpoint)
   glibtop_get_fsusage(&buf, mountpoint);
 
   HEADER_PPRINT(glibtop_get_fsusage);
+  printf("pprint_get_fsusage (mountpoint = \"%s\"\n", mountpoint);
   PPRINT(flags, "%#llx");
   PPRINT(blocks, "%llu");
   PPRINT(bfree, "%llu");
@@ -121,6 +122,7 @@ static void pprint_get_mountlist(gboolean allfs)
   entries = glibtop_get_mountlist(&buf, allfs);
 
   HEADER_PPRINT(glibtop_get_mountlist);
+  printf("glibtop_get_mountlist (allfs = %d)\n", allfs);
   PPRINT(flags, "%#llx");
   PPRINT(number, "%llu");
   PPRINT(total, "%llu");
@@ -175,7 +177,30 @@ static void pprint_get_netload(const char *iface)
   glibtop_get_netload(&buf, iface);
 
   HEADER_PPRINT(glibtop_get_netload);
+  printf("glibtop_get_netload (iface = \"%s\")\n", iface);
+  PPRINT(flags, "%#llx");
   FOOTER_PPRINT();
+}
+
+
+static void pprint_get_netlist()
+{
+  glibtop_netlist buf;
+  char **devices;
+  guint32 i;
+
+  devices = glibtop_get_netlist(&buf);
+
+  HEADER_PPRINT(glibtop_get_netlist);
+
+  for(i = 0; i < buf.number; ++i)
+  {
+	  printf("\t%s\n", devices[i]);
+  }
+
+  FOOTER_PPRINT();
+
+  g_strfreev(devices);
 }
 
 
@@ -214,6 +239,8 @@ static void pprint_get_uptime()
 
 
 
+
+
 int main()
 {
   glibtop_init();
@@ -231,11 +258,13 @@ int main()
 
   pprint_get_msg_limits();
 
-/*   pprint_get_netload("lo"); */
-
-
   pprint_get_swap();
 
+  pprint_get_netlist();
+
+  pprint_get_netload("eth0");
+  pprint_get_netload("ppp0");
+  pprint_get_netload("<unknown>");
 /* pprint_get_sysinfo(); */
 
   pprint_get_uptime();

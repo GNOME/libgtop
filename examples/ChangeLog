@@ -1,3 +1,8 @@
+2004-11-13  Benoît Dejean  <tazforever@dlfp.org>
+
+	* pprint.c: (pprint_get_fsusage), (pprint_get_mountlist),
+	(pprint_get_netload), (pprint_get_netlist), (main): Updated.
+
 2004-09-25  Benoît Dejean  <tazforever@dlfp.org>
 
 	* pprint.c: (main): Re-added pprint_get_msg_limits()
