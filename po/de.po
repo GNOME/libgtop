@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.6\n"
-"POT-Creation-Date: 2000-07-15 00:08+0200\n"
+"POT-Creation-Date: 2000-07-16 00:19+0200\n"
 "PO-Revision-Date: 1999-07-11 12:44+02:00\n"
 "Last-Translator: Kai Lahmann <kl@linuxfaqs.de>\n"
 "Language-Team: de <de@li.org>\n"
@@ -132,8 +132,7 @@ msgid "Last PID"
 msgstr "Letzte PID"
 
 #: sysdeps/names/loadavg.c:49
-msgid ""
-"Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
 msgstr "Anzahl gleichzeitig laufender Jobs im Mittel über 1, 5 und 15 Minuten"
 
 #: sysdeps/names/loadavg.c:50
@@ -316,8 +315,7 @@ msgstr ""
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:67
-msgid ""
-"The number of minor faults that the process and its children have made."
+msgid "The number of minor faults that the process and its children have made."
 msgstr ""
 "Anzahl weniger schwerer Seitenfehler eines Prozesses und seiner Kinder, d.h. "
 "diejenigen die es nicht erforderlich gemacht haben, eine Seite von der "
@@ -325,8 +323,7 @@ msgstr ""
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:70
-msgid ""
-"The number of major faults that the process and its children have made."
+msgid "The number of major faults that the process and its children have made."
 msgstr ""
 "Anzahl schwerwiegender Seitenfehler eines Prozesses und seiner Kinder, d.h. "
 "diejenigen, die es erforderten eine Seite von der Platte zu laden."
@@ -725,8 +722,7 @@ msgstr ""
 #: sysdeps/names/proctime.c:60
 msgid "The time (in jiffies) of the process's next timeout"
 msgstr ""
-"Zeit (in 1/100stel Sekunden) bis der Prozess seinen nächsten Timeout "
-"empfängt"
+"Zeit (in 1/100stel Sekunden) bis der Prozess seinen nächsten Timeout empfängt"
 
 #: sysdeps/names/proctime.c:61
 msgid ""
@@ -979,8 +975,7 @@ msgstr ""
 "wurden"
 
 #: sysdeps/names/swap.c:55
-msgid ""
-"Total number of swap pages that have been brought out since system boot"
+msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
 "Anzahl der Seiten, die insgesamt seit dem letzten Systemstart eingelagert "
 "wurden"
@@ -1232,4 +1227,3 @@ msgstr "Keine Kernel-Unterstützung"
 #: lib/errors.c:40
 msgid "Incompatible kernel version"
 msgstr "Inkompatible Kernel-Version"
-
