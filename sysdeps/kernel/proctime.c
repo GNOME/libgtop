@@ -28,6 +28,7 @@
 static const unsigned long _glibtop_sysdeps_proc_time =
 (1 << GLIBTOP_PROC_TIME_UTIME) + (1 << GLIBTOP_PROC_TIME_CUTIME) +
 (1 << GLIBTOP_PROC_TIME_STIME) + (1 << GLIBTOP_PROC_TIME_CSTIME) +
+(1 << GLIBTOP_PROC_TIME_RTIME) + (1 << GLIBTOP_PROC_TIME_FREQUENCY) +
 (1 << GLIBTOP_PROC_TIME_TIMEOUT) + (1 << GLIBTOP_PROC_TIME_IT_REAL_VALUE) +
 (1 << GLIBTOP_PROC_TIME_START_TIME);
 
@@ -56,8 +57,14 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf,
 
 	buf->utime = tbl.proc_time.utime;
 	buf->stime = tbl.proc_time.stime;
+
+	buf->rtime = buf->utime + buf->stime;
+
 	buf->cutime = tbl.proc_time.cutime;
 	buf->cstime = tbl.proc_time.cstime;
+
+	buf->frequency = 100;
+
 	buf->timeout = tbl.proc_time.timeout;
 	buf->it_real_value = tbl.proc_time.it_real_value;
 	buf->start_time = tbl.proc_time.start_time;
