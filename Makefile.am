@@ -35,7 +35,7 @@ confexec_DATA	= $(top_builddir)/libgtopConf.sh \
 
 CLEANFILES=libgtopConf.sh
 
-bin_SCRIPTS = $(top_builddir)/libgtop-config
+bin_SCRIPTS = libgtop-config
 
 ## We create libgtopConf.sh here and not from configure because we want
 ## to get the paths expanded correctly.  Macros like srcdir are given

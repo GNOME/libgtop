@@ -1,3 +1,8 @@
+2002-01-09  Darin Adler  <darin@bentspoon.com>
+
+	* Makefile.am: Fix install problem.
+	* ltmain.sh: Don't check this into cvs.
+
 Mon Nov 26 20:11:31 2001  Owen Taylor  <otaylor@redhat.com>
 
 	* lib/xmalloc.c include/glibtop/xmalloc.h: (glibtop_free_r):
