@@ -23,8 +23,6 @@
 #include <sys/types.h>
 #include "mountlist.h"
 
-static struct mount_entry *read_filesystem_list __P((int, int));
-
 #ifdef STDC_HEADERS
 #include <stdlib.h>
 #else
@@ -39,6 +37,8 @@ void free ();
 #include <glibtop.h>
 #include <glibtop/xmalloc.h>
 #include <glibtop/mountlist.h>
+
+static struct mount_entry *read_filesystem_list __P((int, int));
 
 #undef xmalloc
 #undef xrealloc
