@@ -1,3 +1,17 @@
+## You need libtool 1.2 or newer for this Makefile.am to work.
+##
+## It _may_ work with an older version of libtool, but it also may fail.
+## So if you get any undefined symbols here, please make sure you really
+## have libtool 1.2 or better before reporting this as bug.
+##
+## You'll require libtool 1.2 for other parts of GNOME anyway.
+##
+## Get ftp://ftp.gnu.org/pub/gnu/libtool-1.2.tar.gz
+## (or a newer version if it is available)
+##
+## Martin <martin@home-of-linux.org>
+##
+
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 CFLAGS				= -Wall -W @CFLAGS@ \
