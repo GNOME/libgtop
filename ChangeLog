@@ -26,6 +26,9 @@
 	* sysdeps/common/gnuslib.c:
 	* sysdeps/solaris/glibtop_private.h: Removed some dead files.
 	Don't install private headers.
+	
+	Depends on glib-2.6.
+	Post-release bump : 2.9.92
 
 2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>
 
