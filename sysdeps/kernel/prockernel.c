@@ -27,15 +27,15 @@
 #include <glibtop_private.h>
 
 static const unsigned long _glibtop_sysdeps_proc_kernel =
-(1 << GLIBTOP_PROC_KERNEL_MIN_FLT) +
-(1 << GLIBTOP_PROC_KERNEL_MAJ_FLT) +
-(1 << GLIBTOP_PROC_KERNEL_CMIN_FLT) +
-(1 << GLIBTOP_PROC_KERNEL_CMAJ_FLT) +
-(1 << GLIBTOP_PROC_KERNEL_KSTK_ESP) +
-(1 << GLIBTOP_PROC_KERNEL_KSTK_EIP);
+(1L << GLIBTOP_PROC_KERNEL_MIN_FLT) +
+(1L << GLIBTOP_PROC_KERNEL_MAJ_FLT) +
+(1L << GLIBTOP_PROC_KERNEL_CMIN_FLT) +
+(1L << GLIBTOP_PROC_KERNEL_CMAJ_FLT) +
+(1L << GLIBTOP_PROC_KERNEL_KSTK_ESP) +
+(1L << GLIBTOP_PROC_KERNEL_KSTK_EIP);
 
 static const unsigned long _glibtop_sysdeps_proc_kernel_kernel =
-(1 << GLIBTOP_PROC_KERNEL_NWCHAN);
+(1L << GLIBTOP_PROC_KERNEL_NWCHAN);
 
 /* Init function. */
 

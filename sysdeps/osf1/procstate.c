@@ -28,8 +28,8 @@
 #include <glibtop_suid.h>
 
 static const unsigned long _glibtop_sysdeps_proc_state =
-(1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE) +
-(1 << GLIBTOP_PROC_STATE_UID);
+(1L << GLIBTOP_PROC_STATE_CMD) + (1L << GLIBTOP_PROC_STATE_STATE) +
+(1L << GLIBTOP_PROC_STATE_UID);
 
 /* Init function. */
 

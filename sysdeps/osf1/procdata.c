@@ -34,7 +34,7 @@
 
 /* Provides detailed information about a process. */
 
-#define BIT_SHIFT(x)		(1 << (x % 32))
+#define BIT_SHIFT(x)		(1L << (x % 64))
 
 static const unsigned long _glibtop_sysdeps_procdata_0 =
 BIT_SHIFT(GLIBTOP_PROCDATA_CMD) +

@@ -49,13 +49,13 @@
 #include <vm/vm.h>
 
 static const unsigned long _glibtop_sysdeps_proc_map =
-(1 << GLIBTOP_PROC_MAP_TOTAL) + (1 << GLIBTOP_PROC_MAP_NUMBER) +
-(1 << GLIBTOP_PROC_MAP_SIZE);
+(1L << GLIBTOP_PROC_MAP_TOTAL) + (1L << GLIBTOP_PROC_MAP_NUMBER) +
+(1L << GLIBTOP_PROC_MAP_SIZE);
 
 static const unsigned long _glibtop_sysdeps_map_entry =
-(1 << GLIBTOP_MAP_ENTRY_START) + (1 << GLIBTOP_MAP_ENTRY_END) +
-(1 << GLIBTOP_MAP_ENTRY_OFFSET) + (1 << GLIBTOP_MAP_ENTRY_PERM) +
-(1 << GLIBTOP_MAP_ENTRY_INODE) + (1 << GLIBTOP_MAP_ENTRY_DEVICE);
+(1L << GLIBTOP_MAP_ENTRY_START) + (1L << GLIBTOP_MAP_ENTRY_END) +
+(1L << GLIBTOP_MAP_ENTRY_OFFSET) + (1L << GLIBTOP_MAP_ENTRY_PERM) +
+(1L << GLIBTOP_MAP_ENTRY_INODE) + (1L << GLIBTOP_MAP_ENTRY_DEVICE);
 
 /* Init function. */
 
@@ -82,7 +82,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 	int count, i = 0;
 	int update = 0;
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_MAP), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_MAP), 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_map));
 

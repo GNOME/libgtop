@@ -30,11 +30,11 @@
 #include <glibtop_suid.h>
 
 static const unsigned long _glibtop_sysdeps_uptime =
-(1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME);
+(1L << GLIBTOP_UPTIME_UPTIME) + (1L << GLIBTOP_UPTIME_IDLETIME);
 
 static const unsigned long _required_cpu_flags =
-(1 << GLIBTOP_CPU_TOTAL) + (1 << GLIBTOP_CPU_IDLE) +
-(1 << GLIBTOP_CPU_FREQUENCY);
+(1L << GLIBTOP_CPU_TOTAL) + (1L << GLIBTOP_CPU_IDLE) +
+(1L << GLIBTOP_CPU_FREQUENCY);
 
 /* Init function. */
 
@@ -51,7 +51,7 @@ glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 {
 	glibtop_cpu cpu;
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_UPTIME), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_UPTIME), 0);
 	
 	memset (buf, 0, sizeof (glibtop_uptime));
 

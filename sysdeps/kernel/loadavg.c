@@ -27,7 +27,7 @@
 #include <glibtop_private.h>
 
 static const unsigned long _glibtop_sysdeps_loadavg =
-(1 << GLIBTOP_LOADAVG_LOADAVG);
+(1L << GLIBTOP_LOADAVG_LOADAVG);
 
 /* Init function. */
 

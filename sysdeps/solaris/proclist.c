@@ -33,8 +33,8 @@
 #define GLIBTOP_PROCLIST_FLAGS	3
 
 static const unsigned long _glibtop_sysdeps_proclist =
-(1 << GLIBTOP_PROCLIST_TOTAL) + (1 << GLIBTOP_PROCLIST_NUMBER) +
-(1 << GLIBTOP_PROCLIST_SIZE);
+(1L << GLIBTOP_PROCLIST_TOTAL) + (1L << GLIBTOP_PROCLIST_NUMBER) +
+(1L << GLIBTOP_PROCLIST_SIZE);
 
 /* Init function. */
 

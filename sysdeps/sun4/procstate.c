@@ -27,7 +27,7 @@
 #include <glibtop_suid.h>
 
 static const unsigned long _glibtop_sysdeps_proc_state =
-(1 << GLIBTOP_PROC_STATE_STATE) + (1 << GLIBTOP_PROC_STATE_UID);
+(1L << GLIBTOP_PROC_STATE_STATE) + (1L << GLIBTOP_PROC_STATE_UID);
 
 /* Provides detailed information about a process. */
 
@@ -37,7 +37,7 @@ glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf,
 {
 	struct proc *pp;
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_STATE), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_STATE), 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_state));
 

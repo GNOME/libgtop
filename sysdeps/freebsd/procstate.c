@@ -33,8 +33,8 @@
 #endif
 
 static const unsigned long _glibtop_sysdeps_proc_state =
-(1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_UID) +
-(1 << GLIBTOP_PROC_STATE_GID);
+(1L << GLIBTOP_PROC_STATE_CMD) + (1L << GLIBTOP_PROC_STATE_UID) +
+(1L << GLIBTOP_PROC_STATE_GID);
 
 /* Init function. */
 
@@ -54,7 +54,7 @@ glibtop_get_proc_state_p (glibtop *server,
 	struct kinfo_proc *pinfo;
 	int count = 0;
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_STATE), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_STATE), 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_state));
 
@@ -97,5 +97,5 @@ glibtop_get_proc_state_p (glibtop *server,
 		return;
 	}
 
-	buf->flags |= (1 << GLIBTOP_PROC_STATE_STATE);
+	buf->flags |= (1L << GLIBTOP_PROC_STATE_STATE);
 }

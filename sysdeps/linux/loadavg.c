@@ -26,12 +26,12 @@
 #include <glibtop/loadavg.h>
 
 static const unsigned long _glibtop_sysdeps_loadavg =
-(1 << GLIBTOP_LOADAVG_LOADAVG);
+(1L << GLIBTOP_LOADAVG_LOADAVG);
 
 static const unsigned long _glibtop_sysdeps_loadavg_tasks =
-(1 << GLIBTOP_LOADAVG_NR_RUNNING) +
-(1 << GLIBTOP_LOADAVG_NR_TASKS) +
-(1 << GLIBTOP_LOADAVG_LAST_PID);
+(1L << GLIBTOP_LOADAVG_NR_RUNNING) +
+(1L << GLIBTOP_LOADAVG_NR_TASKS) +
+(1L << GLIBTOP_LOADAVG_LAST_PID);
 
 /* Init function. */
 

@@ -32,8 +32,8 @@
 #include <mach/vm_statistics.h>
 
 static const unsigned long _glibtop_sysdeps_mem =
-(1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
-(1 << GLIBTOP_MEM_FREE);
+(1L << GLIBTOP_MEM_TOTAL) + (1L << GLIBTOP_MEM_USED) +
+(1L << GLIBTOP_MEM_FREE);
 
 /* Init function. */
 

@@ -26,10 +26,10 @@
 #include <glibtop/mem.h>
 
 static const unsigned long _glibtop_sysdeps_mem =
-(1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
-(1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_SHARED) +
-(1 << GLIBTOP_MEM_BUFFER) + (1 << GLIBTOP_MEM_CACHED) +
-(1 << GLIBTOP_MEM_USER);
+(1L << GLIBTOP_MEM_TOTAL) + (1L << GLIBTOP_MEM_USED) +
+(1L << GLIBTOP_MEM_FREE) + (1L << GLIBTOP_MEM_SHARED) +
+(1L << GLIBTOP_MEM_BUFFER) + (1L << GLIBTOP_MEM_CACHED) +
+(1L << GLIBTOP_MEM_USER);
 
 /* Init function. */
 

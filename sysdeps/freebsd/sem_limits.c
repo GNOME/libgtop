@@ -37,7 +37,7 @@ glibtop_init_sem_limits_p (glibtop *server)
 void
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
-        glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
+        glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
 
         memset (buf, 0, sizeof (glibtop_sem_limits));
 }
@@ -56,11 +56,11 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 #include <sys/sem.h>
 
 static unsigned long _glibtop_sysdeps_sem_limits =
-(1 << GLIBTOP_IPC_SEMMAP) + (1 << GLIBTOP_IPC_SEMMNI) +
-(1 << GLIBTOP_IPC_SEMMNS) + (1 << GLIBTOP_IPC_SEMMNU) +
-(1 << GLIBTOP_IPC_SEMMSL) + (1 << GLIBTOP_IPC_SEMOPM) +
-(1 << GLIBTOP_IPC_SEMUME) + (1 << GLIBTOP_IPC_SEMUSZ) +
-(1 << GLIBTOP_IPC_SEMVMX) + (1 << GLIBTOP_IPC_SEMAEM);
+(1L << GLIBTOP_IPC_SEMMAP) + (1L << GLIBTOP_IPC_SEMMNI) +
+(1L << GLIBTOP_IPC_SEMMNS) + (1L << GLIBTOP_IPC_SEMMNU) +
+(1L << GLIBTOP_IPC_SEMMSL) + (1L << GLIBTOP_IPC_SEMOPM) +
+(1L << GLIBTOP_IPC_SEMUME) + (1L << GLIBTOP_IPC_SEMUSZ) +
+(1L << GLIBTOP_IPC_SEMVMX) + (1L << GLIBTOP_IPC_SEMAEM);
 
 /* The values in this structure never change at runtime, so we only
  * read it once during initialization. We have to use the name `_seminfo'
@@ -97,7 +97,7 @@ glibtop_init_sem_limits_p (glibtop *server)
 void
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
 	
 	memset (buf, 0, sizeof (glibtop_sem_limits));
 	

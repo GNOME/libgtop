@@ -32,11 +32,11 @@
 #endif
 
 static const unsigned long _glibtop_sysdeps_proc_time =
-(1 << GLIBTOP_PROC_TIME_RTIME) + (1 << GLIBTOP_PROC_TIME_FREQUENCY);
+(1L << GLIBTOP_PROC_TIME_RTIME) + (1L << GLIBTOP_PROC_TIME_FREQUENCY);
 
 static const unsigned long _glibtop_sysdeps_proc_time_user =
-(1 << GLIBTOP_PROC_TIME_UTIME) + (1 << GLIBTOP_PROC_TIME_STIME) +
-(1 << GLIBTOP_PROC_TIME_CUTIME) + (1 << GLIBTOP_PROC_TIME_CSTIME);
+(1L << GLIBTOP_PROC_TIME_UTIME) + (1L << GLIBTOP_PROC_TIME_STIME) +
+(1L << GLIBTOP_PROC_TIME_CUTIME) + (1L << GLIBTOP_PROC_TIME_CSTIME);
 
 #define tv2sec(tv)	(((u_int64_t) tv.tv_sec * 1000000) + (u_int64_t) tv.tv_usec)
 
@@ -130,7 +130,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	char filename [BUFSIZ];
 	struct stat statb;
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_TIME), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_TIME), 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_time));
 

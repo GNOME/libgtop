@@ -34,9 +34,9 @@
 #include <sys/shm.h>
 
 static unsigned long _glibtop_sysdeps_shm_limits =
-(1 << GLIBTOP_IPC_SHMMAX) + (1 << GLIBTOP_IPC_SHMMIN) +
-(1 << GLIBTOP_IPC_SHMMNI) + (1 << GLIBTOP_IPC_SHMSEG) +
-(1 << GLIBTOP_IPC_SHMALL);
+(1L << GLIBTOP_IPC_SHMMAX) + (1L << GLIBTOP_IPC_SHMMIN) +
+(1L << GLIBTOP_IPC_SHMMNI) + (1L << GLIBTOP_IPC_SHMSEG) +
+(1L << GLIBTOP_IPC_SHMALL);
 
 /* Provides information about sysv ipc limits. */
 
@@ -45,7 +45,7 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
 	struct shminfo	shminfo;
   
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
 
 	memset (buf, 0, sizeof (glibtop_shm_limits));
   

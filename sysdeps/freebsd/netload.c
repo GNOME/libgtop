@@ -39,20 +39,20 @@
 #include <netinet/in_var.h>
 
 static const unsigned long _glibtop_sysdeps_netload =
-(1 << GLIBTOP_NETLOAD_IF_FLAGS) +
-(1 << GLIBTOP_NETLOAD_MTU) +
-(1 << GLIBTOP_NETLOAD_SUBNET) +
-(1 << GLIBTOP_NETLOAD_ADDRESS) +
-(1 << GLIBTOP_NETLOAD_PACKETS_IN) +
-(1 << GLIBTOP_NETLOAD_PACKETS_OUT) +
-(1 << GLIBTOP_NETLOAD_PACKETS_TOTAL) +
-(1 << GLIBTOP_NETLOAD_BYTES_IN) +
-(1 << GLIBTOP_NETLOAD_BYTES_OUT) +
-(1 << GLIBTOP_NETLOAD_BYTES_TOTAL) +
-(1 << GLIBTOP_NETLOAD_ERRORS_IN) +
-(1 << GLIBTOP_NETLOAD_ERRORS_OUT) +
-(1 << GLIBTOP_NETLOAD_ERRORS_TOTAL) +
-(1 << GLIBTOP_NETLOAD_COLLISIONS);
+(1L << GLIBTOP_NETLOAD_IF_FLAGS) +
+(1L << GLIBTOP_NETLOAD_MTU) +
+(1L << GLIBTOP_NETLOAD_SUBNET) +
+(1L << GLIBTOP_NETLOAD_ADDRESS) +
+(1L << GLIBTOP_NETLOAD_PACKETS_IN) +
+(1L << GLIBTOP_NETLOAD_PACKETS_OUT) +
+(1L << GLIBTOP_NETLOAD_PACKETS_TOTAL) +
+(1L << GLIBTOP_NETLOAD_BYTES_IN) +
+(1L << GLIBTOP_NETLOAD_BYTES_OUT) +
+(1L << GLIBTOP_NETLOAD_BYTES_TOTAL) +
+(1L << GLIBTOP_NETLOAD_ERRORS_IN) +
+(1L << GLIBTOP_NETLOAD_ERRORS_OUT) +
+(1L << GLIBTOP_NETLOAD_ERRORS_TOTAL) +
+(1L << GLIBTOP_NETLOAD_COLLISIONS);
 
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
@@ -87,7 +87,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	struct in_ifaddr in;
     } ifaddr;
     
-    glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_NETLOAD), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_NETLOAD), 0);
 	
     memset (buf, 0, sizeof (glibtop_netload));
 

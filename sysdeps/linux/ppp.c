@@ -34,8 +34,8 @@
 #include <glib.h>
 
 static const unsigned long _glibtop_sysdeps_ppp =
-(1 << GLIBTOP_PPP_STATE) + (1 << GLIBTOP_PPP_BYTES_IN) +
-(1 << GLIBTOP_PPP_BYTES_OUT);
+(1L << GLIBTOP_PPP_STATE) + (1L << GLIBTOP_PPP_BYTES_IN) +
+(1L << GLIBTOP_PPP_BYTES_OUT);
 
 /* Init function. */
 
@@ -187,13 +187,13 @@ glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device)
 	if (is_ISDN_on (server, &online)) {
 		buf->state = online ? GLIBTOP_PPP_STATE_ONLINE :
 			GLIBTOP_PPP_STATE_HANGUP;
-		buf->flags |= (1 << GLIBTOP_PPP_STATE);
+		buf->flags |= (1L << GLIBTOP_PPP_STATE);
 	}
 
 	if (get_ISDN_stats (server, &in, &out)) {
 		buf->bytes_in = in;
 		buf->bytes_out = out;
-		buf->flags |= (1 << GLIBTOP_PPP_BYTES_IN) |
-			(1 << GLIBTOP_PPP_BYTES_OUT);
+		buf->flags |= (1L << GLIBTOP_PPP_BYTES_IN) |
+			(1L << GLIBTOP_PPP_BYTES_OUT);
 	}
 }

@@ -26,8 +26,8 @@
 #include <glibtop/swap.h>
 
 static unsigned long _glibtop_sysdeps_swap =
-(1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
-(1 << GLIBTOP_SWAP_FREE);
+(1L << GLIBTOP_SWAP_TOTAL) + (1L << GLIBTOP_SWAP_USED) +
+(1L << GLIBTOP_SWAP_FREE);
 
 /* Init function. */
 

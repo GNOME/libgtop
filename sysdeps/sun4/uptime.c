@@ -28,7 +28,7 @@
 #include <glibtop_suid.h>
 
 static const unsigned long _glibtop_sysdeps_uptime =
-(1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME);
+(1L << GLIBTOP_UPTIME_UPTIME) + (1L << GLIBTOP_UPTIME_IDLETIME);
 
 /* Provides uptime and idle time. */
 
@@ -37,7 +37,7 @@ glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 {
 	glibtop_cpu cpu;
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_UPTIME), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_UPTIME), 0);
 
 	/* Get currect cpu usage. */
 
@@ -45,9 +45,9 @@ glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 
 	/* Make sure all required fields are present. */
 
-	if (((cpu.flags & (1 << GLIBTOP_CPU_TOTAL)) == 0) ||
-	    ((cpu.flags & (1 << GLIBTOP_CPU_IDLE)) == 0) ||
-	    ((cpu.flags & (1 << GLIBTOP_CPU_FREQUENCY)) == 0) ||
+	if (((cpu.flags & (1L << GLIBTOP_CPU_TOTAL)) == 0) ||
+	    ((cpu.flags & (1L << GLIBTOP_CPU_IDLE)) == 0) ||
+	    ((cpu.flags & (1L << GLIBTOP_CPU_FREQUENCY)) == 0) ||
 	    (cpu.frequency == 0))
 		return;
 

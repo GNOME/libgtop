@@ -28,9 +28,9 @@
 #include <glibtop_suid.h>
 
 static const unsigned long _glibtop_sysdeps_cpu =
-(1 << GLIBTOP_CPU_TOTAL) + (1 << GLIBTOP_CPU_USER) +
-(1 << GLIBTOP_CPU_NICE) + (1 << GLIBTOP_CPU_SYS) +
-(1 << GLIBTOP_CPU_IDLE) + (1 << GLIBTOP_CPU_FREQUENCY);
+(1L << GLIBTOP_CPU_TOTAL) + (1L << GLIBTOP_CPU_USER) +
+(1L << GLIBTOP_CPU_NICE) + (1L << GLIBTOP_CPU_SYS) +
+(1L << GLIBTOP_CPU_IDLE) + (1L << GLIBTOP_CPU_FREQUENCY);
 
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
@@ -70,7 +70,7 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	struct clockinfo ci;
 	size_t length;
 	
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_CPU), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_CPU), 0);
 	
 	memset (buf, 0, sizeof (glibtop_cpu));
 

@@ -28,10 +28,10 @@
 #include <sys/stat.h>
 
 static const unsigned long _glibtop_sysdeps_proc_state =
-(1 << GLIBTOP_PROC_STATE_CMD);
+(1L << GLIBTOP_PROC_STATE_CMD);
 
 static const unsigned long _glibtop_sysdeps_proc_state_uid =
-(1 << GLIBTOP_PROC_STATE_UID) + (1 << GLIBTOP_PROC_STATE_GID);
+(1L << GLIBTOP_PROC_STATE_UID) + (1L << GLIBTOP_PROC_STATE_GID);
 
 /* Init function. */
 
@@ -112,5 +112,5 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	    return;
 	}
 
-	buf->flags |= (1 << GLIBTOP_PROC_STATE_STATE);
+	buf->flags |= (1L << GLIBTOP_PROC_STATE_STATE);
 }

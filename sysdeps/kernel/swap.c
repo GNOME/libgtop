@@ -27,11 +27,11 @@
 #include <glibtop_private.h>
 
 static const unsigned long _glibtop_sysdeps_swap =
-(1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
-(1 << GLIBTOP_SWAP_FREE);
+(1L << GLIBTOP_SWAP_TOTAL) + (1L << GLIBTOP_SWAP_USED) +
+(1L << GLIBTOP_SWAP_FREE);
 
 static const unsigned long _glibtop_sysdeps_swap_stat =
-(1 << GLIBTOP_SWAP_PAGEIN) + (1 << GLIBTOP_SWAP_PAGEOUT);
+(1L << GLIBTOP_SWAP_PAGEIN) + (1L << GLIBTOP_SWAP_PAGEOUT);
 
 /* Init function. */
 

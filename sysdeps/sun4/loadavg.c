@@ -27,7 +27,7 @@
 #include <glibtop_suid.h>
 
 static const unsigned long _glibtop_sysdeps_loadavg =
-(1 << GLIBTOP_LOADAVG_LOADAVG);
+(1L << GLIBTOP_LOADAVG_LOADAVG);
 
 /* Provides load averange. */
 
@@ -37,7 +37,7 @@ glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
 	load_avg avenrun [3];
 	int i;
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_LOADAVG), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_LOADAVG), 0);
 
 	memset (buf, 0, sizeof (glibtop_loadavg));
 

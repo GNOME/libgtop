@@ -27,8 +27,8 @@
 #include <glibtop_private.h>
 
 static unsigned long _glibtop_sysdeps_uptime =
-(1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME) +
-(1 << GLIBTOP_UPTIME_BOOT_TIME);
+(1L << GLIBTOP_UPTIME_UPTIME) + (1L << GLIBTOP_UPTIME_IDLETIME) +
+(1L << GLIBTOP_UPTIME_BOOT_TIME);
 
 /* Init function. */
 

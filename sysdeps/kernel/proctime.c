@@ -27,12 +27,12 @@
 #include <glibtop_private.h>
 
 static const unsigned long _glibtop_sysdeps_proc_time =
-(1 << GLIBTOP_PROC_TIME_UTIME) + (1 << GLIBTOP_PROC_TIME_STIME) +
-(1 << GLIBTOP_PROC_TIME_CUTIME) + (1 << GLIBTOP_PROC_TIME_CSTIME) +
-(1 << GLIBTOP_PROC_TIME_START_TIME) + (1 << GLIBTOP_PROC_TIME_FREQUENCY);
+(1L << GLIBTOP_PROC_TIME_UTIME) + (1L << GLIBTOP_PROC_TIME_STIME) +
+(1L << GLIBTOP_PROC_TIME_CUTIME) + (1L << GLIBTOP_PROC_TIME_CSTIME) +
+(1L << GLIBTOP_PROC_TIME_START_TIME) + (1L << GLIBTOP_PROC_TIME_FREQUENCY);
 
 static const unsigned long _glibtop_sysdeps_proc_time_smp =
-(1 << GLIBTOP_PROC_TIME_XCPU_UTIME) + (1 << GLIBTOP_PROC_TIME_XCPU_STIME);
+(1L << GLIBTOP_PROC_TIME_XCPU_UTIME) + (1L << GLIBTOP_PROC_TIME_XCPU_STIME);
 
 /* Init function. */
 
