@@ -219,7 +219,7 @@ permitted (u_long host_addr, int fd)
 	 * GNU_SECURE protocol....
 	 */
 
-	if (verbose_output)
+	if (verbose_output) {
 	    if (changed_uid || invoked_from_inetd)
 		syslog_message (LOG_WARNING,
 				"Xauth authentication not allowed, "
@@ -228,6 +228,7 @@ permitted (u_long host_addr, int fd)
 		syslog_message (LOG_WARNING,
 				"Xauth authentication failed, "
 				"trying GNU_SECURE auth...");
+	}
     }
     
     /* Other auth protocols go here, and should execute only if
