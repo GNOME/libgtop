@@ -26,7 +26,9 @@
 #include <sys/stat.h>
 
 static const unsigned long _glibtop_sysdeps_proc_state =
-(1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE) +
+(1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE);
+
+static const unsigned long _glibtop_sysdeps_proc_state_uid =
 (1 << GLIBTOP_PROC_STATE_UID) + (1 << GLIBTOP_PROC_STATE_GID);
 
 /* Init function. */
@@ -34,7 +36,8 @@ static const unsigned long _glibtop_sysdeps_proc_state =
 void
 glibtop_init_proc_state_s (glibtop *server)
 {
-	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
+	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state |
+		_glibtop_sysdeps_proc_state_uid;
 }
 
 /* Provides detailed information about a process. */
@@ -42,52 +45,45 @@ glibtop_init_proc_state_s (glibtop *server)
 void
 glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 {
-	char input [BUFSIZ], *tmp;
+	char buffer [BUFSIZ], *p;
 	struct stat statb;
-	int nread;
-	FILE *f;
 	
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_STATE, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_state));
-
-	sprintf (input, "/proc/%d/stat", pid);
 
 	/* IMPORTANT NOTICE: For security reasons it is extremely important
 	 *                   that the 'uid' and 'gid' fields have correct
 	 *                   values; NEVER set their flags values if this
 	 *                   is not the case !!! */
 
-	if (stat (input, &statb)) return;
+	sprintf (buffer, "/proc/%d/stat", pid);
 
-	/* For security reasons we use stat () that is more failsafe than sscanf (). */
+	if (stat (buffer, &statb))
+		return;
+
+	/* For security reasons we use stat () since it is
+	 * more failsafe than parsing the file. */
 	
 	buf->uid = statb.st_uid;
 	buf->gid = statb.st_gid;
-	
-	f = fopen (input, "r");
-	if (!f) return;
-	
-	nread = fread (input, 1, BUFSIZ, f);
-	
-	if (nread < 0) {
-		fclose (f);
+
+	buf->flags = _glibtop_sysdeps_proc_state_uid;
+
+	/* Now we read the remaining fields. */
+
+	if (proc_stat_to_buffer (buffer, pid))
 		return;
-	}
-	
-	fclose (f);
-	
-	input [nread] = 0;
 
-	/* This is from guile-utils/gtop/proc/readproc.c */
-	
-	/* split into "PID (cmd" and "<rest>" */
-	tmp = strrchr (input, ')');
-	*tmp = '\0';		/* replace trailing ')' with NUL */
-	/* parse these two strings separately, skipping the leading "(". */
-	memset (buf->cmd, 0, sizeof (buf->cmd));
-	sscanf (input, "%d (%39c", &pid, buf->cmd);
-	sscanf(tmp + 2, "%c", &buf->state); /* skip space after ')' too */
+	p = strrchr (buffer, ')'); *p = '\0';
+	buf->state = p [2];
 
-	buf->flags = _glibtop_sysdeps_proc_state;
+	p = skip_token (buffer); p++;	/* pid */
+	if (*p++ != '(')
+		glibtop_error_r (server, "Bad data in /proc/%d/stat", pid);
+
+	strncpy (buf->cmd, p, sizeof (buf->cmd)-1);
+	buf->cmd [sizeof (buf->cmd)-1] = 0;
+
+	buf->flags |= _glibtop_sysdeps_proc_state;
 }

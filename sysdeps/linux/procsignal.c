@@ -40,42 +40,24 @@ glibtop_init_proc_signal_s (glibtop *server)
 void
 glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf, pid_t pid)
 {
-	char input [BUFSIZ], *tmp;
-	int nread;
-	FILE *f;
+	char buffer [BUFSIZ], *p;
 	
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_SIGNAL, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 
-	sprintf (input, "/proc/%d/stat", pid);
-
-	f = fopen (input, "r");
-	if (!f) return;
-	
-	nread = fread (input, 1, BUFSIZ, f);
-	
-	if (nread < 0) {
-		fclose (f);
+	if (proc_stat_to_buffer (buffer, pid))
 		return;
-	}
-	
-	input [nread] = 0;
-	
-	/* This is from guile-utils/gtop/proc/readproc.c */
-	
-	/* split into "PID (cmd" and "<rest>" */
-	tmp = strrchr (input, ')');
-	*tmp = '\0';		/* replace trailing ')' with NUL */
-	/* parse these two strings separately, skipping the leading "(". */
-	sscanf(tmp + 2,		/* skip space after ')' too */
-	       "%*c %*d %*d %*d %*d %*d %*u %*u %*u %*u %*u "
-	       "%*d %*d %*d %*d %*d %*d %*u %*u %*d %*u "
-	       "%*u %*u %*u %*u %*u %*u %*u %Lu %Lu %Lu %Lu",
-	       &buf->signal, &buf->blocked, &buf->sigignore,
-	       &buf->sigcatch);
-	
-	fclose (f);
+
+	p = proc_stat_after_cmd (buffer);
+	if (!p) return;
+
+	p = skip_multiple_token (p, 28);
+
+	buf->signal = strtoul (p, &p, 0);
+	buf->blocked = strtoul (p, &p, 0);
+	buf->sigignore = strtoul (p, &p, 0);
+	buf->sigcatch = strtoul (p, &p, 0);
 
 	buf->flags = _glibtop_sysdeps_proc_signal;
 }

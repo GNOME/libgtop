@@ -24,13 +24,16 @@
 #include <glibtop/procsegment.h>
 
 static const unsigned long _glibtop_sysdeps_proc_segment =
-(1 << GLIBTOP_PROC_SEGMENT_TEXT_RSS) +
-(1 << GLIBTOP_PROC_SEGMENT_SHLIB_RSS) +
-(1 << GLIBTOP_PROC_SEGMENT_DATA_RSS) +
-(1 << GLIBTOP_PROC_SEGMENT_DIRTY_SIZE) +
 (1 << GLIBTOP_PROC_SEGMENT_START_CODE) +
 (1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
 (1 << GLIBTOP_PROC_SEGMENT_START_STACK);
+
+static const unsigned long _glibtop_sysdeps_proc_segment_statm =
+(1 << GLIBTOP_PROC_SEGMENT_TEXT_RSS) +
+/* Disabled due to bug in the Linux Kernel. */
+/* (1 << GLIBTOP_PROC_SEGMENT_SHLIB_RSS) + */
+(1 << GLIBTOP_PROC_SEGMENT_DATA_RSS) +
+(1 << GLIBTOP_PROC_SEGMENT_DIRTY_SIZE);
 
 #ifndef LOG1024
 #define LOG1024		10
@@ -49,7 +52,8 @@ glibtop_init_proc_segment_s (glibtop *server)
 {
 	register int pagesize;
 
-	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
+	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment |
+	  _glibtop_sysdeps_proc_segment_statm;
 
 	/* get the page size with "getpagesize" and calculate pageshift
 	 * from it */
@@ -67,66 +71,43 @@ void
 glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 			    pid_t pid)
 {
-	char input [BUFSIZ], *tmp;
-	int nread;
-	FILE *f;
+	char buffer [BUFSIZ], *p;
 	
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_segment));
 
-	sprintf (input, "/proc/%d/stat", pid);
-
-	f = fopen (input, "r");
-	if (!f) return;
-	
-	nread = fread (input, 1, BUFSIZ, f);
-	
-	if (nread < 0) {
-		fclose (f);
+	if (proc_stat_to_buffer (buffer, pid))
 		return;
-	}
-	
-	input [nread] = 0;
-	
-	/* This is from guile-utils/gtop/proc/readproc.c */
-	
-	/* split into "PID (cmd" and "<rest>" */
-	tmp = strrchr (input, ')');
-	*tmp = '\0';		/* replace trailing ')' with NUL */
-	/* parse these two strings separately, skipping the leading "(". */
-	sscanf(tmp + 2,		/* skip space after ')' too */
-	       "%*c %*d %*d %*d %*d %*d %*u %*u %*u %*u %*u "
-	       "%*d %*d %*d %*d %*d %*d %*u %*u %*d %*u "
-	       "%*u %*u %Lu %Lu %Lu", &buf->start_code,
-	       &buf->end_code, &buf->start_stack);
-	
-	fclose (f);
 
-	sprintf (input, "/proc/%d/statm", pid);
+	p = proc_stat_after_cmd (buffer);
+	if (!p) return;
 
-	f = fopen (input, "r");
-	if (!f) return;
+	p = skip_multiple_token (p, 23);
 
-	nread = fread (input, 1, BUFSIZ, f);
+	buf->start_code = strtoul (p, &p, 0);
+	buf->end_code = strtoul (p, &p, 0);
+	buf->start_stack = strtoul (p, &p, 0);
 
-	if (nread < 0) {
-		fclose (f);
+	buf->flags = _glibtop_sysdeps_proc_segment;
+
+	if (proc_statm_to_buffer (buffer, pid))
 		return;
-	}
 
-	input [nread] = 0;
+	p = skip_multiple_token (buffer, 3);
 
-	sscanf (input, "%*d %*d %*d %Lu %Lu %Lu %Lu",
-		&buf->text_rss, &buf->shlib_rss,
-		&buf->data_rss, &buf->dirty_size);
+	/* This doesn't work very well due to a bug in the Linux kernel.
+	 * I'll submit a patch to the kernel mailing list soon. */
+
+	buf->text_rss = strtoul (p, &p, 0);
+	buf->shlib_rss = strtoul (p, &p, 0);
+	buf->data_rss = strtoul (p, &p, 0);
+	buf->dirty_size = strtoul (p, &p, 0);
 
 	buf->text_rss   <<= pageshift;
 	buf->shlib_rss  <<= pageshift;
 	buf->data_rss   <<= pageshift;
 	buf->dirty_size <<= pageshift;
 
-	fclose (f);
-
-	buf->flags = _glibtop_sysdeps_proc_segment;
+	buf->flags |= _glibtop_sysdeps_proc_segment_statm;
 }

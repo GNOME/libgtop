@@ -24,9 +24,12 @@
 #include <glibtop/procmem.h>
 
 static const unsigned long _glibtop_sysdeps_proc_mem =
-(1 << GLIBTOP_PROC_MEM_SIZE) + (1 << GLIBTOP_PROC_MEM_VSIZE) +
-(1 << GLIBTOP_PROC_MEM_RESIDENT) + (1 << GLIBTOP_PROC_MEM_SHARE) +
-(1 << GLIBTOP_PROC_MEM_RSS) + (1 << GLIBTOP_PROC_MEM_RSS_RLIM);
+(1 << GLIBTOP_PROC_MEM_VSIZE) + (1 << GLIBTOP_PROC_MEM_RSS) +
+(1 << GLIBTOP_PROC_MEM_RSS_RLIM);
+
+static const unsigned long _glibtop_sysdeps_proc_mem_statm =
+(1 << GLIBTOP_PROC_MEM_SIZE) + (1 << GLIBTOP_PROC_MEM_RESIDENT) +
+(1 << GLIBTOP_PROC_MEM_SHARE);
 
 #ifndef LOG1024
 #define LOG1024		10
@@ -45,7 +48,8 @@ glibtop_init_proc_mem_s (glibtop *server)
 {
 	register int pagesize;
 
-	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
+	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem |
+	  _glibtop_sysdeps_proc_mem_statm;
 
 	/* get the page size with "getpagesize" and calculate pageshift
 	 * from it */
@@ -62,64 +66,37 @@ glibtop_init_proc_mem_s (glibtop *server)
 void
 glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 {
-	char input [BUFSIZ], *tmp;
-	int nread;
-	FILE *f;
+	char buffer [BUFSIZ], *p;
 	
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 
-	sprintf (input, "/proc/%d/stat", pid);
-
-	f = fopen (input, "r");
-	if (!f) return;
-	
-	nread = fread (input, 1, BUFSIZ, f);
-	
-	if (nread < 0) {
-		fclose (f);
+	if (proc_stat_to_buffer (buffer, pid))
 		return;
-	}
-	
-	input [nread] = 0;
-	
-	/* This is from guile-utils/gtop/proc/readproc.c */
-	
-	/* split into "PID (cmd" and "<rest>" */
-	tmp = strrchr (input, ')');
-	*tmp = '\0';		/* replace trailing ')' with NUL */
-	/* parse these two strings separately, skipping the leading "(". */
-	sscanf(tmp + 2,		/* skip space after ')' too */
-	       "%*c %*d %*d %*d %*d %*d %*u %*u %*u %*u %*u "
-	       "%*d %*d %*d %*d %*d %*d %*u %*u %*d %Lu "
-	       "%Lu %Lu", &buf->vsize, &buf->rss, &buf->rss_rlim);
-	
-	fclose (f);
 
-	sprintf (input, "/proc/%d/statm", pid);
+	p = proc_stat_after_cmd (buffer);
+	if (!p) return;
 
-	f = fopen (input, "r");
-	if (!f) return;
+	p = skip_multiple_token (p, 20);
 
-	nread = fread (input, 1, BUFSIZ, f);
+	buf->vsize = strtoul (p, &p, 0);
+	buf->rss = strtoul (p, &p, 0);
+	buf->rss_rlim = strtoul (p, &p, 0);
 
-	if (nread < 0) {
-		fclose (f);
+	buf->flags = _glibtop_sysdeps_proc_mem;
+
+	if (proc_statm_to_buffer (buffer, pid))
 		return;
-	}
 
-	input [nread] = 0;
-
-	sscanf (input, "%Lu %Lu %Lu",
-		&buf->size, &buf->resident, &buf->share);
+	buf->size = strtoul (buffer, &p, 0);
+	buf->resident = strtoul (p, &p, 0);
+	buf->share = strtoul (p, &p, 0);
 
 	buf->size <<= pageshift;
 	buf->resident <<= pageshift;
 	buf->share <<= pageshift;
 	buf->rss <<= pageshift;
 
-	fclose (f);
-
-	buf->flags = _glibtop_sysdeps_proc_mem;
+	buf->flags |= _glibtop_sysdeps_proc_mem_statm;
 }

@@ -25,7 +25,9 @@
 
 static const unsigned long _glibtop_sysdeps_proc_uid =
 (1 << GLIBTOP_PROC_UID_UID) + (1 << GLIBTOP_PROC_UID_EUID) +
-(1 << GLIBTOP_PROC_UID_GID) + (1 << GLIBTOP_PROC_UID_EGID) +
+(1 << GLIBTOP_PROC_UID_GID) + (1 << GLIBTOP_PROC_UID_EGID);
+
+static const unsigned long _glibtop_sysdeps_proc_uid_stat =
 (1 << GLIBTOP_PROC_UID_PID) + (1 << GLIBTOP_PROC_UID_PPID) +
 (1 << GLIBTOP_PROC_UID_PGRP) + (1 << GLIBTOP_PROC_UID_SESSION) +
 (1 << GLIBTOP_PROC_UID_TTY) + (1 << GLIBTOP_PROC_UID_TPGID) +
@@ -38,7 +40,8 @@ static const unsigned long _glibtop_sysdeps_proc_uid =
 void
 glibtop_init_proc_uid_s (glibtop *server)
 {
-	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
+	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid |
+		_glibtop_sysdeps_proc_uid_stat;
 }
 
 /* Provides detailed information about a process. */
@@ -46,65 +49,63 @@ glibtop_init_proc_uid_s (glibtop *server)
 void
 glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 {
-	char input [BUFSIZ], *tmp;
-	int nread;
-	FILE *f;
+	char buffer [BUFSIZ], *p;
 	
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_UID, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 
-	sprintf (input, "/proc/%d/status", pid);
-	
-	f = fopen (input, "r");
-	if (!f) return;
-
-	nread = fread (input, 1, BUFSIZ, f);
-	
-	if (nread < 0) {
-		fclose (f);
+	if (proc_status_to_buffer (buffer, pid))
 		return;
-	}
-	
-	input [nread] = 0;
 
 	/* Search substring 'Pid:' */
 
-	tmp = strstr (input, "Pid:");
+	p = strstr (buffer, "\nPid:");
+	if (!p) return;
 
-	if (tmp == NULL) return;
+	p = skip_token (p); /* "Pid:" */
+	buf->pid = strtoul (p, &p, 0);
 
-	sscanf (tmp, "\nPid: %u\nPPid: %u\nUid: %u %u %*u %*u\n"
-		"Gid: %u %u %*u %*u\n", &buf->pid, &buf->ppid,
-		&buf->uid, &buf->euid, &buf->gid, &buf->egid);
-	
-	fclose (f);
+	p = skip_token (p); /* "PPid:" */
+	buf->ppid = strtoul (p, &p, 0);
 
-	sprintf (input, "/proc/%d/stat", pid);
+	/* Maybe future Linux versions place something between
+	 * "PPid" and "Uid", so we catch this here. */
+	p = strstr (p, "\nUid:");
+	if (!p) return;
 
-	f = fopen (input, "r");
-	if (!f) return;
-	
-	nread = fread (input, 1, BUFSIZ, f);
-	
-	if (nread < 0) {
-		fclose (f);
+	p = skip_token (p); /* "Uid:" */
+	buf->uid = strtoul (p, &p, 0);
+	buf->euid = strtoul (p, &p, 0);
+
+	/* We don't know how many entries on the "Uid:" line
+	 * future Linux version will have, so we catch this here. */
+	p = strstr (p, "\nGid:");
+	if (!p) return;
+
+	p = skip_token (p); /* "Gid:" */
+	buf->gid = strtoul (p, &p, 0);
+	buf->egid = strtoul (p, &p, 0);
+
+	buf->flags = _glibtop_sysdeps_proc_uid;
+
+	if (proc_stat_to_buffer (buffer, pid))
 		return;
-	}
+
+	p = proc_stat_after_cmd (buffer);
+	if (!p) return;
+
+	p = skip_multiple_token (p, 2);
+
+	buf->pgrp = strtoul (p, &p, 0);
+	buf->session = strtoul (p, &p, 0);
+	buf->tty = strtoul (p, &p, 0);
+	buf->tpgid = strtoul (p, &p, 0);
+
+	p = skip_multiple_token (p, 9);
 	
-	input [nread] = 0;
-	
-	/* This is from guile-utils/gtop/proc/readproc.c */
-	
-	/* split into "PID (cmd" and "<rest>" */
-	tmp = strrchr (input, ')');
-	*tmp = '\0';		/* replace trailing ')' with NUL */
-	/* parse these two strings separately, skipping the leading "(". */
-	sscanf(tmp + 2,		/* skip space after ')' too */
-	       "%*c %*d %d %d %d %d %*u %*u %*u %*u %*u "
-	       "%*d %*d %*d %*d %d %d",
-	       &buf->pgrp, &buf->session, &buf->tty, &buf->tpgid,
-	       &buf->priority, &buf->nice);
+	buf->priority = strtoul (p, &p, 0);
+	buf->nice = strtoul (p, &p, 0);
 
 	if (buf->tty == 0)
 		/* the old notty val, update elsewhere bef. moving to 0 */
@@ -119,7 +120,5 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 		/* when tty wasn't full devno */
 		buf->tty = 4*0x100 + buf->tty;
 	
-	fclose (f);
-
-	buf->flags = _glibtop_sysdeps_proc_uid;
+	buf->flags |= _glibtop_sysdeps_proc_uid_stat;
 }
