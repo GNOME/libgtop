@@ -12,6 +12,15 @@
 @node glibtop_cpu, glibtop_mem, Reference Manual, Reference Manual
 @section CPU Usage
 
+Library function @code{glibtop_get_cpu}:
+
+@example
+@cartouche
+void glibtop_get_cpu (glibtop_cpu *buf);
+void glibtop_get_cpu_l (glibtop *server, glibtop_cpu *buf);
+@end cartouche
+@end example
+
 Declaration of @code{glibtop_cpu} in @file{<glibtop/cpu.h}:
 
 @example
@@ -75,9 +84,24 @@ need to be running all the time, so we set the corresponding bit for each
 CPU that is currently running.
 @end table
 
+Please note that all of the cpu values are absolute values measured in
+certain units (to get seconds, divide them by @code{frequency}) since system
+boot. To get percentual values, you need to call @code{glibtop_cpu}, save the
+result, wait some time and then call it again and divide the differences of
+the two values by the time you have waited.
+
 @page
 @node glibtop_mem, glibtop_swap, glibtop_cpu, Reference Manual
 @section Memory Usage
+
+Library function @code{glibtop_get_mem}:
+
+@example
+@cartouche
+void glibtop_get_mem (glibtop_mem *buf);
+void glibtop_get_mem_l (glibtop *server, glibtop_mem *buf);
+@end cartouche
+@end example
 
 Declaration of @code{glibtop_mem} in @file{<glibtop/mem.h}:
 
@@ -138,6 +162,15 @@ Memory in locked segments.
 @node glibtop_swap, glibtop_uptime, glibtop_mem, Reference Manual
 @section Swap Usage
 
+Library function @code{glibtop_get_swap}:
+
+@example
+@cartouche
+void glibtop_get_swap (glibtop_swap *buf);
+void glibtop_get_swap_l (glibtop *server, glibtop_swap *buf);
+@end cartouche
+@end example
+
 Declaration of @code{glibtop_swap} in @file{<glibtop/swap.h}:
 
 @example
@@ -188,6 +221,15 @@ Total number of swap pages that have been brought out since system boot
 @node glibtop_uptime, glibtop_loadavg, glibtop_swap, Reference Manual
 @section Uptime
 
+Library function @code{glibtop_get_uptime}:
+
+@example
+@cartouche
+void glibtop_get_uptime (glibtop_uptime *buf);
+void glibtop_get_uptime_l (glibtop *server, glibtop_uptime *buf);
+@end cartouche
+@end example
+
 Declaration of @code{glibtop_uptime} in @file{<glibtop/uptime.h}:
 
 @example
@@ -230,6 +272,15 @@ Time of last system boot in seconds since the epoch.
 @page
 @node glibtop_loadavg,  , glibtop_uptime, Reference Manual
 @section Load Average
+
+Library function @code{glibtop_get_loadavg}:
+
+@example
+@cartouche
+void glibtop_get_loadavg (glibtop_loadavg *buf);
+void glibtop_get_loadavg_l (glibtop *server, glibtop_loadavg *buf);
+@end cartouche
+@end example
 
 Declaration of @code{glibtop_loadavg} in @file{<glibtop/loadavg.h}:
 
