@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-02-08 15:28+0100\n"
-"PO-Revision-Date: 2005-02-22 11:37+0200\n"
+"PO-Revision-Date: 2005-03-09 10:47+0200\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -52,11 +52,11 @@ msgstr "SILUMINE"
 
 #: src/daemon/gnuserv.c:463
 msgid "Enable verbose output"
-msgstr ""
+msgstr "Teaberohke väljundi lubamine"
 
 #: src/daemon/gnuserv.c:463
 msgid "VERBOSE"
-msgstr ""
+msgstr "LISATEAVE"
 
 #: src/daemon/gnuserv.c:465
 msgid "Don't fork into background"
@@ -85,7 +85,7 @@ msgstr ""
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr ""
+msgstr "Toru hargilepanek"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
@@ -109,7 +109,7 @@ msgstr "Katkestamine"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
-msgstr ""
+msgstr "EMT viga"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
@@ -145,7 +145,7 @@ msgstr "Lõpetamine"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Sokli edasilükkamatu seisund"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
