@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LibGTOP\n"
-"POT-Creation-Date: 2000-02-23 00:23+0100\n"
+"POT-Creation-Date: 2000-07-12 12:41-0300\n"
 "PO-Revision-Date: 1999-04-28 16:40-0300\n"
 "Last-Translator: Ricardo Soares Guimarães <ricardo@conectiva.com.br>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
@@ -963,7 +963,7 @@ msgstr ""
 "Número total de páginas de troca que foram colocadas em espera deste  a "
 "inicialização do sistema"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
 msgstr "Recursos do Servidor"
 
@@ -971,107 +971,117 @@ msgstr "Recursos do Servidor"
 msgid "Pointer Size"
 msgstr "Tamanho Ponteiro"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
 msgid "CPU Usage"
 msgstr "Utilização da CPU"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
 msgid "Memory Usage"
 msgstr "Utilização da Memória"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
 msgid "Swap Usage"
 msgstr "Uso de Área de Troca"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
 msgid "System Uptime"
 msgstr "Tempo ligado"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
 msgid "Load Averange"
 msgstr "Carga média"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
 msgid "Shared Memory Limits"
 msgstr "Limites da Memória Compartilhada"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
 msgid "Message Queue Limits"
 msgstr "Limites de filas de mensagem"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
 msgid "Semaphore Set Limits"
 msgstr "Limites de Semáforo"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
 msgid "List of running Processes"
 msgstr "Lista dos Processos em Execução"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 msgid "Process Status information"
 msgstr "Informações de Status do Processo"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
 msgid "Process UID and TTY information"
 msgstr "Informações de UID e TTY do Processo"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 msgid "Process Memory information"
 msgstr "Informações do Processo em Memória"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
 msgid "Process Time information"
 msgstr "Informações de Tempo do Processo"
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
 msgid "Process Signal information"
 msgstr "Informações de Sinais do Processo"
 
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
 msgid "Process Kernel Data information"
 msgstr "Informações de dados em Kernel do Processo"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
 msgid "Process Segment information"
 msgstr "Informações de Segmentos do Processo"
 
 #: sysdeps/names/sysdeps.c:71
+#, fuzzy
+msgid "Process CWD"
+msgstr "ID do Processo"
+
+#: sysdeps/names/sysdeps.c:72
 msgid "Process Arguments"
 msgstr "Argumentos do Processo"
 
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
+#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
 msgid "Process Memory Map"
 msgstr "Mapa de Memória do Processo"
 
-#: sysdeps/names/sysdeps.c:73
+#: sysdeps/names/sysdeps.c:74
 msgid "Mount List"
 msgstr "Lista de Montagem"
 
-#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
+#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
 msgid "File System Usage"
 msgstr "Uso do Sistema de Arquivos"
 
-#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:104
+#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
 msgid "Network Load"
 msgstr "Carga da Rede"
 
-#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
+#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
 msgid "Interface Names"
 msgstr "Nomes da interface"
 
-#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
+#: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
 msgid "PPP Statistics"
 msgstr "Estatísticas do PPP"
 
-#: sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:84
 msgid "Pointer Size on the Server (in bits)"
 msgstr "Tamanho do ponteiro no servidor em bits"
 
-#: sysdeps/names/sysdeps.c:100
-msgid "Command line arguments of the process"
+#: sysdeps/names/sysdeps.c:101
+#, fuzzy
+msgid "Current working directory of the process"
 msgstr "Argumentos de linha de comando do processo"
 
 #: sysdeps/names/sysdeps.c:102
+msgid "Command line arguments of the process"
+msgstr "Argumentos de linha de comando do processo"
+
+#: sysdeps/names/sysdeps.c:104
 msgid "List of currently mounted filesystems"
 msgstr "Lista dos sistemas de arquivos presentemente montados"
 
@@ -1205,55 +1215,55 @@ msgstr ""
 msgid "Incompatible kernel version"
 msgstr ""
 
-#~ msgid "read %d bytes"
-#~ msgstr "ler %d bytes"
+msgid "read %d bytes"
+msgstr "ler %d bytes"
 
-#~ msgid "read data size"
-#~ msgstr "ler tamanho dos dados"
+msgid "read data size"
+msgstr "ler tamanho dos dados"
 
-#~ msgid "read data %d bytes"
-#~ msgstr "ler %d bytes de dados"
+msgid "read data %d bytes"
+msgstr "ler %d bytes de dados"
 
-#~ msgid "write %d bytes"
-#~ msgstr "escrever %d bytes"
+msgid "write %d bytes"
+msgstr "escrever %d bytes"
 
-#~ msgid "Enable debugging"
-#~ msgstr "Habilitar depuração"
+msgid "Enable debugging"
+msgstr "Habilitar depuração"
 
-#~ msgid "DEBUG"
-#~ msgstr "DEBUG"
+msgid "DEBUG"
+msgstr "DEBUG"
 
-#~ msgid "Enable verbose output"
-#~ msgstr "Habilitar saída com mensagens detalhadas "
+msgid "Enable verbose output"
+msgstr "Habilitar saída com mensagens detalhadas "
 
-#~ msgid "VERBOSE"
-#~ msgstr "VERBOSE"
+msgid "VERBOSE"
+msgstr "VERBOSE"
 
-#~ msgid "Don't fork into background"
-#~ msgstr "Não passar para segundo plano"
+msgid "Don't fork into background"
+msgstr "Não passar para segundo plano"
 
-#~ msgid "NO-DAEMON"
-#~ msgstr "NO-DAEMON"
+msgid "NO-DAEMON"
+msgstr "NO-DAEMON"
 
-#~ msgid "Invoked from inetd"
-#~ msgstr "Acionado pelo inetd"
+msgid "Invoked from inetd"
+msgstr "Acionado pelo inetd"
 
-#~ msgid "INETD"
-#~ msgstr "INETD"
+msgid "INETD"
+msgstr "INETD"
 
-#~ msgid ""
-#~ "Error on option %s: %s.\n"
-#~ "Run '%s --help' to see a full list of available command line options.\n"
-#~ msgstr ""
-#~ "Erro na opção %s: %s.\n"
-#~ "Execute '%s --help' para uma lista completa das opções\n"
-#~ "de linha de comando.\n"
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Erro na opção %s: %s.\n"
+"Execute '%s --help' para uma lista completa das opções\n"
+"de linha de comando.\n"
 
-#~ msgid "Number of list elements"
-#~ msgstr "Número de elementos na lista"
+msgid "Number of list elements"
+msgstr "Número de elementos na lista"
 
-#~ msgid "Total size of list"
-#~ msgstr "Tamanho total da lista"
+msgid "Total size of list"
+msgstr "Tamanho total da lista"
 
-#~ msgid "Size of a single list element"
-#~ msgstr "Tamanho de um elemento da lista"
+msgid "Size of a single list element"
+msgstr "Tamanho de um elemento da lista"
