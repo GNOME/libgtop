@@ -1,3 +1,9 @@
+1999-10-24  Martin Baulig  <martin@home-of-linux.org>
+
+	* glibtop_machine.h: Make inclusion of <osreldate.h> conditional
+ 	to `HAVE_OSRELDATE_H', not to `__FreeBSD__'.
+	* procsignal.c, proctime.c, proctime.c: Likewise.
+
 1999-10-16  Martin Baulig  <martin@home-of-linux.org>
 
 	Applied all patches from the FreeBSD 3.3 ports collection.

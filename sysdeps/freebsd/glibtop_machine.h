@@ -35,7 +35,7 @@
 
 #include <fcntl.h>
 
-#ifdef __FreeBSD__
+#ifdef HAVE_OSRELDATE_H
 #include <osreldate.h>
 #endif
 
