@@ -1,3 +1,9 @@
+2004-07-15  Benoît Dejean  <tazforever@dlfp.org>
+
+	* procstate.c: (glibtop_get_proc_state_s): Wake, we're libgtop2.7.x,
+	lets get rid of old buf->state format. Now using bitfield instead
+	letters.
+
 2004-07-07  Benoît Dejean  <tazforever@dlfp.org>
 
 	* procargs.c: (glibtop_get_proc_args_s): Fixed. error is now correctly 

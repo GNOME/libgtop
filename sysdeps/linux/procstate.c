@@ -80,7 +80,37 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 		return;
 
 	p = strrchr (buffer, ')'); *p = '\0';
-	buf->state = p [2];
+
+	switch(p[2])
+	  {
+	  case 'R':
+	    buf->state = GLIBTOP_PROCESS_RUNNING;
+	    break;
+
+	  case 'Z':
+	    buf->state = GLIBTOP_PROCESS_ZOMBIE;
+	    break;
+
+	  case 'S':
+	    buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
+	    break;
+
+	  case 'T':
+	    buf->state = GLIBTOP_PROCESS_STOPPED;
+	    break;
+
+	  case 'D':
+	    buf->state = GLIBTOP_PROCESS_UNINTERRUPTIBLE;
+	    break;
+
+	  case 'W':
+	    buf->state = GLIBTOP_PROCESS_SWAPPING;
+	    break;
+
+	  case 'X':
+	    buf->state = GLIBTOP_PROCESS_DEAD;
+	    break;
+	  }
 
 	p = skip_token (buffer); p++;	/* pid */
 	if (G_UNLIKELY(*p++ != '('))
