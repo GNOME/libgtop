@@ -35,7 +35,9 @@ static const unsigned long _glibtop_sysdeps_proc_map =
 
 static const unsigned long _glibtop_sysdeps_map_entry =
 (1L << GLIBTOP_MAP_ENTRY_START) + (1L << GLIBTOP_MAP_ENTRY_END) +
-(1L << GLIBTOP_MAP_ENTRY_OFFSET) + (1L << GLIBTOP_MAP_ENTRY_PERM) +
+(1L << GLIBTOP_MAP_ENTRY_OFFSET) + (1L << GLIBTOP_MAP_ENTRY_PERM);
+
+static const unsigned long _glibtop_sysdeps_map_entry_vmfile =
 (1L << GLIBTOP_MAP_ENTRY_INODE) + (1L << GLIBTOP_MAP_ENTRY_DEVICE) +
 (1L << GLIBTOP_MAP_ENTRY_FILENAME);
 
@@ -100,16 +102,20 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	if (!(maps [i].header.perm & LIBGTOP_VM_MAYSHARE))
 	    retval [i].perm |= GLIBTOP_MAP_PERM_PRIVATE;
 
-	retval [i].device = maps [i].header.device;
-	retval [i].inode = maps [i].header.inode;
-
-	filename = maps [i].filename;
-	filename += maps [i].header.filename_offset;
-
-	strncpy (retval [i].filename, filename, GLIBTOP_MAP_FILENAME_LEN);
-	retval [i].filename [GLIBTOP_MAP_FILENAME_LEN-1] = '\0';
-
 	retval [i].flags = _glibtop_sysdeps_map_entry;
+
+	if (maps [i].header.device || maps [i].header.inode) {
+	    retval [i].device = maps [i].header.device;
+	    retval [i].inode = maps [i].header.inode;
+
+	    filename = maps [i].filename;
+	    filename += maps [i].header.filename_offset;
+
+	    strncpy (retval [i].filename, filename, GLIBTOP_MAP_FILENAME_LEN);
+	    retval [i].filename [GLIBTOP_MAP_FILENAME_LEN-1] = '\0';
+
+	    retval [i].flags |= _glibtop_sysdeps_map_entry_vmfile;
+	}
     }
 
     /* Free map entries. */
