@@ -58,6 +58,12 @@ GNOME_LIBGTOP_TYPES
 
 GNOME_CHECK_GUILE
 
+AC_ARG_WITH(libgtop-guile,
+[  --with-libgtop-guile    Build the libgtop guile interface (default=yes)],
+[build_guile="$withval"], [build_guile=yes])
+
+test x$build_guile = xno && ac_cv_guile_found=no
+
 AC_DEFINE(GLIBTOP_NAMES)
 
 if test x$ac_cv_guile_found = xyes ; then
