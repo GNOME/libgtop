@@ -32,3 +32,8 @@ ABOUT-NLS
 libgtop.spec
 libgtop-0.99.*.tar.gz
 libgtop-0.99.*
+install-sh
+mkinstalldirs
+missing
+INSTALL
+COPYING

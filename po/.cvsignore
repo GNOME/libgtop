@@ -2,6 +2,6 @@ Makefile
 Makefile.in
 POTFILES
 cat-id-tbl.c
-*.gmo
+*.gmo *.mo
 libgtop.pot
 Makefile.in.in
