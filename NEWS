@@ -1,5 +1,30 @@
 $Id$
 
+May/20/1998
+===========
+
+* 'gtopConf.sh' now defines 'GTOP_LIBS' and 'GTOP_INCS' in a manner
+  that they contain everything that is needed to link some program with
+  libgtop. It will use '-lgtop' only if the server is really needed and
+  '-lgtop_sysdeps' otherwise;
+
+* 'gtopConf.sh' additionally defines 'GTOP_GUILE_LIBS' and 'GTOP_GUILE_INCS'
+  containing everything that is needed to link some program both with
+  libgtop and its guile interface. They are identically to 'GTOP_LIBS'
+  and 'GTOP_INCS' if building the guile interface is disabled or guile
+  cannot be found on the system.
+
+* 'configure' takes additional arguments '--enable-libgtop-server' and
+  '--disable-libgtop-server' to use the server even when it's not needed
+  or to disable it's use where it's needed.
+
+* 'configure' takes an argument '--without-libgtop-guile' to disable
+  guile support.
+
+* 'configure takes an argument '--without-libgtop-names' to remove
+  '-lgtop_names' (and '-lgtop_guile_names' when we have guile) from
+  'GTOP_LIBS'; in this case these libraries are not even built.
+
 May/19/1998
 ===========
 

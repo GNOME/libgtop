@@ -1,5 +1,39 @@
 1998-05-20  Martin Baulig  <baulig@merkur.uni-trier.de>
 
+	* NEWS: added more detailed description of
+	today's changes.
+	
+	* examples/third.c: added required check for
+	'GLIBGTOP_GUILE_NAMES'.
+
+	* sysdeps/Makefile.am: only build 'names' subdir
+	when necessary.
+
+	* sysdeps/guile/Makefile.am: only build 'names'
+	subdir when necessary.
+
+	* acinclude.m4 (AC_LC_SYSDEPS): added
+	'--enable-libgtop-server' (default=auto),
+ 	'--enable-libgtop-names' (default=yes) and
+	'--enable-libgtop-guile' (default=yes); we
+	now define 'GLIBTOP_NAMES' here.
+
+	* acconfig.h: added 'GLIBTOP_NAMES' and
+	'GLIBTOP_GUILE_NAMES'
+
+	* gtopConf.sh.in: added definition of 'GTOP_GUILE_LIBS'
+	and 'GTOP_GUILE_INCS':
+
+	'GTOP_LIBS' and 'GTOP_INCS' now contains everything
+	that is needed to link with libgtop.
+
+	'GTOP_GUILE_LIBS' and 'GTOP_GUILE_INCS' now contains
+	everything that is needed to link with libgtop and its
+	guile interface. When guile cannot be found on the system
+	or building of the guile interface was disables, they are
+	identical to 'GTOP_LIBS' and 'GTOP_INCS'
+	[FIXME: Should I make them empty in this case?]
+
 	* sysdeps/osf1/procuid.c (glibtop_get_proc_uid__r):
 	added implementation for DEC OSF/1.
 	
