@@ -123,28 +123,30 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  libgtop_need_server=yes
 	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
 	  ;;
+        bsdi*)
+	  libgtop_sysdeps_dir=freebsd
+	  libgtop_use_machine_h=yes
+	  libgtop_need_server=yes
+	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	  ;;
+	solaris*)
+	  libgtop_sysdeps_dir=solaris
+	  libgtop_use_machine_h=yes
+	  libgtop_need_server=yes
+	  libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	  ;;
+	osf*)
+	  libgtop_sysdeps_dir=osf1
+	  libgtop_use_machine_h=yes
+	  libgtop_need_server=yes
+	  ;;
 	*)
 	  if test x$hacker_mode = xyes ; then
 	    case "$host_os" in
-            bsdi*)
-	      libgtop_sysdeps_dir=freebsd
-	      libgtop_use_machine_h=yes
-	      libgtop_need_server=yes
-	      libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
-	      ;;
-	    solaris*)
-	      libgtop_sysdeps_dir=solaris
-	      libgtop_use_machine_h=yes
-	      libgtop_need_server=yes
-	      libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
-	      ;;
 	    sunos4*)
+	      ;; Please note that this port is obsolete and not working at
+	      ;; all. It is only useful for people who want to fix it ... :-)
 	      libgtop_sysdeps_dir=sun4
-	      libgtop_use_machine_h=yes
-	      libgtop_need_server=yes
-	      ;;
-	    osf*)
-	      libgtop_sysdeps_dir=osf1
 	      libgtop_use_machine_h=yes
 	      libgtop_need_server=yes
 	      ;;

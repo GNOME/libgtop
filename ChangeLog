@@ -1,3 +1,8 @@
+1999-05-15  Martin Baulig  <martin@home-of-linux.org>
+
+	* libgtop-sysdeps.m4: Remove the `--enable-hacker-mode' requirement
+	for the BSDI, Solaris and Digital Unix ports.
+
 1999-05-13  Martin Baulig  <martin@home-of-linux.org>
 
 	* libgtop-sysdeps.m4 (GLIBTOP_SOLARIS_RELEASE): Define this on Solaris;
