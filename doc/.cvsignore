@@ -2,3 +2,4 @@ texinfo.tex
 *.info
 Makefile.in
 Makefile
+*.log *.toc *.dvi *.aux *.cp *.fn *.vr *.tp *.ky *.pg
