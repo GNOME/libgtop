@@ -1,3 +1,7 @@
+2004-09-22  Benoît Dejean  <tazforever@dlfp.org>
+
+	* glibtop_server.c: Removed #warning, my gcc is not buggy anymore.
+
 2004-09-21  Benoît Dejean  <tazforever@dlfp.org>
 
 	* fsusage.c: (linux_2_6_0), (linux_2_4_0),

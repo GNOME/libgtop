@@ -85,7 +85,6 @@ file_to_buffer(glibtop *server, char *buffer, const char *filename)
 }
 
 
-#warning "Ignore the following warning"
 unsigned get_pageshift(void)
 {
 	static unsigned pageshift = 0;
