@@ -1,3 +1,7 @@
+2005-02-02  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* procopenfiles.c: Fixed typo. Closes #166090
+
 2004-12-23  Benoît Dejean  <tazforever@dlfp.org>
 
 	* netlist.c: (glibtop_get_netlist_s): Fixed.

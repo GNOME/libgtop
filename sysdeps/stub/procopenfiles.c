@@ -37,7 +37,7 @@ glibtop_init_proc_open_files_s (glibtop *server)
 
 /* Provides detailed information about a process. */
 
-glibtop_open_file_entry *
+glibtop_open_files_entry *
 glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pid_t pid)
 {
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
