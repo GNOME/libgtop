@@ -34,8 +34,8 @@ glibtop_init__r (glibtop **server, const unsigned long features,
 
 	if (glibtop_global_server == NULL) {
 		glibtop_global_server = &_glibtop_global_server;
-		glibtop_open (glibtop_global_server, "glibtop",
-			      features, flags);
+		glibtop_open__r (glibtop_global_server, "glibtop",
+				 features, flags);
 	}
 	
 	return *server = glibtop_global_server;
