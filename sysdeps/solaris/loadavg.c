@@ -41,6 +41,8 @@ int
 glibtop_init_loadavg_s (glibtop *server)
 {
 	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
+
+	return 0;
 }
 
 /* Provides load average. */
@@ -59,11 +61,11 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	memset (buf, 0, sizeof (glibtop_loadavg));
 
 #ifdef HAVE_GETLOADAVG
-	if (getloadavg (buf->loadavg, 3))
-		return;
+	if (getloadavg (buf->loadavg, 3) < 0)
+		return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
 #else
 	if(!(kc = server->_priv->machine.kc))
-	    return;
+	    return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
 	switch(kstat_chain_update(kc))
 	{
 	    case -1: assert(0); /* Debugging, shouldn't happen */
@@ -71,9 +73,9 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	    default: glibtop_get_kstats(server);
 	}
 	if(!(ksp = server->_priv->machine.system))
-	    return;
+	    return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
 	if(kstat_read(kc, ksp, NULL) < 0)
-	    return;
+	    return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
 	for(i = 0; i < 3; ++i) /* Do we have a countof macro? */
 	{
 	   	kstat_named_t *kn;
@@ -84,4 +86,6 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	}
 #endif
 	buf->flags = _glibtop_sysdeps_loadavg;
+
+	return 0;
 }

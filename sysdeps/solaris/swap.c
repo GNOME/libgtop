@@ -40,6 +40,8 @@ int
 glibtop_init_swap_s (glibtop *server)
 {
     server->sysdeps.swap = _glibtop_sysdeps_swap;
+
+    return 0;
 }
 
 /* Provides information about swap usage. */
@@ -56,7 +58,8 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
     memset (buf, 0, sizeof (glibtop_swap));
 
-    if (!ksp) return;
+    if (!ksp)
+	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
 
     switch(kstat_chain_update(kc))
     {
@@ -68,7 +71,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
     if (ret == -1) {
 	glibtop_warn_io_r (server, "kstat_read (vminfo)");
-	return;
+	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
     }
 
     rate = (ksp->ks_snaptime - server->_priv->machine.vminfo_snaptime) / 1E+9;
@@ -86,4 +89,6 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
     buf->free = buf->total - buf->used;
 
     buf->flags = _glibtop_sysdeps_swap;
+
+    return 0;
 }

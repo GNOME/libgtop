@@ -45,6 +45,8 @@ glibtop_init_mem_s (glibtop *server)
 {
     server->sysdeps.mem = _glibtop_sysdeps_mem_os_sysconf +
         _glibtop_sysdeps_mem_os_kstat + _glibtop_sysdeps_mem_bunyip;
+
+    return 0;
 }
 
 /* Provides information about memory usage. */
@@ -67,7 +69,7 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
     buf->flags = _glibtop_sysdeps_mem_os_sysconf;
 
     if(!kc)
-        return;
+        return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
     switch(kstat_chain_update(kc))
     {
         case -1: assert(0);  /* Debugging purposes, shouldn't happen */
@@ -124,4 +126,6 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 #endif
 	buf->flags += _glibtop_sysdeps_mem_bunyip;
     }
+
+    return 0;
 }

@@ -45,6 +45,8 @@ glibtop_init_msg_limits_p (glibtop *server)
 		server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
 	else
 	   	server->sysdeps.msg_limits = 0;
+
+	return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -58,10 +60,10 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 	memset (buf, 0, sizeof (glibtop_msg_limits));
 
 	if(!(server->sysdeps.msg_limits))
-	   	return;
+	   	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
 	if(kvm_read(kd, nlst[0].n_value, (void *)&minfo,
 		    sizeof(struct msginfo)) != sizeof(struct msginfo))
-	   	return;
+	   	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
 
 	buf->msgmap = minfo.msgmap;
 	buf->msgmax = minfo.msgmax;
@@ -71,4 +73,6 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 	buf->msgtql = minfo.msgtql;
 	buf->msgpool = minfo.msgmni * minfo.msgmnb >> 10;
 	buf->flags = _glibtop_sysdeps_msg_limits;
+
+	return 0;
 }

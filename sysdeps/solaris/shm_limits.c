@@ -43,6 +43,8 @@ glibtop_init_shm_limits_p (glibtop *server)
 		server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
 	else
 		server->sysdeps.shm_limits = 0;
+
+	return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -56,13 +58,15 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 	memset (buf, 0, sizeof (glibtop_shm_limits));
 
 	if(!(server->sysdeps.shm_limits))
-	   	return;
+	   	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
 	if(kvm_read(kd, nlst[0].n_value, (void *)&sinfo,
 		    sizeof(struct shminfo)) != sizeof(struct shminfo))
-	        return;
+	        return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
         buf->shmmax = sinfo.shmmax;
 	buf->shmmin = sinfo.shmmin;
 	buf->shmmni = sinfo.shmmni;
 	buf->shmseg = sinfo.shmseg;
 	buf->flags = _glibtop_sysdeps_shm_limits;
+
+	return 0;
 }

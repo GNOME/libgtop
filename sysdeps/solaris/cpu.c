@@ -43,6 +43,8 @@ int
 glibtop_init_cpu_s (glibtop *server)
 {
     server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+
+    return 0;
 }
 
 /* Provides information about cpu usage. */
@@ -59,7 +61,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
     memset (buf, 0, sizeof (glibtop_cpu));
 
     if(!kc)
-        return;
+        return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
     switch(kstat_chain_update(kc))
     {
         case -1: assert(0); /* Debugging purposes, shouldn't happen */
@@ -103,4 +105,6 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
     buf->frequency = server->_priv->machine.ticks;
 
     buf->flags = _glibtop_sysdeps_cpu;
+
+    return 0;
 }

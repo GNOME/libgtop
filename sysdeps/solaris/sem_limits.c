@@ -46,6 +46,8 @@ glibtop_init_sem_limits_p (glibtop *server)
 		server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
 	else
 	   	server->sysdeps.sem_limits = 0;
+
+	return 0;
 }
 
 /* Provides information about sysv sem limits. */
@@ -59,10 +61,10 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 	memset (buf, 0, sizeof (glibtop_sem_limits));
 
 	if(!(server->sysdeps.sem_limits))
-	   	return;
+	   	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
 	if(kvm_read(kd, nlst[0].n_value, (void *)&sinfo,
 		    sizeof(struct seminfo)) != sizeof(struct seminfo))
-	   	return;
+	   	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
 	buf->semmap = sinfo.semmap;
 	buf->semmni = sinfo.semmni;
 	buf->semmns = sinfo.semmns;
@@ -74,4 +76,6 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 	buf->semvmx = sinfo.semvmx;
 	buf->semaem = sinfo.semaem;
 	buf->flags = _glibtop_sysdeps_sem_limits;
+
+	return 0;
 }
