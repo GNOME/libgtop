@@ -1,3 +1,8 @@
+1999-03-18  Martin Baulig  <martin@home-of-linux.org>
+
+	* LIBGTOP-VERSION: Set version number to 1.0.2 binary age 1,
+	intergace age 1.
+
 1999-03-17  Martin Baulig  <martin@home-of-linux.org>
 
 	Imported first version of my Solaris port.
