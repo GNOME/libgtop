@@ -1,3 +1,11 @@
+December 30, 2004: Overview of Changes from 2.8.1 to 2.9.0
+=========================================================
+* glibtop_get_netload : Fixed segfault on linux with ppp devices.
+* NEW glibtop_get_netlist : retrieves the list of all available interfaces.
+* NEW LIBGTOP_CHECK_VERSION(major, minor, micro)
+* Removed dead kernel patch and implementation.
+* Cleanups on Linux and Solaris.
+
 October 11, 2004: Overview of Changes from 2.8.0 to 2.8.1
 =========================================================
 * Improved Solaris and AIX support.
