@@ -28,7 +28,7 @@
 
 #define LINUX_VERSION(x,y,z)	(0x10000*(x) + 0x100*(y) + z)
 
-#define BIT_SHIFT(x)		(1 << (x % 32))
+#define BIT_SHIFT(x)		(1L << (x % 64))
 
 static const unsigned long _glibtop_sysdeps_procdata_0 =
 BIT_SHIFT(GLIBTOP_PROCDATA_CMD) +

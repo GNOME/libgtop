@@ -32,14 +32,14 @@
 #include <vm/vm_param.h>
 
 static const unsigned long _glibtop_sysdeps_mem =
-(1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
-(1 << GLIBTOP_MEM_FREE) +
-(1 << GLIBTOP_MEM_SHARED) +
-(1 << GLIBTOP_MEM_BUFFER) +
+(1L << GLIBTOP_MEM_TOTAL) + (1L << GLIBTOP_MEM_USED) +
+(1L << GLIBTOP_MEM_FREE) +
+(1L << GLIBTOP_MEM_SHARED) +
+(1L << GLIBTOP_MEM_BUFFER) +
 #ifdef __FreeBSD__
-(1 << GLIBTOP_MEM_CACHED) +
+(1L << GLIBTOP_MEM_CACHED) +
 #endif
-(1 << GLIBTOP_MEM_USER) + (1 << GLIBTOP_MEM_LOCKED);
+(1L << GLIBTOP_MEM_USER) + (1L << GLIBTOP_MEM_LOCKED);
 
 #ifndef LOG1024
 #define LOG1024		10
@@ -109,7 +109,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	u_int v_total_count;
 	int bufspace;
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_MEM), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MEM), 0);
 	
 	memset (buf, 0, sizeof (glibtop_mem));
 

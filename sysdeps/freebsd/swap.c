@@ -30,9 +30,9 @@
 #include <glibtop_suid.h>
 
 static const unsigned long _glibtop_sysdeps_swap =
-(1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
-(1 << GLIBTOP_SWAP_FREE) + (1 << GLIBTOP_SWAP_PAGEIN) +
-(1 << GLIBTOP_SWAP_PAGEOUT);
+(1L << GLIBTOP_SWAP_TOTAL) + (1L << GLIBTOP_SWAP_USED) +
+(1L << GLIBTOP_SWAP_FREE) + (1L << GLIBTOP_SWAP_PAGEIN) +
+(1L << GLIBTOP_SWAP_PAGEOUT);
 
 #if defined(__FreeBSD__) || defined(__bsdi__)
 
@@ -150,7 +150,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
         static int swappgsin = -1;
 	static int swappgsout = -1;
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_SWAP), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SWAP), 0);
 	
 	memset (buf, 0, sizeof (glibtop_swap));
 

@@ -46,12 +46,12 @@
 #include <vm/vm.h>
 
 static const unsigned long _glibtop_sysdeps_proc_mem =
-(1 << GLIBTOP_PROC_MEM_SIZE) +
-(1 << GLIBTOP_PROC_MEM_VSIZE) +
-(1 << GLIBTOP_PROC_MEM_SHARE) +
-(1 << GLIBTOP_PROC_MEM_RESIDENT) +
-(1 << GLIBTOP_PROC_MEM_RSS) +
-(1 << GLIBTOP_PROC_MEM_RSS_RLIM);
+(1L << GLIBTOP_PROC_MEM_SIZE) +
+(1L << GLIBTOP_PROC_MEM_VSIZE) +
+(1L << GLIBTOP_PROC_MEM_SHARE) +
+(1L << GLIBTOP_PROC_MEM_RESIDENT) +
+(1L << GLIBTOP_PROC_MEM_RSS) +
+(1L << GLIBTOP_PROC_MEM_RSS_RLIM);
 
 #ifndef LOG1024
 #define LOG1024		10
@@ -98,7 +98,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	struct plimit plimit;
 	int count;
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_MEM), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_MEM), 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 

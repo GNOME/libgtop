@@ -29,8 +29,8 @@
 #include <glibtop_suid.h>
 
 static const unsigned long _glibtop_sysdeps_proclist =
-(1 << GLIBTOP_PROCLIST_TOTAL) + (1 << GLIBTOP_PROCLIST_NUMBER) +
-(1 << GLIBTOP_PROCLIST_SIZE);
+(1L << GLIBTOP_PROCLIST_TOTAL) + (1L << GLIBTOP_PROCLIST_NUMBER) +
+(1L << GLIBTOP_PROCLIST_SIZE);
 
 /* Fetch list of currently running processes.
  * The interface of this function is a little bit different from the others:
@@ -67,7 +67,7 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 	int which, count;
 	int i,j;
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROCLIST), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROCLIST), 0);
 	
 	memset (buf, 0, sizeof (glibtop_proclist));
 

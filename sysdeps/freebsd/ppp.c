@@ -51,11 +51,11 @@
 #endif
 
 static const unsigned long _glibtop_sysdeps_ppp =
-(1 << GLIBTOP_PPP_STATE);
+(1L << GLIBTOP_PPP_STATE);
 
 #ifdef HAVE_I4B_ACCT
 static const unsigned long _glibtop_sysdeps_ppp_acct =
-(1 << GLIBTOP_PPP_BYTES_IN) + (1 << GLIBTOP_PPP_BYTES_OUT);
+(1L << GLIBTOP_PPP_BYTES_IN) + (1L << GLIBTOP_PPP_BYTES_OUT);
 #endif
 
 #endif /* HAVE_I4B */
@@ -99,7 +99,7 @@ glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device)
 #endif
 	int phase;
 
-	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PPP), 0);
+	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PPP), 0);
 	
 	memset (buf, 0, sizeof (glibtop_ppp));
 
