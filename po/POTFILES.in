@@ -54,7 +54,6 @@ src/inodedb/file_by_inode2.c
 src/inodedb/mkinodedb2.c
 sysdeps/common/error.c
 sysdeps/common/fsusage.c
-sysdeps/common/fsusage.h
 sysdeps/common/gnuslib.c
 sysdeps/common/inodedb.c
 sysdeps/common/mountlist.c

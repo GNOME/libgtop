@@ -1,3 +1,7 @@
+2004-07-18  Benoît Dejean  <tazforever@dlfp.org>
+
+	* POTFILES.in: Updated. Closes #147822.
+
 2004-07-08  Alexander Shopov  <ash@contact.bg>
 
 	* bg.po: Updated Bulgarian translation by
