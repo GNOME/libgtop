@@ -536,7 +536,8 @@ static gboolean ignore_mount_entry(const struct mount_entry *me)
 		"usbdevfs",
 		"binfmt_misc",
 		"supermount",
-		"mntfs"
+		"mntfs",
+		"openpromfs"
 	};
 
 	const char (*i)[12] = &ignored[0];

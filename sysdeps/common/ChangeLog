@@ -1,3 +1,7 @@
+2004-09-23  Benoît Dejean  <tazforever@dlfp.org>
+
+	* mountlist.c: (ignore_mount_entry): Added openpromfs.
+
 2004-09-22  Benoît Dejean  <tazforever@dlfp.org>
 
 	* fsusage.c: (glibtop_get_fsusage_s): Linux: Sanitize. Removed calls
