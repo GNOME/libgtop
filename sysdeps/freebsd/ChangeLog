@@ -1,3 +1,9 @@
+2004-12-05  Benoît Dejean  <tazforever@dlfp.org>
+
+	* Makefile.am:
+	* netlist.c: (glibtop_init_netlist_s), (glibtop_get_netlist_s):
+	Added glibtop_get_netlist. Patch from marcus@freebsd.org (Joe Marcus Clarke).
+
 2004-08-28  Benoît Dejean  <tazforever@dlfp.org>
 
 	* mem.c: (glibtop_get_mem_p):
