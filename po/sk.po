@@ -1,16 +1,16 @@
 # libgtop sk.po
-# Copyright (C) 2001 Free Software Foundation, Inc.
-# Marcel Telka <marcel@telka.sk>, 2001.
+# Copyright (C) 2001, 2003 Free Software Foundation, Inc.
+# Marcel Telka <marcel@telka.sk>, 2001, 2003.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0\n"
-"POT-Creation-Date: 2001-02-13 13:30+0100\n"
-"PO-Revision-Date: 2001-02-14 10:49+0100\n"
-"Last-Translator: Marcel Telka <Marcel@telka.sk>\n"
-"Language-Team: Slovak <sk-i18n@rak.isternet.sk>\n"
+"POT-Creation-Date: 2003-05-13 18:49+0200\n"
+"PO-Revision-Date: 2003-05-13 18:54+0200\n"
+"Last-Translator: Marcel Telka <marcel@telka.sk>\n"
+"Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Type: text/plain; charset=ISO-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: examples/smp.c:68
@@ -113,47 +113,47 @@ msgstr "naèítané %d bajtov dát"
 msgid "write %d bytes"
 msgstr "zapísané %d bajtov"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
 msgstr "Povoli» ladenie"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
 msgstr "LADENIE"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
 msgstr "Povoli» detailný výpis"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr "DETAILNE"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
 msgstr "Nerozvetvuj sa do pozadia"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr "Vyvolaný cez inetd"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Chyba vo voµbe %s: %s.\n"
-"Výpis v¹etkých dostupných volieb príkazového riadku získate spustením '%s "
-"--help'.\n"
+"Výpis v¹etkých dostupných volieb príkazového riadku získate spustením '%s --"
+"help'.\n"
 
 #: support/error.c:109
 msgid "Unknown system error"
@@ -217,6 +217,14 @@ msgstr "%s: voµba `-W %s' je nejednoznaèná\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: voµba `-W %s' nepodporuje argumenty\n"
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr "Zobrazi» túto správu pomocníka"
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
+msgstr "Zobrazi» krátky návod na pou¾itie"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
