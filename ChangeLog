@@ -1,3 +1,7 @@
+2005-03-29  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* lib/read_data.c: (glibtop_read_data_l): Fixed warning.
+
 2005-03-25  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* lib/error.c: (glibtop_error_io_vr), (glibtop_warn_io_vr):
