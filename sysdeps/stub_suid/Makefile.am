@@ -1,5 +1,7 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
+INCLUDES			= @INCLUDES@
+
 lib_LTLIBRARIES			= libgtop_sysdeps.la libgtop_sysdeps_suid.la
 
 libgtop_sysdeps_la_SOURCES	= nosuid.c siglist.c

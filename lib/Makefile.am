@@ -1,5 +1,7 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
+INCLUDES			= @INCLUDES@
+
 lib_LTLIBRARIES			= libgtop.la
 
 libgtop_la_SOURCES		= init.c open.c close.c command.c read.c \

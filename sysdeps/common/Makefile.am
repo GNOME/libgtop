@@ -1,5 +1,7 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
+INCLUDES			= @INCLUDES@
+
 if INODEDB
 inodedb_SRCLIST			= inodedb.c
 inodedb_DEFS			= -DSYSTEM_INODEDB=\"$(prefix)/var/libgtop/inodedb.db\"
