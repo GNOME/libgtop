@@ -63,6 +63,7 @@ struct _glibtop
 	unsigned long server_port;	/* Port on which daemon is listening */
 	glibtop_sysdeps sysdeps;	/* Detailed feature list */
 	glibtop_sysdeps required;	/* Required feature list */
+	glibtop_sysdeps wanted;		/* We only want this features */
 	pid_t pid;			/* PID of the server */
 };
 
