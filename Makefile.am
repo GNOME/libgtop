@@ -30,7 +30,7 @@ stamp-gc-h: config.status
 	CONFIG_FILES= CONFIG_HEADERS= CONFIG_OTHER=glibtop-config.h ./config.status
 	echo timestamp > stamp-gc-h
 
-dist-hook:
+dist-hook: libgtop.spec
 	cp libgtop.spec $(distdir)
 
 release:
