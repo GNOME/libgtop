@@ -1,3 +1,12 @@
+1999-11-21  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/sysdeps.h (glibtop_init_func_t): Use `int'
+	as return type, not `void'.
+
+	* include/glibtop/proclist.h (GLIBTOP_KERN_PROC_PPID): On a
+	suggestion from Sebastian Fischmeister added a way to return
+	all children of a given process.
+
 1999-11-02  Jesus Bravo Alvarez  <jba@pobox.com>
 
 	* configure.in: Added Galician (gl) to ALL_LINGUAS
