@@ -1,3 +1,8 @@
+1999-01-22  Martin Baulig  <martin@home-of-linux.org>
+
+	* names/guile-names.awk: Use a `(TYPE . DIMENSION)' pair for
+	array types in `glibtop-types-*'.
+
 1998-12-09  Martin Baulig  <martin@home-of-linux.org>
 
 	* guile.awk: For arrays, make a gh_list out of it and add this list

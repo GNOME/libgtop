@@ -32,20 +32,39 @@ function output(feature) {
   print "}";
   
   print "";
-  
+
   print "static SCM";
   print "glibtop_guile_types_"feature" (void)";
   print "{";
   print "\tint i;";
   print "\tSCM list;";
   print "";
-  print "\tlist = gh_list (SCM_UNDEFINED);";
-  print "";
-  print "\tfor (i = 0; i < GLIBTOP_MAX_"toupper(feature)"; i++)";
-  print "\t\tlist = scm_append";
-  print "\t\t\t(gh_list (list,";
-  print "\t\t\t\t  gh_list (gh_ulong2scm (glibtop_types_"feature" [i])),";
-  print "\t\t\t\t  SCM_UNDEFINED));";
+
+  out = "\tlist = gh_list (";
+
+  nr_elements = split (element_defs[feature], elements, /:/);
+  for (element = 1; element <= nr_elements; element++) {
+    list = elements[element];
+    type = elements[element];
+    sub(/\(.*/, "", type);
+    sub(/^.*\(/, "", list); sub(/\)$/, "", list);
+    count = split (list, fields, /,/);
+    for (field = 1; field <= count; field++) {
+      if (fields[field] ~ /^(\w+)\[([0-9]+)\]$/) {
+	split(fields[field], field_parts, /\[/);
+	fields[field] = field_parts[1];
+	sub(/\]/, "", field_parts[2]);
+	number = field_parts[2];
+	out=out"gh_cons\n\t\t\t";
+	out=out"(gh_ulong2scm (glibtop_types_"feature" ["field-1"]),\n\t\t\t";
+	out=out" gh_ulong2scm ("number")),\n\t\t\t";
+      } else {
+	out=out"gh_ulong2scm (glibtop_types_"feature" ["field-1"]),\n\t\t\t";
+      }
+    }
+  }
+
+  print out"SCM_UNDEFINED);";
   print "";
   print "\treturn list;";
   print "}";
@@ -97,9 +116,11 @@ function output(feature) {
   line = $0;
   split (line, line_fields, /\|/);
   feature = line_fields[2];
+  element_def = line_fields[3];
   sub(/^@/,"",feature);
 
   features[feature] = feature;
+  element_defs[feature] = element_def;
 }
 
 END {
