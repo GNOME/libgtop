@@ -1,0 +1,11 @@
+<!ELEMENT Backends (Backend)+>
+
+<!ELEMENT Backend (Name,Location)>
+<!ELEMENT Name (#PCDATA)>
+
+<!ELEMENT Location (LibtoolName?,ShlibName,ExtraLibs?)>
+<!ELEMENT LibtoolName (#PCDATA)>
+<!ELEMENT ShlibName (#PCDATA)>
+
+<!ELEMENT ExtraLibs (ExtraLib)+>
+<!ELEMENT ExtraLib (LibtoolName?,ShlibName)>

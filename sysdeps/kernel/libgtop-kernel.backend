@@ -1,4 +1,5 @@
 <?xml version="1.0"?> <!-- -*-xml-*- -->
+<!DOCTYPE libgtop:backends SYSTEM 'libgtop-backends.dtd'>
 <libgtop:Backends xmlns:libgtop="http://www.home-of-linux.org/libgtop/1.1">
 
   <libgtop:Backend>

@@ -1,5 +1,9 @@
 2000-02-27  Martin Baulig  <martin@home-of-linux.org>
 
+	* dtd/libgtop-backends.dtd: Added XML DTD for the `*.backend' files.
+
+2000-02-27  Martin Baulig  <martin@home-of-linux.org>
+
 	* dtd/: New directory.
 	* dtd/libgtop-backend-info.dtd: This is a XML DTD for "backend info"
 	XML files. In future, each backend will have such a xml file which
