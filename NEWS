@@ -1,13 +1,19 @@
-February 15, 2001:
+February 14, 2001:
 =================
 
-* This will be LibGTop 1.1.11 "Gerolzhofen":
+* Released LibGTop 1.0.11 "Jasmin":
+
+  [The release which was supposed to be called "Gerolzhofen".]
 
   - merged in the Solaris code from LIBGTOP_1_1_2_PATCHES.
 
   - minor OpenBSD fixes.
 
   - again a bunch of updated translations.
+
+  Please test the Solaris stuff and report and bugs and
+  problems as soon as possible; I'll make a new release
+  for the 2nd beta of GNOME 1.4 if necessary.
 
 November 20, 2000:
 =================
