@@ -1,3 +1,7 @@
+1999-05-03  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_private.h: Ups, forgot to put prototypes in.
+
 1999-05-02  Drazen Kacar  <dave@srce.hr>
 
 	* open.c (glibtop_get_kstats): Yet another kstat_chain_update
