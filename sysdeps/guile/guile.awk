@@ -22,6 +22,7 @@ BEGIN {
   backconv["pid_t"]        = "gh_scm2ulong";
   backconv["long"]         = "gh_scm2long";
   backconv["ulong"]        = "gh_scm2ulong";
+  backconv["unsigned"]     = "gh_scm2ulong";
 
   feature_count = 0;
 }
@@ -79,10 +80,14 @@ function make_output(line) {
   output = output"\tglibtop_"feature" "feature";\n";
   if (retval != "void")
     output = output"\t"retval" retval;\n";
-  if (feature ~ /^(proc(list|_map))|mountlist$/)
+  if (feature ~ /^(proc(list|_map|_args))|mountlist$/)
     output = output"\tunsigned i;\n";
-  output = output"\tSCM list;\n\n";
-  
+  if (feature ~ /^proc_args$/) {
+    output = output"\tSCM list, scm_args, args_list;\n";
+    output = output"\tchar *start;\n\n";
+  } else {
+    output = output"\tSCM list;\n\n";
+  }
   if (retval != "void")
     prefix="retval = ";
   else
@@ -153,6 +158,25 @@ function make_output(line) {
     print "\t};\n";
     print "\tglibtop_free (retval);\n";
   };
+
+  if (feature ~ /^proc_args$/) {
+    print "\tif (retval == NULL)";
+    print "\t\treturn list;";
+    print "";
+    print "\tstart = retval;";
+    print "\tscm_args = gh_list (SCM_UNDEFINED);\n";
+    print "\tfor (i = 0; i <= proc_args.size; i++) {";
+    print "\t\tSCM arg_list;\n";
+    print "\t\tif (retval [i]) continue;\n";
+    print "\t\targ_list = gh_list (gh_str02scm (start), SCM_UNDEFINED);";
+    print "\t\tscm_args = scm_append";
+    print "\t\t\t(gh_list (scm_args, arg_list, SCM_UNDEFINED));\n;";
+    print "\t\tstart = &(retval [i+1]);";
+    print "\t};\n";
+    print "\targs_list = gh_list (scm_args, SCM_UNDEFINED);";
+    print "\tlist = scm_append (gh_list (list, args_list, SCM_UNDEFINED));\n";
+    print "\tglibtop_free (retval);\n";
+  }
 
   if (feature ~ /^mountlist$/) {
     print "\tif (retval == NULL)";
