@@ -1,25 +1,17 @@
-This is LibGTop 0.29.0,
+This is LibGTop 0.29.1,
 
-a pre-stable version that is basically a feature-freeze for the C language
-part except for things that are marked with (***).
+a pre-stable version representing a feature freeze of both the C and
+Guile language parts of LibGTop.
 
 You need to use the latest version of LibGTop from CVS for Gnome, it will
 no longer work with older releases.
 
 Martin
 
----------------------------------------------------------------------------
-
-Things that need to be implemented before Dec 15 (***):
-======================================================
-
-* [More or less important]: Add a better error handling; the _init_XXX_s ()
-  functions set the features that are supported on the current system,
-  it if fails to get on of them this is most likely an error (/proc not
-  mounted).
+--------------------------------------------------------------------------
 
 Things that need to be done before Dec 15:
-============================================
+==========================================
 
 * [IMPORTANT] Add `netload' and `ppp' with modems for Linux.
 
@@ -32,24 +24,59 @@ Things that need to be done before Dec 15:
 * NetBSD/OpenBSD: Support was added on Dec 6, but we need to check
   whether all data are valid (I'll do this next week).
 
+* inodedb: Poptify, add better user interface; chage configure.in so
+           it will only be built if necessary (if invoked without the
+           --with(out)-libgtop-inodedb parameter)
+
+Sysdeps directory 'linux':
+==========================
+
+* Add implementation `netload' and `ppp' with modems.
+
+* Add implementation for `proc_args'.
+
+Sysdeps directory 'freebsd':
+============================
+
+* FreeBSD 3.0: It works fine on this system, so please make sure not
+               to break it here.
+
+* FreeBSD 2.2: Make sure it still works here.
+
+* NetBSD/OpenBSD: Support was added on Dec 6, but we need to check
+                  whether all data are valid.
+
+Sysdeps directories 'kernel', 'osf1' and 'sun4':
+================================================
+
+* You need to use the `--enable-hacker-mode' parameter to configure
+  to build this directories.
+
+--------------------------------------------------------------------------
+
+Everything except sysdeps directories:
+======================================
+
+* Ready for Gnome 1.0. [ALREADY FEATURE FREEZED]
+
 Guile-Port:
 ===========
 
-* Guile-Port: Add glibtop_sysdeps (), glibtop_get/set_parameter () etc.
+* Ready for Gnome 1.0. [ALREADY FEATURE FREEZED]
 
 Perl-Port:
-=========
+==========
 
-* Either make it work or put it out of the normal build process.
+* Add missing features, make sure it really works.
+
+--------------------------------------------------------------------------
 
 Things that need to be done before Gnome 1.0:
 ============================================
 
-* kernel, sysdeps/kernel: Make it work with the latest modifications.
-
 * Add sysdeps code for Solaris (anybody out there who can do this ?)
 
 
-Oct 27 1998
+December 8, 1998
 
 Martin

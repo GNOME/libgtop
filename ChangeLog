@@ -1,5 +1,9 @@
 1998-12-09  Martin Baulig  <martin@home-of-linux.org>
 
+	* LIBGTOP-VERSION: Set version number to 0.29.1.
+
+1998-12-09  Martin Baulig  <martin@home-of-linux.org>
+
 	* libgtop-sysdeps.m4: Moved here from the macros directory,
 	formerly known as `macros/gnome-libgtop-sysdeps.m4'.
 	(--enable-hacker-mode): New command line parameter to configure,
