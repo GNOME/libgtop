@@ -75,6 +75,7 @@ need to be running all the time, so we set the corresponding bit for each
 CPU that is currently running.
 @end table
 
+@page
 @node glibtop_mem, glibtop_swap, glibtop_cpu, Reference Manual
 @section Memory Usage
 
@@ -133,6 +134,7 @@ Memory in locked segments.
 
 @end table
 
+@page
 @node glibtop_swap, glibtop_uptime, glibtop_mem, Reference Manual
 @section Swap Usage
 
@@ -182,6 +184,7 @@ Total number of swap pages that have been brought out since system boot
 
 @end table
 
+@page
 @node glibtop_uptime, glibtop_loadavg, glibtop_swap, Reference Manual
 @section Uptime
 
@@ -224,6 +227,7 @@ means of APM in the meantime.
 Time of last system boot in seconds since the epoch.
 @end table
 
+@page
 @node glibtop_loadavg,  , glibtop_uptime, Reference Manual
 @section Load Average
 
