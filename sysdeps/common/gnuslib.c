@@ -241,7 +241,7 @@ connect_to_internet_server (const char *serverhost, u_short port)
 	char buf[512];		/* temporary buffer */
 
 	/* clear out address structures */
-	memset ((char *) &peeraddr_in, 0, sizeof (struct sockaddr_in));
+	memset (&peeraddr_in, 0, sizeof (struct sockaddr_in));
 
 	/* Set up the peer address to which we will connect. */
 	peeraddr_in.sin_family = AF_INET;

@@ -439,9 +439,7 @@ read_filesystem_list (need_fs_type, all_fs)
 #ifdef GETFSTYP			/* SVR3.  */
 	me->me_devname = g_strdup (mnt.mt_dev);
 #else
-	me->me_devname = g_malloc (strlen (mnt.mt_dev) + 6);
-	strcpy (me->me_devname, "/dev/");
-	strcpy (me->me_devname + 5, mnt.mt_dev);
+	me->me_devname = g_strdup_printf("/dev/%s", mnt.mt_dev);
 #endif
 	me->me_mountdir = g_strdup (mnt.mt_filsys);
 	me->me_dev = (dev_t) -1;	/* Magic; means not known yet. */
@@ -546,10 +544,7 @@ read_filesystem_list (need_fs_type, all_fs)
 	    /* Prepend the remote pathname.  */
 	    host = thisent + vmp->vmt_data[VMT_HOSTNAME].vmt_off;
 	    path = thisent + vmp->vmt_data[VMT_OBJECT].vmt_off;
-	    me->me_devname = g_malloc (strlen (host) + strlen (path) + 2);
-	    strcpy (me->me_devname, host);
-	    strcat (me->me_devname, ":");
-	    strcat (me->me_devname, path);
+	    me->me_devname = g_strdup_printf("%s:%s", host, path);
 	  }
 	else
 	  {
@@ -606,24 +601,21 @@ glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs)
 
 	mount_list = g_malloc (buf->total);
 
-	/* Write data into mount_list. */
+	/* Write data into mount_list and free memory. */
 
-	for (count = 0, tmp = me; tmp; count++, tmp = tmp->me_next) {
-		strncpy (mount_list [count].devname, tmp->me_devname, 
+	for (count = 0, tmp = me; tmp; count++, tmp = next) {
+
+		g_strlcpy (mount_list [count].devname, tmp->me_devname, 
 			 GLIBTOP_MOUNTENTRY_LEN);
-		strncpy (mount_list [count].mountdir, tmp->me_mountdir,
+		g_strlcpy (mount_list [count].mountdir, tmp->me_mountdir,
 			 GLIBTOP_MOUNTENTRY_LEN);
-		strncpy (mount_list [count].type, tmp->me_type,
+		g_strlcpy (mount_list [count].type, tmp->me_type,
 			 GLIBTOP_MOUNTENTRY_LEN);
 		mount_list [count].devname [GLIBTOP_MOUNTENTRY_LEN] = 0;
 		mount_list [count].mountdir [GLIBTOP_MOUNTENTRY_LEN] = 0;
 		mount_list [count].type [GLIBTOP_MOUNTENTRY_LEN] = 0;
 		mount_list [count].dev = tmp->me_dev;
-	}
 
-	/* Free memory. */
-
-	for (count = 0, tmp = me; tmp; count++, tmp = next) {
 		next = tmp->me_next;
 		g_free (tmp->me_devname);
 		g_free (tmp->me_mountdir);
