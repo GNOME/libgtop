@@ -61,7 +61,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	 *                   values; NEVER set their flags values if this
 	 *                   is not the case !!! */
 
-	sprintf (buffer, "/proc/%d/stat", pid);
+	sprintf (buffer, "/proc/%d", pid);
 
 	if (stat (buffer, &statb))
 		return -1;
@@ -73,6 +73,8 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	buf->gid = statb.st_gid;
 
 	buf->flags = _glibtop_sysdeps_proc_state_uid;
+
+	sprintf (buffer, "/proc/%d", pid);
 
 	/* Now we read the remaining fields. */
 
