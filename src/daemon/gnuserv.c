@@ -50,6 +50,10 @@
 #include <sys/select.h>
 #endif
 
+#ifdef NEED_DECLARATION_PROGRAM_INVOCATION_NAME
+extern char *program_invocation_name, *program_invocation_short_name;
+#endif
+
 #ifndef HAVE_PROGRAM_INVOCATION_SHORT_NAME
 char *program_invocation_short_name;
 #endif
