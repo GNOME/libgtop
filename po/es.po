@@ -13,7 +13,7 @@ msgstr ""
 "Last-Translator: Germ√°n Poo Caama√±o <gpoo@ubiobio.cl>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: sysdeps/names/cpu.c:45
@@ -351,9 +351,9 @@ msgid ""
 "WCHAN field in action)"
 msgstr ""
 "Este es el \"canal\" en el cual el proceso est√° esperando.  Esta es la "
-"direcci√≥n de una llamada sistema, y puede ser buscada en una lista de "
-"nombres si necesita un nombre textual. (Si tiene un /etc/psdatabasa "
-"actualizado, entonces pruebe \"ps -l\" para ver el campo WCHAN en acci√≥n)"
+"direcci√≥n de una llamada sistema, y puede ser buscada en una lista de nombres "
+"si necesita un nombre textual. (Si tiene un /etc/psdatabasa actualizado, "
+"entonces pruebe \"ps -l\" para ver el campo WCHAN en acci√≥n)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:83
@@ -407,10 +407,10 @@ msgid ""
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
 msgstr ""
-"Cantidad de p√°ginas del proceso en memoria real, menos 3 par "
-"administraci√≥n. Esto es solo las p√°ginas que se cuentan entre texto, datos, "
-"o espacio de pila. Esto no incluye p√°ginas que no han sido cargadas a la "
-"demanda, o que se encuentran en el dispositivo de swap."
+"Cantidad de p√°ginas del proceso en memoria real, menos 3 par administraci√≥n. "
+"Esto es solo las p√°ginas que se cuentan entre texto, datos, o espacio de "
+"pila. Esto no incluye p√°ginas que no han sido cargadas a la demanda, o que se "
+"encuentran en el dispositivo de swap."
 
 #: sysdeps/names/procmem.c:64
 msgid ""
@@ -1126,85 +1126,85 @@ msgstr "Momento de arranque (en segundos des \"la √âpoca\")"
 #~ msgstr "Error sistema desconocido"
 
 #~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: la opciÛn `%s' es ambigua\n"
+#~ msgstr "%s: la opci√≥n `%s' es ambigua\n"
 
 #~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: la opciÛn `--%s' no admite un argumento\n"
+#~ msgstr "%s: la opci√≥n `--%s' no admite un argumento\n"
 
 #~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: la opciÛn `%c%s' no admite un argumento\n"
+#~ msgstr "%s: la opci√≥n `%c%s' no admite un argumento\n"
 
 #~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: la opciÛn `%s' requiere un argumento\n"
+#~ msgstr "%s: la opci√≥n `%s' requiere un argumento\n"
 
 #~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: opciÛn no reconocida `--%s'\n"
+#~ msgstr "%s: opci√≥n no reconocida `--%s'\n"
 
 #~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: opciÛn no reconocida `%c%s'\n"
+#~ msgstr "%s: opci√≥n no reconocida `%c%s'\n"
 
 #~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: opciÛn ilegal -- %c\n"
+#~ msgstr "%s: opci√≥n ilegal -- %c\n"
 
 #~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: opciÛn no v·lida -- %c\n"
+#~ msgstr "%s: opci√≥n no v√°lida -- %c\n"
 
 #~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: la opciÛn requiere un argumento -- %c\n"
+#~ msgstr "%s: la opci√≥n requiere un argumento -- %c\n"
 
 #~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: la opciÛn `-W %s' es ambigua\n"
+#~ msgstr "%s: la opci√≥n `-W %s' es ambigua\n"
 
 #~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: la opciÛn `-W %s' no admite argumentos\n"
+#~ msgstr "%s: la opci√≥n `-W %s' no admite argumentos\n"
 
 #~ msgid "No error"
-#~ msgstr "Ning˙n error"
+#~ msgstr "Ning√∫n error"
 
 #~ msgid "Unknown error"
 #~ msgstr "Error desconocido"
 
 #~ msgid "Invalid argument"
-#~ msgstr "Argumento no v·lido"
+#~ msgstr "Argumento no v√°lido"
 
 #~ msgid "No such parameter"
-#~ msgstr "No existe ese par·metro"
+#~ msgstr "No existe ese par√°metro"
 
 #~ msgid "Attempted to modify a read-only value"
-#~ msgstr "Se intentÛ modificar un valor que est· en solo-lectura"
+#~ msgstr "Se intent√≥ modificar un valor que est√° en solo-lectura"
 
 #~ msgid "Parameter size mismatch"
-#~ msgstr "El tamaÒo del par·metro no corresponde"
+#~ msgstr "El tama√±o del par√°metro no corresponde"
 
 #~ msgid "Communication with LibGTop server failed"
-#~ msgstr "FallÛ la comunicaciÛn con el servidor LibGTop"
+#~ msgstr "Fall√≥ la comunicaci√≥n con el servidor LibGTop"
 
 #~ msgid "No such process"
 #~ msgstr "No existe ese proceso"
 
 #~ msgid "No kernel support"
-#~ msgstr "No hay soporte en el n˙cleo"
+#~ msgstr "No hay soporte en el n√∫cleo"
 
 #~ msgid "Incompatible kernel version"
-#~ msgstr "VersiÛn del n˙cleo incompatible"
+#~ msgstr "Versi√≥n del n√∫cleo incompatible"
 
 #~ msgid "read %d bytes"
-#~ msgstr "leÌdos %d bytes"
+#~ msgstr "le√≠dos %d bytes"
 
 #~ msgid "read data size"
-#~ msgstr "leÌdo tamaÒo de datos"
+#~ msgstr "le√≠do tama√±o de datos"
 
 #~ msgid "read data %d bytes"
-#~ msgstr "leÌdos %d bytes de datos"
+#~ msgstr "le√≠dos %d bytes de datos"
 
 #~ msgid "write %d bytes"
 #~ msgstr "escritos %d bytes"
 
 #~ msgid "Enable debugging"
-#~ msgstr "Activar depuraciÛn"
+#~ msgstr "Activar depuraci√≥n"
 
 #~ msgid "DEBUG"
-#~ msgstr "DEPURACI”N"
+#~ msgstr "DEPURACI√ìN"
 
 #~ msgid "Enable verbose output"
 #~ msgstr "Activa salida detallada"
@@ -1228,7 +1228,7 @@ msgstr "Momento de arranque (en segundos des \"la √âpoca\")"
 #~ "Error on option %s: %s.\n"
 #~ "Run '%s --help' to see a full list of available command line options.\n"
 #~ msgstr ""
-#~ "Error con la opciÛn %s: %s.\n"
+#~ "Error con la opci√≥n %s: %s.\n"
 #~ "Lance '%s --help' para ver una lista completa de las opciones "
 #~ "disponibles.\n"
 
@@ -1236,7 +1236,7 @@ msgstr "Momento de arranque (en segundos des \"la √âpoca\")"
 #~ msgstr "Cantidad de elementos de la lista"
 
 #~ msgid "Total size of list"
-#~ msgstr "TamaÒo total de la lista"
+#~ msgstr "Tama√±o total de la lista"
 
 #~ msgid "Size of a single list element"
-#~ msgstr "TamaÒo de un solo elemento de la lista"
+#~ msgstr "Tama√±o de un solo elemento de la lista"
