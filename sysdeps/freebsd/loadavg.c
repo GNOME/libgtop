@@ -2,7 +2,7 @@
 
 /* Copyright (C) 1995, 1996, 1997 Free Software Foundation, Inc.
    This file is part of the Gnome Top Library.
-   Contributed by Joshua Sled <jsled@xcf.berkeley.edu>, July 1998.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
 
    The Gnome Top Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as
@@ -19,31 +19,28 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
+#include <glibtop/error.h>
 #include <glibtop/loadavg.h>
 
-#include <stdlib.h>
+#include <glibtop_suid.h>
+
+static const unsigned long _glibtop_sysdeps_loadavg = 0;
+
+/* Init function. */
+
+void
+glibtop_init_loadavg_p (glibtop *server)
+{
+	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
+}
 
 /* Provides load averange. */
 
-static const unsigned long _glibtop_sysdeps_loadavg =
-(1 << GLIBTOP_LOADAVG_LOADAVG);
-
 void
-glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
+glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
 {
-  double ldavg[3]; 
-
-  glibtop_init_r (&server);
-  
-  memset (buf, 0, sizeof (glibtop_loadavg));
-
-  getloadavg(ldavg, 3);
-  
-  /* fill in the struct */
-  buf->flags = _glibtop_sysdeps_loadavg;
-  for (int i=0; i<3; i++) {
-    buf->loadavg[i] = ldavg[i];
-  } /* end for */
-  
+	glibtop_init_p (server, GLIBTOP_SYSDEPS_LOADAVG, 0);
+	
+	memset (buf, 0, sizeof (glibtop_loadavg));
 }

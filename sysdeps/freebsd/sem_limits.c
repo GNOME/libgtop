@@ -19,12 +19,28 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#include <glibtop.h>
+#include <glibtop/error.h>
 #include <glibtop/sem_limits.h>
+
+#include <glibtop_suid.h>
+
+static const unsigned long _glibtop_sysdeps_sem_limits = 0;
+
+/* Init function. */
+
+void
+glibtop_init_sem_limits_p (glibtop *server)
+{
+	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+}
 
 /* Provides information about sysv sem limits. */
 
 void
-glibtop_get_sem_limits__r (glibtop *server, glibtop_sem_limits *buf)
+glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
+	glibtop_init_p (server, GLIBTOP_SYSDEPS_SEM_LIMITS, 0);
+	
 	memset (buf, 0, sizeof (glibtop_sem_limits));
 }

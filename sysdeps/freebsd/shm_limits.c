@@ -19,12 +19,28 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#include <glibtop.h>
+#include <glibtop/error.h>
 #include <glibtop/shm_limits.h>
+
+#include <glibtop_suid.h>
+
+static const unsigned long _glibtop_sysdeps_shm_limits = 0;
+
+/* Init function. */
+
+void
+glibtop_init_shm_limits_p (glibtop *server)
+{
+	server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
+}
 
 /* Provides information about sysv ipc limits. */
 
 void
-glibtop_get_shm_limits__r (glibtop *server, glibtop_shm_limits *buf)
+glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
+	glibtop_init_p (server, GLIBTOP_SYSDEPS_SHM_LIMITS, 0);
+	
 	memset (buf, 0, sizeof (glibtop_shm_limits));
 }

@@ -19,29 +19,24 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <glibtop.h>
-#include <glibtop/error.h>
-#include <glibtop/proctime.h>
+#ifndef __GLIBTOP_SUID_H__
+#define __GLIBTOP_SUID_H__
 
-#include <glibtop_suid.h>
+__BEGIN_DECLS
 
-static const unsigned long _glibtop_sysdeps_proc_time = 0;
+static inline void glibtop_suid_enter (glibtop *server) {
+	setreuid (server->machine.uid, server->machine.euid);
+};
 
-/* Init function. */
+static inline void glibtop_suid_leave (glibtop *server) {
+	if (setreuid (server->machine.euid, server->machine.uid))
+		_exit (1);
+};
 
-void
-glibtop_init_proc_time_p (glibtop *server)
-{
-	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
-}
+extern void glibtop_init_p __P((glibtop *, const unsigned long, const unsigned));
 
-/* Provides detailed information about a process. */
+extern void glibtop_open_p __P((glibtop *, const char *, const unsigned long, const unsigned));
 
-void
-glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
-			 pid_t pid)
-{
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_TIME, 0);
-	
-	memset (buf, 0, sizeof (glibtop_proc_time));
-}
+__END_DECLS
+
+#endif

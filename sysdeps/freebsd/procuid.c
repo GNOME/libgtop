@@ -19,14 +19,29 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
+#include <glibtop/error.h>
 #include <glibtop/procuid.h>
+
+#include <glibtop_suid.h>
+
+static const unsigned long _glibtop_sysdeps_proc_uid = 0;
+
+/* Init function. */
+
+void
+glibtop_init_proc_uid_p (glibtop *server)
+{
+	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
+}
 
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_uid__r (glibtop *server, glibtop_proc_uid *buf,
-			   pid_t pid)
+glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
+			pid_t pid)
 {
+	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_UID, 0);
+	
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 }
