@@ -349,16 +349,16 @@ LIBGTOP_SERVER='$(bindir)/libgtop_server'
 
 LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS $LIBGTOP_XML_LIB"
 
-LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop"
-
 if test x$libgtop_use_gmodule != xyes ; then
-  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_backend_common -lgtop_common"
+  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop -lgtop_backend_common -lgtop_common"
   if test x$libgtop_have_sysdeps = xyes ; then
     LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_backend_sysdeps -lgtop_sysdeps"
   fi
   if test x$libgtop_need_server = xyes ; then
     LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_backend_server"
   fi
+else
+  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common -lgtop"
 fi
 
 LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names"

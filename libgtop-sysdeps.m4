@@ -208,7 +208,7 @@ AC_DEFUN([GNOME_LIBGTOP_DYNLINK],[
 	fi
 
 	if $dynworks; then
-	  AC_DEFINE(USE_GMODULE)
+	  AC_DEFINE(LIBGTOP_USE_GMODULE)
 	  GMODULE_LIBS="`glib-config --libs gmodule`"
 	  GMODULE_FLAGS="`glib-config --cflags gmodule`"
 	  AC_SUBST(GMODULE_LIBS)
