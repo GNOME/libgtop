@@ -2,6 +2,7 @@
 #include "structures.h"
 #include <libguile/snarf.h>
 
+long scm_glibtop_smob_tags [GLIBTOP_MAX_STRUCTURES];
 SCM scm_glibtop_global_server_smob;
 
 SCM_GLOBAL_VCELL (s_glibtop_global_server, "glibtop-global-server");

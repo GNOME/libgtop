@@ -92,6 +92,8 @@ for ($nr = 0; $nr < $smob_count; $nr++) {
 }
 
 print '';
+printf (qq[\#define %-40s\t%d\n], 'GLIBTOP_MAX_STRUCTURES', $smob_count);
+print '';
 print qq[END_LIBGTOP_DECLS];
 print '';
 print qq[\#endif /* __GLIBTOP_STRUCTURES_H__ */];
@@ -199,8 +201,8 @@ sub make_output {
   $func_decl_code = sprintf
     (qq[static SCM\nglibtop_guile_get_%s (SCM server_smob%s)], $feature, $param_decl);
   
-  if ($retval =~ /^array\((.*)\)$/) {
-    $retval_type = "$1 *";
+  if ($retval =~ /^(array|pointer)\((.*)\)$/) {
+    $retval_type = "$2 *";
   } elsif ($retval eq 'retval') {
     $retval_type = 'int';
   } else {
@@ -235,6 +237,48 @@ sub make_output {
     (qq[\t*(glibtop_%s *) SCM_SMOB_DATA (smob_answer) = %s;\n\n],
      $feature, $feature);
 
+  if ($retval =~ /^(array|pointer)\((.*)\)$/) {
+    $array_type = $2; $which_type = $1;
+
+    $local_var_decl_code .= sprintf (qq[\tSCM smob_array;\n]);
+    $local_var_decl_code .= sprintf (qq[\tint i;\n]);
+
+    $make_array_code = sprintf
+      (qq[\tsmob_array = scm_make_vector (SCM_MAKINUM (%s.number), %s);\n],
+       $feature, 'SCM_BOOL_F');
+
+    $make_array_code .= sprintf
+      (qq[\tfor (i = 0; i < %s.number; i++) \{\n], $feature);
+
+    if ($which_type eq 'array') {
+      $make_array_code .= sprintf
+	(qq[\t\tSCM _smob;\n\n], $feature);
+    
+      $make_array_code .= sprintf
+	(qq[\t\t_smob = scm_make_smob\n\t\t\t(scm_glibtop_smob_tags\n\t\t\t [GLIBTOP_STRUCTURE_%s]);\n], toupper($array_type));
+
+      $make_array_code .= sprintf
+	(qq[\t\t*(%s *) SCM_SMOB_DATA (_smob) = retval [i];\n], $array_type);
+
+      $make_array_code .= sprintf
+	(qq[\t\tscm_vector_set_x (smob_array, SCM_MAKINUM (i), _smob);\n]);
+    } else {
+      $make_array_code .= sprintf
+	(qq[\t\tscm_vector_set_x (smob_array, SCM_MAKINUM (i),\n\t\t\t\t  %s (retval [i]));\n],
+	 $typeinfo->{$array_type}->[0]);
+    }
+
+    $make_array_code .= "\t}\n\n";
+
+    $return_smob_code = $make_array_code;
+
+    $return_smob_code .= sprintf
+      (qq[\treturn scm_cons (smob_array, smob_answer);]);
+  } else {
+    $return_smob_code = sprintf
+      (qq[\treturn smob_answer;]);
+  }
+
   $nr_elements = (@elements = split(/:/, $element_def, 9999));
   for ($element = 1; $element <= $nr_elements; $element++) {
     $list = $elements[$element];
@@ -263,9 +307,6 @@ sub make_output {
     (qq[SCM_GLOBAL_VCELL_INIT (s_%s_names, "glibtop-fields-%s", \\\n\t\t       gh_list (%sSCM_UNDEFINED));],
     $feature, $feature_name, $field_list_code);
 
-  $return_smob_code = sprintf
-    (qq[\treturn smob_answer;]);
-  
   $total = sprintf ("%s\n\n%s\n\n%s\n{\n%s\n\n%s\n%s\n%s%s\n\n%s\n%s\n%s\n%s\n}\n",
 		    $scm_proc_code, $scm_fields_code, $func_decl_code,
 		    $local_var_decl_code, $init_server_code,
