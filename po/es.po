@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: glibtop 1.1.0\n"
-"POT-Creation-Date: 1999-07-30 10:37-0400\n"
+"POT-Creation-Date: 1999-08-01 18:09-0400\n"
 "PO-Revision-Date: 1998-12-13 04:38+0100\n"
 "Last-Translator: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
 "Language-Team: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
