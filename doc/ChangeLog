@@ -1,3 +1,8 @@
+2001-11-26  Abel Cheung  <maddog@linux.org.hk>
+
+	* libgtop.texi, Makefile.am: Renamed to libgtop2.texi
+	* about.texi: Very minor update.
+
 1999-10-18  Martin Baulig  <martin@home-of-linux.org>
 
 	* about.texi: Added a note about LibGTop and GNOME.

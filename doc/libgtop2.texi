@@ -1,6 +1,6 @@
 \input texinfo   @c -*-texinfo-*-
 @c %**start of header
-@setfilename libgtop.info
+@setfilename libgtop2.info
 @settitle LibGTop Reference Manual
 @setchapternewpage odd
 @c %**end of header
@@ -40,6 +40,15 @@ translations of this manual into another language,
 under the above conditions for modified versions,
 except that this permission notice may be stated in a
 translation approved by the Free Software Foundation.
+
+@format
+@dircategory Libraries:
+@direntry
+* LibGTop2: (libgtop2).			Library to get system specific data
+					such as cpu and memory usage, active
+					processes
+@end direntry
+@end format
 
 @end ifinfo
 

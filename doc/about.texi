@@ -33,10 +33,10 @@ latest release tarballs from
 @noindent
 or any of its mirror sites.
 
-The latest stable version of LibGTop is 1.0.1 which is also the one that comes
-together with GNOME 1.0. In CVS, there is a @code{LIBGTOP_STABLE_1_0} branch
-which is rooted at the @code{LIBGTOP_1_0_1} tag while actual development occurs
-in the @code{HEAD} which currently has version 1.1.0.
+The latest stable version of LibGTop is 1.0.12 which is also the one that comes
+together with GNOME 1.0. It belongs to @code{LIBGTOP_STABLE_1_0} branch in CVS.
+Actual development occurs in the @code{libgtop-GNOME-2-0-port} which is
+currently versioned 1.90.0.
 
 @node Supported Platforms, Mailing List, Availability, About
 @section Supported Platforms
@@ -47,7 +47,7 @@ The stable branch currently supports the following platforms:
 @item All versions of Linux
 
 LibGTop was tested under Linux 2.0.x and 2.2.x on the ix86 and the alpha, but
-it should also work without problems on SparcLinux.
+it should also work without problems on SparcLinux or Linux 2.4.x.
 
 Note: I'm speaking of the Linux kernel here, not the GNU/Linux operating system.
 
@@ -116,6 +116,7 @@ me a lot in the early beginning.
 @item Timur Bakeyev for the BSDI port.
 @item Drazen Kacar and the other people on the LibGTop development mailing
 list for the Solaris port.
+@item Kevin Vandersloot for the effort to port to GNOME 2.0.
 @item All people sending me patches, having good ideas, ...
 @item Everyone I have forgotten in this list ...
 @end itemize

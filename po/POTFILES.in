@@ -51,8 +51,8 @@ src/daemon/main.c
 src/daemon/server.c
 src/daemon/slave.c
 src/daemon/version.c
-src/inodedb/file_by_inode.c
-src/inodedb/mkinodedb.c
+src/inodedb/file_by_inode2.c
+src/inodedb/mkinodedb2.c
 support/easy-vsnprintf.c
 support/error.c
 support/error.h
