@@ -107,7 +107,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 			  sizeof (ifnet)) != sizeof (ifnet))
 		    glibtop_error_io_r (server, "kvm_read (ifnetaddr)");
 
-#ifdef __FreeBSD__
+#if (defined __FreeBSD__) || (defined __bsdi__)
 	    if (kvm_read (server->machine.kd, (u_long) ifnet.if_name,
 			  tname, 16) != 16)
 		    glibtop_error_io_r (server, "kvm_read (if_name)");
@@ -118,7 +118,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 
 #if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
 	    ifaddraddr = (u_long) ifnet.if_addrhead.tqh_first;
-#elif (defined __FreeBSD__)
+#elif (defined __FreeBSD__) || (defined __bsdi__)
 	    ifaddraddr = (u_long) ifnet.if_addrlist;
 #else
 	    ifaddraddr = (u_long) ifnet.if_addrlist.tqh_first;
@@ -196,7 +196,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 
 #if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
 	    ifaddraddr = (u_long)ifaddr.ifa.ifa_link.tqe_next;
-#elif (defined __FreeBSD__)
+#elif (defined __FreeBSD__) || (defined __bsdi__)
 	    ifaddraddr = (u_long)ifaddr.ifa.ifa_next;
 #else
 	    ifaddraddr = (u_long)ifaddr.ifa.ifa_list.tqe_next;
@@ -205,7 +205,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	
 #if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
 	ifnetaddr = (u_long) ifnet.if_link.tqe_next;
-#elif (defined __FreeBSD__)
+#elif (defined __FreeBSD__) || (defined __bsdi__)
 	ifnetaddr = (u_long) ifnet.if_next;
 #else
 	ifnetaddr = (u_long) ifnet.if_list.tqe_next;

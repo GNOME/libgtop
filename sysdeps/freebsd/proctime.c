@@ -140,7 +140,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	/* It does not work for the swapper task. */
 	if (pid == 0) return;
 	
-	sprintf (filename, "/proc/%d/mem", pid);
+	sprintf (filename, "/proc/%d/mem", (int) pid);
 	if (stat (filename, &statb)) return;
 
 	/* Get the process information */

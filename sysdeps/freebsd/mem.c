@@ -28,12 +28,17 @@
 #include <glibtop_suid.h>
 
 #include <sys/sysctl.h>
+#ifndef __bsdi__
 #include <sys/vmmeter.h>
+#endif
 #include <vm/vm_param.h>
 
 static const unsigned long _glibtop_sysdeps_mem =
 (1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
-(1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_SHARED) +
+(1 << GLIBTOP_MEM_FREE) +
+#ifndef __bsdi__
+(1 << GLIBTOP_MEM_SHARED) +
+#endif
 (1 << GLIBTOP_MEM_BUFFER) +
 #ifdef __FreeBSD__
 (1 << GLIBTOP_MEM_CACHED) +
@@ -61,9 +66,11 @@ static struct nlist nlst [] = {
 	{ 0 }
 };
 
+#ifndef __bsdi__
 /* MIB array for sysctl */
 /* static int mib_length=2; */
 static int mib [] = { CTL_VM, VM_METER };
+#endif /* __bsdi__ */
 
 /* Init function. */
 
@@ -95,8 +102,10 @@ glibtop_init_mem_p (glibtop *server)
 void
 glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 {
+#ifndef __bsdi__
 	struct vmtotal vmt;
 	size_t length_vmt;
+#endif
 	struct vmmeter vmm;
 	u_int v_used_count;
 	u_int v_total_count;
@@ -109,6 +118,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	if (server->sysdeps.mem == 0)
 		return;
 
+#ifndef __bsdi__
 	/* [FIXME: On FreeBSD 2.2.6, sysctl () returns an incorrect
 	 *         value for `vmt.vm'. We use some code from Unix top
 	 *         here.] */
@@ -119,6 +129,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 		glibtop_warn_io_r (server, "sysctl");
 		return;
 	}
+#endif
 	
 	/* Get the data from kvm_* */
 	if (kvm_read (server->machine.kd, nlst[0].n_value,
@@ -154,7 +165,9 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 #endif
 
 	buf->locked = (u_int64_t) pagetok (vmm.v_wire_count) << LOG1024;
+#ifndef __bsdi__
 	buf->shared = (u_int64_t) pagetok (vmt.t_rmshr) << LOG1024;
+#endif
 
 #if __FreeBSD__
 	buf->buffer = (u_int64_t) bufspace;
