@@ -41,13 +41,20 @@
 
 #include <glibtop/gnuserv.h>
 
-#include <gnome-argp.h>
 #include <popt-gnome.h>
 
 #include "daemon.h"
 
 #ifdef AIX
 #include <sys/select.h>
+#endif
+
+#ifndef HAVE_PROGRAM_INVOCATION_SHORT_NAME
+char *program_invocation_short_name;
+#endif
+
+#ifndef HAVE_PROGRAM_INVOCATION_NAME
+char *program_invocation_name;
 #endif
 
 extern void handle_parent_connection __P ((int));
