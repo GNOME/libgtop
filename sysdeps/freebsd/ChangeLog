@@ -1,3 +1,13 @@
+2004-06-07  Benoît Dejean  <tazforever@dlfp.org>
+
+	* netload.c: (glibtop_get_netload_p):
+	* procstate.c: (glibtop_get_proc_state_p):	
+	* prockernel.c: (glibtop_get_proc_kernel_p): s/strncpy/g_strlcpy/.
+	
+	* procargs.c: (glibtop_get_proc_args_p):
+	* procmap.c: (glibtop_get_proc_map_p): Cleaned.
+	
+
 2004-05-26  Benoît Dejean  <tazforever@dlfp.org>
 
 	* procdata.c: (glibtop_get_procdata_s): Removed Linux related code.

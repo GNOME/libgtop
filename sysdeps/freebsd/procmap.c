@@ -150,9 +150,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 	buf->total = buf->number * buf->size;
 
-	maps = g_malloc (buf->total);
-
-	memset (maps, 0, buf->total);
+	maps = g_malloc0(buf->total);
 
 	buf->flags = _glibtop_sysdeps_proc_map;
 

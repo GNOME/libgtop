@@ -118,8 +118,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	    strcat(tname, temp);
 	    tname [15] = 0;
 #else
-	    strncpy (tname, ifnet.if_xname, 16);
-	    tname [15] = 0;
+	    g_strlcpy (tname, ifnet.if_xname, sizeof tname);
 #endif
 
 #if defined(__FreeBSD__) && (__FreeBSD_version >= 300000)

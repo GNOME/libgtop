@@ -138,9 +138,8 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	buf->flags |= (1L << GLIBTOP_PROC_KERNEL_NWCHAN);
 
 	if (pinfo [0].PROC_WCHAN && pinfo [0].PROC_WMESG) {
-		strncpy (buf->wchan, pinfo [0].PROC_WMESG,
-			 sizeof (buf->wchan) - 1);
-		buf->wchan [sizeof (buf->wchan) - 1] = 0;
+		g_strlcpy (buf->wchan, pinfo [0].PROC_WMESG,
+			 sizeof buf->wchan);
 		buf->flags |= (1L << GLIBTOP_PROC_KERNEL_WCHAN);
 	} else {
 		buf->wchan [0] = 0;

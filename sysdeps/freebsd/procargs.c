@@ -50,7 +50,7 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 {
 	struct kinfo_proc *pinfo;
 	char *retval, **args, **ptr;
-	unsigned size = 0, pos = 0;
+	size_t size = 0, pos = 0;
 	int count;
 
 #ifndef __bsdi__
@@ -93,11 +93,10 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 		size += strlen (*ptr)+1;
 
 	size += 2;
-	retval = g_malloc (size);
-	memset (retval, 0, size);
+	retval = g_malloc0 (size);
 
 	for (ptr = args; *ptr; ptr++) {
-		int len = strlen (*ptr)+1;
+		const size_t len = strlen (*ptr)+1;
 		memcpy (retval+pos, *ptr, len);
 		pos += len;
 	}
