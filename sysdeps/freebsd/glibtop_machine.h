@@ -22,17 +22,32 @@
 #ifndef __GLIBTOP_MACHINE_H__
 #define __GLIBTOP_MACHINE_H__
 
+#include <nlist.h>
+#include <kvm.h>
+#include <sys/dkstat.h>
+#include <time.h>
+#include <sys/user.h>
+#include <sys/types.h>
+#include <sys/sysctl.h>
+
+#include <fcntl.h>
+#include <osreldate.h>
+
+__BEGIN_DECLS
+
 typedef struct _glibtop_machine glibtop_machine;
 
 struct _glibtop_machine
 {
-  uid_t uid, euid;
-  gid_t gid, egid;
-
-  /* The kernel descriptor, used by kvm_* calls.  We keep and re-use
-     it rather than re-getting it for almost all function
-     invocations. */
-  kvm_t *kd;
+	uid_t uid, euid;
+	gid_t gid, egid;
+	
+	/* The kernel descriptor, used by kvm_* calls.  We keep and re-use
+	 * it rather than re-getting it for almost all function
+	 * invocations. */
+	kvm_t *kd;
 };
+
+__END_DECLS
 
 #endif __GLIBTOP_MACHINE_H__

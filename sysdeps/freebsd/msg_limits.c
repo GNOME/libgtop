@@ -2,7 +2,7 @@
 
 /* Copyright (C) 1995, 1996, 1997 Free Software Foundation, Inc.
    This file is part of the Gnome Top Library.
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Joshua Sled <jsled@xcf.berkeley.edu>, July 1998.
 
    The Gnome Top Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as
@@ -24,6 +24,8 @@
 #include <glibtop/msg_limits.h>
 
 #include <glibtop_suid.h>
+
+#include <sys/msg.h>
 
 static const unsigned long _glibtop_sysdeps_msg_limits = 0;
 
