@@ -5,7 +5,8 @@ use ExtUtils::MakeMaker;
 WriteMakefile('NAME'		=> 'Libgtop',
 	      'VERSION_FROM'	=> '@srcdir@/Libgtop.pm',
 	      'TYPEMAPS'	=> ['@srcdir@/typemap' ],
-	      'LIBS'		=> ['@LIBGTOP_GUILE_LIBS@'],
+	      'LIBS'		=> ['@LIBGTOP_GUILE_LIBS@ @LIBGTOP_EXTRA_LIBS@'],
 	      'DEFINE'		=> '',
 	      'INC'		=> '@LIBGTOP_GUILE_INCS@',
 	     );
+
