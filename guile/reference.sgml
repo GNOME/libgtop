@@ -385,6 +385,9 @@ typedef struct _glibtop_loadavg         glibtop_loadavg;
 struct _glibtop_loadavg
 {
 	u_int64_t	flags;
+	u_int64_t       nr_running,     /* GLIBTOP_LOADAVG_NR_RUNNING       */
+		nr_tasks,       	/* GLIBTOP_LOADAVG_NR_TASKS         */
+		last_pid;       	/* GLIBTOP_LOADAVG_LAST_PID         */
 	double          loadavg [3];    /* GLIBTOP_LOADAVG_LOADAVG [3]      */
 };
 </literallayout>
@@ -399,6 +402,27 @@ struct _glibtop_loadavg
 <listitem>
 <para>
 Number of jobs running simultaneously averaged over 1, 5 and 15 minutes
+
+<varlistentry>
+<term><parameter>nr_running</parameter></term>
+
+<listitem>
+<para>
+Number of tasks currently running
+
+<varlistentry>
+<term><parameter>nr_tasks</parameter></term>
+
+<listitem>
+<para>
+Total number of tasks
+
+<varlistentry>
+<term><parameter>last_pid</parameter></term>
+
+<listitem>
+<para>
+Last PID
 
 </variablelist>
 

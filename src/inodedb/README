@@ -1,0 +1,73 @@
+Not all UNIXes provide an easy way to get the filename if you have
+the device it is mounted on and its inode.
+
+Well, under Linux we can simply read /proc/<pid>/maps to get the filenames
+but I don't see any way to get this under FreeBSD.
+
+In this case you can give configure the optional `--with-libgtop-inodedb'
+parameter to build this stuff here.
+
+It uses the GNU database library `gdbm' to find the inode in a database
+which is created when libgtop is installed. This should be reasonable
+fast since the entire filesystem only needs to be traversed once when
+libgtop is installed (and each time you install new software, of cause).
+
+We have two databases:
+
+* First the system administrator may place a system-wide database
+  in `$(prefix)/var/libgtop/inodedb.db' when installing libgtop.
+
+* Every user can have his/her own one in `~/var/libgtop/inodedb.db'.
+  This one has precedence over the system wide one.
+
+The `mkinodedb' program which is build in this directory takes two
+command line arguments: the full pathname of the database to be created
+and the name of a configuration file consisting of directory and file names
+each on a line by itself - see `/etc/ld.so.conf' for an example.
+
+Putting a directory name in this file means all regular files found in this
+directory are included in the database, but it will not recursively descend
+into subdirectories (for instance, we want everythink in `/usr/lib' but not
+every single file in `/usr/lib/sgml'). You can also use filenames to include
+a single file.
+
+To use this interface in your program, you first have to call
+`glibtop_inodedb_open ()':
+
+glibtop_inodedb *
+glibtop_inodedb_open (unsigned databases, unsigned long cachesize)
+
+glibtop_inodedb *
+glibtop_inodedb_open_s (glibtop *server, unsigned databases,
+			unsigned long cachesize)
+
+There are some constants defined in <glibtop/inodedb.h> for the `databases'
+parameter - you can use zero as default:
+
+#define GLIBTOP_INODEDB_SYSTEM		1
+#define GLIBTOP_INODEDB_USER		2
+#define GLIBTOP_INODEDB_CACHE		4
+
+The `cachesize' gives the size of a not yet implemented in-memory cache for
+looked up entries.
+
+This function will return a pointer of type `glibtop_inodedb *' which you need
+to lookup an entry in the database.
+
+To look up an entry, use the `glibtop_inodedb_lookup ()' function:
+
+const char *
+glibtop_inodedb_lookup (glibtop_inodedb *inodedb,
+			u_int64_t device, u_int64_t inode)
+const char *
+glibtop_inodedb_lookup_s (glibtop *server, glibtop_inodedb *inodedb,
+			  u_int64_t device, u_int64_t inode)
+
+It will either return a pointer to the filename - which you have to
+`glibtop_free ()' once done with it - or NULL on error.
+
+You can use the `file_by_inode' program in this directory to test the
+interface - just call it with two command line arguments: the device number
+and the inode number.
+
+Martin <martin@home-of-linux.org>
