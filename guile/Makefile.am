@@ -50,3 +50,11 @@ libgtop_la_LIBADD		= ../sysdeps/guile/guile.lo \
 
 libnames_la_LIBADD		= ../sysdeps/guile/names/guile-names.lo
 
+EXTRA_DIST			= features.awk
+
+CLEANFILES			= features.scm
+
+features.scm: features.awk $(top_builddir)/config.h $(top_srcdir)/features.def
+	$(AWK) -f $(srcdir)/features.awk < $(top_srcdir)/features.def > tmp-t
+	mv tmp-t features.scm
+

@@ -275,14 +275,14 @@ Free Swap Space
 
 <listitem>
 <para>
-Total number of swap pages that have been brought in
+Total number of swap pages that have been brought in since system boot
 
 <varlistentry>
 <term><parameter>pageout</parameter></term>
 
 <listitem>
 <para>
-Total number of swap pages that have been brought out
+Total number of swap pages that have been brought out since system boot
 
 </variablelist>
 
@@ -385,7 +385,7 @@ typedef struct _glibtop_loadavg         glibtop_loadavg;
 struct _glibtop_loadavg
 {
 	u_int64_t	flags;
-	double          loadavg;        /* GLIBTOP_LOADAVG_LOADAVG          */
+	double          loadavg [3];    /* GLIBTOP_LOADAVG_LOADAVG [3]      */
 };
 </literallayout>
 </blockquote>
@@ -394,7 +394,7 @@ struct _glibtop_loadavg
 <variablelist>
 
 <varlistentry>
-<term><parameter>loadavg</parameter></term>
+<term><parameter>loadavg [3]</parameter></term>
 
 <listitem>
 <para>

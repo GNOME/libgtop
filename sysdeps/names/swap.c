@@ -46,6 +46,8 @@ const char *glibtop_descriptions_swap [GLIBTOP_MAX_SWAP] =
 	N_("Total Swap Space"),
 	N_("Used Swap Space"),
 	N_("Free Swap Space"),
-	N_("Total number of swap pages that have been brought in"),
-	N_("Total number of swap pages that have been brought out"),
+	N_("Total number of swap pages that have been brought in "
+	   "since system boot"),
+	N_("Total number of swap pages that have been brought out "
+	   "since system boot"),
 };
