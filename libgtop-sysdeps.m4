@@ -16,7 +16,7 @@ AC_DEFUN([LIBGTOP_HACKER_TESTS],[
 	case "$host_os" in
 	linux*)
 	  AC_ARG_WITH(linux-sysctl,
-	  [  --with-linux-sysctl      Use the sysctl () interface from Martin Baulig],[
+	  [  --with-linux-sysctl     Use the sysctl () interface from Martin Baulig],[
 	  linux_sysctl="$withval"],[linux_sysctl=auto])
 	  if test $linux_sysctl = yes ; then
 	    AC_CHECK_HEADER(linux/libgtop.h, linux_sysctl=yes, linux_sysctl=no)
@@ -72,7 +72,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	AC_ARG_ENABLE(hacker-mode,
 	[  --enable-hacker-mode    Enable building of unstable sysdeps],
-	[hacker_mode="$withval"], [hacker_mode=no])
+	[hacker_mode="$enableval"], [hacker_mode=no])
 
 	AM_CONDITIONAL(HACKER_MODE, test x"$hacker_mode" = xyes)
 
