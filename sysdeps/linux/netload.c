@@ -43,7 +43,6 @@
 #include <linux/icmp.h>
 #include <linux/tcp.h>
 #include <linux/udp.h>
-#include <linux/ip_fw.h>
 #endif
 
 #define _GLIBTOP_IP_FW_ACCTIN	0x1000	/* Account incoming packets only. */
