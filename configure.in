@@ -186,7 +186,7 @@ fi
 
 AC_SUBST(libgtop_want_guile_names)
 
-LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common $ibs_xauth" 
+LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common $libs_xauth" 
 LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_common $libs_xauth"
 
 if test "x$need_server" = "xyes" ; then
