@@ -47,65 +47,76 @@ glibtop_get_kstats(glibtop *server)
         server->ncpu = new_ncpu;
         server->machine.vminfo_kstat = NULL;
         server->machine.system = NULL;
+        server->machine.syspages = NULL;
         server->machine.bunyip = NULL;
         return;
     }
 
-    ksp = kstat_lookup(kc, "unix", -1, "vminfo");
-    server->machine.vminfo_kstat = ksp;
-    if(ksp)
-    {
-        kstat_read(kc, ksp, &server->machine.vminfo);
-	server->machine.vminfo_snaptime = ksp->ks_snaptime;
-    }
-
-    /* We don't know why was kstat chain invalidated. It could have
-       been because the number of processors changed. The sysconf()
-       man page says that values returned won't change during the
-       life time of a process, but let's hope that's just an error in
-       the documentation. */
-
-    if(nproc_same = new_ncpu == server->ncpu)
-    {
-        int checked, i;
-	char cpu[20];
-
-        for(i = 0, checked = 0; i < GLIBTOP_NCPU || checked == new_ncpu; ++i)
-	    if(server->machine.cpu_stat_kstat[i])
-	    {
-	        sprintf(cpu, "cpu_stat%d", i);
-	        if(!(server->machine.cpu_stat_kstat[i] =
-			 kstat_lookup(kc, "cpu_stat", -1, cpu)))
-		{
-		    nproc_same = 0;
-		    break;
-		}
-		++checked;
-	    }
-    }
-    if(!nproc_same)
-    {
-        processorid_t p;
-	int found;
-	char cpu[20];
-
-        if(new_ncpu > GLIBTOP_NCPU)
-	    new_ncpu = GLIBTOP_NCPU;
-	server->ncpu = new_ncpu;
-	for(p = 0, found = 0; p < GLIBTOP_NCPU && found != new_ncpu; ++p)
+    do {
+	ksp = kstat_lookup(kc, "unix", -1, "vminfo");
+	server->machine.vminfo_kstat = ksp;
+	if(ksp)
 	{
-	    if(p_online(p, P_STATUS) < 0)
-	        continue;
-	    sprintf(cpu, "cpu_stat%d", (int)p);
-	    server->machine.cpu_stat_kstat[p] =
-	            kstat_lookup(kc, "cpu_stat", -1, cpu);
-	    ++found;
+	    kstat_read(kc, ksp, &server->machine.vminfo);
+	    server->machine.vminfo_snaptime = ksp->ks_snaptime;
 	}
-    }
 
-    server->machine.system   = kstat_lookup(kc, "unix", -1, "system_misc");
-    server->machine.syspages = kstat_lookup(kc, "unix", -1, "system_pages");
-    server->machine.bunyip   = kstat_lookup(kc, "bunyip", -1, "mempages");
+	/* We don't know why was kstat chain invalidated. It could have
+	   been because the number of processors changed. The sysconf()
+	   man page says that values returned won't change during the
+	   life time of a process, but let's hope that's just an error in
+	   the documentation. */
+
+	if(nproc_same = new_ncpu == server->ncpu)
+	{
+	    int checked, i;
+	    char cpu[20];
+
+	    for(i = 0, checked = 0; i < GLIBTOP_NCPU || checked == new_ncpu; ++i)
+		if(server->machine.cpu_stat_kstat[i])
+		{
+		    sprintf(cpu, "cpu_stat%d", i);
+		    if(!(server->machine.cpu_stat_kstat[i] =
+			     kstat_lookup(kc, "cpu_stat", -1, cpu)))
+		    {
+			nproc_same = 0;
+			break;
+		    }
+		    ++checked;
+		}
+	}
+	if(!nproc_same)
+	{
+	    processorid_t p;
+	    int found;
+	    char cpu[20];
+
+	    if(new_ncpu > GLIBTOP_NCPU)
+		new_ncpu = GLIBTOP_NCPU;
+	    server->ncpu = new_ncpu;
+	    for(p = 0, found = 0; p < GLIBTOP_NCPU && found != new_ncpu; ++p)
+	    {
+		if(p_online(p, P_STATUS) < 0)
+		{
+		    server->machine.cpu_stat_kstat[p] = NULL;
+		    continue;
+		}
+		sprintf(cpu, "cpu_stat%d", (int)p);
+		server->machine.cpu_stat_kstat[p] =
+			kstat_lookup(kc, "cpu_stat", -1, cpu);
+		++found;
+	    }
+	}
+
+	server->machine.system   = kstat_lookup(kc, "unix", -1, "system_misc");
+	server->machine.syspages = kstat_lookup(kc, "unix", -1, "system_pages");
+	server->machine.bunyip   = kstat_lookup(kc, "bunyip", -1, "mempages");
+
+    } while(kstat_chain_update(kc) > 0 &&
+	    (new_ncpu = sysconf(_SC_NPROCESSORS_CONF)));
+
+    /* We'll ignore -1 from kstat_chain_update here, since it really
+       shouldn't happen */
 }
 
 void

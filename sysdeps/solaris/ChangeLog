@@ -1,5 +1,26 @@
 1999-05-02  Drazen Kacar  <dave@srce.hr>
 
+	* open.c (glibtop_get_kstats): Yet another kstat_chain_update
+	check. Added machine.cpu_stat_kstat[x] = NULL when processor
+	x is not configured.
+
+	* procdata.c (glibtop_get_proc_credentials_s): Read prcred
+	structure from /proc.
+
+	* procstate.c (glibtop_get_proc_state_s): Added ruid, rgid,
+	has_cpu, processor and last_processor.
+
+	* procuid.c (glibtop_get_proc_uid_s): Added priority, nice,
+	suid, sgid, ngroups and groups. The last four will be
+	filled only if our process has the authority to read prcred
+	structure of another process.
+
+1999-05-02  Drazen Kacar  <dave@srce.hr>
+
+	procdata.c: Use pread() instead of read().
+
+1999-05-02  Drazen Kacar  <dave@srce.hr>
+
 	* glibtop_machine.h: added fields for page size, clock ticks and
 	boot time. These are constants. Also added three new kstats.
 

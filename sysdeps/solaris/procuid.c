@@ -26,19 +26,24 @@
 
 #include <glibtop_private.h>
 
-static const unsigned long _glibtop_sysdeps_proc_uid =
-(1 << GLIBTOP_PROC_UID_EUID) + (1 << GLIBTOP_PROC_UID_UID) +
-(1 << GLIBTOP_PROC_UID_EGID) + (1 << GLIBTOP_PROC_UID_GID) +
-(1 << GLIBTOP_PROC_UID_PID) + (1 << GLIBTOP_PROC_UID_PPID) +
-(1 << GLIBTOP_PROC_UID_PGRP) + (1 << GLIBTOP_PROC_UID_SESSION) +
-(1 << GLIBTOP_PROC_UID_TTY);
+static const unsigned long _glibtop_sysdeps_proc_uid_psinfo =
+(1L << GLIBTOP_PROC_UID_EUID) + (1L << GLIBTOP_PROC_UID_UID) +
+(1L << GLIBTOP_PROC_UID_EGID) + (1L << GLIBTOP_PROC_UID_GID) +
+(1L << GLIBTOP_PROC_UID_PID) + (1L << GLIBTOP_PROC_UID_PPID) +
+(1L << GLIBTOP_PROC_UID_PGRP) + (1L << GLIBTOP_PROC_UID_SESSION) +
+(1L << GLIBTOP_PROC_UID_TTY) + (1L << GLIBTOP_PROC_UID_PRIORITY) +
+(1L << GLIBTOP_PROC_UID_NICE);
+static const unsigned long _glibtop_sysdeps_proc_uid_prcred =
+(1L << GLIBTOP_PROC_UID_SUID) + (1L << GLIBTOP_PROC_UID_SGID) +
+(1L << GLIBTOP_PROC_UID_NGROUPS) + (1L << GLIBTOP_PROC_UID_GROUPS);
 
 /* Init function. */
 
 void
 glibtop_init_proc_uid_s (glibtop *server)
 {
-	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
+	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid_psinfo +
+	   			   _glibtop_sysdeps_proc_uid_prcred;
 }
 
 /* Provides detailed information about a process. */
@@ -47,6 +52,7 @@ void
 glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 {
 	struct psinfo psinfo;
+	struct prcred prcred;
 
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 
@@ -65,5 +71,28 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	buf->session = psinfo.pr_sid;
 	buf->tty = psinfo.pr_ttydev;
 
-	buf->flags = _glibtop_sysdeps_proc_uid;
+	buf->priority = psinfo.pr_lwp.pr_pri;
+	buf->nice = psinfo.pr_lwp.pr_nice;
+
+	buf->flags = _glibtop_sysdeps_proc_uid_psinfo;
+
+	if(glibtop_get_proc_credentials_s(server, &prcred, pid))
+		return;
+
+	buf->suid = prcred.pr_suid;
+	buf->sgid = prcred.pr_sgid;
+	buf->ngroups = (prcred.pr_ngroups <= GLIBTOP_MAX_GROUPS) ?
+	   		prcred.pr_ngroups : GLIBTOP_MAX_GROUPS;
+
+	if(sizeof(int) == sizeof(gid_t))
+	   	memcpy(buf->groups, prcred.pr_groups,
+		       buf->ngroups * sizeof(gid_t));
+	else
+	{
+	   	int i;
+
+		for(i = 0; i < buf->ngroups; ++i)
+		   	buf->groups[i] = prcred.pr_groups[i];
+	}
+	buf->flags += _glibtop_sysdeps_proc_uid_prcred;
 }

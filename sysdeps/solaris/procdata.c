@@ -71,3 +71,26 @@ glibtop_get_proc_data_usage_s (glibtop *server, struct prusage *prusage, pid_t p
 	close (fd);
 	return 0;
 }
+
+int
+glibtop_get_proc_credentials_s(glibtop *server, struct prcred *prcred, pid_t pid)
+{
+	int fd;
+	char buffer[BUFSIZ];
+
+	sprintf(buffer, "/proc/%d/prcred", (int)pid);
+	if((fd = open(buffer, O_RDONLY)) < 0)
+	{
+	   	if(errno != EPERM)
+		   	glibtop_warn_io_r(server, "open (%s)", buffer);
+		return -1;
+	}
+	if(pread(fd, prcred, sizeof(struct prcred), 0) != sizeof(struct prcred))
+	{
+	   	close(fd);
+		glibtop_warn_io_r(server, "read (%s)", buffer);
+		return -1;
+	}
+	close(fd);
+	return 0;
+}

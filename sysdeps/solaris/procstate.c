@@ -27,8 +27,11 @@
 #include <glibtop_private.h>
 
 static const unsigned long _glibtop_sysdeps_proc_state =
-(1 << GLIBTOP_PROC_STATE_UID) + (1 << GLIBTOP_PROC_STATE_GID) +
-(1 << GLIBTOP_PROC_STATE_CMD);
+(1L << GLIBTOP_PROC_STATE_CMD) + (1L << GLIBTOP_PROC_STATE_STATE) +
+(1L << GLIBTOP_PROC_STATE_UID) + (1L << GLIBTOP_PROC_STATE_GID) +
+(1L << GLIBTOP_PROC_STATE_RUID) + (1L << GLIBTOP_PROC_STATE_RGID) +
+(1L << GLIBTOP_PROC_STATE_HAS_CPU) + (1L << GLIBTOP_PROC_STATE_PROCESSOR) +
+(1L << GLIBTOP_PROC_STATE_LAST_PROCESSOR);
 
 /* Init function. */
 
@@ -50,8 +53,25 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	if (glibtop_get_proc_data_psinfo_s (server, &psinfo, pid))
 		return;
 
-	buf->uid = psinfo.pr_uid;
-	buf->gid = psinfo.pr_gid;
+	buf->uid = psinfo.pr_euid;
+	buf->gid = psinfo.pr_egid;
+	buf->ruid = psinfo.pr_uid;
+	buf->rgid = psinfo.pr_gid;
+	switch(psinfo.pr_lwp.pr_state)
+	{
+	    case SONPROC: buf->has_cpu = 1;
+			  buf->processor = psinfo.pr_lwp.pr_onpro;
+	    case SRUN:    buf->state = GLIBTOP_PROCESS_RUNNING;
+			  break;
+	    case SZOMB:   buf->state = GLIBTOP_PROCESS_ZOMBIE;
+			  break;
+	    case SSLEEP:
+	    case SSTOP:   buf->state = GLIBTOP_PROCESS_STOPPED;
+			  break;
+	    case SIDL:    buf->state = GLIBTOP_PROCESS_UNINTERRUPTIBLE;
+	}
+	buf->last_processor = psinfo.pr_lwp.pr_onpro;
+
 
 	strncpy (buf->cmd, psinfo.pr_fname, 39);
 
