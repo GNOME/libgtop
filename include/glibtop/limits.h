@@ -30,8 +30,8 @@
 
 BEGIN_LIBGTOP_DECLS
 
-/* Nobody should really be using more than 256 processors. */
-#define GLIBTOP_NCPU		256
+/* Nobody should really be using more than 64 processors. */
+#define GLIBTOP_NCPU		64
 
 END_LIBGTOP_DECLS
 

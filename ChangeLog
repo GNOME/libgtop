@@ -10,7 +10,7 @@
 1999-04-18  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/limits.h: New file.
-	(GLIBTOP_NCPU): Define this here and increase it to 256.
+	(GLIBTOP_NCPU): Define this here and increase it to 64.
 
 1999-03-30  Martin Baulig  <martin@home-of-linux.org>
 
