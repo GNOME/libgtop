@@ -56,18 +56,19 @@ struct _glibtop_cpu
         nice,
         sys,
         idle,
+        iowait,
+        irq,
+        softirq,
         frequency,
         xcpu_total [GLIBTOP_NCPU],
         xcpu_user [GLIBTOP_NCPU],
         xcpu_nice [GLIBTOP_NCPU],
         xcpu_sys  [GLIBTOP_NCPU],
-@ifset LIBGTOP-1-1
         xcpu_idle [GLIBTOP_NCPU],
+        xcpu_iowait [GLIBTOP_NCPU],
+        xcpu_irq [GLIBTOP_NCPU],
+        xcpu_softirq [GLIBTOP_NCPU],
         xcpu_flags;
-@end ifset
-@ifclear LIBGTOP-1-1
-        xcpu_idle [GLIBTOP_NCPU];
-@end ifclear
 @};
 @end cartouche
 @end example
@@ -92,25 +93,33 @@ Number of clock ticks the system spent in system mode.
 @item idle
 Number of clock ticks the system spent in the idle task.
 
+@item iowait
+Number of clock ticks the system spent waiting for I/O to complete.
+
+@item irq
+Number of clock ticks the system spent servicing interrupts.
+
+@item softirq
+Number of clock ticks the system spent servicing softirqs.
+
 @item frequency
 Tick frequency (default is 100).
 
 @end table
 
 The @samp{xcpu_} values are for SMP systems - they are the same than
-@code{total}, @code{user}, @code{nice}, @code{sys} and @code{idle}
+@code{total}, @code{user}, @code{nice}, @code{sys}, @code{idle},
+@code{iowait}, @code{irq} and @code{softirq}
 except that they are arrays of @code{GLIBTOP_NCPU} (defined in
 @file{<glibtop/limits.h>}) elements and contain one value for each CPU
 in the system.
 
-@ifset LIBGTOP-1-1
 @table @code
 @item xcpu_flags
 This is interpreted as a bit-field: on systems like Solaris, not all CPUs
 need to be running all the time, so we set the corresponding bit for each
 CPU that is currently running.
 @end table
-@end ifset
 
 Please note that all of the cpu values are absolute values measured in
 certain units (to get seconds, divide them by @code{frequency}) since system
@@ -1051,16 +1060,7 @@ struct _glibtop_proc_segment
         dirty_size,
         start_code,
         end_code,
-        start_data,
-        end_data,
-        start_brk,
-        end_brk,
-        start_stack,
-        start_mmap,
-        arg_start,
-        arg_end,
-        env_start,
-        env_end;
+        start_stack;
 @};
 @end cartouche
 @end example
