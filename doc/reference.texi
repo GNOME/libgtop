@@ -192,12 +192,12 @@ Declaration of @code{glibtop_uptime} in @file{<glibtop/uptime.h}:
 typedef struct _glibtop_uptime  glibtop_uptime;
 
 struct _glibtop_uptime
-{
+@{
     u_int64_t flags;
     double uptime,
         idletime;
     u_int64_t boot_time;
-};
+@};
 @end cartouche
 @end example
 
@@ -234,13 +234,13 @@ Declaration of @code{glibtop_loadavg} in @file{<glibtop/loadavg.h}:
 typedef struct _glibtop_loadavg glibtop_loadavg;
 
 struct _glibtop_loadavg
-{
+@{
     u_int64_t flags;
     double loadavg [3];
     u_int64_t nr_running,
         nr_tasks,
         last_pid;
-};
+@};
 @end cartouche
 @end example
 
