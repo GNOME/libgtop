@@ -28,7 +28,7 @@
 #include <gdbm.h>
 
 #ifndef SYSTEM_INODEDB
-#define SYSTEM_INODEDB "/home/baulig/INSTALL/var/libgtop/inode.db"
+#define SYSTEM_INODEDB "/usr/var/libgtop/inodedb.db"
 #endif
 
 glibtop_inodedb *
@@ -59,7 +59,7 @@ glibtop_inodedb_open_s (glibtop *server, unsigned databases,
 	pwd = getpwuid (getuid ());
 	if (!pwd) glibtop_error_io_r (server, "getpwuid");
 	
-	sprintf (filename, "%s/var/libgtop/inode.db", pwd->pw_dir);
+	sprintf (filename, "%s/var/libgtop/inodedb.db", pwd->pw_dir);
 	
 	if (stat (filename, &statb))
 		databases &= ~GLIBTOP_INODEDB_USER;
