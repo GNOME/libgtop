@@ -63,8 +63,7 @@ make prefix=$RPM_BUILD_ROOT%{prefix} install
 %files
 %defattr(-, root, root)
 
-%doc ANNOUNCE AUTHORS ChangeLog NEWS README README.LATEST copyright.txt
-%docdir doc
+%doc ANNOUNCE AUTHORS ChangeLog NEWS README README.LATEST copyright.txt doc
 %{prefix}/bin/*
 %{prefix}/lib/lib*.so.*
 %{prefix}/lib/libgtop/*
