@@ -53,48 +53,48 @@ glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf)
 	/* Call all system dependent functions to check which values
 	 * they return. */
 
-	glibtop_get_cpu_r (server, &data.cpu);
+	glibtop_get_cpu_l (server, &data.cpu);
 	buf->cpu = data.cpu.flags;
 
-	glibtop_get_mem_r (server, &data.mem);
+	glibtop_get_mem_l (server, &data.mem);
 	buf->mem = data.mem.flags;
 	
-	glibtop_get_swap_r (server, &data.swap);
+	glibtop_get_swap_l (server, &data.swap);
 	buf->swap = data.swap.flags;
 
-	glibtop_get_uptime_r (server, &data.uptime);
+	glibtop_get_uptime_l (server, &data.uptime);
 	buf->uptime = data.uptime.flags;
 
-	glibtop_get_loadavg_r (server, &data.loadavg);
+	glibtop_get_loadavg_l (server, &data.loadavg);
 	buf->loadavg = data.loadavg.flags;
 
-	glibtop_get_shm_limits_r (server, &data.shm_limits);
+	glibtop_get_shm_limits_l (server, &data.shm_limits);
 	buf->shm_limits = data.shm_limits.flags;
 
-	glibtop_get_msg_limits_r (server, &data.msg_limits);
+	glibtop_get_msg_limits_l (server, &data.msg_limits);
 	buf->msg_limits = data.msg_limits.flags;
 
-	glibtop_get_sem_limits_r (server, &data.sem_limits);
+	glibtop_get_sem_limits_l (server, &data.sem_limits);
 	buf->sem_limits = data.sem_limits.flags;
 
-	glibtop_get_proclist_r (server, &data.proclist);
+	glibtop_get_proclist_l (server, &data.proclist);
 	buf->proclist = data.proclist.flags;
 
-	glibtop_get_proc_state_r (server, &data.proc_state, 0);
+	glibtop_get_proc_state_l (server, &data.proc_state, 0);
 	buf->proc_state = data.proc_state.flags;
 
-	glibtop_get_proc_uid_r (server, &data.proc_uid, 0);
+	glibtop_get_proc_uid_l (server, &data.proc_uid, 0);
 	buf->proc_uid = data.proc_uid.flags;
 
-	glibtop_get_proc_mem_r (server, &data.proc_mem, 0);
+	glibtop_get_proc_mem_l (server, &data.proc_mem, 0);
 	buf->proc_mem = data.proc_mem.flags;
 
-	glibtop_get_proc_time_r (server, &data.proc_time, 0);
+	glibtop_get_proc_time_l (server, &data.proc_time, 0);
 	buf->proc_time = data.proc_time.flags;
 
-	glibtop_get_proc_kernel_r (server, &data.proc_kernel, 0);
+	glibtop_get_proc_kernel_l (server, &data.proc_kernel, 0);
 	buf->proc_kernel = data.proc_kernel.flags;
 
-	glibtop_get_proc_segment_r (server, &data.proc_segment, 0);
+	glibtop_get_proc_segment_l (server, &data.proc_segment, 0);
 	buf->proc_segment = data.proc_segment.flags;
 }

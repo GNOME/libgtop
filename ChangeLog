@@ -1,5 +1,10 @@
 1998-07-17  Martin Baulig  <baulig@Stud.Informatik.uni-trier.de>
 
+	* sysdeps/common/sysdeps.c (glibtop_get_sysdeps_r): Using
+	library functions with '_l' prefix instead of directly calling
+	sysdeps code with '_r' prefix. This is necessary for client/server
+	mode.
+	
 	* lib/lib.awk (glibtop_get_*): Now correctly using
 	`(1 << GLIBTOP_SYSDEPS_*)' instead of `GLIBTOP_SYSDEPS_*'.
 	
