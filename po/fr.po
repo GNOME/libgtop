@@ -1,16 +1,16 @@
-# libgtop fr.po
-# Copyright (C) 1998-2001 Free Software Foundation, Inc.
+# French translation of libgtop.
+# Copyright (C) 1998-2002 Free Software Foundation, Inc.
 # Vincent Renardias <vincent@ldsol.com>, 1998-1999.
 # Fabrice Bellet <Fabrice.Bellet@imag.fr>, 1999.
-# Christophe Merlet (RedFox) <redfox@eikonex.org>, 2000-2001.
+# Christophe Merlet (RedFox) <redfox@redfoxcenter.org>, 2000-2002.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 1.0.10\n"
-"POT-Creation-Date: 2001-02-13 13:30+0100\n"
-"PO-Revision-Date: 2001-02-10 11:33+0100\n"
-"Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
-"Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"
+"Project-Id-Version: libgtop 1.0.13\n"
+"POT-Creation-Date: 2002-12-14 12:44+0100\n"
+"PO-Revision-Date: 2002-12-14 12:44+0100\n"
+"Last-Translator: Christophe Merlet (RedFox) <redfox@redfoxcenter.org>\n"
+"Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,7 +18,7 @@ msgstr ""
 #: examples/smp.c:68
 #, c-format
 msgid "Ticks (%ld per second):"
-msgstr "Ticks (%ld par seconde) :"
+msgstr "Ticks (%ld par seconde) :"
 
 #: examples/smp.c:71
 msgid "Total"
@@ -46,17 +46,17 @@ msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 msgstr ""
-"CPU          (0x%08lx) : %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"CPU          (0x%08lx) : %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
 #: examples/smp.c:77
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr "CPU %3d      (0x%08lx) : %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "CPU %3d      (0x%08lx) : %12lu %12lu %12lu %12lu %12lu\n"
 
 #: examples/smp.c:94
 msgid "Percent:"
-msgstr "Pourcentage :"
+msgstr "Pourcentage :"
 
 #: examples/smp.c:95
 msgid "Total (%)"
@@ -84,17 +84,17 @@ msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 msgstr ""
-"CPU          (0x%08lx) : %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"CPU          (0x%08lx) : %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
 #: examples/smp.c:114
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr "CPU %3d      (0x%08lx) : %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU %3d      (0x%08lx) : %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:120
 msgid "Spin:"
-msgstr "Spin :"
+msgstr "Spin :"
 
 #: lib/read.c:75
 #, c-format
@@ -154,7 +154,7 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Erreur sur l'option %s: %s.\n"
-"Executer « %s --help » pour avoir la liste des options de la ligne de "
+"Executer « %s --help » pour avoir la liste des options de la ligne de "
 "commande.\n"
 
 #: support/error.c:109
@@ -164,61 +164,61 @@ msgstr "Erreur système inconnue"
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s : l'option « %s » est ambigüe\n"
+msgstr "%s : l'option « %s » est ambigüe\n"
 
 #: support/getopt.c:693
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s : l'option « --%s » ne supporte pas d'arguments\n"
+msgstr "%s : l'option « --%s » ne supporte pas d'arguments\n"
 
 #: support/getopt.c:698
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s : l'option « %c%s » ne supporte pas d'arguments\n"
+msgstr "%s : l'option « %c%s » ne supporte pas d'arguments\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s : l'option « %s » nécessite un argument\n"
+msgstr "%s : l'option « %s » nécessite un argument\n"
 
 #. --option
 #: support/getopt.c:744
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s : option inconnue « --%s »\n"
+msgstr "%s : option inconnue « --%s »\n"
 
 #. +option or -option
 #: support/getopt.c:748
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s : option inconnue « %c%s »\n"
+msgstr "%s : option inconnue « %c%s »\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s : option illégale -- %c\n"
+msgstr "%s : option illégale -- %c\n"
 
 #: support/getopt.c:777
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s : option non valide -- %c\n"
+msgstr "%s : option non valide -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s : l'option nécessite un argument -- %c\n"
+msgstr "%s : l'option nécessite un argument -- %c\n"
 
 #: support/getopt.c:854
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s : l'option « -W %s » is ambigüe\n"
+msgstr "%s : l'option « -W %s » is ambigüe\n"
 
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s : l'option « -W %s » ne supporte pas d'arguments\n"
+msgstr "%s : l'option « -W %s » ne supporte pas d'arguments\n"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
@@ -653,7 +653,7 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Il s'agit du « canal » dans lequel le processus est en attente, constitué "
+"Il s'agit du « canal » dans lequel le processus est en attente, constitué "
 "par l'adresse d'un appel système dans lequel le processus est bloqué. La "
 "correspondance entre l'adresse et le nom de l'appel système est disponible "
 "si le fichier /etc/psdatabase est à jour par rapport à la version du noyau "
@@ -1032,7 +1032,7 @@ msgstr "Priorité de séquencement noyau"
 
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
-msgstr "Niveau de « nice » (standard unix) du processus"
+msgstr "Niveau de « nice » (standard unix) du processus"
 
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 msgid "Number of entries in semaphore map"
@@ -1378,7 +1378,7 @@ msgstr "Signal utilisateur 2"
 #~ msgstr "Instruction EMT"
 
 #~ msgid "Kill, unblockable (POSIX)"
-#~ msgstr "Signal « Kill », non blocable (POSIX)"
+#~ msgstr "Signal « Kill », non blocable (POSIX)"
 
 #~ msgid "BUS error (4.2 BSD)"
 #~ msgstr "Erreur de Bus (BSD 4.2)"

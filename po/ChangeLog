@@ -1,3 +1,7 @@
+2002-12-14  Christophe Merlet  <redfox@redfoxcenter.org>
+
+	* fr.po: Updated French translation.
+
 2002-02-09  Abel Cheung  <maddog@linux.org.hk>
 
 	* zh_TW.po: Updated traditional Chinese translation.
@@ -88,7 +92,7 @@
 	* fi.po: Reverted Jarkko Ranta's change; please do
 	not commit any compressed files in future.
 
-2001-02-10  Christophe Merlet  <redfox@eikonex.org>
+2001-02-10  Christophe Merlet  <christophe@merlet.net>
 
 	* fr.po: Updated French translation.
 
@@ -104,7 +108,7 @@
 
 	* ru.po: Updated russian translation.
 
-2001-02-05  Christophe Merlet  <redfox@eikonex.org>
+2001-02-05  Christophe Merlet  <christophe@merlet.net>
 
 	* fr.po: Updated French translation.
 
