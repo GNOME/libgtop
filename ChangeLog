@@ -1,5 +1,16 @@
 2000-02-27  Martin Baulig  <martin@home-of-linux.org>
 
+	* dtd/: New directory.
+	* dtd/libgtop-backend-info.dtd: This is a XML DTD for "backend info"
+	XML files. In future, each backend will have such a xml file which
+	contains information like a short description of the backend, its
+	authors etc.
+
+	* sysdeps/linux/backend-info.xml: New file. First version of such
+	a "backend info" XML file as described above.
+
+2000-02-27  Martin Baulig  <martin@home-of-linux.org>
+
 	* libgtop-sysdeps.m4 (libgtop_have_sysdeps): Set this to "no" for
 	all systems until I made up my mind how this'll work in future.
 
