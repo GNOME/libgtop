@@ -1181,7 +1181,108 @@ Constants for the @code{perm} member:
 @node glibtop_netload, glibtop_ppp, glibtop_proc_map, System Dependent
 @subsection Network Load
 
-[Not yet written.]
+Library function @code{glibtop_get_netload}:
+
+@example
+@cartouche
+void
+glibtop_get_netload (glibtop_netload *buf, const char *interface);
+
+void
+glibtop_get_netload_l (glibtop *server, glibtop_netload *buf,
+                       const char *interface);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_netload} in @file{<glibtop/netload.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_netload glibtop_netload;
+
+struct _glibtop_netload
+@{
+    u_int64_t   flags,
+        if_flags,
+        mtu,
+        subnet,
+        address,
+        packets_in,
+        packets_out,
+        packets_total,
+        bytes_in,
+        bytes_out,
+        bytes_total,
+        errors_in,
+        errors_out,
+        errors_total,
+        collisions;
+@};
+@end cartouche
+@end example
+
+Returns network statistics for interface @code{interface} (which is the same
+than in @code{ifconfig}).
+
+@table @code
+@item if_flags
+Interface flags. See the contants defined below.
+@item mtu
+Maximum Transfer Unit (MTU)
+@item subnet
+Subnet Address
+@item address
+Interface Address
+@item packets_in
+Total number of incoming packets
+@item packets_out
+Total number of outgoing packets
+@item packets_total
+Total number of packets
+@item bytes_in
+Total number of incoming bytes
+@item bytes_out
+Total number of outgoing bytes
+@item bytes_total
+Total number of bytes
+@item errors_in
+Total number of errors in incoming direction
+@item errors_out
+Total number of errors in outgoing direction
+@item errors_total
+Total number of errors
+@item collisions
+Total number of collisions
+@end table
+
+Please note that not all operating systems distinguish between incoming/outgoing
+bytes/packets/errors - in this case only the @samp{_total} fields are valid.
+Otherwise, they're just @samp{_in} plus @samp{_out}.
+
+Constants for @code{if_flags}:
+
+@example
+@cartouche
+enum @{
+    GLIBTOP_IF_FLAGS_UP = 1,
+    GLIBTOP_IF_FLAGS_BROADCAST,
+    GLIBTOP_IF_FLAGS_DEBUG,
+    GLIBTOP_IF_FLAGS_LOOPBACK,
+    GLIBTOP_IF_FLAGS_POINTOPOINT,
+    GLIBTOP_IF_FLAGS_RUNNING,
+    GLIBTOP_IF_FLAGS_NOARP,
+    GLIBTOP_IF_FLAGS_PROMISC,
+    GLIBTOP_IF_FLAGS_ALLMULTI,
+    GLIBTOP_IF_FLAGS_OACTIVE,
+    GLIBTOP_IF_FLAGS_SIMPLEX,
+    GLIBTOP_IF_FLAGS_LINK0,
+    GLIBTOP_IF_FLAGS_LINK1,
+    GLIBTOP_IF_FLAGS_LINK2,
+    GLIBTOP_IF_FLAGS_ALTPHYS,
+    GLIBTOP_IF_FLAGS_MULTICAST
+@};
+@end cartouche
+@end example
 
 @page
 @node glibtop_ppp,  , glibtop_netload, System Dependent
