@@ -1,5 +1,7 @@
 1999-12-25  Martin Baulig  <martin@home-of-linux.org>
 
+	* safeio.h: Removed. This is now included in <glibtop-private.h>.
+
 	* netinfo.c: New file.
 
 	* glibtop_private.h: Added function prototypes for everything

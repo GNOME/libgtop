@@ -27,7 +27,7 @@
 
 #include <errno.h>
 
-#include "safeio.h"
+#include <glibtop-private.h>
 
 /*
  * The differences between old and new procfs API are:
