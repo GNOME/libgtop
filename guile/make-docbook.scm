@@ -53,11 +53,16 @@
 		    description "\n"
 		    "</literallayout>\n</blockquote>\n\n")
 	    )
-
+	   
 	   (definition-start-string
 	     (string "<para>Automatically generated declaration of "
 		     "<structname>_glibtop_" feature "</structname>:\n\n")
 	     )
+
+	   (param-description-start-string
+	    (string "<para>Automatically generated descriptions of "
+		    "<structname>_glibtop_" feature "</structname>:\n\n")
+	    )
 
 	   (funcsynopsisinfo-string
 	    (string "<funcsynopsisinfo>\n"
@@ -133,7 +138,7 @@
 				  )
 			   (comment (string (if (= pos 1) "" "\t") "/* "
 					    (tab-pad-string
-					     (field-name-constant name (car x)) 3)
+					     (field-name-constant name (car x)) 4)
 					    " */"))
 			   (field (tab-pad-string
 				   (string-append (string (car x)) sep) 2))
@@ -217,8 +222,39 @@
 		)
 	      )
 	    )
-	   )
 
+	   (make-param-description
+	    (lambda ()
+	      (let* ((label-list labels)
+		     (description-list descriptions)
+		     (output (string))
+		     )
+		(for-each
+		 (lambda (name)
+		   (let* ((label (car label-list))
+			  (description (car description-list))
+			  )
+		     (set! label-list (cdr label-list))
+		     (set! description-list (cdr description-list))
+		     (set! output
+			   (string-append output 
+					  (string "<varlistentry>\n"
+						  "<term><parameter>"
+						  name
+						  "</parameter></term>\n\n"
+						  "<listitem>\n<para>\n"
+						  description "\n\n")
+					  )
+			   )
+		     )
+		   )
+		 names)
+		output)
+	      )
+	    )
+	   
+	   )
+      
       (set! decl-list (assoc-set! decl-list "name" name))
       (set! decl-list (assoc-set! decl-list "label" label))
       (set! decl-list (assoc-set! decl-list "fields" (init-field-list)))
@@ -239,6 +275,10 @@
 		     (string "<blockquote>\n<literallayout>\n")
 		     (make-struct decl-list)
 		     (string "</literallayout>\n</blockquote>\n")
+		     param-description-start-string
+		     "<variablelist>\n\n"
+		     (make-param-description)
+		     "</variablelist>\n\n"
 		     )
       )
     )
