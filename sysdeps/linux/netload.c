@@ -27,13 +27,8 @@
 #include <sys/socket.h>
 #include <sys/ioctl.h>
 
-#include <netinet/in.h>
-
-#include <linux/netdevice.h>
-#include <linux/ip_fw.h>
-
-#include <linux/if.h>
-#include <linux/if_ether.h>
+#include <net/if.h>
+#include <netinet/ip_fw.h>
 
 static const unsigned long _glibtop_sysdeps_netload = 
 (1 << GLIBTOP_NETLOAD_ERRORS_IN) +
