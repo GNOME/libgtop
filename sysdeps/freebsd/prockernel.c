@@ -152,7 +152,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 			 * FreeBSD 3.0 at the moment.
 			 */
 
-#elsif (defined __FreeBSD__)
+#elif (defined __FreeBSD__)
 			buf->kstk_esp = (u_int64_t) pcb.pcb_ksp;
 			buf->kstk_eip = (u_int64_t) pcb.pcb_pc;
 			

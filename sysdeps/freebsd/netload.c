@@ -116,7 +116,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 
 #if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
 	    ifaddraddr = (u_long) ifnet.if_addrhead.tqh_first;
-#elsif (defined __FreeBSD__)
+#elif (defined __FreeBSD__)
 	    ifaddraddr = (u_long) ifnet.if_addrlist;
 #else
 	    ifaddraddr = (u_long) ifnet.if_addrlist.tqh_first;
@@ -194,7 +194,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 
 #if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
 	    ifaddraddr = (u_long)ifaddr.ifa.ifa_link.tqe_next;
-#elsif (defined __FreeBSD__)
+#elif (defined __FreeBSD__)
 	    ifaddraddr = (u_long)ifaddr.ifa.ifa_next;
 #else
 	    ifaddraddr = (u_long)ifaddr.ifa.ifa_list.tqe_next;
@@ -203,7 +203,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	
 #if (defined __FreeBSD__) && (__FreeBSD_version >= 300000)
 	ifnetaddr = (u_long) ifnet.if_link.tqe_next;
-#elsif (defined __FreeBSD__)
+#elif (defined __FreeBSD__)
 	ifnetaddr = (u_long) ifnet.if_next;
 #else
 	ifnetaddr = (u_long) ifnet.if_list.tqe_next;
