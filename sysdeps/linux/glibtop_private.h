@@ -67,17 +67,17 @@ skip_line (const char *p)
 }
 
 
-unsigned long long
+unsigned long long G_GNUC_INTERNAL
 get_scaled(const char *buffer, const char *key);
 
 
 /* aborts on error */
-void
+void G_GNUC_INTERNAL
 file_to_buffer(glibtop *server, char *buffer, const char *filename);
 
 /* return < 0 on error, otherwise 0 on success */
-int
-try_file_to_buffer(char *buffer, const char *format, ...);
+int G_GNUC_INTERNAL
+try_file_to_buffer(char *buffer, const char *format, ...) G_GNUC_PRINTF(2, 3);
 
 
 /* some inline functions that wrap proc path

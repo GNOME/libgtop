@@ -13,9 +13,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-void _glibtop_linux_get_fsusage_read_write(glibtop *server,
-					   glibtop_fsusage *buf,
-					   const char *path);
+void
+G_GNUC_INTERNAL
+_glibtop_linux_get_fsusage_read_write(glibtop *server,
+				      glibtop_fsusage *buf,
+				      const char *path);
 
 /*
  * Linux 2.6.x
@@ -92,9 +94,10 @@ static void linux_2_4_0(glibtop *server, glibtop_fsusage *buf, const char *path)
 }
 
 
-void _glibtop_linux_get_fsusage_read_write(glibtop *server,
-					   glibtop_fsusage *buf,
-					   const char *path)
+void G_GNUC_INTERNAL
+_glibtop_linux_get_fsusage_read_write(glibtop *server,
+				      glibtop_fsusage *buf,
+				      const char *path)
 {
   if(server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
     {

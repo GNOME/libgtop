@@ -1,3 +1,8 @@
+2004-12-23  Benoît Dejean  <tazforever@dlfp.org>
+
+	* fsusage.c: (_glibtop_linux_get_fsusage_read_write):
+	* glibtop_private.h: Marked private functions G_GNUC_INTERNAL.
+
 2004-11-30  Benoît Dejean  <tazforever@dlfp.org>
 
 	* proclist.c: (glibtop_get_proclist_s): Glibified. g_array_free which
