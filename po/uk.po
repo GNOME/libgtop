@@ -5,13 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-11 03:27+0100\n"
+"POT-Creation-Date: 2004-03-15 12:17+0200\n"
 "PO-Revision-Date: 2003-03-06 10:18--500\n"
 "Last-Translator: Yuriy Syrota <yuri@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: examples/smp.c:74
 #, c-format
@@ -95,29 +97,32 @@ msgid "Spin:"
 msgstr "Спін:"
 
 #: lib/read.c:78
-#, fuzzy, c-format
+#, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "зчитування %d байтів"
-msgstr[1] "зчитування %d байтів"
+msgstr[0] "зчитано %d байт"
+msgstr[1] "зчитано %d байти"
+msgstr[2] "зчитано %d байтів"
 
 #: lib/read_data.c:51
 msgid "read data size"
 msgstr "зчитування блоку даних"
 
 #: lib/read_data.c:68
-#, fuzzy, c-format
+#, c-format
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
-msgstr[0] "зчитування %d байтів даних"
-msgstr[1] "зчитування %d байтів даних"
+msgstr[0] "зчитано %d байт даних"
+msgstr[1] "зчитано %d байти даних"
+msgstr[2] "зчитано %d байтів даних"
 
 #: lib/write.c:51
-#, fuzzy, c-format
+#, c-format
 msgid "write %d byte"
 msgid_plural "write %d bytes"
-msgstr[0] "запис %d байтів"
-msgstr[1] "запис %d байтів"
+msgstr[0] "записано %d байт"
+msgstr[1] "записано %d байти"
+msgstr[2] "записано %d байтів"
 
 #: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
@@ -206,7 +211,7 @@ msgstr "SMP-час простою ЦП"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "Прапори процесорів"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks since system boot"
@@ -237,7 +242,7 @@ msgstr "Частота тактів (типово - 100)"
 
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
-msgstr ""
+msgstr "Двійкове поле, що показує який процесор зараз працює"
 
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
 msgid "Total blocks"
@@ -775,26 +780,24 @@ msgid "GID"
 msgstr "GID"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RGid"
-msgstr "GID"
+msgstr "RGID"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RUid"
-msgstr "UID"
+msgstr "RUID"
 
 #: sysdeps/names/procstate.c:44
 msgid "HasCPU"
-msgstr ""
+msgstr "МаєЦП"
 
 #: sysdeps/names/procstate.c:44
 msgid "Proc"
-msgstr ""
+msgstr "Proc"
 
 #: sysdeps/names/procstate.c:44
 msgid "LProc"
-msgstr ""
+msgstr "LProc"
 
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
@@ -813,27 +816,24 @@ msgid "GID of process"
 msgstr "GID процесу"
 
 #: sysdeps/names/procstate.c:53
-#, fuzzy
 msgid "Real UID of process"
-msgstr "UID процесу"
+msgstr "Справжній ідентифікатор користувача процесу"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "Real GID of process"
-msgstr "GID процесу"
+msgstr "Справжній ідентифікатор групи процесу"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
-msgstr ""
+msgstr "Наявність процесора"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "Processor"
-msgstr "Ідентифікатор процесу"
+msgstr "Процесор"
 
 #: sysdeps/names/procstate.c:57
 msgid "Last Processor"
-msgstr ""
+msgstr "Останній процесор"
 
 #: sysdeps/names/proctime.c:45
 msgid "Start_Time"
@@ -948,24 +948,20 @@ msgid "EGid"
 msgstr "EGID"
 
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "UID"
+msgstr "SUID"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "GID"
+msgstr "SGID"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSUid"
-msgstr "UID"
+msgstr "FSUID"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSGid"
-msgstr "GID"
+msgstr "FSGID"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
@@ -996,14 +992,12 @@ msgid "Priority"
 msgstr "Пріоритет"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "Ідентифікатор групи"
+msgstr "NGroups"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "Groups"
-msgstr "Ідентифікатор групи"
+msgstr "Групи"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
@@ -1022,24 +1016,20 @@ msgid "Effective Group ID"
 msgstr "Чинний ідентифікатор групи"
 
 #: sysdeps/names/procuid.c:60
-#, fuzzy
 msgid "Set User ID"
-msgstr "Ідентифікатор користувача"
+msgstr "Встановити ідентифікатор користувача"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Set Group ID"
-msgstr "Ідентифікатор групи"
+msgstr "Встановити ідентифікатор групи"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Використання файлової системи"
+msgstr "Ідентифікатор користувача файлової системи"
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "Чинний ідентифікатор групи"
+msgstr "Ідентифікатор групи файлової системи"
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
@@ -1074,14 +1064,12 @@ msgid "Standard unix nice level of process"
 msgstr "Стандартний рівень UNIX Nice для процесів"
 
 #: sysdeps/names/procuid.c:72
-#, fuzzy
 msgid "Number of additional process groups"
-msgstr "Ідентифікатор групи термінального процесу"
+msgstr "Кількість додаткових груп процесів"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Array of additional process groups"
-msgstr "Ідентифікатор групи термінального процесу"
+msgstr "Масив додаткових груп процесів"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
@@ -1280,9 +1268,8 @@ msgid "Idletime"
 msgstr "Час простою"
 
 #: sysdeps/names/uptime.c:41
-#, fuzzy
 msgid "BootTime"
-msgstr "Дійс.час"
+msgstr "ЧасРоботи"
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
@@ -1293,9 +1280,8 @@ msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "Час в секундах проведений системою в очікуванні з часу завантаження"
 
 #: sysdeps/names/uptime.c:48
-#, fuzzy
 msgid "Time of last system boot in seconds since the epoch"
-msgstr "Час запуску процесу в секундах від початку Епохи"
+msgstr "Час останнього запуску системи в секундах від початку Епохи"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1420,45 +1406,3 @@ msgstr "Визначений користувачем сигнал 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Визначений користувачем сигнал 2"
-
-#~ msgid "Unknown system error"
-#~ msgstr "Невідома системна помилка"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: параметр \"%s\" - неоднозначний\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: параметр \"--%s\" не може мати аргументів\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: параметр \"%c%s\" не може мати аргументів\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: параметру \"%s\" необхідний аргумент\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: не розпізнано параметр \"--%s\"\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: не розпізнано параметр \"%c%s\"\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: невірний параметр -- %c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: невірний параметр -- %c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: параметру необхідний аргумент -- %c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: параметр \"-W %s\" неоднозначний\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: параметр \"-W %s\" не може мати аргументів\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "Показати це довідкове повідомлення"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "Відобразити коротку інформацію про використання"
