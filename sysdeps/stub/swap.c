@@ -19,8 +19,18 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
 #include <glibtop/swap.h>
+
+static const unsigned long _glibtop_sysdeps_swap = 0;
+
+/* Init function. */
+
+void
+glibtop_init_swap_s (glibtop *server)
+{
+	server->sysdeps.swap = _glibtop_sysdeps_swap;
+}
 
 /* Provides information about swap usage. */
 

@@ -19,8 +19,18 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
 #include <glibtop/proctime.h>
+
+static const unsigned long _glibtop_sysdeps_proc_time = 0;
+
+/* Init function. */
+
+void
+glibtop_init_proc_time_s (glibtop *server)
+{
+	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
+}
 
 /* Provides detailed information about a process. */
 

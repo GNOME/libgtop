@@ -19,8 +19,18 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
 #include <glibtop/uptime.h>
+
+static const unsigned long _glibtop_sysdeps_uptime = 0;
+
+/* Init function. */
+
+void
+glibtop_init_uptime_s (glibtop *server)
+{
+	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+}
 
 /* Provides uptime and idle time. */
 

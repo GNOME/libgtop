@@ -19,10 +19,20 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
 #include <glibtop/proclist.h>
 
 #define GLIBTOP_PROCLIST_FLAGS	3
+
+static const unsigned long _glibtop_sysdeps_proclist = 0;
+
+/* Init function. */
+
+void
+glibtop_init_proclist_s (glibtop *server)
+{
+	server->sysdeps.proclist = _glibtop_sysdeps_proclist;
+}
 
 /* Fetch list of currently running processes.
  *
