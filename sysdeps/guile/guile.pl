@@ -173,7 +173,7 @@ sub make_output {
 	  (qq[, _LIBGTOP_TEMP_str%d], $temp_string_count);
       } else {
 	$call_param .= sprintf
-	  (qq[, %s (%s)], $typeinfo->{$type}->[1], $fields[$field]);
+	  (qq[, %s (%s)], $typeinfo->{$type}->[2], $fields[$field]);
       }
     }
   }
@@ -226,6 +226,9 @@ sub make_output {
   if ($retval eq 'retval') {
     $check_retval_code = sprintf
       (qq[\tif (retval < 0)\n\t\treturn SCM_BOOL_F;\n]);
+  } elsif ($retval =~ /^(array|pointer)\((.*)\)$/) {
+    $check_retval_code = sprintf
+      (qq[\tif (retval == NULL)\n\t\treturn SCM_BOOL_F;\n]);
   } else {
     $check_retval_code = '';
   }
@@ -265,7 +268,7 @@ sub make_output {
     } else {
       $make_array_code .= sprintf
 	(qq[\t\tscm_vector_set_x (smob_array, SCM_MAKINUM (i),\n\t\t\t\t  %s (retval [i]));\n],
-	 $typeinfo->{$array_type}->[0]);
+	 $typeinfo->{$array_type}->[1]);
     }
 
     $make_array_code .= "\t}\n\n";
