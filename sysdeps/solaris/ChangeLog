@@ -1,3 +1,8 @@
+1999-07-16  Drazen Kacar  <dave@srce.hr>
+
+	* proclist.c: Bug fix. All Solaris versions have RUID and
+	RGID in /proc.
+
 1999-06-07  Drazen Kacar  <dave@srce.hr>
 
 	* glibtop_machine.h, open.c, procargs.c, proclist.c, procmap.c:

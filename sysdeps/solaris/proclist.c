@@ -133,11 +133,12 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 
 #ifdef HAVE_PROCFS_H
 
-		/* Can we skip it based on the request? Solaris 2.6
-		   has ruid and rgid in struct stat. Solaris 7 has euid
-		   and egid. We'll ignore 2.6 for now */
+		/* Can we skip it based on the request? We have
+		   RUID and RGID in struct stat. But we can't do it
+		   like this for LP64 process, because stat() will fail.
+		   XXX Unimplemented for now */
 
-		if(!mask && which == GLIBTOP_KERN_PROC_UID)
+		if(!mask && which == GLIBTOP_KERN_PROC_RUID)
 		{
 		   sprintf (buffer, "/proc/%d", pid);
 		   if (s_stat (buffer, &statb)) continue;
