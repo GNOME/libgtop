@@ -32,6 +32,5 @@ libgtop_server_LDADD		= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_su
 EXTRA_DIST			= server_config.h.in server_config.pl
 
 install-exec-hook:
-	-if [ ! -z "@libgtop_postinstall@" ] ; then \
-		@libgtop_postinstall@ ; \
-	fi
+	-@libgtop_postinstall@
+

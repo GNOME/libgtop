@@ -1,3 +1,9 @@
+1998-10-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am (install-exec-hook): Always run `libgtop_postinstall',
+	it's `:' if there's nothing to do since the empty string is no
+	valid shell syntax here.
+
 1998-10-01  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am (install-exec-hook): Use `libgtop_postinstall'
