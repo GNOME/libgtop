@@ -30,12 +30,20 @@ static const unsigned long _glibtop_sysdeps_proc_time =
 (1 << GLIBTOP_PROC_TIME_TIMEOUT) + (1 << GLIBTOP_PROC_TIME_IT_REAL_VALUE) +
 (1 << GLIBTOP_PROC_TIME_START_TIME);
 
+static const unsigned long _glibtop_sysdeps_proc_time_smp =
+(1 << GLIBTOP_PROC_TIME_XCPU_UTIME) + (1 << GLIBTOP_PROC_TIME_XCPU_STIME);
+
 /* Init function. */
 
 void
 glibtop_init_proc_time_s (glibtop *server)
 {
+#if HAVE_LIBGTOP_SMP
+	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time |
+		_glibtop_sysdeps_proc_time_smp;
+#else
 	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
+#endif
 }
 
 /* Provides detailed information about a process. */
@@ -44,6 +52,7 @@ void
 glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 {
 	char buffer [BUFSIZ], *p;
+	int i;
 	
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_TIME, 0);
 
@@ -73,4 +82,24 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 	buf->frequency = 100;
 
 	buf->flags = _glibtop_sysdeps_proc_time;
+
+#if HAVE_LIBGTOP_SMP
+	if (proc_file_to_buffer (buffer, "/proc/%d/cpu", pid))
+		return;
+
+	p = skip_token (buffer);
+	buf->utime  = strtoul (p, &p, 0);
+	buf->stime  = strtoul (p, &p, 0);
+
+	for (i = 0; i < GLIBTOP_NCPU; i++) {
+		if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
+			break;
+
+		p += 6;
+		buf->xcpu_utime [i] = strtoul (p, &p, 0);
+		buf->xcpu_stime [i] = strtoul (p, &p, 0);
+	}
+
+	buf->flags |= _glibtop_sysdeps_proc_time_smp;
+#endif
 }
