@@ -5,47 +5,47 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2002-08-22 09:46+0200\n"
-"PO-Revision-Date: 2002-08-22 09:58+0200\n"
-"Last-Translator: Robert Vanyi <robi@mora.u-szeged.hu>\n"
+"POT-Creation-Date: 2003-01-03 19:53+0100\n"
+"PO-Revision-Date: 2003-01-03 21:15+0100\n"
+"Last-Translator: Andras Timar <timar@gnome.hu>\n"
 "Language-Team: Hungarian Gnome Project <hu@gnome.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 # examples/smp.c:68
-#: examples/smp.c:68
+#: examples/smp.c:71
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "Órajel (%ld másodpercenként):"
 
 # examples/smp.c:71
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Total"
 msgstr "Összes"
 
 # examples/smp.c:71 sysdeps/names/mem.c:47
-#: examples/smp.c:71 sysdeps/names/mem.c:47
+#: examples/smp.c:74 sysdeps/names/mem.c:47
 msgid "User"
 msgstr "Felhasználó"
 
 # examples/smp.c:71 sysdeps/names/procuid.c:58
-#: examples/smp.c:71 sysdeps/names/procuid.c:58
+#: examples/smp.c:74 sysdeps/names/procuid.c:58
 msgid "Nice"
 msgstr "Nice"
 
 # examples/smp.c:71
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Sys"
 msgstr "Sys"
 
 # examples/smp.c:71
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Idle"
 msgstr "Üresjárat"
 
 # examples/smp.c:73
-#: examples/smp.c:73
+#: examples/smp.c:76
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
@@ -55,43 +55,43 @@ msgstr ""
 "\n"
 
 # examples/smp.c:77
-#: examples/smp.c:77
+#: examples/smp.c:80
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
 # examples/smp.c:94
-#: examples/smp.c:94
+#: examples/smp.c:97
 msgid "Percent:"
 msgstr "Százalék:"
 
 # examples/smp.c:95
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Total (%)"
 msgstr "Összes (%)"
 
 # examples/smp.c:95
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "User (%)"
 msgstr "Felhasználó (%)"
 
 # examples/smp.c:95
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Nice (%)"
 msgstr "Nice (%)"
 
 # examples/smp.c:95
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Sys (%)"
 msgstr "Sys (%)"
 
 # examples/smp.c:96
-#: examples/smp.c:96
+#: examples/smp.c:99
 msgid "Idle (%)"
 msgstr "Üresjárat (%)"
 
 # examples/smp.c:98
-#: examples/smp.c:98
+#: examples/smp.c:101
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
@@ -101,14 +101,14 @@ msgstr ""
 "\n"
 
 # examples/smp.c:114
-#: examples/smp.c:114
+#: examples/smp.c:117
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:123
 msgid "Spin:"
-msgstr ""
+msgstr "Spin:"
 
 # lib/read.c:75
 #: lib/read.c:75
@@ -178,6 +178,8 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+"Hiba a(z) %s kapcsolónál: %s.\n"
+"Futtasd a '%s --help' parancsot a parancssori kapcsolók listájáért.\n"
 
 # support/error.c:109
 #: support/error.c:109
@@ -188,71 +190,71 @@ msgstr "Ismeretlen rendszerhiba"
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: a `%s' opció nem egyértelmű\n"
+msgstr "%s: a(z) `%s' kapcsoló nem egyértelmű\n"
 
 # support/getopt.c:693
 #: support/getopt.c:693
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: a `--%s' opció nem enged meg argumentumot\n"
+msgstr "%s: a `--%s' kapcsoló nem enged meg argumentumot\n"
 
 # support/getopt.c:698
 #: support/getopt.c:698
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: a `%c%s' opció nem enged meg argumentumot\n"
+msgstr "%s: a `%c%s' kapcsoló nem enged meg argumentumot\n"
 
 # support/getopt.c:715 support/getopt.c:888
 #: support/getopt.c:715 support/getopt.c:888
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: a `%s' opcióhoz szükséges egy argumentum\n"
+msgstr "%s: a `%s' kapcsolóhoz szükséges egy argumentum\n"
 
 # support/getopt.c:744
 #. --option
 #: support/getopt.c:744
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: ismeretlen opció `--%s'\n"
+msgstr "%s: ismeretlen kapcsoló `--%s'\n"
 
 # support/getopt.c:748
 #. +option or -option
 #: support/getopt.c:748
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: ismeretlen opció `%c%s'\n"
+msgstr "%s: ismeretlen kapcsoló `%c%s'\n"
 
 # support/getopt.c:774
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: szabálytalan opció -- %c\n"
+msgstr "%s: szabálytalan kapcsoló -- %c\n"
 
 # support/getopt.c:777
 #: support/getopt.c:777
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: érvénytelen opció -- %c\n"
+msgstr "%s: érvénytelen kapcsoló -- %c\n"
 
 # support/getopt.c:807 support/getopt.c:937
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: az opcióhoz szükséges egy argumentum -- %c\n"
+msgstr "%s: az kapcsolóhoz szükséges egy argumentum -- %c\n"
 
 # support/getopt.c:854
 #: support/getopt.c:854
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: a `-W %s' opció nem egyértelmű\n"
+msgstr "%s: a `-W %s' kapcsoló nem egyértelmű\n"
 
 # support/getopt.c:872
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: a `-W %s' opció nem enged meg argumentumot\n"
+msgstr "%s: a `-W %s' kapcsoló nem enged meg argumentumot\n"
 
 #: support/popthelp.c:35
 msgid "Show this help message"
@@ -265,87 +267,87 @@ msgstr "Rövid használati útmutató"
 # sysdeps/names/cpu.c:43
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
-msgstr "Teljes CPU idő"
+msgstr "Teljes CPU-idő"
 
 # sysdeps/names/cpu.c:44
 #: sysdeps/names/cpu.c:44
 msgid "CPU Time in User Mode"
-msgstr "CPU idő felhasználói módban"
+msgstr "CPU-idő felhasználói módban"
 
 # sysdeps/names/cpu.c:45
 #: sysdeps/names/cpu.c:45
 msgid "CPU Time in User Mode (nice)"
-msgstr "CPU idő felhasználói módban (nice)"
+msgstr "CPU-idő felhasználói módban (nice)"
 
 # sysdeps/names/cpu.c:46
 #: sysdeps/names/cpu.c:46
 msgid "CPU Time in System Mode"
-msgstr "CPU idő rendszer módban"
+msgstr "CPU-idő rendszer módban"
 
 # sysdeps/names/cpu.c:47
 #: sysdeps/names/cpu.c:47
 msgid "CPU Time in the Idle Task"
-msgstr "CPU idő üresjáratban"
+msgstr "CPU-idő üresjáratban"
 
 # sysdeps/names/cpu.c:48
 #: sysdeps/names/cpu.c:48
 msgid "Tick Frequency"
-msgstr "Órajel frekvencia"
+msgstr "Óraütések gyakorisága"
 
 # sysdeps/names/cpu.c:49
 #: sysdeps/names/cpu.c:49
 msgid "SMP Total CPU Time"
-msgstr "SMP teljes CPU idő"
+msgstr "SMP teljes CPU-idő"
 
 # sysdeps/names/cpu.c:50
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in User Mode"
-msgstr "SMP CPU idő felhasználói módban"
+msgstr "SMP CPU-idő felhasználói módban"
 
 # sysdeps/names/cpu.c:51
 #: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "SMP CPU idő felhasználói módban (nice)"
+msgstr "SMP CPU-idő felhasználói módban (nice)"
 
 # sysdeps/names/cpu.c:52
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in System Mode"
-msgstr "SMP CPU idő rendszer módban"
+msgstr "SMP CPU-idő rendszer módban"
 
 # sysdeps/names/cpu.c:53
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in the Idle Task"
-msgstr "SMP CPU idő üresjáratban"
+msgstr "SMP CPU-idő üresjáratban"
 
 # sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 #: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 msgid "Number of clock ticks since system boot"
-msgstr "Órajelek száma rendszerindítás óta"
+msgstr "Óraütések száma rendszerindítás óta"
 
 # sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
 #: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
 msgid "Number of clock ticks the system spent in user mode"
-msgstr "Felhasználói módban töltött órajelek száma"
+msgstr "Felhasználói módban töltött óraütések száma"
 
 # sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "Felhasználói módban töltött órajelek száma (nice)"
+msgstr "Felhasználói módban töltött óraütések száma (nice)"
 
 # sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in system mode"
-msgstr "Rendszer módban töltött órajelek száma"
+msgstr "Rendszer módban töltött óraütések száma"
 
 # sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr "Üresjáratban töltött órajelek száma"
+msgstr "Üresjáratban töltött óraütések száma"
 
 # sysdeps/names/cpu.c:63
 #: sysdeps/names/cpu.c:63
 msgid "Tick frequency (default is 100)"
-msgstr "Órajel frekvencia (alapértelmezés 100)"
+msgstr "Óraütések gyakorisága (alapértelmezés 100)"
 
 # sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
 #: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
@@ -390,12 +392,12 @@ msgstr "Átlagos terhelés"
 # sysdeps/names/loadavg.c:40
 #: sysdeps/names/loadavg.c:40
 msgid "Running Tasks"
-msgstr "Futó taszkok"
+msgstr "Futó feladatok"
 
 # sysdeps/names/loadavg.c:41
 #: sysdeps/names/loadavg.c:41
 msgid "Number of Tasks"
-msgstr "Taszkok száma"
+msgstr "Feladatok száma"
 
 # sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
 #: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
@@ -410,12 +412,12 @@ msgstr "Az egyszerre futó feladatok átlagos száma 1, 5 és 15 percre átlagol
 # sysdeps/names/loadavg.c:48
 #: sysdeps/names/loadavg.c:48
 msgid "Number of tasks currently running"
-msgstr "A jelenleg futó taszkok száma"
+msgstr "A jelenleg futó feladatok száma"
 
 # sysdeps/names/loadavg.c:49
 #: sysdeps/names/loadavg.c:49
 msgid "Total number of tasks"
-msgstr "Taszkok teljes száma"
+msgstr "Feladatok teljes száma"
 
 # sysdeps/names/mem.c:41
 #: sysdeps/names/mem.c:41
@@ -445,12 +447,12 @@ msgstr "Pufferek"
 # sysdeps/names/mem.c:46
 #: sysdeps/names/mem.c:46
 msgid "Cached"
-msgstr "Gyorstárban"
+msgstr "Gyorsítótárban"
 
 # sysdeps/names/mem.c:48
 #: sysdeps/names/mem.c:48
 msgid "Locked"
-msgstr "Lezárva"
+msgstr "Zárolva"
 
 # sysdeps/names/mem.c:53
 #: sysdeps/names/mem.c:53
@@ -465,7 +467,7 @@ msgstr "Használt memóriaméret kB-ban"
 # sysdeps/names/mem.c:55
 #: sysdeps/names/mem.c:55
 msgid "Free memory size in kB"
-msgstr "Szabad memóraiméret kB-ban"
+msgstr "Szabad memóriaméret kB-ban"
 
 # sysdeps/names/mem.c:56
 #: sysdeps/names/mem.c:56
@@ -480,7 +482,7 @@ msgstr "Pufferek mérete kB-ban"
 # sysdeps/names/mem.c:58
 #: sysdeps/names/mem.c:58
 msgid "Size of cached memory in kB"
-msgstr "A gyorstárazott memória kB-ban"
+msgstr "A gyorsítótárazott memória kB-ban"
 
 # sysdeps/names/mem.c:59
 #: sysdeps/names/mem.c:59
@@ -490,7 +492,7 @@ msgstr "A felhasználói folyamatok által használt memória kB-ban"
 # sysdeps/names/mem.c:60
 #: sysdeps/names/mem.c:60
 msgid "Memory in locked pages in kB"
-msgstr "Memória a lezárt lapokban kB-ban"
+msgstr "Memória a zárolt lapokban kB-ban"
 
 # sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
 # sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
@@ -522,7 +524,7 @@ msgstr "Egyetlen listaelem mérete"
 # sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
 #: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
 msgid "Size in kilobytes of message pool"
-msgstr "Üzenettár mérete kilobájtban"
+msgstr "Üzenettár mérete kilobyte-ban"
 
 # sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
@@ -592,17 +594,17 @@ msgstr "Csomagok összesen"
 # sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
 #: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
 msgid "Bytes In"
-msgstr "Bájtok be"
+msgstr "Byte-ok be"
 
 # sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 #: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 msgid "Bytes Out"
-msgstr "Bájtok ki"
+msgstr "Byte-ok ki"
 
 # sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 #: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 msgid "Bytes Total"
-msgstr "Bájtok összesen"
+msgstr "Byte-ok összesen"
 
 # sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
 #: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
@@ -627,7 +629,7 @@ msgstr "Ütközések"
 # sysdeps/names/netload.c:64
 #: sysdeps/names/netload.c:64
 msgid "Maximum Transfer Unit"
-msgstr "Maximális Transzfer Egység (MTU)"
+msgstr "Maximális átviteli egység (MTU)"
 
 # sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
 #: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
@@ -637,22 +639,22 @@ msgstr "PPP állapota"
 # sysdeps/names/ppp.c:39
 #: sysdeps/names/ppp.c:39
 msgid "Input bytes"
-msgstr "Beolvasott bájtok"
+msgstr "Beolvasott byte-ok"
 
 # sysdeps/names/ppp.c:40
 #: sysdeps/names/ppp.c:40
 msgid "Output bytes"
-msgstr "Kiírt bájtok"
+msgstr "Kiírt byte-ok"
 
 # sysdeps/names/ppp.c:46
 #: sysdeps/names/ppp.c:46
 msgid "Number of input bytes"
-msgstr "Beolvasott bájtok száma"
+msgstr "Beolvasott byte-ok száma"
 
 # sysdeps/names/ppp.c:47
 #: sysdeps/names/ppp.c:47
 msgid "Number of output bytes"
-msgstr "Kiírt bájtok száma"
+msgstr "Kiírt byte-ok száma"
 
 # sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
 #: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
@@ -662,7 +664,7 @@ msgstr "Méret"
 # sysdeps/names/procargs.c:43
 #: sysdeps/names/procargs.c:43
 msgid "Length in bytes of the returned string."
-msgstr "A visszaadott karakterlánc hossza bájtokban"
+msgstr "A visszaadott karakterlánc hossza byte-okban"
 
 # sysdeps/names/prockernel.c:42
 #: sysdeps/names/prockernel.c:42
@@ -763,7 +765,7 @@ msgstr ""
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr "Aktuális EIP (32 bites utasitásmutató)."
+msgstr "Aktuális EIP (32 bites utasításmutató)."
 
 # sysdeps/names/prockernel.c:76
 #. NWChan
@@ -799,12 +801,12 @@ msgstr "Osztott"
 # sysdeps/names/procmem.c:48
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size"
-msgstr ""
+msgstr "Rezidens halmazméret"
 
 # sysdeps/names/procmem.c:48
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size Limit"
-msgstr ""
+msgstr "Rezidens halmazméret korlátja"
 
 # sysdeps/names/procmem.c:53
 #: sysdeps/names/procmem.c:53
@@ -864,7 +866,7 @@ msgstr "Stack_RSS"
 # sysdeps/names/procsegment.c:43
 #: sysdeps/names/procsegment.c:43
 msgid "Dirty Size"
-msgstr ""
+msgstr "Piszkos méret"
 
 # sysdeps/names/procsegment.c:43
 #: sysdeps/names/procsegment.c:43
@@ -989,17 +991,17 @@ msgstr ""
 # sysdeps/names/procstate.c:46
 #: sysdeps/names/procstate.c:46
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Egybetűs processzállapot-kód (S=sleeping)"
+msgstr "Egybetűs folyamatállapot-kód (S=sleeping)"
 
 # sysdeps/names/procstate.c:47
 #: sysdeps/names/procstate.c:47
 msgid "UID of process"
-msgstr "A processz UID-je"
+msgstr "A folyamat UID-je"
 
 # sysdeps/names/procstate.c:48
 #: sysdeps/names/procstate.c:48
 msgid "GID of process"
-msgstr "A processz GID-je"
+msgstr "A folyamat GID-je"
 
 # sysdeps/names/proctime.c:44
 #: sysdeps/names/proctime.c:44
@@ -1069,12 +1071,12 @@ msgstr ""
 # sysdeps/names/proctime.c:53
 #: sysdeps/names/proctime.c:53
 msgid "user-mode CPU time accumulated by process"
-msgstr "a processz által összegyűjtött felhasználói CPU idő"
+msgstr "a folyamat által összegyűjtött felhasználói CPU-idő"
 
 # sysdeps/names/proctime.c:54
 #: sysdeps/names/proctime.c:54
 msgid "kernel-mode CPU time accumulated by process"
-msgstr "a processz által összegyűjtött rendszer CPU idő"
+msgstr "a folyamat által összegyűjtött rendszer CPU-idő"
 
 # sysdeps/names/proctime.c:55
 #: sysdeps/names/proctime.c:55
@@ -1106,12 +1108,12 @@ msgstr "Órajel frekvencia"
 # sysdeps/names/proctime.c:61
 #: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr "a processz által összegyűjtött SMP felhasználói CPU idő"
+msgstr "a folyamat által összegyűjtött SMP felhasználói CPU-idő"
 
 # sysdeps/names/proctime.c:62
 #: sysdeps/names/proctime.c:62
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "a processz által összegyűjtött SMP kernel CPU idő"
+msgstr "a folyamat által összegyűjtött SMP kernel CPU-idő"
 
 # sysdeps/names/procuid.c:56
 #: sysdeps/names/procuid.c:56
@@ -1171,42 +1173,42 @@ msgstr "Prioritás"
 # sysdeps/names/procuid.c:63
 #: sysdeps/names/procuid.c:63
 msgid "User ID"
-msgstr "User ID"
+msgstr "Felhasználóazonosító"
 
 # sysdeps/names/procuid.c:64
 #: sysdeps/names/procuid.c:64
 msgid "Effective User ID"
-msgstr "Effektív User ID"
+msgstr "Effektív felhasználóazonosító"
 
 # sysdeps/names/procuid.c:65
 #: sysdeps/names/procuid.c:65
 msgid "Group ID"
-msgstr "Csoport ID"
+msgstr "Csoportazonosító"
 
 # sysdeps/names/procuid.c:66
 #: sysdeps/names/procuid.c:66
 msgid "Effective Group ID"
-msgstr "Effektív Csoport ID"
+msgstr "Effektív csoportazonosító"
 
 # sysdeps/names/procuid.c:67
 #: sysdeps/names/procuid.c:67
 msgid "Process ID"
-msgstr "Processz ID"
+msgstr "Folyamatazonosító"
 
 # sysdeps/names/procuid.c:68
 #: sysdeps/names/procuid.c:68
 msgid "PID of parent process"
-msgstr "Szülő processz PID-je"
+msgstr "Szülő folyamat PID-je"
 
 # sysdeps/names/procuid.c:69
 #: sysdeps/names/procuid.c:69
 msgid "Process group ID"
-msgstr "Processz csoport ID"
+msgstr "Folyamatcsoport-azonosító"
 
 # sysdeps/names/procuid.c:70
 #: sysdeps/names/procuid.c:70
 msgid "Session ID"
-msgstr "Session ID"
+msgstr "Munkamenet-azonosító"
 
 # sysdeps/names/procuid.c:71
 #: sysdeps/names/procuid.c:71
@@ -1216,17 +1218,17 @@ msgstr "A vezérlő terminál teljes eszközszáma"
 # sysdeps/names/procuid.c:72
 #: sysdeps/names/procuid.c:72
 msgid "Terminal process group ID"
-msgstr ""
+msgstr "A terminálfolyamat csoportazonosítója"
 
 # sysdeps/names/procuid.c:73
 #: sysdeps/names/procuid.c:73
 msgid "Kernel scheduling priority"
-msgstr "Kernel schedulálási prioritás"
+msgstr "Rendszermag-ütemezési prioritás"
 
 # sysdeps/names/procuid.c:74
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
-msgstr ""
+msgstr "A folyamat szabványos unix nice-szintje"
 
 # sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
@@ -1241,22 +1243,22 @@ msgstr "Tömbök maximális száma"
 # sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max semaphores system wide"
-msgstr ""
+msgstr "A rendszer maximális szemaforjai"
 
 # sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Number of undo structures system wide"
-msgstr ""
+msgstr "A rendszer visszavonási struktúráinak száma"
 
 # sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores per array"
-msgstr ""
+msgstr "Maximális szemaforok tömbönként"
 
 # sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max ops per semop call"
-msgstr ""
+msgstr "Ops-ok maximális száma semop-hívásonként"
 
 # sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
@@ -1271,12 +1273,12 @@ msgstr "sizeof struct sem_undo"
 # sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Semaphore max value"
-msgstr ""
+msgstr "Szemafor maximális értéke"
 
 # sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Adjust on exit max value"
-msgstr ""
+msgstr "Beállítás kilépéskor maximális értéke"
 
 # sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
@@ -1291,12 +1293,12 @@ msgstr "Szegmensek minimális mérete"
 # sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max number of segments"
-msgstr "Szegmensek maximálsi száma"
+msgstr "Szegmensek maximális száma"
 
 # sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max shared segments per process"
-msgstr "Processzenkénti osztott szegmensek maximális száma"
+msgstr "Folyamatonkénti osztott szegmensek maximális száma"
 
 # sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
@@ -1386,52 +1388,52 @@ msgstr ""
 # sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
-msgstr "Futó processzek listája"
+msgstr "Futó folyamatok listája"
 
 # sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Status information"
-msgstr "Processz státusz információ"
+msgstr "Folyamat státusz információ"
 
 # sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process UID and TTY information"
-msgstr "Processz UID és TTY információ"
+msgstr "Folyamat UID és TTY információ"
 
 # sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process Memory information"
-msgstr "Processz memória információ"
+msgstr "Folyamat memória információ"
 
 # sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Time information"
-msgstr "Processz idő információ"
+msgstr "Folyamat idő információ"
 
 # sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Signal information"
-msgstr "Processz szignál információ"
+msgstr "Folyamat szignál információ"
 
 # sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Kernel Data information"
-msgstr "Processz kernel adat információ"
+msgstr "Folyamat kernel adat információ"
 
 # sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Segment information"
-msgstr "Processz szegmens információ"
+msgstr "Folyamat szegmens információ"
 
 # sysdeps/names/sysdeps.c:66
 #: sysdeps/names/sysdeps.c:66
 msgid "Process Arguments"
-msgstr "Processz argumentumok"
+msgstr "Folyamat argumentumok"
 
 # sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 msgid "Process Memory Map"
-msgstr "Processz memóriatérkép"
+msgstr "Folyamat memóriatérkép"
 
 # sysdeps/names/sysdeps.c:68
 #: sysdeps/names/sysdeps.c:68
@@ -1456,7 +1458,7 @@ msgstr "PPP statisztika"
 # sysdeps/names/sysdeps.c:93
 #: sysdeps/names/sysdeps.c:93
 msgid "Command line arguments of the process"
-msgstr "A processzek parancssori paraméterei"
+msgstr "A folyamatok parancssori paraméterei"
 
 # sysdeps/names/sysdeps.c:95
 #: sysdeps/names/sysdeps.c:95
@@ -1504,9 +1506,8 @@ msgid "Illegal instruction"
 msgstr "Illegális utasítás"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
-#, fuzzy
 msgid "Trace trap"
-msgstr "Felfüggeszt (POSIX)"
+msgstr "Nyomkövetési csapda"
 
 # sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
@@ -1526,13 +1527,12 @@ msgstr "Lebegőpontos kivétel"
 # sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr "Megöl"
+msgstr "Kilövés"
 
 # sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
-#, fuzzy
 msgid "Bus error"
-msgstr "Nincs hiba"
+msgstr "Buszhiba"
 
 # sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
@@ -1559,7 +1559,7 @@ msgstr "Befejezés"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Sürgős állapot a foglalaton"
 
 # sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
@@ -1611,7 +1611,7 @@ msgstr "Virtuális ébresztőóra"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Ébresztőóra profilírozása"
 
 # sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
@@ -1632,178 +1632,3 @@ msgstr "Felhasználói szignál 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Felhasználói szignál 2"
-
-#~ msgid "Hangup (POSIX)"
-#~ msgstr "Felfüggeszt (POSIX)"
-
-#~ msgid "Quit (POSIX)"
-#~ msgstr "Kilép (POSIX)"
-
-# sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
-#, fuzzy
-#~ msgid "EMT instruction"
-#~ msgstr "Illegális utasítás"
-
-#~ msgid "SMP CPU Flags"
-#~ msgstr "SMP CPU jelzők"
-
-#~ msgid "Start_Data"
-#~ msgstr "Start_Data"
-
-#~ msgid "End_Data"
-#~ msgstr "End_Data"
-
-#~ msgid "Start_Brk"
-#~ msgstr "Start_Brk"
-
-#~ msgid "Brk"
-#~ msgstr "Brk"
-
-#~ msgid "Start_MMap"
-#~ msgstr "Start_MMap"
-
-#~ msgid "Arg_Start"
-#~ msgstr "Arg_Start"
-
-#~ msgid "Arg_End"
-#~ msgstr "Arg_End"
-
-#~ msgid "Env_Start"
-#~ msgstr "Env_Start"
-
-#~ msgid "Env_End"
-#~ msgstr "Env_End"
-
-# sysdeps/names/procsegment.c:53
-#, fuzzy
-#~ msgid "Address of beginning of data segment"
-#~ msgstr "A kódszegmens kezdetének címe"
-
-# sysdeps/names/procsegment.c:54
-#, fuzzy
-#~ msgid "Address of end of data segment"
-#~ msgstr "A kódszegmens címének vége"
-
-#~ msgid "Brk_Start"
-#~ msgstr "Brk_Start"
-
-#~ msgid "Brk_End"
-#~ msgstr "Brk_End"
-
-#~ msgid "RUID"
-#~ msgstr "RUID"
-
-#~ msgid "RGID"
-#~ msgstr "RGID"
-
-#~ msgid "Processor"
-#~ msgstr "Processzor"
-
-#~ msgid "Last Processor"
-#~ msgstr "Utolsó processzor"
-
-# sysdeps/names/procstate.c:47
-#, fuzzy
-#~ msgid "effective UID of process"
-#~ msgstr "A processz UID-je"
-
-# sysdeps/names/procstate.c:48
-#, fuzzy
-#~ msgid "effective GID of process"
-#~ msgstr "A processz GID-je"
-
-#~ msgid "has_cpu"
-#~ msgstr "has_cpu"
-
-#~ msgid "processor"
-#~ msgstr "processor"
-
-#~ msgid "last_processor"
-#~ msgstr "last_processor"
-
-#~ msgid "XCPU_Flags"
-#~ msgstr "XCPU_Flags"
-
-#~ msgid "SUid"
-#~ msgstr "SUid"
-
-#~ msgid "SGid"
-#~ msgstr "SGid"
-
-#~ msgid "FsUid"
-#~ msgstr "FsUid"
-
-#~ msgid "FsGid"
-#~ msgstr "FsGid"
-
-#, fuzzy
-#~ msgid "NGroups"
-#~ msgstr "Csoportok"
-
-#~ msgid "Groups"
-#~ msgstr "Csoportok"
-
-# sysdeps/names/procuid.c:63
-#, fuzzy
-#~ msgid "Saved User ID"
-#~ msgstr "User ID"
-
-# sysdeps/names/procuid.c:65
-#, fuzzy
-#~ msgid "Saved Group ID"
-#~ msgstr "Csoport ID"
-
-# sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
-#, fuzzy
-#~ msgid "Filesystem User ID"
-#~ msgstr "Fájlrendszer használat"
-
-# sysdeps/names/procuid.c:66
-#, fuzzy
-#~ msgid "Filesystem Group ID"
-#~ msgstr "Effektív Csoport ID"
-
-#~ msgid "Pointer Size"
-#~ msgstr "Pointer méret"
-
-#~ msgid "Process CWD"
-#~ msgstr "Processz CWD"
-
-#~ msgid "Pointer Size on the Server (in bits)"
-#~ msgstr "A szerver mutatómérete (bitekben)"
-
-#~ msgid "Current working directory of the process"
-#~ msgstr "A processzek aktuális munkakönyvtárai"
-
-#~ msgid "Boot time"
-#~ msgstr "Rendszerindítás ideje"
-
-#~ msgid "Boot time (seconds sice epoch)"
-#~ msgstr "Boot idő (másodpercek az epoch óta)"
-
-#~ msgid "Unknown error"
-#~ msgstr "Ismeretlen hiba"
-
-#~ msgid "Invalid argument"
-#~ msgstr "Érvénytelen argumentum"
-
-#~ msgid "No such parameter"
-#~ msgstr "Nincs ilyen paraméter"
-
-#~ msgid "Attempted to modify a read-only value"
-#~ msgstr "Kisérlet egy csak olvasható érték módosítására"
-
-#~ msgid "Parameter size mismatch"
-#~ msgstr "Paraméter méret eltérés"
-
-#~ msgid "Communication with LibGTop server failed"
-#~ msgstr "Nem sikerült kommunkialni a LibGTop szerverrel"
-
-#~ msgid "No such process"
-#~ msgstr "Nincs ilyen processz"
-
-#~ msgid "No kernel support"
-#~ msgstr "Nincs kernel támogatás"
-
-#~ msgid "Incompatible kernel version"
-#~ msgstr "Nem kompatibilis kernel verzió"
