@@ -53,6 +53,8 @@ struct table_swap
 	unsigned long total;		/* Total swap space		*/
 	unsigned long used;		/* Used swap space		*/
 	unsigned long free;		/* Free swap space		*/
+	unsigned long pagein;		/* Total # of pages swapped in	*/
+	unsigned long pageout;		/* Total # of pages swapped out	*/
 };
 
 /* Load average */

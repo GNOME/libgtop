@@ -86,8 +86,9 @@ main (int argc, char *argv [])
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_swap (&data.swap);
 
-	printf ("Swap         (0x%08Lx): %Lu, %Lu, %Lu\n", data.swap.flags,
-		data.swap.total, data.swap.used, data.swap.free);
+	printf ("Swap         (0x%08Lx): %Lu, %Lu, %Lu, %Lu, %Lu\n",
+		data.swap.flags, data.swap.total, data.swap.used,
+		data.swap.free, data.swap.pagein, data.swap.pageout);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_uptime (&data.uptime);

@@ -257,6 +257,8 @@ sys_table (int type, union table *buf, const void *param)
 		tbl.swap.total = i.totalswap;
 		tbl.swap.used  = i.totalswap - i.freeswap;
 		tbl.swap.free  = i.freeswap;
+		tbl.swap.pagein = kstat.pswpin;
+		tbl.swap.pageout = kstat.pswpout;
 		break;
 	case TABLE_LOADAVG:
 		tbl.loadavg.loadavg [0] = (double) avenrun [0] / (1 << FSHIFT);

@@ -23,9 +23,12 @@
 #include <glibtop/error.h>
 #include <glibtop/swap.h>
 
+#include <fcntl.h>
+
 static unsigned long _glibtop_sysdeps_swap =
 (1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
-(1 << GLIBTOP_SWAP_FREE);
+(1 << GLIBTOP_SWAP_FREE) + (1 << GLIBTOP_SWAP_PAGEIN) +
+(1 << GLIBTOP_SWAP_PAGEOUT);
 
 #define FILENAME	"/proc/meminfo"
 
@@ -34,6 +37,8 @@ static unsigned long _glibtop_sysdeps_swap =
 void
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
+	char buffer [BUFSIZ+1], *ptr;
+	int fd, len;
 	FILE *f;
 
 	glibtop_init_s (&server, 0, 0);
@@ -49,4 +54,14 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 		&buf->total, &buf->used, &buf->free);
 
 	fclose (f);
+
+        fd = open ("/proc/stat", O_RDONLY);
+        len = read (fd, buffer, BUFSIZ);
+        close (fd);
+
+	ptr = strstr (buffer, "\nswap");
+	if (ptr == NULL) return;
+	
+	sscanf (ptr, "\nSwap: %Lu %Lu\n",
+		&buf->pagein, &buf->pageout);
 }

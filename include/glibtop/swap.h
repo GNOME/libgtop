@@ -30,8 +30,10 @@ __BEGIN_DECLS
 #define GLIBTOP_SWAP_TOTAL	0
 #define GLIBTOP_SWAP_USED	1
 #define GLIBTOP_SWAP_FREE	2
+#define GLIBTOP_SWAP_PAGEIN	3
+#define GLIBTOP_SWAP_PAGEOUT	4
 
-#define GLIBTOP_MAX_SWAP	3
+#define GLIBTOP_MAX_SWAP	5
 
 typedef struct _glibtop_swap	glibtop_swap;
 
@@ -40,7 +42,9 @@ struct _glibtop_swap
 	u_int64_t	flags,
 		total,		/* GLIBTOP_SWAP_TOTAL	*/
 		used,		/* GLIBTOP_SWAP_USED	*/
-		free;		/* GLIBTOP_SWAP_FREE	*/
+		free,		/* GLIBTOP_SWAP_FREE	*/
+		pagein,		/* GLIBTOP_SWAP_PAGEIN	*/
+		pageout;	/* GLIBTOP_SWAP_PAGEOUT	*/
 };
 
 #define glibtop_get_swap(swap)	glibtop_get_swap_l(glibtop_global_server, swap)

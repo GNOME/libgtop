@@ -23,24 +23,29 @@
 
 const char *glibtop_names_swap [GLIBTOP_MAX_SWAP] =
 {
-	"total", "used", "free"
+	"total", "used", "free", "pagein", "pageout"
 };
 
 const unsigned glibtop_types_swap [GLIBTOP_MAX_SWAP] =
 {
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_swap [GLIBTOP_MAX_SWAP] =
 {
 	N_("Total Swap Space"),
 	N_("Used Swap Space"),
-	N_("Free Swap Space")
+	N_("Free Swap Space"),
+	N_("Page In"),
+	N_("Page Out"),
 };
 
 const char *glibtop_descriptions_swap [GLIBTOP_MAX_SWAP] =
 {
 	N_("Total Swap Space"),
 	N_("Used Swap Space"),
-	N_("Free Swap Space")
+	N_("Free Swap Space"),
+	N_("Total number of swap pages that have been brought in"),
+	N_("Total number of swap pages that have been brought out"),
 };

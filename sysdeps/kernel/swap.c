@@ -27,7 +27,8 @@
 
 static unsigned long _glibtop_sysdeps_swap =
 (1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
-(1 << GLIBTOP_SWAP_FREE);
+(1 << GLIBTOP_SWAP_FREE) + (1 << GLIBTOP_SWAP_PAGEIN) +
+(1 << GLIBTOP_SWAP_PAGEOUT);
 
 /* Provides information about swap usage. */
 
@@ -48,4 +49,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	buf->total = tbl.swap.total;
 	buf->used  = tbl.swap.used;
 	buf->free  = tbl.swap.free;
+
+	buf->pagein  = tbl.swap.pagein;
+	buf->pageout = tbl.swap.pageout;
 }

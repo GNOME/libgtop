@@ -1,6 +1,6 @@
 void|cpu|ulong(total,user,nice,sys,idle,frequency)
 void|mem|ulong(total,used,free,shared,buffer,cached,user,locked)
-void|swap|ulong(total,used,free)
+void|swap|ulong(total,used,free,pagein,pageout)
 void|uptime|double(uptime,idletime)
 void|loadavg|double(loadavg[0],loadavg[1],loadavg[2])
 void|shm_limits|ulong(shmmax,shmmin,shmmni,shmseg,shmall)
