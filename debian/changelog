@@ -1,6 +1,7 @@
 libgtop (1.1.4-1) unstable; urgency=low
   * New upstream source
-  * Non-maintainer upload
+  * Non-maintainer upload; this is an unstable developer's snapshot from
+    the GNOME CVS tree.
 
  -- Martin Baulig <martin@home-of-linux.org>  Fri, 14 Jan 2000 15:32:48 +0100
 
