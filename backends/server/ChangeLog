@@ -1,3 +1,13 @@
+2000-01-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am: Install everything except the server binary
+	in $(LIBGTOP_BACKEND_DIR).
+
+	* libgtop-server.backend: New file.
+
+	* backend-server.c (glibtop_backend_server): Renamed to
+	`LibGTopBackendInfo'.
+
 2000-01-08  Martin Baulig  <martin@home-of-linux.org>
 
 	* command.h.in (glibtop_response): New structure.

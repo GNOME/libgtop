@@ -38,7 +38,7 @@ _close_server (glibtop *, glibtop_backend *);
 
 extern glibtop_call_vector glibtop_backend_server_call_vector;
 
-glibtop_backend_info glibtop_backend_server = {
+glibtop_backend_info LibGTopBackendInfo = {
     "glibtop-backend-server", _open_server, _close_server,
     &glibtop_backend_server_call_vector
 };

@@ -5,10 +5,15 @@ INCLUDES	= @INCLUDES@ -D_BSD \
 		  -DLIBGTOP_COMPILE_RELEASE=\"`uname -r`\" \
 		  -DLIBGTOP_COMPILE_MACHINE=\"`uname -m`\"
 
+backenddir	= @LIBGTOP_BACKEND_DIR@
+
+backend_DATA = \
+	libgtop-server.backend
+
 noinst_HEADERS = \
 	glibtop-backend-private.h
 
-lib_LTLIBRARIES = \
+backend_LTLIBRARIES = \
 	libgtop_backend_server.la
 
 bin_PROGRAMS = \
@@ -26,7 +31,7 @@ libgtop_backend_server_la_SOURCES = \
 	write.c
 
 libgtop_backend_server_la_LDFLAGS = \
-	$(LT_VERSION_INFO)
+	$(LT_VERSION_INFO) -export-dynamic
 
 libgtop_server_SOURCES = \
 	server.c		\
