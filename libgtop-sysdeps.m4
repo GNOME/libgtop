@@ -348,6 +348,17 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  ;;
 	esac
 
+	AC_MSG_CHECKING(for Modem lockfile)
+	AC_ARG_WITH(modem-lockfile,
+	  [  --with-modem-lockfile   Modem lockfile for PPP support],[libgtop_modem_lockfile="$withval"],
+	  [if test -f /dev/modem ; then
+	     libgtop_modem_lockfile='/var/lock/LCK..modem'
+	   else
+	     libgtop_modem_lockfile='/var/lock/LCK..ttyS%u'
+	   fi])
+	AC_MSG_RESULT($libgtop_modem_lockfile)
+	AC_DEFINE_UNQUOTED(LIBGTOP_MODEM_LOCKFILE, "$libgtop_modem_lockfile")
+
 	AC_MSG_CHECKING(for machine.h in libgtop sysdeps dir)
 	AC_MSG_RESULT($libgtop_use_machine_h)
 

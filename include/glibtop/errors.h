@@ -49,9 +49,8 @@ BEGIN_LIBGTOP_DECLS
 #define GLIBTOP_ERROR_NO_BACKEND_OPENED		12
 
 #define GLIBTOP_ERROR_DEMARSHAL_ERROR		13
-#define GLIBTOP_ERROR_NEED_MODEM_LOCKFILE	14
 
-#define GLIBTOP_MAX_ERROR			15
+#define GLIBTOP_MAX_ERROR			14
 
 char *
 glibtop_get_error_string_l (glibtop *server, unsigned error_number);

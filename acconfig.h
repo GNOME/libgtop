@@ -176,3 +176,7 @@
 /* Define if you have the libxml library */
 #undef HAVE_LIBXML
 
+/* Modem lockfile for PPP support. This is a printf-like format string
+ * which takes the interface number as argument
+ * (default '/var/lock/LCK..ttyS%u'). */
+#undef LIBGTOP_MODEM_LOCKFILE

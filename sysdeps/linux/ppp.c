@@ -116,7 +116,7 @@ get_ISDN_stats (glibtop *server, int *in, int *out)
 }
 
 static int
-is_ISDN_on (glibtop *server, int *online)
+is_ISDN_on (glibtop *server, int device, int *online)
 {
     FILE *f = 0;
     char buffer [BUFSIZ], *p;
@@ -211,11 +211,13 @@ is_ISDN_on (glibtop *server, int *online)
 }
 
 static int
-is_Modem_on (glibtop *server, const char *lock_file)
+is_Modem_on (glibtop *server, int device)
 {
-    FILE *f = 0;
-    gchar buf[64];
+    gchar buf[64], lock_file [BUFSIZ];
     pid_t pid = -1;
+    FILE *f = 0;
+
+    sprintf (lock_file, LIBGTOP_MODEM_LOCKFILE, device);
 
     f = fopen (lock_file, "r");
 
@@ -275,7 +277,7 @@ get_Modem_stats (int device, int *in, int *out)
 
 int
 glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device,
-		   unsigned short use_isdn, const char *lockfile)
+		   unsigned short use_isdn)
 {
     int in, out, online;
 
@@ -285,7 +287,7 @@ glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device,
 
     if (use_isdn) {
 	/* ISDN */
-	if (is_ISDN_on (server, &online)) {
+	if (is_ISDN_on (server, device, &online)) {
 	    buf->state = online ? GLIBTOP_PPP_STATE_ONLINE :
 		GLIBTOP_PPP_STATE_HANGUP;
 	    buf->flags |= (1L << GLIBTOP_PPP_STATE);
@@ -299,10 +301,7 @@ glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device,
 	}
     } else {
 	/* Modem */
-	if (!lockfile)
-	    return -GLIBTOP_ERROR_NEED_MODEM_LOCKFILE;
-
-	buf->state = is_Modem_on (server, lockfile) ?
+	buf->state = is_Modem_on (server, device) ?
 	    GLIBTOP_PPP_STATE_ONLINE : GLIBTOP_PPP_STATE_HANGUP;
 	buf->flags |= (1L << GLIBTOP_PPP_STATE);
 

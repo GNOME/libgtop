@@ -53,7 +53,7 @@ struct _glibtop_ppp
 	bytes_out;		/* GLIBTOP_PPP_BYTES_OUT	*/
 };
 
-#define glibtop_get_ppp(ppp,device,use_isdn,lockfile)	glibtop_get_ppp_l(glibtop_global_server, ppp, device, use_isdn, lockfile)
+#define glibtop_get_ppp(ppp,device,use_isdn)	glibtop_get_ppp_l(glibtop_global_server, ppp, device, use_isdn)
 
 #if GLIBTOP_SUID_PPP
 #define glibtop_get_ppp_r	glibtop_get_ppp_p
@@ -61,14 +61,14 @@ struct _glibtop_ppp
 #define glibtop_get_ppp_r	glibtop_get_ppp_s
 #endif
 
-int glibtop_get_ppp_l (glibtop *server, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn, const char *lockfile);
+int glibtop_get_ppp_l (glibtop *server, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn);
 
 #if GLIBTOP_SUID_PPP
 int glibtop_init_ppp_p (glibtop *server);
-int glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn, const char *lockfile);
+int glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn);
 #else
 int glibtop_init_ppp_s (glibtop *server);
-int glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn, const char *lockfile);
+int glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn);
 #endif
 
 #ifdef GLIBTOP_NAMES

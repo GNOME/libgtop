@@ -43,7 +43,7 @@ glibtop_init_ppp_s (glibtop *server)
 
 int
 glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device,
-		   unsigned short isdn, const char *lockfile)
+		   unsigned short isdn)
 {
     memset (buf, 0, sizeof (glibtop_ppp));
     return 0;

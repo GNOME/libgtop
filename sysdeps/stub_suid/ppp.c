@@ -45,7 +45,7 @@ glibtop_init_ppp_p (glibtop *server)
 
 int
 glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device,
-		   unsigned short isdn, const char *lockfile)
+		   unsigned short isdn)
 {
     glibtop_init_p (server, GLIBTOP_SYSDEPS_PPP, 0);
 	

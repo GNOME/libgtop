@@ -94,7 +94,7 @@ glibtop_init_ppp_p (glibtop *server)
 
 int
 glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device,
-		   unsigned short isdn, const char *lockfile)
+		   unsigned short isdn)
 {
 #ifdef HAVE_I4B
 #ifdef HAVE_I4B_ACCT

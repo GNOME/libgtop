@@ -1,3 +1,17 @@
+2000-02-06  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/ppp.h (glibtop_get_ppp): Removed the `lockfile'
+	argument; we now use a configure check to determine the modem
+	lockfile.
+
+	* include/glibtop/error.h (GLIBTOP_ERROR_NEED_MODEM_LOCKFILE):
+	Removed this now obsolete error constant again.
+
+	* configure.in (--with-modem-lockfile): New configure parameter
+	to manually specify the modem lockfile.
+	(LIBGTOP_MODEM_LOCKFILE): Define this to be a printf-format string
+	for the modem lockfile; takes the interface number as argument.
+
 2000-02-05  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/interfaces.h (glibtop_ipv6_scope): New
