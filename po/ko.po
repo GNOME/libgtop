@@ -4,9 +4,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 1.1.3\n"
-"POT-Creation-Date: 2000-02-23 00:23+0100\n"
-"PO-Revision-Date: 1999-11-29 04:21:16+0900\n"
+"Project-Id-Version: libgtop 1.1.6\n"
+"POT-Creation-Date: 2000-04-28 18:49+0900\n"
+"PO-Revision-Date: 2000-05-16 11:29:00+0900\n"
 "Last-Translator: Sung-Hyun Nam <namsh@kldp.org>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -958,7 +958,7 @@ msgstr "시스템 시동후 도입한 총 스왑 페이지 수"
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "시스템 시동후 내보낸 총 스왑 페이지 수"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
 msgstr "서버 기능"
 
@@ -966,107 +966,115 @@ msgstr "서버 기능"
 msgid "Pointer Size"
 msgstr "포인터 크기"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
 msgid "CPU Usage"
 msgstr "CPU 사용량"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
 msgid "Memory Usage"
 msgstr "메모리 사용량"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
 msgid "Swap Usage"
 msgstr "스왑 사용량"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
 msgid "System Uptime"
 msgstr "시스템 Uptime"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
 msgid "Load Averange"
 msgstr "로드 평균"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
 msgid "Shared Memory Limits"
 msgstr "공유 메모리 한계"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
 msgid "Message Queue Limits"
 msgstr "메시지 큐 한계"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
 msgid "Semaphore Set Limits"
 msgstr "세마포어 세트 한계"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
 msgid "List of running Processes"
 msgstr "돌고 있는 프로세스 목록"
 
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 msgid "Process Status information"
 msgstr "프로세스 상태 정보"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
 msgid "Process UID and TTY information"
 msgstr "프로세스 UID와 TTY 정보"
 
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 msgid "Process Memory information"
 msgstr "프로세스 메모리 정보"
 
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
 msgid "Process Time information"
 msgstr "프로세스 시간 정보"
 
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
 msgid "Process Signal information"
 msgstr "프로세스 시그널 정보"
 
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
 msgid "Process Kernel Data information"
 msgstr "프로세스 커널 자료 정보"
 
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
 msgid "Process Segment information"
 msgstr "프로세스 세그먼트 정보"
 
 #: sysdeps/names/sysdeps.c:71
+msgid "Process CWD"
+msgstr "프로세스 CWD"
+
+#: sysdeps/names/sysdeps.c:72
 msgid "Process Arguments"
 msgstr "프로세스 인자"
 
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
+#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
 msgid "Process Memory Map"
 msgstr "프로세스 메모리 맵"
 
-#: sysdeps/names/sysdeps.c:73
+#: sysdeps/names/sysdeps.c:74
 msgid "Mount List"
 msgstr "마운트 목록"
 
-#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
+#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
 msgid "File System Usage"
 msgstr "파일 시스템 사용"
 
-#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:104
+#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
 msgid "Network Load"
 msgstr "네트워크 로드"
 
-#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
+#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
 msgid "Interface Names"
 msgstr "인터페이스 이름"
 
-#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
+#: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
 msgid "PPP Statistics"
 msgstr "PPP 통계"
 
-#: sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:84
 msgid "Pointer Size on the Server (in bits)"
 msgstr "서버에서 (비트로) 포인터 크기"
 
-#: sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:101
+msgid "Current working directory of the process"
+msgstr "프로세스의 현재 작업 디렉토리"
+
+#: sysdeps/names/sysdeps.c:102
 msgid "Command line arguments of the process"
 msgstr "프로세스의 명령행 인자"
 
-#: sysdeps/names/sysdeps.c:102
+#: sysdeps/names/sysdeps.c:104
 msgid "List of currently mounted filesystems"
 msgstr "현재 마운트된 파일시스템의 목록"
 
@@ -1159,93 +1167,40 @@ msgstr "%s: `-W %s' 옵션은 인자가 필요없습니다\n"
 
 #: lib/errors.c:31
 msgid "No error"
-msgstr ""
+msgstr "에러 없음"
 
 #: lib/errors.c:32
-#, fuzzy
 msgid "Unknown error"
-msgstr "알려지지 않은 시스템 에러"
+msgstr "모르는 에러"
 
 #: lib/errors.c:33
 msgid "Invalid argument"
-msgstr ""
+msgstr "잘못된 인자"
 
 #: lib/errors.c:34
 msgid "No such parameter"
-msgstr ""
+msgstr "그런 파라미터 없음"
 
 #: lib/errors.c:35
 msgid "Attempted to modify a read-only value"
-msgstr ""
+msgstr "읽기만 가능한 값을 바꾸려고 함"
 
 #: lib/errors.c:36
 msgid "Parameter size mismatch"
-msgstr ""
+msgstr "파라미터 크기가 다름"
 
 #: lib/errors.c:37
 msgid "Communication with LibGTop server failed"
-msgstr ""
+msgstr "LibGTop 서버와의 통신 실패"
 
 #: lib/errors.c:38
 msgid "No such process"
-msgstr ""
+msgstr "그런 프로세스 없음"
 
 #: lib/errors.c:39
 msgid "No kernel support"
-msgstr ""
+msgstr "커널 지원기능 없음"
 
 #: lib/errors.c:40
 msgid "Incompatible kernel version"
-msgstr ""
-
-#~ msgid "read %d bytes"
-#~ msgstr "%d 바이트 읽음"
-
-#~ msgid "read data size"
-#~ msgstr "데이타 크기 읽음"
-
-#~ msgid "read data %d bytes"
-#~ msgstr "데이타 %d 바이트 읽음"
-
-#~ msgid "write %d bytes"
-#~ msgstr "%d 바이트 씀"
-
-#~ msgid "Enable debugging"
-#~ msgstr "디버깅 함"
-
-#~ msgid "DEBUG"
-#~ msgstr "디버그"
-
-#~ msgid "Enable verbose output"
-#~ msgstr "출력을 많이 함"
-
-#~ msgid "VERBOSE"
-#~ msgstr "말많음"
-
-#~ msgid "Don't fork into background"
-#~ msgstr "백그라운드로 포크 않함"
-
-#~ msgid "NO-DAEMON"
-#~ msgstr "데몬-없음"
-
-#~ msgid "Invoked from inetd"
-#~ msgstr "inetd에 의해 불려짐"
-
-#~ msgid "INETD"
-#~ msgstr "INETD"
-
-#~ msgid ""
-#~ "Error on option %s: %s.\n"
-#~ "Run '%s --help' to see a full list of available command line options.\n"
-#~ msgstr ""
-#~ "옵션 %s에서 에러: %s.\n"
-#~ "가능한 명령행 옵션을 보려면 '%s --help'를 실행하세요.\n"
-
-#~ msgid "Number of list elements"
-#~ msgstr "목록 요소의 갯수"
-
-#~ msgid "Total size of list"
-#~ msgstr "목록의 총 크기"
-
-#~ msgid "Size of a single list element"
-#~ msgstr "목록 요소 하나의 크기"
+msgstr "호환되지 않는 커널버전"
