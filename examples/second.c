@@ -151,7 +151,7 @@ output (pid_t pid)
 		(unsigned long) data.proc_args.size,
 		args ? args : "");
 
-	glibtop_free (args);
+	g_free (args);
 
 	printf ("\n");
 
@@ -291,7 +291,7 @@ main (int argc, char *argv [])
 		output (pid);
 	}
 
-	glibtop_free (ptr);
+	g_free (ptr);
 
 	exit (0);
 }

@@ -140,7 +140,7 @@ handle_parent_connection (int s)
 					  param_ptr [1]);
 	    do_output (s, resp, _offset_data (proclist),
 		       resp->u.data.proclist.total, ptr);
-	    glibtop_free_r (server, ptr);
+	    g_free (ptr);
 	    break;
 	case GLIBTOP_CMND_PROC_MAP:
 	    memcpy (&pid, parameter, sizeof (pid_t));
@@ -149,7 +149,7 @@ handle_parent_connection (int s)
 					  pid);
 	    do_output (s, resp, _offset_data (proc_map),
 		       resp->u.data.proc_map.total, ptr);
-	    glibtop_free_r (server, ptr);
+	    g_free (ptr);
 	    break;
 	case GLIBTOP_CMND_PROC_ARGS:
 	    memcpy (&pid, parameter, sizeof (pid_t));
@@ -158,7 +158,7 @@ handle_parent_connection (int s)
 					   pid, 0);
 	    do_output (s, resp, _offset_data (proc_args),
 		       ptr ? resp->u.data.proc_args.size+1 : 0, ptr);
-	    glibtop_free_r (server, ptr);
+	    g_free (ptr);
 	    break;
 	case GLIBTOP_CMND_PROC_STATE:
 	    memcpy (&pid, parameter, sizeof (pid_t));
@@ -208,7 +208,7 @@ handle_parent_connection (int s)
 		(server, &resp->u.data.mountlist, all_fs);
 	    do_output (s, resp, _offset_data (mountlist),
 		       resp->u.data.mountlist.total, mount_list);
-	    glibtop_free_r (server, mount_list);
+	    g_free (mount_list);
 	    break;
 	case GLIBTOP_CMND_FSUSAGE:
 	    glibtop_get_fsusage_l

@@ -54,7 +54,7 @@ glibtop_read_data_l (glibtop *server)
 
 	if (!size) return NULL;	
 
-	ptr = glibtop_malloc_r (server, size);
+	ptr = g_malloc (server, size);
 	
 	if (server->socket) {
 		ret = recv (server->socket, ptr, size, 0);

@@ -44,10 +44,10 @@ static struct mount_entry *read_filesystem_list (int need_fs_type, int all_fs);
 #undef xrealloc
 #undef xstrdup
 
-#define xmalloc(p1)	glibtop_malloc_r (NULL, p1)
-#define xrealloc(p1,p2)	glibtop_realloc_r (NULL, p1, p2)
-#define xstrdup(p1)	glibtop_strdup_r (NULL, p1)
-#define xfree(p1)	glibtop_free_r (NULL, p1)
+#define xmalloc(p1)	g_malloc (NULL, p1)
+#define xrealloc(p1,p2)	g_realloc (p1, p2)
+#define xstrdup(p1)	g_strdup (NULL, p1)
+#define xfree(p1)	g_free (NULL, p1)
 
 #ifdef HAVE_SYS_PARAM_H
 #include <sys/param.h>
@@ -613,7 +613,7 @@ glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs)
 
 	buf->total = buf->number * buf->size;
 
-	mount_list = glibtop_malloc_r (server, buf->total);
+	mount_list = g_malloc (server, buf->total);
 
 	/* Write data into mount_list. */
 

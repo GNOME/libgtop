@@ -83,7 +83,7 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 
 	/* Allocate count objects in the pids_chain array
 	 * Same as malloc is pids is NULL, which it is. */
-	pids = glibtop_realloc_r (server, pids, count * sizeof (unsigned));
+	pids = g_realloc (pids, count * sizeof (unsigned));
 	/* Copy the pids over to this chain */
 	for (i=j=0; i < count; i++) {
 		if ((real_which & GLIBTOP_EXCLUDE_IDLE) &&

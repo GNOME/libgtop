@@ -45,7 +45,7 @@ glibtop_inodedb_open_s (glibtop *server, unsigned databases,
 	if (!databases)
 		databases = GLIBTOP_INODEDB_ALL;
 
-	inodedb = glibtop_calloc_r (server, 1, sizeof (glibtop_inodedb));
+	inodedb = g_malloc (sizeof (glibtop_inodedb));
 
 	if (stat (SYSTEM_INODEDB, &statb))
 		databases &= ~GLIBTOP_INODEDB_SYSTEM;
@@ -113,5 +113,5 @@ glibtop_inodedb_close_s (glibtop *server, glibtop_inodedb *inodedb)
 	if (inodedb->user_dbf)
 		gdbm_close (inodedb->user_dbf);
 
-	glibtop_free_r (server, inodedb);
+	g_free (inodedb);
 }

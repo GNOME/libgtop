@@ -1,3 +1,11 @@
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
+	* ppp.c: (get_ISDN_stats):
+	* procargs.c: (glibtop_get_proc_args_s):
+	* proclist.c: (glibtop_get_proclist_s):
+	* procmap.c: (glibtop_get_proc_map_s):
+	replace all the xmalloc crap by glib memory management functions
+
 2001-10-17  Abel Cheung <maddog@linux.org.hk>
 
 	* Makefile.am: move header to $(includedir)/libgtop-1.0/glibtop.

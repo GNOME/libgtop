@@ -132,7 +132,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 	buf->total = buf->number * buf->size;
 
-	maps = glibtop_malloc_r (server, buf->total);
+	maps = g_malloc (server, buf->total);
 
 	memset (maps, 0, buf->total);
 

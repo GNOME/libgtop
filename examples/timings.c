@@ -187,7 +187,7 @@ main (int argc, char *argv [])
 
 	for (c = 0; c < PROFILE_COUNT_EXPENSIVE; c++) {
 		ptr = glibtop_get_proclist (&data.proclist, 0, 0);
-		glibtop_free (ptr);
+		g_free (ptr);
 	}
 
 	getrusage (RUSAGE_SELF, &rusage_end);

@@ -153,10 +153,10 @@ main (int argc, char *argv [])
 		}
 
 		if (filename && (filename != maps [i].filename))
-			glibtop_free (filename);
+			g_free (filename);
 	}
 
-	glibtop_free (maps);
+	g_free (maps);
 
 	glibtop_close ();
 

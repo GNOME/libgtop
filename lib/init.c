@@ -45,14 +45,14 @@ _init_server (glibtop *server, const unsigned features)
 		const char *temp = getenv ("LIBGTOP_SERVER") ?
 			getenv ("LIBGTOP_SERVER") : LIBGTOP_SERVER;
 
-		server->server_command = glibtop_strdup_r (server, temp);
+		server->server_command = g_strdup (temp);
 	}
 
 	if (server->server_rsh == NULL) {
 		const char *temp = getenv ("LIBGTOP_RSH") ?
 			getenv ("LIBGTOP_RSH") : "/usr/bin/ssh";
 		
-		server->server_rsh = glibtop_strdup_r (server, temp);
+		server->server_rsh = g_strdup (temp);
 	}
 
 	/* Try to get server method, but don't override if already
@@ -82,7 +82,7 @@ _init_server (glibtop *server, const unsigned features)
 	
 	/* Everything up to the next colon is the method. */
 	
-	command = glibtop_strdup_r (server, server->server_command+1);
+	command = g_strdup (server->server_command+1);
 	temp = strstr (command, ":");
 	if (temp) *temp = 0;
 	
@@ -103,19 +103,16 @@ _init_server (glibtop *server, const unsigned features)
 		if (temp == NULL) {
 			/* If no value was set, we use 'localhost'. */
 			if (server->server_host == NULL)
-				server->server_host = glibtop_strdup_r
-					(server, "localhost");
+				server->server_host = g_strdup ("localhost");
 		} else {
 			char *temp2 = strstr (temp+1, ":");
 			if (temp2) *temp2 = 0;
 					
 			/* Override default. */
 			if (server->server_host)
-				glibtop_free_r (server,
-						(char *) server->server_host);
+				g_free ((char *) server->server_host);
 
-			server->server_host = glibtop_strdup_r
-				(server, temp+1);
+			server->server_host = g_strdup (temp+1);
 					
 			temp = temp2;
 		}
@@ -151,7 +148,7 @@ _init_server (glibtop *server, const unsigned features)
 
 	}
 			
-	glibtop_free_r (server, command);
+	g_free (command);
 }
 
 glibtop *

@@ -1,5 +1,21 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* RELNOTES-0.25: removed
+	* RELNOTES-1.0: removed
+	* RELNOTES-1.0.x: removed
+	* RELNOTES-1.1.x: removed
+	* include/glibtop/Makefile.am:
+	* include/glibtop/xmalloc.h: removed xmalloc.h
+	* lib/command.c: (glibtop_call_l):
+	* lib/init.c: (_init_server):
+	* lib/inodedb.c: (glibtop_inodedb_open_s),
+	(glibtop_inodedb_close_s):
+	* lib/read_data.c: (glibtop_read_data_l):
+	* lib/xmalloc.c: removed xmalloc.h
+	replace all the xmalloc crap by glib memory management functions
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* lib/Makefile.am:
 	* libgtop-config.in:
 	* libgtop.spec.in:
@@ -977,7 +993,7 @@
 	* include/glibtop/command.h (glibtop_call): Third argument is
 	now `const void *'.
 
-	* include/glibtop/xmalloc.h (glibtop_free): Now taking a
+	* include/glibtop/xmalloc.h (g_free): Now taking a
 	`const void *'.
 
 1998-08-25  Martin Baulig  <martin@home-of-linux.org>
@@ -1563,7 +1579,7 @@
 
 	* glibtop.h (_glibtop): New field `server_port'.
 
-	* lib/xmalloc.c (glibtop_strdup_r): New function.
+	* lib/xmalloc.c (g_strdup): New function.
 
 	* lib/gnuclient.c: Removed.
 	

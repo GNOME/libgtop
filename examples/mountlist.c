@@ -73,7 +73,7 @@ main (int argc, char *argv [])
 	for (c = 0; c < PROFILE_COUNT; c++) {
 		mount_entries = glibtop_get_mountlist (&mount_list, 1);
 
-		glibtop_free (mount_entries);
+		g_free (mount_entries);
 	}
 
 	printf ("sbrk (0) = %p\n\n", sbrk (0));
@@ -103,7 +103,7 @@ main (int argc, char *argv [])
 			fsusage.ffree);
 	}
 
-	glibtop_free (mount_entries);
+	g_free (mount_entries);
 
 	printf ("\nsbrk (0) = %p\n\n", sbrk (0));
 

@@ -107,7 +107,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 
 		size = (n+1) * sizeof (glibtop_map_entry);
 
-		entry_list = glibtop_realloc_r (server, entry_list, size);
+		entry_list = g_realloc (entry_list, size);
 
 		memset (&(entry_list [n]), 0, sizeof (glibtop_map_entry));
 

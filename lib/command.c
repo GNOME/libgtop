@@ -66,7 +66,7 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 			recv_size);
 
 	if (response.data_size) {
-		void *ptr = glibtop_malloc_r (server, response.data_size);
+		void *ptr = g_malloc (server, response.data_size);
 
 		glibtop_read_l (server, response.data_size, ptr);
 

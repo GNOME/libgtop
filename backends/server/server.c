@@ -88,8 +88,7 @@ main(int argc, char *argv[])
     server = glibtop_global_server;
 	
     if (!server->_priv)
-	server->_priv = glibtop_calloc_r
-	    (server, 1, sizeof (glibtop_server_private));
+	server->_priv = g_malloc (sizeof (glibtop_server_private));
 
     glibtop_init_p (server, 0, 0);
 
@@ -156,7 +155,7 @@ handle_slave_connection (int input, int output)
 		     cmnd->data_size);
 #endif
 
-	    data_ptr = glibtop_malloc_r (server, cmnd->data_size);
+	    data_ptr = g_malloc (server, cmnd->data_size);
 	    do_read (input, data_ptr, cmnd->data_size);
 	}
 

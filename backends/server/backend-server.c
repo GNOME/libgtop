@@ -51,7 +51,7 @@ _open_server (glibtop_server *server, glibtop_backend *backend,
 {
     backend_server_private *priv;
 
-    priv = glibtop_calloc_r (server, 1, sizeof (backend_server_private));
+    priv = g_malloc (sizeof (backend_server_private));
 
     glibtop_backend_set_closure_data (backend, priv);
 

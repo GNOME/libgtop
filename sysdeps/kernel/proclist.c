@@ -78,7 +78,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 
 	buf->total = buf->number * sizeof (unsigned);
 
-	pids_chain = glibtop_malloc_r (server, buf->total);
+	pids_chain = g_malloc (server, buf->total);
 
 	memcpy (pids_chain, tbl.proclist.pids, buf->total);
 

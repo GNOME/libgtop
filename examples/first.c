@@ -232,7 +232,7 @@ main (int argc, char *argv [])
 		printf ("\n");
 	}
 
-	glibtop_free (ptr);
+	g_free (ptr);
 
 	pid = getpid ();
 	ppid = getppid ();
@@ -346,7 +346,7 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_args.size,
 		args ? args : "");
 
-	glibtop_free (args);
+	g_free (args);
 
 	printf ("\n");
 
@@ -456,7 +456,7 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_args.size,
 		args ? args : "");
 
-	glibtop_free (args);
+	g_free (args);
 
 	printf ("\n");
 
@@ -567,7 +567,7 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_args.size,
 		args ? args : "");
 
-	glibtop_free (args);
+	g_free (args);
 
 	glibtop_close ();
 

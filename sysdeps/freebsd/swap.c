@@ -269,14 +269,14 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	/* List of swap devices and sizes. */
 
 	sw_size = nswdev * sizeof (*sw);
-	sw = glibtop_malloc_r (server, sw_size);
+	sw = g_malloc (server, sw_size);
 
 	if (kvm_read (server->machine.kd, ptr, sw, sw_size) != (ssize_t)sw_size) {
 		glibtop_warn_io_r (server, "kvm_read (*swdevt)");
 		return;
 	}
 
-	perdev = glibtop_malloc (nswdev * sizeof (*perdev));
+	perdev = g_malloc (nswdev * sizeof (*perdev));
 
 	/* Count up swap space. */
 
@@ -353,8 +353,8 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	 */
 	inuse = avail - nfree;
 
-	glibtop_free_r (server, sw);
-	glibtop_free_r (server, perdev);
+	g_free (sw);
+	g_free (perdev);
 
 	buf->flags = _glibtop_sysdeps_swap;
 
@@ -401,11 +401,11 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		return;
 	}
 
-	swaplist = glibtop_calloc_r (server, nswap, sizeof (struct swapent));
+	swaplist = g_malloc (server, nswap * sizeof (struct swapent));
 
 	if (swapctl (SWAP_STATS, swaplist, nswap) != nswap) {
 		glibtop_warn_io_r (server, "swapctl (SWAP_STATS)");
-		glibtop_free_r (server, swaplist);
+		g_free (swaplist);
 		return;
 	}
 
@@ -414,7 +414,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		inuse += swaplist[i].se_inuse;
 	}
 
-	glibtop_free_r (server, swaplist);
+	g_free (swaplist);
 
 	buf->flags = _glibtop_sysdeps_swap;
 

@@ -464,8 +464,8 @@ Size of a single entry in the returned list
 (this equals @code{sizeof (unsigned)}).
 @end table
 
-The returned list is allocated using @code{glibtop_malloc} and must be freed
-using @code{glibtop_free} to avoid a memory leak.
+The returned list is allocated using @code{g_malloc} and must be freed
+using @code{g_free} to avoid a memory leak.
 
 @page
 @node glibtop_proc_state, glibtop_proc_uid, glibtop_proclist, System Dependent
@@ -1108,7 +1108,7 @@ Returns a string with all command line arguments of process @code{pid}
 The command line arguments in the returned string are separated by zero bytes;
 the lenght of this string is returned in the @code{size} field.
 
-Remember to @code{glibtop_free} the returned string to avoid a memory leak.
+Remember to @code{g_free} the returned string to avoid a memory leak.
 
 @page
 @node glibtop_proc_map, glibtop_netload, glibtop_proc_args, System Dependent
@@ -1144,7 +1144,7 @@ struct _glibtop_proc_map
 @end example
 
 Returns a @code{glibtop_map_entry *} list (which needs to be freed with
-@code{glibtop_free}) of memory maps of process @code{pid}.
+@code{g_free}) of memory maps of process @code{pid}.
 
 @table @code
 @item number
@@ -1418,7 +1418,7 @@ struct _glibtop_mountlist
 @end example
 
 Returns a @code{glibtop_mountentry *} list (which needs to be freed with
-@code{glibtop_free}) of mounted filesystems.
+@code{g_free}) of mounted filesystems.
 
 @table @code
 @item number

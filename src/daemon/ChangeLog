@@ -1,5 +1,11 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* main.c: (handle_parent_connection):
+	* slave.c: (handle_slave_connection):
+	replace all the xmalloc crap by glib memory management functions
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* Makefile.am: removed traces of guile, intllibs and libgnomesupport
 
 2003-10-20  Bastien Nocera  <hadess@hadess.net>

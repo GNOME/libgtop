@@ -57,13 +57,13 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 	if (cmdline < 0) return NULL;
 
 	if (max_len) {
-		retval = glibtop_malloc_r (server, max_len+1);
+		retval = g_malloc (server, max_len+1);
 
 		len = read (cmdline, retval, max_len);
 		close (cmdline);
 
 		if (len < 0) {
-			glibtop_free_r (server, retval);
+			g_free (retval);
 			return NULL;
 		}
 
@@ -79,14 +79,14 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 		len = read (cmdline, buffer, BUFSIZ-1);
 		if (len < 0) {
 			close (cmdline);
-			glibtop_free_r (server, retval);
+			g_free (retval);
 			return NULL;
 		}
 
 		if (len == 0)
 			break;
 
-		retval = glibtop_realloc_r (server, retval, total+len+1);
+		retval = g_realloc (retval, total+len+1);
 		memcpy (retval+total, buffer, len);
 		*(retval+total+len) = 0;
 		total += len;

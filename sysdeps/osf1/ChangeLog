@@ -1,3 +1,8 @@
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
+	* proclist.c: (glibtop_get_proclist_p):
+	replace all the xmalloc crap by glib memory management functions
+
 2001-10-17  Abel Cheung <maddog@linux.org.hk>
 
 	* Makefile.am: move header to $(includedir)/libgtop-1.0/glibtop.

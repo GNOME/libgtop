@@ -247,7 +247,7 @@ sub output {
   if ($line_fields[3] eq '') {
     $size_code .= "\t_LIBGTOP_RECV_buf = NULL;\n";
   } else {
-    $size_code .= "\t_LIBGTOP_RECV_buf = glibtop_malloc_r (server, _LIBGTOP_RECV_len);\n";
+    $size_code .= "\t_LIBGTOP_RECV_buf = g_malloc (server, _LIBGTOP_RECV_len);\n";
   }
   $size_code .= "\t_LIBGTOP_RECV_ptr = _LIBGTOP_RECV_buf;\n\n";
 
@@ -299,7 +299,7 @@ sub output {
     $recv_buf_code .= "\n";
     $recv_buf_code .= "\t_LIBGTOP_TEMP_len += sizeof (off_t) + 1;\n";
     $recv_buf_code .= "\t_LIBGTOP_TEMP_len += array.number * sizeof (off_t);\n";
-    $recv_buf_code .= "\t_LIBGTOP_ARRAY_base = glibtop_malloc_r (server, _LIBGTOP_TEMP_len);";
+    $recv_buf_code .= "\t_LIBGTOP_ARRAY_base = g_malloc (server, _LIBGTOP_TEMP_len);";
     $recv_buf_code .= "\t_LIBGTOP_ARRAY_ptr = _LIBGTOP_ARRAY_base;\n";
     $recv_buf_code .= "\t_LIBGTOP_ARRAY_offset = array.number * sizeof (off_t);\n";
     $recv_buf_code .= "\t_LIBGTOP_ARRAY_offset += sizeof (off_t);\n";

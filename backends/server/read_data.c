@@ -47,7 +47,7 @@ glibtop_read_data_i (backend_server_private *priv)
 
     if (!size) return NULL;	
 
-    ptr = glibtop_malloc_r (priv->server, size);
+    ptr = g_malloc (priv->server, size);
 	
     ret = read (priv->input [0], ptr, size);
 

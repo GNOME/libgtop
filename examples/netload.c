@@ -82,8 +82,8 @@ main (int argc, char *argv [])
 	addr.s_addr = netload.address;
 	subnet.s_addr = netload.subnet;
 
-	address_string = glibtop_strdup (inet_ntoa (addr));
-	subnet_string  = glibtop_strdup (inet_ntoa (subnet));
+	address_string = g_strdup (inet_ntoa (addr));
+	subnet_string  = g_strdup (inet_ntoa (subnet));
 
 	printf ("Network Load (0x%08lx):\n\n"
 		"\tInterface Flags:\t0x%08lx\n"
@@ -116,8 +116,8 @@ main (int argc, char *argv [])
 		(unsigned long) netload.errors_out,
 		(unsigned long) netload.errors_total);
 
-	glibtop_free (address_string);
-	glibtop_free (subnet_string);
+	g_free (address_string);
+	g_free (subnet_string);
 
 	glibtop_close ();
 

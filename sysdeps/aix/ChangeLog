@@ -1,5 +1,11 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* procargs.c: (glibtop_get_proc_args_s):
+	* proclist.c: (glibtop_get_proclist_s):
+	replace all the xmalloc crap by glib memory management functions
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* .cvsignore: added
 
 2002-09-24  Laurent Vivier <Laurent.Vivier@bull.net>

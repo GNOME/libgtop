@@ -78,7 +78,7 @@ handle_slave_connection (int input, int output)
 				 param_ptr [0], param_ptr [1]);
 			do_output (output, resp, _offset_data (proclist),
 				   resp->u.data.proclist.total, ptr);
-			glibtop_free_r (server, ptr);
+			g_free (ptr);
 			break;
 #endif
 #if GLIBTOP_SUID_PROC_ARGS
@@ -92,7 +92,7 @@ handle_slave_connection (int input, int output)
 			do_output (output, resp, _offset_data (proc_args),
 				   ptr ? resp->u.data.proc_args.size+1 : 0,
 				   ptr);
-			glibtop_free_r (server, ptr);
+			g_free (ptr);
 			break;
 #endif
 #if GLIBTOP_SUID_PROC_MAP
@@ -103,7 +103,7 @@ handle_slave_connection (int input, int output)
 						      pid);
 			do_output (output, resp, _offset_data (proc_map),
 				   resp->u.data.proc_map.total, ptr);
-			glibtop_free_r (server, ptr);
+			g_free (ptr);
 			break;
 #endif
 		default:

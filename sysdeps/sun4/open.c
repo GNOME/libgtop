@@ -149,7 +149,7 @@ glibtop_open_p (glibtop *server, const char *program_name,
 	server->machine.ptable_size = (unsigned long) server->machine.nproc *
 		(unsigned long) sizeof (struct proc);
 
-	server->machine.proc_table = glibtop_malloc_r
+	server->machine.proc_table = g_malloc
 		(server, server->machine.ptable_size);
 
 	/* This are for the memory statistics. */
@@ -170,7 +170,7 @@ glibtop_open_p (glibtop *server, const char *program_name,
 		sizeof (struct page);
 
 	server->machine.physpage = (struct page *)
-		glibtop_malloc_r (server, server->machine.bytesize);
+		g_malloc (server, server->machine.bytesize);
 
 	/* get the page size with "getpagesize" and
 	 * calculate pageshift from it */

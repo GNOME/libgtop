@@ -188,15 +188,15 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	
 		if (count >= BLOCK_COUNT)
 		{
-			/* The following call to glibtop_realloc will be
-			 * equivalent to glibtop_malloc () if `pids_chain' is
+			/* The following call to g_realloc will be
+			 * equivalent to g_malloc () if `pids_chain' is
 			 * NULL. We just calculate the new size and copy `pids'
 			 * to the beginning of the newly allocated block. */
 
 			new_size = pids_size + BLOCK_SIZE;
 
-			pids_chain = glibtop_realloc_r
-					(server, pids_chain, new_size);
+			pids_chain = g_realloc
+					(pids_chain, new_size);
 			memcpy (pids_chain + pids_offset, pids, BLOCK_SIZE);
 
 			pids_size = new_size;
@@ -221,14 +221,14 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 
 	if (!count) return NULL;
 
-	/* The following call to glibtop_realloc will be equivalent to
-	 * glibtop_malloc if pids_chain is NULL. We just calculate the
+	/* The following call to g_realloc will be equivalent to
+	 * g_malloc if pids_chain is NULL. We just calculate the
 	 * new size and copy pids to the beginning of the newly allocated
 	 * block. */
 
 	new_size = pids_size + count * sizeof (unsigned);
 
-	pids_chain = glibtop_realloc_r (server, pids_chain, new_size);
+	pids_chain = g_realloc (pids_chain, new_size);
 
 	memcpy (pids_chain + pids_offset, pids, count * sizeof (unsigned));
 

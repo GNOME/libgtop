@@ -181,7 +181,7 @@ sub output {
     $send_buf_code = "\t/* send buffer */\n";
     $send_buf_code .= "\t_LIBGTOP_SEND_buf = ";
     if ($need_temp_storage) {
-      $send_buf_code .= "glibtop_malloc_r (server, _LIBGTOP_SEND_len+1)";
+      $send_buf_code .= "g_malloc (server, _LIBGTOP_SEND_len+1)";
     } else {
       $send_buf_code .= '(void *) &'.$first_param_name;
     }
@@ -190,7 +190,7 @@ sub output {
     $send_buf_code .= "\t/* data buffer */\n";
     $send_buf_code .= "\t_LIBGTOP_DATA_buf = ";
     if ($need_temp_storage) {
-      $send_buf_code .= "glibtop_malloc_r (server, _LIBGTOP_DATA_len+1)";
+      $send_buf_code .= "g_malloc (server, _LIBGTOP_DATA_len+1)";
     } else {
       $send_buf_code .= 'NULL';
     }
@@ -216,8 +216,8 @@ sub output {
     $call_code .= sprintf ("\t\t\t%s%s);\n", $call_prefix_space, $retval_param);
 
     if ($need_temp_storage) {
-      $send_buf_free_code = "\tglibtop_free_r (server, _LIBGTOP_SEND_buf);\n";
-      $send_buf_free_code .= "\tglibtop_free_r (server, _LIBGTOP_DATA_buf);\n";
+      $send_buf_free_code = "\tg_free (_LIBGTOP_SEND_buf);\n";
+      $send_buf_free_code .= "\tg_free (_LIBGTOP_DATA_buf);\n";
     } else {
       $send_buf_free_code = "";
     }
@@ -231,14 +231,14 @@ sub output {
       $local_var_code .= "\tchar *_LIBGTOP_ARRAY_ptr, **ptrlist;\n";
       $local_var_code .= "\toff_t *_LIBGTOP_ARRAY_off_ptr;\n";
       $local_var_code .= "\tint i;\n";
-      $call_code .= "\tptrlist = glibtop_calloc_r (server, array->number+1, sizeof (char *));\n";
+      $call_code .= "\tptrlist = g_malloc (server, array->number+1 * sizeof (char *));\n";
       $call_code .= "\t_LIBGTOP_ARRAY_off_ptr = (off_t *) retval;\n";
       $call_code .= "\t_LIBGTOP_ARRAY_ptr = (char *) retval;\n";
       $call_code .= "\t_LIBGTOP_ARRAY_off_ptr++;\n\n";
       $call_code .= "\tfor (i = 0; i < array->number; i++)\n";
-      $call_code .= "\t\tptrlist [i] = glibtop_strdup_r (server, _LIBGTOP_ARRAY_ptr + *_LIBGTOP_ARRAY_off_ptr++);\n";
+      $call_code .= "\t\tptrlist [i] = g_strdup (_LIBGTOP_ARRAY_ptr + *_LIBGTOP_ARRAY_off_ptr++);\n";
       $call_code .= "\tptrlist [array->number] = NULL;\n\n";
-      $call_code .= "\tglibtop_free_r (server, retval);\n";
+      $call_code .= "\tg_free (retval);\n";
       $call_code .= "\tretval = ptrlist;\n";
     }
 

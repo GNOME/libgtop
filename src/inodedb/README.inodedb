@@ -64,7 +64,7 @@ glibtop_inodedb_lookup_s (glibtop *server, glibtop_inodedb *inodedb,
 			  u_int64_t device, u_int64_t inode)
 
 It will either return a pointer to the filename - which you have to
-`glibtop_free ()' once done with it - or NULL on error.
+`g_free ()' once done with it - or NULL on error.
 
 You can use the `file_by_inode' program in this directory to test the
 interface - just call it with two command line arguments: the device number

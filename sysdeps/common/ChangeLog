@@ -1,3 +1,12 @@
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am:
+	* inodedb.c: (glibtop_inodedb_open_s), (glibtop_inodedb_close_s):
+	* mountlist.c: (glibtop_get_mountlist_s):
+	* xmalloc.c:
+	* xmalloc_suid.c: replace all the xmalloc crap by glib memory
+	management functions
+
 2000-01-20  Martin Baulig  <martin@home-of-linux.org>
 
 	* fsusage.c (adjust_blocks): Use `u_int64_t' arguments and
