@@ -8,14 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.0.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-10-21 13:58+0200\n"
-"PO-Revision-Date: 2003-10-21 13:58+0200\n"
+"POT-Creation-Date: 2003-10-25 18:31+0200\n"
+"PO-Revision-Date: 2003-10-25 18:31+0200\n"
 "Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: examples/smp.c:71
 #, c-format
@@ -100,10 +99,8 @@ msgstr "Spin:"
 
 #: lib/read.c:75
 #, c-format
-msgid "read %d byte"
-msgid_plural "read %d bytes"
-msgstr[0] "%d Byte gelesen"
-msgstr[1] "%d Bytes gelesen"
+msgid "read %d bytes"
+msgstr "%d Bytes gelesen"
 
 #: lib/read_data.c:49
 msgid "read data size"
@@ -111,17 +108,13 @@ msgstr "Datenmenge lesen"
 
 #: lib/read_data.c:66
 #, c-format
-msgid "read data %d byte"
-msgid_plural "read data %d bytes"
-msgstr[0] "%d Datenbyte gelesen"
-msgstr[1] "%d Datenbytes gelesen"
+msgid "read data %d bytes"
+msgstr "%d Datenbytes gelesen"
 
 #: lib/write.c:48
 #, c-format
-msgid "write %d byte"
-msgid_plural "write %d bytes"
-msgstr[0] "%d Byte schreiben"
-msgstr[1] "%d Bytes schreiben"
+msgid "write %d bytes"
+msgstr "%d Bytes schreiben"
 
 #: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
