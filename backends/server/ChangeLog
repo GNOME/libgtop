@@ -1,3 +1,8 @@
+2000-01-18  Martin Baulig  <martin@home-of-linux.org>
+
+	* demarshal.pl: Only emit code for functions which are
+	really suid/sgid.
+
 2000-01-13  Martin Baulig  <martin@home-of-linux.org>
 
 	* write.c (glibtop_write_i): The buffer which we write is

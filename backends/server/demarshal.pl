@@ -355,6 +355,10 @@ sub output {
      $func_decl_code, $local_var_decl_code, $init_local_var_code,
      $func_body_code);
   
+  $total_code = sprintf ("#if GLIBTOP_SUID_%s\n\n%s\n#endif /* GLIBTOP_SUID_%s */\n\n",
+			 &toupper($feature), $total_code,
+			 &toupper($feature));
+
   print $total_code;
 }
 
@@ -367,8 +371,8 @@ for ($nr = 1; $nr <= $feature_count; $nr++) {
   $feature = $features{$nr};
 
   $switch_body_code .= sprintf
-    (qq[\tcase GLIBTOP_CMND_%s:\n\t\treturn _glibtop_demarshal_%s_i\n\t\t\t(server, backend, send_ptr, send_size,\n\t\t\t data_ptr, data_size,\n\t\t\t recv_buf_ptr, recv_size_ptr,\n\t\t\t recv_data_ptr, recv_data_size_ptr, retval_ptr);\n],
-     &toupper ($feature), $feature);
+    (qq[#if GLIBTOP_SUID_%s\n\tcase GLIBTOP_CMND_%s:\n\t\treturn _glibtop_demarshal_%s_i\n\t\t\t(server, backend, send_ptr, send_size,\n\t\t\t data_ptr, data_size,\n\t\t\t recv_buf_ptr, recv_size_ptr,\n\t\t\t recv_data_ptr, recv_data_size_ptr, retval_ptr);\n#endif /* GLIBTOP_SUID_%s */\n],
+     &toupper ($feature), &toupper ($feature), $feature, &toupper ($feature));
 }
 
 $switch_code = sprintf
