@@ -112,6 +112,10 @@ sub output {
       $prefix_space = '';
     }
 
+    if ($retval =~ /^array\((.*)\)$/) {
+      $retval = "$1 *";
+    }
+
     $check_server_code = "\n";
     $check_server_code .=
       "\t/* If neccessary, we ask the server for the requested\n" .

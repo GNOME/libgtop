@@ -1,5 +1,10 @@
 1999-12-05  Martin Baulig  <martin@home-of-linux.org>
 
+	* features.def: Use `array(<type>)' as return value for functions
+	returning an array of structures.
+
+1999-12-05  Martin Baulig  <martin@home-of-linux.org>
+
 	* includes/glibtop/interfaces.h (glibtop_get_interface_names):
 	Return array of `glibtop_interface' structures.
 	(glibtop_interface): New structure.

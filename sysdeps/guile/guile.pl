@@ -203,8 +203,16 @@ sub make_output {
   $func_decl_code = sprintf
     (qq[static SCM\nglibtop_guile_get_%s (SCM server_smob%s)], $feature, $param_decl);
   
+  if ($retval =~ /^array\((.*)\)$/) {
+    $retval_type = "$1 *";
+    $retval_name = $1;
+  } else {
+    $retval_type = $retval;
+    $retval_name = $retval;
+  }
+
   if ($retval ne 'void') {
-    $local_var_decl_code .= sprintf (qq[\t%s retval;\n], $retval);
+    $local_var_decl_code .= sprintf (qq[\t%s retval;\n], $retval_type);
   }
   
   if ($retval ne 'void') {
