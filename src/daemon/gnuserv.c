@@ -603,6 +603,9 @@ main (int argc, char *argv [])
 			 getuid (), geteuid (), getgid (), getegid ());
 #endif
 
+		/* Give our child a little time to start up. */
+		sleep (2);
+
 #ifdef INTERNET_DOMAIN_SOCKETS
 		/* get a internet domain socket to listen on. */
 		ils = internet_init ();
