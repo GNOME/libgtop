@@ -54,8 +54,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 		glibtop_error_r (server, "read (%s): %s",
 				 FILENAME, strerror (errno));
 
-	tmp = strchr (buffer, '\n');
-	tmp = skip_token (tmp);			/* "cpu" */
+	tmp = skip_token (buffer);		/* "cpu" */
 
 	buf->user  = strtoul (tmp, &tmp, 10);
 	buf->nice  = strtoul (tmp, &tmp, 10);

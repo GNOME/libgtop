@@ -154,7 +154,7 @@ AC_SUBST(LIBSUPPORT)
 AC_SUBST(SUPPORTINCS)
 
 dnl These definitions are expanded in make.
-LIBGTOP_LIBS='-L$(libdir)'
+LIBGTOP_LIBS='-L$(libdir) -lgtop'
 LIBGTOP_INCS='-I$(includedir)'
 LIBGTOP_GUILE_LIBS="$LIBGTOP_LIBS"
 LIBGTOP_GUILE_INCS="$LIBGTOP_INCS"

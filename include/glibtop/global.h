@@ -62,6 +62,11 @@
 # endif
 #endif
 
+#ifdef WITHOUT_GUILE
+#undef HAVE_GUILE
+#undef GLIBTOP_GUILE_NAMES
+#endif
+
 #ifdef HAVE_GUILE
 #include <guile/gh.h>
 #endif

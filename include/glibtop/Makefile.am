@@ -5,4 +5,4 @@ glibtop_HEADERS		= close.h loadavg.h prockernel.h procstate.h \
 			  proctime.h shm_limits.h version.h cpu.h msg_limits.h \
 			  procmem.h procuid.h swap.h write.h error.h open.h \
 			  procsegment.h read.h sysdeps.h xmalloc.h global.h \
-			  output.h procsignal.h read_data.h union.h
+			  output.h procsignal.h read_data.h union.h types.h

@@ -1,3 +1,17 @@
+1998-06-21  Martin Baulig  <martin@home-of-linux.org>
+
+	* perl/*: Added perl interface.
+
+	* sysdeps/linux/cpu.c: Bug fix.
+
+	* include/glibtop/global.h: Only including guile header files
+	within libgtop.
+
+	* configure.in (LIGBTOP_LIBS): Added `-lgtop'.
+
+	* Makefile.am: Creating `perl/Makefile.PL' from `perl/Makefile.PL.in'
+	and `perl/Libgtop.xs' using `perl/perl.awk'.
+
 1998-06-18  Martin Baulig  <baulig@taurus.uni-trier.de>
 
 	* sysdeps/linux/*.c: Reverted some stuff from 06-07-1998
