@@ -585,8 +585,8 @@ table_fkt (int type, union table *buf, const void *param)
 		tbl.proc_kernel.maj_flt = tsk->maj_flt;
 		tbl.proc_kernel.cmaj_flt = tsk->cmaj_flt;
 		
-		tbl.proc_kernel.kesp = KSTK_EIP(tsk);
-		tbl.proc_kernel.keip = KSTK_ESP(tsk);
+		tbl.proc_kernel.kesp = KSTK_ESP(tsk);
+		tbl.proc_kernel.keip = KSTK_EIP(tsk);
 		
 		tbl.proc_kernel.nswap = tsk->nswap;
 		tbl.proc_kernel.cnswap = tsk->cnswap;
