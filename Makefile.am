@@ -1,12 +1,18 @@
 ## Process this file with automake to produce Makefile.in.
 
-built_SUBDIRS = sysdeps src lib examples
+if GLIBTOP_EXAMPLES
+examples_SUBDIRS	= examples
+endif
 
-SUBDIRS = po intl support macros $(built_SUBDIRS) 
+built_SUBDIRS = include sysdeps src lib
 
-include_HEADERS = 
+SUBDIRS = po intl support macros $(built_SUBDIRS) $(examples_SUBDIRS)
 
-EXTRA_DIST = gtopConf.sh.in
+DIST_SUBDIRS = po intl support macros include sysdeps src lib examples
+
+include_HEADERS = glibtop.h
+
+EXTRA_DIST = copyright.txt gtopConf.sh.in
 
 release:
 	$(MAKE) dist distdir=$(PACKAGE)$(VERSION)
@@ -39,5 +45,9 @@ gtopConf.sh: gtopConf.sh.in Makefile
 	    -e 's,\@GTOP_SYSDEPS_DIR\@,$(sysdeps_dir),g' \
 	    -e 's,\@GTOP_NEED_SERVER\@,$(need_server),g' \
 	    -e 's,\@GTOP_USE_MACHINE_H\@,$(use_glibtop_machine_h),g' \
+	    -e 's,\@GTOP_GUILE_FOUND\@,$(gtop_guile_found),g' \
+	    -e 's,\@GTOP_WANT_NAMES\@,$(gtop_want_names),g' \
+	    -e 's,\@GTOP_WANT_GUILE_NAMES\@,$(gtop_want_guile_names),g' \
+	    -e 's,\@GTOP_WANT_EXAMPLES\@,$(gtop_want_examples),g' \
 	      < $(srcdir)/gtopConf.sh.in > gtopConf.tmp \
 	  && mv gtopConf.tmp gtopConf.sh
