@@ -1,3 +1,7 @@
+2001-02-13  Stanislav Visnovsky  <visnovsky@nenya.ms.mff.cuni.cz>
+
+	* configure.in: Added sk to ALL_LINGUAS.
+
 2000-02-16  Martin Baulig  <martin@home-of-linux.org>
 
 	Released LibGTop 1.1.2.1 "Hardangervidda goes Paris".
