@@ -69,16 +69,29 @@ load_extra_libs (glibtop_client *client, glibtop_backend_entry *entry,
 glibtop_backend *
 glibtop_open_backend_l (glibtop_client *client, const char *backend_name,
 			u_int64_t features, const char **backend_args,
-			GError **error)
+			GError **opt_error)
 {
     const glibtop_backend_info *info;
     glibtop_backend_entry *entry;
     glibtop_backend *backend;
+    GError **error, *my_error = NULL;
 
     g_return_val_if_fail (GLIBTOP_IS_CLIENT (client), NULL);
 
+    if (opt_error == NULL)
+	error = &my_error;
+    else
+	error = opt_error;
+
     entry = glibtop_backend_by_name (backend_name);
-    if (!entry) return NULL;
+    if (!entry) {
+	g_set_error (error, GLIBTOP_ERROR, GLIBTOP_ERROR_NO_SUCH_BACKEND,
+		     "No backend with this name");
+	if (my_error != NULL) {
+	    glibtop_client_propagate_error (client, my_error);
+	    g_error_free (my_error);
+	}
+    }
 
     if (!entry->_priv) {
 	entry->_priv = g_new0 (glibtop_backend_module, 1);
@@ -87,7 +100,13 @@ glibtop_open_backend_l (glibtop_client *client, const char *backend_name,
 	    int retval;
 
 	    retval = load_extra_libs (client, entry, error);
-	    if (retval < 0) return NULL;
+	    if (retval < 0) {
+		if (my_error != NULL) {
+		    glibtop_client_propagate_error (client, my_error);
+		    g_error_free (my_error);
+		}
+		return NULL;
+	    }
 	}
 
 	entry->_priv->module = g_module_open (entry->shlib_name,
@@ -97,6 +116,10 @@ glibtop_open_backend_l (glibtop_client *client, const char *backend_name,
 			 "Cannot open shared library `%s' "
 			 "for backend `%s' (%s)", entry->shlib_name,
 			 entry->name, g_module_error ());
+	    if (my_error != NULL) {
+		glibtop_client_propagate_error (client, my_error);
+		g_error_free (my_error);
+	    }
 	    return NULL;
 	}
 
@@ -107,6 +130,11 @@ glibtop_open_backend_l (glibtop_client *client, const char *backend_name,
 			 "Library `%s' is not a valid "
 			 "LibGTop Backend library (start symbol not found)",
 			 entry->shlib_name);
+
+	    if (my_error != NULL) {
+		glibtop_client_propagate_error (client, my_error);
+		g_error_free (my_error);
+	    }
 
 	    g_module_close (entry->_priv->module);
 	    g_free (entry->_priv);
@@ -119,7 +147,15 @@ glibtop_open_backend_l (glibtop_client *client, const char *backend_name,
     entry->_priv->refcount++;
 
     info = entry->info;
-    if (!info) return NULL;
+    if (!info) {
+	g_set_error (error, GLIBTOP_ERROR, GLIBTOP_ERROR_NO_SUCH_BACKEND,
+		     "Can't get backend info");
+	if (my_error != NULL) {
+	    glibtop_client_propagate_error (client, my_error);
+	    g_error_free (my_error);
+	}
+	return NULL;
+    }
 
     backend = g_new0 (glibtop_backend, 1);
     backend->_priv_module = entry->_priv;
@@ -132,6 +168,13 @@ glibtop_open_backend_l (glibtop_client *client, const char *backend_name,
 
 	retval = info->open (backend->server, backend, features, backend_args);
 	if (retval) {
+	    g_set_error (error, GLIBTOP_ERROR, GLIBTOP_ERROR_NO_SUCH_BACKEND,
+			 "Backend open function return error condition");
+	    if (my_error != NULL) {
+		glibtop_client_propagate_error (client, my_error);
+		g_error_free (my_error);
+	    }
+
 	    glibtop_server_unref (backend->server);
 	    g_free (backend->_priv);
 	    g_free (backend);
@@ -139,5 +182,9 @@ glibtop_open_backend_l (glibtop_client *client, const char *backend_name,
 	}
     }
 
+    if (my_error != NULL)
+	g_error_free (my_error);
+
     return backend;
 }
+

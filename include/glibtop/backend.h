@@ -113,7 +113,7 @@ glibtop_init_backends (void);
 glibtop_backend *
 glibtop_open_backend_l (glibtop_client *client, const char *backend_name,
 			u_int64_t features, const char **backend_args,
-			GError **error);
+			GError **opt_error);
 
 END_LIBGTOP_DECLS
 

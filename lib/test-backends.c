@@ -32,7 +32,6 @@ main (int argc, char *argv [])
     glibtop_client *client;
     glibtop_backend *backend_common;
     glibtop_backend *backend_sysdeps;
-    GError *error = NULL;
 
     g_type_init ();
 
@@ -41,26 +40,14 @@ main (int argc, char *argv [])
     client = glibtop_client_new ();
 
     backend_common = glibtop_open_backend_l (client, "glibtop-backend-common",
-					     0, NULL, &error);
+					     0, NULL, NULL);
 
-    g_message (G_STRLOC ": backend = %p (%p)", backend_common, error);
-
-    if (error != NULL) {
-	glibtop_client_propagate_error (client, error);
-	g_error_free (error);
-	error = NULL;
-    }
+    g_message (G_STRLOC ": backend = %p", backend_common);
 
     backend_sysdeps = glibtop_open_backend_l (client, "glibtop-backend-sysdeps",
-					      0, NULL, &error);
+					      0, NULL, NULL);
 
-    g_message (G_STRLOC ": backend = %p (%p)", backend_sysdeps, error);
-
-    if (error != NULL) {
-	glibtop_client_propagate_error (client, error);
-	g_error_free (error);
-	error = NULL;
-    }
+    g_message (G_STRLOC ": backend = %p", backend_sysdeps);
 
     exit (0);
 }

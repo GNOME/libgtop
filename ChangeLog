@@ -1,5 +1,11 @@
 2000-11-22  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/backends.h (glibtop_open_backend_l): Allow
+	the `error' argument to be NULL; propagate the error to the
+	glibtop_client in this case.
+
+2000-11-22  Martin Baulig  <martin@home-of-linux.org>
+
 	* include/glibtop/glibtop-client.h (glibtop_client_class):
 	Added "error" and "warning" signals.
 
