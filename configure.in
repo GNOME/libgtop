@@ -122,7 +122,7 @@ AC_SUBST(guile_subdirs)
 
 AM_PROG_LIBTOOL
 
-AM_PATH_GLIB
+AM_PATH_GLIB(1.1.3,,AC_MSG_ERROR(GLIB >= 1.1.3 is required for LibGTop))
 
 dnl You need to uncomment the following line if you want to use
 dnl libGTop without Gnome.
