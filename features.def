@@ -15,5 +15,5 @@ void|proc_signal|ulong(signal,blocked,sigignore,sigcatch)|pid_t(pid)
 void|proc_kernel|ulong(k_flags,min_flt,maj_flt,cmin_flt,cmaj_flt,kstk_esp,kstk_eip,nwchan):str(wchan)|pid_t(pid)
 void|proc_segment|ulong(text_rss,shlib_rss,data_rss,stack_rss,dirty_size,start_code,end_code,start_stack)|pid_t(pid)
 glibtop_map_entry *|proc_map|ulong(number,size,total)|pid_t(pid)
-glibtop_mountentry *|@mountlist|ulong(number,size,total)|pid_t(all_fs)
+glibtop_mountentry *|@mountlist|ulong(number,size,total)|int(all_fs)
 void|@fsusage|ulong(blocks,bfree,bavail,files,ffree)|string|mount_dir
