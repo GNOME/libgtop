@@ -1,3 +1,16 @@
+1998-07-15  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/sun4/loadavg.h: New file. Imported from top 3.4.
+
+	* sysdeps/sun4/uptime.c (glibtop_get_uptime_p): Added
+	implementation of that function using glibtop_get_cpu ().
+
+	* sysdeps/sun4/loadavg.c (glibtop_get_loadavg_p): Added
+	implementation of that feature.
+
+	* sysdeps/sun4/{shm_limits.c, msg_limits.c, shm_limits.c}:
+	Added implementation of this features.
+
 1998-07-14  Martin Baulig  <baulig@Stud.Informatik.uni-trier.de>
 
 	* src/daemon/server_config.h.in: Added some comments.

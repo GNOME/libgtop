@@ -19,15 +19,39 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
+#include <glibtop/cpu.h>
 #include <glibtop/uptime.h>
+
+static const unsigned long _glibtop_sysdeps_uptime =
+(1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME);
 
 /* Provides uptime and idle time. */
 
 void
 glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 {
+	glibtop_cpu cpu;
+
 	glibtop_init_r (&server, 0, 0);
 
-	memset (buf, 0, sizeof (glibtop_uptime));
+	/* Get currect cpu usage. */
+
+	glibtop_get_cpu_p (server, &cpu);
+
+	/* Make sure all required fields are present. */
+
+	if (((cpu.flags & GLIBTOP_CPU_TOTAL) == 0) ||
+	    ((cpu.flags & GLIBTOP_CPU_IDLE) == 0) ||
+	    ((cpu.flags & GLIBTOP_CPU_FREQUENCY) == 0) ||
+	    (cpu.frequency == 0))
+		return;
+
+	/* Simply calculate uptime and idle time from
+	 * cpu usage. */
+
+	buf->uptime = (double) cpu.total / (double) cpu.frequency;
+	buf->idletime = (double) cpu.idle / (double) cpu.frequency;
+
+	buf->flags = _glibtop_sysdeps_uptime;
 }

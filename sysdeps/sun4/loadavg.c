@@ -20,69 +20,44 @@
    Boston, MA 02111-1307, USA.  */
 
 #include <glibtop.h>
-#include <glibtop/mem.h>
+#include <glibtop/loadavg.h>
 
-static const unsigned long _glibtop_sysdeps_mem =
-(1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
-(1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_LOCKED);
+static const unsigned long _glibtop_sysdeps_loadavg =
+(1 << GLIBTOP_LOADAVG_LOADAVG);
 
-/* define pagetok in terms of pageshift */
-
-#define pagetok(size) ((size) << server->machine.pageshift)
-
-/* Provides information about memory usage. */
+/* Provides load averange. */
 
 void
-glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
+glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
 {
+	load_avg avenrun [3];
+	int i;
+
 	glibtop_init_r (&server, 0, 0);
 
-	memset (buf, 0, sizeof (glibtop_mem));
-	
+	memset (buf, 0, sizeof (glibtop_loadavg));
+
 	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
 	
 	setregid (server->machine.gid, server->machine.egid);
 	
-	/* get the array of physpage descriptors */
-	
-	(void) _glibtop_getkval (server, server->machine.pages,
-				 (int *) server->machine.physpage,
-				 server->machine.bytesize,
-				 "array _page");
-	
+	/* get the load average array */
+
+	(void) _glibtop_getkval (server, _glibtop_nlist [X_AVENRUN].n_value,
+				 (int *) avenrun, sizeof (avenrun),
+				 _glibtop_nlist [X_AVENRUN].n_name);
+
 	if (setregid (server->machine.egid, server->machine.gid))
 		_exit (1);
 	
 	/* !!! END OF SGID KMEM PART !!! */
 
-
-	{	/* sum memory statistics */
-		register struct page *pp;
-		register int cnt;
-		register int inuse;
-		register int free;
-		register int locked;
-		
-		/* bop thru the array counting page types */
-
-		pp = server->machine.physpage;
-		inuse = free = locked = 0;
-		for (cnt = server->machine.count; --cnt >= 0; pp++) {
-			if (pp->p_free)
-				free++;
-			else if (pp->p_lock || pp->p_keepcnt > 0)
-				locked++;
-			else
-				inuse++;
-		}
-
-		/* convert memory stats to Kbytes */
-		
-		buf->total  = pagetok (inuse + free);
-		buf->used   = pagetok (inuse);
-		buf->free   = pagetok (free);
-		buf->locked = pagetok (locked);
-
-		buf->flags = _glibtop_sysdeps_mem;
+	for (i = 0; i < 3; i++) {
+		/* Calculate loadavg values from avenrun. */
+		buf->loadavg [i] = loaddouble (avenrun [i]);
 	}
+
+	/* Now we can set the flags. */
+
+	buf->flags = _glibtop_sysdeps_loadavg;
 }

@@ -44,6 +44,8 @@
 #include <sys/syscall.h>
 #endif
 
+#include "loadavg.h"
+
 __BEGIN_DECLS
 
 /* Older versions of SunOS don't have a typedef for pid_t.
@@ -63,10 +65,13 @@ typedef int pid_t;
 #define X_CP_TIME	6
 #define X_PAGES		7
 #define X_EPAGES	8
+#define X_SHMINFO	9
+#define X_MSGINFO	10
+#define X_SEMINFO	11
 
 #ifdef MULTIPROCESSOR
-#define X_NCPU		9
-#define X_MP_TIME	10
+#define X_NCPU		12
+#define X_MP_TIME	13
 #endif
 
 /* Log base 2 of 1024 is 10 (2^10 == 1024) */

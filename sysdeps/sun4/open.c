@@ -34,6 +34,9 @@ struct nlist _glibtop_nlist[] = {
     { "cp_time" },		/* 6 */
     { "pages" },		/* 7 */
     { "epages" },		/* 8 */
+    { "shminfo" },		/* 9 */
+    { "msginfo" },		/* 10 */
+    { "seminfo" },		/* 11 */
 #else
     { "_avenrun" },		/* 0 */
     { "_ccpu" },		/* 1 */
@@ -44,6 +47,9 @@ struct nlist _glibtop_nlist[] = {
     { "_cp_time" },		/* 6 */
     { "_pages" },		/* 7 */
     { "_epages" },		/* 8 */
+    { "_shminfo" },		/* 9 */
+    { "_msginfo" },		/* 10 */
+    { "_seminfo" },		/* 11 */
 #ifdef MULTIPROCESSOR
     { "_ncpu" },
     { "_mp_time" },

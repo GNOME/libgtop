@@ -19,14 +19,59 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#include <glibtop.h>
 #include <glibtop/sem_limits.h>
+
+/* #define KERNEL to get declaration of `struct seminfo'. */
+
+#define KERNEL
+
+#include <sys/ipc.h>
+#include <sys/sem.h>
+
+static unsigned long _glibtop_sysdeps_sem_limits =
+(1 << GLIBTOP_IPC_SEMMAP) + (1 << GLIBTOP_IPC_SEMMNI) +
+(1 << GLIBTOP_IPC_SEMMNS) + (1 << GLIBTOP_IPC_SEMMNU) +
+(1 << GLIBTOP_IPC_SEMMSL) + (1 << GLIBTOP_IPC_SEMOPM) +
+(1 << GLIBTOP_IPC_SEMUME) + (1 << GLIBTOP_IPC_SEMUSZ) +
+(1 << GLIBTOP_IPC_SEMVMX) + (1 << GLIBTOP_IPC_SEMAEM);
 
 /* Provides information about sysv sem limits. */
 
 void
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
+	struct seminfo	seminfo;
+  
 	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_sem_limits));
+  
+	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
+	
+	setregid (server->machine.gid, server->machine.egid);
+	
+	/* get the load average array */
+
+	(void) _glibtop_getkval (server, _glibtop_nlist [X_SEMINFO].n_value,
+				 (int *) &seminfo, sizeof (seminfo),
+				 _glibtop_nlist [X_SEMINFO].n_name);
+
+	if (setregid (server->machine.egid, server->machine.gid))
+		_exit (1);
+	
+	/* !!! END OF SGID KMEM PART !!! */
+  
+	buf->semmap = seminfo.semmap;
+	buf->semmni = seminfo.semmni;
+	buf->semmns = seminfo.semmns;
+	buf->semmnu = seminfo.semmnu;
+	buf->semmsl = seminfo.semmsl;
+	buf->semopm = seminfo.semopm;
+	buf->semume = seminfo.semume;
+	buf->semusz = seminfo.semusz;
+	buf->semvmx = seminfo.semvmx;
+	buf->semaem = seminfo.semaem;
+
+	buf->flags = _glibtop_sysdeps_sem_limits;
 }

@@ -19,14 +19,52 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#include <glibtop.h>
 #include <glibtop/shm_limits.h>
+
+/* #define KERNEL to get declaration of `struct shminfo'. */
+
+#define KERNEL
+
+#include <sys/ipc.h>
+#include <sys/shm.h>
+
+static unsigned long _glibtop_sysdeps_shm_limits =
+(1 << GLIBTOP_IPC_SHMMAX) + (1 << GLIBTOP_IPC_SHMMIN) +
+(1 << GLIBTOP_IPC_SHMMNI) + (1 << GLIBTOP_IPC_SHMSEG) +
+(1 << GLIBTOP_IPC_SHMALL);
 
 /* Provides information about sysv ipc limits. */
 
 void
 glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
+	struct shminfo	shminfo;
+  
 	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_shm_limits));
+  
+	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
+	
+	setregid (server->machine.gid, server->machine.egid);
+	
+	/* get the load average array */
+
+	(void) _glibtop_getkval (server, _glibtop_nlist [X_SHMINFO].n_value,
+				 (int *) &shminfo, sizeof (shminfo),
+				 _glibtop_nlist [X_SHMINFO].n_name);
+
+	if (setregid (server->machine.egid, server->machine.gid))
+		_exit (1);
+	
+	/* !!! END OF SGID KMEM PART !!! */
+
+  	buf->shmmax = shminfo.shmmax;
+	buf->shmmin = shminfo.shmmin;
+	buf->shmmni = shminfo.shmmni;
+	buf->shmseg = shminfo.shmseg;
+	buf->shmall = shminfo.shmall;
+
+	buf->flags = _glibtop_sysdeps_shm_limits;
 }

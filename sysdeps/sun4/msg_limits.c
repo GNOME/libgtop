@@ -19,14 +19,53 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#include <glibtop.h>
 #include <glibtop/msg_limits.h>
+
+/* #define KERNEL to get declaration of `struct msginfo'. */
+
+#define KERNEL
+
+#include <sys/ipc.h>
+#include <sys/msg.h>
+
+static const unsigned long _glibtop_sysdeps_msg_limits =
+(1 << GLIBTOP_IPC_MSGMAP) + (1 << GLIBTOP_IPC_MSGMAX) +
+(1 << GLIBTOP_IPC_MSGMNB) + (1 << GLIBTOP_IPC_MSGMNI) +
+(1 << GLIBTOP_IPC_MSGSSZ) + (1 << GLIBTOP_IPC_MSGTQL);
 
 /* Provides information about sysv ipc limits. */
 
 void
 glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 {
+	struct msginfo	msginfo;
+  
 	glibtop_init_r (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_msg_limits));
+  
+	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
+	
+	setregid (server->machine.gid, server->machine.egid);
+	
+	/* get the load average array */
+
+	(void) _glibtop_getkval (server, _glibtop_nlist [X_MSGINFO].n_value,
+				 (int *) &msginfo, sizeof (msginfo),
+				 _glibtop_nlist [X_MSGINFO].n_name);
+
+	if (setregid (server->machine.egid, server->machine.gid))
+		_exit (1);
+	
+	/* !!! END OF SGID KMEM PART !!! */
+  
+	buf->msgmap = msginfo.msgmap;
+	buf->msgmax = msginfo.msgmax;
+	buf->msgmnb = msginfo.msgmnb;
+	buf->msgmni = msginfo.msgmni;
+	buf->msgssz = msginfo.msgssz;
+	buf->msgtql = msginfo.msgtql;
+
+	buf->flags = _glibtop_sysdeps_msg_limits;
 }
