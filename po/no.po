@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.2\n"
-"POT-Creation-Date: 1999-08-01 18:09-0400\n"
+"POT-Creation-Date: 1999-09-29 02:37+0200\n"
 "PO-Revision-Date: 1999-07-11 03:58+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@online.no>\n"
 "Language-Team: Norwegian <no@li.org>\n"
@@ -1191,39 +1191,39 @@ msgstr "les data %d bytes"
 msgid "write %d bytes"
 msgstr "skriv %d bytes"
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:446
 msgid "Enable debugging"
 msgstr "Slå på avlusing"
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:446
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:447
+#: src/daemon/gnuserv.c:448
 msgid "Enable verbose output"
 msgstr "Slå på utfyllende utskrift"
 
-#: src/daemon/gnuserv.c:447
+#: src/daemon/gnuserv.c:448
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:449
+#: src/daemon/gnuserv.c:450
 msgid "Don't fork into background"
 msgstr "Ikke forgren til bakgrunnen"
 
-#: src/daemon/gnuserv.c:449
+#: src/daemon/gnuserv.c:450
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:451
+#: src/daemon/gnuserv.c:452
 msgid "Invoked from inetd"
 msgstr "Kalt fra inetd"
 
-#: src/daemon/gnuserv.c:451
+#: src/daemon/gnuserv.c:452
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:485
+#: src/daemon/gnuserv.c:486
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

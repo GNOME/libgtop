@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-08-13 10:37+0200\n"
+"POT-Creation-Date: 1999-09-29 02:37+0200\n"
 "PO-Revision-Date: 1999-07-27 18:24+0200\n"
 "Last-Translator: Vincent Renardias <vincent@ldsol.com>\n"
 "Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"
@@ -1208,39 +1208,39 @@ msgstr "lecture de %d octets de données"
 msgid "write %d bytes"
 msgstr "écriture de %d octets"
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:446
 msgid "Enable debugging"
 msgstr "Active le debuggage"
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:446
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:447
+#: src/daemon/gnuserv.c:448
 msgid "Enable verbose output"
 msgstr "Active la sortie bavarde"
 
-#: src/daemon/gnuserv.c:447
+#: src/daemon/gnuserv.c:448
 msgid "VERBOSE"
 msgstr "BAVARD"
 
-#: src/daemon/gnuserv.c:449
+#: src/daemon/gnuserv.c:450
 msgid "Don't fork into background"
 msgstr "Ne pas lancer en tâche de fond"
 
-#: src/daemon/gnuserv.c:449
+#: src/daemon/gnuserv.c:450
 msgid "NO-DAEMON"
 msgstr "NON-DEMON"
 
-#: src/daemon/gnuserv.c:451
+#: src/daemon/gnuserv.c:452
 msgid "Invoked from inetd"
 msgstr "Invoqué à partir de inetd"
 
-#: src/daemon/gnuserv.c:451
+#: src/daemon/gnuserv.c:452
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:485
+#: src/daemon/gnuserv.c:486
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

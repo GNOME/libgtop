@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-08-13 10:37+0200\n"
+"POT-Creation-Date: 1999-09-29 02:37+0200\n"
 "PO-Revision-Date: 1999-09-18 00:24+0200\n"
 "Last-Translator: Gert Dewit <Gert.Dewit@sos.be>\n"
 "Language-Team: nl <nl@li.org>\n"
@@ -302,10 +302,10 @@ msgstr ""
 "Kernel vlaggen van het proces.\n"
 "\n"
 "Onder Linix, wordt momenteel voor elke vlag de rekenbit gezet omdat crt0.s "
-"checked of er numerieke emulatie gebruikt wordt, daarom wordt dit niet\n" 
+"checked of er numerieke emulatie gebruikt wordt, daarom wordt dit niet\n"
 "getoond.\n"
-"Dit is waarschijnlijk een bug, omdat niet elk programma een gecompileerd\n "
-"C programma is.\n"
+"Dit is waarschijnlijk een bug, omdat niet elk programma een gecompileerd\n"
+" C programma is.\n"
 "De rekenbit zou decimaal 4 moeten zijn en de getraceerde bit is decimaal 10."
 
 #. Min_Flt
@@ -329,12 +329,14 @@ msgstr ""
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:67
 msgid "The number of minor faults that the process and its children have made."
-msgstr "Het aantal kleine fouten dat een proces en zijn kinderen gemaakt hebben."
+msgstr ""
+"Het aantal kleine fouten dat een proces en zijn kinderen gemaakt hebben."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:70
 msgid "The number of major faults that the process and its children have made."
-msgstr "Het aantal grote fouten dat een proces en zijn kinderen gemaakt hebben."
+msgstr ""
+"Het aantal grote fouten dat een proces en zijn kinderen gemaakt hebben."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:73
@@ -1181,39 +1183,39 @@ msgstr "lees %d bytes"
 msgid "write %d bytes"
 msgstr "schrijf %d bytes"
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:446
 msgid "Enable debugging"
 msgstr ""
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:446
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:447
+#: src/daemon/gnuserv.c:448
 msgid "Enable verbose output"
 msgstr ""
 
-#: src/daemon/gnuserv.c:447
+#: src/daemon/gnuserv.c:448
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:449
+#: src/daemon/gnuserv.c:450
 msgid "Don't fork into background"
 msgstr ""
 
-#: src/daemon/gnuserv.c:449
+#: src/daemon/gnuserv.c:450
 msgid "NO-DAEMON"
 msgstr ""
 
-#: src/daemon/gnuserv.c:451
+#: src/daemon/gnuserv.c:452
 msgid "Invoked from inetd"
 msgstr ""
 
-#: src/daemon/gnuserv.c:451
+#: src/daemon/gnuserv.c:452
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:485
+#: src/daemon/gnuserv.c:486
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

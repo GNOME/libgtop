@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LibGTOP\n"
-"POT-Creation-Date: 1999-09-27 18:45-0300\n"
+"POT-Creation-Date: 1999-09-29 02:37+0200\n"
 "PO-Revision-Date: 1999-04-28 16:40-0300\n"
 "Last-Translator: Elvis Pfützenreuter <epx@netville.com.br>\n"
 "Language-Team: Brazilian Portuguese\n"

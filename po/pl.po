@@ -1,136 +1,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 1999-09-18 19:04+0200\n"
+"POT-Creation-Date: 1999-09-29 02:37+0200\n"
 "PO-Revision-Date: 1999-09-17 04:26+0200\n"
 "Last-Translator: GNOME PL Team\n"
 "Language-Team: Polish <gnomepl@pandora.info.bielsko.pl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: lib/read.c:75
-#, c-format
-msgid "read %d bytes"
-msgstr "odczytaj %d bajtów"
-
-#: lib/read_data.c:49
-msgid "read data size"
-msgstr "odczytaj rozmiar danych"
-
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
-msgstr "odczytaj %d bajtów danych"
-
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
-msgstr "zapisz %d bajtów"
-
-#: src/daemon/gnuserv.c:446
-msgid "DEBUG"
-msgstr "¦LEDZENIE"
-
-#: src/daemon/gnuserv.c:446
-msgid "Enable debugging"
-msgstr "Uaktywnij ¶ledzenie"
-
-#: src/daemon/gnuserv.c:448
-msgid "Enable verbose output"
-msgstr "Uaktywnij rozwlek³e komunikaty"
-
-#: src/daemon/gnuserv.c:448
-msgid "VERBOSE"
-msgstr "ROZWLEK£Y"
-
-#: src/daemon/gnuserv.c:450
-msgid "Don't fork into background"
-msgstr "Nie przechod¼ w t³o"
-
-#: src/daemon/gnuserv.c:450
-msgid "NO-DAEMON"
-msgstr "NIE-DEMON"
-
-#: src/daemon/gnuserv.c:452
-msgid "INETD"
-msgstr "INETD"
-
-#: src/daemon/gnuserv.c:452
-msgid "Invoked from inetd"
-msgstr "Wywo³any przez inetd"
-
-#: src/daemon/gnuserv.c:486
-#, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"B³êdna opcja %s: %s.\n"
-"Uruchom '%s --help' aby wy¶wietliæ pe³n± listê dostêpnych opcji.\n"
-
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "Nieznany b³±d systemowy"
-
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: opcja `%s' jest niejednoznaczna\n"
-
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: opcja `--%s' nie pozwala na u¿ycie argumentu\n"
-
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: opcja `%c%s' nie pozwala na u¿ycie argumentu\n"
-
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: opcja `%s' wymaga argumentu\n"
-
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: nie rozpoznano opcji `--%s'\n"
-
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: nie rozpoznani opcji `%c%s'\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: b³êdna opcja -- %c\n"
-
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: niew³a¶ciwa opcja -- %c\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: opcja wymaga argumentu -- %c\n"
-
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: opcja `-W %s' jest niejednoznaczna\n"
-
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: opcja `-W %s' nie pozwala na u¿ycie argumentu\n"
 
 #: sysdeps/names/cpu.c:45
 msgid "Total CPU Time"
@@ -372,11 +249,11 @@ msgid "Number of system message headers"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:44
-msgid "CMin_Flt"
+msgid "K_Flags"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:44
-msgid "K_Flags"
+msgid "Min_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:44
@@ -384,7 +261,7 @@ msgid "Maj_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:44
-msgid "Min_Flt"
+msgid "CMin_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:45
@@ -392,11 +269,11 @@ msgid "CMaj_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:45
-msgid "KStk_EIP"
+msgid "KStk_ESP"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:45
-msgid "KStk_ESP"
+msgid "KStk_EIP"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:45
@@ -471,20 +348,20 @@ msgid "This is the textual name of the `nwchan' field."
 msgstr ""
 
 #: sysdeps/names/procmem.c:49
-msgid "Resident"
-msgstr "Rezyd."
-
-#: sysdeps/names/procmem.c:49
-msgid "Share"
-msgstr "Dziel."
-
-#: sysdeps/names/procmem.c:49
 msgid "Size"
 msgstr "Rozmiar"
 
 #: sysdeps/names/procmem.c:49
 msgid "Virtual"
 msgstr ""
+
+#: sysdeps/names/procmem.c:49
+msgid "Resident"
+msgstr "Rezyd."
+
+#: sysdeps/names/procmem.c:49
+msgid "Share"
+msgstr "Dziel."
 
 #: sysdeps/names/procmem.c:50
 msgid "Resident Set Size"
@@ -524,7 +401,7 @@ msgid ""
 msgstr ""
 
 #: sysdeps/names/procsegment.c:50
-msgid "Data_RSS"
+msgid "Text_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:50
@@ -532,11 +409,11 @@ msgid "ShLib_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:50
-msgid "Stack_RSS"
+msgid "Data_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:50
-msgid "Text_RSS"
+msgid "Stack_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:51
@@ -544,16 +421,17 @@ msgid "Dirty Size"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:51
-msgid "End_Code"
-msgstr "Kon_kodu"
-
-#: sysdeps/names/procsegment.c:51
 msgid "Start_Code"
 msgstr "Pocz_kodu"
 
+#: sysdeps/names/procsegment.c:51
+msgid "End_Code"
+msgstr "Kon_kodu"
+
 #: sysdeps/names/procsegment.c:52
-msgid "Brk"
-msgstr ""
+#, fuzzy
+msgid "Start_Data"
+msgstr "Pocz_stosu"
 
 #: sysdeps/names/procsegment.c:52
 msgid "End_Data"
@@ -565,33 +443,32 @@ msgid "Start_Brk"
 msgstr "Pocz_stosu"
 
 #: sysdeps/names/procsegment.c:52
-#, fuzzy
-msgid "Start_Data"
-msgstr "Pocz_stosu"
-
-#: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
-msgid "Arg_Start"
+msgid "Brk"
 msgstr ""
+
+#: sysdeps/names/procsegment.c:53
+msgid "Start_Stack"
+msgstr "Pocz_stosu"
 
 #: sysdeps/names/procsegment.c:53
 #, fuzzy
 msgid "Start_MMap"
 msgstr "Pocz_stosu"
 
-#: sysdeps/names/procsegment.c:53
-msgid "Start_Stack"
-msgstr "Pocz_stosu"
+#: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
+msgid "Arg_Start"
+msgstr ""
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
 msgid "Arg_End"
 msgstr ""
 
-#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
-msgid "Env_End"
-msgstr ""
-
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
 msgid "Env_Start"
+msgstr ""
+
+#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
+msgid "Env_End"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:59
@@ -649,20 +526,20 @@ msgid "Start of mmap()ed areas"
 msgstr ""
 
 #: sysdeps/names/procsignal.c:42
-msgid "Blocked"
-msgstr "Zablokowany"
+msgid "Signal"
+msgstr "Sygna³"
 
 #: sysdeps/names/procsignal.c:42
-msgid "SigCatch"
-msgstr ""
+msgid "Blocked"
+msgstr "Zablokowany"
 
 #: sysdeps/names/procsignal.c:42
 msgid "SigIgnore"
 msgstr ""
 
 #: sysdeps/names/procsignal.c:42
-msgid "Signal"
-msgstr "Sygna³"
+msgid "SigCatch"
+msgstr ""
 
 #: sysdeps/names/procsignal.c:47
 msgid "Mask of pending signals"
@@ -685,6 +562,14 @@ msgid "Cmd"
 msgstr "Polec."
 
 #: sysdeps/names/procstate.c:45
+msgid "State"
+msgstr "Stan"
+
+#: sysdeps/names/procstate.c:45
+msgid "UID"
+msgstr "UID"
+
+#: sysdeps/names/procstate.c:45
 msgid "GID"
 msgstr "GID"
 
@@ -693,13 +578,10 @@ msgstr "GID"
 msgid "RUID"
 msgstr "UID"
 
-#: sysdeps/names/procstate.c:45
-msgid "State"
-msgstr "Stan"
-
-#: sysdeps/names/procstate.c:45
-msgid "UID"
-msgstr "UID"
+#: sysdeps/names/procstate.c:46
+#, fuzzy
+msgid "RGID"
+msgstr "GID"
 
 #: sysdeps/names/procstate.c:46
 msgid "Has CPU"
@@ -709,11 +591,6 @@ msgstr ""
 #, fuzzy
 msgid "Processor"
 msgstr "Identyfikator procesu"
-
-#: sysdeps/names/procstate.c:46
-#, fuzzy
-msgid "RGID"
-msgstr "GID"
 
 #: sysdeps/names/procstate.c:47
 msgid "Last Processor"
@@ -761,48 +638,48 @@ msgid "last_processor"
 msgstr ""
 
 #: sysdeps/names/proctime.c:46
-msgid "RTime"
-msgstr "CzasDz"
-
-#: sysdeps/names/proctime.c:46
-msgid "STime"
-msgstr "CzasS"
-
-#: sysdeps/names/proctime.c:46
 msgid "Start_Time"
 msgstr "Czas startu"
+
+#: sysdeps/names/proctime.c:46
+msgid "RTime"
+msgstr "CzasDz"
 
 #: sysdeps/names/proctime.c:46
 msgid "UTime"
 msgstr "CzasU"
 
-#: sysdeps/names/proctime.c:47
-msgid "CSTime"
-msgstr "CzasPrS"
+#: sysdeps/names/proctime.c:46
+msgid "STime"
+msgstr "CzasS"
 
 #: sysdeps/names/proctime.c:47
 msgid "CUTime"
 msgstr "CzasPrU¿"
 
 #: sysdeps/names/proctime.c:47
-msgid "It_Real_Value"
-msgstr "Rzecz_czas_oczek"
+msgid "CSTime"
+msgstr "CzasPrS"
 
 #: sysdeps/names/proctime.c:47
 msgid "TimeOut"
 msgstr "CzasOcz"
+
+#: sysdeps/names/proctime.c:47
+msgid "It_Real_Value"
+msgstr "Rzecz_czas_oczek"
 
 #: sysdeps/names/proctime.c:48
 msgid "Frequency"
 msgstr "Czêstotliwo¶æ"
 
 #: sysdeps/names/proctime.c:48
-msgid "XCPU_STime"
-msgstr "CzasS_WProc"
-
-#: sysdeps/names/proctime.c:48
 msgid "XCPU_UTime"
 msgstr "CzasU¿_WProc"
+
+#: sysdeps/names/proctime.c:48
+msgid "XCPU_STime"
+msgstr "CzasS_WProc"
 
 #: sysdeps/names/proctime.c:49
 msgid "XCPU_Flags"
@@ -862,8 +739,8 @@ msgid "SMP kernel-mode CPU time accumulated by process"
 msgstr "czas SMP wykorzystany przez proces w trybie j±dra"
 
 #: sysdeps/names/procuid.c:48
-msgid "EGid"
-msgstr "EGid"
+msgid "Uid"
+msgstr "Uid"
 
 #: sysdeps/names/procuid.c:48
 msgid "EUid"
@@ -874,17 +751,17 @@ msgid "Gid"
 msgstr "Gid"
 
 #: sysdeps/names/procuid.c:48
+msgid "EGid"
+msgstr "EGid"
+
+#: sysdeps/names/procuid.c:48
 #, fuzzy
 msgid "SUid"
 msgstr "Uid"
 
-#: sysdeps/names/procuid.c:48
-msgid "Uid"
-msgstr "Uid"
-
 #: sysdeps/names/procuid.c:49
 #, fuzzy
-msgid "FsGid"
+msgid "SGid"
 msgstr "Gid"
 
 #: sysdeps/names/procuid.c:49
@@ -893,21 +770,21 @@ msgid "FsUid"
 msgstr "Uid"
 
 #: sysdeps/names/procuid.c:49
-msgid "Pid"
-msgstr "Pid"
-
-#: sysdeps/names/procuid.c:49
 #, fuzzy
-msgid "SGid"
+msgid "FsGid"
 msgstr "Gid"
 
-#: sysdeps/names/procuid.c:50
-msgid "PGrp"
-msgstr "PGrp"
+#: sysdeps/names/procuid.c:49
+msgid "Pid"
+msgstr "Pid"
 
 #: sysdeps/names/procuid.c:50
 msgid "PPid"
 msgstr "PPid"
+
+#: sysdeps/names/procuid.c:50
+msgid "PGrp"
+msgstr "PGrp"
 
 #: sysdeps/names/procuid.c:50
 msgid "Session"
@@ -918,21 +795,21 @@ msgid "Tty"
 msgstr "Term"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
-msgid "NGroups"
-msgstr "Identyfikator grupy"
-
-#: sysdeps/names/procuid.c:51
-msgid "Nice"
-msgstr "'Nice'"
+msgid "TPGid"
+msgstr "TPGid"
 
 #: sysdeps/names/procuid.c:51
 msgid "Priority"
 msgstr "Priorytet"
 
 #: sysdeps/names/procuid.c:51
-msgid "TPGid"
-msgstr "TPGid"
+msgid "Nice"
+msgstr "'Nice'"
+
+#: sysdeps/names/procuid.c:51
+#, fuzzy
+msgid "NGroups"
+msgstr "Identyfikator grupy"
 
 #: sysdeps/names/procuid.c:52
 #, fuzzy
@@ -1238,3 +1115,126 @@ msgstr ""
 #, fuzzy
 msgid "Boot time (seconds sice epoch)"
 msgstr "Czas startu procesu w sekundach od epoki Uniksa"
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "Nieznany b³±d systemowy"
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: opcja `%s' jest niejednoznaczna\n"
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: opcja `--%s' nie pozwala na u¿ycie argumentu\n"
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: opcja `%c%s' nie pozwala na u¿ycie argumentu\n"
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: opcja `%s' wymaga argumentu\n"
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: nie rozpoznano opcji `--%s'\n"
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: nie rozpoznani opcji `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: b³êdna opcja -- %c\n"
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: niew³a¶ciwa opcja -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: opcja wymaga argumentu -- %c\n"
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: opcja `-W %s' jest niejednoznaczna\n"
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: opcja `-W %s' nie pozwala na u¿ycie argumentu\n"
+
+#: lib/read.c:75
+#, c-format
+msgid "read %d bytes"
+msgstr "odczytaj %d bajtów"
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "odczytaj rozmiar danych"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr "odczytaj %d bajtów danych"
+
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr "zapisz %d bajtów"
+
+#: src/daemon/gnuserv.c:446
+msgid "Enable debugging"
+msgstr "Uaktywnij ¶ledzenie"
+
+#: src/daemon/gnuserv.c:446
+msgid "DEBUG"
+msgstr "¦LEDZENIE"
+
+#: src/daemon/gnuserv.c:448
+msgid "Enable verbose output"
+msgstr "Uaktywnij rozwlek³e komunikaty"
+
+#: src/daemon/gnuserv.c:448
+msgid "VERBOSE"
+msgstr "ROZWLEK£Y"
+
+#: src/daemon/gnuserv.c:450
+msgid "Don't fork into background"
+msgstr "Nie przechod¼ w t³o"
+
+#: src/daemon/gnuserv.c:450
+msgid "NO-DAEMON"
+msgstr "NIE-DEMON"
+
+#: src/daemon/gnuserv.c:452
+msgid "Invoked from inetd"
+msgstr "Wywo³any przez inetd"
+
+#: src/daemon/gnuserv.c:452
+msgid "INETD"
+msgstr "INETD"
+
+#: src/daemon/gnuserv.c:486
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"B³êdna opcja %s: %s.\n"
+"Uruchom '%s --help' aby wy¶wietliæ pe³n± listê dostêpnych opcji.\n"
