@@ -46,7 +46,7 @@ glibtop_init_mem_s (glibtop *server)
 void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
-	char buffer [BUFSIZ], *p;
+	char buffer [BUFSIZ];
 	int fd, len;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);

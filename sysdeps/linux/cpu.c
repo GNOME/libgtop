@@ -75,10 +75,10 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 
 	p = skip_token (buffer);	/* "cpu" */
 
-	buf->user = strtoul (p, &p, 0);
-	buf->nice = strtoul (p, &p, 0);
-	buf->sys  = strtoul (p, &p, 0);
-	buf->idle = strtoul (p, &p, 0);
+	buf->user = strtoull (p, &p, 0);
+	buf->nice = strtoull (p, &p, 0);
+	buf->sys  = strtoull (p, &p, 0);
+	buf->idle = strtoull (p, &p, 0);
 
 	total = buf->user;
 	total += buf->nice;
@@ -94,10 +94,10 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 			break;
 
 		p += 6;
-		buf->xcpu_user [i] = strtoul (p, &p, 0);
-		buf->xcpu_nice [i] = strtoul (p, &p, 0);
-		buf->xcpu_sys  [i] = strtoul (p, &p, 0);
-		buf->xcpu_idle [i] = strtoul (p, &p, 0);
+		buf->xcpu_user [i] = strtoull (p, &p, 0);
+		buf->xcpu_nice [i] = strtoull (p, &p, 0);
+		buf->xcpu_sys  [i] = strtoull (p, &p, 0);
+		buf->xcpu_idle [i] = strtoull (p, &p, 0);
 
 		total = buf->xcpu_user [i];
 		total += buf->xcpu_nice [i];

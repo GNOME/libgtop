@@ -65,16 +65,16 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 
 	p = skip_multiple_token (p, 11);
 
-	buf->utime  = strtoul (p, &p, 0);
-	buf->stime  = strtoul (p, &p, 0);
-	buf->cutime = strtoul (p, &p, 0);
-	buf->cstime = strtoul (p, &p, 0);
+	buf->utime  = strtoull (p, &p, 0);
+	buf->stime  = strtoull (p, &p, 0);
+	buf->cutime = strtoull (p, &p, 0);
+	buf->cstime = strtoull (p, &p, 0);
 
 	p = skip_multiple_token (p, 2);
 
-	buf->timeout = strtoul (p, &p, 0);
-	buf->it_real_value = strtoul (p, &p, 0);
-	buf->start_time = strtoul (p, &p, 0);
+	buf->timeout       = strtoull (p, &p, 0);
+	buf->it_real_value = strtoull (p, &p, 0);
+	buf->start_time    = strtoull (p, &p, 0);
 
 	buf->frequency = 100;
 
@@ -87,16 +87,16 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 		return;
 
 	p = skip_token (buffer);
-	buf->utime  = strtoul (p, &p, 0);
-	buf->stime  = strtoul (p, &p, 0);
+	buf->utime  = strtoull (p, &p, 0);
+	buf->stime  = strtoull (p, &p, 0);
 
 	for (i = 0; i < GLIBTOP_NCPU; i++) {
 		if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
 			break;
 
 		p += 6;
-		buf->xcpu_utime [i] = strtoul (p, &p, 0);
-		buf->xcpu_stime [i] = strtoul (p, &p, 0);
+		buf->xcpu_utime [i] = strtoull (p, &p, 0);
+		buf->xcpu_stime [i] = strtoull (p, &p, 0);
 	}
 
 	buf->flags |= _glibtop_sysdeps_proc_time_smp;

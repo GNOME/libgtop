@@ -57,17 +57,17 @@ skip_line (const char *p)
 	return (char *) ++p;
 }
 
-static inline unsigned long
+static inline unsigned long long
 get_scaled(const char *buffer, const char *key)
 {
   const char    *ptr;
   char          *next;
-  unsigned long value = 0;
+  unsigned long long value = 0;
   
   if ((ptr = strstr(buffer, key)))
     {
       ptr += strlen(key);
-      value = strtoul(ptr, &next, 0);
+      value = strtoull(ptr, &next, 0);
       if (strchr(next, 'k'))
 	value *= 1024;
       else if (strchr(next, 'M'))

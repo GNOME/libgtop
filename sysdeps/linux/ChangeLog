@@ -1,5 +1,22 @@
 2003-12-23  Bastien Nocera  <hadess@hadess.net>
 
+	* cpu.c: (glibtop_get_cpu_s):
+	* glibtop_server.h:
+	* loadavg.c: (glibtop_get_loadavg_s):
+	* mem.c: (glibtop_get_mem_s):
+	* netload.c: (glibtop_get_netload_s):
+	* prockernel.c: (glibtop_get_proc_kernel_s):
+	* procmem.c: (glibtop_get_proc_mem_s):
+	* procsegment.c: (glibtop_get_proc_segment_s):
+	* procsignal.c: (glibtop_get_proc_signal_s):
+	* proctime.c: (glibtop_get_proc_time_s):
+	* procuid.c: (glibtop_get_proc_uid_s):
+	* swap.c: (glibtop_get_swap_s): Apply patch from Benoît Dejean
+	<bnet@ifrance.com> to fix overflow issues using strtol
+	(Closes: #129881)
+
+2003-12-23  Bastien Nocera  <hadess@hadess.net>
+
 	* mem.c: (glibtop_get_mem_s): Fix calculation of used memory,
 	patch by Benoît Dejea, <bnet@ifrance.com> (Closes: #129863)
 
