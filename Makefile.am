@@ -10,6 +10,8 @@ SUBDIRS = po intl $(support) macros misc include sysdeps lib src doc \
 include_HEADERS = glibtop.h
 configincludedir = $(pkglibdir)/include
 
+noinst_HEADERS = glibtop-server-private.h
+
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt libgtopConf.sh.in \
 	LIBGTOP-VERSION features.def structures.def libgtop-config.in \
 	RELNOTES-0.25 RELNOTES-1.0 RELNOTES-1.1.x libgtop-sysdeps.m4 README \

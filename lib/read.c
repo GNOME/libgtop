@@ -65,10 +65,10 @@ glibtop_read_l (glibtop *server, size_t size, void *buf)
 	fprintf (stderr, "LIBRARY: really reading %d bytes.\n", size);
 #endif
 
-	if (server->socket) {
-		do_read (server->socket, buf, size);
+	if (server->_priv->socket) {
+		do_read (server->_priv->socket, buf, size);
 	} else {
-		ret = read (server->input [0], buf, size);
+		ret = read (server->_priv->input [0], buf, size);
 	}
 
 	if (ret < 0)

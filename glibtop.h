@@ -34,14 +34,17 @@
 #include <glibtop_server.h>
 #include <glibtop/types.h>
 
-#ifdef HAVE_GLIBTOP_MACHINE_H
-#include <glibtop_machine.h>
-#endif
+BEGIN_LIBGTOP_DECLS
 
-typedef struct _glibtop		glibtop;
+typedef struct _glibtop			glibtop;
+typedef struct _glibtop_server_private	glibtop_server_private;
 
 #include <glibtop/sysdeps.h>
 #include <glibtop/errors.h>
+
+#ifdef _IN_LIBGTOP
+#include <glibtop-server-private.h>
+#endif
 
 struct _glibtop
 {
@@ -49,12 +52,6 @@ struct _glibtop
 	unsigned flags;
 	unsigned method;		/* Server Method */
 	unsigned error_method;		/* Error Method */
-#ifdef HAVE_GLIBTOP_MACHINE_H
-	glibtop_machine machine;	/* Machine dependent data */
-#endif
-	int input [2];			/* Pipe client <- server */
-	int output [2];			/* Pipe client -> server */
-	int socket;			/* Accepted connection of a socket */
 	int ncpu;			/* Number of CPUs, zero if single-processor */
 	unsigned long os_version_code;	/* Version code of the operating system */
 	const char *name;		/* Program name for error messages */
@@ -67,7 +64,7 @@ struct _glibtop
 	glibtop_sysdeps sysdeps;	/* Detailed feature list */
 	glibtop_sysdeps required;	/* Required feature list */
 	glibtop_sysdeps wanted;		/* We only want this features */
-	pid_t pid;			/* PID of the server */
+	glibtop_server_private *_priv;	/* Private data */
 };
 
 extern glibtop *glibtop_global_server;
@@ -94,24 +91,6 @@ glibtop_server_ref (glibtop *server);
 void
 glibtop_server_unref (glibtop *server);
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-void glibtop_boot_guile (void);
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-void glibtop_boot_guile_names (void);
-
-#ifndef GLIBTOP_NAMES
-#define GLIBTOP_NAMES
-#endif
-
-#endif
+END_LIBGTOP_DECLS
 
 #endif

@@ -21,30 +21,22 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop.h>
-#include <glibtop/open.h>
-#include <glibtop/close.h>
-#include <glibtop/command.h>
+#ifndef __GLIBTOP_SERVER_PRIVATE_H__
+#define __GLIBTOP_SERVER_PRIVATE_H__
 
-/* Closes server. */
+#ifdef HAVE_GLIBTOP_MACHINE_H
+#include <glibtop_machine.h>
+#endif
 
-void
-glibtop_close_r (glibtop *server)
+struct _glibtop_server_private
 {
-	switch (server->method) {
-	case GLIBTOP_METHOD_UNIX:
-	case GLIBTOP_METHOD_INET:
-		glibtop_call_l (server, GLIBTOP_CMND_QUIT,
-				0, NULL, 0, NULL, NULL);
+#ifdef HAVE_GLIBTOP_MACHINE_H
+	glibtop_machine machine;	/* Machine dependent data */
+#endif
+	int input [2];			/* Pipe client <- server */
+	int output [2];			/* Pipe client -> server */
+	int socket;			/* Accepted connection of a socket */
+	pid_t pid;			/* PID of the server */
+};
 
-		if (close (server->_priv->socket))
-			glibtop_warn_io ("close");
-
-		break;
-	case GLIBTOP_METHOD_PIPE:
-		kill (server->_priv->pid, SIGKILL);
-		close (server->_priv->input [0]);
-		close (server->_priv->output [1]);
-		break;
-	}
-}
+#endif

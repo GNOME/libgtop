@@ -38,10 +38,10 @@ glibtop_write_l (glibtop *server, size_t size, void *buf)
 	fprintf (stderr, "LIBRARY: really writing %d bytes.\n", size);
 #endif
 
-	if (server->socket) {
-		ret = send (server->socket, buf, size, 0);
+	if (server->_priv->socket) {
+		ret = send (server->_priv->socket, buf, size, 0);
 	} else {
-		ret = write (server->output [1], buf, size);
+		ret = write (server->_priv->output [1], buf, size);
 	}
 
 	if (ret < 0)

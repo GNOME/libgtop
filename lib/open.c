@@ -38,6 +38,10 @@ glibtop_open_l (glibtop *server, const char *program_name,
 {
 	int connect_type;
 
+	if (!server->_priv)
+		server->_priv = glibtop_calloc_r
+			(server, 1, sizeof (glibtop_server_private));
+
 	server->name = program_name;
 
 	/* It is important to set _GLIBTOP_INIT_STATE_OPEN here when we
@@ -66,7 +70,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		
 		connect_type = glibtop_make_connection
 			(server->server_host, server->server_port,
-			 &server->socket);
+			 &server->_priv->socket);
 		
 #ifdef DEBUG
 		fprintf (stderr, "Connect Type is %d.\n", connect_type);
@@ -82,7 +86,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 #endif
 
 		connect_type = glibtop_make_connection
-			("unix", 0, &server->socket);
+			("unix", 0, &server->_priv->socket);
 
 #ifdef DEBUG		
 		fprintf (stderr, "Connect Type is %d.\n", connect_type);
@@ -98,26 +102,28 @@ glibtop_open_l (glibtop *server, const char *program_name,
 			 LIBGTOP_SERVER);
 #endif
 
-		if (pipe (server->input) || pipe (server->output))
+		if (pipe (server->_priv->input) ||
+		    pipe (server->_priv->output))
 			glibtop_error_io_r (server, "cannot make a pipe");
 
-		server->pid  = fork ();
+		server->_priv->pid  = fork ();
 		
-		if (server->pid < 0) {
+		if (server->_priv->pid < 0) {
 			glibtop_error_io_r (server, "fork failed");
-		} else if (server->pid == 0) {
+		} else if (server->_priv->pid == 0) {
 			close (0); close (1);
-			close (server->input [0]); close (server->output [1]);
-			dup2 (server->input [1], 1);
-			dup2 (server->output [0], 0);
+			close (server->_priv->input [0]);
+			close (server->_priv->output [1]);
+			dup2 (server->_priv->input [1], 1);
+			dup2 (server->_priv->output [0], 0);
 			execl (LIBGTOP_SERVER, "libgtop-server", NULL);
 			glibtop_error_io_r (server, "execl (%s)",
 					    LIBGTOP_SERVER);
 			_exit (2);
 		}
 
-		close (server->input [1]);
-		close (server->output [0]);
+		close (server->_priv->input [1]);
+		close (server->_priv->output [0]);
 
 		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
 		

@@ -39,10 +39,12 @@ glibtop_read_data_l (glibtop *server)
 	fprintf (stderr, "LIBRARY: reading %d data bytes.\n", sizeof (size_t));
 #endif
 
-	if (server->socket) {
-		ret = recv (server->socket, (void *)&size, sizeof (size_t), 0);
+	if (server->_priv->socket) {
+		ret = recv (server->_priv->socket, (void *)&size,
+			    sizeof (size_t), 0);
 	} else {
-		ret = read (server->input [0], (void *)&size, sizeof (size_t));
+		ret = read (server->_priv->input [0], (void *)&size,
+			    sizeof (size_t));
 	}
 
 	if (ret < 0)
@@ -56,10 +58,10 @@ glibtop_read_data_l (glibtop *server)
 
 	ptr = glibtop_malloc_r (server, size);
 	
-	if (server->socket) {
-		ret = recv (server->socket, ptr, size, 0);
+	if (server->_priv->socket) {
+		ret = recv (server->_priv->socket, ptr, size, 0);
 	} else {
-		ret = read (server->input [0], ptr, size);
+		ret = read (server->_priv->input [0], ptr, size);
 	}
 
 	if (ret < 0)

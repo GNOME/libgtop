@@ -1,3 +1,11 @@
+1999-12-19  Martin Baulig  <martin@home-of-linux.org>
+
+	* glibtop-server-private.h: New file. This is a private header
+	file which defines `struct _glibtop_server_private'.
+
+	* glibtop.h (glibtop): Added `glibtop_server_private *_priv' field
+	and moved some private fields there.
+
 1999-12-12  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/procargs.h (glibtop_proc_args): Removed.
