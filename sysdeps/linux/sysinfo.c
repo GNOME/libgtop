@@ -42,8 +42,6 @@ init_sysinfo (glibtop *server)
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
-	memset (&sysinfo, 0, sizeof (glibtop_sysinfo));
-
 	file_to_buffer(server, buffer, FILENAME);
 
 	/* cpuinfo records are seperated by a blank line */

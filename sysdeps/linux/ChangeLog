@@ -1,5 +1,9 @@
 2004-07-03  Benoît Dejean  <tazforever@dlfp.org>
 
+	* sysinfo.c: (init_sysinfo): Removed useless memset.
+
+2004-07-03  Benoît Dejean  <tazforever@dlfp.org>
+
 	* glibtop_server.h:
 	* glibtop_server.c: (try_file_to_buffer), (file_to_buffer): Added. These
 	functions are commonly used. Misc cleanups.	
