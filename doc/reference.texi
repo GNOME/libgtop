@@ -572,6 +572,7 @@ There are some constants for the @code{state} field:
 #define GLIBTOP_PROCESS_ZOMBIE                  8
 #define GLIBTOP_PROCESS_STOPPED                 16
 #define GLIBTOP_PROCESS_SWAPPING                32
+#define GLIBTOP_PROCESS_DEAD                    64
 @end cartouche
 @end example
 @end ifset
@@ -717,7 +718,7 @@ Number of pages of virtual memory.
 @item resident
 Number of residnet set (non-swapped) pages.
 @item share
-Number of pages of shared (mmap'd) memory.
+Number of pages of shared (mmap\'d) memory.
 @item rss
 Number of pages the process has in real memory, minus 3 for administrative
 purposes.
@@ -830,6 +831,7 @@ struct _glibtop_proc_time
 @end cartouche
 @end example
 
+
 @table @code
 @item start_time
 Start time of process in seconds since the epoch
@@ -855,6 +857,18 @@ SMP user-mode CPU time accumulated by process
 @item xcpu_stime
 SMP kernel-mode CPU time accumulated by process
 @end table
+
+
+Please note that under Linux, @code{start_time} value may be strange.
+Linux kernel defines @code{INITIAL_JIFFIES} which implies a time
+shift. Because @code{INITIAL_JIFFIES} is not user-space defined, we
+cannot use it to compute accurate @code{start_time}. On Linux2.6,
+@code{INITIAL_JIFFIES} is 300 so @code{start_time} is always 3s
+different from real start time of the given process. You may also get
+shift results if your system clock is not synchronised with your
+hardware clock. See @samp{man hwclock}.
+
+
 
 @page
 @node glibtop_proc_signal, glibtop_proc_kernel, glibtop_proc_time, System Dependent
