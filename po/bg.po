@@ -1,20 +1,20 @@
 # Bulgarian translation for libgtop
-# Copyright (C) 2002 Free Software Foundation, Inc.
+# Copyright (C) 2002, 2004 Free Software Foundation, Inc.
 # Borislav Aleksandrov <B.Aleksandrov@cnsys.bg>, 2002.
 # small updates for completeness, Yanko Kaneti <yaneti@declera.com>, 2002.
+# Rostislav Raykov <zbrox@i-space.org>, 2004
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-03-11 03:27+0100\n"
-"PO-Revision-Date: 2002-06-25 10:26GMT\n"
-"Last-Translator: Borislav Aleksandrov <B.Aleksandrov@cnsys.bg>\n"
+"PO-Revision-Date: 2004-07-03 17:19+0300\n"
+"Last-Translator: Rostislav Raykov <zbrox@i-space.org>\n"
 "Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 0.9.5\n"
+"Content-Transfer-Encoding: 8bit"
 
 #: examples/smp.c:74
 #, c-format
@@ -31,7 +31,7 @@ msgstr "Потребител"
 
 #: examples/smp.c:77 sysdeps/names/procuid.c:51
 msgid "Nice"
-msgstr "Nice"
+msgstr ""
 
 #: examples/smp.c:77
 msgid "Sys"
@@ -95,40 +95,34 @@ msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:126
 msgid "Spin:"
-msgstr "Spin:"
+msgstr ""
 
 #: lib/read.c:78
-#, fuzzy, c-format
+#, c-format
 msgid "read %d byte"
-msgid_plural "read %d bytes"
-msgstr[0] "прочетени %d байта"
-msgstr[1] "прочетени %d байта"
+msgstr "прочетен %d байт"
 
 #: lib/read_data.c:51
 msgid "read data size"
 msgstr "размер прочетени данни"
 
 #: lib/read_data.c:68
-#, fuzzy, c-format
+#, c-format
 msgid "read data %d byte"
-msgid_plural "read data %d bytes"
-msgstr[0] "прочетени данни - %d байта"
-msgstr[1] "прочетени данни - %d байта"
+msgstr "прочетени данни - %d байт"
 
 #: lib/write.c:51
-#, fuzzy, c-format
+#, c-format
 msgid "write %d byte"
-msgid_plural "write %d bytes"
-msgstr[0] "записани %d байта"
-msgstr[1] "записани %d байта"
+msgstr ""
 
 #: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
-msgstr "Включен дебъгер"
+msgstr ""
 
 #: src/daemon/gnuserv.c:456
 msgid "DEBUG"
-msgstr "ДЕБЪГЕР"
+msgstr ""
 
 #: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
@@ -140,7 +134,7 @@ msgstr "ПОДРОБЕН"
 
 #: src/daemon/gnuserv.c:460
 msgid "Don't fork into background"
-msgstr "Не поражда процес във фонов режим"
+msgstr "Не се поражда процес във фонов режим"
 
 #: src/daemon/gnuserv.c:460
 msgid "NO-DAEMON"
@@ -665,7 +659,8 @@ msgstr ""
 #: sysdeps/names/procmem.c:63
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "Текущ лимит от байтове за rss процеса (обикновенно 2,147,483,647)."
+msgstr ""
+"Текущ лимит от байтове за rss процеса (обикновенно 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:43
 msgid "Text_RSS"
@@ -780,14 +775,12 @@ msgid "GID"
 msgstr "GID"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RGid"
-msgstr "Gid"
+msgstr "RGid"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RUid"
-msgstr "Uid"
+msgstr "RUid"
 
 #: sysdeps/names/procstate.c:44
 msgid "HasCPU"
@@ -795,11 +788,11 @@ msgstr ""
 
 #: sysdeps/names/procstate.c:44
 msgid "Proc"
-msgstr ""
+msgstr "Proc"
 
 #: sysdeps/names/procstate.c:44
 msgid "LProc"
-msgstr ""
+msgstr "LProc"
 
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
@@ -818,23 +811,20 @@ msgid "GID of process"
 msgstr "GID на процес"
 
 #: sysdeps/names/procstate.c:53
-#, fuzzy
 msgid "Real UID of process"
-msgstr "UID на процес"
+msgstr "Real UID на процес"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "Real GID of process"
-msgstr "GID на процес"
+msgstr "Real GID на процес"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
 msgstr ""
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "Processor"
-msgstr "ID на Процес"
+msgstr ""
 
 #: sysdeps/names/procstate.c:57
 msgid "Last Processor"
@@ -949,24 +939,20 @@ msgid "EGid"
 msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "Uid"
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "Gid"
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSUid"
-msgstr "Uid"
+msgstr "FSUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSGid"
-msgstr "Gid"
+msgstr "FSGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
@@ -997,14 +983,12 @@ msgid "Priority"
 msgstr "Приоритет"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "ID на Група"
+msgstr ""
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "Groups"
-msgstr "ID на Група"
+msgstr "Групи"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
@@ -1023,24 +1007,20 @@ msgid "Effective Group ID"
 msgstr "Ефективно ID на Група"
 
 #: sysdeps/names/procuid.c:60
-#, fuzzy
 msgid "Set User ID"
-msgstr "Потребителски ID"
+msgstr "Указване на потребителско ID"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Set Group ID"
-msgstr "ID на Група"
+msgstr "Указване на ID на група"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Използвана Файлова Система"
+msgstr ""
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "Ефективно ID на Група"
+msgstr ""
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
@@ -1075,14 +1055,12 @@ msgid "Standard unix nice level of process"
 msgstr "Стандартни nice нива на процес за unix"
 
 #: sysdeps/names/procuid.c:72
-#, fuzzy
 msgid "Number of additional process groups"
-msgstr "ID група на терминален процес"
+msgstr "Брой допълнителни процесни групи"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Array of additional process groups"
-msgstr "ID група на терминален процес"
+msgstr ""
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
@@ -1285,9 +1263,8 @@ msgid "Idletime"
 msgstr "Време на очакване"
 
 #: sysdeps/names/uptime.c:41
-#, fuzzy
 msgid "BootTime"
-msgstr "RTime"
+msgstr "BootTime"
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
@@ -1300,13 +1277,12 @@ msgstr ""
 "стартиране"
 
 #: sysdeps/names/uptime.c:48
-#, fuzzy
 msgid "Time of last system boot in seconds since the epoch"
-msgstr "Начално време време на процеса в секунди от 'Епохата'"
+msgstr "Време от предишното пускане на компютъра в секунди броени от 'Епохата'"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr "Разпада"
+msgstr "Разпадане"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
@@ -1314,7 +1290,7 @@ msgstr "Прекъсване"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
-msgstr "Напуска"
+msgstr "Напускане"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
@@ -1326,7 +1302,7 @@ msgstr "Захваща трасировка"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr "Прекъсва"
+msgstr "Прекъсване"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
@@ -1378,7 +1354,7 @@ msgstr "Стоп на клавиатура"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
-msgstr "Продължава"
+msgstr "Продължаване"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
@@ -1414,7 +1390,7 @@ msgstr "Профилиран алармен часовник"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
-msgstr "Промяна размера на прозорец"
+msgstr "Променяне размера на прозорец"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
