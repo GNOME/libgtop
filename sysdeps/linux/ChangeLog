@@ -1,3 +1,8 @@
+2005-01-16  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* glibtop_private.c: (skip_token):
+	* glibtop_private.h: Uninlined.
+
 2005-01-13  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* fsusage.c: (get_partition), (get_sys_path), (linux_2_6_0): Reworked.

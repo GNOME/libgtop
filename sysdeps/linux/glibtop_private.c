@@ -32,6 +32,16 @@ get_scaled(const char *buffer, const char *key)
 }
 
 
+char *
+skip_token (const char *p)
+{
+	p = next_token(p);
+	while (*p && !isspace(*p)) p++;
+	p = next_token(p);
+	return (char *)p;
+}
+
+
 /*
  * Read functions
  */

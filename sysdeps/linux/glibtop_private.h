@@ -40,14 +40,8 @@ next_token(const char *p)
 	return (char*) p;
 }
 
-static inline char *
-skip_token (const char *p)
-{
-	p = next_token(p);
-	while (*p && !isspace(*p)) p++;
-	p = next_token(p);
-	return (char *)p;
-}
+char * G_GNUC_INTERNAL
+skip_token (const char *p);
 
 static inline char *
 skip_multiple_token (const char *p, size_t count)
