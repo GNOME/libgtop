@@ -3,7 +3,7 @@ July 11, 2004:
 
 * Released LibGTop 2.6.1
 
-  - code cleanups. 5% object size shrinkage.
+  - code cleanups.
   
   - glibtop_mountlist()'s all_fs parameter now works.
   
