@@ -273,7 +273,7 @@ main (int argc, char *argv [])
 			if (i)
 				printf (" %d", data.proc_uid.groups [i]);
 			else
-				printf ("(%d", data.proc_uid.groups [i]);
+				printf (" (%d", data.proc_uid.groups [i]);
 		}
 		printf (")");
 	}

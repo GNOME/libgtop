@@ -665,9 +665,7 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
     libgtop_proc_segment_t *proc_segment;
     libgtop_proc_signal_t *proc_signal;
     libgtop_proc_mem_t *proc_mem;
-#ifdef __SMP__
     int i;
-#endif
 
     switch (table->ctl_name) {
     case LIBGTOP_PROC_STATE:
@@ -676,7 +674,6 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 	
 	proc_state->uid = tsk->uid;
 	proc_state->gid = tsk->gid;
-	proc_state->state = tsk->state;
 	proc_state->flags = tsk->flags;
 	memcpy (proc_state->comm, tsk->comm, sizeof (proc_state->comm));
 	proc_state->uid = tsk->uid;
@@ -762,6 +759,26 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 
 	}
 	proc_state->rlim = tsk->rlim ? tsk->rlim[RLIMIT_RSS].rlim_cur : 0;
+
+	proc_state->ngroups = tsk->ngroups;
+	for (i = 0; i < min (tsk->ngroups, LIBGTOP_MAX_GROUPS); i++)
+	    proc_state->groups [i] = tsk->groups [i];
+	
+	if (tsk->state & TASK_INTERRUPTIBLE)
+	    proc_state->state |= LIBGTOP_TASK_INTERRUPTIBLE;
+	if (tsk->state & TASK_UNINTERRUPTIBLE)
+	    proc_state->state |= LIBGTOP_TASK_UNINTERRUPTIBLE;
+	if (tsk->state & TASK_ZOMBIE)
+	    proc_state->state |= LIBGTOP_TASK_ZOMBIE;
+	if (tsk->state & TASK_STOPPED)
+	    proc_state->state |= LIBGTOP_TASK_STOPPED;
+	if (tsk->state & TASK_SWAPPING)
+	    proc_state->state |= LIBGTOP_TASK_SWAPPING;
+
+	if (!(tsk->state & (TASK_RUNNING | TASK_INTERRUPTIBLE |
+			    TASK_UNINTERRUPTIBLE | TASK_ZOMBIE |
+			    TASK_STOPPED | TASK_SWAPPING)))
+	    proc_state->state |= LIBGTOP_TASK_RUNNING;
 	break;
     case LIBGTOP_PROC_KERNEL:
 	proc_kernel = table->data;

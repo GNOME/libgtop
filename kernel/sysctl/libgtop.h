@@ -30,11 +30,23 @@ enum {
 
 #define LIBGTOP_NSIG			4
 
-#define LIBGTOP_PROCLIST_MASK		15	
+#define LIBGTOP_PROCLIST_MASK		15
+#define LIBGTOP_MAX_GROUPS		32
 
 #define LIBGTOP_EXCLUDE_IDLE		0x1000
 #define LIBGTOP_EXCLUDE_SYSTEM		0x2000
 #define LIBGTOP_EXCLUDE_NOTTY		0x4000
+
+#define LIBGTOP_TASK_RUNNING		1
+#define LIBGTOP_TASK_INTERRUPTIBLE	2
+#define LIBGTOP_TASK_UNINTERRUPTIBLE	4
+#define LIBGTOP_TASK_ZOMBIE		8
+#define LIBGTOP_TASK_STOPPED		16
+#define LIBGTOP_TASK_SWAPPING		32
+
+#ifndef min
+#define min(a,b) ((a < b) ? a : b)
+#endif
 
 typedef struct libgtop_stat libgtop_stat_t;
 
@@ -123,6 +135,8 @@ struct libgtop_proc_state
     unsigned long keip, kesp;
     unsigned long min_flt, maj_flt, cmin_flt, cmaj_flt;
     unsigned long nswap, cnswap;
+
+    int ngroups, groups [LIBGTOP_MAX_GROUPS];
 };
 
 struct libgtop_proc_kernel
