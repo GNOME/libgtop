@@ -1,3 +1,8 @@
+1998-10-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in, automake.sh, Automakefile.am: New files.
+	This is now a package of its own.
+
 1998-10-10  Martin Baulig  <martin@home-of-linux.org>
 
 	* Names: New directory. Defines `Libgtop::Names' module with

@@ -1,0 +1,24 @@
+
+AC_INIT(Libgtop.pm)
+
+AM_CONFIG_HEADER(config.h)
+AM_INIT_AUTOMAKE(Libgtop, 0.29)
+
+AM_MAINTAINER_MODE
+
+dnl We don't use `AC_PROG_AWK' since it checks for mawk first which
+dnl does not work for libgtop.
+AC_CHECK_PROGS(AWK, gawk awk, )
+test -z "$AWK" && AC_MSG_ERROR([Sorry, you need a working awk interpreter.])
+
+dnl Check for libgtop
+GNOME_INIT_LIBGTOP(0.25, fail)
+
+dnl utility conditional
+AM_CONDITIONAL(FALSE, test "x" = "y")
+
+AC_OUTPUT([
+Automakefile
+Makefile.PL
+Names/Makefile.PL
+stamp.h],[])

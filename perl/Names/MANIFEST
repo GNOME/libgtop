@@ -3,3 +3,8 @@ Makefile.PL.in
 Names.pm
 names.awk
 test.pl
+Names.pm
+Names.xs
+names.awk
+test.pl
+.cvsignore

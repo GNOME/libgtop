@@ -1,1 +1,4 @@
-Libgtop.xs Makefile blib pm_to_blib Libgtop.c Libgtop.bs Makefile.PL
+Automakefile Automakefile.in
+configure config.h Makefile.PL blib Libgtop.xs
+Makefile pm_to_blib Libgtop.c
+stamp.h.in features.def Libgtop.bs
