@@ -2,4 +2,5 @@ Makefile
 Makefile.in
 POTFILES
 cat-id-tbl.c
+fr.gmo
 libgtop.pot

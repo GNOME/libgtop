@@ -1,3 +1,20 @@
+1998-06-02  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* include/glibtop/open.h (GLIBTOP_OPEN_NO_OVERRIDE):
+	tells `glibtop_open' to use the default server and not
+	to check the environment variables.
+
+	* include/glibtop/sysdeps.h (_glibtop_sysdeps):
+	renamed 'dummy' member to 'features'.
+
+	* src/proxy/*: new directory - proxy server.
+
+	* include/glibtop/command.h (GLIBTOP_CMND_SYSDEPS):
+	added definition here.
+
+	* src/server/main.c (GLIBTOP_CMND_SYSDEPS): new
+	command to get glibtop_server_features.
+
 1998-06-01  Martin Baulig  <martin@home-of-linux.org>
 
 	* NEWS: added more detailed description of today's and
