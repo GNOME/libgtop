@@ -1,5 +1,10 @@
 2000-02-16  Martin Baulig  <martin@home-of-linux.org>
 
+	* sysdeps/sun4: This is very old and obsolete so we won't
+	include it in the tarballs any longer.
+
+2000-02-16  Martin Baulig  <martin@home-of-linux.org>
+
 	* xml.m4: Check for `xmlDocGetRootElement' to make sure we
 	have a recent enough libxml.
 

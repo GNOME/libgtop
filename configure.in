@@ -552,7 +552,6 @@ sysdeps/common/Makefile
 sysdeps/names/Makefile
 sysdeps/stub/Makefile
 sysdeps/stub_suid/Makefile
-sysdeps/sun4/Makefile
 sysdeps/osf1/Makefile
 sysdeps/linux/Makefile
 sysdeps/kernel/Makefile
