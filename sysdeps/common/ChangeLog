@@ -1,3 +1,11 @@
+2004-07-07  Benoît Dejean  <tazforever@dlfp.org>
+
+	* Makefile.am:
+	* procargs.c: (split_args0), (glibtop_get_proc_argv_l),
+	(glibtop_get_proc_argv_p), (glibtop_get_proc_argv_s): Added file to
+	repository. Provides glibtop_get_proc_argv*() for system dependant 
+	glibtop_get_proc_args*().
+
 2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
 
 	* error.c: (print_server_name), (glibtop_error_r),
