@@ -1,3 +1,7 @@
+1998-08-18  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/linux/procmap.c: Added implementation.
+
 1998-08-17  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/procmap (glibtop_map_entry): Added `offset' and
