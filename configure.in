@@ -283,6 +283,10 @@ dnl These definitions are expanded in make.
 LIBGTOP_LIBS='-L$(libdir)'
 LIBGTOP_INCS='-I$(includedir)'
 
+if test x$libgtop_use_machine_h = xyes ; then
+  LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_GLIBTOP_MACHINE_H"
+fi
+
 if test x$build_inodedb = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DGLIBTOP_INODEDB"
 fi
