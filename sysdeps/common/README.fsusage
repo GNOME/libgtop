@@ -1,0 +1,9 @@
+The files fsusage.c and fsusage.h have been stolen from the GNU
+Coreutils package (version 5.0) and are the actual implementation of
+the fsusage function.
+
+The only changes that have been made to these files is that some code
+for SVR2 has been ripped out since it depended on some more code (SVR3
+was released in 1986 and introduced shared libraries), and the
+functions have been prefixed with glibtop_private to avoid name
+clashes with user code.
