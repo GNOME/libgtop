@@ -1,5 +1,10 @@
 1999-05-31  Martin Baulig  <martin@home-of-linux.org>
 
+	* LIBGTOP-VERSION: Set version number to 1.0.3 binary age 2,
+	interface age 2.
+
+1999-05-31  Martin Baulig  <martin@home-of-linux.org>
+
 	Released LibGTop 1.0.2.
 
 1999-05-26  Martin Baulig  <martin@home-of-linux.org>
