@@ -2,7 +2,7 @@ glibtopdir		= $(includedir)/glibtop
 
 glibtop_HEADERS		= close.h loadavg.h prockernel.h procstate.h \
 			  sem_limits.h uptime.h mem.h proclist.h \
-			  proctime.h shm_limits.h version.h cpu.h msg_limits.h \
+			  proctime.h shm_limits.h cpu.h msg_limits.h \
 			  procmem.h procuid.h swap.h error.h open.h \
 			  procsegment.h sysdeps.h xmalloc.h global.h \
 			  procsignal.h union.h types.h \

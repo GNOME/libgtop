@@ -58,7 +58,6 @@ include/glibtop/sysinfo.h
 include/glibtop/types.h
 include/glibtop/union.h
 include/glibtop/uptime.h
-include/glibtop/version.h
 include/glibtop/xmalloc.h
 src/inodedb/file_by_inode.c
 src/inodedb/mkinodedb.c
