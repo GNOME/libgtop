@@ -33,7 +33,10 @@ glibtop_guile_names_swap (void)
 	list = gh_list (SCM_UNDEFINED);
 	
 	for (i = 0; i < GLIBTOP_MAX_SWAP; i++)
-		list = gh_append2 (list, gh_list (gh_str02scm (glibtop_names_swap [i]), SCM_UNDEFINED));
+		list = gh_append (list, gh_list
+				  (gh_str02scm (glibtop_names_swap [i]),
+				   SCM_UNDEFINED),
+				  SCM_UNDEFINED);
 	
 	return list;
 }
@@ -47,8 +50,10 @@ glibtop_guile_types_swap (void)
 	list = gh_list (SCM_UNDEFINED);
 	
 	for (i = 0; i < GLIBTOP_MAX_SWAP; i++)
-		list = gh_append2 (list, gh_list (gh_str02scm (gettext (glibtop_types_swap [i])),
-						  SCM_UNDEFINED));
+		list = gh_append (list, gh_list
+				  (gh_str02scm (gettext (glibtop_types_swap [i])),
+				   SCM_UNDEFINED),
+				  SCM_UNDEFINED);
 	
 	return list;
 }
@@ -62,8 +67,10 @@ glibtop_guile_labels_swap (void)
 	list = gh_list (SCM_UNDEFINED);
 	
 	for (i = 0; i < GLIBTOP_MAX_SWAP; i++)
-		list = gh_append2 (list, gh_list (gh_str02scm (gettext (glibtop_labels_swap [i])),
-						  SCM_UNDEFINED));
+		list = gh_append (list, gh_list
+				  (gh_str02scm (gettext (glibtop_labels_swap [i])),
+				   SCM_UNDEFINED),
+				  SCM_UNDEFINED);
 	
 	return list;
 }
@@ -77,8 +84,10 @@ glibtop_guile_descriptions_swap (void)
 	list = gh_list (SCM_UNDEFINED);
 	
 	for (i = 0; i < GLIBTOP_MAX_SWAP; i++)
-		list = gh_append2 (list, gh_list (gh_str02scm (gettext (glibtop_descriptions_swap [i])),
-						  SCM_UNDEFINED));
+		list = gh_append (list, gh_list
+				  (gh_str02scm (gettext (glibtop_descriptions_swap [i])),
+				   SCM_UNDEFINED),
+				  SCM_UNDEFINED);
 	
 	return list;
 }
