@@ -37,8 +37,8 @@ static struct nlist nlst [] = {
 };
 
 /* MIB array for sysctl */
-static const int mib_length=2;
-static const int mib [] = { CTL_KERN, KERN_CLOCKRATE };
+static int mib_length=2;
+static int mib [] = { CTL_KERN, KERN_CLOCKRATE };
 
 /* Init function. */
 
@@ -61,7 +61,7 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	struct clockinfo ci;
 	size_t length;
 	
-	glibtop_init_p (server, GLIBTOP_SYSDEPS_CPU, 0);
+	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_CPU), 0);
 	
 	memset (buf, 0, sizeof (glibtop_cpu));
 

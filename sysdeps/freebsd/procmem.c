@@ -97,6 +97,10 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	struct inode inode;
 	int count;
 
+	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_MEM), 0);
+	
+	memset (buf, 0, sizeof (glibtop_proc_mem));
+
 	glibtop_suid_enter (server);
 
 	/* Get the process data */
