@@ -8,10 +8,14 @@ CFLAGS				= -Wall -W @CFLAGS@ -DGTOP_SERVER=\""@LIBGTOP_SERVER@"\"
 
 lib_LTLIBRARIES			= libgtop.la
 
-libgtop_la_SOURCES		= init.c open.c close.c read.c read_data.c \
-				  write.c command.c cpu.c mem.c swap.c uptime.c \
-				  loadavg.c shm_limits.c msg_limits.c \
-				  sem_limits.c proclist.c procstate.c procuid.c \
-				  proctime.c procmem.c procsignal.c prockernel.c \
-				  procsegment.c
+libgtop_la_SOURCES		= init.c open.c close.c command.c read.c read_data.c write.c lib.c
 
+BUILT_SOURCES			= lib.c
+
+lib.c: lib.awk $(top_builddir)/config.h $(top_builddir)/features.def
+	$(AWK) -f $(srcdir)/lib.awk < $(top_builddir)/features.def > lib-t
+	mv lib-t lib.c
+
+EXTRA_DIST			= lib.awk
+
+CLEANFILES			= lib.c
