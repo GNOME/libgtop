@@ -1,5 +1,5 @@
 # Note that this is NOT a relocatable package
-%define ver      0.25pre1
+%define ver      0.25.0
 %define rel      SNAP
 %define prefix   /usr
 
@@ -27,6 +27,10 @@ information from /dev/kmem or whatever.
 
 %changelog
 
+* Tue Aug 18 1998 Martin Baulig <martin@home-of-linux.org>
+
+- released libgtop 0.25.0
+
 * Sun Aug 16 1998 Martin Baulig <martin@home-of-linux.org>
 
 - first version of the RPM
@@ -37,9 +41,9 @@ information from /dev/kmem or whatever.
 %build
 # Needed for snapshot releases.
 if [ ! -f configure ]; then
-  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --without-linux-table
+  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --without-linux-table --without-libgtop-examples
 else
-  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --without-linux-table
+  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --without-linux-table --without-libgtop-examples
 fi
 
 if [ "$SMP" != "" ]; then

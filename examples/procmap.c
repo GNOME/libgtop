@@ -49,7 +49,7 @@ main (int argc, char *argv [])
 #endif
 	glibtop_proc_map procmap;
 	glibtop_map_entry *maps;
-	unsigned method, count, port, i, *ptr;
+	unsigned method, count, port, i;
 	char buffer [BUFSIZ];
 	pid_t pid;
 
@@ -92,28 +92,49 @@ main (int argc, char *argv [])
 
 	for (i = 0; i < procmap.number; i++) {
 		const char *filename = NULL;
+		unsigned device, device_major, device_minor;
+		char perm [5];
+		
+		if (maps [i].flags & GLIBTOP_MAP_ENTRY_FILENAME)
+			filename = maps [i].filename;
 
 #ifdef GLIBTOP_INODEDB
-		if (inodedb)
+		if (inodedb && !filename)
 			filename = glibtop_inodedb_lookup
 				(inodedb, maps [i].device, maps [i].inode);
 #endif
 
-		if (filename)
-			fprintf (stderr, "%08x - %08x - %08lu - %08lu - %s\n",
-				 (unsigned long) maps [i].start,
-				 (unsigned long) maps [i].end,
-				 (unsigned long) maps [i].device,
-				 (unsigned long) maps [i].inode,
-				 filename);
-		else
-			fprintf (stderr, "%08x - %08x - %08lu - %08lu\n",
-				 (unsigned long) maps [i].start,
-				 (unsigned long) maps [i].end,
-				 (unsigned long) maps [i].device,
-				 (unsigned long) maps [i].inode);
+		perm [0] = (maps [i].perm & GLIBTOP_MAP_PERM_READ) ? 'r' : '-';
+		perm [1] = (maps [i].perm & GLIBTOP_MAP_PERM_WRITE) ? 'w' : '-';
+		perm [2] = (maps [i].perm & GLIBTOP_MAP_PERM_EXECUTE) ? 'x' : '-';
+		perm [3] = (maps [i].perm & GLIBTOP_MAP_PERM_SHARED) ? 's' : '-';
+		perm [4] = (maps [i].perm & GLIBTOP_MAP_PERM_PRIVATE) ? 'p' : '-';
 
-		glibtop_free (filename);
+		device = (unsigned long) maps [i].device;
+		device_minor = (device & 255);
+		device_major = ((device >> 8) & 255);
+
+		if (filename)
+			fprintf (stderr, "%08lx-%08lx %08lx - "
+				 "%02x:%02x %08lu - %4s - %s\n",
+				 (unsigned long) maps [i].start,
+				 (unsigned long) maps [i].end,
+				 (unsigned long) maps [i].offset,
+				 device_major, device_minor,
+				 (unsigned long) maps [i].inode,
+				 perm, filename);
+		else
+			fprintf (stderr, "%08lx-%08lx %08lx - "
+				 "%02x:%02x %08lu - %4s\n",
+				 (unsigned long) maps [i].start,
+				 (unsigned long) maps [i].end,
+				 (unsigned long) maps [i].offset,
+				 device_major, device_minor,
+				 (unsigned long) maps [i].inode,
+				 perm);
+
+		if (filename && (filename != maps [i].filename))
+			glibtop_free (filename);
 	}
 
 	glibtop_free (maps);

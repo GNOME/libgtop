@@ -27,11 +27,29 @@
 
 __BEGIN_DECLS
 
-#define GLIBTOP_PROC_MAP_NUMBER	0
-#define GLIBTOP_PROC_MAP_TOTAL	1
-#define GLIBTOP_PROC_MAP_SIZE	2
+#define GLIBTOP_PROC_MAP_NUMBER		0
+#define GLIBTOP_PROC_MAP_TOTAL		1
+#define GLIBTOP_PROC_MAP_SIZE		2
 
-#define GLIBTOP_MAX_PROC_MAP	3
+#define GLIBTOP_MAX_PROC_MAP		3
+
+#define GLIBTOP_MAP_ENTRY_START		1
+#define GLIBTOP_MAP_ENTRY_END		2
+#define GLIBTOP_MAP_ENTRY_OFFSET	3
+#define GLIBTOP_MAP_ENTRY_PERM		4
+#define GLIBTOP_MAP_ENTRY_INODE		5
+#define GLIBTOP_MAP_ENTRY_DEVICE	6
+#define GLIBTOP_MAP_ENTRY_FILENAME	7
+
+#define GLIBTOP_MAX_MAP_ENTRY		8
+
+#define GLIBTOP_MAP_FILENAME_LEN	215
+
+#define GLIBTOP_MAP_PERM_READ		1
+#define GLIBTOP_MAP_PERM_WRITE		2
+#define GLIBTOP_MAP_PERM_EXECUTE	4
+#define GLIBTOP_MAP_PERM_SHARED		8
+#define GLIBTOP_MAP_PERM_PRIVATE	16
 
 typedef struct _glibtop_map_entry	glibtop_map_entry;
 
@@ -39,7 +57,8 @@ typedef struct _glibtop_proc_map	glibtop_proc_map;
 
 struct _glibtop_map_entry
 {
-	u_int64_t start, end, offset, perm, inode, device;
+	u_int64_t flags, start, end, offset, perm, inode, device;
+	char filename [GLIBTOP_MAP_FILENAME_LEN+1];
 };
 
 struct _glibtop_proc_map

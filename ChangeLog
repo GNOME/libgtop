@@ -1,5 +1,11 @@
 1998-08-18  Martin Baulig  <martin@home-of-linux.org>
 
+	* LIBGTOP-VERSION: Set version number to 0.25.0. There is now really
+	a feature freeze until it's released, bug fixes only ...
+	
+	* include/glibtop/procmap (glibtop_map_entry): Added `flags' and
+	`filename' fields.
+
 	* LIBGTOP-VERSION: Added `LIBGTOP_MICRO_VERSION'.
 	* libgtopConf.sh.in: Likewise.
 
