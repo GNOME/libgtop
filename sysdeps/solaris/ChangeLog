@@ -1,3 +1,9 @@
+1999-09-28  Drazen Kacar  <dave@srce.hr>
+
+	* proclist.c (glibtop_get_proclist_s): Bugfix. It wasn't
+	excluding system, non-tty or idle processes if that was
+	requested.
+
 1999-07-29  Martin Baulig  <martin@home-of-linux.org>
 
 	* proctime.c (glibtop_get_proc_time_p): Fix bug reported by

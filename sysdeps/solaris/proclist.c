@@ -148,7 +148,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		   if(statb.st_uid != arg) continue;
 		}
 
-		if(which != GLIBTOP_KERN_PROC_ALL)
+		if(mask || which != GLIBTOP_KERN_PROC_ALL)
 		{
 		   struct psinfo psinfo;
 
@@ -160,8 +160,8 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 			 continue;
 		      if(mask & GLIBTOP_EXCLUDE_SYSTEM && psinfo.pr_flag & SSYS)
 			 continue;
-		      if(mask & GLIBTOP_EXCLUDE_NOTTY &&
-			        psinfo.pr_ttydev == PRNODEV)
+		      if(mask & GLIBTOP_EXCLUDE_NOTTY
+			 && psinfo.pr_ttydev == PRNODEV)
 			 continue;
 		   }
 		   switch(which)
@@ -181,7 +181,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		      case GLIBTOP_KERN_PROC_RUID:    if(psinfo.pr_uid != arg)
 						         continue;
 						      break;
-		      default:			      continue;
+		      default:			      break;
 		   }
 		}
 #endif
