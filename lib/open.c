@@ -128,7 +128,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 	if (server->flags & _GLIBTOP_INIT_STATE_SERVER) {
 		char version [BUFSIZ], buffer [BUFSIZ];
 		glibtop_sysdeps sysdeps;
-		unsigned size, nbytes;
+		size_t size, nbytes;
 
 		/* First check whether the server version is correct. */
 
