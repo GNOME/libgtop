@@ -1,3 +1,7 @@
+2001-01-04  Fatih Demir	<kabalak@gmx.net>
+
+	* configure.in: Added tr to ALL_LINGUAS.
+
 2000-11-27  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/glibtop-backend-info.h
