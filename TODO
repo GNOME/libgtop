@@ -1,7 +1,6 @@
-This is LibGTop 0.29.1,
+This is LibGTop 0.30.0,
 
-a pre-stable version representing a feature freeze of both the C and
-Guile language parts of LibGTop.
+a feature-freezed version of LibGTop for GNOME 1.0.
 
 You need to use the latest version of LibGTop from CVS for Gnome, it will
 no longer work with older releases.
@@ -10,23 +9,8 @@ Martin
 
 --------------------------------------------------------------------------
 
-Things that need to be done before Dec 15:
-==========================================
-
-* [IMPORTANT] Add `netload' and `ppp' with modems for Linux.
-
-* [IMPORTANT] Check with Linux on 32 and 64 machines !
-              (we have one at the university, so I can do this)
-
-* [IMPORTANT] Check whether the daemon works on all supported systems
-              and has all features the server has.
-
-* NetBSD/OpenBSD: Support was added on Dec 6, but we need to check
-  whether all data are valid (I'll do this next week).
-
-* inodedb: Poptify, add better user interface; chage configure.in so
-           it will only be built if necessary (if invoked without the
-           --with(out)-libgtop-inodedb parameter)
+NOTE:  LibGTop is already feature-freezed for GNOME 1.0, so only bug fixes
+       are ok, no API changes !
 
 Sysdeps directory 'linux':
 ==========================
@@ -59,24 +43,6 @@ Everything except sysdeps directories:
 
 * Ready for Gnome 1.0. [ALREADY FEATURE FREEZED]
 
-Guile-Port:
-===========
-
-* Ready for Gnome 1.0. [ALREADY FEATURE FREEZED]
-
-Perl-Port:
-==========
-
-* Add missing features, make sure it really works.
-
---------------------------------------------------------------------------
-
-Things that need to be done before Gnome 1.0:
-============================================
-
-* Add sysdeps code for Solaris (anybody out there who can do this ?)
-
-
-December 8, 1998
+December 15, 1998
 
 Martin
