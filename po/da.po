@@ -1,17 +1,17 @@
 # Danish translation for libgtop
 # Copyright (C) 1998 Free Software Foundation, Inc.
-# Kenneth Christiansen <kenneth@ripen.dk>, 1998,1999.
+# Kenneth Christiansen <kenneth@ripen.dk>, 1998, 1999.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.99.3\n"
-"POT-Creation-Date: 1999-10-25 01:33+0200\n"
-"PO-Revision-Date: 1999-10-25 01:35+02:00\n"
-"Last-Translator: Kenneth Christiansen <kenneth@ripen.dk>\n"
+"POT-Creation-Date: 1999-12-03 17:30+0100\n"
+"PO-Revision-Date: 1999-12-03 18:15+01:00\n"
+"Last-Translator: Birger Langkjer <birger.langkjer@image.dk>\n"
 "Language-Team: Dansk/Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
-"Content-Transfer-Encoding: 8-bit\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 # sysdeps/names/cpu.c:45
 #: sysdeps/names/cpu.c:45
@@ -36,7 +36,7 @@ msgstr "Processortid i systemmodus"
 # sysdeps/names/cpu.c:49
 #: sysdeps/names/cpu.c:49
 msgid "CPU Time in the Idle Task"
-msgstr "Processortid i afslapningsmodus"
+msgstr "Processortid i passiv opgave"
 
 # sysdeps/names/cpu.c:50
 #: sysdeps/names/cpu.c:50
@@ -51,27 +51,27 @@ msgstr "SMP total processortid"
 # sysdeps/names/cpu.c:52
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in User Mode"
-msgstr "SMP Processortid i brugermodus"
+msgstr "SMP processortid i brugermodus"
 
 # sysdeps/names/cpu.c:53
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "SMP Processortid i brugermodus (god)"
+msgstr "SMP processortid i brugermodus (god)"
 
 # sysdeps/names/cpu.c:54
 #: sysdeps/names/cpu.c:54
 msgid "SMP CPU Time in System Mode"
-msgstr "SMP Processortid i systemmodus"
+msgstr "SMP processortid i systemmodus"
 
 # sysdeps/names/cpu.c:55
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Time in the Idle Task"
-msgstr "SMP Processortid i afslapningsmodus"
+msgstr "SMP processortid i ventemodus"
 
 # sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 msgid "SMP CPU Flags"
-msgstr "SMP processor flag"
+msgstr "SMP processorflag"
 
 # sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
@@ -96,7 +96,7 @@ msgstr "Antal klokketik systemet har tilbragt i systemmodus"
 # sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
 #: sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr "Antal klokketik systemet har tilbragt i idle task"
+msgstr "Antal klokketik systemet har tilbragt i passiv opgave"
 
 # sysdeps/names/cpu.c:66
 #: sysdeps/names/cpu.c:66
@@ -116,7 +116,7 @@ msgstr "Ledige blokke"
 # sysdeps/names/fsusage.c:43
 #: sysdeps/names/fsusage.c:43
 msgid "Available blocks"
-msgstr "Tilgængelige blokke"
+msgstr "Disponible blokke"
 
 # sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
 #: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
@@ -131,12 +131,12 @@ msgstr "Ledige filnoder"
 # sysdeps/names/fsusage.c:51
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
-msgstr "Ledige blokke tilgængelig for superbruger"
+msgstr "Ledige disponible blokke for superbruger"
 
 # sysdeps/names/fsusage.c:52
 #: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
-msgstr "Ledige blokke tilgængelige til ikke-superbrugere"
+msgstr "Ledige disponible blokke for ikke-superbrugere"
 
 # sysdeps/names/loadavg.c:41
 #: sysdeps/names/loadavg.c:41
@@ -161,7 +161,7 @@ msgstr "Sidste PID"
 # sysdeps/names/loadavg.c:49
 #: sysdeps/names/loadavg.c:49
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "Antal samtidig kørende job med snit over 1, 5 og 15 minutter"
+msgstr "Antal samtidigt kørende job med snit over 1, 5 og 15 minutter"
 
 # sysdeps/names/loadavg.c:50
 #: sysdeps/names/loadavg.c:50
@@ -269,7 +269,7 @@ msgstr "Antal elementer i listen"
 #: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
 #: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
 msgid "Total size of list"
-msgstr "Total størrelse af listen"
+msgstr "Total listestørrelse"
 
 # sysdeps/names/mountlist.c:42 sysdeps/names/mountlist.c:49
 # sysdeps/names/proclist.c:42 sysdeps/names/proclist.c:49
@@ -375,10 +375,10 @@ msgid ""
 msgstr ""
 "Processens kerneflag.\n"
 "\n"
-"Under Linux har alle flag matematik-biten sat, fordi crt0.s tjekker efter "
-"matematikemulering, så dette er ikke inkluderet i uddata.\n"
+"Under Linux har alle flag matematik-biten sat, fordi crt0.s tjekker efter matematikemulering, så dette er ikke inkluderet i uddata.\n"
 "\n"
-"Dette er nok en fejl, siden ikke alle processer er et kompileret C program.\n"
+"Dette er sikkert en fejl, da ikke enhver proces er et kompileret C program.\n"
+"\n"
 "Matematikbiten bør være decimal 4, og den tracede bit er decimal 10."
 
 # sysdeps/names/prockernel.c:61
@@ -766,22 +766,22 @@ msgstr "Enkelttegnskode for processens tilstand (S=sovende)"
 # sysdeps/names/procstate.c:54
 #: sysdeps/names/procstate.c:54
 msgid "effective UID of process"
-msgstr "Effektiv proces UID"
+msgstr "effektiv proces UID"
 
 # sysdeps/names/procstate.c:55
 #: sysdeps/names/procstate.c:55
 msgid "effective GID of process"
-msgstr "Effektiv proces GID"
+msgstr "effektiv proces GID"
 
 # sysdeps/names/procstate.c:56
 #: sysdeps/names/procstate.c:56
 msgid "real UID of process"
-msgstr "Rigtig proces UID"
+msgstr "rigtig proces UID"
 
 # sysdeps/names/procstate.c:57
 #: sysdeps/names/procstate.c:57
 msgid "real GID of process"
-msgstr "Rigtig proces GID"
+msgstr "rigtig proces GID"
 
 # sysdeps/names/procstate.c:58
 #: sysdeps/names/procstate.c:58
@@ -1130,7 +1130,7 @@ msgstr "Maks operationer per semop kald"
 # sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Max number of undo entries per process"
-msgstr "Maks antal genopretningsforsøg per proces"
+msgstr "Maks antal genopretningsforsøg pr proces"
 
 # sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
@@ -1145,7 +1145,7 @@ msgstr "Maksværdi for semafor"
 # sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 #: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 msgid "Adjust on exit max value"
-msgstr "Juster maksværdi ved udgang"
+msgstr "Justér maksværdi ved afslut"
 
 # sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
@@ -1208,137 +1208,141 @@ msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "Totalt antal swap-sider som er blevet hentet ud siden systemopstart"
 
 # sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:79
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
 msgid "Server Features"
-msgstr "Server egenskaber"
+msgstr "Serveregenskaber"
 
 # sysdeps/names/sysdeps.c:52
-#: sysdeps/names/sysdeps.c:52
+#: sysdeps/names/sysdeps.c:54
 msgid "Pointer Size"
 msgstr "Pegerstørrelse"
 
 # sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:84
 msgid "CPU Usage"
 msgstr "Processorbrug"
 
 # sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:82
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:85
 msgid "Memory Usage"
 msgstr "Hukommelsesbrug"
 
 # sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:83
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:86
 msgid "Swap Usage"
 msgstr "Swapbrug"
 
 # sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:84
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:87
 msgid "System Uptime"
 msgstr "Systemets oppetid"
 
 # sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:85
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:88
 msgid "Load Averange"
 msgstr "Gennemsnitsbelastning"
 
 # sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:86
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:89
 msgid "Shared Memory Limits"
 msgstr "Grænser for delt hukommelse"
 
 # sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:87
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:90
 msgid "Message Queue Limits"
 msgstr "Grænser for meldingskøer"
 
 # sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:88
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:91
 msgid "Semaphore Set Limits"
 msgstr "Grænser for semafor"
 
 # sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:89
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
 msgid "List of running Processes"
 msgstr "Liste over kørende processer"
 
 # sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:90
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
 msgid "Process Status information"
 msgstr "Processens tilstandsinformation"
 
 # sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:91
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:94
 msgid "Process UID and TTY information"
 msgstr "Processens UID- og TTY-information"
 
 # sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:92
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:95
 msgid "Process Memory information"
 msgstr "Processens hukommelsesinformation"
 
 # sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:93
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:96
 msgid "Process Time information"
 msgstr "Processens tidsinformation"
 
 # sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:94
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:94
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:97
 msgid "Process Signal information"
 msgstr "Processens signalinformation"
 
 # sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:95
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:98
 msgid "Process Kernel Data information"
 msgstr "Processens kernedatainformation"
 
 # sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:96
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:96
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:99
 msgid "Process Segment information"
 msgstr "Processens segmentinformation"
 
 # sysdeps/names/sysdeps.c:69
-#: sysdeps/names/sysdeps.c:69
+#: sysdeps/names/sysdeps.c:71
 msgid "Process Arguments"
 msgstr "Procesargumenter"
 
 # sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:101
 msgid "Process Memory Map"
 msgstr "Processens hukommelsesoversigt"
 
 # sysdeps/names/sysdeps.c:71
-#: sysdeps/names/sysdeps.c:71
+#: sysdeps/names/sysdeps.c:73
 msgid "Mount List"
 msgstr "Monteringsliste"
 
 # sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:100
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:100
+#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:103
 msgid "File System Usage"
 msgstr "Brug af filsystemer"
 
 # sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:101
-#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:101
+#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:104
 msgid "Network Load"
 msgstr "Netværksbelastning"
 
+#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:105
+msgid "Interface Names"
+msgstr "Grænsefladenavne"
+
 # sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:102
-#: sysdeps/names/sysdeps.c:74 sysdeps/names/sysdeps.c:102
+#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:106
 msgid "PPP Statistics"
 msgstr "PPP-statistik"
 
 # sysdeps/names/sysdeps.c:80
-#: sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:83
 msgid "Pointer Size on the Server (in bits)"
 msgstr "Peger-størrelse på serveren (i bit)"
 
 # sysdeps/names/sysdeps.c:97
-#: sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:100
 msgid "Command line arguments of the process"
 msgstr "Processens kommandolinieargumenter"
 
 # sysdeps/names/sysdeps.c:99
-#: sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:102
 msgid "List of currently mounted filesystems"
 msgstr "Liste over monterede filsystemer"
 
@@ -1471,51 +1475,51 @@ msgid "write %d bytes"
 msgstr "skriv %d byte"
 
 # src/daemon/gnuserv.c:446
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
 msgstr "Slå aflusning til"
 
 # src/daemon/gnuserv.c:446
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "DEBUG"
 msgstr "DEBUG"
 
 # src/daemon/gnuserv.c:448
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
-msgstr "Slå meddelsom udskrift til"
+msgstr "Slå meddelsom uddata til"
 
 # src/daemon/gnuserv.c:448
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
 # src/daemon/gnuserv.c:450
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
 msgstr "Forgren ikke til baggrund"
 
 # src/daemon/gnuserv.c:450
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
 # src/daemon/gnuserv.c:452
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
 msgstr "Kaldt fra inetd"
 
 # src/daemon/gnuserv.c:452
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "INETD"
 msgstr "INETD"
 
 # src/daemon/gnuserv.c:486
-#: src/daemon/gnuserv.c:486
+#: src/daemon/gnuserv.c:488
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Fejl ved flag %s: %s.\n"
-"Kør '%s --help' for at få liste over alle tilgængelige kommandolinieflag.\n"
+"Kør '%s --help' for at få liste over alle disponible kommandolinieflag.\n"
