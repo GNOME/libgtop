@@ -21,6 +21,7 @@
 
 #include <glibtop.h>
 #include <glibtop/open.h>
+#include <glibtop/xmalloc.h>
 
 struct nlist _glibtop_nlist[] = {
 #ifdef i386
@@ -58,6 +59,8 @@ struct nlist _glibtop_nlist[] = {
 void
 glibtop_open (glibtop *server, const char *program_name)
 {
+	register int pagesize;
+
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
 	memset (server, 0, sizeof (glibtop));
@@ -108,7 +111,41 @@ glibtop_open (glibtop *server, const char *program_name)
 	if ((server->machine.nlist_count > 0) &&
 	    (_glibtop_check_nlist (server, _glibtop_nlist) > 0))
 		_exit (1);
+
+	/* This are for the memory statistics. */
 	
+	(void) _glibtop_getkval (server, _glibtop_nlist[X_PAGES].n_value,
+				 (int *)(&server->machine.pages),
+				 sizeof (server->machine.pages),
+				 _glibtop_nlist[X_PAGES].n_name);
+
+	(void) _glibtop_getkval (server, _glibtop_nlist[X_EPAGES].n_value,
+				 (int *)(&server->machine.epages),
+				 sizeof (server->machine.epages),
+				 _glibtop_nlist[X_EPAGES].n_name);
+
+	server->machine.bytesize = server->machine.epages -
+		server->machine.pages;
+	server->machine.count = server->machine.bytesize / sizeof (struct page);
+
+	server->machine.physpage =
+		(struct page *) glibtop_malloc__r (server, server->machine.bytesize);
+
+	/* get the page size with "getpagesize" and calculate pageshift from it */
+
+	pagesize = getpagesize();
+
+	server->machine.pageshift = 0;
+
+	while (pagesize > 1) {
+		server->machine.pageshift++;
+		pagesize >>= 1;
+	}
+
+	/* we only need the amount of log(2)1024 for our conversion */
+
+	server->machine.pageshift -= LOG1024;
+
 	/* Drop priviledges. */	
 	
 	if (setreuid (server->machine.euid, server->machine.uid))

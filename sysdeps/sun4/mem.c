@@ -22,10 +22,65 @@
 #include <config.h>
 #include <glibtop/mem.h>
 
+static const unsigned long _glibtop_sysdeps_mem =
+(1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
+(1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_LOCKED);
+
+/* define pagetok in terms of pageshift */
+
+#define pagetok(size) ((size) << server->machine.pageshift)
+
 /* Provides information about memory usage. */
 
 void
 glibtop_get_mem__r (glibtop *server, glibtop_mem *buf)
 {
 	memset (buf, 0, sizeof (glibtop_mem));
+	
+	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
+	
+	setregid (server->machine.gid, server->machine.egid);
+	
+	/* get the array of physpage descriptors */
+	
+	(void) _glibtop_getkval (server, server->machine.pages,
+				 (int *) server->machine.physpage,
+				 server->machine.bytesize,
+				 "array _page");
+	
+	if (setregid (server->machine.egid, server->machine.gid))
+		_exit (1);
+	
+	/* !!! END OF SGID KMEM PART !!! */
+
+
+	{	/* sum memory statistics */
+		register struct page *pp;
+		register int cnt;
+		register int inuse;
+		register int free;
+		register int locked;
+		
+		/* bop thru the array counting page types */
+
+		pp = server->machine.physpage;
+		inuse = free = locked = 0;
+		for (cnt = server->machine.count; --cnt >= 0; pp++) {
+			if (pp->p_free)
+				free++;
+			else if (pp->p_lock || pp->p_keepcnt > 0)
+				locked++;
+			else
+				inuse++;
+		}
+
+		/* convert memory stats to Kbytes */
+		
+		buf->total  = pagetok (inuse + free);
+		buf->used   = pagetok (inuse);
+		buf->free   = pagetok (free);
+		buf->locked = pagetok (locked);
+
+		buf->flags = _glibtop_sysdeps_mem;
+	}
 }

@@ -1,3 +1,11 @@
+1998-05-24  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/sun4/{open.c, mem.c, glibtop_machine.h}: added
+	memory statistics.
+
+	* include/glibtop/mem.h (_glibtop_mem): added `locked'
+	member to this structure for SunOS.
+
 1998-05-23  Martin Baulig  <martin@home-of-linux.org>
 
 	* sysdeps/sun4/{open.c, cpu.c}: Started porting.

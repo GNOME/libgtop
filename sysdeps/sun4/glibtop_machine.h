@@ -44,6 +44,8 @@
 #include <sys/syscall.h>
 #endif
 
+__BEGIN_DECLS
+
 /* Older versions of SunOS don't have a typedef for pid_t.
    Hopefully this will catch all those cases without causing other problems.
  */
@@ -67,7 +69,8 @@ typedef int pid_t;
 #define X_MP_TIME	10
 #endif
 
-__BEGIN_DECLS
+/* Log base 2 of 1024 is 10 (2^10 == 1024) */
+#define LOG1024         10
 
 typedef struct _glibtop_machine		glibtop_machine;
 
@@ -77,6 +80,10 @@ struct _glibtop_machine
 	gid_t gid, egid;		/* Real and effective group id */
 	int nlist_count;		/* Number of symbols in the nlist */
 	int ncpu;			/* Number of CPUs we have */
+	unsigned long pages, epages;
+	struct page *physpage;
+	int bytesize, count;
+	int pageshift;			/* log base 2 of the pagesize */
 	kvm_t *kd;
 };
 
