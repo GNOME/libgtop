@@ -74,7 +74,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
 	}
 	else
 	{
-		strncpy(buf->cmd, pinfo->pi_comm, 39);
+		g_strlcpy(buf->cmd, pinfo->pi_comm, sizeof buf->cmd);
 	}
 
 	buf->uid = pinfo->pi_uid;
