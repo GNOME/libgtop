@@ -1,3 +1,10 @@
+2005-03-27  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* loadavg.c: (glibtop_get_loadavg_s):
+	* uptime.c: (glibtop_get_uptime_s): Fixed behaviour when locale is not C
+	s/strtod/g_ascii_strod/. (strtod behaviour is locale specific, which is bad
+	because linux /proc is always C.)
+
 2005-03-25  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* netload.c: (get_ipv6): s/strerror/g_strerror/

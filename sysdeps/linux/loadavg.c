@@ -58,9 +58,9 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 
 	file_to_buffer(server, buffer, FILENAME);
 
-	buf->loadavg [0] = strtod (buffer, &p);
-	buf->loadavg [1] = strtod (p, &p);
-	buf->loadavg [2] = strtod (p, &p);
+	buf->loadavg [0] = g_ascii_strtod (buffer, &p);
+	buf->loadavg [1] = g_ascii_strtod (p, &p);
+	buf->loadavg [2] = g_ascii_strtod (p, &p);
 
 	buf->flags = _glibtop_sysdeps_loadavg;
 
