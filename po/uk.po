@@ -507,7 +507,7 @@ msgstr ""
 
 #: sysdeps/names/procsignal.c:42
 msgid "Signal"
-msgstr ""
+msgstr "Сигнал"
 
 #: sysdeps/names/procsignal.c:42
 msgid "Blocked"
@@ -567,7 +567,7 @@ msgstr ""
 
 #: sysdeps/names/procstate.c:46
 msgid "Processor"
-msgstr ""
+msgstr "Процесор"
 
 #: sysdeps/names/procstate.c:47
 msgid "Last Processor"
@@ -643,7 +643,7 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:48
 msgid "Frequency"
-msgstr ""
+msgstr "Частота"
 
 #: sysdeps/names/proctime.c:48
 msgid "XCPU_UTime"
@@ -705,7 +705,7 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
-msgstr ""
+msgstr "Uid"
 
 #: sysdeps/names/procuid.c:48
 msgid "EUid"
@@ -713,7 +713,7 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:48
 msgid "Gid"
-msgstr ""
+msgstr "Gid"
 
 #: sysdeps/names/procuid.c:48
 msgid "EGid"
@@ -773,7 +773,7 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:52
 msgid "Groups"
-msgstr ""
+msgstr "Групи"
 
 #: sysdeps/names/procuid.c:57
 msgid "User ID"
@@ -977,7 +977,7 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:92
 msgid "List of running Processes"
-msgstr ""
+msgstr "Список запущених процес╕в"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:93
 msgid "Process Status information"
