@@ -53,10 +53,9 @@ static libgtop_mem_t libgtop_mem;
 static unsigned int libgtop_swap_timestamp = 0;
 static libgtop_swap_t libgtop_swap;
 static libgtop_proclist_t libgtop_proclist;
+static libgtop_proc_state_t libgtop_proc_state;
 
 static ctl_table libgtop_table[];
-static ctl_table proc_table[];
-
 static ctl_table libgtop_root_table[] = {
     {CTL_LIBGTOP, "libgtop", NULL, 0, 0555, libgtop_table},
     {0}
@@ -68,7 +67,6 @@ static
 ctl_table libgtop_table[] = {
     {LIBGTOP_VERSION, "version", &libgtop_sysctl_version,
      sizeof (int), 0444, NULL, &proc_dointvec},
-    {LIBGTOP_PROC, NULL, NULL, 0, 0555, proc_table},
     {LIBGTOP_UPDATE_EXPENSIVE, "update_expensive",
      &libgtop_update_expensive, sizeof (int), 0664, NULL, &proc_dointvec},
     {LIBGTOP_STAT, NULL, &libgtop_stat, sizeof (libgtop_stat),
@@ -79,11 +77,8 @@ ctl_table libgtop_table[] = {
      0444, NULL, NULL, &system_ctl_handler},
     {LIBGTOP_PROCLIST, NULL, &libgtop_proclist, sizeof (libgtop_proclist),
      0444, NULL, NULL, &system_ctl_handler},
-    {0}
-};
-
-static ctl_table proc_table[] = {
-    {CTL_ANY, NULL, NULL, 0, 04444, NULL, NULL, &proc_ctl_handler},
+    {LIBGTOP_PROC_STATE, NULL, &libgtop_proc_state,
+     sizeof (libgtop_proc_state), 0444, NULL, NULL, &proc_ctl_handler},
     {0}
 };
 
@@ -118,6 +113,41 @@ void cleanup_module(void)
 }
 
 #endif /* MODULE */
+
+#if defined(__i386__)
+# define KSTK_EIP(tsk)	(((unsigned long *)(4096+(unsigned long)(tsk)))[1019])
+# define KSTK_ESP(tsk)	(((unsigned long *)(4096+(unsigned long)(tsk)))[1022])
+#elif defined(__alpha__)
+  /*
+   * See arch/alpha/kernel/ptrace.c for details.
+   */
+# define PT_REG(reg)		(PAGE_SIZE - sizeof(struct pt_regs)	\
+				 + (long)&((struct pt_regs *)0)->reg)
+# define KSTK_EIP(tsk) \
+    (*(unsigned long *)(PT_REG(pc) + PAGE_SIZE + (unsigned long)(tsk)))
+# define KSTK_ESP(tsk)	((tsk) == current ? rdusp() : (tsk)->tss.usp)
+#elif defined(CONFIG_ARM)
+# define KSTK_EIP(tsk)	(((unsigned long *)(4096+(unsigned long)(tsk)))[1022])
+# define KSTK_ESP(tsk)	(((unsigned long *)(4096+(unsigned long)(tsk)))[1020])
+#elif defined(__mc68000__)
+#define	KSTK_EIP(tsk)	\
+    ({			\
+	unsigned long eip = 0;	 \
+	if ((tsk)->tss.esp0 > PAGE_SIZE && \
+	    MAP_NR((tsk)->tss.esp0) < max_mapnr) \
+	      eip = ((struct pt_regs *) (tsk)->tss.esp0)->pc;	 \
+	eip; })
+#define	KSTK_ESP(tsk)	((tsk) == current ? rdusp() : (tsk)->tss.usp)
+#elif defined(__powerpc__)
+#define KSTK_EIP(tsk)	((tsk)->tss.regs->nip)
+#define KSTK_ESP(tsk)	((tsk)->tss.regs->gpr[1])
+#elif defined (__sparc_v9__)
+# define KSTK_EIP(tsk)  ((tsk)->tss.kregs->tpc)
+# define KSTK_ESP(tsk)  ((tsk)->tss.kregs->u_regs[UREG_FP])
+#elif defined(__sparc__)
+# define KSTK_EIP(tsk)  ((tsk)->tss.kregs->pc)
+# define KSTK_ESP(tsk)  ((tsk)->tss.kregs->u_regs[UREG_FP])
+#endif
 
 static int
 libgtop_sysctl (ctl_table *table, int nlen, int *name)
@@ -182,6 +212,9 @@ libgtop_sysctl (ctl_table *table, int nlen, int *name)
 	mem->freeram = i.freeram;
 	mem->sharedram = i.sharedram;
 	mem->bufferram = i.bufferram;
+#if 0
+	mem->cachedram = page_cache_size * PAGE_SIZE;
+#endif
 	return 0;
     case LIBGTOP_SWAP:
 	if (jiffies - libgtop_swap_timestamp < libgtop_update_expensive)
@@ -247,11 +280,84 @@ libgtop_sysctl (ctl_table *table, int nlen, int *name)
 	    proclist->pids [tindex++] = tsk->pid;
 	}
 
+	proclist->count = tindex;
 	proclist->nr_running = nr_running;
 	proclist->last_pid = last_pid;
 	proclist->nr_tasks = tindex;
 	read_unlock(&tasklist_lock);
 	return 0;
+    default:
+	return -EINVAL;
+    }
+
+    return 0;
+}
+
+static int
+libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
+		     struct task_struct *tsk)
+{
+    libgtop_proc_state_t *proc_state;
+
+    switch (table->ctl_name) {
+    case LIBGTOP_PROC_STATE:
+	proc_state = table->data;
+	
+	proc_state->uid = tsk->uid;
+	proc_state->gid = tsk->gid;
+	proc_state->state = tsk->state;
+	proc_state->flags = tsk->flags;
+	memcpy (proc_state->comm, tsk->comm, sizeof (proc_state->comm));
+	proc_state->uid = tsk->uid;
+	proc_state->euid = tsk->euid;
+	proc_state->suid = tsk->suid;
+	proc_state->fsuid = tsk->fsuid;
+		
+	proc_state->gid = tsk->gid;
+	proc_state->egid = tsk->egid;
+	proc_state->sgid = tsk->sgid;
+	proc_state->fsgid = tsk->fsgid;
+		
+	proc_state->pid = tsk->pid;
+	proc_state->pgrp = tsk->pgrp;
+	proc_state->ppid = tsk->p_pptr->pid;
+		
+	proc_state->session = tsk->session;
+	proc_state->tty = tsk->tty ?
+	    kdev_t_to_nr (tsk->tty->device) : 0;
+	proc_state->tpgid = tsk->tty ? tsk->tty->pgrp : -1;
+		
+	proc_state->priority = tsk->priority;
+	proc_state->counter = tsk->counter;
+	proc_state->def_priority = DEF_PRIORITY;
+
+	proc_state->utime = tsk->times.tms_utime;
+	proc_state->stime = tsk->times.tms_stime;
+	proc_state->cutime = tsk->times.tms_cutime;
+	proc_state->cstime = tsk->times.tms_cstime;
+
+	proc_state->start_time = tsk->start_time;
+	proc_state->policy = tsk->policy;
+	proc_state->rt_priority = tsk->rt_priority;
+
+	proc_state->it_real_value = tsk->it_real_value;
+	proc_state->it_prof_value = tsk->it_prof_value;
+	proc_state->it_virt_value = tsk->it_virt_value;
+	proc_state->it_real_incr = tsk->it_real_incr;
+	proc_state->it_prof_incr = tsk->it_prof_incr;
+	proc_state->it_virt_incr = tsk->it_virt_incr;
+	
+	proc_state->min_flt = tsk->min_flt;
+	proc_state->cmin_flt = tsk->cmin_flt;
+	proc_state->maj_flt = tsk->maj_flt;
+	proc_state->cmaj_flt = tsk->cmaj_flt;
+		
+	proc_state->nswap = tsk->nswap;
+	proc_state->cnswap = tsk->cnswap;
+
+	proc_state->kesp = KSTK_ESP(tsk);
+	proc_state->keip = KSTK_EIP(tsk);
+	break;
     default:
 	return -EINVAL;
     }
@@ -292,20 +398,8 @@ proc_ctl_handler (ctl_table *table, int *name, int nlen,
 		  void *oldval, size_t *oldlenp, void *newval,
 		  size_t newlen, void **context)
 {
-    int ret, len;
-
-#if 0
-    printk ("proc_ctl_handler: %p - %p - %d - (%p,%p) - (%p,%d) - %p\n",
-	    table, name, nlen, oldval, oldlenp, newval, newlen, context);
-#endif
-
-    if (!name || !nlen || get_user(len, name))
-	return -EFAULT;
-
-#if 0
-    printk ("FUNCTION: %d - %d - %p\n", table->ctl_name,
-	    *name, table->de);
-#endif
+    struct task_struct *tsk = NULL;
+    int ret, len, len_name;
 
     if (!table->data || !table->maxlen)
 	return -ENOTDIR;
@@ -313,8 +407,28 @@ proc_ctl_handler (ctl_table *table, int *name, int nlen,
     if (!oldval || !oldlenp || get_user(len, oldlenp))
 	return -EFAULT;
 
+    if (!name || !nlen || get_user(len_name, name))
+	return -EFAULT;
+
     if (len != table->maxlen)
 	return -EFAULT;
 
-    return -ENOSYS;
+    if (nlen != 2)
+	return -EFAULT;
+
+    read_lock (&tasklist_lock);
+    tsk = find_task_by_pid (name [1]);
+    /* FIXME!! This should be done after the last use */
+    read_unlock(&tasklist_lock);
+
+    if (tsk == NULL)
+	return -ESRCH;
+
+    ret = libgtop_sysctl_proc (table, nlen, name, tsk);
+    if (ret) return ret;
+
+    if(copy_to_user(oldval, table->data, len))
+	return -EFAULT;
+
+    return 1;
 }

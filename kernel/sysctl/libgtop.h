@@ -10,7 +10,8 @@ enum {
     LIBGTOP_STAT,
     LIBGTOP_MEM,
     LIBGTOP_SWAP,
-    LIBGTOP_PROCLIST
+    LIBGTOP_PROCLIST,
+    LIBGTOP_PROC_STATE
 };
 
 enum {
@@ -36,6 +37,8 @@ typedef struct libgtop_mem libgtop_mem_t;
 typedef struct libgtop_swap libgtop_swap_t;
 typedef struct libgtop_proclist libgtop_proclist_t;
 
+typedef struct libgtop_proc_state libgtop_proc_state_t;
+
 struct libgtop_cpu
 {
     unsigned long total;		/* Total CPU Time		*/
@@ -51,6 +54,7 @@ struct libgtop_mem
     unsigned long freeram;		/* Available memory size */
     unsigned long sharedram;		/* Amount of shared memory */
     unsigned long bufferram;		/* Memory used by buffers */
+    unsigned long cachedram;
 };
 
 struct libgtop_swap
@@ -61,6 +65,7 @@ struct libgtop_swap
 
 struct libgtop_proclist
 {
+    int count;
     int nr_running, nr_tasks, last_pid;
     unsigned pids [NR_TASKS];
 };
@@ -77,6 +82,29 @@ struct libgtop_stat
     unsigned long boot_time;		/* Boot time (seconds s. epoch)	*/
     unsigned int pgpgin, pgpgout;	/* # of pages paged in/out	*/
     unsigned int pswpin, pswpout;	/* # of swap pgs brought in/out	*/
+};
+
+struct libgtop_proc_state
+{
+    long state;
+    unsigned long flags;
+    char comm [16];
+    int uid, euid, suid, fsuid;
+    int gid, egid, sgid, fsgid;
+    int pid, pgrp, ppid;
+    int session;
+    unsigned int tty;
+    int tpgid;
+    long priority;
+    long counter;
+    long def_priority;
+    long utime, stime, cutime, cstime, start_time;
+    unsigned long policy, rt_priority;
+    unsigned long it_real_value, it_prof_value, it_virt_value;
+    unsigned long it_real_incr, it_prof_incr, it_virt_incr;
+    unsigned long keip, kesp;
+    unsigned long min_flt, maj_flt, cmin_flt, cmaj_flt;
+    unsigned long nswap, cnswap;
 };
 
 #endif

@@ -15,6 +15,7 @@
 extern unsigned long total_forks;
 
 EXPORT_SYMBOL(task);
+EXPORT_SYMBOL(pidhash);
 EXPORT_SYMBOL(avenrun);
 EXPORT_SYMBOL(nr_running);
 EXPORT_SYMBOL(nr_tasks);
