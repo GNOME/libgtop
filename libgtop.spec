@@ -1,5 +1,5 @@
 # Note that this is NOT a relocatable package
-%define ver      0.99.1
+%define ver      0.99.2
 %define rel      SNAP
 %define prefix   /usr
 
@@ -99,7 +99,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root)
 
 %doc RELNOTES-0.25 AUTHORS ChangeLog NEWS README copyright.txt
+%doc ANNOUNCE ANNOUNCE-0.25 README.LATEST TODO
 %doc src/inodedb/README.inodedb
+
 %{prefix}/lib/lib*.so.*
 %{prefix}/share/*
 %{prefix}/bin/*

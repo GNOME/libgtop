@@ -1,3 +1,7 @@
+1999-01-03  Martin Baulig  <martin@home-of-linux.org>
+
+	Released LibGTop 0.99.2.
+
 1999-01-05  Martin Baulig  <martin@home-of-linux.org>
 
 	* libgtop.spec: Always build SMP support; binary packages should
