@@ -1068,7 +1068,7 @@ msgstr "Največja vrednost Semaforja"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Adjust on exit max value"
-msgstr "Nastavi na izhodu največjo vrednost"
+msgstr "Prilagodi na izhodu največjo vrednost"
 
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
 msgid "Max segment size"
@@ -1256,7 +1256,7 @@ msgstr "Past sledenja"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr "Preklic"
+msgstr "Prekini"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
