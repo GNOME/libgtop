@@ -27,8 +27,10 @@
 #include <sys/user.h>
 
 static const unsigned long _glibtop_sysdeps_proc_segment =
-(1 << GLIBTOP_PROC_SEGMENT_TRS) + (1 << GLIBTOP_PROC_SEGMENT_DRS) +
-(1 << GLIBTOP_PROC_SEGMENT_START_CODE) + (1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
+(1 << GLIBTOP_PROC_SEGMENT_TEXT_RSS) +
+(1 << GLIBTOP_PROC_SEGMENT_DATA_RSS) +
+(1 << GLIBTOP_PROC_SEGMENT_START_CODE) +
+(1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
 (1 << GLIBTOP_PROC_SEGMENT_START_STACK);
 
 /* Init function. */
@@ -69,8 +71,8 @@ glibtop_get_proc_segment_p (glibtop *server, glibtop_proc_segment *buf,
 	buf->end_code = (unsigned long) u.u_data_start;
 	buf->start_stack = (unsigned long) u.u_stack_start;
 	
-	buf->trs = u.u_tsize;
-	buf->drs = u.u_dsize;
+	buf->text_rss = u.u_tsize;
+	buf->data_rss = u.u_dsize;
 	
 	buf->flags = _glibtop_sysdeps_proc_segment;
 }
