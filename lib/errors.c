@@ -52,3 +52,13 @@ glibtop_get_errno_l (glibtop *server)
 {
     return server->glibtop_errno;
 }
+
+unsigned
+glibtop_clear_errno_l (glibtop *server)
+{
+    unsigned old_errno;
+
+    old_errno = server->glibtop_errno;
+    server->glibtop_errno = 0;
+    return old_errno;
+}

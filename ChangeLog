@@ -1,22 +1,21 @@
 1999-12-22  Martin Baulig  <martin@home-of-linux.org>
 
+	* lib/errors.c (glibtop_get_errno_l): New global function
+	to return `server->glibtop_errno'.
+	(glibtop_clear_errno_l): New global function to return
+	`server->glibtop_errno' and set it back to 0.
+
 	* include/glibtop/errors.h
+	(GLIBTOP_ERROR_SERVER_COMM_FAILURE): New error constant.
+	(GLIBTOP_ERROR_NO_SUCH_PROCESS): New error constant.
 	(GLIBTOP_ERROR_NO_KERNEL_SUPPORT): New error constant.
 	(GLIBTOP_ERROR_INCOMPATIBLE_KERNEL): New error constant.
-
-	* lib/errors.c (glibtop_get_errno_l): New global function.
 
 	* lib/lib.pl: For functions with a `retval' return type, set
 	`server->glibtop_errno' to the error code on error or to zero
 	on success.
 
-1999-12-22  Martin Baulig  <martin@home-of-linux.org>
-
 	* glibtop.h (glibtop): Added `glibtop_errno' field.
-
-	* include/glibtop/errors.h
-	(GLIBTOP_ERROR_SERVER_COMM_FAILURE): New error constant.
-	(GLIBTOP_ERROR_NO_SUCH_PROCESS): New error constant.
 
 1999-12-19  Martin Baulig  <martin@home-of-linux.org>
 

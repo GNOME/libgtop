@@ -52,6 +52,9 @@ glibtop_get_error_string_l (glibtop *server, unsigned error_number);
 unsigned
 glibtop_get_errno_l (glibtop *server);
 
+unsigned
+glibtop_clear_errno_l (glibtop *server);
+
 END_LIBGTOP_DECLS
 
 #endif
