@@ -52,7 +52,7 @@ static inline char *
 skip_line (const char *p)
 {
 	while (*p != '\n') p++;
-	return (char *) p++;
+	return (char *) ++p;
 }
 
 static inline int

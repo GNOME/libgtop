@@ -69,7 +69,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	buffer [len] = '\0';
 
 	p = skip_line (buffer);
-	p = skip_line (buffer);
+	p = skip_line (p);
 	p = skip_token (p);		/* "Swap:" */
 
 	buf->total  = strtoul (p, &p, 0);
