@@ -4,8 +4,10 @@
 # 
 msgid ""
 msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: libgtop CVS\n"
-"POT-Creation-Date: 2003-10-24 04:16+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-11-06 20:22+0100\n"
 "PO-Revision-Date: 2003-11-01 18:11+0100\n"
 "Last-Translator: Jeroen van der Vegt <A.J.vanderVegt@ITS.TUDelft.nl>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -43,12 +45,12 @@ msgstr "Rust"
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
-msgstr "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+msgstr "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 
 #: examples/smp.c:83
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
 #: examples/smp.c:100
 msgid "Percent:"
@@ -79,24 +81,43 @@ msgstr "Rust (%)"
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
-msgstr "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:120
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:126
 msgid "Spin:"
 msgstr "Draaiing:"
 
-#: lib/read.c:78 lib/read_data.c:51
+#: lib/read.c:78
 #, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "%d byte gelezen"
+msgstr[1] "%d bytes gelezen"
+
+#: lib/read_data.c:51
 msgid "read data size"
 msgstr "grootte van de gelezen data"
 
-#: lib/read_data.c:68 lib/write.c:51 src/daemon/gnuserv.c:456
+#: lib/read_data.c:68
 #, c-format
+msgid "read data %d byte"
+msgid_plural "read data %d bytes"
+msgstr[0] "%d gegevensbyte gelezen"
+msgstr[1] "%d gegevensbytes gelezen"
+
+#: lib/write.c:51
+#, c-format
+msgid "write %d byte"
+msgid_plural "write %d bytes"
+msgstr[0] "%d byte schrijven"
+msgstr[1] "%d bytes schrijven"
+
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "Schakel debuggen in"
 
@@ -413,7 +434,7 @@ msgstr "Uitgaande bytes"
 
 #: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
 msgid "Bytes Total"
-msgstr "Bytes totaal"
+msgstr "Bytes totaal"
 
 #: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
 msgid "Errors In"
@@ -421,7 +442,7 @@ msgstr "Inkomende fouten"
 
 #: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
 msgid "Errors Out"
-msgstr "Uitgaande fouten"
+msgstr "Uitgaande fouten"
 
 #: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
 msgid "Errors Total"
@@ -433,7 +454,7 @@ msgstr "Botsingen"
 
 #: sysdeps/names/netload.c:65
 msgid "Maximum Transfer Unit"
-msgstr "'Maximum Transfer Unit'"
+msgstr "'Maximum Transfer Unit'"
 
 #: sysdeps/names/ppp.c:39 sysdeps/names/ppp.c:46
 msgid "PPP State"
@@ -441,19 +462,19 @@ msgstr "PPP Status"
 
 #: sysdeps/names/ppp.c:40
 msgid "Input bytes"
-msgstr "Ingaande bytes"
+msgstr "Ingaande bytes"
 
 #: sysdeps/names/ppp.c:41
 msgid "Output bytes"
-msgstr "Uitgaande bytes"
+msgstr "Uitgaande bytes"
 
 #: sysdeps/names/ppp.c:47
 msgid "Number of input bytes"
-msgstr "Aantal ingaande bytes"
+msgstr "Aantal ingaande bytes"
 
 #: sysdeps/names/ppp.c:48
 msgid "Number of output bytes"
-msgstr "Aantal uitgaande bytes"
+msgstr "Aantal uitgaande bytes"
 
 #: sysdeps/names/procargs.c:39 sysdeps/names/procmem.c:48
 msgid "Size"
@@ -611,11 +632,11 @@ msgstr "Aantal pagina's virtueel geheugen"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of resident set (non-swapped) pages"
-msgstr "Aantal residente pagina's (niet geswapped) geheugen"
+msgstr "Aantal residente pagina's (niet geswapped) geheugen"
 
 #: sysdeps/names/procmem.c:57
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr "Aantal pagina's gedeeld (mmap'd) geheugen"
+msgstr "Aantal pagina's gedeeld (mmap'd) geheugen"
 
 #: sysdeps/names/procmem.c:58
 msgid ""
@@ -862,7 +883,7 @@ msgstr "Gebruikersmodus processor-tijd gebruikt door dit proces"
 
 #: sysdeps/names/proctime.c:55
 msgid "kernel-mode CPU time accumulated by process"
-msgstr "Kernelmodus processor-tijd gebruikt door dit proces"
+msgstr "Kernelmodus processor-tijd gebruikt door dit proces"
 
 #: sysdeps/names/proctime.c:56
 msgid "cumulative utime of process and reaped children"
@@ -890,11 +911,11 @@ msgstr "Tick frequentie"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr "Gebruikersmodus SMP processortijd gebruikt door dit proces"
+msgstr "Gebruikersmodus SMP processortijd gebruikt door dit proces"
 
 #: sysdeps/names/proctime.c:63
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "Kernelmodus SMP processortijd gebruikt door dit proces"
+msgstr "Kernelmodus SMP processortijd gebruikt door dit proces"
 
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
@@ -978,7 +999,7 @@ msgstr "Groep ID"
 
 #: sysdeps/names/procuid.c:59
 msgid "Effective Group ID"
-msgstr "Effectieve Groep ID"
+msgstr "Effectieve Groep ID"
 
 #: sysdeps/names/procuid.c:60
 msgid "Set User ID"
@@ -994,7 +1015,7 @@ msgstr "Bestandssysteem gebruikers ID"
 
 #: sysdeps/names/procuid.c:63
 msgid "Filesystem Group ID"
-msgstr "Bestandssysteem groep ID"
+msgstr "Bestandssysteem groep ID"
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
@@ -1078,11 +1099,11 @@ msgstr "Aanpassen bij verlaten 'maximale waarde'"
 
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Max segment size"
-msgstr "Max segment grootte"
+msgstr "Max segment grootte"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Min segment size"
-msgstr "Min segment grootte"
+msgstr "Min segment grootte"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max number of segments"
@@ -1090,11 +1111,11 @@ msgstr "Maximum aantal segmenten"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max shared segments per process"
-msgstr "Maximum aantal gedeelde segmenten per proces"
+msgstr "Maximum aantal gedeelde segmenten per proces"
 
 #: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max total shared memory"
-msgstr "Maximum hoeveelheid gedeeld geheugen"
+msgstr "Maximum hoeveelheid gedeeld geheugen"
 
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Total Swap Space"
@@ -1244,7 +1265,7 @@ msgstr "Tijd in seconden dat het systeem aan staat"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Tijd in seconden dat het systeem niets doet sinds het aan staat"
+msgstr "Tijd in seconden dat het systeem niets doet sinds het aan staat"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time of last system boot in seconds since the epoch"
