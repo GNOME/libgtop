@@ -18,3 +18,6 @@ pprint
 pprint_static
 procargs
 procargs_static
+df
+df_static
+

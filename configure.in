@@ -123,7 +123,7 @@ else
 fi
 
 if test "x$enable_static" != xno; then
-  static_targets="first_static second_static mountlist_static procmap_static netload_static sysdeps_static timings_static $smp_static_examples pprint_static procargs_static"
+  static_targets="first_static second_static mountlist_static procmap_static netload_static sysdeps_static timings_static $smp_static_examples pprint_static procargs_static df_static"
 else
   static_targets=""
 fi
