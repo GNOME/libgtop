@@ -1,17 +1,17 @@
 # ----------------------------------------------------
 # Copyright (C) YEAR Free Software Foundation, Inc.
-# Görkem Çetin <gorkem@gelecek.com.tr>, 2001.
-# Ömer Fadıl USTA <omer_fad@hotmail.com>,2002.
+# GÃ¶rkem Ã‡etin <gorkem@gelecek.com.tr>, 2001.
+# Ã–mer FadÄ±l USTA <omer_fad@hotmail.com>,2002.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.12\n"
 "POT-Creation-Date: 2002-09-17 05:08+0200\n"
 "PO-Revision-Date: 2002-09-18 05:37+0300\n"
-"Last-Translator: Ömer Fadıl USTA <omer_fad@hotmail.com>\n"
+"Last-Translator: Ã–mer FadÄ±l USTA <omer_fad@hotmail.com>\n"
 "Language-Team: GNOME Turk <gnome-turk@gnome.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-9\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: examples/smp.c:68
@@ -25,11 +25,11 @@ msgstr "Toplam"
 
 #: examples/smp.c:71 sysdeps/names/mem.c:47
 msgid "User"
-msgstr "Kullanıcı"
+msgstr "KullanÄ±cÄ±"
 
 #: examples/smp.c:71 sysdeps/names/procuid.c:58
 msgid "Nice"
-msgstr "Öncelik"
+msgstr "Ã–ncelik"
 
 #: examples/smp.c:71
 msgid "Sys"
@@ -37,7 +37,7 @@ msgstr "Sistem"
 
 #: examples/smp.c:71
 msgid "Idle"
-msgstr "Boş"
+msgstr "BoÅŸ"
 
 #: examples/smp.c:73
 #, c-format
@@ -45,17 +45,17 @@ msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 msgstr ""
-"İŞLEMCİ          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"Ä°ÅLEMCÄ°          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
 #: examples/smp.c:77
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr "İŞLEMCİ %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "Ä°ÅLEMCÄ° %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
 #: examples/smp.c:94
 msgid "Percent:"
-msgstr "Yüzde:"
+msgstr "YÃ¼zde:"
 
 #: examples/smp.c:95
 msgid "Total (%)"
@@ -63,11 +63,11 @@ msgstr "Toplam (%)"
 
 #: examples/smp.c:95
 msgid "User (%)"
-msgstr "Kullanıcı (%)"
+msgstr "KullanÄ±cÄ± (%)"
 
 #: examples/smp.c:95
 msgid "Nice (%)"
-msgstr "Öncelik (%)"
+msgstr "Ã–ncelik (%)"
 
 #: examples/smp.c:95
 msgid "Sys (%)"
@@ -75,7 +75,7 @@ msgstr "Sistem (%)"
 
 #: examples/smp.c:96
 msgid "Idle (%)"
-msgstr "Boş (%)"
+msgstr "BoÅŸ (%)"
 
 #: examples/smp.c:98
 #, c-format
@@ -83,13 +83,13 @@ msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 msgstr ""
-"İŞLEMCİ          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"Ä°ÅLEMCÄ°          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
 #: examples/smp.c:114
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr "İŞLEMCİ %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "Ä°ÅLEMCÄ° %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:120
 msgid "Spin:"
@@ -102,7 +102,7 @@ msgstr "%d bayt okundu"
 
 #: lib/read_data.c:49
 msgid "read data size"
-msgstr "okunan veri miktarı"
+msgstr "okunan veri miktarÄ±"
 
 #: lib/read_data.c:66
 #, c-format
@@ -112,11 +112,11 @@ msgstr "%d bayt okundu"
 #: lib/write.c:48
 #, c-format
 msgid "write %d bytes"
-msgstr "%d bayt yazıldı"
+msgstr "%d bayt yazÄ±ldÄ±"
 
 #: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
-msgstr "Hata ayıklamayı etkinleştir"
+msgstr "Hata ayÄ±klamayÄ± etkinleÅŸtir"
 
 #: src/daemon/gnuserv.c:448
 msgid "DEBUG"
@@ -124,7 +124,7 @@ msgstr "HATA AYIKLA"
 
 #: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
-msgstr "Detaylı çıktı aktif"
+msgstr "DetaylÄ± Ã§Ä±ktÄ± aktif"
 
 #: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
@@ -132,7 +132,7 @@ msgstr "DETAYLI"
 
 #: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
-msgstr "Arkaplana gönderme"
+msgstr "Arkaplana gÃ¶nderme"
 
 #: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
@@ -140,7 +140,7 @@ msgstr "NO-DEAMON"
 
 #: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
-msgstr "Inetd'den çalıştır"
+msgstr "Inetd'den Ã§alÄ±ÅŸtÄ±r"
 
 #: src/daemon/gnuserv.c:454
 msgid "INETD"
@@ -152,147 +152,147 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"Hatalı seçenek %s: %s.\n"
-"Kullanılabilecek tüm seçenekleri görmek için '%s --help' yazın.\n"
+"HatalÄ± seÃ§enek %s: %s.\n"
+"KullanÄ±labilecek tÃ¼m seÃ§enekleri gÃ¶rmek iÃ§in '%s --help' yazÄ±n.\n"
 
 #: support/error.c:109
 msgid "Unknown system error"
-msgstr "Bilinmeyen sistem hatası"
+msgstr "Bilinmeyen sistem hatasÄ±"
 
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: '%s' seçeneği tanınmıyor\n"
+msgstr "%s: '%s' seÃ§eneÄŸi tanÄ±nmÄ±yor\n"
 
 #: support/getopt.c:693
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: '--%s' seçeneği bir argüman istemiyor\n"
+msgstr "%s: '--%s' seÃ§eneÄŸi bir argÃ¼man istemiyor\n"
 
 #: support/getopt.c:698
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: `%c%s' seçeneği bir argüman istemiyor\n"
+msgstr "%s: `%c%s' seÃ§eneÄŸi bir argÃ¼man istemiyor\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: '%s seçeneği bir argüman gerektirir\n"
+msgstr "%s: '%s seÃ§eneÄŸi bir argÃ¼man gerektirir\n"
 
 #. --option
 #: support/getopt.c:744
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: bilinmeyen seçenek '--%s'\n"
+msgstr "%s: bilinmeyen seÃ§enek '--%s'\n"
 
 #. +option or -option
 #: support/getopt.c:748
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: bilinmeyen seçenek '%c%s'\n"
+msgstr "%s: bilinmeyen seÃ§enek '%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: geçersiz seçenek -- %c\n"
+msgstr "%s: geÃ§ersiz seÃ§enek -- %c\n"
 
 #: support/getopt.c:777
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: hatalı seçenek -- %c\n"
+msgstr "%s: hatalÄ± seÃ§enek -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: bu seçeneğin bir argümana ihtiyaç var --%c\n"
+msgstr "%s: bu seÃ§eneÄŸin bir argÃ¼mana ihtiyaÃ§ var --%c\n"
 
 #: support/getopt.c:854
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: `-W %s' belirsiz seçenek\n"
+msgstr "%s: `-W %s' belirsiz seÃ§enek\n"
 
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: '-W %s' seçeneği bir argüman kullanmaya izin vermiyor\n"
+msgstr "%s: '-W %s' seÃ§eneÄŸi bir argÃ¼man kullanmaya izin vermiyor\n"
 
 #: support/popthelp.c:35
 msgid "Show this help message"
-msgstr "Bu yardım mesajını göster"
+msgstr "Bu yardÄ±m mesajÄ±nÄ± gÃ¶ster"
 
 #: support/popthelp.c:36
 msgid "Display brief usage message"
-msgstr "Kullanımı anlatan mesajı göster"
+msgstr "KullanÄ±mÄ± anlatan mesajÄ± gÃ¶ster"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
-msgstr "Toplam İşlemci Zamanı"
+msgstr "Toplam Ä°ÅŸlemci ZamanÄ±"
 
 #: sysdeps/names/cpu.c:44
 msgid "CPU Time in User Mode"
-msgstr "Kullanıcı Konumunda İşlemci Zamanı"
+msgstr "KullanÄ±cÄ± Konumunda Ä°ÅŸlemci ZamanÄ±"
 
 #: sysdeps/names/cpu.c:45
 msgid "CPU Time in User Mode (nice)"
-msgstr "Kullanıcı Konumunda İşlemci Zamanı (öncelikli)"
+msgstr "KullanÄ±cÄ± Konumunda Ä°ÅŸlemci ZamanÄ± (Ã¶ncelikli)"
 
 #: sysdeps/names/cpu.c:46
 msgid "CPU Time in System Mode"
-msgstr "Sistem Konumunda İşlemci Zamanı"
+msgstr "Sistem Konumunda Ä°ÅŸlemci ZamanÄ±"
 
 #: sysdeps/names/cpu.c:47
 msgid "CPU Time in the Idle Task"
-msgstr "Boş Görevlerde İşlemci Zamanı"
+msgstr "BoÅŸ GÃ¶revlerde Ä°ÅŸlemci ZamanÄ±"
 
 #: sysdeps/names/cpu.c:48
 msgid "Tick Frequency"
-msgstr "Darbe Frekansı"
+msgstr "Darbe FrekansÄ±"
 
 #: sysdeps/names/cpu.c:49
 msgid "SMP Total CPU Time"
-msgstr "Toplam SMP İşlemci Zamanı"
+msgstr "Toplam SMP Ä°ÅŸlemci ZamanÄ±"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in User Mode"
-msgstr "Kullanıcı Konumunda SMP İşlemci zamanı"
+msgstr "KullanÄ±cÄ± Konumunda SMP Ä°ÅŸlemci zamanÄ±"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "Kullanıcı Konumunda SMP İşlemci Zamanı (öncelikli)"
+msgstr "KullanÄ±cÄ± Konumunda SMP Ä°ÅŸlemci ZamanÄ± (Ã¶ncelikli)"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in System Mode"
-msgstr "Sistem Konumunda SMP İşlemci Zamanı"
+msgstr "Sistem Konumunda SMP Ä°ÅŸlemci ZamanÄ±"
 
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in the Idle Task"
-msgstr "Boş görevlerde SMP İŞLEMCİ Zamanı"
+msgstr "BoÅŸ gÃ¶revlerde SMP Ä°ÅLEMCÄ° ZamanÄ±"
 
 #: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 msgid "Number of clock ticks since system boot"
-msgstr "Sistem açılışından beri oluşan tik sayısı"
+msgstr "Sistem aÃ§Ä±lÄ±ÅŸÄ±ndan beri oluÅŸan tik sayÄ±sÄ±"
 
 #: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
 msgid "Number of clock ticks the system spent in user mode"
-msgstr "Kullanıcı konumuna girildiği andan itibaren darbe sayısı"
+msgstr "KullanÄ±cÄ± konumuna girildiÄŸi andan itibaren darbe sayÄ±sÄ±"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "Kullanıcı konumuna girildiği andan itibaren darbe sayısı (öncelikli)"
+msgstr "KullanÄ±cÄ± konumuna girildiÄŸi andan itibaren darbe sayÄ±sÄ± (Ã¶ncelikli)"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in system mode"
-msgstr "Sistem konumuna girildiği andan itibaren darbe sayısı"
+msgstr "Sistem konumuna girildiÄŸi andan itibaren darbe sayÄ±sÄ±"
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr "Bekleme konumuna girildiği andan itibaren darbe sayısı"
+msgstr "Bekleme konumuna girildiÄŸi andan itibaren darbe sayÄ±sÄ±"
 
 #: sysdeps/names/cpu.c:63
 msgid "Tick frequency (default is 100)"
-msgstr "Darbe frekansı (öntanımlı 100)"
+msgstr "Darbe frekansÄ± (Ã¶ntanÄ±mlÄ± 100)"
 
 #: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
 msgid "Total blocks"
@@ -300,39 +300,39 @@ msgstr "Toplam blok"
 
 #: sysdeps/names/fsusage.c:40
 msgid "Free blocks"
-msgstr "Boş blok"
+msgstr "BoÅŸ blok"
 
 #: sysdeps/names/fsusage.c:41
 msgid "Available blocks"
-msgstr "Kullanılabilir blok"
+msgstr "KullanÄ±labilir blok"
 
 #: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
 msgid "Total file nodes"
-msgstr "Toplam dosya düğümü"
+msgstr "Toplam dosya dÃ¼ÄŸÃ¼mÃ¼"
 
 #: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
 msgid "Free file nodes"
-msgstr "Boş dosya düğümü"
+msgstr "BoÅŸ dosya dÃ¼ÄŸÃ¼mÃ¼"
 
 #: sysdeps/names/fsusage.c:49
 msgid "Free blocks available to the superuser"
-msgstr "Yöneticinin kullanabileceği boş blok"
+msgstr "YÃ¶neticinin kullanabileceÄŸi boÅŸ blok"
 
 #: sysdeps/names/fsusage.c:50
 msgid "Free blocks available to non-superusers"
-msgstr "Diğerlerinin kullanabileceği boş blok"
+msgstr "DiÄŸerlerinin kullanabileceÄŸi boÅŸ blok"
 
 #: sysdeps/names/loadavg.c:39
 msgid "Load Average"
-msgstr "Yük Ortalaması"
+msgstr "YÃ¼k OrtalamasÄ±"
 
 #: sysdeps/names/loadavg.c:40
 msgid "Running Tasks"
-msgstr "Çalışan Görevler"
+msgstr "Ã‡alÄ±ÅŸan GÃ¶revler"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Number of Tasks"
-msgstr "Görev Sayısı"
+msgstr "GÃ¶rev SayÄ±sÄ±"
 
 #: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
 msgid "Last PID"
@@ -340,15 +340,15 @@ msgstr "Son PID"
 
 #: sysdeps/names/loadavg.c:47
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "1, 5 ve 15 dakikadır eşzamanlı çalışmakta olan görevler"
+msgstr "1, 5 ve 15 dakikadÄ±r eÅŸzamanlÄ± Ã§alÄ±ÅŸmakta olan gÃ¶revler"
 
 #: sysdeps/names/loadavg.c:48
 msgid "Number of tasks currently running"
-msgstr "Halen çalışan görev sayısı"
+msgstr "Halen Ã§alÄ±ÅŸan gÃ¶rev sayÄ±sÄ±"
 
 #: sysdeps/names/loadavg.c:49
 msgid "Total number of tasks"
-msgstr "Toplam görev sayısı"
+msgstr "Toplam gÃ¶rev sayÄ±sÄ±"
 
 #: sysdeps/names/mem.c:41
 msgid "Total Memory"
@@ -356,15 +356,15 @@ msgstr "Toplam Bellek"
 
 #: sysdeps/names/mem.c:42
 msgid "Used Memory"
-msgstr "Kullanılan Bellek"
+msgstr "KullanÄ±lan Bellek"
 
 #: sysdeps/names/mem.c:43
 msgid "Free Memory"
-msgstr "Boş Bellek"
+msgstr "BoÅŸ Bellek"
 
 #: sysdeps/names/mem.c:44
 msgid "Shared Memory"
-msgstr "Paylaşılmış Bellek"
+msgstr "PaylaÅŸÄ±lmÄ±ÅŸ Bellek"
 
 #: sysdeps/names/mem.c:45
 msgid "Buffers"
@@ -372,7 +372,7 @@ msgstr "Tamponlar"
 
 #: sysdeps/names/mem.c:46
 msgid "Cached"
-msgstr "Önbelleklenmiş"
+msgstr "Ã–nbelleklenmiÅŸ"
 
 #: sysdeps/names/mem.c:48
 msgid "Locked"
@@ -384,15 +384,15 @@ msgstr "Kb cinsiden toplam fiziksel bellek"
 
 #: sysdeps/names/mem.c:54
 msgid "Used memory size in kB"
-msgstr "Kb cinsiden kullanılan bellek"
+msgstr "Kb cinsiden kullanÄ±lan bellek"
 
 #: sysdeps/names/mem.c:55
 msgid "Free memory size in kB"
-msgstr "Kb cinsiden boş bellek"
+msgstr "Kb cinsiden boÅŸ bellek"
 
 #: sysdeps/names/mem.c:56
 msgid "Shared memory size in kB"
-msgstr "Kb cinsiden paylaşılmış bellek"
+msgstr "Kb cinsiden paylaÅŸÄ±lmÄ±ÅŸ bellek"
 
 #: sysdeps/names/mem.c:57
 msgid "Size of buffers kB"
@@ -400,65 +400,65 @@ msgstr "Kb cinsinden tampon boyu"
 
 #: sysdeps/names/mem.c:58
 msgid "Size of cached memory in kB"
-msgstr "Kb cinsinden önbelleklenmiş bellek"
+msgstr "Kb cinsinden Ã¶nbelleklenmiÅŸ bellek"
 
 #: sysdeps/names/mem.c:59
 msgid "Memory used from user processes in kB"
-msgstr "Kullanıcı işlemlerinin harcadığı bellek miktarı (Kb)"
+msgstr "KullanÄ±cÄ± iÅŸlemlerinin harcadÄ±ÄŸÄ± bellek miktarÄ± (Kb)"
 
 #: sysdeps/names/mem.c:60
 msgid "Memory in locked pages in kB"
-msgstr "Kilitlenmiş sayfalardaki bellek alanı (Kb)"
+msgstr "KilitlenmiÅŸ sayfalardaki bellek alanÄ± (Kb)"
 
 #: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
 #: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
 #: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
 msgid "Number of list elements"
-msgstr "Liste elemanlarının sayısı"
+msgstr "Liste elemanlarÄ±nÄ±n sayÄ±sÄ±"
 
 #: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
 #: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
 #: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
 msgid "Total size of list"
-msgstr "Listenin toplam büyüklüğü"
+msgstr "Listenin toplam bÃ¼yÃ¼klÃ¼ÄŸÃ¼"
 
 #: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
 #: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
 #: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
 msgid "Size of a single list element"
-msgstr "Tek liste elemanının büyüklüğü"
+msgstr "Tek liste elemanÄ±nÄ±n bÃ¼yÃ¼klÃ¼ÄŸÃ¼"
 
 #: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
 msgid "Size in kilobytes of message pool"
-msgstr "Mesaj havuzunun büyüklüğü (Kb)"
+msgstr "Mesaj havuzunun bÃ¼yÃ¼klÃ¼ÄŸÃ¼ (Kb)"
 
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Number of entries in message map"
-msgstr "Mesaj haritasındaki toplam girdi sayısı"
+msgstr "Mesaj haritasÄ±ndaki toplam girdi sayÄ±sÄ±"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Max size of message"
-msgstr "Azami mesaj büyüklüğü"
+msgstr "Azami mesaj bÃ¼yÃ¼klÃ¼ÄŸÃ¼"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Default max size of queue"
-msgstr "Öntanımlı azami kuyruk büyüklüğü"
+msgstr "Ã–ntanÄ±mlÄ± azami kuyruk bÃ¼yÃ¼klÃ¼ÄŸÃ¼"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Max queues system wide"
-msgstr "Sistemdeki azami kuyruk sayısı"
+msgstr "Sistemdeki azami kuyruk sayÄ±sÄ±"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Message segment size"
-msgstr "Mesaj bölüm büyüklüğü"
+msgstr "Mesaj bÃ¶lÃ¼m bÃ¼yÃ¼klÃ¼ÄŸÃ¼"
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Number of system message headers"
-msgstr "Sistem mesaj başlıklarının sayısı"
+msgstr "Sistem mesaj baÅŸlÄ±klarÄ±nÄ±n sayÄ±sÄ±"
 
 #: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
 msgid "Interface Flags"
-msgstr "Arayüz Değerleri"
+msgstr "ArayÃ¼z DeÄŸerleri"
 
 #: sysdeps/names/netload.c:46
 msgid "MTU"
@@ -466,7 +466,7 @@ msgstr "MTU"
 
 #: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
 msgid "Subnet"
-msgstr "Alt Ağ"
+msgstr "Alt AÄŸ"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
 msgid "Address"
@@ -478,7 +478,7 @@ msgstr "Giren Paketler"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
 msgid "Packets Out"
-msgstr "Çıkan Paketler"
+msgstr "Ã‡Ä±kan Paketler"
 
 #: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
 msgid "Packets Total"
@@ -490,7 +490,7 @@ msgstr "Giren Bayt"
 
 #: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 msgid "Bytes Out"
-msgstr "Çıkan Bayt"
+msgstr "Ã‡Ä±kan Bayt"
 
 #: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 msgid "Bytes Total"
@@ -502,7 +502,7 @@ msgstr "Giren Hata"
 
 #: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
 msgid "Errors Out"
-msgstr "Çıkan Hata"
+msgstr "Ã‡Ä±kan Hata"
 
 #: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
 msgid "Errors Total"
@@ -510,7 +510,7 @@ msgstr "Toplam Hata"
 
 #: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
 msgid "Collisions"
-msgstr "Çarpışmalar"
+msgstr "Ã‡arpÄ±ÅŸmalar"
 
 #: sysdeps/names/netload.c:64
 msgid "Maximum Transfer Unit"
@@ -526,27 +526,27 @@ msgstr "Giren bayt"
 
 #: sysdeps/names/ppp.c:40
 msgid "Output bytes"
-msgstr "Çıkan bayt"
+msgstr "Ã‡Ä±kan bayt"
 
 #: sysdeps/names/ppp.c:46
 msgid "Number of input bytes"
-msgstr "Giren bayt sayısı"
+msgstr "Giren bayt sayÄ±sÄ±"
 
 #: sysdeps/names/ppp.c:47
 msgid "Number of output bytes"
-msgstr "Çıkan bayt sayısı"
+msgstr "Ã‡Ä±kan bayt sayÄ±sÄ±"
 
 #: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
 msgid "Size"
-msgstr "Büyüklük"
+msgstr "BÃ¼yÃ¼klÃ¼k"
 
 #: sysdeps/names/procargs.c:43
 msgid "Length in bytes of the returned string."
-msgstr "Dönen karakterin bayt uzunluğu (bayt)."
+msgstr "DÃ¶nen karakterin bayt uzunluÄŸu (bayt)."
 
 #: sysdeps/names/prockernel.c:42
 msgid "K_Flags"
-msgstr "K_Değeri"
+msgstr "K_DeÄŸeri"
 
 #: sysdeps/names/prockernel.c:42
 msgid "Min_Flt"
@@ -592,14 +592,14 @@ msgid ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
-"Sürecin çekirdek bayrakları\n"
+"SÃ¼recin Ã§ekirdek bayraklarÄ±\n"
 "\n"
-"Linux altında, her bayraktaki math biti ektindir, çünkü crt0.s matematik "
-"emülasyonunu denetler.\n"
-"Bu bir hata olarak görülebilir, çünkü her süreç derlenmiş C programı "
-"değildir.\n"
+"Linux altÄ±nda, her bayraktaki math biti ektindir, Ã§Ã¼nkÃ¼ crt0.s matematik "
+"emÃ¼lasyonunu denetler.\n"
+"Bu bir hata olarak gÃ¶rÃ¼lebilir, Ã§Ã¼nkÃ¼ her sÃ¼reÃ§ derlenmiÅŸ C programÄ± "
+"deÄŸildir.\n"
 "\n"
-"Math biti 4, ve takip biti 10 değerini almalıdır."
+"Math biti 4, ve takip biti 10 deÄŸerini almalÄ±dÄ±r."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:59
@@ -607,8 +607,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Sürecin oluşturduğu küçük hatalardan dolayı diskten tekrar bellek sayfası "
-"yüklemeye gerek yoktur."
+"SÃ¼recin oluÅŸturduÄŸu kÃ¼Ã§Ã¼k hatalardan dolayÄ± diskten tekrar bellek sayfasÄ± "
+"yÃ¼klemeye gerek yoktur."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -616,18 +616,18 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Sürecin oluşturduğu büyük hatalardan dolayı diskten tekrar bellek sayfasını "
-"yüklemek gereklidir."
+"SÃ¼recin oluÅŸturduÄŸu bÃ¼yÃ¼k hatalardan dolayÄ± diskten tekrar bellek sayfasÄ±nÄ± "
+"yÃ¼klemek gereklidir."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
 msgid "The number of minor faults that the process and its children have made."
-msgstr "Ana ve çocuk süreçlerin oluşturduğu küçük hatalar."
+msgstr "Ana ve Ã§ocuk sÃ¼reÃ§lerin oluÅŸturduÄŸu kÃ¼Ã§Ã¼k hatalar."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:68
 msgid "The number of major faults that the process and its children have made."
-msgstr "Ana ve çocuk süreçlerin oluşturduğu büyük hatalar."
+msgstr "Ana ve Ã§ocuk sÃ¼reÃ§lerin oluÅŸturduÄŸu bÃ¼yÃ¼k hatalar."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:71
@@ -635,13 +635,13 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
-"Yığın işaretçinin değeri, çekirdek içinde süreçleri için yığın sayfası "
+"YÄ±ÄŸÄ±n iÅŸaretÃ§inin deÄŸeri, Ã§ekirdek iÃ§inde sÃ¼reÃ§leri iÃ§in yÄ±ÄŸÄ±n sayfasÄ± "
 "olarak bulunur."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr "Geçerli 32 bit komut işaretçisi"
+msgstr "GeÃ§erli 32 bit komut iÅŸaretÃ§isi"
 
 #. NWChan
 #: sysdeps/names/prockernel.c:76
@@ -651,14 +651,14 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Bu, sürecin beklediği \"kanal\"dır. Başka türlü belirtmek gerekirse, bir "
-"sistem çağrısının adresidir. Eğer güncel bir /etc/psdatabase dosyanız var "
-"ise ps -l komutu yardımıyla WCHAN bilgisini görebilirsiniz."
+"Bu, sÃ¼recin beklediÄŸi \"kanal\"dÄ±r. BaÅŸka tÃ¼rlÃ¼ belirtmek gerekirse, bir "
+"sistem Ã§aÄŸrÄ±sÄ±nÄ±n adresidir. EÄŸer gÃ¼ncel bir /etc/psdatabase dosyanÄ±z var "
+"ise ps -l komutu yardÄ±mÄ±yla WCHAN bilgisini gÃ¶rebilirsiniz."
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
 msgid "This is the textual name of the `nwchan' field."
-msgstr "Bu `nwchan' alanının ismidir."
+msgstr "Bu `nwchan' alanÄ±nÄ±n ismidir."
 
 #: sysdeps/names/procmem.c:47
 msgid "Virtual"
@@ -666,35 +666,35 @@ msgstr "Sanal"
 
 #: sysdeps/names/procmem.c:47
 msgid "Resident"
-msgstr "Kalıcı"
+msgstr "KalÄ±cÄ±"
 
 #: sysdeps/names/procmem.c:47
 msgid "Share"
-msgstr "Paylaşım"
+msgstr "PaylaÅŸÄ±m"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size"
-msgstr "Kalıcı Boy"
+msgstr "KalÄ±cÄ± Boy"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size Limit"
-msgstr "Kalıcı Boy Limiti"
+msgstr "KalÄ±cÄ± Boy Limiti"
 
 #: sysdeps/names/procmem.c:53
 msgid "Total # of pages of memory"
-msgstr "Bellekteki toplam sayfa sayısı"
+msgstr "Bellekteki toplam sayfa sayÄ±sÄ±"
 
 #: sysdeps/names/procmem.c:54
 msgid "Number of pages of virtual memory"
-msgstr "Sanal bellek sayfa sayısı"
+msgstr "Sanal bellek sayfa sayÄ±sÄ±"
 
 #: sysdeps/names/procmem.c:55
 msgid "Number of resident set (non-swapped) pages"
-msgstr "Kalıcı paket sayfalarının sayısı (takas edilmeyen)"
+msgstr "KalÄ±cÄ± paket sayfalarÄ±nÄ±n sayÄ±sÄ± (takas edilmeyen)"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr "Paylaşılan sayfa sayıları"
+msgstr "PaylaÅŸÄ±lan sayfa sayÄ±larÄ±"
 
 #: sysdeps/names/procmem.c:57
 msgid ""
@@ -703,12 +703,13 @@ msgid ""
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
 msgstr ""
-"Belleğin gerçek bellekte tuttuğu sayfa sayısından üç çıkartılmış halidir. "
-"Metin, veri ve yığın alanlarının toplamını verir."
+"BelleÄŸin gerÃ§ek bellekte tuttuÄŸu sayfa sayÄ±sÄ±ndan Ã¼Ã§ Ã§Ä±kartÄ±lmÄ±ÅŸ halidir. "
+"Metin, veri ve yÄ±ÄŸÄ±n alanlarÄ±nÄ±n toplamÄ±nÄ± verir."
 
 #: sysdeps/names/procmem.c:62
-msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "Sürecin rss limit boyu (genellikle 2,147,483,647)."
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr "SÃ¼recin rss limit boyu (genellikle 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
@@ -724,15 +725,15 @@ msgstr "Bilgi_RSS"
 
 #: sysdeps/names/procsegment.c:42
 msgid "Stack_RSS"
-msgstr "Yığın_RSS"
+msgstr "YÄ±ÄŸÄ±n_RSS"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Dirty Size"
-msgstr "Kirli Büyüklük"
+msgstr "Kirli BÃ¼yÃ¼klÃ¼k"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Code"
-msgstr "Kod_Başlangıcı"
+msgstr "Kod_BaÅŸlangÄ±cÄ±"
 
 #: sysdeps/names/procsegment.c:43
 msgid "End_Code"
@@ -740,39 +741,39 @@ msgstr "Kod_Bitimi"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Stack"
-msgstr "Yığın_Başlangıcı"
+msgstr "YÄ±ÄŸÄ±n_BaÅŸlangÄ±cÄ±"
 
 #: sysdeps/names/procsegment.c:48
 msgid "Text resident set size"
-msgstr "Kod kalıcı boyutu"
+msgstr "Kod kalÄ±cÄ± boyutu"
 
 #: sysdeps/names/procsegment.c:49
 msgid "Shared-Lib resident set size"
-msgstr "Paylaşılmış kütüphane kalıcı boyutu"
+msgstr "PaylaÅŸÄ±lmÄ±ÅŸ kÃ¼tÃ¼phane kalÄ±cÄ± boyutu"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Data resident set size"
-msgstr "Veri kalıcı boyutu"
+msgstr "Veri kalÄ±cÄ± boyutu"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Stack resident set size"
-msgstr "Yığın kalıcı boyutu"
+msgstr "YÄ±ÄŸÄ±n kalÄ±cÄ± boyutu"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Total size of dirty pages"
-msgstr "Tehlikeli sayfaların toplam büyüklüğü"
+msgstr "Tehlikeli sayfalarÄ±n toplam bÃ¼yÃ¼klÃ¼ÄŸÃ¼"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Address of beginning of code segment"
-msgstr "Kod bölümünün başlangıç adresi"
+msgstr "Kod bÃ¶lÃ¼mÃ¼nÃ¼n baÅŸlangÄ±Ã§ adresi"
 
 #: sysdeps/names/procsegment.c:54
 msgid "Address of end of code segment"
-msgstr "Kod bölümünün bitiş adresi"
+msgstr "Kod bÃ¶lÃ¼mÃ¼nÃ¼n bitiÅŸ adresi"
 
 #: sysdeps/names/procsegment.c:55
 msgid "Address of the bottom of stack segment"
-msgstr "Alt yığın bölümünün adresi"
+msgstr "Alt yÄ±ÄŸÄ±n bÃ¶lÃ¼mÃ¼nÃ¼n adresi"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Signal"
@@ -780,7 +781,7 @@ msgstr "Sinyal"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Blocked"
-msgstr "Bloklanmış"
+msgstr "BloklanmÄ±ÅŸ"
 
 #: sysdeps/names/procsignal.c:40
 msgid "SigIgnore"
@@ -796,11 +797,11 @@ msgstr "Bekleyen sinyallerin maskesi"
 
 #: sysdeps/names/procsignal.c:46
 msgid "Mask of blocked signals"
-msgstr "Engellenmiş sinyal maskesi"
+msgstr "EngellenmiÅŸ sinyal maskesi"
 
 #: sysdeps/names/procsignal.c:47
 msgid "Mask of ignored signals"
-msgstr "Önemsenmeyen sinyal maskesi"
+msgstr "Ã–nemsenmeyen sinyal maskesi"
 
 #: sysdeps/names/procsignal.c:48
 msgid "Mask of caught signals"
@@ -824,23 +825,23 @@ msgstr "GID"
 
 #: sysdeps/names/procstate.c:45
 msgid "Basename of executable file in call to exec()"
-msgstr "Exec() komutunda işaret edilen çalıştırılabilir dosyanın ismi"
+msgstr "Exec() komutunda iÅŸaret edilen Ã§alÄ±ÅŸtÄ±rÄ±labilir dosyanÄ±n ismi"
 
 #: sysdeps/names/procstate.c:46
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Süreç durumunun tek karakterlik gösterimi (S=uyuyor)"
+msgstr "SÃ¼reÃ§ durumunun tek karakterlik gÃ¶sterimi (S=uyuyor)"
 
 #: sysdeps/names/procstate.c:47
 msgid "UID of process"
-msgstr "Sürecin UID numarası"
+msgstr "SÃ¼recin UID numarasÄ±"
 
 #: sysdeps/names/procstate.c:48
 msgid "GID of process"
-msgstr "Sürecin GID numarası"
+msgstr "SÃ¼recin GID numarasÄ±"
 
 #: sysdeps/names/proctime.c:44
 msgid "Start_Time"
-msgstr "Başlangıç_Zamanı"
+msgstr "BaÅŸlangÄ±Ã§_ZamanÄ±"
 
 #: sysdeps/names/proctime.c:44
 msgid "RTime"
@@ -864,11 +865,11 @@ msgstr "CSTime"
 
 #: sysdeps/names/proctime.c:45
 msgid "TimeOut"
-msgstr "Zamanaşımı"
+msgstr "ZamanaÅŸÄ±mÄ±"
 
 #: sysdeps/names/proctime.c:45
 msgid "It_Real_Value"
-msgstr "Gerçek değer"
+msgstr "GerÃ§ek deÄŸer"
 
 #: sysdeps/names/proctime.c:46
 msgid "Frequency"
@@ -884,51 +885,51 @@ msgstr "XCPU_STime"
 
 #: sysdeps/names/proctime.c:51
 msgid "Start time of process in seconds since the epoch"
-msgstr "Saniye olarak sürecin başlangıç değeri"
+msgstr "Saniye olarak sÃ¼recin baÅŸlangÄ±Ã§ deÄŸeri"
 
 #: sysdeps/names/proctime.c:52
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "Süreç tarafından depolanan gerçek zaman miktarı"
+msgstr "SÃ¼reÃ§ tarafÄ±ndan depolanan gerÃ§ek zaman miktarÄ±"
 
 #: sysdeps/names/proctime.c:53
 msgid "user-mode CPU time accumulated by process"
-msgstr "Süreç tarafından depolanan kullanıcı konumu işlemci zamanı"
+msgstr "SÃ¼reÃ§ tarafÄ±ndan depolanan kullanÄ±cÄ± konumu iÅŸlemci zamanÄ±"
 
 #: sysdeps/names/proctime.c:54
 msgid "kernel-mode CPU time accumulated by process"
-msgstr "Süreç tarafından depolanan çekirdek konumu işlemci zamanı"
+msgstr "SÃ¼reÃ§ tarafÄ±ndan depolanan Ã§ekirdek konumu iÅŸlemci zamanÄ±"
 
 #: sysdeps/names/proctime.c:55
 msgid "cumulative utime of process and reaped children"
-msgstr "sürecin ve ek yavruların toplam utime süresi"
+msgstr "sÃ¼recin ve ek yavrularÄ±n toplam utime sÃ¼resi"
 
 #: sysdeps/names/proctime.c:56
 msgid "cumulative stime of process and reaped children"
-msgstr "sürecin ve ek yavruların toplam stime süresi"
+msgstr "sÃ¼recin ve ek yavrularÄ±n toplam stime sÃ¼resi"
 
 #: sysdeps/names/proctime.c:57
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr "Sürecin sonraki zamanaşımının zamanı (jiffy cinsinden)"
+msgstr "SÃ¼recin sonraki zamanaÅŸÄ±mÄ±nÄ±n zamanÄ± (jiffy cinsinden)"
 
 #: sysdeps/names/proctime.c:58
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
-"İç zamanlayıcı nedeniyle sürece sonraki SIGALRM'ın gönderilmesinden önce "
-"geçen zaman (jiffy cinsinden)"
+"Ä°Ã§ zamanlayÄ±cÄ± nedeniyle sÃ¼rece sonraki SIGALRM'Ä±n gÃ¶nderilmesinden Ã¶nce "
+"geÃ§en zaman (jiffy cinsinden)"
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
-msgstr "Tıklama frekansı"
+msgstr "TÄ±klama frekansÄ±"
 
 #: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr "Süreç tarafından depolanan SMP kullanıcı modu İŞLEMCİ zamanı"
+msgstr "SÃ¼reÃ§ tarafÄ±ndan depolanan SMP kullanÄ±cÄ± modu Ä°ÅLEMCÄ° zamanÄ±"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "Süreç tarafından depolanan SMP çekirdek modu İŞLEMCİ zamanı"
+msgstr "SÃ¼reÃ§ tarafÄ±ndan depolanan SMP Ã§ekirdek modu Ä°ÅLEMCÄ° zamanÄ±"
 
 #: sysdeps/names/procuid.c:56
 msgid "Uid"
@@ -972,15 +973,15 @@ msgstr "TPGid"
 
 #: sysdeps/names/procuid.c:58
 msgid "Priority"
-msgstr "Öncelik"
+msgstr "Ã–ncelik"
 
 #: sysdeps/names/procuid.c:63
 msgid "User ID"
-msgstr "Kullanıcı ID"
+msgstr "KullanÄ±cÄ± ID"
 
 #: sysdeps/names/procuid.c:64
 msgid "Effective User ID"
-msgstr "Etkin Kullanıcı ID"
+msgstr "Etkin KullanÄ±cÄ± ID"
 
 #: sysdeps/names/procuid.c:65
 msgid "Group ID"
@@ -992,15 +993,15 @@ msgstr "Etkin Grup ID"
 
 #: sysdeps/names/procuid.c:67
 msgid "Process ID"
-msgstr "Süreç ID"
+msgstr "SÃ¼reÃ§ ID"
 
 #: sysdeps/names/procuid.c:68
 msgid "PID of parent process"
-msgstr "Ana Süreçlere ait PID"
+msgstr "Ana SÃ¼reÃ§lere ait PID"
 
 #: sysdeps/names/procuid.c:69
 msgid "Process group ID"
-msgstr "Süreç grup ID"
+msgstr "SÃ¼reÃ§ grup ID"
 
 #: sysdeps/names/procuid.c:70
 msgid "Session ID"
@@ -1008,47 +1009,47 @@ msgstr "Oturum ID"
 
 #: sysdeps/names/procuid.c:71
 msgid "Full device number of controlling terminal"
-msgstr "Kontrol eden terminalin aygıt numarası"
+msgstr "Kontrol eden terminalin aygÄ±t numarasÄ±"
 
 #: sysdeps/names/procuid.c:72
 msgid "Terminal process group ID"
-msgstr "Terminal süreç grup ID"
+msgstr "Terminal sÃ¼reÃ§ grup ID"
 
 #: sysdeps/names/procuid.c:73
 msgid "Kernel scheduling priority"
-msgstr "Çekirdek liste önceliği"
+msgstr "Ã‡ekirdek liste Ã¶nceliÄŸi"
 
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
-msgstr "Standard unix uygun süreç seviyesi"
+msgstr "Standard unix uygun sÃ¼reÃ§ seviyesi"
 
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 msgid "Number of entries in semaphore map"
-msgstr "Harita göstergeleri sayısı"
+msgstr "Harita gÃ¶stergeleri sayÄ±sÄ±"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Max number of arrays"
-msgstr "Max dize sayısı"
+msgstr "Max dize sayÄ±sÄ±"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max semaphores system wide"
-msgstr "Max sistem göstergesi"
+msgstr "Max sistem gÃ¶stergesi"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Number of undo structures system wide"
-msgstr "Sistem tabanındaki undo yapısı sayısı"
+msgstr "Sistem tabanÄ±ndaki undo yapÄ±sÄ± sayÄ±sÄ±"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores per array"
-msgstr "Her dize için Max gösterge"
+msgstr "Her dize iÃ§in Max gÃ¶sterge"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max ops per semop call"
-msgstr "semop çağrısı başına azami op"
+msgstr "semop Ã§aÄŸrÄ±sÄ± baÅŸÄ±na azami op"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max number of undo entries per process"
-msgstr "Süreçler için Max geri alma sayısı"
+msgstr "SÃ¼reÃ§ler iÃ§in Max geri alma sayÄ±sÄ±"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
@@ -1056,43 +1057,43 @@ msgstr "sizeof struct sem_undo"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Semaphore max value"
-msgstr "Max değer işaretçisi"
+msgstr "Max deÄŸer iÅŸaretÃ§isi"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Adjust on exit max value"
-msgstr "Max değeri çıkışta eşitle"
+msgstr "Max deÄŸeri Ã§Ä±kÄ±ÅŸta eÅŸitle"
 
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
 msgid "Max segment size"
-msgstr "Max bölüm büyüklüğü"
+msgstr "Max bÃ¶lÃ¼m bÃ¼yÃ¼klÃ¼ÄŸÃ¼"
 
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Min segment size"
-msgstr "Min bölüm büyüklüğü"
+msgstr "Min bÃ¶lÃ¼m bÃ¼yÃ¼klÃ¼ÄŸÃ¼"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max number of segments"
-msgstr "Max bölüm sayısı"
+msgstr "Max bÃ¶lÃ¼m sayÄ±sÄ±"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max shared segments per process"
-msgstr "Max paylaşılan süreç başı bölüm"
+msgstr "Max paylaÅŸÄ±lan sÃ¼reÃ§ baÅŸÄ± bÃ¶lÃ¼m"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max total shared memory"
-msgstr "Maksimum toplam paylaşılan bellek"
+msgstr "Maksimum toplam paylaÅŸÄ±lan bellek"
 
 #: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
 msgid "Total Swap Space"
-msgstr "Toplam takas alanı"
+msgstr "Toplam takas alanÄ±"
 
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Used Swap Space"
-msgstr "Kullanılan Takas Alanı"
+msgstr "KullanÄ±lan Takas AlanÄ±"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Free Swap Space"
-msgstr "Boş Takas Alanı"
+msgstr "BoÅŸ Takas AlanÄ±"
 
 #: sysdeps/names/swap.c:42
 msgid "Page In"
@@ -1100,47 +1101,47 @@ msgstr "Giren Sayfalar"
 
 #: sysdeps/names/swap.c:43
 msgid "Page Out"
-msgstr "Çıkan Sayfalar"
+msgstr "Ã‡Ä±kan Sayfalar"
 
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr "Sistem açıldığından beri alınan takas sayfalarının toplam sayısı"
+msgstr "Sistem aÃ§Ä±ldÄ±ÄŸÄ±ndan beri alÄ±nan takas sayfalarÄ±nÄ±n toplam sayÄ±sÄ±"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr "Sistem açıldığından beri gönderilen takas sayfalarının toplam sayısı"
+msgstr "Sistem aÃ§Ä±ldÄ±ÄŸÄ±ndan beri gÃ¶nderilen takas sayfalarÄ±nÄ±n toplam sayÄ±sÄ±"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
-msgstr "Sunucu Özellikleri"
+msgstr "Sunucu Ã–zellikleri"
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "CPU Usage"
-msgstr "İşlemci Kullanımı"
+msgstr "Ä°ÅŸlemci KullanÄ±mÄ±"
 
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "Memory Usage"
-msgstr "Bellek Kullanımı"
+msgstr "Bellek KullanÄ±mÄ±"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Swap Usage"
-msgstr "Takas Kullanımı"
+msgstr "Takas KullanÄ±mÄ±"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "System Uptime"
-msgstr "Sistemin açık kalma süresi"
+msgstr "Sistemin aÃ§Ä±k kalma sÃ¼resi"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Load Averange"
-msgstr "Ortalama Yük"
+msgstr "Ortalama YÃ¼k"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Shared Memory Limits"
-msgstr "Paylaşılmış Bellek Limitleri"
+msgstr "PaylaÅŸÄ±lmÄ±ÅŸ Bellek Limitleri"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Message Queue Limits"
-msgstr "Mesaj kuyruğu limiti"
+msgstr "Mesaj kuyruÄŸu limiti"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
@@ -1148,87 +1149,87 @@ msgstr "Semafor Set Limitleri"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
-msgstr "Çalışan süreçlerin listesi"
+msgstr "Ã‡alÄ±ÅŸan sÃ¼reÃ§lerin listesi"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Status information"
-msgstr "Süreç durum bilgisi"
+msgstr "SÃ¼reÃ§ durum bilgisi"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process UID and TTY information"
-msgstr "Süreç UID ve TTY bilgisi"
+msgstr "SÃ¼reÃ§ UID ve TTY bilgisi"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process Memory information"
-msgstr "Süreç bellek bilgisi"
+msgstr "SÃ¼reÃ§ bellek bilgisi"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Time information"
-msgstr "Süreç zaman bilgisi"
+msgstr "SÃ¼reÃ§ zaman bilgisi"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Signal information"
-msgstr "Süreç sinyal bilgisi"
+msgstr "SÃ¼reÃ§ sinyal bilgisi"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Kernel Data information"
-msgstr "Süreç çekirdek veri bilgisi"
+msgstr "SÃ¼reÃ§ Ã§ekirdek veri bilgisi"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Segment information"
-msgstr "Süreç bölüm bilgisi"
+msgstr "SÃ¼reÃ§ bÃ¶lÃ¼m bilgisi"
 
 #: sysdeps/names/sysdeps.c:66
 msgid "Process Arguments"
-msgstr "Süreç argümanları"
+msgstr "SÃ¼reÃ§ argÃ¼manlarÄ±"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 msgid "Process Memory Map"
-msgstr "Süreç Bellek Haritası"
+msgstr "SÃ¼reÃ§ Bellek HaritasÄ±"
 
 #: sysdeps/names/sysdeps.c:68
 msgid "Mount List"
-msgstr "Bağlama Listesi"
+msgstr "BaÄŸlama Listesi"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "File System Usage"
-msgstr "Dosya Sistemi Kullanımı"
+msgstr "Dosya Sistemi KullanÄ±mÄ±"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "Network Load"
-msgstr "Ağ Yükü"
+msgstr "AÄŸ YÃ¼kÃ¼"
 
 #: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "PPP Statistics"
-msgstr "PPP İstatistikleri"
+msgstr "PPP Ä°statistikleri"
 
 #: sysdeps/names/sysdeps.c:93
 msgid "Command line arguments of the process"
-msgstr "Sürecin komut satır parametreleri"
+msgstr "SÃ¼recin komut satÄ±r parametreleri"
 
 #: sysdeps/names/sysdeps.c:95
 msgid "List of currently mounted filesystems"
-msgstr "Bağlı durumdaki dosya sistemlerinin listesi"
+msgstr "BaÄŸlÄ± durumdaki dosya sistemlerinin listesi"
 
 #: sysdeps/names/uptime.c:38
 msgid "Uptime"
-msgstr "Açık kalma süresi"
+msgstr "AÃ§Ä±k kalma sÃ¼resi"
 
 #: sysdeps/names/uptime.c:39
 msgid "Idletime"
-msgstr "Boşzaman"
+msgstr "BoÅŸzaman"
 
 #: sysdeps/names/uptime.c:44
 msgid "Time in seconds since system boot"
-msgstr "Sistem açıldıktan sonra geçen zaman (sn)"
+msgstr "Sistem aÃ§Ä±ldÄ±ktan sonra geÃ§en zaman (sn)"
 
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Sistemin açılışından beri boş geçirdiği zaman süresi (saniye)"
+msgstr "Sistemin aÃ§Ä±lÄ±ÅŸÄ±ndan beri boÅŸ geÃ§irdiÄŸi zaman sÃ¼resi (saniye)"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr "Takılma"
+msgstr "TakÄ±lma"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
@@ -1236,47 +1237,47 @@ msgstr "Kesme"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
-msgstr "Çıkış"
+msgstr "Ã‡Ä±kÄ±ÅŸ"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
-msgstr "Tanımsız yönerge"
+msgstr "TanÄ±msÄ±z yÃ¶nerge"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
-msgstr "Takip hatası"
+msgstr "Takip hatasÄ±"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr "İptal"
+msgstr "Ä°ptal"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
-msgstr "EMT hatası"
+msgstr "EMT hatasÄ±"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
-msgstr "Kayar nokta hatası"
+msgstr "Kayar nokta hatasÄ±"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr "Öldür"
+msgstr "Ã–ldÃ¼r"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
-msgstr "Veriyolu hatası"
+msgstr "Veriyolu hatasÄ±"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
-msgstr "Erişim hatası"
+msgstr "EriÅŸim hatasÄ±"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr "Sistem kaynaklarına hatalı bağlantı"
+msgstr "Sistem kaynaklarÄ±na hatalÄ± baÄŸlantÄ±"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr "Kırık boru"
+msgstr "KÄ±rÄ±k boru"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
@@ -1284,7 +1285,7 @@ msgstr "Alarm saati"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
-msgstr "Sonlandırma"
+msgstr "SonlandÄ±rma"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
@@ -1304,7 +1305,7 @@ msgstr "Devam"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
-msgstr "Yavru sürecin durumu değişti"
+msgstr "Yavru sÃ¼recin durumu deÄŸiÅŸti"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
@@ -1316,15 +1317,15 @@ msgstr "tty'a arkaplanda yazma"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr "G/Ç mümkün"
+msgstr "G/Ã‡ mÃ¼mkÃ¼n"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
-msgstr "İşlemci limit aşıldı"
+msgstr "Ä°ÅŸlemci limit aÅŸÄ±ldÄ±"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
-msgstr "Dosya limiti aşıldı"
+msgstr "Dosya limiti aÅŸÄ±ldÄ±"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
@@ -1336,7 +1337,7 @@ msgstr "Alarm saati"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
-msgstr "Pencere boyu değişimi"
+msgstr "Pencere boyu deÄŸiÅŸimi"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
@@ -1344,9 +1345,8 @@ msgstr "Bilgi talebi"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
-msgstr "Kullanıcı tanımlı sinyal 1"
+msgstr "KullanÄ±cÄ± tanÄ±mlÄ± sinyal 1"
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
-msgstr "Kullanıcı tanımlı sinyal 2"
-
+msgstr "KullanÄ±cÄ± tanÄ±mlÄ± sinyal 2"
