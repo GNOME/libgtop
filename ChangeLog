@@ -1,5 +1,18 @@
 1998-06-14  Martin Baulig  <martin@home-of-linux.org>
 
+	* acconfig.h (HAVE_XAUTH): New tag.
+
+	* configure.in: Added check for `HAVE_XAUTH'.
+
+	* sysdeps/common/error.c (glibtop_warn_r): New function -
+	same as `glibtop_error_r', but doesn't call `exit'.
+	(glibtop_error_io_r, glibtop_warn_io_r): New functions,
+	display `strerror (errno)' together with message.
+
+	* include/glibtop/global.h (TIME_WITH_SYS_TIME): including
+	correct headers; (HAVE_UNISTD_H): Added conditional.
+	Added `#include <sys/param.h>' and `#include <sys/stat.h>'.
+
 	* acconfig.h (HAVE_LINUX_TABLE): New tag.
 
 	* lib/lib.awk: New file.

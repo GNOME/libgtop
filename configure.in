@@ -13,6 +13,8 @@ AC_PROG_CC
 AC_STDC_HEADERS
 AC_ARG_PROGRAM
 
+AC_PROG_AWK
+
 AC_CHECK_TOOL(CC,gcc)
 AC_CHECK_TOOL(RANLIB,ranlib)
 AC_CHECK_TOOL(AS,as)
@@ -99,6 +101,30 @@ AC_CHECK_FUNCS(getcwd gettimeofday getwd putenv strdup strtoul uname)
 
 ALL_LINGUAS="fr"
 AM_GNU_GETTEXT
+
+AC_PATH_XTRA
+
+dnl The construct foo=`echo $w1 $w2 $w3` fails on some systems if $w1 = -e or -n
+dnl So we use the following instead.
+dnl XE_SPACE(var, words)
+define([XE_SPACE],[
+T=""
+for W in $2; do if test -z "$T"; then T="$W"; else T="$T $W"; fi; done
+$1="$T"
+])dnl
+
+dnl Autodetect Xauth
+dnl -lXau is only used by gnuclient, so use a special variable for Xauth X libs
+test -z "$with_xauth" && test "$window_system" = "none" && with_xauth=no
+test -z "$with_xauth" && { AC_CHECK_HEADER(X11/Xauth.h,          ,with_xauth=no) }
+test -z "$with_xauth" && { AC_CHECK_LIB(Xau, XauGetAuthByAddr,[:],with_xauth=no, $X_LIBS) }
+test -z "$with_xauth" && with_xauth=yes
+if test "$with_xauth" = "yes"; then
+  AC_DEFINE(HAVE_XAUTH)
+  XE_SPACE(libs_xauth, $X_EXTRA_LIBS -lXau $libs_x $X_PRE_LIBS)
+fi
+AC_SUBST(libs_xauth)
+
 
 CFLAGS="$CFLAGS -D_IN_LIBGTOP"
 
@@ -219,6 +245,7 @@ sysdeps/kernel/Makefile
 src/Makefile
 src/server/Makefile
 src/proxy/Makefile
+src/daemon/Makefile
 lib/Makefile
 examples/Makefile
 support/Makefile
