@@ -185,5 +185,5 @@ glibtop_open_l (glibtop *server, const char *program_name,
 
 	fprintf (stderr, "Calling sysdeps open function.\n");
 	
-	glibtop_open_s (server, program_name, features, flags);
+	glibtop_init_s (&server, features, flags);
 }
