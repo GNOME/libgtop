@@ -1,3 +1,8 @@
+2004-07-20  Benoît Dejean  <tazforever@dlfp.org>
+
+	* NEWS:
+	* configure.in: LibGTop 2.7.4.
+
 2004-07-18  Benoît Dejean  <tazforever@dlfp.org>
 
 	* doc/reference.texi:
