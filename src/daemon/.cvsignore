@@ -3,3 +3,5 @@ Makefile
 libgtop_daemon
 server_config.h
 server.conf
+.libs
+.deps
