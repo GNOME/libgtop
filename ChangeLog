@@ -1,5 +1,9 @@
 2004-07-03  Benoît Dejean  <tazforever@dlfp.org>
 
+	* sysdeps/names/fsusage.c: Added missing fsusage names.
+
+2004-07-03  Benoît Dejean  <tazforever@dlfp.org>
+
 	* glibtop.h: Moved foward declaration of glibtop to break circular
 	#includes dependencies.
 
