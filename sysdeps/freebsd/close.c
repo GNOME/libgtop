@@ -25,5 +25,5 @@
 /* Closes pipe to gtop server. */
 
 void
-glibtop_close_p (glibtop G_GNUC_UNUSED *server)
+glibtop_close_p (glibtop *server)
 { }

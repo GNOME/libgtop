@@ -38,7 +38,7 @@
 #endif
 
 int
-main (int G_GNUC_UNUSED argc, char G_GNUC_UNUSED *argv [])
+main (int argc, char *argv [])
 {
 	glibtop_union data;
 	glibtop_sysdeps sysdeps;

@@ -44,7 +44,7 @@ glibtop_init_proc_segment_p (glibtop *server)
 void
 glibtop_get_proc_segment_p (glibtop *server,
 			    glibtop_proc_segment *buf,
-			    pid_t G_GNUC_UNUSED pid)
+			    pid_t pid)
 {
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_SEGMENT), 0);
 	

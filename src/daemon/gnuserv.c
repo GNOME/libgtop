@@ -488,7 +488,7 @@ handle_signal (int sig)
 }
 
 int
-main (int G_GNUC_UNUSED argc, char G_GNUC_UNUSED *argv [])
+main (int argc, char *argv [])
 {
 	glibtop *server = glibtop_global_server;
 

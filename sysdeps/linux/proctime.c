@@ -52,7 +52,7 @@ void
 glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 {
 	char buffer [BUFSIZ], *p;
-	int G_GNUC_UNUSED i;
+	int i;
 	
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_TIME, 0);
 

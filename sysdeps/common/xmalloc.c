@@ -64,7 +64,7 @@ glibtop_strdup_r (glibtop *server, const char *string)
 }
 
 void
-glibtop_free_r (glibtop G_GNUC_UNUSED *server, const void *ptr)
+glibtop_free_r (glibtop *server, const void *ptr)
 {
 	if (ptr) free ((void *) ptr);
 }

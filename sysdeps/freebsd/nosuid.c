@@ -24,12 +24,12 @@
 #include <glibtop/close.h>
 
 void
-glibtop_open_s (glibtop G_GNUC_UNUSED *server,
-		const char G_GNUC_UNUSED *program_name,
-		const unsigned long G_GNUC_UNUSED features,
-		const unsigned G_GNUC_UNUSED flags)
+glibtop_open_s (glibtop *server,
+		const char *program_name,
+		const unsigned long features,
+		const unsigned flags)
 { }
 
 void
-glibtop_close_s (glibtop G_GNUC_UNUSED *server)
+glibtop_close_s (glibtop *server)
 { }

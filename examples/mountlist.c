@@ -36,7 +36,7 @@
 #endif
 
 int
-main (int G_GNUC_UNUSED argc, char G_GNUC_UNUSED *argv [])
+main (int argc, char *argv [])
 {
 	glibtop_fsusage fsusage;
 	glibtop_mountlist mount_list;
