@@ -41,7 +41,8 @@ EXPORT_NO_SYMBOLS;
 int
 init_module(void)
 {
-	printk ("init_module () = %p\n", table_fkt);
+	printk ("init_module () = %p - %d, %d\n",
+		table_fkt, sizeof (union table), sizeof (sigset_t));
 	table_function_ptr = table_fkt;
 	return 0;
 }
@@ -68,9 +69,18 @@ static void collect_sigign_sigcatch(struct task_struct *p, sigset_t *ign,
 	sigemptyset(ign);
 	sigemptyset(catch);
 
+#if 0
+	printk ("collect_sigign_sigcatch: %p - %p\n",
+		p, p->sig);
+#endif
+
 	if (p->sig) {
 		k = p->sig->action;
 		for (i = 1; i <= _NSIG; ++i, ++k) {
+#if 0
+			printk ("signal: %d - %p (%p, %p)\n",
+				i, k->sa.sa_handler, SIG_IGN, SIG_DFL);
+#endif
 			if (k->sa.sa_handler == SIG_IGN)
 				sigaddset(ign, i);
 			else if (k->sa.sa_handler != SIG_DFL)
@@ -294,6 +304,7 @@ table_fkt (int type, union table *buf, const void *param)
 	union table tbl;
 	struct sysinfo i;
 	struct task_struct *tsk = NULL;
+	sigset_t sigign, sigcatch;
 	int index, err;
 	pid_t pid;
 
@@ -411,11 +422,27 @@ table_fkt (int type, union table *buf, const void *param)
 		tbl.proc_uid.def_priority = DEF_PRIORITY;
 		break;
 	case TABLE_PROC_SIGNAL:
-		tbl.proc_signal.signal = tsk->signal;
-		tbl.proc_signal.blocked = tsk->blocked;
-		
-		collect_sigign_sigcatch (tsk, &tbl.proc_signal.ignored,
-					 &tbl.proc_signal.caught);
+		memcpy (&tbl.proc_signal.signal, &tsk->signal,
+			sizeof (tbl.proc_signal.signal));
+
+		memcpy (&tbl.proc_signal.blocked, &tsk->blocked,
+			sizeof (tbl.proc_signal.blocked));
+
+		collect_sigign_sigcatch (tsk, &sigign, &sigcatch);
+
+		memcpy (&tbl.proc_signal.ignored, &sigign,
+			sizeof (tbl.proc_signal.ignored));
+
+		memcpy (&tbl.proc_signal.caught, &sigcatch,
+			sizeof (tbl.proc_signal.caught));
+
+#if 0
+		printk ("PROC_SIGNAL: (%lu, %lu) - (%lu, %lu)\n",
+			tbl.proc_signal.ignored.sig [0],
+			tbl.proc_signal.ignored.sig [1],
+			tbl.proc_signal.caught.sig [0],
+			tbl.proc_signal.caught.sig [1]);
+#endif
 		break;
 	case TABLE_PROC_MEM:
 		if (tsk->mm && tsk->mm != &init_mm) {

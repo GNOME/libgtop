@@ -1,3 +1,9 @@
+1998-07-23  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/procsignal.h (glibtop_proc_signal):
+	Changed type for `signal', `blocked', `sigignore' and
+	`sigcatch' to `unsigned long long'.
+
 1998-07-22  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/fsusage.h: New file.

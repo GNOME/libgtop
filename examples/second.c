@@ -110,7 +110,7 @@ main (int argc, char *argv [])
 		glibtop_get_proc_signal (&data.proc_signal, pid);
 	
 		fprintf (stderr, "Proc_Signal  PID  %5u (0x%08lx): "
-			 "%lu %lu %lu %lu\n", pid, data.proc_signal.flags,
+			 "%Lu %Lu %Lu %Lu\n", pid, data.proc_signal.flags,
 			 data.proc_signal.signal, data.proc_signal.blocked,
 			 data.proc_signal.sigignore, data.proc_signal.sigcatch);
 

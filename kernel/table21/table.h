@@ -129,10 +129,10 @@ struct table_proc_time
 
 struct table_proc_signal
 {
-	sigset_t signal;
-	sigset_t blocked;	/* bitmap of masked signals */
-	sigset_t ignored;	/* mask of ignored signals */
-	sigset_t caught;	/* mask of caught signals */
+	unsigned long long signal,
+		blocked,	/* bitmap of masked signals */
+		ignored,	/* mask of ignored signals */
+		caught;		/* mask of caught signals */
 };
 
 struct table_proc_kernel
