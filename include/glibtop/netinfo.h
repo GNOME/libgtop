@@ -51,7 +51,7 @@ struct _glibtop_netinfo
 	mtu;				/* GLIBTOP_NETINFO_MTU		*/
 };
 
-#define glibtop_get_netinfo(netinfo,interface,transport)	glibtop_get_netinfo_l(glibtop_global_server, netinfo, interface, transport)
+#define glibtop_get_netinfo(array,netinfo,interface,transport)	glibtop_get_netinfo_l(glibtop_global_server, array, netinfo, interface, transport)
 
 #if GLIBTOP_SUID_NETINFO
 #define glibtop_get_netinfo_r		glibtop_get_netinfo_p
