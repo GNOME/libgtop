@@ -1,3 +1,8 @@
+1999-10-19  Martin Baulig  <martin@home-of-linux.org>
+
+	* uptime.c (glibtop_get_uptime_s): Don't cast uptime and idletime
+	to float as suggested by John Kodis.
+
 1999-09-28  Radek Doulik  <rodo@praha.eridan.cz>
 
 	* proclist.c (glibtop_get_proclist_s): fixed idle processes filtering
