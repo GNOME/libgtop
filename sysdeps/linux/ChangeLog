@@ -1,3 +1,9 @@
+1999-11-28  Martin Baulig  <martin@home-of-linux.org>
+
+	* procstate.c (glibtop_get_procstate_s): Stat "/proc/<pid>" instead
+	of "/proc/<pid>/state" to get `uid' and `gid'. Thanks to Jason Becker
+	for pointing out that GTop reported wrong uid's.
+
 1999-10-19  Martin Baulig  <martin@home-of-linux.org>
 
 	* uptime.c (glibtop_get_uptime_s): Don't cast uptime and idletime
