@@ -1,0 +1,107 @@
+@node LibGTop Internals, , Reference Manual, Top
+@chapter LibGTop Internals
+
+@menu
+* General Internals::           General Internals
+* Sysdeps Internals::           Sysdeps Internals
+@end menu
+
+@node General Internals, Sysdeps Internals, LibGTop Internals, LibGTop Internals
+@section General Internals
+
+@menu
+* glibtop::                     The server structure
+@end menu
+
+@node glibtop,  , General Internals, General Internals
+@subsection The server structure - @code{glibtop}
+
+@example
+@cartouche
+typedef struct _glibtop         glibtop;
+
+struct _glibtop
+@{
+        unsigned flags;
+        unsigned method;
+        unsigned error_method;
+#ifdef HAVE_GLIBTOP_MACHINE_H
+        glibtop_machine machine;
+#endif
+        int input [2];
+        int output [2];
+        int socket;
+        int ncpu;
+        unsigned long os_version_code;
+        const char *name;
+        const char *server_command;
+        const char *server_host;
+        const char *server_user;
+        const char *server_rsh;
+        unsigned long features;
+        unsigned long server_port;
+        glibtop_sysdeps sysdeps;
+        glibtop_sysdeps required;
+        glibtop_sysdeps wanted;
+        pid_t pid;
+@};
+@end cartouche
+@end example
+
+@node Sysdeps Internals,  , General Internals, LibGTop Internals
+@section Sysdeps Internals
+
+@menu
+* glibtop_open_s::              Non-privileged initializations
+* glibtop_close_s::             Non-privileged cleanups
+@end menu
+
+@node glibtop_open_s, glibtop_close_s, Sysdeps Internals, Sysdeps Internals
+@subsection glibtop_open_s
+
+This function is used in the non-suid sysdeps library @samp{-lgtop_sysdeps} to
+initialize a server. It should do all initializations that do not need any
+privileges.
+
+@example
+@cartouche
+void
+glibtop_open_s (glibtop *server, const char *program_name,
+		const unsigned long features,
+		const unsigned flags);
+@end cartouche
+@end example
+
+@table @code
+@item server
+Pointer to the @code{glibtop} server structure.
+@item program_name
+Name of the calling program; the implementation will usually
+set @samp{server->name} to this so it'll be used as the program
+name in error messages.
+@end table
+
+Typically, this function will set @code{server->name}, @code{server->ncpu} and
+@code{server->os_version_code} and initialize any of the @code{server->machine}
+fields which do not need any privileges.
+
+It is normally implemented in @file{open.c} in the sysdeps directory.
+
+@node glibtop_close_s,  , glibtop_open_s, Sysdeps Internals
+@subsection glibtop_close_s
+
+This function is used in the non-suid sysdeps library @samp{-lgtop_sysdeps} to
+clean-up a server when it's no longer used.
+
+It must free all resources that were allocated in @code{glibtop_open_s}.
+
+@example
+@cartouche
+void
+glibtop_close_s (glibtop *server);
+@end cartouche
+@end example
+
+It is normally implemented in @file{close.c} in the sysdeps directory, but may
+be empty.
+

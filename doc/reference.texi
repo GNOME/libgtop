@@ -1,9 +1,10 @@
-@node Reference Manual, , White Paper, Top
+@node Reference Manual, LibGTop Internals, White Paper, Top
 @chapter LibGTop Reference Manual
 
 @menu
 * System Dependent::            System Dependent Functions.
 * Common Functions::            Common Functions.
+* Library Functions::           Library Functions.
 @end menu
 
 @node System Dependent, Common Functions, Reference Manual, Reference Manual
@@ -1349,7 +1350,7 @@ We're currently online.
 @end table
 
 @page
-@node Common Functions,  , System Dependent, Reference Manual
+@node Common Functions, Library Functions, System Dependent, Reference Manual
 @section Common Functions
 
 This are functions which a common implementation for all systems; we never
@@ -1362,7 +1363,6 @@ The file system code is taken from GNU Fileutils.
 * glibtop_fsusage::             File System Usage.
 @end menu
 
-@page
 @node glibtop_mountlist, glibtop_fsusage, Common Functions, Common Functions
 @subsection Mount List
 
@@ -1496,4 +1496,205 @@ Free file nodes.
 @end table
 
 Blocks are usually 512 bytes.
+
+@page
+@node Library Functions,  , Common Functions, Reference Manual
+@section Library Functions
+
+This are general library functions which can be used to get information
+about the library and to control its behavior.
+
+@menu
+* glibtop_sysdeps::             
+* Library Parameters::          Library Parameters.
+@end menu
+
+@node glibtop_sysdeps, Library Parameters, Library Functions, Library Functions
+@subsection Sysdeps
+
+Library function @code{glibtop_get_sysdeps}:
+
+@example
+@cartouche
+void
+glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf);
+
+void
+glibtop_get_sysdeps (glibtop_sysdeps *buf);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_sysdeps} in @file{<glibtop/sysdeps.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_sysdeps         glibtop_sysdeps;
+
+struct _glibtop_sysdeps
+@{
+    u_int64_t flags,
+        features,
+        pointer_size,
+        cpu,
+        mem,
+        swap,
+        uptime,
+        loadavg,
+        shm_limits,
+        msg_limits,
+        sem_limits,
+        proclist,
+        proc_state,
+        proc_uid,
+        proc_mem,
+        proc_time,
+        proc_signal,
+        proc_kernel,
+        proc_segment,
+        proc_args,
+        proc_map,
+        mountlist,
+        fsusage,
+        netload,
+        ppp;
+@};
+@end cartouche
+@end example
+
+@table @code
+@item features
+This is a bit field (the so-called @dfn{server features}) stating
+for which features we need to use the server.
+@item pointer_size
+This was added in LibGTop 1.1.0 and tells you the number of bits a
+@code{void*} has in the server (this may be different from the
+size on the client machine if we're talking over the daemon to a
+remove machine).
+@end table
+
+The following constants from @file{<glibtop/sysdeps.h>} serve as bit-indices
+for the @code{features} field:
+
+@example
+@cartouche
+#define GLIBTOP_SYSDEPS_CPU             0
+#define GLIBTOP_SYSDEPS_MEM             1
+#define GLIBTOP_SYSDEPS_SWAP            2
+#define GLIBTOP_SYSDEPS_UPTIME          3
+#define GLIBTOP_SYSDEPS_LOADAVG         4
+#define GLIBTOP_SYSDEPS_SHM_LIMITS      5
+#define GLIBTOP_SYSDEPS_MSG_LIMITS      6
+#define GLIBTOP_SYSDEPS_SEM_LIMITS      7
+#define GLIBTOP_SYSDEPS_PROCLIST        8
+#define GLIBTOP_SYSDEPS_PROC_STATE      9
+#define GLIBTOP_SYSDEPS_PROC_UID        10
+#define GLIBTOP_SYSDEPS_PROC_MEM        11
+#define GLIBTOP_SYSDEPS_PROC_TIME       12
+#define GLIBTOP_SYSDEPS_PROC_SIGNAL     13
+#define GLIBTOP_SYSDEPS_PROC_KERNEL     14
+#define GLIBTOP_SYSDEPS_PROC_SEGMENT    15
+#define GLIBTOP_SYSDEPS_PROC_ARGS       16
+#define GLIBTOP_SYSDEPS_PROC_MAP        17
+#define GLIBTOP_SYSDEPS_MOUNTLIST       18
+#define GLIBTOP_SYSDEPS_FSUSAGE         19
+#define GLIBTOP_SYSDEPS_NETLOAD         20
+#define GLIBTOP_SYSDEPS_PPP             21
+@end cartouche
+@end example
+
+@node Library Parameters,  , glibtop_sysdeps, Library Functions
+@subsection Library Parameters
+
+Library function @code{glibtop_get_parameter}:
+
+@example
+@cartouche
+size_t
+glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
+                         void *data_ptr, size_t data_size);
+
+size_t
+glibtop_get_parameter (const unsigned parameter, void *data_ptr,
+                       size_t data_size);
+@end cartouche
+@end example
+
+This function is used to retrieve a library parameter (see below for a more
+detailed description). It returns the size of the retrieved parameter on
+success, zero on failure or minus the actual size of the parameter if
+@code{data_size} was too small.
+
+You may call this function with @code{data_ptr} set to @code{NULL} to get the
+actual size of a parameter (as a negative value).
+
+@table @code
+@item parameter
+The parameter you want to retrieve (see below for constants).
+@item data_ptr
+Pointer to a place where the parameter should be stored.
+@item data_size
+Maximum size of the parameter.
+@end table
+
+Library function @code{glibtop_set_parameter}:
+
+@example
+@cartouche
+void
+glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
+                         const void *data_ptr, size_t data_size);
+
+void
+glibtop_set_parameter (const unsigned parameter, const void *data_ptr,
+                       size_t data_size);
+@end cartouche
+@end example
+
+This function is used to modify a library parameter. Please not that you
+may not set all parameters since some of them are read-only.
+
+@table @code
+@item parameter
+The parameter you want to modify (see below for constants).
+@item data_ptr
+Pointer to the value which should be set.
+@item data_size
+Size of the new value. For fixed-size parameters, this must match
+the exact size of the parameter or you'll get an error.
+@end table
+
+The following parameters are defined in @file{<glibtop/parameter.h>}:
+
+@table @code
+@item GLIBTOP_PARAM_FEATURES
+This is a read-only @code{unsigned long} representing the @code{features}
+field of @code{glibtop_sysdeps}.
+@item GLIBTOP_PARAM_REQUIRED
+This is a @code{glibtop_sysdeps} structure specifying which features the
+client requires the library return. If it fails to get any of them, you'll
+get an error.
+@item GLIBTOP_PARAM_ERROR_METHOD
+This is an @code{unsigned} telling the library what to do if it fails to
+get any of the features that are marked as required via the
+@code{GLIBTOP_PARAM_REQUIRED} parameter (see below for constants).
+@end table
+
+You can use the following constants for @code{GLIBTOP_PARAM_ERROR_METHOD}
+(defined in @file{<glibtop/open.h>}):
+
+@table @code
+@item GLIBTOP_ERROR_METHOD_IGNORE
+Ignore the error condition.
+@item GLIBTOP_ERROR_METHOD_WARN_ONCE
+Warn once about the absense of some of the required features, then modify
+@code{GLIBTOP_PARAM_REQUIRED} so that the missing ones are no longer
+required. This is the prefered value for applications since it'll only
+print out the warning message once and not each time the library tries to
+get one of those features.
+@item GLIBTOP_ERROR_METHOD_WARN
+Warn each time the library fails to get some of the required features.
+@item GLIBTOP_ERROR_METHOD_ABORT
+Abort if the library fails to get some of the required features. This
+should not be used by applications.
+@end table
 

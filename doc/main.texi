@@ -4,13 +4,7 @@
 * About::                       About LibGTop
 * White Paper::                 LibGTop White Paper
 * Reference Manual::            LibGTop Reference Manual
-
-
-
-
-
-
-
+* LibGTop Internals::           LibGTop Internals
 
 
 
@@ -48,6 +42,7 @@ LibGTop Reference Manual
 
 * System Dependent::            System Dependent Functions.
 * Common Functions::            Common Functions.
+* Library Functions::           Library Functions.
 
 System Dependent Functions
 
@@ -73,9 +68,29 @@ Common Functions
 
 * glibtop_mountlist::           Mount List.
 * glibtop_fsusage::             File System Usage.
+
+Library Functions
+
+* glibtop_sysdeps::             
+* Library Parameters::          Library Parameters.
+
+LibGTop Internals
+
+* General Internals::           General Internals
+* Sysdeps Internals::           Sysdeps Internals
+
+General Internals
+
+* glibtop::                     The server structure
+
+Sysdeps Internals
+
+* glibtop_open_s::              Non-privileged initializations
+* glibtop_close_s::             Non-privileged cleanups
 @end menu
 
 @include about.texi
 @include white-paper.texi
 @include reference.texi
+@include internals.texi
 
