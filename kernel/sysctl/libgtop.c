@@ -174,7 +174,6 @@ libgtop_sysctl (ctl_table *table, int nlen, int *name)
 	if (jiffies - libgtop_mem_timestamp < libgtop_update_expensive)
 	    return 0;
 	libgtop_mem_timestamp = jiffies;
-	printk ("Time: %lu\n", jiffies);
 
 	mem = table->data;
 	si_meminfo (&i);
@@ -188,7 +187,6 @@ libgtop_sysctl (ctl_table *table, int nlen, int *name)
 	if (jiffies - libgtop_swap_timestamp < libgtop_update_expensive)
 	    return 0;
 	libgtop_swap_timestamp = jiffies;
-	printk ("Time: %lu\n", jiffies);
 
 	swap = table->data;
 	si_swapinfo (&i);
@@ -296,14 +294,18 @@ proc_ctl_handler (ctl_table *table, int *name, int nlen,
 {
     int ret, len;
 
+#if 0
     printk ("proc_ctl_handler: %p - %p - %d - (%p,%p) - (%p,%d) - %p\n",
 	    table, name, nlen, oldval, oldlenp, newval, newlen, context);
+#endif
 
     if (!name || !nlen || get_user(len, name))
 	return -EFAULT;
 
+#if 0
     printk ("FUNCTION: %d - %d - %p\n", table->ctl_name,
 	    *name, table->de);
+#endif
 
     if (!table->data || !table->maxlen)
 	return -ENOTDIR;
