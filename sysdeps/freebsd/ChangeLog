@@ -1,3 +1,10 @@
+1999-12-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* netinfo.c: New file.
+
+	* interfaces.c: Reflect latest interface changes.
+	* netload.c: Likewise.
+
 1999-10-24  Martin Baulig  <martin@home-of-linux.org>
 
 	* glibtop_machine.h: Make inclusion of <osreldate.h> conditional

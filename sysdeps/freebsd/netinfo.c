@@ -23,7 +23,7 @@
 
 #include <glibtop.h>
 #include <glibtop/error.h>
-#include <glibtop/netload.h>
+#include <glibtop/netinfo.h>
 
 #include <glibtop_suid.h>
 
@@ -38,17 +38,11 @@
 #include <netinet/in.h>
 #include <netinet/in_var.h>
 
-static const unsigned long _glibtop_sysdeps_netload =
-(1L << GLIBTOP_NETLOAD_PACKETS_IN) +
-(1L << GLIBTOP_NETLOAD_PACKETS_OUT) +
-(1L << GLIBTOP_NETLOAD_PACKETS_TOTAL) +
-(1L << GLIBTOP_NETLOAD_BYTES_IN) +
-(1L << GLIBTOP_NETLOAD_BYTES_OUT) +
-(1L << GLIBTOP_NETLOAD_BYTES_TOTAL) +
-(1L << GLIBTOP_NETLOAD_ERRORS_IN) +
-(1L << GLIBTOP_NETLOAD_ERRORS_OUT) +
-(1L << GLIBTOP_NETLOAD_ERRORS_TOTAL) +
-(1L << GLIBTOP_NETLOAD_COLLISIONS);
+static const unsigned long _glibtop_sysdeps_netinfo =
+(1L << GLIBTOP_NETINFO_IF_FLAGS) +
+(1L << GLIBTOP_NETINFO_MTU) +
+(1L << GLIBTOP_NETINFO_SUBNET) +
+(1L << GLIBTOP_NETINFO_ADDRESS);
 
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
@@ -59,9 +53,9 @@ static struct nlist nlst [] = {
 /* Init function. */
 
 int
-glibtop_init_netload_p (glibtop *server)
+glibtop_init_netinfo_p (glibtop *server)
 {
-    server->sysdeps.netload = _glibtop_sysdeps_netload;
+    server->sysdeps.netinfo = _glibtop_sysdeps_netinfo;
 
     if (kvm_nlist (server->machine.kd, nlst) != 0)
 	glibtop_error_io_r (server, "kvm_nlist");
@@ -72,9 +66,8 @@ glibtop_init_netload_p (glibtop *server)
 /* Provides Network statistics. */
 
 int
-glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
-		       const char *interface, unsigned transport,
-		       unsigned protocol)
+glibtop_get_netinfo_p (glibtop *server, glibtop_netinfo *buf,
+		       const char *interface, unsigned transport)
 {
     struct ifnet ifnet;
     u_long ifnetaddr, ifnetfound, ifaddraddr;
@@ -86,9 +79,9 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	struct in_ifaddr in;
     } ifaddr;
     
-    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_NETLOAD), 0);
+    glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_NETINFO), 0);
 	
-    memset (buf, 0, sizeof (glibtop_netload));
+    memset (buf, 0, sizeof (glibtop_netinfo));
 
     if (kvm_read (server->machine.kd, nlst [0].n_value,
 		  &ifnetaddr, sizeof (ifnetaddr)) != sizeof (ifnetaddr))
@@ -136,20 +129,47 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	    if (!strcmp (interface, tname) && (sa->sa_family == AF_INET)) {
 		sin = (struct sockaddr_in *)sa;
 
-		buf->packets_in = ifnet.if_ipackets;
-		buf->packets_out = ifnet.if_opackets;
-		buf->packets_total = buf->packets_in + buf->packets_out;
+		if (ifnet.if_flags & IFF_UP)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_UP;
+		if (ifnet.if_flags & IFF_BROADCAST)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_BROADCAST;
+		if (ifnet.if_flags & IFF_DEBUG)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_DEBUG;
+		if (ifnet.if_flags & IFF_LOOPBACK)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_LOOPBACK;
+		if (ifnet.if_flags & IFF_POINTOPOINT)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_POINTOPOINT;
+		if (ifnet.if_flags & IFF_RUNNING)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_RUNNING;
+		if (ifnet.if_flags & IFF_NOARP)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_NOARP;
+		if (ifnet.if_flags & IFF_PROMISC)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_PROMISC;
+		if (ifnet.if_flags & IFF_ALLMULTI)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_ALLMULTI;
+		if (ifnet.if_flags & IFF_OACTIVE)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_OACTIVE;
+		if (ifnet.if_flags & IFF_SIMPLEX)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_SIMPLEX;
+		if (ifnet.if_flags & IFF_LINK0)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_LINK0;
+		if (ifnet.if_flags & IFF_LINK1)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_LINK1;
+		if (ifnet.if_flags & IFF_LINK2)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_LINK2;
+#ifdef __FreeBSD__
+		if (ifnet.if_flags & IFF_ALTPHYS)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_ALTPHYS;
+#endif
+		if (ifnet.if_flags & IFF_MULTICAST)
+			buf->if_flags |= GLIBTOP_IF_FLAGS_MULTICAST;
 
-		buf->bytes_in = ifnet.if_ibytes;
-		buf->bytes_out = ifnet.if_obytes;
-		buf->bytes_total = buf->bytes_in + buf->bytes_out;
+		buf->subnet = htonl (ifaddr.in.ia_subnet);
+		buf->address = sin->sin_addr.s_addr;
 
-		buf->errors_in = ifnet.if_ierrors;
-		buf->errors_out = ifnet.if_oerrors;
-		buf->errors_total = buf->errors_in + buf->errors_out;
+		buf->mtu = ifnet.if_mtu;
 
-		buf->collisions = ifnet.if_collisions;
-		buf->flags = _glibtop_sysdeps_netload;
+		buf->flags = _glibtop_sysdeps_netinfo;
 		return -1;
 	    }
 
