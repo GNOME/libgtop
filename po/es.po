@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: glibtop 1.1.0\n"
+"Project-Id-Version: glibtop 1.1.1\n"
 "POT-Creation-Date: 1999-08-01 18:09-0400\n"
 "PO-Revision-Date: 1998-12-13 04:38+0100\n"
 "Last-Translator: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
@@ -446,9 +446,8 @@ msgid "Number of pages of virtual memory"
 msgstr "Cantidad de páginas de memoria virtual"
 
 #: sysdeps/names/procmem.c:57
-#, fuzzy
 msgid "Number of resident set (non-swapped) pages"
-msgstr "Cantidad de páginas de conjuntos compartidos (que no estan en swap)"
+msgstr "Cantidad de páginas de conjuntos residentes (que no estan en swap)"
 
 #: sysdeps/names/procmem.c:58
 msgid "Number of pages of shared (mmap'd) memory"
@@ -490,6 +489,7 @@ msgid "Stack_RSS"
 msgstr "Stack_RSS"
 
 #: sysdeps/names/procsegment.c:51
+#, fuzzy
 msgid "Dirty Size"
 msgstr ""
 
@@ -519,7 +519,7 @@ msgstr "Brk"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_Stack"
-msgstr "Inici_Pila"
+msgstr "Inicio_Pila"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_MMap"
@@ -527,19 +527,19 @@ msgstr "Inicio_MMap"
 
 #: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
 msgid "Arg_Start"
-msgstr ""
+msgstr "Inicio_Arg"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
 msgid "Arg_End"
-msgstr ""
+msgstr "Fin_Arg"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
 msgid "Env_Start"
-msgstr ""
+msgstr "Inicio_Entorno"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
 msgid "Env_End"
-msgstr ""
+msgstr "Fin_Entorno"
 
 #: sysdeps/names/procsegment.c:59
 msgid "Text resident set size"
@@ -579,11 +579,11 @@ msgstr "Dirección de fin del segmento de datos"
 
 #: sysdeps/names/procsegment.c:68
 msgid "Brk_Start"
-msgstr ""
+msgstr "Inicio_Brk"
 
 #: sysdeps/names/procsegment.c:69
 msgid "Brk_End"
-msgstr ""
+msgstr "Fin_Brk"
 
 #: sysdeps/names/procsegment.c:70
 msgid "Address of the bottom of stack segment"
@@ -602,10 +602,12 @@ msgid "Blocked"
 msgstr "Bloqueado"
 
 #: sysdeps/names/procsignal.c:42
+#, fuzzy
 msgid "SigIgnore"
 msgstr ""
 
 #: sysdeps/names/procsignal.c:42
+#, fuzzy
 msgid "SigCatch"
 msgstr ""
 
@@ -699,33 +701,40 @@ msgstr "último_procesador"
 
 #: sysdeps/names/proctime.c:46
 msgid "Start_Time"
-msgstr ""
+msgstr "Tiempo_inicio"
 
 #: sysdeps/names/proctime.c:46
+#, fuzzy
 msgid "RTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:46
+#, fuzzy
 msgid "UTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:46
+#, fuzzy
 msgid "STime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:47
+#, fuzzy
 msgid "CUTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:47
+#, fuzzy
 msgid "CSTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:47
+#, fuzzy
 msgid "TimeOut"
 msgstr ""
 
 #: sysdeps/names/proctime.c:47
+#, fuzzy
 msgid "It_Real_Value"
 msgstr ""
 
@@ -734,14 +743,17 @@ msgid "Frequency"
 msgstr "Frecuencia"
 
 #: sysdeps/names/proctime.c:48
+#, fuzzy
 msgid "XCPU_UTime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:48
+#, fuzzy
 msgid "XCPU_STime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:49
+#, fuzzy
 msgid "XCPU_Flags"
 msgstr ""
 
@@ -833,7 +845,9 @@ msgstr "Pid"
 msgid "PPid"
 msgstr "PPid"
 
+#. What is PGrp ?
 #: sysdeps/names/procuid.c:50
+#, fuzzy
 msgid "PGrp"
 msgstr ""
 
@@ -845,7 +859,9 @@ msgstr "Sesión"
 msgid "Tty"
 msgstr "Tty"
 
+#. What is TPGid ?
 #: sysdeps/names/procuid.c:51
+#, fuzzy
 msgid "TPGid"
 msgstr ""
 
@@ -854,6 +870,7 @@ msgid "Priority"
 msgstr "Prioridad"
 
 #: sysdeps/names/procuid.c:51
+#, fuzzy
 msgid "Nice"
 msgstr ""
 
@@ -966,6 +983,7 @@ msgid "Max number of undo entries per process"
 msgstr "Cantidad máxima de entradas de 'undo' por proceso"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
+#, fuzzy
 msgid "sizeof struct sem_undo"
 msgstr ""
 
@@ -1142,6 +1160,7 @@ msgid "Uptime"
 msgstr "Uptime"
 
 #: sysdeps/names/uptime.c:41
+#, fuzzy
 msgid "Idletime"
 msgstr ""
 
