@@ -1057,55 +1057,55 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:70
 msgid "Mount List"
-msgstr ""
+msgstr "Mounttiluettelo"
 
 #: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "File System Usage"
-msgstr ""
+msgstr "Tiedostojärjestelmän käyttö"
 
 #: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:99
 msgid "Network Load"
-msgstr ""
+msgstr "Verkon kuormitus"
 
 #: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:100
 msgid "PPP Statistics"
-msgstr ""
+msgstr "PPP-tilastot"
 
 #: sysdeps/names/sysdeps.c:95
 msgid "Command line arguments of the process"
-msgstr ""
+msgstr "Komentoriviparametrit prosessille"
 
 #: sysdeps/names/sysdeps.c:97
 msgid "List of currently mounted filesystems"
-msgstr ""
+msgstr "Mountatut tiedostojärjestelmät"
 
 #: sysdeps/names/uptime.c:40
 msgid "Uptime"
-msgstr ""
+msgstr "Pystyssä"
 
 #: sysdeps/names/uptime.c:41
 msgid "Idletime"
-msgstr ""
+msgstr "Tuhlattu aika"
 
 #: sysdeps/names/uptime.c:42
 msgid "Boot time"
-msgstr ""
+msgstr "Käynnistysaika"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds since system boot"
-msgstr ""
+msgstr "Aika käynnistyksestä sekunneissa"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr ""
+msgstr "Aika sekunneissa, jonka systeemi on tuhlannut käynnistyksen jälkeen"
 
 #: sysdeps/names/uptime.c:49
 msgid "Boot time (seconds sice epoch)"
-msgstr ""
+msgstr "Koneen käynnistysaika (sekuntia epochin jälkeen)"
 
 #: support/error.c:109
 msgid "Unknown system error"
-msgstr ""
+msgstr "Tuntematon systeemivirhe"
 
 #: support/getopt.c:669
 #, c-format
@@ -1203,7 +1203,7 @@ msgstr ""
 
 #: src/daemon/gnuserv.c:449
 msgid "Don't fork into background"
-msgstr ""
+msgstr "Älä forkkaa taustalle"
 
 #: src/daemon/gnuserv.c:449
 msgid "NO-DAEMON"
@@ -1211,7 +1211,7 @@ msgstr ""
 
 #: src/daemon/gnuserv.c:451
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "Käynnistetty inetd-prosssista"
 
 #: src/daemon/gnuserv.c:451
 msgid "INETD"
@@ -1223,3 +1223,5 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+"Virhe valinnasta %s: %s.\n"
+"Aja '%s --help' nähdäksesi luettelon komentorivivalinnoista.\n"
