@@ -11,6 +11,16 @@
 * glibtop_proc_state::          Process State.
 * glibtop_proc_uid::            Process UID and TTY Information.
 * glibtop_proc_mem::            Process Memory Information.
+* glibtop_proc_time::           Process Time Information.
+* glibtop_proc_signal::         Process Signal Information.
+* glibtop_proc_kernel::         Process Kernel Data Information.
+* glibtop_proc_segment::        Process Segment Information.
+* glibtop_proc_args::           Process Arguments.
+* glibtop_proc_map::            Process Memory Maps.
+* glibtop_netload::             Network Load.
+* glibtop_ppp::                 PPP Usage.
+* glibtop_mountlist::           Mount List.
+* glibtop_fsusage::             File System Usage.
 @end menu
 
 @node glibtop_cpu, glibtop_mem, Reference Manual, Reference Manual
@@ -634,7 +644,7 @@ Array of additional process groups@*
 @end table
 
 @page
-@node glibtop_proc_mem,  , glibtop_proc_uid, Reference Manual
+@node glibtop_proc_mem, glibtop_proc_time, glibtop_proc_uid, Reference Manual
 @section Process Memory information
 
 Library function @code{glibtop_get_proc_mem}:
@@ -747,4 +757,64 @@ happens, this will @emph{never} affect any of the other sizes of the process.
 
 The hints above describe how it works under Linux - but we should try to make
 @code{glibtop_get_proc_mem} show the same behavior under every other system.
+
+@page
+@node glibtop_proc_time, glibtop_proc_signal, glibtop_proc_mem, Reference Manual
+@section Process Time information
+
+[Not yet written.]
+
+@page
+@node glibtop_proc_signal, glibtop_proc_kernel, glibtop_proc_time, Reference Manual
+@section Process Signal information
+
+[Not yet written.]
+
+@page
+@node glibtop_proc_kernel, glibtop_proc_segment, glibtop_proc_signal, Reference Manual
+@section Process Kernel Data information
+
+[Not yet written.]
+
+@page
+@node glibtop_proc_segment, glibtop_proc_args, glibtop_proc_kernel, Reference Manual
+@section Process Segment information
+
+[Not yet written.]
+
+@page
+@node glibtop_proc_args, glibtop_proc_map, glibtop_proc_segment, Reference Manual
+@section Process Arguments
+
+[Not yet written.]
+
+@page
+@node glibtop_proc_map, glibtop_netload, glibtop_proc_args, Reference Manual
+@section Process Memory Maps
+
+[Not yet written.]
+
+@page
+@node glibtop_netload, glibtop_ppp, glibtop_proc_map, Reference Manual
+@section Network Load
+
+[Not yet written.]
+
+@page
+@node glibtop_ppp, glibtop_mountlist, glibtop_netload, Reference Manual
+@section PPP Statistics
+
+[Not yet written.]
+
+@page
+@node glibtop_mountlist, glibtop_fsusage, glibtop_ppp, Reference Manual
+@section Mount List
+
+[Not yet written.]
+
+@page
+@node glibtop_fsusage,  , glibtop_mountlist, Reference Manual
+@section File System Usage
+
+[Not yet written.]
 

@@ -1,5 +1,3 @@
-@include auto-macros.texi
-
 @node About, White Paper, Top, Top
 @chapter About LibGTop
 

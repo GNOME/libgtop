@@ -1,5 +1,13 @@
 1999-05-16  Martin Baulig  <martin@home-of-linux.org>
 
+	* main.texi: This is now the main file which will @include all
+	chapter files so we can use `texinfo-multiple-files-update'.
+
+	* reference.texi: Added all missing sections with a "not yet written"
+	notice.
+
+1999-05-16  Martin Baulig  <martin@home-of-linux.org>
+
 	* white-paper.texi: Initial version of the LibGTop White Paper.
 
 	* Makefile.am: Create `auto-macros.texi' from `auto-macros.texi.in'

@@ -5,6 +5,7 @@
 @setchapternewpage odd
 @c %**end of header
 
+@include auto-macros.texi
 @include version.texi
 
 @ifinfo
@@ -73,45 +74,7 @@ translation approved by the Free Software Foundation.
 
 @contents
 
-@node Top, About, (dir), (dir)
-
-@menu
-* About::                       About LibGTop
-* White Paper::                 LibGTop White Paper
-* Reference Manual::            LibGTop Reference Manual
-
-
-
-
- --- The Detailed Node Listing ---
-
-About LibGTop
-
-* Availability::                Where to get LibGTop
-* Supported Platforms::         Supported Platforms
-* Mailing List::                Helping with LibGTop development
-* Thanks::                      People who contributed to LibGTop
-
-LibGTop White Paper
-
-* Introduction::                
-
-LibGTop Reference Manual
-
-* glibtop_cpu::                 CPU Usage.
-* glibtop_mem::                 Memory Usage.
-* glibtop_swap::                Swap Usage.
-* glibtop_uptime::              System Uptime.
-* glibtop_loadavg::             Load Average.
-* glibtop_proclist::            Process List.
-* glibtop_proc_state::          Process State.
-* glibtop_proc_uid::            Process UID and TTY Information.
-* glibtop_proc_mem::            Process Memory Information.
-@end menu
-
-@include about.texi
-@include white-paper.texi
-@include reference.texi
+@include main.texi
 
 @bye
 
