@@ -183,9 +183,10 @@ AC_CHECK_HEADERS(string.h strings.h, break)
 AC_REPLACE_FUNCS(strerror)
 AC_CHECK_LIB(kvm, kvm_open)
 
-dnl Solaris 7
+dnl Solaris
 AC_CHECK_LIB(kstat, kstat_open)
 AC_CHECK_FUNCS(getloadavg swapctl)
+AC_CHECK_HEADERS(procfs.h sys/procfs.h, break)
 
 dnl For DEC OSF1
 AC_CHECK_LIB(mach, vm_statistics)

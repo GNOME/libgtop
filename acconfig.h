@@ -159,3 +159,8 @@
 /* Define if you want to use LibGTop without GNOME. */
 #undef WITHOUT_GNOME
 
+/* Define if you have the <procfs.h> header file */
+#undef HAVE_PROCFS_H
+
+/* Define if you have the <sys/procfs.h> header file */
+#undef HAVE_SYS_PROCFS_H
