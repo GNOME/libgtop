@@ -1,43 +1,45 @@
-#
+# Brazilian Portuguese translation of libgtop
+# Copyright (C) 2001-2003 Free Software Foundation, Inc.
 # E. A. Tacão <tacao@conectiva.com.br>, 2001
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: LibGTOP\n"
-"POT-Creation-Date: 2002-07-05 19:54-0300\n"
-"PO-Revision-Date: 2002-07-05 19:59GMT-0300\n"
+"Project-Id-Version: libgtop 2.0.4\n"
+"POT-Creation-Date: 2003-10-01 17:21-0400\n"
+"PO-Revision-Date: 2003-10-01 17:20-0400\n"
 "Last-Translator: Evandro Fernandes Giovanini <evandrofg@ig.com.br>\n"
-"Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
+"Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
-#: examples/smp.c:68
+#: examples/smp.c:71
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "Pulsos (%ld por segundo):"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Total"
 msgstr "Total"
 
-#: examples/smp.c:71 sysdeps/names/mem.c:47
+#: examples/smp.c:74 sysdeps/names/mem.c:47
 msgid "User"
 msgstr "Usuário"
 
-#: examples/smp.c:71 sysdeps/names/procuid.c:58
+#: examples/smp.c:74 sysdeps/names/procuid.c:58
 msgid "Nice"
 msgstr "Prioridade"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Sys"
 msgstr "Sys"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Idle"
 msgstr "Tempo ocioso"
 
-#: examples/smp.c:73
+#: examples/smp.c:76
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
@@ -46,36 +48,36 @@ msgstr ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
-#: examples/smp.c:77
+#: examples/smp.c:80
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:94
+#: examples/smp.c:97
 msgid "Percent:"
 msgstr "Percentual:"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Total (%)"
 msgstr "Total (%)"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "User (%)"
 msgstr "Usuário (%)"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Nice (%)"
 msgstr "Prioridade (%)"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Sys (%)"
 msgstr "Sys (%)"
 
-#: examples/smp.c:96
+#: examples/smp.c:99
 msgid "Idle (%)"
 msgstr "Tempo ocioso (%)"
 
-#: examples/smp.c:98
+#: examples/smp.c:101
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
@@ -84,12 +86,12 @@ msgstr ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
-#: examples/smp.c:114
+#: examples/smp.c:117
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:123
 msgid "Spin:"
 msgstr "Spin:"
 
@@ -112,39 +114,39 @@ msgstr "ler %d bytes de dados"
 msgid "write %d bytes"
 msgstr "escrever %d bytes"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
 msgstr "Habilitar depuração"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
 msgstr "Habilitar saída com mensagens detalhadas "
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
 msgstr "Não passar para segundo plano"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr "Acionado pelo inetd"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -475,15 +477,15 @@ msgstr "Endereço"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
 msgid "Packets In"
-msgstr "Páginas em Processamento"
+msgstr "Pacotes recebidos"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
 msgid "Packets Out"
-msgstr "Página em Espera"
+msgstr "Pacotes enviados"
 
 #: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
 msgid "Packets Total"
-msgstr "Total de Páginas"
+msgstr "Total de pacotes"
 
 #: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
 msgid "Bytes In"
@@ -593,14 +595,14 @@ msgid ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
-"Parâmetros do kernel para o processo.\n"
+"Sinalizadores do kernel para o processo.\n"
 "\n"
-"No Linux, cada parâmetro tem o bit matemático habilitado, pois crt0.s "
+"No Linux, cada sinalizador tem o bit matemático definido, pois crt0.s "
 "verifica se há emulação matemática, de modo que não seja incluída na saída.\n"
 "\n"
-"Isto é provavelmente um problema, já que nem todo processo é um programa C.\n"
+"Isto é provavelmente um erro, já que nem todo os processos são programas C.\n"
 "\n"
-"O bit matemático deve ser um 4 decimal, e o bit verificado é o decimal 10."
+"O bit matemático deve ser um 4 decimal, e o bit verificado é o 10 decimal."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:59
@@ -608,8 +610,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"O número de falhas menores do processo, são aquelas que não provocaram a "
-"busca de uma página de memória do disco."
+"O número de falhas menores do processo; aquelas que não provocaram a carga "
+"de uma página de memória do disco."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -676,11 +678,11 @@ msgstr "Compartilhado"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size"
-msgstr "Configuração do Tamanho Residente"
+msgstr "Tamanho do conjunto residente"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size Limit"
-msgstr "Limite da Parte Residente"
+msgstr "Limite do tamanho do conjunto residente"
 
 #: sysdeps/names/procmem.c:53
 msgid "Total # of pages of memory"
@@ -692,7 +694,7 @@ msgstr "Número de páginas na memória virtual"
 
 #: sysdeps/names/procmem.c:55
 msgid "Number of resident set (non-swapped) pages"
-msgstr "Número de páginas residentes (fora da troca)"
+msgstr "Número de páginas no conjunto residente (fora da troca)"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of shared (mmap'd) memory"
@@ -749,7 +751,7 @@ msgstr "Start_Stack"
 
 #: sysdeps/names/procsegment.c:48
 msgid "Text resident set size"
-msgstr "Parte residente do código"
+msgstr "Tamanho do conjunto residente texto"
 
 #: sysdeps/names/procsegment.c:49
 msgid "Shared-Lib resident set size"
