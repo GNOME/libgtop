@@ -61,6 +61,7 @@ libgtopConf.sh: libgtopConf.sh.in Makefile
 	sed -e 's#\@LIBGTOP_LIBDIR\@#$(libdir)#g' \
 	  -e 's#\@LIBGTOP_INCLUDEDIR\@#$(includedir)#g' \
 	  -e 's#\@LIBGTOP_DATADIR\@#$(datadir)#g' \
+	  -e 's#\@LIBGTOP_BACKEND_DIR\@#$(LIBGTOP_BACKEND_DIR)#g' \
 	  -e 's#\@LIBGTOP_EXTRA_LIBS\@#$(LIBGTOP_EXTRA_LIBS)#g' \
 	  -e 's#\@LIBGTOP_LIBS\@#$(LIBGTOP_LIBS)#g' \
 	  -e 's#\@LIBGTOP_INCS\@#$(LIBGTOP_INCS)#g' \

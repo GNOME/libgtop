@@ -1,5 +1,12 @@
 2000-01-12  Martin Baulig  <martin@home-of-linux.org>
 
+	* configure.in (LIBGTOP_BACKEND_DIR): Define this to be
+	`$(datadir)/libgtop/backends' and AC_SUBST it.
+
+	* libgtopConf.sh.in (LIBGTOP_BACKEND_DIR): Added.
+
+2000-01-12  Martin Baulig  <martin@home-of-linux.org>
+
 	* xml.m4: New file to check for libxml.
 
 	* acconfig.h (HAVE_LIBXML): Define this if we have libxml.
