@@ -46,9 +46,6 @@ BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_MAX_CPU		11
 
-/* Nobody should really be using more than 4 processors. */
-#define GLIBTOP_NCPU		4
-
 typedef struct _glibtop_cpu	glibtop_cpu;
 
 struct _glibtop_cpu

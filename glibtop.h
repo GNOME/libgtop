@@ -25,6 +25,7 @@
 #define __GLIBTOP_H__
 
 #include <glibtop/global.h>
+#include <glibtop/limits.h>
 
 #include <glibtop_server.h>
 #include <glibtop/types.h>
