@@ -1,5 +1,7 @@
 1998-09-09  Martin Baulig <baulig@Stud.Informatik.uni-trier.de>
 
+	* sysdeps/linux/ChangeLog: New file.
+
 	* glibtop.h (glibtop): Added `ncpu'. This is zero for single processor
 	systems and the number of CPUs otherwise.
 

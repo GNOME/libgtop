@@ -85,17 +85,10 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 
 #if HAVE_LIBGTOP_SMP
 	for (i = 0; i < GLIBTOP_NCPU; i++) {
-		u_int64_t user, nice, sys, idle;
-
 		if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
 			break;
 
 		p += 6;
-		user = strtoul (p, &p, 0);
-		nice = strtoul (p, &p, 0);
-		sys  = strtoul (p, &p, 0);
-		idle = strtoul (p, &p, 0);
-
 		buf->xcpu_user [i] = strtoul (p, &p, 0);
 		buf->xcpu_nice [i] = strtoul (p, &p, 0);
 		buf->xcpu_sys  [i] = strtoul (p, &p, 0);
