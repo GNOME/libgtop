@@ -70,13 +70,11 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
 	buffer [len] = '\0';
 
-	p = skip_line (buffer);
-	p = skip_line (p);
-	p = skip_token (p);		/* "Swap:" */
-
-	buf->total  = strtoul (p, &p, 0);
-	buf->used   = strtoul (p, &p, 0);
-	buf->free   = strtoul (p, &p, 0);
+	/* Kernel 2.6 with multiple lines */
+ 
+	buf->total = get_scaled(buffer, "SwapTotal:");
+	buf->free = get_scaled(buffer, "SwapFree:");
+	buf->used = buf->total - buf->free;
 
 	buf->flags = _glibtop_sysdeps_swap;
 

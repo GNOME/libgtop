@@ -65,17 +65,13 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 
 	buffer [len] = '\0';
 
-	p = skip_line (buffer);
-	p = skip_token (p);		/* "Mem:" */
+	buf->total  = get_scaled(buffer, "MemTotal:");
+	buf->used   = get_scaled(buffer, "Active:");
+	buf->free   = get_scaled(buffer, "MemFree:");
+	buf->shared = get_scaled(buffer, "Mapped:");
+	buf->buffer = get_scaled(buffer, "Buffers:");
+	buf->cached = get_scaled(buffer, "Cached:");
 
-	buf->total  = strtoul (p, &p, 0);
-	buf->used   = strtoul (p, &p, 0);
-	buf->free   = strtoul (p, &p, 0);
-	buf->shared = strtoul (p, &p, 0);
-	buf->buffer = strtoul (p, &p, 0);
-	buf->cached = strtoul (p, &p, 0);
-
-	buf->user = buf->total - buf->free - buf->cached - buf->buffer;
-
-	buf->flags = _glibtop_sysdeps_mem;
+ 	buf->user = buf->total - buf->free - buf->cached - buf->buffer;
+ 	buf->flags = _glibtop_sysdeps_mem;
 }
