@@ -20,6 +20,13 @@ bootstrap Libgtop $VERSION;
 
 # Preloaded methods go here.
 
+sub new {
+  my $proto = shift;
+  my $class = ref($proto) || $proto;
+  my $self  = Libgtop::init ($class);
+  return $self;
+}
+
 # Autoload methods go after __END__, and are processed by the autosplit program.
 
 1;

@@ -1,0 +1,10 @@
+1998-10-10  Martin Baulig  <martin@home-of-linux.org>
+
+	* typemap: New file.
+
+	* perl.awk: Make it work with the new format of `features.def'.
+
+	* Makefile.PL.in: Added typemap.
+
+	* Libgtop.pm (new): New function.
+

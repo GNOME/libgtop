@@ -3,7 +3,8 @@ use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 WriteMakefile('NAME'		=> 'Libgtop',
-	      'VERSION_FROM'	=> 'Libgtop.pm',
+	      'VERSION_FROM'	=> '@srcdir@/Libgtop.pm',
+	      'TYPEMAPS'	=> ['@srcdir@/typemap' ],
 	      'LIBS'		=> ['@LIBGTOP_GUILE_LIBS@'],
 	      'DEFINE'		=> '',
 	      'INC'		=> '@LIBGTOP_GUILE_INCS@',

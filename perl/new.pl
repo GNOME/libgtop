@@ -6,8 +6,11 @@ use blib;
 use strict;
 use Libgtop;
 
-print "CPU Usage: ".join (':', Libgtop::cpu)."\n";
-print "Memory Usage: ".join (':', Libgtop::mem)."\n";
-print "Swap Usage: ".join (':', Libgtop::swap)."\n";
+my $server = Libgtop->new;
 
+print "CPU Usage: ".join (':', $server->cpu)."\n";
+print "Memory Usage: ".join (':', $server->mem)."\n";
+print "Swap Usage: ".join (':', $server->swap)."\n";
+
+print "Process List: ".join (' ', $server->proclist (0,0))."\n";
 
