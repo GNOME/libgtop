@@ -1,7 +1,7 @@
 # Copyright (C) 2001-2002 Free Software Foundation, Inc.
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Aktualną wersję tego pliku możesz odnaleźć w repozytorium cvs.gnome.pl
-# (:pserver:anonymous@cvs.gnome.pl:/home/cvs, puste hasło)
+# (:pserver:anonymous@cvs.gnome.pl:/gnomepl, puste hasło)
 # Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
 # pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas na adres:
 # translators@gnome.pl
@@ -9,40 +9,43 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 2002-06-02 20:57+0200\n"
-"PO-Revision-Date: 2002-06-02 20:57+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-13 15:28+0100\n"
+"PO-Revision-Date: 2002-07-05 19:13+0200\n"
 "Last-Translator: GNOME PL Team <translators@gnome.pl>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 
-#: examples/smp.c:1
+#: examples/smp.c:74
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "Takty (%ld na sekundę):"
 
-#: examples/smp.c:1
+#: examples/smp.c:77
 msgid "Total"
 msgstr "Łącznie"
 
-#: examples/smp.c:1 sysdeps/names/mem.c:1
+#: examples/smp.c:77 sysdeps/names/mem.c:48
 msgid "User"
 msgstr "Użytkownik"
 
-#: examples/smp.c:1 sysdeps/names/procuid.c:1
+#: examples/smp.c:77 sysdeps/names/procuid.c:51
 msgid "Nice"
 msgstr "'Nice'"
 
-#: examples/smp.c:1
+#: examples/smp.c:77
 msgid "Sys"
 msgstr "System"
 
-#: examples/smp.c:1
+#: examples/smp.c:77
 msgid "Idle"
 msgstr "Bezczynność"
 
-#: examples/smp.c:1
+#: examples/smp.c:79
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
@@ -51,36 +54,36 @@ msgstr ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
-#: examples/smp.c:1
+#: examples/smp.c:83
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:1
+#: examples/smp.c:100
 msgid "Percent:"
 msgstr "Procentowo:"
 
-#: examples/smp.c:1
+#: examples/smp.c:101
 msgid "Total (%)"
 msgstr "Łącznie (%)"
 
-#: examples/smp.c:1
+#: examples/smp.c:101
 msgid "User (%)"
 msgstr "Użytkownik (%)"
 
-#: examples/smp.c:1
+#: examples/smp.c:101
 msgid "Nice (%)"
 msgstr "Nice (%)"
 
-#: examples/smp.c:1
+#: examples/smp.c:101
 msgid "Sys (%)"
 msgstr "System (%)"
 
-#: examples/smp.c:1
+#: examples/smp.c:102
 msgid "Idle (%)"
 msgstr "Bezczynność (%)"
 
-#: examples/smp.c:1
+#: examples/smp.c:104
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
@@ -89,67 +92,76 @@ msgstr ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
-#: examples/smp.c:1
+#: examples/smp.c:120
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:1
+#: examples/smp.c:126
 msgid "Spin:"
 msgstr "Odchylenie:"
 
-#: lib/read.c:1
+#: lib/read.c:78
 #, c-format
-msgid "read %d bytes"
-msgstr "odczyt %d bajtów"
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "odczyt %d bajtu"
+msgstr[1] "odczyt %d bajtów"
+msgstr[2] "odczyt %d bajtów"
 
-#: lib/read_data.c:1
+#: lib/read_data.c:51
 msgid "read data size"
 msgstr "odczyt rozmiaru danych"
 
-#: lib/read_data.c:1
+#: lib/read_data.c:68
 #, c-format
-msgid "read data %d bytes"
-msgstr "odczyt %d bajtów danych"
+msgid "read data %d byte"
+msgid_plural "read data %d bytes"
+msgstr[0] "odczyt %d bajtu danych"
+msgstr[1] "odczyt %d bajtów danych"
+msgstr[2] "odczyt %d bajtów danych"
 
-#: lib/write.c:1
+#: lib/write.c:51
 #, c-format
-msgid "write %d bytes"
-msgstr "zapis %d bajtów"
+msgid "write %d byte"
+msgid_plural "write %d bytes"
+msgstr[0] "zapis %d bajtu"
+msgstr[1] "zapis %d bajtów"
+msgstr[2] "zapis %d bajtów"
 
-#: src/daemon/gnuserv.c:1
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "Uaktywnia śledzenie"
 
-#: src/daemon/gnuserv.c:1
+#: src/daemon/gnuserv.c:456
 msgid "DEBUG"
 msgstr "ŚLEDZENIE"
 
-#: src/daemon/gnuserv.c:1
+#: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
 msgstr "Uaktywnia informowanie o przebiegu"
 
-#: src/daemon/gnuserv.c:1
+#: src/daemon/gnuserv.c:458
 msgid "VERBOSE"
 msgstr "PRZEBIEG"
 
-#: src/daemon/gnuserv.c:1
+#: src/daemon/gnuserv.c:460
 msgid "Don't fork into background"
 msgstr "Uruchamia program bez przechodzenia w tło"
 
-#: src/daemon/gnuserv.c:1
+#: src/daemon/gnuserv.c:460
 msgid "NO-DAEMON"
 msgstr "NIE-DEMON"
 
-#: src/daemon/gnuserv.c:1
+#: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
 msgstr "Wywołanie przez inetd"
 
-#: src/daemon/gnuserv.c:1
+#: src/daemon/gnuserv.c:462
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:1
+#: src/daemon/gnuserv.c:496
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -158,434 +170,370 @@ msgstr ""
 "Błędna opcja %s: %s.\n"
 "Uruchom \"%s --help\" aby wyświetlić pełną listę dostępnych opcji.\n"
 
-#: support/error.c:1
-msgid "Unknown system error"
-msgstr "Nieznany błąd systemowy"
-
-#: support/getopt.c:1
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: opcja \"%s\" jest niejednoznaczna\n"
-
-#: support/getopt.c:1
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: opcja \"--%s\" nie pozwala na użycie argumentu\n"
-
-#: support/getopt.c:1
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: opcja \"%c%s\" nie pozwala na użycie argumentu\n"
-
-#: support/getopt.c:1 support/getopt.c:1
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: opcja \"%s\" wymaga argumentu\n"
-
-#. --option
-#: support/getopt.c:1
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: nie rozpoznano opcji \"--%s\"\n"
-
-#. +option or -option
-#: support/getopt.c:1
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: nie rozpoznano opcji \"%c%s\"\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:1
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: błędna opcja -- %c\n"
-
-#: support/getopt.c:1
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: niepoprawna opcja -- %c\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:1 support/getopt.c:1
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: opcja wymaga argumentu -- %c\n"
-
-#: support/getopt.c:1
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: opcja \"-W %s\" jest niejednoznaczna\n"
-
-#: support/getopt.c:1
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: opcja \"-W %s\" nie pozwala na użycie argumentu\n"
-
-#: support/popthelp.c:1
-msgid "Show this help message"
-msgstr "Wypisuje ten tekst pomocy"
-
-#: support/popthelp.c:1
-msgid "Display brief usage message"
-msgstr "Wyświetla krótki komunikat na temat użycia"
-
-#: sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:44
 msgid "Total CPU Time"
 msgstr "Całkowity czas procesora"
 
-#: sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:45
 msgid "CPU Time in User Mode"
 msgstr "Czas procesora w trybie użytkownika"
 
-#: sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:46
 msgid "CPU Time in User Mode (nice)"
 msgstr "Czas procesora w trybie użytkownika (nice)"
 
-#: sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:47
 msgid "CPU Time in System Mode"
 msgstr "Czas procesora w trybie jądra"
 
-#: sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:48
 msgid "CPU Time in the Idle Task"
 msgstr "Czas bezczynności procesora"
 
-#: sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:49
 msgid "Tick Frequency"
 msgstr "Częstotliwość taktów"
 
-#: sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:50
 msgid "SMP Total CPU Time"
 msgstr "Łączny czas wielu procesorów"
 
-#: sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in User Mode"
 msgstr "Czas wszystkich procesorów w trybie użytkownika"
 
-#: sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in User Mode (nice)"
 msgstr "Czas wszystkich procesorów w trybie użytkownika (nice)"
 
-#: sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in System Mode"
 msgstr "Czas wszystkich procesorów w trybie jądra"
 
-#: sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:54
 msgid "SMP CPU Time in the Idle Task"
 msgstr "Bezczynny czas wszystkich procesorów"
 
-#: sysdeps/names/cpu.c:1 sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:55
+msgid "SMP CPU Flags"
+msgstr "Flagi SMP procesora"
+
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks since system boot"
 msgstr "Liczba taktów zegara od startu systemu"
 
-#: sysdeps/names/cpu.c:1 sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in user mode"
 msgstr "Liczba taktów zegara spędzonych w trybie użytkownika"
 
-#: sysdeps/names/cpu.c:1 sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode (nice)"
 msgstr "Liczba taktów zegara spędzonych w trybie użytkownika (nice)"
 
-#: sysdeps/names/cpu.c:1 sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in system mode"
 msgstr "Liczba taktów zegara spędzonych w trybie jądra"
 
-#: sysdeps/names/cpu.c:1 sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in the idle task"
 msgstr "Liczba taktów zegara spędzonych bezczynnie"
 
-#: sysdeps/names/cpu.c:1
+#: sysdeps/names/cpu.c:65
 msgid "Tick frequency (default is 100)"
 msgstr "Częstotliwość taktów (domyślnie 100)"
 
-#: sysdeps/names/fsusage.c:1 sysdeps/names/fsusage.c:1
+#: sysdeps/names/cpu.c:71
+msgid "Bit field indicating which CPU is currently running"
+msgstr "Pole bitowe wskazujące który procesor aktualnie pracuje"
+
+#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
 msgid "Total blocks"
 msgstr "Ogółem bloków"
 
-#: sysdeps/names/fsusage.c:1
+#: sysdeps/names/fsusage.c:41
 msgid "Free blocks"
 msgstr "Wolnych bloków"
 
-#: sysdeps/names/fsusage.c:1
+#: sysdeps/names/fsusage.c:42
 msgid "Available blocks"
 msgstr "Dostępnych bloków"
 
-#: sysdeps/names/fsusage.c:1 sysdeps/names/fsusage.c:1
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
 msgid "Total file nodes"
 msgstr "Ogółem i-węzłów"
 
-#: sysdeps/names/fsusage.c:1 sysdeps/names/fsusage.c:1
+#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
 msgid "Free file nodes"
 msgstr "Wolnych i-węzłów"
 
-#: sysdeps/names/fsusage.c:1
+#: sysdeps/names/fsusage.c:50
 msgid "Free blocks available to the superuser"
 msgstr "Wolnych bloków dostępnych nadzorcy"
 
-#: sysdeps/names/fsusage.c:1
+#: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to non-superusers"
 msgstr "Wolnych bloków dostępnych zwykłym użytkownikom"
 
-#: sysdeps/names/loadavg.c:1
+#: sysdeps/names/loadavg.c:40
 msgid "Load Average"
 msgstr "Średnie obciążenie"
 
-#: sysdeps/names/loadavg.c:1
+#: sysdeps/names/loadavg.c:41
 msgid "Running Tasks"
 msgstr "Działające procesy"
 
-#: sysdeps/names/loadavg.c:1
+#: sysdeps/names/loadavg.c:42
 msgid "Number of Tasks"
 msgstr "Liczba procesów"
 
-#: sysdeps/names/loadavg.c:1 sysdeps/names/loadavg.c:1
+#: sysdeps/names/loadavg.c:43 sysdeps/names/loadavg.c:51
 msgid "Last PID"
 msgstr "Ostatni PID"
 
-#: sysdeps/names/loadavg.c:1
+#: sysdeps/names/loadavg.c:48
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
 msgstr ""
 "Średnia liczba działających jednocześnie procesów w okresie 1, 5 i 15 minut"
 
-#: sysdeps/names/loadavg.c:1
+#: sysdeps/names/loadavg.c:49
 msgid "Number of tasks currently running"
 msgstr "Liczba działających obecnie zadań"
 
-#: sysdeps/names/loadavg.c:1
+#: sysdeps/names/loadavg.c:50
 msgid "Total number of tasks"
 msgstr "Całkowita liczba zadań"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:42
 msgid "Total Memory"
 msgstr "Całkowita pamięć"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:43
 msgid "Used Memory"
 msgstr "Wykorzystana pamięć"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:44
 msgid "Free Memory"
 msgstr "Wolna pamięć"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:45
 msgid "Shared Memory"
 msgstr "Pamięć współdzielona"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:46
 msgid "Buffers"
 msgstr "Bufory"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:47
 msgid "Cached"
 msgstr "Strony w cache"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:49
 msgid "Locked"
 msgstr "Zablokowana"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:54
 msgid "Total physical memory in kB"
 msgstr "Całkowita fizyczna pamięć w KB"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:55
 msgid "Used memory size in kB"
 msgstr "Rozmiar wykorzystanej pamięci w KB"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:56
 msgid "Free memory size in kB"
 msgstr "Rozmiar wolnej pamięci w KB"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:57
 msgid "Shared memory size in kB"
 msgstr "Rozmiar pamięci współdzielonej w KB"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:58
 msgid "Size of buffers kB"
 msgstr "Rozmiar buforów w KB"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:59
 msgid "Size of cached memory in kB"
 msgstr "Rozmiar pamięci cache w kB"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:60
 msgid "Memory used from user processes in kB"
 msgstr "Pamięć wykorzystywana przez procesy użytkownika w kB"
 
-#: sysdeps/names/mem.c:1
+#: sysdeps/names/mem.c:61
 msgid "Memory in locked pages in kB"
 msgstr "Rozmiar zablokowanych stron pamięci w KB"
 
-#: sysdeps/names/mountlist.c:1 sysdeps/names/mountlist.c:1
-#: sysdeps/names/proclist.c:1 sysdeps/names/proclist.c:1
-#: sysdeps/names/procmap.c:1 sysdeps/names/procmap.c:1
+#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
+#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
+#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
 msgid "Number of list elements"
 msgstr "Liczba elementów listy"
 
-#: sysdeps/names/mountlist.c:1 sysdeps/names/mountlist.c:1
-#: sysdeps/names/proclist.c:1 sysdeps/names/proclist.c:1
-#: sysdeps/names/procmap.c:1 sysdeps/names/procmap.c:1
+#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
+#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
+#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
 msgid "Total size of list"
 msgstr "Całkowity rozmiar listy"
 
-#: sysdeps/names/mountlist.c:1 sysdeps/names/mountlist.c:1
-#: sysdeps/names/proclist.c:1 sysdeps/names/proclist.c:1
-#: sysdeps/names/procmap.c:1 sysdeps/names/procmap.c:1
+#: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
+#: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
+#: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
 msgid "Size of a single list element"
 msgstr "Rozmiar pojedynczego elementu listy"
 
-#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Size in kilobytes of message pool"
 msgstr "Rozmiar puli komunikatów w kilobajtach"
 
-#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Number of entries in message map"
 msgstr "Liczba wpisów do mapy komunikatów"
 
-#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Max size of message"
 msgstr "Maksymalny rozmiar komunikatu"
 
-#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Default max size of queue"
 msgstr "Domyślny maks. rozmiar kolejki"
 
-#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Max queues system wide"
 msgstr "Maks liczba kolejek w systemie"
 
-#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Message segment size"
 msgstr "Rozmiar segmentu komunikatu"
 
-#: sysdeps/names/msg_limits.c:1 sysdeps/names/msg_limits.c:1
+#: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
 msgid "Number of system message headers"
 msgstr "Liczba nagłówków komunikatów systemowych"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:64
 msgid "Interface Flags"
 msgstr "Znaczniki interfejsów"
 
-#: sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:47
 msgid "MTU"
 msgstr "MTU"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
 msgid "Subnet"
 msgstr "Podsieć"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
 msgid "Address"
 msgstr "Adres"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
 msgid "Packets In"
 msgstr "Pakiety wchodzące"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
 msgid "Packets Out"
 msgstr "Pakiety wychodzące"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
 msgid "Packets Total"
 msgstr "Pakiety ogółem"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 msgid "Bytes In"
 msgstr "Bajty wchodzące"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 msgid "Bytes Out"
 msgstr "Bajty wychodzące"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
 msgid "Bytes Total"
 msgstr "Bajty ogółem"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
 msgid "Errors In"
 msgstr "Błędy wejściowe"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
 msgid "Errors Out"
 msgstr "Błędy wyjściowe"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
 msgid "Errors Total"
 msgstr "Błędy ogółem"
 
-#: sysdeps/names/netload.c:1 sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:77
 msgid "Collisions"
 msgstr "Kolizje"
 
-#: sysdeps/names/netload.c:1
+#: sysdeps/names/netload.c:65
 msgid "Maximum Transfer Unit"
 msgstr "Maksymalna porcja przesyłu"
 
-#: sysdeps/names/ppp.c:1 sysdeps/names/ppp.c:1
+#: sysdeps/names/ppp.c:39 sysdeps/names/ppp.c:46
 msgid "PPP State"
 msgstr "Stan PPP"
 
-#: sysdeps/names/ppp.c:1
+#: sysdeps/names/ppp.c:40
 msgid "Input bytes"
 msgstr "Bajty wejściowe"
 
-#: sysdeps/names/ppp.c:1
+#: sysdeps/names/ppp.c:41
 msgid "Output bytes"
 msgstr "Bajty wyjściowe"
 
-#: sysdeps/names/ppp.c:1
+#: sysdeps/names/ppp.c:47
 msgid "Number of input bytes"
 msgstr "Liczba bajtów wejściowych"
 
-#: sysdeps/names/ppp.c:1
+#: sysdeps/names/ppp.c:48
 msgid "Number of output bytes"
 msgstr "Liczba bajtów wyjściowych"
 
-#: sysdeps/names/procargs.c:1 sysdeps/names/procmem.c:1
+#: sysdeps/names/procargs.c:39 sysdeps/names/procmem.c:48
 msgid "Size"
 msgstr "Rozmiar"
 
-#: sysdeps/names/procargs.c:1
+#: sysdeps/names/procargs.c:44
 msgid "Length in bytes of the returned string."
 msgstr "Liczba bajtów w zwróconym napisie"
 
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:43
 msgid "K_Flags"
 msgstr "K_Flags"
 
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:43
 msgid "Min_Flt"
 msgstr "Min_Flt"
 
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:43
 msgid "Maj_Flt"
 msgstr "Maj_Flt"
 
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:43
 msgid "CMin_Flt"
 msgstr "CMin_Flt"
 
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:44
 msgid "CMaj_Flt"
 msgstr "CMaj_Flt"
 
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:44
 msgid "KStk_ESP"
 msgstr "KStk_ESP"
 
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:44
 msgid "KStk_EIP"
 msgstr "KStk_EIP"
 
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:44
 msgid "NWChan"
 msgstr "NWChan"
 
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:45
 msgid "WChan"
 msgstr "WChan"
 
-#. K_Flags
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:51
 msgid ""
 "Kernel flags of the process.\n"
 "\n"
@@ -606,8 +554,7 @@ msgstr ""
 "\n"
 "Bit koprocesora ma dziesiętną wartość 4, a bit śledzenia - 10."
 
-#. Min_Flt
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:60
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
@@ -615,8 +562,7 @@ msgstr ""
 "Liczba pomniejszych błędów spowodowanych przez proces, tych które nie "
 "wymagały wczytania strony pamięci z dysku."
 
-#. Maj_Flt
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
@@ -624,19 +570,16 @@ msgstr ""
 "Liczba poważnych błędów wygenerowanych przez proces, które wymagały "
 "wczytania strony pamięci z dysku."
 
-#. CMin_Flt
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
 msgstr "Liczba pomniejszych błędów spowodowanych przez proces i jego potomków."
 
-#. CMaj_Flt
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
 msgstr ""
 "Liczba poważnych błędów wygenerowanych przez proces oraz jego potomków."
 
-#. KStk_ESP
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:72
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
@@ -645,12 +588,11 @@ msgstr ""
 "stosu jądra związanej z procesem."
 
 #. KStk_EIP
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:75
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr "Autualna wartośc EIP (wskaźnika instrukcji)."
+msgstr "Aktualna wartość EIP (wskaźnika instrukcji)."
 
-#. NWChan
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:77
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "
 "address of a system call, and can be looked up in a namelist if you need a "
@@ -663,47 +605,47 @@ msgstr ""
 "spróbować wywołać ps -l aby obejrzeć pole WCHAN w akcji)"
 
 #. WChan
-#: sysdeps/names/prockernel.c:1
+#: sysdeps/names/prockernel.c:82
 msgid "This is the textual name of the `nwchan' field."
 msgstr "To jest nazwa tekstowa pola \"nwchan\"."
 
-#: sysdeps/names/procmem.c:1
+#: sysdeps/names/procmem.c:48
 msgid "Virtual"
 msgstr "Wirt."
 
-#: sysdeps/names/procmem.c:1
+#: sysdeps/names/procmem.c:48
 msgid "Resident"
 msgstr "Rezyd."
 
-#: sysdeps/names/procmem.c:1
+#: sysdeps/names/procmem.c:48
 msgid "Share"
 msgstr "Dziel."
 
-#: sysdeps/names/procmem.c:1
+#: sysdeps/names/procmem.c:49
 msgid "Resident Set Size"
 msgstr "Rozmiar zbioru danych rezydentnych"
 
-#: sysdeps/names/procmem.c:1
+#: sysdeps/names/procmem.c:49
 msgid "Resident Set Size Limit"
 msgstr "Limit zbioru danych rezydentnych"
 
-#: sysdeps/names/procmem.c:1
+#: sysdeps/names/procmem.c:54
 msgid "Total # of pages of memory"
 msgstr "Całkowita liczba stron pamięci"
 
-#: sysdeps/names/procmem.c:1
+#: sysdeps/names/procmem.c:55
 msgid "Number of pages of virtual memory"
 msgstr "Liczba stron pamięci wirtualnej"
 
-#: sysdeps/names/procmem.c:1
+#: sysdeps/names/procmem.c:56
 msgid "Number of resident set (non-swapped) pages"
 msgstr "Liczba rezydentnych (nie usuniętych) stron"
 
-#: sysdeps/names/procmem.c:1
+#: sysdeps/names/procmem.c:57
 msgid "Number of pages of shared (mmap'd) memory"
 msgstr "Liczba stron pamięci dzielonej (przez mmap())"
 
-#: sysdeps/names/procmem.c:1
+#: sysdeps/names/procmem.c:58
 msgid ""
 "Number of pages the process has in real memory, minus 3 for administrative "
 "purposes. This is just the pages which count towards text, data, or stack "
@@ -715,218 +657,259 @@ msgstr ""
 "stosu. Nie zawierają one stron, których nie było potrzeby wczytywania lub "
 "zostały wymienione."
 
-#: sysdeps/names/procmem.c:1
+#: sysdeps/names/procmem.c:63
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr ""
 "Aktualny limit w bajtach dla liczby rez. stron procesu (zazw. 2,147,483,647)."
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:43
 msgid "Text_RSS"
 msgstr "Tekst_RSS"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:43
 msgid "ShLib_RSS"
 msgstr "ShLib_RSS"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:43
 msgid "Data_RSS"
 msgstr "Dane_RSS"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:43
 msgid "Stack_RSS"
 msgstr "Stos_RSS"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:44
 msgid "Dirty Size"
 msgstr "Rozmiar zmienionych"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:44
 msgid "Start_Code"
 msgstr "Początek_kodu"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:44
 msgid "End_Code"
 msgstr "Koniec_kodu"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:44
 msgid "Start_Stack"
 msgstr "Początek_stosu"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:49
 msgid "Text resident set size"
 msgstr "Rozmiar zbioru tekstu rezydentnego"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:50
 msgid "Shared-Lib resident set size"
 msgstr "Rozmiar zbioru rezydentnych bibliotek współdzielonych"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:51
 msgid "Data resident set size"
 msgstr "Rozmiar zbioru rezydentnych danych"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:52
 msgid "Stack resident set size"
 msgstr "Rozmiar zbioru rezydentnego stosu"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:53
 msgid "Total size of dirty pages"
 msgstr "Całkowity rozmiar zmienionych stron"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:54
 msgid "Address of beginning of code segment"
 msgstr "Adres początku segmentu kodu"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:55
 msgid "Address of end of code segment"
 msgstr "Adres końca segmentu kodu"
 
-#: sysdeps/names/procsegment.c:1
+#: sysdeps/names/procsegment.c:56
 msgid "Address of the bottom of stack segment"
 msgstr "Adres początku segmentu kodu"
 
-#: sysdeps/names/procsignal.c:1
+#: sysdeps/names/procsignal.c:41
 msgid "Signal"
 msgstr "Sygnał"
 
-#: sysdeps/names/procsignal.c:1
+#: sysdeps/names/procsignal.c:41
 msgid "Blocked"
 msgstr "Zablokowany"
 
-#: sysdeps/names/procsignal.c:1
+#: sysdeps/names/procsignal.c:41
 msgid "SigIgnore"
 msgstr "SigIgnore"
 
-#: sysdeps/names/procsignal.c:1
+#: sysdeps/names/procsignal.c:41
 msgid "SigCatch"
 msgstr "SigCatch"
 
-#: sysdeps/names/procsignal.c:1
+#: sysdeps/names/procsignal.c:46
 msgid "Mask of pending signals"
 msgstr "Maska oczekujących sygnałów"
 
-#: sysdeps/names/procsignal.c:1
+#: sysdeps/names/procsignal.c:47
 msgid "Mask of blocked signals"
 msgstr "Maska zablokowanych sygnałów"
 
-#: sysdeps/names/procsignal.c:1
+#: sysdeps/names/procsignal.c:48
 msgid "Mask of ignored signals"
 msgstr "Maska ignorowanych sygnałów"
 
-#: sysdeps/names/procsignal.c:1
+#: sysdeps/names/procsignal.c:49
 msgid "Mask of caught signals"
 msgstr "Maska wyłapywanych sygnałów"
 
-#: sysdeps/names/procstate.c:1
+#: sysdeps/names/procstate.c:43
 msgid "Cmd"
 msgstr "Polec."
 
-#: sysdeps/names/procstate.c:1
+#: sysdeps/names/procstate.c:43
 msgid "State"
 msgstr "Stan"
 
-#: sysdeps/names/procstate.c:1
+#: sysdeps/names/procstate.c:43
 msgid "UID"
 msgstr "UID"
 
-#: sysdeps/names/procstate.c:1
+#: sysdeps/names/procstate.c:43
 msgid "GID"
 msgstr "GID"
 
-#: sysdeps/names/procstate.c:1
+#: sysdeps/names/procstate.c:44
+msgid "RGid"
+msgstr "RGid"
+
+#: sysdeps/names/procstate.c:44
+msgid "RUid"
+msgstr "RUid"
+
+#: sysdeps/names/procstate.c:44
+msgid "HasCPU"
+msgstr "HasCPU"
+
+#: sysdeps/names/procstate.c:44
+msgid "Proc"
+msgstr "Proc"
+
+#: sysdeps/names/procstate.c:44
+msgid "LProc"
+msgstr "LProc"
+
+#: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
 msgstr "Nazwa pliku wykonywalnego w wywołaniu funkcji exec()"
 
-#: sysdeps/names/procstate.c:1
+#: sysdeps/names/procstate.c:50
 msgid "Single-Char code for process state (S=sleeping)"
 msgstr "Znakowe oznaczenie stanu procesu (S=uśpiony)"
 
-#: sysdeps/names/procstate.c:1
+#: sysdeps/names/procstate.c:51
 msgid "UID of process"
 msgstr "UID procesu"
 
-#: sysdeps/names/procstate.c:1
+#: sysdeps/names/procstate.c:52
 msgid "GID of process"
 msgstr "GID procesu"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/procstate.c:53
+msgid "Real UID of process"
+msgstr "Rzeczywiste UID procesu"
+
+#: sysdeps/names/procstate.c:54
+msgid "Real GID of process"
+msgstr "Rzeczywiste GID procesu"
+
+# FIXME - albo inaczej jak ktoś wie jak
+#: sysdeps/names/procstate.c:55
+msgid "Has CPU"
+msgstr "Posiada procesor"
+
+#: sysdeps/names/procstate.c:56
+msgid "Processor"
+msgstr "Procesor"
+
+#: sysdeps/names/procstate.c:57
+msgid "Last Processor"
+msgstr "Ostatni procesor"
+
+#: sysdeps/names/proctime.c:45
 msgid "Start_Time"
 msgstr "Czas startu"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:45
 msgid "RTime"
 msgstr "CzasDz"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:45
 msgid "UTime"
 msgstr "CzasU"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:45
 msgid "STime"
 msgstr "CzasS"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:46
 msgid "CUTime"
 msgstr "CzasPrUż"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:46
 msgid "CSTime"
 msgstr "CzasPrS"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:46
 msgid "TimeOut"
 msgstr "CzasOcz"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:46
 msgid "It_Real_Value"
 msgstr "Rzecz_czas_oczek"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:47
 msgid "Frequency"
 msgstr "Częstotliwość"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:47
 msgid "XCPU_UTime"
 msgstr "CzasUż_WProc"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:47
 msgid "XCPU_STime"
 msgstr "CzasS_WProc"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:52
 msgid "Start time of process in seconds since the epoch"
 msgstr "Czas startu procesu w sekundach od epoki Uniksa"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:53
 msgid "Real time accumulated by process (should be utime + stime)"
 msgstr ""
 "Czas rzeczywisty wykorzystany przez proces (powinien być równy CzasU + CzasS)"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:54
 msgid "user-mode CPU time accumulated by process"
 msgstr "czas procesora wykorzystany przez proces w trybie użytkownika"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:55
 msgid "kernel-mode CPU time accumulated by process"
 msgstr "czas procesora wykorzystany przez proces w trybie jądra"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:56
 msgid "cumulative utime of process and reaped children"
 msgstr ""
 "łączny czas procesora wykorzystany przez proces i jego potomków w trybie "
 "użytkownika"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:57
 msgid "cumulative stime of process and reaped children"
 msgstr ""
 "łączny czas procesora wykorzystany przez proces i jego potomków w trybie "
 "jądra"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:58
 msgid "The time (in jiffies) of the process's next timeout"
 msgstr "Czas (w chwileczkach) następnego oczekiwania procesu"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:59
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
@@ -934,435 +917,533 @@ msgstr ""
 "Czas (w chwileczkach) przed następnym wysłaniem SIGALRM do procesu z powodu "
 "upłynięcia zadanego interwału"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:61
 msgid "Tick frequency"
 msgstr "Częstotliwość taktów"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:62
 msgid "SMP user-mode CPU time accumulated by process"
 msgstr "czas SMP wykorzystany przez proces w trybie użytkownika"
 
-#: sysdeps/names/proctime.c:1
+#: sysdeps/names/proctime.c:63
 msgid "SMP kernel-mode CPU time accumulated by process"
 msgstr "czas SMP wykorzystany przez proces w trybie jądra"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:48
 msgid "Uid"
 msgstr "Uid"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:48
 msgid "EUid"
 msgstr "Euid"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:48
 msgid "Gid"
 msgstr "Gid"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:48
 msgid "EGid"
 msgstr "EGid"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:48
+msgid "SUid"
+msgstr "SUid"
+
+#: sysdeps/names/procuid.c:49
+msgid "SGid"
+msgstr "SGid"
+
+#: sysdeps/names/procuid.c:49
+msgid "FSUid"
+msgstr "FSUid"
+
+#: sysdeps/names/procuid.c:49
+msgid "FSGid"
+msgstr "FSGid"
+
+#: sysdeps/names/procuid.c:49
 msgid "Pid"
 msgstr "Pid"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:50
 msgid "PPid"
 msgstr "PPid"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:50
 msgid "PGrp"
 msgstr "PGrp"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:50
 msgid "Session"
 msgstr "Sesja"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:50
 msgid "Tty"
 msgstr "Term"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:51
 msgid "TPGid"
 msgstr "TPGid"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:51
 msgid "Priority"
 msgstr "Priorytet"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:51
+msgid "NGroups"
+msgstr "NGrupy"
+
+#: sysdeps/names/procuid.c:51
+msgid "Groups"
+msgstr "Grupy"
+
+#: sysdeps/names/procuid.c:56
 msgid "User ID"
 msgstr "Identyfikator użytkownika"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:57
 msgid "Effective User ID"
 msgstr "Efektywny identyfikator użytkownika"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:58
 msgid "Group ID"
 msgstr "Identyfikator grupy"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:59
 msgid "Effective Group ID"
 msgstr "Efektywny identyfikator grupy"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:60
+msgid "Set User ID"
+msgstr "Ustawienie identyfikatora użytkownika"
+
+#: sysdeps/names/procuid.c:61
+msgid "Set Group ID"
+msgstr "Ustawienie identyfikatora grupy"
+
+#: sysdeps/names/procuid.c:62
+msgid "Filesystem User ID"
+msgstr "Identyfikator użytkownika w systemie plików"
+
+#: sysdeps/names/procuid.c:63
+msgid "Filesystem Group ID"
+msgstr "Identyfikator grupy w systemie plików"
+
+#: sysdeps/names/procuid.c:64
 msgid "Process ID"
 msgstr "Identyfikator procesu"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:65
 msgid "PID of parent process"
 msgstr "PID procesu ojca"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:66
 msgid "Process group ID"
 msgstr "Identyfikator grupy procesów"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:67
 msgid "Session ID"
 msgstr "Identyfikator sesji"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:68
 msgid "Full device number of controlling terminal"
 msgstr "Numer urządzenie terminala sterującego"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:69
 msgid "Terminal process group ID"
 msgstr "Identyfikator grupy procesu sterującego"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:70
 msgid "Kernel scheduling priority"
 msgstr "Priorytet harmonogramu jądra"
 
-#: sysdeps/names/procuid.c:1
+#: sysdeps/names/procuid.c:71
 msgid "Standard unix nice level of process"
 msgstr "Standardowa Uniksowa wartość `nice' procesu"
 
-#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+#: sysdeps/names/procuid.c:72
+msgid "Number of additional process groups"
+msgstr "Liczba dodatkowych grup procesu"
+
+#: sysdeps/names/procuid.c:73
+msgid "Array of additional process groups"
+msgstr "Tablica dodatkowych grup procesu"
+
+#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
 msgstr "Liczba wpisów w mapie semaforów"
 
-#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max number of arrays"
 msgstr "Maksymalna liczba tablic"
 
-#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max semaphores system wide"
 msgstr "Maksymalna liczba semaforów w systemie"
 
-#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Number of undo structures system wide"
 msgstr "Liczba struktur cofnięć w systemie"
 
-#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max semaphores per array"
 msgstr "Maksymalna liczba semaforów na tablicę"
 
-#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max ops per semop call"
 msgstr "Maksymalna liczba operacji na wywołanie semop"
 
-#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max number of undo entries per process"
 msgstr "Maksymalna liczba wpisów cofnięć dla jednego procesu"
 
-#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "sizeof struct sem_undo"
 msgstr "sizeof struct sem_undo"
 
-#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Semaphore max value"
 msgstr "Maksymalna wartość semafora"
 
-#: sysdeps/names/sem_limits.c:1 sysdeps/names/sem_limits.c:1
+#: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 msgid "Adjust on exit max value"
 msgstr "Dopasowanie do wartości maksymalnej wyjścia"
 
-#: sysdeps/names/shm_limits.c:1 sysdeps/names/shm_limits.c:1
+#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Max segment size"
 msgstr "Maksymalny rozmiar segmentu"
 
-#: sysdeps/names/shm_limits.c:1 sysdeps/names/shm_limits.c:1
+#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Min segment size"
 msgstr "Minimalny rozmiar segmentu"
 
-#: sysdeps/names/shm_limits.c:1 sysdeps/names/shm_limits.c:1
+#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max number of segments"
 msgstr "Maksymalna liczba segmentów"
 
-#: sysdeps/names/shm_limits.c:1 sysdeps/names/shm_limits.c:1
+#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max shared segments per process"
 msgstr "Maksymalna liczba współdzielonych segmentów na proces"
 
-#: sysdeps/names/shm_limits.c:1 sysdeps/names/shm_limits.c:1
+#: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max total shared memory"
-msgstr "Maksymalna calkowity rozmiar pamięci współdzielonej"
+msgstr "Maksymalny całkowity rozmiar pamięci współdzielonej"
 
-#: sysdeps/names/swap.c:1 sysdeps/names/swap.c:1
+#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Total Swap Space"
 msgstr "Całkowita przestrzeń wymiany"
 
-#: sysdeps/names/swap.c:1 sysdeps/names/swap.c:1
+#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Used Swap Space"
 msgstr "Wykorzystana przestrzeń wymiany"
 
-#: sysdeps/names/swap.c:1 sysdeps/names/swap.c:1
+#: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 msgid "Free Swap Space"
 msgstr "Wolna przestrzeń wymiany"
 
-#: sysdeps/names/swap.c:1
+#: sysdeps/names/swap.c:43
 msgid "Page In"
 msgstr "Strona wchodząca"
 
-#: sysdeps/names/swap.c:1
+#: sysdeps/names/swap.c:44
 msgid "Page Out"
 msgstr "Strona wychodząca"
 
-#: sysdeps/names/swap.c:1
+#: sysdeps/names/swap.c:52
 msgid "Total number of swap pages that have been brought in since system boot"
 msgstr "Całkowita liczba sprowadzonych stron od startu systemu"
 
-#: sysdeps/names/swap.c:1
+#: sysdeps/names/swap.c:54
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "Całkowita liczba usuniętych stron od startu systemu"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "Server Features"
 msgstr "Parametry serwera"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "CPU Usage"
 msgstr "Wykorzystanie CPU"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Memory Usage"
 msgstr "Wykorzystanie pamięci"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "Swap Usage"
 msgstr "Wykorzystanie przestrzeni wymiany"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "System Uptime"
 msgstr "Czas działania systemu"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Load Averange"
 msgstr "Przeciętne obciążenie"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Shared Memory Limits"
 msgstr "Ograniczenia pamięci dzielonej"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Message Queue Limits"
 msgstr "Ograniczenia kolejki komunikatów"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "Semaphore Set Limits"
 msgstr "Ograniczenia zbioru semaforów"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "List of running Processes"
 msgstr "Lista działających procesów"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process Status information"
 msgstr "Informacje o stanie procesu"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process UID and TTY information"
 msgstr "Informacje o identyfikatorze użytkownika i terminalu procesu"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Memory information"
 msgstr "Informacje o pamięci procesu"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Time information"
 msgstr "Informacje o czasie procesu"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Signal information"
 msgstr "Informacje o sygnałach"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Kernel Data information"
 msgstr "Informacje o danych procesu w jądrze"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:93
 msgid "Process Segment information"
 msgstr "Informacje o segmentach"
 
-#: sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:67
 msgid "Process Arguments"
 msgstr "Argumenty procesu"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
 msgid "Process Memory Map"
 msgstr "Mapa pamięci procesu"
 
-#: sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:69
 msgid "Mount List"
 msgstr "Lista montowań"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "File System Usage"
 msgstr "Wykorzystanie systemu plików"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "Network Load"
 msgstr "Obciążenie sieci"
 
-#: sysdeps/names/sysdeps.c:1 sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:99
 msgid "PPP Statistics"
 msgstr "Statystyki PPP"
 
-#: sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:94
 msgid "Command line arguments of the process"
 msgstr "Argumenty z wiersza polecenia procesu"
 
-#: sysdeps/names/sysdeps.c:1
+#: sysdeps/names/sysdeps.c:96
 msgid "List of currently mounted filesystems"
 msgstr "Lista obecnie zamontowanych systemów plików"
 
-#: sysdeps/names/uptime.c:1
+#: sysdeps/names/uptime.c:39
 msgid "Uptime"
 msgstr "Czas od uruchomienia"
 
-#: sysdeps/names/uptime.c:1
+#: sysdeps/names/uptime.c:40
 msgid "Idletime"
 msgstr "Czas bezczynności"
 
-#: sysdeps/names/uptime.c:1
+#: sysdeps/names/uptime.c:41
+msgid "BootTime"
+msgstr "Czas uruchamiania"
+
+#: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
 msgstr "Czas w sekundach od startu systemu"
 
-#: sysdeps/names/uptime.c:1
+#: sysdeps/names/uptime.c:47
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr ""
 "Łączny czas bezczynności systemu w sekundach, liczony od momentu startu"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/names/uptime.c:48
+msgid "Time of last system boot in seconds since the epoch"
+msgstr "Czas ostatniego startu systemu w sekundach od epoki Uniksa"
+
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "Zawieszenie"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "Przerwanie (Interrupt)"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "Zakończenie"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "Niedozwolona instrukcja"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "Trace trap"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "Przerwanie (Abort)"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "Błąd EMT"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "Wyjątek związany z liczbą zmiennoprzecinkową"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "Usunięcie (Kill)"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "Błąd szyny"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "Naruszenie segmentacji"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "Niepoprawny parametr wywołania systemowego"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "Przerwany potok"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "Budzik"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "Zakończenie"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "Pilny warunek związany z gniazdem"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "Zatrzymanie (Stop)"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "Zatrzymanie klawiatury"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "Kontynuacja"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "Zmiana statusu proc. potomnego"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "Odczyt w tle z urządzenia tty"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "Zapis w tle do urządzenia tty"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "Wejście/wyjście teraz dostępne"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "Przekroczenie limitu CPU"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "Przekroczenie limitu rozm. plików"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "Wirtualny budzik"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "Profilowanie budzika"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "Zmiana rozmiaru okna"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "Żądanie informacji"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "1. sygnał zdefiniowany przez użytkownika"
 
-#: sysdeps/osf1/siglist.c:1 sysdeps/sun4/siglist.c:1
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "2. sygnał zdefiniowany przez użytkownika"
+
+#~ msgid "Unknown system error"
+#~ msgstr "Nieznany błąd systemowy"
+
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s: opcja \"%s\" jest niejednoznaczna\n"
+
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s: opcja \"--%s\" nie pozwala na użycie argumentu\n"
+
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: opcja \"%c%s\" nie pozwala na użycie argumentu\n"
+
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s: opcja \"%s\" wymaga argumentu\n"
+
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s: nie rozpoznano opcji \"--%s\"\n"
+
+#~ msgid "%s: unrecognized option `%c%s'\n"
+#~ msgstr "%s: nie rozpoznano opcji \"%c%s\"\n"
+
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s: błędna opcja -- %c\n"
+
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s: niepoprawna opcja -- %c\n"
+
+#~ msgid "%s: option requires an argument -- %c\n"
+#~ msgstr "%s: opcja wymaga argumentu -- %c\n"
+
+#~ msgid "%s: option `-W %s' is ambiguous\n"
+#~ msgstr "%s: opcja \"-W %s\" jest niejednoznaczna\n"
+
+#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: opcja \"-W %s\" nie pozwala na użycie argumentu\n"
+
+#~ msgid "Show this help message"
+#~ msgstr "Wypisuje ten tekst pomocy"
+
+#~ msgid "Display brief usage message"
+#~ msgstr "Wyświetla krótki komunikat na temat użycia"
