@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2004-07-31 20:21+0200\n"
+"POT-Creation-Date: 2004-09-12 12:10+0200\n"
+"PO-Revision-Date: 2004-09-12 12:42+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
 "MIME-Version: 1.0\n"
@@ -735,7 +735,7 @@ msgstr ""
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:75
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr "Aktuális EIP (32 bites utasításmutató)."
+msgstr "Jelenlegi EIP (32 bites utasításmutató)."
 
 # sysdeps/names/prockernel.c:76
 #. NWChan
@@ -800,7 +800,7 @@ msgstr "A rezidens (nem-lapozható) lapok száma"
 # sysdeps/names/procmem.c:56
 #: sysdeps/names/procmem.c:57
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr "A megosztott (mmap()) memórialapok száma"
+msgstr "Az osztott (mmap()) memórialapok száma"
 
 # sysdeps/names/procmem.c:57
 #: sysdeps/names/procmem.c:58
@@ -870,7 +870,7 @@ msgstr "Rezidens szöveges lapok mérete"
 # sysdeps/names/procsegment.c:49
 #: sysdeps/names/procsegment.c:50
 msgid "Shared-Lib resident set size"
-msgstr "Rezidens megosztott könyvtárlapok mérete"
+msgstr "Rezidens osztott könyvtárlapok mérete"
 
 # sysdeps/names/procsegment.c:50
 #: sysdeps/names/procsegment.c:51
@@ -1458,7 +1458,7 @@ msgstr "Átlagos terhelés"
 # sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Shared Memory Limits"
-msgstr "Megosztott memória határai"
+msgstr "Osztott memória határai"
 
 # sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
@@ -1523,7 +1523,7 @@ msgstr "Folyamat memóriatérkép"
 # sysdeps/names/sysdeps.c:68
 #: sysdeps/names/sysdeps.c:69
 msgid "Mount List"
-msgstr "Becsatolások listája"
+msgstr "Csatlakoztatások listája"
 
 # sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
@@ -1548,7 +1548,7 @@ msgstr "A folyamatok parancssori paraméterei"
 # sysdeps/names/sysdeps.c:95
 #: sysdeps/names/sysdeps.c:96
 msgid "List of currently mounted filesystems"
-msgstr "A jelenleg becsatolt fájlrendszerek listája"
+msgstr "A jelenleg csatlakoztatott fájlrendszerek listája"
 
 # sysdeps/names/uptime.c:38
 #: sysdeps/names/uptime.c:39
@@ -1607,7 +1607,7 @@ msgstr "Nyomkövetési csapda"
 # sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr "Abortál"
+msgstr "Megszakítás"
 
 # sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
