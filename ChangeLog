@@ -27,6 +27,10 @@
 	* lib/read_data.c: Removed. Moved to `backends/server/'.
 	* lib/write.c: Removed. Moved to `backends/server/'.
 
+	* include/glibtop/read.h: Removed.
+	* include/glibtop/read_data.h: Removed.
+	* include/glibtop/write.h: Removed.
+
 2000-01-01  Fatih Demir <kabalak@gmx.net>
 
 	* configure.in: Added tr to ALL_LINGUAS .
