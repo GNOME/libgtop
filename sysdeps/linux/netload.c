@@ -95,6 +95,8 @@ glibtop_init_netload_s (glibtop *server)
 	_glibtop_sysdeps_netload_data |
 	_glibtop_sysdeps_netload_bytes |
 	_glibtop_sysdeps_netload_packets;
+
+	return 0;
 }
 
 /* Provides network statistics. */
@@ -253,7 +255,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 
 	    fclose (f);
 
-	    if (success) return;
+	    if (success) return 0;
 	}
     }
 
@@ -261,7 +263,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	 * it was not enabled for the requested interface. */
 
     f = fopen ("/proc/net/dev", "r");
-    if (!f) return;
+    if (!f) return -1;
 
 	/* Skip over the header line. */
     fgets (buffer, BUFSIZ-1, f);
@@ -273,7 +275,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     p = strchr (buffer, '|');
     if (!p) {
 	fclose (f);
-	return;
+	return -1;
     }
 
     /* Do we already have byte counters ? */
@@ -290,7 +292,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     }
 
     /* Should never happen. */
-    if (fields < 2) return;
+    if (fields < 2) return -1;
     fields--;
 
     while (fgets (buffer, BUFSIZ-1, f)) {
@@ -348,4 +350,6 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     }
 
     fclose (f);
+
+    return 0;
 }

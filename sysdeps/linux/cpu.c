@@ -44,6 +44,8 @@ glibtop_init_cpu_s (glibtop *server)
 
 	if (server->ncpu)
 		server->sysdeps.cpu |= _glibtop_sysdeps_cpu_smp;
+
+	return 0;
 }
 
 /* Provides information about cpu usage. */
@@ -62,12 +64,17 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	memset (buf, 0, sizeof (glibtop_cpu));
 
 	fd = open (FILENAME, O_RDONLY);
-	if (fd < 0)
-		glibtop_error_io_r (server, "open (%s)", FILENAME);
+	if (fd < 0) {
+		glibtop_warn_io_r (server, "open (%s)", FILENAME);
+		return -1;
+	}
 
 	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0)
-		glibtop_error_io_r (server, "read (%s)", FILENAME);
+	if (len < 0) {
+		close (fd);
+		glibtop_warn_io_r (server, "read (%s)", FILENAME);
+		return -1;
+	}
 
 	close (fd);
 
@@ -108,4 +115,6 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	}
 
 	buf->flags |= _glibtop_sysdeps_cpu_smp;
+
+	return 0;
 }

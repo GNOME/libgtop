@@ -65,6 +65,8 @@ glibtop_init_proc_segment_s (glibtop *server)
 		pageshift++;
 		pagesize >>= 1;
 	}
+
+	return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -80,10 +82,10 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 	memset (buf, 0, sizeof (glibtop_proc_segment));
 
 	if (proc_stat_to_buffer (buffer, pid))
-		return;
+		return -1;
 
 	p = proc_stat_after_cmd (buffer);
-	if (!p) return;
+	if (!p) return -1;
 
 	p = skip_multiple_token (p, 23);
 
@@ -94,7 +96,7 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 	buf->flags = _glibtop_sysdeps_proc_segment;
 
 	if (proc_statm_to_buffer (buffer, pid))
-		return;
+		return 0;
 
 	p = skip_multiple_token (buffer, 3);
 
@@ -112,4 +114,6 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 	buf->dirty_size <<= pageshift;
 
 	buf->flags |= _glibtop_sysdeps_proc_segment_statm;
+
+	return 0;
 }

@@ -40,6 +40,8 @@ glibtop_init_proc_state_s (glibtop *server)
 {
 	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state |
 		_glibtop_sysdeps_proc_state_uid;
+
+	return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -62,7 +64,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	sprintf (buffer, "/proc/%d/stat", pid);
 
 	if (stat (buffer, &statb))
-		return;
+		return -1;
 
 	/* For security reasons we use stat () since it is
 	 * more failsafe than parsing the file. */
@@ -75,7 +77,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	/* Now we read the remaining fields. */
 
 	if (proc_stat_to_buffer (buffer, pid))
-		return;
+		return -1;
 
 	p = strrchr (buffer, ')'); *p = '\0';
 	state = p [2];
@@ -109,8 +111,10 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	    buf->state = GLIBTOP_PROCESS_SWAPPING;
 	    break;
 	default:
-	    return;
+	    return -1;
 	}
 
 	buf->flags |= (1L << GLIBTOP_PROC_STATE_STATE);
+
+	return 0;
 }

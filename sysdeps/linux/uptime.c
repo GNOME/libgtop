@@ -34,6 +34,8 @@ int
 glibtop_init_uptime_s (glibtop *server)
 {
 	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+
+	return 0;
 }
 
 /* Provides uptime and idle time. */
@@ -51,12 +53,17 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 	memset (buf, 0, sizeof (glibtop_uptime));
 
 	fd = open (FILENAME, O_RDONLY);
-	if (fd < 0)
-		glibtop_error_io_r (server, "open (%s)", FILENAME);
+	if (fd < 0) {
+		glibtop_warn_io_r (server, "open (%s)", FILENAME);
+		return -1;
+	}
 
 	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0)
-		glibtop_error_io_r (server, "read (%s)", FILENAME);
+	if (len < 0) {
+		close (fd);
+		glibtop_warn_io_r (server, "read (%s)", FILENAME);
+		return -1;
+	}
 
 	close (fd);
 
@@ -66,4 +73,6 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 	buf->idletime = strtod (p, &p);
 
 	buf->flags = _glibtop_sysdeps_uptime;
+
+	return 0;
 }

@@ -43,6 +43,8 @@ int
 glibtop_init_proclist_s (glibtop *server)
 {
 	server->sysdeps.proclist = _glibtop_sysdeps_proclist;
+
+	return 0;
 }
 
 #define BLOCK_COUNT	256

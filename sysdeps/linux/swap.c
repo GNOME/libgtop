@@ -41,6 +41,8 @@ glibtop_init_swap_s (glibtop *server)
 {
 	server->sysdeps.swap = _glibtop_sysdeps_swap |
 		_glibtop_sysdeps_swap_paging;
+
+	return 0;
 }
 
 /* Provides information about swap usage. */
@@ -59,12 +61,17 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	memset (buf, 0, sizeof (glibtop_swap));
 
 	fd = open (MEMINFO, O_RDONLY);
-	if (fd < 0)
-		glibtop_error_io_r (server, "open (%s)", MEMINFO);
+	if (fd < 0) {
+		glibtop_warn_io_r (server, "open (%s)", MEMINFO);
+		return -1;
+	}
 
 	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0)
-		glibtop_error_io_r (server, "read (%s)", MEMINFO);
+	if (len < 0) {
+		close (fd);
+		glibtop_warn_io_r (server, "read (%s)", MEMINFO);
+		return -1;
+	}
 
 	close (fd);
 
@@ -81,19 +88,24 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	buf->flags = _glibtop_sysdeps_swap;
 
 	fd = open (PROC_STAT, O_RDONLY);
-	if (fd < 0)
-		glibtop_error_io_r (server, "open (%s)", PROC_STAT);
+	if (fd < 0) {
+		glibtop_warn_io_r (server, "open (%s)", PROC_STAT);
+		return -1;
+	}
 
 	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0)
-		glibtop_error_io_r (server, "read (%s)", PROC_STAT);
+	if (len < 0) {
+		close (fd);
+		glibtop_warn_io_r (server, "read (%s)", PROC_STAT);
+		return -1;
+	}
 
 	close (fd);
 
 	buffer [len] = '\0';
 
 	p = strstr (buffer, "\nswap");
-	if (p == NULL) return;
+	if (p == NULL) return 0;
 
 	p = skip_token (p);
 
@@ -101,4 +113,6 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	buf->pageout = strtoul (p, &p, 0);
 
 	buf->flags |= _glibtop_sysdeps_swap_paging;
+
+	return 0;
 }

@@ -44,6 +44,8 @@ glibtop_init_proc_uid_s (glibtop *server)
 {
 	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid |
 		_glibtop_sysdeps_proc_uid_stat;
+
+	return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -58,12 +60,12 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 
 	if (proc_status_to_buffer (buffer, pid))
-		return;
+		return -1;
 
 	/* Search substring 'Pid:' */
 
 	p = strstr (buffer, "\nPid:");
-	if (!p) return;
+	if (!p) return -1;
 
 	p = skip_token (p); /* "Pid:" */
 	buf->pid = strtoul (p, &p, 0);
@@ -74,7 +76,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	/* Maybe future Linux versions place something between
 	 * "PPid" and "Uid", so we catch this here. */
 	p = strstr (p, "\nUid:");
-	if (!p) return;
+	if (!p) return -1;
 
 	p = skip_token (p); /* "Uid:" */
 	buf->uid = strtoul (p, &p, 0);
@@ -83,7 +85,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	/* We don't know how many entries on the "Uid:" line
 	 * future Linux version will have, so we catch this here. */
 	p = strstr (p, "\nGid:");
-	if (!p) return;
+	if (!p) return -1;
 
 	p = skip_token (p); /* "Gid:" */
 	buf->gid = strtoul (p, &p, 0);
@@ -92,10 +94,10 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	buf->flags = _glibtop_sysdeps_proc_uid;
 
 	if (proc_stat_to_buffer (buffer, pid))
-		return;
+		return -1;
 
 	p = proc_stat_after_cmd (buffer);
-	if (!p) return;
+	if (!p) return -1;
 
 	p = skip_multiple_token (p, 2);
 
@@ -123,4 +125,6 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 		buf->tty = 4*0x100 + buf->tty;
 	
 	buf->flags |= _glibtop_sysdeps_proc_uid_stat;
+
+	return 0;
 }

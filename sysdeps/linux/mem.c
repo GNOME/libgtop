@@ -37,6 +37,8 @@ int
 glibtop_init_mem_s (glibtop *server)
 {
 	server->sysdeps.mem = _glibtop_sysdeps_mem;
+
+	return 0;
 }
 
 /* Provides information about memory usage. */
@@ -54,12 +56,18 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	memset (buf, 0, sizeof (glibtop_mem));
 
 	fd = open (FILENAME, O_RDONLY);
-	if (fd < 0)
-		glibtop_error_io_r (server, "open (%s)", FILENAME);
+	if (fd < 0) {
+		glibtop_warn_io_r (server, "open (%s)", FILENAME);
+		return -1;
+		
+	}
 
 	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0)
-		glibtop_error_io_r (server, "read (%s)", FILENAME);
+	if (len < 0) {
+		close (fd);
+		glibtop_warn_io_r (server, "read (%s)", FILENAME);
+		return -1;
+	}
 
 	close (fd);
 
@@ -78,4 +86,6 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
 
 	buf->flags = _glibtop_sysdeps_mem;
+
+	return 0;
 }

@@ -39,6 +39,8 @@ int
 glibtop_init_loadavg_s (glibtop *server)
 {
 	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
+
+	return 0;
 }
 
 /* Provides load load averange. */
@@ -56,12 +58,17 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	memset (buf, 0, sizeof (glibtop_loadavg));
 
 	fd = open (FILENAME, O_RDONLY);
-	if (fd < 0)
-		glibtop_error_io_r (server, "open (%s)", FILENAME);
+	if (fd < 0) {
+		glibtop_warn_io_r (server, "open (%s)", FILENAME);
+		return -1;
+	}
 
 	len = read (fd, buffer, BUFSIZ-1);
-	if (len < 0)
-		glibtop_error_io_r (server, "read (%s)", FILENAME);
+	if (len < 0) {
+		close (fd);
+		glibtop_warn_io_r (server, "read (%s)", FILENAME);
+		return -1;
+	}
 
 	close (fd);
 
@@ -82,7 +89,7 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 		if (*p == '/')
 			break;
 		if (!isdigit (*p))
-			return;
+			return 0;
 		p++;
 	}
 
@@ -91,4 +98,6 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	buf->last_pid    = strtoul (p, &p, 0);
 
 	buf->flags |= _glibtop_sysdeps_loadavg_tasks;
+
+	return 0;
 }
