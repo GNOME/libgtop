@@ -1,3 +1,10 @@
+2001-14-27  Miles Lane <miles@megapathdsl.net>
+
+	* acconfig.h:  Added "#undef HAVE_GETTEXT" entry.
+	* LIBGTOP_VERSION:  Removed file.
+	* configure.in:  added glib-gettextize support and
+	  moved in the *VERSION* stuff from LIBGTOP_VERSION.
+
 2001-11-27  Kevin Vandersloot <kfv101@psu.edu>
 
 	* acinclude.m4: copy some of the macros that were formerly

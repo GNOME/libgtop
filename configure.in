@@ -22,8 +22,22 @@ AC_MSG_ERROR([
 ***])
 fi
 
-. $srcdir/LIBGTOP-VERSION
-AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
+LIBGTOP_MAJOR_VERSION=1
+LIBGTOP_MINOR_VERSION=90
+LIBGTOP_MICRO_VERSION=0
+LIBGTOP_VERSION=$LIBGTOP_MAJOR_VERSION.$LIBGTOP_MINOR_VERSION.$LIBGTOP_MICRO_VERSION
+AM_INIT_AUTOMAKE(libgtop, $LIBGTOP_VERSION)
+LIBGTOP_INTERFACE_AGE=0
+LIBGTOP_BINARY_AGE=0
+
+# you can set this to `-snap' for instance to create
+# a `libgtop-1.x.y-snap.tar.gz' tarball.
+LIBGTOP_VERSION_SUFFIX=
+
+# Increase each time you change the client/server protocol.
+LIBGTOP_SERVER_VERSION=5
+
+LIBGTOP_VERSION_CODE=`echo "$LIBGTOP_MAJOR_VERSION 1000000 * $LIBGTOP_MINOR_VERSION 1000 * + $LIBGTOP_MICRO_VERSION + p q" | dc`
 
 AC_SUBST(LIBGTOP_MAJOR_VERSION)
 AC_SUBST(LIBGTOP_MINOR_VERSION)
@@ -34,6 +48,22 @@ AC_SUBST(LIBGTOP_SERVER_VERSION)
 AC_SUBST(LIBGTOP_VERSION)
 AC_SUBST(LIBGTOP_VERSION_CODE)
 AC_SUBST(LIBGTOP_VERSION_SUFFIX)
+
+dnl This is required at several places
+AC_CHECK_PROG(ac_dc_found, dc, yes, no)
+if test x$ac_dc_found != xyes ; then
+AC_MSG_ERROR([
+*** The "dc" utility was not found on your system.
+***
+*** When using RedHat Linux, you need to install the "bc" package.
+***
+*** It is now part of the "bc" package, so you should look at
+*** ftp://ftp.gnu.org/pub/gnu/bc/ if you want to compile it yourself.
+***
+*** Other systems and distributions may also have it in their "bc" package,
+*** so if there's no "dc" one, please look for "bc".
+***])
+fi
 
 # libtool versioning
 LT_RELEASE=$LIBGTOP_MAJOR_VERSION.$LIBGTOP_MINOR_VERSION
@@ -250,18 +280,18 @@ AC_CHECK_LIB(kvm, kvm_open,[
 dnl For DEC OSF1
 AC_CHECK_LIB(mach, vm_statistics)
 
-dnl For some broken libc5 systems (Debian 1.3)                                                           
-saved_CFLAGS=$CFLAGS                                                                                     
-CFLAGS="$CFLAGS -D_GNU_SOURCE"                                                                           
+dnl For some broken libc5 systems (Debian 1.3)
+saved_CFLAGS=$CFLAGS
+CFLAGS="$CFLAGS -D_GNU_SOURCE"
 GCC_NEED_DECLARATION(program_invocation_name, [                           
-#include <errno.h>                                                                                       
-#include <stdio.h>                                                                                       
-#include <stdlib.h>                                                                                      
-#include <string.h>                                                                                      
-])                                                                                                       
-CFLAGS=$saved_CFLAGS                                                                                     
-                                                                                                         
-dnl Check for Internet sockets.
+#include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+])
+
+CFLAGS=$saved_CFLAGS
+
 AC_CHECK_FUNC(socket,
  [AC_CHECK_HEADER(netinet/in.h,
    [AC_CHECK_HEADER(arpa/inet.h, [
@@ -285,6 +315,11 @@ AC_CHECK_FUNCS(getcwd gettimeofday getwd putenv strdup strtoul uname)
 
 dnl ## all 'es_??' are only needed for format numbers different of 'es'
 ALL_LINGUAS="az ca da de el es es_DO es_GT es_HN es_MX es_PA es_PE es_SV fi fr ga gl hu ja ko nl no pl pt pt_BR ru sk sl sv tr uk zh_CN.GB2312 zh_TW"
+
+GETTEXT_PACKAGE=libgtop
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE")
+
 AM_GLIB_GNU_GETTEXT
 
 AC_PATH_XTRA
@@ -418,7 +453,7 @@ else
   guile_def=""
 fi
 
-INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_srcdir)/intl $SUPPORTINCS $GLIB_CFLAGS $CFLAGS $X_CFLAGS $guile_def "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
+INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $SUPPORTINCS $GLIB_CFLAGS $CFLAGS $X_CFLAGS $guile_def "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
 
 AC_SUBST(INCLUDES)
 
