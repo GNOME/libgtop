@@ -64,9 +64,9 @@ netload_static_LDADD	= $(netload_LDADD)
 netload_static_LDFLAGS	= -static
 
 sysdeps_SOURCES		= sysdeps.c
-sysdeps_LDADD		= $(top_builddir)/lib/libgtop.la \
-			  $(top_builddir)/sysdeps/common/libgtop_common.la \
-			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
+sysdeps_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common-2.0.la \
+			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps-2.0.la \
 			  @LIBSUPPORT@ @INTLLIBS@
 
 sysdeps_static_SOURCES	= $(sysdeps_SOURCES)

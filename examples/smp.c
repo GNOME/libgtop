@@ -39,8 +39,8 @@ main (int argc, char *argv [])
 	int ncpu, i;
 
 	setlocale (LC_ALL, "");
-	bindtextdomain (PACKAGE, GTOPLOCALEDIR);
-	textdomain (PACKAGE);
+	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
+	textdomain (GETTEXT_PACKAGE);
 	
 	glibtop_get_cpu (&cpu);
 

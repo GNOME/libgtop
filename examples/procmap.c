@@ -58,8 +58,8 @@ main (int argc, char *argv [])
 	count = PROFILE_COUNT;
 
 	setlocale (LC_ALL, "");
-	bindtextdomain (PACKAGE, GTOPLOCALEDIR);
-	textdomain (PACKAGE);
+	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
+	textdomain (GETTEXT_PACKAGE);
 	
 	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_INIT_NO_OPEN);
 

@@ -79,8 +79,8 @@ main (int argc, char *argv [])
 	count = PROFILE_COUNT;
 
 	setlocale (LC_ALL, "");
-	bindtextdomain (PACKAGE, GTOPLOCALEDIR);
-	textdomain (PACKAGE);
+	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
+	textdomain (GETTEXT_PACKAGE);
 
 	printf ("%-12s (%-10s): %7s - %9s - %9s\n",
 		"Feature", "Flags", "Count", "utime", "stime");

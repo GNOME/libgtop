@@ -1,3 +1,7 @@
+2001-01-14  Abel Cheung  <maddog@linux.org.hk>
+
+	* configure.in: Sync'ed ALL_LINGUAS with files in po directory.
+
 2002-01-10  Kevin Vandersloot <kfv101@psu.edu>
 
 	* acininclude.m4: add back the support stuf but make it really

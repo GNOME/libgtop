@@ -38,8 +38,8 @@ int
 main (int argc, char *argv[])
 {
 	setlocale (LC_ALL, "");
-	bindtextdomain (PACKAGE, GTOPLOCALEDIR);
-	textdomain (PACKAGE);
+	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
+	textdomain (GETTEXT_PACKAGE);
 
 	gh_enter (argc, argv, main_prog);
 	exit (0);

@@ -1,3 +1,11 @@
+2001-01-14  Abel Cheung  <maddog@linux.org.hk>
+
+	* \*.c: bindtextdomain and textdomain uses GETTEXT_PACKAGE.
+
+	* Makefile.am, first.c, second.c, sysdeps.c: Make them at least
+	compile for now, by disabling chunks which should belong to
+	HEAD branch.
+
 1999-05-28  Martin Baulig  <martin@home-of-linux.org>
 
 	* first.c, second.c, sysdeps.c: Use LibGTop version conditionals

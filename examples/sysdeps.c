@@ -44,8 +44,8 @@ main (int argc, char *argv [])
 	count = PROFILE_COUNT;
 
 	setlocale (LC_ALL, "");
-	bindtextdomain (PACKAGE, GTOPLOCALEDIR);
-	textdomain (PACKAGE);
+	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
+	textdomain (GETTEXT_PACKAGE);
 	
 	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_INIT_NO_OPEN);
 
@@ -73,9 +73,6 @@ main (int argc, char *argv [])
 
 	printf ("Sysdeps (0x%08lx):\n\n"
 		"\tfeatures:\t\t0x%08lx\n\n"
-#if LIBGTOP_VERSION_CODE > 1001000
-		"\tpointer_size:\t\t0x%08lx\n\n"
-#endif
 		"\tcpu:\t\t%d\t0x%08lx\n"
 		"\tmem:\t\t%d\t0x%08lx\n"
 		"\tswap:\t\t%d\t0x%08lx\n\n"
@@ -100,9 +97,6 @@ main (int argc, char *argv [])
 		"\tppp:\t\t%d\t0x%08lx\n\n",
 		(unsigned long) sysdeps.flags,
 		(unsigned long) sysdeps.features,
-#if LIBGTOP_VERSION_CODE > 1001000
-		(unsigned long) sysdeps.pointer_size,
-#endif
 		FEATURE_CHECK(CPU),
 		(unsigned long) sysdeps.cpu,
 		FEATURE_CHECK(MEM),
