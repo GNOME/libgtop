@@ -11,7 +11,7 @@ msgstr ""
 "Last-Translator: Roy-Magne Mo <rmo@sunnmore.net>\n"
 "Language-Team: Norwegian (Nynorsk) <nn@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: examples/smp.c:68
@@ -114,7 +114,7 @@ msgstr "skriv %d byte"
 
 #: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
-msgstr "Skru på avlusingsinfo"
+msgstr "Skru pÃ¥ avlusingsinfo"
 
 #: src/daemon/gnuserv.c:448
 msgid "DEBUG"
@@ -122,7 +122,7 @@ msgstr "DEBUG"
 
 #: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
-msgstr "Skru på verbos utdata"
+msgstr "Skru pÃ¥ verbos utdata"
 
 #: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
@@ -138,7 +138,7 @@ msgstr "NO-DAEMON"
 
 #: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
-msgstr "Starta frå inetd"
+msgstr "Starta frÃ¥ inetd"
 
 #: src/daemon/gnuserv.c:454
 msgid "INETD"
@@ -150,8 +150,8 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"Feil på val %s: %s.\n"
-"Køyr «%s --help» for å sjå full liste av tilgjengelege kommandlinjeval.\n"
+"Feil pÃ¥ val %s: %s.\n"
+"KÃ¸yr Â«%s --helpÂ» for Ã¥ sjÃ¥ full liste av tilgjengelege kommandlinjeval.\n"
 
 #: support/error.c:109
 msgid "Unknown system error"
@@ -160,34 +160,34 @@ msgstr "Ukjent systemfeil"
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: valet «%s» er fleirtydig\n"
+msgstr "%s: valet Â«%sÂ» er fleirtydig\n"
 
 #: support/getopt.c:693
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: valet «--%s» tillet ikkje argument\n"
+msgstr "%s: valet Â«--%sÂ» tillet ikkje argument\n"
 
 #: support/getopt.c:698
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: valet «%c%s» tillet ikkje argument\n"
+msgstr "%s: valet Â«%c%sÂ» tillet ikkje argument\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: valet «%s» treng eit argument\n"
+msgstr "%s: valet Â«%sÂ» treng eit argument\n"
 
 #. --option
 #: support/getopt.c:744
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: ukjent val «--%s»\n"
+msgstr "%s: ukjent val Â«--%sÂ»\n"
 
 #. +option or -option
 #: support/getopt.c:748
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: ukjent val «%c%s»\n"
+msgstr "%s: ukjent val Â«%c%sÂ»\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
@@ -209,12 +209,12 @@ msgstr "%s: valet treng eit argument -- %c\n"
 #: support/getopt.c:854
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: valet «-W %s» er fleirtydig\n"
+msgstr "%s: valet Â«-W %sÂ» er fleirtydig\n"
 
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: valet «-W %s» kan ikkje ha argument\n"
+msgstr "%s: valet Â«-W %sÂ» kan ikkje ha argument\n"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
@@ -318,11 +318,11 @@ msgstr "Snittlast"
 
 #: sysdeps/names/loadavg.c:40
 msgid "Running Tasks"
-msgstr "Køyrande oppgåver "
+msgstr "KÃ¸yrande oppgÃ¥ver "
 
 #: sysdeps/names/loadavg.c:41
 msgid "Number of Tasks"
-msgstr "Tal på oppgåver"
+msgstr "Tal pÃ¥ oppgÃ¥ver"
 
 #: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
 msgid "Last PID"
@@ -335,11 +335,11 @@ msgstr ""
 
 #: sysdeps/names/loadavg.c:48
 msgid "Number of tasks currently running"
-msgstr "Tal på køyrande oppgåver"
+msgstr "Tal pÃ¥ kÃ¸yrande oppgÃ¥ver"
 
 #: sysdeps/names/loadavg.c:49
 msgid "Total number of tasks"
-msgstr "Totalt tal på oppgåver"
+msgstr "Totalt tal pÃ¥ oppgÃ¥ver"
 
 #: sysdeps/names/mem.c:41
 msgid "Total Memory"
@@ -363,11 +363,11 @@ msgstr "Bufferar"
 
 #: sysdeps/names/mem.c:46
 msgid "Cached"
-msgstr "Snøgglagra"
+msgstr "SnÃ¸gglagra"
 
 #: sysdeps/names/mem.c:48
 msgid "Locked"
-msgstr "Lås"
+msgstr "LÃ¥s"
 
 #: sysdeps/names/mem.c:53
 msgid "Total physical memory in kB"
@@ -387,11 +387,11 @@ msgstr "Delt minne i kB"
 
 #: sysdeps/names/mem.c:57
 msgid "Size of buffers kB"
-msgstr "Storleik på buffer kB"
+msgstr "Storleik pÃ¥ buffer kB"
 
 #: sysdeps/names/mem.c:58
 msgid "Size of cached memory in kB"
-msgstr "Storleik på mellomlagra minne i kilobyte"
+msgstr "Storleik pÃ¥ mellomlagra minne i kilobyte"
 
 #: sysdeps/names/mem.c:59
 msgid "Memory used from user processes in kB"
@@ -399,19 +399,19 @@ msgstr "Minne brukt av brukarprosessar i kB"
 
 #: sysdeps/names/mem.c:60
 msgid "Memory in locked pages in kB"
-msgstr "Minne i låste sider i kB"
+msgstr "Minne i lÃ¥ste sider i kB"
 
 #: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
 #: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
 #: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
 msgid "Number of list elements"
-msgstr "Tal på listeelement"
+msgstr "Tal pÃ¥ listeelement"
 
 #: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
 #: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
 #: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
 msgid "Total size of list"
-msgstr "Total storleik på liste"
+msgstr "Total storleik pÃ¥ liste"
 
 #: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
 #: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
@@ -426,11 +426,11 @@ msgstr ""
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 #, fuzzy
 msgid "Number of entries in message map"
-msgstr "Tal på filer i bruk:"
+msgstr "Tal pÃ¥ filer i bruk:"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Max size of message"
-msgstr "Maks storleik på melding"
+msgstr "Maks storleik pÃ¥ melding"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 #, fuzzy
@@ -449,7 +449,7 @@ msgstr "Melding sendt"
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 #, fuzzy
 msgid "Number of system message headers"
-msgstr "Tal på programtekstar: %1\n"
+msgstr "Tal pÃ¥ programtekstar: %1\n"
 
 #: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
 msgid "Interface Flags"
@@ -512,7 +512,7 @@ msgstr "Kollisjonar"
 #: sysdeps/names/netload.c:64
 #, fuzzy
 msgid "Maximum Transfer Unit"
-msgstr "Overføringseiningar"
+msgstr "OverfÃ¸ringseiningar"
 
 #: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
 msgid "PPP State"
@@ -521,22 +521,22 @@ msgstr "PPP tilstand"
 #: sysdeps/names/ppp.c:39
 #, fuzzy
 msgid "Input bytes"
-msgstr "Farge på inn-byte"
+msgstr "Farge pÃ¥ inn-byte"
 
 #: sysdeps/names/ppp.c:40
 #, fuzzy
 msgid "Output bytes"
-msgstr "Farge på ut-byte"
+msgstr "Farge pÃ¥ ut-byte"
 
 #: sysdeps/names/ppp.c:46
 #, fuzzy
 msgid "Number of input bytes"
-msgstr "Tal på røyr"
+msgstr "Tal pÃ¥ rÃ¸yr"
 
 #: sysdeps/names/ppp.c:47
 #, fuzzy
 msgid "Number of output bytes"
-msgstr "Tal på kopiar:"
+msgstr "Tal pÃ¥ kopiar:"
 
 #: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
 msgid "Size"
@@ -666,12 +666,12 @@ msgstr "Tilbakestill"
 #: sysdeps/names/procmem.c:47
 #, fuzzy
 msgid "Share"
-msgstr "Øydelegg"
+msgstr "Ã˜ydelegg"
 
 #: sysdeps/names/procmem.c:48
 #, fuzzy
 msgid "Resident Set Size"
-msgstr "Til&bakestill økttid"
+msgstr "Til&bakestill Ã¸kttid"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size Limit"
@@ -689,7 +689,7 @@ msgstr ""
 #: sysdeps/names/procmem.c:55
 #, fuzzy
 msgid "Number of resident set (non-swapped) pages"
-msgstr "Tal på skitne (ikkje-skrivne) sider"
+msgstr "Tal pÃ¥ skitne (ikkje-skrivne) sider"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of shared (mmap'd) memory"
@@ -730,7 +730,7 @@ msgstr "Skalert"
 #: sysdeps/names/procsegment.c:43
 #, fuzzy
 msgid "Dirty Size"
-msgstr "på storleik"
+msgstr "pÃ¥ storleik"
 
 #: sysdeps/names/procsegment.c:43
 #, fuzzy
@@ -745,7 +745,7 @@ msgstr "Koding"
 #: sysdeps/names/procsegment.c:43
 #, fuzzy
 msgid "Start_Stack"
-msgstr "St&art søk"
+msgstr "St&art sÃ¸k"
 
 #: sysdeps/names/procsegment.c:48
 #, fuzzy
@@ -781,7 +781,7 @@ msgstr ""
 #: sysdeps/names/procsegment.c:55
 #, fuzzy
 msgid "Address of the bottom of stack segment"
-msgstr "Legg oppgåvelinja nedst på skjermen"
+msgstr "Legg oppgÃ¥velinja nedst pÃ¥ skjermen"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Signal"
@@ -838,7 +838,7 @@ msgstr "GID"
 #: sysdeps/names/procstate.c:45
 #, fuzzy
 msgid "Basename of executable file in call to exec()"
-msgstr "Oppgi namnet på programfila her."
+msgstr "Oppgi namnet pÃ¥ programfila her."
 
 #: sysdeps/names/procstate.c:46
 msgid "Single-Char code for process state (S=sleeping)"
@@ -984,7 +984,7 @@ msgstr "PGrp"
 
 #: sysdeps/names/procuid.c:57
 msgid "Session"
-msgstr "Økt"
+msgstr "Ã˜kt"
 
 #: sysdeps/names/procuid.c:57
 msgid "Tty"
@@ -1031,7 +1031,7 @@ msgstr "Prosessgruppe-ID"
 
 #: sysdeps/names/procuid.c:70
 msgid "Session ID"
-msgstr "Økt-ID"
+msgstr "Ã˜kt-ID"
 
 #: sysdeps/names/procuid.c:71
 msgid "Full device number of controlling terminal"
@@ -1045,7 +1045,7 @@ msgstr "Prosessgruppe-ID"
 #: sysdeps/names/procuid.c:73
 #, fuzzy
 msgid "Kernel scheduling priority"
-msgstr "Køyreplan-praksis"
+msgstr "KÃ¸yreplan-praksis"
 
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
@@ -1054,12 +1054,12 @@ msgstr ""
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 #, fuzzy
 msgid "Number of entries in semaphore map"
-msgstr "Tal på filer i bruk:"
+msgstr "Tal pÃ¥ filer i bruk:"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 #, fuzzy
 msgid "Max number of arrays"
-msgstr "Høgste &tal på URL-ar"
+msgstr "HÃ¸gste &tal pÃ¥ URL-ar"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max semaphores system wide"
@@ -1080,7 +1080,7 @@ msgstr ""
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 #, fuzzy
 msgid "Max number of undo entries per process"
-msgstr "Høgste tal på søkte verdiar per miksar"
+msgstr "HÃ¸gste tal pÃ¥ sÃ¸kte verdiar per miksar"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
@@ -1108,7 +1108,7 @@ msgstr "Manglar argument"
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 #, fuzzy
 msgid "Max number of segments"
-msgstr "Tal på element i alt"
+msgstr "Tal pÃ¥ element i alt"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max shared segments per process"
@@ -1190,7 +1190,7 @@ msgstr ""
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 #, fuzzy
 msgid "List of running Processes"
-msgstr "Køyrande prosessar"
+msgstr "KÃ¸yrande prosessar"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 #, fuzzy
@@ -1258,7 +1258,7 @@ msgstr "Kommandolinjeargumenta til prosessen"
 #: sysdeps/names/sysdeps.c:95
 #, fuzzy
 msgid "List of currently mounted filesystems"
-msgstr "Søk i monterte filsystem"
+msgstr "SÃ¸k i monterte filsystem"
 
 #: sysdeps/names/uptime.c:38
 msgid "Uptime"
@@ -1278,7 +1278,7 @@ msgstr ""
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr "Legg på"
+msgstr "Legg pÃ¥"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
@@ -1322,7 +1322,7 @@ msgstr "Bussfeil"
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 #, fuzzy
 msgid "Segmentation violation"
-msgstr "SIGSEGV (brot på segmentering)"
+msgstr "SIGSEGV (brot pÃ¥ segmentering)"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
@@ -1330,7 +1330,7 @@ msgstr ""
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr "Brote røyr"
+msgstr "Brote rÃ¸yr"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
@@ -1359,7 +1359,7 @@ msgstr "Fortset"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
-msgstr "Status på born er endra"
+msgstr "Status pÃ¥ born er endra"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 #, fuzzy
@@ -1380,14 +1380,14 @@ msgstr "I/O no mogleg"
 msgid "CPU limit exceeded"
 msgstr ""
 "%1\n"
-"Gått over øvre grense!"
+"GÃ¥tt over Ã¸vre grense!"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 #, fuzzy
 msgid "File size limit exceeded"
 msgstr ""
 "%1\n"
-"Gått over øvre grense!"
+"GÃ¥tt over Ã¸vre grense!"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
