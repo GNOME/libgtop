@@ -67,7 +67,7 @@ init_sysinfo (glibtop *server)
 
 
 	for(sysinfo.ncpu = 0;
-	    sysinfo.ncpu < GLIBTOP_NCPU && *processors[sysinfo.ncpu];
+	    sysinfo.ncpu < GLIBTOP_NCPU && processors[sysinfo.ncpu];
 	    sysinfo.ncpu++) {
 
 		gchar **parts, **p;
@@ -102,7 +102,7 @@ init_sysinfo (glibtop *server)
 		/* just g_free instead of g_strvfree because we stole
 		   the memory*/
 
-		g_free(processors);
+		g_free(parts);
 
 	}
 
