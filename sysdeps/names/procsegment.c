@@ -29,11 +29,17 @@
 const char *glibtop_names_proc_segment[GLIBTOP_MAX_PROC_SEGMENT] =
 {
     "text_rss", "shlib_rss", "data_rss", "stack_rss",
-    "dirty_size", "start_code", "end_code", "start_stack"
+    "dirty_size", "start_code", "end_code", "start_data",
+    "end_data", "start_brk", "end_brk", "start_stack",
+    "start_mmap", "arg_start", "arg_end", "env_start",
+    "env_end"
 };
 
 const unsigned glibtop_types_proc_segment[GLIBTOP_MAX_PROC_SEGMENT] =
 {
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
     GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
     GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
     GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
@@ -42,7 +48,10 @@ const unsigned glibtop_types_proc_segment[GLIBTOP_MAX_PROC_SEGMENT] =
 const char *glibtop_labels_proc_segment[GLIBTOP_MAX_PROC_SEGMENT] =
 {
     N_ ("Text_RSS"), N_ ("ShLib_RSS"), N_ ("Data_RSS"), N_ ("Stack_RSS"),
-    N_ ("Dirty Size"), N_ ("Start_Code"), N_ ("End_Code"), N_ ("Start_Stack")
+    N_ ("Dirty Size"), N_ ("Start_Code"), N_ ("End_Code"),
+    N_ ("Start_Data"), N_ ("End_Data"), N_ ("Start_Brk"), N_ ("Brk"),
+    N_ ("Start_Stack"), N_ ("Start_MMap"), N_ ("Arg_Start"),
+    N_ ("Arg_End"), N_ ("Env_Start"), N_ ("Env_End")
 };
 
 const char *glibtop_descriptions_proc_segment[GLIBTOP_MAX_PROC_SEGMENT] =
@@ -54,5 +63,14 @@ const char *glibtop_descriptions_proc_segment[GLIBTOP_MAX_PROC_SEGMENT] =
     N_ ("Total size of dirty pages"),
     N_ ("Address of beginning of code segment"),
     N_ ("Address of end of code segment"),
-    N_ ("Address of the bottom of stack segment")
+    N_ ("Address of beginning of data segment"),
+    N_ ("Address of end of data segment"),
+    N_ ("Brk_Start"),
+    N_ ("Brk_End"),
+    N_ ("Address of the bottom of stack segment"),
+    N_ ("Start of mmap()ed areas"),
+    N_ ("Arg_Start"),
+    N_ ("Arg_End"),
+    N_ ("Env_Start"),
+    N_ ("Env_End")
 };

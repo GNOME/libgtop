@@ -43,6 +43,17 @@ BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_MAX_PROC_KERNEL		9
 
+/* Constants for the `k_flags' field. */
+#define GLIBTOP_KFLAGS_STARTING		1	/* being created */
+#define GLIBTOP_KFLAGS_EXITING		2	/* getting shut down */
+#define GLIBTOP_KFLAGS_PTRACED		4	/* set if ptrace (0) has
+						   been called */
+#define GLIBTOP_KFLAGS_TRACESYS		8	/* tracing system calls */
+#define GLIBTOP_KFLAGS_FORKNOEXEC	16	/* forked but didn't exec */
+#define GLIBTOP_KFLAGS_SUPERPRIV	32	/* used super-user privileges */
+#define GLIBTOP_KFLAGS_DUMPEDCORE	64	/* dumped core */
+#define GLIBTOP_KFLAGS_SIGNALED		128	/* killed by a signal */
+
 typedef struct _glibtop_proc_kernel	glibtop_proc_kernel;
 
 /* Kernel stuff */

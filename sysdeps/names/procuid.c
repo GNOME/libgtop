@@ -26,27 +26,17 @@
 #include <glibtop.h>
 #include <glibtop/procuid.h>
 
-#define GLIBTOP_PROC_UID_UID		0
-#define GLIBTOP_PROC_UID_EUID		1
-#define GLIBTOP_PROC_UID_GID		2
-#define GLIBTOP_PROC_UID_EGID		3
-#define GLIBTOP_PROC_UID_PID		4
-#define GLIBTOP_PROC_UID_PPID		5
-#define GLIBTOP_PROC_UID_PGRP		6
-#define GLIBTOP_PROC_UID_SESSION	7
-#define GLIBTOP_PROC_UID_TTY		8
-#define GLIBTOP_PROC_UID_TPGID		9
-#define GLIBTOP_PROC_UID_PRIORITY	10
-#define GLIBTOP_PROC_UID_NICE		11
-
 const char *glibtop_names_proc_uid[GLIBTOP_MAX_PROC_UID] =
 {
-    "uid", "euid", "gid", "egid", "pid", "ppid", "pgrp",
-    "session", "tty", "tpgid", "priority", "nice"
+    "uid", "euid", "gid", "egid", "suid", "sgid", "fsuid", "fsgid",
+    "pid", "ppid", "pgrp", "session", "tty", "tpgid", "priority",
+    "nice", "ngroups", "groups"
 };
 
 const unsigned glibtop_types_proc_uid[GLIBTOP_MAX_PROC_UID] =
 {
+    GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
+    GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
     GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
     GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
     GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT, GLIBTOP_TYPE_INT,
@@ -55,9 +45,11 @@ const unsigned glibtop_types_proc_uid[GLIBTOP_MAX_PROC_UID] =
 
 const char *glibtop_labels_proc_uid[GLIBTOP_MAX_PROC_UID] =
 {
-    N_ ("Uid"), N_ ("EUid"), N_ ("Gid"), N_ ("EGid"), N_ ("Pid"),
+    N_ ("Uid"), N_ ("EUid"), N_ ("Gid"), N_ ("EGid"), N_ ("SUid"),
+    N_ ("SGid"), N_ ("FsUid"), N_ ("FsGid"), N_ ("Pid"),
     N_ ("PPid"), N_ ("PGrp"), N_ ("Session"), N_ ("Tty"),
-    N_ ("TPGid"), N_ ("Priority"), N_ ("Nice")
+    N_ ("TPGid"), N_ ("Priority"), N_ ("Nice"), N_ ("NGroups"),
+    N_ ("Groups")
 };
 
 const char *glibtop_descriptions_proc_uid[GLIBTOP_MAX_PROC_UID] =
@@ -66,6 +58,10 @@ const char *glibtop_descriptions_proc_uid[GLIBTOP_MAX_PROC_UID] =
     N_ ("Effective User ID"),
     N_ ("Group ID"),
     N_ ("Effective Group ID"),
+    N_ ("Saved User ID"),
+    N_ ("Saved Group ID"),
+    N_ ("Filesystem User ID"),
+    N_ ("Filesystem Group ID"),
     N_ ("Process ID"),
     N_ ("PID of parent process"),
     N_ ("Process group ID"),
@@ -73,5 +69,7 @@ const char *glibtop_descriptions_proc_uid[GLIBTOP_MAX_PROC_UID] =
     N_ ("Full device number of controlling terminal"),
     N_ ("Terminal process group ID"),
     N_ ("Kernel scheduling priority"),
-    N_ ("Standard unix nice level of process")
+    N_ ("Standard unix nice level of process"),
+    N_ ("Number of additional process groups"),
+    N_ ("Additional process groups")
 };

@@ -53,25 +53,42 @@ output (pid_t pid)
 		
 	glibtop_get_proc_state (&data.proc_state, pid);
 		
-	printf ("Proc_State   PID  %5d (0x%08lx): "
-		"'%s', %c, %lu, %lu\n", (int) pid,
+	printf ("Proc_State   PID  %5d (0x%08lx): '%s', %u - "
+		"%u, %u, %u, %u - %u, %u, %u\n", (int) pid,
 		(unsigned long) data.proc_state.flags,
 		data.proc_state.cmd, data.proc_state.state,
-		(unsigned long) data.proc_state.uid,
-		(unsigned long) data.proc_state.gid);
+		data.proc_state.uid, data.proc_state.gid,
+		data.proc_state.ruid, data.proc_state.rgid,
+		data.proc_state.has_cpu, data.proc_state.processor,
+		data.proc_state.last_processor);
 		
 	glibtop_get_proc_uid (&data.proc_uid, pid);
 		
 	printf ("Proc_Uid     PID  %5d (0x%08lx): "
-		"%d %d %d %d %d %d %d %d %d %d %d %d\n", (int) pid,
-		(unsigned long) data.proc_uid.flags,
+		"%d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d - %d",
+		(int) pid, (unsigned long) data.proc_uid.flags,
 		data.proc_uid.uid, data.proc_uid.euid,
 		data.proc_uid.gid, data.proc_uid.egid,
+		data.proc_uid.suid, data.proc_uid.sgid,
+		data.proc_uid.fsuid, data.proc_uid.fsgid,
 		data.proc_uid.pid, data.proc_uid.ppid,
 		data.proc_uid.pgrp, data.proc_uid.session,
 		data.proc_uid.tty, data.proc_uid.tpgid,
-		data.proc_uid.priority, data.proc_uid.nice);
+		data.proc_uid.priority, data.proc_uid.nice,
+		data.proc_uid.ngroups);
 		
+	if (data.proc_uid.ngroups) {
+		for (i = 0; i < data.proc_uid.ngroups; i++) {
+			if (i)
+				printf (" %d", data.proc_uid.groups [i]);
+			else
+				printf (" (%d", data.proc_uid.groups [i]);
+		}
+		printf (")");
+	}
+
+	printf ("\n");
+
 	glibtop_get_proc_mem (&data.proc_mem, pid);
 		
 	printf ("Proc_Mem     PID  %5d (0x%08lx): "
@@ -87,7 +104,9 @@ output (pid_t pid)
 	glibtop_get_proc_segment (&data.proc_segment, pid);
 
 	printf ("Proc_Segment PID  %5d (0x%08lx): "
-		"%lu %lu %lu %lu %lu 0x%lx 0x%lx 0x%lx\n", (int) pid,
+		"%lu %lu %lu %lu %lu 0x%lx 0x%lx 0x%lx "
+		"0x%lx 0x%lx 0x%lx 0x%lx 0x%lx "
+		"0x%lx 0x%lx 0x%lx 0x%lx\n", (int) pid,
 		(unsigned long) data.proc_segment.flags,
 		(unsigned long) data.proc_segment.text_rss,
 		(unsigned long) data.proc_segment.shlib_rss,
@@ -96,7 +115,16 @@ output (pid_t pid)
 		(unsigned long) data.proc_segment.dirty_size,
 		(unsigned long) data.proc_segment.start_code,
 		(unsigned long) data.proc_segment.end_code,
-		(unsigned long) data.proc_segment.start_stack);
+		(unsigned long) data.proc_segment.start_data,
+		(unsigned long) data.proc_segment.end_data,
+		(unsigned long) data.proc_segment.start_brk,
+		(unsigned long) data.proc_segment.end_brk,
+		(unsigned long) data.proc_segment.start_stack,
+		(unsigned long) data.proc_segment.start_mmap,
+		(unsigned long) data.proc_segment.arg_start,
+		(unsigned long) data.proc_segment.arg_end,
+		(unsigned long) data.proc_segment.env_start,
+		(unsigned long) data.proc_segment.env_end);
 
 	glibtop_get_proc_time (&data.proc_time, pid);
 		

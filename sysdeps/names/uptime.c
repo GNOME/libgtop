@@ -27,22 +27,24 @@
 
 const char *glibtop_names_uptime[GLIBTOP_MAX_UPTIME] =
 {
-    "uptime", "idletime"
+    "uptime", "idletime", "boot_time"
 };
 
 const unsigned glibtop_types_uptime[GLIBTOP_MAX_UPTIME] =
 {
-    GLIBTOP_TYPE_DOUBLE, GLIBTOP_TYPE_DOUBLE
+    GLIBTOP_TYPE_DOUBLE, GLIBTOP_TYPE_DOUBLE, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_uptime[GLIBTOP_MAX_UPTIME] =
 {
     N_ ("Uptime"),
-    N_ ("Idletime")
+    N_ ("Idletime"),
+    N_ ("Boot time")
 };
 
 const char *glibtop_descriptions_uptime[GLIBTOP_MAX_UPTIME] =
 {
     N_ ("Time in seconds since system boot"),
-    N_ ("Time in seconds the system spent in the idle task since system boot")
+    N_ ("Time in seconds the system spent in the idle task since system boot"),
+    N_ ("Boot time (seconds sice epoch)")
 };

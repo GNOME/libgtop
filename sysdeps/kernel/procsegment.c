@@ -100,7 +100,18 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 
     buf->start_code = proc_state.start_code;
     buf->end_code = proc_state.end_code;
+    buf->start_data = proc_state.start_data;
+    buf->end_data = proc_state.end_data;
+    buf->start_brk = proc_state.start_brk;
+    buf->end_brk = proc_state.brk;
+
     buf->start_stack = proc_state.start_stack;
+    buf->start_mmap = proc_state.start_mmap;
+
+    buf->arg_start = proc_state.arg_start;
+    buf->arg_end = proc_state.arg_end;
+    buf->env_start = proc_state.env_start;
+    buf->env_end = proc_state.env_end;
 
     buf->flags |= _glibtop_sysdeps_proc_segment_state;
 }

@@ -33,8 +33,9 @@ BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_UPTIME_UPTIME		0
 #define GLIBTOP_UPTIME_IDLETIME		1
+#define GLIBTOP_UPTIME_BOOT_TIME	2
 
-#define GLIBTOP_MAX_UPTIME		2
+#define GLIBTOP_MAX_UPTIME		3
 
 typedef struct _glibtop_uptime	glibtop_uptime;
 

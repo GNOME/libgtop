@@ -38,9 +38,18 @@ BEGIN_LIBGTOP_DECLS
 #define GLIBTOP_PROC_SEGMENT_DIRTY_SIZE		4
 #define GLIBTOP_PROC_SEGMENT_START_CODE		5
 #define GLIBTOP_PROC_SEGMENT_END_CODE		6
-#define GLIBTOP_PROC_SEGMENT_START_STACK	7
+#define GLIBTOP_PROC_SEGMENT_START_DATA		7
+#define GLIBTOP_PROC_SEGMENT_END_DATA		8
+#define GLIBTOP_PROC_SEGMENT_START_BRK		9
+#define GLIBTOP_PROC_SEGMENT_END_BRK		10
+#define GLIBTOP_PROC_SEGMENT_START_STACK	11
+#define GLIBTOP_PROC_SEGMENT_START_MMAP		12
+#define GLIBTOP_PROC_SEGMENT_ARG_START		13
+#define GLIBTOP_PROC_SEGMENT_ARG_END		14
+#define GLIBTOP_PROC_SEGMENT_ENV_START		15
+#define GLIBTOP_PROC_SEGMENT_ENV_END		16
 
-#define GLIBTOP_MAX_PROC_SEGMENT		8
+#define GLIBTOP_MAX_PROC_SEGMENT		17
 
 typedef struct _glibtop_proc_segment	glibtop_proc_segment;
 
@@ -54,10 +63,18 @@ struct _glibtop_proc_segment
 	data_rss,	/* data resident set size */
 	stack_rss,	/* stack resident set size */
 	dirty_size,	/* size of dirty pages */
-	start_code,
-				/* address of beginning of code segment */
+	start_code,	/* address of beginning of code segment */
 	end_code,	/* address of end of code segment */
-	start_stack;	/* address of the bottom of stack segment */
+	start_data,	/* address of beginning of data segment */
+	end_data,	/* address of end of data segment */
+	start_brk,
+	end_brk,
+	start_stack,	/* address of the bottom of stack segment */
+	start_mmap,
+	arg_start,
+	arg_end,
+	env_start,
+	env_end;
 };
 
 #define glibtop_get_proc_segment(p1, p2)	glibtop_get_proc_segment_l(glibtop_global_server, p1, p2)
