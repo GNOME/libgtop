@@ -86,11 +86,11 @@ struct _glibtop_proc_kernel
 int glibtop_get_proc_kernel_l (glibtop_client *client, glibtop_proc_kernel *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_KERNEL
-int glibtop_init_proc_kernel_p (glibtop *server);
-int glibtop_get_proc_kernel_p (glibtop *server, void *closure, glibtop_proc_kernel *buf, pid_t pid);
+int glibtop_init_proc_kernel_p (glibtop_server *server, glibtop_closure *closure);
+int glibtop_get_proc_kernel_p (glibtop_server *server, glibtop_closure *closure, glibtop_proc_kernel *buf, pid_t pid);
 #else
-int glibtop_init_proc_kernel_s (glibtop_server *server);
-int glibtop_get_proc_kernel_s (glibtop_server *server, void *closure, glibtop_proc_kernel *buf, pid_t pid);
+int glibtop_init_proc_kernel_s (glibtop_server *server, glibtop_closure *closure);
+int glibtop_get_proc_kernel_s (glibtop_server *server, glibtop_closure *closure, glibtop_proc_kernel *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

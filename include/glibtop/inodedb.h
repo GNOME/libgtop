@@ -58,7 +58,7 @@ glibtop_inodedb_lookup_s (glibtop_server *server,
 			  u_int64_t device, u_int64_t inode);
 
 void
-glibtop_inodedb_close_s (glibtop_server *server, void *closure, glibtop_inodedb *inodedb);
+glibtop_inodedb_close_s (glibtop_server *server, glibtop_closure *closure, glibtop_inodedb *inodedb);
 
 END_LIBGTOP_DECLS
 

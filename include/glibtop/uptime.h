@@ -56,11 +56,11 @@ struct _glibtop_uptime
 int glibtop_get_uptime_l (glibtop_client *client, glibtop_uptime *buf);
 
 #if GLIBTOP_SUID_UPTIME
-int glibtop_init_uptime_p (glibtop *server);
-int glibtop_get_uptime_p (glibtop *server, void *closure, glibtop_uptime *buf);
+int glibtop_init_uptime_p (glibtop_server *server, glibtop_closure *closure);
+int glibtop_get_uptime_p (glibtop_server *server, glibtop_closure *closure, glibtop_uptime *buf);
 #else
-int glibtop_init_uptime_s (glibtop_server *server);
-int glibtop_get_uptime_s (glibtop_server *server, void *closure, glibtop_uptime *buf);
+int glibtop_init_uptime_s (glibtop_server *server, glibtop_closure *closure);
+int glibtop_get_uptime_s (glibtop_server *server, glibtop_closure *closure, glibtop_uptime *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

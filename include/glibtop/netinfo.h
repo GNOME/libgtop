@@ -60,11 +60,11 @@ struct _glibtop_netinfo
 glibtop_ifaddr *glibtop_get_netinfo_l (glibtop_client *client, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
 
 #if GLIBTOP_SUID_NETINFO
-int glibtop_init_netinfo_p (glibtop *server);
-glibtop_ifaddr *glibtop_get_netinfo_p (glibtop *server, void *closure, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
+int glibtop_init_netinfo_p (glibtop_server *server, glibtop_closure *closure);
+glibtop_ifaddr *glibtop_get_netinfo_p (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
 #else
-int glibtop_init_netinfo_s (glibtop_server *server);
-glibtop_ifaddr *glibtop_get_netinfo_s (glibtop_server *server, void *closure, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
+int glibtop_init_netinfo_s (glibtop_server *server, glibtop_closure *closure);
+glibtop_ifaddr *glibtop_get_netinfo_s (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
 #endif
 
 #ifdef GLIBTOP_NAMES

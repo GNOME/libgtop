@@ -62,11 +62,11 @@ struct _glibtop_ppp
 int glibtop_get_ppp_l (glibtop_client *client, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn);
 
 #if GLIBTOP_SUID_PPP
-int glibtop_init_ppp_p (glibtop *server);
-int glibtop_get_ppp_p (glibtop *server, void *closure, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn);
+int glibtop_init_ppp_p (glibtop_server *server, glibtop_closure *closure);
+int glibtop_get_ppp_p (glibtop_server *server, glibtop_closure *closure, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn);
 #else
-int glibtop_init_ppp_s (glibtop_server *server);
-int glibtop_get_ppp_s (glibtop_server *server, void *closure, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn);
+int glibtop_init_ppp_s (glibtop_server *server, glibtop_closure *closure);
+int glibtop_get_ppp_s (glibtop_server *server, glibtop_closure *closure, glibtop_ppp *buf, unsigned short device, unsigned short use_isdn);
 #endif
 
 #ifdef GLIBTOP_NAMES

@@ -69,7 +69,7 @@ glibtop_backend_get (const char *backend_name, u_int64_t features,
 		     const char **backend_args, GError **error);
 
 void
-glibtop_backend_set_closure_data (glibtop_backend *backend, void *closure);
+glibtop_backend_set_closure_data (glibtop_backend *backend, glibtop_closure *closure);
 
 void *
 glibtop_backend_get_closure_data (glibtop_backend *backend);

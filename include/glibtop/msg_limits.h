@@ -64,11 +64,11 @@ struct _glibtop_msg_limits
 int glibtop_get_msg_limits_l (glibtop_client *client, glibtop_msg_limits *buf);
 
 #if GLIBTOP_SUID_MSG_LIMITS
-int glibtop_init_msg_limits_p (glibtop *server);
-int glibtop_get_msg_limits_p (glibtop *server, void *closure, glibtop_msg_limits *buf);
+int glibtop_init_msg_limits_p (glibtop_server *server, glibtop_closure *closure);
+int glibtop_get_msg_limits_p (glibtop_server *server, glibtop_closure *closure, glibtop_msg_limits *buf);
 #else
-int glibtop_init_msg_limits_s (glibtop_server *server);
-int glibtop_get_msg_limits_s (glibtop_server *server, void *closure, glibtop_msg_limits *buf);
+int glibtop_init_msg_limits_s (glibtop_server *server, glibtop_closure *closure);
+int glibtop_get_msg_limits_s (glibtop_server *server, glibtop_closure *closure, glibtop_msg_limits *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

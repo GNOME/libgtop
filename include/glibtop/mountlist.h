@@ -50,7 +50,7 @@ glibtop_mountentry *
 glibtop_get_mountlist_l (glibtop_client *client, glibtop_array *array, int all_fs);
 
 glibtop_mountentry *
-glibtop_get_mountlist_s (glibtop_server *server, void *closure, glibtop_array *array, int all_fs);
+glibtop_get_mountlist_s (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, int all_fs);
 
 #ifdef GLIBTOP_NAMES
 

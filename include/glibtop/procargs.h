@@ -44,15 +44,15 @@ char **
 glibtop_get_proc_args_l (glibtop_client *client, glibtop_array *array, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_ARGS
-int glibtop_init_proc_args_p (glibtop *server);
+int glibtop_init_proc_args_p (glibtop_server *server, glibtop_closure *closure);
 
 char **
-glibtop_get_proc_args_p (glibtop *server, void *closure, glibtop_array *array, pid_t pid);
+glibtop_get_proc_args_p (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, pid_t pid);
 #else
-int glibtop_init_proc_args_s (glibtop_server *server);
+int glibtop_init_proc_args_s (glibtop_server *server, glibtop_closure *closure);
 
 char **
-glibtop_get_proc_args_s (glibtop_server *server, void *closure, glibtop_array *array, pid_t pid);
+glibtop_get_proc_args_s (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

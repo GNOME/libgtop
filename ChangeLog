@@ -1,5 +1,15 @@
 2001-04-20  Martin Baulig  <baulig@suse.de>
 
+	* include/glibtop/*.h (glibtop_get_*_s, glibtop_get_*_pl):
+	Changed `void *closure' to `glibtop_closure *closure'.
+
+	* include/glibtop/*.h
+	(glibtop_init_*_s): Added `glibtop_closure *closure' argument.
+	(glibtop_init_*_p): Changed `glibtop *server' to
+	`glibtop_server *server' and added `glibtop_closure *closure'.
+
+2001-04-20  Martin Baulig  <baulig@suse.de>
+
 	* include/glibtop/glibtop-server.h
 	(glibtop_server_private): Removed this typedef.
 	(glibtop_server): Made the `_priv' field a `void *'.

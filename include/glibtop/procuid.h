@@ -88,11 +88,11 @@ struct _glibtop_proc_uid
 int glibtop_get_proc_uid_l (glibtop_client *client, glibtop_proc_uid *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_UID
-int glibtop_init_proc_uid_p (glibtop *server);
-int glibtop_get_proc_uid_p (glibtop *server, void *closure, glibtop_proc_uid *buf, pid_t pid);
+int glibtop_init_proc_uid_p (glibtop_server *server, glibtop_closure *closure);
+int glibtop_get_proc_uid_p (glibtop_server *server, glibtop_closure *closure, glibtop_proc_uid *buf, pid_t pid);
 #else
-int glibtop_init_proc_uid_s (glibtop_server *server);
-int glibtop_get_proc_uid_s (glibtop_server *server, void *closure, glibtop_proc_uid *buf, pid_t pid);
+int glibtop_init_proc_uid_s (glibtop_server *server, glibtop_closure *closure);
+int glibtop_get_proc_uid_s (glibtop_server *server, glibtop_closure *closure, glibtop_proc_uid *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

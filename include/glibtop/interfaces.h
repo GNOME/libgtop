@@ -180,11 +180,11 @@ struct _glibtop_interface
 glibtop_interface *glibtop_get_interface_names_l (glibtop_client *client, glibtop_array *array, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
 
 #if GLIBTOP_SUID_INTERFACE_NAMES
-int glibtop_init_interface_names_p (glibtop *server);
-glibtop_interface *glibtop_get_interface_names_p (glibtop *server, void *closure, glibtop_array *array, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
+int glibtop_init_interface_names_p (glibtop_server *server, glibtop_closure *closure);
+glibtop_interface *glibtop_get_interface_names_p (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
 #else
-int glibtop_init_interface_names_s (glibtop_server *server);
-glibtop_interface *glibtop_get_interface_names_s (glibtop_server *server, void *closure, glibtop_array *array, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
+int glibtop_init_interface_names_s (glibtop_server *server, glibtop_closure *closure);
+glibtop_interface *glibtop_get_interface_names_s (glibtop_server *server, glibtop_closure *closure, glibtop_array *array, u_int64_t interface, u_int64_t number, u_int64_t instance, u_int64_t strategy);
 #endif
 
 #ifdef GLIBTOP_NAMES
