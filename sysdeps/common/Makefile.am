@@ -14,7 +14,7 @@ CFLAGS				= @CFLAGS@ $(inodedb_DEFS)
 noinst_LTLIBRARIES		= libgtop_common-2.0.la libgtop_suid_common-2.0.la
 
 libgtop_common_2_0_la_SOURCES	= error.c gnuslib.c \
-				  fsusage.c fsusage.h fsusage-frontend.c \
+				  fsusage.c \
                                   mountlist.c mountlist.h \
 				  $(inodedb_SRCLIST)
 

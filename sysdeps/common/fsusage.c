@@ -20,9 +20,11 @@
 # include <config.h>
 #endif
 
+#include <glibtop.h>
+#include <glibtop/fsusage.h>
+
 #include <sys/types.h>
 #include <sys/stat.h>
-#include "fsusage.h"
 
 #if HAVE_LIMITS_H
 # include <limits.h>
@@ -99,17 +101,30 @@ int statvfs ();
    Return 0 if successful, -1 if not.  When returning -1, ensure that
    ERRNO is either a system error value, or zero if DISK is NULL
    on a system that requires a non-NULL value.  */
-int
-glibtop_private_get_fs_usage (const char *path, const char *disk, struct fs_usage *fsp)
+
+
+static const unsigned long _glibtop_sysdeps_fsusage =
+(1L << GLIBTOP_FSUSAGE_BLOCKS) + (1L << GLIBTOP_FSUSAGE_BFREE)
++ (1L << GLIBTOP_FSUSAGE_BAVAIL) + (1L << GLIBTOP_FSUSAGE_FILES)
++ (1L << GLIBTOP_FSUSAGE_FFREE) + (1L << GLIBTOP_FSUSAGE_BLOCK_SIZE);
+
+
+void
+glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
+		       const char *path)
 {
+  glibtop_init_r (&server, 0, 0);
+
+  memset (buf, 0, sizeof (glibtop_fsusage));
+
 #ifdef STAT_STATFS3_OSF1
 
   struct statfs fsd;
 
   if (statfs (path, &fsd, sizeof (struct statfs)) != 0)
-    return -1;
+    return;
 
-  fsp->fsu_blocksize = PROPAGATE_ALL_ONES (fsd.f_fsize);
+  buf->block_size = PROPAGATE_ALL_ONES (fsd.f_fsize);
 
 #endif /* STAT_STATFS3_OSF1 */
 
@@ -118,15 +133,15 @@ glibtop_private_get_fs_usage (const char *path, const char *disk, struct fs_usag
   struct fs_data fsd;
 
   if (statfs (path, &fsd) != 1)
-    return -1;
+    return;
 
-  fsp->fsu_blocksize = 1024;
-  fsp->fsu_blocks = PROPAGATE_ALL_ONES (fsd.fd_req.btot);
-  fsp->fsu_bfree = PROPAGATE_ALL_ONES (fsd.fd_req.bfree);
-  fsp->fsu_bavail = PROPAGATE_TOP_BIT (fsd.fd_req.bfreen);
-  fsp->fsu_bavail_top_bit_set = EXTRACT_TOP_BIT (fsd.fd_req.bfreen) != 0;
-  fsp->fsu_files = PROPAGATE_ALL_ONES (fsd.fd_req.gtot);
-  fsp->fsu_ffree = PROPAGATE_ALL_ONES (fsd.fd_req.gfree);
+  buf->block_size = 1024;
+  buf->blocks = PROPAGATE_ALL_ONES (fsd.fd_req.btot);
+  buf->bfree = PROPAGATE_ALL_ONES (fsd.fd_req.bfree);
+  buf->bavail = PROPAGATE_TOP_BIT (fsd.fd_req.bfreen);
+  // buf->bavail_top_bit_set = EXTRACT_TOP_BIT (fsd.fd_req.bfreen) != 0;
+  buf->files = PROPAGATE_ALL_ONES (fsd.fd_req.gtot);
+  buf->ffree = PROPAGATE_ALL_ONES (fsd.fd_req.gfree);
 
 #endif /* STAT_STATFS2_FS_DATA */
 
@@ -135,9 +150,9 @@ glibtop_private_get_fs_usage (const char *path, const char *disk, struct fs_usag
   struct statfs fsd;
 
   if (statfs (path, &fsd) < 0)
-    return -1;
+    return;
 
-  fsp->fsu_blocksize = PROPAGATE_ALL_ONES (fsd.f_bsize);
+  buf->block_size = PROPAGATE_ALL_ONES (fsd.f_bsize);
 
 # ifdef STATFS_TRUNCATES_BLOCK_COUNTS
 
@@ -161,9 +176,9 @@ glibtop_private_get_fs_usage (const char *path, const char *disk, struct fs_usag
   struct statfs fsd;
 
   if (statfs (path, &fsd) < 0)
-    return -1;
+    return;
 
-  fsp->fsu_blocksize = PROPAGATE_ALL_ONES (fsd.f_fsize);
+  buf->block_size = PROPAGATE_ALL_ONES (fsd.f_fsize);
 
 #endif /* STAT_STATFS2_FSIZE */
 
@@ -176,15 +191,15 @@ glibtop_private_get_fs_usage (const char *path, const char *disk, struct fs_usag
   struct statfs fsd;
 
   if (statfs (path, &fsd, sizeof fsd, 0) < 0)
-    return -1;
+    return;
 
   /* Empirically, the block counts on most SVR3 and SVR3-derived
      systems seem to always be in terms of 512-byte blocks,
      no matter what value f_bsize has.  */
 # if _AIX || defined _CRAY
-   fsp->fsu_blocksize = PROPAGATE_ALL_ONES (fsd.f_bsize);
+   buf->block_size = PROPAGATE_ALL_ONES (fsd.f_bsize);
 # else
-   fsp->fsu_blocksize = 512;
+   buf->block_size = 512;
 # endif
 
 #endif /* STAT_STATFS4 */
@@ -194,10 +209,10 @@ glibtop_private_get_fs_usage (const char *path, const char *disk, struct fs_usag
   struct statvfs fsd;
 
   if (statvfs (path, &fsd) < 0)
-    return -1;
+    return;
 
   /* f_frsize isn't guaranteed to be supported.  */
-  fsp->fsu_blocksize = (fsd.f_frsize
+  buf->block_size = (fsd.f_frsize
 			? PROPAGATE_ALL_ONES (fsd.f_frsize)
 			: PROPAGATE_ALL_ONES (fsd.f_bsize));
 
@@ -206,23 +221,23 @@ glibtop_private_get_fs_usage (const char *path, const char *disk, struct fs_usag
 #if !defined STAT_STATFS2_FS_DATA && !defined STAT_READ_FILSYS
 				/* !Ultrix && !SVR2 */
 
-  fsp->fsu_blocks = PROPAGATE_ALL_ONES (fsd.f_blocks);
-  fsp->fsu_bfree = PROPAGATE_ALL_ONES (fsd.f_bfree);
-  fsp->fsu_bavail = PROPAGATE_TOP_BIT (fsd.f_bavail);
-  fsp->fsu_bavail_top_bit_set = EXTRACT_TOP_BIT (fsd.f_bavail) != 0;
-  fsp->fsu_files = PROPAGATE_ALL_ONES (fsd.f_files);
-  fsp->fsu_ffree = PROPAGATE_ALL_ONES (fsd.f_ffree);
+  buf->blocks = PROPAGATE_ALL_ONES (fsd.f_blocks);
+  buf->bfree = PROPAGATE_ALL_ONES (fsd.f_bfree);
+  buf->bavail = PROPAGATE_TOP_BIT (fsd.f_bavail);
+  // buf->bavail_top_bit_set = EXTRACT_TOP_BIT (fsd.f_bavail) != 0;
+  buf->files = PROPAGATE_ALL_ONES (fsd.f_files);
+  buf->ffree = PROPAGATE_ALL_ONES (fsd.f_ffree);
 
 #endif /* not STAT_STATFS2_FS_DATA && not STAT_READ_FILSYS */
 
-  return 0;
+  buf->flags= _glibtop_sysdeps_fsusage;
 }
 
 #if defined _AIX && defined _I386
 /* AIX PS/2 does not supply statfs.  */
 
 static int
-statfs (char *path, struct statfs *fsb)
+statfs (const char *path, struct statfs *fsb)
 {
   struct stat stats;
   struct dustat fsd;

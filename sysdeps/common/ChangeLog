@@ -1,5 +1,13 @@
 2004-06-12  Benoît Dejean  <tazforever@dlfp.org>
 
+	* Makefile.am:
+	* fsusage-frontend.c:
+	* fsusage.h: Removed files.
+	
+	* fsusage.c: (glibtop_get_fsusage_s), (statfs): Merged and cleaned.	
+
+2004-06-12  Benoît Dejean  <tazforever@dlfp.org>
+
 	* mountlist.c: (xatoi) Removed, replaced by ISO strtoull. 
 	(fstype_to_string): Cleaned.
 	(read_filesystem_list) : Changed prototype. Cleaned and secured.
