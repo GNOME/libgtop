@@ -1,4 +1,4 @@
-This is LibGTop 0.30.0,
+This is LibGTop 0.99.2,
 
 a feature-freezed version of LibGTop for GNOME 1.0.
 
@@ -15,9 +15,7 @@ NOTE:  LibGTop is already feature-freezed for GNOME 1.0, so only bug fixes
 Sysdeps directory 'linux':
 ==========================
 
-* Add implementation `netload' and `ppp' with modems.
-
-* Add implementation for `proc_args'.
+* Add implementation for `ppp' with modems.
 
 Sysdeps directory 'freebsd':
 ============================
@@ -43,6 +41,6 @@ Everything except sysdeps directories:
 
 * Ready for Gnome 1.0. [ALREADY FEATURE FREEZED]
 
-December 15, 1998
+January 5, 1999
 
 Martin
