@@ -5,13 +5,214 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop-1.0.1\n"
-"POT-Creation-Date: 2000-05-14 17:02+0200\n"
-"PO-Revision-Date: 2000-05-05 19:23+00:00\n"
+"POT-Creation-Date: 2001-02-08 14:08+0300\n"
+"PO-Revision-Date: 2001-02-08 14:47+03:00\n"
 "Last-Translator: Valek Filippov <flpd@mfil.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=koi8-r\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: examples/smp.c:68
+#, c-format
+msgid "Ticks (%ld per second):"
+msgstr "Тики (%ld в секунду):"
+
+#: examples/smp.c:71
+msgid "Total"
+msgstr "Всего"
+
+#: examples/smp.c:71 sysdeps/names/mem.c:47
+msgid "User"
+msgstr "Пользователь"
+
+#: examples/smp.c:71 sysdeps/names/procuid.c:58
+msgid "Nice"
+msgstr "Nice"
+
+#: examples/smp.c:71
+msgid "Sys"
+msgstr "Сист."
+
+#: examples/smp.c:71
+msgid "Idle"
+msgstr "Ожидание"
+
+#: examples/smp.c:73
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+msgstr "ЦПУ      (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n\n"
+
+#: examples/smp.c:77
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "ЦПУ %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+
+#: examples/smp.c:94
+msgid "Percent:"
+msgstr "Процент:"
+
+#: examples/smp.c:95
+msgid "Total (%)"
+msgstr "Всего (%)"
+
+#: examples/smp.c:95
+msgid "User (%)"
+msgstr "Пользователь (%)"
+
+#: examples/smp.c:95
+msgid "Nice (%)"
+msgstr "Nice (%)"
+
+#: examples/smp.c:95
+msgid "Sys (%)"
+msgstr "Сист. (%)"
+
+#: examples/smp.c:96
+msgid "Idle (%)"
+msgstr "Прост. (%)"
+
+#: examples/smp.c:98
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+msgstr "ЦПУ          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n\n"
+
+#: examples/smp.c:114
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "ЦПУ %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+
+#: examples/smp.c:120
+msgid "Spin:"
+msgstr ""
+
+#: lib/read.c:75
+#, c-format
+msgid "read %d bytes"
+msgstr "прочитать %d байт"
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "размер прочитанных данных"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr "прочитать %d байт данных"
+
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr "записать %d байт"
+
+#: src/daemon/gnuserv.c:448
+msgid "Enable debugging"
+msgstr "Включить отладку"
+
+#: src/daemon/gnuserv.c:448
+msgid "DEBUG"
+msgstr "ОТЛАДКА"
+
+#: src/daemon/gnuserv.c:450
+msgid "Enable verbose output"
+msgstr "Включить подробный вывод"
+
+#: src/daemon/gnuserv.c:450
+msgid "VERBOSE"
+msgstr "ПОДРОБНО"
+
+#: src/daemon/gnuserv.c:452
+msgid "Don't fork into background"
+msgstr "Не порождать в фоне"
+
+#: src/daemon/gnuserv.c:452
+msgid "NO-DAEMON"
+msgstr ""
+
+#: src/daemon/gnuserv.c:454
+msgid "Invoked from inetd"
+msgstr "Получено от inetd"
+
+#: src/daemon/gnuserv.c:454
+msgid "INETD"
+msgstr "INETD"
+
+#: src/daemon/gnuserv.c:488
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Ошибка в параметре %s: %s\n"
+"Используйте \"%s --help\", чтобы увидеть полный список допустимых параметров "
+"командной строки.\n"
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "Неизвестная системная ошибка"
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: параметр `%s' сомнителен\n"
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: параметр `--%s' не допускает аргументов\n"
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: параметр `%c%s' не допускает аргументов\n"
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: параметр `%s' требует аргумент\n"
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: нераспознанный параметр `--%s'\n"
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: нераспознанный параметр `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: недопустимый параметр -- %c\n"
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: неправильный параметр -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: параметр требует аргумент -- %c\n"
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: параметр `-W %s' - сомнительный\n"
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: параметр `-W %s' не допускает аргументов\n"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
@@ -31,7 +232,7 @@ msgstr "Время ЦПУ в системном режиме"
 
 #: sysdeps/names/cpu.c:47
 msgid "CPU Time in the Idle Task"
-msgstr ""
+msgstr "Время ЦПУ в режиме ожидания"
 
 #: sysdeps/names/cpu.c:48
 msgid "Tick Frequency"
@@ -55,7 +256,7 @@ msgstr "SMP время ЦПУ в системном режиме"
 
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in the Idle Task"
-msgstr ""
+msgstr "Время SMP ЦПУ в режиме ожидания"
 
 #: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 msgid "Number of clock ticks since system boot"
@@ -63,19 +264,19 @@ msgstr "Число тиков часов с момента загрузки"
 
 #: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
 msgid "Number of clock ticks the system spent in user mode"
-msgstr "Число тиков часов проведенные системой в пользовательском режиме"
+msgstr "Число тиков часов проведенное системой в режиме пользователя"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr ""
+msgstr "Число тиков часов проведенное системой в режиме пользователя (nice)"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in system mode"
-msgstr "Число тиков часов проведенные системой в системном режиме"
+msgstr "Число тиков часов проведенное системой в системном режиме"
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr ""
+msgstr "Число тиков часов проведенное системой в режиме ожидания"
 
 #: sysdeps/names/cpu.c:63
 msgid "Tick frequency (default is 100)"
@@ -126,7 +327,8 @@ msgid "Last PID"
 msgstr "Последний ПИД"
 
 #: sysdeps/names/loadavg.c:47
-msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgid ""
+"Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
 msgstr "Число заданий запущенных одновременно в среднем за 1, 5 и 15 минут"
 
 #: sysdeps/names/loadavg.c:48
@@ -161,13 +363,9 @@ msgstr "Буферов"
 msgid "Cached"
 msgstr "Кэшировано"
 
-#: sysdeps/names/mem.c:47
-msgid "User"
-msgstr "Пользователь"
-
 #: sysdeps/names/mem.c:48
 msgid "Locked"
-msgstr ""
+msgstr "Заблокировано"
 
 #: sysdeps/names/mem.c:53
 msgid "Total physical memory in kB"
@@ -199,27 +397,25 @@ msgstr "Память используемая процессами пользователя в кБ"
 
 #: sysdeps/names/mem.c:60
 msgid "Memory in locked pages in kB"
-msgstr ""
+msgstr "Память в заблокированных страницах в кБ"
 
 #: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
 #: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
 #: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
-#, fuzzy
 msgid "Number of list elements"
-msgstr "Макс. число сегментов"
+msgstr "Число элементов списка"
 
 #: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
 #: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
 #: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
-#, fuzzy
 msgid "Total size of list"
-msgstr "Общий размер грязных страниц"
+msgstr "Общий размер списка"
 
 #: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
 #: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
 #: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
 msgid "Size of a single list element"
-msgstr ""
+msgstr "Размер одного элемента списка"
 
 #: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
 msgid "Size in kilobytes of message pool"
@@ -249,41 +445,129 @@ msgstr "Размер сегмента сообщения"
 msgid "Number of system message headers"
 msgstr "Число заголовков системных сообщений"
 
+#: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+msgid "Interface Flags"
+msgstr "Флаги интерфейса"
+
+#: sysdeps/names/netload.c:46
+msgid "MTU"
+msgstr "MTU"
+
+#: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
+msgid "Subnet"
+msgstr "Подсеть"
+
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
+msgid "Address"
+msgstr "Адрес"
+
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
+msgid "Packets In"
+msgstr "Пакетов получено"
+
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+msgid "Packets Out"
+msgstr "Пакетов отправлено"
+
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+msgid "Packets Total"
+msgstr "Пакетов всего"
+
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+msgid "Bytes In"
+msgstr "Байт принято"
+
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+msgid "Bytes Out"
+msgstr "Байт отправлено"
+
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+msgid "Bytes Total"
+msgstr "Байт всего"
+
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+msgid "Errors In"
+msgstr "Ошибки при приеме"
+
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+msgid "Errors Out"
+msgstr "Ошибки при отправке"
+
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+msgid "Errors Total"
+msgstr "Ошибок всего"
+
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+msgid "Collisions"
+msgstr "Коллизии"
+
+#: sysdeps/names/netload.c:64
+msgid "Maximum Transfer Unit"
+msgstr "Максимальная единица передачи (MTU)"
+
+#: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
+msgid "PPP State"
+msgstr "Состояние PPP"
+
+#: sysdeps/names/ppp.c:39
+msgid "Input bytes"
+msgstr "Получено байт"
+
+#: sysdeps/names/ppp.c:40
+msgid "Output bytes"
+msgstr "Отправлено байт"
+
+#: sysdeps/names/ppp.c:46
+msgid "Number of input bytes"
+msgstr "Число полученных байт"
+
+#: sysdeps/names/ppp.c:47
+msgid "Number of output bytes"
+msgstr "Число отправленных байт"
+
+#: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
+msgid "Size"
+msgstr "Размер"
+
+#: sysdeps/names/procargs.c:43
+msgid "Length in bytes of the returned string."
+msgstr "Длина возвращенной строки в байтах."
+
 #: sysdeps/names/prockernel.c:42
 msgid "K_Flags"
-msgstr ""
+msgstr "K_Flags"
 
 #: sysdeps/names/prockernel.c:42
 msgid "Min_Flt"
-msgstr ""
+msgstr "Min_Flt"
 
 #: sysdeps/names/prockernel.c:42
 msgid "Maj_Flt"
-msgstr ""
+msgstr "Maj_Flt"
 
 #: sysdeps/names/prockernel.c:42
 msgid "CMin_Flt"
-msgstr ""
+msgstr "CMin_Flt"
 
 #: sysdeps/names/prockernel.c:43
 msgid "CMaj_Flt"
-msgstr ""
+msgstr "CMaj_Flt"
 
 #: sysdeps/names/prockernel.c:43
 msgid "KStk_ESP"
-msgstr ""
+msgstr "KStk_ESP"
 
 #: sysdeps/names/prockernel.c:43
 msgid "KStk_EIP"
-msgstr ""
+msgstr "KStk_EIP"
 
 #: sysdeps/names/prockernel.c:43
 msgid "NWChan"
-msgstr ""
+msgstr "NWChan"
 
 #: sysdeps/names/prockernel.c:44
 msgid "WChan"
-msgstr ""
+msgstr "WChan"
 
 #. K_Flags
 #: sysdeps/names/prockernel.c:50
@@ -314,43 +598,41 @@ msgstr ""
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
-msgid "The number of minor faults that the process and its children have made."
+msgid ""
+"The number of minor faults that the process and its children have made."
 msgstr ""
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:68
-msgid "The number of major faults that the process and its children have made."
+msgid ""
+"The number of major faults that the process and its children have made."
 msgstr ""
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:71
 msgid ""
-"The current value of esp (32-bit stack pointer), as found in the kernel "
-"stack page for the process."
+"The current value of esp (32-bit stack pointer), as found in the kernel stack "
+"page for the process."
 msgstr ""
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr ""
+msgstr "Текущий EIP (32-битный указатель инструкции)."
 
 #. NWChan
 #: sysdeps/names/prockernel.c:76
 msgid ""
-"This is the \"channel\" in which the process is waiting.  This is the "
-"address of a system call, and can be looked up in a namelist if you need a "
-"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
-"see the WCHAN field in action)"
+"This is the \"channel\" in which the process is waiting.  This is the address "
+"of a system call, and can be looked up in a namelist if you need a textual "
+"name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to see the "
+"WCHAN field in action)"
 msgstr ""
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
 msgid "This is the textual name of the `nwchan' field."
 msgstr "Это текстовое название поля `nwchan'."
-
-#: sysdeps/names/procmem.c:47
-msgid "Size"
-msgstr "Размер"
 
 #: sysdeps/names/procmem.c:47
 msgid "Virtual"
@@ -366,11 +648,11 @@ msgstr "Разделяемой"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size"
-msgstr ""
+msgstr "Размер резидентного набора"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size Limit"
-msgstr ""
+msgstr "Предел размера резидентного набора"
 
 #: sysdeps/names/procmem.c:53
 msgid "Total # of pages of memory"
@@ -386,7 +668,7 @@ msgstr ""
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr ""
+msgstr "Число страниц разделяемой (mmap'd) памяти"
 
 #: sysdeps/names/procmem.c:57
 msgid ""
@@ -471,7 +753,7 @@ msgstr "Сигнал"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Blocked"
-msgstr ""
+msgstr "Заблокировано"
 
 #: sysdeps/names/procsignal.c:40
 msgid "SigIgnore"
@@ -483,7 +765,7 @@ msgstr "SigCatch"
 
 #: sysdeps/names/procsignal.c:45
 msgid "Mask of pending signals"
-msgstr ""
+msgstr "Маска ожидаемых сигналов"
 
 #: sysdeps/names/procsignal.c:46
 msgid "Mask of blocked signals"
@@ -515,21 +797,19 @@ msgstr "GID"
 
 #: sysdeps/names/procstate.c:45
 msgid "Basename of executable file in call to exec()"
-msgstr ""
+msgstr "Основное имя исполняемого файла в вызове exec()"
 
 #: sysdeps/names/procstate.c:46
 msgid "Single-Char code for process state (S=sleeping)"
 msgstr "Односимвольный код состояния процесса (S=sleeping)"
 
 #: sysdeps/names/procstate.c:47
-#, fuzzy
 msgid "UID of process"
-msgstr "реальный UID процесса"
+msgstr "UID процесса"
 
 #: sysdeps/names/procstate.c:48
-#, fuzzy
 msgid "GID of process"
-msgstr "реальный GID процесса"
+msgstr "GID процесса"
 
 #: sysdeps/names/proctime.c:44
 msgid "Start_Time"
@@ -561,7 +841,7 @@ msgstr "TimeOut"
 
 #: sysdeps/names/proctime.c:45
 msgid "It_Real_Value"
-msgstr ""
+msgstr "Это_действительное_значение"
 
 #: sysdeps/names/proctime.c:46
 msgid "Frequency"
@@ -665,10 +945,6 @@ msgstr "TPGid"
 msgid "Priority"
 msgstr "Приоритет"
 
-#: sysdeps/names/procuid.c:58
-msgid "Nice"
-msgstr "Nice"
-
 #: sysdeps/names/procuid.c:63
 msgid "User ID"
 msgstr "ID пользователя"
@@ -711,7 +987,7 @@ msgstr "ID группы терминального процесса"
 
 #: sysdeps/names/procuid.c:73
 msgid "Kernel scheduling priority"
-msgstr ""
+msgstr "Приоритет планирования ядра"
 
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
@@ -802,7 +1078,8 @@ msgid "Total number of swap pages that have been brought in since system boot"
 msgstr ""
 
 #: sysdeps/names/swap.c:53
-msgid "Total number of swap pages that have been brought out since system boot"
+msgid ""
+"Total number of swap pages that have been brought out since system boot"
 msgstr ""
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
@@ -823,7 +1100,7 @@ msgstr "Загрузка подкачки"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "System Uptime"
-msgstr ""
+msgstr "Время работы системы"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Load Averange"
@@ -835,7 +1112,7 @@ msgstr "Предел разделяемой памяти"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Message Queue Limits"
-msgstr ""
+msgstr "Пределы очереди сообщений"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
@@ -867,7 +1144,7 @@ msgstr "Информация о сигналах процесса"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Kernel Data information"
-msgstr ""
+msgstr "Информация о данных ядра процесса"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Segment information"
@@ -907,11 +1184,11 @@ msgstr "Список присоединенных сейчас файловых систем"
 
 #: sysdeps/names/uptime.c:38
 msgid "Uptime"
-msgstr ""
+msgstr "Время работы"
 
 #: sysdeps/names/uptime.c:39
 msgid "Idletime"
-msgstr ""
+msgstr "Время ожидания"
 
 #: sysdeps/names/uptime.c:44
 msgid "Time in seconds since system boot"
@@ -919,254 +1196,129 @@ msgstr "Время в секундах с момента загрузки системы"
 
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
+msgstr "Время в секундах потраченное системой на ожидание с момента загрузки"
+
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Hangup"
 msgstr ""
 
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "Неизвестная системная ошибка"
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr "Прерывать"
 
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: параметр `%s' сомнителен\n"
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "Выход"
 
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: параметр `--%s' не допускает аргументов\n"
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
+msgstr "Недопустимая инструкция"
 
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: параметр `%c%s' не допускает аргументов\n"
-
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: параметр `%s' требует аргумент\n"
-
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: нераспознанный параметр `--%s'\n"
-
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: нераспознанный параметр `%c%s'\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: недопустимый параметр -- %c\n"
-
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: неправильный параметр -- %c\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: параметр требует аргумент -- %c\n"
-
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: параметр `-W %s' - сомнительный\n"
-
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: параметр `-W %s' не допускает аргументов\n"
-
-#: lib/read.c:75
-#, c-format
-msgid "read %d bytes"
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
 msgstr ""
 
-#: lib/read_data.c:49
-msgid "read data size"
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "Прекратить"
+
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+msgid "EMT error"
+msgstr "Ошибка EMT"
+
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+msgid "Floating-point exception"
+msgstr "Исключение плавающей точки"
+
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "Убить"
+
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+msgid "Bus error"
+msgstr "Ошибка шины"
+
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
+msgstr "Нарушение сегментации"
+
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr "Плохой аргумент в системном вызове"
+
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
+msgstr "Неисправный канал"
+
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
 msgstr ""
 
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+msgid "Termination"
+msgstr "Обрыв"
+
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
 msgstr ""
 
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "Остановить"
+
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+msgid "Keyboard stop"
 msgstr ""
 
-#: src/daemon/gnuserv.c:448
-msgid "Enable debugging"
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "Продолжение"
+
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
+msgstr "Состояние потомка было изменено"
+
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+msgid "Background read from tty"
+msgstr "Фоновое чтение из tty"
+
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+msgid "Background write to tty"
+msgstr "Фоновая запись в tty"
+
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+msgid "I/O now possible"
+msgstr "Сейчас возможен ввод/вывод"
+
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr "Превышен предел ЦПУ"
+
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+msgid "File size limit exceeded"
+msgstr "Превышен предел размера файла"
+
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
 msgstr ""
 
-#: src/daemon/gnuserv.c:448
-msgid "DEBUG"
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
 msgstr ""
 
-#: src/daemon/gnuserv.c:450
-msgid "Enable verbose output"
-msgstr ""
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+msgid "Window size change"
+msgstr "Изменение размера окна"
 
-#: src/daemon/gnuserv.c:450
-msgid "VERBOSE"
-msgstr ""
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+msgid "Information request"
+msgstr "Запрос информации"
 
-#: src/daemon/gnuserv.c:452
-msgid "Don't fork into background"
-msgstr ""
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+msgid "User defined signal 1"
+msgstr "Сигнал пользователя 1"
 
-#: src/daemon/gnuserv.c:452
-msgid "NO-DAEMON"
-msgstr ""
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+msgid "User defined signal 2"
+msgstr "Сигнал пользователя 2"
 
-#: src/daemon/gnuserv.c:454
-msgid "Invoked from inetd"
-msgstr ""
-
-#: src/daemon/gnuserv.c:454
-msgid "INETD"
-msgstr ""
-
-#: src/daemon/gnuserv.c:488
-#, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-
-#~ msgid "SMP CPU Flags"
-#~ msgstr "SMP флаги ЦПУ"
-
-#~ msgid "Start_Data"
-#~ msgstr "Начало_данных"
-
-#~ msgid "End_Data"
-#~ msgstr "Конец_данных"
-
-#~ msgid "Start_MMap"
-#~ msgstr "Начало_MMAP"
-
-#~ msgid "Arg_Start"
-#~ msgstr "Начало_аргументов"
-
-#~ msgid "Arg_End"
-#~ msgstr "Конец_аргументов"
-
-#~ msgid "Env_Start"
-#~ msgstr "Начало_окружения"
-
-#~ msgid "Env_End"
-#~ msgstr "Конец_окружения"
-
-#~ msgid "Address of beginning of data segment"
-#~ msgstr "Адрес начала сегмента данных"
-
-#~ msgid "Address of end of data segment"
-#~ msgstr "Адрес конца сегмента данных"
-
-#~ msgid "RUID"
-#~ msgstr "RUID"
-
-#~ msgid "RGID"
-#~ msgstr "RGID"
-
-#~ msgid "Processor"
-#~ msgstr "Процессор"
-
-#~ msgid "Last Processor"
-#~ msgstr "Последний процессор"
-
-#~ msgid "effective UID of process"
-#~ msgstr "эффективный UID процесса"
-
-#~ msgid "effective GID of process"
-#~ msgstr "эффективный GID процесса"
-
-#~ msgid "processor"
-#~ msgstr "процессор"
-
-#~ msgid "last_processor"
-#~ msgstr "последний_процессор"
-
-#~ msgid "XCPU_Flags"
-#~ msgstr "XCPU_Flags"
-
-#~ msgid "SUid"
-#~ msgstr "SUid"
-
-#~ msgid "SGid"
-#~ msgstr "SGid"
-
-#~ msgid "FsUid"
-#~ msgstr "FsUid"
-
-#~ msgid "NGroups"
-#~ msgstr "NГруппы"
-
-#~ msgid "Groups"
-#~ msgstr "Группы"
-
-#~ msgid "Saved User ID"
-#~ msgstr "Сохраненный ID пользователя"
-
-#~ msgid "Saved Group ID"
-#~ msgstr "Сохраненный ID группы"
-
-#~ msgid "Filesystem User ID"
-#~ msgstr "ID пользователя файловой системы"
-
-#~ msgid "Filesystem Group ID"
-#~ msgstr "ID группы файловой системы"
-
-#~ msgid "Number of additional process groups"
-#~ msgstr "Число дополнительных групп процесса"
-
-#~ msgid "Additional process groups"
-#~ msgstr "Дополнительные группы процесса"
-
-#~ msgid "Pointer Size"
-#~ msgstr "Размер указателя"
-
-#~ msgid "Interface Names"
-#~ msgstr "Названия интерфейсов"
-
-#~ msgid "Boot time (seconds sice epoch)"
-#~ msgstr "Время загрузки (в секундах считая от Эпохи)"
-
-#~ msgid "No error"
-#~ msgstr "Нет ошибок"
-
-#~ msgid "Unknown error"
-#~ msgstr "Неизвестная ошибка"
-
-#~ msgid "Invalid argument"
-#~ msgstr "Неверный аргумент"
-
-#~ msgid "No such parameter"
-#~ msgstr "Нет такого параметра"
-
-#~ msgid "Attempted to modify a read-only value"
-#~ msgstr "Попытка изменить значение предназначенное только для чтения"
-
-#~ msgid "Parameter size mismatch"
-#~ msgstr "Несовпадение размера параметра"
-
-#~ msgid "Communication with LibGTop server failed"
-#~ msgstr "Не удалось соединиться с сервером LibGTop"
-
-#~ msgid "No such process"
-#~ msgstr "Нет такого процесса"
-
-#~ msgid "No kernel support"
-#~ msgstr "Нет поддержки ядра"
-
-#~ msgid "Incompatible kernel version"
-#~ msgstr "Несовместимая версия ядра"
