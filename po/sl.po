@@ -2,11 +2,10 @@
 # Copyright (C) 2000 Free Software Foundation, Inc.
 # Andraz Tori <andraz.tori1@guest.arnes.si>, 2000.
 #
-
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 2000-08-20 17:29+0200\n"
+"POT-Creation-Date: 2001-01-21 02:09+0100\n"
 "PO-Revision-Date: 2000-05-22 02:46+0200\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -1244,105 +1243,68 @@ msgstr "Èas v sekundah, ki jih je sistem prebil v praznih procesih od zagona"
 msgid "Boot time (seconds sice epoch)"
 msgstr "Èas zagona (sekund od epoha)"
 
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "Neznana sistemska napaka"
+#~ msgid "Unknown system error"
+#~ msgstr "Neznana sistemska napaka"
 
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: opcija `%s' je dvoumna\n"
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s: opcija `%s' je dvoumna\n"
 
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: opcija `--%s' ne dovoljuje argumenta\n"
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s: opcija `--%s' ne dovoljuje argumenta\n"
 
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: opcija `%c%s' ne dovoli argumenta\n"
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: opcija `%c%s' ne dovoli argumenta\n"
 
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: opcija `%s' potrebuje argument\n"
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s: opcija `%s' potrebuje argument\n"
 
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: neprepoznana opcija `--%s'\n"
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s: neprepoznana opcija `--%s'\n"
 
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: neprepoznana opcija `%c%s'\n"
+#~ msgid "%s: unrecognized option `%c%s'\n"
+#~ msgstr "%s: neprepoznana opcija `%c%s'\n"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: neveljavna opcija -- %c\n"
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s: neveljavna opcija -- %c\n"
 
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: neveljavna opcija -- %c\n"
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s: neveljavna opcija -- %c\n"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: opcija potrebuje argument -- %c\n"
+#~ msgid "%s: option requires an argument -- %c\n"
+#~ msgstr "%s: opcija potrebuje argument -- %c\n"
 
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: opcija `-W %s' je dvoumna\n"
+#~ msgid "%s: option `-W %s' is ambiguous\n"
+#~ msgstr "%s: opcija `-W %s' je dvoumna\n"
 
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: opcija `-W %s' ne dovoli argumenta\n"
+#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: opcija `-W %s' ne dovoli argumenta\n"
 
-#: lib/errors.c:31
-msgid "No error"
-msgstr "Brez napake"
+#~ msgid "No error"
+#~ msgstr "Brez napake"
 
-#: lib/errors.c:32
-msgid "Unknown error"
-msgstr "Neznana napaka"
+#~ msgid "Unknown error"
+#~ msgstr "Neznana napaka"
 
-#: lib/errors.c:33
-msgid "Invalid argument"
-msgstr "Napaèen argument"
+#~ msgid "Invalid argument"
+#~ msgstr "Napaèen argument"
 
-#: lib/errors.c:34
-msgid "No such parameter"
-msgstr "Tak parameter ne obstaja"
+#~ msgid "No such parameter"
+#~ msgstr "Tak parameter ne obstaja"
 
-#: lib/errors.c:35
-msgid "Attempted to modify a read-only value"
-msgstr "Poskus spremembe vrednosti, ki se lahko le bere"
+#~ msgid "Attempted to modify a read-only value"
+#~ msgstr "Poskus spremembe vrednosti, ki se lahko le bere"
 
-#: lib/errors.c:36
-msgid "Parameter size mismatch"
-msgstr "Napaèna velikost parametrov"
+#~ msgid "Parameter size mismatch"
+#~ msgstr "Napaèna velikost parametrov"
 
-#: lib/errors.c:37
-msgid "Communication with LibGTop server failed"
-msgstr "Komunikacija z LibGTop stre¾nikom ni uspela"
+#~ msgid "Communication with LibGTop server failed"
+#~ msgstr "Komunikacija z LibGTop stre¾nikom ni uspela"
 
-#: lib/errors.c:38
-msgid "No such process"
-msgstr "Tak¹nega procesa ni"
+#~ msgid "No such process"
+#~ msgstr "Tak¹nega procesa ni"
 
-#: lib/errors.c:39
-msgid "No kernel support"
-msgstr "Ni podpore v jedru"
+#~ msgid "No kernel support"
+#~ msgstr "Ni podpore v jedru"
 
-#: lib/errors.c:40
-msgid "Incompatible kernel version"
-msgstr "Nekompatibilna razlièica jedra"
+#~ msgid "Incompatible kernel version"
+#~ msgstr "Nekompatibilna razlièica jedra"
