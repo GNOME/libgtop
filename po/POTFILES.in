@@ -23,10 +23,6 @@ sysdeps/names/shm_limits.c
 sysdeps/names/swap.c
 sysdeps/names/sysdeps.c
 sysdeps/names/uptime.c
-support/easy-vsnprintf.c
-support/error.c
-support/error.h
-support/getopt.c
 lib/close.c
 lib/init.c
 lib/open.c
@@ -65,12 +61,10 @@ include/glibtop/uptime.h
 include/glibtop/xmalloc.h
 src/inodedb/file_by_inode.c
 src/inodedb/mkinodedb.c
-sysdeps/common/error.c
 sysdeps/common/fsusage.c
 sysdeps/common/inodedb.c
 sysdeps/common/mountlist.c
 sysdeps/common/sysdeps_suid.c
-sysdeps/common/xmalloc.c
 sysdeps/common/fsusage.h
 sysdeps/common/mountlist.h
 sysdeps/linux/close.c
