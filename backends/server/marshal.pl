@@ -31,7 +31,7 @@ print '';
 print '#include <glibtop/sysdeps.h>';
 print '#include <glibtop/union.h>';
 print '';
-print '#include <glibtop/command.h>';
+print '#include "command.h"';
 print '#include <glibtop/backend.h>';
 print '';
 print '#include <glibtop-backend-private.h>';
@@ -59,7 +59,8 @@ sub output {
     $space = $feature;
     $space =~ s/./ /g;
 
-    $features{++$feature_count} = $feature;
+    $features{++$feature_count} = $orig;
+    return if $orig =~ /^@/;
 
     if ($retval eq 'retval') {
       $retval_param = '&retval';
@@ -89,12 +90,16 @@ sub output {
     }
 
     $need_temp_storage = $always_use_temp_storage;
-    $size_code = "\t_LIBGTOP_SEND_len = 0;\n";
-    $marshal_code = "\t_LIBGTOP_SEND_offset = 0;\n";
-    $marshal_code .= "\tmemset (_LIBGTOP_SEND_buf, 0, _LIBGTOP_SEND_len);\n";
-    $marshal_code .= "\t_LIBGTOP_SEND_ptr = ".
+    $local_var_init_code = "\t/* variable initialization */\n";
+    $local_var_init_code .= "\t_LIBGTOP_SEND_len = 0;\n";
+    $local_var_init_code .= "\t_LIBGTOP_DATA_len = 0;\n";
+    $local_var_init_code .= "\t_LIBGTOP_SEND_offset = 0;\n";
+    $local_var_init_code  .= "\t_LIBGTOP_SEND_ptr = ".
 	  "(char *) _LIBGTOP_SEND_buf;\n";
+    $marshal_code = "\t/* marshal start */\n";
+    $marshal_code .= "\tmemset (_LIBGTOP_SEND_buf, 0, _LIBGTOP_SEND_len);\n";
     $first_param_name = '';
+    $size_code = '';
 
     $call_param = '';
     $param_decl = '';
@@ -128,12 +133,18 @@ sub output {
 	$call_param = $call_param . ', ' . $fields[$field];
 
 	$size_code .= "\t_LIBGTOP_SEND_len += ";
-	if (defined $sizeof_funcs->{$type}) {
-	  $size_code .= $sizeof_funcs->{$type}->($fields[$field]);
+	if ($typeinfo->{$type}->[2]) {
+	  $size_code .= sprintf ("sizeof (size_t)");
 	} else {
 	  $size_code .= sprintf ("sizeof (%s)", $c_type);
 	}
 	$size_code .= ";\n";
+
+	if (defined $sizeof_funcs->{$type}) {
+	  $size_code .= "\t_LIBGTOP_DATA_len += ";
+	  $size_code .= $sizeof_funcs->{$type}->($fields[$field]);
+	  $size_code .= ";\n";
+	}
 
 	$marshal_code .= "\t_LIBGTOP_SEND_ptr = ".
 	  "(char *) _LIBGTOP_SEND_buf + _LIBGTOP_SEND_offset;\n";
@@ -146,8 +157,8 @@ sub output {
 	}
 
 	$marshal_code .= "\t_LIBGTOP_SEND_offset += ";
-	if (defined $sizeof_funcs->{$type}) {
-	  $marshal_code .= $sizeof_funcs->{$type}->($fields[$field]);
+	if ($typeinfo->{$type}->[2]) {
+	  $marshal_code .= sprintf ("sizeof (size_t)");
 	} else {
 	  $marshal_code .= sprintf ("sizeof (%s)", $c_type);
 	}
@@ -157,11 +168,12 @@ sub output {
 
     $local_var_code = "";
     $local_var_code .= "\tunsigned _LIBGTOP_SEND_offset, _LIBGTOP_SEND_len;\n";
+    $local_var_code .= "\tunsigned _LIBGTOP_DATA_len;\n";
     if ($need_temp_len) {
       $local_var_code .= "\tunsigned _LIBGTOP_SEND_temp_len;\n";
     }
-    $local_var_code .= "\tvoid *_LIBGTOP_SEND_buf;\n";
-    $local_var_code .= "\tchar *_LIBGTOP_SEND_ptr;\n";
+    $local_var_code .= "\tvoid *_LIBGTOP_SEND_buf, *_LIBGTOP_DATA_buf;\n";
+    $local_var_code .= "\tchar *_LIBGTOP_SEND_ptr, *_LIBGTOP_DATA_ptr;\n";
     if ($retval !~ /^void$/) {
       $local_var_code .= sprintf ("\t%s retval = (%s) 0;\n",
 				  $retval, $retval);
@@ -169,19 +181,32 @@ sub output {
 
     $total_code = '';
 
-    $send_buf_code = "\t_LIBGTOP_SEND_buf = ";
+    $send_buf_code = "\t/* send buffer */\n";
+    $send_buf_code .= "\t_LIBGTOP_SEND_buf = ";
     if ($need_temp_storage) {
       $send_buf_code .= "glibtop_malloc_r (server, _LIBGTOP_SEND_len+1)";
     } else {
       $send_buf_code .= '(void *) &'.$first_param_name;
     }
+    $send_buf_code .= ";\n\n";
+
+    $send_buf_code .= "\t/* data buffer */\n";
+    $send_buf_code .= "\t_LIBGTOP_DATA_buf = ";
+    if ($need_temp_storage) {
+      $send_buf_code .= "glibtop_malloc_r (server, _LIBGTOP_DATA_len+1)";
+    } else {
+      $send_buf_code .= 'NULL';
+    }
     $send_buf_code .= ";\n";
+    $send_buf_code .= "\t_LIBGTOP_DATA_ptr = _LIBGTOP_DATA_buf;\n";
 
     $call_code = '';
     $call_code .= sprintf ("\t%sglibtop_call_i (server, backend, GLIBTOP_CMND_%s,\n",
 			   $call_prefix, &toupper($feature));
     $call_code .= sprintf ("\t\t\t%s%s, %s,\n", $call_prefix_space,
 			   "_LIBGTOP_SEND_len", "_LIBGTOP_SEND_buf");
+    $call_code .= sprintf ("\t\t\t%s%s, %s,\n", $call_prefix_space,
+			   "_LIBGTOP_DATA_len", "_LIBGTOP_DATA_buf");
     if ($line_fields[3] eq '') {
       $call_code .= sprintf ("\t\t\t%s0, NULL,\n", $call_prefix_space);
     } elsif ($line_fields[3] eq  'array') {
@@ -195,11 +220,16 @@ sub output {
 
     if ($need_temp_storage) {
       $send_buf_free_code = "\tglibtop_free_r (server, _LIBGTOP_SEND_buf);\n";
+      $send_buf_free_code .= "\tglibtop_free_r (server, _LIBGTOP_DATA_buf);\n";
     } else {
       $send_buf_free_code = "";
     }
 
-    $total_code .= sprintf ("%s\n%s\n%s\n%s\n%s\n",
+    if (!($size_code eq '')) {
+      $size_code = sprintf (qq[\t/* send size */\n%s\n], $size_code);
+    }
+
+    $total_code .= sprintf ("%s%s\n%s\n%s\n%s\n",
 			    $size_code, $send_buf_code, $marshal_code,
 			    $call_code, $send_buf_free_code);
 
@@ -227,8 +257,9 @@ sub output {
 			     $feature, 'glibtop_'.$feature, $param_decl);
     }
 
-    $total_code = sprintf ("%s{\n%s\n%s\n%s}\n", $func_decl,
-			   $local_var_code, $total_code);
+    $total_code = sprintf ("%s{\n%s\n%s\n%s\n%s}\n", $func_decl,
+			   $local_var_code, $local_var_init_code,
+			   $total_code);
 
 
     $total_code = sprintf ("#if GLIBTOP_SUID_%s\n\n%s\n#endif /* GLIBTOP_SUID_%s */\n\n",
@@ -242,9 +273,16 @@ $call_vector_code = '';
 for ($nr = 1; $nr <= $feature_count; $nr++) {
   $feature = $features{$nr};
 
-  $call_vector_code .= sprintf
-    (qq[\#if GLIBTOP_SUID_%s\n\t_glibtop_get_%s_c,\n\#else\n\tNULL,\n\#endif\n],
-     &toupper($feature), $feature);
+  $orig = $feature;
+  $feature =~ s/^@//;
+
+  if ($orig =~ /^@/) {
+    $call_vector_code .= sprintf (qq[\tNULL,\n]);
+  } else {
+    $call_vector_code .= sprintf
+      (qq[\#if GLIBTOP_SUID_%s\n\t_glibtop_get_%s_c,\n\#else\n\tNULL,\n\#endif\n],
+       &toupper($feature), $feature);
+  }
 }
 
 print 'glibtop_call_vector glibtop_backend_server_call_vector = {';

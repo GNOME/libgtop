@@ -31,7 +31,9 @@ libgtop_backend_server_la_LDFLAGS = \
 libgtop_server_SOURCES = \
 	server.c		\
 	server.h		\
-	demarshal.c
+	demarshal.c		\
+	version.c		\
+	io.c
 
 libgtop_server_LDADD = \
 	$(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid.la \
@@ -44,7 +46,14 @@ endif
 
 BUILT_SOURCES = \
 	marshal.c	\
-	demarshal.c
+	demarshal.c	\
+	command.h
+
+EXTRA_DIST = \
+	marshal.pl	\
+	demarshal.pl	\
+	command.pl	\
+	command.h.in
 
 CLEANFILES = $(BUILT_SOURCES)
 
@@ -55,4 +64,8 @@ marshal.c: marshal.pl $(top_builddir)/config.h $(top_srcdir)/features.def $(top_
 demarshal.c: demarshal.pl $(top_builddir)/config.h $(top_srcdir)/features.def $(top_srcdir)/scripts/c_types.pl
 	$(PERL) -I $(top_srcdir)/scripts $(srcdir)/demarshal.pl < $(top_srcdir)/features.def > tmp-t
 	mv tmp-t demarshal.c
+
+command.h: command.pl command.h.in $(top_builddir)/config.h $(top_srcdir)/features.def $(top_srcdir)/scripts/c_types.pl
+	$(PERL) -I $(top_srcdir)/scripts $(srcdir)/command.pl $(top_srcdir)/features.def $(srcdir)/command.h.in > tmp-t
+	mv tmp-t command.h
 

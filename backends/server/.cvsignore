@@ -7,3 +7,4 @@ Makefile.in
 marshal.c
 demarshal.c
 libgtop_server
+command.h

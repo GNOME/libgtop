@@ -33,8 +33,6 @@
 #include <glibtop/open.h>
 #include <glibtop/union.h>
 #include <glibtop/xmalloc.h>
-#include <glibtop/version.h>
-#include <glibtop/command.h>
 #include <glibtop/parameter.h>
 
 #include <fcntl.h>
@@ -42,12 +40,27 @@
 #include <sys/socket.h>
 #include <syslog.h>
 
+#include <glibtop/backend.h>
+#include <glibtop-backend-private.h>
+
+#include "command.h"
+
 BEGIN_LIBGTOP_DECLS
+
+#ifndef DEBUG
+#define DEBUG
+#endif
+
+#ifndef SLAVE_DEBUG
+#define SLAGE_DEBUG
+#endif
 
 /* Some don't have LOG_PERROR */
 #ifndef LOG_PERROR
 #define LOG_PERROR 0
 #endif
+
+#define LIBGTOP_VERSION_STRING "Libgtop %s server version %s (%u,%u,%u,%u)."
 
 #if defined(HAVE_GETDTABLESIZE)
 #define GET_MAX_FDS() getdtablesize()
@@ -57,10 +70,14 @@ BEGIN_LIBGTOP_DECLS
 #define GET_MAX_FDS() 256
 #endif
 
-void handle_slave_connection (int input, int output);
+void
+handle_slave_connection (int input, int output);
 
-void syslog_message (int priority, char *format, ...);
-void syslog_io_message (int priority, char *format, ...);
+int
+glibtop_demarshal_func_i (glibtop *server, glibtop_backend *backend, unsigned command, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, int *retval_ptr);
+
+void
+glibtop_send_version_i (glibtop *server, int fd);
 
 extern int enable_debug;
 extern int verbose_output;

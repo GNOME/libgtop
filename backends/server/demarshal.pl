@@ -31,10 +31,10 @@ print '';
 print '#include <glibtop/sysdeps.h>';
 print '#include <glibtop/union.h>';
 print '';
-print '#include <glibtop/command.h>';
 print '#include <glibtop/backend.h>';
 print '';
 print '#include <glibtop-backend-private.h>';
+print '#include "command.h"';
 print '';
 
 $feature_count = 0;
@@ -251,3 +251,25 @@ sub output {
   print $total_code;
 }
 
+$func_decl_code = sprintf
+  (qq[int\nglibtop_demarshal_func_i (glibtop *server, glibtop_backend *backend, unsigned command, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, int *retval_ptr)]);
+
+$switch_body_code = '';
+
+for ($nr = 1; $nr <= $feature_count; $nr++) {
+  $feature = $features{$nr};
+
+  $switch_body_code .= sprintf
+    (qq[\tcase GLIBTOP_CMND_%s:\n\t\treturn _glibtop_demarshal_%s_i\n\t\t\t(server, backend, send_ptr, send_size,\n\t\t\t data_ptr, data_size, retval_ptr);\n],
+     &toupper ($feature), $feature);
+}
+
+$switch_code = sprintf
+  (qq[\tswitch (command) {\n%s\tdefault:\n\t\treturn -GLIBTOP_ERROR_INVALID_ARGUMENT;\n\t}\n], $switch_body_code);
+
+$total_code = sprintf
+  (qq[%s\n{\n%s}\n\n], $func_decl_code, $switch_code);
+
+print $total_code;
+
+1;

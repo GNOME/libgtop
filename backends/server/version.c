@@ -23,33 +23,40 @@
    Boston, MA 02111-1307, USA.
 */
 
-#ifndef __GLIBTOP_BACKEND_PRIVATE_H__
-#define __GLIBTOP_BACKEND_PRIVATE_H__
+#include "server.h"
 
-struct _glibtop_backend_private
+void
+glibtop_send_version_i (glibtop *server, int fd)
 {
-    u_int64_t flags;
-    int input [2];		/* Pipe client <- server */
-    int output [2];		/* Pipe client -> server */
-    pid_t pid;			/* PID of the server */
-};
+    char buffer [BUFSIZ];
+    size_t size;
 
-void *
-glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
-		size_t send_size, const void *send_ptr,
-		size_t data_size, const void *data_ptr,
-		size_t recv_size, void *recv_ptr,
-		int *retval_ptr);
+    sprintf (buffer, LIBGTOP_VERSION_STRING,
+	     LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
+	     sizeof (glibtop_command),
+	     0,
+	     sizeof (glibtop_union),
+	     sizeof (glibtop_sysdeps));
+	
+    size = strlen (buffer) + 1;
 
-void
-glibtop_read_i (glibtop *server, glibtop_backend *backend,
-		size_t size, void *buf);
-
-void *
-glibtop_read_data_i (glibtop *server, glibtop_backend *backend);
-
-void
-glibtop_write_i (glibtop *server, glibtop_backend *backend,
-		 size_t size, void *buf);
-
+#ifdef DEBUG
+    fprintf (stderr, "SERVER ID: |%s|\n", buffer);
 #endif
+
+    if (fd == 0) {
+	if (write (1, (const void *) &size, sizeof (size)) < 0)
+	    glibtop_warn_io_r (server, "write");
+    } else {
+	if (send (fd, (const void *) &size, sizeof (size), 0) < 0)
+	    glibtop_warn_io_r (server, "send");
+    }
+
+    if (fd == 0) {
+	if (write (1, (const void *) buffer, size) < 0)
+	    glibtop_warn_io_r (server, "write");
+    } else {
+	if (send (fd, (const void *) buffer, size, 0) < 0)
+	    glibtop_warn_io_r (server, "send");
+    }
+}

@@ -2,6 +2,8 @@
 
 /* $Id$ */
 
+@@AUTOGEN_COMMENT@@
+
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
@@ -23,33 +25,27 @@
    Boston, MA 02111-1307, USA.
 */
 
-#ifndef __GLIBTOP_BACKEND_PRIVATE_H__
-#define __GLIBTOP_BACKEND_PRIVATE_H__
+#ifndef __GLIBTOP_COMMAND_H__
+#define __GLIBTOP_COMMAND_H__
 
-struct _glibtop_backend_private
+#include <glibtop.h>
+#include <glibtop/union.h>
+
+BEGIN_LIBGTOP_DECLS
+
+@@GLIBTOP_COMMAND_CONSTANTS@@
+
+#define _GLIBTOP_PARAM_SIZE		16
+
+typedef struct _glibtop_command		glibtop_command;
+
+struct _glibtop_command
 {
-    u_int64_t flags;
-    int input [2];		/* Pipe client <- server */
-    int output [2];		/* Pipe client -> server */
-    pid_t pid;			/* PID of the server */
+    u_int64_t	command;
+    u_int64_t	param_size, send_size, data_size;
+    char	parameter [_GLIBTOP_PARAM_SIZE];
 };
 
-void *
-glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
-		size_t send_size, const void *send_ptr,
-		size_t data_size, const void *data_ptr,
-		size_t recv_size, void *recv_ptr,
-		int *retval_ptr);
-
-void
-glibtop_read_i (glibtop *server, glibtop_backend *backend,
-		size_t size, void *buf);
-
-void *
-glibtop_read_data_i (glibtop *server, glibtop_backend *backend);
-
-void
-glibtop_write_i (glibtop *server, glibtop_backend *backend,
-		 size_t size, void *buf);
+END_LIBGTOP_DECLS
 
 #endif

@@ -23,7 +23,6 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop/command.h>
 #include <glibtop/xmalloc.h>
 
 #include <glibtop.h>
@@ -32,13 +31,16 @@
 
 #include <glibtop-backend-private.h>
 
+#include "command.h"
+
 void *
 glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
-		size_t send_size, const void *send_buf, size_t recv_size,
-		void *recv_buf, int *retval_ptr)
+		size_t send_size, const void *send_buf,
+		size_t data_size, const void *data_buf,
+		size_t recv_size, void *recv_ptr,
+		int *retval_ptr)
 {
     glibtop_command cmnd;
-    glibtop_response response;
     int retval;
 
     glibtop_init_r (&server, 0, 0);
@@ -53,13 +55,14 @@ glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
 
     if (send_size <= _GLIBTOP_PARAM_SIZE) {
 	memcpy (cmnd.parameter, send_buf, send_size);
-	cmnd.size = send_size;
+	cmnd.param_size = send_size;
     } else {
-	cmnd.data_size = send_size;
+	cmnd.send_size = send_size;
     }
 	
     glibtop_write_i (server, backend, sizeof (glibtop_command), &cmnd);
 
+#if 0
     glibtop_read_i (server, backend, sizeof (glibtop_response), &response);
 
 #ifdef DEBUG
@@ -82,6 +85,7 @@ glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
 
 	return ptr;
     }
+#endif
 
     return NULL;
 }

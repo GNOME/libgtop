@@ -1,5 +1,10 @@
 2000-01-02  Martin Baulig  <martin@home-of-linux.org>
 
+	* command.pl: New file. Creates `command.h' from `command.h.in'.
+	* command.h.in: New file. Template file for `command.h'.
+
+	* io.c, version.c: New files. Copied here from `src/daemon'.
+
 	* demarshal.pl: New file. Automatically creates `demarshal.c'.
 	* demarshal.c: This automatically created file handles the
 	demarshalling in the libgtop_server.

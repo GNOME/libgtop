@@ -107,4 +107,44 @@ main(int argc, char *argv[])
 void
 handle_slave_connection (int input, int output)
 {
+    glibtop_command _cmnd, *cmnd = &_cmnd;
+    char parameter [BUFSIZ];
+    size_t send_size = 0;
+
+    glibtop_send_version_i (glibtop_global_server, output);
+
+    while (do_read (input, cmnd, sizeof (glibtop_command))) {
+	fprintf (stderr, "Slave %d received command "
+		 "%d from client.\n", getpid (), cmnd->command);
+
+	if (cmnd->send_size >= BUFSIZ)
+	    glibtop_error ("Client sent %d bytes, but buffer is %d",
+			   cmnd->send_size, BUFSIZ);
+	else if (cmnd->param_size >= BUFSIZ)
+	    glibtop_error ("Client sent %d bytes, but buffer is %d",
+			   cmnd->param_size, BUFSIZ);
+
+	memset (parameter, 0, sizeof (parameter));
+
+	if (cmnd->send_size) {
+#ifdef SLAVE_DEBUG
+	    fprintf (stderr, "Client has %d bytes of data.\n",
+		     cmnd->send_size);
+#endif
+
+	    send_size = cmnd->send_size;
+	    do_read (input, parameter, send_size);
+	} else if (cmnd->param_size) {
+#ifdef SLAVE_DEBUG
+	    fprintf (stderr, "Client has %d bytes of parameter data.\n",
+		     cmnd->param_size);
+#endif
+	    send_size = cmnd->param_size;
+	    memcpy (parameter, cmnd->parameter, send_size);
+	}
+
+	glibtop_demarshal_func_i (glibtop_global_server, NULL,
+				  cmnd->command, parameter,
+				  send_size, NULL, 0, NULL);
+    }		
 }
