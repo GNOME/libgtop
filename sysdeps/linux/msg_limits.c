@@ -45,13 +45,11 @@ glibtop_init_msg_limits_s (glibtop *server)
 void
 glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 {
-	struct msginfo	msginfo;
+	struct msginfo msginfo;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MSG_LIMITS, 0);
 
 	memset (buf, 0, sizeof (glibtop_msg_limits));
-
-	buf->flags = _glibtop_sysdeps_msg_limits;
 
 	msgctl (0, IPC_INFO, (struct msqid_ds *) &msginfo);
 
@@ -62,4 +60,5 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 	buf->msgmni = msginfo.msgmni;
 	buf->msgssz = msginfo.msgssz;
 	buf->msgtql = msginfo.msgtql;
+	buf->flags = _glibtop_sysdeps_msg_limits;
 }

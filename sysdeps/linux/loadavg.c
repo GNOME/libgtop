@@ -62,7 +62,7 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 
 	buf->flags = _glibtop_sysdeps_loadavg;
 
-	while (isspace(*p)) p++;
+	p = next_token(p);
 
 	/* Older Linux versions don't have the nr_running/nr_tasks fields. */
 

@@ -1,3 +1,9 @@
+2004-09-24  Benoît Dejean  <tazforever@dlfp.org>
+
+	* loadavg.c: (glibtop_get_loadavg_s):
+	* msg_limits.c: (glibtop_get_msg_limits_s):
+	* shm_limits.c: (glibtop_get_shm_limits_s): Small cleanup.
+
 2004-09-23  Benoît Dejean  <tazforever@dlfp.org>
 
 	* glibtop_server.c:
