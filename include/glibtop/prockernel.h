@@ -76,7 +76,7 @@ extern void glibtop_get_proc_kernel_p __P((glibtop *, glibtop_proc_kernel *, pid
 extern void glibtop_get_proc_kernel_s __P((glibtop *, glibtop_proc_kernel *, pid_t));
 #endif
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

@@ -253,6 +253,7 @@ sysdeps/sun4/Makefile
 sysdeps/osf1/Makefile
 sysdeps/linux/Makefile
 sysdeps/kernel/Makefile
+sysdeps/freebsd/Makefile
 src/Makefile
 src/server/Makefile
 src/daemon/Makefile

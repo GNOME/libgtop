@@ -59,7 +59,7 @@ extern unsigned *glibtop_get_proclist_p __P((glibtop *, glibtop_proclist *));
 extern unsigned *glibtop_get_proclist_s __P((glibtop *, glibtop_proclist *));
 #endif
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

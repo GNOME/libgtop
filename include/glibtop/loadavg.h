@@ -55,7 +55,7 @@ extern void glibtop_get_loadavg_p __P((glibtop *, glibtop_loadavg *));
 extern void glibtop_get_loadavg_s __P((glibtop *, glibtop_loadavg *));
 #endif
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

@@ -70,7 +70,7 @@ extern void glibtop_get_proc_segment_p __P((glibtop *, glibtop_proc_segment *, p
 extern void glibtop_get_proc_segment_s __P((glibtop *, glibtop_proc_segment *, pid_t));
 #endif
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

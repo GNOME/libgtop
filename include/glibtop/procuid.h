@@ -79,7 +79,7 @@ extern void glibtop_get_proc_uid_p __P((glibtop *, glibtop_proc_uid *, pid_t));
 extern void glibtop_get_proc_uid_s __P((glibtop *, glibtop_proc_uid *, pid_t));
 #endif
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

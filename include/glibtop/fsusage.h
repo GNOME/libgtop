@@ -55,7 +55,7 @@ extern void glibtop_get_fsusage_l __P((glibtop *, glibtop_fsusage *, const char 
 
 extern void glibtop_get_fsusage_s __P((glibtop *, glibtop_fsusage *, const char *));
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

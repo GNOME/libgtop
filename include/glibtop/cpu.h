@@ -65,7 +65,7 @@ extern void glibtop_get_cpu_p __P((glibtop *, glibtop_cpu *));
 extern void glibtop_get_cpu_s __P((glibtop *, glibtop_cpu *));
 #endif
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

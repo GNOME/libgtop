@@ -81,7 +81,7 @@ struct _glibtop_sysdeps
 
 extern void glibtop_get_sysdeps_r __P((glibtop *, glibtop_sysdeps *));
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

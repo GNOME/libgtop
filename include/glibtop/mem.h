@@ -69,7 +69,7 @@ extern void glibtop_get_mem_p __P((glibtop *, glibtop_mem *));
 extern void glibtop_get_mem_s __P((glibtop *, glibtop_mem *));
 #endif
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

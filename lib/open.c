@@ -131,7 +131,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		close (server->input [1]);
 		close (server->output [0]);
 
-		sprintf (version, "Libgtop server %s ready.\n",
+		sprintf (version, "libgtop server %s ready.\n",
 			 LIBGTOP_VERSION);
 
 		glibtop_read_l (server, sizeof (nbytes), &nbytes);
@@ -145,6 +145,10 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		if (memcmp (version, buffer, strlen (version)))
 			glibtop_error_r (server, "server version is not %s",
 					 LIBGTOP_VERSION);
+
+		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
+		
+		server->features = -1;
 		break;
 	}
 

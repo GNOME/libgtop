@@ -65,7 +65,7 @@ extern const unsigned long glibtop_server_features;
 extern glibtop *glibtop_init_r __P((glibtop **, const unsigned long, const unsigned));
 extern glibtop *glibtop_init_s __P((glibtop **, const unsigned long, const unsigned));
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

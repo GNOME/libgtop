@@ -6,4 +6,5 @@ endif
 
 SUBDIRS			= @sysdeps_dir@ common names $(guile_SUBDIRS)
 
-DIST_SUBDIRS		= common guile linux kernel names osf1 stub sun4
+DIST_SUBDIRS		= common guile linux kernel names osf1 stub sun4 \
+			  freebsd

@@ -75,7 +75,7 @@ extern void glibtop_get_proc_time_p __P((glibtop *, glibtop_proc_time *, pid_t))
 extern void glibtop_get_proc_time_s __P((glibtop *, glibtop_proc_time *, pid_t));
 #endif
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

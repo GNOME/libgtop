@@ -63,7 +63,7 @@ extern glibtop_mountentry *glibtop_get_mountlist_l __P((glibtop *, glibtop_mount
 
 extern glibtop_mountentry *glibtop_get_mountlist_s __P((glibtop *, glibtop_mountlist *, int));
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

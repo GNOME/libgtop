@@ -1,3 +1,16 @@
+1998-08-06  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/*.h: Using `GLIBTOP_GUILE' instead of `HAVE_GUILE'
+	so one should be able to use libgtop without guile in an application
+	even if guile is installed.
+
+	* sysdeps/common/mountlist.c: Fixed some `xstrdup' problems.
+
+	* lib/open.c: Now correctly reading server features for
+	`GLIBTOP_METHOD_PIPE'.
+
+	* sysdeps/freebsd: New directory.
+
 1998-08-01  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/swap.h (glibtop_swap): Added `pagein' and `pageout'.

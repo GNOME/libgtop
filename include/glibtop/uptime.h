@@ -57,7 +57,7 @@ extern void glibtop_get_uptime_p __P((glibtop *, glibtop_uptime *));
 extern void glibtop_get_uptime_s __P((glibtop *, glibtop_uptime *));
 #endif
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

@@ -63,7 +63,7 @@ extern void glibtop_get_swap_p __P((glibtop *, glibtop_swap *));
 extern void glibtop_get_swap_s __P((glibtop *, glibtop_swap *));
 #endif
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 

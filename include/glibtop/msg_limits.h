@@ -67,7 +67,7 @@ extern void glibtop_get_msg_limits_p __P((glibtop *, glibtop_msg_limits *));
 extern void glibtop_get_msg_limits_s __P((glibtop *, glibtop_msg_limits *));
 #endif
 
-#ifdef HAVE_GUILE
+#ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 
