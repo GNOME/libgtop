@@ -50,13 +50,29 @@ __BEGIN_DECLS
 
 #define GLIBTOP_MAX_CMND		18
 
-typedef struct _glibtop_command	glibtop_command;
+#define _GLIBTOP_PARAM_SIZE		16
+
+typedef struct _glibtop_command		glibtop_command;
+typedef struct _glibtop_response	glibtop_response;
 
 struct _glibtop_command
 {
-  glibtop	server;
-  unsigned	command;
-  size_t	size;
+	glibtop		server;
+	unsigned	command;
+	size_t		size, data_size;
+	char		parameter [_GLIBTOP_PARAM_SIZE];
+};
+
+union _glibtop_response_union
+{
+	glibtop_union	data;
+	glibtop_sysdeps	sysdeps;
+};
+
+struct _glibtop_response
+{
+	size_t data_size;
+	union _glibtop_response_union u;
 };
 
 #define glibtop_call(p1, p2, p3, p4)	glibtop_call_r(glibtop_global_server, p1, p2, p3, p4)

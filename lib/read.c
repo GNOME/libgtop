@@ -26,26 +26,9 @@
 void
 glibtop_read_l (glibtop *server, size_t size, void *buf)
 {
-	size_t	ssize;
 	int ret;
 
 	glibtop_init_r (&server, 0, 0);
-
-#ifdef DEBUG
-	fprintf (stderr, "LIBRARY: reading %d bytes, should be %d.\n", sizeof (size_t), size);
-#endif
-
-	if (server->socket) {
-		ret = recv (server->socket, &ssize, sizeof (size_t), 0);
-	} else {
-		ret = read (server->input [0], &ssize, sizeof (size_t));
-	}
-
-	if (ret < 0)
-		glibtop_error_io_r (server, _("read size"));
-	
-	if (size != ssize)
-		glibtop_error_r (server, _("got %d bytes but requested %d (ret = %d)"), ssize, size, ret);
 
 #ifdef DEBUG
 	fprintf (stderr, "LIBRARY: really reading %d bytes.\n", size);

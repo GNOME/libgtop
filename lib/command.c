@@ -28,27 +28,43 @@
 
 void *
 glibtop_call_l (glibtop *server, unsigned command, size_t send_size, void *send_buf,
-		 size_t recv_size, void *recv_buf)
+		size_t recv_size, void *recv_buf)
 {
-	glibtop_command *cmnd;
+	glibtop_command cmnd;
+	glibtop_response response;
 	void *ptr;
 
 	glibtop_init_r (&server, 0, 0);
 
-	cmnd = glibtop_calloc_r (server, 1, sizeof (glibtop_command));
+	memset (&cmnd, 0, sizeof (glibtop_command));
+
+	memcpy (&cmnd.server, server, sizeof (glibtop));
 	
-	memcpy (&cmnd->server, server, sizeof (glibtop));
+	cmnd.command = command;
+
+	/* If send_size is less than _GLIBTOP_PARAM_SIZE (normally 16 Bytes), we
+	 * send it together with command, so we only need one system call instead
+	 * of two. */
+
+#ifdef DEBUG
+	fprintf (stderr, "COMMAND: send_size = %d; command = %d; sizeof (cmnd) = %d\n",
+		 send_size, command, sizeof (glibtop_command));
+#endif
+
+
+	if (send_size <= _GLIBTOP_PARAM_SIZE)
+		memcpy (cmnd.parameter, send_buf, send_size);
+	else
+		cmnd.size = send_size;
 	
-	cmnd->command = command;
-	cmnd->size = send_size;
-	
-	glibtop_write_l (server, sizeof (glibtop_command), cmnd);
+	glibtop_write_l (server, sizeof (glibtop_command), &cmnd);
 	glibtop_write_l (server, send_size, send_buf);
-	glibtop_read_l  (server, recv_size, recv_buf);
+
+	glibtop_read_l (server, sizeof (glibtop_response), &response);
+
+	/*	glibtop_read_l  (server, recv_size, recv_buf); */
 	
-	ptr = glibtop_read_data_l (server);
+	/* ptr = glibtop_read_data_l (server); */
 	
-	glibtop_free_r (server, cmnd);
-	
-	return ptr;
+	return NULL;
 }

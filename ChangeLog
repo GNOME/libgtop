@@ -1,3 +1,13 @@
+1998-06-18  Martin Baulig  <baulig@taurus.uni-trier.de>
+
+	* lib/{command, write, read}.c: Changed client <-> server
+	interface to make less system calls.
+
+	* src/daemon/main.c: Changed server side of interface.
+	
+	* include/glibtop/command.h (struct _glibtop_response): New
+	structure to return data from the server to the client.
+
 1998-06-14  Martin Baulig  <martin@home-of-linux.org>
 
 	* glibtop.h (struct _glibtop): Added `socket' field.
