@@ -44,9 +44,6 @@ glibtop_init_proclist_s (glibtop *server)
 	server->sysdeps.proclist = _glibtop_sysdeps_proclist;
 }
 
-#define BLOCK_COUNT	256
-#define BLOCK_SIZE	(BLOCK_COUNT * sizeof (unsigned))
-
 /* Fetch list of currently running processes.
  *
  * The interface of this function is a little bit different from the others:
@@ -66,15 +63,10 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 {
 	DIR *proc;
 	struct dirent *entry;
-	char buffer [BUFSIZ];
-	unsigned count, total, pid;
-	unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
-	unsigned pids_size = 0, pids_offset = 0, new_size;
-	struct stat statb;
-	int len, i, ok;
-
+	GArray *pids;
 	glibtop_proc_uid procuid;
 	glibtop_proc_state procstate;
+	struct stat statb;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROCLIST, 0);
 
@@ -83,29 +75,25 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	proc = opendir ("/proc");
 	if (!proc) return NULL;
 
+	if(stat("/proc", &statb)) return NULL;
+
+	pids = g_array_sized_new(FALSE, FALSE, sizeof(unsigned), statb.st_nlink);
+
 	/* read every every entry in /proc */
 
-	for (count = total = 0, entry = readdir (proc);
-	     entry; entry = readdir (proc)) {
-		ok = 1; len = strlen (entry->d_name);
+	while((entry = readdir (proc))) {
+		char buffer [64]; /* enough to hold "/proc/%ld" */
+		unsigned pid;
+		char *end;
 
-		/* does it consist entirely of digits? */
-
-		for (i = 0; i < len; i++)
-			if (!isdigit (entry->d_name [i])) ok = 0;
-		if (!ok) continue;
-
-		/* convert it in a number */
-
-		if (sscanf (entry->d_name, "%u", &pid) != 1) continue;
+		pid = strtoul(entry->d_name, &end, 0);
+		if(*end != '\0') continue;
 
 		/* is it really a directory? */
-
-		sprintf (buffer, "/proc/%d", pid);
-
+		sprintf (buffer, "/proc/%u", pid);
 		if (stat (buffer, &statb)) continue;
-
 		if (!S_ISDIR (statb.st_mode)) continue;
+
 
 		switch (which & GLIBTOP_KERN_PROC_MASK) {
 		case GLIBTOP_KERN_PROC_ALL:
@@ -157,7 +145,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		if (which & GLIBTOP_EXCLUDE_IDLE) {
 			glibtop_get_proc_state_s (server, &procstate, pid);
 			if (procstate.flags & (1L << GLIBTOP_PROC_STATE_STATE))
-				if (procstate.state != 'R') continue;
+				if (procstate.state != GLIBTOP_PROCESS_RUNNING) continue;
 		}
 
 		if (which & GLIBTOP_EXCLUDE_SYSTEM) {
@@ -166,66 +154,15 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 				if (procuid.uid == 0) continue;
 		}
 
-		/* Fine. Now we first try to store it in pids. If this buffer is
-		 * full, we copy it to the pids_chain. */
-
-		if (count >= BLOCK_COUNT) {
-			/* The following call to g_realloc will be
-			 * equivalent to g_malloc () if `pids_chain' is
-			 * NULL. We just calculate the new size and copy `pids'
-			 * to the beginning of the newly allocated block. */
-
-			new_size = pids_size + BLOCK_SIZE;
-
-			pids_chain = g_realloc (pids_chain, new_size);
-
-			memcpy (pids_chain + pids_offset, pids, BLOCK_SIZE);
-
-			pids_size = new_size;
-
-			pids_offset += BLOCK_COUNT;
-
-			count = 0;
-		}
-
-		/* pids is now big enough to hold at least one single pid. */
-
-		pids [count++] = pid;
-
-		total++;
+		g_array_append_val(pids, pid);
 	}
 
 	closedir (proc);
 
-	/* count is only zero if an error occured (one a running Linux system,
-	 * we have at least one single process). */
-
-	if (!count) return NULL;
-
-	/* The following call to g_realloc will be equivalent to
-	 * g_malloc if pids_chain is NULL. We just calculate the
-	 * new size and copy pids to the beginning of the newly allocated
-	 * block. */
-
-	new_size = pids_size + count * sizeof (unsigned);
-
-	pids_chain = g_realloc (pids_chain, new_size);
-
-	memcpy (pids_chain + pids_offset, pids, count * sizeof (unsigned));
-
-	pids_size = new_size;
-
-	pids_offset += BLOCK_COUNT;
-
-	/* Since everything is ok now, we can set buf->flags, fill in the
-	 * remaining fields and return the `pids_chain'. */
-
 	buf->flags = _glibtop_sysdeps_proclist;
-
 	buf->size = sizeof (unsigned);
-	buf->number = total;
+	buf->number = pids->len;
+	buf->total = buf->number * buf->size;
 
-	buf->total = total * sizeof (unsigned);
-
-	return pids_chain;
+	return (unsigned*) g_array_free(pids, FALSE);
 }
