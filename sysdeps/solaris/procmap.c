@@ -183,9 +183,9 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_array *array, pid_t pid)
 		    entry[i].filename[len] = 0;
 		    entry[i].flags |= (1L << GLIBTOP_MAP_ENTRY_FILENAME);
 		}
-#endif
 	    }
 	}
+#endif
     }
 
 #if GLIBTOP_SOLARIS_RELEASE >= 560
