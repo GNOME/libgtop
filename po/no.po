@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.2\n"
-"POT-Creation-Date: 1999-05-28 23:30+0200\n"
+"POT-Creation-Date: 1999-06-08 01:03+0200\n"
 "PO-Revision-Date: 1999-04-13 14:19+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@online.no>\n"
 "Language-Team: Norwegian <no@li.org>\n"
@@ -59,7 +59,7 @@ msgstr "SMP Prosessortid i Idle Task"
 
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "SMP CPU-flagg"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
@@ -694,9 +694,8 @@ msgid "XCPU_STime"
 msgstr "XCPU_STid"
 
 #: sysdeps/names/proctime.c:49
-#, fuzzy
 msgid "XCPU_Flags"
-msgstr "K_Flags"
+msgstr "XCPU_Flagg"
 
 #: sysdeps/names/proctime.c:54
 msgid "Start time of process in seconds since the epoch"
@@ -983,9 +982,8 @@ msgid "Server Features"
 msgstr "Vertsegenskaper"
 
 #: sysdeps/names/sysdeps.c:52
-#, fuzzy
 msgid "Pointer Size"
-msgstr "Skitten størrelse"
+msgstr "Pekerstørrelse"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
 msgid "CPU Usage"
@@ -1077,7 +1075,7 @@ msgstr "PPP-statistikk"
 
 #: sysdeps/names/sysdeps.c:80
 msgid "Pointer Size on the Server (in bits)"
-msgstr ""
+msgstr "Pekerstørrelse på tjeneren (i bits)"
 
 #: sysdeps/names/sysdeps.c:97
 msgid "Command line arguments of the process"
