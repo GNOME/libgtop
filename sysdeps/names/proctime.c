@@ -62,6 +62,6 @@ const char *glibtop_descriptions_proc_time[GLIBTOP_MAX_PROC_TIME] =
 	"to the process due to an interval timer."),
     N_ ("Tick frequency"),
     N_ ("SMP user-mode CPU time accumulated by process"),
-    N_ ("SMP kernel-mode CPU time accumulated by process")
+    N_ ("SMP kernel-mode CPU time accumulated by process"),
     N_ ("SMP CPU Flags")
 };
