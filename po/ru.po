@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop-1.0.1\n"
-"POT-Creation-Date: 2002-02-10 09:30-0500\n"
-"PO-Revision-Date: 2002-05-04 19:14+04:00\n"
+"POT-Creation-Date: 2002-05-19 08:37+0400\n"
+"PO-Revision-Date: 2002-05-11 23:11+04:00\n"
 "Last-Translator: Dmitry G. Mastrukov <dmitry@taurussoft.org>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -92,7 +92,7 @@ msgstr "ЦПУ %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:120
 msgid "Spin:"
-msgstr ""
+msgstr "Спин:"
 
 #: lib/read.c:75
 #, c-format
@@ -217,6 +217,14 @@ msgstr "%s: параметр \"-W %s\" - сомнительный\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: параметр \"-W %s\" не допускает аргументов\n"
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr "Показывать это справочное сообщение"
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
+msgstr "Отображать краткую справку по использованию"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
@@ -438,7 +446,7 @@ msgstr "Макс. размер очереди по умолчанию"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Max queues system wide"
-msgstr ""
+msgstr "Макс. размер системной очереди"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Message segment size"
@@ -586,12 +594,15 @@ msgid ""
 msgstr ""
 "Флаги ядра для процесса.\n"
 "\n"
-"В Linux в настоящий момент каждый флаг имеет установленный бит math, поскольку "
-"crt0.s проверяется на эмуляцию сопроцессора, так что флаг не влючается в вывод.\n"
+"В Linux в настоящий момент каждый флаг имеет установленный бит math, "
+"поскольку crt0.s проверяется на эмуляцию сопроцессора, так что флаг не "
+"влючается в вывод.\n"
 "\n"
-"Возможно, это щшибка, так как не каждый процесс является программой на языке C.\n"
+"Возможно, это щшибка, так как не каждый процесс является программой на языке "
+"C.\n"
 "\n"
-"Бит math должен быть десятичным числом  4, и отслеживаемый бит - десятичное число  10."
+"Бит math должен быть десятичным числом  4, и отслеживаемый бит - десятичное "
+"число  10."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:59
@@ -599,8 +610,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Число мелких промахов, сделанных процессом, которые не требуют "
-"загрузки страницы памяти с диска."
+"Число мелких промахов, сделанных процессом, которые не требуют загрузки "
+"страницы памяти с диска."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -608,20 +619,18 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Число крупных промахов, сделанных процессом, которые требуют "
-"загрузки страницы памяти с диска."
+"Число крупных промахов, сделанных процессом, которые требуют загрузки "
+"страницы памяти с диска."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
 msgid "The number of minor faults that the process and its children have made."
-msgstr ""
-"Число мелких промахов, сделанных процессом и его потомками."
+msgstr "Число мелких промахов, сделанных процессом и его потомками."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:68
 msgid "The number of major faults that the process and its children have made."
-msgstr ""
-"Число крупных промахов, сделанных процессом и его потомками."
+msgstr "Число крупных промахов, сделанных процессом и его потомками."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:71
@@ -645,10 +654,10 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Это \"channel\", в котором процесс ожидает.  Это адрес системного вызова, "
-"и он может быть найден в списке имён, если необходимо знать его название. "
-"(Если имеется текущий файл /etc/psdatabase, попробуйте ps -l для "
-"просмотра поля WCHAN в действии)"
+"Это \"channel\", в котором процесс ожидает.  Это адрес системного вызова, и "
+"он может быть найден в списке имён, если необходимо знать его название. "
+"(Если имеется текущий файл /etc/psdatabase, попробуйте ps -l для просмотра "
+"поля WCHAN в действии)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
@@ -699,9 +708,9 @@ msgid ""
 "which are swapped out."
 msgstr ""
 "Число страниц, которые процесс занимает в реальной памяти, минус 3 для "
-"административных нужд. Это значение -  просто страницы кода, данных или области "
-"стека. Это число не включает страницы, которые не были загружены по запросу "
-"или выгружены из памяти."
+"административных нужд. Это значение -  просто страницы кода, данных или "
+"области стека. Это число не включает страницы, которые не были загружены по "
+"запросу или выгружены из памяти."
 
 #: sysdeps/names/procmem.c:62
 msgid ""
@@ -913,8 +922,8 @@ msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
-"Время (в jiffies) перед тем, как следующий SIGALRM послан процессу по причине "
-"срабатывания таймера."
+"Время (в jiffies) перед тем, как следующий SIGALRM послан процессу по "
+"причине срабатывания таймера."
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
@@ -1058,7 +1067,7 @@ msgstr "Макс. значение семафора"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Adjust on exit max value"
-msgstr ""
+msgstr "Выровнять макс. значение при выходе"
 
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
 msgid "Max segment size"
@@ -1282,15 +1291,15 @@ msgstr "Нарушенный канал"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
-msgstr ""
+msgstr "Таймер"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
-msgstr "Обрыв"
+msgstr "Завершение"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Требующие внимания условия сокета"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
@@ -1330,11 +1339,11 @@ msgstr "Превышен предел размера файла"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
-msgstr ""
+msgstr "Витруальный таймер"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Профилированный таймер"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
