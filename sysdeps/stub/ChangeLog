@@ -1,3 +1,7 @@
+2004-12-23  Benoît Dejean  <tazforever@dlfp.org>
+
+	* netlist.c: (glibtop_get_netlist_s): Fixed.
+
 2004-11-13  Benoît Dejean  <tazforever@dlfp.org>
 
 	* Makefile.am:

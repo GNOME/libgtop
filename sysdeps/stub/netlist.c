@@ -1,9 +1,6 @@
 /* $Id$ */
 
-/* Copyright (C) 1998-99 Martin Baulig
-   This file is part of LibGTop 1.0.
-
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+/* This file is part of LibGTop 2.0.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -34,10 +31,10 @@ glibtop_init_netlist_s (glibtop *server)
 	server->sysdeps.netlist = _glibtop_sysdeps_netlist;
 }
 
-/* Provides load averange. */
-
-void
+char**
 glibtop_get_netlist_s (glibtop *server, glibtop_netlist *buf)
 {
 	memset (buf, 0, sizeof (glibtop_netlist));
+
+	return NULL;
 }
