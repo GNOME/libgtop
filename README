@@ -1,57 +1,8 @@
-Hi all,
+$Id$
 
-[PLEASE READ THE FILE ``README.LATEST'' FOR LATEST NEWS]
-
-this is the latest alpha version of libgtop, a library that fetches
-information about the running system such as cpu and memory usage,
-active processes etc. On Linux systems, these information are taken
-directly from the /proc filesystem. For other systems such as Solaris,
-where such programs need to be suid root (or only setgid kmem/mem on
-some systems), it provides a suid/setgid server that fetches those
-information and a client-side library that talks to this server.
-
-Main idea was to have the same interface for all operating systems,
-thus all system dependent details are hidden in the implementation
-of that server.
-
-Currently, it only works for Linux, documentation on how to port it
-to other systems is on the way. I'm planning to keep this site an
-up-to-date mirror of my local machine (which is connected to the
-internet over some expensive dialup connection, so I'll upload it about
-once every day I made significant changes) so that you can always find
-the latest version of the software here.
-
-I've written a simple guile interface for the library to show which
-information it can already fetch. See examples/third for details.
-
-Source Code:
+LATEST NEWS:
 ===========
 
-   libgtop-current-cvs.cpio.gz     is a cpio archive from the CVS repository
-   libgtop-current.cpio.gz         contains the lates checked out sources
-   libgtop-stable.cpio.gz          if present, it contains the last stable release
-
-Documentation:
-=============
-
-   libgtop.sgml                    is the SGML source of the (DocBook) documentation
-
-The next three files are only provided until they get too big to upload.
-
-   libgtop.tex                     TEX file of the documentation
-   libgtop.dvi                     DVI file of the documentation
-   libgtop.ps                      Postscript file of the documentation
-
-HTML-Documentation:
-==================
-
-   libgtop.shtml                   Start here to browse the HTML documentation
-
-Other stuff:
-===========
-
-   README, NEWS, ChangeLog         copied from the sources
-
-Enjoy it!
-
-Martin (martin@home-of-linux.org - baulig@merkur.uni-trier.de)
+Please look also in the file 'NEWS' for latest news.
+ 
+Martin
