@@ -1,5 +1,9 @@
 1999-10-17  Martin Baulig  <martin@home-of-linux.org>
 
+	* configure.in (DL_LIB): Check for dlopen() and AC_SUBST this.
+
+1999-10-17  Martin Baulig  <martin@home-of-linux.org>
+
 	* configure.in: Fixed typedef syntax for glibtop-config.h.
 	Thanks to Drazen Kacar for pointing this out.
 

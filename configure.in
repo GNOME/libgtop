@@ -200,6 +200,21 @@ AC_CHECK_HEADERS(memory.h)
 AC_CHECK_HEADERS(string.h strings.h, break)
 AC_REPLACE_FUNCS(strerror)
 
+dnl dlopen() and dlsym()
+DL_LIB=
+AC_CHECK_FUNCS(dlopen,,[
+  AC_CHECK_LIB(dl, dlopen, DL_LIB="-ldl", [
+    AC_CHECK_LIB(dld, shl_load, DL_LIB="-ldld", [
+      AC_CHECK_FUNCS(dlopen, DL_LIB="", DL_LIB="")
+    ])
+  ])
+])
+oLIBS="$LIBS"
+LIBS="$LIBS $DL_LIB"
+AC_CHECK_FUNCS(dlerror,,)
+LIBS="$oLIBS"
+AC_SUBST(DL_LIB)
+
 dnl Solaris
 AC_CHECK_LIB(kstat, kstat_open)
 AC_CHECK_FUNCS(getloadavg swapctl)
