@@ -1,3 +1,8 @@
+2005-01-13  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* POTFILES.in:
+	* POTFILES.skip: Don't translate examples/smp.c.
+
 2005-01-13  Christian Rose  <menthos@menthos.com>
 
 	* POTFILES.in: Added missing file.

@@ -1,6 +1,5 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-examples/smp.c
 lib/close.c
 lib/command.c
 lib/init.c
