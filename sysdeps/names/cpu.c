@@ -52,7 +52,7 @@ const char *glibtop_labels_cpu[GLIBTOP_MAX_CPU] =
     N_ ("SMP CPU Time in User Mode"),
     N_ ("SMP CPU Time in User Mode (nice)"),
     N_ ("SMP CPU Time in System Mode"),
-    N_ ("SMP CPU Time in the Idle Task")
+    N_ ("SMP CPU Time in the Idle Task"),
     N_ ("SMP CPU Flags")
 };
 

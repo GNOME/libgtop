@@ -1,3 +1,7 @@
+1999-04-18  Tuomas J. Lukka <lukka@iki.fi>
+
+	* Add missing comma in sysdeps/names/cpu.c
+
 1999-04-18  Martin Baulig  <martin@home-of-linux.org>
 
 	Thanks to Drazen Kacar for pointing out that not all processors must
