@@ -34,10 +34,9 @@ glibtop_guile_names_proc_time (void)
 	
 	for (i = 0; i < GLIBTOP_MAX_PROC_TIME; i++)
 		list = gh_append
-			(list, gh_list
-			 (gh_str02scm (glibtop_names_proc_time [i]),
-			  SCM_UNDEFINED),
-			 SCM_UNDEFINED);
+			(gh_list (list,
+				  gh_list (gh_str02scm (glibtop_names_proc_time [i])),
+				  SCM_UNDEFINED));
 	
 	return list;
 }
@@ -51,11 +50,10 @@ glibtop_guile_types_proc_time (void)
 	list = gh_list (SCM_UNDEFINED);
 	
 	for (i = 0; i < GLIBTOP_MAX_PROC_TIME; i++)
-		list = gh_appen
-			(list, gh_list
-			 (gh_str02scm (glibtop_types_proc_time [i]),
-			  SCM_UNDEFINED),
-			 SCM_UNDEFINED);
+		list = gh_append
+			(gh_list (list,
+				  gh_list (gh_str02scm (glibtop_types_proc_time [i])),
+				  SCM_UNDEFINED));
 	
 	return list;
 }
@@ -69,12 +67,11 @@ glibtop_guile_labels_proc_time (void)
 	list = gh_list (SCM_UNDEFINED);
 	
 	for (i = 0; i < GLIBTOP_MAX_PROC_TIME; i++)
-		list = gh_appen
-			(list, gh_list
-			 (gh_str02scm (gettext
-				       (glibtop_labels_proc_time [i])),
-			  SCM_UNDEFINED),
-			 SCM_UNDEFINED);
+		list = gh_append
+			(gh_list (list,
+				  gh_list (gh_str02scm (gettext
+							(glibtop_labels_proc_time [i]))),
+				  SCM_UNDEFINED));
 	
 	return list;
 }
@@ -88,12 +85,11 @@ glibtop_guile_descriptions_proc_time (void)
 	list = gh_list (SCM_UNDEFINED);
 	
 	for (i = 0; i < GLIBTOP_MAX_PROC_TIME; i++)
-		list = gh_appen
-			(list, gh_list
-			 (gh_str02scm (gettext
-				       (glibtop_descriptions_proc_time [i])),
-			  SCM_UNDEFINED),
-			 SCM_UNDEFINED);
+		list = gh_append
+			(gh_list (list,
+				  gh_list (gh_str02scm (gettext
+							(glibtop_descriptions_proc_time [i]))),
+				  SCM_UNDEFINED));
 	
 	return list;
 }

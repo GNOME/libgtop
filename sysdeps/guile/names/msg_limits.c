@@ -34,10 +34,9 @@ glibtop_guile_names_msg_limits (void)
 	
 	for (i = 0; i < GLIBTOP_MAX_MSG_LIMITS; i++)
 		list = gh_append
-			(list, gh_list
-			 (gh_str02scm (glibtop_names_msg_limits [i]),
-			  SCM_UNDEFINED),
-			 SCM_UNDEFINED);
+			(gh_list (list,
+				  gh_list (gh_str02scm (glibtop_names_msg_limits [i])),
+				  SCM_UNDEFINED));
 	
 	return list;
 }
@@ -52,10 +51,9 @@ glibtop_guile_types_msg_limits (void)
 	
 	for (i = 0; i < GLIBTOP_MAX_MSG_LIMITS; i++)
 		list = gh_append
-			(list, gh_list
-			 (gh_str02scm (glibtop_types_msg_limits [i]),
-			  SCM_UNDEFINED),
-			 SCM_UNDEFINED);
+			(gh_list (list,
+				  gh_list (gh_str02scm (glibtop_types_msg_limits [i])),
+				  SCM_UNDEFINED));
 	
 	return list;
 }
@@ -70,11 +68,10 @@ glibtop_guile_labels_msg_limits (void)
 	
 	for (i = 0; i < GLIBTOP_MAX_MSG_LIMITS; i++)
 		list = gh_append
-			(list, gh_list
-			 (gh_str02scm (gettext
-				       (glibtop_labels_msg_limits [i])),
-			  SCM_UNDEFINED),
-			 SCM_UNDEFINED);
+			(gh_list (list,
+				  gh_list (gh_str02scm (gettext
+							(glibtop_labels_msg_limits [i]))),
+				  SCM_UNDEFINED));
 	
 	return list;
 }
@@ -89,11 +86,10 @@ glibtop_guile_descriptions_msg_limits (void)
 	
 	for (i = 0; i < GLIBTOP_MAX_MSG_LIMITS; i++)
 		list = gh_append
-			(list, gh_list
-			 (gh_str02scm (gettext
-				       (glibtop_descriptions_msg_limits [i])),
-			  SCM_UNDEFINED),
-			 SCM_UNDEFINED);
+			(gh_list (list,
+				  gh_list (gh_str02scm (gettext
+							(glibtop_descriptions_msg_limits [i]))),
+				  SCM_UNDEFINED));
 	
 	return list;
 }
