@@ -36,8 +36,6 @@
 
 BEGIN_LIBGTOP_DECLS
 
-int table (int id, int index, char *addr, int nel, u_int lel);
-
 typedef struct _glibtop_machine		glibtop_machine;
 
 struct _glibtop_machine

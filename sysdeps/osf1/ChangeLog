@@ -1,3 +1,10 @@
+2000-02-24  Martin Baulig  <martin@home-of-linux.org>
+
+	Applied a patch from Aron Griffis <agriffis@bigfoot.com>.
+
+	* glibtop_machine.h: Don't declare table () here.
+	* netinfo.c: Reflect latest interface changes.
+
 1999-05-11  Martin Baulig  <martin@home-of-linux.org>
 
 	* procstate.c: Fixed implementation of the `state' field; added

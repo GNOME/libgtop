@@ -32,12 +32,12 @@ BEGIN_LIBGTOP_DECLS
 
 static inline void glibtop_suid_enter (glibtop *server) {
     setreuid (server->_priv->machine.uid, server->_priv->machine.euid);
-};
+}
 
 static inline void glibtop_suid_leave (glibtop *server) {
     if (setreuid (server->_priv->machine.euid, server->_priv->machine.uid))
 	_exit (1);
-};
+}
 
 void
 glibtop_init_p (glibtop *server, const unsigned long features,
