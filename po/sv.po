@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2004-01-06 02:45+0100\n"
+"POT-Creation-Date: 2004-08-04 22:50+0200\n"
+"PO-Revision-Date: 2004-08-04 22:50+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -264,9 +264,8 @@ msgid "Free file nodes"
 msgstr "Fria filnoder"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Blockerad"
+msgstr "Blockstorlek"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -419,14 +418,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Subnät"
+msgstr "IPv4-subnät"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Adress"
+msgstr "IPv4-adress"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -469,17 +466,17 @@ msgid "Collisions"
 msgstr "Kollisioner"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Adress"
+msgstr "IPv6-adress"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "IPv6-prefix"
 
+# Osäker.
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "IPv6-omfattning"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
@@ -1421,6 +1418,19 @@ msgstr "Användarsignal 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Användarsignal 2"
+
+#~ msgid "Subnet"
+#~ msgstr "Subnät"
+
+#~ msgid "Address"
+#~ msgstr "Adress"
+
+#~ msgid "Prefix"
+#~ msgstr "Prefix"
+
+# Osäker.
+#~ msgid "Scope"
+#~ msgstr "Omfattning"
 
 #~ msgid "read %d bytes"
 #~ msgstr "läste %d byte"
