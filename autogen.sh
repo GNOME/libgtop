@@ -14,13 +14,7 @@ PKG_NAME="GNOME Portable System Access Library"
     exit 1
 }
 
-if test `uname` = 'SunOS' ; then
-  NO_LIBTOOLIZE=yes . $srcdir/macros/autogen.sh
-else
-  . $srcdir/macros/autogen.sh
-fi
-
-cp -f $srcdir/po/Makefile.in.in.in $srcdir/po/Makefile.in.in
+USE_GNOME_2_MACROS=1 . gnome-autogen.sh
 
 echo ""
 echo " *** IMPORTANT *** "
