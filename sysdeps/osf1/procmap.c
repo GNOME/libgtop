@@ -36,13 +36,15 @@ int
 glibtop_init_proc_map_p (glibtop *server)
 {
     server->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
 
 glibtop_map_entry *
-glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
+glibtop_get_proc_map_p (glibtop *server, glibtop_array *array, pid_t pid)
 {
-    memset (buf, 0, sizeof (glibtop_proc_map));
+    memset (array, 0, sizeof (glibtop_array));
     return NULL;
 }

@@ -13,7 +13,8 @@ libgtop_sysdeps_la_LIBADD	= -lmach
 libgtop_sysdeps_suid_la_SOURCES	= open_suid.c close_suid.c proclist.c \
 				  procstate.c procuid.c proctime.c procmem.c \
 				  procsignal.c prockernel.c procsegment.c \
-				  procmap.c procargs.c netload.c
+				  procmap.c procargs.c netload.c netinfo.c \
+				  interfaces.c
 libgtop_sysdeps_suid_la_LDFLAGS	= $(LT_VERSION_INFO)
 libgtop_sysdeps_suid_la_LIBADD	= -lmach
 

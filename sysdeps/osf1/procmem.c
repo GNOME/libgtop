@@ -47,6 +47,8 @@ int
 glibtop_init_proc_mem_p (glibtop *server)
 {
     server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -68,7 +70,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	
     ret = task_by_unix_pid (task_self(), pid, &thistask);
 	
-    if (ret != KERN_SUCCESS) return;
+    if (ret != KERN_SUCCESS) return -1;
 	
     /* Get taskinfo about this task. */
 	
@@ -77,7 +79,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
     ret = task_info (thistask, TASK_BASIC_INFO,
 		     (task_info_t) &taskinfo, &info_count);
 	
-    if (ret != KERN_SUCCESS) return;
+    if (ret != KERN_SUCCESS) return -1;
 
     buf->resident = taskinfo.resident_size;
     buf->rss = taskinfo.resident_size;
@@ -94,7 +96,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 		     
     /* !!! END OF SUID ROOT PART !!! */
 	
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 	
     buf->rss_rlim = u.u_rlimit [RLIMIT_RSS].rlim_cur;
 
@@ -102,4 +104,6 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
     buf->flags |= (1L << GLIBTOP_PROC_MEM_RSS_RLIM) |
 	(1L << GLIBTOP_PROC_MEM_SHARE);
+
+    return 0;
 }

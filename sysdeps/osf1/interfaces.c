@@ -5,7 +5,7 @@
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, October 1998.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -25,31 +25,34 @@
 
 #include <glibtop.h>
 #include <glibtop/error.h>
-#include <glibtop/prockernel.h>
+#include <glibtop/interfaces.h>
 
 #include <glibtop_suid.h>
 
-static const unsigned long _glibtop_sysdeps_proc_kernel = 0;
+static const unsigned long _glibtop_sysdeps_interface_names = 
+(1L << GLIBTOP_INTERFACE_NAMES_NUMBER) +
+(1L << GLIBTOP_INTERFACE_NAMES_SIZE);
 
 /* Init function. */
 
 int
-glibtop_init_proc_kernel_p (glibtop *server)
+glibtop_init_interface_names_p (glibtop *server)
 {
-    server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
+    server->sysdeps.interface_names = _glibtop_sysdeps_interface_names;
 
     return 0;
 }
 
-/* Provides detailed information about a process. */
+/* Provides network statistics. */
 
-int
-glibtop_get_proc_kernel_p (glibtop *server, glibtop_proc_kernel *buf,
-			   pid_t pid)
+glibtop_interface *
+glibtop_get_interface_names_p (glibtop *server, glibtop_array *array,
+			       u_int64_t interface, u_int64_t number,
+			       u_int64_t instance, u_int64_t strategy)
 {
-    glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
+    glibtop_init_p (server, GLIBTOP_SYSDEPS_INTERFACE_NAMES, 0);
 	
-    memset (buf, 0, sizeof (glibtop_proc_kernel));
+    memset (array, 0, sizeof (glibtop_array));
 
-    return 0;
+    return NULL;
 }

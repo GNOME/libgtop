@@ -50,6 +50,8 @@ int
 glibtop_init_proc_uid_p (glibtop *server)
 {
     server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
+
+    return 0;
 }
 
 int
@@ -76,7 +78,7 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 		     
     /* !!! END OF SUID ROOT PART !!! */
 	
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->uid = procinfo.pi_ruid;
     buf->euid = procinfo.pi_svuid;	
@@ -116,7 +118,7 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	
     /* !!! END OF SUID ROOT PART !!! */
 	
-    if (ret != KERN_SUCCESS) return;
+    if (ret != KERN_SUCCESS) return -1;
 	
     buf->priority = taskinfo.base_priority;
 	
@@ -126,9 +128,11 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	
     ret = getpriority (PRIO_PROCESS, pid);
 	
-    if ((ret == -1) && (errno != 0)) return;
+    if ((ret == -1) && (errno != 0)) return -1;
 	
     buf->nice = ret;
 		
     buf->flags += (1L << GLIBTOP_PROC_UID_NICE);
+
+    return 0;
 }

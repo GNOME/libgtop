@@ -43,6 +43,8 @@ int
 glibtop_init_proc_segment_p (glibtop *server)
 {
     server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -69,7 +71,7 @@ glibtop_get_proc_segment_p (glibtop *server, glibtop_proc_segment *buf,
 		     
     /* !!! END OF SUID ROOT PART !!! */
 	
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 	
     buf->start_code = (unsigned long) u.u_text_start;
     buf->end_code = (unsigned long) u.u_data_start;
@@ -79,4 +81,6 @@ glibtop_get_proc_segment_p (glibtop *server, glibtop_proc_segment *buf,
     buf->data_rss = u.u_dsize;
 	
     buf->flags = _glibtop_sysdeps_proc_segment;
+
+    return 0;
 }

@@ -39,6 +39,8 @@ int
 glibtop_init_proc_signal_p (glibtop *server)
 {
     server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -65,7 +67,7 @@ glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf,
 		     
     /* !!! END OF SUID ROOT PART !!! */
 	
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->signal [0] = procinfo.pi_sig;
     buf->blocked [0] = procinfo.pi_sigmask;
@@ -73,4 +75,6 @@ glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf,
     buf->sigcatch [0] = procinfo.pi_sigcatch;
 
     buf->flags = _glibtop_sysdeps_proc_signal;
+
+    return 0;
 }

@@ -44,6 +44,8 @@ int
 glibtop_init_proc_state_p (glibtop *server)
 {
     server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -71,16 +73,16 @@ glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf,
 		     
     /* !!! END OF SUID ROOT PART !!! */
 	
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     /* Check whether the process actually exists. */
-    if (procinfo.pi_status == PI_EMPTY) return;
+    if (procinfo.pi_status == PI_EMPTY) return -1;
 
     /* Check whether it is not a zombie. */
     if (procinfo.pi_status == PI_ZOMBIE) {
 	buf->state = GLIBTOP_PROCESS_ZOMBIE;
 	buf->flags = (1L << GLIBTOP_PROC_STATE_STATE);
-	return;
+	return -1;
     }
 
     strncpy (buf->cmd, procinfo.pi_comm, sizeof (buf->cmd)-1);
@@ -130,7 +132,7 @@ glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf,
 
     /* !!! END OF SUID ROOT PART !!! */
         
-    if (ret != KERN_SUCCESS) return;
+    if (ret != KERN_SUCCESS) return -1;
 
     switch (minim_state) {
     case TH_STATE_RUNNING:
@@ -154,4 +156,6 @@ glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf,
 
     if (buf->state)
 	buf->flags |= (1L << GLIBTOP_PROC_STATE_STATE);
+
+    return 0;
 }

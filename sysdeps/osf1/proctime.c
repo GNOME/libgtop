@@ -42,6 +42,8 @@ int
 glibtop_init_proc_time_p (glibtop *server)
 {
     server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -68,7 +70,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 		     
     /* !!! END OF SUID ROOT PART !!! */
 	
-    if (ret != 1) return;
+    if (ret != 1) return -1;
 
     buf->start_time = u.u_start.tv_sec;
 	
@@ -78,4 +80,6 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
     buf->cstime = u.u_cru.ru_stime.tv_sec;
 
     buf->flags = _glibtop_sysdeps_proc_time;	
+
+    return 0;
 }
