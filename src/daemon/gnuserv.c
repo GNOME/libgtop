@@ -625,7 +625,7 @@ handle_internet_request (int ls)
 		glibtop_warn ("Refused connection from %s.", inet_ntoa (peer.sin_addr));
 		return;
 	}			/* if */
-#tifdef DEBUG
+#ifdef DEBUG
 	fprintf (stderr, "Accepted connection from %s.\n", inet_ntoa (peer.sin_addr));
 #endif
 
