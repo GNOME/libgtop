@@ -1,5 +1,14 @@
 1999-11-28  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/netload.h (glibtop_get_netload): Added
+	`transport' and `protocol' argument to specify transport method
+	and protocol.
+
+	* include/glibtop/netinfo.h (glibtop_get_netinfo): Added
+	`transport' argument to specify the transport method.
+
+1999-11-28  Martin Baulig  <martin@home-of-linux.org>
+
 	* include/glibtop/netinfo.h (glibtop_netinfo): Added `transport'
 	field for the transport method.
 

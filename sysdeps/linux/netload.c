@@ -97,7 +97,8 @@ glibtop_init_netload_s (glibtop *server)
 
 int
 glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
-		       const char *interface)
+		       const char *interface, unsigned transport,
+		       unsigned protocol)
 {
     char buffer [BUFSIZ], *p;
     int have_bytes, fields;

@@ -66,7 +66,7 @@ glibtop_init_netinfo_s (glibtop *server)
 
 int
 glibtop_get_netinfo_s (glibtop *server, glibtop_netinfo *buf,
-		       const char *interface)
+		       const char *interface, unsigned transport)
 {
     int skfd;
 

@@ -35,6 +35,8 @@ handle_slave_connection (int input, int output)
 	u_int64_t number G_GNUC_UNUSED;
 	u_int64_t instance G_GNUC_UNUSED;
 	u_int64_t strategy G_GNUC_UNUSED;
+	u_int64_t transport G_GNUC_UNUSED;
+	u_int64_t protocol G_GNUC_UNUSED;
 
 	unsigned short max_len G_GNUC_UNUSED;
 	pid_t pid G_GNUC_UNUSED;
