@@ -57,46 +57,7 @@ main (void)
 	esac
 ])
 
-AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
-	AC_REQUIRE([AC_CANONICAL_HOST])
-
-	AC_SUBST(libgtop_sysdeps_dir)
-	AC_SUBST(libgtop_use_machine_h)
-	AC_SUBST(libgtop_need_server)
-
-	AC_ARG_ENABLE(hacker-mode,
-	[  --enable-hacker-mode    Enable building of unstable sysdeps],
-	[hacker_mode="$enableval"], [hacker_mode=no])
-
-	AM_CONDITIONAL(HACKER_MODE, test x"$hacker_mode" = xyes)
-
-	if test x$hacker_mode = xyes ; then
-	  LIBGTOP_HACKER_TESTS
-	fi
-
-	AC_ARG_WITH(libgtop-smp,
-	[  --with-libgtop-smp      Enable SMP support (default-auto)],[
-	libgtop_smp="$withval"],[libgtop_smp=auto])
-
-	if test $libgtop_smp = auto ; then
-	  AC_MSG_CHECKING(whether to enable SMP support)
-	  case "$host_os" in
-	  linux*)
-	    libgtop_smp=yes
-	    ;;
-	  *)
-	    libgtop_smp=no
-	    ;;
-	  esac
-	  AC_MSG_RESULT($libgtop_smp)
-	fi
-
-	if test $libgtop_smp = yes ; then
-	  AC_DEFINE(HAVE_LIBGTOP_SMP)
-	fi
-
-	AM_CONDITIONAL(LIBGTOP_SMP, test $libgtop_smp = yes)
-
+AC_DEFUN([LIBGTOP_CHECK_SYSDEPS_DIR],[
 	AC_MSG_CHECKING(for libgtop sysdeps directory)
 
 	case "$host_os" in
@@ -161,6 +122,102 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	test -z "$libgtop_postinstall" && libgtop_postinstall=:
 
 	AC_MSG_RESULT($libgtop_sysdeps_dir)
+])
+
+AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
+	AC_REQUIRE([AC_CANONICAL_HOST])
+
+	AC_SUBST(libgtop_sysdeps_dir)
+	AC_SUBST(libgtop_use_machine_h)
+	AC_SUBST(libgtop_need_server)
+
+	AC_ARG_ENABLE(hacker-mode,
+	[  --enable-hacker-mode    Enable building of unstable sysdeps],
+	[hacker_mode="$enableval"], [hacker_mode=no])
+
+	AM_CONDITIONAL(HACKER_MODE, test x"$hacker_mode" = xyes)
+
+	if test x$hacker_mode = xyes ; then
+	  LIBGTOP_HACKER_TESTS
+	  AC_ARG_WITH(sysdeps-dir,
+	  [  --with-sysdeps-dir      Manually override sysdeps directory],[override_sysdeps_dir="$withval"],[override_sysdeps_dir=no])
+	else
+	  override_sysdeps_dir=no
+	fi
+
+	AC_ARG_WITH(libgtop-smp,
+	[  --with-libgtop-smp      Enable SMP support (default-auto)],[
+	libgtop_smp="$withval"],[libgtop_smp=auto])
+
+	if test $libgtop_smp = auto ; then
+	  AC_MSG_CHECKING(whether to enable SMP support)
+	  case "$host_os" in
+	  linux*)
+	    libgtop_smp=yes
+	    ;;
+	  *)
+	    libgtop_smp=no
+	    ;;
+	  esac
+	  AC_MSG_RESULT($libgtop_smp)
+	fi
+
+	if test $libgtop_smp = yes ; then
+	  AC_DEFINE(HAVE_LIBGTOP_SMP)
+	fi
+
+	AM_CONDITIONAL(LIBGTOP_SMP, test $libgtop_smp = yes)
+
+	if test x$override_sysdeps_dir = xno ; then
+	  LIBGTOP_CHECK_SYSDEPS_DIR
+	else
+	  case $override_sysdeps_dir in
+	  stub)
+	    libgtop_sysdeps_dir=stub
+	    libgtop_use_machine_h=no
+	    libgtop_have_sysinfo=no
+	    libgtop_need_server=no
+	    ;;
+	  stub_suid)
+	    libgtop_sysdeps_dir=stub_suid
+	    libgtop_use_machine_h=yes
+	    libgtop_have_sysinfo=no
+	    libgtop_need_server=yes
+	    ;;
+	  linux)
+	    libgtop_sysdeps_dir=linux
+	    libgtop_use_machine_h=no
+	    libgtop_have_sysinfo=yes
+	    libgtop_need_server=no
+	    ;;
+	  kernel)
+	    libgtop_sysdeps_dir=kernel
+	    libgtop_use_machine_h=no
+	    libgtop_have_sysinfo=yes
+	    libgtop_need_server=no
+	    ;;
+	  bsd)
+	    libgtop_sysdeps_dir=freebsd
+	    libgtop_use_machine_h=yes
+	    libgtop_need_server=yes
+	    libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	    ;;
+	  solaris)
+	    libgtop_sysdeps_dir=solaris
+	    libgtop_use_machine_h=yes
+	    libgtop_need_server=yes
+	    libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	    ;;
+	  osf)
+	    libgtop_sysdeps_dir=osf1
+	    libgtop_use_machine_h=yes
+	    libgtop_need_server=yes
+	    ;;
+	  *)
+	    AC_MSG_ERROR(Invalid value for --with-sysdeps-dir)
+	    ;;
+	  esac
+	fi
 
 	AC_SUBST(libgtop_sysdeps_dir)
 	AC_SUBST(libgtop_postinstall)
