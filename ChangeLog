@@ -1,3 +1,11 @@
+1999-02-22  Martin Baulig  <martin@home-of-linux.org>
+
+	* COPYING.LIB: Include a copy of the GNU Library General
+	Public License here.
+
+	* copyright.txt: Set the year to 1998-99 and pretty-format it a
+	little bit. Same in all C source and header files.
+
 1999-02-21  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in (LIBGTOP_*_INCS): Define `HAVE_GLIBTOP_MACHINE_H'
