@@ -416,6 +416,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	    else
 		    buf->scope6 = GLIBTOP_IF_IN6_SCOPE_UNKNOWN;
 
+	    freeifaddrs(ifa0);
 
 	    buf->flags |= _glibtop_sysdeps_netload_6;
     } /* IPV6 */

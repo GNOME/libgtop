@@ -1,3 +1,8 @@
+2004-07-22  Benoît Dejean  <tazforever@dlfp.org>
+
+	* netload.c: (glibtop_get_netload_s): Fixed leak.
+	* proctime.c: (glibtop_get_proc_time_s): Don't set .timeout anymore.
+
 2004-07-17  Benoît Dejean  <tazforever@dlfp.org>
 
 	* Makefile.am:
