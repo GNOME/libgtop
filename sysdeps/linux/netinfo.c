@@ -184,7 +184,7 @@ _parse_ipv6_address (const char *addr_string, u_int8_t *dest)
     if (strlen (addr_string) != 32)
 	return -1;
 
-    for (i = 0; i < 8; i++) {
+    for (i = 0; i < 16; i++) {
 	char c1, c2;
 	int d1, d2;
 
@@ -213,7 +213,7 @@ _parse_ipv6_address (const char *addr_string, u_int8_t *dest)
 
 static int
 _netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
-	       const char *interface, glibtop_ifaddr *address)
+	       const char *interface, GPtrArray *parray)
 {
     FILE *f;
     char addr6[40], devname[20];
@@ -231,29 +231,31 @@ _netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
 	while (fscanf (f, "%64s %02x %02x %02x %02x %20s\n",
 		       addr6, &if_idx, &plen, &scope, &dad_status,
 		       devname) != EOF) {
+	    glibtop_ifaddr address;
+
+	    memset (&address, 0, sizeof (glibtop_ifaddr));
+
 	    if (strcmp (devname, interface))
 		continue;
 
-	    if (!_parse_ipv6_address (addr6, address->address))
-		address->flags |= (1L << GLIBTOP_IFADDR_ADDRESS);
+	    if (!_parse_ipv6_address (addr6, address.address))
+		address.flags |= (1L << GLIBTOP_IFADDR_ADDRESS);
 
-	    address->transport = GLIBTOP_TRANSPORT_IPV6;
-	    address->addr_len = 8;
-	    address->scope = scope;
+	    address.transport = GLIBTOP_TRANSPORT_IPV6;
+	    address.addr_len = plen;
+	    address.scope = scope;
 
-	    address->flags |= (1L << GLIBTOP_IFADDR_TRANSPORT) |
+	    address.flags |= (1L << GLIBTOP_IFADDR_TRANSPORT) |
 		(1L << GLIBTOP_IFADDR_ADDR_LEN) |
 		(1L << GLIBTOP_IFADDR_SCOPE);
 
-	    fclose (f);
-
-	    return 0;
+	    g_ptr_array_add (parray, g_memdup (&address, sizeof (address)));
 	}
     }
 
     fclose (f);
 
-    return -1;
+    return 0;
 }
 
 #endif /* HAVE_AFINET6 */
@@ -315,20 +317,15 @@ glibtop_get_netinfo_s (glibtop *server, glibtop_array *array,
 
 	memset (&address, 0, sizeof (glibtop_ifaddr));
 
-	if (!_netinfo_ipv4 (server, buf, interface, &address))
+	_netinfo_ipv4 (server, buf, interface, &address);
+	if (address.flags & (1L << GLIBTOP_IFADDR_ADDRESS))
 	    g_ptr_array_add (parray, g_memdup (&address, sizeof (address)));
     }
 #endif /* HAVE_AFINET */
 
 #ifdef HAVE_AFINET6
-    if (transport & GLIBTOP_TRANSPORT_IPV6) {
-	glibtop_ifaddr address;
-
-	memset (&address, 0, sizeof (glibtop_ifaddr));
-
-	if (!_netinfo_ipv6 (server, buf, interface, &address))
-	    g_ptr_array_add (parray, g_memdup (&address, sizeof (address)));
-    }
+    if (transport & GLIBTOP_TRANSPORT_IPV6)
+	_netinfo_ipv6 (server, buf, interface, parray);
 #endif /* HAVE_AFINET6 */
 
     if (!parray->len) {
