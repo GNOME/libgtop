@@ -47,16 +47,17 @@ struct _glibtop_shm_limits
 		shmall;		/* GLIBTOP_IPC_SHMALL	*/
 };
 
-#define glibtop_get_shm_limits(shm)	glibtop_get_shm_limits__r(glibtop_global_server, shm)
+#define glibtop_get_shm_limits(shm)	glibtop_get_shm_limits__l(glibtop_global_server, shm)
 
 #if GLIBTOP_SUID_SHM_LIMITS
-#define glibtop_get_shm_limits__r	glibtop_get_shm_limits__l
+#define glibtop_get_shm_limits__r	glibtop_get_shm_limits__p
 #else
 #define glibtop_get_shm_limits__r	glibtop_get_shm_limits__s
 #endif
 
-#if GLIBTOP_SUID_SHM_LIMITS
 extern void glibtop_get_shm_limits__l __P((glibtop *, glibtop_shm_limits *));
+
+#if GLIBTOP_SUID_SHM_LIMITS
 extern void glibtop_get_shm_limits__p __P((glibtop *, glibtop_shm_limits *));
 #else
 extern void glibtop_get_shm_limits__s __P((glibtop *, glibtop_shm_limits *));

@@ -54,16 +54,17 @@ struct _glibtop_proc_state
 		gid;		/* GID of process */
 };
 
-#define glibtop_get_proc_state(p1, p2)	glibtop_get_proc_state__r(glibtop_global_server, p1, p2)
+#define glibtop_get_proc_state(p1, p2)	glibtop_get_proc_state__l(glibtop_global_server, p1, p2)
 
 #if GLIBTOP_SUID_PROC_STATE
-#define glibtop_get_proc_state__r	glibtop_get_proc_state__l
+#define glibtop_get_proc_state__r	glibtop_get_proc_state__p
 #else
 #define glibtop_get_proc_state__r	glibtop_get_proc_state__s
 #endif
 
-#if GLIBTOP_SUID_PROC_STATE
 extern void glibtop_get_proc_state__l __P((glibtop *, glibtop_proc_state *, pid_t));
+
+#if GLIBTOP_SUID_PROC_STATE
 extern void glibtop_get_proc_state__p __P((glibtop *, glibtop_proc_state *, pid_t));
 #else
 extern void glibtop_get_proc_state__s __P((glibtop *, glibtop_proc_state *, pid_t));

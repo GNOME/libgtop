@@ -47,16 +47,17 @@ struct _glibtop_proc_signal
 		sigcatch;	/* mask of caught  signals */
 };
 
-#define glibtop_get_proc_signal(p1, p2)	glibtop_get_proc_signal__r(glibtop_global_server, p1, p2)
+#define glibtop_get_proc_signal(p1, p2)	glibtop_get_proc_signal__l(glibtop_global_server, p1, p2)
 
 #if GLIBTOP_SUID_PROC_SIGNAL
-#define glibtop_get_proc_signal__r	glibtop_get_proc_signal__l
+#define glibtop_get_proc_signal__r	glibtop_get_proc_signal__p
 #else
 #define glibtop_get_proc_signal__r	glibtop_get_proc_signal__s
 #endif
 
-#if GLIBTOP_SUID_PROC_SIGNAL
 extern void glibtop_get_proc_signal__l __P((glibtop *, glibtop_proc_signal *, pid_t));
+
+#if GLIBTOP_SUID_PROC_SIGNAL
 extern void glibtop_get_proc_signal__p __P((glibtop *, glibtop_proc_signal *, pid_t));
 #else
 extern void glibtop_get_proc_signal__s __P((glibtop *, glibtop_proc_signal *, pid_t));

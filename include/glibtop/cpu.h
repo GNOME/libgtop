@@ -49,16 +49,17 @@ struct _glibtop_cpu
 		frequency;	/* GLIBTOP_CPU_FREQUENCY	*/
 };
 
-#define glibtop_get_cpu(cpu)	glibtop_get_cpu__r(glibtop_global_server, cpu)
+#define glibtop_get_cpu(cpu)	glibtop_get_cpu__l(glibtop_global_server, cpu)
 
 #if GLIBTOP_SUID_CPU
-#define glibtop_get_cpu__r	glibtop_get_cpu__l
+#define glibtop_get_cpu__r	glibtop_get_cpu__p
 #else
 #define glibtop_get_cpu__r	glibtop_get_cpu__s
 #endif
 
-#if GLIBTOP_SUID_CPU
 extern void glibtop_get_cpu__l __P((glibtop *, glibtop_cpu *));
+
+#if GLIBTOP_SUID_CPU
 extern void glibtop_get_cpu__p __P((glibtop *, glibtop_cpu *));
 #else
 extern void glibtop_get_cpu__s __P((glibtop *, glibtop_cpu *));

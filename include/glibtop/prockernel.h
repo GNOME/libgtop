@@ -60,16 +60,17 @@ struct _glibtop_proc_kernel
 				 * proc is sleeping in */
 };
 
-#define glibtop_get_proc_kernel(p1, p2)	glibtop_get_proc_kernel__r(glibtop_global_server, p1, p2)
+#define glibtop_get_proc_kernel(p1, p2)	glibtop_get_proc_kernel__l(glibtop_global_server, p1, p2)
 
 #if GLIBTOP_SUID_PROC_KERNEL
-#define glibtop_get_proc_kernel__r	glibtop_get_proc_kernel__l
+#define glibtop_get_proc_kernel__r	glibtop_get_proc_kernel__p
 #else
 #define glibtop_get_proc_kernel__r	glibtop_get_proc_kernel__s
 #endif
 
-#if GLIBTOP_SUID_PROC_KERNEL
 extern void glibtop_get_proc_kernel__l __P((glibtop *, glibtop_proc_kernel *, pid_t));
+
+#if GLIBTOP_SUID_PROC_KERNEL
 extern void glibtop_get_proc_kernel__p __P((glibtop *, glibtop_proc_kernel *, pid_t));
 #else
 extern void glibtop_get_proc_kernel__s __P((glibtop *, glibtop_proc_kernel *, pid_t));

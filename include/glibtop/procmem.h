@@ -53,16 +53,17 @@ struct _glibtop_proc_mem
 				 * of the process; usually 2,147,483,647 */
 };
 
-#define glibtop_get_proc_mem(p1, p2)	glibtop_get_proc_mem__r(glibtop_global_server, p1, p2)
+#define glibtop_get_proc_mem(p1, p2)	glibtop_get_proc_mem__l(glibtop_global_server, p1, p2)
 
 #if GLIBTOP_SUID_PROC_MEM
-#define glibtop_get_proc_mem__r		glibtop_get_proc_mem__l
+#define glibtop_get_proc_mem__r		glibtop_get_proc_mem__p
 #else
 #define glibtop_get_proc_mem__r		glibtop_get_proc_mem__s
 #endif
 
-#if GLIBTOP_SUID_PROC_MEM
 extern void glibtop_get_proc_mem__l __P((glibtop *, glibtop_proc_mem *, pid_t));
+
+#if GLIBTOP_SUID_PROC_MEM
 extern void glibtop_get_proc_mem__p __P((glibtop *, glibtop_proc_mem *, pid_t));
 #else
 extern void glibtop_get_proc_mem__s __P((glibtop *, glibtop_proc_mem *, pid_t));

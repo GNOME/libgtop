@@ -43,16 +43,17 @@ struct _glibtop_swap
 		free;		/* GLIBTOP_SWAP_FREE	*/
 };
 
-#define glibtop_get_swap(swap)	glibtop_get_swap__r(glibtop_global_server, swap)
+#define glibtop_get_swap(swap)	glibtop_get_swap__l(glibtop_global_server, swap)
 
 #if GLIBTOP_SUID_SWAP
-#define glibtop_get_swap__r		glibtop_get_swap__l
+#define glibtop_get_swap__r		glibtop_get_swap__p
 #else
 #define glibtop_get_swap__r		glibtop_get_swap__s
 #endif
 
-#if GLIBTOP_SUID_SWAP
 extern void glibtop_get_swap__l __P((glibtop *, glibtop_swap *));
+
+#if GLIBTOP_SUID_SWAP
 extern void glibtop_get_swap__p __P((glibtop *, glibtop_swap *));
 #else
 extern void glibtop_get_swap__s __P((glibtop *, glibtop_swap *));

@@ -43,16 +43,17 @@ struct _glibtop_proclist
 		size;			/* GLIBTOP_PROCLIST_SIZE	*/
 };
 
-#define glibtop_get_proclist(proclist)	glibtop_get_proclist__r(glibtop_global_server, proclist)
+#define glibtop_get_proclist(proclist)	glibtop_get_proclist__l(glibtop_global_server, proclist)
 
 #if GLIBTOP_SUID_PROCLIST
-#define glibtop_get_proclist__r		glibtop_get_proclist__l
+#define glibtop_get_proclist__r		glibtop_get_proclist__p
 #else
 #define glibtop_get_proclist__r		glibtop_get_proclist__s
 #endif
 
-#if GLIBTOP_SUID_PROCLIST
 extern unsigned *glibtop_get_proclist__l __P((glibtop *, glibtop_proclist *));
+
+#if GLIBTOP_SUID_PROCLIST
 extern unsigned *glibtop_get_proclist__p __P((glibtop *, glibtop_proclist *));
 #else
 extern unsigned *glibtop_get_proclist__s __P((glibtop *, glibtop_proclist *));

@@ -63,16 +63,17 @@ struct _glibtop_proc_uid
 		nice;		/* standard unix nice level of process */
 };
 
-#define glibtop_get_proc_uid(p1, p2)	glibtop_get_proc_uid__r(glibtop_global_server, p1, p2)
+#define glibtop_get_proc_uid(p1, p2)	glibtop_get_proc_uid__l(glibtop_global_server, p1, p2)
 
 #if GLIBTOP_SUID_PROC_UID
-#define glibtop_get_proc_uid__r		glibtop_get_proc_uid__l
+#define glibtop_get_proc_uid__r		glibtop_get_proc_uid__p
 #else
 #define glibtop_get_proc_uid__r		glibtop_get_proc_uid__s
 #endif
 
-#if GLIBTOP_SUID_PROC_UID
 extern void glibtop_get_proc_uid__l __P((glibtop *, glibtop_proc_uid *, pid_t));
+
+#if GLIBTOP_SUID_PROC_UID
 extern void glibtop_get_proc_uid__p __P((glibtop *, glibtop_proc_uid *, pid_t));
 #else
 extern void glibtop_get_proc_uid__s __P((glibtop *, glibtop_proc_uid *, pid_t));

@@ -39,16 +39,17 @@ struct _glibtop_loadavg
 	double loadavg [3];		/* GLIBTOP_LOADAVG_LOADAVG	*/
 };
 
-#define glibtop_get_loadavg(loadavg)	glibtop_get_loadavg__r(glibtop_global_server, loadavg)
+#define glibtop_get_loadavg(loadavg)	glibtop_get_loadavg__l(glibtop_global_server, loadavg)
 
 #if GLIBTOP_SUID_LOADAVG
-#define glibtop_get_loadavg__r		glibtop_get_loadavg__l
+#define glibtop_get_loadavg__r		glibtop_get_loadavg__p
 #else
 #define glibtop_get_loadavg__r		glibtop_get_loadavg__s
 #endif
 
-#if GLIBTOP_SUID_LOADAVG
 extern void glibtop_get_loadavg__l __P((glibtop *, glibtop_loadavg *));
+
+#if GLIBTOP_SUID_LOADAVG
 extern void glibtop_get_loadavg__p __P((glibtop *, glibtop_loadavg *));
 #else
 extern void glibtop_get_loadavg__s __P((glibtop *, glibtop_loadavg *));
