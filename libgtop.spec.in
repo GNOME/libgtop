@@ -60,7 +60,11 @@ Examples for LibGTop.
 if [ ! -f configure ]; then
   CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --without-linux-table --with-libgtop-inodedb --with-libgtop-examples --with-libgtop-guile --with-libgtop-smp
 else
+%ifarch alpha
+  CFLAGS="$RPM_OPT_FLAGS" ./configure --host=alpha-redhat-linux --prefix=%prefix --without-linux-table --with-libgtop-inodedb --with-libgtop-examples --with-libgtop-guile --with-libgtop-smp
+%else
   CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --without-linux-table --with-libgtop-inodedb --with-libgtop-examples --with-libgtop-guile --with-libgtop-smp
+%endif
 fi
 
 if [ "$SMP" != "" ]; then
