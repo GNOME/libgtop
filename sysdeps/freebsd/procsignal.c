@@ -88,7 +88,7 @@ glibtop_get_proc_signal_p (glibtop *server,
 #if (defined(__NetBSD__) && (NSIG > 32)) || (__FreeBSD_version >= 400011)
 	buf->sigignore [0] = pinfo [0].kp_proc.p_sigignore.__bits[0];
 #else
-	buf->sigignore [0] = pinfo [0].kp_proc.p_sigignore.__bits[0];
+	buf->sigignore [0] = pinfo [0].kp_proc.p_sigignore;
 #endif
 	
 	/* sigcatch: mask of caught signals.
