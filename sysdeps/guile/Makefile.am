@@ -2,8 +2,6 @@ SUBDIRS				= names
 
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-CFLAGS				= -Wall -W @CFLAGS@
-
 BUILT_SOURCES			= guile.c guile.x
 
 lib_LTLIBRARIES			= libgtop_guile.la

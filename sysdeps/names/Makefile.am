@@ -1,7 +1,5 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-CFLAGS				= -Wall -W @CFLAGS@
-
 lib_LTLIBRARIES			= libgtop_names.la
 
 libgtop_names_la_SOURCES	= cpu.c mem.c swap.c uptime.c loadavg.c \

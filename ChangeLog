@@ -1,3 +1,18 @@
+1999-02-15  Jeff Garzik  <jgarzik@pobox.com>
+
+	* examples/Makefile.am, lib/Makefile.am, src/daemon/Makefile.am,
+	  sysdeps/common/Makefile.am, sysdeps/guile/Makefile.am,
+	  sysdeps/guile/names/Makefile.am, sysdeps/kernel/Makefile.am,
+	  sysdeps/linux/Makefile.am, sysdeps/names/Makefile.am,
+	  sysdeps/osf1/Makefile.am, sysdeps/stub/Makefile.am,
+	  sysdeps/stub_suid/Makefile.am, sysdeps/sun4/Makefile.am:
+	Removed hardcoded gcc arguments.
+	Converted remaining CFLAGS settings to use correct INCLUDES.
+
+	* include/glibtop/error.h:
+	Added FIXME comment about varargs macros breaking Sun cc
+	compilation.
+
 1999-02-12  Martin Baulig  <martin@home-of-linux.org>
 
 	Thanks to Frederic Devernay for pointing out that we need to define

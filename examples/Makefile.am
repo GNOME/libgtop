@@ -2,7 +2,7 @@
 
 LINK			= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-CFLAGS			= -Wall -W @CFLAGS@ -O0
+INCLUDES		= -O0
 
 DEFS			= @DEFS@
 

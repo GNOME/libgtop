@@ -1,7 +1,5 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-CFLAGS				= -Wall -W @CFLAGS@
-
 lib_LTLIBRARIES			= libgtop_guile_names.la
 
 BUILT_SOURCES			= guile-names.c guile-names.x

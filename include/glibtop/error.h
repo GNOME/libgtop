@@ -26,6 +26,11 @@
 
 __BEGIN_DECLS
 
+/*
+ * FIXME: varargs macros only supported on gcc.
+ *	  Breaks Sun CC, maybe others.
+ */
+
 #define glibtop_error(p1, args...)	glibtop_error_r(glibtop_global_server , p1 , ## args)
 #define glibtop_warn(p1, args...)	glibtop_warn_r(glibtop_global_server , p1 , ## args)
 
