@@ -1,50 +1,53 @@
+# translation of libgtop.libgtop-GNOME-2-0-port.po to Spanish
 # Translation into spanish of glibtop
-# Pablo Saratxaga <srtxg@chanae.alphanet.ch>, 1998-2000
 # FIXME: the strings still left empty are the ones I've no idea how
 # to translate them; if anyone has a suggestion...
-# Germán Poo Caamaño <gpoo@ubiobio.cl>, 2002
+# Pablo Saratxaga <srtxg@chanae.alphanet.ch>, 1998-2000.
+# Germán Poo Caamaño <gpoo@ubiobio.cl>, 2002.
 # Pablo Saratxaga <srtxg@chanae.alphanet.ch>, 2002.
 # Juan Manuel García Molina <juanma_gm@wanadoo.es>, 2002.
+# Francisco Javier F. Serrador <serrador@arrakis.es>, 2003.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: glibtop 1.1.1\n"
-"POT-Creation-Date: 2002-06-02 13:22+0200\n"
-"PO-Revision-Date: 2002-06-02 18:17+0100\n"
-"Last-Translator: Juan Manuel García Molina <juanma_gm@wanadoo.es>\n"
+"Project-Id-Version: libgtop.libgtop-GNOME-2-0-port\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-08-28 04:41+0200\n"
+"PO-Revision-Date: 2003-08-28 11:48+0200\n"
+"Last-Translator: Francisco Javier F. Serrador <serrador@arrakis.es>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "First-Translator: Pablo Saratxaga <srtxg@chanae.alphanet.ch>\n"
-"X-Generator: KBabel 0.9.6\n"
+"X-Generator: KBabel 1.0.2\n"
 
-#: examples/smp.c:68
+#: examples/smp.c:71
 #, c-format
 msgid "Ticks (%ld per second):"
 msgstr "Tics (%ld por segundo):"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Total"
 msgstr "Total"
 
-#: examples/smp.c:71 sysdeps/names/mem.c:47
+#: examples/smp.c:74 sysdeps/names/mem.c:47
 msgid "User"
 msgstr "Usuario"
 
-#: examples/smp.c:71 sysdeps/names/procuid.c:58
+#: examples/smp.c:74 sysdeps/names/procuid.c:58
 msgid "Nice"
 msgstr "Nice"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Sys"
 msgstr "Sis"
 
-#: examples/smp.c:71
+#: examples/smp.c:74
 msgid "Idle"
 msgstr "Inact"
 
-#: examples/smp.c:73
+#: examples/smp.c:76
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
@@ -53,36 +56,36 @@ msgstr ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
-#: examples/smp.c:77
+#: examples/smp.c:80
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
-#: examples/smp.c:94
+#: examples/smp.c:97
 msgid "Percent:"
 msgstr "Porcentaje:"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Total (%)"
 msgstr "Total (%)"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "User (%)"
 msgstr "Usuario (%)"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Nice (%)"
 msgstr "Nice (%)"
 
-#: examples/smp.c:95
+#: examples/smp.c:98
 msgid "Sys (%)"
 msgstr "Sis (%)"
 
-#: examples/smp.c:96
+#: examples/smp.c:99
 msgid "Idle (%)"
 msgstr "Inact (%)"
 
-#: examples/smp.c:98
+#: examples/smp.c:101
 #, c-format
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
@@ -91,12 +94,12 @@ msgstr ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
-#: examples/smp.c:114
+#: examples/smp.c:117
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
-#: examples/smp.c:120
+#: examples/smp.c:123
 msgid "Spin:"
 msgstr "Spin:"
 
@@ -119,46 +122,47 @@ msgstr "leídos %d bytes de datos"
 msgid "write %d bytes"
 msgstr "escritos %d bytes"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
 msgstr "Activar depuración"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
 msgstr "DEPURACIÓN"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
 msgstr "Activa salida detallada"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr "DETALLADO"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
 msgstr "No se pudo abrir un proceso en segundo plano"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr "Invocado desde inetd"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Error con la opción %s: %s.\n"
-"Ejecute '%s --help' para ver una lista completa de las opciones disponibles.\n"
+"Ejecute '%s --help' para ver una lista completa de las opciones "
+"disponibles.\n"
 
 #: support/error.c:109
 msgid "Unknown system error"
@@ -346,7 +350,7 @@ msgstr "Último PID"
 #: sysdeps/names/loadavg.c:47
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
 msgstr ""
-"Cantidad de procesos corriendo simultáneamente, media de los últimos 1, 5 y "
+"Cantidad de procesos ejecutándose simultáneamente, media de los últimos 1, 5 y "
 "15 minutos"
 
 #: sysdeps/names/loadavg.c:48
@@ -375,7 +379,7 @@ msgstr "Memoria compartida"
 
 #: sysdeps/names/mem.c:45
 msgid "Buffers"
-msgstr "Búfers"
+msgstr "Búferes"
 
 #: sysdeps/names/mem.c:46
 msgid "Cached"
@@ -403,7 +407,7 @@ msgstr "Memoria compartida (en KB)"
 
 #: sysdeps/names/mem.c:57
 msgid "Size of buffers kB"
-msgstr "Tamaño de los búfers (en KB)"
+msgstr "Tamaño de los búferes (en KB)"
 
 #: sysdeps/names/mem.c:58
 msgid "Size of cached memory in kB"
@@ -481,7 +485,7 @@ msgstr "Dirección"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
 msgid "Packets In"
-msgstr "Páquetes de entrada"
+msgstr "Paquetes de entrada"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
 msgid "Packets Out"
@@ -660,8 +664,8 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Este es el \"canal\" en el cual el proceso está esperando.  Esta es la "
-"dirección de una llamada sistema, y puede ser buscada en una lista de "
+"Este es el «canal» en el cual el proceso está esperando.  Esta es la "
+"dirección de una llamada de sistema, y puede ser buscada en una lista de "
 "nombres si necesita un nombre textual. (Si tiene un /etc/psdatabasa "
 "actualizado, entonces pruebe \"ps -l\" para ver el campo WCHAN en acción)"
 
@@ -700,7 +704,7 @@ msgstr "Cantidad de páginas de memoria virtual"
 
 #: sysdeps/names/procmem.c:55
 msgid "Number of resident set (non-swapped) pages"
-msgstr "Cantidad de páginas de conjuntos residentes (que no están en swap)"
+msgstr "Cantidad de páginas de conjuntos residentes (que no están en intercambio)"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of shared (mmap'd) memory"
@@ -716,7 +720,7 @@ msgstr ""
 "Cantidad de páginas del proceso en memoria real, menos 3 par administración. "
 "Esto es solo las páginas que se cuentan entre texto, datos, o espacio de "
 "pila. Esto no incluye páginas que no han sido cargadas a la demanda, o que "
-"se encuentran en el dispositivo de swap."
+"se encuentran en el dispositivo de intercambio."
 
 # In México, Dominican Republic, Guatemala, Honduras, Panama, Peru
 # and El Salvador, Number formats are the same as in the US, so no
@@ -1104,15 +1108,15 @@ msgstr "Total máximo de memoria compartida"
 
 #: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
 msgid "Total Swap Space"
-msgstr "Espacio de swap total"
+msgstr "Espacio de intercambio total"
 
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Used Swap Space"
-msgstr "Espacio de swap usado"
+msgstr "Espacio de intercambio usado"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Free Swap Space"
-msgstr "Espacio de swap libre"
+msgstr "Espacio de intercambio libre"
 
 #: sysdeps/names/swap.c:42
 msgid "Page In"
@@ -1125,18 +1129,18 @@ msgstr "Páginas salidas"
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
 msgstr ""
-"Cantidad total de páginas que han sido entradas al swap, desde el inicio del "
+"Cantidad total de páginas que han sido entradas al intercambio, desde el inicio del "
 "sistema"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
-"Cantidad total de páginas que han sido sacadas del swap, desde el inicio del "
+"Cantidad total de páginas que han sido sacadas del intercambio, desde el inicio del "
 "sistema"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
-msgstr "Particularidades del Servidor"
+msgstr "Características del servidor"
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "CPU Usage"
@@ -1148,7 +1152,7 @@ msgstr "Uso de la memoria"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Swap Usage"
-msgstr "Uso del swap"
+msgstr "Uso del intercambio"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "System Uptime"
@@ -1236,7 +1240,7 @@ msgstr "Lista de los sistemas de archivos actualmente montados"
 
 #: sysdeps/names/uptime.c:38
 msgid "Uptime"
-msgstr "Uptime"
+msgstr "Tiempo activo"
 
 #: sysdeps/names/uptime.c:39
 msgid "Idletime"
@@ -1282,7 +1286,7 @@ msgstr "Error EMT"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
-msgstr "Excepción de punto flotante"
+msgstr "Excepción de coma flotante"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
