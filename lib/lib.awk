@@ -80,7 +80,7 @@ function output(line) {
       list = params[param];
       type = params[param];
       sub(/\(.*/, "", type);
-      sub(/^\w+\(/, "", list); sub(/\)$/, "", list);
+      sub(/^.*\(/, "", list); sub(/\)$/, "", list);
       count = split (list, fields, /,/);
       for (field = 1; field <= count; field++) {
 	if (param_decl == "")

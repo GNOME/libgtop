@@ -32,7 +32,7 @@ function output(line) {
 		list = params[param];
 		type = params[param];
 		sub(/\(.*/, "", type);
-		sub(/^\w+\(/, "", list); sub(/\)$/, "", list);
+		sub(/^.*\(/, "", list); sub(/\)$/, "", list);
 
 		string = string" (\""type"\"";
 
