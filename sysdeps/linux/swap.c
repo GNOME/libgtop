@@ -52,12 +52,23 @@ void
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
 	char buffer [BUFSIZ], *p;
+	int fd, len;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SWAP, 0);
 
 	memset (buf, 0, sizeof (glibtop_swap));
 
-	file_to_buffer(server, buffer, MEMINFO);
+	fd = open (MEMINFO, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", MEMINFO);
+
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", MEMINFO);
+
+	close (fd);
+
+	buffer [len] = '\0';
 
 	/* Kernel 2.6 with multiple lines */
 
@@ -67,7 +78,17 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
 	buf->flags = _glibtop_sysdeps_swap;
 
-	file_to_buffer(server, buffer, PROC_STAT);
+	fd = open (PROC_STAT, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", PROC_STAT);
+
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", PROC_STAT);
+
+	close (fd);
+
+	buffer [len] = '\0';
 
 	p = strstr (buffer, "\nswap");
 	if (p == NULL) return;

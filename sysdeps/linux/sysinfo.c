@@ -36,13 +36,31 @@ static glibtop_sysinfo sysinfo = { .flags = 0 };
 static void
 init_sysinfo (glibtop *server)
 {
+	int fd;
+	ssize_t len;
 	char buffer [BUFSIZ];
 
-	if(G_LIKELY(sysinfo.flags)) return;
+	if(sysinfo.flags) return;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
-	file_to_buffer(server, buffer, FILENAME);
+	memset (&sysinfo, 0, sizeof (glibtop_sysinfo));
+
+
+	/* load the file */
+
+	fd = open (FILENAME, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", FILENAME);
+
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", FILENAME);
+
+	close (fd);
+
+	buffer [len] = '\0';
+
 
 	/* cpuinfo records are seperated by a blank line */
 	gchar ** const processors = g_strsplit(buffer, "\n\n", 0);
@@ -79,7 +97,8 @@ init_sysinfo (glibtop *server)
 
 
 		/* the last key has no value and has not been added */
-		if(*p) g_free(*p);
+		if(*p)
+			g_free(*p);
 
 		/* just g_free instead of g_strvfree because we stole
 		   the memory*/

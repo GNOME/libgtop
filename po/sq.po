@@ -37,10 +37,9 @@ msgstr "Nice"
 msgid "Sys"
 msgstr "Sys"
 
-#. GRUT modified this item
 #: examples/smp.c:77
 msgid "Idle"
-msgstr "Joaktiv"
+msgstr "Jo në përdorim"
 
 #: examples/smp.c:79
 #, c-format
@@ -402,10 +401,9 @@ msgstr "Madhësia e segmentit të mesazhit"
 msgid "Number of system message headers"
 msgstr "Numri i headers të mesazheve të sistemit"
 
-#. GRUT modified this item
 #: sysdeps/names/netload.c:46 sysdeps/names/netload.c:64
 msgid "Interface Flags"
-msgstr "Flag-et e interfaqes"
+msgstr "Flag e interfaqes"
 
 #: sysdeps/names/netload.c:47
 msgid "MTU"
@@ -1250,10 +1248,9 @@ msgstr "Argumentet e rreshtit të komandës së proçesit"
 msgid "List of currently mounted filesystems"
 msgstr "Lista e file sistemeve aktualisht të montuar"
 
-#. GRUT modified this item
 #: sysdeps/names/uptime.c:39
 msgid "Uptime"
-msgstr "Kohëzgjatja"
+msgstr "Uptime"
 
 #: sysdeps/names/uptime.c:40
 msgid "Idletime"
@@ -1398,4 +1395,3 @@ msgstr "Sinjal 1 i përcaktuar nga përdoruesi"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Sinjal 2 i përcaktuar nga përdoruesi"
-

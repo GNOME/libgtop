@@ -75,7 +75,7 @@
 
 	* gnuserv.c (program_invocation_*_name): Declare this as `extern'
 	if necessary.
-
+	
 1998-12-17  Martin Baulig  <baulig@merkur.uni-trier.de>
 
 	* gnuserv.c: Don't include <gnome-argp.h>.

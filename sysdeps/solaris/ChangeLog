@@ -16,7 +16,7 @@
 
 	* procargs.c: (glibtop_get_proc_args_s):
 	* procmap.c: (glibtop_get_proc_map_s): fix g_malloc usage on non-Linux
-        platforms (patch by Benoît Dejean <bnet@ifrance.com>)
+        platforms (patch by Benoit Dejean <bnet@ifrance.com>)
 
 2003-10-21  Bastien Nocera  <hadess@hadess.net>
 
@@ -184,7 +184,7 @@
 1999-05-04  Drazen Kacar  <dave@srce.hr>
 
 	* glibtop_machine.h: Changed boot time to unsigned long long.
-
+	
 	* open.c: Added proper type checking for boot value. There's
 	no point in saving a few nanoseconds in init function. And
 	one day it will become 64-bit value.

@@ -54,13 +54,24 @@ void
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
 	char buffer [BUFSIZ], *p;
+	int fd, len;
 	int i;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
 	memset (buf, 0, sizeof (glibtop_cpu));
 
-	file_to_buffer(server, buffer, FILENAME);
+	fd = open (FILENAME, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", FILENAME);
+
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", FILENAME);
+
+	close (fd);
+
+	buffer [len] = '\0';
 
 	/*
 	 * GLOBAL

@@ -1,29 +1,14 @@
-2004-07-07  Benoît Dejean  <tazforever@dlfp.org>
-
-	* Makefile.am:
-	* procargs.c: (split_args0), (glibtop_get_proc_argv_l),
-	(glibtop_get_proc_argv_p), (glibtop_get_proc_argv_s): Added file to
-	repository. Provides glibtop_get_proc_argv*() for system dependant 
-	glibtop_get_proc_args*().
-
-2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
-
-	* error.c: (print_server_name), (glibtop_error_r),
-	(glibtop_warn_r), (glibtop_error_io_r), (glibtop_warn_io_r),
-	(glibtop_error), (glibtop_warn), (glibtop_error_io),
-	(glibtop_warn_io): These functions are now globally defined.
-
 2004-06-12  Benoît Dejean  <tazforever@dlfp.org>
 
 	* Makefile.am:
 	* fsusage-frontend.c:
 	* fsusage.h: Removed files.
-
-	* fsusage.c: (glibtop_get_fsusage_s), (statfs): Merged and cleaned.
+	
+	* fsusage.c: (glibtop_get_fsusage_s), (statfs): Merged and cleaned.	
 
 2004-06-12  Benoît Dejean  <tazforever@dlfp.org>
 
-	* mountlist.c: (xatoi) Removed, replaced by ISO strtoull.
+	* mountlist.c: (xatoi) Removed, replaced by ISO strtoull. 
 	(fstype_to_string): Cleaned.
 	(read_filesystem_list) : Changed prototype. Cleaned and secured.
 	Replaced broken free by g_free.

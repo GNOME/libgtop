@@ -117,7 +117,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 		buf->priority = 2*15 - buf->priority;
 		buf->nice = 15 - buf->nice;
 	}
-	else if (server->os_version_code < LINUX_VERSION(1,1,30) && buf->tty != -1)
+	if (server->os_version_code < LINUX_VERSION(1,1,30) && buf->tty != -1)
 		/* when tty wasn't full devno */
 		buf->tty = 4*0x100 + buf->tty;
 

@@ -16,7 +16,6 @@ noinst_LTLIBRARIES		= libgtop_common-2.0.la libgtop_suid_common-2.0.la
 libgtop_common_2_0_la_SOURCES	= error.c gnuslib.c \
 				  fsusage.c \
                                   mountlist.c mountlist.h \
-                                  procargs.c \
 				  $(inodedb_SRCLIST)
 
 libgtop_common_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)

@@ -34,8 +34,3 @@ libgtop*.tar.gz
 *-debstamp
 libgtop*.pc
 autom4te.cache
-COPYING
-INSTALL
-install-sh
-missing
-mkinstalldirs

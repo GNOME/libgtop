@@ -5,7 +5,7 @@
 	* marshal.pl:
 	* read_data.c: (glibtop_read_data_i):
 	* server.c: (handle_slave_connection): fix g_malloc usage on non-Linux
-	platforms (patch by Benoît Dejean <bnet@ifrance.com>)
+	platforms (patch by Benoit Dejean <bnet@ifrance.com>)
 
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 

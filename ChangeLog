@@ -1,37 +1,6 @@
-2004-07-07  Benoît Dejean  <tazforever@dlfp.org>
+2004-06-13  Benoît Dejean  <tazforever@dlfp.org>
 
-	* include/glibtop/netinfo.h:
-	* structures.def:
-	* sysdeps/names/netinfo.c: Removed netinfo.[ch] that were never used.
-
-2004-07-03  Benoît Dejean  <tazforever@dlfp.org>
-
-	* sysdeps/names/fsusage.c: Added missing fsusage names.
-
-2004-07-03  Benoît Dejean  <tazforever@dlfp.org>
-
-	* glibtop.h: Moved foward declaration of glibtop to break circular
-	#includes dependencies.
-
-2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
-
-	* include/glibtop/error.h: Also tries C99 __VA_ARGS__ before using
-	functions.
-
-	* include/glibtop/error.h: Moved 8 static error functions to
-	sysdeps/common/error.c. This is the end of an big useless code
-	bloat : expect ~8KB of object size reduction.
-
-	* include/glibtop/procuid.h: s/int/gint32/g
-
-	* lib/errors.c: (glibtop_error_quark):
-	* lib/read.c: (do_read), (glibtop_read_l):
-	* lib/read_data.c: (glibtop_read_data_l): Minor cleanups.
-
-	* sysdeps/names/netload.c:
-	* include/glibtop/netload.h: Added IPv6 feature : provides address,
-	prefix and scope. This breaks the ABI. Not documented yet : check
-	this file.
+	* configure.in: version 2.6.1
 
 2004-06-13  Benoît Dejean  <tazforever@dlfp.org>
 
@@ -42,8 +11,10 @@
 
 	* include/glibtop/fsusage.h: block_size is now defined as a guint32
 	instead of a fuzzy gint.
-
+	
 	* lib/sysdeps.c: (glibtop_get_sysdeps_r): Small cleanup.
+
+2004-06-12  Benoît Dejean  <tazforever@dlfp.org>
 
 	* lib/init.c: Added missing initializer.
 
@@ -55,7 +26,7 @@
 
 	* lib/parameter.c:
 	* support/popt.c: (poptGetContext): Cleaned.
-
+	
 	* support/vsnprintf.c: s/strncpy/g_strlcpy
 
 2004-05-28  Benoît Dejean <TazForEver@free.fr>
@@ -168,7 +139,7 @@
 
 2004-03-05  Bastien Nocera  <hadess@hadess.net>
 
-	* include/glibtop/procmap.h: patch by Benoît Dejean <bnet@ifrance.com>
+	* include/glibtop/procmap.h: patch by Benoit Dejean <bnet@ifrance.com>
 	to break the API, I mean, to make it easier to generate Python bindings
 	(Closes: #129701)
 
@@ -211,8 +182,8 @@
 
 2004-02-02  Sebastien Bacher  <seb128@debian.org>
 
-	* sysdeps/linux/mem.c: (glibtop_get_mem_s): patch from
-	BenoÃ®t Dejean <bnet@ifrance.com> to fix libtop_mem.used
+	* sysdeps/linux/mem.c: (glibtop_get_mem_s): patch from 
+	BenoÃ®t Dejean <bnet@ifrance.com> to fix libtop_mem.used 
 	and glibtop_mem.shared values (Closes: #129863).
 
 Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
@@ -582,7 +553,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 2003-01-16  Daniel Yacob <locales@geez.org>
 
 	* configure.in: added am to ALL_LINGUAS
-
+	
 2003-01-12  Kevin Vandersloot <kfv101@psu.edu>
 
 	* configure.in: release 2.0.1
@@ -595,7 +566,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* Framework for AIX support
 
-2002-08-07  Vincent Berger <Vincent.Berger@ext.bull.net>
+2002-08-07  Vincent Berger <Vincent.Berger@ext.bull.net> 
 
 	* support/: Add alloca management for AIX
 	* configure.in: correct checking for nm
@@ -677,7 +648,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* acininclude.m4: add back the support stuf but make it really
 	work
 
-	* configure.in: bump version number, add back GNOME_SUPPORT
+	* configure.in: bump version number, add back GNOME_SUPPORT 
 	check since that was causing a build failure
 
 	* release 1.90.1
@@ -724,7 +695,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* port stable libgtop to GNOME 2.0. Too much to detail.
 	pkgconfig is now used. Libs are named libgtop-2.0 etc for
-	parallel install.
+	parallel install. 
 
 2001-10-17  Abel Chueng  <maddog@linux.org.hk>
 
@@ -870,7 +841,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 1999-09-22  Kjartan Maraas  <kmaraas@online.no>
 
 	* configure.in: Added "da" to ALL_LINGUAS.
-
+	
 1999-09-19  Martin Baulig  <martin@home-of-linux.org>
 
 	* libgtopConf.sh.in: Added MODULE_VERSION on Miguel's
@@ -1095,7 +1066,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	contain all possible features.
 
 	* configure.in: LibGTop will now require GLIB >= 1.1.12.
-
+	
 1999-01-05  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in: Make it abort if the `dc' utility is not installed.
@@ -1261,7 +1232,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	here.
 
 	[NOTE for people porting libgtop:
-
+	
  	 Please use all 64 bits of the `guint64' and not just 32 - the
 	 signal number (as it is used in calls to kill () ...) should be
 	 a bit-index into this field; if a process ignores for instance
@@ -1442,7 +1413,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* LIBGTOP-VERSION: Set version number to 0.25.0. There is now really
 	a feature freeze until it's released, bug fixes only ...
-
+	
 	* include/glibtop/procmap (glibtop_map_entry): Added `flags' and
 	`filename' fields.
 
@@ -1450,7 +1421,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* libgtopConf.sh.in: Likewise.
 
 	* libgtopConf.sh.in: Added `LIBGTOP_EXTRA_LIBS'.
-
+	
 	* sysdeps/linux/procmap.c: Added implementation.
 
 1998-08-17  Martin Baulig  <martin@home-of-linux.org>
@@ -1540,7 +1511,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* LIBGTOP-VERSION: Added `LIBGTOP_SERVER_VERSION'.
 	* src/daemon/gnuserv.c, lib/open.c: Improved version check between
 	client and server.
-
+	
 	* include/glibtop/output.h: Removed.
 
 	* sysdeps/stub_suid: New directory. This is mainly used as example
@@ -1551,7 +1522,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* sysdeps/osf1/*.c (glibtop_init_<no-suid-feature>_s): New functions.
 	(glibtop_init_<suid-feature>_p): New functions.
-
+	
 1998-08-07  Martin Baulig  <martin@home-of-linux.org>
 
 	* glibtop.h (_glibtop): New fields `error_method', `sysdeps' and
@@ -1727,7 +1698,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* lib/open.c (glibtop_open_l): Unconditionally calling
 	`glibtop_init_s' after server initialization.
-
+	
 	* lib/lib.awk: Removed references to functions from
 	`libgtop_sysdeps_suid.la' to avoid undefined symbols.
 
@@ -1748,20 +1719,20 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* sysdeps/linux/close.c (glibtop_close_s): Renamed this
 	function from `glibtop_close_l'.
-
+	
 	* sysdeps/osf1/Makefile.am (lib_LTLIBRARIES): Added
 	`libgtop_sysdeps_suid.la' for the suid server.
-
+	
 	* sysdeps/osf1/open_suid.c (glibtop_open_p): New file.
 	Contains all stuff that was formerly in `open.c'.
-
+	
 	* sysdeps/osf1/open.c: Moved everything from here into
 	the new file `open_suid.c'.
-
+	
 	* sysdeps/osf1/open.c (glibtop_open_s): New function.
-
+	
 	* sysdeps/osf1/close_suid.c (glibtop_close_p): New file.
-
+	
 	* sysdeps/osf1/close.c (glibtop_close_s): New function.
 
 	* sysdeps/osf1/*.c: Using the new init, open and close
@@ -1804,7 +1775,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 1998-07-18  Martin Baulig  <martin@home-of-linux.org>
 
 	* lib/{init, open}.c: Added `GLIBTOP_METHOD_PIPE' again.
-
+	
 	* src/server/main.c: Removed gettext stuff.
 
 1998-07-17  Martin Baulig  <baulig@Stud.Informatik.uni-trier.de>
@@ -1813,10 +1784,10 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	library functions with '_l' prefix instead of directly calling
 	sysdeps code with '_r' prefix. This is necessary for client/server
 	mode.
-
+	
 	* lib/lib.awk (glibtop_get_*): Now correctly using
 	`(1 << GLIBTOP_SYSDEPS_*)' instead of `GLIBTOP_SYSDEPS_*'.
-
+	
 	* sysdeps/sun4/proclist.c (glibtop_get_proclist_p): Added
 	implementation of that feature.
 
@@ -1824,7 +1795,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* sysdeps/sun4/proc_{mem, time, signal, kernel, segment}.c: Added
 	some basic implementation; this isn't really working yet.
-
+	
 	* sysdeps/linux/sem_limits.c: Applied patch from Albert K T Hui
 	<avatar@deva.net> for glibc 2.1.
 
@@ -1844,7 +1815,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 1998-07-14  Martin Baulig  <baulig@Stud.Informatik.uni-trier.de>
 
 	* src/daemon/server_config.h.in: Added some comments.
-
+	
 	* src/daemon/server_config.pl: New file. This is a script you can use
 	to create `server_config.h'. It will query you for some configuration
 	options.
@@ -1869,11 +1840,11 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* src/daemon/slave.c: New file.
 
 	* src/daemon/*.c: Done some more work on the daemon.
-
+	
 	* sysdeps/common/gnuslib.c: Removed IPC stuff.
-
+	
 	* include/glibtop/gnuserv.h: Removed IPC stuff.
-
+	
 	* include/glibtop/command.h (glibtop_response_unit): Added
 	typedef for `struct _glibtop_response_unit'.
 
@@ -1903,7 +1874,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* sysdeps/linux/procstate.c: Added missing `fclose'.
 
 	* include/glibtop/gnuserv.h (UNIX_DOMAIN_SOCKETS): Defining.
-
+	
 	* include/glibtop/open.h (GLIBTOP_METHOD_UNIX): Added.
 
 	* lib/init.c: Added new method `GLIBTOP_METHOD_UNIX'.
@@ -1991,12 +1962,12 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* lib/xmalloc.c (g_strdup): New function.
 
 	* lib/gnuclient.c: Removed.
-
+	
 	* lib/{command, write, read}.c: Changed client <-> server
 	interface to make less system calls.
 
 	* src/daemon/main.c: Changed server side of interface.
-
+	
 	* include/glibtop/command.h (struct _glibtop_response): New
 	structure to return data from the server to the client.
 
@@ -2067,7 +2038,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* include/glibtop/sysdeps.h (glibtop_types_sysdeps):
 	Forgot to change declaration on Jun 6.
-
+	
 	* sysdeps/names/sysdeps.c (glibtop_types_sysdeps):
 	Using numeric constants from `types.h' instead of string
 	constants; forgot to change this on Jun 6. Added information
@@ -2094,30 +2065,30 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 1998-06-07  Martin Baulig  <martin@home-of-linux.org>
 
 	* examples/ChangeLog: New file.
-
+	
 	* macros/gnome-libgtop-sysdeps.m4: Include
 	`glibtop_machine.h' for Linux.
-
+	
 	* sysdeps/linux/glibtop_machine.h: New file.
-
+	
 	* sysdeps/linux/*.c: Performance optimizations. We now use
 	`open' and `read' instead of `fopen' and `fscanf'.
-
+	
 	* *.[ch]: Using single underscore instead of two underscores
 	for function prefixes (regexp: ``s,__([rspl])\b,_$1,g'') to
 	avoid ambiguity with mangled C++ names.
-
+	
 1998-06-06  Martin Baulig  <martin@home-of-linux.org>
 
 	* sysdeps/osf1/glibtop_server.h: New file.
-
+	
 	* sysdeps/osf1/*.c: renamed all functions implementing
 	features that don't need to be suid to '__s'.
 
 	* sysdeps/names/procdata.c: Removed that file.
-
+	
 	* include/glibtop/*.h (glibtop_types_*): Changed declaration.
-
+	
 	* glibtop.h: Added `#include <types.h>'.
 
 	* include/glibtop/types.h: New file - numeric constants
@@ -2143,10 +2114,10 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 1998-06-03  Martin Baulig  <baulig@merkur.uni-trier.de>
 
 	* libgtop.spec: New file.
-
+	
 	* Makefile.am (EXTRA_DIST): Added `autogen.sh' and
 	`libgtop.spec'.
-
+	
 	* configure.in (LIBGTOP_INCS): is now identically to
 	`LIBGTOP_GUILE_INCS'.
 
@@ -2183,7 +2154,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* NEWS: added more detailed description of today's and
 	yesterday's changes.
-
+	
 	* include/glibtop/*.h: to use the ChangeLog entry from May 28:
 	'__l' is a function defined in the client part;
 	'__s' is a function defined in the sysdeps part and
@@ -2216,26 +2187,26 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* src/server/main.c: we now use the '__p' functions,
 	but only if the appropriate 'GLIBTOP_SUID_<feature>'
 	has a non-zero value.
-
-	* configure.in (@machine_incs@): always use
+	
+	* configure.in (@machine_incs@): always use 
 	`-I$(top_srcdir)/sysdeps/@sysdeps_dir@'; it's no
 	longer conditional.
 
 	* examples/Makefile.am: removed the '_linux' examples.
-
+	
 	* sysdeps/linux/*.c: renamed all functions implementing
 	features to '__s'.
-
+	
 	* lib/*.c: renamed all functions implementing features
 	to '__l'; we only emit code for those functions if the
  	corresponding 'GLIBTOP_SUID_<feature>' has a positive value.
-
+	
 	* include/glibtop/*.h: added some new function suffixes:
 	'__l' is a function defined in the client part;
 	'__s' is a function defined in the sysdeps part and
 	'__p' is a function that needs special priviledges.
 	'__r' is mapped either on '__l' or on '__s'.
-
+	
 	* sysdeps/linux/glibtop_server.h: New file -
 	defines system dependent constants 'GLIBTOP_SUID_<feature>'
 	being either 'GLIBTOP_SYSDEPS_<feature>'+1 depending upon
@@ -2301,9 +2272,9 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	'libgtop_use_machine_h', 'libgtop_guile_found',
 	'libgtop_want_names', 'libgtop_want_guile_names',
 	'libgtop_want_examples'.
-
+	
 	* gtopConf.sh.in: renamed to 'libgtopConf.sh.in'.
-
+	
 	* acinclude.m4 (AC_LC_SYSDEPS): rewrote that macro -
 	moved some of the code to 'macros/gnome-libgtop-sysdeps.m4';
 	renamed variables: look at the ChangeLog entry for the
@@ -2366,7 +2337,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* NEWS: added more detailed description of
 	today's changes.
-
+	
 	* examples/third.c: added required check for
 	'GLIBGTOP_GUILE_NAMES'.
 
@@ -2400,20 +2371,20 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* sysdeps/osf1/procuid.c (glibtop_get_proc_uid__r):
 	added implementation for DEC OSF/1.
-
+	
 	* sysdeps/sun4/uptime.c: forgot to checkin
 
 	* sysdeps/sun4/loadavg.c: forgot to checkin
-
+	
 	* sysdeps/osf1/uptime.c: forgot to checkin
-
+	
 	* sysdeps/osf1/loadavg.c: forgot to checkin
 
 1998-05-19  Martin Baulig  <baulig@merkur.uni-trier.de>
 
 	* sysdeps/stub/uptime.c: forgot this file all the
 	time - stub for glibtop_uptime
-
+	
 	* sysdeps/stub/loadavg.c: forgot this file all the
  	time - stub for glibtop_loadavg
 
@@ -2432,7 +2403,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* include/glibtop: added references to
 	'glibtop_types_* []' and 'glibtop_guile_types_*'.
-
+		
 	* sysdeps/guile/names: added implementations of
 	'glibtop_types_*' and 'glibtop_description_*'.
 
@@ -2447,7 +2418,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* sysdeps/guile: all guile functions now return
 	the 'flags' member as first element of the list.
 
-	* include/glibtop/procstate.h (glibtop_proc_state):
+	* include/glibtop/procstate.h (glibtop_proc_state): 
 	added 'uid' and 'gid' members; the library tries hard
 	to set those values; it will never set the corresponding
 	'flags' value unless the values are correct.
@@ -2489,7 +2460,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* sysdeps/guile/sysdeps.c: changes to reflect the
 	new flags of procdata.
-
+	
 	* sysdeps/common/sysdeps.c: changes to reflect the
 	new flags of procdata.
 
@@ -2549,9 +2520,9 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* src/mico/proclist.idl: new file - simple mico interface
 
 	* src/version.c: moved to src/server
-
+	
 	* src/output.c: moved to src/server
-
+	
 	* src/main.c: moved to src/server
 
 1998-04-11  Martin Baulig  <martin@home-of-linux.org>
@@ -2621,7 +2592,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	this directory
 
 	* sysdeps/common/sem_limits.c: moved to sysdeps/names
-
+	
 	* sysdeps/common/msg_limits.c: moved to sysdeps/names
 
 	* sysdeps/common/sem_limits.c: moved to sysdeps/names
@@ -2655,25 +2626,25 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 		some arbitrary data
 
 	* lib/proclist.c: new file - library function for glibtop_proclist
-
+	
 	* sysdeps/linux/proclist.c: new file - implementation for glibtop_proclist
-
+	
 	* sysdeps/stub/proclist.c: new file - stub for glibtop_proclist
-
+	
 	* include/glibtop/proclist.h: new file - glibtop_proclist
 
 	* include/glibtop/union.h: new file
 
 	* lib/read_data.c: new file
-
+	
 	* include/glibtop/read_data.h: new file
 
 	* sysdeps/common/xmalloc.c: new file - moved here from lib
-
+	
 	* sysdeps/common/error.c: new file - moved here from lib
-
+	
 	* lib/xmalloc.c: moved to sysdeps/common
-
+	
 	* lib/error.c: moved to sysdeps/common
 
 1998-04-05  Martin Baulig  <martin@home-of-linux.org>
@@ -2710,9 +2681,9 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* sysdeps/common/msg_limits.c: new file - limit names
 
 	* sysdeps/common/sem_limits.c: new file - limit names
-
+	
 	* include/glibtop/shm_limits.h: new file - glibtop_shm_limits
-
+	
 	* include/glibtop/msg_limits.h: new file - glibtop_msg_limits
 
 	* include/glibtop/sem_limits.h: new file - glibtop_sem_limits
@@ -2737,13 +2708,13 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* lib/ipc_limits.c: new file - library function for
 		glibtop_ipc_limits
-
+	
 	* sysdeps/linux/ipc_limits.c: new file - implementation for
 		glibtop_ipc_limits
-
+	
 	* sysdeps/stub/ipc_limits.c: new file - stub for
 		glibtop_ipc_limits
-
+	
 	* include/glibtop/ipc_limits.h: new file - glibtop_ipc_limits -
 		sysv ipc limits
 
@@ -2751,7 +2722,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* lib/uptime.c: new file - library function for
 		glibtop_uptime
-
+	
 	* lib/loadavg.c: new file - library function for
 		glibtop_loadavg
 
@@ -2775,14 +2746,14 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* sysdeps/stub/sysinfo.c: removed - splitted into
 		uptime.c and loadavg.c
-
+	
 	* src/main.c: added GLIBTOP_CMND_UPTIME and
 		GLIBTOP_CMND_LOADAVG implementation
 
 	* include/glibtop/loadavg.h: new file - glibtop_loadavg
-
+	
 	* include/glibtop/uptime.h: new file - glibtop_uptime
-
+	
 	* include/glibtop/loadavg.h: removed - splitted into
 		uptime.h and loadavg.h
 
@@ -2791,10 +2762,10 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* lib/sysdeps.c: new file - library function for glibtop_sysdeps
 
 	* sysdeps/linux/sysdeps.c: new file - copied from sysdeps/stub
-
+	
 	* sysdeps/stub/sysdeps.c: new file - implementation for glibtop_sysinfo -
 		this is really the implementation and not just a stub
-
+	
 	* src/sysdeps.c: moved to sysdeps/stub - this file is now part
 		of the library
 

@@ -47,10 +47,23 @@ void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
 	char buffer [BUFSIZ];
+	int fd, len;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
 
-	file_to_buffer(server, buffer, FILENAME);
+	memset (buf, 0, sizeof (glibtop_mem));
+
+	fd = open (FILENAME, O_RDONLY);
+	if (fd < 0)
+		glibtop_error_io_r (server, "open (%s)", FILENAME);
+
+	len = read (fd, buffer, BUFSIZ-1);
+	if (len < 0)
+		glibtop_error_io_r (server, "read (%s)", FILENAME);
+
+	close (fd);
+
+	buffer [len] = '\0';
 
 	buf->total  = get_scaled(buffer, "MemTotal:");
 	buf->free   = get_scaled(buffer, "MemFree:");
@@ -59,6 +72,6 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	buf->buffer = get_scaled(buffer, "Buffers:");
 	buf->cached = get_scaled(buffer, "Cached:");
 
-	buf->user = buf->total - buf->free - buf->cached - buf->buffer;
-	buf->flags = _glibtop_sysdeps_mem;
+ 	buf->user = buf->total - buf->free - buf->cached - buf->buffer;
+ 	buf->flags = _glibtop_sysdeps_mem;
 }

@@ -29,7 +29,7 @@ const char *glibtop_names_netload [GLIBTOP_MAX_NETLOAD] =
 	"if_flags", "mtu", "subnet", "address", "packets_in",
 	"packets_out", "packets_total", "bytes_in", "bytes_out",
 	"bytes_total", "errors_in", "errors_out", "errors_total",
-	"collisions", "address6", "prefix6", "scope6"
+	"collisions"
 };
 
 const unsigned glibtop_types_netload [GLIBTOP_MAX_NETLOAD] =
@@ -45,8 +45,8 @@ const char *glibtop_labels_netload [GLIBTOP_MAX_NETLOAD] =
 {
 	N_("Interface Flags"),
 	N_("MTU"),
-	N_("IPv4 Subnet"),
-	N_("IPv4 Address"),
+	N_("Subnet"),
+	N_("Address"),
 	N_("Packets In"),
 	N_("Packets Out"),
 	N_("Packets Total"),
@@ -56,18 +56,15 @@ const char *glibtop_labels_netload [GLIBTOP_MAX_NETLOAD] =
 	N_("Errors In"),
 	N_("Errors Out"),
 	N_("Errors Total"),
-	N_("Collisions"),
-	N_("IPv6 Address"),
-	N_("IPv6 Prefix"),
-	N_("IPv6 Scope")
+	N_("Collisions")
 };
 
 const char *glibtop_descriptions_netload [GLIBTOP_MAX_NETLOAD] =
 {
 	N_("Interface Flags"),
 	N_("Maximum Transfer Unit"),
-	N_("IPv4 Subnet"),
-	N_("IPv4 Address"),
+	N_("Subnet"),
+	N_("Address"),
 	N_("Packets In"),
 	N_("Packets Out"),
 	N_("Packets Total"),
@@ -77,8 +74,5 @@ const char *glibtop_descriptions_netload [GLIBTOP_MAX_NETLOAD] =
 	N_("Errors In"),
 	N_("Errors Out"),
 	N_("Errors Total"),
-	N_("Collisions"),
-	N_("IPv6 Address"),
-	N_("IPv6 Prefix"),
-	N_("IPv6 Scope")
+	N_("Collisions")
 };

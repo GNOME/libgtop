@@ -1,15 +1,7 @@
-2004-06-28  Laurent Dhima  <laurenti@alblinux.net>
-
-	* sq.po: Translation updated.
-
-2004-06-26  John C Barstow  <jbowtie@amathaine.com>
-
-	* mi.po: Translation added.
-
 2004-05-14  Baris Cicek <baris@teamforce.name.tr>
 
 	* tr.po: Updated Turkish Translation
-
+	
 2004-04-16  Iñaki Larrañaga  <dooteo@euskalgnu.org>
 
 	* eu.po: Added Basque translation.
@@ -37,7 +29,7 @@
 
 2004-03-22  Guntupalli Karunakar  <karunakar@freedomink.org>
 
-        * pa.po: Punjabi translation by
+        * pa.po: Punjabi translation by 
         Amanpreet Singh Alam <amanlinux@netscape.net>.
 
 2004-03-21  Andras Timar  <timar@gnome.hu>
@@ -183,7 +175,7 @@
 2004-01-02  Sanlig Badral  <Badral@openmn.org>
 
     * mn.po: Updated Mongolian translation.
-
+    
 2003-12-14  Francisco Javier F. Serrador  <serrador@cvs.gnome.org>
 
 	* es.po: Updated Spanish translation.
@@ -243,7 +235,7 @@
 2003-10-19  Carlos Perelló Marín <carlos@gnome.org>
 
 	* POTFILES.ignore: Removed, we use now POTFILES.skip
-
+	
 2003-10-01  Gustavo Maciel Dias Vieira  <gdvieira@zaz.com.br>
 
 	* pt_BR.po: Applied revision by Augusta Marques da Silva
@@ -344,19 +336,19 @@
 2003-06-04  Paul Duffy <dubhthach@frink.nuigalway.ie>
 
         * ga.po: Updated Irish Translation.
-
+	
 2003-05-25  Abel Cheung  <maddog@linux.org.hk>
 
 	* he.po: Mark wrong entry as fuzzy (msgfmt check failed).
 
 2003-05-16  Danilo ©egan  <dsegan@gmx.net>
 
-	* sr.po, sr@Latn.po: Updated Serbian translation by Serbian
+	* sr.po, sr@Latn.po: Updated Serbian translation by Serbian 
 	team (Prevod.org).
 
 2003-05-10  Danilo Segan  <dsegan@gmx.net>
 
-	* sr.po, sr@Latn.po: Added Serbian translation by Serbian team
+	* sr.po, sr@Latn.po: Added Serbian translation by Serbian team 
 	(Prevod.org).
 
 2003-04-20  Abel Cheung  <maddog@linux.org.hk>
@@ -436,7 +428,7 @@
 2003-01-16  Daniel Yacob <locales@geez.org>
 
 	* am.po: Added Amharic translation.
-
+	
 2003-01-16  Pablo Saratxaga  <pablo@mandrakesoft.com>
 
 	* vi.po: Updated Vietnamese file
@@ -580,7 +572,7 @@
 2002-04-23  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* no.po: Updated Norwegian (bokm?¥l) translation.
-
+	
 2002-04-19  Ole Laursen  <olau@hardworking.dk>
 
 	* da.po: Updated Danish translation.
@@ -604,7 +596,7 @@
 
 2002-03-25  Duarte Loreto <happyguy_pt@hotmail.com>
 
-        * pt.po: Updated Portuguese translation.
+        * pt.po: Updated Portuguese translation. 
 
 2002-03-23  Hasbullah Bin Pit <sebol@ikhlas.com>
 
@@ -617,7 +609,7 @@
 2002-03-06  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* no.po: Updated Norwegian (bokm?¥l) translation.
-
+	
 2002-03-06  Germ??n Poo-Caama?±o <gpoo@ubiobio.cl>
 
 	* es.po: Fixed spanish translation encoding.
@@ -638,7 +630,7 @@
 2002-02-12  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* no.po: Updated Norwegian (bokm?¥l) translation.
-
+	
 2002-02-09  Abel Cheung  <maddog@linux.org.hk>
 
 	* zh_TW.po: Updated traditional Chinese translation.
@@ -681,7 +673,7 @@
 2001-07-16  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* nn.po: Added Norwegian (nynorsk) translation.
-
+	
 2001-03-25  Fatih Demir <kabalak@gtranslator.org>
 
 	* tr.po: %100'ification.
@@ -771,11 +763,11 @@
 2000-09-19  Christian Meyer  <linux@chrisime.de>
 
 	* de.po: Minor fix.
-
+	
 2000-09-19  Christian Meyer  <linux@chrisime.de>
 
 	* de.po: Updated German translation.
-
+	
 2000-09-10  Christian Meyer  <linux@chrisime.de>
 
 	* de.po: Updated German translation.
@@ -785,7 +777,7 @@
 2000-08-16  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* no.po: Updated Norwegian translation.
-
+	
 2000-06-25  Takayuki KUSANO  <AE5T-KSN@asahi-net.or.jp>
 
 	* ja.po: Updated Japanese translation.
@@ -809,7 +801,7 @@
 2000-05-17  Kjartan Maraas  <kmaraas@online.no>
 
 	* no.po: Updated translation.
-
+	
 2000-05-16  Kenneth Christiansen  <kenneth@gnome.org>
 
         * POTFILES.in: New strings added
@@ -864,7 +856,7 @@
 1999-07-11  Kjartan Maraas  <kmaraas@online.no>
 
 	* no.po: Updated translation.
-
+	
 1999-07-11  Tomas Ogren  <stric@ing.umu.se>
 
 	* sv.po: New file
@@ -872,7 +864,7 @@
 1999-01-27  Kjartan Maraas  <kmaraas@fib.hl.no>
 
 	* no.po: Updated translation
-
+	
 1998-12-22  Yukihiro Nakai  <Nakai@TokyoNet.AD.JP>
 
 	* ja.po: New file - added Japanese translation
@@ -884,7 +876,7 @@
 1998-10-11  Kjartan Maraas  <kmaraas@fib.hl.no>
 
 	* no.po: New file - added norwegian translation.
-
+	
 1998-10-07  Martin Baulig  <martin@home-of-linux.org>
 
 	* de.po: New file - added german translation.

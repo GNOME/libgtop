@@ -42,11 +42,11 @@ char *
 glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len)
 {
-	char filename[48]; /* magiv */
+	char filename[48];
 
 	char *args;
 	gsize length;
-	GError *error = NULL;
+	GError *error;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_ARGS, 0);
 
@@ -55,14 +55,13 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 	sprintf (filename, "/proc/%d/cmdline", pid);
 
 	if(!g_file_get_contents(filename, &args, &length, &error)) {
-		g_error_free(error);
 		buf->size = 0;
 		return NULL;
 	}
 
 	if(max_len && max_len < length) {
-		args = g_realloc(args, max_len);
-		args[max_len - 1] = '\0';
+		args = g_realloc(args, max_len+1);
+		args[max_len] = '\0';
 		length = max_len;
 	}
 

@@ -24,9 +24,6 @@
 #ifndef __GLIBTOP_H__
 #define __GLIBTOP_H__
 
-typedef struct _glibtop		glibtop;
-
-
 #include <glibtop/global.h>
 
 #include <glibtop_server.h>
@@ -40,9 +37,9 @@ typedef struct _glibtop		glibtop;
 #define GLIBTOP_MOUNTENTRY_LEN	79
 #endif
 
+typedef struct _glibtop		glibtop;
 
 #include <glibtop/sysdeps.h>
-
 
 struct _glibtop
 {

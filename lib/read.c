@@ -31,25 +31,37 @@
 static void
 do_read (int s, void *ptr, size_t total_size)
 {
-	ssize_t nread;
+	int nread;
+	size_t already_read = 0, remaining = total_size;
+	char *tmp_ptr;
 
-	if(!total_size) return;
+	while (already_read < total_size) {
+		nread = recv (s, ptr, remaining, 0);
 
-	while (total_size && (nread = recv (s, ptr, total_size, 0)) > 0) {
-		total_size -= nread;
-		ptr = (char*)ptr + nread;
+		if (nread == 0) {
+			close (s);
+			continue;
+		}
+
+		if (nread <= 0) {
+			glibtop_error_io ("recv");
+			return;
+		}
+
+		already_read += nread;
+		remaining -= nread;
+		/* (char *) ptr += nread; */
+		tmp_ptr = ptr;
+		tmp_ptr += nread;
+		ptr = tmp_ptr;
 	}
-
-	if(nread == 0)
-		close (s);
-
-	if (nread < 0)
-		glibtop_error_io ("recv");
 }
 
 void
 glibtop_read_l (glibtop *server, size_t size, void *buf)
 {
+	int ret = 0;
+
 	glibtop_init_r (&server, 0, 0);
 
 #ifdef DEBUG
@@ -59,11 +71,9 @@ glibtop_read_l (glibtop *server, size_t size, void *buf)
 	if (server->socket) {
 		do_read (server->socket, buf, size);
 	} else {
-		if(read (server->input [0], buf, size) < 0)
-			glibtop_error_io_r (
-				server,
-				ngettext ("read %d byte",
-					  "read %d bytes", size),
-				size);
+		ret = read (server->input [0], buf, size);
 	}
+
+	if (ret < 0)
+		glibtop_error_io_r (server, ngettext ("read %d byte", "read %d bytes", size), size);
 }
