@@ -49,6 +49,7 @@ struct _glibtop
 	const char *server_user;	/* Name of the user on the target host */
 	const char *server_rsh;		/* Command used to connect to the target host */
 	unsigned long features;		/* Server is required for this features */
+	unsigned long server_port;	/* Port on which daemon is listening */
 	pid_t pid;			/* PID of the server */
 };
 
