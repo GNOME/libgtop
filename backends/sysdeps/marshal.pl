@@ -60,7 +60,7 @@ sub output {
 
     $features{++$feature_count} = $orig;
 
-    return if $orig =~ /^@//;
+    return if $orig =~ /^@/;
 
     if ($retval eq 'retval') {
       $retval_param = '&retval';
@@ -163,6 +163,7 @@ sub output {
     print $total_code;
 }
 
+$init_hook_code = '';
 $call_vector_code = '';
 for ($nr = 1; $nr <= $feature_count; $nr++) {
   $feature = $features{$nr};
@@ -174,10 +175,25 @@ for ($nr = 1; $nr <= $feature_count; $nr++) {
       (qq[\#if GLIBTOP_SUID_%s\n\tNULL,\n\#else\n\t_glibtop_get_%s_c,\n\#endif\n],
        &toupper($feature), $feature);
   }
+
+  if (!($feature =~ /^@/)) {
+    $init_hook_code .= sprintf
+      (qq[\#if !GLIBTOP_SUID_%s\n\tglibtop_init_%s_s,\n\#endif\n],
+       &toupper($feature), $feature);
+  }
 }
+$init_hook_code .= sprintf (qq[\tNULL\n]);
+
+chop $init_hook_code;
+chop $call_vector_code;
 
 print 'glibtop_call_vector glibtop_backend_sysdeps_call_vector = {';
 print $call_vector_code;
+print '};';
+print '';
+
+print 'glibtop_init_func_t _glibtop_init_hook_s [] = {';
+print $init_hook_code;
 print '};';
 print '';
 

@@ -1,5 +1,7 @@
 2000-01-12  Martin Baulig  <martin@home-of-linux.org>
 
+	* marshal.pl: Create the `_glibtop_init_hook_s' as well.
+
 	* marshal.pl: Don't create code for things which are now
 	in the new `glibtop-backend-common' backend.
 
