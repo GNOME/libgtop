@@ -47,12 +47,14 @@ __BEGIN_DECLS
 
 #define GLIBTOP_MAX_SYSDEPS		17
 
+#define GLIBTOP_SYSDEPS_ALL		((1 << GLIBTOP_MAX_SYSDEPS) - 1)
+
 typedef struct _glibtop_sysdeps	glibtop_sysdeps;
 
 struct _glibtop_sysdeps
 {
 	unsigned long	flags,
-		dummy,			/* dummy field		*/
+		features,		/* server features	*/
 		cpu,			/* glibtop_cpu		*/
 		mem,			/* glibtop_mem		*/
 		swap,			/* glibtop_swap		*/

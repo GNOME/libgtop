@@ -26,7 +26,7 @@
 
 __BEGIN_DECLS
 
-#define GLIBTOP_OPEN_IMMEDIATE		1
+#define GLIBTOP_OPEN_NO_OVERRIDE	1
 
 extern void glibtop_open __P((glibtop *, const char *, const unsigned long, const unsigned));
 

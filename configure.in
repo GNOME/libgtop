@@ -188,6 +188,7 @@ sysdeps/osf1/Makefile
 sysdeps/linux/Makefile
 src/Makefile
 src/server/Makefile
+src/proxy/Makefile
 lib/Makefile
 examples/Makefile
 support/Makefile

@@ -21,15 +21,25 @@
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
 
+#define BIT_MASK(feature) (feature ? (1 << feature) : feature)
+
 const unsigned long glibtop_server_features =
-(1 << GLIBTOP_SUID_CPU) + (1 << GLIBTOP_SUID_MEM) +
-(1 << GLIBTOP_SUID_SWAP) + (1 << GLIBTOP_SUID_UPTIME) +
-(1 << GLIBTOP_SUID_LOADAVG) + (1 << GLIBTOP_SUID_SHM_LIMITS) +
-(1 << GLIBTOP_SUID_MSG_LIMITS) + (1 << GLIBTOP_SUID_SEM_LIMITS) +
-(1 << GLIBTOP_SUID_PROCLIST) + (1 << GLIBTOP_SUID_PROC_STATE) +
-(1 << GLIBTOP_SUID_PROC_UID) + (1 << GLIBTOP_SUID_PROC_MEM) +
-(1 << GLIBTOP_SUID_PROC_TIME) + (1 << GLIBTOP_SUID_PROC_SIGNAL) +
-(1 << GLIBTOP_SUID_PROC_KERNEL) + (1 << GLIBTOP_SUID_PROC_SEGMENT);
+BIT_MASK(GLIBTOP_SUID_CPU) +
+BIT_MASK(GLIBTOP_SUID_MEM) +
+BIT_MASK(GLIBTOP_SUID_SWAP) +
+BIT_MASK(GLIBTOP_SUID_UPTIME) +
+BIT_MASK(GLIBTOP_SUID_LOADAVG) +
+BIT_MASK(GLIBTOP_SUID_SHM_LIMITS) +
+BIT_MASK(GLIBTOP_SUID_MSG_LIMITS) +
+BIT_MASK(GLIBTOP_SUID_SEM_LIMITS) +
+BIT_MASK(GLIBTOP_SUID_PROCLIST) +
+BIT_MASK(GLIBTOP_SUID_PROC_STATE) +
+BIT_MASK(GLIBTOP_SUID_PROC_UID) +
+BIT_MASK(GLIBTOP_SUID_PROC_MEM) +
+BIT_MASK(GLIBTOP_SUID_PROC_TIME) +
+BIT_MASK(GLIBTOP_SUID_PROC_SIGNAL) +
+BIT_MASK(GLIBTOP_SUID_PROC_KERNEL) +
+BIT_MASK(GLIBTOP_SUID_PROC_SEGMENT);
 
 /* Checks which features are implemented. */
 
@@ -39,6 +49,8 @@ glibtop_get_sysdeps__r (glibtop *server, glibtop_sysdeps *buf)
 	glibtop_union data;
 
 	memset (buf, 0, sizeof (glibtop_sysdeps));
+
+	buf->features = glibtop_server_features;
 
 	/* Call all system dependent functions to check which values
 	 * they return. */
