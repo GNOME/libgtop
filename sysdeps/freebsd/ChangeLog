@@ -1,3 +1,22 @@
+2005-02-23  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* Makefile.am:
+	* netlist.c: (glibtop_get_netlist_s):
+	* procmap.c: (glibtop_get_proc_map_p):
+	* procmem.c: (glibtop_get_proc_mem_p):
+	* procopenfiles.c: (glibtop_init_proc_open_files_s),
+	(glibtop_get_proc_open_files_s):
+	* proctime.c:
+	
+	Add support for FreeBSD 6-CURRENT.
+	Use the more portable getrlimit to obtain process memory limits.
+	Correctly determine process time.
+	Stub out the procopenfiles() function (this is not yet implemented, however).
+	Fix a nasty infinite loop and memory leak due to a forgot pointer increment.
+	
+	Patch from marcus@freebsd.org (Joe Marcus Clarke).
+	Closes #168232.
+
 2004-12-05  Benoît Dejean  <tazforever@dlfp.org>
 
 	* Makefile.am:

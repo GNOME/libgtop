@@ -59,6 +59,7 @@ glibtop_init_proc_time_p (glibtop *server)
 
 #ifndef __FreeBSD__
 
+#ifndef __FreeBSD__
 static void
 calcru(p, up, sp, ip)
      struct proc *p;
@@ -81,19 +82,10 @@ calcru(p, up, sp, ip)
 		tot = 1;
 	}
 
-#if (defined __FreeBSD__) && (__FreeBSD_version >= 300003)
-
-	/* This was changed from a `struct timeval' into a `guint64'
-	 * on FreeBSD 3.0 and renamed p_rtime -> p_runtime.
-	 */
-
-	totusec = (u_quad_t) p->p_runtime;
-#else
 	sec = p->p_rtime.tv_sec;
 	usec = p->p_rtime.tv_usec;
 
 	totusec = (quad_t)sec * 1000000 + usec;
-#endif
 
 	if (totusec < 0) {
 		/* XXX no %qd in kernel.  Truncate. */
@@ -116,6 +108,7 @@ calcru(p, up, sp, ip)
 		ip->tv_usec = it % 1000000;
 	}
 }
+#endif
 
 #endif /* !__FreeBSD__ */
 
@@ -133,9 +126,6 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 #endif
 	struct pstats pstats;
 	int count;
-
-	char filename [BUFSIZ];
-	struct stat statb;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_TIME), 0);
 

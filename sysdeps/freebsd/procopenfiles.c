@@ -1,7 +1,12 @@
 /* $Id$ */
 
-/*
-   This file is part of LibGTop 2.0.
+/* Copyright (C) 1998-99 Martin Baulig
+   Copyright (C) 2004 Nicolás Lichtmaier
+   This file is part of LibGTop 1.0.
+
+   Modified by Nicolás Lichtmaier to give a process open files.
+
+   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -19,46 +24,29 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <config.h>
-#include <glibtop/netlist.h>
+#include <glibtop.h>
 #include <glibtop/error.h>
+#include <glibtop/procopenfiles.h>
 
-#include <net/if.h>
+#include <glibtop_suid.h>
 
-
-static const unsigned long _glibtop_sysdeps_netlist = (1 << GLIBTOP_NETLIST_NUMBER);
+static const unsigned long _glibtop_sysdeps_proc_open_files =
+(1L << GLIBTOP_PROC_OPEN_FILES_NUMBER)|
+(1L << GLIBTOP_PROC_OPEN_FILES_TOTAL)|
+(1L << GLIBTOP_PROC_OPEN_FILES_SIZE);
 
 /* Init function. */
 
 void
-glibtop_init_netlist_s (glibtop *server)
+glibtop_init_proc_open_files_s (glibtop *server)
 {
-	server->sysdeps.netlist = _glibtop_sysdeps_netlist;
+	server->sysdeps.proc_open_files = _glibtop_sysdeps_proc_open_files;
 }
 
 
-char**
-glibtop_get_netlist_s (glibtop *server, glibtop_netlist *buf)
+/* XXX Unimplemented on FreeBSD */
+glibtop_open_files_entry *
+glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pid_t pid)
 {
-	struct if_nameindex *ifstart, *ifs;
-	GPtrArray *devices;
-
-	ifs = ifstart = if_nameindex();
-
-	devices = g_ptr_array_new();
-
-	while(ifs && ifs->if_name) {
-		g_ptr_array_add(devices, g_strdup(ifs->if_name));
-		buf->number++;
-		ifs++;
-	}
-
-	if_freenameindex(ifstart);
-
-	buf->flags = _glibtop_sysdeps_netlist;
-
-	g_ptr_array_add(devices, NULL);
-
-	return (char **) g_ptr_array_free(devices, FALSE);
+	return NULL;
 }
-
