@@ -1,3 +1,7 @@
+2004-06-12  Benoît Dejean  <tazforever@dlfp.org>
+
+	* lib/init.c: Added missing initializer.
+
 2004-06-09  Benoît Dejean <TazForEver@dlfp.org>
 
 	* *.{c,h} : whitespace clean up.
