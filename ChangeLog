@@ -1,3 +1,8 @@
+2004-01-05  Malcolm Tredinnick <malcolm@commsecure.com.au>
+
+	* libgtop-2.0.pc.in: Include -lgtop in the linking flags.
+	Bug #130506.
+
 2004-01-03  Robert Sedak  <robert.sedak@sk.htnet.hr>
 
         * configure.in: Added "hr" in ALL_LINGUAS.
