@@ -1,9 +1,10 @@
 # Danish translation of libgtop.
-# Copyright (C) 1998, 2002, 03 Free Software Foundation, Inc.
+# Copyright (C) 1998, 2002, 03, 04 Free Software Foundation, Inc.
+# This file is distributed under the same license as the libgtop package.
 # Kenneth Christiansen <kenneth@ripen.dk>, 1998, 1999.
 # Keld Simonsen <keld@dkuug.dk>, 2000.
 # Ole Laursen <olau@hardworking.dk>, 2002, 03.
-#
+# Martin Willemoes Hansen <mwh@sysrq.dk>, 2004.
 #
 # BEMÆRK: oversættelsen er overhovedet ikke blevet rettet igennem.
 #     
@@ -11,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2003-11-20 21:23+0100\n"
+"POT-Creation-Date: 2004-08-23 12:21+0200\n"
+"PO-Revision-Date: 2004-08-23 12:21+0200\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
@@ -264,9 +265,8 @@ msgid "Free file nodes"
 msgstr "Ledige filknuder"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Blokeret"
+msgstr "Blokstørrelse"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -419,14 +419,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Undernet"
+msgstr "IPv4-undernet"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Adresse"
+msgstr "IPv4-adresse"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -469,17 +467,16 @@ msgid "Collisions"
 msgstr "Kollisioner"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Adresse"
+msgstr "IPv6-adresse"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "IPv6-præfiks"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "IPv6-virkefelt"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
