@@ -1,3 +1,7 @@
+Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
+
+	* libgtop-2.0.pc.in: Should be -lgtop-2.0, #130506
+
 2004-01-05  Frederic Crozat  <fcrozat@mandrakesoft.com>
 
 	* libgtop.spec.in: License is GPL, not LGPL.
