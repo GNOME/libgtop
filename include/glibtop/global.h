@@ -76,6 +76,11 @@
 # endif
 #endif
 
+/* For Tru64 UNIX */
+#ifdef HAVE_SYS_BITTYPES_H
+#include <sys/bittypes.h>
+#endif
+
 #ifdef NEED_GNOMESUPPORT_H
 #include <gnomesupport.h>
 #endif

@@ -2,10 +2,11 @@ dnl This is used internally for <glibtop-config.h>.
 
 AC_DEFUN([GNOME_LIBGTOP_TYPES_PRIVATE],
 [
-	AC_CHECK_TYPE(u_int64_t, unsigned long long int)
-	AC_CHECK_TYPE(int64_t, signed long long int)
-	AC_CHECK_TYPE(u_int8_t, unsigned char)
-	AC_CHECK_TYPE(int8_t, signed char)
+	AC_CHECK_HEADERS(sys/bitypes.h)
+	AC_LIBGTOP_CHECK_TYPE(u_int64_t, unsigned long long int)
+	AC_LIBGTOP_CHECK_TYPE(int64_t, signed long long int)
+	AC_LIBGTOP_CHECK_TYPE(u_int8_t, unsigned char)
+	AC_LIBGTOP_CHECK_TYPE(int8_t, signed char)
 ])
 
 dnl This file is intended for use both internally in libgtop and in every program

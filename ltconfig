@@ -1454,14 +1454,6 @@ else
     solaris2.[0-5] | solaris2.[0-5].*) ;;
     *) # Supported since Solaris 2.6 (maybe 2.5.1?)
       whole_archive_flag_spec='-z allextract$convenience -z defaultextract' ;;
-    esac  
-    case "$host_os" in
-    solaris2.7)
-      # Ugly hack, but sysdeps/solaris/libgtop_sysdeps.la won't work otherwise (we need to make
-      # sure stuff from libgcc.a gets linked in).
-      # Feb 22, 2000 Martin Baulig
-      archive_cmds='$CC -shared $libobjs $deplibs $linkopts ${wl}-h $wl$soname ${wl}-G -o $lib'
-      ;;
     esac
     ;;
 
