@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.3\n"
-"POT-Creation-Date: 2001-03-28 15:25+0300\n"
+"POT-Creation-Date: 2001-12-05 16:10+0200\n"
 "PO-Revision-Date: 2000-01-13 17:57+0200\n"
 "Last-Translator: Yuri Syrota <rasta@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -15,15 +15,15 @@ msgstr ""
 #: examples/smp.c:68
 #, c-format
 msgid "Ticks (%ld per second):"
-msgstr "Такти  (%ld на секунду):"
+msgstr "п╒п╟п╨я┌п╦  (%ld п╫п╟ я│п╣п╨я┐п╫п╢я┐):"
 
 #: examples/smp.c:71
 msgid "Total"
-msgstr "Всього"
+msgstr "п▓я│я▄п╬пЁп╬"
 
 #: examples/smp.c:71 sysdeps/names/mem.c:47
 msgid "User"
-msgstr "Користувач"
+msgstr "п п╬я─п╦я│я┌я┐п╡п╟я┤"
 
 #: examples/smp.c:71 sysdeps/names/procuid.c:58
 msgid "Nice"
@@ -31,11 +31,11 @@ msgstr "Nice"
 
 #: examples/smp.c:71
 msgid "Sys"
-msgstr "Система"
+msgstr "п║п╦я│я┌п╣п╪п╟"
 
 #: examples/smp.c:71
 msgid "Idle"
-msgstr "Прост╕й"
+msgstr "п÷я─п╬я│я┌я√п╧"
 
 #: examples/smp.c:73
 #, c-format
@@ -43,25 +43,25 @@ msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 msgstr ""
-"ЦП           (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"п╕п÷           (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 
 #: examples/smp.c:77
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr "ЦП %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "п╕п÷ %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
 #: examples/smp.c:94
 msgid "Percent:"
-msgstr "В╕дсоток:"
+msgstr "п▓я√п╢я│п╬я┌п╬п╨:"
 
 #: examples/smp.c:95
 msgid "Total (%)"
-msgstr "Всього (%)"
+msgstr "п▓я│я▄п╬пЁп╬ (%)"
 
 #: examples/smp.c:95
 msgid "User (%)"
-msgstr "Користувач (%)"
+msgstr "п п╬я─п╦я│я┌я┐п╡п╟я┤ (%)"
 
 #: examples/smp.c:95
 msgid "Nice (%)"
@@ -69,11 +69,11 @@ msgstr "Nice (%)"
 
 #: examples/smp.c:95
 msgid "Sys (%)"
-msgstr "Система (%)"
+msgstr "п║п╦я│я┌п╣п╪п╟ (%)"
 
 #: examples/smp.c:96
 msgid "Idle (%)"
-msgstr "Прост╕й (%)"
+msgstr "п÷я─п╬я│я┌я√п╧ (%)"
 
 #: examples/smp.c:98
 #, c-format
@@ -81,64 +81,64 @@ msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 msgstr ""
-"ЦП           (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"п╕п÷           (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
 
 #: examples/smp.c:114
 #, c-format
 msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr "ЦП %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "п╕п÷ %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:120
 msgid "Spin:"
-msgstr "Сп╕н:"
+msgstr "п║п©я√п╫:"
 
 #: lib/read.c:75
 #, c-format
 msgid "read %d bytes"
-msgstr "зчитування %d байт╕в"
+msgstr "п╥я┤п╦я┌я┐п╡п╟п╫п╫я▐ %d п╠п╟п╧я┌я√п╡"
 
 #: lib/read_data.c:49
 msgid "read data size"
-msgstr "зчитування блоку даних"
+msgstr "п╥я┤п╦я┌я┐п╡п╟п╫п╫я▐ п╠п╩п╬п╨я┐ п╢п╟п╫п╦я┘"
 
 #: lib/read_data.c:66
 #, c-format
 msgid "read data %d bytes"
-msgstr "зчитування %d байт╕в даних"
+msgstr "п╥я┤п╦я┌я┐п╡п╟п╫п╫я▐ %d п╠п╟п╧я┌я√п╡ п╢п╟п╫п╦я┘"
 
 #: lib/write.c:48
 #, c-format
 msgid "write %d bytes"
-msgstr "запис %d байт╕в"
+msgstr "п╥п╟п©п╦я│ %d п╠п╟п╧я┌я√п╡"
 
 #: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
-msgstr "Ув╕мкнути налагодження"
+msgstr "пёп╡я√п╪п╨п╫я┐я┌п╦ п╫п╟п╩п╟пЁп╬п╢п╤п╣п╫п╫я▐"
 
 #: src/daemon/gnuserv.c:448
 msgid "DEBUG"
-msgstr "НАЛАГОДЖЕННЯ"
+msgstr "п²п░п⌡п░п⌠п·п■п√п∙п²п²п╞"
 
 #: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
-msgstr "Ув╕мкнути детальний вив╕д"
+msgstr "пёп╡я√п╪п╨п╫я┐я┌п╦ п╢п╣я┌п╟п╩я▄п╫п╦п╧ п╡п╦п╡я√п╢"
 
 #: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
-msgstr "ДЕТАЛЬНО"
+msgstr "п■п∙п╒п░п⌡п╛п²п·"
 
 #: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
-msgstr "Не запускатись на тл╕"
+msgstr "п²п╣ п╥п╟п©я┐я│п╨п╟я┌п╦я│я▄ п╫п╟ я┌п╩я√"
 
 #: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
-msgstr "БЕЗ-ДЕМОНУ"
+msgstr "п▒п∙п≈-п■п∙п°п·п²пё"
 
 #: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
-msgstr "Викликано з inetd"
+msgstr "п▓п╦п╨п╩п╦п╨п╟п╫п╬ п╥ inetd"
 
 #: src/daemon/gnuserv.c:454
 msgid "INETD"
@@ -150,308 +150,308 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"Помилка в параметр╕ %s: %s.\n"
-"Запуст╕ть '%s --help' щоб побачити повний список доступних параметр╕в.\n"
+"п÷п╬п╪п╦п╩п╨п╟ п╡ п©п╟я─п╟п╪п╣я┌я─я√ %s: %s.\n"
+"п≈п╟п©я┐я│я┌я√я┌я▄ '%s --help' я┴п╬п╠ п©п╬п╠п╟я┤п╦я┌п╦ п©п╬п╡п╫п╦п╧ я│п©п╦я│п╬п╨ п╢п╬я│я┌я┐п©п╫п╦я┘ п©п╟я─п╟п╪п╣я┌я─я√п╡.\n"
 
 #: support/error.c:109
 msgid "Unknown system error"
-msgstr "Нев╕дома системна помилка"
+msgstr "п²п╣п╡я√п╢п╬п╪п╟ я│п╦я│я┌п╣п╪п╫п╟ п©п╬п╪п╦п╩п╨п╟"
 
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: параметр \"%s\" - неоднозначний\n"
+msgstr "%s: п©п╟я─п╟п╪п╣я┌я─ \"%s\" - п╫п╣п╬п╢п╫п╬п╥п╫п╟я┤п╫п╦п╧\n"
 
 #: support/getopt.c:693
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: параметр \"--%s\" не може мати аргумент╕в\n"
+msgstr "%s: п©п╟я─п╟п╪п╣я┌я─ \"--%s\" п╫п╣ п╪п╬п╤п╣ п╪п╟я┌п╦ п╟я─пЁя┐п╪п╣п╫я┌я√п╡\n"
 
 #: support/getopt.c:698
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: параметр \"%c%s\" не може мати аргумент╕в\n"
+msgstr "%s: п©п╟я─п╟п╪п╣я┌я─ \"%c%s\" п╫п╣ п╪п╬п╤п╣ п╪п╟я┌п╦ п╟я─пЁя┐п╪п╣п╫я┌я√п╡\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: параметру \"%s\" необх╕дний аргумент\n"
+msgstr "%s: п©п╟я─п╟п╪п╣я┌я─я┐ \"%s\" п╫п╣п╬п╠я┘я√п╢п╫п╦п╧ п╟я─пЁя┐п╪п╣п╫я┌\n"
 
 #. --option
 #: support/getopt.c:744
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: не розп╕знано параметр \"--%s\"\n"
+msgstr "%s: п╫п╣ я─п╬п╥п©я√п╥п╫п╟п╫п╬ п©п╟я─п╟п╪п╣я┌я─ \"--%s\"\n"
 
 #. +option or -option
 #: support/getopt.c:748
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: не розп╕знано параметр \"%c%s\"\n"
+msgstr "%s: п╫п╣ я─п╬п╥п©я√п╥п╫п╟п╫п╬ п©п╟я─п╟п╪п╣я┌я─ \"%c%s\"\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: нев╕рний параметр -- %c\n"
+msgstr "%s: п╫п╣п╡я√я─п╫п╦п╧ п©п╟я─п╟п╪п╣я┌я─ -- %c\n"
 
 #: support/getopt.c:777
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: нев╕рний параметр -- %c\n"
+msgstr "%s: п╫п╣п╡я√я─п╫п╦п╧ п©п╟я─п╟п╪п╣я┌я─ -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: параметру необх╕дний аргумент -- %c\n"
+msgstr "%s: п©п╟я─п╟п╪п╣я┌я─я┐ п╫п╣п╬п╠я┘я√п╢п╫п╦п╧ п╟я─пЁя┐п╪п╣п╫я┌ -- %c\n"
 
 #: support/getopt.c:854
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: параметр \"-W %s\" неоднозначний\n"
+msgstr "%s: п©п╟я─п╟п╪п╣я┌я─ \"-W %s\" п╫п╣п╬п╢п╫п╬п╥п╫п╟я┤п╫п╦п╧\n"
 
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: параметр \"-W %s\" не може мати аргумент╕в\n"
+msgstr "%s: п©п╟я─п╟п╪п╣я┌я─ \"-W %s\" п╫п╣ п╪п╬п╤п╣ п╪п╟я┌п╦ п╟я─пЁя┐п╪п╣п╫я┌я√п╡\n"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
-msgstr "Загальний час ЦП"
+msgstr "п≈п╟пЁп╟п╩я▄п╫п╦п╧ я┤п╟я│ п╕п÷"
 
 #: sysdeps/names/cpu.c:44
 msgid "CPU Time in User Mode"
-msgstr "Час ЦП в користувацькому режим╕"
+msgstr "п╖п╟я│ п╕п÷ п╡ п╨п╬я─п╦я│я┌я┐п╡п╟я├я▄п╨п╬п╪я┐ я─п╣п╤п╦п╪я√"
 
 #: sysdeps/names/cpu.c:45
 msgid "CPU Time in User Mode (nice)"
-msgstr "Час ЦП в користувацькому режим╕ (замовлено)"
+msgstr "п╖п╟я│ п╕п÷ п╡ п╨п╬я─п╦я│я┌я┐п╡п╟я├я▄п╨п╬п╪я┐ я─п╣п╤п╦п╪я√ (п╥п╟п╪п╬п╡п╩п╣п╫п╬)"
 
 #: sysdeps/names/cpu.c:46
 msgid "CPU Time in System Mode"
-msgstr "Час ЦП в системному режим╕"
+msgstr "п╖п╟я│ п╕п÷ п╡ я│п╦я│я┌п╣п╪п╫п╬п╪я┐ я─п╣п╤п╦п╪я√"
 
 #: sysdeps/names/cpu.c:47
 msgid "CPU Time in the Idle Task"
-msgstr "Час простою ЦП"
+msgstr "п╖п╟я│ п©я─п╬я│я┌п╬я▌ п╕п÷"
 
 #: sysdeps/names/cpu.c:48
 msgid "Tick Frequency"
-msgstr "Частота такт╕в"
+msgstr "п╖п╟я│я┌п╬я┌п╟ я┌п╟п╨я┌я√п╡"
 
 #: sysdeps/names/cpu.c:49
 msgid "SMP Total CPU Time"
-msgstr "Загальний SMP-час ЦП"
+msgstr "п≈п╟пЁп╟п╩я▄п╫п╦п╧ SMP-я┤п╟я│ п╕п÷"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in User Mode"
-msgstr "SMP-час ЦП в користувацькому режим╕"
+msgstr "SMP-я┤п╟я│ п╕п÷ п╡ п╨п╬я─п╦я│я┌я┐п╡п╟я├я▄п╨п╬п╪я┐ я─п╣п╤п╦п╪я√"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "SMP-час ЦП в користувацькому режим╕ (замовлено)"
+msgstr "SMP-я┤п╟я│ п╕п÷ п╡ п╨п╬я─п╦я│я┌я┐п╡п╟я├я▄п╨п╬п╪я┐ я─п╣п╤п╦п╪я√ (п╥п╟п╪п╬п╡п╩п╣п╫п╬)"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in System Mode"
-msgstr "SMP-час ЦП в системному режим╕"
+msgstr "SMP-я┤п╟я│ п╕п÷ п╡ я│п╦я│я┌п╣п╪п╫п╬п╪я┐ я─п╣п╤п╦п╪я√"
 
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in the Idle Task"
-msgstr "SMP-час простою ЦП"
+msgstr "SMP-я┤п╟я│ п©я─п╬я│я┌п╬я▌ п╕п÷"
 
 #: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 msgid "Number of clock ticks since system boot"
-msgstr "К╕льк╕сть такт╕в годинника в╕д старту системи"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ я┌п╟п╨я┌я√п╡ пЁп╬п╢п╦п╫п╫п╦п╨п╟ п╡я√п╢ я│я┌п╟я─я┌я┐ я│п╦я│я┌п╣п╪п╦"
 
 #: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
 msgid "Number of clock ticks the system spent in user mode"
 msgstr ""
-"К╕льк╕сть такт╕в годинника проведених системою в користувацькому режим╕"
+"п я√п╩я▄п╨я√я│я┌я▄ я┌п╟п╨я┌я√п╡ пЁп╬п╢п╦п╫п╫п╦п╨п╟ п©я─п╬п╡п╣п╢п╣п╫п╦я┘ я│п╦я│я┌п╣п╪п╬я▌ п╡ п╨п╬я─п╦я│я┌я┐п╡п╟я├я▄п╨п╬п╪я┐ я─п╣п╤п╦п╪я√"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks the system spent in user mode (nice)"
 msgstr ""
-"К╕льк╕сть такт╕в годинника проведених системою в користувацькому режим╕ "
+"п я√п╩я▄п╨я√я│я┌я▄ я┌п╟п╨я┌я√п╡ пЁп╬п╢п╦п╫п╫п╦п╨п╟ п©я─п╬п╡п╣п╢п╣п╫п╦я┘ я│п╦я│я┌п╣п╪п╬я▌ п╡ п╨п╬я─п╦я│я┌я┐п╡п╟я├я▄п╨п╬п╪я┐ я─п╣п╤п╦п╪я√ "
 "(nice)"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in system mode"
-msgstr "К╕льк╕сть такт╕в годинника проведених системою в системному режим╕"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ я┌п╟п╨я┌я√п╡ пЁп╬п╢п╦п╫п╫п╦п╨п╟ п©я─п╬п╡п╣п╢п╣п╫п╦я┘ я│п╦я│я┌п╣п╪п╬я▌ п╡ я│п╦я│я┌п╣п╪п╫п╬п╪я┐ я─п╣п╤п╦п╪я√"
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr "К╕льк╕сть такт╕в годинника проведених системою в оч╕куванн╕"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ я┌п╟п╨я┌я√п╡ пЁп╬п╢п╦п╫п╫п╦п╨п╟ п©я─п╬п╡п╣п╢п╣п╫п╦я┘ я│п╦я│я┌п╣п╪п╬я▌ п╡ п╬я┤я√п╨я┐п╡п╟п╫п╫я√"
 
 #: sysdeps/names/cpu.c:63
 msgid "Tick frequency (default is 100)"
-msgstr "Частота такт╕в (типово - 100)"
+msgstr "п╖п╟я│я┌п╬я┌п╟ я┌п╟п╨я┌я√п╡ (я┌п╦п©п╬п╡п╬ - 100)"
 
 #: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
 msgid "Total blocks"
-msgstr "Загалом блок╕в"
+msgstr "п≈п╟пЁп╟п╩п╬п╪ п╠п╩п╬п╨я√п╡"
 
 #: sysdeps/names/fsusage.c:40
 msgid "Free blocks"
-msgstr "В╕льних блок╕в"
+msgstr "п▓я√п╩я▄п╫п╦я┘ п╠п╩п╬п╨я√п╡"
 
 #: sysdeps/names/fsusage.c:41
 msgid "Available blocks"
-msgstr "Доступних блок╕в"
+msgstr "п■п╬я│я┌я┐п©п╫п╦я┘ п╠п╩п╬п╨я√п╡"
 
 #: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
 msgid "Total file nodes"
-msgstr "Загалом i-вузл╕в"
+msgstr "п≈п╟пЁп╟п╩п╬п╪ i-п╡я┐п╥п╩я√п╡"
 
 #: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
 msgid "Free file nodes"
-msgstr "В╕льних i-вузл╕в"
+msgstr "п▓я√п╩я▄п╫п╦я┘ i-п╡я┐п╥п╩я√п╡"
 
 #: sysdeps/names/fsusage.c:49
 msgid "Free blocks available to the superuser"
-msgstr "В╕льних блок╕в доступних адм╕н╕стратору"
+msgstr "п▓я√п╩я▄п╫п╦я┘ п╠п╩п╬п╨я√п╡ п╢п╬я│я┌я┐п©п╫п╦я┘ п╟п╢п╪я√п╫я√я│я┌я─п╟я┌п╬я─я┐"
 
 #: sysdeps/names/fsusage.c:50
 msgid "Free blocks available to non-superusers"
-msgstr "В╕льних блок╕в доступних звичийним користувачам"
+msgstr "п▓я√п╩я▄п╫п╦я┘ п╠п╩п╬п╨я√п╡ п╢п╬я│я┌я┐п©п╫п╦я┘ п╥п╡п╦я┤п╦п╧п╫п╦п╪ п╨п╬я─п╦я│я┌я┐п╡п╟я┤п╟п╪"
 
 #: sysdeps/names/loadavg.c:39
 msgid "Load Average"
-msgstr "Середня завантажен╕сть"
+msgstr "п║п╣я─п╣п╢п╫я▐ п╥п╟п╡п╟п╫я┌п╟п╤п╣п╫я√я│я┌я▄"
 
 #: sysdeps/names/loadavg.c:40
 msgid "Running Tasks"
-msgstr "Запущен╕ завдання"
+msgstr "п≈п╟п©я┐я┴п╣п╫я√ п╥п╟п╡п╢п╟п╫п╫я▐"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Number of Tasks"
-msgstr "К╕льк╕сть завдань"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ п╥п╟п╡п╢п╟п╫я▄"
 
 #: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
 msgid "Last PID"
-msgstr "Останн╕й PID"
+msgstr "п·я│я┌п╟п╫п╫я√п╧ PID"
 
 #: sysdeps/names/loadavg.c:47
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "К╕льк╕сть завдань запущених одночасно в средньому за 1, 5 ╕ 15 хвилин"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ п╥п╟п╡п╢п╟п╫я▄ п╥п╟п©я┐я┴п╣п╫п╦я┘ п╬п╢п╫п╬я┤п╟я│п╫п╬ п╡ я│я─п╣п╢п╫я▄п╬п╪я┐ п╥п╟ 1, 5 я√ 15 я┘п╡п╦п╩п╦п╫"
 
 #: sysdeps/names/loadavg.c:48
 msgid "Number of tasks currently running"
-msgstr "К╕льк╕сть зараз запущених програм"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ п╥п╟я─п╟п╥ п╥п╟п©я┐я┴п╣п╫п╦я┘ п©я─п╬пЁя─п╟п╪"
 
 #: sysdeps/names/loadavg.c:49
 msgid "Total number of tasks"
-msgstr "Загальна к╕льк╕сть завдань"
+msgstr "п≈п╟пЁп╟п╩я▄п╫п╟ п╨я√п╩я▄п╨я√я│я┌я▄ п╥п╟п╡п╢п╟п╫я▄"
 
 #: sysdeps/names/mem.c:41
 msgid "Total Memory"
-msgstr "Вся пам'ять"
+msgstr "п▓я│я▐ п©п╟п╪'я▐я┌я▄"
 
 #: sysdeps/names/mem.c:42
 msgid "Used Memory"
-msgstr "Використана пам'ять"
+msgstr "п▓п╦п╨п╬я─п╦я│я┌п╟п╫п╟ п©п╟п╪'я▐я┌я▄"
 
 #: sysdeps/names/mem.c:43
 msgid "Free Memory"
-msgstr "В╕льна пам'ять"
+msgstr "п▓я√п╩я▄п╫п╟ п©п╟п╪'я▐я┌я▄"
 
 #: sysdeps/names/mem.c:44
 msgid "Shared Memory"
-msgstr "Колективна пам'ять"
+msgstr "п п╬п╩п╣п╨я┌п╦п╡п╫п╟ п©п╟п╪'я▐я┌я▄"
 
 #: sysdeps/names/mem.c:45
 msgid "Buffers"
-msgstr "Буфери"
+msgstr "п▒я┐я└п╣я─п╦"
 
 #: sysdeps/names/mem.c:46
 msgid "Cached"
-msgstr "Кешовано"
+msgstr "п п╣я┬п╬п╡п╟п╫п╬"
 
 #: sysdeps/names/mem.c:48
 msgid "Locked"
-msgstr "Блоковано"
+msgstr "п▒п╩п╬п╨п╬п╡п╟п╫п╬"
 
 #: sysdeps/names/mem.c:53
 msgid "Total physical memory in kB"
-msgstr "Загалом ф╕зично╖ пам'ят╕ в Кб"
+msgstr "п≈п╟пЁп╟п╩п╬п╪ я└я√п╥п╦я┤п╫п╬я≈ п©п╟п╪'я▐я┌я√ п╡ п п╠"
 
 #: sysdeps/names/mem.c:54
 msgid "Used memory size in kB"
-msgstr "Розм╕р використано╖ пам'ят╕ в Кб"
+msgstr "п═п╬п╥п╪я√я─ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╬я≈ п©п╟п╪'я▐я┌я√ п╡ п п╠"
 
 #: sysdeps/names/mem.c:55
 msgid "Free memory size in kB"
-msgstr "Розм╕р в╕льно╖ пам'ят╕ в Кб"
+msgstr "п═п╬п╥п╪я√я─ п╡я√п╩я▄п╫п╬я≈ п©п╟п╪'я▐я┌я√ п╡ п п╠"
 
 #: sysdeps/names/mem.c:56
 msgid "Shared memory size in kB"
-msgstr "Розм╕р колективно╖ пам'ят╕ в Кб"
+msgstr "п═п╬п╥п╪я√я─ п╨п╬п╩п╣п╨я┌п╦п╡п╫п╬я≈ п©п╟п╪'я▐я┌я√ п╡ п п╠"
 
 #: sysdeps/names/mem.c:57
 msgid "Size of buffers kB"
-msgstr "Розм╕р буфер╕в у Кб"
+msgstr "п═п╬п╥п╪я√я─ п╠я┐я└п╣я─я√п╡ я┐ п п╠"
 
 #: sysdeps/names/mem.c:58
 msgid "Size of cached memory in kB"
-msgstr "Розм╕р кешовано╖ пам'ят╕ в Кб"
+msgstr "п═п╬п╥п╪я√я─ п╨п╣я┬п╬п╡п╟п╫п╬я≈ п©п╟п╪'я▐я┌я√ п╡ п п╠"
 
 #: sysdeps/names/mem.c:59
 msgid "Memory used from user processes in kB"
-msgstr "Пам'ять використана в користувацьких процесах в Кб"
+msgstr "п÷п╟п╪'я▐я┌я▄ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╟ п╡ п╨п╬я─п╦я│я┌я┐п╡п╟я├я▄п╨п╦я┘ п©я─п╬я├п╣я│п╟я┘ п╡ п п╠"
 
 #: sysdeps/names/mem.c:60
 msgid "Memory in locked pages in kB"
-msgstr "Пам'ять в заблокованих стор╕нках (в Кб)"
+msgstr "п÷п╟п╪'я▐я┌я▄ п╡ п╥п╟п╠п╩п╬п╨п╬п╡п╟п╫п╦я┘ я│я┌п╬я─я√п╫п╨п╟я┘ (п╡ п п╠)"
 
 #: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
 #: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
 #: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
 msgid "Number of list elements"
-msgstr "К╕льк╕сть елемент╕в списку"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ п╣п╩п╣п╪п╣п╫я┌я√п╡ я│п©п╦я│п╨я┐"
 
 #: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
 #: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
 #: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
 msgid "Total size of list"
-msgstr "Загальний розм╕р списку"
+msgstr "п≈п╟пЁп╟п╩я▄п╫п╦п╧ я─п╬п╥п╪я√я─ я│п©п╦я│п╨я┐"
 
 #: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
 #: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
 #: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
 msgid "Size of a single list element"
-msgstr "Розм╕р одного елементу списку"
+msgstr "п═п╬п╥п╪я√я─ п╬п╢п╫п╬пЁп╬ п╣п╩п╣п╪п╣п╫я┌я┐ я│п©п╦я│п╨я┐"
 
 #: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
 msgid "Size in kilobytes of message pool"
-msgstr "Розм╕р накопичувача пов╕домлень в Кб"
+msgstr "п═п╬п╥п╪я√я─ п╫п╟п╨п╬п©п╦я┤я┐п╡п╟я┤п╟ п©п╬п╡я√п╢п╬п╪п╩п╣п╫я▄ п╡ п п╠"
 
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Number of entries in message map"
-msgstr "К╕льк╕сть елемент╕в у мап╕ пов╕домлень"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ п╣п╩п╣п╪п╣п╫я┌я√п╡ я┐ п╪п╟п©я√ п©п╬п╡я√п╢п╬п╪п╩п╣п╫я▄"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Max size of message"
-msgstr "Максимальний розм╕р пов╕домлення"
+msgstr "п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╦п╧ я─п╬п╥п╪я√я─ п©п╬п╡я√п╢п╬п╪п╩п╣п╫п╫я▐"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Default max size of queue"
-msgstr "Типовий максимальний розм╕р черги"
+msgstr "п╒п╦п©п╬п╡п╦п╧ п╪п╟п╨я│п╦п╪п╟п╩я▄п╫п╦п╧ я─п╬п╥п╪я√я─ я┤п╣я─пЁп╦"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Max queues system wide"
-msgstr "Максимальна к╕льк╕сть черг в систем╕"
+msgstr "п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╟ п╨я√п╩я▄п╨я√я│я┌я▄ я┤п╣я─пЁ п╡ я│п╦я│я┌п╣п╪я√"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Message segment size"
-msgstr "Розм╕р се╜менту пов╕домлення"
+msgstr "п═п╬п╥п╪я√я─ я│п╣р▒п╪п╣п╫я┌я┐ п©п╬п╡я√п╢п╬п╪п╩п╣п╫п╫я▐"
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Number of system message headers"
-msgstr "К╕льк╕сть заголовк╕в системних пов╕домлень"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ п╥п╟пЁп╬п╩п╬п╡п╨я√п╡ я│п╦я│я┌п╣п╪п╫п╦я┘ п©п╬п╡я√п╢п╬п╪п╩п╣п╫я▄"
 
 #: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
 msgid "Interface Flags"
-msgstr "Ознаки ╕нтерфейса"
+msgstr "п·п╥п╫п╟п╨п╦ я√п╫я┌п╣я─я└п╣п╧я│п╟"
 
 #: sysdeps/names/netload.c:46
 msgid "MTU"
@@ -459,83 +459,83 @@ msgstr "MTU"
 
 #: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
 msgid "Subnet"
-msgstr "П╕дмережа"
+msgstr "п÷я√п╢п╪п╣я─п╣п╤п╟"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
 msgid "Address"
-msgstr "Адреса"
+msgstr "п░п╢я─п╣я│п╟"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
 msgid "Packets In"
-msgstr "Вх╕дн╕ пакети"
+msgstr "п▓я┘я√п╢п╫я√ п©п╟п╨п╣я┌п╦"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
 msgid "Packets Out"
-msgstr "Вих╕дн╕ пакети"
+msgstr "п▓п╦я┘я√п╢п╫я√ п©п╟п╨п╣я┌п╦"
 
 #: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
 msgid "Packets Total"
-msgstr "Всього пакет╕в"
+msgstr "п▓я│я▄п╬пЁп╬ п©п╟п╨п╣я┌я√п╡"
 
 #: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
 msgid "Bytes In"
-msgstr "Вх╕дн╕ байти"
+msgstr "п▓я┘я√п╢п╫я√ п╠п╟п╧я┌п╦"
 
 #: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 msgid "Bytes Out"
-msgstr "Вих╕дн╕ байти"
+msgstr "п▓п╦я┘я√п╢п╫я√ п╠п╟п╧я┌п╦"
 
 #: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 msgid "Bytes Total"
-msgstr "Всього байт╕в"
+msgstr "п▓я│я▄п╬пЁп╬ п╠п╟п╧я┌я√п╡"
 
 #: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
 msgid "Errors In"
-msgstr "Вх╕дн╕ помилки"
+msgstr "п▓я┘я√п╢п╫я√ п©п╬п╪п╦п╩п╨п╦"
 
 #: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
 msgid "Errors Out"
-msgstr "Вих╕дн╕ помилки"
+msgstr "п▓п╦я┘я√п╢п╫я√ п©п╬п╪п╦п╩п╨п╦"
 
 #: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
 msgid "Errors Total"
-msgstr "Всього помилок"
+msgstr "п▓я│я▄п╬пЁп╬ п©п╬п╪п╦п╩п╬п╨"
 
 #: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
 msgid "Collisions"
-msgstr "Кол╕з╕╖"
+msgstr "п п╬п╩я√п╥я√я≈"
 
 #: sysdeps/names/netload.c:64
 msgid "Maximum Transfer Unit"
-msgstr "Максимальна одиниця передач╕"
+msgstr "п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╟ п╬п╢п╦п╫п╦я├я▐ п©п╣я─п╣п╢п╟я┤я√"
 
 #: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
 msgid "PPP State"
-msgstr "Стан PPP"
+msgstr "п║я┌п╟п╫ PPP"
 
 #: sysdeps/names/ppp.c:39
 msgid "Input bytes"
-msgstr "Вх╕дн╕ байти"
+msgstr "п▓я┘я√п╢п╫я√ п╠п╟п╧я┌п╦"
 
 #: sysdeps/names/ppp.c:40
 msgid "Output bytes"
-msgstr "Вих╕дн╕ пакети"
+msgstr "п▓п╦я┘я√п╢п╫я√ п©п╟п╨п╣я┌п╦"
 
 #: sysdeps/names/ppp.c:46
 msgid "Number of input bytes"
-msgstr "К╕льк╕сть вх╕дних байт╕в"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ п╡я┘я√п╢п╫п╦я┘ п╠п╟п╧я┌я√п╡"
 
 #: sysdeps/names/ppp.c:47
 msgid "Number of output bytes"
-msgstr "К╕льк╕сть вих╕дних байт╕в"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ п╡п╦я┘я√п╢п╫п╦я┘ п╠п╟п╧я┌я√п╡"
 
 #: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
 msgid "Size"
-msgstr "Розм╕р"
+msgstr "п═п╬п╥п╪я√я─"
 
 #: sysdeps/names/procargs.c:43
 msgid "Length in bytes of the returned string."
-msgstr "Розм╕р в байтах поверненого рядка."
+msgstr "п═п╬п╥п╪я√я─ п╡ п╠п╟п╧я┌п╟я┘ п©п╬п╡п╣я─п╫п╣п╫п╬пЁп╬ я─я▐п╢п╨п╟."
 
 #: sysdeps/names/prockernel.c:42
 msgid "K_Flags"
@@ -620,7 +620,7 @@ msgstr ""
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr "Поточний EIP (32-б╕тний вказ╕вник на ╕нструкц╕╖)."
+msgstr "п÷п╬я┌п╬я┤п╫п╦п╧ EIP (32-п╠я√я┌п╫п╦п╧ п╡п╨п╟п╥я√п╡п╫п╦п╨ п╫п╟ я√п╫я│я┌я─я┐п╨я├я√я≈)."
 
 #. NWChan
 #: sysdeps/names/prockernel.c:76
@@ -634,43 +634,43 @@ msgstr ""
 #. WChan
 #: sysdeps/names/prockernel.c:81
 msgid "This is the textual name of the `nwchan' field."
-msgstr "Це текстова назва поля \"nwchan\"."
+msgstr "п╕п╣ я┌п╣п╨я│я┌п╬п╡п╟ п╫п╟п╥п╡п╟ п©п╬п╩я▐ \"nwchan\"."
 
 #: sysdeps/names/procmem.c:47
 msgid "Virtual"
-msgstr "В╕ртеальна"
+msgstr "п▓я√я─я┌п╣п╟п╩я▄п╫п╟"
 
 #: sysdeps/names/procmem.c:47
 msgid "Resident"
-msgstr "Резидентна"
+msgstr "п═п╣п╥п╦п╢п╣п╫я┌п╫п╟"
 
 #: sysdeps/names/procmem.c:47
 msgid "Share"
-msgstr "Сп╕льна"
+msgstr "п║п©я√п╩я▄п╫п╟"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size"
-msgstr "Розм╕р резидентного набору"
+msgstr "п═п╬п╥п╪я√я─ я─п╣п╥п╦п╢п╣п╫я┌п╫п╬пЁп╬ п╫п╟п╠п╬я─я┐"
 
 #: sysdeps/names/procmem.c:48
 msgid "Resident Set Size Limit"
-msgstr "Обмеження розм╕ру резидентного набору"
+msgstr "п·п╠п╪п╣п╤п╣п╫п╫я▐ я─п╬п╥п╪я√я─я┐ я─п╣п╥п╦п╢п╣п╫я┌п╫п╬пЁп╬ п╫п╟п╠п╬я─я┐"
 
 #: sysdeps/names/procmem.c:53
 msgid "Total # of pages of memory"
-msgstr "Загальна к╕льк╕сть стор╕нок пам'ят╕"
+msgstr "п≈п╟пЁп╟п╩я▄п╫п╟ п╨я√п╩я▄п╨я√я│я┌я▄ я│я┌п╬я─я√п╫п╬п╨ п©п╟п╪'я▐я┌я√"
 
 #: sysdeps/names/procmem.c:54
 msgid "Number of pages of virtual memory"
-msgstr "К╕льк╕сть стор╕нок в╕ртуально╖ пам'ят╕"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ я│я┌п╬я─я√п╫п╬п╨ п╡я√я─я┌я┐п╟п╩я▄п╫п╬я≈ п©п╟п╪'я▐я┌я√"
 
 #: sysdeps/names/procmem.c:55
 msgid "Number of resident set (non-swapped) pages"
-msgstr "К╕льк╕сть стор╕нок резидентних набор╕в (не свопуються)"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ я│я┌п╬я─я√п╫п╬п╨ я─п╣п╥п╦п╢п╣п╫я┌п╫п╦я┘ п╫п╟п╠п╬я─я√п╡ (п╫п╣ я│п╡п╬п©я┐я▌я┌я▄я│я▐)"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr "К╕льк╕сть стор╕нок колективно╖ пам'ят╕ (mmap)"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ я│я┌п╬я─я√п╫п╬п╨ п╨п╬п╩п╣п╨я┌п╦п╡п╫п╬я≈ п©п╟п╪'я▐я┌я√ (mmap)"
 
 #: sysdeps/names/procmem.c:57
 msgid ""
@@ -687,75 +687,75 @@ msgstr ""
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
-msgstr "РРН_тексту"
+msgstr "п═п═п²_я┌п╣п╨я│я┌я┐"
 
 #: sysdeps/names/procsegment.c:42
 msgid "ShLib_RSS"
-msgstr "РРН_КолБ╕б"
+msgstr "п═п═п²_п п╬п╩п▒я√п╠"
 
 #: sysdeps/names/procsegment.c:42
 msgid "Data_RSS"
-msgstr "РРН_даних"
+msgstr "п═п═п²_п╢п╟п╫п╦я┘"
 
 #: sysdeps/names/procsegment.c:42
 msgid "Stack_RSS"
-msgstr "РРН_стеку"
+msgstr "п═п═п²_я│я┌п╣п╨я┐"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Dirty Size"
-msgstr "Брудний розм╕р"
+msgstr "п▒я─я┐п╢п╫п╦п╧ я─п╬п╥п╪я√я─"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Code"
-msgstr "Початок_коду"
+msgstr "п÷п╬я┤п╟я┌п╬п╨_п╨п╬п╢я┐"
 
 #: sysdeps/names/procsegment.c:43
 msgid "End_Code"
-msgstr "К╕нець_коду"
+msgstr "п я√п╫п╣я├я▄_п╨п╬п╢я┐"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Start_Stack"
-msgstr "Початок_стеку"
+msgstr "п÷п╬я┤п╟я┌п╬п╨_я│я┌п╣п╨я┐"
 
 #: sysdeps/names/procsegment.c:48
 msgid "Text resident set size"
-msgstr "Розм╕р набору резидентного тексту"
+msgstr "п═п╬п╥п╪я√я─ п╫п╟п╠п╬я─я┐ я─п╣п╥п╦п╢п╣п╫я┌п╫п╬пЁп╬ я┌п╣п╨я│я┌я┐"
 
 #: sysdeps/names/procsegment.c:49
 msgid "Shared-Lib resident set size"
-msgstr "Розм╕р резидентного набору колективних б╕бл╕отек"
+msgstr "п═п╬п╥п╪я√я─ я─п╣п╥п╦п╢п╣п╫я┌п╫п╬пЁп╬ п╫п╟п╠п╬я─я┐ п╨п╬п╩п╣п╨я┌п╦п╡п╫п╦я┘ п╠я√п╠п╩я√п╬я┌п╣п╨"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Data resident set size"
-msgstr "Розм╕р резидентного набору даних"
+msgstr "п═п╬п╥п╪я√я─ я─п╣п╥п╦п╢п╣п╫я┌п╫п╬пЁп╬ п╫п╟п╠п╬я─я┐ п╢п╟п╫п╦я┘"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Stack resident set size"
-msgstr "Розм╕р резидентного набору стеку"
+msgstr "п═п╬п╥п╪я√я─ я─п╣п╥п╦п╢п╣п╫я┌п╫п╬пЁп╬ п╫п╟п╠п╬я─я┐ я│я┌п╣п╨я┐"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Total size of dirty pages"
-msgstr "Загальний розм╕р брудних стор╕нок"
+msgstr "п≈п╟пЁп╟п╩я▄п╫п╦п╧ я─п╬п╥п╪я√я─ п╠я─я┐п╢п╫п╦я┘ я│я┌п╬я─я√п╫п╬п╨"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Address of beginning of code segment"
-msgstr "Адреса початку се╜менту коду"
+msgstr "п░п╢я─п╣я│п╟ п©п╬я┤п╟я┌п╨я┐ я│п╣р▒п╪п╣п╫я┌я┐ п╨п╬п╢я┐"
 
 #: sysdeps/names/procsegment.c:54
 msgid "Address of end of code segment"
-msgstr "Адреса к╕нця се╜менту коду"
+msgstr "п░п╢я─п╣я│п╟ п╨я√п╫я├я▐ я│п╣р▒п╪п╣п╫я┌я┐ п╨п╬п╢я┐"
 
 #: sysdeps/names/procsegment.c:55
 msgid "Address of the bottom of stack segment"
-msgstr "Адреса нижньо╖ меж╕ се╜мента стеку"
+msgstr "п░п╢я─п╣я│п╟ п╫п╦п╤п╫я▄п╬я≈ п╪п╣п╤я√ я│п╣р▒п╪п╣п╫я┌п╟ я│я┌п╣п╨я┐"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Signal"
-msgstr "Си╜нал"
+msgstr "п║п╦р▒п╫п╟п╩"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Blocked"
-msgstr "Блоковано"
+msgstr "п▒п╩п╬п╨п╬п╡п╟п╫п╬"
 
 #: sysdeps/names/procsignal.c:40
 msgid "SigIgnore"
@@ -767,27 +767,27 @@ msgstr "SigCatch"
 
 #: sysdeps/names/procsignal.c:45
 msgid "Mask of pending signals"
-msgstr "Маска си╜нал╕в, що оч╕куються"
+msgstr "п°п╟я│п╨п╟ я│п╦р▒п╫п╟п╩я√п╡, я┴п╬ п╬я┤я√п╨я┐я▌я┌я▄я│я▐"
 
 #: sysdeps/names/procsignal.c:46
 msgid "Mask of blocked signals"
-msgstr "Маска си╜нал╕в, що блокуються"
+msgstr "п°п╟я│п╨п╟ я│п╦р▒п╫п╟п╩я√п╡, я┴п╬ п╠п╩п╬п╨я┐я▌я┌я▄я│я▐"
 
 #: sysdeps/names/procsignal.c:47
 msgid "Mask of ignored signals"
-msgstr "Маска си╜нал╕в, що ╕╜норуються"
+msgstr "п°п╟я│п╨п╟ я│п╦р▒п╫п╟п╩я√п╡, я┴п╬ я√р▒п╫п╬я─я┐я▌я┌я▄я│я▐"
 
 #: sysdeps/names/procsignal.c:48
 msgid "Mask of caught signals"
-msgstr "Маска си╜нал╕в, що перехоплюються"
+msgstr "п°п╟я│п╨п╟ я│п╦р▒п╫п╟п╩я√п╡, я┴п╬ п©п╣я─п╣я┘п╬п©п╩я▌я▌я┌я▄я│я▐"
 
 #: sysdeps/names/procstate.c:40
 msgid "Cmd"
-msgstr "Кмнд"
+msgstr "п п╪п╫п╢"
 
 #: sysdeps/names/procstate.c:40
 msgid "State"
-msgstr "Стан"
+msgstr "п║я┌п╟п╫"
 
 #: sysdeps/names/procstate.c:40
 msgid "UID"
@@ -799,35 +799,35 @@ msgstr "GID"
 
 #: sysdeps/names/procstate.c:45
 msgid "Basename of executable file in call to exec()"
-msgstr "назва виконуваного файлу в функй╕╖ exec()"
+msgstr "п╫п╟п╥п╡п╟ п╡п╦п╨п╬п╫я┐п╡п╟п╫п╬пЁп╬ я└п╟п╧п╩я┐ п╡ я└я┐п╫п╨п╧я√я≈ exec()"
 
 #: sysdeps/names/procstate.c:46
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Односимвольний код стану процесу (S=приспаний)"
+msgstr "п·п╢п╫п╬я│п╦п╪п╡п╬п╩я▄п╫п╦п╧ п╨п╬п╢ я│я┌п╟п╫я┐ п©я─п╬я├п╣я│я┐ (S=п©я─п╦я│п©п╟п╫п╦п╧)"
 
 #: sysdeps/names/procstate.c:47
 msgid "UID of process"
-msgstr "UID процесу"
+msgstr "UID п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/procstate.c:48
 msgid "GID of process"
-msgstr "GID процесу"
+msgstr "GID п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/proctime.c:44
 msgid "Start_Time"
-msgstr "Час_запуску"
+msgstr "п╖п╟я│_п╥п╟п©я┐я│п╨я┐"
 
 #: sysdeps/names/proctime.c:44
 msgid "RTime"
-msgstr "ДЧас"
+msgstr "п■п╖п╟я│"
 
 #: sysdeps/names/proctime.c:44
 msgid "UTime"
-msgstr "КЧас"
+msgstr "п п╖п╟я│"
 
 #: sysdeps/names/proctime.c:44
 msgid "STime"
-msgstr "Запуск"
+msgstr "п≈п╟п©я┐я│п╨"
 
 #: sysdeps/names/proctime.c:45
 msgid "CUTime"
@@ -847,7 +847,7 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:46
 msgid "Frequency"
-msgstr "Частота"
+msgstr "п╖п╟я│я┌п╬я┌п╟"
 
 #: sysdeps/names/proctime.c:46
 msgid "XCPU_UTime"
@@ -859,19 +859,19 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:51
 msgid "Start time of process in seconds since the epoch"
-msgstr "Час запуску процесу в секундах в╕д початку Епохи"
+msgstr "п╖п╟я│ п╥п╟п©я┐я│п╨я┐ п©я─п╬я├п╣я│я┐ п╡ я│п╣п╨я┐п╫п╢п╟я┘ п╡я√п╢ п©п╬я┤п╟я┌п╨я┐ п∙п©п╬я┘п╦"
 
 #: sysdeps/names/proctime.c:52
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "Д╕йсний час накопичений процесом (ма╓ бути utime +stime)"
+msgstr "п■я√п╧я│п╫п╦п╧ я┤п╟я│ п╫п╟п╨п╬п©п╦я┤п╣п╫п╦п╧ п©я─п╬я├п╣я│п╬п╪ (п╪п╟я■ п╠я┐я┌п╦ utime +stime)"
 
 #: sysdeps/names/proctime.c:53
 msgid "user-mode CPU time accumulated by process"
-msgstr "час ЦП накопичений процесом в користувацькому режим╕"
+msgstr "я┤п╟я│ п╕п÷ п╫п╟п╨п╬п©п╦я┤п╣п╫п╦п╧ п©я─п╬я├п╣я│п╬п╪ п╡ п╨п╬я─п╦я│я┌я┐п╡п╟я├я▄п╨п╬п╪я┐ я─п╣п╤п╦п╪я√"
 
 #: sysdeps/names/proctime.c:54
 msgid "kernel-mode CPU time accumulated by process"
-msgstr "час ЦП накопичений процесом в режим╕ ядра"
+msgstr "я┤п╟я│ п╕п÷ п╫п╟п╨п╬п©п╦я┤п╣п╫п╦п╧ п©я─п╬я├п╣я│п╬п╪ п╡ я─п╣п╤п╦п╪я√ я▐п╢я─п╟"
 
 #: sysdeps/names/proctime.c:55
 msgid "cumulative utime of process and reaped children"
@@ -893,15 +893,15 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
-msgstr "Тактова частота"
+msgstr "п╒п╟п╨я┌п╬п╡п╟ я┤п╟я│я┌п╬я┌п╟"
 
 #: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr "SMP-час ЦП накопичений процесом у режим╕ користувача"
+msgstr "SMP-я┤п╟я│ п╕п÷ п╫п╟п╨п╬п©п╦я┤п╣п╫п╦п╧ п©я─п╬я├п╣я│п╬п╪ я┐ я─п╣п╤п╦п╪я√ п╨п╬я─п╦я│я┌я┐п╡п╟я┤п╟"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "SMP-час ЦП накопичений процесом у режим╕ ядра"
+msgstr "SMP-я┤п╟я│ п╕п÷ п╫п╟п╨п╬п©п╦я┤п╣п╫п╦п╧ п©я─п╬я├п╣я│п╬п╪ я┐ я─п╣п╤п╦п╪я√ я▐п╢я─п╟"
 
 #: sysdeps/names/procuid.c:56
 msgid "Uid"
@@ -933,7 +933,7 @@ msgstr "PGRP"
 
 #: sysdeps/names/procuid.c:57
 msgid "Session"
-msgstr "Сеанс"
+msgstr "п║п╣п╟п╫я│"
 
 #: sysdeps/names/procuid.c:57
 msgid "Tty"
@@ -945,83 +945,83 @@ msgstr "TPGID"
 
 #: sysdeps/names/procuid.c:58
 msgid "Priority"
-msgstr "Пр╕оритет"
+msgstr "п÷я─я√п╬я─п╦я┌п╣я┌"
 
 #: sysdeps/names/procuid.c:63
 msgid "User ID"
-msgstr "╤дентиф╕катор користувача"
+msgstr "п├п╢п╣п╫я┌п╦я└я√п╨п╟я┌п╬я─ п╨п╬я─п╦я│я┌я┐п╡п╟я┤п╟"
 
 #: sysdeps/names/procuid.c:64
 msgid "Effective User ID"
-msgstr "Чинний ╕дентиф╕катор користувача"
+msgstr "п╖п╦п╫п╫п╦п╧ я√п╢п╣п╫я┌п╦я└я√п╨п╟я┌п╬я─ п╨п╬я─п╦я│я┌я┐п╡п╟я┤п╟"
 
 #: sysdeps/names/procuid.c:65
 msgid "Group ID"
-msgstr "╤дентиф╕катор групи"
+msgstr "п├п╢п╣п╫я┌п╦я└я√п╨п╟я┌п╬я─ пЁя─я┐п©п╦"
 
 #: sysdeps/names/procuid.c:66
 msgid "Effective Group ID"
-msgstr "Чинний ╕дентиф╕катор групи"
+msgstr "п╖п╦п╫п╫п╦п╧ я√п╢п╣п╫я┌п╦я└я√п╨п╟я┌п╬я─ пЁя─я┐п©п╦"
 
 #: sysdeps/names/procuid.c:67
 msgid "Process ID"
-msgstr "╤дентиф╕катор процесу"
+msgstr "п├п╢п╣п╫я┌п╦я└я√п╨п╟я┌п╬я─ п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/procuid.c:68
 msgid "PID of parent process"
-msgstr "PID батьк╕вського процесу"
+msgstr "PID п╠п╟я┌я▄п╨я√п╡я│я▄п╨п╬пЁп╬ п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/procuid.c:69
 msgid "Process group ID"
-msgstr "╤дентиф╕катор групи процесу"
+msgstr "п├п╢п╣п╫я┌п╦я└я√п╨п╟я┌п╬я─ пЁя─я┐п©п╦ п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/procuid.c:70
 msgid "Session ID"
-msgstr "╤дентиф╕катор сеансу"
+msgstr "п├п╢п╣п╫я┌п╦я└я√п╨п╟я┌п╬я─ я│п╣п╟п╫я│я┐"
 
 #: sysdeps/names/procuid.c:71
 msgid "Full device number of controlling terminal"
-msgstr "Повний номер пристрою контролю терм╕налу"
+msgstr "п÷п╬п╡п╫п╦п╧ п╫п╬п╪п╣я─ п©я─п╦я│я┌я─п╬я▌ п╨п╬п╫я┌я─п╬п╩я▌ я┌п╣я─п╪я√п╫п╟п╩я┐"
 
 #: sysdeps/names/procuid.c:72
 msgid "Terminal process group ID"
-msgstr "╤дентиф╕катор групи терм╕нально процесу"
+msgstr "п├п╢п╣п╫я┌п╦я└я√п╨п╟я┌п╬я─ пЁя─я┐п©п╦ я┌п╣я─п╪я√п╫п╟п╩я▄п╫п╬ п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/procuid.c:73
 msgid "Kernel scheduling priority"
-msgstr "Пр╕оритет планування ядра"
+msgstr "п÷я─я√п╬я─п╦я┌п╣я┌ п©п╩п╟п╫я┐п╡п╟п╫п╫я▐ я▐п╢я─п╟"
 
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
-msgstr "Стандартний р╕вень UNIX Nice для процес╕в"
+msgstr "п║я┌п╟п╫п╢п╟я─я┌п╫п╦п╧ я─я√п╡п╣п╫я▄ UNIX Nice п╢п╩я▐ п©я─п╬я├п╣я│я√п╡"
 
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 msgid "Number of entries in semaphore map"
-msgstr "К╕льк╕сть елемент╕в у мап╕ семафор╕в"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ п╣п╩п╣п╪п╣п╫я┌я√п╡ я┐ п╪п╟п©я√ я│п╣п╪п╟я└п╬я─я√п╡"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Max number of arrays"
-msgstr "Максимальна к╕льк╕сть масив╕в"
+msgstr "п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╟ п╨я√п╩я▄п╨я√я│я┌я▄ п╪п╟я│п╦п╡я√п╡"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max semaphores system wide"
-msgstr "Максимальна к╕льк╕сть семафор╕в у систем╕"
+msgstr "п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╟ п╨я√п╩я▄п╨я√я│я┌я▄ я│п╣п╪п╟я└п╬я─я√п╡ я┐ я│п╦я│я┌п╣п╪я√"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Number of undo structures system wide"
-msgstr "К╕льк╕сть структур в╕дкату у систем╕"
+msgstr "п я√п╩я▄п╨я√я│я┌я▄ я│я┌я─я┐п╨я┌я┐я─ п╡я√п╢п╨п╟я┌я┐ я┐ я│п╦я│я┌п╣п╪я√"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores per array"
-msgstr "Максимальна к╕льк╕сть семафор╕в на масив"
+msgstr "п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╟ п╨я√п╩я▄п╨я√я│я┌я▄ я│п╣п╪п╟я└п╬я─я√п╡ п╫п╟ п╪п╟я│п╦п╡"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max ops per semop call"
-msgstr "Максимальна к╕льк╕сть операц╕й на виклик семафора"
+msgstr "п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╟ п╨я√п╩я▄п╨я√я│я┌я▄ п╬п©п╣я─п╟я├я√п╧ п╫п╟ п╡п╦п╨п╩п╦п╨ я│п╣п╪п╟я└п╬я─п╟"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max number of undo entries per process"
-msgstr "Максимальна к╕льк╕сть запис╕в в╕дкату на процес"
+msgstr "п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╟ п╨я√п╩я▄п╨я√я│я┌я▄ п╥п╟п©п╦я│я√п╡ п╡я√п╢п╨п╟я┌я┐ п╫п╟ п©я─п╬я├п╣я│"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
@@ -1029,7 +1029,7 @@ msgstr "sizeof struct sem_undo"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Semaphore max value"
-msgstr "Максимальне значення семафора"
+msgstr "п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╣ п╥п╫п╟я┤п╣п╫п╫я▐ я│п╣п╪п╟я└п╬я─п╟"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Adjust on exit max value"
@@ -1037,288 +1037,288 @@ msgstr ""
 
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
 msgid "Max segment size"
-msgstr "Максимальний розм╕р сегменту"
+msgstr "п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╦п╧ я─п╬п╥п╪я√я─ я│п╣пЁп╪п╣п╫я┌я┐"
 
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Min segment size"
-msgstr "М╕н╕мальний розм╕р сегменту"
+msgstr "п°я√п╫я√п╪п╟п╩я▄п╫п╦п╧ я─п╬п╥п╪я√я─ я│п╣пЁп╪п╣п╫я┌я┐"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max number of segments"
-msgstr "Максимальна к╕льк╕сть сегмент╕в"
+msgstr "п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╟ п╨я√п╩я▄п╨я√я│я┌я▄ я│п╣пЁп╪п╣п╫я┌я√п╡"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max shared segments per process"
-msgstr "Максимум колективних се╜мент╕в на процес"
+msgstr "п°п╟п╨я│п╦п╪я┐п╪ п╨п╬п╩п╣п╨я┌п╦п╡п╫п╦я┘ я│п╣р▒п╪п╣п╫я┌я√п╡ п╫п╟ п©я─п╬я├п╣я│"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max total shared memory"
-msgstr "Загальний максимум колективно╖ пам'ят╕"
+msgstr "п≈п╟пЁп╟п╩я▄п╫п╦п╧ п╪п╟п╨я│п╦п╪я┐п╪ п╨п╬п╩п╣п╨я┌п╦п╡п╫п╬я≈ п©п╟п╪'я▐я┌я√"
 
 #: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
 msgid "Total Swap Space"
-msgstr "Загальний об'╓м своп╕н╜у"
+msgstr "п≈п╟пЁп╟п╩я▄п╫п╦п╧ п╬п╠'я■п╪ я│п╡п╬п©я√п╫р▒я┐"
 
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Used Swap Space"
-msgstr "Використиний об'╓м своп╕н╜у"
+msgstr "п▓п╦п╨п╬я─п╦я│я┌п╦п╫п╦п╧ п╬п╠'я■п╪ я│п╡п╬п©я√п╫р▒я┐"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Free Swap Space"
-msgstr "В╕льний об'╓м своп╕н╜у"
+msgstr "п▓я√п╩я▄п╫п╦п╧ п╬п╠'я■п╪ я│п╡п╬п©я√п╫р▒я┐"
 
 #: sysdeps/names/swap.c:42
 msgid "Page In"
-msgstr "Стор╕нок внесено"
+msgstr "п║я┌п╬я─я√п╫п╬п╨ п╡п╫п╣я│п╣п╫п╬"
 
 #: sysdeps/names/swap.c:43
 msgid "Page Out"
-msgstr "Стор╕нок винесено"
+msgstr "п║я┌п╬я─я√п╫п╬п╨ п╡п╦п╫п╣я│п╣п╫п╬"
 
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr "Загальна к╕льк╕сть внесених стор╕нок своп╕н╜у з старту системи"
+msgstr "п≈п╟пЁп╟п╩я▄п╫п╟ п╨я√п╩я▄п╨я√я│я┌я▄ п╡п╫п╣я│п╣п╫п╦я┘ я│я┌п╬я─я√п╫п╬п╨ я│п╡п╬п©я√п╫р▒я┐ п╥ я│я┌п╟я─я┌я┐ я│п╦я│я┌п╣п╪п╦"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr "Загальна к╕льк╕сть винесених стор╕нок своп╕н╜у з старту системи"
+msgstr "п≈п╟пЁп╟п╩я▄п╫п╟ п╨я√п╩я▄п╨я√я│я┌я▄ п╡п╦п╫п╣я│п╣п╫п╦я┘ я│я┌п╬я─я√п╫п╬п╨ я│п╡п╬п©я√п╫р▒я┐ п╥ я│я┌п╟я─я┌я┐ я│п╦я│я┌п╣п╪п╦"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
-msgstr "Властивост╕ сервера"
+msgstr "п▓п╩п╟я│я┌п╦п╡п╬я│я┌я√ я│п╣я─п╡п╣я─п╟"
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "CPU Usage"
-msgstr "Використання CPU"
+msgstr "п▓п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐ CPU"
 
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "Memory Usage"
-msgstr "Використання пам'ят╕"
+msgstr "п▓п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐ п©п╟п╪'я▐я┌я√"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Swap Usage"
-msgstr "Використання своп╕н╜у"
+msgstr "п▓п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐ я│п╡п╬п©я√п╫р▒я┐"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "System Uptime"
-msgstr "Час працездатност╕ системи"
+msgstr "п╖п╟я│ п©я─п╟я├п╣п╥п╢п╟я┌п╫п╬я│я┌я√ я│п╦я│я┌п╣п╪п╦"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Load Averange"
-msgstr "Середн╓ завантаження"
+msgstr "п║п╣я─п╣п╢п╫я■ п╥п╟п╡п╟п╫я┌п╟п╤п╣п╫п╫я▐"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Shared Memory Limits"
-msgstr "Обмеження колективно╖ пам'ят╕"
+msgstr "п·п╠п╪п╣п╤п╣п╫п╫я▐ п╨п╬п╩п╣п╨я┌п╦п╡п╫п╬я≈ п©п╟п╪'я▐я┌я√"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Message Queue Limits"
-msgstr "Обмеження черги пов╕домлень"
+msgstr "п·п╠п╪п╣п╤п╣п╫п╫я▐ я┤п╣я─пЁп╦ п©п╬п╡я√п╢п╬п╪п╩п╣п╫я▄"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
-msgstr "Обмеження множини семафор╕в"
+msgstr "п·п╠п╪п╣п╤п╣п╫п╫я▐ п╪п╫п╬п╤п╦п╫п╦ я│п╣п╪п╟я└п╬я─я√п╡"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
-msgstr "Список запущених процес╕в"
+msgstr "п║п©п╦я│п╬п╨ п╥п╟п©я┐я┴п╣п╫п╦я┘ п©я─п╬я├п╣я│я√п╡"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Status information"
-msgstr "╤нформац╕я про стан процесу"
+msgstr "п├п╫я└п╬я─п╪п╟я├я√я▐ п©я─п╬ я│я┌п╟п╫ п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process UID and TTY information"
-msgstr "╤нформац╕я про UID та TTY процесу"
+msgstr "п├п╫я└п╬я─п╪п╟я├я√я▐ п©я─п╬ UID я┌п╟ TTY п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process Memory information"
-msgstr "╤нформац╕я про пам'ять процесу"
+msgstr "п├п╫я└п╬я─п╪п╟я├я√я▐ п©я─п╬ п©п╟п╪'я▐я┌я▄ п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Time information"
-msgstr "╤нформац╕я про час процесу"
+msgstr "п├п╫я└п╬я─п╪п╟я├я√я▐ п©я─п╬ я┤п╟я│ п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Signal information"
-msgstr "╤нформац╕я про си╜нали процесу"
+msgstr "п├п╫я└п╬я─п╪п╟я├я√я▐ п©я─п╬ я│п╦р▒п╫п╟п╩п╦ п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Kernel Data information"
-msgstr "╤нформац╕я про дан╕ процесу ядра"
+msgstr "п├п╫я└п╬я─п╪п╟я├я√я▐ п©я─п╬ п╢п╟п╫я√ п©я─п╬я├п╣я│я┐ я▐п╢я─п╟"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Segment information"
-msgstr "╤нформац╕я про се╜менти процесу"
+msgstr "п├п╫я└п╬я─п╪п╟я├я√я▐ п©я─п╬ я│п╣р▒п╪п╣п╫я┌п╦ п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/sysdeps.c:66
 msgid "Process Arguments"
-msgstr "Аргументи процесу"
+msgstr "п░я─пЁя┐п╪п╣п╫я┌п╦ п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 msgid "Process Memory Map"
-msgstr "Мапа пам'ят╕ процесу"
+msgstr "п°п╟п©п╟ п©п╟п╪'я▐я┌я√ п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/sysdeps.c:68
 msgid "Mount List"
-msgstr "Список монтувань"
+msgstr "п║п©п╦я│п╬п╨ п╪п╬п╫я┌я┐п╡п╟п╫я▄"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "File System Usage"
-msgstr "Використання файлово╖ системи"
+msgstr "п▓п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐ я└п╟п╧п╩п╬п╡п╬я≈ я│п╦я│я┌п╣п╪п╦"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "Network Load"
-msgstr "Завантаження мереж╕"
+msgstr "п≈п╟п╡п╟п╫я┌п╟п╤п╣п╫п╫я▐ п╪п╣я─п╣п╤я√"
 
 #: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "PPP Statistics"
-msgstr "Статистика PPP"
+msgstr "п║я┌п╟я┌п╦я│я┌п╦п╨п╟ PPP"
 
 #: sysdeps/names/sysdeps.c:93
 msgid "Command line arguments of the process"
-msgstr "Аргументи командного рядка процесу"
+msgstr "п░я─пЁя┐п╪п╣п╫я┌п╦ п╨п╬п╪п╟п╫п╢п╫п╬пЁп╬ я─я▐п╢п╨п╟ п©я─п╬я├п╣я│я┐"
 
 #: sysdeps/names/sysdeps.c:95
 msgid "List of currently mounted filesystems"
-msgstr "Список змонтованих файлових систем"
+msgstr "п║п©п╦я│п╬п╨ п╥п╪п╬п╫я┌п╬п╡п╟п╫п╦я┘ я└п╟п╧п╩п╬п╡п╦я┘ я│п╦я│я┌п╣п╪"
 
 #: sysdeps/names/uptime.c:38
 msgid "Uptime"
-msgstr "Час працездатност╕"
+msgstr "п╖п╟я│ п©я─п╟я├п╣п╥п╢п╟я┌п╫п╬я│я┌я√"
 
 #: sysdeps/names/uptime.c:39
 msgid "Idletime"
-msgstr "Час простою"
+msgstr "п╖п╟я│ п©я─п╬я│я┌п╬я▌"
 
 #: sysdeps/names/uptime.c:44
 msgid "Time in seconds since system boot"
-msgstr "Час в секундах в╕д старту системи"
+msgstr "п╖п╟я│ п╡ я│п╣п╨я┐п╫п╢п╟я┘ п╡я√п╢ я│я┌п╟я─я┌я┐ я│п╦я│я┌п╣п╪п╦"
 
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Час в секундах проведений системою в оч╕куванн╕ з часу завантаження"
+msgstr "п╖п╟я│ п╡ я│п╣п╨я┐п╫п╢п╟я┘ п©я─п╬п╡п╣п╢п╣п╫п╦п╧ я│п╦я│я┌п╣п╪п╬я▌ п╡ п╬я┤я√п╨я┐п╡п╟п╫п╫я√ п╥ я┤п╟я│я┐ п╥п╟п╡п╟п╫я┌п╟п╤п╣п╫п╫я▐"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr "В╕дб╕й"
+msgstr "п▓я√п╢п╠я√п╧"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
-msgstr "Переривання"
+msgstr "п÷п╣я─п╣я─п╦п╡п╟п╫п╫я▐"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
-msgstr "Вих╕д"
+msgstr "п▓п╦я┘я√п╢"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
-msgstr "Нев╕рна команда"
+msgstr "п²п╣п╡я√я─п╫п╟ п╨п╬п╪п╟п╫п╢п╟"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
-msgstr "Пастка трасування"
+msgstr "п÷п╟я│я┌п╨п╟ я┌я─п╟я│я┐п╡п╟п╫п╫я▐"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr "Припинити"
+msgstr "п÷я─п╦п©п╦п╫п╦я┌п╦"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
-msgstr "Помилка EMT"
+msgstr "п÷п╬п╪п╦п╩п╨п╟ EMT"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
-msgstr "Виключення операц╕╖ з плаваючою крапкою"
+msgstr "п▓п╦п╨п╩я▌я┤п╣п╫п╫я▐ п╬п©п╣я─п╟я├я√я≈ п╥ п©п╩п╟п╡п╟я▌я┤п╬я▌ п╨я─п╟п©п╨п╬я▌"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr "Знищення"
+msgstr "п≈п╫п╦я┴п╣п╫п╫я▐"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
-msgstr "Помлка в непрям╕й адресац╕╖"
+msgstr "п÷п╬п╪п╩п╨п╟ п╡ п╫п╣п©я─я▐п╪я√п╧ п╟п╢я─п╣я│п╟я├я√я≈"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
-msgstr "Помилка се╜ментац╕╖"
+msgstr "п÷п╬п╪п╦п╩п╨п╟ я│п╣р▒п╪п╣п╫я┌п╟я├я√я≈"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr "Нев╕рний ар╜умент системного виклику"
+msgstr "п²п╣п╡я√я─п╫п╦п╧ п╟я─р▒я┐п╪п╣п╫я┌ я│п╦я│я┌п╣п╪п╫п╬пЁп╬ п╡п╦п╨п╩п╦п╨я┐"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr "Роз╕рвано канал"
+msgstr "п═п╬п╥я√я─п╡п╟п╫п╬ п╨п╟п╫п╟п╩"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
-msgstr "Си╜нал тривоги"
+msgstr "п║п╦р▒п╫п╟п╩ я┌я─п╦п╡п╬пЁп╦"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
-msgstr "Програмне завершення"
+msgstr "п÷я─п╬пЁя─п╟п╪п╫п╣ п╥п╟п╡п╣я─я┬п╣п╫п╫я▐"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr "Критичний стан сокету"
+msgstr "п я─п╦я┌п╦я┤п╫п╦п╧ я│я┌п╟п╫ я│п╬п╨п╣я┌я┐"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
-msgstr "Зупинка"
+msgstr "п≈я┐п©п╦п╫п╨п╟"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr "Клав╕атурний си╜нал зупинки"
+msgstr "п п╩п╟п╡я√п╟я┌я┐я─п╫п╦п╧ я│п╦р▒п╫п╟п╩ п╥я┐п©п╦п╫п╨п╦"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
-msgstr "Продовжити"
+msgstr "п÷я─п╬п╢п╬п╡п╤п╦я┌п╦"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
-msgstr "Було зм╕нено стан нащадка"
+msgstr "п▒я┐п╩п╬ п╥п╪я√п╫п╣п╫п╬ я│я┌п╟п╫ п╫п╟я┴п╟п╢п╨п╟"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr "Зчитування з TTY на тл╕"
+msgstr "п≈я┤п╦я┌я┐п╡п╟п╫п╫я▐ п╥ TTY п╫п╟ я┌п╩я√"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr "Запис у TTY на тл╕"
+msgstr "п≈п╟п©п╦я│ я┐ TTY п╫п╟ я┌п╩я√"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr "Можлив╕сть вводу-виводу"
+msgstr "п°п╬п╤п╩п╦п╡я√я│я┌я▄ п╡п╡п╬п╢я┐-п╡п╦п╡п╬п╢я┐"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
-msgstr "Перевищення обмеження часу ЦП"
+msgstr "п÷п╣я─п╣п╡п╦я┴п╣п╫п╫я▐ п╬п╠п╪п╣п╤п╣п╫п╫я▐ я┤п╟я│я┐ п╕п÷"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
-msgstr "Перевищення обмеження ром╕ру файлу"
+msgstr "п÷п╣я─п╣п╡п╦я┴п╣п╫п╫я▐ п╬п╠п╪п╣п╤п╣п╫п╫я▐ я─п╬п╪я√я─я┐ я└п╟п╧п╩я┐"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
-msgstr "В╕ртуальний будильник"
+msgstr "п▓я√я─я┌я┐п╟п╩я▄п╫п╦п╧ п╠я┐п╢п╦п╩я▄п╫п╦п╨"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr "Си╜нал таймера проф╕лювання"
+msgstr "п║п╦р▒п╫п╟п╩ я┌п╟п╧п╪п╣я─п╟ п©я─п╬я└я√п╩я▌п╡п╟п╫п╫я▐"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
-msgstr "Зм╕на розм╕р╕в в╕кна"
+msgstr "п≈п╪я√п╫п╟ я─п╬п╥п╪я√я─я√п╡ п╡я√п╨п╫п╟"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
-msgstr "╤нформац╕йний запит"
+msgstr "п├п╫я└п╬я─п╪п╟я├я√п╧п╫п╦п╧ п╥п╟п©п╦я┌"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
-msgstr "Визначений користувачем сигнал 1"
+msgstr "п▓п╦п╥п╫п╟я┤п╣п╫п╦п╧ п╨п╬я─п╦я│я┌я┐п╡п╟я┤п╣п╪ я│п╦пЁп╫п╟п╩ 1"
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
-msgstr "Визначений користувачем сигнал 2"
+msgstr "п▓п╦п╥п╫п╟я┤п╣п╫п╦п╧ п╨п╬я─п╦я│я┌я┐п╡п╟я┤п╣п╪ я│п╦пЁп╫п╟п╩ 2"
