@@ -1,3 +1,7 @@
+2002-05-28  Carlos Perello Marin <carlos@gnome-db.org>
+
+	* configure.in (ALL_LINGUAS): Removed all es_* and added only es_ES.
+
 2002-05-08  Pablo Saratxaga  <pablo@mandrakesoft.com>
 
 	* configure.in: Added Vietnamese (vi) to ALL_LINGUAS
