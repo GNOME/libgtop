@@ -1,22 +1,22 @@
 /* -*-C-*-
- Server code for handling requests from clients and forwarding them
- on to the GNU Emacs process.
-
- This file is part of GNU Emacs.
-
- Copying is permitted under those conditions described by the GNU
- General Public License.
-
- Copyright (C) 1989 Free Software Foundation, Inc.
-
- Author: Andy Norman (ange@hplb.hpl.hp.com), based on 'etc/server.c'
-         from the 18.52 GNU Emacs distribution.
-
- Please mail bugs and suggestions to the author at the above address.
-*/
+ * Server code for handling requests from clients and forwarding them
+ * on to the GNU Emacs process.
+ * 
+ * This file is part of GNU Emacs.
+ * 
+ * Copying is permitted under those conditions described by the GNU
+ * General Public License.
+ * 
+ * Copyright (C) 1989 Free Software Foundation, Inc.
+ * 
+ * Author: Andy Norman (ange@hplb.hpl.hp.com), based on 'etc/server.c'
+ * from the 18.52 GNU Emacs distribution.
+ * 
+ * Please mail bugs and suggestions to the author at the above address.
+ */
 
 /* HISTORY 
- * 11-Nov-1990		bristor@simba	
+ * 11-Nov-1990                bristor@simba   
  *    Added EOT stuff.
  */
 
@@ -30,7 +30,8 @@
  */
 
 #if 0
-static char rcsid [] = "!Header: gnuserv.c,v 2.1 95/02/16 11:58:27 arup alpha !";
+static char rcsid[] = "!Header: gnuserv.c,v 2.1 95/02/16 11:58:27 arup alpha !";
+
 #endif
 
 #define DEBUG
@@ -42,15 +43,16 @@ static char rcsid [] = "!Header: gnuserv.c,v 2.1 95/02/16 11:58:27 arup alpha !"
 #include <sys/select.h>
 #endif
 
-extern void handle_socket_connection __P((glibtop *, int));
+extern void handle_socket_connection __P ((glibtop *, int));
 
 #if !defined(SYSV_IPC) && !defined(UNIX_DOMAIN_SOCKETS) && !defined(INTERNET_DOMAIN_SOCKETS)
 main ()
 {
-  fprintf (stderr,"Sorry, the Emacs server is only supported on systems that have\n");
-  fprintf (stderr,"Unix Domain sockets, Internet Domain sockets or System V IPC\n");
-  exit (1);
-} /* main */
+	fprintf (stderr, "Sorry, the Emacs server is only supported on systems that have\n");
+	fprintf (stderr, "Unix Domain sockets, Internet Domain sockets or System V IPC\n");
+	exit (1);
+}				/* main */
+
 #else /* SYSV_IPC || UNIX_DOMAIN_SOCKETS || INTERNET_DOMAIN_SOCKETS */
 
 #ifdef SYSV_IPC
@@ -60,776 +62,747 @@ int ipc_wpid = 0;		/* watchdog task pid */
 
 
 /*
-  ipc_exit -- clean up the queue id and queue, then kill the watchdog task
-              if it exists. exit with the given status.
-*/
+ * ipc_exit -- clean up the queue id and queue, then kill the watchdog task
+ * if it exists. exit with the given status.
+ */
 void
 ipc_exit (int stat)
 {
-  msgctl (ipc_qid,IPC_RMID,0);
-  
-  if  (ipc_wpid != 0)
-    kill (ipc_wpid, SIGKILL);
-  
-  exit (stat);
-} /* ipc_exit */
+	msgctl (ipc_qid, IPC_RMID, 0);
+
+	if (ipc_wpid != 0)
+		kill (ipc_wpid, SIGKILL);
+
+	exit (stat);
+}				/* ipc_exit */
 
 
 /*
-  ipc_handle_signal -- catch the signal given and clean up.
-*/
+ * ipc_handle_signal -- catch the signal given and clean up.
+ */
 void
-ipc_handle_signal(int sig)
+ipc_handle_signal (int sig)
 {
-  ipc_exit (0);
-} /* ipc_handle_signal */
+	ipc_exit (0);
+}				/* ipc_handle_signal */
 
 
 /* 
-  ipc_spawn_watchdog -- spawn a watchdog task to clean up the message queue should the
-			server process die.
-*/
+ * ipc_spawn_watchdog -- spawn a watchdog task to clean up the message queue should the
+ * server process die.
+ */
 void
 ipc_spawn_watchdog (void)
 {
-  if ((ipc_wpid = fork ()) == 0)
-    { /* child process */
-      int ppid = getppid ();	/* parent's process id */
-      
-      setpgrp();		/* gnu kills process group on exit */
-      
-      while (1)
-	{
-	  if (kill (ppid, 0) < 0) /* ppid is no longer valid, parent
-				     may have died */
-	    {
-	      ipc_exit (0);
-	    } /* if */
-	  
-	  sleep(10);		/* have another go later */
-	} /* while */
-    } /* if */
-  
-} /* ipc_spawn_watchdog */
+	if ((ipc_wpid = fork ()) == 0) {	/* child process */
+		int ppid = getppid ();	/* parent's process id */
+
+		setpgrp ();	/* gnu kills process group on exit */
+
+		while (1) {
+			if (kill (ppid, 0) < 0) {	/* ppid is no longer
+							 * valid, parent may
+							 * have died */
+				ipc_exit (0);
+			}	/* if */
+			sleep (10);	/* have another go later */
+		}		/* while */
+	}			/* if */
+}				/* ipc_spawn_watchdog */
 
 
 /*
-  ipc_init -- initialize server, setting the global msqid that can be listened on.
-*/
+ * ipc_init -- initialize server, setting the global msqid that can be listened on.
+ */
 void
 ipc_init (struct msgbuf **msgpp)
 {
-  key_t key;			/* messge key */
-  char buf[GSERV_BUFSZ];	/* pathname for key */
+	key_t key;		/* messge key */
+	char buf[GSERV_BUFSZ];	/* pathname for key */
 
-  sprintf (buf,"/tmp/lgtd%d",(int)geteuid ());
-  creat (buf,0600);
-  key = ftok (buf,1);
+	sprintf (buf, "/tmp/lgtd%d", (int) geteuid ());
+	creat (buf, 0600);
+	key = ftok (buf, 1);
 
-  if ((ipc_qid = msgget (key,0600|IPC_CREAT)) == -1)
-	  glibtop_error_io ("unable to create msg queue");
+	if ((ipc_qid = msgget (key, 0600 | IPC_CREAT)) == -1)
+		glibtop_error_io ("unable to create msg queue");
 
-  ipc_spawn_watchdog ();
+	ipc_spawn_watchdog ();
 
-  signal (SIGTERM,ipc_handle_signal);
-  signal (SIGINT,ipc_handle_signal);
+	signal (SIGTERM, ipc_handle_signal);
+	signal (SIGINT, ipc_handle_signal);
 
-  if ((*msgpp = (struct msgbuf *)
-       malloc (sizeof **msgpp + GSERV_BUFSZ)) == NULL)
-    {
-      glibtop_warn_io ("unable to allocate space for message buffer");
-      ipc_exit(1);
-    } /* if */
-} /* ipc_init */
+	if ((*msgpp = (struct msgbuf *)
+	     malloc (sizeof **msgpp + GSERV_BUFSZ)) == NULL) {
+		glibtop_warn_io ("unable to allocate space for message buffer");
+		ipc_exit (1);
+	}			/* if */
+}				/* ipc_init */
 
 
 /*
-  handle_ipc_request -- accept a request from a client, pass the request on
-  			to the GNU Emacs process, then wait for its reply and
-			pass that on to the client.
-*/
+ * handle_ipc_request -- accept a request from a client, pass the request on
+ * to the GNU Emacs process, then wait for its reply and
+ * pass that on to the client.
+ */
 void
 handle_ipc_request (struct msgbuf *msgp)
 {
-  struct msqid_ds msg_st;	/* message status */
-  char buf[GSERV_BUFSZ];
-  int len;			/* length of message / read */
-  int s, result_len;            /* tag fields on the response from emacs */
-  int offset = 0;
-  int total = 1;                /* # bytes that will actually be sent off */
+	struct msqid_ds msg_st;	/* message status */
+	char buf[GSERV_BUFSZ];
+	int len;		/* length of message / read */
+	int s, result_len;	/* tag fields on the response from emacs */
+	int offset = 0;
+	int total = 1;		/* # bytes that will actually be sent off */
 
-  if ((len = msgrcv (ipc_qid, msgp, GSERV_BUFSZ - 1, 1, 0)) < 0)
-    {
-      glibtop_warn_io ("msgrcv");
-      ipc_exit (1);
-    } /* if */
+	if ((len = msgrcv (ipc_qid, msgp, GSERV_BUFSZ - 1, 1, 0)) < 0) {
+		glibtop_warn_io ("msgrcv");
+		ipc_exit (1);
+	}			/* if */
+	msgctl (ipc_qid, IPC_STAT, &msg_st);
+	strncpy (buf, msgp->mtext, len);
+	buf[len] = '\0';	/* terminate */
 
-  msgctl (ipc_qid, IPC_STAT, &msg_st);
-  strncpy (buf, msgp->mtext, len);
-  buf[len] = '\0';		/* terminate */
-  
-  printf ("%d %s", ipc_qid, buf);
-  fflush (stdout);
+	printf ("%d %s", ipc_qid, buf);
+	fflush (stdout);
 
-  /* now for the response from gnu */
-  msgp->mtext[0] = '\0';
+	/* now for the response from gnu */
+	msgp->mtext[0] = '\0';
 
 #if 0
-  if ((len = read(0,buf,GSERV_BUFSZ-1)) < 0)
-    {
-      glibtop_warn_io ("read");
-      ipc_exit (1);
-  } /* if */
-
-  sscanf (buf, "%d:%[^\n]\n", &junk, msgp->mtext);
+	if ((len = read (0, buf, GSERV_BUFSZ - 1)) < 0) {
+		glibtop_warn_io ("read");
+		ipc_exit (1);
+	}			/* if */
+	sscanf (buf, "%d:%[^\n]\n", &junk, msgp->mtext);
 #else
 
-  /* read in "n/m:" (n=client fd, m=message length) */
+	/* read in "n/m:" (n=client fd, m=message length) */
 
-  while (offset < (GSERV_BUFSZ-1) && 
-	 ((len = read (0, buf + offset, 1)) > 0) &&
-	 buf[offset] != ':')
-    {
-      offset += len;
-    }
-
-  if (len < 0)
-    glibtop_error_io ("read");
-
-  /* parse the response from emacs, getting client fd & result length */
-  buf[offset] = '\0';
-  sscanf (buf, "%d/%d", &s, &result_len);
-
-  while (result_len > 0)
-    {
-      if ((len = read(0, buf, min2 (result_len, GSERV_BUFSZ - 1))) < 0)
-	glibtop_error_io ("read");
-
-      /* Send this string off, but only if we have enough space */ 
-
-      if (GSERV_BUFSZ > total)
-	{
-	  if (total + len <= GSERV_BUFSZ)
-	    buf[len] = 0;
-	  else
-	    buf[GSERV_BUFSZ - total] = 0;
-
-	  send_string(s,buf);
-	  total += strlen(buf);
+	while (offset < (GSERV_BUFSZ - 1) &&
+	       ((len = read (0, buf + offset, 1)) > 0) &&
+	       buf[offset] != ':') {
+		offset += len;
 	}
 
-      result_len -= len;
-    }
+	if (len < 0)
+		glibtop_error_io ("read");
 
-  /* eat the newline */
-  while ((len = read (0,buf,1)) == 0)
-    ;
-  if (len < 0)
-    glibtop_error_io ("read");
+	/* parse the response from emacs, getting client fd & result length */
+	buf[offset] = '\0';
+	sscanf (buf, "%d/%d", &s, &result_len);
 
-  if (buf[0] != '\n')
-    glibtop_error ("garbage after result [%c]", buf[0]);
+	while (result_len > 0) {
+		if ((len = read (0, buf, min2 (result_len, GSERV_BUFSZ - 1))) < 0)
+			glibtop_error_io ("read");
+
+		/* Send this string off, but only if we have enough space */
+
+		if (GSERV_BUFSZ > total) {
+			if (total + len <= GSERV_BUFSZ)
+				buf[len] = 0;
+			else
+				buf[GSERV_BUFSZ - total] = 0;
+
+			send_string (s, buf);
+			total += strlen (buf);
+		}
+		result_len -= len;
+	}
+
+	/* eat the newline */
+	while ((len = read (0, buf, 1)) == 0);
+	if (len < 0)
+		glibtop_error_io ("read");
+
+	if (buf[0] != '\n')
+		glibtop_error ("garbage after result [%c]", buf[0]);
 #endif
 
-  /* Send a response back to the client. */
+	/* Send a response back to the client. */
 
-  msgp->mtype = msg_st.msg_lspid;
-  if (msgsnd (ipc_qid,msgp,strlen(msgp->mtext)+1,0) < 0)
-    glibtop_warn_io ("msgsend(gnuserv)");
+	msgp->mtype = msg_st.msg_lspid;
+	if (msgsnd (ipc_qid, msgp, strlen (msgp->mtext) + 1, 0) < 0)
+		glibtop_warn_io ("msgsend(gnuserv)");
 
-} /* handle_ipc_request */
+}				/* handle_ipc_request */
 #endif /* SYSV_IPC */
 
 
 #if defined(INTERNET_DOMAIN_SOCKETS) || defined(UNIX_DOMAIN_SOCKETS)
 /*
-  echo_request -- read request from a given socket descriptor, and send the information
-                  to stdout (the gnu process).
-*/
+ * echo_request -- read request from a given socket descriptor, and send the information
+ * to stdout (the gnu process).
+ */
 static void
 echo_request (int s)
 {
-  char buf[GSERV_BUFSZ];
-  int len;
+	char buf[GSERV_BUFSZ];
+	int len;
 
-  printf("%d ",s);
-  
-  /* read until we get a newline or no characters */
-  while ((len = recv(s,buf,GSERV_BUFSZ-1,0)) > 0) {
-    buf[len] = '\0';
-    printf("%s",buf);
+	printf ("%d ", s);
 
-    if (buf[len-1] == EOT_CHR) {
-      fflush(stdout);
-      break;			/* end of message */
-    }
+	/* read until we get a newline or no characters */
+	while ((len = recv (s, buf, GSERV_BUFSZ - 1, 0)) > 0) {
+		buf[len] = '\0';
+		printf ("%s", buf);
 
-  } /* while */
+		if (buf[len - 1] == EOT_CHR) {
+			fflush (stdout);
+			break;	/* end of message */
+		}
+	}			/* while */
 
-  if (len < 0)
-    glibtop_error_io ("recv");
-  
-} /* echo_request */
+	if (len < 0)
+		glibtop_error_io ("recv");
+
+}				/* echo_request */
 
 
 /*
-  handle_response -- accept a response from stdin (the gnu process) and pass the
-                     information on to the relevant client.
-*/
+ * handle_response -- accept a response from stdin (the gnu process) and pass the
+ * information on to the relevant client.
+ */
 static void
 handle_response (void)
 {
 #if 0
-  char buf[GSERV_BUFSZ+1];
-  int offset=0;
-  int s;
-  int len;
-  int result_len;
+	char buf[GSERV_BUFSZ + 1];
+	int offset = 0;
+	int s;
+	int len;
+	int result_len;
 
-  /* read in "n/m:" (n=client fd, m=message length) */
-  while (offset < GSERV_BUFSZ && 
-	 ((len = read(0,buf+offset,1)) > 0) &&
-	 buf[offset] != ':') {
-    offset += len;
-  }
+	/* read in "n/m:" (n=client fd, m=message length) */
+	while (offset < GSERV_BUFSZ &&
+	       ((len = read (0, buf + offset, 1)) > 0) &&
+	       buf[offset] != ':') {
+		offset += len;
+	}
 
-  if (len < 0)
-    glibtop_error_io ("read");
-      
-  /* parse the response from emacs, getting client fd & result length */
-  buf[offset] = '\0';
-  sscanf(buf,"%d/%d", &s, &result_len);
+	if (len < 0)
+		glibtop_error_io ("read");
 
-  while (result_len > 0) {
-    if ((len = read(0,buf,min2(result_len,GSERV_BUFSZ))) < 0)
-      glibtop_error_io ("read");
+	/* parse the response from emacs, getting client fd & result length */
+	buf[offset] = '\0';
+	sscanf (buf, "%d/%d", &s, &result_len);
 
-    buf[len] = '\0';
-    send_string(s,buf);
-    result_len -= len;
-  }
+	while (result_len > 0) {
+		if ((len = read (0, buf, min2 (result_len, GSERV_BUFSZ))) < 0)
+			glibtop_error_io ("read");
 
-  /* eat the newline */
-  while ((len = read(0,buf,1)) == 0)
-    ;
-  if (len < 0)
-    glibtop_error_io ("read");
+		buf[len] = '\0';
+		send_string (s, buf);
+		result_len -= len;
+	}
 
-  if (buf[0] != '\n')
-    glibtop_error ("garbage after result");
+	/* eat the newline */
+	while ((len = read (0, buf, 1)) == 0);
+	if (len < 0)
+		glibtop_error_io ("read");
 
-  /* send the newline */
-  buf[1] = '\0';
-  send_string(s,buf);
-  close(s); 
+	if (buf[0] != '\n')
+		glibtop_error ("garbage after result");
+
+	/* send the newline */
+	buf[1] = '\0';
+	send_string (s, buf);
+	close (s);
 #else
-  glibtop_error ("handle_response (): Function not implemented");
+	glibtop_error ("handle_response (): Function not implemented");
 #endif
 
-} /* handle_response */
+}				/* handle_response */
+
 #endif /* INTERNET_DOMAIN_SOCKETS || UNIX_DOMAIN_SOCKETS */
 
 
 #ifdef INTERNET_DOMAIN_SOCKETS
 struct entry {
-  u_long host_addr;
-  struct entry *next;
+	u_long host_addr;
+	struct entry *next;
 };
 
 struct entry *permitted_hosts[TABLE_SIZE];
 
 #ifdef AUTH_MAGIC_COOKIE
-# include <X11/X.h>
-# include <X11/Xauth.h>
+#include <X11/X.h>
+#include <X11/Xauth.h>
 
 static Xauth *server_xauth = NULL;
-#endif 
 
-static int 
+#endif
+
+static int
 timed_read (int fd, char *buf, int max, int timeout, int one_line)
 {
-  fd_set rmask;
-  struct timeval tv; /* = {timeout, 0}; */
-  char c = 0;
-  int nbytes = 0;
-  int r;
-  
-  tv.tv_sec = timeout;
-  tv.tv_usec = 0;
+	fd_set rmask;
+	struct timeval tv;	/* = {timeout, 0}; */
+	char c = 0;
+	int nbytes = 0;
+	int r;
 
-  FD_ZERO(&rmask);
-  FD_SET(fd, &rmask);
-  
-  do
-    {
-      r = select(fd + 1, &rmask, NULL, NULL, &tv);
+	tv.tv_sec = timeout;
+	tv.tv_usec = 0;
 
-      if (r > 0)
-	{
-	  if (read (fd, &c, 1) == 1 )
-	    {
-	      *buf++ = c;
-	      ++nbytes;
-	    }
-	  else
-	    {
-	      glibtop_warn_io ("read error on socket");
-	      return -1;
-	    }
+	FD_ZERO (&rmask);
+	FD_SET (fd, &rmask);
+
+	do {
+		r = select (fd + 1, &rmask, NULL, NULL, &tv);
+
+		if (r > 0) {
+			if (read (fd, &c, 1) == 1) {
+				*buf++ = c;
+				++nbytes;
+			} else {
+				glibtop_warn_io ("read error on socket");
+				return -1;
+			}
+		} else if (r == 0) {
+			glibtop_warn ("read timed out");
+			return -1;
+		} else {
+			glibtop_warn_io ("error in select");
+			return -1;
+		}
+	} while ((nbytes < max) && !(one_line && (c == '\n')));
+
+	--buf;
+	if (one_line && *buf == '\n') {
+		*buf = 0;
 	}
-      else if (r == 0)
-	{
-	  glibtop_warn ("read timed out");
-	  return -1;
-	}
-      else
-	{
-	  glibtop_warn_io ("error in select");
-	  return -1;
-	}
-    } while ((nbytes < max) &&  !(one_line && (c == '\n')));
-
-  --buf;
-  if (one_line && *buf == '\n')
-    {
-      *buf = 0;
-    }
-
-  return nbytes;
+	return nbytes;
 }
-	
-	
+
+
 
 /*
-  permitted -- return whether a given host is allowed to connect to the server.
-*/
+ * permitted -- return whether a given host is allowed to connect to the server.
+ */
 static int
 permitted (u_long host_addr, int fd)
 {
-  int key;
-  struct entry *entry;
+	int key;
+	struct entry *entry;
 
-  char auth_protocol[128]; 
-  char buf[1024];
-  int  auth_data_len;
+	char auth_protocol[128];
+	char buf[1024];
+	int auth_data_len;
 
-  if (fd > 0)
-    {
-      /* we are checking permission on a real connection */
+	if (fd > 0) {
+		/* we are checking permission on a real connection */
 
-      /* Read auth protocol name */
-  
-      if (timed_read(fd, auth_protocol, AUTH_NAMESZ, AUTH_TIMEOUT, 1) <= 0)
-	return FALSE;
+		/* Read auth protocol name */
+
+		if (timed_read (fd, auth_protocol, AUTH_NAMESZ, AUTH_TIMEOUT, 1) <= 0)
+			return FALSE;
 
 #ifdef DEBUG
-      fprintf (stderr, "Client sent authenticatin protocol '%s'\n", auth_protocol);
+		fprintf (stderr, "Client sent authenticatin protocol '%s'\n", auth_protocol);
 #endif
 
-      if (strcmp (auth_protocol, DEFAUTH_NAME) &&
-	  strcmp (auth_protocol, MCOOKIE_NAME))
-	{
-	  glibtop_warn ("Authentication protocol from client is invalid", auth_protocol);
-	  
-	  return FALSE;
-	}
+		if (strcmp (auth_protocol, DEFAUTH_NAME) &&
+		    strcmp (auth_protocol, MCOOKIE_NAME)) {
+			glibtop_warn ("Authentication protocol from client is invalid", auth_protocol);
 
-      if (!strcmp (auth_protocol, MCOOKIE_NAME))
-	{
+			return FALSE;
+		}
+		if (!strcmp (auth_protocol, MCOOKIE_NAME)) {
 
-	  /*
-	   * doing magic cookie auth
-	   */
+			/* 
+			 * doing magic cookie auth
+			 */
 
-	  if (timed_read (fd, buf, 10, AUTH_TIMEOUT, 1) <= 0)
-	    return FALSE;
+			if (timed_read (fd, buf, 10, AUTH_TIMEOUT, 1) <= 0)
+				return FALSE;
 
-	  auth_data_len = atoi (buf);
+			auth_data_len = atoi (buf);
 
-	  if (timed_read (fd, buf, auth_data_len, AUTH_TIMEOUT, 0) != auth_data_len)
-	    return FALSE;
-      
+			if (timed_read (fd, buf, auth_data_len, AUTH_TIMEOUT, 0) != auth_data_len)
+				return FALSE;
+
 #ifdef AUTH_MAGIC_COOKIE
-	  if (server_xauth && server_xauth->data &&
-	      !memcmp (buf, server_xauth->data, auth_data_len))
-	    {
-	      return TRUE;
-	    }
-#else 
-	  glibtop_warn ("client tried Xauth, but server is not compiled with Xauth");
+			if (server_xauth && server_xauth->data &&
+			 !memcmp (buf, server_xauth->data, auth_data_len)) {
+				return TRUE;
+			}
+#else
+			glibtop_warn ("client tried Xauth, but server is not compiled with Xauth");
 #endif
-      
-      /*
-       * auth failed, but allow this to fall through to the GNU_SECURE
-       * protocol....
-       */
 
-	  glibtop_warn ("Xauth authentication failed, trying GNU_SECURE auth...");
-	  
+			/* 
+			 * auth failed, but allow this to fall through to the GNU_SECURE
+			 * protocol....
+			 */
+
+			glibtop_warn ("Xauth authentication failed, trying GNU_SECURE auth...");
+
+		}
+		/* Other auth protocols go here, and should execute only if
+		 * the * auth_protocol name matches. */
+
 	}
-    
-      /* Other auth protocols go here, and should execute only if the
-       * auth_protocol name matches.
-       */
+	/* Now, try the old GNU_SECURE stuff... */
 
-    }
-
-
-  /* Now, try the old GNU_SECURE stuff... */
-  
-  /* First find the hash key */
-  key = HASH(host_addr) % TABLE_SIZE;
+	/* First find the hash key */
+	key = HASH (host_addr) % TABLE_SIZE;
 
 #ifdef DEBUG
-  fprintf (stderr, "Doing GNU_SECURE auth ...\n");
+	fprintf (stderr, "Doing GNU_SECURE auth ...\n");
 #endif
-  
-  /* Now check the chain for that hash key */
-  for(entry = permitted_hosts [key]; entry != NULL; entry = entry->next) {
-#ifdef DEBUG
-    fprintf (stderr, "Trying %ld\n", entry->host_addr);
-#endif
-    if (host_addr == entry->host_addr) 
-      return(TRUE);
-  }
-  
-  return(FALSE);
 
-} /* permitted */
+	/* Now check the chain for that hash key */
+	for (entry = permitted_hosts[key]; entry != NULL; entry = entry->next) {
+#ifdef DEBUG
+		fprintf (stderr, "Trying %ld\n", entry->host_addr);
+#endif
+		if (host_addr == entry->host_addr)
+			return (TRUE);
+	}
+
+	return (FALSE);
+
+}				/* permitted */
 
 
 /* 
-  add_host -- add the given host to the list of permitted hosts, provided it isn't
-              already there.
-*/	
+ * add_host -- add the given host to the list of permitted hosts, provided it isn't
+ * already there.
+ */
 static void
 add_host (u_long host_addr)
 {
-  int key;
-  struct entry *new_entry;
-  
-  if (!permitted (host_addr, -1))
-    {
-      if ((new_entry = (struct entry *) malloc(sizeof(struct entry))) == NULL)
-	glibtop_error_io ("unable to malloc space for permitted host entry");
+	int key;
+	struct entry *new_entry;
 
-      new_entry->host_addr = host_addr;
-      key = HASH(host_addr) % TABLE_SIZE;
-      new_entry->next = permitted_hosts[key];
-      permitted_hosts[key] = new_entry;
-    } /* if */
+	if (!permitted (host_addr, -1)) {
+		if ((new_entry = (struct entry *) malloc (sizeof (struct entry))) == NULL)
+			  glibtop_error_io ("unable to malloc space for permitted host entry");
 
-} /* add_host */
+		new_entry->host_addr = host_addr;
+		key = HASH (host_addr) % TABLE_SIZE;
+		new_entry->next = permitted_hosts[key];
+		permitted_hosts[key] = new_entry;
+	}			/* if */
+}				/* add_host */
 
 
 /*
-  setup_table -- initialise the table of hosts allowed to contact the server,
-                 by reading from the file specified by the GNU_SECURE
-		 environment variable
-                 Put in the local machine, and, if a security file is specifed,
-                 add each host that is named in the file.
-		 Return the number of hosts added.
-*/
+ * setup_table -- initialise the table of hosts allowed to contact the server,
+ * by reading from the file specified by the GNU_SECURE
+ * environment variable
+ * Put in the local machine, and, if a security file is specifed,
+ * add each host that is named in the file.
+ * Return the number of hosts added.
+ */
 static int
 setup_table (void)
 {
-  FILE *host_file;
-  char *file_name;
-  char hostname[HOSTNAMSZ];
-  u_int host_addr;
-  int i, hosts=0;
-  
-  /* Make sure every entry is null */
-  for (i = 0; i < TABLE_SIZE; i++)
-    permitted_hosts [i] = NULL;
+	FILE *host_file;
+	char *file_name;
+	char hostname[HOSTNAMSZ];
+	u_int host_addr;
+	int i, hosts = 0;
 
-  gethostname (hostname, HOSTNAMSZ);
+	/* Make sure every entry is null */
+	for (i = 0; i < TABLE_SIZE; i++)
+		permitted_hosts[i] = NULL;
 
-  if (((long) host_addr = glibtop_internet_addr (hostname)) == -1)
-    glibtop_error ("unable to find %s in /etc/hosts or from YP", hostname);
+	gethostname (hostname, HOSTNAMSZ);
+
+	if (((long) host_addr = glibtop_internet_addr (hostname)) == -1)
+		glibtop_error ("unable to find %s in /etc/hosts or from YP", hostname);
 
 #ifdef AUTH_MAGIC_COOKIE
-  
-  server_xauth = XauGetAuthByAddr (FamilyInternet, 
-				   sizeof(host_addr), (char *)&host_addr,
-				   strlen(MCOOKIE_SCREEN), MCOOKIE_SCREEN, 
-				   strlen(MCOOKIE_X_NAME), MCOOKIE_X_NAME);
-  hosts++;
+
+	server_xauth = XauGetAuthByAddr (FamilyInternet,
+				    sizeof (host_addr), (char *) &host_addr,
+				    strlen (MCOOKIE_SCREEN), MCOOKIE_SCREEN,
+				   strlen (MCOOKIE_X_NAME), MCOOKIE_X_NAME);
+	hosts++;
 
 #endif /* AUTH_MAGIC_COOKIE */
-  
 
-#if 0 /* Don't even want to allow access from the local host by default */
-  add_host (host_addr);					/* add local host */
-  hosts++;
-#endif 
 
-  if (((file_name = getenv ("GNU_SECURE")) != NULL &&    /* security file  */
-       (host_file = fopen (file_name, "r")) != NULL))	/* opened ok */
-    {
-      while ((fscanf (host_file, "%s", hostname) != EOF))	/* find a host */
-	if (((long) host_addr = glibtop_internet_addr (hostname)) != -1)/* get its addr */
-	  {
-	    add_host (host_addr);				/* add the addr */
-	    hosts++;
-	  }
-      fclose (host_file);
-    } /* if */
+#if 0				/* Don't even want to allow access from the
+				 * local host by default */
+	add_host (host_addr);	/* add local host */
+	hosts++;
+#endif
 
-  return hosts;
-} /* setup_table */
+	if (((file_name = getenv ("GNU_SECURE")) != NULL &&	/* security
+								 * file  */
+	     (host_file = fopen (file_name, "r")) != NULL)) {	/* opened ok */
+		while ((fscanf (host_file, "%s", hostname) != EOF))	/* find 
+									 * a
+									 * host 
+									 */
+			if (((long) host_addr = glibtop_internet_addr (hostname)) != -1) {	/* get 
+												 * its 
+												 * addr 
+												 */
+				add_host (host_addr);	/* add the addr */
+				hosts++;
+			}
+		fclose (host_file);
+	}			/* if */
+	return hosts;
+}				/* setup_table */
 
 
 /*
-  internet_init -- initialize server, returning an internet socket that can
-                    be listened on.
-*/
+ * internet_init -- initialize server, returning an internet socket that can
+ * be listened on.
+ */
 static int
 internet_init (void)
 {
-  int ls;			/* socket descriptor */
-  struct servent *sp;		/* pointer to service information */
-  struct sockaddr_in server;	/* for local socket address */
-  char *ptr;			/* ptr to return from getenv */
+	int ls;			/* socket descriptor */
+	struct servent *sp;	/* pointer to service information */
+	struct sockaddr_in server;	/* for local socket address */
+	char *ptr;		/* ptr to return from getenv */
 
-  if (setup_table() == 0) 
-    return -1;
+	if (setup_table () == 0)
+		return -1;
 
-  /* clear out address structure */
-  memset((char *)&server, 0, sizeof (struct sockaddr_in));
-  
-  /* Set up address structure for the listen socket. */
-  server.sin_family = AF_INET;
-  server.sin_addr.s_addr = INADDR_ANY;
+	/* clear out address structure */
+	memset ((char *) &server, 0, sizeof (struct sockaddr_in));
 
-  /* Find the information for the gnu server
-   * in order to get the needed port number.
-   */
-  if ((ptr = getenv ("GNU_PORT")) != NULL)
-    server.sin_port = htons (atoi (ptr));
-  else if ((sp = getservbyname ("gnuserv", "tcp")) == NULL)
-    server.sin_port = htons (DEFAULT_PORT+getuid());
-  else
-    server.sin_port = sp->s_port;
-  
-  /* Create the listen socket. */
-  if ((ls = socket (AF_INET,SOCK_STREAM, 0)) == -1)
-    glibtop_error_io ("unable to create socket");
-  
-  /* Bind the listen address to the socket. */
-  if (bind(ls,(struct sockaddr *) &server,sizeof(struct sockaddr_in)) == -1)
-    glibtop_error_io ("bind");
+	/* Set up address structure for the listen socket. */
+	server.sin_family = AF_INET;
+	server.sin_addr.s_addr = INADDR_ANY;
 
-  /* Initiate the listen on the socket so remote users
-   * can connect. 
-   */
-  if (listen(ls,20) == -1)
-    glibtop_error_io ("listen");
+	/* Find the information for the gnu server * in order to get the
+	 * needed port number. */
+	if ((ptr = getenv ("GNU_PORT")) != NULL)
+		server.sin_port = htons (atoi (ptr));
+	else if ((sp = getservbyname ("gnuserv", "tcp")) == NULL)
+		server.sin_port = htons (DEFAULT_PORT + getuid ());
+	else
+		server.sin_port = sp->s_port;
 
-  return(ls);
+	/* Create the listen socket. */
+	if ((ls = socket (AF_INET, SOCK_STREAM, 0)) == -1)
+		glibtop_error_io ("unable to create socket");
 
-} /* internet_init */
+	/* Bind the listen address to the socket. */
+	if (bind (ls, (struct sockaddr *) &server, sizeof (struct sockaddr_in)) == -1)
+		  glibtop_error_io ("bind");
+
+	/* Initiate the listen on the socket so remote users * can connect.  */
+	if (listen (ls, 20) == -1)
+		glibtop_error_io ("listen");
+
+	return (ls);
+
+}				/* internet_init */
 
 
 /*
-  handle_internet_request -- accept a request from a client and send the information
-                             to stdout (the gnu process).
-*/
+ * handle_internet_request -- accept a request from a client and send the information
+ * to stdout (the gnu process).
+ */
 static void
 handle_internet_request (int ls)
 {
-  int s;
-  size_t addrlen = sizeof(struct sockaddr_in);
-  struct sockaddr_in peer;	/* for peer socket address */
+	int s;
+	size_t addrlen = sizeof (struct sockaddr_in);
+	struct sockaddr_in peer;	/* for peer socket address */
 
-  memset((char *)&peer, 0, sizeof (struct sockaddr_in));
+	memset ((char *) &peer, 0, sizeof (struct sockaddr_in));
 
-  if ((s = accept (ls, (struct sockaddr *)&peer, (void *) &addrlen)) == -1)
-    glibtop_error_io ("accept");
-
-#ifdef DEBUG
-  fprintf (stderr, "Connection was made from %s.\n", inet_ntoa (peer.sin_addr));
-#endif
-  
-  /* Check that access is allowed - if not return crud to the client */
-  if (!permitted (peer.sin_addr.s_addr, s))
-    {
-      close(s);
-      glibtop_warn ("Refused connection from %s.", inet_ntoa (peer.sin_addr));
-      return;
-    } /* if */
+	if ((s = accept (ls, (struct sockaddr *) &peer, (void *) &addrlen)) == -1)
+		glibtop_error_io ("accept");
 
 #ifdef DEBUG
-  fprintf (stderr, "Accepted connection from %s.\n", inet_ntoa (peer.sin_addr));
+	fprintf (stderr, "Connection was made from %s.\n", inet_ntoa (peer.sin_addr));
 #endif
 
-  handle_socket_connection (&glibtop_global_server, s);
+	/* Check that access is allowed - if not return crud to the client */
+	if (!permitted (peer.sin_addr.s_addr, s)) {
+		close (s);
+		glibtop_warn ("Refused connection from %s.", inet_ntoa (peer.sin_addr));
+		return;
+	}			/* if */
+#tifdef DEBUG
+	fprintf (stderr, "Accepted connection from %s.\n", inet_ntoa (peer.sin_addr));
+#endif
 
-  close (s);
+	handle_socket_connection (&glibtop_global_server, s);
+
+	close (s);
 
 #ifdef DEBUG
-  fprintf (stderr, "Closed connection to %s.\n", inet_ntoa (peer.sin_addr));
+	fprintf (stderr, "Closed connection to %s.\n", inet_ntoa (peer.sin_addr));
 #endif
-  
-} /* handle_internet_request */
+
+}				/* handle_internet_request */
 #endif /* INTERNET_DOMAIN_SOCKETS */
 
 
 #ifdef UNIX_DOMAIN_SOCKETS
 /*
-  unix_init -- initialize server, returning an unix-domain socket that can
-               be listened on.
-*/
+ * unix_init -- initialize server, returning an unix-domain socket that can
+ * be listened on.
+ */
 static int
 unix_init (void)
 {
-  int ls;			/* socket descriptor */
-  struct sockaddr_un server; 	/* unix socket address */
-  int bindlen;
+	int ls;			/* socket descriptor */
+	struct sockaddr_un server;	/* unix socket address */
+	int bindlen;
 
-  if ((ls = socket (AF_UNIX,SOCK_STREAM, 0)) < 0)
-    glibtop_error_io ("unable to create socket");
+	if ((ls = socket (AF_UNIX, SOCK_STREAM, 0)) < 0)
+		glibtop_error_io ("unable to create socket");
 
-  /* Set up address structure for the listen socket. */
+	/* Set up address structure for the listen socket. */
 #ifdef HIDE_UNIX_SOCKET
-  sprintf (server.sun_path, "/tmp/lgtddir%d", (int)geteuid());
-  if (mkdir (server.sun_path, 0700) < 0)
-    {
-      /* assume it already exists, and try to set perms */
-      if (chmod (server.sun_path, 0700) < 0)
-	glibtop_error_io ("Can't set permissions on %s", server.sun_path);
-    }
-  strcat(server.sun_path, "/lgtd");
-  unlink(server.sun_path);	/* remove old file if it exists */
+	sprintf (server.sun_path, "/tmp/lgtddir%d", (int) geteuid ());
+	if (mkdir (server.sun_path, 0700) < 0) {
+		/* assume it already exists, and try to set perms */
+		if (chmod (server.sun_path, 0700) < 0)
+			glibtop_error_io ("Can't set permissions on %s", server.sun_path);
+	}
+	strcat (server.sun_path, "/lgtd");
+	unlink (server.sun_path);	/* remove old file if it exists */
 #else /* HIDE_UNIX_SOCKET */
-  sprintf(server.sun_path, "/tmp/lgtd%d", (int)geteuid());
-  unlink(server.sun_path);	/* remove old file if it exists */
+	sprintf (server.sun_path, "/tmp/lgtd%d", (int) geteuid ());
+	unlink (server.sun_path);	/* remove old file if it exists */
 #endif /* HIDE_UNIX_SOCKET */
 
-  server.sun_family = AF_UNIX;
+	server.sun_family = AF_UNIX;
 #ifdef HAVE_SOCKADDR_SUN_LEN
-  /* See W. R. Stevens "Advanced Programming in the Unix Environment"
-     p. 502 */
-  bindlen = (sizeof (server.sun_len) + sizeof (server.sun_family)
-	     + strlen (server.sun_path) + 1);
-  server.sun_len = bindlen;
+	/* See W. R. Stevens "Advanced Programming in the Unix Environment"
+	 * p. 502 */
+	bindlen = (sizeof (server.sun_len) + sizeof (server.sun_family)
+		   + strlen (server.sun_path) + 1);
+	server.sun_len = bindlen;
 #else
-  bindlen = strlen (server.sun_path) + sizeof (server.sun_family);
+	bindlen = strlen (server.sun_path) + sizeof (server.sun_family);
 #endif
- 
-  if (bind (ls, (struct sockaddr *)&server, bindlen) < 0)
-    glibtop_error_io ("bind");
 
-  chmod(server.sun_path,0700);	/* only this user can send commands */
+	if (bind (ls, (struct sockaddr *) &server, bindlen) < 0)
+		glibtop_error_io ("bind");
 
-  if (listen(ls,20) < 0)
-    glibtop_error_io ("listen");
+	chmod (server.sun_path, 0700);	/* only this user can send commands */
 
-  /* #### there are also better ways of dealing with this when
-     sigvec() is present. */
+	if (listen (ls, 20) < 0)
+		glibtop_error_io ("listen");
+
+	/* #### there are also better ways of dealing with this when sigvec() 
+	 * is present. */
 #if  defined (HAVE_SIGPROCMASK)
-  {						
-  sigset_t _mask;
-  sigemptyset (&_mask);
-  sigaddset (&_mask, SIGPIPE);
-  sigprocmask (SIG_BLOCK, &_mask, NULL);
-  }
+	{
+		sigset_t _mask;
+
+		sigemptyset (&_mask);
+		sigaddset (&_mask, SIGPIPE);
+		sigprocmask (SIG_BLOCK, &_mask, NULL);
+	}
 #else
-  signal (SIGPIPE, SIG_IGN);	/* in case user kills client */
+	signal (SIGPIPE, SIG_IGN);	/* in case user kills client */
 #endif
 
-  return (ls);
+	return (ls);
 
-} /* unix_init */
+}				/* unix_init */
 
 
 /*
-  handle_unix_request -- accept a request from a client and send the information
-                         to stdout (the gnu process).
-*/
+ * handle_unix_request -- accept a request from a client and send the information
+ * to stdout (the gnu process).
+ */
 static void
 handle_unix_request (int ls)
 {
-  int s;
-  size_t len = sizeof(struct sockaddr_un);
-  struct sockaddr_un server; 	/* for unix socket address */
+	int s;
+	size_t len = sizeof (struct sockaddr_un);
+	struct sockaddr_un server;	/* for unix socket address */
 
-  server.sun_family = AF_UNIX;
+	server.sun_family = AF_UNIX;
 
-  if ((s = accept (ls, (struct sockaddr *)&server, (void *)&len)) < 0)
-    glibtop_error_io ("accept");
+	if ((s = accept (ls, (struct sockaddr *) &server, (void *) &len)) < 0)
+		glibtop_error_io ("accept");
 
-  echo_request(s);
-  
-} /* handle_unix_request */
+	echo_request (s);
+
+}				/* handle_unix_request */
+
 #endif /* UNIX_DOMAIN_SOCKETS */
 
 
 int
-main(argc,argv)
+main (argc, argv)
      int argc;
      char *argv[];
 {
-  int chan;			/* temporary channel number */
-  int ils = -1;			/* internet domain listen socket */
-  int uls = -1;			/* unix domain listen socket */
+	int chan;		/* temporary channel number */
+	int ils = -1;		/* internet domain listen socket */
+	int uls = -1;		/* unix domain listen socket */
+
 #ifdef SYSV_IPC
-  struct msgbuf *msgp;		/* message buffer */
+	struct msgbuf *msgp;	/* message buffer */
+
 #endif /* SYSV_IPC */
 
-  glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_OPEN_NO_OVERRIDE);
+	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_OPEN_NO_OVERRIDE);
 
-  for(chan=3; chan < _NFILE; close(chan++)) /* close unwanted channels */
-    ;
+	for (chan = 3; chan < _NFILE; close (chan++))	/* close unwanted
+							 * channels */
+		;
 
 #ifdef SYSV_IPC
-  ipc_init(&msgp);		/* get a msqid to listen on, and a message buffer */
+	ipc_init (&msgp);	/* get a msqid to listen on, and a message
+				 * buffer */
 #endif /* SYSV_IPC */
 
 #ifdef INTERNET_DOMAIN_SOCKETS
-  ils = internet_init();	/* get a internet domain socket to listen on */
+	ils = internet_init ();	/* get a internet domain socket to listen on */
 #endif /* INTERNET_DOMAIN_SOCKETS */
 
 #ifdef UNIX_DOMAIN_SOCKETS
-  uls = unix_init();		/* get a unix domain socket to listen on */
+	uls = unix_init ();	/* get a unix domain socket to listen on */
 #endif /* UNIX_DOMAIN_SOCKETS */
 
-  while (1) {
+	while (1) {
 #ifdef SYSV_IPC
-    handle_ipc_request(msgp);
+		handle_ipc_request (msgp);
 #else /* NOT SYSV_IPC */
-    fd_set rmask;
-    FD_ZERO(&rmask);
-    FD_SET(fileno(stdin), &rmask);
-    if (uls >= 0)
-      FD_SET(uls, &rmask);
-    if (ils >= 0)
-      FD_SET(ils, &rmask);
+		fd_set rmask;
+
+		FD_ZERO (&rmask);
+		FD_SET (fileno (stdin), &rmask);
+		if (uls >= 0)
+			FD_SET (uls, &rmask);
+		if (ils >= 0)
+			FD_SET (ils, &rmask);
 
 #ifdef DEBUG
-    fprintf (stderr, "Server ready and waiting for connections.\n");
+		fprintf (stderr, "Server ready and waiting for connections.\n");
 #endif
-    
-    if (select(max2(fileno(stdin),max2(uls,ils)) + 1, &rmask, 
-	       (fd_set *)NULL, (fd_set *)NULL, (struct timeval *)NULL) < 0)
-      glibtop_error_io ("select");
+
+		if (select (max2 (fileno (stdin), max2 (uls, ils)) + 1, &rmask,
+			    (fd_set *) NULL, (fd_set *) NULL, (struct timeval *) NULL) < 0)
+			glibtop_error_io ("select");
 
 #ifdef UNIX_DOMAIN_SOCKETS
-    if (uls > 0 && FD_ISSET(uls, &rmask))
-      handle_unix_request(uls);
+		if (uls > 0 && FD_ISSET (uls, &rmask))
+			handle_unix_request (uls);
 #endif
 
 #ifdef INTERNET_DOMAIN_SOCKETS
-    if (ils > 0 && FD_ISSET(ils, &rmask))
-      handle_internet_request(ils);
+		if (ils > 0 && FD_ISSET (ils, &rmask))
+			handle_internet_request (ils);
 #endif /* INTERNET_DOMAIN_SOCKETS */
 
-    if (FD_ISSET(fileno(stdin), &rmask))      /* from stdin (gnu process) */
-      handle_response();
+		if (FD_ISSET (fileno (stdin), &rmask))	/* from stdin (gnu
+							 * process) */
+			handle_response ();
 #endif /* NOT SYSV_IPC */
-  } /* while */
+	}			/* while */
 
-  return 0;
-} /* main */
+	return 0;
+}				/* main */
 
 #endif /* SYSV_IPC || UNIX_DOMAIN_SOCKETS || INTERNET_DOMAIN_SOCKETS */
