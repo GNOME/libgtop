@@ -67,7 +67,7 @@ init_sysinfo (glibtop *server)
 
 
 	for(sysinfo.ncpu = 0;
-	    sysinfo.ncpu < GLIBTOP_NCPU && processors[sysinfo.ncpu];
+	    sysinfo.ncpu < GLIBTOP_NCPU && processors[sysinfo.ncpu] && *processors[sysinfo.ncpu];
 	    sysinfo.ncpu++) {
 
 		gchar **parts, **p;

@@ -5,6 +5,8 @@
 	(proc_file_to_buffer): Uninlined.	
 	
 	* sysinfo.c: (init_sysinfo): Re-implemented.
+	
+	* sysinfo.c: (init_sysinfo): Fixed segfault on SMP.
 
 2004-06-12  Benoît Dejean  <tazforever@dlfp.org>
 
