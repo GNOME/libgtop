@@ -2,7 +2,7 @@
 
 LINK			= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-INCLUDES		= -I$(includedir) -I$(top_builddir) -I$(top_srcdir) @machine_incs@ \
+INCLUDES		= -I$(top_builddir) -I$(top_srcdir) @machine_incs@ \
 			  -I$(top_srcdir)/include -I$(top_srcdir)/intl @GUILE_INCS@ \
 			  -DGTOPLOCALEDIR=\"$(datadir)/locale\" -D_GNU_SOURCE
 
