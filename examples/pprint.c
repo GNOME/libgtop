@@ -125,7 +125,7 @@ static void pprint_get_mountlist(gboolean allfs)
 
   entries = glibtop_get_mountlist(&buf, allfs);
 
-  HEADER_PPRINT(glibtop_get_mem);
+  HEADER_PPRINT(glibtop_get_mountlist);
   PPRINT(flags, "%#llx");
   PPRINT(number, "%llu");
   PPRINT(total, "%llu");
