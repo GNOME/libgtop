@@ -24,14 +24,22 @@
 #include <glibtop.h>
 #include <glibtop/procuid.h>
 
-static const unsigned long _glibtop_sysdeps_proc_uid = 0;
+#include <glibtop_private.h>
+
+static const unsigned long _glibtop_sysdeps_proc_uid =
+(1 << GLIBTOP_PROC_UID_UID) + (1 << GLIBTOP_PROC_UID_EUID) +
+(1 << GLIBTOP_PROC_UID_GID) + (1 << GLIBTOP_PROC_UID_EGID) +
+(1 << GLIBTOP_PROC_UID_PID) + (1 << GLIBTOP_PROC_UID_PPID) +
+(1 << GLIBTOP_PROC_UID_PGRP) + (1 << GLIBTOP_PROC_UID_SESSION) +
+(1 << GLIBTOP_PROC_UID_TTY) + (1 << GLIBTOP_PROC_UID_TPGID) +
+(1 << GLIBTOP_PROC_UID_PRIORITY) + (1 << GLIBTOP_PROC_UID_NICE);
 
 /* Init function. */
 
 void
 glibtop_init_proc_uid_s (glibtop *server)
 {
-	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
+    server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
 }
 
 /* Provides detailed information about a process. */
@@ -40,5 +48,36 @@ void
 glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
 			pid_t pid)
 {
-	memset (buf, 0, sizeof (glibtop_proc_uid));
+    libgtop_proc_state_t proc_state;
+    long priority, nice;
+
+    memset (buf, 0, sizeof (glibtop_proc_uid));
+
+    if (glibtop_get_proc_data_proc_state_s (server, &proc_state, pid))
+	return;
+
+    buf->uid = proc_state.uid;
+    buf->euid = proc_state.euid;
+    buf->gid = proc_state.gid;
+    buf->egid = proc_state.egid;
+
+    buf->pid = proc_state.pid;
+    buf->ppid = proc_state.ppid;
+    buf->pgrp = proc_state.pgrp;
+
+    buf->session = proc_state.session;
+    buf->tty = proc_state.tty;
+    buf->tpgid = proc_state.tpgid;
+
+    priority = proc_state.counter;
+    priority = 20 - (priority * 10 + proc_state.def_priority / 2) /
+	proc_state.def_priority;
+    nice = proc_state.priority;
+    nice = 20 - (nice * 20 + proc_state.def_priority / 2) /
+	proc_state.def_priority;
+
+    buf->priority = priority;
+    buf->nice = nice;
+
+    buf->flags = _glibtop_sysdeps_proc_uid;
 }

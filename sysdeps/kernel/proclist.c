@@ -22,7 +22,10 @@
 */
 
 #include <glibtop.h>
+#include <glibtop/xmalloc.h>
 #include <glibtop/proclist.h>
+
+#include <glibtop_private.h>
 
 #define GLIBTOP_PROCLIST_FLAGS	3
 
@@ -33,7 +36,7 @@ static const unsigned long _glibtop_sysdeps_proclist = 0;
 void
 glibtop_init_proclist_s (glibtop *server)
 {
-	server->sysdeps.proclist = _glibtop_sysdeps_proclist;
+    server->sysdeps.proclist = _glibtop_sysdeps_proclist;
 }
 
 /* Fetch list of currently running processes.
@@ -47,6 +50,23 @@ unsigned *
 glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 			int64_t which, int64_t arg)
 {
-	memset (buf, 0, sizeof (glibtop_proclist));
+    libgtop_proclist_t proclist;
+    unsigned *ret;
+    int i;
+
+    memset (buf, 0, sizeof (glibtop_proclist));
+
+    if (glibtop_get_proc_data_proclist_s (server, &proclist, which, arg))
 	return NULL;
+
+    ret = glibtop_calloc_r (server, proclist.count, sizeof (unsigned));
+
+    buf->number = proclist.count;
+    buf->size = sizeof (unsigned);
+    buf->total = proclist.count * sizeof (unsigned);
+
+    for (i = 0; i < proclist.count; i++)
+	ret [i] = proclist.pids [i];
+
+    return ret;
 }

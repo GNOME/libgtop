@@ -24,14 +24,22 @@
 #include <glibtop.h>
 #include <glibtop/prockernel.h>
 
-static const unsigned long _glibtop_sysdeps_proc_kernel = 0;
+#include <glibtop_private.h>
+
+static const unsigned long _glibtop_sysdeps_proc_kernel =
+(1 << GLIBTOP_PROC_KERNEL_MIN_FLT) +
+(1 << GLIBTOP_PROC_KERNEL_MAJ_FLT) +
+(1 << GLIBTOP_PROC_KERNEL_CMIN_FLT) +
+(1 << GLIBTOP_PROC_KERNEL_CMAJ_FLT) +
+(1 << GLIBTOP_PROC_KERNEL_KSTK_ESP) +
+(1 << GLIBTOP_PROC_KERNEL_KSTK_EIP);
 
 /* Init function. */
 
 void
 glibtop_init_proc_kernel_s (glibtop *server)
 {
-	server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
+    server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
 }
 
 /* Provides detailed information about a process. */
@@ -40,5 +48,19 @@ void
 glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
 			   pid_t pid)
 {
-	memset (buf, 0, sizeof (glibtop_proc_kernel));
+    libgtop_proc_state_t proc_state;
+
+    memset (buf, 0, sizeof (glibtop_proc_kernel));
+
+    if (glibtop_get_proc_data_proc_state_s (server, &proc_state, pid))
+	return;
+
+    buf->min_flt = proc_state.min_flt;
+    buf->maj_flt = proc_state.maj_flt;
+    buf->cmin_flt = proc_state.cmin_flt;
+    buf->cmaj_flt = proc_state.cmaj_flt;
+    buf->kstk_esp = proc_state.kesp;
+    buf->kstk_eip = proc_state.keip;
+
+    buf->flags = _glibtop_sysdeps_proc_kernel;
 }

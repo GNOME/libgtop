@@ -38,6 +38,13 @@ BEGIN_LIBGTOP_DECLS
 int glibtop_get_proc_data_stat_s (glibtop *server, libgtop_stat_t *stat);
 int glibtop_get_proc_data_mem_s (glibtop *server, libgtop_mem_t *mem);
 int glibtop_get_proc_data_swap_s (glibtop *server, libgtop_swap_t *swap);
+int glibtop_get_proc_data_proclist_s (glibtop *server,
+				      libgtop_proclist_t *proclist,
+				      u_int64_t which, u_int64_t arg);
+int glibtop_get_proc_data_proc_state_s (glibtop *server,
+					libgtop_proc_state_t *proc_state,
+					pid_t pid);
+
 
 END_LIBGTOP_DECLS
 

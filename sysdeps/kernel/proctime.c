@@ -24,14 +24,25 @@
 #include <glibtop.h>
 #include <glibtop/proctime.h>
 
-static const unsigned long _glibtop_sysdeps_proc_time = 0;
+#include <glibtop_private.h>
+
+static const unsigned long _glibtop_sysdeps_proc_time =
+(1 << GLIBTOP_PROC_TIME_UTIME) + (1 << GLIBTOP_PROC_TIME_STIME) +
+(1 << GLIBTOP_PROC_TIME_CUTIME) + (1 << GLIBTOP_PROC_TIME_CSTIME) +
+(1 << GLIBTOP_PROC_TIME_START_TIME) + (1 << GLIBTOP_PROC_TIME_FREQUENCY);
+
+static const unsigned long _glibtop_sysdeps_proc_time_smp =
+(1 << GLIBTOP_PROC_TIME_XCPU_UTIME) + (1 << GLIBTOP_PROC_TIME_XCPU_STIME);
 
 /* Init function. */
 
 void
 glibtop_init_proc_time_s (glibtop *server)
 {
-	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
+    server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
+
+    if (server->ncpu)
+	server->sysdeps.proc_time |= _glibtop_sysdeps_proc_time_smp;
 }
 
 /* Provides detailed information about a process. */
@@ -40,5 +51,29 @@ void
 glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf,
 			 pid_t pid)
 {
-	memset (buf, 0, sizeof (glibtop_proc_time));
+    libgtop_proc_state_t proc_state;
+    int i;
+
+    memset (buf, 0, sizeof (glibtop_proc_time));
+
+    if (glibtop_get_proc_data_proc_state_s (server, &proc_state, pid))
+	return;
+
+    buf->start_time = proc_state.start_time;
+    buf->utime = proc_state.utime;
+    buf->stime = proc_state.stime;
+    buf->cutime = proc_state.cutime;
+    buf->cstime = proc_state.cstime;
+
+    buf->frequency = 100;
+
+    buf->flags = _glibtop_sysdeps_proc_time;
+
+    for (i = 0; i < server->ncpu; i++) {
+	buf->xcpu_utime [i] = proc_state.per_cpu_utime [i];
+	buf->xcpu_stime [i] = proc_state.per_cpu_stime [i];
+    }
+
+    if (server->ncpu)
+	buf->flags |= _glibtop_sysdeps_proc_time_smp;
 }

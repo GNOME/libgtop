@@ -65,3 +65,36 @@ glibtop_get_proc_data_swap_s (glibtop *server, libgtop_swap_t *swap)
 
     return 0;
 }
+
+int
+glibtop_get_proc_data_proclist_s (glibtop *server,
+				  libgtop_proclist_t *proclist,
+				  u_int64_t which, u_int64_t arg)
+{
+    int name [4] = { CTL_LIBGTOP, LIBGTOP_PROCLIST, which, arg };
+    size_t size = sizeof (libgtop_proclist_t);
+
+    if (sysctl (name, 4, proclist, &size, NULL, 0)) {
+	glibtop_warn_io_r (server, "sysctl (libgtop/proclist)");
+	return -1;
+    }
+
+    return 0;
+
+}
+
+int
+glibtop_get_proc_data_proc_state_s (glibtop *server,
+				    libgtop_proc_state_t *proc_state,
+				    pid_t pid)
+{
+    int name [3] = { CTL_LIBGTOP, LIBGTOP_PROC_STATE, pid };
+    size_t size = sizeof (libgtop_proc_state_t);
+
+    if (sysctl (name, 3, proc_state, &size, NULL, 0)) {
+	glibtop_warn_io_r (server, "sysctl (libgtop/proc_state)");
+	return -1;
+    }
+
+    return 0;
+}

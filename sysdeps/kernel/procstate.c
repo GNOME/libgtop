@@ -24,14 +24,18 @@
 #include <glibtop.h>
 #include <glibtop/procstate.h>
 
-static const unsigned long _glibtop_sysdeps_proc_state = 0;
+#include <glibtop_private.h>
+
+static const unsigned long _glibtop_sysdeps_proc_state =
+(1 << GLIBTOP_PROC_STATE_UID) + (1 << GLIBTOP_PROC_STATE_GID) +
+(1 << GLIBTOP_PROC_STATE_CMD);
 
 /* Init function. */
 
 void
 glibtop_init_proc_state_s (glibtop *server)
 {
-	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
+    server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
 }
 
 /* Provides detailed information about a process. */
@@ -40,5 +44,16 @@ void
 glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
 			  pid_t pid)
 {
-	memset (buf, 0, sizeof (glibtop_proc_state));
+    libgtop_proc_state_t proc_state;
+
+    memset (buf, 0, sizeof (glibtop_proc_state));
+
+    if (glibtop_get_proc_data_proc_state_s (server, &proc_state, pid))
+	return;
+
+    memcpy (buf->cmd, proc_state.comm, sizeof (buf->cmd));
+    buf->uid = proc_state.uid;
+    buf->gid = proc_state.gid;
+
+    buf->flags = _glibtop_sysdeps_proc_state;
 }
