@@ -42,6 +42,9 @@ BEGIN_LIBGTOP_DECLS
 /* Maximum length of a network interface name. */
 #define GLIBTOP_INTERFACE_LEN	32
 
+/* Length of a network interface address in bytes. */
+#define GLIBTOP_IFADDR_LEN	16
+
 /* This is ((u_int64_t)-1) */
 #define GLIBTOP_UNLIMITED	(~(u_int64_t)0)
 

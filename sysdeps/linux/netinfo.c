@@ -31,6 +31,18 @@
 #include <sys/socket.h>
 #include <sys/ioctl.h>
 
+#include <sys/sysctl.h>
+
+#ifndef HAVE_AFINET
+#define HAVE_AFINET 1
+#endif
+
+#ifndef HAVE_AFINET6
+#define HAVE_AFINET6 1
+#endif
+
+#define _PATH_PROCNET_IFINET6	"/proc/net/if_inet6"
+
 #if !defined (_LIBC) && defined (__GNU_LIBRARY__) && __GNU_LIBRARY__ > 1
 /* GNU LibC */
 #include <net/if.h>
@@ -50,6 +62,7 @@
 #endif
 
 static const unsigned long _glibtop_sysdeps_netinfo =
+(1L << GLIBTOP_NETINFO_TRANSPORT) +
 (1L << GLIBTOP_NETINFO_IF_FLAGS) +
 (1L << GLIBTOP_NETINFO_ADDRESS) +
 (1L << GLIBTOP_NETINFO_SUBNET) +
@@ -65,20 +78,21 @@ glibtop_init_netinfo_s (glibtop *server)
     return 0;
 }
 
-/* Provides network statistics. */
+#ifdef HAVE_AFINET
 
-int
-glibtop_get_netinfo_s (glibtop *server, glibtop_netinfo *buf,
-		       const char *interface, unsigned transport)
+static int
+_netinfo_ipv4 (glibtop *server, glibtop_netinfo *buf,
+	       const char *interface)
 {
     int skfd;
-
-    memset (buf, 0, sizeof (glibtop_netinfo));
 
     skfd = socket (AF_INET, SOCK_DGRAM, 0);
     if (skfd) {
 	struct ifreq ifr;
 	unsigned flags;
+
+	buf->transport = GLIBTOP_TRANSPORT_IPV4;
+	buf->flags |= (1L << GLIBTOP_NETINFO_TRANSPORT);
 
 	strcpy (ifr.ifr_name, interface);
 	if (!ioctl (skfd, SIOCGIFFLAGS, &ifr)) {
@@ -121,7 +135,7 @@ glibtop_get_netinfo_s (glibtop *server, glibtop_netinfo *buf,
 	if (!ioctl (skfd, SIOCGIFADDR, &ifr)) {
 	    struct sockaddr_in addr =
 		*(struct sockaddr_in *) &ifr.ifr_addr;
-	    buf->address = addr.sin_addr.s_addr;
+	    memcpy (&buf->address, &addr.sin_addr.s_addr, 4);
 	    buf->flags |= (1L << GLIBTOP_NETINFO_ADDRESS);
 	}
 
@@ -129,7 +143,7 @@ glibtop_get_netinfo_s (glibtop *server, glibtop_netinfo *buf,
 	if (!ioctl (skfd, SIOCGIFNETMASK, &ifr)) {
 	    struct sockaddr_in addr =
 		*(struct sockaddr_in *) &ifr.ifr_addr;
-	    buf->subnet = addr.sin_addr.s_addr;
+	    memcpy (&buf->subnet, &addr.sin_addr.s_addr, 4);
 	    buf->flags |= (1L << GLIBTOP_NETINFO_SUBNET);
 	}
 
@@ -140,6 +154,132 @@ glibtop_get_netinfo_s (glibtop *server, glibtop_netinfo *buf,
 	}
 
 	close (skfd);
+    }
+
+    return 0;
+}
+
+#endif /* HAVE_AFINET */
+
+#ifdef HAVE_AFINET6
+
+static int
+_parse_ipv6_address (const char *addr_string, u_int8_t *dest)
+{
+    int i;
+
+    if (strlen (addr_string) != 32)
+	return -1;
+
+    for (i = 0; i < 8; i++) {
+	char c1, c2;
+	int d1, d2;
+
+	c1 = tolower (addr_string [(i<<1)]);
+	c2 = tolower (addr_string [(i<<1)+1]);
+
+	if ((c1 >= '0') && (c1 <= '9'))
+	    d1 = c1-'0';
+	else if ((c1 >= 'a') && (c1 <= 'f'))
+	    d1 = c1-'a'+10;
+	else
+	    return -1;
+
+	if ((c2 >= '0') && (c2 <= '9'))
+	    d2 = c2-'0';
+	else if ((c2 >= 'a') && (c2 <= 'f'))
+	    d2 = c2-'a'+10;
+	else
+	    return -1;
+
+	dest [i] = (d1 << 4) + d2;
+    }
+
+    return 0;
+}
+
+static int
+_netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
+	       const char *interface)
+{
+    FILE *f;
+    char addr6[40], devname[20];
+    struct sockaddr_in6 sap;
+    int plen, scope, dad_status, if_idx;
+    extern struct aftype inet6_aftype;
+
+    if ((f = fopen (_PATH_PROCNET_IFINET6, "r")) != NULL) {
+	while (fscanf (f, "%64s %02x %02x %02x %02x %20s\n",
+		       addr6, &if_idx, &plen, &scope, &dad_status,
+		       devname) != EOF) {
+	    if (strcmp (devname, interface))
+		continue;
+
+	    if (!_parse_ipv6_address (addr6, buf->address))
+		buf->flags |= (1L << GLIBTOP_NETINFO_ADDRESS);
+
+	    break;
+	}
+    }
+
+    return 0;
+}
+
+#endif /* HAVE_AFINET6 */
+
+/* Provides network statistics. */
+
+int
+glibtop_get_netinfo_s (glibtop *server, glibtop_netinfo *buf,
+		       const char *interface, u_int64_t transport)
+{
+    memset (buf, 0, sizeof (glibtop_netinfo));
+
+    if (strlen (interface) >= GLIBTOP_INTERFACE_LEN)
+	return -1;
+
+    /* Assume IPv4 is the standard until IPv6 becomes more popular. */
+    if (transport == GLIBTOP_TRANSPORT_DEFAULT)
+	transport = GLIBTOP_TRANSPORT_ALL;
+
+    /* Get information about all possible transport methods. */
+    if (transport == GLIBTOP_TRANSPORT_ALL) {
+	char buffer [BUFSIZ];
+	struct stat statb;
+
+	/* We may get a little speed improvement when we use sysctl ()
+	 * directly, but the following piece of code seems very stable
+	 * and reliable to me.
+	 *
+	 * The first stat() on "/proc/sys/net" is done to find out whether
+	 * the kernel has sysctl support.
+	 *
+	 * January 23, 1999
+	 * Martin
+	 */
+
+	if (!stat ("/proc/sys/net", &statb) && S_ISDIR (statb.st_mode)) {
+	    buf->flags |= (1L << GLIBTOP_NETINFO_TRANSPORT);
+
+	    sprintf (buffer, "/proc/sys/net/ipv4/conf/%s", interface);
+	    if (!stat (buffer, &statb) && S_ISDIR (statb.st_mode))
+		buf->transport |= GLIBTOP_TRANSPORT_IPV4;
+
+	    sprintf (buffer, "/proc/sys/net/ipv6/conf/%s", interface);
+	    if (!stat (buffer, &statb) && S_ISDIR (statb.st_mode))
+		buf->transport |= GLIBTOP_TRANSPORT_IPV6;
+	}
+    }
+
+    switch (transport) {
+#ifdef HAVE_AFINET
+    case GLIBTOP_TRANSPORT_IPV4:
+	return _netinfo_ipv4 (server, buf, interface);
+#endif /* HAVE_AFINET */
+#ifdef HAVE_AFINET6
+    case GLIBTOP_TRANSPORT_IPV6:
+	return _netinfo_ipv6 (server, buf, interface);
+#endif /* HAVE_AFINET6 */
     }
 
     return 0;
