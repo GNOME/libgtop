@@ -1,3 +1,12 @@
+1999-03-20  Martin Baulig  <martin@home-of-linux.org>
+
+	Removed all traces of my old table () Linux kernel hack.
+
+	* kernel: Removed.
+	* sysdeps/kernel: Removed.
+	* libgtop-sysdeps.m4: Don't check for table (); it does not
+	exist any longer.
+
 1999-03-19  Martin Baulig  <martin@home-of-linux.org>
 
 	This is *untested* - please read "sysdeps/freebsd/ChangeLog" !
