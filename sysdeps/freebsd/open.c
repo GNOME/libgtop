@@ -57,6 +57,8 @@ void
 glibtop_open_p (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
+	fprintf (stderr, "DEBUG (%d): glibtop_open_p ()\n", getpid ()); 
+
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
 	server->name = program_name;
@@ -78,22 +80,19 @@ glibtop_open_p (glibtop *server, const char *program_name,
 	server->machine.nlist_count = kvm_nlist
 		(server->machine.kd, _glibtop_nlist);
 	
-	if (server->machine.nlist_count < 0)
+	/* On FreeBSD, kvm_nlist () returns the number of invalid
+	 * entries in the nlist. */
+	
+	if (server->machine.nlist_count)
 		glibtop_error_io_r (server, "nlist");
-
-	/* Make sure all of the symbols were found. */
-
-	if ((server->machine.nlist_count > 0) &&
-	    (_glibtop_check_nlist (server, _glibtop_nlist) > 0))
-		_exit (1);
-
+	
 	/* Get tick frequency. */
-
+	
 	(void) _glibtop_getkval (server, _glibtop_nlist [X_STATHZ].n_value,
 				 (int *) &server->machine.hz,
 				 sizeof (server->machine.hz),
 				 _glibtop_nlist [X_STATHZ].n_name);
-
+	
 	if (!server->machine.hz)
 		(void) _glibtop_getkval
 			(server, _glibtop_nlist [X_HZ].n_value,
@@ -121,43 +120,6 @@ glibtop_open_p (glibtop *server, const char *program_name,
 	 * so it will fail if it is suid root and not sgid kmem. */
 }
 
-/* Used internally. Returns number of symbols that cannot be found in
- * the nlist. */
-
-int
-_glibtop_check_nlist (void *server, register struct nlist *nlst)
-{
-	register int not_found;
-	
-	/* check to see if we got ALL the symbols we requested */
-	/* this will write one line to stderr for every symbol not found */
-	
-	not_found = 0;
-	
-	while (nlst->n_name != NULL) {
-
-#ifdef i386
-		if (nlst->n_value == 0) {
-			glibtop_error_r (server,
-					 "kernel: no symbol named `%s'",
-					 nlst->n_name);
-			not_found++;
-		}
-#else
-		if (nlst->n_type == 0) {
-			glibtop_error_r (server,
-					 "kernel: no symbol named `%s'",
-					 nlst->n_name);
-			not_found++;
-		}
-#endif
-
-		nlst++;
-	}
-	
-	return not_found;
-}
-
 /* Used internally. Fetches value from kernel. */
 
 int
@@ -165,6 +127,9 @@ _glibtop_getkval (void *void_server, unsigned long offset, int *ptr,
 		  int size, char *refstr)
 {
 	glibtop	*server = (glibtop *) void_server;
+
+	fprintf (stderr, "DEBUG: kvm_read: %d - %lu - %p - %lu\n",
+		 server->machine.kd, offset, ptr, size);
 
 	if (kvm_read (server->machine.kd, offset, ptr, size) != size)
 		{
