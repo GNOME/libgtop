@@ -68,14 +68,22 @@ struct _glibtop_proclist
 #define glibtop_get_proclist_r		glibtop_get_proclist_s
 #endif
 
-extern unsigned *glibtop_get_proclist_l __P((glibtop *, glibtop_proclist *, int64_t, int64_t));
+unsigned *
+glibtop_get_proclist_l (glibtop *server, glibtop_proclist *buf,
+			int64_t which, int64_t arg);
 
 #if GLIBTOP_SUID_PROCLIST
-extern void glibtop_init_proclist_p __P((glibtop *));
-extern unsigned *glibtop_get_proclist_p __P((glibtop *, glibtop_proclist *, int64_t, int64_t));
+void glibtop_init_proclist_p (glibtop *server);
+
+unsigned *
+glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
+			int64_t which, int64_t arg);
 #else
-extern void glibtop_init_proclist_s __P((glibtop *));
-extern unsigned *glibtop_get_proclist_s __P((glibtop *, glibtop_proclist *, int64_t, int64_t));
+void glibtop_init_proclist_s (glibtop *server);
+
+unsigned *
+glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
+			int64_t which, int64_t arg);
 #endif
 
 #ifdef GLIBTOP_NAMES

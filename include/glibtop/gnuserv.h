@@ -153,8 +153,9 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
 #define CONN_IPC      2
 
 /* function declarations */
-extern int glibtop_make_connection __P((const char *, int, int *));
+int glibtop_make_connection (const char *hostarg, int portarg, int *s);
 
 #ifdef INTERNET_DOMAIN_SOCKETS
-extern long glibtop_internet_addr __P((const char *));
+long glibtop_internet_addr (const char *host);
 #endif
+

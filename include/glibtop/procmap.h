@@ -77,14 +77,19 @@ struct _glibtop_proc_map
 #define glibtop_get_proc_map_r		glibtop_get_proc_map_s
 #endif
 
-extern glibtop_map_entry *glibtop_get_proc_map_l __P((glibtop *, glibtop_proc_map *, pid_t));
+glibtop_map_entry *
+glibtop_get_proc_map_l (glibtop *server, glibtop_proc_map *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_MAP
-extern void glibtop_init_proc_map_p __P((glibtop *));
-extern glibtop_map_entry *glibtop_get_proc_map_p __P((glibtop *, glibtop_proc_map *, pid_t));
+void glibtop_init_proc_map_p (glibtop *server);
+
+glibtop_map_entry *
+glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf, pid_t pid);
 #else
-extern void glibtop_init_proc_map_s __P((glibtop *));
-extern glibtop_map_entry *glibtop_get_proc_map_s __P((glibtop *, glibtop_proc_map *, pid_t));
+void glibtop_init_proc_map_s (glibtop *server);
+
+glibtop_map_entry *
+glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

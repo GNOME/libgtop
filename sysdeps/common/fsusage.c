@@ -66,8 +66,8 @@ int statvfs ();
 #include <glibtop/error.h>
 #include <glibtop/fsusage.h>
 
-static int get_fs_usage __P ((const char *, const char *,
-			      struct fs_usage *));
+static int
+get_fs_usage (const char *path, const char *disk, struct fs_usage *fsp);
 
 int safe_read ();
 

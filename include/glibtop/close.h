@@ -26,10 +26,10 @@
 
 __BEGIN_DECLS
 
-extern void glibtop_close_r __P((glibtop *));
+void glibtop_close_r (glibtop *server);
 
-extern void glibtop_close_s __P((glibtop *));
-extern void glibtop_close_p __P((glibtop *));
+void glibtop_close_s (glibtop *server);
+void glibtop_close_p (glibtop *server);
 
 __END_DECLS
 

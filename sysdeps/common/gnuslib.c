@@ -35,11 +35,11 @@
 #include <fcntl.h>
 
 #ifdef UNIX_DOMAIN_SOCKETS
-static int connect_to_unix_server __P((void));
+static int connect_to_unix_server (void);
 #endif
 
 #ifdef INTERNET_DOMAIN_SOCKETS
-static int connect_to_internet_server __P((const char *, u_short));
+static int connect_to_internet_server (const char *serverhost, u_short port);
 #endif
 
 /* On some systems, e.g. DGUX, inet_addr returns a 'struct in_addr'. */

@@ -55,14 +55,14 @@ struct _glibtop_proc_signal
 #define glibtop_get_proc_signal_r	glibtop_get_proc_signal_s
 #endif
 
-extern void glibtop_get_proc_signal_l __P((glibtop *, glibtop_proc_signal *, pid_t));
+void glibtop_get_proc_signal_l (glibtop *server, glibtop_proc_signal *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_SIGNAL
-extern void glibtop_init_proc_signal_p __P((glibtop *));
-extern void glibtop_get_proc_signal_p __P((glibtop *, glibtop_proc_signal *, pid_t));
+void glibtop_init_proc_signal_p (glibtop *server);
+void glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf, pid_t pid);
 #else
-extern void glibtop_init_proc_signal_s __P((glibtop *));
-extern void glibtop_get_proc_signal_s __P((glibtop *, glibtop_proc_signal *, pid_t));
+void glibtop_init_proc_signal_s (glibtop *server);
+void glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

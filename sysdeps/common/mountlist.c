@@ -38,7 +38,7 @@ void free ();
 #include <glibtop/xmalloc.h>
 #include <glibtop/mountlist.h>
 
-static struct mount_entry *read_filesystem_list __P((int, int));
+static struct mount_entry *read_filesystem_list (int need_fs_type, int all_fs);
 
 #undef xmalloc
 #undef xrealloc

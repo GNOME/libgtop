@@ -57,9 +57,11 @@ struct _glibtop_mountlist
 
 #define glibtop_get_mountlist_r		glibtop_get_mountlist_s
 
-extern glibtop_mountentry *glibtop_get_mountlist_l __P((glibtop *, glibtop_mountlist *, int));
+glibtop_mountentry *
+glibtop_get_mountlist_l (glibtop *server, glibtop_mountlist *buf, int all_fs);
 
-extern glibtop_mountentry *glibtop_get_mountlist_s __P((glibtop *, glibtop_mountlist *, int));
+glibtop_mountentry *
+glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs);
 
 #ifdef GLIBTOP_NAMES
 

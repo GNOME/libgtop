@@ -49,11 +49,22 @@ __BEGIN_DECLS
 
 #define GLIBTOP_ERROR_METHOD_DEFAULT	GLIBTOP_ERROR_METHOD_WARN_ONCE
 
-extern void glibtop_open_l __P((glibtop *, const char *, const unsigned long, const unsigned));
+void
+glibtop_open_l (glibtop *server, const char *program_name,
+		const unsigned long features, const unsigned flags);
 
-extern void glibtop_init_p __P((glibtop *, const unsigned long, const unsigned));
-extern void glibtop_open_p __P((glibtop *, const char *, const unsigned long, const unsigned));
-extern void glibtop_open_s __P((glibtop *, const char *, const unsigned long, const unsigned));
+void
+glibtop_init_p (glibtop *server, const unsigned long features,
+		const unsigned flags);
+
+void
+glibtop_open_p (glibtop *server, const char *program_name,
+		const unsigned long features, const unsigned flags);
+
+void
+glibtop_open_s (glibtop *server, const char *program_name,
+		const unsigned long features, const unsigned flags);
+
 
 __END_DECLS
 

@@ -90,7 +90,7 @@ struct _glibtop_sysdeps
 
 #define glibtop_get_sysdeps(sysdeps)	glibtop_get_sysdeps_r(glibtop_global_server,sysdeps)
 
-extern void glibtop_get_sysdeps_r __P((glibtop *, glibtop_sysdeps *));
+void glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf);
 
 #ifdef GLIBTOP_NAMES
 

@@ -53,14 +53,14 @@ struct _glibtop_loadavg
 #define glibtop_get_loadavg_r		glibtop_get_loadavg_s
 #endif
 
-extern void glibtop_get_loadavg_l __P((glibtop *, glibtop_loadavg *));
+void glibtop_get_loadavg_l (glibtop *server, glibtop_loadavg *buf);
 
 #if GLIBTOP_SUID_LOADAVG
-extern void glibtop_init_loadavg_p __P((glibtop *));
-extern void glibtop_get_loadavg_p __P((glibtop *, glibtop_loadavg *));
+void glibtop_init_loadavg_p (glibtop *server);
+void glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf);
 #else
-extern void glibtop_init_loadavg_s __P((glibtop *));
-extern void glibtop_get_loadavg_s __P((glibtop *, glibtop_loadavg *));
+void glibtop_init_loadavg_s (glibtop *server);
+void glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

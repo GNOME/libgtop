@@ -61,14 +61,14 @@ struct _glibtop_mem
 #define glibtop_get_mem_r		glibtop_get_mem_s
 #endif
 
-extern void glibtop_get_mem_l __P((glibtop *, glibtop_mem *));
+void glibtop_get_mem_l (glibtop *server, glibtop_mem *buf);
 
 #if GLIBTOP_SUID_MEM
-extern void glibtop_init_mem_p __P((glibtop *));
-extern void glibtop_get_mem_p __P((glibtop *, glibtop_mem *));
+void glibtop_init_mem_p (glibtop *server);
+void glibtop_get_mem_p (glibtop *server, glibtop_mem *buf);
 #else
-extern void glibtop_init_mem_s __P((glibtop *));
-extern void glibtop_get_mem_s __P((glibtop *, glibtop_mem *));
+void glibtop_init_mem_s (glibtop *server);
+void glibtop_get_mem_s (glibtop *server, glibtop_mem *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

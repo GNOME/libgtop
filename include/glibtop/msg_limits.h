@@ -59,14 +59,14 @@ struct _glibtop_msg_limits
 #define glibtop_get_msg_limits_r	glibtop_get_msg_limits_s
 #endif
 
-extern void glibtop_get_msg_limits_l __P((glibtop *, glibtop_msg_limits *));
+void glibtop_get_msg_limits_l (glibtop *server, glibtop_msg_limits *buf);
 
 #if GLIBTOP_SUID_MSG_LIMITS
-extern void glibtop_init_msg_limits_p __P((glibtop *));
-extern void glibtop_get_msg_limits_p __P((glibtop *, glibtop_msg_limits *));
+void glibtop_init_msg_limits_p (glibtop *server);
+void glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf);
 #else
-extern void glibtop_init_msg_limits_s __P((glibtop *));
-extern void glibtop_get_msg_limits_s __P((glibtop *, glibtop_msg_limits *));
+void glibtop_init_msg_limits_s (glibtop *server);
+void glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES
@@ -83,3 +83,4 @@ extern const char *glibtop_descriptions_msg_limits [];
 __END_DECLS
 
 #endif
+

@@ -55,7 +55,7 @@ struct _glibtop_sysinfo
 
 #define glibtop_get_sysinfo_r	glibtop_get_sysinfo_s
 
-extern glibtop_sysinfo * glibtop_get_sysinfo_s __P((glibtop *));
+glibtop_sysinfo *glibtop_get_sysinfo_s (glibtop *server);
 
 __END_DECLS
 

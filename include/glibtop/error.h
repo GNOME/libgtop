@@ -27,11 +27,11 @@
 
 __BEGIN_DECLS
 
-extern void glibtop_error_vr __P((glibtop *, char *, va_list));
-extern void glibtop_warn_vr __P((glibtop *, char *, va_list));
+void glibtop_error_vr (glibtop *server, char *format, va_list args);
+void glibtop_warn_vr (glibtop *server, char *format, va_list args);
 
-extern void glibtop_error_io_vr __P((glibtop *, char *, gint, va_list));
-extern void glibtop_warn_io_vr __P((glibtop *, char *, gint, va_list));
+void glibtop_error_io_vr (glibtop *server, char *format, gint, va_list args);
+void glibtop_warn_io_vr (glibtop *server, char *format, gint, va_list args);
 
 static void
 glibtop_error_r (glibtop *server, char *format, ...)

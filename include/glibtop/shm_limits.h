@@ -55,14 +55,14 @@ struct _glibtop_shm_limits
 #define glibtop_get_shm_limits_r	glibtop_get_shm_limits_s
 #endif
 
-extern void glibtop_get_shm_limits_l __P((glibtop *, glibtop_shm_limits *));
+void glibtop_get_shm_limits_l (glibtop *server, glibtop_shm_limits *buf);
 
 #if GLIBTOP_SUID_SHM_LIMITS
-extern void glibtop_init_shm_limits_p __P((glibtop *));
-extern void glibtop_get_shm_limits_p __P((glibtop *, glibtop_shm_limits *));
+void glibtop_init_shm_limits_p (glibtop *server);
+void glibtop_get_shm_limits_p (glibtop *, glibtop_shm_limits *buf);
 #else
-extern void glibtop_init_shm_limits_s __P((glibtop *));
-extern void glibtop_get_shm_limits_s __P((glibtop *, glibtop_shm_limits *));
+void glibtop_init_shm_limits_s (glibtop *server);
+void glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

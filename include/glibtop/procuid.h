@@ -71,14 +71,14 @@ struct _glibtop_proc_uid
 #define glibtop_get_proc_uid_r		glibtop_get_proc_uid_s
 #endif
 
-extern void glibtop_get_proc_uid_l __P((glibtop *, glibtop_proc_uid *, pid_t));
+void glibtop_get_proc_uid_l (glibtop *server, glibtop_proc_uid *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_UID
-extern void glibtop_init_proc_uid_p __P((glibtop *));
-extern void glibtop_get_proc_uid_p __P((glibtop *, glibtop_proc_uid *, pid_t));
+void glibtop_init_proc_uid_p (glibtop *server);
+void glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf, pid_t pid);
 #else
-extern void glibtop_init_proc_uid_s __P((glibtop *));
-extern void glibtop_get_proc_uid_s __P((glibtop *, glibtop_proc_uid *, pid_t));
+void glibtop_init_proc_uid_s (glibtop *server);
+void glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

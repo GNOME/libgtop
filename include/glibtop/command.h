@@ -87,8 +87,13 @@ struct _glibtop_response
 
 #define glibtop_call(p1, p2, p3, p4)	glibtop_call_r(glibtop_global_server, p1, p2, p3, p4)
 
-extern void *glibtop_call_l __P((glibtop *, unsigned, size_t, const void *, size_t, void *));
-extern void *glibtop_call_s __P((glibtop *, unsigned, size_t, const void *, size_t, void *));
+void *
+glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
+		const void *send_buf, size_t recv_size, void *recv_buf);
+
+void *
+glibtop_call_s (glibtop *server, unsigned command, size_t send_size,
+		const void *send_buf, size_t recv_size, void *recv_buf);
 
 __END_DECLS
 

@@ -76,14 +76,14 @@ struct _glibtop_proc_time
 #define glibtop_get_proc_time_r	glibtop_get_proc_time_s
 #endif
 
-extern void glibtop_get_proc_time_l __P((glibtop *, glibtop_proc_time *, pid_t));
+void glibtop_get_proc_time_l (glibtop *server, glibtop_proc_time *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_TIME
-extern void glibtop_init_proc_time_p __P((glibtop *));
-extern void glibtop_get_proc_time_p __P((glibtop *, glibtop_proc_time *, pid_t));
+void glibtop_init_proc_time_p (glibtop *server);
+void glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf, pid_t pid);
 #else
-extern void glibtop_init_proc_time_s __P((glibtop *));
-extern void glibtop_get_proc_time_s __P((glibtop *, glibtop_proc_time *, pid_t));
+void glibtop_init_proc_time_s (glibtop *server);
+void glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

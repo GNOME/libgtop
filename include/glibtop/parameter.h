@@ -36,8 +36,13 @@ __BEGIN_DECLS
 #define glibtop_get_parameter(p1,p2,p3)	glibtop_get_parameter_l(glibtop_global_server,p1,p2,p3)
 #define glibtop_set_parameter(p1,p2,p3) glibtop_set_parameter_l(glibtop_global_server,p1,p2,p3)
 
-extern size_t	glibtop_get_parameter_l __P((glibtop *, const unsigned, void *, size_t));
-extern void	glibtop_set_parameter_l __P((glibtop *, const unsigned, const void *, size_t));
+size_t
+glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
+			 void *data_ptr, size_t data_size);
+
+void
+glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
+			 const void *data_ptr, size_t data_size);
 
 __END_DECLS
 

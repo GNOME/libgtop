@@ -65,14 +65,14 @@ struct _glibtop_sem_limits
 #define glibtop_get_sem_limits_r	glibtop_get_sem_limits_s
 #endif
 
-extern void glibtop_get_sem_limits_l __P((glibtop *, glibtop_sem_limits *));
+void glibtop_get_sem_limits_l (glibtop *server, glibtop_sem_limits *buf);
 
 #if GLIBTOP_SUID_SEM_LIMITS
-extern void glibtop_init_sem_limits_p __P((glibtop *));
-extern void glibtop_get_sem_limits_p __P((glibtop *, glibtop_sem_limits *));
+void glibtop_init_sem_limits_p (glibtop *server);
+void glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf);
 #else
-extern void glibtop_init_sem_limits_s __P((glibtop *));
-extern void glibtop_get_sem_limits_s __P((glibtop *, glibtop_sem_limits *));
+void glibtop_init_sem_limits_s (glibtop *server);
+void glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

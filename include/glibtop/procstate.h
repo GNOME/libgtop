@@ -62,14 +62,14 @@ struct _glibtop_proc_state
 #define glibtop_get_proc_state_r	glibtop_get_proc_state_s
 #endif
 
-extern void glibtop_get_proc_state_l __P((glibtop *, glibtop_proc_state *, pid_t));
+void glibtop_get_proc_state_l (glibtop *server, glibtop_proc_state *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_STATE
-extern void glibtop_init_proc_state_p __P((glibtop *));
-extern void glibtop_get_proc_state_p __P((glibtop *, glibtop_proc_state *, pid_t));
+void glibtop_init_proc_state_p (glibtop *server);
+void glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf, pid_t pid);
 #else
-extern void glibtop_init_proc_state_s __P((glibtop *));
-extern void glibtop_get_proc_state_s __P((glibtop *, glibtop_proc_state *, pid_t));
+void glibtop_init_proc_state_s (glibtop *server);
+void glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid);
 #endif
      
 #ifdef GLIBTOP_NAMES

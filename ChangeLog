@@ -1,5 +1,8 @@
 1999-02-18  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/*.h: Use glib-like function prototypes
+	instead of "extern <function> __P((args))".
+
 	* sysdeps/common/error.h: Replaced inline with static.
 
 1999-02-18  Martin Baulig  <martin@home-of-linux.org>

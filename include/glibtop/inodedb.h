@@ -49,9 +49,16 @@ struct _glibtop_inodedb
 #define glibtop_inodedb_lookup(p1,p2,p3) glibtop_inodedb_lookup_s(glibtop_global_server, p1, p2, p3)
 #define glibtop_inodedb_close(p1)	glibtop_inodedb_close_s(glibtop_global_server)
 
-extern glibtop_inodedb *glibtop_inodedb_open_s __P((glibtop *, unsigned, unsigned long));
-extern const char *glibtop_inodedb_lookup_s __P((glibtop *, glibtop_inodedb *, u_int64_t, u_int64_t));
-extern void glibtop_inodedb_close_s __P((glibtop *, glibtop_inodedb *));
+glibtop_inodedb *
+glibtop_inodedb_open_s (glibtop *server, unsigned databases, unsigned long cache_size);
+
+const char *
+glibtop_inodedb_lookup_s (glibtop *server,
+			  glibtop_inodedb *inodedb,
+			  u_int64_t device, u_int64_t inode);
+
+void
+glibtop_inodedb_close_s (glibtop *server, glibtop_inodedb *inodedb);
 
 __END_DECLS
 

@@ -31,7 +31,7 @@ __BEGIN_DECLS
 
 #if _IN_LIBGTOP
 
-extern void glibtop_send_version __P((glibtop *, int));
+void glibtop_send_version (glibtop *server, int fd);
 
 #endif
 

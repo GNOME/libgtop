@@ -92,14 +92,14 @@ struct _glibtop_netload
 #define glibtop_get_netload_r	glibtop_get_netload_s
 #endif
 
-extern void glibtop_get_netload_l __P((glibtop *, glibtop_netload *, const char *));
+void glibtop_get_netload_l (glibtop *server, glibtop_netload *buf, const char *interface);
 
 #if GLIBTOP_SUID_NETLOAD
-extern void glibtop_init_netload_p __P((glibtop *));
-extern void glibtop_get_netload_p __P((glibtop *, glibtop_netload *, const char *));
+void glibtop_init_netload_p (glibtop *server);
+void glibtop_get_netload_p (glibtop *server, glibtop_netload *buf, const char *interface);
 #else
-extern void glibtop_init_netload_s __P((glibtop *));
-extern void glibtop_get_netload_s __P((glibtop *, glibtop_netload *, const char *));
+void glibtop_init_netload_s (glibtop *server);
+void glibtop_get_netload_s (glibtop *server, glibtop_netload *buf, const char *interface);
 #endif
 
 #ifdef GLIBTOP_NAMES
