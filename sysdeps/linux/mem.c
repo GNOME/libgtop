@@ -75,7 +75,7 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	buf->buffer = strtoul (p, &p, 0);
 	buf->cached = strtoul (p, &p, 0);
 
-	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
+	buf->user = buf->total - buf->free - buf->cached - buf->buffer;
 
 	buf->flags = _glibtop_sysdeps_mem;
 }

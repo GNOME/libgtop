@@ -1,3 +1,10 @@
+2003-06-10  Kjartan Maraas  <set EMAIL_ADDRESS environment variable>
+
+	* libgtop-2.0.pc.in: Fix missing build flags. Patch from
+	Julio Merino. Fixes bug #103086.
+	* sysdeps/linux/mem.c: (glibtop_get_mem_s): Fix memory calculation
+	under Linux. Patch from <rwahl@gmx.de>. Fixes bug #68626.
+
 2003-06-10  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* sysdeps/freebsd/glibtop_machine.h:
