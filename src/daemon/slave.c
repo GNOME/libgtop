@@ -24,13 +24,14 @@
 void
 handle_slave_connection (int input, int output)
 {
-	glibtop *server = glibtop_global_server;
+	glibtop G_GNUC_UNUSED *server = glibtop_global_server;
+	int64_t G_GNUC_UNUSED *param_ptr;
+	void G_GNUC_UNUSED *ptr;
+	pid_t G_GNUC_UNUSED pid;
+
 	glibtop_response _resp, *resp = &_resp;
 	glibtop_command _cmnd, *cmnd = &_cmnd;
 	char parameter [BUFSIZ];
-	int64_t *param_ptr;
-	void *ptr;
-	pid_t pid;
 
 	glibtop_send_version (glibtop_global_server, output);
 
@@ -97,10 +98,10 @@ handle_slave_connection (int input, int output)
 
 void
 handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
-		      const void *parameter)
+		      const void G_GNUC_UNUSED *parameter)
 {
 	glibtop *server = glibtop_global_server;
-	pid_t pid;
+	pid_t G_GNUC_UNUSED pid;
 
 	switch (cmnd->command) {
 	case GLIBTOP_CMND_SYSDEPS:

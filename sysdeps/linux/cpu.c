@@ -53,7 +53,7 @@ void
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
 	char buffer [BUFSIZ], *p;
-	int fd, len, i;
+	int fd, len, G_GNUC_UNUSED i;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 

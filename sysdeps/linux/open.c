@@ -56,7 +56,8 @@ static void set_linux_version(void) {
 
 void
 glibtop_open_s (glibtop *server, const char *program_name,
-		const unsigned long features, const unsigned flags)
+		const unsigned long G_GNUC_UNUSED features,
+		const unsigned G_GNUC_UNUSED flags)
 {
 #ifdef HAVE_LIBGTOP_SMP
 	char buffer [BUFSIZ], *p;
