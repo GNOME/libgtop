@@ -156,6 +156,14 @@
  */
 #undef GLIBTOP_LINUX_VERSION_CODE
 
+/* Solaris release code (eg. 251 for Solaris 2.5.1). */
+#undef GLIBTOP_SOLARIS_RELEASE
+
 /* Define if you want to use LibGTop without GNOME. */
 #undef WITHOUT_GNOME
 
+/* Define if you have the <procfs.h> header file */
+#undef HAVE_PROCFS_H
+
+/* Define if you have the <sys/procfs.h> header file */
+#undef HAVE_SYS_PROCFS_H

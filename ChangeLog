@@ -1,5 +1,25 @@
 2001-02-14  Martin Baulig  <baulig@suse.de>
 
+	Merged from LIBGTOP_1_1_2_PATCHES.
+
+	* libgtop-sysdeps.m4 (GLIBTOP_SOLARIS_RELEASE): Define this on Solaris;
+	we use version codes like 270 for SunOS 5.7 and 251 for SunOS 2.5.1.
+
+	* LIBGTOP-VERSION (LIBGTOP_VERSION_SUFFIX): Added this so you can
+	have your tarballs called `libgtop-1.x.y-snap.tar.gz' or whatever.
+	This only affects the `VERSION' variable and thus how the resulting
+	tarball will be called, but not `LIBGTOP_VERSION_CODE' etc.
+
+	* configure.in, acconfig.h: Added checks for <procfs.h>
+	and <sys/procfs.h>
+
+	* configure.in (DL_LIB): Check for dlopen() and AC_SUBST this.
+
+	* Makefile.am: Make `aclocal.m4' also depend on `LIBGTOP-VERSION'
+	when in maintainer-mode.
+
+2001-02-14  Martin Baulig  <baulig@suse.de>
+
 	* include/glibtop/limits.h: Removed; this file doesn't exist
 	in the stable branch.
 

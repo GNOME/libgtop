@@ -73,7 +73,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	AC_ARG_ENABLE(hacker-mode,
 	[  --enable-hacker-mode    Enable building of unstable sysdeps],
-	[hacker_mode="$withval"], [hacker_mode=no])
+	[hacker_mode="$enableval"], [hacker_mode=no])
 
 	AM_CONDITIONAL(HACKER_MODE, test x"$hacker_mode" = xyes)
 
@@ -124,12 +124,20 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  libgtop_need_server=yes
 	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
 	  ;;
+	solaris*)
+	  libgtop_sysdeps_dir=solaris
+	  libgtop_use_machine_h=yes
+	  libgtop_need_server=yes
+	  libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	  ;;
 	*)
 	  if test x$hacker_mode = xyes ; then
 	    case "$host_os" in
 	    sunos4*)
+	      #Please note that this port is obsolete and not working at
+	      #all. It is only useful for people who want to fix it ... :-)
 	      libgtop_sysdeps_dir=sun4
-	        libgtop_use_machine_h=yes
+	      libgtop_use_machine_h=yes
 	      libgtop_need_server=yes
 	      ;;
 	    osf*)
@@ -177,7 +185,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 #include <net/netisr.h>
 #include <net/route.h>
 
-#if (defined __FreeBSD__) || (defined __NetBSD__)
+#if defined(__FreeBSD__) || defined(__NetBSD__)
 #include <net/if_sppp.h>
 #else
 #include <i4b/sppp/if_sppp.h>
@@ -247,6 +255,18 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	  AC_MSG_CHECKING(for Linux kernel version code)
 	  AC_DEFINE_UNQUOTED(GLIBTOP_LINUX_VERSION_CODE, $os_version_code)
+	  AC_MSG_RESULT($os_version_code)
+	  ;;
+	solaris*)
+	  os_major_version=`uname -r | sed 's/\([[0-9]]*\).\([[0-9]]\)\.*\([[0-9]]*\)/\1/'`
+	  os_minor_version=`uname -r | sed 's/\([[0-9]]*\).\([[0-9]]\)\.*\([[0-9]]*\)/\2/'`
+	  os_micro_version=`uname -r | sed 's/\([[0-9]]*\).\([[0-9]]\)\.*\([[0-9]]*\)/\3/'`
+	  test -z "$os_micro_version" && os_micro_version=0
+	  os_version_expr="$os_major_version 100 * $os_minor_version 10 * + $os_micro_version + p q"
+	  os_version_code=`echo "$os_version_expr" | dc`
+
+	  AC_MSG_CHECKING(for Solaris release code)
+	  AC_DEFINE_UNQUOTED(GLIBTOP_SOLARIS_RELEASE, $os_version_code)
 	  AC_MSG_RESULT($os_version_code)
 	  ;;
 	esac

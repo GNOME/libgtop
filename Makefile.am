@@ -42,7 +42,7 @@ bin_SCRIPTS = $(top_builddir)/libgtop-config
 @MAINT@macros/macros.dep: macros/Makefile.am
 @MAINT@	cd macros && $(MAKE) macros.dep
 
-@MAINT@$(top_srcdir)/aclocal.m4: libgtop-sysdeps.m4
+@MAINT@$(top_srcdir)/aclocal.m4: libgtop-sysdeps.m4 LIBGTOP-VERSION
 
 ## We create libgtopConf.sh here and not from configure because we want
 ## to get the paths expanded correctly.  Macros like srcdir are given
