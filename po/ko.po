@@ -5,13 +5,149 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2000-04-28 18:49+0900\n"
-"PO-Revision-Date: 2000-05-16 11:29:00+0900\n"
+"POT-Creation-Date: 2001-02-08 11:51-0500\n"
+"PO-Revision-Date: 2001-02-08 17:01+0900\n"
 "Last-Translator: Sung-Hyun Nam <namsh@kldp.org>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=euc-kr\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
+msgid "Hangup (POSIX)"
+msgstr "Hangup (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
+msgid "Interrupt (ANSI)"
+msgstr "인터럽트 (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:35 lib/sysdeps-init-linux.c:35
+msgid "Quit (POSIX)"
+msgstr "Quit (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:36 lib/sysdeps-init-linux.c:36
+msgid "Illegal instruction (ANSI)"
+msgstr "잘못된 명령 (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:37 lib/sysdeps-init-linux.c:37
+msgid "Trace trap (POSIX)"
+msgstr "Trace trap (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:38 lib/sysdeps-init-linux.c:38
+msgid "Abort (ANSI)"
+msgstr "중지 (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:39
+msgid "EMT instruction"
+msgstr "EMT 명령"
+
+#: lib/sysdeps-init-freebsd.c:40 lib/sysdeps-init-linux.c:40
+msgid "Floating-point exception (ANSI)"
+msgstr "실수연산 예외 (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
+msgid "Kill, unblockable (POSIX)"
+msgstr "Kill, unblockable (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
+msgid "BUS error (4.2 BSD)"
+msgstr "버스 에러 (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:43 lib/sysdeps-init-linux.c:43
+msgid "Segmentation violation (ANSI)"
+msgstr "세그먼테이션 위반 (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:44
+msgid "Bad argument to system call"
+msgstr "잘못된 인자로 시스템 콜"
+
+#: lib/sysdeps-init-freebsd.c:45 lib/sysdeps-init-linux.c:45
+msgid "Broken pipe (POSIX)"
+msgstr "깨진 파이프 (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:46 lib/sysdeps-init-linux.c:46
+msgid "Alarm clock (POSIX)"
+msgstr "알람 클럭 (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
+msgid "Termination (ANSI)"
+msgstr "Termination (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:48 lib/sysdeps-init-linux.c:55
+msgid "Urgent condition on socket (4.2 BSD)"
+msgstr "소켓에 긴급 상태 (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:49 lib/sysdeps-init-linux.c:51
+msgid "Stop, unblockable (POSIX)"
+msgstr "Stop, unblockable (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:50 lib/sysdeps-init-linux.c:52
+msgid "Keyboard stop (POSIX)"
+msgstr "키보트 중지 (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:51 lib/sysdeps-init-linux.c:50
+msgid "Continue (POSIX)"
+msgstr "계속 (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:52 lib/sysdeps-init-linux.c:49
+msgid "Child status has changed (POSIX)"
+msgstr "자식 상태 바뀜 (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:53 lib/sysdeps-init-linux.c:53
+msgid "Background read from tty (POSIX)"
+msgstr "tty에서 백그라운드 읽기 (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:54 lib/sysdeps-init-linux.c:54
+msgid "Background write to tty (POSIX)"
+msgstr "tty로 백그라운드 쓰기 (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:55 lib/sysdeps-init-linux.c:61
+msgid "I/O now possible (4.2 BSD)"
+msgstr "이제 I/O 가능 (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:56 lib/sysdeps-init-linux.c:56
+msgid "CPU limit exceeded (4.2 BSD)"
+msgstr "CPU 한계 초과 (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:57 lib/sysdeps-init-linux.c:57
+msgid "File size limit exceeded (4.2 BSD)"
+msgstr "파일 크기 한계 초과 (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:58 lib/sysdeps-init-linux.c:58
+msgid "Virtual alarm clock (4.2 BSD)"
+msgstr "가상 알람 클럭 (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:59 lib/sysdeps-init-linux.c:59
+msgid "Profiling alarm clock (4.2 BSD)"
+msgstr "Profiling 알람 클럭 (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:60 lib/sysdeps-init-linux.c:60
+msgid "Window size change (4.3 BSD, Sun)"
+msgstr "창 크기 바뀜 (4.3 BSD, Sun)"
+
+#: lib/sysdeps-init-freebsd.c:61
+msgid "Information request"
+msgstr "정보 요청"
+
+#: lib/sysdeps-init-freebsd.c:62 lib/sysdeps-init-linux.c:42
+msgid "User-defined signal 1 (POSIX)"
+msgstr "사용자 정의 신호 1 (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:63 lib/sysdeps-init-linux.c:44
+msgid "User-defined signal 2 (POSIX)"
+msgstr "사용자 정의 신호 2 (POSIX)"
+
+#: lib/sysdeps-init-linux.c:62
+msgid "Power failure restart (System V)"
+msgstr "파워 고장 재시동 (시스템 V)"
+
+#: support/popthelp.c:23
+msgid "Show this help message"
+msgstr "이 도움말 보기"
+
+#: support/popthelp.c:24
+msgid "Display brief usage message"
+msgstr "간단한 사용 메시지 표시"
 
 #: sysdeps/names/cpu.c:45
 msgid "Total CPU Time"
@@ -1101,106 +1237,3 @@ msgstr "시스템 시동후에 유휴 태스크가 소비한 초 단위의 시간"
 #: sysdeps/names/uptime.c:49
 msgid "Boot time (seconds sice epoch)"
 msgstr "부트 시간 (seconds sice epoch)"
-
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "알려지지 않은 시스템 에러"
-
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: `%s' 옵션이 모호합니다\n"
-
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: `--%s' 옵션은 인자가 필요없습니다\n"
-
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: `%c%s' 옵션은 인자가 필요없습니다\n"
-
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: `%s' 옵션은 인자가 필요합니다\n"
-
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: 알수 없는 옵션 `--%s'\n"
-
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: 알수 없는 옵션 `%c%s'\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: 비정상적인 옵션 -- %c\n"
-
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: 지원하지 않는 옵션 -- %c\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: 옵션은 인자가 필요합니다 -- %c\n"
-
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: `-W %s' 옵션이 모호합니다\n"
-
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: `-W %s' 옵션은 인자가 필요없습니다\n"
-
-#: lib/errors.c:31
-msgid "No error"
-msgstr "에러 없음"
-
-#: lib/errors.c:32
-msgid "Unknown error"
-msgstr "모르는 에러"
-
-#: lib/errors.c:33
-msgid "Invalid argument"
-msgstr "잘못된 인자"
-
-#: lib/errors.c:34
-msgid "No such parameter"
-msgstr "그런 파라미터 없음"
-
-#: lib/errors.c:35
-msgid "Attempted to modify a read-only value"
-msgstr "읽기만 가능한 값을 바꾸려고 함"
-
-#: lib/errors.c:36
-msgid "Parameter size mismatch"
-msgstr "파라미터 크기가 다름"
-
-#: lib/errors.c:37
-msgid "Communication with LibGTop server failed"
-msgstr "LibGTop 서버와의 통신 실패"
-
-#: lib/errors.c:38
-msgid "No such process"
-msgstr "그런 프로세스 없음"
-
-#: lib/errors.c:39
-msgid "No kernel support"
-msgstr "커널 지원기능 없음"
-
-#: lib/errors.c:40
-msgid "Incompatible kernel version"
-msgstr "호환되지 않는 커널버전"
