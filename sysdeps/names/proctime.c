@@ -45,7 +45,7 @@ const char *glibtop_labels_proc_time [GLIBTOP_MAX_PROC_TIME] =
 const char *glibtop_descriptions_proc_time [GLIBTOP_MAX_PROC_TIME] =
 {
 	N_("Start time of process in seconds since the epoch"),
-	N_("Read time accumulated by process (should be utime + stime)"),
+	N_("Real time accumulated by process (should be utime + stime)"),
 	N_("user-mode CPU time accumulated by process"),
 	N_("kernel-mode CPU time accumulated by process"),
 	N_("cumulative utime of process and reaped children"),
