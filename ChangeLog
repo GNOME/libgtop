@@ -1,3 +1,8 @@
+1999-02-05  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/global.h: Enclose some of the stuff in this
+	file in `#ifdef _IN_LIBGTOP'.
+
 1999-02-04  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/global.h (_): Use dgettext (), not gettext ().

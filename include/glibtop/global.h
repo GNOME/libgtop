@@ -22,6 +22,8 @@
 #ifndef __GLIBTOP_GLOBAL_H__
 #define __GLIBTOP_GLOBAL_H__
 
+#ifdef _IN_LIBGTOP
+
 #include <config.h>
 
 /* __BEGIN_DECLS should be used at the beginning of your declarations,
@@ -50,8 +52,6 @@
 #else
 # define __P(protos) ()
 #endif
-
-#ifdef _IN_LIBGTOP
 
 /* Provide macros to feature the GCC function attribute.
  */
@@ -131,6 +131,8 @@
 
 __BEGIN_DECLS
 
+#ifdef _IN_LIBGTOP
+
 #ifndef _
 #define _(String) dgettext (PACKAGE, String)
 #define N_(String) (String)
@@ -139,6 +141,8 @@ __BEGIN_DECLS
 #ifndef HAVE_STRERROR
 extern char *strerror __P((int));
 #endif
+
+#endif /* _IN_LIBGTOP */
 
 __END_DECLS
 
