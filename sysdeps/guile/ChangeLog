@@ -1,3 +1,14 @@
+1999-12-05  Martin Baulig  <martin@home-of-linux.org>
+
+	This is now the low-level guile interface to LibGTop. For
+	each of the LibGTop structures we create a new smob here and
+	let the `glibtop-get-<feature>' functions return such a smob.
+
+	* main.c: New file.
+	(glibtop_boot_guile_main): Initialize "glibtop-global-server" here.
+
+	* guile.h: New file.
+
 1999-02-04  Martin Baulig  <martin@home-of-linux.org>
 
 	* names/guile-names.awk: Use `_' instead of `gettext'.
