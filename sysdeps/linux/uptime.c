@@ -62,8 +62,8 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 
 	buffer [len] = '\0';
 
-	buf->uptime   = (float) strtod (buffer, &p);
-	buf->idletime = (float) strtod (p, &p);
+	buf->uptime   = strtod (buffer, &p);
+	buf->idletime = strtod (p, &p);
 
 	buf->flags = _glibtop_sysdeps_uptime;
 }
