@@ -1,3 +1,11 @@
+1999-05-07  Martin Baulig  <martin@home-of-linux.org>
+
+	* server.c (main): There's some problem with uname () - some systems
+	like Solaris or Digital Unix return a nonnegative value on success,
+	some others like Linux return 0. Since all known systems seem to return
+	a negative value on failure, we simply check whether the return value is
+	not negative here.
+
 1999-02-19  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am (LIBGTOP_COMPILE_SYSTEM): Hardcoded system name.

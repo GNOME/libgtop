@@ -68,7 +68,7 @@ main(int argc, char *argv[])
 	uid = getuid (); euid = geteuid ();
 	gid = getgid (); egid = getegid ();
 
-	if (uname (&uts)) _exit (1);
+	if (uname (&uts) < 0) _exit (1);
 
 	if (strcmp (uts.sysname, LIBGTOP_COMPILE_SYSTEM) ||
 	    strcmp (uts.release, LIBGTOP_COMPILE_RELEASE) ||
