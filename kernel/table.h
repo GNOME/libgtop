@@ -1,13 +1,23 @@
 #ifndef _LINUX_TABLE_H
 #define _LINUX_TABLE_H
-#include <linux/types.h>
 
-#define TABLE_VERSION	0
-#define TABLE_CPU	1
-#define TABLE_MEM	2
-#define TABLE_SWAP	3
-#define TABLE_LOADAVG	4
-#define TABLE_UPTIME	5
+#ifdef _KERNEL
+#include <linux/types.h>
+#endif
+
+#define TABLE_VERSION		0
+#define TABLE_CPU		1
+#define TABLE_MEM		2
+#define TABLE_SWAP		3
+#define TABLE_LOADAVG		4
+#define TABLE_UPTIME		5
+#define TABLE_PROC_UID		6
+#define TABLE_PROC_MEM		7
+#define TABLE_PROC_SEGMENT	8
+#define TABLE_PROC_TIME		9
+#define TABLE_PROC_STATE	10
+#define TABLE_PROC_SIGNAL	11
+#define TABLE_PROC_KERNEL	12
 
 /* CPU Usage (in jiffies = 1/100th seconds) */
 
@@ -46,7 +56,7 @@ struct table_swap
 
 struct table_loadavg
 {
-	unsigned long loadavg [3];
+	double loadavg [3];
 	unsigned nr_running;
 	unsigned nr_tasks;
 	unsigned last_pid;
@@ -60,6 +70,67 @@ struct table_uptime
 	unsigned long idle;
 };
 
+/* Information about processes. */
+
+struct table_proc_state
+{
+	long state;
+	unsigned long flags;
+	char comm[16];
+};
+
+struct table_proc_uid
+{
+	int uid, euid, suid, fsuid;
+	int gid, egid, sgid, fsgid;
+	int pid, pgrp, ppid;
+	int session;
+	unsigned int tty;
+	int tpgid;
+	long priority;
+	long counter;
+	long def_priority;
+};
+
+struct table_proc_mem
+{
+	unsigned long context;
+	unsigned long start_code, end_code, start_data, end_data;
+	unsigned long start_brk, brk, start_stack, start_mmap;
+	unsigned long arg_start, arg_end, env_start, env_end;
+	unsigned long rss, rlim, total_vm, locked_vm;
+};
+
+struct table_proc_segment
+{
+	unsigned long vsize;
+	int size, resident, shared;
+	int trs, lrs, drs, dt;
+};
+
+struct table_proc_time
+{
+	long utime, stime, cutime, cstime, start_time;
+	unsigned long timeout, policy, rt_priority;
+	unsigned long it_real_value, it_prof_value, it_virt_value;
+	unsigned long it_real_incr, it_prof_incr, it_virt_incr;
+};
+
+struct table_proc_signal
+{
+	unsigned long signal;
+	unsigned long blocked;	/* bitmap of masked signals */
+	unsigned long ignored;  /* mask of ignored signals */
+	unsigned long caught;   /* mask of caught signals */
+};
+
+struct table_proc_kernel
+{
+	unsigned long keip, kesp, wchan;
+	unsigned long min_flt, maj_flt, cmin_flt, cmaj_flt;
+	unsigned long nswap, cnswap;
+};
+
 /* Union */
 
 union table
@@ -69,11 +140,14 @@ union table
 	struct table_swap swap;
 	struct table_loadavg loadavg;
 	struct table_uptime uptime;
+	struct table_proc_uid proc_uid;
+	struct table_proc_mem proc_mem;
+	struct table_proc_segment proc_segment;
+	struct table_proc_time proc_time;
+	struct table_proc_state proc_state;	
+	struct table_proc_signal proc_signal;
+	struct table_proc_kernel proc_kernel;
 };
-
-#ifdef __KERNEL__
-
-#endif /* __KERNEL__ */
 
 #endif /* _LINUX_IPC_H */
 
