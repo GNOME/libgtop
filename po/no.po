@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.8\n"
-"POT-Creation-Date: 2002-03-06 16:59+0100\n"
-"PO-Revision-Date: 2000-08-16 14:00+0200\n"
+"POT-Creation-Date: 2002-04-23 22:22+0200\n"
+"PO-Revision-Date: 2002-04-23 22:22+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <no@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -217,6 +217,14 @@ msgstr "%s: flagget `-W %s' er flertydig\n"
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: flagget `-W %s' tar ikke argumenter\n"
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr "Vis denne hjelpmeldingen"
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
+msgstr "Vis kort bruksinformasjon"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
