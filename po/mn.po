@@ -1,3 +1,4 @@
+# translation of mn.po to Mongolian
 # translation of libgtop.HEAD.po to Mongolian
 # translation of libgtop.libgtop-GNOME-2-0-port.de.po to Mongolian
 # This file is distributed under the same license as the PACKAGE package.
@@ -7,14 +8,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop.HEAD\n"
-"POT-Creation-Date: 2003-12-31 11:54+0100\n"
-"PO-Revision-Date: 2004-01-03 14:33+0100\n"
+"Project-Id-Version: mn\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-05 21:45+0100\n"
+"PO-Revision-Date: 2004-01-05 21:47+0100\n"
 "Last-Translator: Sanlig Badral <Badral@openmn.org>\n"
 "Language-Team: Mongolian <openmn-core@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.0.2\n"
 
 #: examples/smp.c:74
@@ -26,13 +29,11 @@ msgstr "Лугшилт (секундэд %ld )"
 msgid "Total"
 msgstr "Нийт"
 
-#: examples/smp.c:77
-#: sysdeps/names/mem.c:48
+#: examples/smp.c:77 sysdeps/names/mem.c:48
 msgid "User"
 msgstr "Хэрэглэгч"
 
-#: examples/smp.c:77
-#: sysdeps/names/procuid.c:51
+#: examples/smp.c:77 sysdeps/names/procuid.c:51
 msgid "Nice"
 msgstr "Nice"
 
@@ -101,15 +102,29 @@ msgid "Spin:"
 msgstr "Spin:"
 
 #: lib/read.c:78
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "%d байт унших"
+msgstr[1] "%d байт унших"
+
 #: lib/read_data.c:51
-#, c-format
 msgid "read data size"
 msgstr "өгөгдлийн хэмжээг унших"
 
 #: lib/read_data.c:68
+msgid "read data %d byte"
+msgid_plural "read data %d bytes"
+msgstr[0] "%d байт өгөгдөл унших"
+msgstr[1] "%d байт өгөгдөл унших"
+
 #: lib/write.c:51
-#: src/daemon/gnuserv.c:456
 #, c-format
+msgid "write %d byte"
+msgid_plural "write %d bytes"
+msgstr[0] "%d байт бичих"
+msgstr[1] "%d байт бичих"
+
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "Алдаа оношлогчийг идэвхижүүлэх"
 
@@ -198,28 +213,25 @@ msgstr "Процессоруудын нийт CPU-хугацаа хоосон я
 msgid "SMP CPU Flags"
 msgstr "SMP CPU Flags"
 
-#: sysdeps/names/cpu.c:60
-#: sysdeps/names/cpu.c:66
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks since system boot"
 msgstr "»Цаг«-н тоо, систем эхэлснээс хойшхи лугшилтууд"
 
-#: sysdeps/names/cpu.c:61
-#: sysdeps/names/cpu.c:67
+#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in user mode"
 msgstr "»Цаг« -н тоо, хэрэглэгчийн горимд системд хэрэглэгдсэн лугшилтууд"
 
-#: sysdeps/names/cpu.c:62
-#: sysdeps/names/cpu.c:68
+#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "»Цаг« -н тоо, хэрэглэгчийн горимд системд бага давуу эрхтэй (nice) хэрэглэгдсэн лугшилтууд"
+msgstr ""
+"»Цаг« -н тоо, хэрэглэгчийн горимд системд бага давуу эрхтэй (nice) "
+"хэрэглэгдсэн лугшилтууд"
 
-#: sysdeps/names/cpu.c:63
-#: sysdeps/names/cpu.c:69
+#: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in system mode"
 msgstr "»Цаг«-н тоо, цөмийн горимд системд хэрэглэгдсэн лугшилтууд"
 
-#: sysdeps/names/cpu.c:64
-#: sysdeps/names/cpu.c:70
+#: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in the idle task"
 msgstr "»Цаг«-н тоо, хоосон явалтын горимд системд хэрэглэгдсэн лугшилтууд"
 
@@ -231,8 +243,7 @@ msgstr "Лугшилтын давтамж (Стандарт нь 100)"
 msgid "Bit field indicating which CPU is currently running"
 msgstr "Яг одоо ямар ТПН ажиллаж буйг заагч бит талбар"
 
-#: sysdeps/names/fsusage.c:40
-#: sysdeps/names/fsusage.c:49
+#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
 msgid "Total blocks"
 msgstr "Нийт блок"
 
@@ -244,13 +255,11 @@ msgstr "Чөлөөтэй блок"
 msgid "Available blocks"
 msgstr "Хэрэглэчид байгаа блок"
 
-#: sysdeps/names/fsusage.c:43
-#: sysdeps/names/fsusage.c:52
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
 msgid "Total file nodes"
 msgstr "Нийт файлын зангилаанууд"
 
-#: sysdeps/names/fsusage.c:44
-#: sysdeps/names/fsusage.c:53
+#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
 msgid "Free file nodes"
 msgstr "Чөлөөт файлын зангилаанууд"
 
@@ -274,8 +283,7 @@ msgstr "Ажиллаж буй таскууд"
 msgid "Number of Tasks"
 msgstr "Таскын тоо"
 
-#: sysdeps/names/loadavg.c:43
-#: sysdeps/names/loadavg.c:51
+#: sysdeps/names/loadavg.c:43 sysdeps/names/loadavg.c:51
 msgid "Last PID"
 msgstr "Сүүлийн PID"
 
@@ -351,70 +359,53 @@ msgstr "Хэрэглэгчийн процессуудын ашиглаж бай�
 msgid "Memory in locked pages in kB"
 msgstr "Түгжээтэй хуудсаны санах ойн хэмжээ кБ-р"
 
-#: sysdeps/names/mountlist.c:39
-#: sysdeps/names/mountlist.c:46
-#: sysdeps/names/proclist.c:39
-#: sysdeps/names/proclist.c:46
-#: sysdeps/names/procmap.c:39
-#: sysdeps/names/procmap.c:46
+#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
+#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
+#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
 msgid "Number of list elements"
 msgstr "Жигсаалтын элементийн тоо"
 
-#: sysdeps/names/mountlist.c:40
-#: sysdeps/names/mountlist.c:47
-#: sysdeps/names/proclist.c:40
-#: sysdeps/names/proclist.c:47
-#: sysdeps/names/procmap.c:40
-#: sysdeps/names/procmap.c:47
+#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
+#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
+#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
 msgid "Total size of list"
 msgstr "Жигсаалтын нийт хэмжээ"
 
-#: sysdeps/names/mountlist.c:41
-#: sysdeps/names/mountlist.c:48
-#: sysdeps/names/proclist.c:41
-#: sysdeps/names/proclist.c:48
-#: sysdeps/names/procmap.c:41
-#: sysdeps/names/procmap.c:48
+#: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
+#: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
+#: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
 msgid "Size of a single list element"
 msgstr "Нэг жигсаалтын элементийн хэмжээ"
 
-#: sysdeps/names/msg_limits.c:41
-#: sysdeps/names/msg_limits.c:52
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Size in kilobytes of message pool"
 msgstr "Мэдээний мужийн хэмжээ килобайтаар"
 
-#: sysdeps/names/msg_limits.c:42
-#: sysdeps/names/msg_limits.c:53
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Number of entries in message map"
 msgstr "Мэдээний хүснэгтэн дэх бичлэгийн тоо"
 
-#: sysdeps/names/msg_limits.c:43
-#: sysdeps/names/msg_limits.c:54
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Max size of message"
 msgstr "Мэдээний максимум хэмжээ"
 
-#: sysdeps/names/msg_limits.c:44
-#: sysdeps/names/msg_limits.c:55
+#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Default max size of queue"
 msgstr "Дарааллын стандарт максимум хэмжээ "
 
-#: sysdeps/names/msg_limits.c:45
-#: sysdeps/names/msg_limits.c:56
+#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Max queues system wide"
 msgstr "Даяар систем дэх дарааллын максимум тоо"
 
-#: sysdeps/names/msg_limits.c:46
-#: sysdeps/names/msg_limits.c:57
+#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Message segment size"
 msgstr "Мэдээний сегментийн хэмжээ"
 
-#: sysdeps/names/msg_limits.c:47
-#: sysdeps/names/msg_limits.c:58
+#: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
 msgid "Number of system message headers"
 msgstr "Системийн мэдээний толгойн тоо"
 
-#: sysdeps/names/netload.c:46
-#: sysdeps/names/netload.c:64
+#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:64
 msgid "Interface Flags"
 msgstr "Залгаасын флагууд"
 
@@ -422,63 +413,51 @@ msgstr "Залгаасын флагууд"
 msgid "MTU"
 msgstr "MTU"
 
-#: sysdeps/names/netload.c:48
-#: sysdeps/names/netload.c:66
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
 msgid "Subnet"
 msgstr "Subnetz"
 
-#: sysdeps/names/netload.c:49
-#: sysdeps/names/netload.c:67
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
 msgid "Address"
 msgstr "Хаяг"
 
-#: sysdeps/names/netload.c:50
-#: sysdeps/names/netload.c:68
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
 msgid "Packets In"
 msgstr "Оролт пакетууд"
 
-#: sysdeps/names/netload.c:51
-#: sysdeps/names/netload.c:69
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
 msgid "Packets Out"
 msgstr "Гаралт пакетууд"
 
-#: sysdeps/names/netload.c:52
-#: sysdeps/names/netload.c:70
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
 msgid "Packets Total"
 msgstr "Нийт пакет"
 
-#: sysdeps/names/netload.c:53
-#: sysdeps/names/netload.c:71
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 msgid "Bytes In"
 msgstr "Оролт байт"
 
-#: sysdeps/names/netload.c:54
-#: sysdeps/names/netload.c:72
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 msgid "Bytes Out"
 msgstr "Гаралт байт"
 
-#: sysdeps/names/netload.c:55
-#: sysdeps/names/netload.c:73
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
 msgid "Bytes Total"
 msgstr "Нийт байтууд"
 
-#: sysdeps/names/netload.c:56
-#: sysdeps/names/netload.c:74
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
 msgid "Errors In"
 msgstr "Оролт алдаа"
 
-#: sysdeps/names/netload.c:57
-#: sysdeps/names/netload.c:75
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
 msgid "Errors Out"
 msgstr "Гаралт алдаа"
 
-#: sysdeps/names/netload.c:58
-#: sysdeps/names/netload.c:76
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
 msgid "Errors Total"
 msgstr "Нийт алдаа"
 
-#: sysdeps/names/netload.c:59
-#: sysdeps/names/netload.c:77
+#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:77
 msgid "Collisions"
 msgstr "Зөрчилдөөн"
 
@@ -486,8 +465,7 @@ msgstr "Зөрчилдөөн"
 msgid "Maximum Transfer Unit"
 msgstr "Максимум дамжууллын нэгж"
 
-#: sysdeps/names/ppp.c:39
-#: sysdeps/names/ppp.c:46
+#: sysdeps/names/ppp.c:39 sysdeps/names/ppp.c:46
 msgid "PPP State"
 msgstr "PPP-төлөв"
 
@@ -507,8 +485,7 @@ msgstr "Оролтын байтуудын тоо"
 msgid "Number of output bytes"
 msgstr "Гаралтын байтуудын тоо"
 
-#: sysdeps/names/procargs.c:39
-#: sysdeps/names/procmem.c:48
+#: sysdeps/names/procargs.c:39 sysdeps/names/procmem.c:48
 msgid "Size"
 msgstr "Процессийн хэмжээ"
 
@@ -557,7 +534,8 @@ msgstr "WChan"
 msgid ""
 "Kernel flags of the process.\n"
 "\n"
-"On Linux, currently every flag has the math bit set, because crt0.s checks for math emulation, so this is not included in the output.\n"
+"On Linux, currently every flag has the math bit set, because crt0.s checks "
+"for math emulation, so this is not included in the output.\n"
 "\n"
 "This is probably a bug, as not every process is a compiled C program.\n"
 "\n"
@@ -575,13 +553,21 @@ msgstr ""
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:60
-msgid "The number of minor faults the process has made, those which have not required loading a memory page from disk."
-msgstr "Anzahl weniger schwerer Seitenfehler einesпроцессынs, d.h. diejenigen die es nicht erforderlich gemacht haben, eine Seite von der Platte zu laden."
+msgid ""
+"The number of minor faults the process has made, those which have not "
+"required loading a memory page from disk."
+msgstr ""
+"Anzahl weniger schwerer Seitenfehler einesпроцессынs, d.h. diejenigen die es "
+"nicht erforderlich gemacht haben, eine Seite von der Platte zu laden."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:63
-msgid "The number of major faults the process has made, those which have required loading a memory page from disk."
-msgstr "Процессын ноцтой хуудсын алдааны тоо, энэ нь тухайн процесс дискнээс санах ойн хуудсанд ачаалахыг шаардсан гэсэн үг."
+msgid ""
+"The number of major faults the process has made, those which have required "
+"loading a memory page from disk."
+msgstr ""
+"Процессын ноцтой хуудсын алдааны тоо, энэ нь тухайн процесс дискнээс санах "
+"ойн хуудсанд ачаалахыг шаардсан гэсэн үг."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:66
@@ -595,8 +581,12 @@ msgstr "Процесс эсвэл хүү процессын ноцтой хуу�
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:72
-msgid "The current value of esp (32-bit stack pointer), as found in the kernel stack page for the process."
-msgstr "Kernel-ийн стек хуудсаас олдсон процессын 32-бит стекийн заагчийн идэвхитэй утга."
+msgid ""
+"The current value of esp (32-bit stack pointer), as found in the kernel "
+"stack page for the process."
+msgstr ""
+"Kernel-ийн стек хуудсаас олдсон процессын 32-бит стекийн заагчийн идэвхитэй "
+"утга."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:75
@@ -605,8 +595,16 @@ msgstr "Процессорын идэвхитэй 32-бит процессын (
 
 #. NWChan
 #: sysdeps/names/prockernel.c:77
-msgid "This is the \"channel\" in which the process is waiting.  This is the address of a system call, and can be looked up in a namelist if you need a textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to see the WCHAN field in action)"
-msgstr "Энэ »Суваг« дотор процесс хүлээж байгаа.  Энэ нь системийн дуудалтын хаяг ба хэрвээ таньд түүний текст нэр нь хэрэгтэй бол та нэрсийн жигсаалтаас олох болно  (хэрвээ таньд одоогоор »etc/psdatabase« байгаа бол үйлдийн WCHAN-талбарыг харахын тулд та »ps -l« гэж оролдоно уу.)."
+msgid ""
+"This is the \"channel\" in which the process is waiting.  This is the "
+"address of a system call, and can be looked up in a namelist if you need a "
+"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
+"see the WCHAN field in action)"
+msgstr ""
+"Энэ »Суваг« дотор процесс хүлээж байгаа.  Энэ нь системийн дуудалтын хаяг ба "
+"хэрвээ таньд түүний текст нэр нь хэрэгтэй бол та нэрсийн жигсаалтаас олох "
+"болно  (хэрвээ таньд одоогоор »etc/psdatabase« байгаа бол үйлдийн WCHAN-"
+"талбарыг харахын тулд та »ps -l« гэж оролдоно уу.)."
 
 #. WChan
 #: sysdeps/names/prockernel.c:82
@@ -650,8 +648,15 @@ msgid "Number of pages of shared (mmap'd) memory"
 msgstr "Хамтын санах ойн хуудсын тоо (via mmap())"
 
 #: sysdeps/names/procmem.c:58
-msgid "Number of pages the process has in real memory, minus 3 for administrative purposes. This is just the pages which count towards text, data, or stack space. This does not include pages which have not been demand-loaded in, or which are swapped out."
-msgstr "Бодит санах ойд буй процессуудын хуудсын тоо. хасах 3 бол зохион байгуулагчийн зорилгоор байдаг,Энэ нь хуудсууд текст, өгөгдөл, стекийн мужийн зай юм. Энэ нь зөөгддгүй хуудсууд байдаг."
+msgid ""
+"Number of pages the process has in real memory, minus 3 for administrative "
+"purposes. This is just the pages which count towards text, data, or stack "
+"space. This does not include pages which have not been demand-loaded in, or "
+"which are swapped out."
+msgstr ""
+"Бодит санах ойд буй процессуудын хуудсын тоо. хасах 3 бол зохион "
+"байгуулагчийн зорилгоор байдаг,Энэ нь хуудсууд текст, өгөгдөл, стекийн "
+"мужийн зай юм. Энэ нь зөөгддгүй хуудсууд байдаг."
 
 #: sysdeps/names/procmem.c:63
 msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
@@ -898,8 +903,12 @@ msgid "The time (in jiffies) of the process's next timeout"
 msgstr "Дараагийн хэтрэх хугацаа хүртэлх процессийн хугацаа (1/100 секундээр) "
 
 #: sysdeps/names/proctime.c:59
-msgid "The time (in jiffies) before the next SIGALRM is sent to the process due to an interval timer."
-msgstr "Дараагийн SIGALRM -н өмнө сигналыг завсрын-timer аас процесс руу илгээх хугацаа (1/100 секундээр)"
+msgid ""
+"The time (in jiffies) before the next SIGALRM is sent to the process due to "
+"an interval timer."
+msgstr ""
+"Дараагийн SIGALRM -н өмнө сигналыг завсрын-timer аас процесс руу илгээх "
+"хугацаа (1/100 секундээр)"
 
 #: sysdeps/names/proctime.c:61
 msgid "Tick frequency"
@@ -907,7 +916,9 @@ msgstr "Лугшилтын давтамж"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr "Хэрэглэгчийн горимд процессын хэрэглэх хугацаа, бүх процессорууд хамттооцогдсон"
+msgstr ""
+"Хэрэглэгчийн горимд процессын хэрэглэх хугацаа, бүх процессорууд "
+"хамттооцогдсон"
 
 #: sysdeps/names/proctime.c:63
 msgid "SMP kernel-mode CPU time accumulated by process"
@@ -1053,93 +1064,75 @@ msgstr "Нэмэлт процессын бүлгийн тоо"
 msgid "Array of additional process groups"
 msgstr "Нэмэлт процессын бүлгийн массив"
 
-#: sysdeps/names/sem_limits.c:43
-#: sysdeps/names/sem_limits.c:57
+#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
 msgstr "Семафор хүснэгтэн дэх бичлэгийн тоо"
 
-#: sysdeps/names/sem_limits.c:44
-#: sysdeps/names/sem_limits.c:58
+#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max number of arrays"
 msgstr "Талбарын максимум тоо"
 
-#: sysdeps/names/sem_limits.c:45
-#: sysdeps/names/sem_limits.c:59
+#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max semaphores system wide"
 msgstr "Систем дэх семафорын максимум тоо"
 
-#: sysdeps/names/sem_limits.c:46
-#: sysdeps/names/sem_limits.c:60
+#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Number of undo structures system wide"
 msgstr "Систем дэх »Undo-төрлийн« тоо"
 
-#: sysdeps/names/sem_limits.c:47
-#: sysdeps/names/sem_limits.c:61
+#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max semaphores per array"
 msgstr "Талбар тус бүрийн семафорын максимум тоо"
 
-#: sysdeps/names/sem_limits.c:48
-#: sysdeps/names/sem_limits.c:62
+#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max ops per semop call"
 msgstr "»semop-дуудалт« тус бүрийн үйлдлийн максимум тоо"
 
-#: sysdeps/names/sem_limits.c:49
-#: sysdeps/names/sem_limits.c:63
+#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max number of undo entries per process"
 msgstr "Процесс тус бүрийн »Undo-бичлэгийн« максимум тоо"
 
-#: sysdeps/names/sem_limits.c:50
-#: sysdeps/names/sem_limits.c:64
+#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "sizeof struct sem_undo"
 msgstr "sizeof struct sem_undo"
 
-#: sysdeps/names/sem_limits.c:51
-#: sysdeps/names/sem_limits.c:65
+#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Semaphore max value"
 msgstr "Семафорын максимум утга"
 
-#: sysdeps/names/sem_limits.c:52
-#: sysdeps/names/sem_limits.c:66
+#: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 msgid "Adjust on exit max value"
 msgstr "»Adjust-on-Exit« -н максимум утга"
 
-#: sysdeps/names/shm_limits.c:40
-#: sysdeps/names/shm_limits.c:49
+#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Max segment size"
 msgstr "Сегментийн максимум хэмжээ"
 
-#: sysdeps/names/shm_limits.c:41
-#: sysdeps/names/shm_limits.c:50
+#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Min segment size"
 msgstr "Сегментийн минимум хэмжээ"
 
-#: sysdeps/names/shm_limits.c:42
-#: sysdeps/names/shm_limits.c:51
+#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max number of segments"
 msgstr "Сегментийн максимум тоо"
 
-#: sysdeps/names/shm_limits.c:43
-#: sysdeps/names/shm_limits.c:52
+#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max shared segments per process"
 msgstr "Процесс тус бүрийн хамтын сегментийн максимум тоо"
 
-#: sysdeps/names/shm_limits.c:44
-#: sysdeps/names/shm_limits.c:53
+#: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max total shared memory"
 msgstr "Хамтын санах ойн максимум хэмжээ"
 
-#: sysdeps/names/swap.c:40
-#: sysdeps/names/swap.c:49
+#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Total Swap Space"
 msgstr "Зөөлтийн нийт санах ой"
 
-#: sysdeps/names/swap.c:41
-#: sysdeps/names/swap.c:50
+#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Used Swap Space"
 msgstr "Зөөлтийн хэрэглэгдсэн санах ой"
 
-#: sysdeps/names/swap.c:42
-#: sysdeps/names/swap.c:51
+#: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 msgid "Free Swap Space"
 msgstr "Зөөлтийн сул санах ой"
 
@@ -1159,88 +1152,71 @@ msgstr "Сүүлийн системийн эхлэлээс хойш зөөсөн
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "Сүүлийн системийн эхлэлээс өмнө зөөсөн нийт хуудсын тоо"
 
-#: sysdeps/names/sysdeps.c:50
-#: sysdeps/names/sysdeps.c:77
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "Server Features"
 msgstr "Серверийн тэмдэг"
 
-#: sysdeps/names/sysdeps.c:51
-#: sysdeps/names/sysdeps.c:78
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "CPU Usage"
 msgstr "Процессорын ачаалал"
 
-#: sysdeps/names/sysdeps.c:52
-#: sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Memory Usage"
 msgstr "Санах ойн ашиглалт"
 
-#: sysdeps/names/sysdeps.c:53
-#: sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "Swap Usage"
 msgstr "Зөөлт санах ойн ашиглалт"
 
-#: sysdeps/names/sysdeps.c:54
-#: sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "System Uptime"
 msgstr "Системийн гүйх цаг"
 
-#: sysdeps/names/sysdeps.c:55
-#: sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Load Averange"
 msgstr "Системийн ачаалал"
 
-#: sysdeps/names/sysdeps.c:56
-#: sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Shared Memory Limits"
 msgstr "Хамтын хэрэглээний санах ойн хязгаар"
 
-#: sysdeps/names/sysdeps.c:57
-#: sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Message Queue Limits"
 msgstr "Мэдээний дарааллын хязгаар"
 
-#: sysdeps/names/sysdeps.c:58
-#: sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "Semaphore Set Limits"
 msgstr "Семафорын тогтоосон хязгаар"
 
-#: sysdeps/names/sysdeps.c:59
-#: sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "List of running Processes"
 msgstr "Одоогоор ажиллаж байгаа процессын жигсаалт"
 
-#: sysdeps/names/sysdeps.c:60
-#: sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process Status information"
 msgstr "Процессын төлвийн мэдээлэл"
 
-#: sysdeps/names/sysdeps.c:61
-#: sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process UID and TTY information"
 msgstr "Процессын эзэмшигч ба терминалын мэдээлэл"
 
-#: sysdeps/names/sysdeps.c:62
-#: sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Memory information"
 msgstr "Процессын санах ойн мэдээлэл"
 
-#: sysdeps/names/sysdeps.c:63
-#: sysdeps/names/sysdeps.c:90
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Time information"
 msgstr "Процессын хугацааны мэдээлэл"
 
-#: sysdeps/names/sysdeps.c:64
-#: sysdeps/names/sysdeps.c:91
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Signal information"
 msgstr "Процессын сигналын мэдээлэл"
 
-#: sysdeps/names/sysdeps.c:65
-#: sysdeps/names/sysdeps.c:92
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Kernel Data information"
 msgstr "Процессын Kernel өгөгдлийн мэдээлэл"
 
-#: sysdeps/names/sysdeps.c:66
-#: sysdeps/names/sysdeps.c:93
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:93
 msgid "Process Segment information"
 msgstr "Процессын сегментийн мэдээлэл"
 
@@ -1248,8 +1224,7 @@ msgstr "Процессын сегментийн мэдээлэл"
 msgid "Process Arguments"
 msgstr "Процессын аргументууд"
 
-#: sysdeps/names/sysdeps.c:68
-#: sysdeps/names/sysdeps.c:95
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
 msgid "Process Memory Map"
 msgstr "Процессын санах ойн зураг"
 
@@ -1257,18 +1232,15 @@ msgstr "Процессын санах ойн зураг"
 msgid "Mount List"
 msgstr "Холболт жигсаалт"
 
-#: sysdeps/names/sysdeps.c:70
-#: sysdeps/names/sysdeps.c:97
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "File System Usage"
 msgstr "Файлын системын ашиглалт"
 
-#: sysdeps/names/sysdeps.c:71
-#: sysdeps/names/sysdeps.c:98
+#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "Network Load"
 msgstr "Сүлжээний ачаалал"
 
-#: sysdeps/names/sysdeps.c:72
-#: sysdeps/names/sysdeps.c:99
+#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:99
 msgid "PPP Statistics"
 msgstr "PPP тоон үзүүлэлт"
 
@@ -1304,158 +1276,127 @@ msgstr "Систем эхэлснээс хойшхи хоосон гүйлтий
 msgid "Time of last system boot in seconds since the epoch"
 msgstr "Системийн сүүлийн ачаалласан хугацаа"
 
-#: sysdeps/osf1/siglist.c:28
-#: sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "Тавих"
 
-#: sysdeps/osf1/siglist.c:29
-#: sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "Тасалдал"
 
-#: sysdeps/osf1/siglist.c:30
-#: sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "Гарах"
 
-#: sysdeps/osf1/siglist.c:31
-#: sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "Хүчингүй заавар"
 
-#: sysdeps/osf1/siglist.c:32
-#: sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "Trace-Trap"
 
-#: sysdeps/osf1/siglist.c:33
-#: sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "Болих"
 
-#: sysdeps/osf1/siglist.c:34
-#: sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "EMT-Алдаа"
 
-#: sysdeps/osf1/siglist.c:35
-#: sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "Хөвдөг таслалтай онцлолт"
 
-#: sysdeps/osf1/siglist.c:36
-#: sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "Алах"
 
-#: sysdeps/osf1/siglist.c:37
-#: sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "Bus алдаа"
 
-#: sysdeps/osf1/siglist.c:38
-#: sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "Сегментийн гажуудал"
 
-#: sysdeps/osf1/siglist.c:39
-#: sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "Системийн дуудалтын хувьд хүчингүй аргумент"
 
-#: sysdeps/osf1/siglist.c:40
-#: sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "Тасарсан шугам"
 
-#: sysdeps/osf1/siglist.c:41
-#: sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "Сэрүүлэг"
 
-#: sysdeps/osf1/siglist.c:42
-#: sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "Төгсгөх"
 
-#: sysdeps/osf1/siglist.c:43
-#: sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "Чухал соккетийн төлөв"
 
-#: sysdeps/osf1/siglist.c:44
-#: sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "Зогс"
 
-#: sysdeps/osf1/siglist.c:45
-#: sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "Гар-зогсоох"
 
-#: sysdeps/osf1/siglist.c:46
-#: sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "Үргэлжлүүлэх"
 
-#: sysdeps/osf1/siglist.c:47
-#: sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "Хүү төлөв өөрчилөгдлөө"
 
-#: sysdeps/osf1/siglist.c:48
-#: sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "Дэвсгэр tty -аас унших"
 
-#: sysdeps/osf1/siglist.c:49
-#: sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "Дэвсгэр tty -дээр бичих"
 
-#: sysdeps/osf1/siglist.c:50
-#: sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "О/Г одоо боломжтой"
 
-#: sysdeps/osf1/siglist.c:51
-#: sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "CPU-хязгаараас халилаа"
 
-#: sysdeps/osf1/siglist.c:52
-#: sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "Файлын хэмжээ хязгаараас халилаа"
 
-#: sysdeps/osf1/siglist.c:53
-#: sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "Виртуал сэрүүлэг"
 
-#: sysdeps/osf1/siglist.c:54
-#: sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "Яг таг сэрүүлэг"
 
-#: sysdeps/osf1/siglist.c:55
-#: sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "Цонхны хэмжээ өөрчилөх"
 
-#: sysdeps/osf1/siglist.c:56
-#: sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "Мэдээлийн хүсэлт"
 
-#: sysdeps/osf1/siglist.c:57
-#: sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "Хэрэглэгчийн тодорхойлсон сигнал 1"
 
-#: sysdeps/osf1/siglist.c:58
-#: sysdeps/sun4/siglist.c:58
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Хэрэглэгчийн тодорхойлсон сигнал 2"
 
