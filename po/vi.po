@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 2002-05-05 15:04+0200\n"
-"PO-Revision-Date: 2002-06-05 03:09+0700\n"
+"POT-Creation-Date: 2002-06-12 21:11+0200\n"
+"PO-Revision-Date: 2002-06-08 03:17+0700\n"
 "Last-Translator: pclouds <pclouds@gmx.net>\n"
 "Language-Team: GnomeVI <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,9 @@ msgstr "Rảnh"
 msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
-msgstr "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n\n"
+msgstr ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
 
 #: examples/smp.c:77
 #, c-format
@@ -78,7 +80,9 @@ msgstr "Rảnh (%)"
 msgid ""
 "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 "\n"
-msgstr "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n\n"
+msgstr ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
 
 #: examples/smp.c:114
 #, c-format
@@ -586,13 +590,23 @@ msgid ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
+"Cờ kernel của tiến trình.\n"
+"\n"
+"Trên Linux, mỗi cờ hiện hành có đặt math bit, để crt0.s kiểm tra xem có hỗ "
+"trợ mô phỏng toán học hay không, vì thế nó không được gộp trong đầu ra.\n"
+"\n"
+"Đây có thể là lỗi, vì không phải mọi tiến trình đều được viết bằng C.\n"
+"\n"
+"Math bit là 4, và traced bit là 10."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:59
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
-msgstr "Số lỗi phụ của tiến trình. Những lỗi này khôgn cần yêu cầu nạp lên bộ nhớ từ đĩa."
+msgstr ""
+"Số lỗi phụ của tiến trình. Những lỗi này khôgn cần yêu cầu nạp lên bộ nhớ từ "
+"đĩa."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -630,7 +644,11 @@ msgid ""
 "address of a system call, and can be looked up in a namelist if you need a "
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
-msgstr "Đây là \"kênh\" mà tiến trình đang đợi. Đây là địa chỉ của lệnh gọi hệ thống, và có thể được tra cứu trong danh sách tên nếu bạn cần biết tên của nó. (Nếu bạn có /etc/psdatabase đã cập nhật thì hãy thử ps -l và xem trường WCHAN)"
+msgstr ""
+"Đây là \"kênh\" mà tiến trình đang đợi. Đây là địa chỉ của lệnh gọi hệ "
+"thống, và có thể được tra cứu trong danh sách tên nếu bạn cần biết tên của "
+"nó. (Nếu bạn có /etc/psdatabase đã cập nhật thì hãy thử ps -l và xem trường "
+"WCHAN)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
@@ -679,12 +697,16 @@ msgid ""
 "purposes. This is just the pages which count towards text, data, or stack "
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
-msgstr "Số trang bộ nhớ thực mà tiến trình dùng, trừ đi 3 vì mục đích quản lý. Đây chỉ là số trang đếm không gian của phân đoạn text, data, hoặc ngăn xếp. Nó không bao gồm các trang được nạp theo yêu cầu, hoặc được tráo đổi."
+msgstr ""
+"Số trang bộ nhớ thực mà tiến trình dùng, trừ đi 3 vì mục đích quản lý. Đây "
+"chỉ là số trang đếm không gian của phân đoạn text, data, hoặc ngăn xếp. Nó "
+"không bao gồm các trang được nạp theo yêu cầu, hoặc được tráo đổi."
 
 #: sysdeps/names/procmem.c:62
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "Giới hạn hiện thời (byte) của rss của tiến trình (thường là 2,147,483,647)."
+msgstr ""
+"Giới hạn hiện thời (byte) của rss của tiến trình (thường là 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
@@ -875,22 +897,28 @@ msgid "kernel-mode CPU time accumulated by process"
 msgstr "Thời gian CPU chế độ kerneo được tích lũy bởi tiến trình"
 
 #: sysdeps/names/proctime.c:55
+#, fuzzy
 msgid "cumulative utime of process and reaped children"
-msgstr ""
+msgstr "cumulative utime of process and reaped children"
 
 #: sysdeps/names/proctime.c:56
+#, fuzzy
 msgid "cumulative stime of process and reaped children"
-msgstr ""
+msgstr "cumulative stime of process and reaped children"
 
 #: sysdeps/names/proctime.c:57
+#, fuzzy
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr ""
+msgstr "The time (in jiffies) of the process's next timeout"
 
 #: sysdeps/names/proctime.c:58
+#, fuzzy
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
+"The time (in jiffies) before the next SIGALRM is sent to the process due to "
+"an interval timer."
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
@@ -1077,12 +1105,15 @@ msgid "Page Out"
 msgstr "Trang ra"
 
 #: sysdeps/names/swap.c:51
+#, fuzzy
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr ""
+msgstr "Total number of swap pages that have been brought in since system boot"
 
 #: sysdeps/names/swap.c:53
+#, fuzzy
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
+"Total number of swap pages that have been brought out since system boot"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
@@ -1101,8 +1132,9 @@ msgid "Swap Usage"
 msgstr "Sử dụng tráo đổi"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
+#, fuzzy
 msgid "System Uptime"
-msgstr ""
+msgstr "System Uptime"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "Load Averange"
@@ -1185,8 +1217,9 @@ msgid "List of currently mounted filesystems"
 msgstr "Danh sách các hệ thống tập tin được gắn kết"
 
 #: sysdeps/names/uptime.c:38
+#, fuzzy
 msgid "Uptime"
-msgstr ""
+msgstr "Uptime"
 
 #: sysdeps/names/uptime.c:39
 msgid "Idletime"
@@ -1241,8 +1274,9 @@ msgid "Bus error"
 msgstr "Lỗi Bus"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#, fuzzy
 msgid "Segmentation violation"
-msgstr ""
+msgstr "Segmentation violation"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
@@ -1261,8 +1295,9 @@ msgid "Termination"
 msgstr "Kết thúc"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#, fuzzy
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Urgent condition on socket"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
@@ -1305,8 +1340,9 @@ msgid "Virtual alarm clock"
 msgstr "Đồng hồ báo động ảo"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#, fuzzy
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Profiling alarm clock"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
