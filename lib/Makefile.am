@@ -27,7 +27,7 @@ structures.h: structures.pl $(top_builddir)/config.h \
 		structures.h > tmp-s
 	mv tmp-s structures.h
 
-EXTRA_DIST			= lib.pl
+EXTRA_DIST			= lib.pl structures.pl
 
 CLEANFILES			= $(BUILT_SOURCES)
 

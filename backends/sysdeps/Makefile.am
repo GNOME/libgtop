@@ -18,6 +18,9 @@ libgtop_backend_sysdeps_la_LDFLAGS = \
 BUILT_SOURCES = \
 	marshal.c
 
+EXTRA_DIST = \
+	marshal.pl
+
 CLEANFILES = $(BUILT_SOURCES)
 
 marshal.c: marshal.pl $(top_builddir)/config.h $(top_srcdir)/features.def $(top_srcdir)/scripts/c_types.pl
