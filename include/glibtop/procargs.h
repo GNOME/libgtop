@@ -29,21 +29,12 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
+#include <glibtop/compat_10.h>
+#include <glibtop/array.h>
+
 BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_PROC_ARGS_SIZE		0
-
-#define GLIBTOP_MAX_PROC_ARGS		1
-
-typedef struct _glibtop_proc_args	glibtop_proc_args;
-
-struct _glibtop_proc_args
-{
-    u_int64_t	flags,
-	size;			/* GLIBTOP_PROC_ARGS_SIZE	*/
-};
-
-#define glibtop_get_proc_args(proc_args,pid,max_len) glibtop_get_proc_args_l(glibtop_global_server, proc_args, pid, max_len)
+#define glibtop_get_proc_args(proc_args) glibtop_get_proc_args_l(glibtop_global_server, pid)
 
 #if GLIBTOP_SUID_PROC_ARGS
 #define glibtop_get_proc_args_r		glibtop_get_proc_args_p
@@ -51,22 +42,19 @@ struct _glibtop_proc_args
 #define glibtop_get_proc_args_r		glibtop_get_proc_args_s
 #endif
 
-char *
-glibtop_get_proc_args_l (glibtop *server, glibtop_proc_args *buf,
-			 pid_t pid, unsigned max_len);
+char **
+glibtop_get_proc_args_l (glibtop *server, glibtop_array *array, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_ARGS
 int glibtop_init_proc_args_p (glibtop *server);
 
-char *
-glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
-			 pid_t pid, unsigned max_len);
+char **
+glibtop_get_proc_args_p (glibtop *server, glibtop_array *array, pid_t pid);
 #else
 int glibtop_init_proc_args_s (glibtop *server);
 
-char *
-glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
-			 pid_t pid, unsigned max_len);
+char **
+glibtop_get_proc_args_s (glibtop *server, glibtop_array *array, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES
