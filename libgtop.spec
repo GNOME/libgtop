@@ -75,11 +75,6 @@ rm -rf $RPM_BUILD_ROOT
 
 make prefix=$RPM_BUILD_ROOT%{prefix} install
 
-# Move all examples to %{prefix}/libexec/libgtop
-mv $RPM_BUILD_ROOT%{prefix}/libexec $RPM_BUILD_ROOT%{prefix}/libgtop
-mkdir -p $RPM_BUILD_ROOT%{prefix}/libexec
-mv $RPM_BUILD_ROOT%{prefix}/libgtop $RPM_BUILD_ROOT%{prefix}/libexec
-
 #
 # msf - remove these as they are really supposed to come from gnome-libs
 #
