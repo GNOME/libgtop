@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-24 16:28+0100\n"
-"PO-Revision-Date: 2004-01-24 19:24+0100\n"
+"POT-Creation-Date: 2004-03-09 23:57+0100\n"
+"PO-Revision-Date: 2004-03-10 00:03+0100\n"
 "Last-Translator: Alessio Frusciante <algol@firenze.linux.it>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
@@ -237,7 +237,7 @@ msgstr "Frequenza dei tick (il valore predefinito è 100)"
 
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
-msgstr ""
+msgstr "Campo in bit che indica quale CPU sta attualmente eseguendo"
 
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
 msgid "Total blocks"
@@ -375,7 +375,7 @@ msgstr "Dimensioni di un elemento della lista"
 
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Size in kilobytes of message pool"
-msgstr ""
+msgstr "Dimensioni in kylobyte del message pool"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Number of entries in message map"
@@ -395,7 +395,7 @@ msgstr "Numero massimo di code nel sistema"
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Message segment size"
-msgstr ""
+msgstr "Message segment size"
 
 #: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
 msgid "Number of system message headers"
@@ -762,7 +762,7 @@ msgstr "RUid"
 
 #: sysdeps/names/procstate.c:44
 msgid "HasCPU"
-msgstr ""
+msgstr "HasCPU"
 
 #: sysdeps/names/procstate.c:44
 msgid "Proc"
@@ -770,7 +770,7 @@ msgstr "Proc"
 
 #: sysdeps/names/procstate.c:44
 msgid "LProc"
-msgstr ""
+msgstr "LProc"
 
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
@@ -959,13 +959,13 @@ msgid "Priority"
 msgstr "Priorità"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "ID gruppo"
+msgstr "NGroups"
 
 #: sysdeps/names/procuid.c:51
+#, fuzzy
 msgid "Groups"
-msgstr "Gruppi"
+msgstr "ID gruppo"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
@@ -984,22 +984,22 @@ msgid "Effective Group ID"
 msgstr "ID effettivo gruppo"
 
 #: sysdeps/names/procuid.c:60
-#, fuzzy
 msgid "Set User ID"
-msgstr "ID utente"
+msgstr "Set User ID"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Set Group ID"
-msgstr "ID gruppo"
+msgstr "Set Group ID"
 
 #: sysdeps/names/procuid.c:62
+#, fuzzy
 msgid "Filesystem User ID"
-msgstr "ID filesystem utente"
+msgstr "Uso del filesystem"
 
 #: sysdeps/names/procuid.c:63
+#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "ID filesystem gruppo"
+msgstr "ID effettivo gruppo"
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
@@ -1023,7 +1023,7 @@ msgstr "Numero di device del terminale di controllo"
 
 #: sysdeps/names/procuid.c:69
 msgid "Terminal process group ID"
-msgstr "ID gruppo del processo del terminale"
+msgstr ""
 
 #: sysdeps/names/procuid.c:70
 msgid "Kernel scheduling priority"
@@ -1035,7 +1035,7 @@ msgstr "Livello di nice standard del processo"
 
 #: sysdeps/names/procuid.c:72
 msgid "Number of additional process groups"
-msgstr "Numero di gruppi di processi addizionali"
+msgstr ""
 
 #: sysdeps/names/procuid.c:73
 msgid "Array of additional process groups"
@@ -1253,83 +1253,83 @@ msgstr ""
 
 #: sysdeps/names/uptime.c:48
 msgid "Time of last system boot in seconds since the epoch"
-msgstr "Tempo dall'ultimo avvio in secondi a partire dall'epoch"
+msgstr "Istante dell'ultimo avvio del sistema in secondi a partire dall'epoch"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr ""
+msgstr "Hangup"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
-msgstr ""
+msgstr "Interrupt"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
-msgstr ""
+msgstr "Quit"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
-msgstr "Istruzione illegale"
+msgstr "Illegal instruction"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
-msgstr ""
+msgstr "Trace trap"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr ""
+msgstr "Abort"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
-msgstr ""
+msgstr "EMT error"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
-msgstr ""
+msgstr "Floating-point exception"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr ""
+msgstr "Kill"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
-msgstr ""
+msgstr "Bus error"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
-msgstr ""
+msgstr "Segmentation violation"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr ""
+msgstr "Bad argument to system call"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr ""
+msgstr "Broken pipe"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
-msgstr ""
+msgstr "Alarm clock"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
-msgstr ""
+msgstr "Termination"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Urgent condition on socket"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
-msgstr ""
+msgstr "Stop"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr ""
+msgstr "Keyboard stop"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
-msgstr ""
+msgstr "Continue"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
@@ -1357,19 +1357,19 @@ msgstr "Superato il limite nella dimensione dei file"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
-msgstr ""
+msgstr "Virtual alarm clock"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Profiling alarm clock"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
-msgstr ""
+msgstr "Window size change"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
-msgstr ""
+msgstr "Information request"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
@@ -1378,45 +1378,3 @@ msgstr "Segnale definito dall'utente 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Segnale definito dall'utente 2"
-
-#~ msgid "Unknown system error"
-#~ msgstr "Errore sconosciuto di sistema"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: l'opzione `%s' è ambigua\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: l'opzione `--%s' non permette un argomento\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: l'opzione `%c%s' non permette un argomento\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: l'opzione `%s' richiede un argomento\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: opzione non riconosciuta `--%s'\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: opzione non riconosciuta `%c%s'\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: opzione illegale -- %c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: opzione non valida -- %c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: l'opzione richiede un argomento -- %c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: l'opzione `-W %s' è ambigua\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: l'opzione `-W %s' non permette un argomento\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "Mostra questo messaggio di aiuto"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "Mostra un breve messaggio di uso"
