@@ -72,7 +72,7 @@ glibtop_get_kstats(glibtop *server)
 	   life time of a process, but let's hope that's just an error in
 	   the documentation. */
 
-	if(nproc_same = new_ncpu == server->ncpu)
+	if((nproc_same = new_ncpu) == server->ncpu)
 	{
 	    int checked, i;
 	    char cpu[20];
