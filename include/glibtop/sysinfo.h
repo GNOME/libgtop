@@ -43,7 +43,7 @@ typedef struct _glibtop_entry	glibtop_entry;
 
 struct _glibtop_entry
 {
-	GPtrArray	*labels; /* unused */
+	GPtrArray	*labels;
 	GHashTable	*values; /* key -> description */
 	GHashTable	*descriptions; /* unused */
 };
