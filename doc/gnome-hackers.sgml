@@ -1,0 +1,271 @@
+<!-- $Id$ -->
+
+<!doctype book PUBLIC "-//Davenport//DTD DocBook V3.0//EN" [
+<!entity gtopConf.sh SYSTEM "../gtopConf.sh" >
+]>
+<book>
+  <bookinfo>
+    <title>Using LibGTop in the Gnome Project</title>
+    <authorgroup>
+      <author>
+	<firstname>Martin</firstname>
+	<surname>Baulig</surname>
+	<affiliation>
+	  <address>
+	    <email>martin@home-of-linux.org</email>
+	  </address>
+	</affiliation>
+      </author>
+    </authorgroup>
+    <copyright>
+      <year>1998</year>
+      <holder>Martin Baulig</holder>
+    </copyright>
+
+    <legalnotice>
+
+      <para>
+	This documentation is free software; you can redistribute
+	it and/or modify it under the terms of the GNU General Public
+	License as published by the Free Software Foundation; either
+	version 2 of the License, or (at your option) any later
+	version.
+	
+      <para>
+	This library is distributed in the hope that it will be
+	useful, but WITHOUT ANY WARRANTY; without even the implied
+	warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+	PURPOSE.  See the GNU General Public License for more
+	details.
+
+      <para>
+	You should have received a copy of the GNU General Public
+	License along with this program; if not, write to the Free
+	Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+	MA 02111-1307 USA
+
+      <para>
+	For more details see the file COPYING in the source
+	distribution of LibGTop.</para>
+
+    </legalnotice>
+
+    <abstract>
+
+      <para>
+	This is a short introduction in how to use
+	<productname>libgtop</productname> in the GNOME project.
+	It describes the additional options <filename>configure</filename>
+	takes and the information stored in the automatically generated
+	<filename>gtopConf.sh</filename> configuration script.
+
+    </abstract>
+
+  </bookinfo>
+
+  <toc></toc>
+
+  <chapter id="configure">
+    <title>Configuration</title>
+
+    <para>
+      The <filename>configure</filename> script of <productname>libgtop</productname>
+      takes some non-standard options to let you decide which parts of the library
+      should be build.
+
+      <itemizedlist>
+	<listitem>
+
+	  <para>
+	    Normally, <filename>configure</filename> decides whether or not using the
+	    server is required. Depending upon this decision, it adds either
+	    <literal>-lgtop</literal> (when it's needed) or
+	    <literal>-lgtop_systems</literal> (when it's not needed) to
+	    <parameter>GTOP_LIBS</parameter> and <parameter>GTOP_GUILE_LIBS</parameter>.
+
+	  <para>
+	    You can change this behaviour with the following options:
+
+	    <variablelist>
+	      
+	      <varlistentry>
+		<term><parameter>--enable-libgtop-server</parameter>
+		  
+		<listitem>
+		  <para>
+		    Use the server regardless whether or not it is required.
+		    
+	      <varlistentry>
+		<term><parameter>--disable-libgtop-server</parameter></term>
+		
+		<listitem>
+		  <para>
+		    Do not use the server regardless wheter or not it is required.
+		    
+	    </variablelist>
+
+	<listitem>
+
+	  <para>
+	    Normally, the guile interface of <productname>libgtop</productname> is build
+	    when <productname>guile</productname> can be found on the system.
+
+	    <variablelist>
+	      
+	      <varlistentry>
+		<term><parameter>--disable-libgtop-guile</parameter>
+		  
+		<listitem>
+		  <para>
+		    Disables building the guile interface even if you have
+		    <productname>guile</productname> installed.
+		    
+	      <varlistentry>
+		<term><parameter>--enable-libgtop-guile</parameter></term>
+		
+		<listitem>
+		  <para>
+		    Has no effect at all since you cannot build the guile interface without
+		    having <productname>guile</productname> installed on your system.
+		    
+	    </variablelist>
+
+	<listitem>
+
+	  <para>
+	    If you do not need the <filename>names</filename> subdirs, you can disable
+	    their building with the following option:
+	    when <productname>guile</productname> can be found on the system.
+
+	    <variablelist>
+	      
+	      <varlistentry>
+		<term><parameter>--disable-libgtop-names</parameter>
+		  
+		<listitem>
+		  <para>
+		    Disables building of the <filename>names</filename> subdirs.
+		    
+	      <varlistentry>
+		<term><parameter>--enable-libgtop-names</parameter></term>
+		
+		<listitem>
+		  <para>
+		    Is the default.
+		    
+	    </variablelist>
+	    
+      </itemizedlist>
+    
+  <chapter id="gtopConf">
+    <title>The <filename>gtopConf.sh</filename> script</title>
+
+    <para>
+      After a successful build of <productname>libgtop</productname>, a
+      <filename>gtopConf.sh</filename> script is generated which will later
+      be used to decide how to link a program with <filename>libgtop</filename>.
+
+    <para>
+      It defines the following variables:
+
+      <variablelist>
+	      
+	<varlistentry>
+	  <term><parameter>GTOP_LIBDIR</parameter>
+		  
+	  <listitem>
+	    <para>
+	      Defaults to <literal>$(prefix)/lib</literal>. It is the directory
+	      where the <productname>libgtop</productname> libraries get installed.
+
+	<varlistentry>
+	  <term><parameter>GTOP_INCLUDEDIR</parameter></term>
+		
+	  <listitem>
+	    <para>
+	      Defaults to <literal>$(prefix)/include</literal>. It is the directory
+	      where the <productname>libgtop</productname> header files get installed.
+
+	<varlistentry>
+	  <term><parameter>GTOP_LIBS</parameter></term>
+	  
+	  <listitem>
+	    <para>
+	      Contains everything that you need to add to the <parameter>_LDADD</parameter>
+	      variable of <productname>automake</productname> to link a program with
+	      <productname>libgtop</productname>.
+
+	<varlistentry>
+	  <term><parameter>GTOP_INCS</parameter></term>
+	  
+	  <listitem>
+	    <para>
+	      Contains everything that you need to add to the <parameter>_INCLUDES</parameter>
+	      variable of <productname>automake</productname> to compile a program that uses
+	      <productname>libgtop</productname>.
+
+	<varlistentry>
+	  <term><parameter>GTOP_GUILE_INCS</parameter></term>
+	  
+	  <listitem>
+	    <para>
+	      Contains everything that you need to add to the <parameter>_INCLUDES</parameter>
+	      variable of <productname>automake</productname> to compile a program that uses both
+	      <productname>libgtop</productname> and its guile interface.
+
+	<varlistentry>
+	  <term><parameter>GTOP_BINDIR</parameter></term>
+	  
+	  <listitem>
+	    <para>
+	      Defaults to <literal>$(bindir)</literal>. It is the directory where the
+	      <productname>libgtop</productname> binaries get installed.
+
+	<varlistentry>
+	  <term><parameter>GTOP_SERVER</parameter></term>
+	  
+	  <listitem>
+	    <para>
+	      Defaults to <literal>$(bindir)/gtop_server</literal>. It is the full pathname
+	      where the server gets installed.
+
+	<varlistentry>
+	  <term><parameter>GTOP_SYSDEPS_DIR</parameter></term>
+	  
+	  <listitem>
+	    <para>
+	      The sysdeps directory that is used on your system.
+
+	<varlistentry>
+	  <term><parameter>GTOP_NEED_SERVER</parameter></term>
+	  
+	  <listitem>
+	    <para>
+	      Is either <literal>yes</literal> or <literal>no</literal> and tells you
+	      whether using the server is needed or not.
+
+	<varlistentry>
+	  <term><parameter>GTOP_USE_MACHINE_H</parameter></term>
+	  
+	  <listitem>
+	    <para>
+	      Is either <literal>yes</literal> or <literal>no</literal> and tells you
+	      whether <filename>glibtop_machine_h</filename> should be included in
+	      <filename>glibtop.h</filename>.
+
+	      The system dependent part of the library may provide an additional header
+	      file, <filename>glibtop_machine_h</filename>. In this case, they define
+	      a structure <structname>_glibtop_machine</structname> in this header file.
+	      This structure represents the <structfield>machine</structfield> member of
+	      <structname>_glibtop</structname>.
+
+      </variablelist>
+
+      <example>
+	<title>Sample <filename>gtopConf.sh</filename></title>
+
+	<programlisting>&gtopConf.sh;</programlisting>
+      </example>
+
+    
+</book>
