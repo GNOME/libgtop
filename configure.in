@@ -357,7 +357,6 @@ src/Makefile
 src/daemon/Makefile
 src/inodedb/Makefile
 lib/Makefile
-guile/Makefile
 examples/Makefile
 support/Makefile
 macros/Makefile],[sed -e "/POTFILES =/r po/POTFILES" po/Makefile.in > po/Makefile])

@@ -1,5 +1,9 @@
 1998-10-11  Martin Baulig  <martin@home-of-linux.org>
 
+	* configure.in: Don't create `guile/Makefile'.
+	* Makefile.am (DIST_SUBDIRS): Removed.
+	(SUBDIRS): Removed `guile'.
+
 	* include/glibtop/*.h: Removed external delarations of all
 	`glibtop_guile_*' functions that were formerly defined in
 	sysdeps/guile/guile.c and sysdeps/guile/names/guile-names.c.

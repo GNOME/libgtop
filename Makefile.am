@@ -6,17 +6,7 @@ else
 examples_SUBDIRS =
 endif
 
-if GUILE
-guile_SUBDIRS = guile
-else
-guile_SUBDIRS =
-endif
-
-
-SUBDIRS = po intl support macros include sysdeps lib src \
-	  $(examples_SUBDIRS)
-
-DIST_SUBDIRS = po intl support macros include sysdeps src lib guile examples
+SUBDIRS = po intl support macros include sysdeps lib src $(examples_SUBDIRS)
 
 include_HEADERS = glibtop.h
 
