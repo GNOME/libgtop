@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-03-01 22:58+0100\n"
+"POT-Creation-Date: 1999-05-28 01:39+0200\n"
 "PO-Revision-Date: 1999-02-04 14:31:38+0900\n"
 "Last-Translator: Sung-Hyun Nam <namsh@lgic.co.kr>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -980,7 +980,7 @@ msgstr "%s: `-W %s' 옵션이 모호합니다\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: `-W %s' 옵션은 인자가 필요없습니다\n"
 
-#: lib/read.c:71
+#: lib/read.c:75
 #, c-format
 msgid "read %d bytes"
 msgstr ""
