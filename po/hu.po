@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
 "POT-Creation-Date: 2000-08-09 10:34+0200\n"
-"PO-Revision-Date: 2000-08-09 10:38+2000\n"
+"PO-Revision-Date: 2001-01-24 15:15+0100\n"
 "Last-Translator: Robert Vanyi <robi@mora.u-szeged.hu>\n"
-"Language-Team: Hungarian <hu@li.org>\n"
+"Language-Team: Hungarian <hu@gnome.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -809,11 +809,11 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:65
 msgid "Process ID"
-msgstr "Processz ID"
+msgstr "Folyamatazonosító"
 
 #: sysdeps/names/procuid.c:66
 msgid "PID of parent process"
-msgstr "Szülõ processz PID-je"
+msgstr "Szülõfolyamat PID-je"
 
 #: sysdeps/names/procuid.c:67
 msgid "Process group ID"
@@ -901,7 +901,7 @@ msgstr "Szegmenseg maximálsi száma"
 
 #: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max shared segments per process"
-msgstr "Processzenkénti osztott szegmensek maximális száma"
+msgstr "Folyamatonkénti osztott szegmensek maximális száma"
 
 #: sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
 msgid "Max total shared memory"
@@ -977,47 +977,47 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
 msgid "List of running Processes"
-msgstr "Futó processzek listája"
+msgstr "Futó folyamatok listája"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 msgid "Process Status information"
-msgstr "Processz státusz információ"
+msgstr "Információ a folyamat állapotáról"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
 msgid "Process UID and TTY information"
-msgstr "Processz UID és TTY információ"
+msgstr "Információ a folyamat UID-járól és TTY-járól"
 
 #: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 msgid "Process Memory information"
-msgstr "Processz memória információ"
+msgstr "Információ a folyamat memóriafoglalásáról"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
 msgid "Process Time information"
-msgstr "Processz idõ információ"
+msgstr "Információ a folyamat futási idejérõl"
 
 #: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
 msgid "Process Signal information"
-msgstr "Processz szignál információ"
+msgstr "Információ a folyamat jelzéseirõl"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
 msgid "Process Kernel Data information"
-msgstr "Processz kernel adat információ"
+msgstr "Információ a folyamat rendszermag-adatairól"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
 msgid "Process Segment information"
-msgstr "Processz szegmens információ"
+msgstr "Információ a folyamat szegmensérõl"
 
 #: sysdeps/names/sysdeps.c:71
 msgid "Process CWD"
-msgstr "Processz CWD"
+msgstr "Folyamat CWD"
 
 #: sysdeps/names/sysdeps.c:72
 msgid "Process Arguments"
-msgstr "Processz argumentumok"
+msgstr "Folyamat argumentumai"
 
 #: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
 msgid "Process Memory Map"
-msgstr "Processz memóriatérkép"
+msgstr "Folyamat memóriatérképe"
 
 #: sysdeps/names/sysdeps.c:74
 msgid "Mount List"
@@ -1041,15 +1041,15 @@ msgstr "PPP statisztika"
 
 #: sysdeps/names/sysdeps.c:84
 msgid "Pointer Size on the Server (in bits)"
-msgstr "A szerver mutatómérete (bitekben)"
+msgstr "A kiszolgáló mutatómérete (bitekben)"
 
 #: sysdeps/names/sysdeps.c:101
 msgid "Current working directory of the process"
-msgstr "A processzek aktuális munkakönyvtárai"
+msgstr "A folyamatok aktuális munkakönyvtárai"
 
 #: sysdeps/names/sysdeps.c:102
 msgid "Command line arguments of the process"
-msgstr "A processzek parancssori paraméterei"
+msgstr "A folyamatok parancssori paraméterei"
 
 #: sysdeps/names/sysdeps.c:104
 msgid "List of currently mounted filesystems"
@@ -1086,61 +1086,61 @@ msgstr "Ismeretlen rendszerhiba"
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: a `%s' opció nem egyértelmû\n"
+msgstr "%s: a `%s' kapcsoló nem egyértelmû\n"
 
 #: support/getopt.c:693
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: a `--%s' opció nem enged meg argumentumot\n"
+msgstr "%s: a `--%s' kapcsoló nem enged meg argumentumot\n"
 
 #: support/getopt.c:698
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: a `%c%s' opció nem enged meg argumentumot\n"
+msgstr "%s: a `%c%s' kapcsoló nem enged meg argumentumot\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: a `%s' opcióhoz szükséges egy argumentum\n"
+msgstr "%s: a `%s' kapcsolóhoz szükséges egy argumentum\n"
 
 #. --option
 #: support/getopt.c:744
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: ismeretlen opció `--%s'\n"
+msgstr "%s: ismeretlen kapcsoló `--%s'\n"
 
 #. +option or -option
 #: support/getopt.c:748
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: ismeretlen opció `%c%s'\n"
+msgstr "%s: ismeretlen kapcsoló `%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: szabálytalan opció -- %c\n"
+msgstr "%s: szabálytalan kapcsoló -- %c\n"
 
 #: support/getopt.c:777
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: érvénytelen opció -- %c\n"
+msgstr "%s: érvénytelen kapcsoló -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: az opcióhoz szükséges egy argumentum -- %c\n"
+msgstr "%s: az kapcsolóhoz szükséges egy argumentum -- %c\n"
 
 #: support/getopt.c:854
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: a `-W %s' opció nem egyértelmû\n"
+msgstr "%s: a `-W %s' kapcsoló nem egyértelmû\n"
 
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: a `-W %s' opció nem enged meg argumentumot\n"
+msgstr "%s: a `-W %s' kapcsoló nem enged meg argumentumot\n"
 
 #: lib/errors.c:31
 msgid "No error"
@@ -1168,16 +1168,16 @@ msgstr "Paraméter méret eltérés"
 
 #: lib/errors.c:37
 msgid "Communication with LibGTop server failed"
-msgstr "Nem sikerült kommunkialni a LibGTop szerverrel"
+msgstr "Nem sikerült kommunkialni a LibGTop kiszolgálóval"
 
 #: lib/errors.c:38
 msgid "No such process"
-msgstr "Nincs ilyen processz"
+msgstr "Nincs ilyen folyamat"
 
 #: lib/errors.c:39
 msgid "No kernel support"
-msgstr "Nincs kernel támogatás"
+msgstr "Nincs rendszermag-támogatás"
 
 #: lib/errors.c:40
 msgid "Incompatible kernel version"
-msgstr "Nem kompatibilis kernel verzió"
+msgstr "Nem kompatíbilis rendszermag verzió"
