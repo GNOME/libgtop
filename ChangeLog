@@ -1,5 +1,13 @@
 2004-08-09  Benoît Dejean  <tazforever@dlfp.org>
 
+	* configure.in: Added HAVE_IFADDRS_H
+	* sysdeps/linux/netload.c: (glibtop_get_netload_s): Disable IPv6
+	support is ifaddrs.h is not available.
+
+	Closes #149376.
+
+2004-08-09  Benoît Dejean  <tazforever@dlfp.org>
+
 	* configure.in: Added -gnu89 to CFLAGS.
 
 	* examples/Makefile.am: Fixed LDFLAGS.

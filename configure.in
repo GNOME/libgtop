@@ -148,6 +148,11 @@ else
    AC_MSG_ERROR([libgtop requires the popt development libraries])
 fi
 
+AC_CHECK_HEADER(ifaddrs.h, [HAVE_IFADDRS_H=yes], [HAVE_IFADDRS_H=no])
+if test x$HAVE_IFADDRS_H = xyes ; then
+	AC_DEFINE(HAVE_IFADDRS_H, 1, [defined if you have ifaddrs.h])
+fi
+
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
 AC_C_INLINE

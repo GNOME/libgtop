@@ -47,7 +47,9 @@
 #include <linux/udp.h>
 #endif
 
-/* IPV6 */
+
+#ifdef HAVE_IFADDRS_H
+/* needed for IPV6 support */
 
 #include <ifaddrs.h>
 
@@ -56,7 +58,8 @@
    (((((__const uint8_t *) (a))[0] & 0xff) == 0x3f   \
      || (((__const uint8_t *) (a))[0] & 0xff) == 0x20))
 #endif
-/* IPV6 */
+#endif /* HAVE_IFADDRS_H */
+
 
 #define _GLIBTOP_IP_FW_ACCTIN	0x1000	/* Account incoming packets only. */
 #define _GLIBTOP_IP_FW_ACCTOUT	0x2000	/* Account outgoing packets only. */
@@ -374,6 +377,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     fclose (f);
 
 
+#ifdef HAVE_IFADDRS_H
     /* IPv6 */
     {
 	    struct ifaddrs *ifa0, *ifr6;
@@ -421,4 +425,5 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     free_ipv6:
 	    freeifaddrs(ifa0);
     } /* IPV6 */
+#endif /* HAVE_IFADDRS_H */
 }
