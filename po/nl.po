@@ -203,89 +203,89 @@ msgstr "Geheugen gebruikt voor gebruikersprocessen in kB"
 
 #: sysdeps/names/mem.c:62
 msgid "Memory in locked pages in kB"
-msgstr ""
+msgstr "Geheugen in vergrendelde pagina's in kB"
 
 #: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
 #: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
 #: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
 msgid "Number of list elements"
-msgstr ""
+msgstr "Aantal elementen in een lijst"
 
 #: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
 #: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
 #: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
 msgid "Total size of list"
-msgstr ""
+msgstr "Totale grootte van een lijst"
 
 #: sysdeps/names/mountlist.c:42 sysdeps/names/mountlist.c:49
 #: sysdeps/names/proclist.c:42 sysdeps/names/proclist.c:49
 #: sysdeps/names/procmap.c:42 sysdeps/names/procmap.c:49
 msgid "Size of a single list element"
-msgstr ""
+msgstr "Grootte van 1 element in een lijst"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Size in kilobytes of message pool"
-msgstr ""
+msgstr "Grootte van de \"message pool\" in kB"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Number of entries in message map"
-msgstr ""
+msgstr "Aantal elementen in de \"message map\""
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Max size of message"
-msgstr ""
+msgstr "Maximale grootte van een boodschap"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
 msgid "Default max size of queue"
-msgstr ""
+msgstr "Standaard grootte van een wachtrij"
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Max queues system wide"
-msgstr ""
+msgstr "Maximum aan wachtrijen per systeem"
 
 #: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
 msgid "Message segment size"
-msgstr ""
+msgstr "Segment grootte van een boodschap"
 
 #: sysdeps/names/msg_limits.c:48 sysdeps/names/msg_limits.c:59
 msgid "Number of system message headers"
-msgstr ""
+msgstr "Aantal systeemboodschap hoofdingen"
 
 #: sysdeps/names/prockernel.c:44
 msgid "K_Flags"
-msgstr ""
+msgstr "K_Flags"
 
 #: sysdeps/names/prockernel.c:44
 msgid "Min_Flt"
-msgstr ""
+msgstr "Min_Flt"
 
 #: sysdeps/names/prockernel.c:44
 msgid "Maj_Flt"
-msgstr ""
+msgstr "Maj_Flt"
 
 #: sysdeps/names/prockernel.c:44
 msgid "CMin_Flt"
-msgstr ""
+msgstr "CMin_Flt"
 
 #: sysdeps/names/prockernel.c:45
 msgid "CMaj_Flt"
-msgstr ""
+msgstr "CMaj_Flt"
 
 #: sysdeps/names/prockernel.c:45
 msgid "KStk_ESP"
-msgstr ""
+msgstr "KStk_ESP"
 
 #: sysdeps/names/prockernel.c:45
 msgid "KStk_EIP"
-msgstr ""
+msgstr "KStk_EIP"
 
 #: sysdeps/names/prockernel.c:45
 msgid "NWChan"
-msgstr ""
+msgstr "NWChan"
 
 #: sysdeps/names/prockernel.c:46
 msgid "WChan"
-msgstr ""
+msgstr "WChan"
 
 #. K_Flags
 #: sysdeps/names/prockernel.c:52
@@ -299,6 +299,14 @@ msgid ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
+"Kernel vlaggen van het proces.\n"
+"\n"
+"Onder Linix, wordt momenteel voor elke vlag de rekenbit gezet omdat crt0.s "
+"checked of er numerieke emulatie gebruikt wordt, daarom wordt dit niet\n" 
+"getoond.\n"
+"Dit is waarschijnlijk een bug, omdat niet elk programma een gecompileerd\n "
+"C programma is.\n"
+"De rekenbit zou decimaal 4 moeten zijn en de getraceerde bit is decimaal 10."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:61
@@ -306,6 +314,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
+"Het aantal kleine fouten dat een proces gemaakt heeft, deze die niet tot "
+"gevolg hadden dat er een geheugenpagina van disk moest geladen worden."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:64
@@ -313,16 +323,18 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
+"Het aantal  grote fouten dat een proces gemaakt heeft, deze die tot gevolg "
+"hadden dat er een geheugenpagina van disk moest geladen worden."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:67
 msgid "The number of minor faults that the process and its children have made."
-msgstr ""
+msgstr "Het aantal kleine fouten dat een proces en zijn kinderen gemaakt hebben."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:70
 msgid "The number of major faults that the process and its children have made."
-msgstr ""
+msgstr "Het aantal grote fouten dat een proces en zijn kinderen gemaakt hebben."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:73
@@ -330,11 +342,13 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
+"De huidige waarde van een esp (32-bit stack pointer), zoals gevonden in de "
+"kernel stack pagina voor het proces."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:76
 msgid "The current EIP (32-bit instruction pointer)."
-msgstr ""
+msgstr "De huidige EIP (32-bit instructiepointer)."
 
 #. NWChan
 #: sysdeps/names/prockernel.c:78
