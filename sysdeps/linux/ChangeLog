@@ -1,3 +1,9 @@
+2004-09-21  Benoît Dejean  <tazforever@dlfp.org>
+
+	* fsusage.c: (linux_2_6_0), (linux_2_4_0),
+	(_glibtop_linux_get_fsusage_read_write): Back to previous version.
+	Now set .flags correctly.
+
 2004-09-19  Benoît Dejean  <tazforever@dlfp.org>
 
 	* fsusage.c: (linux_2_6_0), (linux_2_4_0),

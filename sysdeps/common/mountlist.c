@@ -593,5 +593,9 @@ glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs)
 	buf->number = mount_array->len;
 	buf->total  = buf->number * buf->size;
 
+	buf->flags  = (1 << GLIBTOP_MOUNTLIST_SIZE)
+	  | (1 << GLIBTOP_MOUNTLIST_SIZE)
+	  | (1 << GLIBTOP_MOUNTLIST_TOTAL);
+
 	return (glibtop_mountentry*) g_array_free(mount_array, FALSE);
 }

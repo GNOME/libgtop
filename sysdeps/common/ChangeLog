@@ -1,3 +1,9 @@
+2004-09-21  Benoît Dejean  <tazforever@dlfp.org>
+
+	* fsusage.c: (_glibtop_get_fsusage_read_write),
+	(glibtop_get_fsusage_s):
+	* mountlist.c: (glibtop_get_mountlist_s): Back to previous version.
+
 2004-09-19  Benoît Dejean  <tazforever@dlfp.org>
 
 	* fsusage.c: (_glibtop_get_fsusage_read_write) : Added new flag.

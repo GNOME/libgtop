@@ -108,9 +108,6 @@ static const unsigned long _glibtop_sysdeps_fsusage =
 + (1L << GLIBTOP_FSUSAGE_BAVAIL) + (1L << GLIBTOP_FSUSAGE_FILES)
 + (1L << GLIBTOP_FSUSAGE_FFREE) + (1L << GLIBTOP_FSUSAGE_BLOCK_SIZE);
 
-static const unsigned long _glibtop_sysdeps_fsusage_read_write =
-(1L << GLIBTOP_FSUSAGE_READ) + (1L << GLIBTOP_FSUSAGE_WRITE);
-
 
 /*
  * _glibtop_get_fsusage_read_write
@@ -121,29 +118,29 @@ static const unsigned long _glibtop_sysdeps_fsusage_read_write =
  * function full of #something where everything is mixed.
  * These functions are private.
  *
- * gboolean _glibtop_<arch>_get_fsusage_read_write(glibtop*server,
- *                                                 glibtop_fsusage *buf,
- *                                                 const char *path);
+ * void  _glibtop_<arch>_get_fsusage_read_write(glibtop*server,
+ *                                              glibtop_fsusage *buf,
+ *                                              const char *path);
  *
  * TODO: split this file properly, is possible
  */
 
 #ifdef linux
-gboolean _glibtop_linux_get_fsusage_read_write(glibtop *server,
-					       glibtop_fsusage *buf,
-					       const char *path);
+void _glibtop_linux_get_fsusage_read_write(glibtop *server,
+					   glibtop_fsusage *buf,
+					   const char *path);
 
 #define _glibtop_get_fsusage_read_write(S, B, P) \
         _glibtop_linux_get_fsusage_read_write(S, B, P)
 
 #else /* default fallback */
 #warning glibtop_get_fsusage .read .write are not implemented.
-static inline gboolean
+static inline void
 _glibtop_get_fsusage_read_write(glibtop *server,
 				glibtop_fsusage *buf,
 				const char *path)
 {
-  return FALSE;
+  /* NOOP */
 }
 #endif
 
@@ -278,8 +275,8 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 
   buf->flags = _glibtop_sysdeps_fsusage;
 
-  if(_glibtop_get_fsusage_read_write(server, buf, path))
-    buf->flags |= _glibtop_sysdeps_fsusage_read_write;
+  /* setting additional flags is delegated */
+  _glibtop_get_fsusage_read_write(server, buf, path);
 }
 
 #if defined _AIX && defined _I386
