@@ -38,13 +38,33 @@ static const unsigned long _glibtop_sysdeps_proc_segment_state =
 (1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
 (1 << GLIBTOP_PROC_SEGMENT_START_STACK);
 
+#ifndef LOG1024
+#define LOG1024		10
+#endif
+
+/* these are for getting the memory statistics */
+static int pageshift;		/* log base 2 of the pagesize */
+
+/* define pagetok in terms of pageshift */
+#define pagetok(size) ((size) << pageshift)
+
 /* Init function. */
 
 void
 glibtop_init_proc_segment_s (glibtop *server)
 {
+    register int pagesize;
+
     server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment |
 	_glibtop_sysdeps_proc_segment_state;
+
+    /* get the page size with "getpagesize" and calculate pageshift. */
+    pagesize = getpagesize ();
+    pageshift = 0;
+    while (pagesize > 1) {
+	pageshift++;
+	pagesize >>= 1;
+    }
 }
 
 /* Provides detailed information about a process. */
@@ -66,6 +86,12 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
     buf->data_rss = proc_mem.drs;
     buf->stack_rss = proc_mem.segment.stack;
     buf->dirty_size = proc_mem.dt;
+
+    buf->text_rss   <<= pageshift;
+    buf->shlib_rss  <<= pageshift;
+    buf->data_rss   <<= pageshift;
+    buf->stack_rss  <<= pageshift;
+    buf->dirty_size <<= pageshift;
 
     buf->flags = _glibtop_sysdeps_proc_segment;
 

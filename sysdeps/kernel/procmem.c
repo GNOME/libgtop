@@ -86,7 +86,6 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
     buf->size <<= pageshift;
     buf->resident <<= pageshift;
     buf->share <<= pageshift;
-    buf->rss <<= pageshift;
 
     buf->flags = _glibtop_sysdeps_proc_mem;
 }

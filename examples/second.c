@@ -87,7 +87,7 @@ output (pid_t pid)
 	glibtop_get_proc_segment (&data.proc_segment, pid);
 
 	printf ("Proc_Segment PID  %5d (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu\n", (int) pid,
+		"%lu %lu %lu %lu %lu 0x%lx 0x%lx 0x%lx\n", (int) pid,
 		(unsigned long) data.proc_segment.flags,
 		(unsigned long) data.proc_segment.text_rss,
 		(unsigned long) data.proc_segment.shlib_rss,

@@ -278,7 +278,7 @@ main (int argc, char *argv [])
 		glibtop_get_proc_segment (&data.proc_segment, pid);
 
 	printf ("Proc_Segment PID  %5d (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu\n", (int) pid,
+		"%lu %lu %lu %lu %lu 0x%lx 0x%lx 0x%lx\n", (int) pid,
 		(unsigned long) data.proc_segment.flags,
 		(unsigned long) data.proc_segment.text_rss,
 		(unsigned long) data.proc_segment.shlib_rss,
@@ -393,7 +393,7 @@ main (int argc, char *argv [])
 		glibtop_get_proc_segment (&data.proc_segment, ppid);
 
 	printf ("Proc_Segment PPID %5d (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu\n", (int) ppid,
+		"%lu %lu %lu %lu %lu 0x%lx 0x%lx 0x%lx\n", (int) ppid,
 		(unsigned long) data.proc_segment.flags,
 		(unsigned long) data.proc_segment.text_rss,
 		(unsigned long) data.proc_segment.shlib_rss,
@@ -508,7 +508,7 @@ main (int argc, char *argv [])
 		glibtop_get_proc_segment (&data.proc_segment, 1);
 
 	printf ("Proc_Segment INIT %5d (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu\n", 1,
+		"%lu %lu %lu %lu %lu 0x%lx 0x%lx 0x%lx\n", 1,
 		(unsigned long) data.proc_segment.flags,
 		(unsigned long) data.proc_segment.text_rss,
 		(unsigned long) data.proc_segment.shlib_rss,
