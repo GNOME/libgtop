@@ -68,7 +68,26 @@ glibtop_get_proc_state_p (glibtop *server,
 	buf->uid = pinfo [0].kp_eproc.e_pcred.p_svuid;
 	buf->gid = pinfo [0].kp_eproc.e_pcred.p_svgid;
 
-	buf->state = pinfo [0].kp_proc.p_stat;
+	switch (pinfo [0].kp_proc.p_stat) {
+	case SIDL:
+		buf->state = 'I';
+		break;
+	case SRUN:
+		buf->state = 'R';
+		break;
+	case SSLEEP:
+		buf->state = 'S';
+		break;
+	case SSTOP:
+		buf->state = 'T';
+		break;
+	case SZOMB:
+		buf->state = 'Z';
+		break;
+	default:
+		buf->state = '?';
+		break;
+	}
 
 	/* Set the flags for the data we're about to return*/
 	buf->flags = _glibtop_sysdeps_proc_state;

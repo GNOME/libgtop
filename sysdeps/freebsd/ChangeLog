@@ -1,3 +1,11 @@
+1998-10-03  Martin Baulig  <martin@home-of-linux.org>
+
+	* procstate.c (glibtop_get_procstate_s): Use correct values for
+	the `state' field.
+	
+	* proclist.c (glibtop_get_proclist_p): Honor the GLIBTOP_EXCLUDE_IDLE
+	and GLIBTOP_EXCLUDE_SYSTEM flags of the `which' parameter.
+
 1998-08-24  Martin Baulig  <martin@home-of-linux.org>
 
 	* *.c (glibtop_init_p): Using correct `(1 << GLIBTOP_SYSDPES_*)'.

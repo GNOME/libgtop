@@ -58,12 +58,12 @@ glibtop_init_proclist_p (glibtop *server)
 
 unsigned *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
-			int64_t which, int64_t arg)
+			int64_t real_which, int64_t arg)
 {
 	struct kinfo_proc *pinfo;
 	unsigned *pids = NULL;
-	int count;
-	int i;
+	int which, count;
+	int i,j;
 
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROCLIST), 0);
 	
@@ -71,7 +71,7 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 
 	glibtop_suid_enter (server);
 
-	which &= GLIBTOP_KERN_PROC_MASK;
+	which = (int)(real_which & GLIBTOP_KERN_PROC_MASK);
 
 	/* Get the process data */
 	pinfo = kvm_getprocs (server->machine.kd, which, arg, &count);
@@ -86,13 +86,19 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 	 * Same as malloc is pids is NULL, which it is. */
 	pids = glibtop_realloc_r (server, pids, count * sizeof (unsigned));
 	/* Copy the pids over to this chain */
-	for (i=0; i < count; i++) {
-		pids [i] = (unsigned) pinfo[i].kp_proc.p_pid;
+	for (i=j=0; i < count; i++) {
+		if ((real_which & GLIBTOP_EXCLUDE_IDLE) &&
+		    (pinfo[i].kp_proc.p_stat != SRUN))
+			continue;
+		else if ((real_which & GLIBTOP_EXCLUDE_SYSTEM) &&
+			 (pinfo[i].kp_eproc.e_pcred.p_ruid == 0))
+			continue;
+		pids [j++] = (unsigned) pinfo[i].kp_proc.p_pid;
 	} /* end for */
 	/* Set the fields in buf */
-	buf->number = count;
+	buf->number = j;
 	buf->size = sizeof (unsigned);
-	buf->total = count * sizeof (unsigned);
+	buf->total = j * sizeof (unsigned);
 	buf->flags = _glibtop_sysdeps_proclist;
 	return pids;
 }
