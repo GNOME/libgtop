@@ -95,7 +95,7 @@ AC_DEFUN([AC_LC_SYSDEPS],[
 	  ac_cv_want_names=yes
 	 else
 	  ac_cv_want_names=$enableval
-	 fi],[ac_cv_names_subdir=yes])
+	 fi],[ac_cv_want_names=yes])
 
 	AC_MSG_RESULT($ac_cv_want_names)
 
@@ -117,7 +117,13 @@ AC_DEFUN([AC_LC_SYSDEPS],[
 
 	AM_CONDITIONAL(GLIBTOP_NAMES, test x$ac_cv_want_names = xyes)
 
+	if test x$use_glibtop_machine_h = xyes ; then
+	  machine_incs="-I\$(top_srcdir)/sysdeps/$sysdeps_dir"
+	fi
+
+	AC_SUBST(machine_incs)
 	AC_SUBST(sysdeps_dir)
+	AC_SUBST(use_glibtop_machine_h)
 	AC_SUBST(need_server)
 ])
 
