@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0.26.2\n"
-"POT-Creation-Date: 1998-11-05 01:28+0100\n"
+"POT-Creation-Date: 1998-12-08 19:49+0100\n"
 "PO-Revision-Date: 1998-10-25 11:26+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@fib.hl.no>\n"
 "Language-Team: Norwegian <no@li.org>\n"
@@ -825,87 +825,95 @@ msgstr "Totalt antall swap-sider som har blitt brakt inn siden systemoppstart"
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr "Totalt antall swap-sider som har blitt hentet ut siden systemoppstart"
 
-#: sysdeps/names/sysdeps.c:46 sysdeps/names/sysdeps.c:70
+#: sysdeps/names/sysdeps.c:47 sysdeps/names/sysdeps.c:73
 msgid "Server Features"
 msgstr "Vertsegenskaper"
 
-#: sysdeps/names/sysdeps.c:47 sysdeps/names/sysdeps.c:71
+#: sysdeps/names/sysdeps.c:48 sysdeps/names/sysdeps.c:74
 msgid "CPU Usage"
 msgstr "Prosessorbruk"
 
-#: sysdeps/names/sysdeps.c:48 sysdeps/names/sysdeps.c:72
+#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:75
 msgid "Memory Usage"
 msgstr "Minnebruk"
 
-#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:73
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:76
 msgid "Swap Usage"
 msgstr "Swapbruk"
 
-#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:74
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:77
 msgid "System Uptime"
 msgstr "Systemets oppetid"
 
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:75
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:78
 msgid "Load Averange"
 msgstr "Gjennomsnittsbelastning"
 
-#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:76
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:79
 msgid "Shared Memory Limits"
 msgstr "Grenser for delt minne"
 
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:77
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:80
 msgid "Message Queue Limits"
 msgstr "Grenser for meldingskøer"
 
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:78
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:81
 msgid "Semaphore Set Limits"
 msgstr "Grenser for semaforsett"
 
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:79
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:82
 msgid "List of running Processes"
 msgstr "Liste over kjørende prosesser"
 
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:80
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:83
 msgid "Process Status information"
 msgstr "Prosessens tilstandsinformasjon"
 
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:81
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:84
 msgid "Process UID and TTY information"
 msgstr "Prosessens UID- og TTY-informasjon"
 
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:82
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:85
 msgid "Process Memory information"
 msgstr "Prosessens minneinformasjon"
 
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:83
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:86
 msgid "Process Time information"
 msgstr "Prosessens tidsinformasjon"
 
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:84
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:87
 msgid "Process Signal information"
 msgstr "Prosessens signalinformasjon"
 
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:85
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:88
 msgid "Process Kernel Data information"
 msgstr "Prosessens kjernedatainformasjon"
 
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:86
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:89
 msgid "Process Segment information"
 msgstr "Prosessens segmentinformasjon"
 
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:87
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:90
 msgid "Process Memory Map"
 msgstr "Prosessens minnekart"
 
-#: sysdeps/names/sysdeps.c:64
+#: sysdeps/names/sysdeps.c:65
 msgid "Mount List"
 msgstr "Monteringsliste"
 
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:89
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:92
 msgid "File System Usage"
 msgstr "Bruk av filsystemer"
 
-#: sysdeps/names/sysdeps.c:88
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:93
+msgid "Network Load"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:94
+msgid "PPP Statistics"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:91
 msgid "List of currently mounted filesystems"
 msgstr "Liste over monterte filsystemer"
 
@@ -925,36 +933,36 @@ msgstr "Tid siden oppstart i sekunder"
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "Tid systemet har brukt i Idle Task siden oppstart i sekunder"
 
-#: support/argp-parse.c:90
+#: support/argp-parse.c:95
 msgid "Give this help list"
 msgstr "Vis denne hjelpeteksten"
 
-#: support/argp-parse.c:91
+#: support/argp-parse.c:96
 msgid "Give a short usage message"
 msgstr "Vis en kort bruksmelding"
 
-#: support/argp-parse.c:92
+#: support/argp-parse.c:97
 msgid "Set the program name"
 msgstr "Sett programnavnet"
 
-#: support/argp-parse.c:94
+#: support/argp-parse.c:99
 msgid "Hang for SECS seconds (default 3600)"
 msgstr "Vent i SECS sekunder (forvalgt 3600)"
 
-#: support/argp-parse.c:151
+#: support/argp-parse.c:156
 msgid "Print program version"
 msgstr "Skriv ut programversjon"
 
-#: support/argp-parse.c:167
+#: support/argp-parse.c:172
 msgid "(PROGRAM ERROR) No version known!?"
 msgstr "(PROGRAMFEIL) Versjon ikke kjent!?"
 
-#: support/argp-parse.c:641
+#: support/argp-parse.c:646
 #, c-format
 msgid "%s: Too many arguments\n"
 msgstr "%s: For mange argumenter\n"
 
-#: support/argp-parse.c:780
+#: support/argp-parse.c:785
 msgid "(PROGRAM ERROR) Option should have been recognized!?"
 msgstr "(PROGRAMFEIL) Flagget skulle vært gjenkjent!?"
 
