@@ -94,11 +94,13 @@ sub output {
   
   $need_temp_storage = $always_use_temp_storage;
   $first_param_name = '';
-  $size_code = "\t_LIBGTOP_SEND_len = 0;\n";
+  $size_code = "\t/* send size */\n";
+  $size_code .= "\t_LIBGTOP_SEND_len = 0;\n";
   
   $local_var_decl_code = '';
-  $local_var_decl_code .= "\tsize_t _LIBGTOP_SEND_len;\n";
+  $local_var_decl_code .= "\tsize_t _LIBGTOP_SEND_len, _LIBGTOP_RECV_len;\n";
   $local_var_decl_code .= "\toff_t _LIBGTOP_SEND_offset;\n";
+  $local_var_decl_code .= "\tchar *_LIBGTOP_RECV_buf, *_LIBGTOP_RECV_ptr;\n";
   $local_var_decl_code .= "\tconst char *_LIBGTOP_SEND_ptr;\n";
   $local_var_decl_code .= sprintf
     (qq[\tglibtop_%s %s;\n], $feature, $feature);
@@ -107,7 +109,7 @@ sub output {
 				     $retval, $retval);
   }
 
-  $init_local_var_code = '';
+  $init_local_var_code = "\t/* variable initialization */\n";
   $init_local_var_code .= sprintf
     (qq[\tmemset (&%s, 0, sizeof (glibtop_%s));\n], $feature, $feature);
   $init_local_var_code .= "\t_LIBGTOP_SEND_offset = 0;\n";
@@ -191,7 +193,8 @@ sub output {
   }
 
   if (!($demarshal_code eq '')) {
-    $demarshal_code .= "\n";
+    $demarshal_code = sprintf (qq[\t/* demarshal start */\n%s\n],
+			       $demarshal_code);
   }
 
   if ($need_temp_storage) {
@@ -236,12 +239,71 @@ sub output {
 
   $size_code .= sprintf
     (qq[\tif (_LIBGTOP_SEND_len != send_size)\n\t\treturn -GLIBTOP_ERROR_DEMARSHAL_ERROR;\n\n]);
-  
+
+  $size_code .= "\t/* recv size */\n";
+  $size_code .= "\t_LIBGTOP_RECV_len = 0;\n";
+  if ($line_fields[3] eq '') {
+  } elsif ($line_fields[3] eq 'array') {
+    $size_code .= "\t_LIBGTOP_RECV_len += sizeof (glibtop_array);\n";
+  } elsif ($line_fields[3] =~ /^array/) {
+    $size_code .= "\t_LIBGTOP_RECV_len += sizeof (glibtop_array);\n";
+    $size_code .= sprintf
+      (qq[\t_LIBGTOP_RECV_len += sizeof (glibtop_%s);\n], $feature);
+  } else {
+    $size_code .= sprintf
+      (qq[\t_LIBGTOP_RECV_len += sizeof (glibtop_%s);\n], $feature);
+  }
+  $size_code .= "\n";
+
+  $size_code .= "\t/* recv buffer */\n";
+  if ($line_fields[3] eq '') {
+    $size_code .= "\t_LIBGTOP_RECV_buf = NULL;\n";
+  } else {
+    $size_code .= "\t_LIBGTOP_RECV_buf = glibtop_malloc_r (server, _LIBGTOP_RECV_len);\n";
+  }
+  $size_code .= "\t_LIBGTOP_RECV_ptr = _LIBGTOP_RECV_buf;\n\n";
+
+  $recv_buf_code = '';
+  if ($line_fields[3] eq '') {
+  } elsif ($line_fields[3] eq 'array') {
+    $recv_buf_code = "\t/* write recv buffer */\n";
+    $recv_buf_code .= sprintf
+      (qq[\tmemcpy (_LIBGTOP_RECV_ptr, &array, sizeof (glibtop_array));\n]);
+    $recv_buf_code .= sprintf
+      (qq[\t_LIBGTOP_RECV_ptr += sizeof (glibtop_array);\n]);
+  } elsif ($line_fields[3] =~ /^array/) {
+    $recv_buf_code = "\t/* write recv buffer */\n";
+    $recv_buf_code .= sprintf
+      (qq[\tmemcpy (_LIBGTOP_RECV_ptr, &array, sizeof (glibtop_array));\n]);
+    $recv_buf_code .= sprintf
+      (qq[\t_LIBGTOP_RECV_ptr += sizeof (glibtop_array);\n]);
+    $recv_buf_code .= sprintf
+      (qq[\tmemcpy (_LIBGTOP_RECV_ptr, &%s, sizeof (glibtop_%s));\n],
+       $feature, $feature);
+    $recv_buf_code .= sprintf
+      (qq[\t_LIBGTOP_RECV_ptr += sizeof (glibtop_%s);\n], $feature);
+  } else {
+    $recv_buf_code = "\t/* write recv buffer */\n";
+    $recv_buf_code .= sprintf
+      (qq[\tmemcpy (_LIBGTOP_RECV_ptr, &%s, sizeof (glibtop_%s));\n],
+       $feature, $feature);
+    $recv_buf_code .= sprintf
+      (qq[\t_LIBGTOP_RECV_ptr += sizeof (glibtop_%s);\n], $feature);
+  }
+
+  $recv_buf_code .= "\n";
+  $recv_buf_code .= "\t*recv_buf_ptr = _LIBGTOP_RECV_buf;\n";
+  $recv_buf_code .= "\t*recv_size_ptr = _LIBGTOP_RECV_len;\n";
+
   $func_decl_code = sprintf
-    (qq[static int\n_glibtop_demarshal_%s_i (glibtop *server, glibtop_backend *backend, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, int *retval_ptr)\n], $feature);
+    (qq[static int\n_glibtop_demarshal_%s_i (glibtop *server, glibtop_backend *backend, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, void **recv_buf_ptr, size_t *recv_size_ptr, int *retval_ptr)\n], $feature);
+
+  if (!($call_code eq '')) {
+    $call_code .= "\n";
+  }
   
   $func_body_code = sprintf
-    (qq[%s%s%s], $size_code, $demarshal_code, $call_code);
+    (qq[%s%s%s%s], $size_code, $demarshal_code, $call_code, $recv_buf_code);
   
   $total_code = sprintf
     (qq[%s{\n%s\n%s\n%s\n\treturn 0;\n}\n],
@@ -252,7 +314,7 @@ sub output {
 }
 
 $func_decl_code = sprintf
-  (qq[int\nglibtop_demarshal_func_i (glibtop *server, glibtop_backend *backend, unsigned command, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, int *retval_ptr)]);
+  (qq[int\nglibtop_demarshal_func_i (glibtop *server, glibtop_backend *backend, unsigned command, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, void **recv_buf_ptr, size_t *recv_size_ptr, int *retval_ptr)]);
 
 $switch_body_code = '';
 
@@ -260,7 +322,7 @@ for ($nr = 1; $nr <= $feature_count; $nr++) {
   $feature = $features{$nr};
 
   $switch_body_code .= sprintf
-    (qq[\tcase GLIBTOP_CMND_%s:\n\t\treturn _glibtop_demarshal_%s_i\n\t\t\t(server, backend, send_ptr, send_size,\n\t\t\t data_ptr, data_size, retval_ptr);\n],
+    (qq[\tcase GLIBTOP_CMND_%s:\n\t\treturn _glibtop_demarshal_%s_i\n\t\t\t(server, backend, send_ptr, send_size,\n\t\t\t data_ptr, data_size,\n\t\t\t recv_buf_ptr, recv_size_ptr, retval_ptr);\n],
      &toupper ($feature), $feature);
 }
 

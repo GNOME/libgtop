@@ -26,7 +26,6 @@
 #include <glibtop.h>
 #include <glibtop/open.h>
 #include <glibtop/close.h>
-#include <glibtop/command.h>
 
 /* Closes server. */
 

@@ -41,6 +41,7 @@ glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
 		int *retval_ptr)
 {
     glibtop_command cmnd;
+    glibtop_response resp;
 #if 0
     int retval;
 #endif
@@ -48,6 +49,7 @@ glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
     glibtop_init_r (&server, 0, 0);
 
     memset (&cmnd, 0, sizeof (glibtop_command));
+    memset (&resp, 0, sizeof (glibtop_response));
 
     cmnd.command = command;
 
@@ -64,22 +66,26 @@ glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
 	
     glibtop_write_i (server, backend, sizeof (glibtop_command), &cmnd);
 
-#if 0
-    glibtop_read_i (server, backend, sizeof (glibtop_response), &response);
+    glibtop_read_i (server, backend, sizeof (glibtop_response), &resp);
 
-#ifdef DEBUG
-    fprintf (stderr, "RESPONSE: %lu - %d\n",
-	     response.offset, response.data_size);
-#endif
-
-    glibtop_read_i (server, backend, sizeof (int), &retval);
+    fprintf (stderr, "RESPONSE: %d - %d - %ld - %ld - %p - %ld\n",
+	     resp.retval, resp.glibtop_errno,
+	     (long) resp.recv_size, (long) resp.data_size,
+	     recv_ptr, (long) recv_size);
+    
     if (retval_ptr)
-	*retval_ptr = retval;
+	*retval_ptr = resp.glibtop_errno;
 
-    if (recv_buf)
-	memcpy (recv_buf, ((char *) &response) + response.offset,
-		recv_size);
+    if (resp.recv_size != recv_size) {
+	glibtop_warn_r (server, "Expected %ld bytes, but got %ld.",
+			(long) recv_size, (long) resp.recv_size);
+	return NULL;
+    }
 
+    if (recv_ptr)
+	glibtop_read_i (server, backend, recv_size, recv_ptr);
+
+#if 0
     if (response.data_size) {
 	void *ptr = glibtop_malloc_r (server, response.data_size);
 

@@ -108,12 +108,16 @@ void
 handle_slave_connection (int input, int output)
 {
     glibtop_command _cmnd, *cmnd = &_cmnd;
-    char parameter [BUFSIZ];
-    size_t send_size = 0;
 
-    glibtop_send_version_i (glibtop_global_server, output);
+    // glibtop_send_version_i (glibtop_global_server, output);
 
     while (do_read (input, cmnd, sizeof (glibtop_command))) {
+	size_t recv_size = 0, send_size = 0;
+	char parameter [BUFSIZ];
+	int retval, func_retval;
+	void *recv_ptr = NULL;
+	glibtop_response resp;
+
 	fprintf (stderr, "Slave %d received command "
 		 "%ld from client.\n", getpid (), (long) cmnd->command);
 
@@ -143,8 +147,22 @@ handle_slave_connection (int input, int output)
 	    memcpy (parameter, cmnd->parameter, send_size);
 	}
 
-	glibtop_demarshal_func_i (glibtop_global_server, NULL,
-				  cmnd->command, parameter,
-				  send_size, NULL, 0, NULL);
+	retval = glibtop_demarshal_func_i (glibtop_global_server, NULL,
+					   cmnd->command, parameter,
+					   send_size, NULL, 0,
+					   &recv_ptr, &recv_size,
+					   &func_retval);
+
+	fprintf (stderr, "Retval %d / %d - %p - %d\n",
+		 retval, func_retval, recv_ptr, recv_size);
+
+	memset (&resp, 0, sizeof (glibtop_response));
+
+	resp.retval = retval;
+	resp.glibtop_errno = func_retval;
+	resp.recv_size = recv_size;
+	resp.data_size = 0;
+
+	do_output (output, &resp, recv_ptr, NULL);
     }		
 }

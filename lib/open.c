@@ -25,9 +25,7 @@
 
 #include <glibtop.h>
 #include <glibtop/open.h>
-#include <glibtop/version.h>
 #include <glibtop/sysdeps.h>
-#include <glibtop/command.h>
 #include <glibtop/xmalloc.h>
 
 #include <glibtop/gnuserv.h>

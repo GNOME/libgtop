@@ -55,6 +55,10 @@ BEGIN_LIBGTOP_DECLS
 #define SLAGE_DEBUG
 #endif
 
+#ifndef REAL_DEBUG
+#define REAL_DEBUG
+#endif
+
 /* Some don't have LOG_PERROR */
 #ifndef LOG_PERROR
 #define LOG_PERROR 0
@@ -70,6 +74,10 @@ BEGIN_LIBGTOP_DECLS
 #define GET_MAX_FDS() 256
 #endif
 
+void
+do_output (int s, glibtop_response *resp, const void *recv_ptr,
+	   const void *data_ptr);
+
 int
 do_read (int s, void *ptr, size_t total_size);
 
@@ -77,7 +85,7 @@ void
 handle_slave_connection (int input, int output);
 
 int
-glibtop_demarshal_func_i (glibtop *server, glibtop_backend *backend, unsigned command, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, int *retval_ptr);
+glibtop_demarshal_func_i (glibtop *server, glibtop_backend *backend, unsigned command, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, void **recv_buf_ptr, size_t *recv_size_ptr, int *retval_ptr);
 
 void
 glibtop_send_version_i (glibtop *server, int fd);

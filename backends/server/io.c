@@ -25,19 +25,14 @@
 
 #include "server.h"
 
-#if 0
-
 void
-do_output (int s, glibtop_response *resp, off_t offset,
-	   size_t data_size, const void *data, int retval)
+do_output (int s, glibtop_response *resp, const void *recv_ptr,
+	   const void *data_ptr)
 {
 #ifdef REAL_DEBUG
-    fprintf (stderr, "Really writing %d bytes at offset %lu.\n",
-	     sizeof (glibtop_response), offset);
+    fprintf (stderr, "Really writing %d bytes.\n",
+	     sizeof (glibtop_response));
 #endif
-
-    resp->offset = offset;
-    resp->data_size = data_size;
 
     if (s == 0) {
 	if (write (1, (const void *) resp, sizeof (glibtop_response)) < 0)
@@ -47,31 +42,37 @@ do_output (int s, glibtop_response *resp, off_t offset,
 	    glibtop_warn_io ("send");
     }
 
+    if (resp->recv_size) {
+#ifdef REAL_DEBUG
+	fprintf (stderr, "Writing %ld bytes of data.\n",
+		 (long) resp->recv_size);
+#endif
 
-    if (s == 0) {
-	if (write (1, &retval, sizeof (int)) < 0)
-	    glibtop_warn_io ("write retval");
-    } else {
-	if (send (s, &retval, sizeof (int), 0) < 0)
-	    glibtop_warn_io ("send retval");
+	if (s == 0) {
+	    if (write (1, recv_ptr, resp->recv_size) < 0)
+		glibtop_warn_io ("write");
+	} else {
+	    if (send (s, recv_ptr, resp->recv_size, 0) < 0)
+		glibtop_warn_io ("send");
+	}
     }
 
     if (resp->data_size) {
 #ifdef REAL_DEBUG
-	fprintf (stderr, "Writing %d bytes of data.\n", resp->data_size);
+	fprintf (stderr, "Writing %ld bytes of extra data.\n",
+		 (long) resp->data_size);
 #endif
 
 	if (s == 0) {
-	    if (write (1, data, resp->data_size) < 0)
+	    if (write (1, data_ptr, resp->data_size) < 0)
 		glibtop_warn_io ("write");
 	} else {
-	    if (send (s, data, resp->data_size, 0) < 0)
+	    if (send (s, data_ptr, resp->data_size, 0) < 0)
 		glibtop_warn_io ("send");
 	}
     }
-}
 
-#endif
+}
 
 int
 do_read (int s, void *ptr, size_t total_size)

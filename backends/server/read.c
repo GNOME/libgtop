@@ -42,10 +42,13 @@ glibtop_read_i (glibtop *server, glibtop_backend *backend,
     glibtop_init_r (&server, 0, 0);
 
 #ifdef DEBUG
-    fprintf (stderr, "LIBRARY: really reading %d bytes.\n", size);
+    fprintf (stderr, "LIBRARY: really reading %d bytes from %d.\n",
+	     size, backend->_priv->input [0]);
 #endif
 
     ret = read (backend->_priv->input [0], buf, size);
+
+    fprintf (stderr, "LIBRARY: read %d bytes.\n", ret);
 
     if (ret < 0)
 	glibtop_error_io_r (server, _("read %d bytes"), size);

@@ -34,7 +34,7 @@ glibtop_send_version_i (glibtop *server, int fd)
     sprintf (buffer, LIBGTOP_VERSION_STRING,
 	     LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
 	     sizeof (glibtop_command),
-	     0,
+	     sizeof (glibtop_response),
 	     sizeof (glibtop_union),
 	     sizeof (glibtop_sysdeps));
 	
