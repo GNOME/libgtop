@@ -52,10 +52,10 @@ glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf,
 
 	/* Fill in data fields. */
 
-	buf->signal = pp->p_sig;
-	buf->blocked = pp->p_sigmask;
-	buf->sigignore = pp->p_sigignore;
-	buf->sigcatch = pp->p_sigcatch;
+	buf->signal [0] = pp->p_sig;
+	buf->blocked [0] = pp->p_sigmask;
+	buf->sigignore [0] = pp->p_sigignore;
+	buf->sigcatch [0] = pp->p_sigcatch;
 	
 	buf->flags = _glibtop_sysdeps_proc_signal;
 }

@@ -54,10 +54,10 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf, pid_t pid)
 
 	p = skip_multiple_token (p, 28);
 
-	buf->signal = strtoul (p, &p, 0);
-	buf->blocked = strtoul (p, &p, 0);
-	buf->sigignore = strtoul (p, &p, 0);
-	buf->sigcatch = strtoul (p, &p, 0);
+	buf->signal [0] = strtoul (p, &p, 0);
+	buf->blocked [0] = strtoul (p, &p, 0);
+	buf->sigignore [0] = strtoul (p, &p, 0);
+	buf->sigcatch [0] = strtoul (p, &p, 0);
 
 	buf->flags = _glibtop_sysdeps_proc_signal;
 }

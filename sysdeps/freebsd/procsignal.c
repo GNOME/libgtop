@@ -63,22 +63,22 @@ glibtop_get_proc_signal_p (glibtop *server,
 	/* signal: mask of pending signals.
 	 *         pinfo [0].kp_proc.p_siglist
 	 */
-	buf->signal = pinfo [0].kp_proc.p_siglist;
+	buf->signal [0] = pinfo [0].kp_proc.p_siglist;
 
 	/* blocked: mask of blocked signals.
 	 *          pinfo [0].kp_proc.p_sigmask
 	 */
-	buf->blocked = pinfo [0].kp_proc.p_sigmask;
+	buf->blocked [0] = pinfo [0].kp_proc.p_sigmask;
 	
 	/* sigignore: mask of ignored signals.
 	 *            pinfo [0].kp_proc.p_sigignore
 	*/
-	buf->sigignore = pinfo [0].kp_proc.p_sigignore;
+	buf->sigignore [0] = pinfo [0].kp_proc.p_sigignore;
 	
 	/* sigcatch: mask of caught signals.
 	 *           pinfo [0].kp_proc.p_sigcatch
 	*/
-	buf->sigcatch = pinfo [0].kp_proc.p_sigcatch;
+	buf->sigcatch [0] = pinfo [0].kp_proc.p_sigcatch;
 
 	buf->flags = _glibtop_sysdeps_proc_signal;
 }

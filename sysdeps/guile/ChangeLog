@@ -1,3 +1,9 @@
+1998-10-20  Martin Baulig  <martin@home-of-linux.org>
+
+	* guile.awk: If the features.def contains something like
+	`fieldname[number]' we interpret this as an array and add all
+ 	members of this array.
+
 1998-10-12  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am: Let the `Makefile' depend upon $(BUILT_SOURCES).

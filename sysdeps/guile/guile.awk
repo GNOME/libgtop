@@ -95,7 +95,17 @@ function make_output(line) {
     sub(/^.*\(/, "", list); sub(/\)$/, "", list);
     count = split (list, fields, /,/);
     for (field = 1; field <= count; field++) {
-      output = output""convert[type]" ("feature"."fields[field]"),\n\t\t\t";
+      if (fields[field] ~ /^(\w+)\[([0-9]+)\]$/) {
+	split(fields[field], field_parts, /\[/);
+	fields[field] = field_parts[1];
+	sub(/\]/, "", field_parts[2]);
+	number = field_parts[2];
+	for (nr = 0; nr < number; nr++) {
+	  output = output""convert[type]" ("feature"."fields[field]" ["nr"]),\n\t\t\t";
+	}
+      } else {
+	output = output""convert[type]" ("feature"."fields[field]"),\n\t\t\t";
+      }
     }
   }
   output = output"SCM_UNDEFINED);\n";

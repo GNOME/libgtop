@@ -1,3 +1,30 @@
+1998-10-20  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/proc_signal.h: Use a 2-element-array of
+	type `u_int64_t' for all signal masks instead of just
+	scalar numbers. This avoids problems on systems with more
+	than 64 signals.
+
+	If there is any operating system out there with even more than
+	128 signals, we can simply increase the number of array elements
+	here.
+
+	[NOTE for people porting libgtop:
+	
+ 	 Please use all 64 bits of the `u_int64_t' and not just 32 - the
+	 signal number (as it is used in calls to kill () ...) should be
+	 a bit-index into this field; if a process ignores for instance
+	 signal 64, it has the 0-bit of sigcatch[1] set, if it ignores 63,
+	 this is the 63-bit of sigcatch[0] and so on ...
+
+	 The mapping between signal numbers and their names is done via the
+	 glibtop_sys_siglist [] field which should be declared in
+	 sysdeps/@sysdeps_dir@/siglist.c - see linux for an example.
+	]
+
+	* features.def: It's now safe to put things like `loadavg[3]'
+	here - the awk skripts should correctly threat this as an array.
+
 1998-10-12  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in (GNOME_COMPILE_WARNINGS): Let the user enable

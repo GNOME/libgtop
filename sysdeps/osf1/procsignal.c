@@ -63,10 +63,10 @@ glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf,
 	
 	if (ret != 1) return;
 
-	buf->signal = procinfo.pi_sig;
-	buf->blocked = procinfo.pi_sigmask;
-	buf->sigignore = procinfo.pi_sigignore;
-	buf->sigcatch = procinfo.pi_sigcatch;
+	buf->signal [0] = procinfo.pi_sig;
+	buf->blocked [0] = procinfo.pi_sigmask;
+	buf->sigignore [0] = procinfo.pi_sigignore;
+	buf->sigcatch [0] = procinfo.pi_sigcatch;
 
 	buf->flags = _glibtop_sysdeps_proc_signal;
 }

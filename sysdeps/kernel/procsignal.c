@@ -54,8 +54,8 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 
 	buf->flags = _glibtop_sysdeps_proc_signal;
 
-	buf->signal = tbl.proc_signal.signal;
-	buf->blocked = tbl.proc_signal.blocked;
-	buf->sigignore = tbl.proc_signal.ignored;
-	buf->sigcatch = tbl.proc_signal.caught;
+	buf->signal [0] = tbl.proc_signal.signal;
+	buf->blocked [0] = tbl.proc_signal.blocked;
+	buf->sigignore [0] = tbl.proc_signal.ignored;
+	buf->sigcatch [0] = tbl.proc_signal.caught;
 }
