@@ -1,3 +1,8 @@
+2000-01-22  Martin Baulig  <martin@home-of-linux.org>
+
+	* procargs.c (glibtop_get_proc_args_s): Set correct `buf->size' and
+	`buf->flags' fields when `max_length' was given. Fixes #5183.
+
 1999-11-28  Martin Baulig  <martin@home-of-linux.org>
 
 	* procstate.c (glibtop_get_procstate_s): Stat "/proc/<pid>" instead
