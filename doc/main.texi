@@ -6,24 +6,6 @@
 * Reference Manual::            LibGTop Reference Manual
 * LibGTop Internals::           LibGTop Internals
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  --- The Detailed Node Listing ---
 
 About LibGTop
