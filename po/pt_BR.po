@@ -6,13 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.0.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-11 03:27+0100\n"
-"PO-Revision-Date: 2003-10-01 17:20-0400\n"
+"POT-Creation-Date: 2004-03-11 11:29-0500\n"
+"PO-Revision-Date: 2004-03-11 11:28-0500\n"
 "Last-Translator: Evandro Fernandes Giovanini <evandrofg@ig.com.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: examples/smp.c:74
 #, c-format
@@ -55,7 +56,7 @@ msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
 
 #: examples/smp.c:100
 msgid "Percent:"
-msgstr "Percentual:"
+msgstr "Porcentual:"
 
 #: examples/smp.c:101
 msgid "Total (%)"
@@ -96,10 +97,10 @@ msgid "Spin:"
 msgstr "Spin:"
 
 #: lib/read.c:78
-#, fuzzy, c-format
+#, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "ler %d bytes"
+msgstr[0] "ler %d byte"
 msgstr[1] "ler %d bytes"
 
 #: lib/read_data.c:51
@@ -107,17 +108,17 @@ msgid "read data size"
 msgstr "ler tamanho dos dados"
 
 #: lib/read_data.c:68
-#, fuzzy, c-format
+#, c-format
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
-msgstr[0] "ler %d bytes de dados"
+msgstr[0] "ler %d byte de dados"
 msgstr[1] "ler %d bytes de dados"
 
 #: lib/write.c:51
-#, fuzzy, c-format
+#, c-format
 msgid "write %d byte"
 msgid_plural "write %d bytes"
-msgstr[0] "escrever %d bytes"
+msgstr[0] "escrever %d byte"
 msgstr[1] "escrever %d bytes"
 
 #: src/daemon/gnuserv.c:456
@@ -160,7 +161,7 @@ msgid ""
 msgstr ""
 "Erro na opção %s: %s.\n"
 "Execute '%s --help' para uma lista completa das opções\n"
-"de linha de comando.\n"
+"da linha de comando.\n"
 
 #: sysdeps/names/cpu.c:44
 msgid "Total CPU Time"
@@ -184,7 +185,7 @@ msgstr "Tempo de CPU em Inatividade"
 
 #: sysdeps/names/cpu.c:49
 msgid "Tick Frequency"
-msgstr "Freqüência de Relógio"
+msgstr "Freqüência do Relógio"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP Total CPU Time"
@@ -204,11 +205,11 @@ msgstr "Tempo de CPU SMP em Modo Sistema"
 
 #: sysdeps/names/cpu.c:54
 msgid "SMP CPU Time in the Idle Task"
-msgstr "Tempo de CPU SMP em Inatividade"
+msgstr "Tempo de CPU SMP sem Atividade"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "SMP CPU Flags"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks since system boot"
@@ -232,11 +233,11 @@ msgstr "Número de ciclos que o sistema despendeu em inatividade"
 
 #: sysdeps/names/cpu.c:65
 msgid "Tick frequency (default is 100)"
-msgstr "Freqüência de ciclo (padrão é 100)"
+msgstr "Freqüência de ciclo (o padrão é 100)"
 
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
-msgstr ""
+msgstr "O campo de Bit indicando qual CPU está operando agora"
 
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
 msgid "Total blocks"
@@ -545,7 +546,7 @@ msgstr ""
 "\n"
 "Isto é provavelmente um erro, já que nem todo os processos são programas C.\n"
 "\n"
-"O bit matemático deve ser um 4 decimal, e o bit verificado é o 10 decimal."
+"O bit matemático deve ser o 4 decimal, e o bit verificado é o 10 decimal."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:60
@@ -773,26 +774,24 @@ msgid "GID"
 msgstr "GID"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RGid"
-msgstr "Gid"
+msgstr "RGid"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RUid"
-msgstr "Uid"
+msgstr "RUid"
 
 #: sysdeps/names/procstate.c:44
 msgid "HasCPU"
-msgstr ""
+msgstr "HasCPU"
 
 #: sysdeps/names/procstate.c:44
 msgid "Proc"
-msgstr ""
+msgstr "Proc"
 
 #: sysdeps/names/procstate.c:44
 msgid "LProc"
-msgstr ""
+msgstr "LProc"
 
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
@@ -811,27 +810,24 @@ msgid "GID of process"
 msgstr "GID do processo"
 
 #: sysdeps/names/procstate.c:53
-#, fuzzy
 msgid "Real UID of process"
-msgstr "UID do processo"
+msgstr "UID real do processo"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "Real GID of process"
-msgstr "GID do processo"
+msgstr "GID real do processo"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
-msgstr ""
+msgstr "Has CPU"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "Processor"
-msgstr "ID do Processo"
+msgstr "Processador"
 
 #: sysdeps/names/procstate.c:57
 msgid "Last Processor"
-msgstr ""
+msgstr "Último Processador"
 
 #: sysdeps/names/proctime.c:45
 msgid "Start_Time"
@@ -942,24 +938,20 @@ msgid "EGid"
 msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "Uid"
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "Gid"
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSUid"
-msgstr "Uid"
+msgstr "FSUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSGid"
-msgstr "Gid"
+msgstr "FSGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
@@ -990,14 +982,12 @@ msgid "Priority"
 msgstr "Prioridade"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "ID Grupo"
+msgstr "NGrupos"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "Groups"
-msgstr "ID Grupo"
+msgstr "Grupos"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
@@ -1016,24 +1006,20 @@ msgid "Effective Group ID"
 msgstr "ID do Grupo Efetivo"
 
 #: sysdeps/names/procuid.c:60
-#, fuzzy
 msgid "Set User ID"
-msgstr "ID Usuário"
+msgstr "Define o ID do Usuário"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Set Group ID"
-msgstr "ID Grupo"
+msgstr "Define o ID do Grupo"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Uso do Sistema de Arquivos"
+msgstr "ID do Usuário do Sistema de Arquivos"
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "ID do Grupo Efetivo"
+msgstr "ID do Grupo do Sistema de Arquivos"
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
@@ -1068,14 +1054,12 @@ msgid "Standard unix nice level of process"
 msgstr "Nível de prioridade do processo no padrão Unix"
 
 #: sysdeps/names/procuid.c:72
-#, fuzzy
 msgid "Number of additional process groups"
-msgstr "ID do grupo do processo do terminal"
+msgstr "Número de grupos de processos adicionais"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Array of additional process groups"
-msgstr "ID do grupo do processo do terminal"
+msgstr "Matriz dos grupos adicionais de processos"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
@@ -1278,9 +1262,8 @@ msgid "Idletime"
 msgstr "Tempo ocioso"
 
 #: sysdeps/names/uptime.c:41
-#, fuzzy
 msgid "BootTime"
-msgstr "RTime"
+msgstr "BootTime"
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
@@ -1293,9 +1276,8 @@ msgstr ""
 "sistema"
 
 #: sysdeps/names/uptime.c:48
-#, fuzzy
 msgid "Time of last system boot in seconds since the epoch"
-msgstr "Hora inicial dos processos em segundos desde 1/1/1970"
+msgstr "Tempo do último boot do sistema em segundos desde a época"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1420,45 +1402,3 @@ msgstr "Sinal 1 definido pelo usuário"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Sinal 2 definido pelo usuário"
-
-#~ msgid "Unknown system error"
-#~ msgstr "Erro desconhecido de sistema"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: opção `%s' é ambígua\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: opção `--%s' não aceita argumentos.\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: opção `%c%s' não aceita argumentos.\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: opção `%s' requer um argumento.\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: opção não reconhecida `--%s'\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: opção não reconhecida `%c%s'\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: opção ilegal -- %c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: opção inválida -- %c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: opção requer um argumento -- %c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: opção '-W %s' é ambígua.\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: opção `-W %s' não aceita argumentos.\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "Mostrar esta mensagem de ajuda"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "Exibir breve mensagem de uso"
