@@ -88,7 +88,8 @@ handle_slave_connection (int input, int output)
 						       &resp->u.data.proc_args,
 						       pid, max_len);
 			do_output (output, resp, _offset_data (proc_args),
-				   resp->u.data.proc_args.size, ptr);
+				   ptr ? resp->u.data.proc_args.size+1 : 0,
+				   ptr);
 			glibtop_free_r (server, ptr);
 			break;
 #endif

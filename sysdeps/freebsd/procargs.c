@@ -49,7 +49,7 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 {
 	struct kinfo_proc *pinfo;
 	char *retval, **args, **ptr;
-	unsigned size = 0;
+	unsigned size = 0, pos = 0;
 	int count;
 
 	char filename [BUFSIZ];
@@ -87,15 +87,17 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 	for (ptr = args; *ptr; ptr++)
 		size += strlen (*ptr)+1;
 
-	buf->size = size+2;
-
-	retval = glibtop_malloc_r (server, buf->size);
-	memset (retval, 0, buf->size);
+	size += 2;
+	retval = glibtop_malloc_r (server, size);
+	memset (retval, 0, size);
 
 	for (ptr = args; *ptr; ptr++) {
-		if (*retval) strcat (retval, " ");
-		strcat (retval, *ptr);
+		int len = strlen (*ptr)+1;
+		memcpy (retval+pos, *ptr, len);
+		pos += len;
 	}
+
+	buf->size = pos ? pos-1 : 0;
 
 	buf->flags = _glibtop_sysdeps_proc_args;
 
