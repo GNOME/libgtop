@@ -1,3 +1,7 @@
+1999-05-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* libgtop-sysdeps.m4: Make the I4B check work for NetBSD.
+
 1999-05-15  Martin Baulig  <martin@home-of-linux.org>
 
 	* libgtop-sysdeps.m4: Remove the `--enable-hacker-mode' requirement
