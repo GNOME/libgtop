@@ -1,14 +1,14 @@
 # libgtop's Portuguese Translation
-# Copyright (C) 2001, 2004 libgtop
+# Copyright © 2001, 2002, 2003, 2004 libgtop
 # Distributed under the same licence as the libgtop package
-# Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2004
+# Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003, 2004
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 2.6\n"
+"Project-Id-Version: 2.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-20 15:07+0200\n"
-"PO-Revision-Date: 2004-01-04 01:55+0000\n"
+"POT-Creation-Date: 2004-07-26 22:30+0100\n"
+"PO-Revision-Date: 2004-07-26 22:35+0000\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -261,9 +261,8 @@ msgid "Free file nodes"
 msgstr "Nós de ficheiros livres"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Bloqueado"
+msgstr "Tamanho do bloco"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -418,14 +417,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Subrede"
+msgstr "Subrede IPv4"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Endereço"
+msgstr "Endereço IPv4"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -468,17 +465,16 @@ msgid "Collisions"
 msgstr "Colisões"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Endereço"
+msgstr "Endereço IPv6"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "Prefixo IPv6"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "Âmbito IPv6"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
