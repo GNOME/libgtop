@@ -59,6 +59,8 @@ typedef enum _glibtop_interface_type	glibtop_interface_type;
 typedef enum _glibtop_transport		glibtop_transport;
 typedef enum _glibtop_protocol		glibtop_protocol;
 
+typedef enum _glibtop_ipv6_scope	glibtop_ipv6_scope;
+
 typedef enum _glibtop_strategy		glibtop_strategy;
 typedef enum _glibtop_interface_flags	glibtop_interface_flags;
 
@@ -108,6 +110,14 @@ enum _glibtop_interface_type {
     GLIBTOP_INTERFACE_SLIP,
     GLIBTOP_INTERFACE_PPP,
     GLIBTOP_INTERFACE_ISDN
+};
+
+enum _glibtop_ipv6_scope {
+    GLIBTOP_IPV6_SCOPE_UNKNOWN		= 0,
+    GLIBTOP_IPV6_SCOPE_LOOPBACK		= 1 << 0,
+    GLIBTOP_IPV6_SCOPE_LINKLOCAL	= 1 << 1,
+    GLIBTOP_IPV6_SCOPE_SITELOCAL	= 1 << 2,
+    GLIBTOP_IPV6_SCOPE_COMPATv4		= 1 << 3
 };
 
 enum _glibtop_strategy {
