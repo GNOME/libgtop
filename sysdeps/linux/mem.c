@@ -66,8 +66,8 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	buffer [len] = '\0';
 
 	buf->total  = get_scaled(buffer, "MemTotal:");
-	buf->used   = get_scaled(buffer, "Active:");
 	buf->free   = get_scaled(buffer, "MemFree:");
+	buf->used   = buf->total - buf->free;
 	buf->shared = get_scaled(buffer, "Mapped:");
 	buf->buffer = get_scaled(buffer, "Buffers:");
 	buf->cached = get_scaled(buffer, "Cached:");

@@ -1,3 +1,8 @@
+2003-12-23  Bastien Nocera  <hadess@hadess.net>
+
+	* mem.c: (glibtop_get_mem_s): Fix calculation of used memory,
+	patch by Benoît Dejean, <bnet@ifrance.com> (Closes: #129863)
+
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
 	* glibtop_server.h:
