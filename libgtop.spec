@@ -3,7 +3,7 @@
 %define rel      SNAP
 %define prefix   /usr
 
-Summary: libgtop library
+Summary: LibGTop library
 Name: libgtop
 Version: %ver
 Release: %rel
@@ -25,11 +25,28 @@ On Linux systems, these information are taken directly from the /proc
 filesystem while on other systems a server is used to read those
 information from /dev/kmem or whatever. 
 
+%package devel
+Summary: Libraries, includes, etc to develop LibGTop applications
+Group: X11/libraries
+Requires: libgtop
+
+%description devel
+Libraries, include files, etc you can use to develop GNOME applications.
+
+%package examples
+Summary: Examples for LibGTop
+Group: X11/libraries
+Requires: libgtop
+
+%description examples
+Examples for LibGTop.
+
+
 %changelog
 
-* Tue Aug 18 1998 Martin Baulig <martin@home-of-linux.org>
+* Tue Aug 19 1998 Martin Baulig <martin@home-of-linux.org>
 
-- released libgtop 0.25.0
+- released LibGTop 0.25.0
 
 * Sun Aug 16 1998 Martin Baulig <martin@home-of-linux.org>
 
@@ -41,9 +58,9 @@ information from /dev/kmem or whatever.
 %build
 # Needed for snapshot releases.
 if [ ! -f configure ]; then
-  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --without-linux-table --without-libgtop-examples
+  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%prefix --without-linux-table --with-libgtop-inodedb
 else
-  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --without-linux-table --without-libgtop-examples
+  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%prefix --without-linux-table --with-libgtop-inodedb
 fi
 
 if [ "$SMP" != "" ]; then
@@ -58,13 +75,21 @@ rm -rf $RPM_BUILD_ROOT
 
 make prefix=$RPM_BUILD_ROOT%{prefix} install
 
+# Move all examples to %{prefix}/libexec/libgtop
+mv $RPM_BUILD_ROOT%{prefix}/libexec $RPM_BUILD_ROOT%{prefix}/libgtop
+mkdir -p $RPM_BUILD_ROOT%{prefix}/libexec
+mv $RPM_BUILD_ROOT%{prefix}/libgtop $RPM_BUILD_ROOT%{prefix}/libexec
+
 #
 # msf - remove these as they are really supposed to come from gnome-libs
 #
-rm -f $RPM_BUILD_ROOT/%{prefix}/lib/libgnomesupport.a
-rm -f $RPM_BUILD_ROOT/%{prefix}/lib/libgnomesupport.la
-rm -f $RPM_BUILD_ROOT/%{prefix}/lib/libgnomesupport.so.0
-rm -f $RPM_BUILD_ROOT/%{prefix}/lib/libgnomesupport.so.0.0.0
+# martin - don't remove since they are no longer installed if build
+#          with GNOME
+#
+# rm -f $RPM_BUILD_ROOT/%{prefix}/lib/libgnomesupport.a
+# rm -f $RPM_BUILD_ROOT/%{prefix}/lib/libgnomesupport.la
+# rm -f $RPM_BUILD_ROOT/%{prefix}/lib/libgnomesupport.so.0
+# rm -f $RPM_BUILD_ROOT/%{prefix}/lib/libgnomesupport.so.0.0.0
 
 rm -fr $RPM_BUILD_ROOT/%{prefix}/include/libgtop
 
@@ -78,9 +103,21 @@ rm -fr $RPM_BUILD_ROOT/%{prefix}/include/libgtop
 %files
 %defattr(-, root, root)
 
-%doc ANNOUNCE AUTHORS ChangeLog NEWS README README.LATEST copyright.txt doc
-%{prefix}/bin/*
+%doc RELNOTES-0.25 AUTHORS ChangeLog NEWS README copyright.txt
+%doc src/inodedb/README.inodedb
 %{prefix}/lib/lib*.so.*
-%{prefix}/lib/libgtopConf.sh
+%{prefix}/share/*
+%{prefix}/bin/*
+
+%files devel
+%defattr(-, root, root)
+
+%{prefix}/lib/lib*.so
 %{prefix}/lib/*a
+%{prefix}/lib/*.sh
 %{prefix}/include/*
+
+%files examples
+%defattr(-,root,root)
+
+%{prefix}/libexec/libgtop/*
