@@ -22,6 +22,7 @@ libgtop_daemon_LDADD		= $(top_builddir)/lib/libgtop.la \
 				  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
 				  @sysdeps_suid_lib@ \
 				  $(suid_sysdeps) $(suid_common)\
+				  $(GLIB_LIBS)	\
 				  @INTLLIBS@ @LIBSUPPORT@ @X_LIBS@ -lXau
 
 libgtop_server_SOURCES		= server.c slave.c io.c version.c daemon.h
