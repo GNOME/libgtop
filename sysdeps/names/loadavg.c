@@ -22,7 +22,7 @@
 */
 
 #include <glibtop/loadavg.h>
-#include <libgnome/gnome-i18n.h>
+#include "libgtop-i18n.h"
 
 const char *glibtop_names_loadavg [GLIBTOP_MAX_LOADAVG] =
 {

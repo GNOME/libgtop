@@ -22,7 +22,7 @@
 */
 
 #include <glibtop/sem_limits.h>
-#include <libgnome/gnome-i18n.h>
+#include "libgtop-i18n.h"
 
 const char *glibtop_names_sem_limits [GLIBTOP_MAX_SEM_LIMITS] =
 {

@@ -1,3 +1,36 @@
+2004-03-04  Bastien Nocera  <hadess@hadess.net>
+
+	* configure.in:
+	* include/libgtop-i18n.h:
+	* lib/lib.pl:
+	* lib/read.c:
+	* lib/read_data.c:
+	* lib/write.c:
+	* sysdeps/names/cpu.c:
+	* sysdeps/names/fsusage.c:
+	* sysdeps/names/loadavg.c:
+	* sysdeps/names/mem.c:
+	* sysdeps/names/mountlist.c:
+	* sysdeps/names/msg_limits.c:
+	* sysdeps/names/netload.c:
+	* sysdeps/names/ppp.c:
+	* sysdeps/names/procargs.c:
+	* sysdeps/names/prockernel.c:
+	* sysdeps/names/proclist.c:
+	* sysdeps/names/procmap.c:
+	* sysdeps/names/procmem.c:
+	* sysdeps/names/procsegment.c:
+	* sysdeps/names/procsignal.c:
+	* sysdeps/names/procstate.c:
+	* sysdeps/names/proctime.c:
+	* sysdeps/names/procuid.c:
+	* sysdeps/names/sem_limits.c:
+	* sysdeps/names/shm_limits.c:
+	* sysdeps/names/swap.c:
+	* sysdeps/names/sysdeps.c:
+	* sysdeps/names/uptime.c: remove dependency on libgnome,
+	check for linux/isdn.h for distros using the 2.6 kernel headers
+
 2004-02-07  Kevin Vandersloot
 
 	* configure.in: release 2.5.1

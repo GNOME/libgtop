@@ -24,7 +24,7 @@
 #include <config.h>
 
 #include <glibtop/write.h>
-#include <libgnome/gnome-i18n.h>
+#include "libgtop-i18n.h"
 
 /* Writes some data to server. */
 

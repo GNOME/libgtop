@@ -23,7 +23,7 @@
 
 #include <glibtop.h>
 #include <glibtop/procsegment.h>
-#include <libgnome/gnome-i18n.h>
+#include "libgtop-i18n.h"
 
 const char *glibtop_names_proc_segment [GLIBTOP_MAX_PROC_SEGMENT] =
 {

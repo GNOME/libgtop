@@ -22,7 +22,7 @@
 */
 
 #include <glibtop/netload.h>
-#include <libgnome/gnome-i18n.h>
+#include "libgtop-i18n.h"
 
 const char *glibtop_names_netload [GLIBTOP_MAX_NETLOAD] =
 {

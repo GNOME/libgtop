@@ -23,7 +23,7 @@
 
 #include <config.h>
 #include <glibtop/read.h>
-#include <libgnome/gnome-i18n.h>
+#include "libgtop-i18n.h"
 
 
 /* Reads some data from server. */

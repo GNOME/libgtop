@@ -22,7 +22,7 @@
 */
 
 #include <glibtop/proclist.h>
-#include <libgnome/gnome-i18n.h>
+#include "libgtop-i18n.h"
 
 const char *glibtop_names_proclist [GLIBTOP_MAX_PROCLIST] =
 {

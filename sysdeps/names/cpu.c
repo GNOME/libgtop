@@ -22,7 +22,7 @@
 */
 
 #include <glibtop/cpu.h>
-#include <libgnome/gnome-i18n.h>
+#include "libgtop-i18n.h"
 
 const char *glibtop_names_cpu [GLIBTOP_MAX_CPU] =
 {

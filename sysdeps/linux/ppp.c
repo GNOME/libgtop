@@ -33,12 +33,12 @@
 
 #include <glib.h>
 
-#ifndef ISDN_MAX_CHANNELS
+#ifdef HAVE_ISDN_H
+#include <linux/isdn.h>
+#else
 #define ISDN_MAX_CHANNELS 64
-#endif
-#ifndef IIOCGETCPS
 #define IIOCGETCPS  _IO('I',21)
-#endif
+#endif /* HAVE_ISDN_H */
 
 static const unsigned long _glibtop_sysdeps_ppp =
 (1L << GLIBTOP_PPP_STATE) + (1L << GLIBTOP_PPP_BYTES_IN) +

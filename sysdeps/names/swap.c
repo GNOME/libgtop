@@ -22,7 +22,7 @@
 */
 
 #include <glibtop/swap.h>
-#include <libgnome/gnome-i18n.h>
+#include "libgtop-i18n.h"
 
 const char *glibtop_names_swap [GLIBTOP_MAX_SWAP] =
 {

@@ -22,7 +22,7 @@
 */
 
 #include <glibtop/procargs.h>
-#include <libgnome/gnome-i18n.h>
+#include "libgtop-i18n.h"
 
 const char *glibtop_names_proc_args [GLIBTOP_MAX_PROC_ARGS] =
 {

@@ -27,7 +27,7 @@ print '#include <glibtop/open.h>';
 print '';
 print '#include <glibtop/sysdeps.h>';
 print '#include <glibtop/union.h>';
-print '#include <libgnome/gnome-i18n.h>';
+print '#include "libgtop-i18n.h"';
 print '';
 print '#include <glibtop/command.h>';
 

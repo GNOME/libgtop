@@ -1,3 +1,9 @@
+2004-03-04  Bastien Nocera  <hadess@hadess.net>
+
+	* Makefile.am:
+	* gnuserv.c: link explicitely to popt and use libgtop-i18n.h
+	instead of libgnome
+
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
 	* Makefile.am:

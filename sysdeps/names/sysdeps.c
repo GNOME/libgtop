@@ -22,7 +22,7 @@
 #include <config.h>
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
-#include <libgnome/gnome-i18n.h>
+#include "libgtop-i18n.h"
 
 const char *glibtop_names_sysdeps [GLIBTOP_MAX_SYSDEPS] =
 {
