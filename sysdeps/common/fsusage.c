@@ -296,8 +296,6 @@ glibtop_get_fsusage_s (glibtop_server *server, glibtop_fsusage *buf,
 {
     struct fs_usage fsp;
 
-    glibtop_init_s (server, 0, 0);
-	
     memset (buf, 0, sizeof (glibtop_fsusage));
     memset (&fsp, 0, sizeof (struct fs_usage));
 	

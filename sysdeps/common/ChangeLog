@@ -1,3 +1,10 @@
+2000-11-22  Martin Baulig  <martin@home-of-linux.org>
+
+	* fsusage.c, moutlist.c: Don't call glibtop_init_s() anymore,
+	this is deprecated.
+
+	* Makefile.am: Don't install libgtop_common.la
+
 2000-02-24  Martin Baulig  <martin@home-of-linux.org>
 
 	* fsusage.c: True64 fix from Aron Griffis: we need to

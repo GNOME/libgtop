@@ -595,8 +595,6 @@ glibtop_get_mountlist_s (glibtop_server *server, glibtop_mountlist *buf,
     glibtop_mountentry *mount_list;
     int count;
 
-    glibtop_init_s (server, 0, 0);
-
     memset (buf, 0, sizeof (glibtop_mountlist));
 
     /* Read filesystem list. */
