@@ -245,13 +245,15 @@ _netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
 		(1L << GLIBTOP_IFADDR_ADDR_LEN) |
 		(1L << GLIBTOP_IFADDR_SCOPE);
 
-	    break;
+	    fclose (f);
+
+	    return 0;
 	}
     }
 
     fclose (f);
 
-    return 0;
+    return -1;
 }
 
 #endif /* HAVE_AFINET6 */
