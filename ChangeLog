@@ -1,5 +1,16 @@
 2001-04-20  Martin Baulig  <baulig@suse.de>
 
+	* include/glibtop/glibtop-server.h
+	(glibtop_server_private): Removed this typedef.
+	(glibtop_server): Made the `_priv' field a `void *'.
+
+	* glibtop-server-private.h: Moved to lib/.
+
+	* lib/glibtop-server-private.h
+	(glibtop_server_private): Moved this typedef here.
+
+2001-04-20  Martin Baulig  <baulig@suse.de>
+
 	* include/glibtop/*.h (glibtop_get_*_s, glibtop_get_*_pl):
 	Added `void *closure' argument to all sysdeps functions.
 

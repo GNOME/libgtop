@@ -1,11 +1,9 @@
 ## Process this file with automake to produce Makefile.in.
 
-SUBDIRS = po intl misc include lib sysdeps backends src doc dtd scripts
+SUBDIRS = po intl misc include lib src doc dtd scripts
 
 include_HEADERS = glibtop.h
 configincludedir = $(pkglibdir)/include
-
-noinst_HEADERS = glibtop-server-private.h
 
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt libgtopConf.sh.in \
 	LIBGTOP-VERSION features.def structures.def libgtop-config.in \

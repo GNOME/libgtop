@@ -24,6 +24,7 @@
 */
 
 #include <glibtop.h>
+#include <glibtop-server-private.h>
 
 glibtop_server *
 glibtop_server_new (void)

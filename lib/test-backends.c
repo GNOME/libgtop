@@ -54,7 +54,7 @@ main (int argc, char *argv [])
     if (backend_common != NULL)
 	glibtop_client_add_backend (client, backend_common);
 
-    backend_sysdeps = glibtop_backend_get ("glibtop-backend-sysdeps",
+    backend_sysdeps = glibtop_backend_get ("glibtop-backend-sysdeps-stub",
 					   0, NULL, &error);
 
     if (error != NULL) {

@@ -33,7 +33,6 @@ BEGIN_LIBGTOP_DECLS
 
 typedef struct _glibtop_server		glibtop_server;
 typedef struct _glibtop_server_info	glibtop_server_info;
-typedef struct _glibtop_server_private	glibtop_server_private;
 
 typedef int (*glibtop_init_func_t)	(glibtop_server *);
 
@@ -57,7 +56,7 @@ struct	_glibtop_server
     unsigned flags;
     const char *name;
 
-    glibtop_server_private *_priv;
+    void *_priv;
 };
 
 glibtop_server *
