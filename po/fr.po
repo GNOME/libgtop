@@ -1,0 +1,402 @@
+# libgtop fr.po
+# Copyright (C) 1998 Free Software Foundation, Inc.
+# Vincent Renardias <vincent@waw.com>, 1998.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop VERSION\n"
+"POT-Creation-Date: 1998-05-31 22:31+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Vincent Renardias <vincent@waw.com>\n"
+"Language-Team: Vincent Renardias <vincent@waw.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/open.c:36
+#, c-format
+msgid "cannot make a pipe: %s\n"
+msgstr ""
+
+#: lib/open.c:41
+#, c-format
+msgid "%s: fork failed: %s\n"
+msgstr ""
+
+#: lib/open.c:59
+#, c-format
+msgid "server version is not %s"
+msgstr ""
+
+#: lib/read.c:34
+#, c-format
+msgid "read size: %s"
+msgstr ""
+
+#: lib/read.c:37
+#, c-format
+msgid "got %d bytes but requested %d"
+msgstr ""
+
+#: lib/read.c:40
+#, c-format
+msgid "read %d bytes: %s"
+msgstr ""
+
+#: lib/write.c:32
+#, c-format
+msgid "write size: %s"
+msgstr ""
+
+#: lib/write.c:37
+#, c-format
+msgid "write %d bytes: %s"
+msgstr ""
+
+#: lib/read_data.c:36
+#, c-format
+msgid "read data size: %s"
+msgstr ""
+
+#: lib/read_data.c:46
+#, c-format
+msgid "read data %d bytes: %s"
+msgstr ""
+
+#: sysdeps/common/xmalloc.c:32
+#, c-format
+msgid "malloc %d bytes: %s"
+msgstr ""
+
+#: sysdeps/common/xmalloc.c:44
+#, c-format
+msgid "calloc %d block (%d bytes each): %s"
+msgstr ""
+
+#: sysdeps/common/xmalloc.c:56
+#, c-format
+msgid "realloc %d bytes: %s"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:42 sysdeps/names/sysdeps.c:62
+msgid "CPU Usage"
+msgstr "Utilisation CPU"
+
+#: sysdeps/names/sysdeps.c:43 sysdeps/names/sysdeps.c:63
+msgid "Memory Usage"
+msgstr "Utilisation Mémoire"
+
+#: sysdeps/names/sysdeps.c:44 sysdeps/names/sysdeps.c:64
+msgid "Swap Usage"
+msgstr "Utilisation du Swap"
+
+#: sysdeps/names/sysdeps.c:45 sysdeps/names/sysdeps.c:65
+msgid "System Uptime"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:46 sysdeps/names/sysdeps.c:66
+msgid "Load Averange"
+msgstr "Charge moyenne"
+
+#: sysdeps/names/sysdeps.c:47 sysdeps/names/sysdeps.c:67
+msgid "Shared Memory Limits"
+msgstr "Limites de la mémoire partagée"
+
+#: sysdeps/names/sysdeps.c:48 sysdeps/names/sysdeps.c:68
+msgid "Message Queue Limits"
+msgstr "Limites de la queue de messages"
+
+#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:69
+msgid "Semaphore Set Limits"
+msgstr "Limites de l'ensemble de sémaphores"
+
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:70
+msgid "List of running Processes"
+msgstr "Liste des taches en cours d'éxécution"
+
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:71
+msgid "Process Status information"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:72
+msgid "Process UID and TTY information"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:73
+msgid "Process Memory information"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:74
+msgid "Process Time information"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:75
+msgid "Process Signal information"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:76
+msgid "Process Kernel Data information"
+msgstr ""
+
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:77
+msgid "Process Segment information"
+msgstr ""
+
+#: sysdeps/names/cpu.c:37
+msgid "Total CPU Time"
+msgstr "Temps CPU Total"
+
+#: sysdeps/names/cpu.c:38
+msgid "CPU Time in User Mode"
+msgstr "Temps CPU en mode utilisateur"
+
+#: sysdeps/names/cpu.c:39
+msgid "CPU Time in User Mode (nice)"
+msgstr ""
+
+#: sysdeps/names/cpu.c:40
+msgid "CPU Time in System Mode"
+msgstr "Temps CPU en mode système"
+
+#: sysdeps/names/cpu.c:41
+msgid "CPU Time in the Idle Task"
+msgstr "Temps CPU pour la tache inactive"
+
+#: sysdeps/names/cpu.c:42
+msgid "Tick Frequency"
+msgstr ""
+
+#: sysdeps/names/cpu.c:47
+msgid "The number of jiffies (1/100ths of a second) since system boot"
+msgstr "Nombre de jiffies (1/100e de seconde) depuis le boot du système"
+
+#: sysdeps/names/cpu.c:49
+msgid ""
+"The number of jiffies (1/100ths of a second) that the system spent in user "
+"mode"
+msgstr ""
+
+#: sysdeps/names/cpu.c:51
+msgid ""
+"The number of jiffies (1/100ths of a second) that the system spent in user "
+"mode with low priority (nice)"
+msgstr ""
+
+#: sysdeps/names/cpu.c:53
+msgid ""
+"The number of jiffies (1/100ths of a second) that the system spent in system "
+"mode"
+msgstr ""
+
+#: sysdeps/names/cpu.c:55
+msgid ""
+"The number of jiffies (1/100ths of a second) that the system spend in the "
+"idle task"
+msgstr ""
+
+#: sysdeps/names/cpu.c:57
+msgid ""
+"All of the above values are in jiffies (1/100ths of a second) unless "
+"otherwise stated in this field (i.e. 'frequency != 100')"
+msgstr ""
+
+#: sysdeps/names/loadavg.c:36
+msgid "Load Average"
+msgstr "Charge Moyenne"
+
+#: sysdeps/names/loadavg.c:41
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgstr ""
+
+#: sysdeps/names/mem.c:39
+msgid "Total Memory"
+msgstr "Mémoire Totale"
+
+#: sysdeps/names/mem.c:40
+msgid "Used Memory"
+msgstr "Mémoire Utilisée"
+
+#: sysdeps/names/mem.c:41
+msgid "Free Memory"
+msgstr "Mémoire Libre"
+
+#: sysdeps/names/mem.c:42
+msgid "Shared Memory"
+msgstr "Mémoire Partagée"
+
+#: sysdeps/names/mem.c:43
+msgid "Buffers"
+msgstr "Tampons"
+
+#: sysdeps/names/mem.c:44
+msgid "Cached"
+msgstr ""
+
+#: sysdeps/names/mem.c:45
+msgid "User"
+msgstr "Utilisateur"
+
+#: sysdeps/names/mem.c:46
+msgid "Locked"
+msgstr "Vérouillé"
+
+#: sysdeps/names/mem.c:51
+msgid "Total physical memory in kB"
+msgstr "Mémoire physique totalle en Ko"
+
+#: sysdeps/names/mem.c:52
+msgid "Used memory size in kB"
+msgstr ""
+
+#: sysdeps/names/mem.c:53
+msgid "Free memory size in kB"
+msgstr ""
+
+#: sysdeps/names/mem.c:54
+msgid "Shared memory size in kB"
+msgstr ""
+
+#: sysdeps/names/mem.c:55
+msgid "Size of buffers kB"
+msgstr ""
+
+#: sysdeps/names/mem.c:56
+msgid "Size of cached memory in kB"
+msgstr ""
+
+#: sysdeps/names/mem.c:57
+msgid "Memory used from user processes in kB"
+msgstr ""
+
+#: sysdeps/names/mem.c:58
+msgid "Memory in locked pages in kB"
+msgstr ""
+
+#: sysdeps/names/swap.c:36 sysdeps/names/swap.c:43
+msgid "Total Swap Space"
+msgstr ""
+
+#: sysdeps/names/swap.c:37 sysdeps/names/swap.c:44
+msgid "Used Swap Space"
+msgstr ""
+
+#: sysdeps/names/swap.c:38 sysdeps/names/swap.c:45
+msgid "Free Swap Space"
+msgstr ""
+
+#: sysdeps/names/uptime.c:36
+msgid "Uptime"
+msgstr ""
+
+#: sysdeps/names/uptime.c:37
+msgid "Idletime"
+msgstr ""
+
+#: sysdeps/names/uptime.c:42
+msgid "Time in seconds since system boot"
+msgstr ""
+
+#: sysdeps/names/uptime.c:43
+msgid "Time in seconds the system spent in the idle task since system boot"
+msgstr ""
+
+#: sysdeps/names/shm_limits.c:37 sysdeps/names/shm_limits.c:46
+msgid "Max segment size"
+msgstr ""
+
+#: sysdeps/names/shm_limits.c:38 sysdeps/names/shm_limits.c:47
+msgid "Min segment size"
+msgstr ""
+
+#: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
+msgid "Max number of segments"
+msgstr ""
+
+#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
+msgid "Max shared segments per process"
+msgstr ""
+
+#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
+msgid "Max total shared memory"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:37 sysdeps/names/msg_limits.c:48
+msgid "Size in kilobytes of message pool"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:38 sysdeps/names/msg_limits.c:49
+msgid "Number of entries in message map"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:39 sysdeps/names/msg_limits.c:50
+msgid "Max size of message"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
+msgid "Default max size of queue"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
+msgid "Max queues system wide"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
+msgid "Message segment size"
+msgstr ""
+
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
+msgid "Number of system message headers"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:39 sysdeps/names/sem_limits.c:53
+msgid "Number of entries in semaphore map"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:40 sysdeps/names/sem_limits.c:54
+msgid "Max number of arrays"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:41 sysdeps/names/sem_limits.c:55
+msgid "Max semaphores system wide"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
+msgid "Number of undo structures system wide"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
+msgid "Max semaphores per array"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
+msgid "Max ops per semop call"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
+msgid "Max number of undo entries per process"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
+msgid "sizeof struct sem_undo"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
+msgid "Semaphore max value"
+msgstr ""
+
+#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
+msgid "Adjust on exit max value"
+msgstr ""
+
+#: sysdeps/names/proclist.c:36 sysdeps/names/proclist.c:43
+msgid "Number of list elements"
+msgstr ""
+
+#: sysdeps/names/proclist.c:37 sysdeps/names/proclist.c:44
+msgid "Total size of list"
+msgstr "Taille totalle de la liste"
+
+#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
+msgid "Size of a single list element"
+msgstr ""

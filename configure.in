@@ -90,7 +90,7 @@ AC_TYPE_SIGNAL
 AC_FUNC_STRFTIME
 AC_CHECK_FUNCS(getcwd gettimeofday getwd putenv strdup strtoul uname)
 
-ALL_LINGUAS=""
+ALL_LINGUAS="fr"
 AM_GNU_GETTEXT
 
 CFLAGS="$CFLAGS -D_IN_LIBGTOP"
