@@ -45,8 +45,6 @@ int
 glibtop_get_ppp_s (glibtop_server *server, glibtop_ppp *buf,
 		   unsigned short device, unsigned short isdn)
 {
-    glibtop_init_s (server, GLIBTOP_SYSDEPS_PPP, 0);
-	
     memset (buf, 0, sizeof (glibtop_ppp));
 
     return 0;

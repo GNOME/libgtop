@@ -43,8 +43,6 @@ glibtop_init_swap_s (glibtop_server *server)
 int
 glibtop_get_swap_s (glibtop_server *server, glibtop_swap *buf)
 {
-    glibtop_init_s (server, GLIBTOP_SYSDEPS_SWAP, 0);
-	
     memset (buf, 0, sizeof (glibtop_swap));
 
     return 0;

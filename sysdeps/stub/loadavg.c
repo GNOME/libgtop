@@ -43,8 +43,6 @@ glibtop_init_loadavg_s (glibtop_server *server)
 int
 glibtop_get_loadavg_s (glibtop_server *server, glibtop_loadavg *buf)
 {
-    glibtop_init_s (server, GLIBTOP_SYSDEPS_LOADAVG, 0);
-	
     memset (buf, 0, sizeof (glibtop_loadavg));
 
     return 0;

@@ -49,8 +49,6 @@ glibtop_get_interface_names_s (glibtop_server *server, glibtop_array *array,
 			       u_int64_t interface, u_int64_t number,
 			       u_int64_t instance, u_int64_t strategy)
 {
-    glibtop_init_s (server, GLIBTOP_SYSDEPS_INTERFACE_NAMES, 0);
-
     memset (array, 0, sizeof (glibtop_array));
 
     return NULL;

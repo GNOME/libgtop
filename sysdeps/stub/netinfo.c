@@ -5,7 +5,7 @@
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, October 1998.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -24,27 +24,29 @@
 */
 
 #include <glibtop.h>
-#include <glibtop/prockernel.h>
+#include <glibtop/error.h>
+#include <glibtop/netinfo.h>
 
-static const unsigned long _glibtop_sysdeps_proc_kernel = 0;
+static const unsigned long _glibtop_sysdeps_netinfo = 0;
 
 /* Init function. */
 
 int
-glibtop_init_proc_kernel_s (glibtop_server *server)
+glibtop_init_netinfo_s (glibtop_server *server)
 {
-    server->info->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
+    server->info->sysdeps.netinfo = _glibtop_sysdeps_netinfo;
 
     return 0;
 }
 
-/* Provides detailed information about a process. */
+/* Provides network statistics. */
 
-int
-glibtop_get_proc_kernel_s (glibtop_server *server, glibtop_proc_kernel *buf,
-			   pid_t pid)
+glibtop_ifaddr *
+glibtop_get_netinfo_s (glibtop_server *server, glibtop_array *array,
+		       glibtop_netinfo *buf, const char *interface,
+		       u_int64_t transport)
 {
-    memset (buf, 0, sizeof (glibtop_proc_kernel));
+    memset (buf, 0, sizeof (glibtop_netinfo));
 
-    return 0;
+    return NULL;
 }

@@ -45,8 +45,6 @@ glibtop_init_proc_args_s (glibtop_server *server)
 char **
 glibtop_get_proc_args_s (glibtop_server *server, glibtop_array *array, pid_t pid)
 {
-    glibtop_init_s (server, GLIBTOP_SYSDEPS_PROC_ARGS, 0);
-	
     memset (array, 0, sizeof (glibtop_array));
 
     return NULL;

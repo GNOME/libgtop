@@ -46,8 +46,6 @@ glibtop_get_netload_s (glibtop_server *server, glibtop_netload *buf,
 		       const char *interface, unsigned transport,
 		       unsigned protocol)
 {
-    glibtop_init_s (server, GLIBTOP_SYSDEPS_NETLOAD, 0);
-	
     memset (buf, 0, sizeof (glibtop_netload));
 
     return 0;

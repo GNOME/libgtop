@@ -45,8 +45,6 @@ glibtop_init_proc_cwd_s (glibtop_server *server)
 char *
 glibtop_get_proc_cwd_s (glibtop_server *server, glibtop_proc_cwd *buf, pid_t pid)
 {
-    glibtop_init_s (server, GLIBTOP_SYSDEPS_PROC_CWD, 0);
-	
     memset (buf, 0, sizeof (glibtop_proc_cwd));
 
     return NULL;

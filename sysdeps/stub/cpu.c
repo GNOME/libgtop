@@ -43,8 +43,6 @@ glibtop_init_cpu_s (glibtop_server *server)
 int
 glibtop_get_cpu_s (glibtop_server *server, glibtop_cpu *buf)
 {
-    glibtop_init_s (server, GLIBTOP_SYSDEPS_CPU, 0);
-	
     memset (buf, 0, sizeof (glibtop_cpu));
 
     return 0;

@@ -44,8 +44,6 @@ int
 glibtop_get_proc_mem_s (glibtop_server *server, glibtop_proc_mem *buf,
 			pid_t pid)
 {
-    glibtop_init_s (server, GLIBTOP_SYSDEPS_PROC_MEM, 0);
-	
     memset (buf, 0, sizeof (glibtop_proc_mem));
 
     return 0;
