@@ -135,8 +135,13 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			update = 1;
 		}
 
+#ifdef __FreeBSD__
 		if (entry.eflags & (MAP_ENTRY_IS_A_MAP|MAP_ENTRY_IS_SUB_MAP))
 			continue;
+#else
+		if (entry.is_a_map || entry.is_sub_map)
+			continue;
+#endif
 
 		maps [i].flags  = _glibtop_sysdeps_map_entry;
 
@@ -165,6 +170,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			      &object, sizeof (object)) != sizeof (object))
 			glibtop_error_io_r (server, "kvm_read (object)");
 
+#ifdef __FreeBSD__
 		/* If the object is of type vnode, add its size */
 
 		if (object.type != OBJT_VNODE)
@@ -193,7 +199,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 		maps [i-1].inode  = inode.i_number;
 		maps [i-1].device = inode.i_dev;
-
+#endif
 	} while (entry.next != first);
 
 	return maps;

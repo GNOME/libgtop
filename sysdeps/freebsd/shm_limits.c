@@ -27,7 +27,11 @@
 
 /* #define KERNEL to get declaration of `struct shminfo'. */
 
-#define KERNEL
+#ifdef __FreeBSD__
+#define KERNEL 1
+#else
+#define _KERNEL 1
+#endif
 
 #include <sys/ipc.h>
 #include <sys/shm.h>

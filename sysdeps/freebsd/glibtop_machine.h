@@ -31,7 +31,10 @@
 #include <sys/sysctl.h>
 
 #include <fcntl.h>
+
+#ifdef __FreeBSD__
 #include <osreldate.h>
+#endif
 
 __BEGIN_DECLS
 

@@ -161,8 +161,13 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 			return;
 		}
 
+#ifdef __FreeBSD__
 		if (entry.eflags & (MAP_ENTRY_IS_A_MAP|MAP_ENTRY_IS_SUB_MAP))
 			continue;
+#else
+		if (entry.is_a_map || entry.is_sub_map)
+			continue;
+#endif
 
 		if (!entry.object.vm_object)
 			continue;
@@ -178,10 +183,14 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 		/* If the object is of type vnode, add its size */
 
+#ifdef __FreeBSD__
 		if (object.type != OBJT_VNODE)
 			continue;
 
 		buf->share += object.un_pager.vnp.vnp_size;
+#else
+		buf->share += object.size;
+#endif
 	}
 
 	buf->flags = _glibtop_sysdeps_proc_mem;

@@ -32,7 +32,10 @@
 static const unsigned long _glibtop_sysdeps_mem =
 (1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
 (1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_SHARED) +
-(1 << GLIBTOP_MEM_BUFFER) + (1 << GLIBTOP_MEM_CACHED) +
+(1 << GLIBTOP_MEM_BUFFER) +
+#ifdef __FreeBSD__
+(1 << GLIBTOP_MEM_CACHED) +
+#endif
 (1 << GLIBTOP_MEM_USER);
 
 #ifndef LOG1024
@@ -124,11 +127,24 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
   
 	/* convert memory stats to Kbytes */
 
+#ifdef __FreeBSD__
 	buf->total = (u_int64_t) pagetok (vmm.v_page_count) << LOG1024;
+#else
+	{
+		u_int total_count = vmm.v_kernel_pages +
+			vmm.v_free_count + vmm.v_wire_count +
+			vmm.v_active_count + vmm.v_inactive_count;
+
+		buf->total = (u_int64_t) pagetok (total_count) << LOG1024;
+	}
+#endif
+
 	buf->used = (u_int64_t) pagetok (vmm.v_active_count) << LOG1024;
 	buf->free = (u_int64_t) pagetok (vmm.v_free_count) << LOG1024;
 
+#ifdef __FreeBSD__
 	buf->cached = (u_int64_t) pagetok (vmm.v_cache_count) << LOG1024;
+#endif
 	buf->shared = (u_int64_t) pagetok (vmt.t_vmshr) << LOG1024;
 
 	buf->buffer = (u_int64_t) bufspace;

@@ -28,7 +28,9 @@
 #include <glibtop_suid.h>
 
 #include <sys/conf.h>
+#ifdef __FreeBSD__
 #include <sys/rlist.h>
+#endif
 #include <sys/vmmeter.h>
 
 static const unsigned long _glibtop_sysdeps_swap =
@@ -79,9 +81,11 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	int i, div, avail, nfree, npfree, used;
 	struct swdevt *sw;
 	long blocksize, *perdev;
+#ifdef __FreeBSD__
 	struct rlist head;
 	struct rlisthdr swaplist;
 	struct rlist *swapptr;
+#endif
 	size_t sw_size;
 	u_long ptr;
 
@@ -109,12 +113,22 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		buf->pagein = 0;
 		buf->pageout = 0;
 	} else {
+#ifdef __FreeBSD__
 		buf->pagein = vmm.v_swappgsin - swappgsin;
 		buf->pageout = vmm.v_swappgsout - swappgsout;
+#else
+		buf->pagein = vmm.v_pswpin - swappgsin;
+		buf->pageout = vmm.v_pswpout - swappgsout;
+#endif
 	}
 
+#ifdef __FreeBSD__
         swappgsin = vmm.v_swappgsin;
 	swappgsout = vmm.v_swappgsout;
+#else
+	swappgsin = vmm.v_pswpin;
+	swappgsout = vmm.v_pswpout;
+#endif
 
 	/* Size of largest swap device. */
 
@@ -140,6 +154,8 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		return;
 	}
 
+#ifdef __FreeBSD__
+
 	/* List of free swap areas. */
 
 	if (kvm_read (server->machine.kd, nlst[VM_SWAPLIST].n_value,
@@ -147,6 +163,8 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		glibtop_warn_io_r (server, "kvm_read (swaplist)");
 		return;
 	}
+
+#endif
 
 	/* Kernel offset of list of swap devices and sizes. */
 
@@ -173,6 +191,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	nfree = 0;
 	memset (perdev, 0, nswdev * sizeof(*perdev));
 
+#ifdef __FreeBSD__
 	swapptr = swaplist.rlh_list;
 
 	while (swapptr) {
@@ -212,6 +231,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 
 		swapptr = head.rl_next;
 	}
+#endif
 
 	header = getbsize (&hlen, &blocksize);
 

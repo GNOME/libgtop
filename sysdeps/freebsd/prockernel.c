@@ -31,7 +31,9 @@
 #include <sys/proc.h>
 #include <sys/user.h>
 #include <machine/pcb.h>
+#ifdef __FreeBSD__
 #include <machine/tss.h>
+#endif
 
 #include <unistd.h>
 #include <fcntl.h>
@@ -148,10 +150,15 @@ glibtop_get_proc_kernel_p (glibtop *server,
 			 * FreeBSD 3.0 at the moment.
 			 */
 
-#else
+#elsif (defined __FreeBSD__)
 			buf->kstk_esp = (u_int64_t) pcb.pcb_ksp;
 			buf->kstk_eip = (u_int64_t) pcb.pcb_pc;
 			
+			buf->flags |= _glibtop_sysdeps_proc_kernel_pcb;
+#else
+			buf->kstk_esp = (u_int64_t) pcb.pcb_tss.tss_esp0;
+			buf->kstk_eip = (u_int64_t) pcb.pcb_tss.__tss_eip;
+
 			buf->flags |= _glibtop_sysdeps_proc_kernel_pcb;
 #endif
 		}
