@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 2001-02-15 14:11+0100\n"
-"PO-Revision-Date: 2001-02-15 14:12+0100\n"
+"POT-Creation-Date: 2001-02-16 01:40+0100\n"
+"PO-Revision-Date: 2001-02-16 02:32+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
 msgid "Hangup (POSIX)"
-msgstr "Lägg på (POSIX)"
+msgstr "Avringd (POSIX)"
 
 #: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
 msgid "Interrupt (ANSI)"
@@ -426,7 +426,7 @@ msgstr ""
 "I Linux har varje flagga matematikbiten satt, eftersom crt0.s kontrollerar "
 "om matematikemulering finns, så detta tas inte med i utskriften.\n"
 "\n"
-"Detta är troligen en bugg, eftersom alla processer inte är ett kompilerat "
+"Detta är troligen en bugg, eftersom inte alla processer är ett kompilerat "
 "C-program.\n"
 "\n"
 "Matematikbiten ska vara decimalt 4, och spårbiten är decimalt 10."
@@ -525,7 +525,7 @@ msgstr "Antal sidor med virtuellt minne"
 
 #: sysdeps/names/procmem.c:57
 msgid "Number of resident set (non-swapped) pages"
-msgstr "Antal resident-set-sidor (som inte har swappats)"
+msgstr "Antal resident-set-sidor (som inte har växlats ut)"
 
 #: sysdeps/names/procmem.c:58
 msgid "Number of pages of shared (mmap'd) memory"
@@ -541,7 +541,7 @@ msgstr ""
 "Antal sidor som processen har i verkligt minne, minus 3 för administrativa "
 "syften. Detta är endast sidor som kan räknas till text, data eller "
 "stackutrymme. Detta inkluderar inte sidor som inte har laddats in per "
-"förfrågan eller som har swappats ut."
+"förfrågan eller som har växlats ut."
 
 #: sysdeps/names/procmem.c:64
 msgid ""
@@ -571,19 +571,19 @@ msgstr "Smutsstorlek"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Start_Code"
-msgstr "Start_Code"
+msgstr "Start_kod"
 
 #: sysdeps/names/procsegment.c:51
 msgid "End_Code"
-msgstr "End_Code"
+msgstr "Slut_kod"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Start_Data"
-msgstr "Start_Data"
+msgstr "Start_data"
 
 #: sysdeps/names/procsegment.c:52
 msgid "End_Data"
-msgstr "End_Data"
+msgstr "Slut_data"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Start_Brk"
@@ -595,7 +595,7 @@ msgstr "Brk"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_Stack"
-msgstr "Start_Stack"
+msgstr "Start_stack"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_MMap"
@@ -603,19 +603,19 @@ msgstr "Start_MMap"
 
 #: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
 msgid "Arg_Start"
-msgstr "Arg_Start"
+msgstr "Arg_start"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
 msgid "Arg_End"
-msgstr "Arg_End"
+msgstr "Arg_slut"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
 msgid "Env_Start"
-msgstr "Env_Start"
+msgstr "Env_start"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
 msgid "Env_End"
-msgstr "Env_End"
+msgstr "Env_slut"
 
 #: sysdeps/names/procsegment.c:59
 msgid "Text resident set size"
@@ -655,11 +655,11 @@ msgstr "Adressen till slutet av datasegmentet"
 
 #: sysdeps/names/procsegment.c:68
 msgid "Brk_Start"
-msgstr "Brk_Start"
+msgstr "Brk_start"
 
 #: sysdeps/names/procsegment.c:69
 msgid "Brk_End"
-msgstr "Brk_End"
+msgstr "Brk_slut"
 
 #: sysdeps/names/procsegment.c:70
 msgid "Address of the bottom of stack segment"
@@ -839,11 +839,11 @@ msgstr "CPU-tid i kernelläge ackumulerad av processen"
 
 #: sysdeps/names/proctime.c:58
 msgid "cumulative utime of process and reaped children"
-msgstr "samlad utid för processen och dess döda barn"
+msgstr "samlad utid för processen och dess skördade barn"
 
 #: sysdeps/names/proctime.c:59
 msgid "cumulative stime of process and reaped children"
-msgstr "samlad stid för processen och dess döda barn"
+msgstr "samlad stid för processen och dess skördade barn"
 
 #: sysdeps/names/proctime.c:60
 msgid "The time (in jiffies) of the process's next timeout"
@@ -854,7 +854,7 @@ msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
-"Tiden (i jiffies) tills nästa SIGALRM skickas till processen p.g.a en "
+"Tiden (i ögonblick) tills nästa SIGALRM skickas till processen p.g.a en "
 "intervalltimer."
 
 #: sysdeps/names/proctime.c:63
@@ -1019,7 +1019,7 @@ msgstr "Antal poster i semaforkartan"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max number of arrays"
-msgstr "Maximalt antal arrayer"
+msgstr "Maximalt antal vektorer"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores system wide"
@@ -1031,7 +1031,7 @@ msgstr "Antal ångra-strukturer i hela systemet"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max semaphores per array"
-msgstr "Maximalt antal semaforer per array"
+msgstr "Maximalt antal semaforer per vektor"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max ops per semop call"
@@ -1087,11 +1087,11 @@ msgstr "Ledigt växlingsutrymme"
 
 #: sysdeps/names/swap.c:44
 msgid "Page In"
-msgstr "Page in"
+msgstr "Sidor in"
 
 #: sysdeps/names/swap.c:45
 msgid "Page Out"
-msgstr "Page ut"
+msgstr "Sidor ut"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought in since system boot"
