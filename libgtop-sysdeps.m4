@@ -174,7 +174,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	case "$host_os" in
 	*bsd*)
-	  AC_CHECK_HEADERS(net/if_var.h)
+	  AC_CHECK_HEADERS(net/if_var.h osreldate.h)
 	  AC_MSG_CHECKING([for I4B])
 	  AC_TRY_COMPILE([
 #include <sys/types.h>
