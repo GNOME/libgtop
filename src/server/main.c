@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
-	setreuid (uid, euid); setreuid (gid, egid);
+	setreuid (uid, euid); setregid (gid, egid);
 	
 	glibtop_open (&server, argv [0]);
 
