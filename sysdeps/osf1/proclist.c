@@ -64,7 +64,8 @@ glibtop_init_proclist_p (glibtop *server)
 /* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 unsigned *
-glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf)
+glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
+			int64_t which, int64_t arg)
 {
 	unsigned count = 0, total = 0;
 	unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
