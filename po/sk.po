@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-28 01:08+0100\n"
-"PO-Revision-Date: 2004-08-07 17:11+0200\n"
+"POT-Creation-Date: 2004-12-29 10:18+0100\n"
+"PO-Revision-Date: 2004-12-29 10:21+0100\n"
 "Last-Translator: Marcel Telka <Marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -31,16 +31,16 @@ msgstr "veľkosť načítaných dát"
 
 #: lib/read_data.c:71
 #, c-format
-msgid "read data %lu byte"
-msgid_plural "read data %lu bytes"
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
 msgstr[0] "načítaných %lu bajtov dát"
 msgstr[1] "načítaný %lu bajt dát"
 msgstr[2] "načítané %lu bajty dát"
 
 #: lib/write.c:51
 #, c-format
-msgid "write %d byte"
-msgid_plural "write %d bytes"
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
 msgstr[0] "zapísaných %d bajtov"
 msgstr[1] "zapísaný %d bajt"
 msgstr[2] "zapísané %d bajty"
