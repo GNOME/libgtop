@@ -1,5 +1,10 @@
 1999-02-19  Martin Baulig  <martin@home-of-linux.org>
 
+	* misc/porting-libgtop.txt: Added a few instructions on how
+	to port LibGTop to Solaris.
+
+1999-02-19  Martin Baulig  <martin@home-of-linux.org>
+
 	Released LibGTop 0.99.9.
 
 	* Replace all __BEGIN_DELCS with LIBGTOP_BEGIN_DECLS and all

@@ -1,0 +1,81 @@
+There are a few instructions as I write them here (I'll at this file
+to CVS as well).
+
+First, there is a new 0.99.9 tarball. You should use this one when
+porting libgtop to Solaris, it has a lot of fixes in the header files
+and I just tested it with DEC OSF/1 3.2 native `cc' and BSDI 3.1; both
+compiled without problems.
+
+The tarball is not yet on ftp.gnome.org since I want to fix the broken
+DEC OSF/1 port and check whether it works with Digital Unix 3.2C this
+weekend.
+
+Here the instructions:
+
+========================================================================
+
+* Edit libgtop-sysdeps.m4:
+
+  Somewhere in the GNOME_LIBGTOP_SYSDEPS macro you'll find
+
+	freebsd*|netbsd*|openbsd*)
+	  libgtop_sysdeps_dir=freebsd
+	  libgtop_use_machine_h=yes
+	  libgtop_need_server=yes
+	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	  ;;
+
+  add something like
+
+	solaris*)
+	  libgtop_sysdeps_dir=solaris
+	  libgtop_use_machine_h=yes
+	  libgtop_need_server=yes
+	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	  ;;
+
+  there.
+
+  Until you port is stable, please add it to the
+
+	  if test x$hacker_mode = xyes ; then
+	    case "$host_os" in
+	      ...
+	    esac
+
+  section so this will look like
+
+	  if test x$hacker_mode = xyes ; then
+	    case "$host_os" in
+	      solaris*)
+	        libgtop_sysdeps_dir=solaris
+	        libgtop_use_machine_h=yes
+	        libgtop_need_server=yes
+	        libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	        ;;
+
+
+  If you add the check there configure will only detect Solaris as a
+  valid system if you give it the `--enable-hacker-mode' parameter so
+  it doesn't matter if it does not compile or not work, it won't get
+  compiled for "normal" users.
+
+* Copy sysdeps/stub_suid to sysdeps/solaris
+
+* Run configure with --enable-hacker-mode and try a make, it should
+  compile without problems.
+
+  If not, please let me know - in this case the `stub_suid' directory
+  is broken.
+
+* Now you can start porting LibGTop ...
+
+I don't know how similar Solaris and Sun4 are, but perhaps you can
+use some code from my very old and broken sun4 port in sysdeps/sun4.
+
+=========================================================================
+
+If you have any more questions, feel free to ask them ...
+
+Happy porting,
+Martin
