@@ -1,3 +1,7 @@
+1999-02-17  Martin Baulig  <martin@home-of-linux.org>
+
+	Released LibGTop 0.99.8.
+
 1999-02-16  Martin Baulig  <martin@home-of-linux.org>
 
 	* examples/Makefile.am, lib/Makefile.am, src/daemon/Makefile.am,
