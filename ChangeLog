@@ -1,5 +1,7 @@
 1998-06-14  Martin Baulig  <martin@home-of-linux.org>
 
+	* glibtop.h (struct _glibtop): Added `socket' field.
+
 	* include/glibtop/gnuserv.h: New file. Imported from xemacs 20.3.
 
 	* sysdeps/common/gnuslib.c: New file. Imported from xemacs 20.3

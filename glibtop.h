@@ -41,6 +41,7 @@ struct _glibtop
 #endif
 	int input [2];			/* Pipe client <- server */
 	int output [2];			/* Pipe client -> server */
+	int socket;			/* Accepted connection of a socket */
 	unsigned long os_version_code;	/* Version code of the operating system */
 	const char *name;		/* Program name for error messages */
 	const char *server_command;	/* Command used to invoke server */
