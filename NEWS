@@ -1,3 +1,8 @@
+August 15, 2004:
+===============
+* Fixed compilation with C89-only compilers and old libc.
+
+
 August 3, 2004:
 ==============
 * Some cleanups.

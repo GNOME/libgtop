@@ -1,3 +1,8 @@
+2004-08-15  Benoît Dejean  <tazforever@dlfp.org>
+
+	* NEWS:
+	* configure.in: LibGTop 2.7.91.
+
 2004-08-09  Benoît Dejean  <tazforever@dlfp.org>
 
 	* configure.in: Added HAVE_IFADDRS_H
