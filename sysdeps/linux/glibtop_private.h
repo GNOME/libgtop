@@ -40,8 +40,8 @@ next_token(const char *p)
 	return (char*) p;
 }
 
-char * G_GNUC_INTERNAL
-skip_token (const char *p);
+char *
+skip_token (const char *p) G_GNUC_INTERNAL;
 
 static inline char *
 skip_multiple_token (const char *p, size_t count)
@@ -61,8 +61,8 @@ skip_line (const char *p)
 }
 
 
-unsigned long long G_GNUC_INTERNAL
-get_scaled(const char *buffer, const char *key);
+unsigned long long
+get_scaled(const char *buffer, const char *key) G_GNUC_INTERNAL;
 
 
 /* aborts on error */
