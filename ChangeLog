@@ -1,5 +1,31 @@
 1998-05-21  Martin Baulig  <martin@home-of-linux.org>
 
+	* Makefile.am: 'gtopConf.sh' has been renamed to
+	'libgtopConf.sh'; variables in this script have changed.
+
+	* lib/Makefile.am: uses '@LIBGTOP_SERVER@' instead of
+	'@GTOP_SERVER@'.
+
+	* configure.in: renamed variables for 'libgtopConf.sh.in'.
+
+	* acconfig.h: added 'NEED_LIBGTOP'.
+
+	* libgtopConf.sh.in: renamed from 'gtopConf.sh.in';
+	we now define 'LIBGTOP_LIBDIR', 'LIBGTOP_INCLUDEDIR',
+	'LIBGTOP_LIBS', 'LIBGTOP_INCS', 'LIBGTOP_GUILE_LIBS',
+	'LIBGTOP_GUILE_INCS', 'LIBGTOP_BINDIR', 'LIBGTOP_SERVER',
+	'libgtop_sysdeps_dir', 'libgtop_need_server',
+	'libgtop_use_machine_h', 'libgtop_guile_found',
+	'libgtop_want_names', 'libgtop_want_guile_names',
+	'libgtop_want_examples'.
+	
+	* gtopConf.sh.in: renamed to 'libgtopConf.sh.in'.
+	
+	* acinclude.m4 (AC_LC_SYSDEPS): rewrote that macro -
+	moved some of the code to 'macros/gnome-libgtop-sysdeps.m4';
+	renamed variables: look at the ChangeLog entry for the
+	new 'libgtopConf.sh.in' for details.
+
 	* doc/gnome-hackers.sgml: added information about latest
 	changes in 'acinclude.m4' and 'gtopConf.sh.in'.
 
