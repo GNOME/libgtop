@@ -1,6 +1,11 @@
-1999-09-18  Pablo Saratxaga <pabloémandrakesoft.com>
+1999-09-19  Martin Baulig  <martin@home-of-linux.org>
 
-	* configure.in,po/pl.po: copied pl.po from stable CVs tree
+	* libgtopConf.sh.in: Added MODULE_VERSION on Miguel's
+	request (set it to "libgtop-@LIBGTOP_VERSION@").
+
+1999-09-18  Pablo Saratxaga <pablo@mandrakesoft.com>
+
+	* configure.in, po/pl.po: copied pl.po from stable CVS tree
 
 1999-09-17  Martin Baulig  <martin@home-of-linux.org>
 
