@@ -22,7 +22,7 @@ include_HEADERS = glibtop.h
 
 EXTRA_DIST = autogen.sh libgtop.spec copyright.txt libgtopConf.sh.in \
 	LIBGTOP-VERSION features.def perl/Makefile.PL.in perl/perl.awk \
-	perl/MANIFEST perl/Changes libgtop-config.in
+	perl/MANIFEST perl/Changes libgtop-config.in RELNOTES-0.25
 
 release:
 	$(MAKE) dist distdir=$(PACKAGE)$(VERSION)
