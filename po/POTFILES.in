@@ -22,8 +22,8 @@ include/glibtop/procsignal.h
 include/glibtop/procstate.h
 include/glibtop/proctime.h
 include/glibtop/procuid.h
-include/glibtop/read_data.h
 include/glibtop/read.h
+include/glibtop/read_data.h
 include/glibtop/sem_limits.h
 include/glibtop/shm_limits.h
 include/glibtop/signal.h
@@ -57,6 +57,8 @@ support/easy-vsnprintf.c
 support/error.c
 support/error.h
 support/getopt.c
+support/popt.c
+support/popthelp.c
 sysdeps/common/error.c
 sysdeps/common/fsusage.c
 sysdeps/common/fsusage.h
