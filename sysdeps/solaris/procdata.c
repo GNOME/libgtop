@@ -110,7 +110,7 @@ glibtop_get_proc_status_s(glibtop *server, struct pstatus *pstatus, pid_t pid)
 		   	glibtop_warn_io_r(server, "open (%s)", buffer);
 		return -1;
 	}
-	if(pread(fd, pstatus, sizeof(struct pstatus), 0) != sizeof(struct prcred))
+	if(pread(fd, pstatus, sizeof(struct pstatus), 0) != sizeof(struct pstatus))
 	{
 	   	close(fd);
 		glibtop_warn_io_r(server, "pread (%s)", buffer);
