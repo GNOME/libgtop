@@ -231,11 +231,11 @@ main (void)
 	  fi
 	  ;;
 	linux*)
-	  os_major_version=`uname -r | \
+	  os_major_version=`uname -r | sed 's/-pre[[0-9]]*//' | \
 	    sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\1/'`
-	  os_minor_version=`uname -r | \
+	  os_minor_version=`uname -r | sed 's/-pre[[0-9]]*//' | \
 	    sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\2/'`
-	  os_micro_version=`uname -r | \
+	  os_micro_version=`uname -r | sed 's/-pre[[0-9]]*//' | \
 	    sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\3/'`
 	  os_version_expr="$os_major_version 65536 * $os_minor_version 256 * + $os_micro_version + p q"
 
