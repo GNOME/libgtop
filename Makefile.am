@@ -10,7 +10,7 @@ endif
 
 
 SUBDIRS = po intl support macros include sysdeps lib src \
-	  $(guile_subdirs) $(examples_SUBDIRS)
+	  $(examples_SUBDIRS)
 
 DIST_SUBDIRS = po intl macros include sysdeps src lib guile examples
 
