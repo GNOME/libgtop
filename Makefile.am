@@ -29,7 +29,7 @@ release:
 ## Put `exec' in the name because this should be installed by
 ## `install-exec', not `install-data'.
 confexecdir=$(libdir)
-confexec_DATA = $(top_builddir)/libgtopConf.sh
+confexec_DATA = $(top_builddir)/libgtopConf.sh features.def
 
 bin_SCRIPTS = $(top_builddir)/libgtop-config
 

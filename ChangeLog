@@ -1,5 +1,9 @@
 1998-10-11  Martin Baulig  <martin@home-of-linux.org>
 
+	* Makefile.am (confexec_DATA): Added `features.def'.
+	* libgtop-config.in: Added `--features-def-file' parameter
+	to get pathname of installed `features.def' file.
+
 	* perl: Removed everything in this subdirectory. This was
 	only experimental. The real perl bindings for LibGTop are
 	in the libgtop-bindings module.

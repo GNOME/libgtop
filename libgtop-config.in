@@ -1,10 +1,12 @@
 #!/bin/sh
 
 usage="\
-    Usage: libgtop-config [--version] [--config]"
+    Usage: libgtop-config [--version] [--config] [--features-def-file]"
 
 config_file="@LIBGTOP_LIBDIR@/libgtopConf.sh"
 . $config_file
+
+features_def_file="@LIBGTOP_LIBDIR@/features.def"
 
 if test $# -eq 0; then
       echo "${usage}" 1>&2
@@ -23,6 +25,9 @@ while test $# -gt 0; do
       ;;
     --config)
       echo $config_file
+      ;;
+    --features-def-file)
+      echo $features_def_file
       ;;
     *)
       echo "${usage}" 1>&2
