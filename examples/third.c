@@ -45,7 +45,9 @@ void
 main_prog (int argc, char *argv[])
 {
 	glibtop_boot_guile ();
+#ifdef GLIBTOP_GUILE_NAMES
 	glibtop_boot_guile_names ();
+#endif
 
 	gh_repl (argc, argv);
 }

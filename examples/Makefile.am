@@ -44,10 +44,14 @@ second_linux_LDADD	= $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  @INTLLIBS@ @LIBSUPPORT@
 second_linux_LDFLAGS	= -static
 
+if GLIBTOP_NAMES
+third_guile_names_LIBS	= $(top_builddir)/sysdeps/guile/names/libgtop_guile_names.la
+third_names_LIBS	= $(top_builddir)/sysdeps/names/libgtop_names.la
+endif
+
 third_SOURCES		= third.c
 third_LDADD		= $(top_builddir)/sysdeps/guile/libgtop_guile.la \
-			  $(top_builddir)/sysdeps/guile/names/libgtop_guile_names.la \
-			  $(top_builddir)/sysdeps/names/libgtop_names.la \
+			  $(third_guile_names_LIBS) $(third_names_LIBS) \
 			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/lib/libgtop.la \
 			  @GUILE_LIBS@ @INTLLIBS@ @LIBSUPPORT@
@@ -58,8 +62,7 @@ third_static_LDFLAGS	= -static
 
 third_linux_SOURCES	= $(third_SOURCES)
 third_linux_LDADD	= $(top_builddir)/sysdeps/guile/libgtop_guile.la \
-			  $(top_builddir)/sysdeps/guile/names/libgtop_guile_names.la \
-			  $(top_builddir)/sysdeps/names/libgtop_names.la \
+			  $(third_guile_names_LIBS) $(third_names_LIBS) \
 			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
 			  @GUILE_LIBS@ @INTLLIBS@ @LIBSUPPORT@
