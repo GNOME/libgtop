@@ -1,17 +1,156 @@
-# german op for libgtop.
-# Copyright (C) 2000 Free Software Foundation, Inc.
-# FIRST AUTHOR <kl@li>, YEAR.
+# German translation of libgtop
+# Christian Meyer <linux@chrisime.de>, 2000.
+# ???????????? <??????@????>, ????
+# Wer war vorher Maintainer? Bitte bei mir melden! -cm-
+# hmm... ein paar englische Strings sollte man lieber in Ruhe lassen...
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 1.0.6\n"
-"POT-Creation-Date: 2000-07-16 00:19+0200\n"
-"PO-Revision-Date: 1999-07-11 12:44+02:00\n"
-"Last-Translator: Kai Lahmann <kl@linuxfaqs.de>\n"
-"Language-Team: de <de@li.org>\n"
+"Project-Id-Version: libgtop 1.0.9\n"
+"POT-Creation-Date: 2000-08-15 00:33+0200\n"
+"PO-Revision-Date: 2000-08-15 00:31+0200\n"
+"Last-Translator: Christian Meyer <linux@chrisime.de>\n"
+"Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=ISO 8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
+msgid "Hangup (POSIX)"
+msgstr "Hangup (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
+msgid "Interrupt (ANSI)"
+msgstr "Interrupt (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:35 lib/sysdeps-init-linux.c:35
+msgid "Quit (POSIX)"
+msgstr "Beenden (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:36 lib/sysdeps-init-linux.c:36
+msgid "Illegal instruction (ANSI)"
+msgstr "Unzulässige Anweisung (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:37 lib/sysdeps-init-linux.c:37
+msgid "Trace trap (POSIX)"
+msgstr "Trace trap (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:38 lib/sysdeps-init-linux.c:38
+msgid "Abort (ANSI)"
+msgstr "Abbruch (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:39
+msgid "EMT instruction"
+msgstr "EMT-Anweisung"
+
+#: lib/sysdeps-init-freebsd.c:40 lib/sysdeps-init-linux.c:40
+msgid "Floating-point exception (ANSI)"
+msgstr "Fließkomma-Ausnahme (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
+msgid "Kill, unblockable (POSIX)"
+msgstr "Töten, nicht aufzuheben (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
+msgid "BUS error (4.2 BSD)"
+msgstr "BUS-Fehler (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:43 lib/sysdeps-init-linux.c:43
+msgid "Segmentation violation (ANSI)"
+msgstr "Segmentfehler (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:44
+msgid "Bad argument to system call"
+msgstr "Falsches Argument für `system call'"
+
+#: lib/sysdeps-init-freebsd.c:45 lib/sysdeps-init-linux.c:45
+msgid "Broken pipe (POSIX)"
+msgstr "Unterbrochene `pipe' (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:46 lib/sysdeps-init-linux.c:46
+msgid "Alarm clock (POSIX)"
+msgstr "Alarmuhr (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
+msgid "Termination (ANSI)"
+msgstr "Terminierung (ANSI)"
+
+#: lib/sysdeps-init-freebsd.c:48 lib/sysdeps-init-linux.c:55
+msgid "Urgent condition on socket (4.2 BSD)"
+msgstr "Dringender Anweisung auf `socket' (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:49 lib/sysdeps-init-linux.c:51
+msgid "Stop, unblockable (POSIX)"
+msgstr "Stop, nicht aufzuheben (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:50 lib/sysdeps-init-linux.c:52
+msgid "Keyboard stop (POSIX)"
+msgstr "Keyboard stop (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:51 lib/sysdeps-init-linux.c:50
+msgid "Continue (POSIX)"
+msgstr "Fortfahren (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:52 lib/sysdeps-init-linux.c:49
+msgid "Child status has changed (POSIX)"
+msgstr "Kind-Status hat sich geändert (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:53 lib/sysdeps-init-linux.c:53
+msgid "Background read from tty (POSIX)"
+msgstr "`Background read' von tty (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:54 lib/sysdeps-init-linux.c:54
+msgid "Background write to tty (POSIX)"
+msgstr "`Background write' auf tty (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:55 lib/sysdeps-init-linux.c:61
+msgid "I/O now possible (4.2 BSD)"
+msgstr "I/O nun möglich (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:56 lib/sysdeps-init-linux.c:56
+msgid "CPU limit exceeded (4.2 BSD)"
+msgstr "CPU-Limit überschritten (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:57 lib/sysdeps-init-linux.c:57
+msgid "File size limit exceeded (4.2 BSD)"
+msgstr "Limit der Dateigröße überschritten (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:58 lib/sysdeps-init-linux.c:58
+msgid "Virtual alarm clock (4.2 BSD)"
+msgstr "Virtuelle Alarmuhr (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:59 lib/sysdeps-init-linux.c:59
+#, fuzzy
+msgid "Profiling alarm clock (4.2 BSD)"
+msgstr "Profiling alarm clock (4.2 BSD)"
+
+#: lib/sysdeps-init-freebsd.c:60 lib/sysdeps-init-linux.c:60
+msgid "Window size change (4.3 BSD, Sun)"
+msgstr "Veränderung der Fenstergröße (4.3 BSD, Sun)"
+
+#: lib/sysdeps-init-freebsd.c:61
+msgid "Information request"
+msgstr "Informationsanfrage"
+
+#: lib/sysdeps-init-freebsd.c:62 lib/sysdeps-init-linux.c:42
+msgid "User-defined signal 1 (POSIX)"
+msgstr "Benutzerdefiniertes `signal 1' (POSIX)"
+
+#: lib/sysdeps-init-freebsd.c:63 lib/sysdeps-init-linux.c:44
+msgid "User-defined signal 2 (POSIX)"
+msgstr "Benutzerdefiniertes `signal 2' (POSIX)"
+
+#: lib/sysdeps-init-linux.c:62
+msgid "Power failure restart (System V)"
+msgstr "Stromunterbrechung Neustart (System V)"
+
+#: support/popthelp.c:23
+msgid "Show this help message"
+msgstr "Zeige diese Hilfenachricht"
+
+#: support/popthelp.c:24
+msgid "Display brief usage message"
+msgstr "Zeige kurze Anleitung"
 
 #: sysdeps/names/cpu.c:45
 msgid "Total CPU Time"
@@ -19,15 +158,15 @@ msgstr "CPU-Zeit insgesamt"
 
 #: sysdeps/names/cpu.c:46
 msgid "CPU Time in User Mode"
-msgstr "CPU-Zeit in Benutzer-Mode"
+msgstr "CPU-Zeit in Benutzer-Modus"
 
 #: sysdeps/names/cpu.c:47
 msgid "CPU Time in User Mode (nice)"
-msgstr "CPU-Zeit in Benutzer-Mode (Priorität)"
+msgstr "CPU-Zeit in Benutzer-Modus (Priorität)"
 
 #: sysdeps/names/cpu.c:48
 msgid "CPU Time in System Mode"
-msgstr "CPU-Zeit in System-Mode"
+msgstr "CPU-Zeit in System-Modus"
 
 #: sysdeps/names/cpu.c:49
 msgid "CPU Time in the Idle Task"
@@ -43,15 +182,15 @@ msgstr "CPU-Zeit aller Prozessoren insgesamt"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in User Mode"
-msgstr "CPU-Zeit aller Prozessoren im Benutzer-Mode"
+msgstr "CPU-Zeit aller Prozessoren im Benutzer-Modus"
 
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "CPU-Zeit aller Prozessoren im Benutzer-Mode (Priorität)"
+msgstr "CPU-Zeit aller Prozessoren im Benutzer-Modus (Priorität)"
 
 #: sysdeps/names/cpu.c:54
 msgid "SMP CPU Time in System Mode"
-msgstr "CPU-Zeit aller Prozessoren im System-Mode"
+msgstr "CPU-Zeit aller Prozessoren im System-Modus"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Time in the Idle Task"
@@ -63,21 +202,21 @@ msgstr "SMP-CPU-Flags"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
-msgstr "Anzahl der Clock-Ticks seit Systemboot"
+msgstr "Anzahl der Clock-Ticks seit Systemstart"
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode"
-msgstr "Anzahl der Clock-Ticks, die das System im Benutzer-Mode verbracht hat"
+msgstr "Anzahl der Clock-Ticks, die das System im Benutzer-Modus verbracht hat"
 
 #: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in user mode (nice)"
 msgstr ""
-"Anzahl der Clock-Ticks, die das System im Benutzer-Mode mit erhöhter "
+"Anzahl der Clock-Ticks, die das System im Benutzer-Modus mit erhöhter "
 "Priorität verbracht hat"
 
 #: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in system mode"
-msgstr "Anzahl der Clock-Ticks, die das System im Kernel-Mode verbracht hat"
+msgstr "Anzahl der Clock-Ticks, die das System im Kernel-Modus verbracht hat"
 
 #: sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
 msgid "Number of clock ticks the system spent in the idle task"
@@ -109,7 +248,7 @@ msgstr "Freie Knoten"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
-msgstr "Freie Blöcke inclusive für den Administrator reservierter Blöcke"
+msgstr "Freie Blöcke inklusive für den Administrator reservierter Blöcke"
 
 #: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
@@ -132,7 +271,8 @@ msgid "Last PID"
 msgstr "Letzte PID"
 
 #: sysdeps/names/loadavg.c:49
-msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgid ""
+"Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
 msgstr "Anzahl gleichzeitig laufender Jobs im Mittel über 1, 5 und 15 Minuten"
 
 #: sysdeps/names/loadavg.c:50
@@ -157,7 +297,7 @@ msgstr "Freier Arbeitsspeicher"
 
 #: sysdeps/names/mem.c:46
 msgid "Shared Memory"
-msgstr "Gemeinsam genutzer Speicher"
+msgstr "Gemeinsam-genutzter Speicher"
 
 #: sysdeps/names/mem.c:47
 msgid "Buffers"
@@ -285,14 +425,14 @@ msgid ""
 msgstr ""
 "Kernelflags des Prozesses.\n"
 "\n"
-"Auf Linux hat momentan jedes Flag ein gesetztes Math-Bit, da crt0.s\n"
-"auf Mathematikemulation prüft, also wird dies in der Ausgabe nicht\n"
+"Auf Linux hat momentan jedes Flag ein gesetztes `math bit', da crt0.s\n"
+"auf Mathematik-Emulation prüft, also wird dies in der Ausgabe nicht\n"
 "ausgegeben.\n"
 "\n"
 "Dies ist wahrscheinlich ein Fehler, da nicht jeder Prozess ein\n"
 "compiliertes C-Programm ist.\n"
 "\n"
-"Das Math-Bit sollte eine dezimale 4 sein, und das Traced-Bit ist\n"
+"Das `math bit' sollte eine dezimale 4 sein, und das `traced bit' ist\n"
 "dezimal 10. "
 
 #. Min_Flt
@@ -315,7 +455,8 @@ msgstr ""
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:67
-msgid "The number of minor faults that the process and its children have made."
+msgid ""
+"The number of minor faults that the process and its children have made."
 msgstr ""
 "Anzahl weniger schwerer Seitenfehler eines Prozesses und seiner Kinder, d.h. "
 "diejenigen die es nicht erforderlich gemacht haben, eine Seite von der "
@@ -323,7 +464,8 @@ msgstr ""
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:70
-msgid "The number of major faults that the process and its children have made."
+msgid ""
+"The number of major faults that the process and its children have made."
 msgstr ""
 "Anzahl schwerwiegender Seitenfehler eines Prozesses und seiner Kinder, d.h. "
 "diejenigen, die es erforderten eine Seite von der Platte zu laden."
@@ -334,8 +476,8 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
-"Aktueller Wert des 32-Bit Stapelzeigers des Kernels entnommen aus der "
-"Stapelseite des Prozesses im Kernel."
+"Aktueller Wert des 32-Bit Stack-Zeigers des Kernels entnommen aus der "
+"Stack-Seite des Prozesses im Kernel."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:76
@@ -408,7 +550,7 @@ msgid ""
 "which are swapped out."
 msgstr ""
 "Anzahl der Seiten, die der Prozess im Speicher hält minus drei für "
-"administrative Zwecke, d.h. alle Seiten im Text, Daten und Stapelbereich "
+"administrative Zwecke, d.h. alle Seiten im Text, Daten und Stack-Bereich "
 "ohne solche die nur bei Bedarf geladen werden (und momentan nicht geladen "
 "sind) und ausgelagerte Seiten."
 
@@ -433,11 +575,11 @@ msgstr "Daten_RSS"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Stack_RSS"
-msgstr "Stapel_RSS"
+msgstr "Stack_RSS"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Dirty Size"
-msgstr "Größe des \"schmutzigen\" Speichers"
+msgstr "`Dirty' Größe "
 
 #: sysdeps/names/procsegment.c:51
 msgid "Start_Code"
@@ -465,7 +607,7 @@ msgstr "Brk"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_Stack"
-msgstr "Start_Stapel"
+msgstr "Start_Stack"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_MMap"
@@ -497,15 +639,15 @@ msgstr "Größe permanenter Bibliotheken"
 
 #: sysdeps/names/procsegment.c:61
 msgid "Data resident set size"
-msgstr "Gröse des permanenten Datensegments"
+msgstr "Größe des permanenten Datensegments"
 
 #: sysdeps/names/procsegment.c:62
 msgid "Stack resident set size"
-msgstr "Größe des permanenten Stapelsegments"
+msgstr "Größe des permanenten Stack-Segments"
 
 #: sysdeps/names/procsegment.c:63
 msgid "Total size of dirty pages"
-msgstr "Anzahl \"schmutziger\" Seiten insgesamt"
+msgstr "Größe der `dirty pages' insgesamt"
 
 #: sysdeps/names/procsegment.c:64
 msgid "Address of beginning of code segment"
@@ -533,11 +675,11 @@ msgstr "Brk_Ende"
 
 #: sysdeps/names/procsegment.c:70
 msgid "Address of the bottom of stack segment"
-msgstr "Adresse des unteren Endes des Stapelsegments"
+msgstr "Adresse des unteren Endes des Stack-Segments"
 
 #: sysdeps/names/procsegment.c:71
 msgid "Start of mmap()ed areas"
-msgstr "Start der mmap()-Zonen"
+msgstr "Start der `mmap()-Zonen'"
 
 #: sysdeps/names/procsignal.c:42
 msgid "Signal"
@@ -697,7 +839,7 @@ msgstr "Startzeit des Prozesses in Sekunden seit dem 1. Januar 1970"
 
 #: sysdeps/names/proctime.c:55
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "Realzeit des Prozesses (sollte utime + stime sein)"
+msgstr "Realzeit des Prozesses (sollte `utime + stime' sein)"
 
 #: sysdeps/names/proctime.c:56
 msgid "user-mode CPU time accumulated by process"
@@ -705,24 +847,25 @@ msgstr "Zeit, die der Prozess im Benutzer-Modus verbracht hat"
 
 #: sysdeps/names/proctime.c:57
 msgid "kernel-mode CPU time accumulated by process"
-msgstr "Zeit, die der Prozess im Kernel verbracht hat"
+msgstr "Zeit, die der Prozess im Kernel-Modus verbracht hat"
 
 #: sysdeps/names/proctime.c:58
 msgid "cumulative utime of process and reaped children"
 msgstr ""
-"Zeit, die der Prozess und seine bereits gestorbe Kinder im Benutzer-Mode "
+"Zeit, die der Prozess und seine bereits gestorbenen Kinder im Benutzer-Modus "
 "verbracht haben"
 
 #: sysdeps/names/proctime.c:59
 msgid "cumulative stime of process and reaped children"
 msgstr ""
-"Zeit, die der Prozess und seine bereits gestorbe Kinder im Kernel verbracht "
-"haben"
+"Zeit, die der Prozess und seine bereits gestorbenen Kinder im Kernel "
+"verbracht haben"
 
 #: sysdeps/names/proctime.c:60
 msgid "The time (in jiffies) of the process's next timeout"
 msgstr ""
-"Zeit (in 1/100stel Sekunden) bis der Prozess seinen nächsten Timeout empfängt"
+"Zeit (in 1/100stel Sekunden) bis der Prozess seinen nächsten Timeout "
+"empfängt"
 
 #: sysdeps/names/proctime.c:61
 msgid ""
@@ -738,11 +881,12 @@ msgstr "Taktfrequenz"
 
 #: sysdeps/names/proctime.c:64
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr "Zeit aller Prozessoren, die der Prozess im Benutzer-Mode verbracht hat"
+msgstr ""
+"Zeit aller Prozessoren, die der Prozess im Benutzer-Modus verbracht hat"
 
 #: sysdeps/names/proctime.c:65
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "Zeit aller Prozessoren, die der Prozess im Kernel-Mode verbracht hat"
+msgstr "Zeit aller Prozessoren, die der Prozess im Kernel-Modus verbracht hat"
 
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
@@ -806,7 +950,7 @@ msgstr "Priorität"
 
 #: sysdeps/names/procuid.c:51
 msgid "Nice"
-msgstr "Nice"
+msgstr "Priorität"
 
 #: sysdeps/names/procuid.c:51
 msgid "NGroups"
@@ -878,11 +1022,11 @@ msgstr "Kernelbehandlungspriorität"
 
 #: sysdeps/names/procuid.c:72
 msgid "Standard unix nice level of process"
-msgstr "Standard UNIX 'nice' Wert des Prozesses"
+msgstr "Standard UNIX `nice' Wert des Prozesses"
 
 #: sysdeps/names/procuid.c:73
 msgid "Number of additional process groups"
-msgstr "Anzahl zusätzlicher Prozeßgruppen"
+msgstr "Anzahl zusätzlicher Prozessgruppen"
 
 #: sysdeps/names/procuid.c:74
 msgid "Additional process groups"
@@ -890,31 +1034,31 @@ msgstr "Zusätzliche Prozessgruppen"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Number of entries in semaphore map"
-msgstr "Anzahl Einträge in der Semaphortabelle"
+msgstr "Anzahl Einträge in der Semaphor-Tabelle"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max number of arrays"
-msgstr "Maximale Anzahl Arrays"
+msgstr "Maximale Anzahl der Felder"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores system wide"
-msgstr "Maximale Anzahl Semaphore im System"
+msgstr "Maximale Anzahl `Semaphore' im System"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Number of undo structures system wide"
-msgstr "Anzahl Undo-Strukturen im System"
+msgstr "Anzahl `Undo-Strukturen' im System"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max semaphores per array"
-msgstr "Maximale Anzahl Semaphore pro Array"
+msgstr "Maximale Anzahl `Semaphore' pro Feld"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max ops per semop call"
-msgstr "Maximale Anzahl Operationen pro semop-Aufruf"
+msgstr "Maximale Anzahl Operationen pro `semop-Aufruf'"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Max number of undo entries per process"
-msgstr "Maximale Anzahl Undo-Einträge pro Prozess"
+msgstr "Maximale Anzahl `Undo-Einträge' pro Prozess"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "sizeof struct sem_undo"
@@ -926,7 +1070,7 @@ msgstr "Semaphor-Maximalwert"
 
 #: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 msgid "Adjust on exit max value"
-msgstr "Maximaler Adjust-on-Exit-Wert"
+msgstr "Maximaler `Adjust-on-Exit-Wert'"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max segment size"
@@ -975,14 +1119,15 @@ msgstr ""
 "wurden"
 
 #: sysdeps/names/swap.c:55
-msgid "Total number of swap pages that have been brought out since system boot"
+msgid ""
+"Total number of swap pages that have been brought out since system boot"
 msgstr ""
 "Anzahl der Seiten, die insgesamt seit dem letzten Systemstart eingelagert "
 "wurden"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
-msgstr "Server Features"
+msgstr "Server-Merkmale"
 
 #: sysdeps/names/sysdeps.c:54
 msgid "Pointer Size"
@@ -1018,19 +1163,19 @@ msgstr "Limits für Nachrichtenwarteschlangen"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
 msgid "Semaphore Set Limits"
-msgstr "Semaphor-Setzbegrenzungen"
+msgstr "Semaphore Set Limits"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
 msgid "List of running Processes"
-msgstr "Prozessliste"
+msgstr "Liste derzeitiger Prozesse"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 msgid "Process Status information"
-msgstr "Prozess Status"
+msgstr "Prozess Status-Information"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
 msgid "Process UID and TTY information"
-msgstr "Prozess Eigentümer und Terminal"
+msgstr "Prozess Eigentümer- und Terminal-Information"
 
 #: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 msgid "Process Memory information"
@@ -1078,7 +1223,7 @@ msgstr "Netzlast"
 
 #: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
 msgid "Interface Names"
-msgstr "Interface Namen"
+msgstr "Schnittstellennamen"
 
 #: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
 msgid "PPP Statistics"
@@ -1114,7 +1259,7 @@ msgstr "Startzeit"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds since system boot"
-msgstr "Zeit in Sekunden seit System-Boot"
+msgstr "Zeit in Sekunden seit Systemstart"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time in seconds the system spent in the idle task since system boot"
@@ -1123,7 +1268,7 @@ msgstr ""
 
 #: sysdeps/names/uptime.c:49
 msgid "Boot time (seconds sice epoch)"
-msgstr "Startzeit (Sekunden seit Epoche)"
+msgstr "Startzeit (Sekunden seit 1. Januar 1970)"
 
 #: support/error.c:109
 msgid "Unknown system error"
@@ -1132,22 +1277,22 @@ msgstr "Unbekannter Systemfehler"
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: option `%s' ist mehrdeutig\n"
+msgstr "%s: Option `%s' ist mehrdeutig\n"
 
 #: support/getopt.c:693
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: option `--%s' erlaubt kein Argument\n"
+msgstr "%s: Option `--%s' erlaubt kein Argument\n"
 
 #: support/getopt.c:698
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: option `%c%s' erlaubt kein Argument\n"
+msgstr "%s: Option `%c%s' erlaubt kein Argument\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: option `%s' benötigt ein Argument\n"
+msgstr "%s: Option `%s' benötigt ein Argument\n"
 
 #. --option
 #: support/getopt.c:744
@@ -1176,7 +1321,7 @@ msgstr "%s: ungültige Option -- %c\n"
 #: support/getopt.c:807 support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: option benötigt ein Argument -- %c\n"
+msgstr "%s: Option benötigt ein Argument -- %c\n"
 
 #: support/getopt.c:854
 #, c-format
@@ -1214,11 +1359,11 @@ msgstr "Parametergröße stimmt nicht"
 
 #: lib/errors.c:37
 msgid "Communication with LibGTop server failed"
-msgstr "Communikation mit dem LibGTop-Server gescheitert"
+msgstr "Kommunikation mit dem LibGTop-Server gescheitert"
 
 #: lib/errors.c:38
 msgid "No such process"
-msgstr "Kein solcher Parameter"
+msgstr "Kein solcher Prozess"
 
 #: lib/errors.c:39
 msgid "No kernel support"
@@ -1227,3 +1372,4 @@ msgstr "Keine Kernel-Unterstützung"
 #: lib/errors.c:40
 msgid "Incompatible kernel version"
 msgstr "Inkompatible Kernel-Version"
+
