@@ -38,4 +38,10 @@ often are setgid kmem or setuid root. Usually, they're also very specific to
 the system they're written for and not easily portable to other systems without
 a lot of work.
 
-
+This, of cause, becomes a problem for graphical tools like @code{gtop} - making
+a GTK+ program setgid or even setuid would be a security hole as big as you can
+drive the entire X11 source code through. For the GNOME project, we also needed
+some kind of library which provides all the required information in a portable
+since there's more than just one single program that wants to use them - for
+instance @code{gtop} and the @code{multiload}, @code{cpumemusage} and
+@code{netload} panel applets.
