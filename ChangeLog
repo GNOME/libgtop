@@ -1,3 +1,7 @@
+2003-01-25  Alessio Frusciante  <algol@firenze.linux.it>
+
+	* configure.in: Added "it" (Italian) to ALL_LINGUAS.
+
 2003-01-23  Marius Andreiana <marius galuna.ro>
 
 	* configure.in: Added "ro" to ALL_LINGUAS
