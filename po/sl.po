@@ -515,7 +515,7 @@ msgstr "Limit velikosti v fiziènem pomnilniku"
 
 #: sysdeps/names/procmem.c:55
 msgid "Total # of pages of memory"
-msgstr "Skupno ¹tevilo strani v spominu"
+msgstr "Skupno ¹tevilo strani v pomnilniku"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of pages of virtual memory"
