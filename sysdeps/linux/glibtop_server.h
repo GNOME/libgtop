@@ -44,9 +44,7 @@ skip_token (const char *p)
 static inline char *
 skip_multiple_token (const char *p, size_t count)
 {
-	size_t i;
-
-	for (i = 0; i < count; i++)
+	while(count--)
 		p = skip_token (p);
 
 	return (char *)p;
@@ -66,7 +64,7 @@ get_scaled(const char *buffer, const char *key)
   char          *next;
   const size_t len = strlen(key);
   unsigned long long value = 0;
-  
+
   if ((ptr = strstr(buffer, key)))
     {
       ptr += len;
