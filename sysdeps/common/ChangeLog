@@ -1,3 +1,8 @@
+2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* fsusage.c: (_glibtop_get_fsusage_read_write): Fixed G_GNUC attribute usage.
+	Replaced macro by inline function.
+
 2005-01-18  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* mountlist.c: (ignore_mount_entry): Re-worked with bsearch.

@@ -126,13 +126,19 @@ static const unsigned long _glibtop_sysdeps_fsusage =
  */
 
 #ifdef linux
-void G_GNUC_INTERNAL
+void
 _glibtop_linux_get_fsusage_read_write(glibtop *server,
 				      glibtop_fsusage *buf,
-				      const char *path);
+				      const char *path) G_GNUC_INTERNAL;
 
-#define _glibtop_get_fsusage_read_write(S, B, P) \
-        _glibtop_linux_get_fsusage_read_write(S, B, P)
+static inline void
+_glibtop_get_fsusage_read_write(glibtop *server,
+				glibtop_fsusage *buf,
+				const char *path)
+{
+	_glibtop_linux_get_fsusage_read_write(server, buf, path);
+}
+
 
 #else /* default fallback */
 #warning glibtop_get_fsusage .read .write are not implemented.
@@ -143,7 +149,7 @@ _glibtop_get_fsusage_read_write(glibtop *server,
 {
   /* NOOP */
 }
-#endif
+#endif /* default fallback */
 
 /* end _glibtop_get_fsusage_read_write */
 
