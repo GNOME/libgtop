@@ -1,3 +1,9 @@
+1998-08-30  Martin Baulig  <martin@home-of-linux.org>
+
+	* LIBGTOP-VERSION (LIBGTOP_VERSION_CODE): Added. This is a numerical
+	constant ("1.234.567" -> 1234567) to be used in C preprocessor
+	conditionals.
+
 1998-08-29  Martin Baulig  <martin@home-of-linux.org>
 
 	* LIBGTOP-VERSION (LIBGTOP_INTERFACE_AGE, LIBGTOP_BINARY_AGE): Added.

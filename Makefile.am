@@ -66,6 +66,7 @@ libgtopConf.sh: libgtopConf.sh.in Makefile
 	    -e 's,\@LIBGTOP_MINOR_VERSION\@,$(LIBGTOP_MINOR_VERSION),g' \
 	    -e 's,\@LIBGTOP_MICRO_VERSION\@,$(LIBGTOP_MICRO_VERSION),g' \
 	    -e 's,\@LIBGTOP_VERSION\@,$(LIBGTOP_VERSION),g' \
+	    -e 's,\@LIBGTOP_VERSION_CODE\@,$(LIBGTOP_VERSION_CODE),g' \
 	    -e 's,\@LIBGTOP_SERVER_VERSION\@,$(LIBGTOP_SERVER_VERSION),g' \
 	    -e 's,\@libgtop_sysdeps_dir\@,$(libgtop_sysdeps_dir),g' \
 	    -e 's,\@libgtop_need_server\@,$(libgtop_need_server),g' \
