@@ -3,9 +3,11 @@
 
 @menu
 * glibtop_cpu::                 CPU Usage.
+* glibtop_mem::                 Memory Usage.
+* glibtop_swap::                Swap Usage.
 @end menu
 
-@node glibtop_cpu,  , Reference Manual, Reference Manual
+@node glibtop_cpu, glibtop_mem, Reference Manual, Reference Manual
 @section CPU Usage
 
 Declaration of @code{glibtop_cpu} in @file{<glibtop/cpu.h}:
@@ -71,3 +73,109 @@ need to be running all the time, so we set the corresponding bit for each
 CPU that is currently running.
 @end table
 
+@node glibtop_mem, glibtop_swap, glibtop_cpu, Reference Manual
+@section Memory Usage
+
+Declaration of @code{glibtop_mem} in @file{<glibtop/mem.h}:
+
+@example
+@cartouche
+typedef struct _glibtop_mem     glibtop_mem;
+
+struct _glibtop_mem
+@{
+    u_int64_t   flags,
+        total,
+        used,
+        free,
+        shared,
+        buffer,
+        cached,
+        user,
+        locked;
+@};
+@end cartouche
+@end example
+
+Unless explicitly stated otherwise, all memory units are in bytes.
+
+@table @code
+@item total
+Total physical memory.
+
+@item used
+Used memory size.
+
+@item free
+Free memory size.
+
+@item shared
+Shared memory size.
+
+This are both segments that are @code{mmap()}ed with @code{MAP_SHARED} and
+IPC Shared Memory segments.
+
+@item buffer
+Size of buffers.
+
+@item cached
+Size of cached memory.
+
+@item user
+Memory used from user processes.
+
+This is normally @code{total - free - shared - buffer}.
+
+@item locked
+Memory in locked segments.
+
+@end table
+
+@node glibtop_swap,  , glibtop_mem, Reference Manual
+@section Swap Usage
+
+Declaration of @code{glibtop_swap} in @file{<glibtop/swap.h}:
+
+@example
+@cartouche
+typedef struct _glibtop_swap    glibtop_swap;
+
+struct _glibtop_swap
+@{
+    u_int64_t   flags,
+        total,
+        used,
+        free,
+        pagein,
+        pageout;
+@};
+@end cartouche
+@end example
+
+The following units are in bytes.
+
+@table @code
+@item total
+Total swap space in the system.
+
+@item used
+Used swap space.
+
+@item free
+Free swap space.
+@end table
+
+You can use @code{pagein} and @code{pageout} to get some measure about how
+much the system is swapping at the moment. They're increased each time a page
+is swapped in or out, so you need to save this values, wait a little bit, get
+them again and then compare the two results to find out how much the system
+swapped in the meantime.
+
+@table @code
+@item pagein
+Total number of swap pages that have been brought in since system boot
+
+@item pageout
+Total number of swap pages that have been brought out since system boot
+
+@end table
