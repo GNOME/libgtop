@@ -1,3 +1,10 @@
+2003-10-21  Bastien Nocera  <hadess@hadess.net>
+
+	* lib/read.c: (glibtop_read_l):
+	* lib/read_data.c: (glibtop_read_data_l):
+	* lib/write.c: (glibtop_write_l): 
+	reverted string freeze breakage
+
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
 	* lib/read.c: (glibtop_read_l):

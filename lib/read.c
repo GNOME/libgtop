@@ -72,5 +72,5 @@ glibtop_read_l (glibtop *server, size_t size, void *buf)
 	}
 
 	if (ret < 0)
-		glibtop_error_io_r (server, ngettext ("read %d byte", "read %d bytes", size), size);
+		glibtop_error_io_r (server, _("read %d bytes"), size);
 }
