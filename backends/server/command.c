@@ -69,16 +69,20 @@ glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
     glibtop_write_i (server, backend, sizeof (glibtop_command), &cmnd);
 
     if (data_size) {
+#ifdef SLAVE_DEBUG
 	fprintf (stderr, "SENDING %d bytes of DATA.\n", data_size);
+#endif
 	glibtop_write_i (server, backend, data_size, data_buf);
     }
 
     glibtop_read_i (server, backend, sizeof (glibtop_response), &resp);
 
+#ifdef SLAVE_DEBUG
     fprintf (stderr, "RESPONSE: %d - %d - %ld - %ld - %p - %ld\n",
 	     resp.retval, resp.glibtop_errno,
 	     (long) resp.recv_size, (long) resp.data_size,
 	     recv_ptr, (long) recv_size);
+#endif
     
     if (retval_ptr)
 	*retval_ptr = resp.glibtop_errno;

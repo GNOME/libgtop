@@ -119,8 +119,10 @@ handle_slave_connection (int input, int output)
 	int retval, func_retval;
 	glibtop_response resp;
 
+#ifdef DEBUG
 	fprintf (stderr, "Slave %d received command "
 		 "%ld from client.\n", getpid (), (long) cmnd->command);
+#endif
 
 	if (cmnd->send_size >= BUFSIZ)
 	    glibtop_error ("Client sent %d bytes, but buffer is %d",
@@ -132,7 +134,7 @@ handle_slave_connection (int input, int output)
 	memset (parameter, 0, sizeof (parameter));
 
 	if (cmnd->send_size) {
-#ifdef SLAVE_DEBUG
+#ifdef DEBUG
 	    fprintf (stderr, "Client has %d bytes of data.\n",
 		     cmnd->send_size);
 #endif
@@ -140,7 +142,7 @@ handle_slave_connection (int input, int output)
 	    send_size = cmnd->send_size;
 	    do_read (input, parameter, send_size);
 	} else if (cmnd->param_size) {
-#ifdef SLAVE_DEBUG
+#ifdef DEBUG
 	    fprintf (stderr, "Client has %d bytes of parameter data.\n",
 		     cmnd->param_size);
 #endif
@@ -149,8 +151,10 @@ handle_slave_connection (int input, int output)
 	}
 
 	if (cmnd->data_size) {
+#ifdef DEBUG
 	    fprintf (stderr, "CLIENT has %d bytes of extra data for us.\n",
 		     cmnd->data_size);
+#endif
 
 	    data_ptr = glibtop_malloc_r (server, cmnd->data_size);
 	    do_read (input, data_ptr, cmnd->data_size);
@@ -164,6 +168,7 @@ handle_slave_connection (int input, int output)
 					   &recv_data_ptr, &recv_data_size,
 					   &func_retval);
 
+#ifdef DEBUG
 	fprintf (stderr, "Retval %d / %d - %p - %d\n",
 		 retval, func_retval, recv_ptr, recv_size);
 
@@ -171,6 +176,7 @@ handle_slave_connection (int input, int output)
 	    fprintf (stderr, "Returning %d bytes of data from %p.\n",
 		     recv_data_size, recv_data_ptr);
 	}
+#endif
 
 	memset (&resp, 0, sizeof (glibtop_response));
 

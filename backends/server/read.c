@@ -29,10 +29,6 @@
 
 #include <glibtop-backend-private.h>
 
-#ifndef DEBUG
-#define DEBUG 1
-#endif
-
 void
 glibtop_read_i (glibtop *server, glibtop_backend *backend,
 		size_t size, void *buf)
@@ -48,7 +44,9 @@ glibtop_read_i (glibtop *server, glibtop_backend *backend,
 
     ret = read (backend->_priv->input [0], buf, size);
 
+#ifdef DEBUG
     fprintf (stderr, "LIBRARY: read %d bytes.\n", ret);
+#endif
 
     if (ret < 0)
 	glibtop_error_io_r (server, "read %d bytes", size);

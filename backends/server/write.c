@@ -29,10 +29,6 @@
 
 #include <glibtop-backend-private.h>
 
-#ifndef DEBUG
-#define DEBUG 1
-#endif
-
 void
 glibtop_write_i (glibtop *server, glibtop_backend *backend,
 		 size_t size, const void *buf)

@@ -50,11 +50,13 @@ _open_server (glibtop *server, glibtop_backend *backend,
     backend->_priv = glibtop_calloc_r
 	(server, 1, sizeof (glibtop_backend_private));
 
+#ifdef DEBUG
     fprintf (stderr, "open_server - %p, %p, %p\n", server, backend,
 	     backend->_priv);
 
     fprintf (stderr, "Opening pipe to server (%s).\n",
 	     LIBGTOP_SERVER);
+#endif
 
     if (pipe (backend->_priv->input) ||
 	pipe (backend->_priv->output)) {

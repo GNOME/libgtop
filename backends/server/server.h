@@ -47,18 +47,6 @@
 
 BEGIN_LIBGTOP_DECLS
 
-#ifndef DEBUG
-#define DEBUG
-#endif
-
-#ifndef SLAVE_DEBUG
-#define SLAGE_DEBUG
-#endif
-
-#ifndef REAL_DEBUG
-#define REAL_DEBUG
-#endif
-
 /* Some don't have LOG_PERROR */
 #ifndef LOG_PERROR
 #define LOG_PERROR 0

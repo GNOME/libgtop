@@ -30,10 +30,6 @@
 
 #include <glibtop-backend-private.h>
 
-#ifndef DEBUG
-#define DEBUG 1
-#endif
-
 void *
 glibtop_read_data_i (glibtop *server, glibtop_backend *backend)
 {
