@@ -9,13 +9,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 2003-02-09 23:12+0100\n"
-"PO-Revision-Date: 2003-02-09 23:13+0100\n"
+"POT-Creation-Date: 2003-10-21 13:10+0200\n"
+"PO-Revision-Date: 2003-10-21 13:10+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: examples/smp.c:71
 #, c-format
@@ -100,8 +101,10 @@ msgstr "Spinn:"
 
 #: lib/read.c:75
 #, c-format
-msgid "read %d bytes"
-msgstr "läste %d byte"
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "läste %d byte"
+msgstr[1] "läste %d byte"
 
 #: lib/read_data.c:49
 msgid "read data size"
@@ -109,47 +112,51 @@ msgstr "läste datastorlek"
 
 #: lib/read_data.c:66
 #, c-format
-msgid "read data %d bytes"
-msgstr "läste %d byte data"
+msgid "read data %d byte"
+msgid_plural "read data %d bytes"
+msgstr[0] "läste %d byte data"
+msgstr[1] "läste %d byte data"
 
 #: lib/write.c:48
 #, c-format
-msgid "write %d bytes"
-msgstr "skrev %d byte"
+msgid "write %d byte"
+msgid_plural "write %d bytes"
+msgstr[0] "skrev %d byte"
+msgstr[1] "skrev %d byte"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
 msgstr "Aktivera felsökning"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
 msgstr "FELSÖK"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
 msgstr "Aktivera utförlig utskrift"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr "UTFÖRLIG"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
 msgstr "Grena inte i bakgrunden"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr "INGEN-DEMON"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr "Startad från inetd"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -222,11 +229,11 @@ msgstr "%s: flaggan \"-W %s\" är tvetydig\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: flaggan \"-W %s\" tillåter inga argument\n"
 
-#: support/popthelp.c:35
+#: support/popthelp.c:23
 msgid "Show this help message"
 msgstr "Visa denna hjälptext"
 
-#: support/popthelp.c:36
+#: support/popthelp.c:24
 msgid "Display brief usage message"
 msgstr "Visa kortfattad användningstext"
 
