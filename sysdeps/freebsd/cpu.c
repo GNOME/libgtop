@@ -2,7 +2,7 @@
 
 /* Copyright (C) 1995, 1996, 1997 Free Software Foundation, Inc.
    This file is part of the Gnome Top Library.
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Joshua Sled <jsled@xcf.berkeley.edu>, July 1998.
 
    The Gnome Top Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as
@@ -22,6 +22,13 @@
 #include <config.h>
 #include <glibtop/cpu.h>
 
+#include <nlist.h>
+#include <kvm.h>
+#include <sys/dkstat.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/sysctl.h>
+
 static const unsigned long _glibtop_sysdeps_cpu =
 (1 << GLIBTOP_CPU_TOTAL) + (1 << GLIBTOP_CPU_USER) +
 (1 << GLIBTOP_CPU_NICE) + (1 << GLIBTOP_CPU_SYS) +
@@ -30,41 +37,66 @@ static const unsigned long _glibtop_sysdeps_cpu =
 /* Provides information about cpu usage. */
 
 void
-glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
+glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
-	long cp_time [CPUSTATES];
-	int i;
+  /* kvm_* vars */
+  kvm_t *kd;
+  static const int nlst_length=2;
+  long cpts[CPUSTATES];
+  /* sysctl vars*/
+  static const int mib_length=2;
+  int mib[mib_length];
+  struct clockinfo ci;
+  size_t length;
 
-	glibtop_init_p (server, 0, 0);
+  /* nlist structure for kernel access */
+  struct nlist nlst[nlst_length] = {
+    { "_cp_time" },
+    { 0 }
+  };
 
-	memset (buf, 0, sizeof (glibtop_cpu));
+  /* MIB array for sysctl(3) use */
+  mib[0] = CTL_KERN;
+  mib[1] = KERN_CLOCKRATE;
 
-	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
-	
-	setregid (server->machine.gid, server->machine.egid);
-	
-	/* get the cp_time array */
+  glibtop_init_r (& server);
 
-	(void) _glibtop_getkval (server, _glibtop_nlist [X_CP_TIME].n_value,
-				 (int *) cp_time, sizeof (cp_time),
-				 _glibtop_nlist [X_CP_TIME].n_name);
-	
-	if (setregid (server->machine.egid, server->machine.gid))
-		_exit (1);
-	
-	/* !!! END OF SUID ROOT PART !!! */
-	
-	buf->user = cp_time [CP_USER];
-	buf->nice = cp_time [CP_NICE];
-	buf->sys  = cp_time [CP_SYS];
-	buf->idle = cp_time [CP_IDLE];
-	buf->frequency = server->machine.hz;
+  memset (buf, 0, sizeof (glibtop_cpu));
 
-	/* Calculate total time. */
+  /* Get the value out of the kernel */
+  if (kvm_open(NULL, NULL, NULL, O_RDONLY, "kvm_open") == NULL) {
+    /* If we can't get at the kernel, return the null values we just
+       gave the array. */
+    return;
+  }
+  kvm_nlist(kd, &nlst);
+  kvm_read(kd, nlst[0].n_value, &cpts, sizeof(cpts));
+  kvm_close(kd);
 
-	buf->total = buf->user + buf->nice + buf->sys + buf->idle;
+  /* Get the clockrate data */
+  length = sizeof(clockinfo);
+  sysctl(mib, mib_length, &ci, &len, NULL, 0);
 
-	/* Now we can set the flags. */
+  buf->flags = _glibtop_sysdeps_cpu;
 
-	buf->flags = _glibtop_sysdeps_cpu;
+  /* set user time */
+  buf->user = cpts[CP_USER];
+  /* set nice time */
+  buf->nice = cpts[CP_NICE];
+  /* set sys time */
+  buf->sys = cpts[CP_SYS];
+  /* set idle time */
+  buf->idle = cpts[CP_IDLE];
+  /* set frequency */
+  /* 
+     FIXME --  is hz, tick, profhz or stathz wanted?
+     buf->frequency = sysctl("kern.clockrate", ...); 
+
+     struct clockinfo
+     */
+  buf->frequency = ci.hz;
+  /* set total */
+  buf->total = cpts[CP_USER] + cpts[CP_NICE]
+	 + cpts[CP_SYS] + cpts[CP_IDLE];
+
 }

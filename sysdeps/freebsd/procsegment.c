@@ -2,7 +2,7 @@
 
 /* Copyright (C) 1995, 1996, 1997 Free Software Foundation, Inc.
    This file is part of the Gnome Top Library.
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Joshua Sled <jsled@xcf.berkeley.edu>, July 1998.
 
    The Gnome Top Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as
@@ -22,11 +22,57 @@
 #include <config.h>
 #include <glibtop/procsegment.h>
 
+#include <kvm.h>
+#include <sys/param.h>
+#include <sys/sysctl.h>
+
+static const unsigned long _glibtop_sysdeps_proc_segment =
+(1 << GLIBTOP_PROC_SEGMENT_TRS);
+/* (1 << GLIBTOP_PROC_SEGMENT_LRS) +
+(1 << GLIBTOP_PROC_SEGMENT_DRS) + 
+(1 << GLIBTOP_PROC_SEGMENT_DT) +
+(1 << GLIBTOP_PROC_SEGMENT_START_CODE) +
+(1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
+(1 << GLIBTOP_PROC_SEGMENT_START_STACK) */
+
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_segment_p (glibtop *server, glibtop_proc_segment *buf,
+glibtop_get_proc_segment_s (glibtop *server,
+			    glibtop_proc_segment *buf,
 			    pid_t pid)
 {
-	memset (buf, 0, sizeof (glibtop_proc_segment));
+  struct kinfo_proc *pinfo;
+  int *count;
+
+  glibtop_init_r(&server, 0, 0);
+
+  memset (buf, 0, sizeof (glibtop_proc_segment));
+
+  /* Get the process info from the kernel */
+  kvm_getprocs(server->machine.kd, KERN_PROC_PID, pid, count);
+  if (*count != 1) {
+    return; /* the zeroed-out buffer indicating no data */
+  }
+
+  /* trs: text resident set size
+     pinfo[0]->kp_eproc.e_xrssize;
+   */
+  buf->trs = pinfo[0]->kp_eproc.e_xrssize;
+  /* lrs: shared-lib resident set size
+     ?  */
+  /* drs: data resident set size
+     pinfo[0]->kp_eproc.e_vm.vm_map.vm_dsize;
+   */
+  /* dt: dirty pages
+   */
+  /* start_code: address of beginning of code segment
+     
+   */
+  /* end_code: address of end of code segment
+   */
+  /* start_stack: address of the bottom of stack segment
+   */
+
 }
+
