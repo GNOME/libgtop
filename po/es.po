@@ -40,8 +40,8 @@ msgstr "leído tamaño de datos"
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "leído %d byte de datos"
-msgstr[1] "leídos %d bytes de datos"
+msgstr[0] "leído %lu byte de datos"
+msgstr[1] "leídos %lu bytes de datos"
 
 #: lib/write.c:51
 #, c-format
