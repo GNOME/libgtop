@@ -27,7 +27,7 @@ BEGIN {
   print "init (CLASS)";
   print "\tchar *CLASS;";
   print "CODE:";
-  print "\tRETVAL = glibtop_calloc (1, sizeof (glibtop *));";
+  print "\tRETVAL = glibtop_calloc (1, sizeof (glibtop));";
   print "\tglibtop_init_s (&RETVAL, 0, 0);";
   print "OUTPUT:";
   print "\tRETVAL";
