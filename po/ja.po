@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2000-10-15 03:24+0900\n"
+"POT-Creation-Date: 2000-11-12 02:15+0100\n"
 "PO-Revision-Date: 2000-10-15 03:24+0900\n"
 "Last-Translator: Yukihiro Nakai <nakai@gnome.gr.jp>\n"
 "Language-Team: Japanese <translation@gnome.gr.jp>\n"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: glibtop 1.1.1\n"
-"POT-Creation-Date: 2000-05-25 14:38+0000\n"
+"POT-Creation-Date: 2000-11-12 02:15+0100\n"
 "PO-Revision-Date: 2000-05-20 04:38+0100\n"
 "Last-Translator: Manuel de Vega Barreiro <barreiro@arrakis.es>\n"
 "Language-Team: Spanish <es@li.org>\n"

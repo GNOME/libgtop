@@ -1,3 +1,10 @@
+2000-11-20  Martin Baulig  <baulig@suse.de>
+
+	Released LibGTop 1.0.10 "November Rain".
+
+	* LIBGTOP-VERSION: Set version number to 1.0.10, binary age 9,
+	interface age 9.
+
 2000-05-25  Martin Baulig  <baulig@suse.de>
 
 	Released LibGTop 1.0.9 "Stuttgart".
