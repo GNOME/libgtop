@@ -150,7 +150,7 @@ output (pid_t pid)
 	printf ("Proc_Args    PID  %5d (0x%08lx): %lu - '%s'\n", (int) pid,
 		(unsigned long) data.proc_args.flags,
 		(unsigned long) data.proc_args.size,
-		args);
+		args ? args : "");
 
 	glibtop_free (args);
 
