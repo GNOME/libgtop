@@ -20,17 +20,6 @@
 # include <config.h>
 #endif
 
-#if HAVE_INTTYPES_H
-# include <inttypes.h>
-#else
-# if HAVE_STDINT_H
-#  include <stdint.h>
-# endif
-#endif
-#ifndef UINTMAX_MAX
-# define UINTMAX_MAX ((uintmax_t) -1)
-#endif
-
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "fsusage.h"
@@ -81,23 +70,23 @@ int statvfs ();
 
 /* Many space usage primitives use all 1 bits to denote a value that is
    not applicable or unknown.  Propagate this information by returning
-   a uintmax_t value that is all 1 bits if X is all 1 bits, even if X
-   is unsigned and narrower than uintmax_t.  */
+   a guint64 value that is all 1 bits if X is all 1 bits, even if X
+   is unsigned and narrower than guint64.  */
 #define PROPAGATE_ALL_ONES(x) \
-  ((sizeof (x) < sizeof (uintmax_t) \
+  ((sizeof (x) < sizeof (guint64) \
     && (~ (x) == (sizeof (x) < sizeof (int) \
 		  ? - (1 << (sizeof (x) * CHAR_BIT)) \
 		  : 0))) \
-   ? UINTMAX_MAX : (x))
+   ? G_MAXUINT64 : (x))
 
-/* Extract the top bit of X as an uintmax_t value.  */
+/* Extract the top bit of X as an guint64 value.  */
 #define EXTRACT_TOP_BIT(x) ((x) \
-			    & ((uintmax_t) 1 << (sizeof (x) * CHAR_BIT - 1)))
+			    & ((guint64) 1 << (sizeof (x) * CHAR_BIT - 1)))
 
 /* If a value is negative, many space usage primitives store it into an
    integer variable by assignment, even if the variable's type is unsigned.
    So, if a space usage variable X's top bit is set, convert X to the
-   uintmax_t value V such that (- (uintmax_t) V) is the negative of
+   guint64 value V such that (- (guint64) V) is the negative of
    the original value.  If X's top bit is clear, just yield X.
    Use PROPAGATE_TOP_BIT if the original value might be negative;
    otherwise, use PROPAGATE_ALL_ONES.  */

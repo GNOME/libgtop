@@ -1,3 +1,8 @@
+2004-03-15  Bastien Nocera  <hadess@hadess.net>
+
+	* fsusage.c:
+	* fsusage.h: remove use of uintmax_t
+
 2004-03-09  Bastien Nocera  <hadess@hadess.net>
 
 	* fsusage.c: fix build (we don't have "full-read.h" here)

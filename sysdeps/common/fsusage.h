@@ -17,18 +17,20 @@
 
 /* Space usage statistics for a filesystem.  Blocks are 512-byte. */
 
+#include <glib.h>
+
 #if !defined FSUSAGE_H_
 # define FSUSAGE_H_
 
 struct fs_usage
 {
   int fsu_blocksize;		/* Size of a block.  */
-  uintmax_t fsu_blocks;		/* Total blocks. */
-  uintmax_t fsu_bfree;		/* Free blocks available to superuser. */
-  uintmax_t fsu_bavail;		/* Free blocks available to non-superuser. */
+  guint64 fsu_blocks;		/* Total blocks. */
+  guint64 fsu_bfree;		/* Free blocks available to superuser. */
+  guint64 fsu_bavail;		/* Free blocks available to non-superuser. */
   int fsu_bavail_top_bit_set;	/* 1 if fsu_bavail represents a value < 0.  */
-  uintmax_t fsu_files;		/* Total file nodes. */
-  uintmax_t fsu_ffree;		/* Free file nodes. */
+  guint64 fsu_files;		/* Total file nodes. */
+  guint64 fsu_ffree;		/* Free file nodes. */
 };
 
 # ifndef PARAMS

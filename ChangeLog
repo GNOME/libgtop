@@ -1,3 +1,8 @@
+2004-03-15  Bastien Nocera  <hadess@hadess.net>
+
+	* include/glibtop/fsusage.h: set GLIBTOP_MAX_FSUSAGE properly,
+	use gint in the headers instead of int (Closes: #125049)
+
 2004-03-11  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.in: Up versions etc.
