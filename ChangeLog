@@ -1,5 +1,12 @@
 2000-11-26  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/glibtop-backend.h
+	(glibtop_backend_get_call_vector): New function.
+
+	* lib/glibtop-client-private.h: New file.
+	* lib/glibtop-client.h (struct _glibtop_client_private): Moved
+	to glibtop-client-private.h.
+
 	* include/glibtop/glibtop-client.h (glibtop_client_open_backend):
 	Changed return value to void.
 

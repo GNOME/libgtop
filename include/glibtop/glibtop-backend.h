@@ -46,6 +46,8 @@ typedef struct _glibtop_backend		glibtop_backend;
 typedef struct _glibtop_backend_class	glibtop_backend_class;
 typedef struct _glibtop_backend_private	glibtop_backend_private;
 
+#include <glibtop/glibtop-backend-info.h>
+
 struct	_glibtop_backend
 {
     GObject object;
@@ -65,6 +67,9 @@ glibtop_backend_get_type (void);
 glibtop_backend *
 glibtop_backend_open (const char *backend_name, u_int64_t features,
 		      const char **backend_args, GError **error);
+
+glibtop_call_vector *
+glibtop_backend_get_call_vector (glibtop_backend *backend);
 
 END_LIBGTOP_DECLS
 

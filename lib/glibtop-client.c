@@ -34,13 +34,7 @@ static void glibtop_client_finalize      (GObject                *object);
 
 static gpointer parent_class = NULL;
 
-
-/* Internal data */
-
-struct _glibtop_client_private
-{
-    GSList *backend_list;
-};
+#include <glibtop-client-private.h>
 
 enum {
     GLIBTOP_CLIENT_SIGNAL_ERROR,

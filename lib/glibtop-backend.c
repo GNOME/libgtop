@@ -230,3 +230,13 @@ glibtop_backend_open (const char *backend_name, u_int64_t features,
 
     return backend;
 }
+
+glibtop_call_vector *
+glibtop_backend_get_call_vector (glibtop_backend *backend)
+{
+    g_return_val_if_fail (GLIBTOP_IS_BACKEND (backend), NULL);
+
+    g_assert (backend->_priv->info != NULL);
+
+    return backend->_priv->info->call_vector;
+}
