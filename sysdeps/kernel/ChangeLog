@@ -1,0 +1,27 @@
+2001-10-17  Abel Cheung <maddog@linux.org.hk>
+
+	* Makefile.am: move header to $(includedir)/libgtop-1.0/glibtop.
+
+1998-10-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* netload.c: New file. Currently empty.
+
+1998-10-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* procargs.c: New file. Currently empty.
+
+1998-10-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* ppp.c: New file. Currently empty.
+
+1998-06-14  Martin Baulig  <martin@home-of-linux.org>
+
+	* kernel.s: New file - declaration of the table () function
+	via _syscall3 (); due to a bug in egcs, we cannot put this
+	into a C file.
+
+1998-06-13  Martin Baulig  <martin@home-of-linux.org>
+
+	The code in this directory fetches all information
+	directly from the kernel. It uses the new table ()
+	system call from the `kernel' directory.

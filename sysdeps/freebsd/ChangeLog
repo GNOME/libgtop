@@ -1,0 +1,188 @@
+2001-10-17  Abel Cheung <maddog@linux.org.hk>
+
+	* Makefile.am: move header to $(includedir)/libgtop-1.0/glibtop.
+
+2001-02-27  Martin Baulig  <baulig@suse.de>
+
+	* netload.c: Comment out the `subnet' field on BSDI; this should
+	make it compile. Bug #13345.
+
+	* shm_limits.c, msg_limits.c, sem_limits.c: Applied a patch
+	from Rolf Grossmann (grossman@securitas.net) for FreeBSD 4.2.
+	Fixes #51334.
+
+2001-02-14  Martin Baulig  <baulig@suse.de>
+
+	* proctime.c (glibtop_get_proc_time_p): Make things work on
+	OpenBSD 2.6; this is basically the same than on NetBSD.
+
+2000-02-13  Martin Baulig  <martin@home-of-linux.org>
+
+	* *.c: kvm_nlist () returns -1 on error, but a positive return value
+	does not necessarily mean failure. Fixes #3302 which was reported by
+	Matthias Scheler some time ago.
+
+1999-10-16  Martin Baulig  <martin@home-of-linux.org>
+
+	Applied all patches from the FreeBSD 3.3 ports collection.
+
+	* swap.c: Only #include <rlist.h> for __FreeBSD_version < 400005.
+
+	* prockernel.c: Make it compile on FreeBSD / alpha.
+
+	* procsignal.c: Some fixes for FreeBSD-current.
+
+1999-10-16  Martin Baulig  <martin@home-of-linux.org>
+
+	* procstate.c (glibtop_get_proc_state_p): Don't use the
+	`GLIBTOP_PROCESS_*' constants for process states for
+	LibGTop 1.0.x.
+
+1999-07-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* proctime.c (glibtop_get_proc_time_p): Fix bug reported by
+	Takis Psarogiannakopoulos: `start_time' are seconds since the
+ 	epoch as it is stated in the manual.
+
+Tue Jun 15 16:04:10 1999 Timur Bakeyev <mc@bat.ru>
+
+	* procuid.c: A fix to a ommitted case, when nor NetBSD, nor  
+	LibGTop >= 1.1.0. This should be investigated closely to cover
+	more cases....
+	
+1999-05-26  Martin Baulig  <martin@home-of-linux.org>
+
+	More NetBSD 1.4 fixes.
+
+	* mem.c, procmap.c, procmem.c: Make this work with the new UVM code.
+
+	[FIXME: This following most likely works on all BSD systems, but
+	this needs to be tested; I made it conditional to NetBSD 1.4 at
+	the moment. Please extend the conditionals to any other systems
+	where this works ...]
+	
+	* procstate.c: Added `ruid' and `rgid' for LibGTop >= 1.1.0.
+	* procuid.c: Added `ngroups' and `groups' for LibGTop >= 1.1.0.
+
+1999-05-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* ppp.c: Make this work on NetBSD.
+
+Thu Apr  8 23:47:29 1999  Timur Bakeyev  <timur@gnu.org>
+
+ 	* cpu.c, mem.c, netload.c, procargs.c, procstate.c, proctime.c,
+ 	sem_limits.c, shm_limits.c, swap.c: Added initial port for BSD/OS
+	(aka BSDI) 2.x and 3.x. 4.x should also(?) work.
+	
+	Still, this port require more close look and extended check.
+
+1999-03-19  Martin Baulig  <martin@home-of-linux.org>
+
+	Added basic support for BSDI. It compiles without problems on
+	BSDI 2.1 and 3.1, but it is *untested* - I'm neither root on
+	the machine nor have I access to /dev/kmem, so I don't know
+	whether it will work.
+
+	You need to give configure the `--enable-hacker-mode' parameter
+	to use the code.
+
+	If someone can verify whether it actually works, please let me
+	know.
+
+1999-03-18  Martin Baulig  <martin@home-of-linux.org>
+
+	* ppp.c: Don't use `sppp.pp_phase' if we don't HAVE_I4B_ACCT.
+	This is an ugly hack until someone tells me which versions have
+	this field and which not.
+
+1999-02-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* prockernel.c, proctime.c: Applied patch Stanislav Grozev for
+	OpenBSD: only include <osreldate.h> for FreeBSD.
+
+1999-02-24  Martin Baulig  <martin@home-of-linux.org>
+
+	* swap.c: Applied another patch from Jeremy Lea to
+	make it work with FreeBSD-current.
+
+1999-02-21  Martin Baulig  <martin@home-of-linux.org>
+
+	* procmap.c, procmem.c: Applied patch from Jeremy Lea.
+
+	* prockernel.c, proctime.c: Applied patch from the FreeBSD 2.2.8
+	ports collection.
+	
+	* procsignal.c: Applied patch from the NetBSD-current ports
+	collection.
+
+1998-12-06  Martin Baulig  <martin@home-of-linux.org>
+
+	* Make it work with OpenBSD 2.4.
+
+1998-12-05  Martin Baulig  <martin@home-of-linux.org>
+
+	* Make it work with NetBSD 1.3.2.
+
+1998-11-17  Martin Baulig  <martin@home-of-linux.org>
+
+	* Make it work with FreeBSD 3.0.
+ 
+1998-11-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* *.c: It does not work to get information about the swapper task
+	on FreeBSD 2.2.6, so we simple return if pid == 0.
+
+1998-10-31  Martin Baulig  <martin@home-of-linux.org>
+
+	* *.c: Use glibtop_warn_io_r () instead of glibtop_error_io_r ().
+
+	* proctime.c, prockernel.c, procargs.c: Don't call kvm_uread () if
+	the /proc filesystem is not mounted.
+
+1998-10-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* netload.c: New file to get network load.
+
+1998-10-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* procargs.c: New file to get command line arguments.
+
+1998-10-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* ppp.c: New file to get PPP/ISDN statistics. Currently this only
+	get ISDN statistics if you have the I4B package.
+
+	To get the number of bytes transferred in/out you need to read the
+	file `misc/i4b_acct.txt' in the LibGTop source directory to see
+	how to enable this.
+
+1998-10-03  Martin Baulig  <martin@home-of-linux.org>
+
+	* procstate.c (glibtop_get_procstate_s): Use correct values for
+	the `state' field.
+	
+	* proclist.c (glibtop_get_proclist_p): Honor the GLIBTOP_EXCLUDE_IDLE
+	and GLIBTOP_EXCLUDE_SYSTEM flags of the `which' parameter.
+
+1998-08-24  Martin Baulig  <martin@home-of-linux.org>
+
+	* *.c (glibtop_init_p): Using correct `(1 << GLIBTOP_SYSDPES_*)'.
+	* cpu.c, mem.c: Removed `const' from sysctl () constants to keep
+	compiler happy.
+
+	* procmem.c:  Added missing call to `glibtop_init_p'.
+
+	* prockernel.c: Casting `nwchan' to `unsigned long' since this
+	normally has the same size than a pointer. Well, is there a
+	FreeBSD for 64bit architectures ?
+
+1998-08-08  Martin Baulig  <martin@home-of-linux.org>
+
+	* swap.c: Added swap usage based upton the source code
+	of `pinfo'.
+
+1998-08-07  Martin Baulig  <martin@home-of-linux.org>
+
+	* *: Imported FreeBSD port of libgtop from Josh Sled.
+
+	* ChangeLog: New file.

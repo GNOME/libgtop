@@ -1,0 +1,7 @@
+Makefile.in
+Makefile
+libgtop_daemon2
+libgtop_server2
+server.conf
+.libs
+.deps

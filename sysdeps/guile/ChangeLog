@@ -1,0 +1,50 @@
+1999-02-04  Martin Baulig  <martin@home-of-linux.org>
+
+	* names/guile-names.awk: Use `_' instead of `gettext'.
+
+1999-01-22  Martin Baulig  <martin@home-of-linux.org>
+
+	* names/guile-names.awk: Use a `(TYPE . DIMENSION)' pair for
+	array types in `glibtop-types-*'.
+
+1998-12-09  Martin Baulig  <martin@home-of-linux.org>
+
+	* guile.awk: For arrays, make a gh_list out of it and add this list
+	to the returned list instead of adding all array fields there.
+
+1998-12-08  Martin Baulig  <martin@home-of-linux.org>
+
+	* guile.awk (glibtop-get-sysdeps): New guile function.
+	
+	* guile.awk (glibtop_get_proc_map): Make a gh_list for each map
+	entry and append all of them to the returned list.
+	(glibtop_get_mountlist): Likewise.
+
+1998-10-20  Martin Baulig  <martin@home-of-linux.org>
+
+	* guile.awk: If the features.def contains something like
+	`fieldname[number]' we interpret this as an array and add all
+ 	members of this array.
+
+1998-10-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am: Let the `Makefile' depend upon $(BUILT_SOURCES).
+	This is required to get dependencies correctly.
+	* names/Makefile.am: Likewise.
+
+1998-10-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* names/Makefile.am (BUILT_SOURCES, CLEANFILES): Added
+ 	`guile-names.x' here and a rule to make it from `guile-names.c'
+ 	using guile-snarf.
+
+	* names/guile-names.awk: Use the SCM_GLOBAL_VCELL macros and
+	guile-snarf here; declared all `glibtop_guile_*' functions static.
+	
+	* guile.awk: Declared all `glibtop_guile_get_*' functions static.
+
+	* Makefile.am (BUILT_SOURCES, CLEANFILES): Added `guile.x'.
+	Added rule to make `guile.x' from `guile.c' using guile-snarf.
+
+	* guile.awk: Use the SCM_PROC macros and guile-snarf here.
+

@@ -1,0 +1,44 @@
+/* -*-c-*- */
+
+/* This is a sample config file.
+ *
+ * Copy this file to 'server_config.h' and edit it to fix your needs !
+ *
+ * You can also use the 'server_config.pl' script to create 'server_config.h'.
+ *
+ */
+
+#define SERVER_PORT		42800	/* Port the server should listen on. */
+
+/* NOTE: On RedHat 5.1 nobody is UID 99 and GID 99.
+ *
+ * The 'server_config.pl' script will use the real UID and GID of 'nobody'
+ * on your system as default.
+ *
+ * NOTE: This only works if the server is started as root or SUID to root.
+ */
+
+#define SERVER_UID		99	/* User ID the server should run as. */
+#define SERVER_GID		99	/* Group ID the server should run as. */
+
+#define HOST_TABLE_ENTRIES	1	/* Number of entries in the host table. */
+
+/* List of hosts that should be authorized to connect to the server.
+ *
+ * SECURITY WARNING:
+ *   Enabling access for a particular hosts means the ALL USERS on this host
+ *   will be allowed to connect to the server !
+ *
+ *   If you want security, let this table empty and use the 'xauth' method
+ *   instead.
+ *
+ *   Look at the manpage of gnuserv (1) as shipped with GNU Emacs for more 
+ *   details about security. The server uses the same security mechanisms
+ *   like gnuserv from XEmacs 20.3.
+ */
+
+const char *permitted_host_names [HOST_TABLE_ENTRIES] =
+{ NULL };
+
+unsigned long permitted_hosts [HOST_TABLE_ENTRIES];
+

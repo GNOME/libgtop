@@ -1,0 +1,12 @@
+
+libgtop is released under the GPL.
+On Debian GNU/Linux systems, the complete text of the GNU General
+Public License can be found in /usr/share/common-licenses/GPL
+
+Original authors: Martin Baulig <martin@home-of-linux.org>
+                  Drazen Kacar <dave@srce.hr>
+
+Originally Debianised by Jim Pick <jim@jimpick.com>
+Then re-Debianised in October 1998 by Martin Schulze
+<joey@finlandia.infodrom.north.de> before being taken over by Ian Lynagh
+<ian@lynagh.demon.co.uk> in November 1998.

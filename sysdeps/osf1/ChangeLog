@@ -1,0 +1,20 @@
+2001-10-17  Abel Cheung <maddog@linux.org.hk>
+
+	* Makefile.am: move header to $(includedir)/libgtop-1.0/glibtop.
+
+1999-05-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* procstate.c: Fixed implementation of the `state' field; added
+	`ruid' and `rgid' fields.
+
+1999-02-19  Martin Baulig  <martin@home-of-linux.org>
+
+	* procmap.c, procargs.c, netload.c: Copied from stub_suid.
+
+	* proclist.c, procsegment.c: Make them compile again.
+
+1998-10-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* ChangeLog: New file.
+	* ppp.c: New file.
+

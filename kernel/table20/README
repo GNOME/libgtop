@@ -1,0 +1,21 @@
+This is a new system call `table ()' for the Linux table. It is faster
+than reading from /proc and can be used to fetch all information required
+for libgtop until whe have some other function (extended sysctl, ...) in
+standard kernels.
+
+I didn't want to change sysctl or some other function myself cause this may
+cause other applications relying upon those function to fail. This is
+something for the ``real'' kernel gurus ...
+
+To use this new system call for libgtop, do the following:
+
+* Copy this directory to /usr/src/linux/table
+* Make /usr/src/linux/include/linux/table.h symlink to /usr/src/linux/table/table.h
+* Apply the patch `kernel.patch' to the kernel, compile, install and reboot
+* Recompile libgtop (remove `config.cache' and run the `autogen.sh' again).
+
+If you want to change and/or add something - feel free to do so !
+
+Have fun,
+
+Martin

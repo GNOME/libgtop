@@ -1,0 +1,140 @@
+2001-10-17  Abel Cheung <maddog@linux.org.hk>
+
+	* Makefile.am: move header to $(includedir)/libgtop-1.0/glibtop.
+
+2001-02-13  Martin Baulig  <baulig@suse.de>
+
+	Fix bug #14076.
+
+	* open.c (glibtop_open_s): Check whether /proc/1/cpu exists to
+	detect SMP support rather than reading /proc/stat; on Linux 2.4.x,
+	/proc/stat has "cpu" and "cpu0" entries even for non-SMP systems.
+
+2000-01-22  Martin Baulig  <martin@home-of-linux.org>
+
+	* procargs.c (glibtop_get_proc_args_s): Set correct `buf->size' and
+	`buf->flags' fields when `max_length' was given. Fixes #5183.
+
+1999-11-28  Martin Baulig  <martin@home-of-linux.org>
+
+	* procstate.c (glibtop_get_procstate_s): Stat "/proc/<pid>" instead
+	of "/proc/<pid>/state" to get `uid' and `gid'. Thanks to Jason Becker
+	for pointing out that GTop reported wrong uid's.
+
+1999-10-19  Martin Baulig  <martin@home-of-linux.org>
+
+	* uptime.c (glibtop_get_uptime_s): Don't cast uptime and idletime
+	to float as suggested by John Kodis.
+
+1999-07-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* proctime.c (glibtop_get_proctime_s): Don't provide `rtime'
+	any longer since we must not use `rtime = utime + stime'.
+
+1999-02-20  Martin Baulig  <martin@home-of-linux.org>
+
+	* netload.c: Don't include <linux/ip_fw.h> for libc5 systems
+	since it is no longer required and makes trouble on Slakware.
+
+1999-01-06  Martin Baulig  <martin@home-of-linux.org>
+
+	* netload.c (glibtop_get_netload_s): Use `server->os_version_code'
+	instead of GLIBTOP_LINUX_VERSION_CODE.
+
+1999-01-06  Martin Baulig  <martin@home-of-linux.org>
+
+	Unconditionally enable SMP support for linux.
+
+	* open.c (_glibtop_open_s): Always determine the number of CPUs
+	we have here, not only when SMP support was enabled.
+
+	* cpu.c, proctime.c: Use `server->ncpu' to determine whether to
+ 	enable SMP support.
+
+1998-12-28  Martin Baulig  <martin@home-of-linux.org>
+
+	* netload.c: When using glibc, don't include <netinet/ip_fw.h>
+ 	any longer but all headers that were included there; we only
+ 	needed this file to get those headers.
+
+1998-12-09  Martin Baulig  <martin@home-of-linux.org>
+
+	* procargs.c (glibtop_get_proc_args_s): Added implementation
+	for this function.
+
+1998-12-03  Martin Baulig  <martin@home-of-linux.org>
+
+	* netload.c: No longer include <linux/version.h>, but use
+	GLIBTOP_LINUX_VERSION_CODE which is set by configure instead.
+	Define _GLIBTOP_IP_FW_ACCTIN and _GLIBTOP_IP_FW_ACCTOUT here
+	and use them instead of IP_FW_F_ACCTIN and IP_FW_F_ACCTOUT.
+
+1998-11-30  Martin Baulig  <martin@home-of-linux.org>
+
+	* netload.c: Use correct header files both for libc5 and glibc.
+	With Linux >= 2.1.114 we no longer use IP accounting since it
+	already has byte counts in /proc/net/dev.
+
+1998-11-22  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* netload.c (glibtop_get_netload_s): Added implementation
+	for this function.
+ 	
+	The code here is smart enough to use /proc/net/ip_acct if
+ 	IP accounting is enabled in the kernel and activated on the
+ 	requested device and /proc/net/dev if not.
+
+	To get separate statistics for received and transmitted
+	packets you need to use two accounting rules:
+
+	ipfwadm -A in -a -P all -W eth0
+	ipfwadm -A out -a -P all -W eth0
+
+	But before you activate IP accounting, please have a look
+	at /proc/net/dev - if if already contains byte counters,
+	then don't use IP accounting.
+
+1998-10-28  Martin Baulig  <martin@home-of-linux.org>
+
+	* ppp.c: Added code for ISDN here.
+
+1998-10-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* netload.c: New file. Currently empty.
+
+1998-10-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* procargs.c: New file. Currently empty.
+
+1998-10-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* ppp.c: New file. Currently empty.
+
+1998-10-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* procdata.c: Removed this obsolete file.
+
+1998-10-02  Martin Baulig  <martin@home-of-linux.org>
+
+	* proclist.c (glibtop_init_proclist_s): You can now also use the
+	`GLIBTOP_EXCLUDE_*' flags for the `which' parameter.
+
+1998-10-01  Martin Baulig  <baulig@Stud.Informatik.uni-trier.de>
+
+	* proclist.c (glibtop_init_proclist_s): Honor the `which' parameter
+	to select which processes to fetch.
+
+1998-09-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysinfo.c: New file.
+
+1998-09-09  Martin Baulig <baulig@Stud.Informatik.uni-trier.de>
+
+	* proctime.c (glibtop_get_proc_time_s): Added SMP support.
+
+	* open.c (glibtop_init_s): Initialize `ncpu' on SMP systems.
+
+	* cpu.c (glibtop_get_cpu_s): Added SMP support.
+
+	* ChangeLog: New file.
+

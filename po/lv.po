@@ -1,0 +1,1361 @@
+# libgtop for Latvian.
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# Peteris Krisjanis <peteris.krisjanis@os.lv>, 2002.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop\n"
+"POT-Creation-Date: 2002-08-26 05:09+0200\n"
+"PO-Revision-Date: 2002-08-31 09:57+0200\n"
+"Last-Translator: Artis Trops <hornet@navigators.lv>\n"
+"Language-Team: Latvian <ll10nt@os.lv>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: examples/smp.c:68
+#, c-format
+msgid "Ticks (%ld per second):"
+msgstr "Tikšķi (%ld katru sekundi):"
+
+#: examples/smp.c:71
+msgid "Total"
+msgstr "Kopā"
+
+#: examples/smp.c:71 sysdeps/names/mem.c:47
+msgid "User"
+msgstr "Lietotājs"
+
+#: examples/smp.c:71 sysdeps/names/procuid.c:58
+msgid "Nice"
+msgstr "Jauks"
+
+#: examples/smp.c:71
+msgid "Sys"
+msgstr "Sis"
+
+#: examples/smp.c:71
+msgid "Idle"
+msgstr "Dīks"
+
+#: examples/smp.c:73
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+msgstr ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+
+#: examples/smp.c:77
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+
+#: examples/smp.c:94
+msgid "Percent:"
+msgstr "Procenti:"
+
+#: examples/smp.c:95
+msgid "Total (%)"
+msgstr "Kopā (%)"
+
+#: examples/smp.c:95
+msgid "User (%)"
+msgstr "Liet (%)"
+
+#: examples/smp.c:95
+msgid "Nice (%)"
+msgstr "Jauks (%)"
+
+#: examples/smp.c:95
+msgid "Sys (%)"
+msgstr "Sis (%)"
+
+#: examples/smp.c:96
+msgid "Idle (%)"
+msgstr "Dīks (%)"
+
+#: examples/smp.c:98
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+msgstr ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+
+#: examples/smp.c:114
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+
+#: examples/smp.c:120
+msgid "Spin:"
+msgstr "Griešanās:"
+
+#: lib/read.c:75
+#, c-format
+msgid "read %d bytes"
+msgstr "lasīt %d baitus"
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "lasīt datu izmēru"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr "lasīt datu %d baitus"
+
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr "rakstīt %d baitus"
+
+#: src/daemon/gnuserv.c:448
+msgid "Enable debugging"
+msgstr "Aktivizēt atkļūdošanu"
+
+#: src/daemon/gnuserv.c:448
+msgid "DEBUG"
+msgstr "DEBUG"
+
+#: src/daemon/gnuserv.c:450
+msgid "Enable verbose output"
+msgstr "Aktivizēt vārdisku izvadi"
+
+#: src/daemon/gnuserv.c:450
+msgid "VERBOSE"
+msgstr "VERBOSE"
+
+#: src/daemon/gnuserv.c:452
+msgid "Don't fork into background"
+msgstr "Nesadalīties fona"
+
+#: src/daemon/gnuserv.c:452
+msgid "NO-DAEMON"
+msgstr "NO-DAEMON"
+
+#: src/daemon/gnuserv.c:454
+msgid "Invoked from inetd"
+msgstr "Izsaukt no inetd"
+
+#: src/daemon/gnuserv.c:454
+msgid "INETD"
+msgstr "INETD"
+
+#: src/daemon/gnuserv.c:488
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Kļūda opcijā %s: %s.\n"
+"Palaidiet '%s --help' lai redzētu pilnu pieejamo komandu rindas opciju "
+"sarakstu.\n"
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "Nezināma sistēmas kļūda"
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: opcija `%s' ir neskaidra\n"
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: opcija `--%s' neatļauj argumentu\n"
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: opcija `%c%s' neatļauj argumentu\n"
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: opcija `%s' pieprasa argumentu\n"
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: neatpazīta opcija `--%s'\n"
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: neatpazīta opcija `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: nepareiza opcija -- %c\n"
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: nepareiza opcija -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: opcija pieprasa argumentu -- %c\n"
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: opcija `-W %s' ir neskaidra\n"
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: opcija `-W %s' neatļauj argumentu\n"
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr "Parādīt šo palīdzības ziņojumu"
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
+msgstr "Parādīt īsu lietošanas instrukciju"
+
+#: sysdeps/names/cpu.c:43
+msgid "Total CPU Time"
+msgstr "Kopējais CPU Laiks"
+
+#: sysdeps/names/cpu.c:44
+msgid "CPU Time in User Mode"
+msgstr "CPU Laiks Lietotāja Režīmā"
+
+#: sysdeps/names/cpu.c:45
+msgid "CPU Time in User Mode (nice)"
+msgstr "CPU Laiks Lietotāja Režīmā (jauks)"
+
+#: sysdeps/names/cpu.c:46
+msgid "CPU Time in System Mode"
+msgstr "CPU Laiks Sistēmas Režīmā"
+
+#: sysdeps/names/cpu.c:47
+msgid "CPU Time in the Idle Task"
+msgstr "CPU Laiks Dīkajā Uzdevumā"
+
+#: sysdeps/names/cpu.c:48
+msgid "Tick Frequency"
+msgstr "Tikšķu Frekvence"
+
+#: sysdeps/names/cpu.c:49
+msgid "SMP Total CPU Time"
+msgstr "SMP Kopējais CPU Laiks"
+
+#: sysdeps/names/cpu.c:50
+msgid "SMP CPU Time in User Mode"
+msgstr "SMP CPU Laiks Lietotāja Režīmā"
+
+#: sysdeps/names/cpu.c:51
+msgid "SMP CPU Time in User Mode (nice)"
+msgstr "SMP CPU Laiks Lietotāja Režīmā (jauks)"
+
+#: sysdeps/names/cpu.c:52
+msgid "SMP CPU Time in System Mode"
+msgstr "SMP CPU Laiks Sistēmas Režīmā"
+
+#: sysdeps/names/cpu.c:53
+msgid "SMP CPU Time in the Idle Task"
+msgstr "SMP CPU Laiks Dīkajā Uzdevumā"
+
+#: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
+msgid "Number of clock ticks since system boot"
+msgstr "Pulksteņa tikšķu skaits kopš sistēmas ielādes"
+
+#: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
+msgid "Number of clock ticks the system spent in user mode"
+msgstr "Pulksteņa tikšķu skaits laikā, ko sistēma pavadījusi lietotāja režīmā"
+
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
+msgid "Number of clock ticks the system spent in user mode (nice)"
+msgstr ""
+"Pulksteņa tikšķu skaits laikā, ko sistēma pavadījusi lietotāja režīmā (jauks)"
+
+#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
+msgid "Number of clock ticks the system spent in system mode"
+msgstr "Pulksteņa tikšķu skaits laikā, ko sistēma pavadījusi sistēmas režīmā"
+
+#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
+msgid "Number of clock ticks the system spent in the idle task"
+msgstr "Pulksteņa tikšķu skaits laikā, ko sistēma pavadījusi dīkajā uzdevumā"
+
+#: sysdeps/names/cpu.c:63
+msgid "Tick frequency (default is 100)"
+msgstr "Tikšķu frekvence (noklusētais ir 100)"
+
+#: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
+msgid "Total blocks"
+msgstr "Bloki kopā"
+
+#: sysdeps/names/fsusage.c:40
+msgid "Free blocks"
+msgstr "Brīvie bloki"
+
+#: sysdeps/names/fsusage.c:41
+msgid "Available blocks"
+msgstr "Pieejamie bloki"
+
+#: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
+msgid "Total file nodes"
+msgstr "Failu nodes kopā"
+
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+msgid "Free file nodes"
+msgstr "Brīvās failu nodes"
+
+#: sysdeps/names/fsusage.c:49
+msgid "Free blocks available to the superuser"
+msgstr "Superlietotājam (superuser) pieejamie brīvie bloki"
+
+#: sysdeps/names/fsusage.c:50
+msgid "Free blocks available to non-superusers"
+msgstr "Nesuperlietotājiem (non-superusers) pieejamie brīvie bloki"
+
+#: sysdeps/names/loadavg.c:39
+msgid "Load Average"
+msgstr "Vidējā Noslodze"
+
+#: sysdeps/names/loadavg.c:40
+msgid "Running Tasks"
+msgstr "Strādājošie Uzdevumi"
+
+#: sysdeps/names/loadavg.c:41
+msgid "Number of Tasks"
+msgstr "Uzdevumu Skaits"
+
+#: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
+msgid "Last PID"
+msgstr "Pēdējais PID"
+
+#: sysdeps/names/loadavg.c:47
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgstr "Vienlaicīgi strādājošo darbu skaits vidēji 1, 5 un 15 minutēs"
+
+#: sysdeps/names/loadavg.c:48
+msgid "Number of tasks currently running"
+msgstr "Pašreiz aktīvo uzdevumu skaits"
+
+#: sysdeps/names/loadavg.c:49
+msgid "Total number of tasks"
+msgstr "Kopējais uzdevumu skaits"
+
+#: sysdeps/names/mem.c:41
+msgid "Total Memory"
+msgstr "Kopējā Atmiņa"
+
+#: sysdeps/names/mem.c:42
+msgid "Used Memory"
+msgstr "Izmant. Atmiņa"
+
+#: sysdeps/names/mem.c:43
+msgid "Free Memory"
+msgstr "Brīvā Atmiņa"
+
+#: sysdeps/names/mem.c:44
+msgid "Shared Memory"
+msgstr "Koplietotā Atmiņa"
+
+#: sysdeps/names/mem.c:45
+msgid "Buffers"
+msgstr "Buferi"
+
+#: sysdeps/names/mem.c:46
+msgid "Cached"
+msgstr "Keišoti"
+
+#: sysdeps/names/mem.c:48
+msgid "Locked"
+msgstr "Noslēgti"
+
+#: sysdeps/names/mem.c:53
+msgid "Total physical memory in kB"
+msgstr "Kopējā fiziskā atmiņa kB"
+
+#: sysdeps/names/mem.c:54
+msgid "Used memory size in kB"
+msgstr "Izmantotais atmiņas apjoms kB"
+
+#: sysdeps/names/mem.c:55
+msgid "Free memory size in kB"
+msgstr "Brīvās atmiņas apjoms kB"
+
+#: sysdeps/names/mem.c:56
+msgid "Shared memory size in kB"
+msgstr "Koplietotās atmiņas izmērs kB"
+
+#: sysdeps/names/mem.c:57
+msgid "Size of buffers kB"
+msgstr "Buferu izmēri kB"
+
+#: sysdeps/names/mem.c:58
+msgid "Size of cached memory in kB"
+msgstr "Keišotās atmiņas izmērs kB"
+
+#: sysdeps/names/mem.c:59
+msgid "Memory used from user processes in kB"
+msgstr "Lietotāju procesos izmantotā atmiņa kB"
+
+#: sysdeps/names/mem.c:60
+msgid "Memory in locked pages in kB"
+msgstr "Atmiņa noslēgtajās lapās kB"
+
+#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
+#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
+#: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
+msgid "Number of list elements"
+msgstr "Saraksta elementu skaits"
+
+#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
+#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
+#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
+msgid "Total size of list"
+msgstr "Saraksta kopējais izmērs"
+
+#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
+#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
+#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
+msgid "Size of a single list element"
+msgstr "Viena saraksta elementa izmērs"
+
+#: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
+msgid "Size in kilobytes of message pool"
+msgstr "Ziņas pūla izmērs kilobaitos"
+
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
+msgid "Number of entries in message map"
+msgstr "Ierakstu skaits ziņojumu kartē"
+
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
+msgid "Max size of message"
+msgstr "Ziņojuma maksimālais izmērs"
+
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
+msgid "Default max size of queue"
+msgstr "Rindas noklusētais maksimālais izmērs"
+
+#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
+msgid "Max queues system wide"
+msgstr "Maks. rindu sistēmas mērogā"
+
+#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
+msgid "Message segment size"
+msgstr "Ziņojuma segmenta lielums"
+
+#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
+msgid "Number of system message headers"
+msgstr "Sistēmas ziņojumu galviņu skaits"
+
+#: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+msgid "Interface Flags"
+msgstr "Saskarnes Karodziņi"
+
+#: sysdeps/names/netload.c:46
+msgid "MTU"
+msgstr "MTU"
+
+#: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
+msgid "Subnet"
+msgstr "Apakštīkls"
+
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
+msgid "Address"
+msgstr "Adrese"
+
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
+msgid "Packets In"
+msgstr "Ien. Paketes"
+
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+msgid "Packets Out"
+msgstr "Izej. Paketes"
+
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+msgid "Packets Total"
+msgstr "Paketes Kopā"
+
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+msgid "Bytes In"
+msgstr "Ien. Baiti"
+
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+msgid "Bytes Out"
+msgstr "Izej. Baiti"
+
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+msgid "Bytes Total"
+msgstr "Baiti Kopā"
+
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+msgid "Errors In"
+msgstr "Ien. Kļūdas"
+
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+msgid "Errors Out"
+msgstr "Izej. Kļūdas"
+
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+msgid "Errors Total"
+msgstr "Kļūdas Kopā"
+
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+msgid "Collisions"
+msgstr "Sadursmes"
+
+#: sysdeps/names/netload.c:64
+msgid "Maximum Transfer Unit"
+msgstr "Maksimālā Pārraides Vienība (MTU)"
+
+#: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
+msgid "PPP State"
+msgstr "PPP Stāvoklis"
+
+#: sysdeps/names/ppp.c:39
+msgid "Input bytes"
+msgstr "Ienāk. baiti"
+
+#: sysdeps/names/ppp.c:40
+msgid "Output bytes"
+msgstr "Izej. baiti"
+
+#: sysdeps/names/ppp.c:46
+msgid "Number of input bytes"
+msgstr "Ienākošo baitu skaits"
+
+#: sysdeps/names/ppp.c:47
+msgid "Number of output bytes"
+msgstr "Izejošo baitu skaits"
+
+#: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
+msgid "Size"
+msgstr "Izmērs"
+
+#: sysdeps/names/procargs.c:43
+msgid "Length in bytes of the returned string."
+msgstr "Atgrieztās virknes garums baitos."
+
+#: sysdeps/names/prockernel.c:42
+msgid "K_Flags"
+msgstr "K_Flags"
+
+#: sysdeps/names/prockernel.c:42
+msgid "Min_Flt"
+msgstr "Min_Flt"
+
+#: sysdeps/names/prockernel.c:42
+msgid "Maj_Flt"
+msgstr "Maj_Flt"
+
+#: sysdeps/names/prockernel.c:42
+msgid "CMin_Flt"
+msgstr "CMin_Flt"
+
+#: sysdeps/names/prockernel.c:43
+msgid "CMaj_Flt"
+msgstr "CMaj_Flt"
+
+#: sysdeps/names/prockernel.c:43
+msgid "KStk_ESP"
+msgstr "KStk_ESP"
+
+#: sysdeps/names/prockernel.c:43
+msgid "KStk_EIP"
+msgstr "KStk_EIP"
+
+#: sysdeps/names/prockernel.c:43
+msgid "NWChan"
+msgstr "NWChan"
+
+#: sysdeps/names/prockernel.c:44
+msgid "WChan"
+msgstr "WChan"
+
+#. K_Flags
+#: sysdeps/names/prockernel.c:50
+msgid ""
+"Kernel flags of the process.\n"
+"\n"
+"On Linux, currently every flag has the math bit set, because crt0.s checks "
+"for math emulation, so this is not included in the output.\n"
+"\n"
+"This is probably a bug, as not every process is a compiled C program.\n"
+"\n"
+"The math bit should be a decimal 4, and the traced bit is decimal 10."
+msgstr ""
+"Procesa kerneļa karodziņi.\n"
+"\n"
+"Linux uz doto brīdi jebkuram karodziņam ir uzstādīts math bits, tāpēc ka "
+"crt0.s pārbauda math emulāciju, tāpēc tas nav iekļauts izvadē.\n"
+"\n"
+"Tā iespējams ir kļūda, tā kā ne katrs process ir kompilēta C programma.\n"
+"\n"
+"Math bitam jābūt decimālam 4, un novērotais bits ir decimālis 10."
+
+#. Min_Flt
+#: sysdeps/names/prockernel.c:59
+msgid ""
+"The number of minor faults the process has made, those which have not "
+"required loading a memory page from disk."
+msgstr ""
+"Blakus kļūdu skaits (tās, kuras nav pieprasījušas ielādēt atmiņas lapu no "
+"diska), ko radījis process."
+
+#. Maj_Flt
+#: sysdeps/names/prockernel.c:62
+msgid ""
+"The number of major faults the process has made, those which have required "
+"loading a memory page from disk."
+msgstr ""
+"Galveno kļūdu skaits (tās, kuras ir pieprasījušas ielādēt atmiņas lapu no "
+"diska), ko radījis process."
+
+#. CMin_Flt
+#: sysdeps/names/prockernel.c:65
+msgid "The number of minor faults that the process and its children have made."
+msgstr "Mazāko bojājumu skaits, kurus izraisījis process un tā bērni."
+
+#. CMaj_Flt
+#: sysdeps/names/prockernel.c:68
+msgid "The number of major faults that the process and its children have made."
+msgstr "Lielāko bojājumu skaits, kurus izraisījis process un tā bērni."
+
+#. KStk_ESP
+#: sysdeps/names/prockernel.c:71
+msgid ""
+"The current value of esp (32-bit stack pointer), as found in the kernel "
+"stack page for the process."
+msgstr ""
+"Pašreizējā esp vērtība (32-bitu steka rādītājs), kā atrasta kernelī procesa "
+"steka lappusē."
+
+#. KStk_EIP
+#: sysdeps/names/prockernel.c:74
+msgid "The current EIP (32-bit instruction pointer)."
+msgstr "Pašreizējais EIP (32-bitu instrukciju rādītājs)."
+
+#. NWChan
+#: sysdeps/names/prockernel.c:76
+msgid ""
+"This is the \"channel\" in which the process is waiting.  This is the "
+"address of a system call, and can be looked up in a namelist if you need a "
+"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
+"see the WCHAN field in action)"
+msgstr ""
+"Šis ir \"kanāls\", kurā gaida process.  Šī ir sistēmas izsaukuma adrese un "
+"var tikt sameklēta nosaukumu sarakstā, ja jums nepieciesams tekstuāls "
+"nosaukumus.  (Ja jums ir pēdējā savaiguma /etc/psdatabase, tad pamēģiniet ps "
+"-l, lai redzētu WCHAN lauku darbībā)"
+
+#. WChan
+#: sysdeps/names/prockernel.c:81
+msgid "This is the textual name of the `nwchan' field."
+msgstr "Šis ir `nwchan' lauka tekstuālais nosaukums."
+
+#: sysdeps/names/procmem.c:47
+msgid "Virtual"
+msgstr "Virtuālā"
+
+#: sysdeps/names/procmem.c:47
+msgid "Resident"
+msgstr "Rezident"
+
+#: sysdeps/names/procmem.c:47
+msgid "Share"
+msgstr "Koplietotā"
+
+#: sysdeps/names/procmem.c:48
+msgid "Resident Set Size"
+msgstr "Rezidenta Kopas Izmērs"
+
+#: sysdeps/names/procmem.c:48
+msgid "Resident Set Size Limit"
+msgstr "Rezidenta Kopas Izmēra Ierobežojums"
+
+#: sysdeps/names/procmem.c:53
+msgid "Total # of pages of memory"
+msgstr "Kopējais atmiņas lappušu #"
+
+#: sysdeps/names/procmem.c:54
+msgid "Number of pages of virtual memory"
+msgstr "Virtuālās atmiņas lappušu skaits"
+
+#: sysdeps/names/procmem.c:55
+msgid "Number of resident set (non-swapped) pages"
+msgstr "Rezidenta (ne-pārnestās) kopas lappušu skaits"
+
+#: sysdeps/names/procmem.c:56
+msgid "Number of pages of shared (mmap'd) memory"
+msgstr "Izdalītās (atmkart) atmiņas lappušu skaits"
+
+#: sysdeps/names/procmem.c:57
+msgid ""
+"Number of pages the process has in real memory, minus 3 for administrative "
+"purposes. This is just the pages which count towards text, data, or stack "
+"space. This does not include pages which have not been demand-loaded in, or "
+"which are swapped out."
+msgstr ""
+"Lappušu skaits mīnus 3 administratīviem mērķiem, kāds procesam ir reālajā "
+"atmiņā. Šīs ir tikai lappuses, kas tiek skaitītas teksta, datu, vai steka "
+"laukā. Šis neiekļauj lappuses, kas nav ielādētas pēc pieprasījuma vai arī, "
+"kas ir pārnestas ārā."
+
+#: sysdeps/names/procmem.c:62
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr "Pašreizējais ierobežojums baitos procesa rki (parasti 2,147,483,647)."
+
+#: sysdeps/names/procsegment.c:42
+msgid "Text_RSS"
+msgstr "Teksta_RKI"
+
+#: sysdeps/names/procsegment.c:42
+msgid "ShLib_RSS"
+msgstr "IzdBibl_RKI"
+
+#: sysdeps/names/procsegment.c:42
+msgid "Data_RSS"
+msgstr "Datu_RKI"
+
+#: sysdeps/names/procsegment.c:42
+msgid "Stack_RSS"
+msgstr "Steka_RKI"
+
+#: sysdeps/names/procsegment.c:43
+msgid "Dirty Size"
+msgstr "Netīrs Izmērs"
+
+#: sysdeps/names/procsegment.c:43
+msgid "Start_Code"
+msgstr "Sākuma_Kods"
+
+#: sysdeps/names/procsegment.c:43
+msgid "End_Code"
+msgstr "Beigu_Kods"
+
+#: sysdeps/names/procsegment.c:43
+msgid "Start_Stack"
+msgstr "Sākuma_Steks"
+
+#: sysdeps/names/procsegment.c:48
+msgid "Text resident set size"
+msgstr "Teksta rezidenta kopas izmērs"
+
+#: sysdeps/names/procsegment.c:49
+msgid "Shared-Lib resident set size"
+msgstr "Izdalītās-Bibl rezidenta kopas izmērs"
+
+#: sysdeps/names/procsegment.c:50
+msgid "Data resident set size"
+msgstr "Datu rezidenta kopas izmērs"
+
+#: sysdeps/names/procsegment.c:51
+msgid "Stack resident set size"
+msgstr "Steka rezidenta kopas izmērs"
+
+#: sysdeps/names/procsegment.c:52
+msgid "Total size of dirty pages"
+msgstr "Kopējais netīro lappušu izmērs"
+
+#: sysdeps/names/procsegment.c:53
+msgid "Address of beginning of code segment"
+msgstr "Koda segmenta sākuma adrese"
+
+#: sysdeps/names/procsegment.c:54
+msgid "Address of end of code segment"
+msgstr "Koda segmenta beigu adrese"
+
+#: sysdeps/names/procsegment.c:55
+msgid "Address of the bottom of stack segment"
+msgstr "Steka segmenta apakšas adrese"
+
+#: sysdeps/names/procsignal.c:40
+msgid "Signal"
+msgstr "Signāls"
+
+#: sysdeps/names/procsignal.c:40
+msgid "Blocked"
+msgstr "Bloķēts"
+
+#: sysdeps/names/procsignal.c:40
+msgid "SigIgnore"
+msgstr "SigIgnorēšana"
+
+#: sysdeps/names/procsignal.c:40
+msgid "SigCatch"
+msgstr "SigĶēriens"
+
+#: sysdeps/names/procsignal.c:45
+msgid "Mask of pending signals"
+msgstr "Neizlemto signālu maska"
+
+#: sysdeps/names/procsignal.c:46
+msgid "Mask of blocked signals"
+msgstr "Boķēto signālu maska"
+
+#: sysdeps/names/procsignal.c:47
+msgid "Mask of ignored signals"
+msgstr "Ignorēto signālu maska"
+
+#: sysdeps/names/procsignal.c:48
+msgid "Mask of caught signals"
+msgstr "Noķerto signālu maska"
+
+#: sysdeps/names/procstate.c:40
+msgid "Cmd"
+msgstr "Kmd"
+
+#: sysdeps/names/procstate.c:40
+msgid "State"
+msgstr "Stāv."
+
+#: sysdeps/names/procstate.c:40
+msgid "UID"
+msgstr "LID"
+
+#: sysdeps/names/procstate.c:40
+msgid "GID"
+msgstr "GID"
+
+#: sysdeps/names/procstate.c:45
+msgid "Basename of executable file in call to exec()"
+msgstr "Palaižamā faila bāzes nosaukums izsaukumā exec()"
+
+#: sysdeps/names/procstate.c:46
+msgid "Single-Char code for process state (S=sleeping)"
+msgstr "Vienas-Rakstzīmes kods procesa stāvoklim (G=guļ)"
+
+#: sysdeps/names/procstate.c:47
+msgid "UID of process"
+msgstr "Procesa UID"
+
+#: sysdeps/names/procstate.c:48
+msgid "GID of process"
+msgstr "Procesa GID"
+
+#: sysdeps/names/proctime.c:44
+msgid "Start_Time"
+msgstr "Sākuma_Laiks"
+
+#: sysdeps/names/proctime.c:44
+msgid "RTime"
+msgstr "RLaiks"
+
+#: sysdeps/names/proctime.c:44
+msgid "UTime"
+msgstr "ULaiks"
+
+#: sysdeps/names/proctime.c:44
+msgid "STime"
+msgstr "SLaiks"
+
+#: sysdeps/names/proctime.c:45
+msgid "CUTime"
+msgstr "CULaiks"
+
+#: sysdeps/names/proctime.c:45
+msgid "CSTime"
+msgstr "CSLaiks"
+
+#: sysdeps/names/proctime.c:45
+msgid "TimeOut"
+msgstr "Taimauts"
+
+#: sysdeps/names/proctime.c:45
+msgid "It_Real_Value"
+msgstr "Tā_Īstā_Vērtība"
+
+#: sysdeps/names/proctime.c:46
+msgid "Frequency"
+msgstr "Frekvence"
+
+#: sysdeps/names/proctime.c:46
+msgid "XCPU_UTime"
+msgstr "XCPU_LLaiks"
+
+#: sysdeps/names/proctime.c:46
+msgid "XCPU_STime"
+msgstr "XCPU_SLaiks"
+
+#: sysdeps/names/proctime.c:51
+msgid "Start time of process in seconds since the epoch"
+msgstr "Sākuma laiks procesam sekundēs kopš epohas"
+
+#: sysdeps/names/proctime.c:52
+msgid "Real time accumulated by process (should be utime + stime)"
+msgstr "Reālais laiks, kādu process uzkrājis (vajadzētu būt llaiks + glaiks)"
+
+#: sysdeps/names/proctime.c:53
+msgid "user-mode CPU time accumulated by process"
+msgstr "Procesa uzkrātais lietotāja režīma CPU laiks"
+
+#: sysdeps/names/proctime.c:54
+msgid "kernel-mode CPU time accumulated by process"
+msgstr "Procesa uzkrātais kerneļa režīma CPU laiks"
+
+#: sysdeps/names/proctime.c:55
+msgid "cumulative utime of process and reaped children"
+msgstr "procesa un piesaistīto bērnu kopējais llaiks"
+
+#: sysdeps/names/proctime.c:56
+msgid "cumulative stime of process and reaped children"
+msgstr "procesa un piesaistīto bērnu kopējais glaiks"
+
+#: sysdeps/names/proctime.c:57
+msgid "The time (in jiffies) of the process's next timeout"
+msgstr "Procesa nākamā taimauta laiks (acumirkļos)"
+
+#: sysdeps/names/proctime.c:58
+msgid ""
+"The time (in jiffies) before the next SIGALRM is sent to the process due to "
+"an interval timer."
+msgstr ""
+"Laiks (acumirkļos) pirms nākamais SIGALARM tiek sūtīts procesam intervālu "
+"taimera dēļ."
+
+#: sysdeps/names/proctime.c:60
+msgid "Tick frequency"
+msgstr "Tikšķu frekvence"
+
+#: sysdeps/names/proctime.c:61
+msgid "SMP user-mode CPU time accumulated by process"
+msgstr "Procesa uzkrātais SMP lietotāja režīma CPU laiks"
+
+#: sysdeps/names/proctime.c:62
+msgid "SMP kernel-mode CPU time accumulated by process"
+msgstr "Procesa uzkrātais SMP kerneļa režīma CPU laiks"
+
+#: sysdeps/names/procuid.c:56
+msgid "Uid"
+msgstr "Lid"
+
+#: sysdeps/names/procuid.c:56
+msgid "EUid"
+msgstr "ELid"
+
+#: sysdeps/names/procuid.c:56
+msgid "Gid"
+msgstr "Gid"
+
+#: sysdeps/names/procuid.c:56
+msgid "EGid"
+msgstr "EGid"
+
+#: sysdeps/names/procuid.c:56
+msgid "Pid"
+msgstr "Pid"
+
+#: sysdeps/names/procuid.c:57
+msgid "PPid"
+msgstr "PPid"
+
+#: sysdeps/names/procuid.c:57
+msgid "PGrp"
+msgstr "PGrp"
+
+#: sysdeps/names/procuid.c:57
+msgid "Session"
+msgstr "Sesija"
+
+#: sysdeps/names/procuid.c:57
+msgid "Tty"
+msgstr "Tty"
+
+#: sysdeps/names/procuid.c:58
+msgid "TPGid"
+msgstr "TPGid"
+
+#: sysdeps/names/procuid.c:58
+msgid "Priority"
+msgstr "Prioritāte"
+
+#: sysdeps/names/procuid.c:63
+msgid "User ID"
+msgstr "Lietotāja ID"
+
+#: sysdeps/names/procuid.c:64
+msgid "Effective User ID"
+msgstr "Efektīvais Lietotāja ID"
+
+#: sysdeps/names/procuid.c:65
+msgid "Group ID"
+msgstr "Grupas ID"
+
+#: sysdeps/names/procuid.c:66
+msgid "Effective Group ID"
+msgstr "Efektīvais Grupas ID"
+
+#: sysdeps/names/procuid.c:67
+msgid "Process ID"
+msgstr "Procesa ID"
+
+#: sysdeps/names/procuid.c:68
+msgid "PID of parent process"
+msgstr "Vecākprocesa PID"
+
+#: sysdeps/names/procuid.c:69
+msgid "Process group ID"
+msgstr "Procesu grupas ID"
+
+#: sysdeps/names/procuid.c:70
+msgid "Session ID"
+msgstr "Sesijas ID"
+
+#: sysdeps/names/procuid.c:71
+msgid "Full device number of controlling terminal"
+msgstr "Kontrolējošā termināļa iekārtas pilns numurs"
+
+#: sysdeps/names/procuid.c:72
+msgid "Terminal process group ID"
+msgstr "Termināļa procesa grupas ID"
+
+#: sysdeps/names/procuid.c:73
+msgid "Kernel scheduling priority"
+msgstr "Kerneļa plānošanas prioritāte"
+
+#: sysdeps/names/procuid.c:74
+msgid "Standard unix nice level of process"
+msgstr "Standarta unix procesa jaukuma līmenis"
+
+#: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
+msgid "Number of entries in semaphore map"
+msgstr "Ierakstu skaits semafora kartē"
+
+#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
+msgid "Max number of arrays"
+msgstr "Maks. masīvu skaits"
+
+#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
+msgid "Max semaphores system wide"
+msgstr "Maks. semaforu sistēmas apmēros"
+
+#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
+msgid "Number of undo structures system wide"
+msgstr "Atcelšanas struktūru skaits sistēmas apmēros"
+
+#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
+msgid "Max semaphores per array"
+msgstr "Maks. semaforu uz masīvu"
+
+#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
+msgid "Max ops per semop call"
+msgstr "Maks. oper. uz semaf. izsaukumu"
+
+#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
+msgid "Max number of undo entries per process"
+msgstr "Atcelšanas ierakstu uz procesu maks. skaits"
+
+#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
+msgid "sizeof struct sem_undo"
+msgstr "sizeof struct sem_undo"
+
+#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
+msgid "Semaphore max value"
+msgstr "Semaforas maks. vērtība"
+
+#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
+msgid "Adjust on exit max value"
+msgstr "Noregulēt pie iziešanas maks. vērtību"
+
+#: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
+msgid "Max segment size"
+msgstr "Maks segmenta izmērs"
+
+#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
+msgid "Min segment size"
+msgstr "Min segmenta izmērs"
+
+#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
+msgid "Max number of segments"
+msgstr "Maks. segmentu daudzums"
+
+#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
+msgid "Max shared segments per process"
+msgstr "Maks. koplietoto segmentu uz procesu"
+
+#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
+msgid "Max total shared memory"
+msgstr "Maks. kopējā koplietotā atmiņa"
+
+#: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
+msgid "Total Swap Space"
+msgstr "Kopējā Maiņatmiņas Vieta"
+
+#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
+msgid "Used Swap Space"
+msgstr "Izlietotā Maiņatmiņas Vieta"
+
+#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
+msgid "Free Swap Space"
+msgstr "Brīvā Maiņatmiņas Vieta"
+
+#: sysdeps/names/swap.c:42
+msgid "Page In"
+msgstr "Lappuse Iekšā"
+
+#: sysdeps/names/swap.c:43
+msgid "Page Out"
+msgstr "Lappuse Ārā"
+
+#: sysdeps/names/swap.c:51
+msgid "Total number of swap pages that have been brought in since system boot"
+msgstr ""
+"Kopējais maiņatmiņas lappušu skaits, kas ticis ienests kopš sistēmas "
+"sāknēšanas"
+
+#: sysdeps/names/swap.c:53
+msgid "Total number of swap pages that have been brought out since system boot"
+msgstr ""
+"Kopējais maiņatmiņas lappušu skaits, kas ticis iznests kopš sistēmas "
+"sāknēšanas"
+
+#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
+msgid "Server Features"
+msgstr "Servera Iespējas"
+
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
+msgid "CPU Usage"
+msgstr "CPU Lietojums"
+
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
+msgid "Memory Usage"
+msgstr "Atmiņas Lietojums"
+
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
+msgid "Swap Usage"
+msgstr "Maiņatmiņas Lietojums"
+
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
+msgid "System Uptime"
+msgstr "Sistēmas Darbalaiks"
+
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
+msgid "Load Averange"
+msgstr "Vidējā noslodze"
+
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
+msgid "Shared Memory Limits"
+msgstr "Koplietotās Atmiņas Ierobežojumi"
+
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
+msgid "Message Queue Limits"
+msgstr "Ziņojumu Rindas Ierobežojumi"
+
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
+msgid "Semaphore Set Limits"
+msgstr "Semafora Kopas Ierobežojumi"
+
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
+msgid "List of running Processes"
+msgstr "Strādājošo Procesu Saraksts"
+
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
+msgid "Process Status information"
+msgstr "Procesa Statusa informācija"
+
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
+msgid "Process UID and TTY information"
+msgstr "Procesa LID un TTY informācija"
+
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
+msgid "Process Memory information"
+msgstr "Procesa Atmiņas informācija"
+
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
+msgid "Process Time information"
+msgstr "Procesa Laika informācija"
+
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
+msgid "Process Signal information"
+msgstr "Procesa Signāla informācija"
+
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
+msgid "Process Kernel Data information"
+msgstr "Procesa Kerneļa Datu informācija"
+
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
+msgid "Process Segment information"
+msgstr "Procesa Segmenta informācija"
+
+#: sysdeps/names/sysdeps.c:66
+msgid "Process Arguments"
+msgstr "Procesa Argumenti"
+
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
+msgid "Process Memory Map"
+msgstr "Procesa Atmiņas Karte"
+
+#: sysdeps/names/sysdeps.c:68
+msgid "Mount List"
+msgstr "Montējumu Saraksts"
+
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
+msgid "File System Usage"
+msgstr "Failu Sistēmas Lietojums"
+
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
+msgid "Network Load"
+msgstr "Tīkla Noslodze"
+
+#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
+msgid "PPP Statistics"
+msgstr "PPP Statistika"
+
+#: sysdeps/names/sysdeps.c:93
+msgid "Command line arguments of the process"
+msgstr "Procesa komandrindas argumenti"
+
+#: sysdeps/names/sysdeps.c:95
+msgid "List of currently mounted filesystems"
+msgstr "Pašreiz piemontēto failsistēmu saraksts"
+
+#: sysdeps/names/uptime.c:38
+msgid "Uptime"
+msgstr "Darbalaiks"
+
+#: sysdeps/names/uptime.c:39
+msgid "Idletime"
+msgstr "Dīkais laiks"
+
+#: sysdeps/names/uptime.c:44
+msgid "Time in seconds since system boot"
+msgstr "Laiks sekundēs kopš sistēmas ielādes"
+
+#: sysdeps/names/uptime.c:45
+msgid "Time in seconds the system spent in the idle task since system boot"
+msgstr ""
+"Laiks sekundēs, ko sistēma ir pavadījusi neko nedarot, kopš sistēmas ielādes"
+
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Hangup"
+msgstr "Iekārt"
+
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr "Pātraukt"
+
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "Iziet"
+
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
+msgstr "Neatļauta instrukcija"
+
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
+msgstr "Izsekot slazdu"
+
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "Pātraukt"
+
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+msgid "EMT error"
+msgstr "EMT kļūda"
+
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+msgid "Floating-point exception"
+msgstr "Peldošā punkta izņēmums"
+
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "Nobeigt"
+
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+msgid "Bus error"
+msgstr "Šinas kļūda"
+
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
+msgstr "Segmentācijas pārkāpums"
+
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr "Slikts arguments sistēmas izsaukumam"
+
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
+msgstr "Pātraukts kanāls"
+
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
+msgstr "Brīdinājuma pulkstenis"
+
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+msgid "Termination"
+msgstr "Pātraukšana"
+
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
+msgstr "Steidzama situācija kontaktā"
+
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "Stop"
+
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+msgid "Keyboard stop"
+msgstr "Tastatūra stop"
+
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "Turpināt"
+
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
+msgstr "Bērna statuss ir izmainījies"
+
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+msgid "Background read from tty"
+msgstr "Fona lasīšana no tty"
+
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+msgid "Background write to tty"
+msgstr "Fona rakstīšana uz tty"
+
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+msgid "I/O now possible"
+msgstr "I/O tagad iespējams"
+
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr "CPU limits pārsniegts"
+
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+msgid "File size limit exceeded"
+msgstr "Faila izmēra limits pārsniegts"
+
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
+msgstr "Virtuāls brīdinājuma pulkstenis"
+
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr "Profilēšanas modinātājs"
+
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+msgid "Window size change"
+msgstr "Loga izmēru maiņa"
+
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+msgid "Information request"
+msgstr "Informācijas pieprasījums"
+
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+msgid "User defined signal 1"
+msgstr "Lietotāja definēts signāls 1"
+
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+msgid "User defined signal 2"
+msgstr "Lietotāja definēts signāls 2"

@@ -1,5 +1,11 @@
 2003-10-19  Carlos Perelló Marín <carlos@gnome.org>
 
+	* support/*: Reverted libgtop changes. It's a common module
+	and I should not modify it.
+	* Added/removed files. Now the move should be done.
+
+2003-10-19  Carlos Perelló Marín <carlos@gnome.org>
+
 	* libgtop-GNOME-2-0-branch moved to HEAD.
 
 2003-09-30  Laurent Dhima  <laurenti@alblinux.net>

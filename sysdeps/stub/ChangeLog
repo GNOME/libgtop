@@ -1,0 +1,22 @@
+2001-10-17  Abel Cheung <maddog@linux.org.hk>
+
+	* Makefile.am: move header to $(includedir)/libgtop-1.0/glibtop.
+
+1998-10-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* netload.c: New file.
+
+1998-10-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* procargs.c: New file.
+
+1998-10-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* ppp.c: New file.
+
+1998-08-24  Martin Baulig  <martin@home-of-linux.org>
+
+	* *.c: Added initialization functions `glibtop_init_<feature>_s'.
+	
+	* ChangeLog: New file.
+

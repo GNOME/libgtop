@@ -1,0 +1,10 @@
+.deps
+so_locations
+.libs
+Makefile
+guile-names.c
+Makefile.in
+libgtop_guile.la
+libgtop_guile_names.la
+*.lo
+*.x

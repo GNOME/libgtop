@@ -1,0 +1,51 @@
+diff -ur linux-2.0.32/Makefile linux-hacked/Makefile
+--- linux-2.0.32/Makefile	Fri Nov  7 19:51:05 1997
++++ linux-hacked/Makefile	Thu Jun 11 20:41:12 1998
+@@ -87,7 +87,7 @@
+ # standard CFLAGS
+ #
+ 
+-CFLAGS = -Wall -Wstrict-prototypes -O2 -fomit-frame-pointer -fno-strength-reduce
++CFLAGS = -Wall -Wstrict-prototypes -g -O2 -fomit-frame-pointer -fno-strength-reduce
+ 
+ ifdef CONFIG_CPP
+ CFLAGS := $(CFLAGS) -x c++
+@@ -113,12 +113,12 @@
+ # Include the make variables (CC, etc...)
+ #
+ 
+-ARCHIVES	=kernel/kernel.o mm/mm.o fs/fs.o ipc/ipc.o net/network.a
++ARCHIVES	=kernel/kernel.o mm/mm.o fs/fs.o ipc/ipc.o net/network.a table/table.o
+ FILESYSTEMS	=fs/filesystems.a
+ DRIVERS		=drivers/block/block.a \
+ 		 drivers/char/char.a
+ LIBS		=$(TOPDIR)/lib/lib.a
+-SUBDIRS		=kernel drivers mm fs net ipc lib
++SUBDIRS		=kernel drivers mm fs net ipc lib table
+ 
+ ifeq ($(CONFIG_ISDN),y)
+ DRIVERS := $(DRIVERS) drivers/isdn/isdn.a
+diff -ur linux-2.0.32/arch/i386/kernel/entry.S linux-hacked/arch/i386/kernel/entry.S
+--- linux-2.0.32/arch/i386/kernel/entry.S	Tue Sep 16 23:42:45 1997
++++ linux-hacked/arch/i386/kernel/entry.S	Thu Jun 11 21:37:20 1998
+@@ -699,4 +699,8 @@
+ 	.long SYMBOL_NAME(sys_mremap)
+ 	.long 0,0
+ 	.long SYMBOL_NAME(sys_vm86)
+-	.space (NR_syscalls-166)*4
++	.long 0,0,0,0					/* 170 */
++	.long 0,0,0,0,0,0,0,0,0,0			/* 180 */
++	.long 0,0,0,0,0,0,0
++	.long SYMBOL_NAME(sys_table)
++	.space (NR_syscalls-188)*4
+diff -ur linux-2.0.32/include/asm-i386/unistd.h linux-hacked/include/asm-i386/unistd.h
+--- linux-2.0.32/include/asm-i386/unistd.h	Fri Mar 22 07:34:02 1996
++++ linux-hacked/include/asm-i386/unistd.h	Thu Jun 11 21:37:03 1998
+@@ -169,6 +169,7 @@
+ #define __NR_sched_rr_get_interval	161
+ #define __NR_nanosleep		162
+ #define __NR_mremap		163
++#define __NR_table		188
+ 
+ /* XXX - _foo needs to be __foo, while __NR_bar could be _NR_bar. */
+ #define _syscall0(type,name) \

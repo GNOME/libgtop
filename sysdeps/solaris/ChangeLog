@@ -1,0 +1,284 @@
+2001-10-17  Abel Cheung <maddog@linux.org.hk>
+
+	* Makefile.am: move header to $(includedir)/libgtop-1.0/glibtop.
+
+2001-02-18  Martin Baulig  <baulig@suse.de>
+
+	Applied a patch from Laszlo PETER <Laszlo.Peter@ireland.sun.com>
+	for Solaris 8.
+
+	* msg_limits.c: `struct msginfo' no longer has msgmap and msgssz.
+	* sem_limits.c: `struct seminfo' no longer has a semmap field.
+
+1999-10-17  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am (libgtop_sysdeps_la_LIBADD): Added `@DL_LIB@'.
+
+1999-09-28  Drazen Kacar  <dave@srce.hr>
+
+	* proclist.c (glibtop_get_proclist_s): Bugfix. It wasn't
+	excluding system, non-tty or idle processes if that was
+	requested.
+
+1999-07-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* proctime.c (glibtop_get_proc_time_p): Fix bug reported by
+	Takis Psarogiannakopoulos: `start_time' are seconds since the
+ 	epoch as it is stated in the manual.
+
+1999-07-16  Drazen Kacar  <dave@srce.hr>
+
+	* proclist.c: Bug fix. All Solaris versions have RUID and
+	RGID in /proc.
+
+1999-06-07  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_machine.h, open.c, procargs.c, proclist.c, procmap.c:
+	  Solaris 2.5 & 2.5.1 portability fixes, based on patches
+	  from Steve Murphy <murf@e-tools.com>.
+
+1999-05-30  Drazen Kacar  <dave@srce.hr>
+
+	* procargs.c: Fixed bug in calculation of process argument list.
+
+1999-05-27  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_machine.h, open.c, procmap.c: Get the file name
+	from inode number.
+
+1999-05-17  Drazen Kacar  <dave@srce.hr>
+
+	* procargs.c: Implemented what Solaris has to offer cheaply.
+	It sucks, but digging in process address space would be
+	too slow.
+
+1999-05-11  Drazen Kacar  <dave@srce.hr>
+
+	* proctime.c: Return 0 usage times for scheaduler (PID 0).
+
+1999-05-10  Drazen Kacar  <dave@srce.hr>
+
+	* proclist.c: Added process selection mechanism. It's not
+	included in Solaris 2.5 build, since we first have to decide
+	what will be dispatched to daemon.
+
+1999-05-10  Drazen Kacar  <dave@srce.hr>
+
+	There be some useful documentation now. Syncing...
+
+	* mem.c: Output values in bytes, as the documentation requires.
+	It was a bit odd when gtop reported 256K of total memory.
+
+1999-05-09  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_machine.h, procdata.c, proclist.c, procmap.c, procmem.c,
+	procsignal.c, procstate.c, procuid.c, open.c, mem.c: Initial
+	Solaris 2.5 port. It's far from being complete and hasn't been
+	tested properly. We'll need setuid root daemon, which is
+	currently not implemented. #ifdef symbols to check are
+	HAVE_PROCFS_H and KSTAT_DATA_UINT32. These will be defined on
+	Solaris 2.6 and later, but not on earlier releases.
+
+1999-05-08  Drazen Kacar  <dave@srce.hr>
+
+	* safeio.c, safeio.h: Added s_open(), s_close() etc. with EINTR
+	wrappers.
+
+	* procdata.c, procmap.c, proclist.c: Use them.
+
+1999-05-08  Drazen Kacar  <dave@srce.hr>
+
+	* procmem.c: Use bytes as units for memory consumption.
+
+1999-05-08  Drazen Kacar  <dave@srce.hr>
+
+	* procuid.c: Fixed nice value.
+
+1999-05-08  Martin Baulig  <martin@home-of-linux.org>
+
+	Use the setgid server for IPC Limits.
+
+	* shm_limits.c, msg_limits.c, sem_limits.c: Moved them into the
+	setgid server since they need to access kvm data.
+
+	* open_suid.c, close_suid.c: New file. We do the initialization and cleanup
+	for the setgid server here.
+
+	* glibtop_suid.h: New file. We include this in the setgid files.
+
+	* open.c: Moved kvm opening code into open_suid.c.
+
+1999-05-07  Drazen Kacar <dave@srce.hr>
+
+	* glibtop_machine.h, open.c, mem.c, procmem.c: machine.pagesize
+	is now number of bits we need for shifting, ie. 2^pagesize
+	will give pagesize in Kb.
+
+1999-05-07  Drazen Kacar <dave@srce.hr>
+
+	* procmem.c: Implemented size, vsize, resident and rss.
+
+1999-05-06  Drazen Kacar <dave@srce.hr>
+
+	* siglist.c: Fixed, valid for Solaris 2.6 & 7.
+
+1999-05-06  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_private.h, procuid.c, procdata.c: List of supplementary
+	groups was not correct. Fixed.
+
+1999-05-04  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_machine.h: Changed boot time to unsigned long long.
+	
+	* open.c: Added proper type checking for boot value. There's
+	no point in saving a few nanoseconds in init function. And
+	one day it will become 64-bit value.
+
+	In glibtop_get_kstats(): Don't reread vminfo_snaptime when
+	reinitializing kstats.
+
+1999-05-03  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_private.h: Fixed typoo.
+
+	* procmap.c (glibtop_get_proc_map_s): Implemented start, end,
+	offset and perm for mapped segments. File name and inode
+	should be accessible from bunyip kstat data. The only
+	obstacle is that the data format is undocumented and
+	possibly not the same accross releases.
+
+1999-05-03  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_private.h, procdata.c (glibtop_get_proc_status_s):
+	Read pstatus info from /proc
+
+	* procsignal.c (glibtop_get_proc_signal_s): Implemented
+	set of pending and blocked signals. The rest should probably
+	be read from /proc/<pid>/sigact, but I'm not sure it's
+	worth implementing before thread API comes into place.
+
+	* siglist.c: Added Solaris 7 signals. Someone will gettextize
+	it eventually. Besides, signal list should become a pointer
+	instead of being fixed field. We need some run time initializations.
+	The code is written, but commented out.
+
+1999-05-03  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_private.h: Ups, forgot to put prototypes in.
+
+1999-05-02  Drazen Kacar  <dave@srce.hr>
+
+	* open.c (glibtop_get_kstats): Yet another kstat_chain_update
+	check. Added machine.cpu_stat_kstat[x] = NULL when processor
+	x is not configured.
+
+	* procdata.c (glibtop_get_proc_credentials_s): Read prcred
+	structure from /proc.
+
+	* procstate.c (glibtop_get_proc_state_s): Added ruid, rgid,
+	has_cpu, processor and last_processor.
+
+	* procuid.c (glibtop_get_proc_uid_s): Added priority, nice,
+	suid, sgid, ngroups and groups. The last four will be
+	filled only if our process has the authority to read prcred
+	structure of another process.
+
+1999-05-02  Drazen Kacar  <dave@srce.hr>
+
+	procdata.c: Use pread() instead of read().
+
+1999-05-02  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_machine.h: added fields for page size, clock ticks and
+	boot time. These are constants. Also added three new kstats.
+
+	* open.c (glibtop_get_kstats): Initialize kstats in *server.
+	We need to call this at init time (obviously) and each time
+	kstat_chain_update() says that kstat chain has changed. In this
+	case all kstat pointers and data are invalid, so we need to
+	reinitialize everything.
+
+	(glibtop_open_s): Made it call glibtop_get_kstats(). Added
+	initialization for run time constants in struct machine.
+
+	* cpu.c (glibtop_get_cpu_s): Call kstat_chain_update().
+	See if processor is on-line and set bits in xcpu_flags.
+	Added frequency (bad name, should have been ticks).
+
+	* swap.c (glibtop_get_swap_s): Call kstat_chain_update().
+	I probably broke vminfo_snaptime consistency. Fix later.
+
+	* uptime.c (glibtop_get_uptime_s): Implemented uptime and boot_time.
+	Still looking for a sane way to get idletime.
+
+	* mem.c (glibtop_get_mem_s): Implemented. Will use bunyip
+	module if it's loaded. Or when it gets loaded. kstat_chain_update()
+   	is our friend. And with a friends like that...
+
+	* loadavg.c (glibtop_get_loadavg_s): Solaris 2.6 code brought
+	into sync with everything else.
+
+	* msg_limits.c (glibtop_init_msg_limits_s): Implemented.
+
+	* sem_limits.c (glibtop_get_sem_limits_s): Implemented.
+
+	Solaris takes kernel modularity too seriously. We can't get
+	IPC configuration data if the kernel module is not loaded and
+	it won't be loaded until some process actually asks for a
+	particular IPC resource. There's no way to tell our applications
+	about this. Possible API additions?
+
+	All three IPC functions should go into daemon, but I'm keeping
+	them in the normal library because I can't build daemon yet. All
+	praise 64 bits!
+
+1999-04-29  Drazen Kacar  <dave@srce.hr>
+
+	* glibtop_machine.h: added field for kvm descriptor.
+
+	* open.c: added code for opening kernel name space.
+
+	* shm_limits.c: implemented.
+
+1999-03-31  Drazen Kacar  <dave@srce.hr>
+
+	* loadavg.c: make it work with Solaris 2.6 and older. A part
+	of it should be moved to open.c.
+
+1999-03-19  Martin Baulig  <martin@home-of-linux.org>
+
+	Added first kstat based implementation for Solaris 7.
+
+	* open.c (glibtop_open_s): Walk kstat list and save interesting
+	kstats in the `server->machine'.
+
+	* cpu.c: This can already provide `idle', `user' and `sys' with
+	full SMP support.
+
+	* swap.c: This can already provide `total', `used' and `free'.
+
+1999-03-17  Martin Baulig  <martin@home-of-linux.org>
+
+	Initial import of my Solaris 7 port.
+
+	* loadavg.c: We use getloadavg () to get the `loadavg' field.
+
+	* procdata.c: This file will handle all interaction with the
+ 	/proc filesystem.
+	(glibtop_get_proc_data_psinfo_s): Read `/proc/<pid>/psinfo' and
+	return the resulting `struct psinfo'.
+	(glibtop_get_proc_data_usage_s): Read `/proc/<pid>/usage' and
+ 	return the resulting `struct prusage'.
+
+	* proclist.c: We use readdir () on /proc to get the list of
+	all pids.
+
+	* procstate.c: Read `uid' and `gid' from the `struct psinfo'.
+
+	* proctime.c: Read `start_time', `rtime', `utime' and `stime'
+	from the `struct prusage'.
+
+	* procuid.c: Read `euid', `uid', `egid', `gid', `pid', `ppid',
+	`pgrp', `session' and `tty' from the `struct psinfo'.
+

@@ -1,0 +1,10 @@
+sysctl (3)
+/usr/include/sys/vmmeter.h : VM stats
+kvm (3)
+
+CPU stats: /usr/include/sys/dkstat.h
+cp_time_offset = kvm_nlist(...)["_cp_time"].n_value;
+
+"systemwide main memory usage structure"
+sysctl(...)
+
