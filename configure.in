@@ -50,10 +50,8 @@ AC_SUBST(LT_CURRENT)
 AC_SUBST(LT_REVISION)
 AC_SUBST(LT_AGE)
 
-GNOME_INTERFACE_VERSION=2
-AC_SUBST(GNOME_INTERFACE_VERSION)
-
 GNOME_COMMON_INIT
+GNOME_PLATFORM_GNOME_2(yes, force)
 
 AC_ISC_POSIX
 AC_PROG_CC
@@ -94,7 +92,7 @@ AM_PROG_LIBTOOL
 dnl Let the user enable compiler warnings
 GNOME_COMPILE_WARNINGS
 
-PKG_CHECK_MODULES(GNOMESUPPORT, gnome-support-2.0:1.2.1)
+GNOME_PKGCONFIG_CHECK_MODULES(GNOMESUPPORT, gnome-support-2.0:1.2.1)
 AC_SUBST(GNOMESUPPORT_CFLAGS)
 AC_SUBST(GNOMESUPPORT_LIBS)
 
@@ -117,7 +115,10 @@ fi
 AC_SUBST(sysdeps_init_file)
 AC_MSG_RESULT($sysdeps_init_file)
 
-LIBGTOP_XML_CHECK
+GNOME_PKGCONFIG_CHECK_MODULES(XML, libxml-2.0:2.2.8)
+AC_DEFINE(HAVE_LIBXML)
+AC_SUBST(XML_CFLAGS)
+AC_SUBST(XML_LIBS)
 
 AC_ARG_WITH(libgtop-inodedb,
 [  --with-libgtop-inodedb  Build the inodedb stuff (default=no)],
@@ -142,15 +143,12 @@ AM_CONDITIONAL(ENABLE_SHARED, test x$enable_static = xyes)
 AM_PROG_LIBTOOL
 
 if test x$libgtop_use_gmodule = xyes ; then
-  AM_PATH_GLIB_2_0(1.3.0,,AC_MSG_ERROR(GLIB >= 1.3.0 is required for LibGTop),
-                   [gmodule])
+  GNOME_PKGCONFIG_CHECK_MODULES(GLIB, glib-2.0:1.3.1 gmodule-2.0:1.3.1 gobject-2.0:1.3.1)
 else
-  AM_PATH_GLIB_2_0(1.3.0,,AC_MSG_ERROR(GLIB >= 1.3.0 is required for LibGTop))
+  GNOME_PKGCONFIG_CHECK_MODULES(GLIB, glib-2.0:1.3.1 gobject-2.0:1.3.1)
 fi
-
-dnl You need to uncomment the following line if you want to use
-dnl libGTop without Gnome.
-dnl GNOME_SUPPORT_CHECKS
+AC_SUBST(GLIB_CFLAGS)
+AC_SUBST(GLIB_LIBS)
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
@@ -278,24 +276,6 @@ if test "x$libgtop_enable_debug" = xyes ; then
   AC_DEFINE(LIBGTOP_ENABLE_DEBUG)
 fi
 
-if test "x$gnome_found" = xyes ; then
-  LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
-  SUPPORTINCS="$GNOME_INCLUDEDIR"
-else
-  LIBSUPPORT='$(top_builddir)/support/libgnomesupport.la'
-  SUPPORTINCS='-DNEED_GNOMESUPPORT_H -I$(top_builddir)/support -I$(top_srcdir)/support'
-fi
-
-dnl Some ugly hack; if '-lgnomesupport' is part of $GNOME_LIBS,
-dnl we include it here.
-case "$GNOME_LIBS" in
-	'*-lgnomesupport*' ) 
-	  LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
-          SUPPORTINCS="$GNOME_INCLUDEDIR" ;;
-esac
-AC_SUBST(LIBSUPPORT)
-AC_SUBST(SUPPORTINCS)
-
 dnl These definitions are expanded in make.
 LIBGTOP_LIBS='-L$(libdir)'
 LIBGTOP_INCS='-I$(includedir) -I$(pkglibdir)/include'
@@ -316,12 +296,12 @@ if test x$libgtop_have_sysinfo = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SYSINFO"
 fi
 
-LIBGTOP_INCS="$LIBGTOP_INCS $SUPPORTINCS $GLIB_CFLAGS"
+LIBGTOP_INCS="$LIBGTOP_INCS $GNOMESUPPORT_CFLAGS $GLIB_CFLAGS $XML_CFLAGS"
 
 LIBGTOP_BINDIR='$(bindir)'
 LIBGTOP_SERVER='$(bindir)/libgtop_server'
 
-LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS $LIBGTOP_XML_LIB"
+LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS $XML_LIBS"
 
 if test x$libgtop_use_gmodule != xyes ; then
   LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop -lgtop_backend_common -lgtop_common"
@@ -348,7 +328,7 @@ AC_SUBST(machine_incs)
 
 LIBGTOP_BACKEND_DIR="\$(datadir)/libgtop/backends"
 
-INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_builddir)/include -I\$(top_srcdir)/intl $SUPPORTINCS $GLIB_CFLAGS $CFLAGS $X_CFLAGS "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\" -DLIBGTOP_BACKEND_DIR=\"'"$LIBGTOP_BACKEND_DIR"'\"'
+INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_builddir)/include -I\$(top_srcdir)/intl $GNOMESUPPORT_CFLAGS $GLIB_CFLAGS $XML_CFLAGS $CFLAGS $X_CFLAGS "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\" -DLIBGTOP_BACKEND_DIR=\"'"$LIBGTOP_BACKEND_DIR"'\"'
 
 AC_SUBST(INCLUDES)
 

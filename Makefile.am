@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in.
 
-SUBDIRS = po intl misc include sysdeps backends lib src doc dtd scripts
+SUBDIRS = po intl misc include lib sysdeps backends src doc dtd scripts
 
 include_HEADERS = glibtop.h
 configincludedir = $(pkglibdir)/include

@@ -7,3 +7,5 @@ libgtop.la
 lib.c
 structures.h
 sysdeps-init.c
+libgtop_server.la
+test-backends

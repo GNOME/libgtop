@@ -1,3 +1,16 @@
+2000-11-22  Martin Baulig  <martin@home-of-linux.org>
+
+	* lib/glibtop-server.c: New file.
+
+	* lib/test-backends.c: New file.
+	* lib/Makefile.am: Build test-backends test program.
+
+	* lib/init-backends.c: Port this to libxml 2.
+
+	* configure.in: Make this really work.
+	* acinclude.m4: Removed the xml stuff.
+	* Makefile.am (SUBDIRS): Put lib in front of sysdeps and backends.
+
 2000-11-21  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in: Removed gnomesupport checks here and started

@@ -2,18 +2,27 @@ LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 INCLUDES			= @INCLUDES@
 
-lib_LTLIBRARIES			= libgtop.la libgtop_server.la
+noinst_PROGRAMS			= test-backends
 
-libgtop_la_SOURCES		= errors.c glib-arrays.c backend.c \
+lib_LTLIBRARIES			= libgtop.la
+
+noinst_LTLIBRARIES		= libgtop_server.la
+
+libgtop_la_SOURCES		= errors.c backend.c \
 				  init-backends.c open-backend.c \
-				  glibtop-client.c
+				  glibtop-client.c glibtop-server.c
 
 libgtop_server_la_SOURCES	= error.c xmalloc.c
 
 libgtop_server_la_LDFLAGS	= $(LT_VERSION_INFO)
 
 libgtop_la_LDFLAGS		= $(LT_VERSION_INFO)
-libgtop_la_LIBADD		= $(LIBGTOP_XML_LIB)
+libgtop_la_LIBADD		= $(GLIB_LIBS) $(XML_LIBS)
+
+test_backends_SOURCES		= \
+	test-backends.c
+
+test_backends_LDADD		= libgtop.la
 
 glibtopdir			= $(includedir)/glibtop
 

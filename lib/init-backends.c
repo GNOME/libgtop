@@ -33,7 +33,7 @@
 
 #define LIBGTOP_XML_NAMESPACE	"http://www.home-of-linux.org/libgtop/1.1"
 
-#include <gnome-xml/parser.h>
+#include <libxml/parser.h>
 
 #include <dirent.h>
 
@@ -51,6 +51,8 @@ glibtop_init_backends (void)
     backends_initialized = 1;
 
 #if HAVE_LIBXML
+    LIBXML_TEST_VERSION;
+
     _glibtop_init_gmodule_backends (LIBGTOP_BACKEND_DIR);
 #endif
 }
@@ -60,7 +62,7 @@ glibtop_init_backends (void)
 static gchar *
 _get_library_filename (xmlDocPtr doc, xmlNodePtr cur, const char *directory)
 {
-    char *filename = xmlNodeListGetString (doc, cur->childs, 1);
+    char *filename = xmlNodeListGetString (doc, cur->xmlChildrenNode, 1);
     gchar *retval;
 
     if (!filename)
@@ -81,10 +83,10 @@ _parse_extra_libs (xmlDocPtr doc, xmlNsPtr ns, xmlNodePtr cur, const char *dir)
     GSList *list = NULL;
 
     /* We don't care what the top level element name is */
-    cur = cur->childs;
+    cur = cur->xmlChildrenNode;
     while (cur != NULL) {
         if ((!strcmp (cur->name, "ExtraLib")) && (cur->ns == ns)) {
-	    xmlNodePtr sub = cur->childs;
+	    xmlNodePtr sub = cur->xmlChildrenNode;
 
 	    while (sub != NULL) {
 		if ((!strcmp (sub->name, "ShlibName")) && (sub->ns == ns))
@@ -112,14 +114,14 @@ _parseBackend (xmlDocPtr doc, xmlNsPtr ns, xmlNodePtr cur, const char *dir)
     ret = g_new0 (glibtop_backend_entry, 1);
 
     /* We don't care what the top level element name is */
-    cur = cur->childs;
+    cur = cur->xmlChildrenNode;
     while (cur != NULL) {
         if ((!strcmp (cur->name, "Name")) && (cur->ns == ns))
             ret->name = xmlNodeListGetString
-		(doc, cur->childs, 1);
+		(doc, cur->xmlChildrenNode, 1);
 
         if ((!strcmp (cur->name, "Location")) && (cur->ns == ns)) {
-	    xmlNodePtr sub = cur->childs;
+	    xmlNodePtr sub = cur->xmlChildrenNode;
 
 	    while (sub != NULL) {
 		if ((!strcmp (sub->name, "LibtoolName")) && (sub->ns == ns))
@@ -198,7 +200,7 @@ _glibtop_init_gmodule_backends (const char *directory)
 	    continue;
 	}
 
-	cur = cur->childs;
+	cur = cur->xmlChildrenNode;
 	while (cur != NULL) {
 	    glibtop_backend_entry *backend;
 
