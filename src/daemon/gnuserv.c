@@ -33,27 +33,13 @@
 static char rcsid [] = "!Header: gnuserv.c,v 2.1 95/02/16 11:58:27 arup alpha !";
 #endif
 
-#include "gnuserv.h"
+#include <glibtop/gnuserv.h>
 
 #ifdef AIX
 #include <sys/select.h>
 #endif
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#endif /* HAVE_UNISTD_H */
-
-#ifdef HAVE_STRING_H
-#include <string.h>
-#endif /* HAVE_STRING_H */
-
-#if !defined(SYSV_IPC) && !defined(UNIX_DOMAIN_SOCKETS) && \
-    !defined(INTERNET_DOMAIN_SOCKETS)
+#if !defined(SYSV_IPC) && !defined(UNIX_DOMAIN_SOCKETS) && !defined(INTERNET_DOMAIN_SOCKETS)
 main ()
 {
   fprintf (stderr,"Sorry, the Emacs server is only supported on systems that have\n");
@@ -79,7 +65,7 @@ ipc_exit (int stat)
   
   if  (ipc_wpid != 0)
     kill (ipc_wpid, SIGKILL);
-
+  
   exit (stat);
 } /* ipc_exit */
 
@@ -104,9 +90,9 @@ ipc_spawn_watchdog (void)
   if ((ipc_wpid = fork ()) == 0)
     { /* child process */
       int ppid = getppid ();	/* parent's process id */
-
+      
       setpgrp();		/* gnu kills process group on exit */
-
+      
       while (1)
 	{
 	  if (kill (ppid, 0) < 0) /* ppid is no longer valid, parent
@@ -114,11 +100,11 @@ ipc_spawn_watchdog (void)
 	    {
 	      ipc_exit (0);
 	    } /* if */
-
+	  
 	  sleep(10);		/* have another go later */
 	} /* while */
     } /* if */
-
+  
 } /* ipc_spawn_watchdog */
 
 
@@ -131,16 +117,12 @@ ipc_init (struct msgbuf **msgpp)
   key_t key;			/* messge key */
   char buf[GSERV_BUFSZ];	/* pathname for key */
 
-  sprintf (buf,"/tmp/gsrv%d",(int)geteuid ());
+  sprintf (buf,"/tmp/lgtd%d",(int)geteuid ());
   creat (buf,0600);
   key = ftok (buf,1);
 
   if ((ipc_qid = msgget (key,0600|IPC_CREAT)) == -1)
-    {
-      perror (progname);
-      fprintf (stderr, "%s: unable to create msg queue\n", progname);
-      ipc_exit (1);
-    } /* if */
+	  glibtop_error_io ("unable to create msg queue");
 
   ipc_spawn_watchdog ();
 
@@ -150,8 +132,7 @@ ipc_init (struct msgbuf **msgpp)
   if ((*msgpp = (struct msgbuf *)
        malloc (sizeof **msgpp + GSERV_BUFSZ)) == NULL)
     {
-      fprintf (stderr,
-	       "%s: unable to allocate space for message buffer\n", progname);
+      glibtop_warn_io ("unable to allocate space for message buffer");
       ipc_exit(1);
     } /* if */
 } /* ipc_init */
@@ -174,8 +155,7 @@ handle_ipc_request (struct msgbuf *msgp)
 
   if ((len = msgrcv (ipc_qid, msgp, GSERV_BUFSZ - 1, 1, 0)) < 0)
     {
-      perror (progname);
-      fprintf (stderr, "%s: unable to receive\n", progname);
+      glibtop_warn_io ("msgrcv");
       ipc_exit (1);
     } /* if */
 
@@ -192,8 +172,7 @@ handle_ipc_request (struct msgbuf *msgp)
 #if 0
   if ((len = read(0,buf,GSERV_BUFSZ-1)) < 0)
     {
-      perror (progname);
-      fprintf (stderr, "%s: unable to read\n", progname);
+      glibtop_warn_io ("read");
       ipc_exit (1);
   } /* if */
 
@@ -210,11 +189,7 @@ handle_ipc_request (struct msgbuf *msgp)
     }
 
   if (len < 0)
-    {
-      perror (progname);
-      fprintf (stderr, "%s: unable to read\n", progname);
-      exit(1);
-    }
+    glibtop_error_io ("read");
 
   /* parse the response from emacs, getting client fd & result length */
   buf[offset] = '\0';
@@ -223,11 +198,7 @@ handle_ipc_request (struct msgbuf *msgp)
   while (result_len > 0)
     {
       if ((len = read(0, buf, min2 (result_len, GSERV_BUFSZ - 1))) < 0)
-	{
-	  perror (progname);
-	  fprintf (stderr, "%s: unable to read\n", progname);
-	  exit (1);
-	}
+	glibtop_error_io ("read");
 
       /* Send this string off, but only if we have enough space */ 
 
@@ -249,23 +220,17 @@ handle_ipc_request (struct msgbuf *msgp)
   while ((len = read (0,buf,1)) == 0)
     ;
   if (len < 0)
-    {
-      perror(progname);
-      fprintf (stderr,"%s: unable to read\n", progname);
-      exit (1);
-    }
+    glibtop_error_io ("read");
+
   if (buf[0] != '\n')
-    {
-      fprintf (stderr,"%s: garbage after result [%c]\n", progname, buf[0]);
-      exit (1);
-    }
+    glibtop_error ("garbage after result [%c]", buf[0]);
 #endif
 
   /* Send a response back to the client. */
 
   msgp->mtype = msg_st.msg_lspid;
   if (msgsnd (ipc_qid,msgp,strlen(msgp->mtext)+1,0) < 0)
-    perror ("msgsend(gnuserv)");
+    glibtop_warn_io ("msgsend(gnuserv)");
 
 } /* handle_ipc_request */
 #endif /* SYSV_IPC */
@@ -296,11 +261,8 @@ echo_request (int s)
 
   } /* while */
 
-  if (len < 0) {
-    perror(progname);
-    fprintf(stderr,"%s: unable to recv\n",progname);
-    exit(1);
-  } /* if */
+  if (len < 0)
+    glibtop_error_io ("recv");
   
 } /* echo_request */
 
@@ -312,6 +274,7 @@ echo_request (int s)
 static void
 handle_response (void)
 {
+#if 0
   char buf[GSERV_BUFSZ+1];
   int offset=0;
   int s;
@@ -325,22 +288,17 @@ handle_response (void)
     offset += len;
   }
 
-  if (len < 0) {
-    perror(progname);
-    fprintf(stderr,"%s: unable to read\n",progname);
-    exit(1);
-  }
+  if (len < 0)
+    glibtop_error_io ("read");
       
   /* parse the response from emacs, getting client fd & result length */
   buf[offset] = '\0';
   sscanf(buf,"%d/%d", &s, &result_len);
 
   while (result_len > 0) {
-    if ((len = read(0,buf,min2(result_len,GSERV_BUFSZ))) < 0) {
-      perror(progname);
-      fprintf(stderr,"%s: unable to read\n",progname);
-      exit(1);
-    }
+    if ((len = read(0,buf,min2(result_len,GSERV_BUFSZ))) < 0)
+      glibtop_error_io ("read");
+
     buf[len] = '\0';
     send_string(s,buf);
     result_len -= len;
@@ -350,20 +308,18 @@ handle_response (void)
   while ((len = read(0,buf,1)) == 0)
     ;
   if (len < 0)
-    {
-      perror(progname);
-      fprintf(stderr,"%s: unable to read\n",progname);
-      exit(1);
-    }
+    glibtop_error_io ("read");
+
   if (buf[0] != '\n')
-    {
-      fprintf(stderr,"%s: garbage after result\n",progname);
-      exit(1);
-    }
+    glibtop_error ("garbage after result");
+
   /* send the newline */
   buf[1] = '\0';
   send_string(s,buf);
   close(s); 
+#else
+  glibtop_error ("handle_response (): Function not implemented");
+#endif
 
 } /* handle_response */
 #endif /* INTERNET_DOMAIN_SOCKETS || UNIX_DOMAIN_SOCKETS */
@@ -412,18 +368,18 @@ timed_read (int fd, char *buf, int max, int timeout, int one_line)
 	    }
 	  else
 	    {
-	      printf ("read error on socket\004\n");
+	      glibtop_warn_io ("read error on socket");
 	      return -1;
 	    }
 	}
       else if (r == 0)
 	{
-	  printf ("read timed out\004\n");
+	  glibtop_warn ("read timed out");
 	  return -1;
 	}
       else
 	{
-	  printf ("error in select\004\n");
+	  glibtop_warn_io ("error in select");
 	  return -1;
 	}
     } while ((nbytes < max) &&  !(one_line && (c == '\n')));
@@ -464,10 +420,8 @@ permitted (u_long host_addr, int fd)
       if (strcmp (auth_protocol, DEFAUTH_NAME) &&
 	  strcmp (auth_protocol, MCOOKIE_NAME))
 	{
-	  printf ("authentication protocol (%s) from client is invalid...\n", 
-		  auth_protocol);
-	  printf ("... Was the client an old version of gnuclient/gnudoit?\004\n");
-      
+	  glibtop_warn ("Authentication protocol from client is invalid", auth_protocol);
+	  
 	  return FALSE;
 	}
 
@@ -493,7 +447,7 @@ permitted (u_long host_addr, int fd)
 	      return TRUE;
 	    }
 #else 
-	  printf ("client tried Xauth, but server is not compiled with Xauth\n");
+	  glibtop_warn ("client tried Xauth, but server is not compiled with Xauth");
 #endif
       
       /*
@@ -501,8 +455,8 @@ permitted (u_long host_addr, int fd)
        * protocol....
        */
 
-	  printf ("Xauth authentication failed, trying GNU_SECURE auth...\004\n");
-
+	  glibtop_warn ("Xauth authentication failed, trying GNU_SECURE auth...");
+	  
 	}
     
       /* Other auth protocols go here, and should execute only if the
@@ -518,7 +472,7 @@ permitted (u_long host_addr, int fd)
   key = HASH(host_addr) % TABLE_SIZE;
   
   /* Now check the chain for that hash key */
-  for(entry=permitted_hosts[key]; entry != NULL; entry=entry->next)
+  for(entry = permitted_hosts[key]; entry != NULL; entry=entry->next)
     if (host_addr == entry->host_addr) 
       return(TRUE);
   
@@ -537,13 +491,10 @@ add_host (u_long host_addr)
   int key;
   struct entry *new_entry;
   
-  if (!permitted(host_addr, -1))
+  if (!permitted (host_addr, -1))
     {
-      if ((new_entry = (struct entry *) malloc(sizeof(struct entry))) == NULL) {
-	fprintf(stderr,"%s: unable to malloc space for permitted host entry\n",
-		progname);
-	exit(1);
-      } /* if */
+      if ((new_entry = (struct entry *) malloc(sizeof(struct entry))) == NULL)
+	glibtop_error_io ("unable to malloc space for permitted host entry");
 
       new_entry->host_addr = host_addr;
       key = HASH(host_addr) % TABLE_SIZE;
@@ -572,17 +523,13 @@ setup_table (void)
   int i, hosts=0;
   
   /* Make sure every entry is null */
-  for (i=0; i<TABLE_SIZE; i++)
-    permitted_hosts[i] = NULL;
+  for (i = 0; i < TABLE_SIZE; i++)
+    permitted_hosts [i] = NULL;
 
-  gethostname(hostname,HOSTNAMSZ);
+  gethostname (hostname, HOSTNAMSZ);
 
-  if ((host_addr = internet_addr(hostname)) == -1)
-    {
-      fprintf(stderr,"%s: unable to find %s in /etc/hosts or from YP", 
-	      progname,hostname);
-      exit(1);
-    } /* if */
+  if (((long) host_addr = glibtop_internet_addr (hostname)) == -1)
+    glibtop_error ("unable to find %s in /etc/hosts or from YP", hostname);
 
 #ifdef AUTH_MAGIC_COOKIE
   
@@ -596,19 +543,20 @@ setup_table (void)
   
 
 #if 0 /* Don't even want to allow access from the local host by default */
-  add_host(host_addr);					/* add local host */
+  add_host (host_addr);					/* add local host */
+  hosts++;
 #endif 
 
-  if (((file_name = getenv("GNU_SECURE")) != NULL &&    /* security file  */
-       (host_file = fopen(file_name,"r")) != NULL))	/* opened ok */
+  if (((file_name = getenv ("GNU_SECURE")) != NULL &&    /* security file  */
+       (host_file = fopen (file_name, "r")) != NULL))	/* opened ok */
     {
-      while ((fscanf(host_file,"%s",hostname) != EOF))	/* find a host */
-	if ((host_addr = internet_addr(hostname)) != -1)/* get its addr */
+      while ((fscanf (host_file, "%s", hostname) != EOF))	/* find a host */
+	if (((long) host_addr = glibtop_internet_addr (hostname)) != -1)/* get its addr */
 	  {
-	    add_host(host_addr);				/* add the addr */
+	    add_host (host_addr);				/* add the addr */
 	    hosts++;
 	  }
-      fclose(host_file);
+      fclose (host_file);
     } /* if */
 
   return hosts;
@@ -631,7 +579,7 @@ internet_init (void)
     return -1;
 
   /* clear out address structure */
-  memset((char *)&server,0,sizeof(struct sockaddr_in));
+  memset((char *)&server, 0, sizeof (struct sockaddr_in));
   
   /* Set up address structure for the listen socket. */
   server.sin_family = AF_INET;
@@ -640,38 +588,26 @@ internet_init (void)
   /* Find the information for the gnu server
    * in order to get the needed port number.
    */
-  if ((ptr=getenv("GNU_PORT")) != NULL)
-    server.sin_port = htons(atoi(ptr));
+  if ((ptr = getenv ("GNU_PORT")) != NULL)
+    server.sin_port = htons (atoi (ptr));
   else if ((sp = getservbyname ("gnuserv", "tcp")) == NULL)
-    server.sin_port = htons(DEFAULT_PORT+getuid());
+    server.sin_port = htons (DEFAULT_PORT+getuid());
   else
     server.sin_port = sp->s_port;
   
   /* Create the listen socket. */
   if ((ls = socket (AF_INET,SOCK_STREAM, 0)) == -1)
-    {
-      perror(progname);
-      fprintf(stderr,"%s: unable to create socket\n",progname);
-      exit(1);
-    } /* if */
+    glibtop_error_io ("unable to create socket");
   
   /* Bind the listen address to the socket. */
   if (bind(ls,(struct sockaddr *) &server,sizeof(struct sockaddr_in)) == -1)
-    {
-      perror(progname);
-      fprintf(stderr,"%s: unable to bind socket\n",progname);
-      exit(1);
-    } /* if */
+    glibtop_error_io ("bind");
 
   /* Initiate the listen on the socket so remote users
    * can connect. 
    */
   if (listen(ls,20) == -1)
-    {
-      perror(progname);
-      fprintf(stderr,"%s: unable to listen\n",progname);
-      exit(1);
-    } /* if */
+    glibtop_error_io ("listen");
 
   return(ls);
 
@@ -692,19 +628,13 @@ handle_internet_request (int ls)
   memset((char *)&peer,0,sizeof(struct sockaddr_in));
 
   if ((s = accept(ls,(struct sockaddr *)&peer, (void *) &addrlen)) == -1)
-    {
-      perror(progname);
-      fprintf(stderr,"%s: unable to accept\n",progname);
-      exit(1);
-    } /* if */
-    
+    glibtop_error_io ("accept");
+  
   /* Check that access is allowed - if not return crud to the client */
   if (!permitted(peer.sin_addr.s_addr, s))
     {
-      send_string(s,"gnudoit: Connection refused\ngnudoit: unable to connect to remote");
       close(s);
-
-      printf("Refused connection from %s\004\n", inet_ntoa(peer.sin_addr));
+      glibtop_warn ("Refused connection from %s", inet_ntoa (peer.sin_addr));
       return;
     } /* if */
 
@@ -726,31 +656,22 @@ unix_init (void)
   struct sockaddr_un server; 	/* unix socket address */
   int bindlen;
 
-  if ((ls = socket(AF_UNIX,SOCK_STREAM, 0)) < 0)
-    {
-      perror(progname);
-      fprintf(stderr,"%s: unable to create socket\n",progname);
-      exit(1);
-    } /* if */
+  if ((ls = socket (AF_UNIX,SOCK_STREAM, 0)) < 0)
+    glibtop_error_io ("unable to create socket");
 
   /* Set up address structure for the listen socket. */
 #ifdef HIDE_UNIX_SOCKET
-  sprintf(server.sun_path,"/tmp/gsrvdir%d",(int)geteuid());
-  if (mkdir(server.sun_path, 0700) < 0)
+  sprintf (server.sun_path, "/tmp/lgtddir%d", (int)geteuid());
+  if (mkdir (server.sun_path, 0700) < 0)
     {
       /* assume it already exists, and try to set perms */
-      if (chmod(server.sun_path, 0700) < 0)
-	{
-	  perror(progname);
-	  fprintf(stderr,"%s: can't set permissions on %s\n",
-		  progname, server.sun_path);
-	  exit(1);
-	}
+      if (chmod (server.sun_path, 0700) < 0)
+	glibtop_error_io ("Can't set permissions on %s", server.sun_path);
     }
-  strcat(server.sun_path,"/gsrv");
+  strcat(server.sun_path, "/lgtd");
   unlink(server.sun_path);	/* remove old file if it exists */
 #else /* HIDE_UNIX_SOCKET */
-  sprintf(server.sun_path,"/tmp/gsrv%d",(int)geteuid());
+  sprintf(server.sun_path, "/tmp/lgtd%d", (int)geteuid());
   unlink(server.sun_path);	/* remove old file if it exists */
 #endif /* HIDE_UNIX_SOCKET */
 
@@ -765,20 +686,13 @@ unix_init (void)
   bindlen = strlen (server.sun_path) + sizeof (server.sun_family);
 #endif
  
-  if (bind(ls,(struct sockaddr *)&server,bindlen) < 0)
-    {
-      perror(progname);
-      fprintf(stderr,"%s: unable to bind socket\n",progname);
-      exit(1);
-    } /* if */
+  if (bind (ls, (struct sockaddr *)&server, bindlen) < 0)
+    glibtop_error_io ("bind");
 
   chmod(server.sun_path,0700);	/* only this user can send commands */
 
-  if (listen(ls,20) < 0) {
-    perror(progname);
-    fprintf(stderr,"%s: unable to listen\n",progname);
-    exit(1);
-  } /* if */
+  if (listen(ls,20) < 0)
+    glibtop_error_io ("listen");
 
   /* #### there are also better ways of dealing with this when
      sigvec() is present. */
@@ -790,10 +704,10 @@ unix_init (void)
   sigprocmask (SIG_BLOCK, &_mask, NULL);
   }
 #else
-  signal(SIGPIPE,SIG_IGN);	/* in case user kills client */
+  signal (SIGPIPE, SIG_IGN);	/* in case user kills client */
 #endif
 
-  return(ls);
+  return (ls);
 
 } /* unix_init */
 
@@ -811,11 +725,8 @@ handle_unix_request (int ls)
 
   server.sun_family = AF_UNIX;
 
-  if ((s = accept(ls,(struct sockaddr *)&server, (void *)&len)) < 0)
-    {
-      perror(progname);
-      fprintf(stderr,"%s: unable to accept\n",progname);
-    } /* if */
+  if ((s = accept (ls, (struct sockaddr *)&server, (void *)&len)) < 0)
+    glibtop_error_io ("accept");
 
   echo_request(s);
   
@@ -829,17 +740,13 @@ main(argc,argv)
      char *argv[];
 {
   int chan;			/* temporary channel number */
-#ifdef INTERNET_DOMAIN_SOCKETS
   int ils = -1;			/* internet domain listen socket */
-#endif
-#ifdef UNIX_DOMAIN_SOCKETS
   int uls = -1;			/* unix domain listen socket */
-#endif
 #ifdef SYSV_IPC
   struct msgbuf *msgp;		/* message buffer */
 #endif /* SYSV_IPC */
 
-  progname = argv[0];
+  glibtop_init ();
 
   for(chan=3; chan < _NFILE; close(chan++)) /* close unwanted channels */
     ;
@@ -870,11 +777,7 @@ main(argc,argv)
     
     if (select(max2(fileno(stdin),max2(uls,ils)) + 1, &rmask, 
 	       (fd_set *)NULL, (fd_set *)NULL, (struct timeval *)NULL) < 0)
-      {
-	perror(progname);
-	fprintf(stderr,"%s: unable to select\n",progname);
-	exit(1);
-      } /* if */
+      glibtop_error_io ("select");
 
 #ifdef UNIX_DOMAIN_SOCKETS
     if (uls > 0 && FD_ISSET(uls, &rmask))

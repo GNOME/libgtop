@@ -6,6 +6,8 @@ AC_INIT(copyright.txt)
 AM_CONFIG_HEADER(config.h)
 AC_CANONICAL_SYSTEM
 
+AM_INIT_AUTOMAKE(libgtop, 0.01)
+
 AM_ACLOCAL_INCLUDE(macros)
 
 AC_ISC_POSIX
@@ -31,8 +33,6 @@ AC_PROG_MAKE_SET
 export cross_compiling
 
 AM_PROG_LIBTOOL
-
-AM_INIT_AUTOMAKE(libgtop, 0.01)
 
 dnl If you want to use libgtop without gnome, comment the following line out.
 GNOME_INIT_HOOK(gnome_found=yes)
@@ -121,7 +121,7 @@ test -z "$with_xauth" && { AC_CHECK_LIB(Xau, XauGetAuthByAddr,[:],with_xauth=no,
 test -z "$with_xauth" && with_xauth=yes
 if test "$with_xauth" = "yes"; then
   AC_DEFINE(HAVE_XAUTH)
-  XE_SPACE(libs_xauth, $X_EXTRA_LIBS -lXau $libs_x $X_PRE_LIBS)
+  XE_SPACE(libs_xauth, $X_LIBS -lXau)
 fi
 AC_SUBST(libs_xauth)
 
@@ -186,8 +186,8 @@ fi
 
 AC_SUBST(libgtop_want_guile_names)
 
-LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common"
-LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_common"
+LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common $ibs_xauth" 
+LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_common $libs_xauth"
 
 if test "x$need_server" = "xyes" ; then
   LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop"

@@ -8,5 +8,4 @@ CFLAGS				= -Wall -W @CFLAGS@
 
 lib_LTLIBRARIES			= libgtop_common.la
 
-libgtop_common_la_SOURCES	= sysdeps.c xmalloc.c error.c
-
+libgtop_common_la_SOURCES	= sysdeps.c xmalloc.c error.c gnuslib.c

@@ -33,8 +33,9 @@
 static char rcsid [] = "!Header: gnuslib.c,v 2.4 95/02/16 11:57:37 arup alpha !";
 #endif
 
-#include "gnuserv.h"
-#include <errno.h>
+#include <glibtop/gnuserv.h>
+
+#include <fcntl.h>
 
 #ifdef SYSV_IPC
 static int connect_to_ipc_server (void);
@@ -43,7 +44,7 @@ static int connect_to_ipc_server (void);
 static int connect_to_unix_server (void);
 #endif
 #ifdef INTERNET_DOMAIN_SOCKETS
-static int connect_to_internet_server (char *serverhost, u_short port);
+static int connect_to_internet_server (const char *serverhost, u_short port);
 #endif
 
 /* On some systems, e.g. DGUX, inet_addr returns a 'struct in_addr'. */
@@ -59,45 +60,33 @@ static int connect_to_internet_server (char *serverhost, u_short port);
 # define NUMERIC_ADDR_ERROR (numeric_addr == (IN_ADDR) -1)
 #endif
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#endif /* HAVE_UNISTD_H */
-#ifdef HAVE_STRING_H
-#include <string.h>
-#endif /* HAVE_STRING_H */
-
 #include <arpa/inet.h>
 
-char *progname = NULL;
-
-int make_connection(hostarg, portarg, s)
-     char *hostarg;
+int
+glibtop_make_connection (hostarg, portarg, s)
+     const char *hostarg;
      int portarg;
      int *s;
 {
 #ifdef INTERNET_DOMAIN_SOCKETS
   char *ptr;
   if (hostarg == NULL)
-    hostarg = getenv("GNU_HOST");
-  if (portarg == 0 && (ptr=getenv("GNU_PORT")) != NULL)
-    portarg = atoi(ptr);
+    hostarg = getenv ("LIBGTOP_HOST");
+  if (portarg == 0 && (ptr = getenv("LIBGTOP_PORT")) != NULL)
+    portarg = atoi (ptr);
 #endif
 
   if (hostarg != NULL) {
-    /* hostname was given explicitly, via cmd line arg or GNU_HOST, 
+    /* hostname was given explicitly, via cmd line arg or LIBGTOP_HOST, 
      * so obey it. */
 #ifdef UNIX_DOMAIN_SOCKETS
-    if (!strcmp(hostarg, "unix")) {
-      *s = connect_to_unix_server();
+    if (!strcmp (hostarg, "unix")) {
+      *s = connect_to_unix_server ();
       return (int) CONN_UNIX;
     } 
 #endif /* UNIX_DOMAIN_SOCKETS */
 #ifdef INTERNET_DOMAIN_SOCKETS
-    *s = connect_to_internet_server(hostarg, portarg);
+    *s = connect_to_internet_server (hostarg, portarg);
     return (int) CONN_INTERNET;
 #endif
 #ifdef SYSV_IPC
@@ -107,16 +96,16 @@ int make_connection(hostarg, portarg, s)
     /* no hostname given.  Use unix-domain/sysv-ipc, or
      * internet-domain connection to local host if they're not available. */
 #if   defined(UNIX_DOMAIN_SOCKETS)
-    *s = connect_to_unix_server();
+    *s = connect_to_unix_server ();
     return (int) CONN_UNIX;
 #elif defined(SYSV_IPC)
-    *s = connect_to_ipc_server();
+    *s = connect_to_ipc_server ();
     return (int) CONN_IPC;
 #elif defined(INTERNET_DOMAIN_SOCKETS)
     {
-      char localhost[HOSTNAMSZ];
-      gethostname(localhost,HOSTNAMSZ);	  /* use this host by default */    
-      *s = connect_to_internet_server(localhost, portarg);
+      char localhost [HOSTNAMSZ];
+      gethostname (localhost, HOSTNAMSZ);	  /* use this host by default */    
+      *s = connect_to_internet_server (localhost, portarg);
       return (int) CONN_INTERNET;
     }
 #endif /* IPC type */
@@ -128,26 +117,20 @@ int make_connection(hostarg, portarg, s)
   connect_to_ipc_server -- establish connection with server process via SYSV IPC
   			   Returns msqid for server if successful.
 */
-static int connect_to_ipc_server (void)
+static int
+connect_to_ipc_server (void)
 {
   int s;			/* connected msqid */
   key_t key;			/* message key */
-  char buf[GSERV_BUFSZ+1];		/* buffer for filename */
+  char buf [GSERV_BUFSZ+1];		/* buffer for filename */
 
-  sprintf(buf,"/tmp/gsrv%d",(int)geteuid());
-  creat(buf,0600);
-  if ((key = ftok(buf,1)) == -1) {
-    perror(progname);
-    fprintf(stderr, "%s: unable to get ipc key from %s\n",
-	    progname, buf);
-    exit(1);
-  }
+  sprintf (buf, "/tmp/lgtd%d", (int)geteuid());
+  creat (buf, 0600);
+  if ((key = ftok (buf, 1)) == -1)
+    glibtop_error_io ("unable to get ipc key from %s", buf);
 
-  if ((s = msgget(key,0600)) == -1) {
-    perror(progname);
-    fprintf(stderr,"%s: unable to access msg queue\n",progname);
-    exit(1);
-  }; /* if */
+  if ((s = msgget (key, 0600)) == -1)
+    glibtop_error_io ("unable to access msg queue");
 
   return(s);
 
@@ -194,7 +177,9 @@ void disconnect_from_ipc_server(s,msgp,echo)
 /*
   send_string -- send string to socket.
 */
-void send_string(s,msg)
+#if 0
+static void
+send_string(s,msg)
      int s;
      const char *msg;
 {
@@ -225,7 +210,8 @@ void send_string(s,msg)
 /*
   read_line -- read a \n terminated line from a socket
 */
-int read_line(int s, char *dest)
+static int
+read_line(int s, char *dest)
 {
   int length;
   int offset=0;
@@ -241,6 +227,7 @@ int read_line(int s, char *dest)
   strcpy(dest,buffer);
   return 1;
 } /* read_line */
+#endif
 #endif /* INTERNET_DOMAIN_SOCKETS || UNIX_DOMAIN_SOCKETS */
 
 
@@ -250,28 +237,23 @@ int read_line(int s, char *dest)
   			    domain socket. Returns socket descriptor for server
 			    if successful.
 */
-static int connect_to_unix_server (void)
+static int
+connect_to_unix_server (void)
 {
   int s;			/* connected socket descriptor */
   struct sockaddr_un server; 	/* for unix connections */
 
-  if ((s = socket(AF_UNIX,SOCK_STREAM,0)) < 0) {
-    perror(progname);
-    fprintf(stderr,"%s: unable to create socket\n",progname);
-    exit(1);
-  }; /* if */
+  if ((s = socket (AF_UNIX, SOCK_STREAM, 0)) < 0)
+    glibtop_error_io ("unable to create socket");
   
   server.sun_family = AF_UNIX;
 #ifdef HIDE_UNIX_SOCKET
-  sprintf(server.sun_path,"/tmp/gsrvdir%d/gsrv",(int)geteuid());
+  sprintf(server.sun_path, "/tmp/lgtddir%d/lgtd", (int)geteuid());
 #else  /* HIDE_UNIX_SOCKET */
-  sprintf(server.sun_path,"/tmp/gsrv%d",(int)geteuid());
+  sprintf(server.sun_path, "/tmp/lgtd%d", (int)geteuid());
 #endif /* HIDE_UNIX_SOCKET */
-  if (connect(s,(struct sockaddr *)&server,strlen(server.sun_path)+2) < 0) {
-    perror(progname);
-    fprintf(stderr,"%s: unable to connect to local\n",progname);
-    exit(1);
-  }; /* if */
+  if (connect (s, (struct sockaddr *)&server, strlen(server.sun_path)+2) < 0)
+    glibtop_error_io ("unable to connect to local");
 
   return(s);
 
@@ -284,8 +266,8 @@ static int connect_to_unix_server (void)
   internet_addr -- return the internet addr of the hostname or
                    internet address passed. Return -1 on error.
 */
-int internet_addr(host)
-     char *host;
+long glibtop_internet_addr (host)
+     const char *host;
 {
   struct hostent *hp;		/* pointer to host info for remote host */
   IN_ADDR numeric_addr;		/* host address */
@@ -300,7 +282,7 @@ int internet_addr(host)
     return -1;
   }
 
-} /* internet_addr */
+} /* glibtop_internet_addr  */
 
 #ifdef AUTH_MAGIC_COOKIE
 # include <X11/X.h>
@@ -314,7 +296,8 @@ static Xauth *server_xauth = NULL;
   				an internet domain socket. Returns socket
 				descriptor for server if successful.
 */
-static int connect_to_internet_server (char *serverhost, u_short port)
+static int
+connect_to_internet_server (const char *serverhost, u_short port)
 {
   int s;				/* connected socket descriptor */
   struct servent *sp;			/* pointer to service information */
@@ -322,43 +305,34 @@ static int connect_to_internet_server (char *serverhost, u_short port)
   char buf[512];                        /* temporary buffer */
 
   /* clear out address structures */
-  memset((char *)&peeraddr_in,0,sizeof(struct sockaddr_in));
+  memset((char *)&peeraddr_in, 0, sizeof(struct sockaddr_in));
   
   /* Set up the peer address to which we will connect. */
   peeraddr_in.sin_family = AF_INET;
 
   /* look up the server host's internet address */
-  if ((peeraddr_in.sin_addr.s_addr = internet_addr(serverhost)) == -1) {
-    fprintf(stderr,"%s: unable to find %s in /etc/hosts or from YP\n",
-	    progname,serverhost);
-    exit(1);
-  }; /* if */
+  if (((long) peeraddr_in.sin_addr.s_addr = glibtop_internet_addr (serverhost)) == -1)
+    glibtop_error ("unable to find %s in /etc/hosts or from YP", serverhost);
   
   if (port == 0) {
-    if ((sp = getservbyname ("gnuserv","tcp")) == NULL)
-      peeraddr_in.sin_port = htons(DEFAULT_PORT+getuid());
+    if ((sp = getservbyname ("gtopd","tcp")) == NULL)
+      peeraddr_in.sin_port = htons (DEFAULT_PORT+getuid());
     else
       peeraddr_in.sin_port = sp->s_port;
   } /* if */
   else
-    peeraddr_in.sin_port = htons(port);
+    peeraddr_in.sin_port = htons (port);
   
   /* Create the socket. */
-  if ((s = socket (AF_INET,SOCK_STREAM, 0))== -1) {
-    perror(progname);
-    fprintf(stderr,"%s: unable to create socket\n",progname);
-    exit(1);
-  }; /* if */
+  if ((s = socket (AF_INET, SOCK_STREAM, 0))== -1)
+    glibtop_error_io ("unable to create socket");
   
   /* Try to connect to the remote server at the address
    * which was just built into peeraddr.
    */
   if (connect(s, (struct sockaddr *)&peeraddr_in,
-	      sizeof(struct sockaddr_in)) == -1) {
-    perror(progname);
-    fprintf(stderr, "%s: unable to connect to remote\n",progname);
-    exit(1);
-  }; /* if */
+	      sizeof(struct sockaddr_in)) == -1)
+    glibtop_error_io ("unable to connect to remote");
 
 #ifdef AUTH_MAGIC_COOKIE
 
@@ -375,7 +349,7 @@ static int connect_to_internet_server (char *serverhost, u_short port)
     sprintf(buf, "%s\n%d\n", MCOOKIE_NAME, server_xauth->data_length);
     write (s, buf, strlen(buf));
     write (s, server_xauth->data, server_xauth->data_length);
-
+    
     return (s);
   }
 
@@ -395,7 +369,9 @@ static int connect_to_internet_server (char *serverhost, u_short port)
   disconnect_from_server -- inform the server that sending has finished, and wait for
                             its reply.
 */
-void disconnect_from_server(s,echo)
+#if 0
+static void
+disconnect_from_server(s,echo)
      int s;
      int echo;
 {
@@ -453,4 +429,5 @@ void disconnect_from_server(s,echo)
   }; /* if */
 
 } /* disconnect_from_server */  
+#endif
 #endif /* INTERNET_DOMAIN_SOCKETS || UNIX_DOMAIN_SOCKETS */

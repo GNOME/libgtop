@@ -19,7 +19,7 @@ first_SOURCES		= first.c
 first_LDADD		= $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/lib/libgtop.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
-			  @INTLLIBS@ @LIBSUPPORT@
+			  @INTLLIBS@ @LIBSUPPORT@ @libs_xauth@
 
 first_static_SOURCES	= $(first_SOURCES)
 first_static_LDADD	= $(first_LDADD)
@@ -29,7 +29,7 @@ second_SOURCES		= second.c
 second_LDADD		= $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/lib/libgtop.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
-			  @INTLLIBS@ @LIBSUPPORT@
+			  @INTLLIBS@ @LIBSUPPORT@ @libs_xauth@
 
 second_static_SOURCES	= $(second_SOURCES)
 second_static_LDADD	= $(second_LDADD)
@@ -46,7 +46,7 @@ third_LDADD		= $(top_builddir)/sysdeps/guile/libgtop_guile.la \
 			  $(top_builddir)/lib/libgtop.la \
 			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
-			  @GUILE_LIBS@ @INTLLIBS@ @LIBSUPPORT@
+			  @GUILE_LIBS@ @INTLLIBS@ @LIBSUPPORT@ @libs_xauth@
 
 third_static_SOURCES	= $(third_SOURCES)
 third_static_LDADD	= $(third_LDADD)

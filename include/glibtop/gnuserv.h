@@ -56,8 +56,8 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
 
 
 #define INTERNET_DOMAIN_SOCKETS
-#define UNIX_DOMAIN_SOCKETS 
-/* #define SYSV_IPC  */
+// #define UNIX_DOMAIN_SOCKETS 
+// #define SYSV_IPC
 
 /*
  * Define additional authentication protocols to be used. These methods will
@@ -77,7 +77,7 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
  * stuff related to supporting MIT-MAGIC-COOKIE-1
  */
 
-#define MCOOKIE_SCREEN "999"     /* screen # to use as the gnuserv cookie */
+#define MCOOKIE_SCREEN "42980"   /* screen # to use as the gnuserv cookie */
 #define MCOOKIE_NAME   "MAGIC-1" /* authentication protocol name */
 #define MCOOKIE_X_NAME "MIT-MAGIC-COOKIE-1"  /* as needed by X */
 
@@ -155,9 +155,8 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
 #undef TRUE
 #define TRUE 1
 
-extern char *optarg;
-extern int optind;
-extern char *progname;
+// extern char *optarg;
+// extern int optind;
 
 /* The casts shut Sun's compiler up and are safe in the context these
    are actually used. */
@@ -177,15 +176,18 @@ extern char *progname;
 #define CONN_IPC      2
 
 /* function declarations */
-int make_connection (char *hostarg, int portarg, int *s);
+extern int glibtop_make_connection __P((const char *, int, int *));
+
 #ifdef SYSV_IPC
 void disconnect_from_ipc_server();
 #endif
+
 #if defined(INTERNET_DOMAIN_SOCKETS) || defined(UNIX_DOMAIN_SOCKETS)
-void send_string (int s, const char *msg);
-void disconnect_from_server (int s, int echo);
-int read_line (int s, char *dest);
+// void send_string (int s, const char *msg);
+// void disconnect_from_server (int s, int echo);
+// int read_line (int s, char *dest);
 #endif
+
 #ifdef INTERNET_DOMAIN_SOCKETS
-int internet_addr (char *host);
+extern long glibtop_internet_addr __P((const char *));
 #endif

@@ -1,5 +1,18 @@
 1998-06-14  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/gnuserv.h: New file. Imported from xemacs 20.3.
+
+	* sysdeps/common/gnuslib.c: New file. Imported from xemacs 20.3
+
+	* lib/gnuclient.c: New file. Imported from xemacs 20.3
+
+	* sysdeps/daemon/gnuserv.c: New file. Imported from xemacs 20.3
+
+	* sysdeps/daemon: New directory.
+
+	* configure.in (LIBGTOP_LIBS, LIBGTOP_GUILE_LIBS): Added
+	`$X_LIBS -lXau' when we have xauth.
+
 	* acconfig.h (HAVE_XAUTH): New tag.
 
 	* configure.in: Added check for `HAVE_XAUTH'.
