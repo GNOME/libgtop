@@ -27,6 +27,7 @@ AC_DEFUN([LIBGTOP_HACKER_TESTS],[
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <sys/user.h>
 #include <sys/sysctl.h>
 #include <linux/libgtop.h>
 
@@ -63,38 +64,38 @@ AC_DEFUN([LIBGTOP_CHECK_SYSDEPS_DIR],[
 
 	case "$host_os" in
 	linux*)
-	  if test x$linux_sysctl = xyes ; then
-	    libgtop_sysdeps_dir=kernel
-	    libgtop_use_machine_h=no
-	  else
-	    libgtop_sysdeps_dir=linux
-	    libgtop_use_machine_h=no
-	  fi
+	  libgtop_sysdeps_dir=linux
+	  libgtop_use_machine_h=no
 	  libgtop_have_sysinfo=yes
 	  libgtop_need_server=no
+	  libgtop_has_sysdeps=yes
 	  ;;
 	freebsd*|netbsd*|openbsd*)
 	  libgtop_sysdeps_dir=freebsd
 	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
+	  libgtop_has_sysdeps=no
 	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
 	  ;;
         bsdi*)
 	  libgtop_sysdeps_dir=freebsd
 	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
+	  libgtop_has_sysdeps=no
 	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
 	  ;;
 	solaris*)
 	  libgtop_sysdeps_dir=solaris
 	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
+	  libgtop_has_sysdeps=yes
 	  libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
 	  ;;
 	osf*)
 	  libgtop_sysdeps_dir=osf1
 	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
+	  libgtop_has_sysdeps=yes
 	  ;;
 	*)
 	  if test x$hacker_mode = xyes ; then
@@ -105,17 +106,20 @@ AC_DEFUN([LIBGTOP_CHECK_SYSDEPS_DIR],[
 	      libgtop_sysdeps_dir=sun4
 	      libgtop_use_machine_h=yes
 	      libgtop_need_server=yes
+	      libgtop_has_sysdeps=no
 	      ;;
 	    *)
 	      libgtop_sysdeps_dir=stub
 	      libgtop_use_machine_h=no
 	      libgtop_need_server=no
+	      libgtop_has_sysdeps=yes
 	      ;;
 	    esac
 	  else
 	    libgtop_sysdeps_dir=stub
 	    libgtop_use_machine_h=no
 	    libgtop_need_server=no
+	    libgtop_has_sysdeps=yes
 	  fi
 	  ;;
 	esac
@@ -132,6 +136,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	AC_SUBST(libgtop_sysdeps_name)
 	AC_SUBST(libgtop_use_machine_h)
 	AC_SUBST(libgtop_need_server)
+	AC_SUBST(libgtop_has_sysdeps)
 
 	AC_ARG_ENABLE(hacker-mode,
 	[  --enable-hacker-mode    Enable building of unstable sysdeps],
@@ -179,41 +184,41 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	    libgtop_use_machine_h=no
 	    libgtop_have_sysinfo=no
 	    libgtop_need_server=no
+	    libgtop_has_sysdeps=yes
 	    ;;
 	  stub_suid)
 	    libgtop_sysdeps_dir=stub_suid
 	    libgtop_use_machine_h=yes
 	    libgtop_have_sysinfo=no
 	    libgtop_need_server=yes
+	    libgtop_has_sysdeps=no
 	    ;;
-	  linux)
+	  linux|kernel)
 	    libgtop_sysdeps_dir=linux
 	    libgtop_use_machine_h=no
 	    libgtop_have_sysinfo=yes
 	    libgtop_need_server=no
-	    ;;
-	  kernel)
-	    libgtop_sysdeps_dir=kernel
-	    libgtop_use_machine_h=no
-	    libgtop_have_sysinfo=yes
-	    libgtop_need_server=no
+	    libgtop_has_sysdeps=yes
 	    ;;
 	  bsd)
 	    libgtop_sysdeps_dir=freebsd
 	    libgtop_use_machine_h=yes
 	    libgtop_need_server=yes
+	    libgtop_has_sysdeps=no
 	    libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
 	    ;;
 	  solaris)
 	    libgtop_sysdeps_dir=solaris
 	    libgtop_use_machine_h=yes
 	    libgtop_need_server=yes
+	    libgtop_has_sysdeps=yes
 	    libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
 	    ;;
 	  osf)
 	    libgtop_sysdeps_dir=osf1
 	    libgtop_use_machine_h=yes
 	    libgtop_need_server=yes
+	    libgtop_has_sysdeps=yes
 	    ;;
 	  *)
 	    AC_MSG_ERROR(Invalid value for --with-sysdeps-dir)
@@ -348,5 +353,6 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	fi
 
 	AM_CONDITIONAL(NEED_LIBGTOP, test x$libgtop_need_server = xyes)
+	AM_CONDITIONAL(HAVE_SYSDEPS, test x$libgtop_has_sysdeps = xyes)
 ])
 

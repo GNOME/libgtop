@@ -123,7 +123,11 @@ AC_SUBST(sysdeps_dir)
 AC_SUBST(sysdeps_name)
 
 AC_MSG_CHECKING(for sysdeps_init_file)
-sysdeps_init_file='sysdeps-init-'"$libgtop_sysdeps_name"'.c'
+if x$linux_sysctl = xyes ; then
+  sysdeps_init_file='sysdeps-init-kernel.c'
+else
+  sysdeps_init_file='sysdeps-init-'"$libgtop_sysdeps_name"'.c'
+fi
 AC_SUBST(sysdeps_init_file)
 AC_MSG_RESULT($sysdeps_init_file)
 

@@ -31,6 +31,8 @@ void
 _glibtop_open_sysdeps (glibtop *server, const char *program_name,
 		       const unsigned long features, const unsigned flags)
 {
+    glibtop_open_backend_l (server, "glibtop-backend-kernel",
+			    features, NULL);
     glibtop_open_backend_l (server, "glibtop-backend-common",
 			    features, NULL);
     glibtop_open_backend_l (server, "glibtop-backend-sysdeps",
