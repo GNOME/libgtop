@@ -197,7 +197,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
 					   break;
 		case KSTAT_DATA_ULONGLONG: server->machine.boot = kn->value.ull;
 					   break;
-	    }
 #endif
+	    }
     }
 }
