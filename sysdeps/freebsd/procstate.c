@@ -91,6 +91,7 @@ glibtop_get_proc_state_p (glibtop *server,
 	buf->flags = _glibtop_sysdeps_proc_state |
 		_glibtop_sysdeps_proc_state_new;
 
+#if LIBGTOP_VERSION_CODE >= 1001000
 	switch (pinfo [0].kp_proc.p_stat) {
 	case SIDL:
 		buf->state = 0;
@@ -110,6 +111,27 @@ glibtop_get_proc_state_p (glibtop *server,
 	default:
 		return;
 	}
+#else
+	switch (pinfo [0].kp_proc.p_stat) {
+	case SIDL:
+		buf->state = 'S';
+		break;
+	case SRUN:
+		buf->state = 'R';
+		break;
+	case SSLEEP:
+		buf->state = 'S';
+		break;
+	case SSTOP:
+		buf->state = 'T';
+		break;
+	case SZOMB:
+		buf->state = 'Z';
+		break;
+	default:
+		return;
+	}
+#endif
 
 	buf->flags |= (1L << GLIBTOP_PROC_STATE_STATE);
 }
