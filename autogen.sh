@@ -4,7 +4,7 @@
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
 
-PKG_NAME="Gnome Top Library"
+PKG_NAME="GNOME Portable System Access Library"
 
 (test -f $srcdir/configure.in \
   && test -f $srcdir/copyright.txt \
