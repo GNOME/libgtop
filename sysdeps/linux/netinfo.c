@@ -237,10 +237,12 @@ _netinfo_ipv6 (glibtop *server, glibtop_netinfo *buf,
 	    if (!_parse_ipv6_address (addr6, address->address))
 		address->flags |= (1L << GLIBTOP_IFADDR_ADDRESS);
 
+	    address->transport = GLIBTOP_TRANSPORT_IPV6;
 	    address->addr_len = 8;
 	    address->scope = scope;
 
-	    address->flags |= (1L << GLIBTOP_IFADDR_ADDR_LEN) |
+	    address->flags |= (1L << GLIBTOP_IFADDR_TRANSPORT) |
+		(1L << GLIBTOP_IFADDR_ADDR_LEN) |
 		(1L << GLIBTOP_IFADDR_SCOPE);
 
 	    break;
@@ -309,8 +311,10 @@ glibtop_get_netinfo_s (glibtop *server, glibtop_array *array,
     if (transport & GLIBTOP_TRANSPORT_IPV4) {
 	glibtop_ifaddr address;
 
+	memset (&address, 0, sizeof (glibtop_ifaddr));
+
 	if (!_netinfo_ipv4 (server, buf, interface, &address))
-	    g_ptr_array_add (parray, g_memdup (&parray, sizeof (array)));
+	    g_ptr_array_add (parray, g_memdup (&address, sizeof (address)));
     }
 #endif /* HAVE_AFINET */
 
@@ -318,8 +322,10 @@ glibtop_get_netinfo_s (glibtop *server, glibtop_array *array,
     if (transport & GLIBTOP_TRANSPORT_IPV6) {
 	glibtop_ifaddr address;
 
+	memset (&address, 0, sizeof (glibtop_ifaddr));
+
 	if (!_netinfo_ipv6 (server, buf, interface, &address))
-	    g_ptr_array_add (parray, g_memdup (&parray, sizeof (array)));
+	    g_ptr_array_add (parray, g_memdup (&address, sizeof (address)));
     }
 #endif /* HAVE_AFINET6 */
 
