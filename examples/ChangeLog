@@ -50,7 +50,7 @@
 
 Fri Apr  9 00:14:52 1999 Timur Bakeyev  <timur@gnu.org>
 
-	* timings.c: Added timersub defenition, to make code compilable on 
+	* timings.c: Added timersub defenition, to make code compilable on
 	BSDI.
 
 1999-03-24  Martin Baulig  <martin@home-of-linux.org>
@@ -116,11 +116,11 @@ Fri Apr  9 00:14:52 1999 Timur Bakeyev  <timur@gnu.org>
 1998-06-12  Martin Baulig  <martin@home-of-linux.org>
 
 	* test.scm: New file.
-	
+
 1998-06-07  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am (CFLAGS): Disable optimize.
-	
+
 	* first.c (PROFILE_COUNT): Number of times each function
 	should be called. Defaults to 1; to profile the code, you
 	can increase this when compiling.

@@ -8,7 +8,7 @@
 	* sem_limits.c:
 	* shm_limits.c:
 	* swap.c: Added missing const qualifiers.
-	
+
 	* uptime.c: (glibtop_get_uptime_s): Cleaned up. Added boot_time.
 
 2003-10-21  Bastien Nocera  <hadess@hadess.net>

@@ -28,6 +28,6 @@
 1998-08-24  Martin Baulig  <martin@home-of-linux.org>
 
 	* *.c: Added initialization functions `glibtop_init_<feature>_s'.
-	
+
 	* ChangeLog: New file.
 
