@@ -1,3 +1,7 @@
+2004-11-13  Benoît Dejean  <tazforever@dlfp.org>
+
+	* netlist.c: (glibtop_get_netlist_s): Killed warning.
+
 2004-10-26  Benoît Dejean  <tazforever@dlfp.org>
 
 	* proctime.c: (glibtop_get_proc_time_s): Set .rtime. At last !

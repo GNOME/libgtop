@@ -79,6 +79,6 @@ glibtop_get_netlist_s (glibtop *server, glibtop_netlist *buf)
 
 	g_ptr_array_add(devices, NULL);
 
-	return g_ptr_array_free(devices, FALSE);
+	return (char**) g_ptr_array_free(devices, FALSE);
 }
 
