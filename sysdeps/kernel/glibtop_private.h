@@ -44,6 +44,9 @@ int glibtop_get_proc_data_proclist_s (glibtop *server,
 int glibtop_get_proc_data_proc_state_s (glibtop *server,
 					libgtop_proc_state_t *proc_state,
 					pid_t pid);
+int glibtop_get_proc_data_proc_kernel_s (glibtop *server,
+					 libgtop_proc_kernel_t *proc_kernel,
+					 pid_t pid);
 
 
 END_LIBGTOP_DECLS

@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_proc_segment = 0;
 void
 glibtop_init_proc_segment_s (glibtop *server)
 {
-	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
+    server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
 }
 
 /* Provides detailed information about a process. */
@@ -40,5 +40,5 @@ void
 glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 			    pid_t pid)
 {
-	memset (buf, 0, sizeof (glibtop_proc_segment));
+    memset (buf, 0, sizeof (glibtop_proc_segment));
 }

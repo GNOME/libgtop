@@ -34,12 +34,16 @@ static const unsigned long _glibtop_sysdeps_proc_kernel =
 (1 << GLIBTOP_PROC_KERNEL_KSTK_ESP) +
 (1 << GLIBTOP_PROC_KERNEL_KSTK_EIP);
 
+static const unsigned long _glibtop_sysdeps_proc_kernel_kernel =
+(1 << GLIBTOP_PROC_KERNEL_NWCHAN);
+
 /* Init function. */
 
 void
 glibtop_init_proc_kernel_s (glibtop *server)
 {
-    server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
+    server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel |
+	_glibtop_sysdeps_proc_kernel_kernel;
 }
 
 /* Provides detailed information about a process. */
@@ -49,6 +53,7 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
 			   pid_t pid)
 {
     libgtop_proc_state_t proc_state;
+    libgtop_proc_kernel_t proc_kernel;
 
     memset (buf, 0, sizeof (glibtop_proc_kernel));
 
@@ -63,4 +68,10 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
     buf->kstk_eip = proc_state.keip;
 
     buf->flags = _glibtop_sysdeps_proc_kernel;
+
+    if (glibtop_get_proc_data_proc_kernel_s (server, &proc_kernel, pid))
+	return;
+
+    buf->nwchan = proc_kernel.wchan;
+    buf->flags |= _glibtop_sysdeps_proc_kernel_kernel;
 }
