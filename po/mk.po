@@ -1,3 +1,4 @@
+# translation of mk.po to
 # translation of mk.po to Macedonian
 # translation of libgtop.libgtop-GNOME-2-0-port.po to Macedonian
 # This file is distributed under the same license as the PACKAGE package.
@@ -8,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mk\n"
 "POT-Creation-Date: 2002-12-15 06:13+0100\n"
-"PO-Revision-Date: 2003-04-15 16:02+0200\n"
+"PO-Revision-Date: 2003-04-16 15:04+0200\n"
 "Last-Translator: Ivan Stojmirov <stojmir@linux.net.mk>\n"
 "Language-Team: Macedonian <gnomk-main@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
