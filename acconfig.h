@@ -151,6 +151,9 @@
 #undef LIBGTOP_ENABLE_DEBUG
 #undef LIBGTOP_FATAL_WARNINGS
 
+/* Define to use glib's malloc. */
+#undef LIBGTOP_USE_GLIB_MALLOC
+
 /* Same as LINUX_VERSION_CODE either from <linux/version.h> or from
  * the running kernel (if we don't have configured kernel sources).
  */

@@ -1,5 +1,9 @@
 1999-10-24  Martin Baulig  <martin@home-of-linux.org>
 
+	* acconfig.h (LIBGTOP_USE_GLIB_MALLOC): Added.
+	* configure.in (--enable-glib-malloc): New configure parameter
+	to use glib's malloc functions.
+
 	* sysdeps/common/ChangeLog: New file.
 
 1999-10-24  Martin Baulig  <martin@home-of-linux.org>

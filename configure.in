@@ -293,8 +293,25 @@ dnl For diskusage stuff
 GNOME_FILEUTILS_CHECKS
 
 dnl Debugging
-AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]],AC_DEFINE(LIBGTOP_ENABLE_DEBUG),)
+AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]], libgtop_enable_debug=yes, libgtop_enable_debug=no)
 AC_ARG_ENABLE(fatal-warnings, [  --enable-fatal-warnings make all warnings fatal [debug=no]],AC_DEFINE(LIBGTOP_FATAL_WARNINGS),)
+AC_ARG_ENABLE(glib-malloc, [  --enable-glib-malloc    use glib's malloc [default=auto]], libgtop_enable_glib_malloc=yes,)
+
+if test "x$libgtop_enable_glib_malloc" != xyes ; then
+  if test "x$libgtop_enable_debug" = xyes ; then
+    libgtop_enable_glib_malloc=yes
+  else
+    libgtop_enable_glib_malloc=no
+  fi
+fi
+
+if test "x$libgtop_enable_glib_malloc" = xyes ; then
+  AC_DEFINE(LIBGTOP_USE_GLIB_MALLOC)
+fi
+
+if test "x$libgtop_enable_debug" = xyes ; then
+  AC_DEFINE(LIBGTOP_ENABLE_DEBUG)
+fi
 
 if test "x$gnome_found" = xyes ; then
   LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
