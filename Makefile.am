@@ -4,7 +4,7 @@ if GLIBTOP_EXAMPLES
 examples_SUBDIRS	= examples
 endif
 
-built_SUBDIRS = include sysdeps src lib
+built_SUBDIRS = include sysdeps lib src
 
 SUBDIRS = po intl support macros $(built_SUBDIRS) $(examples_SUBDIRS)
 
