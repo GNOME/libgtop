@@ -1,4 +1,6 @@
+if GLIBTOP_NAMES
 SUBDIRS				= names
+endif
 
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
