@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.90.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2004-02-04 23:01+0200\n"
+"POT-Creation-Date: 2004-08-18 23:07+0300\n"
+"PO-Revision-Date: 2004-08-19 02:26+0300\n"
 "Last-Translator: Pauli Virtanen <pauli.virtanen@hut.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -262,9 +262,8 @@ msgid "Free file nodes"
 msgstr "Vapaita tiedostosolmuja"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Estetty"
+msgstr "Lohkokoko"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -419,14 +418,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Aliverkko"
+msgstr "IPv4-aliverkko"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Osoite"
+msgstr "IPv4-osoite"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -469,17 +466,16 @@ msgid "Collisions"
 msgstr "Törmäykset"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Osoite"
+msgstr "IPv6-osoite"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "IPv6-etuliite"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "IPv6-näkyvyysalue"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
@@ -820,7 +816,7 @@ msgstr "LPros"
 
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
-msgstr "Funktiolle exec() annettu ohjelmatiedoston nimi ilman hakemistopolkua."
+msgstr "Funktiolle exec() annettu ohjelmatiedoston nimi ilman kansiopolkua."
 
 #: sysdeps/names/procstate.c:50
 msgid "Single-Char code for process state (S=sleeping)"
