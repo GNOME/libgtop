@@ -23,56 +23,24 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop/read.h>
+#include <glibtop.h>
+#include <glibtop/global.h>
+#include <glibtop/xmalloc.h>
 
-/* Reads some data from server. */
+#include <glibtop/backend.h>
 
-static void
-do_read (int s, void *ptr, size_t total_size)
-{
-    int nread;
-    size_t already_read = 0, remaining = total_size;
-    char *tmp_ptr;
-	
-    while (already_read < total_size) {
-	nread = recv (s, ptr, remaining, 0);
-
-	if (nread == 0) {
-	    close (s);
-	    continue;
-	}
-		
-	if (nread <= 0) {
-	    glibtop_error_io ("recv");
-	    return;
-	}
-		
-	already_read += nread;
-	remaining -= nread;
-	/* (char *) ptr += nread; */
-	tmp_ptr = ptr;
-	tmp_ptr += nread;
-	ptr = tmp_ptr;
-    }
-}
+extern glibtop_backend_info glibtop_backend_server;
+extern glibtop_backend_info glibtop_backend_sysdeps;
 
 void
-glibtop_read_l (glibtop *server, size_t size, void *buf)
+glibtop_init_backends (void)
 {
-    int ret = 0;
+    static int backends_initialized = 0;
 
-    glibtop_init_r (&server, 0, 0);
+    if (backends_initialized)
+	return;
+    backends_initialized = 1;
 
-#ifdef DEBUG
-    fprintf (stderr, "LIBRARY: really reading %d bytes.\n", size);
-#endif
-
-    if (server->_priv->socket) {
-	do_read (server->_priv->socket, buf, size);
-    } else {
-	ret = read (server->_priv->input [0], buf, size);
-    }
-
-    if (ret < 0)
-	glibtop_error_io_r (server, _("read %d bytes"), size);
+    glibtop_register_backend (&glibtop_backend_server);
+    glibtop_register_backend (&glibtop_backend_sysdeps);
 }

@@ -2,6 +2,8 @@
 
 /* $Id$ */
 
+@@AUTOGEN_COMMENT@@
+
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
@@ -23,29 +25,21 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop/write.h>
+#ifndef __GLIBTOP_CALL_VECTOR_H__
+#define __GLIBTOP_CALL_VECTOR_H__
 
-/* Writes some data to server. */
+#include <glibtop.h>
+#include <glibtop/union.h>
 
-void
-glibtop_write_l (glibtop *server, size_t size, void *buf)
+BEGIN_LIBGTOP_DECLS
+
+typedef struct _glibtop_call_vector	glibtop_call_vector;
+
+struct _glibtop_call_vector
 {
-    int ret;
+    @@GLIBTOP_CALL_VECTOR@@
+};
 
-    glibtop_init_r (&server, 0, 0);
+END_LIBGTOP_DECLS
 
-    if (size == 0) return;
-
-#ifdef DEBUG
-    fprintf (stderr, "LIBRARY: really writing %d bytes.\n", size);
 #endif
-
-    if (server->_priv->socket) {
-	ret = send (server->_priv->socket, buf, size, 0);
-    } else {
-	ret = write (server->_priv->output [1], buf, size);
-    }
-
-    if (ret < 0)
-	glibtop_error_io_r (server, _("write %d bytes"), size);
-}

@@ -66,6 +66,7 @@ main(int argc, char *argv[])
 {
     struct utsname uts;
     int uid, euid, gid, egid;
+    glibtop *server;
 
     /* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
@@ -83,8 +84,14 @@ main(int argc, char *argv[])
 		 LIBGTOP_COMPILE_MACHINE);
 	_exit (1);
     }
+
+    server = glibtop_global_server;
 	
-    glibtop_init_p (glibtop_global_server, 0, 0);
+    if (!server->_priv)
+	server->_priv = glibtop_calloc_r
+	    (server, 1, sizeof (glibtop_server_private));
+
+    glibtop_init_p (server, 0, 0);
 
     if (setreuid (euid, uid)) _exit (1);
 

@@ -54,7 +54,7 @@ BEGIN_LIBGTOP_DECLS
 #define GLIBTOP_ERROR_METHOD_DEFAULT	GLIBTOP_ERROR_METHOD_WARN_ONCE
 
 void
-glibtop_open_l (glibtop *server, const char *program_name,
+glibtop_open_l (glibtop *server, const char *backend_name,
 		const unsigned long features, const unsigned flags);
 
 void

@@ -30,15 +30,14 @@
 #include <glibtop_machine.h>
 #endif
 
+#include <glib.h>
+
 struct _glibtop_server_private
 {
 #ifdef HAVE_GLIBTOP_MACHINE_H
     glibtop_machine machine;	/* Machine dependent data */
 #endif
-    int input [2];		/* Pipe client <- server */
-    int output [2];		/* Pipe client -> server */
-    int socket;			/* Accepted connection of a socket */
-    pid_t pid;			/* PID of the server */
+    GSList *backend_list;
 };
 
 #endif

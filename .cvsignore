@@ -1,5 +1,7 @@
 Makefile
 Makefile.in
+call-vector.h
+call-vector.h
 aclocal.m4
 config.cache
 config.h

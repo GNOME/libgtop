@@ -32,6 +32,7 @@ print '#include <glibtop/sysdeps.h>';
 print '#include <glibtop/union.h>';
 print '';
 print '#include <glibtop/command.h>';
+print '#include <glibtop/backend.h>';
 
 print '';
 print '/* Some required fields are missing. */';
@@ -116,20 +117,6 @@ sub output {
       $retval = ($2 eq 'string') ? 'char **' : "$2 *";
     }
 
-    $check_server_code = "\n";
-    $check_server_code .=
-      "\t/* If neccessary, we ask the server for the requested\n" .
-	"\t * feature. If not, we call the sysdeps function. */\n\n" .
-	  "\tif ((server->flags & _GLIBTOP_INIT_STATE_SERVER) &&\n" .
-	    "\t    (server->features & (1 << GLIBTOP_SYSDEPS_" .
-	      &toupper($feature) . ")))\n" .
-		"\t\tgoto call_server;\n\telse\n" .
-		  "\t\tgoto call_sysdeps;\n\n";
-
-    $need_temp_storage = $always_use_temp_storage;
-    $size_code = "\t_LIBGTOP_SEND_len = 0;\n";
-    $marshal_code = "\t_LIBGTOP_SEND_offset = 0;\n";
-    $marshal_code .= "\tmemset (_LIBGTOP_SEND_buf, 0, _LIBGTOP_SEND_len);\n";
     $first_param_name = '';
 
     $call_param = '';
@@ -162,65 +149,53 @@ sub output {
 	}
 	$param_decl = $param_decl . $c_type . ' ' . $fields[$field];
 	$call_param = $call_param . ', ' . $fields[$field];
-
-	$size_code .= "\t_LIBGTOP_SEND_len += ";
-	if (defined $sizeof_funcs->{$type}) {
-	  $size_code .= $sizeof_funcs->{$type}->($fields[$field]);
-	} else {
-	  $size_code .= sprintf ("sizeof (%s)", $c_type);
-	}
-	$size_code .= ";\n";
-
-	$marshal_code .= "\t_LIBGTOP_SEND_ptr = ".
-	  "(char *) _LIBGTOP_SEND_buf + _LIBGTOP_SEND_offset;\n";
-
-	if (defined $marshal_funcs->{$type}) {
-	  $marshal_code .= $marshal_funcs->{$type}->($c_type, $fields[$field], "\t");
-	} else {
-	  $marshal_code .= sprintf ("\tmemcpy (_LIBGTOP_SEND_ptr, %s, %s);\n",
-				    '&'.$fields[$field], "sizeof ($c_type)");
-	}
-
-	$marshal_code .= "\t_LIBGTOP_SEND_offset += ";
-	if (defined $sizeof_funcs->{$type}) {
-	  $marshal_code .= $sizeof_funcs->{$type}->($fields[$field]);
-	} else {
-	  $marshal_code .= sprintf ("sizeof (%s)", $c_type);
-	}
-	$marshal_code .= ";\n";
       }
     }
 
-    $local_var_code = "";
-    $local_var_code .= "\tunsigned _LIBGTOP_SEND_offset, _LIBGTOP_SEND_len;\n";
-    if ($need_temp_len) {
-      $local_var_code .= "\tunsigned _LIBGTOP_SEND_temp_len;\n";
-    }
-    $local_var_code .= "\tvoid *_LIBGTOP_SEND_buf;\n";
-    $local_var_code .= "\tchar *_LIBGTOP_SEND_ptr;\n";
+    $local_var_code = sprintf ("\tGSList *list;\n\tint done = 0;\n");
     if ($retval !~ /^void$/) {
       $local_var_code .= sprintf ("\t%s retval = (%s) 0;\n",
 				  $retval, $retval);
     }
 
-    $sysdeps_code = "call_sysdeps:\n";
-    if ($orig !~ /^@/) {
-      $sysdeps_code .= sprintf ("#if (!GLIBTOP_SUID_%s)\n", &toupper($feature));
-    }
+    $sysdeps_code = "\t".
+      'fprintf (stderr, "TEST: %p - %p\n", server, server->_priv);'."\n\n";
+
+    $sysdeps_code .= sprintf
+      ("\tfor (list = server->_priv->backend_list;\n\t     list; list = list->next) {\n\t\tglibtop_backend *backend = list->data;\n\n\t\tif (!backend->info || !backend->info->call_vector)\n\t\t\tcontinue;\n\n\t\tif (backend->info->call_vector->%s) {\n", $feature);
 
     if ($line_fields[3] eq '') {
-      $sysdeps_code .= sprintf ("\t%sglibtop_get_%s_s (server%s);\n",
-				$prefix, $feature, $call_param);
+      $sysdeps_code .= sprintf
+	("\t\t\tretval = backend->info->call_vector->%s (server%s);\n",
+	 $feature, $call_param);
     } elsif ($line_fields[3] eq 'array') {
-      $sysdeps_code .= sprintf ("\t%sglibtop_get_%s_s (server, array%s);\n",
-				$prefix, $feature, $call_param);
+      $sysdeps_code .= sprintf
+	("\t\t\tretval = backend->info->call_vector->%s (server, array%s);\n",
+	 $feature, $call_param);
     } elsif ($line_fields[3] =~ /^array/) {
-      $sysdeps_code .= sprintf ("\t%sglibtop_get_%s_s (server, array, buf%s);\n",
-				$prefix, $feature, $call_param);
+      $sysdeps_code .= sprintf
+	("\t\t\tretval = backend->info->call_vector->%s (server, array, buf%s);\n",
+	 $feature, $call_param);
     } else {
-      $sysdeps_code .= sprintf ("\t%sglibtop_get_%s_s (server, buf%s);\n",
-				$prefix, $feature, $call_param);
+      $sysdeps_code .= sprintf
+	("\t\t\tretval = backend->info->call_vector->%s (server, buf%s);\n",
+	 $feature, $call_param);
     }
+
+    $sysdeps_code .= sprintf
+      ("\t\t\tdone = 1;\n\t\t\tbreak;\n\t\t}\n\t}\n");
+
+    $sysdeps_code .= sprintf
+      ("\n\tif (!done) {\n\t\tserver->glibtop_errno = GLIBTOP_ERROR_NOT_IMPLEMENTED;\n");
+    if ($line_fields[1] eq 'retval') {
+      $sysdeps_code .= sprintf
+	("\t\treturn -GLIBTOP_ERROR_NOT_IMPLEMENTED;\n");
+    } else {
+      $sysdeps_code .= sprintf
+	("\t\tgoto do_return;\n");
+    }
+    $sysdeps_code .= sprintf
+      ("\t}\n\n");
 
     if ($line_fields[1] eq 'retval') {
       $sysdeps_code .= "\tif (retval < 0) {\n";
@@ -231,52 +206,10 @@ sub output {
       
     $sysdeps_code .= "\tgoto check_missing;\n";
 
-    if ($orig !~ /^@/) {
-      $sysdeps_code .= "#else\n\terrno = ENOSYS;\n";
-      $sysdeps_code .= sprintf ("\tglibtop_error_io_r (server, \"%s\");\n",
-				"glibtop_get_" . $feature);
-      $sysdeps_code .= "\tgoto do_return;\n";
-      $sysdeps_code .= "#endif\n";
-    }
+    $init_code = sprintf ("\tglibtop_init_r (&server, (1 << %s), 0);\n\n",
+			  "GLIBTOP_SYSDEPS_".&toupper($feature));
 
-    $total_code = sprintf ("%s%s%s\n", $init_code, $check_server_code,
-			   $sysdeps_code);
-
-    $send_buf_code = "\t_LIBGTOP_SEND_buf = ";
-    if ($need_temp_storage) {
-      $send_buf_code .= "glibtop_malloc_r (server, _LIBGTOP_SEND_len+1)";
-    } else {
-      $send_buf_code .= '(void *) &'.$first_param_name;
-    }
-    $send_buf_code .= ";\n";
-
-    $call_code = '';
-    $call_code .= sprintf ("\t%sglibtop_call_l (server, GLIBTOP_CMND_%s,\n",
-			   $call_prefix, &toupper($feature));
-    $call_code .= sprintf ("\t\t\t%s%s, %s,\n", $call_prefix_space,
-			   "_LIBGTOP_SEND_len", "_LIBGTOP_SEND_ptr");
-    if ($line_fields[3] eq '') {
-      $call_code .= sprintf ("\t\t\t%s0, NULL,\n", $call_prefix_space);
-    } elsif ($line_fields[3] eq  'array') {
-      $call_code .= sprintf ("\t\t\t%ssizeof (glibtop_array), array,\n",
-			     $call_prefix_space);
-    } else {
-      $call_code .= sprintf ("\t\t\t%ssizeof (glibtop_%s), buf,\n",
-			     $call_prefix_space, $feature);
-    }
-    $call_code .= sprintf ("\t\t\t%s%s);\n", $call_prefix_space, $retval_param);
-
-    if ($need_temp_storage) {
-      $send_buf_free_code = "\tglibtop_free_r (server, _LIBGTOP_SEND_buf);\n";
-    } else {
-      $send_buf_free_code = "";
-    }
-
-    $total_code .= sprintf ("call_server:\n%s\n%s\n%s\n%s\n%s\n",
-			    $size_code, $send_buf_code, $marshal_code,
-			    $call_code, $send_buf_free_code);
-
-    $total_code .= "\tgoto check_missing;\n\n";
+    $total_code = sprintf ("%s%s\n", $init_code, $sysdeps_code);
 
     $check_code = "check_missing:\n";
     $check_code .= "\t/* Make sure that all required fields are present. */\n";
@@ -311,9 +244,6 @@ sub output {
       $func_decl .= sprintf ("glibtop_get_%s_l (glibtop *server, %s *buf%s)\n",
 			     $feature, 'glibtop_'.$feature, $param_decl);
     }
-
-    $init_code = sprintf ("\tglibtop_init_r (&server, (1 << %s), 0);\n",
-			  "GLIBTOP_SYSDEPS_".&toupper($feature));
 
     $total_code = sprintf ("%s{\n%s\n%s\n%s}\n", $func_decl,
 			   $local_var_code, $total_code);

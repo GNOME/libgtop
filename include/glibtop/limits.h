@@ -45,6 +45,9 @@ BEGIN_LIBGTOP_DECLS
 /* This is ((u_int64_t)-1) */
 #define GLIBTOP_UNLIMITED	(~(u_int64_t)0)
 
+/* Maximum length of a backend name. */
+#define GLIBTOP_BACKEND_NAME_LEN	40
+
 END_LIBGTOP_DECLS
 
 #endif

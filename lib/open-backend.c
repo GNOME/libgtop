@@ -23,51 +23,42 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <glibtop.h>
+#include <glibtop/global.h>
 #include <glibtop/xmalloc.h>
-#include <glibtop/read_data.h>
 
-/* Reads some data from server. */
+#include <glibtop/backend.h>
 
-void *
-glibtop_read_data_l (glibtop *server)
+int
+glibtop_open_backend_l (glibtop *server, const char *backend_name,
+			u_int64_t features, const char **backend_args)
 {
-    size_t size;
-    void *ptr;
-    int ret;
+    glibtop_backend_info *info;
+    glibtop_backend *backend;
 
-    glibtop_init_r (&server, 0, 0);
+    info = glibtop_backend_by_name (backend_name);
+    if (!info) return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
 
-#ifdef DEBUG
-    fprintf (stderr, "LIBRARY: reading %d data bytes.\n", sizeof (size_t));
-#endif
+    backend = glibtop_calloc_r (server, 1, sizeof (glibtop_backend));
+    backend->info = info;
 
-    if (server->_priv->socket) {
-	ret = recv (server->_priv->socket, (void *)&size,
-		    sizeof (size_t), 0);
-    } else {
-	ret = read (server->_priv->input [0], (void *)&size,
-		    sizeof (size_t));
+    if (info->open) {
+	int retval;
+
+	retval = info->open (server, backend, features, backend_args);
+	if (retval) {
+	    glibtop_free_r (server, backend->_priv);
+	    glibtop_free_r (server, backend);
+	    return retval;
+	}
     }
 
-    if (ret < 0)
-	glibtop_error_io_r (server, _("read data size"));
+    if (!server->_priv)
+	server->_priv = glibtop_calloc_r
+	    (server, 1, sizeof (glibtop_server_private));
 
-#ifdef DEBUG
-    fprintf (stderr, "LIBRARY: really reading %d data bytes (ret = %d).\n", size, ret);
-#endif
+    server->_priv->backend_list = g_slist_append
+	(server->_priv->backend_list, backend);
 
-    if (!size) return NULL;	
-
-    ptr = glibtop_malloc_r (server, size);
-	
-    if (server->_priv->socket) {
-	ret = recv (server->_priv->socket, ptr, size, 0);
-    } else {
-	ret = read (server->_priv->input [0], ptr, size);
-    }
-
-    if (ret < 0)
-	glibtop_error_io_r (server, _("read data %d bytes"));
-
-    return ptr;
+    return 0;
 }

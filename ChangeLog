@@ -1,3 +1,32 @@
+2000-01-01  Martin Baulig  <martin@home-of-linux.org>
+
+	* backends/: New directory.
+	* backends/server/: New directory.
+	* backends/sysdeps/: New directory.
+
+	* include/glibtop/backend.h: New file.
+
+	* include/glibtop/call-vector.h.in: New file. Template file
+	for `call-vector.h'.
+	* include/glibtop/call-vector.pl: New file. Creates 'call-vector.h'
+	from `call-vector.h.in'.
+
+	* include/glibtop/errors.h
+	(GLIBTOP_ERROR_NO_SUCH_BACKEND): New error constant.
+        (GLIBTOP_ERROR_NOT_IMPLEMENTED): New error constant.
+
+	* include/glibtop/limits.h
+	(GLIBTOP_BACKEND_NAME_LEN): New constant.
+
+	* glibtop-server-private.h (glibtop_server_private):
+	Added `GSList *backend_list' and removed `input', `output',
+	`socket' and `pid'.
+
+	* lib/command.c: Removed. Moved to `backends/server/'.
+	* lib/read.c: Removed. Moved to `backends/server/'.
+	* lib/read_data.c: Removed. Moved to `backends/server/'.
+	* lib/write.c: Removed. Moved to `backends/server/'.
+
 2000-01-01  Fatih Demir <kabalak@gmx.net>
 
 	* configure.in: Added tr to ALL_LINGUAS .
