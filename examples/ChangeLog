@@ -1,3 +1,8 @@
+1999-05-28  Martin Baulig  <martin@home-of-linux.org>
+
+	* first.c, second.c: Use LibGTop version conditionals so we can
+	more easily merge the code into LIBGTOP_STABLE_1_0.
+
 1999-05-08  Drazen Kacar  <dave@srce.hr>
 
 	* mountlist.c: Changed pfintf formats to "%lld" when printing
