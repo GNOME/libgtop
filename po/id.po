@@ -1,0 +1,1113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop libgtop-GNOME-2-0-port\n"
+"POT-Creation-Date: 2003-02-11 15:35+0700\n"
+"PO-Revision-Date: 2003-02-10 18:01+0700\n"
+"Last-Translator: Mohammad DAMT <mdamt@bisnisweb.com>\n"
+"Language-Team: Indonesia <id@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: sysdeps/names/cpu.c:45
+msgid "Total CPU Time"
+msgstr "Total waktu CPU"
+
+#: sysdeps/names/cpu.c:46
+msgid "CPU Time in User Mode"
+msgstr "Waktu CPU pada modus user"
+
+#: sysdeps/names/cpu.c:47
+msgid "CPU Time in User Mode (nice)"
+msgstr "Waktu CPU pada modus user (nilai nice)"
+
+#: sysdeps/names/cpu.c:48
+msgid "CPU Time in System Mode"
+msgstr "Waktu CPU pada modus sistem"
+
+#: sysdeps/names/cpu.c:49
+msgid "CPU Time in the Idle Task"
+msgstr "Waktu CPU pada Proses yang menganggur"
+
+#: sysdeps/names/cpu.c:50
+msgid "Tick Frequency"
+msgstr "Frekuensi Tik"
+
+#: sysdeps/names/cpu.c:51
+msgid "SMP Total CPU Time"
+msgstr "Waktu total CPU Multiprosesor"
+
+#: sysdeps/names/cpu.c:52
+msgid "SMP CPU Time in User Mode"
+msgstr "Waktu CPU multiprosesor modus user"
+
+#: sysdeps/names/cpu.c:53
+msgid "SMP CPU Time in User Mode (nice)"
+msgstr "Waktu CPU multiprosesor modus user (nilai nice)"
+
+#: sysdeps/names/cpu.c:54
+msgid "SMP CPU Time in System Mode"
+msgstr "Waktu CPU multiprosesor pada modus sistem"
+
+#: sysdeps/names/cpu.c:55
+msgid "SMP CPU Time in the Idle Task"
+msgstr "Waktu CPU multiprosesor pada proses yang mengganggur"
+
+#: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
+msgid "SMP CPU Flags"
+msgstr "Flag CPU SMP"
+
+#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
+msgid "Number of clock ticks since system boot"
+msgstr "Jumlah tik waktu sejak sistem diboot"
+
+#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
+msgid "Number of clock ticks the system spent in user mode"
+msgstr "Jumlah tik waktu sistem menjalankan modus user"
+
+#: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
+msgid "Number of clock ticks the system spent in user mode (nice)"
+msgstr "Jumlah tik waktu sistem menjalankan user mode (nilai nice)"
+
+#: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
+msgid "Number of clock ticks the system spent in system mode"
+msgstr "Jumlah tik waktu sistem menjalankan mode sistem"
+
+#: sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
+msgid "Number of clock ticks the system spent in the idle task"
+msgstr "Jumlah tik waktu sistem menganggur"
+
+#: sysdeps/names/cpu.c:66
+msgid "Tick frequency (default is 100)"
+msgstr "Frekuensi tik (defaultnya bernilai 100)"
+
+#: sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
+msgid "Total blocks"
+msgstr "Blok total"
+
+#: sysdeps/names/fsusage.c:42
+msgid "Free blocks"
+msgstr "Blok bebas"
+
+#: sysdeps/names/fsusage.c:43
+msgid "Available blocks"
+msgstr "Blok yang tersedia"
+
+#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
+msgid "Total file nodes"
+msgstr "Total node file"
+
+#: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:54
+msgid "Free file nodes"
+msgstr "Jumlah node file bebas"
+
+#: sysdeps/names/fsusage.c:51
+msgid "Free blocks available to the superuser"
+msgstr "Jumlah blok tersedia bagi superuser"
+
+#: sysdeps/names/fsusage.c:52
+msgid "Free blocks available to non-superusers"
+msgstr "Jumlah blok tersedia bagi user biasa"
+
+#: sysdeps/names/loadavg.c:41
+msgid "Load Average"
+msgstr "Rata-rata beban"
+
+#: sysdeps/names/loadavg.c:42
+msgid "Running Tasks"
+msgstr "Proses yang berjalan"
+
+#: sysdeps/names/loadavg.c:43
+msgid "Number of Tasks"
+msgstr "Jumlah proses"
+
+#: sysdeps/names/loadavg.c:44 sysdeps/names/loadavg.c:52
+msgid "Last PID"
+msgstr "PID terakhir"
+
+#: sysdeps/names/loadavg.c:49
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgstr ""
+"Jumlah rata-rata proses yang berjalan simultan dalam 1, 5, dan 15 menit "
+"terakhir"
+
+#: sysdeps/names/loadavg.c:50
+msgid "Number of tasks currently running"
+msgstr "Jumlah proses yang sedang jalan"
+
+#: sysdeps/names/loadavg.c:51
+msgid "Total number of tasks"
+msgstr "Total jumlah proses"
+
+#: sysdeps/names/mem.c:43
+msgid "Total Memory"
+msgstr "Memori total"
+
+#: sysdeps/names/mem.c:44
+msgid "Used Memory"
+msgstr "Memori yang digunakan"
+
+#: sysdeps/names/mem.c:45
+msgid "Free Memory"
+msgstr "Memori bebas"
+
+#: sysdeps/names/mem.c:46
+msgid "Shared Memory"
+msgstr "Memori Share"
+
+#: sysdeps/names/mem.c:47
+msgid "Buffers"
+msgstr "Buffer"
+
+#: sysdeps/names/mem.c:48
+msgid "Cached"
+msgstr "Dicache"
+
+#: sysdeps/names/mem.c:49
+msgid "User"
+msgstr "User"
+
+#: sysdeps/names/mem.c:50
+msgid "Locked"
+msgstr "Dikunci"
+
+#: sysdeps/names/mem.c:55
+msgid "Total physical memory in kB"
+msgstr "Jumlah memori fisik dalam satuan kB"
+
+#: sysdeps/names/mem.c:56
+msgid "Used memory size in kB"
+msgstr "Jumlah memori terpakai dalam satuan kB"
+
+#: sysdeps/names/mem.c:57
+msgid "Free memory size in kB"
+msgstr "Ukuran memori bebas dalam kB"
+
+#: sysdeps/names/mem.c:58
+msgid "Shared memory size in kB"
+msgstr "Jumlah memori share dalam satuan kB"
+
+#: sysdeps/names/mem.c:59
+msgid "Size of buffers kB"
+msgstr "Ukuran buffer dalam kB"
+
+#: sysdeps/names/mem.c:60
+msgid "Size of cached memory in kB"
+msgstr "Jumlah memori tercache dalam kB"
+
+#: sysdeps/names/mem.c:61
+msgid "Memory used from user processes in kB"
+msgstr "Jumlah memori yang digunakan user dalam satuan kB"
+
+#: sysdeps/names/mem.c:62
+msgid "Memory in locked pages in kB"
+msgstr "Jumlah halaman terkunci dalam kB"
+
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
+msgid "Size in kilobytes of message pool"
+msgstr "Ukuran Pool pesan dalam kB"
+
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
+msgid "Number of entries in message map"
+msgstr "Jumlah pesan dalam peta message"
+
+#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
+msgid "Max size of message"
+msgstr "Ukuran terbesar suatu message"
+
+#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
+msgid "Default max size of queue"
+msgstr "Default ukuran terbesar suatu antrian"
+
+#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
+msgid "Max queues system wide"
+msgstr "Jumlah antrian terbesar di sistem"
+
+#: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
+msgid "Message segment size"
+msgstr "Ukuran segmen message"
+
+#: sysdeps/names/msg_limits.c:48 sysdeps/names/msg_limits.c:59
+msgid "Number of system message headers"
+msgstr "Jumlah header message sistem"
+
+#: sysdeps/names/prockernel.c:44
+msgid "K_Flags"
+msgstr "K_Flags"
+
+#: sysdeps/names/prockernel.c:44
+msgid "Min_Flt"
+msgstr "Min_Flt"
+
+#: sysdeps/names/prockernel.c:44
+msgid "Maj_Flt"
+msgstr "Maj_Flt"
+
+#: sysdeps/names/prockernel.c:44
+msgid "CMin_Flt"
+msgstr "CMin_Flt"
+
+#: sysdeps/names/prockernel.c:45
+msgid "CMaj_Flt"
+msgstr "CMaj_Flt"
+
+#: sysdeps/names/prockernel.c:45
+msgid "KStk_ESP"
+msgstr "KStk_ESP"
+
+#: sysdeps/names/prockernel.c:45
+msgid "KStk_EIP"
+msgstr "KStk_EIP"
+
+#: sysdeps/names/prockernel.c:45
+msgid "NWChan"
+msgstr "NWChan"
+
+#: sysdeps/names/prockernel.c:46
+msgid "WChan"
+msgstr "WChan"
+
+#. K_Flags
+#: sysdeps/names/prockernel.c:52
+msgid ""
+"Kernel flags of the process.\n"
+"\n"
+"On Linux, currently every flag has the math bit set, because crt0.s checks "
+"for math emulation, so this is not included in the output.\n"
+"\n"
+"This is probably a bug, as not every process is a compiled C program.\n"
+"\n"
+"The math bit should be a decimal 4, and the traced bit is decimal 10."
+msgstr ""
+"Flag kernel untuk proses\n"
+"\n"
+"Di sistem Linux, tiap-tiap flag memiliki bit math sudah diset, sebab crt0.s "
+"akan memeriksa emulasi matematik, jadi flag ini tidak diikutkan pada hasil "
+"keluaran.\n"
+"\n"
+"Ini bisa dianggap sebagai bug, karena tidak semua proses adalah hasil "
+"kompilasi dari program C.\n"
+"\n"
+"Bit math seharusnya diset bernilai 4 desimal, dan bit trace bernilai 10 "
+"desimal."
+
+#. Min_Flt
+#: sysdeps/names/prockernel.c:61
+msgid ""
+"The number of minor faults the process has made, those which have not "
+"required loading a memory page from disk."
+msgstr ""
+"Jumlah kesalahan minor yang dibuat oleh sebuah proses yang tidak membuka "
+"halaman memori dari disk."
+
+#. Maj_Flt
+#: sysdeps/names/prockernel.c:64
+msgid ""
+"The number of major faults the process has made, those which have required "
+"loading a memory page from disk."
+msgstr ""
+"Jumlah kesalahan besar yang dibuat sebuah proses yang membuka halaman memori "
+"dari disk."
+
+#. CMin_Flt
+#: sysdeps/names/prockernel.c:67
+msgid "The number of minor faults that the process and its children have made."
+msgstr "Jumlah kesalahan minor yang dibuat oleh proses dan anak-anaknya."
+
+#. CMaj_Flt
+#: sysdeps/names/prockernel.c:70
+msgid "The number of major faults that the process and its children have made."
+msgstr "Jumlah kesalahan besar yang dibuat oleh proses dan anak-anaknya."
+
+#. KStk_ESP
+#: sysdeps/names/prockernel.c:73
+msgid ""
+"The current value of esp (32-bit stack pointer), as found in the kernel "
+"stack page for the process."
+msgstr ""
+"Nilai esp (pointer stack 32-bit), yang ada pada halaman stack kernel yang "
+"disediakan untuk sebuah proses."
+
+#. KStk_EIP
+#: sysdeps/names/prockernel.c:76
+msgid "The current EIP (32-bit instruction pointer)."
+msgstr "Nilai EIP (pointer perintah 32-bit)."
+
+#. NWChan
+#: sysdeps/names/prockernel.c:78
+msgid ""
+"This is the \"channel\" in which the process is waiting.  This is the "
+"address of a system call, and can be looked up in a namelist if you need a "
+"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
+"see the WCHAN field in action)"
+msgstr ""
+"Ini adalah \"channel\" tempat proses menunggu giliran. Ini adalah alamat "
+"system call, dan namanya dapat dicari dari daftar nama. (Bila Anda memiliki /"
+"etc/psdatabase, cobalah lakukan ps -l untuk melihat angka WCHAN)"
+
+#. WChan
+#: sysdeps/names/prockernel.c:83
+msgid "This is the textual name of the `nwchan' field."
+msgstr "Ini adalah nama tekstual 'nwchan'."
+
+#: sysdeps/names/procmem.c:49
+msgid "Size"
+msgstr "Ukuran"
+
+#: sysdeps/names/procmem.c:49
+msgid "Virtual"
+msgstr "Virtual"
+
+#: sysdeps/names/procmem.c:49
+msgid "Resident"
+msgstr "Tetap"
+
+#: sysdeps/names/procmem.c:49
+msgid "Share"
+msgstr "Share"
+
+#: sysdeps/names/procmem.c:50
+msgid "Resident Set Size"
+msgstr "Ukuran Set Tetap"
+
+#: sysdeps/names/procmem.c:50
+msgid "Resident Set Size Limit"
+msgstr "Batas Ukuran Set Tetap"
+
+#: sysdeps/names/procmem.c:55
+msgid "Total # of pages of memory"
+msgstr "Jumlah halaman memori"
+
+#: sysdeps/names/procmem.c:56
+msgid "Number of pages of virtual memory"
+msgstr "Jumlah halaman memori virtual"
+
+#: sysdeps/names/procmem.c:57
+msgid "Number of resident set (non-swapped) pages"
+msgstr "Jumlah halaman set (yang tidak diswap) tetap"
+
+#: sysdeps/names/procmem.c:58
+msgid "Number of pages of shared (mmap'd) memory"
+msgstr "Jumlah halaman memori shared (hasil mmap)"
+
+#: sysdeps/names/procmem.c:59
+msgid ""
+"Number of pages the process has in real memory, minus 3 for administrative "
+"purposes. This is just the pages which count towards text, data, or stack "
+"space. This does not include pages which have not been demand-loaded in, or "
+"which are swapped out."
+msgstr ""
+"Jumlah halaman proses dalam memori yang nyata, dikurangi angka 3 untuk "
+"keperluan administrasi. Nilai ini merupakan halaman yang menghitung teks, "
+"data, atau ruang stack. Nilai ini tidak termasuk halaman yang tidak load "
+"secara sengaja, atau halaman yang diswap out."
+
+#: sysdeps/names/procmem.c:64
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr "Batas rss suatu proses dalam satuan bytes (biasanya 2.147.483.647)."
+
+#: sysdeps/names/procsegment.c:50
+msgid "Text_RSS"
+msgstr "Text_RSS"
+
+#: sysdeps/names/procsegment.c:50
+msgid "ShLib_RSS"
+msgstr "ShLib_RSS"
+
+#: sysdeps/names/procsegment.c:50
+msgid "Data_RSS"
+msgstr "Data_RSS"
+
+#: sysdeps/names/procsegment.c:50
+msgid "Stack_RSS"
+msgstr "Stack_RSS"
+
+#: sysdeps/names/procsegment.c:51
+msgid "Dirty Size"
+msgstr "Ukuran Kotor"
+
+#: sysdeps/names/procsegment.c:51
+msgid "Start_Code"
+msgstr "Start_Code"
+
+#: sysdeps/names/procsegment.c:51
+msgid "End_Code"
+msgstr "End_Code"
+
+#: sysdeps/names/procsegment.c:52
+msgid "Start_Data"
+msgstr "Start_Data"
+
+#: sysdeps/names/procsegment.c:52
+msgid "End_Data"
+msgstr "End_Data"
+
+#: sysdeps/names/procsegment.c:52
+msgid "Start_Brk"
+msgstr "Start_Brk"
+
+#: sysdeps/names/procsegment.c:52
+msgid "Brk"
+msgstr "Brk"
+
+#: sysdeps/names/procsegment.c:53
+msgid "Start_Stack"
+msgstr "Start_Stack"
+
+#: sysdeps/names/procsegment.c:53
+msgid "Start_MMap"
+msgstr "Start_MMap"
+
+#: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
+msgid "Arg_Start"
+msgstr "Arg_Start"
+
+#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
+msgid "Arg_End"
+msgstr "Arg_End"
+
+#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
+msgid "Env_Start"
+msgstr "Env_Start"
+
+#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
+msgid "Env_End"
+msgstr "Env_End"
+
+#: sysdeps/names/procsegment.c:59
+msgid "Text resident set size"
+msgstr "Ukuran set teks tetap"
+
+#: sysdeps/names/procsegment.c:60
+msgid "Shared-Lib resident set size"
+msgstr "Ukuran set shared-lib tetap"
+
+#: sysdeps/names/procsegment.c:61
+msgid "Data resident set size"
+msgstr "Ukuran set data tetap"
+
+#: sysdeps/names/procsegment.c:62
+msgid "Stack resident set size"
+msgstr "Ukuran set stack tetap"
+
+#: sysdeps/names/procsegment.c:63
+msgid "Total size of dirty pages"
+msgstr "Jumlah ukuran halaman kotor"
+
+#: sysdeps/names/procsegment.c:64
+msgid "Address of beginning of code segment"
+msgstr "Alamat awal segmen kode"
+
+#: sysdeps/names/procsegment.c:65
+msgid "Address of end of code segment"
+msgstr "Alamat akhir segmen kode"
+
+#: sysdeps/names/procsegment.c:66
+msgid "Address of beginning of data segment"
+msgstr "Alamat awal segmen data"
+
+#: sysdeps/names/procsegment.c:67
+msgid "Address of end of data segment"
+msgstr "Alamat akhir segmen data"
+
+#: sysdeps/names/procsegment.c:68
+msgid "Brk_Start"
+msgstr "Brk_Start"
+
+#: sysdeps/names/procsegment.c:69
+msgid "Brk_End"
+msgstr "Brk_End"
+
+#: sysdeps/names/procsegment.c:70
+msgid "Address of the bottom of stack segment"
+msgstr "Alamat bawah segmen stack"
+
+#: sysdeps/names/procsegment.c:71
+msgid "Start of mmap()ed areas"
+msgstr "Alamat area yang ter-mmap()"
+
+#: sysdeps/names/procsignal.c:42
+msgid "Signal"
+msgstr "Sinyal"
+
+#: sysdeps/names/procsignal.c:42
+msgid "Blocked"
+msgstr "Diblok"
+
+#: sysdeps/names/procsignal.c:42
+msgid "SigIgnore"
+msgstr "SigIgnore"
+
+#: sysdeps/names/procsignal.c:42
+msgid "SigCatch"
+msgstr "SigCatch"
+
+#: sysdeps/names/procsignal.c:47
+msgid "Mask of pending signals"
+msgstr "Mask sinyal yang ditunda"
+
+#: sysdeps/names/procsignal.c:48
+msgid "Mask of blocked signals"
+msgstr "Mask sinyal yang diblok"
+
+#: sysdeps/names/procsignal.c:49
+msgid "Mask of ignored signals"
+msgstr "Mask sinyal yang diabaikan"
+
+#: sysdeps/names/procsignal.c:50
+msgid "Mask of caught signals"
+msgstr "Mask sinyal yang tertangkap"
+
+#: sysdeps/names/procstate.c:45
+msgid "Cmd"
+msgstr "Cmd"
+
+#: sysdeps/names/procstate.c:45
+msgid "State"
+msgstr "Kondisi"
+
+#: sysdeps/names/procstate.c:45
+msgid "UID"
+msgstr "UID"
+
+#: sysdeps/names/procstate.c:45
+msgid "GID"
+msgstr "GID"
+
+#: sysdeps/names/procstate.c:45
+msgid "RUID"
+msgstr "RUID"
+
+#: sysdeps/names/procstate.c:46
+msgid "RGID"
+msgstr "RGID"
+
+#: sysdeps/names/procstate.c:46
+msgid "Has CPU"
+msgstr "Ada CPU"
+
+#: sysdeps/names/procstate.c:46
+msgid "Processor"
+msgstr "Prosesor"
+
+#: sysdeps/names/procstate.c:47
+msgid "Last Processor"
+msgstr "Prosesor terakhir"
+
+#: sysdeps/names/procstate.c:52
+msgid "Basename of executable file in call to exec()"
+msgstr "Nama dasar file yang dapat dijalankan lewat perintah exec()"
+
+#: sysdeps/names/procstate.c:53
+msgid "Single-Char code for process state (S=sleeping)"
+msgstr "Kode kondisi status (S=Tidur)"
+
+#: sysdeps/names/procstate.c:54
+msgid "effective UID of process"
+msgstr "UID efektif proses"
+
+#: sysdeps/names/procstate.c:55
+msgid "effective GID of process"
+msgstr "GID efektif proses"
+
+#: sysdeps/names/procstate.c:56
+msgid "real UID of process"
+msgstr "UID asli proses"
+
+#: sysdeps/names/procstate.c:57
+msgid "real GID of process"
+msgstr "GID asli proses"
+
+#: sysdeps/names/procstate.c:58
+msgid "has_cpu"
+msgstr "punya_cpu"
+
+#: sysdeps/names/procstate.c:59
+msgid "processor"
+msgstr "prosesor"
+
+#: sysdeps/names/procstate.c:60
+msgid "last_processor"
+msgstr "prosesor_terakhir"
+
+#: sysdeps/names/proctime.c:46
+msgid "Start_Time"
+msgstr "Waktu_Awal"
+
+#: sysdeps/names/proctime.c:46
+msgid "RTime"
+msgstr "RTime"
+
+#: sysdeps/names/proctime.c:46
+msgid "UTime"
+msgstr "UTime"
+
+#: sysdeps/names/proctime.c:46
+msgid "STime"
+msgstr "STime"
+
+#: sysdeps/names/proctime.c:47
+msgid "CUTime"
+msgstr "CUTime"
+
+#: sysdeps/names/proctime.c:47
+msgid "CSTime"
+msgstr "CSTime"
+
+#: sysdeps/names/proctime.c:47
+msgid "TimeOut"
+msgstr "TimeOut"
+
+#: sysdeps/names/proctime.c:47
+msgid "It_Real_Value"
+msgstr "It_Real_Value"
+
+#: sysdeps/names/proctime.c:48
+msgid "Frequency"
+msgstr "Frekuensi"
+
+#: sysdeps/names/proctime.c:48
+msgid "XCPU_UTime"
+msgstr "XCPU_UTime"
+
+#: sysdeps/names/proctime.c:48
+msgid "XCPU_STime"
+msgstr "XCPU_STime"
+
+#: sysdeps/names/proctime.c:49
+msgid "XCPU_Flags"
+msgstr "XCPU_Flags"
+
+#: sysdeps/names/proctime.c:54
+msgid "Start time of process in seconds since the epoch"
+msgstr "Waktu awal proses dalam satuan detik sejak epoch"
+
+#: sysdeps/names/proctime.c:55
+msgid "Real time accumulated by process (should be utime + stime)"
+msgstr ""
+"Waktu yang sebenarnya yang diakumulasikan proses (harus bernilai utime + "
+"stime)"
+
+#: sysdeps/names/proctime.c:56
+msgid "user-mode CPU time accumulated by process"
+msgstr "Waktu CPU modus user yang diakumulasikan proses"
+
+#: sysdeps/names/proctime.c:57
+msgid "kernel-mode CPU time accumulated by process"
+msgstr "Waktu CPU modus kernel yang diakumulasikan proses"
+
+#: sysdeps/names/proctime.c:58
+msgid "cumulative utime of process and reaped children"
+msgstr "Utime proses kumulatif dan anak-anaknya"
+
+#: sysdeps/names/proctime.c:59
+msgid "cumulative stime of process and reaped children"
+msgstr "stime proses kumulatif dan anak-anaknya"
+
+#: sysdeps/names/proctime.c:60
+msgid "The time (in jiffies) of the process's next timeout"
+msgstr "Waktu (dalam satuan jiffy) timout proses berikutnya"
+
+#: sysdeps/names/proctime.c:61
+msgid ""
+"The time (in jiffies) before the next SIGALRM is sent to the process due to "
+"an interval timer."
+msgstr ""
+"Waktu (dalam satuan jiffy) sebelum SIGALRM berikutnya dikirimkan ke proses "
+"karena adanya pewaktu interval."
+
+#: sysdeps/names/proctime.c:63
+msgid "Tick frequency"
+msgstr "Frekuensi Tik"
+
+#: sysdeps/names/proctime.c:64
+msgid "SMP user-mode CPU time accumulated by process"
+msgstr "Waktu CPU modus user SMP yang diakumulasikan proses"
+
+#: sysdeps/names/proctime.c:65
+msgid "SMP kernel-mode CPU time accumulated by process"
+msgstr "Waktu CPU modus kernel SMP yang diakumulasikan proses"
+
+#: sysdeps/names/procuid.c:48
+msgid "Uid"
+msgstr "Uid"
+
+#: sysdeps/names/procuid.c:48
+msgid "EUid"
+msgstr "EUid"
+
+#: sysdeps/names/procuid.c:48
+msgid "Gid"
+msgstr "Gid"
+
+#: sysdeps/names/procuid.c:48
+msgid "EGid"
+msgstr "EGid"
+
+#: sysdeps/names/procuid.c:48
+msgid "SUid"
+msgstr "SUid"
+
+#: sysdeps/names/procuid.c:49
+msgid "SGid"
+msgstr "SGid"
+
+#: sysdeps/names/procuid.c:49
+msgid "FsUid"
+msgstr "FsUid"
+
+#: sysdeps/names/procuid.c:49
+msgid "FsGid"
+msgstr "FsGid"
+
+#: sysdeps/names/procuid.c:49
+msgid "Pid"
+msgstr "Pid"
+
+#: sysdeps/names/procuid.c:50
+msgid "PPid"
+msgstr "PPid"
+
+#: sysdeps/names/procuid.c:50
+msgid "PGrp"
+msgstr "PGrp"
+
+#: sysdeps/names/procuid.c:50
+msgid "Session"
+msgstr "Sesi"
+
+#: sysdeps/names/procuid.c:50
+msgid "Tty"
+msgstr "Tty"
+
+#: sysdeps/names/procuid.c:51
+msgid "TPGid"
+msgstr "TPGid"
+
+#: sysdeps/names/procuid.c:51
+msgid "Priority"
+msgstr "Prioritas"
+
+#: sysdeps/names/procuid.c:51
+msgid "Nice"
+msgstr "Nilai Nice"
+
+#: sysdeps/names/procuid.c:51
+msgid "NGroups"
+msgstr "NGrup"
+
+#: sysdeps/names/procuid.c:52
+msgid "Groups"
+msgstr "Grup"
+
+#: sysdeps/names/procuid.c:57
+msgid "User ID"
+msgstr "ID User"
+
+#: sysdeps/names/procuid.c:58
+msgid "Effective User ID"
+msgstr "ID User Efektif"
+
+#: sysdeps/names/procuid.c:59
+msgid "Group ID"
+msgstr "ID Grup"
+
+#: sysdeps/names/procuid.c:60
+msgid "Effective Group ID"
+msgstr "ID Grup efektif"
+
+#: sysdeps/names/procuid.c:61
+msgid "Saved User ID"
+msgstr "ID User tersimpan"
+
+#: sysdeps/names/procuid.c:62
+msgid "Saved Group ID"
+msgstr "ID Grup tersimpan"
+
+#: sysdeps/names/procuid.c:63
+msgid "Filesystem User ID"
+msgstr "User ID Sistem File"
+
+#: sysdeps/names/procuid.c:64
+msgid "Filesystem Group ID"
+msgstr "ID Grup Sistem File"
+
+#: sysdeps/names/procuid.c:65
+msgid "Process ID"
+msgstr "ID Proses"
+
+#: sysdeps/names/procuid.c:66
+msgid "PID of parent process"
+msgstr "PID Proses bapak"
+
+#: sysdeps/names/procuid.c:67
+msgid "Process group ID"
+msgstr "ID Grup proses"
+
+#: sysdeps/names/procuid.c:68
+msgid "Session ID"
+msgstr "ID Sesi"
+
+#: sysdeps/names/procuid.c:69
+msgid "Full device number of controlling terminal"
+msgstr "Angka perangkat yang mengatur terminal"
+
+#: sysdeps/names/procuid.c:70
+msgid "Terminal process group ID"
+msgstr "ID Grup proses terminal"
+
+#: sysdeps/names/procuid.c:71
+msgid "Kernel scheduling priority"
+msgstr "Prioritas penjadwalan kernel"
+
+#: sysdeps/names/procuid.c:72
+msgid "Standard unix nice level of process"
+msgstr "Nilai tingkat nice standar Unix pada proses"
+
+#: sysdeps/names/procuid.c:73
+msgid "Number of additional process groups"
+msgstr "Jumlah grup proses tambahan"
+
+#: sysdeps/names/procuid.c:74
+msgid "Additional process groups"
+msgstr "Grup proses tambahan"
+
+#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
+msgid "Number of entries in semaphore map"
+msgstr "Jumlah anggota pada peta semapur"
+
+#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
+msgid "Max number of arrays"
+msgstr "Maksimum jumlah array"
+
+#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
+msgid "Max semaphores system wide"
+msgstr "Maksimum jumlah semapur di sistem"
+
+#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
+msgid "Number of undo structures system wide"
+msgstr "Jumlah struktur undo di sistem"
+
+#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
+msgid "Max semaphores per array"
+msgstr "Maksimum semapur per array"
+
+#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
+msgid "Max ops per semop call"
+msgstr "Maksimum ops per panggilan semop"
+
+#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
+msgid "Max number of undo entries per process"
+msgstr "Maksimum jumlah anggota undo per proses"
+
+#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
+msgid "sizeof struct sem_undo"
+msgstr "sizeof struct sem_undo"
+
+#: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
+msgid "Semaphore max value"
+msgstr "Nilai maks Semapur"
+
+#: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
+msgid "Adjust on exit max value"
+msgstr "nilai maksimum adjust on exit"
+
+#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
+msgid "Max segment size"
+msgstr "Ukuran maksimum segmen"
+
+#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
+msgid "Min segment size"
+msgstr "Ukuran terkecil segmen"
+
+#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
+msgid "Max number of segments"
+msgstr "Maksimum jumlah segmen"
+
+#: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
+msgid "Max shared segments per process"
+msgstr "Maksimum segmen shared per proses"
+
+#: sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
+msgid "Max total shared memory"
+msgstr "Maksimum total memori shared"
+
+#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
+msgid "Total Swap Space"
+msgstr "Jumlah ruang swap"
+
+#: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
+msgid "Used Swap Space"
+msgstr "Ruang swap yang terpakai"
+
+#: sysdeps/names/swap.c:43 sysdeps/names/swap.c:52
+msgid "Free Swap Space"
+msgstr "Ruang Swap yang bebas"
+
+#: sysdeps/names/swap.c:44
+msgid "Page In"
+msgstr "Halaman Masuk"
+
+#: sysdeps/names/swap.c:45
+msgid "Page Out"
+msgstr "Halaman Keluar"
+
+#: sysdeps/names/swap.c:53
+msgid "Total number of swap pages that have been brought in since system boot"
+msgstr "Jumlah halaman swap yang sudah dimasukkan sejak sistem boot"
+
+#: sysdeps/names/swap.c:55
+msgid "Total number of swap pages that have been brought out since system boot"
+msgstr "Jumlah halaman swap yang sudah dikeluarkan sejak sistem boot"
+
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
+msgid "Server Features"
+msgstr "Fitur Server"
+
+#: sysdeps/names/sysdeps.c:54
+msgid "Pointer Size"
+msgstr "Ukuran Pointer"
+
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
+msgid "CPU Usage"
+msgstr "Penggunaan CPU"
+
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
+msgid "Memory Usage"
+msgstr "Penggunaan Memori"
+
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
+msgid "Swap Usage"
+msgstr "Penggunaan Swap"
+
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
+msgid "System Uptime"
+msgstr "Umur Sistem"
+
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
+msgid "Load Averange"
+msgstr "Beban rata-rata"
+
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
+msgid "Shared Memory Limits"
+msgstr "Batas Memory shared"
+
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
+msgid "Message Queue Limits"
+msgstr "Batas Antrian Pesan"
+
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
+msgid "Semaphore Set Limits"
+msgstr "Batas Set Semapur"
+
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
+msgid "List of running Processes"
+msgstr "Daftar proses yang sedang jalan"
+
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
+msgid "Process Status information"
+msgstr "Informasi kondisi proses"
+
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
+msgid "Process UID and TTY information"
+msgstr "UID Proses dan informasi TTY"
+
+#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
+msgid "Process Memory information"
+msgstr "Informasi memori proses"
+
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
+msgid "Process Time information"
+msgstr "informasi Waktu Proses"
+
+#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
+msgid "Process Signal information"
+msgstr "Informasi Sinyal Proses"
+
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
+msgid "Process Kernel Data information"
+msgstr "Informasi Data Kernel Proses"
+
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
+msgid "Process Segment information"
+msgstr "Informasi Segmen Proses"
+
+#: sysdeps/names/sysdeps.c:71
+msgid "Process CWD"
+msgstr "CWD Proses"
+
+#: sysdeps/names/sysdeps.c:72
+msgid "Process Arguments"
+msgstr "Argumen Proses"
+
+#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
+msgid "Process Memory Map"
+msgstr "Peta Memori Proses"
+
+#: sysdeps/names/sysdeps.c:74
+msgid "Mount List"
+msgstr "Daftar Mount"
+
+#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
+msgid "File System Usage"
+msgstr "Penggunaan Sistem File"
+
+#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
+msgid "Network Load"
+msgstr "Beban Jaringan"
+
+#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
+msgid "Interface Names"
+msgstr "Nama Interface"
+
+#: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
+msgid "PPP Statistics"
+msgstr "Statistik PPP"
+
+#: sysdeps/names/sysdeps.c:84
+msgid "Pointer Size on the Server (in bits)"
+msgstr "Ukuran pointer pada Server (dalam satuan bit)"
+
+#: sysdeps/names/sysdeps.c:101
+msgid "Current working directory of the process"
+msgstr "Direktori aktif saat ini pada proses"
+
+#: sysdeps/names/sysdeps.c:102
+msgid "Command line arguments of the process"
+msgstr "Argumen perintah proses"
+
+#: sysdeps/names/sysdeps.c:104
+msgid "List of currently mounted filesystems"
+msgstr "Daftar sistem file yang dimount"
+
+#: sysdeps/names/uptime.c:40
+msgid "Uptime"
+msgstr "Umur"
+
+#: sysdeps/names/uptime.c:41
+msgid "Idletime"
+msgstr "Waktu nganggur"
+
+#: sysdeps/names/uptime.c:42
+msgid "Boot time"
+msgstr "Waktu Boot"
+
+#: sysdeps/names/uptime.c:47
+msgid "Time in seconds since system boot"
+msgstr "Waktu dalam detik sejak sistem boot"
+
+#: sysdeps/names/uptime.c:48
+msgid "Time in seconds the system spent in the idle task since system boot"
+msgstr ""
+"Waktu dalam detik yang dihabiskan sistem dalam keadaan nganggur sejak sistem "
+"boot"
+
+#: sysdeps/names/uptime.c:49
+msgid "Boot time (seconds sice epoch)"
+msgstr "Waktu boot (dalam satuan detik sejak epoch"
