@@ -1101,19 +1101,19 @@ msgstr "Skupno ¹tevilo strani z diska, ki so bile shranjene od zagona sistema"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
-msgstr "Lastnosti Stre¾nika"
+msgstr "Lastnosti stre¾nika"
 
 #: sysdeps/names/sysdeps.c:54
 msgid "Pointer Size"
-msgstr "Velikost Kazalca"
+msgstr "Velikost kazalca"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
 msgid "CPU Usage"
-msgstr "Uporaba CPU-ja"
+msgstr "Uporaba procesorja"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
 msgid "Memory Usage"
-msgstr "Uporaba Pomnilnika"
+msgstr "Poraba pomnilnika"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
 msgid "Swap Usage"
@@ -1129,15 +1129,15 @@ msgstr "Povpreèna zasedenost"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
 msgid "Shared Memory Limits"
-msgstr "Limiti Deljenega Pomnilnika"
+msgstr "Omejitve deljenega pomnilnika"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
 msgid "Message Queue Limits"
-msgstr "Limiti Vrste s Sporoèili"
+msgstr "Omejitve vrste s sporoèili"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
 msgid "Semaphore Set Limits"
-msgstr "Limiti Semaforjev"
+msgstr "Omejitve semaforjev"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
 msgid "List of running Processes"
@@ -1169,7 +1169,7 @@ msgstr "Podatki o procesu, ki jih ima jedro"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
 msgid "Process Segment information"
-msgstr "Podatki o Segmentu Procesa"
+msgstr "Podatki o segmentu procesa"
 
 #: sysdeps/names/sysdeps.c:71
 msgid "Process CWD"
@@ -1177,11 +1177,11 @@ msgstr "Procesov trenutni delavni imenik"
 
 #: sysdeps/names/sysdeps.c:72
 msgid "Process Arguments"
-msgstr "Argumenti Procesa"
+msgstr "Argumenti procesa"
 
 #: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
 msgid "Process Memory Map"
-msgstr "Pomnilni¹ka Karta Procesa"
+msgstr "Pomnilni¹ka karta procesa"
 
 #: sysdeps/names/sysdeps.c:74
 msgid "Mount List"
@@ -1189,19 +1189,19 @@ msgstr "Seznam Priklopov"
 
 #: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
 msgid "File System Usage"
-msgstr "Uporaba Datoteènih sistemov"
+msgstr "Uporaba datoteènih sistemov"
 
 #: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
 msgid "Network Load"
-msgstr "Zasedenost Mre¾e"
+msgstr "Zasedenost mre¾e"
 
 #: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
 msgid "Interface Names"
-msgstr "Imena Vmesnikov"
+msgstr "Imena vmesnikov"
 
 #: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
 msgid "PPP Statistics"
-msgstr "PPP Statistika"
+msgstr "Statistika PPP"
 
 #: sysdeps/names/sysdeps.c:84
 msgid "Pointer Size on the Server (in bits)"
