@@ -1,4 +1,8 @@
-2003-02-25  T√µivo Leedj√§rv  <toivo@linux.ee>
+2003-03-08  Gil "Dolfin" Osher <dolfin@rpg.org.il>
+
+	* configure.in: Added he to ALL_LINGUAS.
+
+2003-02-25  T?µivo Leedj?§rv  <toivo@linux.ee>
 
 	* configure.in: Added et to ALL_LINGUAS.
 
