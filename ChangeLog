@@ -1,3 +1,14 @@
+2000-11-21  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in: Removed gnomesupport checks here and started
+	to use pkg-config.
+
+	* acinclude.m4: New file. Put contents of libgtop-sysdeps.m4
+	and xml.m4 and LIBGTOP_CHECK_TYPE here.
+	* libgtop-sysdeps.m4, xml.m4: Removed.
+
+	* Makefile.am (SUBDIRS): Don't compile support and macros.
+
 2000-11-20  Martin Baulig  <baulig@suse.de>
 
 	Started with the big rewrite for GNOME 2.0:

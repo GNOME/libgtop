@@ -50,8 +50,10 @@ AC_SUBST(LT_CURRENT)
 AC_SUBST(LT_REVISION)
 AC_SUBST(LT_AGE)
 
+GNOME_INTERFACE_VERSION=2
+AC_SUBST(GNOME_INTERFACE_VERSION)
+
 GNOME_COMMON_INIT
-AM_ACLOCAL_INCLUDE(.)
 
 AC_ISC_POSIX
 AC_PROG_CC
@@ -92,27 +94,9 @@ AM_PROG_LIBTOOL
 dnl Let the user enable compiler warnings
 GNOME_COMPILE_WARNINGS
 
-GNOME_INIT_HOOK(gnome_found=yes)
-
-if test "x$gnome_found" != xyes; then
-  if test "x$want_gnome" != xno ; then
-    AC_MSG_ERROR([
-*** GNOME was not found on this system. ***
-
-*** If you want to use LibGTop without GNOME, you need
-*** to give configure the --without-gnome parameter.
-])
-  else
-    AC_DEFINE(WITHOUT_GNOME)
-  fi
-  GNOME_SUPPORT_CHECKS
-else
-  if test "x$want_gnome" != xno ; then
-    AM_CONDITIONAL(BUILD_GNOME_SUPPORT, false)
-  else
-    GNOME_SUPPORT_CHECKS
-  fi
-fi
+PKG_CHECK_MODULES(GNOMESUPPORT, gnome-support-2.0:1.2.1)
+AC_SUBST(GNOMESUPPORT_CFLAGS)
+AC_SUBST(GNOMESUPPORT_LIBS)
 
 AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 
@@ -227,17 +211,6 @@ AC_CHECK_LIB(kvm, kvm_open,[
 dnl For DEC OSF1
 AC_CHECK_LIB(mach, vm_statistics)
 
-dnl For some broken libc5 systems (Debian 1.3)                                                           
-saved_CFLAGS=$CFLAGS                                                                                     
-CFLAGS="$CFLAGS -D_GNU_SOURCE"                                                                           
-GCC_NEED_DECLARATION(program_invocation_name, [                           
-#include <errno.h>                                                                                       
-#include <stdio.h>                                                                                       
-#include <stdlib.h>                                                                                      
-#include <string.h>                                                                                      
-])                                                                                                       
-CFLAGS=$saved_CFLAGS                                                                                     
-                                                                                                         
 dnl Check for Internet sockets.
 AC_CHECK_FUNC(socket,
  [AC_CHECK_HEADER(netinet/in.h,
@@ -262,7 +235,7 @@ AC_CHECK_FUNCS(getcwd gettimeofday getwd putenv strdup strtoul uname)
 
 dnl ## all 'es_??' are only needed for format numbers different of 'es'
 ALL_LINGUAS="ca da de el es es_DO es_GT es_HN es_MX es_PA es_PE es_SV fi fr ga gl hu ja ko nl no pl pt_BR ru sl sv uk zh_CN.GB2312"
-AM_GNOME_GETTEXT
+AM_GNOME2_GETTEXT
 
 AC_PATH_XTRA
 
@@ -581,6 +554,4 @@ backends/sysdeps/Makefile
 backends/common/Makefile
 lib/Makefile
 doc/Makefile
-dtd/Makefile
-support/Makefile
-macros/Makefile])
+dtd/Makefile])

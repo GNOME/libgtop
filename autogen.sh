@@ -14,7 +14,7 @@ PKG_NAME="GNOME Portable System Access Library"
     exit 1
 }
 
-USE_GNOME_2_MACROS=1 . gnome-autogen.sh
+USE_GNOME2_MACROS=1 . gnome-autogen.sh
 
 echo ""
 echo " *** IMPORTANT *** "

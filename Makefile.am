@@ -1,11 +1,6 @@
 ## Process this file with automake to produce Makefile.in.
 
-if BUILD_GNOME_SUPPORT
-support = support
-endif
-
-SUBDIRS = po intl $(support) macros misc include sysdeps backends lib \
-	  src doc dtd scripts
+SUBDIRS = po intl misc include sysdeps backends lib src doc dtd scripts
 
 include_HEADERS = glibtop.h
 configincludedir = $(pkglibdir)/include
@@ -43,14 +38,6 @@ confexec_DATA	= $(top_builddir)/libgtopConf.sh \
 CLEANFILES=libgtopConf.sh
 
 bin_SCRIPTS = $(top_builddir)/libgtop-config
-
-## to automatically rebuild aclocal.m4 if any of the macros in
-## `macros/' change
-@MAINT@ include macros/macros.dep
-@MAINT@macros/macros.dep: macros/Makefile.am
-@MAINT@	cd macros && $(MAKE) macros.dep
-
-@MAINT@$(top_srcdir)/aclocal.m4: libgtop-sysdeps.m4 LIBGTOP-VERSION
 
 ## We create libgtopConf.sh here and not from configure because we want
 ## to get the paths expanded correctly.  Macros like srcdir are given

@@ -1,3 +1,35 @@
+dnl
+dnl LIBGTOP_CHECK_TYPE
+dnl
+dnl Improved version of AC_CHECK_TYPE which takes into account
+dnl that we need to #include some other header files on some
+dnl systems to get some types.
+
+dnl AC_LIBGTOP_CHECK_TYPE(TYPE, DEFAULT)
+AC_DEFUN(AC_LIBGTOP_CHECK_TYPE,
+[AC_REQUIRE([AC_HEADER_STDC])dnl
+AC_MSG_CHECKING(for $1)
+AC_CACHE_VAL(ac_cv_type_$1,
+[AC_EGREP_CPP(dnl
+changequote(<<,>>)dnl
+<<(^|[^a-zA-Z_0-9])$1[^a-zA-Z_0-9]>>dnl
+changequote([,]), [#include <sys/types.h>
+#if STDC_HEADERS
+#include <stdlib.h>
+#include <stddef.h>
+#endif
+
+/* For Tru64 */
+#ifdef HAVE_SYS_BITYPES_H
+#include <sys/bitypes.h>
+#endif
+], ac_cv_type_$1=yes, ac_cv_type_$1=no)])dnl
+AC_MSG_RESULT($ac_cv_type_$1)
+if test $ac_cv_type_$1 = no; then
+  AC_DEFINE($1, $2)
+fi
+])
+
 dnl This is used internally for <glibtop-config.h>.
 
 AC_DEFUN([GNOME_LIBGTOP_TYPES_PRIVATE],
@@ -489,3 +521,40 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	AM_CONDITIONAL(LIBGTOP_USE_GMODULE, test x$libgtop_use_gmodule = xyes)
 ])
 
+dnl
+dnl LIBGTOP_XML_HOOK (script-if-xml-found, failflag)
+dnl
+dnl If failflag is "failure", script aborts due to lack of XML
+dnl 
+dnl Check for availability of the libxml library
+dnl the XML parser uses libz if available too
+dnl
+
+AC_DEFUN([LIBGTOP_XML_HOOK],[
+	LIBGTOP_XML_LIB=
+	AC_PATH_PROG(XML_CONFIG,xml-config,no)
+	if test "$XML_CONFIG" = no; then
+		if test x$2 = xfailure; then
+			AC_MSG_ERROR(Could not find xml-config)
+		else
+			AC_MSG_WARN(Could not find xml-config)
+		fi
+	else
+		AC_CHECK_LIB(xml, xmlDocGetRootElement, [
+			$1
+			LIBGTOP_XML_LIB=`$XML_CONFIG --libs`
+			AC_DEFINE(HAVE_LIBXML)
+		], [
+			if test x$2 = xfailure; then 
+				AC_MSG_ERROR(Could not link sample xml program)
+			else
+				AC_MSG_WARN(Could not link sample xml program)
+			fi
+		], `$XML_CONFIG --libs`)
+	fi
+	AC_SUBST(LIBGTOP_XML_LIB)
+])
+
+AC_DEFUN([LIBGTOP_XML_CHECK], [
+	LIBGTOP_XML_HOOK([],failure)
+])
