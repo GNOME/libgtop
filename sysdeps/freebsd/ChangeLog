@@ -1,3 +1,8 @@
+1998-08-08  Martin Baulig  <martin@home-of-linux.org>
+
+	* swap.c: Added swap usage based upton the source code
+	of `pinfo'.
+
 1998-08-07  Martin Baulig  <martin@home-of-linux.org>
 
 	* *: Imported FreeBSD port of libgtop from Josh Sled.
