@@ -29,6 +29,7 @@ handle_parent_connection (int s)
 	glibtop_command _cmnd, *cmnd = &_cmnd;
 	glibtop_mountentry *mount_list;
 	char parameter [BUFSIZ];
+	int64_t *param_ptr;
 	int all_fs;
 	pid_t pid;
 	void *ptr;
@@ -116,19 +117,26 @@ handle_parent_connection (int s)
 			do_output (s, resp, _offset_data (loadavg), 0, NULL);
 			break;
 		case GLIBTOP_CMND_SHM_LIMITS:
-			glibtop_get_shm_limits_l (server, &resp->u.data.shm_limits);
+			glibtop_get_shm_limits_l
+				(server, &resp->u.data.shm_limits);
 			do_output (s, resp, _offset_data (shm_limits), 0, NULL);
 			break;
 		case GLIBTOP_CMND_MSG_LIMITS:
-			glibtop_get_msg_limits_l (server, &resp->u.data.msg_limits);
+			glibtop_get_msg_limits_l
+				(server, &resp->u.data.msg_limits);
 			do_output (s, resp, _offset_data (msg_limits), 0, NULL);
 			break;
 		case GLIBTOP_CMND_SEM_LIMITS:
-			glibtop_get_sem_limits_l (server, &resp->u.data.sem_limits);
+			glibtop_get_sem_limits_l
+				(server, &resp->u.data.sem_limits);
 			do_output (s, resp, _offset_data (sem_limits), 0, NULL);
 			break;
 		case GLIBTOP_CMND_PROCLIST:
-			ptr = glibtop_get_proclist_l (server, &resp->u.data.proclist);
+			param_ptr = (int64_t *) parameter;
+			ptr = glibtop_get_proclist_l (server,
+						      &resp->u.data.proclist,
+						      param_ptr [0],
+						      param_ptr [1]);
 			do_output (s, resp, _offset_data (proclist),
 				   resp->u.data.proclist.total, ptr);
 			glibtop_free_r (server, ptr);

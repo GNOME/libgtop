@@ -20,6 +20,8 @@ BEGIN {
 
   backconv["int"]          = "gh_scm2long";
   backconv["pid_t"]        = "gh_scm2ulong";
+  backconv["long"]         = "gh_scm2long";
+  backconv["ulong"]        = "gh_scm2ulong";
 }
 
 function make_output(line) {
@@ -27,17 +29,36 @@ function make_output(line) {
   retval = line_fields[1];
   element_def = line_fields[3];
   feature = line_fields[2];
-  param_typ = line_fields[4];
-  param = line_fields[5];
-  param_size = line_fields[6];
+  param_def = line_fields[4];
 
   sub(/^@/,"",feature);
   features[feature] = feature;
 
-  if (param == "")
-    output = "SCM\nglibtop_guile_get_"feature" (void)\n{\n";
-  else
-    output = "SCM\nglibtop_guile_get_"feature" (SCM "param")\n{\n";
+  if (param_def == "string") {
+    call_param = ", gh_scm2newstr( "line_fields[5]", NULL)";
+    param_decl = "SCM "line_fields[5];
+  } else {
+    call_param = "";
+    param_decl = "";
+    nr_params = split (param_def, params, /:/);
+    for (param = 1; param <= nr_params; param++) {
+      list = params[param];
+      type = params[param];
+      sub(/\(.*/, "", type);
+      sub(/^\w+\(/, "", list); sub(/\)$/, "", list);
+      count = split (list, fields, /,/);
+      for (field = 1; field <= count; field++) {
+	if (param_decl != "")
+	  param_decl = param_decl", ";
+	param_decl = param_decl"SCM "fields[field];
+	call_param = call_param", "backconv[type]" ("fields[field]")";
+      }
+    }
+    if (param_decl == "")
+      param_decl = "void";
+  }
+  
+  output = "SCM\nglibtop_guile_get_"feature" ("param_decl")\n{\n";
 
   output = output"\tglibtop_"feature" "feature";\n";
   if (retval != "void")
@@ -51,15 +72,7 @@ function make_output(line) {
   else
     prefix="";
 
-  if (param_typ == "const char *")
-    param_conv = "gh_scm2newstr ("param", NULL)";
-  else if (param_typ != "")
-    param_conv = backconv[param_typ]" ("param")";
-
-  if (param == "")
-    output = output"\t"prefix"glibtop_get_"feature" (&"feature");\n\n";
-  else
-    output = output"\t"prefix"glibtop_get_"feature" (&"feature", "param_conv");\n\n";
+  output = output"\t"prefix"glibtop_get_"feature" (&"feature""call_param");\n\n";
   
   output = output"\tlist = gh_list (gh_ulong2scm  ("feature".flags),\n\t\t\t";
 

@@ -28,6 +28,7 @@ handle_slave_connection (int input, int output)
 	glibtop_response _resp, *resp = &_resp;
 	glibtop_command _cmnd, *cmnd = &_cmnd;
 	char parameter [BUFSIZ];
+	int64_t *param_ptr;
 	void *ptr;
 
 	glibtop_send_version (glibtop_global_server, output);
@@ -65,8 +66,10 @@ handle_slave_connection (int input, int output)
 			return;
 #if GLIBTOP_SUID_PROCLIST
 		case GLIBTOP_CMND_PROCLIST:
+			param_ptr = (int64_t *) parameter;
 			ptr = glibtop_get_proclist_p
-				(server, &resp->u.data.proclist);
+				(server, &resp->u.data.proclist,
+				 param_ptr [0], param_ptr [1]);
 			do_output (output, resp, _offset_data (proclist),
 				   resp->u.data.proclist.total, ptr);
 			glibtop_free_r (server, ptr);
@@ -89,8 +92,6 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 
 	switch (cmnd->command) {
 	case GLIBTOP_CMND_SYSDEPS:
-		fprintf (stderr, "SYSDEPS: %p - %lx\n",
-			 server, server->sysdeps.cpu); 
 		memcpy (&resp->u.sysdeps, &server->sysdeps, 
 			sizeof (glibtop_sysdeps));
 		resp->u.sysdeps.features = glibtop_server_features;

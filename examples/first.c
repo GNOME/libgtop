@@ -190,7 +190,7 @@ main (int argc, char *argv [])
 
 	printf ("\n");
 	
-	ptr = glibtop_get_proclist (&data.proclist);
+	ptr = glibtop_get_proclist (&data.proclist, 0, 0);
 
 	printf ("Proclist     (0x%08lx): %lu, %lu, %lu\n",
 		(unsigned long) data.proclist.flags,

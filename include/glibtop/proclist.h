@@ -43,7 +43,7 @@ struct _glibtop_proclist
 		size;			/* GLIBTOP_PROCLIST_SIZE	*/
 };
 
-#define glibtop_get_proclist(proclist)	glibtop_get_proclist_l(glibtop_global_server, proclist)
+#define glibtop_get_proclist(proclist,method,param)	glibtop_get_proclist_l(glibtop_global_server, proclist, method, param)
 
 #if GLIBTOP_SUID_PROCLIST
 #define glibtop_get_proclist_r		glibtop_get_proclist_p
@@ -51,21 +51,21 @@ struct _glibtop_proclist
 #define glibtop_get_proclist_r		glibtop_get_proclist_s
 #endif
 
-extern unsigned *glibtop_get_proclist_l __P((glibtop *, glibtop_proclist *));
+extern unsigned *glibtop_get_proclist_l __P((glibtop *, glibtop_proclist *, int64_t, int64_t));
 
 #if GLIBTOP_SUID_PROCLIST
 extern void glibtop_init_proclist_p __P((glibtop *));
-extern unsigned *glibtop_get_proclist_p __P((glibtop *, glibtop_proclist *));
+extern unsigned *glibtop_get_proclist_p __P((glibtop *, glibtop_proclist *, int64_t, int64_t));
 #else
 extern void glibtop_init_proclist_s __P((glibtop *));
-extern unsigned *glibtop_get_proclist_s __P((glibtop *, glibtop_proclist *));
+extern unsigned *glibtop_get_proclist_s __P((glibtop *, glibtop_proclist *, int64_t, int64_t));
 #endif
 
 #ifdef GLIBTOP_GUILE
 
 /* You need to link with -lgtop_guile to get this stuff here. */
 
-extern SCM glibtop_guile_get_proclist __P((void));
+extern SCM glibtop_guile_get_proclist __P((SCM, SCM));
 
 #endif
 

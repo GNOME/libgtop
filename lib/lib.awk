@@ -40,28 +40,18 @@ BEGIN {
   print "";
   print "/* Library functions. */";
   print "";
+
+  convert["long"]   = "int64_t";
+  convert["ulong"]  = "u_int64_t";
+  convert["pid_t"]  = "pid_t";
+  convert["int"]    = "int";
 }
 
 function output(line) {
   split (line, line_fields, /\|/);
   retval = line_fields[1];
   feature = line_fields[2];
-  param_typ = line_fields[4];
-  param = line_fields[5];
-  param_size = line_fields[6];
-
-  if (param_typ == "") {
-    param_size = "0";
-    param_ptr = "NULL";
-  } else {
-    if (param_size == "")
-      param_size = "sizeof ("param_typ")";
-
-    if (param_typ ~ /*/)
-      param_ptr = param;
-    else
-      param_ptr = "&"param;
-  }
+  param_def = line_fields[4];
 
   orig = feature; sub(/^@/,"",feature);
   space = feature; gsub(/./," ",space);
@@ -75,16 +65,54 @@ function output(line) {
     prefix_space = "";
   }
 
-  if (param_typ != "") {
-    print "glibtop_get_"feature"_l (glibtop *server, glibtop_"feature" *buf,";
-    print "            "space"    "param_typ" "param")";
+  if (param_def == "string") {
+    call_param = ", "line_fields[5];
+    param_decl = ",\n            "space"    const char *"line_fields[5];
+    send_ptr = "\n\tvoid *send_ptr = "line_fields[5]";";
+    send_size = "\n\tconst size_t send_size =\n\t\tstrlen ("line_fields[5]") + 1;";
   } else {
-    print "glibtop_get_"feature"_l (glibtop *server, glibtop_"feature" *buf)";
+    call_param = "";
+    param_decl = "";
+    send_size = "";
+    send_ptr = "";
+    nr_params = split (param_def, params, /:/);
+    for (param = 1; param <= nr_params; param++) {
+      list = params[param];
+      type = params[param];
+      sub(/\(.*/, "", type);
+      sub(/^\w+\(/, "", list); sub(/\)$/, "", list);
+      count = split (list, fields, /,/);
+      for (field = 1; field <= count; field++) {
+	if (param_decl == "")
+	  param_decl = ",\n            "space"    ";
+	else
+	  param_decl = param_decl", ";
+	param_decl = param_decl""convert[type]" "fields[field];
+	call_param = call_param", "fields[field];
+	if (send_ptr == "")
+	  send_ptr = "\n\tvoid *send_ptr = &"fields[field]";";
+	if (send_size == "")
+	  send_size = "\n\tconst size_t send_size =\n\t\t";
+	else
+	  send_size = send_size" + ";
+	send_size = send_size"sizeof ("fields[field]")";
+      }
+    }
+    if (send_size != "")
+      send_size = send_size";";
+    else
+      send_size = "\n\tconst size_t send_size = 0;";
+    if (send_ptr == "")
+      send_ptr = "\n\tvoid *send_ptr = NULL;";
   }
 
-  print "{";
+  print "glibtop_get_"feature"_l (glibtop *server, glibtop_"feature" *buf"param_decl")";
+  
+  print "{"send_ptr""send_size;
   if (retval !~ /^void$/)
-    print "\t"retval" retval;\n";
+    print "\t"retval" retval;";
+  print "";
+
   print "\tglibtop_init_r (&server, (1 << GLIBTOP_SYSDEPS_"toupper(feature)"), 0);";
 
   print "";
@@ -96,28 +124,16 @@ function output(line) {
   print "\t    (server->features & (1 << GLIBTOP_SYSDEPS_"toupper(feature)")))";
   print "\t{";
 
-  if (param == "")
-    print "\t\t"prefix"glibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)", 0, NULL,";
-  else
-    print "\t\t"prefix"glibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)",";
-
-  if (param == "") {
-    print "\t\t\t\t"prefix_space"sizeof (glibtop_"feature"), buf);";
-  } else {
-    print "\t\t\t\t"prefix_space""param_size", "param_ptr",";
-    print "\t\t\t\t"prefix_space"sizeof (glibtop_"feature"),";
-    print "\t\t\t\t"prefix_space"buf);";
-  }
+  print "\t\t"prefix"glibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)",";
+  print "\t\t\t\t"prefix_space"send_size, send_ptr,";
+  print "\t\t\t\t"prefix_space"sizeof (glibtop_"feature"), buf);";
   
   print "\t} else {";
 
   if (orig !~ /^@/)
     print "#if (!GLIBTOP_SUID_"toupper(feature)")";
 
-  if (param == "")
-    print "\t\t"prefix"glibtop_get_"feature"_s (server, buf);";
-  else
-    print "\t\t"prefix"glibtop_get_"feature"_s (server, buf, "param");";
+  print "\t\t"prefix"glibtop_get_"feature"_s (server, buf"call_param");";
 
   if (orig !~ /^@/) {
     print "#else";

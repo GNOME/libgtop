@@ -1,3 +1,11 @@
+1998-08-09  Martin Baulig  <martin@home-of-linux.org>
+
+	* features.def: Changed format of this file to support multiple
+	arguments to be passed to a function.
+
+	* include/glibtop/proclist.h: `glibtop_get_proclist' now takes two
+	more arguments `method' and `param'.
+
 1998-08-07  Martin Baulig  <martin@home-of-linux.org>
 
 	* sysdeps/freebsd/ChangeLog: New file.

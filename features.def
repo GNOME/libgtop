@@ -6,13 +6,13 @@ void|loadavg|double(loadavg[0],loadavg[1],loadavg[2])
 void|shm_limits|ulong(shmmax,shmmin,shmmni,shmseg,shmall)
 void|msg_limits|ulong(msgpool,msgmap,msgmax,msgmnb,msgmni,msgssz,msgtql)
 void|sem_limits|ulong(semmap,semmni,semmns,semmnu,semmsl,semopm,semume,semusz,semvmx,semaem)
-unsigned *|proclist|ulong(number,size,total)
-void|proc_state|str(cmd):char(state):ulong(uid,gid)|pid_t|pid
-void|proc_uid|long(uid,euid,gid,egid,pid,ppid,pgrp,session,tty,tpgid,priority,nice)|pid_t|pid
-void|proc_mem|long(size,vsize,resident,share,rss,rss_rlim)|pid_t|pid
-void|proc_time|long(start_time,utime,stime,cutime,cstime,timeout,it_real_value)|pid_t|pid
-void|proc_signal|ulong(signal,blocked,sigignore,sigcatch)|pid_t|pid
-void|proc_kernel|ulong(k_flags,min_flt,maj_flt,cmin_flt,cmaj_flt,kstk_esp,kstk_eip,wchan)|pid_t|pid
-void|proc_segment|long(trs,lrs,drs,dt):ulong(start_code,end_code,start_stack)|pid_t|pid
-glibtop_mountentry *|@mountlist|ulong(number,size,total)|int|all_fs
-void|@fsusage|ulong(blocks,bfree,bavail,files,ffree)|const char *|mount_dir|strlen (mount_dir) + 1
+unsigned *|proclist|ulong(number,size,total)|long(method,param)
+void|proc_state|str(cmd):char(state):ulong(uid,gid)|pid_t(pid)
+void|proc_uid|long(uid,euid,gid,egid,pid,ppid,pgrp,session,tty,tpgid,priority,nice)|pid_t(pid)
+void|proc_mem|long(size,vsize,resident,share,rss,rss_rlim)|pid_t(pid)
+void|proc_time|long(start_time,utime,stime,cutime,cstime,timeout,it_real_value)|pid_t(pid)
+void|proc_signal|ulong(signal,blocked,sigignore,sigcatch)|pid_t(pid)
+void|proc_kernel|ulong(k_flags,min_flt,maj_flt,cmin_flt,cmaj_flt,kstk_esp,kstk_eip,wchan)|pid_t(pid)
+void|proc_segment|long(trs,lrs,drs,dt):ulong(start_code,end_code,start_stack)|pid_t(pid)
+glibtop_mountentry *|@mountlist|ulong(number,size,total)|pid_t(all_fs)
+void|@fsusage|ulong(blocks,bfree,bavail,files,ffree)|string|mount_dir
