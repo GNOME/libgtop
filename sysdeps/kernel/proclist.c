@@ -29,7 +29,9 @@
 
 #define GLIBTOP_PROCLIST_FLAGS	3
 
-static const unsigned long _glibtop_sysdeps_proclist = 0;
+static const unsigned long _glibtop_sysdeps_proclist =
+(1 << GLIBTOP_PROCLIST_NUMBER) + (1 << GLIBTOP_PROCLIST_SIZE) +
+(1 << GLIBTOP_PROCLIST_TOTAL);
 
 /* Init function. */
 
@@ -67,6 +69,8 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 
     for (i = 0; i < proclist.count; i++)
 	ret [i] = proclist.pids [i];
+
+    buf->flags |= _glibtop_sysdeps_proclist;
 
     return ret;
 }

@@ -24,14 +24,39 @@
 #include <glibtop.h>
 #include <glibtop/procmem.h>
 
-static const unsigned long _glibtop_sysdeps_proc_mem = 0;
+#include <glibtop_private.h>
+
+static const unsigned long _glibtop_sysdeps_proc_mem =
+(1 << GLIBTOP_PROC_MEM_VSIZE) + (1 << GLIBTOP_PROC_MEM_SIZE) +
+(1 << GLIBTOP_PROC_MEM_RESIDENT) + (1 << GLIBTOP_PROC_MEM_SHARE) +
+(1 << GLIBTOP_PROC_MEM_RSS) + (1 << GLIBTOP_PROC_MEM_RSS_RLIM);
+
+#ifndef LOG1024
+#define LOG1024		10
+#endif
+
+/* these are for getting the memory statistics */
+static int pageshift;		/* log base 2 of the pagesize */
+
+/* define pagetok in terms of pageshift */
+#define pagetok(size) ((size) << pageshift)
 
 /* Init function. */
 
 void
 glibtop_init_proc_mem_s (glibtop *server)
 {
+    register int pagesize;
+
     server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
+
+    /* get the page size with "getpagesize" and calculate pageshift. */
+    pagesize = getpagesize ();
+    pageshift = 0;
+    while (pagesize > 1) {
+	pageshift++;
+	pagesize >>= 1;
+    }
 }
 
 /* Provides detailed information about a process. */
@@ -40,5 +65,28 @@ void
 glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
 			pid_t pid)
 {
+    libgtop_proc_mem_t proc_mem;
+
     memset (buf, 0, sizeof (glibtop_proc_mem));
+
+    if (glibtop_get_proc_data_proc_mem_s (server, &proc_mem, pid))
+	return;
+
+    buf->vsize = proc_mem.segment.vsize;
+
+    buf->size = proc_mem.size;
+    buf->resident = proc_mem.resident;
+    buf->share = proc_mem.share;
+
+    buf->rss = proc_mem.rss;
+    buf->rss_rlim = proc_mem.rlim;
+    
+    buf->vsize <<= pageshift;
+
+    buf->size <<= pageshift;
+    buf->resident <<= pageshift;
+    buf->share <<= pageshift;
+    buf->rss <<= pageshift;
+
+    buf->flags = _glibtop_sysdeps_proc_mem;
 }

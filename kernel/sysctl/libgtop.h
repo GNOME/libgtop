@@ -128,13 +128,14 @@ struct libgtop_proc_kernel
 
 struct libgtop_proc_segment
 {
-    unsigned long data, exec, stack, lib;
+    unsigned long vsize, data, exec, stack, lib;
 };
 
 struct libgtop_proc_mem
 {
     libgtop_proc_segment_t segment;
     int size, resident, share, trs, lrs, drs, dt;
+    unsigned long rss, rlim;
 };
 
 #endif

@@ -289,9 +289,11 @@ task_mem (struct task_struct *p, libgtop_proc_segment_t *proc_segment)
 	struct vm_area_struct * vma = mm->mmap;
 	unsigned long data = 0, stack = 0;
 	unsigned long exec = 0, lib = 0;
+	unsigned long vsize = 0;
 
 	for (vma = mm->mmap; vma; vma = vma->vm_next) {
 	    unsigned long len = (vma->vm_end - vma->vm_start) >> 10;
+	    vsize += len;
 	    if (!vma->vm_file) {
 		data += len;
 		if (vma->vm_flags & VM_GROWSDOWN)
@@ -308,6 +310,7 @@ task_mem (struct task_struct *p, libgtop_proc_segment_t *proc_segment)
 	    }
 	}
 
+	proc_segment->vsize = vsize;
 	proc_segment->data = data;
 	proc_segment->stack = stack;
 	proc_segment->exec = exec;
@@ -398,6 +401,7 @@ get_statm (struct task_struct *tsk, libgtop_proc_mem_t *proc_mem)
 {
     int size=0, resident=0, share=0, trs=0, lrs=0, drs=0, dt=0;
     unsigned long data=0, stack=0, exec=0, lib=0;
+    unsigned long vsize = 0;
 
     if (tsk->mm && tsk->mm != &init_mm) {
 	struct vm_area_struct * vma = tsk->mm->mmap;
@@ -406,6 +410,8 @@ get_statm (struct task_struct *tsk, libgtop_proc_mem_t *proc_mem)
 	    unsigned long len = (vma->vm_end - vma->vm_start) >> 10;
 	    pgd_t *pgd = pgd_offset(tsk->mm, vma->vm_start);
 	    int pages = 0, shared = 0, dirty = 0, total = 0;
+
+	    vsize += len;
 
 	    statm_pgd_range (pgd, vma->vm_start, vma->vm_end,
 			     &pages, &shared, &dirty, &total);
@@ -445,7 +451,8 @@ get_statm (struct task_struct *tsk, libgtop_proc_mem_t *proc_mem)
 	    vma = vma->vm_next;
 	}
     }
-    
+
+    proc_mem->segment.vsize = vsize;    
     proc_mem->segment.data = data;
     proc_mem->segment.stack = stack;
     proc_mem->segment.exec = exec;
@@ -725,6 +732,9 @@ libgtop_sysctl_proc (ctl_table *table, int nlen, int *name,
 	memset (proc_mem, 0, sizeof (libgtop_proc_mem_t));
 
 	get_statm (tsk, proc_mem);
+	/* Use LIBGTOP_PROC_STAT if you only want rss and rlim. */
+	proc_mem->rss = tsk->mm->rss << PAGE_SHIFT;
+	proc_mem->rlim = tsk->rlim ? tsk->rlim[RLIMIT_RSS].rlim_cur : 0;
 	break;
     default:
 	return -EINVAL;

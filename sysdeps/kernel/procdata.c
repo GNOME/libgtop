@@ -100,6 +100,22 @@ glibtop_get_proc_data_proc_state_s (glibtop *server,
 }
 
 int
+glibtop_get_proc_data_proc_mem_s (glibtop *server,
+				  libgtop_proc_mem_t *proc_mem,
+				  pid_t pid)
+{
+    int name [3] = { CTL_LIBGTOP, LIBGTOP_PROC_MEM, pid };
+    size_t size = sizeof (libgtop_proc_mem_t);
+
+    if (sysctl (name, 3, proc_mem, &size, NULL, 0)) {
+	glibtop_warn_io_r (server, "sysctl (libgtop/proc_mem)");
+	return -1;
+    }
+
+    return 0;
+}
+
+int
 glibtop_get_proc_data_proc_kernel_s (glibtop *server,
 				     libgtop_proc_kernel_t *proc_kernel,
 				     pid_t pid)
