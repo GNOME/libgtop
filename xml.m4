@@ -17,7 +17,7 @@ AC_DEFUN([LIBGTOP_XML_HOOK],[
 			AC_MSG_WARN(Could not find xml-config)
 		fi
 	else
-		AC_CHECK_LIB(xml, xmlNewDoc, [
+		AC_CHECK_LIB(xml, xmlDocGetRootElement, [
 			$1
 			LIBGTOP_XML_LIB=`$XML_CONFIG --libs`
 			AC_DEFINE(HAVE_LIBXML)
