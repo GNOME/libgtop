@@ -90,6 +90,7 @@ glibtop_init_swap_p (glibtop *server)
 		return;
 	}
 #endif
+#endif
 
 	if (kvm_nlist (server->machine.kd, nlst2) != 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (swap)");
