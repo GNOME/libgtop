@@ -85,15 +85,13 @@ glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
     if (recv_ptr)
 	glibtop_read_i (server, backend, recv_size, recv_ptr);
 
-#if 0
-    if (response.data_size) {
-	void *ptr = glibtop_malloc_r (server, response.data_size);
+    if (resp.data_size) {
+	void *ptr = glibtop_malloc_r (server, resp.data_size);
 
-	glibtop_read_i (server, backend, response.data_size, ptr);
+	glibtop_read_i (server, backend, resp.data_size, ptr);
 
 	return ptr;
     }
-#endif
 
     return NULL;
 }

@@ -85,7 +85,7 @@ void
 handle_slave_connection (int input, int output);
 
 int
-glibtop_demarshal_func_i (glibtop *server, glibtop_backend *backend, unsigned command, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, void **recv_buf_ptr, size_t *recv_size_ptr, int *retval_ptr);
+glibtop_demarshal_func_i (glibtop *server, glibtop_backend *backend, unsigned command, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, void **recv_buf_ptr, size_t *recv_size_ptr, void **recv_data_ptr, size_t *recv_data_size_ptr, int *retval_ptr);
 
 void
 glibtop_send_version_i (glibtop *server, int fd);

@@ -295,8 +295,16 @@ sub output {
   $recv_buf_code .= "\t*recv_buf_ptr = _LIBGTOP_RECV_buf;\n";
   $recv_buf_code .= "\t*recv_size_ptr = _LIBGTOP_RECV_len;\n";
 
+  if ($line_fields[3] =~ /^array/) {
+    $recv_buf_code .= "\n";
+    $recv_buf_code .= "\tif (recv_data_ptr) {\n";
+    $recv_buf_code .= "\t\t*recv_data_ptr = retval;\n";
+    $recv_buf_code .= "\t\t*recv_data_size_ptr = array.total;\n";
+    $recv_buf_code .= "\t}\n";
+  }
+
   $func_decl_code = sprintf
-    (qq[static int\n_glibtop_demarshal_%s_i (glibtop *server, glibtop_backend *backend, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, void **recv_buf_ptr, size_t *recv_size_ptr, int *retval_ptr)\n], $feature);
+    (qq[static int\n_glibtop_demarshal_%s_i (glibtop *server, glibtop_backend *backend, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, void **recv_buf_ptr, size_t *recv_size_ptr, void **recv_data_ptr, size_t *recv_data_size_ptr, int *retval_ptr)\n], $feature);
 
   if (!($call_code eq '')) {
     $call_code .= "\n";
@@ -314,7 +322,7 @@ sub output {
 }
 
 $func_decl_code = sprintf
-  (qq[int\nglibtop_demarshal_func_i (glibtop *server, glibtop_backend *backend, unsigned command, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, void **recv_buf_ptr, size_t *recv_size_ptr, int *retval_ptr)]);
+  (qq[int\nglibtop_demarshal_func_i (glibtop *server, glibtop_backend *backend, unsigned command, const void *send_ptr, size_t send_size, void *data_ptr, size_t data_size, void **recv_buf_ptr, size_t *recv_size_ptr, void **recv_data_ptr, size_t *recv_data_size_ptr, int *retval_ptr)]);
 
 $switch_body_code = '';
 
@@ -322,7 +330,7 @@ for ($nr = 1; $nr <= $feature_count; $nr++) {
   $feature = $features{$nr};
 
   $switch_body_code .= sprintf
-    (qq[\tcase GLIBTOP_CMND_%s:\n\t\treturn _glibtop_demarshal_%s_i\n\t\t\t(server, backend, send_ptr, send_size,\n\t\t\t data_ptr, data_size,\n\t\t\t recv_buf_ptr, recv_size_ptr, retval_ptr);\n],
+    (qq[\tcase GLIBTOP_CMND_%s:\n\t\treturn _glibtop_demarshal_%s_i\n\t\t\t(server, backend, send_ptr, send_size,\n\t\t\t data_ptr, data_size,\n\t\t\t recv_buf_ptr, recv_size_ptr,\n\t\t\t recv_data_ptr, recv_data_size_ptr, retval_ptr);\n],
      &toupper ($feature), $feature);
 }
 
