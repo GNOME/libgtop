@@ -1,0 +1,33 @@
+Source: libgtop@SUFFIX@
+Maintainer: Martin Baulig <martin@home-of-linux.org>
+Section: libs
+Priority: optional
+Standards-Version: 3.0.0
+
+Package: libgtop2@SUFFIX@
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}
+Description: Portable system access library (part of Gnome)
+ Gnome is the "GNU Network Object Model Environment"
+ .
+ It is a project to build a complete, user-friendly desktop based
+ entirely on free software.
+ .
+ This package contains the gtop libraries which read information about
+ processes and the running systems.
+
+Package: libgtop-dev@SUFFIX@
+Architecture: any
+Section: devel
+Depends: libgtop2@SUFFIX@ (= ${Source-Version})
+Description: Dev libraries for the portable system access library (part of Gnome)
+ Gnome is the "GNU Network Object Model Environment"
+ .
+ It is a project to build a complete, user-friendly desktop based
+ entirely on free software.
+ .
+ This package contains the include files and static library for the
+ gtop libraries which read information about processes and the running
+ systems.
+
