@@ -1,3 +1,7 @@
+2004-12-27  Benoît Dejean  <tazforever@dlfp.org>
+
+	* POTFILES.in: Removed a lot of unused/useless files.
+
 2004-12-26  Adam Weinberger  <adamw@gnome.org>
 
 	* en_CA.po: Updated Canadian English translation.
