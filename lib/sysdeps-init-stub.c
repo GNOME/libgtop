@@ -27,6 +27,11 @@
 #include <glibtop/open.h>
 #include <glibtop/backend.h>
 
+#include <glibtop/signal.h>
+
+const glibtop_signame glibtop_sys_siglist [] =
+{ { 0, NULL, NULL } };
+
 void
 _glibtop_open_sysdeps (glibtop *server, const char *program_name,
 		       const unsigned long features, const unsigned flags)
