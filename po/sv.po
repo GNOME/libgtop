@@ -1,17 +1,225 @@
 # Swedish translation for libgtop.
 # Copyright (C) 1999 Free Software Foundation, Inc.
 # Tomas Ögren <stric@ing.umu.se>, 1999.
+# Martin Nrobäck <d95mback@dtek.chalmers.se>, 2000.
+#
+# (Signalnamn från http://www.uddeborg.pp.se/sv/dok-6.html#ss6.4)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.3\n"
-"POT-Creation-Date: 2000-02-14 15:46+0100\n"
+"POT-Creation-Date: 2000-05-18 14:26+0200\n"
 "PO-Revision-Date: 1999-09-16 23:36+0200\n"
 "Last-Translator: Tomas Ögren <stric@ing.umu.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso8859-1\n"
 "Content-Transfer-Encoding: 8-bit\n"
+
+#: examples/smp.c:68
+#, c-format
+msgid "Ticks (%ld per second):"
+msgstr "Tick (%ld per sekund):"
+
+#: examples/smp.c:71
+msgid "Total"
+msgstr "Totalt"
+
+#: examples/smp.c:71 sysdeps/names/mem.c:47
+msgid "User"
+msgstr "Användar"
+
+#: examples/smp.c:71 sysdeps/names/procuid.c:58
+msgid "Nice"
+msgstr "Nice"
+
+#: examples/smp.c:71
+msgid "Sys"
+msgstr "Sys"
+
+#: examples/smp.c:71
+msgid "Idle"
+msgstr "Ledigt"
+
+#: examples/smp.c:73
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+msgstr ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+
+#: examples/smp.c:77
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+
+#: examples/smp.c:94
+msgid "Percent:"
+msgstr "Procent:"
+
+#: examples/smp.c:95
+msgid "Total (%)"
+msgstr "Totalt (%)"
+
+#: examples/smp.c:95
+msgid "User (%)"
+msgstr "Användare (%)"
+
+#: examples/smp.c:95
+msgid "Nice (%)"
+msgstr "Snäll (%)"
+
+#: examples/smp.c:95
+msgid "Sys (%)"
+msgstr "Sys (%)"
+
+#: examples/smp.c:96
+msgid "Idle (%)"
+msgstr "Ledig (%)"
+
+#: examples/smp.c:98
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+msgstr ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+
+#: examples/smp.c:114
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+
+#: examples/smp.c:120
+msgid "Spin:"
+msgstr "Spinn:"
+
+#: lib/read.c:75
+#, c-format
+msgid "read %d bytes"
+msgstr "läsa %d tecken"
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "läsa datastorlek"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr "läste %d tecken data"
+
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr "skrev %d tecken"
+
+#: src/daemon/gnuserv.c:448
+msgid "Enable debugging"
+msgstr "Aktivera felsökning"
+
+#: src/daemon/gnuserv.c:448
+msgid "DEBUG"
+msgstr "DEBUG"
+
+#: src/daemon/gnuserv.c:450
+msgid "Enable verbose output"
+msgstr "Aktivera utförlig utskrift"
+
+#: src/daemon/gnuserv.c:450
+msgid "VERBOSE"
+msgstr "VERBOSE"
+
+#: src/daemon/gnuserv.c:452
+msgid "Don't fork into background"
+msgstr "Starta ej bakgrunds-gren"
+
+#: src/daemon/gnuserv.c:452
+msgid "NO-DAEMON"
+msgstr "NO-DAEMON"
+
+#: src/daemon/gnuserv.c:454
+msgid "Invoked from inetd"
+msgstr "Startad från inetd"
+
+#: src/daemon/gnuserv.c:454
+msgid "INETD"
+msgstr "INETD"
+
+#: src/daemon/gnuserv.c:488
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Fel vid flagga %s: %s.\n"
+"Kör '%s --help' för att se hela listan av alla tillgängliga "
+"kommandoflaggor.\n"
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "Okänt systemfel"
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: flaggan `%s' är tvetydig\n"
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: flaggan `--%s' tillåter inga argument\n"
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: flaggan `%c%s' tillåter inga argument\n"
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: flaggan `%s' kräver ett argument\n"
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: okänd flagga `--%s'\n"
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: okänd flagga `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: illegal flagga -- %c\n"
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: ej giltig flagga -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: flaggan kräver ett argument -- %c\n"
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: flaggan `-W %s' är tvetydig\n"
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: flaggan `-W %s' tillåter inga argument\n"
 
 #: sysdeps/names/cpu.c:43
 msgid "Total CPU Time"
@@ -161,10 +369,6 @@ msgstr "Buffertar"
 msgid "Cached"
 msgstr "Cachat"
 
-#: sysdeps/names/mem.c:47
-msgid "User"
-msgstr "Användar"
-
 #: sysdeps/names/mem.c:48
 msgid "Locked"
 msgstr "Låst"
@@ -246,6 +450,94 @@ msgstr "Meddelande-segment storlek"
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Number of system message headers"
 msgstr "Antal systemmeddelande-huvuden"
+
+#: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+msgid "Interface Flags"
+msgstr "Interfaceflaggor"
+
+#: sysdeps/names/netload.c:46
+msgid "MTU"
+msgstr "MTU"
+
+#: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
+msgid "Subnet"
+msgstr "Subnät"
+
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
+msgid "Address"
+msgstr "Adress"
+
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
+msgid "Packets In"
+msgstr "Inkommande paket"
+
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+msgid "Packets Out"
+msgstr "Utgående paket"
+
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+msgid "Packets Total"
+msgstr "Totalt paket"
+
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+msgid "Bytes In"
+msgstr "Inkommande bytes"
+
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+msgid "Bytes Out"
+msgstr "Utgående bytes"
+
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+msgid "Bytes Total"
+msgstr "Totalt bytes"
+
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+msgid "Errors In"
+msgstr "Inkommande fel"
+
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+msgid "Errors Out"
+msgstr "Utgående fel"
+
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+msgid "Errors Total"
+msgstr "Totalt fel"
+
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+msgid "Collisions"
+msgstr "Kollisioner"
+
+#: sysdeps/names/netload.c:64
+msgid "Maximum Transfer Unit"
+msgstr "Maximal överföringsenhet (MTU)"
+
+#: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
+msgid "PPP State"
+msgstr "Tillstånd för PPP"
+
+#: sysdeps/names/ppp.c:39
+msgid "Input bytes"
+msgstr "Inmatade bytes"
+
+#: sysdeps/names/ppp.c:40
+msgid "Output bytes"
+msgstr "Utmatade bytes"
+
+#: sysdeps/names/ppp.c:46
+msgid "Number of input bytes"
+msgstr "Antal inmatade bytes"
+
+#: sysdeps/names/ppp.c:47
+msgid "Number of output bytes"
+msgstr "Antal utmatade bytes"
+
+#: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
+msgid "Size"
+msgstr "Storlek"
+
+#: sysdeps/names/procargs.c:43
+msgid "Length in bytes of the returned string."
+msgstr "Längd i bytes på den returnerade strängen."
 
 #: sysdeps/names/prockernel.c:42
 msgid "K_Flags"
@@ -364,10 +656,6 @@ msgstr ""
 #: sysdeps/names/prockernel.c:81
 msgid "This is the textual name of the `nwchan' field."
 msgstr "Detta är textnamnet för fältet `nwchan'"
-
-#: sysdeps/names/procmem.c:47
-msgid "Size"
-msgstr "Storlek"
 
 #: sysdeps/names/procmem.c:47
 msgid "Virtual"
@@ -686,10 +974,6 @@ msgstr "TPGid"
 msgid "Priority"
 msgstr "Prioritet"
 
-#: sysdeps/names/procuid.c:58
-msgid "Nice"
-msgstr "Nice"
-
 #: sysdeps/names/procuid.c:63
 msgid "User ID"
 msgstr "Användar-id"
@@ -943,126 +1227,126 @@ msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr ""
 "Tiden i sekunder som systemet har spenderat i Idle-jobbet sedan systemstart"
 
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "Okänt systemfel"
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Hangup"
+msgstr "Avringd"
 
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: flaggan `%s' är tvetydig\n"
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr "Avbruten"
 
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: flaggan `--%s' tillåter inga argument\n"
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "Lämnad"
 
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: flaggan `%c%s' tillåter inga argument\n"
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
+msgstr "Otillåten instruktion"
 
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: flaggan `%s' kräver ett argument\n"
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
+msgstr "Spårningsfälla"
 
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: okänd flagga `--%s'\n"
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "Avbruten (SIGABRT)"
 
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: okänd flagga `%c%s'\n"
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+msgid "EMT error"
+msgstr "Emulatorfälla"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: illegal flagga -- %c\n"
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+msgid "Floating-point exception"
+msgstr "Aritmetiskt fel"
 
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: ej giltig flagga -- %c\n"
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "Dödad"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: flaggan kräver ett argument -- %c\n"
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+msgid "Bus error"
+msgstr "Bussfel"
 
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: flaggan `-W %s' är tvetydig\n"
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
+msgstr "Segmenteringsfel"
 
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: flaggan `-W %s' tillåter inga argument\n"
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr "Felaktigt systemanrop"
 
-#: lib/read.c:75
-#, c-format
-msgid "read %d bytes"
-msgstr "läsa %d tecken"
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
+msgstr "Brutet rör"
 
-#: lib/read_data.c:49
-msgid "read data size"
-msgstr "läsa datastorlek"
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
+msgstr "Alarmklocka"
 
-#: lib/read_data.c:66
-#, c-format
-msgid "read data %d bytes"
-msgstr "läste %d tecken data"
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+msgid "Termination"
+msgstr "Avslutad"
 
-#: lib/write.c:48
-#, c-format
-msgid "write %d bytes"
-msgstr "skrev %d tecken"
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
+msgstr "Viktigt I/O-tillstånd"
 
-#: src/daemon/gnuserv.c:448
-msgid "Enable debugging"
-msgstr "Aktivera felsökning"
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "Stoppad (signal)"
 
-#: src/daemon/gnuserv.c:448
-msgid "DEBUG"
-msgstr "DEBUG"
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+msgid "Keyboard stop"
+msgstr "Stoppad"
 
-#: src/daemon/gnuserv.c:450
-msgid "Enable verbose output"
-msgstr "Aktivera utförlig utskrift"
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "Återupptagen"
 
-#: src/daemon/gnuserv.c:450
-msgid "VERBOSE"
-msgstr "VERBOSE"
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
+msgstr "Barnstatus ändrad"
 
-#: src/daemon/gnuserv.c:452
-msgid "Don't fork into background"
-msgstr "Starta ej bakgrunds-gren"
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+msgid "Background read from tty"
+msgstr "Stoppad (terminalläsning)"
 
-#: src/daemon/gnuserv.c:452
-msgid "NO-DAEMON"
-msgstr "NO-DAEMON"
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+msgid "Background write to tty"
+msgstr "Stoppad (terminalskrivning)"
 
-#: src/daemon/gnuserv.c:454
-msgid "Invoked from inetd"
-msgstr "Startad från inetd"
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+msgid "I/O now possible"
+msgstr "I/O möjligt"
 
-#: src/daemon/gnuserv.c:454
-msgid "INETD"
-msgstr "INETD"
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr "Begränsning av CPU-tid överskriden"
 
-#: src/daemon/gnuserv.c:488
-#, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"Fel vid flagga %s: %s.\n"
-"Kör '%s --help' för att se hela listan av alla tillgängliga "
-"kommandoflaggor.\n"
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+msgid "File size limit exceeded"
+msgstr "Begränsning av filstorlek överskriden"
+
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
+msgstr "Alarmklocka - virtuell tid"
+
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr "Profileringsklocka"
+
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+msgid "Window size change"
+msgstr "Ändrat fönster"
+
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+msgid "Information request"
+msgstr "Informationsbegäran"
+
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+msgid "User defined signal 1"
+msgstr "Användarsignal 1"
+
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+msgid "User defined signal 2"
+msgstr "Användarsignal 2"
