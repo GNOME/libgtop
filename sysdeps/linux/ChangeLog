@@ -1,3 +1,9 @@
+1998-11-30  Martin Baulig  <martin@home-of-linux.org>
+
+	* netload.c: Use correct header files both for libc5 and glibc.
+	With Linux >= 2.1.114 we no longer use IP accounting since it
+	already has byte counts in /proc/net/dev.
+
 1998-11-22  Martin Baulig  <baulig@merkur.uni-trier.de>
 
 	* netload.c (glibtop_get_netload_s): Added implementation

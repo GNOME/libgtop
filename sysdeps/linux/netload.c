@@ -27,8 +27,19 @@
 #include <sys/socket.h>
 #include <sys/ioctl.h>
 
+#if !defined (_LIBC) && defined (__GNU_LIBRARY__) && __GNU_LIBRARY__ > 1
+/* GNU LibC */
 #include <net/if.h>
 #include <netinet/ip_fw.h>
+#else /* Libc 5 */
+#include <linux/if.h>
+#include <linux/in.h>
+#include <linux/ip.h>
+#include <linux/icmp.h>
+#include <linux/tcp.h>
+#include <linux/udp.h>
+#include <linux/ip_fw.h>
+#endif
 
 static const unsigned long _glibtop_sysdeps_netload = 
 (1 << GLIBTOP_NETLOAD_ERRORS_IN) +
@@ -158,6 +169,13 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 		close (skfd);
 	}
 
+	/* Linux 2.1.114 - don't know where exactly this was added, but
+	 * recent kernels have byte count in /proc/net/dev so we don't
+	 * need IP accounting.
+	 */
+
+#if LINUX_VERSION_CODE < 131442
+
 	/* If IP accounting is enabled in the kernel and it is
 	 * enabled for the requested interface, we use it to
 	 * get the data. In this case, we don't use /proc/net/dev
@@ -230,6 +248,8 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 
 		if (success) return;
 	}
+
+#endif
 
 	/* Ok, either IP accounting is not enabled in the kernel or
 	 * it was not enabled for the requested interface. */
