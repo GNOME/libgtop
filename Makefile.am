@@ -51,6 +51,7 @@ libgtopConf.sh: libgtopConf.sh.in Makefile
 ## Use sed and then mv to avoid problems if the user interrupts.
 	sed -e 's,\@LIBGTOP_LIBDIR\@,$(libdir),g' \
 	    -e 's,\@LIBGTOP_INCLUDEDIR\@,$(includedir),g' \
+	    -e 's,\@LIBGTOP_EXTRA_LIBS\@,$(LIBGTOP_EXTRA_LIBS),g' \
 	    -e 's,\@LIBGTOP_LIBS\@,$(LIBGTOP_LIBS),g' \
 	    -e 's,\@LIBGTOP_INCS\@,$(LIBGTOP_INCS),g' \
 	    -e 's,\@LIBGTOP_NAMES_LIBS\@,$(LIBGTOP_NAMES_LIBS),g' \
@@ -63,6 +64,7 @@ libgtopConf.sh: libgtopConf.sh.in Makefile
 	    -e 's,\@LIBGTOP_SERVER\@,$(LIBGTOP_SERVER),g' \
 	    -e 's,\@LIBGTOP_MAJOR_VERSION\@,$(LIBGTOP_MAJOR_VERSION),g' \
 	    -e 's,\@LIBGTOP_MINOR_VERSION\@,$(LIBGTOP_MINOR_VERSION),g' \
+	    -e 's,\@LIBGTOP_MICRO_VERSION\@,$(LIBGTOP_MICRO_VERSION),g' \
 	    -e 's,\@LIBGTOP_VERSION\@,$(LIBGTOP_VERSION),g' \
 	    -e 's,\@LIBGTOP_SERVER_VERSION\@,$(LIBGTOP_SERVER_VERSION),g' \
 	    -e 's,\@libgtop_sysdeps_dir\@,$(libgtop_sysdeps_dir),g' \
