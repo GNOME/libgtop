@@ -58,12 +58,7 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 
 	pinfo = _glibtop_get_procinfo(server, pid);
-        if (pinfo == NULL)
-        {
-                glibtop_error_io_r (server, "Cannot read procsinfo");
-
-		return;
-        }
+	if (pinfo == NULL) return;
 
 	pagesize = sysconf(_SC_PAGESIZE);
 

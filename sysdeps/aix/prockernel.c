@@ -62,12 +62,7 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
 
 	pinfo = _glibtop_get_procinfo(server, pid);
-	if (pinfo == NULL)
-	{
-		glibtop_error_io_r(server, "Cannot read procsinfo");
-
-		return;
-	}
+	if (pinfo == NULL) return;
 
 	if (!(pinfo->pi_flags | SKPROC))
 	{

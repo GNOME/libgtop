@@ -64,12 +64,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 
 	pinfo = _glibtop_get_procinfo(server, pid);
-	if (pinfo == NULL)
-	{
-		glibtop_error_io_r (server, "Cannot read procsinfo");
-
-		return;
-	}
+	if (pinfo == NULL) return;
 
 	buf->uid = pinfo->pi_cred.cr_ruid;
 	buf->euid =  pinfo->pi_cred.cr_uid;

@@ -1,3 +1,16 @@
+2004-10-22  Benoît Dejean  <tazforever@dlfp.org>
+
+	* procargs.c: (glibtop_get_proc_args_s):
+	* prockernel.c: (glibtop_get_proc_kernel_s):
+	* procmem.c: (glibtop_get_proc_mem_s):
+	* procsegment.c: (glibtop_get_proc_segment_s):
+	* procsignal.c: (glibtop_get_proc_signal_s):
+	* procstate.c: (glibtop_get_proc_state_s):
+	* proctime.c: (glibtop_get_proc_time_s):
+	* procuid.c: (glibtop_get_proc_uid_s): No longer abort() is no such pid.
+	buf.flags == 0ULL means that there no data could be retrieve at all.
+	Closes #154876. Thanks to Christophe Belle.
+
 2004-10-04  Benoît Dejean  <tazforever@dlfp.org>
 
 	* procstate.c: (glibtop_get_proc_state_s): Fixed .state to follow 

@@ -67,12 +67,7 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 	memset (buf, 0, sizeof (glibtop_proc_args));
 
 	pinfo = _glibtop_get_procinfo(server, pid);
-	if (pinfo == NULL)
-	{
-		glibtop_error_io_r (server, "Cannot read procsinfo");
-
-		return NULL;
-	}
+	if (pinfo == NULL) return NULL;
 
 	size = max_len != 0 ? max_len : 4096;
 	args_buffer = g_malloc (size);

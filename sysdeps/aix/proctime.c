@@ -56,11 +56,7 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf,
 	memset (buf, 0, sizeof (glibtop_proc_time));
 
 	pinfo = _glibtop_get_procinfo(server, pid);
-	if (pinfo == NULL)
-	{
-		glibtop_error_io_r (server, "Cannot read procsinfo");
-		return;
-	}
+	if (pinfo == NULL) return;
 
 	buf->start_time = pinfo->pi_start;
 	buf->utime = pinfo->pi_ru.ru_utime.tv_sec + (double)pinfo->pi_ru.ru_utime.tv_usec/1000000.0;
