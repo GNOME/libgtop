@@ -75,7 +75,9 @@ GNOME_LIBGTOP_TYPES
 GNOME_CHECK_GUILE
 
 dnl For Solaris
+AC_CHECK_LIB(resolv, _getnetbyaddr)
 AC_CHECK_LIB(socket, socket)
+AC_CHECK_LIB(nsl, gethostbyname)
 
 AC_ARG_WITH(libgtop-guile,
 [  --with-libgtop-guile    Build the libgtop guile interface (default=no)],
