@@ -1,10 +1,4 @@
-if NEED_LIBGTOP
-server_SUBDIRS		= server
-else
-server_SUBDIRS		=
-endif
+SUBDIRS			= daemon
 
-SUBDIRS			= $(server_SUBDIRS) daemon
-
-DIST_SUBDIRS		= server daemon
+DIST_SUBDIRS		= daemon
 

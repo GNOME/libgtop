@@ -31,6 +31,14 @@ static const unsigned long _glibtop_sysdeps_proc_segment =
 (1 << GLIBTOP_PROC_SEGMENT_START_CODE) + (1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
 (1 << GLIBTOP_PROC_SEGMENT_START_STACK);
 
+/* Init function. */
+
+void
+glibtop_init_proc_segment_p (glibtop *server)
+{
+	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
+}
+
 /* Provides detailed information about a process. */
 
 void
@@ -40,7 +48,7 @@ glibtop_get_proc_segment_p (glibtop *server, glibtop_proc_segment *buf,
 	int ret;
 	struct user u;
 
-	glibtop_init_p (server, 0, 0);
+	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_segment));
 

@@ -28,6 +28,14 @@ static unsigned long _glibtop_sysdeps_sem_limits =
 (1 << GLIBTOP_IPC_SEMOPM) + (1 << GLIBTOP_IPC_SEMVMX) +
 (1 << GLIBTOP_IPC_SEMAEM);
 
+/* Init function. */
+
+void
+glibtop_init_sem_limits_s (glibtop *server)
+{
+	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+}
+
 /* Provides information about sysv sem limits. */
 
 void

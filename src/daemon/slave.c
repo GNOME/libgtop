@@ -30,6 +30,8 @@ handle_slave_connection (int input, int output)
 	char parameter [BUFSIZ];
 	void *ptr;
 
+	glibtop_send_version (glibtop_global_server, output);
+
 	while (do_read (input, cmnd, sizeof (glibtop_command))) {
 #ifdef SLAVE_DEBUG
 		fprintf (stderr, "Slave %d received command "

@@ -52,6 +52,7 @@ __BEGIN_DECLS
 
 typedef void (*glibtop_init_func_t) (glibtop *);
 extern glibtop_init_func_t _glibtop_init_hook_s [];
+extern glibtop_init_func_t _glibtop_init_hook_p [];
 
 typedef struct _glibtop_sysdeps	glibtop_sysdeps;
 

@@ -33,6 +33,8 @@ handle_parent_connection (int s)
 	pid_t pid;
 	void *ptr;
 
+	glibtop_send_version (glibtop_global_server, s);
+
 	fprintf (stderr, "Parent features = %lu\n", glibtop_server_features);
 
 #ifdef DEBUG

@@ -32,6 +32,14 @@ static const unsigned long _glibtop_sysdeps_proc_time =
 (1 << GLIBTOP_PROC_TIME_STIME) + (1 << GLIBTOP_PROC_TIME_CSTIME) +
 (1 << GLIBTOP_PROC_TIME_START_TIME);
 
+/* Init function. */
+
+void
+glibtop_init_proc_time_p (glibtop *server)
+{
+	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
+}
+
 /* Provides detailed information about a process. */
 
 void
@@ -41,7 +49,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	struct user u;
 	int ret;
 
-	glibtop_init_p (server, 0, 0);
+	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_TIME, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_time));
 	

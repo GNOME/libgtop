@@ -32,17 +32,27 @@ do_output (int s, glibtop_response *resp, off_t offset,
 
 	resp->offset = offset;
 	resp->data_size = data_size;
-	
-	if (send (s, resp, sizeof (glibtop_response), 0) < 0)
-		glibtop_warn_io ("send");
+
+	if (s == 0) {
+		if (write (1, resp, sizeof (glibtop_response)) < 0)
+			glibtop_warn_io ("write");
+	} else {
+		if (send (s, resp, sizeof (glibtop_response), 0) < 0)
+			glibtop_warn_io ("send");
+	}
 
 	if (resp->data_size) {
 #ifdef REAL_DEBUG
 		fprintf (stderr, "Writing %d bytes of data.\n", resp->data_size);
 #endif
 
-		if (send (s, data, resp->data_size, 0) , 0)
-			glibtop_warn_io ("send");
+		if (s == 0) {
+			if (write (1, data, resp->data_size) < 0)
+				glibtop_warn_io ("write");
+		} else {
+			if (send (s, data, resp->data_size, 0) , 0)
+				glibtop_warn_io ("send");
+		}
 	}
 }
 

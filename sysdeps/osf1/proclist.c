@@ -30,6 +30,14 @@ static const unsigned long _glibtop_sysdeps_proclist =
 (1 << GLIBTOP_PROCLIST_TOTAL) + (1 << GLIBTOP_PROCLIST_NUMBER) +
 (1 << GLIBTOP_PROCLIST_SIZE);
 
+/* Init function. */
+
+void
+glibtop_init_proclist_p (glibtop *server)
+{
+	server->sysdeps.proclist = _glibtop_sysdeps_proclist;
+}
+
 /* How many elements are there per proctable entry? */
 
 #define ELEMENTS_PER_ENTRY	8
@@ -64,7 +72,7 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf)
 	struct tbl_procinfo procinfo [8];
 	int entry, max_elements, k;
 
-	glibtop_init_p (server, 0, 0);
+	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROCLIST, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proclist));
 	

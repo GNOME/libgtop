@@ -19,15 +19,40 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#ifndef __GLIBTOP_OUTPUT_H__
-#define __GLIBTOP_OUTPUT_H__
+#include <glibtop.h>
+#include <glibtop/error.h>
+#include <glibtop/version.h>
 
-#include <glibtop/global.h>
+void
+glibtop_send_version (glibtop *server, int fd)
+{
+	char buffer [BUFSIZ];
+	size_t size;
 
-__BEGIN_DECLS
+	sprintf (buffer, LIBGTOP_VERSION_STRING,
+		 LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
+		 sizeof (glibtop_command),
+		 sizeof (glibtop_response),
+		 sizeof (glibtop_union),
+		 sizeof (glibtop_sysdeps));
+	
+	size = strlen (buffer) + 1;
 
-extern void glibtop_output __P((size_t, const void *));
+	fprintf (stderr, "SERVER ID: |%s|\n", buffer);
 
-__END_DECLS
+	if (fd == 0) {
+		if (write (1, &size, sizeof (size)) < 0)
+			glibtop_warn_io_r (server, "write");
+	} else {
+		if (send (fd, &size, sizeof (size), 0) < 0)
+			glibtop_warn_io_r (server, "send");
+	}
 
-#endif
+	if (fd == 0) {
+		if (write (1, buffer, size) < 0)
+			glibtop_warn_io_r (server, "write");
+	} else {
+		if (send (fd, buffer, size, 0) < 0)
+			glibtop_warn_io_r (server, "send");
+	}
+}

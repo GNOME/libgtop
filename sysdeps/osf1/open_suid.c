@@ -27,19 +27,30 @@
 #include <unistd.h>
 #include <sys/types.h>
 
-/* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
-
 /* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 void
 glibtop_init_p (glibtop *server, const unsigned long features,
 		const unsigned flags)
 {
+	glibtop_init_func_t *init_fkt;
+
 	if (server == NULL)
 		glibtop_error_r (NULL, "glibtop_init_p (server == NULL)");
 
-	glibtop_open_p (server, "glibtop", features, flags);
+	/* Do the initialization, but only if not already initialized. */
+
+	if ((server->flags & _GLIBTOP_INIT_STATE_INIT) == 0) {
+		glibtop_open_p (server, "glibtop", features, flags);
+
+		for (init_fkt = _glibtop_init_hook_p; *init_fkt; init_fkt++)
+			(*init_fkt) (server);
+		
+		server->flags |= _GLIBTOP_INIT_STATE_INIT;
+	}
 }
+
+/* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 void
 glibtop_open_p (glibtop *server, const char *program_name,

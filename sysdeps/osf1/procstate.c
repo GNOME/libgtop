@@ -29,6 +29,14 @@ static const unsigned long _glibtop_sysdeps_proc_state =
 (1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE) +
 (1 << GLIBTOP_PROC_STATE_UID);
 
+/* Init function. */
+
+void
+glibtop_init_proc_state_p (glibtop *server)
+{
+	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
+}
+
 /* Provides detailed information about a process. */
 
 void
@@ -38,7 +46,7 @@ glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf,
 	struct tbl_procinfo procinfo;
 	int ret;
 
-	glibtop_init_p (server, 0, 0);
+	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_STATE, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_state));
 

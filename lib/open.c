@@ -21,6 +21,7 @@
 
 #include <glibtop.h>
 #include <glibtop/open.h>
+#include <glibtop/version.h>
 #include <glibtop/sysdeps.h>
 #include <glibtop/command.h>
 #include <glibtop/xmalloc.h>
@@ -33,9 +34,7 @@ void
 glibtop_open_l (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
-	char version [BUFSIZ], buffer [BUFSIZ];
 	int connect_type;
-	unsigned nbytes;
 
 	server->name = program_name;
 
@@ -133,21 +132,6 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		close (server->input [1]);
 		close (server->output [0]);
 
-		sprintf (version, "libgtop server %s ready.\n",
-			 LIBGTOP_VERSION);
-
-		glibtop_read_l (server, sizeof (nbytes), &nbytes);
-
-		if (nbytes != strlen (version))
-			glibtop_error_r (server, "Requested %u bytes but got %u",
-					 strlen (version), nbytes);
-		
-		glibtop_read_l (server, nbytes, buffer);
-		
-		if (memcmp (version, buffer, strlen (version)))
-			glibtop_error_r (server, "server version is not %s",
-					 LIBGTOP_VERSION);
-
 		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
 		
 		server->features = -1;
@@ -157,7 +141,35 @@ glibtop_open_l (glibtop *server, const char *program_name,
 	/* If the server has been started, ask it for its features. */
 
 	if (server->flags & _GLIBTOP_INIT_STATE_SERVER) {
+		char version [BUFSIZ], buffer [BUFSIZ];
 		glibtop_sysdeps sysdeps;
+		unsigned size, nbytes;
+
+		/* First check whether the server version is correct. */
+
+		sprintf (version, LIBGTOP_VERSION_STRING,
+			 LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
+			 sizeof (glibtop_command),
+			 sizeof (glibtop_response),
+			 sizeof (glibtop_union),
+			 sizeof (glibtop_sysdeps));
+
+		size = strlen (version) + 1;
+	
+		glibtop_read_l (server, sizeof (nbytes), &nbytes);
+
+		if (nbytes != size)
+			glibtop_error_r (server,
+					 "Requested %u bytes but got %u.",
+					 size, nbytes);
+		
+		glibtop_read_l (server, nbytes, buffer);
+		
+		if (memcmp (version, buffer, size))
+			glibtop_error_r (server, "server version is not %s",
+					 LIBGTOP_VERSION);
+
+		/* Now ask it for its features. */
 		
 		glibtop_call_l (server, GLIBTOP_CMND_SYSDEPS, 0, NULL,
 				sizeof (glibtop_sysdeps), &sysdeps);

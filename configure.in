@@ -11,6 +11,7 @@ AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
 
 AC_SUBST(LIBGTOP_MAJOR_VERSION)
 AC_SUBST(LIBGTOP_MINOR_VERSION)
+AC_SUBST(LIBGTOP_SERVER_VERSION)
 AC_SUBST(LIBGTOP_VERSION)
 
 AM_ACLOCAL_INCLUDE(macros)
@@ -175,7 +176,7 @@ LIBGTOP_INCS='-I$(includedir)'
 LIBGTOP_GUILE_LIBS="$LIBGTOP_LIBS"
 LIBGTOP_GUILE_INCS="$LIBGTOP_INCS"
 LIBGTOP_BINDIR='$(bindir)'
-LIBGTOP_SERVER='$(bindir)/gtop_server'
+LIBGTOP_SERVER='$(bindir)/libgtop_server'
 
 sysdeps_dir="$libgtop_sysdeps_dir"
 AC_SUBST(sysdeps_dir)
@@ -218,7 +219,7 @@ else
   guile_def=""
 fi
 
-INCLUDES="$CFLAGS -D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES $guile_def -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_srcdir)/intl "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
+INCLUDES="$CFLAGS -D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES $guile_def -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_srcdir)/intl "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
 
 AC_SUBST(INCLUDES)
 
@@ -247,10 +248,13 @@ fi
 
 if test x$libgtop_need_server = xyes ; then
    sysdeps_suid_lib="\$(top_builddir)/sysdeps/\$(sysdeps_dir)/libgtop_sysdeps_suid.la"
+   server_programs='libgtop_server'
 else
    sysdeps_suid_lib=
+   server_programs=
 fi
 AC_SUBST(sysdeps_suid_lib)
+AC_SUBST(server_programs)
 
 AC_OUTPUT([
 Makefile
@@ -264,6 +268,7 @@ sysdeps/names/Makefile
 sysdeps/guile/Makefile
 sysdeps/guile/names/Makefile
 sysdeps/stub/Makefile
+sysdeps/stub_suid/Makefile
 sysdeps/sun4/Makefile
 sysdeps/osf1/Makefile
 sysdeps/linux/Makefile

@@ -37,6 +37,14 @@ static const unsigned long _glibtop_sysdeps_proc_mem =
 (1 << GLIBTOP_PROC_MEM_VSIZE) + (1 << GLIBTOP_PROC_MEM_RESIDENT) +
 (1 << GLIBTOP_PROC_MEM_RSS);
 
+/* Init function. */
+
+void
+glibtop_init_proc_mem_p (glibtop *server)
+{
+	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
+}
+
 /* Provides detailed information about a process. */
 
 void
@@ -48,7 +56,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	task_t thistask;
 	struct user u;
 
-	glibtop_init_p (server, 0, 0);
+	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_MEM, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 

@@ -27,6 +27,14 @@ static unsigned long _glibtop_sysdeps_swap =
 (1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
 (1 << GLIBTOP_SWAP_FREE);
 
+/* Init function. */
+
+void
+glibtop_init_swap_s (glibtop *server)
+{
+	server->sysdeps.swap = _glibtop_sysdeps_swap;
+}
+
 /* Provides information about swap usage. */
 
 void
@@ -35,7 +43,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	struct tbl_swapinfo swapinfo;
 	int i;
 
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SWAP, 0);
 
 	memset (buf, 0, sizeof (glibtop_swap));
 
