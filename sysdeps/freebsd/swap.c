@@ -34,15 +34,24 @@ static const unsigned long _glibtop_sysdeps_swap =
 (1 << GLIBTOP_SWAP_FREE) + (1 << GLIBTOP_SWAP_PAGEIN) +
 (1 << GLIBTOP_SWAP_PAGEOUT);
 
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) || defined(__bsdi__)
 
 #include <sys/conf.h>
+#ifdef __bsdi__
+#include <vm/swap_pager.h>
+#else
 #include <sys/rlist.h>
+#endif
 #include <sys/vmmeter.h>
 
-#if __FreeBSD__ < 4
-
 /* nlist structure for kernel access */
+
+#if defined(__bsdi__)
+static struct nlist nlst [] = {
+	{ "_swapstats" }, /* general swap info */
+	{ 0 }
+};
+#elif __FreeBSD__ < 4
 static struct nlist nlst [] = {
 #define VM_SWAPLIST	0
 	{ "_swaplist" },/* list of free swap areas */
@@ -56,10 +65,9 @@ static struct nlist nlst [] = {
 	{ "_dmmax" },	/* maximum size of a swap block */
 	{ 0 }
 };
-
 #endif
 
-#elif (defined __NetBSD__)
+#elif defined(__NetBSD__)
 
 #include <vm/vm_swap.h>
 
@@ -76,8 +84,8 @@ static struct nlist nlst2 [] = {
 void
 glibtop_init_swap_p (glibtop *server)
 {
-#ifdef __FreeBSD__
-#if __FreeBSD__ < 4
+#if defined(__FreeBSD__) || defined(__bsdi__)
+#if __FreeBSD__ < 4 || defined(__bsdi__)
 	if (kvm_nlist (server->machine.kd, nlst) != 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (swap)");
 		return;
@@ -86,14 +94,14 @@ glibtop_init_swap_p (glibtop *server)
 	struct kvm_swap dummy;
 
 	if (kvm_getswapinfo (server->machine.kd, &dummy, 1, 0) != 0) {
-		glibtop_warn_io_r (server, "kvm_nlist (swap)");
+		glibtop_warn_io_r (server, "kvm_swap (swap)");
 		return;
 	}
 #endif
 #endif
 
 	if (kvm_nlist (server->machine.kd, nlst2) != 0) {
-		glibtop_warn_io_r (server, "kvm_nlist (swap)");
+		glibtop_warn_io_r (server, "kvm_nlist (cnt)");
 		return;
 	}
 
@@ -110,8 +118,9 @@ glibtop_init_swap_p (glibtop *server)
 void
 glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 {
-#ifdef __FreeBSD__
-#if __FreeBSD__ < 4
+#if defined(__FreeBSD__)
+
+# if __FreeBSD__ < 4
 	char *header;
 	int hlen, nswdev, dmmax;
 	int div, nfree, npfree;
@@ -122,11 +131,14 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	struct rlist *swapptr;
 	size_t sw_size;
 	u_long ptr;
-#else
+# else
 	int nswdev;
 	struct kvm_swap kvmsw[16];
-#endif
-#elif (defined __NetBSD__)
+# endif
+
+#elif defined(__bsdi__)	
+	struct swapstats swap;
+#elif defined(__NetBSD__)
 	struct swapent *swaplist;
 #endif
 
@@ -174,7 +186,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	swappgsout = vmm.v_swpout;
 #endif
 
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__)
 
 #if __FreeBSD__ < 4
 
@@ -214,7 +226,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 
 	if (kvm_read (server->machine.kd, nlst[VM_SWDEVT].n_value,
 		      &ptr, sizeof (ptr)) != sizeof (ptr)) {
-		glibtop_warn_io_r (server, "kvm_read (swaplist)");
+		glibtop_warn_io_r (server, "kvm_read (swdevt)");
 		return;
 	}
 
@@ -328,7 +340,24 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 
 #endif
 
-#elif (defined __NetBSD__)
+#elif defined(__bsdi__)
+
+	/* General info about swap devices. */
+
+	if (kvm_read (server->machine.kd, nlst[0].n_value,
+		      &swap, sizeof (swap)) != sizeof (swap)) {
+		glibtop_warn_io_r (server, "kvm_read (swap)");
+		return;
+	}
+
+	buf->flags = _glibtop_sysdeps_swap;
+
+	buf->used = swap.swap_total - swap.swap_free;
+	buf->free = swap.swap_free;
+
+	buf->total = swap.swap_total;
+
+#elif defined(__NetBSD__)
 
 	nswap = swapctl (SWAP_NSWAP, NULL, 0);
 	if (nswap < 0) {

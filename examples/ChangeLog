@@ -1,3 +1,8 @@
+Fri Apr  9 00:14:52 1999 Timur Bakeyev  <timur@gnu.org>
+
+	* timings.c: Added timersub defenition, to make code compilable on 
+	BSDI.
+
 1999-03-24  Martin Baulig  <martin@home-of-linux.org>
 
 	* timings.c: New example.

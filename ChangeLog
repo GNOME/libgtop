@@ -1,3 +1,11 @@
+Thu Apr  8 23:47:29 1999  Timur Bakeyev  <timur@gnu.org>
+
+ 	* cpu.c, mem.c, netload.c, procargs.c, procstate.c, proctime.c,
+ 	sem_limits.c, shm_limits.c, swap.c: Added initial port for BSD/OS
+	(aka BSDI) 2.x and 3.x. 4.x should also(?) work.
+	
+	Still, this port require more close look and extended check.
+
 1999-03-30  Martin Baulig  <martin@home-of-linux.org>
 
 	Added some new features.

@@ -54,8 +54,10 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 	unsigned size = 0, pos = 0;
 	int count;
 
+#ifndef __bsdi__
 	char filename [BUFSIZ];
 	struct stat statb;
+#endif
 
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_ARGS), 0);
 	
@@ -64,8 +66,10 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 	/* swapper, init, pagedaemon, vmdaemon, update - this doen't work. */
 	if (pid < 5) return NULL;
 
+#ifndef __bsdi__
 	sprintf (filename, "/proc/%d/mem", pid);
 	if (stat (filename, &statb)) return NULL;
+#endif
 
 	glibtop_suid_enter (server);
 

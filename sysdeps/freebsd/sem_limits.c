@@ -27,7 +27,7 @@
 
 #include <glibtop_suid.h>
 
-#if (defined __bsdi__) && (_BSDI_VERSION < 199700)
+#if defined(__bsdi__) && (_BSDI_VERSION < 199700)
 /* Older versions of BSDI don't seem to have this. */
 
 void
@@ -46,7 +46,7 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 
 /* #define KERNEL to get declaration of `struct seminfo'. */
 
-#if (defined __FreeBSD__) || (defined __bsdi__)
+#if defined(__FreeBSD__) || defined(__bsdi__)
 #define KERNEL 1
 #else
 #define _KERNEL 1

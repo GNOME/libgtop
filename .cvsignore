@@ -21,6 +21,7 @@ ltconfig
 ltmain.sh
 macros
 stamp-h
+stamp-h.in
 sun4
 sun4sol2
 support

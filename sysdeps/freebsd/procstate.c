@@ -27,7 +27,8 @@
 
 #include <glibtop_suid.h>
 
-#if (!defined __OpenBSD__) && (!defined __bsdi__)
+#if !defined(__OpenBSD__) 
+//&& (!defined __bsdi__)
 #include <sys/user.h>
 #endif
 

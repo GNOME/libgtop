@@ -140,8 +140,10 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	/* It does not work for the swapper task. */
 	if (pid == 0) return;
 	
+#ifndef __bsdi__
 	sprintf (filename, "/proc/%d/mem", (int) pid);
 	if (stat (filename, &statb)) return;
+#endif
 
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
