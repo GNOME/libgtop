@@ -1,3 +1,7 @@
+1999-05-30  Drazen Kacar  <dave@srce.hr>
+
+	* procargs.c: Fixed bug in calculation of process argument list.
+
 1999-05-27  Drazen Kacar  <dave@srce.hr>
 
 	* glibtop_machine.h, open.c, procmap.c: Get the file name
