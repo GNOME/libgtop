@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-11 03:27+0100\n"
-"PO-Revision-Date: 2004-03-10 00:03+0100\n"
+"POT-Creation-Date: 2004-03-15 20:49+0100\n"
+"PO-Revision-Date: 2004-03-15 21:15+0100\n"
 "Last-Translator: Alessio Frusciante <algol@firenze.linux.it>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
@@ -537,30 +537,37 @@ msgid ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
+"Flag del kernel del processo.\n"
+"\n"
+"In Linux attualmente ogni flag ha il bit matematico impostato, poiché crt0.s controlla l'emulazione matematica, quindi non verrà inserito nell'output.\n"
+"\n"
+"Questo è probabilmente un bug, in quanto non tutti i processi sono programmi C compilati.\n"
+"\n"
+"Il bit matematico dovrebbe essere un 4 decimale e il bit tracicato è 10 decimale."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:60
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
-msgstr ""
+msgstr "Il numero di fault minori che il processo ha fatto, quelli che non hanno richiesto di caricare una pagina di memoria dal disco."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
-msgstr ""
+msgstr "Il numero di fault maggiori che il processo ha fatto, quelli che hanno richiesto di caricare una pagina di memoria dal disco."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
-msgstr ""
+msgstr "Il numero di fault minori che il processo e i suoi figli hanno fatto."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
-msgstr ""
+msgstr "Il numero di fault maggiori che il processo e i suoi figli hanno fatto."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:72
@@ -583,7 +590,7 @@ msgid ""
 "address of a system call, and can be looked up in a namelist if you need a "
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
-msgstr ""
+msgstr "effettivo gruppo<"
 
 #. WChan
 #: sysdeps/names/prockernel.c:82
@@ -632,7 +639,7 @@ msgid ""
 "purposes. This is just the pages which count towards text, data, or stack "
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
-msgstr ""
+msgstr "Numero di pagine che il processo ha nella memoria reale, meno 3 per scopi amministrativi. Queste sono le pagine che puntano a spazio text, data o stack. Non sono incluse pagine che non sono state caricate su richiesta o che sono \"swapped out\"."
 
 #: sysdeps/names/procmem.c:63
 msgid ""
@@ -658,23 +665,23 @@ msgstr "Stack_RSS"
 
 #: sysdeps/names/procsegment.c:44
 msgid "Dirty Size"
-msgstr ""
+msgstr "Dirty size"
 
 #: sysdeps/names/procsegment.c:44
 msgid "Start_Code"
-msgstr ""
+msgstr "Start_Code"
 
 #: sysdeps/names/procsegment.c:44
 msgid "End_Code"
-msgstr ""
+msgstr "End_Code"
 
 #: sysdeps/names/procsegment.c:44
 msgid "Start_Stack"
-msgstr ""
+msgstr "Start_Stack"
 
 #: sysdeps/names/procsegment.c:49
 msgid "Text resident set size"
-msgstr ""
+msgstr "Dimensioni insieme residente della sezione text"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Shared-Lib resident set size"
@@ -690,7 +697,7 @@ msgstr "Dimensioni insieme residente stack"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Total size of dirty pages"
-msgstr ""
+msgstr "Dimensioni totali delle pagine dirty"
 
 #: sysdeps/names/procsegment.c:54
 msgid "Address of beginning of code segment"
@@ -798,7 +805,7 @@ msgstr "GID reale del processo"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
-msgstr ""
+msgstr "Ha CPU"
 
 #: sysdeps/names/procstate.c:56
 msgid "Processor"
@@ -810,7 +817,7 @@ msgstr "Ultimo processore"
 
 #: sysdeps/names/proctime.c:45
 msgid "Start_Time"
-msgstr ""
+msgstr "Start_Time"
 
 #: sysdeps/names/proctime.c:45
 msgid "RTime"
@@ -838,7 +845,7 @@ msgstr "TimeOut"
 
 #: sysdeps/names/proctime.c:46
 msgid "It_Real_Value"
-msgstr ""
+msgstr "It_Real_Value"
 
 #: sysdeps/names/proctime.c:47
 msgid "Frequency"
@@ -870,11 +877,11 @@ msgstr "Tempo di CPU in modalità kernel accumulato dal processo"
 
 #: sysdeps/names/proctime.c:56
 msgid "cumulative utime of process and reaped children"
-msgstr ""
+msgstr "utime cumulativo del processo dei suoi figli"
 
 #: sysdeps/names/proctime.c:57
 msgid "cumulative stime of process and reaped children"
-msgstr ""
+msgstr "stime cumulativo del processo e dei suoi figli"
 
 #: sysdeps/names/proctime.c:58
 msgid "The time (in jiffies) of the process's next timeout"
@@ -884,7 +891,7 @@ msgstr "Il tempo (in jiffy) del prossimo timeout del processo"
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
-msgstr ""
+msgstr "Il tempo (in jiffy) prima che il prossimo SIGALRM venga mandato al processo a causa di un timer ad intervalli."
 
 #: sysdeps/names/proctime.c:61
 msgid "Tick frequency"
@@ -963,9 +970,8 @@ msgid "NGroups"
 msgstr "NGroups"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "Groups"
-msgstr "ID gruppo"
+msgstr "Gruppi"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
@@ -992,14 +998,12 @@ msgid "Set Group ID"
 msgstr "Set Group ID"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Uso del filesystem"
+msgstr "ID utente filesystem"
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "ID effettivo gruppo"
+msgstr "ID gruppo filesystem"
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
@@ -1023,7 +1027,7 @@ msgstr "Numero di device del terminale di controllo"
 
 #: sysdeps/names/procuid.c:69
 msgid "Terminal process group ID"
-msgstr ""
+msgstr "ID del process group del terminale"
 
 #: sysdeps/names/procuid.c:70
 msgid "Kernel scheduling priority"
@@ -1035,11 +1039,11 @@ msgstr "Livello di nice standard del processo"
 
 #: sysdeps/names/procuid.c:72
 msgid "Number of additional process groups"
-msgstr ""
+msgstr "Numero di process group addizionali"
 
 #: sysdeps/names/procuid.c:73
 msgid "Array of additional process groups"
-msgstr ""
+msgstr "Array di process group addizionali"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
@@ -1238,9 +1242,8 @@ msgid "Idletime"
 msgstr "Idletime"
 
 #: sysdeps/names/uptime.c:41
-#, fuzzy
 msgid "BootTime"
-msgstr "RTime"
+msgstr "BootTime"
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
