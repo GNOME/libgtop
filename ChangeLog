@@ -1,3 +1,17 @@
+1998-05-19  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* sysdeps/stub/uptime.c: forgot this file all the
+	time - stub for glibtop_uptime
+	
+	* sysdeps/stub/loadavg.c: forgot this file all the
+ 	time - stub for glibtop_loadavg
+
+	* NEWS: Libgtop is now in the GNOME CVS Repository.
+
+	* po/Makefile.in.in: new file
+
+	* ABOUT-NLS: new file
+
 1998-05-17  Martin Baulig  <martin@home-of-linux.org>
 
 	* NEWS: added some stuff from 'README.LATEST'.
