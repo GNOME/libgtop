@@ -14,5 +14,12 @@
 @PREFIX@/lib/libgtop_names.so
 @PREFIX@/lib/libgtop_suid_common.so
 @PREFIX@/lib/libgtop_sysdeps.so
+@PREFIX@/lib/libgtop-features.def
+@PREFIX@/lib/libgtop-structures.def
+@PREFIX@/lib/libgtop/include/*.h
 @PREFIX@/include/glibtop/*.h
+@PREFIX@/include/glibtop.h
+@PREFIX@/include/glibtop_server.h
+@PREFIX@/include/glibtop_machine.h
+@PREFIX@/info/libgtop.info
 @PREFIX@/bin/libgtop-config

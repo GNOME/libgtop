@@ -6,3 +6,4 @@ tmp
 *.debhelper
 *.files
 files
+substvars
