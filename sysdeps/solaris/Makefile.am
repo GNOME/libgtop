@@ -6,7 +6,13 @@ dynamic_ldflags			= @libgtop_dynamic_ldflags@
 
 backenddir			= @LIBGTOP_BACKEND_DIR@
 
-backend_LTLIBRARIES		= libgtop_sysdeps.la libgtop_sysdeps_suid.la
+if LIBGTOP_USE_GMODULE
+backendlibdir	= $(backenddir)
+else
+backendlibdir	= $(libdir)
+endif
+
+backendlib_LTLIBRARIES		= libgtop_sysdeps.la libgtop_sysdeps_suid.la
 
 libgtop_sysdeps_la_SOURCES	= open.c close.c cpu.c mem.c \
 				  safeio.c swap.c uptime.c loadavg.c \

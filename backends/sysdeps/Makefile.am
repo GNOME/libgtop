@@ -4,6 +4,12 @@ INCLUDES	= @INCLUDES@
 
 backenddir	= @LIBGTOP_BACKEND_DIR@
 
+if LIBGTOP_USE_GMODULE
+backendlibdir	= $(backenddir)
+else
+backendlibdir	= $(libdir)
+endif
+
 dynamic_ldflags	= @libgtop_dynamic_ldflags@
 
 backend_DATA = \
@@ -12,7 +18,7 @@ backend_DATA = \
 noinst_HEADERS = \
 	glibtop-backend-private.h
 
-backend_LTLIBRARIES = \
+backendlib_LTLIBRARIES = \
 	libgtop_backend_sysdeps.la
 
 libgtop_backend_sysdeps_la_SOURCES = \
