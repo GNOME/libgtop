@@ -1,5 +1,5 @@
 dnl
-dnl Configure script for the Gnome library
+dnl Configure script for LibGTop
 dnl
 
 AC_INIT(copyright.txt)
@@ -143,36 +143,15 @@ if test x$ac_cv_guile_found = xyes ; then
   AC_DEFINE(GLIBTOP_GUILE)
   AC_DEFINE(GLIBTOP_GUILE_NAMES)
   libgtop_guile_found=yes
-  guile_examples='third'
-  guile_static_examples='third_static'
   guile_subdirs='guile'
 else
   libgtop_guile_found=no
-  guile_examples=
-  guile_static_examples=
   guile_subdirs=
-fi
-
-if test x$libgtop_smp = xyes ; then
-  smp_examples='smp'
-  smp_static_examples='smp_static'
-else
-  smp_examples=
-  smp_static_examples=
-fi
-
-if test "x$enable_static" != xno; then
-  static_targets="first_static second_static mountlist_static procmap_static netload_static sysdeps_static timings_static $guile_static_examples $smp_static_examples"
-else
-  static_targets=""
 fi
 
 AM_CONDITIONAL(ENABLE_STATIC, test x$enable_static = xyes)
 AM_CONDITIONAL(ENABLE_SHARED, test x$enable_static = xyes)
 
-AC_SUBST(static_targets)
-AC_SUBST(smp_examples)
-AC_SUBST(guile_examples)
 AC_SUBST(guile_subdirs)
 
 AM_PROG_LIBTOOL
@@ -595,7 +574,6 @@ src/Makefile
 src/daemon/Makefile
 src/inodedb/Makefile
 lib/Makefile
-examples/Makefile
 doc/Makefile
 support/Makefile
 macros/Makefile])

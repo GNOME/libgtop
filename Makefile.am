@@ -1,17 +1,10 @@
 ## Process this file with automake to produce Makefile.in.
 
-if EXAMPLES
-examples_SUBDIRS = examples
-else
-examples_SUBDIRS =
-endif
-
 if BUILD_GNOME_SUPPORT
 support = support
 endif
 
-SUBDIRS = po intl $(support) macros misc include sysdeps lib src \
-	  $(examples_SUBDIRS) doc
+SUBDIRS = po intl $(support) macros misc include sysdeps lib src doc
 
 include_HEADERS = glibtop.h
 configincludedir = $(pkglibdir)/include
@@ -85,7 +78,6 @@ libgtopConf.sh: libgtopConf.sh.in Makefile
 	  -e 's#\@libgtop_need_server\@#$(libgtop_need_server)#g' \
 	  -e 's#\@libgtop_use_machine_h\@#$(libgtop_use_machine_h)#g' \
 	  -e 's#\@libgtop_guile_found\@#$(libgtop_guile_found)#g' \
-	  -e 's#\@libgtop_want_examples\@#$(libgtop_want_examples)#g' \
 	      < $(srcdir)/libgtopConf.sh.in > libgtopConf.tmp \
 	  && mv libgtopConf.tmp libgtopConf.sh
 
