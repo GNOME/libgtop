@@ -1,5 +1,12 @@
 $Id$
 
+May/21/1998
+===========
+
+* doc/gnome-hackers.sgml: This is a short intro on how to use libgtop
+  in the GNOME project. It covers especially the use of its 'configure'
+  script and the automatically generated 'gtopConf.sh'.
+
 May/20/1998
 ===========
 

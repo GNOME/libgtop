@@ -1,3 +1,29 @@
+1998-05-21  Martin Baulig  <martin@home-of-linux.org>
+
+	* doc/gnome-hackers.sgml: new file - short intro on how
+	to use libgtop in the gnome project; especially 'configure'
+	and 'gtopConf.sh'.
+
+	* doc/gnome-hackers.dsl: new file - sets output filename
+	and directory for 'gnome-hackers.sgml'.
+
+	* doc/libgtop.dsl: most stuff from this file has moved
+	to 'dbtohtml.dsl', it now only overrides the output
+	filename and directory.
+
+	* doc/dbtohtml.dsl: new file - contains most that was
+	formerly in 'libgtop.dsl'.
+
+	* configure.in: 'GTOP_INCS' and 'GTOP_LIBS' now really
+	point to the places where everything gets installed and
+	no longer to the build directory, so that they can be
+	used in 'gtopConf.sh'.
+
+	* acinclude.m4 (AC_LC_SYSDEPS): added 'machine_incs'
+	which is used in 'INCLUDES' in several 'Makefile.am's;
+	fixed typo 'ac_cv_want_names'; added missing AC_SUBST
+	of 'use_glibtop_machine_h'.
+
 1998-05-20  Martin Baulig  <baulig@merkur.uni-trier.de>
 
 	* NEWS: added more detailed description of

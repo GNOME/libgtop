@@ -1,9 +1,13 @@
 *.shml
 .timestamp
+.timestamp2
 dbtohtml-1.shtml
 dbtohtml-2.shtml
 dbtohtml-3.shtml
 dbtohtml.shtml
+gnome-hackers
+gnome-hackers.ced
+libgtop
 libgtop-1.shtml
 libgtop-2.shtml
 libgtop-3.shtml
