@@ -1,0 +1,11 @@
+1998-08-25  Martin Baulig  <martin@home-of-linux.org>
+
+	* daemon.h (handle_parent_connection): Added prototype.
+	* write.c, io.c: Added cast to `const void *' in calls to
+	`write' and `send' to avoid compiler warnings.
+	* gnuserv.c (handle_signal): Declared static.
+	(main): Casting return value of `getuid' to `int' in
+	debugging statement.
+
+	* ChangeLog: New file.
+

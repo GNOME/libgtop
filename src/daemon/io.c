@@ -34,10 +34,10 @@ do_output (int s, glibtop_response *resp, off_t offset,
 	resp->data_size = data_size;
 
 	if (s == 0) {
-		if (write (1, resp, sizeof (glibtop_response)) < 0)
+		if (write (1, (const void *) resp, sizeof (glibtop_response)) < 0)
 			glibtop_warn_io ("write");
 	} else {
-		if (send (s, resp, sizeof (glibtop_response), 0) < 0)
+		if (send (s, (const void *) resp, sizeof (glibtop_response), 0) < 0)
 			glibtop_warn_io ("send");
 	}
 

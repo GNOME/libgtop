@@ -50,6 +50,7 @@ __BEGIN_DECLS
 #define MSG_BUFSZ		sizeof (struct _glibtop_ipc_message)
 #define MSG_MSGSZ		(MSG_BUFSZ - sizeof (long))
 
+extern void handle_parent_connection __P((int));
 extern void handle_slave_connection __P((int, int));
 extern void handle_slave_command __P((glibtop_command *, glibtop_response *, const void *));
 
