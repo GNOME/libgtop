@@ -116,24 +116,41 @@ main (int argc, char *argv [])
 		device_minor = (device & 255);
 		device_major = ((device >> 8) & 255);
 
-		if (filename)
-			fprintf (stderr, "%08lx-%08lx %08lx - "
-				 "%02x:%02x %08lu - %4s - %s\n",
+		if (filename) {
+			char *format;
+
+			if (sizeof (void*) == 8)
+				format = "%016lx-%016lx %016lx - "
+					 "%02x:%02x %08lu - %4s - %s\n";
+			else
+				format = "%08lx-%08lx %08lx - "
+					 "%02x:%02x %08lu - %4s - %s\n";
+
+			fprintf (stderr, format,
 				 (unsigned long) maps [i].start,
 				 (unsigned long) maps [i].end,
 				 (unsigned long) maps [i].offset,
 				 device_major, device_minor,
 				 (unsigned long) maps [i].inode,
 				 perm, filename);
-		else
-			fprintf (stderr, "%08lx-%08lx %08lx - "
-				 "%02x:%02x %08lu - %4s\n",
+		} else {
+			char * format;
+
+			if (sizeof (void*) == 8)
+				format = "%016lx-%016lx %016lx - "
+					 "%02x:%02x %08lu - %4s\n";
+			else
+				format = "%08lx-%08lx %08lx - "
+					 "%02x:%02x %08lu - %4s\n";
+
+			fprintf (stderr, format,
 				 (unsigned long) maps [i].start,
 				 (unsigned long) maps [i].end,
 				 (unsigned long) maps [i].offset,
 				 device_major, device_minor,
 				 (unsigned long) maps [i].inode,
 				 perm);
+		}
 
 		if (filename && (filename != maps [i].filename))
 			glibtop_free (filename);
