@@ -402,7 +402,6 @@ sysdeps/stub_suid/Makefile
 sysdeps/sun4/Makefile
 sysdeps/osf1/Makefile
 sysdeps/linux/Makefile
-sysdeps/kernel/Makefile
 sysdeps/freebsd/Makefile
 sysdeps/solaris/Makefile
 src/Makefile
