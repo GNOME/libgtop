@@ -1,5 +1,12 @@
 2004-09-22  Benoît Dejean  <tazforever@dlfp.org>
 
+	* fsusage.c: (glibtop_get_fsusage_s): Linux: Sanitize. Removed calls
+	to obfuscated PROPAGATE_ALL_ONES(x) which seems to return unpredictable
+	values on some arch (e.g sparc).
+	Closes #153141.
+
+2004-09-22  Benoît Dejean  <tazforever@dlfp.org>
+
 	* mountlist.c: (ignore_mount_entry): Added mntfs to ignore list.
 
 2004-09-21  Benoît Dejean  <tazforever@dlfp.org>

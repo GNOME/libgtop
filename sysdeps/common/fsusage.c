@@ -253,10 +253,7 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
   if (statvfs (path, &fsd) < 0)
     return;
 
-  /* f_frsize isn't guaranteed to be supported.  */
-  buf->block_size = (fsd.f_frsize
-			? PROPAGATE_ALL_ONES (fsd.f_frsize)
-			: PROPAGATE_ALL_ONES (fsd.f_bsize));
+  buf->block_size = fsd.f_bsize;
 
 #endif /* STAT_STATVFS */
 
@@ -264,12 +261,11 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 				/* !Ultrix && !SVR2 */
   /* Linux */
 
-  buf->blocks = PROPAGATE_ALL_ONES (fsd.f_blocks);
-  buf->bfree = PROPAGATE_ALL_ONES (fsd.f_bfree);
-  buf->bavail = PROPAGATE_TOP_BIT (fsd.f_bavail);
-  /* buf->bavail_top_bit_set = EXTRACT_TOP_BIT (fsd.f_bavail) != 0; */
-  buf->files = PROPAGATE_ALL_ONES (fsd.f_files);
-  buf->ffree = PROPAGATE_ALL_ONES (fsd.f_ffree);
+  buf->blocks = fsd.f_blocks;
+  buf->bfree  = fsd.f_bfree;
+  buf->bavail = fsd.f_bavail;
+  buf->files  = fsd.f_files;
+  buf->ffree  = fsd.f_ffree;
 
 #endif /* not STAT_STATFS2_FS_DATA && not STAT_READ_FILSYS */
 
