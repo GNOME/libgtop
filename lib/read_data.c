@@ -38,7 +38,8 @@ glibtop_read_data_l (glibtop *server)
 	glibtop_init_r (&server, 0, 0);
 
 #ifdef DEBUG
-	fprintf (stderr, "LIBRARY: reading %d data bytes.\n", sizeof (size_t));
+	fprintf (stderr, "LIBRARY: reading %lu data bytes.\n",
+		 (unsigned long) sizeof (size_t));
 #endif
 
 	if (server->socket) {
@@ -51,7 +52,8 @@ glibtop_read_data_l (glibtop *server)
 		glibtop_error_io_r (server, _("read data size"));
 
 #ifdef DEBUG
-	fprintf (stderr, "LIBRARY: really reading %d data bytes (ret = %d).\n", size, ret);
+	fprintf (stderr, "LIBRARY: really reading %lu data bytes (ret = %d).\n",
+		 (unsigned long) size, ret);
 #endif
 
 	if (!size) return NULL;
@@ -65,7 +67,9 @@ glibtop_read_data_l (glibtop *server)
 	}
 
 	if (ret < 0)
-		glibtop_error_io_r (server, ngettext ("read data %d byte", "read data %d bytes", size));
+		glibtop_error_io_r (server,
+				    ngettext ("read data %lu byte", "read data %lu bytes",
+					      (unsigned long) size));
 
 	return ptr;
 }

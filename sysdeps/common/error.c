@@ -30,17 +30,17 @@
 static void
 print_server_name (const glibtop *server)
 {
-	fprintf (stderr, "%s: ", server ?
-		 (server->name ? server->name : DEFAULT_NAME)
+	fprintf (stderr, "%s: ", server && server->name
+		 ? server->name
 		 : DEFAULT_NAME);
 }
 
 void
-glibtop_error_vr (glibtop *server, char *format, va_list args)
+glibtop_error_vr (glibtop *server, const char *format, va_list args)
 {
 	print_server_name (server);
 	vfprintf (stderr, format, args);
-	fprintf (stderr, "\n");
+	fputc('\n', stderr);
 
 #ifdef LIBGTOP_ENABLE_DEBUG
 	abort ();
@@ -50,7 +50,7 @@ glibtop_error_vr (glibtop *server, char *format, va_list args)
 }
 
 void
-glibtop_error_io_vr (glibtop *server, char *format, int error, va_list args)
+glibtop_error_io_vr (glibtop *server, const char *format, int error, va_list args)
 {
 	print_server_name (server);
 	vfprintf (stderr, format, args);
@@ -64,11 +64,11 @@ glibtop_error_io_vr (glibtop *server, char *format, int error, va_list args)
 }
 
 void
-glibtop_warn_vr (glibtop *server, char *format, va_list args)
+glibtop_warn_vr (glibtop *server, const char *format, va_list args)
 {
 	print_server_name (server);
 	vfprintf (stderr, format, args);
-	fprintf (stderr, "\n");
+	fputc('\n', stderr);
 
 #ifdef LIBGTOP_FATAL_WARNINGS
 	abort ();
@@ -76,7 +76,7 @@ glibtop_warn_vr (glibtop *server, char *format, va_list args)
 }
 
 void
-glibtop_warn_io_vr (glibtop *server, char *format, int error, va_list args)
+glibtop_warn_io_vr (glibtop *server, const char *format, int error, va_list args)
 {
 	print_server_name (server);
 	vfprintf (stderr, format, args);
@@ -88,8 +88,8 @@ glibtop_warn_io_vr (glibtop *server, char *format, int error, va_list args)
 }
 
 
-void G_GNUC_UNUSED
-glibtop_error_r (glibtop *server, char *format, ...)
+void
+glibtop_error_r (glibtop *server, const char *format, ...)
 {
 	va_list args;
 
@@ -99,8 +99,8 @@ glibtop_error_r (glibtop *server, char *format, ...)
 }
 
 
-void G_GNUC_UNUSED
-glibtop_warn_r (glibtop *server, char *format, ...)
+void
+glibtop_warn_r (glibtop *server, const char *format, ...)
 {
 	va_list args;
 
@@ -109,8 +109,8 @@ glibtop_warn_r (glibtop *server, char *format, ...)
 	va_end (args);
 }
 
-void G_GNUC_UNUSED
-glibtop_error_io_r (glibtop *server, char *format, ...)
+void
+glibtop_error_io_r (glibtop *server, const char *format, ...)
 {
 	va_list args;
 
@@ -119,8 +119,8 @@ glibtop_error_io_r (glibtop *server, char *format, ...)
 	va_end (args);
 }
 
-void G_GNUC_UNUSED
-glibtop_warn_io_r (glibtop *server, char *format, ...)
+void
+glibtop_warn_io_r (glibtop *server, const char *format, ...)
 {
 	va_list args;
 
@@ -129,10 +129,9 @@ glibtop_warn_io_r (glibtop *server, char *format, ...)
 	va_end (args);
 }
 
-#ifndef __GNUC__
 
 void
-glibtop_error (char *format, ...)
+glibtop_error (const char *format, ...)
 {
 	va_list args;
 	va_start (args, format);
@@ -141,7 +140,7 @@ glibtop_error (char *format, ...)
 }
 
 void
-glibtop_warn (char *format, ...)
+glibtop_warn (const char *format, ...)
 {
 	va_list args;
 	va_start (args, format);
@@ -150,7 +149,7 @@ glibtop_warn (char *format, ...)
 }
 
 void
-glibtop_error_io (char *format, ...)
+glibtop_error_io (const char *format, ...)
 {
 	va_list args;
 	va_start (args, format);
@@ -159,12 +158,10 @@ glibtop_error_io (char *format, ...)
 }
 
 void
-glibtop_warn_io (char *format, ...)
+glibtop_warn_io (const char *format, ...)
 {
 	va_list args;
 	va_start (args, format);
 	glibtop_warn_io_vr (glibtop_global_server, format, errno, args);
 	va_end (args);
 }
-
-#endif /* __GNUC__ */

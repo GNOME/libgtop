@@ -1,3 +1,17 @@
+2004-12-23  Benoît Dejean  <tazforever@dlfp.org>
+
+	* include/glibtop/error.h:
+	* lib/parameter.c: (glibtop_set_parameter_l):
+	* lib/read_data.c: (glibtop_read_data_l):
+	* sysdeps/common/error.c: (print_server_name), (glibtop_error_vr),
+	(glibtop_error_io_vr), (glibtop_warn_vr), (glibtop_warn_io_vr),
+	(glibtop_error_r), (glibtop_warn_r), (glibtop_error_io_r),
+	(glibtop_warn_io_r), (glibtop_error), (glibtop_warn),
+	(glibtop_error_io), (glibtop_warn_io): Turned all macros to functions.
+	Marked everything as G_GNUC_PRINTF and fixed format bugs.
+
+	* sysdeps/common/fsusage.c: Marked some functions as G_GNUC_INTERNAL
+
 2004-12-20  Benoît Dejean  <tazforever@dlfp.org>
 
 	* NEWS:

@@ -126,9 +126,10 @@ static const unsigned long _glibtop_sysdeps_fsusage =
  */
 
 #ifdef linux
-void _glibtop_linux_get_fsusage_read_write(glibtop *server,
-					   glibtop_fsusage *buf,
-					   const char *path);
+void G_GNUC_INTERNAL
+_glibtop_linux_get_fsusage_read_write(glibtop *server,
+				      glibtop_fsusage *buf,
+				      const char *path);
 
 #define _glibtop_get_fsusage_read_write(S, B, P) \
         _glibtop_linux_get_fsusage_read_write(S, B, P)

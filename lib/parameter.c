@@ -32,9 +32,9 @@
 
 #define _check_data(size)	\
 	if ((data_ptr == NULL) || (data_size != size)) { \
-		glibtop_warn_r (server, "glibtop_set_parameter (%d): " \
+		glibtop_warn_r (server, "glibtop_set_parameter (%u): " \
 				"Expected %lu bytes but got %lu.", \
-				parameter, size, data_size); \
+				(unsigned) parameter, (unsigned long) size, (unsigned long) data_size); \
 		return; \
 	}
 
@@ -82,7 +82,7 @@ glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
 		break;
 	case GLIBTOP_PARAM_FEATURES:
 		/* You should not be allowed to set this field. */
-		glibtop_warn_r (server, "glibtop_set_parameter (%d): " \
+		glibtop_warn_r (server, "glibtop_set_parameter (%u): " \
 				"Cannot modify read-only value.",
 				parameter);
 		break;
