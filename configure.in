@@ -107,65 +107,60 @@ if test "$need_libgtop_support" = yes; then
 fi
 
 dnl These definitions are expanded in make.
-GTOP_LIBS='-L$(libdir)'
-GTOP_INCS='-I$(includedir)'
-GTOP_GUILE_LIBS="$GTOP_LIBS"
-GTOP_GUILE_INCS="$GTOP_INCS"
-GTOP_BINDIR='$(bindir)'
-GTOP_SERVER='$(bindir)/gtop_server'
+LIBGTOP_LIBS='-L$(libdir)'
+LIBGTOP_INCS='-I$(includedir)'
+LIBGTOP_GUILE_LIBS="$LIBGTOP_LIBS"
+LIBGTOP_GUILE_INCS="$LIBGTOP_INCS"
+LIBGTOP_BINDIR='$(bindir)'
+LIBGTOP_SERVER='$(bindir)/gtop_server'
 
-if test "x$ac_cv_guile_found" = "xyes" ; then
-  GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop_guile"
+sysdeps_dir="$libgtop_sysdeps_dir"
+AC_SUBST(sysdeps_dir)
+
+if test x$ac_cv_guile_found = xyes ; then
+  LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_guile"
+  libgtop_guile_found=yes
+else
+  libgtop_guile_found=no
 fi
 
-if test "x$ac_cv_want_names" = "xyes" ; then
-  if test "x$ac_cv_guile_found" = "xyes" ; then
-    GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop_guile_names"
+AC_SUBST(libgtop_guile_found)
+
+if test x$libgtop_want_names = xyes ; then
+  if test x$ac_cv_guile_found = xyes ; then
+    LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_guile_names"
+    libgtop_want_guile_names=yes
+  else
+    libgtop_want_guile_names=no
   fi
-  GTOP_LIBS="$GTOP_LIBS -lgtop_names"
-  GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop_names"
+  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_names"
+  LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_names"
 fi
 
-GTOP_LIBS="$GTOP_LIBS -lgtop_common"
-GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop_common"
+AC_SUBST(libgtop_want_guile_names)
+
+LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common"
+LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_common"
 
 if test "x$need_server" = "xyes" ; then
-  GTOP_LIBS="$GTOP_LIBS -lgtop"
-  GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop"
+  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop"
+  LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop"
 else
-  GTOP_LIBS="$GTOP_LIBS -lgtop_sysdeps"
-  GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS -lgtop_sysdeps"
+  LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_sysdeps"
+  LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS -lgtop_sysdeps"
 fi
 
 if test "x$ac_cv_guile_found" = "xyes" ; then
-  GTOP_GUILE_INCS="$GTOP_INCS $GUILE_INCS"
-  GTOP_GUILE_LIBS="$GTOP_GUILE_LIBS $GUILE_LIBS"
+  LIBGTOP_GUILE_INCS="$LIBGTOP_INCS $GUILE_INCS"
+  LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $GUILE_LIBS"
 fi
 
-gtop_guile_found="$ac_cv_guile_found"
-
-gtop_want_names="$ac_cv_want_names"
-
-if test "x$ac_cv_guile_found" = "xyes" ; then
-  gtop_want_guile_names="$ac_cv_want_names"
-else
-  gtop_want_guile_names="no"
-fi
-
-gtop_want_examples="$ac_cv_want_examples"
-
-AC_SUBST(gtop_guile_found)
-
-AC_SUBST(gtop_want_names)
-AC_SUBST(gtop_want_guile_names)
-AC_SUBST(gtop_want_examples)
-
-AC_SUBST(GTOP_LIBS)
-AC_SUBST(GTOP_INCS)
-AC_SUBST(GTOP_GUILE_LIBS)
-AC_SUBST(GTOP_GUILE_INCS)
-AC_SUBST(GTOP_BINDIR)
-AC_SUBST(GTOP_SERVER)
+AC_SUBST(LIBGTOP_LIBS)
+AC_SUBST(LIBGTOP_INCS)
+AC_SUBST(LIBGTOP_GUILE_LIBS)
+AC_SUBST(LIBGTOP_GUILE_INCS)
+AC_SUBST(LIBGTOP_BINDIR)
+AC_SUBST(LIBGTOP_SERVER)
 
 AC_SUBST(LIBSUPPORT)
 AC_SUBST(SUPPORTINCS)
