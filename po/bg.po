@@ -1,0 +1,1355 @@
+# Bulgarian translation for libgtop
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# Borislav Aleksandrov <B.Aleksandrov@cnsys.bg>, 2002.
+# small updates for completeness, Yanko Kaneti <yaneti@declera.com>, 2002.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop\n"
+"POT-Creation-Date: 2002-06-24 13:06+0200\n"
+"PO-Revision-Date: 2002-06-25 10:26GMT\n"
+"Last-Translator: Borislav Aleksandrov <B.Aleksandrov@cnsys.bg>\n"
+"Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 0.9.5\n"
+
+#: examples/smp.c:68
+#, c-format
+msgid "Ticks (%ld per second):"
+msgstr "Тикове (%ld за секунда):"
+
+#: examples/smp.c:71
+msgid "Total"
+msgstr "Общо"
+
+#: examples/smp.c:71 sysdeps/names/mem.c:47
+msgid "User"
+msgstr "Потребител"
+
+#: examples/smp.c:71 sysdeps/names/procuid.c:58
+msgid "Nice"
+msgstr "Nice"
+
+#: examples/smp.c:71
+msgid "Sys"
+msgstr "Сист."
+
+#: examples/smp.c:71
+msgid "Idle"
+msgstr "В очакване"
+
+#: examples/smp.c:73
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+msgstr ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+
+#: examples/smp.c:77
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+
+#: examples/smp.c:94
+msgid "Percent:"
+msgstr "Процент:"
+
+#: examples/smp.c:95
+msgid "Total (%)"
+msgstr "Общо (%)"
+
+#: examples/smp.c:95
+msgid "User (%)"
+msgstr "Потребител (%)"
+
+#: examples/smp.c:95
+msgid "Nice (%)"
+msgstr "Приоритетни (%)"
+
+#: examples/smp.c:95
+msgid "Sys (%)"
+msgstr "Сист. (%)"
+
+#: examples/smp.c:96
+msgid "Idle (%)"
+msgstr "В очакване (%)"
+
+#: examples/smp.c:98
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+msgstr ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+
+#: examples/smp.c:114
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+
+#: examples/smp.c:120
+msgid "Spin:"
+msgstr "Spin:"
+
+#: lib/read.c:75
+#, c-format
+msgid "read %d bytes"
+msgstr "прочетени %d байта"
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "размер прочетени данни"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr "прочетени данни - %d байта"
+
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr "записани %d байта"
+
+#: src/daemon/gnuserv.c:448
+msgid "Enable debugging"
+msgstr "Включен дебъгер"
+
+#: src/daemon/gnuserv.c:448
+msgid "DEBUG"
+msgstr "ДЕБЪГЕР"
+
+#: src/daemon/gnuserv.c:450
+msgid "Enable verbose output"
+msgstr "Включен подробен изход"
+
+#: src/daemon/gnuserv.c:450
+msgid "VERBOSE"
+msgstr "ПОДРОБЕН"
+
+#: src/daemon/gnuserv.c:452
+msgid "Don't fork into background"
+msgstr "Не поражда процес във фонов режим"
+
+#: src/daemon/gnuserv.c:452
+msgid "NO-DAEMON"
+msgstr "БЕЗ-ДЕМОН"
+
+#: src/daemon/gnuserv.c:454
+msgid "Invoked from inetd"
+msgstr "Извикан от inetd"
+
+#: src/daemon/gnuserv.c:454
+msgid "INETD"
+msgstr "INETD"
+
+#: src/daemon/gnuserv.c:488
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Грешка в опция %s: %s.\n"
+"Изпълнете '%s --help' за да видите пълния списък от налични за командата опции.\n"
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "Неизвестна системна грешка"
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: опция `%s' е двусмислена\n"
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: опция `--%s' не позволява аргумент\n"
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: опция `--'%c%s' не позволява аргумент\n"
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: опция `%s' изисква аргумент\n"
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: неизвестна опция `--%s'\n"
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: неизвестна опция `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: нелегална опция -- %c\n"
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: неправилна опция -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: опция изискваща аргументи -- %c\n"
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: опция `-W %s' е двусмислена\n"
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: опция `-W %s' не изисква аргумент\n"
+
+#: support/popthelp.c:35
+msgid "Show this help message"
+msgstr "Показва това съобщение за помощ"
+
+#: support/popthelp.c:36
+msgid "Display brief usage message"
+msgstr "Показва кратко съобщение за използването"
+
+#: sysdeps/names/cpu.c:43
+msgid "Total CPU Time"
+msgstr "Общо Време на CPU"
+
+#: sysdeps/names/cpu.c:44
+msgid "CPU Time in User Mode"
+msgstr "Време на CPU в Потребителски Режим"
+
+#: sysdeps/names/cpu.c:45
+msgid "CPU Time in User Mode (nice)"
+msgstr "Време на CPU в Потребителски Режим (nice)"
+
+#: sysdeps/names/cpu.c:46
+msgid "CPU Time in System Mode"
+msgstr "Време на CPU в Системен Режим"
+
+#: sysdeps/names/cpu.c:47
+msgid "CPU Time in the Idle Task"
+msgstr "Време на CPU в Режим на Очакване на Задача"
+
+#: sysdeps/names/cpu.c:48
+msgid "Tick Frequency"
+msgstr "Честота на Тик"
+
+#: sysdeps/names/cpu.c:49
+msgid "SMP Total CPU Time"
+msgstr "Общо Време на SMP CPU"
+
+#: sysdeps/names/cpu.c:50
+msgid "SMP CPU Time in User Mode"
+msgstr "Време на SMP CPU в Потребителски Режим"
+
+#: sysdeps/names/cpu.c:51
+msgid "SMP CPU Time in User Mode (nice)"
+msgstr "Време на SMP CPU в Потребителски Режим (nice)"
+
+#: sysdeps/names/cpu.c:52
+msgid "SMP CPU Time in System Mode"
+msgstr "Време на SMP CPU в Системен Режим"
+
+#: sysdeps/names/cpu.c:53
+msgid "SMP CPU Time in the Idle Task"
+msgstr "Време на SMP CPU в Режим на Очакване на Задача"
+
+#: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
+msgid "Number of clock ticks since system boot"
+msgstr "Брой тиквания на часовника от времето на стартиране на машината"
+
+#: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
+msgid "Number of clock ticks the system spent in user mode"
+msgstr "Брой тиквания на часовника на системата прекарани в потребителски режим"
+
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
+msgid "Number of clock ticks the system spent in user mode (nice)"
+msgstr "Брой тиквания на часовника на системата прекарани в потребителски режим (nice)"
+
+#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
+msgid "Number of clock ticks the system spent in system mode"
+msgstr "Брой тиквания на часовника на системата прекарани в системен режим"
+
+#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
+msgid "Number of clock ticks the system spent in the idle task"
+msgstr "Брой тиквания на часовника на системата прекарани в режим на очакване на задача"
+
+#: sysdeps/names/cpu.c:63
+msgid "Tick frequency (default is 100)"
+msgstr "Честота на тиквания (по подразбиране 100)"
+
+#: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
+msgid "Total blocks"
+msgstr "Общо блока"
+
+#: sysdeps/names/fsusage.c:40
+msgid "Free blocks"
+msgstr "Свободни блока"
+
+#: sysdeps/names/fsusage.c:41
+msgid "Available blocks"
+msgstr "Налични блока"
+
+#: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
+msgid "Total file nodes"
+msgstr "Общо 'nodes' за файлове"
+
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+msgid "Free file nodes"
+msgstr "Свободни 'nodes' за файлове"
+
+#: sysdeps/names/fsusage.c:49
+msgid "Free blocks available to the superuser"
+msgstr "Свободни блока налични за суперпотребител"
+
+#: sysdeps/names/fsusage.c:50
+msgid "Free blocks available to non-superusers"
+msgstr "Свободни блока налични за не суперпотребители"
+
+#: sysdeps/names/loadavg.c:39
+msgid "Load Average"
+msgstr "Средно Натоварване"
+
+#: sysdeps/names/loadavg.c:40
+msgid "Running Tasks"
+msgstr "Задачи в Изпълнение"
+
+#: sysdeps/names/loadavg.c:41
+msgid "Number of Tasks"
+msgstr "Брой Задачи"
+
+#: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
+msgid "Last PID"
+msgstr "Последно PID"
+
+#: sysdeps/names/loadavg.c:47
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgstr "Брой задания изпълняващи се едновременно средно за 1,5 и 15 минути"
+
+#: sysdeps/names/loadavg.c:48
+msgid "Number of tasks currently running"
+msgstr "Брой текущо изпълнявани задачи"
+
+#: sysdeps/names/loadavg.c:49
+msgid "Total number of tasks"
+msgstr "Общ брой задачи"
+
+#: sysdeps/names/mem.c:41
+msgid "Total Memory"
+msgstr "Обща Памет"
+
+#: sysdeps/names/mem.c:42
+msgid "Used Memory"
+msgstr "Използвана Памет"
+
+#: sysdeps/names/mem.c:43
+msgid "Free Memory"
+msgstr "Свободна Памет"
+
+#: sysdeps/names/mem.c:44
+msgid "Shared Memory"
+msgstr "Разделяема Памет"
+
+#: sysdeps/names/mem.c:45
+msgid "Buffers"
+msgstr "Буфери"
+
+#: sysdeps/names/mem.c:46
+msgid "Cached"
+msgstr "Кеширана"
+
+#: sysdeps/names/mem.c:48
+msgid "Locked"
+msgstr "Заключена"
+
+#: sysdeps/names/mem.c:53
+msgid "Total physical memory in kB"
+msgstr "Общо физическа памет в кБ"
+
+#: sysdeps/names/mem.c:54
+msgid "Used memory size in kB"
+msgstr "Размер на използвана памет в кБ"
+
+#: sysdeps/names/mem.c:55
+msgid "Free memory size in kB"
+msgstr "Размер на свободна памет в кБ"
+
+#: sysdeps/names/mem.c:56
+msgid "Shared memory size in kB"
+msgstr "Размер на разделяема памет в кБ"
+
+#: sysdeps/names/mem.c:57
+msgid "Size of buffers kB"
+msgstr "Размер на буфери в кБ"
+
+#: sysdeps/names/mem.c:58
+msgid "Size of cached memory in kB"
+msgstr "Размер на кеш памет в кБ"
+
+#: sysdeps/names/mem.c:59
+msgid "Memory used from user processes in kB"
+msgstr "Памет използвана от потребителски процес в кБ"
+
+#: sysdeps/names/mem.c:60
+msgid "Memory in locked pages in kB"
+msgstr "Памет в заключени страници в кБ"
+
+#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
+#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
+#: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
+msgid "Number of list elements"
+msgstr "Брой елементи в списък"
+
+#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
+#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
+#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
+msgid "Total size of list"
+msgstr "Общ размер списъци"
+
+#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
+#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
+#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
+msgid "Size of a single list element"
+msgstr "Размер на единичен списъчен елемент"
+
+#: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
+msgid "Size in kilobytes of message pool"
+msgstr "Размер в килобайта от 'pool' на паметта"
+
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
+msgid "Number of entries in message map"
+msgstr "Брой записи в картата на съобщенията"
+
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
+msgid "Max size of message"
+msgstr "Максимален размер на съобщение"
+
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
+msgid "Default max size of queue"
+msgstr "Подразбиращ се максимален размер на опашка"
+
+#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
+msgid "Max queues system wide"
+msgstr "Макс. размер на системният ред"
+
+#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
+msgid "Message segment size"
+msgstr "Размер на сегмент за съобщение"
+
+#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
+msgid "Number of system message headers"
+msgstr "Брой на заглавия на системните съобщения"
+
+#: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+msgid "Interface Flags"
+msgstr "Флагове на Интерфейса"
+
+#: sysdeps/names/netload.c:46
+msgid "MTU"
+msgstr "MTU"
+
+#: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
+msgid "Subnet"
+msgstr "Подмрежа"
+
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
+msgid "Address"
+msgstr "Адрес"
+
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
+msgid "Packets In"
+msgstr "Получени пакети"
+
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+msgid "Packets Out"
+msgstr "Изпратени пакети"
+
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+msgid "Packets Total"
+msgstr "Общо пакети"
+
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+msgid "Bytes In"
+msgstr "Получени байта"
+
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+msgid "Bytes Out"
+msgstr "Изпратени байта"
+
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+msgid "Bytes Total"
+msgstr "Общо байта"
+
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+msgid "Errors In"
+msgstr "Грешки при получаване"
+
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+msgid "Errors Out"
+msgstr "Грешки при изпращане"
+
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+msgid "Errors Total"
+msgstr "Общо грешки"
+
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+msgid "Collisions"
+msgstr "Колизии"
+
+#: sysdeps/names/netload.c:64
+msgid "Maximum Transfer Unit"
+msgstr "Максимални единици за предаване (MTU)"
+
+#: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
+msgid "PPP State"
+msgstr "PPP Състояние"
+
+#: sysdeps/names/ppp.c:39
+msgid "Input bytes"
+msgstr "Получени байта"
+
+#: sysdeps/names/ppp.c:40
+msgid "Output bytes"
+msgstr "Изпратени байта"
+
+#: sysdeps/names/ppp.c:46
+msgid "Number of input bytes"
+msgstr "Брой на получени байта"
+
+#: sysdeps/names/ppp.c:47
+msgid "Number of output bytes"
+msgstr "Брой на изпратени байта"
+
+#: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
+msgid "Size"
+msgstr "Размер"
+
+#: sysdeps/names/procargs.c:43
+msgid "Length in bytes of the returned string."
+msgstr "Дължина в байта във върнат низ"
+
+#: sysdeps/names/prockernel.c:42
+msgid "K_Flags"
+msgstr "K_Flags"
+
+#: sysdeps/names/prockernel.c:42
+msgid "Min_Flt"
+msgstr "Min_Flt"
+
+#: sysdeps/names/prockernel.c:42
+msgid "Maj_Flt"
+msgstr "Maj_Flt"
+
+#: sysdeps/names/prockernel.c:42
+msgid "CMin_Flt"
+msgstr "CMin_Flt"
+
+#: sysdeps/names/prockernel.c:43
+msgid "CMaj_Flt"
+msgstr "CMaj_Flt"
+
+#: sysdeps/names/prockernel.c:43
+msgid "KStk_ESP"
+msgstr "KStk_ESP"
+
+#: sysdeps/names/prockernel.c:43
+msgid "KStk_EIP"
+msgstr "KStk_EIP"
+
+#: sysdeps/names/prockernel.c:43
+msgid "NWChan"
+msgstr "NWChan"
+
+#: sysdeps/names/prockernel.c:44
+msgid "WChan"
+msgstr "WChan"
+
+#. K_Flags
+#: sysdeps/names/prockernel.c:50
+msgid ""
+"Kernel flags of the process.\n"
+"\n"
+"On Linux, currently every flag has the math bit set, because crt0.s checks "
+"for math emulation, so this is not included in the output.\n"
+"\n"
+"This is probably a bug, as not every process is a compiled C program.\n"
+"\n"
+"The math bit should be a decimal 4, and the traced bit is decimal 10."
+msgstr ""
+"Флагове на ядрото за процеса.\n"
+"\n"
+"В Linux, всеки флаг има установен math бит, понеже crt0.s проверява "
+"за math емулация, затова той не е включен в изхода.\n"
+"\n"
+"Това може да е бъг понеже не всяка програма е на C.\n"
+"\n"
+"math бита трябва да е десетично 4 и трасиращият бит е десетично 10."
+
+#. Min_Flt
+#: sysdeps/names/prockernel.c:59
+msgid ""
+"The number of minor faults the process has made, those which have not "
+"required loading a memory page from disk."
+msgstr ""
+"Брой на малки пропадания направени от процеса, които не изискват зареждане на "
+"страници памет от диска."
+
+#. Maj_Flt
+#: sysdeps/names/prockernel.c:62
+msgid ""
+"The number of major faults the process has made, those which have required "
+"loading a memory page from disk."
+msgstr ""
+"Брой на големи пропадания направени от процеса, които изискват зареждане на "
+"страници памет от диска."
+
+#. CMin_Flt
+#: sysdeps/names/prockernel.c:65
+msgid "The number of minor faults that the process and its children have made."
+msgstr "Брой на малки пропадания направени от процеса и неговите породени процеси."
+
+#. CMaj_Flt
+#: sysdeps/names/prockernel.c:68
+msgid "The number of major faults that the process and its children have made."
+msgstr "Брой на големи пропадания направени от процеса и неговите породени процеси."
+
+#. KStk_ESP
+#: sysdeps/names/prockernel.c:71
+msgid ""
+"The current value of esp (32-bit stack pointer), as found in the kernel "
+"stack page for the process."
+msgstr ""
+"Текущата стойност на esp (32-битов указател на стека) намерени в страницата на стека "
+"на ядрото за процеса."
+
+#. KStk_EIP
+#: sysdeps/names/prockernel.c:74
+msgid "The current EIP (32-bit instruction pointer)."
+msgstr "Текущ EIP (32-битов указател на инструкции)"
+
+#. NWChan
+#: sysdeps/names/prockernel.c:76
+msgid ""
+"This is the \"channel\" in which the process is waiting.  This is the "
+"address of a system call, and can be looked up in a namelist if you need a "
+"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
+"see the WCHAN field in action)"
+msgstr ""
+"Това е \"channel\" в който процеса е в очакване. Това е адреса на системното "
+"повикване, и може да бъде заключен в списъка от имена ако е необходимо да се "
+"знае неговото име. (ако има текущ файл /etc/psdatabase, опитайте ps -l за да "
+"видите WCHAN полето в действие)"
+
+#. WChan
+#: sysdeps/names/prockernel.c:81
+msgid "This is the textual name of the `nwchan' field."
+msgstr "Това е името на полето `nwchan'."
+
+#: sysdeps/names/procmem.c:47
+msgid "Virtual"
+msgstr "Виртуално"
+
+#: sysdeps/names/procmem.c:47
+msgid "Resident"
+msgstr "Резидентно"
+
+#: sysdeps/names/procmem.c:47
+msgid "Share"
+msgstr "Резделяемо"
+
+#: sysdeps/names/procmem.c:48
+msgid "Resident Set Size"
+msgstr "Размер на Резидентен Набор"
+
+#: sysdeps/names/procmem.c:48
+msgid "Resident Set Size Limit"
+msgstr "Лимит Размер на Резидентен Набор"
+
+#: sysdeps/names/procmem.c:53
+msgid "Total # of pages of memory"
+msgstr "Общо # страници в паметта"
+
+#: sysdeps/names/procmem.c:54
+msgid "Number of pages of virtual memory"
+msgstr "Брой страници във виртуалната памет"
+
+#: sysdeps/names/procmem.c:55
+msgid "Number of resident set (non-swapped) pages"
+msgstr "Брой резидентен набор (не-swapped) страници"
+
+#: sysdeps/names/procmem.c:56
+msgid "Number of pages of shared (mmap'd) memory"
+msgstr "Брой страници в разделяемата памет (mmap'd)"
+
+#: sysdeps/names/procmem.c:57
+msgid ""
+"Number of pages the process has in real memory, minus 3 for administrative "
+"purposes. This is just the pages which count towards text, data, or stack "
+"space. This does not include pages which have not been demand-loaded in, or "
+"which are swapped out."
+msgstr ""
+"Брой страници на процеса в реалната памет, минус 3 за административни цели. "
+"Това е точно страниците за код, данни или област на стека. Това не включва "
+"страниците които не са заредени по 'заявка' или  които са изхвърлени от паметта."
+
+#: sysdeps/names/procmem.c:62
+msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr "Текущ лимит от байтове за rss процеса (обикновенно 2,147,483,647)."
+
+#: sysdeps/names/procsegment.c:42
+msgid "Text_RSS"
+msgstr "Text_RSS"
+
+#: sysdeps/names/procsegment.c:42
+msgid "ShLib_RSS"
+msgstr "ShLib_RSS"
+
+#: sysdeps/names/procsegment.c:42
+msgid "Data_RSS"
+msgstr "Data_RSS"
+
+#: sysdeps/names/procsegment.c:42
+msgid "Stack_RSS"
+msgstr "Stack_RSS"
+
+#: sysdeps/names/procsegment.c:43
+msgid "Dirty Size"
+msgstr "Dirty Size"
+
+#: sysdeps/names/procsegment.c:43
+msgid "Start_Code"
+msgstr "Start_Code"
+
+#: sysdeps/names/procsegment.c:43
+msgid "End_Code"
+msgstr "End_Code"
+
+#: sysdeps/names/procsegment.c:43
+msgid "Start_Stack"
+msgstr "Start_Stack"
+
+#: sysdeps/names/procsegment.c:48
+msgid "Text resident set size"
+msgstr "Размер на резидентния набор данни (RSS)"
+
+#: sysdeps/names/procsegment.c:49
+msgid "Shared-Lib resident set size"
+msgstr "Размер на резидентиния набор разделяеми библиотеки"
+
+#: sysdeps/names/procsegment.c:50
+msgid "Data resident set size"
+msgstr "Размер на резидентния набор данни"
+
+#: sysdeps/names/procsegment.c:51
+msgid "Stack resident set size"
+msgstr "Размер на резидентния набор на стека"
+
+#: sysdeps/names/procsegment.c:52
+msgid "Total size of dirty pages"
+msgstr "Общ размер на модифицираните страници"
+
+#: sysdeps/names/procsegment.c:53
+msgid "Address of beginning of code segment"
+msgstr "Начален адрес на кода на сегмента"
+
+#: sysdeps/names/procsegment.c:54
+msgid "Address of end of code segment"
+msgstr "Краен адрес на кода на сегмента"
+
+#: sysdeps/names/procsegment.c:55
+msgid "Address of the bottom of stack segment"
+msgstr "Адрес на долния сегмент на кода"
+
+#: sysdeps/names/procsignal.c:40
+msgid "Signal"
+msgstr "Сигнал"
+
+#: sysdeps/names/procsignal.c:40
+msgid "Blocked"
+msgstr "Блокиран"
+
+#: sysdeps/names/procsignal.c:40
+msgid "SigIgnore"
+msgstr "SigIgnore"
+
+#: sysdeps/names/procsignal.c:40
+msgid "SigCatch"
+msgstr "SigCatch"
+
+#: sysdeps/names/procsignal.c:45
+msgid "Mask of pending signals"
+msgstr "Маска на очакваните сигнали"
+
+#: sysdeps/names/procsignal.c:46
+msgid "Mask of blocked signals"
+msgstr "Маска на блокираните сигнали"
+
+#: sysdeps/names/procsignal.c:47
+msgid "Mask of ignored signals"
+msgstr "Маска на игнорираните сигнали"
+
+#: sysdeps/names/procsignal.c:48
+msgid "Mask of caught signals"
+msgstr "Маска на прихванатите сигнали"
+
+#: sysdeps/names/procstate.c:40
+msgid "Cmd"
+msgstr "Cmd"
+
+#: sysdeps/names/procstate.c:40
+msgid "State"
+msgstr "Състояние"
+
+#: sysdeps/names/procstate.c:40
+msgid "UID"
+msgstr "UID"
+
+#: sysdeps/names/procstate.c:40
+msgid "GID"
+msgstr "GID"
+
+#: sysdeps/names/procstate.c:45
+msgid "Basename of executable file in call to exec()"
+msgstr "Основно име на изпълним файл в повикването за exec()"
+
+#: sysdeps/names/procstate.c:46
+msgid "Single-Char code for process state (S=sleeping)"
+msgstr "Еднисимволен кодза състоянието на процесора (S=заспал)"
+
+#: sysdeps/names/procstate.c:47
+msgid "UID of process"
+msgstr "UID на процес"
+
+#: sysdeps/names/procstate.c:48
+msgid "GID of process"
+msgstr "GID на процес"
+
+#: sysdeps/names/proctime.c:44
+msgid "Start_Time"
+msgstr "Време_на_Стартиране"
+
+#: sysdeps/names/proctime.c:44
+msgid "RTime"
+msgstr "RTime"
+
+#: sysdeps/names/proctime.c:44
+msgid "UTime"
+msgstr "UTime"
+
+#: sysdeps/names/proctime.c:44
+msgid "STime"
+msgstr "STime"
+
+#: sysdeps/names/proctime.c:45
+msgid "CUTime"
+msgstr "CUTime"
+
+#: sysdeps/names/proctime.c:45
+msgid "CSTime"
+msgstr "CSTime"
+
+#: sysdeps/names/proctime.c:45
+msgid "TimeOut"
+msgstr "TimeOut"
+
+#: sysdeps/names/proctime.c:45
+msgid "It_Real_Value"
+msgstr "It_Real_Value"
+
+#: sysdeps/names/proctime.c:46
+msgid "Frequency"
+msgstr "Честота"
+
+#: sysdeps/names/proctime.c:46
+msgid "XCPU_UTime"
+msgstr "XCPU_UTime"
+
+#: sysdeps/names/proctime.c:46
+msgid "XCPU_STime"
+msgstr "XCPU_STime"
+
+#: sysdeps/names/proctime.c:51
+msgid "Start time of process in seconds since the epoch"
+msgstr "Начално време време на процеса в секунди от 'Епохата'"
+
+#: sysdeps/names/proctime.c:52
+msgid "Real time accumulated by process (should be utime + stime)"
+msgstr "Дествително време акомулирано от процеса (трябва да е utime + stime)"
+
+#: sysdeps/names/proctime.c:53
+msgid "user-mode CPU time accumulated by process"
+msgstr "потребителски режим на времето на CPU акомулирано от процеса"
+
+#: sysdeps/names/proctime.c:54
+msgid "kernel-mode CPU time accumulated by process"
+msgstr "Нартупаното времето на CPU за режим на ядро за процеса"
+
+#: sysdeps/names/proctime.c:55
+msgid "cumulative utime of process and reaped children"
+msgstr "общо време (utime) на процеса и завършилите синовни процеси"
+
+#: sysdeps/names/proctime.c:56
+msgid "cumulative stime of process and reaped children"
+msgstr "общо време (stime) на процес и завършили синовни процеси"
+
+#: sysdeps/names/proctime.c:57
+msgid "The time (in jiffies) of the process's next timeout"
+msgstr "Времето (в jiffies) на следващия таймаут на процеса"
+
+#: sysdeps/names/proctime.c:58
+msgid ""
+"The time (in jiffies) before the next SIGALRM is sent to the process due to "
+"an interval timer."
+msgstr ""
+"Времето (в jiffies) преди следващия SIGALARM  да бъде изпратен на процеса "
+"заради някой интервален таймер."
+
+#: sysdeps/names/proctime.c:60
+msgid "Tick frequency"
+msgstr "Честота на тиковете"
+
+#: sysdeps/names/proctime.c:61
+msgid "SMP user-mode CPU time accumulated by process"
+msgstr "Натрупано време на SMP CPU за потребителски режим на процеса"
+
+#: sysdeps/names/proctime.c:62
+msgid "SMP kernel-mode CPU time accumulated by process"
+msgstr "Натрупано време на SMP CPU за режим на ядро за процеса"
+
+#: sysdeps/names/procuid.c:56
+msgid "Uid"
+msgstr "Uid"
+
+#: sysdeps/names/procuid.c:56
+msgid "EUid"
+msgstr "EUid"
+
+#: sysdeps/names/procuid.c:56
+msgid "Gid"
+msgstr "Gid"
+
+#: sysdeps/names/procuid.c:56
+msgid "EGid"
+msgstr "EGid"
+
+#: sysdeps/names/procuid.c:56
+msgid "Pid"
+msgstr "Pid"
+
+#: sysdeps/names/procuid.c:57
+msgid "PPid"
+msgstr "PPid"
+
+#: sysdeps/names/procuid.c:57
+msgid "PGrp"
+msgstr "PGrp"
+
+#: sysdeps/names/procuid.c:57
+msgid "Session"
+msgstr "Сесия"
+
+#: sysdeps/names/procuid.c:57
+msgid "Tty"
+msgstr "Tty"
+
+#: sysdeps/names/procuid.c:58
+msgid "TPGid"
+msgstr "TPGid"
+
+#: sysdeps/names/procuid.c:58
+msgid "Priority"
+msgstr "Приоритет"
+
+#: sysdeps/names/procuid.c:63
+msgid "User ID"
+msgstr "Потребителски ID"
+
+#: sysdeps/names/procuid.c:64
+msgid "Effective User ID"
+msgstr "Ефективно Потребителско ID"
+
+#: sysdeps/names/procuid.c:65
+msgid "Group ID"
+msgstr "ID на Група"
+
+#: sysdeps/names/procuid.c:66
+msgid "Effective Group ID"
+msgstr "Ефективно ID на Група"
+
+#: sysdeps/names/procuid.c:67
+msgid "Process ID"
+msgstr "ID на Процес"
+
+#: sysdeps/names/procuid.c:68
+msgid "PID of parent process"
+msgstr "PID на бащин процес"
+
+#: sysdeps/names/procuid.c:69
+msgid "Process group ID"
+msgstr "ID на група процеси"
+
+#: sysdeps/names/procuid.c:70
+msgid "Session ID"
+msgstr "ID на Сесия"
+
+#: sysdeps/names/procuid.c:71
+msgid "Full device number of controlling terminal"
+msgstr "Пълен номер на устройство на управляващ терминал"
+
+#: sysdeps/names/procuid.c:72
+msgid "Terminal process group ID"
+msgstr "ID група на терминален процес"
+
+#: sysdeps/names/procuid.c:73
+msgid "Kernel scheduling priority"
+msgstr "Приоритет на диспечера на ядрото"
+
+#: sysdeps/names/procuid.c:74
+msgid "Standard unix nice level of process"
+msgstr "Стандартни nice нива на процес за unix"
+
+#: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
+msgid "Number of entries in semaphore map"
+msgstr "Брой на записи в картата на семафорите"
+
+#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
+msgid "Max number of arrays"
+msgstr "Макс. брой на масиви"
+
+#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
+msgid "Max semaphores system wide"
+msgstr "Макс. брой семафори в системата"
+
+#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
+msgid "Number of undo structures system wide"
+msgstr "Брой undo структури в системата"
+
+#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
+msgid "Max semaphores per array"
+msgstr "Максимален брой семафори за масив"
+
+#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
+msgid "Max ops per semop call"
+msgstr "Макс. брой операции за извиквания на semop"
+
+#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
+msgid "Max number of undo entries per process"
+msgstr "Максимален брой undo записи за процес"
+
+#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
+msgid "sizeof struct sem_undo"
+msgstr "размер на структурата sem_undo"
+
+#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
+msgid "Semaphore max value"
+msgstr "Макс стойност на семафор"
+
+#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
+msgid "Adjust on exit max value"
+msgstr "Изравнява максималната стойност при излизане"
+
+#: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
+msgid "Max segment size"
+msgstr "Максимална стойност на сегмент"
+
+#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
+msgid "Min segment size"
+msgstr "Минимална стойност на сегмент"
+
+#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
+msgid "Max number of segments"
+msgstr "Максимален брой сегменти"
+
+#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
+msgid "Max shared segments per process"
+msgstr "Максимален брой поделени сегменти за процес"
+
+#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
+msgid "Max total shared memory"
+msgstr "Обща максимална поделена памет"
+
+#: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
+msgid "Total Swap Space"
+msgstr "Общо 'Swap' Пространство"
+
+#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
+msgid "Used Swap Space"
+msgstr "Използвано 'Swap' Пространство"
+
+#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
+msgid "Free Swap Space"
+msgstr "Свободно 'Swap' Пространство"
+
+#: sysdeps/names/swap.c:42
+msgid "Page In"
+msgstr "Прочетени страници"
+
+#: sysdeps/names/swap.c:43
+msgid "Page Out"
+msgstr "Изхвърлени страници"
+
+#: sysdeps/names/swap.c:51
+msgid "Total number of swap pages that have been brought in since system boot"
+msgstr "Общ брой 'swap' зареждани страници използвани от момента на стартиране на системата"
+
+#: sysdeps/names/swap.c:53
+msgid "Total number of swap pages that have been brought out since system boot"
+msgstr "Общ брой 'swap' изхвърлени страници използвани от момента на стартиране на системата"
+
+#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
+msgid "Server Features"
+msgstr "Свойства на сървъра"
+
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
+msgid "CPU Usage"
+msgstr "Използвано CPU"
+
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
+msgid "Memory Usage"
+msgstr "Използвана Памет"
+
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
+msgid "Swap Usage"
+msgstr "Използвано 'Swap'"
+
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
+msgid "System Uptime"
+msgstr "Време за работа на системата"
+
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
+msgid "Load Averange"
+msgstr "Средно Натоварване"
+
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
+msgid "Shared Memory Limits"
+msgstr "Лимити на Поделяемата Памет"
+
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
+msgid "Message Queue Limits"
+msgstr "Лимити на Опашката за Съобщения"
+
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
+msgid "Semaphore Set Limits"
+msgstr "Лимити за Набора на Семафора"
+
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
+msgid "List of running Processes"
+msgstr "Списък на изпълняващите се процеси"
+
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
+msgid "Process Status information"
+msgstr "Информация за Статуса на Процеса"
+
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
+msgid "Process UID and TTY information"
+msgstr "Информация за UID и TTY на Процес"
+
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
+msgid "Process Memory information"
+msgstr "Информация за Паметта на Процеса"
+
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
+msgid "Process Time information"
+msgstr "Информация за Времето на Процеса"
+
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
+msgid "Process Signal information"
+msgstr "Информация за Сигнал на Процеса"
+
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
+msgid "Process Kernel Data information"
+msgstr "Информация за Данни на Ядрото на процеса"
+
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
+msgid "Process Segment information"
+msgstr "Иформация за Сегмента на Процеса"
+
+#: sysdeps/names/sysdeps.c:66
+msgid "Process Arguments"
+msgstr "Аргументи на Процес"
+
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
+msgid "Process Memory Map"
+msgstr "Карта на Паметта на Процес"
+
+#: sysdeps/names/sysdeps.c:68
+msgid "Mount List"
+msgstr "Списък на Монтирани"
+
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
+msgid "File System Usage"
+msgstr "Използвана Файлова Система"
+
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
+msgid "Network Load"
+msgstr "Натоварване на Мрежа"
+
+#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
+msgid "PPP Statistics"
+msgstr "PPP Статистика"
+
+#: sysdeps/names/sysdeps.c:93
+msgid "Command line arguments of the process"
+msgstr "Команден ред на аргументи на процеса"
+
+#: sysdeps/names/sysdeps.c:95
+msgid "List of currently mounted filesystems"
+msgstr "Списък на текущо монтирани файлови системи"
+
+#: sysdeps/names/uptime.c:38
+msgid "Uptime"
+msgstr "Време на работа"
+
+#: sysdeps/names/uptime.c:39
+msgid "Idletime"
+msgstr "Време на очакване"
+
+#: sysdeps/names/uptime.c:44
+msgid "Time in seconds since system boot"
+msgstr "Времето в секунди от момента на стартиране"
+
+#: sysdeps/names/uptime.c:45
+msgid "Time in seconds the system spent in the idle task since system boot"
+msgstr "Времето в секунди в което системата е била в режим на очакване от времето на стартиране"
+
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Hangup"
+msgstr "Разпада"
+
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr "Прекъсване"
+
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "Напуска"
+
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
+msgstr "Недопустима инструкция"
+
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
+msgstr "Захваща трасировка"
+
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "Прекъсва"
+
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+msgid "EMT error"
+msgstr "EMT грешка"
+
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+msgid "Floating-point exception"
+msgstr "'Изключение' на плаваща точка"
+
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "Убива"
+
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+msgid "Bus error"
+msgstr "Грешка в шината"
+
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
+msgstr "Нарушена сегментация"
+
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr "Лош аргумент за системно повикване"
+
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
+msgstr "Нарушен програмен канал"
+
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
+msgstr "Часовник на аларма"
+
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+msgid "Termination"
+msgstr "Завършване"
+
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
+msgstr "Неотложно състояние на socket"
+
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "Стоп"
+
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+msgid "Keyboard stop"
+msgstr "Стоп на клавиатура"
+
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "Продължава"
+
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
+msgstr "Статуса на потомството е променено"
+
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+msgid "Background read from tty"
+msgstr "Фоново четене от tty"
+
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+msgid "Background write to tty"
+msgstr "Фонов запис в tty"
+
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+msgid "I/O now possible"
+msgstr "I/O не е възможно"
+
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr "Надхвърлен лимит на CPU"
+
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+msgid "File size limit exceeded"
+msgstr "Надхвърлен лимит за размер на файл"
+
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
+msgstr "Виртуален алармен часовник"
+
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr "Профилиран алармен часовник"
+
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+msgid "Window size change"
+msgstr "Промяна размера на прозорец"
+
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+msgid "Information request"
+msgstr "Заявена информация"
+
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+msgid "User defined signal 1"
+msgstr "Сигнал на потребител 1"
+
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+msgid "User defined signal 2"
+msgstr "Сигнал на потребител 2"
+
