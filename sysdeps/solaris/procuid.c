@@ -73,7 +73,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	buf->tty = psinfo.pr_ttydev;
 
 	buf->priority = psinfo.pr_lwp.pr_pri;
-	buf->nice = psinfo.pr_lwp.pr_nice;
+	buf->nice = psinfo.pr_lwp.pr_nice - NZERO;
 
 	buf->flags = _glibtop_sysdeps_proc_uid_psinfo;
 

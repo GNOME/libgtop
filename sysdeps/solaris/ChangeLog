@@ -1,3 +1,7 @@
+1999-05-08  Drazen Kacar  <dave@srce.hr>
+
+	* procuid.c: Fixed nice value.
+
 1999-05-08  Martin Baulig  <martin@home-of-linux.org>
 
 	Use the setgid server for IPC Limits.
