@@ -58,7 +58,7 @@ handle_parent_connection (int s)
 	while (do_read (s, cmnd, sizeof (glibtop_command))) {
 #ifdef PARENT_DEBUG
 		fprintf (stderr, "Parent (%d) received command %d from client.\n",
-			 getpid (), cmnd->command);
+			 getpid (), (int) cmnd->command);
 #endif
 
 		if (cmnd->data_size >= BUFSIZ) {
@@ -74,7 +74,7 @@ handle_parent_connection (int s)
 		if (cmnd->data_size) {
 #ifdef PARENT_DEBUG
 			fprintf (stderr, "Client has %d bytes of data.\n",
-				 cmnd->data_size);
+				 (int) cmnd->data_size);
 #endif
 
 			do_read (s, parameter, cmnd->data_size);
