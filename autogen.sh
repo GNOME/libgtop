@@ -15,6 +15,7 @@ PKG_NAME="Gnome Top Library"
 }
 
 . $srcdir/macros/autogen.sh
+cp -f $srcdir/po/Makefile.in.in.in $srcdir/po/Makefile.in.in
 
 echo ""
 echo " *** IMPORTANT *** "

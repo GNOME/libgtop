@@ -1,3 +1,31 @@
+2000-01-16  Martin Baulig  <martin@home-of-linux.org>
+
+	We now use `@LIBGTOP_PACKAGE@' as the translation domain so
+	installed `libgtop-1.1.mo' files won't conflict with the ones
+	from LibGTop 1.0 and you can keep both versions installed.
+
+	* po/Makefile.in.in.in: New file. This is a modified version of
+	the usual `Makefile.in.in' which is created by gettextize; we
+	copy this over `Makefile.in.in' in autogen.sh after gettextize'ing.
+
+	* autogen.sh: Copy `po/Makefile.in.in.in' over `po/Makefile.in.in'
+	after running `macros/autogen.sh'.
+
+	* configure.in (LIBGTOP_PACKAGE): AC_SUBST and AC_DEFINE this.
+
+	* include/glibtop/global.h (_): Use `LIBGTOP_PACKAGE' as our
+	translation domain.
+
+2000-01-16  Martin Baulig  <martin@home-of-linux.org>
+
+	* LIBGTOP-VERSION (LIBGTOP_VERSION_SUFFIX): Added this so you can
+	have your tarballs called `libgtop-1.x.y-snap.tar.gz' or whatever.
+	This only affects the `VERSION' variable and thus how the resulting
+	tarball will be called, but not `LIBGTOP_VERSION_CODE' etc.
+
+	* Makefile.am: Make `aclocal.m4' also depend on `LIBGTOP-VERSION'
+	when in maintainer-mode.
+
 2000-01-15  Martin Baulig  <martin@home-of-linux.org>
 
 	* LIBGTOP-VERSION: Set version number to 1.1.5, binary age 0,

@@ -129,7 +129,7 @@
 BEGIN_LIBGTOP_DECLS
 
 #ifndef _
-#define _(String) dgettext (PACKAGE, String)
+#define _(String) dgettext (LIBGTOP_PACKAGE, String)
 #define N_(String) (String)
 #endif
 
