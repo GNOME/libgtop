@@ -1,0 +1,62 @@
+/* $Id$ */
+
+/* Copyright (C) 1995, 1996, 1997 Free Software Foundation, Inc.
+   This file is part of the Gnome Top Library.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+
+   The Gnome Top Library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public License as
+   published by the Free Software Foundation; either version 2 of the
+   License, or (at your option) any later version.
+
+   The Gnome Top Library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public
+   License along with the GNU C Library; see the file COPYING.LIB.  If not,
+   write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+   Boston, MA 02111-1307, USA.  */
+
+#include <glibtop.h>
+#include <glibtop/parameter.h>
+
+#define _write_data(ptr,size)	\
+	if ((data_ptr == NULL) || (data_size < size)) return -size; \
+	if (ptr == NULL) { strcpy (data_ptr, ""); return 1; } \
+	memcpy (data_ptr, ptr, size);	\
+	return size;
+
+#define _strlen(ptr)	(ptr ? strlen (ptr) : 0)
+
+size_t
+glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
+			 void *data_ptr, size_t data_size)
+{
+	switch (parameter) {
+	case GLIBTOP_PARAM_METHOD:
+		_write_data (&server->method,
+			     sizeof (server->method));
+	case GLIBTOP_PARAM_FEATURES:
+		_write_data (&server->features,
+			     sizeof (server->features));
+	case GLIBTOP_PARAM_COMMAND:
+		_write_data (server->server_command,
+			     _strlen(server->server_command));
+	case GLIBTOP_PARAM_HOST:
+		_write_data (server->server_host,
+			     _strlen(server->server_host));
+	case GLIBTOP_PARAM_PORT:
+		_write_data (&server->server_port,
+			     sizeof (server->server_port));
+	}
+
+	return 0;
+}
+
+void
+glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
+			 const void *data_ptr, size_t data_size)
+{
+}

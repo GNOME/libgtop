@@ -35,7 +35,8 @@ typedef struct _glibtop		glibtop;
 
 struct _glibtop
 {
-	int fd;				/* Server file descriptor */
+	unsigned flags;
+	unsigned method;		/* Server Method */
 #ifdef HAVE_GLIBTOP_MACHINE_H
 	glibtop_machine machine;	/* Machine dependent data */
 #endif

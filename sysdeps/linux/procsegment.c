@@ -35,8 +35,9 @@ void
 glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 			    pid_t pid)
 {
-	char buffer [BUFSIZ], input [BUFSIZ], *tmp;
-	int fd = 0, nread;
+	char input [BUFSIZ], *tmp;
+	int nread;
+	FILE *f;
 	
 	glibtop_init_r (&server, 0, 0);
 
@@ -49,24 +50,23 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 	}
 
 	sprintf (input, "/proc/%d/stat", pid);
-		
-	fd = open (input, O_RDONLY);
-	if (fd == -1)
-		glibtop_error_r (server, "open (%s): %s",
-				 input, strerror (errno));
-		
-	nread = read (fd, buffer, BUFSIZ);
-	if (nread == -1)
-		glibtop_error_r (server, "read (%s): %s",
-				 input, strerror (errno));
-		
-	buffer [nread] = 0;
-	close (fd);
 
+	f = fopen (input, "r");
+	if (!f) return;
+	
+	nread = fread (input, 1, BUFSIZ, f);
+	
+	if (nread < 0) {
+		fclose (f);
+		return;
+	}
+	
+	input [nread] = 0;
+	
 	/* This is from guile-utils/gtop/proc/readproc.c */
 	
 	/* split into "PID (cmd" and "<rest>" */
-	tmp = strrchr (buffer, ')');
+	tmp = strrchr (input, ')');
 	*tmp = '\0';		/* replace trailing ')' with NUL */
 	/* parse these two strings separately, skipping the leading "(". */
 	sscanf(tmp + 2,		/* skip space after ')' too */
@@ -75,23 +75,26 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 	       "%*u %*u %lu %lu %lu", &buf->start_code,
 	       &buf->end_code, &buf->start_stack);
 	
-	sprintf (input, "/proc/%d/statm", pid);
-		
-	fd = open (input, O_RDONLY);
-	if (fd == -1)
-		glibtop_error_r (server, "open (%s): %s",
-				 input, strerror (errno));
-		
-	nread = read (fd, buffer, BUFSIZ);
-	if (nread == -1)
-		glibtop_error_r (server, "read (%s): %s",
-				 input, strerror (errno));
-		
-	buffer [nread] = 0;
-	close (fd);
+	fclose (f);
 
-	sscanf (buffer, "%*d %*d %*d %ld %ld %ld %ld",
+	sprintf (input, "/proc/%d/statm", pid);
+
+	f = fopen (input, "r");
+	if (!f) return;
+
+	nread = fread (input, 1, BUFSIZ, f);
+
+	if (nread < 0) {
+		fclose (f);
+		return;
+	}
+
+	input [nread] = 0;
+
+	sscanf (input, "%*d %*d %*d %ld %ld %ld %ld",
 		&buf->trs, &buf->lrs, &buf->drs, &buf->dt);
+
+	fclose (f);
 
 	buf->flags = _glibtop_sysdeps_proc_segment;
 }

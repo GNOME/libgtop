@@ -1,3 +1,24 @@
+1998-07-03  Martin baulig  <martin@home-of-linux.org>
+
+	* macros/gnome-libgtop-sysdeps.m4: No longer use
+	`glibtop_machine.h' for Linux.
+
+	* sysdeps/linux/glibtop_machine.h: Removed.
+
+	* sysdeps/guile/guile.awk: Using `scm_append'
+	instead of `gh_append'.
+
+	* sysdeps/guile/names/guile-names.awk: dito.
+
+	* sysdeps/linux/*.c: Using code from stable branch again.
+
+	* include/glibtop/parameter.h: New file.
+
+	* lib/parameter.c: New file.
+
+	* lib/{open, init}.c: Done some more work on server
+	initialization
+
 1998-06-21  Martin Baulig  <martin@home-of-linux.org>
 
 	* perl/*: Added perl interface.

@@ -55,7 +55,7 @@ BEGIN {
     print "";
     print "\tif (ptr) {";
     print "\t\tfor (i = 0; i < proclist.number; i++)";
-    print "\t\t\tlist = gh_append";
+    print "\t\t\tlist = scm_append";
     print "\t\t\t\t(gh_list (list,";
     print "\t\t\t\t\t  gh_list (gh_ulong2scm ((unsigned long) ptr [i])),";
     print "\t\t\t\t\t  SCM_UNDEFINED));";

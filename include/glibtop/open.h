@@ -26,7 +26,18 @@
 
 __BEGIN_DECLS
 
+#define _GLIBTOP_INIT_STATE_INIT	0x10000
+#define _GLIBTOP_INIT_STATE_OPEN	0x20000
+#define _GLIBTOP_INIT_STATE_SERVER	0x40000
+
+#define GLIBTOP_INIT_NO_OPEN		1
+#define GLIBTOP_INIT_NO_INIT		2
+
 #define GLIBTOP_OPEN_NO_OVERRIDE	1
+
+#define GLIBTOP_METHOD_DIRECT		1
+#define GLIBTOP_METHOD_PIPE		2
+#define GLIBTOP_METHOD_INET		3
 
 extern void glibtop_open_l __P((glibtop *, const char *, const unsigned long, const unsigned));
 

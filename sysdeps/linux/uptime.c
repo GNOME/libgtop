@@ -33,8 +33,7 @@ static unsigned long _glibtop_sysdeps_uptime =
 void
 glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
-	int fd, ret;
-	char buffer [BUFSIZ];
+	FILE *f;
 
 	glibtop_init_r (&server, 0, 0);
 
@@ -42,17 +41,10 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 
 	buf->flags = _glibtop_sysdeps_uptime;
 
-	fd = open (FILENAME, O_RDONLY);
-	if (fd == -1)
-		glibtop_error_r (server, "open (%s): %s",
-				 FILENAME, strerror (errno));
+	f = fopen ("/proc/uptime", "r");
+	if (!f) return;
 
-	ret = read (fd, buffer, BUFSIZ);
-	if (ret == -1)
-		glibtop_error_r (server, "read (%s): %s",
-				 FILENAME, strerror (errno));
+	fscanf (f, "%lf %lf\n", &buf->uptime, &buf->idletime);
 
-	sscanf (buffer, "%lf %lf\n", &buf->uptime, &buf->idletime);
-
-	close (fd);
+	fclose (f);
 }

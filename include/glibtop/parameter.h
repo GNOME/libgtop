@@ -1,5 +1,3 @@
-/* $Id$ */
-
 /* Copyright (C) 1995, 1996, 1997 Free Software Foundation, Inc.
    This file is part of the Gnome Top Library.
    Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
@@ -19,38 +17,26 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
-#include <glibtop/error.h>
-#include <glibtop/mem.h>
+#ifndef __GLIBTOP_PARAMETER_H__
+#define __GLIBTOP_PARAMETER_H__
 
-static const unsigned long _glibtop_sysdeps_mem =
-(1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
-(1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_SHARED) +
-(1 << GLIBTOP_MEM_BUFFER) + (1 << GLIBTOP_MEM_CACHED) +
-(1 << GLIBTOP_MEM_USER);
+#include <glibtop.h>
+#include <glibtop/open.h>
 
-#define FILENAME	"/proc/meminfo"
+__BEGIN_DECLS
 
-/* Provides information about memory usage. */
+#define GLIBTOP_PARAM_METHOD	1
+#define GLIBTOP_PARAM_FEATURES	2
+#define GLIBTOP_PARAM_COMMAND	3
+#define GLIBTOP_PARAM_HOST	4
+#define GLIBTOP_PARAM_PORT	5
 
-void
-glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
-{
-	FILE *f;
+#define glibtop_get_parameter(p1,p2,p3)	glibtop_get_parameter_l(glibtop_global_server,p1,p2,p3)
+#define glibtop_set_parameter(p1,p2,p3) glibtop_set_parameter_l(glibtop_global_server,p1,p2,p3)
 
-	glibtop_init_r (&server, 0, 0);
+extern size_t	glibtop_get_parameter_l __P((glibtop *, const unsigned, void *, size_t));
+extern void	glibtop_set_parameter_l __P((glibtop *, const unsigned, const void *, size_t));
 
-	memset (buf, 0, sizeof (glibtop_mem));
+__END_DECLS
 
-	buf->flags = _glibtop_sysdeps_mem;
-
-	f = fopen ("/proc/meminfo", "r");
-	if (!f) return;
-
-	fscanf (f, "%*[^\n]\nMem: %lu %lu %lu %lu %lu %lu\n",
-		&buf->total, &buf->used, &buf->free, &buf->shared, &buf->buffer, &buf->cached);
-
-	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
-
-	fclose (f);
-}
+#endif

@@ -4,6 +4,7 @@ BEGIN {
   print "";
 
   print "#include <glibtop.h>";
+  print "#include <glibtop/open.h>";
   print "#include <glibtop/sysdeps.h>";
   print "#include <glibtop/command.h>";
 
@@ -29,7 +30,9 @@ function output(feature) {
   print "{";
   print "\tglibtop_init_r (&server, GLIBTOP_SYSDEPS_"toupper(feature)", 0);";
   print "";
-  print "\tif (server->features & GLIBTOP_SYSDEPS_"toupper(feature)") {";
+  print "\tif ((server->flags & _GLIBTOP_INIT_STATE_SERVER) &&";
+  print "\t    (server->features & GLIBTOP_SYSDEPS_"toupper(feature)"))";
+  print "\t{";
 
   if (feature ~ /^proc_/) {
     print "\t\t"prefix"glibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)", sizeof (pid_t),";

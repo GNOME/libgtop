@@ -33,8 +33,9 @@ static const unsigned long _glibtop_sysdeps_proc_mem =
 void
 glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 {
-	char buffer [BUFSIZ], input [BUFSIZ], *tmp;
-	int fd = 0, nread;
+	char input [BUFSIZ], *tmp;
+	int nread;
+	FILE *f;
 	
 	glibtop_init_r (&server, 0, 0);
 
@@ -47,24 +48,23 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 	}
 
 	sprintf (input, "/proc/%d/stat", pid);
-		
-	fd = open (input, O_RDONLY);
-	if (fd == -1)
-		glibtop_error_r (server, "open (%s): %s",
-				 input, strerror (errno));
-		
-	nread = read (fd, buffer, BUFSIZ);
-	if (nread == -1)
-		glibtop_error_r (server, "read (%s): %s",
-				 input, strerror (errno));
-		
-	buffer [nread] = 0;
-	close (fd);
+
+	f = fopen (input, "r");
+	if (!f) return;
+	
+	nread = fread (input, 1, BUFSIZ, f);
+	
+	if (nread < 0) {
+		fclose (f);
+		return;
+	}
+	
+	input [nread] = 0;
 	
 	/* This is from guile-utils/gtop/proc/readproc.c */
 	
 	/* split into "PID (cmd" and "<rest>" */
-	tmp = strrchr (buffer, ')');
+	tmp = strrchr (input, ')');
 	*tmp = '\0';		/* replace trailing ')' with NUL */
 	/* parse these two strings separately, skipping the leading "(". */
 	sscanf(tmp + 2,		/* skip space after ')' too */
@@ -72,23 +72,26 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 	       "%*d %*d %*d %*d %*d %*d %*u %*u %*d %lu "
 	       "%lu %lu", &buf->vsize, &buf->rss, &buf->rss_rlim);
 	
-	sprintf (input, "/proc/%d/statm", pid);
-		
-	fd = open (input, O_RDONLY);
-	if (fd == -1)
-		glibtop_error_r (server, "open (%s): %s",
-				 input, strerror (errno));
-		
-	nread = read (fd, buffer, BUFSIZ);
-	if (nread == -1)
-		glibtop_error_r (server, "read (%s): %s",
-				 input, strerror (errno));
+	fclose (f);
 
-	buffer [nread] = 0;
-	close (fd);
-		
-	sscanf (buffer, "%ld %ld %ld",
+	sprintf (input, "/proc/%d/statm", pid);
+
+	f = fopen (input, "r");
+	if (!f) return;
+
+	nread = fread (input, 1, BUFSIZ, f);
+
+	if (nread < 0) {
+		fclose (f);
+		return;
+	}
+
+	input [nread] = 0;
+
+	sscanf (input, "%ld %ld %ld",
 		&buf->size, &buf->resident, &buf->share);
+
+	fclose (f);
 
 	buf->flags = _glibtop_sysdeps_proc_mem;
 }

@@ -26,6 +26,8 @@
 #include <glibtop/close.h>
 #include <glibtop/xmalloc.h>
 
+#include <glibtop/parameter.h>
+
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
 
@@ -38,7 +40,8 @@ main (int argc, char *argv [])
 {
 	glibtop_union data;
 	glibtop_sysdeps sysdeps;
-	unsigned c, count, i, *ptr;
+	unsigned c, method, count, port, i, *ptr;
+	char buffer [BUFSIZ];
 	pid_t pid, ppid;
 
 	count = PROFILE_COUNT;
@@ -47,7 +50,23 @@ main (int argc, char *argv [])
 	bindtextdomain (PACKAGE, GTOPLOCALEDIR);
 	textdomain (PACKAGE);
 	
-	glibtop_init ();
+	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_INIT_NO_OPEN);
+
+	glibtop_get_parameter (GLIBTOP_PARAM_METHOD, &method, sizeof (method));
+
+	printf ("Method = %d\n", method);
+
+	count = glibtop_get_parameter (GLIBTOP_PARAM_COMMAND, buffer, BUFSIZ);
+	buffer [count] = 0;
+
+	printf ("Command = '%s'\n", buffer);
+
+	count = glibtop_get_parameter (GLIBTOP_PARAM_HOST, buffer, BUFSIZ);
+	buffer [count] = 0;
+
+	glibtop_get_parameter (GLIBTOP_PARAM_PORT, &port, sizeof (port));
+
+	printf ("Host = '%s' - %u\n\n", buffer, port);
 
 	for (c = 0; c < count; c++)
 	  	glibtop_get_cpu (&data.cpu);

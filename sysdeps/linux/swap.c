@@ -34,8 +34,7 @@ static unsigned long _glibtop_sysdeps_swap =
 void
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
-	char buffer [BUFSIZ], *tmp;
-	int fd = 0, ret;
+	FILE *f;
 
 	glibtop_init_r (&server, 0, 0);
 
@@ -43,24 +42,11 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
 	buf->flags = _glibtop_sysdeps_swap;
 
-	fd = open (FILENAME, O_RDONLY);
-	if (fd == -1)
-		glibtop_error_r (server, "open (%s): %s",
-				 FILENAME, strerror (errno));
+	f = fopen ("/proc/meminfo", "r");
+	if (!f) return;
 
-	ret = read (fd, buffer, BUFSIZ);
-	if (ret == -1)
-		glibtop_error_r (server, "read (%s): %s",
-				 FILENAME, strerror (errno));
+	fscanf (f, "%*[^\n]\n%*[^\n]\nSwap: %lu %lu %lu\n",
+		&buf->total, &buf->used, &buf->free);
 
-	tmp = strchr (buffer, '\n');
-	tmp = strchr (tmp+1, '\n');
-	
-	tmp = skip_token (tmp);			/* "Swap:" */
-
-	buf->total = strtoul (tmp, &tmp, 10);
-	buf->used  = strtoul (tmp, &tmp, 10);
-	buf->free  = strtoul (tmp, &tmp, 10);
-
-	close (fd);
+	fclose (f);
 }
