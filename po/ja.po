@@ -1275,7 +1275,7 @@ msgstr "%s: 認識できないオプションです `--%s'\n"
 #: support/getopt.c:748
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: 認識できないオプションです `--%s'\n"
+msgstr "%s: 認識できないオプションです `%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774

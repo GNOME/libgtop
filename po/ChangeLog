@@ -1,4 +1,9 @@
-2000-10-fr  Christophe Merlet  <christophe@merlet.net>
+2001-01-05  Pablo Saratxaga <pablo@mandrakesoft.com>
+
+	* az.po: Added Azeri file
+	* *.po: corrected headers in various po files
+
+2000-10-15  Christophe Merlet  <christophe@merlet.net>
 
 	* fr.po: Updated French translation.
 
