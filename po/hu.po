@@ -1,18 +1,21 @@
-# Hungarian translation for libgtop
-# Copyright (C) 2000 Free Software Foundation, Inc.
+# Hungarian translation of libgtop.
+# Copyright (C) 2000-2004 Free Software Foundation, Inc.
 # Robert Vanyi <robi@mora.u-szeged.hu>, 2000.
+# Andras Timar <timar@gnome.hu>, 2001-2003.
+# Laszlo Dvornik <dvornikl@mailbox.hu>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 1.1.6\n"
+"Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-11 03:27+0100\n"
-"PO-Revision-Date: 2003-07-14 00:44+0200\n"
-"Last-Translator: Andras Timar <timar@gnome.hu>\n"
-"Language-Team: Hungarian Gnome Project <hu@gnome.hu>\n"
+"POT-Creation-Date: 2004-03-20 04:13+0100\n"
+"PO-Revision-Date: 2004-03-20 11:49+0100\n"
+"Last-Translator: Laszlo Dvornik <dvornikl@mailbox.hu>\n"
+"Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 # examples/smp.c:68
 #: examples/smp.c:74
@@ -113,11 +116,11 @@ msgstr "Spin:"
 
 # lib/read.c:75
 #: lib/read.c:78
-#, fuzzy, c-format
+#, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "%d byte olvasása"
-msgstr[1] "%d byte olvasása"
+msgstr[0] "%d bájt olvasása"
+msgstr[1] "%d bájt olvasása"
 
 # lib/read_data.c:49
 #: lib/read_data.c:51
@@ -126,19 +129,19 @@ msgstr "olvasási adatméret"
 
 # lib/read_data.c:66
 #: lib/read_data.c:68
-#, fuzzy, c-format
+#, c-format
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
-msgstr[0] "olvasott adat %d byte"
-msgstr[1] "olvasott adat %d byte"
+msgstr[0] "olvasott adat %d bájt"
+msgstr[1] "olvasott adat %d bájt"
 
 # lib/write.c:48
 #: lib/write.c:51
-#, fuzzy, c-format
+#, c-format
 msgid "write %d byte"
 msgid_plural "write %d bytes"
-msgstr[0] "%d byte írása"
-msgstr[1] "%d byte írása"
+msgstr[0] "%d bájt írása"
+msgstr[1] "%d bájt írása"
 
 # src/daemon/gnuserv.c:448
 #: src/daemon/gnuserv.c:456
@@ -186,7 +189,7 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Hiba a(z) %s kapcsolónál: %s.\n"
-"Futtasd a '%s --help' parancsot a parancssori kapcsolók listájáért.\n"
+"Futtassa a '%s --help' parancsot a parancssori kapcsolók listájáért.\n"
 
 # sysdeps/names/cpu.c:43
 #: sysdeps/names/cpu.c:44
@@ -314,7 +317,7 @@ msgstr "Szabad blokkok a rendszergazda számára"
 # sysdeps/names/fsusage.c:50
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to non-superusers"
-msgstr "Szabad blokkok normál felhasználóknak"
+msgstr "Szabad blokkok normál felhasználók számára"
 
 # sysdeps/names/loadavg.c:39
 #: sysdeps/names/loadavg.c:40
@@ -456,7 +459,7 @@ msgstr "Egyetlen listaelem mérete"
 # sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 msgid "Size in kilobytes of message pool"
-msgstr "Üzenettár mérete kilobyte-ban"
+msgstr "Üzenettár mérete kilobájtban"
 
 # sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
@@ -526,17 +529,17 @@ msgstr "Csomagok összesen"
 # sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
 #: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 msgid "Bytes In"
-msgstr "Byte-ok be"
+msgstr "Bájtok be"
 
 # sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
 #: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 msgid "Bytes Out"
-msgstr "Byte-ok ki"
+msgstr "Bájtok ki"
 
 # sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
 #: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
 msgid "Bytes Total"
-msgstr "Byte-ok összesen"
+msgstr "Bájtok összesen"
 
 # sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
 #: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
@@ -571,22 +574,22 @@ msgstr "PPP állapota"
 # sysdeps/names/ppp.c:39
 #: sysdeps/names/ppp.c:40
 msgid "Input bytes"
-msgstr "Beolvasott byte-ok"
+msgstr "Beolvasott bájtok"
 
 # sysdeps/names/ppp.c:40
 #: sysdeps/names/ppp.c:41
 msgid "Output bytes"
-msgstr "Kiírt byte-ok"
+msgstr "Kiírt bájtok"
 
 # sysdeps/names/ppp.c:46
 #: sysdeps/names/ppp.c:47
 msgid "Number of input bytes"
-msgstr "Beolvasott byte-ok száma"
+msgstr "Beolvasott bájtok száma"
 
 # sysdeps/names/ppp.c:47
 #: sysdeps/names/ppp.c:48
 msgid "Number of output bytes"
-msgstr "Kiírt byte-ok száma"
+msgstr "Kiírt bájtok száma"
 
 # sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
 #: sysdeps/names/procargs.c:39 sysdeps/names/procmem.c:48
@@ -596,7 +599,7 @@ msgstr "Méret"
 # sysdeps/names/procargs.c:43
 #: sysdeps/names/procargs.c:44
 msgid "Length in bytes of the returned string."
-msgstr "A visszaadott karakterlánc hossza byte-okban"
+msgstr "A visszaadott karakterlánc hossza bájtokban"
 
 # sysdeps/names/prockernel.c:42
 #: sysdeps/names/prockernel.c:43
@@ -917,27 +920,25 @@ msgstr "GID"
 
 # sysdeps/names/procuid.c:56
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RGid"
-msgstr "Gid"
+msgstr "RGid"
 
 # sysdeps/names/procuid.c:56
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RUid"
-msgstr "Uid"
+msgstr "RUid"
 
 #: sysdeps/names/procstate.c:44
 msgid "HasCPU"
-msgstr ""
+msgstr "HasCPU"
 
 #: sysdeps/names/procstate.c:44
 msgid "Proc"
-msgstr ""
+msgstr "Proc"
 
 #: sysdeps/names/procstate.c:44
 msgid "LProc"
-msgstr ""
+msgstr "LProc"
 
 # sysdeps/names/procstate.c:45
 #: sysdeps/names/procstate.c:49
@@ -961,15 +962,13 @@ msgstr "A folyamat GID-je"
 
 # sysdeps/names/procstate.c:47
 #: sysdeps/names/procstate.c:53
-#, fuzzy
 msgid "Real UID of process"
-msgstr "A folyamat UID-je"
+msgstr "A folyamat valós UID-je"
 
 # sysdeps/names/procstate.c:48
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "Real GID of process"
-msgstr "A folyamat GID-je"
+msgstr "A folyamat valós GID-je"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
@@ -977,13 +976,12 @@ msgstr ""
 
 # sysdeps/names/procuid.c:67
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "Processor"
-msgstr "Folyamatazonosító"
+msgstr "Processzor"
 
 #: sysdeps/names/procstate.c:57
 msgid "Last Processor"
-msgstr ""
+msgstr "Utolsó processzor"
 
 # sysdeps/names/proctime.c:44
 #: sysdeps/names/proctime.c:45
@@ -1119,27 +1117,23 @@ msgstr "EGid"
 
 # sysdeps/names/procuid.c:56
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "Uid"
+msgstr "SUid"
 
 # sysdeps/names/procuid.c:56
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "Gid"
+msgstr "SGid"
 
 # sysdeps/names/procuid.c:56
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSUid"
-msgstr "Uid"
+msgstr "FSUid"
 
 # sysdeps/names/procuid.c:56
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSGid"
-msgstr "Gid"
+msgstr "FSGid"
 
 # sysdeps/names/procuid.c:56
 #: sysdeps/names/procuid.c:49
@@ -1178,15 +1172,13 @@ msgstr "Prioritás"
 
 # sysdeps/names/procuid.c:65
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "Csoportazonosító"
+msgstr "NGroups"
 
 # sysdeps/names/procuid.c:65
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "Groups"
-msgstr "Csoportazonosító"
+msgstr "Groups"
 
 # sysdeps/names/procuid.c:63
 #: sysdeps/names/procuid.c:56
@@ -1210,27 +1202,23 @@ msgstr "Effektív csoportazonosító"
 
 # sysdeps/names/procuid.c:63
 #: sysdeps/names/procuid.c:60
-#, fuzzy
 msgid "Set User ID"
-msgstr "Felhasználóazonosító"
+msgstr "Felhasználóazonosító beállítása"
 
 # sysdeps/names/procuid.c:65
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Set Group ID"
-msgstr "Csoportazonosító"
+msgstr "Csoportazonosító beállítása"
 
 # sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Fájlrendszer használat"
+msgstr "Fájlrendszer felhasználóazonosító"
 
 # sysdeps/names/procuid.c:66
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "Effektív csoportazonosító"
+msgstr "Fájlrendszer csoportazonosító"
 
 # sysdeps/names/procuid.c:67
 #: sysdeps/names/procuid.c:64
@@ -1274,15 +1262,13 @@ msgstr "A folyamat szabványos unix nice-szintje"
 
 # sysdeps/names/procuid.c:72
 #: sysdeps/names/procuid.c:72
-#, fuzzy
 msgid "Number of additional process groups"
-msgstr "A terminálfolyamat csoportazonosítója"
+msgstr ""
 
 # sysdeps/names/procuid.c:72
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Array of additional process groups"
-msgstr "A terminálfolyamat csoportazonosítója"
+msgstr ""
 
 # sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
@@ -1517,7 +1503,7 @@ msgstr "A folyamatok parancssori paraméterei"
 # sysdeps/names/sysdeps.c:95
 #: sysdeps/names/sysdeps.c:96
 msgid "List of currently mounted filesystems"
-msgstr "A jelenleg becsatol fájlrendszerek listája"
+msgstr "A jelenleg becsatolt fájlrendszerek listája"
 
 # sysdeps/names/uptime.c:38
 #: sysdeps/names/uptime.c:39
@@ -1531,9 +1517,8 @@ msgstr "Üresjárat"
 
 # sysdeps/names/proctime.c:44
 #: sysdeps/names/uptime.c:41
-#, fuzzy
 msgid "BootTime"
-msgstr "RTime"
+msgstr "BootTime"
 
 # sysdeps/names/uptime.c:44
 #: sysdeps/names/uptime.c:46
@@ -1543,18 +1528,17 @@ msgstr "Rendszerindítás óta eltel idő másodpercben"
 # sysdeps/names/uptime.c:45
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "A rendszerindítás óda üresjáratban töltött idő másodpercben"
+msgstr "A rendszerindítás óta üresjáratban töltött idő másodpercben"
 
 # sysdeps/names/uptime.c:44
 #: sysdeps/names/uptime.c:48
-#, fuzzy
 msgid "Time of last system boot in seconds since the epoch"
-msgstr "Rendszerindítás óta eltel idő másodpercben"
+msgstr ""
 
 # sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr "Felfüggeszt"
+msgstr "Felfüggesztés"
 
 # sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
@@ -1698,57 +1682,3 @@ msgstr "Felhasználói szignál 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Felhasználói szignál 2"
-
-# support/error.c:109
-#~ msgid "Unknown system error"
-#~ msgstr "Ismeretlen rendszerhiba"
-
-# support/getopt.c:669
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: a(z) `%s' kapcsoló nem egyértelmű\n"
-
-# support/getopt.c:693
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: a `--%s' kapcsoló nem enged meg argumentumot\n"
-
-# support/getopt.c:698
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: a `%c%s' kapcsoló nem enged meg argumentumot\n"
-
-# support/getopt.c:715 support/getopt.c:888
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: a `%s' kapcsolóhoz szükséges egy argumentum\n"
-
-# support/getopt.c:744
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: ismeretlen kapcsoló `--%s'\n"
-
-# support/getopt.c:748
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: ismeretlen kapcsoló `%c%s'\n"
-
-# support/getopt.c:774
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: szabálytalan kapcsoló -- %c\n"
-
-# support/getopt.c:777
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: érvénytelen kapcsoló -- %c\n"
-
-# support/getopt.c:807 support/getopt.c:937
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: az kapcsolóhoz szükséges egy argumentum -- %c\n"
-
-# support/getopt.c:854
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: a `-W %s' kapcsoló nem egyértelmű\n"
-
-# support/getopt.c:872
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: a `-W %s' kapcsoló nem enged meg argumentumot\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "Ez a súgóüzenet"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "Rövid használati útmutató"
