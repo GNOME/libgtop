@@ -1,3 +1,13 @@
+1998-06-08  Martin Baulig  <martin@home-of-linux.org>
+
+	* support: Added again.
+
+	* Makefile.am (SUBDIRS): Added `support' again.
+
+	* configure.in: First, we check for gnome. If it is not
+	found, we run GNOME_SUPPORT_CHECKS; otherwise use
+	`$GNOME_LIBDIR -lgnomesupport'.
+
 1998-06-07  Martin Baulig  <martin@home-of-linux.org>
 
 	* examples/ChangeLog: New file.

@@ -4,19 +4,28 @@ dnl
 
 AC_INIT(copyright.txt)
 AM_CONFIG_HEADER(config.h)
-
-AM_INIT_AUTOMAKE(libgtop, 0.01)
-
-AM_MAINTAINER_MODE
+AC_CANONICAL_SYSTEM
 
 AM_ACLOCAL_INCLUDE(macros)
 
-AC_CANONICAL_HOST
+dnl This is necessary for cross-compiling for programs
+dnl that need to run on the build host.
+
+AC_CHECK_PROG(build_CC, gcc, gcc)
+if test -z "$build_CC" ; then
+  AC_CHECK_PROG(build_CC, cc, cc, , , /usr/ucb/cc)
+  test -z "$build_CC" && \
+	AC_MSG_ERROR([no acceptable cc found in \$PATH])
+fi
 
 AC_CHECK_TOOL(CC,gcc)
-AC_CHECK_TOOL(CXX,g++)
+
+AC_ISC_POSIX
+AC_PROG_CC
+AC_STDC_HEADERS
+AC_ARG_PROGRAM
+
 AC_CHECK_TOOL(RANLIB,ranlib)
-AC_CHECK_TOOL(LD,ld)
 AC_CHECK_TOOL(AS,as)
 AC_CHECK_TOOL(AR,ar)
 AC_CHECK_TOOL(NM,nm)
@@ -24,8 +33,22 @@ AC_CHECK_TOOL(NM,nm)
 NM=`which $NM`
 export CC CXX RANLIB LD AS AR NM
 
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_MAKE_SET
+
+export cross_compiling
+
+AM_PROG_LIBTOOL
+
+AM_INIT_AUTOMAKE(libgtop, 0.01)
+
 dnl If you want to use libgtop without gnome, comment the following line out.
-GNOME_INIT
+GNOME_INIT_HOOK(gnome_found=yes)
+
+if test "x$gnome_found" != xyes; then
+  GNOME_SUPPORT_CHECKS
+fi
 
 AC_LC_SYSDEPS
 
@@ -49,18 +72,6 @@ fi
 AC_SUBST(guile_examples)
 AC_SUBST(guile_subdirs)
 
-AC_ISC_POSIX
-AC_PROG_CXX
-AC_PROG_CC
-AC_PROG_CPP
-AC_STDC_HEADERS
-AC_ARG_PROGRAM
-AM_PROG_LEX
-AC_PROG_INSTALL
-AC_PROG_LN_S
-AC_PROG_MAKE_SET
-
-export cross_compiling
 AM_PROG_LIBTOOL
 
 dnl You need to uncomment the following line if you want to use libgtop without Gnome.
@@ -185,6 +196,18 @@ AC_SUBST(LIBGTOP_GUILE_INCS)
 AC_SUBST(LIBGTOP_BINDIR)
 AC_SUBST(LIBGTOP_SERVER)
 
+LIBSUPPORT=
+SUPPORTINCS=
+if test "$need_gnome_support" = yes; then
+   if test "x$gnome_found" = xyes ; then
+     LIBSUPPORT="$GNOME_LIBDIR -lgnomesupport"
+     SUPPORTINCS="$GNOME_INCLUDEDIR"
+   else
+     LIBSUPPORT='$(top_builddir)/support/libgnomesupport.la'
+     SUPPORTINCS='-DNEED_GNOMESUPPORT_H -I$(top_builddir)/support -I$(top_srcdir)/support'
+   fi
+fi
+
 AC_OUTPUT([
 Makefile
 po/Makefile.in
@@ -205,4 +228,5 @@ src/server/Makefile
 src/proxy/Makefile
 lib/Makefile
 examples/Makefile
+support/Makefile
 macros/Makefile],[sed -e "/POTFILES =/r po/POTFILES" po/Makefile.in > po/Makefile])

@@ -6,7 +6,7 @@ endif
 
 built_SUBDIRS = include sysdeps lib src
 
-SUBDIRS = po intl macros $(built_SUBDIRS) $(examples_SUBDIRS)
+SUBDIRS = po intl support macros $(built_SUBDIRS) $(examples_SUBDIRS)
 
 DIST_SUBDIRS = po intl macros include sysdeps src lib examples
 
