@@ -196,7 +196,7 @@ void disconnect_from_ipc_server(s,msgp,echo)
 */
 void send_string(s,msg)
      int s;
-     CONST char *msg;
+     const char *msg;
 {
 #if 0
   if (send(s,msg,strlen(msg),0) < 0) {
@@ -290,13 +290,15 @@ int internet_addr(host)
   struct hostent *hp;		/* pointer to host info for remote host */
   IN_ADDR numeric_addr;		/* host address */
 
-  numeric_addr = inet_addr(host);
+  numeric_addr = inet_addr (host);
   if (!NUMERIC_ADDR_ERROR)
     return numeric_addr;
-  else if ((hp = gethostbyname(host)) != NULL)
+  else if ((hp = gethostbyname (host)) != NULL)
     return ((struct in_addr *)(hp->h_addr))->s_addr;
-  else
+  else {
+    glibtop_warn_io ("gethostbyname (%s)", host);
     return -1;
+  }
 
 } /* internet_addr */
 
