@@ -1,3 +1,9 @@
+1998-06-14  Martin Baulig  <martin@home-of-linux.org>
+
+	* kernel.s: New file - declaration of the table () function
+	via _syscall3 (); due to a bug in egcs, we cannot put this
+	into a C file.
+
 1998-06-13  Martin Baulig  <martin@home-of-linux.org>
 
 	The code in this directory fetches all information
