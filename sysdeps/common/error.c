@@ -45,7 +45,12 @@ glibtop_error_r (glibtop *server, char *format, ...)
 	fprintf (stderr, "\n");
 	
 	va_end (ap);
+
+#ifdef LIBGTOP_ENABLE_DEBUG
+	abort ();
+#else
 	exit (1);
+#endif
 }
 
 void
@@ -60,7 +65,12 @@ glibtop_error_io_r (glibtop *server, char *format, ...)
 	fprintf (stderr, ": %s\n", strerror (errno));
 	
 	va_end (ap);
+
+#ifdef LIBGTOP_ENABLE_DEBUG
+	abort ();
+#else
 	exit (1);
+#endif
 }
 
 void
@@ -75,13 +85,17 @@ glibtop_warn_r (glibtop *server, char *format, ...)
 	fprintf (stderr, "\n");
 	
 	va_end (ap);
+
+#ifdef LIBGTOP_FATAL_WARNINGS
+	abort ();
+#endif
 }
 
 void
 glibtop_warn_io_r (glibtop *server, char *format, ...)
 {
 	va_list	ap;
-	
+
 	va_start (ap, format);
 	
 	print_server_name (server);
@@ -89,4 +103,8 @@ glibtop_warn_io_r (glibtop *server, char *format, ...)
 	fprintf (stderr, ": %s\n", strerror (errno));
 	
 	va_end (ap);
+
+#ifdef LIBGTOP_FATAL_WARNINGS
+	abort ();
+#endif
 }

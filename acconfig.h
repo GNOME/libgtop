@@ -118,7 +118,6 @@
 #undef HAVE_LIBTIFF
 #undef HAVE_LIBZ
 #undef HAVE_LIBPNG
-#undef GNOME_ENABLE_DEBUG
 #undef HAVE_GMP2_INCLUDE_DIR
 #undef HAVE_GUILE
 
@@ -144,3 +143,7 @@
 /* Define if your have the I4B package. */
 #undef HAVE_I4B
 #undef HAVE_I4B_ACCT
+
+/* Define to enable debugging. */
+#undef LIBGTOP_ENABLE_DEBUG
+#undef LIBGTOP_FATAL_WARNINGS
