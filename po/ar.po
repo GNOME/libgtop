@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.libgtop-GNOME-2-0-port.ar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-07-16 11:09+0200\n"
-"PO-Revision-Date: 2003-07-19 10:12+0200\n"
+"POT-Creation-Date: 2003-07-21 11:07+0200\n"
+"PO-Revision-Date: 2003-07-21 17:50+0200\n"
 "Last-Translator: Arafat Medini <lumina@silverpen.de>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
@@ -600,6 +600,14 @@ msgid ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
+"شارات الكرنل للعملية.\n"
+"\n"
+"عنج لنكس، لكل شارة مجموعة بايتات رياضية، بسبب فحص crt0.s "
+"لممثالة رياضية، و بالتالي فهذا غير مضمن في الإخراج.\n"
+"\n"
+"هذا ربما خلل، بما أن كل عملية ليست برنامج C مجمع.\n"
+"\n"
+"البايت الرياضي يجب أن يكون عشري 4، و البايت المرسوم 10."
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:59
@@ -607,8 +615,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"عدد الإخطاء البسيطة التي قامت بها العملية، و التي تطلبت تحميل صفحة "
-"ذاكرة من القرص."
+"عدد الإخطاء البسيطة التي قامت بها العملية، و التي تطلبت تحميل صفحة ذاكرة من "
+"القرص."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
@@ -616,8 +624,8 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"عدد الإخطاء الثقيلة التي قامت بها العملية، و التي تطلبت تحميل صفحة "
-"ذاكرة من القرص."
+"عدد الإخطاء الثقيلة التي قامت بها العملية، و التي تطلبت تحميل صفحة ذاكرة من "
+"القرص."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
@@ -634,7 +642,9 @@ msgstr "عدد الإخطاء الثقيلة التي قامت بها العمل
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
-msgstr "القيمة الحالية للـ esp (مؤشر 32-بت للكومة)، كما وجد في صفحة كومة الكرنل للعملية."
+msgstr ""
+"القيمة الحالية للـ esp (مؤشر 32-بت للكومة)، كما وجد في صفحة كومة الكرنل "
+"للعملية."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
@@ -649,9 +659,9 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"هذه \"القنات\" التي تنتظر فيها العملية. هذا نداء نظام، ويمكن مراجعته "
-"في قائمة اسماء اذا استحققت الاسم النصي. (اذا كان لديك /etc/psdatabase "
-"محدثة، فحاول ps -l لترى مساحة WCHAN وهي شاغلة)"
+"هذه \"القنات\" التي تنتظر فيها العملية. هذا نداء نظام، ويمكن مراجعته في "
+"قائمة اسماء اذا استحققت الاسم النصي. (اذا كان لديك /etc/psdatabase محدثة، "
+"فحاول ps -l لترى مساحة WCHAN وهي شاغلة)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
@@ -660,7 +670,7 @@ msgstr "هذا الاسم النصي لمساحة `nwchan'."
 
 #: sysdeps/names/procmem.c:47
 msgid "Virtual"
-msgstr ""
+msgstr "فعلي"
 
 #: sysdeps/names/procmem.c:47
 msgid "Resident"
@@ -684,7 +694,7 @@ msgstr "الـ # الكلي لالذاكرة"
 
 #: sysdeps/names/procmem.c:54
 msgid "Number of pages of virtual memory"
-msgstr ""
+msgstr "عدد الصفحات في الذاكرة الفعلية"
 
 #: sysdeps/names/procmem.c:55
 msgid "Number of resident set (non-swapped) pages"
@@ -701,6 +711,9 @@ msgid ""
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
 msgstr ""
+"عدد الصفحات التي للعملية في الذاكرة الحقيقية، إلا ثلاثة لأغراض إدارية. "
+"هذه فقط الصفحات التي استعملت للنصوص و البيانات أو فضاء الكومة. هذا "
+"لا يحتوي على صفحات حملت بطلب، او التي وقع اخراجها عند التبادل."
 
 #: sysdeps/names/procmem.c:62
 msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
@@ -1198,7 +1211,7 @@ msgstr "إحصائيات PPP"
 
 #: sysdeps/names/sysdeps.c:93
 msgid "Command line arguments of the process"
-msgstr " "
+msgstr "متغيارات سطر الأوامر للعملية"
 
 #: sysdeps/names/sysdeps.c:95
 msgid "List of currently mounted filesystems"
