@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.3\n"
-"POT-Creation-Date: 2000-10-04 11:01+0300\n"
+"POT-Creation-Date: 2000-10-23 10:20+0300\n"
 "PO-Revision-Date: 2000-01-13 17:57+0200\n"
 "Last-Translator: Yuri Syrota <rasta@renome.rovno.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -139,7 +139,7 @@ msgstr ""
 
 #: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "Викликано з inetd"
 
 #: src/daemon/gnuserv.c:454
 msgid "INETD"
@@ -654,11 +654,11 @@ msgstr ""
 
 #: sysdeps/names/procmem.c:53
 msgid "Total # of pages of memory"
-msgstr ""
+msgstr "Загальна к╕льк╕сть стор╕нок пам'ят╕"
 
 #: sysdeps/names/procmem.c:54
 msgid "Number of pages of virtual memory"
-msgstr ""
+msgstr "К╕льк╕сть стор╕нок в╕ртуально╖ пам'ят╕"
 
 #: sysdeps/names/procmem.c:55
 msgid "Number of resident set (non-swapped) pages"
@@ -889,7 +889,7 @@ msgstr ""
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
-msgstr ""
+msgstr "Тактова частота"
 
 #: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
@@ -901,31 +901,31 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:56
 msgid "Uid"
-msgstr "Uid"
+msgstr "UID"
 
 #: sysdeps/names/procuid.c:56
 msgid "EUid"
-msgstr "EUid"
+msgstr "EUID"
 
 #: sysdeps/names/procuid.c:56
 msgid "Gid"
-msgstr "Gid"
+msgstr "GID"
 
 #: sysdeps/names/procuid.c:56
 msgid "EGid"
-msgstr "EGid"
+msgstr "EGID"
 
 #: sysdeps/names/procuid.c:56
 msgid "Pid"
-msgstr "Pid"
+msgstr "PID"
 
 #: sysdeps/names/procuid.c:57
 msgid "PPid"
-msgstr "PPid"
+msgstr "PPID"
 
 #: sysdeps/names/procuid.c:57
 msgid "PGrp"
-msgstr "PGrp"
+msgstr "PGRP"
 
 #: sysdeps/names/procuid.c:57
 msgid "Session"
@@ -933,11 +933,11 @@ msgstr "Сеанс"
 
 #: sysdeps/names/procuid.c:57
 msgid "Tty"
-msgstr "Tty"
+msgstr "TTY"
 
 #: sysdeps/names/procuid.c:58
 msgid "TPGid"
-msgstr "TPGid"
+msgstr "TPGID"
 
 #: sysdeps/names/procuid.c:58
 msgid "Priority"
@@ -949,7 +949,7 @@ msgstr "╤дентиф╕катор користувача"
 
 #: sysdeps/names/procuid.c:64
 msgid "Effective User ID"
-msgstr ""
+msgstr "Ефективний ╕дентиф╕катор користувача"
 
 #: sysdeps/names/procuid.c:65
 msgid "Group ID"
@@ -957,7 +957,7 @@ msgstr "╤дентиф╕катор групи"
 
 #: sysdeps/names/procuid.c:66
 msgid "Effective Group ID"
-msgstr ""
+msgstr "Ефективний ╕дентиф╕катор групи"
 
 #: sysdeps/names/procuid.c:67
 msgid "Process ID"
@@ -965,11 +965,11 @@ msgstr "╤дентиф╕катор процесу"
 
 #: sysdeps/names/procuid.c:68
 msgid "PID of parent process"
-msgstr ""
+msgstr "PID батьк╕вського процесу"
 
 #: sysdeps/names/procuid.c:69
 msgid "Process group ID"
-msgstr ""
+msgstr "╤дентиф╕катор групи процесу"
 
 #: sysdeps/names/procuid.c:70
 msgid "Session ID"
@@ -989,7 +989,7 @@ msgstr ""
 
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
-msgstr ""
+msgstr "Стандартний р╕вень UNIX Nice для процес╕в"
 
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 msgid "Number of entries in semaphore map"
@@ -997,7 +997,7 @@ msgstr ""
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Max number of arrays"
-msgstr ""
+msgstr "Максимальна к╕льк╕сть масив╕в"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max semaphores system wide"
@@ -1009,7 +1009,7 @@ msgstr ""
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores per array"
-msgstr ""
+msgstr "Максимальна к╕льк╕сть семафор╕в на масив"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max ops per semop call"
@@ -1105,15 +1105,15 @@ msgstr "Середн╓ завантаження"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Shared Memory Limits"
-msgstr ""
+msgstr "Обмеження колективно╖ пам'ят╕"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Message Queue Limits"
-msgstr ""
+msgstr "Обмеження черги пов╕домлень"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
-msgstr ""
+msgstr "Обмеження множини семафор╕в"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
@@ -1209,7 +1209,7 @@ msgstr "Вийти"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
-msgstr ""
+msgstr "Недозволена ╕нструкц╕я"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
@@ -1245,7 +1245,7 @@ msgstr "Нев╕рний аргумент у системному виклику"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr ""
+msgstr "Роз╕рвано канал"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
@@ -1273,7 +1273,7 @@ msgstr "Продовжити"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
-msgstr ""
+msgstr "Було зм╕нено стан нащадка"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
@@ -1285,15 +1285,15 @@ msgstr ""
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr ""
+msgstr "В/В тепер можливий"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
-msgstr ""
+msgstr "Перевищено обмеження ЦП"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
-msgstr ""
+msgstr "Перевищено обмеження ром╕ру файлу"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
