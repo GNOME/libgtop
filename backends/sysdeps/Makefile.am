@@ -28,6 +28,10 @@ libgtop_backend_sysdeps_la_SOURCES = \
 libgtop_backend_sysdeps_la_LDFLAGS = \
 	$(LT_VERSION_INFO) $(dynamic_ldflags)
 
+libgtop_backend_sysdeps_la_LIBADD = \
+	$(top_builddir)/sysdeps/$(sysdeps_dir)/libgtop_sysdeps.la
+	$(top_builddir)/lib/libgtop_server.la
+
 BUILT_SOURCES = \
 	marshal.c
 
