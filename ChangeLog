@@ -1,3 +1,7 @@
+1999-10-09  Jesus Bravo Alvarez  <jba@pobox.com>
+
+	* configure.in (ALL_LINGUAS): Added Galician (gl)
+
 1999-09-29  Martin Baulig  <martin@home-of-linux.org>
 
 	Released LibGTop 1.0.5.
