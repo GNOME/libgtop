@@ -2,7 +2,7 @@
 
 /* Copyright (C) 1995, 1996, 1997 Free Software Foundation, Inc.
    This file is part of the Gnome Top Library.
-   Contributed by Joshua Sled <jsled@xcf.berkeley.edu>, July 1998.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, August 1998.
 
    The Gnome Top Library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public License as
@@ -25,9 +25,28 @@
 
 #include <glibtop_suid.h>
 
+/* #define KERNEL to get declaration of `struct msginfo'. */
+
+#define KERNEL
+
+#include <sys/ipc.h>
 #include <sys/msg.h>
 
-static const unsigned long _glibtop_sysdeps_msg_limits = 0;
+static const unsigned long _glibtop_sysdeps_msg_limits =
+(1 << GLIBTOP_IPC_MSGMAX) + (1 << GLIBTOP_IPC_MSGMNI) +
+(1 << GLIBTOP_IPC_MSGMNB) + (1 << GLIBTOP_IPC_MSGTQL) +
+(1 << GLIBTOP_IPC_MSGSSZ);
+
+/* The values in this structure never change at runtime, so we only
+ * read it once during initialization. We have to use the name `_msginfo'
+ * since `msginfo' is already declared external in <sys/msg.h>. */
+static struct msginfo _msginfo;
+  
+/* nlist structure for kernel access */
+static struct nlist nlst [] = {
+	{ "_msginfo" },
+	{ 0 }
+};
 
 /* Init function. */
 
@@ -35,6 +54,13 @@ void
 glibtop_init_msg_limits_p (glibtop *server)
 {
 	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+
+	if (kvm_nlist (server->machine.kd, nlst) != 0)
+		glibtop_error_io_r (server, "kvm_nlist");
+	
+	if (kvm_read (server->machine.kd, nlst [0].n_value,
+		      &_msginfo, sizeof (_msginfo)) != sizeof (_msginfo))
+		glibtop_error_io_r (server, "kvm_read (msginfo)");
 }
 
 /* Provides information about sysv ipc limits. */
@@ -45,4 +71,12 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_MSG_LIMITS, 0);
 	
 	memset (buf, 0, sizeof (glibtop_msg_limits));
+
+	buf->msgmax = _msginfo.msgmax;
+	buf->msgmni = _msginfo.msgmni;
+	buf->msgmnb = _msginfo.msgmnb;
+	buf->msgtql = _msginfo.msgtql;
+	buf->msgssz = _msginfo.msgtql;
+	
+	buf->flags = _glibtop_sysdeps_msg_limits; 
 }

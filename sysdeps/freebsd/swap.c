@@ -29,8 +29,12 @@
 
 #include <sys/conf.h>
 #include <sys/rlist.h>
+#include <sys/vmmeter.h>
 
-static const unsigned long _glibtop_sysdeps_swap = 0;
+static const unsigned long _glibtop_sysdeps_swap =
+(1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
+(1 << GLIBTOP_SWAP_FREE) + (1 << GLIBTOP_SWAP_PAGEIN) +
+(1 << GLIBTOP_SWAP_PAGEOUT);
 
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
@@ -60,6 +64,11 @@ glibtop_init_swap_p (glibtop *server)
 
 /* Provides information about swap usage. */
 
+/*
+ * This function is based on a program called swapinfo written
+ * by Kevin Lahey <kml@rokkaku.atl.ga.us>.
+ */
+
 void
 glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 {
@@ -74,9 +83,31 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	size_t sw_size;
 	u_long ptr;
 
+	/* To get `pagein' and `pageout'. */
+	struct vmmeter vmm;
+        static int swappgsin = -1;
+	static int swappgsout = -1;
+
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_SWAP, 0);
 	
 	memset (buf, 0, sizeof (glibtop_swap));
+
+	/* This is used to get the `pagein' and `pageout' members. */
+	
+	if (kvm_read (server->machine.kd, nlst[0].n_value,
+		      &vmm, sizeof (vmm)) != sizeof (vmm))
+		glibtop_error_io_r (server, "kvm_read (cnt)");
+	
+        if (swappgsin < 0) {
+		buf->pagein = 0;
+		buf->pageout = 0;
+	} else {
+		buf->pagein = vmm.v_swappgsin - swappgsin;
+		buf->pageout = vmm.v_swappgsout - swappgsout;
+	}
+
+        swappgsin = vmm.v_swappgsin;
+	swappgsout = vmm.v_swappgsout;
 
 	/* Size of largest swap device. */
 
@@ -128,7 +159,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	while (swapptr) {
 		int	top, bottom, next_block;
 
-		if (kvm_read (server->machine.kd, swapptr, &head,
+		if (kvm_read (server->machine.kd, (int) swapptr, &head,
 			      sizeof (struct rlist)) != sizeof (struct rlist))
 			glibtop_error_io_r (server, "kvm_read (swapptr)");
 

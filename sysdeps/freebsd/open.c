@@ -36,13 +36,13 @@ glibtop_init_p (glibtop *server, const unsigned long features,
 
 	/* Do the initialization, but only if not already initialized. */
 
-	if ((server->flags & _GLIBTOP_INIT_STATE_INIT) == 0) {
+	if ((server->flags & _GLIBTOP_INIT_STATE_SYSDEPS) == 0) {
 		glibtop_open_p (server, "glibtop", features, flags);
 
 		for (init_fkt = _glibtop_init_hook_p; *init_fkt; init_fkt++)
 			(*init_fkt) (server);
 		
-		server->flags |= _GLIBTOP_INIT_STATE_INIT;
+		server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;
 	}
 }
 
@@ -51,6 +51,8 @@ glibtop_open_p (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
 	fprintf (stderr, "DEBUG (%d): glibtop_open_p ()\n", getpid ()); 
+
+	sleep (5);
 
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 

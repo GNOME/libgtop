@@ -35,6 +35,16 @@ static const unsigned long _glibtop_sysdeps_mem =
 (1 << GLIBTOP_MEM_BUFFER) + (1 << GLIBTOP_MEM_CACHED) +
 (1 << GLIBTOP_MEM_USER);
 
+#ifndef LOG1024
+#define LOG1024		10
+#endif
+
+/* these are for getting the memory statistics */
+static int pageshift;		/* log base 2 of the pagesize */
+
+/* define pagetok in terms of pageshift */
+#define pagetok(size) ((size) << pageshift)
+
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
 	{ "_cnt" },
@@ -51,17 +61,30 @@ static const int mib [] = { CTL_VM, VM_METER };
 void
 glibtop_init_mem_p (glibtop *server)
 {
+	register int pagesize;
+
 	server->sysdeps.mem = _glibtop_sysdeps_mem;
 
 	if (kvm_nlist (server->machine.kd, nlst) != 0)
 		glibtop_error_io_r (server, "kvm_nlist");
+
+	/* get the page size with "getpagesize" and calculate pageshift
+	 * from it */
+	pagesize = getpagesize ();
+	pageshift = 0;
+	while (pagesize > 1) {
+		pageshift++;
+		pagesize >>= 1;
+	}
+
+	/* we only need the amount of log(2)1024 for our conversion */
+	pageshift -= LOG1024;
 }
 
 void
 glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 {
 	struct vmtotal vmt;
-	/* for sysctl(3) */
 	size_t length_vmt;
 	struct vmmeter vmm;
 	int bufspace;
@@ -69,6 +92,10 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_MEM, 0);
 	
 	memset (buf, 0, sizeof (glibtop_mem));
+
+	/* [FIXME: On FreeBSD 2.2.6, sysctl () returns an incorrect
+	 *         value for `vmt.vm'. We use some code from Unix top
+	 *         here.] */
 
 	/* Get the data from sysctl */
 	length_vmt = sizeof (vmt);
@@ -86,18 +113,29 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
   
 	/* Set the values to return */
 	buf->flags = _glibtop_sysdeps_mem;
-	/* total */
-	buf->total = (u_int64_t) vmt.t_vm;
-	/* used */
-	buf->used = (u_int64_t) vmt.t_avm;
-	/* free */
-	buf->free = (u_int64_t) vmt.t_free;
-	/* shared */
-	buf->shared = (u_int64_t) vmt.t_vmshr;
-	/* buffer */
+
+	/* convert memory stats to Kbytes */
+
+	buf->total = (u_int64_t) pagetok (vmm.v_page_count) << LOG1024;
+	buf->used = (u_int64_t) pagetok (vmm.v_active_count) << LOG1024;
+	buf->free = (u_int64_t) pagetok (vmm.v_free_count) << LOG1024;
+
+	buf->cached = (u_int64_t) pagetok (vmm.v_cache_count) << LOG1024;
+	buf->shared = (u_int64_t) pagetok (vmt.t_vmshr) << LOG1024;
+
 	buf->buffer = (u_int64_t) bufspace;
-	/* cached */
-	buf->cached = (u_int64_t) (vmm.v_cache_count * vmm.v_page_size);
+
+#if 0
+        if (swappgsin < 0) {
+	    memory_stats[5] = 0;
+	    memory_stats[6] = 0;
+	} else {
+	    memory_stats[5] = pagetok(((vmm.v_swappgsin - swappgsin)));
+	    memory_stats[6] = pagetok(((vmm.v_swappgsout - swappgsout)));
+	}
+        swappgsin = vmm.v_swappgsin;
+	swappgsout = vmm.v_swappgsout;
+#endif
 
 	/* user */
 	buf->user = buf->total - buf->free - buf->shared - buf->buffer;

@@ -61,9 +61,9 @@ glibtop_get_proc_kernel_p (glibtop *server,
 {
 	struct kinfo_proc *pinfo;
 	struct i386tss *pcb_tss;
-	int f, count, kmem;
 	struct pstats ps;
 	struct user usr;
+	int f, count;
 
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
 	
@@ -75,7 +75,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 		return; /* the 0-filled struct, since we can't get any info */
 	}
 
-	kmem = open ("/dev/kmem", O_RDONLY, NULL);
+	f = open ("/dev/kmem", O_RDONLY, NULL);
 	if (f == NULL)
 		glibtop_error_io_r (server, "open (/dev/kmem)");
 
