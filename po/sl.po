@@ -5,12 +5,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 2001-01-22 17:29+0100\n"
+"POT-Creation-Date: 2001-03-15 11:40+0100\n"
 "PO-Revision-Date: 2000-05-22 02:46+0200\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso8895-2\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: examples/smp.c:68
@@ -152,7 +152,8 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Napaka ob mo¾nosti %s: %s.\n"
-"Po¾enite '%s --help', èe ¾elite videti popoln seznam mo¾nosti ukazne vrstice.\n" 
+"Po¾enite '%s --help', èe ¾elite videti popoln seznam mo¾nosti ukazne "
+"vrstice.\n"
 
 #: support/error.c:109
 msgid "Unknown system error"
