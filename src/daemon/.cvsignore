@@ -1,6 +1,7 @@
 Makefile.in
 Makefile
 libgtop_daemon
+libgtop_server
 server.conf
 .libs
 .deps
