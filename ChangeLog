@@ -1,3 +1,9 @@
+2005-01-24  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* include/glibtop/procopenfiles.h:
+	* sysdeps/linux/procopenfiles.c:
+	* sysdeps/stub/procopenfiles.c: UTF-8-ified.
+
 2005-01-22  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* examples/openfiles.c: (show_open_files):

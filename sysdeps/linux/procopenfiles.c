@@ -1,10 +1,10 @@
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
-   Copyright (C) 2004 Nicol·s Lichtmaier
+   Copyright (C) 2004 Nicol√°s Lichtmaier
    This file is part of LibGTop 1.0.
 
-   Modified by Nicol·s Lichtmaier to give a process open files.
+   Modified by Nicol√°s Lichtmaier to give a process open files.
 
    Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
 
