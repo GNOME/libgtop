@@ -123,8 +123,8 @@ glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device)
 	buf->flags = _glibtop_sysdeps_ppp;
 
 #ifdef HAVE_I4B_ACCT
-	buf->bytes_in = data.sc_iinb;
-	buf->bytes_out = data.sc_ioutb;
+	buf->bytes_in = data.sc_inb;
+	buf->bytes_out = data.sc_outb;
 	buf->flags |= _glibtop_sysdeps_ppp_acct;
 #endif
 #endif /* HAVE_I4B */
