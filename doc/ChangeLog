@@ -1,3 +1,9 @@
+2002-03-12  James Henstridge  <james@daa.com.au>
+
+	* Makefile.am (MAKEINFO): using += seems to screw up the build
+	with newer automakes.  Set it explicitly (using @MAKEINFO@) seems
+	to be compatible with both.
+
 2001-11-26  Abel Cheung  <maddog@linux.org.hk>
 
 	* libgtop.texi, Makefile.am: Renamed to libgtop2.texi

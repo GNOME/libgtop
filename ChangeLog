@@ -1,3 +1,10 @@
+2002-03-12  James Henstridge  <james@daa.com.au>
+
+	* acinclude.m4 (LIBGTOP_HEACKER_TESTS): AM_CONDITIONAL()
+	statements can't be conditionally executed (automake compat fix).
+	(GNOME_LIBGTOP_SYSDEPS): move the conditional here so that it is
+	always executed.
+
 2002-02-10  Kevin Vandersloot <kfv101@psu.edu>
 
 	* configure.in: bump version

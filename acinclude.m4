@@ -598,11 +598,11 @@ dnl                              if true; defines conditional 'NEED_LIBGTOP'.
 AC_DEFUN([LIBGTOP_HACKER_TESTS],[
 	AC_REQUIRE([AC_CANONICAL_HOST])
 
+	AC_ARG_WITH(linux-table,
+      [  --with-linux-table      Use the table () function from Martin Baulig],
+	[linux_table="$withval"],[linux_table=auto])
 	case "$host_os" in
 	linux*)
-	  AC_ARG_WITH(linux-table,
-	  [  --with-linux-table      Use the table () function from Martin Baulig],[
-	  linux_table="$withval"],[linux_table=auto])
 	  if test $linux_table = yes ; then
 	    AC_CHECK_HEADER(linux/table.h, linux_table=yes, linux_table=no)
 	  elif test $linux_table = auto ; then
@@ -638,7 +638,6 @@ main (void)
 	  if test $linux_table = yes ; then
 	    AC_DEFINE(HAVE_LINUX_TABLE)
 	  fi
-	  AM_CONDITIONAL(LINUX_TABLE, test $linux_table = yes)
 	  ;;
 	esac
 ])
@@ -662,9 +661,11 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	AM_CONDITIONAL(HACKER_MODE, test x"$hacker_mode" = xyes)
 
+	linux_table=auto
 	if test x$hacker_mode = xyes ; then
 	  LIBGTOP_HACKER_TESTS
 	fi
+	AM_CONDITIONAL(LINUX_TABLE, test $linux_table = yes)
 
 	AC_ARG_WITH(libgtop-smp,
 	[  --with-libgtop-smp      Enable SMP support (default-auto)],[
