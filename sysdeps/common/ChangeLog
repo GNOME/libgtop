@@ -1,3 +1,7 @@
+2005-01-18  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* mountlist.c: (ignore_mount_entry): Re-worked with bsearch.
+
 2004-12-09  Benoît Dejean  <tazforever@dlfp.org>
 
 	* mountlist.c: (ignore_mount_entry): Ignores "unkown" file system type.

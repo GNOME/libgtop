@@ -21,6 +21,7 @@
 
 #include <glib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/types.h>
 
 #if defined(STDC_HEADERS) || defined(HAVE_STRING_H)
@@ -535,31 +536,28 @@ read_filesystem_list (void)
 
 static gboolean ignore_mount_entry(const struct mount_entry *me)
 {
+	/* keep sorted */
 	static const char ignored[][12] = {
+		"autofs",
+		"binfmt_misc",
+		"devpts",
+		"mntfs",
+		"none",
+		"openpromfs",
 		"proc",
 		"procfs",
-		"autofs",
-		"sysfs",
-		"usbfs",
-		"none",
-		"devpts",
-		"usbdevfs",
-		"binfmt_misc",
 		"supermount",
-		"mntfs",
-		"openpromfs",
-		"unknown"
+		"sysfs",
+		"unknown",
+		"usbdevfs",
+		"usbfs"
 	};
 
-	const char (*i)[12] = &ignored[0];
+	typedef int (*Comparator)(const void*, const void*);
 
-	while(i != (&ignored[0] + G_N_ELEMENTS(ignored))) {
-		if(strcmp(*i, me->me_type) == 0)
-			return TRUE;
-		++i;
-	}
-
-	return FALSE;
+	return bsearch(me->me_type,
+		       ignored, G_N_ELEMENTS(ignored), sizeof ignored[0],
+		       (Comparator) strcmp) != NULL;
 }
 
 
