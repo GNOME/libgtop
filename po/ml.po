@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 2.0.x\n"
-"POT-Creation-Date: 2003-03-10 05:20+0100\n"
-"PO-Revision-Date: 2003-03-05 10:29+0530\n"
+"Project-Id-Version:libgtop.libgtop-GNOME-2-0-port\n"
+"POT-Creation-Date: 2003-06-06 04:55+0200\n"
+"PO-Revision-Date: 2003-07-05 10:29+0530\n"
 "Last-Translator: FSF-India <locale@gnu.org.in>\n"
 "Language-Team: Malayalam <locale@gnu.org.in>\n"
 "MIME-Version: 1.0\n"
@@ -33,9 +33,8 @@ msgid "Nice"
 msgstr "ശ്രദ്ദിക്കുക"
 
 #: examples/smp.c:74
-#, fuzzy
 msgid "Sys"
-msgstr "ശരി"
+msgstr ""
 
 #: examples/smp.c:74
 msgid "Idle"
@@ -66,14 +65,12 @@ msgid "User (%)"
 msgstr "ഉപയോക്താവ് (%)"
 
 #: examples/smp.c:98
-#, fuzzy
 msgid "Nice (%)"
-msgstr "1 രചന (%s)"
+msgstr ""
 
 #: examples/smp.c:98
-#, fuzzy
 msgid "Sys (%)"
-msgstr "ഉപയോക്താവ് (%)"
+msgstr ""
 
 #: examples/smp.c:99
 msgid "Idle (%)"
@@ -92,9 +89,8 @@ msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 msgstr ""
 
 #: examples/smp.c:123
-#, fuzzy
 msgid "Spin:"
-msgstr "സ്‌പെയിന്"
+msgstr ""
 
 #: lib/read.c:75
 #, c-format
@@ -115,43 +111,39 @@ msgstr "%d ബൈറ്റ്സ് വായിക്കുക"
 msgid "write %d bytes"
 msgstr "%d ബൈറ്റ്സ് എഴുതുക"
 
-#: src/daemon/gnuserv.c:448
-#, fuzzy
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
-msgstr "സ്വയം വിടവുണ്ടാക്കല് സജീവമാക്കുക"
+msgstr ""
 
-#: src/daemon/gnuserv.c:448
-#, fuzzy
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
-msgstr "ഡി."
+msgstr ""
 
-#: src/daemon/gnuserv.c:450
-#, fuzzy
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
-msgstr "സ്വയം വിടവുണ്ടാക്കല് സജീവമാക്കുക"
+msgstr ""
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr ""
 
-#: src/daemon/gnuserv.c:452
-#, fuzzy
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
-msgstr "അണിയറയില് പ്രവ‍ര്ത്തിക്കുക"
+msgstr ""
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr ""
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr ""
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr "BIND"
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -159,9 +151,8 @@ msgid ""
 msgstr ""
 
 #: support/error.c:109
-#, fuzzy
 msgid "Unknown system error"
-msgstr "അറിയാത്ത ഏതോ പ്രശ്നം"
+msgstr ""
 
 #: support/getopt.c:669
 #, c-format
@@ -251,14 +242,12 @@ msgid "CPU Time in the Idle Task"
 msgstr ""
 
 #: sysdeps/names/cpu.c:48
-#, fuzzy
 msgid "Tick Frequency"
-msgstr "ആവൃതി"
+msgstr ""
 
 #: sysdeps/names/cpu.c:49
-#, fuzzy
 msgid "SMP Total CPU Time"
-msgstr "ആകെ സി.പി.യു സമയം"
+msgstr ""
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in User Mode"
@@ -301,28 +290,24 @@ msgid "Tick frequency (default is 100)"
 msgstr ""
 
 #: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
-#, fuzzy
 msgid "Total blocks"
-msgstr "ആകെ പ്രക്രിയകളുടെ എണ്ണം"
+msgstr ""
 
 #: sysdeps/names/fsusage.c:40
 msgid "Free blocks"
 msgstr ""
 
 #: sysdeps/names/fsusage.c:41
-#, fuzzy
 msgid "Available blocks"
-msgstr "ലഭ്യമായ മൊട്ടുകള്‌"
+msgstr ""
 
 #: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
-#, fuzzy
 msgid "Total file nodes"
-msgstr "പ്രാദേശിക രചനകള്"
+msgstr ""
 
 #: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
-#, fuzzy
 msgid "Free file nodes"
-msgstr "ഡിസ്ക്കിലെ ആദ്യ രചന"
+msgstr ""
 
 #: sysdeps/names/fsusage.c:49
 msgid "Free blocks available to the superuser"
@@ -333,9 +318,8 @@ msgid "Free blocks available to non-superusers"
 msgstr ""
 
 #: sysdeps/names/loadavg.c:39
-#, fuzzy
 msgid "Load Average"
-msgstr "ശരാശരി"
+msgstr ""
 
 #: sysdeps/names/loadavg.c:40
 msgid "Running Tasks"
@@ -346,9 +330,8 @@ msgid "Number of Tasks"
 msgstr "പ്രക്രിയകളുടെ എണ്ണം"
 
 #: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
-#, fuzzy
 msgid "Last PID"
-msgstr "അവസാനം"
+msgstr ""
 
 #: sysdeps/names/loadavg.c:47
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
@@ -375,19 +358,16 @@ msgid "Free Memory"
 msgstr "സ്വതന്ത്രമായ ഓര്മ്മ"
 
 #: sysdeps/names/mem.c:44
-#, fuzzy
 msgid "Shared Memory"
-msgstr "ഉപയോഗിച്ച ഓര്മ്മ"
+msgstr ""
 
 #: sysdeps/names/mem.c:45
-#, fuzzy
 msgid "Buffers"
-msgstr "ബഫര്"
+msgstr ""
 
 #: sysdeps/names/mem.c:46
-#, fuzzy
 msgid "Cached"
-msgstr "കലവറ"
+msgstr ""
 
 #: sysdeps/names/mem.c:48
 msgid "Locked"
@@ -398,23 +378,20 @@ msgid "Total physical memory in kB"
 msgstr ""
 
 #: sysdeps/names/mem.c:54
-#, fuzzy
 msgid "Used memory size in kB"
-msgstr "ഉപയോഗിച്ച ഓര്മ്മ"
+msgstr ""
 
 #: sysdeps/names/mem.c:55
-#, fuzzy
 msgid "Free memory size in kB"
-msgstr "സ്വതന്ത്രമായ ഓര്മ്മ"
+msgstr ""
 
 #: sysdeps/names/mem.c:56
 msgid "Shared memory size in kB"
 msgstr ""
 
 #: sysdeps/names/mem.c:57
-#, fuzzy
 msgid "Size of buffers kB"
-msgstr "പണിയറകളുടെ എണ്ണം"
+msgstr ""
 
 #: sysdeps/names/mem.c:58
 msgid "Size of cached memory in kB"
@@ -459,37 +436,32 @@ msgid "Max size of message"
 msgstr "സന്ദേശ പരമാവധി വലിപ്പം"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
-#, fuzzy
 msgid "Default max size of queue"
-msgstr "സ്വതേയുള്ള വലിപ്പം"
+msgstr ""
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Max queues system wide"
 msgstr ""
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
-#, fuzzy
 msgid "Message segment size"
-msgstr "കത്തുകളുടെ വിവരം"
+msgstr ""
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
-#, fuzzy
 msgid "Number of system message headers"
-msgstr "നാമാവലിയിലെ ഇനങ്ങളുടെ എണ്ണം"
+msgstr ""
 
 #: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
-#, fuzzy
 msgid "Interface Flags"
-msgstr "മുഖരൂപം"
+msgstr ""
 
 #: sysdeps/names/netload.c:46
 msgid "MTU"
 msgstr ""
 
 #: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
-#, fuzzy
 msgid "Subnet"
-msgstr "വിഷയം"
+msgstr ""
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
 msgid "Address"
@@ -504,34 +476,28 @@ msgid "Packets Out"
 msgstr ""
 
 #: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "Packets Total"
-msgstr "ആകെ താളുകള്"
+msgstr ""
 
 #: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "Bytes In"
-msgstr "Bytes"
+msgstr ""
 
 #: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
-#, fuzzy
 msgid "Bytes Out"
-msgstr "Bytes"
+msgstr ""
 
 #: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
-#, fuzzy
 msgid "Bytes Total"
-msgstr "മൊത്തം"
+msgstr ""
 
 #: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
-#, fuzzy
 msgid "Errors In"
-msgstr "പിശക്:"
+msgstr ""
 
 #: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
-#, fuzzy
 msgid "Errors Out"
-msgstr "ആകെ പിശകുകള്:"
+msgstr ""
 
 #: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
 msgid "Errors Total"
@@ -542,34 +508,28 @@ msgid "Collisions"
 msgstr "സംഘട്ടനം"
 
 #: sysdeps/names/netload.c:64
-#, fuzzy
 msgid "Maximum Transfer Unit"
-msgstr "ഏറ്റവും കൂടിയ നീളം‌"
+msgstr ""
 
 #: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
-#, fuzzy
 msgid "PPP State"
-msgstr "അവസ്ഥ"
+msgstr ""
 
 #: sysdeps/names/ppp.c:39
-#, fuzzy
 msgid "Input bytes"
-msgstr "%u ബൈറ്റ്സ്"
+msgstr ""
 
 #: sysdeps/names/ppp.c:40
-#, fuzzy
 msgid "Output bytes"
-msgstr "നിര്ഗ്ഗമ വരികള്"
+msgstr ""
 
 #: sysdeps/names/ppp.c:46
-#, fuzzy
 msgid "Number of input bytes"
-msgstr "വരികളുടെ എണ്ണം"
+msgstr ""
 
 #: sysdeps/names/ppp.c:47
-#, fuzzy
 msgid "Number of output bytes"
-msgstr "താളുകളുടെ എണ്ണം"
+msgstr ""
 
 #: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
 msgid "Size"
@@ -580,27 +540,24 @@ msgid "Length in bytes of the returned string."
 msgstr ""
 
 #: sysdeps/names/prockernel.c:42
-#, fuzzy
 msgid "K_Flags"
-msgstr "പതാക"
+msgstr ""
 
 #: sysdeps/names/prockernel.c:42
 msgid "Min_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:42
-#, fuzzy
 msgid "Maj_Flt"
-msgstr "മാള്‌ട്ട"
+msgstr ""
 
 #: sysdeps/names/prockernel.c:42
 msgid "CMin_Flt"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:43
-#, fuzzy
 msgid "CMaj_Flt"
-msgstr "മാള്‌ട്ട"
+msgstr ""
 
 #: sysdeps/names/prockernel.c:43
 msgid "KStk_ESP"
@@ -611,14 +568,12 @@ msgid "KStk_EIP"
 msgstr ""
 
 #: sysdeps/names/prockernel.c:43
-#, fuzzy
 msgid "NWChan"
-msgstr "മാറ്റം "
+msgstr ""
 
 #: sysdeps/names/prockernel.c:44
-#, fuzzy
 msgid "WChan"
-msgstr "മാറ്റം "
+msgstr ""
 
 #. K_Flags
 #: sysdeps/names/prockernel.c:50
@@ -688,9 +643,8 @@ msgid "Virtual"
 msgstr "അയഥാര്ത്ഥ"
 
 #: sysdeps/names/procmem.c:47
-#, fuzzy
 msgid "Resident"
-msgstr "പുനഃസ്ഥാപിക്കുക"
+msgstr ""
 
 #: sysdeps/names/procmem.c:47
 msgid "Share"
@@ -709,9 +663,8 @@ msgid "Total # of pages of memory"
 msgstr ""
 
 #: sysdeps/names/procmem.c:54
-#, fuzzy
 msgid "Number of pages of virtual memory"
-msgstr "താളുകളുടെ എണ്ണം"
+msgstr ""
 
 #: sysdeps/names/procmem.c:55
 msgid "Number of resident set (non-swapped) pages"
@@ -735,64 +688,56 @@ msgid ""
 msgstr ""
 
 #: sysdeps/names/procsegment.c:42
-#, fuzzy
 msgid "Text_RSS"
-msgstr "വാചകം"
+msgstr ""
 
 #: sysdeps/names/procsegment.c:42
 msgid "ShLib_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:42
-#, fuzzy
 msgid "Data_RSS"
-msgstr "വസ്തുത"
+msgstr ""
 
 #: sysdeps/names/procsegment.c:42
 msgid "Stack_RSS"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:43
-#, fuzzy
 msgid "Dirty Size"
-msgstr "വലുപ്പമനുസരിച്ച്‌"
+msgstr ""
 
 #: sysdeps/names/procsegment.c:43
-#, fuzzy
 msgid "Start_Code"
-msgstr "തുടങ്ങിയ സമയം"
+msgstr ""
 
 #: sysdeps/names/procsegment.c:43
 msgid "End_Code"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:43
-#, fuzzy
 msgid "Start_Stack"
-msgstr "തുടങ്ങുക"
+msgstr ""
 
 #: sysdeps/names/procsegment.c:48
-#, fuzzy
 msgid "Text resident set size"
-msgstr "ചിഹ്നങ്ങളുടെ അരികില് വാചകം"
+msgstr ""
 
 #: sysdeps/names/procsegment.c:49
 msgid "Shared-Lib resident set size"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:50
-#, fuzzy
 msgid "Data resident set size"
-msgstr "സ്വതേ പാര്ശ്വപ്പട്ട വലിപ്പം"
+msgstr ""
 
 #: sysdeps/names/procsegment.c:51
 msgid "Stack resident set size"
 msgstr ""
 
 #: sysdeps/names/procsegment.c:52
-#, fuzzy
 msgid "Total size of dirty pages"
-msgstr "നാമാവലിയുടെ ആകെ വലിപ്പം"
+msgstr ""
 
 #: sysdeps/names/procsegment.c:53
 msgid "Address of beginning of code segment"
@@ -807,23 +752,20 @@ msgid "Address of the bottom of stack segment"
 msgstr ""
 
 #: sysdeps/names/procsignal.c:40
-#, fuzzy
 msgid "Signal"
-msgstr "വികര്ണം"
+msgstr ""
 
 #: sysdeps/names/procsignal.c:40
 msgid "Blocked"
 msgstr "തടസപ്പെടുത്തിയ"
 
 #: sysdeps/names/procsignal.c:40
-#, fuzzy
 msgid "SigIgnore"
-msgstr "അവഗണന"
+msgstr ""
 
 #: sysdeps/names/procsignal.c:40
-#, fuzzy
 msgid "SigCatch"
-msgstr "വൈദ്യുതപ്രാവഹനിയമാകം"
+msgstr ""
 
 #: sysdeps/names/procsignal.c:45
 msgid "Mask of pending signals"
@@ -878,53 +820,44 @@ msgid "Start_Time"
 msgstr "തുടങ്ങിയ സമയം"
 
 #: sysdeps/names/proctime.c:44
-#, fuzzy
 msgid "RTime"
-msgstr "സമയം"
+msgstr ""
 
 #: sysdeps/names/proctime.c:44
-#, fuzzy
 msgid "UTime"
-msgstr "സമയം"
+msgstr ""
 
 #: sysdeps/names/proctime.c:44
-#, fuzzy
 msgid "STime"
-msgstr "സമയം"
+msgstr ""
 
 #: sysdeps/names/proctime.c:45
-#, fuzzy
 msgid "CUTime"
-msgstr "സമയം"
+msgstr ""
 
 #: sysdeps/names/proctime.c:45
-#, fuzzy
 msgid "CSTime"
-msgstr "സമയം"
+msgstr ""
 
 #: sysdeps/names/proctime.c:45
-#, fuzzy
 msgid "TimeOut"
-msgstr "സമയം"
+msgstr ""
 
 #: sysdeps/names/proctime.c:45
-#, fuzzy
 msgid "It_Real_Value"
-msgstr "യഥാര്ത്ഥ മൂല്യം"
+msgstr ""
 
 #: sysdeps/names/proctime.c:46
 msgid "Frequency"
 msgstr "ആവൃതി"
 
 #: sysdeps/names/proctime.c:46
-#, fuzzy
 msgid "XCPU_UTime"
-msgstr "ടൈംസ്"
+msgstr ""
 
 #: sysdeps/names/proctime.c:46
-#, fuzzy
 msgid "XCPU_STime"
-msgstr "ടൈംസ്"
+msgstr ""
 
 #: sysdeps/names/proctime.c:51
 msgid "Start time of process in seconds since the epoch"
@@ -961,9 +894,8 @@ msgid ""
 msgstr ""
 
 #: sysdeps/names/proctime.c:60
-#, fuzzy
 msgid "Tick frequency"
-msgstr "ആവൃതി"
+msgstr ""
 
 #: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
@@ -998,14 +930,12 @@ msgid "PPid"
 msgstr ""
 
 #: sysdeps/names/procuid.c:57
-#, fuzzy
 msgid "PGrp"
-msgstr "കൂട്ടം"
+msgstr ""
 
 #: sysdeps/names/procuid.c:57
-#, fuzzy
 msgid "Session"
-msgstr "X-അവസ്ഥകള്"
+msgstr ""
 
 #: sysdeps/names/procuid.c:57
 msgid "Tty"
@@ -1016,46 +946,40 @@ msgid "TPGid"
 msgstr ""
 
 #: sysdeps/names/procuid.c:58
-#, fuzzy
 msgid "Priority"
-msgstr "കുത്തനെയുള്ള"
+msgstr ""
 
 #: sysdeps/names/procuid.c:63
 msgid "User ID"
 msgstr "ഉപയോക്താവിന്റെ ID"
 
 #: sysdeps/names/procuid.c:64
-#, fuzzy
 msgid "Effective User ID"
-msgstr "ഉപയോക്തൃ ഐ.ഡി സ്ഥാപിക്കുക"
+msgstr ""
 
 #: sysdeps/names/procuid.c:65
 msgid "Group ID"
 msgstr "കൂട്ടത്തിന്റെ ID"
 
 #: sysdeps/names/procuid.c:66
-#, fuzzy
 msgid "Effective Group ID"
-msgstr "കൂട്ടാളി ഐ.ഡി സ്ഥാപിക്കുക"
+msgstr ""
 
 #: sysdeps/names/procuid.c:67
-#, fuzzy
 msgid "Process ID"
-msgstr "പ്രവ‍ര്ത്തന ഐ.ഡി:"
+msgstr ""
 
 #: sysdeps/names/procuid.c:68
 msgid "PID of parent process"
 msgstr ""
 
 #: sysdeps/names/procuid.c:69
-#, fuzzy
 msgid "Process group ID"
-msgstr "പ്രവ‍ര്ത്തന ഐ.ഡി:"
+msgstr ""
 
 #: sysdeps/names/procuid.c:70
-#, fuzzy
 msgid "Session ID"
-msgstr "X-അവസ്ഥകള്"
+msgstr ""
 
 #: sysdeps/names/procuid.c:71
 msgid "Full device number of controlling terminal"
@@ -1078,9 +1002,8 @@ msgid "Number of entries in semaphore map"
 msgstr ""
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
-#, fuzzy
 msgid "Max number of arrays"
-msgstr "ആകെ പ്രക്രിയകളുടെ എണ്ണം"
+msgstr ""
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max semaphores system wide"
@@ -1115,28 +1038,24 @@ msgid "Adjust on exit max value"
 msgstr ""
 
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
-#, fuzzy
 msgid "Max segment size"
-msgstr "ഏറ്റവും കൂടിയ നവരചനകള്‌"
+msgstr ""
 
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
-#, fuzzy
 msgid "Min segment size"
-msgstr "ഏറ്റവും ചെറിയ അക്ഷരരൂപം"
+msgstr ""
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
-#, fuzzy
 msgid "Max number of segments"
-msgstr "നാമാവലിയിലെ ഇനങ്ങളുടെ എണ്ണം"
+msgstr ""
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max shared segments per process"
 msgstr ""
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
-#, fuzzy
 msgid "Max total shared memory"
-msgstr "ഒര്മ നീക്കി വെയ്‍ക്കാന്‌ കഴിയില്ല"
+msgstr ""
 
 #: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
 msgid "Total Swap Space"
@@ -1147,19 +1066,16 @@ msgid "Used Swap Space"
 msgstr ""
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
-#, fuzzy
 msgid "Free Swap Space"
-msgstr "സ്വതന്ത്ര സോഫ്റ്റ്‍വെയര്"
+msgstr ""
 
 #: sysdeps/names/swap.c:42
-#, fuzzy
 msgid "Page In"
-msgstr "താള്"
+msgstr ""
 
 #: sysdeps/names/swap.c:43
-#, fuzzy
 msgid "Page Out"
-msgstr "താള് :%u"
+msgstr ""
 
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
@@ -1170,43 +1086,36 @@ msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
-#, fuzzy
 msgid "Server Features"
-msgstr "പ്രത്യേകതകള്"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
-#, fuzzy
 msgid "CPU Usage"
-msgstr "താള്"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
-#, fuzzy
 msgid "Memory Usage"
-msgstr "ഓര്‌മ്മച്ചെപ്പ്"
+msgstr "ഓര്‌മ്മയുടെ ഉപയോഗം"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
-#, fuzzy
 msgid "Swap Usage"
-msgstr "ഛായാപട തലം"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
-#, fuzzy
 msgid "System Uptime"
-msgstr "വ്യ‍ൂഹ പട്ടിക"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
-#, fuzzy
 msgid "Load Averange"
-msgstr "ശരാശരി"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Shared Memory Limits"
 msgstr ""
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
-#, fuzzy
 msgid "Message Queue Limits"
-msgstr "സന്ദേശമൊട്ടുകള്‌"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
@@ -1217,86 +1126,72 @@ msgid "List of running Processes"
 msgstr ""
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
-#, fuzzy
 msgid "Process Status information"
-msgstr "വിവരം"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process UID and TTY information"
 msgstr ""
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
-#, fuzzy
 msgid "Process Memory information"
-msgstr "വിവരം"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
-#, fuzzy
 msgid "Process Time information"
-msgstr "വിവരം"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
-#, fuzzy
 msgid "Process Signal information"
-msgstr "വിവരം"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Kernel Data information"
 msgstr ""
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
-#, fuzzy
 msgid "Process Segment information"
-msgstr "വിവരം"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:66
-#, fuzzy
 msgid "Process Arguments"
-msgstr "ക്രിയാങ്കം"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
-#, fuzzy
 msgid "Process Memory Map"
-msgstr "സ്വതന്ത്രമായ ഓര്മ്മ"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:68
-#, fuzzy
 msgid "Mount List"
-msgstr "അടയാളങ്ങളുടെ നാമാവലി"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
-#, fuzzy
 msgid "File System Usage"
-msgstr "രചനാസംവിധാനങ്ങള്‌"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
-#, fuzzy
 msgid "Network Load"
-msgstr "വലക്കെട്ട്"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
-#, fuzzy
 msgid "PPP Statistics"
-msgstr "പ്രസ്താവ സ്ഥിതിവിവരം"
+msgstr ""
 
 #: sysdeps/names/sysdeps.c:93
 msgid "Command line arguments of the process"
 msgstr ""
 
 #: sysdeps/names/sysdeps.c:95
-#, fuzzy
 msgid "List of currently mounted filesystems"
-msgstr "ഇപ്പോള്‌ തെരഞ്ഞെടുത്ത സന്ദേശങ്ങള്‌ അച്ചടിക്കുക"
+msgstr ""
 
 #: sysdeps/names/uptime.c:38
-#, fuzzy
 msgid "Uptime"
-msgstr "പരിഷ്ക്കരിക്കുക"
+msgstr ""
 
 #: sysdeps/names/uptime.c:39
-#, fuzzy
 msgid "Idletime"
-msgstr "അനക്കമില്ല:"
+msgstr ""
 
 #: sysdeps/names/uptime.c:44
 msgid "Time in seconds since system boot"
@@ -1311,9 +1206,8 @@ msgid "Hangup"
 msgstr ""
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
-#, fuzzy
 msgid "Interrupt"
-msgstr "വിവരമണ്ഡലം"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
@@ -1324,18 +1218,16 @@ msgid "Illegal instruction"
 msgstr ""
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
-#, fuzzy
 msgid "Trace trap"
-msgstr "അക്ഷര പടം"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "നിര്ത്തലാക്കി"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
-#, fuzzy
 msgid "EMT error"
-msgstr "പിശക്"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
@@ -1346,66 +1238,56 @@ msgid "Kill"
 msgstr "അവസാനിപ്പിക്കുക"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
-#, fuzzy
 msgid "Bus error"
-msgstr "പ്രശ്നം ഇല്ല"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
-#, fuzzy
 msgid "Segmentation violation"
-msgstr "ചലനചിത്രം തിരഞ്ഞെടുക്കുക:"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr ""
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
-#, fuzzy
 msgid "Broken pipe"
-msgstr "പൊട്ടിയ കണ്ണി"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
-#, fuzzy
 msgid "Alarm clock"
-msgstr "സൂചകധ്വനി"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
-#, fuzzy
 msgid "Termination"
-msgstr "ടെ‍ര്മിനല്"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
-#, fuzzy
 msgid "Urgent condition on socket"
-msgstr "ഇപ്പോഴത്തെ അവസ്ഥ"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "നിര്‌ത്തുക"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
-#, fuzzy
 msgid "Keyboard stop"
-msgstr "സൂചകവാക്കുകള്"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "തുടരൂ"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
-#, fuzzy
 msgid "Child status has changed"
-msgstr "മാറിയ തീയതി"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
-#, fuzzy
 msgid "Background read from tty"
-msgstr "പശ്ചാത്തലം"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
-#, fuzzy
 msgid "Background write to tty"
-msgstr "പശ്ചാത്തലം"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
@@ -1428,21 +1310,17 @@ msgid "Profiling alarm clock"
 msgstr ""
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
-#, fuzzy
 msgid "Window size change"
-msgstr "ജീലക ഉപയോഗം"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
-#, fuzzy
 msgid "Information request"
-msgstr "വിവര സന്ദേശങ്ങള്"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
-#, fuzzy
 msgid "User defined signal 1"
-msgstr "ഉപയോക്തൃ നാമം"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
-#, fuzzy
 msgid "User defined signal 2"
-msgstr "ഉപയോക്തൃ നാമം"
+msgstr ""
