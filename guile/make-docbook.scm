@@ -1,12 +1,18 @@
 ;; $Id$
 
+(load "features.scm")
+
 (define sysdeps-list '())
+
+(define type-names '("void"
+		     "int64_t" "u_int64_t" "double"
+		     "int" "char" "const char *"))
 
 (define make-sysdeps-list
   (lambda ()
-    (letrec ((names (glibtop-names-sysdeps))
-	     (labels (glibtop-labels-sysdeps))
-	     (descriptions (glibtop-descriptions-sysdeps))
+    (letrec ((names (cdr (glibtop-names-sysdeps)))
+	     (labels (cdr (glibtop-labels-sysdeps)))
+	     (descriptions (cdr (glibtop-descriptions-sysdeps)))
 	     )
       (for-each (lambda (feature)
 		  (let* ((label (car labels))
@@ -31,11 +37,13 @@
     (let* ((names (eval-string (string "(glibtop-names-" feature ")")))
 	   (types (eval-string (string "(glibtop-types-" feature ")")))
 	   (labels (eval-string (string "(glibtop-labels-" feature ")")))
-	   (sysdeps (assoc-ref sysdeps-list feature)) (retval "void")
+	   (sysdeps (assoc-ref sysdeps-list feature))
+	   (retval (car (car (assoc-ref libgtop-features feature))))
 	   (name (assoc-ref sysdeps 'name))
 	   (label (assoc-ref sysdeps 'label))
 	   (description (assoc-ref sysdeps 'description))
 	   (descriptions (eval-string (string "(glibtop-descriptions-" feature ")")))
+	   (feature_nounder (car (assoc-ref libgtop-feature-names feature)))
 	   (decl-list '()) (field-list '())
 
 	   (synopsis-start-string
@@ -73,14 +81,43 @@
 
 	   (funcdef-string
 	    (string "<funcdef>" retval " "
-		    "<function>glibtop_get_" feature "__r</function>"
+		    "<function>glibtop_get_" feature "_l</function>"
 		    "</funcdef>\n")
 	    )
 
 	   (paramdef-string
-	    (string "<paramdef>glibtop *<parameter>server</parameter>, "
-		    "glibtop_" feature " *<parameter>" feature "</parameter>\n"
-		    "</paramdef>")
+	    (lambda ()
+	      (let ((start (string "<paramdef>glibtop *<parameter>"
+				   "server</parameter>, glibtop_"
+				   feature " *<parameter>" feature
+				   "</parameter>")
+			   )
+		    (param_string (string))
+		    (end (string "\n</paramdef>"))
+		    (param_lists
+		     (cdr (car (assoc-ref libgtop-features feature))))
+		    )
+		(for-each
+		 (lambda (x)
+		   (let ((type (car x))
+			 (params (cdr x))
+			 )
+		     (for-each
+		      (lambda (param)
+			(set! param_string (string param_string
+						   ", " type
+						   " <parameter>"
+						   param
+						   "</parameter>"
+						   )
+			      )
+			)
+		      params)
+		     )
+		   )
+		 param_lists)
+		(string start param_string end))
+	      )
 	    )
 
 	   (funcdef-noserver-string
@@ -163,6 +200,7 @@
 		 (lambda (x)
 		   (set! new-type (car type-list))
 		   (set! type-list (cdr type-list))
+		   (set! new-type (list-ref type-names new-type))
 		   (if (equal? old-type new-type)
 		       (set-car! fields
 				 (append (list new-type)
@@ -213,8 +251,8 @@
 			       (string "typedef struct _glibtop_" name)
 			       5)
 			      (string "glibtop_" name ";\n\n"
-				      "struct glibtop_" name "\n{\n\t"
-				      "unsigned long\tflags;\n")
+				      "struct _glibtop_" name "\n{\n\t"
+				      "u_int64_t\tflags;\n")
 			      )
 			     )
 		     )
@@ -269,7 +307,7 @@
 		     (string "</funcsynopsis>\n")
 		     (string "<funcsynopsis>\n")
 		     funcdef-string
-		     paramdef-string
+		     (paramdef-string)
 		     (string "</funcsynopsis>\n</blockquote>\n")
 		     definition-start-string
 		     (string "<blockquote>\n<literallayout>\n")
@@ -279,6 +317,7 @@
 		     "<variablelist>\n\n"
 		     (make-param-description)
 		     "</variablelist>\n\n"
+		     "&include-" feature_nounder ".sgml;\n\n"
 		     )
       )
     )
@@ -299,13 +338,9 @@
 
 (begin
   (make-sysdeps-list)
-
-  (display (string "<chapter id=\"functions\">\n"
-		   "<title>Function Reference List</title>\n\n")
-	   )
-
+  
   (for-each (lambda (x)
 	      (display (make-function-reference x))
 	      )
-	    (glibtop-names-sysdeps))
+	    (cdr (glibtop-names-sysdeps)))
   )

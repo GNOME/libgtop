@@ -45,7 +45,8 @@ libgtop_la_LIBADD		= ../sysdeps/guile/guile.lo \
 				  ../sysdeps/@sysdeps_dir@/open.lo \
 				  ../sysdeps/@sysdeps_dir@/proctime.lo \
 				  ../sysdeps/@sysdeps_dir@/prockernel.lo \
-				  ../sysdeps/@sysdeps_dir@/procuid.lo
+				  ../sysdeps/@sysdeps_dir@/procuid.lo \
+				  ../sysdeps/@sysdeps_dir@/procmap.lo
 
 libnames_la_LIBADD		= ../sysdeps/guile/names/guile-names.lo
 

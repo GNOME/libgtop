@@ -1,0 +1,1752 @@
+<sect1>
+<title><function>glibtop_get_cpu()</function> - CPU Usage</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+CPU Usage
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/cpu.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_cpu</function></funcdef>
+<paramdef>glibtop_cpu *<parameter>cpu</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_cpu_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_cpu *<parameter>cpu</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_cpu</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_cpu             glibtop_cpu;
+
+struct _glibtop_cpu
+{
+	u_int64_t	flags;
+	u_int64_t       total,          /* GLIBTOP_CPU_TOTAL                */
+		user,           	/* GLIBTOP_CPU_USER                 */
+		nice,           	/* GLIBTOP_CPU_NICE                 */
+		sys,            	/* GLIBTOP_CPU_SYS                  */
+		idle,           	/* GLIBTOP_CPU_IDLE                 */
+		frequency;      	/* GLIBTOP_CPU_FREQUENCY            */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_cpu</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>total</parameter></term>
+
+<listitem>
+<para>
+The number of jiffies (1/100ths of a second) since system boot
+
+<varlistentry>
+<term><parameter>user</parameter></term>
+
+<listitem>
+<para>
+The number of jiffies (1/100ths of a second) that the system spent in user mode
+
+<varlistentry>
+<term><parameter>nice</parameter></term>
+
+<listitem>
+<para>
+The number of jiffies (1/100ths of a second) that the system spent in user mode with low priority (nice)
+
+<varlistentry>
+<term><parameter>sys</parameter></term>
+
+<listitem>
+<para>
+The number of jiffies (1/100ths of a second) that the system spent in system mode
+
+<varlistentry>
+<term><parameter>idle</parameter></term>
+
+<listitem>
+<para>
+The number of jiffies (1/100ths of a second) that the system spend in the idle task
+
+<varlistentry>
+<term><parameter>frequency</parameter></term>
+
+<listitem>
+<para>
+All of the above values are in jiffies (1/100ths of a second) unless otherwise stated in this field (i.e. 'frequency != 100')
+
+</variablelist>
+
+&include-cpu.sgml;
+
+<sect1>
+<title><function>glibtop_get_mem()</function> - Memory Usage</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Memory Usage
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/mem.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_mem</function></funcdef>
+<paramdef>glibtop_mem *<parameter>mem</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_mem_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_mem *<parameter>mem</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_mem</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_mem             glibtop_mem;
+
+struct _glibtop_mem
+{
+	u_int64_t	flags;
+	u_int64_t       total,          /* GLIBTOP_MEM_TOTAL                */
+		used,           	/* GLIBTOP_MEM_USED                 */
+		free,           	/* GLIBTOP_MEM_FREE                 */
+		shared,         	/* GLIBTOP_MEM_SHARED               */
+		buffer,         	/* GLIBTOP_MEM_BUFFER               */
+		cached,         	/* GLIBTOP_MEM_CACHED               */
+		user,           	/* GLIBTOP_MEM_USER                 */
+		locked;         	/* GLIBTOP_MEM_LOCKED               */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_mem</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>total</parameter></term>
+
+<listitem>
+<para>
+Total physical memory in kB
+
+<varlistentry>
+<term><parameter>used</parameter></term>
+
+<listitem>
+<para>
+Used memory size in kB
+
+<varlistentry>
+<term><parameter>free</parameter></term>
+
+<listitem>
+<para>
+Free memory size in kB
+
+<varlistentry>
+<term><parameter>shared</parameter></term>
+
+<listitem>
+<para>
+Shared memory size in kB
+
+<varlistentry>
+<term><parameter>buffer</parameter></term>
+
+<listitem>
+<para>
+Size of buffers kB
+
+<varlistentry>
+<term><parameter>cached</parameter></term>
+
+<listitem>
+<para>
+Size of cached memory in kB
+
+<varlistentry>
+<term><parameter>user</parameter></term>
+
+<listitem>
+<para>
+Memory used from user processes in kB
+
+<varlistentry>
+<term><parameter>locked</parameter></term>
+
+<listitem>
+<para>
+Memory in locked pages in kB
+
+</variablelist>
+
+&include-mem.sgml;
+
+<sect1>
+<title><function>glibtop_get_swap()</function> - Swap Usage</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Swap Usage
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/swap.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_swap</function></funcdef>
+<paramdef>glibtop_swap *<parameter>swap</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_swap_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_swap *<parameter>swap</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_swap</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_swap            glibtop_swap;
+
+struct _glibtop_swap
+{
+	u_int64_t	flags;
+	u_int64_t       total,          /* GLIBTOP_SWAP_TOTAL               */
+		used,           	/* GLIBTOP_SWAP_USED                */
+		free,           	/* GLIBTOP_SWAP_FREE                */
+		pagein,         	/* GLIBTOP_SWAP_PAGEIN              */
+		pageout;        	/* GLIBTOP_SWAP_PAGEOUT             */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_swap</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>total</parameter></term>
+
+<listitem>
+<para>
+Total Swap Space
+
+<varlistentry>
+<term><parameter>used</parameter></term>
+
+<listitem>
+<para>
+Used Swap Space
+
+<varlistentry>
+<term><parameter>free</parameter></term>
+
+<listitem>
+<para>
+Free Swap Space
+
+<varlistentry>
+<term><parameter>pagein</parameter></term>
+
+<listitem>
+<para>
+Total number of swap pages that have been brought in
+
+<varlistentry>
+<term><parameter>pageout</parameter></term>
+
+<listitem>
+<para>
+Total number of swap pages that have been brought out
+
+</variablelist>
+
+&include-swap.sgml;
+
+<sect1>
+<title><function>glibtop_get_uptime()</function> - System Uptime</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+System Uptime
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/uptime.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_uptime</function></funcdef>
+<paramdef>glibtop_uptime *<parameter>uptime</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_uptime_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_uptime *<parameter>uptime</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_uptime</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_uptime          glibtop_uptime;
+
+struct _glibtop_uptime
+{
+	u_int64_t	flags;
+	double          uptime,         /* GLIBTOP_UPTIME_UPTIME            */
+		idletime;       	/* GLIBTOP_UPTIME_IDLETIME          */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_uptime</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>uptime</parameter></term>
+
+<listitem>
+<para>
+Time in seconds since system boot
+
+<varlistentry>
+<term><parameter>idletime</parameter></term>
+
+<listitem>
+<para>
+Time in seconds the system spent in the idle task since system boot
+
+</variablelist>
+
+&include-uptime.sgml;
+
+<sect1>
+<title><function>glibtop_get_loadavg()</function> - Load Averange</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Load Averange
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/loadavg.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_loadavg</function></funcdef>
+<paramdef>glibtop_loadavg *<parameter>loadavg</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_loadavg_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_loadavg *<parameter>loadavg</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_loadavg</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_loadavg         glibtop_loadavg;
+
+struct _glibtop_loadavg
+{
+	u_int64_t	flags;
+	double          loadavg;        /* GLIBTOP_LOADAVG_LOADAVG          */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_loadavg</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>loadavg</parameter></term>
+
+<listitem>
+<para>
+Number of jobs running simultaneously averaged over 1, 5 and 15 minutes
+
+</variablelist>
+
+&include-loadavg.sgml;
+
+<sect1>
+<title><function>glibtop_get_shm_limits()</function> - Shared Memory Limits</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Shared Memory Limits
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/shm_limits.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_shm_limits</function></funcdef>
+<paramdef>glibtop_shm_limits *<parameter>shm_limits</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_shm_limits_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_shm_limits *<parameter>shm_limits</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_shm_limits</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_shm_limits      glibtop_shm_limits;
+
+struct _glibtop_shm_limits
+{
+	u_int64_t	flags;
+	u_int64_t       shmmax,         /* GLIBTOP_SHM_LIMITS_SHMMAX        */
+		shmmin,         	/* GLIBTOP_SHM_LIMITS_SHMMIN        */
+		shmmni,         	/* GLIBTOP_SHM_LIMITS_SHMMNI        */
+		shmseg,         	/* GLIBTOP_SHM_LIMITS_SHMSEG        */
+		shmall;         	/* GLIBTOP_SHM_LIMITS_SHMALL        */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_shm_limits</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>shmmax</parameter></term>
+
+<listitem>
+<para>
+Max segment size
+
+<varlistentry>
+<term><parameter>shmmin</parameter></term>
+
+<listitem>
+<para>
+Min segment size
+
+<varlistentry>
+<term><parameter>shmmni</parameter></term>
+
+<listitem>
+<para>
+Max number of segments
+
+<varlistentry>
+<term><parameter>shmseg</parameter></term>
+
+<listitem>
+<para>
+Max shared segments per process
+
+<varlistentry>
+<term><parameter>shmall</parameter></term>
+
+<listitem>
+<para>
+Max total shared memory
+
+</variablelist>
+
+&include-shm-limits.sgml;
+
+<sect1>
+<title><function>glibtop_get_msg_limits()</function> - Message Queue Limits</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Message Queue Limits
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/msg_limits.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_msg_limits</function></funcdef>
+<paramdef>glibtop_msg_limits *<parameter>msg_limits</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_msg_limits_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_msg_limits *<parameter>msg_limits</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_msg_limits</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_msg_limits      glibtop_msg_limits;
+
+struct _glibtop_msg_limits
+{
+	u_int64_t	flags;
+	u_int64_t       msgpool,        /* GLIBTOP_MSG_LIMITS_MSGPOOL       */
+		msgmap,         	/* GLIBTOP_MSG_LIMITS_MSGMAP        */
+		msgmax,         	/* GLIBTOP_MSG_LIMITS_MSGMAX        */
+		msgmnb,         	/* GLIBTOP_MSG_LIMITS_MSGMNB        */
+		msgmni,         	/* GLIBTOP_MSG_LIMITS_MSGMNI        */
+		msgssz,         	/* GLIBTOP_MSG_LIMITS_MSGSSZ        */
+		msgtql;         	/* GLIBTOP_MSG_LIMITS_MSGTQL        */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_msg_limits</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>msgpool</parameter></term>
+
+<listitem>
+<para>
+Size in kilobytes of message pool
+
+<varlistentry>
+<term><parameter>msgmap</parameter></term>
+
+<listitem>
+<para>
+Number of entries in message map
+
+<varlistentry>
+<term><parameter>msgmax</parameter></term>
+
+<listitem>
+<para>
+Max size of message
+
+<varlistentry>
+<term><parameter>msgmnb</parameter></term>
+
+<listitem>
+<para>
+Default max size of queue
+
+<varlistentry>
+<term><parameter>msgmni</parameter></term>
+
+<listitem>
+<para>
+Max queues system wide
+
+<varlistentry>
+<term><parameter>msgssz</parameter></term>
+
+<listitem>
+<para>
+Message segment size
+
+<varlistentry>
+<term><parameter>msgtql</parameter></term>
+
+<listitem>
+<para>
+Number of system message headers
+
+</variablelist>
+
+&include-msg-limits.sgml;
+
+<sect1>
+<title><function>glibtop_get_sem_limits()</function> - Semaphore Set Limits</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Semaphore Set Limits
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/sem_limits.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_sem_limits</function></funcdef>
+<paramdef>glibtop_sem_limits *<parameter>sem_limits</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_sem_limits_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_sem_limits *<parameter>sem_limits</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_sem_limits</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_sem_limits      glibtop_sem_limits;
+
+struct _glibtop_sem_limits
+{
+	u_int64_t	flags;
+	u_int64_t       semmap,         /* GLIBTOP_SEM_LIMITS_SEMMAP        */
+		semmni,         	/* GLIBTOP_SEM_LIMITS_SEMMNI        */
+		semmns,         	/* GLIBTOP_SEM_LIMITS_SEMMNS        */
+		semmnu,         	/* GLIBTOP_SEM_LIMITS_SEMMNU        */
+		semmsl,         	/* GLIBTOP_SEM_LIMITS_SEMMSL        */
+		semopm,         	/* GLIBTOP_SEM_LIMITS_SEMOPM        */
+		semume,         	/* GLIBTOP_SEM_LIMITS_SEMUME        */
+		semusz,         	/* GLIBTOP_SEM_LIMITS_SEMUSZ        */
+		semvmx,         	/* GLIBTOP_SEM_LIMITS_SEMVMX        */
+		semaem;         	/* GLIBTOP_SEM_LIMITS_SEMAEM        */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_sem_limits</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>semmap</parameter></term>
+
+<listitem>
+<para>
+Number of entries in semaphore map
+
+<varlistentry>
+<term><parameter>semmni</parameter></term>
+
+<listitem>
+<para>
+Max number of arrays
+
+<varlistentry>
+<term><parameter>semmns</parameter></term>
+
+<listitem>
+<para>
+Max semaphores system wide
+
+<varlistentry>
+<term><parameter>semmnu</parameter></term>
+
+<listitem>
+<para>
+Number of undo structures system wide
+
+<varlistentry>
+<term><parameter>semmsl</parameter></term>
+
+<listitem>
+<para>
+Max semaphores per array
+
+<varlistentry>
+<term><parameter>semopm</parameter></term>
+
+<listitem>
+<para>
+Max ops per semop call
+
+<varlistentry>
+<term><parameter>semume</parameter></term>
+
+<listitem>
+<para>
+Max number of undo entries per process
+
+<varlistentry>
+<term><parameter>semusz</parameter></term>
+
+<listitem>
+<para>
+sizeof struct sem_undo
+
+<varlistentry>
+<term><parameter>semvmx</parameter></term>
+
+<listitem>
+<para>
+Semaphore max value
+
+<varlistentry>
+<term><parameter>semaem</parameter></term>
+
+<listitem>
+<para>
+Adjust on exit max value
+
+</variablelist>
+
+&include-sem-limits.sgml;
+
+<sect1>
+<title><function>glibtop_get_proclist()</function> - List of running Processes</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+List of running Processes
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/proclist.h&gt;</funcsynopsisinfo><funcdef>unsigned * <function>glibtop_get_proclist</function></funcdef>
+<paramdef>glibtop_proclist *<parameter>proclist</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>unsigned * <function>glibtop_get_proclist_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_proclist *<parameter>proclist</parameter>, long <parameter>which</parameter>, long <parameter>arg</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_proclist</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_proclist        glibtop_proclist;
+
+struct _glibtop_proclist
+{
+	u_int64_t	flags;
+	u_int64_t       number,         /* GLIBTOP_PROCLIST_NUMBER          */
+		total,          	/* GLIBTOP_PROCLIST_TOTAL           */
+		size;           	/* GLIBTOP_PROCLIST_SIZE            */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_proclist</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>number</parameter></term>
+
+<listitem>
+<para>
+Number of list elements
+
+<varlistentry>
+<term><parameter>total</parameter></term>
+
+<listitem>
+<para>
+Total size of list
+
+<varlistentry>
+<term><parameter>size</parameter></term>
+
+<listitem>
+<para>
+Size of a single list element
+
+</variablelist>
+
+&include-proclist.sgml;
+
+<sect1>
+<title><function>glibtop_get_proc_state()</function> - Process Status information</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Process Status information
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/proc_state.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_proc_state</function></funcdef>
+<paramdef>glibtop_proc_state *<parameter>proc_state</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_proc_state_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_proc_state *<parameter>proc_state</parameter>, pid_t <parameter>pid</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_proc_state</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_proc_state      glibtop_proc_state;
+
+struct _glibtop_proc_state
+{
+	u_int64_t	flags;
+	int             uid,            /* GLIBTOP_PROC_STATE_UID           */
+		gid;            	/* GLIBTOP_PROC_STATE_GID           */
+	char            state;          /* GLIBTOP_PROC_STATE_STATE         */
+	const char *    cmd;            /* GLIBTOP_PROC_STATE_CMD           */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_proc_state</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>cmd</parameter></term>
+
+<listitem>
+<para>
+Basename of executable file in call to exec()
+
+<varlistentry>
+<term><parameter>state</parameter></term>
+
+<listitem>
+<para>
+Single-Char code for process state (S=sleeping)
+
+<varlistentry>
+<term><parameter>uid</parameter></term>
+
+<listitem>
+<para>
+UID of process
+
+<varlistentry>
+<term><parameter>gid</parameter></term>
+
+<listitem>
+<para>
+GID of process
+
+</variablelist>
+
+&include-proc-state.sgml;
+
+<sect1>
+<title><function>glibtop_get_proc_uid()</function> - Process UID and TTY information</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Process UID and TTY information
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/proc_uid.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_proc_uid</function></funcdef>
+<paramdef>glibtop_proc_uid *<parameter>proc_uid</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_proc_uid_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_proc_uid *<parameter>proc_uid</parameter>, pid_t <parameter>pid</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_proc_uid</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_proc_uid        glibtop_proc_uid;
+
+struct _glibtop_proc_uid
+{
+	u_int64_t	flags;
+	int             uid,            /* GLIBTOP_PROC_UID_UID             */
+		euid,           	/* GLIBTOP_PROC_UID_EUID            */
+		gid,            	/* GLIBTOP_PROC_UID_GID             */
+		egid,           	/* GLIBTOP_PROC_UID_EGID            */
+		pid,            	/* GLIBTOP_PROC_UID_PID             */
+		ppid,           	/* GLIBTOP_PROC_UID_PPID            */
+		pgrp,           	/* GLIBTOP_PROC_UID_PGRP            */
+		session,        	/* GLIBTOP_PROC_UID_SESSION         */
+		tty,            	/* GLIBTOP_PROC_UID_TTY             */
+		tpgid,          	/* GLIBTOP_PROC_UID_TPGID           */
+		priority,       	/* GLIBTOP_PROC_UID_PRIORITY        */
+		nice;           	/* GLIBTOP_PROC_UID_NICE            */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_proc_uid</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>uid</parameter></term>
+
+<listitem>
+<para>
+User ID
+
+<varlistentry>
+<term><parameter>euid</parameter></term>
+
+<listitem>
+<para>
+Effective User ID
+
+<varlistentry>
+<term><parameter>gid</parameter></term>
+
+<listitem>
+<para>
+Group ID
+
+<varlistentry>
+<term><parameter>egid</parameter></term>
+
+<listitem>
+<para>
+Effective Group ID
+
+<varlistentry>
+<term><parameter>pid</parameter></term>
+
+<listitem>
+<para>
+Process ID
+
+<varlistentry>
+<term><parameter>ppid</parameter></term>
+
+<listitem>
+<para>
+PID of parent process
+
+<varlistentry>
+<term><parameter>pgrp</parameter></term>
+
+<listitem>
+<para>
+Process group ID
+
+<varlistentry>
+<term><parameter>session</parameter></term>
+
+<listitem>
+<para>
+Session ID
+
+<varlistentry>
+<term><parameter>tty</parameter></term>
+
+<listitem>
+<para>
+Full device number of controlling terminal
+
+<varlistentry>
+<term><parameter>tpgid</parameter></term>
+
+<listitem>
+<para>
+Terminal process group ID
+
+<varlistentry>
+<term><parameter>priority</parameter></term>
+
+<listitem>
+<para>
+Kernel scheduling priority
+
+<varlistentry>
+<term><parameter>nice</parameter></term>
+
+<listitem>
+<para>
+Standard unix nice level of process
+
+</variablelist>
+
+&include-proc-uid.sgml;
+
+<sect1>
+<title><function>glibtop_get_proc_mem()</function> - Process Memory information</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Process Memory information
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/proc_mem.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_proc_mem</function></funcdef>
+<paramdef>glibtop_proc_mem *<parameter>proc_mem</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_proc_mem_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_proc_mem *<parameter>proc_mem</parameter>, pid_t <parameter>pid</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_proc_mem</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_proc_mem        glibtop_proc_mem;
+
+struct _glibtop_proc_mem
+{
+	u_int64_t	flags;
+	int64_t         size,           /* GLIBTOP_PROC_MEM_SIZE            */
+		vsize,          	/* GLIBTOP_PROC_MEM_VSIZE           */
+		resident,       	/* GLIBTOP_PROC_MEM_RESIDENT        */
+		share,          	/* GLIBTOP_PROC_MEM_SHARE           */
+		rss,            	/* GLIBTOP_PROC_MEM_RSS             */
+		rss_rlim;       	/* GLIBTOP_PROC_MEM_RSS_RLIM        */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_proc_mem</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>size</parameter></term>
+
+<listitem>
+<para>
+Total # of pages of memory
+
+<varlistentry>
+<term><parameter>vsize</parameter></term>
+
+<listitem>
+<para>
+Number of pages of virtual memory
+
+<varlistentry>
+<term><parameter>resident</parameter></term>
+
+<listitem>
+<para>
+Number of residnet set (non-swapped) pages
+
+<varlistentry>
+<term><parameter>share</parameter></term>
+
+<listitem>
+<para>
+Number of pages of shared (mmap'd) memory
+
+<varlistentry>
+<term><parameter>rss</parameter></term>
+
+<listitem>
+<para>
+Number of pages the process has in real memory, minus 3 for administrative purposes. This is just the pages which count towards text, data, or stack space. This does not include pages which have not been demand-loaded in, or which are swapped out.
+
+<varlistentry>
+<term><parameter>rss_rlim</parameter></term>
+
+<listitem>
+<para>
+Current limit in bytes on the rss of the process (usually 2,147,483,647).
+
+</variablelist>
+
+&include-proc-mem.sgml;
+
+<sect1>
+<title><function>glibtop_get_proc_time()</function> - Process Time information</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Process Time information
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/proc_time.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_proc_time</function></funcdef>
+<paramdef>glibtop_proc_time *<parameter>proc_time</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_proc_time_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_proc_time *<parameter>proc_time</parameter>, pid_t <parameter>pid</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_proc_time</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_proc_time       glibtop_proc_time;
+
+struct _glibtop_proc_time
+{
+	u_int64_t	flags;
+	int64_t         start_time,     /* GLIBTOP_PROC_TIME_START_TIME     */
+		rtime,          	/* GLIBTOP_PROC_TIME_RTIME          */
+		utime,          	/* GLIBTOP_PROC_TIME_UTIME          */
+		stime,          	/* GLIBTOP_PROC_TIME_STIME          */
+		cutime,         	/* GLIBTOP_PROC_TIME_CUTIME         */
+		cstime,         	/* GLIBTOP_PROC_TIME_CSTIME         */
+		timeout,        	/* GLIBTOP_PROC_TIME_TIMEOUT        */
+		it_real_value,  	/* GLIBTOP_PROC_TIME_IT_REAL_VALUE  */
+		timeout;        	/* GLIBTOP_PROC_TIME_TIMEOUT        */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_proc_time</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>start_time</parameter></term>
+
+<listitem>
+<para>
+Start time of process in seconds since the epoch
+
+<varlistentry>
+<term><parameter>rtime</parameter></term>
+
+<listitem>
+<para>
+Read time accumulated by process (should be utime + stime)
+
+<varlistentry>
+<term><parameter>utime</parameter></term>
+
+<listitem>
+<para>
+user-mode CPU time accumulated by process
+
+<varlistentry>
+<term><parameter>stime</parameter></term>
+
+<listitem>
+<para>
+kernel-mode CPU time accumulated by process
+
+<varlistentry>
+<term><parameter>cutime</parameter></term>
+
+<listitem>
+<para>
+cumulative utime of process and reaped children
+
+<varlistentry>
+<term><parameter>cstime</parameter></term>
+
+<listitem>
+<para>
+cumulative stime of process and reaped children
+
+<varlistentry>
+<term><parameter>timeout</parameter></term>
+
+<listitem>
+<para>
+The time (in jiffies) of the process's next timeout
+
+<varlistentry>
+<term><parameter>it_real_value</parameter></term>
+
+<listitem>
+<para>
+The time (in jiffies) before the next SIGALRM is sent to the process due to an interval timer.
+
+<varlistentry>
+<term><parameter>timeout</parameter></term>
+
+<listitem>
+<para>
+Tick frequency
+
+</variablelist>
+
+&include-proc-time.sgml;
+
+<sect1>
+<title><function>glibtop_get_proc_signal()</function> - Process Signal information</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Process Signal information
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/proc_signal.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_proc_signal</function></funcdef>
+<paramdef>glibtop_proc_signal *<parameter>proc_signal</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_proc_signal_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_proc_signal *<parameter>proc_signal</parameter>, pid_t <parameter>pid</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_proc_signal</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_proc_signal     glibtop_proc_signal;
+
+struct _glibtop_proc_signal
+{
+	u_int64_t	flags;
+	int             signal,         /* GLIBTOP_PROC_SIGNAL_SIGNAL       */
+		blocked,        	/* GLIBTOP_PROC_SIGNAL_BLOCKED      */
+		sigignore,      	/* GLIBTOP_PROC_SIGNAL_SIGIGNORE    */
+		sigcatch;       	/* GLIBTOP_PROC_SIGNAL_SIGCATCH     */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_proc_signal</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>signal</parameter></term>
+
+<listitem>
+<para>
+Mask of pending signals
+
+<varlistentry>
+<term><parameter>blocked</parameter></term>
+
+<listitem>
+<para>
+Mask of blocked signals
+
+<varlistentry>
+<term><parameter>sigignore</parameter></term>
+
+<listitem>
+<para>
+Mask of ignored signals
+
+<varlistentry>
+<term><parameter>sigcatch</parameter></term>
+
+<listitem>
+<para>
+Mask of caught signals
+
+</variablelist>
+
+&include-proc-signal.sgml;
+
+<sect1>
+<title><function>glibtop_get_proc_kernel()</function> - Process Kernel Data information</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Process Kernel Data information
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/proc_kernel.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_proc_kernel</function></funcdef>
+<paramdef>glibtop_proc_kernel *<parameter>proc_kernel</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_proc_kernel_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_proc_kernel *<parameter>proc_kernel</parameter>, pid_t <parameter>pid</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_proc_kernel</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_proc_kernel     glibtop_proc_kernel;
+
+struct _glibtop_proc_kernel
+{
+	u_int64_t	flags;
+	const char *    wchan;          /* GLIBTOP_PROC_KERNEL_WCHAN        */
+	u_int64_t       k_flags,        /* GLIBTOP_PROC_KERNEL_K_FLAGS      */
+		min_flt,        	/* GLIBTOP_PROC_KERNEL_MIN_FLT      */
+		maj_flt,        	/* GLIBTOP_PROC_KERNEL_MAJ_FLT      */
+		cmin_flt,       	/* GLIBTOP_PROC_KERNEL_CMIN_FLT     */
+		cmaj_flt,       	/* GLIBTOP_PROC_KERNEL_CMAJ_FLT     */
+		kstk_esp,       	/* GLIBTOP_PROC_KERNEL_KSTK_ESP     */
+		kstk_eip,       	/* GLIBTOP_PROC_KERNEL_KSTK_EIP     */
+		nwchan;         	/* GLIBTOP_PROC_KERNEL_NWCHAN       */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_proc_kernel</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>k_flags</parameter></term>
+
+<listitem>
+<para>
+Kernel flags of the process.
+
+On Linux, currently every flag has the math bit set, because crt0.s checks for math emulation, so this is not included in the output.
+
+This is probably a bug, as not every process is a compiled C program.
+
+The math bit should be a decimal 4, and the traced bit is decimal 10.
+
+<varlistentry>
+<term><parameter>min_flt</parameter></term>
+
+<listitem>
+<para>
+The number of minor faults the process has made, those which have not required loading a memory page from disk.
+
+<varlistentry>
+<term><parameter>maj_flt</parameter></term>
+
+<listitem>
+<para>
+The number of major faults the process has made, those which have required loading a memory page from disk.
+
+<varlistentry>
+<term><parameter>cmin_flt</parameter></term>
+
+<listitem>
+<para>
+The number of minor faults that the process and its children have made.
+
+<varlistentry>
+<term><parameter>cmaj_flt</parameter></term>
+
+<listitem>
+<para>
+The number of major faults that the process and its children have made.
+
+<varlistentry>
+<term><parameter>kstk_esp</parameter></term>
+
+<listitem>
+<para>
+The current value of esp (32-bit stack pointer), as found in the kernel stack page for the process.
+
+<varlistentry>
+<term><parameter>kstk_eip</parameter></term>
+
+<listitem>
+<para>
+The current EIP (32-bit instruction pointer).
+
+<varlistentry>
+<term><parameter>nwchan</parameter></term>
+
+<listitem>
+<para>
+This is the "channel" in which the process is waiting.  This is the address of a system call, and can be looked up in a namelist if you need a textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to see the WCHAN field in action)
+
+<varlistentry>
+<term><parameter>wchan</parameter></term>
+
+<listitem>
+<para>
+This is the textual name of the `nwchan' field.
+
+</variablelist>
+
+&include-proc-kernel.sgml;
+
+<sect1>
+<title><function>glibtop_get_proc_segment()</function> - Process Segment information</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Process Segment information
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/proc_segment.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_proc_segment</function></funcdef>
+<paramdef>glibtop_proc_segment *<parameter>proc_segment</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_proc_segment_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_proc_segment *<parameter>proc_segment</parameter>, pid_t <parameter>pid</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_proc_segment</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_proc_segment    glibtop_proc_segment;
+
+struct _glibtop_proc_segment
+{
+	u_int64_t	flags;
+	u_int64_t       start_code,     /* GLIBTOP_PROC_SEGMENT_START_CODE  */
+		end_code,       	/* GLIBTOP_PROC_SEGMENT_END_CODE    */
+		start_stack;    	/* GLIBTOP_PROC_SEGMENT_START_STACK  */
+	int64_t         trs,            /* GLIBTOP_PROC_SEGMENT_TRS         */
+		lrs,            	/* GLIBTOP_PROC_SEGMENT_LRS         */
+		drs,            	/* GLIBTOP_PROC_SEGMENT_DRS         */
+		dt;             	/* GLIBTOP_PROC_SEGMENT_DT          */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_proc_segment</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>trs</parameter></term>
+
+<listitem>
+<para>
+Text resident set size
+
+<varlistentry>
+<term><parameter>lrs</parameter></term>
+
+<listitem>
+<para>
+Shared-Lib resident set size
+
+<varlistentry>
+<term><parameter>drs</parameter></term>
+
+<listitem>
+<para>
+Data resident set size
+
+<varlistentry>
+<term><parameter>dt</parameter></term>
+
+<listitem>
+<para>
+Dirty pages
+
+<varlistentry>
+<term><parameter>start_code</parameter></term>
+
+<listitem>
+<para>
+Address of beginning of code segment
+
+<varlistentry>
+<term><parameter>end_code</parameter></term>
+
+<listitem>
+<para>
+Address of end of code segment
+
+<varlistentry>
+<term><parameter>start_stack</parameter></term>
+
+<listitem>
+<para>
+Address of the bottom of stack segment
+
+</variablelist>
+
+&include-proc-segment.sgml;
+
+<sect1>
+<title><function>glibtop_get_proc_map()</function> - Process Memory Map</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+Process Memory Map
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/proc_map.h&gt;</funcsynopsisinfo><funcdef>glibtop_map_entry * <function>glibtop_get_proc_map</function></funcdef>
+<paramdef>glibtop_proc_map *<parameter>proc_map</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>glibtop_map_entry * <function>glibtop_get_proc_map_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_proc_map *<parameter>proc_map</parameter>, pid_t <parameter>pid</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_proc_map</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_proc_map        glibtop_proc_map;
+
+struct _glibtop_proc_map
+{
+	u_int64_t	flags;
+	u_int64_t       number,         /* GLIBTOP_PROC_MAP_NUMBER          */
+		total,          	/* GLIBTOP_PROC_MAP_TOTAL           */
+		size;           	/* GLIBTOP_PROC_MAP_SIZE            */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_proc_map</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>number</parameter></term>
+
+<listitem>
+<para>
+Number of list elements
+
+<varlistentry>
+<term><parameter>total</parameter></term>
+
+<listitem>
+<para>
+Total size of list
+
+<varlistentry>
+<term><parameter>size</parameter></term>
+
+<listitem>
+<para>
+Size of a single list element
+
+</variablelist>
+
+&include-proc-map.sgml;
+
+<sect1>
+<title><function>glibtop_get_mountlist()</function> - Mount List</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+List of currently mounted filesystems
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/mountlist.h&gt;</funcsynopsisinfo><funcdef>glibtop_mountentry * <function>glibtop_get_mountlist</function></funcdef>
+<paramdef>glibtop_mountlist *<parameter>mountlist</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>glibtop_mountentry * <function>glibtop_get_mountlist_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_mountlist *<parameter>mountlist</parameter>, pid_t <parameter>all_fs</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_mountlist</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_mountlist       glibtop_mountlist;
+
+struct _glibtop_mountlist
+{
+	u_int64_t	flags;
+	u_int64_t       number,         /* GLIBTOP_MOUNTLIST_NUMBER         */
+		total,          	/* GLIBTOP_MOUNTLIST_TOTAL          */
+		size;           	/* GLIBTOP_MOUNTLIST_SIZE           */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_mountlist</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>number</parameter></term>
+
+<listitem>
+<para>
+Number of list elements
+
+<varlistentry>
+<term><parameter>total</parameter></term>
+
+<listitem>
+<para>
+Total size of list
+
+<varlistentry>
+<term><parameter>size</parameter></term>
+
+<listitem>
+<para>
+Size of a single list element
+
+</variablelist>
+
+&include-mountlist.sgml;
+
+<sect1>
+<title><function>glibtop_get_fsusage()</function> - File System Usage</title>
+
+<para>
+Automatically generated description:
+
+<blockquote>
+<literallayout>
+File System Usage
+</literallayout>
+</blockquote>
+
+<para>Automatically generated function synopsis:
+
+<blockquote>
+<funcsynopsis>
+<funcsynopsisinfo>
+#include &lt;glibtop.h&gt;
+#include &lt;glibtop/fsusage.h&gt;</funcsynopsisinfo><funcdef>void <function>glibtop_get_fsusage</function></funcdef>
+<paramdef>glibtop_fsusage *<parameter>fsusage</parameter>
+</paramdef></funcsynopsis>
+<funcsynopsis>
+<funcdef>void <function>glibtop_get_fsusage_l</function></funcdef>
+<paramdef>glibtop *<parameter>server</parameter>, glibtop_fsusage *<parameter>fsusage</parameter>, string <parameter>string</parameter>
+</paramdef></funcsynopsis>
+</blockquote>
+<para>Automatically generated declaration of <structname>_glibtop_fsusage</structname>:
+
+<blockquote>
+<literallayout>
+typedef struct _glibtop_fsusage         glibtop_fsusage;
+
+struct _glibtop_fsusage
+{
+	u_int64_t	flags;
+	u_int64_t       blocks,         /* GLIBTOP_FSUSAGE_BLOCKS           */
+		bfree,          	/* GLIBTOP_FSUSAGE_BFREE            */
+		bavail,         	/* GLIBTOP_FSUSAGE_BAVAIL           */
+		files,          	/* GLIBTOP_FSUSAGE_FILES            */
+		ffree;          	/* GLIBTOP_FSUSAGE_FFREE            */
+};
+</literallayout>
+</blockquote>
+<para>Automatically generated descriptions of <structname>_glibtop_fsusage</structname>:
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>blocks</parameter></term>
+
+<listitem>
+<para>
+Total blocks
+
+<varlistentry>
+<term><parameter>bfree</parameter></term>
+
+<listitem>
+<para>
+Free blocks available to the superuser
+
+<varlistentry>
+<term><parameter>bavail</parameter></term>
+
+<listitem>
+<para>
+Free blocks available to non-superusers
+
+<varlistentry>
+<term><parameter>files</parameter></term>
+
+<listitem>
+<para>
+Total file nodes
+
+<varlistentry>
+<term><parameter>ffree</parameter></term>
+
+<listitem>
+<para>
+Free file nodes
+
+</variablelist>
+
+&include-fsusage.sgml;
+
