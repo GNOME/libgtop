@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop.HEAD\n"
+"Project-Id-Version: libgtop.HEAD.sq\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-15 18:20+0100\n"
-"PO-Revision-Date: 2004-01-15 18:29+0100\n"
+"POT-Creation-Date: 2004-02-02 11:29+0100\n"
+"PO-Revision-Date: 2004-02-02 13:41+0100\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -160,8 +160,8 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"Opcion %s i gabuar: %s.\n"
-"Ekzekuto '%s --help' për të shikuar të gjithë opcionet e mundshme.\n"
+"Gabim në opcionin %s: %s.\n"
+"Zbato '%s --help' për të shikuar listën e plotë të opcioneve të komandës.\n"
 
 #: sysdeps/names/cpu.c:44
 msgid "Total CPU Time"
@@ -237,7 +237,7 @@ msgstr "Frekuenca e tick (e prezgjedhur është 100)"
 
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
-msgstr ""
+msgstr "Pjesa e fushës që tregon se sa CPU është aktualisht në përdorim"
 
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
 msgid "Total blocks"
@@ -525,6 +525,7 @@ msgstr "NWChan"
 msgid "WChan"
 msgstr "WChan"
 
+#. K_Flags
 #: sysdeps/names/prockernel.c:51
 msgid ""
 "Kernel flags of the process.\n"
@@ -536,27 +537,44 @@ msgid ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
+"Flags e kernel në proçes.\n"
+"\n"
+"Në Linux, aktualisht çdo flag ka të vendosur math, sepse crt0.s kontrollon "
+"për emulimin matematik, prandaj nuk përfshihet në output.\n"
+"\n"
+"Ky mund të jetë një difekt, se jo çdo proçes është një program i kompiluar në C.\n"
+"\n"
+"Bit math duhet të jetë një dhjetore 4, dhe bit i marrë është dhjetor 10."
 
+#. Min_Flt
 #: sysdeps/names/prockernel.c:60
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
+"Numri i dështimeve të vogla të proçesit, për të cilat nuk ka nevojë ngarkimi "
+"i një faqe kujteseje nga disku."
 
+#. Maj_Flt
 #: sysdeps/names/prockernel.c:63
 msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
+"Numri i dështimeve të renda të proçesit, për të cilat ka nevojë ngarkimi "
+"i një faqe kujteseje nga disku."
 
+#. CMin_Flt
 #: sysdeps/names/prockernel.c:66
 msgid "The number of minor faults that the process and its children have made."
-msgstr ""
+msgstr "Numri i dështimeve të vogla që proçesi dhe bijtë e tij kanë patur."
 
+#. CMaj_Flt
 #: sysdeps/names/prockernel.c:69
 msgid "The number of major faults that the process and its children have made."
-msgstr ""
+msgstr "Numri i dështimeve të renda që proçesi dhe bijtë e tij kanë patur."
 
+#. KStk_ESP
 #: sysdeps/names/prockernel.c:72
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
@@ -570,6 +588,7 @@ msgstr ""
 msgid "The current EIP (32-bit instruction pointer)."
 msgstr "Vlera aktuale e EIP (instruktion pointer me 32 bit)."
 
+#. NWChan
 #: sysdeps/names/prockernel.c:77
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "
@@ -577,6 +596,10 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
+"Ky është \"kanali\" në të cilin proçesi është në pritje.  Është adresa e "
+"një thirrje të sistemit, dhe mund të shihet në një listë emrore nëse ju nevoitet "
+"një emër në tekst.  (Nëse keni një /etc/psdatabase të rifreskuar, provo ps -l për "
+"të shikuar fushën e WCHAN në veprim)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:82
@@ -597,11 +620,11 @@ msgstr "E përbashkët"
 
 #: sysdeps/names/procmem.c:49
 msgid "Resident Set Size"
-msgstr ""
+msgstr "Madhësia e bashkësisë banuese"
 
 #: sysdeps/names/procmem.c:49
 msgid "Resident Set Size Limit"
-msgstr ""
+msgstr "Limiti i madhësisë së bashkësisë banuese"
 
 #: sysdeps/names/procmem.c:54
 msgid "Total # of pages of memory"
@@ -613,11 +636,11 @@ msgstr "Numri i faqeve të kujtesës virtuale"
 
 #: sysdeps/names/procmem.c:56
 msgid "Number of resident set (non-swapped) pages"
-msgstr ""
+msgstr "Numri i faqeve në bashkësinë banuese (jo në swap)"
 
 #: sysdeps/names/procmem.c:57
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr ""
+msgstr "Numri i faqeve të kujtesës së përbashkët (mmap)"
 
 #: sysdeps/names/procmem.c:58
 msgid ""
@@ -626,10 +649,13 @@ msgid ""
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
 msgstr ""
+"Numri i faqeve që proçesi ka në kujtesën reale, minus 3 për qëllime administrative. "
+"Janë vetëm faqet që përmbajnë tekst, të dhëna, apo stivë me hapësirë. Nuk "
+"përfshihen faqet që nuk janë kërkuar të ngarkohen, apo të shkarkuara nga swap."
 
 #: sysdeps/names/procmem.c:63
 msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr ""
+msgstr "Limiti aktual në bytes i rss të proçesit (zakonisht 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:43
 msgid "Text_RSS"
@@ -649,7 +675,7 @@ msgstr "Stack_RSS"
 
 #: sysdeps/names/procsegment.c:44
 msgid "Dirty Size"
-msgstr ""
+msgstr "Madhësia e papërpunuar"
 
 #: sysdeps/names/procsegment.c:44
 msgid "Start_Code"
@@ -665,39 +691,39 @@ msgstr "Start_Stack"
 
 #: sysdeps/names/procsegment.c:49
 msgid "Text resident set size"
-msgstr ""
+msgstr "Madhësia e bashkësisë së tekstit banues"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Shared-Lib resident set size"
-msgstr ""
+msgstr "Madhësia e bashkësisë banuese të librarive të përbashkta"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Data resident set size"
-msgstr ""
+msgstr "Madhësia e bashkësisë banuese të të dhënave"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Stack resident set size"
-msgstr ""
+msgstr "Madhësia e bashkësisë banuese të stack"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Total size of dirty pages"
-msgstr ""
+msgstr "Madhësia gjithsej e faqeve të papërpunuara"
 
 #: sysdeps/names/procsegment.c:54
 msgid "Address of beginning of code segment"
-msgstr ""
+msgstr "Adresa e fillimit të segmentit të kodit"
 
 #: sysdeps/names/procsegment.c:55
 msgid "Address of end of code segment"
-msgstr ""
+msgstr "Adresa e përfundimit të segmentit të kodit"
 
 #: sysdeps/names/procsegment.c:56
 msgid "Address of the bottom of stack segment"
-msgstr ""
+msgstr "Adresa e fundit të segmentit stack"
 
 #: sysdeps/names/procsignal.c:41
 msgid "Signal"
-msgstr "Sinjal"
+msgstr "Sinjali"
 
 #: sysdeps/names/procsignal.c:41
 msgid "Blocked"
@@ -713,19 +739,19 @@ msgstr "SigCatch"
 
 #: sysdeps/names/procsignal.c:46
 msgid "Mask of pending signals"
-msgstr ""
+msgstr "Maska e sinjaleve në pritje"
 
 #: sysdeps/names/procsignal.c:47
 msgid "Mask of blocked signals"
-msgstr ""
+msgstr "Maska e sinjaleve të bllokuar"
 
 #: sysdeps/names/procsignal.c:48
 msgid "Mask of ignored signals"
-msgstr ""
+msgstr "Maska e sinjaleve të injoruar"
 
 #: sysdeps/names/procsignal.c:49
 msgid "Mask of caught signals"
-msgstr ""
+msgstr "Maska e sinjaleve të kapur"
 
 #: sysdeps/names/procstate.c:43
 msgid "Cmd"
@@ -765,11 +791,11 @@ msgstr "LProc"
 
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
-msgstr ""
+msgstr "Emri i të zbatueshmes së thërritur nga exec()"
 
 #: sysdeps/names/procstate.c:50
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr ""
+msgstr "Kodi për gjendjen e proçesit (S=sleeping)"
 
 #: sysdeps/names/procstate.c:51
 msgid "UID of process"
@@ -845,105 +871,107 @@ msgstr "XCPU_STime"
 
 #: sysdeps/names/proctime.c:52
 msgid "Start time of process in seconds since the epoch"
-msgstr ""
+msgstr "Momenti i nisjes së proçesit në sekonda duke filluar nga epoch"
 
 #: sysdeps/names/proctime.c:53
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr ""
+msgstr "Koha reale e grumbulluar nga proçesi (duhet të jetë utime + stime)"
 
 #: sysdeps/names/proctime.c:54
 msgid "user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Koha e CPU në modalitetin përdorues e grumbulluar nga proçesi"
 
 #: sysdeps/names/proctime.c:55
 msgid "kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Koha e CPU në modalitetin kernel e grumbulluar nga proçesi"
 
 #: sysdeps/names/proctime.c:56
 msgid "cumulative utime of process and reaped children"
-msgstr ""
+msgstr "utime e grumbulluar nga proçesi dhe proçeset bij"
 
 #: sysdeps/names/proctime.c:57
 msgid "cumulative stime of process and reaped children"
-msgstr ""
+msgstr "stime e grumbulluar nga proçesi dhe proçeset bij"
 
 #: sysdeps/names/proctime.c:58
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr ""
+msgstr "Koha (në jiffy) e timeout të ardhshëm të proçesit"
 
 #: sysdeps/names/proctime.c:59
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
+"Koha (në jiffies) para se sinjali tjetër SIGALRM t'i dërgohet proçesit në një "
+"interval kohe."
 
 #: sysdeps/names/proctime.c:61
 msgid "Tick frequency"
-msgstr ""
+msgstr "Frekuenca e tick"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Koha e CPU SMP në modalitetin përdorues e grumbulluar nga proçesi"
 
 #: sysdeps/names/proctime.c:63
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Koha e CPU SMP në modalitetin kernel e grumbulluar nga proçesi"
 
 #: sysdeps/names/procuid.c:48
 msgid "Uid"
-msgstr ""
+msgstr "Uid"
 
 #: sysdeps/names/procuid.c:48
 msgid "EUid"
-msgstr ""
+msgstr "EUid"
 
 #: sysdeps/names/procuid.c:48
 msgid "Gid"
-msgstr ""
+msgstr "Gid"
 
 #: sysdeps/names/procuid.c:48
 msgid "EGid"
-msgstr ""
+msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
 msgid "SUid"
-msgstr ""
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
 msgid "SGid"
-msgstr ""
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "FSUid"
-msgstr ""
+msgstr "FSUid"
 
 #: sysdeps/names/procuid.c:49
 msgid "FSGid"
-msgstr ""
+msgstr "FSGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
-msgstr ""
+msgstr "Pid"
 
 #: sysdeps/names/procuid.c:50
 msgid "PPid"
-msgstr ""
+msgstr "PPid"
 
 #: sysdeps/names/procuid.c:50
 msgid "PGrp"
-msgstr ""
+msgstr "PGrp"
 
 #: sysdeps/names/procuid.c:50
 msgid "Session"
-msgstr ""
+msgstr "Seanca"
 
 #: sysdeps/names/procuid.c:50
 msgid "Tty"
-msgstr ""
+msgstr "Tty"
 
 #: sysdeps/names/procuid.c:51
 msgid "TPGid"
-msgstr ""
+msgstr "TPGid"
 
 #: sysdeps/names/procuid.c:51
 msgid "Priority"
@@ -951,7 +979,7 @@ msgstr "Prioriteti"
 
 #: sysdeps/names/procuid.c:51
 msgid "NGroups"
-msgstr ""
+msgstr "NGrupe"
 
 #: sysdeps/names/procuid.c:51
 msgid "Groups"
@@ -959,295 +987,295 @@ msgstr "Grupet"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
-msgstr ""
+msgstr "ID e përdoruesit"
 
 #: sysdeps/names/procuid.c:57
 msgid "Effective User ID"
-msgstr ""
+msgstr "ID efektive e përdoruesit"
 
 #: sysdeps/names/procuid.c:58
 msgid "Group ID"
-msgstr ""
+msgstr "ID e grupit"
 
 #: sysdeps/names/procuid.c:59
 msgid "Effective Group ID"
-msgstr ""
+msgstr "ID efektive e grupit"
 
 #: sysdeps/names/procuid.c:60
 msgid "Set User ID"
-msgstr ""
+msgstr "Vendos ID e përdoruesit"
 
 #: sysdeps/names/procuid.c:61
 msgid "Set Group ID"
-msgstr ""
+msgstr "Vendos ID e grupit"
 
 #: sysdeps/names/procuid.c:62
 msgid "Filesystem User ID"
-msgstr ""
+msgstr "ID e file sistemit të përdoruesit"
 
 #: sysdeps/names/procuid.c:63
 msgid "Filesystem Group ID"
-msgstr ""
+msgstr "ID e file sistemit të grupit"
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
-msgstr ""
+msgstr "ID e proçesit"
 
 #: sysdeps/names/procuid.c:65
 msgid "PID of parent process"
-msgstr ""
+msgstr "PID i proçesit prind"
 
 #: sysdeps/names/procuid.c:66
 msgid "Process group ID"
-msgstr ""
+msgstr "ID e grupit të proçesit"
 
 #: sysdeps/names/procuid.c:67
 msgid "Session ID"
-msgstr ""
+msgstr "ID e seancës"
 
 #: sysdeps/names/procuid.c:68
 msgid "Full device number of controlling terminal"
-msgstr ""
+msgstr "Numri i plotë i dispozitivit të terminalit të kontrollit"
 
 #: sysdeps/names/procuid.c:69
 msgid "Terminal process group ID"
-msgstr ""
+msgstr "ID e grupit të proçesit të terminalit"
 
 #: sysdeps/names/procuid.c:70
 msgid "Kernel scheduling priority"
-msgstr ""
+msgstr "Prioriteti i scheduling në kernel"
 
 #: sysdeps/names/procuid.c:71
 msgid "Standard unix nice level of process"
-msgstr ""
+msgstr "Niveli nice standart unix i proçesit"
 
 #: sysdeps/names/procuid.c:72
 msgid "Number of additional process groups"
-msgstr ""
+msgstr "Numri i grupeve të proçeseve shtesë"
 
 #: sysdeps/names/procuid.c:73
 msgid "Array of additional process groups"
-msgstr ""
+msgstr "Lista e grupeve të proçeseve shtesë"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
-msgstr ""
+msgstr "Numri i zërave tek harta e semaforëve"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max number of arrays"
-msgstr ""
+msgstr "Numri maksimum i vektorëve (array)"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max semaphores system wide"
-msgstr ""
+msgstr "Numri maksimum i semaforëve në sistem"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Number of undo structures system wide"
-msgstr ""
+msgstr "Numri i strukturave 'undo' në sistem"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max semaphores per array"
-msgstr ""
+msgstr "Numri maksimum i semaforëve për array"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max ops per semop call"
-msgstr ""
+msgstr "Numri maksimum i op për thirrje semop"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max number of undo entries per process"
-msgstr ""
+msgstr "Numri maksimum i zërave 'undo' për proçes"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "sizeof struct sem_undo"
-msgstr ""
+msgstr "sizeof struct sem_undo"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "Semaphore max value"
-msgstr ""
+msgstr "Vlera maksimum e semaforëve"
 
 #: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 msgid "Adjust on exit max value"
-msgstr ""
+msgstr "Vlera maksimum e 'adjust on exit'"
 
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Max segment size"
-msgstr ""
+msgstr "Madhësia maksimum e segmentit"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Min segment size"
-msgstr ""
+msgstr "Madhësia minimum e segmentit"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Max number of segments"
-msgstr ""
+msgstr "Numri maksimum i segmentëve"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max shared segments per process"
-msgstr ""
+msgstr "Numri maksimum i segmentëve të përbashkët për proçes"
 
 #: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max total shared memory"
-msgstr ""
+msgstr "Totali maksimum i kujtesës së përbashkët"
 
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
 msgid "Total Swap Space"
-msgstr ""
+msgstr "Totali i hapësirës swap"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Used Swap Space"
-msgstr ""
+msgstr "Hapësira swap e përdorur"
 
 #: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
 msgid "Free Swap Space"
-msgstr ""
+msgstr "Hapësira swap e lirë"
 
 #: sysdeps/names/swap.c:43
 msgid "Page In"
-msgstr ""
+msgstr "Faqe në hyrje"
 
 #: sysdeps/names/swap.c:44
 msgid "Page Out"
-msgstr ""
+msgstr "Faqe në dalje"
 
 #: sysdeps/names/swap.c:52
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr ""
+msgstr "Numri total i faqeve swap të ngarkuara që nga nisja e sistemit"
 
 #: sysdeps/names/swap.c:54
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr ""
+msgstr "Numri total i faqeve swap të shkarkuara që nga nisja e sistemit"
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
 msgid "Server Features"
-msgstr ""
+msgstr "Funksionet e Server"
 
 #: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
 msgid "CPU Usage"
-msgstr ""
+msgstr "CPU e përdorur"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
 msgid "Memory Usage"
-msgstr "Përdorimi i Kujtesës"
+msgstr "Kujtesa e përdorur"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
 msgid "Swap Usage"
-msgstr ""
+msgstr "Swap i përdorur"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
 msgid "System Uptime"
-msgstr ""
+msgstr "Uptime e sistemit"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Load Averange"
-msgstr ""
+msgstr "Ngarkesa mesatare"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
 msgid "Shared Memory Limits"
-msgstr ""
+msgstr "Limitet e kujtesës së përbashkët"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Message Queue Limits"
-msgstr ""
+msgstr "Limitet e bishtave të mesazhit"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "Semaphore Set Limits"
-msgstr ""
+msgstr "Limitet e semaforit"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "List of running Processes"
-msgstr ""
+msgstr "Lista e proçeseve në ekzekutim"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process Status information"
-msgstr ""
+msgstr "Informacione mbi gjëndjen e proçeseve"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
 msgid "Process UID and TTY information"
-msgstr ""
+msgstr "Informacione mbi UID dhe TTY e proçeseve"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
 msgid "Process Memory information"
-msgstr ""
+msgstr "Informacione mbi kujtesën e proçeseve"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
 msgid "Process Time information"
-msgstr ""
+msgstr "Informacione mbi kohën e proçeseve"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
 msgid "Process Signal information"
-msgstr ""
+msgstr "Informacione mbi sinjalet e proçeseve"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
 msgid "Process Kernel Data information"
-msgstr ""
+msgstr "Informacione mbi të dhënat e kernel të proçeseve"
 
 #: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:93
 msgid "Process Segment information"
-msgstr ""
+msgstr "Informacione mbi segmentin e proçeseve"
 
 #: sysdeps/names/sysdeps.c:67
 msgid "Process Arguments"
-msgstr ""
+msgstr "Argumentet e proçeseve"
 
 #: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
 msgid "Process Memory Map"
-msgstr ""
+msgstr "Harta e kujtesës së proçeseve"
 
 #: sysdeps/names/sysdeps.c:69
 msgid "Mount List"
-msgstr ""
+msgstr "Lista e mount"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
 msgid "File System Usage"
-msgstr ""
+msgstr "File sistem i përdorur"
 
 #: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
 msgid "Network Load"
-msgstr ""
+msgstr "Ngarkesa rrjetit"
 
 #: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:99
 msgid "PPP Statistics"
-msgstr ""
+msgstr "Statistikat PPP"
 
 #: sysdeps/names/sysdeps.c:94
 msgid "Command line arguments of the process"
-msgstr ""
+msgstr "Argumentet e rreshtit të komandës së proçesit"
 
 #: sysdeps/names/sysdeps.c:96
 msgid "List of currently mounted filesystems"
-msgstr ""
+msgstr "Lista e file sistemeve aktualisht të montuar"
 
 #: sysdeps/names/uptime.c:39
 msgid "Uptime"
-msgstr ""
+msgstr "Uptime"
 
 #: sysdeps/names/uptime.c:40
 msgid "Idletime"
-msgstr ""
+msgstr "Idletime"
 
 #: sysdeps/names/uptime.c:41
 msgid "BootTime"
-msgstr ""
+msgstr "BootTime"
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
-msgstr ""
+msgstr "Koha në sekonda që nga nisja e sistemit"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr ""
+msgstr "Koha në sekonda që sistemi ka kaluar në pritje që nga nisja e sistemit"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time of last system boot in seconds since the epoch"
-msgstr ""
+msgstr "Koha e nisjes së fundit të sistemit në sekonda duke filluar nga epoch"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
-msgstr ""
+msgstr "Mbylle"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
-msgstr ""
+msgstr "Ndërprit"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
@@ -1255,55 +1283,55 @@ msgstr "Dil"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
-msgstr ""
+msgstr "Instruksion ilegal"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
-msgstr ""
+msgstr "Merr gjurmët"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
-msgstr ""
+msgstr "Anullo"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
-msgstr ""
+msgstr "Gabim EMT"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
-msgstr ""
+msgstr "Floating-point exception"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr ""
+msgstr "Vrit"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
-msgstr ""
+msgstr "Gabim i bus"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
-msgstr ""
+msgstr "Violim i segmentimit"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr ""
+msgstr "Argument i gabuar në thirrjen e sistemit"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
-msgstr ""
+msgstr "Pipe e ndërprerë"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
-msgstr ""
+msgstr "Alarmi"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
-msgstr ""
+msgstr "Përfundimi"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Kondicion urgjent në socket "
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
@@ -1311,7 +1339,7 @@ msgstr "Ndalo"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr ""
+msgstr "Keyboard stop"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
@@ -1319,49 +1347,49 @@ msgstr "Vazhdo"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
-msgstr ""
+msgstr "Gjendja e birit ka ndryshuar"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr ""
+msgstr "Lexim në sfond nga tty"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr ""
+msgstr "Shkrim në sfond tek tty"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr ""
+msgstr "I/O tashmë e mundshme"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
-msgstr ""
+msgstr "Limiti i CPU është tejkaluar"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
-msgstr ""
+msgstr "Limiti i madhësisë së file është tejkaluar"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
-msgstr ""
+msgstr "Alarm virtual"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Duke profiluar orën e alarmit"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
-msgstr ""
+msgstr "Ndryshimi i madhësisë së dritares"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
-msgstr ""
+msgstr "Kërkesë informacioni"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
-msgstr ""
+msgstr "Sinjal 1 i përcaktuar nga përdoruesi"
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
-msgstr ""
+msgstr "Sinjal 2 i përcaktuar nga përdoruesi"
 
