@@ -5,13 +5,149 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2000-08-09 10:34+0200\n"
-"PO-Revision-Date: 2001-01-24 15:15+0100\n"
-"Last-Translator: Robert Vanyi <robi@mora.u-szeged.hu>\n"
+"POT-Creation-Date: 2001-01-26 16:35+0100\n"
+"PO-Revision-Date: 2001-01-26 16:44+01:00\n"
+"Last-Translator: Andras Timar <timar@gnome.hu>\n"
 "Language-Team: Hungarian <hu@gnome.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
+msgid "Hangup (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
+msgid "Interrupt (ANSI)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:35 lib/sysdeps-init-linux.c:35
+msgid "Quit (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:36 lib/sysdeps-init-linux.c:36
+msgid "Illegal instruction (ANSI)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:37 lib/sysdeps-init-linux.c:37
+msgid "Trace trap (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:38 lib/sysdeps-init-linux.c:38
+msgid "Abort (ANSI)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:39
+msgid "EMT instruction"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:40 lib/sysdeps-init-linux.c:40
+msgid "Floating-point exception (ANSI)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
+msgid "Kill, unblockable (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
+msgid "BUS error (4.2 BSD)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:43 lib/sysdeps-init-linux.c:43
+msgid "Segmentation violation (ANSI)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:44
+msgid "Bad argument to system call"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:45 lib/sysdeps-init-linux.c:45
+msgid "Broken pipe (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:46 lib/sysdeps-init-linux.c:46
+msgid "Alarm clock (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
+msgid "Termination (ANSI)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:48 lib/sysdeps-init-linux.c:55
+msgid "Urgent condition on socket (4.2 BSD)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:49 lib/sysdeps-init-linux.c:51
+msgid "Stop, unblockable (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:50 lib/sysdeps-init-linux.c:52
+msgid "Keyboard stop (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:51 lib/sysdeps-init-linux.c:50
+msgid "Continue (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:52 lib/sysdeps-init-linux.c:49
+msgid "Child status has changed (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:53 lib/sysdeps-init-linux.c:53
+msgid "Background read from tty (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:54 lib/sysdeps-init-linux.c:54
+msgid "Background write to tty (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:55 lib/sysdeps-init-linux.c:61
+msgid "I/O now possible (4.2 BSD)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:56 lib/sysdeps-init-linux.c:56
+msgid "CPU limit exceeded (4.2 BSD)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:57 lib/sysdeps-init-linux.c:57
+msgid "File size limit exceeded (4.2 BSD)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:58 lib/sysdeps-init-linux.c:58
+msgid "Virtual alarm clock (4.2 BSD)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:59 lib/sysdeps-init-linux.c:59
+msgid "Profiling alarm clock (4.2 BSD)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:60 lib/sysdeps-init-linux.c:60
+msgid "Window size change (4.3 BSD, Sun)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:61
+msgid "Information request"
+msgstr "Információkérés"
+
+#: lib/sysdeps-init-freebsd.c:62 lib/sysdeps-init-linux.c:42
+msgid "User-defined signal 1 (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-freebsd.c:63 lib/sysdeps-init-linux.c:44
+msgid "User-defined signal 2 (POSIX)"
+msgstr ""
+
+#: lib/sysdeps-init-linux.c:62
+msgid "Power failure restart (System V)"
+msgstr "Újraindítás áramkimaradáskor (System V)"
+
+#: support/popthelp.c:23
+msgid "Show this help message"
+msgstr "Ennek a súgóüzenetnek a mutatása"
+
+#: support/popthelp.c:24
+msgid "Display brief usage message"
+msgstr "Rövid használati útmutató megjelenítése"
 
 #: sysdeps/names/cpu.c:45
 msgid "Total CPU Time"
@@ -131,7 +267,7 @@ msgstr "Utolsó PID"
 
 #: sysdeps/names/loadavg.c:49
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr ""
+msgstr "Az egyidejûleg futó folyamatok száma 1, 5 és 15 percre átlagolva"
 
 #: sysdeps/names/loadavg.c:50
 msgid "Number of tasks currently running"
@@ -139,7 +275,7 @@ msgstr "A jelenleg futó taszkok száma"
 
 #: sysdeps/names/loadavg.c:51
 msgid "Total number of tasks"
-msgstr ""
+msgstr "Az összes taszk száma"
 
 #: sysdeps/names/mem.c:43
 msgid "Total Memory"
@@ -163,7 +299,7 @@ msgstr "Pufferek"
 
 #: sysdeps/names/mem.c:48
 msgid "Cached"
-msgstr ""
+msgstr "Gyorstárban"
 
 #: sysdeps/names/mem.c:49
 msgid "User"
@@ -195,11 +331,11 @@ msgstr "Pufferek mérete kB-ban"
 
 #: sysdeps/names/mem.c:60
 msgid "Size of cached memory in kB"
-msgstr ""
+msgstr "Gyorstárazott memória mérete kB-ban"
 
 #: sysdeps/names/mem.c:61
 msgid "Memory used from user processes in kB"
-msgstr ""
+msgstr "A felhasználói folyamatok által lefoglalt memória kB-ban"
 
 #: sysdeps/names/mem.c:62
 msgid "Memory in locked pages in kB"
@@ -346,7 +482,7 @@ msgstr "Rezidens"
 
 #: sysdeps/names/procmem.c:49
 msgid "Share"
-msgstr ""
+msgstr "Megosztott"
 
 #: sysdeps/names/procmem.c:50
 msgid "Resident Set Size"
@@ -475,19 +611,19 @@ msgstr ""
 
 #: sysdeps/names/procsegment.c:64
 msgid "Address of beginning of code segment"
-msgstr ""
+msgstr "Kódszegmens kezdetének a címe"
 
 #: sysdeps/names/procsegment.c:65
 msgid "Address of end of code segment"
-msgstr ""
+msgstr "Kódszegmens végének a címe"
 
 #: sysdeps/names/procsegment.c:66
 msgid "Address of beginning of data segment"
-msgstr ""
+msgstr "Adatszegmens kezdetének a címe"
 
 #: sysdeps/names/procsegment.c:67
 msgid "Address of end of data segment"
-msgstr ""
+msgstr "Adatszegmens végének a címe"
 
 #: sysdeps/names/procsegment.c:68
 msgid "Brk_Start"
@@ -499,11 +635,11 @@ msgstr "Brk_End"
 
 #: sysdeps/names/procsegment.c:70
 msgid "Address of the bottom of stack segment"
-msgstr ""
+msgstr "A veremszegmens aljának címe"
 
 #: sysdeps/names/procsegment.c:71
 msgid "Start of mmap()ed areas"
-msgstr ""
+msgstr "Az mmap()-olt területek kezdete"
 
 #: sysdeps/names/procsignal.c:42
 msgid "Signal"
@@ -807,10 +943,12 @@ msgstr ""
 msgid "Filesystem Group ID"
 msgstr ""
 
+# sysdeps/names/procuid.c:65
 #: sysdeps/names/procuid.c:65
 msgid "Process ID"
 msgstr "Folyamatazonosító"
 
+# sysdeps/names/procuid.c:66
 #: sysdeps/names/procuid.c:66
 msgid "PID of parent process"
 msgstr "Szülõfolyamat PID-je"
@@ -899,10 +1037,12 @@ msgstr "Szegmensek minimális mérete"
 msgid "Max number of segments"
 msgstr "Szegmenseg maximálsi száma"
 
+# sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 #: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max shared segments per process"
 msgstr "Folyamatonkénti osztott szegmensek maximális száma"
 
+# sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
 #: sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
 msgid "Max total shared memory"
 msgstr "A teljes osztott memória maximális mérete"
@@ -979,42 +1119,52 @@ msgstr ""
 msgid "List of running Processes"
 msgstr "Futó folyamatok listája"
 
+# sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 msgid "Process Status information"
 msgstr "Információ a folyamat állapotáról"
 
+# sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
 msgid "Process UID and TTY information"
 msgstr "Információ a folyamat UID-járól és TTY-járól"
 
+# sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 #: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 msgid "Process Memory information"
 msgstr "Információ a folyamat memóriafoglalásáról"
 
+# sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
 msgid "Process Time information"
 msgstr "Információ a folyamat futási idejérõl"
 
+# sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
 #: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
 msgid "Process Signal information"
 msgstr "Információ a folyamat jelzéseirõl"
 
+# sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
 msgid "Process Kernel Data information"
 msgstr "Információ a folyamat rendszermag-adatairól"
 
+# sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
 msgid "Process Segment information"
 msgstr "Információ a folyamat szegmensérõl"
 
+# sysdeps/names/sysdeps.c:71
 #: sysdeps/names/sysdeps.c:71
 msgid "Process CWD"
 msgstr "Folyamat CWD"
 
+# sysdeps/names/sysdeps.c:72
 #: sysdeps/names/sysdeps.c:72
 msgid "Process Arguments"
 msgstr "Folyamat argumentumai"
 
+# sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
 #: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
 msgid "Process Memory Map"
 msgstr "Folyamat memóriatérképe"
@@ -1079,105 +1229,82 @@ msgstr "A rendszerindítás óda üresjáratban töltött idõ másodpercben"
 msgid "Boot time (seconds sice epoch)"
 msgstr "Boot idõ (másodpercek az epoch óta)"
 
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "Ismeretlen rendszerhiba"
+#~ msgid "Unknown system error"
+#~ msgstr "Ismeretlen rendszerhiba"
 
-#: support/getopt.c:669
-#, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: a `%s' kapcsoló nem egyértelmû\n"
+# support/getopt.c:669
+#~ msgid "%s: option `%s' is ambiguous\n"
+#~ msgstr "%s: a `%s' kapcsoló nem egyértelmû\n"
 
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: a `--%s' kapcsoló nem enged meg argumentumot\n"
+# support/getopt.c:693
+#~ msgid "%s: option `--%s' doesn't allow an argument\n"
+#~ msgstr "%s: a `--%s' kapcsoló nem enged meg argumentumot\n"
 
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: a `%c%s' kapcsoló nem enged meg argumentumot\n"
+# support/getopt.c:698
+#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
+#~ msgstr "%s: a `%c%s' kapcsoló nem enged meg argumentumot\n"
 
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: a `%s' kapcsolóhoz szükséges egy argumentum\n"
+# support/getopt.c:715 support/getopt.c:888
+#~ msgid "%s: option `%s' requires an argument\n"
+#~ msgstr "%s: a `%s' kapcsolóhoz szükséges egy argumentum\n"
 
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: ismeretlen kapcsoló `--%s'\n"
+# support/getopt.c:744
+#~ msgid "%s: unrecognized option `--%s'\n"
+#~ msgstr "%s: ismeretlen kapcsoló `--%s'\n"
 
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: ismeretlen kapcsoló `%c%s'\n"
+# support/getopt.c:748
+#~ msgid "%s: unrecognized option `%c%s'\n"
+#~ msgstr "%s: ismeretlen kapcsoló `%c%s'\n"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: szabálytalan kapcsoló -- %c\n"
+# support/getopt.c:774
+#~ msgid "%s: illegal option -- %c\n"
+#~ msgstr "%s: szabálytalan kapcsoló -- %c\n"
 
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: érvénytelen kapcsoló -- %c\n"
+# support/getopt.c:777
+#~ msgid "%s: invalid option -- %c\n"
+#~ msgstr "%s: érvénytelen kapcsoló -- %c\n"
 
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: az kapcsolóhoz szükséges egy argumentum -- %c\n"
+# support/getopt.c:807 support/getopt.c:937
+#~ msgid "%s: option requires an argument -- %c\n"
+#~ msgstr "%s: az kapcsolóhoz szükséges egy argumentum -- %c\n"
 
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: a `-W %s' kapcsoló nem egyértelmû\n"
+# support/getopt.c:854
+#~ msgid "%s: option `-W %s' is ambiguous\n"
+#~ msgstr "%s: a `-W %s' kapcsoló nem egyértelmû\n"
 
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: a `-W %s' kapcsoló nem enged meg argumentumot\n"
+# support/getopt.c:872
+#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
+#~ msgstr "%s: a `-W %s' kapcsoló nem enged meg argumentumot\n"
 
-#: lib/errors.c:31
-msgid "No error"
-msgstr "Nincs hiba"
+#~ msgid "No error"
+#~ msgstr "Nincs hiba"
 
-#: lib/errors.c:32
-msgid "Unknown error"
-msgstr "Ismeretlen hiba"
+#~ msgid "Unknown error"
+#~ msgstr "Ismeretlen hiba"
 
-#: lib/errors.c:33
-msgid "Invalid argument"
-msgstr "Érvénytelen argumentum"
+#~ msgid "Invalid argument"
+#~ msgstr "Érvénytelen argumentum"
 
-#: lib/errors.c:34
-msgid "No such parameter"
-msgstr "Nincs ilyen paraméter"
+#~ msgid "No such parameter"
+#~ msgstr "Nincs ilyen paraméter"
 
-#: lib/errors.c:35
-msgid "Attempted to modify a read-only value"
-msgstr "Kisérlet egy csak olvasható érték módosítására"
+#~ msgid "Attempted to modify a read-only value"
+#~ msgstr "Kisérlet egy csak olvasható érték módosítására"
 
-#: lib/errors.c:36
-msgid "Parameter size mismatch"
-msgstr "Paraméter méret eltérés"
+#~ msgid "Parameter size mismatch"
+#~ msgstr "Paraméter méret eltérés"
 
-#: lib/errors.c:37
-msgid "Communication with LibGTop server failed"
-msgstr "Nem sikerült kommunkialni a LibGTop kiszolgálóval"
+#~ msgid "Communication with LibGTop server failed"
+#~ msgstr "Nem sikerült kommunkialni a LibGTop kiszolgálóval"
 
-#: lib/errors.c:38
-msgid "No such process"
-msgstr "Nincs ilyen folyamat"
+# lib/errors.c:38
+#~ msgid "No such process"
+#~ msgstr "Nincs ilyen folyamat"
 
-#: lib/errors.c:39
-msgid "No kernel support"
-msgstr "Nincs rendszermag-támogatás"
+# lib/errors.c:39
+#~ msgid "No kernel support"
+#~ msgstr "Nincs rendszermag-támogatás"
 
-#: lib/errors.c:40
-msgid "Incompatible kernel version"
-msgstr "Nem kompatíbilis rendszermag verzió"
+# lib/errors.c:40
+#~ msgid "Incompatible kernel version"
+#~ msgstr "Nem kompatíbilis rendszermag verzió"
