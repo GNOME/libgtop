@@ -32,7 +32,8 @@
  *   each buf->size big. The total size is stored in buf->total. */
 
 unsigned *
-glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf)
+glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
+			int64_t which, int64_t arg)
 {
 	memset (buf, 0, sizeof (glibtop_proclist));
 	return NULL;
