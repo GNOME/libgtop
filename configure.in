@@ -241,7 +241,7 @@ if test x$libgtop_have_sysinfo = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SYSINFO"
 fi
 
-LIBGTOP_INCS="$LIBGTOP_INCS $SUPPORTINCS"
+LIBGTOP_INCS="$LIBGTOP_INCS $SUPPORTINCS $GLIB_CFLAGS"
 
 LIBGTOP_GUILE_LIBS="$LIBGTOP_LIBS"
 LIBGTOP_GUILE_INCS="$LIBGTOP_INCS"
@@ -295,7 +295,7 @@ else
   guile_def=""
 fi
 
-INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_srcdir)/intl $SUPPORTINCS -W -Wall -Wmissing-prototypes -Wmissing-declarations -Wpointer-arith $CFLAGS $guile_def "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
+INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -DGLIBTOP_NAMES -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include -I\$(top_srcdir)/intl $SUPPORTINCS $GLIB_CFLAGS -W -Wall -Wmissing-prototypes -Wmissing-declarations -Wpointer-arith $CFLAGS $guile_def "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
 
 AC_SUBST(INCLUDES)
 
