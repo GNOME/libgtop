@@ -1,3 +1,9 @@
+1998-12-28  Martin Baulig  <martin@home-of-linux.org>
+
+	* netload.c: When using glibc, don't include <netinet/ip_fw.h>
+ 	any longer but all headers that were included there; we only
+ 	needed this file to get those headers.
+
 1998-12-09  Martin Baulig  <martin@home-of-linux.org>
 
 	* procargs.c (glibtop_get_proc_args_s): Added implementation
