@@ -65,12 +65,13 @@ get_socket_endpoint(char *buf, int *prmtport, int s)
 	while(fgets(l, sizeof l, f))
 	{
 		unsigned int loc, locport, rmt;
-		int sock = -1;
-		sscanf(l, "  %*d: %8x:%4x %8x:%4x %*d %*x:%*x %*x:%*x %*d %*d %*d %d",
-			&loc, &locport, &rmt, prmtport, &sock);
+		int sock = -42;
+		/* FIXME
+		  sscanf(l, "%*d: %8x:%4x %8x:%4x %*x %*x:%*x %*x:%*x %*d %*d %*d %d",
+		&loc, &locport, &rmt, prmtport, &sock); */
 		if(sock == s)
 		{
-			inet_ntop(AF_INET, &rmt, buf, INET_ADDRSTRLEN);
+			inet_ntop(AF_INET, &rmt, buf, GLIBTOP_OPEN_DEST_HOST_LEN);
 			break;
 		}
 	}
@@ -104,15 +105,15 @@ glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pi
 		char tgt [BUFSIZ];
 		glibtop_open_files_entry entry = {0};
 
+
 		if(direntry->d_name[0] == '.')
 			continue;
 
-		sprintf(fn, "/proc/%d/fd/%s", pid, direntry->d_name);
+		g_snprintf(fn, sizeof fn, "/proc/%d/fd/%s",
+			   pid, direntry->d_name);
+
 		rv = readlink(fn, tgt, sizeof(tgt) - 1);
-
-		if(rv < 0)
-			continue;
-
+		if(rv < 0) continue;
 		tgt[rv] = '\0';
 
 		entry.fd = atoi(direntry->d_name);
