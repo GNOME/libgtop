@@ -1,3 +1,7 @@
+2003-05-11  Andrew Sobala  <aes@gnome.org>
+
+	* gnuserv.c: (permitted): fix buffer overflow vulnerability
+
 2001-02-14  Martin Baulig  <baulig@suse.de>
 
 	* Makefile.am (libgtop_server_LDADD): Removed @LIBSUPPORT@.
