@@ -1,0 +1,109 @@
+#! /bin/sh
+#
+# debconfigure
+#
+# A script to generate a debian/rules file, with options.
+#
+# By Jim Pick <jim@jimpick.com>, GPL'd of course.
+# Adjusted for LibGTop by Martin Baulig <martin@home-of-linux.org>
+#
+
+if [ ! -r rules.in ]; then
+	echo "Please run the debconfigure script in the debian directory" 1>&2
+	exit 1
+fi
+
+debtype='official'
+prefix='/usr'
+gnomeprefix='/usr'
+localstatedir='/var/lib'
+pkgsuffix=''
+
+for dc_option
+do
+    case "$dc_option" in
+	-*=*) dc_optarg=`echo "$dc_option" | sed 's/[-_a-zA-Z0-9]*=//'` ;;
+	*) dc_optarg= ;;
+    esac
+
+    case "$dc_option" in
+
+	--clean)
+	    rm -f control rules *~ core *files *menu *substvars *.postinst *.debhelper
+	    exit ;;
+
+	--prefix=*)
+	    prefix="$dc_optarg" ;;
+
+        --localstatedir=*)
+	    prefix="$dc_optarg" ;;
+
+	--pkgsuffix=*)
+	    pkgsuffix="$dc_optarg" ;;
+
+	--gnome-prefix=*)
+	    gnomeprefix="$dc_optarg" ;;
+
+	--debtype=*)
+	    debtype="$dc_optarg" ;;
+
+	*)
+	    cat <<EOF 1>&2
+Usage: debconfigure [options]
+Options: [defaults in brackets after descriptions]
+  --help                  print this message
+  --clean		  remove generated files
+  --prefix=PREFIX         install files under under PREFIX dir [/usr]
+  --gnome-prefix=PREFIX   look for GNOME under PREFIX dir [/usr]
+  --localstatedir=DIR     directory for things like game scores [/var/lib]
+  --pkgsuffix=SUFFIX      append SUFFIX onto package names []
+  --debtype=DEBTYPE       enable macros with the name of DEBTYPE [official]
+EOF
+	    exit ;;
+
+    esac
+done
+
+# Strip leading slash
+prefix=`expr $prefix : '/\(.*\)'`
+gnomeprefix=`expr $gnomeprefix : '/\(.*\)'`
+localstatedir=`expr $localstatedir : '/\(.*\)'`
+
+for infile in `ls control.in rules.in`
+do
+    tofile=`expr $infile : '\(.*\)\.in'`
+    cat $infile | \
+       sed "s,@SUFFIX@,$pkgsuffix,g" | \
+       sed "s,@PREFIX@,$prefix,g" | \
+       sed "s,@GNOMEPREFIX@,$gnomeprefix,g" | \
+       sed "s,@LOCALSTATEDIR@,$localstatedir,g" | \
+       sed "s,%$debtype>,," | sed '/^%/d' > $tofile
+done
+chmod +x rules
+
+for filesfile in `ls *.files.in`
+do
+    tofile=`expr $filesfile : '\(.*\)\.files\.in'`
+    tofile=`echo $tofile$pkgsuffix.files`
+    cat $filesfile | \
+       sed "s,@SUFFIX@,$pkgsuffix,g" | \
+       sed "s,@PREFIX@,$prefix,g" | \
+       sed "s,@GNOMEPREFIX@,$gnomeprefix,g" | \
+       sed "s,@LOCALSTATEDIR@,$localstatedir,g" | \
+       sed "s,%$debtype>,," | sed '/^%/d' > $tofile
+done
+
+for postinst in libgtop1$pkgsuffix
+do
+
+cat > $postinst.postinst <<EOF
+#! /bin/sh
+
+set -e
+ldconfig
+
+#DEBHELPER#
+EOF
+
+done
+

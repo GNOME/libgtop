@@ -1,0 +1,2 @@
+@PREFIX@/lib/libgtop*.so.*.*
+@PREFIX@/lib/libgtop*.so.*
