@@ -1,5 +1,11 @@
 1999-05-10  Drazen Kacar  <dave@srce.hr>
 
+	* proclist.c: Added process selection mechanism. It's not
+	included in Solaris 2.5 build, since we first have to decide
+	what will be dispatched to daemon.
+
+1999-05-10  Drazen Kacar  <dave@srce.hr>
+
 	There be some useful documentation now. Syncing...
 
 	* mem.c: Output values in bytes, as the documentation requires.
