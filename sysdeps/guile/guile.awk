@@ -74,7 +74,7 @@ function make_output(line) {
   output = output"\tglibtop_"feature" "feature";\n";
   if (retval != "void")
     output = output"\t"retval" retval;\n";
-  if (feature ~ /^proclist$/)
+  if (feature ~ /^proc(list|_map)$/)
     output = output"\tunsigned i;\n";
   output = output"\tSCM list;\n\n";
   
@@ -124,6 +124,28 @@ function make_output(line) {
     print "";
     print "\tglibtop_free (retval);\n";
   }
+
+  if (feature ~ /^proc_map$/) {
+    print "\tif (retval == NULL)";
+    print "\t\treturn list;";
+    print "";
+    print "\tfor (i = 0; i < proc_map.number; i++) {";
+    print "\t\tglibtop_map_entry *entry = &(retval [i]);";
+    print "\t\tSCM scm_entry = gh_list";
+    print "\t\t\t(gh_ulong2scm ((unsigned long) entry->flags),";
+    print "\t\t\t gh_ulong2scm ((unsigned long) entry->start),";
+    print "\t\t\t gh_ulong2scm ((unsigned long) entry->end),";
+    print "\t\t\t gh_ulong2scm ((unsigned long) entry->offset),";
+    print "\t\t\t gh_ulong2scm ((unsigned long) entry->perm),";
+    print "\t\t\t gh_ulong2scm ((unsigned long) entry->inode),";
+    print "\t\t\t gh_ulong2scm ((unsigned long) entry->device),";
+    print "\t\t\t gh_str02scm (entry->filename), SCM_UNDEFINED);";
+    print "\t\tSCM entry_list = gh_list (scm_entry, SCM_UNDEFINED);\n";
+
+    print "\t\tlist = scm_append (gh_list (list, entry_list, SCM_UNDEFINED));";
+    print "\t};\n";
+    print "\tglibtop_free (retval);\n";
+  };
 
   print "\treturn list;";
   print "}";
