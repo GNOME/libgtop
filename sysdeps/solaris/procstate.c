@@ -40,7 +40,9 @@ static const unsigned long _glibtop_sysdeps_proc_state =
 int
 glibtop_init_proc_state_s (glibtop *server)
 {
-	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
+    server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -49,45 +51,56 @@ int
 glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 {
 #ifdef HAVE_PROCFS_H
-	struct psinfo psinfo;
+    struct psinfo psinfo;
 #else
-	struct prpsinfo psinfo;
+    struct prpsinfo psinfo;
 #endif
+    unsigned state;
+    int retval;
 
-	memset (buf, 0, sizeof (glibtop_proc_state));
+    memset (buf, 0, sizeof (glibtop_proc_state));
 
-	if (glibtop_get_proc_data_psinfo_s (server, &psinfo, pid))
-		return;
+    retval = glibtop_get_proc_data_psinfo_s (server, &psinfo, pid);
+    if (retval) return retval;
 
-	buf->uid = psinfo.pr_euid;
-	buf->gid = psinfo.pr_egid;
-	buf->ruid = psinfo.pr_uid;
-	buf->rgid = psinfo.pr_gid;
+    buf->uid = psinfo.pr_euid;
+    buf->gid = psinfo.pr_egid;
+    buf->ruid = psinfo.pr_uid;
+    buf->rgid = psinfo.pr_gid;
+
 #ifdef HAVE_PROCFS_H
-	switch(psinfo.pr_lwp.pr_state)
+    state = psinfo.pr_lwp.pr_state;
 #else
-        switch(psinfo.pr_state)
+    state = psinfo.pr_state;
 #endif
-	{
-	    case SONPROC: 
+    switch(state) {
+    case SONPROC: 
 #ifdef HAVE_PROCFS_H
-			  buf->has_cpu = 1;
-			  buf->processor = psinfo.pr_lwp.pr_onpro;
+	buf->has_cpu = 1;
+	buf->processor = psinfo.pr_lwp.pr_onpro;
 #endif
-	    case SRUN:    buf->state = GLIBTOP_PROCESS_RUNNING;
-			  break;
-	    case SZOMB:   buf->state = GLIBTOP_PROCESS_ZOMBIE;
-			  break;
-	    case SSLEEP:  buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
-			  break;
-	    case SSTOP:   buf->state = GLIBTOP_PROCESS_STOPPED;
-			  break;
-	    case SIDL:    buf->state = GLIBTOP_PROCESS_UNINTERRUPTIBLE;
-	}
+	break;
+    case SRUN:
+	buf->state = GLIBTOP_PROCESS_RUNNING;
+	break;
+    case SZOMB:
+	buf->state = GLIBTOP_PROCESS_ZOMBIE;
+	break;
+    case SSLEEP:
+	buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
+	break;
+    case SSTOP:
+	buf->state = GLIBTOP_PROCESS_STOPPED;
+	break;
+    case SIDL:
+	buf->state = GLIBTOP_PROCESS_UNINTERRUPTIBLE;
+    }
 #ifdef HAVE_PROCFS_H
-	buf->last_processor = psinfo.pr_lwp.pr_onpro;
+    buf->last_processor = psinfo.pr_lwp.pr_onpro;
 #endif
-	strncpy (buf->cmd, psinfo.pr_fname, 39);
+    strncpy (buf->cmd, psinfo.pr_fname, 39);
 
-	buf->flags = _glibtop_sysdeps_proc_state;
+    buf->flags = _glibtop_sysdeps_proc_state;
+
+    return 0;
 }

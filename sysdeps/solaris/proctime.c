@@ -35,7 +35,9 @@ static const unsigned long _glibtop_sysdeps_proc_time =
 int
 glibtop_init_proc_time_s (glibtop *server)
 {
-	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
+    server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -44,26 +46,29 @@ int
 glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf,
 			 pid_t pid)
 {
-	struct prusage prusage;
+    struct prusage prusage;
+    int retval;
 
-	memset (buf, 0, sizeof (glibtop_proc_time));
+    memset (buf, 0, sizeof (glibtop_proc_time));
 
-	/* Don't do it for scheduler, we don't want to frighten our users */
+    /* Don't do it for scheduler, we don't want to frighten our users */
 
-	if(pid)
-	{
-		if (glibtop_get_proc_data_usage_s (server, &prusage, pid))
-			return;
+    if (!pid)
+	return -GLIBTOP_ERROR_INVALID_ARGUMENT;
 
-		buf->start_time = prusage.pr_create.tv_sec;
+    retval = glibtop_get_proc_data_usage_s (server, &prusage, pid);
+    if (retval) return retval;
 
-		buf->rtime = prusage.pr_rtime.tv_sec * 1E+6 +
-			prusage.pr_rtime.tv_nsec / 1E+3;
-		buf->utime = prusage.pr_utime.tv_sec * 1E+6 +
-			prusage.pr_utime.tv_nsec / 1E+3;
-		buf->stime = prusage.pr_stime.tv_sec * 1E+6 +
-			prusage.pr_stime.tv_nsec / 1E+3;
-	}
+    buf->start_time = prusage.pr_create.tv_sec;
 
-	buf->flags = _glibtop_sysdeps_proc_time;
+    buf->rtime = prusage.pr_rtime.tv_sec * 1E+6 +
+	prusage.pr_rtime.tv_nsec / 1E+3;
+    buf->utime = prusage.pr_utime.tv_sec * 1E+6 +
+	prusage.pr_utime.tv_nsec / 1E+3;
+    buf->stime = prusage.pr_stime.tv_sec * 1E+6 +
+	prusage.pr_stime.tv_nsec / 1E+3;
+
+    buf->flags = _glibtop_sysdeps_proc_time;
+
+    return 0;
 }

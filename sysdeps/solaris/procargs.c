@@ -26,58 +26,70 @@
 #include <glibtop/xmalloc.h>
 #include <glibtop/procargs.h>
 
+#include <glibtop_private.h>
+
 static const unsigned long _glibtop_sysdeps_proc_args =
-(1L << GLIBTOP_PROC_ARGS_SIZE);
+(1L << GLIBTOP_ARRAY_SIZE) + (1L << GLIBTOP_ARRAY_NUMBER);
 
 /* Init function. */
 
 int
 glibtop_init_proc_args_s (glibtop *server)
 {
-	server->sysdeps.proc_args = _glibtop_sysdeps_proc_args;
+    server->sysdeps.proc_args = _glibtop_sysdeps_proc_args;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
 
-char *
-glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
-			 pid_t pid, unsigned max_len)
+char **
+glibtop_get_proc_args_s (glibtop *server, glibtop_array *array, pid_t pid)
 {
 #ifdef HAVE_PROCFS_H
-   	struct psinfo pinfo;
+    struct psinfo pinfo;
 #else
-	struct prpsinfo pinfo;
+    struct prpsinfo pinfo;
 #endif
-	int len, i;
-	char *ret, *p;
+    int retval, len, i, count;
+    char *ret, *p, **ptrlist;
 
-	memset (buf, 0, sizeof (glibtop_proc_args));
+    memset (array, 0, sizeof (glibtop_array));
 
-	if(glibtop_get_proc_data_psinfo_s(server, &pinfo, pid))
-	   	return NULL;
+    retval = glibtop_get_proc_data_psinfo_s(server, &pinfo, pid);
+    if (retval) {
+	server->glibtop_errno = retval;
+	return NULL;
+    }
 
-	for(len = 0; len < PRARGSZ; ++len)
-	   if(!(pinfo.pr_psargs[len]))
-	      break;
-	if(max_len)
-	{
-	   	ret = glibtop_malloc_r(server, max_len + 1);
-		if(max_len < len)
-		   	len = max_len;
-		memcpy(ret, pinfo.pr_psargs, len);
-		ret[len] = 0;
+    for(len = 0; len < PRARGSZ; ++len)
+	if(!(pinfo.pr_psargs[len]))
+	    break;
+
+    ret = glibtop_malloc_r (server, len+1);
+    memcpy(ret, pinfo.pr_psargs, len);
+    ret[len] = 0;
+
+    count = 0;
+    for(p = ret; *p; ++p)
+	if(*p == ' ') {
+	    *p = 0; count++;
 	}
-	else
-	{
-	   ret = glibtop_malloc_r(server, len + 1);
-	   memcpy(ret, pinfo.pr_psargs, len);
-	   ret[len] = 0;
 
-	   buf->size = len;
-	   buf->flags = _glibtop_sysdeps_proc_args;
-	}
-	for(p = ret; *p; ++p)
-	   if(*p == ' ')
-	      *p = 0;
-	return ret;
+    ptrlist = glibtop_calloc_r(server, len+1, sizeof (char *));
+
+    for (i = 0, p = ret; i < count; i++) {
+	ptrlist [i] = glibtop_strdup_r (server, p);
+	p += strlen (p) + 1;
+    }
+
+    ptrlist [count] = NULL;
+
+    glibtop_free_r (server, ret);
+
+    array->number = count;
+    array->size = sizeof (char *);
+    array->flags = _glibtop_sysdeps_proc_args;
+
+    return ptrlist;
 }

@@ -24,6 +24,8 @@
 #include <glibtop.h>
 #include <glibtop/procmem.h>
 
+#include <glibtop_private.h>
+
 static const unsigned long _glibtop_sysdeps_proc_mem =
 (1L << GLIBTOP_PROC_MEM_SIZE) + (1L << GLIBTOP_PROC_MEM_VSIZE) +
 (1L << GLIBTOP_PROC_MEM_RESIDENT) + (1L << GLIBTOP_PROC_MEM_RSS);
@@ -33,7 +35,9 @@ static const unsigned long _glibtop_sysdeps_proc_mem =
 int
 glibtop_init_proc_mem_s (glibtop *server)
 {
-	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
+    server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -42,23 +46,26 @@ int
 glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 {
 #ifdef HAVE_PROCFS_H
-   	struct psinfo psinfo;
+    struct psinfo psinfo;
 #else
-	struct prpsinfo psinfo;
-	int pagesize = server->_priv->machine.pagesize;
+    struct prpsinfo psinfo;
+    int pagesize = server->_priv->machine.pagesize;
 #endif
+    int retval;
 
-	memset (buf, 0, sizeof (glibtop_proc_mem));
+    memset (buf, 0, sizeof (glibtop_proc_mem));
 
-	if(glibtop_get_proc_data_psinfo_s(server, &psinfo, pid))
-	   	return;
+    retval = glibtop_get_proc_data_psinfo_s(server, &psinfo, pid);
+    if (retval) return retval;
 
 #ifdef HAVE_PROCFS_H
-	buf->size = buf->vsize = psinfo.pr_size << 10;
-	buf->resident = buf->rss = psinfo.pr_rssize << 10;
+    buf->size = buf->vsize = psinfo.pr_size << 10;
+    buf->resident = buf->rss = psinfo.pr_rssize << 10;
 #else
-	buf->size = buf->vsize = psinfo.pr_size << pagesize << 10;
-	buf->resident = buf->rss = psinfo.pr_rssize << pagesize << 10;
+    buf->size = buf->vsize = psinfo.pr_size << pagesize << 10;
+    buf->resident = buf->rss = psinfo.pr_rssize << pagesize << 10;
 #endif
-	buf->flags = _glibtop_sysdeps_proc_mem;
+    buf->flags = _glibtop_sysdeps_proc_mem;
+
+    return 0;
 }

@@ -44,8 +44,10 @@ static const unsigned long _glibtop_sysdeps_proc_uid_prcred =
 int
 glibtop_init_proc_uid_s (glibtop *server)
 {
-	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid_psinfo +
-	   			   _glibtop_sysdeps_proc_uid_prcred;
+    server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid_psinfo +
+	_glibtop_sysdeps_proc_uid_prcred;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -53,64 +55,67 @@ glibtop_init_proc_uid_s (glibtop *server)
 int
 glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 {
-	struct prcred prcred;
+    struct prcred prcred;
 #ifdef HAVE_PROCFS_H
-	struct psinfo psinfo;
-	gid_t groups[GLIBTOP_MAX_GROUPS];
+    struct psinfo psinfo;
+    gid_t groups[GLIBTOP_MAX_GROUPS];
 #else
-	struct prpsinfo psinfo;
-	gid_t groups[1];	/* dummy for consistent function prototype */
+    struct prpsinfo psinfo;
+    gid_t groups[1];	/* dummy for consistent function prototype */
 #endif
+    int retval;
 
-	memset (buf, 0, sizeof (glibtop_proc_uid));
+    memset (buf, 0, sizeof (glibtop_proc_uid));
 
-	if (glibtop_get_proc_data_psinfo_s (server, &psinfo, pid))
-		return;
+    retval = glibtop_get_proc_data_psinfo_s (server, &psinfo, pid);
+    if (retval) return retval;
 
-	buf->euid = psinfo.pr_euid;
-	buf->uid = psinfo.pr_uid;
-	buf->egid = psinfo.pr_egid;
-	buf->gid = psinfo.pr_gid;
+    buf->euid = psinfo.pr_euid;
+    buf->uid = psinfo.pr_uid;
+    buf->egid = psinfo.pr_egid;
+    buf->gid = psinfo.pr_gid;
 
-	buf->pid = psinfo.pr_pid;
-	buf->ppid = psinfo.pr_ppid;
+    buf->pid = psinfo.pr_pid;
+    buf->ppid = psinfo.pr_ppid;
 #ifdef HAVE_PROCFS_H
-	buf->pgrp = psinfo.pr_pgid;
+    buf->pgrp = psinfo.pr_pgid;
 #else
-	buf->pgrp = psinfo.pr_pgrp;
+    buf->pgrp = psinfo.pr_pgrp;
 #endif
 
-	buf->session = psinfo.pr_sid;
-	buf->tty = psinfo.pr_ttydev;
+    buf->session = psinfo.pr_sid;
+    buf->tty = psinfo.pr_ttydev;
 
 #ifdef HAVE_PROCFS_H
-	buf->priority = psinfo.pr_lwp.pr_pri;
-	buf->nice = psinfo.pr_lwp.pr_nice - NZERO;
+    buf->priority = psinfo.pr_lwp.pr_pri;
+    buf->nice = psinfo.pr_lwp.pr_nice - NZERO;
 #else
-	buf->priority = psinfo.pr_pri;
-	buf->nice = psinfo.pr_nice - NZERO;
+    buf->priority = psinfo.pr_pri;
+    buf->nice = psinfo.pr_nice - NZERO;
 #endif
 
-	buf->flags = _glibtop_sysdeps_proc_uid_psinfo;
+    buf->flags = _glibtop_sysdeps_proc_uid_psinfo;
 
-	if(glibtop_get_proc_credentials_s(server, &prcred, groups, pid))
-		return;
+    retval = glibtop_get_proc_credentials_s(server, &prcred, groups, pid);
+    if (retval) return retval;
 
-	buf->suid = prcred.pr_suid;
-	buf->sgid = prcred.pr_sgid;
-	buf->ngroups = (prcred.pr_ngroups <= GLIBTOP_MAX_GROUPS) ?
-	   		prcred.pr_ngroups : GLIBTOP_MAX_GROUPS;
+    buf->suid = prcred.pr_suid;
+    buf->sgid = prcred.pr_sgid;
+    buf->ngroups = (prcred.pr_ngroups <= GLIBTOP_MAX_GROUPS) ?
+	prcred.pr_ngroups : GLIBTOP_MAX_GROUPS;
 
 #ifdef HAVE_PROCFS_H
-	if(sizeof(int) == sizeof(gid_t))
-	   	memcpy(buf->groups, &groups, buf->ngroups * sizeof(gid_t));
-	else
-	{
-	   	int i;
+    if(sizeof(int) == sizeof(gid_t))
+	memcpy(buf->groups, &groups, buf->ngroups * sizeof(gid_t));
+    else {
+	int i;
 
-		for(i = 0; i < buf->ngroups; ++i)
-		   	buf->groups[i] = groups[i];
-	}
+	for(i = 0; i < buf->ngroups; ++i)
+	    buf->groups[i] = groups[i];
+    }
 #endif
-	buf->flags += _glibtop_sysdeps_proc_uid_prcred;
+
+    buf->flags |= _glibtop_sysdeps_proc_uid_prcred;
+
+    return 0;
 }

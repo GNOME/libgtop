@@ -34,7 +34,9 @@ static const unsigned long _glibtop_sysdeps_proc_signal =
 int
 glibtop_init_proc_signal_s (glibtop *server)
 {
-	server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
+    server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
+
+    return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -44,31 +46,33 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 			   pid_t pid)
 {
 #ifdef HAVE_PROCFS_H
-   	struct pstatus pstatus;
+    struct pstatus pstatus;
 #else
-	struct prstatus pstatus;
+    struct prstatus pstatus;
 #endif
-	int size;
+    int retval, size;
 
-	memset (buf, 0, sizeof (glibtop_proc_signal));
+    memset (buf, 0, sizeof (glibtop_proc_signal));
 	
-	if(glibtop_get_proc_status_s(server, &pstatus, pid))
-	   	return;
+    retval = glibtop_get_proc_status_s(server, &pstatus, pid);
+    if (retval) return retval;
 
-	if(sizeof(buf->signal) < sizeof(sigset_t))
-	   	size = sizeof(buf->signal);
-	else
-	   	size = sizeof(sigset_t);
+    if(sizeof(buf->signal) < sizeof(sigset_t))
+	size = sizeof(buf->signal);
+    else
+	size = sizeof(sigset_t);
 
-	memcpy(buf->signal, &pstatus.pr_sigpend, size);
+    memcpy(buf->signal, &pstatus.pr_sigpend, size);
 #ifdef HAVE_PROCFS_H
-	memcpy(buf->blocked, &pstatus.pr_lwp.pr_lwphold, size);
+    memcpy(buf->blocked, &pstatus.pr_lwp.pr_lwphold, size);
 #else
-	memcpy(buf->blocked, &pstatus.pr_lwppend, size);
+    memcpy(buf->blocked, &pstatus.pr_lwppend, size);
 #endif
 
-	/* Technically, most of this is meaningless on a process level,
-	   but this should be a good enough approximation. */
+    /* Technically, most of this is meaningless on a process level,
+       but this should be a good enough approximation. */
 
-	buf->flags = _glibtop_sysdeps_proc_signal;
+    buf->flags = _glibtop_sysdeps_proc_signal;
+
+    return 0;
 }

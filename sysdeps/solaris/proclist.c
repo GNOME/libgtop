@@ -30,11 +30,11 @@
 #include <dirent.h>
 #include <ctype.h>
 
-#define GLIBTOP_PROCLIST_FLAGS	3
+#include <glibtop_private.h>
 
 static const unsigned long _glibtop_sysdeps_proclist =
-(1L << GLIBTOP_PROCLIST_TOTAL) + (1L << GLIBTOP_PROCLIST_NUMBER) +
-(1L << GLIBTOP_PROCLIST_SIZE);
+(1L << GLIBTOP_ARRAY_TOTAL) + (1L << GLIBTOP_ARRAY_NUMBER) +
+(1L << GLIBTOP_ARRAY_SIZE);
 
 /* Init function. */
 
@@ -42,6 +42,8 @@ int
 glibtop_init_proclist_s (glibtop *server)
 {
     server->sysdeps.proclist = _glibtop_sysdeps_proclist;
+
+    return 0;
 }
 
 #define BLOCK_COUNT	256
@@ -55,7 +57,7 @@ glibtop_init_proclist_s (glibtop *server)
  *   each buf->size big. The total size is stored in buf->total. */
 
 unsigned *
-glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
+glibtop_get_proclist_s (glibtop *server, glibtop_array *array,
 			int64_t which, int64_t arg)
 {
     DIR *proc;
@@ -65,15 +67,17 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
     unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
     unsigned pids_size = 0, pids_offset = 0, new_size;
     struct stat statb;
-    int len, i, ok;
+    int len, ok;
 
-    memset (buf, 0, sizeof (glibtop_proclist));
+    memset (array, 0, sizeof (glibtop_array));
     mask = which & ~GLIBTOP_KERN_PROC_MASK;
     which &= GLIBTOP_KERN_PROC_MASK;
 
     /* Check if the user wanted only one process */
 
     if(which == GLIBTOP_KERN_PROC_PID) {
+	pid = arg;
+
 	if(mask) {
 #ifdef HAVE_PROCFS_H
 	    struct psinfo psinfo;
@@ -89,13 +93,17 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	    if(mask & GLIBTOP_EXCLUDE_NOTTY && psinfo.pr_ttydev == PRNODEV)
 		return NULL;
 	} else {
-	    sprintf(buffer, "/proc/%d", arg);
+	    sprintf(buffer, "/proc/%ld", (long)arg);
 	    if(s_stat(buffer, &statb) < 0)
 		return NULL;
 	}
-	if(!(pids_chain = glibtop_malloc(sizeof(unsigned))))
+	if(!(pids_chain = glibtop_calloc_r(server, 1, sizeof(unsigned))))
 	    return NULL;
 	*pids_chain = pid;
+	array->number = 1;
+	array->size = sizeof(unsigned);
+	array->total = array->number * array->size;
+	array->flags = _glibtop_sysdeps_proclist;
 	return pids_chain;
     }
 
@@ -235,15 +243,15 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	
     pids_offset += BLOCK_COUNT;
 
-    /* Since everything is ok now, we can set buf->flags, fill in the
+    /* Since everything is ok now, we can set array->flags, fill in the
      * remaining fields and return the `pids_chain'. */
 
-    buf->flags = _glibtop_sysdeps_proclist;
+    array->flags = _glibtop_sysdeps_proclist;
 
-    buf->size = sizeof (unsigned);
-    buf->number = total;
+    array->size = sizeof (unsigned);
+    array->number = total;
 
-    buf->total = total * sizeof (unsigned);
+    array->total = array->number * array->size;
 
     return pids_chain;
 }
