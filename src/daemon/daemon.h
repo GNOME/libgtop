@@ -33,6 +33,9 @@
 #include <glibtop/parameter.h>
 
 #include <fcntl.h>
+#include <sys/wait.h>
+#include <sys/socket.h>
+#include <syslog.h>
 
 __BEGIN_DECLS
 
@@ -56,6 +59,12 @@ extern void handle_slave_command __P((glibtop_command *, glibtop_response *, con
 
 extern void do_output __P((int, glibtop_response *, off_t, size_t, const void *));
 extern int do_read __P((int, void *, size_t));
+
+extern void syslog_message __P((int, char *, ...));
+extern void syslog_io_message __P((int, char *, ...));
+
+extern int enable_debug;
+extern int verbose_output;
 
 __END_DECLS
 

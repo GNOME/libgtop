@@ -1,3 +1,18 @@
+1998-12-09  Martin Baulig  <martin@home-of-linux.org>
+
+	Larger changes to the daemon:
+
+	- Dropped all the unix domain socket stuff - we don't need it for
+	connections on the local host, here we behave just like any normal
+	application.
+	- Added poptimization: use the --help parameter to get usage info
+	- Made it a real daemon, fork into background and write to syslog.
+	- It's now possible to invoke the daemon from inetd, you'll get
+	GNU_SECURE authentication in this case.
+	- Don't make this executable suid/sgid - if invoked as root it
+	sets uid/gid to SERVER_UID/SERVER_GID as defined in server_config.h
+	- Added missing features, so you can now really use this thing.
+
 1998-11-11  Martin Baulig  <martin@home-of-linux.org>
 
 	* gnuserv.c (main): Set `server->features' directly rather than

@@ -41,9 +41,9 @@
 
 #include <glibtop/gnuserv.h>
 
-#include <fcntl.h>
-#include <sys/wait.h>
-#include <sys/socket.h>
+#include <popt-gnome.h>
+
+#include "daemon.h"
 
 #ifdef AIX
 #include <sys/select.h>
@@ -53,11 +53,9 @@ extern void handle_parent_connection __P ((int));
 extern void handle_slave_connection __P ((int, int));
 extern void handle_ipc_connection __P ((int));
 
-#if !defined(UNIX_DOMAIN_SOCKETS) && !defined(INTERNET_DOMAIN_SOCKETS)
-#error "Unix Domain sockets or Internet Domain sockets are required"
+#if !defined(INTERNET_DOMAIN_SOCKETS)
+#error "Internet Domain sockets are required"
 #endif
-
-#ifdef INTERNET_DOMAIN_SOCKETS
 
 #ifdef AUTH_MAGIC_COOKIE
 #include <X11/X.h>
@@ -65,7 +63,41 @@ extern void handle_ipc_connection __P ((int));
 
 static Xauth *server_xauth = NULL;
 
-#endif /* INTERNET_DOMAIN_SOCKETS */
+#endif /* AUTH_MAGIC_COOKIE */
+
+int enable_debug = 0;
+int verbose_output = 0;
+static int no_daemon = 0;
+static int invoked_from_inetd = 0;
+static int changed_uid = 0;
+
+void
+syslog_message (int priority, char *format, ...)
+{
+    va_list ap;
+    char buffer [BUFSIZ];
+
+    va_start (ap, format);
+    vsnprintf (buffer, BUFSIZ-1, format, ap);
+    va_end (ap);
+
+    syslog (priority, buffer);
+}
+
+void
+syslog_io_message (int priority, char *format, ...)
+{
+    va_list ap;
+    char buffer [BUFSIZ];
+    char buffer2 [BUFSIZ];
+
+    va_start (ap, format);
+    vsnprintf (buffer, BUFSIZ-1, format, ap);
+    va_end (ap);
+
+    snprintf (buffer2, BUFSIZ-1, "%s: %s", buffer, strerror (errno));
+    syslog (priority, buffer2);
+}
 
 /*
  * timed_read - Read with timeout.
@@ -74,43 +106,43 @@ static Xauth *server_xauth = NULL;
 static int
 timed_read (int fd, char *buf, int max, int timeout, int one_line)
 {
-	fd_set rmask;
-	struct timeval tv;	/* = {timeout, 0}; */
-	char c = 0;
-	int nbytes = 0;
-	int r;
+    fd_set rmask;
+    struct timeval tv;	/* = {timeout, 0}; */
+    char c = 0;
+    int nbytes = 0;
+    int r;
 
-	tv.tv_sec = timeout;
-	tv.tv_usec = 0;
+    tv.tv_sec = timeout;
+    tv.tv_usec = 0;
 
-	FD_ZERO (&rmask);
-	FD_SET (fd, &rmask);
+    FD_ZERO (&rmask);
+    FD_SET (fd, &rmask);
 
-	do {
-		r = select (fd + 1, &rmask, NULL, NULL, &tv);
+    do {
+	r = select (fd + 1, &rmask, NULL, NULL, &tv);
 
-		if (r > 0) {
-			if (read (fd, &c, 1) == 1) {
-				*buf++ = c;
-				++nbytes;
-			} else {
-				glibtop_warn_io ("read error on socket");
-				return -1;
-			}
-		} else if (r == 0) {
-			glibtop_warn ("read timed out");
-			return -1;
-		} else {
-			glibtop_warn_io ("error in select");
-			return -1;
-		}
-	} while ((nbytes < max) && !(one_line && (c == '\n')));
-
-	--buf;
-	if (one_line && *buf == '\n') {
-		*buf = 0;
+	if (r > 0) {
+	    if (read (fd, &c, 1) == 1) {
+		*buf++ = c;
+		++nbytes;
+	    } else {
+		syslog_io_message (LOG_WARNING, "read error on socket");
+		return -1;
+	    }
+	} else if (r == 0) {
+	    syslog_io_message (LOG_WARNING, "read timed out");
+	    return -1;
+	} else {
+	    syslog_io_message (LOG_WARNING, "error in select");
+	    return -1;
 	}
-	return nbytes;
+    } while ((nbytes < max) && !(one_line && (c == '\n')));
+
+    --buf;
+    if (one_line && *buf == '\n') {
+	*buf = 0;
+    }
+    return nbytes;
 }
 
 
@@ -121,86 +153,89 @@ timed_read (int fd, char *buf, int max, int timeout, int one_line)
 static int
 permitted (u_long host_addr, int fd)
 {
-	int i;
+    int i;
 
-	char auth_protocol[128];
-	char buf[1024];
-	int auth_data_len;
+    char auth_protocol[128];
+    char buf[1024];
+    int auth_data_len;
 
-	if (fd > 0) {
-		/* we are checking permission on a real connection */
+    /* Read auth protocol name */
 
-		/* Read auth protocol name */
+    if (timed_read (fd, auth_protocol, AUTH_NAMESZ, AUTH_TIMEOUT, 1) <= 0)
+	return FALSE;
 
-		if (timed_read (fd, auth_protocol, AUTH_NAMESZ, AUTH_TIMEOUT, 1) <= 0)
-			return FALSE;
+    if (enable_debug)
+	syslog_message (LOG_DEBUG,
+			"Client sent authenticatin protocol '%s'.",
+			auth_protocol);
 
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Client sent authenticatin protocol '%s'\n",
-			 auth_protocol);
-#endif
-
-		if (strcmp (auth_protocol, DEFAUTH_NAME) &&
-		    strcmp (auth_protocol, MCOOKIE_NAME)) {
-			glibtop_warn ("Invalid authentication protocol "
-				      "'%s' from client", auth_protocol);
-			return FALSE;
-		}
-
-		if (!strcmp (auth_protocol, MCOOKIE_NAME)) {
-			/* 
-			 * doing magic cookie auth
-			 */
+    if (strcmp (auth_protocol, DEFAUTH_NAME) &&
+	strcmp (auth_protocol, MCOOKIE_NAME)) {
+	syslog_message (LOG_WARNING,
+			"Invalid authentication protocol "
+			"'%s' from client",
+			auth_protocol);
+	return FALSE;
+    }
+	
+    if (!strcmp (auth_protocol, MCOOKIE_NAME)) {
+	/* 
+	 * doing magic cookie auth
+	 */
 			
-			if (timed_read (fd, buf, 10, AUTH_TIMEOUT, 1) <= 0)
-				return FALSE;
+	if (timed_read (fd, buf, 10, AUTH_TIMEOUT, 1) <= 0)
+	    return FALSE;
 
-			auth_data_len = atoi (buf);
+	auth_data_len = atoi (buf);
 
-			if (timed_read (fd, buf, auth_data_len, AUTH_TIMEOUT, 0) != auth_data_len)
-				return FALSE;
+	if (timed_read (fd, buf, auth_data_len, AUTH_TIMEOUT, 0) != auth_data_len)
+	    return FALSE;
 
 #ifdef AUTH_MAGIC_COOKIE
-			if (server_xauth && server_xauth->data &&
-			    !memcmp (buf, server_xauth->data, auth_data_len)) {
-				return TRUE;
-			}
+	if (!invoked_from_inetd && server_xauth && server_xauth->data &&
+	    !memcmp (buf, server_xauth->data, auth_data_len)) {
+	    return TRUE;
+	}
 #else
-			glibtop_warn ("Client tried Xauth, but server is "
-				      "not compiled with Xauth");
+	syslog_message (LOG_WARNING,
+			"Client tried Xauth, but server is "
+			"not compiled with Xauth");
 #endif
 
-			/* 
-			 * auth failed, but allow this to fall through to the
-			 * GNU_SECURE protocol....
-			 */
+	/* 
+	 * auth failed, but allow this to fall through to the
+	 * GNU_SECURE protocol....
+	 */
 
-			glibtop_warn ("Xauth authentication failed, "
-				      "trying GNU_SECURE auth...");
-			
-		}
-		
-		/* Other auth protocols go here, and should execute only if
-		 * the * auth_protocol name matches. */
-	}
-	
-	/* Now, try the old GNU_SECURE stuff... */
-	
-#ifdef LIBGTOP_ENABLE_DEBUG
-	fprintf (stderr, "Doing GNU_SECURE auth ...\n");
-#endif
+	if (verbose_output)
+	    if (changed_uid || invoked_from_inetd)
+		syslog_message (LOG_WARNING,
+				"Xauth authentication not allowed, "
+				"trying GNU_SECURE ...");
+	    else
+		syslog_message (LOG_WARNING,
+				"Xauth authentication failed, "
+				"trying GNU_SECURE auth...");
+    }
+    
+    /* Other auth protocols go here, and should execute only if
+     * the * auth_protocol name matches. */
 
-	/* Now check the chain for that hash key */
-	for (i = 0; i < HOST_TABLE_ENTRIES; i++) {
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Trying %lx - %lx\n",
-			 host_addr, permitted_hosts [i]);
-#endif
-		if (host_addr == permitted_hosts [i])
-			return (TRUE);
-	}
+    /* Now, try the old GNU_SECURE stuff... */
 	
-	return (FALSE);
+    if (enable_debug)
+	syslog_message (LOG_DEBUG, "Doing GNU_SECURE auth ...");
+
+    /* Now check the chain for that hash key */
+    for (i = 0; i < HOST_TABLE_ENTRIES; i++) {
+	if (enable_debug)
+	    syslog_message (LOG_DEBUG, "Trying %lx - %lx",
+			    host_addr, permitted_hosts [i]);
+	if (host_addr == permitted_hosts [i])
+	    return (TRUE);
+    }
+	
+    return (FALSE);
 }
 
 
@@ -216,56 +251,58 @@ permitted (u_long host_addr, int fd)
 static int
 setup_table (void)
 {
-	char hostname [HOSTNAMSZ], screen [BUFSIZ];
-	long host_addr;
-	int i, hosts = 0;
+    char hostname [HOSTNAMSZ], screen [BUFSIZ];
+    long host_addr;
+    int i, hosts = 0;
 
-	/* Make sure every entry is null */
-	for (i = 0; i < HOST_TABLE_ENTRIES; i++)
-		permitted_hosts [i] = 0;
+    /* Make sure every entry is null */
+    for (i = 0; i < HOST_TABLE_ENTRIES; i++)
+	permitted_hosts [i] = 0;
 
-	gethostname (hostname, HOSTNAMSZ);
+    gethostname (hostname, HOSTNAMSZ);
 
-	if ((host_addr = glibtop_internet_addr (hostname)) == -1)
-		glibtop_error ("Can't resolve '%s'", hostname);
+    if ((host_addr = glibtop_internet_addr (hostname)) == -1) {
+	syslog_io_message (LOG_ERR, "Can't resolve '%s'", hostname);
+	exit (1);
+    }
 
 #ifdef AUTH_MAGIC_COOKIE
 
-	sprintf (screen, "%d", SERVER_PORT);
+    sprintf (screen, "%d", SERVER_PORT);
 
-	server_xauth = XauGetAuthByAddr
-		(FamilyInternet,
-		 sizeof (host_addr), (char *) &host_addr,
-		 strlen (screen), screen,
-		 strlen (MCOOKIE_X_NAME), MCOOKIE_X_NAME);
-	hosts++;
+    server_xauth = XauGetAuthByAddr
+	(FamilyInternet,
+	 sizeof (host_addr), (char *) &host_addr,
+	 strlen (screen), screen,
+	 strlen (MCOOKIE_X_NAME), MCOOKIE_X_NAME);
+    hosts++;
 
 #endif /* AUTH_MAGIC_COOKIE */
 
-	/* Resolv host names from permitted_host_names []. */
+    /* Resolv host names from permitted_host_names []. */
 
-	for (i = 0; i < HOST_TABLE_ENTRIES; i++) {
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Resolving %s ...\n",
-			 permitted_host_names [i]);
-#endif
-		permitted_hosts [i] =
-			glibtop_internet_addr (permitted_host_names [i]);
-		if ((long) permitted_hosts [i] == -1)
-			glibtop_error ("Can't resolve '%s'",
-				       permitted_host_names [i]);
+    for (i = 0; i < HOST_TABLE_ENTRIES; i++) {
+	if (enable_debug)
+	    syslog_message (LOG_DEBUG, "Resolving %s ...",
+			    permitted_host_names [i]);
+	permitted_hosts [i] =
+	    glibtop_internet_addr (permitted_host_names [i]);
+	if ((long) permitted_hosts [i] == -1) {
+	    syslog_io_message (LOG_ERR, "Can't resolve '%s'",
+			       permitted_host_names [i]);
+	    exit (1);
 	}
+    }
 
-#ifdef LIBGTOP_ENABLE_DEBUG
+    if (enable_debug)
 	for (i = 0; i < HOST_TABLE_ENTRIES; i++)
-		fprintf (stderr, "Host %s - %lx\n",
-			 permitted_host_names [i],
-			 permitted_hosts [i]);
-#endif
+	    syslog_message (LOG_DEBUG, "Host %s - %lx",
+			    permitted_host_names [i],
+			    permitted_hosts [i]);
 
-	hosts += HOST_TABLE_ENTRIES;
+    hosts += HOST_TABLE_ENTRIES;
 
-	return hosts;
+    return hosts;
 }				/* setup_table */
 
 /*
@@ -276,37 +313,45 @@ setup_table (void)
 static int
 internet_init (void)
 {
-	int ls;			/* socket descriptor */
-	struct sockaddr_in server;	/* for local socket address */
+    int ls;			/* socket descriptor */
+    struct sockaddr_in server;	/* for local socket address */
 
-	if (setup_table () == 0)
-		return -1;
+    if (setup_table () == 0)
+	return -1;
 
-	/* clear out address structure */
-	memset ((char *) &server, 0, sizeof (struct sockaddr_in));
+    /* clear out address structure */
+    memset ((char *) &server, 0, sizeof (struct sockaddr_in));
 
-	/* Set up address structure for the listen socket. */
-	server.sin_family = AF_INET;
-	server.sin_addr.s_addr = INADDR_ANY;
+    /* Set up address structure for the listen socket. */
+    server.sin_family = AF_INET;
+    server.sin_addr.s_addr = INADDR_ANY;
 
-	/* We use a fixed port given in the config file. */
-	server.sin_port = htons (SERVER_PORT);
+    /* We use a fixed port given in the config file. */
+    server.sin_port = htons (SERVER_PORT);
 
-	fprintf (stderr, "Using port %u.\n", server.sin_port);
+    if (verbose_output)
+	syslog_message (LOG_INFO, "Using port %u.", SERVER_PORT);
 
-	/* Create the listen socket. */
-	if ((ls = socket (AF_INET, SOCK_STREAM, 0)) == -1)
-		glibtop_error_io ("unable to create socket");
+    /* Create the listen socket. */
+    if ((ls = socket (AF_INET, SOCK_STREAM, 0)) == -1) {
+	syslog_io_message (LOG_ERR, "unable to create socket");
+	exit (1);
+    }
 	
-	/* Bind the listen address to the socket. */
-	if (bind (ls, (struct sockaddr *) &server, sizeof (struct sockaddr_in)) == -1)
-		  glibtop_error_io ("bind");
+    /* Bind the listen address to the socket. */
+    if (bind (ls, (struct sockaddr *) &server,
+	      sizeof (struct sockaddr_in)) == -1) {
+	syslog_io_message (LOG_ERR, "bind");
+	exit (1);
+    }
 
-	/* Initiate the listen on the socket so remote users * can connect.  */
-	if (listen (ls, 20) == -1)
-		glibtop_error_io ("listen");
+    /* Initiate the listen on the socket so remote users * can connect.  */
+    if (listen (ls, 20) == -1) {
+	syslog_io_message (LOG_ERR, "listen");
+	exit (1);
+    }
 
-	return (ls);
+    return (ls);
 }				/* internet_init */
 
 
@@ -318,372 +363,259 @@ internet_init (void)
 static void
 handle_internet_request (int ls)
 {
-	int s;
-	size_t addrlen = sizeof (struct sockaddr_in);
-	struct sockaddr_in peer;	/* for peer socket address */
-	pid_t pid;
+    int s;
+    size_t addrlen = sizeof (struct sockaddr_in);
+    struct sockaddr_in peer;	/* for peer socket address */
+    pid_t pid;
 
-	memset ((char *) &peer, 0, sizeof (struct sockaddr_in));
+    memset ((char *) &peer, 0, sizeof (struct sockaddr_in));
 
-	if ((s = accept (ls, (struct sockaddr *) &peer, (void *) &addrlen)) == -1)
-		glibtop_error_io ("accept");
+    if ((s = accept (ls, (struct sockaddr *) &peer, (void *) &addrlen)) == -1) {
+	syslog_io_message (LOG_ERR, "accept");
+	exit (1);
+    }
 
-#ifdef LIBGTOP_ENABLE_DEBUG
-	fprintf (stderr, "Connection was made from %s.\n",
-		 inet_ntoa (peer.sin_addr));
-#endif
+    if (verbose_output)
+	syslog_message (LOG_INFO, "Connection was made from %s port %u.",
+			inet_ntoa (peer.sin_addr), ntohs (peer.sin_port));
 
-	/* Check that access is allowed - if not return crud to the client */
-	if (!permitted (peer.sin_addr.s_addr, s)) {
-		close (s);
-		glibtop_warn ("Refused connection from %s.",
-			      inet_ntoa (peer.sin_addr));
-		return;
-	}			/* if */
-
-#ifdef LIBGTOP_ENABLE_DEBUG
-	fprintf (stderr, "Accepted connection from %s (%u) on socket %d.\n",
-		 inet_ntoa (peer.sin_addr), ntohs (peer.sin_port), s);
-#endif
-
-	pid = fork ();
-
-	if (pid == -1)
-		glibtop_error_io ("fork failed");
-
-	if (pid)
-		return;
-
-	handle_parent_connection (s);
-
+    /* Check that access is allowed - if not return crud to the client */
+    if (!permitted (peer.sin_addr.s_addr, s)) {
 	close (s);
-	
-#ifdef LIBGTOP_ENABLE_DEBUG
-	fprintf (stderr, "Closed connection to %s (%d).\n",
-		 inet_ntoa (peer.sin_addr), ntohs (peer.sin_port));
-#endif
+	syslog_message (LOG_CRIT, "Refused connection from %s.",
+			inet_ntoa (peer.sin_addr));
+	return;
+    }			/* if */
 
-	_exit (0);
+    if (verbose_output)
+	syslog_message (LOG_INFO, "Accepted connection from %s port %u.",
+			inet_ntoa (peer.sin_addr), ntohs (peer.sin_port));
+
+    pid = fork ();
+
+    if (pid == -1) {
+	syslog_io_message (LOG_ERR, "fork failed");
+	exit (1);
+    }
+
+    if (pid) {
+	if (verbose_output)
+	    syslog_message (LOG_INFO, "Child pid is %d.", pid);
+	return;
+    }
+
+    handle_parent_connection (s);
+
+    close (s);
+
+    if (verbose_output)	
+	syslog_message (LOG_INFO, "Closed connection to %s port %u.",
+			inet_ntoa (peer.sin_addr), ntohs (peer.sin_port));
+
+    _exit (0);
 }				/* handle_internet_request */
-#endif /* INTERNET_DOMAIN_SOCKETS */
-
-
-#ifdef UNIX_DOMAIN_SOCKETS
-/*
- * unix_init -- initialize server, returning an unix-domain socket that can
- * be listened on.
- */
-static int
-unix_init (void)
-{
-	int ls;			/* socket descriptor */
-	struct sockaddr_un server;	/* unix socket address */
-	int bindlen;
-
-	if ((ls = socket (AF_UNIX, SOCK_STREAM, 0)) < 0)
-		glibtop_error_io ("unable to create socket");
-
-	/* Set up address structure for the listen socket. */
-
-#ifdef HIDE_UNIX_SOCKET
-	sprintf (server.sun_path, "/tmp/lgtddir%d", (int) geteuid ());
-	if (mkdir (server.sun_path, 0700) < 0) {
-		/* assume it already exists, and try to set perms */
-		if (chmod (server.sun_path, 0700) < 0)
-			glibtop_error_io ("Can't set permissions on %s",
-					  server.sun_path);
-	}
-	strcat (server.sun_path, "/lgtd");
-	unlink (server.sun_path);	/* remove old file if it exists */
-#else /* HIDE_UNIX_SOCKET */
-	sprintf (server.sun_path, "/tmp/lgtd%d", (int) geteuid ());
-	unlink (server.sun_path);	/* remove old file if it exists */
-#endif /* HIDE_UNIX_SOCKET */
-
-	server.sun_family = AF_UNIX;
-#ifdef HAVE_SOCKADDR_SUN_LEN
-	/* See W. R. Stevens "Advanced Programming in the Unix Environment"
-	 * p. 502 */
-	bindlen = (sizeof (server.sun_len) + sizeof (server.sun_family)
-		   + strlen (server.sun_path) + 1);
-	server.sun_len = bindlen;
-#else
-	bindlen = strlen (server.sun_path) + sizeof (server.sun_family);
-#endif
-
-	if (bind (ls, (struct sockaddr *) &server, bindlen) < 0)
-		glibtop_error_io ("bind");
-
-	chmod (server.sun_path, 0700);	/* only this user can send commands */
-
-	if (listen (ls, 20) < 0)
-		glibtop_error_io ("listen");
-
-	/* #### there are also better ways of dealing with this when sigvec() 
-	 * is present. */
-#if  defined (HAVE_SIGPROCMASK)
-	{
-		sigset_t _mask;
-
-		sigemptyset (&_mask);
-		sigaddset (&_mask, SIGPIPE);
-		sigprocmask (SIG_BLOCK, &_mask, NULL);
-	}
-#else
-	signal (SIGPIPE, SIG_IGN);	/* in case user kills client */
-#endif
-
-	return (ls);
-}				/* unix_init */
-
-
-/*
- * handle_unix_request -- accept a request from a client and send the information
- * to stdout (the gnu process).
- */
-static void
-handle_unix_request (int ls)
-{
-	int s;
-	size_t len = sizeof (struct sockaddr_un);
-	struct sockaddr_un server;	/* for unix socket address */
-	pid_t pid;
-
-	server.sun_family = AF_UNIX;
-
-	if ((s = accept (ls, (struct sockaddr *) &server, (void *) &len)) < 0)
-		glibtop_error_io ("accept");
-
-#ifdef LIBGTOP_ENABLE_DEBUG
-	fprintf (stderr, "Accepted connection on socket %d.\n", s);
-#endif
-
-#ifdef GLIBTOP_DAEMON_SLAVE
-	pid = fork ();
-
-	if (pid == -1)
-		glibtop_error_io ("fork failed");
-
-	if (pid)
-		return;
-
-	handle_slave_connection (s, s);
-#endif
-
-	close (s);
-
-#ifdef LIBGTOP_ENABLE_DEBUG
-	fprintf (stderr, "Closed connection on socket %d.\n", s);
-#endif
-
-	glibtop_close_r (glibtop_global_server);
-
-	exit (0);
-}				/* handle_unix_request */
-
-#endif /* UNIX_DOMAIN_SOCKETS */
 
 static void
 handle_signal (int sig)
 {
-	fprintf (stderr, "Catched signal %d.\n", sig);
+    if (sig == SIGCHLD)
+	return;
+
+    syslog_message (LOG_ERR, "Catched signal %d.\n", sig);
+    exit (1);
 }
+
+const struct poptOption popt_options [] = {
+    POPT_AUTOHELP
+    { "debug", 'd', POPT_ARG_NONE, &enable_debug, 0,
+      N_("Enable debugging"), N_("DEBUG") },
+    { "verbose", 'v', POPT_ARG_NONE, &verbose_output, 0,
+      N_("Enable verbose output"), N_("VERBOSE") },
+    { "no-daemon", 'f', POPT_ARG_NONE, &no_daemon, 0,
+      N_("Don't fork into background"), N_("NO-DAEMON") },
+    { "inetd", 'i', POPT_ARG_NONE, &invoked_from_inetd, 0,
+      N_("Invoked from inetd"), N_("INETD") },
+    { NULL, '\0', 0, NULL, 0 }
+};
 
 int
 main (int argc, char *argv [])
 {
-	glibtop *server = glibtop_global_server;
+    const unsigned method = GLIBTOP_METHOD_PIPE;
+    const unsigned long features = GLIBTOP_SYSDEPS_ALL;
+    glibtop *server = glibtop_global_server;
+    poptContext context;
+    int nextopt;
 
-	int ils = -1;		/* internet domain listen socket */
-	int uls = -1;		/* unix domain listen socket */
-	pid_t pid;
+    int ils = -1;		/* internet domain listen socket */
 
-	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_INIT_NO_INIT);
+    /* On non-glibc systems, this is not set up for us.  */
+    if (!program_invocation_name) {
+	char *arg;
+	  
+	program_invocation_name = argv[0];
+	arg = strrchr (argv[0], '/');
+	program_invocation_short_name =
+	    arg ? (arg + 1) : program_invocation_name;
+    }
 
-	/* Fork a child.
-	 *
-	 * The parent will listen for incoming internet connections
-	 * and the child will listen for connections from the local
-	 * host using unix domain name sockets.
-	 */
+    context = poptGetContext ("libgtop-daemon", argc, argv,
+			      popt_options, 0);
 
-	signal (SIGCHLD, handle_signal);
+    poptReadDefaultConfig (context, TRUE);
 
-#ifdef GLIBTOP_DAEMON_SLAVE
-	pid = fork ();
-#else
-	pid = getpid ();
-#endif
+    while ((nextopt = poptGetNextOpt (context)) > 0)
+	/* do nothing */ ;
 
-	if (pid == -1)
-		glibtop_error_io ("fork failed");
-	else if (pid == 0) {
-		/* We are the child. */
-		
-		const unsigned method = GLIBTOP_METHOD_DIRECT;
+    if(nextopt != -1) {
+	printf (_("Error on option %s: %s.\n"
+		  "Run '%s --help' to see a full list of "
+		  "available command line options.\n"),
+		poptBadOption (context, 0),
+		poptStrerror (nextopt),
+		argv[0]);
+	exit(1);
+    }
 
-		/* Temporarily drop our priviledges. */
+    if (enable_debug)
+	verbose_output = 1;
 
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Child ID: (%d, %d) - (%d, %d)\n",
-			 (int) getuid (), (int) geteuid (),
-			 (int) getgid (), (int) getegid ());
-#endif
+    if (no_daemon) {
+	openlog ("libgtop-daemon", LOG_PERROR | LOG_PID, LOG_LOCAL0);
+    } else {
+	openlog ("libgtop-daemon", LOG_PID, LOG_LOCAL0);
+    }
 
-		if (setreuid (geteuid (), getuid ()))
-			glibtop_error_io ("setreuid (euid <-> uid)");
-		
-		if (setregid (getegid (), getgid ()))
-			glibtop_error_io ("setregid (egid <-> gid)");
-		
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Child ID: (%d, %d) - (%d, %d)\n",
-			 (int) getuid (), (int) geteuid (),
-			 (int) getgid (), (int) getegid ());
-#endif
+    if (!no_daemon && !invoked_from_inetd) {
+	pid_t pid = fork ();
 
-#ifdef UNIX_DOMAIN_SOCKETS
-		/* get a unix domain socket to listen on. */
-		uls = unix_init ();
-#endif
-		
-		glibtop_set_parameter_l (server, GLIBTOP_PARAM_METHOD,
-					 &method, sizeof (method));
-	
-		server->features = glibtop_server_features;
+	if (pid == -1) {
+	    syslog_io_message (LOG_ERR, "fork failed");
+	    exit (1);
+	} else if (pid)
+	    exit (0);
 
-		glibtop_init_r (&server, 0, 0);
+	close (0);
 
-	} else {
-		/* We are the parent. */
-		
-#ifdef GLIBTOP_DAEMON_SLAVE
-		const unsigned method = GLIBTOP_METHOD_UNIX;
-#else
-		const unsigned method = GLIBTOP_METHOD_PIPE;
-#endif
+	setsid ();
+    }
 
-		const unsigned long features = GLIBTOP_SYSDEPS_ALL;
+    glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_INIT_NO_INIT);
 
-		/* If we are root, completely switch to SERVER_UID and
-		 * SERVER_GID. Otherwise we completely drop any priviledges.
-		 */
-		
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Parent ID: (%d, %d) - (%d, %d)\n",
-			 getuid (), geteuid (), getgid (), getegid ());
-#endif
+    signal (SIGCHLD, handle_signal);
 
-		if (setreuid (geteuid (), getuid ()))
-			glibtop_error_io ("setreuid (euid <-> uid)");
-		
-		if (setregid (getegid (), getgid ()))
-			glibtop_error_io ("setregid (egid <-> gid)");
-		
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Parent ID: (%d, %d) - (%d, %d)\n",
-			 getuid (), geteuid (), getgid (), getegid ());
-#endif
+    /* If we are root, completely switch to SERVER_UID and
+     * SERVER_GID. Otherwise we completely drop any priviledges.
+     */
 
-		if ((geteuid () == 0) || (getuid () == 0)) {
-			if (setreuid (0, 0))
-				glibtop_error_io ("setreuid (root)");
-		}
+    if (enable_debug)		
+	syslog_message (LOG_DEBUG, "Parent ID: (%d, %d) - (%d, %d)",
+			getuid (), geteuid (), getgid (), getegid ());
 
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Parent ID: (%d, %d) - (%d, %d)\n",
-			 getuid (), geteuid (), getgid (), getegid ());
-#endif
+    if (geteuid () == 0) {
+	changed_uid = 1;
+	if (setregid (SERVER_GID, SERVER_GID)) {
+	    syslog_io_message (LOG_ERR, "setregid (SERVER_GID)");
+	    exit (1);
+	}
+	if (setreuid (SERVER_UID, SERVER_UID)) {
+	    syslog_io_message (LOG_ERR, "setreuid (SERVER_UID)");
+	    exit (1);
+	}
+    } else {
+	if (setreuid (geteuid (), geteuid ())) {
+	    syslog_io_message (LOG_ERR, "setreuid (euid)");
+	    exit (1);
+	}
+    }
 
-		if (geteuid () == 0) {
-			if (setregid (SERVER_GID, SERVER_GID))
-				glibtop_error_io ("setregid (SERVER_GID)");
-			if (setreuid (SERVER_UID, SERVER_UID))
-				glibtop_error_io ("setreuid (SERVER_UID)");
-		} else {
-			if (setreuid (geteuid (), geteuid ()))
-				glibtop_error_io ("setreuid (euid)");
-		}
+    if (enable_debug)
+	syslog_message (LOG_DEBUG, "Parent ID: (%d, %d) - (%d, %d)",
+			getuid (), geteuid (), getgid (), getegid ());
 
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Parent ID: (%d, %d) - (%d, %d)\n",
-			 getuid (), geteuid (), getgid (), getegid ());
-#endif
+    if (invoked_from_inetd) {
+	size_t addrlen = sizeof (struct sockaddr_in);
+	struct sockaddr_in peer;
 
-		/* Give our child a little time to start up. */
-		sleep (2);
+	memset ((char *) &peer, 0, sizeof (struct sockaddr_in));
 
-#ifdef INTERNET_DOMAIN_SOCKETS
-		/* get a internet domain socket to listen on. */
-		ils = internet_init ();
-#endif
-
-		glibtop_set_parameter_l (server, GLIBTOP_PARAM_METHOD,
-					 &method, sizeof (method));
-
-		server->features = features;
-
-		glibtop_init_r (&server, 0, 0);
-
+	if (getpeername (0, (struct sockaddr *) &peer, (void *) &addrlen)) {
+	    syslog_io_message (LOG_ERR, "getpeername");
+	    exit (1);
 	}
 
-	while (1) {
-		fd_set rmask;
-		int ret;
+	if (verbose_output)
+	    syslog_message (LOG_INFO, "Connection was made from %s port %u.",
+			    inet_ntoa (peer.sin_addr), ntohs (peer.sin_port));
 
-		while ((ret = wait3 (NULL, WNOHANG, NULL)) != 0) {
-			if ((ret == -1) && (errno == ECHILD))
-				break;
-
-			if ((ret == -1) && ((errno == EAGAIN)))
-				continue;
-			if (ret > 0)
-				fprintf (stderr, "Child %d exited.\n", ret);
-			else
-				glibtop_warn_io ("wait3: %d", ret);
-		}
-		
-		FD_ZERO (&rmask);
-
-		/* Only the child accepts connections from standard
-		 * input made by its parent. */
-
-		if (pid == 0)
-			FD_SET (fileno (stdin), &rmask);
-
-		if (uls >= 0)
-			FD_SET (uls, &rmask);
-		if (ils >= 0)
-			FD_SET (ils, &rmask);
-
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Server ready and waiting for connections.\n");
-#endif
-
-		if (select (max2 (fileno (stdin), max2 (uls, ils)) + 1, &rmask,
-			    (fd_set *) NULL, (fd_set *) NULL,
-			    (struct timeval *) NULL) < 0) {
-			if (errno == EINTR)
-				continue;
-			glibtop_error_io ("select");
-		}
-
-#ifdef UNIX_DOMAIN_SOCKETS
-		if (uls > 0 && FD_ISSET (uls, &rmask))
-			handle_unix_request (uls);
-#endif
-
-#ifdef INTERNET_DOMAIN_SOCKETS
-		if (ils > 0 && FD_ISSET (ils, &rmask))
-			handle_internet_request (ils);
-#endif
-
-#ifdef GLIBTOP_DAEMON_SLAVE
-		if ((pid == 0) && FD_ISSET (fileno (stdin), &rmask))
-			handle_slave_connection (fileno (stdin),
-						 fileno (stdout));
-#endif
+	/* Check that access is allowed - if not return crud to the client */
+	if (!permitted (peer.sin_addr.s_addr, 0)) {
+	    close (0);
+	    syslog_message (LOG_CRIT, "Refused connection from %s.",
+			    inet_ntoa (peer.sin_addr));
+	    exit (1);
 	}
 
-	return 0;
+	handle_parent_connection (0);
+	exit (0);
+    }
+
+    /* get a internet domain socket to listen on. */
+    ils = internet_init ();
+
+    if (ils <= 0) {
+	syslog_message (LOG_ERR, "Unable to get internet domain socket.");
+	exit (1);
+    }
+
+    glibtop_set_parameter_l (server, GLIBTOP_PARAM_METHOD,
+			     &method, sizeof (method));
+
+    server->features = features;
+
+    glibtop_init_r (&server, 0, 0);
+
+    while (1) {
+	fd_set rmask;
+	int status, ret;
+
+	while ((ret = wait3 (&status, WNOHANG, NULL)) != 0) {
+	    if ((ret == -1) && (errno == ECHILD))
+		break;
+
+	    if ((ret == -1) && ((errno == EAGAIN)))
+		continue;
+	    if (ret == 0) {
+		syslog_io_message (LOG_WARNING, "wait3");
+		continue;
+	    }
+
+	    if (verbose_output)
+		syslog_message (LOG_INFO, "Child %d exited.", ret);
+	}
+		
+	FD_ZERO (&rmask);
+
+	/* Only the child accepts connections from standard
+	 * input made by its parent. */
+
+	FD_SET (ils, &rmask);
+
+	if (enable_debug)
+	    syslog_message (LOG_DEBUG,
+			    "Server ready and waiting for connections.");
+
+	if (select (ils+1, &rmask, (fd_set *) NULL, (fd_set *) NULL,
+		    (struct timeval *) NULL) < 0) {
+	    if (errno == EINTR)
+		continue;
+	    syslog_io_message (LOG_ERR, "select");
+	    exit (1);
+	}
+
+	if (FD_ISSET (ils, &rmask))
+	    handle_internet_request (ils);
+    }
+
+    return 0;
 }
