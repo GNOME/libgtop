@@ -28,7 +28,7 @@
 
 void *
 glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
-		void *send_buf, size_t recv_size, void *recv_buf)
+		const void *send_buf, size_t recv_size, void *recv_buf)
 {
 	glibtop_command cmnd;
 	glibtop_response response;

@@ -68,7 +68,7 @@ function output(line) {
   if (param_def == "string") {
     call_param = ", "line_fields[5];
     param_decl = ",\n            "space"    const char *"line_fields[5];
-    send_ptr = "\n\tvoid *send_ptr = "line_fields[5]";";
+    send_ptr = "\n\tconst void *send_ptr = "line_fields[5]";";
     send_size = "\n\tconst size_t send_size =\n\t\tstrlen ("line_fields[5]") + 1;";
   } else {
     call_param = "";
@@ -90,7 +90,7 @@ function output(line) {
 	param_decl = param_decl""convert[type]" "fields[field];
 	call_param = call_param", "fields[field];
 	if (send_ptr == "")
-	  send_ptr = "\n\tvoid *send_ptr = &"fields[field]";";
+	  send_ptr = "\n\tconst void *send_ptr = &"fields[field]";";
 	if (send_size == "")
 	  send_size = "\n\tconst size_t send_size =\n\t\t";
 	else
@@ -103,14 +103,14 @@ function output(line) {
     else
       send_size = "\n\tconst size_t send_size = 0;";
     if (send_ptr == "")
-      send_ptr = "\n\tvoid *send_ptr = NULL;";
+      send_ptr = "\n\tconst void *send_ptr = NULL;";
   }
 
   print "glibtop_get_"feature"_l (glibtop *server, glibtop_"feature" *buf"param_decl")";
   
   print "{"send_ptr""send_size;
   if (retval !~ /^void$/)
-    print "\t"retval" retval;";
+    print "\t"retval" retval = ("retval") 0;";
   print "";
 
   print "\tglibtop_init_r (&server, (1 << GLIBTOP_SYSDEPS_"toupper(feature)"), 0);";

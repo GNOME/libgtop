@@ -1,5 +1,11 @@
 1998-08-25  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/command.h (glibtop_call): Third argument is
+	now `const void *'.
+
+	* include/glibtop/xmalloc.h (glibtop_free): Now taking a
+	`const void *'.
+
 	* src/daemon/ChangeLog: New file.
 
 	* sysdeps/sun4/ChangeLog: New file.

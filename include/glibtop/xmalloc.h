@@ -37,7 +37,7 @@ extern void *glibtop_malloc_r	__P((glibtop *, size_t));
 extern void *glibtop_calloc_r	__P((glibtop *, size_t, size_t));
 extern void *glibtop_realloc_r	__P((glibtop *, void *, size_t));
 extern char *glibtop_strdup_r	__P((glibtop *, const char *));
-extern void glibtop_free_r	__P((glibtop *, void *));
+extern void glibtop_free_r	__P((glibtop *, const void *));
 
 __END_DECLS
 
