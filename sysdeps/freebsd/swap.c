@@ -27,16 +27,16 @@
 
 #include <glibtop_suid.h>
 
-#include <sys/conf.h>
-#ifdef __FreeBSD__
-#include <sys/rlist.h>
-#endif
-#include <sys/vmmeter.h>
-
 static const unsigned long _glibtop_sysdeps_swap =
 (1 << GLIBTOP_SWAP_TOTAL) + (1 << GLIBTOP_SWAP_USED) +
 (1 << GLIBTOP_SWAP_FREE) + (1 << GLIBTOP_SWAP_PAGEIN) +
 (1 << GLIBTOP_SWAP_PAGEOUT);
+
+#ifdef __FreeBSD__
+
+#include <sys/conf.h>
+#include <sys/rlist.h>
+#include <sys/vmmeter.h>
 
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
@@ -53,12 +53,31 @@ static struct nlist nlst [] = {
 	{ 0 }
 };
 
+#elif (defined __NetBSD__)
+
+#include <vm/vm_swap.h>
+
+#endif
+
+/* nlist structure for kernel access */
+static struct nlist nlst2 [] = {
+	{ "_cnt" },
+	{ 0 }
+};
+
 /* Init function. */
 
 void
 glibtop_init_swap_p (glibtop *server)
 {
+#ifdef __FreeBSD__
 	if (kvm_nlist (server->machine.kd, nlst) != 0) {
+		glibtop_warn_io_r (server, "kvm_nlist (swap)");
+		return;
+	}
+#endif
+
+	if (kvm_nlist (server->machine.kd, nlst2) != 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (swap)");
 		return;
 	}
@@ -76,18 +95,23 @@ glibtop_init_swap_p (glibtop *server)
 void
 glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 {
+#ifdef __FreeBSD__
 	char *header;
-	int hlen, nswap, nswdev, dmmax;
-	int i, div, avail, nfree, npfree, used;
+	int hlen, nswdev, dmmax;
+	int div, nfree, npfree;
 	struct swdevt *sw;
 	long blocksize, *perdev;
-#ifdef __FreeBSD__
 	struct rlist head;
 	struct rlisthdr swaplist;
 	struct rlist *swapptr;
-#endif
 	size_t sw_size;
 	u_long ptr;
+#elif (defined __NetBSD__)
+	struct swapent *swaplist;
+#endif
+
+	int nswap, i;
+	int avail = 0, inuse = 0;
 
 	/* To get `pagein' and `pageout'. */
 	struct vmmeter vmm;
@@ -103,12 +127,12 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 
 	/* This is used to get the `pagein' and `pageout' members. */
 	
-	if (kvm_read (server->machine.kd, nlst[0].n_value,
+	if (kvm_read (server->machine.kd, nlst2[0].n_value,
 		      &vmm, sizeof (vmm)) != sizeof (vmm)) {
 		glibtop_warn_io_r (server, "kvm_read (cnt)");
 		return;
 	}
-	
+
         if (swappgsin < 0) {
 		buf->pagein = 0;
 		buf->pageout = 0;
@@ -117,8 +141,8 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		buf->pagein = vmm.v_swappgsin - swappgsin;
 		buf->pageout = vmm.v_swappgsout - swappgsout;
 #else
-		buf->pagein = vmm.v_pswpin - swappgsin;
-		buf->pageout = vmm.v_pswpout - swappgsout;
+		buf->pagein = vmm.v_swpin - swappgsin;
+		buf->pageout = vmm.v_swpout - swappgsout;
 #endif
 	}
 
@@ -126,9 +150,11 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
         swappgsin = vmm.v_swappgsin;
 	swappgsout = vmm.v_swappgsout;
 #else
-	swappgsin = vmm.v_pswpin;
-	swappgsout = vmm.v_pswpout;
+	swappgsin = vmm.v_swpin;
+	swappgsout = vmm.v_swpout;
 #endif
+
+#ifdef __FreeBSD__
 
 	/* Size of largest swap device. */
 
@@ -154,8 +180,6 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		return;
 	}
 
-#ifdef __FreeBSD__
-
 	/* List of free swap areas. */
 
 	if (kvm_read (server->machine.kd, nlst[VM_SWAPLIST].n_value,
@@ -163,8 +187,6 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		glibtop_warn_io_r (server, "kvm_read (swaplist)");
 		return;
 	}
-
-#endif
 
 	/* Kernel offset of list of swap devices and sizes. */
 
@@ -191,7 +213,6 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	nfree = 0;
 	memset (perdev, 0, nswdev * sizeof(*perdev));
 
-#ifdef __FreeBSD__
 	swapptr = swaplist.rlh_list;
 
 	while (swapptr) {
@@ -231,7 +252,6 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 
 		swapptr = head.rl_next;
 	}
-#endif
 
 	header = getbsize (&hlen, &blocksize);
 
@@ -252,7 +272,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		 */
 		xsize = sw[i].sw_nblks - dmmax;
 		xfree = perdev[i];
-		used = xsize - xfree;
+		inuse = xsize - xfree;
 		npfree++;
 		avail += xsize;
 	}
@@ -261,14 +281,46 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	 * If only one partition has been set up via swapon(8), we don't
 	 * need to bother with totals.
 	 */
-	used = avail - nfree;
+	inuse = avail - nfree;
 
 	glibtop_free_r (server, sw);
 	glibtop_free_r (server, perdev);
 
-	buf->used = used;
+	buf->flags = _glibtop_sysdeps_swap;
+
+	buf->used = inuse;
 	buf->free = avail;
 
-	buf->total = used + avail;
+	buf->total = inuse + avail;
+
+#elif (defined __NetBSD__)
+
+	nswap = swapctl (SWAP_NSWAP, NULL, 0);
+	if (nswap < 0) {
+		glibtop_warn_io_r (server, "swapctl (SWAP_NSWAP)");
+		return;
+	}
+
+	swaplist = glibtop_calloc_r (server, nswap, sizeof (struct swapent));
+
+	if (swapctl (SWAP_STATS, swaplist, nswap) != nswap) {
+		glibtop_warn_io_r (server, "swapctl (SWAP_STATS)");
+		glibtop_free_r (server, swaplist);
+		return;
+	}
+
+	for (i = 0; i < nswap; i++) {
+		avail += swaplist[i].se_nblks;
+		inuse += swaplist[i].se_inuse;
+	}
+
+	glibtop_free_r (server, swaplist);
+
 	buf->flags = _glibtop_sysdeps_swap;
+
+	buf->used = inuse;
+	buf->free = avail;
+
+	buf->total = inuse + avail;
+#endif
 }
