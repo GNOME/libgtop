@@ -167,7 +167,7 @@ sub output {
     }
 
     $sysdeps_code = sprintf
-      ("\tif (client->_priv->backend_list == NULL) {\n\t\tg_set_error (&error, GLIBTOP_ERROR, GLIBTOP_ERROR_NO_BACKEND_OPENED, G_STRLOC);\n");
+      ("\tif (client->_priv->backend_list == NULL) {\n\t\tg_set_error (&error, GLIBTOP_ERROR, GLIBTOP_ERROR_NO_BACKEND_OPENED, G_STRLOC);\n\t\tglibtop_client_propagate_error (client, error);\n");
     if ($line_fields[1] eq 'retval') {
       $sysdeps_code .= sprintf
 	("\t\treturn -GLIBTOP_ERROR_NO_BACKEND_OPENED;\n");
@@ -203,7 +203,7 @@ sub output {
       ("\t\t\tdone = 1;\n\t\t\tglibtop_server_unref (server);\n\t\t\t\tbreak;\n\t\t}\n\t}\n");
 
     $sysdeps_code .= sprintf
-      ("\n\tif (!done) {\n\t\tg_set_error (&error, GLIBTOP_ERROR, GLIBTOP_ERROR_NOT_IMPLEMENTED, G_STRLOC);\n");
+      ("\n\tif (!done) {\n\t\tg_set_error (&error, GLIBTOP_ERROR, GLIBTOP_ERROR_NOT_IMPLEMENTED, G_STRLOC);\n\t\tglibtop_client_propagate_error (client, error);\n");
     if ($line_fields[1] eq 'retval') {
       $sysdeps_code .= sprintf
 	("\t\treturn -GLIBTOP_ERROR_NOT_IMPLEMENTED;\n");
@@ -217,6 +217,7 @@ sub output {
     if ($line_fields[1] eq 'retval') {
       $sysdeps_code .= "\tif (retval < 0) {\n";
       $sysdeps_code .= "\t\tg_set_error (&error, GLIBTOP_ERROR, -retval, G_STRLOC);\n";
+      $sysdeps_code .= "\t\tglibtop_client_propagate_error (client, error);\n";
       $sysdeps_code .= "\t\tgoto do_return;\n";
       $sysdeps_code .= "\t}\n\n";
     }

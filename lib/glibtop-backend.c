@@ -92,8 +92,6 @@ glibtop_backend_init (glibtop_backend *backend)
 {
     glibtop_backend_private *priv;
 
-    g_message (G_STRLOC ": %p", backend);
-
     priv = g_new0 (glibtop_backend_private, 1);
     backend->_priv = priv;
 }
@@ -107,8 +105,6 @@ glibtop_backend_finalize (GObject *object)
     glibtop = GLIBTOP_BACKEND (object);
     priv = glibtop->_priv;
 
-    g_message (G_STRLOC);
-  
     g_free (priv);
   
     if (G_OBJECT_CLASS (parent_class)->finalize)
@@ -218,8 +214,6 @@ glibtop_backend_get (const char *backend_name, u_int64_t features,
 
     backend->_priv->server = glibtop_server_new ();
 
-    g_message (G_STRLOC ": %p - %p - %p", backend, backend->_priv, info);
-
     if (info->open) {
 	int retval;
 
@@ -243,9 +237,6 @@ glibtop_call_vector *
 glibtop_backend_get_call_vector (glibtop_backend *backend)
 {
     g_return_val_if_fail (GLIBTOP_IS_BACKEND (backend), NULL);
-
-    g_message (G_STRLOC ": %p - %p - %p", backend, backend->_priv,
-	       backend->_priv->info);
 
     g_assert (backend->_priv->info != NULL);
 
