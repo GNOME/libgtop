@@ -1,14 +1,14 @@
 # libgtop fr.po
-# Copyright (C) 1998 Free Software Foundation, Inc.
-# Vincent Renardias <vincent@waw.com>, 1998.
+# Copyright (C) 1998,1999 Free Software Foundation, Inc.
+# Vincent Renardias <vincent@ldsol.com>, 1998,1999.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-05-28 23:30+0200\n"
+"POT-Creation-Date: 1999-06-23 10:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Vincent Renardias <vincent@waw.com>\n"
-"Language-Team: Vincent Renardias <vincent@waw.com>\n"
+"Last-Translator: Vincent Renardias <vincent@ldsol.com>\n"
+"Language-Team: Vincent Renardias <vincent@ldsol.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,51 +39,51 @@ msgstr "Fréquence des ticks"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP Total CPU Time"
-msgstr ""
+msgstr "Temps CPU Total SMP"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in User Mode"
-msgstr ""
+msgstr "Temps CPU SMP en mode utilisateur"
 
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr ""
+msgstr "Temps CPU SMP en mode utilisateur (nice)"
 
 #: sysdeps/names/cpu.c:54
 msgid "SMP CPU Time in System Mode"
-msgstr ""
+msgstr "Temps CPU SMP en mode système"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Time in the Idle Task"
-msgstr ""
+msgstr "Temps CPU SMP dans la tâche inactive"
 
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "Drapeaux CPU SMP"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
-msgstr ""
+msgstr "Nombre de tics d'horloge depuis le dernier redémarrage"
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
 msgid "Number of clock ticks the system spent in user mode"
-msgstr ""
+msgstr "Nombre de tics d'horloge passés en mode utilisateur"
 
 #: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr ""
+msgstr "Nombre de tics d'horloge passés en mode utilisateur (nice)"
 
 #: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
 msgid "Number of clock ticks the system spent in system mode"
-msgstr ""
+msgstr "Nombre de tics d'horloge passés en mode système"
 
 #: sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr ""
+msgstr "Nombre de tics d'horloge passés dans la tâche inactive"
 
 #: sysdeps/names/cpu.c:66
 msgid "Tick frequency (default is 100)"
-msgstr ""
+msgstr "Fréquence des tics (100 par défaut)"
 
 #: sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
 msgid "Total blocks"
@@ -91,11 +91,11 @@ msgstr ""
 
 #: sysdeps/names/fsusage.c:42
 msgid "Free blocks"
-msgstr ""
+msgstr "Blocs libres"
 
 #: sysdeps/names/fsusage.c:43
 msgid "Available blocks"
-msgstr ""
+msgstr "Blocs disponibles"
 
 #: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
 msgid "Total file nodes"
@@ -107,11 +107,11 @@ msgstr ""
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
-msgstr ""
+msgstr "Blocs libres disponibles pour le superutilisateur"
 
 #: sysdeps/names/fsusage.c:52
 msgid "Free blocks available to non-superusers"
-msgstr ""
+msgstr "Blocs libres disponibles pour les non-superutilisateurs"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Load Average"
@@ -119,15 +119,15 @@ msgstr "Charge Moyenne"
 
 #: sysdeps/names/loadavg.c:42
 msgid "Running Tasks"
-msgstr ""
+msgstr "Tâches en cours d'exécution"
 
 #: sysdeps/names/loadavg.c:43
 msgid "Number of Tasks"
-msgstr ""
+msgstr "Nombre de tâches"
 
 #: sysdeps/names/loadavg.c:44 sysdeps/names/loadavg.c:52
 msgid "Last PID"
-msgstr ""
+msgstr "Dernier PID"
 
 #: sysdeps/names/loadavg.c:49
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
@@ -136,11 +136,11 @@ msgstr ""
 
 #: sysdeps/names/loadavg.c:50
 msgid "Number of tasks currently running"
-msgstr ""
+msgstr "Nombre de tâches en cours d'exécution"
 
 #: sysdeps/names/loadavg.c:51
 msgid "Total number of tasks"
-msgstr ""
+msgstr "Nombre total de tâches"
 
 #: sysdeps/names/mem.c:43
 msgid "Total Memory"
@@ -210,7 +210,7 @@ msgstr "Mémoire dans les pages vérouillées en Ko"
 #: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
 #: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
 msgid "Number of list elements"
-msgstr ""
+msgstr "Nombre d'eléments de liste"
 
 #: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
 #: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
@@ -222,7 +222,7 @@ msgstr "Taille totalle de la liste"
 #: sysdeps/names/proclist.c:42 sysdeps/names/proclist.c:49
 #: sysdeps/names/procmap.c:42 sysdeps/names/procmap.c:49
 msgid "Size of a single list element"
-msgstr ""
+msgstr "Taille d'un elément de liste"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Size in kilobytes of message pool"
@@ -1085,18 +1085,17 @@ msgstr ""
 "système"
 
 #: sysdeps/names/uptime.c:49
-#, fuzzy
 msgid "Boot time (seconds sice epoch)"
-msgstr "Temps en secondes depuis le démarrage du système"
+msgstr ""
 
 #: support/error.c:109
 msgid "Unknown system error"
-msgstr ""
+msgstr "Erreur système inconnue"
 
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr ""
+msgstr "%s: l'option `%s' est ambigüe\n"
 
 #: support/getopt.c:693
 #, c-format
