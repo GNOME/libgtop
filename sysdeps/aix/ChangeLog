@@ -1,5 +1,16 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* glibtop_machine.h:
+	* glibtop_server.h:
+	* glibtop_suid.h:
+	* procargs.c:
+	* proclist.c:
+	* procmap.c:
+	* utils.c:
+	* utils.h: fixed compilation
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* procargs.c: (glibtop_get_proc_args_s):
 	* proclist.c: (glibtop_get_proclist_s):
 	replace all the xmalloc crap by glib memory management functions

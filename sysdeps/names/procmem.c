@@ -23,6 +23,7 @@
 
 #include <glibtop.h>
 #include <glibtop/procmem.h>
+#include <libgnome/gnome-i18n.h>
 
 #define GLIBTOP_PROC_MEM_SIZE		0
 #define GLIBTOP_PROC_MEM_VSIZE		1

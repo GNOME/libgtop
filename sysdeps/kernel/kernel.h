@@ -31,10 +31,10 @@
 
 #include <syscall.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 extern int table (int, union table *, const void *);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

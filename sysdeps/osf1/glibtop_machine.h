@@ -32,7 +32,7 @@
 #undef user
 #undef idle
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 int table (int id, int index, char *addr, int nel, u_int lel);
 
@@ -45,6 +45,6 @@ struct _glibtop_machine
 	unsigned proctable_entries;	/* Max entries in the proctable */
 };
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

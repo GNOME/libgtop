@@ -23,7 +23,6 @@
 
 #include <glibtop.h>
 #include <glibtop/error.h>
-#include <glibtop/xmalloc.h>
 #include <glibtop/procargs.h>
 
 static const unsigned long _glibtop_sysdeps_proc_args =
@@ -57,7 +56,7 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 	if (cmdline < 0) return NULL;
 
 	if (max_len) {
-		retval = g_malloc (server, max_len+1);
+		retval = g_malloc (max_len+1);
 
 		len = read (cmdline, retval, max_len);
 		close (cmdline);

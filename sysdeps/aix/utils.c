@@ -29,7 +29,6 @@
 
 #include <glibtop.h>
 #include <glibtop/error.h>
-#include <glibtop/xmalloc.h>
 #include "glibtop_suid.h"
 #include "utils.h"
 

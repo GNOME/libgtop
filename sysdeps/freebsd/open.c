@@ -23,7 +23,6 @@
 
 #include <glibtop.h>
 #include <glibtop/open.h>
-#include <glibtop/xmalloc.h>
 
 /* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 

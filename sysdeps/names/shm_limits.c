@@ -22,6 +22,7 @@
 */
 
 #include <glibtop/shm_limits.h>
+#include <libgnome/gnome-i18n.h>
 
 const char *glibtop_names_shm_limits [GLIBTOP_MAX_SHM_LIMITS] =
 {

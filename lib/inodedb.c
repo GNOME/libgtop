@@ -23,7 +23,6 @@
 
 #include <glibtop.h>
 #include <glibtop/error.h>
-#include <glibtop/xmalloc.h>
 #include <glibtop/inodedb.h>
 
 #include <pwd.h>

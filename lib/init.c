@@ -22,7 +22,6 @@
 */
 
 #include <glibtop.h>
-#include <glibtop/xmalloc.h>
 #include <glibtop/sysdeps.h>
 #include <glibtop/parameter.h>
 

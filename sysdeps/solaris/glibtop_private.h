@@ -38,7 +38,7 @@
 # error Cannot compile without <procfs.h> or <sys/procfs.h>
 #endif
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #ifdef HAVE_PROCFS_H
 
@@ -63,6 +63,6 @@ int glibtop_get_proc_credentials_s(glibtop *, struct prcred *, gid_t *, pid_t);
 /* Reread kstat chains */
 void glibtop_get_kstats(glibtop *);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif /* __GLIBTOP_PRIVATE_H__ */

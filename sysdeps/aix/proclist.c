@@ -24,7 +24,6 @@
 #include <procinfo.h>
 
 #include <glibtop.h>
-#include <glibtop/xmalloc.h>
 #include <glibtop/proclist.h>
 
 static const unsigned long _glibtop_sysdeps_proclist = 

@@ -23,6 +23,7 @@
 
 #include <glibtop.h>
 #include <glibtop/procuid.h>
+#include <libgnome/gnome-i18n.h>
 
 #define GLIBTOP_PROC_UID_UID		0
 #define GLIBTOP_PROC_UID_EUID		1

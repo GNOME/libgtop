@@ -24,42 +24,13 @@
 #ifndef __GLIBTOP_GLOBAL_H__
 #define __GLIBTOP_GLOBAL_H__
 
+#include <glib.h>
+
 #ifdef _IN_LIBGTOP
 #include <config.h>
 #endif
 
-/*
- * All declarations are enclosed in BEGIN_LIBGTOP_DECLS and
- * END_LIBGTOP_DECLS so that C++ compilers don't mangle their names.
- *
- */
-   
-#undef BEGIN_LIBGTOP_DECLS
-#undef END_LIBGTOP_DECLS
-#ifdef __cplusplus
-# define BEGIN_LIBGTOP_DECLS extern "C" {
-# define END_LIBGTOP_DECLS }
-#else
-# define BEGIN_LIBGTOP_DECLS /* empty */
-# define END_LIBGTOP_DECLS /* empty */
-#endif
-
 #ifdef _IN_LIBGTOP
-
-/* Provide macros to feature the GCC function attribute.
- */
-#if __GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ > 4)
-#define G_GNUC_NORETURN				\
-  __attribute__((noreturn))
-#define G_GNUC_CONST				\
-  __attribute__((const))
-#define G_GNUC_UNUSED				\
-  __attribute__((unused))
-#else	/* !__GNUC__ */
-#define G_GNUC_NORETURN
-#define G_GNUC_CONST
-#define	G_GNUC_UNUSED
-#endif	/* !__GNUC__ */
 
 #endif /* _IN_LIBGTOP */
 
@@ -72,27 +43,6 @@
 # else
 #  include <time.h>
 # endif
-#endif
-
-#ifdef NEED_GNOMESUPPORT_H
-#include <gnomesupport.h>
-#endif
-
-#ifdef WITHOUT_GUILE
-#undef GLIBTOP_GUILE
-#undef GLIBTOP_GUILE_NAMES
-#endif
-
-#ifdef GLIBTOP_GUILE
-#include <guile/gh.h>
-#endif
-
-#ifdef _IN_LIBGTOP
-#if (defined HAVE_LIBINTL_H) || (defined HAVE_GETTEXT)
-#include <libintl.h>
-#else
-#include <libgettext.h>
-#endif
 #endif
 
 #include <stdio.h>
@@ -124,18 +74,13 @@
 
 #ifdef _IN_LIBGTOP
 
-BEGIN_LIBGTOP_DECLS
-
-#ifndef _
-#define _(String) dgettext (PACKAGE, String)
-#define N_(String) (String)
-#endif
+G_BEGIN_DECLS
 
 #ifndef HAVE_STRERROR
 char *strerror (int errno);
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif /* _IN_LIBGTOP */
 

@@ -22,6 +22,7 @@
 */
 
 #include <glibtop/msg_limits.h>
+#include <libgnome/gnome-i18n.h>
 
 const char *glibtop_names_msg_limits [GLIBTOP_MAX_MSG_LIMITS] =
 {

@@ -26,7 +26,7 @@
 
 #include <glibtop.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #ifndef G_GNUC_UNUSED
 #if	__GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ > 4)
@@ -131,6 +131,6 @@ glibtop_warn_io (char *format, ...)
 
 #endif /* no __GNUC__ */
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

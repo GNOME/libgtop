@@ -23,6 +23,7 @@
 
 #include <glibtop.h>
 #include <glibtop/procsignal.h>
+#include <libgnome/gnome-i18n.h>
 
 const char *glibtop_names_proc_signal [GLIBTOP_MAX_PROC_SIGNAL] =
 {

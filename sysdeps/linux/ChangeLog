@@ -1,5 +1,14 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* glibtop_machine.h:
+	* glibtop_server.h:
+	* ppp.c:
+	* procargs.c: (glibtop_get_proc_args_s):
+	* proclist.c:
+	* procmap.c: fixed compilation
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* ppp.c: (get_ISDN_stats):
 	* procargs.c: (glibtop_get_proc_args_s):
 	* proclist.c: (glibtop_get_proclist_s):

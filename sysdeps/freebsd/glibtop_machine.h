@@ -39,7 +39,7 @@
 #include <osreldate.h>
 #endif
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 typedef struct _glibtop_machine glibtop_machine;
 
@@ -54,6 +54,6 @@ struct _glibtop_machine
 	kvm_t *kd;
 };
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif /* __GLIBTOP_MACHINE_H__ */

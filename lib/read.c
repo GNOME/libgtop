@@ -21,7 +21,10 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <config.h>
 #include <glibtop/read.h>
+#include <libgnome/gnome-i18n.h>
+
 
 /* Reads some data from server. */
 

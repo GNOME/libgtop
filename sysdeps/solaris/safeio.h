@@ -26,7 +26,7 @@
 #include <sys/stat.h>
 #include <dirent.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 int
 s_open(const char *, int);
@@ -43,6 +43,6 @@ s_pread(int, void *, size_t, off_t);
 int
 s_closedir(DIR *);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

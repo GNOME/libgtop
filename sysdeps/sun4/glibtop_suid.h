@@ -24,7 +24,7 @@
 #ifndef __GLIBTOP_SUID_H__
 #define __GLIBTOP_SUID_H__
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 static inline void glibtop_suid_enter (glibtop *server) {
 	setregid (server->machine.gid, server->machine.egid);
@@ -43,6 +43,6 @@ glibtop_open_p (glibtop *server, const char *program_name,
 		const unsigned long features,
 		const unsigned flags);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

@@ -43,7 +43,7 @@ libgtop_daemon2_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
 				  @libs_xauth@
 
 libgtop_server2_SOURCES		= server.c slave.c io.c version.c daemon.h
-libgtop_server2_LDADD		= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid-2.0.la \
+libgtop_server2_LDADD		= $(GLIB_LIBS) $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid-2.0.la \
 				  $(top_builddir)/sysdeps/common/libgtop_suid_common-2.0.la
 
 EXTRA_DIST			= server_config.h.in server_config.pl

@@ -1,5 +1,12 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* backend-server.h:
+	* command.h.in:
+	* demarshal.pl:
+	* server.h: fixed compilation
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* backend-server.c: (_open_server):
 	* command.c: (glibtop_call_i):
 	* demarshal.pl:

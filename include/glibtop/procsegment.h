@@ -27,7 +27,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_PROC_SEGMENT_TEXT_RSS		0
 #define GLIBTOP_PROC_SEGMENT_SHLIB_RSS		1
@@ -87,6 +87,6 @@ extern const char *glibtop_descriptions_proc_segment [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

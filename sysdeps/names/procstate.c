@@ -23,6 +23,7 @@
 
 #include <glibtop.h>
 #include <glibtop/procstate.h>
+#include <libgnome/gnome-i18n.h>
 
 const char *glibtop_names_proc_state [GLIBTOP_MAX_PROC_STATE] =
 {

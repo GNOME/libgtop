@@ -25,7 +25,7 @@
 #include <glibtop.h>
 #include <glibtop/open.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_PARAM_METHOD		1
 #define GLIBTOP_PARAM_FEATURES		2
@@ -46,6 +46,6 @@ void
 glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
 			 const void *data_ptr, size_t data_size);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

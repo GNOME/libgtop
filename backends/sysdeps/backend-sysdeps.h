@@ -30,7 +30,6 @@
 #include <glibtop/global.h>
 
 #include <glibtop/open.h>
-#include <glibtop/xmalloc.h>
 #include <glibtop/glibtop-backend.h>
 #include <glibtop/glibtop-backend-info.h>
 

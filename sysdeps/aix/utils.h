@@ -24,7 +24,7 @@
 #ifndef __UTILS_H__
 #define __UTILS_H__
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 extern off_t 
 _glibtop_get_kmem_offset(glibtop* server, char* kname);
@@ -40,6 +40,6 @@ extern  int
 _glibtop_vmgetinfo (void *out, int command, int arg);
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif /* __UTILS_H__ */

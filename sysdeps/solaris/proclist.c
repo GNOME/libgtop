@@ -23,7 +23,6 @@
 
 #include <glibtop.h>
 #include <glibtop/proclist.h>
-#include <glibtop/xmalloc.h>
 
 #include <sys/stat.h>
 #include <unistd.h>

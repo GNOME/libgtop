@@ -65,7 +65,7 @@ print qq[\#define __GLIBTOP_STRUCTURES_H__];
 print '';
 print qq[\#include <glibtop.h>];
 print '';
-print qq[BEGIN_LIBGTOP_DECLS];
+print qq[G_BEGIN_DECLS];
 print '';
 
 for ($nr = 0; $nr < $structure_count; $nr++) {
@@ -77,7 +77,7 @@ for ($nr = 0; $nr < $structure_count; $nr++) {
 print '';
 printf (qq[\#define %-40s\t%d\n], 'GLIBTOP_MAX_STRUCTURES', $structure_count);
 print '';
-print qq[END_LIBGTOP_DECLS];
+print qq[G_END_DECLS];
 print '';
 print qq[\#endif /* __GLIBTOP_STRUCTURES_H__ */];
 

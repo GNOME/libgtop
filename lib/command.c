@@ -26,7 +26,6 @@
 #include <glibtop/read_data.h>
 
 #include <glibtop/command.h>
-#include <glibtop/xmalloc.h>
 
 void *
 glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
@@ -66,7 +65,7 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 			recv_size);
 
 	if (response.data_size) {
-		void *ptr = g_malloc (server, response.data_size);
+		void *ptr = g_malloc (response.data_size);
 
 		glibtop_read_l (server, response.data_size, ptr);
 

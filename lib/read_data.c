@@ -21,8 +21,10 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop/xmalloc.h>
+#include <config.h>
+
 #include <glibtop/read_data.h>
+#include <libgnome/gnome-i18n.h>
 
 /* Reads some data from server. */
 
@@ -54,7 +56,7 @@ glibtop_read_data_l (glibtop *server)
 
 	if (!size) return NULL;	
 
-	ptr = g_malloc (server, size);
+	ptr = g_malloc (size);
 	
 	if (server->socket) {
 		ret = recv (server->socket, ptr, size, 0);

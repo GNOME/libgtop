@@ -28,7 +28,7 @@
 #include <glibtop/sysdeps.h>
 #include <glibtop/union.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_CMND_QUIT		0
 #define GLIBTOP_CMND_SYSDEPS		1
@@ -97,6 +97,6 @@ void *
 glibtop_call_s (glibtop *server, unsigned command, size_t send_size,
 		const void *send_buf, size_t recv_size, void *recv_buf);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

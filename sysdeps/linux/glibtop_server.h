@@ -27,7 +27,7 @@
 #include <fcntl.h>
 #include <ctype.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #ifdef _IN_LIBGTOP
 
@@ -130,6 +130,6 @@ proc_stat_after_cmd (char *p)
 #define GLIBTOP_SUID_NETLOAD		0
 #define GLIBTOP_SUID_PPP		0
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

@@ -31,7 +31,6 @@
 
 #include <glibtop/open.h>
 #include <glibtop/union.h>
-#include <glibtop/xmalloc.h>
 #include <glibtop/parameter.h>
 
 #include <fcntl.h>
@@ -44,7 +43,7 @@
 
 #include "command.h"
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 /* Some don't have LOG_PERROR */
 #ifndef LOG_PERROR
@@ -80,6 +79,6 @@ glibtop_send_version_i (glibtop *server, int fd);
 extern int enable_debug;
 extern int verbose_output;
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

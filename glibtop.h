@@ -84,24 +84,4 @@ glibtop_init_s (glibtop **server_ptr,
 		unsigned long features,
 		unsigned flags);
 
-#ifdef GLIBTOP_GUILE
-
-/* You need to link with -lgtop_guile to get this stuff here. */
-
-void glibtop_boot_guile (void);
-
-#endif
-
-#ifdef GLIBTOP_GUILE_NAMES
-
-/* You need to link with -lgtop_guile_names to get this stuff here. */
-
-void glibtop_boot_guile_names (void);
-
-#ifndef GLIBTOP_NAMES
-#define GLIBTOP_NAMES
-#endif
-
-#endif
-
 #endif

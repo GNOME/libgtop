@@ -23,7 +23,6 @@
 
 #include <glibtop.h>
 #include <glibtop/open.h>
-#include <glibtop/xmalloc.h>
 
 struct nlist _glibtop_nlist[] = {
 #ifdef i386

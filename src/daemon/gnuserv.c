@@ -29,11 +29,14 @@
  * ../etc/gnuserv.README relative to the directory containing this file)
  */
 
+#include <config.h>
+
+#include <libgnome/gnome-i18n.h>
 #include <glibtop.h>
 #include <glibtop/open.h>
 #include <glibtop/close.h>
 #include <glibtop/command.h>
-#include <glibtop/xmalloc.h>
+
 
 #include <glibtop/parameter.h>
 
@@ -461,7 +464,7 @@ const struct poptOption popt_options [] = {
 };
 
 int
-main (int argc, char *argv [])
+main (int argc, const char **argv)
 {
     const unsigned method = GLIBTOP_METHOD_PIPE;
     const unsigned long features = GLIBTOP_SYSDEPS_ALL;
@@ -475,7 +478,7 @@ main (int argc, char *argv [])
     if (!program_invocation_name) {
 	char *arg;
 	  
-	program_invocation_name = argv[0];
+	program_invocation_name = (char *) argv[0];
 	arg = strrchr (argv[0], '/');
 	program_invocation_short_name =
 	    arg ? (arg + 1) : program_invocation_name;

@@ -27,7 +27,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_FSUSAGE_BLOCKS		0
 #define GLIBTOP_FSUSAGE_BFREE		1
@@ -67,6 +67,6 @@ extern const char *glibtop_descriptions_fsusage [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

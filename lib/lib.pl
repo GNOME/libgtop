@@ -20,11 +20,14 @@ print '/* lib.c */';
 print "/* This is a generated file.  Please modify `lib.pl' */";
 print '';
 
+print '#include <config.h>';
+print '';
 print '#include <glibtop.h>';
 print '#include <glibtop/open.h>';
 print '';
 print '#include <glibtop/sysdeps.h>';
 print '#include <glibtop/union.h>';
+print '#include <libgnome/gnome-i18n.h>';
 print '';
 print '#include <glibtop/command.h>';
 

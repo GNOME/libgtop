@@ -1,5 +1,82 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* glibtop.h:
+	* include/glibtop/close.h:
+	* include/glibtop/command.h:
+	* include/glibtop/cpu.h:
+	* include/glibtop/error.h:
+	* include/glibtop/fsusage.h:
+	* include/glibtop/global.h:
+	* include/glibtop/inodedb.h:
+	* include/glibtop/loadavg.h:
+	* include/glibtop/mem.h:
+	* include/glibtop/mountlist.h:
+	* include/glibtop/msg_limits.h:
+	* include/glibtop/netload.h:
+	* include/glibtop/open.h:
+	* include/glibtop/parameter.h:
+	* include/glibtop/ppp.h:
+	* include/glibtop/procargs.h:
+	* include/glibtop/prockernel.h:
+	* include/glibtop/proclist.h:
+	* include/glibtop/procmap.h:
+	* include/glibtop/procmem.h:
+	* include/glibtop/procsegment.h:
+	* include/glibtop/procsignal.h:
+	* include/glibtop/procstate.h:
+	* include/glibtop/proctime.h:
+	* include/glibtop/procuid.h:
+	* include/glibtop/read.h:
+	* include/glibtop/read_data.h:
+	* include/glibtop/sem_limits.h:
+	* include/glibtop/shm_limits.h:
+	* include/glibtop/signal.h:
+	* include/glibtop/swap.h:
+	* include/glibtop/sysdeps.h:
+	* include/glibtop/sysinfo.h:
+	* include/glibtop/types.h:
+	* include/glibtop/union.h:
+	* include/glibtop/uptime.h:
+	* include/glibtop/version.h:
+	* include/glibtop/write.h:
+	* lib/Makefile.am:
+	* lib/command.c: (glibtop_call_l):
+	* lib/init.c:
+	* lib/inodedb.c:
+	* lib/lib.pl:
+	* lib/open.c:
+	* lib/read.c:
+	* lib/read_data.c: (glibtop_read_data_l):
+	* lib/structures.pl:
+	* lib/write.c:
+	* sysdeps/names/cpu.c:
+	* sysdeps/names/fsusage.c:
+	* sysdeps/names/loadavg.c:
+	* sysdeps/names/mem.c:
+	* sysdeps/names/mountlist.c:
+	* sysdeps/names/msg_limits.c:
+	* sysdeps/names/netinfo.c:
+	* sysdeps/names/netload.c:
+	* sysdeps/names/ppp.c:
+	* sysdeps/names/procargs.c:
+	* sysdeps/names/proccwd.c:
+	* sysdeps/names/prockernel.c:
+	* sysdeps/names/proclist.c:
+	* sysdeps/names/procmap.c:
+	* sysdeps/names/procmem.c:
+	* sysdeps/names/procsegment.c:
+	* sysdeps/names/procsignal.c:
+	* sysdeps/names/procstate.c:
+	* sysdeps/names/proctime.c:
+	* sysdeps/names/procuid.c:
+	* sysdeps/names/sem_limits.c:
+	* sysdeps/names/shm_limits.c:
+	* sysdeps/names/swap.c:
+	* sysdeps/names/sysdeps.c:
+	* sysdeps/names/uptime.c: fixed compilation
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* RELNOTES-0.25: removed
 	* RELNOTES-1.0: removed
 	* RELNOTES-1.0.x: removed

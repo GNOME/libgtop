@@ -23,7 +23,6 @@
 
 #include <glibtop.h>
 #include <glibtop/error.h>
-#include <glibtop/xmalloc.h>
 #include <glibtop/procargs.h>
 
 static const unsigned long _glibtop_sysdeps_proc_args = 0;

@@ -31,7 +31,7 @@
 #include <glibtop.h>
 #include <glibtop/union.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 @@GLIBTOP_COMMAND_CONSTANTS@@
 
@@ -54,6 +54,6 @@ struct _glibtop_response
     u_int64_t recv_size, data_size;
 };
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

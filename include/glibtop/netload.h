@@ -27,7 +27,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_NETLOAD_IF_FLAGS	0
 #define GLIBTOP_NETLOAD_MTU		1
@@ -115,6 +115,6 @@ extern const char *glibtop_descriptions_netload [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

@@ -26,7 +26,6 @@
 
 #include <glibtop.h>
 #include <glibtop/cpu.h>
-#include <glibtop/xmalloc.h>
 
 int
 main (int argc, char *argv [])

@@ -48,7 +48,7 @@
 
 #include "loadavg.h"
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 /* Older versions of SunOS don't have a typedef for pid_t.
    Hopefully this will catch all those cases without causing other problems.
@@ -112,6 +112,6 @@ struct proc *_glibtop_find_pid (void *void_server, pid_t pid);
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

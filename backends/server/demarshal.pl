@@ -26,7 +26,6 @@ print '';
 
 print '#include <glibtop.h>';
 print '#include <glibtop/open.h>';
-print '#include <glibtop/xmalloc.h>';
 print '';
 print '#include <glibtop/sysdeps.h>';
 print '#include <glibtop/union.h>';

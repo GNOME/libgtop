@@ -1,5 +1,17 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* first.c:
+	* mountlist.c:
+	* netload.c:
+	* procmap.c:
+	* second.c:
+	* smp.c:
+	* sysdeps.c:
+	* third.c:
+	* timings.c: fixed compilation
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* Makefile.am: removed traces of guile, intllibs and libgnomesupport
 
 2001-01-14  Abel Cheung  <maddog@linux.org.hk>

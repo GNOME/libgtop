@@ -1,3 +1,12 @@
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
+	* glibtop_machine.h:
+	* glibtop_server.h:
+	* glibtop_suid.h:
+	* open.c:
+	* procargs.c:
+	* procmap.c: fixed compilation
+
 2001-10-17  Abel Cheung <maddog@linux.org.hk>
 
 	* Makefile.am: move header to $(includedir)/libgtop-1.0/glibtop.

@@ -22,7 +22,6 @@
 */
 
 #include <config.h>
-#include <glibtop/xmalloc.h>
 #include <glibtop/proclist.h>
 
 #include <glibtop/procuid.h>

@@ -1,5 +1,10 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* inodedb.c:
+	* mountlist.c: (glibtop_get_mountlist_s): fixed compilation
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* Makefile.am:
 	* inodedb.c: (glibtop_inodedb_open_s), (glibtop_inodedb_close_s):
 	* mountlist.c: (glibtop_get_mountlist_s):

@@ -24,7 +24,7 @@
 #ifndef __GLIBTOP_MACHINE_H__
 #define __GLIBTOP_MACHINE_H__
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 typedef struct _glibtop_machine		glibtop_machine;
 
@@ -34,6 +34,6 @@ struct _glibtop_machine
 	gid_t gid, egid;		/* Real and effective group id */
 };
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

@@ -1,5 +1,16 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* glibtop_machine.h:
+	* glibtop_server.h:
+	* glibtop_suid.h:
+	* open.c:
+	* procargs.c:
+	* proclist.c:
+	* procmap.c:
+	* swap.c: fixed compilation
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* procargs.c: (glibtop_get_proc_args_p):
 	* proclist.c: (glibtop_get_proclist_p):
 	* procmap.c: (glibtop_get_proc_map_p):

@@ -24,6 +24,7 @@
  */
 
 #include <glibtop/netinfo.h>
+#include <libgnome/gnome-i18n.h>
 
 const char *glibtop_names_netinfo[GLIBTOP_MAX_NETINFO] =
 {

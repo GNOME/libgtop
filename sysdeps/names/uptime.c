@@ -22,6 +22,7 @@
 */
 
 #include <glibtop/uptime.h>
+#include <libgnome/gnome-i18n.h>
 
 const char *glibtop_names_uptime [GLIBTOP_MAX_UPTIME] =
 {

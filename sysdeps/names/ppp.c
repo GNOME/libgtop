@@ -22,6 +22,7 @@
 */
 
 #include <glibtop/ppp.h>
+#include <libgnome/gnome-i18n.h>
 
 const char *glibtop_names_ppp [GLIBTOP_MAX_PPP] =
 {

@@ -34,7 +34,7 @@
 #undef LIBGTOP_VERSION
 #include <linux/libgtop.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 int
 glibtop_get_proc_data_stat_s (glibtop *server, libgtop_stat_t *stat);
@@ -84,6 +84,6 @@ glibtop_get_proc_data_netload_s (glibtop *server,
 				 libgtop_netload_t *netload,
 				 const char *device);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif /* __GLIBTOP_PRIVATE_H__ */

@@ -26,7 +26,7 @@
 
 #include <sys/table.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 static inline void glibtop_suid_enter (glibtop *server) {
 	setreuid (server->machine.uid, server->machine.euid);
@@ -45,6 +45,6 @@ glibtop_open_p (glibtop *server, const char *program_name,
 		const unsigned long features,
 		const unsigned flags);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif
