@@ -64,7 +64,12 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 			glibtop_free_r (server, retval);
 			return NULL;
 		}
-		
+
+		*(retval+len) = 0;
+
+		buf->size = len;
+		buf->flags = _glibtop_sysdeps_proc_args;
+
 		return retval;
 	}
 
