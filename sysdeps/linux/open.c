@@ -81,7 +81,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
 			break;
 	}
 
-#if DEBUG
+#ifdef DEBUG
 	printf ("\nThis machine has %d CPUs.\n\n", server->ncpu);
 #endif
 }

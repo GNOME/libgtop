@@ -58,10 +58,7 @@ static int connect_to_internet_server (const char *serverhost, u_short port);
 #include <arpa/inet.h>
 
 int
-glibtop_make_connection (hostarg, portarg, s)
-     const char *hostarg;
-     int portarg;
-     int *s;
+glibtop_make_connection (const char *hostarg, int portarg, int *s)
 {
 #ifdef INTERNET_DOMAIN_SOCKETS
 	char *ptr;
@@ -186,7 +183,7 @@ connect_to_unix_server (void)
 #else /* HIDE_UNIX_SOCKET */
 	sprintf (server.sun_path, "/tmp/lgtd%d", (int) geteuid ());
 #endif /* HIDE_UNIX_SOCKET */
-	if (connect (s, (struct sockaddr *) &server, strlen (server.sun_path) + 2) < 0)
+	if (connect (s, (struct sockaddr *)&server, strlen (server.sun_path) + 2) < 0)
 		glibtop_error_io ("unable to connect to local");
 
 	return (s);
@@ -201,8 +198,7 @@ connect_to_unix_server (void)
  * internet address passed. Return -1 on error.
  */
 long
-glibtop_internet_addr (host)
-     const char *host;
+glibtop_internet_addr (const char *host)
 {
 	struct hostent *hp;	/* pointer to host info for remote host */
 	IN_ADDR numeric_addr;	/* host address */

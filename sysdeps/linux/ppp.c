@@ -82,7 +82,7 @@ get_ISDN_stats (glibtop *server, int *in, int *out)
 
 static gboolean is_ISDN_on (glibtop *server, int *online)
 {
-	FILE *f = 0;
+	FILE *f = NULL;
 	char buffer [BUFSIZ], *p;
 	int i;
 

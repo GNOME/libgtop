@@ -1,5 +1,18 @@
 2004-09-13  Benoît Dejean  <tazforever@dlfp.org>
 
+	* configure.in: bumped to 2.8.1.
+	
+	* sysdeps/common/fsusage.c:
+	* sysdeps/common/gnuslib.c: (glibtop_make_connection),
+	(connect_to_unix_server), (glibtop_internet_addr):
+	* sysdeps/linux/glibtop_server.c: (get_pageshift):
+	* sysdeps/linux/glibtop_server.h:
+	* sysdeps/linux/open.c: (glibtop_open_s):
+	* sysdeps/linux/ppp.c: (is_ISDN_on): Cleanups. Thanks to Kjartan Maraas.
+	Closes #151557.
+
+2004-09-13  Benoît Dejean  <tazforever@dlfp.org>
+
 	* NEWS:
 	* configure.in: 2.8.0
 
