@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2001-05-05 11:59+0200\n"
-"PO-Revision-Date: 2001-05-01 17:09GMT +0200\n"
+"POT-Creation-Date: 2001-05-26 11:04+0200\n"
+"PO-Revision-Date: 2001-06-01 17:35GMT +0200\n"
 "Last-Translator: Vasif İsmayıloğlu MD <azerb_linux@hotmail.com>\n"
 "Language-Team: Azerbaijani Turkish <linuxaz@azerimal.net>\n"
 "MIME-Version: 1.0\n"
@@ -285,11 +285,11 @@ msgstr ""
 "Gedişatın Kernel bayraqları.\n"
 "\n"
 "Linuxda, hazırda hər bayrağın riyazı bayt seti vardır. crt0.s "
-"riyaziemulyasiyanı yoxladığına görə naticədə proqram çıxışında "
-"biz bunu görmürük. \n"
+"riyaziemulyasiyanı yoxladığına görə naticədə proqram çıxışında biz bunu "
+"görmürük. \n"
 "\n"
-"Bu bir bug ola bilər, çünkü hər əməliiyat C proqramı quruluşuna "
-"sahib deyil kimi görünür. \n"
+"Bu bir bug ola bilər, çünkü hər əməliiyat C proqramı quruluşuna sahib deyil "
+"kimi görünür. \n"
 "\n"
 "Riyazi bayt onluq 4, trace edilmiş bit onluq 10 olmalıdır"
 
@@ -299,8 +299,8 @@ msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
 msgstr ""
-"Diskdən yaddaş səhifəsinə yüklənməmasi lazım gələnkiçik sistem "
-"xətaları sayısı."
+"Diskdən yaddaş səhifəsinə yüklənməmasi lazım gələnkiçik sistem xətaları "
+"sayısı."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:64
@@ -308,22 +308,18 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Diskdən yaddaş səhifəsinə yüklənməmasi lazım gələnböyük sistem "
-"xətaları sayısı."
+"Diskdən yaddaş səhifəsinə yüklənməmasi lazım gələnböyük sistem xətaları "
+"sayısı."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:67
 msgid "The number of minor faults that the process and its children have made."
-msgstr ""
-"Gedişat və töramələrinin səbəb olduğu kiçik sistem xətaları "
-"sayısı."
+msgstr "Gedişat və töramələrinin səbəb olduğu kiçik sistem xətaları sayısı."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:70
 msgid "The number of major faults that the process and its children have made."
-msgstr ""
-"Gedişat və törəmələrinin səbəb olduğu böyük sistem xətaları "
-"sayısı"
+msgstr "Gedişat və törəmələrinin səbəb olduğu böyük sistem xətaları sayısı"
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:73
@@ -331,8 +327,8 @@ msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
 msgstr ""
-"Əmaliyyat üçün çəkirdəyin çıxartdığı stack səhifəsində "
-"tapılan esp'in hazırkı qiyməti (32-bit stack pointer)"
+"Əmaliyyat üçün çəkirdəyin çıxartdığı stack səhifəsində tapılan esp'in "
+"hazırkı qiyməti (32-bit stack pointer)"
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:76
@@ -347,10 +343,10 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Bu, əmaliyyatın gözlədiyi \"canal\"dır. Bu ayrıcasistem çağırışı "
-"ünvanıdır və mətni adını istəyirsəniz adlar siyahısında "
-"görəbilərsiniz. ( Əgər güncəl /etc/psdatabase veriniz varsa, ps -l'i "
-"sınayın və per harəkətlar qismindəki WCHAN qiymətinə baxın)"
+"Bu, əmaliyyatın gözlədiyi \"canal\"dır. Bu ayrıcasistem çağırışı ünvanıdır "
+"və mətni adını istəyirsəniz adlar siyahısında görəbilərsiniz. ( Əgər güncəl /"
+"etc/psdatabase veriniz varsa, ps -l'i sınayın və per harəkətlar qismindəki "
+"WCHAN qiymətinə baxın)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:83
@@ -405,16 +401,16 @@ msgid ""
 "which are swapped out."
 msgstr ""
 "Həqiqi yaddaşdakı səhifə sayısından idari məqsədlilərdəki 3 nün "
-"çıxardıldığından sonra qalan səhifə sayısı. Bu mətn, veri üçün "
-"ayrılmış səhifələrdir. Buraya deamonlar tərəfindən yüklənənlər "
-"və silinənlər daxil deyildir."
+"çıxardıldığından sonra qalan səhifə sayısı. Bu mətn, veri üçün ayrılmış "
+"səhifələrdir. Buraya deamonlar tərəfindən yüklənənlər və silinənlər daxil "
+"deyildir."
 
 #: sysdeps/names/procmem.c:64
 msgid ""
 "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
 msgstr ""
-"Gedişatın rss'sinin baytlarla göstərilan hazırkı sərhədləri (çox "
-"vaxt 2.147.483.647)."
+"Gedişatın rss'sinin baytlarla göstərilan hazırkı sərhədləri (çox vaxt "
+"2.147.483.647)."
 
 #: sysdeps/names/procsegment.c:50
 msgid "Text_RSS"
@@ -621,12 +617,10 @@ msgid "effective GID of process"
 msgstr "gedişatın effektiv GIDi"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "real UID of process"
 msgstr "həqiqi əməliyyat UIDi"
 
 #: sysdeps/names/procstate.c:57
-#, fuzzy
 msgid "real GID of process"
 msgstr "gedişatın həqiqi GIDi"
 
@@ -693,8 +687,7 @@ msgstr "XUCP_Bayraqları"
 #: sysdeps/names/proctime.c:54
 msgid "Start time of process in seconds since the epoch"
 msgstr ""
-"Gedişatın başlanğıc vaxtının epoch'dan e'tibarən keçən "
-"saniyəlarlə müddəti"
+"Gedişatın başlanğıc vaxtının epoch'dan e'tibarən keçən saniyəlarlə müddəti"
 
 #: sysdeps/names/proctime.c:55
 msgid "Real time accumulated by process (should be utime + stime)"
@@ -725,8 +718,8 @@ msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
 msgstr ""
-"İnterval timera bağlı olaraq gedişata göndərilən sonrakı SIGALRM "
-"əvvəlində keçən vaxt."
+"İnterval timera bağlı olaraq gedişata göndərilən sonrakı SIGALRM əvvəlində "
+"keçən vaxt."
 
 #: sysdeps/names/proctime.c:63
 msgid "Tick frequency"
@@ -966,13 +959,11 @@ msgstr "Atılan Səhifələr"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr ""
-"Sistem başladığından bəri alınan Dəyiş Toqquş səhifələri sayısı"
+msgstr "Sistem başladığından bəri alınan Dəyiş Toqquş səhifələri sayısı"
 
 #: sysdeps/names/swap.c:55
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr ""
-"Sistem başladığından bəri atılan Dəyiş Toqquş səhifələri sayısı"
+msgstr "Sistem başladığından bəri atılan Dəyiş Toqquş səhifələri sayısı"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
@@ -1071,7 +1062,6 @@ msgid "Network Load"
 msgstr "Network Yükü"
 
 #: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
-#, fuzzy
 msgid "Interface Names"
 msgstr "Ara Üz Adları"
 
@@ -1118,168 +1108,3 @@ msgstr "Sistem başladığından bəri sistem idle taskda keçirdiyi müddət"
 #: sysdeps/names/uptime.c:49
 msgid "Boot time (seconds sice epoch)"
 msgstr "Başlama müddəti (seconds sice epoch)"
-
-#, fuzzy
-#~ msgid "Idle"
-#~ msgstr "Idletime"
-
-#, fuzzy
-#~ msgid "User (%)"
-#~ msgstr "İstifadəçi"
-
-#, fuzzy
-#~ msgid "Nice (%)"
-#~ msgstr "Nice"
-
-#, fuzzy
-#~ msgid "Number of list elements"
-#~ msgstr "Maksimal seqment sayısı"
-
-#, fuzzy
-#~ msgid "Total size of list"
-#~ msgstr "Ümumi xəsərli səhifə sayısı"
-
-#, fuzzy
-#~ msgid "Packets In"
-#~ msgstr "Alınan Səhifələr"
-
-#, fuzzy
-#~ msgid "Packets Out"
-#~ msgstr "Atılan Səhifələr"
-
-#, fuzzy
-#~ msgid "PPP State"
-#~ msgstr "Vəziyyət"
-
-#, fuzzy
-#~ msgid "Number of input bytes"
-#~ msgstr "Vəzifə Sayısı"
-
-#, fuzzy
-#~ msgid "Number of output bytes"
-#~ msgstr "Arxaya dönüş quruluşları sistemi genişliyi qiyməti"
-
-#, fuzzy
-#~ msgid "Hangup"
-#~ msgstr "Hangup (POSIX)"
-
-#, fuzzy
-#~ msgid "Interrupt"
-#~ msgstr "Interrupt (ANSI)"
-
-#, fuzzy
-#~ msgid "Illegal instruction"
-#~ msgstr "Keçərsiz tə'limat (ANSI)"
-
-#, fuzzy
-#~ msgid "Trace trap"
-#~ msgstr "İzləmə trapı (POSIX)"
-
-#, fuzzy
-#~ msgid "Floating-point exception"
-#~ msgstr "Floating-point exception (ANSI)"
-
-#, fuzzy
-#~ msgid "Segmentation violation"
-#~ msgstr "Seqmentlərə Bölmə Qaydası Pozulması (ANSI)"
-
-#~ msgid "Bad argument to system call"
-#~ msgstr "Sistem çağırışı üçün xətalı arqument"
-
-#, fuzzy
-#~ msgid "Broken pipe"
-#~ msgstr "Qırıq Boru (POSIX)"
-
-#, fuzzy
-#~ msgid "Alarm clock"
-#~ msgstr "Zəngli Saat (POSIX)"
-
-#, fuzzy
-#~ msgid "Termination"
-#~ msgstr "Qurtarma (ANSI)"
-
-#, fuzzy
-#~ msgid "Urgent condition on socket"
-#~ msgstr "Soketdə tə'cili şərait (4.2 BSD)"
-
-#, fuzzy
-#~ msgid "Keyboard stop"
-#~ msgstr "Klaviaturanı dayandır (POSIX)"
-
-#, fuzzy
-#~ msgid "Continue"
-#~ msgstr "Davam Et (POSIX)"
-
-#, fuzzy
-#~ msgid "Child status has changed"
-#~ msgstr "Törəmə halı dəyişdi (POSIX)"
-
-#, fuzzy
-#~ msgid "Background read from tty"
-#~ msgstr "Tty'dən arxa plan geişatı mə'lumatı (POSIX)"
-
-#, fuzzy
-#~ msgid "Background write to tty"
-#~ msgstr "Tty'ye yazma əməliyyatı (POSIX)"
-
-#, fuzzy
-#~ msgid "I/O now possible"
-#~ msgstr "I/O indi mümkündür (4.2 BSD)"
-
-#, fuzzy
-#~ msgid "CPU limit exceeded"
-#~ msgstr "CPU limiti açıldı (4.2 BSD)"
-
-#, fuzzy
-#~ msgid "File size limit exceeded"
-#~ msgstr "Fayk böyüklük limiti aşıldı (4.2 BSD)"
-
-#, fuzzy
-#~ msgid "Virtual alarm clock"
-#~ msgstr "Virtual alarm saatı (4.2 BSD)"
-
-#, fuzzy
-#~ msgid "Profiling alarm clock"
-#~ msgstr "Profil alarm saatı (4.2 BSD)"
-
-#, fuzzy
-#~ msgid "Window size change"
-#~ msgstr "Pəncərə böyüklüyünü dəyişdir (4.3 BSD, Sun)"
-
-#~ msgid "Information request"
-#~ msgstr "Sifariş Edilən mə'lumat"
-
-#, fuzzy
-#~ msgid "User defined signal 1"
-#~ msgstr "İstifadəşi təsvirli siqnal 1 (POSIX)"
-
-#, fuzzy
-#~ msgid "User defined signal 2"
-#~ msgstr "İstifadəşi təsvirli siqnal 2 (POSIX)"
-
-#~ msgid "Quit (POSIX)"
-#~ msgstr "Çıx (POSIX)"
-
-#~ msgid "Abort (ANSI)"
-#~ msgstr "Ləğv Et (ANSI)"
-
-#~ msgid "EMT instruction"
-#~ msgstr "EMT göstərişləri"
-
-#~ msgid "Kill, unblockable (POSIX)"
-#~ msgstr "Öldür, bloklana bilməz (POSIX)"
-
-#~ msgid "BUS error (4.2 BSD)"
-#~ msgstr "BUS xətası (4.2 BSD)"
-
-#~ msgid "Stop, unblockable (POSIX)"
-#~ msgstr "Dayan, bloklana bilməz (POSIX)"
-
-#~ msgid "Power failure restart (System V)"
-#~ msgstr "Güc iflası yenidən başlaması (System V)"
-
-#~ msgid "Show this help message"
-#~ msgstr "Bu yardım ismarıcını göstər"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "Qısa istifadaə ismarıcını göstər"
