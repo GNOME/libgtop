@@ -1,5 +1,10 @@
 2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
 
+	* include/glibtop/error.h: Also tries C99 __VA_ARGS__ before using
+	functions.
+
+2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
+
 	* include/glibtop/error.h: Moved 8 static error functions to
 	sysdeps/common/error.c. This is the end of an big useless code
 	bloat : expect ~8KB of object size reduction.
