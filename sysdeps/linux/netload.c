@@ -90,10 +90,10 @@ static const unsigned long _glibtop_sysdeps_netload_out =
 void
 glibtop_init_netload_s (glibtop *server)
 {
-	server->sysdeps.netload = _glibtop_sysdeps_netload |
-		_glibtop_sysdeps_netload_data |
-		_glibtop_sysdeps_netload_bytes |
-		_glibtop_sysdeps_netload_packets;
+    server->sysdeps.netload = _glibtop_sysdeps_netload |
+	_glibtop_sysdeps_netload_data |
+	_glibtop_sysdeps_netload_bytes |
+	_glibtop_sysdeps_netload_packets;
 }
 
 /* Provides network statistics. */
@@ -102,252 +102,252 @@ void
 glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 		       const char *interface)
 {
-	char buffer [BUFSIZ], *p;
-	int have_bytes, fields, skfd;
-	FILE *f;
+    char buffer [BUFSIZ], *p;
+    int have_bytes, fields, skfd;
+    FILE *f;
 
-	memset (buf, 0, sizeof (glibtop_netload));
+    memset (buf, 0, sizeof (glibtop_netload));
 
-	skfd = socket (AF_INET, SOCK_DGRAM, 0);
-	if (skfd) {
-		struct ifreq ifr;
-		struct sockaddr_in addr;
-		char *address;
-		unsigned flags;
+    skfd = socket (AF_INET, SOCK_DGRAM, 0);
+    if (skfd) {
+	struct ifreq ifr;
+	struct sockaddr_in addr;
+	char *address;
+	unsigned flags;
 
-		strcpy (ifr.ifr_name, interface);
-		if (!ioctl (skfd, SIOCGIFFLAGS, &ifr)) {
-			buf->flags |= (1 << GLIBTOP_NETLOAD_IF_FLAGS);
-			flags = ifr.ifr_flags;
-		} else
-			flags = 0;
+	strcpy (ifr.ifr_name, interface);
+	if (!ioctl (skfd, SIOCGIFFLAGS, &ifr)) {
+	    buf->flags |= (1 << GLIBTOP_NETLOAD_IF_FLAGS);
+	    flags = ifr.ifr_flags;
+	} else
+	    flags = 0;
 
-		if (flags & IFF_UP)
-			buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_UP);
+	if (flags & IFF_UP)
+	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_UP);
 
-		if (flags & IFF_BROADCAST)
-			buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_BROADCAST);
+	if (flags & IFF_BROADCAST)
+	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_BROADCAST);
 
-		if (flags & IFF_DEBUG)
-			buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_DEBUG);
+	if (flags & IFF_DEBUG)
+	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_DEBUG);
 
-		if (flags & IFF_LOOPBACK)
-			buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_LOOPBACK);
+	if (flags & IFF_LOOPBACK)
+	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_LOOPBACK);
 
-		if (flags & IFF_POINTOPOINT)
-			buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_POINTOPOINT);
+	if (flags & IFF_POINTOPOINT)
+	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_POINTOPOINT);
 
-		if (flags & IFF_RUNNING)
-			buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_RUNNING);
+	if (flags & IFF_RUNNING)
+	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_RUNNING);
 
-		if (flags & IFF_NOARP)
-			buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_NOARP);
+	if (flags & IFF_NOARP)
+	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_NOARP);
 
-		if (flags & IFF_PROMISC)
-			buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_PROMISC);
+	if (flags & IFF_PROMISC)
+	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_PROMISC);
 
-		if (flags & IFF_ALLMULTI)
-			buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_ALLMULTI);
+	if (flags & IFF_ALLMULTI)
+	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_ALLMULTI);
 
-		if (flags & IFF_MULTICAST)
-			buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_MULTICAST);
+	if (flags & IFF_MULTICAST)
+	    buf->if_flags |= (1 << GLIBTOP_IF_FLAGS_MULTICAST);
 
-		strcpy (ifr.ifr_name, interface);
-		if (!ioctl (skfd, SIOCGIFADDR, &ifr)) {
-			struct sockaddr_in addr =
-				*(struct sockaddr_in *) &ifr.ifr_addr;
-			buf->address = addr.sin_addr.s_addr;
-			buf->flags |= (1 << GLIBTOP_NETLOAD_ADDRESS);
-		}
-
-		strcpy (ifr.ifr_name, interface);
-		if (!ioctl (skfd, SIOCGIFNETMASK, &ifr)) {
-			struct sockaddr_in addr =
-				*(struct sockaddr_in *) &ifr.ifr_addr;
-			buf->subnet = addr.sin_addr.s_addr;
-			buf->flags |= (1 << GLIBTOP_NETLOAD_SUBNET);
-		}
-
-		strcpy (ifr.ifr_name, interface);
-		if (!ioctl (skfd, SIOCGIFMTU, &ifr)) {
-			buf->mtu = ifr.ifr_mtu;
-			buf->flags |= (1 << GLIBTOP_NETLOAD_MTU);
-		}
-
-		close (skfd);
+	strcpy (ifr.ifr_name, interface);
+	if (!ioctl (skfd, SIOCGIFADDR, &ifr)) {
+	    struct sockaddr_in addr =
+		*(struct sockaddr_in *) &ifr.ifr_addr;
+	    buf->address = addr.sin_addr.s_addr;
+	    buf->flags |= (1 << GLIBTOP_NETLOAD_ADDRESS);
 	}
 
-	/* Linux 2.1.114 - don't know where exactly this was added, but
+	strcpy (ifr.ifr_name, interface);
+	if (!ioctl (skfd, SIOCGIFNETMASK, &ifr)) {
+	    struct sockaddr_in addr =
+		*(struct sockaddr_in *) &ifr.ifr_addr;
+	    buf->subnet = addr.sin_addr.s_addr;
+	    buf->flags |= (1 << GLIBTOP_NETLOAD_SUBNET);
+	}
+
+	strcpy (ifr.ifr_name, interface);
+	if (!ioctl (skfd, SIOCGIFMTU, &ifr)) {
+	    buf->mtu = ifr.ifr_mtu;
+	    buf->flags |= (1 << GLIBTOP_NETLOAD_MTU);
+	}
+
+	close (skfd);
+    }
+
+    /* Linux 2.1.114 - don't know where exactly this was added, but
 	 * recent kernels have byte count in /proc/net/dev so we don't
 	 * need IP accounting.
 	 */
 
 #if GLIBTOP_LINUX_VERSION_CODE < 131442
 
-	/* If IP accounting is enabled in the kernel and it is
+    /* If IP accounting is enabled in the kernel and it is
 	 * enabled for the requested interface, we use it to
 	 * get the data. In this case, we don't use /proc/net/dev
 	 * to get errors and collisions.
 	 */
 
-	f = fopen ("/proc/net/ip_acct", "r");
-	if (f) {
-		int success = 0;
-
-		/* Skip over the header line. */
-		fgets (buffer, BUFSIZ-1, f);
-
-		while (fgets (buffer, BUFSIZ-1, f)) {
-			unsigned long flags, packets, bytes;
-			char *p, *dev;
-
-			/* Skip over the network thing. */		
-			dev = skip_token (buffer) + 1;
-			p = skip_token (dev);
-			*p++ = 0;
-
-			if (strcmp (dev, interface))
-				continue;
-
-			success = 1;
-
-			p = skip_token (p);
-
-			flags   = strtoul (p, &p, 16);
-
-			p = skip_multiple_token (p, 2);
-
-			packets = strtoul (p, &p, 0);
-			bytes   = strtoul (p, &p, 0);
-
-			if (flags & _GLIBTOP_IP_FW_ACCTIN) {
-			  /* Incoming packets only. */
-
-			  buf->packets_total += packets;
-			  buf->packets_in += packets;
-
-			  buf->bytes_total += bytes;
-			  buf->bytes_in += bytes;
-
-			  buf->flags |= _glibtop_sysdeps_netload_in;
-
-			} else if (flags & _GLIBTOP_IP_FW_ACCTOUT) {
-			  /* Outgoing packets only. */
-
-			  buf->packets_total += packets;
-			  buf->packets_out += packets;
-
-			  buf->bytes_total += bytes;
-			  buf->bytes_out += bytes;
-
-			  buf->flags |= _glibtop_sysdeps_netload_out;
-
-			} else {
-			  /* Only have total values. */
-
-			  buf->packets_total += packets;
-			  buf->bytes_total += bytes;
-
-			  buf->flags |= _glibtop_sysdeps_netload_total;
-			}
-		}
-
-		fclose (f);
-
-		if (success) return;
-	}
-
-#endif
-
-	/* Ok, either IP accounting is not enabled in the kernel or
-	 * it was not enabled for the requested interface. */
-
-	f = fopen ("/proc/net/dev", "r");
-	if (!f) return;
+    f = fopen ("/proc/net/ip_acct", "r");
+    if (f) {
+	int success = 0;
 
 	/* Skip over the header line. */
 	fgets (buffer, BUFSIZ-1, f);
-	fgets (buffer, BUFSIZ-1, f);
+
+	while (fgets (buffer, BUFSIZ-1, f)) {
+	    unsigned long flags, packets, bytes;
+	    char *p, *dev;
+
+	    /* Skip over the network thing. */		
+	    dev = skip_token (buffer) + 1;
+	    p = skip_token (dev);
+	    *p++ = 0;
+
+	    if (strcmp (dev, interface))
+		continue;
+
+	    success = 1;
+
+	    p = skip_token (p);
+
+	    flags   = strtoul (p, &p, 16);
+
+	    p = skip_multiple_token (p, 2);
+
+	    packets = strtoul (p, &p, 0);
+	    bytes   = strtoul (p, &p, 0);
+
+	    if (flags & _GLIBTOP_IP_FW_ACCTIN) {
+		/* Incoming packets only. */
+
+		buf->packets_total += packets;
+		buf->packets_in += packets;
+
+		buf->bytes_total += bytes;
+		buf->bytes_in += bytes;
+
+		buf->flags |= _glibtop_sysdeps_netload_in;
+
+	    } else if (flags & _GLIBTOP_IP_FW_ACCTOUT) {
+		/* Outgoing packets only. */
+
+		buf->packets_total += packets;
+		buf->packets_out += packets;
+
+		buf->bytes_total += bytes;
+		buf->bytes_out += bytes;
+
+		buf->flags |= _glibtop_sysdeps_netload_out;
+
+	    } else {
+		/* Only have total values. */
+
+		buf->packets_total += packets;
+		buf->bytes_total += bytes;
+
+		buf->flags |= _glibtop_sysdeps_netload_total;
+	    }
+	}
+
+	fclose (f);
+
+	if (success) return;
+    }
+
+#endif
+
+    /* Ok, either IP accounting is not enabled in the kernel or
+	 * it was not enabled for the requested interface. */
+
+    f = fopen ("/proc/net/dev", "r");
+    if (!f) return;
+
+	/* Skip over the header line. */
+    fgets (buffer, BUFSIZ-1, f);
+    fgets (buffer, BUFSIZ-1, f);
 
 	/* Starting with 2.1.xx (don't know exactly which version)
 	 * /proc/net/dev contains both byte and package counters. */
 
-	p = strchr (buffer, '|');
-	if (!p) {
-		fclose (f);
-		return;
-	}
+    p = strchr (buffer, '|');
+    if (!p) {
+	fclose (f);
+	return;
+    }
 
-	/* Do we already have byte counters ? */
-	have_bytes = strncmp (++p, "bytes", 5) == 0;
+    /* Do we already have byte counters ? */
+    have_bytes = strncmp (++p, "bytes", 5) == 0;
 
-	/* Count remaining 'Receive' fields so we know where
+    /* Count remaining 'Receive' fields so we know where
 	 * the first 'Transmit' field starts. */
 	
-	fields = 0;
-	while (*p != '|') {
-		if (!isspace (*p++)) continue;
-		while (isspace (*p++)) ;
-		fields++;
+    fields = 0;
+    while (*p != '|') {
+	if (!isspace (*p++)) continue;
+	while (isspace (*p++)) ;
+	fields++;
+    }
+
+    /* Should never happen. */
+    if (fields < 2) return;
+    fields--;
+
+    while (fgets (buffer, BUFSIZ-1, f)) {
+	char *p, *dev;
+
+	dev = buffer;
+	while (isspace (*dev)) dev++;
+
+	p = strchr (dev, ':');
+	if (!p) continue;
+	*p++ = 0;
+
+	/* If it's not a digit, then it's most likely an error
+	 * message like 'No statistics available'. */
+	while (isspace (*p)) p++;
+	if (!isdigit (*p)) continue;
+
+	if (strcmp (dev, interface))
+	    continue;
+
+	/* Only read byte counts if we really have them. */
+
+	if (have_bytes) {
+	    buf->bytes_in = strtoul (p, &p, 0);
+	    fields--;
 	}
 
-	/* Should never happen. */
-	if (fields < 2) return;
-	fields--;
+	buf->packets_in = strtoul (p, &p, 0);
+	buf->errors_in  = strtoul (p, &p, 0);
 
-	while (fgets (buffer, BUFSIZ-1, f)) {
-		char *p, *dev;
+	p = skip_multiple_token (p, fields);
 
-		dev = buffer;
-		while (isspace (*dev)) dev++;
+	if (have_bytes)
+	    buf->bytes_out = strtoul (p, &p, 0);
 
-		p = strchr (dev, ':');
-		if (!p) continue;
-		*p++ = 0;
+	buf->packets_out = strtoul (p, &p, 0);
+	buf->errors_out  = strtoul (p, &p, 0);
 
-		/* If it's not a digit, then it's most likely an error
-		 * message like 'No statistics available'. */
-		while (isspace (*p)) p++;
-		if (!isdigit (*p)) continue;
+	p = skip_multiple_token (p, 2);
 
-		if (strcmp (dev, interface))
-			continue;
+	buf->collisions  = strtoul (p, &p, 0);
 
-		/* Only read byte counts if we really have them. */
+	/* Compute total valules. */
 
-		if (have_bytes) {
-			buf->bytes_in = strtoul (p, &p, 0);
-			fields--;
-		}
+	buf->bytes_total = buf->bytes_in + buf->bytes_out;
+	buf->packets_total = buf->packets_in + buf->packets_out;
 
-		buf->packets_in = strtoul (p, &p, 0);
-		buf->errors_in  = strtoul (p, &p, 0);
+	/* And now the flags. */
 
-		p = skip_multiple_token (p, fields);
+	buf->flags |= _glibtop_sysdeps_netload;
+	buf->flags |= _glibtop_sysdeps_netload_packets;
 
-		if (have_bytes)
-			buf->bytes_out = strtoul (p, &p, 0);
+	if (have_bytes)
+	    buf->flags |= _glibtop_sysdeps_netload_bytes;
+    }
 
-		buf->packets_out = strtoul (p, &p, 0);
-		buf->errors_out  = strtoul (p, &p, 0);
-
-		p = skip_multiple_token (p, 2);
-
-		buf->collisions  = strtoul (p, &p, 0);
-
-		/* Compute total valules. */
-
-		buf->bytes_total = buf->bytes_in + buf->bytes_out;
-		buf->packets_total = buf->packets_in + buf->packets_out;
-
-		/* And now the flags. */
-
-		buf->flags |= _glibtop_sysdeps_netload;
-		buf->flags |= _glibtop_sysdeps_netload_packets;
-
-		if (have_bytes)
-			buf->flags |= _glibtop_sysdeps_netload_bytes;
-	}
-
-	fclose (f);
+    fclose (f);
 }
