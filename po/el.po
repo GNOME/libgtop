@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2001-02-19 02:42+0000\n"
-"PO-Revision-Date: 2001-02-19 03:01:31+0900\n"
+"POT-Creation-Date: 2001-02-23 13:15+0000\n"
+"PO-Revision-Date: 2001-02-23 13:30:54+0900\n"
 "Last-Translator: Simos Xenitellis <simos@hellug.gr>\n"
 "Language-Team: Greek <nsl@tux.hellug.gr>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: examples/smp.c:68
 #, c-format
 msgid "Ticks (%ld per second):"
-msgstr ""
+msgstr "Χτύποι (%ld ανά δευτερόλεπτο):"
 
 #: examples/smp.c:71
 msgid "Total"
@@ -34,7 +34,7 @@ msgstr "Χρήστης"
 # sysdeps/names/procuid.c:51
 #: examples/smp.c:71 sysdeps/names/procuid.c:58
 msgid "Nice"
-msgstr ""
+msgstr "Ωραιοποίηση"
 
 #: examples/smp.c:71
 msgid "Sys"
@@ -50,6 +50,8 @@ msgid ""
 "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
 "\n"
 msgstr ""
+"ΚΜΕ          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
 
 #: examples/smp.c:77
 #, c-format
@@ -71,7 +73,7 @@ msgstr "Χρήστη (%)"
 
 #: examples/smp.c:95
 msgid "Nice (%)"
-msgstr ""
+msgstr "Ωραιοποίηση (%)"
 
 #: examples/smp.c:95
 msgid "Sys (%)"
@@ -97,7 +99,7 @@ msgstr "ΚΜΕ %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:120
 msgid "Spin:"
-msgstr ""
+msgstr "Σπινάρισμα:"
 
 #: lib/read.c:75
 #, c-format
@@ -156,6 +158,8 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+"Σφάλμα στην επιλογή %s: %s.\n"
+"Εκτελέστε '%s --help' για να δείτε την πλήρη λίστα των διαθέσιμων επιλογών γραμμής εντολής.\n"
 
 # support/error.c:109
 #: support/error.c:109
@@ -218,19 +222,19 @@ msgstr "%s: μη έγκυρη επιλογή -- %c\n"
 #: support/getopt.c:807 support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr ""
+msgstr "%s: η επιλογή απαιτεί όρισμα -- %c\n"
 
 # support/getopt.c:854
 #: support/getopt.c:854
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr ""
+msgstr "%s: η επιλογή `-W %s' είναι αόριστη\n"
 
 # support/getopt.c:872
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: η επιλογή `-W %s' δεν επιτρέπει ορίσματα\n"
 
 # sysdeps/names/cpu.c:45
 #: sysdeps/names/cpu.c:43
@@ -522,15 +526,15 @@ msgstr "Αριθμός επικεφαλίδων μηνυμάτων συστήματος"
 
 #: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
 msgid "Interface Flags"
-msgstr ""
+msgstr "Σημαίες Διασύνδεσεις"
 
 #: sysdeps/names/netload.c:46
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 #: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
 msgid "Subnet"
-msgstr ""
+msgstr "Επίθεμα"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
 msgid "Address"
@@ -610,7 +614,7 @@ msgstr "Μέγεθος"
 
 #: sysdeps/names/procargs.c:43
 msgid "Length in bytes of the returned string."
-msgstr ""
+msgstr "Μήκος σε byte του επιστρεφόμενου αλφαριθμητικού."
 
 # sysdeps/names/prockernel.c:44
 #: sysdeps/names/prockernel.c:42
@@ -1013,7 +1017,7 @@ msgstr "TimeOut"
 # sysdeps/names/proctime.c:47
 #: sysdeps/names/proctime.c:45
 msgid "It_Real_Value"
-msgstr ""
+msgstr "It_Real_Value"
 
 # sysdeps/names/proctime.c:48
 #: sysdeps/names/proctime.c:46
@@ -1045,12 +1049,12 @@ msgstr ""
 # sysdeps/names/proctime.c:56
 #: sysdeps/names/proctime.c:53
 msgid "user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "χρόνος ΚΜΕ της διεργασίας σε κατάσταση χρήστη"
 
 # sysdeps/names/proctime.c:57
 #: sysdeps/names/proctime.c:54
 msgid "kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "χρόνος ΚΜΕ της διεργασίας σε κατάσταση πυρήνα"
 
 # sysdeps/names/proctime.c:58
 #: sysdeps/names/proctime.c:55
@@ -1065,7 +1069,7 @@ msgstr ""
 # sysdeps/names/proctime.c:60
 #: sysdeps/names/proctime.c:57
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr ""
+msgstr "Ο χρόνος (σε τζίφια) της επόμενης λήξης χρόνου της διεργασίας"
 
 # sysdeps/names/proctime.c:61
 #: sysdeps/names/proctime.c:58
@@ -1077,17 +1081,17 @@ msgstr ""
 # sysdeps/names/proctime.c:63
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
-msgstr ""
+msgstr "Συχνότητα χτύπων"
 
 # sysdeps/names/proctime.c:64
 #: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Συσσωρευμένος χρόνος ΚΜΕ διεργασίας σε κατάσταση χρήστη SMP"
 
 # sysdeps/names/proctime.c:65
 #: sysdeps/names/proctime.c:62
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr ""
+msgstr "Συσσωρευμένος χρόνος ΚΜΕ διεργασίας σε κατάσταση πυρήνα SMP"
 
 # sysdeps/names/procuid.c:48
 #: sysdeps/names/procuid.c:56
@@ -1187,67 +1191,67 @@ msgstr "Ταυτότητα συνεδρίας"
 # sysdeps/names/procuid.c:69
 #: sysdeps/names/procuid.c:71
 msgid "Full device number of controlling terminal"
-msgstr ""
+msgstr "Πλήρης αριθμός συσκευής του ενεργού τερματικού"
 
 # sysdeps/names/procuid.c:70
 #: sysdeps/names/procuid.c:72
 msgid "Terminal process group ID"
-msgstr ""
+msgstr "Ταυτότητα ομάδας διεργασίας τερματικού"
 
 # sysdeps/names/procuid.c:71
 #: sysdeps/names/procuid.c:73
 msgid "Kernel scheduling priority"
-msgstr ""
+msgstr "Προτεραιότητα χρονοδρομολόγησης πυρήνα"
 
 # sysdeps/names/procuid.c:72
 #: sysdeps/names/procuid.c:74
 msgid "Standard unix nice level of process"
-msgstr ""
+msgstr "Κανονικό επίπεδο ωραιοποίησης διεργασίας UNIX"
 
 # sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 msgid "Number of entries in semaphore map"
-msgstr ""
+msgstr "Αριθμός εγγραφών στο χάρτη σηματοφορέων"
 
 # sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Max number of arrays"
-msgstr ""
+msgstr "Μέγιστος αριθμός πινάκων"
 
 # sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Max semaphores system wide"
-msgstr ""
+msgstr "Μέγιστος αριθμός σηματοφορέων συστήματος"
 
 # sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Number of undo structures system wide"
-msgstr ""
+msgstr "Αριθμός δομών αναίρεσης συστήματος"
 
 # sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores per array"
-msgstr ""
+msgstr "Μέγιστος αριθμός σηματοφόρων ανά πίνακα"
 
 # sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Max ops per semop call"
-msgstr ""
+msgstr "Μέγιστος αριθμός λειτουργιών ανά κλήση σηματοφόρου"
 
 # sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max number of undo entries per process"
-msgstr ""
+msgstr "Μέγιστος αριθμός εγγραφών αναίρεσης ανά διεργασία"
 
 # sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
-msgstr ""
+msgstr "sizeof struct sem_undo"
 
 # sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Semaphore max value"
-msgstr ""
+msgstr "Μέγιστη τιμή σηματοφόρου"
 
 # sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
