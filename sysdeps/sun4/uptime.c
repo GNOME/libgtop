@@ -56,6 +56,7 @@ glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 
 	buf->uptime = (double) cpu.total / (double) cpu.frequency;
 	buf->idletime = (double) cpu.idle / (double) cpu.frequency;
+	buf->boot_time = (guint64) time(NULL) - (guint64) buf->uptime;
 
 	buf->flags = _glibtop_sysdeps_uptime;
 }
