@@ -27,8 +27,16 @@
 __BEGIN_DECLS
 
 #define glibtop_error(p1, args...)	glibtop_error_r(glibtop_global_server , p1 , ## args)
+#define glibtop_warn(p1, args...)	glibtop_warn_r(glibtop_global_server , p1 , ## args)
+
+#define glibtop_error_io(p1, args...)	glibtop_error_io_r(glibtop_global_server , p1 , ## args)
+#define glibtop_warn_io(p1, args...)	glibtop_warn_io_r(glibtop_global_server , p1 , ## args)
 
 extern void glibtop_error_r __P((glibtop *, char *, ...));
+extern void glibtop_warn_r __P((glibtop *, char *, ...));
+
+extern void glibtop_error_io_r __P((glibtop *, char *, ...));
+extern void glibtop_warn_io_r __P((glibtop *, char *, ...));
 
 __END_DECLS
 

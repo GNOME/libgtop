@@ -37,3 +37,46 @@ glibtop_error_r (glibtop *server, char *format, ...)
 	va_end (ap);
 	exit (1);
 }
+
+void
+glibtop_error_io_r (glibtop *server, char *format, ...)
+{
+	va_list	ap;
+	
+	va_start (ap, format);
+	
+	fprintf (stderr, "%s: ", server->name);
+	vfprintf (stderr, format, ap);
+	fprintf (stderr, ": %s\n", strerror (errno));
+	
+	va_end (ap);
+	exit (1);
+}
+
+void
+glibtop_warn_r (glibtop *server, char *format, ...)
+{
+	va_list	ap;
+	
+	va_start (ap, format);
+	
+	fprintf (stderr, "%s: ", server->name);
+	vfprintf (stderr, format, ap);
+	fprintf (stderr, "\n");
+	
+	va_end (ap);
+}
+
+void
+glibtop_warn_io_r (glibtop *server, char *format, ...)
+{
+	va_list	ap;
+	
+	va_start (ap, format);
+	
+	fprintf (stderr, "%s: ", server->name);
+	vfprintf (stderr, format, ap);
+	fprintf (stderr, ": %s\n", strerror (errno));
+	
+	va_end (ap);
+}
