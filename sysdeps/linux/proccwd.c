@@ -60,6 +60,19 @@ glibtop_get_proc_cwd_s (glibtop *server, glibtop_proc_cwd *buf, pid_t pid)
 
     sprintf (fn, "/proc/%d/cwd", pid);
 	
+    if (stat (fn, &statb)) {
+	/* If we can't even stat () than we can't readlink (). */
+	if (errno != EACCES) {
+	    /* Don't make too much unnecessary noise here. */
+	    glibtop_warn_io_r (server, "stat (%s)", fn);
+	}
+	return retval;
+    }
+
+    buf->device = statb.st_dev;
+    buf->inode = statb.st_ino;
+    buf->flags = _glibtop_sysdeps_proc_cwd_stat;
+
     len = readlink (fn, buffer, BUFSIZ-1);
 
     if (len < 0) {
@@ -72,17 +85,7 @@ glibtop_get_proc_cwd_s (glibtop *server, glibtop_proc_cwd *buf, pid_t pid)
     retval = glibtop_strdup_r (server, buffer);
 
     buf->size = len+1;
-    buf->flags = _glibtop_sysdeps_proc_cwd;
-
-    if (lstat (fn, &statb)) {
-	glibtop_warn_io_r (server, "lstat (%s)", fn);
-	return retval;
-    }
-
-    buf->device = statb.st_dev;
-    buf->inode = statb.st_ino;
-
-    buf->flags |= _glibtop_sysdeps_proc_cwd_stat;
+    buf->flags |= _glibtop_sysdeps_proc_cwd;
 
     return retval;
 }
