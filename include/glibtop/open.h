@@ -68,6 +68,13 @@ void
 glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags);
 
+#ifdef _IN_LIBGTOP
+
+void
+_glibtop_open_sysdeps (glibtop *server, const char *program_name,
+		       const unsigned long features, const unsigned flags);
+
+#endif /* _IN_LIBGTOP */
 
 END_LIBGTOP_DECLS
 

@@ -4,6 +4,7 @@ dnl
 dnl It defines the following variables:
 dnl
 dnl * 'libgtop_sysdeps_dir'    - sysdeps dir for libgtop.
+dnl * 'libgtop_sysdeps_name'   - name of the sysdeps dir.
 dnl * 'libgtop_use_machine_h'  - some of system dependend parts of libgtop provide
 dnl                              their own header file. In this case we need to
 dnl                              define 'HAVE_GLIBTOP_MACHINE_H'.
@@ -128,6 +129,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	AC_REQUIRE([AC_CANONICAL_HOST])
 
 	AC_SUBST(libgtop_sysdeps_dir)
+	AC_SUBST(libgtop_sysdeps_name)
 	AC_SUBST(libgtop_use_machine_h)
 	AC_SUBST(libgtop_need_server)
 
@@ -218,6 +220,10 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	    ;;
 	  esac
 	fi
+
+	AC_MSG_CHECKING(for libgtop sysdeps name)
+	libgtop_sysdeps_name=`echo $libgtop_sysdeps_dir | sed -e 's/_/-/g'`
+	AC_MSG_RESULT($libgtop_sysdeps_name)
 
 	AC_SUBST(libgtop_sysdeps_dir)
 	AC_SUBST(libgtop_postinstall)

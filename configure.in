@@ -113,6 +113,16 @@ AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 GNOME_LIBGTOP_SYSDEPS
 GNOME_LIBGTOP_TYPES
 
+sysdeps_dir="$libgtop_sysdeps_dir"
+sysdeps_name="$libgtop_sysdeps_name"
+AC_SUBST(sysdeps_dir)
+AC_SUBST(sysdeps_name)
+
+AC_MSG_CHECKING(for sysdeps_init_file)
+sysdeps_init_file='sysdeps-init-'"$libgtop_sysdeps_name"'.c'
+AC_SUBST(sysdeps_init_file)
+AC_MSG_RESULT($sysdeps_init_file)
+
 LIBGTOP_XML_CHECK
 
 AC_ARG_WITH(libgtop-inodedb,
@@ -137,7 +147,8 @@ AM_CONDITIONAL(ENABLE_SHARED, test x$enable_static = xyes)
 
 AM_PROG_LIBTOOL
 
-AM_PATH_GLIB(1.2.0,,AC_MSG_ERROR(GLIB >= 1.2.0 is required for LibGTop))
+AM_PATH_GLIB(1.2.0,,AC_MSG_ERROR(GLIB >= 1.2.0 is required for LibGTop),
+             [gmodule])
 
 dnl You need to uncomment the following line if you want to use
 dnl libGTop without Gnome.
@@ -322,9 +333,6 @@ LIBGTOP_INCS="$LIBGTOP_INCS $SUPPORTINCS $GLIB_CFLAGS"
 
 LIBGTOP_BINDIR='$(bindir)'
 LIBGTOP_SERVER='$(bindir)/libgtop_server'
-
-sysdeps_dir="$libgtop_sysdeps_dir"
-AC_SUBST(sysdeps_dir)
 
 LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS $LIBGTOP_XML_LIB"
 
