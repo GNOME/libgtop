@@ -215,14 +215,14 @@ sub output {
        $feature, $call_param);
   } elsif ($line_fields[3] eq 'array') {
     $call_code = sprintf
-      ("\tretval = glibtop_get_%s_p (server, array%s);\n",
+      ("\tretval = glibtop_get_%s_p (server, &array%s);\n",
        $feature, $call_param);
-    $local_var_decl_code .= sprintf (qq[\tglibtop_array *array;\n]);
+    $local_var_decl_code .= sprintf (qq[\tglibtop_array array;\n]);
   } elsif ($line_fields[3] =~ /^array/) {
     $call_code = sprintf
-      ("\tretval = glibtop_get_%s_p (server, array, &%s%s);\n",
+      ("\tretval = glibtop_get_%s_p (server, &array, &%s%s);\n",
        $feature, $feature, $call_param);
-    $local_var_decl_code .= sprintf (qq[\tglibtop_array *array;\n]);
+    $local_var_decl_code .= sprintf (qq[\tglibtop_array array;\n]);
   } else {
     $call_code = sprintf
       ("\tretval = glibtop_get_%s_p (server, &%s%s);\n",
