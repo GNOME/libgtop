@@ -1094,7 +1094,88 @@ Remember to @code{glibtop_free} the returned string to avoid a memory leak.
 @node glibtop_proc_map, glibtop_netload, glibtop_proc_args, System Dependent
 @subsection Process Memory Maps
 
-[Not yet written.]
+Library function @code{glibtop_get_proc_map}:
+
+@example
+@cartouche
+glibtop_map_entry *
+glibtop_get_proc_map (glibtop_proc_map *buf, pid_t pid);
+
+glibtop_map_entry *
+glibtop_get_proc_map_l (glibtop *server, glibtop_proc_map *buf,
+                        pid_t pid);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_map} in @file{<glibtop/procmap.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_map        glibtop_proc_map;
+
+struct _glibtop_proc_map
+@{
+    u_int64_t   flags,
+        number,
+        total,
+        size;
+@};
+@end cartouche
+@end example
+
+Returns a @code{glibtop_map_entry *} list (which needs to be freed with
+@code{glibtop_free}) of memory maps of process @code{pid}.
+
+@table @code
+@item number
+Number of entries in the returned list.
+
+@item total
+Total size of the returned list (this equals @code{number * size}).
+
+@item size
+Size of a single entry in the returned list
+(this equals @code{sizeof (glibtop_map_entry)}).
+@end table
+
+@example
+@cartouche
+typedef struct _glibtop_map_entry       glibtop_map_entry;
+
+struct _glibtop_map_entry
+@{
+    u_int64_t flags, start, end, offset, perm, inode, device;
+    char filename [GLIBTOP_MAP_FILENAME_LEN+1];
+@};
+@end cartouche
+@end example
+
+The @code{flags} member is a bit field and specifies which of the other
+fields are valid:
+
+@example
+@cartouche
+#define GLIBTOP_MAP_ENTRY_START         1
+#define GLIBTOP_MAP_ENTRY_END           2
+#define GLIBTOP_MAP_ENTRY_OFFSET        3
+#define GLIBTOP_MAP_ENTRY_PERM          4
+#define GLIBTOP_MAP_ENTRY_INODE         5
+#define GLIBTOP_MAP_ENTRY_DEVICE        6
+#define GLIBTOP_MAP_ENTRY_FILENAME      7
+@end cartouche
+@end example
+
+Constants for the @code{perm} member:
+
+@example
+@cartouche
+#define GLIBTOP_MAP_PERM_READ           1
+#define GLIBTOP_MAP_PERM_WRITE          2
+#define GLIBTOP_MAP_PERM_EXECUTE        4
+#define GLIBTOP_MAP_PERM_SHARED         8
+#define GLIBTOP_MAP_PERM_PRIVATE        16
+@end cartouche
+@end example
 
 @page
 @node glibtop_netload, glibtop_ppp, glibtop_proc_map, System Dependent
