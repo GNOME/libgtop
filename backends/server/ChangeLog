@@ -1,3 +1,8 @@
+2000-01-13  Martin Baulig  <martin@home-of-linux.org>
+
+	* write.c (glibtop_write_i): The buffer which we write is
+	now a `const'.
+
 2000-01-12  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am: Install everything except the server binary

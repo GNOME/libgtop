@@ -50,6 +50,6 @@ glibtop_read_data_i (glibtop *server, glibtop_backend *backend);
 
 void
 glibtop_write_i (glibtop *server, glibtop_backend *backend,
-		 size_t size, void *buf);
+		 size_t size, const void *buf);
 
 #endif
