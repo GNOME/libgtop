@@ -53,6 +53,9 @@ glibtop_get_proc_state_p (glibtop *server,
 	
 	memset (buf, 0, sizeof (glibtop_proc_state));
 
+	/* It does not work for the swapper task. */
+	if (pid == 0) return;
+	
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1)) {

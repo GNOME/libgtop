@@ -81,6 +81,9 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	if (server->sysdeps.proc_time == 0)
 		return;
 
+	/* It does not work for the swapper task. */
+	if (pid == 0) return;
+	
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1))
