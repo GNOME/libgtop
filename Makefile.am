@@ -25,7 +25,7 @@ EXTRA_DIST = autogen.sh libgtop.spec copyright.txt libgtopConf.sh.in \
 	perl/MANIFEST perl/Changes libgtop-config.in RELNOTES-0.25
 
 release:
-	$(MAKE) dist distdir=$(PACKAGE)$(VERSION)
+	$(MAKE) dist distdir=$(PACKAGE)-$(VERSION)
 
 ## Put `exec' in the name because this should be installed by
 ## `install-exec', not `install-data'.
