@@ -113,6 +113,13 @@ else
   guile_subdirs=
 fi
 
+if test x$libgtop_smp = xyes ; then
+  smp_examples='smp smp_static'
+else
+  smp_examples=
+fi
+
+AC_SUBST(smp_examples)
 AC_SUBST(guile_examples)
 AC_SUBST(guile_subdirs)
 
