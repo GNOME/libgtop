@@ -41,7 +41,8 @@
 #include <linux/ip_fw.h>
 #endif
 
-#include <linux/version.h>
+#define _GLIBTOP_IP_FW_ACCTIN	0x1000	/* Account incoming packets only. */
+#define _GLIBTOP_IP_FW_ACCTOUT	0x2000	/* Account outgoing packets only. */
 
 static const unsigned long _glibtop_sysdeps_netload = 
 (1 << GLIBTOP_NETLOAD_ERRORS_IN) +
@@ -176,7 +177,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	 * need IP accounting.
 	 */
 
-#if LINUX_VERSION_CODE < 131442
+#if GLIBTOP_LINUX_VERSION_CODE < 131442
 
 	/* If IP accounting is enabled in the kernel and it is
 	 * enabled for the requested interface, we use it to
@@ -214,7 +215,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 			packets = strtoul (p, &p, 0);
 			bytes   = strtoul (p, &p, 0);
 
-			if (flags & IP_FW_F_ACCTIN) {
+			if (flags & _GLIBTOP_IP_FW_ACCTIN) {
 			  /* Incoming packets only. */
 
 			  buf->packets_total += packets;
@@ -225,7 +226,7 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 
 			  buf->flags |= _glibtop_sysdeps_netload_in;
 
-			} else if (flags & IP_FW_F_ACCTOUT) {
+			} else if (flags & _GLIBTOP_IP_FW_ACCTOUT) {
 			  /* Outgoing packets only. */
 
 			  buf->packets_total += packets;

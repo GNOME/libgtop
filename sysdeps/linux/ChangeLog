@@ -1,3 +1,10 @@
+1998-12-03  Martin Baulig  <martin@home-of-linux.org>
+
+	* netload.c: No longer include <linux/version.h>, but use
+	GLIBTOP_LINUX_VERSION_CODE which is set by configure instead.
+	Define _GLIBTOP_IP_FW_ACCTIN and _GLIBTOP_IP_FW_ACCTOUT here
+	and use them instead of IP_FW_F_ACCTIN and IP_FW_F_ACCTOUT.
+
 1998-11-30  Martin Baulig  <martin@home-of-linux.org>
 
 	* netload.c: Use correct header files both for libc5 and glibc.
