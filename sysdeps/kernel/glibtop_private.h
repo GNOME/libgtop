@@ -29,6 +29,7 @@
 
 #include <sys/param.h>
 #include <sys/sysctl.h>
+#include <sys/user.h>
 
 #undef LIBGTOP_VERSION
 #include <linux/libgtop.h>
@@ -73,6 +74,10 @@ int
 glibtop_get_proc_data_proc_args_s (glibtop *server, pid_t pid,
 				   char *result, size_t max_len);
 
+int
+glibtop_get_proc_data_proc_maps_s (glibtop *server, pid_t pid,
+				   libgtop_proc_maps_t *result,
+				   size_t max_len);
 
 END_LIBGTOP_DECLS
 

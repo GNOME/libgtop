@@ -161,3 +161,20 @@ glibtop_get_proc_data_proc_args_s (glibtop *server, pid_t pid,
 
     return size;
 }
+
+int
+glibtop_get_proc_data_proc_maps_s (glibtop *server, pid_t pid,
+				   libgtop_proc_maps_t *result,
+				   size_t max_len)
+{
+    int name [3] = { CTL_LIBGTOP, LIBGTOP_PROC_MAPS, pid };
+    size_t size = max_len;
+
+    if (sysctl (name, 3, result, &size, NULL, 0)) {
+	glibtop_warn_io_r (server, "sysctl (libgtop/proc_maps)");
+	fprintf (stderr, "retval: %d\n", size);
+	return -1;
+    }
+
+    return size;
+}
