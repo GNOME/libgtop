@@ -35,7 +35,7 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
 	union table tbl;
 	
-	glibtop_init_r (&server, 0, 0);
+	glibtop_init_s (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_uptime));
 

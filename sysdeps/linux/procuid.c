@@ -42,7 +42,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	int nread;
 	FILE *f;
 	
-	glibtop_init_r (&server, 0, 0);
+	glibtop_init_s (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 

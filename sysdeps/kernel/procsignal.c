@@ -37,7 +37,7 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 {
 	union table tbl;
 
-	glibtop_init_r (&server, 0, 0);
+	glibtop_init_s (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 

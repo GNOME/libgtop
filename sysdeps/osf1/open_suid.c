@@ -22,12 +22,24 @@
 #include <glibtop.h>
 #include <glibtop/open.h>
 
+#include <glibtop_suid.h>
+
 #include <unistd.h>
 #include <sys/types.h>
 
 /* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
 
 /* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
+
+void
+glibtop_init_p (glibtop *server, const unsigned long features,
+		const unsigned flags)
+{
+	if (server == NULL)
+		glibtop_error_r (NULL, "glibtop_init_p (server == NULL)");
+
+	glibtop_open_p (server, "glibtop", features, flags);
+}
 
 void
 glibtop_open_p (glibtop *server, const char *program_name,

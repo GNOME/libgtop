@@ -44,7 +44,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
 	union table tbl;
 	long def_priority, priority, nice;
 	
-	glibtop_init_r (&server, 0, 0);
+	glibtop_init_s (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 

@@ -63,13 +63,13 @@ struct nlist _glibtop_nlist[] = {
 /* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 void
-glibtop_init_p (glibtop *server, const char *program_name,
-		const unsigned long features, const unsigned flags)
+glibtop_init_p (glibtop *server, const unsigned long features,
+		const unsigned flags)
 {
 	if (server == NULL)
 		glibtop_error_r (NULL, "glibtop_init_p (server == NULL)");
 
-	glibtop_open_p (server, program_name, features, flags);
+	glibtop_open_p (server, "glibtop", features, flags);
 }
 
 void
@@ -164,12 +164,14 @@ glibtop_open_p (glibtop *server, const char *program_name,
 
 	server->machine.bytesize = server->machine.epages -
 		server->machine.pages;
-	server->machine.count = server->machine.bytesize / sizeof (struct page);
+	server->machine.count = server->machine.bytesize /
+		sizeof (struct page);
 
-	server->machine.physpage =
-		(struct page *) glibtop_malloc_r (server, server->machine.bytesize);
+	server->machine.physpage = (struct page *)
+		glibtop_malloc_r (server, server->machine.bytesize);
 
-	/* get the page size with "getpagesize" and calculate pageshift from it */
+	/* get the page size with "getpagesize" and
+	 * calculate pageshift from it */
 
 	pagesize = getpagesize();
 

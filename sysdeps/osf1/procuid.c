@@ -19,8 +19,10 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <config.h>
+#include <glibtop.h>
 #include <glibtop/procuid.h>
+
+#include <glibtop_suid.h>
 
 #include <sys/table.h>
 #include <sys/resource.h>
@@ -47,20 +49,19 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	int ret, info_count;
 	task_t thistask;
 
-	glibtop_open_p (server, 0, 0);
+	glibtop_init_p (server, 0, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 	
 	/* !!! THE FOLLOWING CODE RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
-	
-	setreuid (server->machine.uid, server->machine.euid);
+
+	glibtop_suid_enter (server);
 	
 	ret = table (TBL_PROCINFO, pid, (char *) &procinfo, 1,
 		     sizeof (struct tbl_procinfo)); 
+
+	glibtop_suid_leave (server);
 		     
-	if (setreuid (server->machine.euid, server->machine.uid))
-		_exit (1);
-			
 	/* !!! END OF SUID ROOT PART !!! */
 	
 	if (ret != 1) return;
@@ -81,7 +82,7 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 		
 	/* !!! THE FOLLOWING CODE RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
-	setreuid (server->machine.uid, server->machine.euid);
+	glibtop_suid_enter (server);
 		
 	/* Get task structure. */
 	
@@ -95,12 +96,12 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 	
 		ret = task_info (thistask, TASK_BASIC_INFO,
 				 (task_info_t) &taskinfo, &info_count);
-				 
+
+		/* `ret' is evaluated outside the `if' clause. */
 	}
+
+	glibtop_suid_leave (server);
 	
-	if (setreuid (server->machine.euid, server->machine.uid))
-		_exit (1);
-			
 	/* !!! END OF SUID ROOT PART !!! */
 	
 	if (ret != KERN_SUCCESS) return;

@@ -19,37 +19,26 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <glibtop/msg_limits.h>
+#ifndef __GLIBTOP_SUID_H__
+#define __GLIBTOP_SUID_H__
 
-#include <sys/ipc.h>
-#include <sys/msg.h>
+#include <sys/table.h>
 
-static const unsigned long _glibtop_sysdeps_msg_limits =
-(1 << GLIBTOP_IPC_MSGPOOL) + (1 << GLIBTOP_IPC_MSGMAP) +
-(1 << GLIBTOP_IPC_MSGMAX) + (1 << GLIBTOP_IPC_MSGMNB) +
-(1 << GLIBTOP_IPC_MSGMNI) + (1 << GLIBTOP_IPC_MSGSSZ) +
-(1 << GLIBTOP_IPC_MSGTQL);
+__BEGIN_DECLS
 
-/* Provides information about sysv ipc limits. */
+static inline void glibtop_suid_enter (glibtop *server) {
+	setreuid (server->machine.uid, server->machine.euid);
+};
 
-void
-glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
-{
-	struct msginfo	msginfo;
-  
-	glibtop_init_s (&server, 0, 0);
+static inline void glibtop_suid_leave (glibtop *server) {
+	if (setreuid (server->machine.euid, server->machine.uid))
+		_exit (1);
+};
 
-	memset (buf, 0, sizeof (glibtop_msg_limits));
-  
-	buf->flags = _glibtop_sysdeps_msg_limits;
-  
-	msgctl (0, IPC_INFO, (struct msqid_ds *) &msginfo);
-  
-	buf->msgpool = msginfo.msgpool;
-	buf->msgmap = msginfo.msgmap;
-	buf->msgmax = msginfo.msgmax;
-	buf->msgmnb = msginfo.msgmnb;
-	buf->msgmni = msginfo.msgmni;
-	buf->msgssz = msginfo.msgssz;
-	buf->msgtql = msginfo.msgtql;
-}
+extern void glibtop_init_p __P((glibtop *, const unsigned long, const unsigned));
+
+extern void glibtop_open_p __P((glibtop *, const char *, const unsigned long, const unsigned));
+
+__END_DECLS
+
+#endif

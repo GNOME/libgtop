@@ -24,6 +24,8 @@
 #include <glibtop/xmalloc.h>
 #include <glibtop/proclist.h>
 
+#include <glibtop_suid.h>
+
 static const unsigned long _glibtop_sysdeps_proclist =
 (1 << GLIBTOP_PROCLIST_TOTAL) + (1 << GLIBTOP_PROCLIST_NUMBER) +
 (1 << GLIBTOP_PROCLIST_SIZE);
@@ -62,24 +64,24 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf)
 	struct tbl_procinfo procinfo [8];
 	int entry, max_elements, k;
 
-	glibtop_open_p (server, 0, 0);
+	glibtop_init_p (server, 0, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proclist));
 	
 	for (entry = 0; entry < server->machine.proctable_entries;
 	     entry += ELEMENTS_PER_ENTRY)
 	{
+		/* !!! THE FOLLOWING CODE RUNS SUID ROOT - 
+		 *     CHANGE WITH CAUTION !!! */
 
-		/* !!! THE FOLLOWING CODE RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
-	
-		setreuid (server->machine.uid, server->machine.euid);
-	
-		max_elements = table (TBL_PROCINFO, entry, (char *) &procinfo,
-				      ELEMENTS_PER_ENTRY, sizeof (struct tbl_procinfo));
+		glibtop_suid_enter (server);
+
+		max_elements = table
+			(TBL_PROCINFO, entry, (char *) &procinfo,
+			 ELEMENTS_PER_ENTRY, sizeof (struct tbl_procinfo));
+
+		glibtop_suid_leave (server);
 		
-		if (setreuid (server->machine.euid, server->machine.uid))
-			_exit (1);
-			
 		/* !!! END OF SUID ROOT PART !!! */
 		
 		for (k = 0; k < max_elements; k++)
@@ -89,46 +91,50 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf)
 			if (procinfo [k].pi_status == 0)
 				continue;
 
-			/* The following code is copied from the Linux implementation.
-			 * It's safe since we are no longer root at this point here. */
-				
-			/* Fine. Now we first try to store it in pids. If this buffer is
-			 * full, we copy it to the pids_chain. */
+			/* Fine. Now we first try to store it in pids.
+			 * If this buffer is full, we copy it to the
+			 * pids_chain. */
 
 			if (count >= BLOCK_COUNT) {
-				/* The following call to glibtop_realloc will be equivalent to
-				 * glibtop_malloc if pids_chain is NULL. We just calculate the
-				 * new size and copy pids to the beginning of the newly allocated
-				 * block. */
+
+				/* The following call to glibtop_realloc ()
+				 * will be equivalent to glibtop_malloc ()
+				 * if `pids_chain' is NULL. We just calculate
+				 * the new size and copy `pids' to the
+				 * beginning of the newly allocated block. */
 
 				new_size = pids_size + BLOCK_SIZE;
 
-				pids_chain = glibtop_realloc_r (server, pids_chain, new_size);
+				pids_chain = glibtop_realloc_r
+					(server, pids_chain, new_size);
 
-				memcpy (pids_chain + pids_offset, pids, BLOCK_SIZE);
+				memcpy (pids_chain + pids_offset,
+					pids, BLOCK_SIZE);
 
 				pids_size = new_size;
 
 				pids_offset += BLOCK_COUNT;
-
+				
 				count = 0;
 			}
 
-			/* pids is now big enough to hold at least one single pid. */
+			/* pids is now big enough to hold at least
+			 * one single pid. */
 		
 			pids [count++] = procinfo [k].pi_pid;
-
+			
 			total++;
 		}	
 	}
 
-	/* count is only zero if an error occured (eg. the server is not suid root). */
+	/* count is only zero if an error occured
+	 * (eg. the server is not suid root). */
 
 	if (!count) return NULL;
 
-	/* The following call to glibtop_realloc will be equivalent to
-	 * glibtop_malloc if pids_chain is NULL. We just calculate the
-	 * new size and copy pids to the beginning of the newly allocated
+	/* The following call to glibtop_realloc () will be equivalent to
+	 * glibtop_malloc () if `pids_chain' is NULL. We just calculate the
+	 * new size and copy `pids' to the beginning of the newly allocated
 	 * block. */
 	
 	new_size = pids_size + count * sizeof (unsigned);
@@ -141,8 +147,8 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf)
 	
 	pids_offset += BLOCK_COUNT;
 
-	/* Since everything is ok now, we can set buf->flags, fill in the remaining fields
-	   and return pids_chain. */
+	/* Since everything is ok now, we can set buf->flags, fill in the
+	 * remaining fields and return `pids_chain'. */
 
 	buf->flags = _glibtop_sysdeps_proclist;
 
