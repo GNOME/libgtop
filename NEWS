@@ -1,3 +1,9 @@
+February 28, 2005: Overview of Changes from 2.9.90 to 2.9.92
+============================================================
+* *BSD updated by marcus@freebsd.org (Joe Marcus Clarke).
+* Removed a lot of dead files :)
+* Don't build&install libgtop_daemon when it's never used.
+
 February 6, 2004: Overview of Changes from 2.9.90 to 2.9.91
 ==========================================================
 * Fixed typo in stub.
