@@ -1,5 +1,19 @@
 1999-11-28  Martin Baulig  <martin@home-of-linux.org>
 
+	Split netload into netload and netinfo.
+
+	* include/glibtop/netinfo.h: New file.
+
+	* include/glibtop/netload.h (glibtop_netload): Moved `if_flags',
+	`mtu', `subnet' and `address' into the new `glibtop_netinfo'.
+
+	* include/glibtop/sysdeps.h (GLIBTOP_SYSDEPS_NETINFO): Added.
+	(glibtop_sysdeps): Added `netinfo.
+	* include/glibtop/union.h (glibtop_union): Added `netinfo.
+	* include/glibtop/command.h (GLIBTOP_CMND_NETINFO): Added.
+
+1999-11-28  Martin Baulig  <martin@home-of-linux.org>
+
 	* include/glibtop/interfaces.h (glibtop_get_interface_names):
 	Added `instance' argument.
 

@@ -23,48 +23,31 @@
    Boston, MA 02111-1307, USA.
  */
 
-#include <glibtop/netload.h>
+#include <glibtop/netinfo.h>
 
-const char *glibtop_names_netload[GLIBTOP_MAX_NETLOAD] =
+const char *glibtop_names_netinfo[GLIBTOP_MAX_NETINFO] =
 {
-    "packets_in", "packets_out", "packets_total",
-    "bytes_in", "bytes_out", "bytes_total",
-    "errors_in", "errors_out", "errors_total",
-    "collisions"
+    "if_flags", "mtu", "subnet", "address"
 };
 
-const unsigned glibtop_types_netload[GLIBTOP_MAX_NETLOAD] =
+const unsigned glibtop_types_netinfo[GLIBTOP_MAX_NETINFO] =
 {
-    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
     GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
     GLIBTOP_TYPE_ULONG
 };
 
-const char *glibtop_labels_netload[GLIBTOP_MAX_NETLOAD] =
+const char *glibtop_labels_netinfo[GLIBTOP_MAX_NETINFO] =
 {
-    N_ ("Packets In"),
-    N_ ("Packets Out"),
-    N_ ("Packets Total"),
-    N_ ("Bytes In"),
-    N_ ("Bytes Out"),
-    N_ ("Bytes Total"),
-    N_ ("Errors In"),
-    N_ ("Errors Out"),
-    N_ ("Errors Total"),
-    N_ ("Collisions")
+    N_ ("Interface Flags"),
+    N_ ("MTU"),
+    N_ ("Subnet"),
+    N_ ("Address"),
 };
 
-const char *glibtop_descriptions_netload[GLIBTOP_MAX_NETLOAD] =
+const char *glibtop_descriptions_netinfo[GLIBTOP_MAX_NETINFO] =
 {
-    N_ ("Packets In"),
-    N_ ("Packets Out"),
-    N_ ("Packets Total"),
-    N_ ("Bytes In"),
-    N_ ("Bytes Out"),
-    N_ ("Bytes Total"),
-    N_ ("Errors In"),
-    N_ ("Errors Out"),
-    N_ ("Errors Total"),
-    N_ ("Collisions")
+    N_ ("Interface Flags"),
+    N_ ("Maximum Transfer Unit"),
+    N_ ("Subnet"),
+    N_ ("Address"),
 };

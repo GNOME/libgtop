@@ -50,6 +50,7 @@
 #include <glibtop/fsusage.h>
 
 #include <glibtop/netload.h>
+#include <glibtop/netinfo.h>
 #include <glibtop/interfaces.h>
 #include <glibtop/ppp.h>
 
@@ -79,8 +80,9 @@ union _glibtop_union
     glibtop_proc_map		proc_map;
     glibtop_mountlist		mountlist;
     glibtop_fsusage		fsusage;
-    glibtop_netload		netload;
     glibtop_interface_names	interface_names;
+    glibtop_netinfo		netinfo;
+    glibtop_netload		netload;
     glibtop_ppp			ppp;
 };
 

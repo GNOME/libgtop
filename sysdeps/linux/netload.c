@@ -55,11 +55,6 @@ static const unsigned long _glibtop_sysdeps_netload =
 (1L << GLIBTOP_NETLOAD_ERRORS_OUT) +
 (1L << GLIBTOP_NETLOAD_COLLISIONS);
 
-static const unsigned long _glibtop_sysdeps_netload_data =
-(1L << GLIBTOP_NETLOAD_ADDRESS) +
-(1L << GLIBTOP_NETLOAD_SUBNET) +
-(1L << GLIBTOP_NETLOAD_MTU);
-
 static const unsigned long _glibtop_sysdeps_netload_bytes =
 (1L << GLIBTOP_NETLOAD_BYTES_IN) +
 (1L << GLIBTOP_NETLOAD_BYTES_OUT) +
@@ -92,7 +87,6 @@ int
 glibtop_init_netload_s (glibtop *server)
 {
     server->sysdeps.netload = _glibtop_sysdeps_netload |
-	_glibtop_sysdeps_netload_data |
 	_glibtop_sysdeps_netload_bytes |
 	_glibtop_sysdeps_netload_packets;
 
@@ -106,77 +100,10 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 		       const char *interface)
 {
     char buffer [BUFSIZ], *p;
-    int have_bytes, fields, skfd;
+    int have_bytes, fields;
     FILE *f;
 
     memset (buf, 0, sizeof (glibtop_netload));
-
-    skfd = socket (AF_INET, SOCK_DGRAM, 0);
-    if (skfd) {
-	struct ifreq ifr;
-	unsigned flags;
-
-	strcpy (ifr.ifr_name, interface);
-	if (!ioctl (skfd, SIOCGIFFLAGS, &ifr)) {
-	    buf->flags |= (1L << GLIBTOP_NETLOAD_IF_FLAGS);
-	    flags = ifr.ifr_flags;
-	} else
-	    flags = 0;
-
-	if (flags & IFF_UP)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_UP);
-
-	if (flags & IFF_BROADCAST)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_BROADCAST);
-
-	if (flags & IFF_DEBUG)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_DEBUG);
-
-	if (flags & IFF_LOOPBACK)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_LOOPBACK);
-
-	if (flags & IFF_POINTOPOINT)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_POINTOPOINT);
-
-	if (flags & IFF_RUNNING)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_RUNNING);
-
-	if (flags & IFF_NOARP)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_NOARP);
-
-	if (flags & IFF_PROMISC)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_PROMISC);
-
-	if (flags & IFF_ALLMULTI)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_ALLMULTI);
-
-	if (flags & IFF_MULTICAST)
-	    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_MULTICAST);
-
-	strcpy (ifr.ifr_name, interface);
-	if (!ioctl (skfd, SIOCGIFADDR, &ifr)) {
-	    struct sockaddr_in addr =
-		*(struct sockaddr_in *) &ifr.ifr_addr;
-	    buf->address = addr.sin_addr.s_addr;
-	    buf->flags |= (1L << GLIBTOP_NETLOAD_ADDRESS);
-	}
-
-	strcpy (ifr.ifr_name, interface);
-	if (!ioctl (skfd, SIOCGIFNETMASK, &ifr)) {
-	    struct sockaddr_in addr =
-		*(struct sockaddr_in *) &ifr.ifr_addr;
-	    buf->subnet = addr.sin_addr.s_addr;
-	    buf->flags |= (1L << GLIBTOP_NETLOAD_SUBNET);
-	}
-
-	strcpy (ifr.ifr_name, interface);
-	if (!ioctl (skfd, SIOCGIFMTU, &ifr)) {
-	    buf->mtu = ifr.ifr_mtu;
-	    buf->flags |= (1L << GLIBTOP_NETLOAD_MTU);
-	}
-
-	close (skfd);
-    }
 
     /* Linux 2.1.114 - don't know where exactly this was added, but
 	 * recent kernels have byte count in /proc/net/dev so we don't

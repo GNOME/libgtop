@@ -231,6 +231,12 @@ handle_parent_connection (int s)
 		(server, &resp->u.data.ppp, device);
 	    do_output (s, resp, _offset_data (ppp), 0, NULL, retval);
 	    break;
+	case GLIBTOP_CMND_NETINFO:
+	    retval = glibtop_get_netinfo_l
+		(server, &resp->u.data.netinfo, parameter);
+	    do_output (s, resp, _offset_data (netinfo),
+		       0, NULL, retval);
+	    break;
 	case GLIBTOP_CMND_NETLOAD:
 	    retval = glibtop_get_netload_l
 		(server, &resp->u.data.netload, parameter);

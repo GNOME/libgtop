@@ -263,6 +263,12 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 		resp->offset = _offset_data (proc_segment);
 		break;
 #endif
+#if GLIBTOP_SUID_NETINFO
+	case GLIBTOP_CMND_NETINFO:
+		retval = glibtop_get_netinfo_p (server, &resp->u.data.netinfo, parameter);
+		resp->offset = _offset_data (netload);
+		break;
+#endif
 #if GLIBTOP_SUID_NETLOAD
 	case GLIBTOP_CMND_NETLOAD:
 		retval = glibtop_get_netload_p (server, &resp->u.data.netload, parameter);

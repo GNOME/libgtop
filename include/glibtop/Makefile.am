@@ -8,4 +8,4 @@ glibtop_HEADERS		= close.h loadavg.h prockernel.h procstate.h \
 			  procsignal.h read_data.h union.h types.h gnuserv.h \
 			  parameter.h mountlist.h fsusage.h procmap.h signal.h \
 			  inodedb.h sysinfo.h ppp.h procargs.h netload.h \
-			  interfaces.h limits.h
+			  netinfo.h interfaces.h limits.h
