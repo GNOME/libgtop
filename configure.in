@@ -115,13 +115,13 @@ AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 GNOME_LIBGTOP_SYSDEPS
 GNOME_LIBGTOP_TYPES
 
-AC_ARG_WITH(libgtop-guile,
-[  --with-libgtop-guile    Build the libgtop guile interface (default=no)],
-[build_guile="$withval"], [build_guile=yes])
+dnl AC_ARG_WITH(libgtop-guile,
+dnl [  --with-libgtop-guile    Build the libgtop guile interface (default=no)],
+dnl [build_guile="$withval"], [build_guile=yes])
 
-if test x$build_guile != xno ; then
-  GNOME_CHECK_GUILE
-fi
+dnl if test x$build_guile != xno ; then
+dnl  GNOME_CHECK_GUILE
+dnl fi
 
 AC_ARG_WITH(libgtop-inodedb,
 [  --with-libgtop-inodedb  Build the inodedb stuff (default=no)],

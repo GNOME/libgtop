@@ -1,8 +1,8 @@
-if GUILE
-guile_SUBDIRS		= guile
-else
+## if GUILE
+## guile_SUBDIRS		= guile
+## else
 guile_SUBDIRS		=
-endif
+## endif
 
 SUBDIRS			= @sysdeps_dir@ common names $(guile_SUBDIRS)
 

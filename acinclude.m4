@@ -1,3 +1,95 @@
+dnl This is just copied m4s from need-declaration.m4 gnome-fileutils.m4
+dnl gnome-supprt-checks.m4 and a little from gnome-libgtop-check.m4
+dnl
+
+dnl
+dnl LIBGTOP_CHECK_TYPE
+dnl
+dnl Improved version of AC_CHECK_TYPE which takes into account
+dnl that we need to #include some other header files on some
+dnl systems to get some types.
+
+dnl AC_LIBGTOP_CHECK_TYPE(TYPE, DEFAULT)
+AC_DEFUN([AC_LIBGTOP_CHECK_TYPE],
+[AC_REQUIRE([AC_HEADER_STDC])dnl
+AC_MSG_CHECKING(for $1)
+AC_CACHE_VAL(ac_cv_type_$1,
+[AC_EGREP_CPP(dnl
+changequote(<<,>>)dnl
+<<(^|[^a-zA-Z_0-9])$1[^a-zA-Z_0-9]>>dnl
+changequote([,]), [#include <sys/types.h>
+#if STDC_HEADERS
+#include <stdlib.h>
+#include <stddef.h>
+#endif
+
+/* For Tru64 */
+#ifdef HAVE_SYS_BITYPES_H
+#include <sys/bitypes.h>
+#endif
+], ac_cv_type_$1=yes, ac_cv_type_$1=no)])dnl
+AC_MSG_RESULT($ac_cv_type_$1)
+if test $ac_cv_type_$1 = no; then
+  AC_DEFINE($1, $2)
+fi
+])
+
+dnl
+dnl GNOME_LIBGTOP_TYPES
+dnl
+dnl some typechecks for libgtop.
+dnl
+
+AC_DEFUN([GNOME_LIBGTOP_TYPES],
+[
+        AC_CHECK_HEADERS(sys/bitypes.h)
+        AC_LIBGTOP_CHECK_TYPE(u_int64_t, unsigned long long int)
+        AC_LIBGTOP_CHECK_TYPE(int64_t, signed long long int)
+])
+
+dnl See whether we need a declaration for a function.
+dnl GCC_NEED_DECLARATION(FUNCTION [, EXTRA-HEADER-FILES])
+AC_DEFUN([GCC_NEED_DECLARATION],
+[AC_MSG_CHECKING([whether $1 must be declared])
+AC_CACHE_VAL(gcc_cv_decl_needed_$1,
+[AC_TRY_COMPILE([
+#include <stdio.h>
+#ifdef HAVE_STRING_H
+#include <string.h>
+#else
+#ifdef HAVE_STRINGS_H
+#include <strings.h>
+#endif
+#endif
+#ifdef HAVE_STDLIB_H
+#include <stdlib.h>
+#endif
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+$2],
+[char *(*pfn) = (char *(*)) $1],
+eval "gcc_cv_decl_needed_$1=no", eval "gcc_cv_decl_needed_$1=yes")])
+if eval "test \"`echo '$gcc_cv_decl_needed_'$1`\" = yes"; then
+  AC_MSG_RESULT(yes)
+  gcc_need_declarations="$gcc_need_declarations $1"
+  gcc_tr_decl=NEED_DECLARATION_`echo $1 | tr 'abcdefghijklmnopqrstuvwxyz' 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'`
+  AC_DEFINE_UNQUOTED($gcc_tr_decl)
+else
+  AC_MSG_RESULT(no)
+fi
+])dnl
+
+dnl Check multiple functions to see whether each needs a declaration.
+dnl GCC_NEED_DECLARATIONS(FUNCTION... [, EXTRA-HEADER-FILES])
+AC_DEFUN([GCC_NEED_DECLARATIONS],
+[for ac_func in $1
+do
+GCC_NEED_DECLARATION($ac_func, $2)
+done
+]
+)
+
 dnl
 dnl GNOME_FILEUTILS_CHECKS
 dnl
@@ -5,7 +97,7 @@ dnl checks that are needed for the diskusage applet.
 dnl
 
 AC_DEFUN([GNOME_FILEUTILS_CHECKS],
-[	
+[
 AC_CHECK_HEADERS(fcntl.h sys/param.h sys/statfs.h sys/fstyp.h \
 mnttab.h mntent.h sys/statvfs.h sys/vfs.h sys/mount.h \
 sys/filsys.h sys/fs_types.h sys/fs/s5param.h)
@@ -17,21 +109,21 @@ listmntent memcpy mkfifo strchr strerror strrchr vprintf)
 dnl Set some defaults when cross-compiling
 
 if test x$cross_compiling = xyes ; then
-	case "$host_os" in
-	linux*)
-	  fu_cv_sys_mounted_getmntent1=yes
-	  fu_cv_sys_stat_statfs2_bsize=yes
-	  ;;
-	sunos*)
-	  fu_cv_sys_stat_statfs4=yes
-	  ;;
-	freebsd*)
-	  fu_cv_sys_stat_statfs2_bsize=yes
-	  ;;
-	osf*)
-	  fu_cv_sys_stat_statfs3_osf1=yes
-	  ;;
-	esac
+        case "$host_os" in
+        linux*)
+          fu_cv_sys_mounted_getmntent1=yes
+          fu_cv_sys_stat_statfs2_bsize=yes
+          ;;
+        sunos*)
+          fu_cv_sys_stat_statfs4=yes
+          ;;
+        freebsd*)
+          fu_cv_sys_stat_statfs2_bsize=yes
+          ;;
+        osf*)
+          fu_cv_sys_stat_statfs3_osf1=yes
+          ;;
+        esac
 fi
 
 # Determine how to get the list of mounted filesystems.
@@ -216,7 +308,7 @@ fi
 if test -z "$list_mounted_fs"; then
 AC_MSG_ERROR([could not determine how to read list of mounted filesystems])
 # FIXME -- no need to abort building the whole package
-# Can't build mountlist.c or anything that needs its functions
+# Cannot build mountlist.c or anything that needs its functions
 fi
 
 AC_CHECKING(how to get filesystem space usage)
@@ -250,11 +342,11 @@ AC_CACHE_VAL(fu_cv_sys_stat_statfs3_osf1,
 #include <sys/param.h>
 #include <sys/types.h>
 #include <sys/mount.h>
-main ()
+int main ()
 {
 struct statfs fsd;
 fsd.f_fsize = 0;
-exit (statfs (".", &fsd, sizeof (struct statfs)));
+return (statfs (".", &fsd, sizeof (struct statfs)));
 }],
 fu_cv_sys_stat_statfs3_osf1=yes,
 fu_cv_sys_stat_statfs3_osf1=no,
@@ -281,11 +373,11 @@ AC_CACHE_VAL(fu_cv_sys_stat_statfs2_bsize,
 #ifdef HAVE_SYS_VFS_H
 #include <sys/vfs.h>
 #endif
-main ()
+int main ()
 {
 struct statfs fsd;
 fsd.f_bsize = 0;
-exit (statfs (".", &fsd));
+return (statfs (".", &fsd));
 }],
 fu_cv_sys_stat_statfs2_bsize=yes,
 fu_cv_sys_stat_statfs2_bsize=no,
@@ -303,10 +395,10 @@ AC_MSG_CHECKING([for four-argument statfs (AIX-3.2.5, SVR3)])
 AC_CACHE_VAL(fu_cv_sys_stat_statfs4,
 [AC_TRY_RUN([#include <sys/types.h>
 #include <sys/statfs.h>
-main ()
+int main ()
 {
 struct statfs fsd;
-exit (statfs (".", &fsd, sizeof fsd, 0));
+return (statfs (".", &fsd, sizeof fsd, 0));
 }],
 fu_cv_sys_stat_statfs4=yes,
 fu_cv_sys_stat_statfs4=no,
@@ -330,11 +422,11 @@ AC_CACHE_VAL(fu_cv_sys_stat_statfs2_fsize,
 #ifdef HAVE_SYS_MOUNT_H
 #include <sys/mount.h>
 #endif
-main ()
+int main ()
 {
 struct statfs fsd;
 fsd.f_fsize = 0;
-exit (statfs (".", &fsd));
+return (statfs (".", &fsd));
 }],
 fu_cv_sys_stat_statfs2_fsize=yes,
 fu_cv_sys_stat_statfs2_fsize=no,
@@ -360,12 +452,12 @@ AC_CACHE_VAL(fu_cv_sys_stat_fs_data,
 #ifdef HAVE_SYS_FS_TYPES_H
 #include <sys/fs_types.h>
 #endif
-main ()
+int main ()
 {
 struct fs_data fsd;
 /* Ultrix's statfs returns 1 for success,
 0 for not mounted, -1 for failure.  */
-exit (statfs (".", &fsd) != 1);
+return (statfs (".", &fsd) != 1);
 }],
 fu_cv_sys_stat_fs_data=yes,
 fu_cv_sys_stat_fs_data=no,
@@ -412,3 +504,73 @@ AC_MSG_RESULT($fu_cv_sys_truncating_statfs)
 AC_CHECKING(for AFS)
 test -d /afs && AC_DEFINE(AFS)
 ])
+
+dnl GNOME_SUPPORT_CHECKS 
+dnl    Check for various support functions needed by the standard
+dnl    Gnome libraries.  Sets LIBOBJS, might define some macros.
+dnl    This should only be used when building the Gnome libs;
+dnl    Gnome clients should not need this macro.
+AC_DEFUN([GNOME_SUPPORT_CHECKS],[
+  # we need an `awk' to build `gnomesupport.h'
+  AC_REQUIRE([AC_PROG_AWK])
+
+  # this should go away soon
+  need_gnome_support=yes
+
+  save_LIBOBJS="$LIBOBJS"
+  LIBOBJS=
+
+  AC_CHECK_FUNCS(getopt_long,,LIBOBJS="$LIBOBJS getopt.o getopt1.o")
+  
+  # for `scandir'
+  AC_HEADER_DIRENT
+
+  # copied from `configure.in' of `libiberty'
+  vars="program_invocation_short_name program_invocation_name sys_errlist"
+  for v in $vars; do
+    AC_MSG_CHECKING([for $v])
+    AC_CACHE_VAL(gnome_cv_var_$v,
+      [AC_TRY_LINK([int *p;], [extern int $v; p = &$v;],
+                   [eval "gnome_cv_var_$v=yes"],
+                   [eval "gnome_cv_var_$v=no"])])
+    if eval "test \"`echo '$gnome_cv_var_'$v`\" = yes"; then
+      AC_MSG_RESULT(yes)
+      n=HAVE_`echo $v | tr 'abcdefghijklmnopqrstuvwxyz' 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'`
+      AC_DEFINE_UNQUOTED($n)
+    else 
+      AC_MSG_RESULT(no)
+    fi
+  done
+  
+  AC_REPLACE_FUNCS(memmove mkstemp scandir strcasecmp strerror strndup strnlen)
+  AC_REPLACE_FUNCS(strtok_r strtod strtol strtoul vasprintf vsnprintf)
+  
+  AC_CHECK_FUNCS(realpath,,LIBOBJS="$LIBOBJS canonicalize.o")
+
+  # to include `error.c' error.c has some HAVE_* checks
+  AC_CHECK_FUNCS(vprintf doprnt strerror_r)
+  AM_FUNC_ERROR_AT_LINE
+
+  # This is required if we declare setreuid () and setregid ().
+  AC_TYPE_UID_T
+
+  # see if we need to declare some functions.  Solaris is notorious for
+  # putting functions into the `libc' but not listing them in the headers
+  AC_CHECK_HEADERS(string.h strings.h stdlib.h unistd.h dirent.h)
+  GCC_NEED_DECLARATIONS(gethostname setreuid setregid getpagesize)
+  GCC_NEED_DECLARATION(scandir,[
+#ifdef HAVE_DIRENT_H
+#include <dirent.h>
+#endif
+])
+
+  # Turn our LIBOBJS into libtool objects.  This is gross, but it
+  # requires changes to autoconf before it goes away.
+  LTLIBOBJS=`echo "$LIBOBJS" | sed 's/\.o/.lo/g'`
+  AC_SUBST(need_gnome_support)
+  AC_SUBST(LTLIBOBJS)
+
+  LIBOBJS="$save_LIBOBJS"
+  AM_CONDITIONAL(BUILD_GNOME_SUPPORT, test "$need_gnome_support" = yes)
+])  
+  

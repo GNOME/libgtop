@@ -19,7 +19,7 @@ libgtopincludedir = $(includedir)/libgtop-2.0
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt libgtopConf.sh.in \
 	LIBGTOP-VERSION features.def libgtop-config.in RELNOTES-0.25 \
 	RELNOTES-1.0 RELNOTES-1.0.x libgtop-sysdeps.m4 README \
-	libgtop-mirror.sh libgtop-2.0.pc.in
+	libgtop-mirror.sh libgtop-2.0.pc.in acinclude.m4
 
 dist-hook:
 	cp libgtop.spec $(distdir)
