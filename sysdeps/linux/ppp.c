@@ -25,7 +25,6 @@
 #include <glibtop/error.h>
 #include <glibtop/ppp.h>
 
-#include <linux/isdn.h>
 #include <sys/ioctl.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -33,6 +32,13 @@
 #include <ctype.h>
 
 #include <glib.h>
+
+#ifndef ISDN_MAX_CHANNELS
+#define ISDN_MAX_CHANNELS 64
+#endif
+#ifndef IIOCGETCPS
+#define IIOCGETCPS  _IO('I',21)
+#endif
 
 static const unsigned long _glibtop_sysdeps_ppp =
 (1L << GLIBTOP_PPP_STATE) + (1L << GLIBTOP_PPP_BYTES_IN) +
