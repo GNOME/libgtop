@@ -1,5 +1,9 @@
 2004-04-07  Bastien Nocera  <hadess@hadess.net>
 
+	* configure.in: version 2.6.0
+
+2004-04-07  Bastien Nocera  <hadess@hadess.net>
+
 	* include/glibtop/fsusage.h: fix typo in the #defines for
 	FSUSAGE_BLOCK_SIZE (patch by Benoît Dejean <TazForEver@free.fr>)
 
