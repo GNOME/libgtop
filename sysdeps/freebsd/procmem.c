@@ -164,7 +164,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 		}
 
 #ifdef __FreeBSD__
-		if (entry.eflags & (MAP_ENTRY_IS_A_MAP|MAP_ENTRY_IS_SUB_MAP))
+		if (entry.eflags & MAP_ENTRY_IS_SUB_MAP)
 			continue;
 #else
 		if (entry.is_a_map || entry.is_sub_map)
