@@ -41,7 +41,10 @@
 
 #include <unistd.h>
 #include <fcntl.h>
+
+#ifdef __FreeBSD__
 #include <osreldate.h>
+#endif
 
 static const unsigned long _glibtop_sysdeps_proc_kernel_pstats =
 (1 << GLIBTOP_PROC_KERNEL_MIN_FLT) +

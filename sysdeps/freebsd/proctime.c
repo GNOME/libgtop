@@ -21,12 +21,15 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <osreldate.h>
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/proctime.h>
 
 #include <glibtop_suid.h>
+
+#ifdef __FreeBSD__
+#include <osreldate.h>
+#endif
 
 static const unsigned long _glibtop_sysdeps_proc_time =
 (1 << GLIBTOP_PROC_TIME_RTIME) + (1 << GLIBTOP_PROC_TIME_FREQUENCY);
