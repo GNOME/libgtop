@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.0.4\n"
-"POT-Creation-Date: 1999-09-16 23:16+0200\n"
+"POT-Creation-Date: 1999-09-29 01:00+0200\n"
 "PO-Revision-Date: 1999-10-09 23:45+0200\n"
 "Last-Translator: Jesus Bravo Alvarez <jba@pobox.com>\n"
 "Language-Team: Galician <gpul-traduccion@ceu.fi.udc.es>\n"
@@ -305,12 +305,11 @@ msgid ""
 msgstr ""
 "Bandeiras do núcleo para o proceso.\n"
 "\n"
-"En Linux, actualmente tódalas bandeiras teñen o bit 'math' activado, xa "
-"que crt0.s busca emulación matemática, polo que este bit non aparece na "
-"saída.\n"
+"En Linux, actualmente tódalas bandeiras teñen o bit 'math' activado, xa que "
+"crt0.s busca emulación matemática, polo que este bit non aparece na saída.\n"
 "\n"
-"Isto é probablemente un erro, xa que non tódolos procesos son programas en "
-"C compilados.\n"
+"Isto é probablemente un erro, xa que non tódolos procesos son programas en C "
+"compilados.\n"
 "\n"
 "O bit 'math' debería ser un 4 decimal, e o bit rastrexado é un 10 decimal."
 
@@ -366,8 +365,8 @@ msgid ""
 msgstr ""
 "Isto é o \"canal\" no que o proceso está a esperar.  Esta é a dirección "
 "cunha chamada ó sistema, e pode ser consultada nunha lista de nomes se "
-"necesita un nome textual.  (Se ten un /etc/psdatabase actualizado, probe "
-"ps -l para mira-lo campo WCHAN en acción)"
+"necesita un nome textual.  (Se ten un /etc/psdatabase actualizado, probe ps "
+"-l para mira-lo campo WCHAN en acción)"
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
@@ -834,14 +833,14 @@ msgstr "Páxinas Saíntes"
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
 msgstr ""
-"Número total de páxinas de swap que foron cargadas na memoria dende o "
-"inicio do sistema"
+"Número total de páxinas de swap que foron cargadas na memoria dende o inicio "
+"do sistema"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
 msgstr ""
-"Número total de páxinas de swap que foron gardadas no disco dende o "
-"inicio do sistema"
+"Número total de páxinas de swap que foron gardadas no disco dende o inicio "
+"do sistema"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
@@ -958,8 +957,8 @@ msgstr "Tempo en segundos dende o inicio do sistema"
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr ""
-"Tempo en segundos empregado polo sistema en tarefas inactivas dende o "
-"inicio do sistema"
+"Tempo en segundos empregado polo sistema en tarefas inactivas dende o inicio "
+"do sistema"
 
 #: support/error.c:109
 msgid "Unknown system error"
