@@ -2,10 +2,11 @@
 @chapter LibGTop White Paper
 
 @menu
-* Introduction::                
+* Introduction::                Introduction
+* Overview::                    Overview
 @end menu
 
-@node Introduction,  , White Paper, White Paper
+@node Introduction, Overview, White Paper, White Paper
 @section Introduction
 
 Many modern UNIX systems like Solaris, BSD or Digitial Unix only allow
@@ -45,3 +46,45 @@ some kind of library which provides all the required information in a portable
 since there's more than just one single program that wants to use them - for
 instance @code{gtop} and the @code{multiload}, @code{cpumemusage} and
 @code{netload} panel applets.
+
+@node Overview,  , Introduction, White Paper
+@section Overview
+
+This section should give you a short overview on how LibGTop was developed, which
+things needed to be considered and how it works.
+
+@menu
+* Interface Design::            Things that need to be considered
+* Server Implementation::       The LibGTop "server"
+@end menu
+
+@node Interface Design, Server Implementation, Overview, Overview
+@subsection Interface Design
+
+At the very beginning, it was necessary to collect all the data the library part
+should provide and put them into some C structures. This was not that easiy as it
+might sound since LibGTop should be portable to any modern UNIX system with a common
+library part on all those systems, but the data that should be returned vary from
+system to system. For instance some systems support shared memory, but some others
+may not.
+
+The header files where we define these C structures (which are system-independent) are
+shared between client and server. This way we can call the system dependent code
+directly where we do not need any special privileges to do so.
+
+All of those structures contain a @code{flags} member which is interpreted as a bit
+mask and tells the caller of the library functions which of the fields in the returned
+structure are valid and which are not.
+
+@node Server Implementation,  , Interface Design, Overview
+@subsection Server Implementation
+
+The LibGTop @dfn{server} is a setgid/setuid binary which contains all the system
+dependent code which needs special privileges. It is only build if it's required
+on the current system (for instance, the Linux kernel provides all the required
+data via its @file{/proc} filesystem so we do not need the server at all) and it
+only contains the @dfn{features} which need privileges.
+
+Whenever we do not need any privileges to get all the data for some of the requested
+structures (here called @dfn{features}) the library calls the sysdeps code directly
+rather than using the server.

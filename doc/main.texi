@@ -11,6 +11,11 @@
 
 
 
+
+
+
+
+
  --- The Detailed Node Listing ---
 
 About LibGTop
@@ -22,7 +27,13 @@ About LibGTop
 
 LibGTop White Paper
 
-* Introduction::                
+* Introduction::                Introduction
+* Overview::                    Overview
+
+Overview
+
+* Interface Design::            Things that need to be considered
+* Server Implementation::       The LibGTop "server"
 
 LibGTop Reference Manual
 
