@@ -1,0 +1,4 @@
+texinfo.tex
+*.info
+Makefile.in
+Makefile
