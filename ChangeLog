@@ -1,3 +1,8 @@
+1999-05-13  Martin Baulig  <martin@home-of-linux.org>
+
+	* libgtop-sysdeps.m4 (GLIBTOP_SOLARIS_RELEASE): Define this on Solaris;
+	we use version codes like 270 for SunOS 5.7 and 251 for SunOS 2.5.1.
+
 1999-05-12  Martin Baulig  <martin@home-of-linux.org>
 
 	* glibtop-config.h: This is a new generated file which will be
