@@ -43,6 +43,7 @@
 
 #include <fcntl.h>
 #include <sys/wait.h>
+#include <sys/socket.h>
 
 #ifdef AIX
 #include <sys/select.h>
@@ -480,7 +481,7 @@ handle_unix_request (int ls)
 
 #endif /* UNIX_DOMAIN_SOCKETS */
 
-void
+static void
 handle_signal (int sig)
 {
 	fprintf (stderr, "Catched signal %d.\n", sig);
@@ -521,8 +522,11 @@ main (int argc, char *argv [])
 
 		/* Temporarily drop our priviledges. */
 
+#ifdef DEBUG
 		fprintf (stderr, "Child ID: (%d, %d) - (%d, %d)\n",
-			 getuid (), geteuid (), getgid (), getegid ());
+			 (int) getuid (), (int) geteuid (),
+			 (int) getgid (), (int) getegid ());
+#endif
 
 		if (setreuid (geteuid (), getuid ()))
 			glibtop_error_io ("setreuid (euid <-> uid)");
@@ -530,8 +534,11 @@ main (int argc, char *argv [])
 		if (setregid (getegid (), getgid ()))
 			glibtop_error_io ("setregid (egid <-> gid)");
 		
+#ifdef DEBUG
 		fprintf (stderr, "Child ID: (%d, %d) - (%d, %d)\n",
-			 getuid (), geteuid (), getgid (), getegid ());
+			 (int) getuid (), (int) geteuid (),
+			 (int) getgid (), (int) getegid ());
+#endif
 
 #ifdef UNIX_DOMAIN_SOCKETS
 		/* get a unix domain socket to listen on. */

@@ -41,18 +41,18 @@ glibtop_send_version (glibtop *server, int fd)
 	fprintf (stderr, "SERVER ID: |%s|\n", buffer);
 
 	if (fd == 0) {
-		if (write (1, &size, sizeof (size)) < 0)
+		if (write (1, (const void *) &size, sizeof (size)) < 0)
 			glibtop_warn_io_r (server, "write");
 	} else {
-		if (send (fd, &size, sizeof (size), 0) < 0)
+		if (send (fd, (const void *) &size, sizeof (size), 0) < 0)
 			glibtop_warn_io_r (server, "send");
 	}
 
 	if (fd == 0) {
-		if (write (1, buffer, size) < 0)
+		if (write (1, (const void *) buffer, size) < 0)
 			glibtop_warn_io_r (server, "write");
 	} else {
-		if (send (fd, buffer, size, 0) < 0)
+		if (send (fd, (const void *) buffer, size, 0) < 0)
 			glibtop_warn_io_r (server, "send");
 	}
 }
