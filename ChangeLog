@@ -1,3 +1,8 @@
+2000-02-27  Martin Baulig  <martin@home-of-linux.org>
+
+	* libgtop-sysdeps.m4 (libgtop_have_sysdeps): Set this to "no" for
+	all systems until I made up my mind how this'll work in future.
+
 2000-02-24  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/error.h (glibtop_error_r, glibtop_warn_r): Moved

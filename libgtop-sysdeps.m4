@@ -77,7 +77,7 @@ AC_DEFUN([LIBGTOP_CHECK_SYSDEPS_DIR],[
 	linux*)
 	  libgtop_sysdeps_dir=linux
 	  libgtop_use_machine_h=no
-	  libgtop_have_sysinfo=yes
+	  libgtop_have_sysinfo=no
 	  libgtop_need_server=no
 	  libgtop_have_sysdeps=yes
 	  libgtop_dynlink_ok=yes
@@ -294,7 +294,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  linux|kernel)
 	    libgtop_sysdeps_dir=linux
 	    libgtop_use_machine_h=no
-	    libgtop_have_sysinfo=yes
+	    libgtop_have_sysinfo=no
 	    libgtop_need_server=no
 	    libgtop_have_sysdeps=yes
 	    libgtop_dynlink_ok=yes
