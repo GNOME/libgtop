@@ -29,10 +29,20 @@
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
 
+#include <math.h>
+
 static void
 output (pid_t pid)
 {
 	glibtop_union data;
+#if HAVE_LIBGTOP_SMP
+	unsigned long total;
+	double p_total, p_utime, p_stime;
+	double b_total, b_utime, b_stime;
+	double s_total, s_utime, s_stime;
+	double my_utime, my_stime;
+	int ncpu, i;
+#endif
 
 	printf ("\n");
 		
@@ -124,6 +134,81 @@ output (pid_t pid)
 		data.proc_kernel.wchan);
 
 	printf ("\n");
+
+#if HAVE_LIBGTOP_SMP
+	ncpu = glibtop_global_server->ncpu;
+
+	glibtop_get_proc_time (&data.proc_time, pid);
+		
+	total = (unsigned long) data.proc_time.utime +
+		(unsigned long) data.proc_time.stime;
+
+	p_total = total ? (double) total : 1.0;
+
+	p_utime = (double) data.proc_time.utime * 100.0 / p_total;
+	p_stime = (double) data.proc_time.stime * 100.0 / p_total;
+
+	b_total = p_total / ncpu;
+	b_utime = (double) data.proc_time.utime / ncpu;
+	b_stime = (double) data.proc_time.stime / ncpu;
+
+	s_total = 0.0; s_utime = 0.0; s_stime = 0.0;
+
+	printf ("Proc_Time    PID  %5d (0x%08lx): %12lu   %12lu   %12lu\n", (int) pid,
+		(unsigned long) data.proc_time.flags, total,
+		(unsigned long) data.proc_time.utime,
+		(unsigned long) data.proc_time.stime);
+
+	for (i = 0; i < ncpu; i++) {
+		unsigned long this_total;
+
+		this_total = (unsigned long) data.proc_time.xcpu_utime [i] +
+			(unsigned long) data.proc_time.xcpu_stime [i];
+
+		printf ("CPU %3d      PID  %5d (0x%08lx): %12lu   %12lu   %12lu\n", i,
+			(int) pid, (unsigned long) data.proc_time.flags, this_total,
+			(unsigned long) data.proc_time.xcpu_utime [i],
+			(unsigned long) data.proc_time.xcpu_stime [i]);
+
+		s_total += fabs (((double) this_total) - b_total);
+		s_utime += fabs (((double) data.proc_time.xcpu_utime [i]) - b_utime);
+		s_stime += fabs (((double) data.proc_time.xcpu_stime [i]) - b_stime);
+	}
+
+	printf ("\n");
+
+	printf ("Proc_Time    PID  %5d (0x%08lx): %12.3f   %12.3f   %12.3f\n", (int) pid,
+		(unsigned long) data.proc_time.flags, 100.0, p_utime, p_stime);
+
+	for (i = 0; i < ncpu; i++) {
+		double this_p_total, this_p_utime, this_p_stime;
+		unsigned long this_total;
+
+		this_total = (unsigned long) data.proc_time.xcpu_utime [i] +
+			(unsigned long) data.proc_time.xcpu_stime [i];
+
+		this_p_total = (double) this_total * 100.0 / p_total;
+
+		this_p_utime = (double) data.proc_time.xcpu_utime [i] * 100.0 / p_total;
+		this_p_stime = (double) data.proc_time.xcpu_stime [i] * 100.0 / p_total;
+
+		printf ("CPU %3d      PID  %5d (0x%08lx): %12.3f   %12.3f   %12.3f\n", i,
+			(int) pid, (unsigned long) data.proc_time.flags,
+			this_p_total, this_p_utime, this_p_stime);
+	}
+
+	printf ("\n");
+
+	my_utime = (unsigned long) data.proc_time.utime ?
+		(double) data.proc_time.utime : 1.0;
+	my_stime = (unsigned long) data.proc_time.stime ?
+		(double) data.proc_time.stime : 1.0;
+
+	printf ("SPIN: %31s %12.3f   %12.3f   %12.3f\n", "", s_total * 100.0 / p_total,
+		s_utime * 100.0 / my_utime, s_stime * 100.0 / my_stime);
+
+	printf ("\n");
+#endif
 }
 
 int
@@ -190,3 +275,6 @@ main (int argc, char *argv [])
 
 	exit (0);
 }
+
+
+
