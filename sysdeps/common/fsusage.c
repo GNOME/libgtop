@@ -66,6 +66,11 @@ int statvfs ();
 #include <glibtop/error.h>
 #include <glibtop/fsusage.h>
 
+static const unsigned long _glibtop_sysdeps_fsusage =
+(1L << GLIBTOP_FSUSAGE_BLOCKS) + (1L << GLIBTOP_FSUSAGE_BFREE) +
+(1L << GLIBTOP_FSUSAGE_BAVAIL) + (1L << GLIBTOP_FSUSAGE_FILES) +
+(1L << GLIBTOP_FSUSAGE_FFREE);
+
 static int
 get_fs_usage (const char *path, const char *disk, struct fs_usage *fsp);
 
@@ -291,11 +296,15 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 	memset (buf, 0, sizeof (glibtop_fsusage));
 	
 	if (get_fs_usage (disk, disk, &fsp))
-		return;
+		return -1;
 
 	buf->blocks = fsp.fsu_blocks;
 	buf->bfree = fsp.fsu_bfree;
 	buf->bavail = fsp.fsu_bavail;
 	buf->files = fsp.fsu_files;
 	buf->ffree = fsp.fsu_ffree;
+
+	buf->flags = _glibtop_sysdeps_fsusage;
+
+	return 0;
 }

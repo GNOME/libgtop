@@ -1,5 +1,9 @@
 1999-10-24  Martin Baulig  <martin@home-of-linux.org>
 
+	* fsusage.c (_glibtop_sysdeps_fsusage): New static variable.
+	(glibtop_get_fsusage_s): Return -1 on error; otherwise set the
+	features and return 0.
+
 	* xmalloc.c: Use glib's malloc functions when compiled
 	with LIBGTOP_USE_GLIB_MALLOC.
 
