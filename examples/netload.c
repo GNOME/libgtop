@@ -43,7 +43,7 @@ int
 main (int argc, char *argv [])
 {
 	glibtop_netload netload;
-	unsigned method, count, port, i;
+	unsigned method, count, port;
 	struct in_addr addr, subnet;
 	char *address_string, *subnet_string;
 	char buffer [BUFSIZ];

@@ -38,9 +38,11 @@ static const unsigned long _glibtop_sysdeps_proc_uid_groups =
 #if LIBGTOP_VERSION_CODE >= 1001000
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
 (1L << GLIBTOP_PROC_UID_NGROUPS) + (1L << GLIBTOP_PROC_UID_GROUPS);
-#endif
 #else
-0;
+0L;
+#endif
+#else /* LIBGTOP_VERSION_CODE < 1001000 */
+0L;
 #endif
 
 /* Init function. */

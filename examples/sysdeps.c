@@ -38,7 +38,7 @@ int
 main (int argc, char *argv [])
 {
 	glibtop_sysdeps sysdeps;
-	unsigned method, count, port, i;
+	unsigned method, count, port;
 	char buffer [BUFSIZ];
 
 	count = PROFILE_COUNT;

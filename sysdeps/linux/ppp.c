@@ -31,6 +31,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+#include <ctype.h>
+
 #include <glib.h>
 
 static const unsigned long _glibtop_sysdeps_ppp =

@@ -28,13 +28,22 @@
 
 BEGIN_LIBGTOP_DECLS
 
+#ifndef G_GNUC_UNUSED
+#if	__GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ > 4)
+#define G_GNUC_UNUSED				\
+  __attribute__((unused))
+#else	/* !__GNUC__ */
+#define	G_GNUC_UNUSED
+#endif	/* !__GNUC__ */
+#endif /* defined G_GNUC_UNUSED */
+
 void glibtop_error_vr (glibtop *server, char *format, va_list args);
 void glibtop_warn_vr (glibtop *server, char *format, va_list args);
 
 void glibtop_error_io_vr (glibtop *server, char *format, int, va_list args);
 void glibtop_warn_io_vr (glibtop *server, char *format, int, va_list args);
 
-static void
+static void G_GNUC_UNUSED
 glibtop_error_r (glibtop *server, char *format, ...)
 {
 	va_list args;
@@ -44,7 +53,7 @@ glibtop_error_r (glibtop *server, char *format, ...)
 	va_end (args);
 }
 
-static void
+static void G_GNUC_UNUSED
 glibtop_warn_r (glibtop *server, char *format, ...)
 {
 	va_list args;
@@ -54,7 +63,7 @@ glibtop_warn_r (glibtop *server, char *format, ...)
 	va_end (args);
 }
 
-static void
+static void G_GNUC_UNUSED
 glibtop_error_io_r (glibtop *server, char *format, ...)
 {
 	va_list args;
@@ -64,7 +73,7 @@ glibtop_error_io_r (glibtop *server, char *format, ...)
 	va_end (args);
 }
 
-static void
+static void G_GNUC_UNUSED
 glibtop_warn_io_r (glibtop *server, char *format, ...)
 {
 	va_list args;

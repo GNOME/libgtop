@@ -158,6 +158,9 @@ else
   static_targets=""
 fi
 
+AM_CONDITIONAL(ENABLE_STATIC, test x$enable_static = xyes)
+AM_CONDITIONAL(ENABLE_SHARED, test x$enable_static = xyes)
+
 AC_SUBST(static_targets)
 AC_SUBST(smp_examples)
 AC_SUBST(guile_examples)

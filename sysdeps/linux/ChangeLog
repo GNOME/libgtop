@@ -1,3 +1,8 @@
+1999-07-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* proctime.c (glibtop_get_proctime_s): Don't provide `rtime'
+	any longer since we must not use `rtime = utime + stime'.
+
 1999-02-20  Martin Baulig  <martin@home-of-linux.org>
 
 	* netload.c: Don't include <linux/ip_fw.h> for libc5 systems

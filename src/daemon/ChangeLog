@@ -1,3 +1,8 @@
+1999-07-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am: Link the `libgtop_daemon' and the `libgtop_server'
+	statically if possible.
+
 1999-05-07  Martin Baulig  <martin@home-of-linux.org>
 
 	* server.c (main): There's some problem with uname () - some systems

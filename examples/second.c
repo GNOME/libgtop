@@ -31,8 +31,6 @@
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
 
-#include <math.h>
-
 static void
 output (pid_t pid)
 {

@@ -31,6 +31,8 @@ confexecdir	= $(libdir)
 confexec_DATA	= $(top_builddir)/libgtopConf.sh \
 		  $(top_builddir)/libgtop-features.def
 
+CLEANFILES=libgtopConf.sh
+
 bin_SCRIPTS = $(top_builddir)/libgtop-config
 
 ## to automatically rebuild aclocal.m4 if any of the macros in
