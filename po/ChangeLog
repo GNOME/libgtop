@@ -1,3 +1,9 @@
+2005-01-24  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* POTFILES.in:
+	* POTFILES.skip: Removed lib/lib.c as it is generated.
+	Closes #165038.
+
 2005-01-17  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* POTFILES.in: Updated.
