@@ -52,7 +52,7 @@ function output(line) {
   }
 
   print "{";
-  print "\tglibtop_init_r (&server, GLIBTOP_SYSDEPS_"toupper(feature)", 0);";
+  print "\tglibtop_init_r (&server, (1 << GLIBTOP_SYSDEPS_"toupper(feature)"), 0);";
   print "";
   print "\tif ((server->flags & _GLIBTOP_INIT_STATE_SERVER) &&";
   print "\t    (server->features & (1 << GLIBTOP_SYSDEPS_"toupper(feature)")))";
