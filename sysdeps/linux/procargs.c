@@ -42,59 +42,31 @@ char *
 glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len)
 {
-	char fn [BUFSIZ], buffer [BUFSIZ];
-	int cmdline, len, total = 0;
-	char *retval = NULL;
+	char filename[48];
+
+	char *args;
+	gsize length;
+	GError *error;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_ARGS, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_args));
 
-	sprintf (fn, "/proc/%d/cmdline", pid);
+	sprintf (filename, "/proc/%d/cmdline", pid);
 
-	cmdline = open (fn, O_RDONLY);
-	if (cmdline < 0) return NULL;
-
-	if (max_len) {
-		retval = g_malloc (max_len+1);
-
-		len = read (cmdline, retval, max_len);
-		close (cmdline);
-
-		if (len < 0) {
-			g_free (retval);
-			return NULL;
-		}
-
-		*(retval+len) = 0;
-
-		buf->size = len;
-		buf->flags = _glibtop_sysdeps_proc_args;
-
-		return retval;
+	if(!g_file_get_contents(filename, &args, &length, &error)) {
+		buf->size = 0;
+		return NULL;
 	}
 
-	while (1) {
-		len = read (cmdline, buffer, BUFSIZ-1);
-		if (len < 0) {
-			close (cmdline);
-			g_free (retval);
-			return NULL;
-		}
-
-		if (len == 0)
-			break;
-
-		retval = g_realloc (retval, total+len+1);
-		memcpy (retval+total, buffer, len);
-		*(retval+total+len) = 0;
-		total += len;
+	if(max_len) {
+		args = g_realloc(args, max_len);
+		args[max_len-1] = '\0';
+		length = max_len;
 	}
 
-	close (cmdline);
-
-	buf->size = total;
+	buf->size = length;
 	buf->flags = _glibtop_sysdeps_proc_args;
 
-	return retval;
+	return args;
 }
