@@ -64,7 +64,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	{
 	   	if(errno != EPERM && errno != EACCES)
 		   	glibtop_warn_io_r(server, "open (%s)", buffer);
-		return;
+		return NULL;
 	}
 	if(fstat(fd, &inode) < 0)
 	{
@@ -72,7 +72,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		   	glibtop_warn_io_r(server, "fstat (%s)", buffer);
 		/* else call daemon for 64-bit support */
 		close(fd);
-		return;
+		return NULL;
 	}
 	maps = alloca(inode.st_size);
 	nmaps = inode.st_size / sizeof(prmap_t);
@@ -80,11 +80,11 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	{
 	   	glibtop_warn_io_r(server, "pread (%s)", buffer);
 		close(fd);
-		return;
+		return NULL;
 	}
 	close(fd);
 	if(!(entry = glibtop_malloc_r(server, nmaps * sizeof(glibtop_map_entry))))
-	   	return;
+	   	return NULL;
 
 	buf->number = nmaps;
 	buf->size = sizeof(glibtop_map_entry);
