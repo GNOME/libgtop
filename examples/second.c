@@ -126,7 +126,7 @@ output (pid_t pid)
 	glibtop_get_proc_kernel (&data.proc_kernel, pid);
 
 	printf ("Proc_Kernel  PID  %5d (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", (int) pid,
+		"%lu %lu %lu %lu %lu 0x%lx 0x%lx 0x%lx (%s)\n", (int) pid,
 		(unsigned long) data.proc_kernel.flags,
 		(unsigned long) data.proc_kernel.k_flags,
 		(unsigned long) data.proc_kernel.min_flt,

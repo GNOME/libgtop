@@ -320,7 +320,7 @@ main (int argc, char *argv [])
 		glibtop_get_proc_kernel (&data.proc_kernel, pid);
 
 	printf ("Proc_Kernel  PID  %5d (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", (int) pid,
+		"%lu %lu %lu %lu %lu 0x%lx 0x%lx 0x%lx (%s)\n", (int) pid,
 		(unsigned long) data.proc_kernel.flags,
 		(unsigned long) data.proc_kernel.k_flags,
 		(unsigned long) data.proc_kernel.min_flt,
@@ -430,7 +430,7 @@ main (int argc, char *argv [])
 		glibtop_get_proc_kernel (&data.proc_kernel, ppid);
 
 	printf ("Proc_Kernel  PPID %5d (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", (int) ppid,
+		"%lu %lu %lu %lu %lu 0x%lx 0x%lx 0x%lx (%s)\n", (int) ppid,
 		(unsigned long) data.proc_kernel.flags,
 		(unsigned long) data.proc_kernel.k_flags,
 		(unsigned long) data.proc_kernel.min_flt,
@@ -541,7 +541,7 @@ main (int argc, char *argv [])
 		glibtop_get_proc_kernel (&data.proc_kernel, 1);
 
 	printf ("Proc_Kernel  INIT %5d (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", 1,
+		"%lu %lu %lu %lu %lu 0x%lx 0x%lx 0x%lx (%s)\n", 1,
 		(unsigned long) data.proc_kernel.flags,
 		(unsigned long) data.proc_kernel.k_flags,
 		(unsigned long) data.proc_kernel.min_flt,
