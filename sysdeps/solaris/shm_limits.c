@@ -28,18 +28,25 @@
 #include <sys/shm.h>
 
 static const struct nlist nlst[] = { {"shminfo"}, {NULL} };
+
+#if GLIBTOP_SOLARIS_RELEASE < 590
+static const unsigned long _glibtop_sysdeps_shm_limits =
+(1L << GLIBTOP_IPC_SHMMAX) + (1L << GLIBTOP_IPC_SHMMIN);
+
+#else
 static const unsigned long _glibtop_sysdeps_shm_limits =
 (1L << GLIBTOP_IPC_SHMMAX) + (1L << GLIBTOP_IPC_SHMMIN) +
 (1L << GLIBTOP_IPC_SHMMNI) + (1L << GLIBTOP_IPC_SHMSEG);
+#endif
 
 /* Init function. */
 
 void
 glibtop_init_shm_limits_p (glibtop *server)
 {
-   	kvm_t *kd = server->machine.kd;
+	kvm_t * const kd = server->machine.kd;
 
-   	if(kd && !kvm_nlist(kd, nlst))
+	if(kd && !kvm_nlist(kd, nlst))
 		server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
 	else
 		server->sysdeps.shm_limits = 0;
@@ -50,16 +57,18 @@ glibtop_init_shm_limits_p (glibtop *server)
 void
 glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
-   	kvm_t *kd = server->machine.kd;
+	kvm_t * const kd = server->machine.kd;
 	struct shminfo sinfo;
 
 	memset (buf, 0, sizeof (glibtop_shm_limits));
 
 	if(!(server->sysdeps.shm_limits))
-	   	return;
+		return;
+
 	if(kvm_read(kd, nlst[0].n_value, (void *)&sinfo,
 		    sizeof(struct shminfo)) != sizeof(struct shminfo))
-	        return;
+		return;
+
 	buf->shmmax = sinfo.shmmax;
 	buf->shmmni = sinfo.shmmni;
 #if GLIBTOP_SOLARIS_RELEASE < 590

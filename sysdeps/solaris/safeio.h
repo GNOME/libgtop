@@ -22,6 +22,8 @@
 #ifndef __GLIBTOP_SAFEIO_H__
 #define __GLIBTOP_SAFEIO_H__
 
+#include <glib/gmacros.h>
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
@@ -45,4 +47,4 @@ s_closedir(DIR *);
 
 G_END_DECLS
 
-#endif
+#endif /* __GLIBTOP_SAFEIO_H__ */

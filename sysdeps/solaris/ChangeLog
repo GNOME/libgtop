@@ -1,3 +1,24 @@
+2004-10-11  Benoît Dejean  <tazforever@dlfp.org>
+
+	* cpu.c: (glibtop_init_cpu_s), (glibtop_get_cpu_s):
+	* loadavg.c: (glibtop_get_loadavg_s):
+	* mem.c: (glibtop_init_mem_s), (glibtop_get_mem_s):
+	* open.c: (glibtop_get_kstats), (glibtop_open_s):
+	* procargs.c: (glibtop_get_proc_args_s):
+	* procdata.c: (glibtop_get_proc_data_psinfo_s),
+	(glibtop_get_proc_data_usage_s), (glibtop_get_proc_credentials_s),
+	(glibtop_get_proc_status_s):
+	* proclist.c: (glibtop_get_proclist_s):
+	* procmap.c: (glibtop_get_proc_map_s):
+	* procmem.c: (glibtop_get_proc_mem_s):
+	* procstate.c: (glibtop_get_proc_state_s):
+	* safeio.c:
+	* safeio.h:
+	* shm_limits.c: (glibtop_init_shm_limits_p),
+	(glibtop_get_shm_limits_p):
+	* swap.c: (glibtop_get_swap_s):
+	* uptime.c: (glibtop_get_uptime_s): Updated. Lots of cleanup.
+
 2004-06-06  Benoît Dejean  <tazforever@dlfp.org>
 
 	* proclist.c: (glibtop_get_proclist_s): Removed useless tests.

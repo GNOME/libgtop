@@ -24,6 +24,8 @@
 #include <glibtop.h>
 #include <glibtop/procmem.h>
 
+#include "glibtop_private.h"
+
 static const unsigned long _glibtop_sysdeps_proc_mem =
 (1L << GLIBTOP_PROC_MEM_SIZE) + (1L << GLIBTOP_PROC_MEM_VSIZE) +
 (1L << GLIBTOP_PROC_MEM_RESIDENT) + (1L << GLIBTOP_PROC_MEM_RSS);
@@ -42,7 +44,7 @@ void
 glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 {
 #ifdef HAVE_PROCFS_H
-   	struct psinfo psinfo;
+	struct psinfo psinfo;
 #else
 	struct prpsinfo psinfo;
 	int pagesize = server->machine.pagesize;
@@ -51,7 +53,7 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 
 	if(glibtop_get_proc_data_psinfo_s(server, &psinfo, pid))
-	   	return;
+		return;
 
 #ifdef HAVE_PROCFS_H
 	buf->size = buf->vsize = psinfo.pr_size << 10;

@@ -29,22 +29,18 @@
 
 #include <glibtop_private.h>
 
-static const unsigned long _glibtop_sysdeps_mem_os_sysconf =
-(1L << GLIBTOP_MEM_TOTAL);
-static const unsigned long _glibtop_sysdeps_mem_os_kstat =
-(1L << GLIBTOP_MEM_FREE) + (1L << GLIBTOP_MEM_USED) +
-(1L << GLIBTOP_MEM_LOCKED);
-static const unsigned long _glibtop_sysdeps_mem_bunyip =
-(1L << GLIBTOP_MEM_SHARED) + (1L << GLIBTOP_MEM_BUFFER) +
-(1L << GLIBTOP_MEM_USER);
-
 /* Init function. */
 
 void
 glibtop_init_mem_s (glibtop *server)
 {
-    server->sysdeps.mem = _glibtop_sysdeps_mem_os_sysconf +
-        _glibtop_sysdeps_mem_os_kstat + _glibtop_sysdeps_mem_bunyip;
+    server->sysdeps.mem = (1L << GLIBTOP_MEM_TOTAL)
+	| (1L << GLIBTOP_MEM_FREE)
+	| (1L << GLIBTOP_MEM_USED)
+	| (1L << GLIBTOP_MEM_LOCKED)
+	| (1L << GLIBTOP_MEM_SHARED)
+	| (1L << GLIBTOP_MEM_BUFFER)
+	| (1L << GLIBTOP_MEM_USER);
 }
 
 /* Provides information about memory usage. */
@@ -52,76 +48,87 @@ glibtop_init_mem_s (glibtop *server)
 void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
-    kstat_ctl_t *kc = server->machine.kc;
+    kstat_ctl_t * const kc = server->machine.kc;
     kstat_t *ksp;
     kstat_named_t *kn;
-    int pagesize = server->machine.pagesize;
 
-#ifndef KSTAT_DATA_UINT32
-#define ui32 ul
+#undef PAGESIZE
+#define PAGESIZE (server->machine.pagesize)
+#define PAGESHIFT (PAGESIZE + 10)
+
+#ifdef _LP64
+#define KN_VALUE kn->value.ui64
+#elif !defined(KSTAT_DATA_UINT32)
+#define KN_VALUE kn->value.ul
+#else
+#define KN_VALUE kn->value.ui32
 #endif
 
     memset (buf, 0, sizeof (glibtop_mem));
 
-    buf->total = (guint64)sysconf(_SC_PHYS_PAGES) << pagesize << 10;
-    buf->flags = _glibtop_sysdeps_mem_os_sysconf;
+    buf->total = (guint64) sysconf(_SC_PHYS_PAGES) << PAGESHIFT;
+    buf->flags = (1 << GLIBTOP_MEM_TOTAL);
 
     if(!kc)
-        return;
+	return;
+
     switch(kstat_chain_update(kc))
     {
-        case -1: assert(0);  /* Debugging purposes, shouldn't happen */
+	case -1: assert(0);  /* Debugging purposes, shouldn't happen */
 	case 0:  break;
 	default: glibtop_get_kstats(server);
     }
 
     if((ksp = server->machine.syspages) && kstat_read(kc, ksp, NULL) >= 0)
     {
-	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pagesfree");
+	kn = kstat_data_lookup(ksp, "pagesfree");
 	if(kn)
 	{
-#ifdef _LP64
-	    buf->free = kn->value.ui64 << pagesize << 10;
-#else
-	    buf->free = kn->value.ui32 << pagesize << 10;
-#endif
+	    buf->free = (KN_VALUE << PAGESHIFT);
 	    buf->used = buf->total - buf->free;
+	    buf->flags |= (1 << GLIBTOP_MEM_FREE);
+	    buf->flags |= (1 << GLIBTOP_MEM_USED);
 	}
-	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pageslocked");
+
+	kn = kstat_data_lookup(ksp, "pageslocked");
 	if(kn)
-#ifdef _LP64
-	    buf->locked = kn->value.ui64 << pagesize;
-#else
-	    buf->locked = kn->value.ui32 << pagesize;
-#endif
-	buf->flags += _glibtop_sysdeps_mem_os_kstat;
+	{
+	    buf->locked = (KN_VALUE << PAGESIZE);
+	    buf->flags |= (1 << GLIBTOP_MEM_LOCKED);
+	}
     }
 
     /* Bunyip module provides data in multiples of system page size */
 
     if((ksp = server->machine.bunyip) && kstat_read(kc, ksp, NULL) >= 0)
     {
-        kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_anon");
+	kn = kstat_data_lookup(ksp, "pages_exec");
 	if(kn)
-#ifdef _LP64
-	    buf->user = kn->value.ui64 << pagesize << 10;
-#else
-	    buf->user = kn->value.ui32 << pagesize << 10;
-#endif
-	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_exec");
+	{
+	    buf->shared = (KN_VALUE << PAGESHIFT);
+	    buf->flags |= (1 << GLIBTOP_MEM_SHARED);
+	}
+
+	kn = kstat_data_lookup(ksp, "pages_vnode");
 	if(kn)
-#ifdef _LP64
-	    buf->shared = kn->value.ui64 << pagesize << 10;
-#else
-	    buf->shared = kn->value.ui32 << pagesize << 10;
-#endif
-	kn = (kstat_named_t *)kstat_data_lookup(ksp, "pages_vnode");
+	{
+	    buf->buffer = (KN_VALUE << PAGESHIFT);
+	    buf->flags |= (1 << GLIBTOP_MEM_BUFFER);
+	}
+
+	kn = kstat_data_lookup(ksp, "pages_anon");
 	if(kn)
-#ifdef _LP64
-	    buf->buffer = kn->value.ui64 << pagesize << 10;
-#else
-	    buf->buffer = kn->value.ui32 << pagesize << 10;
-#endif
-	buf->flags += _glibtop_sysdeps_mem_bunyip;
+	{
+	    buf->user = (KN_VALUE << PAGESHIFT);
+	    buf->flags |= (1 << GLIBTOP_MEM_USER);
+	}
+	else
+	    goto user_old_way;
+    }
+    else /* Bunyip is not available, let's compute buf->user the old way */
+    {
+    user_old_way:
+	buf->user = buf->total - buf->free - buf->cached - buf->buffer;
+	buf->flags |= (1 << GLIBTOP_MEM_USER);
     }
 }

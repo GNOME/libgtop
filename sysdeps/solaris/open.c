@@ -44,19 +44,21 @@ glibtop_get_kstats(glibtop *server)
     kstat_t *ksp;
     int nproc_same, new_ncpu;
 
-    new_ncpu = sysconf(_SC_NPROCESSORS_CONF);
+    server->ncpu = new_ncpu = sysconf(_SC_NPROCESSORS_CONF);
+
 
     if(!kc)
     {
-        server->ncpu = new_ncpu;
-        server->machine.vminfo_kstat = NULL;
-        server->machine.system = NULL;
-        server->machine.syspages = NULL;
-        server->machine.bunyip = NULL;
-        return;
+	server->ncpu = new_ncpu;
+	server->machine.vminfo_kstat = NULL;
+	server->machine.system = NULL;
+	server->machine.syspages = NULL;
+	server->machine.bunyip = NULL;
+	return;
     }
 
     do {
+
 	ksp = kstat_lookup(kc, "unix", -1, "vminfo");
 	server->machine.vminfo_kstat = ksp;
 	if(ksp)
@@ -64,7 +66,7 @@ glibtop_get_kstats(glibtop *server)
 	    kstat_read(kc, ksp, &server->machine.vminfo);
 	    /* Don't change snaptime if we only need to reinitialize kstats */
 	    if(!(server->machine.vminfo_snaptime))
-	        server->machine.vminfo_snaptime = ksp->ks_snaptime;
+		server->machine.vminfo_snaptime = ksp->ks_snaptime;
 	}
 
 	/* We don't know why was kstat chain invalidated. It could have
@@ -91,15 +93,15 @@ glibtop_get_kstats(glibtop *server)
 		    ++checked;
 		}
 	}
+
 	if(!nproc_same)
 	{
 	    processorid_t p;
 	    int found;
 	    char cpu[20];
 
-	    if(new_ncpu > GLIBTOP_NCPU)
-		new_ncpu = GLIBTOP_NCPU;
-	    server->ncpu = new_ncpu;
+	    server->ncpu = new_ncpu = MIN(new_ncpu, GLIBTOP_NCPU);
+
 	    for(p = 0, found = 0; p < GLIBTOP_NCPU && found != new_ncpu; ++p)
 	    {
 		if(p_online(p, P_STATUS) < 0)
@@ -183,14 +185,14 @@ glibtop_open_s (glibtop *server, const char *program_name,
 	    switch(kn->data_type)
 	    {
 #ifdef KSTAT_DATA_INT32
-	        case KSTAT_DATA_INT32:  server->machine.boot = kn->value.i32;
-				        break;
-	        case KSTAT_DATA_UINT32: server->machine.boot = kn->value.ui32;
-				        break;
-	        case KSTAT_DATA_INT64:  server->machine.boot = kn->value.i64;
-				        break;
-	        case KSTAT_DATA_UINT64: server->machine.boot = kn->value.ui64;
-				        break;
+		case KSTAT_DATA_INT32:  server->machine.boot = kn->value.i32;
+					break;
+		case KSTAT_DATA_UINT32: server->machine.boot = kn->value.ui32;
+					break;
+		case KSTAT_DATA_INT64:  server->machine.boot = kn->value.i64;
+					break;
+		case KSTAT_DATA_UINT64: server->machine.boot = kn->value.ui64;
+					break;
 #else
 		case KSTAT_DATA_LONG:      server->machine.boot = kn->value.l;
 					   break;
@@ -218,7 +220,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
        if(!func)
 	  func = dlsym(dl, "proc_objname");	/* Solaris 7 */
        server->machine.objname = (void (*)
-	     			 (void *, uintptr_t, const char *, size_t))func;
+				 (void *, uintptr_t, const char *, size_t))func;
        server->machine.pgrab = (struct ps_prochandle *(*)(pid_t, int, int *))
 	  		       dlsym(dl, "Pgrab");
        server->machine.pfree = (void (*)(void *))dlsym(dl, "Pfree");

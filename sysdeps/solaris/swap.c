@@ -25,8 +25,8 @@
 #include <glibtop/error.h>
 #include <glibtop/swap.h>
 
-#include <assert.h>
-#include <sys/sysinfo.h>
+#include <unistd.h>
+#include <sys/swap.h>
 
 #include <glibtop_private.h>
 
@@ -47,43 +47,64 @@ glibtop_init_swap_s (glibtop *server)
 void
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
-    kstat_ctl_t *kc = server->machine.kc;
-    kstat_t *ksp = server->machine.vminfo_kstat;
-    guint64 swap_resv, swap_alloc, swap_avail, swap_free;
-    vminfo_t vminfo;
-    double rate;
-    kid_t ret;
+    swaptbl_t *s = NULL;
+    int i, n1, n2;
 
-    memset (buf, 0, sizeof (glibtop_swap));
+    /* we don't care about ste_path, and we're lazy */
+    char shared_path[BUFSIZ]; /* hope this is large enough */
 
-    if (!ksp) return;
+    const int pagesize = getpagesize();
 
-    switch(kstat_chain_update(kc))
+    memset(buf, 0, sizeof *buf);
+
+    switch( (n1 = swapctl(SC_GETNSWP, NULL)) )
     {
-        case -1: assert(0); /* Debugging, shouldn't happen */
-	case 0:  break;
-	default: glibtop_get_kstats(server);
-    }
-    ret = kstat_read (kc, ksp, &vminfo);
-
-    if (ret == -1) {
-	glibtop_warn_io_r (server, "kstat_read (vminfo)");
+    case -1:
+	glibtop_warn_r(server, "swapctl: GETNSWP");
 	return;
+
+    case 0:
+	/* no swapfile */
+	goto out_no_swap;
+
+    default:
+	break;
     }
 
-    rate = (ksp->ks_snaptime - server->machine.vminfo_snaptime) / 1E+9;
+    /* RTFM */
+    s = g_malloc(sizeof(swaptbl_t)
+		 + n1 * sizeof(swapent_t));
 
-    swap_resv = (vminfo.swap_resv - server->machine.vminfo.swap_resv) / rate;
-    swap_alloc = (vminfo.swap_alloc - server->machine.vminfo.swap_alloc) / rate;
-    swap_avail = (vminfo.swap_avail - server->machine.vminfo.swap_avail) / rate;
-    swap_free = (vminfo.swap_free - server->machine.vminfo.swap_free) / rate;
+    s->swt_n = n1;
 
-    memcpy (&server->machine.vminfo, &vminfo, sizeof (vminfo_t));
-    server->machine.vminfo_snaptime = ksp->ks_snaptime;
+    /* initialize string pointers */
+    for (i = 0; i < n1; i++)
+    {
+	s->swt_ent[i].ste_path = shared_path;
+    }
 
-    buf->total = swap_resv + swap_avail;
-    buf->used = swap_alloc;
-    buf->free = buf->total - buf->used;
+    if ((n2 = swapctl(SC_LIST, s)) < 0)
+    {
+	glibtop_warn_r(server, "swapctl: SC_LIST");
+	goto out_free;
+    }
 
-    buf->flags = _glibtop_sysdeps_swap;
+
+    /* #swapfile may have changed between the 2 swapctl() calls
+     * we don't care, we just use the smallest #swapfile */
+    for (i = 0; i < MIN(n1, n2); i++)
+    {
+	buf->total += s->swt_ent[i].ste_pages;
+	buf->free  += s->swt_ent[i].ste_free;
+    }
+
+    buf->total *= pagesize;
+    buf->free  *= pagesize;
+    buf->used   = buf->total - buf->free;
+
+ out_no_swap:
+    buf->flags  = _glibtop_sysdeps_swap;
+
+ out_free:
+    g_free(s);
 }

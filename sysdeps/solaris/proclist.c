@@ -24,6 +24,9 @@
 #include <glibtop.h>
 #include <glibtop/proclist.h>
 
+#include "safeio.h"
+#include "glibtop_private.h"
+
 #include <sys/stat.h>
 #include <unistd.h>
 #include <dirent.h>
@@ -60,11 +63,11 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	DIR *proc;
 	struct dirent *entry;
 	char buffer [BUFSIZ];
-	unsigned count, total, pid, mask;
+	unsigned count, total, pid = 0, mask;
 	unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
 	unsigned pids_size = 0, pids_offset = 0, new_size;
 	struct stat statb;
-	int len, i, ok;
+	int len, ok;
 
 	memset (buf, 0, sizeof (glibtop_proclist));
 	mask = which & ~GLIBTOP_KERN_PROC_MASK;
@@ -92,7 +95,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	   }
 	   else
 	   {
-	      sprintf(buffer, "/proc/%d", arg);
+	      sprintf(buffer, "/proc/%lld", arg);
 	      if(s_stat(buffer, &statb) < 0)
 		 return NULL;
 	   }
@@ -111,23 +114,13 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		ok = 1; len = strlen (entry->d_name);
 
 		/* does it consist entirely of digits? */
-#if 0
 		/* It does, except for "." and "..". Let's speed up */
 
-		for (i = 0; i < len; i++)
-			if (!isdigit (entry->d_name [i])) ok = 0;
-		if (!ok) continue;
-#else
 		if(entry->d_name[0] == '.')
 		   continue;
-#endif
 
 		/* convert it in a number */
-#if 0
-		if (sscanf (entry->d_name, "%u", &pid) != 1) continue;
-#else
 		pid = (unsigned)atol(entry->d_name);
-#endif
 
 #ifdef HAVE_PROCFS_H
 

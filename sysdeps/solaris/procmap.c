@@ -27,7 +27,6 @@
 #include <glibtop/procmap.h>
 
 #include <errno.h>
-#include <alloca.h>
 
 #include "safeio.h"
 
@@ -58,7 +57,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
    	int fd, i, nmaps, pr_err, heap;
 #if GLIBTOP_SOLARIS_RELEASE >= 560
 	prxmap_t *maps;
-	struct ps_prochandle *Pr;
+	struct ps_prochandle *Pr = NULL;
 #else
 	prmap_t *maps;
 #endif
@@ -97,7 +96,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		s_close(fd);
 		return NULL;
 	}
-	maps = alloca(inode.st_size);
+	maps = g_alloca(inode.st_size);
 	nmaps = inode.st_size / sizeof(prxmap_t);
 	if(s_pread(fd, maps, inode.st_size, 0) != inode.st_size)
 	{
@@ -112,7 +111,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		s_close(fd);
 		return NULL;
 	}
-	maps = alloca((nmaps + 1) * sizeof(prmap_t));
+	maps = g_alloca((nmaps + 1) * sizeof(prmap_t));
 	if(ioctl(fd, PIOCMAP, maps) < 0)
 	{
 	   	glibtop_warn_io_r(server, "ioctl(%s, PIOCMAP)", buffer);

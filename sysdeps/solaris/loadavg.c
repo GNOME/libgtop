@@ -51,37 +51,43 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 #ifndef HAVE_GETLOADAVG
 	kstat_ctl_t *kc;
 	kstat_t *ksp;
-	int i;
-	static const char *avestrings[] = { "avenrun_1min",
-	   			      "avenrun_5min",
-				      "avenrun_15min" };
+	size_t i;
+	static const char avestrings[][14] = { "avenrun_1min",
+					       "avenrun_5min",
+					       "avenrun_15min" };
 #endif
 	memset (buf, 0, sizeof (glibtop_loadavg));
 
 #ifdef HAVE_GETLOADAVG
-	if (getloadavg (buf->loadavg, 3))
+	if (getloadavg (buf->loadavg, 3) != 3)
 		return;
+
 #else
 	if(!(kc = server->machine.kc))
 	    return;
+
 	switch(kstat_chain_update(kc))
 	{
 	    case -1: assert(0); /* Debugging, shouldn't happen */
 	    case 0:  break;
 	    default: glibtop_get_kstats(server);
 	}
+
 	if(!(ksp = server->machine.system))
 	    return;
+
 	if(kstat_read(kc, ksp, NULL) < 0)
 	    return;
+
 	for(i = 0; i < 3; ++i) /* Do we have a countof macro? */
 	{
-	   	kstat_named_t *kn;
+		kstat_named_t *kn;
 
 		kn = (kstat_named_t *)kstat_data_lookup(ksp, avestrings[i]);
 		if(kn)
 		    buf->loadavg[i] = (double)kn->value.ul / FSCALE;
 	}
-#endif
+#endif /* HAVE_GETLOADAVG */
+
 	buf->flags = _glibtop_sysdeps_loadavg;
 }

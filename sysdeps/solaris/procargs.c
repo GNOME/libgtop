@@ -25,6 +25,8 @@
 #include <glibtop/error.h>
 #include <glibtop/procargs.h>
 
+#include "glibtop_private.h"
+
 static const unsigned long _glibtop_sysdeps_proc_args =
 (1L << GLIBTOP_PROC_ARGS_SIZE);
 
@@ -43,40 +45,40 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len)
 {
 #ifdef HAVE_PROCFS_H
-   	struct psinfo pinfo;
+	struct psinfo pinfo;
 #else
 	struct prpsinfo pinfo;
 #endif
-	int len, i;
+	unsigned len;
 	char *ret, *p;
 
 	memset (buf, 0, sizeof (glibtop_proc_args));
 
 	if(glibtop_get_proc_data_psinfo_s(server, &pinfo, pid))
-	   	return NULL;
+		return NULL;
 
+	/* strnlen */
 	for(len = 0; len < PRARGSZ; ++len)
 	   if(!(pinfo.pr_psargs[len]))
 	      break;
-	if(max_len)
-	{
-	   	ret = g_malloc(max_len + 1);
-		if(max_len < len)
-		   	len = max_len;
-		memcpy(ret, pinfo.pr_psargs, len);
-		ret[len] = 0;
-	}
-	else
-	{
-	   ret = g_malloc(len + 1);
-	   memcpy(ret, pinfo.pr_psargs, len);
-	   ret[len] = 0;
 
-	   buf->size = len;
-	   buf->flags = _glibtop_sysdeps_proc_args;
+
+	if(max_len && max_len < len)
+	{
+		len = max_len;
 	}
+
+	ret = g_malloc(len + 1);
+	memcpy(ret, pinfo.pr_psargs, len);
+	ret[len] = 0;
+
 	for(p = ret; *p; ++p)
-	   if(*p == ' ')
-	      *p = 0;
+	{
+		if(*p == ' ') *p = 0;
+	}
+
+	buf->size  = len;
+	buf->flags = _glibtop_sysdeps_proc_args;
+
 	return ret;
 }
