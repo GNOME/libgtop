@@ -1,3 +1,7 @@
+2003-08-13  Guntupalli Karunakar  <karunakar@freedomink.org>
+
+	* configure.in: Added "hi" (Hindi) in ALL_LINGUAS.
+
 2003-08-13  Andrew Sobala  <aes@gnome.org>
 
 	* configure.in: release 2.0.3
