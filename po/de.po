@@ -1,15 +1,16 @@
 # German translation of libgtop
 # Martin Baulig <martin@home-of-linux.org>, 1998, 1999, 2000
-# Christian Meyer <linux@chrisime.de>, 2000.
+# Christian Meyer <cm@ggtt.de>, 2000, 2001.
+#
 # hmm... ein paar englische Strings sollte man lieber in Ruhe lassen...! -cm-
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop cvs\n"
-"POT-Creation-Date: 2001-02-13 13:30+0100\n"
-"PO-Revision-Date: 2000-09-20 12:48+0200\n"
-"Last-Translator: Christian Meyer <linux@chrisime.de>\n"
-"Language-Team: deutsch <gnome-de@gnome.org>\n"
+"Project-Id-Version: libgtop 1.0.x\n"
+"POT-Creation-Date: 2001-02-15 17:03+0100\n"
+"PO-Revision-Date: 2001-02-15 17:03+0100\n"
+"Last-Translator: Christian Meyer <cm@ggtt.de>\n"
+"Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -132,7 +133,7 @@ msgstr "AUSFÜHRLICH"
 
 #: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
-msgstr "Nicht in den Hintergrund aufteilen"
+msgstr "Nicht in den Hintergrund abspalten"
 
 #: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
@@ -225,15 +226,15 @@ msgstr "CPU-Zeit insgesamt"
 
 #: sysdeps/names/cpu.c:44
 msgid "CPU Time in User Mode"
-msgstr "CPU-Zeit in Benutzer-Modus"
+msgstr "CPU-Zeit in Benutzermodus"
 
 #: sysdeps/names/cpu.c:45
 msgid "CPU Time in User Mode (nice)"
-msgstr "CPU-Zeit in Benutzer-Modus (Priorität)"
+msgstr "CPU-Zeit in Benutzermodus (Priorität)"
 
 #: sysdeps/names/cpu.c:46
 msgid "CPU Time in System Mode"
-msgstr "CPU-Zeit in System-Modus"
+msgstr "CPU-Zeit in Systemmodus"
 
 #: sysdeps/names/cpu.c:47
 msgid "CPU Time in the Idle Task"
@@ -249,15 +250,15 @@ msgstr "CPU-Zeit aller Prozessoren insgesamt"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in User Mode"
-msgstr "CPU-Zeit aller Prozessoren im Benutzer-Modus"
+msgstr "CPU-Zeit aller Prozessoren im Benutzermodus"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "CPU-Zeit aller Prozessoren im Benutzer-Modus (Priorität)"
+msgstr "CPU-Zeit aller Prozessoren im Benutzermodus (Priorität)"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in System Mode"
-msgstr "CPU-Zeit aller Prozessoren im System-Modus"
+msgstr "CPU-Zeit aller Prozessoren im Systemmodus"
 
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in the Idle Task"
@@ -289,7 +290,7 @@ msgstr "Anzahl der `Clock'-Impulse, die das System im Leerlauf war"
 
 #: sysdeps/names/cpu.c:63
 msgid "Tick frequency (default is 100)"
-msgstr "Impulsfrequenz (Default ist 100)"
+msgstr "Impulsfrequenz (Vorgabe ist 100)"
 
 #: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
 msgid "Total blocks"
@@ -325,11 +326,11 @@ msgstr "Systemlast"
 
 #: sysdeps/names/loadavg.c:40
 msgid "Running Tasks"
-msgstr "Laufende Jobs"
+msgstr "Laufende Tasks"
 
 #: sysdeps/names/loadavg.c:41
 msgid "Number of Tasks"
-msgstr "Anzahl Jobs"
+msgstr "Anzahl Tasks"
 
 #: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
 msgid "Last PID"
@@ -341,11 +342,11 @@ msgstr "Anzahl gleichzeitig laufender Jobs im Mittel über 1, 5 und 15 Minuten"
 
 #: sysdeps/names/loadavg.c:48
 msgid "Number of tasks currently running"
-msgstr "Anzahl der momentan laufenden Jobs"
+msgstr "Anzahl der momentan laufenden Tasks"
 
 #: sysdeps/names/loadavg.c:49
 msgid "Total number of tasks"
-msgstr "Anzahl Jobs insgesamt"
+msgstr "Anzahl Tasks insgesamt"
 
 #: sysdeps/names/mem.c:41
 msgid "Total Memory"
@@ -411,7 +412,7 @@ msgstr "Speicher in gesperrten Seiten in kB"
 #: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
 #: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
 msgid "Number of list elements"
-msgstr "Zahl der Listen-Elemente"
+msgstr "Zahl der Listenelemente"
 
 #: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
 #: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
@@ -439,7 +440,7 @@ msgstr "Maximale Größe einer Nachricht"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
 msgid "Default max size of queue"
-msgstr "Standardmäßige Größe der Warteschlange"
+msgstr "Maximale Größe der Warteschlange (Vorgabe)"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
 msgid "Max queues system wide"
@@ -835,7 +836,7 @@ msgstr "Dateiname des Programms im Aufruf von exec()"
 
 #: sysdeps/names/procstate.c:46
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Prozessstatus (S=schläft)"
+msgstr "Single-Char Code für Prozessstatus (S=schläft)"
 
 #: sysdeps/names/procstate.c:47
 msgid "UID of process"
@@ -1037,7 +1038,7 @@ msgstr "Standard UNIX `nice' Wert des Prozesses"
 
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
 msgid "Number of entries in semaphore map"
-msgstr "Anzahl Einträge in der Zeichenträger-Tabelle"
+msgstr "Anzahl Einträge in der Zeichenträgertabelle"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Max number of arrays"
@@ -1161,7 +1162,7 @@ msgstr "Limits für Nachrichtenwarteschlangen"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
-msgstr "Festgelegtes Zeichenträger-Limit"
+msgstr "Festgelegtes Zeichenträgerlimit"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
 msgid "List of running Processes"
@@ -1169,7 +1170,7 @@ msgstr "Liste derzeitiger Prozesse"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
 msgid "Process Status information"
-msgstr "Prozess Statusinformation"
+msgstr "Prozess-Statusinformation"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
 msgid "Process UID and TTY information"
@@ -1197,7 +1198,7 @@ msgstr "Prozess-Segmentinformation"
 
 #: sysdeps/names/sysdeps.c:66
 msgid "Process Arguments"
-msgstr "Prozessargumente"
+msgstr "Prozess-Argumente"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
 msgid "Process Memory Map"
@@ -1290,7 +1291,7 @@ msgstr "Segmentverletzung"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
-msgstr "Falsches Argument für Systemaufruf"
+msgstr "Ungültiges Argument für Systemaufruf"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
@@ -1314,7 +1315,7 @@ msgstr "Stoppen"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
-msgstr "Keyboard stopp"
+msgstr "Keyboard-Stopp"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
@@ -1326,15 +1327,15 @@ msgstr "Kind-Status hat sich geändert"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr "Background read von tty"
+msgstr "Hintergrundlesen von tty"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr "Background write auf tty"
+msgstr "Hintergrundschreiben auf tty"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr "I/O nun möglich"
+msgstr "E/A nun möglich"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
@@ -1350,7 +1351,7 @@ msgstr "Virtuelle Alarmuhr"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr "Profiling alarm clock"
+msgstr "Genaue Alarmuhr"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
