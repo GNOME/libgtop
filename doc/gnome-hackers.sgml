@@ -2,6 +2,7 @@
 
 <!doctype book PUBLIC "-//Davenport//DTD DocBook V3.0//EN" [
 <!entity libgtopConf.sh SYSTEM "../libgtopConf.sh" >
+<!entity home-of-linux "http://www.home-of-linux.org/">
 ]>
 <book>
   <bookinfo>
@@ -51,6 +52,8 @@
     </legalnotice>
 
     <abstract>
+      <para>
+	<literal>$Id$</literal>
 
       <para>
 	This is a short introduction in how to use
@@ -58,6 +61,24 @@
 	It describes the additional options <filename>configure</filename>
 	takes and the information stored in the automatically generated
 	<filename>libgtopConf.sh</filename> configuration script.
+
+	<note>
+	  <para>
+	    This document is currently out of date.
+	</note>
+
+	<note>
+	  <para>
+	    Documentation about the new <function>table ()</function>
+	    function can be found here:
+
+	    <itemizedlist>
+	      <listitem><para>
+		  <ulink url="&home-of-linux;kernel/table/">
+		    &home-of-linux;kernel/table/
+		  </ulink>
+	    </itemizedlist>
+	</note>
 
     </abstract>
 
@@ -391,3 +412,10 @@
 
     
 </book>
+
+<!--
+  Local Variables:
+  mode: sgml
+  sgml-indent-data: t
+  End:
+ -->

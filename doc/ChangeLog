@@ -1,4 +1,8 @@
 1998-07-21  Martin Baulig  <martin@home-of-linux.org>
 
+	* gnome-hackers.sgml: Added note that this file is
+	currently out of date and a link to the documentation
+	of the table () function.
+
 	* table.sgml: New file - basic documentation for the
 	table () system call.
