@@ -125,7 +125,7 @@ handle_slave_connection (int input, int output)
 				sizeof (u_int64_t));
 			memcpy (&strategy, parameter + 3 * sizeof (u_int64_t),
 				sizeof (u_int64_t));
-			ptr = glibtop_get_proc_args_p
+			ptr = glibtop_get_interface_names_p
 				(server, &resp->u.data.interface_names,
 				 interface, number, instance, strategy);
 			do_output (output, resp, _offset_data (interface_names),
@@ -267,13 +267,13 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 #endif
 #if GLIBTOP_SUID_NETINFO
 	case GLIBTOP_CMND_NETINFO:
-		retval = glibtop_get_netinfo_p (server, &resp->u.data.netinfo, parameter);
+		retval = glibtop_get_netinfo_p (server, &resp->u.data.netinfo, parameter, 0);
 		resp->offset = _offset_data (netload);
 		break;
 #endif
 #if GLIBTOP_SUID_NETLOAD
 	case GLIBTOP_CMND_NETLOAD:
-		retval = glibtop_get_netload_p (server, &resp->u.data.netload, parameter);
+		retval = glibtop_get_netload_p (server, &resp->u.data.netload, parameter, 0, 0);
 		resp->offset = _offset_data (netload);
 		break;
 #endif
