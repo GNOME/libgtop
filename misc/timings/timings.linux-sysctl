@@ -1,0 +1,27 @@
+This statistics were made on a PPRO 200 running Linux 2.2.1
+(the same machine I made the timings.linux-proc on) with my
+new sysctl () based kernel module.
+
+
+Feature      (Flags     ):   Count -     utime -     stime
+----------------------------------------------------------
+CPU          (0x0000003f):  100000 -      3.50 -      5.40
+Memory       (0x0000003f):   10000 -      3.00 -      6.00
+Swap         (0x0000001f):   10000 -     10.00 -      7.00
+Uptime       (0x00000003):  100000 -      2.30 -      7.00
+Loadavg      (0x00000001):  100000 -      3.00 -      5.60
+
+Proclist     (0x00000007):   10000 -     13.00 -     46.00
+
+Proc_State   (0x0000000d):  100000 -      3.20 -      7.70
+Proc_Uid     (0x00000fff):  100000 -      3.60 -      7.40
+Proc_Mem     (0x0000003f):  100000 -      4.10 -     34.30
+Proc_Segment (0x000000ff):  100000 -      5.90 -     41.50
+Proc_Time    (0x0000013d):  100000 -      3.50 -      7.50
+Proc_Signal  (0x0000000f):  100000 -      2.70 -      8.80
+Proc_Kernel  (0x000000fe):  100000 -      4.00 -     13.30
+----------------------------------------------------------
+TOTAL                                  3840000 -  14440000
+
+All timings are in clock ticks (1000000 ticks per second).
+
