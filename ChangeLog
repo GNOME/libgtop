@@ -1,5 +1,12 @@
 1999-05-08  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/limits.h (GLIBTOP_MAX_GROUPS): Define this here.
+	* include/glibtop/procuid.h (GLIBTOP_MAX_GROUPS): Moved to limits.h.
+
+	* features.def: We can use constants from <glibtop/limits.h> here.
+
+1999-05-08  Martin Baulig  <martin@home-of-linux.org>
+
 	* libgtop-sysdeps.m4: Use the setgid sys server for Solaris.
 
 1999-05-06  Martin Baulig  <martin@home-of-linux.org>

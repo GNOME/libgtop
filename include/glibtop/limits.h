@@ -33,6 +33,9 @@ BEGIN_LIBGTOP_DECLS
 /* Nobody should really be using more than 64 processors. */
 #define GLIBTOP_NCPU		64
 
+/* Maximum number of process groups in glibtop_proc_uid. */
+#define GLIBTOP_MAX_GROUPS	32
+
 END_LIBGTOP_DECLS
 
 #endif

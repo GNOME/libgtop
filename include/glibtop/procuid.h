@@ -52,8 +52,6 @@ BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_MAX_PROC_UID		18
 
-#define GLIBTOP_MAX_GROUPS		32
-
 typedef struct _glibtop_proc_uid	glibtop_proc_uid;
 
 /* User, Group, Terminal and session */
