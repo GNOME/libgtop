@@ -29,15 +29,22 @@
 
 BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_PARAM_METHOD		1
+#define GLIBTOP_PARAM_ERROR_METHOD	1
 #define GLIBTOP_PARAM_FEATURES		2
-#define GLIBTOP_PARAM_COMMAND		3
-#define GLIBTOP_PARAM_HOST		4
-#define GLIBTOP_PARAM_PORT		5
-#define GLIBTOP_PARAM_ERROR_METHOD	6
-#define GLIBTOP_PARAM_REQUIRED		7
-#define GLIBTOP_PARAM_REMOTE_USER	8
-#define GLIBTOP_PARAM_PATH_RSH		9
+#define GLIBTOP_PARAM_NCPU		3
+#define GLIBTOP_PARAM_OS_VERSION_CODE	4
+#define GLIBTOP_PARAM_REQUIRED		5
+
+typedef struct _glibtop_parameter	glibtop_parameter;
+
+struct _glibtop_parameter
+{
+    unsigned error_method;	/* Error Method */
+    u_int64_t features;		/* Server is required for this features */
+    unsigned ncpu;		/* Number of CPUs, zero if single-processor */
+    u_int64_t os_version_code;	/* Version code of the operating system */
+    glibtop_sysdeps required;	/* Required feature list */
+};
 
 #define glibtop_get_parameter(p1,p2,p3)	glibtop_get_parameter_l(glibtop_global_server,p1,p2,p3)
 #define glibtop_set_parameter(p1,p2,p3) glibtop_set_parameter_l(glibtop_global_server,p1,p2,p3)

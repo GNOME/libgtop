@@ -49,33 +49,21 @@ glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
 			 void *data_ptr, size_t data_size)
 {
     switch (parameter) {
-    case GLIBTOP_PARAM_METHOD:
-	_write_data (&server->method,
-		     sizeof (server->method));
-    case GLIBTOP_PARAM_FEATURES:
-	_write_data (&server->features,
-		     sizeof (server->features));
-    case GLIBTOP_PARAM_COMMAND:
-	_write_data (server->server_command,
-		     _strlen(server->server_command));
-    case GLIBTOP_PARAM_HOST:
-	_write_data (server->server_host,
-		     _strlen(server->server_host));
-    case GLIBTOP_PARAM_PORT:
-	_write_data (&server->server_port,
-		     sizeof (server->server_port));
-    case GLIBTOP_PARAM_REMOTE_USER:
-	_write_data (server->server_user,
-		     _strlen(server->server_user));
-    case GLIBTOP_PARAM_PATH_RSH:
-	_write_data (server->server_rsh,
-		     _strlen(server->server_rsh));
     case GLIBTOP_PARAM_ERROR_METHOD:
-	_write_data (&server->error_method,
-		     sizeof (server->error_method));
+	_write_data (&server->_param.error_method,
+		     sizeof (server->_param.error_method));
+    case GLIBTOP_PARAM_FEATURES:
+	_write_data (&server->_param.features,
+		     sizeof (server->_param.features));
+    case GLIBTOP_PARAM_NCPU:
+	_write_data (&server->_param.ncpu,
+		     sizeof (server->_param.ncpu));
+    case GLIBTOP_PARAM_OS_VERSION_CODE:
+	_write_data (&server->_param.os_version_code,
+		     sizeof (server->_param.os_version_code));
     case GLIBTOP_PARAM_REQUIRED:
-	_write_data (&server->required,
-		     sizeof (server->required));
+	_write_data (&server->_param.required,
+		     sizeof (server->_param.required));
     }
 
     return -GLIBTOP_ERROR_NO_SUCH_PARAMETER;
@@ -85,24 +73,16 @@ int
 glibtop_get_parameter_size_l (glibtop *server, const unsigned parameter)
 {
     switch (parameter) {
-    case GLIBTOP_PARAM_METHOD:
-	return sizeof (server->method);
-    case GLIBTOP_PARAM_FEATURES:
-	return sizeof (server->features);
-    case GLIBTOP_PARAM_COMMAND:
-	return _strlen(server->server_command);
-    case GLIBTOP_PARAM_HOST:
-	return _strlen(server->server_host);
-    case GLIBTOP_PARAM_PORT:
-	return sizeof (server->server_port);
-    case GLIBTOP_PARAM_REMOTE_USER:
-	return _strlen(server->server_user);
-    case GLIBTOP_PARAM_PATH_RSH:
-	return _strlen(server->server_rsh);
     case GLIBTOP_PARAM_ERROR_METHOD:
-	return sizeof (server->error_method);
+	return sizeof (server->_param.error_method);
+    case GLIBTOP_PARAM_FEATURES:
+	return sizeof (server->_param.features);
+    case GLIBTOP_PARAM_NCPU:
+	return sizeof (server->_param.ncpu);
+    case GLIBTOP_PARAM_OS_VERSION_CODE:
+	return sizeof (server->_param.os_version_code);
     case GLIBTOP_PARAM_REQUIRED:
-	return sizeof (server->required);
+	return sizeof (server->_param.required);
     }
 
     return -GLIBTOP_ERROR_NO_SUCH_PARAMETER;
@@ -113,44 +93,18 @@ glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
 			 const void *data_ptr, size_t data_size)
 {
     switch (parameter) {
-    case GLIBTOP_PARAM_METHOD:
-	_check_data (sizeof (server->method));
-	memcpy (&server->method, data_ptr, data_size);
+    case GLIBTOP_PARAM_ERROR_METHOD:
+	_check_data (sizeof (server->_param.error_method));
+	memcpy (&server->_param.error_method, data_ptr, data_size);
 	break;
     case GLIBTOP_PARAM_FEATURES:
+    case GLIBTOP_PARAM_NCPU:
+    case GLIBTOP_PARAM_OS_VERSION_CODE:
 	return -GLIBTOP_ERROR_READONLY_VALUE;
 	break;
-    case GLIBTOP_PARAM_COMMAND:
-	if (server->server_command)
-	    glibtop_free_r (server, server->server_command);
-	server->server_command = glibtop_strdup_r (server, data_ptr);
-	break;
-    case GLIBTOP_PARAM_HOST:
-	if (server->server_host)
-	    glibtop_free_r (server, server->server_host);
-	server->server_host = glibtop_strdup_r (server, data_ptr);
-	break;
-    case GLIBTOP_PARAM_PORT:
-	_check_data (sizeof (server->server_port));
-	memcpy (&server->server_port, data_ptr, data_size);
-	break;
-    case GLIBTOP_PARAM_REMOTE_USER:
-	if (server->server_user)
-	    glibtop_free_r (server, server->server_user);
-	server->server_user = glibtop_strdup_r (server, data_ptr);
-	break;
-    case GLIBTOP_PARAM_PATH_RSH:
-	if (server->server_rsh)
-	    glibtop_free_r (server, server->server_rsh);
-	server->server_rsh = glibtop_strdup_r (server, data_ptr);
-	break;
-    case GLIBTOP_PARAM_ERROR_METHOD:
-	_check_data (sizeof (server->error_method));
-	memcpy (&server->error_method, data_ptr, data_size);
-	break;
     case GLIBTOP_PARAM_REQUIRED:
-	_check_data (sizeof (server->required));
-	memcpy (&server->required, data_ptr, data_size);
+	_check_data (sizeof (server->_param.required));
+	memcpy (&server->_param.required, data_ptr, data_size);
 	break;
     default:
 	return -GLIBTOP_ERROR_NO_SUCH_PARAMETER;

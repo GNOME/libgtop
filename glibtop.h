@@ -44,6 +44,8 @@ typedef struct _glibtop_server_private	glibtop_server_private;
 #include <glibtop/sysdeps.h>
 #include <glibtop/errors.h>
 
+#include <glibtop/parameter.h>
+
 #ifdef _IN_LIBGTOP
 #include <glibtop-server-private.h>
 #endif
@@ -52,20 +54,15 @@ struct _glibtop
 {
     int refcount;		/* Reference count */
     unsigned flags;
-    unsigned method;		/* Server Method */
-    unsigned error_method;	/* Error Method */
     int ncpu;			/* Number of CPUs, zero if single-processor */
     unsigned long os_version_code;	/* Version code of the operating system */
     const char *name;		/* Program name for error messages */
-    const char *server_command;	/* Command used to invoke server */
-    const char *server_host;	/* Host the server should run on */
-    const char *server_user;	/* Name of the user on the target host */
-    const char *server_rsh;	/* Command used to connect to the target host */
     unsigned long features;	/* Server is required for this features */
     unsigned long server_port;	/* Port on which daemon is listening */
     glibtop_sysdeps sysdeps;	/* Detailed feature list */
     glibtop_sysdeps required;	/* Required feature list */
     glibtop_sysdeps wanted;	/* We only want this features */
+    glibtop_parameter _param;	/* Server parameter */
     glibtop_server_private *_priv;	/* Private data */
     unsigned glibtop_errno;
 };

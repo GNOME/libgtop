@@ -1,5 +1,18 @@
 2000-02-06  Martin Baulig  <martin@home-of-linux.org>
 
+	* glibtop.h (glibtop): Removed `method', `server_command',
+	`server_host', `server_user' and `server_rsh'.
+	Added `glibtop_parameter _param' field and moved `error_method'
+	there.
+
+	* include/glibtop/parameter.h (glibtop_parameter): New structure.
+	(GLIBTOP_PARAM_METHOD, GLIBTOP_PARAM_COMMAND): Removed.
+	(GLIBTOP_PARAM_HOST, GLIBTOP_PARAM_PORT): Removed.
+	(GLIBTOP_PARAM_REMOTE_USER, GLIBTOP_PARAM_PATH_RSH): Removed.
+	(GLIBTOP_PARAM_NCPU, GLIBTOP_PARAM_OS_VERSION_CODE): Added.
+
+2000-02-06  Martin Baulig  <martin@home-of-linux.org>
+
 	* include/glibtop/ppp.h (glibtop_get_ppp): Removed the `lockfile'
 	argument; we now use a configure check to determine the modem
 	lockfile.

@@ -117,7 +117,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 	/* the old notty val, update elsewhere bef. moving to 0 */
 	buf->tty = -1;
 
-    if (server->os_version_code < LINUX_VERSION(1,3,39)) {
+    if (server->_param.os_version_code < LINUX_VERSION(1,3,39)) {
 	/* map old meanings to new */
 	buf->priority = 2*15 - buf->priority;
 	buf->nice = 15 - buf->nice;

@@ -45,7 +45,7 @@ print "\tu_int64_t old_required = *required;\n";
 print "\t/* Return if we have all required fields. */";
 print "\tif ((~present & old_required) == 0)";
 print "\t\treturn;\n";
-print "\tswitch (server->error_method) {";
+print "\tswitch (server->_param.error_method) {";
 print "\tcase GLIBTOP_ERROR_METHOD_WARN_ONCE:";
 print "\t\t*required &= present;";
 print "\tcase GLIBTOP_ERROR_METHOD_WARN:";
