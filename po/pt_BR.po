@@ -1033,8 +1033,8 @@ msgstr "Informações de dados em Kernel do Processo"
 msgid "Process Segment information"
 msgstr "Informações de Segmentos do Processo"
 
-#: sysdeps/names/sysdeps.c:71
 #
+#: sysdeps/names/sysdeps.c:71
 msgid "Process CWD"
 msgstr "CWD do Processo"
 
@@ -1070,8 +1070,8 @@ msgstr "Estatísticas do PPP"
 msgid "Pointer Size on the Server (in bits)"
 msgstr "Tamanho do ponteiro no servidor em bits"
 
-#: sysdeps/names/sysdeps.c:101
 #
+#: sysdeps/names/sysdeps.c:101
 msgid "Current working directory of the process"
 msgstr "Diretório atual do processo"
 
@@ -1176,8 +1176,8 @@ msgstr "%s: opção `-W %s' não aceita argumentos.\n"
 msgid "No error"
 msgstr "Nenhum erro"
 
-#: lib/errors.c:32
 #
+#: lib/errors.c:32
 msgid "Unknown error"
 msgstr "Erro desconhecido"
 
