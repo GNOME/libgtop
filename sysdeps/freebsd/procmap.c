@@ -31,6 +31,7 @@
 #include <sys/proc.h>
 #include <sys/resource.h>
 #include <vm/vm_object.h>
+#include <vm/vm_prot.h>
 #include <vm/vm_map.h>
 
 #include <sys/vnode.h>
@@ -46,6 +47,11 @@
 static const unsigned long _glibtop_sysdeps_proc_map =
 (1 << GLIBTOP_PROC_MAP_TOTAL) + (1 << GLIBTOP_PROC_MAP_NUMBER) +
 (1 << GLIBTOP_PROC_MAP_SIZE);
+
+static const unsigned long _glibtop_sysdeps_map_entry =
+(1 << GLIBTOP_MAP_ENTRY_START) + (1 << GLIBTOP_MAP_ENTRY_END) +
+(1 << GLIBTOP_MAP_ENTRY_OFFSET) + (1 << GLIBTOP_MAP_ENTRY_PERM) +
+(1 << GLIBTOP_MAP_ENTRY_INODE) + (1 << GLIBTOP_MAP_ENTRY_DEVICE);
 
 /* Init function. */
 
@@ -127,8 +133,21 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 		if (entry.eflags & (MAP_ENTRY_IS_A_MAP|MAP_ENTRY_IS_SUB_MAP))
 			continue;
 
-		maps [i].start = entry.start;
-		maps [i].end   = entry.end;
+		maps [i].flags  = _glibtop_sysdeps_map_entry;
+
+		maps [i].start  = entry.start;
+		maps [i].end    = entry.end;
+		maps [i].offset = entry.offset;
+
+		maps [i].perm   = 0;
+
+		if (entry.protection & VM_PROT_READ)
+			maps [i].perm |= GLIBTOP_MAP_PERM_READ;
+		if (entry.protection & VM_PROT_WRITE)
+			maps [i].perm |= GLIBTOP_MAP_PERM_WRITE;
+		if (entry.protection & VM_PROT_EXECUTE)
+			maps [i].perm |= GLIBTOP_MAP_PERM_EXECUTE;
+
 		i++;
 
 		if (!entry.object.vm_object)
