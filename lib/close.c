@@ -35,7 +35,7 @@ glibtop_close_r (glibtop *server)
 	case GLIBTOP_METHOD_UNIX:
 	case GLIBTOP_METHOD_INET:
 		glibtop_call_l (server, GLIBTOP_CMND_QUIT,
-				0, NULL, 0, NULL);
+				0, NULL, 0, NULL, NULL);
 
 		if (close (server->socket))
 			glibtop_warn_io ("close");

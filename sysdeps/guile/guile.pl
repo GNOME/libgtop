@@ -81,6 +81,10 @@ sub make_output {
 
     $total_nr_params = 0;
 
+    if ($retval eq 'retval') {
+      $retval = 'int';
+    }
+
     if ($param_def eq 'string') {
 	$call_param = ', gh_scm2newstr( ' . $line_fields[5] . ', NULL)';
 	$param_decl = 'SCM ' . $line_fields[5];

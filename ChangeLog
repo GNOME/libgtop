@@ -1,5 +1,11 @@
 1999-10-24  Martin Baulig  <martin@home-of-linux.org>
 
+	* features.def: Use `retval' for the default retval.
+
+	* include/glibtop/command.h (glibtop_command_h): Added
+	`int *retval_ptr' parameter to return the retval from the
+	sysdeps functions.
+
 	* include/glibtop/*.h (glibtop_get_*, glibtop_init*): Changed
 	the return value of all `glibtop_get_<feature>_* ()' and all
  	`glibtop_init_<feature>_* ()' functions from void to int.

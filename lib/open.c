@@ -159,7 +159,8 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		/* Now ask it for its features. */
 		
 		glibtop_call_l (server, GLIBTOP_CMND_SYSDEPS, 0, NULL,
-				sizeof (glibtop_sysdeps), &sysdeps);
+				sizeof (glibtop_sysdeps), &sysdeps,
+				NULL);
 		
 		server->features = sysdeps.features;
 

@@ -30,10 +30,12 @@
 
 void *
 glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
-		const void *send_buf, size_t recv_size, void *recv_buf)
+		const void *send_buf, size_t recv_size, void *recv_buf,
+		int *retval_ptr)
 {
 	glibtop_command cmnd;
 	glibtop_response response;
+	int retval;
 
 	glibtop_init_r (&server, 0, 0);
 
@@ -60,6 +62,10 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 	fprintf (stderr, "RESPONSE: %lu - %d\n",
 		 response.offset, response.data_size);
 #endif
+
+	glibtop_read_l (server, sizeof (int), &retval);
+	if (retval_ptr)
+		*retval_ptr = retval;
 
 	if (recv_buf)
 		memcpy (recv_buf, ((char *) &response) + response.offset,

@@ -68,6 +68,7 @@ $convert{'long'} = 'int64_t';
 $convert{'ulong'} = 'u_int64_t';
 $convert{'pid_t'} = 'pid_t';
 $convert{'int'} = 'int';
+$convert{'retval'} = 'int';
 $convert{'ushort'} = 'unsigned short';
 $convert{'unsigned'} = 'unsigned';
 
@@ -91,15 +92,30 @@ sub output {
     $space = $feature;
     $space =~ s/./ /g;
 
-    print $retval;
-    if ($retval !~ /^void$/) {
-	$prefix = 'retval = ';
-	$prefix_space = '         ';
+    if ($retval eq 'retval') {
+      $retval_param = '&retval';
+      $call_prefix = '';
+      $call_prefix_space = '';
+      $prefix = 'retval = ';
+      $prefix_space = '         ';
+      $retval = 'int';
+    }
+    elsif ($retval !~ /^void$/) {
+      $retval_param = 'NULL';
+      $prefix = 'retval = ';
+      $prefix_space = '         ';
+      $call_prefix = 'retval = ';
+      $call_prefix_space = '         ';
     }
     else {
-	$prefix = '';
-	$prefix_space = '';
+      $retval_param = 'NULL';
+      $call_prefix = '';
+      $call_prefix_space = '';
+      $prefix = '';
+      $prefix_space = '';
     }
+
+    print $retval;
 
     if ($param_def eq 'string') {
 	$call_param = ', ' . $line_fields[5];
@@ -185,13 +201,14 @@ sub output {
       &toupper($feature) . ')))';
     print "\t{";
 
-    print "\t\t" . $prefix . 'glibtop_call_l (server, GLIBTOP_CMND_' .
+    print "\t\t" . $call_prefix . 'glibtop_call_l (server, GLIBTOP_CMND_' .
 
       &toupper($feature) . ',';
-    print "\t\t\t\t" . $prefix_space . 'send_size, send_ptr,';
-    print "\t\t\t\t" . $prefix_space . 'sizeof (glibtop_' . $feature .
+    print "\t\t\t\t" . $call_prefix_space . 'send_size, send_ptr,';
+    print "\t\t\t\t" . $call_prefix_space . 'sizeof (glibtop_' . $feature .
 
-      '), buf);';
+      '), buf,';
+    print "\t\t\t\t" . $call_prefix_space . $retval_param . ');';
 
     print "\t} else {";
 

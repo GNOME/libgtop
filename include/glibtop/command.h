@@ -93,7 +93,8 @@ struct _glibtop_response
 
 void *
 glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
-		const void *send_buf, size_t recv_size, void *recv_buf);
+		const void *send_buf, size_t recv_size, void *recv_buf,
+		int *retval_ptr);
 
 void *
 glibtop_call_s (glibtop *server, unsigned command, size_t send_size,
