@@ -1,5 +1,11 @@
 1998-11-11  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/gnuserv.h (MCOOKIE_SCREEN): Don't define this
+	any longer, we now use the port the daemon is listening on instead
+	of a fixed screen.
+
+1998-11-11  Martin Baulig  <martin@home-of-linux.org>
+
 	* configure.in (--enable-debug): Define LIBGTOP_ENABLE_DEBUG
 	if this parameter is given.
 	(--enable-fatal-warnings): New parameter to make all warnings

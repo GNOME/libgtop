@@ -274,11 +274,13 @@ connect_to_internet_server (const char *serverhost, u_short port)
 
 	/* send credentials using MIT-MAGIC-COOKIE-1 protocol */
 
+	sprintf (buf, "%d", port);
+
 	server_xauth =
 		XauGetAuthByAddr (FamilyInternet,
 				  sizeof (peeraddr_in.sin_addr.s_addr),
 				  (char *) &peeraddr_in.sin_addr.s_addr,
-				  strlen (MCOOKIE_SCREEN), MCOOKIE_SCREEN,
+				  strlen (buf), buf,
 				  strlen (MCOOKIE_X_NAME), MCOOKIE_X_NAME);
 
 	if (server_xauth && server_xauth->data) {

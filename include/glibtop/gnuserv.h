@@ -75,7 +75,9 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
  * stuff related to supporting MIT-MAGIC-COOKIE-1
  */
 
-#define MCOOKIE_SCREEN "42980"   /* screen # to use as the gnuserv cookie */
+#if 0
+#define MCOOKIE_SCREEN "42980"   /* screen # to use as the gnuserv cookie */ 
+#endif
 #define MCOOKIE_NAME   "MAGIC-1" /* authentication protocol name */
 #define MCOOKIE_X_NAME "MIT-MAGIC-COOKIE-1"  /* as needed by X */
 

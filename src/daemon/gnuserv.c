@@ -216,7 +216,7 @@ permitted (u_long host_addr, int fd)
 static int
 setup_table (void)
 {
-	char hostname [HOSTNAMSZ];
+	char hostname [HOSTNAMSZ], screen [BUFSIZ];
 	long host_addr;
 	int i, hosts = 0;
 
@@ -231,10 +231,12 @@ setup_table (void)
 
 #ifdef AUTH_MAGIC_COOKIE
 
+	sprintf (screen, "%d", SERVER_PORT);
+
 	server_xauth = XauGetAuthByAddr
 		(FamilyInternet,
 		 sizeof (host_addr), (char *) &host_addr,
-		 strlen (MCOOKIE_SCREEN), MCOOKIE_SCREEN,
+		 strlen (screen), screen,
 		 strlen (MCOOKIE_X_NAME), MCOOKIE_X_NAME);
 	hosts++;
 
