@@ -19,10 +19,28 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <glibtop/close.h>
+#ifndef __GLIBTOP_SERVER_H__
+#define __GLIBTOP_SERVER_H__
 
-/* Closes pipe to gtop server. */
+__BEGIN_DECLS
 
-void
-glibtop_close_l (glibtop *server)
-{ }
+#define GLIBTOP_SUID_CPU		0
+#define GLIBTOP_SUID_MEM		0
+#define GLIBTOP_SUID_SWAP		0
+#define GLIBTOP_SUID_UPTIME		0
+#define GLIBTOP_SUID_LOADAVG		0
+#define GLIBTOP_SUID_SHM_LIMITS		0
+#define GLIBTOP_SUID_MSG_LIMITS		0
+#define GLIBTOP_SUID_SEM_LIMITS		0
+#define GLIBTOP_SUID_PROCLIST		0
+#define GLIBTOP_SUID_PROC_STATE		0
+#define GLIBTOP_SUID_PROC_UID		0
+#define GLIBTOP_SUID_PROC_MEM		0
+#define GLIBTOP_SUID_PROC_TIME		0
+#define GLIBTOP_SUID_PROC_SIGNAL	0
+#define GLIBTOP_SUID_PROC_KERNEL	0
+#define GLIBTOP_SUID_PROC_SEGMENT	0
+
+__END_DECLS
+
+#endif

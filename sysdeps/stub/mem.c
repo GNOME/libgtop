@@ -25,7 +25,7 @@
 /* Provides information about memory usage. */
 
 void
-glibtop_get_mem_r (glibtop *server, glibtop_mem *buf)
+glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
 	memset (buf, 0, sizeof (glibtop_mem));
 }

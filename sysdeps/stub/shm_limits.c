@@ -24,7 +24,7 @@
 /* Provides information about sysv ipc limits. */
 
 void
-glibtop_get_shm_limits_r (glibtop *server, glibtop_shm_limits *buf)
+glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 {
 	memset (buf, 0, sizeof (glibtop_shm_limits));
 }

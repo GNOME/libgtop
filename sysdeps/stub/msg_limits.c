@@ -24,7 +24,7 @@
 /* Provides information about sysv ipc limits. */
 
 void
-glibtop_get_msg_limits_r (glibtop *server, glibtop_msg_limits *buf)
+glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 {
 	memset (buf, 0, sizeof (glibtop_msg_limits));
 }

@@ -25,7 +25,7 @@
 /* Provides information about swap usage. */
 
 void
-glibtop_get_swap_r (glibtop *server, glibtop_swap *buf)
+glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
 	memset (buf, 0, sizeof (glibtop_swap));
 }
