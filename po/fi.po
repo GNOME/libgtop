@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 2000-02-16 17:20+0100\n"
+"POT-Creation-Date: 2000-02-23 00:23+0100\n"
 "PO-Revision-Date: 1999-08-01 18:09-0400\n"
 "Last-Translator: Unknown :-(\n"
 "Language-Team: \n"
