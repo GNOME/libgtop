@@ -22,6 +22,8 @@ BEGIN {
   backconv["pid_t"]        = "gh_scm2ulong";
   backconv["long"]         = "gh_scm2long";
   backconv["ulong"]        = "gh_scm2ulong";
+
+  feature_count = 0;
 }
 
 function make_output(line) {
@@ -33,6 +35,9 @@ function make_output(line) {
 
   sub(/^@/,"",feature);
   features[feature] = feature;
+
+  feature_field[feature_count] = feature;
+  feature_count = feature_count+1;
 
   total_nr_params = 0;
 
@@ -173,6 +178,14 @@ function make_output(line) {
 /^[^#]/		{ make_output($0) }
 
 END {
+  sep=""
+  sysdeps="void|sysdeps|ulong(";
+  for(nr = 0; nr < feature_count; nr++) {
+    sysdeps = sysdeps""sep""feature_field[nr];
+    sep=",";
+  }
+  sysdeps=sysdeps")";
+  make_output(sysdeps);
   print "void";
   print "glibtop_boot_guile (void)";
   print "{";

@@ -1,5 +1,7 @@
 1998-12-08  Martin Baulig  <martin@home-of-linux.org>
 
+	* guile.awk (glibtop-get-sysdeps): New guile function.
+	
 	* guile.awk (glibtop_get_proc_map): Make a gh_list for each map
 	entry and append all of them to the returned list.
 	(glibtop_get_mountlist): Likewise.
