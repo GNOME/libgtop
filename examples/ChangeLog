@@ -1,3 +1,7 @@
+1999-03-24  Martin Baulig  <martin@home-of-linux.org>
+
+	* timings.c: New example.
+
 1999-03-17  Martin Baulig  <martin@home-of-linux.org>
 
 	* first.c, second.c: Fixed a bug that caused a core dump when
