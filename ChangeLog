@@ -1,3 +1,7 @@
+2000-04-16  Valek Filippov  <frob@df.ru>
+
+	* configure.in: Added russian translation.
+
 2000-03-08 Alastair McKinstry <mckinstry@computer.org>
 
 	* configure.in (ALL_LINGUAS): Added Irish (ga) translation.
