@@ -297,6 +297,8 @@ setup_table (void)
     /* Resolv host names from permitted_host_names []. */
 
     for (i = 0; i < HOST_TABLE_ENTRIES; i++) {
+	if (!permitted_host_names [i])
+	    continue;
 	if (enable_debug)
 	    syslog_message (LOG_DEBUG, "Resolving %s ...",
 			    permitted_host_names [i]);
