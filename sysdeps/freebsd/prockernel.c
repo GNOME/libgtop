@@ -34,10 +34,10 @@
 #if (!defined __OpenBSD__) && (!defined __bsdi__)
 #include <sys/user.h>
 #endif
-#ifndef __bsdi__
+#if !defined(__bsdi__) && !(defined(__FreeBSD__) && defined(__alpha__))
 #include <machine/pcb.h>
 #endif
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) && !defined(__alpha__)
 #include <machine/tss.h>
 #endif
 
@@ -155,12 +155,16 @@ glibtop_get_proc_kernel_p (glibtop *server,
 		       (char *) &pcb, sizeof (pcb)) == sizeof (pcb))
 		{
 #ifdef __FreeBSD__
+#ifndef __alpha__
 #if (__FreeBSD_version >= 300003)
 			buf->kstk_esp = (u_int64_t) pcb.pcb_esp;
 			buf->kstk_eip = (u_int64_t) pcb.pcb_eip;
 #else
 			buf->kstk_esp = (u_int64_t) pcb.pcb_ksp;
 			buf->kstk_eip = (u_int64_t) pcb.pcb_pc;
+#endif
+#else
+			/*xxx FreeBSD/Alpha? */
 #endif
 #else
 			buf->kstk_esp = (u_int64_t) pcb.pcb_tss.tss_esp0;
