@@ -32,9 +32,8 @@
 static const unsigned long _glibtop_sysdeps_mem =
 (1 << GLIBTOP_MEM_TOTAL) + (1 << GLIBTOP_MEM_USED) +
 (1 << GLIBTOP_MEM_FREE) + (1 << GLIBTOP_MEM_SHARED) +
-(1 << GLIBTOP_MEM_BUFFER) +
 #ifdef __FreeBSD__
-(1 << GLIBTOP_MEM_CACHED) +
+(1 << GLIBTOP_MEM_BUFFER) + (1 << GLIBTOP_MEM_CACHED) +
 #endif
 (1 << GLIBTOP_MEM_USER);
 
@@ -51,7 +50,9 @@ static int pageshift;		/* log base 2 of the pagesize */
 /* nlist structure for kernel access */
 static struct nlist nlst [] = {
 	{ "_cnt" },
+#ifdef __FreeBSD__
 	{ "_bufspace" },
+#endif
 	{ 0 }
 };
 
@@ -92,7 +93,9 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	struct vmtotal vmt;
 	size_t length_vmt;
 	struct vmmeter vmm;
+#if __FreeBSD__
 	int bufspace;
+#endif
 
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_MEM), 0);
 	
@@ -119,11 +122,13 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 		return;
 	}
 
+#if __FreeBSD__
 	if (kvm_read (server->machine.kd, nlst[1].n_value,
 		      &bufspace, sizeof (bufspace)) != sizeof (bufspace)) {
 		glibtop_warn_io_r (server, "kvm_read (bufspace)");
 		return;
 	}
+#endif
   
 	/* convert memory stats to Kbytes */
 
@@ -147,7 +152,9 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 #endif
 	buf->shared = (u_int64_t) pagetok (vmt.t_vmshr) << LOG1024;
 
+#if __FreeBSD__
 	buf->buffer = (u_int64_t) bufspace;
+#endif
 
 	/* user */
 	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
