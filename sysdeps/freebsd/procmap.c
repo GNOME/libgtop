@@ -48,6 +48,14 @@
 #include <sys/sysctl.h>
 #include <vm/vm.h>
 
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+/* Fixme ... */
+#undef _KERNEL
+#define _UVM_UVM_AMAP_I_H_ 1
+#define _UVM_UVM_MAP_I_H_ 1
+#include <uvm/uvm.h>
+#endif
+
 static const unsigned long _glibtop_sysdeps_proc_map =
 (1L << GLIBTOP_PROC_MAP_TOTAL) + (1L << GLIBTOP_PROC_MAP_NUMBER) +
 (1L << GLIBTOP_PROC_MAP_SIZE);
@@ -74,11 +82,18 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 	struct kinfo_proc *pinfo;
 	struct vm_map_entry entry, *first;
 	struct vmspace vmspace;
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+	struct vnode vnode;
+	struct inode inode;
+#else
 	struct vm_object object;
+#endif
 	glibtop_map_entry *maps;
+#if defined __FreeBSD__
 	struct vnode vnode;
 	struct inode inode;
 	struct mount mount;
+#endif
 	int count, i = 0;
 	int update = 0;
 
@@ -149,6 +164,8 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 #endif
 #else
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+ 		if (UVM_ET_ISSUBMAP (&entry))
+			continue;
 #else
 		if (entry.is_a_map || entry.is_sub_map)
 			continue;
@@ -173,6 +190,17 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 		i++;
 
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+		if (!entry.object.uvm_obj)
+			continue;
+
+		/* We're only interested in vnodes */
+
+		if (kvm_read (server->machine.kd,
+			      (unsigned long) entry.object.uvm_obj,
+			      &vnode, sizeof (vnode)) != sizeof (vnode)) {
+			glibtop_warn_io_r (server, "kvm_read (vnode)");
+			return NULL;
+		}
 #else
 		if (!entry.object.vm_object)
 			continue;
@@ -184,6 +212,23 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			      &object, sizeof (object)) != sizeof (object))
 			glibtop_error_io_r (server, "kvm_read (object)");
 #endif
+
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+		if (!vnode.v_uvm.u_flags & UVM_VNODE_VALID)
+			continue;
+
+		if ((vnode.v_type != VREG) || (vnode.v_tag != VT_UFS) ||
+		    !vnode.v_data) continue;
+
+		if (kvm_read (server->machine.kd,
+			      (unsigned long) vnode.v_data,
+			      &inode, sizeof (inode)) != sizeof (inode))
+			glibtop_error_io_r (server, "kvm_read (inode)");
+
+		maps [i-1].inode  = inode.i_number;
+		maps [i-1].device = inode.i_dev;
+#endif
+
 
 #ifdef __FreeBSD__
 		/* If the object is of type vnode, add its size */

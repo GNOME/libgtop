@@ -56,10 +56,18 @@
 static const unsigned long _glibtop_sysdeps_proc_mem =
 (1L << GLIBTOP_PROC_MEM_SIZE) +
 (1L << GLIBTOP_PROC_MEM_VSIZE) +
-(1L << GLIBTOP_PROC_MEM_SHARE) +
 (1L << GLIBTOP_PROC_MEM_RESIDENT) +
 (1L << GLIBTOP_PROC_MEM_RSS) +
 (1L << GLIBTOP_PROC_MEM_RSS_RLIM);
+
+static const unsigned long _glibtop_sysdeps_proc_mem_share =
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+(1L << GLIBTOP_PROC_MEM_SHARE);
+#elif defined(__FreeBSD__)
+(1L << GLIBTOP_PROC_MEM_SHARE);
+#else
+0;
+#endif
 
 #ifndef LOG1024
 #define LOG1024		10
@@ -90,7 +98,8 @@ glibtop_init_proc_mem_p (glibtop *server)
 	/* we only need the amount of log(2)1024 for our conversion */
 	pageshift -= LOG1024;
 
-	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
+	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem |
+		_glibtop_sysdeps_proc_mem_share;
 }
 
 /* Provides detailed information about a process. */
@@ -103,7 +112,8 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	struct vm_map_entry entry, *first;
 	struct vmspace *vms, vmspace;
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
-	struct uvm_object object;
+	struct vnode vnode;
+	struct inode inode;
 #else
 	struct vm_object object;
 #endif
@@ -199,12 +209,12 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 		if (!entry.object.uvm_obj)
 			continue;
 
-		/* We're only interested in `uvm_obj's */
+		/* We're only interested in vnodes */
 
 		if (kvm_read (server->machine.kd,
 			      (unsigned long) entry.object.uvm_obj,
-			      &object, sizeof (object)) != sizeof (object)) {
-			glibtop_warn_io_r (server, "kvm_read (object)");
+			      &vnode, sizeof (vnode)) != sizeof (vnode)) {
+			glibtop_warn_io_r (server, "kvm_read (vnode)");
 			return;
 		}
 #else
@@ -222,19 +232,28 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 #endif
 		/* If the object is of type vnode, add its size */
 
+#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
+		if (!vnode.v_uvm.u_flags & UVM_VNODE_VALID)
+			continue;
+
+		if ((vnode.v_type != VREG) || (vnode.v_tag != VT_UFS) ||
+		    !vnode.v_data) continue;
+
+		/* Reference count must be at least two. */
+		if (vnode.v_uvm.u_obj.uo_refs <= 1)
+			continue;
+
+		buf->share += pagetok (vnode.v_uvm.u_obj.uo_npages) << LOG1024;
+#endif
+
 #ifdef __FreeBSD__
 		if (object.type != OBJT_VNODE)
 			continue;
 
 		buf->share += object.un_pager.vnp.vnp_size;
-#else
-#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
-		buf->share += pagetok (object.uo_npages) << LOG1024;
-#else
-		buf->share += object.size;
-#endif
 #endif
 	}
 
-	buf->flags = _glibtop_sysdeps_proc_mem;
+	buf->flags = _glibtop_sysdeps_proc_mem |
+		_glibtop_sysdeps_proc_mem_share;
 }

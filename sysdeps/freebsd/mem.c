@@ -174,6 +174,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 #else
 #if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000)
 	v_total_count = uvmexp.reserve_kernel +
+		uvmexp.reserve_pagedaemon +
 		uvmexp.free + uvmexp.wired + uvmexp.active +
 		uvmexp.inactive;
 	fprintf (stderr, "TEST: %d - %d\n", v_total_count,
