@@ -1,3 +1,72 @@
+2004-11-22  Benoît Dejean  <tazforever@dlfp.org>
+
+	* AUTHORS:
+	* MAINTAINERS: UTF-8-ified.
+	
+	* acconfig.h:
+	* acinclude.m4:
+	* configure.in:
+	* kernel/ChangeLog:
+	* kernel/sysctl/.cvsignore:
+	* kernel/sysctl/Makefile:
+	* kernel/sysctl/libgtop.c:
+	* kernel/sysctl/libgtop.h:
+	* kernel/sysctl/libgtop_syms.c:
+	* kernel/sysctl/main.c:
+	* kernel/sysctl/patch-2.2.1:
+	* kernel/sysctl/patch-2.2.x:
+	* kernel/table.h:
+	* kernel/table20/Makefile:
+	* kernel/table20/README:
+	* kernel/table20/entry-i386.S:
+	* kernel/table20/kernel.patch:
+	* kernel/table20/main.c:
+	* kernel/table20/unistd-i386.h:
+	* kernel/table20/version.h:
+	* kernel/table21/.cvsignore:
+	* kernel/table21/Makefile:
+	* kernel/table21/README:
+	* kernel/table21/entry-i386.S:
+	* kernel/table21/main.c:
+	* kernel/table21/module.c:
+	* kernel/table21/unistd-i386.h:
+	* kernel/table21/version.h:
+	* kernel/version.h:
+	* libgtop-sysdeps.m4:
+	* sysdeps/Makefile.am:
+	* sysdeps/kernel/.cvsignore:
+	* sysdeps/kernel/ChangeLog:
+	* sysdeps/kernel/Makefile.am:
+	* sysdeps/kernel/close.c:
+	* sysdeps/kernel/cpu.c:
+	* sysdeps/kernel/glibtop_private.h:
+	* sysdeps/kernel/glibtop_server.h:
+	* sysdeps/kernel/kernel.h:
+	* sysdeps/kernel/kernel.s:
+	* sysdeps/kernel/loadavg.c:
+	* sysdeps/kernel/mem.c:
+	* sysdeps/kernel/msg_limits.c:
+	* sysdeps/kernel/netload.c:
+	* sysdeps/kernel/open.c:
+	* sysdeps/kernel/ppp.c:
+	* sysdeps/kernel/procargs.c:
+	* sysdeps/kernel/procdata.c:
+	* sysdeps/kernel/prockernel.c:
+	* sysdeps/kernel/proclist.c:
+	* sysdeps/kernel/procmap.c:
+	* sysdeps/kernel/procmem.c:
+	* sysdeps/kernel/procsegment.c:
+	* sysdeps/kernel/procsignal.c:
+	* sysdeps/kernel/procstate.c:
+	* sysdeps/kernel/proctime.c:
+	* sysdeps/kernel/procuid.c:
+	* sysdeps/kernel/sem_limits.c:
+	* sysdeps/kernel/shm_limits.c:
+	* sysdeps/kernel/siglist.c:
+	* sysdeps/kernel/swap.c:
+	* sysdeps/kernel/sysinfo.c:
+	* sysdeps/kernel/uptime.c: Removed kernel patch and implementation.
+
 2004-11-18  Benoît Dejean  <tazforever@dlfp.org>
 
 	* Makefile.am: Forgot to ship libgtopconfig.h.

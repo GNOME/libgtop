@@ -586,53 +586,6 @@ dnl                              define 'HAVE_GLIBTOP_MACHINE_H'.
 dnl * 'libgtop_need_server'    - is the server really needed? Defines 'NEED_LIBGTOP'
 dnl                              if true; defines conditional 'NEED_LIBGTOP'.
 
-AC_DEFUN([LIBGTOP_HACKER_TESTS],[
-	AC_REQUIRE([AC_CANONICAL_HOST])
-
-	AC_ARG_WITH(linux-table,
-      [  --with-linux-table      Use the table () function from Martin Baulig],
-	[linux_table="$withval"],[linux_table=auto])
-	case "$host_os" in
-	linux*)
-	  if test $linux_table = yes ; then
-	    AC_CHECK_HEADER(linux/table.h, linux_table=yes, linux_table=no)
-	  elif test $linux_table = auto ; then
-	    AC_MSG_CHECKING(for table function in Linux Kernel)
-	    AC_TRY_RUN([
-#include <stdio.h>
-#include <stdlib.h>
-
-#include <unistd.h>
-#include <linux/unistd.h>
-#include <linux/table.h>
-
-#include <syscall.h>
-
-static inline _syscall3 (int, table, int, type, union table *, tbl, const void *, param);
-
-int
-main (void)
-{
-	union table tbl;
-	int ret;
-
-	ret = table (TABLE_VERSION, NULL, NULL);
-
-	if (ret == -1)
-		exit (-errno);
-
-	exit (ret < 1 ? ret : 0);
-}
-], linux_table=yes, linux_table=no, linux_table=no)
-	    AC_MSG_RESULT($linux_table)
-	  fi
-	  if test $linux_table = yes ; then
-	    AC_DEFINE(HAVE_LINUX_TABLE)
-	  fi
-	  ;;
-	esac
-])
-
 AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	AC_REQUIRE([AC_CANONICAL_HOST])
 
@@ -652,11 +605,9 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	AM_CONDITIONAL(HACKER_MODE, test x"$hacker_mode" = xyes)
 
-	linux_table=auto
 	if test x$hacker_mode = xyes ; then
 	  LIBGTOP_HACKER_TESTS
 	fi
-	AM_CONDITIONAL(LINUX_TABLE, test $linux_table = yes)
 
 	AC_ARG_WITH(libgtop-smp,
 	[  --with-libgtop-smp      Enable SMP support (default-auto)],[
@@ -688,14 +639,9 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	case "$host_os" in
 	linux*)
-	  if test x$linux_table = xyes ; then
-	    libgtop_sysdeps_dir=kernel
-	    libgtop_use_machine_h=no
-	  else
-	    libgtop_sysdeps_dir=linux
-	    libgtop_use_machine_h=no
-	    libgtop_have_sysinfo=yes
-	  fi
+	  libgtop_sysdeps_dir=linux
+	  libgtop_use_machine_h=no
+	  libgtop_have_sysinfo=yes
 	  libgtop_need_server=no
 	  ;;
 	freebsd*|netbsd*|openbsd*|bsdi*)
