@@ -29,10 +29,6 @@
 
 #include <glibtop/backend.h>
 
-extern glibtop_backend_info glibtop_backend_server;
-extern glibtop_backend_info glibtop_backend_sysdeps;
-extern glibtop_backend_info glibtop_backend_common;
-
 #if HAVE_LIBXML
 
 #define LIBGTOP_XML_NAMESPACE	"http://www.home-of-linux.org/libgtop/1.1"
