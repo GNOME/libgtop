@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2001-02-05 19:35+0100\n"
-"PO-Revision-Date: 2001-02-05 19:36+0100\n"
+"POT-Creation-Date: 2001-02-10 11:20+0100\n"
+"PO-Revision-Date: 2001-02-10 11:23+0100\n"
 "Last-Translator: Christophe Merlet (RedFox) <redfox@eikonex.org>\n"
 "Language-Team: GNOME French Team <gnomefr@gnomefr.traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -1097,11 +1097,11 @@ msgstr "Quantité de swap libre"
 
 #: sysdeps/names/swap.c:44
 msgid "Page In"
-msgstr "Pages Entrantes (disque vers mémoire)"
+msgstr "Pages entrantes (disque vers mémoire)"
 
 #: sysdeps/names/swap.c:45
 msgid "Page Out"
-msgstr "Pages Sortantes (mémoire vers disque)"
+msgstr "Pages sortantes (mémoire vers disque)"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought in since system boot"
@@ -1109,7 +1109,8 @@ msgstr "Nombre total de pages de swap chargées en mémoire depuis le démarrage"
 
 #: sysdeps/names/swap.c:55
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr "Nombre total de pages de swap sauvées sur disque depuis le démarrage"
+msgstr ""
+"Nombre total de pages de swap sauvegardées sur disque depuis le démarrage"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
 msgid "Server Features"
@@ -1125,11 +1126,11 @@ msgstr "Utilisation CPU"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
 msgid "Memory Usage"
-msgstr "Utilisation Mémoire"
+msgstr "Utilisation mémoire"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
 msgid "Swap Usage"
-msgstr "Utilisation du Swap"
+msgstr "Utilisation du swap"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
 msgid "System Uptime"
@@ -1153,7 +1154,7 @@ msgstr "Limites de l'ensemble de sémaphores"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
 msgid "List of running Processes"
-msgstr "Liste des taches en cours d'exécution"
+msgstr "Liste des tâches en cours d'exécution"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
 msgid "Process Status information"
@@ -1165,11 +1166,11 @@ msgstr "Information sur l'UID et le TTY des processus"
 
 #: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
 msgid "Process Memory information"
-msgstr "Information sur la Mémoire du Processus"
+msgstr "Information sur la mémoire du processus"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
 msgid "Process Time information"
-msgstr "Information Temporelle sur le processus"
+msgstr "Information temporelle sur le processus"
 
 #: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
 msgid "Process Signal information"
@@ -1261,22 +1262,22 @@ msgstr "Date de démarrage (en secondes depuis le 01/01/1970)"
 #~ msgstr "Erreur système inconnue"
 
 #~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s : l'option `%s' est ambigüe\n"
+#~ msgstr "%s : l'option « %s » est ambigüe\n"
 
 #~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s : l'option `--%s' ne supporte pas d'arguments\n"
+#~ msgstr "%s : l'option « --%s » ne supporte pas d'arguments\n"
 
 #~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s : l'option `%c%s' ne supporte pas d'arguments\n"
+#~ msgstr "%s : l'option « %c%s » ne supporte pas d'arguments\n"
 
 #~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s : l'option `%s' nécessite un argument\n"
+#~ msgstr "%s : l'option « %s » nécessite un argument\n"
 
 #~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s : option inconnue `--%s'\n"
+#~ msgstr "%s : option inconnue « --%s »\n"
 
 #~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s : option inconnue `%c%s'\n"
+#~ msgstr "%s : option inconnue « %c%s »\n"
 
 #~ msgid "%s: illegal option -- %c\n"
 #~ msgstr "%s : option illégale -- %c\n"
@@ -1288,10 +1289,10 @@ msgstr "Date de démarrage (en secondes depuis le 01/01/1970)"
 #~ msgstr "%s : l'option nécessite un argument -- %c\n"
 
 #~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s : l'option `-W %s' is ambigüe\n"
+#~ msgstr "%s : l'option « -W %s » is ambigüe\n"
 
 #~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s : l'option `-W %s' ne supporte pas d'arguments\n"
+#~ msgstr "%s : l'option « -W %s » ne supporte pas d'arguments\n"
 
 #~ msgid "No error"
 #~ msgstr "Pas d'erreurs"
@@ -1364,7 +1365,7 @@ msgstr "Date de démarrage (en secondes depuis le 01/01/1970)"
 #~ "Run '%s --help' to see a full list of available command line options.\n"
 #~ msgstr ""
 #~ "Erreur sur l'option %s: %s.\n"
-#~ "Executer '%s --help' pour avoir la liste des options de la ligne de "
+#~ "Executer « %s --help » pour avoir la liste des options de la ligne de "
 #~ "commande.\n"
 
 #~ msgid "Number of list elements"
