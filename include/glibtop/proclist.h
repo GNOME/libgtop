@@ -32,7 +32,7 @@
 #include <glibtop/compat_10.h>
 #include <glibtop/array.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 /* You can use the folowing constants as the `which' member of
  * glibtop_get_proclist () to specify which processes to fetch. */
@@ -87,6 +87,6 @@ extern const char *glibtop_descriptions_proclist [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

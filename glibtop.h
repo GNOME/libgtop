@@ -36,7 +36,7 @@
 
 #include <glibtop/glibtop-client.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 typedef struct _glibtop glibtop;
 
@@ -55,6 +55,6 @@ glibtop_init_s (glibtop_server *server_ptr,
 		unsigned long features,
 		unsigned flags);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

@@ -29,7 +29,7 @@
 #include <glibtop/global.h>
 #include <glibtop/sysdeps.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 typedef struct _glibtop_server		glibtop_server;
 typedef struct _glibtop_server_info	glibtop_server_info;
@@ -70,6 +70,6 @@ glibtop_server_ref (glibtop_server *server);
 void
 glibtop_server_unref (glibtop_server *server);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

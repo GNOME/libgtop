@@ -29,7 +29,7 @@
 #include <glibtop.h>
 #include <gobject/gobject.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define	GLIBTOP_TYPE_BACKEND		(glibtop_backend_get_type ())
 #define GLIBTOP_BACKEND(backend)	(G_TYPE_CHECK_INSTANCE_CAST ((backend), GLIBTOP_TYPE_BACKEND, glibtop_backend))
@@ -80,6 +80,6 @@ glibtop_backend_get_call_vector (glibtop_backend *backend);
 glibtop_server *
 glibtop_backend_get_server (glibtop_backend *backend);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

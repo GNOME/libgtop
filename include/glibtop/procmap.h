@@ -32,7 +32,7 @@
 #include <glibtop/compat_10.h>
 #include <glibtop/array.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_MAP_ENTRY_START		1
 #define GLIBTOP_MAP_ENTRY_END		2
@@ -92,6 +92,6 @@ extern const char *glibtop_descriptions_proc_map [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

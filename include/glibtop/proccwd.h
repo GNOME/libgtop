@@ -31,7 +31,7 @@
 
 #include <glibtop/array.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_PROC_CWD_SIZE			0
 #define GLIBTOP_PROC_CWD_DEVICE			1

@@ -31,13 +31,13 @@
 #include <glibtop.h>
 #include <glibtop/union.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 struct _glibtop_call_vector
 {
     @@GLIBTOP_CALL_VECTOR@@
 };
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

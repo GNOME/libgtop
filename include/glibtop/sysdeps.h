@@ -28,7 +28,7 @@
 
 #include <glibtop.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_SYSDEPS_CPU		0
 #define GLIBTOP_SYSDEPS_MEM		1
@@ -105,6 +105,6 @@ extern const char *glibtop_descriptions_sysdeps [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

@@ -32,7 +32,7 @@
 #include <sys/signal.h>
 #endif
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 typedef struct _glibtop_signame	glibtop_signame;
 
@@ -44,6 +44,6 @@ struct _glibtop_signame
 
 extern const glibtop_signame glibtop_sys_siglist [];
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

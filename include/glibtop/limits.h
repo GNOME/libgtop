@@ -28,7 +28,7 @@
 
 #include <glibtop/global.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 /* Nobody should really be using more than 64 processors. */
 #define GLIBTOP_NCPU		64
@@ -51,6 +51,6 @@ BEGIN_LIBGTOP_DECLS
 /* Maximum length of a backend name. */
 #define GLIBTOP_BACKEND_NAME_LEN	40
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

@@ -29,7 +29,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_NETLOAD_PACKETS_IN	0
 #define GLIBTOP_NETLOAD_PACKETS_OUT	1
@@ -90,6 +90,6 @@ extern const char *glibtop_descriptions_netload [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

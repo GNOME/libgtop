@@ -29,7 +29,7 @@
 #include <glibtop.h>
 #include <glibtop/error.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 void *glibtop_malloc_r	(glibtop_server *server, size_t size);
 void *glibtop_calloc_r	(glibtop_server *server, size_t nmemb, size_t size);
@@ -37,6 +37,6 @@ void *glibtop_realloc_r	(glibtop_server *server, void *ptr, size_t size);
 char *glibtop_strdup_r	(glibtop_server *server, const char *string);
 void glibtop_free_r	(glibtop_server *server, const void *ptr);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

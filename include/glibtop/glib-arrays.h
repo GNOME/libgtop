@@ -32,7 +32,7 @@
 
 #include <glib.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 GPtrArray *
 glibtop_get_proc_args_as_array_l (glibtop_client *client, pid_t pid);
@@ -46,5 +46,5 @@ glibtop_get_proc_map_as_array_l (glibtop_client *client, pid_t pid);
 GPtrArray *
 glibtop_get_mountlist_as_array_l (glibtop_client *client, int all_fs);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 #endif

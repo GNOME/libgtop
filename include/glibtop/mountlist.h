@@ -32,7 +32,7 @@
 #include <glibtop/compat_10.h>
 #include <glibtop/array.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 typedef struct _glibtop_mountentry	glibtop_mountentry;
 
@@ -63,6 +63,6 @@ extern const char *glibtop_descriptions_mountlist [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

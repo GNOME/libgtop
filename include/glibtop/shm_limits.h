@@ -29,7 +29,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_SHM_LIMITS_SHMMAX	0
 #define GLIBTOP_SHM_LIMITS_SHMMIN	1
@@ -78,6 +78,6 @@ extern const char *glibtop_descriptions_shm_limits [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

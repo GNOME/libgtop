@@ -26,7 +26,7 @@
 
 #include <glibtop.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define _GLIBTOP_INIT_STATE_INIT	0x10000
 #define _GLIBTOP_INIT_STATE_OPEN	0x20000
@@ -76,6 +76,6 @@ _glibtop_open_sysdeps (glibtop_client *client, const char *program_name,
 
 #endif /* _IN_LIBGTOP */
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

@@ -31,7 +31,7 @@
 
 #include <glibtop/glibtop-server.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 typedef struct _glibtop_backend_info	glibtop_backend_info;
 typedef struct _glibtop_backend_entry	glibtop_backend_entry;
@@ -97,6 +97,6 @@ glibtop_backend_by_name (const char *backend_name);
 void
 glibtop_init_backends (void);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

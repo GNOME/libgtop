@@ -56,7 +56,7 @@
 #include <glibtop/interfaces.h>
 #include <glibtop/ppp.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 typedef union _glibtop_union	glibtop_union;
 
@@ -89,6 +89,6 @@ union _glibtop_union
     glibtop_ppp			ppp;
 };
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

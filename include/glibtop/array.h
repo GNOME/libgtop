@@ -29,7 +29,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_ARRAY_NUMBER		0
 #define GLIBTOP_ARRAY_SIZE		1

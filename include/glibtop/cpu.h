@@ -29,7 +29,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_CPU_TOTAL	0
 #define GLIBTOP_CPU_USER	1
@@ -93,6 +93,6 @@ extern const char *glibtop_descriptions_cpu [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

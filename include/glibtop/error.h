@@ -28,7 +28,7 @@
 
 #include <glibtop.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 void glibtop_error_vr (glibtop_server *server, char *format, va_list args);
 void glibtop_warn_vr (glibtop_server *server, char *format, va_list args);
@@ -41,6 +41,6 @@ void glibtop_warn_r (glibtop_server *server, char *format, ...);
 void glibtop_error_io_r (glibtop_server *server, char *format, ...);
 void glibtop_warn_io_r (glibtop_server *server, char *format, ...);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

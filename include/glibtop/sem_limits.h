@@ -29,7 +29,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_SEM_LIMITS_SEMMAP	0
 #define GLIBTOP_SEM_LIMITS_SEMMNI	1
@@ -88,6 +88,6 @@ extern const char *glibtop_descriptions_sem_limits [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

@@ -31,7 +31,7 @@
 
 #include <glibtop/glibtop-backend.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define	GLIBTOP_TYPE_CLIENT		(glibtop_client_get_type ())
 #define GLIBTOP_CLIENT(client)		(G_TYPE_CHECK_INSTANCE_CAST ((client), GLIBTOP_TYPE_CLIENT, glibtop_client))
@@ -91,6 +91,6 @@ void
 glibtop_client_remove_backend (glibtop_client *client,
 			       glibtop_backend *backend);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

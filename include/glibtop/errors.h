@@ -30,7 +30,7 @@
 
 #include <gerror.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_ERROR glibtop_error_quark ()
 
@@ -90,6 +90,6 @@ void
 glibtop_warn_io_l (glibtop_client *client, glibtop_error code,
 		   char *format, ...);
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

@@ -32,7 +32,7 @@
 #include <glibtop/compat_10.h>
 #include <glibtop/array.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #define GLIBTOP_INTERFACE_IF_FLAGS	0
 #define GLIBTOP_INTERFACE_TRANSPORT	1
@@ -198,6 +198,6 @@ extern const char *glibtop_descriptions_interface_names [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif

@@ -30,40 +30,24 @@
 #include <config.h>
 #endif
 
-/*
- * All declarations are enclosed in BEGIN_LIBGTOP_DECLS and
- * END_LIBGTOP_DECLS so that C++ compilers don't mangle their names.
- *
- */
-   
-#undef BEGIN_LIBGTOP_DECLS
-#undef END_LIBGTOP_DECLS
-#ifdef __cplusplus
-# define BEGIN_LIBGTOP_DECLS extern "C" {
-# define END_LIBGTOP_DECLS }
-#else
-# define BEGIN_LIBGTOP_DECLS /* empty */
-# define END_LIBGTOP_DECLS /* empty */
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/param.h>
+
+#include <stdarg.h>
+
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
 #endif
 
-#ifdef _IN_LIBGTOP
+#ifdef HAVE_MEMORY_H
+#include <memory.h>
+#endif
 
-/* Provide macros to feature the GCC function attribute.
- */
-#if __GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ > 4)
-#define G_GNUC_NORETURN				\
-  __attribute__((noreturn))
-#define G_GNUC_CONST				\
-  __attribute__((const))
-#define G_GNUC_UNUSED				\
-  __attribute__((unused))
-#else	/* !__GNUC__ */
-#define G_GNUC_NORETURN
-#define G_GNUC_CONST
-#define	G_GNUC_UNUSED
-#endif	/* !__GNUC__ */
+#include <string.h>
+#include <sys/types.h>
 
-#endif /* _IN_LIBGTOP */
+#include <gmacros.h>
 
 #if TIME_WITH_SYS_TIME
 # include <sys/time.h>
@@ -102,25 +86,8 @@
 #endif
 #endif
 
-#include <stdio.h>
-#include <stdlib.h>
-
-#include <stdarg.h>
-
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#endif
-
-#ifdef HAVE_MEMORY_H
-#include <memory.h>
-#endif
-
-#include <string.h>
-#include <sys/types.h>
-
 #ifdef _IN_LIBGTOP
 
-#include <sys/param.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
 
@@ -131,7 +98,7 @@
 
 #ifdef _IN_LIBGTOP
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #ifndef _
 #define _(String) dgettext (LIBGTOP_PACKAGE, String)
@@ -142,7 +109,7 @@ BEGIN_LIBGTOP_DECLS
 char *strerror (int errno);
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif /* _IN_LIBGTOP */
 

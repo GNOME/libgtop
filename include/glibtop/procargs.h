@@ -32,7 +32,7 @@
 #include <glibtop/compat_10.h>
 #include <glibtop/array.h>
 
-BEGIN_LIBGTOP_DECLS
+G_BEGIN_DECLS
 
 #if GLIBTOP_SUID_PROC_ARGS
 #define glibtop_get_proc_args_r		glibtop_get_proc_args_p
@@ -66,6 +66,6 @@ extern const char *glibtop_descriptions_proc_args [];
 
 #endif
 
-END_LIBGTOP_DECLS
+G_END_DECLS
 
 #endif
