@@ -18,9 +18,6 @@ sysdeps/names/shm_limits.c
 sysdeps/names/swap.c
 sysdeps/names/sysdeps.c
 sysdeps/names/uptime.c
-support/argp-fmtstream.h
-support/argp-parse.c
-support/argp.h
 support/easy-vsnprintf.c
 support/error.c
 support/error.h
