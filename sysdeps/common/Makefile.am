@@ -17,6 +17,7 @@ libgtop_common_la_SOURCES	= xmalloc.c error.c gnuslib.c \
 				  $(inodedb_SRCLIST)
 
 libgtop_common_la_LDFLAGS	= $(LT_VERSION_INFO)
+libgtop_common_la_LIBADD	= $(LIBGTOP_EXTRA_LIBS)
 
 libgtop_suid_common_la_SOURCES	= xmalloc.c error.c sysdeps_suid.c
 
