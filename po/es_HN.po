@@ -1,0 +1,14 @@
+#
+# In México, Dominican Republic, Guatemala, Honduras, Panama, Peru
+# and El Salvador, Number formats are the same as in the US, so no
+# translation is required for them.
+# But the msgstr MUST be filled; otherwise it will default to es.po
+# which uses different, non US, format for numbers.
+# On the other hand, strings that are the same here and in es.po can
+# be left out.
+#
+
+#: sysdeps/names/procmem.c:60
+msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr "Limite actual en bytes de conjunto compartido (RSS) del proceso (habitualmente 2,147,483,647)."
+
