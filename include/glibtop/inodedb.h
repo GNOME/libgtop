@@ -49,20 +49,16 @@ struct _glibtop_inodedb
     GDBM_FILE system_dbf, user_dbf;
 };
 
-#define glibtop_inodedb_open(p1,p2)	glibtop_inodedb_open_s(glibtop_global_server, p1, p2)
-#define glibtop_inodedb_lookup(p1,p2,p3) glibtop_inodedb_lookup_s(glibtop_global_server, p1, p2, p3)
-#define glibtop_inodedb_close(p1)	glibtop_inodedb_close_s(glibtop_global_server)
-
 glibtop_inodedb *
-glibtop_inodedb_open_s (glibtop *server, unsigned databases, unsigned long cache_size);
+glibtop_inodedb_open_s (glibtop_server *server, unsigned databases, unsigned long cache_size);
 
 const char *
-glibtop_inodedb_lookup_s (glibtop *server,
+glibtop_inodedb_lookup_s (glibtop_server *server,
 			  glibtop_inodedb *inodedb,
 			  u_int64_t device, u_int64_t inode);
 
 void
-glibtop_inodedb_close_s (glibtop *server, glibtop_inodedb *inodedb);
+glibtop_inodedb_close_s (glibtop_server *server, glibtop_inodedb *inodedb);
 
 END_LIBGTOP_DECLS
 

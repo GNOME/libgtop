@@ -28,38 +28,67 @@
 
 #include <glibtop.h>
 
+#include <gerror.h>
+
 BEGIN_LIBGTOP_DECLS
 
-#define GLIBTOP_ERROR_NO_ERROR			0
-#define GLIBTOP_ERROR_UNKNOWN			1
-#define GLIBTOP_ERROR_INVALID_ARGUMENT		2
-#define GLIBTOP_ERROR_NO_SUCH_PARAMETER		3
-#define GLIBTOP_ERROR_READONLY_VALUE		4
-#define GLIBTOP_ERROR_SIZE_MISMATCH		5
+#define GLIBTOP_ERROR glibtop_error_quark ()
 
-#define GLIBTOP_ERROR_SERVER_COMM_FAILURE	6
+GQuark glibtop_error_quark (void) G_GNUC_CONST;
 
-#define GLIBTOP_ERROR_NO_SUCH_PROCESS		7
+typedef enum {
+    GLIBTOP_ERROR_NO_ERROR = 0,
+    GLIBTOP_ERROR_UNKNOWN,
+    GLIBTOP_ERROR_INVALID_ARGUMENT,
+    GLIBTOP_ERROR_NO_SUCH_PARAMETER,
+    GLIBTOP_ERROR_READONLY_VALUE,
+    GLIBTOP_ERROR_SIZE_MISMATCH,
 
-#define GLIBTOP_ERROR_NO_KERNEL_SUPPORT		8
-#define GLIBTOP_ERROR_INCOMPATIBLE_KERNEL	9
+    GLIBTOP_ERROR_SERVER_COMM_FAILURE,
 
-#define GLIBTOP_ERROR_NO_SUCH_BACKEND		10
-#define GLIBTOP_ERROR_NOT_IMPLEMENTED		11
-#define GLIBTOP_ERROR_NO_BACKEND_OPENED		12
+    GLIBTOP_ERROR_NO_SUCH_PROCESS,
 
-#define GLIBTOP_ERROR_DEMARSHAL_ERROR		13
+    GLIBTOP_ERROR_NO_KERNEL_SUPPORT,
+    GLIBTOP_ERROR_INCOMPATIBLE_KERNEL,
 
-#define GLIBTOP_MAX_ERROR			14
+    GLIBTOP_ERROR_NO_SUCH_BACKEND,
+    GLIBTOP_ERROR_NOT_IMPLEMENTED,
+    GLIBTOP_ERROR_NO_BACKEND_OPENED,
 
-char *
-glibtop_get_error_string_l (glibtop *server, unsigned error_number);
+    GLIBTOP_ERROR_DEMARSHAL_ERROR
+} glibtop_error;
 
-unsigned
-glibtop_get_errno_l (glibtop *server);
+void
+glibtop_error_vl (glibtop_client *client, glibtop_error code,
+		  const char *format, va_list args);
 
-unsigned
-glibtop_clear_errno_l (glibtop *server);
+void
+glibtop_error_io_vl (glibtop_client *client, glibtop_error code,
+		     int io_errno, const char *format, va_list args);
+
+void
+glibtop_warn_vl (glibtop_client *client, glibtop_error code,
+		 const char *format, va_list args);
+
+void
+glibtop_warn_io_vl (glibtop_client *client, glibtop_error code,
+		    int io_errno, const char *format, va_list args);
+
+void
+glibtop_error_l (glibtop_client *client, glibtop_error code,
+		 char *format, ...);
+
+void
+glibtop_warn_l (glibtop_client *client, glibtop_error code,
+		char *format, ...);
+
+void
+glibtop_error_io_l (glibtop_client *client, glibtop_error code,
+		    char *format, ...);
+
+void
+glibtop_warn_io_l (glibtop_client *client, glibtop_error code,
+		   char *format, ...);
 
 END_LIBGTOP_DECLS
 

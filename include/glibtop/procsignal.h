@@ -51,22 +51,20 @@ struct _glibtop_proc_signal
 	sigcatch [2];		/* mask of caught  signals */
 };
 
-#define glibtop_get_proc_signal(p1, p2)	glibtop_get_proc_signal_l(glibtop_global_server, p1, p2)
-
 #if GLIBTOP_SUID_PROC_SIGNAL
 #define glibtop_get_proc_signal_r	glibtop_get_proc_signal_p
 #else
 #define glibtop_get_proc_signal_r	glibtop_get_proc_signal_s
 #endif
 
-int glibtop_get_proc_signal_l (glibtop *server, glibtop_proc_signal *buf, pid_t pid);
+int glibtop_get_proc_signal_l (glibtop_client *client, glibtop_proc_signal *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_SIGNAL
 int glibtop_init_proc_signal_p (glibtop *server);
 int glibtop_get_proc_signal_p (glibtop *server, glibtop_proc_signal *buf, pid_t pid);
 #else
-int glibtop_init_proc_signal_s (glibtop *server);
-int glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf, pid_t pid);
+int glibtop_init_proc_signal_s (glibtop_server *server);
+int glibtop_get_proc_signal_s (glibtop_server *server, glibtop_proc_signal *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

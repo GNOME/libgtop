@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_cpu = 0;
 /* Init function. */
 
 int
-glibtop_init_cpu_s (glibtop *server)
+glibtop_init_cpu_s (glibtop_server *server)
 {
     server->info->sysdeps.cpu = _glibtop_sysdeps_cpu;
 
@@ -41,8 +41,10 @@ glibtop_init_cpu_s (glibtop *server)
 /* Provides information about cpu usage. */
 
 int
-glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
+glibtop_get_cpu_s (glibtop_server *server, glibtop_cpu *buf)
 {
+    glibtop_init_s (server, GLIBTOP_SYSDEPS_CPU, 0);
+	
     memset (buf, 0, sizeof (glibtop_cpu));
 
     return 0;

@@ -44,7 +44,6 @@ include/glibtop/mem.h
 include/glibtop/mountlist.h
 include/glibtop/msg_limits.h
 include/glibtop/open.h
-include/glibtop/parameter.h
 include/glibtop/prockernel.h
 include/glibtop/proclist.h
 include/glibtop/procmap.h

@@ -6,10 +6,11 @@ glibtop_HEADERS		= close.h loadavg.h prockernel.h procstate.h \
 			  procmem.h procuid.h swap.h error.h open.h \
 			  procsegment.h sysdeps.h xmalloc.h global.h \
 			  procsignal.h union.h types.h proccwd.h \
-			  parameter.h mountlist.h fsusage.h procmap.h signal.h \
+			  mountlist.h fsusage.h procmap.h signal.h \
 			  inodedb.h sysinfo.h ppp.h procargs.h netload.h \
 			  netinfo.h interfaces.h limits.h array.h compat_10.h \
-			  errors.h glib-arrays.h backend.h call-vector.h
+			  glib-arrays.h backend.h call-vector.h \
+			  glibtop-client.h glibtop-server.h
 
 BUILT_SOURCES		= call-vector.h
 

@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_proc_args = 0;
 /* Init function. */
 
 int
-glibtop_init_proc_args_s (glibtop *server)
+glibtop_init_proc_args_s (glibtop_server *server)
 {
     server->info->sysdeps.proc_args = _glibtop_sysdeps_proc_args;
 
@@ -43,8 +43,11 @@ glibtop_init_proc_args_s (glibtop *server)
 /* Provides detailed information about a process. */
 
 char **
-glibtop_get_proc_args_s (glibtop *server, glibtop_array *array, pid_t pid)
+glibtop_get_proc_args_s (glibtop_server *server, glibtop_array *array, pid_t pid)
 {
+    glibtop_init_s (server, GLIBTOP_SYSDEPS_PROC_ARGS, 0);
+	
     memset (array, 0, sizeof (glibtop_array));
+
     return NULL;
 }

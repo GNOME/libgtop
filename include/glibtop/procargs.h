@@ -34,8 +34,6 @@
 
 BEGIN_LIBGTOP_DECLS
 
-#define glibtop_get_proc_args(array,pid) glibtop_get_proc_args_l(glibtop_global_server, array, pid)
-
 #if GLIBTOP_SUID_PROC_ARGS
 #define glibtop_get_proc_args_r		glibtop_get_proc_args_p
 #else
@@ -43,7 +41,7 @@ BEGIN_LIBGTOP_DECLS
 #endif
 
 char **
-glibtop_get_proc_args_l (glibtop *server, glibtop_array *array, pid_t pid);
+glibtop_get_proc_args_l (glibtop_client *client, glibtop_array *array, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_ARGS
 int glibtop_init_proc_args_p (glibtop *server);
@@ -51,10 +49,10 @@ int glibtop_init_proc_args_p (glibtop *server);
 char **
 glibtop_get_proc_args_p (glibtop *server, glibtop_array *array, pid_t pid);
 #else
-int glibtop_init_proc_args_s (glibtop *server);
+int glibtop_init_proc_args_s (glibtop_server *server);
 
 char **
-glibtop_get_proc_args_s (glibtop *server, glibtop_array *array, pid_t pid);
+glibtop_get_proc_args_s (glibtop_server *server, glibtop_array *array, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

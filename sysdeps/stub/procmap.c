@@ -34,7 +34,7 @@ static const unsigned long _glibtop_sysdeps_proc_map = 0;
 /* Init function. */
 
 int
-glibtop_init_proc_map_s (glibtop *server)
+glibtop_init_proc_map_s (glibtop_server *server)
 {
     server->info->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
 
@@ -44,9 +44,10 @@ glibtop_init_proc_map_s (glibtop *server)
 /* Provides detailed information about a process. */
 
 glibtop_map_entry *
-glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
+glibtop_get_proc_map_s (glibtop_server *server, glibtop_proc_map *buf,
+			pid_t pid)
 {
-    glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
+    glibtop_init_s (server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
 	
     memset (buf, 0, sizeof (glibtop_proc_map));
 	

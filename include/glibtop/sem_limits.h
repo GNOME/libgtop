@@ -61,22 +61,20 @@ struct _glibtop_sem_limits
 	semaem;		/* GLIBTOP_SEM_LIMITS_SEMAEM	*/
 };
 
-#define glibtop_get_sem_limits(sem)	glibtop_get_sem_limits_l(glibtop_global_server, sem)
-
 #if GLIBTOP_SUID_SEM_LIMITS
 #define glibtop_get_sem_limits_r	glibtop_get_sem_limits_p
 #else
 #define glibtop_get_sem_limits_r	glibtop_get_sem_limits_s
 #endif
 
-int glibtop_get_sem_limits_l (glibtop *server, glibtop_sem_limits *buf);
+int glibtop_get_sem_limits_l (glibtop_client *client, glibtop_sem_limits *buf);
 
 #if GLIBTOP_SUID_SEM_LIMITS
 int glibtop_init_sem_limits_p (glibtop *server);
 int glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf);
 #else
-int glibtop_init_sem_limits_s (glibtop *server);
-int glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf);
+int glibtop_init_sem_limits_s (glibtop_server *server);
+int glibtop_get_sem_limits_s (glibtop_server *server, glibtop_sem_limits *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

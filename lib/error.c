@@ -30,7 +30,7 @@
 /* Prints error message and exits. */
 
 static void
-print_server_name (glibtop *server)
+print_server_name (glibtop_server *server)
 {
     fprintf (stderr, "%s: ", server ? 
 	     (server->name ? server->name : DEFAULT_NAME)
@@ -38,7 +38,7 @@ print_server_name (glibtop *server)
 }
 
 void
-glibtop_error_vr (glibtop *server, char *format, va_list args)
+glibtop_error_vr (glibtop_server *server, char *format, va_list args)
 {
     print_server_name (server);	
     vfprintf (stderr, format, args);
@@ -52,7 +52,7 @@ glibtop_error_vr (glibtop *server, char *format, va_list args)
 }
 
 void
-glibtop_error_io_vr (glibtop *server, char *format, int error, va_list args)
+glibtop_error_io_vr (glibtop_server *server, char *format, int error, va_list args)
 {
     print_server_name (server);
     vfprintf (stderr, format, args);
@@ -66,7 +66,7 @@ glibtop_error_io_vr (glibtop *server, char *format, int error, va_list args)
 }
 
 void
-glibtop_warn_vr (glibtop *server, char *format, va_list args)
+glibtop_warn_vr (glibtop_server *server, char *format, va_list args)
 {
     print_server_name (server);
     vfprintf (stderr, format, args);
@@ -78,7 +78,7 @@ glibtop_warn_vr (glibtop *server, char *format, va_list args)
 }
 
 void
-glibtop_warn_io_vr (glibtop *server, char *format, int error, va_list args)
+glibtop_warn_io_vr (glibtop_server *server, char *format, int error, va_list args)
 {
     print_server_name (server);
     vfprintf (stderr, format, args);
@@ -90,7 +90,7 @@ glibtop_warn_io_vr (glibtop *server, char *format, int error, va_list args)
 }
 
 void
-glibtop_error_r (glibtop *server, char *format, ...)
+glibtop_error_r (glibtop_server *server, char *format, ...)
 {
     va_list args;
 
@@ -100,7 +100,7 @@ glibtop_error_r (glibtop *server, char *format, ...)
 }
 
 void
-glibtop_warn_r (glibtop *server, char *format, ...)
+glibtop_warn_r (glibtop_server *server, char *format, ...)
 {
     va_list args;
 
@@ -110,7 +110,7 @@ glibtop_warn_r (glibtop *server, char *format, ...)
 }
 
 void
-glibtop_error_io_r (glibtop *server, char *format, ...)
+glibtop_error_io_r (glibtop_server *server, char *format, ...)
 {
     va_list args;
 
@@ -120,7 +120,7 @@ glibtop_error_io_r (glibtop *server, char *format, ...)
 }
 
 void
-glibtop_warn_io_r (glibtop *server, char *format, ...)
+glibtop_warn_io_r (glibtop_server *server, char *format, ...)
 {
     va_list args;
 

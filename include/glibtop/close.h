@@ -32,8 +32,8 @@ BEGIN_LIBGTOP_DECLS
 
 void glibtop_close_r (glibtop *server);
 
-void glibtop_close_s (glibtop *server);
-void glibtop_close_p (glibtop *server);
+void glibtop_close_s (glibtop_server *server);
+void glibtop_close_p (glibtop_server *server);
 
 END_LIBGTOP_DECLS
 

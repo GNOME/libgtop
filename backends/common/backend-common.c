@@ -32,10 +32,10 @@
 #include <glibtop-backend-private.h>
 
 static int
-_open_common (glibtop *, glibtop_backend *, u_int64_t, const char **);
+_open_common (glibtop_server *, glibtop_backend *, u_int64_t, const char **);
 
 static int
-_close_common (glibtop *, glibtop_backend *);
+_close_common (glibtop_server *, glibtop_backend *);
 
 extern glibtop_call_vector glibtop_backend_common_call_vector;
 
@@ -52,7 +52,7 @@ glibtop_backend_info LibGTopBackendInfo_Common = {
 #endif
 
 static int
-_open_common (glibtop *server, glibtop_backend *backend,
+_open_common (glibtop_server *server, glibtop_backend *backend,
 	      u_int64_t features, const char **backend_args)
 {
     backend->_priv = glibtop_calloc_r
@@ -62,7 +62,7 @@ _open_common (glibtop *server, glibtop_backend *backend,
 }
 
 static int
-_close_common (glibtop *server, glibtop_backend *backend)
+_close_common (glibtop_server *server, glibtop_backend *backend)
 {
     return -1;
 }

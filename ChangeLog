@@ -1,5 +1,53 @@
 2000-11-20  Martin Baulig  <baulig@suse.de>
 
+	Started with the big rewrite for GNOME 2.0:
+
+	- split the `glibtop' structure into `glibtop_server' and
+	`glibtop_client' and make `glibtop_client' a GObject.
+	- cleanly separate the library and the backends.
+
+	This stuff currently does not compile.
+	
+	* glibtop.h (glibtop_server_private, glibtop_server_info):
+	Removed typedefs.
+	(struct _glibtop, struct _glibtop_server_info): Removed.
+	(glibtop_global_server, glibtop_server_features): Removed.
+	(glibtop_server_ref, glibtop_server_unref): Removed.
+
+	* glibtop.h (glibtop_init_s): First argument is now a
+	`glibtop_server *'.
+
+	* include/glibtop/*.h: Removed all #defines with the
+	glibtop_global_server.
+	(glibtop_get_*_l): First argument is now a `glibtop_client *'.
+	(glibtop_get_*_s, glibtop_init_*_s): First argument is now a
+	`glibtop_server *'.
+
+	* lib/glibtop-client.c: New file.
+
+	* sysdeps/common/xmalloc.c: Moved to lib/.
+	* sysdeps/common/error.c: Moved to lib/.
+
+	* lib/xmalloc.c: Moved here from sysdeps/common/.
+	* lib/error.c: Moved here from sysdeps/common/.
+
+	* include/glibtop/backend.h
+	(glibtop_backend_open_func_t, glibtop_backend_close_func_t):
+	First argument is now a `glibtop_server *'.
+	(glibtop_backend_info): Added `glibtop_server *server'.
+	(glibtop_open_backend_l): Returns `glibtop_backend *', first
+	argument is `glibtop_client *' and added `GError **'.
+
+	* include/glibtop/close.h (glibtop_close_s, glibtop_close_p):
+	First argument is now a `glibtop_server *'.
+
+	* include/glibtop/error.h (*): 
+	First argument is now a `glibtop_server *'.
+
+	* include/glibtop/errors.h: Switched this to use GError.
+
+2000-11-20  Martin Baulig  <baulig@suse.de>
+
 	* glibtop.h (glibtop_server_info): New type.
 	(glibtop): Added `glibtop_server_info *info', moved
 	`ncpu', `features', `sysdeps', `required' and `wanted'

@@ -49,22 +49,20 @@ struct _glibtop_loadavg
 	last_pid;		/* GLIBTOP_LOADAVG_LAST_PID	*/
 };
 
-#define glibtop_get_loadavg(loadavg)	glibtop_get_loadavg_l(glibtop_global_server, loadavg)
-
 #if GLIBTOP_SUID_LOADAVG
 #define glibtop_get_loadavg_r		glibtop_get_loadavg_p
 #else
 #define glibtop_get_loadavg_r		glibtop_get_loadavg_s
 #endif
 
-int glibtop_get_loadavg_l (glibtop *server, glibtop_loadavg *buf);
+int glibtop_get_loadavg_l (glibtop_client *client, glibtop_loadavg *buf);
 
 #if GLIBTOP_SUID_LOADAVG
 int glibtop_init_loadavg_p (glibtop *server);
 int glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf);
 #else
-int glibtop_init_loadavg_s (glibtop *server);
-int glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf);
+int glibtop_init_loadavg_s (glibtop_server *server);
+int glibtop_get_loadavg_s (glibtop_server *server, glibtop_loadavg *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

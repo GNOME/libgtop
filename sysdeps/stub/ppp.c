@@ -32,7 +32,7 @@ static const unsigned long _glibtop_sysdeps_ppp = 0;
 /* Init function. */
 
 int
-glibtop_init_ppp_s (glibtop *server)
+glibtop_init_ppp_s (glibtop_server *server)
 {
     server->info->sysdeps.ppp = _glibtop_sysdeps_ppp;
 
@@ -42,9 +42,11 @@ glibtop_init_ppp_s (glibtop *server)
 /* Provides PPP/ISDN information. */
 
 int
-glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device,
-		   unsigned short isdn)
+glibtop_get_ppp_s (glibtop_server *server, glibtop_ppp *buf,
+		   unsigned short device, unsigned short isdn)
 {
+    glibtop_init_s (server, GLIBTOP_SYSDEPS_PPP, 0);
+	
     memset (buf, 0, sizeof (glibtop_ppp));
 
     return 0;

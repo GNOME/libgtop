@@ -25,11 +25,8 @@
 
 #include <glibtop.h>
 #include <glibtop/global.h>
-#include <glibtop/xmalloc.h>
 
 #include <glibtop/backend.h>
-
-#if LIBGTOP_USE_GMODULE
 
 #include <gmodule.h>
 
@@ -40,7 +37,8 @@ unload_module (gpointer data, gpointer user_data)
 }
 
 static int
-load_extra_libs (glibtop *server, glibtop_backend_entry *entry)
+load_extra_libs (glibtop_client *client, glibtop_backend_entry *entry,
+		 GError **error)
 {
     GSList *list;
     GSList *loaded_here = NULL;
@@ -51,9 +49,10 @@ load_extra_libs (glibtop *server, glibtop_backend_entry *entry)
 
 	module = g_module_open (filename, G_MODULE_BIND_LAZY);
 	if (!module) {
-	    glibtop_warn_r (server, "Cannot open extra shared library `%s' "
-			    "for backend `%s' (%s)", filename, entry->name,
-			    g_module_error ());
+	    g_set_error (error, GLIBTOP_ERROR, GLIBTOP_ERROR_NO_SUCH_BACKEND,
+			 "Cannot open extra shared library `%s' "
+			 "for backend `%s' (%s)", filename, entry->name,
+			 g_module_error ());
 	    g_slist_foreach (loaded_here, unload_module, NULL);
 	    return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
 	}
@@ -67,119 +66,78 @@ load_extra_libs (glibtop *server, glibtop_backend_entry *entry)
     return 0;
 }
 
-#else /* not LIBGTOP_USE_GMODULE */
-
-extern glibtop_backend_info LibGTopBackendInfo_Sysdeps;
-extern glibtop_backend_info LibGTopBackendInfo_Common;
-extern glibtop_backend_info LibGTopBackendInfo_Server;
-
-typedef struct {
-    const char *name;
-    glibtop_backend_info *backend_info;
-} backend_init_table_entry;
-
-static backend_init_table_entry backend_init_table [] = {
-#ifdef LIBGTOP_HAVE_SYSDEPS
-    { "glibtop-backend-sysdeps", &LibGTopBackendInfo_Sysdeps },
-#endif
-    { "glibtop-backend-common", &LibGTopBackendInfo_Common },
-#ifdef LIBGTOP_NEED_SERVER
-    { "glibtop-backend-server", &LibGTopBackendInfo_Server },
-#endif
-    { NULL, NULL }
-};
-
-static glibtop_backend_info *
-find_backend_by_name (const char *backend_name)
-{
-    backend_init_table_entry *table;
-
-    for (table = backend_init_table; table->name; table++)
-	if (!strcmp (backend_name, table->name))
-	    return table->backend_info;
-
-    return NULL;
-}
-
-#endif /* LIBGTOP_USE_GMODULE */
-
-int
-glibtop_open_backend_l (glibtop *server, const char *backend_name,
-			u_int64_t features, const char **backend_args)
+glibtop_backend *
+glibtop_open_backend_l (glibtop_client *client, const char *backend_name,
+			u_int64_t features, const char **backend_args,
+			GError **error)
 {
     const glibtop_backend_info *info;
     glibtop_backend_entry *entry;
     glibtop_backend *backend;
 
+    g_return_val_if_fail (GLIBTOP_IS_CLIENT (client), NULL);
+
     entry = glibtop_backend_by_name (backend_name);
-    if (!entry) return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
+    if (!entry) return NULL;
 
     if (!entry->_priv) {
 	entry->_priv = g_new0 (glibtop_backend_module, 1);
 
-#if LIBGTOP_USE_GMODULE
 	if (entry->extra_libs) {
 	    int retval;
 
-	    retval = load_extra_libs (server, entry);
-	    if (retval < 0) return retval;
+	    retval = load_extra_libs (client, entry, error);
+	    if (retval < 0) return NULL;
 	}
 
 	entry->_priv->module = g_module_open (entry->shlib_name,
 					      G_MODULE_BIND_LAZY);
 	if (!entry->_priv->module) {
-	    glibtop_warn_r (server, "Cannot open shared library `%s' "
-			    "for backend `%s' (%s)", entry->shlib_name,
-			    entry->name, g_module_error ());
-	    return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
+	    g_set_error (error, GLIBTOP_ERROR, GLIBTOP_ERROR_NO_SUCH_BACKEND,
+			 "Cannot open shared library `%s' "
+			 "for backend `%s' (%s)", entry->shlib_name,
+			 entry->name, g_module_error ());
+	    return NULL;
 	}
 
 	if (!g_module_symbol (entry->_priv->module,
 			      "LibGTopBackendInfo",
 			      (gpointer*) &entry->info)) {
-	    glibtop_warn_r (server, "Library `%s' is not a valid "
-			    "LibGTop Backend library (start symbol not found)",
-			    entry->shlib_name);
+	    g_set_error (error, GLIBTOP_ERROR, GLIBTOP_ERROR_NO_SUCH_BACKEND,
+			 "Library `%s' is not a valid "
+			 "LibGTop Backend library (start symbol not found)",
+			 entry->shlib_name);
 
 	    g_module_close (entry->_priv->module);
 	    g_free (entry->_priv);
 	    entry->_priv = NULL;
 
-	    return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
+	    return NULL;
 	}
-#else /* not LIBGTOP_USE_GMODULE */
-	entry->info = find_backend_by_name (backend_name);
-	if (!entry->info)
-	    return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
-#endif /* not LIBGTOP_USE_GMODULE */
     }
 
     entry->_priv->refcount++;
 
     info = entry->info;
-    if (!info) return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
+    if (!info) return NULL;
 
-    backend = glibtop_calloc_r (server, 1, sizeof (glibtop_backend));
+    backend = g_new0 (glibtop_backend, 1);
     backend->_priv_module = entry->_priv;
     backend->info = info;
 
-    if (!server->_priv)
-	server->_priv = glibtop_calloc_r
-	    (server, 1, sizeof (glibtop_server_private));
+    backend->server = glibtop_server_new ();
 
     if (info->open) {
 	int retval;
 
-	retval = info->open (server, backend, features, backend_args);
+	retval = info->open (backend->server, backend, features, backend_args);
 	if (retval) {
-	    glibtop_free_r (server, backend->_priv);
-	    glibtop_free_r (server, backend);
-	    return retval;
+	    glibtop_server_unref (backend->server);
+	    g_free (backend->_priv);
+	    g_free (backend);
+	    return NULL;
 	}
     }
 
-    server->_priv->backend_list = g_slist_append
-	(server->_priv->backend_list, backend);
-
-    return 0;
+    return backend;
 }

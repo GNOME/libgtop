@@ -44,15 +44,13 @@ struct _glibtop_mountentry
     char type [GLIBTOP_MOUNTENTRY_LEN+1];
 };
 
-#define glibtop_get_mountlist(array,all_fs)	glibtop_get_mountlist_l(glibtop_global_server, array, all_fs)
-
 #define glibtop_get_mountlist_r		glibtop_get_mountlist_s
 
 glibtop_mountentry *
-glibtop_get_mountlist_l (glibtop *server, glibtop_array *array, int all_fs);
+glibtop_get_mountlist_l (glibtop_client *client, glibtop_array *array, int all_fs);
 
 glibtop_mountentry *
-glibtop_get_mountlist_s (glibtop *server, glibtop_array *array, int all_fs);
+glibtop_get_mountlist_s (glibtop_server *server, glibtop_array *array, int all_fs);
 
 #ifdef GLIBTOP_NAMES
 

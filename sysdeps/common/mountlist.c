@@ -588,13 +588,14 @@ read_filesystem_list (need_fs_type, all_fs)
 }
 
 glibtop_mountentry *
-glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs)
+glibtop_get_mountlist_s (glibtop_server *server, glibtop_mountlist *buf,
+			 int all_fs)
 {
     struct mount_entry *me, *tmp, *next;
     glibtop_mountentry *mount_list;
     int count;
 
-    glibtop_init_r (&server, 0, 0);
+    glibtop_init_s (server, 0, 0);
 
     memset (buf, 0, sizeof (glibtop_mountlist));
 

@@ -51,22 +51,20 @@ struct _glibtop_proc_cwd
 	inode;
 };
 
-#define glibtop_get_proc_cwd(p1, p2)	glibtop_get_proc_cwd_l(glibtop_global_server, p1, p2)
-
 #if GLIBTOP_SUID_PROC_CWD
 #define glibtop_get_proc_cwd_r		glibtop_get_proc_cwd_p
 #else
 #define glibtop_get_proc_cwd_r		glibtop_get_proc_cwd_s
 #endif
 
-char *glibtop_get_proc_cwd_l (glibtop *server, glibtop_proc_cwd *buf, pid_t pid);
+char *glibtop_get_proc_cwd_l (glibtop_client *client, glibtop_proc_cwd *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_CWD
 int glibtop_init_proc_cwd_p (glibtop *server);
 char *glibtop_get_proc_cwd_p (glibtop *server, glibtop_proc_cwd *buf, pid_t pid);
 #else
-int glibtop_init_proc_cwd_s (glibtop *server);
-char *glibtop_get_proc_cwd_s (glibtop *server, glibtop_proc_cwd *buf, pid_t pid);
+int glibtop_init_proc_cwd_s (glibtop_server *server);
+char *glibtop_get_proc_cwd_s (glibtop_server *server, glibtop_proc_cwd *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

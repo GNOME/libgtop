@@ -77,22 +77,20 @@ struct _glibtop_proc_kernel
     char wchan [40];
 };
 
-#define glibtop_get_proc_kernel(p1, p2)	glibtop_get_proc_kernel_l(glibtop_global_server, p1, p2)
-
 #if GLIBTOP_SUID_PROC_KERNEL
 #define glibtop_get_proc_kernel_r	glibtop_get_proc_kernel_p
 #else
 #define glibtop_get_proc_kernel_r	glibtop_get_proc_kernel_s
 #endif
 
-int glibtop_get_proc_kernel_l (glibtop *server, glibtop_proc_kernel *buf, pid_t pid);
+int glibtop_get_proc_kernel_l (glibtop_client *client, glibtop_proc_kernel *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_KERNEL
 int glibtop_init_proc_kernel_p (glibtop *server);
 int glibtop_get_proc_kernel_p (glibtop *server, glibtop_proc_kernel *buf, pid_t pid);
 #else
-int glibtop_init_proc_kernel_s (glibtop *server);
-int glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid);
+int glibtop_init_proc_kernel_s (glibtop_server *server);
+int glibtop_get_proc_kernel_s (glibtop_server *server, glibtop_proc_kernel *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

@@ -28,7 +28,7 @@
 /* Wrappers to malloc, calloc, realloc ... */
 
 void *
-glibtop_malloc_r (glibtop *server, size_t size)
+glibtop_malloc_r (glibtop_server *server, size_t size)
 {
     void *buf = malloc (size);
 	
@@ -39,7 +39,7 @@ glibtop_malloc_r (glibtop *server, size_t size)
 }
 
 void *
-glibtop_calloc_r (glibtop *server, size_t nmemb, size_t size)
+glibtop_calloc_r (glibtop_server *server, size_t nmemb, size_t size)
 {
     void *buf = calloc (nmemb, size);
 	
@@ -51,7 +51,7 @@ glibtop_calloc_r (glibtop *server, size_t nmemb, size_t size)
 }
 
 void *
-glibtop_realloc_r (glibtop *server, void *ptr, size_t size)
+glibtop_realloc_r (glibtop_server *server, void *ptr, size_t size)
 {
     void *buf = realloc (ptr, size);
 	
@@ -62,13 +62,13 @@ glibtop_realloc_r (glibtop *server, void *ptr, size_t size)
 }
 
 char *
-glibtop_strdup_r (glibtop *server, const char *string)
+glibtop_strdup_r (glibtop_server *server, const char *string)
 {
     return strcpy (glibtop_malloc_r (server, strlen (string) + 1), string);
 }
 
 void
-glibtop_free_r (glibtop *server, const void *ptr)
+glibtop_free_r (glibtop_server *server, const void *ptr)
 {
     if (ptr) free ((void *) ptr);
 }

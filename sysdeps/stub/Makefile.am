@@ -1,6 +1,6 @@
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-INCLUDES			= @INCLUDES@
+INCLUDES			= @INCLUDES@ -D_IN_LIBGTOP_SERVER
 
 lib_LTLIBRARIES			= libgtop_sysdeps.la
 
@@ -13,5 +13,5 @@ libgtop_sysdeps_la_SOURCES	= open.c close.c cpu.c mem.c swap.c \
 
 libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO)
 
-include_HEADERS			= glibtop_server.h
+noinst_HEADERS			= glibtop_server_private.h
 

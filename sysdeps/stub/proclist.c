@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_proclist = 0;
 /* Init function. */
 
 int
-glibtop_init_proclist_s (glibtop *server)
+glibtop_init_proclist_s (glibtop_server *server)
 {
     server->info->sysdeps.proclist = _glibtop_sysdeps_proclist;
 
@@ -48,9 +48,12 @@ glibtop_init_proclist_s (glibtop *server)
  *   each buf->size big. The total size is stored in buf->total. */
 
 unsigned *
-glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
+glibtop_get_proclist_s (glibtop_server *server, glibtop_proclist *buf,
 			int64_t which, int64_t arg)
 {
+    glibtop_init_s (server, GLIBTOP_SYSDEPS_PROCLIST, 0);
+	
     memset (buf, 0, sizeof (glibtop_proclist));
+
     return NULL;
 }

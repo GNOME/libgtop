@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_shm_limits = 0;
 /* Init function. */
 
 int
-glibtop_init_shm_limits_s (glibtop *server)
+glibtop_init_shm_limits_s (glibtop_server *server)
 {
     server->info->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
 
@@ -41,7 +41,7 @@ glibtop_init_shm_limits_s (glibtop *server)
 /* Provides information about sysv ipc limits. */
 
 int
-glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
+glibtop_get_shm_limits_s (glibtop_server *server, glibtop_shm_limits *buf)
 {
     memset (buf, 0, sizeof (glibtop_shm_limits));
 

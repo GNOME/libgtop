@@ -45,7 +45,7 @@
 #define _strlen(ptr)	(ptr ? strlen (ptr) : 0)
 
 ssize_t
-glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
+glibtop_get_parameter_l (glibtop_client *client, const unsigned parameter,
 			 void *data_ptr, size_t data_size)
 {
     switch (parameter) {
@@ -70,7 +70,7 @@ glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
 }
 
 int
-glibtop_get_parameter_size_l (glibtop *server, const unsigned parameter)
+glibtop_get_parameter_size_l (glibtop_client *client, const unsigned parameter)
 {
     switch (parameter) {
     case GLIBTOP_PARAM_ERROR_METHOD:
@@ -89,7 +89,7 @@ glibtop_get_parameter_size_l (glibtop *server, const unsigned parameter)
 }
 
 int
-glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
+glibtop_set_parameter_l (glibtop_client *client, const unsigned parameter,
 			 const void *data_ptr, size_t data_size)
 {
     switch (parameter) {

@@ -77,22 +77,20 @@ struct _glibtop_proc_segment
 	env_end;
 };
 
-#define glibtop_get_proc_segment(p1, p2)	glibtop_get_proc_segment_l(glibtop_global_server, p1, p2)
-
 #if GLIBTOP_SUID_PROC_SEGMENT
 #define glibtop_get_proc_segment_r	glibtop_get_proc_segment_p
 #else
 #define glibtop_get_proc_segment_r	glibtop_get_proc_segment_s
 #endif
 
-int glibtop_get_proc_segment_l (glibtop *server, glibtop_proc_segment *buf, pid_t pid);
+int glibtop_get_proc_segment_l (glibtop_client *client, glibtop_proc_segment *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_SEGMENT
 int glibtop_init_proc_segment_p (glibtop *server);
 int glibtop_get_proc_segment_p (glibtop *server, glibtop_proc_segment *buf, pid_t pid);
 #else
-int glibtop_init_proc_segment_s (glibtop *server);
-int glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf, pid_t pid);
+int glibtop_init_proc_segment_s (glibtop_server *server);
+int glibtop_get_proc_segment_s (glibtop_server *server, glibtop_proc_segment *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

@@ -30,42 +30,16 @@
 
 BEGIN_LIBGTOP_DECLS
 
-#ifndef G_GNUC_UNUSED
-#if	__GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ > 4)
-#define G_GNUC_UNUSED				\
-  __attribute__((unused))
-#else	/* !__GNUC__ */
-#define	G_GNUC_UNUSED
-#endif	/* !__GNUC__ */
-#endif /* defined G_GNUC_UNUSED */
+void glibtop_error_vr (glibtop_server *server, char *format, va_list args);
+void glibtop_warn_vr (glibtop_server *server, char *format, va_list args);
 
-void glibtop_error_vr (glibtop *server, char *format, va_list args);
-void glibtop_warn_vr (glibtop *server, char *format, va_list args);
+void glibtop_error_io_vr (glibtop_server *server, char *format, int, va_list args);
+void glibtop_warn_io_vr (glibtop_server *server, char *format, int, va_list args);
 
-void glibtop_error_io_vr (glibtop *server, char *format, int, va_list args);
-void glibtop_warn_io_vr (glibtop *server, char *format, int, va_list args);
-
-void glibtop_error_r (glibtop *server, char *format, ...);
-void glibtop_warn_r (glibtop *server, char *format, ...);
-void glibtop_error_io_r (glibtop *server, char *format, ...);
-void glibtop_warn_io_r (glibtop *server, char *format, ...);
-
-#ifdef  __GNUC__
-
-#define glibtop_error(p1, args...)	glibtop_error_r(glibtop_global_server , p1 , ## args)
-#define glibtop_warn(p1, args...)	glibtop_warn_r(glibtop_global_server , p1 , ## args)
-
-#define glibtop_error_io(p1, args...)	glibtop_error_io_r(glibtop_global_server , p1 , ## args)
-#define glibtop_warn_io(p1, args...)	glibtop_warn_io_r(glibtop_global_server , p1 , ## args)
-
-#else /* no __GNUC__ */
-
-void glibtop_error (char *format, ...);
-void glibtop_warn (char *format, ...);
-void glibtop_error_io (char *format, ...);
-void glibtop_warn_io (char *format, ...);
-
-#endif /* no __GNUC__ */
+void glibtop_error_r (glibtop_server *server, char *format, ...);
+void glibtop_warn_r (glibtop_server *server, char *format, ...);
+void glibtop_error_io_r (glibtop_server *server, char *format, ...);
+void glibtop_warn_io_r (glibtop_server *server, char *format, ...);
 
 END_LIBGTOP_DECLS
 

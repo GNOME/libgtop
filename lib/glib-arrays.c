@@ -29,14 +29,15 @@
 #include <glibtop/glib-arrays.h>
 
 GArray *
-glibtop_get_proclist_as_array_l (glibtop *server, int64_t which, int64_t arg)
+glibtop_get_proclist_as_array_l (glibtop_client *client, int64_t which,
+				 int64_t arg)
 {
     glibtop_array array;
     GArray *retval;
     unsigned *ptr;
     int i;
 
-    ptr = glibtop_get_proclist_l (server, &array, which, arg);
+    ptr = glibtop_get_proclist_l (client, &array, which, arg);
     if (!ptr) return NULL;
 
     retval = g_array_new (FALSE, TRUE, sizeof (guint));
@@ -45,20 +46,20 @@ glibtop_get_proclist_as_array_l (glibtop *server, int64_t which, int64_t arg)
     for (i = 0; i < array.number; i++)
 	g_array_index (retval, guint, i) = ptr [i];
 
-    glibtop_free_r (server, ptr);
+    g_free (ptr);
 
     return retval;
 }
 
 GPtrArray *
-glibtop_get_proc_args_as_array_l (glibtop *server, pid_t pid)
+glibtop_get_proc_args_as_array_l (glibtop_client *client, pid_t pid)
 {
     glibtop_array array;
     GPtrArray *retval;
     char **ptr;
     int i;
 
-    ptr = glibtop_get_proc_args_l (server, &array, pid);
+    ptr = glibtop_get_proc_args_l (client, &array, pid);
     if (!ptr) return NULL;
 
     retval = g_ptr_array_new ();
@@ -66,23 +67,23 @@ glibtop_get_proc_args_as_array_l (glibtop *server, pid_t pid)
 
     for (i = 0; i < array.number; i++) {
 	retval->pdata [i] = g_strdup (ptr [i]);
-	glibtop_free_r (server, ptr [i]);
+	g_free (ptr [i]);
     }
 
-    glibtop_free_r (server, ptr);
+    g_free (ptr);
 
     return retval;
 }
 
 GPtrArray *
-glibtop_get_proc_map_as_array_l (glibtop *server, pid_t pid)
+glibtop_get_proc_map_as_array_l (glibtop_client *client, pid_t pid)
 {
     glibtop_array array;
     GPtrArray *retval;
     glibtop_map_entry *ptr;
     int i;
 
-    ptr = glibtop_get_proc_map_l (server, &array, pid);
+    ptr = glibtop_get_proc_map_l (client, &array, pid);
     if (!ptr) return NULL;
 
     retval = g_ptr_array_new ();
@@ -91,20 +92,20 @@ glibtop_get_proc_map_as_array_l (glibtop *server, pid_t pid)
     for (i = 0; i < array.number; i++)
 	retval->pdata [i] = g_memdup (ptr+i, sizeof (glibtop_map_entry));
 
-    glibtop_free_r (server, ptr);
+    g_free (ptr);
 
     return retval;
 }
 
 GPtrArray *
-glibtop_get_mountlist_as_array_l (glibtop *server, int all_fs)
+glibtop_get_mountlist_as_array_l (glibtop_client *client, int all_fs)
 {
     glibtop_array array;
     GPtrArray *retval;
     glibtop_mountentry *ptr;
     int i;
 
-    ptr = glibtop_get_mountlist_l (server, &array, all_fs);
+    ptr = glibtop_get_mountlist_l (client, &array, all_fs);
     if (!ptr) return NULL;
 
     retval = g_ptr_array_new ();
@@ -113,7 +114,7 @@ glibtop_get_mountlist_as_array_l (glibtop *server, int all_fs)
     for (i = 0; i < array.number; i++)
 	retval->pdata [i] = g_memdup (ptr+i, sizeof (glibtop_mountentry));
 
-    glibtop_free_r (server, ptr);
+    g_free (ptr);
 
     return retval;
 }

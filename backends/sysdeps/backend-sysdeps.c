@@ -32,10 +32,10 @@
 #include <glibtop-backend-private.h>
 
 static int
-_open_sysdeps (glibtop *, glibtop_backend *, u_int64_t, const char **);
+_open_sysdeps (glibtop_server *, glibtop_backend *, u_int64_t, const char **);
 
 static int
-_close_sysdeps (glibtop *, glibtop_backend *);
+_close_sysdeps (glibtop_server *, glibtop_backend *);
 
 extern glibtop_call_vector glibtop_backend_sysdeps_call_vector;
 
@@ -52,7 +52,7 @@ glibtop_backend_info LibGTopBackendInfo_Sysdeps = {
 #endif
 
 static int
-_open_sysdeps (glibtop *server, glibtop_backend *backend,
+_open_sysdeps (glibtop_server *server, glibtop_backend *backend,
 	       u_int64_t features, const char **backend_args)
 {
     glibtop_init_func_t *init_fkt;
@@ -77,7 +77,7 @@ _open_sysdeps (glibtop *server, glibtop_backend *backend,
 }
 
 static int
-_close_sysdeps (glibtop *server, glibtop_backend *backend)
+_close_sysdeps (glibtop_server *server, glibtop_backend *backend)
 {
     return -1;
 }

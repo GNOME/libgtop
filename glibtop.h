@@ -32,70 +32,32 @@
 
 #include <glibtop/global.h>
 #include <glibtop/limits.h>
-
-#include <glibtop_server.h>
 #include <glibtop/types.h>
+
+#include <glibtop/glibtop-client.h>
 
 BEGIN_LIBGTOP_DECLS
 
 typedef struct _glibtop			glibtop;
-typedef struct _glibtop_server_private	glibtop_server_private;
-typedef struct _glibtop_server_info	glibtop_server_info;
 
 #include <glibtop/sysdeps.h>
 #include <glibtop/errors.h>
 
-#include <glibtop/parameter.h>
+#include <glibtop/glibtop-server.h>
 
 #ifdef _IN_LIBGTOP
 #include <glibtop-server-private.h>
 #endif
-
-struct _glibtop_server_info
-{
-    int ncpu;			/* Number of CPUs, zero if single-processor */
-    unsigned long features;	/* Server is required for this features */
-    glibtop_sysdeps sysdeps;	/* Detailed feature list */
-    glibtop_sysdeps required;	/* Required feature list */
-    glibtop_sysdeps wanted;	/* We only want this features */
-};
-
-struct _glibtop
-{
-    int refcount;		/* Reference count */
-    unsigned flags;
-    unsigned long os_version_code;	/* Version code of the operating system */
-    const char *name;		/* Program name for error messages */
-    unsigned long server_port;	/* Port on which daemon is listening */
-    glibtop_parameter _param;	/* Server parameter */
-    glibtop_server_private *_priv;	/* Private data */
-    glibtop_server_info *info;	/* Server Info */
-    unsigned glibtop_errno;
-};
-
-extern glibtop *glibtop_global_server;
-
-extern const unsigned long glibtop_server_features;
-
-#define glibtop_init()	glibtop_init_r(&glibtop_global_server, 0, 0);
-
-#define glibtop_close()	glibtop_close_r(glibtop_global_server);
 
 glibtop *
 glibtop_init_r (glibtop **server_ptr,
 		unsigned long features,
 		unsigned flags);
 
-glibtop *
-glibtop_init_s (glibtop **server_ptr,
+void
+glibtop_init_s (glibtop_server *server_ptr,
 		unsigned long features,
 		unsigned flags);
-
-void
-glibtop_server_ref (glibtop *server);
-
-void
-glibtop_server_unref (glibtop *server);
 
 END_LIBGTOP_DECLS
 

@@ -16,8 +16,7 @@ CFLAGS				= @CFLAGS@ $(inodedb_DEFS)
 
 lib_LTLIBRARIES			= libgtop_common.la libgtop_suid_common.la
 
-libgtop_common_la_SOURCES	= xmalloc.c error.c \
-				  fsusage.c fsusage.h mountlist.c mountlist.h \
+libgtop_common_la_SOURCES	= fsusage.c fsusage.h mountlist.c mountlist.h \
 				  $(inodedb_SRCLIST)
 
 libgtop_common_la_LDFLAGS	= $(LT_VERSION_INFO) $(dynamic_ldflags)

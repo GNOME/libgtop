@@ -23,8 +23,8 @@
    Boston, MA 02111-1307, USA.
 */
 
-#ifndef __GLIBTOP_SERVER_H__
-#define __GLIBTOP_SERVER_H__
+#ifndef __GLIBTOP_SERVER_PRIVATE_H__
+#define __GLIBTOP_SERVER_PRIVATE_H__
 
 BEGIN_LIBGTOP_DECLS
 

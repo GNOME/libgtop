@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_mem = 0;
 /* Init function. */
 
 int
-glibtop_init_mem_s (glibtop *server)
+glibtop_init_mem_s (glibtop_server *server)
 {
     server->info->sysdeps.mem = _glibtop_sysdeps_mem;
 
@@ -41,8 +41,10 @@ glibtop_init_mem_s (glibtop *server)
 /* Provides information about memory usage. */
 
 int
-glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
+glibtop_get_mem_s (glibtop_server *server, glibtop_mem *buf)
 {
+    glibtop_init_s (server, GLIBTOP_SYSDEPS_MEM, 0);
+	
     memset (buf, 0, sizeof (glibtop_mem));
 
     return 0;

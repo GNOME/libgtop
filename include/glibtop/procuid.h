@@ -79,22 +79,20 @@ struct _glibtop_proc_uid
 	groups [GLIBTOP_MAX_GROUPS];	/* additional prcess groups */
 };
 
-#define glibtop_get_proc_uid(p1, p2)	glibtop_get_proc_uid_l(glibtop_global_server, p1, p2)
-
 #if GLIBTOP_SUID_PROC_UID
 #define glibtop_get_proc_uid_r		glibtop_get_proc_uid_p
 #else
 #define glibtop_get_proc_uid_r		glibtop_get_proc_uid_s
 #endif
 
-int glibtop_get_proc_uid_l (glibtop *server, glibtop_proc_uid *buf, pid_t pid);
+int glibtop_get_proc_uid_l (glibtop_client *client, glibtop_proc_uid *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_UID
 int glibtop_init_proc_uid_p (glibtop *server);
 int glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf, pid_t pid);
 #else
-int glibtop_init_proc_uid_s (glibtop *server);
-int glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid);
+int glibtop_init_proc_uid_s (glibtop_server *server);
+int glibtop_get_proc_uid_s (glibtop_server *server, glibtop_proc_uid *buf, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

@@ -29,7 +29,7 @@
 #include <glibtop.h>
 #include <glibtop/global.h>
 
-#include <glib.h>
+#include <glibtop/glibtop-client.h>
 
 BEGIN_LIBGTOP_DECLS
 
@@ -42,9 +42,9 @@ typedef struct _glibtop_backend		glibtop_backend;
 
 #include <glibtop/call-vector.h>
 
-typedef int (*glibtop_backend_open_func_t) (glibtop *, glibtop_backend *,
+typedef int (*glibtop_backend_open_func_t) (glibtop_server *, glibtop_backend *,
 					    u_int64_t, const char **);
-typedef int (*glibtop_backend_close_func_t) (glibtop *, glibtop_backend *);
+typedef int (*glibtop_backend_close_func_t) (glibtop_server *, glibtop_backend *);
 
 struct _glibtop_backend_info
 {
@@ -88,6 +88,8 @@ struct _glibtop_backend
 {
     const glibtop_backend_info *info;
 
+    glibtop_server *server;
+
     /* private pointers */
     glibtop_backend_private *_priv;
     glibtop_backend_module *_priv_module;
@@ -108,9 +110,10 @@ glibtop_backend_by_name (const char *backend_name);
 void
 glibtop_init_backends (void);
 
-int
-glibtop_open_backend_l (glibtop *server, const char *backend_name,
-			u_int64_t features, const char **backend_args);
+glibtop_backend *
+glibtop_open_backend_l (glibtop_client *client, const char *backend_name,
+			u_int64_t features, const char **backend_args,
+			GError **error);
 
 END_LIBGTOP_DECLS
 

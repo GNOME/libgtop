@@ -52,8 +52,6 @@ BEGIN_LIBGTOP_DECLS
 #define GLIBTOP_EXCLUDE_SYSTEM		0x2000
 #define GLIBTOP_EXCLUDE_NOTTY		0x4000
 
-#define glibtop_get_proclist(array,which,arg) glibtop_get_proclist_l(glibtop_global_server, array, which, arg)
-
 #if GLIBTOP_SUID_PROCLIST
 #define glibtop_get_proclist_r		glibtop_get_proclist_p
 #else
@@ -61,7 +59,7 @@ BEGIN_LIBGTOP_DECLS
 #endif
 
 unsigned *
-glibtop_get_proclist_l (glibtop *server, glibtop_array *array,
+glibtop_get_proclist_l (glibtop_client *client, glibtop_array *array,
 			int64_t which, int64_t arg);
 
 #if GLIBTOP_SUID_PROCLIST
@@ -71,10 +69,10 @@ unsigned *
 glibtop_get_proclist_p (glibtop *server, glibtop_array *array,
 			int64_t which, int64_t arg);
 #else
-int glibtop_init_proclist_s (glibtop *server);
+int glibtop_init_proclist_s (glibtop_server *server);
 
 unsigned *
-glibtop_get_proclist_s (glibtop *server, glibtop_array *array,
+glibtop_get_proclist_s (glibtop_server *server, glibtop_array *array,
 			int64_t which, int64_t arg);
 #endif
 

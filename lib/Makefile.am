@@ -2,12 +2,15 @@ LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 INCLUDES			= @INCLUDES@
 
-lib_LTLIBRARIES			= libgtop.la
+lib_LTLIBRARIES			= libgtop.la libgtop_server.la
 
-libgtop_la_SOURCES		= init.c open.c close.c lib.c parameter.c \
-				  sysdeps.c errors.c glib-arrays.c \
-				  backend.c init-backends.c open-backend.c \
-				  sysdeps-init.c
+libgtop_la_SOURCES		= errors.c glib-arrays.c backend.c \
+				  init-backends.c open-backend.c \
+				  glibtop-client.c
+
+libgtop_server_la_SOURCES	= error.c xmalloc.c
+
+libgtop_server_la_LDFLAGS	= $(LT_VERSION_INFO)
 
 libgtop_la_LDFLAGS		= $(LT_VERSION_INFO)
 libgtop_la_LIBADD		= $(LIBGTOP_XML_LIB)

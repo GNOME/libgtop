@@ -29,31 +29,22 @@
 #include <glibtop.h>
 #include <glibtop/array.h>
 #include <glibtop/global.h>
-#include <glibtop/xmalloc.h>
 
 #include <glib.h>
 
 BEGIN_LIBGTOP_DECLS
 
-#define glibtop_get_proc_args_as_array(pid) glibtop_get_proc_args_as_array_l(glibtop_global_server, pid)
-
 GPtrArray *
-glibtop_get_proc_args_as_array_l (glibtop *server, pid_t pid);
-
-#define glibtop_get_proclist_as_array(which,arg) glibtop_get_proclist_as_array_l(glibtop_global_server, which, arg)
+glibtop_get_proc_args_as_array_l (glibtop_client *client, pid_t pid);
 
 GArray *
-glibtop_get_proclist_as_array_l (glibtop *server, int64_t which, int64_t arg);
-
-#define glibtop_get_proc_map_as_array(pid) glibtop_get_proc_map_as_array_l(glibtop_global_server, pid)
+glibtop_get_proclist_as_array_l (glibtop_client *client, int64_t which, int64_t arg);
 
 GPtrArray *
-glibtop_get_proc_map_as_array_l (glibtop *server, pid_t pid);
-
-#define glibtop_get_mountlist_as_array(all_fs) glibtop_get_mountlist_as_array_l(glibtop_global_server, all_fs)
+glibtop_get_proc_map_as_array_l (glibtop_client *client, pid_t pid);
 
 GPtrArray *
-glibtop_get_mountlist_as_array_l (glibtop *server, int all_fs);
+glibtop_get_mountlist_as_array_l (glibtop_client *client, int all_fs);
 
 END_LIBGTOP_DECLS
 #endif

@@ -60,8 +60,6 @@ struct _glibtop_map_entry
     char filename [GLIBTOP_MAP_FILENAME_LEN+1];
 };
 
-#define glibtop_get_proc_map(array,pid) glibtop_get_proc_map_l(glibtop_global_server, array, pid)
-
 #if GLIBTOP_SUID_PROC_MAP
 #define glibtop_get_proc_map_r		glibtop_get_proc_map_p
 #else
@@ -69,7 +67,7 @@ struct _glibtop_map_entry
 #endif
 
 glibtop_map_entry *
-glibtop_get_proc_map_l (glibtop *server, glibtop_array *array, pid_t pid);
+glibtop_get_proc_map_l (glibtop_client *client, glibtop_array *array, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_MAP
 int glibtop_init_proc_map_p (glibtop *server);
@@ -77,10 +75,10 @@ int glibtop_init_proc_map_p (glibtop *server);
 glibtop_map_entry *
 glibtop_get_proc_map_p (glibtop *server, glibtop_array *array, pid_t pid);
 #else
-int glibtop_init_proc_map_s (glibtop *server);
+int glibtop_init_proc_map_s (glibtop_server *server);
 
 glibtop_map_entry *
-glibtop_get_proc_map_s (glibtop *server, glibtop_array *array, pid_t pid);
+glibtop_get_proc_map_s (glibtop_server *server, glibtop_array *array, pid_t pid);
 #endif
 
 #ifdef GLIBTOP_NAMES

@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_swap = 0;
 /* Init function. */
 
 int
-glibtop_init_swap_s (glibtop *server)
+glibtop_init_swap_s (glibtop_server *server)
 {
     server->info->sysdeps.swap = _glibtop_sysdeps_swap;
 
@@ -41,8 +41,10 @@ glibtop_init_swap_s (glibtop *server)
 /* Provides information about swap usage. */
 
 int
-glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
+glibtop_get_swap_s (glibtop_server *server, glibtop_swap *buf)
 {
+    glibtop_init_s (server, GLIBTOP_SYSDEPS_SWAP, 0);
+	
     memset (buf, 0, sizeof (glibtop_swap));
 
     return 0;

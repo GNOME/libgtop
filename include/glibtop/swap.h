@@ -51,22 +51,20 @@ struct _glibtop_swap
 	pageout;	/* GLIBTOP_SWAP_PAGEOUT	*/
 };
 
-#define glibtop_get_swap(swap)	glibtop_get_swap_l(glibtop_global_server, swap)
-
 #if GLIBTOP_SUID_SWAP
 #define glibtop_get_swap_r		glibtop_get_swap_p
 #else
 #define glibtop_get_swap_r		glibtop_get_swap_s
 #endif
 
-int glibtop_get_swap_l (glibtop *server, glibtop_swap *buf);
+int glibtop_get_swap_l (glibtop_client *client, glibtop_swap *buf);
 
 #if GLIBTOP_SUID_SWAP
 int glibtop_init_swap_p (glibtop *server);
 int glibtop_get_swap_p (glibtop *server, glibtop_swap *buf);
 #else
-int glibtop_init_swap_s (glibtop *server);
-int glibtop_get_swap_s (glibtop *server, glibtop_swap *buf);
+int glibtop_init_swap_s (glibtop_server *server);
+int glibtop_get_swap_s (glibtop_server *server, glibtop_swap *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

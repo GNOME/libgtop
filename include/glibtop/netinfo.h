@@ -51,22 +51,20 @@ struct _glibtop_netinfo
 	mtu;				/* GLIBTOP_NETINFO_MTU		*/
 };
 
-#define glibtop_get_netinfo(array,netinfo,interface,transport)	glibtop_get_netinfo_l(glibtop_global_server, array, netinfo, interface, transport)
-
 #if GLIBTOP_SUID_NETINFO
 #define glibtop_get_netinfo_r		glibtop_get_netinfo_p
 #else
 #define glibtop_get_netinfo_r		glibtop_get_netinfo_s
 #endif
 
-glibtop_ifaddr *glibtop_get_netinfo_l (glibtop *server, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
+glibtop_ifaddr *glibtop_get_netinfo_l (glibtop_client *client, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
 
 #if GLIBTOP_SUID_NETINFO
 int glibtop_init_netinfo_p (glibtop *server);
 glibtop_ifaddr *glibtop_get_netinfo_p (glibtop *server, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
 #else
-int glibtop_init_netinfo_s (glibtop *server);
-glibtop_ifaddr *glibtop_get_netinfo_s (glibtop *server, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
+int glibtop_init_netinfo_s (glibtop_server *server);
+glibtop_ifaddr *glibtop_get_netinfo_s (glibtop_server *server, glibtop_array *array, glibtop_netinfo *buf, const char *interface, u_int64_t transport);
 #endif
 
 #ifdef GLIBTOP_NAMES

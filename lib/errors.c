@@ -25,42 +25,132 @@
 
 #include <glibtop.h>
 #include <glibtop/global.h>
-#include <glibtop/xmalloc.h>
+#include <glibtop/errors.h>
 
-const char *glibtop_error_strings[GLIBTOP_MAX_ERROR] = {
-    N_("No error"),
-    N_("Unknown error"),
-    N_("Invalid argument"),
-    N_("No such parameter"),
-    N_("Attempted to modify a read-only value"),
-    N_("Parameter size mismatch"),
-    N_("Communication with LibGTop server failed"),
-    N_("No such process"),
-    N_("No kernel support"),
-    N_("Incompatible kernel version")
-};
-
-char *
-glibtop_get_error_string_l (glibtop *server, unsigned error_number)
+/* Error quark */
+GQuark
+glibtop_error_quark (void)
 {
-    if (error_number >= GLIBTOP_MAX_ERROR)
-	error_number = GLIBTOP_ERROR_UNKNOWN;
+    static GQuark q = 0;
+    if (q == 0)
+	q = g_quark_from_static_string ("glibtop-error-quark");
 
-    return glibtop_strdup_r (server, _(glibtop_error_strings [error_number]));
+    return q;
 }
 
-unsigned
-glibtop_get_errno_l (glibtop *server)
+void
+glibtop_error_vl (glibtop_client *client, glibtop_error code,
+		  const char *format, va_list args)
 {
-    return server->glibtop_errno;
+    gchar *message;
+    GError *error;
+
+    g_return_if_fail (GLIBTOP_IS_CLIENT (client));
+    message = g_strdup_vprintf (format, args);
+
+    error = g_error_new_literal (GLIBTOP_ERROR, code, message);
+    glibtop_client_propagate_error (client, error);
+
+    g_error_free (error);
+    g_free (message);
 }
 
-unsigned
-glibtop_clear_errno_l (glibtop *server)
+void
+glibtop_error_io_vl (glibtop_client *client, glibtop_error code,
+		     int io_errno, const char *format, va_list args)
 {
-    unsigned old_errno;
+    gchar *message, *fullmessage;
+    GError *error;
 
-    old_errno = server->glibtop_errno;
-    server->glibtop_errno = 0;
-    return old_errno;
+    g_return_if_fail (GLIBTOP_IS_CLIENT (client));
+    message = g_strdup_vprintf (format, args);
+    fullmessage = g_strdup_printf ("%s: %s", message, strerror (io_errno));
+
+    error = g_error_new_literal (GLIBTOP_ERROR, code, message);
+    glibtop_client_propagate_error (client, error);
+
+    g_error_free (error);
+    g_free (fullmessage);
+    g_free (message);
 }
+
+void
+glibtop_warn_vl (glibtop_client *client, glibtop_error code,
+		 const char *format, va_list args)
+{
+    gchar *message;
+    GError *error;
+
+    g_return_if_fail (GLIBTOP_IS_CLIENT (client));
+    message = g_strdup_vprintf (format, args);
+
+    error = g_error_new_literal (GLIBTOP_ERROR, code, message);
+    glibtop_client_propagate_warning (client, error);
+
+    g_error_free (error);
+    g_free (message);
+}
+
+void
+glibtop_warn_io_vl (glibtop_client *client, glibtop_error code,
+		    int io_errno, const char *format, va_list args)
+{
+    gchar *message, *fullmessage;
+    GError *error;
+
+    g_return_if_fail (GLIBTOP_IS_CLIENT (client));
+    message = g_strdup_vprintf (format, args);
+    fullmessage = g_strdup_printf ("%s: %s", message, strerror (io_errno));
+
+    error = g_error_new_literal (GLIBTOP_ERROR, code, message);
+    glibtop_client_propagate_warning (client, error);
+
+    g_error_free (error);
+    g_free (fullmessage);
+    g_free (message);
+}
+
+void
+glibtop_error_l (glibtop_client *client, glibtop_error code,
+		 char *format, ...)
+{
+    va_list args;
+
+    va_start (args, format);
+    glibtop_error_vl (client, code, format, args);
+    va_end (args);
+}
+
+void
+glibtop_warn_l (glibtop_client *client, glibtop_error code,
+		char *format, ...)
+{
+    va_list args;
+
+    va_start (args, format);
+    glibtop_warn_vl (client, code, format, args);
+    va_end (args);
+}
+
+void
+glibtop_error_io_l (glibtop_client *client, glibtop_error code,
+		    char *format, ...)
+{
+    va_list args;
+
+    va_start (args, format);
+    glibtop_error_io_vl (client, code, errno, format, args);
+    va_end (args);
+}
+
+void
+glibtop_warn_io_l (glibtop_client *client, glibtop_error code,
+		   char *format, ...)
+{
+    va_list args;
+
+    va_start (args, format);
+    glibtop_warn_io_vl (client, code, errno, format, args);
+    va_end (args);
+}
+

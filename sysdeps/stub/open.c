@@ -29,7 +29,7 @@
 /* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
 
 void
-glibtop_open_s (glibtop *server, const char *program_name,
+glibtop_open_s (glibtop_server *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
     server->name = program_name;

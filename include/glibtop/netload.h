@@ -63,22 +63,20 @@ struct _glibtop_netload
 	collisions;		/* GLIBTOP_NETLOAD_COLLISIONS	*/
 };
 
-#define glibtop_get_netload(netload,interface,transport,protocol)	glibtop_get_netload_l(glibtop_global_server, netload, interface, transport, protocol)
-
 #if GLIBTOP_SUID_NETLOAD
 #define glibtop_get_netload_r		glibtop_get_netload_p
 #else
 #define glibtop_get_netload_r		glibtop_get_netload_s
 #endif
 
-int glibtop_get_netload_l (glibtop *server, glibtop_netload *buf, const char *interface, unsigned transport, unsigned protocol);
+int glibtop_get_netload_l (glibtop_client *client, glibtop_netload *buf, const char *interface, unsigned transport, unsigned protocol);
 
 #if GLIBTOP_SUID_NETLOAD
 int glibtop_init_netload_p (glibtop *server);
 int glibtop_get_netload_p (glibtop *server, glibtop_netload *buf, const char *interface, unsigned transport, unsigned protocol);
 #else
-int glibtop_init_netload_s (glibtop *server);
-int glibtop_get_netload_s (glibtop *server, glibtop_netload *buf, const char *interface, unsigned transport, unsigned protocol);
+int glibtop_init_netload_s (glibtop_server *server);
+int glibtop_get_netload_s (glibtop_server *server, glibtop_netload *buf, const char *interface, unsigned transport, unsigned protocol);
 #endif
 
 #ifdef GLIBTOP_NAMES

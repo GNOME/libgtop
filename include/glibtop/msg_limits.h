@@ -55,22 +55,20 @@ struct _glibtop_msg_limits
 	msgtql;		/* GLIBTOP_MSG_LIMITS_MSGTQL	*/
 };
 
-#define glibtop_get_msg_limits(msg)	glibtop_get_msg_limits_l(glibtop_global_server, msg)
-
 #if GLIBTOP_SUID_MSG_LIMITS
 #define glibtop_get_msg_limits_r	glibtop_get_msg_limits_p
 #else
 #define glibtop_get_msg_limits_r	glibtop_get_msg_limits_s
 #endif
 
-int glibtop_get_msg_limits_l (glibtop *server, glibtop_msg_limits *buf);
+int glibtop_get_msg_limits_l (glibtop_client *client, glibtop_msg_limits *buf);
 
 #if GLIBTOP_SUID_MSG_LIMITS
 int glibtop_init_msg_limits_p (glibtop *server);
 int glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf);
 #else
-int glibtop_init_msg_limits_s (glibtop *server);
-int glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf);
+int glibtop_init_msg_limits_s (glibtop_server *server);
+int glibtop_get_msg_limits_s (glibtop_server *server, glibtop_msg_limits *buf);
 #endif
 
 #ifdef GLIBTOP_NAMES

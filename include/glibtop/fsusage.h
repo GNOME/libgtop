@@ -51,12 +51,8 @@ struct _glibtop_fsusage
 	ffree;		/* Free file nodes. */
 };
 
-#define glibtop_get_fsusage(fsusage,disk)	glibtop_get_fsusage_l(glibtop_global_server, fsusage, disk)
-
-#define glibtop_get_fsusage_r		glibtop_get_fsusage_s
-
-int glibtop_get_fsusage_l (glibtop *server, glibtop_fsusage *buf, const char *mount_dir);
-int glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf, const char *mount_dir);
+int glibtop_get_fsusage_l (glibtop_client *client, glibtop_fsusage *buf, const char *mount_dir);
+int glibtop_get_fsusage_s (glibtop_server *server, glibtop_fsusage *buf, const char *mount_dir);
 
 #ifdef GLIBTOP_NAMES
 

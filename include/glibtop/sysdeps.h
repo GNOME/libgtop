@@ -60,10 +60,6 @@ BEGIN_LIBGTOP_DECLS
 
 #define GLIBTOP_SYSDEPS_ALL		((1 << GLIBTOP_MAX_SYSDEPS) - 1)
 
-typedef int (*glibtop_init_func_t) (glibtop *);
-extern glibtop_init_func_t _glibtop_init_hook_s [];
-extern glibtop_init_func_t _glibtop_init_hook_p [];
-
 typedef struct _glibtop_sysdeps	glibtop_sysdeps;
 
 struct _glibtop_sysdeps
@@ -97,8 +93,6 @@ struct _glibtop_sysdeps
 	netload,		/* glibtop_netload	*/
 	ppp;			/* glibtop_ppp		*/
 };
-
-#define glibtop_get_sysdeps(sysdeps)	glibtop_get_sysdeps_r(glibtop_global_server,sysdeps)
 
 void glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf);
 

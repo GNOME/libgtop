@@ -25,7 +25,6 @@
 #define __GLIBTOP_OPEN_H__
 
 #include <glibtop.h>
-#include <glibtop/error.h>
 
 BEGIN_LIBGTOP_DECLS
 
@@ -53,7 +52,7 @@ BEGIN_LIBGTOP_DECLS
 #define GLIBTOP_ERROR_METHOD_DEFAULT	GLIBTOP_ERROR_METHOD_WARN_ONCE
 
 void
-glibtop_open_l (glibtop *server, const char *backend_name,
+glibtop_open_l (glibtop_client *client, const char *backend_name,
 		const unsigned long features, const unsigned flags);
 
 void
@@ -61,11 +60,11 @@ glibtop_init_p (glibtop *server, const unsigned long features,
 		const unsigned flags);
 
 void
-glibtop_open_p (glibtop *server, const char *program_name,
+glibtop_open_p (glibtop_server *server, const char *program_name,
 		const unsigned long features, const unsigned flags);
 
 void
-glibtop_open_s (glibtop *server, const char *program_name,
+glibtop_open_s (glibtop_server *server, const char *program_name,
 		const unsigned long features, const unsigned flags);
 
 #ifdef _IN_LIBGTOP
