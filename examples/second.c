@@ -52,16 +52,53 @@ output (pid_t pid)
 	printf ("\n");
 		
 	glibtop_get_proc_state (&data.proc_state, pid);
-		
+
+#if LIBGTOP_VERSION_CODE > 1001000		
+	printf ("Proc_State   PID  %5d (0x%08lx): '%s', %u - "
+		"%u, %u, %u, %u - %u, %u, %u\n", (int) pid,
+		(unsigned long) data.proc_state.flags,
+		data.proc_state.cmd, data.proc_state.state,
+		data.proc_state.uid, data.proc_state.gid,
+		data.proc_state.ruid, data.proc_state.rgid,
+		data.proc_state.has_cpu, data.proc_state.processor,
+		data.proc_state.last_processor);
+#else
 	printf ("Proc_State   PID  %5d (0x%08lx): "
 		"'%s', %c, %lu, %lu\n", (int) pid,
 		(unsigned long) data.proc_state.flags,
 		data.proc_state.cmd, data.proc_state.state,
 		(unsigned long) data.proc_state.uid,
 		(unsigned long) data.proc_state.gid);
+#endif
 		
 	glibtop_get_proc_uid (&data.proc_uid, pid);
+	
+#if LIBGTOP_VERSION_CODE > 1001000	
+	printf ("Proc_Uid     PID  %5d (0x%08lx): "
+		"%d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d - %d",
+		(int) pid, (unsigned long) data.proc_uid.flags,
+		data.proc_uid.uid, data.proc_uid.euid,
+		data.proc_uid.gid, data.proc_uid.egid,
+		data.proc_uid.suid, data.proc_uid.sgid,
+		data.proc_uid.fsuid, data.proc_uid.fsgid,
+		data.proc_uid.pid, data.proc_uid.ppid,
+		data.proc_uid.pgrp, data.proc_uid.session,
+		data.proc_uid.tty, data.proc_uid.tpgid,
+		data.proc_uid.priority, data.proc_uid.nice,
+		data.proc_uid.ngroups);
 		
+	if (data.proc_uid.ngroups) {
+		for (i = 0; i < data.proc_uid.ngroups; i++) {
+			if (i)
+				printf (" %d", data.proc_uid.groups [i]);
+			else
+				printf (" (%d", data.proc_uid.groups [i]);
+		}
+		printf (")");
+	}
+
+	printf ("\n");
+#else
 	printf ("Proc_Uid     PID  %5d (0x%08lx): "
 		"%d %d %d %d %d %d %d %d %d %d %d %d\n", (int) pid,
 		(unsigned long) data.proc_uid.flags,
@@ -71,7 +108,8 @@ output (pid_t pid)
 		data.proc_uid.pgrp, data.proc_uid.session,
 		data.proc_uid.tty, data.proc_uid.tpgid,
 		data.proc_uid.priority, data.proc_uid.nice);
-		
+#endif
+
 	glibtop_get_proc_mem (&data.proc_mem, pid);
 		
 	printf ("Proc_Mem     PID  %5d (0x%08lx): "
@@ -86,6 +124,30 @@ output (pid_t pid)
 		
 	glibtop_get_proc_segment (&data.proc_segment, pid);
 
+#if LIBGTOP_VERSION_CODE > 1001000
+	printf ("Proc_Segment PID  %5d (0x%08lx): "
+		"%lu %lu %lu %lu %lu 0x%lx 0x%lx 0x%lx "
+		"0x%lx 0x%lx 0x%lx 0x%lx 0x%lx "
+		"0x%lx 0x%lx 0x%lx 0x%lx\n", (int) pid,
+		(unsigned long) data.proc_segment.flags,
+		(unsigned long) data.proc_segment.text_rss,
+		(unsigned long) data.proc_segment.shlib_rss,
+		(unsigned long) data.proc_segment.data_rss,
+		(unsigned long) data.proc_segment.stack_rss,
+		(unsigned long) data.proc_segment.dirty_size,
+		(unsigned long) data.proc_segment.start_code,
+		(unsigned long) data.proc_segment.end_code,
+		(unsigned long) data.proc_segment.start_data,
+		(unsigned long) data.proc_segment.end_data,
+		(unsigned long) data.proc_segment.start_brk,
+		(unsigned long) data.proc_segment.end_brk,
+		(unsigned long) data.proc_segment.start_stack,
+		(unsigned long) data.proc_segment.start_mmap,
+		(unsigned long) data.proc_segment.arg_start,
+		(unsigned long) data.proc_segment.arg_end,
+		(unsigned long) data.proc_segment.env_start,
+		(unsigned long) data.proc_segment.env_end);
+#else
 	printf ("Proc_Segment PID  %5d (0x%08lx): "
 		"%lu %lu %lu %lu %lu %lu %lu %lu\n", (int) pid,
 		(unsigned long) data.proc_segment.flags,
@@ -97,6 +159,7 @@ output (pid_t pid)
 		(unsigned long) data.proc_segment.start_code,
 		(unsigned long) data.proc_segment.end_code,
 		(unsigned long) data.proc_segment.start_stack);
+#endif
 
 	glibtop_get_proc_time (&data.proc_time, pid);
 		
@@ -115,6 +178,19 @@ output (pid_t pid)
 
 	glibtop_get_proc_signal (&data.proc_signal, pid);
 	
+#if LIBGTOP_VERSION_CODE > 1001000
+	printf ("Proc_Signal  PID  %5d (0x%08lx): "
+		"%lx %lx %lx %lx %lx %lx %lx %lx\n", (int) pid,
+		(unsigned long) data.proc_signal.flags,
+		(unsigned long) data.proc_signal.signal [0],
+		(unsigned long) data.proc_signal.signal [1],
+		(unsigned long) data.proc_signal.blocked [0],
+		(unsigned long) data.proc_signal.blocked [1],
+		(unsigned long) data.proc_signal.sigignore [0],
+		(unsigned long) data.proc_signal.sigignore [1],
+		(unsigned long) data.proc_signal.sigcatch [0],
+		(unsigned long) data.proc_signal.sigcatch [1]);
+#else
 	printf ("Proc_Signal  PID  %5d (0x%08lx): "
 		"%lu %lu %lu %lu\n", (int) pid,
 		(unsigned long) data.proc_signal.flags,
@@ -122,11 +198,12 @@ output (pid_t pid)
 		(unsigned long) data.proc_signal.blocked,
 		(unsigned long) data.proc_signal.sigignore,
 		(unsigned long) data.proc_signal.sigcatch);
+#endif
 
 	glibtop_get_proc_kernel (&data.proc_kernel, pid);
 
 	printf ("Proc_Kernel  PID  %5d (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", (int) pid,
+		"%lu %lu %lu %lu %lu 0x%lx 0x%lx 0x%lx (%s)\n", (int) pid,
 		(unsigned long) data.proc_kernel.flags,
 		(unsigned long) data.proc_kernel.k_flags,
 		(unsigned long) data.proc_kernel.min_flt,

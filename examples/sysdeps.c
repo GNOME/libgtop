@@ -69,10 +69,13 @@ main (int argc, char *argv [])
 
 	glibtop_get_sysdeps (&sysdeps);
 
-#define FEATURE_CHECK(f) ((sysdeps.features & (1 << GLIBTOP_SYSDEPS_##f##)) ? 1 : 0)
+#define FEATURE_CHECK(f) ((sysdeps.features & (1L << GLIBTOP_SYSDEPS_##f##)) ? 1 : 0)
 
 	printf ("Sysdeps (0x%08lx):\n\n"
 		"\tfeatures:\t\t0x%08lx\n\n"
+#if LIBGTOP_VERSION_CODE > 1001000
+		"\tpointer_size:\t\t0x%08lx\n\n"
+#endif
 		"\tcpu:\t\t%d\t0x%08lx\n"
 		"\tmem:\t\t%d\t0x%08lx\n"
 		"\tswap:\t\t%d\t0x%08lx\n\n"
@@ -97,6 +100,9 @@ main (int argc, char *argv [])
 		"\tppp:\t\t%d\t0x%08lx\n\n",
 		(unsigned long) sysdeps.flags,
 		(unsigned long) sysdeps.features,
+#if LIBGTOP_VERSION_CODE > 1001000
+		(unsigned long) sysdeps.pointer_size,
+#endif
 		FEATURE_CHECK(CPU),
 		(unsigned long) sysdeps.cpu,
 		FEATURE_CHECK(MEM),
