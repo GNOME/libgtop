@@ -62,6 +62,7 @@ int
 do_read (int s, void *ptr, size_t total_size)
 {
 	int nread;
+	char *tmp_ptr;
 	size_t already_read = 0, remaining = total_size;
 
 	while (already_read < total_size) {
@@ -82,7 +83,10 @@ do_read (int s, void *ptr, size_t total_size)
 
 		already_read += nread;
 		remaining -= nread;
-		(char *) ptr += nread;
+		/* (char *) ptr += nread; */
+		tmp_ptr = ptr;
+		tmp_ptr += nread;
+		ptr = tmp_ptr;
 
 #ifdef REAL_DEBUG
 		fprintf (stderr, "READ (%d): %d - %d - %d\n",
