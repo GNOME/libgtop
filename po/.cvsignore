@@ -7,3 +7,4 @@ cat-id-tbl.c
 libgtop.pot
 Makefile.in.in
 messages
+stamp-cat-id
