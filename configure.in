@@ -1,5 +1,5 @@
 dnl
-Mnl Configure script for the Gnome library
+dnl Configure script for the Gnome library
 dnl
 
 AC_INIT(copyright.txt)
@@ -71,11 +71,6 @@ fi
 
 GNOME_LIBGTOP_SYSDEPS
 GNOME_LIBGTOP_TYPES
-
-dnl For Solaris
-AC_CHECK_LIB(resolv, _getnetbyaddr)
-AC_CHECK_LIB(socket, socket)
-AC_CHECK_LIB(nsl, gethostbyname)
 
 AC_ARG_WITH(libgtop-guile,
 [  --with-libgtop-guile    Build the libgtop guile interface (default=no)],
@@ -180,6 +175,12 @@ ALL_LINGUAS="fr"
 AM_GNU_GETTEXT
 
 AC_PATH_XTRA
+
+dnl For Solaris
+dnl Please don't move this before AC_PATH_XTRA
+AC_CHECK_FUNC(gethostbyname,,[AC_CHECK_LIB(nsl,gethostbyname)])
+AC_CHECK_FUNC(connect,,[AC_CHECK_LIB(socket,connect)])
+AC_CHECK_FUNC(inet_aton,,[AC_CHECK_LIB(resolv,inet_aton)])
 
 dnl The construct foo=`echo $w1 $w2 $w3` fails on some systems if $w1 = -e or -n
 dnl So we use the following instead.
