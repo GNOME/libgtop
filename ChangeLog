@@ -1,3 +1,7 @@
+2002-12-30  Bastien Nocera <hadess@hadess.net>
+
+	* Added sysdeps/aix directory that was missing
+
 2002-10-08  Laurent Vivier <Laurent.Vivier@bull.net>
 
 	* Framework for AIX support
