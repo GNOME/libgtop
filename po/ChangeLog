@@ -1,3 +1,7 @@
+2001-03-09  Pablo Saratxaga  <pablo@mandrakesoft.com>
+
+	* az.po: converted to 8bit encoding as requested for Gnome 1.4
+
 2001-02-25  Simos Xenitellis  <simos@hellug.gr>
 
 	* el.po: Updated Greek translation.
