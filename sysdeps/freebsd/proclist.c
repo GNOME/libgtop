@@ -69,17 +69,14 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 	
 	memset (buf, 0, sizeof (glibtop_proclist));
 
-	glibtop_suid_enter (server);
-
 	which = (int)(real_which & GLIBTOP_KERN_PROC_MASK);
 
 	/* Get the process data */
 	pinfo = kvm_getprocs (server->machine.kd, which, arg, &count);
-	if ((pinfo == NULL) || (count < 1))
-		glibtop_error_io_r (server, "kvm_getprocs (proclist)");
-
-	glibtop_suid_leave (server);
-
+	if ((pinfo == NULL) || (count < 1)) {
+		glibtop_warn_io_r (server, "kvm_getprocs (proclist)");
+		return NULL;
+	}
 	count--;
 
 	/* Allocate count objects in the pids_chain array

@@ -45,10 +45,13 @@ static int mib [] = { CTL_KERN, KERN_CLOCKRATE };
 void
 glibtop_init_cpu_p (glibtop *server)
 {
-	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+	if (kvm_nlist (server->machine.kd, nlst) != 0) {
+		glibtop_warn_io_r (server, "kvm_nlist (cpu)");
+		return;
+	}
 
-	if (kvm_nlist (server->machine.kd, nlst) != 0)
-		glibtop_error_io_r (server, "kvm_nlist");
+	/* Set this only if kvm_nlist () succeeded. */
+	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
 }
 
 /* Provides information about cpu usage. */
@@ -65,16 +68,22 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	
 	memset (buf, 0, sizeof (glibtop_cpu));
 
-	if (kvm_read (server->machine.kd, nlst [0].n_value,
-		      &cpts, sizeof (cpts)) != sizeof (cpts))
-		glibtop_error_io_r (server, "kvm_read (cp_time)");
+	/* If this fails, the nlist may not be valid. */
+	if (server->sysdeps.cpu == 0)
+		return;
 
+	if (kvm_read (server->machine.kd, nlst [0].n_value,
+		      &cpts, sizeof (cpts)) != sizeof (cpts)) {
+		glibtop_warn_io_r (server, "kvm_read (cp_time)");
+		return;
+	}
+	
 	/* Get the clockrate data */
 	length = sizeof (struct clockinfo);
-	if (sysctl (mib, mib_length, &ci, &length, NULL, 0))
-		glibtop_error_io_r (server, "sysctl");
-
-	buf->flags = _glibtop_sysdeps_cpu;
+	if (sysctl (mib, mib_length, &ci, &length, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl");
+		return;
+	}
 
 	/* set user time */
 	buf->user = cpts [CP_USER];
@@ -96,4 +105,7 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	/* set total */
 	buf->total = cpts [CP_USER] + cpts [CP_NICE]
 		+ cpts [CP_SYS] + cpts [CP_IDLE];
+
+	/* Set the flags last. */
+	buf->flags = _glibtop_sysdeps_cpu;
 }

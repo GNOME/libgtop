@@ -55,14 +55,18 @@ static struct nlist nlst [] = {
 void
 glibtop_init_sem_limits_p (glibtop *server)
 {
-	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
-
-	if (kvm_nlist (server->machine.kd, nlst) != 0)
-		glibtop_error_io_r (server, "kvm_nlist");
+	if (kvm_nlist (server->machine.kd, nlst) != 0) {
+		glibtop_warn_io_r (server, "kvm_nlist (sem_limits)");
+		return;
+	}
 	
 	if (kvm_read (server->machine.kd, nlst [0].n_value,
-		      &_seminfo, sizeof (_seminfo)) != sizeof (_seminfo))
-		glibtop_error_io_r (server, "kvm_read (seminfo)");
+		      &_seminfo, sizeof (_seminfo)) != sizeof (_seminfo)) {
+		glibtop_warn_io_r (server, "kvm_read (seminfo)");
+		return;
+	}
+
+	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
 }
 
 /* Provides information about sysv sem limits. */
@@ -74,6 +78,9 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 	
 	memset (buf, 0, sizeof (glibtop_sem_limits));
 	
+	if (server->sysdeps.sem_limits == 0)
+		return;
+
 	buf->semmap = _seminfo.semmap;
 	buf->semmni = _seminfo.semmni;
 	buf->semmns = _seminfo.semmns;

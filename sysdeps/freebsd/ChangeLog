@@ -1,3 +1,10 @@
+1998-10-31  Martin Baulig  <martin@home-of-linux.org>
+
+	* *.c: Use glibtop_warn_io_r () instead of glibtop_error_io_r ().
+
+	* proctime.c, prockernel.c, procargs.c: Don't call kvm_uread () if
+	the /proc filesystem is not mounted.
+
 1998-10-26  Martin Baulig  <martin@home-of-linux.org>
 
 	* netload.c: New file to get network load.

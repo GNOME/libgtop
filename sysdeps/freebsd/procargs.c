@@ -52,17 +52,23 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 	unsigned size = 0;
 	int count;
 
+	char filename [BUFSIZ];
+	struct stat statb;
+
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_ARGS), 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_args));
 
-	glibtop_suid_enter (server);
+	sprintf (filename, "/proc/%d/mem", pid);
+	if (stat (filename, &statb)) return NULL;
 
 	/* Get the process data */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count < 1))
 		glibtop_error_io_r (server, "kvm_getprocs (proc_args)");
 	
+	glibtop_suid_enter (server);
+
 	args = kvm_getargv (server->machine.kd, pinfo, max_len);
 	if (args == NULL) {
 		glibtop_warn_io_r (server, "kvm_getargv");

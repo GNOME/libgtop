@@ -77,7 +77,8 @@ calcru(p, up, sp, ip)
 	totusec = (quad_t)sec * 1000000 + usec;
 	if (totusec < 0) {
 		/* XXX no %qd in kernel.  Truncate. */
-		printf("calcru: negative time: %ld usec\n", (long)totusec);
+		fprintf (stderr, "calcru: negative time: %ld usec\n",
+			 (long)totusec);
 		totusec = 0;
 	}
 
@@ -106,16 +107,25 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	struct pstats pstats;
 	int count;
 
+	char filename [BUFSIZ];
+	struct stat statb;
+
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_TIME), 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_time));
 
-	glibtop_suid_enter (server);
+	if (server->sysdeps.proc_time == 0)
+		return;
+
+	sprintf (filename, "/proc/%d/mem", pid);
+	if (stat (filename, &statb)) return;
 
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1))
 		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
+
+	glibtop_suid_enter (server);
 
 	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
 	    kvm_uread (server->machine.kd, &(pinfo [0]).kp_proc,
@@ -130,7 +140,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 			register struct rusage *rup;
 
 			glibtop_suid_leave (server);
-			
+
 			rup = &pstats.p_ru;
 			calcru(&(pinfo [0]).kp_proc,
 			       &rup->ru_utime, &rup->ru_stime, NULL);

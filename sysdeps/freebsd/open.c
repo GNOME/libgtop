@@ -57,8 +57,6 @@ glibtop_open_p (glibtop *server, const char *program_name,
 
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
-	server->name = program_name;
-
 	server->machine.uid = getuid ();
 	server->machine.euid = geteuid ();
 	server->machine.gid = getgid ();

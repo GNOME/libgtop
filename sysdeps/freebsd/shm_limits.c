@@ -53,14 +53,18 @@ static struct nlist nlst [] = {
 void
 glibtop_init_shm_limits_p (glibtop *server)
 {
-	server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
-
-	if (kvm_nlist (server->machine.kd, nlst) != 0)
-		glibtop_error_io_r (server, "kvm_nlist");
+	if (kvm_nlist (server->machine.kd, nlst) != 0) {
+		glibtop_warn_io_r (server, "kvm_nlist (shm_limits)");
+		return;
+	}
 	
 	if (kvm_read (server->machine.kd, nlst [0].n_value,
-		      &_shminfo, sizeof (_shminfo)) != sizeof (_shminfo))
-		glibtop_error_io_r (server, "kvm_read (shminfo)");
+		      &_shminfo, sizeof (_shminfo)) != sizeof (_shminfo)) {
+		glibtop_warn_io_r (server, "kvm_read (shminfo)");
+		return;
+	}
+
+	server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -71,6 +75,9 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
 	
 	memset (buf, 0, sizeof (glibtop_shm_limits));
+
+	if (server->sysdeps.shm_limits == 0)
+		return;
 
 	buf->shmmax = _shminfo.shmmax;
 	buf->shmmin = _shminfo.shmmin;

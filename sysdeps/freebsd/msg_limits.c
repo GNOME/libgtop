@@ -53,14 +53,18 @@ static struct nlist nlst [] = {
 void
 glibtop_init_msg_limits_p (glibtop *server)
 {
-	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
-
-	if (kvm_nlist (server->machine.kd, nlst) != 0)
-		glibtop_error_io_r (server, "kvm_nlist");
+	if (kvm_nlist (server->machine.kd, nlst) != 0) {
+		glibtop_warn_io_r (server, "kvm_nlist (msg_limits)");
+		return;
+	}
 	
 	if (kvm_read (server->machine.kd, nlst [0].n_value,
-		      &_msginfo, sizeof (_msginfo)) != sizeof (_msginfo))
-		glibtop_error_io_r (server, "kvm_read (msginfo)");
+		      &_msginfo, sizeof (_msginfo)) != sizeof (_msginfo)) {
+		glibtop_warn_io_r (server, "kvm_read (msginfo)");
+		return;
+	}
+
+	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -71,6 +75,9 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_MSG_LIMITS), 0);
 	
 	memset (buf, 0, sizeof (glibtop_msg_limits));
+
+	if (server->sysdeps.msg_limits == 0)
+		return;
 
 	buf->msgmax = _msginfo.msgmax;
 	buf->msgmni = _msginfo.msgmni;

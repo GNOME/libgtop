@@ -63,10 +63,10 @@ glibtop_init_mem_p (glibtop *server)
 {
 	register int pagesize;
 
-	server->sysdeps.mem = _glibtop_sysdeps_mem;
-
-	if (kvm_nlist (server->machine.kd, nlst) != 0)
-		glibtop_error_io_r (server, "kvm_nlist");
+	if (kvm_nlist (server->machine.kd, nlst) != 0) {
+		glibtop_warn_io_r (server, "kvm_nlist (mem)");
+		return;
+	}
 
 	/* get the page size with "getpagesize" and calculate pageshift
 	 * from it */
@@ -79,6 +79,8 @@ glibtop_init_mem_p (glibtop *server)
 
 	/* we only need the amount of log(2)1024 for our conversion */
 	pageshift -= LOG1024;
+
+	server->sysdeps.mem = _glibtop_sysdeps_mem;
 }
 
 void
@@ -93,27 +95,33 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	
 	memset (buf, 0, sizeof (glibtop_mem));
 
+	if (server->sysdeps.mem == 0)
+		return;
+
 	/* [FIXME: On FreeBSD 2.2.6, sysctl () returns an incorrect
 	 *         value for `vmt.vm'. We use some code from Unix top
 	 *         here.] */
 
 	/* Get the data from sysctl */
 	length_vmt = sizeof (vmt);
-	if (sysctl (mib, 2, &vmt, &length_vmt, NULL, 0))
-		glibtop_error_io_r (server, "sysctl");
+	if (sysctl (mib, 2, &vmt, &length_vmt, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl");
+		return;
+	}
 	
 	/* Get the data from kvm_* */
 	if (kvm_read (server->machine.kd, nlst[0].n_value,
-		      &vmm, sizeof (vmm)) != sizeof (vmm))
-		glibtop_error_io_r (server, "kvm_read (cnt)");
+		      &vmm, sizeof (vmm)) != sizeof (vmm)) {
+		glibtop_warn_io_r (server, "kvm_read (cnt)");
+		return;
+	}
 
 	if (kvm_read (server->machine.kd, nlst[1].n_value,
-		      &bufspace, sizeof (bufspace)) != sizeof (bufspace))
-		glibtop_error_io_r (server, "kvm_read (bufspace)");
+		      &bufspace, sizeof (bufspace)) != sizeof (bufspace)) {
+		glibtop_warn_io_r (server, "kvm_read (bufspace)");
+		return;
+	}
   
-	/* Set the values to return */
-	buf->flags = _glibtop_sysdeps_mem;
-
 	/* convert memory stats to Kbytes */
 
 	buf->total = (u_int64_t) pagetok (vmm.v_page_count) << LOG1024;
@@ -125,18 +133,9 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 
 	buf->buffer = (u_int64_t) bufspace;
 
-#if 0
-        if (swappgsin < 0) {
-	    memory_stats[5] = 0;
-	    memory_stats[6] = 0;
-	} else {
-	    memory_stats[5] = pagetok(((vmm.v_swappgsin - swappgsin)));
-	    memory_stats[6] = pagetok(((vmm.v_swappgsout - swappgsout)));
-	}
-        swappgsin = vmm.v_swappgsin;
-	swappgsout = vmm.v_swappgsout;
-#endif
-
 	/* user */
 	buf->user = buf->total - buf->free - buf->shared - buf->buffer;
+
+	/* Set the values to return */
+	buf->flags = _glibtop_sysdeps_mem;
 }

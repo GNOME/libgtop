@@ -66,8 +66,6 @@ glibtop_init_proc_mem_p (glibtop *server)
 {
 	register int pagesize;
 
-	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
-
 	/* get the page size with "getpagesize" and calculate pageshift
 	 * from it */
 	pagesize = getpagesize ();
@@ -79,6 +77,8 @@ glibtop_init_proc_mem_p (glibtop *server)
 
 	/* we only need the amount of log(2)1024 for our conversion */
 	pageshift -= LOG1024;
+
+	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
 }
 
 /* Provides detailed information about a process. */
@@ -98,17 +98,22 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 
-	glibtop_suid_enter (server);
+	if (server->sysdeps.proc_mem == 0)
+		return;
 
 	/* Get the process data */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
-	if ((pinfo == NULL) || (count < 1))
-		glibtop_error_io_r (server, "kvm_getprocs (proclist)");
+	if ((pinfo == NULL) || (count < 1)) {
+		glibtop_warn_io_r (server, "kvm_getprocs (proclist)");
+		return;
+	}
 
 	if (kvm_read (server->machine.kd,
 		      (unsigned long) pinfo [0].kp_proc.p_limit,
-		      (char *) &plimit, sizeof (plimit)) != sizeof (plimit))
-		glibtop_error_io_r (server, "kvm_read (plimit)");
+		      (char *) &plimit, sizeof (plimit)) != sizeof (plimit)) {
+		glibtop_warn_io_r (server, "kvm_read (plimit)");
+		return;
+	}
 
 	buf->rss_rlim = (u_int64_t) 
 		(plimit.pl_rlimit [RLIMIT_RSS].rlim_cur);
@@ -125,15 +130,19 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 	if (kvm_read (server->machine.kd,
 		      (unsigned long) pinfo [0].kp_proc.p_vmspace,
-		      (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace))
-		glibtop_error_io_r (server, "kvm_read (vmspace)");
+		      (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace)) {
+		glibtop_warn_io_r (server, "kvm_read (vmspace)");
+		return;
+	}
 
 	first = vmspace.vm_map.header.next;
 
 	if (kvm_read (server->machine.kd,
 		      (unsigned long) vmspace.vm_map.header.next,
-		      (char *) &entry, sizeof (entry)) != sizeof (entry))
-		glibtop_error_io_r (server, "kvm_read (entry)");
+		      (char *) &entry, sizeof (entry)) != sizeof (entry)) {
+		glibtop_warn_io_r (server, "kvm_read (entry)");
+		return;
+	}
 
 	/* Walk through the `vm_map_entry' list ... */
 
@@ -144,8 +153,10 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	while (entry.next != first) {
 		if (kvm_read (server->machine.kd,
 			      (unsigned long) entry.next,
-			      &entry, sizeof (entry)) != sizeof (entry))
-			glibtop_error_io_r (server, "kvm_read (entry)");
+			      &entry, sizeof (entry)) != sizeof (entry)) {
+			glibtop_warn_io_r (server, "kvm_read (entry)");
+			return;
+		}
 
 		if (entry.eflags & (MAP_ENTRY_IS_A_MAP|MAP_ENTRY_IS_SUB_MAP))
 			continue;
@@ -157,8 +168,10 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 		if (kvm_read (server->machine.kd,
 			      (unsigned long) entry.object.vm_object,
-			      &object, sizeof (object)) != sizeof (object))
-			glibtop_error_io_r (server, "kvm_read (object)");
+			      &object, sizeof (object)) != sizeof (object)) {
+			glibtop_warn_io_r (server, "kvm_read (object)");
+			return;
+		}
 
 		/* If the object is of type vnode, add its size */
 
@@ -167,8 +180,6 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 		buf->share += object.un_pager.vnp.vnp_size;
 	}
-
-	glibtop_suid_leave (server);
 
 	buf->flags = _glibtop_sysdeps_proc_mem;
 }
