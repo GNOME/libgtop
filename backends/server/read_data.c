@@ -23,15 +23,10 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop.h>
-#include <glibtop/error.h>
-#include <glibtop/xmalloc.h>
-#include <glibtop/backend.h>
-
-#include <glibtop-backend-private.h>
+#include <backend-server.h>
 
 void *
-glibtop_read_data_i (glibtop *server, glibtop_backend *backend)
+glibtop_read_data_i (backend_server_private *priv)
 {
     size_t size;
     void *ptr;
@@ -41,11 +36,10 @@ glibtop_read_data_i (glibtop *server, glibtop_backend *backend)
     fprintf (stderr, "LIBRARY: reading %d data bytes.\n", sizeof (size_t));
 #endif
 
-    ret = read (backend->_priv->input [0], (void *)&size,
-		sizeof (size_t));
+    ret = read (priv->input [0], (void *)&size, sizeof (size_t));
 
     if (ret < 0)
-	glibtop_error_io_r (server, "read data size");
+	glibtop_error_io_r (priv->server, "read data size");
 
 #ifdef DEBUG
     fprintf (stderr, "LIBRARY: really reading %d data bytes (ret = %d).\n", size, ret);
@@ -53,12 +47,12 @@ glibtop_read_data_i (glibtop *server, glibtop_backend *backend)
 
     if (!size) return NULL;	
 
-    ptr = glibtop_malloc_r (server, size);
+    ptr = glibtop_malloc_r (priv->server, size);
 	
-    ret = read (backend->_priv->input [0], ptr, size);
+    ret = read (priv->input [0], ptr, size);
 
     if (ret < 0)
-	glibtop_error_io_r (server, "read data %d bytes");
+	glibtop_error_io_r (priv->server, "read data %d bytes");
 
     return ptr;
 }

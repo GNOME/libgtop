@@ -23,15 +23,10 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop.h>
-#include <glibtop/error.h>
-#include <glibtop/backend.h>
-
-#include <glibtop-backend-private.h>
+#include <backend-server.h>
 
 void
-glibtop_write_i (glibtop *server, glibtop_backend *backend,
-		 size_t size, const void *buf)
+glibtop_write_i (backend_server_private *priv, size_t size, const void *buf)
 {
     int ret;
 
@@ -41,8 +36,8 @@ glibtop_write_i (glibtop *server, glibtop_backend *backend,
     fprintf (stderr, "LIBRARY: really writing %d bytes.\n", size);
 #endif
 
-    ret = write (backend->_priv->output [1], buf, size);
+    ret = write (priv->output [1], buf, size);
 
     if (ret < 0)
-	glibtop_error_io_r (server, "write %d bytes", size);
+	glibtop_error_io_r (priv->server, "write %d bytes", size);
 }

@@ -23,33 +23,46 @@
    Boston, MA 02111-1307, USA.
 */
 
-#ifndef __GLIBTOP_BACKEND_PRIVATE_H__
-#define __GLIBTOP_BACKEND_PRIVATE_H__
+#ifndef __GLIBTOP_BACKEND_COMMON_H__
+#define __GLIBTOP_BACKEND_COMMON_H__
 
-struct _glibtop_backend_private
+#include <glibtop.h>
+#include <glibtop/global.h>
+
+#include <glibtop/open.h>
+#include <glibtop/xmalloc.h>
+#include <glibtop/glibtop-backend.h>
+#include <glibtop/glibtop-backend-info.h>
+
+typedef struct _backend_server_private backend_server_private;
+
+#define BACKEND_DATA_KEY "backend-server-private"
+
+struct _backend_server_private
 {
     u_int64_t flags;
     int input [2];		/* Pipe client <- server */
     int output [2];		/* Pipe client -> server */
     pid_t pid;			/* PID of the server */
+
+    glibtop_server *server;
 };
 
 void *
-glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
-		size_t send_size, const void *send_ptr,
+glibtop_call_i (glibtop_server *server, glibtop_backend *backend,
+		unsigned command, size_t send_size, const void *send_ptr,
 		size_t data_size, const void *data_ptr,
 		size_t recv_size, void *recv_ptr,
 		int *retval_ptr);
 
 void
-glibtop_read_i (glibtop *server, glibtop_backend *backend,
-		size_t size, void *buf);
+glibtop_read_i (backend_server_private *priv, size_t size, void *buf);
 
 void *
-glibtop_read_data_i (glibtop *server, glibtop_backend *backend);
+glibtop_read_data_i (backend_server_private *priv);
 
 void
-glibtop_write_i (glibtop *server, glibtop_backend *backend,
-		 size_t size, const void *buf);
+glibtop_write_i (backend_server_private *priv, size_t size, const void *buf);
 
 #endif
+

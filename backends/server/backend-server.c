@@ -23,18 +23,13 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop.h>
-#include <glibtop/global.h>
-#include <glibtop/xmalloc.h>
-
-#include <glibtop/backend.h>
-#include <glibtop-backend-private.h>
+#include <backend-server.h>
 
 static int
-_open_server (glibtop *, glibtop_backend *, u_int64_t, const char **);
+_open_server (glibtop_server *, glibtop_backend *, u_int64_t, const char **);
 
 static int
-_close_server (glibtop *, glibtop_backend *);
+_close_server (glibtop_server *, glibtop_backend *);
 
 extern glibtop_call_vector glibtop_backend_server_call_vector;
 
@@ -51,57 +46,69 @@ glibtop_backend_info LibGTopBackendInfo_Server = {
 #endif
 
 static int
-_open_server (glibtop *server, glibtop_backend *backend,
+_open_server (glibtop_server *server, glibtop_backend *backend,
 	      u_int64_t features, const char **backend_args)
 {
-    backend->_priv = glibtop_calloc_r
-	(server, 1, sizeof (glibtop_backend_private));
+    backend_server_private *priv;
+
+    priv = glibtop_calloc_r (server, 1, sizeof (backend_server_private));
+
+    g_object_set_data (G_OBJECT (backend), BACKEND_DATA_KEY, priv);
 
 #ifdef DEBUG
-    fprintf (stderr, "open_server - %p, %p, %p\n", server, backend,
-	     backend->_priv);
+    fprintf (stderr, "open_server - %p, %p, %p\n", server, backend, priv);
 
-    fprintf (stderr, "Opening pipe to server (%s).\n",
-	     LIBGTOP_SERVER);
+    fprintf (stderr, "Opening pipe to server (%s).\n", LIBGTOP_SERVER);
 #endif
 
-    if (pipe (backend->_priv->input) ||
-	pipe (backend->_priv->output)) {
+    if (pipe (priv->input) || pipe (priv->output)) {
 	glibtop_warn_io_r (server, "cannot make a pipe");
 	return -1;
     }
 
-    backend->_priv->pid  = fork ();
+    priv->pid  = fork ();
 
-    if (backend->_priv->pid < 0) {
+    if (priv->pid < 0) {
 	glibtop_warn_io_r (server, "fork failed");
 	return -1;
-    } else if (backend->_priv->pid == 0) {
+    } else if (priv->pid == 0) {
 	close (0); close (1);
-	close (backend->_priv->input [0]);
-	close (backend->_priv->output [1]);
-	dup2 (backend->_priv->input [1], 1);
-	dup2 (backend->_priv->output [0], 0);
+	close (priv->input [0]);
+	close (priv->output [1]);
+	dup2 (priv->input [1], 1);
+	dup2 (priv->output [0], 0);
 	execl (LIBGTOP_SERVER, "libgtop-server", NULL);
 	glibtop_error_io_r (server, "execl (%s)",
 			    LIBGTOP_SERVER);
 	_exit (2);
     }
 
-    close (backend->_priv->input [1]);
-    close (backend->_priv->output [0]);
+    close (priv->input [1]);
+    close (priv->output [0]);
+
+    glibtop_server_ref (server);
+    priv->server = server;
 
     return 0;
 }
 
 static int
-_close_server (glibtop *server, glibtop_backend *backend)
+_close_server (glibtop_server *server, glibtop_backend *backend)
 {
-    kill (backend->_priv->pid, SIGKILL);
-    close (backend->_priv->input [0]);
-    close (backend->_priv->output [1]);
+    backend_server_private *priv;
 
-    backend->_priv->pid = 0;
+    priv = g_object_steal_data (G_OBJECT (backend), BACKEND_DATA_KEY);
+    g_assert (priv != NULL);
+
+    kill (priv->pid, SIGKILL);
+    close (priv->input [0]);
+    close (priv->output [1]);
+
+    glibtop_server_unref (priv->server);
+
+    priv->pid = 0;
+
+    g_free (priv);
 
     return 0;
 }

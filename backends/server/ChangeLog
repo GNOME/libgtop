@@ -1,3 +1,22 @@
+2000-11-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* backend-server.h: New file.
+	(backend_server_private): New struct, formerly known
+	as glibtop_backend_private.
+
+	* glibtop-backend-private.h: Removed.
+
+	* backend-server.c: (_open_server): Use g_object_set_data()
+	to set add the backend_server_private data to the glibtop_backend,
+	don't override `backend->_priv'.
+	(_close_server): Use g_object_get_data() to get the data.
+	[FIXME: Use quarks directly.]
+
+	* read.c: (glibtop_read_i): Replaced the glibtop_server and
+	glibtop_backend arguments with backend_server_private.
+	* read_data.c: (glibtop_read_data_i): Likewise.
+	* write.c: (glibtop_write_i): Likewise.
+
 2000-02-22  Martin Baulig  <martin@home-of-linux.org>
 
 	* backend-sysdeps.c (LibGTopBackendInfo): Call this

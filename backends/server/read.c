@@ -23,31 +23,24 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop.h>
-#include <glibtop/error.h>
-#include <glibtop/backend.h>
-
-#include <glibtop-backend-private.h>
+#include <backend-server.h>
 
 void
-glibtop_read_i (glibtop *server, glibtop_backend *backend,
-		size_t size, void *buf)
+glibtop_read_i (backend_server_private *priv, size_t size, void *buf)
 {
     int ret = 0;
 
-    glibtop_init_r (&server, 0, 0);
-
 #ifdef DEBUG
     fprintf (stderr, "LIBRARY: really reading %d bytes from %d.\n",
-	     size, backend->_priv->input [0]);
+	     size, priv->input [0]);
 #endif
 
-    ret = read (backend->_priv->input [0], buf, size);
+    ret = read (priv->input [0], buf, size);
 
 #ifdef DEBUG
     fprintf (stderr, "LIBRARY: read %d bytes.\n", ret);
 #endif
 
     if (ret < 0)
-	glibtop_error_io_r (server, "read %d bytes", size);
+	glibtop_error_io_r (priv->server, "read %d bytes", size);
 }

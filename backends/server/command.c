@@ -23,33 +23,29 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop/xmalloc.h>
-
-#include <glibtop.h>
-#include <glibtop/error.h>
-#include <glibtop/backend.h>
-
-#include <glibtop-backend-private.h>
+#include <backend-server.h>
 
 #include "command.h"
 
 void *
-glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
-		size_t send_size, const void *send_buf,
+glibtop_call_i (glibtop_server *server, glibtop_backend *backend,
+		unsigned command, size_t send_size, const void *send_buf,
 		size_t data_size, const void *data_buf,
 		size_t recv_size, void *recv_ptr,
 		int *retval_ptr)
 {
     glibtop_command cmnd;
     glibtop_response resp;
+    backend_server_private *priv;
 #if 0
     int retval;
 #endif
 
-    glibtop_init_r (&server, 0, 0);
-
     memset (&cmnd, 0, sizeof (glibtop_command));
     memset (&resp, 0, sizeof (glibtop_response));
+
+    priv = g_object_get_data (G_OBJECT (backend), BACKEND_DATA_KEY);
+    g_assert (priv != NULL);
 
     cmnd.command = command;
 
@@ -66,16 +62,16 @@ glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
 
     cmnd.data_size = data_size;
 	
-    glibtop_write_i (server, backend, sizeof (glibtop_command), &cmnd);
+    glibtop_write_i (priv, sizeof (glibtop_command), &cmnd);
 
     if (data_size) {
 #ifdef SLAVE_DEBUG
 	fprintf (stderr, "SENDING %d bytes of DATA.\n", data_size);
 #endif
-	glibtop_write_i (server, backend, data_size, data_buf);
+	glibtop_write_i (priv, data_size, data_buf);
     }
 
-    glibtop_read_i (server, backend, sizeof (glibtop_response), &resp);
+    glibtop_read_i (priv, sizeof (glibtop_response), &resp);
 
 #ifdef SLAVE_DEBUG
     fprintf (stderr, "RESPONSE: %d - %d - %ld - %ld - %p - %ld\n",
@@ -94,12 +90,12 @@ glibtop_call_i (glibtop *server, glibtop_backend *backend, unsigned command,
     }
 
     if (recv_ptr)
-	glibtop_read_i (server, backend, recv_size, recv_ptr);
+	glibtop_read_i (priv, recv_size, recv_ptr);
 
     if (resp.data_size) {
 	void *ptr = glibtop_malloc_r (server, resp.data_size);
 
-	glibtop_read_i (server, backend, resp.data_size, ptr);
+	glibtop_read_i (priv, resp.data_size, ptr);
 
 	return ptr;
     }
