@@ -13,52 +13,72 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: sysdeps/names/cpu.c:37
+#: sysdeps/names/cpu.c:41
 msgid "Total CPU Time"
 msgstr "Temps CPU Total"
 
-#: sysdeps/names/cpu.c:38
+#: sysdeps/names/cpu.c:42
 msgid "CPU Time in User Mode"
 msgstr "Temps CPU en mode utilisateur"
 
-#: sysdeps/names/cpu.c:39
+#: sysdeps/names/cpu.c:43
 msgid "CPU Time in User Mode (nice)"
 msgstr "Temps CPU en mode utilisateur (nice)"
 
-#: sysdeps/names/cpu.c:40
+#: sysdeps/names/cpu.c:44
 msgid "CPU Time in System Mode"
 msgstr "Temps CPU en mode syst\350me"
 
-#: sysdeps/names/cpu.c:41
+#: sysdeps/names/cpu.c:45
 msgid "CPU Time in the Idle Task"
 msgstr "Temps CPU pour la tache inactive"
 
-#: sysdeps/names/cpu.c:42
+#: sysdeps/names/cpu.c:46
 msgid "Tick Frequency"
 msgstr "Fr\351quence des ticks"
 
 #: sysdeps/names/cpu.c:47
-msgid "The number of jiffies (1/100ths of a second) since system boot"
-msgstr "Nombre de jiffies (1/100e de seconde) depuis le boot du syst\350me"
+msgid "SMP Total CPU Time"
+msgstr ""
+
+#: sysdeps/names/cpu.c:48
+msgid "SMP CPU Time in User Mode"
+msgstr ""
 
 #: sysdeps/names/cpu.c:49
-msgid "The number of jiffies (1/100ths of a second) that the system spent in user mode"
+msgid "SMP CPU Time in User Mode (nice)"
+msgstr ""
+
+#: sysdeps/names/cpu.c:50
+msgid "SMP CPU Time in System Mode"
 msgstr ""
 
 #: sysdeps/names/cpu.c:51
-msgid "The number of jiffies (1/100ths of a second) that the system spent in user mode with low priority (nice)"
+msgid "SMP CPU Time in the Idle Task"
 msgstr ""
 
-#: sysdeps/names/cpu.c:53
-msgid "The number of jiffies (1/100ths of a second) that the system spent in system mode"
+#: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:62
+msgid "Number of clock ticks since system boot"
 msgstr ""
 
-#: sysdeps/names/cpu.c:55
-msgid "The number of jiffies (1/100ths of a second) that the system spend in the idle task"
+#: sysdeps/names/cpu.c:57 sysdeps/names/cpu.c:63
+msgid "Number of clock ticks the system spent in user mode"
 msgstr ""
 
-#: sysdeps/names/cpu.c:57
-msgid "All of the above values are in jiffies (1/100ths of a second) unless otherwise stated in this field (i.e. 'frequency != 100')"
+#: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
+msgid "Number of clock ticks the system spent in user mode (nice)"
+msgstr ""
+
+#: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
+msgid "Number of clock ticks the system spent in system mode"
+msgstr ""
+
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
+msgid "Number of clock ticks the system spent in the idle task"
+msgstr ""
+
+#: sysdeps/names/cpu.c:61
+msgid "Tick frequency (default is 100)"
 msgstr ""
 
 #: sysdeps/names/fsusage.c:37 sysdeps/names/fsusage.c:46
@@ -482,76 +502,92 @@ msgstr ""
 msgid "GID of process"
 msgstr ""
 
-#: sysdeps/names/proctime.c:40
+#: sysdeps/names/proctime.c:42
 msgid "Start_Time"
 msgstr ""
 
-#: sysdeps/names/proctime.c:40
+#: sysdeps/names/proctime.c:42
 msgid "RTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:40
+#: sysdeps/names/proctime.c:42
 msgid "UTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:40
+#: sysdeps/names/proctime.c:42
 msgid "STime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:41
+#: sysdeps/names/proctime.c:43
 msgid "CUTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:41
+#: sysdeps/names/proctime.c:43
 msgid "CSTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:41
+#: sysdeps/names/proctime.c:43
 msgid "TimeOut"
 msgstr ""
 
-#: sysdeps/names/proctime.c:41
+#: sysdeps/names/proctime.c:43
 msgid "It_Real_Value"
 msgstr ""
 
-#: sysdeps/names/proctime.c:42
+#: sysdeps/names/proctime.c:44
 msgid "Frequency"
 msgstr ""
 
-#: sysdeps/names/proctime.c:47
-msgid "Start time of process in seconds since the epoch"
+#: sysdeps/names/proctime.c:44
+msgid "XCPU_UTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:48
-msgid "Real time accumulated by process (should be utime + stime)"
+#: sysdeps/names/proctime.c:44
+msgid "XCPU_STime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:49
-msgid "user-mode CPU time accumulated by process"
+msgid "Start time of process in seconds since the epoch"
 msgstr ""
 
 #: sysdeps/names/proctime.c:50
-msgid "kernel-mode CPU time accumulated by process"
+msgid "Real time accumulated by process (should be utime + stime)"
 msgstr ""
 
 #: sysdeps/names/proctime.c:51
-msgid "cumulative utime of process and reaped children"
+msgid "user-mode CPU time accumulated by process"
 msgstr ""
 
 #: sysdeps/names/proctime.c:52
-msgid "cumulative stime of process and reaped children"
+msgid "kernel-mode CPU time accumulated by process"
 msgstr ""
 
 #: sysdeps/names/proctime.c:53
-msgid "The time (in jiffies) of the process's next timeout"
+msgid "cumulative utime of process and reaped children"
 msgstr ""
 
 #: sysdeps/names/proctime.c:54
-msgid "The time (in jiffies) before the next SIGALRM is sent to the process due to an interval timer."
+msgid "cumulative stime of process and reaped children"
+msgstr ""
+
+#: sysdeps/names/proctime.c:55
+msgid "The time (in jiffies) of the process's next timeout"
 msgstr ""
 
 #: sysdeps/names/proctime.c:56
+msgid "The time (in jiffies) before the next SIGALRM is sent to the process due to an interval timer."
+msgstr ""
+
+#: sysdeps/names/proctime.c:58
 msgid "Tick frequency"
+msgstr ""
+
+#: sysdeps/names/proctime.c:59
+msgid "SMP user-mode CPU time accumulated by process"
+msgstr ""
+
+#: sysdeps/names/proctime.c:60
+msgid "SMP kernel-mode CPU time accumulated by process"
 msgstr ""
 
 #: sysdeps/names/procuid.c:54
@@ -837,42 +873,6 @@ msgstr "Temps en secondes depuis le d\351marrage du syst\350me"
 #: sysdeps/names/uptime.c:43
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "Temps en secondes pass\351 dans le processus inactif depuis le d\351marrage du syst\350me"
-
-#: support/argp-help.c:185
-msgid "%.*s: ARGP_HELP_FMT parameter requires a value"
-msgstr ""
-
-#: support/argp-help.c:194
-msgid "%.*s: Unknown ARGP_HELP_FMT parameter"
-msgstr ""
-
-#: support/argp-help.c:206
-msgid "Garbage in ARGP_HELP_FMT: %s"
-msgstr ""
-
-#: support/argp-help.c:1146
-msgid "Mandatory or optional arguments to long options are also mandatory or optional for any corresponding short options."
-msgstr ""
-
-#: support/argp-help.c:1522
-msgid "Usage:"
-msgstr ""
-
-#: support/argp-help.c:1526
-msgid "  or: "
-msgstr ""
-
-#: support/argp-help.c:1538
-msgid " [OPTION...]"
-msgstr ""
-
-#: support/argp-help.c:1565
-msgid "Try `%s --help' or `%s --usage' for more information.\n"
-msgstr ""
-
-#: support/argp-help.c:1593
-msgid "Report bugs to %s.\n"
-msgstr ""
 
 #: support/argp-parse.c:90
 msgid "Give this help list"

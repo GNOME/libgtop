@@ -94,7 +94,6 @@ sysdeps/linux/loadavg.c
 sysdeps/linux/mem.c
 sysdeps/linux/msg_limits.c
 sysdeps/linux/open.c
-sysdeps/linux/procdata.c
 sysdeps/linux/prockernel.c
 sysdeps/linux/proclist.c
 sysdeps/linux/procmap.c

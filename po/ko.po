@@ -13,52 +13,72 @@ msgstr ""
 "Content-Type: text/plain; charset=euc-kr\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: sysdeps/names/cpu.c:37
-msgid "Total CPU Time"
-msgstr "총 CPU 시간"
-
-#: sysdeps/names/cpu.c:38
-msgid "CPU Time in User Mode"
-msgstr "사용자 모드에서의 CPU 시간"
-
-#: sysdeps/names/cpu.c:39
-msgid "CPU Time in User Mode (nice)"
-msgstr "사용자 모드에서의 CPU 시간 (nice)"
-
-#: sysdeps/names/cpu.c:40
-msgid "CPU Time in System Mode"
-msgstr "시스템 모드에서의 CPU 시간"
-
 #: sysdeps/names/cpu.c:41
-msgid "CPU Time in the Idle Task"
-msgstr "유휴 태스크에서의 CPU Time"
+msgid "Total CPU Time"
+msgstr "\303\321 CPU \275\303\260\243"
 
 #: sysdeps/names/cpu.c:42
+msgid "CPU Time in User Mode"
+msgstr "\273\347\277\353\300\332 \270\360\265\345\277\241\274\255\300\307 CPU \275\303\260\243"
+
+#: sysdeps/names/cpu.c:43
+msgid "CPU Time in User Mode (nice)"
+msgstr "\273\347\277\353\300\332 \270\360\265\345\277\241\274\255\300\307 CPU \275\303\260\243 (nice)"
+
+#: sysdeps/names/cpu.c:44
+msgid "CPU Time in System Mode"
+msgstr "\275\303\275\272\305\333 \270\360\265\345\277\241\274\255\300\307 CPU \275\303\260\243"
+
+#: sysdeps/names/cpu.c:45
+msgid "CPU Time in the Idle Task"
+msgstr "\300\257\310\336 \305\302\275\272\305\251\277\241\274\255\300\307 CPU Time"
+
+#: sysdeps/names/cpu.c:46
 msgid "Tick Frequency"
-msgstr "틱 주파수"
+msgstr "\306\275 \301\326\306\304\274\366"
 
 #: sysdeps/names/cpu.c:47
-msgid "The number of jiffies (1/100ths of a second) since system boot"
+msgid "SMP Total CPU Time"
+msgstr ""
+
+#: sysdeps/names/cpu.c:48
+msgid "SMP CPU Time in User Mode"
 msgstr ""
 
 #: sysdeps/names/cpu.c:49
-msgid "The number of jiffies (1/100ths of a second) that the system spent in user mode"
+msgid "SMP CPU Time in User Mode (nice)"
+msgstr ""
+
+#: sysdeps/names/cpu.c:50
+msgid "SMP CPU Time in System Mode"
 msgstr ""
 
 #: sysdeps/names/cpu.c:51
-msgid "The number of jiffies (1/100ths of a second) that the system spent in user mode with low priority (nice)"
+msgid "SMP CPU Time in the Idle Task"
 msgstr ""
 
-#: sysdeps/names/cpu.c:53
-msgid "The number of jiffies (1/100ths of a second) that the system spent in system mode"
+#: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:62
+msgid "Number of clock ticks since system boot"
 msgstr ""
 
-#: sysdeps/names/cpu.c:55
-msgid "The number of jiffies (1/100ths of a second) that the system spend in the idle task"
+#: sysdeps/names/cpu.c:57 sysdeps/names/cpu.c:63
+msgid "Number of clock ticks the system spent in user mode"
 msgstr ""
 
-#: sysdeps/names/cpu.c:57
-msgid "All of the above values are in jiffies (1/100ths of a second) unless otherwise stated in this field (i.e. 'frequency != 100')"
+#: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
+msgid "Number of clock ticks the system spent in user mode (nice)"
+msgstr ""
+
+#: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
+msgid "Number of clock ticks the system spent in system mode"
+msgstr ""
+
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
+msgid "Number of clock ticks the system spent in the idle task"
+msgstr ""
+
+#: sysdeps/names/cpu.c:61
+msgid "Tick frequency (default is 100)"
 msgstr ""
 
 #: sysdeps/names/fsusage.c:37 sysdeps/names/fsusage.c:46
@@ -119,67 +139,67 @@ msgstr ""
 
 #: sysdeps/names/mem.c:39
 msgid "Total Memory"
-msgstr "총 메모리"
+msgstr "\303\321 \270\336\270\360\270\256"
 
 #: sysdeps/names/mem.c:40
 msgid "Used Memory"
-msgstr "사용 메모리"
+msgstr "\273\347\277\353 \270\336\270\360\270\256"
 
 #: sysdeps/names/mem.c:41
 msgid "Free Memory"
-msgstr "여유 메모리"
+msgstr "\277\251\300\257 \270\336\270\360\270\256"
 
 #: sysdeps/names/mem.c:42
 msgid "Shared Memory"
-msgstr "공유 메모리"
+msgstr "\260\370\300\257 \270\336\270\360\270\256"
 
 #: sysdeps/names/mem.c:43
 msgid "Buffers"
-msgstr "버퍼들"
+msgstr "\271\366\306\333\265\351"
 
 #: sysdeps/names/mem.c:44
 msgid "Cached"
-msgstr "캐쉬됨"
+msgstr "\304\263\275\254\265\312"
 
 #: sysdeps/names/mem.c:45
 msgid "User"
-msgstr "사용자"
+msgstr "\273\347\277\353\300\332"
 
 #: sysdeps/names/mem.c:46
 msgid "Locked"
-msgstr "막힘"
+msgstr "\270\267\310\373"
 
 #: sysdeps/names/mem.c:51
 msgid "Total physical memory in kB"
-msgstr "총 물리 메모리 (kB)"
+msgstr "\303\321 \271\260\270\256 \270\336\270\360\270\256 (kB)"
 
 #: sysdeps/names/mem.c:52
 msgid "Used memory size in kB"
-msgstr "사용된 메모리 크기 (kB)"
+msgstr "\273\347\277\353\265\310 \270\336\270\360\270\256 \305\251\261\342 (kB)"
 
 #: sysdeps/names/mem.c:53
 msgid "Free memory size in kB"
-msgstr "여유 메모리 크기 (kB)"
+msgstr "\277\251\300\257 \270\336\270\360\270\256 \305\251\261\342 (kB)"
 
 #: sysdeps/names/mem.c:54
 msgid "Shared memory size in kB"
-msgstr "공유 메모리 크기 (kB)"
+msgstr "\260\370\300\257 \270\336\270\360\270\256 \305\251\261\342 (kB)"
 
 #: sysdeps/names/mem.c:55
 msgid "Size of buffers kB"
-msgstr "버퍼 크기 (kB)"
+msgstr "\271\366\306\333 \305\251\261\342 (kB)"
 
 #: sysdeps/names/mem.c:56
 msgid "Size of cached memory in kB"
-msgstr "캐쉬 메모리 크기 (kB)"
+msgstr "\304\263\275\254 \270\336\270\360\270\256 \305\251\261\342 (kB)"
 
 #: sysdeps/names/mem.c:57
 msgid "Memory used from user processes in kB"
-msgstr "사용자 프로세스가 차지한 메모리 (kB)"
+msgstr "\273\347\277\353\300\332 \307\301\267\316\274\274\275\272\260\241 \302\367\301\366\307\321 \270\336\270\360\270\256 (kB)"
 
 #: sysdeps/names/mem.c:58
 msgid "Memory in locked pages in kB"
-msgstr "막힌 페이지 메모리 (kB)"
+msgstr "\270\267\310\371 \306\344\300\314\301\366 \270\336\270\360\270\256 (kB)"
 
 #: sysdeps/names/mountlist.c:36 sysdeps/names/mountlist.c:43 sysdeps/names/proclist.c:36 sysdeps/names/proclist.c:43 sysdeps/names/procmap.c:36 sysdeps/names/procmap.c:43
 msgid "Number of list elements"
@@ -482,76 +502,92 @@ msgstr ""
 msgid "GID of process"
 msgstr ""
 
-#: sysdeps/names/proctime.c:40
+#: sysdeps/names/proctime.c:42
 msgid "Start_Time"
 msgstr ""
 
-#: sysdeps/names/proctime.c:40
+#: sysdeps/names/proctime.c:42
 msgid "RTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:40
+#: sysdeps/names/proctime.c:42
 msgid "UTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:40
+#: sysdeps/names/proctime.c:42
 msgid "STime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:41
+#: sysdeps/names/proctime.c:43
 msgid "CUTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:41
+#: sysdeps/names/proctime.c:43
 msgid "CSTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:41
+#: sysdeps/names/proctime.c:43
 msgid "TimeOut"
 msgstr ""
 
-#: sysdeps/names/proctime.c:41
+#: sysdeps/names/proctime.c:43
 msgid "It_Real_Value"
 msgstr ""
 
-#: sysdeps/names/proctime.c:42
+#: sysdeps/names/proctime.c:44
 msgid "Frequency"
 msgstr ""
 
-#: sysdeps/names/proctime.c:47
-msgid "Start time of process in seconds since the epoch"
+#: sysdeps/names/proctime.c:44
+msgid "XCPU_UTime"
 msgstr ""
 
-#: sysdeps/names/proctime.c:48
-msgid "Real time accumulated by process (should be utime + stime)"
+#: sysdeps/names/proctime.c:44
+msgid "XCPU_STime"
 msgstr ""
 
 #: sysdeps/names/proctime.c:49
-msgid "user-mode CPU time accumulated by process"
+msgid "Start time of process in seconds since the epoch"
 msgstr ""
 
 #: sysdeps/names/proctime.c:50
-msgid "kernel-mode CPU time accumulated by process"
+msgid "Real time accumulated by process (should be utime + stime)"
 msgstr ""
 
 #: sysdeps/names/proctime.c:51
-msgid "cumulative utime of process and reaped children"
+msgid "user-mode CPU time accumulated by process"
 msgstr ""
 
 #: sysdeps/names/proctime.c:52
-msgid "cumulative stime of process and reaped children"
+msgid "kernel-mode CPU time accumulated by process"
 msgstr ""
 
 #: sysdeps/names/proctime.c:53
-msgid "The time (in jiffies) of the process's next timeout"
+msgid "cumulative utime of process and reaped children"
 msgstr ""
 
 #: sysdeps/names/proctime.c:54
-msgid "The time (in jiffies) before the next SIGALRM is sent to the process due to an interval timer."
+msgid "cumulative stime of process and reaped children"
+msgstr ""
+
+#: sysdeps/names/proctime.c:55
+msgid "The time (in jiffies) of the process's next timeout"
 msgstr ""
 
 #: sysdeps/names/proctime.c:56
+msgid "The time (in jiffies) before the next SIGALRM is sent to the process due to an interval timer."
+msgstr ""
+
+#: sysdeps/names/proctime.c:58
 msgid "Tick frequency"
+msgstr ""
+
+#: sysdeps/names/proctime.c:59
+msgid "SMP user-mode CPU time accumulated by process"
+msgstr ""
+
+#: sysdeps/names/proctime.c:60
+msgid "SMP kernel-mode CPU time accumulated by process"
 msgstr ""
 
 #: sysdeps/names/procuid.c:54
@@ -692,35 +728,35 @@ msgstr ""
 
 #: sysdeps/names/shm_limits.c:37 sysdeps/names/shm_limits.c:46
 msgid "Max segment size"
-msgstr "최대 세그먼트 크기"
+msgstr "\303\326\264\353 \274\274\261\327\270\325\306\256 \305\251\261\342"
 
 #: sysdeps/names/shm_limits.c:38 sysdeps/names/shm_limits.c:47
 msgid "Min segment size"
-msgstr "최소 세그먼트 크기"
+msgstr "\303\326\274\322 \274\274\261\327\270\325\306\256 \305\251\261\342"
 
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
 msgid "Max number of segments"
-msgstr "최대 세그먼트 갯수"
+msgstr "\303\326\264\353 \274\274\261\327\270\325\306\256 \260\271\274\366"
 
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
 msgid "Max shared segments per process"
-msgstr "프로세스당 최대 공유 세그먼트"
+msgstr "\307\301\267\316\274\274\275\272\264\347 \303\326\264\353 \260\370\300\257 \274\274\261\327\270\325\306\256"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max total shared memory"
-msgstr "최대 총 공유 메모리"
+msgstr "\303\326\264\353 \303\321 \260\370\300\257 \270\336\270\360\270\256"
 
 #: sysdeps/names/swap.c:37 sysdeps/names/swap.c:46
 msgid "Total Swap Space"
-msgstr "총 스왑 공간"
+msgstr "\303\321 \275\272\277\322 \260\370\260\243"
 
 #: sysdeps/names/swap.c:38 sysdeps/names/swap.c:47
 msgid "Used Swap Space"
-msgstr "사용된 스왑 공간"
+msgstr "\273\347\277\353\265\310 \275\272\277\322 \260\370\260\243"
 
 #: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
 msgid "Free Swap Space"
-msgstr "여유 스왑 공간"
+msgstr "\277\251\300\257 \275\272\277\322 \260\370\260\243"
 
 #: sysdeps/names/swap.c:40
 msgid "Page In"
@@ -732,11 +768,11 @@ msgstr ""
 
 #: sysdeps/names/swap.c:49
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr "시스템 시동후 도입한 총 스왑 페이지 수"
+msgstr "\275\303\275\272\305\333 \275\303\265\277\310\304 \265\265\300\324\307\321 \303\321 \275\272\277\322 \306\344\300\314\301\366 \274\366"
 
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr "시스템 시동후 내보낸 총 스왑 페이지 수"
+msgstr "\275\303\275\272\305\333 \275\303\265\277\310\304 \263\273\272\270\263\275 \303\321 \275\272\277\322 \306\344\300\314\301\366 \274\366"
 
 #: sysdeps/names/sysdeps.c:46 sysdeps/names/sysdeps.c:70
 msgid "Server Features"
@@ -744,15 +780,15 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:47 sysdeps/names/sysdeps.c:71
 msgid "CPU Usage"
-msgstr "CPU 사용량"
+msgstr "CPU \273\347\277\353\267\256"
 
 #: sysdeps/names/sysdeps.c:48 sysdeps/names/sysdeps.c:72
 msgid "Memory Usage"
-msgstr "메모리 사용량"
+msgstr "\270\336\270\360\270\256 \273\347\277\353\267\256"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:73
 msgid "Swap Usage"
-msgstr "스왑 사용량"
+msgstr "\275\272\277\322 \273\347\277\353\267\256"
 
 #: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:74
 msgid "System Uptime"
@@ -764,63 +800,63 @@ msgstr ""
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:76
 msgid "Shared Memory Limits"
-msgstr "공유 메모리 한계"
+msgstr "\260\370\300\257 \270\336\270\360\270\256 \307\321\260\350"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:77
 msgid "Message Queue Limits"
-msgstr "메시지 큐 한계"
+msgstr "\270\336\275\303\301\366 \305\245 \307\321\260\350"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:78
 msgid "Semaphore Set Limits"
-msgstr "세마포어 세트 한계"
+msgstr "\274\274\270\266\306\367\276\356 \274\274\306\256 \307\321\260\350"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:79
 msgid "List of running Processes"
-msgstr "돌고 있는 프로세스 목록"
+msgstr "\265\271\260\355 \300\326\264\302 \307\301\267\316\274\274\275\272 \270\361\267\317"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:80
 msgid "Process Status information"
-msgstr "프로세스 상태 정보"
+msgstr "\307\301\267\316\274\274\275\272 \273\363\305\302 \301\244\272\270"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:81
 msgid "Process UID and TTY information"
-msgstr "프로세스 UID와 TTY 정보"
+msgstr "\307\301\267\316\274\274\275\272 UID\277\315 TTY \301\244\272\270"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:82
 msgid "Process Memory information"
-msgstr "프로세스 메모리 정보"
+msgstr "\307\301\267\316\274\274\275\272 \270\336\270\360\270\256 \301\244\272\270"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:83
 msgid "Process Time information"
-msgstr "프로세스 시간 정보"
+msgstr "\307\301\267\316\274\274\275\272 \275\303\260\243 \301\244\272\270"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:84
 msgid "Process Signal information"
-msgstr "프로세스 시그널 정보"
+msgstr "\307\301\267\316\274\274\275\272 \275\303\261\327\263\316 \301\244\272\270"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:85
 msgid "Process Kernel Data information"
-msgstr "프로세스 커널 자료 정보"
+msgstr "\307\301\267\316\274\274\275\272 \304\277\263\316 \300\332\267\341 \301\244\272\270"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:86
 msgid "Process Segment information"
-msgstr "프로세스 세그먼트 정보"
+msgstr "\307\301\267\316\274\274\275\272 \274\274\261\327\270\325\306\256 \301\244\272\270"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:87
 msgid "Process Memory Map"
-msgstr "프로세스 메모리 맵"
+msgstr "\307\301\267\316\274\274\275\272 \270\336\270\360\270\256 \270\312"
 
 #: sysdeps/names/sysdeps.c:64
 msgid "Mount List"
-msgstr "마운트 목록"
+msgstr "\270\266\277\356\306\256 \270\361\267\317"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:89
 msgid "File System Usage"
-msgstr "파일 시스템 사용"
+msgstr "\306\304\300\317 \275\303\275\272\305\333 \273\347\277\353"
 
 #: sysdeps/names/sysdeps.c:88
 msgid "List of currently mounted filesystems"
-msgstr "현재 마운트된 파일시스템의 목록"
+msgstr "\307\366\300\347 \270\266\277\356\306\256\265\310 \306\304\300\317\275\303\275\272\305\333\300\307 \270\361\267\317"
 
 #: sysdeps/names/uptime.c:36
 msgid "Uptime"
@@ -828,135 +864,99 @@ msgstr ""
 
 #: sysdeps/names/uptime.c:37
 msgid "Idletime"
-msgstr "유휴시간"
+msgstr "\300\257\310\336\275\303\260\243"
 
 #: sysdeps/names/uptime.c:42
 msgid "Time in seconds since system boot"
-msgstr "시스템 시동후의 초 단위의 시간"
+msgstr "\275\303\275\272\305\333 \275\303\265\277\310\304\300\307 \303\312 \264\334\300\247\300\307 \275\303\260\243"
 
 #: sysdeps/names/uptime.c:43
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "시스템 시동후에 유휴 태스크가 소비한 초 단위의 시간"
-
-#: support/argp-help.c:185
-msgid "%.*s: ARGP_HELP_FMT parameter requires a value"
-msgstr ""
-
-#: support/argp-help.c:194
-msgid "%.*s: Unknown ARGP_HELP_FMT parameter"
-msgstr ""
-
-#: support/argp-help.c:206
-msgid "Garbage in ARGP_HELP_FMT: %s"
-msgstr ""
-
-#: support/argp-help.c:1146
-msgid "Mandatory or optional arguments to long options are also mandatory or optional for any corresponding short options."
-msgstr ""
-
-#: support/argp-help.c:1522
-msgid "Usage:"
-msgstr "사용법:"
-
-#: support/argp-help.c:1526
-msgid "  or: "
-msgstr ""
-
-#: support/argp-help.c:1538
-msgid " [OPTION...]"
-msgstr " [옵션...]"
-
-#: support/argp-help.c:1565
-msgid "Try `%s --help' or `%s --usage' for more information.\n"
-msgstr "더 많은 정보를 얻으려면 `%s --help' 혹은 `%s --usage'를 입력하시오.\n"
-
-#: support/argp-help.c:1593
-msgid "Report bugs to %s.\n"
-msgstr "%s로 버그를 보고해 주세요.\n"
+msgstr "\275\303\275\272\305\333 \275\303\265\277\310\304\277\241 \300\257\310\336 \305\302\275\272\305\251\260\241 \274\322\272\361\307\321 \303\312 \264\334\300\247\300\307 \275\303\260\243"
 
 #: support/argp-parse.c:90
 msgid "Give this help list"
-msgstr "이 도움말 목록을 출력"
+msgstr "\300\314 \265\265\277\362\270\273 \270\361\267\317\300\273 \303\342\267\302"
 
 #: support/argp-parse.c:91
 msgid "Give a short usage message"
-msgstr "짧은 사용법 출력"
+msgstr "\302\252\300\272 \273\347\277\353\271\375 \303\342\267\302"
 
 #: support/argp-parse.c:92
 msgid "Set the program name"
-msgstr "프로그램 이름 설정"
+msgstr "\307\301\267\316\261\327\267\245 \300\314\270\247 \274\263\301\244"
 
 #: support/argp-parse.c:94
 msgid "Hang for SECS seconds (default 3600)"
-msgstr "SECS 초만큼 멈춤 (생략시값 3600)"
+msgstr "SECS \303\312\270\270\305\255 \270\330\303\343 (\273\375\267\253\275\303\260\252 3600)"
 
 #: support/argp-parse.c:151
 msgid "Print program version"
-msgstr "프로그램 판번호 출력"
+msgstr "\307\301\267\316\261\327\267\245 \306\307\271\370\310\243 \303\342\267\302"
 
 #: support/argp-parse.c:167
 msgid "(PROGRAM ERROR) No version known!?"
-msgstr "(프로그램 에러) 판번호를 모르겠슴!?"
+msgstr "(\307\301\267\316\261\327\267\245 \277\241\267\257) \306\307\271\370\310\243\270\246 \270\360\270\243\260\332\275\277!?"
 
 #: support/argp-parse.c:641
 msgid "%s: Too many arguments\n"
-msgstr "%s: 너무 많은 인자\n"
+msgstr "%s: \263\312\271\253 \270\271\300\272 \300\316\300\332\n"
 
 #: support/argp-parse.c:780
 msgid "(PROGRAM ERROR) Option should have been recognized!?"
-msgstr "(프로그램 에러) 옵션을 인식해야만 됨!?"
+msgstr "(\307\301\267\316\261\327\267\245 \277\241\267\257) \277\311\274\307\300\273 \300\316\275\304\307\330\276\337\270\270 \265\312!?"
 
 #: support/error.c:109
 msgid "Unknown system error"
-msgstr "알려지지 않은 시스템 에러"
+msgstr "\276\313\267\301\301\366\301\366 \276\312\300\272 \275\303\275\272\305\333 \277\241\267\257"
 
 #: support/getopt.c:669
 msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: `%s' 옵션이 모호합니다\n"
+msgstr "%s: `%s' \277\311\274\307\300\314 \270\360\310\243\307\325\264\317\264\331\n"
 
 #. --option
 #: support/getopt.c:693
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: `--%s' 옵션은 인자가 필요없습니다\n"
+msgstr "%s: `--%s' \277\311\274\307\300\272 \300\316\300\332\260\241 \307\312\277\344\276\370\275\300\264\317\264\331\n"
 
 #: support/getopt.c:698
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: `%c%s' 옵션은 인자가 필요없습니다\n"
+msgstr "%s: `%c%s' \277\311\274\307\300\272 \300\316\300\332\260\241 \307\312\277\344\276\370\275\300\264\317\264\331\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: `%s' 옵션은 인자가 필요합니다\n"
+msgstr "%s: `%s' \277\311\274\307\300\272 \300\316\300\332\260\241 \307\312\277\344\307\325\264\317\264\331\n"
 
 #. --option
 #: support/getopt.c:744
 msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: 알수 없는 옵션 `--%s'\n"
+msgstr "%s: \276\313\274\366 \276\370\264\302 \277\311\274\307 `--%s'\n"
 
 #: support/getopt.c:748
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: 알수 없는 옵션 `%c%s'\n"
+msgstr "%s: \276\313\274\366 \276\370\264\302 \277\311\274\307 `%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: 비정상적인 옵션 -- %c\n"
+msgstr "%s: \272\361\301\244\273\363\300\373\300\316 \277\311\274\307 -- %c\n"
 
 #: support/getopt.c:777
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: 지원하지 않는 옵션 -- %c\n"
+msgstr "%s: \301\366\277\370\307\317\301\366 \276\312\264\302 \277\311\274\307 -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937
 msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: 옵션은 인자가 필요합니다 -- %c\n"
+msgstr "%s: \277\311\274\307\300\272 \300\316\300\332\260\241 \307\312\277\344\307\325\264\317\264\331 -- %c\n"
 
 #: support/getopt.c:854
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: `-W %s' 옵션이 모호합니다\n"
+msgstr "%s: `-W %s' \277\311\274\307\300\314 \270\360\310\243\307\325\264\317\264\331\n"
 
 #: support/getopt.c:872
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: `-W %s' 옵션은 인자가 필요없습니다\n"
+msgstr "%s: `-W %s' \277\311\274\307\300\272 \300\316\300\332\260\241 \307\312\277\344\276\370\275\300\264\317\264\331\n"
 
 #: lib/read.c:69
 msgid "read %d bytes"
@@ -973,10 +973,3 @@ msgstr ""
 #: lib/write.c:46
 msgid "write %d bytes"
 msgstr ""
-# msgid ""
-# "Mandatory or optional arguments to long options are also mandatory or "
-# "optional for any corresponding short options."
-# msgstr ""
-# "긴 옵션에 대한 명령 혹은 임의의 인자는 대치되는 짧은 옵션의 명령 혹은 "
-# "임의의 인자이기도 합니다."
-# 
