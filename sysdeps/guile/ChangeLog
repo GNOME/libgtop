@@ -1,3 +1,8 @@
+1998-12-09  Martin Baulig  <martin@home-of-linux.org>
+
+	* guile.awk: For arrays, make a gh_list out of it and add this list
+	to the returned list instead of adding all array fields there.
+
 1998-12-08  Martin Baulig  <martin@home-of-linux.org>
 
 	* guile.awk (glibtop-get-sysdeps): New guile function.

@@ -105,9 +105,11 @@ function make_output(line) {
 	fields[field] = field_parts[1];
 	sub(/\]/, "", field_parts[2]);
 	number = field_parts[2];
+	output = output"gh_list\n\t\t\t(";
 	for (nr = 0; nr < number; nr++) {
-	  output = output""convert[type]" ("feature"."fields[field]" ["nr"]),\n\t\t\t";
+	  output = output""convert[type]" ("feature"."fields[field]" ["nr"]),\n\t\t\t ";
 	}
+	output = output"SCM_UNDEFINED),\n\t\t\t";
       } else {
 	output = output""convert[type]" ("feature"."fields[field]"),\n\t\t\t";
       }
