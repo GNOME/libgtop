@@ -48,6 +48,9 @@ GNOME_INIT_HOOK(gnome_found=yes)
 
 if test "x$gnome_found" != xyes; then
   GNOME_SUPPORT_CHECKS
+else
+  AM_CONDITIONAL(BUILD_GNOME_SUPPORT, false)
+  AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 fi
 
 AC_LC_SYSDEPS
