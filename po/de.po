@@ -1,1377 +1,900 @@
-# German translation of libgtop
-# Martin Baulig <martin@home-of-linux.org>, 1998, 1999, 2000
-# Christian Meyer <linux@chrisime.de>, 2000.
-#
-# hmm... ein paar englische Strings sollte man lieber in Ruhe lassen...! -cm-
+# gPhoto German translation file.
+# Copyright (C) 2000 Free Software Foundation, Inc.
+# Christian Meyer <linux@chrisime.de>, 2000
+# Kai Lahmann <kailahmann@01019freenet.de>, 2000.
+# Benedikt Roth <Benedikt.Roth@gmx.net>, 2000
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 1.0.9\n"
-"POT-Creation-Date: 2000-08-15 13:35+0200\n"
-"PO-Revision-Date: 2000-08-16 20:29+02:00\n"
+"Project-Id-Version: gphoto-cvs\n"
+"POT-Creation-Date: 2000-08-28 15:14+0200\n"
+"PO-Revision-Date: 2000-08-28 15:14+0100\n"
 "Last-Translator: Christian Meyer <linux@chrisime.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO 8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/sysdeps-init-freebsd.c:33 lib/sysdeps-init-linux.c:33
-msgid "Hangup (POSIX)"
-msgstr "Blockierung (POSIX)"
+#: src/callbacks.c:121
+msgid "No configuration options."
+msgstr "Keine Konfiguration möglich."
 
-#: lib/sysdeps-init-freebsd.c:34 lib/sysdeps-init-linux.c:34
-msgid "Interrupt (ANSI)"
-msgstr "Interrupt (ANSI)"
+#: src/callbacks.c:126
+msgid "Mail image needs to be implemented!"
+msgstr "Das Verschicken von Fotos ist noch nicht fertig implementiert!"
 
-#: lib/sysdeps-init-freebsd.c:35 lib/sysdeps-init-linux.c:35
-msgid "Quit (POSIX)"
-msgstr "Beenden (POSIX)"
+#: src/callbacks.c:135
+msgid "Taking picture..."
+msgstr "Mache ein Foto..."
 
-#: lib/sysdeps-init-freebsd.c:36 lib/sysdeps-init-linux.c:36
-msgid "Illegal instruction (ANSI)"
-msgstr "Unzulässige Anweisung (ANSI)"
+#: src/callbacks.c:140
+msgid "Could not take a picture."
+msgstr "Konnte kein Foto machen."
 
-#: lib/sysdeps-init-freebsd.c:37 lib/sysdeps-init-linux.c:37
-msgid "Trace trap (POSIX)"
-msgstr "Fehlerverfolgung (POSIX)"
+#: src/callbacks.c:145
+#, c-format
+msgid "New picture is #%03i"
+msgstr "Neues Foto ist Nr.%03i"
 
-#: lib/sysdeps-init-freebsd.c:38 lib/sysdeps-init-linux.c:38
-msgid "Abort (ANSI)"
-msgstr "Abbruch (ANSI)"
+#: src/callbacks.c:160
+msgid "Deleting ALL pictures."
+msgstr "Löschen ALLER Fotos."
 
-#: lib/sysdeps-init-freebsd.c:39
-msgid "EMT instruction"
-msgstr "EMT-Anweisung"
+#: src/callbacks.c:167
+#, c-format
+msgid "Deleting %i...\n"
+msgstr "Löschen von %i...\n"
 
-#: lib/sysdeps-init-freebsd.c:40 lib/sysdeps-init-linux.c:40
-msgid "Floating-point exception (ANSI)"
-msgstr "Fließkomma-Ausnahme (ANSI)"
+#: src/callbacks.c:176
+msgid "Deleted all images."
+msgstr "Alle Bilder gelöscht"
 
-#: lib/sysdeps-init-freebsd.c:41 lib/sysdeps-init-linux.c:41
-msgid "Kill, unblockable (POSIX)"
-msgstr "Töten, nicht aufzuheben (POSIX)"
+#: src/callbacks.c:189
+msgid "Deleting selected pictures..."
+msgstr "Löschen der gewählten Bilder..."
 
-#: lib/sysdeps-init-freebsd.c:42 lib/sysdeps-init-linux.c:39
-msgid "BUS error (4.2 BSD)"
-msgstr "BUS-Fehler (4.2 BSD)"
+#: src/callbacks.c:200
+#, c-format
+msgid "Could not delete #%i"
+msgstr "Nr. %i konnte nicht gelöscht werden"
 
-#: lib/sysdeps-init-freebsd.c:43 lib/sysdeps-init-linux.c:43
-msgid "Segmentation violation (ANSI)"
-msgstr "Segmentverletzung (ANSI)"
+#: src/callbacks.c:209 src/callbacks.c:1490 src/live.c:40 src/live.c:124
+msgid "Done."
+msgstr "Fertig."
 
-#: lib/sysdeps-init-freebsd.c:44
-msgid "Bad argument to system call"
-msgstr "Falsches Argument für Systemaufruf"
+#: src/callbacks.c:232
+msgid "Nothing selected to be deleted."
+msgstr "Nichts ausgewählt, um es zu löschen."
 
-#: lib/sysdeps-init-freebsd.c:45 lib/sysdeps-init-linux.c:45
-msgid "Broken pipe (POSIX)"
-msgstr "Unterbrochene Weiterleitung (POSIX)"
+#: src/callbacks.c:240
+msgid "Are you sure you want to DELETE the selected images?"
+msgstr "Sind Sie sicher, dass Sie die ausgewählten Bilder LÖCHEN wollen?"
 
-#: lib/sysdeps-init-freebsd.c:46 lib/sysdeps-init-linux.c:46
-msgid "Alarm clock (POSIX)"
-msgstr "Alarmuhr (POSIX)"
+#: src/callbacks.c:242
+msgid "Are you sure you want to DELETE all the images from memory?"
+msgstr "Sind Sie sicher, dass Sie alle Bilder aus dem Speicher LÖCHEN wollen?"
 
-#: lib/sysdeps-init-freebsd.c:47 lib/sysdeps-init-linux.c:47
-msgid "Termination (ANSI)"
-msgstr "Terminierung (ANSI)"
+#: src/callbacks.c:249 src/util.c:136
+msgid "Yes"
+msgstr "Ja"
 
-#: lib/sysdeps-init-freebsd.c:48 lib/sysdeps-init-linux.c:55
-msgid "Urgent condition on socket (4.2 BSD)"
-msgstr "Dringende Anweisung auf `Socket' (4.2 BSD)"
+#: src/callbacks.c:264 src/util.c:141
+msgid "No"
+msgstr "Nein"
 
-#: lib/sysdeps-init-freebsd.c:49 lib/sysdeps-init-linux.c:51
-msgid "Stop, unblockable (POSIX)"
-msgstr "Stop, nicht aufzuheben (POSIX)"
+#: src/callbacks.c:302
+#, c-format
+msgid "Could not save #%i"
+msgstr "Nr.%i konnte nicht gespeichert werden"
 
-#: lib/sysdeps-init-freebsd.c:50 lib/sysdeps-init-linux.c:52
-msgid "Keyboard stop (POSIX)"
-msgstr "Keyboard stop (POSIX)"
+#: src/callbacks.c:354
+msgid "Filename prefix:"
+msgstr "Dateinamen Präfix:"
 
-#: lib/sysdeps-init-freebsd.c:51 lib/sysdeps-init-linux.c:50
-msgid "Continue (POSIX)"
-msgstr "Fortfahren (POSIX)"
+#: src/callbacks.c:385
+#, c-format
+msgid "Saving Image #%03i..."
+msgstr "Speichern von Bild Nr.%03i..."
 
-#: lib/sysdeps-init-freebsd.c:52 lib/sysdeps-init-linux.c:49
-msgid "Child status has changed (POSIX)"
-msgstr "Kind-Status hat sich geändert (POSIX)"
+#: src/callbacks.c:390
+#, c-format
+msgid "Saving Thumbnail #%03i..."
+msgstr "Speichern von Vorschaubild Nr.%03i..."
 
-#: lib/sysdeps-init-freebsd.c:53 lib/sysdeps-init-linux.c:53
-msgid "Background read from tty (POSIX)"
-msgstr "`Background read' von tty (POSIX)"
+#: src/callbacks.c:392
+#, c-format
+msgid "%s-thumbnail-%03i"
+msgstr "%s-vorschaubild-%03i"
 
-#: lib/sysdeps-init-freebsd.c:54 lib/sysdeps-init-linux.c:54
-msgid "Background write to tty (POSIX)"
-msgstr "`Background write' auf tty (POSIX)"
+#: src/callbacks.c:398
+#, c-format
+msgid "Done. Images saved in %s"
+msgstr "Fertig. Bilder wurden in %s gespeichert"
 
-#: lib/sysdeps-init-freebsd.c:55 lib/sysdeps-init-linux.c:61
-msgid "I/O now possible (4.2 BSD)"
-msgstr "I/O nun möglich (4.2 BSD)"
+#: src/callbacks.c:430 src/callbacks.c:711 src/gallery.c:542 src/gallery.c:573
+#, c-format
+msgid "Could not retrieve #%i"
+msgstr "Nr.%i konnte nicht empfangen werden"
 
-#: lib/sysdeps-init-freebsd.c:56 lib/sysdeps-init-linux.c:56
-msgid "CPU limit exceeded (4.2 BSD)"
-msgstr "CPU-Limit überschritten (4.2 BSD)"
+#: src/callbacks.c:438
+#, c-format
+msgid "%s/gphoto-image-%03i.jpg"
+msgstr "%s/gphoto-bild-%03i.jpg"
 
-#: lib/sysdeps-init-freebsd.c:57 lib/sysdeps-init-linux.c:57
-msgid "File size limit exceeded (4.2 BSD)"
-msgstr "Limit der Dateigröße überschritten (POSIX)"
+#: src/callbacks.c:544
+msgid "Could not open $HOME/.gphoto/gphotorc for writing."
+msgstr "$HOME/.gphoto/gphotorc konnte nicht zum Schreiben geöffnet werden"
 
-#: lib/sysdeps-init-freebsd.c:58 lib/sysdeps-init-linux.c:58
-msgid "Virtual alarm clock (4.2 BSD)"
-msgstr "Virtuelle Alarmuhr (4.2 BSD)"
+#: src/callbacks.c:546
+msgid "Could not open $HOME/.gphoto/gphotorc for writing.\n"
+msgstr "$HOME/.gphoto/gphotorc konnte nicht zum Schreiben geöffnet werden.\n"
 
-#: lib/sysdeps-init-freebsd.c:59 lib/sysdeps-init-linux.c:59
-msgid "Profiling alarm clock (4.2 BSD)"
-msgstr "Profiling alarm clock (4.2 BSD)"
-
-#: lib/sysdeps-init-freebsd.c:60 lib/sysdeps-init-linux.c:60
-msgid "Window size change (4.3 BSD, Sun)"
-msgstr "Veränderung der Fenstergröße (4.3 BSD, Sun)"
-
-#: lib/sysdeps-init-freebsd.c:61
-msgid "Information request"
-msgstr "Informationsanforderung"
-
-#: lib/sysdeps-init-freebsd.c:62 lib/sysdeps-init-linux.c:42
-msgid "User-defined signal 1 (POSIX)"
-msgstr "Benutzerdefiniertes `Signal 1' (POSIX)"
-
-#: lib/sysdeps-init-freebsd.c:63 lib/sysdeps-init-linux.c:44
-msgid "User-defined signal 2 (POSIX)"
-msgstr "Benutzerdefiniertes `Signal 2' (POSIX)"
-
-#: lib/sysdeps-init-linux.c:62
-msgid "Power failure restart (System V)"
-msgstr "Stromausfall Neustart (System V)"
-
-#: support/popthelp.c:23
-msgid "Show this help message"
-msgstr "Zeige diese Hilfenachricht"
-
-#: support/popthelp.c:24
-msgid "Display brief usage message"
-msgstr "Zeige kurze Anleitung"
-
-#: sysdeps/names/cpu.c:45
-msgid "Total CPU Time"
-msgstr "CPU-Zeit insgesamt"
-
-#: sysdeps/names/cpu.c:46
-msgid "CPU Time in User Mode"
-msgstr "CPU-Zeit in Benutzer-Modus"
-
-#: sysdeps/names/cpu.c:47
-msgid "CPU Time in User Mode (nice)"
-msgstr "CPU-Zeit in Benutzer-Modus (Priorität)"
-
-#: sysdeps/names/cpu.c:48
-msgid "CPU Time in System Mode"
-msgstr "CPU-Zeit in System-Modus"
-
-#: sysdeps/names/cpu.c:49
-msgid "CPU Time in the Idle Task"
-msgstr "CPU-Zeit im Leerlaufprozess"
-
-#: sysdeps/names/cpu.c:50
-msgid "Tick Frequency"
-msgstr "Impulsfrequenz"
-
-#: sysdeps/names/cpu.c:51
-msgid "SMP Total CPU Time"
-msgstr "CPU-Zeit aller Prozessoren insgesamt"
-
-#: sysdeps/names/cpu.c:52
-msgid "SMP CPU Time in User Mode"
-msgstr "CPU-Zeit aller Prozessoren im Benutzer-Modus"
-
-#: sysdeps/names/cpu.c:53
-msgid "SMP CPU Time in User Mode (nice)"
-msgstr "CPU-Zeit aller Prozessoren im Benutzer-Modus (Priorität)"
-
-#: sysdeps/names/cpu.c:54
-msgid "SMP CPU Time in System Mode"
-msgstr "CPU-Zeit aller Prozessoren im System-Modus"
-
-#: sysdeps/names/cpu.c:55
-msgid "SMP CPU Time in the Idle Task"
-msgstr "CPU-Zeit aller Prozessoren im Leerlaufprozess"
-
-#: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
-msgid "SMP CPU Flags"
-msgstr "SMP-CPU-Flags"
-
-#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
-msgid "Number of clock ticks since system boot"
-msgstr "Anzahl der `Clock'-Impulse seit Systemstart"
-
-#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
-msgid "Number of clock ticks the system spent in user mode"
-msgstr ""
-"Anzahl der `Clock'-Impulse, die das System im Benutzer-Modus verbracht hat"
-
-#: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
-msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr ""
-"Anzahl der `Clock'-Impulse, die das System im Benutzer-Modus mit erhöhter "
-"Priorität verbracht hat"
-
-#: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
-msgid "Number of clock ticks the system spent in system mode"
-msgstr ""
-"Anzahl der `Clock'-Impulse, die das System im Kernel-Modus verbracht hat"
-
-#: sysdeps/names/cpu.c:65 sysdeps/names/cpu.c:71
-msgid "Number of clock ticks the system spent in the idle task"
-msgstr "Anzahl der `Clock'-Impulse, die das System im Leerlauf war"
-
-#: sysdeps/names/cpu.c:66
-msgid "Tick frequency (default is 100)"
-msgstr "Impulsfrequenz (Default ist 100)"
-
-#: sysdeps/names/fsusage.c:41 sysdeps/names/fsusage.c:50
-msgid "Total blocks"
-msgstr "Blöcke insgesamt"
-
-#: sysdeps/names/fsusage.c:42
-msgid "Free blocks"
-msgstr "Freie Blöcke"
-
-#: sysdeps/names/fsusage.c:43
-msgid "Available blocks"
-msgstr "Für Benutzer verfügbare Blöcke"
-
-#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:53
-msgid "Total file nodes"
-msgstr "Knoten insgesamt"
-
-#: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:54
-msgid "Free file nodes"
-msgstr "Freie Knoten"
-
-#: sysdeps/names/fsusage.c:51
-msgid "Free blocks available to the superuser"
-msgstr "Freie Blöcke inklusive für den Administrator reservierter Blöcke"
-
-#: sysdeps/names/fsusage.c:52
-msgid "Free blocks available to non-superusers"
-msgstr "Für Benutzer verfügbare Blöcke"
-
-#: sysdeps/names/loadavg.c:41
-msgid "Load Average"
-msgstr "Systemlast"
-
-#: sysdeps/names/loadavg.c:42
-msgid "Running Tasks"
-msgstr "Laufende Jobs"
-
-#: sysdeps/names/loadavg.c:43
-msgid "Number of Tasks"
-msgstr "Anzahl Jobs"
-
-#: sysdeps/names/loadavg.c:44 sysdeps/names/loadavg.c:52
-msgid "Last PID"
-msgstr "Letzte PID"
-
-#: sysdeps/names/loadavg.c:49
+#: src/callbacks.c:552
+#, c-format
 msgid ""
-"Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "Anzahl gleichzeitig laufender Jobs im Mittel über 1, 5 und 15 Minuten"
+"Version Information-------------------Current Version: %sNew features all "
+"over the place. Please seethe ChangeLog for more information.As always, "
+"report bugs gphoto-devel@gphoto.orgThanx much."
+msgstr ""
+"Version Information-------------------Aktuelle Version: %sViele neue "
+"Fähigkeiten.Bitte lesen Sie ChangeLog für weitere Informationen. \n"
+"Wie immer, melden Sie bitte Fehler an gphoto-devel@gphoto.org. Ein großes "
+"Dankeschön."
 
-#: sysdeps/names/loadavg.c:50
-msgid "Number of tasks currently running"
-msgstr "Anzahl der momentan laufenden Jobs"
+#: src/callbacks.c:578
+msgid "User's Manual"
+msgstr "Benutzerhandbuch"
 
-#: sysdeps/names/loadavg.c:51
-msgid "Total number of tasks"
-msgstr "Anzahl Jobs insgesamt"
-
-#: sysdeps/names/mem.c:43
-msgid "Total Memory"
-msgstr "Arbeitsspeicher insgesamt"
-
-#: sysdeps/names/mem.c:44
-msgid "Used Memory"
-msgstr "Benutzer Arbeitspeicher"
-
-#: sysdeps/names/mem.c:45
-msgid "Free Memory"
-msgstr "Freier Arbeitsspeicher"
-
-#: sysdeps/names/mem.c:46
-msgid "Shared Memory"
-msgstr "Gemeinsam-genutzter Speicher"
-
-#: sysdeps/names/mem.c:47
-msgid "Buffers"
-msgstr "Pufferspeicher"
-
-#: sysdeps/names/mem.c:48
-msgid "Cached"
-msgstr "Temporärer Zwischenspeicher"
-
-#: sysdeps/names/mem.c:49
-msgid "User"
-msgstr "Von Benutzern belegter Speicher"
-
-#: sysdeps/names/mem.c:50
-msgid "Locked"
-msgstr "Gesperrter Speicher"
-
-#: sysdeps/names/mem.c:55
-msgid "Total physical memory in kB"
-msgstr "Physikalischer Speicher insgesamt in kB"
-
-#: sysdeps/names/mem.c:56
-msgid "Used memory size in kB"
-msgstr "Belegter Speicher in kB"
-
-#: sysdeps/names/mem.c:57
-msgid "Free memory size in kB"
-msgstr "Freier Speicher in kB"
-
-#: sysdeps/names/mem.c:58
-msgid "Shared memory size in kB"
-msgstr "Gemeinsam genutzter Speicher in kB"
-
-#: sysdeps/names/mem.c:59
-msgid "Size of buffers kB"
-msgstr "Größe der Dateipuffer in kB"
-
-#: sysdeps/names/mem.c:60
-msgid "Size of cached memory in kB"
-msgstr "Größe des temporären Zwischenspeichers in kB"
-
-#: sysdeps/names/mem.c:61
-msgid "Memory used from user processes in kB"
-msgstr "Von Benutzerprozessen belegter Speicher in kB"
-
-#: sysdeps/names/mem.c:62
-msgid "Memory in locked pages in kB"
-msgstr "Speicher in gesperrten Seiten in kB"
-
-#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
-msgid "Size in kilobytes of message pool"
-msgstr "Größe des Nachrichtenbereiches in Kilobyte"
-
-#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
-msgid "Number of entries in message map"
-msgstr "Anzahl der Einträge in der Nachrichtentabelle"
-
-#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
-msgid "Max size of message"
-msgstr "Maximale Größe einer Nachricht"
-
-#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
-msgid "Default max size of queue"
-msgstr "Standardmäßige Größe der Warteschlange"
-
-#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
-msgid "Max queues system wide"
-msgstr "Maximale Anzahl der Warteschlangen systemweit"
-
-#: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
-msgid "Message segment size"
-msgstr "Größe des Nachrichtensegments"
-
-#: sysdeps/names/msg_limits.c:48 sysdeps/names/msg_limits.c:59
-msgid "Number of system message headers"
-msgstr "Anzahl der Systemnachrichtenköpfe"
-
-#: sysdeps/names/prockernel.c:44
-msgid "K_Flags"
-msgstr "K_Flags"
-
-#: sysdeps/names/prockernel.c:44
-msgid "Min_Flt"
-msgstr "Min_Flt"
-
-#: sysdeps/names/prockernel.c:44
-msgid "Maj_Flt"
-msgstr "Maj_Flt"
-
-#: sysdeps/names/prockernel.c:44
-msgid "CMin_Flt"
-msgstr "CMin_Flt"
-
-#: sysdeps/names/prockernel.c:45
-msgid "CMaj_Flt"
-msgstr "CMaj_Flt"
-
-#: sysdeps/names/prockernel.c:45
-msgid "KStk_ESP"
-msgstr "KStk_ESP"
-
-#: sysdeps/names/prockernel.c:45
-msgid "KStk_EIP"
-msgstr "KStk_EIP"
-
-#: sysdeps/names/prockernel.c:45
-msgid "NWChan"
-msgstr "NWChan"
-
-#: sysdeps/names/prockernel.c:46
-msgid "WChan"
-msgstr "WChan"
-
-#. K_Flags
-#: sysdeps/names/prockernel.c:52
+#: src/callbacks.c:596
+#, c-format
 msgid ""
-"Kernel flags of the process.\n"
+"Could not open:\n"
+"%s"
+msgstr ""
+"Konnte nicht öffnen:\n"
+"%s"
+
+#: src/callbacks.c:612 src/callbacks.c:1547 src/util.c:60 src/util.c:101
+msgid "OK"
+msgstr "OK"
+
+#: src/callbacks.c:632
+msgid ""
+"This program is free software; you can redistribute it and/or modifyit under "
+"the terms of the GNU General Public License as published bythe Free Software "
+"Foundation; either version 2 of the License, or(at your option) any later "
+"version.This program is distributed in the hope that it will be useful,but "
+"WITHOUT ANY WARRANTY; without even the implied warranty ofMERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE.  See theGNU General Public License for "
+"more details.You should have received a copy of the GNU General Public "
+"Licensealong with this program; if not, write to the Free "
+"SoftwareFoundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.See "
+"http://www.gnu.org for more details on the GNU project."
+msgstr ""
+"Dieses Programm ist freie Software. Sie können es unter den Bedingungen der "
+"GNU General Public License, wie von der Free Software Foundation "
+"herausgegeben, weitergeben und/oder modifizieren, entweder unter Version 2 "
+"der Lizenz oder (wennSie es wünschen) jeder späteren Version. Die "
+"Veröffentlichung dieses Programms erfolgt in der Hoffnung, dass es Ihnen von "
+"Nutzen sein wird, aber OHNE JEDE GEWÄHRLEISTUNG - sogar ohne die implizite "
+"Gewähleistung der MARKTREIFE oder der EIGNUNG FÜR EINEN BESTIMMTEN ZWECK. "
+"Details finden Sie in der GNU General Public License. Sie sollten eine Kopie "
+"der GNU General Public License zusammen mit diesem Programm erhalten haben. "
+"Falls nicht, schreiben Sie an die Free Software Foundation, Inc., 59 Temple "
+"Place, Suite 330, Boston, MA 02111-1307, USA. Besuchen Sie "
+"http://www.gnu.org für mehr Details über das GNU Projekt"
+
+#: src/callbacks.c:655
+#, c-format
+msgid "%s is not yet implemented"
+msgstr "%s ist nocht nicht implementiert"
+
+#: src/callbacks.c:707
+#, c-format
+msgid "Getting thumbnail %i..."
+msgstr "Vorschaubild %i holen..."
+
+#: src/callbacks.c:717
+#, c-format
+msgid "Picture #%i\n"
+msgstr "Bild Nr.%i\n"
+
+#: src/callbacks.c:796
+msgid "Getting Index..."
+msgstr "Index erstellen..."
+
+#: src/callbacks.c:810
+#, c-format
+msgid "num_pictures_taken is %d\n"
+msgstr "Die Anzahl der gemachten Fotos ist %d\n"
+
+#: src/callbacks.c:812
+msgid "Could not get the number of pictures"
+msgstr "Anzahl der Fotos konnte nicht bestimmt werden"
+
+#: src/callbacks.c:822
+msgid "Download cancelled."
+msgstr "Empfang abgebrochen."
+
+#: src/callbacks.c:881
+msgid "Done getting index."
+msgstr "Index erstellt."
+
+#: src/callbacks.c:917
+msgid "Nothing selected for download."
+msgstr "Nichts zum Empfangen gewählt."
+
+#: src/callbacks.c:931
+#, c-format
+msgid "Getting Image #%03i..."
+msgstr "Bild Nr.%03i empfangen..."
+
+#: src/callbacks.c:938
+#, c-format
+msgid "Getting Thumbnail #%03i..."
+msgstr "Vorschaubild Nr.%03i holen..."
+
+#: src/callbacks.c:948
+msgid "Done downloading."
+msgstr "Empfang beendet."
+
+#: src/callbacks.c:950
+msgid "Download halted."
+msgstr "Empfang angehalten."
+
+#: src/callbacks.c:1026
+msgid "Save all opened images"
+msgstr "Alle geöffneten Bilder speichern"
+
+#: src/callbacks.c:1038
+msgid "Save Image(s)..."
+msgstr "Speichere Bild(er)..."
+
+#: src/callbacks.c:1060
+msgid "Saving the index is not yet supported"
+msgstr "Speichern des Index wird nocht nicht unterstützt"
+
+#: src/callbacks.c:1085
+msgid "Open Image..."
+msgstr "Bild öffnen..."
+
+#: src/callbacks.c:1109
+msgid "Can't print the index yet."
+msgstr "Drucken des Index noch nicht unterstützt."
+
+#: src/callbacks.c:1114
+msgid "Print Image..."
+msgstr "Drucke Bild..."
+
+#: src/callbacks.c:1121
+msgid "Print Command:"
+msgstr "Druck Kommando:"
+
+#: src/callbacks.c:1143
+msgid "Print"
+msgstr "Drucken"
+
+#: src/callbacks.c:1149 src/callbacks.c:1365 src/callbacks.c:1552
+#: src/gallery.c:434
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/callbacks.c:1169
+msgid "Now spooling..."
+msgstr "In die Druck-Warteschlange schicken..."
+
+#: src/callbacks.c:1174
+msgid "Spooling done. Printing may take a minute."
+msgstr ""
+"In die Druck-Warteschlange geschickt. Der Druckvorgang kann eine Weile "
+"dauern."
+
+#: src/callbacks.c:1218
+msgid "Can't modify the index colors."
+msgstr "Die Farben des Index konnten nicht geändert werden."
+
+#: src/callbacks.c:1294
+msgid "Can't scale the index."
+msgstr "Skalieren des Index fehlgeschlagen."
+
+#: src/callbacks.c:1304
+msgid "Resize Image..."
+msgstr "Größe des Bildes ändern..."
+
+#: src/callbacks.c:1312
+msgid "Width:"
+msgstr "Breite:"
+
+#: src/callbacks.c:1335
+msgid "Height:"
+msgstr "Höhe:"
+
+#: src/callbacks.c:1360 src/toolbar.c:125 src/toolbar.c:127
+msgid "Resize"
+msgstr "Größe ändern"
+
+#: src/callbacks.c:1407
+msgid "Can't manipulate the index."
+msgstr "Der Index konnte nicht verändert werden."
+
+#: src/callbacks.c:1461
+msgid "Can't scale the index!"
+msgstr "Skalieren des Index fehlgeschlagen!"
+
+#. Scales image size by 50%
+#: src/callbacks.c:1494
+msgid "Scaling image by 50%..."
+msgstr "Skaliere Bild mit 50%..."
+
+#. Scales image size by 200%
+#: src/callbacks.c:1499
+msgid "Scaling image by 200%..."
+msgstr "Skaliere Bild mit 200%..."
+
+#: src/callbacks.c:1545
+msgid "Post-Processing Options"
+msgstr "Nachbearbeitungs-Optionen"
+
+#: src/callbacks.c:1557
+msgid "Enable post-processing"
+msgstr "Nachbearbeitung einschalten"
+
+#: src/callbacks.c:1564
+msgid "Post-processing command-line:"
+msgstr "Nachbearbeitungs-Kommandozeile:"
+
+#: src/callbacks.c:1630
+msgid "http://www.gphoto.org/help.php3"
+msgstr "http://www.gphoto.org/help.php3"
+
+#: src/callbacks.c:1634
+msgid "http://www.gphoto.org/"
+msgstr "http://www.gphoto.org/"
+
+#: src/callbacks.c:1638
+msgid "http://www.gphoto.org/feedback.php3"
+msgstr "http://www.gphoto.org/feedback.php3"
+
+#: src/callbacks.c:1642
+msgid "http://www.gphoto.org/news.php3"
+msgstr "http://www.gphoto.org/news.php3"
+
+#: src/callbacks.c:1646
+msgid "http://www.gphoto.org/download.php3"
+msgstr "http://www.gphoto.org/download.php3"
+
+#: src/callbacks.c:1650
+msgid "http://www.gphoto.org/cameras.php3"
+msgstr "http://www.gphoto.org/cameras.php3"
+
+#: src/callbacks.c:1654
+msgid "http://www.gphoto.org/supporting.php3"
+msgstr "http://www.gphoto.org/supporting.php3"
+
+#: src/callbacks.c:1658
+msgid "http://www.gphoto.org/lists.php3"
+msgstr "http://www.gphoto.org/lists.php3"
+
+#: src/callbacks.c:1662
+msgid "http://www.gphoto.org/team.php3"
+msgstr "http://www.gphoto.org/team.php3"
+
+#: src/callbacks.c:1666
+msgid "http://www.gphoto.org/themes.php3"
+msgstr "http://www.gphoto.org/themes.php3"
+
+#: src/callbacks.c:1670
+msgid "http://www.gphoto.org/links.php3"
+msgstr "http://www.gphoto.org/links.php3"
+
+#: src/callbacks.c:1674
+msgid "http://www.gphoto.org/todo.php3"
+msgstr "http://www.gphoto.org/todo.php3"
+
+#: src/commandline.c:16 src/main.c:136
+#, c-format
+msgid "gPhoto %s (%s) - the GNU digital camera application\n"
+msgstr "gPhoto %s (%s) - die GNU Anwendung für Digital-Kameras\n"
+
+#: src/commandline.c:19
+msgid ""
+"Copyright (C) 1998-2000 Scott Fritzinger <scottf@unr.edu>\n"
+"Copyright (C) 2000 Free Software Foundation, Inc.\n"
+msgstr ""
+"Copyright (C) 1998-2000 Scott Fritzinger <scottf@unr.edu>\n"
+"Copyright (C) 2000 Free Software Foundation, Inc.\n"
+
+#: src/commandline.c:22 src/main.c:141
+msgid "Usage: gphoto [-h] [-c] [-n] [-s # filename] [-t # filename]\n"
+msgstr "Benutzung: gphoto [-h] [-c] [-n] [-s # Dateiname] [-t # Dateiname]\n"
+
+#: src/commandline.c:23 src/main.c:142
+msgid "              [-d #] [-p filename] [-l filename]\n"
+msgstr "              [-d #] [-p Dateiname] [-l Dateiname]\n"
+
+#: src/commandline.c:24
+msgid "\t-h                    display this help screen\n"
+msgstr "\t-h                    diese Hilfe anzeigen\n"
+
+#: src/commandline.c:25
+msgid "\t-c                    display camera summary\n"
+msgstr "\t-c                    Kamera Zusammenfassung anzeigen\n"
+
+#: src/commandline.c:26
+msgid "\t-n                    display the # of pictures\n"
+msgstr "\t-n                    Anzahl der Fotos zeigen\n"
+
+#: src/commandline.c:27
+msgid "\t-s # filename         save image # as filename\n"
+msgstr "\t-s Nr. Dateiname        Bildnummer als Dateiname speichern\n"
+
+#: src/commandline.c:29
+msgid "\t-t # filename         save thumbnail # as filename\n"
+msgstr "\t-t Nr. Dateiname         Minibild-Nummer als Dateiname speichern\n"
+
+#: src/commandline.c:31
+msgid "\t-d #                  delete image # from camera\n"
+msgstr "\t-d #                  Bildnummer von Kamera löschen\n"
+
+#: src/commandline.c:33
+msgid "\t-p filename           take picture and save as filename\n"
+msgstr "\t-p Dateiname           Fotot machen und als Dateiname speichern\n"
+
+#: src/commandline.c:35
+msgid ""
+"\t-l filename           save live preview as filename\n"
 "\n"
-"On Linux, currently every flag has the math bit set, because crt0.s checks "
-"for math emulation, so this is not included in the output.\n"
+msgstr ""
+"\t-l Dateiname           Live-Vorschau als Dateiname speichern\n"
 "\n"
-"This is probably a bug, as not every process is a compiled C program.\n"
+
+#: src/commandline.c:37
+msgid "gPhoto is free GNU software; you can redistribute it and/or\n"
+msgstr "gPhoto ist freie GNU Software. Sie können es unter\n"
+
+#: src/commandline.c:39
+msgid "modify it under the terms of the GNU General Public License \n"
+msgstr "den Bedingungen der GNU General Public License, wie von der\n"
+
+#: src/commandline.c:41
+msgid "as published by the Free Software Foundation; either version \n"
+msgstr "Free Software Foundation herausgegeben, weitergeben und/oder\n"
+
+#: src/commandline.c:43
+msgid "2 of the License, or any later version.  Visit gphoto/COPYING\n"
+msgstr ""
+"modifizieren, entweder unter Version 2 der Lizenz oder einer späteren "
+"Version.  Lesen Sie gphoto/COPYING\n"
+
+#: src/commandline.c:45
+msgid ""
+"in the source distribution to read the GNU GPL license terms.\n"
 "\n"
-"The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
-"Kernelflags des Prozesses.\n"
+"in der Quellcode Distribution wenn Sie mehr über die GNU GPL Lizenz erfahren "
+"wollen.\n"
 "\n"
-"Auf Linux hat momentan jedes Flag ein gesetztes `math bit', da crt0.s\n"
-"auf mathematische Emulation prüft, also wird dies in der Ausgabe nicht\n"
-"ausgegeben.\n"
+
+#: src/commandline.c:47
+msgid "Report bugs and camera success to gphoto-devel@gphoto.org.\n"
+msgstr ""
+"Melden Sie Fehler im Programm und Erfolge mit Kameras an "
+"gphoto-devel@gphoto.org.\n"
+
+#: src/commandline.c:49
+msgid "See http://www.gphoto.org for the latest news and updates.\n"
+msgstr ""
+"Besuchen Sie http://www.gphoto.org für die neusten Meldungen und Updates.\n"
+
+#: src/commandline.c:67
+#, c-format
+msgid "%i\n"
+msgstr "%i\n"
+
+#: src/commandline.c:72 src/commandline.c:96 src/commandline.c:125
+msgid "ERROR: could not get image.\n"
+msgstr "FEHLER: Bild konnte nicht geholt werden.\n"
+
+#: src/commandline.c:79 src/commandline.c:103 src/commandline.c:132
+#: src/commandline.c:187
+msgid "ERROR: could not save image.\n"
+msgstr "FEHLER: Bild konnte nicht gespeichert werden.\n"
+
+#: src/commandline.c:81
+msgid "ERROR: 'filename' not specified.\n"
+msgstr "FEHLER: `Dateiname' nicht angegeben.\n"
+
+#: src/commandline.c:89
+#, c-format
+msgid "Saving image %i from camera as %s: "
+msgstr "Speichere Bild %i von Kamera als %s:"
+
+#: src/commandline.c:108 src/commandline.c:137
+msgid "ERROR: '#' and 'filename' not specified.\n"
+msgstr "FEHLER: `Nr.' und `Dateiname' nicht angegeben.\n"
+
+#: src/commandline.c:146
+msgid "ERROR: Could not delete image.\n"
+msgstr "FEHLER: Bild konnte nicht gelöscht werden.\n"
+
+#: src/commandline.c:154
+msgid "ERROR: '#' not specified.\n"
+msgstr "FEHLER: `Nr.' nicht angegeben.\n"
+
+#: src/commandline.c:161
+msgid "ERROR: filename not specified.\n"
+msgstr "FEHLER: Dateiname nicht angegeben.\n"
+
+#: src/commandline.c:164
+msgid "Taking picture...\n"
+msgstr "Mache ein Foto...\n"
+
+#: src/commandline.c:170
+msgid "ERROR: could not take the picture.\n"
+msgstr "FEHLER: Foto konnte nicht gemacht werden.\n"
+
+#: src/commandline.c:174
+#, c-format
+msgid "Saving the new image (# %i) as %s: "
+msgstr "Speichern des neuen Bildes (Nr. %i) als %s: "
+
+#: src/commandline.c:179
+msgid ""
 "\n"
-"Dies ist wahrscheinlich ein Fehler, da nicht jeder Prozess ein\n"
-"kompiliertes C-Programm ist.\n"
+"ERROR: could not get image.\n"
+msgstr ""
 "\n"
-"Das `math bit' sollte eine dezimale 4 sein, und das `traced bit' ist\n"
-"dezimal 10. "
+"FEHLER: Bild konnte nicht geholt werden.\n"
 
-#. Min_Flt
-#: sysdeps/names/prockernel.c:61
+#: src/developer_dialog.c:136
+#, c-format
+msgid "gPhoto release %s was brought to you by"
+msgstr "gPhoto Ausgabe %s wurde Ihnen gebracht von"
+
+#: src/developer_dialog.c:199
+msgid "Web Page"
+msgstr "Web Seite"
+
+#: src/developer_dialog.c:206
+msgid "Previous"
+msgstr "Voheriger"
+
+#: src/developer_dialog.c:214
+msgid "Next"
+msgstr "Weiter"
+
+#: src/developer_dialog.c:222 src/img_edit.c:1436 src/live.c:100
+msgid "Close"
+msgstr "Schließen"
+
+#: src/developer_dialog.c:291
 msgid ""
-"The number of minor faults the process has made, those which have not "
-"required loading a memory page from disk."
+"The gPhoto AUTHORS file appears to be missing!\n"
+"\t      There should be a file called "
 msgstr ""
-"Anzahl weniger schwerer Seitenfehler eines Prozesses, d.h. diejenigen die es "
-"nicht erforderlich gemacht haben, eine Seite von der Platte zu laden."
+"Die gPhoto Datei AUTHORS scheint zu fehlen!\n"
+"\t      Es sollte folgende Datei vorhanden sein "
 
-#. Maj_Flt
-#: sysdeps/names/prockernel.c:64
+#: src/gallery.c:219
+msgid "Select an Output Directory..."
+msgstr "Ein Ausgabe-Verzeichnis wählen..."
+
+#: src/gallery.c:317
+msgid "Gallery Name:"
+msgstr "Galerie Name:"
+
+#: src/gallery.c:330
+msgid "Theme:"
+msgstr "Thema:"
+
+#: src/gallery.c:389
+msgid "Output Directory:"
+msgstr "Ausgabe-Verzeichnis:"
+
+#: src/gallery.c:400
+msgid "Change..."
+msgstr "Ändern..."
+
+#. i made this
+#. * it should make extra buttons for shtml, table borders, and
+#. * image borders
+#.
+#: src/gallery.c:410
+msgid "Export file as *.shtml?"
+msgstr "Datei als *.shtml exportieren?"
+
+#: src/gallery.c:414
+msgid "Set table border width to zero for thumbnails?"
+msgstr "Rahmenbreite der Vorschaubilder auf Null setzen?"
+
+#: src/gallery.c:418
+msgid "Set image border width to zero? (so you don't see the link colors...)"
+msgstr ""
+"Rahmenbreite der Bilder auf Null setzen? (so dass Sie die Verknüpfungsfarben "
+"nicht sehen...)"
+
+#: src/gallery.c:428
+msgid "Create"
+msgstr "Erstellen"
+
+#: src/gallery.c:451
+msgid "You must select a theme!"
+msgstr "Sie müssen ein Thema auswählen!"
+
+#. Get the current thumbnail
+#: src/gallery.c:539
+#, c-format
+msgid "Getting Thumbnail #%i..."
+msgstr "Vorschaubild Nr.%i holen..."
+
+#: src/gallery.c:545 src/gallery.c:575
+msgid "Not Available"
+msgstr "Nicht verfügbar"
+
+#: src/gallery.c:548
+#, c-format
+msgid "<a href=\"picture-%03i.html\">Click Me<\\/a>"
+msgstr "<a href=\"bild-%03i.html\">Hier klicken<\\/a>"
+
+#: src/gallery.c:555
+#, c-format
+msgid "thumbnail-%03i.%s"
+msgstr "vorschaubild-%03i.%s"
+
+#. Get the current image
+#: src/gallery.c:569
+#, c-format
+msgid "Getting Image #%i..."
+msgstr "Bild Nr.%i holen..."
+
+#: src/gallery.c:579
+#, c-format
+msgid "<img alt=\"%03i\" src=\"picture-%03i.%s\">"
+msgstr "<img alt=\"%03i\" src=\"bild-%03i.%s\">"
+
+#: src/gallery.c:581
+#, c-format
+msgid "picture-%03i.%s"
+msgstr "bild-%03i.%s"
+
+#: src/gallery.c:597 src/gallery.c:602
+#, c-format
+msgid "picture-%03i.html"
+msgstr "bild-%03i.html"
+
+#: src/gallery.c:614
+#, c-format
+msgid "%spicture-%03i.html"
+msgstr "%sbild-%03i.html"
+
+#: src/gallery.c:637
+#, c-format
+msgid "Loaded file:%s%s in %s"
+msgstr "Geladene Datei:%s%s in %s"
+
+#: src/gallery.c:640
+#, c-format
+msgid "Gallery saved in: %s"
+msgstr "Galerie gespeichert in: %s"
+
+#: src/img_edit.c:1125
+msgid "Color Adjustment"
+msgstr "Farbjustierung"
+
+#: src/img_edit.c:1126
+msgid "gPhoto - Color Adjustment"
+msgstr "gPhoto - Farbjustierung"
+
+#: src/img_edit.c:1141
+msgid "Colour Settings"
+msgstr "Farbeinstellungen"
+
+#: src/img_edit.c:1247
+msgid "Gray Controls"
+msgstr "Graukontrollen"
+
+#: src/img_edit.c:1287
+msgid "Red Controls"
+msgstr "Rotkontrollen"
+
+#: src/img_edit.c:1327
+msgid "Green Controls"
+msgstr "Grünkontrollen"
+
+#: src/img_edit.c:1367
+msgid "Blue Controls"
+msgstr "Blaukontrollen"
+
+#: src/img_edit.c:1408
+msgid "Colour Modifications:"
+msgstr "Farbänderungen:"
+
+#: src/img_edit.c:1415
+msgid "Apply"
+msgstr "Übernehmen"
+
+#: src/img_edit.c:1419
+msgid "Keep"
+msgstr "Behalten"
+
+#: src/img_edit.c:1423
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: src/img_edit.c:1424 src/img_edit.c:1425
+msgid "Reset all the color changes to normal values"
+msgstr "Alle geänderten Farben auf normale Werte zurücksetzen"
+
+#: src/img_edit.c:1427
+msgid "Always Apply"
+msgstr "Immer übernehmen"
+
+#: src/live.c:28 src/live.c:68
+msgid "Getting live image..."
+msgstr "Empfange Live-Bild..."
+
+#: src/live.c:30 src/live.c:109
+msgid "Could not get preview"
+msgstr "Vorschau konnte nicht empfangen werden"
+
+#: src/live.c:70
+msgid "Live Camera!"
+msgstr "Live Kamera!"
+
+#: src/live.c:77
+msgid "Update Picture"
+msgstr "Foto aktualisieren"
+
+#: src/live.c:84
+msgid "Take Picture"
+msgstr "Foto machen"
+
+#: src/main.c:62
 msgid ""
-"The number of major faults the process has made, those which have required "
-"loading a memory page from disk."
+"\n"
+"Launching Gnome Bugbuddy...\n"
 msgstr ""
-"Anzahl schwerwiegender Seitenfehler eines Prozesses, d.h. diejenigen, die es "
-"erforderlich gemacht haben, eine Seite von der Platte zu laden."
+"\n"
+"Starte den GNOME Fehlermelder (Bugbuddy)...\n"
 
-#. CMin_Flt
-#: sysdeps/names/prockernel.c:67
+#: src/main.c:111
+msgid "Failed to set priority\n"
+msgstr "Priorität konnte nicht gesetzt werden\n"
+
+#: src/main.c:137
 msgid ""
-"The number of minor faults that the process and its children have made."
+"Copyright (C) 1998-2000 Scott Fritzinger <scottf@gphoto.net>\n"
+"\n"
+"Copyright (C) 2000 Free Software Foundation, Inc."
 msgstr ""
-"Anzahl weniger schwerer Seitenfehler eines Prozesses und seiner Kinder, d.h. "
-"diejenigen die es nicht erforderlich gemacht haben, eine Seite von der "
-"Platte zu laden."
+"Copyright (C) 1998-2000 Scott Fritzinger <scottf@gphoto.net>\n"
+"\n"
+"Copyright (C) 2000 Free Software Foundation, Inc."
 
-#. CMaj_Flt
-#: sysdeps/names/prockernel.c:70
+#: src/main.c:159
+#, c-format
+msgid "gPhoto %s - the GNU digital camera application"
+msgstr "gPhoto %s - die GNU Anwendung für Digital-Kameras"
+
+#: src/main.c:197
+msgid "Image Index"
+msgstr "Bilder Index"
+
+#: src/main.c:208
+msgid "Select \"Camera->Get Index\" to preview images."
+msgstr ""
+"Wählen Sie \"Kamera->Hole Index\", um eine Vorschau der Bilder zu sehen."
+
+#: src/main.c:285
 msgid ""
-"The number of major faults that the process and its children have made."
+"Could not load config file.Resetting to defaults.Click on \"Select "
+"Port-Camera Model\"in the Configure menu to set yourcamera model and serial "
+"port"
 msgstr ""
-"Anzahl schwerwiegender Seitenfehler eines Prozesses und seiner Kinder, d.h. "
-"diejenigen, die es erforderlich gemacht haben, eine Seite von der Platte zu "
-"laden."
-
-#. KStk_ESP
-#: sysdeps/names/prockernel.c:73
-msgid ""
-"The current value of esp (32-bit stack pointer), as found in the kernel "
-"stack page for the process."
-msgstr ""
-"Aktueller Wert des 32-Bit Stack-Zeigers des Kernels entnommen aus der "
-"Stack-Seite des Prozesses im Kernel."
-
-#. KStk_EIP
-#: sysdeps/names/prockernel.c:76
-msgid "The current EIP (32-bit instruction pointer)."
-msgstr "Aktueller 32-Bit Befehlszeiger des Prozessors."
-
-#. NWChan
-#: sysdeps/names/prockernel.c:78
-msgid ""
-"This is the \"channel\" in which the process is waiting.  This is the "
-"address of a system call, and can be looked up in a namelist if you need a "
-"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
-"see the WCHAN field in action)"
-msgstr ""
-"Dies ist der \"Kanal\" in dem der Prozess gerade wartet. Es handelt sich "
-"dabei um die Adresse eines Systemaufrufs dessen Namen man in der Namensliste "
-"finden kann (wenn Sie eine aktuelle 'etc/psdatabase' haben, versuchen Sie "
-"'ps -l' um das WCHAN-Feld in Aktion zu sehen)."
-
-#. WChan
-#: sysdeps/names/prockernel.c:83
-msgid "This is the textual name of the `nwchan' field."
-msgstr "Dies ist der Text-Name des `nwchan' Feldes"
-
-#: sysdeps/names/procmem.c:49
-msgid "Size"
-msgstr "Prozessgröße"
-
-#: sysdeps/names/procmem.c:49
-msgid "Virtual"
-msgstr "Virtuelle Prozessgröße"
-
-#: sysdeps/names/procmem.c:49
-msgid "Resident"
-msgstr "Residente Prozessgröße"
-
-#: sysdeps/names/procmem.c:49
-msgid "Share"
-msgstr "Größe des gemeinsam genutzten Speichers"
-
-#: sysdeps/names/procmem.c:50
-msgid "Resident Set Size"
-msgstr "Größe des permanent belegten Speichers"
-
-#: sysdeps/names/procmem.c:50
-msgid "Resident Set Size Limit"
-msgstr "Maximale Größe des permanent belegten Speichers"
-
-#: sysdeps/names/procmem.c:55
-msgid "Total # of pages of memory"
-msgstr "Anzahl Speicherseiten insgesamt"
-
-#: sysdeps/names/procmem.c:56
-msgid "Number of pages of virtual memory"
-msgstr "Anzahl virtueller Speicherseiten"
-
-#: sysdeps/names/procmem.c:57
-msgid "Number of resident set (non-swapped) pages"
-msgstr "Anzahl residenter (nicht ausgelagerter) Speicherseiten"
-
-#: sysdeps/names/procmem.c:58
-msgid "Number of pages of shared (mmap'd) memory"
-msgstr "Anzahl gemeinsam genutzter Speicherseiten (via mmap())"
-
-#: sysdeps/names/procmem.c:59
-msgid ""
-"Number of pages the process has in real memory, minus 3 for administrative "
-"purposes. This is just the pages which count towards text, data, or stack "
-"space. This does not include pages which have not been demand-loaded in, or "
-"which are swapped out."
-msgstr ""
-"Anzahl der Seiten, die der Prozess im Speicher hält minus drei für "
-"administrative Zwecke, d.h. alle Seiten im Text, Daten und Stack-Bereich "
-"ohne solche die nur bei Bedarf geladen werden (und momentan nicht geladen "
-"sind) und ausgelagerte Seiten."
-
-#: sysdeps/names/procmem.c:64
-msgid ""
-"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr ""
-"Gegenwärtiges Limit in Bytes für die RSS des Prozesses (normalerweise "
-"2,147,483,647)."
-
-#: sysdeps/names/procsegment.c:50
-msgid "Text_RSS"
-msgstr "Text_RSS"
-
-#: sysdeps/names/procsegment.c:50
-msgid "ShLib_RSS"
-msgstr "Bibliothek_RSS"
-
-#: sysdeps/names/procsegment.c:50
-msgid "Data_RSS"
-msgstr "Daten_RSS"
-
-#: sysdeps/names/procsegment.c:50
-msgid "Stack_RSS"
-msgstr "Stack_RSS"
-
-#: sysdeps/names/procsegment.c:51
-msgid "Dirty Size"
-msgstr "`Dirty' Größe"
-
-#: sysdeps/names/procsegment.c:51
-msgid "Start_Code"
-msgstr "Start_Code"
-
-#: sysdeps/names/procsegment.c:51
-msgid "End_Code"
-msgstr "Ende_Code"
-
-#: sysdeps/names/procsegment.c:52
-msgid "Start_Data"
-msgstr "Start_Daten"
-
-#: sysdeps/names/procsegment.c:52
-msgid "End_Data"
-msgstr "Ende_Daten"
-
-#: sysdeps/names/procsegment.c:52
-msgid "Start_Brk"
-msgstr "Start_Brk"
-
-#: sysdeps/names/procsegment.c:52
-msgid "Brk"
-msgstr "Brk"
-
-#: sysdeps/names/procsegment.c:53
-msgid "Start_Stack"
-msgstr "Start_Stack"
-
-#: sysdeps/names/procsegment.c:53
-msgid "Start_MMap"
-msgstr "Start_MMap"
-
-#: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
-msgid "Arg_Start"
-msgstr "Arg_Start"
-
-#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
-msgid "Arg_End"
-msgstr "Arg_Ende"
-
-#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
-msgid "Env_Start"
-msgstr "Env_Start"
-
-#: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
-msgid "Env_End"
-msgstr "Env_Ende"
-
-#: sysdeps/names/procsegment.c:59
-msgid "Text resident set size"
-msgstr "Größe des permanenten Textsegments"
-
-#: sysdeps/names/procsegment.c:60
-msgid "Shared-Lib resident set size"
-msgstr "Größe permanenter Bibliotheken"
-
-#: sysdeps/names/procsegment.c:61
-msgid "Data resident set size"
-msgstr "Größe des permanenten Datensegments"
-
-#: sysdeps/names/procsegment.c:62
-msgid "Stack resident set size"
-msgstr "Größe des permanenten Stack-Segments"
-
-#: sysdeps/names/procsegment.c:63
-msgid "Total size of dirty pages"
-msgstr "Größe der `dirty pages' insgesamt"
-
-#: sysdeps/names/procsegment.c:64
-msgid "Address of beginning of code segment"
-msgstr "Adresse, an der das Programmcode-Segment anfängt"
-
-#: sysdeps/names/procsegment.c:65
-msgid "Address of end of code segment"
-msgstr "Adresse, an der das Programmcode-Segment aufhört"
-
-#: sysdeps/names/procsegment.c:66
-msgid "Address of beginning of data segment"
-msgstr "Adresse, an der das Datensegment anfängt"
-
-#: sysdeps/names/procsegment.c:67
-msgid "Address of end of data segment"
-msgstr "Adresse, an der das Datensegment aufhört"
-
-#: sysdeps/names/procsegment.c:68
-msgid "Brk_Start"
-msgstr "Brk_Start"
-
-#: sysdeps/names/procsegment.c:69
-msgid "Brk_End"
-msgstr "Brk_Ende"
-
-#: sysdeps/names/procsegment.c:70
-msgid "Address of the bottom of stack segment"
-msgstr "Adresse des unteren Endes des Stack-Segments"
-
-#: sysdeps/names/procsegment.c:71
-msgid "Start of mmap()ed areas"
-msgstr "Start der `mmap()-Zonen'"
-
-#: sysdeps/names/procsignal.c:42
-msgid "Signal"
-msgstr "Signal"
-
-#: sysdeps/names/procsignal.c:42
-msgid "Blocked"
-msgstr "Blockiert"
-
-#: sysdeps/names/procsignal.c:42
-msgid "SigIgnore"
-msgstr "Signal Ignoriert"
-
-#: sysdeps/names/procsignal.c:42
-msgid "SigCatch"
-msgstr "Signal Erhalten"
-
-#: sysdeps/names/procsignal.c:47
-msgid "Mask of pending signals"
-msgstr "Maske ausstehender Signale"
-
-#: sysdeps/names/procsignal.c:48
-msgid "Mask of blocked signals"
-msgstr "Maske blockierter Signale"
-
-#: sysdeps/names/procsignal.c:49
-msgid "Mask of ignored signals"
-msgstr "Maske ignorierter Signale"
-
-#: sysdeps/names/procsignal.c:50
-msgid "Mask of caught signals"
-msgstr "Maske erhaltener Signale"
-
-#: sysdeps/names/procstate.c:45
-msgid "Cmd"
-msgstr "Befehl"
-
-#: sysdeps/names/procstate.c:45
-msgid "State"
-msgstr "Status"
-
-#: sysdeps/names/procstate.c:45
-msgid "UID"
-msgstr "UID"
-
-#: sysdeps/names/procstate.c:45
-msgid "GID"
-msgstr "GID"
-
-#: sysdeps/names/procstate.c:45
-msgid "RUID"
-msgstr "RUID"
-
-#: sysdeps/names/procstate.c:46
-msgid "RGID"
-msgstr "RGID"
-
-#: sysdeps/names/procstate.c:46
-msgid "Has CPU"
-msgstr "Hat CPU"
-
-#: sysdeps/names/procstate.c:46
-msgid "Processor"
-msgstr "Prozessor"
-
-#: sysdeps/names/procstate.c:47
-msgid "Last Processor"
-msgstr "Letzter Prozessor"
-
-#: sysdeps/names/procstate.c:52
-msgid "Basename of executable file in call to exec()"
-msgstr "Dateiname des Programms im Aufruf von exec()"
-
-#: sysdeps/names/procstate.c:53
-msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Prozessstatus (S=schläft)"
-
-#: sysdeps/names/procstate.c:54
-msgid "effective UID of process"
-msgstr "effektive UID des Prozesses"
-
-#: sysdeps/names/procstate.c:55
-msgid "effective GID of process"
-msgstr "effektive GID des Prozesses"
-
-#: sysdeps/names/procstate.c:56
-msgid "real UID of process"
-msgstr "echte UID des Prozesses"
-
-#: sysdeps/names/procstate.c:57
-msgid "real GID of process"
-msgstr "echte GID des Prozesses"
-
-#: sysdeps/names/procstate.c:58
-msgid "has_cpu"
-msgstr "has_cpu"
-
-#: sysdeps/names/procstate.c:59
-msgid "processor"
-msgstr "processor"
-
-#: sysdeps/names/procstate.c:60
-msgid "last_processor"
-msgstr "last_processor"
-
-#: sysdeps/names/proctime.c:46
-msgid "Start_Time"
-msgstr "Startzeit"
-
-#: sysdeps/names/proctime.c:46
-msgid "RTime"
-msgstr "RZeit"
-
-#: sysdeps/names/proctime.c:46
-msgid "UTime"
-msgstr "BZeit"
-
-#: sysdeps/names/proctime.c:46
-msgid "STime"
-msgstr "SZeit"
-
-#: sysdeps/names/proctime.c:47
-msgid "CUTime"
-msgstr "CBZeit"
-
-#: sysdeps/names/proctime.c:47
-msgid "CSTime"
-msgstr "CSZeit"
-
-#: sysdeps/names/proctime.c:47
-msgid "TimeOut"
-msgstr "TimeOut"
-
-#: sysdeps/names/proctime.c:47
-msgid "It_Real_Value"
-msgstr "It_Real_Value"
-
-#: sysdeps/names/proctime.c:48
-msgid "Frequency"
-msgstr "Frequenz"
-
-#: sysdeps/names/proctime.c:48
-msgid "XCPU_UTime"
-msgstr "XCPU_UTime"
-
-#: sysdeps/names/proctime.c:48
-msgid "XCPU_STime"
-msgstr "XCPU_STime"
-
-#: sysdeps/names/proctime.c:49
-msgid "XCPU_Flags"
-msgstr "XCPU_Flags"
-
-#: sysdeps/names/proctime.c:54
-msgid "Start time of process in seconds since the epoch"
-msgstr "Startzeit des Prozesses in Sekunden seit dem 1. Januar 1970"
-
-#: sysdeps/names/proctime.c:55
-msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "Realzeit des Prozesses (sollte `utime + stime' sein)"
-
-#: sysdeps/names/proctime.c:56
-msgid "user-mode CPU time accumulated by process"
-msgstr "Zeit, die der Prozess im Benutzer-Modus verbracht hat"
-
-#: sysdeps/names/proctime.c:57
-msgid "kernel-mode CPU time accumulated by process"
-msgstr "Zeit, die der Prozess im Kernel-Modus verbracht hat"
-
-#: sysdeps/names/proctime.c:58
-msgid "cumulative utime of process and reaped children"
-msgstr ""
-"Zeit, die der Prozess und seine bereits gestorbenen Kinder im Benutzer-Modus "
-"verbracht haben"
-
-#: sysdeps/names/proctime.c:59
-msgid "cumulative stime of process and reaped children"
-msgstr ""
-"Zeit, die der Prozess und seine bereits gestorbenen Kinder im Kernel "
-"verbracht haben"
-
-#: sysdeps/names/proctime.c:60
-msgid "The time (in jiffies) of the process's next timeout"
-msgstr ""
-"Zeit (in 1/100stel Sekunden) bis der Prozess seinen nächsten Timeout "
-"empfängt"
-
-#: sysdeps/names/proctime.c:61
-msgid ""
-"The time (in jiffies) before the next SIGALRM is sent to the process due to "
-"an interval timer."
-msgstr ""
-"Zeit (in 1/100stel Sekunden) bevor das nächste SIGALRM Signal aufgrund eines "
-"Intervall-Timers an den Prozess geschickt wird."
-
-#: sysdeps/names/proctime.c:63
-msgid "Tick frequency"
-msgstr "Impulsfrequenz"
-
-#: sysdeps/names/proctime.c:64
-msgid "SMP user-mode CPU time accumulated by process"
-msgstr ""
-"Zeit aller Prozessoren, die der Prozess im Benutzer-Modus verbracht hat"
-
-#: sysdeps/names/proctime.c:65
-msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "Zeit aller Prozessoren, die der Prozess im Kernel-Modus verbracht hat"
-
-#: sysdeps/names/procuid.c:48
-msgid "Uid"
-msgstr "Uid"
-
-#: sysdeps/names/procuid.c:48
-msgid "EUid"
-msgstr "EUid"
-
-#: sysdeps/names/procuid.c:48
-msgid "Gid"
-msgstr "Gid"
-
-#: sysdeps/names/procuid.c:48
-msgid "EGid"
-msgstr "EGid"
-
-#: sysdeps/names/procuid.c:48
-msgid "SUid"
-msgstr "SUid"
-
-#: sysdeps/names/procuid.c:49
-msgid "SGid"
-msgstr "SGid"
-
-#: sysdeps/names/procuid.c:49
-msgid "FsUid"
-msgstr "FsUid"
-
-#: sysdeps/names/procuid.c:49
-msgid "FsGid"
-msgstr "FsGid"
-
-#: sysdeps/names/procuid.c:49
-msgid "Pid"
-msgstr "Pid"
-
-#: sysdeps/names/procuid.c:50
-msgid "PPid"
-msgstr "PPid"
-
-#: sysdeps/names/procuid.c:50
-msgid "PGrp"
-msgstr "PGrp"
-
-#: sysdeps/names/procuid.c:50
-msgid "Session"
-msgstr "Sitzung"
-
-#: sysdeps/names/procuid.c:50
-msgid "Tty"
-msgstr "Tty"
-
-#: sysdeps/names/procuid.c:51
-msgid "TPGid"
-msgstr "TPGid"
-
-#: sysdeps/names/procuid.c:51
-msgid "Priority"
-msgstr "Priorität"
-
-#: sysdeps/names/procuid.c:51
-msgid "Nice"
-msgstr "Priorität"
-
-#: sysdeps/names/procuid.c:51
-msgid "NGroups"
-msgstr "NGruppen"
-
-#: sysdeps/names/procuid.c:52
-msgid "Groups"
-msgstr "Gruppen"
-
-#: sysdeps/names/procuid.c:57
-msgid "User ID"
-msgstr "Benutzer-ID"
-
-#: sysdeps/names/procuid.c:58
-msgid "Effective User ID"
-msgstr "Effektive Benutzer-ID"
-
-#: sysdeps/names/procuid.c:59
-msgid "Group ID"
-msgstr "Gruppen-ID"
-
-#: sysdeps/names/procuid.c:60
-msgid "Effective Group ID"
-msgstr "Effektive Gruppen-ID"
-
-#: sysdeps/names/procuid.c:61
-msgid "Saved User ID"
-msgstr "Gespeicherte Benutzer-ID"
-
-#: sysdeps/names/procuid.c:62
-msgid "Saved Group ID"
-msgstr "Gespeicherte Gruppen-ID"
-
-#: sysdeps/names/procuid.c:63
-msgid "Filesystem User ID"
-msgstr "Dateisystem-Benutzer-ID"
-
-#: sysdeps/names/procuid.c:64
-msgid "Filesystem Group ID"
-msgstr "Dateisystem-Gruppen-ID"
-
-#: sysdeps/names/procuid.c:65
-msgid "Process ID"
-msgstr "Prozess-ID"
-
-#: sysdeps/names/procuid.c:66
-msgid "PID of parent process"
-msgstr "PID des Vaterprozesses"
-
-#: sysdeps/names/procuid.c:67
-msgid "Process group ID"
-msgstr "Prozessgruppen-ID"
-
-#: sysdeps/names/procuid.c:68
-msgid "Session ID"
-msgstr "Sitzungs-ID"
-
-#: sysdeps/names/procuid.c:69
-msgid "Full device number of controlling terminal"
-msgstr "Volle Gerätenummer des kontrolierenden Terminals"
-
-#: sysdeps/names/procuid.c:70
-msgid "Terminal process group ID"
-msgstr "Terminalprozessgruppen-ID"
-
-#: sysdeps/names/procuid.c:71
-msgid "Kernel scheduling priority"
-msgstr "Kernelbehandlungspriorität"
-
-#: sysdeps/names/procuid.c:72
-msgid "Standard unix nice level of process"
-msgstr "Standard UNIX `nice' Wert des Prozesses"
-
-#: sysdeps/names/procuid.c:73
-msgid "Number of additional process groups"
-msgstr "Anzahl zusätzlicher Prozessgruppen"
-
-#: sysdeps/names/procuid.c:74
-msgid "Additional process groups"
-msgstr "Zusätzliche Prozessgruppen"
-
-#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
-msgid "Number of entries in semaphore map"
-msgstr "Anzahl Einträge in der Zeichenträger-Tabelle"
-
-#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
-msgid "Max number of arrays"
-msgstr "Maximale Anzahl der Felder"
-
-#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
-msgid "Max semaphores system wide"
-msgstr "Maximale Anzahl Zeichenträger im System"
-
-#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
-msgid "Number of undo structures system wide"
-msgstr "Anzahl `Undo-Strukturen' im System"
-
-#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
-msgid "Max semaphores per array"
-msgstr "Maximale Anzahl der Zeichenträger pro Feld"
-
-#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
-msgid "Max ops per semop call"
-msgstr "Maximale Anzahl Operationen pro `semop-Aufruf'"
-
-#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
-msgid "Max number of undo entries per process"
-msgstr "Maximale Anzahl `Undo-Einträge' pro Prozess"
-
-#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
-msgid "sizeof struct sem_undo"
-msgstr "sizeof struct sem_undo"
-
-#: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
-msgid "Semaphore max value"
-msgstr "Zeichenträger Maximalwert"
-
-#: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
-msgid "Adjust on exit max value"
-msgstr "Maximaler `Adjust-on-Exit-Wert'"
-
-#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
-msgid "Max segment size"
-msgstr "Maximale Segmentgröße"
-
-#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
-msgid "Min segment size"
-msgstr "Minimale Segmentgröße"
-
-#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
-msgid "Max number of segments"
-msgstr "Maximale Anzahl Segmente"
-
-#: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
-msgid "Max shared segments per process"
-msgstr "Maximale Anzahl gemeinsamer Segmente pro Prozess"
-
-#: sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
-msgid "Max total shared memory"
-msgstr "Maximaler gesamter gemeinsamer Speicher"
-
-#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
-msgid "Total Swap Space"
-msgstr "Auslagerungsspeicher insgesamt"
-
-#: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
-msgid "Used Swap Space"
-msgstr "Belegter Auslagerungsspeicher"
-
-#: sysdeps/names/swap.c:43 sysdeps/names/swap.c:52
-msgid "Free Swap Space"
-msgstr "Freier Auslagerungsspeicher"
-
-#: sysdeps/names/swap.c:44
-msgid "Page In"
-msgstr "Eingelagerte Seiten"
-
-#: sysdeps/names/swap.c:45
-msgid "Page Out"
-msgstr "Ausgelagerte Seiten"
-
-#: sysdeps/names/swap.c:53
-msgid "Total number of swap pages that have been brought in since system boot"
-msgstr ""
-"Anzahl der Seiten, die insgesamt seit dem letzten Systemstart ausgelagert "
-"wurden"
-
-#: sysdeps/names/swap.c:55
-msgid ""
-"Total number of swap pages that have been brought out since system boot"
-msgstr ""
-"Anzahl der Seiten, die insgesamt seit dem letzten Systemstart eingelagert "
-"wurden"
-
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:83
-msgid "Server Features"
-msgstr "Server-Merkmale"
-
-#: sysdeps/names/sysdeps.c:54
-msgid "Pointer Size"
-msgstr "Zeigergröße"
-
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:85
-msgid "CPU Usage"
-msgstr "Prozessorlast"
-
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:86
-msgid "Memory Usage"
-msgstr "Speicherbelegung"
-
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:87
-msgid "Swap Usage"
-msgstr "Auslagerungsspeicher"
-
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:88
-msgid "System Uptime"
-msgstr "Laufzeit des Systems"
-
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:89
-msgid "Load Averange"
-msgstr "Systemlast"
-
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:90
-msgid "Shared Memory Limits"
-msgstr "Limits für gemeinsam genutzten Speicher"
-
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:91
-msgid "Message Queue Limits"
-msgstr "Limits für Nachrichtenwarteschlangen"
-
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:92
-msgid "Semaphore Set Limits"
-msgstr "Festgelegtes Zeichenträger-Limit"
-
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:93
-msgid "List of running Processes"
-msgstr "Liste derzeitiger Prozesse"
-
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:94
-msgid "Process Status information"
-msgstr "Prozess Statusinformation"
-
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:95
-msgid "Process UID and TTY information"
-msgstr "Prozess Eigentümer- und Terminal-Information"
-
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:96
-msgid "Process Memory information"
-msgstr "Speicherbelegung des Prozesses"
-
-#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:97
-msgid "Process Time information"
-msgstr "Prozess-Zeitinformation"
-
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:98
-msgid "Process Signal information"
-msgstr "Prozess-Signalinformation"
-
-#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:99
-msgid "Process Kernel Data information"
-msgstr "Prozess-Kerneldateninformation"
-
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:100
-msgid "Process Segment information"
-msgstr "Prozess-Segmentinformation"
-
-#: sysdeps/names/sysdeps.c:71
-msgid "Process CWD"
-msgstr "Prozess-CWD"
-
-#: sysdeps/names/sysdeps.c:72
-msgid "Process Arguments"
-msgstr "Prozessargumente"
-
-#: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:103
-msgid "Process Memory Map"
-msgstr "Prozess-Speicherplan"
-
-#: sysdeps/names/sysdeps.c:74
-msgid "Mount List"
-msgstr "Mountliste"
-
-#: sysdeps/names/sysdeps.c:75 sysdeps/names/sysdeps.c:105
-msgid "File System Usage"
-msgstr "Dateisystemnutzung"
-
-#: sysdeps/names/sysdeps.c:76 sysdeps/names/sysdeps.c:106
-msgid "Network Load"
-msgstr "Netzlast"
-
-#: sysdeps/names/sysdeps.c:77 sysdeps/names/sysdeps.c:107
-msgid "Interface Names"
-msgstr "Schnittstellennamen"
-
-#: sysdeps/names/sysdeps.c:78 sysdeps/names/sysdeps.c:108
-msgid "PPP Statistics"
-msgstr "PPP Statistik"
-
-#: sysdeps/names/sysdeps.c:84
-msgid "Pointer Size on the Server (in bits)"
-msgstr "Zeigergröße auf dem Server (in Bits)"
-
-#: sysdeps/names/sysdeps.c:101
-msgid "Current working directory of the process"
-msgstr "Aktuelles Arbeitsverzeichnis des Prozesses"
-
-#: sysdeps/names/sysdeps.c:102
-msgid "Command line arguments of the process"
-msgstr "Kommandozeilenparameter des Prozesses"
-
-#: sysdeps/names/sysdeps.c:104
-msgid "List of currently mounted filesystems"
-msgstr "Liste gegenwärtig gemounteter Dateisysteme"
-
-#: sysdeps/names/uptime.c:40
-msgid "Uptime"
-msgstr "Laufzeit"
-
-#: sysdeps/names/uptime.c:41
-msgid "Idletime"
-msgstr "Leerlaufzeit"
-
-#: sysdeps/names/uptime.c:42
-msgid "Boot time"
-msgstr "Startzeit"
-
-#: sysdeps/names/uptime.c:47
-msgid "Time in seconds since system boot"
-msgstr "Zeit in Sekunden seit Systemstart"
-
-#: sysdeps/names/uptime.c:48
-msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr ""
-"Zeit in Sekunden, die das System seit dem Booten im Leerlauf verbracht hat"
-
-#: sysdeps/names/uptime.c:49
-msgid "Boot time (seconds sice epoch)"
-msgstr "Startzeit (Sekunden seit Start)"
-
-#: support/error.c:109
-msgid "Unknown system error"
-msgstr "Unbekannter Systemfehler"
-
-#: support/getopt.c:669
+"Konfigurationsdatei konnte nicht geladen werden. Standard wird gesetzt. "
+"Wählen Sie \"Port wählen-Kamera-Modell\" im Konfiguartionsmenü, um Ihr "
+"Kameramodell und den seriellen Port festzulegen"
+
+#: src/toolbar.c:90
+msgid "Open Image"
+msgstr "Bild öffnen"
+
+#: src/toolbar.c:92
+msgid "Save Opened Image(s)"
+msgstr "Geöffnete Bilder speichern"
+
+#: src/toolbar.c:94
+msgid "Print Image"
+msgstr "Bild drucken"
+
+#: src/toolbar.c:96
+msgid "Close Image"
+msgstr "Bild schließen"
+
+#: src/toolbar.c:99
+msgid "Previous page"
+msgstr "Voherige Seite"
+
+#: src/toolbar.c:101
+msgid "Next page"
+msgstr "Nächste Seite"
+
+#: src/toolbar.c:104
+msgid "Download Thumbnail Index"
+msgstr "Index der Vorschaubilder empfangen"
+
+#: src/toolbar.c:106
+msgid "Download Empty Index"
+msgstr "Leeren Index empfangen"
+
+#: src/toolbar.c:108
+msgid "Download Selected Images"
+msgstr "Gewählte Bilder empfangen"
+
+#: src/toolbar.c:110
+msgid "Delete Selected Images"
+msgstr "Ausgewählte Bilder löschen"
+
+#: src/toolbar.c:113
+msgid "Halt Download"
+msgstr "Empfang anhalten"
+
+#: src/toolbar.c:117
+msgid "Rotate Clockwise"
+msgstr "Im Uhrzeigersinn rotieren"
+
+#: src/toolbar.c:119
+msgid "Rotate Counter-Clockwise"
+msgstr "Gegen den Uhrzeigersinn rotieren"
+
+#: src/toolbar.c:121
+msgid "Flip Horizontal"
+msgstr "Horizontal kippen"
+
+#: src/toolbar.c:123
+msgid "Flip Vertical"
+msgstr "Vertikal kippen"
+
+#: src/toolbar.c:128 src/toolbar.c:130
+msgid "Colors"
+msgstr "Farben"
+
+#.
+#. browse_button = add_to_toolbar(mainWin, N_("HTML Gallery"), web_browse_xpm,
+#. GTK_SIGNAL_FUNC(gallery_main), NULL, box, 1);
+#. add_to_toolbar(mainWin, N_("Live Camera!"), take_picture_xpm,
+#. GTK_SIGNAL_FUNC(live_main), NULL, box, 1);
+#. add_to_toolbar(mainWin, NULL, NULL, NULL, NULL, box, 1);
+#.
+#: src/toolbar.c:141
+msgid "Camera Configuration"
+msgstr "Kamera Konfiguration"
+
+#: src/toolbar.c:144
+msgid "Help"
+msgstr "Hilfe"
+
+#: src/toolbar.c:146
+msgid "Exit gPhoto"
+msgstr "gPhoto beenden"
+
+#: src/util.c:56
+msgid "gPhoto Message"
+msgstr "gPhoto Meldung"
+
+#: src/util.c:127
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#: src/util.c:166
 #, c-format
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: Option `%s' ist mehrdeutig\n"
+msgid "File %s exists. Overwrite?"
+msgstr "Datei %s existiert. Überschreiben?"
 
-#: support/getopt.c:693
-#, c-format
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: Option `--%s' erlaubt kein Argument\n"
+#: src/util.c:354
+msgid "load_image_mem: could not load image\n"
+msgstr "lade_bild_mem: Konnte Bild nicht laden\n"
 
-#: support/getopt.c:698
-#, c-format
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: Option `%c%s' erlaubt kein Argument\n"
-
-#: support/getopt.c:715 support/getopt.c:888
-#, c-format
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: Option `%s' benötigt ein Argument\n"
-
-#. --option
-#: support/getopt.c:744
-#, c-format
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: unbekannte Option: `--%s'\n"
-
-#. +option or -option
-#: support/getopt.c:748
-#, c-format
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: unbekannte Option: `%c%s'\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:774
-#, c-format
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: unzulässige Option -- %c\n"
-
-#: support/getopt.c:777
-#, c-format
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: ungültige Option -- %c\n"
-
-#. 1003.2 specifies the format of this message.
-#: support/getopt.c:807 support/getopt.c:937
-#, c-format
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: Option benötigt ein Argument -- %c\n"
-
-#: support/getopt.c:854
-#, c-format
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: Option `-W %s' ist mehrdeutig\n"
-
-#: support/getopt.c:872
-#, c-format
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: Option `-W %s' erlaubt kein Argument\n"
-
-#: lib/errors.c:31
-msgid "No error"
-msgstr "Kein Fehler"
-
-#: lib/errors.c:32
-msgid "Unknown error"
-msgstr "Unbekannter Fehler"
-
-#: lib/errors.c:33
-msgid "Invalid argument"
-msgstr "Ungültiges Argument"
-
-#: lib/errors.c:34
-msgid "No such parameter"
-msgstr "Kein solcher Parameter"
-
-#: lib/errors.c:35
-msgid "Attempted to modify a read-only value"
-msgstr "Versuch einen schreibgeschützten Wert zu ändern"
-
-#: lib/errors.c:36
-msgid "Parameter size mismatch"
-msgstr "Parametergröße stimmt nicht"
-
-#: lib/errors.c:37
-msgid "Communication with LibGTop server failed"
-msgstr "Kommunikation mit dem LibGTop-Server gescheitert"
-
-#: lib/errors.c:38
-msgid "No such process"
-msgstr "Kein solcher Prozess"
-
-#: lib/errors.c:39
-msgid "No kernel support"
-msgstr "Keine Kernel-Unterstützung"
-
-#: lib/errors.c:40
-msgid "Incompatible kernel version"
-msgstr "Inkompatible Kernel-Version"
-
+#: src/util.c:477
+msgid "Fork failed. Exiting. \n"
+msgstr "Fork fehlgeschlagen. Beenden. \n"
