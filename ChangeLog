@@ -1,3 +1,8 @@
+1999-07-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* configure.in (ENABLE_STATIC, ENABLE_SHARED): New automake
+	conditionals.
+
 1999-07-27  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in (LT_VERSION_INFO): Add `-release ${LT_RELEASE}'.
