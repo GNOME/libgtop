@@ -1,5 +1,5 @@
 /* fsusage.h -- declarations for filesystem space usage info
-   Copyright (C) 1991, 1992 Free Software Foundation, Inc.
+   Copyright (C) 1991, 1992, 1997 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -15,15 +15,31 @@
    along with this program; if not, write to the Free Software Foundation,
    Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
 
-#include <glib.h>
-
 /* Space usage statistics for a filesystem.  Blocks are 512-byte. */
+
+#if !defined FSUSAGE_H_
+# define FSUSAGE_H_
+
 struct fs_usage
 {
-    guint64 fsu_blocks;	/* Total blocks. */
-    guint64 fsu_bfree;	/* Free blocks available to superuser. */
-    guint64 fsu_bavail;	/* Free blocks available to non-superuser. */
-    guint64 fsu_files;	/* Total file nodes. */
-    guint64 fsu_ffree;	/* Free file nodes. */
+  int fsu_blocksize;		/* Size of a block.  */
+  uintmax_t fsu_blocks;		/* Total blocks. */
+  uintmax_t fsu_bfree;		/* Free blocks available to superuser. */
+  uintmax_t fsu_bavail;		/* Free blocks available to non-superuser. */
+  int fsu_bavail_top_bit_set;	/* 1 if fsu_bavail represents a value < 0.  */
+  uintmax_t fsu_files;		/* Total file nodes. */
+  uintmax_t fsu_ffree;		/* Free file nodes. */
 };
 
+# ifndef PARAMS
+#  if defined PROTOTYPES || (defined __STDC__ && __STDC__)
+#   define PARAMS(Args) Args
+#  else
+#   define PARAMS(Args) ()
+#  endif
+# endif
+
+int glibtop_private_get_fs_usage PARAMS ((const char *path, const char *disk,
+					  struct fs_usage *fsp));
+
+#endif

@@ -1,3 +1,12 @@
+2003-12-27  Ole Laursen  <olau@hardworking.dk>
+
+	* README.fsusage: Added a few words about the code from GNU
+	Coreutils.
+
+	* fsusage.c, fsusage.h: Resynced from GNU Coreutils 5.0.
+
+	* fsusage-frontend.c: Moved the frontend from fsusage.c to here.
+
 2003-10-21  Bastien Nocera  <hadess@hadess.net>
 
 	* Makefile.am:

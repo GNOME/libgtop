@@ -1,7 +1,6 @@
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
-   This file is part of LibGTop 1.0.
 
    Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
 
@@ -34,19 +33,22 @@ G_BEGIN_DECLS
 #define GLIBTOP_FSUSAGE_BAVAIL		2
 #define GLIBTOP_FSUSAGE_FILES		3
 #define GLIBTOP_FSUSAGE_FFREE		4
+#define GLIBTOP_FSUSAGE_BLOCK_SIZE	6
 
 #define GLIBTOP_MAX_FSUSAGE		5
+
 
 typedef struct _glibtop_fsusage		glibtop_fsusage;
 
 struct _glibtop_fsusage
 {
 	guint64	flags,
-		blocks,		/* Total blocks. */
+		blocks,		/* Total number of blocks. */
 		bfree,		/* Free blocks available to superuser. */
 		bavail,		/* Free blocks available to non-superuser. */
 		files,		/* Total file nodes. */
 		ffree;		/* Free file nodes. */
+	int	block_size;	/* Size of a block in bytes. */
 };
 
 #define glibtop_get_fsusage(fsusage,disk)	glibtop_get_fsusage_l(glibtop_global_server, fsusage, disk)

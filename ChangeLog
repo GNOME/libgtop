@@ -1,3 +1,7 @@
+2003-12-27  Ole Laursen  <olau@hardworking.dk>
+
+	* include/glibtop/fsusage.h: Added block_size field. (Closes: #125049)
+
 2004-03-05  Bastien Nocera  <hadess@hadess.net>
 
 	* include/glibtop/procmap.h: patch by Benoit Dejean <bnet@ifrance.com>

@@ -1,5 +1,6 @@
 /* fsusage.c -- return space usage of mounted filesystems
-   Copyright (C) 1991, 1992, 1996 Free Software Foundation, Inc.
+   Copyright (C) 1991, 1992, 1996, 1998, 1999, 2002, 2003 Free Software
+   Foundation, Inc.
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -19,11 +20,27 @@
 # include <config.h>
 #endif
 
+#if HAVE_INTTYPES_H
+# include <inttypes.h>
+#else
+# if HAVE_STDINT_H
+#  include <stdint.h>
+# endif
+#endif
+#ifndef UINTMAX_MAX
+# define UINTMAX_MAX ((uintmax_t) -1)
+#endif
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "fsusage.h"
 
-int statfs ();
+#if HAVE_LIMITS_H
+# include <limits.h>
+#endif
+#ifndef CHAR_BIT
+# define CHAR_BIT 8
+#endif
 
 #if HAVE_SYS_PARAM_H
 # include <sys/param.h>
@@ -41,7 +58,7 @@ int statfs ();
 # include <sys/fs/s5param.h>
 #endif
 
-#if defined (HAVE_SYS_FILSYS_H) && !defined (_CRAY)
+#if defined HAVE_SYS_FILSYS_H && !defined _CRAY
 # include <sys/filsys.h>	/* SVR2 */
 #endif
 
@@ -62,36 +79,31 @@ int statfs ();
 int statvfs ();
 #endif
 
-#include <glibtop.h>
-#include <glibtop/error.h>
-#include <glibtop/fsusage.h>
+#include "full-read.h"
 
-static int
-get_fs_usage (const char *path, const char *disk, struct fs_usage *fsp);
+/* Many space usage primitives use all 1 bits to denote a value that is
+   not applicable or unknown.  Propagate this information by returning
+   a uintmax_t value that is all 1 bits if X is all 1 bits, even if X
+   is unsigned and narrower than uintmax_t.  */
+#define PROPAGATE_ALL_ONES(x) \
+  ((sizeof (x) < sizeof (uintmax_t) \
+    && (~ (x) == (sizeof (x) < sizeof (int) \
+		  ? - (1 << (sizeof (x) * CHAR_BIT)) \
+		  : 0))) \
+   ? UINTMAX_MAX : (x))
 
-int safe_read ();
+/* Extract the top bit of X as an uintmax_t value.  */
+#define EXTRACT_TOP_BIT(x) ((x) \
+			    & ((uintmax_t) 1 << (sizeof (x) * CHAR_BIT - 1)))
 
-/* Return the number of TOSIZE-byte blocks used by
-   BLOCKS FROMSIZE-byte blocks, rounding away from zero.
-   TOSIZE must be positive.  Return -1 if FROMSIZE is not positive.  */
-
-static guint64
-adjust_blocks (blocks, fromsize, tosize)
-     guint64 blocks;
-     int fromsize, tosize;
-{
-  if (tosize <= 0)
-    abort ();
-  if (fromsize <= 0)
-    return -1;
-
-  if (fromsize == tosize)	/* e.g., from 512 to 512 */
-    return blocks;
-  else if (fromsize > tosize)	/* e.g., from 2048 to 512 */
-	return blocks * (guint64)(fromsize / tosize);
-  else				/* e.g., from 256 to 512 */
-	return (blocks + (blocks < 0 ? -1 : 1)) / (guint64)(tosize / fromsize);
-}
+/* If a value is negative, many space usage primitives store it into an
+   integer variable by assignment, even if the variable's type is unsigned.
+   So, if a space usage variable X's top bit is set, convert X to the
+   uintmax_t value V such that (- (uintmax_t) V) is the negative of
+   the original value.  If X's top bit is clear, just yield X.
+   Use PROPAGATE_TOP_BIT if the original value might be negative;
+   otherwise, use PROPAGATE_ALL_ONES.  */
+#define PROPAGATE_TOP_BIT(x) ((x) | ~ (EXTRACT_TOP_BIT (x) - 1))
 
 /* Fill in the fields of FSP with information about space usage for
    the filesystem on which PATH resides.
@@ -100,78 +112,45 @@ adjust_blocks (blocks, fromsize, tosize)
    Return 0 if successful, -1 if not.  When returning -1, ensure that
    ERRNO is either a system error value, or zero if DISK is NULL
    on a system that requires a non-NULL value.  */
-static int
-get_fs_usage (path, disk, fsp)
-     const char *path;
-     const char *disk;
-     struct fs_usage *fsp;
+int
+glibtop_private_get_fs_usage (const char *path, const char *disk, struct fs_usage *fsp)
 {
 #ifdef STAT_STATFS3_OSF1
-# define CONVERT_BLOCKS(B) adjust_blocks ((guint64)(B), fsd.f_fsize, 512)
 
   struct statfs fsd;
 
   if (statfs (path, &fsd, sizeof (struct statfs)) != 0)
     return -1;
 
+  fsp->fsu_blocksize = PROPAGATE_ALL_ONES (fsd.f_fsize);
+
 #endif /* STAT_STATFS3_OSF1 */
 
 #ifdef STAT_STATFS2_FS_DATA	/* Ultrix */
-# define CONVERT_BLOCKS(B) adjust_blocks ((guint64)(B), 1024, 512)
 
   struct fs_data fsd;
 
   if (statfs (path, &fsd) != 1)
     return -1;
-  fsp->fsu_blocks = CONVERT_BLOCKS (fsd.fd_req.btot);
-  fsp->fsu_bfree = CONVERT_BLOCKS (fsd.fd_req.bfree);
-  fsp->fsu_bavail = CONVERT_BLOCKS (fsd.fd_req.bfreen);
-  fsp->fsu_files = fsd.fd_req.gtot;
-  fsp->fsu_ffree = fsd.fd_req.gfree;
+
+  fsp->fsu_blocksize = 1024;
+  fsp->fsu_blocks = PROPAGATE_ALL_ONES (fsd.fd_req.btot);
+  fsp->fsu_bfree = PROPAGATE_ALL_ONES (fsd.fd_req.bfree);
+  fsp->fsu_bavail = PROPAGATE_TOP_BIT (fsd.fd_req.bfreen);
+  fsp->fsu_bavail_top_bit_set = EXTRACT_TOP_BIT (fsd.fd_req.bfreen) != 0;
+  fsp->fsu_files = PROPAGATE_ALL_ONES (fsd.fd_req.gtot);
+  fsp->fsu_ffree = PROPAGATE_ALL_ONES (fsd.fd_req.gfree);
 
 #endif /* STAT_STATFS2_FS_DATA */
 
-#ifdef STAT_READ_FILSYS		/* SVR2 */
-# ifndef SUPERBOFF
-#  define SUPERBOFF (SUPERB * 512)
-# endif
-# define CONVERT_BLOCKS(B) \
-    adjust_blocks ((guint64)(B), (fsd.s_type == Fs2b ? 1024 : 512), 512)
-
-  struct filsys fsd;
-  int fd;
-
-  if (! disk)
-    {
-      errno = 0;
-      return -1;
-    }
-
-  fd = open (disk, O_RDONLY);
-  if (fd < 0)
-    return -1;
-  lseek (fd, (long) SUPERBOFF, 0);
-  if (safe_read (fd, (char *) &fsd, sizeof fsd) != sizeof fsd)
-    {
-      close (fd);
-      return -1;
-    }
-  close (fd);
-  fsp->fsu_blocks = CONVERT_BLOCKS (fsd.s_fsize);
-  fsp->fsu_bfree = CONVERT_BLOCKS (fsd.s_tfree);
-  fsp->fsu_bavail = CONVERT_BLOCKS (fsd.s_tfree);
-  fsp->fsu_files = (fsd.s_isize - 2) * INOPB * (fsd.s_type == Fs2b ? 2 : 1);
-  fsp->fsu_ffree = fsd.s_tinode;
-
-#endif /* STAT_READ_FILSYS */
-
 #ifdef STAT_STATFS2_BSIZE	/* 4.3BSD, SunOS 4, HP-UX, AIX */
-# define CONVERT_BLOCKS(B) adjust_blocks ((guint64)(B), fsd.f_bsize, 512)
 
   struct statfs fsd;
 
   if (statfs (path, &fsd) < 0)
     return -1;
+
+  fsp->fsu_blocksize = PROPAGATE_ALL_ONES (fsd.f_bsize);
 
 # ifdef STATFS_TRUNCATES_BLOCK_COUNTS
 
@@ -180,7 +159,7 @@ get_fs_usage (path, disk, fsp)
      truncation, presumably without botching the 4.1.1 case, in which
      the values are not truncated.  The correct counts are stored in
      undocumented spare fields.  */
-  if (fsd.f_blocks == 0x1fffff && fsd.f_spare[0] > 0)
+  if (fsd.f_blocks == 0x7fffffff / fsd.f_bsize && fsd.f_spare[0] > 0)
     {
       fsd.f_blocks = fsd.f_spare[0];
       fsd.f_bfree = fsd.f_spare[1];
@@ -191,73 +170,72 @@ get_fs_usage (path, disk, fsp)
 #endif /* STAT_STATFS2_BSIZE */
 
 #ifdef STAT_STATFS2_FSIZE	/* 4.4BSD */
-# define CONVERT_BLOCKS(B) adjust_blocks ((guint64)(B), fsd.f_fsize, 512)
 
   struct statfs fsd;
 
   if (statfs (path, &fsd) < 0)
     return -1;
 
+  fsp->fsu_blocksize = PROPAGATE_ALL_ONES (fsd.f_fsize);
+
 #endif /* STAT_STATFS2_FSIZE */
 
 #ifdef STAT_STATFS4		/* SVR3, Dynix, Irix, AIX */
-# if _AIX || defined(_CRAY)
-#  define CONVERT_BLOCKS(B) adjust_blocks ((guint64)(B), fsd.f_bsize, 512)
-#  ifdef _CRAY
-#   define f_bavail f_bfree
-#  endif
-# else
-#  define CONVERT_BLOCKS(B) (B)
-#  ifndef _SEQUENT_		/* _SEQUENT_ is DYNIX/ptx */
-#   ifndef DOLPHIN		/* DOLPHIN 3.8.alfa/7.18 has f_bavail */
-#    define f_bavail f_bfree
-#   endif
-#  endif
+
+# if !_AIX && !defined _SEQUENT_ && !defined DOLPHIN
+#  define f_bavail f_bfree
 # endif
 
   struct statfs fsd;
 
   if (statfs (path, &fsd, sizeof fsd, 0) < 0)
     return -1;
+
   /* Empirically, the block counts on most SVR3 and SVR3-derived
      systems seem to always be in terms of 512-byte blocks,
      no matter what value f_bsize has.  */
+# if _AIX || defined _CRAY
+   fsp->fsu_blocksize = PROPAGATE_ALL_ONES (fsd.f_bsize);
+# else
+   fsp->fsu_blocksize = 512;
+# endif
 
 #endif /* STAT_STATFS4 */
 
 #ifdef STAT_STATVFS		/* SVR4 */
-# define CONVERT_BLOCKS(B) \
-    adjust_blocks ((guint64)(B), fsd.f_frsize ? fsd.f_frsize : fsd.f_bsize, 512)
 
   struct statvfs fsd;
 
   if (statvfs (path, &fsd) < 0)
     return -1;
+
   /* f_frsize isn't guaranteed to be supported.  */
+  fsp->fsu_blocksize = (fsd.f_frsize
+			? PROPAGATE_ALL_ONES (fsd.f_frsize)
+			: PROPAGATE_ALL_ONES (fsd.f_bsize));
 
 #endif /* STAT_STATVFS */
 
-#if !defined(STAT_STATFS2_FS_DATA) && !defined(STAT_READ_FILSYS)
+#if !defined STAT_STATFS2_FS_DATA && !defined STAT_READ_FILSYS
 				/* !Ultrix && !SVR2 */
 
-  fsp->fsu_blocks = CONVERT_BLOCKS (fsd.f_blocks);
-  fsp->fsu_bfree = CONVERT_BLOCKS (fsd.f_bfree);
-  fsp->fsu_bavail = CONVERT_BLOCKS (fsd.f_bavail);
-  fsp->fsu_files = fsd.f_files;
-  fsp->fsu_ffree = fsd.f_ffree;
+  fsp->fsu_blocks = PROPAGATE_ALL_ONES (fsd.f_blocks);
+  fsp->fsu_bfree = PROPAGATE_ALL_ONES (fsd.f_bfree);
+  fsp->fsu_bavail = PROPAGATE_TOP_BIT (fsd.f_bavail);
+  fsp->fsu_bavail_top_bit_set = EXTRACT_TOP_BIT (fsd.f_bavail) != 0;
+  fsp->fsu_files = PROPAGATE_ALL_ONES (fsd.f_files);
+  fsp->fsu_ffree = PROPAGATE_ALL_ONES (fsd.f_ffree);
 
 #endif /* not STAT_STATFS2_FS_DATA && not STAT_READ_FILSYS */
 
   return 0;
 }
 
-#if defined(_AIX) && defined(_I386)
+#if defined _AIX && defined _I386
 /* AIX PS/2 does not supply statfs.  */
 
-int
-statfs (path, fsb)
-     char *path;
-     struct statfs *fsb;
+static int
+statfs (char *path, struct statfs *fsb)
 {
   struct stat stats;
   struct dustat fsd;
@@ -279,24 +257,3 @@ statfs (path, fsb)
 }
 
 #endif /* _AIX && _I386 */
-
-void
-glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
-		       const char *disk)
-{
-	struct fs_usage fsp;
-
-	glibtop_init_r (&server, 0, 0);
-	
-	memset (buf, 0, sizeof (glibtop_fsusage));
-    memset (&fsp, 0, sizeof (struct fs_usage));
-	
-	if (get_fs_usage (disk, disk, &fsp))
-		return;
-
-	buf->blocks = fsp.fsu_blocks;
-	buf->bfree = fsp.fsu_bfree;
-	buf->bavail = fsp.fsu_bavail;
-	buf->files = fsp.fsu_files;
-	buf->ffree = fsp.fsu_ffree;
-}

@@ -88,18 +88,18 @@ main (int argc, char *argv [])
 			mount_entries [index].type,
 			mount_entries [index].devname);
 
-	printf ("\n\n%-23s %9s %9s %9s %9s %9s\n\n",
-		"", "Blocks", "Free", "Avail", "Files", "Free");
+	printf ("\n\n%-16s %9s %9s %9s %9s %9s %9s\n",
+		"Mount", "Blocks", "Free", "Avail", "Files", "Free", "BlockSz");
 
 	for (index = 0; index < mount_list.number; index++) {
 		glibtop_get_fsusage (&fsusage,
 				     mount_entries [index].mountdir);
 
-		printf ("Usage: %-16s %9Lu %9Lu %9Lu %9Lu %9Lu\n",
+		printf ("%-16s %9Lu %9Lu %9Lu %9Lu %9Lu %9d\n",
 			mount_entries [index].mountdir,
 			fsusage.blocks, fsusage.bfree,
 			fsusage.bavail, fsusage.files,
-			fsusage.ffree);
+			fsusage.ffree, fsusage.block_size);
 	}
 
 	g_free (mount_entries);
