@@ -16,7 +16,7 @@
 
 	* procargs.c: (glibtop_get_proc_args_s):
 	* procmap.c: (glibtop_get_proc_map_s): fix g_malloc usage on non-Linux
-        platforms (patch by Benoit Dejean <bnet@ifrance.com>)
+        platforms (patch by Benoît Dejean <bnet@ifrance.com>)
 
 2003-10-21  Bastien Nocera  <hadess@hadess.net>
 

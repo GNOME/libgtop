@@ -40,7 +40,7 @@
 	* procargs.c: (glibtop_get_proc_args_p):
 	* procmap.c: (glibtop_get_proc_map_p):
 	* swap.c: (glibtop_get_swap_p): fix g_malloc usage on non-Linux
-        platforms (patch by Benoit Dejean <bnet@ifrance.com>)
+        platforms (patch by Benoît Dejean <bnet@ifrance.com>)
 
 2003-10-21  Bastien Nocera  <hadess@hadess.net>
 
