@@ -1,3 +1,7 @@
+2001-02-19  Simos Xenitellis  <simos@hellug.gr>
+
+	* configure.in: Added "el" to ALL_LINGUAS.
+
 2001-02-15  Martin Baulig  <baulig@suse.de>
 
 	Released LibGTop 1.0.11 "Jasmin".
