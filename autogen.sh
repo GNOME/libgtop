@@ -14,7 +14,12 @@ PKG_NAME="Gnome Top Library"
     exit 1
 }
 
-. $srcdir/macros/autogen.sh
+if test `uname` = 'SunOS' ; then
+  NO_LIBTOOLIZE=yes . $srcdir/macros/autogen.sh
+else
+  . $srcdir/macros/autogen.sh
+fi
+
 cp -f $srcdir/po/Makefile.in.in.in $srcdir/po/Makefile.in.in
 
 echo ""

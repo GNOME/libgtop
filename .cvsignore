@@ -20,7 +20,6 @@ libgtop-1.*.*
 libgtop-mirror.sh.swp
 libgtopConf.sh
 libtool
-ltconfig
 ltmain.sh
 macros
 stamp-h

@@ -157,7 +157,7 @@ AC_DEFUN([GNOME_LIBGTOP_DYNLINK],[
         else
           with_modules=no
 	fi
-	])
+	],[with_modules=auto])
 
 	dynworks=false
 	deps=
@@ -167,8 +167,8 @@ AC_DEFUN([GNOME_LIBGTOP_DYNLINK],[
 	  AC_MSG_RESULT(yes)
 	fi
 
-	if test x$with_modules = xyes; then
-	  AC_MSG_CHECKING(whether dynamic modules work)
+	AC_MSG_CHECKING(whether dynamic modules work)
+	if test x$with_modules = xauto; then
 	  oLIBS="$LIBS"
 	  oCFLAGS="$CFLAGS"
 	  LIBS="`glib-config --libs gmodule`"
@@ -186,20 +186,24 @@ AC_DEFUN([GNOME_LIBGTOP_DYNLINK],[
 	  ], dynworks=true, dynworks=false, dynworks=true)
 	  LIBS="$oLIBS"
 	  CFLAGS="$oCFLAGS"
-	fi
     
-	dnl Now we check to see if our libtool supports shared lib deps
-	dnl (in a rather ugly way even)
-	if $dynworks; then
-	  libgtop_libtool_config="${CONFIG_SHELL-/bin/sh} libtool --config"
-	  libgtop_deplibs_check=`$libgtop_libtool_config | \
-	    grep '^[[a-z_]]*check[[a-z_]]*_method=[['\''\"]]' | \
-	      sed 's/.*[['\''"]]\(.*\)[['\''"]]$/\1/'`
-	  if test "x$libgtop_deplibs_check" = "xnone" || \
-	    test "x$libgtop_deplibs_check" = "xunknown" || \
-	    test "x$libgtop_deplibs_check" = "x"; then
-	      dynworks=false
+	  dnl Now we check to see if our libtool supports shared lib deps
+	  dnl (in a rather ugly way even)
+	  if $dynworks; then
+	    libgtop_libtool_config="${CONFIG_SHELL-/bin/sh} libtool --config"
+	    libgtop_deplibs_check=`$libgtop_libtool_config | \
+	      grep '^[[a-z_]]*check[[a-z_]]*_method=[['\''\"]]' | \
+	        sed 's/.*[['\''"]]\(.*\)[['\''"]]$/\1/'`
+	    if test "x$libgtop_deplibs_check" = "xnone" || \
+	      test "x$libgtop_deplibs_check" = "xunknown" || \
+	      test "x$libgtop_deplibs_check" = "x"; then
+	        dynworks=false
+	    fi
 	  fi
+	elif test x$with_modules = xyes; then
+	  dynworks=true
+	else
+	  dynworks=false
 	fi
 
 	if $dynworks; then
@@ -215,9 +219,9 @@ AC_DEFUN([GNOME_LIBGTOP_DYNLINK],[
 	  libgtop_dynamic_ldflags=
 	fi
 
-	AC_SUBST(libgtop_dynamic_ldflags)
-
 	AC_MSG_RESULT($libgtop_use_gmodule)
+
+	AC_SUBST(libgtop_dynamic_ldflags)
 ])
 
 AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
