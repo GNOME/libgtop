@@ -1,0 +1,9 @@
+1998-07-29  Martin Baulig  <martin@home-of-linux.org>
+
+	* dynamic.c, dynamic_names.c: New files.
+
+	* Makefile.am: New file. Creates `libgtop.so' and
+	`libnames.so' which will be installed in
+	`$(datadir)/guile/libgtop'; just do a
+	`(use-modules (libgtop libgtop) (libgtop names))' in
+	guile to use them.
