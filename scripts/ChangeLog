@@ -1,3 +1,7 @@
+2000-01-02  Martin Baulig  <martin@home-of-linux.org>
+
+	* c_types.pl ($demarshal_funcs): New variable.
+
 1999-11-28  Martin Baulig  <martin@home-of-linux.org>
 
 	* c_types.pl: New file.

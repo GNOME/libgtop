@@ -23,6 +23,23 @@ my $c_marshal_func = sub {
   return $code;
 };
 
+my $c_demarshal_func = sub {
+  my ($type, $param, $indent) = @_;
+
+  my $code = '';
+  $code .= sprintf ("%s_LIBGTOP_demarshal_%s = _LIBGTOP_DATA_ptr;\n",
+		    $indent, $param);
+  $code .= sprintf ("%sif (_LIBGTOP_TEMP_len) --_LIBGTOP_TEMP_len;\n",
+		    $indent);
+  $code .= sprintf ("%s*(_LIBGTOP_DATA_ptr + _LIBGTOP_TEMP_len) = 0;\n",
+		    $indent);
+
+  $need_temp_len = 1;
+
+  return $code;
+};
+
+
 
 # Typeinfo array fields:
 # ---------------------
@@ -45,5 +62,8 @@ $sizeof_funcs = {'string'	=> $c_strlen_func,
 
 $marshal_funcs = {'string'	=> $c_marshal_func,
 		 };
+
+$demarshal_funcs = {'string'	=> $c_demarshal_func,
+		   };
 
 1;
