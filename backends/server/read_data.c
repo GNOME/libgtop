@@ -49,7 +49,7 @@ glibtop_read_data_i (glibtop *server, glibtop_backend *backend)
 		sizeof (size_t));
 
     if (ret < 0)
-	glibtop_error_io_r (server, _("read data size"));
+	glibtop_error_io_r (server, "read data size");
 
 #ifdef DEBUG
     fprintf (stderr, "LIBRARY: really reading %d data bytes (ret = %d).\n", size, ret);
@@ -62,7 +62,7 @@ glibtop_read_data_i (glibtop *server, glibtop_backend *backend)
     ret = read (backend->_priv->input [0], ptr, size);
 
     if (ret < 0)
-	glibtop_error_io_r (server, _("read data %d bytes"));
+	glibtop_error_io_r (server, "read data %d bytes");
 
     return ptr;
 }

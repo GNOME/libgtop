@@ -51,5 +51,5 @@ glibtop_read_i (glibtop *server, glibtop_backend *backend,
     fprintf (stderr, "LIBRARY: read %d bytes.\n", ret);
 
     if (ret < 0)
-	glibtop_error_io_r (server, _("read %d bytes"), size);
+	glibtop_error_io_r (server, "read %d bytes", size);
 }

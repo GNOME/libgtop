@@ -48,5 +48,5 @@ glibtop_write_i (glibtop *server, glibtop_backend *backend,
     ret = write (backend->_priv->output [1], buf, size);
 
     if (ret < 0)
-	glibtop_error_io_r (server, _("write %d bytes"), size);
+	glibtop_error_io_r (server, "write %d bytes", size);
 }
