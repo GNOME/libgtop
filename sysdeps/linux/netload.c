@@ -41,6 +41,8 @@
 #include <linux/ip_fw.h>
 #endif
 
+#include <linux/version.h>
+
 static const unsigned long _glibtop_sysdeps_netload = 
 (1 << GLIBTOP_NETLOAD_ERRORS_IN) +
 (1 << GLIBTOP_NETLOAD_ERRORS_OUT) +
