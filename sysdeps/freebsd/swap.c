@@ -369,8 +369,8 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 
 	buf->flags = _glibtop_sysdeps_swap;
 
-	buf->used = kvmsw[nswdev].ksw_used;
-	buf->total = kvmsw[nswdev].ksw_total;
+	buf->used = kvmsw[nswdev].ksw_used * getpagesize(); 
+	buf->total = kvmsw[nswdev].ksw_total * getpagesize();
 
 	buf->free = buf->total - buf->used;
 
