@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 1.0.9\n"
-"POT-Creation-Date: 2000-06-25 20:21+0900\n"
-"PO-Revision-Date: 2000-06-25 20:57+09:00\n"
-"Last-Translator: Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2000-10-11 15:13+0900\n"
+"PO-Revision-Date: 2000-10-11 15:13+0900\n"
+"Last-Translator: Yukihiro Nakai <nakai@gnome.gr.jp>\n"
 "Language-Team: Japanese <translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=euc-jp\n"
@@ -1234,84 +1234,3 @@ msgstr ""
 "オプション%sでエラー: %s\n"
 "コマンドラインオプションに使えるもの一覧を見るには'%s --help'を"
 "実行してください。\n"
-# msgid "Ticks (%ld per second):"
-# msgstr "Ticks (毎秒 %ld):"
-# 
-# msgid "Idle"
-# msgstr "休眠時間"
-# 
-# msgid "GID of process"
-# msgstr "プロセスGID"
-# 
-# msgid "Number of output bytes"
-# msgstr "出力バイト数"
-# 
-# msgid "Packets Out"
-# msgstr "出力パケット"
-# 
-# msgid "Output bytes"
-# msgstr "出力バイト"
-# 
-# msgid "Bytes In"
-# msgstr "入力バイト数"
-# 
-# msgid "Total (%)"
-# msgstr "合計 (%)"
-# 
-# msgid "Packets Total"
-# msgstr "パケット合計"
-# 
-# msgid "Interface Flags"
-# msgstr "インターフェイスのフラグ"
-# 
-# msgid "Packets In"
-# msgstr "入力パケット"
-# 
-# msgid "User defined signal 1"
-# msgstr "ユーザ定義シグナル 1"
-# 
-# msgid "PPP State"
-# msgstr "PPPの状態"
-# 
-# msgid "Total"
-# msgstr "合計"
-# 
-# msgid "User (%)"
-# msgstr "ユーザ (%)"
-# 
-# msgid "Sys (%)"
-# msgstr "システム (%)"
-# 
-# msgid "Sys"
-# msgstr "システム"
-# 
-# msgid "Input bytes"
-# msgstr "入力バイト"
-# 
-# msgid "Number of input bytes"
-# msgstr "入力バイト数"
-# 
-# msgid "User defined signal 2"
-# msgstr "ユーザ定義シグナル 2"
-# 
-# msgid "Idle (%)"
-# msgstr "休眠時間 (%)"
-# 
-# msgid "Percent:"
-# msgstr "率:"
-# 
-# msgid "Segmentation violation"
-# msgstr "セグメンテーション違反"
-# 
-# msgid "Bytes Out"
-# msgstr "出力バイト数"
-# 
-# msgid "Collisions"
-# msgstr "衝突"
-# 
-# msgid "UID of process"
-# msgstr "プロセスUID"
-# 
-# msgid "Bytes Total"
-# msgstr "バイト合計"
-# 
