@@ -1,3 +1,8 @@
+1998-08-10  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/proctime.h (glibtop_proc_time): Added new
+	fields `rtime' and `frequency'.
+
 1998-08-09  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/prockernel.h (glibtop_proc_kernel): Renamed

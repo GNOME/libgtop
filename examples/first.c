@@ -31,6 +31,8 @@
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
 
+#include <sys/resource.h>
+
 #ifndef PROFILE_COUNT
 #define PROFILE_COUNT	1
 #endif
@@ -42,6 +44,8 @@ main (int argc, char *argv [])
 	glibtop_sysdeps sysdeps;
 	unsigned c, method, count, port, i, *ptr;
 	char buffer [BUFSIZ];
+	struct rlimit rlim;
+	struct rusage ru;
 	pid_t pid, ppid;
 
 	count = PROFILE_COUNT;
@@ -236,6 +240,13 @@ main (int argc, char *argv [])
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_mem (&data.proc_mem, pid);
 
+	getrlimit (RLIMIT_RSS, &rlim);
+
+	fprintf (stderr, "GETRLIM: %lu - %lu - %lu\n",
+		 (unsigned long) rlim.rlim_cur,
+		 (unsigned long) rlim.rlim_max,
+		 (unsigned long) ((1 << 63) - 1));
+
 	printf ("Proc_Mem     PID  %5u (0x%08lx): "
 		"%lu %lu %lu %lu %lu %lu\n", pid,
 		(unsigned long) data.proc_mem.flags,
@@ -246,19 +257,27 @@ main (int argc, char *argv [])
 		(unsigned long) data.proc_mem.rss,
 		(unsigned long) data.proc_mem.rss_rlim);
 
+	getrusage (RUSAGE_SELF, &ru);
+
+	fprintf (stderr, "GETRUSAGE: (%ld, %ld) - (%ld, %ld)\n",
+		 ru.ru_utime.tv_sec, ru.ru_utime.tv_usec,
+		 ru.ru_stime.tv_sec, ru.ru_stime.tv_usec);
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_time (&data.proc_time, pid);
 
 	printf ("Proc_Time    PID  %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu\n", pid,
+		"%lu %lu %lu %lu %lu %lu %lu %lu %lu\n", pid,
 		(unsigned long) data.proc_time.flags,
 		(unsigned long) data.proc_time.start_time,
+		(unsigned long) data.proc_time.rtime,
 		(unsigned long) data.proc_time.utime,
 		(unsigned long) data.proc_time.stime,
 		(unsigned long) data.proc_time.cutime,
 		(unsigned long) data.proc_time.cstime,
 		(unsigned long) data.proc_time.timeout,
-		(unsigned long) data.proc_time.it_real_value);
+		(unsigned long) data.proc_time.it_real_value,
+		(unsigned long) data.proc_time.frequency);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_signal (&data.proc_signal, pid);
@@ -341,15 +360,17 @@ main (int argc, char *argv [])
 		glibtop_get_proc_time (&data.proc_time, ppid);
 
 	printf ("Proc_Time    PPID %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu\n", ppid,
+		"%lu %lu %lu %lu %lu %lu %lu %lu %lu\n", ppid,
 		(unsigned long) data.proc_time.flags,
 		(unsigned long) data.proc_time.start_time,
+		(unsigned long) data.proc_time.rtime,
 		(unsigned long) data.proc_time.utime,
 		(unsigned long) data.proc_time.stime,
 		(unsigned long) data.proc_time.cutime,
 		(unsigned long) data.proc_time.cstime,
 		(unsigned long) data.proc_time.timeout,
-		(unsigned long) data.proc_time.it_real_value);
+		(unsigned long) data.proc_time.it_real_value,
+		(unsigned long) data.proc_time.frequency);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_signal (&data.proc_signal, ppid);
@@ -431,15 +452,17 @@ main (int argc, char *argv [])
 		glibtop_get_proc_time (&data.proc_time, 1);
 
 	printf ("Proc_Time    INIT %5u (0x%08lx): "
-		"%lu %lu %lu %lu %lu %lu %lu\n", 1,
+		"%lu %lu %lu %lu %lu %lu %lu %lu %lu\n", 1,
 		(unsigned long) data.proc_time.flags,
 		(unsigned long) data.proc_time.start_time,
+		(unsigned long) data.proc_time.rtime,
 		(unsigned long) data.proc_time.utime,
 		(unsigned long) data.proc_time.stime,
 		(unsigned long) data.proc_time.cutime,
 		(unsigned long) data.proc_time.cstime,
 		(unsigned long) data.proc_time.timeout,
-		(unsigned long) data.proc_time.it_real_value);
+		(unsigned long) data.proc_time.it_real_value,
+		(unsigned long) data.proc_time.frequency);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_signal (&data.proc_signal, 1);

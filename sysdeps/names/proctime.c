@@ -22,43 +22,38 @@
 #include <glibtop.h>
 #include <glibtop/proctime.h>
 
-#define GLIBTOP_PROC_TIME_START_TIME	0
-#define GLIBTOP_PROC_TIME_UTIME		1
-#define GLIBTOP_PROC_TIME_STIME		2
-#define GLIBTOP_PROC_TIME_CUTIME	3
-#define GLIBTOP_PROC_TIME_CSTIME	4
-#define GLIBTOP_PROC_TIME_TIMEOUT	5
-#define GLIBTOP_PROC_TIME_IT_REAL_VALUE	6
-
 const char *glibtop_names_proc_time [GLIBTOP_MAX_PROC_TIME] =
 {
-	"start_time", "utime", "stime", "cutime", "cstime",
-	"timeout", "it_real_value"
+	"start_time", "rtime", "utime", "stime", "cutime", "cstime",
+	"timeout", "it_real_value", "timeout"
 };
 
 const unsigned glibtop_types_proc_time [GLIBTOP_MAX_PROC_TIME] =
 {
 	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
 	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG,
-	GLIBTOP_TYPE_LONG
+	GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG, GLIBTOP_TYPE_LONG
 };
 
 const char *glibtop_labels_proc_time [GLIBTOP_MAX_PROC_TIME] =
 {
-	N_("Start_Time"), N_("UTime"), N_("STime"), N_("CUTime"),
-	N_("CSTime"), N_("TimeOut"), N_("It_Real_Value")
+	N_("Start_Time"), N_("RTime"), N_("UTime"), N_("STime"),
+	N_("CUTime"), N_("CSTime"), N_("TimeOut"), N_("It_Real_Value"),
+	N_("Frequency")
 };
 
 const char *glibtop_descriptions_proc_time [GLIBTOP_MAX_PROC_TIME] =
 {
 	N_("Start time of process in seconds since the epoch"),
+	N_("Read time accumulated by process (should be utime + stime)"),
 	N_("user-mode CPU time accumulated by process"),
 	N_("kernel-mode CPU time accumulated by process"),
 	N_("cumulative utime of process and reaped children"),
 	N_("cumulative stime of process and reaped children"),
 	N_("The time (in jiffies) of the process's next timeout"),
 	N_("The time (in jiffies) before the next SIGALRM is sent "
-	   "to the process due to an interval timer.")
+	   "to the process due to an interval timer."),
+	N_("Tick frequency")
 };
 
 

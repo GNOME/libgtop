@@ -118,15 +118,17 @@ main (int argc, char *argv [])
 		glibtop_get_proc_time (&data.proc_time, pid);
 		
 		printf ("Proc_Time    PID  %5u (0x%08lx): "
-			"%lu %lu %lu %lu %lu %lu %lu\n", pid,
+			"%lu %lu %lu %lu %lu %lu %lu %lu %lu\n", pid,
 			(unsigned long) data.proc_time.flags,
 			(unsigned long) data.proc_time.start_time,
+			(unsigned long) data.proc_time.rtime,
 			(unsigned long) data.proc_time.utime,
 			(unsigned long) data.proc_time.stime,
 			(unsigned long) data.proc_time.cutime,
 			(unsigned long) data.proc_time.cstime,
 			(unsigned long) data.proc_time.timeout,
-			(unsigned long) data.proc_time.it_real_value);
+			(unsigned long) data.proc_time.it_real_value,
+			(unsigned long) data.proc_time.frequency);
 
 		glibtop_get_proc_signal (&data.proc_signal, pid);
 	

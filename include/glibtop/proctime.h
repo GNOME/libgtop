@@ -28,14 +28,16 @@
 __BEGIN_DECLS
 
 #define GLIBTOP_PROC_TIME_START_TIME	0
-#define GLIBTOP_PROC_TIME_UTIME		1
-#define GLIBTOP_PROC_TIME_STIME		2
-#define GLIBTOP_PROC_TIME_CUTIME	3
-#define GLIBTOP_PROC_TIME_CSTIME	4
-#define GLIBTOP_PROC_TIME_TIMEOUT	5
-#define GLIBTOP_PROC_TIME_IT_REAL_VALUE	6
+#define GLIBTOP_PROC_TIME_RTIME		1
+#define GLIBTOP_PROC_TIME_UTIME		2
+#define GLIBTOP_PROC_TIME_STIME		3
+#define GLIBTOP_PROC_TIME_CUTIME	4
+#define GLIBTOP_PROC_TIME_CSTIME	5
+#define GLIBTOP_PROC_TIME_TIMEOUT	6
+#define GLIBTOP_PROC_TIME_IT_REAL_VALUE	7
+#define GLIBTOP_PROC_TIME_FREQUENCY	8
 
-#define GLIBTOP_MAX_PROC_TIME		7
+#define GLIBTOP_MAX_PROC_TIME		9
 
 typedef struct _glibtop_proc_time	glibtop_proc_time;
 
@@ -46,6 +48,7 @@ struct _glibtop_proc_time
 	u_int64_t	flags,
 		start_time,	/* start time of process -- 
 				 * seconds since 1-1-70 */
+		rtime,		/* real time accumulated by process */
 		utime,		/* user-mode CPU time accumulated by process */
 		stime,		/* kernel-mode CPU time accumulated by process */
 		cutime,		/* cumulative utime of process and 
@@ -54,9 +57,10 @@ struct _glibtop_proc_time
 				 * reaped children */
 		timeout,	/* The time (in jiffies) of the process's
 				 * next timeout */
-		it_real_value;	/* The time (in jiffies) before the
+		it_real_value,	/* The time (in jiffies) before the
 				 * next SIGALRM is sent to the process
 				 * due to an interval timer. */
+		frequency;	/* Tick frequency. */
 };
 
 #define glibtop_get_proc_time(p1, p2)	glibtop_get_proc_time_l(glibtop_global_server, p1, p2)
