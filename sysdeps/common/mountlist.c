@@ -49,9 +49,6 @@ static struct mount_entry *read_filesystem_list __P((int, int));
 #define xstrdup(p1)	glibtop_strdup_r (NULL, p1)
 #define xfree(p1)	glibtop_free_r (NULL, p1)
 
-char *strstr ();
-void error ();
-
 #ifdef HAVE_SYS_PARAM_H
 #include <sys/param.h>
 #endif
