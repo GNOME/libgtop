@@ -1,5 +1,18 @@
 2001-04-20  Martin Baulig  <baulig@suse.de>
 
+	Moved all sysdeps code to the new libgtop-backends module.
+
+	* sysdeps/freesd/*: Removed.
+	* sysdeps/kernel/*: Removed.
+	* sysdeps/linux/*: Removed.
+	* sysdeps/osf1/*: Removed.
+	* sysdeps/solaris/*: Removed.
+	* sysdeps/stub/*: Removed.
+	* sysdeps/stub_suid/*: Removed.
+	* sysdeps/sun4/*: Removed.
+
+2001-04-20  Martin Baulig  <baulig@suse.de>
+
 	* lib/Makefile.am (libgtop_la_SOURCES): Added xmalloc.c and
 	error.c.
 
