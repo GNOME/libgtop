@@ -9,7 +9,7 @@ Version: %ver
 Release: %rel
 Copyright: LGPL
 Group: X11/Libraries
-Source: ftp://ftp.home-of-linux.org/pub/libgtop-%{ver}.tar.gz
+Source: ftp://ftp.gnome.org/pub/GNOME/sources/libgtop/libgtop-%{ver}.tar.gz
 BuildRoot: /tmp/libgtop-root
 Packager: Martin Baulig <martin@home-of-linux.org>
 URL: http://www.home-of-linux.org/gnome/libgtop/
