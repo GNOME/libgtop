@@ -23,25 +23,18 @@
 #include <glibtop/error.h>
 #include <glibtop/version.h>
 
-#include <sys/utsname.h>
-
 void
 glibtop_send_version (glibtop *server, int fd)
 {
-	char buffer [BUFSIZ+10];
-	struct utsname uts;
+	char buffer [BUFSIZ];
 	size_t size;
 
-	if (uname (&uts))
-		glibtop_error_io_r (server, "uname");
-
-	snprintf (buffer, BUFSIZ, LIBGTOP_VERSION_STRING,
-		  LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
-		  sizeof (glibtop_command),
-		  sizeof (glibtop_response),
-		  sizeof (glibtop_union),
-		  sizeof (glibtop_sysdeps),
-		  uts.sysname, uts.release, uts.machine);
+	sprintf (buffer, LIBGTOP_VERSION_STRING,
+		 LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
+		 sizeof (glibtop_command),
+		 sizeof (glibtop_response),
+		 sizeof (glibtop_union),
+		 sizeof (glibtop_sysdeps));
 	
 	size = strlen (buffer) + 1;
 
