@@ -1,3 +1,12 @@
+2000-11-26  Martin Baulig  <martin@home-of-linux.org>
+
+	* glibtop-backend-private.h: Removed.
+
+	* backend-sysdeps.h: New files.
+
+	* backend-sysdeps.c (_open_sysdeps): Don't overwrite
+	`backend->_priv'.
+
 2000-11-22  Martin Baulig  <martin@home-of-linux.org>
 
 	* Makefile.am: Link libgtop_backend_sysdeps.la against

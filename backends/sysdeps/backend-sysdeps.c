@@ -23,11 +23,7 @@
    Boston, MA 02111-1307, USA.
 */
 
-#include <glibtop.h>
-#include <glibtop/global.h>
-#include <glibtop/xmalloc.h>
-
-#include <glibtop-backend-private.h>
+#include <backend-sysdeps.h>
 
 static int
 _open_sysdeps (glibtop_server *, glibtop_backend *, u_int64_t, const char **);
@@ -54,9 +50,6 @@ _open_sysdeps (glibtop_server *server, glibtop_backend *backend,
 	       u_int64_t features, const char **backend_args)
 {
     glibtop_init_func_t *init_fkt;
-
-    backend->_priv = glibtop_calloc_r
-	(server, 1, sizeof (glibtop_backend_private));
 
     /* Do the initialization, but only if not already initialized. */
 

@@ -16,7 +16,7 @@ backend_DATA = \
 	libgtop-sysdeps.backend
 
 noinst_HEADERS = \
-	glibtop-backend-private.h
+	backend-sysdeps.h
 
 backendlib_LTLIBRARIES = \
 	libgtop_backend_sysdeps.la
