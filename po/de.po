@@ -1,12 +1,11 @@
-# libgtop de.po
-# Copyright (C) 1998 Free Software Foundation, Inc.
-# Martin Baulig <martin@home-of-linux.org>, 1998.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-05-28 23:30+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 1999-07-30 12:17+0200\n"
+"PO-Revision-Date: 1999-07-11 12:44+02:00\n"
 "Last-Translator: Martin Baulig <martin@home-of-linux.org>\n"
 "Language-Team: Martin Baulig <martin@home-of-linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +58,7 @@ msgstr "CPU-Zeit aller Prozessoren im Leerlaufprozess"
 
 #: sysdeps/names/cpu.c:56 sysdeps/names/cpu.c:72 sysdeps/names/proctime.c:66
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "SMP-CPU-Flags"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks since system boot"
@@ -301,6 +300,17 @@ msgid ""
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
 msgstr ""
+"Kernelflags des Prozesses.\n"
+"\n"
+"Auf Linux hat momentan jedes Flag ein gesetztes Math-Bit, da crt0.s\n"
+"auf Mathematikemulation prüft, also wird dies in der Ausgabe nicht\n"
+"ausgegeben.\n"
+"\n"
+"Dies ist wahrscheinlich ein Fehler, da nicht jeder Prozess ein\n"
+"compiliertes C-Programm ist.\n"
+"\n"
+"Das Math-Bit sollte eine dezimale 4 sein, und das Traced-Bit ist\n"
+"dezimal 10. "
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:61
@@ -400,8 +410,8 @@ msgid "Number of pages of virtual memory"
 msgstr "Anzahl virtueller Speicherseiten"
 
 #: sysdeps/names/procmem.c:57
-msgid "Number of residnet set (non-swapped) pages"
-msgstr "Anzahl nichtausgelagerter Speicherseiten"
+msgid "Number of resident set (non-swapped) pages"
+msgstr "Anzahl residenter (nicht ausgelagerter) Speicherseiten"
 
 #: sysdeps/names/procmem.c:58
 msgid "Number of pages of shared (mmap'd) memory"
@@ -455,47 +465,44 @@ msgid "End_Code"
 msgstr "Ende_Code"
 
 #: sysdeps/names/procsegment.c:52
-#, fuzzy
 msgid "Start_Data"
-msgstr "Start_Stapel"
+msgstr "Start_Daten"
 
 #: sysdeps/names/procsegment.c:52
 msgid "End_Data"
-msgstr ""
+msgstr "Ende_Daten"
 
 #: sysdeps/names/procsegment.c:52
-#, fuzzy
 msgid "Start_Brk"
-msgstr "Start_Stapel"
+msgstr "Start_Brk"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Brk"
-msgstr ""
+msgstr "Brk"
 
 #: sysdeps/names/procsegment.c:53
 msgid "Start_Stack"
 msgstr "Start_Stapel"
 
 #: sysdeps/names/procsegment.c:53
-#, fuzzy
 msgid "Start_MMap"
-msgstr "Start_Stapel"
+msgstr "Start_MMap"
 
 #: sysdeps/names/procsegment.c:53 sysdeps/names/procsegment.c:72
 msgid "Arg_Start"
-msgstr ""
+msgstr "Arg_Start"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:73
 msgid "Arg_End"
-msgstr ""
+msgstr "Arg_Ende"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:74
 msgid "Env_Start"
-msgstr ""
+msgstr "Env_Start"
 
 #: sysdeps/names/procsegment.c:54 sysdeps/names/procsegment.c:75
 msgid "Env_End"
-msgstr ""
+msgstr "Env_Ende"
 
 #: sysdeps/names/procsegment.c:59
 msgid "Text resident set size"
@@ -526,22 +533,20 @@ msgid "Address of end of code segment"
 msgstr "Addresse, an der das Programmcode-Segment aufhört"
 
 #: sysdeps/names/procsegment.c:66
-#, fuzzy
 msgid "Address of beginning of data segment"
-msgstr "Adresse, an der das Programmcode-Segment anfängt"
+msgstr "Adresse, an der das Datensegment anfängt"
 
 #: sysdeps/names/procsegment.c:67
-#, fuzzy
 msgid "Address of end of data segment"
-msgstr "Addresse, an der das Programmcode-Segment aufhört"
+msgstr "Addresse, an der das Datensegment aufhört"
 
 #: sysdeps/names/procsegment.c:68
 msgid "Brk_Start"
-msgstr ""
+msgstr "Brk_Start"
 
 #: sysdeps/names/procsegment.c:69
 msgid "Brk_End"
-msgstr ""
+msgstr "Brk_Ende"
 
 #: sysdeps/names/procsegment.c:70
 msgid "Address of the bottom of stack segment"
@@ -549,7 +554,7 @@ msgstr "Adresse des unteren Endes des Stapelsegments"
 
 #: sysdeps/names/procsegment.c:71
 msgid "Start of mmap()ed areas"
-msgstr ""
+msgstr "Start der mmap()-Zonen"
 
 #: sysdeps/names/procsignal.c:42
 msgid "Signal"
@@ -600,27 +605,24 @@ msgid "GID"
 msgstr "GID"
 
 #: sysdeps/names/procstate.c:45
-#, fuzzy
 msgid "RUID"
-msgstr "UID"
+msgstr "RUID"
 
 #: sysdeps/names/procstate.c:46
-#, fuzzy
 msgid "RGID"
-msgstr "GID"
+msgstr "RGID"
 
 #: sysdeps/names/procstate.c:46
 msgid "Has CPU"
-msgstr ""
+msgstr "Hat CPU"
 
 #: sysdeps/names/procstate.c:46
-#, fuzzy
 msgid "Processor"
-msgstr "Prozess-ID"
+msgstr "Prozessor"
 
 #: sysdeps/names/procstate.c:47
 msgid "Last Processor"
-msgstr ""
+msgstr "Letzter Prozessor"
 
 #: sysdeps/names/procstate.c:52
 msgid "Basename of executable file in call to exec()"
@@ -631,37 +633,32 @@ msgid "Single-Char code for process state (S=sleeping)"
 msgstr "Prozessstatus (S=schläft)"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "effective UID of process"
-msgstr "UID des Prozesses"
+msgstr "effektive UID des Prozesses"
 
 #: sysdeps/names/procstate.c:55
-#, fuzzy
 msgid "effective GID of process"
-msgstr "GID des Prozesses"
+msgstr "effektive GID des Prozesses"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "real UID of process"
-msgstr "UID des Prozesses"
+msgstr "echte UID des Prozesses"
 
 #: sysdeps/names/procstate.c:57
-#, fuzzy
 msgid "real GID of process"
-msgstr "GID des Prozesses"
+msgstr "echte GID des Prozesses"
 
 #: sysdeps/names/procstate.c:58
 msgid "has_cpu"
-msgstr ""
+msgstr "has_cpu"
 
 #: sysdeps/names/procstate.c:59
-#, fuzzy
 msgid "processor"
-msgstr "Prozess-ID"
+msgstr "processor"
 
 #: sysdeps/names/procstate.c:60
 msgid "last_processor"
-msgstr ""
+msgstr "last_processor"
 
 #: sysdeps/names/proctime.c:46
 msgid "Start_Time"
@@ -701,16 +698,15 @@ msgstr "Frequenz"
 
 #: sysdeps/names/proctime.c:48
 msgid "XCPU_UTime"
-msgstr ""
+msgstr "XCPU_UTime"
 
 #: sysdeps/names/proctime.c:48
 msgid "XCPU_STime"
-msgstr ""
+msgstr "XCPU_STime"
 
 #: sysdeps/names/proctime.c:49
-#, fuzzy
 msgid "XCPU_Flags"
-msgstr "K_Flags"
+msgstr "XCPU_Flags"
 
 #: sysdeps/names/proctime.c:54
 msgid "Start time of process in seconds since the epoch"
@@ -782,24 +778,20 @@ msgid "EGid"
 msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "Uid"
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "Gid"
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FsUid"
-msgstr "Uid"
+msgstr "FsUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FsGid"
-msgstr "Gid"
+msgstr "FsGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
@@ -834,14 +826,12 @@ msgid "Nice"
 msgstr "Nice"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "Gruppen-ID"
+msgstr "NGruppen"
 
 #: sysdeps/names/procuid.c:52
-#, fuzzy
 msgid "Groups"
-msgstr "Gruppen-ID"
+msgstr "Gruppen"
 
 #: sysdeps/names/procuid.c:57
 msgid "User ID"
@@ -860,24 +850,20 @@ msgid "Effective Group ID"
 msgstr "Effektive Gruppen-ID"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Saved User ID"
-msgstr "Benutzer-ID"
+msgstr "Gespeicherte Benutzer-ID"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Saved Group ID"
-msgstr "Gruppen-ID"
+msgstr "Gespeicherte Gruppen-ID"
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Effektive Benutzer-ID"
+msgstr "Dateisystem-Benutzer-ID"
 
 #: sysdeps/names/procuid.c:64
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "Effektive Gruppen-ID"
+msgstr "Dateisystem-Gruppen-ID"
 
 #: sysdeps/names/procuid.c:65
 msgid "Process ID"
@@ -912,74 +898,72 @@ msgid "Standard unix nice level of process"
 msgstr "Standard UNIX 'nice' Wert des Prozesses"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Number of additional process groups"
-msgstr "Terminalprozessgruppen-ID"
+msgstr "Anzahl zusätzlicher Prozeßgruppen"
 
 #: sysdeps/names/procuid.c:74
-#, fuzzy
 msgid "Additional process groups"
-msgstr "Terminalprozessgruppen-ID"
+msgstr "Zusätzliche Prozessgruppen"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
 msgid "Number of entries in semaphore map"
-msgstr ""
+msgstr "Anzahl Einträge in der Semaphortabelle"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
 msgid "Max number of arrays"
-msgstr ""
+msgstr "Maximale Anzahl Arrays"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
 msgid "Max semaphores system wide"
-msgstr ""
+msgstr "Maximale Anzahl Semaphore im System"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
 msgid "Number of undo structures system wide"
-msgstr ""
+msgstr "Anzahl Undo-Strukturen im System"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
 msgid "Max semaphores per array"
-msgstr ""
+msgstr "Maximale Anzahl Semaphore pro Array"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "Max ops per semop call"
-msgstr ""
+msgstr "Maximale Anzahl Operationen pro semop-Aufruf"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Max number of undo entries per process"
-msgstr ""
+msgstr "Maximale Anzahl Undo-Einträge pro Prozess"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
 msgid "sizeof struct sem_undo"
-msgstr ""
+msgstr "sizeof struct sem_undo"
 
 #: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
 msgid "Semaphore max value"
-msgstr ""
+msgstr "Semaphor-Maximalwert"
 
 #: sysdeps/names/sem_limits.c:53 sysdeps/names/sem_limits.c:67
 msgid "Adjust on exit max value"
-msgstr ""
+msgstr "Maximaler Adjust-on-Exit-Wert"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
 msgid "Max segment size"
-msgstr ""
+msgstr "Maximale Segmentgröße"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
 msgid "Min segment size"
-msgstr ""
+msgstr "Minimale Segmentgröße"
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
 msgid "Max number of segments"
-msgstr ""
+msgstr "Maximale Anzahl Segmente"
 
 #: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
 msgid "Max shared segments per process"
-msgstr ""
+msgstr "Maximale Anzahl gemeinsame Segmente pro Prozess"
 
 #: sysdeps/names/shm_limits.c:45 sysdeps/names/shm_limits.c:54
 msgid "Max total shared memory"
-msgstr ""
+msgstr "Maximaler gesamter gemeinsamer Speicher"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
 msgid "Total Swap Space"
@@ -1018,9 +1002,8 @@ msgid "Server Features"
 msgstr "Server Features"
 
 #: sysdeps/names/sysdeps.c:52
-#, fuzzy
 msgid "Pointer Size"
-msgstr "Größe des \"schmutzigen\" Speichers"
+msgstr "Zeigergröße"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:81
 msgid "CPU Usage"
@@ -1052,7 +1035,7 @@ msgstr "Limits für Nachrichtenwarteschlangen"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:88
 msgid "Semaphore Set Limits"
-msgstr ""
+msgstr "Semaphor-Setzbegrenzungen"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:89
 msgid "List of running Processes"
@@ -1072,36 +1055,35 @@ msgstr "Speicherbelegung des Prozesses"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:93
 msgid "Process Time information"
-msgstr ""
+msgstr "Prozess-Zeitinformation"
 
 #: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:94
 msgid "Process Signal information"
-msgstr ""
+msgstr "Prozess-Signalinformation"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:95
 msgid "Process Kernel Data information"
-msgstr ""
+msgstr "Prozess-Kerneldateninformation"
 
 #: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:96
 msgid "Process Segment information"
-msgstr ""
+msgstr "Prozess-Segmentinformation"
 
 #: sysdeps/names/sysdeps.c:69
-#, fuzzy
 msgid "Process Arguments"
-msgstr "Prozessgruppen-ID"
+msgstr "Prozessargumente"
 
 #: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:98
 msgid "Process Memory Map"
-msgstr ""
+msgstr "Prozess-Speicherplan"
 
 #: sysdeps/names/sysdeps.c:71
 msgid "Mount List"
-msgstr ""
+msgstr "Mountliste"
 
 #: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:100
 msgid "File System Usage"
-msgstr ""
+msgstr "Dateisystemnutzung"
 
 #: sysdeps/names/sysdeps.c:73 sysdeps/names/sysdeps.c:101
 msgid "Network Load"
@@ -1113,7 +1095,7 @@ msgstr "PPP Statistik"
 
 #: sysdeps/names/sysdeps.c:80
 msgid "Pointer Size on the Server (in bits)"
-msgstr ""
+msgstr "Zeigergröße auf dem Server (in Bits)"
 
 #: sysdeps/names/sysdeps.c:97
 msgid "Command line arguments of the process"
@@ -1125,7 +1107,7 @@ msgstr "Liste gegenwärtig gemounteter Dateisysteme"
 
 #: sysdeps/names/uptime.c:40
 msgid "Uptime"
-msgstr ""
+msgstr "Uptime"
 
 #: sysdeps/names/uptime.c:41
 msgid "Idletime"
@@ -1133,7 +1115,7 @@ msgstr "Leerlaufzeit"
 
 #: sysdeps/names/uptime.c:42
 msgid "Boot time"
-msgstr ""
+msgstr "Startzeit"
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds since system boot"
@@ -1142,11 +1124,11 @@ msgstr "Zeit in Sekunden seit System-Boot"
 #: sysdeps/names/uptime.c:48
 msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr ""
+"Zeit in Sekunden, die das System seit dem Booten im Leerlauf verbracht hat"
 
 #: sysdeps/names/uptime.c:49
-#, fuzzy
 msgid "Boot time (seconds sice epoch)"
-msgstr "Startzeit des Prozesses in Sekunden seit dem 1. Januar 1970"
+msgstr "Startzeit (Sekunden seit Epoche)"
 
 #: support/error.c:109
 msgid "Unknown system error"
@@ -1155,112 +1137,112 @@ msgstr "Unbekannter Systemfehler"
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr ""
+msgstr "%s: option `%s' ist mehrdeutig\n"
 
 #: support/getopt.c:693
 #, c-format
 msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: option `--%s' erlaubt kein Argument\n"
 
 #: support/getopt.c:698
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: option `%c%s' erlaubt kein Argument\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 #, c-format
 msgid "%s: option `%s' requires an argument\n"
-msgstr ""
+msgstr "%s: option `%s' benötigt ein Argument\n"
 
 #. --option
 #: support/getopt.c:744
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr ""
+msgstr "%s: unbekannte Option: `--%s'\n"
 
 #. +option or -option
 #: support/getopt.c:748
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr ""
+msgstr "%s: unbekannte Option: `%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr ""
+msgstr "%s: illegale Option -- %c\n"
 
 #: support/getopt.c:777
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr ""
+msgstr "%s: ungültige Option -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937
 #, c-format
 msgid "%s: option requires an argument -- %c\n"
-msgstr ""
+msgstr "%s: option benötigt ein Argument -- %c\n"
 
 #: support/getopt.c:854
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr ""
+msgstr "%s: Option `-W %s' ist mehrdeutig\n"
 
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: Option `-W %s' erlaubt kein Argument\n"
 
 #: lib/read.c:75
 #, c-format
 msgid "read %d bytes"
-msgstr ""
+msgstr "%d bytes gelesen"
 
 #: lib/read_data.c:49
 msgid "read data size"
-msgstr ""
+msgstr "lese Datenmenge"
 
 #: lib/read_data.c:66
 #, c-format
 msgid "read data %d bytes"
-msgstr ""
+msgstr "%d Datenbytes gelesen"
 
 #: lib/write.c:48
 #, c-format
 msgid "write %d bytes"
-msgstr ""
+msgstr "schreibe %d bytes"
 
 #: src/daemon/gnuserv.c:445
 msgid "Enable debugging"
-msgstr ""
+msgstr "Fehlerdiagnose einschalten"
 
 #: src/daemon/gnuserv.c:445
 msgid "DEBUG"
-msgstr ""
+msgstr "DIAGNOSE"
 
 #: src/daemon/gnuserv.c:447
 msgid "Enable verbose output"
-msgstr ""
+msgstr "Gesprächige Ausgabe einschalten"
 
 #: src/daemon/gnuserv.c:447
 msgid "VERBOSE"
-msgstr ""
+msgstr "GESPRAECHIG"
 
 #: src/daemon/gnuserv.c:449
 msgid "Don't fork into background"
-msgstr ""
+msgstr "Nicht in den Hintergrund abforken"
 
 #: src/daemon/gnuserv.c:449
 msgid "NO-DAEMON"
-msgstr ""
+msgstr "KEIN-DÄMON"
 
 #: src/daemon/gnuserv.c:451
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "Durch inetd aufgerufen"
 
 #: src/daemon/gnuserv.c:451
 msgid "INETD"
-msgstr ""
+msgstr "INETD"
 
 #: src/daemon/gnuserv.c:485
 #, c-format
@@ -1268,3 +1250,6 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+"Fehler bei Option %s: %s.\n"
+"Führen Sie `%s --help' aus, um eine volle Liste der verfügbaren Optionen zu "
+"sehen.\n"
