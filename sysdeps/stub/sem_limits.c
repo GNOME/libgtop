@@ -32,6 +32,8 @@ int
 glibtop_init_sem_limits_s (glibtop *server)
 {
 	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+
+	return 0;
 }
 
 /* Provides information about sysv sem limits. */
@@ -40,4 +42,6 @@ int
 glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 {
 	memset (buf, 0, sizeof (glibtop_sem_limits));
+
+	return 0;
 }

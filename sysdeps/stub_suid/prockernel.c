@@ -35,6 +35,8 @@ int
 glibtop_init_proc_kernel_p (glibtop *server)
 {
 	server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
+
+	return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -46,4 +48,6 @@ glibtop_get_proc_kernel_p (glibtop *server, glibtop_proc_kernel *buf,
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
+
+	return 0;
 }

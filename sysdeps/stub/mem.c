@@ -32,6 +32,8 @@ int
 glibtop_init_mem_s (glibtop *server)
 {
 	server->sysdeps.mem = _glibtop_sysdeps_mem;
+
+	return 0;
 }
 
 /* Provides information about memory usage. */
@@ -40,4 +42,6 @@ int
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
 	memset (buf, 0, sizeof (glibtop_mem));
+
+	return 0;
 }

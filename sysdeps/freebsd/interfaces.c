@@ -3,7 +3,7 @@
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
-   Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.
+   Contributed by Martin Baulig <martin@home-of-linux.org>, October 1998.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
@@ -22,26 +22,33 @@
 */
 
 #include <glibtop.h>
-#include <glibtop/swap.h>
+#include <glibtop/error.h>
+#include <glibtop/interfaces.h>
 
-static const unsigned long _glibtop_sysdeps_swap = 0;
+static const unsigned long _glibtop_sysdeps_interface_names = 
+(1L << GLIBTOP_INTERFACE_NAMES_NUMBER) +
+(1L << GLIBTOP_INTERFACE_NAMES_SIZE);
 
 /* Init function. */
 
 int
-glibtop_init_swap_s (glibtop *server)
+glibtop_init_interface_names_p (glibtop *server)
 {
-	server->sysdeps.swap = _glibtop_sysdeps_swap;
+    server->sysdeps.interface_names = _glibtop_sysdeps_interface_names;
 
-	return 0;
+    return 0;
 }
 
-/* Provides information about swap usage. */
+/* Provides network statistics. */
 
-int
-glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
+char *
+glibtop_get_interface_names_p (glibtop *server, glibtop_interface_names *buf,
+			       unsigned interface, unsigned number,
+			       unsigned strategy)
 {
-	memset (buf, 0, sizeof (glibtop_swap));
+    glibtop_init_s (&server, GLIBTOP_SYSDEPS_INTERFACE_NAMES, 0);
 
-	return 0;
+    memset (buf, 0, sizeof (glibtop_interface_names));
+
+    return NULL;
 }

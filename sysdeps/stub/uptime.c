@@ -32,6 +32,8 @@ int
 glibtop_init_uptime_s (glibtop *server)
 {
 	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+
+	return 0;
 }
 
 /* Provides uptime and idle time. */
@@ -40,4 +42,6 @@ int
 glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
 	memset (buf, 0, sizeof (glibtop_uptime));
+
+	return 0;
 }

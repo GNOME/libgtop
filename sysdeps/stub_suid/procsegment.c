@@ -35,6 +35,8 @@ int
 glibtop_init_proc_segment_p (glibtop *server)
 {
 	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
+
+	return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -46,4 +48,6 @@ glibtop_get_proc_segment_p (glibtop *server, glibtop_proc_segment *buf,
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_segment));
+
+	return 0;
 }

@@ -35,6 +35,8 @@ int
 glibtop_init_swap_p (glibtop *server)
 {
 	server->sysdeps.swap = _glibtop_sysdeps_swap;
+
+	return 0;
 }
 
 /* Provides information about swap usage. */
@@ -45,4 +47,6 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	glibtop_init_p (server, GLIBTOP_SYSDEPS_SWAP, 0);
 	
 	memset (buf, 0, sizeof (glibtop_swap));
+
+	return 0;
 }

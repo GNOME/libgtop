@@ -32,6 +32,8 @@ int
 glibtop_init_proc_mem_s (glibtop *server)
 {
 	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
+
+	return 0;
 }
 
 /* Provides detailed information about a process. */
@@ -41,4 +43,6 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
 			pid_t pid)
 {
 	memset (buf, 0, sizeof (glibtop_proc_mem));
+
+	return 0;
 }

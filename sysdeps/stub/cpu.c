@@ -32,6 +32,8 @@ int
 glibtop_init_cpu_s (glibtop *server)
 {
 	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+
+	return 0;
 }
 
 /* Provides information about cpu usage. */
@@ -40,4 +42,6 @@ int
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
 	memset (buf, 0, sizeof (glibtop_cpu));
+
+	return 0;
 }

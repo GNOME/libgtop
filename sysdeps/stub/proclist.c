@@ -34,6 +34,8 @@ int
 glibtop_init_proclist_s (glibtop *server)
 {
 	server->sysdeps.proclist = _glibtop_sysdeps_proclist;
+
+	return 0;
 }
 
 /* Fetch list of currently running processes.

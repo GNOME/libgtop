@@ -33,6 +33,8 @@ int
 glibtop_init_netload_s (glibtop *server)
 {
 	server->sysdeps.netload = _glibtop_sysdeps_netload;
+
+	return 0;
 }
 
 /* Provides network statistics. */
@@ -42,4 +44,6 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 		       const char *interface)
 {
 	memset (buf, 0, sizeof (glibtop_netload));
+
+	return 0;
 }

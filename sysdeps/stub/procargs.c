@@ -34,6 +34,8 @@ int
 glibtop_init_proc_args_s (glibtop *server)
 {
 	server->sysdeps.proc_args = _glibtop_sysdeps_proc_args;
+
+	return 0;
 }
 
 /* Provides detailed information about a process. */
