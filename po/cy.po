@@ -1,19 +1,19 @@
-# libgtop yn Gymraeg
-# Copyright (C) 2003, The Free Software Foundation
+# libgtop yn Gymraeg.
 # This file is distributed under the same license as the libgtop package.
-# Dafydd Harries <daf@parnassus.ath.cx>, 2003
+# Dafydd Harries <daf@muse.19inch.net>, 2003
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-11 03:27+0100\n"
+"POT-Creation-Date: 2004-03-16 02:48+0000\n"
 "PO-Revision-Date: 2003-08-09 19:46+0100\n"
-"Last-Translator: Dafydd Harries <daf@parnassus.ath.cx>\n"
-"Language-Team: Cymraeg <gnome-cy@www.linux.org>\n"
+"Last-Translator: Dafydd Harries <daf@muse.19inch.net>\n"
+"Language-Team: Welsh <gnome-cy@www.linux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Form: nplurals=2: plural=(n == 2) ? 1 : 0;\n"
 
 #: examples/smp.c:74
 #, c-format
@@ -97,29 +97,29 @@ msgid "Spin:"
 msgstr "Troelli:"
 
 #: lib/read.c:78
-#, fuzzy, c-format
+#, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "darllen %d beit"
-msgstr[1] "darllen %d beit"
+msgstr[1] "darllen %d feit"
 
 #: lib/read_data.c:51
 msgid "read data size"
 msgstr "darllen maint data"
 
 #: lib/read_data.c:68
-#, fuzzy, c-format
+#, c-format
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
 msgstr[0] "data darllen %d beit"
-msgstr[1] "data darllen %d beit"
+msgstr[1] "data darllen %d feit"
 
 #: lib/write.c:51
-#, fuzzy, c-format
+#, c-format
 msgid "write %d byte"
 msgid_plural "write %d bytes"
 msgstr[0] "ysgrifennu %d beit"
-msgstr[1] "ysgrifennu %d beit"
+msgstr[1] "ysgrifennu %d feit"
 
 #: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
@@ -209,7 +209,7 @@ msgstr "Amser CPU SMP yn y Tasg Segur"
 
 #: sysdeps/names/cpu.c:55
 msgid "SMP CPU Flags"
-msgstr ""
+msgstr "Banneri CPU SMP"
 
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks since system boot"
@@ -237,7 +237,7 @@ msgstr "Amledd tic (100 yw'r rhagoosdiad)"
 
 #: sysdeps/names/cpu.c:71
 msgid "Bit field indicating which CPU is currently running"
-msgstr ""
+msgstr "Maes did yn penod i pa CPU sy'n rhedeg yn gyfredol"
 
 #: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:49
 msgid "Total blocks"
@@ -775,26 +775,24 @@ msgid "GID"
 msgstr "GID"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RGid"
-msgstr "Gid"
+msgstr "RGid"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RUid"
-msgstr "Uid"
+msgstr "RUid"
 
 #: sysdeps/names/procstate.c:44
 msgid "HasCPU"
-msgstr ""
+msgstr "EfoCPU"
 
 #: sysdeps/names/procstate.c:44
 msgid "Proc"
-msgstr ""
+msgstr "Proc"
 
 #: sysdeps/names/procstate.c:44
 msgid "LProc"
-msgstr ""
+msgstr "LProc"
 
 #: sysdeps/names/procstate.c:49
 msgid "Basename of executable file in call to exec()"
@@ -813,27 +811,24 @@ msgid "GID of process"
 msgstr "GID y proses"
 
 #: sysdeps/names/procstate.c:53
-#, fuzzy
 msgid "Real UID of process"
-msgstr "UID y proses"
+msgstr "UID go iawngo iawn  y proses"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "Real GID of process"
-msgstr "GID y proses"
+msgstr "GID go iawn y proses"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
-msgstr ""
+msgstr "Efo CPU"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "Processor"
-msgstr "ID Proses"
+msgstr "Prosesydd"
 
 #: sysdeps/names/procstate.c:57
 msgid "Last Processor"
-msgstr ""
+msgstr "Prosesydd Diweddaf"
 
 #: sysdeps/names/proctime.c:45
 msgid "Start_Time"
@@ -944,24 +939,20 @@ msgid "EGid"
 msgstr "EGid"
 
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "Uid"
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "Gid"
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSUid"
-msgstr "Uid"
+msgstr "FSUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSGid"
-msgstr "Gid"
+msgstr "FSGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
@@ -992,14 +983,12 @@ msgid "Priority"
 msgstr "Blaenoriaeth"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "ID Grŵp"
+msgstr "Nifer Grŵpiau"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "Groups"
-msgstr "ID Grŵp"
+msgstr "Grŵpiau"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
@@ -1018,24 +1007,20 @@ msgid "Effective Group ID"
 msgstr "ID Grŵp Effeithiol"
 
 #: sysdeps/names/procuid.c:60
-#, fuzzy
 msgid "Set User ID"
-msgstr "ID Defnyddiwr"
+msgstr "Gosod ID Defnyddiwr"
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Set Group ID"
-msgstr "ID Grŵp"
+msgstr "Gosod ID Grŵp"
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Defnydd System Ffeilio"
+msgstr "ID Defnyddiwr System Ffeiliau"
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "ID Grŵp Effeithiol"
+msgstr "ID Grŵp System Ffeiliau"
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
@@ -1070,14 +1055,12 @@ msgid "Standard unix nice level of process"
 msgstr "Lfel neis unix safonnol y proses"
 
 #: sysdeps/names/procuid.c:72
-#, fuzzy
 msgid "Number of additional process groups"
-msgstr "ID grŵp proses terfynell"
+msgstr "Nifer y grŵpiau proses ychwanegol"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Array of additional process groups"
-msgstr "ID grŵp proses terfynell"
+msgstr "Arae grŵpiau proses ychwanegol"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
@@ -1277,9 +1260,8 @@ msgid "Idletime"
 msgstr "Amser Segur"
 
 #: sysdeps/names/uptime.c:41
-#, fuzzy
 msgid "BootTime"
-msgstr "RTime"
+msgstr "AmserBŵt"
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
@@ -1292,9 +1274,8 @@ msgstr ""
 "system"
 
 #: sysdeps/names/uptime.c:48
-#, fuzzy
 msgid "Time of last system boot in seconds since the epoch"
-msgstr "Amser cychwyn y proses mewn eiliadau ers yr epoc"
+msgstr "Amser bŵt diwethaf y system mewn eiliadau ers yr epoc"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
