@@ -11,6 +11,9 @@
 /* Define if getpagesize () must be declared. */
 #undef NEED_DECLARATION_GETPAGESIZE
 
+/* Define if program_invocation_name must be declared. */
+#undef NEED_DECLARATION_PROGRAM_INVOCATION_NAME
+
 @TOP@
 
 #undef ENABLE_NLS

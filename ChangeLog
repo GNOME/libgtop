@@ -1,5 +1,11 @@
 1999-02-10  Martin Baulig  <martin@home-of-linux.org>
 
+	* configure.in (program_invocation_name): Check whether we need
+ 	to declare this; some libc5 systems define that symbol but do
+	not declare it in any header file.
+
+1999-02-10  Martin Baulig  <martin@home-of-linux.org>
+
 	* libgtop.spec.in, libgtop.spec: Replaced libgtop.spec with
 	with libgtop.spec.in, so libgtop.spec is now a generated file.
 

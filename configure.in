@@ -180,6 +180,17 @@ AC_CHECK_LIB(kvm, kvm_open)
 dnl For DEC OSF1
 AC_CHECK_LIB(mach, vm_statistics)
 
+dnl For some broken libc5 systems (Debian 1.3)                                                           
+saved_CFLAGS=$CFLAGS                                                                                     
+CFLAGS="$CFLAGS -D_GNU_SOURCE"                                                                           
+GCC_NEED_DECLARATION(program_invocation_name, [                           
+#include <errno.h>                                                                                       
+#include <stdio.h>                                                                                       
+#include <stdlib.h>                                                                                      
+#include <string.h>                                                                                      
+])                                                                                                       
+CFLAGS=$saved_CFLAGS                                                                                     
+                                                                                                         
 dnl Check for Internet sockets.
 AC_CHECK_FUNC(socket,
  [AC_CHECK_HEADER(netinet/in.h,
