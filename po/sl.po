@@ -107,7 +107,7 @@ msgstr "V/I sedaj mo¾en (4.2 BSD)"
 
 #: lib/sysdeps-init-freebsd.c:56 lib/sysdeps-init-linux.c:56
 msgid "CPU limit exceeded (4.2 BSD)"
-msgstr "Prekoraèena omejitev centralnega procesorja (4.2 BSD)"
+msgstr "Prekoraèena omejitev procesorja (4.2 BSD)"
 
 #: lib/sysdeps-init-freebsd.c:57 lib/sysdeps-init-linux.c:57
 msgid "File size limit exceeded (4.2 BSD)"
@@ -260,7 +260,7 @@ msgstr "Posli v teku"
 
 #: sysdeps/names/loadavg.c:43
 msgid "Number of Tasks"
-msgstr "©tevilo Poslov"
+msgstr "©tevilo poslov"
 
 #: sysdeps/names/loadavg.c:44 sysdeps/names/loadavg.c:52
 msgid "Last PID"
@@ -1085,11 +1085,11 @@ msgstr "Prosto navideznega pomnilnika na disku"
 
 #: sysdeps/names/swap.c:44
 msgid "Page In"
-msgstr "Stran Notr"
+msgstr "Stran notri"
 
 #: sysdeps/names/swap.c:45
 msgid "Page Out"
-msgstr "Stran Ven"
+msgstr "Stran ven"
 
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought in since system boot"
