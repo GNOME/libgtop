@@ -6,12 +6,13 @@ msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2003-01-10 22:00+0700\n"
+"PO-Revision-Date: 2004-09-13 19:43+0700\n"
 "Last-Translator: pclouds <pclouds@gmx.net>\n"
 "Language-Team: GnomeVI <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: examples/smp.c:76
 #, c-format
@@ -95,7 +96,7 @@ msgid "Spin:"
 msgstr "Chiều:"
 
 #: lib/read.c:65
-#, fuzzy, c-format
+#, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "đọc %d byte"
@@ -106,14 +107,14 @@ msgid "read data size"
 msgstr "đọc kích thước dữ liệu"
 
 #: lib/read_data.c:68
-#, fuzzy, c-format
+#, c-format
 msgid "read data %d byte"
 msgid_plural "read data %d bytes"
 msgstr[0] "đọc %d byte dữ liệu"
 msgstr[1] "đọc %d byte dữ liệu"
 
 #: lib/write.c:51
-#, fuzzy, c-format
+#, c-format
 msgid "write %d byte"
 msgid_plural "write %d bytes"
 msgstr[0] "ghi %d byte"
@@ -257,9 +258,8 @@ msgid "Free file nodes"
 msgstr "Số inode rỗng"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Bị khóa"
+msgstr "Kích thước khối"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -412,14 +412,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Mạng con"
+msgstr "Mạng con IPv4"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Địa chỉ"
+msgstr "Địa chỉ IPv4"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -462,9 +460,8 @@ msgid "Collisions"
 msgstr "Xung đột"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Địa chỉ"
+msgstr "Địa chỉ IPv6"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
@@ -785,14 +782,12 @@ msgid "GID"
 msgstr "GID"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RGid"
-msgstr "GID"
+msgstr "RGid"
 
 #: sysdeps/names/procstate.c:44
-#, fuzzy
 msgid "RUid"
-msgstr "UID"
+msgstr "RUid"
 
 #: sysdeps/names/procstate.c:44
 msgid "HasCPU"
@@ -823,23 +818,20 @@ msgid "GID of process"
 msgstr "GID của tiến trình"
 
 #: sysdeps/names/procstate.c:53
-#, fuzzy
 msgid "Real UID of process"
-msgstr "UID của tiến trình"
+msgstr "UID thực của tiến trình"
 
 #: sysdeps/names/procstate.c:54
-#, fuzzy
 msgid "Real GID of process"
-msgstr "GID của tiến trình"
+msgstr "GID thực của tiến trình"
 
 #: sysdeps/names/procstate.c:55
 msgid "Has CPU"
-msgstr ""
+msgstr "Có CPU"
 
 #: sysdeps/names/procstate.c:56
-#, fuzzy
 msgid "Processor"
-msgstr "ID tiến trình"
+msgstr "Tiến trình"
 
 #: sysdeps/names/procstate.c:57
 msgid "Last Processor"
@@ -952,24 +944,20 @@ msgid "EGid"
 msgstr "EGID"
 
 #: sysdeps/names/procuid.c:48
-#, fuzzy
 msgid "SUid"
-msgstr "UID"
+msgstr "SUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "SGid"
-msgstr "GID"
+msgstr "SGid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSUid"
-msgstr "UID"
+msgstr "FSUid"
 
 #: sysdeps/names/procuid.c:49
-#, fuzzy
 msgid "FSGid"
-msgstr "GID"
+msgstr "FSGid"
 
 #: sysdeps/names/procuid.c:49
 msgid "Pid"
@@ -1000,14 +988,12 @@ msgid "Priority"
 msgstr "Ưu tiên"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "NGroups"
-msgstr "ID Nhóm"
+msgstr "NGroups"
 
 #: sysdeps/names/procuid.c:51
-#, fuzzy
 msgid "Groups"
-msgstr "ID Nhóm"
+msgstr "Nhóm"
 
 #: sysdeps/names/procuid.c:56
 msgid "User ID"
@@ -1026,24 +1012,20 @@ msgid "Effective Group ID"
 msgstr "ID Nhóm hiệu quả"
 
 #: sysdeps/names/procuid.c:60
-#, fuzzy
 msgid "Set User ID"
-msgstr "ID Người dùng"
+msgstr ""
 
 #: sysdeps/names/procuid.c:61
-#, fuzzy
 msgid "Set Group ID"
-msgstr "ID Nhóm"
+msgstr ""
 
 #: sysdeps/names/procuid.c:62
-#, fuzzy
 msgid "Filesystem User ID"
-msgstr "Sử dụng hệ thống tập tin"
+msgstr ""
 
 #: sysdeps/names/procuid.c:63
-#, fuzzy
 msgid "Filesystem Group ID"
-msgstr "ID Nhóm hiệu quả"
+msgstr ""
 
 #: sysdeps/names/procuid.c:64
 msgid "Process ID"
@@ -1078,14 +1060,12 @@ msgid "Standard unix nice level of process"
 msgstr "Mức ưu tiên unix chuẩn của tiến trình"
 
 #: sysdeps/names/procuid.c:72
-#, fuzzy
 msgid "Number of additional process groups"
-msgstr "GID terminal"
+msgstr ""
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Array of additional process groups"
-msgstr "GID terminal"
+msgstr ""
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
 msgid "Number of entries in semaphore map"
@@ -1284,9 +1264,8 @@ msgid "Idletime"
 msgstr "Thời gian rảnh"
 
 #: sysdeps/names/uptime.c:41
-#, fuzzy
 msgid "BootTime"
-msgstr "RTime"
+msgstr ""
 
 #: sysdeps/names/uptime.c:46
 msgid "Time in seconds since system boot"
@@ -1297,9 +1276,8 @@ msgid "Time in seconds the system spent in the idle task since system boot"
 msgstr "Thời gian (giây) hệ thống rảnh kể từ khi khởi động hệ thống"
 
 #: sysdeps/names/uptime.c:48
-#, fuzzy
 msgid "Time of last system boot in seconds since the epoch"
-msgstr "Thời gian bắt đầu tiến trình tính theo giây từ epoch"
+msgstr "Thời điểm khởi động lần cuối tính theo giây từ epoch"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -1425,44 +1403,44 @@ msgstr "Tín hiệu người dùng 1"
 msgid "User defined signal 2"
 msgstr "Tín hiệu người dùng 2"
 
-#~ msgid "Unknown system error"
-#~ msgstr "Lỗi lạ hệ thống"
+msgid "Unknown system error"
+msgstr "Lỗi lạ hệ thống"
 
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: tùy chọn `%s' không rõ ràng\n"
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: tùy chọn `%s' không rõ ràng\n"
 
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: tùy chọn `--%s' không có đối số\n"
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: tùy chọn `--%s' không có đối số\n"
 
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: tùy chọn `%c%s' không có đối số\n"
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: tùy chọn `%c%s' không có đối số\n"
 
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: tùy chọn `%s' cần một đối số\n"
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: tùy chọn `%s' cần một đối số\n"
 
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: tùy chọn không được công nhận `--%s'\n"
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: tùy chọn không được công nhận `--%s'\n"
 
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: tùy chọn không được công nhận `%c%s'\n"
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: tùy chọn không được công nhận `%c%s'\n"
 
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: tùy chọn bất hợp lệ -- %c\n"
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: tùy chọn bất hợp lệ -- %c\n"
 
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: tùy chọn bất hợp lệ -- %c\n"
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: tùy chọn bất hợp lệ -- %c\n"
 
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: tùy chọn cần một đối số -- %c\n"
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: tùy chọn cần một đối số -- %c\n"
 
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: tùy chọn `-W %s' không rõ ràng\n"
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: tùy chọn `-W %s' không rõ ràng\n"
 
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: tùy chọn `-W %s' không có đối số\n"
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: tùy chọn `-W %s' không có đối số\n"
 
-#~ msgid "Show this help message"
-#~ msgstr "Hiện thông tin trợ giúp"
+msgid "Show this help message"
+msgstr "Hiện thông tin trợ giúp"
 
-#~ msgid "Display brief usage message"
-#~ msgstr "Hiện tóm tắt cách sử dụng"
+msgid "Display brief usage message"
+msgstr "Hiện tóm tắt cách sử dụng"
