@@ -1,3 +1,9 @@
+2005-01-13  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* fsusage.c: (get_partition), (get_sys_path), (linux_2_6_0): Reworked.
+	Should works with IDE, SCSI. DM support is ready, but i don't know why
+	their /stat is empty ...
+
 2005-01-12  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* procopenfiles.c: (get_all_sockets),
