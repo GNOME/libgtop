@@ -48,7 +48,8 @@ glibtop_init_p (glibtop *server, const unsigned long features,
 
 void
 glibtop_open_p (glibtop *server, const char *program_name,
-		const unsigned long features, const unsigned flags)
+		const unsigned long G_GNUC_UNUSED features,
+		const unsigned G_GNUC_UNUSED flags)
 {
 #ifdef DEBUG
 	fprintf (stderr, "DEBUG (%d): glibtop_open_p ()\n", getpid ()); 

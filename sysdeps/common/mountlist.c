@@ -260,7 +260,7 @@ fstype_to_string (t)
 
 static struct mount_entry *
 read_filesystem_list (need_fs_type, all_fs)
-     int need_fs_type, all_fs;
+     int G_GNUC_UNUSED need_fs_type, G_GNUC_UNUSED all_fs;
 {
   struct mount_entry *mount_list;
   struct mount_entry *me;

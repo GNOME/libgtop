@@ -60,7 +60,6 @@ calcru(p, up, sp, ip)
 	quad_t totusec;
 	u_quad_t u, st, ut, it, tot;
 	long sec, usec;
-	struct timeval tv;
 
 	st = p->p_sticks;
 	ut = p->p_uticks;
@@ -105,9 +104,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	struct kinfo_proc *pinfo;
 	struct user *u_addr = (struct user *)USRSTACK;
 	struct pstats pstats;
-	struct pcb pcb;
-	int f, count;
-	quad_t totusec;
+	int count;
 
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_TIME), 0);
 	

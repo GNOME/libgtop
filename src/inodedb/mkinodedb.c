@@ -29,7 +29,7 @@
 #include <sys/stat.h>
 
 int
-main (int argc, const char *argv [])
+main (int argc, char *argv [])
 {
 	GDBM_FILE dbf;
 	char dirname [BUFSIZ];
@@ -92,7 +92,7 @@ main (int argc, const char *argv [])
 		directory = opendir (dirname);
 		if (!directory) continue;
 
-		while (entry = readdir (directory)) {
+		while ((entry = readdir (directory))) {
 			glibtop_inodedb_key key;
 			char filename [BUFSIZ];
 			datum d_key, d_content;
@@ -128,4 +128,6 @@ main (int argc, const char *argv [])
 	gdbm_close (dbf);
 
 	fclose (f);
+
+	exit (0);
 }

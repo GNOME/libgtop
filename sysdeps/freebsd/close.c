@@ -19,10 +19,11 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#include <glibtop.h>
 #include <glibtop/close.h>
 
 /* Closes pipe to gtop server. */
 
 void
-glibtop_close_l (glibtop *server)
+glibtop_close_p (glibtop G_GNUC_UNUSED *server)
 { }

@@ -33,7 +33,7 @@
 
 glibtop_inodedb *
 glibtop_inodedb_open_s (glibtop *server, unsigned databases,
-			unsigned long cachesize)
+			unsigned long G_GNUC_UNUSED cachesize)
 {
 	glibtop_inodedb *inodedb;
 	char filename [BUFSIZ];
@@ -76,7 +76,8 @@ glibtop_inodedb_open_s (glibtop *server, unsigned databases,
 }
 
 const char *
-glibtop_inodedb_lookup_s (glibtop *server, glibtop_inodedb *inodedb,
+glibtop_inodedb_lookup_s (glibtop G_GNUC_UNUSED *server,
+			  glibtop_inodedb *inodedb,
 			  u_int64_t device, u_int64_t inode)
 {
 	glibtop_inodedb_key key;

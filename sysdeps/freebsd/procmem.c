@@ -88,13 +88,10 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 			pid_t pid)
 {
 	struct kinfo_proc *pinfo;
-	struct user *u_addr = (struct user *)USRSTACK;
 	struct vm_map_entry entry, *first;
 	struct vmspace *vms, vmspace;
 	struct vm_object object;
 	struct plimit plimit;
-	struct vnode vnode;
-	struct inode inode;
 	int count;
 
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_MEM), 0);

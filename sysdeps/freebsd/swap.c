@@ -144,7 +144,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	sw_size = nswdev * sizeof (*sw);
 	sw = glibtop_malloc_r (server, sw_size);
 
-	if (kvm_read (server->machine.kd, ptr, sw, sw_size) != sw_size)
+	if (kvm_read (server->machine.kd, ptr, sw, sw_size) != (ssize_t) sw_size)
 		glibtop_error_io_r (server, "kvm_read (*swdevt)");
 
 	perdev = glibtop_malloc (nswdev * sizeof (*perdev));

@@ -69,7 +69,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	struct user *u_addr = (struct user *)USRSTACK;
 	struct pstats pstats;
 	struct pcb pcb;
-	int f, count;
+	int count;
 
 	glibtop_init_p (server, (1 << GLIBTOP_SYSDEPS_PROC_KERNEL), 0);
 	

@@ -53,7 +53,7 @@ static struct nlist nlst [] = {
 };
 
 /* MIB array for sysctl */
-static int mib_length=2;
+/* static int mib_length=2; */
 static int mib [] = { CTL_VM, VM_METER };
 
 /* Init function. */

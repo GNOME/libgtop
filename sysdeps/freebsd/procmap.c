@@ -58,8 +58,6 @@ static const unsigned long _glibtop_sysdeps_map_entry =
 void
 glibtop_init_proc_map_p (glibtop *server)
 {
-	register int pagesize;
-
 	server->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
 }
 
@@ -71,7 +69,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 {
 	struct kinfo_proc *pinfo;
 	struct vm_map_entry entry, *first;
-	struct vmspace *vms, vmspace;
+	struct vmspace vmspace;
 	struct vm_object object;
 	glibtop_map_entry *maps;
 	struct vnode vnode;

@@ -54,8 +54,10 @@ main (int argc, const char *argv [])
 	if (!inodedb) exit (1);
 
 	filename = glibtop_inodedb_lookup (inodedb, device, inode);
-	if (!filename) exit (0);
+	if (!filename) exit (2);
 
-	fprintf (stderr, "FILENAME: %lu - %lu - '%s'\n",
-		 device, inode, filename);
+	fprintf (stderr, "FILENAME: %d - %d - '%s'\n",
+		 (int) device, (int) inode, filename);
+
+	exit (0);
 }

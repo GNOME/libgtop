@@ -51,10 +51,8 @@ GLIBTOP_SUID_PROC_MAP;
 #include <locale.h>
 
 int
-main(int argc, char *argv[])
+main(int G_GNUC_UNUSED argc, char G_GNUC_UNUSED *argv[])
 {
-	int fd, max_fd;
-
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
 	int uid, euid, gid, egid;
