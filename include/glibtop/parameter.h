@@ -31,6 +31,7 @@ __BEGIN_DECLS
 #define GLIBTOP_PARAM_HOST		4
 #define GLIBTOP_PARAM_PORT		5
 #define GLIBTOP_PARAM_ERROR_METHOD	6
+#define GLIBTOP_PARAM_REQUIRED		7
 
 #define glibtop_get_parameter(p1,p2,p3)	glibtop_get_parameter_l(glibtop_global_server,p1,p2,p3)
 #define glibtop_set_parameter(p1,p2,p3) glibtop_set_parameter_l(glibtop_global_server,p1,p2,p3)

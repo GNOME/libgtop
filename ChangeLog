@@ -1,3 +1,13 @@
+1998-11-02  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/parameter.h: Added `GLIBTOP_PARAM_REQUIRED'.
+
+	* lib/parameter.c (glibtop_set_parameter_l): It's no longer
+	allowed to set GLIBTOP_PARAM_FEATURES.
+	(glibtop_get_parameter_l): You can use `GLIBTOP_PARAM_REQUIRED'
+	to read server->required and ...
+	(glibtop_set_parameter_l): ... set it here.
+
 1998-10-26  Martin Baulig  <martin@home-of-linux.org>
 
 	Added `Network Load' feature (netload).

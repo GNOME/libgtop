@@ -30,9 +30,9 @@
 
 #define _check_data(size)	\
 	if ((data_ptr == NULL) || (data_size != size)) { \
-		glibtop_error_r (server, "glibtop_set_parameter (%d): " \
-				 "Expected %lu bytes but got %lu.", \
-				 parameter, size, data_size); \
+		glibtop_warn_r (server, "glibtop_set_parameter (%d): " \
+				"Expected %lu bytes but got %lu.", \
+				parameter, size, data_size); \
 		return; \
 	}
 
@@ -61,6 +61,9 @@ glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
 	case GLIBTOP_PARAM_ERROR_METHOD:
 		_write_data (&server->error_method,
 			     sizeof (server->error_method));
+	case GLIBTOP_PARAM_REQUIRED:
+		_write_data (&server->required,
+			     sizeof (server->required));
 	}
 
 	return 0;
@@ -76,12 +79,18 @@ glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
 		memcpy (&server->method, data_ptr, data_size);
 		break;
 	case GLIBTOP_PARAM_FEATURES:
-		_check_data (sizeof (server->features));
-		memcpy (&server->features, data_ptr, data_size);
+		/* You should not be allowed to set this field. */
+		glibtop_warn_r (server, "glibtop_set_parameter (%d): " \
+				"Cannot modify read-only value.",
+				parameter);
 		break;
 	case GLIBTOP_PARAM_ERROR_METHOD:
 		_check_data (sizeof (server->error_method));
 		memcpy (&server->error_method, data_ptr, data_size);
+		break;
+	case GLIBTOP_PARAM_REQUIRED:
+		_check_data (sizeof (server->required));
+		memcpy (&server->required, data_ptr, data_size);
 		break;
 	}
 }
