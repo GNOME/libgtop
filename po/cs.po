@@ -1,12 +1,14 @@
 # Czech translation of libgtop
 # This file is distributed under the same license as the libgtop package.
-# Miloslav Trmac <mitr@volny.cz>, 2002, 2003.
+# Copyright (C) 2004 Miloslav Trmac <mitr@volny.cz>
+# Miloslav Trmac <mitr@volny.cz>, 2002, 2003, 2004.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.0\n"
-"POT-Creation-Date: 2003-02-06 12:08+0100\n"
-"PO-Revision-Date: 2003-02-07 05:01+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-10-19 20:25+0200\n"
+"PO-Revision-Date: 2004-01-27 16:37+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -113,39 +115,39 @@ msgstr "přečteno %d bytů dat"
 msgid "write %d bytes"
 msgstr "zapsáno %d bytů"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
 msgstr "Povolit ladění"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
 msgstr "LADĚNÍ"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
 msgstr "Povolit podrobný výstup"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr "PODROBNĚ"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
 msgstr "Neforkovat do pozadí"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr "NE-DÉMON"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr "Spuštěn z inetd"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -256,15 +258,15 @@ msgstr "SMP celkový čas CPU"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in User Mode"
-msgstr "CMP čas CPU v uživatelském režimu"
+msgstr "SMP čas CPU v uživatelském režimu"
 
 #: sysdeps/names/cpu.c:51
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "CMP čas CPU v uživatelském režimu (nice)"
+msgstr "SMP čas CPU v uživatelském režimu (nice)"
 
 #: sysdeps/names/cpu.c:52
 msgid "SMP CPU Time in System Mode"
-msgstr "CMP čas CPU v systémovém režimu"
+msgstr "SMP čas CPU v systémovém režimu"
 
 #: sysdeps/names/cpu.c:53
 msgid "SMP CPU Time in the Idle Task"
@@ -702,7 +704,10 @@ msgid ""
 "purposes. This is just the pages which count towards text, data, or stack "
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
-msgstr "Počet stránek, které má proces v reálné paměti, mínus 3 pro účely správy. Jde jen o stránky, které patří k prostoru textu, dat nebo zásobníku. Nezahrnuje stránky, které byly načteny na požádání nebo byly odloženy."
+msgstr ""
+"Počet stránek, které má proces v reálné paměti, mínus 3 pro účely správy. "
+"Jde jen o stránky, které patří k prostoru textu, dat nebo zásobníku. "
+"Nezahrnuje stránky, které byly načteny na požádání nebo byly odloženy."
 
 #: sysdeps/names/procmem.c:62
 msgid ""
