@@ -33,6 +33,14 @@ static const unsigned long _glibtop_sysdeps_proc_uid =
 (1 << GLIBTOP_PROC_UID_TTY) + (1 << GLIBTOP_PROC_UID_TPGID) +
 (1 << GLIBTOP_PROC_UID_PRIORITY) + (1 << GLIBTOP_PROC_UID_NICE);
 
+/* Init function. */
+
+void
+glibtop_init_proc_uid_s (glibtop *server)
+{
+	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid;
+}
+
 #define LINUX_VERSION(x,y,z)	(0x10000*(x) + 0x100*(y) + z)
 
 /* Provides detailed information about a process. */
@@ -47,12 +55,6 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf,
 	glibtop_init_s (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_uid));
-
-	if (pid == 0) {
-		/* Client is only interested in the flags. */
-		buf->flags = _glibtop_sysdeps_proc_uid;
-		return;
-	}
 
 	if (table (TABLE_PROC_UID, &tbl, &pid))
 	  glibtop_error_io_r (server, "table(TABLE_PROC_UID)");

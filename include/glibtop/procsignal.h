@@ -58,8 +58,10 @@ struct _glibtop_proc_signal
 extern void glibtop_get_proc_signal_l __P((glibtop *, glibtop_proc_signal *, pid_t));
 
 #if GLIBTOP_SUID_PROC_SIGNAL
+extern void glibtop_init_proc_signal_p __P((glibtop *));
 extern void glibtop_get_proc_signal_p __P((glibtop *, glibtop_proc_signal *, pid_t));
 #else
+extern void glibtop_init_proc_signal_s __P((glibtop *));
 extern void glibtop_get_proc_signal_s __P((glibtop *, glibtop_proc_signal *, pid_t));
 #endif
 

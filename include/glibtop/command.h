@@ -24,6 +24,7 @@
 
 #include <glibtop.h>
 #include <glibtop/sysdeps.h>
+#include <glibtop/union.h>
 
 __BEGIN_DECLS
 

@@ -28,6 +28,14 @@ static const unsigned long _glibtop_sysdeps_cpu =
 (1 << GLIBTOP_CPU_NICE) + (1 << GLIBTOP_CPU_SYS) +
 (1 << GLIBTOP_CPU_IDLE) + (1 << GLIBTOP_CPU_FREQUENCY);
 
+/* Init function. */
+
+void
+glibtop_init_cpu_s (glibtop *server)
+{
+	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+}
+
 /* Provides information about cpu usage. */
 
 #define FILENAME	"/proc/stat"
@@ -37,7 +45,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
 	FILE *f;
 
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
 	memset (buf, 0, sizeof (glibtop_cpu));
 

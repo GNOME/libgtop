@@ -65,8 +65,10 @@ struct _glibtop_proc_segment
 extern void glibtop_get_proc_segment_l __P((glibtop *, glibtop_proc_segment *, pid_t));
 
 #if GLIBTOP_SUID_PROC_SEGMENT
+extern void glibtop_init_proc_segment_p __P((glibtop *));
 extern void glibtop_get_proc_segment_p __P((glibtop *, glibtop_proc_segment *, pid_t));
 #else
+extern void glibtop_init_proc_segment_s __P((glibtop *));
 extern void glibtop_get_proc_segment_s __P((glibtop *, glibtop_proc_segment *, pid_t));
 #endif
 

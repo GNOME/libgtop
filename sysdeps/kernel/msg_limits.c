@@ -30,6 +30,14 @@ static const unsigned long _glibtop_sysdeps_msg_limits =
 (1 << GLIBTOP_IPC_MSGMNI) + (1 << GLIBTOP_IPC_MSGSSZ) +
 (1 << GLIBTOP_IPC_MSGTQL);
 
+/* Init function. */
+
+void
+glibtop_init_msg_limits_s (glibtop *server)
+{
+	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+}
+
 /* Provides information about sysv ipc limits. */
 
 void

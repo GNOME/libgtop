@@ -28,6 +28,14 @@
 static const unsigned long _glibtop_sysdeps_proc_state =
 (1 << GLIBTOP_PROC_STATE_CMD) + (1 << GLIBTOP_PROC_STATE_STATE);
 
+/* Init function. */
+
+void
+glibtop_init_proc_state_s (glibtop *server)
+{
+	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
+}
+
 /* Provides detailed information about a process. */
 
 #define NR_STATES	7
@@ -44,12 +52,6 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
 	glibtop_init_s (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_state));
-
-	if (pid == 0) {
-		/* Client is only interested in the flags. */
-		buf->flags = _glibtop_sysdeps_proc_state;
-		return;
-	}
 
 	if (table (TABLE_PROC_STATE, &tbl, &pid))
 		glibtop_error_io_r (server, "table(TABLE_PROC_STATE)");

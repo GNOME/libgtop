@@ -28,6 +28,14 @@
 static unsigned long _glibtop_sysdeps_uptime =
 (1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME);
 
+/* Init function. */
+
+void
+glibtop_init_uptime_s (glibtop *server)
+{
+	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+}
+
 /* Provides uptime and idle time. */
 
 void

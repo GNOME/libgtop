@@ -23,7 +23,6 @@
 #define __GLIBTOP_SYSDEPS_H__
 
 #include <glibtop.h>
-#include <glibtop/union.h>
 
 __BEGIN_DECLS
 
@@ -50,6 +49,9 @@ __BEGIN_DECLS
 #define GLIBTOP_MAX_SYSDEPS		19
 
 #define GLIBTOP_SYSDEPS_ALL		((1 << GLIBTOP_MAX_SYSDEPS) - 1)
+
+typedef void (*glibtop_init_func_t) (glibtop *);
+extern glibtop_init_func_t _glibtop_init_hook_s [];
 
 typedef struct _glibtop_sysdeps	glibtop_sysdeps;
 

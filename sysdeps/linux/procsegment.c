@@ -29,6 +29,14 @@ static const unsigned long _glibtop_sysdeps_proc_segment =
 (1 << GLIBTOP_PROC_SEGMENT_START_CODE) + (1 << GLIBTOP_PROC_SEGMENT_END_CODE) +
 (1 << GLIBTOP_PROC_SEGMENT_START_STACK);
 
+/* Init function. */
+
+void
+glibtop_init_proc_segment_s (glibtop *server)
+{
+	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
+}
+
 /* Provides detailed information about a process. */
 
 void
@@ -39,15 +47,9 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 	int nread;
 	FILE *f;
 	
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_segment));
-
-	if (pid == 0) {
-		/* Client is only interested in the flags. */
-		buf->flags = _glibtop_sysdeps_proc_segment;
-		return;
-	}
 
 	sprintf (input, "/proc/%d/stat", pid);
 

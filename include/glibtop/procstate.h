@@ -65,8 +65,10 @@ struct _glibtop_proc_state
 extern void glibtop_get_proc_state_l __P((glibtop *, glibtop_proc_state *, pid_t));
 
 #if GLIBTOP_SUID_PROC_STATE
+extern void glibtop_init_proc_state_p __P((glibtop *));
 extern void glibtop_get_proc_state_p __P((glibtop *, glibtop_proc_state *, pid_t));
 #else
+extern void glibtop_init_proc_state_s __P((glibtop *));
 extern void glibtop_get_proc_state_s __P((glibtop *, glibtop_proc_state *, pid_t));
 #endif
      

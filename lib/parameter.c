@@ -58,6 +58,9 @@ glibtop_get_parameter_l (glibtop *server, const unsigned parameter,
 	case GLIBTOP_PARAM_PORT:
 		_write_data (&server->server_port,
 			     sizeof (server->server_port));
+	case GLIBTOP_PARAM_ERROR_METHOD:
+		_write_data (&server->error_method,
+			     sizeof (server->error_method));
 	}
 
 	return 0;
@@ -75,6 +78,10 @@ glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
 	case GLIBTOP_PARAM_FEATURES:
 		_check_data (sizeof (server->features));
 		memcpy (&server->features, data_ptr, data_size);
+		break;
+	case GLIBTOP_PARAM_ERROR_METHOD:
+		_check_data (sizeof (server->error_method));
+		memcpy (&server->error_method, data_ptr, data_size);
 		break;
 	}
 }

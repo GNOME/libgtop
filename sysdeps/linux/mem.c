@@ -29,16 +29,24 @@ static const unsigned long _glibtop_sysdeps_mem =
 (1 << GLIBTOP_MEM_BUFFER) + (1 << GLIBTOP_MEM_CACHED) +
 (1 << GLIBTOP_MEM_USER);
 
-#define FILENAME	"/proc/meminfo"
+/* Init function. */
+
+void
+glibtop_init_mem_s (glibtop *server)
+{
+	server->sysdeps.mem = _glibtop_sysdeps_mem;
+}
 
 /* Provides information about memory usage. */
+
+#define FILENAME	"/proc/meminfo"
 
 void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
 	FILE *f;
 
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
 
 	memset (buf, 0, sizeof (glibtop_mem));
 

@@ -31,6 +31,14 @@ static const unsigned long _glibtop_sysdeps_mem =
 (1 << GLIBTOP_MEM_BUFFER) + (1 << GLIBTOP_MEM_CACHED) +
 (1 << GLIBTOP_MEM_USER);
 
+/* Init function. */
+
+void
+glibtop_init_mem_s (glibtop *server)
+{
+	server->sysdeps.mem = _glibtop_sysdeps_mem;
+}
+
 /* Provides information about memory usage. */
 
 void

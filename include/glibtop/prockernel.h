@@ -71,8 +71,10 @@ struct _glibtop_proc_kernel
 extern void glibtop_get_proc_kernel_l __P((glibtop *, glibtop_proc_kernel *, pid_t));
 
 #if GLIBTOP_SUID_PROC_KERNEL
+extern void glibtop_init_proc_kernel_p __P((glibtop *));
 extern void glibtop_get_proc_kernel_p __P((glibtop *, glibtop_proc_kernel *, pid_t));
 #else
+extern void glibtop_init_proc_kernel_s __P((glibtop *));
 extern void glibtop_get_proc_kernel_s __P((glibtop *, glibtop_proc_kernel *, pid_t));
 #endif
 

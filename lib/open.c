@@ -57,6 +57,8 @@ glibtop_open_l (glibtop *server, const char *program_name,
 	
 	server->features = features;
 
+	server->error_method = GLIBTOP_ERROR_METHOD_DEFAULT;
+
 #ifdef DEBUG
 	fprintf (stderr, "SIZEOF: %u - %u - %u - %u - %u - %u\n",
 		 sizeof (glibtop_command), sizeof (glibtop_response),

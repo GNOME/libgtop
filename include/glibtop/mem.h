@@ -64,8 +64,10 @@ struct _glibtop_mem
 extern void glibtop_get_mem_l __P((glibtop *, glibtop_mem *));
 
 #if GLIBTOP_SUID_MEM
+extern void glibtop_init_mem_p __P((glibtop *));
 extern void glibtop_get_mem_p __P((glibtop *, glibtop_mem *));
 #else
+extern void glibtop_init_mem_s __P((glibtop *));
 extern void glibtop_get_mem_s __P((glibtop *, glibtop_mem *));
 #endif
 

@@ -29,6 +29,14 @@ static const unsigned long _glibtop_sysdeps_proc_signal =
 (1 << GLIBTOP_PROC_SIGNAL_SIGNAL) + (1 << GLIBTOP_PROC_SIGNAL_BLOCKED) +
 (1 << GLIBTOP_PROC_SIGNAL_SIGIGNORE) + (1 << GLIBTOP_PROC_SIGNAL_SIGCATCH);
 
+/* Init function. */
+
+void
+glibtop_init_proc_signal_s (glibtop *server)
+{
+	server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
+}
+
 /* Provides detailed information about a process. */
 
 void
@@ -40,12 +48,6 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf,
 	glibtop_init_s (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_signal));
-
-	if (pid == 0) {
-		/* Client is only interested in the flags. */
-		buf->flags = _glibtop_sysdeps_proc_signal;
-		return;
-	}
 
 	if (table (TABLE_PROC_SIGNAL, &tbl, &pid))
 		glibtop_error_io_r (server, "table(TABLE_PROC_SIGNAL)");

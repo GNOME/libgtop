@@ -58,8 +58,10 @@ struct _glibtop_swap
 extern void glibtop_get_swap_l __P((glibtop *, glibtop_swap *));
 
 #if GLIBTOP_SUID_SWAP
+extern void glibtop_init_swap_p __P((glibtop *));
 extern void glibtop_get_swap_p __P((glibtop *, glibtop_swap *));
 #else
+extern void glibtop_init_swap_s __P((glibtop *));
 extern void glibtop_get_swap_s __P((glibtop *, glibtop_swap *));
 #endif
 

@@ -29,6 +29,14 @@ static const unsigned long _glibtop_sysdeps_proclist =
 (1 << GLIBTOP_PROCLIST_TOTAL) + (1 << GLIBTOP_PROCLIST_NUMBER) +
 (1 << GLIBTOP_PROCLIST_SIZE);
 
+/* Init function. */
+
+void
+glibtop_init_proclist_s (glibtop *server)
+{
+	server->sysdeps.proclist = _glibtop_sysdeps_proclist;
+}
+
 #define BLOCK_COUNT	256
 #define BLOCK_SIZE	(BLOCK_COUNT * sizeof (unsigned))
 

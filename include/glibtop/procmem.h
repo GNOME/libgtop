@@ -64,8 +64,10 @@ struct _glibtop_proc_mem
 extern void glibtop_get_proc_mem_l __P((glibtop *, glibtop_proc_mem *, pid_t));
 
 #if GLIBTOP_SUID_PROC_MEM
+extern void glibtop_init_proc_mem_p __P((glibtop *));
 extern void glibtop_get_proc_mem_p __P((glibtop *, glibtop_proc_mem *, pid_t));
 #else
+extern void glibtop_init_proc_mem_s __P((glibtop *));
 extern void glibtop_get_proc_mem_s __P((glibtop *, glibtop_proc_mem *, pid_t));
 #endif
 

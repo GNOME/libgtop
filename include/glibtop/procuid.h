@@ -74,8 +74,10 @@ struct _glibtop_proc_uid
 extern void glibtop_get_proc_uid_l __P((glibtop *, glibtop_proc_uid *, pid_t));
 
 #if GLIBTOP_SUID_PROC_UID
+extern void glibtop_init_proc_uid_p __P((glibtop *));
 extern void glibtop_get_proc_uid_p __P((glibtop *, glibtop_proc_uid *, pid_t));
 #else
+extern void glibtop_init_proc_uid_s __P((glibtop *));
 extern void glibtop_get_proc_uid_s __P((glibtop *, glibtop_proc_uid *, pid_t));
 #endif
 

@@ -33,10 +33,13 @@
 
 typedef struct _glibtop		glibtop;
 
+#include <glibtop/sysdeps.h>
+
 struct _glibtop
 {
 	unsigned flags;
 	unsigned method;		/* Server Method */
+	unsigned error_method;		/* Error Method */
 #ifdef HAVE_GLIBTOP_MACHINE_H
 	glibtop_machine machine;	/* Machine dependent data */
 #endif
@@ -51,6 +54,8 @@ struct _glibtop
 	const char *server_rsh;		/* Command used to connect to the target host */
 	unsigned long features;		/* Server is required for this features */
 	unsigned long server_port;	/* Port on which daemon is listening */
+	glibtop_sysdeps sysdeps;	/* Detailed feature list */
+	glibtop_sysdeps required;	/* Required feature list */
 	pid_t pid;			/* PID of the server */
 };
 

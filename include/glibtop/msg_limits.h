@@ -62,8 +62,10 @@ struct _glibtop_msg_limits
 extern void glibtop_get_msg_limits_l __P((glibtop *, glibtop_msg_limits *));
 
 #if GLIBTOP_SUID_MSG_LIMITS
+extern void glibtop_init_msg_limits_p __P((glibtop *));
 extern void glibtop_get_msg_limits_p __P((glibtop *, glibtop_msg_limits *));
 #else
+extern void glibtop_init_msg_limits_s __P((glibtop *));
 extern void glibtop_get_msg_limits_s __P((glibtop *, glibtop_msg_limits *));
 #endif
 

@@ -21,6 +21,7 @@
 
 #include <glibtop.h>
 #include <glibtop/xmalloc.h>
+#include <glibtop/sysdeps.h>
 #include <glibtop/parameter.h>
 
 #ifndef DEFAULT_PORT
@@ -29,7 +30,6 @@
 
 static glibtop _glibtop_global_server;
 glibtop *glibtop_global_server = &_glibtop_global_server;
-
 
 void
 _init_server (glibtop *server, const unsigned features)
@@ -109,7 +109,7 @@ _init_server (glibtop *server, const unsigned features)
 					
 			/* Override default. */
 			if (server->server_host)
-				glibtop_free_r (server, (char *) server->server_host);
+				glibtop_free_r (server, server->server_host);
 
 			server->server_host = glibtop_strdup_r
 				(server, temp+1);
@@ -193,19 +193,35 @@ glibtop_init_r (glibtop **server_ptr, const unsigned long features,
 }
 
 glibtop *
-glibtop_init_s (glibtop **server, const unsigned long features,
+glibtop_init_s (glibtop **server_ptr, const unsigned long features,
 		const unsigned flags)
 {
-	if (*server != NULL)
-		return *server;
-
-	fprintf (stderr, "DEBUG: %s (%d)\n", __FILE__, __LINE__);
-
-	if (glibtop_global_server == NULL) {
-		glibtop_global_server = &_glibtop_global_server;
-		glibtop_open_s (glibtop_global_server, "glibtop",
-				features, flags);
-	}
+	glibtop *server;
+	glibtop_init_func_t *init_fkt;
 	
-	return *server = glibtop_global_server;
+	if (server_ptr == NULL)
+		return NULL;
+
+	if (*server_ptr == NULL)
+		*server_ptr = glibtop_global_server;
+
+	server = *server_ptr;
+
+	/* Should we do the initialization? */
+
+	if (flags & GLIBTOP_INIT_NO_INIT)
+		return server;
+
+	/* Do the initialization, but only if not already initialized. */
+
+	if ((server->flags & _GLIBTOP_INIT_STATE_INIT) == 0) {
+		glibtop_open_s (server, "glibtop", features, flags);
+
+		for (init_fkt = _glibtop_init_hook_s; *init_fkt; init_fkt++)
+			(*init_fkt) (server);
+		
+		server->flags |= _GLIBTOP_INIT_STATE_INIT;
+	}
+
+	return server;
 }

@@ -29,6 +29,14 @@ static unsigned long _glibtop_sysdeps_shm_limits =
 (1 << GLIBTOP_IPC_SHMMNI) + (1 << GLIBTOP_IPC_SHMSEG) +
 (1 << GLIBTOP_IPC_SHMALL);
 
+/* Init function. */
+
+void
+glibtop_init_shm_limits_s (glibtop *server)
+{
+	server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
+}
+
 /* Provides information about sysv ipc limits. */
 
 void

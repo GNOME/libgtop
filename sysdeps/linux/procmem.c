@@ -28,6 +28,14 @@ static const unsigned long _glibtop_sysdeps_proc_mem =
 (1 << GLIBTOP_PROC_MEM_RESIDENT) + (1 << GLIBTOP_PROC_MEM_SHARE) +
 (1 << GLIBTOP_PROC_MEM_RSS) + (1 << GLIBTOP_PROC_MEM_RSS_RLIM);
 
+/* Init function. */
+
+void
+glibtop_init_proc_mem_s (glibtop *server)
+{
+	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
+}
+
 /* Provides detailed information about a process. */
 
 void
@@ -37,15 +45,9 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 	int nread;
 	FILE *f;
 	
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_mem));
-
-	if (pid == 0) {
-		/* Client is only interested in the flags. */
-		buf->flags = _glibtop_sysdeps_proc_mem;
-		return;
-	}
 
 	sprintf (input, "/proc/%d/stat", pid);
 

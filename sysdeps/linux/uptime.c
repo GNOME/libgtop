@@ -26,16 +26,24 @@
 static unsigned long _glibtop_sysdeps_uptime =
 (1 << GLIBTOP_UPTIME_UPTIME) + (1 << GLIBTOP_UPTIME_IDLETIME);
 
-#define FILENAME	"/proc/uptime"
+/* Init function. */
+
+void
+glibtop_init_uptime_s (glibtop *server)
+{
+	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+}
 
 /* Provides uptime and idle time. */
+
+#define FILENAME	"/proc/uptime"
 
 void
 glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
 	FILE *f;
 
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_UPTIME, 0);
 
 	memset (buf, 0, sizeof (glibtop_uptime));
 

@@ -52,8 +52,10 @@ struct _glibtop_uptime
 extern void glibtop_get_uptime_l __P((glibtop *, glibtop_uptime *));
 
 #if GLIBTOP_SUID_UPTIME
+extern void glibtop_init_uptime_p __P((glibtop *));
 extern void glibtop_get_uptime_p __P((glibtop *, glibtop_uptime *));
 #else
+extern void glibtop_init_uptime_s __P((glibtop *));
 extern void glibtop_get_uptime_s __P((glibtop *, glibtop_uptime *));
 #endif
 

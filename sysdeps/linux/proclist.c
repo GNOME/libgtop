@@ -32,6 +32,14 @@ static const unsigned long _glibtop_sysdeps_proclist =
 (1 << GLIBTOP_PROCLIST_TOTAL) + (1 << GLIBTOP_PROCLIST_NUMBER) +
 (1 << GLIBTOP_PROCLIST_SIZE);
 
+/* Init function. */
+
+void
+glibtop_init_proclist_s (glibtop *server)
+{
+	server->sysdeps.proclist = _glibtop_sysdeps_proclist;
+}
+
 #define BLOCK_COUNT	256
 #define BLOCK_SIZE	(BLOCK_COUNT * sizeof (unsigned))
 
@@ -60,7 +68,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf)
 	struct stat statb;
 	int len, i, ok;
 
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROCLIST, 0);
 
 	memset (buf, 0, sizeof (glibtop_proclist));
 
@@ -69,7 +77,8 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf)
 
 	/* read every every entry in /proc */
 
-	for (count = total = 0, entry = readdir (proc); entry; entry = readdir (proc)) {
+	for (count = total = 0, entry = readdir (proc);
+	     entry; entry = readdir (proc)) {
 		ok = 1; len = strlen (entry->d_name);
 
 		/* does it consist entirely of digits? */
@@ -94,14 +103,15 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf)
 		 * full, we copy it to the pids_chain. */
 
 		if (count >= BLOCK_COUNT) {
-			/* The following call to glibtop_realloc will be equivalent to
-			 * glibtop_malloc if pids_chain is NULL. We just calculate the
-			 * new size and copy pids to the beginning of the newly allocated
-			 * block. */
+			/* The following call to glibtop_realloc will be
+			 * equivalent to glibtop_malloc () if `pids_chain' is
+			 * NULL. We just calculate the new size and copy `pids'
+			 * to the beginning of the newly allocated block. */
 
 			new_size = pids_size + BLOCK_SIZE;
 
-			pids_chain = glibtop_realloc_r (server, pids_chain, new_size);
+			pids_chain = glibtop_realloc_r
+				(server, pids_chain, new_size);
 
 			memcpy (pids_chain + pids_offset, pids, BLOCK_SIZE);
 
@@ -121,8 +131,8 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf)
 	
 	closedir (proc);
 
-	/* count is only zero if an error occured (one a running Linux system, we
-	 * only have at least one single process). */
+	/* count is only zero if an error occured (one a running Linux system,
+	 * we have at least one single process). */
 
 	if (!count) return NULL;
 
@@ -141,8 +151,8 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf)
 	
 	pids_offset += BLOCK_COUNT;
 
-	/* Since everything is ok now, we can set buf->flags, fill in the remaining fields
-	   and return pids_chain. */
+	/* Since everything is ok now, we can set buf->flags, fill in the
+	 * remaining fields and return the `pids_chain'. */
 
 	buf->flags = _glibtop_sysdeps_proclist;
 

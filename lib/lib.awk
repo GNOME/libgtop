@@ -5,9 +5,40 @@ BEGIN {
   
   print "#include <glibtop.h>";
   print "#include <glibtop/open.h>";
+  print "";
   print "#include <glibtop/sysdeps.h>";
+  print "#include <glibtop/union.h>";
+  print "";
   print "#include <glibtop/command.h>";
   
+  print "";
+  print "/* Some required fields are missing. */";
+  print "";
+
+  print "static void";
+  print "_glibtop_missing_feature (glibtop *server, const char *feature,";
+  print "\t\t\t  const u_int64_t present, u_int64_t *required)";
+  print "{";
+  print "\tswitch (server->error_method) {";
+  print "\tcase GLIBTOP_ERROR_METHOD_WARN_ONCE:";
+  print "\t\t*required &= present;";
+  print "\tcase GLIBTOP_ERROR_METHOD_WARN:";
+  print "\t\tglibtop_warn_r (server,";
+  print "\t\t\t\t_(\"glibtop_get_%s (): Client requested \"";
+  print "\t\t\t\t  \"field mask %05Lx, but only have %05Lx.\"),";
+  print "\t\t\t\t feature, required, present);";
+  print "\t\tbreak;";
+  print "\tcase GLIBTOP_ERROR_METHOD_ABORT:";
+  print "\t\tglibtop_error_r (server,";
+  print "\t\t\t\t _(\"glibtop_get_%s (): Client requested \"";
+  print "\t\t\t\t   \"field mask %05x, but only have %05x.\"),";
+  print "\t\t\t\t feature, required, present);";
+  print "\t\tbreak;";
+  print "\t}";
+  print "}";
+
+  print "";
+  print "/* Library functions. */";
   print "";
 }
 
@@ -37,8 +68,8 @@ function output(line) {
 
   print retval;
   if (retval !~ /^void$/) {
-    prefix = "return ";
-    prefix_space = "       ";
+    prefix = "retval = ";
+    prefix_space = "         ";
   } else {
     prefix = "";
     prefix_space = "";
@@ -52,8 +83,15 @@ function output(line) {
   }
 
   print "{";
+  if (retval !~ /^void$/)
+    print "\t"retval" retval;\n";
   print "\tglibtop_init_r (&server, (1 << GLIBTOP_SYSDEPS_"toupper(feature)"), 0);";
+
   print "";
+  print "\t/* If neccessary, we ask the server for the requested";
+  print "\t * feature. If not, we call the sysdeps function. */";
+  print "";
+
   print "\tif ((server->flags & _GLIBTOP_INIT_STATE_SERVER) &&";
   print "\t    (server->features & (1 << GLIBTOP_SYSDEPS_"toupper(feature)")))";
   print "\t{";
@@ -77,9 +115,9 @@ function output(line) {
     print "#if (!GLIBTOP_SUID_"toupper(feature)")";
 
   if (param == "")
-    print "\t\t"prefix"glibtop_get_"feature"_r (server, buf);";
+    print "\t\t"prefix"glibtop_get_"feature"_s (server, buf);";
   else
-    print "\t\t"prefix"glibtop_get_"feature"_r (server, buf, "param");";
+    print "\t\t"prefix"glibtop_get_"feature"_s (server, buf, "param");";
 
   if (orig !~ /^@/) {
     print "#else";
@@ -89,6 +127,20 @@ function output(line) {
   }
 
   print "\t}";
+
+  print "";
+  print "\t/* Make sure that all required fields are present. */";
+  print "";
+
+  print "\tif (buf->flags & server->required."feature")";
+  print "\t\t_glibtop_missing_feature (server, \""feature"\", buf->flags,";
+  print "\t\t\t\t\t  &server->required."feature");";
+
+  if (retval !~ /^void$/) {
+    print "\n\t/* Now we can return. */";
+    print "\n\treturn retval;";
+  }
+
   print "}";
   print "";
 }

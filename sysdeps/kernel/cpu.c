@@ -30,6 +30,14 @@ static const unsigned long _glibtop_sysdeps_cpu =
 (1 << GLIBTOP_CPU_NICE) + (1 << GLIBTOP_CPU_SYS) +
 (1 << GLIBTOP_CPU_IDLE) + (1 << GLIBTOP_CPU_FREQUENCY);
 
+/* Init function. */
+
+void
+glibtop_init_cpu_s (glibtop *server)
+{
+	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+}
+
 /* Provides information about cpu usage. */
 
 void

@@ -1,3 +1,28 @@
+1998-08-07  Martin Baulig  <martin@home-of-linux.org>
+
+	* glibtop.h (_glibtop): New fields `error_method', `sysdeps' and
+	`required'. I added an improved error handling: the client can tell
+	the libraries which fields are absolutely required for each features
+	and if it fails to set one of them, this will create an error which
+	is handled depending upon the `error_method'.
+
+	* include/glibtop/open.h: Define some constants for `error_method'.
+
+	* lib/sysdeps.c (glibtop_get_sysdeps_r): No longer actually call any
+	sysdeps function, it now simply copies `server->sysdeps'.
+	(_glibtop_init_hook_s): Added. List of functions to be called during
+	`glibtop_init_s' set to `glibtop_init_<no-suid-feature>_s'.
+
+	* include/glibtop/sysdeps.h (<glibtop/union.h>): Removed.
+	(glibtop_init_func_t): New typedef.
+	(_glibtop_init_hook_s): Added.
+
+	* sysdeps/linux/*.c (glibtop_init_<feature>_s): New functions.
+	(glibtop_get_proc_*): Zero is now a valid pid.
+
+	* sysdeps/kernel/*.c (glibtop_init_<feature>_s): New functions.
+	(glibtop_get_proc_*): Zero is now a valid pid.
+
 1998-08-06  Martin Baulig  <martin@home-of-linux.org>
 
 	* configure.in (HAVE_SOCKETS, HAVE_SOCKADDR_SUN_LEN): New checks.

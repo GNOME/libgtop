@@ -50,8 +50,10 @@ struct _glibtop_loadavg
 extern void glibtop_get_loadavg_l __P((glibtop *, glibtop_loadavg *));
 
 #if GLIBTOP_SUID_LOADAVG
+extern void glibtop_init_loadavg_p __P((glibtop *));
 extern void glibtop_get_loadavg_p __P((glibtop *, glibtop_loadavg *));
 #else
+extern void glibtop_init_loadavg_s __P((glibtop *));
 extern void glibtop_get_loadavg_s __P((glibtop *, glibtop_loadavg *));
 #endif
 

@@ -68,8 +68,10 @@ struct _glibtop_sem_limits
 extern void glibtop_get_sem_limits_l __P((glibtop *, glibtop_sem_limits *));
 
 #if GLIBTOP_SUID_SEM_LIMITS
+extern void glibtop_init_sem_limits_p __P((glibtop *));
 extern void glibtop_get_sem_limits_p __P((glibtop *, glibtop_sem_limits *));
 #else
+extern void glibtop_init_sem_limits_s __P((glibtop *));
 extern void glibtop_get_sem_limits_s __P((glibtop *, glibtop_sem_limits *));
 #endif
 

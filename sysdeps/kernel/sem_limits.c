@@ -24,12 +24,35 @@
 #include <sys/ipc.h>
 #include <sys/sem.h>
 
+#ifdef _SEM_SEMUN_UNDEFINED
+
+/* glibc 2.1 will no longer defines semun, instead it defines
+ * _SEM_SEMUN_UNDEFINED so users can define semun on their own.
+ * Thanks to Albert K T Hui <avatar@deva.net>. */
+
+union semun
+{
+	int val;
+	struct semid_ds *buf;
+	unsigned short int *array;
+	struct seminfo *__buf;
+};
+#endif
+
 static unsigned long _glibtop_sysdeps_sem_limits =
 (1 << GLIBTOP_IPC_SEMMAP) + (1 << GLIBTOP_IPC_SEMMNI) +
 (1 << GLIBTOP_IPC_SEMMNS) + (1 << GLIBTOP_IPC_SEMMNU) +
 (1 << GLIBTOP_IPC_SEMMSL) + (1 << GLIBTOP_IPC_SEMOPM) +
 (1 << GLIBTOP_IPC_SEMUME) + (1 << GLIBTOP_IPC_SEMUSZ) +
 (1 << GLIBTOP_IPC_SEMVMX) + (1 << GLIBTOP_IPC_SEMAEM);
+
+/* Init function. */
+
+void
+glibtop_init_sem_limits_s (glibtop *server)
+{
+	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+}
 
 /* Provides information about sysv ipc limits. */
 

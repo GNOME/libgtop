@@ -39,62 +39,62 @@ GLIBTOP_SUID_PROC_SIGNAL +
 GLIBTOP_SUID_PROC_KERNEL +
 GLIBTOP_SUID_PROC_SEGMENT;
 
+glibtop_init_func_t _glibtop_init_hook_s [] = {
+#if !GLIBTOP_SUID_CPU
+	glibtop_init_cpu_s,
+#endif
+#if !GLIBTOP_SUID_MEM
+	glibtop_init_mem_s,
+#endif
+#if !GLIBTOP_SUID_SWAP
+	glibtop_init_swap_s,
+#endif
+#if !GLIBTOP_SUID_UPTIME
+	glibtop_init_uptime_s,
+#endif
+#if !GLIBTOP_SUID_LOADAVG
+	glibtop_init_loadavg_s,
+#endif
+#if !GLIBTOP_SUID_SHM_LIMITS
+	glibtop_init_shm_limits_s,
+#endif
+#if !GLIBTOP_SUID_MSG_LIMITS
+	glibtop_init_msg_limits_s,
+#endif
+#if !GLIBTOP_SUID_SEM_LIMITS
+	glibtop_init_sem_limits_s,
+#endif
+#if !GLIBTOP_SUID_PROCLIST
+	glibtop_init_proclist_s,
+#endif
+#if !GLIBTOP_SUID_PROC_STATE
+	glibtop_init_proc_state_s,
+#endif
+#if !GLIBTOP_SUID_PROC_UID
+	glibtop_init_proc_uid_s,
+#endif
+#if !GLIBTOP_SUID_PROC_MEM
+	glibtop_init_proc_mem_s,
+#endif
+#if !GLIBTOP_SUID_PROC_TIME
+	glibtop_init_proc_time_s,
+#endif
+#if !GLIBTOP_SUID_PROC_SIGNAL
+	glibtop_init_proc_signal_s,
+#endif
+#if !GLIBTOP_SUID_PROC_KERNEL
+	glibtop_init_proc_kernel_s,
+#endif
+#if !GLIBTOP_SUID_PROC_SEGMENT
+	glibtop_init_proc_segment_s,
+#endif
+	NULL
+};
+
 /* Checks which features are implemented. */
 
 void
 glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf)
 {
-	glibtop_union data;
-
-	memset (buf, 0, sizeof (glibtop_sysdeps));
-
-	buf->features = glibtop_server_features;
-
-	/* Call all system dependent functions to check which values
-	 * they return. */
-
-	glibtop_get_cpu_l (server, &data.cpu);
-	buf->cpu = data.cpu.flags;
-
-	glibtop_get_mem_l (server, &data.mem);
-	buf->mem = data.mem.flags;
-	
-	glibtop_get_swap_l (server, &data.swap);
-	buf->swap = data.swap.flags;
-
-	glibtop_get_uptime_l (server, &data.uptime);
-	buf->uptime = data.uptime.flags;
-
-	glibtop_get_loadavg_l (server, &data.loadavg);
-	buf->loadavg = data.loadavg.flags;
-
-	glibtop_get_shm_limits_l (server, &data.shm_limits);
-	buf->shm_limits = data.shm_limits.flags;
-
-	glibtop_get_msg_limits_l (server, &data.msg_limits);
-	buf->msg_limits = data.msg_limits.flags;
-
-	glibtop_get_sem_limits_l (server, &data.sem_limits);
-	buf->sem_limits = data.sem_limits.flags;
-
-	glibtop_get_proclist_l (server, &data.proclist);
-	buf->proclist = data.proclist.flags;
-
-	glibtop_get_proc_state_l (server, &data.proc_state, 0);
-	buf->proc_state = data.proc_state.flags;
-
-	glibtop_get_proc_uid_l (server, &data.proc_uid, 0);
-	buf->proc_uid = data.proc_uid.flags;
-
-	glibtop_get_proc_mem_l (server, &data.proc_mem, 0);
-	buf->proc_mem = data.proc_mem.flags;
-
-	glibtop_get_proc_time_l (server, &data.proc_time, 0);
-	buf->proc_time = data.proc_time.flags;
-
-	glibtop_get_proc_kernel_l (server, &data.proc_kernel, 0);
-	buf->proc_kernel = data.proc_kernel.flags;
-
-	glibtop_get_proc_segment_l (server, &data.proc_segment, 0);
-	buf->proc_segment = data.proc_segment.flags;
+	memcpy (buf, &server->sysdeps, sizeof (glibtop_sysdeps));
 }

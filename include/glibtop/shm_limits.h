@@ -58,8 +58,10 @@ struct _glibtop_shm_limits
 extern void glibtop_get_shm_limits_l __P((glibtop *, glibtop_shm_limits *));
 
 #if GLIBTOP_SUID_SHM_LIMITS
+extern void glibtop_init_shm_limits_p __P((glibtop *));
 extern void glibtop_get_shm_limits_p __P((glibtop *, glibtop_shm_limits *));
 #else
+extern void glibtop_init_shm_limits_s __P((glibtop *));
 extern void glibtop_get_shm_limits_s __P((glibtop *, glibtop_shm_limits *));
 #endif
 

@@ -54,8 +54,10 @@ struct _glibtop_proclist
 extern unsigned *glibtop_get_proclist_l __P((glibtop *, glibtop_proclist *));
 
 #if GLIBTOP_SUID_PROCLIST
+extern void glibtop_init_proclist_p __P((glibtop *));
 extern unsigned *glibtop_get_proclist_p __P((glibtop *, glibtop_proclist *));
 #else
+extern void glibtop_init_proclist_s __P((glibtop *));
 extern unsigned *glibtop_get_proclist_s __P((glibtop *, glibtop_proclist *));
 #endif
 

@@ -30,9 +30,17 @@ static unsigned long _glibtop_sysdeps_swap =
 (1 << GLIBTOP_SWAP_FREE) + (1 << GLIBTOP_SWAP_PAGEIN) +
 (1 << GLIBTOP_SWAP_PAGEOUT);
 
-#define FILENAME	"/proc/meminfo"
+/* Init function. */
+
+void
+glibtop_init_swap_s (glibtop *server)
+{
+	server->sysdeps.swap = _glibtop_sysdeps_swap;
+}
 
 /* Provides information about swap usage. */
+
+#define FILENAME	"/proc/meminfo"
 
 void
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
@@ -41,7 +49,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	int fd, len;
 	FILE *f;
 
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SWAP, 0);
 
 	memset (buf, 0, sizeof (glibtop_swap));
 

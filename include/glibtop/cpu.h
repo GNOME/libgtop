@@ -60,8 +60,10 @@ struct _glibtop_cpu
 extern void glibtop_get_cpu_l __P((glibtop *, glibtop_cpu *));
 
 #if GLIBTOP_SUID_CPU
+extern void glibtop_init_cpu_p __P((glibtop *));
 extern void glibtop_get_cpu_p __P((glibtop *, glibtop_cpu *));
 #else
+extern void glibtop_init_cpu_s __P((glibtop *));
 extern void glibtop_get_cpu_s __P((glibtop *, glibtop_cpu *));
 #endif
 

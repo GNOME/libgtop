@@ -31,6 +31,14 @@ static const unsigned long _glibtop_sysdeps_proc_time =
 (1 << GLIBTOP_PROC_TIME_TIMEOUT) + (1 << GLIBTOP_PROC_TIME_IT_REAL_VALUE) +
 (1 << GLIBTOP_PROC_TIME_START_TIME);
 
+/* Init function. */
+
+void
+glibtop_init_proc_time_s (glibtop *server)
+{
+	server->sysdeps.proc_time = _glibtop_sysdeps_proc_time;
+}
+
 /* Provides detailed information about a process. */
 
 void
@@ -42,12 +50,6 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf,
 	glibtop_init_s (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_time));
-
-	if (pid == 0) {
-		/* Client is only interested in the flags. */
-		buf->flags = _glibtop_sysdeps_proc_time;
-		return;
-	}
 
 	if (table (TABLE_PROC_TIME, &tbl, &pid))
 	  glibtop_error_io_r (server, "table(TABLE_PROC_TIME)");

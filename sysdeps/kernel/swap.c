@@ -30,6 +30,14 @@ static unsigned long _glibtop_sysdeps_swap =
 (1 << GLIBTOP_SWAP_FREE) + (1 << GLIBTOP_SWAP_PAGEIN) +
 (1 << GLIBTOP_SWAP_PAGEOUT);
 
+/* Init function. */
+
+void
+glibtop_init_swap_s (glibtop *server)
+{
+	server->sysdeps.swap = _glibtop_sysdeps_swap;
+}
+
 /* Provides information about swap usage. */
 
 void

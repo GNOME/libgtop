@@ -41,6 +41,13 @@ __BEGIN_DECLS
 #define GLIBTOP_METHOD_INET		3
 #define GLIBTOP_METHOD_UNIX		4
 
+#define GLIBTOP_ERROR_METHOD_IGNORE	0
+#define GLIBTOP_ERROR_METHOD_WARN_ONCE	1
+#define GLIBTOP_ERROR_METHOD_WARN	2
+#define GLIBTOP_ERROR_METHOD_ABORT	3
+
+#define GLIBTOP_ERROR_METHOD_DEFAULT	GLIBTOP_ERROR_METHOD_WARN_ONCE
+
 extern void glibtop_open_l __P((glibtop *, const char *, const unsigned long, const unsigned));
 
 extern void glibtop_open_p __P((glibtop *, const char *, const unsigned long, const unsigned));

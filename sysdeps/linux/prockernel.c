@@ -29,6 +29,14 @@ static const unsigned long _glibtop_sysdeps_proc_kernel =
 (1 << GLIBTOP_PROC_KERNEL_CMAJ_FLT) + (1 << GLIBTOP_PROC_KERNEL_KSTK_ESP) +
 (1 << GLIBTOP_PROC_KERNEL_KSTK_EIP) + (1 << GLIBTOP_PROC_KERNEL_WCHAN);
 
+/* Init function. */
+
+void
+glibtop_init_proc_kernel_s (glibtop *server)
+{
+	server->sysdeps.proc_kernel = _glibtop_sysdeps_proc_kernel;
+}
+
 /* Provides detailed information about a process. */
 
 void
@@ -38,15 +46,9 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid)
 	int nread;
 	FILE *f;
 	
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
-
-	if (pid == 0) {
-		/* Client is only interested in the flags. */
-		buf->flags = _glibtop_sysdeps_proc_kernel;
-		return;
-	}
 
 	sprintf (input, "/proc/%d/stat", pid);
 

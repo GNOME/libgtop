@@ -70,8 +70,10 @@ struct _glibtop_proc_time
 extern void glibtop_get_proc_time_l __P((glibtop *, glibtop_proc_time *, pid_t));
 
 #if GLIBTOP_SUID_PROC_TIME
+extern void glibtop_init_proc_time_p __P((glibtop *));
 extern void glibtop_get_proc_time_p __P((glibtop *, glibtop_proc_time *, pid_t));
 #else
+extern void glibtop_init_proc_time_s __P((glibtop *));
 extern void glibtop_get_proc_time_s __P((glibtop *, glibtop_proc_time *, pid_t));
 #endif
 
