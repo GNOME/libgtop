@@ -2,6 +2,7 @@
 # Martin Baulig <martin@home-of-linux.org>, 1998-2000.
 # Christian Meyer <cm@ggtt.de>, 2000, 2001.
 # Christian Neumair <chris@gnome-de.org>, 2002-2004.
+# Hendrik Richter <hendrik@gnome-de.org>, 2004
 #
 # hmm... ein paar englische Strings sollte man lieber in Ruhe lassen...! -cm-
 #
@@ -9,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
+"POT-Creation-Date: 2004-09-02 18:47+0000\n"
 "PO-Revision-Date: 2004-01-04 18:32+0100\n"
-"Last-Translator: Christian Neumair <chris@gnome-de.org>\n"
+"Last-Translator: Hendrik Richter <hendrik@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -267,9 +268,8 @@ msgid "Free file nodes"
 msgstr "Freie Knoten"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Blockiert"
+msgstr "Blockgröße"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -422,14 +422,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Subnetz"
+msgstr "IPv4 Subnetz"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Adresse"
+msgstr "IPv4 Adresse"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -472,17 +470,16 @@ msgid "Collisions"
 msgstr "Kollisionen"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Adresse"
+msgstr "IPv6 Adresse"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "IPv6 Präfix"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "IPv6 Adressbereich"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
