@@ -7,6 +7,8 @@ INCLUDES	= @INCLUDES@ -D_BSD \
 
 backenddir	= @LIBGTOP_BACKEND_DIR@
 
+dynamic_ldflags	= @libgtop_dynamic_ldflags@
+
 backend_DATA = \
 	libgtop-server.backend
 
@@ -31,7 +33,7 @@ libgtop_backend_server_la_SOURCES = \
 	write.c
 
 libgtop_backend_server_la_LDFLAGS = \
-	$(LT_VERSION_INFO) -export-dynamic
+	$(LT_VERSION_INFO) $(dynamic_ldflags)
 
 libgtop_server_SOURCES = \
 	server.c		\

@@ -165,6 +165,9 @@ AC_DEFUN([GNOME_LIBGTOP_DYNLINK],[
 	  AC_MSG_RESULT(no)
 	else
 	  AC_MSG_RESULT(yes)
+	fi
+
+	if test x$with_modules = xyes; then
 	  AC_MSG_CHECKING(whether dynamic modules work)
 	  oLIBS="$LIBS"
 	  oCFLAGS="$CFLAGS"
@@ -206,9 +209,13 @@ AC_DEFUN([GNOME_LIBGTOP_DYNLINK],[
 	  AC_SUBST(GMODULE_LIBS)
 	  AC_SUBST(GMODULE_FLAGS)
 	  libgtop_use_gmodule=yes
+	  libgtop_dynamic_ldflags='-export-dynamic -module'
 	else
 	  libgtop_use_gmodule=no
+	  libgtop_dynamic_ldflags=
 	fi
+
+	AC_SUBST(libgtop_dynamic_ldflags)
 
 	AC_MSG_RESULT($libgtop_use_gmodule)
 ])

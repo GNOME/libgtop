@@ -4,6 +4,8 @@ INCLUDES	= @INCLUDES@
 
 backenddir	= @LIBGTOP_BACKEND_DIR@
 
+dynamic_ldflags	= @libgtop_dynamic_ldflags@
+
 backend_DATA = \
 	libgtop-sysdeps.backend
 
@@ -18,7 +20,7 @@ libgtop_backend_sysdeps_la_SOURCES = \
 	marshal.c
 
 libgtop_backend_sysdeps_la_LDFLAGS = \
-	$(LT_VERSION_INFO) -export-dynamic
+	$(LT_VERSION_INFO) $(dynamic_ldflags)
 
 BUILT_SOURCES = \
 	marshal.c

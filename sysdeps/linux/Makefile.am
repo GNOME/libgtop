@@ -2,6 +2,8 @@ LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 INCLUDES			= @INCLUDES@
 
+dynamic_ldflags			= @libgtop_dynamic_ldflags@
+
 backenddir			= @LIBGTOP_BACKEND_DIR@
 
 backend_LTLIBRARIES		= libgtop_sysdeps.la
@@ -14,6 +16,6 @@ libgtop_sysdeps_la_SOURCES	= open.c close.c cpu.c mem.c swap.c \
 				  interfaces.c netinfo.c netload.c ppp.c
 libgtop_sysdeps_la_LIBADD	= @GLIB_LIBS@
 
-libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO) -export-dynamic
+libgtop_sysdeps_la_LDFLAGS	= $(LT_VERSION_INFO) $(dynamic_ldflags)
 
 include_HEADERS			= glibtop_server.h glibtop_machine.h
