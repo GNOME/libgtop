@@ -3,6 +3,9 @@
 	Set version number to 1.1.0. Also made a `LIBGTOP_STABLE_1_0'
 	branch in CVS while development will go on here in the HEAD.
 
+	* LIBGTOP-VERSION: Set version number to 1.1.0 binary age 0,
+	interface age 0. Set LIBGTOP_SERVER_VERSION to 50.
+
 1999-04-18  Tuomas J. Lukka <lukka@iki.fi>
 
 	* Add missing comma in sysdeps/names/proctime.c
