@@ -36,7 +36,7 @@ main (int argc, char *argv [])
     GError *error = NULL;
     glibtop_cpu cpu;
 
-    g_type_init (G_TYPE_DEBUG_NONE);
+    g_type_init ();
 
     client = glibtop_client_new ();
 

@@ -104,22 +104,22 @@ glibtop_client_class_init (glibtop_client_class *klass)
     parent_class = g_type_class_peek_parent (klass);
 
     glibtop_client_signals [GLIBTOP_CLIENT_SIGNAL_ERROR] =
-	g_signal_newc ("error",
+	g_signal_new ("error",
 		       G_TYPE_FROM_CLASS (klass),
 		       G_SIGNAL_RUN_LAST,
 		       G_STRUCT_OFFSET (glibtop_client_class, error),
 		       NULL, NULL,
 		       g_cclosure_marshal_VOID__POINTER,
-		       G_TYPE_NONE, 1, G_TYPE_POINTER);
+		       G_TYPE_NONE, 1, G_TYPE_POINTER, NULL);
 
     glibtop_client_signals [GLIBTOP_CLIENT_SIGNAL_WARNING] =
-	g_signal_newc ("warning",
+	g_signal_new ("warning",
 		       G_TYPE_FROM_CLASS (klass),
 		       G_SIGNAL_RUN_LAST,
 		       G_STRUCT_OFFSET (glibtop_client_class, warning),
 		       NULL, NULL,
 		       g_cclosure_marshal_VOID__POINTER,
-		       G_TYPE_NONE, 1, G_TYPE_POINTER);
+		       G_TYPE_NONE, 1, G_TYPE_POINTER, NULL);
 
     klass->error = glibtop_client_error_handler;
     klass->warning = glibtop_client_warning_handler;

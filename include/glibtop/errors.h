@@ -28,7 +28,7 @@
 
 #include <glibtop.h>
 
-#include <gerror.h>
+#include <glib/gerror.h>
 
 G_BEGIN_DECLS
 

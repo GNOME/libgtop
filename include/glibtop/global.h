@@ -47,7 +47,7 @@
 #include <string.h>
 #include <sys/types.h>
 
-#include <gmacros.h>
+#include <glib/gmacros.h>
 
 #if TIME_WITH_SYS_TIME
 # include <sys/time.h>

@@ -1,3 +1,9 @@
+2001-10-13  Bastien Nocera  <hadess@hadess.net>
+
+	reviewed by: <delete if not using a buddy>
+
+	* Makefile.am:
+
 2000-02-05  Martin Baulig  <martin@home-of-linux.org>
 
 	* reference.texi: Started to update documentation.
