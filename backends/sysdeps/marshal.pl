@@ -58,7 +58,9 @@ sub output {
     $space = $feature;
     $space =~ s/./ /g;
 
-    $features{++$feature_count} = $feature;
+    $features{++$feature_count} = $orig;
+
+    return if $orig =~ /^@//;
 
     if ($retval eq 'retval') {
       $retval_param = '&retval';
@@ -113,7 +115,7 @@ sub output {
 	}
 
 	if ($param_decl eq '') {
-	  $param_decl = ",\n            " . $space . '    ';
+	  $param_decl = ",\n             " . $space . '    ';
 	}
 	else {
 	  $param_decl = $param_decl . ', ';
@@ -165,9 +167,13 @@ $call_vector_code = '';
 for ($nr = 1; $nr <= $feature_count; $nr++) {
   $feature = $features{$nr};
 
-  $call_vector_code .= sprintf
-    (qq[\#if GLIBTOP_SUID_%s\n\tNULL,\n\#else\n\t_glibtop_get_%s_c,\n\#endif\n],
-     &toupper($feature), $feature);
+  if ($feature =~ /^@/) {
+    $call_vector_code .= sprintf (qq[\tNULL,\n]);
+  } else {
+    $call_vector_code .= sprintf
+      (qq[\#if GLIBTOP_SUID_%s\n\tNULL,\n\#else\n\t_glibtop_get_%s_c,\n\#endif\n],
+       &toupper($feature), $feature);
+  }
 }
 
 print 'glibtop_call_vector glibtop_backend_sysdeps_call_vector = {';
