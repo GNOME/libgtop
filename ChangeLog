@@ -1,4 +1,9 @@
-2004/04/16  I�aki Larra�aga  <dooteo@euskalgnu.org>
+2004-05-28  Benoît Dejean <TazForEver@free.fr>
+
+	* examples/*: Added missing #include.
+	* ChangeLog: Converted to UTF-8.
+
+2004-04-16  Iñaki Larrañaga  <dooteo@euskalgnu.org>
 
 	* configure.in: Added "eu" (Basque) to ALL_LINGUAS.
 
@@ -13,7 +18,7 @@
 2004-04-07  Bastien Nocera  <hadess@hadess.net>
 
 	* include/glibtop/fsusage.h: fix typo in the #defines for
-	FSUSAGE_BLOCK_SIZE (patch by Beno�t Dejean <TazForEver@free.fr>)
+	FSUSAGE_BLOCK_SIZE (patch by Benoît Dejean <TazForEver@free.fr>)
 
 2004-03-30  Adam Weinberger  <adamw@gnome.org>
 
@@ -147,7 +152,7 @@
 2004-02-02  Sebastien Bacher  <seb128@debian.org>
 
 	* sysdeps/linux/mem.c: (glibtop_get_mem_s): patch from 
-	Benoît Dejean <bnet@ifrance.com> to fix libtop_mem.used 
+	BenoÃ®t Dejean <bnet@ifrance.com> to fix libtop_mem.used 
 	and glibtop_mem.shared values (Closes: #129863).
 
 Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
@@ -173,7 +178,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 	* configure.in: remove linking to libgtop and checks for 64-bit
 	integer bytes (fixes warning on build on glib 2.0 systems)
 
-2003-11-02  Ćœygimantas BeruÄka  <uid0@tuxfamily.org>
+2003-11-02  ÄÅygimantas BeruÃÂka  <uid0@tuxfamily.org>
 
 	* configure.in: Added "lt" to ALL_LINGUAS.
 
@@ -392,13 +397,13 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* configure.in: make it compile
 
-2003-10-19  Carlos PerellĂł MarĂ­n <carlos@gnome.org>
+2003-10-19  Carlos PerellÄÅ MarÄÂ­n <carlos@gnome.org>
 
 	* support/*: Reverted libgtop changes. It's a common module
 	and I should not modify it.
 	* Added/removed files. Now the move should be done.
 
-2003-10-19  Carlos PerellĂł MarĂ­n <carlos@gnome.org>
+2003-10-19  Carlos PerellÄÅ MarÄÂ­n <carlos@gnome.org>
 
 	* libgtop-GNOME-2-0-branch moved to HEAD.
 
@@ -410,7 +415,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* configure.in: Added "ta" (Tamil) to the languages' list.
 
-2003-09-13  Carlos PerellĂł MarĂ­n <carlos@gnome.org>
+2003-09-13  Carlos PerellÄÅ MarÄÂ­n <carlos@gnome.org>
 
 	* configure.in (ALL_LINGUAS):  Removed es_ES.
 
@@ -463,7 +468,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* configure.in: release 2.0.2
 
-2003-05-10  Danilo Ć egan  <dsegan@gmx.net>
+2003-05-10  Danilo ÄÂ egan  <dsegan@gmx.net>
 
 	* configure.in: Added "sr" and "sr@Latn" to ALL_LINGUAS.
 
@@ -483,7 +488,7 @@ Wed Jan  7 02:23:28 2004  Jonathan Blandford  <jrb@gnome.org>
 
 	* configure.in: Added he to ALL_LINGUAS.
 
-2003-02-25  T?Â”ivo Leedj?Â€rv  <toivo@linux.ee>
+2003-02-25  T?Ãâivo Leedj?Ãâ¬rv  <toivo@linux.ee>
 
 	* configure.in: Added et to ALL_LINGUAS.
 
