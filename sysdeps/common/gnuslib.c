@@ -208,8 +208,6 @@ glibtop_internet_addr (host)
 	IN_ADDR numeric_addr;	/* host address */
 
 	numeric_addr = inet_addr (host);
-	fprintf (stderr, "TEST: %lx - %lx\n",
-		 (IN_ADDR) numeric_addr, (IN_ADDR) 0xffffffff);
 	if (!NUMERIC_ADDR_ERROR)
 		return numeric_addr;
 	else if ((hp = gethostbyname (host)) != NULL)
