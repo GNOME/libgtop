@@ -1,3 +1,7 @@
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
+	* POTFILES.in: fixed distchecking
+
 2003-10-19  Carlos Perelló Marín <carlos@gnome.org>
 
 	* POTFILES.ignore: Removed, we use now POTFILES.skip

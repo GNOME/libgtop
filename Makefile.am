@@ -12,9 +12,9 @@ SUBDIRS = . po misc include sysdeps lib src \
 libgtopinclude_HEADERS = glibtop.h
 libgtopincludedir = $(includedir)/libgtop-2.0
 
-EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt libgtopConf.sh.in \
-	LIBGTOP-VERSION features.def libgtop-config.in RELNOTES-0.25 \
-	RELNOTES-1.0 RELNOTES-1.0.x libgtop-sysdeps.m4 README \
+EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt \
+	LIBGTOP-VERSION features.def \
+	libgtop-sysdeps.m4 README \
 	libgtop-mirror.sh libgtop-2.0.pc.in acinclude.m4
 
 dist-hook:
@@ -23,12 +23,6 @@ dist-hook:
 release:
 	$(MAKE) dist distdir=$(PACKAGE)-$(VERSION)
 
-## Put `exec' in the name because this should be installed by
-## `install-exec', not `install-data'.
-## confexecdir	= $(libdir)
-## confexec_DATA	= $(top_builddir)/libgtopConf.sh \
-##		  $(top_builddir)/libgtop-features.def
-		  
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libgtop-2.0.pc
 

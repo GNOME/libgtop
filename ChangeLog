@@ -1,5 +1,9 @@
 2003-10-20  Bastien Nocera  <hadess@hadess.net>
 
+	* Makefile.am: fix distchecking, release 2.5.0
+
+2003-10-20  Bastien Nocera  <hadess@hadess.net>
+
 	* configure.in: fix the library versioning to be hand-made rather
 	than uber-calculated from some esoteric numbers
 

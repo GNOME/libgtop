@@ -35,7 +35,6 @@ include/glibtop/union.h
 include/glibtop/uptime.h
 include/glibtop/version.h
 include/glibtop/write.h
-include/glibtop/xmalloc.h
 lib/close.c
 lib/command.c
 lib/init.c
@@ -53,12 +52,6 @@ src/daemon/slave.c
 src/daemon/version.c
 src/inodedb/file_by_inode2.c
 src/inodedb/mkinodedb2.c
-support/easy-vsnprintf.c
-support/error.c
-support/error.h
-support/getopt.c
-support/popt.c
-support/popthelp.c
 sysdeps/common/error.c
 sysdeps/common/fsusage.c
 sysdeps/common/fsusage.h
@@ -67,7 +60,6 @@ sysdeps/common/inodedb.c
 sysdeps/common/mountlist.c
 sysdeps/common/mountlist.h
 sysdeps/common/sysdeps_suid.c
-sysdeps/common/xmalloc.c
 sysdeps/linux/close.c
 sysdeps/linux/cpu.c
 sysdeps/linux/glibtop_machine.h
