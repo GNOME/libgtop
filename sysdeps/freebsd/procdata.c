@@ -26,7 +26,6 @@
 
 #include <sys/stat.h>
 
-#define LINUX_VERSION(x,y,z)	(0x10000*(x) + 0x100*(y) + z)
 
 #define BIT_SHIFT(x)		(1L << (x % 64))
 
@@ -143,15 +142,6 @@ glibtop_get_procdata_s (glibtop *server, glibtop_procdata *buf, pid_t pid)
 	if (buf->tty == 0)
 		/* the old notty val, update elsewhere bef. moving to 0 */
 		buf->tty = -1;
-
-	if (server->os_version_code < LINUX_VERSION(1,3,39)) {
-		/* map old meanings to new */
-		buf->priority = 2*15 - buf->priority;
-		buf->nice = 15 - buf->nice;
-	}
-	if (server->os_version_code < LINUX_VERSION(1,1,30) && buf->tty != -1)
-		/* when tty wasn't full devno */
-		buf->tty = 4*0x100 + buf->tty;
 	
 	fclose (f);
 
