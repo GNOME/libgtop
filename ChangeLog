@@ -1,3 +1,7 @@
+1999-11-02  Jesus Bravo Alvarez  <jba@pobox.com>
+
+	* configure.in: Added Galician (gl) to ALL_LINGUAS
+
 1999-10-24  Martin Baulig  <martin@home-of-linux.org>
 
 	* features.def: Use `retval' for the default retval.
