@@ -4,7 +4,7 @@ INCLUDES			= -I$(top_builddir) -I$(top_srcdir) @machine_incs@ \
 				  -I$(top_srcdir)/include -I$(top_srcdir)/intl @GUILE_INCS@ \
 				  -DGTOPLOCALEDIR=\"$(datadir)/locale\" -D_GNU_SOURCE
 
-CFLAGS				= -Wall -W @CFLAGS@ -DGTOP_SERVER=\""@LIBGTOP_SERVER@"\" -DDEBUG
+CFLAGS				= -Wall -W @CFLAGS@ -DGTOP_SERVER=\""@LIBGTOP_SERVER@"\"
 
 lib_LTLIBRARIES			= libgtop.la
 

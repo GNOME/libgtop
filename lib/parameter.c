@@ -28,6 +28,14 @@
 	memcpy (data_ptr, ptr, size);	\
 	return size;
 
+#define _check_data(size)	\
+	if ((data_ptr == NULL) || (data_size != size)) { \
+		glibtop_error_r (server, "glibtop_set_parameter (%d): " \
+				 "Expected %lu bytes but got %lu.", \
+				 parameter, size, data_size); \
+		return; \
+	}
+
 #define _strlen(ptr)	(ptr ? strlen (ptr) : 0)
 
 size_t
@@ -59,4 +67,14 @@ void
 glibtop_set_parameter_l (glibtop *server, const unsigned parameter,
 			 const void *data_ptr, size_t data_size)
 {
+	switch (parameter) {
+	case GLIBTOP_PARAM_METHOD:
+		_check_data (sizeof (server->method));
+		memcpy (&server->method, data_ptr, data_size);
+		break;
+	case GLIBTOP_PARAM_FEATURES:
+		_check_data (sizeof (server->features));
+		memcpy (&server->features, data_ptr, data_size);
+		break;
+	}
 }

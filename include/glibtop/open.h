@@ -38,6 +38,7 @@ __BEGIN_DECLS
 #define GLIBTOP_METHOD_DIRECT		1
 #define GLIBTOP_METHOD_PIPE		2
 #define GLIBTOP_METHOD_INET		3
+#define GLIBTOP_METHOD_UNIX		4
 
 extern void glibtop_open_l __P((glibtop *, const char *, const unsigned long, const unsigned));
 

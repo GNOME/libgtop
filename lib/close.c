@@ -19,14 +19,30 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#include <glibtop.h>
+#include <glibtop/open.h>
 #include <glibtop/close.h>
+#include <glibtop/command.h>
 
-/* Closes pipe to gtop server. */
+/* Closes server. */
 
 void
 glibtop_close_r (glibtop *server)
 {
-	kill (server->pid, SIGKILL);
-	close (server->input [0]);
-	close (server->output [1]);
+	switch (server->method) {
+	case GLIBTOP_METHOD_UNIX:
+	case GLIBTOP_METHOD_INET:
+		glibtop_call_l (server, GLIBTOP_CMND_QUIT,
+				0, NULL, 0, NULL);
+
+		if (close (server->socket))
+			glibtop_warn_io ("close");
+
+		break;
+	case GLIBTOP_METHOD_PIPE:
+		kill (server->pid, SIGKILL);
+		close (server->input [0]);
+		close (server->output [1]);
+		break;
+	}
 }

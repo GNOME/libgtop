@@ -73,8 +73,10 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 		return;
 	}
 	
-	input [nread] = 0;
+	fclose (f);
 	
+	input [nread] = 0;
+
 	/* This is from guile-utils/gtop/proc/readproc.c */
 	
 	/* split into "PID (cmd" and "<rest>" */

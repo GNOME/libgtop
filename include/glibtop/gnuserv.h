@@ -54,9 +54,8 @@ static char header_rcsid [] = "!Header: gnuserv.h,v 2.4 95/02/16 11:58:11 arup a
  *   sockets with sysv ipc
  */
 
-
 #define INTERNET_DOMAIN_SOCKETS
-// #define UNIX_DOMAIN_SOCKETS 
+#define UNIX_DOMAIN_SOCKETS 
 // #define SYSV_IPC
 
 /*

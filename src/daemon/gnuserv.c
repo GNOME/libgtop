@@ -29,21 +29,25 @@
  * ../etc/gnuserv.README relative to the directory containing this file)
  */
 
-#if 0
 static char rcsid[] = "!Header: gnuserv.c,v 2.1 95/02/16 11:58:27 arup alpha !";
 
-#endif
+#include <glibtop.h>
+#include <glibtop/open.h>
+#include <glibtop/close.h>
 
-#define DEBUG
+#include "server_config.h"
 
 #include <glibtop/gnuserv.h>
-#include <glibtop/open.h>
+
+#include <fcntl.h>
+#include <sys/wait.h>
 
 #ifdef AIX
 #include <sys/select.h>
 #endif
 
-extern void handle_socket_connection __P ((glibtop *, int));
+extern void handle_parent_connection __P ((glibtop *, int));
+extern void handle_child_connection __P ((glibtop *, int));
 
 #if !defined(SYSV_IPC) && !defined(UNIX_DOMAIN_SOCKETS) && !defined(INTERNET_DOMAIN_SOCKETS)
 main ()
@@ -148,6 +152,7 @@ ipc_init (struct msgbuf **msgpp)
 void
 handle_ipc_request (struct msgbuf *msgp)
 {
+#if 0
 	struct msqid_ds msg_st;	/* message status */
 	char buf[GSERV_BUFSZ];
 	int len;		/* length of message / read */
@@ -224,106 +229,14 @@ handle_ipc_request (struct msgbuf *msgp)
 	msgp->mtype = msg_st.msg_lspid;
 	if (msgsnd (ipc_qid, msgp, strlen (msgp->mtext) + 1, 0) < 0)
 		glibtop_warn_io ("msgsend(gnuserv)");
-
+#else
+	glibtop_error ("handle_ipc_request (): Function not implemented");
+#endif
 }				/* handle_ipc_request */
 #endif /* SYSV_IPC */
 
 
-#if defined(INTERNET_DOMAIN_SOCKETS) || defined(UNIX_DOMAIN_SOCKETS)
-/*
- * echo_request -- read request from a given socket descriptor, and send the information
- * to stdout (the gnu process).
- */
-static void
-echo_request (int s)
-{
-	char buf[GSERV_BUFSZ];
-	int len;
-
-	printf ("%d ", s);
-
-	/* read until we get a newline or no characters */
-	while ((len = recv (s, buf, GSERV_BUFSZ - 1, 0)) > 0) {
-		buf[len] = '\0';
-		printf ("%s", buf);
-
-		if (buf[len - 1] == EOT_CHR) {
-			fflush (stdout);
-			break;	/* end of message */
-		}
-	}			/* while */
-
-	if (len < 0)
-		glibtop_error_io ("recv");
-
-}				/* echo_request */
-
-
-/*
- * handle_response -- accept a response from stdin (the gnu process) and pass the
- * information on to the relevant client.
- */
-static void
-handle_response (void)
-{
-#if 0
-	char buf[GSERV_BUFSZ + 1];
-	int offset = 0;
-	int s;
-	int len;
-	int result_len;
-
-	/* read in "n/m:" (n=client fd, m=message length) */
-	while (offset < GSERV_BUFSZ &&
-	       ((len = read (0, buf + offset, 1)) > 0) &&
-	       buf[offset] != ':') {
-		offset += len;
-	}
-
-	if (len < 0)
-		glibtop_error_io ("read");
-
-	/* parse the response from emacs, getting client fd & result length */
-	buf[offset] = '\0';
-	sscanf (buf, "%d/%d", &s, &result_len);
-
-	while (result_len > 0) {
-		if ((len = read (0, buf, min2 (result_len, GSERV_BUFSZ))) < 0)
-			glibtop_error_io ("read");
-
-		buf[len] = '\0';
-		send_string (s, buf);
-		result_len -= len;
-	}
-
-	/* eat the newline */
-	while ((len = read (0, buf, 1)) == 0);
-	if (len < 0)
-		glibtop_error_io ("read");
-
-	if (buf[0] != '\n')
-		glibtop_error ("garbage after result");
-
-	/* send the newline */
-	buf[1] = '\0';
-	send_string (s, buf);
-	close (s);
-#else
-	glibtop_error ("handle_response (): Function not implemented");
-#endif
-
-}				/* handle_response */
-
-#endif /* INTERNET_DOMAIN_SOCKETS || UNIX_DOMAIN_SOCKETS */
-
-
 #ifdef INTERNET_DOMAIN_SOCKETS
-struct entry {
-	u_long host_addr;
-	struct entry *next;
-};
-
-struct entry *permitted_hosts[TABLE_SIZE];
 
 #ifdef AUTH_MAGIC_COOKIE
 #include <X11/X.h>
@@ -383,8 +296,7 @@ timed_read (int fd, char *buf, int max, int timeout, int one_line)
 static int
 permitted (u_long host_addr, int fd)
 {
-	int key;
-	struct entry *entry;
+	int i;
 
 	char auth_protocol[128];
 	char buf[1024];
@@ -445,47 +357,22 @@ permitted (u_long host_addr, int fd)
 	}
 	/* Now, try the old GNU_SECURE stuff... */
 
-	/* First find the hash key */
-	key = HASH (host_addr) % TABLE_SIZE;
-
 #ifdef DEBUG
 	fprintf (stderr, "Doing GNU_SECURE auth ...\n");
 #endif
 
 	/* Now check the chain for that hash key */
-	for (entry = permitted_hosts[key]; entry != NULL; entry = entry->next) {
+	for (i = 0; i < HOST_TABLE_ENTRIES; i++) {
 #ifdef DEBUG
-		fprintf (stderr, "Trying %ld\n", entry->host_addr);
+		fprintf (stderr, "Trying %lx - %lx\n",
+			 host_addr, permitted_hosts [i]);
 #endif
-		if (host_addr == entry->host_addr)
+		if (host_addr == permitted_hosts [i])
 			return (TRUE);
 	}
 
 	return (FALSE);
-
 }				/* permitted */
-
-
-/* 
- * add_host -- add the given host to the list of permitted hosts, provided it isn't
- * already there.
- */
-static void
-add_host (u_long host_addr)
-{
-	int key;
-	struct entry *new_entry;
-
-	if (!permitted (host_addr, -1)) {
-		if ((new_entry = (struct entry *) malloc (sizeof (struct entry))) == NULL)
-			  glibtop_error_io ("unable to malloc space for permitted host entry");
-
-		new_entry->host_addr = host_addr;
-		key = HASH (host_addr) % TABLE_SIZE;
-		new_entry->next = permitted_hosts[key];
-		permitted_hosts[key] = new_entry;
-	}			/* if */
-}				/* add_host */
 
 
 /*
@@ -499,54 +386,53 @@ add_host (u_long host_addr)
 static int
 setup_table (void)
 {
-	FILE *host_file;
-	char *file_name;
-	char hostname[HOSTNAMSZ];
+	char hostname [HOSTNAMSZ];
 	u_int host_addr;
 	int i, hosts = 0;
 
 	/* Make sure every entry is null */
-	for (i = 0; i < TABLE_SIZE; i++)
-		permitted_hosts[i] = NULL;
+	for (i = 0; i < HOST_TABLE_ENTRIES; i++)
+		permitted_hosts [i] = 0;
 
 	gethostname (hostname, HOSTNAMSZ);
 
 	if (((long) host_addr = glibtop_internet_addr (hostname)) == -1)
-		glibtop_error ("unable to find %s in /etc/hosts or from YP", hostname);
+		glibtop_error ("Can't resolve '%s'", hostname);
 
 #ifdef AUTH_MAGIC_COOKIE
 
-	server_xauth = XauGetAuthByAddr (FamilyInternet,
-				    sizeof (host_addr), (char *) &host_addr,
-				    strlen (MCOOKIE_SCREEN), MCOOKIE_SCREEN,
-				   strlen (MCOOKIE_X_NAME), MCOOKIE_X_NAME);
+	server_xauth = XauGetAuthByAddr
+		(FamilyInternet,
+		 sizeof (host_addr), (char *) &host_addr,
+		 strlen (MCOOKIE_SCREEN), MCOOKIE_SCREEN,
+		 strlen (MCOOKIE_X_NAME), MCOOKIE_X_NAME);
 	hosts++;
 
 #endif /* AUTH_MAGIC_COOKIE */
 
+	/* Resolv host names from permitted_host_names []. */
 
-#if 0				/* Don't even want to allow access from the
-				 * local host by default */
-	add_host (host_addr);	/* add local host */
-	hosts++;
+	for (i = 0; i < HOST_TABLE_ENTRIES; i++) {
+#ifdef DEBUG
+		fprintf (stderr, "Resolving %s ...\n",
+			 permitted_host_names [i]);
+#endif
+		permitted_hosts [i] =
+			glibtop_internet_addr (permitted_host_names [i]);
+		if ((long) permitted_hosts [i] == -1)
+			glibtop_error ("Can't resolve '%s'",
+				       permitted_host_names [i]);
+	}
+
+#ifdef DEBUG
+	for (i = 0; i < HOST_TABLE_ENTRIES; i++)
+		fprintf (stderr, "Host %s - %lx\n",
+			 permitted_host_names [i],
+			 permitted_hosts [i]);
 #endif
 
-	if (((file_name = getenv ("GNU_SECURE")) != NULL &&	/* security
-								 * file  */
-	     (host_file = fopen (file_name, "r")) != NULL)) {	/* opened ok */
-		while ((fscanf (host_file, "%s", hostname) != EOF))	/* find 
-									 * a
-									 * host 
-									 */
-			if (((long) host_addr = glibtop_internet_addr (hostname)) != -1) {	/* get 
-												 * its 
-												 * addr 
-												 */
-				add_host (host_addr);	/* add the addr */
-				hosts++;
-			}
-		fclose (host_file);
-	}			/* if */
+	hosts += HOST_TABLE_ENTRIES;
+
 	return hosts;
 }				/* setup_table */
 
@@ -559,9 +445,7 @@ static int
 internet_init (void)
 {
 	int ls;			/* socket descriptor */
-	struct servent *sp;	/* pointer to service information */
 	struct sockaddr_in server;	/* for local socket address */
-	char *ptr;		/* ptr to return from getenv */
 
 	if (setup_table () == 0)
 		return -1;
@@ -573,19 +457,15 @@ internet_init (void)
 	server.sin_family = AF_INET;
 	server.sin_addr.s_addr = INADDR_ANY;
 
-	/* Find the information for the gnu server * in order to get the
-	 * needed port number. */
-	if ((ptr = getenv ("GNU_PORT")) != NULL)
-		server.sin_port = htons (atoi (ptr));
-	else if ((sp = getservbyname ("gnuserv", "tcp")) == NULL)
-		server.sin_port = htons (DEFAULT_PORT + getuid ());
-	else
-		server.sin_port = sp->s_port;
+	/* We use a fixed port given in the config file. */
+	server.sin_port = htons (SERVER_PORT);
+
+	fprintf (stderr, "Using port %u.\n", server.sin_port);
 
 	/* Create the listen socket. */
 	if ((ls = socket (AF_INET, SOCK_STREAM, 0)) == -1)
 		glibtop_error_io ("unable to create socket");
-
+	
 	/* Bind the listen address to the socket. */
 	if (bind (ls, (struct sockaddr *) &server, sizeof (struct sockaddr_in)) == -1)
 		  glibtop_error_io ("bind");
@@ -595,7 +475,6 @@ internet_init (void)
 		glibtop_error_io ("listen");
 
 	return (ls);
-
 }				/* internet_init */
 
 
@@ -609,6 +488,7 @@ handle_internet_request (int ls)
 	int s;
 	size_t addrlen = sizeof (struct sockaddr_in);
 	struct sockaddr_in peer;	/* for peer socket address */
+	pid_t pid;
 
 	memset ((char *) &peer, 0, sizeof (struct sockaddr_in));
 
@@ -625,18 +505,30 @@ handle_internet_request (int ls)
 		glibtop_warn ("Refused connection from %s.", inet_ntoa (peer.sin_addr));
 		return;
 	}			/* if */
+
 #ifdef DEBUG
-	fprintf (stderr, "Accepted connection from %s.\n", inet_ntoa (peer.sin_addr));
+	fprintf (stderr, "Accepted connection from %s (%u) on socket %d.\n",
+		 inet_ntoa (peer.sin_addr), ntohs (peer.sin_port), s);
 #endif
 
-	handle_socket_connection (&glibtop_global_server, s);
+	pid = fork ();
+
+	if (pid == -1)
+		glibtop_error_io ("fork failed");
+
+	if (pid)
+		return;
+
+	handle_parent_connection (glibtop_global_server, s);
 
 	close (s);
-
+	
 #ifdef DEBUG
-	fprintf (stderr, "Closed connection to %s.\n", inet_ntoa (peer.sin_addr));
+	fprintf (stderr, "Closed connection to %s (%d).\n",
+		 inet_ntoa (peer.sin_addr), ntohs (peer.sin_port));
 #endif
 
+	_exit (0);
 }				/* handle_internet_request */
 #endif /* INTERNET_DOMAIN_SOCKETS */
 
@@ -657,12 +549,14 @@ unix_init (void)
 		glibtop_error_io ("unable to create socket");
 
 	/* Set up address structure for the listen socket. */
+
 #ifdef HIDE_UNIX_SOCKET
 	sprintf (server.sun_path, "/tmp/lgtddir%d", (int) geteuid ());
 	if (mkdir (server.sun_path, 0700) < 0) {
 		/* assume it already exists, and try to set perms */
 		if (chmod (server.sun_path, 0700) < 0)
-			glibtop_error_io ("Can't set permissions on %s", server.sun_path);
+			glibtop_error_io ("Can't set permissions on %s",
+					  server.sun_path);
 	}
 	strcat (server.sun_path, "/lgtd");
 	unlink (server.sun_path);	/* remove old file if it exists */
@@ -705,7 +599,6 @@ unix_init (void)
 #endif
 
 	return (ls);
-
 }				/* unix_init */
 
 
@@ -719,27 +612,52 @@ handle_unix_request (int ls)
 	int s;
 	size_t len = sizeof (struct sockaddr_un);
 	struct sockaddr_un server;	/* for unix socket address */
+	pid_t pid;
 
 	server.sun_family = AF_UNIX;
 
 	if ((s = accept (ls, (struct sockaddr *) &server, (void *) &len)) < 0)
 		glibtop_error_io ("accept");
 
-	echo_request (s);
+#ifdef DEBUG
+	fprintf (stderr, "Accepted connection on socket %d.\n", s);
+#endif
 
+	pid = fork ();
+
+	if (pid == -1)
+		glibtop_error_io ("fork failed");
+
+	if (pid)
+		return;
+
+	handle_child_connection (glibtop_global_server, s);
+
+	close (s);
+
+#ifdef DEBUG
+	fprintf (stderr, "Closed connection on socket %d.\n", s);
+#endif
+
+	glibtop_close_r (glibtop_global_server);
+
+	exit (0);
 }				/* handle_unix_request */
 
 #endif /* UNIX_DOMAIN_SOCKETS */
 
+void
+handle_signal (int sig)
+{
+	fprintf (stderr, "Catched signal %d.\n", sig);
+}
 
 int
-main (argc, argv)
-     int argc;
-     char *argv[];
+main (int argc, char *argv [])
 {
-	int chan;		/* temporary channel number */
 	int ils = -1;		/* internet domain listen socket */
 	int uls = -1;		/* unix domain listen socket */
+	pid_t pid;
 
 #ifdef SYSV_IPC
 	struct msgbuf *msgp;	/* message buffer */
@@ -748,31 +666,127 @@ main (argc, argv)
 
 	glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_OPEN_NO_OVERRIDE);
 
-	for (chan = 3; chan < _NFILE; close (chan++))	/* close unwanted
-							 * channels */
-		;
+	/* Fork a child.
+	 *
+	 * The parent will listen for incoming internet connections
+	 * and the child will listen for connections from the local
+	 * host using unix domain name sockets or SysV IPC.
+	 */
+
+	signal (SIGCHLD, handle_signal);
+
+	pid = fork ();
+
+	if (pid == -1)
+		glibtop_error_io ("fork failed");
+	else if (pid == 0) {
+		/* We are the child. */
+
+		/* Temporarily drop our priviledges. */
+
+		fprintf (stderr, "Child ID: (%d, %d) - (%d, %d)\n",
+			 getuid (), geteuid (), getgid (), getegid ());
+
+		if (setreuid (geteuid (), getuid ()))
+			glibtop_error_io ("setreuid (euid <-> uid)");
+		
+		if (setregid (getegid (), getgid ()))
+			glibtop_error_io ("setregid (egid <-> gid)");
+		
+		fprintf (stderr, "Child ID: (%d, %d) - (%d, %d)\n",
+			 getuid (), geteuid (), getgid (), getegid ());
 
 #ifdef SYSV_IPC
-	ipc_init (&msgp);	/* get a msqid to listen on, and a message
-				 * buffer */
+		/* get a msqid to listen on, and a message buffer. */
+		ipc_init (&msgp);
 #endif /* SYSV_IPC */
 
-#ifdef INTERNET_DOMAIN_SOCKETS
-	ils = internet_init ();	/* get a internet domain socket to listen on */
-#endif /* INTERNET_DOMAIN_SOCKETS */
-
 #ifdef UNIX_DOMAIN_SOCKETS
-	uls = unix_init ();	/* get a unix domain socket to listen on */
+		/* get a unix domain socket to listen on. */
+		uls = unix_init ();
 #endif /* UNIX_DOMAIN_SOCKETS */
+	} else {
+		/* We are the parent. */
+
+		/* If we are root, completely switch to SERVER_UID and
+		 * SERVER_GID. Otherwise we completely drop any priviledges.
+		 */
+		
+#ifdef DEBUG
+		fprintf (stderr, "Parent ID: (%d, %d) - (%d, %d)\n",
+			 getuid (), geteuid (), getgid (), getegid ());
+#endif
+
+		if (setreuid (geteuid (), getuid ()))
+			glibtop_error_io ("setreuid (euid <-> uid)");
+		
+		if (setregid (getegid (), getgid ()))
+			glibtop_error_io ("setregid (egid <-> gid)");
+		
+#ifdef DEBUG
+		fprintf (stderr, "Parent ID: (%d, %d) - (%d, %d)\n",
+			 getuid (), geteuid (), getgid (), getegid ());
+#endif
+
+		if ((geteuid () == 0) || (getuid () == 0)) {
+			if (setreuid (0, 0))
+				glibtop_error_io ("setreuid (root)");
+		}
+
+#ifdef DEBUG
+		fprintf (stderr, "Parent ID: (%d, %d) - (%d, %d)\n",
+			 getuid (), geteuid (), getgid (), getegid ());
+#endif
+
+		if (geteuid () == 0) {
+			if (setregid (SERVER_GID, SERVER_GID))
+				glibtop_error_io ("setregid (SERVER_GID)");
+			if (setreuid (SERVER_UID, SERVER_UID))
+				glibtop_error_io ("setreuid (SERVER_UID)");
+		} else {
+			if (setreuid (geteuid (), geteuid ()))
+				glibtop_error_io ("setreuid (euid)");
+		}
+
+#ifdef DEBUG
+		fprintf (stderr, "Parent ID: (%d, %d) - (%d, %d)\n",
+			 getuid (), geteuid (), getgid (), getegid ());
+#endif
+
+#ifdef INTERNET_DOMAIN_SOCKETS
+		/* get a internet domain socket to listen on. */
+		ils = internet_init ();
+#endif /* INTERNET_DOMAIN_SOCKETS */
+	}
 
 	while (1) {
 #ifdef SYSV_IPC
 		handle_ipc_request (msgp);
 #else /* NOT SYSV_IPC */
 		fd_set rmask;
+		int ret;
 
+		while ((ret = wait3 (NULL, WNOHANG, NULL)) != 0) {
+			if ((ret == -1) && (errno == ECHILD))
+				break;
+
+			if ((ret == -1) && ((errno == EAGAIN) ||
+					    (errno == ERESTART)))
+				continue;
+			if (ret > 0)
+				fprintf (stderr, "Child %d exited.\n", ret);
+			else
+				glibtop_warn_io ("wait3: %d", ret);
+		}
+		
 		FD_ZERO (&rmask);
-		FD_SET (fileno (stdin), &rmask);
+
+		/* Only the child accepts connections from standard
+		 * input made by its parent. */
+
+		if (pid == 0)
+			FD_SET (fileno (stdin), &rmask);
+
 		if (uls >= 0)
 			FD_SET (uls, &rmask);
 		if (ils >= 0)
@@ -783,8 +797,12 @@ main (argc, argv)
 #endif
 
 		if (select (max2 (fileno (stdin), max2 (uls, ils)) + 1, &rmask,
-			    (fd_set *) NULL, (fd_set *) NULL, (struct timeval *) NULL) < 0)
+			    (fd_set *) NULL, (fd_set *) NULL,
+			    (struct timeval *) NULL) < 0) {
+			if (errno == EINTR)
+				continue;
 			glibtop_error_io ("select");
+		}
 
 #ifdef UNIX_DOMAIN_SOCKETS
 		if (uls > 0 && FD_ISSET (uls, &rmask))
@@ -796,9 +814,8 @@ main (argc, argv)
 			handle_internet_request (ils);
 #endif /* INTERNET_DOMAIN_SOCKETS */
 
-		if (FD_ISSET (fileno (stdin), &rmask))	/* from stdin (gnu
-							 * process) */
-			handle_response ();
+		if (FD_ISSET (fileno (stdin), &rmask))
+			handle_child_connection (glibtop_global_server, fileno (stdin));
 #endif /* NOT SYSV_IPC */
 	}			/* while */
 

@@ -63,16 +63,11 @@ _init_server (glibtop *server, const unsigned features)
 
 	if (server->server_command [0] != ':') {
 		if (features & glibtop_server_features) {
-			
 			/* We really need the server. */
-			
 			server->method = GLIBTOP_METHOD_PIPE;
-				
 		} else {
-				
 			/* Fine. No server is needed, so we call the
 			 * sysdeps functions directly. */
-			
 			server->method = GLIBTOP_METHOD_DIRECT;
 		}
 
@@ -92,21 +87,19 @@ _init_server (glibtop *server, const unsigned features)
 	/* Dispatch method. */
 			
 	if (!strcmp (command, "direct")) {
-
-				/* Use sysdeps dir instead of connecting to server
-				 * even if using the server would be required on
-				 * the current system. */
-
+		/* Use sysdeps dir instead of connecting to server
+		 * even if using the server would be required on
+		 * the current system. */
 		server->method = GLIBTOP_METHOD_DIRECT;
-			
+
 	} else if (!strcmp (command, "inet")) {
 
 		server->method = GLIBTOP_METHOD_INET;
 
-				/* Connect to internet server. */
+		/* Connect to internet server. */
 
 		if (temp == NULL) {
-				/* If no value was set, we use 'localhost'. */
+			/* If no value was set, we use 'localhost'. */
 			if (server->server_host == NULL)
 				server->server_host = glibtop_strdup_r
 					(server, "localhost");
@@ -114,7 +107,7 @@ _init_server (glibtop *server, const unsigned features)
 			char *temp2 = strstr (temp+1, ":");
 			if (temp2) *temp2 = 0;
 					
-				/* Override default. */
+			/* Override default. */
 			if (server->server_host)
 				glibtop_free_r (server, (char *) server->server_host);
 
@@ -125,7 +118,7 @@ _init_server (glibtop *server, const unsigned features)
 		}
 			
 		if (temp == NULL) {
-				/* If no value was set, we use DEFAULT_PORT. */
+			/* If no value was set, we use DEFAULT_PORT. */
 			if (server->server_port == 0)
 				server->server_port = DEFAULT_PORT;
 		} else {
@@ -137,9 +130,17 @@ _init_server (glibtop *server, const unsigned features)
 					
 			temp = temp2 ? temp2 + 1 : temp2;
 		}
+
+	} else if (!strcmp (command, "unix")) {
+
+		/* Connect to unix domain socket. */
+		server->method = GLIBTOP_METHOD_UNIX;
+
 	} else {
+
 		glibtop_error_r (server, "Unknown server method '%s'",
 				 server->server_command+1);
+
 	}
 			
 	glibtop_free_r (server, command);

@@ -1,3 +1,26 @@
+1998-07-13  Martin Baulig  <martin@home-of-linux.org>
+
+	* glibtop.h: Fixed invocation of `glibtop_close_r'.
+
+	* sysdeps/linux/procstate.c: Added missing `fclose'.
+
+	* include/glibtop/gnuserv.h (UNIX_DOMAIN_SOCKETS): Defining.
+	
+	* include/glibtop/open.h (GLIBTOP_METHOD_UNIX): Added.
+
+	* lib/init.c: Added new method `GLIBTOP_METHOD_UNIX'.
+
+	* lib/open.c: Added support for Unix Domain Sockets.
+
+	* lib/close.c: Now closing inet and unix connections.
+
+	* lib/parameter.c (glibtop_set_parameter_l): You can now
+	set the `method' and `features' fields.
+
+	* src/daemon/server_config.h: New file.
+
+	* src/daemon/{gnuserv.c, main.c}: More work on the server.
+
 1998-07-10  Martin Baulig  <martin@home-of-linux.org>
 
 	* src/Makefile.am (SUBDIRS): Removed `proxy'. This directory

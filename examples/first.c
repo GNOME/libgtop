@@ -32,7 +32,7 @@
 #include <glibtop/sysdeps.h>
 
 #ifndef PROFILE_COUNT
-#define PROFILE_COUNT	1
+#define PROFILE_COUNT	1000
 #endif
 
 int
@@ -68,14 +68,14 @@ main (int argc, char *argv [])
 
 	printf ("Host = '%s' - %u\n\n", buffer, port);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 	  	glibtop_get_cpu (&data.cpu);
 
 	printf ("CPU          (0x%08lx): %lu, %lu, %lu, %lu, %lu, %lu\n",
 		data.cpu.flags, data.cpu.total, data.cpu.user, data.cpu.nice,
 		data.cpu.sys, data.cpu.idle, data.cpu.frequency);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_mem (&data.mem);
 
 	printf ("Memory       (0x%08lx): %lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu\n",
@@ -83,26 +83,26 @@ main (int argc, char *argv [])
 		data.mem.shared, data.mem.buffer, data.mem.cached,
 		data.mem.user, data.mem.locked);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_swap (&data.swap);
 
 	printf ("Swap         (0x%08lx): %lu, %lu, %lu\n", data.swap.flags,
 		data.swap.total, data.swap.used, data.swap.free);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_uptime (&data.uptime);
 
 	printf ("Uptime       (0x%08lx): %f, %f\n", data.uptime.flags,
 		data.uptime.uptime, data.uptime.idletime);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_loadavg (&data.loadavg);
 
 	printf ("Loadavg      (0x%08lx): %f, %f, %f\n", data.loadavg.flags,
 		data.loadavg.loadavg [0], data.loadavg.loadavg [1],
 		data.loadavg.loadavg [2]);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_shm_limits (&data.shm_limits);
 	
 	printf ("Shm Limits   (0x%08lx): %ld, %ld, %ld, %ld, %ld\n",
@@ -110,7 +110,7 @@ main (int argc, char *argv [])
 		data.shm_limits.shmmin, data.shm_limits.shmmni,
 		data.shm_limits.shmseg, data.shm_limits.shmall);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_msg_limits (&data.msg_limits);
 
 	printf ("Msg Limits   (0x%08lx): %ld, %ld, %ld, %ld, %ld, %ld, %ld\n",
@@ -119,7 +119,7 @@ main (int argc, char *argv [])
 		data.msg_limits.msgmnb, data.msg_limits.msgmni,
 		data.msg_limits.msgssz, data.msg_limits.msgtql);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_sem_limits (&data.sem_limits);
 	
 	printf ("Sem Limits   (0x%08lx): "
@@ -167,7 +167,7 @@ main (int argc, char *argv [])
 
 	printf ("\n");
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_state (&data.proc_state, pid);
 
 	printf ("Proc_State   PID  %5u (0x%08lx): '%s', %c, %u, %u\n",
@@ -175,7 +175,7 @@ main (int argc, char *argv [])
 		data.proc_state.state, data.proc_state.uid,
 		data.proc_state.gid);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_uid (&data.proc_uid, pid);
 
 	printf ("Proc_Uid     PID  %5u (0x%08lx): "
@@ -188,7 +188,7 @@ main (int argc, char *argv [])
 		data.proc_uid.tpgid, data.proc_uid.priority,
 		data.proc_uid.nice);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_mem (&data.proc_mem, pid);
 
 	printf ("Proc_Mem     PID  %5u (0x%08lx): "
@@ -197,7 +197,7 @@ main (int argc, char *argv [])
 		data.proc_mem.resident, data.proc_mem.share,
 		data.proc_mem.rss, data.proc_mem.rss_rlim);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_time (&data.proc_time, pid);
 
 	printf ("Proc_Time    PID  %5u (0x%08lx): "
@@ -207,7 +207,7 @@ main (int argc, char *argv [])
 		data.proc_time.cstime, data.proc_time.timeout,
 		data.proc_time.it_real_value);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_signal (&data.proc_signal, pid);
 	
 	printf ("Proc_Signal  PID  %5u (0x%08lx): "
@@ -215,7 +215,7 @@ main (int argc, char *argv [])
 		data.proc_signal.signal, data.proc_signal.blocked,
 		data.proc_signal.sigignore, data.proc_signal.sigcatch);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_kernel (&data.proc_kernel, pid);
 
 	printf ("Proc_Kernel  PID  %5u (0x%08lx): "
@@ -226,7 +226,7 @@ main (int argc, char *argv [])
 		data.proc_kernel.kstk_esp, data.proc_kernel.kstk_eip,
 		data.proc_kernel.wchan);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_segment (&data.proc_segment, pid);
 
 	printf ("Proc_Segment PID  %5u (0x%08lx): "
@@ -238,7 +238,7 @@ main (int argc, char *argv [])
 
 	printf ("\n");
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_state (&data.proc_state, ppid);
 
 	printf ("Proc_State   PPID %5u (0x%08lx): '%s', %c, %u, %u\n",
@@ -246,7 +246,7 @@ main (int argc, char *argv [])
 		data.proc_state.state, data.proc_state.uid,
 		data.proc_state.gid);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_uid (&data.proc_uid, ppid);
 
 	printf ("Proc_Uid     PPID %5u (0x%08lx): "
@@ -259,7 +259,7 @@ main (int argc, char *argv [])
 		data.proc_uid.tpgid, data.proc_uid.priority,
 		data.proc_uid.nice);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_mem (&data.proc_mem, ppid);
 
 	printf ("Proc_Mem     PPID %5u (0x%08lx): "
@@ -268,7 +268,7 @@ main (int argc, char *argv [])
 		data.proc_mem.resident, data.proc_mem.share,
 		data.proc_mem.rss, data.proc_mem.rss_rlim);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_time (&data.proc_time, ppid);
 
 	printf ("Proc_Time    PPID %5u (0x%08lx): "
@@ -278,7 +278,7 @@ main (int argc, char *argv [])
 		data.proc_time.cstime, data.proc_time.timeout,
 		data.proc_time.it_real_value);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_signal (&data.proc_signal, ppid);
 
 	printf ("Proc_Signal  PPID %5u (0x%08lx): "
@@ -286,7 +286,7 @@ main (int argc, char *argv [])
 		data.proc_signal.signal, data.proc_signal.blocked,
 		data.proc_signal.sigignore, data.proc_signal.sigcatch);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_kernel (&data.proc_kernel, ppid);
 
 	printf ("Proc_Kernel  PPID %5u (0x%08lx): "
@@ -297,7 +297,7 @@ main (int argc, char *argv [])
 		data.proc_kernel.kstk_esp, data.proc_kernel.kstk_eip,
 		data.proc_kernel.wchan);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_segment (&data.proc_segment, ppid);
 
 	printf ("Proc_Segment PPID %5u (0x%08lx): "
@@ -309,7 +309,7 @@ main (int argc, char *argv [])
 
 	printf ("\n");
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_state (&data.proc_state, 1);
 
 	printf ("Proc_State   INIT %5u (0x%08lx): '%s', %c, %u, %u\n",
@@ -317,7 +317,7 @@ main (int argc, char *argv [])
 		data.proc_state.state, data.proc_state.uid,
 		data.proc_state.gid);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_uid (&data.proc_uid, 1);
 
 	printf ("Proc_Uid     INIT %5u (0x%08lx): "
@@ -330,7 +330,7 @@ main (int argc, char *argv [])
 		data.proc_uid.tpgid, data.proc_uid.priority,
 		data.proc_uid.nice);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_mem (&data.proc_mem, 1);
 
 	printf ("Proc_Mem     INIT %5u (0x%08lx): "
@@ -339,7 +339,7 @@ main (int argc, char *argv [])
 		data.proc_mem.resident, data.proc_mem.share,
 		data.proc_mem.rss, data.proc_mem.rss_rlim);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_time (&data.proc_time, 1);
 
 	printf ("Proc_Time    INIT %5u (0x%08lx): "
@@ -349,7 +349,7 @@ main (int argc, char *argv [])
 		data.proc_time.cstime, data.proc_time.timeout,
 		data.proc_time.it_real_value);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_signal (&data.proc_signal, 1);
 
 	printf ("Proc_Signal  INIT %5u (0x%08lx): "
@@ -357,7 +357,7 @@ main (int argc, char *argv [])
 		data.proc_signal.signal, data.proc_signal.blocked,
 		data.proc_signal.sigignore, data.proc_signal.sigcatch);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_kernel (&data.proc_kernel, 1);
 
 	printf ("Proc_Kernel  INIT %5u (0x%08lx): "
@@ -368,7 +368,7 @@ main (int argc, char *argv [])
 		data.proc_kernel.kstk_esp, data.proc_kernel.kstk_eip,
 		data.proc_kernel.wchan);
 
-	for (c = 0; c < count; c++)
+	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_segment (&data.proc_segment, 1);
 
 	printf ("Proc_Segment INIT %5u (0x%08lx): "
@@ -377,6 +377,8 @@ main (int argc, char *argv [])
 		data.proc_segment.drs, data.proc_segment.dt,
 		data.proc_segment.start_code, data.proc_segment.end_code,
 		data.proc_segment.start_stack);
+
+	glibtop_close ();
 
 	exit (0);
 }

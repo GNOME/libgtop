@@ -33,6 +33,8 @@ void
 glibtop_open_l (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
+	int connect_type;
+
 	server->name = program_name;
 
 	/* It is important to set _GLIBTOP_INIT_STATE_OPEN here when we
@@ -40,19 +42,33 @@ glibtop_open_l (glibtop *server, const char *program_name,
 
 	server->flags |= _GLIBTOP_INIT_STATE_OPEN;
 
-	if (server->method == GLIBTOP_METHOD_INET) {
-		int connect_type;
-
-		fprintf (stderr, "Connecting to '%s' port %d.\n",
+	switch (server->method) {
+	case GLIBTOP_METHOD_INET:
+		fprintf (stderr, "Connecting to '%s' port %ld.\n",
 			 server->server_host, server->server_port);
 		
 		connect_type = glibtop_make_connection
 			(server->server_host, server->server_port,
 			 &server->socket);
+
+		fprintf (stderr, "Connect Type is %d.\n", connect_type);
+
+		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
 		
 		server->features = -1;
+		break;
+	case GLIBTOP_METHOD_UNIX:
+		fprintf (stderr, "Connecting to Unix Domain Socket.\n");
 
-		return;
+		connect_type = glibtop_make_connection
+			("unix", 0, &server->socket);
+		
+		fprintf (stderr, "Connect Type is %d.\n", connect_type);
+
+		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
+
+		server->features = -1;
+		break;
 	}
 
 	/* If the server has been started, ask it for its features. */
@@ -64,5 +80,8 @@ glibtop_open_l (glibtop *server, const char *program_name,
 				sizeof (glibtop_sysdeps), &sysdeps);
 		
 		server->features = sysdeps.features;
+
+		fprintf (stderr, "Server features are %lu.\n",
+			 server->features);
 	}
 }
