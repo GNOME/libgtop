@@ -32,8 +32,6 @@
 static GHashTable *_glibtop_backend_list = NULL;
 static long _glibtop_backend_nr = 0;
 
-#if HAVE_LIBXML
-
 #define LIBGTOP_XML_NAMESPACE	"http://www.home-of-linux.org/libgtop/1.1"
 
 #include <libxml/parser.h>
@@ -41,8 +39,6 @@ static long _glibtop_backend_nr = 0;
 #include <dirent.h>
 
 static void _glibtop_init_gmodule_backends (const char *);
-
-#endif /* HAVE_LIBXML */
 
 void
 glibtop_init_backends (void)
@@ -53,14 +49,10 @@ glibtop_init_backends (void)
 	return;
     backends_initialized = 1;
 
-#if HAVE_LIBXML
     LIBXML_TEST_VERSION;
 
     _glibtop_init_gmodule_backends (LIBGTOP_BACKEND_DIR);
-#endif
 }
-
-#if HAVE_LIBXML
 
 static gchar *
 _get_library_filename (xmlDocPtr doc, xmlNodePtr cur, const char *directory)
@@ -226,8 +218,6 @@ _glibtop_init_gmodule_backends (const char *directory)
 
     closedir (dir);
 }
-
-#endif /* HAVE_LIBXML */
 
 long
 glibtop_register_backend (glibtop_backend_entry *entry)
