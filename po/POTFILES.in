@@ -38,7 +38,6 @@ include/glibtop/cpu.h
 include/glibtop/error.h
 include/glibtop/fsusage.h
 include/glibtop/global.h
-include/glibtop/gnuserv.h
 include/glibtop/inodedb.h
 include/glibtop/loadavg.h
 include/glibtop/mem.h
@@ -71,7 +70,6 @@ include/glibtop/write.h
 include/glibtop/xmalloc.h
 src/inodedb/file_by_inode.c
 src/inodedb/mkinodedb.c
-src/daemon/gnuserv.c
 src/daemon/io.c
 src/daemon/main.c
 src/daemon/server.c
@@ -79,7 +77,6 @@ src/daemon/slave.c
 src/daemon/version.c
 sysdeps/common/error.c
 sysdeps/common/fsusage.c
-sysdeps/common/gnuslib.c
 sysdeps/common/inodedb.c
 sysdeps/common/mountlist.c
 sysdeps/common/sysdeps_suid.c

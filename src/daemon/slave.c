@@ -97,7 +97,7 @@ handle_slave_connection (int input, int output)
 				sizeof (max_len));
 			ptr = glibtop_get_proc_args_p (server,
 						       &resp->u.data.proc_args,
-						       pid, max_len);
+						       pid);
 			do_output (output, resp, _offset_data (proc_args),
 				   ptr ? resp->u.data.proc_args.size+1 : 0,
 				   ptr, (ptr != NULL) ? 0 : -1);
