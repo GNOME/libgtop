@@ -1,3 +1,7 @@
+2000-01-12  Martin Baulig  <martin@home-of-linux.org>
+
+	* backends/common/: New directory.
+
 2000-01-10  Martin Baulig  <martin@home-of-linux.org>
 
 	* src/daemon/: Removed everything in this directory. This has

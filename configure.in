@@ -541,6 +541,7 @@ scripts/Makefile
 backends/Makefile
 backends/server/Makefile
 backends/sysdeps/Makefile
+backends/common/Makefile
 lib/Makefile
 doc/Makefile
 support/Makefile

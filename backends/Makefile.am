@@ -1,1 +1,1 @@
-SUBDIRS		= server sysdeps
+SUBDIRS		= server sysdeps common
