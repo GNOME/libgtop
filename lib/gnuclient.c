@@ -51,14 +51,9 @@ int
 main (int argc, char *argv[])
 {
   int s;			/* socket / msqid to server */
-  int connect_type;		/* CONN_UNIX, CONN_INTERNET, or
-				 * CONN_IPC */
+  int connect_type;		/* CONN_UNIX, CONN_INTERNET, or CONN_IPC */
 #ifdef INTERNET_DOMAIN_SOCKETS
-  char *hostarg = NULL;		/* remote hostname */
-  char thishost[HOSTNAMSZ];	/* this hostname */
-  char remotepath[MAXPATHLEN+1]; /* remote pathname */
-  int rflg = 0;			/* pathname given on cmdline */
-  u_short port = 0;		/* port to server */
+  char thishost [HOSTNAMSZ];	/* this hostname */
 #endif /* INTERNET_DOMAIN_SOCKETS */
 #ifdef SYSV_IPC
   struct msgbuf *msgp;		/* message */
@@ -66,42 +61,12 @@ main (int argc, char *argv[])
 
   glibtop_init ();
 
-#ifdef INTERNET_DOMAIN_SOCKETS
-  memset (remotepath, 0, sizeof (remotepath));
-#endif /* INTERNET_DOMAIN_SOCKETS */
-
-#if defined(INTERNET_DOMAIN_SOCKETS)
-  connect_type = glibtop_make_connection (hostarg, port, &s);
-#else
   connect_type = glibtop_make_connection (NULL, (u_short) 0, &s);
-#endif
 
 #ifdef INTERNET_DOMAIN_SOCKETS
   if (connect_type == (int) CONN_INTERNET)
     {
-      char *ptr;
       gethostname (thishost, HOSTNAMSZ);
-      if (!rflg)
-	{				/* attempt to generate a path 
-					 * to this machine */
-	  if ((ptr = getenv ("LIBGTOP_NODE")) != NULL)
-	    /* user specified a path */
-	    strcpy (remotepath, ptr);
-	}
-#if 0  /* This is really bogus... re-enable it if you must have it! */
-#if defined (hp9000s300) || defined (hp9000s800)
-      else if (strcmp (thishost,hostarg))
-	{	/* try /net/thishost */
-	  strcpy (remotepath, "/net/");		/* (this fails using internet 
-						   addresses) */
-	  strcat (remotepath, thishost);
-	}
-#endif
-#endif
-    }
-  else
-    {			/* same machines, no need for path */
-      remotepath[0] = '\0';	/* default is the empty path */
     }
 #endif /* INTERNET_DOMAIN_SOCKETS */
 

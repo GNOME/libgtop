@@ -33,11 +33,16 @@
 static char rcsid [] = "!Header: gnuserv.c,v 2.1 95/02/16 11:58:27 arup alpha !";
 #endif
 
+#define DEBUG
+
 #include <glibtop/gnuserv.h>
+#include <glibtop/open.h>
 
 #ifdef AIX
 #include <sys/select.h>
 #endif
+
+extern void handle_socket_connection __P((int));
 
 #if !defined(SYSV_IPC) && !defined(UNIX_DOMAIN_SOCKETS) && !defined(INTERNET_DOMAIN_SOCKETS)
 main ()
@@ -417,6 +422,10 @@ permitted (u_long host_addr, int fd)
       if (timed_read(fd, auth_protocol, AUTH_NAMESZ, AUTH_TIMEOUT, 1) <= 0)
 	return FALSE;
 
+#ifdef DEBUG
+      fprintf (stderr, "Client sent authenticatin protocol '%s'\n", auth_protocol);
+#endif
+
       if (strcmp (auth_protocol, DEFAUTH_NAME) &&
 	  strcmp (auth_protocol, MCOOKIE_NAME))
 	{
@@ -425,24 +434,24 @@ permitted (u_long host_addr, int fd)
 	  return FALSE;
 	}
 
-      if (!strcmp(auth_protocol, MCOOKIE_NAME))
+      if (!strcmp (auth_protocol, MCOOKIE_NAME))
 	{
 
 	  /*
 	   * doing magic cookie auth
 	   */
 
-	  if (timed_read(fd, buf, 10, AUTH_TIMEOUT, 1) <= 0)
+	  if (timed_read (fd, buf, 10, AUTH_TIMEOUT, 1) <= 0)
 	    return FALSE;
 
-	  auth_data_len = atoi(buf);
+	  auth_data_len = atoi (buf);
 
-	  if (timed_read(fd, buf, auth_data_len, AUTH_TIMEOUT, 0) != auth_data_len)
+	  if (timed_read (fd, buf, auth_data_len, AUTH_TIMEOUT, 0) != auth_data_len)
 	    return FALSE;
       
 #ifdef AUTH_MAGIC_COOKIE
 	  if (server_xauth && server_xauth->data &&
-	      !memcmp(buf, server_xauth->data, auth_data_len))
+	      !memcmp (buf, server_xauth->data, auth_data_len))
 	    {
 	      return TRUE;
 	    }
@@ -470,11 +479,19 @@ permitted (u_long host_addr, int fd)
   
   /* First find the hash key */
   key = HASH(host_addr) % TABLE_SIZE;
+
+#ifdef DEBUG
+  fprintf (stderr, "Doing GNU_SECURE auth ...\n");
+#endif
   
   /* Now check the chain for that hash key */
-  for(entry = permitted_hosts[key]; entry != NULL; entry=entry->next)
+  for(entry = permitted_hosts [key]; entry != NULL; entry = entry->next) {
+#ifdef DEBUG
+    fprintf (stderr, "Trying %ld\n", entry->host_addr);
+#endif
     if (host_addr == entry->host_addr) 
       return(TRUE);
+  }
   
   return(FALSE);
 
@@ -625,20 +642,34 @@ handle_internet_request (int ls)
   size_t addrlen = sizeof(struct sockaddr_in);
   struct sockaddr_in peer;	/* for peer socket address */
 
-  memset((char *)&peer,0,sizeof(struct sockaddr_in));
+  memset((char *)&peer, 0, sizeof (struct sockaddr_in));
 
-  if ((s = accept(ls,(struct sockaddr *)&peer, (void *) &addrlen)) == -1)
+  if ((s = accept (ls, (struct sockaddr *)&peer, (void *) &addrlen)) == -1)
     glibtop_error_io ("accept");
+
+#ifdef DEBUG
+  fprintf (stderr, "Connection was made from %s.\n", inet_ntoa (peer.sin_addr));
+#endif
   
   /* Check that access is allowed - if not return crud to the client */
-  if (!permitted(peer.sin_addr.s_addr, s))
+  if (!permitted (peer.sin_addr.s_addr, s))
     {
       close(s);
-      glibtop_warn ("Refused connection from %s", inet_ntoa (peer.sin_addr));
+      glibtop_warn ("Refused connection from %s.", inet_ntoa (peer.sin_addr));
       return;
     } /* if */
 
-  echo_request(s);
+#ifdef DEBUG
+  fprintf (stderr, "Accepted connection from %s.\n", inet_ntoa (peer.sin_addr));
+#endif
+
+  handle_socket_connection (s);
+
+  close (s);
+
+#ifdef DEBUG
+  fprintf (stderr, "Closed connection to %s.\n", inet_ntoa (peer.sin_addr));
+#endif
   
 } /* handle_internet_request */
 #endif /* INTERNET_DOMAIN_SOCKETS */
@@ -746,7 +777,7 @@ main(argc,argv)
   struct msgbuf *msgp;		/* message buffer */
 #endif /* SYSV_IPC */
 
-  glibtop_init ();
+  glibtop_init_r (&glibtop_global_server, 0, GLIBTOP_OPEN_NO_OVERRIDE);
 
   for(chan=3; chan < _NFILE; close(chan++)) /* close unwanted channels */
     ;
@@ -774,6 +805,10 @@ main(argc,argv)
       FD_SET(uls, &rmask);
     if (ils >= 0)
       FD_SET(ils, &rmask);
+
+#ifdef DEBUG
+    fprintf (stderr, "Server ready and waiting for connections.\n");
+#endif
     
     if (select(max2(fileno(stdin),max2(uls,ils)) + 1, &rmask, 
 	       (fd_set *)NULL, (fd_set *)NULL, (struct timeval *)NULL) < 0)

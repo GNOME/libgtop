@@ -25,25 +25,45 @@
 #include <glibtop/command.h>
 #include <glibtop/xmalloc.h>
 
+#include <glibtop/gnuserv.h>
+
 /* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
 
 void
 glibtop_open_l (glibtop *server, const char *program_name,
-		 const unsigned long features, const unsigned flags)
+		const unsigned long features, const unsigned flags)
 {
 	char	version [BUFSIZ], buffer [BUFSIZ];
 	char	*server_command, *server_rsh, *temp;
 	char	*server_host, *server_user;
 	glibtop_sysdeps sysdeps;
+	int	connect_type;
 
 	memset (server, 0, sizeof (glibtop));
 
 	server->name = program_name;
 
 	/* Is the user allowed to override the server ? */
-
+	
 	if ((flags & GLIBTOP_OPEN_NO_OVERRIDE) == 0) {
+		connect_type = glibtop_make_connection
+			(NULL, (u_short) 0, &server->socket);
+		
+#ifdef INTERNET_DOMAIN_SOCKETS
+		if (connect_type == (int) CONN_INTERNET) {
+			fprintf (stderr, "Calling GLITOP_CMND_SYSDEPS ...\n");
+		
+			glibtop_call_l (server, GLIBTOP_CMND_SYSDEPS, 0, NULL,
+					sizeof (glibtop_sysdeps), &sysdeps);
+			
+			server->features = sysdeps.features;
+			
+			fprintf (stderr, "Features: %lu\n", server->features);
 
+			return;
+		}
+#endif /* INTERNET_DOMAIN_SOCKETS */
+		
 		/* Try to get data from environment. */
 		
 		temp = getenv ("LIBGTOP_SERVER") ?

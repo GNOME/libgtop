@@ -24,4 +24,4 @@ bin_PROGRAMS			= gnuclient
 gnuclient_LDADD			= $(top_builddir)/sysdeps/common/libgtop_common.la \
 				  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
 				  @INTLLIBS@ @LIBSUPPORT@ @X_LIBS@ -lXau
-gnuclient_LDFLAGS			= -static
+gnuclient_LDFLAGS		= -static

@@ -16,8 +16,8 @@ bin_PROGRAMS		= first first_static second second_static \
 EXTRA_PROGRAMS		= third third_static
 
 first_SOURCES		= first.c
-first_LDADD		= $(top_builddir)/sysdeps/common/libgtop_common.la \
-			  $(top_builddir)/lib/libgtop.la \
+first_LDADD		= $(top_builddir)/lib/libgtop.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
 			  @INTLLIBS@ @LIBSUPPORT@ @libs_xauth@
 
@@ -26,8 +26,8 @@ first_static_LDADD	= $(first_LDADD)
 first_static_LDFLAGS	= -static
 
 second_SOURCES		= second.c
-second_LDADD		= $(top_builddir)/sysdeps/common/libgtop_common.la \
-			  $(top_builddir)/lib/libgtop.la \
+second_LDADD		= $(top_builddir)/lib/libgtop.la \
+			  $(top_builddir)/sysdeps/common/libgtop_common.la \
 			  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
 			  @INTLLIBS@ @LIBSUPPORT@ @libs_xauth@
 

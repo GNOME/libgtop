@@ -26,13 +26,35 @@
 void
 glibtop_write_l (glibtop *server, size_t size, void *buf)
 {
+	int ret;
+
 	glibtop_init_r (&server, 0, 0);
 
-	if (write (server->output [1], &size, sizeof (size_t)) < 0)
-		glibtop_error_r (server, _("write size: %s"), strerror (errno));
+#ifdef DEBUG
+	fprintf (stderr, "LIBRARY: writing %d bytes = %d.\n", sizeof (size_t), size);
+#endif
+
+	if (server->socket) {
+		ret = send (server->socket, &size, sizeof (size_t), 0);
+	} else {
+		ret = write (server->output [1], &size, sizeof (size_t));
+	}
+
+	if (ret < 0)
+		glibtop_error_io_r (server, _("write size"));
 
 	if (!size) return;
-	
-	if (write (server->output [1], buf, size) < 0)
-		glibtop_error_r (server, _("write %d bytes: %s"), size, strerror (errno));
+
+#ifdef DEBUG
+	fprintf (stderr, "LIBRARY: really writing %d bytes.\n", size);
+#endif
+
+	if (server->socket) {
+		ret = send (server->socket, buf, size, 0);
+	} else {
+		ret = write (server->output [1], buf, size);
+	}
+
+	if (ret < 0)
+		glibtop_error_io_r (server, _("write %d bytes"), size);
 }
