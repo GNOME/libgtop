@@ -227,7 +227,7 @@ int main()
   pprint_get_mountlist(TRUE);
   pprint_get_mountlist(FALSE);
 
-  pprint_get_msg_limits();
+  /* pprint_get_msg_limits(); */
 
 /*   pprint_get_netload("lo"); */
 

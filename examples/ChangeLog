@@ -1,3 +1,7 @@
+2004-09-22  Benoît Dejean  <tazforever@dlfp.org>
+
+	* pprint.c: (main): Disable pprint_get_msg_limits() because it can fail.
+
 2004-09-21  Benoît Dejean  <tazforever@dlfp.org>
 
 	* pprint.c: (pprint_get_swap), (main): Updated.
