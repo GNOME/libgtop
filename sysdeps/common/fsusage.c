@@ -140,6 +140,15 @@ _glibtop_get_fsusage_read_write(glibtop *server,
 }
 
 
+#elif defined(__FreeBSD__)
+void G_GNUC_INTERNAL
+_glibtop_freebsd_get_fsusage_read_write(glibtop *server,
+					glibtop_fsusage *buf,
+					const char *path);
+
+#define _glibtop_get_fsusage_read_write(S, B, P) \
+	_glibtop_freebsd_get_fsusage_read_write(S, B, P)
+
 #else /* default fallback */
 #warning glibtop_get_fsusage .read .write are not implemented.
 static inline void

@@ -1,3 +1,8 @@
+2005-02-28  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* fsusage.c: * Add support for file system read and write counting
+	(needed for the disk load feature of the multiload applet).
+
 2005-02-23  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* fsusage.c: (glibtop_get_fsusage_s): Correct file system size calculations.
