@@ -29,10 +29,105 @@
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
 
+static void
+output (pid_t pid)
+{
+	glibtop_union data;
+
+	printf ("\n");
+		
+	glibtop_get_proc_state (&data.proc_state, pid);
+		
+	printf ("Proc_State   PID  %5u (0x%08lx): "
+		"'%s', %c, %u, %u\n", pid,
+		(unsigned long) data.proc_state.flags,
+		data.proc_state.cmd, data.proc_state.state,
+		data.proc_state.uid, data.proc_state.gid);
+		
+	glibtop_get_proc_uid (&data.proc_uid, pid);
+		
+	printf ("Proc_Uid     PID  %5u (0x%08lx): "
+		"%d %d %d %d %d %d %d %d %d %d %d %d\n", pid,
+		(unsigned long) data.proc_uid.flags,
+		data.proc_uid.uid, data.proc_uid.euid,
+		data.proc_uid.gid, data.proc_uid.egid,
+		data.proc_uid.pid, data.proc_uid.ppid,
+		data.proc_uid.pgrp, data.proc_uid.session,
+		data.proc_uid.tty, data.proc_uid.tpgid,
+		data.proc_uid.priority, data.proc_uid.nice);
+		
+	glibtop_get_proc_mem (&data.proc_mem, pid);
+		
+	printf ("Proc_Mem     PID  %5u (0x%08lx): "
+		"%lu %lu %lu %lu %lu %lu\n", pid,
+		(unsigned long) data.proc_mem.flags,
+		(unsigned long) data.proc_mem.size,
+		(unsigned long) data.proc_mem.vsize,
+		(unsigned long) data.proc_mem.resident,
+		(unsigned long) data.proc_mem.share,
+		(unsigned long) data.proc_mem.rss,
+		(unsigned long) data.proc_mem.rss_rlim);
+		
+	glibtop_get_proc_segment (&data.proc_segment, pid);
+
+	printf ("Proc_Segment PID  %5u (0x%08lx): "
+		"%lu %lu %lu %lu %lu %lu %lu %lu\n", pid,
+		(unsigned long) data.proc_segment.flags,
+		(unsigned long) data.proc_segment.text_rss,
+		(unsigned long) data.proc_segment.shlib_rss,
+		(unsigned long) data.proc_segment.data_rss,
+		(unsigned long) data.proc_segment.stack_rss,
+		(unsigned long) data.proc_segment.dirty_size,
+		(unsigned long) data.proc_segment.start_code,
+		(unsigned long) data.proc_segment.end_code,
+		(unsigned long) data.proc_segment.start_stack);
+
+	glibtop_get_proc_time (&data.proc_time, pid);
+		
+	printf ("Proc_Time    PID  %5u (0x%08lx): "
+		"%lu %lu %lu %lu %lu %lu %lu %lu %lu\n", pid,
+		(unsigned long) data.proc_time.flags,
+		(unsigned long) data.proc_time.start_time,
+		(unsigned long) data.proc_time.rtime,
+		(unsigned long) data.proc_time.utime,
+		(unsigned long) data.proc_time.stime,
+		(unsigned long) data.proc_time.cutime,
+		(unsigned long) data.proc_time.cstime,
+		(unsigned long) data.proc_time.timeout,
+		(unsigned long) data.proc_time.it_real_value,
+		(unsigned long) data.proc_time.frequency);
+
+	glibtop_get_proc_signal (&data.proc_signal, pid);
+	
+	printf ("Proc_Signal  PID  %5u (0x%08lx): "
+		"%lu %lu %lu %lu\n", pid,
+		(unsigned long) data.proc_signal.flags,
+		(unsigned long) data.proc_signal.signal,
+		(unsigned long) data.proc_signal.blocked,
+		(unsigned long) data.proc_signal.sigignore,
+		(unsigned long) data.proc_signal.sigcatch);
+
+	glibtop_get_proc_kernel (&data.proc_kernel, pid);
+
+	printf ("Proc_Kernel  PID  %5u (0x%08lx): "
+		"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", pid,
+		(unsigned long) data.proc_kernel.flags,
+		(unsigned long) data.proc_kernel.k_flags,
+		(unsigned long) data.proc_kernel.min_flt,
+		(unsigned long) data.proc_kernel.maj_flt,
+		(unsigned long) data.proc_kernel.cmin_flt,
+		(unsigned long) data.proc_kernel.cmaj_flt,
+		(unsigned long) data.proc_kernel.kstk_esp,
+		(unsigned long) data.proc_kernel.kstk_eip,
+		(unsigned long) data.proc_kernel.nwchan,
+		data.proc_kernel.wchan);
+
+	printf ("\n");
+}
+
 int
 main (int argc, char *argv [])
 {
-	glibtop_union data;
 	glibtop_proclist proclist;
 	glibtop_sysdeps sysdeps;
 	unsigned *ptr, pid, i;
@@ -65,15 +160,21 @@ main (int argc, char *argv [])
 		(unsigned long) sysdeps.proc_kernel,
 		(unsigned long) sysdeps.proc_segment);
 
+	if ((argc == 2) && (sscanf (argv [1], "%d", &pid) == 1)) {
+		output (pid);
+
+		exit (0);
+	}
+
 	printf ("\n");
-	
+
 	ptr = glibtop_get_proclist (&proclist, 0, 0);
 
 	printf ("Proclist     (0x%08lx): %lu, %lu, %lu\n",
-		(unsigned long) data.proclist.flags,
-		(unsigned long) data.proclist.number,
-		(unsigned long) data.proclist.size,
-		(unsigned long) data.proclist.total);
+		(unsigned long) proclist.flags,
+		(unsigned long) proclist.number,
+		(unsigned long) proclist.size,
+		(unsigned long) proclist.total);
 
 	if (!ptr) exit (1);
 
@@ -81,95 +182,7 @@ main (int argc, char *argv [])
 
 		pid = ptr [i];
 		
-		printf ("\n");
-		
-		glibtop_get_proc_state (&data.proc_state, pid);
-		
-		printf ("Proc_State   PID  %5u (0x%08lx): "
-			"'%s', %c, %u, %u\n", pid,
-			(unsigned long) data.proc_state.flags,
-			data.proc_state.cmd, data.proc_state.state,
-			data.proc_state.uid, data.proc_state.gid);
-		
-		glibtop_get_proc_uid (&data.proc_uid, pid);
-		
-		printf ("Proc_Uid     PID  %5u (0x%08lx): "
-			"%d %d %d %d %d %d %d %d %d %d %d %d\n", pid,
-			(unsigned long) data.proc_uid.flags,
-			data.proc_uid.uid, data.proc_uid.euid,
-			data.proc_uid.gid, data.proc_uid.egid,
-			data.proc_uid.pid, data.proc_uid.ppid,
-			data.proc_uid.pgrp, data.proc_uid.session,
-			data.proc_uid.tty, data.proc_uid.tpgid,
-			data.proc_uid.priority, data.proc_uid.nice);
-		
-		glibtop_get_proc_mem (&data.proc_mem, pid);
-		
-		printf ("Proc_Mem     PID  %5u (0x%08lx): "
-			"%lu %lu %lu %lu %lu %lu\n", pid,
-			(unsigned long) data.proc_mem.flags,
-			(unsigned long) data.proc_mem.size,
-			(unsigned long) data.proc_mem.vsize,
-			(unsigned long) data.proc_mem.resident,
-			(unsigned long) data.proc_mem.share,
-			(unsigned long) data.proc_mem.rss,
-			(unsigned long) data.proc_mem.rss_rlim);
-		
-		glibtop_get_proc_segment (&data.proc_segment, pid);
-
-		printf ("Proc_Segment PID  %5u (0x%08lx): "
-			"%lu %lu %lu %lu %lu %lu %lu %lu\n", pid,
-			(unsigned long) data.proc_segment.flags,
-			(unsigned long) data.proc_segment.text_rss,
-			(unsigned long) data.proc_segment.shlib_rss,
-			(unsigned long) data.proc_segment.data_rss,
-			(unsigned long) data.proc_segment.stack_rss,
-			(unsigned long) data.proc_segment.dirty_size,
-			(unsigned long) data.proc_segment.start_code,
-			(unsigned long) data.proc_segment.end_code,
-			(unsigned long) data.proc_segment.start_stack);
-
-		glibtop_get_proc_time (&data.proc_time, pid);
-		
-		printf ("Proc_Time    PID  %5u (0x%08lx): "
-			"%lu %lu %lu %lu %lu %lu %lu %lu %lu\n", pid,
-			(unsigned long) data.proc_time.flags,
-			(unsigned long) data.proc_time.start_time,
-			(unsigned long) data.proc_time.rtime,
-			(unsigned long) data.proc_time.utime,
-			(unsigned long) data.proc_time.stime,
-			(unsigned long) data.proc_time.cutime,
-			(unsigned long) data.proc_time.cstime,
-			(unsigned long) data.proc_time.timeout,
-			(unsigned long) data.proc_time.it_real_value,
-			(unsigned long) data.proc_time.frequency);
-
-		glibtop_get_proc_signal (&data.proc_signal, pid);
-	
-		printf ("Proc_Signal  PID  %5u (0x%08lx): "
-			"%lu %lu %lu %lu\n", pid,
-			(unsigned long) data.proc_signal.flags,
-			(unsigned long) data.proc_signal.signal,
-			(unsigned long) data.proc_signal.blocked,
-			(unsigned long) data.proc_signal.sigignore,
-			(unsigned long) data.proc_signal.sigcatch);
-
-		glibtop_get_proc_kernel (&data.proc_kernel, pid);
-
-		printf ("Proc_Kernel  PID  %5u (0x%08lx): "
-			"%lu %lu %lu %lu %lu %lu %lu %lu (%s)\n", pid,
-			(unsigned long) data.proc_kernel.flags,
-			(unsigned long) data.proc_kernel.k_flags,
-			(unsigned long) data.proc_kernel.min_flt,
-			(unsigned long) data.proc_kernel.maj_flt,
-			(unsigned long) data.proc_kernel.cmin_flt,
-			(unsigned long) data.proc_kernel.cmaj_flt,
-			(unsigned long) data.proc_kernel.kstk_esp,
-			(unsigned long) data.proc_kernel.kstk_eip,
-			(unsigned long) data.proc_kernel.nwchan,
-			data.proc_kernel.wchan);
-
-		printf ("\n");
+		output (pid);
 	}
 
 	glibtop_free (ptr);
