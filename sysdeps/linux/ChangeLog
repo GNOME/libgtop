@@ -1,5 +1,9 @@
 2005-03-25  Benoît Dejean  <TazForEver@dlfp.org>
 
+	* netload.c: (get_ipv6): s/strerror/g_strerror/
+
+2005-03-25  Benoît Dejean  <TazForEver@dlfp.org>
+
 	* siglist.c: Updated.
 
 2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>

@@ -21,6 +21,8 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <config.h>
+
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/netload.h>
@@ -131,7 +133,7 @@ static void get_ipv6(glibtop *server, glibtop_netload *buf,
 
 	if(getifaddrs (&ifa0) != 0)
 	{
-		glibtop_warn_r(server, "getifaddrs failed : %s", strerror(errno));
+		glibtop_warn_r(server, "getifaddrs failed : %s", g_strerror(errno));
 		return;
 	}
 
