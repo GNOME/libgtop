@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 2001-02-13 13:30+0100\n"
+"POT-Creation-Date: 2001-01-22 17:29+0100\n"
 "PO-Revision-Date: 2000-05-22 02:46+0200\n"
 "Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -152,8 +152,7 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Napaka ob mo¾nosti %s: %s.\n"
-"Po¾enite '%s --help', èe ¾elite videti popoln seznam mo¾nosti ukazne "
-"vrstice.\n"
+"Po¾enite '%s --help', èe ¾elite videti popoln seznam mo¾nosti ukazne vrstice.\n" 
 
 #: support/error.c:109
 msgid "Unknown system error"
@@ -678,7 +677,7 @@ msgstr "Limit velikosti v fiziènem pomnilniku"
 
 #: sysdeps/names/procmem.c:53
 msgid "Total # of pages of memory"
-msgstr "Skupno ¹tevilo strani v spominu"
+msgstr "Skupno ¹tevilo strani v pomnilniku"
 
 #: sysdeps/names/procmem.c:54
 msgid "Number of pages of virtual memory"
