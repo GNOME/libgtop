@@ -31,56 +31,56 @@
 int
 s_open(const char *file, int mode)
 {
-   int fd;
+    int fd;
 
-   do {
-      fd = open(file, mode);
-   } while(fd < 0 && errno == EINTR);
-   return fd;
+    do {
+	fd = open(file, mode);
+    } while(fd < 0 && errno == EINTR);
+    return fd;
 }
 
 int
 s_stat(const char *path, struct stat *buf)
 {
-   int status;
+    int status;
 
-   do {
-      status = stat(path, buf);
-   } while(status < 0 && errno == EINTR);
-   return status;
+    do {
+	status = stat(path, buf);
+    } while(status < 0 && errno == EINTR);
+    return status;
 }
 
 int
 s_close(int fd)
 {
-   int status;
+    int status;
 
-   do {
-      status = close(fd);
-   } while(status < 0 && errno == EINTR);
-   return status;
+    do {
+	status = close(fd);
+    } while(status < 0 && errno == EINTR);
+    return status;
 }
 
 ssize_t
 s_pread(int fd, void *buf, size_t nbytes, off_t offset)
 {
-   ssize_t len;
+    ssize_t len;
 
-   /* Now, why doesn't the pread(2) man page say anything about pread()
-      return values? Can it read less bytes than requested? */
+    /* Now, why doesn't the pread(2) man page say anything about pread()
+       return values? Can it read less bytes than requested? */
 
-   do {
-      len = pread(fd, buf, nbytes, offset);
-   } while(len < 0 && errno == EINTR);
-   return len;
+    do {
+	len = pread(fd, buf, nbytes, offset);
+    } while(len < 0 && errno == EINTR);
+    return len;
 }
 
 int s_closedir(DIR *dirp)
 {
-   int status;
+    int status;
 
-   do {
-      status = closedir(dirp);
-   } while(status < 0 && errno == EINTR);
-   return status;
+    do {
+	status = closedir(dirp);
+    } while(status < 0 && errno == EINTR);
+    return status;
 }

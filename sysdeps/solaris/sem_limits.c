@@ -40,14 +40,14 @@ static const unsigned long _glibtop_sysdeps_sem_limits =
 int
 glibtop_init_sem_limits_p (glibtop *server)
 {
-   	kvm_t *kd = server->_priv->machine.kd;
+    kvm_t *kd = server->_priv->machine.kd;
 
-	if(kd && !kvm_nlist(kd, nlst))
-		server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
-	else
-	   	server->sysdeps.sem_limits = 0;
+    if(kd && !kvm_nlist(kd, nlst))
+	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
+    else
+	server->sysdeps.sem_limits = 0;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about sysv sem limits. */
@@ -55,27 +55,27 @@ glibtop_init_sem_limits_p (glibtop *server)
 int
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
-   	kvm_t *kd = server->_priv->machine.kd;
-	struct seminfo sinfo;
+    kvm_t *kd = server->_priv->machine.kd;
+    struct seminfo sinfo;
 
-	memset (buf, 0, sizeof (glibtop_sem_limits));
+    memset (buf, 0, sizeof (glibtop_sem_limits));
 
-	if(!(server->sysdeps.sem_limits))
-	   	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
-	if(kvm_read(kd, nlst[0].n_value, (void *)&sinfo,
-		    sizeof(struct seminfo)) != sizeof(struct seminfo))
-	   	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
-	buf->semmap = sinfo.semmap;
-	buf->semmni = sinfo.semmni;
-	buf->semmns = sinfo.semmns;
-	buf->semmnu = sinfo.semmnu;
-	buf->semmsl = sinfo.semmsl;
-	buf->semopm = sinfo.semopm;
-	buf->semume = sinfo.semume;
-	buf->semusz = sinfo.semusz;
-	buf->semvmx = sinfo.semvmx;
-	buf->semaem = sinfo.semaem;
-	buf->flags = _glibtop_sysdeps_sem_limits;
+    if(!(server->sysdeps.sem_limits))
+	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
+    if(kvm_read(kd, nlst[0].n_value, (void *)&sinfo,
+		sizeof(struct seminfo)) != sizeof(struct seminfo))
+	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
+    buf->semmap = sinfo.semmap;
+    buf->semmni = sinfo.semmni;
+    buf->semmns = sinfo.semmns;
+    buf->semmnu = sinfo.semmnu;
+    buf->semmsl = sinfo.semmsl;
+    buf->semopm = sinfo.semopm;
+    buf->semume = sinfo.semume;
+    buf->semusz = sinfo.semusz;
+    buf->semvmx = sinfo.semvmx;
+    buf->semaem = sinfo.semaem;
+    buf->flags = _glibtop_sysdeps_sem_limits;
 
-	return 0;
+    return 0;
 }

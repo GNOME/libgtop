@@ -34,9 +34,9 @@ static const unsigned long _glibtop_sysdeps_uptime =
 int
 glibtop_init_uptime_s (glibtop *server)
 {
-	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
+    server->sysdeps.uptime = _glibtop_sysdeps_uptime;
 
-	return 0;
+    return 0;
 }
 
 /* Provides uptime and idle time. */
@@ -44,14 +44,14 @@ glibtop_init_uptime_s (glibtop *server)
 int
 glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
-	memset (buf, 0, sizeof (glibtop_uptime));
+    memset (buf, 0, sizeof (glibtop_uptime));
 
-	if(!(server->_priv->machine.boot))
-	    return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
-	buf->boot_time = server->_priv->machine.boot;
-	buf->uptime = time(NULL) - server->_priv->machine.boot;
+    if(!(server->_priv->machine.boot))
+	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
+    buf->boot_time = server->_priv->machine.boot;
+    buf->uptime = time(NULL) - server->_priv->machine.boot;
 
-	buf->flags = _glibtop_sysdeps_uptime;
+    buf->flags = _glibtop_sysdeps_uptime;
 
-	return 0;
+    return 0;
 }

@@ -39,14 +39,14 @@ static const unsigned long _glibtop_sysdeps_msg_limits =
 int
 glibtop_init_msg_limits_p (glibtop *server)
 {
-   	kvm_t *kd = server->_priv->machine.kd;
+    kvm_t *kd = server->_priv->machine.kd;
 
-	if(kd && !kvm_nlist(kd, nlst))
-		server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
-	else
-	   	server->sysdeps.msg_limits = 0;
+    if(kd && !kvm_nlist(kd, nlst))
+	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
+    else
+	server->sysdeps.msg_limits = 0;
 
-	return 0;
+    return 0;
 }
 
 /* Provides information about sysv ipc limits. */
@@ -54,25 +54,25 @@ glibtop_init_msg_limits_p (glibtop *server)
 int
 glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 {
-   	kvm_t *kd = server->_priv->machine.kd;
-	struct msginfo minfo;
+    kvm_t *kd = server->_priv->machine.kd;
+    struct msginfo minfo;
 
-	memset (buf, 0, sizeof (glibtop_msg_limits));
+    memset (buf, 0, sizeof (glibtop_msg_limits));
 
-	if(!(server->sysdeps.msg_limits))
-	   	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
-	if(kvm_read(kd, nlst[0].n_value, (void *)&minfo,
-		    sizeof(struct msginfo)) != sizeof(struct msginfo))
-	   	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
+    if(!(server->sysdeps.msg_limits))
+	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
+    if(kvm_read(kd, nlst[0].n_value, (void *)&minfo,
+		sizeof(struct msginfo)) != sizeof(struct msginfo))
+	return -GLIBTOP_ERROR_INCOMPATIBLE_KERNEL;
 
-	buf->msgmap = minfo.msgmap;
-	buf->msgmax = minfo.msgmax;
-	buf->msgmnb = minfo.msgmnb;
-	buf->msgmni = minfo.msgmni;
-	buf->msgssz = minfo.msgssz;
-	buf->msgtql = minfo.msgtql;
-	buf->msgpool = minfo.msgmni * minfo.msgmnb >> 10;
-	buf->flags = _glibtop_sysdeps_msg_limits;
+    buf->msgmap = minfo.msgmap;
+    buf->msgmax = minfo.msgmax;
+    buf->msgmnb = minfo.msgmnb;
+    buf->msgmni = minfo.msgmni;
+    buf->msgssz = minfo.msgssz;
+    buf->msgtql = minfo.msgtql;
+    buf->msgpool = minfo.msgmni * minfo.msgmnb >> 10;
+    buf->flags = _glibtop_sysdeps_msg_limits;
 
-	return 0;
+    return 0;
 }
