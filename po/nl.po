@@ -1131,7 +1131,7 @@ msgstr "%s: optie `--%s' heeft geen argument\n"
 #: support/getopt.c:698
 #, c-format
 msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: optie `%s%s' heeft geen argument\n"
+msgstr "%s: optie `%c%s' heeft geen argument\n"
 
 #: support/getopt.c:715 support/getopt.c:888
 #, c-format
@@ -1154,12 +1154,12 @@ msgstr "%s: onbekende optie `%c%s'\n"
 #: support/getopt.c:774
 #, c-format
 msgid "%s: illegal option -- %c\n"
-msgstr "%s: foute optie -- %s\n"
+msgstr "%s: foute optie -- %c\n"
 
 #: support/getopt.c:777
 #, c-format
 msgid "%s: invalid option -- %c\n"
-msgstr "%s: verkeerde optie -- %s\n"
+msgstr "%s: verkeerde optie -- %c\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:807 support/getopt.c:937

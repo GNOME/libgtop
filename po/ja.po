@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 2000-02-23 00:23+0100\n"
+"POT-Creation-Date: 2001-02-26 15:48+0100\n"
 "PO-Revision-Date: 2000-10-11 06:53+09:00\n"
 "Last-Translator: Yukihiro Nakai <nakai@gnome.gr.jp>\n"
 "Language-Team: Japanese <translation@gnome.gr.jp>\n"
@@ -418,8 +418,8 @@ msgid ""
 msgstr ""
 "¼Â¥á¥â¥êÃæ¤ËÂ¸ºß¤¹¤ë³ºÅö¥×¥í¥»¥¹¤Î¥Ú¡¼¥¸¿ô¤«¤é¡¢´ÉÍýÍÑ¤Î3¤Ä¤ò°ú¤¤¤¿¤â¤Î¡£ "
 "Ã±¤Ë ¥Æ¥­¥¹¥È¡¢¥Ç¡¼¥¿¤È¥¹¥¿¥Ã¥¯¶õ´Ö¤Ë ¿ô¤¨¤é¤ì¤Æ¤¤¤ë¥Ú¡¼¥¸¤Ç¤¹¡£ "
-"¤Þ¤ÀÆÉ¤ß¹þ¤àÉ¬Í×¤¬À¸¤¸¤Æ¤¤¤Ê¤¤ÉôÊ¬¤ä¡¢¥¹¥ï¥Ã¥×¥¢¥¦¥È¤µ¤ì¤Æ¤¤¤ë¥Ú¡¼¥¸¤Ï"
-"´Þ¤ß¤Þ¤»¤ó¡£"
+"¤Þ¤ÀÆÉ¤ß¹þ¤àÉ¬Í×¤¬À¸¤¸¤Æ¤¤¤Ê¤¤ÉôÊ¬¤ä¡¢¥¹¥ï¥Ã¥×¥¢¥¦¥È¤µ¤ì¤Æ¤¤¤ë¥Ú¡¼¥¸¤Ï´Þ¤ß¤Þ¤"
+"»¤ó¡£"
 
 #: sysdeps/names/procmem.c:64
 msgid ""
@@ -1145,7 +1145,7 @@ msgstr "%s: Ç§¼±¤Ç¤­¤Ê¤¤¥ª¥×¥·¥ç¥ó¤Ç¤¹ `--%s'\n"
 #: support/getopt.c:748
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: Ç§¼±¤Ç¤­¤Ê¤¤¥ª¥×¥·¥ç¥ó¤Ç¤¹ `--%s'\n"
+msgstr "%s: Ç§¼±¤Ç¤­¤Ê¤¤¥ª¥×¥·¥ç¥ó¤Ç¤¹ `%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
@@ -1232,5 +1232,5 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "¥ª¥×¥·¥ç¥ó%s¤Ç¥¨¥é¡¼: %s\n"
-"¥³¥Þ¥ó¥É¥é¥¤¥ó¥ª¥×¥·¥ç¥ó¤Ë»È¤¨¤ë¤â¤Î°ìÍ÷¤ò¸«¤ë¤Ë¤Ï'%s --help'¤ò"
-"¼Â¹Ô¤·¤Æ¤¯¤À¤µ¤¤¡£\n"
+"¥³¥Þ¥ó¥É¥é¥¤¥ó¥ª¥×¥·¥ç¥ó¤Ë»È¤¨¤ë¤â¤Î°ìÍ÷¤ò¸«¤ë¤Ë¤Ï'%s "
+"--help'¤ò¼Â¹Ô¤·¤Æ¤¯¤À¤µ¤¤¡£\n"
