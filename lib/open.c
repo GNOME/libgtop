@@ -25,13 +25,17 @@
 
 #include <glibtop.h>
 #include <glibtop/open.h>
-#include <glibtop/sysdeps.h>
-#include <glibtop/xmalloc.h>
-
-#include <glibtop/gnuserv.h>
+#include <glibtop/backend.h>
 
 void
 glibtop_open_l (glibtop *server, const char *program_name,
 		const unsigned long features, const unsigned flags)
 {
+    if ((server->flags & _GLIBTOP_INIT_STATE_SYSDEPS) == 0) {
+	glibtop_init_backends ();
+
+	_glibtop_open_sysdeps (server, "glibtop", features, flags);
+
+	server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;
+    }
 }
