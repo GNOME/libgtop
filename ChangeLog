@@ -2,6 +2,10 @@
 
 	* libgtop-sysdeps.m4: Moved here from the macros directory,
 	formerly known as `macros/gnome-libgtop-sysdeps.m4'.
+	(--enable-hacker-mode): New command line parameter to configure,
+	enables building of unstable sysdeps directories.
+	(LIBGTOP_HACKER_TESTS): New macro to check for unsafe things when
+	hacker mode was enabled.
 
 1998-12-06  Martin Baulig  <martin@home-of-linux.org>
 

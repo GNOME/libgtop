@@ -10,6 +10,54 @@ dnl                              define 'HAVE_GLIBTOP_MACHINE_H'.
 dnl * 'libgtop_need_server'    - is the server really needed? Defines 'NEED_LIBGTOP'
 dnl                              if true; defines conditional 'NEED_LIBGTOP'.
 
+AC_DEFUN([LIBGTOP_HACKER_TESTS],[
+	AC_REQUIRE([AC_CANONICAL_HOST])
+
+	case "$host_os" in
+	linux*)
+	  AC_ARG_WITH(linux-table,
+	  [  --with-linux-table      Use the table () function from Martin Baulig],[
+	  linux_table="$withval"],[linux_table=auto])
+	  if test $linux_table = yes ; then
+	    AC_CHECK_HEADER(linux/table.h, linux_table=yes, linux_table=no)
+	  elif test $linux_table = auto ; then
+	    AC_MSG_CHECKING(for table function in Linux Kernel)
+	    AC_TRY_RUN([
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <unistd.h>
+#include <linux/unistd.h>
+#include <linux/table.h>
+
+#include <syscall.h>
+
+static inline _syscall3 (int, table, int, type, union table *, tbl, const void *, param);
+
+int
+main (void)
+{
+	union table tbl;
+	int ret;
+
+	ret = table (TABLE_VERSION, NULL, NULL);
+
+	if (ret == -1)
+		exit (-errno);
+
+	exit (ret < 1 ? ret : 0);
+}
+], linux_table=yes, linux_table=no, linux_table=no)
+	    AC_MSG_RESULT($linux_table)
+	  fi
+	  if test $linux_table = yes ; then
+	    AC_DEFINE(HAVE_LINUX_TABLE)
+	  fi
+	  AM_CONDITIONAL(LINUX_TABLE, test $linux_table = yes)
+	  ;;
+	esac
+])
+
 AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	AC_REQUIRE([AC_CANONICAL_HOST])
 
@@ -23,6 +71,15 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	AM_CONDITIONAL(EXAMPLES, test x"$build_examples" = xyes)
 
+	AC_ARG_ENABLE(hacker-mode,
+	[  --enable-hacker-mode    Enable building of unstable sysdeps],
+	[hacker_mode="$withval"], [hacker_mode=no])
+
+	AM_CONDITIONAL(HACKER_MODE, test x"$hacker_mode" = xyes)
+
+	if test x$hacker_mode = xyes ; then
+	  LIBGTOP_HACKER_TESTS
+	fi
 
 	AC_ARG_WITH(libgtop-smp,
 	[  --with-libgtop-smp      Enable SMP support (default-auto)],[
@@ -67,16 +124,6 @@ main (void)
 	  fi
 	  libgtop_need_server=no
 	  ;;
-	sunos4*)
-	  libgtop_sysdeps_dir=sun4
-	  libgtop_use_machine_h=yes
-	  libgtop_need_server=yes
-	  ;;
-	osf*)
-	  libgtop_sysdeps_dir=osf1
-	  libgtop_use_machine_h=yes
-	  libgtop_need_server=yes
-	  ;;
 	freebsd*|netbsd*|openbsd*)
 	  libgtop_sysdeps_dir=freebsd
 	  libgtop_use_machine_h=yes
@@ -84,9 +131,29 @@ main (void)
 	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
 	  ;;
 	*)
-	  libgtop_sysdeps_dir=stub
-	  libgtop_use_machine_h=no
-	  libgtop_need_server=no
+	  if test x$hacker_mode = xyes ; then
+	    case "$host_os" in
+	    sunos4*)
+	      libgtop_sysdeps_dir=sun4
+	        libgtop_use_machine_h=yes
+	      libgtop_need_server=yes
+	      ;;
+	    osf*)
+	      libgtop_sysdeps_dir=osf1
+	      libgtop_use_machine_h=yes
+	      libgtop_need_server=yes
+	      ;;
+	    *)
+	      libgtop_sysdeps_dir=stub
+	      libgtop_use_machine_h=no
+	      libgtop_need_server=no
+	      ;;
+	    esac
+	  else
+	    libgtop_sysdeps_dir=stub
+	    libgtop_use_machine_h=no
+	    libgtop_need_server=no
+	  fi
 	  ;;
 	esac
 
@@ -164,46 +231,6 @@ main (void)
 	  fi
 	  ;;
 	linux*)
-	  AC_ARG_WITH(linux-table,
-	  [  --with-linux-table      Use the table () function from Martin Baulig],[
-	  linux_table="$withval"],[linux_table=auto])
-	  if test $linux_table = yes ; then
-	    AC_CHECK_HEADER(linux/table.h, linux_table=yes, linux_table=no)
-	  elif test $linux_table = auto ; then
-	    AC_MSG_CHECKING(for table function in Linux Kernel)
-	    AC_TRY_RUN([
-#include <stdio.h>
-#include <stdlib.h>
-
-#include <unistd.h>
-#include <linux/unistd.h>
-#include <linux/table.h>
-
-#include <syscall.h>
-
-static inline _syscall3 (int, table, int, type, union table *, tbl, const void *, param);
-
-int
-main (void)
-{
-	union table tbl;
-	int ret;
-
-	ret = table (TABLE_VERSION, NULL, NULL);
-
-	if (ret == -1)
-		exit (-errno);
-
-	exit (ret < 1 ? ret : 0);
-}
-], linux_table=yes, linux_table=no, linux_table=no)
-	    AC_MSG_RESULT($linux_table)
-	  fi
-	  if test $linux_table = yes ; then
-	    AC_DEFINE(HAVE_LINUX_TABLE)
-	  fi
-	  AM_CONDITIONAL(LINUX_TABLE, test $linux_table = yes)
-
 	  os_major_version=`uname -r | \
 	    sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\1/'`
 	  os_minor_version=`uname -r | \
