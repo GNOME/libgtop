@@ -51,6 +51,25 @@
 # define __P(protos) ()
 #endif
 
+#ifdef _IN_LIBGTOP
+
+/* Provide macros to feature the GCC function attribute.
+ */
+#if __GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ > 4)
+#define G_GNUC_NORETURN				\
+  __attribute__((noreturn))
+#define G_GNUC_CONST				\
+  __attribute__((const))
+#define G_GNUC_UNUSED				\
+  __attribute__((unused))
+#else	/* !__GNUC__ */
+#define G_GNUC_NORETURN
+#define G_GNUC_CONST
+#define	G_GNUC_UNUSED
+#endif	/* !__GNUC__ */
+
+#endif /* _IN_LIBGTOP */
+
 #if TIME_WITH_SYS_TIME
 # include <sys/time.h>
 # include <time.h>
@@ -97,10 +116,16 @@
 #endif
 
 #include <string.h>
+
+#ifdef _IN_LIBGTOP
+
 #include <sys/types.h>
 #include <sys/param.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
+
+#endif /* _IN_LIBGTOP */
+
 #include <signal.h>
 #include <errno.h>
 

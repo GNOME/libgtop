@@ -1,3 +1,10 @@
+1998-10-03  Martin Baulig  <martin@home-of-linux.org>
+
+	* include/glibtop/global.h: Only include system header files
+	if we are `_IN_LIBGTOP'.
+	(G_GNUC_NORETURN, G_GNUC_CONST, G_GNUC_UNUSED): Added those
+	definitions if we are `_IN_LIBGTOP'.
+
 1998-09-29  Sung-Hyun Nam  <namsh@lgic.co.kr>
 
 	* configure.in (ALL_LINGUAS): add `ko'
