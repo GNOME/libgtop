@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.6\n"
-"POT-Creation-Date: 2001-02-25 20:01+0000\n"
+"POT-Creation-Date: 2001-02-13 13:30+0100\n"
 "PO-Revision-Date: 2001-02-25 20:17:13+0900\n"
 "Last-Translator: Simos Xenitellis <simos@hellug.gr>\n"
 "Language-Team: Greek <nsl@tux.hellug.gr>\n"
@@ -1315,12 +1315,16 @@ msgstr "Εξερχ. Σελίδα"
 # sysdeps/names/swap.c:53
 #: sysdeps/names/swap.c:51
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr "Συνολικός αριθμός σελίδων εναλλαγής που εισήχθησαν από την εκκίνηση συστήματος."
+msgstr ""
+"Συνολικός αριθμός σελίδων εναλλαγής που εισήχθησαν από την εκκίνηση "
+"συστήματος."
 
 # sysdeps/names/swap.c:55
 #: sysdeps/names/swap.c:53
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr "Συνολικός αριθμός σελίδων εναλλαγής που εξήχθησαν από την εκκίνηση συστήματος."
+msgstr ""
+"Συνολικός αριθμός σελίδων εναλλαγής που εξήχθησαν από την εκκίνηση "
+"συστήματος."
 
 # sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:82
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
@@ -1465,7 +1469,9 @@ msgstr "Χρόνος σε δεύτερα από την εκκίνηση συστήματος"
 # sysdeps/names/uptime.c:48
 #: sysdeps/names/uptime.c:45
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Χρόνος σε δευ/πτα που το σύστημα ξόδεψε μένοντας ανενεργό από την εκκίνησή του"
+msgstr ""
+"Χρόνος σε δευ/πτα που το σύστημα ξόδεψε μένοντας ανενεργό από την εκκίνησή "
+"του"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
