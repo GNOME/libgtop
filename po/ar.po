@@ -1,4 +1,5 @@
-# translation of libgtop.po to 
+# translation of libgtop.libgtop-GNOME-2-0-port.ar.po to Arabic
+# translation of libgtop.po to
 # translation of libgtop.po to
 # translation of libgtop.po to
 # translation of libgtop.po to
@@ -10,15 +11,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 2003-04-27 20:14+0200\n"
-"PO-Revision-Date: 2003-06-05 09:12+0200\n"
-"Last-Translator: \n"
-"Language-Team:  <de@li.org>\n"
+"Project-Id-Version: libgtop.libgtop-GNOME-2-0-port.ar\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-07-16 11:09+0200\n"
+"PO-Revision-Date: 2003-07-17 15:29+0200\n"
+"Last-Translator: Arafat Medini <lumina@silverpen.de>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.0.1\n"
+"X-Generator: KBabel 1.0\n"
 
 #: examples/smp.c:71
 #, c-format
@@ -99,7 +101,7 @@ msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
 
 #: examples/smp.c:123
 msgid "Spin:"
-msgstr ""
+msgstr "تدوير:"
 
 #: lib/read.c:75
 #, c-format
@@ -120,40 +122,39 @@ msgstr "قراءت بيانات %d بايتس"
 msgid "write %d bytes"
 msgstr "اكتب %d بايتس "
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
 msgstr "تفعيل التنقيح"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
 msgstr "تنقيح"
 
-#: src/daemon/gnuserv.c:450
-#, fuzzy
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
-msgstr "تمكين"
+msgstr "تمكين اخراج مسهب"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr "مضجر"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
 msgstr "لا تشعّب إلى الخلفية"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr "لا-جنّي"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr "استُحضرت من inetd "
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -218,12 +219,12 @@ msgstr "%s: الخيار يستلزم متغيرّا -- %c\n"
 #: support/getopt.c:854
 #, c-format
 msgid "%s: option `-W %s' is ambiguous\n"
-msgstr ""
+msgstr "%s: الخيار `-W %s' ملتبس\n"
 
 #: support/getopt.c:872
 #, c-format
 msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr ""
+msgstr "%s: الخيار `-W %s' لا يسمح بمتغير\n"
 
 #: support/popthelp.c:35
 msgid "Show this help message"
@@ -250,9 +251,8 @@ msgid "CPU Time in System Mode"
 msgstr "وقت المعالجة عند نمط النظام"
 
 #: sysdeps/names/cpu.c:47
-#, fuzzy
 msgid "CPU Time in the Idle Task"
-msgstr "وقت بوصة"
+msgstr "وقت الـ CPU في المهمة الفارغة"
 
 #: sysdeps/names/cpu.c:48
 msgid "Tick Frequency"
@@ -260,26 +260,23 @@ msgstr "تردد الاشارات"
 
 #: sysdeps/names/cpu.c:49
 msgid "SMP Total CPU Time"
-msgstr ""
+msgstr "SMP وقت الـ CPU الكلي"
 
 #: sysdeps/names/cpu.c:50
 msgid "SMP CPU Time in User Mode"
-msgstr ""
+msgstr "وقت SMP CPU في نمط المستعمل"
 
 #: sysdeps/names/cpu.c:51
-#, fuzzy
 msgid "SMP CPU Time in User Mode (nice)"
-msgstr "وقت بوصة المستخدم نظام"
+msgstr "وقت SMP CPU في نمط المستخدم (طيب)"
 
 #: sysdeps/names/cpu.c:52
-#, fuzzy
 msgid "SMP CPU Time in System Mode"
-msgstr "وقت بوصة نظام"
+msgstr "وقت SMP CPU في نمط النظام"
 
 #: sysdeps/names/cpu.c:53
-#, fuzzy
 msgid "SMP CPU Time in the Idle Task"
-msgstr "وقت بوصة"
+msgstr "وقت SMP CPU في العملية الفارغة"
 
 #: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 msgid "Number of clock ticks since system boot"
@@ -298,9 +295,8 @@ msgid "Number of clock ticks the system spent in system mode"
 msgstr "عدد اشارات الساعة التي قضاها النظام في نمط النظام"
 
 #: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
-#, fuzzy
 msgid "Number of clock ticks the system spent in the idle task"
-msgstr "رقم من بوصة"
+msgstr "عدد نقرات الساعة التي قضاها النظام في مهمة فارغة"
 
 #: sysdeps/names/cpu.c:63
 msgid "Tick frequency (default is 100)"
@@ -352,16 +348,15 @@ msgstr "الـ PID الأخير"
 
 #: sysdeps/names/loadavg.c:47
 msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr ""
+msgstr "عدد الأعمال الشاغلة متزامنة موسطة على دقيقة واحدة أو 5 دقائق أو 15 دقيقة."
 
 #: sysdeps/names/loadavg.c:48
 msgid "Number of tasks currently running"
-msgstr ""
+msgstr "عدد المهام الشاغلة حاليا"
 
 #: sysdeps/names/loadavg.c:49
-#, fuzzy
 msgid "Total number of tasks"
-msgstr "الكلي من"
+msgstr "عدد العمليات الكلي"
 
 #: sysdeps/names/mem.c:41
 msgid "Total Memory"
@@ -384,7 +379,6 @@ msgid "Buffers"
 msgstr "الحواجز المؤقتة"
 
 #: sysdeps/names/mem.c:46
-#, fuzzy
 msgid "Cached"
 msgstr "محفوظة مؤقتا"
 
@@ -393,9 +387,8 @@ msgid "Locked"
 msgstr "مقفول"
 
 #: sysdeps/names/mem.c:53
-#, fuzzy
 msgid "Total physical memory in kB"
-msgstr "الكلي بوصة"
+msgstr "الذاكرة الفيزيائية الكلية بالكيلوبايت"
 
 #: sysdeps/names/mem.c:54
 msgid "Used memory size in kB"
@@ -410,24 +403,20 @@ msgid "Shared memory size in kB"
 msgstr "حجم الذاكرة المشتركة بالكيلوبايت"
 
 #: sysdeps/names/mem.c:57
-#, fuzzy
 msgid "Size of buffers kB"
-msgstr "الحجم من"
+msgstr "ذ"
 
 #: sysdeps/names/mem.c:58
-#, fuzzy
 msgid "Size of cached memory in kB"
-msgstr "الحجم من بوصة"
+msgstr "حجم الذاكرة المؤقتة بالكيلوبايت"
 
 #: sysdeps/names/mem.c:59
-#, fuzzy
 msgid "Memory used from user processes in kB"
-msgstr "الذاكرة بوصة"
+msgstr "الذاكرة المستعملة من عمليات المستعمل بالكيلوبايت"
 
 #: sysdeps/names/mem.c:60
-#, fuzzy
 msgid "Memory in locked pages in kB"
-msgstr "الذاكرة بوصة بوصة"
+msgstr "ذاكرة الصفحات المقفولة بالكيلوبايت"
 
 #: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
 #: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
@@ -448,33 +437,28 @@ msgid "Size of a single list element"
 msgstr "حجم جزء واحد من القائمة"
 
 #: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
-#, fuzzy
 msgid "Size in kilobytes of message pool"
-msgstr "الحجم بوصة كيلوبايتات من"
+msgstr "حجم مجمع الرسائل بالكيلوبايت"
 
 #: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
-#, fuzzy
 msgid "Number of entries in message map"
-msgstr "رقم من بوصة"
+msgstr "عدد المدخلات في خريطة الرسائل"
 
 #: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
 msgid "Max size of message"
 msgstr "الحجم الأقصى للرسالة"
 
 #: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
-#, fuzzy
 msgid "Default max size of queue"
-msgstr "افتراضي حجم من"
+msgstr "الحجم الافتراضي الأقصى للصف"
 
 #: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
-#, fuzzy
 msgid "Max queues system wide"
 msgstr "الحد الأقصى للصفوف في كامل النظام"
 
 #: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
-#, fuzzy
 msgid "Message segment size"
-msgstr "رسالة"
+msgstr "حجم قطعة الرسالة"
 
 #: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
 msgid "Number of system message headers"
@@ -573,9 +557,8 @@ msgid "K_Flags"
 msgstr "شارات K"
 
 #: sysdeps/names/prockernel.c:42
-#, fuzzy
 msgid "Min_Flt"
-msgstr "الحد الأدنى"
+msgstr "Min_Flt"
 
 #: sysdeps/names/prockernel.c:42
 msgid "Maj_Flt"
@@ -607,7 +590,6 @@ msgstr "WChan"
 
 #. K_Flags
 #: sysdeps/names/prockernel.c:50
-#, fuzzy
 msgid ""
 "Kernel flags of the process.\n"
 "\n"
@@ -617,42 +599,42 @@ msgid ""
 "This is probably a bug, as not every process is a compiled C program.\n"
 "\n"
 "The math bit should be a decimal 4, and the traced bit is decimal 10."
-msgstr "من ل بوصة ل برنامج ل."
+msgstr ""
 
 #. Min_Flt
 #: sysdeps/names/prockernel.c:59
-#, fuzzy
 msgid ""
 "The number of minor faults the process has made, those which have not "
 "required loading a memory page from disk."
-msgstr "من."
+msgstr ""
+"عدد الإخطاء البسيطة التي قامت بها العملية، و التي تطلبت تحميل صفحة "
+"ذاكرة من القرص."
 
 #. Maj_Flt
 #: sysdeps/names/prockernel.c:62
-#, fuzzy
 msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
-msgstr "من."
+msgstr ""
+"عدد الإخطاء الثقيلة التي قامت بها العملية، و التي تطلبت تحميل صفحة "
+"ذاكرة من القرص."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
 msgid "The number of minor faults that the process and its children have made."
-msgstr ""
+msgstr "عدد الأخطاء الصغيرة التي قامت بها العملية و أبناءها."
 
 #. CMaj_Flt
 #: sysdeps/names/prockernel.c:68
-#, fuzzy
 msgid "The number of major faults that the process and its children have made."
-msgstr "من."
+msgstr "عدد الإخطاء الثقيلة التي قامت بها العملية و أبنائها."
 
 #. KStk_ESP
 #: sysdeps/names/prockernel.c:71
-#, fuzzy
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
-msgstr "من بوصة."
+msgstr "القيمة الحالية للـ esp (مؤشر 32-بت للكومة)، كما وجد في صفحة كومة الكرنل للعملية."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
@@ -661,19 +643,17 @@ msgstr "الـ EIP الحالي (32-bit  )."
 
 #. NWChan
 #: sysdeps/names/prockernel.c:76
-#, fuzzy
 msgid ""
 "This is the \"channel\" in which the process is waiting.  This is the "
 "address of a system call, and can be looked up in a namelist if you need a "
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
-msgstr "بوصة من بوصة بوصة"
+msgstr ""
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
-#, fuzzy
 msgid "This is the textual name of the `nwchan' field."
-msgstr "من."
+msgstr "هذا الاسم النصي لمساحة `nwchan'."
 
 #: sysdeps/names/procmem.c:47
 msgid "Virtual"
@@ -700,31 +680,28 @@ msgid "Total # of pages of memory"
 msgstr "الـ # الكلي لالذاكرة"
 
 #: sysdeps/names/procmem.c:54
-#, fuzzy
 msgid "Number of pages of virtual memory"
-msgstr "رقم من من"
+msgstr ""
 
 #: sysdeps/names/procmem.c:55
 msgid "Number of resident set (non-swapped) pages"
-msgstr ""
+msgstr "عدد الصفحات (الغير متبادلة) المضبوطة كمقيمة"
 
 #: sysdeps/names/procmem.c:56
-#, fuzzy
 msgid "Number of pages of shared (mmap'd) memory"
-msgstr "رقم من من"
+msgstr ""
 
 #: sysdeps/names/procmem.c:57
-#, fuzzy
 msgid ""
 "Number of pages the process has in real memory, minus 3 for administrative "
 "purposes. This is just the pages which count towards text, data, or stack "
 "space. This does not include pages which have not been demand-loaded in, or "
 "which are swapped out."
-msgstr "رقم من بوصة نص بوصة."
+msgstr "عدد الصفحات التي تملكها العملية في الذاكرة الحقيقية، إلا 3 لأغراض إدارية. "
 
 #: sysdeps/names/procmem.c:62
 msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr ""
+msgstr "الحد الحالي بالبايتات لـ rss العملية (عادة 2,147,483,647)."
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
@@ -740,7 +717,7 @@ msgstr "يبانات_RSS"
 
 #: sysdeps/names/procsegment.c:42
 msgid "Stack_RSS"
-msgstr ""
+msgstr "_كومة الـ RSS"
 
 #: sysdeps/names/procsegment.c:43
 msgid "Dirty Size"
@@ -755,18 +732,16 @@ msgid "End_Code"
 msgstr "نهاية_الشفرة"
 
 #: sysdeps/names/procsegment.c:43
-#, fuzzy
 msgid "Start_Stack"
-msgstr "ابدأ"
+msgstr "_كومة البدأ"
 
 #: sysdeps/names/procsegment.c:48
 msgid "Text resident set size"
 msgstr "حجم ضبط النص المقيم"
 
 #: sysdeps/names/procsegment.c:49
-#, fuzzy
 msgid "Shared-Lib resident set size"
-msgstr "مشترك"
+msgstr "ضبط حجم المكتبات المشتركة"
 
 #: sysdeps/names/procsegment.c:50
 msgid "Data resident set size"
@@ -774,35 +749,31 @@ msgstr "ضبط حجم البايانات المقيمة"
 
 #: sysdeps/names/procsegment.c:51
 msgid "Stack resident set size"
-msgstr ""
+msgstr "ضبط حجم الكومة المقيمة"
 
 #: sysdeps/names/procsegment.c:52
 msgid "Total size of dirty pages"
 msgstr "الحجم الكلي للصفحات المتسخة"
 
 #: sysdeps/names/procsegment.c:53
-#, fuzzy
 msgid "Address of beginning of code segment"
-msgstr "العنوان من من"
+msgstr "عنوان بداية مقطع تشفيرة"
 
 #: sysdeps/names/procsegment.c:54
-#, fuzzy
 msgid "Address of end of code segment"
-msgstr "العنوان من من"
+msgstr "عنوان نهاية مقطع تشفيرة"
 
 #: sysdeps/names/procsegment.c:55
-#, fuzzy
 msgid "Address of the bottom of stack segment"
-msgstr "العنوان من من"
+msgstr "عنوان أسفل مقطع كومة"
 
 #: sysdeps/names/procsignal.c:40
 msgid "Signal"
 msgstr "اﻻشارة"
 
 #: sysdeps/names/procsignal.c:40
-#, fuzzy
 msgid "Blocked"
-msgstr "ممنوع"
+msgstr ""
 
 #: sysdeps/names/procsignal.c:40
 msgid "SigIgnore"
@@ -817,18 +788,16 @@ msgid "Mask of pending signals"
 msgstr "قناع الإشارات المتأخرة"
 
 #: sysdeps/names/procsignal.c:46
-#, fuzzy
 msgid "Mask of blocked signals"
-msgstr "غلاف من"
+msgstr ""
 
 #: sysdeps/names/procsignal.c:47
 msgid "Mask of ignored signals"
-msgstr ""
+msgstr "قناع الاشارات المتجاهلة"
 
 #: sysdeps/names/procsignal.c:48
-#, fuzzy
 msgid "Mask of caught signals"
-msgstr "غلاف من"
+msgstr "قناع الإشارات الممسوكة"
 
 #: sysdeps/names/procstate.c:40
 msgid "Cmd"
@@ -847,22 +816,20 @@ msgid "GID"
 msgstr "هوية المجموعة (GID)"
 
 #: sysdeps/names/procstate.c:45
-#, fuzzy
 msgid "Basename of executable file in call to exec()"
-msgstr "من بوصة"
+msgstr ""
 
 #: sysdeps/names/procstate.c:46
 msgid "Single-Char code for process state (S=sleeping)"
-msgstr ""
+msgstr "شفرة ذات رمز واحد لحالة عملية (ن=نائم)"
 
 #: sysdeps/names/procstate.c:47
 msgid "UID of process"
-msgstr ""
+msgstr "UID العملية"
 
 #: sysdeps/names/procstate.c:48
-#, fuzzy
 msgid "GID of process"
-msgstr "من"
+msgstr "GID العملية"
 
 #: sysdeps/names/proctime.c:44
 msgid "Start_Time"
@@ -870,31 +837,31 @@ msgstr "وقت ال_بدأ"
 
 #: sysdeps/names/proctime.c:44
 msgid "RTime"
-msgstr ""
+msgstr "وقتR"
 
 #: sysdeps/names/proctime.c:44
 msgid "UTime"
-msgstr ""
+msgstr "وقتU"
 
 #: sysdeps/names/proctime.c:44
 msgid "STime"
-msgstr ""
+msgstr "وقتS"
 
 #: sysdeps/names/proctime.c:45
 msgid "CUTime"
-msgstr ""
+msgstr "وقتCU"
 
 #: sysdeps/names/proctime.c:45
 msgid "CSTime"
-msgstr ""
+msgstr "وقتCS"
 
 #: sysdeps/names/proctime.c:45
 msgid "TimeOut"
-msgstr ""
+msgstr "TimeOut"
 
 #: sysdeps/names/proctime.c:45
 msgid "It_Real_Value"
-msgstr ""
+msgstr "It_Real_Value"
 
 #: sysdeps/names/proctime.c:46
 msgid "Frequency"
@@ -902,67 +869,57 @@ msgstr "تردد"
 
 #: sysdeps/names/proctime.c:46
 msgid "XCPU_UTime"
-msgstr ""
+msgstr "XCPU_UTime"
 
 #: sysdeps/names/proctime.c:46
 msgid "XCPU_STime"
-msgstr ""
+msgstr "XCPU_STime"
 
 #: sysdeps/names/proctime.c:51
-#, fuzzy
 msgid "Start time of process in seconds since the epoch"
-msgstr "ابدأ من بوصة ثواني"
+msgstr "وقت البداية للعملية بالثوان منذ العصر"
 
 #: sysdeps/names/proctime.c:52
-#, fuzzy
 msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "الوقت الحقيقي من طرف العملية"
+msgstr "الوقت الحقيقي المتراكم من طرف العملية (يجب أن يكون وقتu + وقتs)"
 
 #: sysdeps/names/proctime.c:53
-#, fuzzy
 msgid "user-mode CPU time accumulated by process"
-msgstr "نظام"
+msgstr "وقت الـ CPU بنمط المستخدم المتراكم من طرف العملية"
 
 #: sysdeps/names/proctime.c:54
-#, fuzzy
 msgid "kernel-mode CPU time accumulated by process"
-msgstr "نظام"
+msgstr "وقت الـ CPU بنمط الكرنل و المتراكم من طرف العملية"
 
 #: sysdeps/names/proctime.c:55
-#, fuzzy
 msgid "cumulative utime of process and reaped children"
-msgstr "من"
+msgstr "وقتu التراكمي للعملية و الابناء المحصودة"
 
 #: sysdeps/names/proctime.c:56
-#, fuzzy
 msgid "cumulative stime of process and reaped children"
-msgstr "من"
+msgstr "وقتs التراكمي للعملية و الابناء المحصودة"
 
 #: sysdeps/names/proctime.c:57
-#, fuzzy
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr "بوصة من"
+msgstr ""
 
 #: sysdeps/names/proctime.c:58
-#, fuzzy
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
-msgstr "بوصة."
+msgstr ""
 
 #: sysdeps/names/proctime.c:60
 msgid "Tick frequency"
 msgstr "تردد اﻻشارة"
 
 #: sysdeps/names/proctime.c:61
-#, fuzzy
 msgid "SMP user-mode CPU time accumulated by process"
-msgstr "نظام"
+msgstr "وقت الـ SMP للـ CPU بنمط المستخدم، المتراكم من طرف العملية"
 
 #: sysdeps/names/proctime.c:62
-#, fuzzy
 msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "نظام"
+msgstr "وقت الـ SMP للـ CPU بنمط الكرنل، المتراكم من طرف العملية"
 
 #: sysdeps/names/procuid.c:56
 msgid "Uid"
@@ -1029,146 +986,120 @@ msgid "Process ID"
 msgstr "هوية العملية"
 
 #: sysdeps/names/procuid.c:68
-#, fuzzy
 msgid "PID of parent process"
-msgstr "PID من"
+msgstr "PID العملية الأب"
 
 #: sysdeps/names/procuid.c:69
-#, fuzzy
 msgid "Process group ID"
-msgstr "العملية مجموعة"
+msgstr "هوية مجموعة العمليات"
 
 #: sysdeps/names/procuid.c:70
 msgid "Session ID"
 msgstr "هوية الجلسة"
 
 #: sysdeps/names/procuid.c:71
-#, fuzzy
 msgid "Full device number of controlling terminal"
-msgstr "من"
+msgstr "رقم الجهاز الكلي للشاشة الطرفية المتحكمة"
 
 #: sysdeps/names/procuid.c:72
-#, fuzzy
 msgid "Terminal process group ID"
-msgstr "شاشة طرفية مجموعة"
+msgstr "هوية مجموعة الشاشات الطرفية"
 
 #: sysdeps/names/procuid.c:73
-#, fuzzy
 msgid "Kernel scheduling priority"
-msgstr "النواة"
+msgstr ""
 
 #: sysdeps/names/procuid.c:74
-#, fuzzy
 msgid "Standard unix nice level of process"
-msgstr "من"
+msgstr "المستوى الطيب باعتيادي يونكس للعملية"
 
 #: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
-#, fuzzy
 msgid "Number of entries in semaphore map"
-msgstr "رقم من بوصة"
+msgstr "عدد المدخلات في خريطة ادات انشاء الاشارات (semaphore)"
 
 #: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
-#, fuzzy
 msgid "Max number of arrays"
-msgstr "من"
+msgstr "العدد الأقصى للصفوف"
 
 #: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
-#, fuzzy
 msgid "Max semaphores system wide"
-msgstr "الحد الأقصى"
+msgstr "العدد الأقصى لمنشئات الاشارات في كامل النظام"
 
 #: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
-#, fuzzy
 msgid "Number of undo structures system wide"
-msgstr "رقم من"
+msgstr "عدد هياكل الإلغاء في كامل النظام"
 
 #: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
-#, fuzzy
 msgid "Max semaphores per array"
-msgstr "الحد الأقصى"
+msgstr "العدد الأقصى لمنشئات الاشارات لكل صف"
 
 #: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
-#, fuzzy
 msgid "Max ops per semop call"
-msgstr "الحد الأقصى"
+msgstr "العدد الأقصى للعمليات لكل نداء عملية انشاء اشارة"
 
 #: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
-#, fuzzy
 msgid "Max number of undo entries per process"
-msgstr "من"
+msgstr "العدد الأقصى للخانات الإلغاء لكل عملية"
 
 #: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
 msgid "sizeof struct sem_undo"
-msgstr ""
+msgstr "حجم الهيكل sem_undo"
 
 #: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
 msgid "Semaphore max value"
-msgstr ""
+msgstr "حجم الأقصى لأدات انشاء الإشارات (Semaphore)"
 
 #: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
-#, fuzzy
 msgid "Adjust on exit max value"
-msgstr "عدّل تعمل"
+msgstr "تكييف بحسب قيمة الاخراج القصوى"
 
 #: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
-#, fuzzy
 msgid "Max segment size"
-msgstr "الحد الأقصى"
+msgstr "الحجم الأقصى للقطعة"
 
 #: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
-#, fuzzy
 msgid "Min segment size"
-msgstr "الحد الأدنى"
+msgstr "الحجم الأدنى للقطعة"
 
 #: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
-#, fuzzy
 msgid "Max number of segments"
-msgstr "من"
+msgstr "العدد الأقصى للقطع"
 
 #: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
-#, fuzzy
 msgid "Max shared segments per process"
-msgstr "الحد الأقصى"
+msgstr ""
 
 #: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
-#, fuzzy
 msgid "Max total shared memory"
-msgstr "الحد الأقصى"
+msgstr ""
 
 #: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
-#, fuzzy
 msgid "Total Swap Space"
-msgstr "الكلي تبديل"
+msgstr "فضاء التبديل الكلي"
 
 #: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
-#, fuzzy
 msgid "Used Swap Space"
-msgstr "تبديل"
+msgstr "فضاء تبديل مستعمل"
 
 #: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
-#, fuzzy
 msgid "Free Swap Space"
-msgstr "تبديل"
+msgstr "فضاء تبادل فارغ"
 
 #: sysdeps/names/swap.c:42
-#, fuzzy
 msgid "Page In"
-msgstr "صفحة"
+msgstr "صفحة إلى الداخل"
 
 #: sysdeps/names/swap.c:43
-#, fuzzy
 msgid "Page Out"
-msgstr "صفحة"
+msgstr "صفحة إلى الخارج"
 
 #: sysdeps/names/swap.c:51
-#, fuzzy
 msgid "Total number of swap pages that have been brought in since system boot"
-msgstr "الكلي من بوصة"
+msgstr "العدد الكلي لصفحات التبادل التي ادخلت منذ تشغيل النظام"
 
 #: sysdeps/names/swap.c:53
-#, fuzzy
 msgid "Total number of swap pages that have been brought out since system boot"
-msgstr "الكلي من"
+msgstr "العدد الكلي لصفحات التبادل التي اخرجت منذ تشغيل النظام"
 
 #: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
 msgid "Server Features"
@@ -1183,86 +1114,72 @@ msgid "Memory Usage"
 msgstr "استعمال الذاكرة"
 
 #: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
-#, fuzzy
 msgid "Swap Usage"
-msgstr "تبديل"
+msgstr "استعمال التبادل"
 
 #: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
-#, fuzzy
 msgid "System Uptime"
-msgstr "نظام"
+msgstr "وقت عمل النظام"
 
 #: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
-#, fuzzy
 msgid "Load Averange"
-msgstr "تحميل"
+msgstr "متوسط التحميل"
 
 #: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
 msgid "Shared Memory Limits"
 msgstr "حدود الذاكرة المشتركة"
 
 #: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
-#, fuzzy
 msgid "Message Queue Limits"
-msgstr "رسالة"
+msgstr "حدود صف الرسائل"
 
 #: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
 msgid "Semaphore Set Limits"
-msgstr ""
+msgstr "ضبط حدود أدات إنشاء الإشارات (Semaphore)"
 
 #: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
-#, fuzzy
 msgid "List of running Processes"
-msgstr "قائمة من"
+msgstr "قائمة للعمليات الشاغلة"
 
 #: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
-#, fuzzy
 msgid "Process Status information"
-msgstr "العملية الحالة"
+msgstr "معلومات عن حالة العملية"
 
 #: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
-#, fuzzy
 msgid "Process UID and TTY information"
-msgstr "العملية"
+msgstr "معلومات عن UID و TTY العملية"
 
 #: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
-#, fuzzy
 msgid "Process Memory information"
-msgstr "العملية الذاكرة"
+msgstr "معلومات عن ذاكرة العملية"
 
 #: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
-#, fuzzy
 msgid "Process Time information"
-msgstr "العملية وقت"
+msgstr "معلومات عن وقت العملية"
 
 #: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
-#, fuzzy
 msgid "Process Signal information"
-msgstr "العملية اﻻشارة"
+msgstr "معلومات عن اشارة العملية"
 
 #: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
-#, fuzzy
 msgid "Process Kernel Data information"
-msgstr "العملية ����"
+msgstr "معلومات عن قيم الكرنل للعملية"
 
 #: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
-#, fuzzy
 msgid "Process Segment information"
-msgstr "العملية"
+msgstr "معلومات قطعة العملية"
 
 #: sysdeps/names/sysdeps.c:66
-#, fuzzy
 msgid "Process Arguments"
-msgstr "العملية"
+msgstr "متغيرات العملية"
 
 #: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
-#, fuzzy
 msgid "Process Memory Map"
-msgstr "العملية الذاكرة"
+msgstr "خريطة ذاكرة العملية"
 
 #: sysdeps/names/sysdeps.c:68
 msgid "Mount List"
-msgstr ""
+msgstr "قائمة التجهيز"
 
 #: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
 msgid "File System Usage"
@@ -1281,9 +1198,8 @@ msgid "Command line arguments of the process"
 msgstr " "
 
 #: sysdeps/names/sysdeps.c:95
-#, fuzzy
 msgid "List of currently mounted filesystems"
-msgstr "قائمة من"
+msgstr "قائمة لأنظمة الملفات الجازة حاليا"
 
 #: sysdeps/names/uptime.c:38
 msgid "Uptime"
@@ -1298,12 +1214,10 @@ msgid "Time in seconds since system boot"
 msgstr "الوقت بالثواني منذ تشغيل النظام"
 
 #: sysdeps/names/uptime.c:45
-#, fuzzy
 msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "وقت بوصة ثواني بوصة"
+msgstr "الوقت بالثواني الذي قضاه النظام في المهمة الفارغة منذ اعادة تشغيل النظام"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
-#, fuzzy
 msgid "Hangup"
 msgstr "أغلاق الخط"
 
@@ -1316,34 +1230,30 @@ msgid "Quit"
 msgstr "خروج"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
-#, fuzzy
 msgid "Illegal instruction"
-msgstr "امر ممنوع"
+msgstr "توجيه ممنوع"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "فخ رسم"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
-#, fuzzy
 msgid "Abort"
-msgstr "اوقف"
+msgstr "ايقاف"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "خطأ EMT"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
-#, fuzzy
 msgid "Floating-point exception"
-msgstr "نقطة"
+msgstr "استثناء Floating-point"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
-msgstr ""
+msgstr "قتل"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
-#, fuzzy
 msgid "Bus error"
 msgstr "خطأ باص"
 
@@ -1368,9 +1278,8 @@ msgid "Termination"
 msgstr "إنهاء"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
-#, fuzzy
 msgid "Urgent condition on socket"
-msgstr "إستعجالي"
+msgstr ""
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
@@ -1381,9 +1290,8 @@ msgid "Keyboard stop"
 msgstr "توقيف لوحة المفاتيح"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
-#, fuzzy
 msgid "Continue"
-msgstr "تابع"
+msgstr "متابعة"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
@@ -1426,12 +1334,10 @@ msgid "Information request"
 msgstr "طلب معلومات"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
-#, fuzzy
 msgid "User defined signal 1"
-msgstr "المستخدم"
+msgstr "اشارة معرفة من طرف المستخدم 1"
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
-#, fuzzy
 msgid "User defined signal 2"
-msgstr "المستخدم"
+msgstr "اشارة معرفة من طرف المستخدم 2"
 
