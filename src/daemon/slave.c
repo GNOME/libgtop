@@ -127,6 +127,7 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 		memcpy (&resp->u.sysdeps, &server->sysdeps, 
 			sizeof (glibtop_sysdeps));
 		resp->u.sysdeps.features = glibtop_server_features;
+		resp->u.sysdeps.pointer_size = sizeof (void*)*8;
 		resp->u.sysdeps.flags = glibtop_server_features |
 		  (1 << GLIBTOP_SYSDEPS_FEATURES);
 		resp->offset = _offset_union (sysdeps);

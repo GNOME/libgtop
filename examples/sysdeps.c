@@ -73,6 +73,7 @@ main (int argc, char *argv [])
 
 	printf ("Sysdeps (0x%08lx):\n\n"
 		"\tfeatures:\t\t0x%08lx\n\n"
+		"\tpointer_size:\t\t0x%08lx\n\n"
 		"\tcpu:\t\t%d\t0x%08lx\n"
 		"\tmem:\t\t%d\t0x%08lx\n"
 		"\tswap:\t\t%d\t0x%08lx\n\n"
@@ -97,6 +98,7 @@ main (int argc, char *argv [])
 		"\tppp:\t\t%d\t0x%08lx\n\n",
 		(unsigned long) sysdeps.flags,
 		(unsigned long) sysdeps.features,
+		(unsigned long) sysdeps.pointer_size,
 		FEATURE_CHECK(CPU),
 		(unsigned long) sysdeps.cpu,
 		FEATURE_CHECK(MEM),

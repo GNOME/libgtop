@@ -243,6 +243,8 @@ glibtop_init_s (glibtop **server_ptr, unsigned long features, unsigned flags)
 
 		for (init_fkt = _glibtop_init_hook_s; *init_fkt; init_fkt++)
 			(*init_fkt) (server);
+
+		server->sysdeps.pointer_size = sizeof (void*)*8;
 		
 		server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;
 	}
