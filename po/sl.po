@@ -1,0 +1,1536 @@
+# Slovenian translation of libgtop
+# Copyright (C) 2000 Free Software Foundation, Inc.
+# Andraz Tori <andraz.tori1@guest.arnes.si>, 2000.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop\n"
+"POT-Creation-Date: 2001-01-22 17:29+0100\n"
+"PO-Revision-Date: 2000-05-22 02:46+0200\n"
+"Last-Translator: Andraz Tori <andraz.tori1@guest.arnes.si>\n"
+"Language-Team: Slovenian <sl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso8895-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: examples/smp.c:68
+#, c-format
+msgid "Ticks (%ld per second):"
+msgstr "Frekvenca merjenja (%ld na sekundo):"
+
+#: examples/smp.c:71
+msgid "Total"
+msgstr "Skupaj"
+
+#: examples/smp.c:71 sysdeps/names/mem.c:47
+msgid "User"
+msgstr "Uporabnik"
+
+#: examples/smp.c:71 sysdeps/names/procuid.c:58
+msgid "Nice"
+msgstr "Nice"
+
+#: examples/smp.c:71
+msgid "Sys"
+msgstr "Sistem"
+
+#: examples/smp.c:71
+msgid "Idle"
+msgstr "Prazni èas"
+
+#: examples/smp.c:73
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+msgstr ""
+"Procesor      (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
+"\n"
+
+#: examples/smp.c:77
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+msgstr "PROCESOR %3d (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
+
+#: examples/smp.c:94
+msgid "Percent:"
+msgstr "Procentov:"
+
+#: examples/smp.c:95
+msgid "Total (%)"
+msgstr "Skupaj (%)"
+
+#: examples/smp.c:95
+msgid "User (%)"
+msgstr "Uporabniki (%)"
+
+#: examples/smp.c:95
+msgid "Nice (%)"
+msgstr "Nice (%)"
+
+#: examples/smp.c:95
+msgid "Sys (%)"
+msgstr "Sistem (%)"
+
+#: examples/smp.c:96
+msgid "Idle (%)"
+msgstr "Nezasedeno (%)"
+
+#: examples/smp.c:98
+#, c-format
+msgid ""
+"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+msgstr ""
+"PROCESOR      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+"\n"
+
+#: examples/smp.c:114
+#, c-format
+msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+msgstr "PROCESOR %3d  (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
+
+#: examples/smp.c:120
+msgid "Spin:"
+msgstr "Zasuk:"
+
+#: lib/read.c:75
+#, c-format
+msgid "read %d bytes"
+msgstr "prebral %d bajtov"
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "prebral velikost podatkov"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read data %d bytes"
+msgstr "pregbral %d bajtov podatkov"
+
+#: lib/write.c:48
+#, c-format
+msgid "write %d bytes"
+msgstr "zapisal %d bajtov"
+
+#: src/daemon/gnuserv.c:448
+msgid "Enable debugging"
+msgstr "Vklopi razhro¹èevanje"
+
+#: src/daemon/gnuserv.c:448
+msgid "DEBUG"
+msgstr "RAHRO©ÈUJ"
+
+#: src/daemon/gnuserv.c:450
+msgid "Enable verbose output"
+msgstr "Vkljuèi zgovoren izhod"
+
+#: src/daemon/gnuserv.c:450
+msgid "VERBOSE"
+msgstr "ZGOVOREN"
+
+#: src/daemon/gnuserv.c:452
+msgid "Don't fork into background"
+msgstr "Ne razveji se v ozadje"
+
+#: src/daemon/gnuserv.c:452
+msgid "NO-DAEMON"
+msgstr "NI-DEAMON"
+
+#: src/daemon/gnuserv.c:454
+msgid "Invoked from inetd"
+msgstr "Poklican iz programa inetd"
+
+#: src/daemon/gnuserv.c:454
+msgid "INETD"
+msgstr "INETD"
+
+#: src/daemon/gnuserv.c:488
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Napaka ob mo¾nosti %s: %s.\n"
+"Po¾enite '%s --help, èe ¾elite videti popoln seznam mo¾nosti ukaznevrstice.\n"
+
+#: support/error.c:109
+msgid "Unknown system error"
+msgstr "Neznana sistemska napaka"
+
+#: support/getopt.c:669
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: opcija `%s' je dvoumna\n"
+
+#: support/getopt.c:693
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: opcija `--%s' ne dovoljuje argumenta\n"
+
+#: support/getopt.c:698
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: opcija `%c%s' ne dovoli argumenta\n"
+
+#: support/getopt.c:715 support/getopt.c:888
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: opcija `%s' potrebuje argument\n"
+
+#. --option
+#: support/getopt.c:744
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: neprepoznana opcija `--%s'\n"
+
+#. +option or -option
+#: support/getopt.c:748
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: neprepoznana opcija `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:774
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: neveljavna opcija -- %c\n"
+
+#: support/getopt.c:777
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: neveljavna opcija -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: support/getopt.c:807 support/getopt.c:937
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: opcija potrebuje argument -- %c\n"
+
+#: support/getopt.c:854
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: opcija `-W %s' je dvoumna\n"
+
+#: support/getopt.c:872
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: opcija `-W %s' ne dovoli argumenta\n"
+
+#: sysdeps/names/cpu.c:43
+msgid "Total CPU Time"
+msgstr "Celoten CPU Èas"
+
+#: sysdeps/names/cpu.c:44
+msgid "CPU Time in User Mode"
+msgstr "CPU Èas v Uporabni¹kem Naèinu"
+
+#: sysdeps/names/cpu.c:45
+msgid "CPU Time in User Mode (nice)"
+msgstr "CPU Èas v Uporabni¹kem Naèinu (nice)"
+
+#: sysdeps/names/cpu.c:46
+msgid "CPU Time in System Mode"
+msgstr "CPU Èas v Sistemskem Naèinu"
+
+#: sysdeps/names/cpu.c:47
+msgid "CPU Time in the Idle Task"
+msgstr "CPU Èas v Praznih Poslih"
+
+#: sysdeps/names/cpu.c:48
+msgid "Tick Frequency"
+msgstr "Frekvenca merjenja"
+
+#: sysdeps/names/cpu.c:49
+msgid "SMP Total CPU Time"
+msgstr "SMP Celoten CPU Èas"
+
+#: sysdeps/names/cpu.c:50
+msgid "SMP CPU Time in User Mode"
+msgstr "SMP CPU Èas v Uporabni¹kem Naèinu"
+
+#: sysdeps/names/cpu.c:51
+msgid "SMP CPU Time in User Mode (nice)"
+msgstr "SMP CPU Èas v Uporabni¹kem Naèinu (nice)"
+
+#: sysdeps/names/cpu.c:52
+msgid "SMP CPU Time in System Mode"
+msgstr "SMP CPU Èas v Sistemksem Naèinu"
+
+#: sysdeps/names/cpu.c:53
+msgid "SMP CPU Time in the Idle Task"
+msgstr "SMP CPU Èas v Praznih Poslih"
+
+#: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
+msgid "Number of clock ticks since system boot"
+msgstr "©tevilo klikov ure od zagona sistema"
+
+#: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
+msgid "Number of clock ticks the system spent in user mode"
+msgstr "©tevilo klikov ure, ki jih je sistem prebil v uporabni¹kem naèinu"
+
+#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
+msgid "Number of clock ticks the system spent in user mode (nice)"
+msgstr ""
+"©tevilo klikov ure, ki jih je sistem prebil v uporabni¹kem naèinu (nice)"
+
+#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
+msgid "Number of clock ticks the system spent in system mode"
+msgstr "©tevilo klikov ure, ki jih je sistem prebil v sistemskem naèinu"
+
+#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
+msgid "Number of clock ticks the system spent in the idle task"
+msgstr "©tevilo klikov ure, ki jih je sistem prebil v praznih poslih"
+
+#: sysdeps/names/cpu.c:63
+msgid "Tick frequency (default is 100)"
+msgstr "Frekvenca merjenja (privzeto je 100)"
+
+#: sysdeps/names/fsusage.c:39 sysdeps/names/fsusage.c:48
+msgid "Total blocks"
+msgstr "Skupno blokov"
+
+#: sysdeps/names/fsusage.c:40
+msgid "Free blocks"
+msgstr "Prostih blokov"
+
+#: sysdeps/names/fsusage.c:41
+msgid "Available blocks"
+msgstr "Blokov na voljo"
+
+#: sysdeps/names/fsusage.c:42 sysdeps/names/fsusage.c:51
+msgid "Total file nodes"
+msgstr "Skupno datoteènih vozli¹è"
+
+#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:52
+msgid "Free file nodes"
+msgstr "Prostih datoteènih vozli¹è"
+
+#: sysdeps/names/fsusage.c:49
+msgid "Free blocks available to the superuser"
+msgstr "Prosti bloki na voljo superuporabniku"
+
+#: sysdeps/names/fsusage.c:50
+msgid "Free blocks available to non-superusers"
+msgstr "Prosti bloki na voljo ne-superuporabikom"
+
+#: sysdeps/names/loadavg.c:39
+msgid "Load Average"
+msgstr "Povpreèna zasedenost"
+
+#: sysdeps/names/loadavg.c:40
+msgid "Running Tasks"
+msgstr "Posli v teku"
+
+#: sysdeps/names/loadavg.c:41
+msgid "Number of Tasks"
+msgstr "©tevilo Poslov"
+
+#: sysdeps/names/loadavg.c:42 sysdeps/names/loadavg.c:50
+msgid "Last PID"
+msgstr "Zadnji PID"
+
+#: sysdeps/names/loadavg.c:47
+msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
+msgstr "©tevilo poslov, ki se izvaja hkrati, povpreèja skozi 1, 5 in 15 minut"
+
+#: sysdeps/names/loadavg.c:48
+msgid "Number of tasks currently running"
+msgstr "©tevilo poslov, ki trenutno teèejo"
+
+#: sysdeps/names/loadavg.c:49
+msgid "Total number of tasks"
+msgstr "Skupno ¹tevilo poslov"
+
+#: sysdeps/names/mem.c:41
+msgid "Total Memory"
+msgstr "Celoten Pomnilnik"
+
+#: sysdeps/names/mem.c:42
+msgid "Used Memory"
+msgstr "Pomnilnik v Uporabi"
+
+#: sysdeps/names/mem.c:43
+msgid "Free Memory"
+msgstr "Prost Pomnilnik"
+
+#: sysdeps/names/mem.c:44
+msgid "Shared Memory"
+msgstr "Deljen Pomnilnik"
+
+#: sysdeps/names/mem.c:45
+msgid "Buffers"
+msgstr "Medpomnilniki"
+
+#: sysdeps/names/mem.c:46
+msgid "Cached"
+msgstr "Predpomnjen"
+
+#: sysdeps/names/mem.c:48
+msgid "Locked"
+msgstr "Zaklenjen"
+
+#: sysdeps/names/mem.c:53
+msgid "Total physical memory in kB"
+msgstr "Skupno fiziènega pomnilnika v kB"
+
+#: sysdeps/names/mem.c:54
+msgid "Used memory size in kB"
+msgstr "Kolièina pomnilnika v uporabi v kB"
+
+#: sysdeps/names/mem.c:55
+msgid "Free memory size in kB"
+msgstr "Prosto pomnilnika v kB"
+
+#: sysdeps/names/mem.c:56
+msgid "Shared memory size in kB"
+msgstr "Deljenega pomnilnika v kB"
+
+#: sysdeps/names/mem.c:57
+msgid "Size of buffers kB"
+msgstr "Velikost medpomnilnikov"
+
+#: sysdeps/names/mem.c:58
+msgid "Size of cached memory in kB"
+msgstr "Velikost predpomnjenega pomnilnika v kB"
+
+#: sysdeps/names/mem.c:59
+msgid "Memory used from user processes in kB"
+msgstr "Porabljenega pomnilnika za uporabni¹ke procese v kB"
+
+#: sysdeps/names/mem.c:60
+msgid "Memory in locked pages in kB"
+msgstr "Pomnilnika v zaklenjenih straneh v kB"
+
+#: sysdeps/names/mountlist.c:38 sysdeps/names/mountlist.c:45
+#: sysdeps/names/proclist.c:38 sysdeps/names/proclist.c:45
+#: sysdeps/names/procmap.c:38 sysdeps/names/procmap.c:45
+msgid "Number of list elements"
+msgstr "©tevilo elementov seznama"
+
+#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
+#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
+#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
+msgid "Total size of list"
+msgstr "Skupna velikost seznama"
+
+#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
+#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
+#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
+msgid "Size of a single list element"
+msgstr "Velikost enega elementa seznama"
+
+#: sysdeps/names/msg_limits.c:40 sysdeps/names/msg_limits.c:51
+msgid "Size in kilobytes of message pool"
+msgstr "Velikost sporoèilnega bazena v kilobajtih"
+
+#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
+msgid "Number of entries in message map"
+msgstr "©tevilo vnosov v karto sporoèil"
+
+#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
+msgid "Max size of message"
+msgstr "Najveèja velikost sporoèila"
+
+#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
+msgid "Default max size of queue"
+msgstr "Privzeto najveèja dol¾ina vrste"
+
+#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
+msgid "Max queues system wide"
+msgstr "Najveèje ¹tevilo vrst sistemsko"
+
+#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
+msgid "Message segment size"
+msgstr "Velikost segmenta za sporoèila"
+
+#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
+msgid "Number of system message headers"
+msgstr "©tevilo glav za sistemska sporoèila"
+
+#: sysdeps/names/netload.c:45 sysdeps/names/netload.c:63
+msgid "Interface Flags"
+msgstr "Imena vmesnikov"
+
+#: sysdeps/names/netload.c:46
+msgid "MTU"
+msgstr "MTU"
+
+#: sysdeps/names/netload.c:47 sysdeps/names/netload.c:65
+msgid "Subnet"
+msgstr "Subnet"
+
+#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:66
+msgid "Address"
+msgstr "Naslov"
+
+#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:67
+msgid "Packets In"
+msgstr "Paketov notri"
+
+#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:68
+msgid "Packets Out"
+msgstr "Paketov ven"
+
+#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:69
+msgid "Packets Total"
+msgstr "Skupno paketov"
+
+#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:70
+msgid "Bytes In"
+msgstr "Bajtov notri"
+
+#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:71
+msgid "Bytes Out"
+msgstr "Bajtov ven"
+
+#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:72
+msgid "Bytes Total"
+msgstr "Skupaj bajtov"
+
+#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:73
+msgid "Errors In"
+msgstr "Napak notri"
+
+#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:74
+msgid "Errors Out"
+msgstr "Napak ven"
+
+#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:75
+msgid "Errors Total"
+msgstr "Skupaj napak"
+
+#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:76
+msgid "Collisions"
+msgstr "Trèenj"
+
+#: sysdeps/names/netload.c:64
+msgid "Maximum Transfer Unit"
+msgstr "Najveèja enota prenosa (MTU)"
+
+#: sysdeps/names/ppp.c:38 sysdeps/names/ppp.c:45
+msgid "PPP State"
+msgstr "Stanje PPP"
+
+#: sysdeps/names/ppp.c:39
+msgid "Input bytes"
+msgstr "Vhodnih bajtov"
+
+#: sysdeps/names/ppp.c:40
+msgid "Output bytes"
+msgstr "Izhodnih bajtov"
+
+#: sysdeps/names/ppp.c:46
+msgid "Number of input bytes"
+msgstr "©tevilo vhodnih bajtov"
+
+#: sysdeps/names/ppp.c:47
+msgid "Number of output bytes"
+msgstr "©tevilo izhodnih bajtov"
+
+#: sysdeps/names/procargs.c:38 sysdeps/names/procmem.c:47
+msgid "Size"
+msgstr "Velikost"
+
+#: sysdeps/names/procargs.c:43
+msgid "Length in bytes of the returned string."
+msgstr "Dol¾ina vrnenega niza v bajtih"
+
+#: sysdeps/names/prockernel.c:42
+msgid "K_Flags"
+msgstr "K_Zastavice"
+
+#: sysdeps/names/prockernel.c:42
+msgid "Min_Flt"
+msgstr "Min_Flt"
+
+#: sysdeps/names/prockernel.c:42
+msgid "Maj_Flt"
+msgstr "Maj_Flt"
+
+#: sysdeps/names/prockernel.c:42
+msgid "CMin_Flt"
+msgstr "CMin_Flt"
+
+#: sysdeps/names/prockernel.c:43
+msgid "CMaj_Flt"
+msgstr "CMaj_Flt"
+
+#: sysdeps/names/prockernel.c:43
+msgid "KStk_ESP"
+msgstr "KStk_ESP"
+
+#: sysdeps/names/prockernel.c:43
+msgid "KStk_EIP"
+msgstr "KStk_EIP"
+
+#: sysdeps/names/prockernel.c:43
+msgid "NWChan"
+msgstr "NWChan"
+
+#: sysdeps/names/prockernel.c:44
+msgid "WChan"
+msgstr "WChan"
+
+#. K_Flags
+#: sysdeps/names/prockernel.c:50
+msgid ""
+"Kernel flags of the process.\n"
+"\n"
+"On Linux, currently every flag has the math bit set, because crt0.s checks "
+"for math emulation, so this is not included in the output.\n"
+"\n"
+"This is probably a bug, as not every process is a compiled C program.\n"
+"\n"
+"The math bit should be a decimal 4, and the traced bit is decimal 10."
+msgstr ""
+"Zastavice procesov, ki jih ima jedro.\n"
+"\n"
+"Trenutno ima vsaka zastavica v linuxu nastavljen matematicni bit, ker crt0.s "
+"preverja za matematièno emulacijo, tako da to ni vkljuèeno v izpis.\n"
+"\n"
+"To je verjetno napaka, saj ni vsak proces preveden C program.\n"
+"\n"
+"Matematièni bit bi mogel biti decimalno 4 in sledljivi bit je decimalno 10."
+
+#. Min_Flt
+#: sysdeps/names/prockernel.c:59
+msgid ""
+"The number of minor faults the process has made, those which have not "
+"required loading a memory page from disk."
+msgstr ""
+"©tevilo majhnih spodrslajev, ki jih je proces sotril - tistih, ki ne "
+"povzroèijo nalaganja pomnilni¹ke strani z diska."
+
+#. Maj_Flt
+#: sysdeps/names/prockernel.c:62
+msgid ""
+"The number of major faults the process has made, those which have required "
+"loading a memory page from disk."
+msgstr ""
+"©tevilo velikih spodrslajev, ki jih je proces sotril - tistih, ki povzroèijo "
+"nalaganja pomnilni¹ke strani z diska."
+
+#. CMin_Flt
+#: sysdeps/names/prockernel.c:65
+msgid "The number of minor faults that the process and its children have made."
+msgstr ""
+"©tevilo majhnih spodrsljajev, ki so jih povzroèili proces in njegovi "
+"nasledniki."
+
+#. CMaj_Flt
+#: sysdeps/names/prockernel.c:68
+msgid "The number of major faults that the process and its children have made."
+msgstr ""
+"©tevilo velikih spodrsljajev, ki so jih povzroèili proces in njegovi "
+"nasledniki."
+
+#. KStk_ESP
+#: sysdeps/names/prockernel.c:71
+msgid ""
+"The current value of esp (32-bit stack pointer), as found in the kernel "
+"stack page for the process."
+msgstr ""
+"Trenutna vrednost esp-ja(32 bitnega kazalca sklada), kot je najdena v jedru."
+
+#. KStk_EIP
+#: sysdeps/names/prockernel.c:74
+msgid "The current EIP (32-bit instruction pointer)."
+msgstr "Trenutni EIP (32 bitni kazalec na ukaze)."
+
+#. NWChan
+#: sysdeps/names/prockernel.c:76
+msgid ""
+"This is the \"channel\" in which the process is waiting.  This is the "
+"address of a system call, and can be looked up in a namelist if you need a "
+"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
+"see the WCHAN field in action)"
+msgstr ""
+"To je \"kanal\" v katerem èaka proces. To je naslov sistemskega klica in se "
+"lahko najde v seznamu imen, èe potrebujete tekstovno ime.  (Èe imate osve¾en "
+"/etc/psdatabase, poizkusite ps -l, da vidite polje WCHAN na delu)"
+
+#. WChan
+#: sysdeps/names/prockernel.c:81
+msgid "This is the textual name of the `nwchan' field."
+msgstr "To je besedilno ime polja `nwchan'."
+
+#: sysdeps/names/procmem.c:47
+msgid "Virtual"
+msgstr "Navidezen"
+
+#: sysdeps/names/procmem.c:47
+msgid "Resident"
+msgstr "V pomnilniku"
+
+#: sysdeps/names/procmem.c:47
+msgid "Share"
+msgstr "Deljen"
+
+#: sysdeps/names/procmem.c:48
+msgid "Resident Set Size"
+msgstr "Velikost v fiziènem pomnilniku"
+
+#: sysdeps/names/procmem.c:48
+msgid "Resident Set Size Limit"
+msgstr "Limit velikosti v fiziènem pomnilniku"
+
+#: sysdeps/names/procmem.c:53
+msgid "Total # of pages of memory"
+msgstr "Skupno ¹tevilo strani v spominu"
+
+#: sysdeps/names/procmem.c:54
+msgid "Number of pages of virtual memory"
+msgstr "©tevilo strani navideznega pomnilnika"
+
+#: sysdeps/names/procmem.c:55
+msgid "Number of resident set (non-swapped) pages"
+msgstr "©tevilo rezidenènih strani"
+
+#: sysdeps/names/procmem.c:56
+msgid "Number of pages of shared (mmap'd) memory"
+msgstr "©tevilo deljenih (z mmap) strani"
+
+#: sysdeps/names/procmem.c:57
+msgid ""
+"Number of pages the process has in real memory, minus 3 for administrative "
+"purposes. This is just the pages which count towards text, data, or stack "
+"space. This does not include pages which have not been demand-loaded in, or "
+"which are swapped out."
+msgstr ""
+"©tevilo strani, ki jih ima proces v real pomnilniku, minus 3 za "
+"administrativne potrebe To so le strani, ki ¹tejejo kot prostor za text, "
+"podatke ali sklad.To ne vkljuèuje strani, ki niso bile nalo¾ene po ¾elji in "
+"tiste, ki sotrenutno v navideznem pomnilniku na disku."
+
+#: sysdeps/names/procmem.c:62
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr ""
+"Trenutni limit rezidenènih bajtov procesa (rss) (navadno 2,147,483,647)."
+
+#: sysdeps/names/procsegment.c:42
+msgid "Text_RSS"
+msgstr "Text_RSS"
+
+#: sysdeps/names/procsegment.c:42
+msgid "ShLib_RSS"
+msgstr "ShLib_RSS"
+
+#: sysdeps/names/procsegment.c:42
+msgid "Data_RSS"
+msgstr "Podatki_RSS"
+
+#: sysdeps/names/procsegment.c:42
+msgid "Stack_RSS"
+msgstr "Sklad_RSS"
+
+#: sysdeps/names/procsegment.c:43
+msgid "Dirty Size"
+msgstr "Velikost umazanije"
+
+#: sysdeps/names/procsegment.c:43
+msgid "Start_Code"
+msgstr "Zaèetnek_Kode"
+
+#: sysdeps/names/procsegment.c:43
+msgid "End_Code"
+msgstr "Konec_Kode"
+
+#: sysdeps/names/procsegment.c:43
+msgid "Start_Stack"
+msgstr "Zaèetek_Sklada"
+
+#: sysdeps/names/procsegment.c:48
+msgid "Text resident set size"
+msgstr "Velikost text v fiziènem pomnilniku"
+
+#: sysdeps/names/procsegment.c:49
+msgid "Shared-Lib resident set size"
+msgstr "Velikost Deljenih knji¾nic v fiziènem pomnilniku"
+
+#: sysdeps/names/procsegment.c:50
+msgid "Data resident set size"
+msgstr "Velikost Podatkov v fiziènem pomnilniku"
+
+#: sysdeps/names/procsegment.c:51
+msgid "Stack resident set size"
+msgstr "Velikost sklada v fiziènem pomnilniku"
+
+#: sysdeps/names/procsegment.c:52
+msgid "Total size of dirty pages"
+msgstr "Skupna velikost umazanih strani"
+
+#: sysdeps/names/procsegment.c:53
+msgid "Address of beginning of code segment"
+msgstr "Naslov zaèetka kodnega segmenta"
+
+#: sysdeps/names/procsegment.c:54
+msgid "Address of end of code segment"
+msgstr "Naslov konca kodnega segmenta"
+
+#: sysdeps/names/procsegment.c:55
+msgid "Address of the bottom of stack segment"
+msgstr "Naslov dna segmenta sklada"
+
+#: sysdeps/names/procsignal.c:40
+msgid "Signal"
+msgstr "Signal"
+
+#: sysdeps/names/procsignal.c:40
+msgid "Blocked"
+msgstr "Blokiran"
+
+#: sysdeps/names/procsignal.c:40
+msgid "SigIgnore"
+msgstr "SigIgnoriran"
+
+#: sysdeps/names/procsignal.c:40
+msgid "SigCatch"
+msgstr "SigUjet"
+
+#: sysdeps/names/procsignal.c:45
+msgid "Mask of pending signals"
+msgstr "Maska èakajoèih signalov"
+
+#: sysdeps/names/procsignal.c:46
+msgid "Mask of blocked signals"
+msgstr "Maska blokiranih signalov"
+
+#: sysdeps/names/procsignal.c:47
+msgid "Mask of ignored signals"
+msgstr "Maska ignoriranih signalov"
+
+#: sysdeps/names/procsignal.c:48
+msgid "Mask of caught signals"
+msgstr "Maska ujetih signalov"
+
+#: sysdeps/names/procstate.c:40
+msgid "Cmd"
+msgstr "Ukaz"
+
+#: sysdeps/names/procstate.c:40
+msgid "State"
+msgstr "Stanje"
+
+#: sysdeps/names/procstate.c:40
+msgid "UID"
+msgstr "UID"
+
+#: sysdeps/names/procstate.c:40
+msgid "GID"
+msgstr "GID"
+
+#: sysdeps/names/procstate.c:45
+msgid "Basename of executable file in call to exec()"
+msgstr "Glavno ime izvr¹ilne datoteke v klicu exec()"
+
+#: sysdeps/names/procstate.c:46
+msgid "Single-Char code for process state (S=sleeping)"
+msgstr "Eno-znakovna koda s stanje procesa (S=spi)"
+
+#: sysdeps/names/procstate.c:47
+msgid "UID of process"
+msgstr "UID procesa"
+
+#: sysdeps/names/procstate.c:48
+msgid "GID of process"
+msgstr "GID procesa"
+
+#: sysdeps/names/proctime.c:44
+msgid "Start_Time"
+msgstr "Zaèetni_Èas"
+
+#: sysdeps/names/proctime.c:44
+msgid "RTime"
+msgstr "RÈas"
+
+#: sysdeps/names/proctime.c:44
+msgid "UTime"
+msgstr "UÈas"
+
+#: sysdeps/names/proctime.c:44
+msgid "STime"
+msgstr "SÈas"
+
+#: sysdeps/names/proctime.c:45
+msgid "CUTime"
+msgstr "CUÈas"
+
+#: sysdeps/names/proctime.c:45
+msgid "CSTime"
+msgstr "CSÈas"
+
+#: sysdeps/names/proctime.c:45
+msgid "TimeOut"
+msgstr "Iztek èasa"
+
+#: sysdeps/names/proctime.c:45
+msgid "It_Real_Value"
+msgstr "It_Resnièna_Vrednost"
+
+#: sysdeps/names/proctime.c:46
+msgid "Frequency"
+msgstr "Frekvenca"
+
+#: sysdeps/names/proctime.c:46
+msgid "XCPU_UTime"
+msgstr "XCPU_UÈas"
+
+#: sysdeps/names/proctime.c:46
+msgid "XCPU_STime"
+msgstr "XCPU_SÈas"
+
+#: sysdeps/names/proctime.c:51
+msgid "Start time of process in seconds since the epoch"
+msgstr "Zaèetni èas procesa v sekundah od epoha"
+
+#: sysdeps/names/proctime.c:52
+msgid "Real time accumulated by process (should be utime + stime)"
+msgstr "Resnièni akumuliran procesa (mora bi biti uèas + sèas)"
+
+#: sysdeps/names/proctime.c:53
+msgid "user-mode CPU time accumulated by process"
+msgstr "akumuliran CPU èas procesa v uporabni¹kem naèinu"
+
+#: sysdeps/names/proctime.c:54
+msgid "kernel-mode CPU time accumulated by process"
+msgstr "akumuliran CPU èas v sistemskem naèinu"
+
+#: sysdeps/names/proctime.c:55
+msgid "cumulative utime of process and reaped children"
+msgstr "komulativen uèas procesa in prevzetih otrok"
+
+#: sysdeps/names/proctime.c:56
+msgid "cumulative stime of process and reaped children"
+msgstr "komulativen sèas procesa in prevzetih otrok"
+
+#: sysdeps/names/proctime.c:57
+msgid "The time (in jiffies) of the process's next timeout"
+msgstr "Èas (v jiffijih) naslednjega timeouta procesa"
+
+#: sysdeps/names/proctime.c:58
+msgid ""
+"The time (in jiffies) before the next SIGALRM is sent to the process due to "
+"an interval timer."
+msgstr ""
+"Èas (v jiffijih) preden bo poslan naslednji SIGALRM procesu zaradi "
+"intervalne ¹toparice."
+
+#: sysdeps/names/proctime.c:60
+msgid "Tick frequency"
+msgstr "Frekvenca merjenja"
+
+#: sysdeps/names/proctime.c:61
+msgid "SMP user-mode CPU time accumulated by process"
+msgstr "Èas akumiliran s strani procesa v CPU SMP uporabni¹kem naèinu"
+
+#: sysdeps/names/proctime.c:62
+msgid "SMP kernel-mode CPU time accumulated by process"
+msgstr "Èas akumuliranj s strani procesa v CPU SMP uporabni¹kem naèinu"
+
+#: sysdeps/names/procuid.c:56
+msgid "Uid"
+msgstr "Uid"
+
+#: sysdeps/names/procuid.c:56
+msgid "EUid"
+msgstr "EUid"
+
+#: sysdeps/names/procuid.c:56
+msgid "Gid"
+msgstr "Gid"
+
+#: sysdeps/names/procuid.c:56
+msgid "EGid"
+msgstr "Egid"
+
+#: sysdeps/names/procuid.c:56
+msgid "Pid"
+msgstr "Pid"
+
+#: sysdeps/names/procuid.c:57
+msgid "PPid"
+msgstr "PPid"
+
+#: sysdeps/names/procuid.c:57
+msgid "PGrp"
+msgstr "PGrp"
+
+#: sysdeps/names/procuid.c:57
+msgid "Session"
+msgstr "Seja"
+
+#: sysdeps/names/procuid.c:57
+msgid "Tty"
+msgstr "Tty"
+
+#: sysdeps/names/procuid.c:58
+msgid "TPGid"
+msgstr "TPGid"
+
+#: sysdeps/names/procuid.c:58
+msgid "Priority"
+msgstr "Prioriteta"
+
+#: sysdeps/names/procuid.c:63
+msgid "User ID"
+msgstr "Uporabnikov ID"
+
+#: sysdeps/names/procuid.c:64
+msgid "Effective User ID"
+msgstr "Efektivni Uporabnikov ID"
+
+#: sysdeps/names/procuid.c:65
+msgid "Group ID"
+msgstr "ID Skupine"
+
+#: sysdeps/names/procuid.c:66
+msgid "Effective Group ID"
+msgstr "Efektivni ID Skupine"
+
+#: sysdeps/names/procuid.c:67
+msgid "Process ID"
+msgstr "ID Procesa"
+
+#: sysdeps/names/procuid.c:68
+msgid "PID of parent process"
+msgstr "PID roditeljskega procesa"
+
+#: sysdeps/names/procuid.c:69
+msgid "Process group ID"
+msgstr "Skupinski ID procesa"
+
+#: sysdeps/names/procuid.c:70
+msgid "Session ID"
+msgstr "ID Seje"
+
+#: sysdeps/names/procuid.c:71
+msgid "Full device number of controlling terminal"
+msgstr "Polno ime naprave kontrolenga terminala"
+
+#: sysdeps/names/procuid.c:72
+msgid "Terminal process group ID"
+msgstr "Skupinski ID terminalskega procesa"
+
+#: sysdeps/names/procuid.c:73
+msgid "Kernel scheduling priority"
+msgstr "Prioriteta razporejanja èasa v jedru"
+
+#: sysdeps/names/procuid.c:74
+msgid "Standard unix nice level of process"
+msgstr "Obièajen unix nice nivo procesa"
+
+#: sysdeps/names/sem_limits.c:42 sysdeps/names/sem_limits.c:56
+msgid "Number of entries in semaphore map"
+msgstr "©tevilo vnosov v karto semaforjev"
+
+#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
+msgid "Max number of arrays"
+msgstr "Najveèje ¹tevilo seznamov"
+
+#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
+msgid "Max semaphores system wide"
+msgstr "Najveèje ©tevilo semaforjev, sistemsko"
+
+#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
+msgid "Number of undo structures system wide"
+msgstr "Najveèje ¹tevilo struktur za razveljavitve, sistemsko"
+
+#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
+msgid "Max semaphores per array"
+msgstr "Najveèje ¹tevilo semaforjev na seznam"
+
+#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
+msgid "Max ops per semop call"
+msgstr "Najveè operacij na semop klic"
+
+#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
+msgid "Max number of undo entries per process"
+msgstr "Najveè vnosov za razveljavitve na proces"
+
+#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
+msgid "sizeof struct sem_undo"
+msgstr "velikost strukture sem_undo"
+
+#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
+msgid "Semaphore max value"
+msgstr "Najveèja vrednost Semaforja"
+
+#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
+msgid "Adjust on exit max value"
+msgstr "Nastavi na izhodu najveèjo vrednost"
+
+#: sysdeps/names/shm_limits.c:39 sysdeps/names/shm_limits.c:48
+msgid "Max segment size"
+msgstr "Najveèja velikost segmenta"
+
+#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
+msgid "Min segment size"
+msgstr "Najmanj¹a velikost segmenta"
+
+#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
+msgid "Max number of segments"
+msgstr "Najveèje ¹tevilo segmentov"
+
+#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
+msgid "Max shared segments per process"
+msgstr "Najveèje ¹tevilo deljenih segmentov na proces"
+
+#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
+msgid "Max total shared memory"
+msgstr "Najveèje ¹tevilo skupno deljenega pomnilnika"
+
+#: sysdeps/names/swap.c:39 sysdeps/names/swap.c:48
+msgid "Total Swap Space"
+msgstr "Celotna velikost navideznega pomnilnika na disku"
+
+#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
+msgid "Used Swap Space"
+msgstr "Porabljeno navideznega pomnilnika na disku"
+
+#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
+msgid "Free Swap Space"
+msgstr "Prosto navideznega pomnilnika na disku"
+
+#: sysdeps/names/swap.c:42
+msgid "Page In"
+msgstr "Stran Notr"
+
+#: sysdeps/names/swap.c:43
+msgid "Page Out"
+msgstr "Stran Ven"
+
+#: sysdeps/names/swap.c:51
+msgid "Total number of swap pages that have been brought in since system boot"
+msgstr "Skupno ¹tevilo strani z diska, ki so bile nalo¾ene od zagona sistema"
+
+#: sysdeps/names/swap.c:53
+msgid "Total number of swap pages that have been brought out since system boot"
+msgstr "Skupno ¹tevilo strani z diska, ki so bile shranjene od zagona sistema"
+
+#: sysdeps/names/sysdeps.c:49 sysdeps/names/sysdeps.c:76
+msgid "Server Features"
+msgstr "Lastnosti Stre¾nika"
+
+#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
+msgid "CPU Usage"
+msgstr "Uporaba CPU-ja"
+
+#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
+msgid "Memory Usage"
+msgstr "Uporaba Pomnilnika"
+
+#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
+msgid "Swap Usage"
+msgstr "Poraba navideznega pomnilnika na disku"
+
+#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
+msgid "System Uptime"
+msgstr "Èas od zagona sistema"
+
+#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
+msgid "Load Averange"
+msgstr "Povpreèna zasedenost"
+
+#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
+msgid "Shared Memory Limits"
+msgstr "Limiti Deljenega Pomnilnika"
+
+#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
+msgid "Message Queue Limits"
+msgstr "Limiti Vrste s Sporoèili"
+
+#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
+msgid "Semaphore Set Limits"
+msgstr "Limiti Semaforjev"
+
+#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
+msgid "List of running Processes"
+msgstr "Seznam procesov v teku"
+
+#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
+msgid "Process Status information"
+msgstr "Podatki o stanju procesa"
+
+#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
+msgid "Process UID and TTY information"
+msgstr "Podatki o UID in konzoli procesa"
+
+#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
+msgid "Process Memory information"
+msgstr "Podatki o pomnilniku procesa"
+
+#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
+msgid "Process Time information"
+msgstr "Podatki o èasu procesa"
+
+#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
+msgid "Process Signal information"
+msgstr "Podatki o signalih procesa"
+
+#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
+msgid "Process Kernel Data information"
+msgstr "Podatki o procesu, ki jih ima jedro"
+
+#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
+msgid "Process Segment information"
+msgstr "Podatki o Segmentu Procesa"
+
+#: sysdeps/names/sysdeps.c:66
+msgid "Process Arguments"
+msgstr "Argumenti Procesa"
+
+#: sysdeps/names/sysdeps.c:67 sysdeps/names/sysdeps.c:94
+msgid "Process Memory Map"
+msgstr "Pomnilni¹ka Karta Procesa"
+
+#: sysdeps/names/sysdeps.c:68
+msgid "Mount List"
+msgstr "Seznam Priklopov"
+
+#: sysdeps/names/sysdeps.c:69 sysdeps/names/sysdeps.c:96
+msgid "File System Usage"
+msgstr "Uporaba Datoteènih sistemov"
+
+#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
+msgid "Network Load"
+msgstr "Zasedenost Mre¾e"
+
+#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
+msgid "PPP Statistics"
+msgstr "PPP Statistika"
+
+#: sysdeps/names/sysdeps.c:93
+msgid "Command line arguments of the process"
+msgstr "Argumenti ukazne vrstice za proces"
+
+#: sysdeps/names/sysdeps.c:95
+msgid "List of currently mounted filesystems"
+msgstr "Seznam trenutno priklopljenih datoteènih sistemov"
+
+#: sysdeps/names/uptime.c:38
+msgid "Uptime"
+msgstr "Èas od zagona"
+
+#: sysdeps/names/uptime.c:39
+msgid "Idletime"
+msgstr "Prazni èas"
+
+#: sysdeps/names/uptime.c:44
+msgid "Time in seconds since system boot"
+msgstr "Èas v sekundah od zagona sistema"
+
+#: sysdeps/names/uptime.c:45
+msgid "Time in seconds the system spent in the idle task since system boot"
+msgstr "Èas v sekundah, ki jih je sistem prebil v praznih procesih od zagona"
+
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Hangup"
+msgstr "Odlo¾i"
+
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr "Prekinitev"
+
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "Izhod"
+
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
+msgstr "Neveljavn ukaz"
+
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
+msgstr "Past sledenja"
+
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "Preklic"
+
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+msgid "EMT error"
+msgstr "Napaka EMT"
+
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+msgid "Floating-point exception"
+msgstr "Izjema plavajoèe vejice"
+
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "Ubij"
+
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+msgid "Bus error"
+msgstr "Napaka vodila"
+
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
+msgstr "Segmentacijska kr¹itev"
+
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr "Slab argument sistemskemu klicu"
+
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
+msgstr "Pretrgana cev"
+
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
+msgstr "Budilka"
+
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+msgid "Termination"
+msgstr "Zakljuèek"
+
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
+msgstr "Nujno stanje na vtièu"
+
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "Ustavi"
+
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+msgid "Keyboard stop"
+msgstr "Ustavitev s tipkovnice"
+
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "Nadaljuj"
+
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
+msgstr "Stanje otroka se je spremenilo"
+
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+msgid "Background read from tty"
+msgstr "Branje s tty v ozadju"
+
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+msgid "Background write to tty"
+msgstr "Pisanje na tty v ozadju"
+
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+msgid "I/O now possible"
+msgstr "V/I sedaj mo¾en"
+
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr "Prekoraèena omejitev procesorja"
+
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+msgid "File size limit exceeded"
+msgstr "Prekoraèena omejitev dol¾ine datoteke"
+
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
+msgstr "Navidezna budilka"
+
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr "Budilka profiliranja"
+
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+msgid "Window size change"
+msgstr "Sprememba velikosti okna"
+
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+msgid "Information request"
+msgstr "Zahteva po podatkih"
+
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+msgid "User defined signal 1"
+msgstr "Uporabni¹ko definiran signal 1"
+
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+msgid "User defined signal 2"
+msgstr "Uporabni¹ko definiran signal 2"
+
+#~ msgid "Quit (POSIX)"
+#~ msgstr "Izhod (POSIX)"
+
+#~ msgid "Abort (ANSI)"
+#~ msgstr "Prekinitev (ANSI)"
+
+#~ msgid "EMT instruction"
+#~ msgstr "EMT ukaz"
+
+#~ msgid "Kill, unblockable (POSIX)"
+#~ msgstr "Ubij, nezmo¾en blokiranja (POSIX)"
+
+#~ msgid "BUS error (4.2 BSD)"
+#~ msgstr "Napaka na vodilu (4.4 BSD)"
+
+#~ msgid "Stop, unblockable (POSIX)"
+#~ msgstr "Ustavitev, nezmo¾en blokiranja (POSIX)"
+
+#~ msgid "Power failure restart (System V)"
+#~ msgstr "Prekinitev napajanja - vnovièen zagon (System V)"
+
+#~ msgid "Show this help message"
+#~ msgstr "Ka¾i to sporoèilo s pomoèjo"
+
+#~ msgid "Display brief usage message"
+#~ msgstr "Ka¾i kratko sporoèilo o uporabi"
+
+#~ msgid "SMP CPU Flags"
+#~ msgstr "SMP CPU Zastavice"
+
+#~ msgid "Start_Data"
+#~ msgstr "Zaèetek_Podatkov"
+
+#~ msgid "End_Data"
+#~ msgstr "Konec_Podatkov"
+
+#~ msgid "Start_Brk"
+#~ msgstr "Zaèetek_Brk"
+
+#~ msgid "Brk"
+#~ msgstr "Brk"
+
+#~ msgid "Start_MMap"
+#~ msgstr "Zaèetek_MMap"
+
+#~ msgid "Arg_Start"
+#~ msgstr "Zaèetek_Argumentov"
+
+#~ msgid "Arg_End"
+#~ msgstr "Konec_Argumentov"
+
+#~ msgid "Env_Start"
+#~ msgstr "Zaèetek_Okolja"
+
+#~ msgid "Env_End"
+#~ msgstr "Konec_Okolja"
+
+#~ msgid "Address of beginning of data segment"
+#~ msgstr "Naslov zaèetka podatkovnega segmenta"
+
+#~ msgid "Address of end of data segment"
+#~ msgstr "Naslov konca podatkovnega segmenta"
+
+#~ msgid "Brk_Start"
+#~ msgstr "Brk_Zaèetek"
+
+#~ msgid "Brk_End"
+#~ msgstr "Brk_Konec"
+
+#~ msgid "Start of mmap()ed areas"
+#~ msgstr "Zaèetek 'mmap'-iranih podroèij"
+
+#~ msgid "RUID"
+#~ msgstr "RUID"
+
+#~ msgid "RGID"
+#~ msgstr "RGID"
+
+#~ msgid "Has CPU"
+#~ msgstr "Ima CPU"
+
+#~ msgid "Processor"
+#~ msgstr "Procesor"
+
+#~ msgid "Last Processor"
+#~ msgstr "Zadnji Procesor"
+
+#~ msgid "effective UID of process"
+#~ msgstr "efektivni UID procesa"
+
+#~ msgid "effective GID of process"
+#~ msgstr "efektivni GID procesa"
+
+#~ msgid "has_cpu"
+#~ msgstr "ima_cpu"
+
+#~ msgid "processor"
+#~ msgstr "procesor"
+
+#~ msgid "last_processor"
+#~ msgstr "zadnji_procesor"
+
+#~ msgid "XCPU_Flags"
+#~ msgstr "XCPU_Zastavice"
+
+#~ msgid "SUid"
+#~ msgstr "SUid"
+
+#~ msgid "SGid"
+#~ msgstr "SGid"
+
+#~ msgid "FsUid"
+#~ msgstr "FsUid"
+
+#~ msgid "FsGid"
+#~ msgstr "FsGid"
+
+#~ msgid "NGroups"
+#~ msgstr "NSkupine"
+
+#~ msgid "Groups"
+#~ msgstr "Skupine"
+
+#~ msgid "Saved User ID"
+#~ msgstr "Shranjen ID Uporabnika"
+
+#~ msgid "Saved Group ID"
+#~ msgstr "Shranjen ID Skupine"
+
+#~ msgid "Filesystem User ID"
+#~ msgstr "Uporabni¹ki ID Datoteènega Sistema"
+
+#~ msgid "Filesystem Group ID"
+#~ msgstr "Skupinski ID Datoteènega Sistema"
+
+#~ msgid "Number of additional process groups"
+#~ msgstr "©tevilo dodatnih skupin procesov"
+
+#~ msgid "Additional process groups"
+#~ msgstr "Dodatne skupine procesov"
+
+#~ msgid "Pointer Size"
+#~ msgstr "Velikost Kazalca"
+
+#~ msgid "Process CWD"
+#~ msgstr "Procesov trenutni delavni imenik"
+
+#~ msgid "Pointer Size on the Server (in bits)"
+#~ msgstr "Velikost kazalca na stre¾niku (v bitih)"
+
+#~ msgid "Current working directory of the process"
+#~ msgstr "Trenutni delavni imenik procesa"
+
+#~ msgid "Boot time"
+#~ msgstr "Èas zagona"
+
+#~ msgid "Boot time (seconds sice epoch)"
+#~ msgstr "Èas zagona (sekund od epoha)"
+
+#~ msgid "Unknown error"
+#~ msgstr "Neznana napaka"
+
+#~ msgid "Invalid argument"
+#~ msgstr "Napaèen argument"
+
+#~ msgid "No such parameter"
+#~ msgstr "Tak parameter ne obstaja"
+
+#~ msgid "Attempted to modify a read-only value"
+#~ msgstr "Poskus spremembe vrednosti, ki se lahko le bere"
+
+#~ msgid "Parameter size mismatch"
+#~ msgstr "Napaèna velikost parametrov"
+
+#~ msgid "Communication with LibGTop server failed"
+#~ msgstr "Komunikacija z LibGTop stre¾nikom ni uspela"
+
+#~ msgid "No such process"
+#~ msgstr "Tak¹nega procesa ni"
+
+#~ msgid "No kernel support"
+#~ msgstr "Ni podpore v jedru"
+
+#~ msgid "Incompatible kernel version"
+#~ msgstr "Nekompatibilna razlièica jedra"
