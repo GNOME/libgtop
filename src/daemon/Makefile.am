@@ -14,7 +14,10 @@
 
 LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
-INCLUDES			= @INCLUDES@ -D_BSD
+INCLUDES			= @INCLUDES@ -D_BSD \
+				  -DLIBGTOP_COMPILE_SYSTEM=\"`uname -s`\" \
+				  -DLIBGTOP_COMPILE_RELEASE=\"`uname -r`\" \
+				  -DLIBGTOP_COMPILE_MACHINE=\"`uname -m`\"
 
 if NEED_LIBGTOP
 suid_sysdeps			= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid.la

@@ -28,6 +28,8 @@ glibtop *glibtop_global_server = &_glibtop_global_server;
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
 
+#include <sys/utsname.h>
+
 const unsigned long glibtop_server_features =
 GLIBTOP_SUID_CPU +
 GLIBTOP_SUID_MEM +
@@ -56,13 +58,26 @@ GLIBTOP_SUID_PPP;
 int
 main(int argc, char *argv[])
 {
-	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
-
+	struct utsname uts;
 	int uid, euid, gid, egid;
+
+	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
 	uid = getuid (); euid = geteuid ();
 	gid = getgid (); egid = getegid ();
 
+	if (uname (&uts)) _exit (1);
+
+	if (strcmp (uts.sysname, LIBGTOP_COMPILE_SYSTEM) ||
+	    strcmp (uts.release, LIBGTOP_COMPILE_RELEASE) ||
+	    strcmp (uts.machine, LIBGTOP_COMPILE_MACHINE)) {
+		fprintf (stderr, "Can only run on %s %s %s\n",
+			 LIBGTOP_COMPILE_SYSTEM,
+			 LIBGTOP_COMPILE_RELEASE,
+			 LIBGTOP_COMPILE_MACHINE);
+		_exit (1);
+	}
+	
 	glibtop_init_p (glibtop_global_server, 0, 0);
 
 	if (setreuid (euid, uid)) _exit (1);
