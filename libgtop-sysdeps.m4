@@ -127,6 +127,12 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	*)
 	  if test x$hacker_mode = xyes ; then
 	    case "$host_os" in
+            bsdi*)
+	      libgtop_sysdeps_dir=freebsd
+	      libgtop_use_machine_h=yes
+	      libgtop_need_server=yes
+	      libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	      ;;
 	    solaris*)
 	      libgtop_sysdeps_dir=solaris
 	      libgtop_use_machine_h=yes
