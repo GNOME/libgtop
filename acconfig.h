@@ -33,3 +33,5 @@
 #undef GLIBTOP_EXAMPLES
 
 #undef NEED_LIBGTOP
+
+#undef HAVE_LINUX_TABLE
