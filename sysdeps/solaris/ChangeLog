@@ -1,0 +1,24 @@
+1999-03-17  Martin Baulig  <martin@home-of-linux.org>
+
+	Initial import of my Solaris 7 port.
+
+	* loadavg.c: We use getloadavg () to get the `loadavg' field.
+
+	* procdata.c: This file will handle all interaction with the
+ 	/proc filesystem.
+	(glibtop_get_proc_data_psinfo_s): Read `/proc/<pid>/psinfo' and
+	return the resulting `struct psinfo'.
+	(glibtop_get_proc_data_usage_s): Read `/proc/<pid>/usage' and
+ 	return the resulting `struct prusage'.
+
+	* proclist.c: We use readdir () on /proc to get the list of
+	all pids.
+
+	* procstate.c: Read `uid' and `gid' from the `struct psinfo'.
+
+	* proctime.c: Read `start_time', `rtime', `utime' and `stime'
+	from the `struct prusage'.
+
+	* procuid.c: Read `euid', `uid', `egid', `gid', `pid', `ppid',
+	`pgrp', `session' and `tty' from the `struct psinfo'.
+
