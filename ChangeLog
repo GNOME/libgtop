@@ -1,3 +1,7 @@
+2003-01-12  Kevin Vandersloot <kfv101@psu.edu>
+
+	* configure.in: release 2.0.1
+
 2002-12-30  Bastien Nocera <hadess@hadess.net>
 
 	* Added sysdeps/aix directory that was missing
