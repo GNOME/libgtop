@@ -2,7 +2,8 @@ LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
 
 CFLAGS				= -Wall -W @CFLAGS@ \
 				  -DDEBUG -DREAL_DEBUG -D_BSD \
-				  -DLIBGTOP_DAEMON_SLAVE
+				  -DPARENT_DEBUG -DSLAVE_DEBUG \
+				  -DGLIBTOP_DAEMON_SLAVE
 
 bin_PROGRAMS			= libgtop_daemon
 
@@ -12,7 +13,7 @@ else
 suid_sysdeps			=
 endif
 
-libgtop_daemon_SOURCES		= gnuserv.c main.c io.c
+libgtop_daemon_SOURCES		= gnuserv.c slave.c main.c io.c
 libgtop_daemon_LDADD		= $(top_builddir)/lib/libgtop.la \
 				  $(top_builddir)/sysdeps/common/libgtop_common.la \
 				  $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps.la \
