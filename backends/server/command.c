@@ -44,7 +44,7 @@ glibtop_call_i (glibtop_server *server, glibtop_backend *backend,
     memset (&cmnd, 0, sizeof (glibtop_command));
     memset (&resp, 0, sizeof (glibtop_response));
 
-    priv = g_object_get_data (G_OBJECT (backend), BACKEND_DATA_KEY);
+    priv = g_object_get_qdata (G_OBJECT (backend), backend_server_quark);
     g_assert (priv != NULL);
 
     cmnd.command = command;

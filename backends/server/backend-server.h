@@ -36,8 +36,6 @@
 
 typedef struct _backend_server_private backend_server_private;
 
-#define BACKEND_DATA_KEY "backend-server-private"
-
 struct _backend_server_private
 {
     u_int64_t flags;
@@ -47,6 +45,8 @@ struct _backend_server_private
 
     glibtop_server *server;
 };
+
+extern GQuark backend_server_quark;
 
 void *
 glibtop_call_i (glibtop_server *server, glibtop_backend *backend,

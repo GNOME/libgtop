@@ -31,6 +31,9 @@ _open_server (glibtop_server *, glibtop_backend *, u_int64_t, const char **);
 static int
 _close_server (glibtop_server *, glibtop_backend *);
 
+static int backend_server_initialized = 0;
+GQuark backend_server_quark;
+
 extern glibtop_call_vector glibtop_backend_server_call_vector;
 
 #ifdef LIBGTOP_USE_GMODULE
@@ -51,9 +54,15 @@ _open_server (glibtop_server *server, glibtop_backend *backend,
 {
     backend_server_private *priv;
 
+    if (!backend_server_initialized) {
+	backend_server_quark = g_quark_from_string ("backend-server-private");
+
+	backend_server_initialized = 1;
+    }
+
     priv = glibtop_calloc_r (server, 1, sizeof (backend_server_private));
 
-    g_object_set_data (G_OBJECT (backend), BACKEND_DATA_KEY, priv);
+    g_object_set_qdata (G_OBJECT (backend), backend_server_quark, priv);
 
 #ifdef DEBUG
     fprintf (stderr, "open_server - %p, %p, %p\n", server, backend, priv);
@@ -97,7 +106,7 @@ _close_server (glibtop_server *server, glibtop_backend *backend)
 {
     backend_server_private *priv;
 
-    priv = g_object_steal_data (G_OBJECT (backend), BACKEND_DATA_KEY);
+    priv = g_object_steal_qdata (G_OBJECT (backend), backend_server_quark);
     g_assert (priv != NULL);
 
     kill (priv->pid, SIGKILL);

@@ -1,3 +1,9 @@
+2000-11-27  Martin Baulig  <martin@home-of-linux.org>
+
+	* backend-server.c (backend_server_quark): New global variable.
+	(_open_server, _close_server): Use the quark.
+	* commands.c: Likewise.
+
 2000-11-26  Martin Baulig  <martin@home-of-linux.org>
 
 	* backend-server.h: New file.
