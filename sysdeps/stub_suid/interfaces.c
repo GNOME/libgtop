@@ -41,14 +41,14 @@ glibtop_init_interface_names_p (glibtop *server)
 
 /* Provides network statistics. */
 
-char *
-glibtop_get_interface_names_p (glibtop *server, glibtop_interface_names *buf,
-			       unsigned interface, unsigned number,
-			       unsigned instance, unsigned strategy)
+glibtop_interface *
+glibtop_get_interface_names_p (glibtop *server, glibtop_array *array,
+			       u_int64_t interface, u_int64_t number,
+			       u_int64_t instance, u_int64_t strategy)
 {
     glibtop_init_s (&server, GLIBTOP_SYSDEPS_INTERFACE_NAMES, 0);
 
-    memset (buf, 0, sizeof (glibtop_interface_names));
+    memset (array, 0, sizeof (glibtop_array));
 
     return NULL;
 }

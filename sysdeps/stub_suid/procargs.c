@@ -40,10 +40,9 @@ glibtop_init_proc_args_p (glibtop *server)
 
 /* Provides detailed information about a process. */
 
-char *
-glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
-			 pid_t pid, unsigned max_len)
+char **
+glibtop_get_proc_args_p (glibtop *server, glibtop_array *array, pid_t pid)
 {
-	memset (buf, 0, sizeof (glibtop_proc_args));
+	memset (array, 0, sizeof (glibtop_array));
 	return NULL;
 }
