@@ -1,5 +1,9 @@
 1999-10-24  Martin Baulig  <martin@home-of-linux.org>
 
+	* sysdeps/common/ChangeLog: New file.
+
+1999-10-24  Martin Baulig  <martin@home-of-linux.org>
+
 	The LibGTop examples have been moved into their own top-level
 	module libgtop-examples.
 
