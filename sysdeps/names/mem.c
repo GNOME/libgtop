@@ -24,14 +24,14 @@
 const char *glibtop_names_mem [GLIBTOP_MAX_MEM] =
 { 
 	"total", "used", "free", "shared", "buffer",
-	"cached", "user"
+	"cached", "user", "locked"
 };
 
 const char *glibtop_types_mem [GLIBTOP_MAX_MEM] =
 { 
 	"unsigned long", "unsigned long", "unsigned long",
 	"unsigned long", "unsigned long", "unsigned long",
-	"unsigned long"
+	"unsigned long", "unsigned long"
 };
 
 const char *glibtop_labels_mem [GLIBTOP_MAX_MEM] =
@@ -42,7 +42,8 @@ const char *glibtop_labels_mem [GLIBTOP_MAX_MEM] =
 	N_("Shared Memory"),
 	N_("Buffers"),
 	N_("Cached"),
-	N_("User")
+	N_("User"),
+	N_("Locked"),
 };
 
 const char *glibtop_descriptions_mem [GLIBTOP_MAX_MEM] =
@@ -53,5 +54,6 @@ const char *glibtop_descriptions_mem [GLIBTOP_MAX_MEM] =
 	N_("Shared memory size in kB"),
 	N_("Size of buffers kB"),
 	N_("Size of cached memory in kB"),
-	N_("Memory used from user processes in kB")
+	N_("Memory used from user processes in kB"),
+	N_("Memory in locked pages in kB")
 };

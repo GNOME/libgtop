@@ -34,8 +34,9 @@ __BEGIN_DECLS
 #define GLIBTOP_MEM_BUFFER	4
 #define GLIBTOP_MEM_CACHED	5
 #define GLIBTOP_MEM_USER	6
+#define GLIBTOP_MEM_LOCKED	7
 
-#define GLIBTOP_MAX_MEM		7
+#define GLIBTOP_MAX_MEM		8
 
 typedef struct _glibtop_mem	glibtop_mem;
 
@@ -48,7 +49,8 @@ struct _glibtop_mem
 		shared,		/* GLIBTOP_MEM_SHARED	*/
 		buffer,		/* GLIBTOP_MEM_BUFFER	*/
 		cached,		/* GLIBTOP_MEM_CACHED	*/
-		user;		/* GLIBTOP_MEM_USER	*/
+		user,		/* GLIBTOP_MEM_USER	*/
+		locked;		/* GLIBTOP_MEM_LOCKED	*/
 };
 
 #define glibtop_get_mem(mem)	glibtop_get_mem__r(glibtop_global_server, mem)

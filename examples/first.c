@@ -49,10 +49,10 @@ main (int argc, char *argv [])
 
 	glibtop_get_mem (&data.mem);
 
-	fprintf (stderr, "Memory       (0x%08lx): %lu, %lu, %lu, %lu, %lu, %lu, %lu\n",
+	fprintf (stderr, "Memory       (0x%08lx): %lu, %lu, %lu, %lu, %lu, %lu, %lu, %lu\n",
 		 data.mem.flags, data.mem.total, data.mem.used, data.mem.free,
 		 data.mem.shared, data.mem.buffer, data.mem.cached,
-		 data.mem.user);
+		 data.mem.user, data.mem.locked);
 
 	glibtop_get_swap (&data.swap);
 

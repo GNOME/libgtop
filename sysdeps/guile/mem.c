@@ -38,5 +38,6 @@ SCM glibtop_guile_get_mem (void)
 			gh_ulong2scm (mem.buffer),
 			gh_ulong2scm (mem.cached),
 			gh_ulong2scm (mem.user),
+			gh_ulong2scm (mem.locked),
 			SCM_UNDEFINED);
 }
