@@ -1,3 +1,7 @@
+2005-03-31  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* libgtop-2.0.pc.in: Fixed.
+
 2005-03-29  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* lib/read_data.c: (glibtop_read_data_l): Fixed warning.
