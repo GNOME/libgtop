@@ -31,6 +31,40 @@
 
 #include <gmodule.h>
 
+static void
+unload_module (gpointer data, gpointer user_data)
+{
+    g_module_close (data);
+}
+
+static int
+load_extra_libs (glibtop *server, glibtop_backend_entry *entry)
+{
+    GSList *list;
+    GSList *loaded_here = NULL;
+
+    for (list = entry->extra_libs; list; list = list->next) {
+	const gchar *filename = list->data;
+	GModule *module;
+
+	module = g_module_open (filename, G_MODULE_BIND_LAZY);
+	if (!module) {
+	    glibtop_warn_r (server, "Cannot open extra shared library `%s' "
+			    "for backend `%s' (%s)", filename, entry->name,
+			    g_module_error ());
+	    g_slist_foreach (loaded_here, unload_module, NULL);
+	    return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
+	}
+
+	loaded_here = g_slist_prepend (loaded_here, module);
+    }
+
+    entry->_priv->extra_modules = g_slist_concat
+	(loaded_here, entry->_priv->extra_modules);
+
+    return 0;
+}
+
 int
 glibtop_open_backend_l (glibtop *server, const char *backend_name,
 			u_int64_t features, const char **backend_args)
@@ -45,12 +79,19 @@ glibtop_open_backend_l (glibtop *server, const char *backend_name,
     if (!entry->_priv) {
 	entry->_priv = g_new0 (glibtop_backend_module, 1);
 
+	if (entry->extra_libs) {
+	    int retval;
+
+	    retval = load_extra_libs (server, entry);
+	    if (retval < 0) return retval;
+	}
+
 	entry->_priv->module = g_module_open (entry->shlib_name,
 					      G_MODULE_BIND_LAZY);
 	if (!entry->_priv->module) {
 	    glibtop_warn_r (server, "Cannot open shared library `%s' "
-			    "for backend `%s'", entry->shlib_name,
-			    entry->name);
+			    "for backend `%s' (%s)", entry->shlib_name,
+			    entry->name, g_module_error ());
 	    return -GLIBTOP_ERROR_NO_SUCH_BACKEND;
 	}
 

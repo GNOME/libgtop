@@ -340,7 +340,7 @@ LIBGTOP_SERVER='$(bindir)/libgtop_server'
 
 LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $GLIB_LIBS $LIBGTOP_XML_LIB"
 
-LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_sysdeps -lgtop_common -lgtop"
+LIBGTOP_LIBS="$LIBGTOP_LIBS -lgtop_common -lgtop"
 
 LIBGTOP_NAMES_LIBS="$LIBGTOP_LIBS -lgtop_names"
 

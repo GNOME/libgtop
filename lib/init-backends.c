@@ -79,6 +79,32 @@ _get_library_filename (xmlDocPtr doc, xmlNodePtr cur, const char *directory)
     return retval;
 }
 
+static GSList *
+_parse_extra_libs (xmlDocPtr doc, xmlNsPtr ns, xmlNodePtr cur, const char *dir)
+{
+    GSList *list = NULL;
+
+    /* We don't care what the top level element name is */
+    cur = cur->childs;
+    while (cur != NULL) {
+        if ((!strcmp (cur->name, "ExtraLib")) && (cur->ns == ns)) {
+	    xmlNodePtr sub = cur->childs;
+
+	    while (sub != NULL) {
+		if ((!strcmp (sub->name, "ShlibName")) && (sub->ns == ns))
+		    list = g_slist_append
+			(list, _get_library_filename (doc, sub, dir));
+
+		sub = sub->next;
+	    }
+	}
+
+        cur = cur->next;
+    }
+
+    return list;
+}
+
 static glibtop_backend_entry *
 _parseBackend (xmlDocPtr doc, xmlNsPtr ns, xmlNodePtr cur, const char *dir)
 {
@@ -104,6 +130,9 @@ _parseBackend (xmlDocPtr doc, xmlNsPtr ns, xmlNodePtr cur, const char *dir)
 		    ret->libtool_name = _get_library_filename (doc, sub, dir);
 		if ((!strcmp (sub->name, "ShlibName")) && (sub->ns == ns))
 		    ret->shlib_name = _get_library_filename (doc, sub, dir);
+
+		if ((!strcmp (sub->name, "ExtraLibs")) && (sub->ns == ns))
+		    ret->extra_libs = _parse_extra_libs (doc, ns, sub, dir);
 
 		sub = sub->next;
 	    }

@@ -1,5 +1,15 @@
 2000-01-22  Martin Baulig  <martin@home-of-linux.org>
 
+	* configure.in (LIBGTOP_LIBS): Removed `-lgtop_sysdeps'. This
+	is gmodule loaded from the backend open function.
+
+	* lib/init.c (glibtop_init_s): Don't call glibtop_open_s () here.
+
+	* init-backend.c: Added support for a "ExtraLibs" section in the
+	backend description file.
+
+2000-01-22  Martin Baulig  <martin@home-of-linux.org>
+
 	* include/glibtop/ppp.h (glibtop_get_ppp): Added `use_isdn' and
 	`lockfile' arguments. When `use_isdn' is TRUE, we return ISDN
 	statistics, otherwise `lockfile' is expected to be the modem
