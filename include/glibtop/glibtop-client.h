@@ -79,7 +79,7 @@ glibtop_client_propagate_error (glibtop_client *client, GError *error);
 void
 glibtop_client_propagate_warning (glibtop_client *client, GError *error);
 
-glibtop_backend *
+void
 glibtop_client_open_backend (glibtop_client *client, const char *backend_name,
 			     u_int64_t features, const char **backend_args);
 

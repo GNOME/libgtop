@@ -24,7 +24,6 @@
 */
 
 #include <glibtop.h>
-#include <glibtop/glibtop-backend.h>
 
 #include <glibtop/cpu.h>
 
@@ -34,23 +33,33 @@ main (int argc, char *argv [])
     glibtop_client *client;
     glibtop_backend *backend_common;
     glibtop_backend *backend_sysdeps;
-    /* glibtop_cpu cpu; */
+    GError *error = NULL;
 
     g_type_init ();
 
     client = glibtop_client_new ();
 
-    backend_common = glibtop_client_open_backend
-	(client, "glibtop-backend-common", 0, NULL);
+    backend_common = glibtop_backend_open ("glibtop-backend-common",
+					   0, NULL, &error);
+
+    if (error != NULL) {
+	glibtop_client_propagate_warning (client, error);
+	g_error_free (error);
+	error = NULL;
+    }
 
     g_message (G_STRLOC ": backend = %p", backend_common);
 
-    backend_sysdeps = glibtop_client_open_backend
-	(client, "glibtop-backend-sysdeps", 0, NULL);
+    backend_sysdeps = glibtop_backend_open ("glibtop-backend-sysdeps",
+					    0, NULL, &error);
+
+    if (error != NULL) {
+	glibtop_client_propagate_warning (client, error);
+	g_error_free (error);
+	error = NULL;
+    }
 
     g_message (G_STRLOC ": backend = %p", backend_sysdeps);
-
-    /* glibtop_get_cpu_l (client, &cpu); */
 
     exit (0);
 }

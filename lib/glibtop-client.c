@@ -39,6 +39,7 @@ static gpointer parent_class = NULL;
 
 struct _glibtop_client_private
 {
+    GSList *backend_list;
 };
 
 enum {
@@ -189,9 +190,14 @@ glibtop_client_finalize (GObject *object)
 {
     glibtop_client *glibtop;
     glibtop_client_private *priv = NULL;
+    GSList *c;
   
     glibtop = GLIBTOP_CLIENT (object);
     priv = glibtop->_priv;
+
+    for (c = priv->backend_list; c; c = c->next)
+	g_object_unref (G_OBJECT (c->data));
+    g_slist_free (priv->backend_list);
   
     g_free (priv);
   
@@ -253,26 +259,24 @@ glibtop_client_propagate_warning (glibtop_client *client, GError *error)
     g_value_unset (params + 0);
 }
 
-glibtop_backend *
+void
 glibtop_client_open_backend (glibtop_client *client, const char *backend_name,
 			     u_int64_t features, const char **backend_args)
 {
     glibtop_backend *backend;
     GError *error = NULL;
 
-    g_return_val_if_fail (GLIBTOP_IS_CLIENT (client), NULL);
+    g_return_if_fail (GLIBTOP_IS_CLIENT (client));
 
     backend = glibtop_backend_open (backend_name, features, backend_args,
 				    &error);
     if (!backend) {
 	glibtop_client_propagate_error (client, error);
 	g_error_free (error);
-	return NULL;
+	return;
     }
 
     glibtop_client_add_backend (client, backend);
-
-    return backend;
 }
 
 void
@@ -282,13 +286,22 @@ glibtop_client_add_backend (glibtop_client *client,
     g_return_if_fail (GLIBTOP_IS_CLIENT (client));
     g_return_if_fail (GLIBTOP_IS_BACKEND (backend));
 
+    client->_priv->backend_list = g_slist_append
+	(client->_priv->backend_list, backend);
 }
 
 void
 glibtop_client_remove_backend (glibtop_client *client,
 			       glibtop_backend *backend)
 {
+    GSList *c;
+
     g_return_if_fail (GLIBTOP_IS_CLIENT (client));
     g_return_if_fail (GLIBTOP_IS_BACKEND (backend));
 
+    c = g_slist_find (client->_priv->backend_list, backend);
+    if (!c) return;
+
+    g_slist_remove_link (client->_priv->backend_list, c);
+    g_object_unref (G_OBJECT (backend));
 }

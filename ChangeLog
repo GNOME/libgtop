@@ -1,5 +1,11 @@
 2000-11-26  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/glibtop-client.h (glibtop_client_open_backend):
+	Changed return value to void.
+
+	* lib/glibtop-client.c: Implement glibtop_client_add_backend() and
+	glibtop_client_remove_backend().
+
 	* include/glibtop/backend.h: Removed. Split into glibtop-backend.h
 	and glibtop-backend-info.h.
 
