@@ -32,7 +32,7 @@ if test x$libgtop_want_guile = xyes ; then
     if test x$libgtop_want_names = xyes ; then
       AC_DEFINE(GLIBTOP_GUILE_NAMES)
     fi
-    guile_examples='third third_static third_linux'
+    guile_examples='third third_static'
     guile_subdirs='guile'
   else
     guile_examples=
@@ -157,9 +157,7 @@ if test "x$ac_cv_guile_found" = "xyes" ; then
   LIBGTOP_GUILE_LIBS="$LIBGTOP_GUILE_LIBS $GUILE_LIBS"
 fi
 
-if test "x$libgtop_use_machine_h" = "xyes" ; then
-  machine_incs='-I$(top_srcdir)/sysdeps/@sysdeps_dir@'
-fi
+machine_incs='-I$(top_srcdir)/sysdeps/@sysdeps_dir@'
 
 AC_SUBST(machine_incs)
 

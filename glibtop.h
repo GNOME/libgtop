@@ -24,6 +24,8 @@
 
 #include <glibtop/global.h>
 
+#include <glibtop_server.h>
+
 #ifdef HAVE_GLIBTOP_MACHINE_H
 #include <glibtop_machine.h>
 #endif

@@ -1,3 +1,42 @@
+1998-05-28  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* src/server/main.c: we now use the '__p' functions,
+	but only if the appropriate 'GLIBTOP_SUID_<feature>'
+	has a non-zero value.
+	
+	* configure.in (@machine_incs@): always use 
+	`-I$(top_srcdir)/sysdeps/@sysdeps_dir@'; it's no
+	longer conditional.
+
+	* examples/Makefile.am: removed the '_linux' examples.
+	
+	* sysdeps/linux/*.c: renamed all functions implementing
+	features to '__s'.
+	
+	* lib/*.c: renamed all functions implementing features
+	to '__l'; we only emit code for those functions if the
+ 	corresponding 'GLIBTOP_SUID_<feature>' has a positive value.
+	
+	* sysdeps/linux/*.h: added some new function suffixes:
+	'__l' is a function defined in the client part;
+	'__s' is a function defined in the sysdeps part and
+	'__p' is a function that needs special priviledges.
+	'__r' is mapped either on '__l' or on '__s'.
+	
+	* sysdeps/linux/glibtop_server.h: New file -
+	defines system dependent constants 'GLIBTOP_SUID_<feature>'
+	being either 'GLIBTOP_SYSDEPS_<feature>'+1 depending upon
+ 	whether or not this feature requires using the server.
+
+	* lib/sysdeps.c: removed that file; it is no longer
+	needed.
+
+1998-05-25  Martin Baulig  <baulig@merkur.uni-trier.de>
+
+	* src/server/main.c: Fixed `broken pipe' error when server
+	is running SUID; accidentally uses setreuid () instead of
+	setregid ().
+
 1998-05-24  Martin Baulig  <martin@home-of-linux.org>
 
 	* sysdeps/sun4/{open.c, mem.c, glibtop_machine.h}: added
