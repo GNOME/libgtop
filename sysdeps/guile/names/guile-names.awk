@@ -82,8 +82,7 @@ function output(feature) {
   print "\tfor (i = 0; i < GLIBTOP_MAX_"toupper(feature)"; i++)";
   print "\t\tlist = scm_append";
   print "\t\t\t(gh_list (list,";
-  print "\t\t\t\t  gh_list (gh_str02scm (gettext";
-  print "\t\t\t\t\t\t\t(glibtop_labels_"feature" [i]))),";
+  print "\t\t\t\t  gh_list (gh_str02scm (_(glibtop_labels_"feature" [i]))),";
   print "\t\t\t\t  SCM_UNDEFINED));";
   print "";
   print "\treturn list;";
@@ -102,8 +101,7 @@ function output(feature) {
   print "\tfor (i = 0; i < GLIBTOP_MAX_"toupper(feature)"; i++)";
   print "\t\tlist = scm_append";
   print "\t\t\t(gh_list (list,";
-  print "\t\t\t\t  gh_list (gh_str02scm (gettext";
-  print "\t\t\t\t\t\t\t(glibtop_descriptions_"feature" [i]))),";
+  print "\t\t\t\t  gh_list (gh_str02scm (_(glibtop_descriptions_"feature" [i]))),";
   print "\t\t\t\t  SCM_UNDEFINED));";
   print "";
   print "\treturn list;";
