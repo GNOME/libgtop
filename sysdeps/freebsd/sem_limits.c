@@ -46,7 +46,7 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 
 /* #define KERNEL to get declaration of `struct seminfo'. */
 
-#if defined(__FreeBSD__) || defined(__bsdi__)
+#if (defined(__FreeBSD__) && (__FreeBSD_version < 410000)) || defined(__bsdi__)
 #define KERNEL 1
 #else
 #define _KERNEL 1

@@ -46,7 +46,7 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 
 /* #define KERNEL to get declaration of `struct shminfo'. */
 
-#if defined(__FreeBSD__)  || defined(__bsdi__)
+#if (defined(__FreeBSD__) && (__FreeBSD_version < 410000)) || defined(__bsdi__)
 #define KERNEL 1
 #else
 #define _KERNEL 1
