@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LibGTOP\n"
-"POT-Creation-Date: 1999-10-16 20:49+0200\n"
+"POT-Creation-Date: 2000-02-15 13:41+0100\n"
 "PO-Revision-Date: 1999-04-28 16:40-0300\n"
 "Last-Translator: Elvis Pfützenreuter <epx@netville.com.br>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -1224,39 +1224,39 @@ msgstr "ler %d bytes de dados"
 msgid "write %d bytes"
 msgstr "escrever %d bytes"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
 msgstr "Habilitar depuração"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
 msgstr "Habilitar saída com mensagens detalhadas "
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
 msgstr "Não passar para segundo plano"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
 msgstr "Acionado pelo inetd"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:486
+#: src/daemon/gnuserv.c:488
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

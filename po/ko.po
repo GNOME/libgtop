@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.1\n"
-"POT-Creation-Date: 1999-10-16 20:49+0200\n"
+"POT-Creation-Date: 2000-02-15 13:41+0100\n"
 "PO-Revision-Date: 1999-10-04 14:19:43+0900\n"
 "Last-Translator: Sung-Hyun Nam <namsh@kldp.org>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -1190,39 +1190,39 @@ msgstr "데이타 %d 바이트 읽음"
 msgid "write %d bytes"
 msgstr "%d 바이트 씀"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
 msgstr "디버깅 함"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "DEBUG"
 msgstr "디버그"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
 msgstr "출력을 많이 함"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
 msgstr "말많음"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
 msgstr "백그라운드로 포크 않함"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
 msgstr "데몬-없음"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
 msgstr "inetd에 의해 불려짐"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:486
+#: src/daemon/gnuserv.c:488
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

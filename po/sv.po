@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.1.0\n"
-"POT-Creation-Date: 1999-10-16 20:49+0200\n"
+"POT-Creation-Date: 2000-02-15 13:41+0100\n"
 "PO-Revision-Date: 1999-06-22 22:42+0200\n"
 "Last-Translator: Tomas Ögren <stric@ing.umu.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
@@ -1193,39 +1193,39 @@ msgstr "läste %d tecken data"
 msgid "write %d bytes"
 msgstr "skrev %d tecken"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
 msgstr "Aktivera felsökning"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
 msgstr "Aktivera utförlig utskrift"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
 msgstr "Starta ej bakgrunds-gren"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
 msgstr "Startad från inetd"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:486
+#: src/daemon/gnuserv.c:488
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

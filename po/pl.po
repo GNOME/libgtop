@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"POT-Creation-Date: 1999-10-16 20:49+0200\n"
+"POT-Creation-Date: 2000-02-15 13:41+0100\n"
 "PO-Revision-Date: 1999-09-17 04:26+0200\n"
 "Last-Translator: GNOME PL Team\n"
 "Language-Team: Polish <gnomepl@pandora.info.bielsko.pl>\n"
@@ -1198,39 +1198,39 @@ msgstr "odczytaj %d bajtów danych"
 msgid "write %d bytes"
 msgstr "zapisz %d bajtów"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "Enable debugging"
 msgstr "Uaktywnij ¶ledzenie"
 
-#: src/daemon/gnuserv.c:446
+#: src/daemon/gnuserv.c:448
 msgid "DEBUG"
 msgstr "¦LEDZENIE"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "Enable verbose output"
 msgstr "Uaktywnij rozwlek³e komunikaty"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:450
 msgid "VERBOSE"
 msgstr "ROZWLEK£Y"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "Don't fork into background"
 msgstr "Nie przechod¼ w t³o"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:452
 msgid "NO-DAEMON"
 msgstr "NIE-DEMON"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "Invoked from inetd"
 msgstr "Wywo³any przez inetd"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:454
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:486
+#: src/daemon/gnuserv.c:488
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
