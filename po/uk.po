@@ -1067,11 +1067,11 @@ msgstr "Список змонтованих файлових систем"
 
 #: sysdeps/names/uptime.c:40
 msgid "Uptime"
-msgstr ""
+msgstr "Час працездатност╕"
 
 #: sysdeps/names/uptime.c:41
 msgid "Idletime"
-msgstr ""
+msgstr "Час простою"
 
 #: sysdeps/names/uptime.c:42
 msgid "Boot time"
@@ -1079,7 +1079,7 @@ msgstr ""
 
 #: sysdeps/names/uptime.c:47
 msgid "Time in seconds since system boot"
-msgstr ""
+msgstr "Час в секундах в╕д старту системи"
 
 #: sysdeps/names/uptime.c:48
 msgid "Time in seconds the system spent in the idle task since system boot"
@@ -1096,7 +1096,7 @@ msgstr "Нев╕дома системна помилка"
 #: support/getopt.c:669
 #, c-format
 msgid "%s: option `%s' is ambiguous\n"
-msgstr ""
+msgstr "%s: параметр `%s' - неоднозначний\n"
 
 #: support/getopt.c:693
 #, c-format
@@ -1117,13 +1117,13 @@ msgstr "%s: параметру `%s' необх╕дний аргумент\n"
 #: support/getopt.c:744
 #, c-format
 msgid "%s: unrecognized option `--%s'\n"
-msgstr ""
+msgstr "%s: не розп╕знано параметру `--%s'\n"
 
 #. +option or -option
 #: support/getopt.c:748
 #, c-format
 msgid "%s: unrecognized option `%c%s'\n"
-msgstr ""
+msgstr "%s: не розп╕знано параметру `%c%s'\n"
 
 #. 1003.2 specifies the format of this message.
 #: support/getopt.c:774
