@@ -1,5 +1,8 @@
 2000-01-02  Martin Baulig  <martin@home-of-linux.org>
 
+	* include/glibtop/errors.h
+	(GLIBTOP_ERROR_DEMARSHAL_ERROR): New error constant.
+
 	* src/Makefile.am: Disable compilation of the `daemon' directory.
 
 	* include/glibtop/command.h: Removed.
