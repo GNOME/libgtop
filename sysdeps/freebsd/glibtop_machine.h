@@ -56,4 +56,4 @@ struct _glibtop_machine
 
 END_LIBGTOP_DECLS
 
-#endif __GLIBTOP_MACHINE_H__
+#endif /* __GLIBTOP_MACHINE_H__ */

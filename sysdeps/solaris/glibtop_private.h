@@ -65,4 +65,4 @@ void glibtop_get_kstats(glibtop *);
 
 END_LIBGTOP_DECLS
 
-#endif __GLIBTOP_PRIVATE_H__
+#endif /* __GLIBTOP_PRIVATE_H__ */

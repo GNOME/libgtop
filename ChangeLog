@@ -1,3 +1,11 @@
+2003-06-10  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* sysdeps/freebsd/glibtop_machine.h:
+	* sysdeps/kernel/glibtop_private.h:
+	* sysdeps/solaris/glibtop_machine.h:
+	* sysdeps/solaris/glibtop_private.h: Comment out text after
+	#endif to make some compilers happy.
+
 2003-05-11  Andrew Sobala  <aes@gnome.org>
 
 	* configure.in: release 2.0.2

@@ -86,4 +86,4 @@ glibtop_get_proc_data_netload_s (glibtop *server,
 
 END_LIBGTOP_DECLS
 
-#endif __GLIBTOP_PRIVATE_H__
+#endif /* __GLIBTOP_PRIVATE_H__ */
