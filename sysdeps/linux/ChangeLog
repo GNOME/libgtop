@@ -1,3 +1,8 @@
+1998-10-01  Martin Baulig  <baulig@Stud.Informatik.uni-trier.de>
+
+	* proclist.c (glibtop_init_proclist_s): Honor the `which' parameter
+	to select which processes to fetch.
+
 1998-09-12  Martin Baulig  <martin@home-of-linux.org>
 
 	* sysinfo.c: New file.

@@ -21,6 +21,7 @@
 
 #include <config.h>
 #include <glibtop/xmalloc.h>
+#include <glibtop/procuid.h>
 #include <glibtop/proclist.h>
 
 #include <sys/stat.h>
@@ -66,6 +67,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	unsigned count, total, pid;
 	unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
 	unsigned pids_size = 0, pids_offset = 0, new_size;
+	glibtop_proc_uid procuid;
 	struct stat statb;
 	int len, i, ok;
 
@@ -99,6 +101,47 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		if (stat (buffer, &statb)) continue;
 
 		if (!S_ISDIR (statb.st_mode)) continue;
+
+		switch (which) {
+		case GLIBTOP_KERN_PROC_ALL:
+			break;
+		case GLIBTOP_KERN_PROC_PID:
+			if ((unsigned) arg != pid)
+				continue;
+			break;
+		case GLIBTOP_KERN_PROC_UID:
+			if ((uid_t) arg != statb.st_uid)
+				continue;
+			break;
+		case GLIBTOP_KERN_PROC_PGRP:
+			/* Do you really, really need this ? */
+			glibtop_get_proc_uid_s (server, &procuid, pid);
+			if (procuid.flags & (1 << GLIBTOP_PROC_UID_PGRP))
+				if ((int) arg != procuid.pgrp)
+					continue;
+			break;
+		case GLIBTOP_KERN_PROC_SESSION:
+			/* Do you really, really need this ? */
+			glibtop_get_proc_uid_s (server, &procuid, pid);
+			if (procuid.flags & (1 << GLIBTOP_PROC_UID_SESSION))
+				if ((int) arg != procuid.session)
+					continue;
+			break;
+		case GLIBTOP_KERN_PROC_TTY:
+			/* Do you really, really need this ? */
+			glibtop_get_proc_uid_s (server, &procuid, pid);
+			if (procuid.flags & (1 << GLIBTOP_PROC_UID_TTY))
+				if ((int) arg != procuid.tty)
+					continue;
+			break;
+		case GLIBTOP_KERN_PROC_RUID:
+			/* Do you really, really need this ? */
+			glibtop_get_proc_uid_s (server, &procuid, pid);
+			if (procuid.flags & (1 << GLIBTOP_PROC_UID_EUID))
+				if ((int) arg != procuid.euid)
+					continue;
+			break;
+		}
 
 		/* Fine. Now we first try to store it in pids. If this buffer is
 		 * full, we copy it to the pids_chain. */
