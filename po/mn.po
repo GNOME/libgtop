@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.libgtop-GNOME-2-0-port.de\n"
-"POT-Creation-Date: 2003-01-08 06:05+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-12-03 02:55+0100\n"
 "PO-Revision-Date: 2003-01-21 06:09+0100\n"
 "Last-Translator: Sanlig Badral <badral@chinggis.com>\n"
 "Language-Team: Mongolian <mn@li.org>\n"
@@ -115,39 +116,39 @@ msgstr "%d өгөгдлийн байт уншигдсан"
 msgid "write %d bytes"
 msgstr "%d байт бичих"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "Enable debugging"
 msgstr "Алдаа оношлогчийг асаах"
 
-#: src/daemon/gnuserv.c:448
+#: src/daemon/gnuserv.c:453
 msgid "DEBUG"
 msgstr "ОНОШИЛГОО"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "Enable verbose output"
 msgstr "Дэлгэрэнгүй гаралтыг нээх"
 
-#: src/daemon/gnuserv.c:450
+#: src/daemon/gnuserv.c:455
 msgid "VERBOSE"
 msgstr "ДЭЛГЭРЭНГҮЙ"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "Don't fork into background"
 msgstr "Дэвсгэр лүү чихэхгүй"
 
-#: src/daemon/gnuserv.c:452
+#: src/daemon/gnuserv.c:457
 msgid "NO-DAEMON"
 msgstr "ДАЙМОН АЛГА"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "Invoked from inetd"
 msgstr "inetd -р л дуудагдана"
 
-#: src/daemon/gnuserv.c:454
+#: src/daemon/gnuserv.c:459
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:488
+#: src/daemon/gnuserv.c:493
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -219,11 +220,11 @@ msgstr "%s: сонголт »-W %s« олон утгатай\n"
 msgid "%s: option `-W %s' doesn't allow an argument\n"
 msgstr "%s: сонголт »-W %s« аргумент зөвшөөрөхгүй\n"
 
-#: support/popthelp.c:35
+#: support/popthelp.c:23
 msgid "Show this help message"
 msgstr "Энэ тусламж мэдээг харуулах"
 
-#: support/popthelp.c:36
+#: support/popthelp.c:24
 msgid "Display brief usage message"
 msgstr "Хураангуй заавар мэдээ харуулах"
 
@@ -282,8 +283,8 @@ msgstr "»Цаг« -н тоо, хэрэглэгчийн горимд систе�
 #: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
 msgid "Number of clock ticks the system spent in user mode (nice)"
 msgstr ""
-"»Цаг« -н тоо, хэрэглэгчийн горимд системд бага "
-"давуу эрхтэй (nice) хэрэглэгдсэн лугшилтууд"
+"»Цаг« -н тоо, хэрэглэгчийн горимд системд бага давуу эрхтэй (nice) "
+"хэрэглэгдсэн лугшилтууд"
 
 #: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
 msgid "Number of clock ticks the system spent in system mode"
@@ -620,8 +621,8 @@ msgid ""
 "The number of major faults the process has made, those which have required "
 "loading a memory page from disk."
 msgstr ""
-"Процессын ноцтой хуудсын алдааны тоо, энэ нь тухайн процесс "
-"дискнээс санах ойн хуудсанд ачаалахыг шаардсан гэсэн үг."
+"Процессын ноцтой хуудсын алдааны тоо, энэ нь тухайн процесс дискнээс санах "
+"ойн хуудсанд ачаалахыг шаардсан гэсэн үг."
 
 #. CMin_Flt
 #: sysdeps/names/prockernel.c:65
@@ -638,7 +639,9 @@ msgstr "Процесс эсвэл хүү процессын ноцтой хуу�
 msgid ""
 "The current value of esp (32-bit stack pointer), as found in the kernel "
 "stack page for the process."
-msgstr "Kernel-ийн стек хуудсаас олдсон процессын 32-бит стекийн заагчийн идэвхитэй утга."
+msgstr ""
+"Kernel-ийн стек хуудсаас олдсон процессын 32-бит стекийн заагчийн идэвхитэй "
+"утга."
 
 #. KStk_EIP
 #: sysdeps/names/prockernel.c:74
@@ -653,10 +656,10 @@ msgid ""
 "textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
 "see the WCHAN field in action)"
 msgstr ""
-"Энэ »Суваг« дотор процесс хүлээж байгаа.  Энэ нь системийн дуудалтын "
-"хаяг ба хэрвээ таньд түүний текст нэр нь хэрэгтэй бол та нэрсийн "
-"жигсаалтаас олох болно  (хэрвээ таньд одоогоор »etc/psdatabase« байгаа "
-"бол үйлдийн WCHAN-талбарыг харахын тулд та »ps -l« гэж оролдоно уу.)."
+"Энэ »Суваг« дотор процесс хүлээж байгаа.  Энэ нь системийн дуудалтын хаяг ба "
+"хэрвээ таньд түүний текст нэр нь хэрэгтэй бол та нэрсийн жигсаалтаас олох "
+"болно  (хэрвээ таньд одоогоор »etc/psdatabase« байгаа бол үйлдийн WCHAN-"
+"талбарыг харахын тулд та »ps -l« гэж оролдоно уу.)."
 
 #. WChan
 #: sysdeps/names/prockernel.c:81
@@ -711,8 +714,10 @@ msgstr ""
 "мужийн зай юм. Энэ нь зөөгддгүй хуудсууд байдаг."
 
 #: sysdeps/names/procmem.c:62
-msgid "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "Процессын RSS -н одоогийн хязгаар байтаар (ер нь 2.147.483.647 байдаг)."
+msgid ""
+"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
+msgstr ""
+"Процессын RSS -н одоогийн хязгаар байтаар (ер нь 2.147.483.647 байдаг)."
 
 #: sysdeps/names/procsegment.c:42
 msgid "Text_RSS"
@@ -905,14 +910,12 @@ msgstr "Kernel горимд процессын хэрэглэх хугацаа"
 #: sysdeps/names/proctime.c:55
 msgid "cumulative utime of process and reaped children"
 msgstr ""
-"Процессын эсвэл хэдийнэ үхсэн хүүгийн хэрэглэгчийн "
-"горимд хэрэглэсэн хугацаа"
+"Процессын эсвэл хэдийнэ үхсэн хүүгийн хэрэглэгчийн горимд хэрэглэсэн хугацаа"
 
 #: sysdeps/names/proctime.c:56
 msgid "cumulative stime of process and reaped children"
 msgstr ""
-"Процессын эсвэл хэдийнэ үхсэн хүүгийн kernel-ийн "
-"горимд хэрэглэсэн хугацаа"
+"Процессын эсвэл хэдийнэ үхсэн хүүгийн kernel-ийн горимд хэрэглэсэн хугацаа"
 
 #: sysdeps/names/proctime.c:57
 msgid "The time (in jiffies) of the process's next timeout"
@@ -933,14 +936,13 @@ msgstr "Лугшилтын давтамж"
 #: sysdeps/names/proctime.c:61
 msgid "SMP user-mode CPU time accumulated by process"
 msgstr ""
-"Хэрэглэгчийн горимд процессын хэрэглэх хугацаа, "
-"бүх процессорууд хамттооцогдсон"
+"Хэрэглэгчийн горимд процессын хэрэглэх хугацаа, бүх процессорууд "
+"хамттооцогдсон"
 
 #: sysdeps/names/proctime.c:62
 msgid "SMP kernel-mode CPU time accumulated by process"
 msgstr ""
-"kernel горимд процессын хэрэглэх хугацаа, "
-"бүх процессорууд хамттооцогдсон"
+"kernel горимд процессын хэрэглэх хугацаа, бүх процессорууд хамттооцогдсон"
 
 #: sysdeps/names/procuid.c:56
 msgid "Uid"
@@ -1361,4 +1363,3 @@ msgstr "Хэрэглэгчийн тодорхойлсон сигнал 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Хэрэглэгчийн тодорхойлсон сигнал 2"
-
