@@ -59,7 +59,7 @@ typedef struct _glibtop_proc_uid	glibtop_proc_uid;
 struct _glibtop_proc_uid
 {
 	guint64 flags;
-	int uid,		/* user id */
+	gint32 uid,		/* user id */
 		euid,		/* effective user id */
 		gid,		/* group id */
 		egid,		/* effective group id */

@@ -1,5 +1,17 @@
 2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
 
+	* include/glibtop/error.h: Moved 8 static error functions to
+	sysdeps/common/error.c. This is the end of an big useless code
+	bloat : expect ~8KB of object size reduction.
+
+	* include/glibtop/procuid.h: s/int/gint32/g
+
+	* lib/errors.c: (glibtop_error_quark):
+	* lib/read.c: (do_read), (glibtop_read_l):
+	* lib/read_data.c: (glibtop_read_data_l): Minor cleanups.
+
+2004-06-18  Benoît Dejean  <tazforever@dlfp.org>
+
 	* sysdeps/names/netload.c:
 	* include/glibtop/netload.h: Added IPv6 feature : provides address,
 	prefix and scope. This breaks the ABI. Not documented yet : check
