@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -19,28 +21,28 @@
    along with LibGTop; see the file COPYING. If not, write to the
    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
-*/
+ */
 
 #include <glibtop/uptime.h>
 
-const char *glibtop_names_uptime [GLIBTOP_MAX_UPTIME] =
+const char *glibtop_names_uptime[GLIBTOP_MAX_UPTIME] =
 {
-	"uptime", "idletime"
+    "uptime", "idletime"
 };
 
-const unsigned glibtop_types_uptime [GLIBTOP_MAX_UPTIME] =
+const unsigned glibtop_types_uptime[GLIBTOP_MAX_UPTIME] =
 {
-	GLIBTOP_TYPE_DOUBLE, GLIBTOP_TYPE_DOUBLE
+    GLIBTOP_TYPE_DOUBLE, GLIBTOP_TYPE_DOUBLE
 };
 
-const char *glibtop_labels_uptime [GLIBTOP_MAX_UPTIME] =
+const char *glibtop_labels_uptime[GLIBTOP_MAX_UPTIME] =
 {
-	N_("Uptime"),
-	N_("Idletime")
+    N_ ("Uptime"),
+    N_ ("Idletime")
 };
 
-const char *glibtop_descriptions_uptime [GLIBTOP_MAX_UPTIME] =
+const char *glibtop_descriptions_uptime[GLIBTOP_MAX_UPTIME] =
 {
-	N_("Time in seconds since system boot"),
-	N_("Time in seconds the system spent in the idle task since system boot")
+    N_ ("Time in seconds since system boot"),
+    N_ ("Time in seconds the system spent in the idle task since system boot")
 };

@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -19,51 +21,51 @@
    along with LibGTop; see the file COPYING. If not, write to the
    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
-*/
+ */
 
 #include <glibtop/cpu.h>
 
-const char *glibtop_names_cpu [GLIBTOP_MAX_CPU] =
+const char *glibtop_names_cpu[GLIBTOP_MAX_CPU] =
 {
-	"total", "user", "nice", "sys", "idle", "frequency",
-	"xcpu_total", "xcpu_user", "xcpu_nice", "xcpu_sys",
-	"xcpu_idle"
+    "total", "user", "nice", "sys", "idle", "frequency",
+    "xcpu_total", "xcpu_user", "xcpu_nice", "xcpu_sys",
+    "xcpu_idle"
 };
 
-const unsigned glibtop_types_cpu [GLIBTOP_MAX_CPU] =
-{ 
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
+const unsigned glibtop_types_cpu[GLIBTOP_MAX_CPU] =
+{
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
-const char *glibtop_labels_cpu [GLIBTOP_MAX_CPU] =
+const char *glibtop_labels_cpu[GLIBTOP_MAX_CPU] =
 {
-	N_("Total CPU Time"),
-	N_("CPU Time in User Mode"),
-	N_("CPU Time in User Mode (nice)"),
-	N_("CPU Time in System Mode"),
-	N_("CPU Time in the Idle Task"),
-	N_("Tick Frequency"),
-	N_("SMP Total CPU Time"),
-	N_("SMP CPU Time in User Mode"),
-	N_("SMP CPU Time in User Mode (nice)"),
-	N_("SMP CPU Time in System Mode"),
-	N_("SMP CPU Time in the Idle Task")
+    N_ ("Total CPU Time"),
+    N_ ("CPU Time in User Mode"),
+    N_ ("CPU Time in User Mode (nice)"),
+    N_ ("CPU Time in System Mode"),
+    N_ ("CPU Time in the Idle Task"),
+    N_ ("Tick Frequency"),
+    N_ ("SMP Total CPU Time"),
+    N_ ("SMP CPU Time in User Mode"),
+    N_ ("SMP CPU Time in User Mode (nice)"),
+    N_ ("SMP CPU Time in System Mode"),
+    N_ ("SMP CPU Time in the Idle Task")
 };
 
-const char *glibtop_descriptions_cpu [GLIBTOP_MAX_CPU] =
+const char *glibtop_descriptions_cpu[GLIBTOP_MAX_CPU] =
 {
-	N_("Number of clock ticks since system boot"),
-	N_("Number of clock ticks the system spent in user mode"),
-	N_("Number of clock ticks the system spent in user mode (nice)"),
-	N_("Number of clock ticks the system spent in system mode"),
-	N_("Number of clock ticks the system spent in the idle task"),
-	N_("Tick frequency (default is 100)"),
-	N_("Number of clock ticks since system boot"),
-	N_("Number of clock ticks the system spent in user mode"),
-	N_("Number of clock ticks the system spent in user mode (nice)"),
-	N_("Number of clock ticks the system spent in system mode"),
-	N_("Number of clock ticks the system spent in the idle task"),
+    N_ ("Number of clock ticks since system boot"),
+    N_ ("Number of clock ticks the system spent in user mode"),
+    N_ ("Number of clock ticks the system spent in user mode (nice)"),
+    N_ ("Number of clock ticks the system spent in system mode"),
+    N_ ("Number of clock ticks the system spent in the idle task"),
+    N_ ("Tick frequency (default is 100)"),
+    N_ ("Number of clock ticks since system boot"),
+    N_ ("Number of clock ticks the system spent in user mode"),
+    N_ ("Number of clock ticks the system spent in user mode (nice)"),
+    N_ ("Number of clock ticks the system spent in system mode"),
+    N_ ("Number of clock ticks the system spent in the idle task"),
 };

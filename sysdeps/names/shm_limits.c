@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -19,35 +21,35 @@
    along with LibGTop; see the file COPYING. If not, write to the
    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
-*/
+ */
 
 #include <glibtop/shm_limits.h>
 
-const char *glibtop_names_shm_limits [GLIBTOP_MAX_SHM_LIMITS] =
+const char *glibtop_names_shm_limits[GLIBTOP_MAX_SHM_LIMITS] =
 {
-	"shmmax", "shmmin", "shmmni", "shmseg", "shmall"
+    "shmmax", "shmmin", "shmmni", "shmseg", "shmall"
 };
 
-const unsigned glibtop_types_shm_limits [GLIBTOP_MAX_SHM_LIMITS] =
+const unsigned glibtop_types_shm_limits[GLIBTOP_MAX_SHM_LIMITS] =
 {
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
-const char *glibtop_labels_shm_limits [GLIBTOP_MAX_SHM_LIMITS] =
+const char *glibtop_labels_shm_limits[GLIBTOP_MAX_SHM_LIMITS] =
 {
-	N_("Max segment size"),
-	N_("Min segment size"),
-	N_("Max number of segments"),
-	N_("Max shared segments per process"),
-	N_("Max total shared memory")
+    N_ ("Max segment size"),
+    N_ ("Min segment size"),
+    N_ ("Max number of segments"),
+    N_ ("Max shared segments per process"),
+    N_ ("Max total shared memory")
 };
 
-const char *glibtop_descriptions_shm_limits [GLIBTOP_MAX_SHM_LIMITS] =
+const char *glibtop_descriptions_shm_limits[GLIBTOP_MAX_SHM_LIMITS] =
 {
-	N_("Max segment size"),
-	N_("Min segment size"),
-	N_("Max number of segments"),
-	N_("Max shared segments per process"),
-	N_("Max total shared memory")
+    N_ ("Max segment size"),
+    N_ ("Min segment size"),
+    N_ ("Max number of segments"),
+    N_ ("Max shared segments per process"),
+    N_ ("Max total shared memory")
 };

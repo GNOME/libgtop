@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -19,30 +21,30 @@
    along with LibGTop; see the file COPYING. If not, write to the
    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
-*/
+ */
 
 #include <glibtop/proclist.h>
 
-const char *glibtop_names_proclist [GLIBTOP_MAX_PROCLIST] =
+const char *glibtop_names_proclist[GLIBTOP_MAX_PROCLIST] =
 {
-	"number", "total", "size"
+    "number", "total", "size"
 };
 
-const unsigned glibtop_types_proclist [GLIBTOP_MAX_PROCLIST] =
+const unsigned glibtop_types_proclist[GLIBTOP_MAX_PROCLIST] =
 {
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
-const char *glibtop_labels_proclist [GLIBTOP_MAX_PROCLIST] =
+const char *glibtop_labels_proclist[GLIBTOP_MAX_PROCLIST] =
 {
-	N_("Number of list elements"),
-	N_("Total size of list"),
-	N_("Size of a single list element")
+    N_ ("Number of list elements"),
+    N_ ("Total size of list"),
+    N_ ("Size of a single list element")
 };
 
-const char *glibtop_descriptions_proclist [GLIBTOP_MAX_PROCLIST] =
+const char *glibtop_descriptions_proclist[GLIBTOP_MAX_PROCLIST] =
 {
-	N_("Number of list elements"),
-	N_("Total size of list"),
-	N_("Size of a single list element")
+    N_ ("Number of list elements"),
+    N_ ("Total size of list"),
+    N_ ("Size of a single list element")
 };

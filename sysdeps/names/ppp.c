@@ -1,3 +1,5 @@
+/* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
+
 /* $Id$ */
 
 /* Copyright (C) 1998-99 Martin Baulig
@@ -19,30 +21,30 @@
    along with LibGTop; see the file COPYING. If not, write to the
    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.
-*/
+ */
 
 #include <glibtop/ppp.h>
 
-const char *glibtop_names_ppp [GLIBTOP_MAX_PPP] =
+const char *glibtop_names_ppp[GLIBTOP_MAX_PPP] =
 {
-	"state", "bytes_in", "bytes_out"
+    "state", "bytes_in", "bytes_out"
 };
 
-const unsigned glibtop_types_ppp [GLIBTOP_MAX_PPP] =
-{ 
-	GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
+const unsigned glibtop_types_ppp[GLIBTOP_MAX_PPP] =
+{
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
-const char *glibtop_labels_ppp [GLIBTOP_MAX_PPP] =
+const char *glibtop_labels_ppp[GLIBTOP_MAX_PPP] =
 {
-	N_("PPP State"),
-	N_("Input bytes"),
-	N_("Output bytes")
+    N_ ("PPP State"),
+    N_ ("Input bytes"),
+    N_ ("Output bytes")
 };
 
-const char *glibtop_descriptions_ppp [GLIBTOP_MAX_PPP] =
+const char *glibtop_descriptions_ppp[GLIBTOP_MAX_PPP] =
 {
-	N_("PPP State"),
-	N_("Number of input bytes"),
-	N_("Number of output bytes")
+    N_ ("PPP State"),
+    N_ ("Number of input bytes"),
+    N_ ("Number of output bytes")
 };
