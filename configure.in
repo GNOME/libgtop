@@ -183,6 +183,9 @@ AC_CHECK_HEADERS(string.h strings.h, break)
 AC_REPLACE_FUNCS(strerror)
 AC_CHECK_LIB(kvm, kvm_open)
 
+dnl Solaris 7
+AC_CHECK_LIB(kstat, kstat_open)
+
 dnl For DEC OSF1
 AC_CHECK_LIB(mach, vm_statistics)
 
@@ -401,6 +404,7 @@ sysdeps/osf1/Makefile
 sysdeps/linux/Makefile
 sysdeps/kernel/Makefile
 sysdeps/freebsd/Makefile
+sysdeps/solaris/Makefile
 src/Makefile
 src/daemon/Makefile
 src/inodedb/Makefile
