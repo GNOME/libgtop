@@ -1,3 +1,8 @@
+2004-07-07  Benoît Dejean  <tazforever@dlfp.org>
+
+	* procargs.c: (glibtop_get_proc_args_s): Fixed. error is now correctly 
+	set to NULL before is's used. Fixed max_len behaviour.
+
 2004-07-03  Benoît Dejean  <tazforever@dlfp.org>
 
 	* sysinfo.c: (init_sysinfo): Removed useless memset.
