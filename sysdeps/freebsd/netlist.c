@@ -43,6 +43,10 @@ glibtop_get_netlist_s (glibtop *server, glibtop_netlist *buf)
 	struct if_nameindex *ifstart, *ifs;
 	GPtrArray *devices;
 
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_NETLIST, 0);
+
+	memset (buf, 0, sizeof (glibtop_netlist));
+
 	ifs = ifstart = if_nameindex();
 
 	devices = g_ptr_array_new();

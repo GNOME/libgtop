@@ -1,3 +1,27 @@
+2005-02-28  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* Makefile.am:
+	* cpu.c: (glibtop_get_cpu_p):
+	* netlist.c: (glibtop_get_netlist_s):
+	* netload.c: (glibtop_get_netload_p):
+	* procmem.c: (glibtop_get_proc_mem_p):
+	
+	Fix a bug in netlist where glibtop_netlist.number was never initialized to 0
+	(this resulted in a NULL pointer dereference in the network load feature
+	of the multiload applet)
+
+	* Add support for getting interface flags and packet counts even on interfaces
+	without IP addresses (needed for the network load feature of the multiload applet)
+
+	* Restore per-process limits in the !FreeBSD or __FreeBSD_version < 500013
+	case
+
+	* Add CPU interrupt time as IOWAIT to get support for the cpu load feature of
+	the multiload applet.
+	
+	Patch from marcus@freebsd.org (Joe Marcus Clarke).
+	Closes #168704.
+
 2005-02-23  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* Makefile.am:
