@@ -1,5 +1,12 @@
 2000-01-12  Martin Baulig  <martin@home-of-linux.org>
 
+	* lib/sysdeps-init-freebsd.c: New file.
+	* lib/sysdeps-init-kernel.c: New file.
+	* lib/sysdeps-init-linux.c: New file.
+	* lib/sysdeps-init-solaris.c: New file.
+	* lib/sysdeps-init-stub-suid.c: New file.
+	* lib/sysdeps-init-stub.c: New file.
+
 	* lib/init.c (glibtop_init_s): Call `_glibtop_open_sysdeps'.
 
 	* include/glibtop/open.h (_glibtop_open_sysdeps): Declare this
