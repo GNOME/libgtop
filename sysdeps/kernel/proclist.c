@@ -59,7 +59,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf)
 	union table tbl;
 	unsigned *pids_chain;
 
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROCLIST, 0);
 
 	memset (buf, 0, sizeof (glibtop_proclist));
 

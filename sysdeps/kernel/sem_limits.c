@@ -62,7 +62,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 	struct seminfo	seminfo;
 	union semun	arg;  
   
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SEM_LIMITS, 0);
 
 	memset (buf, 0, sizeof (glibtop_sem_limits));
   

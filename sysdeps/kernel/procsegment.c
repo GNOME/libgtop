@@ -47,7 +47,7 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 {
 	union table tbl;
 
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_segment));
 

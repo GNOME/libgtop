@@ -47,7 +47,7 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf,
 {
 	union table tbl;
 	
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
 	

@@ -45,7 +45,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
 	union table tbl;
 
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
 	memset (buf, 0, sizeof (glibtop_cpu));
 

@@ -46,7 +46,7 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf,
 {
 	union table tbl;
 
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MEM, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 

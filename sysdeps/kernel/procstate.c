@@ -49,7 +49,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf,
 	{ 'R', 'S', 'D', 'Z', 'T', 'W', '.' };
 	unsigned state;
 
-	glibtop_init_s (&server, 0, 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_STATE, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_state));
 
