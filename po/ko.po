@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1999-02-23 13:48+0100\n"
+"POT-Creation-Date: 1999-02-27 22:24+0100\n"
 "PO-Revision-Date: 1999-02-04 14:31:38+0900\n"
 "Last-Translator: Sung-Hyun Nam <namsh@lgic.co.kr>\n"
 "Language-Team: Korean <ko@li.org>\n"
