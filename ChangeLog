@@ -1,3 +1,8 @@
+2004-12-10  Benoît Dejean  <tazforever@dlfp.org>
+
+	* lib/lib.pl: Fixed Argument passing between library and server.
+	Thanks everyone. Closes #139809.
+
 2004-12-06  Benoît Dejean  <tazforever@dlfp.org>
 
 	* acconfig.h:
