@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop VERSION\n"
-"POT-Creation-Date: 1998-12-25 20:08+0100\n"
+"POT-Creation-Date: 1999-02-11 19:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Martin Baulig <martin@home-of-linux.org>\n"
 "Language-Team: Martin Baulig <martin@home-of-linux.org>\n"
@@ -67,7 +67,9 @@ msgstr "Anzahl der Clock-Ticks, die das System im Benutzer-Mode verbracht hat"
 
 #: sysdeps/names/cpu.c:58 sysdeps/names/cpu.c:64
 msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "Anzahl der Clock-Ticks, die das System im Benutzer-Mode mit erhöhter Priorität verbracht hat"
+msgstr ""
+"Anzahl der Clock-Ticks, die das System im Benutzer-Mode mit erhöhter "
+"Priorität verbracht hat"
 
 #: sysdeps/names/cpu.c:59 sysdeps/names/cpu.c:65
 msgid "Number of clock ticks the system spent in system mode"
@@ -610,21 +612,28 @@ msgstr "Zeit, die der Prozess im Kernel verbracht hat"
 
 #: sysdeps/names/proctime.c:53
 msgid "cumulative utime of process and reaped children"
-msgstr "Zeit, die der Prozess und seine bereits gestorbe Kinder im Benutzer-Mode verbracht haben"
+msgstr ""
+"Zeit, die der Prozess und seine bereits gestorbe Kinder im Benutzer-Mode "
+"verbracht haben"
 
 #: sysdeps/names/proctime.c:54
 msgid "cumulative stime of process and reaped children"
-msgstr "Zeit, die der Prozess und seine bereits gestorbe Kinder im Kernel verbracht haben"
+msgstr ""
+"Zeit, die der Prozess und seine bereits gestorbe Kinder im Kernel verbracht "
+"haben"
 
 #: sysdeps/names/proctime.c:55
 msgid "The time (in jiffies) of the process's next timeout"
-msgstr "Zeit (in 1/100stel Sekunden) bis der Prozess seinen nächsten Timeout empfängt"
+msgstr ""
+"Zeit (in 1/100stel Sekunden) bis der Prozess seinen nächsten Timeout empfängt"
 
 #: sysdeps/names/proctime.c:56
 msgid ""
 "The time (in jiffies) before the next SIGALRM is sent to the process due to "
 "an interval timer."
-msgstr "Zeit (in 1/100stel Sekunden) bevor das nächste SIGALRM Signal aufgrund eines Intervall-Timers an den Prozess geschickt wird"
+msgstr ""
+"Zeit (in 1/100stel Sekunden) bevor das nächste SIGALRM Signal aufgrund eines "
+"Intervall-Timers an den Prozess geschickt wird"
 
 #: sysdeps/names/proctime.c:58
 msgid "Tick frequency"
@@ -1025,39 +1034,39 @@ msgstr ""
 msgid "write %d bytes"
 msgstr ""
 
-#: src/daemon/gnuserv.c:439
+#: src/daemon/gnuserv.c:444
 msgid "Enable debugging"
 msgstr ""
 
-#: src/daemon/gnuserv.c:439
+#: src/daemon/gnuserv.c:444
 msgid "DEBUG"
 msgstr ""
 
-#: src/daemon/gnuserv.c:441
+#: src/daemon/gnuserv.c:446
 msgid "Enable verbose output"
 msgstr ""
 
-#: src/daemon/gnuserv.c:441
+#: src/daemon/gnuserv.c:446
 msgid "VERBOSE"
 msgstr ""
 
-#: src/daemon/gnuserv.c:443
+#: src/daemon/gnuserv.c:448
 msgid "Don't fork into background"
 msgstr ""
 
-#: src/daemon/gnuserv.c:443
+#: src/daemon/gnuserv.c:448
 msgid "NO-DAEMON"
 msgstr ""
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:450
 msgid "Invoked from inetd"
 msgstr ""
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:450
 msgid "INETD"
 msgstr ""
 
-#: src/daemon/gnuserv.c:479
+#: src/daemon/gnuserv.c:484
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

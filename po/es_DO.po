@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-25 20:08+0100\n"
+"POT-Creation-Date: 1999-02-11 19:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1011,39 +1011,39 @@ msgstr ""
 msgid "write %d bytes"
 msgstr ""
 
-#: src/daemon/gnuserv.c:439
+#: src/daemon/gnuserv.c:444
 msgid "Enable debugging"
 msgstr ""
 
-#: src/daemon/gnuserv.c:439
+#: src/daemon/gnuserv.c:444
 msgid "DEBUG"
 msgstr ""
 
-#: src/daemon/gnuserv.c:441
+#: src/daemon/gnuserv.c:446
 msgid "Enable verbose output"
 msgstr ""
 
-#: src/daemon/gnuserv.c:441
+#: src/daemon/gnuserv.c:446
 msgid "VERBOSE"
 msgstr ""
 
-#: src/daemon/gnuserv.c:443
+#: src/daemon/gnuserv.c:448
 msgid "Don't fork into background"
 msgstr ""
 
-#: src/daemon/gnuserv.c:443
+#: src/daemon/gnuserv.c:448
 msgid "NO-DAEMON"
 msgstr ""
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:450
 msgid "Invoked from inetd"
 msgstr ""
 
-#: src/daemon/gnuserv.c:445
+#: src/daemon/gnuserv.c:450
 msgid "INETD"
 msgstr ""
 
-#: src/daemon/gnuserv.c:479
+#: src/daemon/gnuserv.c:484
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
