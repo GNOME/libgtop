@@ -1054,7 +1054,41 @@ Address of the bottom of stack segmen
 @node glibtop_proc_args, glibtop_proc_map, glibtop_proc_segment, System Dependent
 @subsection Process Arguments
 
-[Not yet written.]
+Library function @code{glibtop_get_proc_args}:
+
+@example
+@cartouche
+char *
+glibtop_get_proc_args_l (glibtop_proc_args *buf, pid_t pid,
+                         unsigned max_len);
+
+char *
+glibtop_get_proc_args_l (glibtop *server, glibtop_proc_args *buf,
+                         pid_t pid, unsigned max_len);
+@end cartouche
+@end example
+
+Declaration of @code{glibtop_proc_args} in @file{<glibtop/procargs.h>}:
+
+@example
+@cartouche
+typedef struct _glibtop_proc_args       glibtop_proc_args;
+
+struct _glibtop_proc_args
+@{
+    u_int64_t   flags,
+        size;
+@};
+@end cartouche
+@end example
+
+Returns a string with all command line arguments of process @code{pid}
+(up to @code{max_len} characters, use zero to get all arguments).
+
+The command line arguments in the returned string are separated by zero bytes;
+the lenght of this string is returned in the @code{size} field.
+
+Remember to @code{glibtop_free} the returned string to avoid a memory leak.
 
 @page
 @node glibtop_proc_map, glibtop_netload, glibtop_proc_args, System Dependent
