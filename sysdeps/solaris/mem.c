@@ -27,6 +27,8 @@
 #include <assert.h>
 #include <unistd.h>
 
+#include <glibtop_private.h>
+
 static const unsigned long _glibtop_sysdeps_mem_os_sysconf =
 (1L << GLIBTOP_MEM_TOTAL);
 static const unsigned long _glibtop_sysdeps_mem_os_kstat =

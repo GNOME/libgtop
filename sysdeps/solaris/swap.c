@@ -28,6 +28,8 @@
 #include <assert.h>
 #include <sys/sysinfo.h>
 
+#include <glibtop_private.h>
+
 static const unsigned long _glibtop_sysdeps_swap =
 (1L << GLIBTOP_SWAP_TOTAL) + (1L << GLIBTOP_SWAP_USED) +
 (1L << GLIBTOP_SWAP_FREE);

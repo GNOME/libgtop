@@ -28,6 +28,8 @@
 #include <assert.h>
 #include <sys/processor.h>
 
+#include <glibtop_private.h>
+
 static const unsigned long _glibtop_sysdeps_cpu =
 (1L << GLIBTOP_CPU_TOTAL) + (1L << GLIBTOP_CPU_USER) +
 (1L << GLIBTOP_CPU_SYS) + (1L << GLIBTOP_CPU_IDLE) +

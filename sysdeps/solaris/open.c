@@ -27,6 +27,8 @@
 #include <sys/types.h>
 #include <sys/processor.h>
 
+#include <glibtop_private.h>
+
 /* We need to call this when kstat_chain_update() returns new KID.
  * In that case all kstat pointers and data are invalid, so we
  * need to reread everything. The condition shouldn't happen very
