@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2004-03-15 21:15+0100\n"
+"POT-Creation-Date: 2004-09-20 00:04+0200\n"
+"PO-Revision-Date: 2004-09-20 00:05+0200\n"
 "Last-Translator: Alessio Frusciante <algol@firenze.linux.it>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
@@ -121,39 +121,39 @@ msgid_plural "write %d bytes"
 msgstr[0] "scrittura di %d byte"
 msgstr[1] "scrittura di %d byte"
 
-#: src/daemon/gnuserv.c:456
+#: src/daemon/gnuserv.c:461
 msgid "Enable debugging"
 msgstr "Abilita debug"
 
-#: src/daemon/gnuserv.c:456
+#: src/daemon/gnuserv.c:461
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:463
 msgid "Enable verbose output"
 msgstr "Abilita output prolisso"
 
-#: src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:463
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:465
 msgid "Don't fork into background"
 msgstr "Non fare fork in background"
 
-#: src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:465
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:467
 msgid "Invoked from inetd"
 msgstr "Invocato da inetd"
 
-#: src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:467
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:496
+#: src/daemon/gnuserv.c:501
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -260,9 +260,8 @@ msgid "Free file nodes"
 msgstr "Nodi file liberi"
 
 #: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
 msgid "Block size"
-msgstr "Bloccato"
+msgstr "Dimensione blocco"
 
 #: sysdeps/names/fsusage.c:51
 msgid "Free blocks available to the superuser"
@@ -415,14 +414,12 @@ msgid "MTU"
 msgstr "MTU"
 
 #: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
 msgid "IPv4 Subnet"
-msgstr "Sottorete"
+msgstr "Sottorete IPv4"
 
 #: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
 msgid "IPv4 Address"
-msgstr "Indirizzo"
+msgstr "Indirizzo IPv4"
 
 #: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
 msgid "Packets In"
@@ -465,17 +462,16 @@ msgid "Collisions"
 msgstr "Collisioni"
 
 #: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Indirizzo"
+msgstr "Indirizzo IPv6"
 
 #: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
 msgid "IPv6 Prefix"
-msgstr ""
+msgstr "Prefisso IPv6"
 
 #: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
 msgid "IPv6 Scope"
-msgstr ""
+msgstr "Scope IPv6"
 
 #: sysdeps/names/netload.c:68
 msgid "Maximum Transfer Unit"
