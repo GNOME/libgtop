@@ -1,3 +1,11 @@
+2004-11-15  Benoît Dejean  <tazforever@dlfp.org>
+
+	* netload.c: (get_ipv6), (glibtop_get_netload_s): Added a check for NULL
+	pointer when wlaking though interfaces (though i don't understand why some
+	interface don't have an ifa_addr).
+	Move all ipv6 code into a separate function. Added a paranoid check on
+	getifaddrs.
+
 2004-11-13  Benoît Dejean  <tazforever@dlfp.org>
 
 	* netlist.c: (glibtop_get_netlist_s): Killed warning.
