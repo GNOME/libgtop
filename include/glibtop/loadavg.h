@@ -79,7 +79,7 @@ extern SCM glibtop_guile_descriptions_loadavg __P((void));
 /* You need to link with -lgtop_names to get this stuff here. */
 
 extern const char *glibtop_names_loadavg [];
-extern unsigned glibtop_types_loadavg [];
+extern const unsigned glibtop_types_loadavg [];
 extern const char *glibtop_labels_loadavg [];
 extern const char *glibtop_descriptions_loadavg [];
 
