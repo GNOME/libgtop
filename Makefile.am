@@ -11,7 +11,7 @@ support = support
 endif
 
 SUBDIRS = po intl $(support) macros misc include sysdeps lib src \
-	  $(examples_SUBDIRS)
+	  $(examples_SUBDIRS) doc
 
 include_HEADERS = glibtop.h
 

@@ -406,5 +406,6 @@ src/daemon/Makefile
 src/inodedb/Makefile
 lib/Makefile
 examples/Makefile
+doc/Makefile
 support/Makefile
 macros/Makefile])
