@@ -1,3 +1,22 @@
+1998-06-06  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/osf1/glibtop_server.h: New file.
+	
+	* sysdeps/osf1/*.c: renamed all functions implementing
+	features that don't need to be suid to '__s'.
+
+	* sysdeps/names/procdata.c: Removed that file.
+	
+	* include/glibtop/*.h (glibtop_types_*): Changed declaration.
+	
+	* glibtop.h: Added `#include <types.h>'.
+
+	* include/glibtop/types.h: New file - numeric constants
+	for `glibtop_types_<feature>'.
+
+	* sysdeps/names/*.c (glibtop_types_*): Using numeric
+	constants from `types.h' instead of string constants.
+
 1998-06-02  Federico Mena Quintero  <federico@nuclecu.unam.mx>
 
 	* src/server/main.c: #include <locale.h>
