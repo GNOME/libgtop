@@ -46,6 +46,8 @@
 #include <glibtop/procargs.h>
 #include <glibtop/procmap.h>
 
+#include <glibtop/proccwd.h>
+
 #include <glibtop/mountlist.h>
 #include <glibtop/fsusage.h>
 
@@ -76,6 +78,7 @@ union _glibtop_union
     glibtop_proc_signal		proc_signal;
     glibtop_proc_kernel		proc_kernel;
     glibtop_proc_segment	proc_segment;
+    glibtop_proc_cwd		proc_cwd;
     glibtop_array		proc_args;
     glibtop_array		proc_map;
     glibtop_array		mountlist;

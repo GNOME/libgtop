@@ -30,7 +30,7 @@ const char *glibtop_names_sysdeps[GLIBTOP_MAX_SYSDEPS] =
     "features", "pointer_size", "cpu", "mem", "swap", "uptime",
     "loadavg", "shm_limits", "msg_limits", "sem_limits", "proclist",
     "proc_state", "proc_uid", "proc_mem", "proc_time",
-    "proc_signal", "proc_kernel", "proc_segment", "proc_args",
+    "proc_signal", "proc_kernel", "proc_segment", "proc_cwd", "proc_args",
     "proc_map", "mountlist", "fsusage", "netload", "interface_names",
     "ppp"
 };
@@ -45,7 +45,7 @@ const unsigned glibtop_types_sysdeps[GLIBTOP_MAX_SYSDEPS] =
     GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
     GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
     GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG,
-    GLIBTOP_TYPE_ULONG
+    GLIBTOP_TYPE_ULONG, GLIBTOP_TYPE_ULONG
 };
 
 const char *glibtop_labels_sysdeps[GLIBTOP_MAX_SYSDEPS] =
@@ -68,6 +68,7 @@ const char *glibtop_labels_sysdeps[GLIBTOP_MAX_SYSDEPS] =
     N_ ("Process Signal information"),
     N_ ("Process Kernel Data information"),
     N_ ("Process Segment information"),
+    N_ ("Process CWD"),
     N_ ("Process Arguments"),
     N_ ("Process Memory Map"),
     N_ ("Mount List"),
@@ -97,6 +98,7 @@ const char *glibtop_descriptions_sysdeps[GLIBTOP_MAX_SYSDEPS] =
     N_ ("Process Signal information"),
     N_ ("Process Kernel Data information"),
     N_ ("Process Segment information"),
+    N_ ("Current working directory of the process"),
     N_ ("Command line arguments of the process"),
     N_ ("Process Memory Map"),
     N_ ("List of currently mounted filesystems"),

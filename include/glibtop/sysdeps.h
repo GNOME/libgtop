@@ -46,16 +46,17 @@ BEGIN_LIBGTOP_DECLS
 #define GLIBTOP_SYSDEPS_PROC_SIGNAL	13
 #define GLIBTOP_SYSDEPS_PROC_KERNEL	14
 #define GLIBTOP_SYSDEPS_PROC_SEGMENT	15
-#define GLIBTOP_SYSDEPS_PROC_ARGS	16
-#define GLIBTOP_SYSDEPS_PROC_MAP	17
-#define GLIBTOP_SYSDEPS_MOUNTLIST	18
-#define GLIBTOP_SYSDEPS_FSUSAGE		19
-#define GLIBTOP_SYSDEPS_INTERFACE_NAMES	20
-#define GLIBTOP_SYSDEPS_NETINFO		21
-#define GLIBTOP_SYSDEPS_NETLOAD		22
-#define GLIBTOP_SYSDEPS_PPP		23
+#define GLIBTOP_SYSDEPS_PROC_CWD	16
+#define GLIBTOP_SYSDEPS_PROC_ARGS	17
+#define GLIBTOP_SYSDEPS_PROC_MAP	18
+#define GLIBTOP_SYSDEPS_MOUNTLIST	19
+#define GLIBTOP_SYSDEPS_FSUSAGE		20
+#define GLIBTOP_SYSDEPS_INTERFACE_NAMES	21
+#define GLIBTOP_SYSDEPS_NETINFO		22
+#define GLIBTOP_SYSDEPS_NETLOAD		23
+#define GLIBTOP_SYSDEPS_PPP		24
 
-#define GLIBTOP_MAX_SYSDEPS		26
+#define GLIBTOP_MAX_SYSDEPS		27
 
 #define GLIBTOP_SYSDEPS_ALL		((1 << GLIBTOP_MAX_SYSDEPS) - 1)
 
@@ -86,6 +87,7 @@ struct _glibtop_sysdeps
 	proc_signal,		/* glibtop_proc_signal	*/
 	proc_kernel,		/* glibtop_proc_kernel	*/
 	proc_segment,		/* glibtop_proc_segment	*/
+	proc_cwd,		/* glibtop_proc_cwd	*/
 	proc_args,		/* glibtop_proc_args	*/
 	proc_map,		/* glibtop_proc_map	*/
 	mountlist,		/* glibtop_mountlist	*/

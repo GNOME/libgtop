@@ -1,3 +1,16 @@
+2000-04-24  Martin Baulig  <baulig@suse.de>
+
+	Added `Process current working directory' feature (proc_cwd).
+
+	* include/glibtop/proc_cwd.h: New file.
+	* features.def: Added `proc_cwd'.
+
+	* include/glibtop/sysdeps.h (glibtop_sysdeps): Added `proc_cwd'.
+	* include/glibtop/union.h (glibtop_union): Added `proc_cwd'.
+
+	* sysdeps/stub/proc_cwd.c: New file.
+	* sysdeps/names/proc_cwd.c: New file.
+
 2000-04-19  Pablo Saratxaga <pablo@mandrakesoft.com>
 
 	* configure.in (ALL_LINGUAS): added Catalan
