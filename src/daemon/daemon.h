@@ -19,22 +19,43 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
+#ifndef __GLIBTOP_DAEMON_H__
+#define __GLIBTOP_DAEMON_H__
+
 #include <glibtop.h>
+#include <glibtop/gnuserv.h>
+
 #include <glibtop/open.h>
+#include <glibtop/union.h>
+#include <glibtop/xmalloc.h>
+#include <glibtop/version.h>
+#include <glibtop/command.h>
+#include <glibtop/parameter.h>
 
-static glibtop	_glibtop_global_server;
-glibtop		*glibtop_global_server = NULL;
+#include <fcntl.h>
 
-glibtop *
-glibtop_init_r (glibtop **server)
-{
-	if (*server != NULL)
-		return *server;
+__BEGIN_DECLS
 
-	if (glibtop_global_server == NULL) {
-		glibtop_global_server = &_glibtop_global_server;
-		glibtop_open (glibtop_global_server, "glibtop");
-	}
-	
-	return *server = glibtop_global_server;
-}
+#if defined(HAVE_GETDTABLESIZE)
+#define GET_MAX_FDS() getdtablesize()
+#else
+/* Fallthrough case - please add other #elif cases above
+   for different OS's as necessary */
+#define GET_MAX_FDS() 256
+#endif
+
+#define _offset_union(p)	((char *) &resp->u.p - (char *) resp)
+#define _offset_data(p)		_offset_union (data.p)
+
+#define MSG_BUFSZ		sizeof (struct _glibtop_ipc_message)
+#define MSG_MSGSZ		(MSG_BUFSZ - sizeof (long))
+
+extern void handle_slave_connection __P((int, int));
+extern void handle_slave_command __P((glibtop_command *, glibtop_response *, const void *));
+
+extern void do_output __P((int, glibtop_response *, off_t, size_t, const void *));
+extern int do_read __P((int, void *, size_t));
+
+__END_DECLS
+
+#endif

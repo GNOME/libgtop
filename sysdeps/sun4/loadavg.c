@@ -33,7 +33,7 @@ glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
 	load_avg avenrun [3];
 	int i;
 
-	glibtop_init_r (&server, 0, 0);
+	glibtop_init_p (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_loadavg));
 

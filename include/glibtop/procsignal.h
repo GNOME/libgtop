@@ -41,7 +41,7 @@ typedef struct _glibtop_proc_signal	glibtop_proc_signal;
 struct _glibtop_proc_signal
 {
 	unsigned long flags;
-	int signal,		/* mask of pending signals */
+	unsigned long signal,	/* mask of pending signals */
 		blocked,	/* mask of blocked signals */
 		sigignore,	/* mask of ignored signals */
 		sigcatch;	/* mask of caught  signals */

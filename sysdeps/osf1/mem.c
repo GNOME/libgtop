@@ -40,8 +40,8 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
 	vm_statistics_data_t vmstats;
 
-	glibtop_init ();
-	
+	glibtop_init_s (&server, 0, 0);
+
 	memset (buf, 0, sizeof (glibtop_mem));
 
 	buf->flags = _glibtop_sysdeps_mem;

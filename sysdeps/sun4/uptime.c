@@ -33,7 +33,7 @@ glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 {
 	glibtop_cpu cpu;
 
-	glibtop_init_r (&server, 0, 0);
+	glibtop_init_p (&server, 0, 0);
 
 	/* Get currect cpu usage. */
 

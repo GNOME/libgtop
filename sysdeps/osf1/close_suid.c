@@ -19,26 +19,10 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <glibtop.h>
-#include <glibtop/open.h>
+#include <glibtop/close.h>
 
-static glibtop	_glibtop_global_server;
-glibtop		*glibtop_global_server = NULL;
+/* Closes pipe to gtop server. */
 
-glibtop *
-glibtop_init_r (glibtop **server, const unsigned long features,
-		const unsigned flags)
-{
-	if (*server != NULL)
-		return *server;
-
-	fprintf (stderr, "DEBUG: %s (%d)\n", __FILE__, __LINE__);
-
-	if (glibtop_global_server == NULL) {
-		glibtop_global_server = &_glibtop_global_server;
-		glibtop_open_r (glibtop_global_server, "glibtop",
-				features, flags);
-	}
-	
-	return *server = glibtop_global_server;
-}
+void
+glibtop_close_p (glibtop *server)
+{ }

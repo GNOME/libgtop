@@ -44,12 +44,23 @@ glibtop_open_l (glibtop *server, const char *program_name,
 
 	server->flags |= _GLIBTOP_INIT_STATE_OPEN;
 
+	server->features = features;
+
+	switch (server->method) {
+	case GLIBTOP_METHOD_PIPE:
+	case GLIBTOP_METHOD_UNIX:
+		if (glibtop_server_features & features)
+			break;
+
+		fprintf (stderr, "Using the server is not required.\n");
+
+		server->method = GLIBTOP_METHOD_DIRECT;
+		break;
+	}
+
 	switch (server->method) {
 	case GLIBTOP_METHOD_DIRECT:
-		fprintf (stderr, "Calling sysdeps open function.\n");
-
-		glibtop_open_r (server, program_name, features, flags);
-
+		server->features = 0;
 		break;
 	case GLIBTOP_METHOD_INET:
 		fprintf (stderr, "Connecting to '%s' port %ld.\n",
@@ -58,9 +69,9 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		connect_type = glibtop_make_connection
 			(server->server_host, server->server_port,
 			 &server->socket);
-
+		
 		fprintf (stderr, "Connect Type is %d.\n", connect_type);
-
+		
 		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
 		
 		server->features = -1;
@@ -81,14 +92,6 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		fprintf (stderr, "Opening pipe to server (%s).\n",
 			 GTOP_SERVER);
 
-#if 0
-		if (socketpair (AF_UNIX, SOCK_STREAM, 0, server->input))
-			glibtop_error_io_r (server, "socketpair");
-
-		if (socketpair (AF_UNIX, SOCK_STREAM, 0, server->output))
-			glibtop_error_io_r (server, "socketpair");
-#endif
-
 		if (pipe (server->input) || pipe (server->output))
 			glibtop_error_io_r (server, "cannot make a pipe");
 
@@ -102,7 +105,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 			dup2 (server->input [1], 1);
 			dup2 (server->output [0], 0);
 			execl (GTOP_SERVER, NULL);
-			glibtop_error_io_r (server, "execl %s", GTOP_SERVER);
+			glibtop_error_io_r (server, "execl (%s)", GTOP_SERVER);
 			_exit (2);
 		}
 
@@ -138,4 +141,11 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		fprintf (stderr, "Server features are %lu.\n",
 			 server->features);
 	}
+
+	/* In any case, we call the open functions of our own sysdeps
+	 * directory. */
+
+	fprintf (stderr, "Calling sysdeps open function.\n");
+	
+	glibtop_open_s (server, program_name, features, flags);
 }

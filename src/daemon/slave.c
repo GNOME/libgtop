@@ -19,17 +19,62 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <glibtop.h>
-#include <glibtop/gnuserv.h>
+#include "daemon.h"
 
-#include <glibtop/open.h>
-#include <glibtop/union.h>
+void
+handle_slave_connection (int input, int output)
+{
+	glibtop *server = glibtop_global_server;
+	glibtop_response _resp, *resp = &_resp;
+	glibtop_command _cmnd, *cmnd = &_cmnd;
+	char parameter [BUFSIZ];
+	void *ptr;
 
-#include <glibtop/command.h>
-#include <glibtop/parameter.h>
+	while (do_read (input, cmnd, sizeof (glibtop_command))) {
+#ifdef SLAVE_DEBUG
+		fprintf (stderr, "Slave %d received command "
+			 "%d from client.\n", getpid (), cmnd->command);
+#endif
+		
+		if (cmnd->data_size >= BUFSIZ)
+			glibtop_error ("Client sent %d bytes, "
+				       "but buffer is %d",
+				       cmnd->size, BUFSIZ);
 
-#define _offset_union(p)	((char *) &resp->u.p - (char *) resp)
-#define _offset_data(p)		_offset_union (data.p)
+		memset (parameter, 0, sizeof (parameter));
+		
+		if (cmnd->data_size) {
+#ifdef SLAVE_DEBUG
+			fprintf (stderr, "Client has %d bytes of data.\n",
+				 cmnd->data_size);
+#endif
+			
+			do_read (input, parameter, cmnd->data_size);
+			
+		} else if (cmnd->size) {
+			memcpy (parameter, cmnd->parameter, cmnd->size);
+		}
+    
+		switch (cmnd->command) {
+		case GLIBTOP_CMND_QUIT:
+			do_output (output, resp, 0, 0, NULL);
+			return;
+#if GLIBTOP_SUID_PROCLIST
+		case GLIBTOP_CMND_PROCLIST:
+			ptr = glibtop_get_proclist_p
+				(server, &resp->u.data.proclist);
+			do_output (output, resp, _offset_data (proclist),
+				   resp->u.data.proclist.total, ptr);
+			glibtop_free_r (server, ptr);
+			break;
+#endif
+		default:
+			handle_slave_command (cmnd, resp, parameter);
+			do_output (output, resp, resp->offset, 0, NULL);
+			break;
+		}
+	}
+}
 
 void
 handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,

@@ -2,14 +2,13 @@ BEGIN {
   print "/* lib.c */";
   print "/* This is a generated file.  Please modify `lib.awk' */";
   print "";
-
+  
   print "#include <glibtop.h>";
   print "#include <glibtop/open.h>";
   print "#include <glibtop/sysdeps.h>";
   print "#include <glibtop/command.h>";
-
+  
   print "";
-
 }
 
 function output(feature) {
@@ -25,7 +24,7 @@ function output(feature) {
   } else {
     param = "";
   }
-
+  
   print "glibtop_get_"feature"_l (glibtop *server, glibtop_"feature" *buf"param")";
   print "{";
   print "\tglibtop_init_r (&server, GLIBTOP_SYSDEPS_"toupper(feature)", 0);";
@@ -33,23 +32,37 @@ function output(feature) {
   print "\tif ((server->flags & _GLIBTOP_INIT_STATE_SERVER) &&";
   print "\t    (server->features & (1 << GLIBTOP_SYSDEPS_"toupper(feature)")))";
   print "\t{";
-
+  
   if (feature ~ /^proc_/) {
-    print "\t\t"prefix"glibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)", sizeof (pid_t),";
-    print "\t\t\t\t&pid, sizeof (glibtop_"feature"), buf);";
+    print "\t\tglibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)",";
+    print "\t\t\t\tsizeof (pid_t), &pid,";
+    print "\t\t\t\tsizeof (glibtop_"feature"),";
+    print "\t\t\t\tbuf);";
     print "\t} else {";
-    print "\t\t"prefix"glibtop_get_"feature"_r (server, buf, pid);";
+    print "#if (!GLIBTOP_SUID_"toupper(feature)")";
+    print "\t\tglibtop_get_"feature"_r (server, buf, pid);";
   } else {
-    print "\t\t"prefix"glibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)", 0, NULL,";
-    print "\t\t\t  sizeof (glibtop_"feature"), buf);";
+    if (feature ~ /^proclist$/) {
+      print "\t\treturn glibtop_call_l (server, GLIBTOP_CMND_PROCLIST,";
+      print "\t\t\t\t       0, NULL, sizeof (glibtop_proclist),";
+      print "\t\t\t\t       buf);";
+    } else {
+      print "\t\tglibtop_call_l (server, GLIBTOP_CMND_"toupper(feature)", 0, NULL,";
+      print "\t\t\t\tsizeof (glibtop_"feature"), buf);";
+    }
     print "\t} else {";
+    print "#if (!GLIBTOP_SUID_"toupper(feature)")";
     print "\t\t"prefix"glibtop_get_"feature"_r (server, buf);";
   }
+  print "#else";
+  print "\t\terrno = ENOSYS;";
+  print "\t\tglibtop_error_io_r (server, \"glibtop_get_"feature"\");";
+  print "#endif";
   print "\t}";
   print "}";
   print "";
 }
-
+	
 /^(\w+)/	{ output($1) }
 
 

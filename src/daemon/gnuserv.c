@@ -49,7 +49,7 @@
 #endif
 
 extern void handle_parent_connection __P ((int));
-extern void handle_child_connection __P ((int));
+extern void handle_slave_connection __P ((int, int));
 extern void handle_ipc_connection __P ((int));
 
 #if !defined(UNIX_DOMAIN_SOCKETS) && !defined(INTERNET_DOMAIN_SOCKETS)
@@ -216,7 +216,7 @@ static int
 setup_table (void)
 {
 	char hostname [HOSTNAMSZ];
-	u_int host_addr;
+	long host_addr;
 	int i, hosts = 0;
 
 	/* Make sure every entry is null */
@@ -225,7 +225,7 @@ setup_table (void)
 
 	gethostname (hostname, HOSTNAMSZ);
 
-	if (((long) host_addr = glibtop_internet_addr (hostname)) == -1)
+	if ((host_addr = glibtop_internet_addr (hostname)) == -1)
 		glibtop_error ("Can't resolve '%s'", hostname);
 
 #ifdef AUTH_MAGIC_COOKIE
@@ -326,13 +326,15 @@ handle_internet_request (int ls)
 		glibtop_error_io ("accept");
 
 #ifdef DEBUG
-	fprintf (stderr, "Connection was made from %s.\n", inet_ntoa (peer.sin_addr));
+	fprintf (stderr, "Connection was made from %s.\n",
+		 inet_ntoa (peer.sin_addr));
 #endif
 
 	/* Check that access is allowed - if not return crud to the client */
 	if (!permitted (peer.sin_addr.s_addr, s)) {
 		close (s);
-		glibtop_warn ("Refused connection from %s.", inet_ntoa (peer.sin_addr));
+		glibtop_warn ("Refused connection from %s.",
+			      inet_ntoa (peer.sin_addr));
 		return;
 	}			/* if */
 
@@ -453,6 +455,7 @@ handle_unix_request (int ls)
 	fprintf (stderr, "Accepted connection on socket %d.\n", s);
 #endif
 
+#ifdef GLIBTOP_DAEMON_SLAVE
 	pid = fork ();
 
 	if (pid == -1)
@@ -461,7 +464,8 @@ handle_unix_request (int ls)
 	if (pid)
 		return;
 
-	handle_child_connection (s);
+	handle_slave_connection (s, s);
+#endif
 
 	close (s);
 
@@ -502,7 +506,11 @@ main (int argc, char *argv [])
 
 	signal (SIGCHLD, handle_signal);
 
+#ifdef GLIBTOP_DAEMON_SLAVE
 	pid = fork ();
+#else
+	pid = getpid ();
+#endif
 
 	if (pid == -1)
 		glibtop_error_io ("fork failed");
@@ -542,7 +550,11 @@ main (int argc, char *argv [])
 	} else {
 		/* We are the parent. */
 		
+#ifdef GLIBTOP_DAEMON_SLAVE
 		const unsigned method = GLIBTOP_METHOD_UNIX;
+#else
+		const unsigned method = GLIBTOP_METHOD_PIPE;
+#endif
 
 		const unsigned long features = GLIBTOP_SYSDEPS_ALL;
 
@@ -657,8 +669,11 @@ main (int argc, char *argv [])
 			handle_internet_request (ils);
 #endif
 
-		if (FD_ISSET (fileno (stdin), &rmask))
-			handle_child_connection (fileno (stdin));
+#ifdef GLIBTOP_DAEMON_SLAVE
+		if ((pid == 0) && FD_ISSET (fileno (stdin), &rmask))
+			handle_slave_connection (fileno (stdin),
+						 fileno (stdout));
+#endif
 	}
 
 	return 0;

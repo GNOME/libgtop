@@ -22,21 +22,11 @@
 #include <glibtop.h>
 #include <glibtop/open.h>
 
-static glibtop	_glibtop_global_server;
-glibtop		*glibtop_global_server = NULL;
+void
+glibtop_open_s (glibtop *server, const char *program_name,
+		const unsigned long features, const unsigned flags)
+{ }
 
-glibtop *
-glibtop_init_r (glibtop **server, const unsigned long features,
-		const unsigned flags)
-{
-	if (*server != NULL)
-		return *server;
-
-	if (glibtop_global_server == NULL) {
-		glibtop_global_server = &_glibtop_global_server;
-		glibtop_open_r (glibtop_global_server, "glibtop",
-				features, flags);
-	}
-	
-	return *server = glibtop_global_server;
-}
+void
+glibtop_close_s (glibtop *server)
+{ }

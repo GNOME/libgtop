@@ -24,5 +24,5 @@
 /* Closes pipe to gtop server. */
 
 void
-glibtop_close (glibtop *server)
+glibtop_close_s (glibtop *server)
 { }

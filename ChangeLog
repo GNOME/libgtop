@@ -1,3 +1,73 @@
+1998-07-22  Martin Baulig  <martin@home-of-linux.org>
+
+	* lib/init.c (glibtop_init_s): Added this init function of
+	the sysdeps directory `libgtop_sysdeps.la'.
+
+	* lib/open.c (glibtop_open_l): Unconditionally calling
+	`glibtop_init_s' after server initialization.
+	
+	* lib/lib.awk: Removed references to functions from
+	`libgtop_sysdeps_suid.la' to avoid undefined symbols.
+
+	* sysdeps/stub/open.c (glibtop_open_s): Renamed this
+	function from `glibtop_open_r'.
+
+	* sysdeps/stub/close.c (glibtop_close_s): Renamed this
+	function from `glibtop_close_l'.
+
+	* sysdeps/kernel/open.c (glibtop_open_s): Renamed this
+	function from `glibtop_open_r'.
+
+	* sysdeps/kernel/close.c (glibtop_close_s): Renamed this
+	function from `glibtop_close_l'.
+
+	* sysdeps/linux/open.c (glibtop_open_s): Renamed this
+	function from `glibtop_open_r'.
+
+	* sysdeps/linux/close.c (glibtop_close_s): Renamed this
+	function from `glibtop_close_l'.
+	
+	* sysdeps/osf1/Makefile.am (lib_LTLIBRARIES): Added
+	`libgtop_sysdeps_suid.la' for the suid server.
+	
+	* sysdeps/osf1/open_suid.c (glibtop_open_p): New file.
+	Contains all stuff that was formerly in `open.c'.
+	
+	* sysdeps/osf1/open.c: Moved everything from here into
+	the new file `open_suid.c'.
+	
+	* sysdeps/osf1/open.c (glibtop_open_s): New function.
+	
+	* sysdeps/osf1/close_suid.c (glibtop_close_p): New file.
+	
+	* sysdeps/osf1/close.c (glibtop_close_s): New function.
+
+	* sysdeps/osf1/*.c: Using the new init, open and close
+	functions.
+
+	* sysdeps/sun4/Makefile.am (lib_LTLIBRARIES): Added
+	`libgtop_sysdeps_suid.la' for the suid server.
+
+	* sysdeps/sun4/nosuid.c (glibtop_open_s, glibtop_close_s): New file
+
+	* sysdeps/sun4/*.c: All functions now have the `_p' suffix.
+
+	* sysdeps/common/Makefile.am (lib_LTLIBRARIES): Added
+	`libgtop_suid_common.la' which only contains stuff that is
+	needed in the suid parts.
+
+	* sysdeps/common/xmalloc.c: Using `glibtop_error_io_r' instead
+	of `glibtop_error_r'.
+
+	* sysdeps/{kernel, linux, osf1, sun4, stub}/init.c: Removed.
+	`glibtop_init_s' has been moved into `lib/init.c' since it's the
+	same in all the sysdeps directories.
+
+	* src/server/main.c: It is now an error to request a feature that
+	does not need the suid server.
+
+	* src/proxy: Removed.
+
 1998-07-21  Martin Baulig  <martin@home-of-linux.org>
 
 	* doc/ChangeLog: New file.

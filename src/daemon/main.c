@@ -19,99 +19,7 @@
    write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
    Boston, MA 02111-1307, USA.  */
 
-#include <glibtop/gnuserv.h>
-
-#include <glibtop/open.h>
-#include <glibtop/union.h>
-#include <glibtop/xmalloc.h>
-#include <glibtop/version.h>
-#include <glibtop/command.h>
-#include <glibtop/parameter.h>
-
-#include <fcntl.h>
-#include <locale.h>
-
-#undef REAL_DEBUG
-#define PARENT_DEBUG
-
-#define MSG_BUFSZ		sizeof (struct _glibtop_ipc_message)
-#define MSG_MSGSZ		(MSG_BUFSZ - sizeof (long))
-
-#if defined(HAVE_GETDTABLESIZE)
-#define GET_MAX_FDS() getdtablesize()
-#else
-/* Fallthrough case - please add other #elif cases above
-   for different OS's as necessary */
-#define GET_MAX_FDS() 256
-#endif
-
-extern void handle_slave_command __P((glibtop_command *, glibtop_response *, const void *));
-
-#define _offset_union(p)	((char *) &resp->u.p - (char *) resp)
-#define _offset_data(p)		_offset_union (data.p)
-
-static void do_output __P((int, glibtop_response *, off_t, size_t, const void *));
-static int do_read __P((int, void *, size_t));
-
-static void
-do_output (int s, glibtop_response *resp, off_t offset,
-	   size_t data_size, const void *data)
-{
-#ifdef REAL_DEBUG
-	fprintf (stderr, "Really writing %d bytes at offset %lu.\n",
-		 sizeof (glibtop_response), offset);
-#endif
-
-	resp->offset = offset;
-	resp->data_size = data_size;
-	
-	if (send (s, resp, sizeof (glibtop_response), 0) < 0)
-		glibtop_warn_io ("send");
-
-	if (resp->data_size) {
-#ifdef REAL_DEBUG
-		fprintf (stderr, "Writing %d bytes of data.\n", resp->data_size);
-#endif
-
-		if (send (s, data, resp->data_size, 0) , 0)
-			glibtop_warn_io ("send");
-	}
-}
-
-static int
-do_read (int s, void *ptr, size_t total_size)
-{
-	int nread;
-	size_t already_read = 0, remaining = total_size;
-
-	while (already_read < total_size) {
-		if (s)
-			nread = recv (s, ptr, remaining, 0);
-		else
-			nread = read (0, ptr, remaining);
-
-		if ((already_read == 0) && (nread == 0)) {
-			glibtop_warn ("pid %d received eof.", getpid ());
-			return 0;
-		}
-
-		if (nread <= 0) {
-			glibtop_warn_io ("recv");
-			return 0;
-		}
-
-		already_read += nread;
-		remaining -= nread;
-		(char *) ptr += nread;
-
-#ifdef REAL_DEBUG
-		fprintf (stderr, "READ (%d): %d - %d - %d\n",
-			 nread, already_read, remaining, total_size);
-#endif
-	}
-
-	return already_read;
-}
+#include "daemon.h"
 
 void
 handle_parent_connection (int s)
@@ -125,7 +33,7 @@ handle_parent_connection (int s)
 
 	fprintf (stderr, "Parent features = %lu\n", glibtop_server_features);
 
-	while (do_read (s, &cmnd, sizeof (glibtop_command))) {
+	while (do_read (s, cmnd, sizeof (glibtop_command))) {
 #ifdef PARENT_DEBUG
 		fprintf (stderr, "Parent (%d) received command %d from client.\n",
 			 getpid (), cmnd->command);
@@ -153,6 +61,7 @@ handle_parent_connection (int s)
 		case GLIBTOP_CMND_QUIT:
 			do_output (s, resp, 0, 0, NULL);
 
+#ifdef GLIBTOP_DAEMON_SLAVE
 			fprintf (stderr, "Sending QUIT command (%d).\n",
 				 server->socket);
 
@@ -163,6 +72,7 @@ handle_parent_connection (int s)
 				 server->socket);
 			
 			close (server->socket);
+#endif
 			return;
 		case GLIBTOP_CMND_SYSDEPS:
 			resp->u.sysdeps.features = GLIBTOP_SYSDEPS_ALL;
@@ -251,60 +161,6 @@ handle_parent_connection (int s)
 		default:
 			glibtop_warn ("Parent received unknown command %u",
 				      cmnd->command);
-			break;
-		}
-	}
-}
-
-void
-handle_child_connection (int s)
-{
-	glibtop *server = glibtop_global_server;
-	glibtop_response _resp, *resp = &_resp;
-	glibtop_command _cmnd, *cmnd = &_cmnd;
-	char parameter [BUFSIZ];
-	void *ptr;
-
-	while (do_read (s, cmnd, sizeof (glibtop_command))) {
-#ifdef CHILD_DEBUG
-		fprintf (stderr, "Child (%d - %d) received command "
-			 "%d from client.\n", getpid (), s, cmnd->command);
-#endif
-
-		if (cmnd->data_size >= BUFSIZ) {
-			glibtop_warn ("Client sent %d bytes, but buffer is %d", cmnd->size, BUFSIZ);
-			return;
-		}
-
-		memset (parameter, 0, sizeof (parameter));
-    
-		if (cmnd->data_size) {
-#ifdef CHILD_DEBUG
-			fprintf (stderr, "Client has %d bytes of data.\n", cmnd->data_size);
-#endif
-
-			do_read (s, parameter, cmnd->data_size);
-
-		} else if (cmnd->size) {
-			memcpy (parameter, cmnd->parameter, cmnd->size);
-		}
-    
-		switch (cmnd->command) {
-		case GLIBTOP_CMND_QUIT:
-			do_output (s, resp, 0, 0, NULL);
-			return;
-#if GLIBTOP_SUID_PROCLIST
-		case GLIBTOP_CMND_PROCLIST:
-			ptr = glibtop_get_proclist_p
-				(server, &resp->u.data.proclist);
-			do_output (s, resp, _offset_data (proclist),
-				   resp->u.data.proclist.total, ptr);
-			glibtop_free_r (server, ptr);
-			break;
-#endif
-		default:
-			handle_slave_command (cmnd, resp, parameter);
-			do_output (s, resp, resp->offset, 0, NULL);
 			break;
 		}
 	}

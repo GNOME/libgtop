@@ -42,7 +42,7 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf)
 	unsigned *proc_list = NULL;
 	size_t proc_size;
 
-	glibtop_init_r (&server, 0, 0);
+	glibtop_init_p (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proclist));
 

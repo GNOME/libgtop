@@ -6,6 +6,8 @@ INCLUDES			= -I$(top_builddir) -I$(top_srcdir) @machine_incs@ \
 
 CFLAGS				= -Wall -W @CFLAGS@
 
-lib_LTLIBRARIES			= libgtop_common.la
+lib_LTLIBRARIES			= libgtop_common.la libgtop_suid_common.la
 
 libgtop_common_la_SOURCES	= sysdeps.c xmalloc.c error.c gnuslib.c
+
+libgtop_suid_common_la_SOURCES	= xmalloc.c error.c

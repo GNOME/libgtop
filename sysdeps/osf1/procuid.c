@@ -39,15 +39,15 @@ static const unsigned long _glibtop_sysdeps_proc_uid =
 (1 << GLIBTOP_PROC_UID_TTY) + (1 << GLIBTOP_PROC_UID_TPGID);
 
 void
-glibtop_get_proc_uid_r (glibtop *server, glibtop_proc_uid *buf,
-			   pid_t pid)
+glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
+			pid_t pid)
 {
 	struct tbl_procinfo procinfo;
 	task_basic_info_data_t taskinfo;
 	int ret, info_count;
 	task_t thistask;
 
-	glibtop_init ();
+	glibtop_open_p (server, 0, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 	

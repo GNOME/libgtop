@@ -1,8 +1,6 @@
 Makefile
 Makefile.in
 aclocal.m4
-alpha-dec-osf1
-autoh31167
 config.cache
 config.h
 config.h.in
@@ -25,3 +23,4 @@ sun4
 sun4sol2
 support
 i386-freebsd
+alpha-dec-osf3.0

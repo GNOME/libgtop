@@ -54,7 +54,7 @@ static const unsigned long _glibtop_sysdeps_proclist =
 /* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 unsigned *
-glibtop_get_proclist_r (glibtop *server, glibtop_proclist *buf)
+glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf)
 {
 	unsigned count = 0, total = 0;
 	unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
@@ -62,7 +62,7 @@ glibtop_get_proclist_r (glibtop *server, glibtop_proclist *buf)
 	struct tbl_procinfo procinfo [8];
 	int entry, max_elements, k;
 
-	glibtop_init ();
+	glibtop_open_p (server, 0, 0);
 	
 	memset (buf, 0, sizeof (glibtop_proclist));
 	

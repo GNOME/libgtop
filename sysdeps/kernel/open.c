@@ -51,11 +51,11 @@ static void set_linux_version(void) {
 /* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
 
 void
-glibtop_open_r (glibtop *server, const char *program_name,
-		 const unsigned long features, const unsigned flags)
+glibtop_open_s (glibtop *server, const char *program_name,
+		const unsigned long features, const unsigned flags)
 {
 	server->name = program_name;
-
+	
 	set_linux_version ();
 	server->os_version_code = (unsigned long) linux_version_code;
 }

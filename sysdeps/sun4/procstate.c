@@ -33,7 +33,7 @@ glibtop_get_proc_state_p (glibtop *server, glibtop_proc_state *buf,
 {
 	struct proc *pp;
 
-	glibtop_init_r (&server, 0, 0);
+	glibtop_init_p (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_state));
 

@@ -63,8 +63,18 @@ struct nlist _glibtop_nlist[] = {
 /* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 void
-glibtop_open_r (glibtop *server, const char *program_name,
-		 const unsigned long features, const unsigned flags)
+glibtop_init_p (glibtop *server, const char *program_name,
+		const unsigned long features, const unsigned flags)
+{
+	if (server == NULL)
+		glibtop_error_r (NULL, "glibtop_init_p (server == NULL)");
+
+	glibtop_open_p (server, program_name, features, flags);
+}
+
+void
+glibtop_open_p (glibtop *server, const char *program_name,
+		const unsigned long features, const unsigned flags)
 {
 	register int pagesize;
 
@@ -82,22 +92,25 @@ glibtop_open_r (glibtop *server, const char *program_name,
 	server->machine.kd = kvm_open (NULL, NULL, NULL, O_RDONLY, "libgtop");
 	
 	if (server->machine.kd == NULL)
-		glibtop_error_r (server, "kvm_open: %s", strerror (errno));
+		glibtop_error_io_r (server, "kvm_open");
 	
 	/* get the list of symbols we want to access in the kernel */
 	
-	server->machine.nlist_count = kvm_nlist (server->machine.kd, _glibtop_nlist);
+	server->machine.nlist_count = kvm_nlist
+		(server->machine.kd, _glibtop_nlist);
 	
 	if (server->machine.nlist_count < 0)
-		glibtop_error_r (server, "nlist: %s", strerror (errno));
+		glibtop_error_io_r (server, "nlist");
 
 #ifdef MULTIPROCESSOR
 	/* were ncpu and xp_time not found in the nlist? */
 	
-	if ((server->machine.nlist_count > 0) && (_glibtop_nlist[X_NCPU].n_type == 0) &&
+	if ((server->machine.nlist_count > 0) &&
+	    (_glibtop_nlist[X_NCPU].n_type == 0) &&
 	    (_glibtop_nlist[X_MP_TIME].n_type == 0)) {
-		/* we were compiled on an MP system but we are not running on one */
-		/* so we will pretend this didn't happen and set ncpu = 1 */
+		/* we were compiled on an MP system but we are not running
+		 * on one, so we will pretend this didn't happen and set
+		 * ncpu = 1 */
 		server->machine.nlist_count -= 2;
 		server->machine.ncpu = 1;
 	}
@@ -108,7 +121,8 @@ glibtop_open_r (glibtop *server, const char *program_name,
 		unsigned int status, type;
 		
 		/* Get the number of CPUs on this system.  */
-		syscall(SYS_getcpustatus, &status, &server->machine.ncpu, &type);
+		syscall(SYS_getcpustatus, &status,
+			&server->machine.ncpu, &type);
 	}
 #endif
 
@@ -181,16 +195,17 @@ glibtop_open_r (glibtop *server, const char *program_name,
 	/* !!! END OF SUID ROOT PART !!! */
 		
 	/* Our effective uid is now those of the user invoking the server,
-	   so we do no longer have any priviledges.
-	 */
+	 * so we do no longer have any priviledges. */
 
-	/* NOTE: On SunOS, we do not need to be suid root, we just need to be sgid kmem.
-	 *       The server will only use setegid() to get back it's priviledges, so it
-	 *       will fail if it is suid root and not sgid kmem.
-	 */
+	/* NOTE: On SunOS, we do not need to be suid root, we just need to
+	 * be sgid kmem.
+	 *
+	 * The server will only use setegid() to get back it's priviledges,
+	 * so it will fail if it is suid root and not sgid kmem. */
 }
 
-/* Used internally. Returns number of symbols that cannot be found in the nlist. */
+/* Used internally. Returns number of symbols that cannot be found in
+ * the nlist. */
 
 int
 _glibtop_check_nlist (void *server, register struct nlist *nlst)
@@ -206,12 +221,16 @@ _glibtop_check_nlist (void *server, register struct nlist *nlst)
 
 #ifdef i386
 		if (nlst->n_value == 0) {
-			glibtop_error_r (server, "kernel: no symbol named `%s'", nlst->n_name);
+			glibtop_error_r (server,
+					 "kernel: no symbol named `%s'",
+					 nlst->n_name);
 			not_found++;
 		}
 #else
 		if (nlst->n_type == 0) {
-			glibtop_error_r (server, "kernel: no symbol named `%s'", nlst->n_name);
+			glibtop_error_r (server,
+					 "kernel: no symbol named `%s'",
+					 nlst->n_name);
 			not_found++;
 		}
 #endif
@@ -225,18 +244,19 @@ _glibtop_check_nlist (void *server, register struct nlist *nlst)
 /* Used internally. Fetches value from kernel. */
 
 int
-_glibtop_getkval (void *void_server, unsigned long offset, int *ptr, int size, char *refstr)
+_glibtop_getkval (void *void_server, unsigned long offset, int *ptr,
+		  int size, char *refstr)
 {
 	glibtop	*server = (glibtop *) void_server;
 
 	if (kvm_read (server->machine.kd, offset, ptr, size) != size)
 		{
 			if (*refstr == '!') return 0;
-
+			
 			glibtop_error_r (server, "kvm_read(%s): %s",
-					  refstr, strerror (errno));
+					 refstr, strerror (errno));
 		}
-
+	
 	return 1;
 }
 

@@ -231,6 +231,13 @@ if test "$need_gnome_support" = yes; then
    fi
 fi
 
+if test x$libgtop_need_server = xyes ; then
+   sysdeps_suid_lib="\$(top_builddir)/sysdeps/\$(sysdeps_dir)/libgtop_sysdeps_suid.la"
+else
+   sysdeps_suid_lib=
+fi
+AC_SUBST(sysdeps_suid_lib)
+
 AC_OUTPUT([
 Makefile
 po/Makefile.in

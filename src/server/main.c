@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 
 	glibtop_version ();
 
-	glibtop_open_r (&server, argv [0], 0, 0);
+	glibtop_open_p (&server, argv [0], 0, 0);
 
 	if (setreuid (euid, uid)) _exit (1);
 
@@ -128,147 +128,146 @@ int main(int argc, char *argv[])
 			glibtop_output (sizeof (glibtop_sysdeps), &sysdeps);
 			glibtop_output (0, NULL);
 			break;
-		case GLIBTOP_CMND_CPU:
 #if GLIBTOP_SUID_CPU
+		case GLIBTOP_CMND_CPU:
 			glibtop_get_cpu_p (&server, &data.cpu);
-#endif
 			glibtop_output (sizeof (glibtop_cpu), &data.cpu);
 			glibtop_output (0, NULL);
 			break;
-		case GLIBTOP_CMND_MEM:
-#if GLIBTOP_SUID_MEM
-			glibtop_get_mem_p (&server, &data.mem);
 #endif
+#if GLIBTOP_SUID_MEM
+		case GLIBTOP_CMND_MEM:
+			glibtop_get_mem_p (&server, &data.mem);
 			glibtop_output (sizeof (glibtop_mem), &data.mem);
 			glibtop_output (0, NULL);
 			break;
-		case GLIBTOP_CMND_SWAP:
-#if GLIBTOP_SUID_SWAP
-			glibtop_get_swap_p (&server, &data.swap);
 #endif
+#if GLIBTOP_SUID_SWAP
+		case GLIBTOP_CMND_SWAP:
+			glibtop_get_swap_p (&server, &data.swap);
 			glibtop_output (sizeof (glibtop_swap), &data.swap);
 			glibtop_output (0, NULL);
 			break;
-		case GLIBTOP_CMND_UPTIME:
-#if GLIBTOP_SUID_UPTIME
-			glibtop_get_uptime_p (&server, &data.uptime);
 #endif
+#if GLIBTOP_SUID_UPTIME
+		case GLIBTOP_CMND_UPTIME:
+			glibtop_get_uptime_p (&server, &data.uptime);
 			glibtop_output (sizeof (glibtop_uptime), &data.uptime);
 			glibtop_output (0, NULL);
 			break;
-		case GLIBTOP_CMND_LOADAVG:
-#if GLIBTOP_SUID_LOADAVG
-			glibtop_get_loadavg_p (&server, &data.loadavg);
 #endif
+#if GLIBTOP_SUID_LOADAVG
+		case GLIBTOP_CMND_LOADAVG:
+			glibtop_get_loadavg_p (&server, &data.loadavg);
 			glibtop_output (sizeof (glibtop_loadavg), &data.loadavg);
 			glibtop_output (0, NULL);
 			break;
-		case GLIBTOP_CMND_SHM_LIMITS:
-#if GLIBTOP_SUID_SHM_LIMITS
-			glibtop_get_shm_limits_p (&server, &data.shm_limits);
 #endif
+#if GLIBTOP_SUID_SHM_LIMITS
+		case GLIBTOP_CMND_SHM_LIMITS:
+			glibtop_get_shm_limits_p (&server, &data.shm_limits);
 			glibtop_output (sizeof (glibtop_shm_limits),
 					&data.shm_limits);
 			glibtop_output (0, NULL);
 			break;
-		case GLIBTOP_CMND_MSG_LIMITS:
-#if GLIBTOP_SUID_MSG_LIMITS
-			glibtop_get_msg_limits_p (&server, &data.msg_limits);
 #endif
+#if GLIBTOP_SUID_MSG_LIMITS
+		case GLIBTOP_CMND_MSG_LIMITS:
+			glibtop_get_msg_limits_p (&server, &data.msg_limits);
 			glibtop_output (sizeof (glibtop_msg_limits),
 					&data.msg_limits);
 			glibtop_output (0, NULL);
 			break;
-		case GLIBTOP_CMND_SEM_LIMITS:
-#if GLIBTOP_SUID_SEM_LIMITS
-			glibtop_get_sem_limits_p (&server, &data.sem_limits);
 #endif
+#if GLIBTOP_SUID_SEM_LIMITS
+		case GLIBTOP_CMND_SEM_LIMITS:
+			glibtop_get_sem_limits_p (&server, &data.sem_limits);
 			glibtop_output (sizeof (glibtop_sem_limits),
 					&data.sem_limits);
 			glibtop_output (0, NULL);
 			break;
-		case GLIBTOP_CMND_PROCLIST:
-#if GLIBTOP_SUID_PROCLIST
-			ptr = glibtop_get_proclist_p (&server, &data.proclist);
-#else
-			ptr = NULL;
 #endif
+#if GLIBTOP_SUID_PROCLIST
+		case GLIBTOP_CMND_PROCLIST:
+			ptr = glibtop_get_proclist_p (&server, &data.proclist);
 			glibtop_output (sizeof (glibtop_proclist),
 					&data.proclist);
 			glibtop_output (data.proclist.total, ptr);
-			glibtop_free_r (&server, ptr);
+			if (ptr) free (ptr);
 			break;
+#endif
+#if GLIBTOP_SUID_PROC_STATE
 		case GLIBTOP_CMND_PROC_STATE:
 			memcpy (&pid, parameter, sizeof (pid_t));
-#if GLIBTOP_SUID_PROC_STATE
 			glibtop_get_proc_state_p
 				(&server, &data.proc_state, pid);
-#endif
 			glibtop_output (sizeof (glibtop_proc_state),
 					&data.proc_state);
 			glibtop_output (0, NULL);
 			break;
+#endif
+#if GLIBTOP_SUID_PROC_UID
 		case GLIBTOP_CMND_PROC_UID:
 			memcpy (&pid, parameter, sizeof (pid_t));
-#if GLIBTOP_SUID_PROC_UID
 			glibtop_get_proc_uid_p
 				(&server, &data.proc_uid, pid);
-#endif
 			glibtop_output (sizeof (glibtop_proc_uid),
 					&data.proc_uid);
 			glibtop_output (0, NULL);
 			break;
+#endif
+#if GLIBTOP_SUID_PROC_MEM
 		case GLIBTOP_CMND_PROC_MEM:
 			memcpy (&pid, parameter, sizeof (pid_t));
-#if GLIBTOP_SUID_PROC_MEM
 			glibtop_get_proc_mem_p
 				(&server, &data.proc_mem, pid);
-#endif
 			glibtop_output (sizeof (glibtop_proc_mem),
 					&data.proc_mem);
 			glibtop_output (0, NULL);
 			break;
+#endif
+#if GLIBTOP_SUID_PROC_TIME
 		case GLIBTOP_CMND_PROC_TIME:
 			memcpy (&pid, parameter, sizeof (pid_t));
-#if GLIBTOP_SUID_PROC_TIME
 			glibtop_get_proc_time_p
 				(&server, &data.proc_time, pid);
-#endif
 			glibtop_output (sizeof (glibtop_proc_time),
 					&data.proc_time);
 			glibtop_output (0, NULL);
 			break;
+#endif
+#if GLIBTOP_SUID_PROC_SIGNAL
 		case GLIBTOP_CMND_PROC_SIGNAL:
 			memcpy (&pid, parameter, sizeof (pid_t));
-#if GLIBTOP_SUID_PROC_SIGNAL
 			glibtop_get_proc_signal_p
 				(&server, &data.proc_signal, pid);
-#endif
 			glibtop_output (sizeof (glibtop_proc_signal),
 					&data.proc_signal);
 			glibtop_output (0, NULL);
 			break;
+#endif
+#if GLIBTOP_SUID_PROC_KERNEL
 		case GLIBTOP_CMND_PROC_KERNEL:
 			memcpy (&pid, parameter, sizeof (pid_t));
-#if GLIBTOP_SUID_PROC_KERNEL
 			glibtop_get_proc_kernel_p
 				(&server, &data.proc_kernel, pid);
-#endif
 			glibtop_output (sizeof (glibtop_proc_kernel),
 					&data.proc_kernel);
 			glibtop_output (0, NULL);
 			break;
+#endif
+#if GLIBTOP_SUID_PROC_SEGMENT
 		case GLIBTOP_CMND_PROC_SEGMENT:
 			memcpy (&pid, parameter, sizeof (pid_t));
-#if GLIBTOP_SUID_PROC_SEGMENT
 			glibtop_get_proc_segment_p
 				(&server, &data.proc_segment, pid);
-#endif
 			glibtop_output (sizeof (glibtop_proc_segment),
 					&data.proc_segment);
 			glibtop_output (0, NULL);
 			break;
-
+#endif
+		default:
+			_exit(1);
 		}
 	}
 	_exit(0);

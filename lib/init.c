@@ -191,3 +191,21 @@ glibtop_init_r (glibtop **server_ptr, const unsigned long features,
 	
 	return server;
 }
+
+glibtop *
+glibtop_init_s (glibtop **server, const unsigned long features,
+		const unsigned flags)
+{
+	if (*server != NULL)
+		return *server;
+
+	fprintf (stderr, "DEBUG: %s (%d)\n", __FILE__, __LINE__);
+
+	if (glibtop_global_server == NULL) {
+		glibtop_global_server = &_glibtop_global_server;
+		glibtop_open_s (glibtop_global_server, "glibtop",
+				features, flags);
+	}
+	
+	return *server = glibtop_global_server;
+}

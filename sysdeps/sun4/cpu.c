@@ -35,7 +35,7 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	long cp_time [CPUSTATES], mp_time [NCPU][CPUSTATES];
 	int i;
 
-	glibtop_init_r (&server, 0, 0);
+	glibtop_init_p (&server, 0, 0);
 
 	memset (buf, 0, sizeof (glibtop_cpu));
 

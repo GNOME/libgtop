@@ -29,8 +29,7 @@ glibtop_malloc_r (glibtop *server, size_t size)
 	void *buf = malloc (size);
 	
 	if (!buf)
-		glibtop_error_r (server, _("malloc %d bytes: %s"),
-				  size, strerror (errno));
+		glibtop_error_io_r (server, "malloc %d bytes", size);
 	
 	return buf;
 }
@@ -41,8 +40,8 @@ glibtop_calloc_r (glibtop *server, size_t nmemb, size_t size)
 	void *buf = calloc (nmemb, size);
 	
 	if (!buf)
-		glibtop_error_r (server, _("calloc %d block (%d bytes each): %s"),
-				  nmemb, size, strerror (errno));
+		glibtop_error_io_r (server, "calloc %d blocks (%d bytes each)",
+				    nmemb, size);
 	
 	return buf;
 }
@@ -53,8 +52,7 @@ glibtop_realloc_r (glibtop *server, void *ptr, size_t size)
 	void *buf = realloc (ptr, size);
 	
 	if (!buf)
-		glibtop_error_r (server, _("realloc %d bytes: %s"),
-				  size, strerror (errno));
+		glibtop_error_io_r (server, "realloc %d bytes", size);
 	
 	return buf;
 }
