@@ -1,4 +1,12 @@
-2004-05-19 Benoit Dejean  <TazForEver@dlfp.org>
+2004-05-26  Benoît Dejean  <tazforever@dlfp.org>
+
+	* glibtop_server.h:
+	* open.c:
+	* procuid.c: Moved LINUX_VERSION macro to glibtop_server.h.
+	
+	* Changelog: Converted to UTF-8.
+
+2004-05-19 Benoît Dejean  <TazForEver@dlfp.org>
 
 	* glibtop_server.h (skip_line): Added test for end of string.
 	(get_scaled): Cleaned.
@@ -11,7 +19,7 @@
 2004-03-09  Bastien Nocera  <hadess@hadess.net>
 
 	* cpu.c: (glibtop_get_cpu_s): fixup CPU usage calculation on 2.6
-	kernels (patch by Benoit Dejean <bnet@ifrance.com>) (Closes: #134252)
+	kernels (patch by Benoît Dejean <bnet@ifrance.com>) (Closes: #134252)
 
 2004-03-04  Bastien Nocera  <hadess@hadess.net>
 
@@ -21,7 +29,7 @@
 2004-02-02  Sebastien Bacher  <seb128@debian.org>
  
         * sysdeps/linux/mem.c: (glibtop_get_mem_s): patch from
-        Beno�t Dejean <bnet@ifrance.com> to fix libtop_mem.used
+        Benoît Dejean <bnet@ifrance.com> to fix libtop_mem.used
         and glibtop_mem.shared values (Closes: #129863).
 
 2003-12-23  Bastien Nocera  <hadess@hadess.net>
@@ -37,14 +45,14 @@
 	* procsignal.c: (glibtop_get_proc_signal_s):
 	* proctime.c: (glibtop_get_proc_time_s):
 	* procuid.c: (glibtop_get_proc_uid_s):
-	* swap.c: (glibtop_get_swap_s): Apply patch from Benoît Dejean
+	* swap.c: (glibtop_get_swap_s): Apply patch from BenoÃ®t Dejean
 	<bnet@ifrance.com> to fix overflow issues using strtol
 	(Closes: #129881)
 
 2003-12-23  Bastien Nocera  <hadess@hadess.net>
 
 	* mem.c: (glibtop_get_mem_s): Fix calculation of used memory,
-	patch by Benoît Dejea, <bnet@ifrance.com> (Closes: #129863)
+	patch by BenoÃ®t Dejea, <bnet@ifrance.com> (Closes: #129863)
 
 2003-12-07  Jon K Hellan  <hellan@acm.org>
 

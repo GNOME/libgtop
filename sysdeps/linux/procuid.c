@@ -35,7 +35,6 @@ static const unsigned long _glibtop_sysdeps_proc_uid_stat =
 (1L << GLIBTOP_PROC_UID_TTY) + (1L << GLIBTOP_PROC_UID_TPGID) +
 (1L << GLIBTOP_PROC_UID_PRIORITY) + (1L << GLIBTOP_PROC_UID_NICE);
 
-#define LINUX_VERSION(x,y,z)	(0x10000*(x) + 0x100*(y) + z)
 
 /* Init function. */
 

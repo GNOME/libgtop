@@ -31,7 +31,6 @@
  */
 #include <sys/utsname.h>
 
-#define LINUX_VERSION(x,y,z)   (0x10000*(x) + 0x100*(y) + z)
 
 static int linux_version_code = 0;
 

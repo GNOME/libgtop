@@ -31,6 +31,8 @@ G_BEGIN_DECLS
 
 #ifdef _IN_LIBGTOP
 
+#define LINUX_VERSION(x,y,z)   (0x10000*(x) + 0x100*(y) + z)
+
 static inline char *
 skip_token (const char *p)
 {
