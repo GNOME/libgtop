@@ -157,10 +157,7 @@ sub output {
 				  $retval, $retval);
     }
 
-    $sysdeps_code = "\t".
-      'fprintf (stderr, "TEST: %p - %p\n", server, server->_priv);'."\n\n";
-
-    $sysdeps_code .= sprintf
+    $sysdeps_code = sprintf
       ("\tfor (list = server->_priv->backend_list;\n\t     list; list = list->next) {\n\t\tglibtop_backend *backend = list->data;\n\n\t\tif (!backend->info || !backend->info->call_vector)\n\t\t\tcontinue;\n\n\t\tif (backend->info->call_vector->%s) {\n", $feature);
 
     if ($line_fields[3] eq '') {
