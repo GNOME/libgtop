@@ -1,3 +1,10 @@
+2005-02-15  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* include/glibtop/error.h: G_GNUC_NORETURN love.
+
+	* include/glibtop/errors.h:
+	* lib/errors.c: Bye bye dead code.
+
 2005-02-06  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* NEWS:
