@@ -1,3 +1,10 @@
+1998-07-06  Martin Baulig  <martin@home-of-linux.org>
+
+	* sysdeps/common/{fsusage, mountlist}.[ch]:
+	Imported from GNU Fileutils 3.16.
+
+	* sysdeps/common/mountlist.c: using g_malloc, g_realloc and g_strdup.
+
 1998-07-03  Martin baulig  <martin@home-of-linux.org>
 
 	* macros/gnome-libgtop-sysdeps.m4: No longer use
