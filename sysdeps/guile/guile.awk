@@ -63,8 +63,13 @@ function make_output(line) {
   }
 
   nr_params_field[feature] = total_nr_params;
+
+  feature_name = feature; sub(/_/,"-",feature_name);
+  output = "SCM_PROC (s_"feature", \"glibtop-get-"feature_name"\",";
+  output = output" "nr_params_field[feature]", 0, 0, ";
+  output = output"glibtop_guile_get_"feature");\n\n";
   
-  output = "SCM\nglibtop_guile_get_"feature" ("param_decl")\n{\n";
+  output = output"SCM\nglibtop_guile_get_"feature" ("param_decl")\n{\n";
 
   output = output"\tglibtop_"feature" "feature";\n";
   if (retval != "void")
@@ -121,11 +126,7 @@ END {
   print "void";
   print "glibtop_boot_guile (void)";
   print "{";
-
-  for (feature in features) {
-    print "\tgh_new_procedure"nr_params_field[feature]"_0";
-    print "\t\t(\"glibtop-get-"feature"\", glibtop_guile_get_"feature");";
-  }
+  print "fprintf (stderr, \"glibtop_boot_guile ()\\n\");";
+  print "#include \"guile.x\"";
   print "}";
 }
-

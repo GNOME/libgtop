@@ -1,0 +1,7 @@
+1998-10-11  Martin Baulig  <martin@home-of-linux.org>
+
+	* Makefile.am (BUILT_SOURCES, CLEANFILES): Added `guile.x'.
+	Added rule to make `guile.x' from `guile.c' using guile-snarf.
+
+	* guile.awk: Use the SCM_PROC macros and guile-snarf here.
+
