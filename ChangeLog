@@ -1,5 +1,8 @@
 1998-08-07  Martin Baulig  <martin@home-of-linux.org>
 
+	* sysdeps/stub_suid: New directory. This is mainly used as example
+	for people porting libgtop to other systems.
+
 	* glibtop.h (_glibtop): New fields `error_method', `sysdeps' and
 	`required'. I added an improved error handling: the client can tell
 	the libraries which fields are absolutely required for each features
