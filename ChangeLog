@@ -1,3 +1,7 @@
+1998-11-08  Raja R Harinath  <harinath@cs.umn.edu>
+
+	* Makefile.am (support): Don't build if not BUILD_GNOME_SUPPORT.
+
 1998-11-02  Martin Baulig  <martin@home-of-linux.org>
 
 	* include/glibtop/parameter.h: Added `GLIBTOP_PARAM_REQUIRED'.

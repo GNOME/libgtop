@@ -6,7 +6,11 @@ else
 examples_SUBDIRS =
 endif
 
-SUBDIRS = po intl support macros misc include sysdeps lib src \
+if BUILD_GNOME_SUPPORT
+support = support
+endif
+
+SUBDIRS = po intl $(support) macros misc include sysdeps lib src \
 	  $(examples_SUBDIRS)
 
 include_HEADERS = glibtop.h
@@ -27,7 +31,7 @@ bin_SCRIPTS = $(top_builddir)/libgtop-config
 
 ## to automatically rebuild aclocal.m4 if any of the macros in
 ## `macros/' change
-@MAINT@include macros/macros.dep
+@MAINT@ include macros/macros.dep
 @MAINT@macros/macros.dep: macros/Makefile.am
 @MAINT@	cd macros && $(MAKE) macros.dep
 
