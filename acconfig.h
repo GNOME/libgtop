@@ -147,3 +147,8 @@
 /* Define to enable debugging. */
 #undef LIBGTOP_ENABLE_DEBUG
 #undef LIBGTOP_FATAL_WARNINGS
+
+/* Same as LINUX_VERSION_CODE either from <linux/version.h> or from
+ * the running kernel (if we don't have configured kernel sources).
+ */
+#undef GLIBTOP_LINUX_VERSION_CODE
