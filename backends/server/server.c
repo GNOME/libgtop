@@ -109,7 +109,7 @@ handle_slave_connection (int input, int output)
     glibtop_command _cmnd, *cmnd = &_cmnd;
     glibtop *server = glibtop_global_server;
 
-    // glibtop_send_version_i (glibtop_global_server, output);
+    /* glibtop_send_version_i (glibtop_global_server, output); */
 
     while (do_read (input, cmnd, sizeof (glibtop_command))) {
 	size_t recv_size = 0, send_size = 0, recv_data_size = 0;
