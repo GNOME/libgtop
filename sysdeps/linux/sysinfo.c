@@ -47,7 +47,7 @@ init_sysinfo (glibtop *server)
 	g_return_if_fail (f = fopen ("/proc/cpuinfo", "r"));
 
 	while (fgets (buffer, BUFSIZ, f)) {
-		char *p, *key, *value;
+		char *p, *start, *key, *value;
 
 		if (cpuinfo == NULL) {
 			cpuinfo = &sysinfo.cpuinfo [sysinfo.ncpu++];
@@ -60,10 +60,14 @@ init_sysinfo (glibtop *server)
 				sysinfo.ncpu = GLIBTOP_NCPU;
 		}
 
-		p = skip_token (buffer); *p = '\0';
-		p = skip_token (p+1)+1;
+		p = strchr (buffer, ':');
+		if (!p) continue;
+		
+		*p = '\0'; start = p; p++;
+		while (isspace (*p)) p++;
 
-		p [strlen (p) ? strlen (p)-1 : 0] = '\0';
+		while ((start > buffer) && isspace (*start))
+			*start-- = '\0';
 
 		key = g_strdup (buffer);
 		value = g_strdup (p);
