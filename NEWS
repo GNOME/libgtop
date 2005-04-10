@@ -1,3 +1,11 @@
+April 10, 2005: Overview of changes from 2.10.0 to 2.10.1
+=========================================================
+* Updated i18n.
+* Little cleanup and fixed gcc-4.0 compilation.
+* linux: fixed loadavg and uptime if locale != C.
+  Updated siglist.
+* Tighter libgtop-2.0.pc.
+
 Mars 7, 2005: Overview of Changes from 2.9.92 to 2.10.0
 =======================================================
 * Updated i18n.
