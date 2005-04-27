@@ -1,3 +1,11 @@
+2005-04-27  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* configure.in: 2.10.2 post release bump.
+
+	* include/glibtop/Makefile.am:
+	* include/glibtop/parameter.h:
+	* lib/init.c: Re-install open.h to please GTop (libgtop perl wrapper).
+
 2005-04-10  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* NEWS: Released 2.10.1.

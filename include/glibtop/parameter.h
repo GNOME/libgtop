@@ -23,7 +23,6 @@
 #define __GLIBTOP_PARAMETER_H__
 
 #include <glibtop.h>
-#include <glibtop/open.h>
 
 G_BEGIN_DECLS
 

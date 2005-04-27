@@ -24,6 +24,7 @@
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/sysdeps.h>
+#include <glibtop/open.h>
 #include <glibtop/parameter.h>
 
 #ifndef DEFAULT_PORT
