@@ -549,6 +549,7 @@ static gboolean ignore_mount_entry(const struct mount_entry *me)
 		"procfs",
 		"supermount",
 		"sysfs",
+		"tmpfs",
 		"unknown",
 		"usbdevfs",
 		"usbfs"
