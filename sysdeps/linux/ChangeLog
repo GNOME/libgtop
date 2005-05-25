@@ -1,3 +1,7 @@
+2005-05-26  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* siglist.c: Fixed compilation on mips. Closes #304570.
+
 2005-04-01  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* glibtop_private.h: Fixed gcc-4.0 warnings.
