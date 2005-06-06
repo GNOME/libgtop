@@ -31,7 +31,7 @@
 
 #include <config.h>
 
-#include "libgtop-i18n.h"
+#include <glib/gi18n.h>"
 #include <glibtop.h>
 #include <glibtop/open.h>
 #include <glibtop/close.h>

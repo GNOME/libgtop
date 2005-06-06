@@ -25,7 +25,7 @@
 
 #include <glibtop/write.h>
 #include <glibtop/error.h>
-#include "libgtop-i18n.h"
+#include <glib/gi18n.h>"
 
 /* Writes some data to server. */
 

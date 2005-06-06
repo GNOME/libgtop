@@ -24,7 +24,7 @@
 #include <config.h>
 #include <glibtop/read.h>
 #include <glibtop/error.h>
-#include "libgtop-i18n.h"
+#include <glib/gi18n.h>"
 
 
 /* Reads some data from server. */

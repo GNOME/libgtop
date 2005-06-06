@@ -1,5 +1,16 @@
 2005-06-06  Benoît Dejean  <TazForEver@dlfp.org>
 
+	* examples/smp.c:
+	* include/Makefile.am:
+	* include/libgtop-i18n.h:
+	* lib/lib.pl:
+	* lib/read.c:
+	* lib/read_data.c:
+	* lib/write.c:
+	* src/daemon/gnuserv.c: Got rid of include/libgtop-i18n.h.
+
+2005-06-06  Benoît Dejean  <TazForEver@dlfp.org>
+
 	* configure.in: version bump.
 
 2005-06-05  Benoît Dejean  <TazForEver@dlfp.org>
