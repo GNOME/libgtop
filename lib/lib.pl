@@ -28,7 +28,7 @@ print '#include <glibtop/open.h>';
 print '';
 print '#include <glibtop/sysdeps.h>';
 print '#include <glibtop/union.h>';
-print '#include <glib/gi18n.h>';
+print '#include <glib/gi18n-lib.h>';
 print '';
 print '#include <glibtop/command.h>';
 

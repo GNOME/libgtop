@@ -1,5 +1,15 @@
 2005-06-06  Benoît Dejean  <TazForEver@dlfp.org>
 
+	* examples/smp.c: (main): Removed translation.
+
+	* lib/lib.pl:
+	* lib/read.c:
+	* lib/read_data.c:
+	* lib/write.c:
+	* src/daemon/gnuserv.c: s/gi18n.h/gi18n-lib.h.
+
+2005-06-06  Benoît Dejean  <TazForEver@dlfp.org>
+
 	* acinclude.m4: bye bye support.
 
 2005-06-06  Benoît Dejean  <TazForEver@dlfp.org>

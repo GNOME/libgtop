@@ -31,8 +31,6 @@
 #include <glibtop.h>
 #include <glibtop/cpu.h>
 
-#include <glib/gi18n.h>"
-
 int
 main (int argc, char *argv [])
 {
@@ -43,10 +41,6 @@ main (int argc, char *argv [])
 	double s_total, s_user, s_nice, s_sys, s_idle;
 	char separator [BUFSIZ], buffer [BUFSIZ];
 	int ncpu, i;
-
-	setlocale (LC_ALL, "");
-	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
-	textdomain (GETTEXT_PACKAGE);
 
 	glibtop_init();
 
@@ -73,16 +67,16 @@ main (int argc, char *argv [])
 	memset (separator, '-', 91);
 	separator [92] = '\0';
 
-	sprintf (buffer, _("Ticks (%ld per second):"), frequency);
+	sprintf (buffer, "Ticks (%ld per second):", frequency);
 
 	printf ("\n\n%-26s %12s %12s %12s %12s %12s\n%s\n", buffer,
-		_("Total"), _("User"), _("Nice"), _("Sys"), _("Idle"), separator);
+		"Total", "User", "Nice", "Sys", "Idle", separator);
 
-	printf (_("CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n\n"),
+	printf ("CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n\n",
 		(unsigned long) cpu.flags, total, user, nice, sys, idle);
 
 	for (i = 0; i < glibtop_global_server->ncpu; i++) {
-		printf (_("CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"), i,
+		printf ("CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n", i,
 			(unsigned long) cpu.flags,
 			(unsigned long) cpu.xcpu_total [i],
 			(unsigned long) cpu.xcpu_user  [i],
@@ -99,11 +93,11 @@ main (int argc, char *argv [])
 
 	printf ("%s\n\n\n", separator);
 
-	printf ("%-26s %12s %12s %12s %12s %12s\n%s\n", _("Percent:"),
-		_("Total (%)"), _("User (%)"), _("Nice (%)"), _("Sys (%)"),
-		_("Idle (%)"), separator);
+	printf ("%-26s %12s %12s %12s %12s %12s\n%s\n", "Percent:",
+		"Total (%)", "User (%)", "Nice (%)", "Sys (%)",
+		"Idle (%)", separator);
 
-	printf (_("CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n\n"),
+	printf ("CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n\n",
 		(unsigned long) cpu.flags, (double) total * 100.0 / total,
 		(double) user  * 100.0 / total,
 		(double) nice  * 100.0 / total,
@@ -119,13 +113,13 @@ main (int argc, char *argv [])
 		p_sys   = ((double) cpu.xcpu_sys   [i]) * 100.0 / sys;
 		p_idle  = ((double) cpu.xcpu_idle  [i]) * 100.0 / idle;
 
-		printf (_("CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"),
+		printf ("CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n",
 			i, (unsigned long) cpu.flags, p_total, p_user, p_nice,
 			p_sys, p_idle);
 	}
 
 	printf ("%s\n%-26s %12.3f %12.3f %12.3f %12.3f %12.3f\n\n", separator,
-		_("Spin:"), s_total * 100.0 / total, s_user * 100.0 / user,
+		"Spin:", s_total * 100.0 / total, s_user * 100.0 / user,
 		s_nice * 100.0 / nice, s_sys * 100.0 / sys, s_idle * 100.0 / idle);
 
 	exit (0);
