@@ -1,5 +1,9 @@
 2005-06-06  Benoît Dejean  <TazForEver@dlfp.org>
 
+	* dtd/: Bye bye.
+
+2005-06-06  Benoît Dejean  <TazForEver@dlfp.org>
+
 	* backends/: Removed useless files.
 
 2005-06-06  Benoît Dejean  <TazForEver@dlfp.org>
