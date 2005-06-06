@@ -1,3 +1,7 @@
+2005-06-06  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* configure.in: version bump.
+
 2005-06-05  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* README: Updated so people can find the ChangeLogs.
