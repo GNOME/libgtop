@@ -94,7 +94,8 @@ struct _glibtop_proc_open_files
 		size;			/* GLIBTOP_PROC_OPEN_FILES_SIZE   */
 };
 
-#define glibtop_get_proc_open_files(proc_open_files,pid) glibtop_get_proc_open_files_l(glibtop_global_server, proc_open_files, pid)
+glibtop_open_files_entry *
+glibtop_get_proc_open_files(glibtop_proc_open_files *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_FILE
 #define glibtop_get_proc_open_files_r		glibtop_get_proc_open_files_p

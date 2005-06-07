@@ -49,7 +49,7 @@ struct _glibtop_shm_limits
 		shmall;		/* GLIBTOP_IPC_SHMALL	*/
 };
 
-#define glibtop_get_shm_limits(shm)	glibtop_get_shm_limits_l(glibtop_global_server, shm)
+void glibtop_get_shm_limits(glibtop_shm_limits *buf);
 
 #if GLIBTOP_SUID_SHM_LIMITS
 #define glibtop_get_shm_limits_r	glibtop_get_shm_limits_p

@@ -70,8 +70,9 @@ struct _glibtop_proc_map
 		total,			/* GLIBTOP_PROC_MAP_TOTAL	*/
 		size;			/* GLIBTOP_PROC_MAP_SIZE	*/
 };
+glibtop_map_entry *
+glibtop_get_proc_map(glibtop_proc_map *buf, pid_t pid);
 
-#define glibtop_get_proc_map(proc_map,pid) glibtop_get_proc_map_l(glibtop_global_server, proc_map, pid)
 
 #if GLIBTOP_SUID_PROC_MAP
 #define glibtop_get_proc_map_r		glibtop_get_proc_map_p

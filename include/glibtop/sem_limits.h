@@ -59,7 +59,7 @@ struct _glibtop_sem_limits
 		semaem;		/* GLIBTOP_IPC_SEMAEM	*/
 };
 
-#define glibtop_get_sem_limits(sem)	glibtop_get_sem_limits_l(glibtop_global_server, sem)
+void glibtop_get_sem_limits(glibtop_sem_limits *buf);
 
 #if GLIBTOP_SUID_SEM_LIMITS
 #define glibtop_get_sem_limits_r	glibtop_get_sem_limits_p

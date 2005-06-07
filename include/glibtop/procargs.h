@@ -46,9 +46,8 @@ char *
 glibtop_get_proc_args_l (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len);
 
-#define glibtop_get_proc_args(proc_args,pid,max_len) glibtop_get_proc_args_l(glibtop_global_server, proc_args, pid, max_len)
-
-
+char *
+glibtop_get_proc_args (glibtop_proc_args *buf, pid_t pid, unsigned max_len);
 
 #if GLIBTOP_SUID_PROC_ARGS
 
@@ -82,8 +81,8 @@ char **
 glibtop_get_proc_argv_l (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len);
 
-#define glibtop_get_proc_argv(proc_args,pid,max_len) glibtop_get_proc_argv_l(glibtop_global_server, proc_args, pid, max_len)
-
+char **
+glibtop_get_proc_argv (glibtop_proc_args *buf, pid_t pid, unsigned max_len);
 
 
 G_END_DECLS

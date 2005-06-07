@@ -51,7 +51,7 @@ struct _glibtop_ppp
 		bytes_out;		/* GLIBTOP_PPP_BYTES_OUT	*/
 };
 
-#define glibtop_get_ppp(ppp,device)	glibtop_get_ppp_l(glibtop_global_server, ppp, device)
+void glibtop_get_ppp(glibtop_ppp *buf, unsigned short device);
 
 #if GLIBTOP_SUID_PPP
 #define glibtop_get_ppp_r	glibtop_get_ppp_p

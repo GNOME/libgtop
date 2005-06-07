@@ -37,7 +37,7 @@ struct _glibtop_netlist
 	guint32 number;
 };
 
-#define glibtop_get_netlist(netlist)	glibtop_get_netlist_l(glibtop_global_server, netlist)
+char** glibtop_get_netlist(glibtop_netlist *buf);
 
 #if GLIBTOP_SUID_NETLIST
 #define glibtop_get_netlist_r		glibtop_get_netlist_p

@@ -74,7 +74,7 @@ struct _glibtop_proc_state
         last_processor;
 };
 
-#define glibtop_get_proc_state(p1, p2)	glibtop_get_proc_state_l(glibtop_global_server, p1, p2)
+void glibtop_get_proc_state(glibtop_proc_state *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_STATE
 #define glibtop_get_proc_state_r	glibtop_get_proc_state_p

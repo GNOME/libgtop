@@ -53,7 +53,7 @@ struct _glibtop_msg_limits
 		msgtql;		/* GLIBTOP_IPC_MSGTQL	*/
 };
 
-#define glibtop_get_msg_limits(msg)	glibtop_get_msg_limits_l(glibtop_global_server, msg)
+void glibtop_get_msg_limits(glibtop_msg_limits *buf);
 
 #if GLIBTOP_SUID_MSG_LIMITS
 #define glibtop_get_msg_limits_r	glibtop_get_msg_limits_p

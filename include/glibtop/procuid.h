@@ -80,7 +80,7 @@ struct _glibtop_proc_uid
 
 };
 
-#define glibtop_get_proc_uid(p1, p2)	glibtop_get_proc_uid_l(glibtop_global_server, p1, p2)
+void glibtop_get_proc_uid(glibtop_proc_uid *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_UID
 #define glibtop_get_proc_uid_r		glibtop_get_proc_uid_p

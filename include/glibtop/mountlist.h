@@ -55,7 +55,8 @@ struct _glibtop_mountlist
 		size;			/* GLIBTOP_MOUNTLIST_SIZE	*/
 };
 
-#define glibtop_get_mountlist(mountlist,all_fs)	glibtop_get_mountlist_l(glibtop_global_server, mountlist, all_fs)
+glibtop_mountentry *
+glibtop_get_mountlist(glibtop_mountlist *buf, int all_fs);
 
 #define glibtop_get_mountlist_r		glibtop_get_mountlist_s
 

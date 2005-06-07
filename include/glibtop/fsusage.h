@@ -53,7 +53,7 @@ struct _glibtop_fsusage
 	guint64 read, write;    /* Total blocks read and written */
 };
 
-#define glibtop_get_fsusage(fsusage,disk)	glibtop_get_fsusage_l(glibtop_global_server, fsusage, disk)
+void glibtop_get_fsusage(glibtop_fsusage *buf, const char *mount_dir);
 
 #define glibtop_get_fsusage_r		glibtop_get_fsusage_s
 

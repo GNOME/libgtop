@@ -58,7 +58,7 @@ struct _glibtop_proc_segment
 		start_stack;	/* address of the bottom of stack segment */
 };
 
-#define glibtop_get_proc_segment(p1, p2)	glibtop_get_proc_segment_l(glibtop_global_server, p1, p2)
+void glibtop_get_proc_segment(glibtop_proc_segment *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_SEGMENT
 #define glibtop_get_proc_segment_r	glibtop_get_proc_segment_p

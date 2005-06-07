@@ -28,6 +28,8 @@
 
 G_BEGIN_DECLS
 
+void glibtop_close (void);
+
 void glibtop_close_r (glibtop *server);
 
 void glibtop_close_s (glibtop *server);

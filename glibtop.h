@@ -94,9 +94,8 @@ extern glibtop *glibtop_global_server;
 
 extern const unsigned long glibtop_server_features;
 
-#define glibtop_init()	glibtop_init_r(&glibtop_global_server, 0, 0);
-
-#define glibtop_close()	glibtop_close_r(glibtop_global_server);
+glibtop *
+glibtop_init (void);
 
 glibtop *
 glibtop_init_r (glibtop **server_ptr,

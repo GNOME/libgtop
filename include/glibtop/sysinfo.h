@@ -54,11 +54,10 @@ struct _glibtop_sysinfo
 	glibtop_entry cpuinfo [GLIBTOP_NCPU];
 };
 
-#define glibtop_get_sysinfo()	glibtop_get_sysinfo_s(glibtop_global_server)
-
 #define glibtop_get_sysinfo_r	glibtop_get_sysinfo_s
 
 const glibtop_sysinfo *glibtop_get_sysinfo_s (glibtop *server);
+const glibtop_sysinfo *glibtop_get_sysinfo (void);
 
 G_END_DECLS
 

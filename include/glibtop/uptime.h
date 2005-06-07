@@ -45,7 +45,7 @@ struct _glibtop_uptime
 	guint64 boot_time;
 };
 
-#define glibtop_get_uptime(uptime)	glibtop_get_uptime_l(glibtop_global_server, uptime)
+void glibtop_get_uptime (glibtop_uptime *buf);
 
 #if GLIBTOP_SUID_UPTIME
 #define glibtop_get_uptime_r		glibtop_get_uptime_p

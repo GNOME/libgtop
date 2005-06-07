@@ -80,7 +80,7 @@ struct _glibtop_cpu
 		xcpu_flags;	                /* GLIBTOP_XCPU_IDLE		*/
 };
 
-#define glibtop_get_cpu(cpu)	glibtop_get_cpu_l(glibtop_global_server, cpu)
+void glibtop_get_cpu(glibtop_cpu *buf);
 
 #if GLIBTOP_SUID_CPU
 #define glibtop_get_cpu_r	glibtop_get_cpu_p

@@ -1,3 +1,52 @@
+2005-06-07  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* configure.in:
+	* glibtop.h:
+	* include/glibtop/close.h:
+	* include/glibtop/cpu.h:
+	* include/glibtop/fsusage.h:
+	* include/glibtop/loadavg.h:
+	* include/glibtop/mem.h:
+	* include/glibtop/mountlist.h:
+	* include/glibtop/msg_limits.h:
+	* include/glibtop/netlist.h:
+	* include/glibtop/netload.h:
+	* include/glibtop/ppp.h:
+	* include/glibtop/procargs.h:
+	* include/glibtop/prockernel.h:
+	* include/glibtop/proclist.h:
+	* include/glibtop/procmap.h:
+	* include/glibtop/procmem.h:
+	* include/glibtop/procopenfiles.h:
+	* include/glibtop/procsegment.h:
+	* include/glibtop/procsignal.h:
+	* include/glibtop/procstate.h:
+	* include/glibtop/proctime.h:
+	* include/glibtop/procuid.h:
+	* include/glibtop/sem_limits.h:
+	* include/glibtop/shm_limits.h:
+	* include/glibtop/swap.h:
+	* include/glibtop/sysdeps.h:
+	* include/glibtop/sysinfo.h:
+	* include/glibtop/uptime.h:
+	* sysdeps/common/Makefile.am:
+	* sysdeps/common/default.c: (glibtop_close), (glibtop_init),
+	(glibtop_get_cpu), (glibtop_get_fsusage), (glibtop_get_uptime),
+	(glibtop_get_sysinfo), (glibtop_get_swap), (glibtop_get_proc_uid),
+	(glibtop_get_proc_time), (glibtop_get_proc_state),
+	(glibtop_get_proc_signal), (glibtop_get_proc_segment),
+	(glibtop_get_proc_open_files), (glibtop_get_proc_mem),
+	(glibtop_get_proc_map), (glibtop_get_proc_args),
+	(glibtop_get_proc_argv), (glibtop_get_proclist),
+	(glibtop_get_proc_kernel), (glibtop_get_ppp),
+	(glibtop_get_netlist), (glibtop_get_netload),
+	(glibtop_get_mountlist), (glibtop_get_mem), (glibtop_get_loadavg),
+	(glibtop_get_msg_limits), (glibtop_get_sem_limits),
+	(glibtop_get_shm_limits), (glibtop_get_sysdeps):
+	
+	Added a lot of new functions to replace dirty macros.
+	Every macro glibtop_get_*(buf[, args]) has been turned to a function.
+
 2005-06-06  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* dtd/: Bye bye.

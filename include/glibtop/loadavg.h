@@ -47,7 +47,7 @@ struct _glibtop_loadavg
 		last_pid;		/* GLIBTOP_LOADAVG_LAST_PID	*/
 };
 
-#define glibtop_get_loadavg(loadavg)	glibtop_get_loadavg_l(glibtop_global_server, loadavg)
+void glibtop_get_loadavg(glibtop_loadavg *buf);
 
 #if GLIBTOP_SUID_LOADAVG
 #define glibtop_get_loadavg_r		glibtop_get_loadavg_p

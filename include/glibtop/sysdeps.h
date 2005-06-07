@@ -94,8 +94,7 @@ struct _glibtop_sysdeps
 		ppp;			/* glibtop_ppp		*/
 };
 
-#define glibtop_get_sysdeps(sysdeps)	glibtop_get_sysdeps_r(glibtop_global_server,sysdeps)
-
+void glibtop_get_sysdeps (glibtop_sysdeps *buf);
 void glibtop_get_sysdeps_r (glibtop *server, glibtop_sysdeps *buf);
 
 

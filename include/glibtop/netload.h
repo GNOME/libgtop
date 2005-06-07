@@ -107,7 +107,7 @@ struct _glibtop_netload
 	guint8 hwaddress[8];		/* GLIBTOP_NETLOAD_HWADDRESS    */
 };
 
-#define glibtop_get_netload(netload,interface)	glibtop_get_netload_l(glibtop_global_server, netload, interface)
+void glibtop_get_netload(glibtop_netload *buf, const char *interface);
 
 #if GLIBTOP_SUID_NETLOAD
 #define glibtop_get_netload_r	glibtop_get_netload_p

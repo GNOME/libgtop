@@ -55,7 +55,7 @@ struct _glibtop_mem
 		locked;		/* GLIBTOP_MEM_LOCKED	*/
 };
 
-#define glibtop_get_mem(mem)	glibtop_get_mem_l(glibtop_global_server, mem)
+void glibtop_get_mem(glibtop_mem *buf);
 
 #if GLIBTOP_SUID_MEM
 #define glibtop_get_mem_r		glibtop_get_mem_p

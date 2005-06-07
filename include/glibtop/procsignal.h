@@ -49,7 +49,7 @@ struct _glibtop_proc_signal
 		sigcatch [2];		/* mask of caught  signals */
 };
 
-#define glibtop_get_proc_signal(p1, p2)	glibtop_get_proc_signal_l(glibtop_global_server, p1, p2)
+void glibtop_get_proc_signal(glibtop_proc_signal *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_SIGNAL
 #define glibtop_get_proc_signal_r	glibtop_get_proc_signal_p

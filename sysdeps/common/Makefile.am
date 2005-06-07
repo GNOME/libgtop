@@ -17,6 +17,7 @@ libgtop_common_2_0_la_SOURCES	= error.c gnuslib.c \
 				  fsusage.c \
                                   mountlist.c \
                                   procargs.c \
+				  default.c \
 				  $(inodedb_SRCLIST)
 
 libgtop_common_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)

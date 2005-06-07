@@ -49,7 +49,8 @@ struct _glibtop_swap
 		pageout;	/* GLIBTOP_SWAP_PAGEOUT	*/
 };
 
-#define glibtop_get_swap(swap)	glibtop_get_swap_l(glibtop_global_server, swap)
+void
+glibtop_get_swap(glibtop_swap *buf);
 
 #if GLIBTOP_SUID_SWAP
 #define glibtop_get_swap_r		glibtop_get_swap_p

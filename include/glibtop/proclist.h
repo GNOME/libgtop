@@ -62,7 +62,8 @@ struct _glibtop_proclist
 		size;			/* GLIBTOP_PROCLIST_SIZE	*/
 };
 
-#define glibtop_get_proclist(proclist,which,arg) glibtop_get_proclist_l(glibtop_global_server, proclist, which, arg)
+unsigned *
+glibtop_get_proclist(glibtop_proclist *buf, gint64 which, gint64 arg);
 
 #if GLIBTOP_SUID_PROCLIST
 #define glibtop_get_proclist_r		glibtop_get_proclist_p
