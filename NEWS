@@ -1,3 +1,9 @@
+June 8, 2005: Overview of changes from 2.10.x to 2.11.0
+=======================================================
+* Replaced a lot of macros by functions
+* Got rid of dozens of useless files.
+* libgtop 2.11.x are and will stay API and ABI compatible with 2.10.x, i swear.
+
 April 10, 2005: Overview of changes from 2.10.0 to 2.10.1
 =========================================================
 * Updated i18n.
