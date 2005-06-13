@@ -1,3 +1,11 @@
+June 12, 2005: Overview of changes from 2.10.1 to 2.10.2
+========================================================
+* glibtop_get_mountlist() : Added tmpfs to ignore list.
+* Re-install open.h to please GTop (libgtop perl wrapper).
+* Linux:
+  * Fixed compilation on mips.
+  * Added pagein/pageout for 2.6.
+
 April 10, 2005: Overview of changes from 2.10.0 to 2.10.1
 =========================================================
 * Updated i18n.
