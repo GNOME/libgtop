@@ -1,3 +1,7 @@
+2005-06-13  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* swap.c: (glibtop_get_swap_s): Added pagein/pageout for linux 2.6.
+
 2005-05-26  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* siglist.c: Fixed compilation on mips. Closes #304570.
