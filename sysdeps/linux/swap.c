@@ -49,6 +49,7 @@ glibtop_init_swap_s (glibtop *server)
 
 #define MEMINFO		"/proc/meminfo"
 #define PROC_STAT	"/proc/stat"
+#define PROC_VMSTAT	"/proc/vmstat"
 
 void
 glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
@@ -69,15 +70,38 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
 	buf->flags = _glibtop_sysdeps_swap;
 
-	file_to_buffer(server, buffer, PROC_STAT);
 
-	p = strstr (buffer, "\nswap");
-	if (p == NULL) return;
+	if(server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
+	{
+		file_to_buffer (server, buffer, PROC_VMSTAT);
 
-	p = skip_token (p);
+		p = strstr (buffer, "\npswpin");
 
-	buf->pagein  = strtoull (p, &p, 0);
-	buf->pageout = strtoull (p, &p, 0);
+		if(p)
+		{
+			p = skip_token(p);
+			buf->pagein  = strtoull (p, &p, 0);
 
-	buf->flags |= _glibtop_sysdeps_swap_paging;
+			p = skip_token(p);
+			buf->pageout  = strtoull (p, &p, 0);
+
+			buf->flags |= _glibtop_sysdeps_swap_paging;
+		}
+	}
+	else /* Linux 2.4 */
+	{
+		file_to_buffer (server, buffer, PROC_STAT);
+
+		p = strstr (buffer, "\nswap");
+
+		if(p)
+		{
+			p = skip_token (p);
+
+			buf->pagein  = strtoull (p, &p, 0);
+			buf->pageout = strtoull (p, &p, 0);
+
+			buf->flags |= _glibtop_sysdeps_swap_paging;
+		}
+	}
 }
