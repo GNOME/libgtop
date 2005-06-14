@@ -1,5 +1,9 @@
 2005-06-13  Benoît Dejean  <TazForEver@dlfp.org>
 
+	* glibtop_private.c: (try_file_to_buffer): Ensures buffer is 0-terminated.
+
+2005-06-13  Benoît Dejean  <TazForEver@dlfp.org>
+
 	* swap.c: (glibtop_get_swap_s): Added pagein/pageout for linux 2.6.
 
 2005-05-26  Benoît Dejean  <TazForEver@dlfp.org>

@@ -66,6 +66,8 @@ int try_file_to_buffer(char *buffer, const char *format, ...)
 
 	va_end(pa);
 
+	buffer [0] = '\0';
+
 	if((fd = open (path, O_RDONLY)) < 0)
 		return TRY_FILE_TO_BUFFER_OPEN;
 
