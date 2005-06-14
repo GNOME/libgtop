@@ -20,11 +20,11 @@ libgtop_common_2_0_la_SOURCES	= error.c gnuslib.c \
 				  default.c \
 				  $(inodedb_SRCLIST)
 
-libgtop_common_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
+# libgtop_common_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 libgtop_common_2_0_la_LIBADD	= $(LIBGTOP_EXTRA_LIBS)
 
 libgtop_suid_common_2_0_la_SOURCES	= error.c sysdeps_suid.c
 
-libgtop_suid_common_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
+# libgtop_suid_common_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 
 EXTRA_DIST			= inodedb.c

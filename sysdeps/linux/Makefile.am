@@ -12,7 +12,7 @@ libgtop_sysdeps_2_0_la_SOURCES	= open.c close.c cpu.c mem.c swap.c \
 
 libgtop_sysdeps_2_0_la_LIBADD	=  @GLIB_LIBS@
 
-libgtop_sysdeps_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
+# libgtop_sysdeps_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 
 libgtopinclude_HEADERS		= glibtop_server.h glibtop_machine.h
 libgtopincludedir		= $(includedir)/libgtop-2.0

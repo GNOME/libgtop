@@ -1,3 +1,9 @@
+2005-06-15  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* sysdeps/common/Makefile.am:
+	* sysdeps/linux/Makefile.am: Removed LT_VERSION_INFO from LDFLAGS
+	when unused.
+
 2005-06-08  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* configure.in: 2.11.1 post release version bump.
