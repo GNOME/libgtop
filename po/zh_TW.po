@@ -1,15 +1,15 @@
 # traditional Chinese translation for libgtop.
 # Copyright (C) 2001, 2002, 2003 Free Software Foundation, Inc.
-# Abel Cheung <maddog@linuxhall.org>, 2001-2003.
+# Abel Cheung <abel@oaka.org>, 2001-2003.
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.9.92\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-05 16:31+0800\n"
+"POT-Creation-Date: 2005-06-22 13:09+0000\n"
 "PO-Revision-Date: 2005-03-05 16:33+0800\n"
-"Last-Translator: Abel Cheung <maddog@linuxhall.org>\n"
-"Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
+"Last-Translator: Abel Cheung <abel@oaka.org>\n"
+"Language-Team: Chinese (traditional) <community@linuxhall.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,39 +37,39 @@ msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "寫入 %d 位元組"
 
-#: ../src/daemon/gnuserv.c:459
+#: ../src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "啟用偵錯功能"
 
-#: ../src/daemon/gnuserv.c:459
+#: ../src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "偵錯"
 
-#: ../src/daemon/gnuserv.c:461
+#: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "顯示詳細的輸出訊息"
 
-#: ../src/daemon/gnuserv.c:461
+#: ../src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "詳細訊息"
 
-#: ../src/daemon/gnuserv.c:463
+#: ../src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "不要放置於背景執行"
 
-#: ../src/daemon/gnuserv.c:463
+#: ../src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: ../src/daemon/gnuserv.c:465
+#: ../src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "透過 inetd 執行"
 
-#: ../src/daemon/gnuserv.c:465
+#: ../src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: ../src/daemon/gnuserv.c:499
+#: ../src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
