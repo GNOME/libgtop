@@ -3,158 +3,80 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Ashutosh Sahu <ashutosh_sahu@rediffmail.com>, 2003.
 # Ravishankar Shrivastava <raviratlami@yahoo.com>, 2004.
+# Rajesh Ranjan <rranjan@redhat.com>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.HEAD.hi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-03 14:09+0200\n"
-"PO-Revision-Date: 2004-07-12 09:43+0530\n"
-"Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
-"Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
+"POT-Creation-Date: 2005-06-24 06:05+0000\n"
+"PO-Revision-Date: 2005-06-24 13:16+0530\n"
+"Last-Translator: Rajesh Ranjan <rranjan@redhat.com>\n"
+"Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
 
-#: examples/smp.c:76
+#: ../lib/read.c:65
 #, c-format
-msgid "Ticks (%ld per second):"
-msgstr "टिक्स (%ld प्रति सेकंड):"
-
-#: examples/smp.c:79
-msgid "Total"
-msgstr "कुल"
-
-#: examples/smp.c:79 sysdeps/names/mem.c:48
-msgid "User"
-msgstr "उपयोगकर्ता"
-
-#: examples/smp.c:79 sysdeps/names/procuid.c:51
-msgid "Nice"
-msgstr "नाइस"
-
-#: examples/smp.c:79
-msgid "Sys"
-msgstr "सिस"
-
-#: examples/smp.c:79
-msgid "Idle"
-msgstr "निष्क्रिय"
-
-#: examples/smp.c:81
-#, c-format
-msgid ""
-"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-"\n"
-msgstr ""
-"सीपीयू          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-"\n"
-
-#: examples/smp.c:85
-#, c-format
-msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr "सीपीयू %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-
-#: examples/smp.c:102
-msgid "Percent:"
-msgstr "प्रतिशत:"
-
-#: examples/smp.c:103
-msgid "Total (%)"
-msgstr "कुल (%)"
-
-#: examples/smp.c:103
-msgid "User (%)"
-msgstr "उपयोगकर्ता (%)"
-
-#: examples/smp.c:103
-msgid "Nice (%)"
-msgstr "नाइस (%)"
-
-#: examples/smp.c:103
-msgid "Sys (%)"
-msgstr "सिस (%)"
-
-#: examples/smp.c:104
-msgid "Idle (%)"
-msgstr "निष्क्रिय (%)"
-
-#: examples/smp.c:106
-#, c-format
-msgid ""
-"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-"\n"
-msgstr ""
-"सीपीयू          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-"\n"
-
-#: examples/smp.c:122
-#, c-format
-msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr "सीपीयू %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-
-#: examples/smp.c:128
-msgid "Spin:"
-msgstr "स्पिन:"
-
-#: lib/read.c:65
-#, fuzzy, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "डेटा आकार पढ़ें"
-msgstr[1] "डेटा आकार पढ़ें"
+msgstr[0] "पढ़ें %d बाइट"
+msgstr[1] "पढ़ें %d बाइट्स"
 
-#: lib/read_data.c:51
+#: ../lib/read_data.c:53
 msgid "read data size"
 msgstr "डेटा आकार पढ़ें"
 
-#: lib/read_data.c:68
-#, fuzzy, c-format
-msgid "read data %d byte"
-msgid_plural "read data %d bytes"
-msgstr[0] "डेटा आकार पढ़ें"
-msgstr[1] "डेटा आकार पढ़ें"
-
-#: lib/write.c:51
+#: ../lib/read_data.c:72
 #, c-format
-msgid "write %d byte"
-msgid_plural "write %d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "%lu आंकड़ा का बाइट पढ़ें"
+msgstr[1] "%lu आंकड़ा का बाइट्स पढ़ें"
 
-#: src/daemon/gnuserv.c:456
+#: ../lib/write.c:52
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "%d बाइट लिखा"
+msgstr[1] "%d बाइट्स लिखा"
+
+#: ../src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "डीबगिंग सक्षम करें"
 
-#: src/daemon/gnuserv.c:456
+#: ../src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "डीबग"
 
-#: src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "वाचाल आउटपुट सक्षम करें"
 
-#: src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "वाचाल"
 
-#: src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "पृष्ठभूमि में फॉर्क न करें"
 
-#: src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "डेमन-नहीं"
 
-#: src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr " inetd द्वारा बुलाया गया "
 
-#: src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:496
+#: ../src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -163,1241 +85,127 @@ msgstr ""
 "विकल्प %s: %s.\n"
 "में त्रुटि.  चलाएँ '%s --help' उपलब्ध कमांड लाइन विकल्प की पूरी सूची देखने हेतु.\n"
 
-#: sysdeps/names/cpu.c:44
-msgid "Total CPU Time"
-msgstr "कुल सीपीयू समय"
-
-#: sysdeps/names/cpu.c:45
-msgid "CPU Time in User Mode"
-msgstr "उपयोगकर्ता मोड में सीपीयू समय"
-
-#: sysdeps/names/cpu.c:46
-msgid "CPU Time in User Mode (nice)"
-msgstr "उपयोगकर्ता मोड (नाइस) में सीपीयू समय"
-
-#: sysdeps/names/cpu.c:47
-msgid "CPU Time in System Mode"
-msgstr "सिस्टम मोड में सीपीयू समय"
-
-#: sysdeps/names/cpu.c:48
-msgid "CPU Time in the Idle Task"
-msgstr "निष्क्रिय कार्य में सीपीयू समय"
-
-#: sysdeps/names/cpu.c:49
-msgid "Tick Frequency"
-msgstr "टिक आवृत्ति"
-
-#: sysdeps/names/cpu.c:50
-msgid "SMP Total CPU Time"
-msgstr "एसएमपी कुल सीपीयू समय"
-
-#: sysdeps/names/cpu.c:51
-msgid "SMP CPU Time in User Mode"
-msgstr "उपयोगकर्ता मोड में एसएमपी सीपीयू समय"
-
-#: sysdeps/names/cpu.c:52
-msgid "SMP CPU Time in User Mode (nice)"
-msgstr "उपयोगकर्ता मोड (नाइस) में एसएमपी सीपीयू समय "
-
-#: sysdeps/names/cpu.c:53
-msgid "SMP CPU Time in System Mode"
-msgstr "सिस्टम मोड में एसएमपी सीपीयू समय"
-
-#: sysdeps/names/cpu.c:54
-msgid "SMP CPU Time in the Idle Task"
-msgstr "निष्क्रिय कार्य में एसएमपी सीपीयू समय"
-
-#: sysdeps/names/cpu.c:55
-msgid "SMP CPU Flags"
-msgstr "एसएमपी सीपीयू ध्वज"
-
-#: sysdeps/names/cpu.c:60 sysdeps/names/cpu.c:66
-msgid "Number of clock ticks since system boot"
-msgstr "सिस्टम बूट से अभी तक क्लॉक टिक्स की संख्या"
-
-#: sysdeps/names/cpu.c:61 sysdeps/names/cpu.c:67
-msgid "Number of clock ticks the system spent in user mode"
-msgstr "तंत्र द्वारा उपयोगकर्ता मोड में बिताए गए क्लॉक टिक्स की संख्या"
-
-#: sysdeps/names/cpu.c:62 sysdeps/names/cpu.c:68
-msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "तंत्र द्वारा उपयोगकर्ता मोड (नाइस) में बिताए गए क्लॉक टिक्स की संख्या"
-
-#: sysdeps/names/cpu.c:63 sysdeps/names/cpu.c:69
-msgid "Number of clock ticks the system spent in system mode"
-msgstr "तंत्र द्वारा तंत्र मोड में बिताए गए क्लॉक टिक्स की संख्या"
-
-#: sysdeps/names/cpu.c:64 sysdeps/names/cpu.c:70
-msgid "Number of clock ticks the system spent in the idle task"
-msgstr "तंत्र द्वारा निष्क्रिय कार्य में बिताए गए क्लॉक टिक्स की संख्या"
-
-#: sysdeps/names/cpu.c:65
-msgid "Tick frequency (default is 100)"
-msgstr "टिक आवृत्ति (डिफ़ॉल्ट १०० है)"
-
-#: sysdeps/names/cpu.c:71
-msgid "Bit field indicating which CPU is currently running"
-msgstr "बिट फ़ील्ड जो संकेत करता है कि कौन सा सीपीयू वर्तमान में चल रहा है"
-
-#: sysdeps/names/fsusage.c:40 sysdeps/names/fsusage.c:50
-msgid "Total blocks"
-msgstr "कुल ब्लॉक्स"
-
-#: sysdeps/names/fsusage.c:41
-msgid "Free blocks"
-msgstr "मुक्त ब्लॉक्स"
-
-#: sysdeps/names/fsusage.c:42
-msgid "Available blocks"
-msgstr "उपलब्ध ब्लॉक्स"
-
-#: sysdeps/names/fsusage.c:43 sysdeps/names/fsusage.c:53
-msgid "Total file nodes"
-msgstr "कुल फ़ाइल नोड्स"
-
-#: sysdeps/names/fsusage.c:44 sysdeps/names/fsusage.c:54
-msgid "Free file nodes"
-msgstr "मुक्त फ़ाइल नोड्स"
-
-#: sysdeps/names/fsusage.c:45 sysdeps/names/fsusage.c:55
-#, fuzzy
-msgid "Block size"
-msgstr "रोका गया"
-
-#: sysdeps/names/fsusage.c:51
-msgid "Free blocks available to the superuser"
-msgstr "सुपर यूज़र के पास उपलब्ध मुक्त ब्लाक्स"
-
-#: sysdeps/names/fsusage.c:52
-msgid "Free blocks available to non-superusers"
-msgstr "गैर सुपर यूज़र्स के पास उपलब्ध खाली ब्लॉक्स"
-
-#: sysdeps/names/loadavg.c:40
-msgid "Load Average"
-msgstr "भार अनुपात"
-
-#: sysdeps/names/loadavg.c:41
-msgid "Running Tasks"
-msgstr "चल रहे कार्य"
-
-#: sysdeps/names/loadavg.c:42
-msgid "Number of Tasks"
-msgstr "कार्यों की संख्या"
-
-#: sysdeps/names/loadavg.c:43 sysdeps/names/loadavg.c:51
-msgid "Last PID"
-msgstr "अंतिम पीआईडी"
-
-#: sysdeps/names/loadavg.c:48
-msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "औसतन १,५ और १५ मिनट से ज्यादा से एक साथ चल रहे कार्यों की संख्या"
-
-#: sysdeps/names/loadavg.c:49
-msgid "Number of tasks currently running"
-msgstr "वर्तमान में चल रहे कार्यों की संख्या"
-
-#: sysdeps/names/loadavg.c:50
-msgid "Total number of tasks"
-msgstr "कार्यों की कुल संख्या"
-
-#: sysdeps/names/mem.c:42
-msgid "Total Memory"
-msgstr "कुल मेमोरी"
-
-#: sysdeps/names/mem.c:43
-msgid "Used Memory"
-msgstr "प्रयुक्त मेमोरी"
-
-#: sysdeps/names/mem.c:44
-msgid "Free Memory"
-msgstr "मुक्त मेमोरी"
-
-#: sysdeps/names/mem.c:45
-msgid "Shared Memory"
-msgstr "साझा मेमोरी"
-
-#: sysdeps/names/mem.c:46
-msgid "Buffers"
-msgstr "बफ़र्स"
-
-#: sysdeps/names/mem.c:47
-msgid "Cached"
-msgstr "कैश"
-
-#: sysdeps/names/mem.c:49
-msgid "Locked"
-msgstr "तालाबंद"
-
-#: sysdeps/names/mem.c:54
-msgid "Total physical memory in kB"
-msgstr "कुल भौतिक मेमोरी कि.बा. में"
-
-#: sysdeps/names/mem.c:55
-msgid "Used memory size in kB"
-msgstr "प्रयुक्त मेमोरी आकार कि.बा. में"
-
-#: sysdeps/names/mem.c:56
-msgid "Free memory size in kB"
-msgstr "मुक्त मेमोरी आकार कि.बा. में"
-
-#: sysdeps/names/mem.c:57
-msgid "Shared memory size in kB"
-msgstr "साझा मेमोरी आकार कि.बा. में"
-
-#: sysdeps/names/mem.c:58
-msgid "Size of buffers kB"
-msgstr "बफ़र्स का आकार कि.बा. में"
-
-#: sysdeps/names/mem.c:59
-msgid "Size of cached memory in kB"
-msgstr "कैश मेमोरी का आकार कि.बा. में"
-
-#: sysdeps/names/mem.c:60
-msgid "Memory used from user processes in kB"
-msgstr "उपयोगकर्ता प्रक्रियाओं द्वारा मेमोरी उपयोग कि.बा. में"
-
-#: sysdeps/names/mem.c:61
-msgid "Memory in locked pages in kB"
-msgstr "तालाबंद पृष्ठों की मेमोरी कि.बा. में"
-
-#: sysdeps/names/mountlist.c:39 sysdeps/names/mountlist.c:46
-#: sysdeps/names/proclist.c:39 sysdeps/names/proclist.c:46
-#: sysdeps/names/procmap.c:39 sysdeps/names/procmap.c:46
-msgid "Number of list elements"
-msgstr "सूची तत्वों की संख्या"
-
-#: sysdeps/names/mountlist.c:40 sysdeps/names/mountlist.c:47
-#: sysdeps/names/proclist.c:40 sysdeps/names/proclist.c:47
-#: sysdeps/names/procmap.c:40 sysdeps/names/procmap.c:47
-msgid "Total size of list"
-msgstr "सूची का कुल आकार"
-
-#: sysdeps/names/mountlist.c:41 sysdeps/names/mountlist.c:48
-#: sysdeps/names/proclist.c:41 sysdeps/names/proclist.c:48
-#: sysdeps/names/procmap.c:41 sysdeps/names/procmap.c:48
-msgid "Size of a single list element"
-msgstr "सिग्नल सूची तत्व का आकार"
-
-#: sysdeps/names/msg_limits.c:41 sysdeps/names/msg_limits.c:52
-msgid "Size in kilobytes of message pool"
-msgstr "संदेश पूल का किलो बाइट्स में आकार"
-
-#: sysdeps/names/msg_limits.c:42 sysdeps/names/msg_limits.c:53
-msgid "Number of entries in message map"
-msgstr "संदेश मैप में प्रविष्टियों की संख्या"
-
-#: sysdeps/names/msg_limits.c:43 sysdeps/names/msg_limits.c:54
-msgid "Max size of message"
-msgstr "संदेश का अधिकतम आकार"
-
-#: sysdeps/names/msg_limits.c:44 sysdeps/names/msg_limits.c:55
-msgid "Default max size of queue"
-msgstr "कतार का अधिकतम डिफ़ॉल्ट आकार"
-
-#: sysdeps/names/msg_limits.c:45 sysdeps/names/msg_limits.c:56
-msgid "Max queues system wide"
-msgstr "सिस्टम वाइड अधिकतम कतारें"
-
-#: sysdeps/names/msg_limits.c:46 sysdeps/names/msg_limits.c:57
-msgid "Message segment size"
-msgstr "संदेश सेगमेंट आकार"
-
-#: sysdeps/names/msg_limits.c:47 sysdeps/names/msg_limits.c:58
-msgid "Number of system message headers"
-msgstr "सिस्टम संदेश हैडर्स की संख्या"
-
-#: sysdeps/names/netload.c:46 sysdeps/names/netload.c:67
-msgid "Interface Flags"
-msgstr "इंटरफेस ध्वज"
-
-#: sysdeps/names/netload.c:47
-msgid "MTU"
-msgstr "एमटीयू"
-
-#: sysdeps/names/netload.c:48 sysdeps/names/netload.c:69
-#, fuzzy
-msgid "IPv4 Subnet"
-msgstr "सबनेट"
-
-#: sysdeps/names/netload.c:49 sysdeps/names/netload.c:70
-#, fuzzy
-msgid "IPv4 Address"
-msgstr "पता"
-
-#: sysdeps/names/netload.c:50 sysdeps/names/netload.c:71
-msgid "Packets In"
-msgstr "पैकेट्स अंदर"
-
-#: sysdeps/names/netload.c:51 sysdeps/names/netload.c:72
-msgid "Packets Out"
-msgstr "पैकेट्स बाहर"
-
-#: sysdeps/names/netload.c:52 sysdeps/names/netload.c:73
-msgid "Packets Total"
-msgstr "कुल पैकेट"
-
-#: sysdeps/names/netload.c:53 sysdeps/names/netload.c:74
-msgid "Bytes In"
-msgstr "बाइट्स अंदर"
-
-#: sysdeps/names/netload.c:54 sysdeps/names/netload.c:75
-msgid "Bytes Out"
-msgstr "बाइट्स बाहर"
-
-#: sysdeps/names/netload.c:55 sysdeps/names/netload.c:76
-msgid "Bytes Total"
-msgstr "कुल बाइट्स"
-
-#: sysdeps/names/netload.c:56 sysdeps/names/netload.c:77
-msgid "Errors In"
-msgstr "त्रुटि अंदर"
-
-#: sysdeps/names/netload.c:57 sysdeps/names/netload.c:78
-msgid "Errors Out"
-msgstr "त्रुटि बाहर"
-
-#: sysdeps/names/netload.c:58 sysdeps/names/netload.c:79
-msgid "Errors Total"
-msgstr "कुल त्रुटि"
-
-#: sysdeps/names/netload.c:59 sysdeps/names/netload.c:80
-msgid "Collisions"
-msgstr "कॉलीज़न्स"
-
-#: sysdeps/names/netload.c:60 sysdeps/names/netload.c:81
-#, fuzzy
-msgid "IPv6 Address"
-msgstr "पता"
-
-#: sysdeps/names/netload.c:61 sysdeps/names/netload.c:82
-msgid "IPv6 Prefix"
-msgstr ""
-
-#: sysdeps/names/netload.c:62 sysdeps/names/netload.c:83
-msgid "IPv6 Scope"
-msgstr ""
-
-#: sysdeps/names/netload.c:68
-msgid "Maximum Transfer Unit"
-msgstr "अधिकतम हस्तांतर इकाई"
-
-#: sysdeps/names/ppp.c:39 sysdeps/names/ppp.c:46
-msgid "PPP State"
-msgstr "पीपीपी अवस्था"
-
-#: sysdeps/names/ppp.c:40
-msgid "Input bytes"
-msgstr "इनपुट बाइट्स"
-
-#: sysdeps/names/ppp.c:41
-msgid "Output bytes"
-msgstr "आउटपुट बाइट्स"
-
-#: sysdeps/names/ppp.c:47
-msgid "Number of input bytes"
-msgstr "इनपुट बाइट्स की संख्या"
-
-#: sysdeps/names/ppp.c:48
-msgid "Number of output bytes"
-msgstr "आउटपुट बाइट्स की संख्या"
-
-#: sysdeps/names/procargs.c:39 sysdeps/names/procmem.c:48
-msgid "Size"
-msgstr "आकार"
-
-#: sysdeps/names/procargs.c:44
-msgid "Length in bytes of the returned string."
-msgstr "लौटाई स्ट्रिंग की लंबाई (बाइट में)."
-
-#: sysdeps/names/prockernel.c:43
-msgid "K_Flags"
-msgstr "K_Flags"
-
-#: sysdeps/names/prockernel.c:43
-msgid "Min_Flt"
-msgstr "Min_Flt"
-
-#: sysdeps/names/prockernel.c:43
-msgid "Maj_Flt"
-msgstr "Maj_Flt"
-
-#: sysdeps/names/prockernel.c:43
-msgid "CMin_Flt"
-msgstr "CMin_Flt"
-
-#: sysdeps/names/prockernel.c:44
-msgid "CMaj_Flt"
-msgstr "CMaj_Flt"
-
-#: sysdeps/names/prockernel.c:44
-msgid "KStk_ESP"
-msgstr "KStk_ESP"
-
-#: sysdeps/names/prockernel.c:44
-msgid "KStk_EIP"
-msgstr "KStk_EIP"
-
-#: sysdeps/names/prockernel.c:44
-msgid "NWChan"
-msgstr "एनडबल्यू-चेन"
-
-#: sysdeps/names/prockernel.c:45
-msgid "WChan"
-msgstr "डबल्यू-चेन"
-
-#  K_Flags
-#. K_Flags
-#: sysdeps/names/prockernel.c:51
-msgid ""
-"Kernel flags of the process.\n"
-"\n"
-"On Linux, currently every flag has the math bit set, because crt0.s checks "
-"for math emulation, so this is not included in the output.\n"
-"\n"
-"This is probably a bug, as not every process is a compiled C program.\n"
-"\n"
-"The math bit should be a decimal 4, and the traced bit is decimal 10."
-msgstr ""
-
-#  Min_Flt
-#. Min_Flt
-#: sysdeps/names/prockernel.c:60
-msgid ""
-"The number of minor faults the process has made, those which have not "
-"required loading a memory page from disk."
-msgstr ""
-
-#  Maj_Flt
-#. Maj_Flt
-#: sysdeps/names/prockernel.c:63
-msgid ""
-"The number of major faults the process has made, those which have required "
-"loading a memory page from disk."
-msgstr ""
-
-#  CMin_Flt
-#. CMin_Flt
-#: sysdeps/names/prockernel.c:66
-msgid "The number of minor faults that the process and its children have made."
-msgstr "प्रक्रिया या उसके शिशु द्वारा उत्पन्न किए गए छोटे दोषों की संख्या."
-
-#  CMaj_Flt
-#. CMaj_Flt
-#: sysdeps/names/prockernel.c:69
-msgid "The number of major faults that the process and its children have made."
-msgstr "प्रक्रिया या उसके शिशु द्वारा उत्पन्न किए गए मुख्य दोषों की संख्या."
-
-#  KStk_ESP
-#. KStk_ESP
-#: sysdeps/names/prockernel.c:72
-msgid ""
-"The current value of esp (32-bit stack pointer), as found in the kernel "
-"stack page for the process."
-msgstr ""
-
-#  KStk_EIP
-#. KStk_EIP
-#: sysdeps/names/prockernel.c:75
-msgid "The current EIP (32-bit instruction pointer)."
-msgstr "वर्तमान ईआईपी (32-बिट निर्देश पाइंटर)"
-
-#  NWChan
-#. NWChan
-#: sysdeps/names/prockernel.c:77
-msgid ""
-"This is the \"channel\" in which the process is waiting.  This is the "
-"address of a system call, and can be looked up in a namelist if you need a "
-"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
-"see the WCHAN field in action)"
-msgstr ""
-
-#  WChan
-#. WChan
-#: sysdeps/names/prockernel.c:82
-msgid "This is the textual name of the `nwchan' field."
-msgstr "यह `nwchan' फील्ड का पाठ नाम है"
-
-#: sysdeps/names/procmem.c:48
-msgid "Virtual"
-msgstr "आभासी"
-
-#: sysdeps/names/procmem.c:48
-msgid "Resident"
-msgstr "निवासी"
-
-#: sysdeps/names/procmem.c:48
-msgid "Share"
-msgstr "साझा"
-
-#: sysdeps/names/procmem.c:49
-msgid "Resident Set Size"
-msgstr "निवासी नियत आकार"
-
-#: sysdeps/names/procmem.c:49
-msgid "Resident Set Size Limit"
-msgstr "निवासी नियत आकार सीमा"
-
-#: sysdeps/names/procmem.c:54
-msgid "Total # of pages of memory"
-msgstr "मेमोरी के # पृष्ठों की संख्या"
-
-#: sysdeps/names/procmem.c:55
-msgid "Number of pages of virtual memory"
-msgstr "आभासी मेमोरी के कुल पृष्ठों की संख्या"
-
-#: sysdeps/names/procmem.c:56
-msgid "Number of resident set (non-swapped) pages"
-msgstr "निवासी नियत पृष्ठ (नॉन-स्वैप्ड) की संख्या"
-
-#: sysdeps/names/procmem.c:57
-msgid "Number of pages of shared (mmap'd) memory"
-msgstr "साझा मेमोरी (एममेप्ड) पृष्ठों की संख्या"
-
-#: sysdeps/names/procmem.c:58
-msgid ""
-"Number of pages the process has in real memory, minus 3 for administrative "
-"purposes. This is just the pages which count towards text, data, or stack "
-"space. This does not include pages which have not been demand-loaded in, or "
-"which are swapped out."
-msgstr ""
-
-#: sysdeps/names/procmem.c:63
-msgid ""
-"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr "प्रक्रिया के आरएसएस पर बाइट्स में वर्तमान सीमा (सामान्यतः 2,147,483,647)."
-
-#: sysdeps/names/procsegment.c:43
-msgid "Text_RSS"
-msgstr "पाठ-आरएसएस (_R)"
-
-#: sysdeps/names/procsegment.c:43
-msgid "ShLib_RSS"
-msgstr "एसएचलिब-आरएसएस (_R)"
-
-#: sysdeps/names/procsegment.c:43
-msgid "Data_RSS"
-msgstr "डेटा-आरएसएस (_R)"
-
-#: sysdeps/names/procsegment.c:43
-msgid "Stack_RSS"
-msgstr "स्टैक-आरएसएस (_R)"
-
-#: sysdeps/names/procsegment.c:44
-msgid "Dirty Size"
-msgstr "गंदा आकार"
-
-#: sysdeps/names/procsegment.c:44
-msgid "Start_Code"
-msgstr "स्टार्ट-कोड (_C)"
-
-#: sysdeps/names/procsegment.c:44
-msgid "End_Code"
-msgstr "एण्ड-कोड (_C)"
-
-#: sysdeps/names/procsegment.c:44
-msgid "Start_Stack"
-msgstr "स्टार्ट-स्टैक (_S)"
-
-#: sysdeps/names/procsegment.c:49
-msgid "Text resident set size"
-msgstr "पाठ निवासी नियत आकार"
-
-#: sysdeps/names/procsegment.c:50
-msgid "Shared-Lib resident set size"
-msgstr "साझा-लिब निवासी नियत आकार"
-
-#: sysdeps/names/procsegment.c:51
-msgid "Data resident set size"
-msgstr "डेटा निवासी नियत आकार"
-
-#: sysdeps/names/procsegment.c:52
-msgid "Stack resident set size"
-msgstr "स्टैक निवासी नियत आकार"
-
-#: sysdeps/names/procsegment.c:53
-msgid "Total size of dirty pages"
-msgstr "गंदे पृष्ठों के कुल आकार"
-
-#: sysdeps/names/procsegment.c:54
-msgid "Address of beginning of code segment"
-msgstr "कोड खंड के आरंभ का पता"
-
-#: sysdeps/names/procsegment.c:55
-msgid "Address of end of code segment"
-msgstr "कोड खंड के अंत का पता"
-
-#: sysdeps/names/procsegment.c:56
-msgid "Address of the bottom of stack segment"
-msgstr "स्टैक खंड के तल का पता"
-
-#: sysdeps/names/procsignal.c:41
-msgid "Signal"
-msgstr "सिग्नल"
-
-#: sysdeps/names/procsignal.c:41
-msgid "Blocked"
-msgstr "रोका गया"
-
-#: sysdeps/names/procsignal.c:41
-msgid "SigIgnore"
-msgstr "सिग-इगनोर"
-
-#: sysdeps/names/procsignal.c:41
-msgid "SigCatch"
-msgstr "सिग-कैच"
-
-#: sysdeps/names/procsignal.c:46
-msgid "Mask of pending signals"
-msgstr "लंबित सिगनल्स के आवरण"
-
-#: sysdeps/names/procsignal.c:47
-msgid "Mask of blocked signals"
-msgstr "रोके सिगनल्स के आवरण"
-
-#: sysdeps/names/procsignal.c:48
-msgid "Mask of ignored signals"
-msgstr "उपेक्षित सिगनल्स के आवरण"
-
-#: sysdeps/names/procsignal.c:49
-msgid "Mask of caught signals"
-msgstr "पकड़े गए सिगनल्स का आवरण"
-
-#: sysdeps/names/procstate.c:43
-msgid "Cmd"
-msgstr "सीएमडी"
-
-# gnome-session/gsm-client-list.c:111
-#: sysdeps/names/procstate.c:43
-msgid "State"
-msgstr "अवस्था"
-
-#: sysdeps/names/procstate.c:43
-msgid "UID"
-msgstr "यूआईडी"
-
-#: sysdeps/names/procstate.c:43
-msgid "GID"
-msgstr "जीआईडी"
-
-#: sysdeps/names/procstate.c:44
-msgid "RGid"
-msgstr "आर-जीआईडी"
-
-#: sysdeps/names/procstate.c:44
-msgid "RUid"
-msgstr "आर-यूआईडी"
-
-#: sysdeps/names/procstate.c:44
-msgid "HasCPU"
-msgstr "सीपीयू-है"
-
-#: sysdeps/names/procstate.c:44
-msgid "Proc"
-msgstr "प्रॉक"
-
-#: sysdeps/names/procstate.c:44
-msgid "LProc"
-msgstr "एल-प्रॉक"
-
-#: sysdeps/names/procstate.c:49
-msgid "Basename of executable file in call to exec()"
-msgstr "exec() को काल करने वाली एक्ज़ीक्यूटेबल फ़ाइल का बेस नाम"
-
-#: sysdeps/names/procstate.c:50
-msgid "Single-Char code for process state (S=sleeping)"
-msgstr "एकल-चर कोड प्रक्रिया अवस्था हेतु (एस=सुप्त)"
-
-#: sysdeps/names/procstate.c:51
-msgid "UID of process"
-msgstr "प्रक्रिया का यूआईडी"
-
-#: sysdeps/names/procstate.c:52
-msgid "GID of process"
-msgstr "प्रक्रिया का जीआईडी"
-
-#: sysdeps/names/procstate.c:53
-msgid "Real UID of process"
-msgstr "प्रक्रिया का वास्तविक यूआईडी"
-
-#: sysdeps/names/procstate.c:54
-msgid "Real GID of process"
-msgstr "प्रक्रिया का वास्तविक जीआईडी"
-
-#: sysdeps/names/procstate.c:55
-msgid "Has CPU"
-msgstr "सीपीयू है"
-
-#: sysdeps/names/procstate.c:56
-msgid "Processor"
-msgstr "प्रोसेसर"
-
-#: sysdeps/names/procstate.c:57
-msgid "Last Processor"
-msgstr "पिछला प्रोसेसर"
-
-#: sysdeps/names/proctime.c:45
-msgid "Start_Time"
-msgstr "प्रारंभ समय (_T)"
-
-#: sysdeps/names/proctime.c:45
-msgid "RTime"
-msgstr "आर-टाइम"
-
-#: sysdeps/names/proctime.c:45
-msgid "UTime"
-msgstr "यू-टाइम"
-
-#: sysdeps/names/proctime.c:45
-msgid "STime"
-msgstr "एस-टाइम"
-
-#: sysdeps/names/proctime.c:46
-msgid "CUTime"
-msgstr "सीयू-टाइम"
-
-#: sysdeps/names/proctime.c:46
-msgid "CSTime"
-msgstr "सीएस-टाइम"
-
-#: sysdeps/names/proctime.c:46
-msgid "TimeOut"
-msgstr "समय-समाप्त"
-
-#: sysdeps/names/proctime.c:46
-msgid "It_Real_Value"
-msgstr "यह_वास्तविक_मूल्य"
-
-#: sysdeps/names/proctime.c:47
-msgid "Frequency"
-msgstr "आवृत्ति"
-
-#: sysdeps/names/proctime.c:47
-msgid "XCPU_UTime"
-msgstr "एक्स-सीपीयू-यूटाइम (_U)"
-
-#: sysdeps/names/proctime.c:47
-msgid "XCPU_STime"
-msgstr "एक्स-सीपीयू-एसटाइम (_S)"
-
-#: sysdeps/names/proctime.c:52
-msgid "Start time of process in seconds since the epoch"
-msgstr "इपॉक के बाद से प्रक्रिया के प्रारंभ का सैकेंड में समय"
-
-#: sysdeps/names/proctime.c:53
-msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "प्रक्रिया द्वारा संचित रीयल टाइम (यूटाइम+एसटाइम)"
-
-#: sysdeps/names/proctime.c:54
-msgid "user-mode CPU time accumulated by process"
-msgstr "प्रक्रिया द्वारा संचित उपयोगकर्ता-मोड सीपीयू समय"
-
-#: sysdeps/names/proctime.c:55
-msgid "kernel-mode CPU time accumulated by process"
-msgstr "प्रक्रिया द्वारा संचित कर्नेल-मोड में सीपीयू समय "
-
-#: sysdeps/names/proctime.c:56
-msgid "cumulative utime of process and reaped children"
-msgstr "प्रक्रिया और रीप्ड शिशुओं का संचित यूटाइम "
-
-#: sysdeps/names/proctime.c:57
-msgid "cumulative stime of process and reaped children"
-msgstr "क्रिया और रीप्ड शिशुओं का संचित एसटाइम"
-
-#: sysdeps/names/proctime.c:58
-msgid "The time (in jiffies) of the process's next timeout"
-msgstr "प्रक्रिया के अगले टाइम आउट का समय (जिफीज़ में)"
-
-#: sysdeps/names/proctime.c:59
-msgid ""
-"The time (in jiffies) before the next SIGALRM is sent to the process due to "
-"an interval timer."
-msgstr ""
-"अंतराल समयपाल के कारण प्रक्रिया को अगले सिगलर्म भेजे जाने से पहले का समय (जिफ़ीज़ में)."
-
-#: sysdeps/names/proctime.c:61
-msgid "Tick frequency"
-msgstr "टिक आवृत्ति  "
-
-#: sysdeps/names/proctime.c:62
-msgid "SMP user-mode CPU time accumulated by process"
-msgstr "एसएमपी उपयोगकर्ता-मोड में प्रक्रिया द्वारा संचित सीपीयू समय"
-
-#: sysdeps/names/proctime.c:63
-msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "एसएमपी कर्नेल-मोड में प्रक्रिया द्वारा संचित सीपीयू समय"
-
-#: sysdeps/names/procuid.c:48
-msgid "Uid"
-msgstr "यूआईडी"
-
-#: sysdeps/names/procuid.c:48
-msgid "EUid"
-msgstr "ई-यूआईडी"
-
-#: sysdeps/names/procuid.c:48
-msgid "Gid"
-msgstr "जीआईडी"
-
-#: sysdeps/names/procuid.c:48
-msgid "EGid"
-msgstr "ई-जीआईडी"
-
-#: sysdeps/names/procuid.c:48
-msgid "SUid"
-msgstr "एस-यूआईडी"
-
-#: sysdeps/names/procuid.c:49
-msgid "SGid"
-msgstr "एस-जीआईडी"
-
-#: sysdeps/names/procuid.c:49
-msgid "FSUid"
-msgstr "एफ़एस-यूआईडी"
-
-#: sysdeps/names/procuid.c:49
-msgid "FSGid"
-msgstr "एफ़एस-जीआईडी"
-
-#: sysdeps/names/procuid.c:49
-msgid "Pid"
-msgstr "पीआईडी"
-
-#: sysdeps/names/procuid.c:50
-msgid "PPid"
-msgstr "पीपीआईडी"
-
-#: sysdeps/names/procuid.c:50
-msgid "PGrp"
-msgstr "पी-जीआरपी"
-
-#: sysdeps/names/procuid.c:50
-msgid "Session"
-msgstr "सत्र"
-
-#: sysdeps/names/procuid.c:50
-msgid "Tty"
-msgstr "टीटीवाय"
-
-#: sysdeps/names/procuid.c:51
-msgid "TPGid"
-msgstr "टीपीजीआईडी"
-
-#: sysdeps/names/procuid.c:51
-msgid "Priority"
-msgstr "प्राथिमकता"
-
-#: sysdeps/names/procuid.c:51
-msgid "NGroups"
-msgstr "एन-समूह"
-
-#: sysdeps/names/procuid.c:51
-msgid "Groups"
-msgstr "समूह"
-
-#: sysdeps/names/procuid.c:56
-msgid "User ID"
-msgstr "उपयोगकर्ता आईडी"
-
-#: sysdeps/names/procuid.c:57
-msgid "Effective User ID"
-msgstr "प्रभावी उपयोगकर्ता आईडी"
-
-#: sysdeps/names/procuid.c:58
-msgid "Group ID"
-msgstr "समूह आईडी"
-
-#: sysdeps/names/procuid.c:59
-msgid "Effective Group ID"
-msgstr "प्रभावी समूह आईडी"
-
-#: sysdeps/names/procuid.c:60
-msgid "Set User ID"
-msgstr "उपयोगकर्ता आईडी नियत करें"
-
-#: sysdeps/names/procuid.c:61
-msgid "Set Group ID"
-msgstr "समूह आईडी नियत करें"
-
-#: sysdeps/names/procuid.c:62
-msgid "Filesystem User ID"
-msgstr "फ़ाइलसिस्टम उपयोगकर्ता आईडी"
-
-#: sysdeps/names/procuid.c:63
-msgid "Filesystem Group ID"
-msgstr "फ़ाइलसिस्टम समूह आईडी"
-
-#: sysdeps/names/procuid.c:64
-msgid "Process ID"
-msgstr "प्रक्रिया आईडी"
-
-#: sysdeps/names/procuid.c:65
-msgid "PID of parent process"
-msgstr "अभिभावक प्रक्रिया का पीआईडी"
-
-#: sysdeps/names/procuid.c:66
-msgid "Process group ID"
-msgstr "प्रक्रिया समूह आईडी"
-
-#: sysdeps/names/procuid.c:67
-msgid "Session ID"
-msgstr "सत्र आईडी"
-
-#: sysdeps/names/procuid.c:68
-msgid "Full device number of controlling terminal"
-msgstr "कन्ट्रोलिंग टर्मिनल का सम्पूर्ण उपकरण क्रमांक"
-
-#: sysdeps/names/procuid.c:69
-msgid "Terminal process group ID"
-msgstr "टर्मिनल प्रक्रिया समूह आईडी "
-
-#: sysdeps/names/procuid.c:70
-msgid "Kernel scheduling priority"
-msgstr "कर्नेल शेड्यूलिंग प्राथमिकता"
-
-#: sysdeps/names/procuid.c:71
-msgid "Standard unix nice level of process"
-msgstr "प्रक्रिया का स्टेंडर्ड यूनिक्स नाइस स्तर"
-
-#: sysdeps/names/procuid.c:72
-msgid "Number of additional process groups"
-msgstr "अतिरिक्त प्रक्रिया समूहों की संख्या"
-
-#: sysdeps/names/procuid.c:73
-msgid "Array of additional process groups"
-msgstr "अतिरिक्त प्रक्रिया समूह के एरे"
-
-#: sysdeps/names/sem_limits.c:43 sysdeps/names/sem_limits.c:57
-msgid "Number of entries in semaphore map"
-msgstr "सीमाफोर मैप में प्रविष्टियों की संख्या"
-
-#: sysdeps/names/sem_limits.c:44 sysdeps/names/sem_limits.c:58
-msgid "Max number of arrays"
-msgstr "एरे की अधिकतम संख्या"
-
-#: sysdeps/names/sem_limits.c:45 sysdeps/names/sem_limits.c:59
-msgid "Max semaphores system wide"
-msgstr "अधि. सीमाफ़ोर्स सिसटम वाइड"
-
-#: sysdeps/names/sem_limits.c:46 sysdeps/names/sem_limits.c:60
-msgid "Number of undo structures system wide"
-msgstr "सिस्टम वाइड अनडू स्ट्रक्चर्स की संख्या"
-
-#: sysdeps/names/sem_limits.c:47 sysdeps/names/sem_limits.c:61
-msgid "Max semaphores per array"
-msgstr "अधिकतम सीमाफोर प्रति एरे"
-
-#: sysdeps/names/sem_limits.c:48 sysdeps/names/sem_limits.c:62
-msgid "Max ops per semop call"
-msgstr "अधि. ऑप्स प्रति सीमोप काल"
-
-#: sysdeps/names/sem_limits.c:49 sysdeps/names/sem_limits.c:63
-msgid "Max number of undo entries per process"
-msgstr "प्रति प्रक्रिया पूर्ववत् करने की अधिकतम संख्या"
-
-#: sysdeps/names/sem_limits.c:50 sysdeps/names/sem_limits.c:64
-msgid "sizeof struct sem_undo"
-msgstr "स्ट्रक्ट sem_undo का आकार"
-
-#: sysdeps/names/sem_limits.c:51 sysdeps/names/sem_limits.c:65
-msgid "Semaphore max value"
-msgstr "सीमाफोर अधिकतम मूल्य"
-
-#: sysdeps/names/sem_limits.c:52 sysdeps/names/sem_limits.c:66
-msgid "Adjust on exit max value"
-msgstr "एक्ज़िट मैक्स वैल्यू पर समंजित करें"
-
-#: sysdeps/names/shm_limits.c:40 sysdeps/names/shm_limits.c:49
-msgid "Max segment size"
-msgstr "अधि. सेगमेंट आकार"
-
-#: sysdeps/names/shm_limits.c:41 sysdeps/names/shm_limits.c:50
-msgid "Min segment size"
-msgstr "न्यून. सेगमेंट आकार"
-
-#: sysdeps/names/shm_limits.c:42 sysdeps/names/shm_limits.c:51
-msgid "Max number of segments"
-msgstr "सेगमेंट्स की अधिकतम संख्या "
-
-#: sysdeps/names/shm_limits.c:43 sysdeps/names/shm_limits.c:52
-msgid "Max shared segments per process"
-msgstr "अधिकतम साझा सेगमेंट प्रति प्रक्रिया"
-
-#: sysdeps/names/shm_limits.c:44 sysdeps/names/shm_limits.c:53
-msgid "Max total shared memory"
-msgstr "अधिकतम कुल साझा मेमोरी"
-
-#: sysdeps/names/swap.c:40 sysdeps/names/swap.c:49
-msgid "Total Swap Space"
-msgstr "कुल स्वैप जगह"
-
-#: sysdeps/names/swap.c:41 sysdeps/names/swap.c:50
-msgid "Used Swap Space"
-msgstr "उपयोग में स्वैप जगह"
-
-#: sysdeps/names/swap.c:42 sysdeps/names/swap.c:51
-msgid "Free Swap Space"
-msgstr "मुक्त स्वैप जगह"
-
-#: sysdeps/names/swap.c:43
-msgid "Page In"
-msgstr "पेज इन"
-
-#: sysdeps/names/swap.c:44
-msgid "Page Out"
-msgstr "पेज आउट"
-
-#: sysdeps/names/swap.c:52
-msgid "Total number of swap pages that have been brought in since system boot"
-msgstr "सिस्टम बूट से अब तक भीतर लाए गए स्वैप पृष्ठों की संख्या"
-
-#: sysdeps/names/swap.c:54
-msgid "Total number of swap pages that have been brought out since system boot"
-msgstr "सिस्टम बूट से अब तक बाहर लाए गए स्वैप पृष्ठों की संख्या"
-
-#: sysdeps/names/sysdeps.c:50 sysdeps/names/sysdeps.c:77
-msgid "Server Features"
-msgstr "सर्वर विशेषताएँ"
-
-#: sysdeps/names/sysdeps.c:51 sysdeps/names/sysdeps.c:78
-msgid "CPU Usage"
-msgstr "सीपीयू उपयोग"
-
-#: sysdeps/names/sysdeps.c:52 sysdeps/names/sysdeps.c:79
-msgid "Memory Usage"
-msgstr "मेमोरी उपयोग"
-
-#: sysdeps/names/sysdeps.c:53 sysdeps/names/sysdeps.c:80
-msgid "Swap Usage"
-msgstr "स्वैप उपयोग"
-
-#: sysdeps/names/sysdeps.c:54 sysdeps/names/sysdeps.c:81
-msgid "System Uptime"
-msgstr "सिस्टम अपटाइम"
-
-#: sysdeps/names/sysdeps.c:55 sysdeps/names/sysdeps.c:82
-msgid "Load Averange"
-msgstr "भार औसत"
-
-#: sysdeps/names/sysdeps.c:56 sysdeps/names/sysdeps.c:83
-msgid "Shared Memory Limits"
-msgstr "शेयर्ड मेमोरी सीमाएँ"
-
-#: sysdeps/names/sysdeps.c:57 sysdeps/names/sysdeps.c:84
-msgid "Message Queue Limits"
-msgstr "संदेश क्यू सीमाएँ"
-
-#: sysdeps/names/sysdeps.c:58 sysdeps/names/sysdeps.c:85
-msgid "Semaphore Set Limits"
-msgstr "सीमाफ़ोर नियत सीमाएँ"
-
-#: sysdeps/names/sysdeps.c:59 sysdeps/names/sysdeps.c:86
-msgid "List of running Processes"
-msgstr "चल रही प्रक्रियाओं की सूची "
-
-#: sysdeps/names/sysdeps.c:60 sysdeps/names/sysdeps.c:87
-msgid "Process Status information"
-msgstr "प्रक्रिया स्थिति जानकारी"
-
-#: sysdeps/names/sysdeps.c:61 sysdeps/names/sysdeps.c:88
-msgid "Process UID and TTY information"
-msgstr "प्रक्रिया यूआईडी एवं टीटीवाई जानकारी"
-
-#: sysdeps/names/sysdeps.c:62 sysdeps/names/sysdeps.c:89
-msgid "Process Memory information"
-msgstr "प्रक्रिया मेमोरी जानकारी"
-
-#: sysdeps/names/sysdeps.c:63 sysdeps/names/sysdeps.c:90
-msgid "Process Time information"
-msgstr "प्रक्रिया समय जानकारी"
-
-#: sysdeps/names/sysdeps.c:64 sysdeps/names/sysdeps.c:91
-msgid "Process Signal information"
-msgstr "प्रक्रिया सिग्नल जानकारी"
-
-#: sysdeps/names/sysdeps.c:65 sysdeps/names/sysdeps.c:92
-msgid "Process Kernel Data information"
-msgstr "प्रक्रिया कर्नेल डेटा जानकारी"
-
-#: sysdeps/names/sysdeps.c:66 sysdeps/names/sysdeps.c:93
-msgid "Process Segment information"
-msgstr "प्रक्रिया सेगमेंट जानकारी"
-
-#: sysdeps/names/sysdeps.c:67
-msgid "Process Arguments"
-msgstr "प्रक्रिया आर्गुमेंट्स"
-
-#: sysdeps/names/sysdeps.c:68 sysdeps/names/sysdeps.c:95
-msgid "Process Memory Map"
-msgstr "प्रक्रिया मेमोरी मैप"
-
-#: sysdeps/names/sysdeps.c:69
-msgid "Mount List"
-msgstr "माउन्ट सूची"
-
-#: sysdeps/names/sysdeps.c:70 sysdeps/names/sysdeps.c:97
-msgid "File System Usage"
-msgstr "फ़ाइल सिस्टम उपयोग"
-
-#: sysdeps/names/sysdeps.c:71 sysdeps/names/sysdeps.c:98
-msgid "Network Load"
-msgstr "नेटवर्क भार"
-
-#: sysdeps/names/sysdeps.c:72 sysdeps/names/sysdeps.c:99
-msgid "PPP Statistics"
-msgstr "पीपीपी सांख्यिकी"
-
-#: sysdeps/names/sysdeps.c:94
-msgid "Command line arguments of the process"
-msgstr "प्रक्रियाओं के कमांड लाइन आर्गुमेंट्स"
-
-#: sysdeps/names/sysdeps.c:96
-msgid "List of currently mounted filesystems"
-msgstr "वर्तमान में माउंटेड फ़ाइल सिस्टम्स की सूची"
-
-#: sysdeps/names/uptime.c:39
-msgid "Uptime"
-msgstr "अपटाइम"
-
-#: sysdeps/names/uptime.c:40
-msgid "Idletime"
-msgstr "निष्क्रिय-समय"
-
-#: sysdeps/names/uptime.c:41
-msgid "BootTime"
-msgstr "बूट-टाइम"
-
-#: sysdeps/names/uptime.c:46
-msgid "Time in seconds since system boot"
-msgstr "सिस्टम बूट के बाद से समय सेकेण्ड्स में"
-
-#: sysdeps/names/uptime.c:47
-msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "सिस्टम बूट के बाद से सैकेण्ड्स में समय जिसमें तंत्र ने निष्क्रिय कार्य में बिताया"
-
-#: sysdeps/names/uptime.c:48
-msgid "Time of last system boot in seconds since the epoch"
-msgstr "इपो के बाद से सैकेण्ड्स में पिछले सिस्टम बूट का समय"
-
-#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "हैंगअप"
 
-#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "इंटरप्ट"
 
-#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "बाहर"
 
-#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "अवैध निर्देश"
 
-#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "ट्रेस ट्रैप"
 
-#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "छोड़ें"
 
-#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "ईएमटी त्रुटि"
 
-#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "फ़्लोटिंग-पाइंट अपवाद"
 
-#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "किल"
 
-#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "बस त्रुटि"
 
-#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "सेगमेंटेशन अतिक्रमण"
 
-#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "सिस्टम काल को गलत आर्गुमेंट"
 
-#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "टूटा पाइप"
 
-#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "अलार्म घड़ी"
 
-#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "समाप्त"
 
-#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "सॉकेट पर अत्यावश्यक अवस्था"
 
-#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "रोकें"
 
-#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "कुंजीपटल रोकें"
 
-#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "जारी रखें"
 
-#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "शिशु स्थिति बदल चुकी है"
 
-#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "टीटीवाई से पढ़ने का कार्य पृष्ठभूमि में करें"
 
-#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "टीटीवाई पर लिखने का कार्य पृष्ठभूमि में करें"
 
-#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "आई/ओ अब संभव"
 
-#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "सीपीयू सीमा से बाहर पहुँच चुकी"
 
-#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "फ़ाइल आकार सीमा से बाहर पहुँच चुकी"
 
-#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "आभासी अलार्म घड़ी"
 
-#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "प्रोफ़ाइलिंग अलार्म घड़ी"
 
-#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "विंडो आकार परिवर्तन"
 
-#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "जानकारी निवेदन"
 
-#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "उपयोगकर्ता पारिभाषित संकेत १"
 
-#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "उपयोगकर्ता पारिभाषित संकेत २"
+
