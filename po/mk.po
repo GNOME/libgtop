@@ -15,66 +15,66 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-09 12:25+0100\n"
-"PO-Revision-Date: 2005-01-09 17:06+0100\n"
+"POT-Creation-Date: 2005-07-02 06:18+0000\n"
+"PO-Revision-Date: 2005-07-02 12:18+0200\n"
 "Last-Translator: Arangel Angov <ufo@linux.net.mk>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
 
-#: lib/read.c:64
+#: ../lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgstr "прочитан %d бајт"
 
-#: lib/read_data.c:52
+#: ../lib/read_data.c:53
 msgid "read data size"
 msgstr "големина на прочитаните податоци"
 
-#: lib/read_data.c:71
+#: ../lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
-msgstr "прочитани %lu бајти"
+msgstr "прочитани %lu бајти податоци"
 
-#: lib/write.c:51
+#: ../lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgstr "запишан %d бајт"
 
-#: src/daemon/gnuserv.c:461
+#: ../src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "Овозможи наоѓање грешки"
 
-#: src/daemon/gnuserv.c:461
+#: ../src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "Најди грешки"
 
-#: src/daemon/gnuserv.c:463
+#: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "Овозможи опширен излез"
 
-#: src/daemon/gnuserv.c:463
+#: ../src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "ОПШИРНО"
 
-#: src/daemon/gnuserv.c:465
+#: ../src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "Не дели процеси во позадина"
 
-#: src/daemon/gnuserv.c:465
+#: ../src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "БЕЗ ДЕМОНИ"
 
-#: src/daemon/gnuserv.c:467
+#: ../src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "од"
 
-#: src/daemon/gnuserv.c:467
+#: ../src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:501
+#: ../src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -83,127 +83,127 @@ msgstr ""
 "Грешка на опцијата %s: %s.\n"
 "Види '%s --помош' за целосна листа на достапни опции за командни линии.\n"
 
-#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "Спушти"
 
-#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "Прекин"
 
-#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "Излез"
 
-#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "Нелегална инструкција"
 
-#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "Следи ја замката"
 
-#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "Прекини"
 
-#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "ЕМТ грешка"
 
-#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "Грешка во операција со реални броеви"
 
-#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "Убиј"
 
-#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "Грешка во магистралата"
 
-#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "Грешка при сегментација"
 
-#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "Грешен аргумент при системски повик"
 
-#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "Прекината цевка"
 
-#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "Будилник"
 
-#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "Прекинување"
 
-#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "Итна интервенција врз сокет"
 
-#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "Стоп"
 
-#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "Стоп на тастатура"
 
-#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "Продолжи"
 
-#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "Статусот на дете-процесот се смени"
 
-#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "Позадинско читање од терминал"
 
-#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "Позадинско запишување на терминал"
 
-#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "Влезно/Излезната операција сега е возможна"
 
-#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "Процесорскиот лимит е пречекорен"
 
-#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "Големината на датотека ги надминува границите"
 
-#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "Виртуелен алармен часовник"
 
-#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "Аларм со профили"
 
-#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "Промена на големина на прозорец"
 
-#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "Барање за информации"
 
-#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "Сигнал 1 дефиниран од корисникот"
 
-#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Сигнал 2 дефиниран од корисникот"
 
