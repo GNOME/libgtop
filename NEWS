@@ -1,3 +1,8 @@
+July 3, 2005: Overview of changes from 2.11.0 to 2.11.1
+=======================================================
+* Linux:
+  - glibtop_get_swap : added page(in|out) for linux 2.6.
+
 June 8, 2005: Overview of changes from 2.10.x to 2.11.0
 =======================================================
 * Replaced a lot of macros by functions

@@ -1,3 +1,7 @@
+2005-07-03  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* NEWS: Released 2.11.1.
+
 2005-06-15  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* sysdeps/common/Makefile.am:
