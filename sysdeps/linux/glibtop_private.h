@@ -111,6 +111,12 @@ proc_stat_after_cmd (char *p)
 		*p++ = '\0';
 	return p;
 }
+
+
+unsigned long
+get_boot_time(glibtop *server) G_GNUC_INTERNAL;
+
+
 G_END_DECLS
 
 #endif /* __LINUX__GLIBTOP_PRIVATE_H__ */

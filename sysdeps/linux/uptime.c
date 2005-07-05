@@ -57,7 +57,7 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 
 	buf->uptime   = g_ascii_strtod (buffer, &p);
 	buf->idletime = g_ascii_strtod (p, &p);
-	buf->boot_time = (guint64) time(NULL) - (guint64) buf->uptime;
+	buf->boot_time = get_boot_time(server);
 
 	buf->flags = _glibtop_sysdeps_uptime;
 }

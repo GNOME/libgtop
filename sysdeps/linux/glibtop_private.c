@@ -96,3 +96,20 @@ file_to_buffer(glibtop *server, char *buffer, const char *filename)
 }
 
 
+
+
+unsigned long
+get_boot_time(glibtop *server)
+{
+	char buffer[BUFSIZ];
+	char *btime;
+
+	file_to_buffer(server, buffer, "/proc/stat");
+
+	btime = strstr(buffer, "btime");
+
+	g_return_val_if_fail(btime != NULL, 0UL);
+
+	btime = skip_token(btime);
+	return strtoul(btime, NULL, 10);
+}

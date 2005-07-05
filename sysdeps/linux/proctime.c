@@ -87,11 +87,7 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 
 	/* seconds since epoch */
 	{
-	  /* Linux provides start_time as clock_t representing
-	     the start of <pid> after boot_time.
-	     Let's use glibtop_get_uptime to get boot_time.
-	     But i'm not sure if this is safe
-
+	  /*
 	     See libgtop documentation.
 
 	     #ifdef __KERNEL__
@@ -109,10 +105,7 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 	     system clock is not synchronised with you hardware clock.
 	     'man hwclock'
 	  */
-	  glibtop_uptime up;
-	  glibtop_get_uptime_s(server, &up);
-
-	  buf->start_time = up.boot_time + strtoull (p, &p, 0) / 100;
+	  buf->start_time = get_boot_time(server) + strtoull (p, &p, 0) / 100;
 	}
 
 	buf->frequency = 100;
