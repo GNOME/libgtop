@@ -1,3 +1,17 @@
+2005-07-06  Benoît Dejean  <TazForEver@dlfp.org>
+
+	Et m***e ... CVS got me. I wanted to commit a single change on the
+	toplevel configure.in but commited the whole tree. Sorry.
+	
+	* glibtop_private.c:
+	* glibtop_private.h:
+	* proctime.c:
+	* uptime.c:
+	
+	Added new function get_boot_time.
+	
+	Retrieve boot_time from /proc/stat.
+
 2005-06-13  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* glibtop_private.c: (try_file_to_buffer): Ensures buffer is 0-terminated.
