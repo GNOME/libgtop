@@ -1,3 +1,7 @@
+2005-07-07  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* glibtop_private.c: (read_boot_time), (get_boot_time): Cached boot_time.
+
 2005-07-06  Benoît Dejean  <TazForEver@dlfp.org>
 
 	Et m***e ... CVS got me. I wanted to commit a single change on the

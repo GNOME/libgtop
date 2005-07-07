@@ -98,8 +98,8 @@ file_to_buffer(glibtop *server, char *buffer, const char *filename)
 
 
 
-unsigned long
-get_boot_time(glibtop *server)
+static unsigned long
+read_boot_time(glibtop *server)
 {
 	char buffer[BUFSIZ];
 	char *btime;
@@ -113,3 +113,19 @@ get_boot_time(glibtop *server)
 	btime = skip_token(btime);
 	return strtoul(btime, NULL, 10);
 }
+
+
+
+unsigned long
+get_boot_time(glibtop *server)
+{
+	static unsigned long boot_time = 0UL;
+
+	if(G_UNLIKELY(!boot_time))
+	{
+		boot_time = read_boot_time(server);
+	}
+
+	return boot_time;
+}
+
