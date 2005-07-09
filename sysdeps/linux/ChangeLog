@@ -1,3 +1,9 @@
+2005-07-09  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* netload.c: (read_value), (linux_2_6_stats), (linux_2_0_stats),
+	(linux_2_4_stats), (glibtop_get_netload_s): Split implementations.
+	New (simpler) implementation for 2.6 (/sys is so nice ;)
+
 2005-07-07  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* glibtop_private.c: (read_boot_time), (get_boot_time): Cached boot_time.
