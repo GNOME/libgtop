@@ -1,3 +1,7 @@
+2005-07-13  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* NEWS: Released 2.11.2.
+
 2005-07-06  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* configure.in: 2.11.2 post release version bump.
