@@ -55,7 +55,7 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 			    pid_t pid)
 {
 	char buffer [BUFSIZ], *p;
-	const size_t pagesize = getpagesize();
+	const size_t pagesize = get_page_size();
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_SEGMENT, 0);
 

@@ -117,6 +117,10 @@ unsigned long
 get_boot_time(glibtop *server) G_GNUC_INTERNAL;
 
 
+size_t
+get_page_size(void) G_GNUC_INTERNAL;
+
+
 G_END_DECLS
 
 #endif /* __LINUX__GLIBTOP_PRIVATE_H__ */

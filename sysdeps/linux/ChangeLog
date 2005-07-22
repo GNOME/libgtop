@@ -1,3 +1,12 @@
+2005-07-22  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* glibtop_private.c: (get_page_size):
+	* glibtop_private.h:
+	* procmem.c: (glibtop_get_proc_mem_s):
+	* procsegment.c: (glibtop_get_proc_segment_s):
+	
+	Cached getpagesize().
+
 2005-07-09  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* netload.c: (read_value), (linux_2_6_stats), (linux_2_0_stats),

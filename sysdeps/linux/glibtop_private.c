@@ -10,6 +10,7 @@
 #include <stdarg.h>
 
 #include <fcntl.h>
+#include <unistd.h>
 
 
 unsigned long long
@@ -129,3 +130,16 @@ get_boot_time(glibtop *server)
 	return boot_time;
 }
 
+
+size_t
+get_page_size(void)
+{
+	static size_t pagesize = 0;
+
+	if(G_UNLIKELY(!pagesize))
+	{
+		pagesize = getpagesize();
+	}
+
+	return pagesize;
+}
