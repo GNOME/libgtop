@@ -1,3 +1,8 @@
+July 24, 2005: Overview of changes from 2.11.2 to 2.11.90
+=========================================================
+* Linux:
+  - fixed glibtop_uptime .flags.
+
 July &3, 2005: Overview of changes from 2.11.1 to 2.11.2
 ========================================================
 * Linux:

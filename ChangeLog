@@ -1,3 +1,8 @@
+2005-07-24  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* NEWS:
+	* configure.in: Released 2.11.90.
+
 2005-07-22  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* configure.in: 2.11.3 post release version bump.
