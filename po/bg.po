@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-15 16:26+0300\n"
-"PO-Revision-Date: 2005-06-15 16:28+0300\n"
+"POT-Creation-Date: 2005-07-28 14:05+0300\n"
+"PO-Revision-Date: 2005-07-28 14:04+0300\n"
 "Last-Translator: Rostislav Raykov <zbrox@i-space.org>\n"
 "Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
 "MIME-Version: 1.0\n"
@@ -33,8 +33,8 @@ msgstr "размер прочетени данни"
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "прочетен %d байт данни"
-msgstr[1] "прочетени %d байта данни"
+msgstr[0] "прочетен %lu байт данни"
+msgstr[1] "прочетени %lu байта данни"
 
 #: ../lib/write.c:52
 #, c-format
