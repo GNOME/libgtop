@@ -1,3 +1,13 @@
+2005-08-02  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* pprint.c: (pprint_get_cpu), (pprint_get_loadavg),
+	(pprint_get_mem), (pprint_get_msg_limits), (pprint_get_netlist),
+	(pprint_get_swap), (pprint_get_uptime), (pprint_get_proc_kernel),
+	(main):
+
+	Added pprint_get_proc_kernel(pid).
+	Fixed prototypes.
+
 2005-01-22  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* openfiles.c: (show_open_files): Updated.

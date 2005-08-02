@@ -2,6 +2,7 @@
 
 #include <glibtop/union.h>
 
+#include <unistd.h>
 
 #include <stdio.h>
 #include <stddef.h>
@@ -28,7 +29,7 @@ printf(".%u = " FORMAT " }\n", SIZE - 1 , buf.ARRAY[SIZE - 1]); \
 
 
 
-static void pprint_get_cpu()
+static void pprint_get_cpu(void)
 {
   glibtop_cpu buf;
 
@@ -81,7 +82,7 @@ static void pprint_get_fsusage(const char *mountpoint)
 
 
 
-static void pprint_get_loadavg()
+static void pprint_get_loadavg(void)
 {
   glibtop_loadavg buf;
 
@@ -98,7 +99,7 @@ static void pprint_get_loadavg()
 
 
 
-static void pprint_get_mem()
+static void pprint_get_mem(void)
 {
   glibtop_mem buf;
 
@@ -156,7 +157,7 @@ static void pprint_get_mountlist(gboolean allfs)
 
 
 
-static void pprint_get_msg_limits()
+static void pprint_get_msg_limits(void)
 {
   glibtop_msg_limits buf;
 
@@ -189,7 +190,7 @@ static void pprint_get_netload(const char *iface)
 }
 
 
-static void pprint_get_netlist()
+static void pprint_get_netlist(void)
 {
   glibtop_netlist buf;
   char **devices;
@@ -211,7 +212,7 @@ static void pprint_get_netlist()
 
 
 
-static void pprint_get_swap()
+static void pprint_get_swap(void)
 {
   glibtop_swap buf;
 
@@ -229,7 +230,7 @@ static void pprint_get_swap()
 
 
 
-static void pprint_get_uptime()
+static void pprint_get_uptime(void)
 {
   glibtop_uptime buf;
 
@@ -244,6 +245,23 @@ static void pprint_get_uptime()
 }
 
 
+
+
+static void pprint_get_proc_kernel(pid_t pid)
+{
+  glibtop_proc_kernel buf;
+
+  glibtop_get_proc_kernel(&buf, pid);
+
+  HEADER_PPRINT(glibtop_get_proc_kernel);
+  PPRINT(flags, "%#llx");
+  PPRINT(k_flags, "%llu");
+  PPRINT(min_flt, "%llu");
+  PPRINT(maj_flt, "%llu");
+  PPRINT(cmin_flt, "%llu");
+  PPRINT(cmaj_flt, "%llu");
+  FOOTER_PPRINT();
+}
 
 
 
@@ -274,6 +292,8 @@ int main()
 /* pprint_get_sysinfo(); */
 
   pprint_get_uptime();
+
+  pprint_get_proc_kernel(getpid());
 
   glibtop_close();
 
