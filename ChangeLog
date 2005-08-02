@@ -1,3 +1,24 @@
+2005-08-02  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* configure.in:
+	* include/glibtop/Makefile.am:
+	* include/glibtop/glibtop-server.h:
+	* include/glibtop/init_hooks.h:
+	* include/glibtop/sysdeps.h:
+	* lib/init.c: (glibtop_init_s):
+	* lib/sysdeps.c:
+	* sysdeps/aix/open.c: (glibtop_init_p):
+	* sysdeps/common/sysdeps_suid.c:
+	* sysdeps/freebsd/open.c: (glibtop_init_p):
+	* sysdeps/osf1/open_suid.c: (glibtop_init_p):
+	* sysdeps/solaris/open_suid.c: (glibtop_init_p):
+	* sysdeps/stub_suid/open.c: (glibtop_init_p):
+
+	Moved _glibtop_init_hook_[sp] declaration to private
+	glibtop/init_hooks.h. Marked them const.
+
+	Fixed GLIBTOP_SUID_NETLIST issues.
+
 2005-07-24  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* NEWS:

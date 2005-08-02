@@ -25,8 +25,9 @@
 #include <glibtop/open.h>
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
+#include <glibtop/init_hooks.h>
 
-glibtop_init_func_t _glibtop_init_hook_p [] = {
+const glibtop_init_func_t _glibtop_init_hook_p [] = {
 #if GLIBTOP_SUID_CPU
 	glibtop_init_cpu_p,
 #endif
@@ -83,6 +84,9 @@ glibtop_init_func_t _glibtop_init_hook_p [] = {
 #endif
 #if GLIBTOP_SUID_NETLOAD
 	glibtop_init_netload_p,
+#endif
+#if GLIBTOP_SUID_NETLIST
+	glibtop_init_netlist_p,
 #endif
 #if GLIBTOP_SUID_PPP
 	glibtop_init_ppp_p,

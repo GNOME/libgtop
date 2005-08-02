@@ -36,11 +36,6 @@ typedef struct _glibtop_server_info	glibtop_server_info;
 
 typedef struct _glibtop_closure		glibtop_closure;
 
-typedef int (*glibtop_init_func_t)	(glibtop_server *, glibtop_closure *);
-
-extern glibtop_init_func_t		_glibtop_init_hook_s [];
-extern glibtop_init_func_t		_glibtop_init_hook_p [];
-
 struct _glibtop_server_info
 {
     int ncpu;			/* Number of CPUs, zero if single-processor */

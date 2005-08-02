@@ -26,6 +26,7 @@
 #include <glibtop/sysdeps.h>
 #include <glibtop/open.h>
 #include <glibtop/parameter.h>
+#include <glibtop/init_hooks.h>
 
 #ifndef DEFAULT_PORT
 #define DEFAULT_PORT 42800
@@ -219,7 +220,7 @@ glibtop *
 glibtop_init_s (glibtop **server_ptr, unsigned long features, unsigned flags)
 {
 	glibtop *server;
-	glibtop_init_func_t *init_fkt;
+	const glibtop_init_func_t *init_fkt;
 
 	if (server_ptr == NULL)
 		return NULL;

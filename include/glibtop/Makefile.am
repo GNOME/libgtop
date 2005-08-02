@@ -10,4 +10,4 @@ glibtop_HEADERS		= close.h loadavg.h prockernel.h procstate.h \
 			  inodedb.h sysinfo.h ppp.h procargs.h netload.h \
 			  netlist.h procopenfiles.h open.h
 
-noinst_HEADERS		= error.h write.h read_data.h read.h
+noinst_HEADERS		= error.h write.h read_data.h read.h init_hooks.h

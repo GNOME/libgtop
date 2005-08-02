@@ -22,6 +22,7 @@
 #include <glibtop.h>
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
+#include <glibtop/init_hooks.h>
 
 const unsigned long glibtop_server_features =
 GLIBTOP_SUID_CPU +
@@ -43,9 +44,10 @@ GLIBTOP_SUID_PROC_SEGMENT +
 GLIBTOP_SUID_PROC_ARGS +
 GLIBTOP_SUID_PROC_MAP +
 GLIBTOP_SUID_NETLOAD +
+GLIBTOP_SUID_NETLIST +
 GLIBTOP_SUID_PPP;
 
-glibtop_init_func_t _glibtop_init_hook_s [] = {
+const glibtop_init_func_t _glibtop_init_hook_s [] = {
 #if !GLIBTOP_SUID_CPU
 	glibtop_init_cpu_s,
 #endif
@@ -103,13 +105,16 @@ glibtop_init_func_t _glibtop_init_hook_s [] = {
 #if !GLIBTOP_SUID_NETLOAD
 	glibtop_init_netload_s,
 #endif
+#if !GLIBTOP_SUID_NETLIST
+	glibtop_init_netlist_s,
+#endif
 #if !GLIBTOP_SUID_PPP
 	glibtop_init_ppp_s,
 #endif
 	NULL
 };
 
-glibtop_init_func_t _glibtop_init_hook_p [] = {
+const glibtop_init_func_t _glibtop_init_hook_p [] = {
 #if GLIBTOP_SUID_CPU
 	glibtop_init_cpu_p,
 #endif
@@ -166,6 +171,9 @@ glibtop_init_func_t _glibtop_init_hook_p [] = {
 #endif
 #if GLIBTOP_SUID_NETLOAD
 	glibtop_init_netload_p,
+#endif
+#if GLIBTOP_SUID_NETLIST
+	glibtop_init_netlist_p,
 #endif
 #if GLIBTOP_SUID_PPP
 	glibtop_init_ppp_p,
