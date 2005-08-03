@@ -1,3 +1,7 @@
+2005-08-02  Dave Neary  <bolsh@gimp.org>
+
+	* tr.po: Fix a C formatting string translation.
+
 2005-06-28  Alexander Shopov  <ash@contact.bg>
 
 	* bg.po: Updated Bulgarian translation by

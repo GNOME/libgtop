@@ -32,8 +32,8 @@ msgstr "okunan veri miktarı"
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "%d bayt oku"
-msgstr[1] "%d bayt oku"
+msgstr[0] "%lu bayt oku"
+msgstr[1] "%lu bayt oku"
 
 #: lib/write.c:52
 #, c-format
