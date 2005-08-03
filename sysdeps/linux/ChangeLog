@@ -1,3 +1,9 @@
+2005-08-03  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* netload.c: (glibtop_get_netload_s):
+
+	Fixed for people running 2.6 without /sys.
+
 2005-08-02  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* glibtop_server.h:

@@ -540,10 +540,12 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
     if (server->os_version_code < LINUX_VERSION_CODE(2, 1, 14)) {
 	linux_2_0_stats(server, buf, interface);
     }
-    else if (server->os_version_code > LINUX_VERSION_CODE(2, 6, 0)) {
+    else if (server->os_version_code > LINUX_VERSION_CODE(2, 6, 0)
+	     && g_file_test("/sys", G_FILE_TEST_IS_DIR)) {
 	linux_2_6_stats(server, buf, interface);
     }
-    else if (server->os_version_code > LINUX_VERSION_CODE(2, 4, 0)) {
+    else {
+	/* 2.4 and 2.6 without /sys (?$£Z¥!) */
 	linux_2_4_stats(server, buf, interface);
     }
 
