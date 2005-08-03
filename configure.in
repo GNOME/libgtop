@@ -112,27 +112,6 @@ if test x$build_inodedb = xyes ; then
   AC_DEFINE(GLIBTOP_INODEDB)
 fi
 
-
-if test x$libgtop_smp = xyes ; then
-  smp_examples='smp'
-  smp_static_examples='smp_static'
-else
-  smp_examples=
-  smp_static_examples=
-fi
-
-if test "x$enable_static" != xno; then
-  static_targets="first_static second_static mountlist_static procmap_static netload_static sysdeps_static timings_static $smp_static_examples pprint_static procargs_static df_static netlist netlist_static openfiles_static"
-else
-  static_targets=""
-fi
-
-AM_CONDITIONAL(ENABLE_STATIC, test x$enable_static = xyes)
-AM_CONDITIONAL(ENABLE_SHARED, test x$enable_static = xyes)
-
-AC_SUBST(static_targets)
-AC_SUBST(smp_examples)
-
 GLIB_REQUIRED=2.6.0
 
 PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLIB_REQUIRED)

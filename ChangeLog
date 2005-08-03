@@ -1,3 +1,10 @@
+2005-08-04  Benoît Dejean  <TazForEver@dlfp.org>
+
+	* configure.in:
+	* examples/Makefile.am:
+
+	Removed static examples.
+
 2005-08-02  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* configure.in:
