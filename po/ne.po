@@ -1,162 +1,85 @@
+# translation of libgtop.HEAD.po to Nepali
 # Nepali Translation Project.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the libgtop package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Pawan Chitrakar  <pawan@nplinux.org>, 2004.
+# Jaydeep Bhusal <zaydeep@hotmail.com>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: levgtop.HEAD.ne.po\n"
+"Project-Id-Version: libgtop.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-11 04:37+0100\n"
-"PO-Revision-Date: 2004-12-25 04:13+0545\n"
-"Last-Translator: Rajeev Shrestha <rstha@ecomail.com.np>\n"
-"Language-Team: NEPALI <info@mpp.org.np>\n"
+"POT-Creation-Date: 2005-08-06 18:56+0545\n"
+"PO-Revision-Date: 2005-06-02 10:54+0545\n"
+"Last-Translator: Jaydeep Bhusal <zaydeep@hotmail.com>\n"
+"Language-Team: Nepali <info@mpp.org.np>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Nepali\n"
 "X-Poedit-Country: NEPAL\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: KBabel 1.9.1\n"
+"Plural-Forms: nplurals=2;plural=(n!=1)\n"
 
-#: examples/smp.c:76
+#: ../lib/read.c:65
 #, c-format
-msgid "Ticks (%ld per second):"
-msgstr "टिकटिक गर्छ (%ld प्रति सेकेन्ड):"
-
-#: examples/smp.c:79
-msgid "Total"
-msgstr "जम्मा"
-
-#: examples/smp.c:79
-msgid "User"
-msgstr "प्रयोगकर्ता"
-
-#: examples/smp.c:79
-msgid "Nice"
-msgstr "असल"
-
-#: examples/smp.c:79
-msgid "Sys"
-msgstr "प्रणाली"
-
-#: examples/smp.c:79
-msgid "Idle"
-msgstr "बेकाम"
-
-#: examples/smp.c:81
-#, c-format
-msgid ""
-"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-"\n"
-msgstr ""
-"सिपियु  (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-"\n"
-
-#: examples/smp.c:85
-#, c-format
-msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr "सिपियु%3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-
-#: examples/smp.c:102
-msgid "Percent:"
-msgstr "प्रतिशत:"
-
-#: examples/smp.c:103
-msgid "Total (%)"
-msgstr "जम्मा(%)"
-
-#: examples/smp.c:103
-msgid "User (%)"
-msgstr "प्रयोगकर्ता(%)"
-
-#: examples/smp.c:103
-msgid "Nice (%)"
-msgstr "असल(%)"
-
-#: examples/smp.c:103
-msgid "Sys (%)"
-msgstr "प्रणाली(%)"
-
-#: examples/smp.c:104
-msgid "Idle (%)"
-msgstr "बेकाम(%)"
-
-#: examples/smp.c:106
-#, c-format
-msgid ""
-"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-"\n"
-msgstr ""
-"सिपियु   (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-"\n"
-
-#: examples/smp.c:122
-#, c-format
-msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr "सिपियु%3d       (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-
-#: examples/smp.c:128
-msgid "Spin:"
-msgstr "घुम:"
-
-#: lib/read.c:64
-#, fuzzy, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "[पढ्ने मात्र]"
-msgstr[1] ""
+msgstr[0] "%d बाइट पढ्नुहोस"
+msgstr[1] "%d बाइटहरु पढ्नुहोस"
 
-#: lib/read_data.c:51
+#: ../lib/read_data.c:53
 msgid "read data size"
 msgstr "तथ्य आकार पढ"
 
-#: lib/read_data.c:68
+#: ../lib/read_data.c:72
 #, c-format
-msgid "read data %d byte"
-msgid_plural "read data %d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "डाटाको %lu बाइट पढ्नुहोस"
+msgstr[1] "डाटाको %lu बाइटहरु पढ्नुहोस"
 
-#: lib/write.c:51
-#, fuzzy, c-format
-msgid "write %d byte"
-msgid_plural "write %d bytes"
-msgstr[0] "लेख्न निषेध"
-msgstr[1] ""
+#: ../lib/write.c:52
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "%d बाइट लेख्यो"
+msgstr[1] "%d बाइटहरु लेख्यो"
 
-#: src/daemon/gnuserv.c:461
+#: ../src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "डिबग गर्न सक्षम गर"
 
-#: src/daemon/gnuserv.c:461
+#: ../src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "डिबग"
 
-#: src/daemon/gnuserv.c:463
+#: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "भर्बोज निवेश सक्षम गर"
 
-#: src/daemon/gnuserv.c:463
+#: ../src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "भर्बोज"
 
-#: src/daemon/gnuserv.c:465
+#: ../src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
-msgstr ""
+msgstr "पृष्ठभुमिमा फोर्क नगर्नुहोस"
 
-#: src/daemon/gnuserv.c:465
+#: ../src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "अवतारिक छैन"
 
-#: src/daemon/gnuserv.c:467
+#: ../src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "इनेट्डबाट जगाइएको"
 
-#: src/daemon/gnuserv.c:467
+#: ../src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "इनेट्ड"
 
-#: src/daemon/gnuserv.c:501
+#: ../src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -165,158 +88,126 @@ msgstr ""
 "%s: %s विकल्पमा त्रटि।\n"
 "उपलब्ध आदेशरेखाको विकल्पहरुको एउटा पूर्ण सूची हेर्नको निम्ति '%s --मद्दत' सञ्चालन गर।\n"
 
-#: sysdeps/osf1/siglist.c:28
-#: sysdeps/sun4/siglist.c:28
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "सम्पर्क छुटाउ"
 
-#: sysdeps/osf1/siglist.c:29
-#: sysdeps/sun4/siglist.c:29
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "रोक(अबरोध) "
 
-#: sysdeps/osf1/siglist.c:30
-#: sysdeps/sun4/siglist.c:30
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "बाहिर जाउ"
 
-#: sysdeps/osf1/siglist.c:31
-#: sysdeps/sun4/siglist.c:31
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "अवैध उपदेश"
 
-#: sysdeps/osf1/siglist.c:32
-#: sysdeps/sun4/siglist.c:32
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "ट्याप खोज"
 
-#: sysdeps/osf1/siglist.c:33
-#: sysdeps/sun4/siglist.c:33
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "रोक्नु"
 
-#: sysdeps/osf1/siglist.c:34
-#: sysdeps/sun4/siglist.c:34
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "इयमटि त्रुटि"
 
-#: sysdeps/osf1/siglist.c:35
-#: sysdeps/sun4/siglist.c:35
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "फ्लोटिङ्ग-प्वाइन्ट अपबाद"
 
-#: sysdeps/osf1/siglist.c:36
-#: sysdeps/sun4/siglist.c:36
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "नास गर"
 
-#: sysdeps/osf1/siglist.c:37
-#: sysdeps/sun4/siglist.c:37
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "बस त्रुटि"
 
-#: sysdeps/osf1/siglist.c:38
-#: sysdeps/sun4/siglist.c:38
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "खण्डीकरण उल्लंघन"
 
-#: sysdeps/osf1/siglist.c:39
-#: sysdeps/sun4/siglist.c:39
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "प्रणाली बोलाहटलाई खराब आर्गुमेन्ट"
 
-#: sysdeps/osf1/siglist.c:40
-#: sysdeps/sun4/siglist.c:40
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "फुटेको पाइप"
 
-#: sysdeps/osf1/siglist.c:41
-#: sysdeps/sun4/siglist.c:41
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "जागरन घडी"
 
-#: sysdeps/osf1/siglist.c:42
-#: sysdeps/sun4/siglist.c:42
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "समाप्त गर"
 
-#: sysdeps/osf1/siglist.c:43
-#: sysdeps/sun4/siglist.c:43
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "खोपिल्टोमा आकस्मिक अवस्था(गतिविधि)"
 
-#: sysdeps/osf1/siglist.c:44
-#: sysdeps/sun4/siglist.c:44
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "रोक"
 
-#: sysdeps/osf1/siglist.c:45
-#: sysdeps/sun4/siglist.c:45
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "किबोर्ड रोक"
 
-#: sysdeps/osf1/siglist.c:46
-#: sysdeps/sun4/siglist.c:46
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "जारी राख"
 
-#: sysdeps/osf1/siglist.c:47
-#: sysdeps/sun4/siglist.c:47
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "बालक वस्तुस्थिति परिवर्तन गरिएको छ"
 
-#: sysdeps/osf1/siglist.c:48
-#: sysdeps/sun4/siglist.c:48
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr ""
+msgstr "टिटिवाइ बाट पृष्ठभुमि पढाइ"
 
-#: sysdeps/osf1/siglist.c:49
-#: sysdeps/sun4/siglist.c:49
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
-msgstr ""
+msgstr "टिटिवाइ बाट पृष्ठभुमि लेखाइ"
 
-#: sysdeps/osf1/siglist.c:50
-#: sysdeps/sun4/siglist.c:50
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "प्र/नि अब सम्भव "
 
-#: sysdeps/osf1/siglist.c:51
-#: sysdeps/sun4/siglist.c:51
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "सिपियुको सीमा नाघियो"
 
-#: sysdeps/osf1/siglist.c:52
-#: sysdeps/sun4/siglist.c:52
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "फाईलको आकारको सीमा नाघियो"
 
-#: sysdeps/osf1/siglist.c:53
-#: sysdeps/sun4/siglist.c:53
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "काल्पनिक जागरन घडी "
 
-#: sysdeps/osf1/siglist.c:54
-#: sysdeps/sun4/siglist.c:54
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "जागरन घडीको प्रोफाईलहुदैछ"
 
-#: sysdeps/osf1/siglist.c:55
-#: sysdeps/sun4/siglist.c:55
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "विन्डो आकार परिवर्तन"
 
-#: sysdeps/osf1/siglist.c:56
-#: sysdeps/sun4/siglist.c:56
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "जानकारी अनुरोध"
 
-#: sysdeps/osf1/siglist.c:57
-#: sysdeps/sun4/siglist.c:57
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "प्रयोगकर्ताद्वारा परिभषित संकेत १"
 
-#: sysdeps/osf1/siglist.c:58
-#: sysdeps/sun4/siglist.c:58
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "प्रयोगकर्ताद्वारा परिभषित संकेत २"
-
