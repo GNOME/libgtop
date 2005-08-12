@@ -1,3 +1,13 @@
+2005-08-12  Benoît Dejean  <benoit@placenet.org>
+
+	* glibtop_server.h:
+	* open.c:
+	* open_suid.c:
+	* procdata.c:
+
+	Added missing includes.
+	Added missing GLIBTOP_SUID_NETLIST.
+
 2004-10-11  Benoît Dejean  <tazforever@dlfp.org>
 
 	* cpu.c: (glibtop_init_cpu_s), (glibtop_get_cpu_s):

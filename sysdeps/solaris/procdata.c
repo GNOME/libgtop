@@ -24,6 +24,7 @@
 #include <glibtop.h>
 #include <glibtop_private.h>
 #include <glibtop/procuid.h>
+#include <glibtop/error.h>
 
 #include <errno.h>
 

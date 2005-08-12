@@ -23,6 +23,7 @@
 
 #include <glibtop/open.h>
 #include <glibtop/cpu.h>
+#include <glibtop/error.h>
 
 #include <unistd.h>
 #include <dlfcn.h>

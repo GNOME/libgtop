@@ -24,6 +24,7 @@
 #include <glibtop.h>
 #include <glibtop/open.h>
 #include <glibtop/init_hooks.h>
+#include <glibtop/error.h>
 #include <glibtop_suid.h>
 
 #include <unistd.h>
