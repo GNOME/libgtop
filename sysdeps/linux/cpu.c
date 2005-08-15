@@ -91,6 +91,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	buf->nice = strtoull (p, &p, 0);
 	buf->sys  = strtoull (p, &p, 0);
 	buf->idle = strtoull (p, &p, 0);
+	buf->total = buf->user + buf->nice + buf->sys + buf->idle;
 
 	/* 2.6 kernel */
 	if(server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
@@ -99,11 +100,8 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 		buf->irq     = strtoull(p, &p, 0);
 		buf->softirq = strtoull(p, &p, 0);
 
-		buf->idle += buf->iowait;
-		buf->sys  += buf->irq + buf->softirq;
+		buf->total += buf->iowait + buf->irq + buf->softirq;
 	}
-
-	buf->total = buf->user + buf->nice + buf->sys + buf->idle;
 
 	buf->frequency = 100;
 	buf->flags = _glibtop_sysdeps_cpu;
@@ -125,6 +123,10 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 		buf->xcpu_nice [i] = strtoull (p, &p, 0);
 		buf->xcpu_sys  [i] = strtoull (p, &p, 0);
 		buf->xcpu_idle [i] = strtoull (p, &p, 0);
+		buf->xcpu_total[i] = buf->xcpu_user [i] \
+			+ buf->xcpu_nice [i] \
+			+ buf->xcpu_sys  [i] \
+			+ buf->xcpu_idle [i];
 
 		/* 2.6 kernel */
 		if(server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
@@ -133,14 +135,10 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 			buf->xcpu_irq [i]     = strtoull(p, &p, 0);
 			buf->xcpu_softirq [i] = strtoull(p, &p, 0);
 
-			buf->xcpu_idle [i]  += buf->xcpu_iowait [i];
-			buf->xcpu_sys  [i]  += buf->xcpu_irq [i] + buf->xcpu_softirq [i];
+			buf->xcpu_total [i] += buf->xcpu_iowait [i] \
+				+ buf->xcpu_irq [i] \
+				+ buf->xcpu_softirq [i];
 		}
-
-		buf->xcpu_total[i] = buf->xcpu_user [i] \
-			+ buf->xcpu_nice [i] \
-			+ buf->xcpu_sys  [i] \
-			+ buf->xcpu_idle [i];
 	}
 
 	if(i >= 2) /* ok, that's a real SMP */

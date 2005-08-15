@@ -1,3 +1,9 @@
+2005-08-15  Benoît Dejean  <benoit@placenet.org>
+
+	* cpu.c: (glibtop_get_cpu_s):
+
+	Do not add irq, softirq and iowait to idle.
+
 2005-08-04  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* open.c: (set_linux_version), (glibtop_open_s):
