@@ -1,78 +1,81 @@
 # Romanian translation for libgtop
 # Copyright (C) 2003 - 2005, Free Software Foundation, Inc.
-# Mişu Moldovan <dumol@go.ro>, 2003, 2004, 2005.
+# Mişu Moldovan <dumol@gnome.ro>, 2003 - 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-06 14:07+0100\n"
-"PO-Revision-Date: 2005-03-06 21:14+0200\n"
-"Last-Translator: Mişu Moldovan <dumol@go.ro>\n"
+"POT-Creation-Date: 2005-08-21 15:08+0000\n"
+"PO-Revision-Date: 2005-08-22 00:03+0300\n"
+"Last-Translator: Mişu Moldovan <dumol@gnome.ro>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=3;plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1))\n"
 
-#: lib/read.c:65
+#: ../lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "citeşte %d octet"
 msgstr[1] "citeşte %d octeţi"
+msgstr[2] "citeşte %d de octeţi"
 
-#: lib/read_data.c:53
+#: ../lib/read_data.c:53
 msgid "read data size"
-msgstr "citeşte lungimea datelor"
+msgstr "mărime date citire"
 
-#: lib/read_data.c:72
+#: ../lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "citeşte %lu octet de date"
 msgstr[1] "citeşte %lu octeţi de date"
+msgstr[2] "citeşte %lu de octeţi de date"
 
-#: lib/write.c:52
+#: ../lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "a scris %d octet"
 msgstr[1] "a scris %d octeţi"
+msgstr[2] "a scris %d de octeţi"
 
-#: src/daemon/gnuserv.c:459
+#: ../src/daemon/gnuserv.c:460
 msgid "Enable debugging"
-msgstr "Activează depanarea"
+msgstr "Activare depanare"
 
-#: src/daemon/gnuserv.c:459
+#: ../src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:461
+#: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
-msgstr "Activează mesajele de ieşire explicite"
+msgstr "Mesaje de ieşire explicite"
 
-#: src/daemon/gnuserv.c:461
+#: ../src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:463
+#: ../src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "Nu clona în fundal"
 
-#: src/daemon/gnuserv.c:463
+#: ../src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:465
+#: ../src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "Pornit de inetd"
 
-#: src/daemon/gnuserv.c:465
+#: ../src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:499
+#: ../src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -81,1040 +84,128 @@ msgstr ""
 "Eroare la opţiunea %s: %s.\n"
 "Încercaţi „%s --help” pentru a vedea o listă completă a opţiunilor.\n"
 
-#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "Terminare"
 
-#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "Întrerupere"
 
-#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "Ieşire"
 
-#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "Instrucţiune ilegală"
 
-#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "Punct de oprire întâlnit"
 
-#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "Renunţă"
 
-#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "Eroare EMT"
 
-#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "Excepţie în virgulă mobilă"
 
-#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "Omoară"
 
-#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "Eroare de bus"
 
-#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "Violare a segmentului"
 
-#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "Argument greşit în apelul de sistem"
 
-#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "Filtru nefuncţional"
 
-#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "Ceas de alarmă"
 
-#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "Terminare"
 
-#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
-msgstr "Condiţie de urgenţă în soclu"
+msgstr "Condiţie de urgenţă în socket"
 
-#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "Stop"
 
-#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "Întrerupere de la tastatură"
 
-#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "Continuă"
 
-#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "Starea copilului s-a schimbat"
 
-#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "Citire în fundal de la tty"
 
-#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "Scriere în fundal către tty"
 
-#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "Operaţiile I/O sunt acum posibile"
 
-#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "Limită depăşită CPU"
 
-#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "Limită depăşită mărime fişier"
 
-#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "Ceas de alarmă virtual"
 
-#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
-msgstr "Ceas de alarmă „profiling”"
+msgstr "Ceas de alarmă pentru „profiling”"
 
-#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "Schimbare de mărime a ferestrei"
 
-#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "Cerere de informaţie"
 
-#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "Semnal 1 definit de utilizator"
 
-#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Semnal 2 definit de utilizator"
 
-#~ msgid "Ticks (%ld per second):"
-#~ msgstr "Bătăi (%ld pe secundă):"
 
-#~ msgid "Total"
-#~ msgstr "Total"
-
-#~ msgid "User"
-#~ msgstr "Utilizator"
-
-#~ msgid "Nice"
-#~ msgstr "Nice"
-
-#~ msgid "Sys"
-#~ msgstr "Sys"
-
-#~ msgid "Idle"
-#~ msgstr "Idle"
-
-#~ msgid ""
-#~ "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-#~ "\n"
-#~ msgstr ""
-#~ "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-#~ "\n"
-
-#~ msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-#~ msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-
-#~ msgid "Percent:"
-#~ msgstr "Procent:"
-
-#~ msgid "Total (%)"
-#~ msgstr "Total (%)"
-
-#~ msgid "User (%)"
-#~ msgstr "Utilizator (%)"
-
-#~ msgid "Nice (%)"
-#~ msgstr "Nice (%)"
-
-#~ msgid "Sys (%)"
-#~ msgstr "Sys (%)"
-
-#~ msgid "Idle (%)"
-#~ msgstr "Idle (%)"
-
-#~ msgid ""
-#~ "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-#~ "\n"
-#~ msgstr ""
-#~ "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-#~ "\n"
-
-#~ msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-#~ msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-
-#~ msgid "Spin:"
-#~ msgstr "Spin:"
-
-#~ msgid "read data %d byte"
-#~ msgid_plural "read data %d bytes"
-#~ msgstr[0] "citeşte %d octet de date"
-#~ msgstr[1] "citeşte %d octeţi de date"
-
-#~ msgid "Total CPU Time"
-#~ msgstr "Timp total CPU"
-
-#~ msgid "CPU Time in User Mode"
-#~ msgstr "Timp CPU în mod utilizator"
-
-#~ msgid "CPU Time in User Mode (nice)"
-#~ msgstr "Timp CPU în mod utilizator (nice)"
-
-#~ msgid "CPU Time in System Mode"
-#~ msgstr "Timp CPU în mod sistem"
-
-#~ msgid "CPU Time in the Idle Task"
-#~ msgstr "Timp CPU în mod idle"
-
-#~ msgid "Tick Frequency"
-#~ msgstr "Frecvenţa bătăilor de ceas"
-
-#~ msgid "SMP Total CPU Time"
-#~ msgstr "Timp CPU SMP total"
-
-#~ msgid "SMP CPU Time in User Mode"
-#~ msgstr "Timp CPU SMP în mod utilizator"
-
-#~ msgid "SMP CPU Time in User Mode (nice)"
-#~ msgstr "Timp CPU SMP în mod utilizator (nice)"
-
-#~ msgid "SMP CPU Time in System Mode"
-#~ msgstr "Timp CPU SMP în mod sistem"
-
-#~ msgid "SMP CPU Time in the Idle Task"
-#~ msgstr "Timp CPU SMP în mod idle"
-
-#~ msgid "SMP CPU Flags"
-#~ msgstr "Indicatoare CPU SMP"
-
-#~ msgid "Number of clock ticks since system boot"
-#~ msgstr "Numărul de bătăi de ceas de la pornirea sistemului"
-
-#~ msgid "Number of clock ticks the system spent in user mode"
-#~ msgstr "Numărul de bătăi de ceas petrecute în timp utilizator"
-
-#~ msgid "Number of clock ticks the system spent in user mode (nice)"
-#~ msgstr "Numărul de bătăi de ceas petrecute în mod utilizator (nice)"
-
-#~ msgid "Number of clock ticks the system spent in system mode"
-#~ msgstr "Numărul de bătăi de ceas petrecute în mod sistem"
-
-#~ msgid "Number of clock ticks the system spent in the idle task"
-#~ msgstr "Numărul de bătăi de ceas petrecute de sistem în mod idle"
-
-#~ msgid "Tick frequency (default is 100)"
-#~ msgstr "Frecvenţa bătăilor de ceas (implicit 100)"
-
-#~ msgid "Bit field indicating which CPU is currently running"
-#~ msgstr "Câmp-octet ce indică care CPU este activ curent"
-
-#~ msgid "Total blocks"
-#~ msgstr "Număr total de blocuri"
-
-#~ msgid "Free blocks"
-#~ msgstr "Blocuri goale"
-
-#~ msgid "Available blocks"
-#~ msgstr "Blocuri libere"
-
-#~ msgid "Total file nodes"
-#~ msgstr "Număr total de noduri de fişiere"
-
-#~ msgid "Free file nodes"
-#~ msgstr "Noduri de fişiere libere"
-
-#~ msgid "Block size"
-#~ msgstr "Mărime bloc"
-
-#~ msgid "Free blocks available to the superuser"
-#~ msgstr "Blocuri libere disponibile pentru superutilizator"
-
-#~ msgid "Free blocks available to non-superusers"
-#~ msgstr "Blocuri libere disponibile utilizatorilor „non-root”"
-
-#~ msgid "Load Average"
-#~ msgstr "Încărcarea medie"
-
-#~ msgid "Running Tasks"
-#~ msgstr "Sarcini pornite"
-
-#~ msgid "Number of Tasks"
-#~ msgstr "Numărul sarcinilor"
-
-#~ msgid "Last PID"
-#~ msgstr "Ultimul PID"
-
-#~ msgid ""
-#~ "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-#~ msgstr "Media sarcinilor pornite simultan în ultimele 1, 5 şi 15 minute"
-
-#~ msgid "Number of tasks currently running"
-#~ msgstr "Numărul sarcinilor pornite curent"
-
-#~ msgid "Total number of tasks"
-#~ msgstr "Numărul total de sarcini"
-
-#~ msgid "Total Memory"
-#~ msgstr "Mărimea memoriei"
-
-#~ msgid "Used Memory"
-#~ msgstr "Memorie folosită"
-
-#~ msgid "Free Memory"
-#~ msgstr "Memorie liberă"
-
-#~ msgid "Shared Memory"
-#~ msgstr "Memorie partajată"
-
-#~ msgid "Buffers"
-#~ msgstr "Tampoane"
-
-#~ msgid "Cached"
-#~ msgstr "Depozitată"
-
-#~ msgid "Locked"
-#~ msgstr "Blocată"
-
-#~ msgid "Total physical memory in kB"
-#~ msgstr "Mărime memorie fizică (în kO)"
-
-#~ msgid "Used memory size in kB"
-#~ msgstr "Memorie utilizată (în kO)"
-
-#~ msgid "Free memory size in kB"
-#~ msgstr "Memorie liberă (în kO)"
-
-#~ msgid "Shared memory size in kB"
-#~ msgstr "Memorie partajată (în kO)"
-
-#~ msgid "Size of buffers kB"
-#~ msgstr "Tampoane (în kO)"
-
-#~ msgid "Size of cached memory in kB"
-#~ msgstr "Memorie de depozitare (în kO)"
-
-#~ msgid "Memory used from user processes in kB"
-#~ msgstr "Memorie utilizată de procesele utilizatorilor (în kO)"
-
-#~ msgid "Memory in locked pages in kB"
-#~ msgstr "Memorie în pagini blocate (în kO)"
-
-#~ msgid "Number of list elements"
-#~ msgstr "Număr elemente listă"
-
-#~ msgid "Total size of list"
-#~ msgstr "Mărime totală listă"
-
-#~ msgid "Size of a single list element"
-#~ msgstr "Mărimea unui singur element din listă"
-
-#~ msgid "Size in kilobytes of message pool"
-#~ msgstr "Mărimea în kO a fondului de mesaje"
-
-#~ msgid "Number of entries in message map"
-#~ msgstr "Numărul de intrări în harta de mesaje"
-
-#~ msgid "Max size of message"
-#~ msgstr "Mărime maximă mesaj"
-
-#~ msgid "Default max size of queue"
-#~ msgstr "Mărime maximă implicită a cozii"
-
-#~ msgid "Max queues system wide"
-#~ msgstr "Număr maxim de cozi în sistem"
-
-#~ msgid "Message segment size"
-#~ msgstr "Mărime segment mesaj"
-
-#~ msgid "Number of system message headers"
-#~ msgstr "Numărul antetelor mesajelor sistem"
-
-#~ msgid "Interface Flags"
-#~ msgstr "Indicatoare interfaţă"
-
-#~ msgid "MTU"
-#~ msgstr "MTU"
-
-#~ msgid "IPv4 Subnet"
-#~ msgstr "Subreţea IPv4"
-
-#~ msgid "IPv4 Address"
-#~ msgstr "Adresă IPv4"
-
-#~ msgid "Packets In"
-#~ msgstr "Pachete intrate"
-
-#~ msgid "Packets Out"
-#~ msgstr "Pachete ieşite"
-
-#~ msgid "Packets Total"
-#~ msgstr "Pachete în total"
-
-#~ msgid "Bytes In"
-#~ msgstr "Octeţi intraţi"
-
-#~ msgid "Bytes Out"
-#~ msgstr "Octeţi ieşiţi"
-
-#~ msgid "Bytes Total"
-#~ msgstr "Octeţi în total"
-
-#~ msgid "Errors In"
-#~ msgstr "Erori la intrare"
-
-#~ msgid "Errors Out"
-#~ msgstr "Erori la ieşire"
-
-#~ msgid "Errors Total"
-#~ msgstr "Erori în total"
-
-#~ msgid "Collisions"
-#~ msgstr "Coliziuni"
-
-#~ msgid "IPv6 Address"
-#~ msgstr "Adresă IPv6"
-
-#~ msgid "IPv6 Prefix"
-#~ msgstr "Prefix IPv6"
-
-#~ msgid "IPv6 Scope"
-#~ msgstr "Domeniu IPv6"
-
-#~ msgid "Maximum Transfer Unit"
-#~ msgstr "Unitate maximă de transfer"
-
-#~ msgid "PPP State"
-#~ msgstr "Stare PPP"
-
-#~ msgid "Input bytes"
-#~ msgstr "Octeţi intraţi"
-
-#~ msgid "Output bytes"
-#~ msgstr "Octeţi ieşiţi"
-
-#~ msgid "Number of input bytes"
-#~ msgstr "Număr octeţi intraţi"
-
-#~ msgid "Number of output bytes"
-#~ msgstr "Număr octeţi ieşiţi"
-
-#~ msgid "Size"
-#~ msgstr "Mărime"
-
-#~ msgid "Length in bytes of the returned string."
-#~ msgstr "Lungimea în octeţi a mesajului returnat."
-
-#~ msgid "K_Flags"
-#~ msgstr "K_Flags"
-
-#~ msgid "Min_Flt"
-#~ msgstr "Min_Flt"
-
-#~ msgid "Maj_Flt"
-#~ msgstr "Maj_Flt"
-
-#~ msgid "CMin_Flt"
-#~ msgstr "CMin_Flt"
-
-#~ msgid "CMaj_Flt"
-#~ msgstr "CMaj_Flt"
-
-#~ msgid "KStk_ESP"
-#~ msgstr "KStk_ESP"
-
-#~ msgid "KStk_EIP"
-#~ msgstr "KStk_EIP"
-
-#~ msgid "NWChan"
-#~ msgstr "NWChan"
-
-#~ msgid "WChan"
-#~ msgstr "WChan"
-
-#~ msgid ""
-#~ "Kernel flags of the process.\n"
-#~ "\n"
-#~ "On Linux, currently every flag has the math bit set, because crt0.s "
-#~ "checks for math emulation, so this is not included in the output.\n"
-#~ "\n"
-#~ "This is probably a bug, as not every process is a compiled C program.\n"
-#~ "\n"
-#~ "The math bit should be a decimal 4, and the traced bit is decimal 10."
-#~ msgstr ""
-#~ "Indicatoare kernel de proces.\n"
-#~ "\n"
-#~ "În Linux, toate indicatoarele au bitul „math” setat, deoarece crt0.s "
-#~ "verifică dacă există emulare matematică, deci acest indicator nu e inclus "
-#~ "în ieşire.\n"
-#~ "\n"
-#~ "Bitul „math” ar trebui să aiba 4 zecimale, iar cel „traced” 10."
-
-#~ msgid ""
-#~ "The number of minor faults the process has made, those which have not "
-#~ "required loading a memory page from disk."
-#~ msgstr ""
-#~ "Numărul de „fault”-uri minore făcute de proces, adică acelea care nu au "
-#~ "necesitat încărcarea unei pagini de memorie din swap."
-
-#~ msgid ""
-#~ "The number of major faults the process has made, those which have "
-#~ "required loading a memory page from disk."
-#~ msgstr ""
-#~ "Numărul de „fault”-uri majore făcute de proces, adică acelea care au "
-#~ "necesitat încărcarea unei pagini de memorie din swap."
-
-#~ msgid ""
-#~ "The number of minor faults that the process and its children have made."
-#~ msgstr "Numărul de „fault”-uri minore făcute de proces şi copiii săi."
-
-#~ msgid ""
-#~ "The number of major faults that the process and its children have made."
-#~ msgstr "Numărul de „fault”-uri majore făcute de proces şi copiii săi."
-
-#~ msgid ""
-#~ "The current value of esp (32-bit stack pointer), as found in the kernel "
-#~ "stack page for the process."
-#~ msgstr ""
-#~ "Valoarea curentă a „esp” (stack pointer pe 32 de biţi), aşa cum apare el "
-#~ "în pagina „stack” a procesului."
-
-#~ msgid "The current EIP (32-bit instruction pointer)."
-#~ msgstr "EIP curent (instruction pointer pe 32 de biţi)."
-
-#~ msgid ""
-#~ "This is the \"channel\" in which the process is waiting.  This is the "
-#~ "address of a system call, and can be looked up in a namelist if you need "
-#~ "a textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -"
-#~ "l to see the WCHAN field in action)"
-#~ msgstr ""
-#~ "Acesta este „canalul” în care procesul aşteaptă. Aceasta este adresa unei "
-#~ "chemări sistem şi poate fi găsită într-un „namelist” dacă aveţi nevoie de "
-#~ "un nume textul. (Dacă aveţi un fişier /etc/psdatabase la zi încercaţi „ps "
-#~ "-l” pentru a vedea în acţiune valoarea WCHAN)"
-
-#~ msgid "This is the textual name of the `nwchan' field."
-#~ msgstr "Acesta este numele textual al câmpului „nwchan”."
-
-#~ msgid "Virtual"
-#~ msgstr "Virtuală"
-
-#~ msgid "Resident"
-#~ msgstr "Rezidentă"
-
-#~ msgid "Share"
-#~ msgstr "Shared"
-
-#~ msgid "Resident Set Size"
-#~ msgstr "Mărime set rezident"
-
-#~ msgid "Resident Set Size Limit"
-#~ msgstr "Limită mărime set rezident"
-
-#~ msgid "Total # of pages of memory"
-#~ msgstr "Număr total de pagini în memorie"
-
-#~ msgid "Number of pages of virtual memory"
-#~ msgstr "Număr de pagini în memoria virtuală"
-
-#~ msgid "Number of resident set (non-swapped) pages"
-#~ msgstr "Număr de pagini în seturi rezidente (nu în swap)"
-
-#~ msgid "Number of pages of shared (mmap'd) memory"
-#~ msgstr "Număr de pagini în memorie „shared” (mmap-ed)"
-
-#~ msgid ""
-#~ "Number of pages the process has in real memory, minus 3 for "
-#~ "administrative purposes. This is just the pages which count towards text, "
-#~ "data, or stack space. This does not include pages which have not been "
-#~ "demand-loaded in, or which are swapped out."
-#~ msgstr ""
-#~ "Număr de pagini în memoria reală a procesului (minus 3 pentru pentru "
-#~ "scopuri administrative). Acestea sunt doar paginile din spaţiu de text, "
-#~ "date şi stive. Acestea nu includ paginile ce nu au fost încărcate la "
-#~ "cerere sau care sunt în swap."
-
-#~ msgid ""
-#~ "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-#~ msgstr ""
-#~ "Limita curenţă în octeţi a RSS-ului unui proces (de obicei 2.147.483.647)."
-
-#~ msgid "Text_RSS"
-#~ msgstr "Text_RSS"
-
-#~ msgid "ShLib_RSS"
-#~ msgstr "ShLib_RSS"
-
-#~ msgid "Data_RSS"
-#~ msgstr "Data_RSS"
-
-#~ msgid "Stack_RSS"
-#~ msgstr "Stack_RSS"
-
-#~ msgid "Dirty Size"
-#~ msgstr "Dirty Size"
-
-#~ msgid "Start_Code"
-#~ msgstr "Start_Code"
-
-#~ msgid "End_Code"
-#~ msgstr "End_Code"
-
-#~ msgid "Start_Stack"
-#~ msgstr "Start_Stack"
-
-#~ msgid "Text resident set size"
-#~ msgstr "Mărime set rezident text"
-
-#~ msgid "Shared-Lib resident set size"
-#~ msgstr "Mărime set rezident „Shared-Lib”"
-
-#~ msgid "Data resident set size"
-#~ msgstr "Mărime set rezident date"
-
-#~ msgid "Stack resident set size"
-#~ msgstr "Mărime set rezident stive"
-
-#~ msgid "Total size of dirty pages"
-#~ msgstr "Număr total de pagini „dirty”"
-
-#~ msgid "Address of beginning of code segment"
-#~ msgstr "Adresa începutului segmentului de cod"
-
-#~ msgid "Address of end of code segment"
-#~ msgstr "Adresa sfârşitului segmentului de cod"
-
-#~ msgid "Address of the bottom of stack segment"
-#~ msgstr "Adresa de la baza segmentului stivă"
-
-#~ msgid "Signal"
-#~ msgstr "Semnal"
-
-#~ msgid "Blocked"
-#~ msgstr "Blocat"
-
-#~ msgid "SigIgnore"
-#~ msgstr "SigIgnore"
-
-#~ msgid "SigCatch"
-#~ msgstr "SigCatch"
-
-#~ msgid "Mask of pending signals"
-#~ msgstr "Masca semnalelor în aşteptare"
-
-#~ msgid "Mask of blocked signals"
-#~ msgstr "Masca semnalelor blocate"
-
-#~ msgid "Mask of ignored signals"
-#~ msgstr "Masca semnalelor ignorate"
-
-#~ msgid "Mask of caught signals"
-#~ msgstr "Masca semnalelor interceptate"
-
-#~ msgid "Cmd"
-#~ msgstr "Cmd"
-
-#~ msgid "State"
-#~ msgstr "Stare"
-
-#~ msgid "UID"
-#~ msgstr "UID"
-
-#~ msgid "GID"
-#~ msgstr "GID"
-
-#~ msgid "RGid"
-#~ msgstr "RGid"
-
-#~ msgid "RUid"
-#~ msgstr "RUid"
-
-#~ msgid "HasCPU"
-#~ msgstr "AreCPU"
-
-#~ msgid "Proc"
-#~ msgstr "CPU"
-
-#~ msgid "LProc"
-#~ msgstr "LProc"
-
-#~ msgid "Basename of executable file in call to exec()"
-#~ msgstr "Nume de bază al fişierului executabil apelat cu „exec()”"
-
-#~ msgid "Single-Char code for process state (S=sleeping)"
-#~ msgstr "Cod „Single-Char” al stării procesului (S=doarme)"
-
-#~ msgid "UID of process"
-#~ msgstr "UID-ul procesului"
-
-#~ msgid "GID of process"
-#~ msgstr "GID-ul procesului"
-
-#~ msgid "Real UID of process"
-#~ msgstr "UID-ul real al procesului"
-
-#~ msgid "Real GID of process"
-#~ msgstr "GID-ul real al procesului"
-
-#~ msgid "Has CPU"
-#~ msgstr "Are CPU"
-
-#~ msgid "Processor"
-#~ msgstr "Procesor"
-
-#~ msgid "Last Processor"
-#~ msgstr "Ultimul procesor"
-
-#~ msgid "Start_Time"
-#~ msgstr "Start_Time"
-
-#~ msgid "RTime"
-#~ msgstr "RTime"
-
-#~ msgid "UTime"
-#~ msgstr "UTime"
-
-#~ msgid "STime"
-#~ msgstr "STime"
-
-#~ msgid "CUTime"
-#~ msgstr "CUTime"
-
-#~ msgid "CSTime"
-#~ msgstr "CSTime"
-
-#~ msgid "TimeOut"
-#~ msgstr "TimeOut"
-
-#~ msgid "It_Real_Value"
-#~ msgstr "It_Real_Value"
-
-#~ msgid "Frequency"
-#~ msgstr "Frecvenţă"
-
-#~ msgid "XCPU_UTime"
-#~ msgstr "XCPU_UTime"
-
-#~ msgid "XCPU_STime"
-#~ msgstr "XCPU_STime"
-
-#~ msgid "Start time of process in seconds since the epoch"
-#~ msgstr "Timpul la pornirea procesului în secunde de la 01.01.1970"
-
-#~ msgid "Real time accumulated by process (should be utime + stime)"
-#~ msgstr "Timp real cumulat de proces (at trebui să fie „utime” + „stime”)"
-
-#~ msgid "user-mode CPU time accumulated by process"
-#~ msgstr "Timp CPU în mod utilizator cumulat de proces"
-
-#~ msgid "kernel-mode CPU time accumulated by process"
-#~ msgstr "Timp CPU în mod kernel cumulat de proce"
-
-#~ msgid "cumulative utime of process and reaped children"
-#~ msgstr "Utime cumulat al procesului şi al copiilor culeşi"
-
-#~ msgid "cumulative stime of process and reaped children"
-#~ msgstr "Stime cumulat al procesului şi al copiilor culeşi"
-
-#~ msgid "The time (in jiffies) of the process's next timeout"
-#~ msgstr "Timpul (în jiffies) până la următorul timeout al procesului"
-
-#~ msgid ""
-#~ "The time (in jiffies) before the next SIGALRM is sent to the process due "
-#~ "to an interval timer."
-#~ msgstr ""
-#~ "Timpul (în jiffies) înainte de următorul SIGALRM trimis procesului la un "
-#~ "anumit interval de timp presetat."
-
-#~ msgid "Tick frequency"
-#~ msgstr "Frecvenţă ceas"
-
-#~ msgid "SMP user-mode CPU time accumulated by process"
-#~ msgstr "Timp în mod SMP CPU utilizator cumulat de proces"
-
-#~ msgid "SMP kernel-mode CPU time accumulated by process"
-#~ msgstr "Timp în mod SMP CPU kernel cumulat de proces"
-
-#~ msgid "Uid"
-#~ msgstr "Uid"
-
-#~ msgid "EUid"
-#~ msgstr "EUid"
-
-#~ msgid "Gid"
-#~ msgstr "Gid"
-
-#~ msgid "EGid"
-#~ msgstr "EGid"
-
-#~ msgid "SUid"
-#~ msgstr "SUid"
-
-#~ msgid "SGid"
-#~ msgstr "SGid"
-
-#~ msgid "FSUid"
-#~ msgstr "FUid"
-
-#~ msgid "FSGid"
-#~ msgstr "FGid"
-
-#~ msgid "Pid"
-#~ msgstr "Pid"
-
-#~ msgid "PPid"
-#~ msgstr "PPid"
-
-#~ msgid "PGrp"
-#~ msgstr "PGrp"
-
-#~ msgid "Session"
-#~ msgstr "Sesiune"
-
-#~ msgid "Tty"
-#~ msgstr "Tty"
-
-#~ msgid "TPGid"
-#~ msgstr "TPGid"
-
-#~ msgid "Priority"
-#~ msgstr "Prioritate"
-
-#~ msgid "NGroups"
-#~ msgstr "NGrupuri"
-
-#~ msgid "Groups"
-#~ msgstr "Grupuri"
-
-#~ msgid "User ID"
-#~ msgstr "ID utilizator"
-
-#~ msgid "Effective User ID"
-#~ msgstr "ID efectiv utilizator"
-
-#~ msgid "Group ID"
-#~ msgstr "ID Grup"
-
-#~ msgid "Effective Group ID"
-#~ msgstr "ID efectiv grup"
-
-#~ msgid "Set User ID"
-#~ msgstr "ID utilizator setat"
-
-#~ msgid "Set Group ID"
-#~ msgstr "ID Grup setat"
-
-#~ msgid "Filesystem User ID"
-#~ msgstr "ID utilizator sistem fişiere"
-
-#~ msgid "Filesystem Group ID"
-#~ msgstr "ID grup sistem de fişiere"
-
-#~ msgid "Process ID"
-#~ msgstr "ID proces"
-
-#~ msgid "PID of parent process"
-#~ msgstr "PID al procesului părinte"
-
-#~ msgid "Process group ID"
-#~ msgstr "ID grup proces"
-
-#~ msgid "Session ID"
-#~ msgstr "ID sesiune"
-
-#~ msgid "Full device number of controlling terminal"
-#~ msgstr "Numărul întreg de dispozitiv al terminalului de control"
-
-#~ msgid "Terminal process group ID"
-#~ msgstr "ID grup al procesului terminalului"
-
-#~ msgid "Kernel scheduling priority"
-#~ msgstr "Ordine priorităţi kernel"
-
-#~ msgid "Standard unix nice level of process"
-#~ msgstr "Nivel „nice” standard în Unix pentru proces"
-
-#~ msgid "Number of additional process groups"
-#~ msgstr "Număr de grupuri de procese adiţionale"
-
-#~ msgid "Array of additional process groups"
-#~ msgstr "Tablou al grupurilor proceselor adiţionale"
-
-#~ msgid "Number of entries in semaphore map"
-#~ msgstr "Număr de intrări în harta de semafoare"
-
-#~ msgid "Max number of arrays"
-#~ msgstr "Număr maxim de tablouri"
-
-#~ msgid "Max semaphores system wide"
-#~ msgstr "Număr maxim semafoare în sistem"
-
-#~ msgid "Number of undo structures system wide"
-#~ msgstr "Număr de structuri „undo” în sistem"
-
-#~ msgid "Max semaphores per array"
-#~ msgstr "Număr maxim de semafoare în tablou"
-
-#~ msgid "Max ops per semop call"
-#~ msgstr "Număr maxim de op-uri într-un apel „semop”"
-
-#~ msgid "Max number of undo entries per process"
-#~ msgstr "Număr maxim de intrări „undo” într-un proces"
-
-#~ msgid "sizeof struct sem_undo"
-#~ msgstr "sizeof struct sem_undo"
-
-#~ msgid "Semaphore max value"
-#~ msgstr "Valoare maximă semafoare"
-
-#~ msgid "Adjust on exit max value"
-#~ msgstr "Valoare maximă a ajustării la ieşire"
-
-#~ msgid "Max segment size"
-#~ msgstr "Mărime segment maxim"
-
-#~ msgid "Min segment size"
-#~ msgstr "Mărime segment minim"
-
-#~ msgid "Max number of segments"
-#~ msgstr "Număr maxim de segmente"
-
-#~ msgid "Max shared segments per process"
-#~ msgstr "Număr maxim de segmente „shared” într-un proces"
-
-#~ msgid "Max total shared memory"
-#~ msgstr "Maxim total de memorie shared"
-
-#~ msgid "Total Swap Space"
-#~ msgstr "Spaţiu swap total"
-
-#~ msgid "Used Swap Space"
-#~ msgstr "Spaţiu swap folosit"
-
-#~ msgid "Free Swap Space"
-#~ msgstr "Spaţiu swap liber"
-
-#~ msgid "Page In"
-#~ msgstr "Pagină intrată"
-
-#~ msgid "Page Out"
-#~ msgstr "Pagină ieşită"
-
-#~ msgid ""
-#~ "Total number of swap pages that have been brought in since system boot"
-#~ msgstr "Numărul total al paginilor swap scrise de la pornirea sistemului"
-
-#~ msgid ""
-#~ "Total number of swap pages that have been brought out since system boot"
-#~ msgstr "Numărul total al paginilor swap citite de la pornirea sistemului"
-
-#~ msgid "Server Features"
-#~ msgstr "Facilităţi server"
-
-#~ msgid "CPU Usage"
-#~ msgstr "Utilizare CPU"
-
-#~ msgid "Memory Usage"
-#~ msgstr "Utilizare memorie"
-
-#~ msgid "Swap Usage"
-#~ msgstr "Utilizare swap"
-
-#~ msgid "System Uptime"
-#~ msgstr "Uptime sistem"
-
-#~ msgid "Load Averange"
-#~ msgstr "Încărcare medie"
-
-#~ msgid "Shared Memory Limits"
-#~ msgstr "Limite memorie partajată"
-
-#~ msgid "Message Queue Limits"
-#~ msgstr "Limite cozi mesaje"
-
-#~ msgid "Semaphore Set Limits"
-#~ msgstr "Limite seturi semafoare"
-
-#~ msgid "List of running Processes"
-#~ msgstr "Listă procese în execuţie"
-
-#~ msgid "Process Status information"
-#~ msgstr "Informaţii despre starea proceselor"
-
-#~ msgid "Process UID and TTY information"
-#~ msgstr "Informaţii despre UID şi TTY procese"
-
-#~ msgid "Process Memory information"
-#~ msgstr "Informaţii despre memoria proceselor"
-
-#~ msgid "Process Time information"
-#~ msgstr "Informaţii despre timpul proceselor"
-
-#~ msgid "Process Signal information"
-#~ msgstr "Informaţii despre semnalele proceselor"
-
-#~ msgid "Process Kernel Data information"
-#~ msgstr "Informaţii despre datele kernel ale proceselor"
-
-#~ msgid "Process Segment information"
-#~ msgstr "Informaţii despre segmentele proceselor"
-
-#~ msgid "Process Arguments"
-#~ msgstr "Argumente procese"
-
-#~ msgid "Process Memory Map"
-#~ msgstr "Hartă memorie procese"
-
-#~ msgid "Mount List"
-#~ msgstr "Listă mount"
-
-#~ msgid "File System Usage"
-#~ msgstr "Utilizare sistem fişiere"
-
-#~ msgid "Network Load"
-#~ msgstr "Încărcare reţea"
-
-#~ msgid "PPP Statistics"
-#~ msgstr "Statistici PPP"
-
-#~ msgid "Command line arguments of the process"
-#~ msgstr "Argumentele liniei de comandă a procesului"
-
-#~ msgid "List of currently mounted filesystems"
-#~ msgstr "Listă sisteme de fişiere montate curent"
-
-#~ msgid "Uptime"
-#~ msgstr "Uptime"
-
-#~ msgid "Idletime"
-#~ msgstr "Timp idle"
-
-#~ msgid "BootTime"
-#~ msgstr "Timp de boot"
-
-#~ msgid "Time in seconds since system boot"
-#~ msgstr "Timpul în secunde de la pornirea sistemului"
-
-#~ msgid "Time in seconds the system spent in the idle task since system boot"
-#~ msgstr ""
-#~ "Timpul în secunde petrecut de sistem în mod idle de la pornirea sistemului"
-
-#~ msgid "Time of last system boot in seconds since the epoch"
-#~ msgstr "Timpul în momentul ultimului boot în secunde de la 01.01.1970"
