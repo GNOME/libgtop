@@ -1,3 +1,9 @@
+August 22, 2005: Overview of changes from 2.11.91 to 2.11.92
+============================================================
+* Linux:
+  - fixed for 2.6 without /sys
+  - glibtop_get_cpu() : Do not add irq, softirq and iowait to idle.
+
 August 9, 2005: Overview of changes from 2.11.90 to 2.11.91
 ===========================================================
 * All:
