@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.9.91\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-16 10:43+0100\n"
-"PO-Revision-Date: 2005-02-16 10:46+0100\n"
+"POT-Creation-Date: 2005-09-04 01:14+0200\n"
+"PO-Revision-Date: 2005-09-04 01:16+0200\n"
 "Last-Translator: Jordi Mallach <jordi@sindominio.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,47 +41,47 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "s'ha escrit %d octet"
 msgstr[1] "s'ha escrit %d octets"
 
-#: ../src/daemon/gnuserv.c:459
+#: ../src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "Activa la depuració"
 
-#: ../src/daemon/gnuserv.c:459
+#: ../src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "DEPURACIÓ"
 
-#: ../src/daemon/gnuserv.c:461
+#: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "Activa la sortida detallada"
 
-#: ../src/daemon/gnuserv.c:461
+#: ../src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "DETALLA"
 
-#: ../src/daemon/gnuserv.c:463
+#: ../src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
-msgstr "No bifurquis dintre del fons"
+msgstr "No bifurquis al segon pla"
 
-#: ../src/daemon/gnuserv.c:463
+#: ../src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "SENSE DIMONI"
 
-#: ../src/daemon/gnuserv.c:465
+#: ../src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "Ha estat cridat des d'inetd"
 
-#: ../src/daemon/gnuserv.c:465
+#: ../src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: ../src/daemon/gnuserv.c:499
+#: ../src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"Error en l'opció %s: %s.\n"
-"Executa '%s --ajuda' per veure una llista completa de les opcions de línies "
-"d'ordre disponibles.\n"
+"S'ha produït un error en l'opció %s: %s.\n"
+"Executeu '%s --ajuda' per a veure una llista completa de les opcions de "
+"línies d'ordre disponibles.\n"
 
 #: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Hangup"
@@ -89,7 +89,7 @@ msgstr "Termina"
 
 #: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
-msgstr "Interrumpeix"
+msgstr "Interromp"
 
 #: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Quit"
@@ -113,7 +113,7 @@ msgstr "Error EMT"
 
 #: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
-msgstr "excepció de coma flotant"
+msgstr "Excepció de coma flotant"
 
 #: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Kill"
@@ -165,7 +165,7 @@ msgstr "L'estat del fill ha canviat"
 
 #: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
-msgstr "Llegida de tty en segon pla"
+msgstr "Lectura de tty en segon pla"
 
 #: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
@@ -173,7 +173,7 @@ msgstr "Escriptura a tty en segon pla"
 
 #: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
-msgstr "E/E ara possible"
+msgstr "E/S ara és possible"
 
 #: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
