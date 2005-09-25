@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-08 21:23+0200\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-09-08 21:23+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -19,64 +19,64 @@ msgstr ""
 "X-Generator: KBabel 1.0.2\n"
 "Plural-Forms: nplurals=2; plural=(n == 1)\n"
 
-#: ../lib/read.c:65
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "byte %d irakurrita"
 msgstr[1] "%d byte irakurrita"
 
-#: ../lib/read_data.c:53
+#: lib/read_data.c:53
 msgid "read data size"
 msgstr "irakurri datuen tamaina"
 
-#: ../lib/read_data.c:72
+#: lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "datuen byte %lu irakurrita"
 msgstr[1] "datuen %lu byte irakurrita"
 
-#: ../lib/write.c:52
+#: lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "byte %d idatzita"
 msgstr[1] "%d byte idatzita"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "Gaitu arazketa"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "ARAZTU"
 
-#: ../src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "Gaitu irteera xehatua"
 
-#: ../src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "XEHATUA"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "Ez sardetu atzeko planoan"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "DAEMON-IK EZ"
 
-#: ../src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "inetd-etik deitua"
 
-#: ../src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: ../src/daemon/gnuserv.c:500
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -86,1088 +86,126 @@ msgstr ""
 "Exekutatu '%s --help' komando-lerroko aukera erabilgarrien zerrenda "
 "ikusteko.\n"
 
-#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "Eseki"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "Eten"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "Irten"
 
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "Argibide ilegala"
 
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "Gelditze-puntuaren segimendua"
 
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "Abortatu"
 
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "EMT errorea"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "Koma mugikorraren salbuespena"
 
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "Hil"
 
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "Bus errorea"
 
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "Segmentu-bortxaketa"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "Argumentu okerra sistemaren deian"
 
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "Kanalizazio hautsia"
 
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "Iratzargailua"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "Amaiera"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "Presazko baldintza socket-ean"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "Gelditu"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "Teklatua gelditzea"
 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "Jarraitu"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "Umearen egoera aldatu egin da"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "Irakurri tty atzeko planoan "
 
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "Idatzi tty-en atzeko planoan "
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "S/I posible da orain"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "PUZaren muga gaindituta"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "Fitxategi-tamainaren muga gaindituta"
 
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "Iratzargailu birtuala"
 
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "Iratzargailuaren profila"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "Leihoaren tamaina aldatzea"
 
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "Informazio-eskaera"
 
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "Erabiltzaileak zehaztutako 1. seinalea"
 
-#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Erabiltzaileak zehaztutako 2. seinalea"
-
-#~ msgid "Ticks (%ld per second):"
-#~ msgstr "Tikak (%ld segundoko):"
-
-#~ msgid "Total"
-#~ msgstr "Guztira"
-
-#~ msgid "User"
-#~ msgstr "Erabiltzailea"
-
-#~ msgid "Nice"
-#~ msgstr "Nice"
-
-#~ msgid "Sys"
-#~ msgstr "Sis"
-
-#~ msgid "Idle"
-#~ msgstr "Inaktibo"
-
-#~ msgid ""
-#~ "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-#~ "\n"
-#~ msgstr ""
-#~ "PUZ          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-#~ "\n"
-
-#~ msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-#~ msgstr "PUZ %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-
-#~ msgid "Percent:"
-#~ msgstr "Ehunekoa:"
-
-#~ msgid "Total (%)"
-#~ msgstr "Guztira (%)"
-
-#~ msgid "User (%)"
-#~ msgstr "Erabiltzailea (%)"
-
-#~ msgid "Nice (%)"
-#~ msgstr "Nice (%)"
-
-#~ msgid "Sys (%)"
-#~ msgstr "Sis (%)"
-
-#~ msgid "Idle (%)"
-#~ msgstr "Inaktibo (%)"
-
-#~ msgid ""
-#~ "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-#~ "\n"
-#~ msgstr ""
-#~ "PUZ          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-#~ "\n"
-
-#~ msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-#~ msgstr "PUZ %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-
-#~ msgid "Spin:"
-#~ msgstr "Biratu:"
-
-#~ msgid "read data %d byte"
-#~ msgid_plural "read data %d bytes"
-#~ msgstr[0] "datuen byte %d irakurri da"
-#~ msgstr[1] "datuen %d byte irakurri dira"
-
-#~ msgid "Total CPU Time"
-#~ msgstr "PUZ denbora guztira"
-
-#~ msgid "CPU Time in User Mode"
-#~ msgstr "PUZ denbora erabiltzaile-moduan"
-
-#~ msgid "CPU Time in User Mode (nice)"
-#~ msgstr "PUZ denbora erabiltzaile-moduan (nice)"
-
-#~ msgid "CPU Time in System Mode"
-#~ msgstr "PUZ denbora sistema-moduan"
-
-#~ msgid "CPU Time in the Idle Task"
-#~ msgstr "PUZ denbora zeregin inaktiboan"
-
-#~ msgid "Tick Frequency"
-#~ msgstr "Tiken maiztasuna"
-
-#~ msgid "SMP Total CPU Time"
-#~ msgstr "SPM PUZ denbora guztira "
-
-#~ msgid "SMP CPU Time in User Mode"
-#~ msgstr "SMP PUZ denbora erabiltzaile-moduan"
-
-#~ msgid "SMP CPU Time in User Mode (nice)"
-#~ msgstr "SMP PUZ denbora erabiltzaile-moduan (nice)"
-
-#~ msgid "SMP CPU Time in System Mode"
-#~ msgstr "SMP PUZ denbora sistema-moduan"
-
-#~ msgid "SMP CPU Time in the Idle Task"
-#~ msgstr "SMP PUZ denbora zeregin inaktiboan"
-
-#~ msgid "SMP CPU Flags"
-#~ msgstr "SMP CPU banderak"
-
-#~ msgid "Number of clock ticks since system boot"
-#~ msgstr "Erlojuaren tik-kopurua sistema abiarazi denetik"
-
-#~ msgid "Number of clock ticks the system spent in user mode"
-#~ msgstr "Sisteman erabiltzaile-moduan igarotako erlojuaren tik-kopurua "
-
-#~ msgid "Number of clock ticks the system spent in user mode (nice)"
-#~ msgstr ""
-#~ "Sisteman erabiltzaile-moduan (nice) igarotako erlojuaren tik-kopurua "
-
-#~ msgid "Number of clock ticks the system spent in system mode"
-#~ msgstr "Sisteman sistema-moduan igarotako erlojuaren tik-kopurua "
-
-#~ msgid "Number of clock ticks the system spent in the idle task"
-#~ msgstr "Sisteman zeregin inaktiboan igarotako erlojuaren tik-kopurua"
-
-#~ msgid "Tick frequency (default is 100)"
-#~ msgstr "Tiken maiztasuna (lehenetsia 100 da)"
-
-#~ msgid "Bit field indicating which CPU is currently running"
-#~ msgstr "Bit eremuak, une honetan zein CPU exekutatzen ari den adieraziz"
-
-#~ msgid "Total blocks"
-#~ msgstr "Blokeak guztira"
-
-#~ msgid "Free blocks"
-#~ msgstr "Bloke libreak"
-
-#~ msgid "Available blocks"
-#~ msgstr "Bloke erabilgarriak"
-
-#~ msgid "Total file nodes"
-#~ msgstr "Fitxategi-nodoak guztira"
-
-#~ msgid "Free file nodes"
-#~ msgstr "Fitxategi-nodo libreak"
-
-#~ msgid "Block size"
-#~ msgstr "Bloke-tamaina"
-
-#~ msgid "Free blocks available to the superuser"
-#~ msgstr "Supererabiltzailearentzat erabilgarri dauden bloke libreak "
-
-#~ msgid "Free blocks available to non-superusers"
-#~ msgstr "Supererabiltzaile ez direnentzat erabilgarri dauden bloke libreak "
-
-#~ msgid "Load Average"
-#~ msgstr "Batez besteko karga"
-
-#~ msgid "Running Tasks"
-#~ msgstr "Zeregin aktiboak"
-
-#~ msgid "Number of Tasks"
-#~ msgstr "Zeregin-kopurua"
-
-#~ msgid "Last PID"
-#~ msgstr "Azken PID"
-
-#~ msgid ""
-#~ "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-#~ msgstr ""
-#~ "Aldi berean exekutatzen ari diren prozesuen kopurua, 1, 5 eta 15 minutuko "
-#~ "batez bestekoa"
-
-#~ msgid "Number of tasks currently running"
-#~ msgstr "Unean exekutatzen ari diren zereginen kopurua"
-
-#~ msgid "Total number of tasks"
-#~ msgstr "Zereginen kopurua guztira"
-
-#~ msgid "Total Memory"
-#~ msgstr "Memoria guztira"
-
-#~ msgid "Used Memory"
-#~ msgstr "Memoria erabilia"
-
-#~ msgid "Free Memory"
-#~ msgstr "Memoria librea"
-
-#~ msgid "Shared Memory"
-#~ msgstr "Memoria partekatua"
-
-#~ msgid "Buffers"
-#~ msgstr "Bufferrak"
-
-#~ msgid "Cached"
-#~ msgstr "Cachean"
-
-#~ msgid "Locked"
-#~ msgstr "Blokeatuta"
-
-#~ msgid "Total physical memory in kB"
-#~ msgstr "Memoria fisikoa guztira kb-etan"
-
-#~ msgid "Used memory size in kB"
-#~ msgstr "Erabilitako memoriaren tamaina kb-etan"
-
-#~ msgid "Free memory size in kB"
-#~ msgstr "Memoria librearen tamaina kb-etan"
-
-#~ msgid "Shared memory size in kB"
-#~ msgstr "Partekatutako memoriaren tamaina kb-etan"
-
-#~ msgid "Size of buffers kB"
-#~ msgstr "Bufferren tamaina kb-etan"
-
-#~ msgid "Size of cached memory in kB"
-#~ msgstr "Cache-memoriaren tamaina kb-etan"
-
-#~ msgid "Memory used from user processes in kB"
-#~ msgstr "Erabiltzaile-prozedurek erabilitako memoria kb-etan"
-
-#~ msgid "Memory in locked pages in kB"
-#~ msgstr "Blokeatutako orrialdeetako memoria kb-etan"
-
-#~ msgid "Number of list elements"
-#~ msgstr "Zerrendako elementu-kopurua"
-
-#~ msgid "Total size of list"
-#~ msgstr "Zerrendaren tamaina osoa"
-
-#~ msgid "Size of a single list element"
-#~ msgstr "Zerrendako elementu baten tamaina"
-
-#~ msgid "Size in kilobytes of message pool"
-#~ msgstr "Mezuen pool-aren tamaina kilobytetan"
-
-#~ msgid "Number of entries in message map"
-#~ msgstr "Mezuen mapako sarreren kopurua"
-
-#~ msgid "Max size of message"
-#~ msgstr "Mezuen gehienezko tamaina"
-
-#~ msgid "Default max size of queue"
-#~ msgstr "Ilararen gehienezko tamaina lehenetsia"
-
-#~ msgid "Max queues system wide"
-#~ msgstr "Ilaren gehinezko kopurua sistema osoan"
-
-#~ msgid "Message segment size"
-#~ msgstr "Mezu-segmentuaren tamaina"
-
-#~ msgid "Number of system message headers"
-#~ msgstr "Sistema-mezuen goiburu-kopurua"
-
-#~ msgid "Interface Flags"
-#~ msgstr "Interfazearen banderak"
-
-#~ msgid "MTU"
-#~ msgstr "MTU"
-
-#~ msgid "IPv4 Subnet"
-#~ msgstr "IPv4 azpisarea"
-
-#~ msgid "IPv4 Address"
-#~ msgstr "IPv4 helbidea"
-
-#~ msgid "Packets In"
-#~ msgstr "Sarrera-paketeak"
-
-#~ msgid "Packets Out"
-#~ msgstr "Irteera-paketeak"
-
-#~ msgid "Packets Total"
-#~ msgstr "Paketeak guztira"
-
-#~ msgid "Bytes In"
-#~ msgstr "Jasotako byteak"
-
-#~ msgid "Bytes Out"
-#~ msgstr "Bidalitako byteak"
-
-#~ msgid "Bytes Total"
-#~ msgstr "Byteak guztira"
-
-#~ msgid "Errors In"
-#~ msgstr "Jasotako erroreak"
-
-#~ msgid "Errors Out"
-#~ msgstr "Bidalitako erroreak"
-
-#~ msgid "Errors Total"
-#~ msgstr "Erroreak guztira"
-
-#~ msgid "Collisions"
-#~ msgstr "Talkak"
-
-#~ msgid "IPv6 Address"
-#~ msgstr "IPv6 helbidea"
-
-#~ msgid "IPv6 Prefix"
-#~ msgstr "Ipv6 aurrizkiak"
-
-#~ msgid "IPv6 Scope"
-#~ msgstr "IPv6 esparrua"
-
-#~ msgid "Maximum Transfer Unit"
-#~ msgstr "Gehienezko transferentzia-unitatea"
-
-#~ msgid "PPP State"
-#~ msgstr "PPP egoera"
-
-#~ msgid "Input bytes"
-#~ msgstr "Sarrerako byteak"
-
-#~ msgid "Output bytes"
-#~ msgstr "Irteerako byteak"
-
-#~ msgid "Number of input bytes"
-#~ msgstr "Sarrerako byteen kopurua"
-
-#~ msgid "Number of output bytes"
-#~ msgstr "Irteerako byteen kopurua"
-
-#~ msgid "Size"
-#~ msgstr "Tamaina"
-
-#~ msgid "Length in bytes of the returned string."
-#~ msgstr "Itzulitako katearen luzera bytetan."
-
-#~ msgid "K_Flags"
-#~ msgstr "K_Flags"
-
-#~ msgid "Min_Flt"
-#~ msgstr "Min_Flt"
-
-#~ msgid "Maj_Flt"
-#~ msgstr "Maj_Flt"
-
-#~ msgid "CMin_Flt"
-#~ msgstr "CMin_Flt"
-
-#~ msgid "CMaj_Flt"
-#~ msgstr "CMaj_Flt"
-
-#~ msgid "KStk_ESP"
-#~ msgstr "KStk_ESP"
-
-#~ msgid "KStk_EIP"
-#~ msgstr "KStk_EIP"
-
-#~ msgid "NWChan"
-#~ msgstr "NWChan"
-
-#~ msgid "WChan"
-#~ msgstr "WChan"
-
-#~ msgid ""
-#~ "Kernel flags of the process.\n"
-#~ "\n"
-#~ "On Linux, currently every flag has the math bit set, because crt0.s "
-#~ "checks for math emulation, so this is not included in the output.\n"
-#~ "\n"
-#~ "This is probably a bug, as not every process is a compiled C program.\n"
-#~ "\n"
-#~ "The math bit should be a decimal 4, and the traced bit is decimal 10."
-#~ msgstr ""
-#~ "Prozesuko nukleo-banderak.\n"
-#~ "\n"
-#~ "Linux-en, unean bandera guztiek dute math bit-a ezarrita, crt0.s-(e)k "
-#~ "matematika-emulazioa egiaztatzen baitu eta hori ez dago irteeran "
-#~ "sartuta.\n"
-#~ "\n"
-#~ "Baliteke errorea izatea, prozesu guztiak ez baitira beti C programa "
-#~ "konpilatuak.\n"
-#~ "\n"
-#~ "math bit-ak 4 hamartarra izan behar luke eta ondorengo bit-a 10 "
-#~ "hamartarra da."
-
-#~ msgid ""
-#~ "The number of minor faults the process has made, those which have not "
-#~ "required loading a memory page from disk."
-#~ msgstr ""
-#~ "Prozesuak egindako hutsegite txikien kopurua; diskotik memoria-orrialdea "
-#~ "kargatzea behar izan ez dutenak, alegia."
-
-#~ msgid ""
-#~ "The number of major faults the process has made, those which have "
-#~ "required loading a memory page from disk."
-#~ msgstr ""
-#~ "Prozesuak egindako hutsegite handien kopurua; diskotik memoria-orrialdea "
-#~ "kargatzea behar izan dutenak, alegia."
-
-#~ msgid ""
-#~ "The number of minor faults that the process and its children have made."
-#~ msgstr "Prozesuak eta bere umeek egin dituzten hutsegite txikien kopurua."
-
-#~ msgid ""
-#~ "The number of major faults that the process and its children have made."
-#~ msgstr "Prozesuak eta bere umeek egin dituzten hutsegite handien kopurua."
-
-#~ msgid ""
-#~ "The current value of esp (32-bit stack pointer), as found in the kernel "
-#~ "stack page for the process."
-#~ msgstr ""
-#~ "esp-en (32 bit-eko pila-erakuslearen) uneko balioa, prozesurako "
-#~ "nukleoaren pila-orrialdean bezala."
-
-#~ msgid "The current EIP (32-bit instruction pointer)."
-#~ msgstr "Uneko EIP (32 bit-eko argibide-erakuslea)."
-
-#~ msgid ""
-#~ "This is the \"channel\" in which the process is waiting.  This is the "
-#~ "address of a system call, and can be looked up in a namelist if you need "
-#~ "a textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -"
-#~ "l to see the WCHAN field in action)"
-#~ msgstr ""
-#~ "Prozesua \"kanal\" honetan dago zain. Sistema-deiaren helbidea da eta "
-#~ "izen-zerrendan begira daiteke izen zehatza behar baduzu. /etc/psdatabase "
-#~ "eguneratua baduzu, erabili ps -l WCHAN eremua martxan kusteko"
-
-#~ msgid "This is the textual name of the `nwchan' field."
-#~ msgstr "Hau da `nwchan' eremuaren testu-izena."
-
-#~ msgid "Virtual"
-#~ msgstr "Birtuala"
-
-#~ msgid "Resident"
-#~ msgstr "Egoiliarra"
-
-#~ msgid "Share"
-#~ msgstr "Partekatu"
-
-#~ msgid "Resident Set Size"
-#~ msgstr "Egoiliarren tamaina"
-
-#~ msgid "Resident Set Size Limit"
-#~ msgstr "Egoiliarren tamainaren muga"
-
-#~ msgid "Total # of pages of memory"
-#~ msgstr "Memoriako orrialde-kopurua guztira "
-
-#~ msgid "Number of pages of virtual memory"
-#~ msgstr "Memoria birtualeko orrialde-kopurua"
-
-#~ msgid "Number of resident set (non-swapped) pages"
-#~ msgstr "Egoiliarren orrialde-kopurua (swap-en ez daudenak)"
-
-#~ msgid "Number of pages of shared (mmap'd) memory"
-#~ msgstr "Memoria partekatuko orrialde-kopurua (mmap erabiliz)"
-
-#~ msgid ""
-#~ "Number of pages the process has in real memory, minus 3 for "
-#~ "administrative purposes. This is just the pages which count towards text, "
-#~ "data, or stack space. This does not include pages which have not been "
-#~ "demand-loaded in, or which are swapped out."
-#~ msgstr ""
-#~ "Prozesuak memoria errealean duen orrialde-kopurua, administrazio-"
-#~ "helburuetarako 3 kenduta. Horiek testu, datu edo pila-espazioaren artean "
-#~ "erabilitako orrialdeak dira. Ez dira sartzen eskaeran kargatu ez diren "
-#~ "edo swap gailuan dauden orrialdeak."
-
-#~ msgid ""
-#~ "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-#~ msgstr "Prozesuaren rss-en uneko limitea bytetan (normalean 2.147.483.647)."
-
-#~ msgid "Text_RSS"
-#~ msgstr "_RSS testua"
-
-#~ msgid "ShLib_RSS"
-#~ msgstr "RSS _ShLib"
-
-#~ msgid "Data_RSS"
-#~ msgstr "RSS _datuak"
-
-#~ msgid "Stack_RSS"
-#~ msgstr "RSS _pila"
-
-#~ msgid "Dirty Size"
-#~ msgstr "Tamaina zikina"
-
-#~ msgid "Start_Code"
-#~ msgstr "Hasiera-_kodea"
-
-#~ msgid "End_Code"
-#~ msgstr "Amaiera-k_odea"
-
-#~ msgid "Start_Stack"
-#~ msgstr "Hasierako pi_la"
-
-#~ msgid "Text resident set size"
-#~ msgstr "Testu-egoiliarren tamaina"
-
-#~ msgid "Shared-Lib resident set size"
-#~ msgstr "Shared-Lib egoiliarren tamaina"
-
-#~ msgid "Data resident set size"
-#~ msgstr "Datu egoiliarren tamaina"
-
-#~ msgid "Stack resident set size"
-#~ msgstr "Pila egoiliarraren tamaina"
-
-#~ msgid "Total size of dirty pages"
-#~ msgstr "Orrialde zikinen tamaina guztira"
-
-#~ msgid "Address of beginning of code segment"
-#~ msgstr "Kode-segmentuaren hasieraren helbidea"
-
-#~ msgid "Address of end of code segment"
-#~ msgstr "Kode-segmentuaren bukaeraren helbidea"
-
-#~ msgid "Address of the bottom of stack segment"
-#~ msgstr "Pila-segmentuaren oinarriaren helbidea"
-
-#~ msgid "Signal"
-#~ msgstr "Seinalea"
-
-#~ msgid "Blocked"
-#~ msgstr "Blokeatuta"
-
-#~ msgid "SigIgnore"
-#~ msgstr "Ez ikusi egin seinaleari"
-
-#~ msgid "SigCatch"
-#~ msgstr "Hartu seinalea"
-
-#~ msgid "Mask of pending signals"
-#~ msgstr "Egiteko dauden seinaleen maskara"
-
-#~ msgid "Mask of blocked signals"
-#~ msgstr "Seinale blokeatuen maskara"
-
-#~ msgid "Mask of ignored signals"
-#~ msgstr "Ez ikusi egindako seinaleen maskara"
-
-#~ msgid "Mask of caught signals"
-#~ msgstr "Hartutako seinaleen maskara"
-
-#~ msgid "Cmd"
-#~ msgstr "Cmd"
-
-#~ msgid "State"
-#~ msgstr "Egoera"
-
-#~ msgid "UID"
-#~ msgstr "UIDa"
-
-#~ msgid "GID"
-#~ msgstr "GIDa"
-
-#~ msgid "RGid"
-#~ msgstr "RGid"
-
-#~ msgid "RUid"
-#~ msgstr "RUid"
-
-#~ msgid "HasCPU"
-#~ msgstr "CPU-dauka"
-
-#~ msgid "Proc"
-#~ msgstr "Proz"
-
-#~ msgid "LProc"
-#~ msgstr "AzkProz"
-
-#~ msgid "Basename of executable file in call to exec()"
-#~ msgstr "exec()ek deitutako fitxategi exekutagarriaren oinarri-izena"
-
-#~ msgid "Single-Char code for process state (S=sleeping)"
-#~ msgstr "Karaktere bateko kodea prozesuaren egoerarako (S=sleeping)"
-
-#~ msgid "UID of process"
-#~ msgstr "Prozesuaren UIDa"
-
-#~ msgid "GID of process"
-#~ msgstr "Prozesuaren GIDa"
-
-#~ msgid "Real UID of process"
-#~ msgstr "Prozesuaren benetako UIDa"
-
-#~ msgid "Real GID of process"
-#~ msgstr "Prozesuaren benetako GIDa"
-
-#~ msgid "Has CPU"
-#~ msgstr "CPU dauka"
-
-#~ msgid "Processor"
-#~ msgstr "Prozesadorea"
-
-#~ msgid "Last Processor"
-#~ msgstr "Azken prozesadorea"
-
-#~ msgid "Start_Time"
-#~ msgstr "Hasiera-_ordua"
-
-#~ msgid "RTime"
-#~ msgstr "ExDenbora"
-
-#~ msgid "UTime"
-#~ msgstr "ErDenbora"
-
-#~ msgid "STime"
-#~ msgstr "SSenbora"
-
-#~ msgid "CUTime"
-#~ msgstr "CUDenbora"
-
-#~ msgid "CSTime"
-#~ msgstr "CSDenbora"
-
-#~ msgid "TimeOut"
-#~ msgstr "Denbora-muga"
-
-#~ msgid "It_Real_Value"
-#~ msgstr "Balio_erreala"
-
-#~ msgid "Frequency"
-#~ msgstr "Maiztasuna"
-
-#~ msgid "XCPU_UTime"
-#~ msgstr "XPUZ_ErDenbora"
-
-#~ msgid "XCPU_STime"
-#~ msgstr "XPUZ_SDenbora"
-
-#~ msgid "Start time of process in seconds since the epoch"
-#~ msgstr "Prozesuaren hasiera-ordua segundotan \"arotik\" aurrera"
-
-#~ msgid "Real time accumulated by process (should be utime + stime)"
-#~ msgstr "Prozesuak metatutako denbora erreala (utime + stime izan behar du)"
-
-#~ msgid "user-mode CPU time accumulated by process"
-#~ msgstr "prozesuak erabiltzaile-moduan metatutako PUZ denbora "
-
-#~ msgid "kernel-mode CPU time accumulated by process"
-#~ msgstr "prozesuak nukleo-moduan metatutako PUZ denbora "
-
-#~ msgid "cumulative utime of process and reaped children"
-#~ msgstr "prozesuaren eta umeen utime denbora metatua"
-
-#~ msgid "cumulative stime of process and reaped children"
-#~ msgstr "prozesuaren eta umeen stime denbora metatua"
-
-#~ msgid "The time (in jiffies) of the process's next timeout"
-#~ msgstr "Prozesuaren hurrengo denbora-mugarako denbora (jiffie-tan)"
-
-#~ msgid ""
-#~ "The time (in jiffies) before the next SIGALRM is sent to the process due "
-#~ "to an interval timer."
-#~ msgstr ""
-#~ "Timer-en tarte bat dela eta, hurrengo SIGALRM prozesura bidali aurreko "
-#~ "denbora (jiffie-tan)."
-
-#~ msgid "Tick frequency"
-#~ msgstr "Tiken maiztasuna"
-
-#~ msgid "SMP user-mode CPU time accumulated by process"
-#~ msgstr "prozesuak erabiltzaile-moduan metatutako SMP PUZ denbora "
-
-#~ msgid "SMP kernel-mode CPU time accumulated by process"
-#~ msgstr "prozesuak nukleo-moduan metatutako SMP PUZ denbora "
-
-#~ msgid "Uid"
-#~ msgstr "Uid"
-
-#~ msgid "EUid"
-#~ msgstr "EUid"
-
-#~ msgid "Gid"
-#~ msgstr "Gid"
-
-#~ msgid "EGid"
-#~ msgstr "EGid"
-
-#~ msgid "SUid"
-#~ msgstr "SUid"
-
-#~ msgid "SGid"
-#~ msgstr "SGid"
-
-#~ msgid "FSUid"
-#~ msgstr "FSUid"
-
-#~ msgid "FSGid"
-#~ msgstr "FSGid"
-
-#~ msgid "Pid"
-#~ msgstr "Pid"
-
-#~ msgid "PPid"
-#~ msgstr "PPid"
-
-#~ msgid "PGrp"
-#~ msgstr "PGrp"
-
-#~ msgid "Session"
-#~ msgstr "Saioa"
-
-#~ msgid "Tty"
-#~ msgstr "Tty"
-
-#~ msgid "TPGid"
-#~ msgstr "TPGid"
-
-#~ msgid "Priority"
-#~ msgstr "Lehentasuna"
-
-#~ msgid "NGroups"
-#~ msgstr "Talde kopurua"
-
-#~ msgid "Groups"
-#~ msgstr "Taldeak"
-
-#~ msgid "User ID"
-#~ msgstr "Erabiltzailearen IDa"
-
-#~ msgid "Effective User ID"
-#~ msgstr "Erabiltzailearen ID eraginkorra"
-
-#~ msgid "Group ID"
-#~ msgstr "Taldearen IDa"
-
-#~ msgid "Effective Group ID"
-#~ msgstr "Taldearen ID eraginkorra"
-
-#~ msgid "Set User ID"
-#~ msgstr "Ezarri erabiltzailearen IDa"
-
-#~ msgid "Set Group ID"
-#~ msgstr "Ezarri taldearen IDa"
-
-#~ msgid "Filesystem User ID"
-#~ msgstr "Fitxategi-sistemako erabiltzaile-ID"
-
-#~ msgid "Filesystem Group ID"
-#~ msgstr "Fitxategi-sistemako talde-ID"
-
-#~ msgid "Process ID"
-#~ msgstr "Prozesuaren IDa"
-
-#~ msgid "PID of parent process"
-#~ msgstr "prozesu gurasoaren PIDa"
-
-#~ msgid "Process group ID"
-#~ msgstr "Prozesuaren taldearen IDa"
-
-#~ msgid "Session ID"
-#~ msgstr "Saioaren IDa"
-
-#~ msgid "Full device number of controlling terminal"
-#~ msgstr "Prozesua kontrolatzen duen terminalaren gailuaren zenbaki osoa"
-
-#~ msgid "Terminal process group ID"
-#~ msgstr "Terminalaren prozesu-taldearen IDa"
-
-#~ msgid "Kernel scheduling priority"
-#~ msgstr "Nukleoko eginkizunak planifikatzeko lehentasuna"
-
-#~ msgid "Standard unix nice level of process"
-#~ msgstr "Prozesuaren unix nice maila estandarra"
-
-#~ msgid "Number of additional process groups"
-#~ msgstr "Prozesu-talde gehigarrien kopurua"
-
-#~ msgid "Array of additional process groups"
-#~ msgstr "Prozesu-talde gehigarrien taula"
-
-#~ msgid "Number of entries in semaphore map"
-#~ msgstr "Semaforo-taulako sarreren kopurua"
-
-#~ msgid "Max number of arrays"
-#~ msgstr "Taulen gehienezko kopurua"
-
-#~ msgid "Max semaphores system wide"
-#~ msgstr "Gehienezko semaforoak sistema osoan"
-
-#~ msgid "Number of undo structures system wide"
-#~ msgstr "'undo' egituren kopurua sistema osoan"
-
-#~ msgid "Max semaphores per array"
-#~ msgstr "Gehienezko semaforo-kopurua taulako "
-
-#~ msgid "Max ops per semop call"
-#~ msgstr "'semop' dei bakoitzeko 'ops'-en gehienezko kopurua"
-
-#~ msgid "Max number of undo entries per process"
-#~ msgstr "Prozesu bakoitzeko 'undo' sarreren gehienezko kopurua"
-
-#~ msgid "sizeof struct sem_undo"
-#~ msgstr "sizeof struct sem_undo"
-
-#~ msgid "Semaphore max value"
-#~ msgstr "Semaforoaren gehienezko balioa"
-
-#~ msgid "Adjust on exit max value"
-#~ msgstr "Doitu irteerako gehienezko balioa"
-
-#~ msgid "Max segment size"
-#~ msgstr "Segmentuaren gehienezko tamaina"
-
-#~ msgid "Min segment size"
-#~ msgstr "Segmentuaren gutxieneko tamaina"
-
-#~ msgid "Max number of segments"
-#~ msgstr "Gehienezko segmentu-kopurua"
-
-#~ msgid "Max shared segments per process"
-#~ msgstr "Prozesu bakoitzean partekatutako gehienezko segmentu-kopurua"
-
-#~ msgid "Max total shared memory"
-#~ msgstr "Gehienezko memoria partekatua guztira"
-
-#~ msgid "Total Swap Space"
-#~ msgstr "Swap lekua guztira"
-
-#~ msgid "Used Swap Space"
-#~ msgstr "Erabilitako Swap lekua"
-
-#~ msgid "Free Swap Space"
-#~ msgstr "Swap leku librea"
-
-#~ msgid "Page In"
-#~ msgstr "Sartutako orriak"
-
-#~ msgid "Page Out"
-#~ msgstr "Irtendako orriak"
-
-#~ msgid ""
-#~ "Total number of swap pages that have been brought in since system boot"
-#~ msgstr ""
-#~ "Sistema abiarazi denetik sartu diren swap orrialdeen guztizko kopurua"
-
-#~ msgid ""
-#~ "Total number of swap pages that have been brought out since system boot"
-#~ msgstr ""
-#~ "Sistema abiarazi denetik irten diren swap orrialdeen guztizko kopurua"
-
-#~ msgid "Server Features"
-#~ msgstr "Zerbitzariaren ezaugarriak"
-
-#~ msgid "CPU Usage"
-#~ msgstr "PUZaren erabilera"
-
-#~ msgid "Memory Usage"
-#~ msgstr "Memoria-erabilera"
-
-#~ msgid "Swap Usage"
-#~ msgstr "Swap-en erabilera"
-
-#~ msgid "System Uptime"
-#~ msgstr "Sistemaren jardun-denbora"
-
-#~ msgid "Load Averange"
-#~ msgstr "Batez besteko karga"
-
-#~ msgid "Shared Memory Limits"
-#~ msgstr "Memoria partekatuaren mugak"
-
-#~ msgid "Message Queue Limits"
-#~ msgstr "Mezu-ilararan mugak"
-
-#~ msgid "Semaphore Set Limits"
-#~ msgstr "Semaforo-multzoaren mugak"
-
-#~ msgid "List of running Processes"
-#~ msgstr "Martxan dauden prozesuen zerrenda"
-
-#~ msgid "Process Status information"
-#~ msgstr "Prozesu-egoerari buruzko informazioa"
-
-#~ msgid "Process UID and TTY information"
-#~ msgstr "Prozesuaren UID eta TTY-ti buruzko informazioa"
-
-#~ msgid "Process Memory information"
-#~ msgstr "Prozesuaren memoriari buruzko informazioa"
-
-#~ msgid "Process Time information"
-#~ msgstr "Prozesuaren denborari buruzko informazioa"
-
-#~ msgid "Process Signal information"
-#~ msgstr "Prozesuko seinaleei buruzko informazioa"
-
-#~ msgid "Process Kernel Data information"
-#~ msgstr "Prozesuaren nukleoko datuei buruzko informazioa"
-
-#~ msgid "Process Segment information"
-#~ msgstr "Prozesuko segmentuei buruzko informazioa"
-
-#~ msgid "Process Arguments"
-#~ msgstr "Prozesuko argumentuak"
-
-#~ msgid "Process Memory Map"
-#~ msgstr "Prozesuaren memoria-mapa"
-
-#~ msgid "Mount List"
-#~ msgstr "Muntatze-zerrenda"
-
-#~ msgid "File System Usage"
-#~ msgstr "Fitxategi-sistemaren erabilera"
-
-#~ msgid "Network Load"
-#~ msgstr "Sareko karga"
-
-#~ msgid "PPP Statistics"
-#~ msgstr "PPPren estatistikak"
-
-#~ msgid "Command line arguments of the process"
-#~ msgstr "Prozesuaren komando-lerroko argumentuak"
-
-#~ msgid "List of currently mounted filesystems"
-#~ msgstr "Unean muntatutako fitxategi-sistemen zerrenda"
-
-#~ msgid "Uptime"
-#~ msgstr "Jardun-denbora"
-
-#~ msgid "Idletime"
-#~ msgstr "Denbora inaktiboa"
-
-#~ msgid "BootTime"
-#~ msgstr "AbioOrdua"
-
-#~ msgid "Time in seconds since system boot"
-#~ msgstr "Sistema abiarazi geroztiko denbora segundotan"
-
-#~ msgid "Time in seconds the system spent in the idle task since system boot"
-#~ msgstr "Sistemak, abiarazi geroztik, inaktibo igarotako denbora segundotan"
-
-#~ msgid "Time of last system boot in seconds since the epoch"
-#~ msgstr "Prozesuaren hasiera-ordua segundotan \"arotik\" aurrera"
-
-#~ msgid "Unknown system error"
-#~ msgstr "Sistema-errore ezezaguna"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: `%s' aukera anbiguoa da\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: `--%s' aukerak ez du argumenturik onartzen\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s: `%c%s' aukerak ez du argumenturik onartzen\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: `%s' aukerak argumentu bat behar du\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: `--%s' aukera ezezaguna\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: `%c%s' aukera ezezaguna\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: -- %c aukera ilegala\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: -- %c aukera baliogabea\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: aukerak --%c argumentu bat behar du\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: `-W %s' aukera anbiguoa da\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: `-W.%s' aukerak ez du argumenturik onartzen\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "Erakutsi laguntza-mezu hau"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "Bistaratu erabilera-mezu laburra"

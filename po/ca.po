@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.9.91\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-04 01:14+0200\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-09-04 01:16+0200\n"
 "Last-Translator: Jordi Mallach <jordi@sindominio.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -16,64 +16,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
 
-#: ../lib/read.c:65
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "s'ha llegit %d octet"
 msgstr[1] "s'ha llegit %d octets"
 
-#: ../lib/read_data.c:53
+#: lib/read_data.c:53
 msgid "read data size"
 msgstr "llegeix la mida de les dades"
 
-#: ../lib/read_data.c:72
+#: lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "s'ha llegit %lu octet de dades"
 msgstr[1] "s'ha llegit %lu octets de dades"
 
-#: ../lib/write.c:52
+#: lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "s'ha escrit %d octet"
 msgstr[1] "s'ha escrit %d octets"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "Activa la depuració"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "DEPURACIÓ"
 
-#: ../src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "Activa la sortida detallada"
 
-#: ../src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "DETALLA"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "No bifurquis al segon pla"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "SENSE DIMONI"
 
-#: ../src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "Ha estat cridat des d'inetd"
 
-#: ../src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: ../src/daemon/gnuserv.c:500
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -83,1099 +83,126 @@ msgstr ""
 "Executeu '%s --ajuda' per a veure una llista completa de les opcions de "
 "línies d'ordre disponibles.\n"
 
-#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "Termina"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "Interromp"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "Surt"
 
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "Instrucció il·legal"
 
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "Captura traça"
 
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "Avorta"
 
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "Error EMT"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "Excepció de coma flotant"
 
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "Mata"
 
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "Error de bus"
 
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "Violació de segment"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "Argument erroni a una crida al sistema"
 
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "Conducte trencat"
 
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "Alarma del rellotge"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "Terminació"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "Condició urgent en socket"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "Parada"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "Parada de teclat"
 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "Continua"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "L'estat del fill ha canviat"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "Lectura de tty en segon pla"
 
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "Escriptura a tty en segon pla"
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "E/S ara és possible"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "Límit de CPU excedit"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "Límit de mida de fitxer excedit"
 
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "Alarma del rellotge virtual"
 
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "Alarma del rellotge perfilada"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "Canvi de la mida de la finestra"
 
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "Petició d'informació"
 
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "Senyal 1 definit per l'usuari"
 
-#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Senyal 2 definit per l'usuari"
-
-#~ msgid "Ticks (%ld per second):"
-#~ msgstr "Polsos (%ld per segon):"
-
-#~ msgid "Total"
-#~ msgstr "Total"
-
-#~ msgid "User"
-#~ msgstr "Usuari"
-
-#~ msgid "Nice"
-#~ msgstr "Prioritari"
-
-#~ msgid "Sys"
-#~ msgstr "Sistema"
-
-#~ msgid "Idle"
-#~ msgstr "Inactiu"
-
-#~ msgid ""
-#~ "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-#~ "\n"
-#~ msgstr ""
-#~ "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-#~ "\n"
-
-#~ msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-#~ msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-
-#~ msgid "Percent:"
-#~ msgstr "Percentage:"
-
-#~ msgid "Total (%)"
-#~ msgstr "Total (%)"
-
-#~ msgid "User (%)"
-#~ msgstr "ID de l'usuari (%)"
-
-#~ msgid "Nice (%)"
-#~ msgstr "Prioritari (%)"
-
-#~ msgid "Sys (%)"
-#~ msgstr "Sistema (%)"
-
-#~ msgid "Idle (%)"
-#~ msgstr "Inactiu (%)"
-
-#~ msgid ""
-#~ "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-#~ "\n"
-#~ msgstr ""
-#~ "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-#~ "\n"
-
-#~ msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-#~ msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-
-#~ msgid "Spin:"
-#~ msgstr "Rotació:"
-
-#~ msgid "read data %d byte"
-#~ msgid_plural "read data %d bytes"
-#~ msgstr[0] "llegeix %d octet de les dades"
-#~ msgstr[1] "llegeix els %d octets de les dades"
-
-#~ msgid "Total CPU Time"
-#~ msgstr "Temps total de la UCP"
-
-#~ msgid "CPU Time in User Mode"
-#~ msgstr "Temps de la UCP en mode usuari"
-
-#~ msgid "CPU Time in User Mode (nice)"
-#~ msgstr "Temps de la UCP en mode usuari (prioritat)"
-
-#~ msgid "CPU Time in System Mode"
-#~ msgstr "Temps de la UCP en mode del sistema"
-
-#~ msgid "CPU Time in the Idle Task"
-#~ msgstr "Temps de la UCP en repòs"
-
-#~ msgid "Tick Frequency"
-#~ msgstr "Freqüència de polsos"
-
-#~ msgid "SMP Total CPU Time"
-#~ msgstr "Temps total de la SMP UCP"
-
-#~ msgid "SMP CPU Time in User Mode"
-#~ msgstr "Temps de la SMP UCP en mode usuari"
-
-#~ msgid "SMP CPU Time in User Mode (nice)"
-#~ msgstr "Temps de SMP UPC en mode usuari (prioritari)"
-
-#~ msgid "SMP CPU Time in System Mode"
-#~ msgstr "Temps de la SMP UCP en mode de sistema"
-
-#~ msgid "SMP CPU Time in the Idle Task"
-#~ msgstr "Temps de la SMP UCP en repòs"
-
-#~ msgid "SMP CPU Flags"
-#~ msgstr "Senyaladors de CPU SMP"
-
-#~ msgid "Number of clock ticks since system boot"
-#~ msgstr "Nombre de polsos de rellotge des de l'arrencada de sistema"
-
-#~ msgid "Number of clock ticks the system spent in user mode"
-#~ msgstr "Nombre de polsos de rellotge el sistema utilitza en mode usuari"
-
-#~ msgid "Number of clock ticks the system spent in user mode (nice)"
-#~ msgstr ""
-#~ "Nombre de polsos de rellotge que el sistema utilitza en mode usuari "
-#~ "(prioritari)"
-
-#~ msgid "Number of clock ticks the system spent in system mode"
-#~ msgstr ""
-#~ "Nombre de polsos de rellotge que el sistema utilitza en mode de sistema"
-
-#~ msgid "Number of clock ticks the system spent in the idle task"
-#~ msgstr "Nombre de polsos de rellotge que el sistema utilitza en repòs"
-
-#~ msgid "Tick frequency (default is 100)"
-#~ msgstr "Freqüència de polsos (per defecte és 100)"
-
-#~ msgid "Bit field indicating which CPU is currently running"
-#~ msgstr "Camp de bit que indica quina CPU s'està executant actualment"
-
-#~ msgid "Total blocks"
-#~ msgstr "Nombre total de blocs"
-
-#~ msgid "Free blocks"
-#~ msgstr "Blocs lliures"
-
-#~ msgid "Available blocks"
-#~ msgstr "Blocs disponibles"
-
-#~ msgid "Total file nodes"
-#~ msgstr "Nombre total de nodes d'arxius"
-
-#~ msgid "Free file nodes"
-#~ msgstr "Nodes d'arxiu lliures"
-
-#~ msgid "Block size"
-#~ msgstr "Mida del bloc"
-
-#~ msgid "Free blocks available to the superuser"
-#~ msgstr "Blocs lliures disponibles per al superusuari"
-
-#~ msgid "Free blocks available to non-superusers"
-#~ msgstr "Blocs lliures disponibles per als no superusuaris"
-
-#~ msgid "Load Average"
-#~ msgstr "Càrrega mitjana"
-
-#~ msgid "Running Tasks"
-#~ msgstr "Tasques executant-se"
-
-#~ msgid "Number of Tasks"
-#~ msgstr "Nombre de tasques"
-
-#~ msgid "Last PID"
-#~ msgstr "Darrera PID"
-
-#~ msgid ""
-#~ "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-#~ msgstr ""
-#~ "Nombre mitjà de tasques executant-se simultàniament en 1, 5 i 15 minuts "
-
-#~ msgid "Number of tasks currently running"
-#~ msgstr "Nombre de tasques executant-se actualment"
-
-#~ msgid "Total number of tasks"
-#~ msgstr "Nombre total de tasques"
-
-#~ msgid "Total Memory"
-#~ msgstr "Memòria total"
-
-#~ msgid "Used Memory"
-#~ msgstr "Memòria utilitzada"
-
-#~ msgid "Free Memory"
-#~ msgstr "Memòria lliure"
-
-#~ msgid "Shared Memory"
-#~ msgstr "Memòria compartida"
-
-#~ msgid "Buffers"
-#~ msgstr "Memòria intermèdia"
-
-#~ msgid "Cached"
-#~ msgstr "Cau"
-
-#~ msgid "Locked"
-#~ msgstr "Bloquejat"
-
-#~ msgid "Total physical memory in kB"
-#~ msgstr "Memòria física total (en kB)"
-
-#~ msgid "Used memory size in kB"
-#~ msgstr "Memòria utilitzada (en kB)"
-
-#~ msgid "Free memory size in kB"
-#~ msgstr "Memòria lliure (en kB)"
-
-#~ msgid "Shared memory size in kB"
-#~ msgstr "Memòria compartida (en kB)"
-
-#~ msgid "Size of buffers kB"
-#~ msgstr "Memòria intermèdia (en kB)"
-
-#~ msgid "Size of cached memory in kB"
-#~ msgstr "Memòria cau (en kB)"
-
-#~ msgid "Memory used from user processes in kB"
-#~ msgstr "Memòria utilitzada en processos de l'usuari (en kB)"
-
-#~ msgid "Memory in locked pages in kB"
-#~ msgstr "Memòria en pàgines bloquejades (en kB)"
-
-#~ msgid "Number of list elements"
-#~ msgstr "Nombre d'elements de la llista"
-
-#~ msgid "Total size of list"
-#~ msgstr "La mida total de la llista"
-
-#~ msgid "Size of a single list element"
-#~ msgstr "La mida d'un element de la llista"
-
-#~ msgid "Size in kilobytes of message pool"
-#~ msgstr "Mida en KB de la bústia de missatges"
-
-#~ msgid "Number of entries in message map"
-#~ msgstr "Nombre d'entrades en el mapa de missatges"
-
-#~ msgid "Max size of message"
-#~ msgstr "Mida màxima dels missatges"
-
-#~ msgid "Default max size of queue"
-#~ msgstr "Mida màxima per defecte de l'acumulador"
-
-#~ msgid "Max queues system wide"
-#~ msgstr "Amplada màxima de  l'acumulador del sistema"
-
-#~ msgid "Message segment size"
-#~ msgstr "Mida dels segments de missatge"
-
-#~ msgid "Number of system message headers"
-#~ msgstr "Nombre d'encapçalaments de missatges del sistema"
-
-#~ msgid "Interface Flags"
-#~ msgstr "Senyaladors d'interfície"
-
-#~ msgid "MTU"
-#~ msgstr "MTU"
-
-#~ msgid "IPv4 Subnet"
-#~ msgstr "Subxarxa IPv4"
-
-#~ msgid "IPv4 Address"
-#~ msgstr "Adreça IPv4"
-
-#~ msgid "Packets In"
-#~ msgstr "Els paquets a dins"
-
-#~ msgid "Packets Out"
-#~ msgstr "Els paquets a fora"
-
-#~ msgid "Packets Total"
-#~ msgstr "El total de paquets "
-
-#~ msgid "Bytes In"
-#~ msgstr "Octets a dins"
-
-#~ msgid "Bytes Out"
-#~ msgstr "Octets a fora"
-
-#~ msgid "Bytes Total"
-#~ msgstr "Total d'octets"
-
-#~ msgid "Errors In"
-#~ msgstr "Errors a dins"
-
-#~ msgid "Errors Out"
-#~ msgstr "Errors a fora"
-
-#~ msgid "Errors Total"
-#~ msgstr "El total d'errors"
-
-#~ msgid "Collisions"
-#~ msgstr "Col·lisions"
-
-#~ msgid "IPv6 Address"
-#~ msgstr "Adreça IPv6"
-
-#~ msgid "IPv6 Prefix"
-#~ msgstr "Prefix IPv6"
-
-#~ msgid "IPv6 Scope"
-#~ msgstr "Àmbit IPv6"
-
-#~ msgid "Maximum Transfer Unit"
-#~ msgstr "Unitat màxima de transferència"
-
-#~ msgid "PPP State"
-#~ msgstr "Estat del PPP"
-
-#~ msgid "Input bytes"
-#~ msgstr "Octets d'entrada"
-
-#~ msgid "Output bytes"
-#~ msgstr "Octets de sortida"
-
-#~ msgid "Number of input bytes"
-#~ msgstr "Nombre d'octets d'entrada"
-
-#~ msgid "Number of output bytes"
-#~ msgstr "Nombre d'octets de sortida"
-
-#~ msgid "Size"
-#~ msgstr "Mida"
-
-#~ msgid "Length in bytes of the returned string."
-#~ msgstr "Longitud en octets de la cadena retornada"
-
-#~ msgid "K_Flags"
-#~ msgstr "Senyaladors_K"
-
-#~ msgid "Min_Flt"
-#~ msgstr "Min_Flt"
-
-#~ msgid "Maj_Flt"
-#~ msgstr "Maj_Flt"
-
-#~ msgid "CMin_Flt"
-#~ msgstr "CMin_Flt"
-
-#~ msgid "CMaj_Flt"
-#~ msgstr "CMaj_Flt"
-
-#~ msgid "KStk_ESP"
-#~ msgstr "KStk_ESP"
-
-#~ msgid "KStk_EIP"
-#~ msgstr "KStk_EIP"
-
-#~ msgid "NWChan"
-#~ msgstr "NWChan"
-
-#~ msgid "WChan"
-#~ msgstr "WChan"
-
-#~ msgid ""
-#~ "Kernel flags of the process.\n"
-#~ "\n"
-#~ "On Linux, currently every flag has the math bit set, because crt0.s "
-#~ "checks for math emulation, so this is not included in the output.\n"
-#~ "\n"
-#~ "This is probably a bug, as not every process is a compiled C program.\n"
-#~ "\n"
-#~ "The math bit should be a decimal 4, and the traced bit is decimal 10."
-#~ msgstr ""
-#~ "Senyaladors del nucli del procés.\n"
-#~ "\n"
-#~ "A Linux, actualment cada senyalador té fixat el bit matemàtic, pel fet de "
-#~ "comprovar crt0.sper a emulació matemàtica, per això no s'inclou a la "
-#~ "sortida. \n"
-#~ "\n"
-#~ "Això és probablement un error fortuït, ja que no tots els processos són "
-#~ "programes compilats en C. \n"
-#~ "\n"
-#~ "El bit matemàtic hauria de ser un decimal 4, i el bit traçat és un "
-#~ "decimal 10"
-
-#~ msgid ""
-#~ "The number of minor faults the process has made, those which have not "
-#~ "required loading a memory page from disk."
-#~ msgstr ""
-#~ "El nombre de faltes menors que el procés ha fet (per a les quals noha "
-#~ "calgut carregar una pàgina de memòria des del disc)."
-
-#~ msgid ""
-#~ "The number of major faults the process has made, those which have "
-#~ "required loading a memory page from disk."
-#~ msgstr ""
-#~ "El nombre de faltes majors que el procés ha fet (per a les quals ha "
-#~ "calgutcarregar una pàgina de memòria des del disc)."
-
-#~ msgid ""
-#~ "The number of minor faults that the process and its children have made."
-#~ msgstr ""
-#~ "El nombre de faltes menors que el procés i els seus derivats han fet."
-
-#~ msgid ""
-#~ "The number of major faults that the process and its children have made."
-#~ msgstr ""
-#~ "El nombre de faltes majors que el procés i els seus derivats han fet"
-
-#~ msgid ""
-#~ "The current value of esp (32-bit stack pointer), as found in the kernel "
-#~ "stack page for the process."
-#~ msgstr ""
-#~ "El valor actual de esp (punter de pila de 32 bits), tal i com es troba al "
-#~ "nuclipàgina de pila per al procés"
-
-#~ msgid "The current EIP (32-bit instruction pointer)."
-#~ msgstr "La EIP actual (punter d'instrucció de 32 bits)"
-
-#~ msgid ""
-#~ "This is the \"channel\" in which the process is waiting.  This is the "
-#~ "address of a system call, and can be looked up in a namelist if you need "
-#~ "a textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -"
-#~ "l to see the WCHAN field in action)"
-#~ msgstr ""
-#~ "Aquest és el \"canal\" on el procés està esperant. Aquesta és l'adreça de "
-#~ "la crida al sistema, i pot ser consultada en una llista si us cal un nom "
-#~ "textual. (Si teniu un /etc/psdatabase actualitzat, intenteu llavors ps -"
-#~ "lper veure el camp WCHAN en acció)"
-
-#~ msgid "This is the textual name of the `nwchan' field."
-#~ msgstr "Aquest és el nom textual del camp 'nwchan'."
-
-#~ msgid "Virtual"
-#~ msgstr "Virtual"
-
-#~ msgid "Resident"
-#~ msgstr "Resident"
-
-#~ msgid "Share"
-#~ msgstr "Compartit"
-
-#~ msgid "Resident Set Size"
-#~ msgstr "Fixa la mida del resident"
-
-#~ msgid "Resident Set Size Limit"
-#~ msgstr "Fixa la mida límit del resident"
-
-#~ msgid "Total # of pages of memory"
-#~ msgstr "Nombre total de pàgines de memòria"
-
-#~ msgid "Number of pages of virtual memory"
-#~ msgstr "Nombre de pàgines de memòria virtual"
-
-#~ msgid "Number of resident set (non-swapped) pages"
-#~ msgstr "Nombre de pàgines residents (no intercanviables) fixat"
-
-#~ msgid "Number of pages of shared (mmap'd) memory"
-#~ msgstr "Nombre de pàgines de memòria compartida (mmap'd)"
-
-#~ msgid ""
-#~ "Number of pages the process has in real memory, minus 3 for "
-#~ "administrative purposes. This is just the pages which count towards text, "
-#~ "data, or stack space. This does not include pages which have not been "
-#~ "demand-loaded in, or which are swapped out."
-#~ msgstr ""
-#~ "Nombre de pàgines que el procés té a la memòria real, descomptant-ne 3 "
-#~ "per tasques administratives.  Aquestes són les pàgines que acumulen espai "
-#~ "de text, dades o pila. No s'inclouen pàgines que no han estat carregades "
-#~ "per demanda, o ja intercanviades."
-
-#~ msgid ""
-#~ "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-#~ msgstr ""
-#~ "Límit actual en octets de la rss del procés (normalment 2.147.483.647)."
-
-#~ msgid "Text_RSS"
-#~ msgstr "Text_RSS"
-
-#~ msgid "ShLib_RSS"
-#~ msgstr "ShLib_RSS"
-
-#~ msgid "Data_RSS"
-#~ msgstr "Data_RSS"
-
-#~ msgid "Stack_RSS"
-#~ msgstr "Stack_RSS"
-
-#~ msgid "Dirty Size"
-#~ msgstr "Mida bruta"
-
-#~ msgid "Start_Code"
-#~ msgstr "Codi_Inici"
-
-#~ msgid "End_Code"
-#~ msgstr "Fi_Codi"
-
-#~ msgid "Start_Stack"
-#~ msgstr "Inici_Pila"
-
-#~ msgid "Text resident set size"
-#~ msgstr "Mida del conjunt resident de text"
-
-#~ msgid "Shared-Lib resident set size"
-#~ msgstr "Mida del conjunt resident de biblioteques compartides"
-
-#~ msgid "Data resident set size"
-#~ msgstr "Mida del conjunt de dades"
-
-#~ msgid "Stack resident set size"
-#~ msgstr "Mida del conjunt de pila"
-
-#~ msgid "Total size of dirty pages"
-#~ msgstr "La mida total de pàgines brutes"
-
-#~ msgid "Address of beginning of code segment"
-#~ msgstr "Adreça de l'inici del segment de codi"
-
-#~ msgid "Address of end of code segment"
-#~ msgstr "Adreça del final del segment de codi"
-
-#~ msgid "Address of the bottom of stack segment"
-#~ msgstr "Adreça de la part inferior del segment de pila"
-
-#~ msgid "Signal"
-#~ msgstr "Senyal"
-
-#~ msgid "Blocked"
-#~ msgstr "Bloquejada"
-
-#~ msgid "SigIgnore"
-#~ msgstr "SigIgnore"
-
-#~ msgid "SigCatch"
-#~ msgstr "SigCatch"
-
-#~ msgid "Mask of pending signals"
-#~ msgstr "Màscara de senyals pendents"
-
-#~ msgid "Mask of blocked signals"
-#~ msgstr "Màscara de senyals bloquejats"
-
-#~ msgid "Mask of ignored signals"
-#~ msgstr "Màscara de senyals ignorats"
-
-#~ msgid "Mask of caught signals"
-#~ msgstr "Màscara de senyals capturades"
-
-#~ msgid "Cmd"
-#~ msgstr "Ord"
-
-#~ msgid "State"
-#~ msgstr "Estat"
-
-#~ msgid "UID"
-#~ msgstr "UID"
-
-#~ msgid "GID"
-#~ msgstr "GID"
-
-#~ msgid "RGid"
-#~ msgstr "RGid"
-
-#~ msgid "RUid"
-#~ msgstr "RUid"
-
-#~ msgid "HasCPU"
-#~ msgstr "TéCPU"
-
-#~ msgid "Proc"
-#~ msgstr "Proc"
-
-#~ msgid "LProc"
-#~ msgstr "LProc"
-
-#~ msgid "Basename of executable file in call to exec()"
-#~ msgstr "Nom del fitxer executable en crida per a exec()"
-
-#~ msgid "Single-Char code for process state (S=sleeping)"
-#~ msgstr "Codi monocaràcter per a l'estat del procès (S=en repòs)"
-
-#~ msgid "UID of process"
-#~ msgstr "UID del procés"
-
-#~ msgid "GID of process"
-#~ msgstr "GID del procés"
-
-#~ msgid "Real UID of process"
-#~ msgstr "UID real del procés"
-
-#~ msgid "Real GID of process"
-#~ msgstr "GID real del procés"
-
-#~ msgid "Has CPU"
-#~ msgstr "Té CPU"
-
-#~ msgid "Processor"
-#~ msgstr "Processador"
-
-#~ msgid "Last Processor"
-#~ msgstr "Últim processador"
-
-#~ msgid "Start_Time"
-#~ msgstr "Hora_Inici"
-
-#~ msgid "RTime"
-#~ msgstr "RTime"
-
-#~ msgid "UTime"
-#~ msgstr "UTime"
-
-#~ msgid "STime"
-#~ msgstr "STime"
-
-#~ msgid "CUTime"
-#~ msgstr "CUTime"
-
-#~ msgid "CSTime"
-#~ msgstr "CSTime"
-
-#~ msgid "TimeOut"
-#~ msgstr "TempsEsp"
-
-#~ msgid "It_Real_Value"
-#~ msgstr "El_Seu_Valor_Real"
-
-#~ msgid "Frequency"
-#~ msgstr "Freqüència"
-
-#~ msgid "XCPU_UTime"
-#~ msgstr "XUCP UTime"
-
-#~ msgid "XCPU_STime"
-#~ msgstr "XUCP_STime"
-
-#~ msgid "Start time of process in seconds since the epoch"
-#~ msgstr "Hora d'inici del procés (en segons) des de l' epoch"
-
-#~ msgid "Real time accumulated by process (should be utime + stime)"
-#~ msgstr "Temps real acumulada per proces (hauria der ser utime + stime)"
-
-#~ msgid "user-mode CPU time accumulated by process"
-#~ msgstr "temps de la UCP en mode usuari acumulat per procés"
-
-#~ msgid "kernel-mode CPU time accumulated by process"
-#~ msgstr "temps de la UCP en mode nucli acumulat per procés"
-
-#~ msgid "cumulative utime of process and reaped children"
-#~ msgstr "utime acumulat per procès i derivats"
-
-#~ msgid "cumulative stime of process and reaped children"
-#~ msgstr "stime acumulat per procès i derivats"
-
-#~ msgid "The time (in jiffies) of the process's next timeout"
-#~ msgstr ""
-#~ "El temps (en jiffies) per a la pròxima expiració del temps d'espera del "
-#~ "procés"
-
-#~ msgid ""
-#~ "The time (in jiffies) before the next SIGALRM is sent to the process due "
-#~ "to an interval timer."
-#~ msgstr ""
-#~ "El temps (en jiffies) abans que s'envie el pròxim SIGALRM al procés degut "
-#~ "a un temporitzador d'intervals."
-
-#~ msgid "Tick frequency"
-#~ msgstr "Freqüència de polsos"
-
-#~ msgid "SMP user-mode CPU time accumulated by process"
-#~ msgstr "Temps de UPC SMP mode-usuari acumulat pels procés"
-
-#~ msgid "SMP kernel-mode CPU time accumulated by process"
-#~ msgstr "Temps de UPC SMP mode-nucli acumulat pels procés"
-
-#~ msgid "Uid"
-#~ msgstr "Uid"
-
-#~ msgid "EUid"
-#~ msgstr "EUid"
-
-#~ msgid "Gid"
-#~ msgstr "Gid"
-
-#~ msgid "EGid"
-#~ msgstr "EGid"
-
-#~ msgid "SUid"
-#~ msgstr "SUid"
-
-#~ msgid "SGid"
-#~ msgstr "SGid"
-
-#~ msgid "FSUid"
-#~ msgstr "FSUid"
-
-#~ msgid "FSGid"
-#~ msgstr "FSGid"
-
-#~ msgid "Pid"
-#~ msgstr "Pid"
-
-#~ msgid "PPid"
-#~ msgstr "PPid"
-
-#~ msgid "PGrp"
-#~ msgstr "PGrp"
-
-#~ msgid "Session"
-#~ msgstr "Sessió"
-
-#~ msgid "Tty"
-#~ msgstr "Tty"
-
-#~ msgid "TPGid"
-#~ msgstr "TPGid"
-
-#~ msgid "Priority"
-#~ msgstr "Prioritat"
-
-#~ msgid "NGroups"
-#~ msgstr "NGrups"
-
-#~ msgid "Groups"
-#~ msgstr "Grups"
-
-#~ msgid "User ID"
-#~ msgstr "ID de l'usuari"
-
-#~ msgid "Effective User ID"
-#~ msgstr "ID efectiva de l'usuari"
-
-#~ msgid "Group ID"
-#~ msgstr "ID del grup"
-
-#~ msgid "Effective Group ID"
-#~ msgstr "ID efectiva del grup"
-
-#~ msgid "Set User ID"
-#~ msgstr "Estableix l'ID de l'usuari"
-
-#~ msgid "Set Group ID"
-#~ msgstr "Estableix l'ID del grup"
-
-#~ msgid "Filesystem User ID"
-#~ msgstr "ID de l'usuari del sistema de fitxers"
-
-#~ msgid "Filesystem Group ID"
-#~ msgstr "ID del grup del sistema de fitxers"
-
-#~ msgid "Process ID"
-#~ msgstr "ID del procés"
-
-#~ msgid "PID of parent process"
-#~ msgstr "PID del procés seminal"
-
-#~ msgid "Process group ID"
-#~ msgstr "ID del grup de processos"
-
-#~ msgid "Session ID"
-#~ msgstr "ID de la sessió"
-
-#~ msgid "Full device number of controlling terminal"
-#~ msgstr "Número sencer del dispositiu de la terminal controladora"
-
-#~ msgid "Terminal process group ID"
-#~ msgstr "ID del grup de terminal de processos"
-
-#~ msgid "Kernel scheduling priority"
-#~ msgstr "Fixació de les prioritats del nucli"
-
-#~ msgid "Standard unix nice level of process"
-#~ msgstr "Nivell estàndard de unix de prioritat del procés"
-
-#~ msgid "Number of additional process groups"
-#~ msgstr "Nombre de grups de processos addicionals"
-
-#~ msgid "Array of additional process groups"
-#~ msgstr "Taula de grups de processos addicionals"
-
-#~ msgid "Number of entries in semaphore map"
-#~ msgstr "Nombre d'entrades en el mapa semafòric"
-
-#~ msgid "Max number of arrays"
-#~ msgstr "Nombre màxim de taules"
-
-#~ msgid "Max semaphores system wide"
-#~ msgstr "Max semàfors en tot el sistema"
-
-#~ msgid "Number of undo structures system wide"
-#~ msgstr "Número de estructures de desfer en tot el sistema"
-
-#~ msgid "Max semaphores per array"
-#~ msgstr "Número màxim de semàfors per taula"
-
-#~ msgid "Max ops per semop call"
-#~ msgstr "Número màxim d'operacions per crida de semioperació"
-
-#~ msgid "Max number of undo entries per process"
-#~ msgstr "Número màxim d'entrades de desfer per procés"
-
-#~ msgid "sizeof struct sem_undo"
-#~ msgstr "sizeof struct sem_undo"
-
-#~ msgid "Semaphore max value"
-#~ msgstr "Valor màxim de semàfors"
-
-#~ msgid "Adjust on exit max value"
-#~ msgstr "Ajusta al sortir el valor màxim"
-
-#~ msgid "Max segment size"
-#~ msgstr "Mida màxima dels segments"
-
-#~ msgid "Min segment size"
-#~ msgstr "Mida mínima dels segments"
-
-#~ msgid "Max number of segments"
-#~ msgstr "Nombre màxim de segments"
-
-#~ msgid "Max shared segments per process"
-#~ msgstr "Nombre màxim de segments"
-
-#~ msgid "Max total shared memory"
-#~ msgstr "Memòria compartida total màxima"
-
-#~ msgid "Total Swap Space"
-#~ msgstr "Total espai compartit"
-
-#~ msgid "Used Swap Space"
-#~ msgstr "Espai compartit utilitzat"
-
-#~ msgid "Free Swap Space"
-#~ msgstr "Espai compartit lliure"
-
-#~ msgid "Page In"
-#~ msgstr "Pàgina entrada"
-
-#~ msgid "Page Out"
-#~ msgstr "Pàgina sortida"
-
-#~ msgid ""
-#~ "Total number of swap pages that have been brought in since system boot"
-#~ msgstr ""
-#~ "Nombre total de pàgines intercanviades que han estat dutes  des de "
-#~ "l'arrencada del sistema"
-
-#~ msgid ""
-#~ "Total number of swap pages that have been brought out since system boot"
-#~ msgstr ""
-#~ "Nombre total de pàgines intercanviades que han estat enviades des de "
-#~ "l'arrencada del sistema"
-
-#~ msgid "Server Features"
-#~ msgstr "Característiques del servidor"
-
-#~ msgid "CPU Usage"
-#~ msgstr "Ús de la UCP"
-
-#~ msgid "Memory Usage"
-#~ msgstr "Ús de la memòria"
-
-#~ msgid "Swap Usage"
-#~ msgstr "Ús de la memòria d'intercanvi"
-
-#~ msgid "System Uptime"
-#~ msgstr "Uptime del sistema"
-
-#~ msgid "Load Averange"
-#~ msgstr "Càrrega mitjana"
-
-#~ msgid "Shared Memory Limits"
-#~ msgstr "Límits de la memòria compartida"
-
-#~ msgid "Message Queue Limits"
-#~ msgstr "Límits de la cua de missatges"
-
-#~ msgid "Semaphore Set Limits"
-#~ msgstr "Fixa els límits del semàfor"
-
-#~ msgid "List of running Processes"
-#~ msgstr "Llista de processos en execució"
-
-#~ msgid "Process Status information"
-#~ msgstr "Processa informació del status"
-
-#~ msgid "Process UID and TTY information"
-#~ msgstr "Processa informació de la UID i TTY "
-
-#~ msgid "Process Memory information"
-#~ msgstr "Processa informació de la memòria"
-
-#~ msgid "Process Time information"
-#~ msgstr "Processa informació de l'hora"
-
-#~ msgid "Process Signal information"
-#~ msgstr "Processa informació del senyal"
-
-#~ msgid "Process Kernel Data information"
-#~ msgstr "Processa informació de les dades del nucli"
-
-#~ msgid "Process Segment information"
-#~ msgstr "Processa informació del segment"
-
-#~ msgid "Process Arguments"
-#~ msgstr "Processa arguments "
-
-#~ msgid "Process Memory Map"
-#~ msgstr "Mapa de memòria de processos"
-
-#~ msgid "Mount List"
-#~ msgstr "Llista de montatge"
-
-#~ msgid "File System Usage"
-#~ msgstr "Ús dels arxius del sistema"
-
-#~ msgid "Network Load"
-#~ msgstr "Carrega de la xarxa"
-
-#~ msgid "PPP Statistics"
-#~ msgstr "Estadístiques PPP"
-
-#~ msgid "Command line arguments of the process"
-#~ msgstr "Línia de comandes d'arguments del procés"
-
-#~ msgid "List of currently mounted filesystems"
-#~ msgstr "Llista de sistemes d'arxius actualment muntats"
-
-#~ msgid "Uptime"
-#~ msgstr "Uptime"
-
-#~ msgid "Idletime"
-#~ msgstr "Temps d'espera"
-
-#~ msgid "BootTime"
-#~ msgstr "Temps d'arrencada"
-
-#~ msgid "Time in seconds since system boot"
-#~ msgstr "Temps en segons des de l'arrencada del sistema"
-
-#~ msgid "Time in seconds the system spent in the idle task since system boot"
-#~ msgstr ""
-#~ "Temps en segons que el sistema ha emprat en repòs des de l'arrencada del "
-#~ "sistema"
-
-#~ msgid "Time of last system boot in seconds since the epoch"
-#~ msgstr "Hora de l'última arrencada del sistema en segons des de l' epoch"
-
-#~ msgid "Unknown system error"
-#~ msgstr "Error del sitema desconegut"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s: L'opció '%s' és ambigua\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s: L'opció '--%s' no permet arguments\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s; L'opció '%c%s' no permet arguments\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s: Cal un argument per a l'opció '%s'\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s: No s'ha reconegut l'opció '--%s'\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s: No s'ha reconegut l'opció '%c%s'\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s: L'opció -- %c no està autoritzada\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s: L'opció -- %c no és vàlida\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s: Cal un argument per a l'opció --%c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s: L'opció '-W %s' és ambigua\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s: L'opció '-W%s' no permet un argument\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "Mostra aquest missatge d'ajuda"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "Mostra un breu missatge d'ús"

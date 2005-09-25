@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop GNOME 2.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-21 06:40+0000\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-07-01 18:03+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
@@ -17,61 +17,61 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "X-Generator: LocFactoryEditor 1.2.2\n"
 
-#: ../lib/read.c:65
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "đã đọc %d byte"
 
-#: ../lib/read_data.c:53
+#: lib/read_data.c:53
 msgid "read data size"
 msgstr "đã đọc kích thước dữ liệu"
 
-#: ../lib/read_data.c:72
+#: lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "đã đọc %lu byte dữ liệu"
 
-#: ../lib/write.c:52
+#: lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "đã ghi %d byte"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "Bật gỡ lỗi"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "GỠ LỖI"
 
-#: ../src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "Bật xuất chi tiết"
 
-#: ../src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "CHI TIẾT"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "Không tạo tiến trình con vào nền"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "KHÔNG TRÌNH NỀN"
 
-#: ../src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "Được gọi từ inetd"
 
-#: ../src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: ../src/daemon/gnuserv.c:500
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -80,1001 +80,126 @@ msgstr ""
 "Lỗi tùy chọn %s: %s.\n"
 "Chạy «%s --help» để xem danh sách toàn bộ các tùy chọn có thể.\n"
 
-#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "Treo máy"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "Ngắt"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "Thoát"
 
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "Lệnh bị cấm"
 
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "Bẫy theo vết"
 
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "Hủy"
 
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "Lỗi EMT"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "Ngoại lệ điểm phù động"
 
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "Buộc chấm dứt"
 
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "Lỗi Bus"
 
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "Vi phạm phân đoạn"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "Đối số sai với lời gọi hệ thống"
 
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "Ống dẫn bị gãy"
 
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "Đồng hồ báo động"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "Kết thúc"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "Hoàn cảnh khẩn trên ổ cắm"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "Dừng"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "Dừng bàn phím"
 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "Tiếp tục"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "Trạng thái tiến trình con đã thay đổi"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "Đọc từ tty (chế độ nền)"
 
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "Ghi vào tty (chế độ nền)"
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "mới có thể dùng gõ/xuất"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "Vượt quá giới hạn CPU"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "Vượt quá giới hạn kích thước tập tin"
 
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "Đồng hồ báo động ảo"
 
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "Lấy thông tin về đồng hồ bảo động"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "Thay đổi kích thước cửa sổ"
 
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "Yêu cầu thông tin"
 
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "Tín hiệu do người dùng định nghĩa 1"
 
-#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Tín hiệu do người dùng định nghĩa 2"
-
-msgid "Ticks (%ld per second):"
-msgstr "Nhịp (%ld lần 1 giây):"
-
-msgid "Total"
-msgstr "Tổng cộng"
-
-msgid "User"
-msgstr "Người dùng"
-
-msgid "Nice"
-msgstr "Ưu tiên"
-
-msgid "Sys"
-msgstr "Sys"
-
-msgid "Idle"
-msgstr "Rảnh"
-
-msgid ""
-"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-"\n"
-msgstr ""
-"CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-"\n"
-
-msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-msgstr "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-
-msgid "Percent:"
-msgstr "Phần trăm:"
-
-msgid "Total (%)"
-msgstr "Tổng cộng (%)"
-
-msgid "User (%)"
-msgstr "Người dùng (%)"
-
-msgid "Nice (%)"
-msgstr "Ưu tiên (%)"
-
-msgid "Sys (%)"
-msgstr "Sys (%)"
-
-msgid "Idle (%)"
-msgstr "Rảnh (%)"
-
-msgid ""
-"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-"\n"
-msgstr ""
-"CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-"\n"
-
-msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-msgstr "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-
-msgid "Spin:"
-msgstr "Chiều:"
-
-#, fuzzy
-msgid "read data %d byte"
-msgid_plural "read data %d bytes"
-msgstr[0] "đã đọc %d byte"
-
-msgid "Total CPU Time"
-msgstr "Tổng thời gian CPU"
-
-msgid "CPU Time in User Mode"
-msgstr "Thời gian CPU chế độ người dùng"
-
-msgid "CPU Time in User Mode (nice)"
-msgstr "Thời gian CPU chế độ người dùng (nice)"
-
-msgid "CPU Time in System Mode"
-msgstr "Thời gian CPU chế độ hệ thống"
-
-msgid "CPU Time in the Idle Task"
-msgstr "Thời gian CPU rảnh"
-
-msgid "Tick Frequency"
-msgstr "Tần số nhịp"
-
-msgid "SMP Total CPU Time"
-msgstr "Tổng thời gian CPU SMP"
-
-msgid "SMP CPU Time in User Mode"
-msgstr "Thời gian CPU SMP chế độ người dùng"
-
-msgid "SMP CPU Time in User Mode (nice)"
-msgstr "Thời gian CPU SMP chế độ người dùng (nice)"
-
-msgid "SMP CPU Time in System Mode"
-msgstr "Thời gian CPU SMP chế độ hệ thống"
-
-msgid "SMP CPU Time in the Idle Task"
-msgstr "Thời gian CPU SMP rảnh"
-
-msgid "Number of clock ticks since system boot"
-msgstr "SỐ nhịp đồng hồ kể từ khi khởi động máy"
-
-msgid "Number of clock ticks the system spent in user mode"
-msgstr "Số nhịp đồng hồ trong chế độ người dùng kể từ khi khởi động máy"
-
-msgid "Number of clock ticks the system spent in user mode (nice)"
-msgstr "Số nhịp đồng hồ trong chế độ người dùng kể từ khi khởi động máy (nice)"
-
-msgid "Number of clock ticks the system spent in system mode"
-msgstr "Số nhịp đồng hồ trong chế độ hệ thống kể từ khi khởi động máy"
-
-msgid "Number of clock ticks the system spent in the idle task"
-msgstr "Số nhịp đồng hồ rảnh kể từ khi khởi độn máy"
-
-msgid "Tick frequency (default is 100)"
-msgstr "Số nhịp (mặc định 100)"
-
-msgid "Total blocks"
-msgstr "Tổng số khối"
-
-msgid "Free blocks"
-msgstr "Sổ khối rỗng"
-
-msgid "Available blocks"
-msgstr "Số khối sẵn sàng"
-
-msgid "Total file nodes"
-msgstr "Tổng số inode"
-
-msgid "Free file nodes"
-msgstr "Số inode rỗng"
-
-msgid "Block size"
-msgstr "Kích thước khối"
-
-msgid "Free blocks available to the superuser"
-msgstr "Số khối sẵn sàng cho root"
-
-msgid "Free blocks available to non-superusers"
-msgstr "Số khối sẵn sàng cho người dùng bình thường"
-
-msgid "Load Average"
-msgstr "Trung bình tải"
-
-msgid "Running Tasks"
-msgstr "Công việc đang chạy"
-
-msgid "Number of Tasks"
-msgstr "Số công việc"
-
-msgid "Last PID"
-msgstr "PID cuối"
-
-msgid "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-msgstr "Số công việc trung bình đang thực hiện đồng thời trong 1, 5 và 15 phút"
-
-msgid "Number of tasks currently running"
-msgstr "Số công việc đang chạy"
-
-msgid "Total number of tasks"
-msgstr "Tổng số công việc"
-
-msgid "Total Memory"
-msgstr "Tổng bộ nhớ"
-
-msgid "Used Memory"
-msgstr "Bộ nhớ đã dùng"
-
-msgid "Free Memory"
-msgstr "Bộ nhớ trống"
-
-msgid "Shared Memory"
-msgstr "Bộ nhớ chia sẻ"
-
-msgid "Buffers"
-msgstr "Vùng đệm"
-
-msgid "Cached"
-msgstr "Cache"
-
-msgid "Locked"
-msgstr "Bị khóa"
-
-msgid "Total physical memory in kB"
-msgstr "Tổng bộ nhớ vật lý (kB)"
-
-msgid "Used memory size in kB"
-msgstr "Bộ nhớ đã dùng (kB)"
-
-msgid "Free memory size in kB"
-msgstr "Bộ nhớ rỗng (kB)"
-
-msgid "Shared memory size in kB"
-msgstr "Bộ nhớ chia sẻ (kB)"
-
-msgid "Size of buffers kB"
-msgstr "Kích thước vùng đệm (kB)"
-
-msgid "Size of cached memory in kB"
-msgstr "Kích thước vùng nhớ cache (kB)"
-
-msgid "Memory used from user processes in kB"
-msgstr "Vùng nhớ dùng cho các tiến trình (kB)"
-
-msgid "Memory in locked pages in kB"
-msgstr "Vùng nhớ bị khoá (kB)"
-
-msgid "Number of list elements"
-msgstr "Số thành phần trong danh sách"
-
-msgid "Total size of list"
-msgstr "Tổng kích thước trong danh sách"
-
-msgid "Size of a single list element"
-msgstr "Kích thước một mục đơn"
-
-msgid "Size in kilobytes of message pool"
-msgstr "Kích thước của message pool (kB)"
-
-msgid "Number of entries in message map"
-msgstr "Số mục trong bản đồ thông điệp"
-
-msgid "Max size of message"
-msgstr "Kích thước thông điệp tối đa"
-
-msgid "Default max size of queue"
-msgstr "Kích thước mặc định tối đa của hàng đợi"
-
-msgid "Max queues system wide"
-msgstr "Hàng đợi hệ thống tối đa"
-
-msgid "Message segment size"
-msgstr "Kích thước thông điệp"
-
-msgid "Number of system message headers"
-msgstr "Số tiêu đề thông điệp hệ thống"
-
-msgid "Interface Flags"
-msgstr "Cờ giao tiếp"
-
-msgid "MTU"
-msgstr "MTU"
-
-msgid "IPv4 Subnet"
-msgstr "Mạng con IPv4"
-
-msgid "IPv4 Address"
-msgstr "Địa chỉ IPv4"
-
-msgid "Packets In"
-msgstr "Gói tin vào"
-
-msgid "Packets Out"
-msgstr "Gói tin ra"
-
-msgid "Packets Total"
-msgstr "Tống số gói tin"
-
-msgid "Bytes In"
-msgstr "Số byte vào"
-
-msgid "Bytes Out"
-msgstr "Số byte ra"
-
-msgid "Bytes Total"
-msgstr "Tổng số byte"
-
-msgid "Errors In"
-msgstr "Lỗi vào"
-
-msgid "Errors Out"
-msgstr "Lỗi ra"
-
-msgid "Errors Total"
-msgstr "Tổng số lỗi"
-
-msgid "Collisions"
-msgstr "Xung đột"
-
-msgid "IPv6 Address"
-msgstr "Địa chỉ IPv6"
-
-msgid "Maximum Transfer Unit"
-msgstr "Đơn vị truyền thông tối đa"
-
-msgid "PPP State"
-msgstr "Trạng thái PPP"
-
-msgid "Input bytes"
-msgstr "Những byte vào"
-
-msgid "Output bytes"
-msgstr "Những byte ra"
-
-msgid "Number of input bytes"
-msgstr "Số byte vào"
-
-msgid "Number of output bytes"
-msgstr "Số byte ra"
-
-msgid "Size"
-msgstr "Kích thước"
-
-msgid "Length in bytes of the returned string."
-msgstr "Chiều dài (theo byte) của chuỗi trả về."
-
-msgid "K_Flags"
-msgstr "K_Flags"
-
-msgid "Min_Flt"
-msgstr "Min_Flt"
-
-msgid "Maj_Flt"
-msgstr "Maj_Flt"
-
-msgid "CMin_Flt"
-msgstr "CMin_Flt"
-
-msgid "CMaj_Flt"
-msgstr "CMaj_Flt"
-
-msgid "KStk_ESP"
-msgstr "KStk_ESP"
-
-msgid "KStk_EIP"
-msgstr "KStk_EIP"
-
-msgid "NWChan"
-msgstr "NWChan"
-
-msgid "WChan"
-msgstr "WChan"
-
-msgid ""
-"Kernel flags of the process.\n"
-"\n"
-"On Linux, currently every flag has the math bit set, because crt0.s checks "
-"for math emulation, so this is not included in the output.\n"
-"\n"
-"This is probably a bug, as not every process is a compiled C program.\n"
-"\n"
-"The math bit should be a decimal 4, and the traced bit is decimal 10."
-msgstr ""
-"Cờ kernel của tiến trình.\n"
-"\n"
-"Trên Linux, mỗi cờ hiện hành có đặt math bit, để crt0.s kiểm tra xem có hỗ "
-"trợ mô phỏng toán học hay không, vì thế nó không được gộp trong đầu ra.\n"
-"\n"
-"Đây có thể là lỗi, vì không phải mọi tiến trình đều được viết bằng C.\n"
-"\n"
-"Math bit là 4, và traced bit là 10."
-
-msgid ""
-"The number of minor faults the process has made, those which have not "
-"required loading a memory page from disk."
-msgstr ""
-"Số lỗi phụ của tiến trình. Những lỗi này khôgn cần yêu cầu nạp lên bộ nhớ từ "
-"đĩa."
-
-msgid ""
-"The number of major faults the process has made, those which have required "
-"loading a memory page from disk."
-msgstr "Số lỗi chính của tiến trình. Những lỗi này cần nạp lên bộ nhớ từ đĩa."
-
-msgid "The number of minor faults that the process and its children have made."
-msgstr "Số lỗi phụ mà tiến trình và con của nó đã tạo ra."
-
-msgid "The number of major faults that the process and its children have made."
-msgstr "Số lỗi chính mà tiến trình và con của nó đã tạo ra."
-
-msgid ""
-"The current value of esp (32-bit stack pointer), as found in the kernel "
-"stack page for the process."
-msgstr "Giá trị hiện thời của thanh ghi ESP."
-
-msgid "The current EIP (32-bit instruction pointer)."
-msgstr "Giá trị hiện thời của thanh ghi EIP"
-
-msgid ""
-"This is the \"channel\" in which the process is waiting.  This is the "
-"address of a system call, and can be looked up in a namelist if you need a "
-"textual name.  (If you have an up-to-date /etc/psdatabase, then try ps -l to "
-"see the WCHAN field in action)"
-msgstr ""
-"Đây là \"kênh\" mà tiến trình đang đợi. Đây là địa chỉ của lệnh gọi hệ "
-"thống, và có thể được tra cứu trong danh sách tên nếu bạn cần biết tên của "
-"nó. (Nếu bạn có /etc/psdatabase đã cập nhật thì hãy thử ps -l và xem trường "
-"WCHAN)"
-
-msgid "This is the textual name of the `nwchan' field."
-msgstr "Đây là tên của trường `nwchan'"
-
-msgid "Virtual"
-msgstr "Ảo"
-
-msgid "Resident"
-msgstr "Thường trú"
-
-msgid "Share"
-msgstr "Chia sẻ"
-
-msgid "Resident Set Size"
-msgstr "Kích thước thường trú"
-
-msgid "Resident Set Size Limit"
-msgstr "Giới hạn thường trú"
-
-msgid "Total # of pages of memory"
-msgstr "Tổng số trang bộ nhớ"
-
-msgid "Number of pages of virtual memory"
-msgstr "Số trang bộ nhớ ảo"
-
-msgid "Number of resident set (non-swapped) pages"
-msgstr "Số trang bộ nhớ thường trú (không thể tráo đổi)"
-
-msgid "Number of pages of shared (mmap'd) memory"
-msgstr "Số trang bộ nhớ chia sẻ (mmap)"
-
-msgid ""
-"Number of pages the process has in real memory, minus 3 for administrative "
-"purposes. This is just the pages which count towards text, data, or stack "
-"space. This does not include pages which have not been demand-loaded in, or "
-"which are swapped out."
-msgstr ""
-"Số trang bộ nhớ thực mà tiến trình dùng, trừ đi 3 vì mục đích quản lý. Đây "
-"chỉ là số trang đếm không gian của phân đoạn text, data, hoặc ngăn xếp. Nó "
-"không bao gồm các trang được nạp theo yêu cầu, hoặc được tráo đổi."
-
-msgid ""
-"Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-msgstr ""
-"Giới hạn hiện thời (byte) của rss của tiến trình (thường là 2,147,483,647)."
-
-msgid "Text_RSS"
-msgstr "Text_RSS"
-
-msgid "ShLib_RSS"
-msgstr "ShLib_RSS"
-
-msgid "Data_RSS"
-msgstr "Data_RSS"
-
-msgid "Stack_RSS"
-msgstr "Stack_RSS"
-
-msgid "Dirty Size"
-msgstr "Cờ thay đổi"
-
-msgid "Start_Code"
-msgstr "Bắt đầu mã"
-
-msgid "End_Code"
-msgstr "Kết thúc mã"
-
-msgid "Start_Stack"
-msgstr "Bắt đầu ngăn xếp"
-
-msgid "Text resident set size"
-msgstr "Kích thước text thường trú"
-
-msgid "Shared-Lib resident set size"
-msgstr "Kích thước Shared-Lib thường trú"
-
-msgid "Data resident set size"
-msgstr "Kích thước dữ liệu thường trú"
-
-msgid "Stack resident set size"
-msgstr "Kích thước ngăn xếp thường trú"
-
-msgid "Total size of dirty pages"
-msgstr "Tổng số trang thay đổi"
-
-msgid "Address of beginning of code segment"
-msgstr "Địa chỉ bắt đầu đoạn mã"
-
-msgid "Address of end of code segment"
-msgstr "Địa chỉ kết thúc đoạn mã"
-
-msgid "Address of the bottom of stack segment"
-msgstr "Địa chỉ đáy ngăn xếp"
-
-msgid "Signal"
-msgstr "Tín hiệu"
-
-msgid "Blocked"
-msgstr "Bị khóa"
-
-msgid "SigIgnore"
-msgstr "SigIgnore"
-
-msgid "SigCatch"
-msgstr "SigCatch"
-
-msgid "Mask of pending signals"
-msgstr "Mặt nạ tín hiệu chờ"
-
-msgid "Mask of blocked signals"
-msgstr "Mặt nạ tín hiệu bị khóa"
-
-#, fuzzy
-msgid "Mask of ignored signals"
-msgstr "Tín hiệu do người dùng định nghĩa 2"
-
-msgid "Mask of caught signals"
-msgstr "Mặt nạ tín hiệu bắt lấy"
-
-msgid "Cmd"
-msgstr "Lệnh"
-
-msgid "State"
-msgstr "Trạng thái"
-
-msgid "UID"
-msgstr "UID"
-
-msgid "GID"
-msgstr "GID"
-
-msgid "RGid"
-msgstr "RGid"
-
-msgid "RUid"
-msgstr "RUid"
-
-msgid "Basename of executable file in call to exec()"
-msgstr "Tên cơ sở của tập tin thực thi trong lệnh gọi exec()"
-
-msgid "Single-Char code for process state (S=sleeping)"
-msgstr "Ký tự đơn biểu thị trạng thái tiếng trình (S=sleeping (ngủ))"
-
-msgid "UID of process"
-msgstr "UID của tiến trình"
-
-msgid "GID of process"
-msgstr "GID của tiến trình"
-
-msgid "Real UID of process"
-msgstr "UID thực của tiến trình"
-
-msgid "Real GID of process"
-msgstr "GID thực của tiến trình"
-
-msgid "Has CPU"
-msgstr "Có CPU"
-
-msgid "Processor"
-msgstr "Tiến trình"
-
-msgid "Start_Time"
-msgstr "Thời điểm bắt đầu"
-
-msgid "RTime"
-msgstr "RTime"
-
-msgid "UTime"
-msgstr "UTime"
-
-msgid "STime"
-msgstr "STime"
-
-msgid "CUTime"
-msgstr "CUTime"
-
-msgid "CSTime"
-msgstr "CSTime"
-
-msgid "TimeOut"
-msgstr "Quá hạn"
-
-msgid "It_Real_Value"
-msgstr "Giá trị thực"
-
-msgid "Frequency"
-msgstr "Tần số"
-
-msgid "XCPU_UTime"
-msgstr "XCPU_UTime"
-
-msgid "XCPU_STime"
-msgstr "XCPU_STime"
-
-msgid "Start time of process in seconds since the epoch"
-msgstr "Thời gian bắt đầu tiến trình tính theo giây từ epoch"
-
-msgid "Real time accumulated by process (should be utime + stime)"
-msgstr "Giá trị thực được tích lũy bởi tiến trình (phải bằng utime + stime)"
-
-msgid "user-mode CPU time accumulated by process"
-msgstr "Thời gian CPU chế độ người dùng được tích lũy bởi tiến trình"
-
-msgid "kernel-mode CPU time accumulated by process"
-msgstr "Thời gian CPU chế độ kerneo được tích lũy bởi tiến trình"
-
-msgid "Tick frequency"
-msgstr "Số nhịp"
-
-msgid "SMP user-mode CPU time accumulated by process"
-msgstr "Thời gian CPU SMP chế độ người dùng được tích lũy bởi tiến trình"
-
-msgid "SMP kernel-mode CPU time accumulated by process"
-msgstr "Thời gian CPU SMP chế độ kernel được tích lũy bởi tiến trình"
-
-msgid "Uid"
-msgstr "UID"
-
-msgid "EUid"
-msgstr "EUID"
-
-msgid "Gid"
-msgstr "GID"
-
-msgid "EGid"
-msgstr "EGID"
-
-msgid "SUid"
-msgstr "SUid"
-
-msgid "SGid"
-msgstr "SGid"
-
-msgid "FSUid"
-msgstr "FSUid"
-
-msgid "FSGid"
-msgstr "FSGid"
-
-msgid "Pid"
-msgstr "PID"
-
-msgid "PPid"
-msgstr "PPID"
-
-msgid "PGrp"
-msgstr "PGRP"
-
-msgid "Session"
-msgstr "Session"
-
-msgid "Tty"
-msgstr "TTY"
-
-msgid "TPGid"
-msgstr "TPGID"
-
-msgid "Priority"
-msgstr "Ưu tiên"
-
-msgid "NGroups"
-msgstr "NGroups"
-
-msgid "Groups"
-msgstr "Nhóm"
-
-msgid "User ID"
-msgstr "ID Người dùng"
-
-msgid "Effective User ID"
-msgstr "ID Người dùng hiệu quả"
-
-msgid "Group ID"
-msgstr "ID Nhóm"
-
-msgid "Effective Group ID"
-msgstr "ID Nhóm hiệu quả"
-
-msgid "Process ID"
-msgstr "ID tiến trình"
-
-msgid "PID of parent process"
-msgstr "PID tiến trình cha"
-
-msgid "Process group ID"
-msgstr "ID Nhóm tiến trình"
-
-msgid "Session ID"
-msgstr "Session ID"
-
-msgid "Full device number of controlling terminal"
-msgstr "Mã số thiết bị đầy đủ của terminal điều khiển"
-
-msgid "Terminal process group ID"
-msgstr "GID terminal"
-
-msgid "Kernel scheduling priority"
-msgstr "Ưu tiên lập lịch kernel"
-
-msgid "Standard unix nice level of process"
-msgstr "Mức ưu tiên unix chuẩn của tiến trình"
-
-msgid "Number of entries in semaphore map"
-msgstr "Số mục trong bảng đồ semaphore"
-
-msgid "Max number of arrays"
-msgstr "Số mảng tối đa"
-
-msgid "Max semaphores system wide"
-msgstr "Số semaphore hệ thống tối đa"
-
-msgid "Number of undo structures system wide"
-msgstr "Số lần hoàn lại cấp hệ thống tối đa"
-
-msgid "Max semaphores per array"
-msgstr "Số semaphore mỗi mảng"
-
-msgid "Max ops per semop call"
-msgstr "Số ops tối đa mỗi lần gọi semop"
-
-msgid "Max number of undo entries per process"
-msgstr "Số mục hoàn lại mỗi tiến trình tối đa"
-
-msgid "sizeof struct sem_undo"
-msgstr "kích thước sem_undo"
-
-msgid "Semaphore max value"
-msgstr "Gia trị semaphore tối đa"
-
-msgid "Adjust on exit max value"
-msgstr "Điều chỉnh giá trị thoát tối đa"
-
-msgid "Max segment size"
-msgstr "Kích thước phân đoạn tối đa"
-
-msgid "Min segment size"
-msgstr "Kích thước phân đoạn tối thiểu"
-
-msgid "Max number of segments"
-msgstr "Số phân đoạn tối đa"
-
-msgid "Max shared segments per process"
-msgstr "Số phân đoạn chia sẻ tối đa"
-
-msgid "Max total shared memory"
-msgstr "Tổng bộ nhớ chia sẽ tối đa"
-
-msgid "Total Swap Space"
-msgstr "Tổng vùng tráo"
-
-msgid "Used Swap Space"
-msgstr "Vùng tráo đã dùng"
-
-msgid "Free Swap Space"
-msgstr "Vùng tráo rỗng"
-
-msgid "Page In"
-msgstr "Trang vào"
-
-msgid "Page Out"
-msgstr "Trang ra"
-
-msgid "Server Features"
-msgstr "Tính năng server"
-
-msgid "CPU Usage"
-msgstr "Sử dụng CPU"
-
-msgid "Memory Usage"
-msgstr "Sử dụng bộ nhớ"
-
-msgid "Swap Usage"
-msgstr "Sử dụng tráo đổi"
-
-msgid "Load Averange"
-msgstr "Trung bình tải"
-
-msgid "Shared Memory Limits"
-msgstr "Giới hạn bộ nhớ chia sẻ"
-
-msgid "Message Queue Limits"
-msgstr "Giới hạn hàng đợi thông điệp"
-
-msgid "Semaphore Set Limits"
-msgstr "Giới hạn tập semaphore"
-
-msgid "List of running Processes"
-msgstr "Danh sách tiến trình đang chạy"
-
-msgid "Process Status information"
-msgstr "Thông tin trạng thái tiến trình"
-
-msgid "Process UID and TTY information"
-msgstr "Thông tin UID và TTY của tiến trình"
-
-msgid "Process Memory information"
-msgstr "Thông tin bộ nhớ tiến trình"
-
-msgid "Process Time information"
-msgstr "Thông tin thời gian tiến trình"
-
-msgid "Process Signal information"
-msgstr "Thông tin tín hiệu của tiến trình"
-
-msgid "Process Kernel Data information"
-msgstr "Thông tin dữ liệu kernel của tiến trình"
-
-#, fuzzy
-msgid "Process Segment information"
-msgstr "Vi phạm phân đoạn"
-
-msgid "Process Arguments"
-msgstr "Đối số của tiến trình"
-
-msgid "Process Memory Map"
-msgstr "Bản đồ bộ nhớ của tiến trình"
-
-msgid "Mount List"
-msgstr "Danh sách gắn kết"
-
-msgid "File System Usage"
-msgstr "Sử dụng hệ thống tập tin"
-
-msgid "Network Load"
-msgstr "Tải mạng"
-
-msgid "PPP Statistics"
-msgstr "Thống kê PPP"
-
-msgid "Command line arguments of the process"
-msgstr "Đối số dòng lệnh của tiến trình"
-
-msgid "List of currently mounted filesystems"
-msgstr "Danh sách các hệ thống tập tin được gắn kết"
-
-msgid "Idletime"
-msgstr "Thời gian rảnh"
-
-msgid "Time in seconds since system boot"
-msgstr "Thời gian (giây) kể từ khi khởi động hệ thống"
-
-msgid "Time in seconds the system spent in the idle task since system boot"
-msgstr "Thời gian (giây) hệ thống rảnh kể từ khi khởi động hệ thống"
-
-msgid "Time of last system boot in seconds since the epoch"
-msgstr "Thời điểm khởi động lần cuối tính theo giây từ epoch"
-
-msgid "Unknown system error"
-msgstr "Lỗi lạ hệ thống"
-
-msgid "%s: option `%s' is ambiguous\n"
-msgstr "%s: tùy chọn `%s' không rõ ràng\n"
-
-msgid "%s: option `--%s' doesn't allow an argument\n"
-msgstr "%s: tùy chọn `--%s' không có đối số\n"
-
-msgid "%s: option `%c%s' doesn't allow an argument\n"
-msgstr "%s: tùy chọn `%c%s' không có đối số\n"
-
-msgid "%s: option `%s' requires an argument\n"
-msgstr "%s: tùy chọn `%s' cần một đối số\n"
-
-msgid "%s: unrecognized option `--%s'\n"
-msgstr "%s: tùy chọn không được công nhận `--%s'\n"
-
-msgid "%s: unrecognized option `%c%s'\n"
-msgstr "%s: tùy chọn không được công nhận `%c%s'\n"
-
-msgid "%s: illegal option -- %c\n"
-msgstr "%s: tùy chọn bất hợp lệ -- %c\n"
-
-msgid "%s: invalid option -- %c\n"
-msgstr "%s: tùy chọn bất hợp lệ -- %c\n"
-
-msgid "%s: option requires an argument -- %c\n"
-msgstr "%s: tùy chọn cần một đối số -- %c\n"
-
-msgid "%s: option `-W %s' is ambiguous\n"
-msgstr "%s: tùy chọn `-W %s' không rõ ràng\n"
-
-msgid "%s: option `-W %s' doesn't allow an argument\n"
-msgstr "%s: tùy chọn `-W %s' không có đối số\n"
-
-msgid "Show this help message"
-msgstr "Hiện thông tin trợ giúp"
-
-msgid "Display brief usage message"
-msgstr "Hiện tóm tắt cách sử dụng"

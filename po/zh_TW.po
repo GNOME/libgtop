@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.9.92\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-23 22:05+0000\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-03-05 16:33+0800\n"
 "Last-Translator: Abel Cheung <abel@oaka.org>\n"
 "Language-Team: Chinese (traditional) <community@linuxhall.org>\n"
@@ -15,61 +15,61 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../lib/read.c:65
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "讀入 %d 位元組"
 
-#: ../lib/read_data.c:53
+#: lib/read_data.c:53
 msgid "read data size"
 msgstr "讀入資料大小"
 
-#: ../lib/read_data.c:72
+#: lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "讀入 %lu 位元組的資料"
 
-#: ../lib/write.c:52
+#: lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "寫入 %d 位元組"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "啟用偵錯功能"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "偵錯"
 
-#: ../src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "顯示詳細的輸出訊息"
 
-#: ../src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "詳細訊息"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "不要放置於背景執行"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: ../src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "透過 inetd 執行"
 
-#: ../src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: ../src/daemon/gnuserv.c:500
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -78,921 +78,126 @@ msgstr ""
 "選項 %s 發生錯誤：%s。\n"
 "請執行‘%s --help’查看完整的指令列選項清單。\n"
 
-#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "掛斷 (Hangup)"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "中斷 (Interrupt)"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "退出 (Quit)"
 
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "不合法硬體指示"
 
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "TRAP 硬體錯誤"
 
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "不正常中止"
 
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "EMT 硬體錯誤"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "浮點數運算出現例外情況"
 
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "強行中止 (Kill)"
 
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "匯流排錯誤"
 
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "記憶體區段錯誤"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "系統函式參數錯誤"
 
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "管線中斷"
 
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "系統時鐘訊號"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "強行中止 (Term)"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "socket 緊急情況"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "暫停進程"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "鍵盤停止"
 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "繼續進程"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "副進程狀態已改變"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "背景進程從 tty 讀入資料"
 
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "背景進程向 tty 輸出資料"
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "可重新進行輸入/輸出"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "超過 CPU 限制"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "超過檔案大小限制"
 
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "虛擬時鐘訊號"
 
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "效能測試計時器週期結束"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "更改視窗尺寸"
 
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "要求進程資訊"
 
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "用戶自定訊號 1"
 
-#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "用戶自定訊號 2"
-
-#~ msgid "Ticks (%ld per second):"
-#~ msgstr "Tick (每秒 %ld 次)："
-
-#~ msgid "Total"
-#~ msgstr "總共"
-
-#~ msgid "User"
-#~ msgstr "使用者"
-
-#~ msgid "Nice"
-#~ msgstr "優先值"
-
-#~ msgid "Sys"
-#~ msgstr "系統"
-
-#~ msgid "Idle"
-#~ msgstr "閒置"
-
-#~ msgid ""
-#~ "CPU          (0x%08lx): %12.0f %12.0f %12.0f %12.0f %12.0f\n"
-#~ "\n"
-#~ msgstr ""
-#~ "CPU          (0x%08lx)：%12.0f %12.0f %12.0f %12.0f %12.0f\n"
-#~ "\n"
-
-#~ msgid "CPU %3d      (0x%08lx): %12lu %12lu %12lu %12lu %12lu\n"
-#~ msgstr "CPU %3d      (0x%08lx)：%12lu %12lu %12lu %12lu %12lu\n"
-
-#~ msgid "Percent:"
-#~ msgstr "百分比："
-
-#~ msgid "Total (%)"
-#~ msgstr "總共(%)"
-
-#~ msgid "User (%)"
-#~ msgstr "使用者(%)"
-
-#~ msgid "Nice (%)"
-#~ msgstr "優先值(%)"
-
-#~ msgid "Sys (%)"
-#~ msgstr "系統(%)"
-
-#~ msgid "Idle (%)"
-#~ msgstr "閒置(%)"
-
-#~ msgid ""
-#~ "CPU          (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-#~ "\n"
-#~ msgstr ""
-#~ "CPU          (0x%08lx)：%12.3f %12.3f %12.3f %12.3f %12.3f\n"
-#~ "\n"
-
-#~ msgid "CPU %3d      (0x%08lx): %12.3f %12.3f %12.3f %12.3f %12.3f\n"
-#~ msgstr "CPU %3d      (0x%08lx)：%12.3f %12.3f %12.3f %12.3f %12.3f\n"
-
-# I think spin means something more specific, but have no knowledge about
-# this, even after searching in google. -- Abel
-#~ msgid "Spin:"
-#~ msgstr "使用分佈："
-
-#~ msgid "Total CPU Time"
-#~ msgstr "CPU 總時間"
-
-#~ msgid "CPU Time in User Mode"
-#~ msgstr "用戶模式的 CPU 時間"
-
-#~ msgid "CPU Time in User Mode (nice)"
-#~ msgstr "用戶模式的 CPU 時間 (nice)"
-
-#~ msgid "CPU Time in System Mode"
-#~ msgstr "系統模式的 CPU 時間"
-
-#~ msgid "CPU Time in the Idle Task"
-#~ msgstr "閒置工作的 CPU 時間"
-
-#~ msgid "Tick Frequency"
-#~ msgstr "Tick 頻率"
-
-#~ msgid "SMP Total CPU Time"
-#~ msgstr "CPU 時間總數 (SMP)"
-
-#~ msgid "SMP CPU Time in User Mode"
-#~ msgstr "使用者模式 SMP CPU 時間"
-
-#~ msgid "SMP CPU Time in User Mode (nice)"
-#~ msgstr "使用者模式 SMP CPU 時間 (nice)"
-
-#~ msgid "SMP CPU Time in System Mode"
-#~ msgstr "系統模式 CPU 時間 (SMP)"
-
-#~ msgid "SMP CPU Time in the Idle Task"
-#~ msgstr "閑置進程佔用的 CPU 時間 (SMP)"
-
-#~ msgid "Number of clock ticks since system boot"
-#~ msgstr "由系統啟動開始計算，系統時鐘發出 tick 的次數"
-
-#~ msgid "Number of clock ticks the system spent in user mode"
-#~ msgstr "在使用者模式中，系統所消耗的 tick 次數"
-
-#~ msgid "Number of clock ticks the system spent in user mode (nice)"
-#~ msgstr "在使用者模式中，系統所消耗的 tick 次數 (nice)"
-
-#~ msgid "Number of clock ticks the system spent in system mode"
-#~ msgstr "在系統模式中，系統所消耗的 tick 次數"
-
-#~ msgid "Number of clock ticks the system spent in the idle task"
-#~ msgstr "閒置工作所消耗的 tick 次數"
-
-#~ msgid "Tick frequency (default is 100)"
-#~ msgstr "Tick 頻率 (預設為 100)"
-
-#~ msgid "Total blocks"
-#~ msgstr "區塊總數"
-
-#~ msgid "Free blocks"
-#~ msgstr "可用區塊"
-
-#~ msgid "Available blocks"
-#~ msgstr "可用區塊數目"
-
-#~ msgid "Total file nodes"
-#~ msgstr "檔案系統節點總數"
-
-#~ msgid "Free file nodes"
-#~ msgstr "可用的檔案系統節點數目"
-
-#~ msgid "Free blocks available to the superuser"
-#~ msgstr "可提供給最高權限用戶的磁碟區塊數目"
-
-#~ msgid "Free blocks available to non-superusers"
-#~ msgstr "可提供給非最高權限用戶的磁碟區塊數目"
-
-#~ msgid "Load Average"
-#~ msgstr "平均負載"
-
-#~ msgid "Running Tasks"
-#~ msgstr "執行中的工作"
-
-#~ msgid "Number of Tasks"
-#~ msgstr "工作數目"
-
-#~ msgid "Last PID"
-#~ msgstr "最後的 PID"
-
-#~ msgid ""
-#~ "Number of jobs running simultaneously averaged over 1, 5 and 15 minutes"
-#~ msgstr "以 1、5 及 15 分鐘平均計算同時執行的工作數目"
-
-#~ msgid "Number of tasks currently running"
-#~ msgstr "目前執行的工作數目"
-
-#~ msgid "Total number of tasks"
-#~ msgstr "工作總數"
-
-#~ msgid "Total Memory"
-#~ msgstr "記憶體總數"
-
-#~ msgid "Used Memory"
-#~ msgstr "已用記憶體"
-
-#~ msgid "Free Memory"
-#~ msgstr "可用記憶體"
-
-#~ msgid "Shared Memory"
-#~ msgstr "分享記憶體"
-
-#~ msgid "Buffers"
-#~ msgstr "緩衝區"
-
-#~ msgid "Cached"
-#~ msgstr "快取"
-
-#~ msgid "Locked"
-#~ msgstr "鎖定"
-
-#~ msgid "Total physical memory in kB"
-#~ msgstr "實體記憶體總數(以 kB 計)"
-
-#~ msgid "Used memory size in kB"
-#~ msgstr "已用記憶體(以 kB 計)"
-
-#~ msgid "Free memory size in kB"
-#~ msgstr "可用記憶體(以 kB 計)"
-
-#~ msgid "Shared memory size in kB"
-#~ msgstr "分享記憶體(以 kB 計)"
-
-#~ msgid "Size of buffers kB"
-#~ msgstr "緩衝區大小(以 kB 計)"
-
-#~ msgid "Size of cached memory in kB"
-#~ msgstr "快取記憶大小(以 kB 計)"
-
-#~ msgid "Memory used from user processes in kB"
-#~ msgstr "使用者進程佔用記憶大小(以 kB 計)"
-
-#~ msgid "Memory in locked pages in kB"
-#~ msgstr "已鎖定記憶大小(以 kB 計)"
-
-#~ msgid "Number of list elements"
-#~ msgstr "清單元素數目"
-
-#~ msgid "Total size of list"
-#~ msgstr "清單大小"
-
-#~ msgid "Size of a single list element"
-#~ msgstr "清單元素大小"
-
-#~ msgid "Size in kilobytes of message pool"
-#~ msgstr "message pool 的大小，以 kB 計算"
-
-#~ msgid "Number of entries in message map"
-#~ msgstr "message map 中的項目的數目"
-
-#~ msgid "Max size of message"
-#~ msgstr "message 大小上限"
-
-#~ msgid "Default max size of queue"
-#~ msgstr "佇列大小上限"
-
-#~ msgid "Max queues system wide"
-#~ msgstr "系統整體佇列數目上限"
-
-#~ msgid "Message segment size"
-#~ msgstr "message 區段大小"
-
-#~ msgid "Number of system message headers"
-#~ msgstr "系統訊息標頭數目"
-
-#~ msgid "Interface Flags"
-#~ msgstr "網路介面旗標"
-
-#~ msgid "MTU"
-#~ msgstr "MTU"
-
-#~ msgid "Packets In"
-#~ msgstr "封包(入)"
-
-#~ msgid "Packets Out"
-#~ msgstr "封包(出)"
-
-#~ msgid "Packets Total"
-#~ msgstr "封包總數"
-
-#~ msgid "Bytes In"
-#~ msgstr "位元組(入)"
-
-#~ msgid "Bytes Out"
-#~ msgstr "位元組(出)"
-
-#~ msgid "Bytes Total"
-#~ msgstr "位元組總數"
-
-#~ msgid "Errors In"
-#~ msgstr "錯誤(入)"
-
-#~ msgid "Errors Out"
-#~ msgstr "錯誤(出)"
-
-#~ msgid "Errors Total"
-#~ msgstr "錯誤總數"
-
-#~ msgid "Collisions"
-#~ msgstr "衝撞"
-
-#~ msgid "Maximum Transfer Unit"
-#~ msgstr "最大傳送單位(MTU)"
-
-#~ msgid "PPP State"
-#~ msgstr "PPP 狀態"
-
-#~ msgid "Input bytes"
-#~ msgstr "位元組輸入"
-
-#~ msgid "Output bytes"
-#~ msgstr "位元組輸出"
-
-#~ msgid "Number of input bytes"
-#~ msgstr "輸入的位元組數目"
-
-#~ msgid "Number of output bytes"
-#~ msgstr "輸出的位元組數目"
-
-#~ msgid "Size"
-#~ msgstr "大小"
-
-#~ msgid "Length in bytes of the returned string."
-#~ msgstr "傳回的字串長度(以位元組計算)。"
-
-#~ msgid "K_Flags"
-#~ msgstr "K_Flags"
-
-#~ msgid "Min_Flt"
-#~ msgstr "Min_Flt"
-
-#~ msgid "Maj_Flt"
-#~ msgstr "Maj_Flt"
-
-#~ msgid "CMin_Flt"
-#~ msgstr "CMin_Flt"
-
-#~ msgid "CMaj_Flt"
-#~ msgstr "CMaj_Flt"
-
-#~ msgid "KStk_ESP"
-#~ msgstr "KStk_ESP"
-
-#~ msgid "KStk_EIP"
-#~ msgstr "KStk_EIP"
-
-#~ msgid "NWChan"
-#~ msgstr "NWChan"
-
-#~ msgid "WChan"
-#~ msgstr "WChan"
-
-#~ msgid ""
-#~ "The number of minor faults the process has made, those which have not "
-#~ "required loading a memory page from disk."
-#~ msgstr ""
-#~ "該進程所產生的 minor fault 數目，在這情況下不需要在磁碟中重新載入記憶分"
-#~ "頁。"
-
-#~ msgid ""
-#~ "The number of major faults the process has made, those which have "
-#~ "required loading a memory page from disk."
-#~ msgstr ""
-#~ "該進程所產生的 major fault 數目，在這情況下需要在磁碟中重新載入記憶分頁。"
-
-#~ msgid ""
-#~ "The number of minor faults that the process and its children have made."
-#~ msgstr "該進程及它的副進程所產生的 minor fault。"
-
-#~ msgid ""
-#~ "The number of major faults that the process and its children have made."
-#~ msgstr "該進程及它的副進程所產生的 major fault。"
-
-#~ msgid ""
-#~ "The current value of esp (32-bit stack pointer), as found in the kernel "
-#~ "stack page for the process."
-#~ msgstr "目前的 ESP 數值 (32 位元堆疊指標)，出現在該進程的核心堆疊分頁。"
-
-#~ msgid "The current EIP (32-bit instruction pointer)."
-#~ msgstr "目前的 EIP 數值 (32 位元指令指標)。"
-
-#~ msgid "This is the textual name of the `nwchan' field."
-#~ msgstr "這個是‘nwchan’欄位的文字名稱。"
-
-#~ msgid "Virtual"
-#~ msgstr "虛擬"
-
-#~ msgid "Resident"
-#~ msgstr "常駐"
-
-#~ msgid "Share"
-#~ msgstr "分享"
-
-#~ msgid "Resident Set Size"
-#~ msgstr "常駐記憶體數目"
-
-#~ msgid "Resident Set Size Limit"
-#~ msgstr "常駐記憶體數目上限"
-
-#~ msgid "Total # of pages of memory"
-#~ msgstr "記憶體分頁總數"
-
-#~ msgid "Number of pages of virtual memory"
-#~ msgstr "虛擬記憶體分頁數目"
-
-#~ msgid "Number of resident set (non-swapped) pages"
-#~ msgstr "常駐 (不會寫入交換記憶) 記憶體分頁數目"
-
-#~ msgid "Number of pages of shared (mmap'd) memory"
-#~ msgstr "分享(mmap)記憶體分頁數目"
-
-#~ msgid ""
-#~ "Number of pages the process has in real memory, minus 3 for "
-#~ "administrative purposes. This is just the pages which count towards text, "
-#~ "data, or stack space. This does not include pages which have not been "
-#~ "demand-loaded in, or which are swapped out."
-#~ msgstr ""
-#~ "該進程佔用實際記憶分頁的數目，再減 3 (作為管理進程使用)。這些是進程數據、"
-#~ "變數名稱及堆疊所佔用的分頁數目，但不包括可即時載入，及已經寫入至交換記憶的"
-#~ "分頁數目。"
-
-#~ msgid ""
-#~ "Current limit in bytes on the rss of the process (usually 2,147,483,647)."
-#~ msgstr "進程的 rss 的上限，以位元組計算 (通常為 2,147,483,647)。"
-
-#~ msgid "Text_RSS"
-#~ msgstr "Text_RSS"
-
-#~ msgid "ShLib_RSS"
-#~ msgstr "ShLib_RSS"
-
-#~ msgid "Data_RSS"
-#~ msgstr "Data_RSS"
-
-#~ msgid "Stack_RSS"
-#~ msgstr "Stack_RSS"
-
-#~ msgid "Dirty Size"
-#~ msgstr "Dirty Size"
-
-#~ msgid "Start_Code"
-#~ msgstr "Start_Code"
-
-#~ msgid "End_Code"
-#~ msgstr "End_Code"
-
-#~ msgid "Start_Stack"
-#~ msgstr "Start_Stack"
-
-#~ msgid "Text resident set size"
-#~ msgstr "Text resident set 大小"
-
-#~ msgid "Shared-Lib resident set size"
-#~ msgstr "常駐分享函式庫大小"
-
-#~ msgid "Data resident set size"
-#~ msgstr "常駐資料大小"
-
-#~ msgid "Stack resident set size"
-#~ msgstr "常駐堆疊大小"
-
-#~ msgid "Total size of dirty pages"
-#~ msgstr "dirty page 大小"
-
-#~ msgid "Address of beginning of code segment"
-#~ msgstr "程式區段開始的位址"
-
-#~ msgid "Address of end of code segment"
-#~ msgstr "程式區段末端的位址"
-
-#~ msgid "Address of the bottom of stack segment"
-#~ msgstr "堆疊區段底部的位址"
-
-#~ msgid "Signal"
-#~ msgstr "訊號"
-
-#~ msgid "Blocked"
-#~ msgstr "被封閉"
-
-#~ msgid "SigIgnore"
-#~ msgstr "SigIgnore"
-
-#~ msgid "SigCatch"
-#~ msgstr "SigCatch"
-
-#~ msgid "Mask of pending signals"
-#~ msgstr "所有等待傳送的訊號"
-
-#~ msgid "Mask of blocked signals"
-#~ msgstr "所有被封閉的訊號"
-
-#~ msgid "Mask of ignored signals"
-#~ msgstr "所有忽略的訊號"
-
-#~ msgid "Mask of caught signals"
-#~ msgstr "所有會捕捉的訊號"
-
-#~ msgid "Cmd"
-#~ msgstr "指令"
-
-#~ msgid "State"
-#~ msgstr "狀態"
-
-#~ msgid "UID"
-#~ msgstr "UID"
-
-#~ msgid "GID"
-#~ msgstr "GID"
-
-#~ msgid "Basename of executable file in call to exec()"
-#~ msgstr "調用 exec() 時指定的可執行檔的名稱"
-
-#~ msgid "Single-Char code for process state (S=sleeping)"
-#~ msgstr "代表進程狀態的單字母代碼(S 表示 sleeping)"
-
-#~ msgid "UID of process"
-#~ msgstr "進程的 UID"
-
-#~ msgid "GID of process"
-#~ msgstr "進程的 GID"
-
-#~ msgid "Start_Time"
-#~ msgstr "Start_Time"
-
-#~ msgid "RTime"
-#~ msgstr "RTime"
-
-#~ msgid "UTime"
-#~ msgstr "UTime"
-
-#~ msgid "STime"
-#~ msgstr "STime"
-
-#~ msgid "CUTime"
-#~ msgstr "CUTime"
-
-#~ msgid "CSTime"
-#~ msgstr "CSTime"
-
-#~ msgid "TimeOut"
-#~ msgstr "TimeOut"
-
-#~ msgid "It_Real_Value"
-#~ msgstr "It_Real_Value"
-
-#~ msgid "Frequency"
-#~ msgstr "頻率"
-
-#~ msgid "XCPU_UTime"
-#~ msgstr "XCPU_UTime"
-
-#~ msgid "XCPU_STime"
-#~ msgstr "XCPU_STime"
-
-#~ msgid "Start time of process in seconds since the epoch"
-#~ msgstr "進程啟動的時間，以從 epoch 開始相隔的秒數來表示"
-
-#~ msgid "Real time accumulated by process (should be utime + stime)"
-#~ msgstr "進程實際佔用的累積時間 (應該是 utime + stime)"
-
-#~ msgid "user-mode CPU time accumulated by process"
-#~ msgstr "進程佔用之使用者模式 CPU 累積時間"
-
-#~ msgid "kernel-mode CPU time accumulated by process"
-#~ msgstr "進程佔用之核心模式 CPU 累積時間"
-
-#~ msgid "cumulative utime of process and reaped children"
-#~ msgstr "進程及它的副進程所累積的 utime"
-
-#~ msgid "cumulative stime of process and reaped children"
-#~ msgstr "進程及它的副進程所累積的 stime"
-
-#~ msgid "The time (in jiffies) of the process's next timeout"
-#~ msgstr "進程下次交出控制權的時間 (以 jiffy 表示)"
-
-#~ msgid ""
-#~ "The time (in jiffies) before the next SIGALRM is sent to the process due "
-#~ "to an interval timer."
-#~ msgstr ""
-#~ "系統因內部計時器而需要向進程發出 SIGALRM 訊號；這個是發出訊號前等待的時間"
-#~ "(以 jiffy 表示)。"
-
-#~ msgid "Tick frequency"
-#~ msgstr "Tick 頻率"
-
-#~ msgid "SMP user-mode CPU time accumulated by process"
-#~ msgstr "進程佔用之使用者模式 CPU 累積時間 (SMP)"
-
-#~ msgid "SMP kernel-mode CPU time accumulated by process"
-#~ msgstr "進程佔用之核心模式 CPU 累積時間 (SMP)"
-
-#~ msgid "Session"
-#~ msgstr "作業階段"
-
-#~ msgid "Priority"
-#~ msgstr "優先值"
-
-#~ msgid "User ID"
-#~ msgstr "使用者代號"
-
-#~ msgid "Effective User ID"
-#~ msgstr "有效使用者代號 (euid)"
-
-#~ msgid "Group ID"
-#~ msgstr "群組代號"
-
-#~ msgid "Effective Group ID"
-#~ msgstr "有效群組代號 (egid)"
-
-#~ msgid "Process ID"
-#~ msgstr "進程代號"
-
-#~ msgid "PID of parent process"
-#~ msgstr "主進程的 PID"
-
-#~ msgid "Process group ID"
-#~ msgstr "進程群組代號"
-
-#~ msgid "Session ID"
-#~ msgstr "作業階段代號"
-
-#~ msgid "Full device number of controlling terminal"
-#~ msgstr "控制終端機的完整裝置號碼(device number)"
-
-#~ msgid "Terminal process group ID"
-#~ msgstr "終端機進程群組識別碼(TPGID)"
-
-#~ msgid "Kernel scheduling priority"
-#~ msgstr "核心排程的優先度"
-
-#~ msgid "Standard unix nice level of process"
-#~ msgstr "進程的標準 unix 優先值"
-
-#~ msgid "Number of entries in semaphore map"
-#~ msgstr "semaphore map 中項目的數目"
-
-#~ msgid "Max number of arrays"
-#~ msgstr "陣列大小上限"
-
-#~ msgid "Max semaphores system wide"
-#~ msgstr "整個系統的 semaphore 數目上限"
-
-#~ msgid "Number of undo structures system wide"
-#~ msgstr "整個系統共用的還原資料結構的數目"
-
-#~ msgid "Max semaphores per array"
-#~ msgstr "每個陣列的 semaphore 數目上限"
-
-#~ msgid "Max ops per semop call"
-#~ msgstr "每次調用 semop 時的 operation 數目上限"
-
-#~ msgid "Max number of undo entries per process"
-#~ msgstr "每個進程的還原次數上限"
-
-#~ msgid "sizeof struct sem_undo"
-#~ msgstr "sizeof struct sem_undo"
-
-#~ msgid "Semaphore max value"
-#~ msgstr "Semaphore 最大值"
-
-#~ msgid "Adjust on exit max value"
-#~ msgstr "Adjust on exit 的最大值"
-
-#~ msgid "Max segment size"
-#~ msgstr "區段長度上限"
-
-#~ msgid "Min segment size"
-#~ msgstr "區段長度下限"
-
-#~ msgid "Max number of segments"
-#~ msgstr "區段數目上限"
-
-#~ msgid "Max shared segments per process"
-#~ msgstr "每個進程所佔分享記憶體的上限"
-
-#~ msgid "Max total shared memory"
-#~ msgstr "分享記憶體總數上限"
-
-#~ msgid "Total Swap Space"
-#~ msgstr "交換記憶空間總數"
-
-#~ msgid "Used Swap Space"
-#~ msgstr "已用交換記憶"
-
-#~ msgid "Free Swap Space"
-#~ msgstr "可用交換記憶"
-
-#~ msgid "Page In"
-#~ msgstr "分頁(入)"
-
-#~ msgid "Page Out"
-#~ msgstr "分頁(出)"
-
-#~ msgid ""
-#~ "Total number of swap pages that have been brought in since system boot"
-#~ msgstr "由系統啟動開始計算，從記憶體寫入交換記憶分頁的頁數"
-
-#~ msgid ""
-#~ "Total number of swap pages that have been brought out since system boot"
-#~ msgstr "由系統啟動開始計算，從交換記憶分頁寫入記憶體的頁數"
-
-#~ msgid "Server Features"
-#~ msgstr "伺服程式特性"
-
-#~ msgid "CPU Usage"
-#~ msgstr "CPU 使用情況"
-
-#~ msgid "Memory Usage"
-#~ msgstr "記憶體使用情況"
-
-#~ msgid "Swap Usage"
-#~ msgstr "交換記憶使用情況"
-
-#~ msgid "System Uptime"
-#~ msgstr "系統運行時間"
-
-#~ msgid "Load Averange"
-#~ msgstr "平均負載"
-
-#~ msgid "Shared Memory Limits"
-#~ msgstr "分享記憶限制"
-
-#~ msgid "Message Queue Limits"
-#~ msgstr "Message Queue 限制"
-
-#~ msgid "Semaphore Set Limits"
-#~ msgstr "Semaphore Set 限制"
-
-#~ msgid "List of running Processes"
-#~ msgstr "執行中的進程的清單"
-
-#~ msgid "Process Status information"
-#~ msgstr "進程狀態資訊"
-
-#~ msgid "Process UID and TTY information"
-#~ msgstr "進程的 UID 及 TTY 資訊"
-
-#~ msgid "Process Memory information"
-#~ msgstr "進程記憶體使用情況"
-
-#~ msgid "Process Time information"
-#~ msgstr "進程時間資訊"
-
-#~ msgid "Process Signal information"
-#~ msgstr "進程訊號資訊"
-
-#~ msgid "Process Kernel Data information"
-#~ msgstr "進程的核心數據資訊"
-
-#~ msgid "Process Segment information"
-#~ msgstr "進程區段資訊"
-
-#~ msgid "Process Arguments"
-#~ msgstr "進程的參數"
-
-#~ msgid "Process Memory Map"
-#~ msgstr "進程的記憶體映射表"
-
-#~ msgid "Mount List"
-#~ msgstr "掛載清單"
-
-#~ msgid "File System Usage"
-#~ msgstr "檔案系統使用情況"
-
-#~ msgid "Network Load"
-#~ msgstr "網路負載"
-
-#~ msgid "PPP Statistics"
-#~ msgstr "PPP 統計"
-
-#~ msgid "Command line arguments of the process"
-#~ msgstr "進程的指令列參數"
-
-#~ msgid "List of currently mounted filesystems"
-#~ msgstr "目前已掛載的檔案系統的清單"
-
-#~ msgid "Uptime"
-#~ msgstr "運行時間"
-
-#~ msgid "Idletime"
-#~ msgstr "閒置時間"
-
-#~ msgid "Time in seconds since system boot"
-#~ msgstr "系統起動至今時間(以秒計)"
-
-#~ msgid "Time in seconds the system spent in the idle task since system boot"
-#~ msgstr "系統起動至今全部閒置工作所佔的秒數"
-
-#~ msgid "Unknown system error"
-#~ msgstr "不明的系統錯誤"
-
-#~ msgid "%s: option `%s' is ambiguous\n"
-#~ msgstr "%s：選項‘%s’不明確\n"
-
-#~ msgid "%s: option `--%s' doesn't allow an argument\n"
-#~ msgstr "%s：選項‘--%s’不可配合參數使用\n"
-
-#~ msgid "%s: option `%c%s' doesn't allow an argument\n"
-#~ msgstr "%s：選項‘%c%s’不可配合參數使用\n"
-
-#~ msgid "%s: option `%s' requires an argument\n"
-#~ msgstr "%s：選項‘%s’需要參數\n"
-
-#~ msgid "%s: unrecognized option `--%s'\n"
-#~ msgstr "%s：無法識別的選項‘--%s’\n"
-
-#~ msgid "%s: unrecognized option `%c%s'\n"
-#~ msgstr "%s：無法識別的選項‘%c%s’\n"
-
-#~ msgid "%s: illegal option -- %c\n"
-#~ msgstr "%s：不合法的選項 ─ %c\n"
-
-#~ msgid "%s: invalid option -- %c\n"
-#~ msgstr "%s：無效的選項 ─ %c\n"
-
-#~ msgid "%s: option requires an argument -- %c\n"
-#~ msgstr "%s：選項需要參數 ─ %c\n"
-
-#~ msgid "%s: option `-W %s' is ambiguous\n"
-#~ msgstr "%s：選項‘-W %s’不明確\n"
-
-#~ msgid "%s: option `-W %s' doesn't allow an argument\n"
-#~ msgstr "%s：選項‘-W %s’不可配合參數使用\n"
-
-#~ msgid "Show this help message"
-#~ msgstr "顯示本使用說明"
-
-#~ msgid "Display brief usage message"
-#~ msgstr "顯示簡短使用說明"

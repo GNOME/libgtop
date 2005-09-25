@@ -9,16 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-30 03:49+0200\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-01-30 03:52+0200\n"
 "Last-Translator: Žygimantas Beručka <uid0@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: lib/read.c:64
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -26,11 +27,11 @@ msgstr[0] "perskaityta %d baitas"
 msgstr[1] "perskaityta %d baitai"
 msgstr[2] "perskaityta %d baitų"
 
-#: lib/read_data.c:52
+#: lib/read_data.c:53
 msgid "read data size"
 msgstr "perskaitytų duomenų dydis"
 
-#: lib/read_data.c:71
+#: lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
@@ -38,7 +39,7 @@ msgstr[0] "perskaityta %lu baitas duomenų"
 msgstr[1] "perskaityta %lu baitai duomenų"
 msgstr[2] "perskaityta %lu baitų duomenų"
 
-#: lib/write.c:51
+#: lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
@@ -46,39 +47,39 @@ msgstr[0] "įrašyta %d baitas"
 msgstr[1] "įrašyta %d baitai"
 msgstr[2] "įrašyta %d baitų"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "Įjungti testavimo veikseną"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "TESTAVIMAS"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "Įjungti išsamią išvestį"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "IŠSAMUS"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "Neperkelti į foninę veikseną"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "NE-DEMONUI"
 
-#: src/daemon/gnuserv.c:467
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "Paleista iš inetd"
 
-#: src/daemon/gnuserv.c:467
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:501
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

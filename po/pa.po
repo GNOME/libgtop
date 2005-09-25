@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-03 12:57+0100\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-03-03 17:38+0530\n"
 "Last-Translator: Amanpreet Singh Alam <amanpreetalam@yahoo.com>\n"
 "Language-Team: Punjabi <fedora-trans-pa@redhat.com>\n"
@@ -48,39 +48,39 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "%d ਬਾਈਟ ਲਿਖੇ"
 msgstr[1] "%d ਬਾਈਟ ਲਿਖੇ"
 
-#: src/daemon/gnuserv.c:459
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "ਡੀਬੱਗਇੰਗ ਚਾਲੂ ਕਰੋ"
 
-#: src/daemon/gnuserv.c:459
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "ਡੀਬੱਗ"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "ਸ਼ਬਦ ਸਮੂਹ ਦੀ ਆਉਟਪੁੱਟ ਚਾਲੂ ਕਰੋ"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "ਵਿਸਥਾਰ"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "ਪਿਛੋਕੜ ਵਿਚ ਦੁਫਾੜ ਨਾ ਕਰੋ"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "ਕੋਈ-ਡੇਮੋਨ ਨਹੀ"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "inetd ਤੋ ਸ਼ਾਮਿਲ ਹੈ"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:499
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -212,4 +212,3 @@ msgstr "ਉਪਭੋਗਤਾ ਨਿਰਧਾਰਿਤ ਸੰਕੇਤ ੧"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "ਉਪਭੋਗਤਾ ਨਿਰਧਾਰਿਤ ਸੰਕੇਤ ੨"
-

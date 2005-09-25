@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-24 12:41+0100\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2004-08-08 02:49+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
@@ -16,61 +16,61 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: lib/read.c:64
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "读取 %d 字节"
 
-#: lib/read_data.c:52
+#: lib/read_data.c:53
 msgid "read data size"
 msgstr "读取数据大小"
 
-#: lib/read_data.c:71
+#: lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "读取了 %lu 字节数据"
 
-#: lib/write.c:51
+#: lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "写入了 %d 字节"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "允许调试"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "调试"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "允许详细输出"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "详细"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "不能在后台生成子进程"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:467
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "从 inetd 调用"
 
-#: src/daemon/gnuserv.c:467
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:501
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -202,4 +202,3 @@ msgstr "用户自定义信号 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "用户自定义信号 2"
-

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-29 03:12-0500\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2004-12-29 15:51-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -17,64 +17,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: lib/read.c:64
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "read %d byte"
 msgstr[1] "read %d bytes"
 
-#: lib/read_data.c:52
+#: lib/read_data.c:53
 msgid "read data size"
 msgstr "read data size"
 
-#: lib/read_data.c:71
+#: lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "read %lu byte of data"
 msgstr[1] "read %lu bytes of data"
 
-#: lib/write.c:51
+#: lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "wrote %d byte"
 msgstr[1] "wrote %d bytes"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "Enable debugging"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "Enable verbose output"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "Don't fork into background"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:467
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "Invoked from inetd"
 
-#: src/daemon/gnuserv.c:467
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:501
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

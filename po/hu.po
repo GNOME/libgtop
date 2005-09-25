@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-04 06:29+0100\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-03-04 13:37+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@gnome.hu>\n"
@@ -44,39 +44,39 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "%d bájt kiírva"
 msgstr[1] "%d bájt kiírva"
 
-#: src/daemon/gnuserv.c:459
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "Hibakeresés engedélyezése"
 
-#: src/daemon/gnuserv.c:459
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "Részletes üzenetek bekapcsolása"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "Ne forkoljon a háttérbe"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "inetd-ből indítva"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:499
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

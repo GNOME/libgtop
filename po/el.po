@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-18 13:40+0200\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-02-18 13:40+0200\n"
 "Last-Translator: Kostas Papadimas <pkst@gnome.org>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -54,39 +54,39 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "εγγραφή %d byte"
 msgstr[1] "εγγραφή %d bytes"
 
-#: src/daemon/gnuserv.c:459
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "Ενεργοποίηση εκσφαλμάτωσης"
 
-#: src/daemon/gnuserv.c:459
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "ΕΚΣΦΑΛΜΑΤΩΣΗ"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "Ενεργοποίηση περιφραστικής εξόδου"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "Να μη γίνει δικράνωση στο παρασκήνιο"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "ΧΩΡΊΣ-ΔΑΊΜΟΝΑ"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "Εκτελεσμένο από το inetd"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:499
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

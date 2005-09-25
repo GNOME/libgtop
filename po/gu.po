@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.HEAD.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-22 07:43+0100\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-02-24 18:19+0530\n"
 "Last-Translator: Ankit Patel <ankit@redhat.com>\n"
 "Language-Team: Gujarati <gu@li.org>\n"
@@ -14,7 +14,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "<magnet@magnet-i.com>\n"
-"Plural-Forms: Plural-Forms: Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"Plural-Forms: Plural-Forms: Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"\n"
 "X-Generator: KBabel 1.9.1\n"
 
 #: lib/read.c:65
@@ -42,39 +43,39 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "%d બાઈટ લખાયેલ હતો"
 msgstr[1] "%d બાઈટો લખાયેલ હતા"
 
-#: src/daemon/gnuserv.c:459
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "ભૂલ શોધવાની પ્રક્રિયાને સક્રિય કરો"
 
-#: src/daemon/gnuserv.c:459
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "ભૂલ શોધો"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "વર્ણનીય પરિણામને સક્રિય કરો"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "વર્ણનીય"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "પાછળના ભાગમાં fork કરો નહિં"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "ડિમન નહિં"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "inetd માંથી શરુ કરાયેલુ"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:499
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -206,4 +207,3 @@ msgstr "વપરાશકર્તા દ્વારા વ્યાખ્ય�
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "વપરાશકર્તા દ્વારા વ્યાખ્યાયિત સંકેત ૨"
-

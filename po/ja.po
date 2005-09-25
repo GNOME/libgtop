@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-16 14:30+0900\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-01-16 14:29+0900\n"
 "Last-Translator: Takeshi AIHANA <aihana@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
@@ -19,64 +19,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: lib/read.c:64
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "%d バイト読み込み"
 msgstr[1] "%d バイト読み込み"
 
-#: lib/read_data.c:52
+#: lib/read_data.c:53
 msgid "read data size"
 msgstr "データの読み込みサイズ"
 
-#: lib/read_data.c:71
+#: lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "%lu バイトデータの読み込み"
 msgstr[1] "%lu バイトデータの読み込み"
 
-#: lib/write.c:51
+#: lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "%d バイトの書き込み"
 msgstr[1] "%d バイトの書き込み"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "デバッグを有効にする"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "詳細な出力にする"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "子プロセスをバックグラウンドに回さない"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:467
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "`inetd` から起動する"
 
-#: src/daemon/gnuserv.c:467
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:501
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"

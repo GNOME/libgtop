@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-14 05:14+0100\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-02-14 13:23+0100\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
@@ -16,64 +16,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: lib/read.c:64
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "u lexua %d byte"
 msgstr[1] "u lexuan %d bytes"
 
-#: lib/read_data.c:52
+#: lib/read_data.c:53
 msgid "read data size"
 msgstr "madhësia e të dhënave të lexuara"
 
-#: lib/read_data.c:71
+#: lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "u lexua %lu byte me të dhëna"
 msgstr[1] "u lexuan %lu bytes me të dhëna"
 
-#: lib/write.c:51
+#: lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "u shkrua %d byte"
 msgstr[1] "u shkruan %d bytes"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "Aktivo proçesin e kontrollit"
 
-#: src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "DEBUG"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "Aktivo output e hollësishëm"
 
-#: src/daemon/gnuserv.c:463
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "VERBOSE"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "Mos kryej fork në background"
 
-#: src/daemon/gnuserv.c:465
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: src/daemon/gnuserv.c:467
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "Thërritur nga inetd"
 
-#: src/daemon/gnuserv.c:467
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:501
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -205,4 +205,3 @@ msgstr "Sinjal 1 i përcaktuar nga përdoruesi"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Sinjal 2 i përcaktuar nga përdoruesi"
-
