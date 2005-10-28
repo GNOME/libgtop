@@ -1,0 +1,208 @@
+# translation of libgtop.HEAD.po to Kurdish
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Erdal Ronahi <erdal.ronahi@gmail.com>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop.HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-09-09 13:40+0200\n"
+"PO-Revision-Date: 2005-10-15 16:41+0200\n"
+"Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>\n"
+"Language-Team: Kurdish <gnu-ku-wergerandin@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural= n != 1\n"
+"X-Generator: KBabel 1.10\n"
+
+#: ../lib/read.c:65
+#, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "%d bayt hat xwendin"
+msgstr[1] "%d bayt hatin xwendin"
+
+#: ../lib/read_data.c:53
+msgid "read data size"
+msgstr ""
+
+#: ../lib/read_data.c:72
+#, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../lib/write.c:52
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "%d bayt hat nivîsandin"
+msgstr[1] "%d bayt hatin nivîsandin"
+
+#: ../src/daemon/gnuserv.c:460
+msgid "Enable debugging"
+msgstr ""
+
+#: ../src/daemon/gnuserv.c:460
+msgid "DEBUG"
+msgstr ""
+
+#: ../src/daemon/gnuserv.c:462
+msgid "Enable verbose output"
+msgstr ""
+
+#: ../src/daemon/gnuserv.c:462
+msgid "VERBOSE"
+msgstr ""
+
+#: ../src/daemon/gnuserv.c:464
+msgid "Don't fork into background"
+msgstr ""
+
+#: ../src/daemon/gnuserv.c:464
+#, fuzzy
+msgid "NO-DAEMON"
+msgstr "DAEMON TUNE"
+
+#: ../src/daemon/gnuserv.c:466
+msgid "Invoked from inetd"
+msgstr ""
+
+#: ../src/daemon/gnuserv.c:466
+msgid "INETD"
+msgstr ""
+
+#: ../src/daemon/gnuserv.c:500
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+msgid "Hangup"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "Derkeve"
+
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "Betal bike"
+
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+msgid "EMT error"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+msgid "Floating-point exception"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "Bikuje"
+
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+msgid "Bus error"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+msgid "Termination"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "Bisekinîne"
+
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+msgid "Keyboard stop"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "Bidomîne"
+
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+msgid "Background read from tty"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+msgid "Background write to tty"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+msgid "I/O now possible"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+msgid "File size limit exceeded"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+msgid "Window size change"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+msgid "Information request"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+msgid "User defined signal 1"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+msgid "User defined signal 2"
+msgstr ""
+

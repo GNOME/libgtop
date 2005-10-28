@@ -1,3 +1,7 @@
+2005-10-28  Erdal Ronahi  <erdal.ronahi@gmail.com>
+
+	* configure.in: Added ku (Kurdish) to ALL_LINGUAS
+
 2005-09-04  Benoît Dejean  <benoit@placenet.org>
 
 	* NEWS:
