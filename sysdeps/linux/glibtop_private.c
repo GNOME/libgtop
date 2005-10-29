@@ -109,7 +109,10 @@ read_boot_time(glibtop *server)
 
 	btime = strstr(buffer, "btime");
 
-	g_return_val_if_fail(btime != NULL, 0UL);
+	if (!btime) {
+		glibtop_warn_io_r(server, "cannot find btime in /proc/stat");
+		return 0UL;
+	}
 
 	btime = skip_token(btime);
 	return strtoul(btime, NULL, 10);

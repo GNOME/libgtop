@@ -1,3 +1,9 @@
+2005-10-29  Benoît Dejean  <benoit@placenet.org>
+
+	* glibtop_private.c: (read_boot_time):
+
+	Removed 1 g_return_*.
+
 2005-08-15  Benoît Dejean  <benoit@placenet.org>
 
 	* cpu.c: (glibtop_get_cpu_s):
