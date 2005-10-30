@@ -1,3 +1,21 @@
+2005-10-30  Benoît Dejean  <benoit@placenet.org>
+
+	* configure.in:
+	* include/glibtop/glibtop-backend-info.h:
+	* include/glibtop/glibtop-backend.h:
+	* include/glibtop/glibtop-client.h:
+	* lib/glibtop-backend-info.c:
+	* lib/glibtop-backend.c:
+	* lib/glibtop-client-private.h:
+	* lib/glibtop-client.c:
+	* lib/test-backends.c:
+	* sysdeps/common/backend.c:
+	* sysdeps/common/libgtop-common.backend:
+
+	Dropped many dead files.
+	Bumped release number.
+	I guess this closes #320250.
+
 2005-10-28  Erdal Ronahi  <erdal.ronahi@gmail.com>
 
 	* configure.in: Added ku (Kurdish) to ALL_LINGUAS
