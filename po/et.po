@@ -1,14 +1,17 @@
-# libgtop eesti tõlge.
-# Copyright (C) 2003 Free Software Foundation, Inc.
+# libgtop eesti keele tõlge.
+# Estonian translation of libgtop.
+#
+# Copyright (C) 2003, 2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgtop package.
+#
 # Tõivo Leedjärv <toivo@linux.ee>, 2003.
 # Ivar Smolin <okul@linux.ee>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop\n"
+"Project-Id-Version: libgtop HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-25 18:15+0200\n"
+"POT-Creation-Date: 2005-02-08 15:28+0100\n"
 "PO-Revision-Date: 2005-03-09 10:47+0200\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
@@ -17,64 +20,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: lib/read.c:65
+#: lib/read.c:64
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "loetud %d bait"
 msgstr[1] "loetud %d baiti"
 
-#: lib/read_data.c:53
+#: lib/read_data.c:52
 msgid "read data size"
 msgstr "loetud andmete hulk"
 
-#: lib/read_data.c:72
+#: lib/read_data.c:71
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "loetud %lu bait andmeid"
 msgstr[1] "loetud %lu baiti andmeid"
 
-#: lib/write.c:52
+#: lib/write.c:51
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "kirjutatud %d bait"
 msgstr[1] "kirjutatud %d baiti"
 
-#: src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:461
 msgid "Enable debugging"
 msgstr "Silumise lubamine"
 
-#: src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:461
 msgid "DEBUG"
 msgstr "SILUMINE"
 
-#: src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:463
 msgid "Enable verbose output"
 msgstr "Teaberohke väljundi lubamine"
 
-#: src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:463
 msgid "VERBOSE"
 msgstr "LISATEAVE"
 
-#: src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:465
 msgid "Don't fork into background"
 msgstr "Taustale siirdumine keelatud"
 
-#: src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:465
 msgid "NO-DAEMON"
 msgstr "MITTE-DEEMON"
 
-#: src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:467
 msgid "Invoked from inetd"
 msgstr "Käivitatakse inetd abil"
 
-#: src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:467
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:500
+#: src/daemon/gnuserv.c:501
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -206,3 +209,4 @@ msgstr "Kasutaja kirjeldatud signaal 1"
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Kasutaja kirjeldatud signaal 2"
+
