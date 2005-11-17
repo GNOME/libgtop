@@ -1,3 +1,7 @@
+2005-11-17  Timur Jamakeev  <timurj@cvs.gnome.org>
+
+	* configure.in: Added 'ky' (Kirghiz) to ALL_LINGUAS.
+
 2005-10-30  Benoît Dejean  <benoit@placenet.org>
 
 	* configure.in:

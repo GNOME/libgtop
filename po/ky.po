@@ -1,0 +1,210 @@
+# translation of ky.po to Kitghiz
+# Kirghiz translation of libgtop.
+# Copyright (C) 1999, 2005 Free Software Foundation, Inc.
+# This file is distributed under the same license as the libgtop package.
+# Timur Jamakeev <ztimur@gmail.com>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ky\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-11-17 17:07+0500\n"
+"PO-Revision-Date: 2005-11-17 17:42+0500\n"
+"Last-Translator: Timur Jamakeev <ztimur@gmail.com>\n"
+"Language-Team: Kitghiz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: ../lib/read.c:65
+#, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "%d байт окулду"
+msgstr[1] ""
+
+#: ../lib/read_data.c:53
+msgid "read data size"
+msgstr "окулган берилиштердин көлөмү"
+
+#: ../lib/read_data.c:72
+#, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "%lu байт берилиш окулду"
+msgstr[1] ""
+
+#: ../lib/write.c:52
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "%d байт жазылды"
+msgstr[1] ""
+
+#: ../src/daemon/gnuserv.c:460
+msgid "Enable debugging"
+msgstr "Дебагды иштетүү"
+
+#: ../src/daemon/gnuserv.c:460
+msgid "DEBUG"
+msgstr "ДЕБАГ"
+
+#: ../src/daemon/gnuserv.c:462
+msgid "Enable verbose output"
+msgstr "Кеңири чыгаруу"
+
+#: ../src/daemon/gnuserv.c:462
+msgid "VERBOSE"
+msgstr "КЕҢИРИ"
+
+#: ../src/daemon/gnuserv.c:464
+msgid "Don't fork into background"
+msgstr "Фондук режимге бөлбөө"
+
+#: ../src/daemon/gnuserv.c:464
+msgid "NO-DAEMON"
+msgstr "ДЕМОНУ-ЖОК"
+
+#: ../src/daemon/gnuserv.c:466
+msgid "Invoked from inetd"
+msgstr "inetd аркылуу чакырылган"
+
+#: ../src/daemon/gnuserv.c:466
+msgid "INETD"
+msgstr "INETD"
+
+#: ../src/daemon/gnuserv.c:500
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"\"%s\" параметринде ката байкалды: %s\n"
+"Командалык саптын мүмкүн болгон бардык параметрлерин көрүү үчүн \"%s --help\" командасын колдонуңуз.\n"
+
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+msgid "Hangup"
+msgstr "Үзүү"
+
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+msgid "Interrupt"
+msgstr "Убактылуу токтотуу"
+
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+msgid "Quit"
+msgstr "Чыгуу"
+
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+msgid "Illegal instruction"
+msgstr "Туура эмес инструкция"
+
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+msgid "Trace trap"
+msgstr "Трассировканы кармоо"
+
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+msgid "Abort"
+msgstr "Токтотуу"
+
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+msgid "EMT error"
+msgstr "EMT катасы"
+
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+msgid "Floating-point exception"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+msgid "Kill"
+msgstr "Өлтүрүү"
+
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+msgid "Bus error"
+msgstr "Шина катасы"
+
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+msgid "Segmentation violation"
+msgstr "Сегментациянын бузулушу"
+
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+msgid "Bad argument to system call"
+msgstr "Системалык чакыруудагы туура эмес аргумент"
+
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+msgid "Broken pipe"
+msgstr "Бузулган канал"
+
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+msgid "Alarm clock"
+msgstr "Таймер"
+
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+msgid "Termination"
+msgstr "Аяктоо"
+
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+msgid "Urgent condition on socket"
+msgstr "Көңүл бурууну талап кылган сокет"
+
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+msgid "Stop"
+msgstr "Стоп"
+
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+msgid "Keyboard stop"
+msgstr "Алиптергичти токтотуу"
+
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+msgid "Continue"
+msgstr "Улантуу"
+
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+msgid "Child status has changed"
+msgstr "Тукумдун абалы өзгөрүлдү"
+
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+msgid "Background read from tty"
+msgstr "tty-ден фондук режимде окуу"
+
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+msgid "Background write to tty"
+msgstr "tty-ге фондук режимде жазуу"
+
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+msgid "I/O now possible"
+msgstr "Киргизүү/Чыгаруу эми мүмкүн"
+
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+msgid "CPU limit exceeded"
+msgstr "CPU пределинен ашты"
+
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+msgid "File size limit exceeded"
+msgstr "Файл көлөмүнүн пределинен ашты"
+
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+msgid "Virtual alarm clock"
+msgstr "Виртуалдык таймер"
+
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+msgid "Profiling alarm clock"
+msgstr "Профилдик таймер"
+
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+msgid "Window size change"
+msgstr "Терезе өлчөмүн өзгөртүү"
+
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+msgid "Information request"
+msgstr "Маалымат талап кылуу"
+
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+msgid "User defined signal 1"
+msgstr "Колдонуучу сигналы 1"
+
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+msgid "User defined signal 2"
+msgstr "Колдонуучу сигналы 2"
+
