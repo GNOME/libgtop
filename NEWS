@@ -1,3 +1,8 @@
+November 29, 2005: Overview of changes from 2.12.0 to 2.12.1
+============================================================
+* Dropped dead files
+* linux: 1-line cleanup.
+
 September 4, 2005: Overview of changes from 2.11.92 to 2.12.0
 =============================================================
 * Updated translations.
