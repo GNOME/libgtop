@@ -1,3 +1,18 @@
+2005-12-07  Benoît Dejean  <benoit@placenet.org>
+
+	* procmap.c: (glibtop_get_proc_map_s):
+
+	Small improvements.
+	Use g_array_sized_new instead of g_array_new with
+	reserved_size = 100.
+	Don't use g_array_append_val to avoid copying
+	glibtop_map_entries. Use g_array_set_size(size + 1) instead.
+
+	I've run a little python benchmark and this shows a little
+	speedup. I hope this would be more sensible in
+	gnome-system-monitor (glibtop_get_procmap is intensively used for
+	the 'Writable Memory' column).
+
 2005-10-29  Benoît Dejean  <benoit@placenet.org>
 
 	* glibtop_private.c: (read_boot_time):

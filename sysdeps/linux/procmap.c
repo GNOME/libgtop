@@ -59,8 +59,15 @@ glibtop_map_entry *
 glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 {
 	char procfilename[GLIBTOP_MAP_FILENAME_LEN+1];
-	GArray *entry_list = g_array_new(FALSE, FALSE,
-					 sizeof(glibtop_map_entry));
+
+	/*
+	  default size of 100 maybe inaccurate.
+	  It's the average number of entry per process on my laptop
+	*/
+
+	GArray *entry_list = g_array_sized_new(FALSE, FALSE,
+					       sizeof(glibtop_map_entry),
+					       100);
 	FILE *maps;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
@@ -77,13 +84,14 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	{
 		unsigned long perm = 0;
 		int rv;
+		guint len;
 
 		unsigned short dev_major, dev_minor;
 		unsigned long start, end, offset, inode;
 		char flags[4];
 		char filename [GLIBTOP_MAP_FILENAME_LEN+1];
 
-		glibtop_map_entry entry;
+		glibtop_map_entry *entry;
 
 
 		/* 8 arguments */
@@ -113,16 +121,22 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		else if (flags [3] == 'p')
 			perm |= GLIBTOP_MAP_PERM_PRIVATE;
 
-		entry.flags = _glibtop_sysdeps_map_entry;
-		entry.start = (guint64) start;
-		entry.end = (guint64) end;
-		entry.offset = (guint64) offset;
-		entry.perm = (guint64) perm;
-		entry.device = (guint64) MKDEV(dev_major, dev_minor);
-		entry.inode = (guint64) inode;
-		g_strlcpy (entry.filename, filename, sizeof entry.filename);
+		/*
+		  avoid copying the entry, grow by 1 and point to the last
+		  element.
+		*/
+		len = entry_list->len;
+		g_array_set_size(entry_list, len + 1);
+		entry = &g_array_index(entry_list, glibtop_map_entry, len);
 
-		g_array_append_val(entry_list, entry);
+		entry->flags = _glibtop_sysdeps_map_entry;
+		entry->start = (guint64) start;
+		entry->end = (guint64) end;
+		entry->offset = (guint64) offset;
+		entry->perm = (guint64) perm;
+		entry->device = (guint64) MKDEV(dev_major, dev_minor);
+		entry->inode = (guint64) inode;
+		g_strlcpy(entry->filename, filename, sizeof entry->filename);
 	}
 
 	fclose (maps);
