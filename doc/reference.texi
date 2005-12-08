@@ -111,7 +111,7 @@ The @samp{xcpu_} values are for SMP systems - they are the same than
 @code{total}, @code{user}, @code{nice}, @code{sys}, @code{idle},
 @code{iowait}, @code{irq} and @code{softirq}
 except that they are arrays of @code{GLIBTOP_NCPU} (defined in
-@file{<glibtop/limits.h>}) elements and contain one value for each CPU
+@file{<glibtop/cpu.h>}) elements and contain one value for each CPU
 in the system.
 
 @table @code
@@ -680,7 +680,7 @@ Standard unix nice level of process.
 Number of additional process groups.
 @item groups
 Array of additional process groups@*
-(@code{GLIBTOP_MAX_GROUPS} is defined in @file{<glibtop/limits.h>}).
+(@code{GLIBTOP_MAX_GROUPS} is defined in @file{<glibtop/procuid.h>}).
 @end table
 
 @page
@@ -1484,13 +1484,7 @@ struct _glibtop_mountentry
 @end cartouche
 @end example
 
-@ifset LIBGTOP-1-1
-@code{GLIBTOP_MOUNTENTRY_LEN} is defined in @file{<glibtop/limits.h>}.
-@end ifset
-@ifclear LIBGTOP-1-1
-@code{GLIBTOP_MOUNTENTRY_LEN} is defined in @file{<glibtop.h>}
-(this was moved to @file{<glibtop/limits.h>} in LibGTop 1.1.0).
-@end ifclear
+@code{GLIBTOP_MOUNTENTRY_LEN} is defined in @file{<glibtop.h>}.
 
 @table @code
 @item devname
