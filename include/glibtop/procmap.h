@@ -43,7 +43,15 @@ G_BEGIN_DECLS
 #define GLIBTOP_MAP_ENTRY_DEVICE	5
 #define GLIBTOP_MAP_ENTRY_FILENAME	6
 
-#define GLIBTOP_MAX_MAP_ENTRY		7
+/* Smap support */
+#define GLIBTOP_MAP_ENTRY_SIZE			 7
+#define GLIBTOP_MAP_ENTRY_RSS			 8
+#define GLIBTOP_MAP_ENTRY_SHARED_CLEAN		 9
+#define GLIBTOP_MAP_ENTRY_SHARED_DIRTY		10
+#define GLIBTOP_MAP_ENTRY_PRIVATE_CLEAN		11
+#define GLIBTOP_MAP_ENTRY_PRIVATE_DIRTY		12
+
+#define GLIBTOP_MAX_MAP_ENTRY		13
 
 #define GLIBTOP_MAP_FILENAME_LEN	215
 
@@ -60,6 +68,10 @@ typedef struct _glibtop_proc_map	glibtop_proc_map;
 struct _glibtop_map_entry
 {
 	guint64 flags, start, end, offset, perm, inode, device;
+	guint64 size,
+		rss,
+		shared_clean, shared_dirty,
+		private_clean, private_dirty;
 	char filename [GLIBTOP_MAP_FILENAME_LEN+1];
 };
 

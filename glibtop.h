@@ -77,6 +77,7 @@ struct _glibtop
 	int output [2];			/* Pipe client -> server */
 	int socket;			/* Accepted connection of a socket */
 	int ncpu;			/* Number of CPUs, zero if single-processor */
+	int real_ncpu;			/* Real number of CPUs. Only ncpu are monitored */
 	unsigned long os_version_code;	/* Version code of the operating system */
 	const char *name;		/* Program name for error messages */
 	const char *server_command;	/* Command used to invoke server */

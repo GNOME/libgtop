@@ -1,3 +1,17 @@
+2005-12-09  Benoît Dejean  <benoit@placenet.org>
+
+	* configure.in:
+	* glibtop.h:
+	* include/glibtop/cpu.h:
+	* include/glibtop/procmap.h:
+
+	Increased GLIBTOP_NCPU to 32.
+	Added real_ncpu to struct glibtop.
+	Added smaps members to glibtop_map_entry.
+
+	Bumped version number to 2.13.0
+	Broke ABI again. Sorry.
+
 2005-12-08  Benoît Dejean  <benoit@placenet.org>
 
 	* doc/reference.texi:
