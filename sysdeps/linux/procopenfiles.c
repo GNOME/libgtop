@@ -24,6 +24,7 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <config.h>
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/procopenfiles.h>

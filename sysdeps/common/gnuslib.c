@@ -29,6 +29,7 @@
  * ../etc/gnuserv.README relative to the directory containing this file)
  */
 
+#include <config.h>
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/gnuserv.h>

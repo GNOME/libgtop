@@ -1,3 +1,28 @@
+2005-12-12  James Henstridge  <james@jamesh.id.au>
+
+	* doc/auto-macros.texi.in: remove unused file.
+
+	* doc/libgtop2.texi: don't include auto-macros.texi.
+
+	* doc/Makefile.am: don't build auto-macros.texi, since none of its
+	macros are used in the documentation any more.
+
+	* include/glibtop/global.h: don't include <config.h> from headers.
+
+	* .../*.c: make sure <config.h> is the first thing included.
+
+	* acinclude.m4: m4_include() libgtop-sysdeps.m4 rather than
+	inlining it.
+
+	* acinclude.m4, libgtop-sysdeps.m4: use third argument to
+	AC_DEFINE() to set the comment.
+
+	* configure.in: modernise a bit.
+
+	* acconfig.h: remove file, since it is deprecated
+
+	* autogen.sh: require automake 1.9 instead of 1.4.
+
 2005-12-09  Benoît Dejean  <benoit@placenet.org>
 
 	* configure.in:

@@ -21,6 +21,7 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <config.h>
 #include <glibtop/open.h>
 
 /* Opens pipe to gtop server. Returns 0 on success and -1 on error. */

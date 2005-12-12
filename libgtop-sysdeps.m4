@@ -54,7 +54,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	fi
 
 	if test $libgtop_smp = yes ; then
-	  AC_DEFINE(HAVE_LIBGTOP_SMP)
+	  AC_DEFINE(HAVE_LIBGTOP_SMP, 1, [Define if libgtop supports SMP])
 	fi
 
 	AM_CONDITIONAL(LIBGTOP_SMP, test $libgtop_smp = yes)
@@ -152,7 +152,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 ], have_i4b=yes, have_i4b=no)
 	  AC_MSG_RESULT($have_i4b)
 	  if test x$have_i4b = xyes; then
-	    AC_DEFINE(HAVE_I4B)
+	    AC_DEFINE(HAVE_I4B, 1, [Define if I4B is available])
 	    AC_MSG_CHECKING([for I4B accounting])
 	    AC_TRY_COMPILE([
 #include <sys/types.h>
@@ -180,7 +180,8 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 ], have_i4b_acct=yes, have_i4b_acct=no)
 	    AC_MSG_RESULT($have_i4b_acct)
 	    if test x$have_i4b_acct = xyes ; then
-	      AC_DEFINE(HAVE_I4B_ACCT)
+	      AC_DEFINE(HAVE_I4B_ACCT, 1,
+                        [Define if I4B accounting is supported])
 	    else
 	      AC_WARN([
 *** I4B accounting disabled - you won't get any PPP statistics.
@@ -211,7 +212,8 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  fi
 
 	  AC_MSG_CHECKING(for Linux kernel version code)
-	  AC_DEFINE_UNQUOTED(GLIBTOP_LINUX_VERSION_CODE, $os_version_code)
+	  AC_DEFINE_UNQUOTED(GLIBTOP_LINUX_VERSION_CODE, $os_version_code,
+              [Same as LINUX_VERSION_CODE either from <linux/version.h> or from the running kernel (if there are no configured kernel sources).])
 	  AC_MSG_RESULT($os_version_code)
 	  ;;
 	solaris*)
@@ -223,7 +225,8 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  os_version_code=`echo "$os_version_expr" | dc`
 
 	  AC_MSG_CHECKING(for Solaris release code)
-	  AC_DEFINE_UNQUOTED(GLIBTOP_SOLARIS_RELEASE, $os_version_code)
+	  AC_DEFINE_UNQUOTED(GLIBTOP_SOLARIS_RELEASE, $os_version_code,
+              [Solaris release code (eg. 251 for Solaris 2.5.1).])
 	  AC_MSG_RESULT($os_version_code)
 	  ;;
 	esac
@@ -235,11 +238,12 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	AC_MSG_RESULT($libgtop_need_server)
 
 	if test x$libgtop_need_server = xyes ; then
-	  AC_DEFINE(NEED_LIBGTOP)
+	  AC_DEFINE(NEED_LIBGTOP, 1, [Define if libgtop is required])
 	fi
 
 	if test x$libgtop_use_machine_h = xyes ; then
-	  AC_DEFINE(HAVE_GLIBTOP_MACHINE_H)
+	  AC_DEFINE(HAVE_GLIBTOP_MACHINE_H, 1,
+                    [Define if machine.h in libgtop sysdeps dir])
 	fi
 
 	AM_CONDITIONAL(NEED_LIBGTOP, test x$libgtop_need_server = xyes)

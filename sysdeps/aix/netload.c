@@ -21,6 +21,7 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <config.h>
 #include <sys/socket.h>
 #include <net/if.h>
 #include <netinet/in.h>

@@ -1,3 +1,4 @@
+#include <config.h>
 #include <glibtop.h>
 #include <glibtop/error.h>
 

@@ -2,59 +2,49 @@ dnl
 dnl Configure script for the Gnome library
 dnl
 
-AC_INIT(copyright.txt)
-AM_CONFIG_HEADER(config.h)
-AC_CANONICAL_SYSTEM
-
-LIBGTOP_MAJOR_VERSION=2
-LIBGTOP_MINOR_VERSION=13
-LIBGTOP_MICRO_VERSION=0
-LIBGTOP_VERSION=$LIBGTOP_MAJOR_VERSION.$LIBGTOP_MINOR_VERSION.$LIBGTOP_MICRO_VERSION
-AM_INIT_AUTOMAKE(libgtop, $LIBGTOP_VERSION)
+m4_define([libgtop_major_version], [2])
+m4_define([libgtop_minor_version], [13])
+m4_define([libgtop_micro_version], [0])
+m4_define([libgtop_version], [libgtop_major_version.libgtop_minor_version.libgtop_micro_version])
 
 dnl  increment if the interface has additions, changes, removals.
-LIBGTOP_CURRENT=7
+m4_define([libgtop_current], [7])
 
 dnl  increment any time the source changes; set to
 dnl  0 if you increment CURRENT
-LIBGTOP_REVISION=0
+m4_define([libgtop_revision], [0])
 
 dnl  increment if any interfaces have been added; set to 0
 dnl  if any interfaces have been removed. removal has
 dnl  precedence over adding, so set to 0 if both happened.
-LIBGTOP_AGE=0
-
-# you can set this to `-snap' for instance to create
-# a `libgtop-1.x.y-snap.tar.gz' tarball.
-LIBGTOP_VERSION_SUFFIX=
+m4_define([libgtop_age], [0])
 
 # Increase each time you change the client/server protocol.
-LIBGTOP_SERVER_VERSION=5
+m4_define([libgtop_server_version], [5])
 
 # Version code calculation
-LIBGTOP_VERSION_CODE=`expr $LIBGTOP_MAJOR_VERSION \* 1000000 + $LIBGTOP_MINOR_VERSION \* 1000 + $LIBGTOP_MICRO_VERSION`
+m4_define([libgtop_version_code], [m4_eval(libgtop_major_version * 1000000 + libgtop_minor_version * 1000 + libgtop_micro_version)])
 
-AC_SUBST(LIBGTOP_MAJOR_VERSION)
-AC_SUBST(LIBGTOP_MINOR_VERSION)
-AC_SUBST(LIBGTOP_MICRO_VERSION)
-AC_SUBST(LIBGTOP_INTERFACE_AGE)
-AC_SUBST(LIBGTOP_BINARY_AGE)
-AC_SUBST(LIBGTOP_SERVER_VERSION)
-AC_SUBST(LIBGTOP_VERSION)
-AC_SUBST(LIBGTOP_VERSION_CODE)
-AC_SUBST(LIBGTOP_VERSION_SUFFIX)
+AC_INIT([libgtop], [libgtop_version],
+        [http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop])
+AC_CONFIG_SRCDIR(copyright.txt)
+AC_CONFIG_HEADERS(config.h)
+
+AC_CANONICAL_SYSTEM
+
+AM_INIT_AUTOMAKE
+AC_SUBST(ACLOCAL_AMFLAGS, [\${ACLOCAL_FLAGS}])
+
+AC_SUBST(LIBGTOP_MAJOR_VERSION, [libgtop_major_version])
+AC_SUBST(LIBGTOP_MINOR_VERSION, [libgtop_minor_version])
+AC_SUBST(LIBGTOP_MICRO_VERSION, [libgtop_micro_version])
+AC_SUBST(LIBGTOP_SERVER_VERSION, [libgtop_server_version])
+AC_SUBST(LIBGTOP_VERSION, [libgtop_version])
+AC_SUBST(LIBGTOP_VERSION_CODE, [libgtop_version_code])
 
 # libtool versioning
-LT_RELEASE=$LIBGTOP_MAJOR_VERSION.$LIBGTOP_MINOR_VERSION
-LT_CURRENT=$LIBGTOP_CURRENT
-LT_REVISION=$LIBGTOP_REVISION
-LT_AGE=$LIBGTOP_AGE
-LT_VERSION_INFO="-version-info ${LT_CURRENT}:${LT_REVISION}:${LT_AGE}"
-AC_SUBST(LT_VERSION_INFO)
-AC_SUBST(LT_RELEASE)
-AC_SUBST(LT_CURRENT)
-AC_SUBST(LT_REVISION)
-AC_SUBST(LT_AGE)
+AC_SUBST(LT_VERSION_INFO,
+         [-version-info libgtop_current:libgtop_revision:libgtop_age])
 
 ACLOCAL_FLAGS="$ACLOCAL_FLAGS -I ."
 
@@ -109,7 +99,8 @@ fi
 AM_CONDITIONAL(INODEDB, test x$build_inodedb = xyes)
 
 if test x$build_inodedb = xyes ; then
-  AC_DEFINE(GLIBTOP_INODEDB)
+  AC_DEFINE(GLIBTOP_INODEDB, 1,
+            [Define if the libgtop inodedb should be built])
 fi
 
 GLIB_REQUIRED=2.6.0
@@ -170,8 +161,9 @@ if test x$HAVE_ISDN_H = xyes ; then
 fi
 
 dnl AIX
-AH_TEMPLATE(HAVE_VMGETINFO, [Define to 1 if you have the 'vmgetinfo' function in libperfstat])
-AC_CHECK_LIB(perfstat, vmgetinfo, AC_DEFINE(HAVE_VMGETINFO))
+AC_CHECK_LIB(perfstat, vmgetinfo,
+    AC_DEFINE(HAVE_VMGETINFO, 1,
+        [Define to 1 if you have the 'vmgetinfo' function in libperfstat]))
 
 dnl Solaris
 case "$host_os" in
@@ -220,7 +212,7 @@ CFLAGS=$saved_CFLAGS
 AC_CHECK_FUNC(socket,
  [AC_CHECK_HEADER(netinet/in.h,
    [AC_CHECK_HEADER(arpa/inet.h, [
-  AC_DEFINE(HAVE_SOCKETS)
+  AC_DEFINE(HAVE_SOCKETS, 1, [Define if BSD sockets are supported])
       AC_MSG_CHECKING("for sun_len member in struct sockaddr_un")
       AC_TRY_LINK([
 #include <sys/types.h>
@@ -228,7 +220,7 @@ AC_CHECK_FUNC(socket,
 #include <sys/un.h>
       ],
       [static struct sockaddr_un x; x.sun_len = 1;],
-      [AC_MSG_RESULT(yes); AC_DEFINE(HAVE_SOCKADDR_SUN_LEN)],
+      [AC_MSG_RESULT(yes); AC_DEFINE(HAVE_SOCKADDR_SUN_LEN, 1, [Define if struct sockaddr_un has a sun_len member])],
       [AC_MSG_RESULT(no)])])])])
 
 dnl Checks for library functions.
@@ -242,9 +234,11 @@ ALL_LINGUAS="am ar az be bg bn bs ca cs cy da de el en_CA en_GB es et eu fa fi f
 
 GETTEXT_PACKAGE=libgtop-2.0
 AC_SUBST(GETTEXT_PACKAGE)
-AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE")
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE",
+                   [Define to the gettext package used by the library])
 
 AM_GLIB_GNU_GETTEXT
+GLIB_DEFINE_LOCALEDIR([GTOPLOCALEDIR])
 
 AC_PATH_XTRA
 
@@ -271,7 +265,7 @@ test -z "$with_xauth" && { AC_CHECK_HEADER(X11/Xauth.h,          ,with_xauth=no)
 test -z "$with_xauth" && { AC_CHECK_LIB(Xau, XauGetAuthByAddr,[:],with_xauth=no, $X_LIBS) }
 test -z "$with_xauth" && with_xauth=yes
 if test "$with_xauth" = "yes"; then
-  AC_DEFINE(HAVE_XAUTH)
+  AC_DEFINE(HAVE_XAUTH, 1, [Define if Xauth is supported])
   XE_SPACE(libs_xauth, $X_LIBS -lXau)
 fi
 CPPFLAGS="$saved_CPPFLAGS"
@@ -281,8 +275,8 @@ dnl For diskusage stuff
 GNOME_FILEUTILS_CHECKS
 
 dnl Debugging
-AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]],AC_DEFINE(LIBGTOP_ENABLE_DEBUG),)
-AC_ARG_ENABLE(fatal-warnings, [  --enable-fatal-warnings make all warnings fatal [debug=no]],AC_DEFINE(LIBGTOP_FATAL_WARNINGS),)
+AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]],AC_DEFINE(LIBGTOP_ENABLE_DEBUG, 1, [Define to enable debugging]),)
+AC_ARG_ENABLE(fatal-warnings, [  --enable-fatal-warnings make all warnings fatal [debug=no]],AC_DEFINE(LIBGTOP_FATAL_WARNINGS, 1, [Define to enable fatal warnings]),)
 
 dnl These definitions are expanded in make.
 LIBGTOP_LIBS='-L$(libdir)'
@@ -306,8 +300,14 @@ fi
 
 LIBGTOP_INCS="$LIBGTOP_INCS $GLIB_CFLAGS"
 
-LIBGTOP_BINDIR='$(bindir)'
-LIBGTOP_SERVER='$(bindir)/libgtop_server2'
+libgtop_save_prefix="$prefix"
+libgtop_save_exec_prefix="$exec_prefix"
+test "x$prefix" = xNONE && prefix=$ac_default_prefix
+test "x$exec_prefix" = xNONE && exec_prefix=$prefix
+LIBGTOP_BINDIR=`eval echo "${bindir}"`
+LIBGTOP_SERVER=`eval echo "${bindir}/libgtop_server2"`
+prefix="$libgtop_save_prefix"
+exec_prefix="$libgtop_save_exec_prefix"
 
 sysdeps_dir="$libgtop_sysdeps_dir"
 AC_SUBST(sysdeps_dir)
@@ -340,7 +340,24 @@ if test "$GCC" = "yes" ; then
 	$CFLAGS"
 fi
 
-INCLUDES="-D_IN_LIBGTOP -D_GNU_SOURCE -I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $CFLAGS $X_CFLAGS "'-DGTOPLOCALEDIR=\"$(datadir)/locale\" -DLIBGTOP_VERSION=\"'"$LIBGTOP_VERSION"'\" -DLIBGTOP_SERVER_VERSION=\"'"$LIBGTOP_SERVER_VERSION"'\" -DLIBGTOP_VERSION_CODE='$LIBGTOP_VERSION_CODE' -DLIBGTOP_SERVER=\"'"$LIBGTOP_SERVER"'\"'
+INCLUDES="-I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $X_CFLAGS"
+
+# Add various defines to the config.h file ...
+AH_VERBATIM([_GNU_SOURCE],
+[/* Enable GNU extensions on systems that have them.  */
+#ifndef _GNU_SOURCE
+#  define _GNU_SOURCE
+#endif])
+AC_DEFINE([_IN_LIBGTOP], 1,
+          [Note that we are building libgtop rather than using it])
+AC_DEFINE([LIBGTOP_VERSION], ["libgtop_version"],
+          [The libgtop version number])
+AC_DEFINE([LIBGTOP_SERVER_VERSION], ["libgtop_server_version"],
+          [The libgtop server version])
+AC_DEFINE([LIBGTOP_VERSION_CODE], [libgtop_version_code],
+          [The libgtop version number as an integer])
+AC_DEFINE_UNQUOTED([LIBGTOP_SERVER], ["$LIBGTOP_SERVER"],
+                   [The path to the libgtop server])
 
 AC_SUBST(INCLUDES)
 
@@ -361,7 +378,7 @@ fi
 AC_SUBST(sysdeps_suid_lib)
 AC_SUBST(server_programs)
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 libgtop.spec
 po/Makefile.in
@@ -387,3 +404,5 @@ doc/Makefile
 libgtop-2.0.pc
 libgtopconfig.h
 ])
+
+AC_OUTPUT

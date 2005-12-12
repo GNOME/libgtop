@@ -30,7 +30,7 @@ changequote([,]), [#include <sys/types.h>
 ], ac_cv_type_$1=yes, ac_cv_type_$1=no)])dnl
 AC_MSG_RESULT($ac_cv_type_$1)
 if test $ac_cv_type_$1 = no; then
-  AC_DEFINE($1, $2)
+  AC_DEFINE($1, $2, [Define to $2 if <sys/types.h> does not define.])
 fi
 ])
 
@@ -72,7 +72,7 @@ if eval "test \"`echo '$gcc_cv_decl_needed_'$1`\" = yes"; then
   AC_MSG_RESULT(yes)
   gcc_need_declarations="$gcc_need_declarations $1"
   gcc_tr_decl=NEED_DECLARATION_`echo $1 | tr 'abcdefghijklmnopqrstuvwxyz' 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'`
-  AC_DEFINE_UNQUOTED($gcc_tr_decl)
+  AC_DEFINE_UNQUOTED($gcc_tr_decl, 1, [Define if $1 () must be declared.])
 else
   AC_MSG_RESULT(no)
 fi
@@ -157,7 +157,8 @@ yes
 AC_MSG_RESULT($fu_cv_sys_mounted_cray_listmntent)
 if test $fu_cv_sys_mounted_cray_listmntent = yes; then
 list_mounted_fs=found
-AC_DEFINE(MOUNTED_LISTMNTENT)
+AC_DEFINE(MOUNTED_LISTMNTENT, 1,
+          [Define if there is a function named listmntent that can be used to list all mounted filesystems. [UNICOS]])
 fi
 fi
 
@@ -176,7 +177,8 @@ AC_CACHE_VAL(fu_cv_sys_mounted_getmntent1,
 AC_MSG_RESULT($fu_cv_sys_mounted_getmntent1)
 if test $fu_cv_sys_mounted_getmntent1 = yes; then
 list_mounted_fs=found
-AC_DEFINE(MOUNTED_GETMNTENT1)
+AC_DEFINE(MOUNTED_GETMNTENT1, 1,
+          [Define if there is a function named getmntent for reading the list of mounted filesystems, and that function takes a single argument. [4.3BSD, SunOS, HP-UX, Dynix, Irix]])
 fi
 fi
 
@@ -190,7 +192,8 @@ fu_cv_sys_mounted_getmntent2=no)])
 AC_MSG_RESULT($fu_cv_sys_mounted_getmntent2)
 if test $fu_cv_sys_mounted_getmntent2 = yes; then
 list_mounted_fs=found
-AC_DEFINE(MOUNTED_GETMNTENT2)
+AC_DEFINE(MOUNTED_GETMNTENT2, 1,
+          [Define if there is a function named getmntent for reading the list of mounted filesystems, and that function takes two arguments.  [SVR4]])
 fi
 fi
 
@@ -215,7 +218,8 @@ fu_cv_sys_mounted_getsstat=no)])
 AC_MSG_RESULT($fu_cv_sys_mounted_getsstat)
 if test $fu_cv_sys_mounted_getsstat = yes; then
 list_mounted_fs=found
-AC_DEFINE(MOUNTED_GETFSSTAT)
+AC_DEFINE(MOUNTED_GETFSSTAT, 1,
+          [Define if there is a function named getfsstat for reading the list of mounted filesystems.  [DEC Alpha running OSF/1]])
 fi
 fi
 
@@ -229,7 +233,8 @@ fu_cv_sys_mounted_vmount=no)])
 AC_MSG_RESULT($fu_cv_sys_mounted_vmount)
 if test $fu_cv_sys_mounted_vmount = yes; then
 list_mounted_fs=found
-AC_DEFINE(MOUNTED_VMOUNT)
+AC_DEFINE(MOUNTED_VMOUNT, 1,
+          [Define if there is a function named mntctl that can be used to read the list of mounted filesystems, and there is a system header file that declares `struct vmount.'  [AIX]])
 fi
 fi
 
@@ -246,7 +251,8 @@ fu_cv_sys_mounted_fread_fstyp=no)])
 AC_MSG_RESULT($fu_cv_sys_mounted_fread_fstyp)
 if test $fu_cv_sys_mounted_fread_fstyp = yes; then
 list_mounted_fs=found
-AC_DEFINE(MOUNTED_FREAD_FSTYP)
+AC_DEFINE(MOUNTED_FREAD_FSTYP, 1,
+          [Define if (like SVR2) there is no specific function for reading the list of mounted filesystems, and your system has these header files: <sys/fstyp.h> and <sys/statfs.h>.  [SVR3]])
 fi
 fi
 
@@ -267,7 +273,8 @@ test -n "$ok" \
 AC_MSG_RESULT($fu_cv_sys_mounted_getmntinfo)
 if test $fu_cv_sys_mounted_getmntinfo = yes; then
 list_mounted_fs=found
-AC_DEFINE(MOUNTED_GETMNTINFO)
+AC_DEFINE(MOUNTED_GETMNTINFO, 1,
+          [Define if there is a function named getmntinfo for reading the list of mounted filesystems.  [4.4BSD]])
 fi
 fi
 
@@ -285,7 +292,8 @@ fu_cv_sys_mounted_getmnt=no)])
 AC_MSG_RESULT($fu_cv_sys_mounted_getmnt)
 if test $fu_cv_sys_mounted_getmnt = yes; then
 list_mounted_fs=found
-AC_DEFINE(MOUNTED_GETMNT)
+AC_DEFINE(MOUNTED_GETMNT, 1,
+          [Define if there is a function named getmnt for reading the list of mounted filesystems.  [Ultrix]])
 fi
 fi
 
@@ -299,7 +307,8 @@ fu_cv_sys_mounted_fread=no)])
 AC_MSG_RESULT($fu_cv_sys_mounted_fread)
 if test $fu_cv_sys_mounted_fread = yes; then
 list_mounted_fs=found
-AC_DEFINE(MOUNTED_FREAD)
+AC_DEFINE(MOUNTED_FREAD, 1,
+          [Define if there is no specific function for reading the list of mounted filesystems.  fread will be used to read /etc/mnttab.  [SVR2]])
 fi
 fi
 
@@ -328,7 +337,8 @@ fu_cv_sys_stat_statvfs=yes,
 fu_cv_sys_stat_statvfs=no)])
 if test $fu_cv_sys_stat_statvfs = yes; then
 space=yes
-AC_DEFINE(STAT_STATVFS)
+AC_DEFINE(STAT_STATVFS, 1,
+          [Define if there is a function named statvfs.  [SVR4]])
 fi
 fi
 
@@ -352,7 +362,8 @@ fu_cv_sys_stat_statfs3_osf1=no)])
 AC_MSG_RESULT($fu_cv_sys_stat_statfs3_osf1)
 if test $fu_cv_sys_stat_statfs3_osf1 = yes; then
 space=yes
-AC_DEFINE(STAT_STATFS3_OSF1)
+AC_DEFINE(STAT_STATFS3_OSF1, 1,
+          [Define if  statfs takes 3 args.  [DEC Alpha running OSF/1]])
 fi
 fi
 
@@ -383,7 +394,8 @@ fu_cv_sys_stat_statfs2_bsize=no)])
 AC_MSG_RESULT($fu_cv_sys_stat_statfs2_bsize)
 if test $fu_cv_sys_stat_statfs2_bsize = yes; then
 space=yes
-AC_DEFINE(STAT_STATFS2_BSIZE)
+AC_DEFINE(STAT_STATFS2_BSIZE, 1,
+          [Define if statfs takes 2 args and struct statfs has a field named f_bsize. [4.3BSD, SunOS 4, HP-UX, AIX PS/2]])
 fi
 fi
 
@@ -404,7 +416,8 @@ fu_cv_sys_stat_statfs4=no)])
 AC_MSG_RESULT($fu_cv_sys_stat_statfs4)
 if test $fu_cv_sys_stat_statfs4 = yes; then
 space=yes
-AC_DEFINE(STAT_STATFS4)
+AC_DEFINE(STAT_STATFS4, 1,
+          [Define if statfs takes 4 args.  [SVR3, Dynix, Irix, Dolphin]])
 fi
 fi
 
@@ -432,7 +445,8 @@ fu_cv_sys_stat_statfs2_fsize=no)])
 AC_MSG_RESULT($fu_cv_sys_stat_statfs2_fsize)
 if test $fu_cv_sys_stat_statfs2_fsize = yes; then
 space=yes
-AC_DEFINE(STAT_STATFS2_FSIZE)
+AC_DEFINE(STAT_STATFS2_FSIZE, 1,
+          [Define if statfs takes 2 args and struct statfs has a field named f_fsize. [4.4BSD, NetBSD]])
 fi
 fi
 
@@ -463,14 +477,17 @@ fu_cv_sys_stat_fs_data=no)])
 AC_MSG_RESULT($fu_cv_sys_stat_fs_data)
 if test $fu_cv_sys_stat_fs_data = yes; then
 space=yes
-AC_DEFINE(STAT_STATFS2_FS_DATA)
+AC_DEFINE(STAT_STATFS2_FS_DATA, 1,
+          [Define if statfs takes 2 args and the second argument has type struct fs_data.  [Ultrix]])
 fi
 fi
 
 if test $space = no; then
 # SVR2
 AC_TRY_CPP([#include <sys/filsys.h>],
-AC_DEFINE(STAT_READ_FILSYS) space=yes)
+AC_DEFINE(STAT_READ_FILSYS, 1,
+          [Define if there is no specific function for reading filesystems usage information and you have the <sys/filsys.h> header file.  [SVR2]])
+space=yes)
 fi
 
 if test -n "$list_mounted_fs" && test $space != no; then
@@ -495,260 +512,14 @@ fu_cv_sys_truncating_statfs=yes,
 fu_cv_sys_truncating_statfs=no,
 )])
 if test $fu_cv_sys_truncating_statfs = yes; then
-AC_DEFINE(STATFS_TRUNCATES_BLOCK_COUNTS)
+AC_DEFINE(STATFS_TRUNCATES_BLOCK_COUNTS, 1,
+          [Define if the block counts reported by statfs may be truncated to 2GB and the correct values may be stored in the f_spare array. [SunOS 4.1.2, 4.1.3, and 4.1.3_U1 are reported to have this problem. SunOS 4.1.1 seems not to be affected.]])
 fi
 AC_MSG_RESULT($fu_cv_sys_truncating_statfs)
 
 AC_CHECKING(for AFS)
-test -d /afs && AC_DEFINE(AFS)
+test -d /afs && AC_DEFINE(AFS, 1, [Define if you have the Andrew File System.])
 ])
 
 
-dnl This file is intended for use both internally in libgtop and in every program
-dnl that wants to use it.
-dnl
-dnl It defines the following variables:
-dnl
-dnl * 'libgtop_sysdeps_dir'    - sysdeps dir for libgtop.
-dnl * 'libgtop_use_machine_h'  - some of system dependend parts of libgtop provide
-dnl                              their own header file. In this case we need to
-dnl                              define 'HAVE_GLIBTOP_MACHINE_H'.
-dnl * 'libgtop_need_server'    - is the server really needed? Defines 'NEED_LIBGTOP'
-dnl                              if true; defines conditional 'NEED_LIBGTOP'.
-
-AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
-	AC_REQUIRE([AC_CANONICAL_HOST])
-
-	AC_SUBST(libgtop_sysdeps_dir)
-	AC_SUBST(libgtop_use_machine_h)
-	AC_SUBST(libgtop_need_server)
-
-	AC_ARG_WITH(libgtop-examples,
-	[  --with-libgtop-examples Build the libgtop examples (default=no)],[
-	build_examples="$withval"], [build_examples=no])
-
-	AM_CONDITIONAL(EXAMPLES, test x"$build_examples" = xyes)
-
-	AC_ARG_ENABLE(hacker-mode,
-	[  --enable-hacker-mode    Enable building of unstable sysdeps],
-	[hacker_mode="$enableval"], [hacker_mode=no])
-
-	AM_CONDITIONAL(HACKER_MODE, test x"$hacker_mode" = xyes)
-
-	if test x$hacker_mode = xyes ; then
-	  LIBGTOP_HACKER_TESTS
-	fi
-
-	AC_ARG_WITH(libgtop-smp,
-	[  --with-libgtop-smp      Enable SMP support (default-auto)],[
-	libgtop_smp="$withval"],[libgtop_smp=auto])
-
-	if test $libgtop_smp = auto ; then
-	  AC_MSG_CHECKING(whether to enable SMP support)
-	  case "$host_os" in
-	  linux*)
-	    libgtop_smp=yes
-	    ;;
-	  aix*)
-	    libgtop_smp=yes
-	    ;;
-	  *)
-	    libgtop_smp=no
-	    ;;
-	  esac
-	  AC_MSG_RESULT($libgtop_smp)
-	fi
-
-	if test $libgtop_smp = yes ; then
-	  AC_DEFINE(HAVE_LIBGTOP_SMP)
-	fi
-
-	AM_CONDITIONAL(LIBGTOP_SMP, test $libgtop_smp = yes)
-
-	AC_MSG_CHECKING(for libgtop sysdeps directory)
-
-	case "$host_os" in
-	linux*)
-	  libgtop_sysdeps_dir=linux
-	  libgtop_use_machine_h=no
-	  libgtop_have_sysinfo=yes
-	  libgtop_need_server=no
-	  ;;
-	freebsd*|netbsd*|openbsd*|bsdi*)
-	  libgtop_sysdeps_dir=freebsd
-	  libgtop_use_machine_h=yes
-	  libgtop_need_server=yes
-	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
-	  ;;
-	solaris*)
-	  libgtop_sysdeps_dir=solaris
-	  libgtop_use_machine_h=yes
-	  libgtop_need_server=yes
-	  libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
-	  ;;
-        aix*)
-	  libgtop_sysdeps_dir=aix
-	  libgtop_use_machine_h=yes
-	  libgtop_need_server=yes
-	  libgtop_have_sysinfo=yes
-	  libgtop_postinstall='chgrp system $(bindir)/libgtop_server && chmod g+s $(bindir)/libgtop_server2'
-          ;;
-	*)
-	  if test x$hacker_mode = xyes ; then
-	    case "$host_os" in
-	    sunos4*)
-	      #Please note that this port is obsolete and not working at
-	      #all. It is only useful for people who want to fix it ... :-)
-	      libgtop_sysdeps_dir=sun4
-	      libgtop_use_machine_h=yes
-	      libgtop_need_server=yes
-	      ;;
-	    osf*)
-	      libgtop_sysdeps_dir=osf1
-	      libgtop_use_machine_h=yes
-	      libgtop_need_server=yes
-	      ;;
-	    *)
-	      libgtop_sysdeps_dir=stub
-	      libgtop_use_machine_h=no
-	      libgtop_need_server=no
-	      ;;
-	    esac
-	  else
-	    libgtop_sysdeps_dir=stub
-	    libgtop_use_machine_h=no
-	    libgtop_need_server=no
-	  fi
-	  ;;
-	esac
-
-	test -z "$libgtop_postinstall" && libgtop_postinstall=:
-
-	AC_MSG_RESULT($libgtop_sysdeps_dir)
-
-	AC_SUBST(libgtop_sysdeps_dir)
-	AC_SUBST(libgtop_postinstall)
-	AC_SUBST(libgtop_have_sysinfo)
-
-	case "$host_os" in
-	*bsd*)
-	  AC_CHECK_HEADERS(net/if_var.h)
-	  AC_MSG_CHECKING([for I4B])
-	  AC_TRY_COMPILE([
-#include <sys/types.h>
-#include <sys/socket.h>
-
-#include <net/if.h>
-#include <net/if_types.h>
-
-#ifdef HAVE_NET_IF_VAR_H
-#include <net/if_var.h>
-#endif
-
-#include <net/netisr.h>
-#include <net/route.h>
-
-#if defined(__FreeBSD__) || defined(__NetBSD__)
-#include <net/if_sppp.h>
-#else
-#include <i4b/sppp/if_sppp.h>
-#endif
-],[
-	size_t size = sizeof (struct sppp);
-], have_i4b=yes, have_i4b=no)
-	  AC_MSG_RESULT($have_i4b)
-	  if test x$have_i4b = xyes; then
-	    AC_DEFINE(HAVE_I4B)
-	    AC_MSG_CHECKING([for I4B accounting])
-	    AC_TRY_COMPILE([
-#include <sys/types.h>
-#include <sys/socket.h>
-
-#include <net/if.h>
-#include <net/if_types.h>
-
-#ifdef HAVE_NET_IF_VAR_H
-#include <net/if_var.h>
-#endif
-
-#include <net/netisr.h>
-#include <net/route.h>
-
-#if defined(__FreeBSD__) || defined(__NetBSD__)
-#include <net/if_sppp.h>
-#else
-#include <i4b/sppp/if_sppp.h>
-#endif
-
-#include <machine/i4b_acct.h>
-],[
-	size_t size = sizeof (struct i4bisppp_softc);
-], have_i4b_acct=yes, have_i4b_acct=no)
-	    AC_MSG_RESULT($have_i4b_acct)
-	    if test x$have_i4b_acct = xyes ; then
-	      AC_DEFINE(HAVE_I4B_ACCT)
-	    else
-	      AC_WARN([
-*** I4B accounting disabled - you won't get any PPP statistics.
-*** Read "misc/i4b_acct.txt" in the LibGTop source directory
-*** to see how to enable it.])
-	    fi
-	  fi
-	  ;;
-	linux*)
-	  os_major_version=`uname -r | sed 's/-pre[[0-9]]*//' | \
-	    sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\1/'`
-	  os_minor_version=`uname -r | sed 's/-pre[[0-9]]*//' | \
-	    sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\2/'`
-	  os_micro_version=`uname -r | sed 's/-pre[[0-9]]*//' | \
-	    sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\3/'`
-	  os_version_expr="$os_major_version 65536 * $os_minor_version 256 * + $os_micro_version + p q"
-
-	  AC_CHECK_HEADERS(linux/version.h, have_linux_version_h=yes,
-	    have_linux_version_h=no)
-
-	  if test x$have_linux_version_h = xyes ; then
-	    version_code=`cat /usr/include/linux/version.h | \
-	      grep \#define | grep LINUX_VERSION_CODE`
-	    os_version_code=`echo $version_code | \
-	      sed 's/^.*LINUX_VERSION_CODE[[ \t]]*\([[0-9]]*\).*$/\1/'`
-	  else
-	    os_version_code=`echo "$os_version_expr" | dc`
-	  fi
-
-	  AC_MSG_CHECKING(for Linux kernel version code)
-	  AC_DEFINE_UNQUOTED(GLIBTOP_LINUX_VERSION_CODE, $os_version_code)
-	  AC_MSG_RESULT($os_version_code)
-	  ;;
-	solaris*)
-	  os_major_version=`uname -r | sed 's/\([[0-9]]*\).\([[0-9]]\)\.*\([[0-9]]*\)/\1/'`
-	  os_minor_version=`uname -r | sed 's/\([[0-9]]*\).\([[0-9]]\)\.*\([[0-9]]*\)/\2/'`
-	  os_micro_version=`uname -r | sed 's/\([[0-9]]*\).\([[0-9]]\)\.*\([[0-9]]*\)/\3/'`
-	  test -z "$os_micro_version" && os_micro_version=0
-	  os_version_expr="$os_major_version 100 * $os_minor_version 10 * + $os_micro_version + p q"
-	  os_version_code=`echo "$os_version_expr" | dc`
-
-	  AC_MSG_CHECKING(for Solaris release code)
-	  AC_DEFINE_UNQUOTED(GLIBTOP_SOLARIS_RELEASE, $os_version_code)
-	  AC_MSG_RESULT($os_version_code)
-	  ;;
-	esac
-
-	AC_MSG_CHECKING(for machine.h in libgtop sysdeps dir)
-	AC_MSG_RESULT($libgtop_use_machine_h)
-
-	AC_MSG_CHECKING(whether we need libgtop)
-	AC_MSG_RESULT($libgtop_need_server)
-
-	if test x$libgtop_need_server = xyes ; then
-	  AC_DEFINE(NEED_LIBGTOP)
-	fi
-
-	if test x$libgtop_use_machine_h = xyes ; then
-	  AC_DEFINE(HAVE_GLIBTOP_MACHINE_H)
-	fi
-
-	AM_CONDITIONAL(NEED_LIBGTOP, test x$libgtop_need_server = xyes)
-])
-
-  
+m4_include([libgtop-sysdeps.m4])

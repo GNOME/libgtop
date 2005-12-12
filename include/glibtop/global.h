@@ -27,10 +27,6 @@
 #include <glib.h>
 
 #ifdef _IN_LIBGTOP
-#include <config.h>
-#endif
-
-#ifdef _IN_LIBGTOP
 
 #endif /* _IN_LIBGTOP */
 

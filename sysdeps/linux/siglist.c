@@ -22,6 +22,7 @@
 */
 
 
+#include <config.h>
 #include <glibtop/signal.h>
 
 #include <signal.h>

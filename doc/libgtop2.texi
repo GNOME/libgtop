@@ -5,7 +5,6 @@
 @setchapternewpage odd
 @c %**end of header
 
-@include auto-macros.texi
 @include version.texi
 
 @ifinfo

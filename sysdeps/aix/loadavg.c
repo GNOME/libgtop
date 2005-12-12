@@ -21,6 +21,7 @@
    Boston, MA 02111-1307, USA.
 */
 
+#include <config.h>
 #include <nlist.h>
 #include <glibtop.h>
 #include <glibtop/loadavg.h>

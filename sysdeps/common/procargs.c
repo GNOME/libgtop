@@ -1,3 +1,4 @@
+#include <config.h>
 #include <glibtop/procargs.h>
 
 #include <glib.h>
