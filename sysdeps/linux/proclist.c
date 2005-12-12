@@ -82,18 +82,13 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	/* read every every entry in /proc */
 
 	while((entry = readdir (proc))) {
-		char buffer [64]; /* enough to hold "/proc/%ld" */
 		unsigned pid;
-		char *end;
 
-		pid = strtoul(entry->d_name, &end, 0);
-		if(*end != '\0') continue;
+		if (entry->d_type != DT_DIR)
+			continue;
 
-		/* is it really a directory? */
-		sprintf (buffer, "/proc/%u", pid);
-		if (stat (buffer, &statb)) continue;
-		if (!S_ISDIR (statb.st_mode)) continue;
-
+		if (!(pid = strtoul(entry->d_name, NULL, 10)))
+			continue;
 
 		switch (which & GLIBTOP_KERN_PROC_MASK) {
 		case GLIBTOP_KERN_PROC_ALL:

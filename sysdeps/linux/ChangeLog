@@ -1,3 +1,9 @@
+2005-12-12  Benoît Dejean  <benoit@placenet.org>
+
+	* proclist.c: (glibtop_get_proclist_s):
+
+	Improved so that it doesn't stat(2) every /proc/<PID>/.
+
 2005-12-07  Benoît Dejean  <benoit@placenet.org>
 
 	* procmap.c: (glibtop_get_proc_map_s):
