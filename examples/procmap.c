@@ -157,6 +157,18 @@ main (int argc, char *argv [])
 				 perm);
 		}
 
+
+		g_print("smaps flags:%#llx size:%llu rss:%llu "
+			"shared_clean:%llu shared_dirty:%llu "
+			"private_clean:%llu private_dirty: %llu\n",
+			maps[i].flags,
+			maps[i].size >> 10,
+			maps[i].rss >> 10,
+			maps[i].shared_clean >> 10,
+			maps[i].shared_dirty >> 10,
+			maps[i].private_clean >> 10,
+			maps[i].private_dirty >> 10);
+
 		if (filename && (filename != maps [i].filename))
 			g_free ((void*)filename);
 	}

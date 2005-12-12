@@ -18,6 +18,7 @@ pprint
 pprint_static
 procargs
 procargs_static
+proclist
 df
 df_static
 netlist

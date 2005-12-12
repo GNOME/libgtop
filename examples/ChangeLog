@@ -1,3 +1,13 @@
+2005-12-12  Benoît Dejean  <benoit@placenet.org>
+
+	* .cvsignore:
+	* Makefile.am:
+	* proclist.c: (main):
+	* procmap.c: (main):
+
+	Added quick example for glibtop_get_proclist()
+	and updated procmap example to display smap.
+
 2005-08-02  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* pprint.c: (pprint_get_cpu), (pprint_get_loadavg),

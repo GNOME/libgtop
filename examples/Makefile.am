@@ -8,7 +8,7 @@ DEFS			= @DEFS@
 
 noinst_PROGRAMS	= 	first second pprint procargs df netlist \
 			  mountlist procmap netload sysdeps timings \
-			  openfiles smp
+			  openfiles smp proclist
 
 first_SOURCES		= first.c
 first_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
@@ -48,3 +48,6 @@ netlist_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
 
 openfiles_SOURCES	= openfiles.c
 openfiles_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
+
+proclist_SOURCES	= proclist.c
+proclist_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
