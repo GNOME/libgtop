@@ -21,6 +21,7 @@
 #define __LINUX__GLIBTOP_PRIVATE_H__
 
 #include <glibtop.h>
+#include <glibtop/error.h>
 
 #include <glib.h>
 
@@ -119,6 +120,26 @@ get_boot_time(glibtop *server) G_GNUC_INTERNAL;
 
 size_t
 get_page_size(void) G_GNUC_INTERNAL;
+
+
+gboolean
+check_cpu_line(glibtop *server, const char *line, unsigned n) G_GNUC_INTERNAL;
+
+
+static inline gboolean
+check_cpu_line_warn(glibtop *server, const char *line, unsigned i)
+{
+	gboolean ret;
+
+	ret = check_cpu_line(server, line, i);
+
+	if (G_UNLIKELY(!ret))
+		glibtop_warn_io_r(server,
+				  "'%s' does not start with 'cpu%u'",
+				  line, i);
+
+	return ret;
+}
 
 
 G_END_DECLS

@@ -77,12 +77,16 @@ glibtop_open_s (glibtop *server, const char *program_name,
 
 	file_to_buffer(server, buffer, FILENAME);
 
+	p = skip_line(p); /* cpu */
+
 	for (server->ncpu = 0; server->ncpu < GLIBTOP_NCPU; server->ncpu++) {
 
-		p = skip_line(p);
-
-		if (strncmp (p, "cpu", 3) || !isdigit (p [3]))
+		if (!check_cpu_line(server, p, server->ncpu)) {
+			server->ncpu--;
 			break;
+		}
+
+		p = skip_line(p);
 	}
 
 #ifdef DEBUG

@@ -110,11 +110,11 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	 * PER CPU
 	 */
 
-	for (i = 0; i < GLIBTOP_NCPU && i < server->ncpu; i++) {
+	for (i = 0; i <= server->ncpu; i++) {
 
 		p = skip_line(p); /* move to ^ */
 
-		if (strncmp (p, "cpu", 3) || !isdigit (p [3]))
+		if (!check_cpu_line_warn(server, p, i))
 			break;
 
 		p = skip_token(p); /* "cpuN" */
@@ -141,14 +141,14 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 		}
 	}
 
-	if(i >= 2) /* ok, that's a real SMP */
+	if(server->ncpu) /* ok, that's a real SMP */
 		buf->flags |= _glibtop_sysdeps_cpu_smp;
 
 	if(server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
 	{
 		buf->flags |= _glibtop_sysdeps_cpu_2_6;
 
-		if(i >= 2) /* ok, that's a real SMP */
+		if(server->ncpu) /* ok, that's a real SMP */
 			buf->flags |= _glibtop_sysdeps_cpu_smp_2_6;
 	}
 }

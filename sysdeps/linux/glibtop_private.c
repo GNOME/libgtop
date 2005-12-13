@@ -21,7 +21,7 @@ get_scaled(const char *buffer, const char *key)
 	char	      *next;
 	unsigned long long value = 0;
 
-	if ((ptr = strstr(buffer, key)))
+	if (G_LIKELY((ptr = strstr(buffer, key))))
 	{
 		ptr += strlen(key);
 		value = strtoull(ptr, &next, 0);
@@ -29,7 +29,10 @@ get_scaled(const char *buffer, const char *key)
 			value *= 1024;
 		else if (strchr(next, 'M'))
 			value *= 1024 * 1024;
-	}
+	} else
+		g_warning("Could not read key '%s' in buffer '%s'",
+			  key, buffer);
+
 	return value;
 }
 
@@ -147,3 +150,16 @@ get_page_size(void)
 
 	return pagesize;
 }
+
+
+
+gboolean
+check_cpu_line(glibtop *server, const char *line, unsigned i)
+{
+	char start[10];
+
+	g_snprintf(start, sizeof start, "cpu%u", i);
+
+	return g_str_has_prefix(line, start);
+}
+

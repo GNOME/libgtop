@@ -122,11 +122,12 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 
 	p = skip_multiple_token (p, 3);
 
-	for (i = 0; i < GLIBTOP_NCPU; i++) {
-		if (strncmp (p+1, "cpu", 3) || !isdigit (p [4]))
+	for (i = 0; i <= server->ncpu; i++) {
+
+		if (!check_cpu_line_warn(server, p + 1, i))
 			break;
 
-		p += 6;
+		p = skip_token(p);
 		buf->xcpu_utime [i] = strtoull (p, &p, 0);
 		buf->xcpu_stime [i] = strtoull (p, &p, 0);
 	}
