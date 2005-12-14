@@ -1,3 +1,10 @@
+2005-12-14  Benoît Dejean  <benoit@placenet.org>
+
+	* open.c: (glibtop_open_s):
+	
+	Implemented server->real_ncpu.
+	Add a warning to display ncpu and real_ncpu on open.
+
 2005-12-13  Benoît Dejean  <benoit@placenet.org>
 
 	* cpu.c: (glibtop_get_cpu_s):

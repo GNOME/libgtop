@@ -79,17 +79,21 @@ glibtop_open_s (glibtop *server, const char *program_name,
 
 	p = skip_line(p); /* cpu */
 
-	for (server->ncpu = 0; server->ncpu < GLIBTOP_NCPU; server->ncpu++) {
+	for (server->real_ncpu = 0; /* nop */; server->real_ncpu++) {
 
-		if (!check_cpu_line(server, p, server->ncpu)) {
-			server->ncpu--;
+		if (!check_cpu_line(server, p, server->real_ncpu)) {
+			server->real_ncpu--;
 			break;
 		}
 
 		p = skip_line(p);
 	}
 
-#ifdef DEBUG
-	printf ("\nThis machine has %d CPUs.\n\n", server->ncpu);
-#endif
+	server->ncpu = MIN(GLIBTOP_NCPU - 1, server->real_ncpu);
+
+	glibtop_warn_r(server,
+		       "This machine has %d CPUs, "
+		       "%d are being monitored.",
+		       server->real_ncpu + 1,
+		       server->ncpu + 1);
 }
