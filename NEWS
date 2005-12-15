@@ -1,3 +1,9 @@
+December 15, 2005: Overview of changes in 2.13.1
+================================================
+* linux:
+    - fixed proclist
+    - implemented server->real_ncpu
+
 December 13, 2005: Overview of changes in 2.13.0
 ================================================
 * Requires automake-1.9 (James Henstridge)
