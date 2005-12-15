@@ -1,3 +1,10 @@
+2005-12-15  Benoît Dejean  <benoit@placenet.org>
+
+	* proclist.c: (glibtop_get_proclist_s):
+	
+	Fixed when which == GLIBTOP_KERN_PROC_UID.
+	Closes #324055.
+
 2005-12-14  Benoît Dejean  <benoit@placenet.org>
 
 	* open.c: (glibtop_open_s):

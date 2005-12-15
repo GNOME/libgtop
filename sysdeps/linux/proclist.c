@@ -98,8 +98,18 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 				continue;
 			break;
 		case GLIBTOP_KERN_PROC_UID:
-			if ((uid_t) arg != statb.st_uid)
+		{
+			char path[32];
+			struct stat path_stat;
+
+			snprintf(path, sizeof path, "/proc/%u", pid);
+
+			if (stat(path, &path_stat))
 				continue;
+
+			if ((uid_t) arg != path_stat.st_uid)
+				continue;
+		}
 			break;
 		case GLIBTOP_KERN_PROC_PGRP:
 			/* Do you really, really need this ? */
