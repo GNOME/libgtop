@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-13 10:23+0100\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2002-08-31 09:57+0200\n"
 "Last-Translator: Artis Trops <hornet@navigators.lv>\n"
 "Language-Team: Latvian <ll10nt@os.lv>\n"
@@ -81,126 +81,126 @@ msgstr ""
 "Palaidiet '%s --help' lai redzētu pilnu pieejamo komandu rindas opciju "
 "sarakstu.\n"
 
-#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "Iekārt"
 
-#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "Pātraukt"
 
-#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "Iziet"
 
-#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "Neatļauta instrukcija"
 
-#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "Izsekot slazdu"
 
-#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "Pātraukt"
 
-#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "EMT kļūda"
 
-#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "Peldošā punkta izņēmums"
 
-#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "Nobeigt"
 
-#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "Šinas kļūda"
 
-#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "Segmentācijas pārkāpums"
 
-#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "Slikts arguments sistēmas izsaukumam"
 
-#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "Pātraukts kanāls"
 
-#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "Brīdinājuma pulkstenis"
 
-#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "Pātraukšana"
 
-#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "Steidzama situācija kontaktā"
 
-#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "Stop"
 
-#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "Tastatūra stop"
 
-#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "Turpināt"
 
-#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "Bērna statuss ir izmainījies"
 
-#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "Fona lasīšana no tty"
 
-#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "Fona rakstīšana uz tty"
 
-#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "I/O tagad iespējams"
 
-#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "CPU limits pārsniegts"
 
-#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "Faila izmēra limits pārsniegts"
 
-#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "Virtuāls brīdinājuma pulkstenis"
 
-#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "Profilēšanas modinātājs"
 
-#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "Loga izmēru maiņa"
 
-#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "Informācijas pieprasījums"
 
-#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "Lietotāja definēts signāls 1"
 
-#: sysdeps/osf1/siglist.c:59 sysdeps/sun4/siglist.c:59
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Lietotāja definēts signāls 2"

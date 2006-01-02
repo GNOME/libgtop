@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop GNOME 2.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-13 10:23+0100\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-07-01 18:03+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
@@ -80,126 +80,126 @@ msgstr ""
 "Lỗi tùy chọn %s: %s.\n"
 "Chạy «%s --help» để xem danh sách toàn bộ các tùy chọn có thể.\n"
 
-#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "Treo máy"
 
-#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "Ngắt"
 
-#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "Thoát"
 
-#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "Lệnh bị cấm"
 
-#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "Bẫy theo vết"
 
-#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "Hủy"
 
-#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "Lỗi EMT"
 
-#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "Ngoại lệ điểm phù động"
 
-#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "Buộc chấm dứt"
 
-#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "Lỗi Bus"
 
-#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "Vi phạm phân đoạn"
 
-#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "Đối số sai với lời gọi hệ thống"
 
-#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "Ống dẫn bị gãy"
 
-#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "Đồng hồ báo động"
 
-#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "Kết thúc"
 
-#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "Hoàn cảnh khẩn trên ổ cắm"
 
-#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "Dừng"
 
-#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "Dừng bàn phím"
 
-#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "Tiếp tục"
 
-#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "Trạng thái tiến trình con đã thay đổi"
 
-#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "Đọc từ tty (chế độ nền)"
 
-#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "Ghi vào tty (chế độ nền)"
 
-#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "mới có thể dùng gõ/xuất"
 
-#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "Vượt quá giới hạn CPU"
 
-#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "Vượt quá giới hạn kích thước tập tin"
 
-#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "Đồng hồ báo động ảo"
 
-#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "Lấy thông tin về đồng hồ bảo động"
 
-#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "Thay đổi kích thước cửa sổ"
 
-#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "Yêu cầu thông tin"
 
-#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "Tín hiệu do người dùng định nghĩa 1"
 
-#: sysdeps/osf1/siglist.c:59 sysdeps/sun4/siglist.c:59
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Tín hiệu do người dùng định nghĩa 2"

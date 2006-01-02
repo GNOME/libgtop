@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop CVS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-13 10:23+0100\n"
+"POT-Creation-Date: 2005-09-25 18:15+0200\n"
 "PO-Revision-Date: 2005-02-16 22:57+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -84,127 +84,127 @@ msgstr ""
 "Fout bij optie %s: %s.\n"
 "Start '%s --help' om een lijst met command-line opties te zien.\n"
 
-#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "Ophangen"
 
-#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "Onderbreken"
 
-#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "Verboden instruktie"
 
-#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "Trace trap"
 
-#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "Afbreken"
 
-#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "EMT fout"
 
-#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "Floating-point uitzondering"
 
-#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "Vernietigen"
 
-#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "Busfout"
 
-#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "Segmentatiefout"
 
-#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "Verkeerd argument voor systeemaanroep"
 
-#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "Gebroken pipe"
 
-#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "Wekker"
 
-#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "Beëindiging"
 
-#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "Dringende situatie bij de socket"
 
-#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "Stoppen"
 
-#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "Keyboard stop"
 
-#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "Doorgaan"
 
-#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "De status van de dochter is veranderd"
 
-#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "In de achtergrond wordt tty uitgelezen"
 
-#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "In de achtergrond wordt naar tty geschreven"
 
-#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "I/O is nu mogelijk"
 
-#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "Processor begrenzing overschreden"
 
-#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "Limiet bestandsomvang overschreden"
 
-#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "Virtuele wekker"
 
 # profileringswekker/profielwekker
-#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "Profiling-wekker"
 
-#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "Wijziging venstergrootte"
 
-#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "Verzoek om informatie"
 
-#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "Door gebruiker gedefinieerd signaal 1"
 
-#: sysdeps/osf1/siglist.c:59 sysdeps/sun4/siglist.c:59
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "Door gebruiker gedefinieerd signaal 2"
