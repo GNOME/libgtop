@@ -1,3 +1,10 @@
+2006-01-02  Benoît Dejean  <benoit@placenet.org>
+
+	* NEWS:
+	* configure.in:
+
+	Released 2.13.2.
+
 2006-01-02  James Henstridge  <james@jamesh.id.au>
 
 	* configure.in (LT_VERSION_INFO): add quotes around symbol definition.
