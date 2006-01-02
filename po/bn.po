@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-01 06:02+0200\n"
+"POT-Creation-Date: 2005-12-13 10:23+0100\n"
 "PO-Revision-Date: 2005-10-01 01:05+0600\n"
 "Last-Translator: Mahay Alam Khan <makl10n@yahoo.com>\n"
 "Language-Team: Bengali <gnome-translation@bengalinux.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../lib/read.c:65
+#: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -29,11 +29,11 @@ msgstr[1] "%d বাইট পড়েছি"
 # #########################################
 # দয়া করে "গেছে" এর পরিবর্তে "গিয়েছে" লিখেন
 # #########################################
-#: ../lib/read_data.c:53
+#: lib/read_data.c:53
 msgid "read data size"
 msgstr "ডাটা সাইজ পড়ো"
 
-#: ../lib/read_data.c:72
+#: lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
@@ -42,7 +42,7 @@ msgstr[1] "%lu বাইট তথ্য পড়েছি"
 
 # msgstr "%d বাইট তথ্য পড়া গেছে"
 # msgstr "%d বাইট তথ্য পড়া হোক"
-#: ../lib/write.c:52
+#: lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
@@ -50,45 +50,45 @@ msgstr[0] "%d বাইট লিখেছি"
 msgstr[1] "%d বাইট লিখেছি"
 
 # msgstr "%d বাইট লেখা হয়েছে"
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "ডিবাগিং চালু করুন"
 
 # msgstr "ডিবাগ প্রক্রিয়া সক্রিয় করা হোক"
 # ২ এটা কি বিবেচনা করা যায় না? অন্যান্য জায়গায় "ডিবাগ" লেখা হইছে, তাই এখানে অন্য রকম হয়ে যায়।
 # আপনার আপত্তি থাকলে অবশ্য কোন কথা নাই।
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "ডিবাগ"
 
 # msgstr "ডিবাগ"
-#: ../src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "বর্ণনাযুক্ত আউটপুট সক্রিয় করো"
 
 # msgstr "ভার্বোস (Verbose) ফলাফল চালু করুন"
 # msgstr "বর্ণনাযুক্ত ফলাফল দেখানো হোক"
-#: ../src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "বর্ণনাযুক্ত"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "পশ্চাতে ফর্ক করা হবে না"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "NO-DAEMON"
 
-#: ../src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "inetd এর থেকে নেওয়া হয়েছে"
 
-#: ../src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: ../src/daemon/gnuserv.c:500
+#: src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -98,144 +98,144 @@ msgstr ""
 "কমান্ড লাইন অপশনের সম্পূর্ণ তালিকা দেখার জন্য '%s --help' লিখুন।\n"
 
 # msgstr "সিস্টেম বুট হবার পর থেকে নিষ্ক্রিয় কাজে অতিবাহিত সময় (সেকেন্ডে)"
-#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Hangup"
 msgstr "সংযোগ বিচ্ছিন্ন করুন"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Interrupt"
 msgstr "ইন্টেরাপ্ট"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Quit"
 msgstr "প্রস্থান"
 
 # msgstr "প্রস্থান"
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Illegal instruction"
 msgstr "অবৈধ ইনস্ট্রাকশন"
 
 # msgstr "অবৈধ ইনস্ট্রাকশন"
 # Instruction এখানে Technical term।
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "Trace trap"
 msgstr "ট্রেস ট্র্যাপ"
 
 # ২ এটা আসলে ঠিক বোঝা যাচ্ছে না। তাই মনে হয় বাদ রাখাই ভাল
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "Abort"
 msgstr "বাতিল করো"
 
 # msgstr "বন্ধ করা"
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "EMT error"
 msgstr "EMT সংক্রান্ত ভুল"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Floating-point exception"
 msgstr "দশমিক সংক্রান্ত ব্যতিক্রম"
 
 # msgstr "ভগ্নাংশ সংক্রান্ত ব্যতীক্রম" <-- বানান ভুল
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Kill"
 msgstr "কিল"
 
 # msgstr "শেষ করা (Kill)"
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Bus error"
 msgstr "বাস সংক্রান্ত ভুল"
 
 # msgstr "বাস (Bus) সংক্রান্ত সমস্যা"
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Segmentation violation"
 msgstr "সেগমেন্ট সীমা লঙ্ঘন"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Bad argument to system call"
 msgstr "সিস্টেম call এ ভুল মান প্রেরিত হয়েছে"
 
 # msgstr "সিস্টেম call এ ভুল মান প্রেরিত হয়েছে"
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Broken pipe"
 msgstr "অচল পাইপ"
 
 # msgstr "অচল পাইপ"
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Alarm clock"
 msgstr "এলার্ম ঘড়ি"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Termination"
 msgstr "সমাপন"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Urgent condition on socket"
 msgstr "সকেটে জরুরি অবস্থা"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Stop"
 msgstr "বন্ধ করুন"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Keyboard stop"
 msgstr "কিবোর্ড বন্ধ করুন"
 
 # ২ কীবোর্ড 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Continue"
 msgstr "চালিয়ে যান"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Child status has changed"
 msgstr "Child এর অবস্থা পরিবর্তিত হয়েছে"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "Background read from tty"
 msgstr "পশ্চাত থেকে tty পড়া"
 
 # ভাল হইলো না
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "Background write to tty"
 msgstr "পশ্চাত থেকে tty এ লেখা"
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "I/O now possible"
 msgstr "এখন I/O সম্ভব"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "CPU limit exceeded"
 msgstr "CPU সীমা ছাড়িয়ে গেছে"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "File size limit exceeded"
 msgstr "ফাইলের সাইজ সীমা ছাড়িয়ে গেছে"
 
 # msgstr "ফাইলের আয়তন সীমা ছাড়িয়ে গেছে"
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Virtual alarm clock"
 msgstr "কাল্পনিক এলার্ম ঘড়ি"
 
 # msgstr "কাল্পনিক এলার্ম ঘড়ি"
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Profiling alarm clock"
 msgstr "এলার্ম ঘড়ি প্রোফাইল করা হচ্ছে"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "Window size change"
 msgstr "উইন্ডোর সাইজ পরিবর্তন"
 
 # msgstr "উইন্ডো'র আয়তন পরিবর্তন"
 # Window এর বাংলা করার দরকার নাই
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "Information request"
 msgstr "তথ্যের আবেদন"
 
 # msgstr "তথ্যের আবেদন"
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 1"
 msgstr "ব্যবহারকারী নির্ধারিত সিগনাল ১"
 
-#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+#: sysdeps/osf1/siglist.c:59 sysdeps/sun4/siglist.c:59
 msgid "User defined signal 2"
 msgstr "ব্যবহারকারী নির্ধারিত সিগনাল ২"
 

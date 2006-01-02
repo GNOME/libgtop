@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.0.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-25 18:15+0200\n"
+"POT-Creation-Date: 2005-12-13 10:23+0100\n"
 "PO-Revision-Date: 2003-03-05 10:29+0530\n"
 "Last-Translator: FSF-India <locale@gnu.org.in>\n"
 "Language-Team: Malayalam <locale@gnu.org.in>\n"
@@ -83,143 +83,143 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Hangup"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 #, fuzzy
 msgid "Interrupt"
 msgstr "വിവരമണ്ഡലം"
 
-#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Quit"
 msgstr "പുറത്ത് കടക്കുക"
 
-#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Illegal instruction"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 #, fuzzy
 msgid "Trace trap"
 msgstr "അക്ഷര പടം"
 
-#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "Abort"
 msgstr "നിര്ത്തലാക്കി"
 
-#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 #, fuzzy
 msgid "EMT error"
 msgstr "പിശക്"
 
-#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Floating-point exception"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Kill"
 msgstr "അവസാനിപ്പിക്കുക"
 
-#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 #, fuzzy
 msgid "Bus error"
 msgstr "പ്രശ്നം ഇല്ല"
 
-#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 #, fuzzy
 msgid "Segmentation violation"
 msgstr "ചലനചിത്രം തിരഞ്ഞെടുക്കുക:"
 
-#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Bad argument to system call"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 #, fuzzy
 msgid "Broken pipe"
 msgstr "പൊട്ടിയ കണ്ണി"
 
-#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 #, fuzzy
 msgid "Alarm clock"
 msgstr "സൂചകധ്വനി"
 
-#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 #, fuzzy
 msgid "Termination"
 msgstr "ടെ‍ര്മിനല്"
 
-#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 #, fuzzy
 msgid "Urgent condition on socket"
 msgstr "ഇപ്പോഴത്തെ അവസ്ഥ"
 
-#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Stop"
 msgstr "നിര്‌ത്തുക"
 
-#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 #, fuzzy
 msgid "Keyboard stop"
 msgstr "സൂചകവാക്കുകള്"
 
-#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Continue"
 msgstr "തുടരൂ"
 
-#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 #, fuzzy
 msgid "Child status has changed"
 msgstr "മാറിയ തീയതി"
 
-#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 #, fuzzy
 msgid "Background read from tty"
 msgstr "പശ്ചാത്തലം"
 
-#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 #, fuzzy
 msgid "Background write to tty"
 msgstr "പശ്ചാത്തലം"
 
-#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "I/O now possible"
 msgstr "I/O ഇപ്പോള് സാധ്യമാണ‌്‌"
 
-#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "CPU limit exceeded"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "File size limit exceeded"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Virtual alarm clock"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Profiling alarm clock"
 msgstr ""
 
-#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 #, fuzzy
 msgid "Window size change"
 msgstr "ജീലക ഉപയോഗം"
 
-#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 #, fuzzy
 msgid "Information request"
 msgstr "വിവര സന്ദേശങ്ങള്"
 
-#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 #, fuzzy
 msgid "User defined signal 1"
 msgstr "ഉപയോക്തൃ നാമം"
 
-#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#: sysdeps/osf1/siglist.c:59 sysdeps/sun4/siglist.c:59
 #, fuzzy
 msgid "User defined signal 2"
 msgstr "ഉപയോക്തൃ നാമം"
