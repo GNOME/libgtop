@@ -44,7 +44,7 @@ AC_SUBST(LIBGTOP_VERSION_CODE, [libgtop_version_code])
 
 # libtool versioning
 AC_SUBST(LT_VERSION_INFO,
-         [-version-info libgtop_current:libgtop_revision:libgtop_age])
+         ["-version-info libgtop_current:libgtop_revision:libgtop_age"])
 
 ACLOCAL_FLAGS="$ACLOCAL_FLAGS -I ."
 
