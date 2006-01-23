@@ -133,12 +133,15 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 					       100);
 	FILE *maps;
 	const char *filename;
+	gboolean has_smaps;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_map));
 
-	if (server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
+	has_smaps = server->os_version_code >= LINUX_VERSION_CODE(2, 6, 14);
+
+	if (has_smaps)
 		filename = SMAPS_FILE;
 	else
 		filename = MAPS_FILE;
@@ -211,7 +214,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		entry->inode = (guint64) inode;
 		g_strlcpy(entry->filename, filename, sizeof entry->filename);
 
-		if (server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
+		if (has_smaps)
 			add_smaps(server, maps, entry);
 
 	}

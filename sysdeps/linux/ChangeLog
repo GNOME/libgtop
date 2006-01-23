@@ -1,3 +1,10 @@
+2006-01-23  Benoît Dejean  <benoit@placenet.org>
+
+	* procmap.c: (glibtop_get_proc_map_s):
+
+	I can't believe i've been so stupid :)
+	Uses smaps if linux > 2.6.14.
+
 2005-12-15  Benoît Dejean  <benoit@placenet.org>
 
 	* proclist.c: (glibtop_get_proclist_s):
