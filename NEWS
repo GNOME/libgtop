@@ -1,3 +1,8 @@
+January 23, 2006: Overview of changes in 2.13.3
+===============================================
+* linux:
+	- fixe get_procmap for linux < 2.6.14.
+
 January 2, 2006: Overview of changes in 2.13.2
 ==============================================
 * Fixed libtool versioning (James Henstridge)
