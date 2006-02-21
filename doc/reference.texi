@@ -493,7 +493,7 @@ glibtop_get_proc_state_l (glibtop *server, glibtop_proc_state *buf,
 @end cartouche
 @end example
 
-Declaration of @code{glibtop_proc_state} in @file{<glibtop/proc_state.h>}:
+Declaration of @code{glibtop_proc_state} in @file{<glibtop/procstate.h>}:
 
 @example
 @cartouche

@@ -1,3 +1,7 @@
+2006-02-21  Benoît Dejean  <benoit@placenet.org>
+
+	* reference.texi: Fixed reference to glibtop/procstate.h
+
 2005-01-03  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* reference.texi: Updated.
