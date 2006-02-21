@@ -540,7 +540,10 @@ static gboolean ignore_mount_entry(const struct mount_entry *me)
 	static const char ignored[][12] = {
 		"autofs",
 		"binfmt_misc",
+		"devfs",
 		"devpts",
+		"linprocfs",
+		"mfs",
 		"mntfs",
 		"mqueue",
 		"none",

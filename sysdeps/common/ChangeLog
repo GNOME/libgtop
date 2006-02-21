@@ -1,3 +1,10 @@
+2006-02-21  Benoît Dejean  <benoit@placenet.org>
+
+	* mountlist.c: (ignore_mount_entry): Also ignores linprocfs, mfs
+	and devfs.
+	Closes #331856.
+	Patch by Andreas Kohn <andreas.kohn@gmail.com>
+
 2005-04-26  Jörgen Scheibengruber  <mfcn@gmx.de>
 
 	* mountlist.c: (ignore_mount_entry): Added tmpfs to ignore list.
