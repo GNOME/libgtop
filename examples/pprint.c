@@ -268,6 +268,24 @@ static void pprint_get_proc_kernel(pid_t pid)
 }
 
 
+static void pprint_get_proc_mem(pid_t pid)
+{
+  glibtop_proc_mem buf;
+
+  glibtop_get_proc_mem(&buf, pid);
+
+  HEADER_PPRINT(glibtop_get_proc_mem);
+  PPRINT(flags, "%#llx");
+  PPRINT(size, "%llu");
+  PPRINT(vsize, "%llu");
+  PPRINT(resident, "%llu");
+  PPRINT(share, "%llu");
+  PPRINT(rss, "%llu");
+  PPRINT(rss_rlim, "%llu");
+  FOOTER_PPRINT();
+}
+
+
 
 int main()
 {
@@ -298,6 +316,7 @@ int main()
   pprint_get_uptime();
 
   pprint_get_proc_kernel(getpid());
+  pprint_get_proc_mem(getpid());
 
   glibtop_close();
 

@@ -1,3 +1,9 @@
+2006-02-27  Benoît Dejean  <benoit@placenet.org>
+
+	* pprint.c: (pprint_get_proc_mem), (main):
+
+	Added proc_mem example.
+
 2005-12-15  Benoît Dejean  <benoit@placenet.org>
 
 	* proclist.c: (print_pids), (main):
