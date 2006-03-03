@@ -1,8 +1,8 @@
 # Lithuanian translation of libgtop library.
-# Copyright (C) 2003-2005 Free Software Foundation.
+# Copyright (C) 2003-2006 Free Software Foundation.
 # This file is distributed under the same license as the libgtop package.
 # Tomas Kuliavas <tokul@users.sourceforge.net>, 2003.
-# Žygimantas Beručka <uid0@akl.lt>, 2003-2005
+# Žygimantas Beručka <zygis@gnome.org>, 2003-2006.
 # 
 # 
 msgid ""
@@ -10,21 +10,20 @@ msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-25 18:15+0200\n"
-"PO-Revision-Date: 2005-01-30 03:52+0200\n"
-"Last-Translator: Žygimantas Beručka <uid0@akl.lt>\n"
+"PO-Revision-Date: 2006-03-03 12:24+0200\n"
+"Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
-"100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "perskaityta %d baitas"
-msgstr[1] "perskaityta %d baitai"
+msgstr[0] "perskaitytas %d baitas"
+msgstr[1] "perskaityti %d baitai"
 msgstr[2] "perskaityta %d baitų"
 
 #: lib/read_data.c:53
@@ -35,16 +34,16 @@ msgstr "perskaitytų duomenų dydis"
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "perskaityta %lu baitas duomenų"
-msgstr[1] "perskaityta %lu baitai duomenų"
+msgstr[0] "perskaitytas %lu baitas duomenų"
+msgstr[1] "perskaityti %lu baitai duomenų"
 msgstr[2] "perskaityta %lu baitų duomenų"
 
 #: lib/write.c:52
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "įrašyta %d baitas"
-msgstr[1] "įrašyta %d baitai"
+msgstr[0] "įrašytas %d baitas"
+msgstr[1] "įrašyti %d baitai"
 msgstr[2] "įrašyta %d baitų"
 
 #: src/daemon/gnuserv.c:460
@@ -86,7 +85,7 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "Klaidingi parametrai %s: %s.\n"
-"Paleiskite '%s --help' norėdami pamatyti visus galimus komandinės eilutės "
+"Paleiskite „%s --help“ norėdami pamatyti visus galimus komandinės eilutės "
 "parametrus.\n"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
@@ -187,7 +186,7 @@ msgstr "CPU apribojimai viršyti"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
-msgstr "Bylų dydžio apribojimai viršyti"
+msgstr "Rinkmenų dydžio apribojimai viršyti"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
@@ -207,8 +206,8 @@ msgstr "Informacijos užklausa"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
-msgstr "Pirmas vartotojiškas signalas (USR1)"
+msgstr "Pirmas naudotojo nurodytas signalas (USR1)"
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
-msgstr "Antras vartotojiškas signalas (USR2)"
+msgstr "Antras naudotojo nurodytas signalas (USR2)"
