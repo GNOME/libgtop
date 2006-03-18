@@ -1,0 +1,220 @@
+# translation of libgtop.po to Georgian
+# Copyright (C) 2006 Gnome Georgian Translators
+# This file is distributed under the same license as the libgtop package.
+#
+# Alexander Didebulidze <didebuli@in.tum.de>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-02-25 08:57+0100\n"
+"PO-Revision-Date: 2006-03-18 03:28+0100\n"
+"Last-Translator: Alexander Didebulidze <didebuli@in.tum.de>\n"
+"Language-Team: Georgian <gnome@inet.ge>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0"
+
+#: ../lib/read.c:65
+#, c-format
+#, fuzzy
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "byte"
+
+#: ../lib/read_data.c:53
+#, fuzzy
+msgid "read data size"
+msgstr "სიდიდე"
+
+#: ../lib/read_data.c:72
+#, c-format
+#, fuzzy
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "byte"
+
+#: ../lib/write.c:52
+#, c-format
+#, fuzzy
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "byte"
+
+#: ../src/daemon/gnuserv.c:460
+msgid "Enable debugging"
+msgstr ""
+
+#: ../src/daemon/gnuserv.c:460
+msgid "DEBUG"
+msgstr "DEBUG"
+
+#: ../src/daemon/gnuserv.c:462
+msgid "Enable verbose output"
+msgstr ""
+
+#: ../src/daemon/gnuserv.c:462
+msgid "VERBOSE"
+msgstr "VERBOSE"
+
+#: ../src/daemon/gnuserv.c:464
+msgid "Don't fork into background"
+msgstr ""
+
+#: ../src/daemon/gnuserv.c:464
+msgid "NO-DAEMON"
+msgstr ""
+
+#: ../src/daemon/gnuserv.c:466
+msgid "Invoked from inetd"
+msgstr ""
+
+#: ../src/daemon/gnuserv.c:466
+msgid "INETD"
+msgstr "INETD"
+
+#: ../src/daemon/gnuserv.c:500
+#, c-format
+#, fuzzy
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr "შეცდომა -სკენ a ხაზი n"
+
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+msgid "Hangup"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+msgid "Interrupt"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+msgid "Quit"
+msgstr "გამოსვლა"
+
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+msgid "Illegal instruction"
+msgstr "არალეგალური ინსტრუქცია"
+
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#, fuzzy
+msgid "Trace trap"
+msgstr "გამოთვალე"
+
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+msgid "Abort"
+msgstr "შეწყვეტა"
+
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+msgid "EMT error"
+msgstr "EMT შეცდომა"
+
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+msgid "Floating-point exception"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+msgid "Kill"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#, fuzzy
+msgid "Bus error"
+msgstr "შეცდომა"
+
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+msgid "Segmentation violation"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#, fuzzy
+msgid "Bad argument to system call"
+msgstr "-სკენ"
+
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+msgid "Broken pipe"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+msgid "Alarm clock"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+msgid "Termination"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+msgid "Urgent condition on socket"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+msgid "Stop"
+msgstr "შეჩერება"
+
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#, fuzzy
+msgid "Keyboard stop"
+msgstr "კლავიატურა"
+
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+msgid "Continue"
+msgstr "გაგრძელება"
+
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+msgid "Child status has changed"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#, fuzzy
+msgid "Background read from tty"
+msgstr "ფონი"
+
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#, fuzzy
+msgid "Background write to tty"
+msgstr "ფონი -სკენ"
+
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+msgid "I/O now possible"
+msgstr "I/O ახლა შესაძლებელია"
+
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#, fuzzy
+msgid "CPU limit exceeded"
+msgstr "CPU"
+
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#, fuzzy
+msgid "File size limit exceeded"
+msgstr "ფაილი სიდიდე"
+
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+msgid "Virtual alarm clock"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+msgid "Profiling alarm clock"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#, fuzzy
+msgid "Window size change"
+msgstr "ფანჯარა სიდიდე"
+
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#, fuzzy
+msgid "Information request"
+msgstr "ინფორმაცია"
+
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+#, fuzzy
+msgid "User defined signal 1"
+msgstr "მომხმარებელი 1"
+
+#: ../sysdeps/osf1/siglist.c:59 ../sysdeps/sun4/siglist.c:59
+#, fuzzy
+msgid "User defined signal 2"
+msgstr "მომხმარებელი 2"
+
