@@ -1,80 +1,82 @@
 # Oriya translation of metacity.HEAD.pot.
-# Copyright (C) 2004, Free Software Foundation, Inc.
+# Copyright (C) 2004, 2006, Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgtop package.
-# Sony Mohanty <sonalika_04@sify.com>, 2004. 
+# Sony Mohanty <sonalika_04@sify.com>, 2004.
+# Jeeban <srujanik@sancharnet.in>, 2004.
+# Gora Mohanty <gora_mohanty@yahoo.co.in>, 2006.
 # $Id$
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.HEAD.or\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-25 18:15+0200\n"
-"PO-Revision-Date: 2004-09-09 12:19+0530\n"
-"Last-Translator: Jeeban <srujanik@sancharnet.in>\n"
+"POT-Creation-Date: 2006-03-22 00:18+0530\n"
+"PO-Revision-Date: 2006-03-22 00:13+0530\n"
+"Last-Translator: Gora Mohanty <gora_mohanty@yahoo.co.in>\n"
 "Language-Team: Oriya <oriya-group@lists.sarovar.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: lib/read.c:65
+#: ../lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "%d ବାଇଟ ପଢ଼ନ୍ତୁ"
 msgstr[1] "%d ବାଇଟଗୁଡ଼ିକ ପଢ଼ନ୍ତୁ"
 
-#: lib/read_data.c:53
+#: ../lib/read_data.c:53
 msgid "read data size"
 msgstr "ତଥ୍ଯ ଆକାର ପଢ଼ନ୍ତୁ"
 
-#: lib/read_data.c:72
-#, fuzzy, c-format
+#: ../lib/read_data.c:72
+#, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "%d ବାଇଟ ପଢ଼ନ୍ତୁ"
-msgstr[1] "%d ବାଇଟଗୁଡ଼ିକ ପଢ଼ନ୍ତୁ"
+msgstr[0] "%lu ବାଇଟ ପଢ଼ନ୍ତୁ"
+msgstr[1] "%lu ବାଇଟଗୁଡ଼ିକ ପଢ଼ନ୍ତୁ"
 
-#: lib/write.c:52
-#, fuzzy, c-format
+#: ../lib/write.c:52
+#, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "%d ବାଇଟ ଲେଖନ୍ତୁ"
-msgstr[1] "%d ବାଇଟଗୁଡ଼ିକ ଲେଖନ୍ତୁ"
+msgstr[0] "%d ବାଇଟ ଲେଖଗଲା"
+msgstr[1] "%d ବାଇଟଗୁଡ଼ିକ ଲେଖାଗଲା"
 
-#: src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "ତ୍ରୁଟିମୁକ୍ତ କରିବା ପାଇଁ ସମର୍ଥ"
 
-#: src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "ତୃଟିମୁକ୍ତ"
 
-#: src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "ଦୃଷ୍ଟ ସୂଚନାଯୁକ୍ତ ନିର୍ଗମ କରିବା ପାଇଁ ସକ୍ଷମ"
 
-#: src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:462
 msgid "VERBOSE"
 msgstr "ଦୃଷ୍ଟ ସୂଚନାଯୁକ୍ତ"
 
-#: src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "ପୃଷ୍ଠଭୂମିକୁ ଶାଖାଯୁକ୍ତ କରନ୍ତୁ ନାହିଁ"
 
-#: src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "କାର୍ଯ୍ଯ ସହାୟକ ନାହିଁ"
 
-#: src/daemon/gnuserv.c:466
+#: ../src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "ଆଇନେଟଡିରୁ ଡକାଯାଇଛି"
 
-#: src/daemon/gnuserv.c:466
+#: ../src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "ଆଇନେଟଡି"
 
-#: src/daemon/gnuserv.c:500
+#: ../src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
@@ -83,126 +85,126 @@ msgstr ""
 "%s ପସନ୍ଦରେ ତୃଟି: %s.\n"
 "ଉପଲବ୍ଧ ପୂରା ପାଠ୍ଯ ନିର୍ଦ୍ଦେଶ ପସନ୍ଦର ତାଲିକା ଦେଖିବା ପାଇଁ '%s --help' ଚଳାନ୍ତୁ.\n"
 
-#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Hangup"
 msgstr "ସଂଯୋଗ ଛିନ୍ନ କରନ୍ତୁ"
 
-#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Interrupt"
 msgstr "ବ୍ଯାହତ କରନ୍ତୁ"
 
-#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Quit"
 msgstr "ବିଦାୟ ନିଅନ୍ତୁ"
 
-#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Illegal instruction"
 msgstr "ଅବୈଧ ଅନୁଦେଶ"
 
-#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Trace trap"
 msgstr "ଅନୁସନ୍ଧାନ ଯନ୍ତା"
 
-#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "Abort"
 msgstr "ପରିତ୍ଯାଗ"
 
-#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "EMT error"
 msgstr "ଇ.ଏମ.ଟି. ତ୍ରୁଟି"
 
-#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Floating-point exception"
 msgstr "ଅସ୍ଥାୟୀ ବିନ୍ଦୁ ତ୍ରୁଟି"
 
-#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Kill"
 msgstr "ସମାପନ"
 
-#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Bus error"
 msgstr "ପରିପଥ ତ୍ରୁଟି"
 
-#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Segmentation violation"
 msgstr "ଖଣ୍ଡକରଣ ଉଲଂଘନ"
 
-#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Bad argument to system call"
 msgstr "ତନ୍ତ୍ର ଡାକରାକୁ ଅବୈଧ ସ୍ବତନ୍ତ୍ରଚର"
 
-#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Broken pipe"
 msgstr "ଭଙ୍ଗା ପାଇପ"
 
-#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
 msgid "Alarm clock"
 msgstr "ସତର୍କ ଘଡ଼ି"
 
-#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Termination"
 msgstr "ସମାପ୍ତି"
 
-#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Urgent condition on socket"
 msgstr "ସକେଟରେ ଅତ୍ଯାଶ୍ଯକ ଅବସ୍ଥା"
 
-#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
 msgid "Stop"
 msgstr "ବନ୍ଦ"
 
-#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
 msgid "Keyboard stop"
 msgstr "ଚାବିପଟି ବନ୍ଦ"
 
-#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Continue"
 msgstr "ଚାଲୁ ରଖନ୍ତୁ"
 
-#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Child status has changed"
 msgstr "ନିର୍ଭରକ ଅବସ୍ଥିତି ବଦଳି ଯାଇଛି"
 
-#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background read from tty"
 msgstr "ଟି.ଟି.ୱାଇ.ଠାରୁ ପୃଷ୍ଠଭୂମି ପଠନ"
 
-#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "Background write to tty"
 msgstr "ଟି.ଟି.ୱାଇ.କୁ ପୃଷ୍ଠଭୂମି ଲିଖନ"
 
-#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "I/O now possible"
 msgstr "ବର୍ତ୍ତମାନ ନିବେଶ/ନିର୍ଗମ ସମ୍ଭବ"
 
-#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "CPU limit exceeded"
 msgstr "କେନ୍ଦ୍ରୀୟ ସଂସାଧକ ସୀମା ପାର ହୋଇଯାଇଛି"
 
-#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "File size limit exceeded"
 msgstr "ଫାଇଲ ଆକାର ସୀମା ପାର ହୋଇଯାଇଛି"
 
-#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
 msgid "Virtual alarm clock"
 msgstr "ଆଭାସୀ ସତର୍କ ଘଡ଼ି"
 
-#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
 msgid "Profiling alarm clock"
 msgstr "ସତର୍କ ଘଡ଼ିର ରୂପରେଖ ପ୍ରସ୍ତୁତି"
 
-#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Window size change"
 msgstr "ୱିଣ୍ଡୋ ଆକାର ବଦଳା"
 
-#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "Information request"
 msgstr "ସୂଚନା ଅନୁରୋଧ"
 
-#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 1"
 msgstr "ଚାଳକ ନିର୍ଦ୍ଦିଷ୍ଟ ସଙ୍କେତ ୧"
 
-#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "ଚାଳକ ନିର୍ଦ୍ଦିଷ୍ଟ ସଙ୍କେତ ୨"
