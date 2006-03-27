@@ -8,71 +8,75 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.libgtop-GNOME-2-0-port.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-25 18:15+0200\n"
+"POT-Creation-Date: 2006-04-27 17:02+0300\n"
 "PO-Revision-Date: 2003-03-18 18:06+0200\n"
-"Last-Translator: Gil 'Dolfin' Osher <dolfin@rpg.org.il>\n"
+"Last-Translator: Yair Hershkovitz <yairhr@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# *** This library should not be translated (only copy the english msgs) ***
+# *** Old hebrew translation is commented for backup sake                ***
 
 #: lib/read.c:65
-#, fuzzy, c-format
+#, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "קורא %d בתים"
-msgstr[1] "קורא %d בתים"
+msgstr[0] "read %d byte"
+msgstr[1] "read %d bytes"
 
 #: lib/read_data.c:53
 msgid "read data size"
-msgstr "קורא את גודל המידע"
+msgstr "read data size"
 
 #: lib/read_data.c:72
-#, fuzzy, c-format
+#, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "קורא %d בתים"
-msgstr[1] "קורא %d בתים"
+msgstr[0] "read %lu byte of data"
+msgstr[1] "read %lu bytes of data"
 
 #: lib/write.c:52
-#, fuzzy, c-format
+#, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "כותב %d בתים"
-msgstr[1] "כותב %d בתים"
+msgstr[0] "wrote %d byte"
+msgstr[1] "wrote %d bytes"
 
 #: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
-msgstr "אפשר ניפוי"
+msgstr "Enable debugging"
 
 #: src/daemon/gnuserv.c:460
 msgid "DEBUG"
-msgstr "ניפוי"
+msgstr "DEBUG"
 
 #: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
-msgstr "אפשר פלט מפורט"
+msgstr "Enable verbose output"
 
 #: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
-msgstr "מפורט"
+msgstr "VERBOSE"
 
 #: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
-msgstr "אל תשכפל לרקע"
+msgstr "Don't fork into background"
 
 #: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
-msgstr ""
+msgstr "NO-DAEMON"
 
 #: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "Invoked from inetd"
 
 #: src/daemon/gnuserv.c:466
 msgid "INETD"
-msgstr ""
+msgstr "INETD"
 
 #: src/daemon/gnuserv.c:500
 #, c-format
@@ -80,129 +84,326 @@ msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"שגיאה באפשרות %s: %s.\n"
-"הפעל '%s --help' כדי לראות רשימה מלאה של אפשרויות שורות פקודה זמינות.\n"
-
-#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
-msgid "Hangup"
-msgstr "ניתוק"
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
-msgid "Interrupt"
-msgstr "הפרעה"
+msgid "Hangup"
+msgstr "Hangup"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
-msgid "Quit"
-msgstr "יציאה"
+msgid "Interrupt"
+msgstr "Interrupt"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
-msgid "Illegal instruction"
-msgstr "הוראה לא חוקית"
+msgid "Quit"
+msgstr "Quit"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
-msgid "Trace trap"
-msgstr ""
+msgid "Illegal instruction"
+msgstr "Illegal instruction"
 
 #: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
-msgid "Abort"
-msgstr "ביטול"
+msgid "Trace trap"
+msgstr "Trace trap"
 
 #: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
-msgid "EMT error"
-msgstr "שגיאת EMT"
+msgid "Abort"
+msgstr "Abort"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
-msgid "Floating-point exception"
-msgstr ""
+msgid "EMT error"
+msgstr "EMT error"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
-msgid "Kill"
-msgstr "הרוג"
+msgid "Floating-point exception"
+msgstr "Floating-point exception"
 
 #: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
-msgid "Bus error"
-msgstr "שגיאת אפיק"
+msgid "Kill"
+msgstr "Kill"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
-msgid "Segmentation violation"
-msgstr "הפרעת התחלקות"
+msgid "Bus error"
+msgstr "Bus error"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
-msgid "Bad argument to system call"
-msgstr ""
+msgid "Segmentation violation"
+msgstr "Segmentation violation"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
-msgid "Broken pipe"
-msgstr "צינור שבור"
+msgid "Bad argument to system call"
+msgstr "Bad argument to system call"
 
 #: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
-msgid "Alarm clock"
-msgstr "שעון מעורר"
+msgid "Broken pipe"
+msgstr "Broken pipe"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
-msgid "Termination"
-msgstr "סיום"
+msgid "Alarm clock"
+msgstr "Alarm clock"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
-msgid "Urgent condition on socket"
-msgstr ""
+msgid "Termination"
+msgstr "Termination"
 
 #: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
-msgid "Stop"
-msgstr "עצור"
+msgid "Urgent condition on socket"
+msgstr "Urgent condition on socket"
 
 #: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
-msgid "Keyboard stop"
-msgstr "עצירת מקלדת"
+msgid "Stop"
+msgstr "Stop"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
-msgid "Continue"
-msgstr "המשך"
+msgid "Keyboard stop"
+msgstr "Keyboard stop"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
-msgid "Child status has changed"
-msgstr "מצב הילד השתנה"
+msgid "Continue"
+msgstr "Continue"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
-msgid "Background read from tty"
-msgstr "קרית רקע מ tty"
+msgid "Child status has changed"
+msgstr "Child status has changed"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
-msgid "Background write to tty"
-msgstr "כתיבת רקע מ tty"
+msgid "Background read from tty"
+msgstr "Background read from tty"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
-msgid "I/O now possible"
-msgstr "קלט/פלט עכשיו אפשרי"
+msgid "Background write to tty"
+msgstr "Background write to tty"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
-msgid "CPU limit exceeded"
-msgstr ""
+msgid "I/O now possible"
+msgstr "I/O now possible"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
-msgid "File size limit exceeded"
-msgstr ""
+msgid "CPU limit exceeded"
+msgstr "CPU limit exceeded"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
-msgid "Virtual alarm clock"
-msgstr "שעון מעורר וירוטאלי"
+msgid "File size limit exceeded"
+msgstr "File size limit exceeded"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
-msgid "Profiling alarm clock"
-msgstr ""
+msgid "Virtual alarm clock"
+msgstr "Virtual alarm clock"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
-msgid "Window size change"
-msgstr "שינוי גודל חלון"
+msgid "Profiling alarm clock"
+msgstr "Profiling alarm clock"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
-msgid "Information request"
-msgstr "בקשת מידע"
+msgid "Window size change"
+msgstr "Window size change"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
-msgid "User defined signal 1"
-msgstr "אות מוגדר משתמש 1"
+msgid "Information request"
+msgstr "Information request"
 
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+msgid "User defined signal 1"
+msgstr "User defined signal 1"
+
+#: sysdeps/osf1/siglist.c:59 sysdeps/sun4/siglist.c:59
 msgid "User defined signal 2"
-msgstr "אות מוגדר משתמש 2"
+msgstr "User defined signal 2"
+
+#
+##: lib/read.c:65
+##, c-format
+#msgid "read %d byte"
+#msgid_plural "read %d bytes"
+#msgstr[0] ""
+#"נקראו %d בתים"
+#msgstr[1] ""
+#"נקראו %d בתים"
+#
+##: lib/read_data.c:53
+#msgid "read data size"
+#msgstr "קורא את גודל המידע"
+#
+##: lib/read_data.c:72
+##,, c-format
+#msgid "read %lu byte of data"
+#msgid_plural "read %lu bytes of data"
+#msgstr[0] ""
+#"נקראו %lu בתים של מידע"
+#msgstr[1] ""
+#"נקראו %lu בתים של מידע"
+#
+##: lib/write.c:52
+##, c-format
+#msgid "wrote %d byte"
+#msgid_plural "wrote %d bytes"
+#msgstr[0] ""
+#"נכתבו %d בתים"
+#msgstr[1] ""
+#"נכתבו %d בתים"
+#
+##: src/daemon/gnuserv.c:460
+#msgid "Enable debugging"
+#msgstr "אפשר ניפוי"
+#
+##: src/daemon/gnuserv.c:460
+#msgid "DEBUG"
+#msgstr "ניפוי"
+#
+##: src/daemon/gnuserv.c:462
+#msgid "Enable verbose output"
+#msgstr "אפשר פלט מפורט"
+#
+##: src/daemon/gnuserv.c:462
+#msgid "VERBOSE"
+#msgstr "מפורט"
+#
+##: src/daemon/gnuserv.c:464
+#msgid "Don't fork into background"
+#msgstr "אל תשכפל לרקע"
+#
+##: src/daemon/gnuserv.c:464
+#msgid "NO-DAEMON"
+#msgstr "NO-DAEMON"
+#
+##: src/daemon/gnuserv.c:466
+#msgid "Invoked from inetd"
+#msgstr ""
+#
+##: src/daemon/gnuserv.c:466
+#msgid "INETD"
+#msgstr ""
+#
+##: src/daemon/gnuserv.c:500
+##, c-format
+#msgid ""
+#"Error on option %s: %s.\n"
+#"Run '%s --help' to see a full list of available command line options.\n"
+#msgstr ""
+#"שגיאה באפשרות %s: %s.\n"
+#"הפעל '%s --help' כדי לראות רשימה מלאה של אפשרויות שורות פקודה זמינות.\n"
+#
+##: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+#msgid "Hangup"
+#msgstr "ניתוק"
+#
+##: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+#msgid "Interrupt"
+#msgstr "הפרעה"
+#
+##: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#msgid "Quit"
+#msgstr "יציאה"
+#
+##: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#msgid "Illegal instruction"
+#msgstr "הוראה לא חוקית"
+#
+##: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+#msgid "Trace trap"
+#msgstr ""
+#
+##: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#msgid "Abort"
+#msgstr "ביטול"
+#
+##: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#msgid "EMT error"
+#msgstr "שגיאת EMT"
+#
+##: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+#msgid "Floating-point exception"
+#msgstr ""
+#
+##: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#msgid "Kill"
+#msgstr "הרוג"
+#
+##: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#msgid "Bus error"
+#msgstr "שגיאת אפיק"
+#
+##: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#msgid "Segmentation violation"
+#msgstr "הפרעת התחלקות"
+#
+##: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#msgid "Bad argument to system call"
+#msgstr ""
+#
+##: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#msgid "Broken pipe"
+#msgstr "צינור שבור"
+#
+##: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#msgid "Alarm clock"
+#msgstr "שעון מעורר"
+#
+##: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#msgid "Termination"
+#msgstr "סיום"
+#
+##: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+#msgid "Urgent condition on socket"
+#msgstr ""
+#
+##: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#msgid "Stop"
+#msgstr "עצור"
+#
+##: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+#msgid "Keyboard stop"
+#msgstr "עצירת מקלדת"
+#
+##: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#msgid "Continue"
+#msgstr "המשך"
+#
+##: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#msgid "Child status has changed"
+#msgstr "מצב הילד השתנה"
+#
+##: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#msgid "Background read from tty"
+#msgstr "קרית רקע מ tty"
+#
+##: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#msgid "Background write to tty"
+#msgstr "כתיבת רקע מ tty"
+#
+##: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#msgid "I/O now possible"
+#msgstr "קלט/פלט עכשיו אפשרי"
+#
+##: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#msgid "CPU limit exceeded"
+#msgstr ""
+#
+##: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#msgid "File size limit exceeded"
+#msgstr ""
+#
+##: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#msgid "Virtual alarm clock"
+#msgstr "שעון מעורר וירוטאלי"
+#
+##: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#msgid "Profiling alarm clock"
+#msgstr ""
+#
+##: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#msgid "Window size change"
+#msgstr "שינוי גודל חלון"
+#
+##: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#msgid "Information request"
+#msgstr "בקשת מידע"
+#
+##: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#msgid "User defined signal 1"
+#msgstr "אות מוגדר משתמש 1"
+#
+##: sysdeps/osf1/siglist.c:59 sysdeps/sun4/siglist.c:59
+#msgid "User defined signal 2"
+#msgstr "אות מוגדר משתמש 2"
