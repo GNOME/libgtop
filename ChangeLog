@@ -1,3 +1,11 @@
+2006-04-02  Benoît Dejean  <benoit@placenet.org>
+
+	* configure.in:
+	* src/daemon/daemon.h:
+	* src/daemon/gnuserv.c: (main):
+	
+	Reverted. See #336837
+
 2006-03-18  Vladimer Sichinava  <vlsichinava@gmail.com>
 
         * configure.in: Added "ka" (Georgian) to ALL_LINGUAS

@@ -109,6 +109,14 @@ PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLIB_REQUIRED)
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
 
+AC_CHECK_HEADER(popt.h,[POPT=yes],[POPT=no])
+AC_MSG_CHECKING(for popt.h)
+if test x$POPT = xyes ; then
+   AC_MSG_RESULT(yes)
+else
+   AC_MSG_ERROR([libgtop requires the popt development libraries])
+fi
+
 AC_CHECK_HEADER(ifaddrs.h, [HAVE_IFADDRS_H=yes], [HAVE_IFADDRS_H=no])
 if test x$HAVE_IFADDRS_H = xyes ; then
 	AC_DEFINE(HAVE_IFADDRS_H, 1, [defined if you have ifaddrs.h])
