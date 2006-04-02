@@ -46,7 +46,6 @@
 #include <glibtop/gnuserv.h>
 
 #include <errno.h>
-#include <popt.h>
 
 #include "daemon.h"
 
@@ -79,10 +78,10 @@ static Xauth *server_xauth = NULL;
 
 #endif /* AUTH_MAGIC_COOKIE */
 
-int enable_debug = 0;
-int verbose_output = 0;
-static int no_daemon = 0;
-static int invoked_from_inetd = 0;
+gboolean enable_debug = FALSE;
+gboolean verbose_output = FALSE;
+static gboolean no_daemon = FALSE;
+static gboolean invoked_from_inetd = FALSE;
 static int changed_uid = 0;
 
 void
@@ -454,27 +453,26 @@ handle_signal (int sig)
     exit (1);
 }
 
-const struct poptOption popt_options [] = {
-    POPT_AUTOHELP
-    { "debug", 'd', POPT_ARG_NONE, &enable_debug, 0,
-      N_("Enable debugging"), N_("DEBUG") },
-    { "verbose", 'v', POPT_ARG_NONE, &verbose_output, 0,
-      N_("Enable verbose output"), N_("VERBOSE") },
-    { "no-daemon", 'f', POPT_ARG_NONE, &no_daemon, 0,
-      N_("Don't fork into background"), N_("NO-DAEMON") },
-    { "inetd", 'i', POPT_ARG_NONE, &invoked_from_inetd, 0,
-      N_("Invoked from inetd"), N_("INETD") },
-    { NULL, '\0', 0, NULL, 0, NULL, NULL }
+static const GOptionEntry options [] = {
+    { "debug", 'd', 0, G_OPTION_ARG_NONE, &enable_debug,
+      N_("Enable debugging"), NULL },
+    { "verbose", 'v', 0, G_OPTION_ARG_NONE, &verbose_output,
+      N_("Enable verbose output"), NULL },
+    { "no-daemon", 'f', 0, G_OPTION_ARG_NONE, &no_daemon,
+      N_("Don't fork into background"), NULL },
+    { "inetd", 'i', 0, G_OPTION_ARG_NONE, &invoked_from_inetd,
+      N_("Invoked from inetd"), NULL },
+    { NULL }
 };
 
 int
-main (int argc, const char **argv)
+main (int argc, char **argv)
 {
     const unsigned method = GLIBTOP_METHOD_PIPE;
     const unsigned long features = GLIBTOP_SYSDEPS_ALL;
     glibtop *server = glibtop_global_server;
-    poptContext context;
-    int nextopt;
+    GOptionContext *goption_context;
+    GError *error = NULL;
 
     int ils = -1;		/* internet domain listen socket */
 
@@ -488,22 +486,19 @@ main (int argc, const char **argv)
 	    arg ? (arg + 1) : program_invocation_name;
     }
 
-    context = poptGetContext ("libgtop-daemon", argc, argv,
-			      popt_options, 0);
+    g_set_prgname (program_invocation_short_name);
+    goption_context = g_option_context_new (NULL);
+    g_option_context_add_main_entries (goption_context, options, NULL);
+    g_option_context_parse (goption_context, &argc, &argv, &error);
+    g_option_context_free (goption_context);
 
-    poptReadDefaultConfig (context, TRUE);
-
-    while ((nextopt = poptGetNextOpt (context)) > 0)
-	/* do nothing */ ;
-
-    if(nextopt != -1) {
-	printf (_("Error on option %s: %s.\n"
-		  "Run '%s --help' to see a full list of "
-		  "available command line options.\n"),
-		poptBadOption (context, 0),
-		poptStrerror (nextopt),
-		argv[0]);
-	exit(1);
+    if (error != NULL) {
+        g_printerr ("%s\n", error->message);
+        g_error_free (error);
+        g_printerr (_("Run '%s --help' to see a full list of "
+                    "available command line options.\n"),
+                    program_invocation_name);
+        exit(1);
     }
 
     if (enable_debug)

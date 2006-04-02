@@ -71,8 +71,8 @@ int do_read (int s, void *ptr, size_t total_size) G_GNUC_INTERNAL;
 void syslog_message (int priority, const char *format, ...) G_GNUC_INTERNAL G_GNUC_PRINTF(2, 3);
 void syslog_io_message (int priority, const char *format, ...) G_GNUC_INTERNAL G_GNUC_PRINTF(2, 3);
 
-extern int enable_debug;
-extern int verbose_output;
+extern gboolean enable_debug;
+extern gboolean verbose_output;
 
 G_END_DECLS
 
