@@ -1,3 +1,11 @@
+2006-04-02  Benoît Dejean  <benoit@placenet.org>
+
+	* msg_limits.c: (glibtop_get_msg_limits_s):
+	* sem_limits.c: (glibtop_get_sem_limits_s):
+	* shm_limits.c: (glibtop_get_shm_limits_s):
+	
+	Fixed a bunch of warnings.
+
 2006-01-23  Benoît Dejean  <benoit@placenet.org>
 
 	* procmap.c: (glibtop_get_proc_map_s):

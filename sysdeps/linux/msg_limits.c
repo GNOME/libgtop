@@ -52,7 +52,7 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 
 	memset (buf, 0, sizeof (glibtop_msg_limits));
 
-	msgctl (0, IPC_INFO, (struct msqid_ds *) &msginfo);
+	msgctl (0, IPC_INFO, (void*) &msginfo);
 
 	buf->msgpool = msginfo.msgpool;
 	buf->msgmap = msginfo.msgmap;

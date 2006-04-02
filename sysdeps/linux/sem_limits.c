@@ -71,7 +71,7 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 
 	buf->flags = _glibtop_sysdeps_sem_limits;
 
-	arg.array = (ushort *) &seminfo;
+	arg.array = (void *) &seminfo;
 	semctl (0, 0, IPC_INFO, arg);
 
 	buf->semmap = seminfo.semmap;

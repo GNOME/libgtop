@@ -51,7 +51,7 @@ glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 
 	memset (buf, 0, sizeof (glibtop_shm_limits));
 
-	shmctl (0, IPC_INFO, (struct shmid_ds *) &shminfo);
+	shmctl (0, IPC_INFO, (void *) &shminfo);
 
 	buf->shmmax = shminfo.shmmax;
 	buf->shmmin = shminfo.shmmin;
