@@ -1,6 +1,13 @@
 2006-04-02  Benoît Dejean  <benoit@placenet.org>
 
 	* configure.in:
+	
+	Bumped version to 2.14.1.
+	Removed no longer needed gcc flag.
+
+2006-04-02  Benoît Dejean  <benoit@placenet.org>
+
+	* configure.in:
 	* src/daemon/daemon.h:
 	* src/daemon/gnuserv.c: (main):
 	
