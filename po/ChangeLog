@@ -1,3 +1,9 @@
+2006-04-02  Kjartan Maraas  <kmaraas@gnome.org>
+
+	* POTFILES.skip: Remove non-existing files.
+	* nb.po: Updated Norwegian bokmål translation.
+	* no.po: Same.
+
 2006-03-27  Yair Hershkovitz  <yairhr@gmail.com>
 
 	* he.po:  Updated Hebrew translation.
