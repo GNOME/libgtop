@@ -1,3 +1,17 @@
+2006-04-04  Julio M. Merino Vidal  <jmmv@NetBSD.org>
+
+	* sysdeps/aix/glibtop_server.h:
+	* sysdeps/freebsd/glibtop_server.h:
+	* sysdeps/osf1/glibtop_server.h:
+	* sysdeps/stub/glibtop_server.h:
+	* sysdeps/stub_suid/glibtop_server.h:
+
+	Synch the list of GLIBTOP_SUID_* constants with those expected by
+	the lib/sysdeps.c file.  Fixes the build under, at least, NetBSD
+	and FreeBSD.
+
+	Fixes bug #337246.
+
 2006-04-02  Benoît Dejean  <benoit@placenet.org>
 
 	* configure.in:
