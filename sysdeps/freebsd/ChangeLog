@@ -1,3 +1,12 @@
+2006-04-04  Benoît Dejean  <benoit@placenet.org>
+
+	* sysinfo.c: (init_sysinfo):
+	
+	Store only strings in values' values. g_strdup these strings.
+	Even if values is never destroyed, set key_destroy_func to NULL.
+	
+	Leave description to NULL.
+
 2006-04-04  Julio M. Merino Vidal  <jmmv@NetBSD.org>
 
 	* sysdeps/freebsd/Makefile.am:

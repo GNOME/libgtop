@@ -63,21 +63,19 @@ init_sysinfo (glibtop *server)
 
 		cpuinfo->values = g_hash_table_new_full(g_str_hash,
 							g_str_equal,
-							g_free, g_free);
-
-		cpuinfo->descriptions = g_hash_table_new_full(g_str_hash,
-							      g_str_equal,
-							      g_free, g_free);
+							NULL, g_free);
 
 		g_ptr_array_add (cpuinfo->labels, "processor");
 		g_hash_table_insert (cpuinfo->values, "processor",
-				     &sysinfo.ncpu);
+				     g_strdup_printf("%u", (guint)sysinfo.ncpu));
 
 		g_ptr_array_add (cpuinfo->labels, "vendor_id");
-		g_hash_table_insert (cpuinfo->values, "vendor_id", model);
+		g_hash_table_insert (cpuinfo->values, "vendor_id",
+				     g_strdup(model));
 
 		g_ptr_array_add (cpuinfo->labels, "cpu MHz");
-		g_hash_table_insert (cpuinfo->values, "cpu MHz", &mhz);
+		g_hash_table_insert (cpuinfo->values, "cpu MHz",
+				     g_strdup_printf("%d", mhz));
 	}
 
 	g_free (model);
