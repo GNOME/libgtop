@@ -1,5 +1,18 @@
 2006-04-04  Julio M. Merino Vidal  <jmmv@NetBSD.org>
 
+	* sysdeps/freebsd/Makefile.am:
+	* sysdeps/freebsd/sysinfo.c:
+
+	Bring back to life (from the 1.x versions) the sysinfo.c file for
+	the freebsd sysdeps.  The new file comes from the FreeBSD ports
+	repository and has some minor style changes by me.  This is required
+	to get the glibtop_get_sysinfo_s function used by the sysdeps common
+	code.
+
+	Fixes bug #337251.
+
+2006-04-04  Julio M. Merino Vidal  <jmmv@NetBSD.org>
+
 	* sysdeps/freebsd/proctime.c:
 
 	Remove obsolete and non-functional code that breaks the build under
