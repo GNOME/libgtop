@@ -1,3 +1,13 @@
+2006-04-04  Julio M. Merino Vidal  <jmmv@NetBSD.org>
+
+	* sysdeps/freebsd/proctime.c:
+
+	Remove obsolete and non-functional code that breaks the build under
+	NetBSD.  It was guarded by a conditional but could not compile
+	anyway because it referred to an undefined variable.
+
+	Fixes bug #337234.
+
 2005-02-28  Benoît Dejean  <TazForEver@dlfp.org>
 
 	* fsusage.c: (_glibtop_freebsd_get_fsusage_read_write): Forgot to add

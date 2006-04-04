@@ -138,11 +138,6 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 #if (defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000))
 	if (server->sysdeps.proc_time == 0)
 		return;
-
-#ifndef __bsdi__
-	sprintf (filename, "/proc/%d/mem", (int) pid);
-	if (stat (filename, &statb)) return;
-#endif
 #endif
 
 	/* Get the process information */
