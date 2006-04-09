@@ -192,6 +192,41 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 *** to see how to enable it.])
 	    fi
 	  fi
+
+	  AC_MSG_CHECKING(what we need to define to get struct msginfo)
+	  AC_CACHE_VAL(msginfo_needs,
+	    msginfo_needs=
+	    for def in nothing KERNEL _KERNEL; do
+	      AC_COMPILE_IFELSE([#define $def
+#include <sys/ipc.h>
+#include <sys/msg.h>
+#include <stdio.h>
+
+int
+main (void)
+{
+  struct msginfo mi;
+  mi.msgmax = 0;
+  return 0;
+}],
+	        [
+	          msginfo_needs=$def
+	          if test ${msginfo_needs} = KERNEL; then
+	            AC_DEFINE(STRUCT_MSGINFO_NEEDS_KERNEL, 1,
+	              [Define to 1 if we need to define KERNEL to get 'struct msginfo'])
+	          elif test ${msginfo_needs} = _KERNEL; then
+	            AC_DEFINE(STRUCT_MSGINFO_NEEDS__KERNEL, 1,
+	              [Define to 1 if we need to define _KERNEL to get 'struct msginfo'])
+	          fi
+	        ]
+	      )
+	      test -n "${msginfo_needs}" && break
+	    done
+	  )
+	  AC_MSG_RESULT($msginfo_needs)
+	  if test -z "${msginfo_needs}"; then
+	    AC_MSG_ERROR([Could not find the definition of 'struct msginfo'])
+	  fi
 	  ;;
 	linux*)
 	  os_major_version=`uname -r | sed 's/-pre[[0-9]]*//' | \

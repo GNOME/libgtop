@@ -45,11 +45,11 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 
 #else
 
-/* #define KERNEL to get declaration of `struct msginfo'. */
-
-#if (defined(__FreeBSD__) && (__FreeBSD_version < 410000)) || (defined __bsdi__)
+/* Define the appropriate macro (if any) to get declaration of `struct
+ * msginfo'.  Needed on, at least, FreeBSD. */
+#if defined (STRUCT_MSGINFO_NEEDS_KERNEL)
 #define KERNEL 1
-#else
+#elif defined (STRUCT_MSGINFO_NEEDS__KERNEL)
 #define _KERNEL 1
 #endif
 

@@ -1,6 +1,22 @@
 2006-04-04  Julio M. Merino Vidal  <jmmv@NetBSD.org>
 
 	* libgtop-sysdeps.m4:
+	* sysdeps/freebsd/msg_limits.c:
+
+	Use configure checks to detect whether we need to define either
+	KERNEL or _KERNEL to get the definition of 'struct msginfo' in a
+	BSD system.  This replaces the previous checks in the code that
+	relied on __FreeBSD__ and similar macros.
+	
+	Before this change, the explicit definition of _KERNEL in the
+	msg_limits.c file broke the build in NetBSD because it made the
+	system headers pull in stuff unavailable to userland.
+
+	Fixes bug #337207.
+
+2006-04-04  Julio M. Merino Vidal  <jmmv@NetBSD.org>
+
+	* libgtop-sysdeps.m4:
 	* sysdeps/freebsd/Makefile.am:
 
 	Check for the kvm library and use it to link the suid freebsd
