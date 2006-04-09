@@ -38,7 +38,7 @@ _glibtop_freebsd_get_fsusage_read_write(glibtop *server,
 #endif
 
 #if defined (STAT_STATVFS)
-	result = statfs (path, &sfs);
+	result = statvfs (path, &sfs);
 #else
 	result = statfs (path, &sfs);
 #endif

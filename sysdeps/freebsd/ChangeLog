@@ -1,3 +1,9 @@
+2006-04-09  Benoît Dejean  <benoit@placenet.org>
+
+	* fsusage.c: (_glibtop_freebsd_get_fsusage_read_write):
+	
+	Fixed typo.
+
 2006-04-04  Julio M. Merino Vidal  <jmmv@NetBSD.org>
 
 	* sysdeps/freebsd/fsusage.c:
