@@ -9,7 +9,11 @@
 
 #include <unistd.h>
 #include <sys/param.h>
+#if defined (HAVE_SYS_STATVFS_H)
+#include <sys/statvfs.h>
+#else
 #include <sys/mount.h>
+#endif
 
 #include <stdio.h>
 #include <string.h>
@@ -27,9 +31,17 @@ _glibtop_freebsd_get_fsusage_read_write(glibtop *server,
 				      const char *path)
 {
 	int result;
+#if defined (STAT_STATVFS)
+	struct statvfs sfs;
+#else
 	struct statfs sfs;
+#endif
 
+#if defined (STAT_STATVFS)
 	result = statfs (path, &sfs);
+#else
+	result = statfs (path, &sfs);
+#endif
 
 	if (result == -1) {
 		return;
