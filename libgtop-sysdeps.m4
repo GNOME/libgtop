@@ -126,6 +126,9 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	case "$host_os" in
 	*bsd*)
+	  AC_CHECK_LIB(kvm, kvm_open, KVM_LIBS=-lkvm, KVM_LIBS=)
+	  AC_SUBST(KVM_LIBS)
+
 	  AC_CHECK_HEADERS(net/if_var.h)
 	  AC_MSG_CHECKING([for I4B])
 	  AC_TRY_COMPILE([

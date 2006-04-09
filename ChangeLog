@@ -1,5 +1,16 @@
 2006-04-04  Julio M. Merino Vidal  <jmmv@NetBSD.org>
 
+	* libgtop-sysdeps.m4:
+	* sysdeps/freebsd/Makefile.am:
+
+	Check for the kvm library and use it to link the suid freebsd
+	sysdeps code (only if available).  This library provides all the
+	kvm_* functions used in it and is needed, at least, under NetBSD.
+
+	Fixes bug #337247.
+
+2006-04-04  Julio M. Merino Vidal  <jmmv@NetBSD.org>
+
 	* sysdeps/aix/glibtop_server.h:
 	* sysdeps/freebsd/glibtop_server.h:
 	* sysdeps/osf1/glibtop_server.h:
