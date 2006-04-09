@@ -9,7 +9,7 @@ inodedb_SRCLIST			=
 inodedb_DEFS			=
 endif
 
-CFLAGS				= @CFLAGS@ $(inodedb_DEFS)
+AM_CFLAGS				= @CFLAGS@ $(inodedb_DEFS)
 
 noinst_LTLIBRARIES		= libgtop_common-2.0.la libgtop_suid_common-2.0.la
 
