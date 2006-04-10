@@ -138,10 +138,10 @@ glibtop_open_l (glibtop *server, const char *program_name,
 
 		sprintf (version, LIBGTOP_VERSION_STRING,
 			 LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
-			 sizeof (glibtop_command),
-			 sizeof (glibtop_response),
-			 sizeof (glibtop_union),
-			 sizeof (glibtop_sysdeps));
+			 (guint) sizeof (glibtop_command),
+			 (guint) sizeof (glibtop_response),
+			 (guint) sizeof (glibtop_union),
+			 (guint) sizeof (glibtop_sysdeps));
 
 		size = strlen (version) + 1;
 

@@ -39,7 +39,7 @@ glibtop_write_l (glibtop *server, size_t size, void *buf)
 	if (size == 0) return;
 
 #ifdef DEBUG
-	fprintf (stderr, "LIBRARY: really writing %d bytes.\n", size);
+	fprintf (stderr, "LIBRARY: really writing %d bytes.\n", (int)size);
 #endif
 
 	if (server->socket) {
@@ -49,5 +49,8 @@ glibtop_write_l (glibtop *server, size_t size, void *buf)
 	}
 
 	if (ret < 0)
-		glibtop_error_io_r (server, ngettext ("wrote %d byte", "wrote %d bytes", size), size);
+		glibtop_error_io_r (server,
+				    ngettext("wrote %d byte",
+					     "wrote %d bytes", size),
+				    (int) size);
 }

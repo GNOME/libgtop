@@ -1,3 +1,11 @@
+2006-04-10  Benoît Dejean  <benoit@placenet.org>
+
+	* lib/open.c: (glibtop_open_l):
+	* lib/read.c: (glibtop_read_l):
+	* lib/write.c: (glibtop_write_l):
+
+	Fixed a bunch of signedness warnings.
+
 2006-04-04  Julio M. Merino Vidal  <jmmv@NetBSD.org>
 
 	* libgtop-sysdeps.m4:

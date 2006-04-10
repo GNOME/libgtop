@@ -53,7 +53,7 @@ glibtop_read_l (glibtop *server, size_t size, void *buf)
 	glibtop_init_r (&server, 0, 0);
 
 #ifdef DEBUG
-	fprintf (stderr, "LIBRARY: really reading %d bytes.\n", size);
+	fprintf (stderr, "LIBRARY: really reading %d bytes.\n", (int)size);
 #endif
 
 	if (server->socket) {
@@ -64,6 +64,6 @@ glibtop_read_l (glibtop *server, size_t size, void *buf)
 				server,
 				ngettext ("read %d byte",
 					  "read %d bytes", size),
-				size);
+				(int)size);
 	}
 }
