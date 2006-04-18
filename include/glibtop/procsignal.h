@@ -42,11 +42,11 @@ typedef struct _glibtop_proc_signal	glibtop_proc_signal;
 
 struct _glibtop_proc_signal
 {
-	guint64	flags,
-		signal [2],		/* mask of pending signals */
-		blocked [2],		/* mask of blocked signals */
-		sigignore [2],		/* mask of ignored signals */
-		sigcatch [2];		/* mask of caught  signals */
+	guint64	flags;
+	guint64 signal [2];		/* mask of pending signals */
+	guint64 blocked [2];		/* mask of blocked signals */
+	guint64 sigignore [2];		/* mask of ignored signals */
+	guint64 sigcatch [2];		/* mask of caught  signals */
 };
 
 void glibtop_get_proc_signal(glibtop_proc_signal *buf, pid_t pid);

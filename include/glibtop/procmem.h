@@ -44,14 +44,14 @@ typedef struct _glibtop_proc_mem	glibtop_proc_mem;
 
 struct _glibtop_proc_mem
 {
-	guint64	flags,
-		size,		/* total # of pages of memory */
-		vsize,		/* number of pages of virtual memory ... */
-		resident,	/* number of resident set
+	guint64	flags;
+	guint64 size;		/* total # of pages of memory */
+	guint64 vsize;		/* number of pages of virtual memory ... */
+	guint64 resident;	/* number of resident set
 				 * (non-swapped) pages (4k) */
-		share,		/* number of pages of shared (mmap'd) memory */
-		rss,		/* resident set size */
-		rss_rlim;	/* current limit (in bytes) of the rss
+	guint64 share;		/* number of pages of shared (mmap'd) memory */
+	guint64 rss;		/* resident set size */
+	guint64 rss_rlim;	/* current limit (in bytes) of the rss
 				 * of the process; usually 2,147,483,647 */
 };
 

@@ -65,13 +65,13 @@ struct _glibtop_proc_state
 	/* IMPORTANT NOTICE: For security reasons, it is extremely important
 	 *                   only to set the flags value for those two
 	 *                   fields if their values are corrent ! */
-	int uid,		/* UID of process */
-		gid,		/* GID of process */
-        ruid,
-        rgid;
-    int has_cpu,
-        processor,
-        last_processor;
+	int uid;		/* UID of process */
+	int gid;		/* GID of process */
+    int ruid;
+    int rgid;
+    int has_cpu;
+    int processor;
+    int last_processor;
 };
 
 void glibtop_get_proc_state(glibtop_proc_state *buf, pid_t pid);

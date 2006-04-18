@@ -43,12 +43,12 @@ typedef struct _glibtop_fsusage		glibtop_fsusage;
 
 struct _glibtop_fsusage
 {
-	guint64	flags,
-		blocks,		/* Total number of blocks. */
-		bfree,		/* Free blocks available to superuser. */
-		bavail,		/* Free blocks available to non-superuser. */
-		files,		/* Total file nodes. */
-		ffree;		/* Free file nodes. */
+	guint64	flags;
+	guint64 blocks;		/* Total number of blocks. */
+	guint64 bfree;		/* Free blocks available to superuser. */
+	guint64 bavail;		/* Free blocks available to non-superuser. */
+	guint64 files;		/* Total file nodes. */
+	guint64 ffree;		/* Free file nodes. */
 	guint32	block_size;	/* Size of a block in bytes. */
 	guint64 read, write;    /* Total blocks read and written */
 };

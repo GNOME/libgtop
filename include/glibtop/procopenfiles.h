@@ -88,10 +88,10 @@ struct _glibtop_open_files_entry
 
 struct _glibtop_proc_open_files
 {
-	guint64	flags,
-		number,			/* GLIBTOP_PROC_OPEN_FILES_NUMBER */
-		total,			/* GLIBTOP_PROC_OPEN_FILES_TOTAL  */
-		size;			/* GLIBTOP_PROC_OPEN_FILES_SIZE   */
+	guint64	flags;
+	guint64 number;			/* GLIBTOP_PROC_OPEN_FILES_NUMBER */
+	guint64 total;			/* GLIBTOP_PROC_OPEN_FILES_TOTAL  */
+	guint64 size;			/* GLIBTOP_PROC_OPEN_FILES_SIZE   */
 };
 
 glibtop_open_files_entry *

@@ -48,18 +48,18 @@ typedef struct _glibtop_proc_kernel	glibtop_proc_kernel;
 struct _glibtop_proc_kernel
 {
 	guint64 flags;
-	guint64 k_flags,	/* kernel flags for the process */
-		min_flt,	/* number of minor page faults since
+	guint64 k_flags;	/* kernel flags for the process */
+	guint64 min_flt;	/* number of minor page faults since
 				 * process start */
-		maj_flt,	/* number of major page faults since
+	guint64 maj_flt;	/* number of major page faults since
 				 * process start */
-		cmin_flt,	/* cumulative min_flt of process and
+	guint64 cmin_flt;	/* cumulative min_flt of process and
 				 * child processes */
-		cmaj_flt,	/* cumulative maj_flt of process and
+	guint64 cmaj_flt;	/* cumulative maj_flt of process and
 				 * child processes */
-		kstk_esp,	/* kernel stack pointer */
-		kstk_eip,	/* kernel stack pointer */
-		nwchan;		/* address of kernel wait channel
+	guint64 kstk_esp;	/* kernel stack pointer */
+	guint64 kstk_eip;	/* kernel stack pointer */
+	guint64 nwchan;		/* address of kernel wait channel
 				 * proc is sleeping in */
 	char wchan [40];
 };

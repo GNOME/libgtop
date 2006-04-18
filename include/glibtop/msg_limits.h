@@ -43,14 +43,14 @@ typedef struct _glibtop_msg_limits	glibtop_msg_limits;
 
 struct _glibtop_msg_limits
 {
-	guint64	flags,
-		msgpool,	/* GLIBTOP_IPC_MSGPOOL	*/
-		msgmap,		/* GLIBTOP_IPC_MSGMAP	*/
-		msgmax,		/* GLIBTOP_IPC_MSGMAX	*/
-		msgmnb,		/* GLIBTOP_IPC_MSGMNB	*/
-		msgmni,		/* GLIBTOP_IPC_MSGMNI	*/
-		msgssz,		/* GLIBTOP_IPC_MSGSSZ	*/
-		msgtql;		/* GLIBTOP_IPC_MSGTQL	*/
+	guint64	flags;
+	guint64 msgpool;	/* GLIBTOP_IPC_MSGPOOL	*/
+	guint64 msgmap;		/* GLIBTOP_IPC_MSGMAP	*/
+	guint64 msgmax;		/* GLIBTOP_IPC_MSGMAX	*/
+	guint64 msgmnb;		/* GLIBTOP_IPC_MSGMNB	*/
+	guint64 msgmni;		/* GLIBTOP_IPC_MSGMNI	*/
+	guint64 msgssz;		/* GLIBTOP_IPC_MSGSSZ	*/
+	guint64 msgtql;		/* GLIBTOP_IPC_MSGTQL	*/
 };
 
 void glibtop_get_msg_limits(glibtop_msg_limits *buf);

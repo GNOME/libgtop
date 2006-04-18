@@ -40,8 +40,8 @@ typedef struct _glibtop_uptime	glibtop_uptime;
 struct _glibtop_uptime
 {
 	guint64 flags;
-	double uptime,		/* GLIBTOP_UPTIME_UPTIME	*/
-		idletime;	/* GLIBTOP_UPTIME_IDLETIME	*/
+	double uptime;		/* GLIBTOP_UPTIME_UPTIME	*/
+	double idletime;	/* GLIBTOP_UPTIME_IDLETIME	*/
 	guint64 boot_time;
 };
 

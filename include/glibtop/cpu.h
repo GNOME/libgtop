@@ -62,25 +62,25 @@ typedef struct _glibtop_cpu	glibtop_cpu;
 
 struct _glibtop_cpu
 {
-	guint64	flags,
-		total,				/* GLIBTOP_CPU_TOTAL		*/
-		user,				/* GLIBTOP_CPU_USER		*/
-		nice,				/* GLIBTOP_CPU_NICE		*/
-		sys,				/* GLIBTOP_CPU_SYS		*/
-		idle,				/* GLIBTOP_CPU_IDLE		*/
-		iowait,				/* GLIBTOP_CPU_IOWAIT		*/
-		irq,				/* GLIBTOP_CPU_IRQ		*/
-		softirq,			/* GLIBTOP_CPU_SOFTIRQ		*/
-		frequency,			/* GLIBTOP_CPU_FREQUENCY	*/
-		xcpu_total [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_TOTAL		*/
-		xcpu_user [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_USER		*/
-		xcpu_nice [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_NICE		*/
-		xcpu_sys  [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_SYS		*/
-		xcpu_idle [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_IDLE		*/
-		xcpu_iowait [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_IOWAIT		*/
-		xcpu_irq [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_IRQ		*/
-		xcpu_softirq  [GLIBTOP_NCPU],	/* GLIBTOP_XCPU_SOFTIRQ		*/
-		xcpu_flags;	                /* GLIBTOP_XCPU_IDLE		*/
+	guint64	flags;
+	guint64 total;				/* GLIBTOP_CPU_TOTAL		*/
+	guint64 user;				/* GLIBTOP_CPU_USER		*/
+	guint64 nice;				/* GLIBTOP_CPU_NICE		*/
+	guint64 sys;				/* GLIBTOP_CPU_SYS		*/
+	guint64 idle;				/* GLIBTOP_CPU_IDLE		*/
+	guint64 iowait;				/* GLIBTOP_CPU_IOWAIT		*/
+	guint64 irq;				/* GLIBTOP_CPU_IRQ		*/
+	guint64 softirq;			/* GLIBTOP_CPU_SOFTIRQ		*/
+	guint64 frequency;			/* GLIBTOP_CPU_FREQUENCY	*/
+	guint64 xcpu_total [GLIBTOP_NCPU];	/* GLIBTOP_XCPU_TOTAL		*/
+	guint64 xcpu_user [GLIBTOP_NCPU];	/* GLIBTOP_XCPU_USER		*/
+	guint64 xcpu_nice [GLIBTOP_NCPU];	/* GLIBTOP_XCPU_NICE		*/
+	guint64 xcpu_sys  [GLIBTOP_NCPU];	/* GLIBTOP_XCPU_SYS		*/
+	guint64 xcpu_idle [GLIBTOP_NCPU];	/* GLIBTOP_XCPU_IDLE		*/
+	guint64 xcpu_iowait [GLIBTOP_NCPU];	/* GLIBTOP_XCPU_IOWAIT		*/
+	guint64 xcpu_irq [GLIBTOP_NCPU];	/* GLIBTOP_XCPU_IRQ		*/
+	guint64 xcpu_softirq  [GLIBTOP_NCPU];	/* GLIBTOP_XCPU_SOFTIRQ		*/
+	guint64 xcpu_flags;	                /* GLIBTOP_XCPU_IDLE		*/
 };
 
 void glibtop_get_cpu(glibtop_cpu *buf);

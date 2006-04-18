@@ -82,23 +82,23 @@ enum GLIBTOP_IF_IN6_SCOPE
 
 struct _glibtop_netload
 {
-	guint64	flags,
-		if_flags;		/* GLIBTOP_NETLOAD_IF_FLAGS	*/
+	guint64	flags;
+	guint64 if_flags;		/* GLIBTOP_NETLOAD_IF_FLAGS	*/
 
-	guint32	mtu,			/* GLIBTOP_NETLOAD_MTU		*/
-		subnet,			/* GLIBTOP_NETLOAD_SUBNET	*/
-		address;		/* GLIBTOP_NETLOAD_ADDRESS	*/
+	guint32	mtu;			/* GLIBTOP_NETLOAD_MTU		*/
+	guint32 subnet;			/* GLIBTOP_NETLOAD_SUBNET	*/
+	guint32 address;		/* GLIBTOP_NETLOAD_ADDRESS	*/
 
-	guint64	packets_in,		/* GLIBTOP_NETLOAD_PACKETS_IN	*/
-		packets_out,		/* GLIBTOP_NETLOAD_PACKETS_OUT	*/
-		packets_total,		/* GLIBTOP_NETLOAD_PACKETS_TOTAL*/
-		bytes_in,		/* GLIBTOP_NETLOAD_BYTES_IN	*/
-		bytes_out,		/* GLIBTOP_NETLOAD_BYTES_OUT	*/
-		bytes_total,		/* GLIBTOP_NETLOAD_BYTES_TOTAL	*/
-		errors_in,		/* GLIBTOP_NETLOAD_ERRORS_IN	*/
-		errors_out,		/* GLIBTOP_NETLOAD_ERRORS_OUT	*/
-		errors_total,		/* GLIBTOP_NETLOAD_ERRORS_TOTAL	*/
-		collisions;		/* GLIBTOP_NETLOAD_COLLISIONS	*/
+	guint64	packets_in;		/* GLIBTOP_NETLOAD_PACKETS_IN	*/
+	guint64 packets_out;		/* GLIBTOP_NETLOAD_PACKETS_OUT	*/
+	guint64 packets_total;		/* GLIBTOP_NETLOAD_PACKETS_TOTAL*/
+	guint64 bytes_in;		/* GLIBTOP_NETLOAD_BYTES_IN	*/
+	guint64 bytes_out;		/* GLIBTOP_NETLOAD_BYTES_OUT	*/
+	guint64 bytes_total;		/* GLIBTOP_NETLOAD_BYTES_TOTAL	*/
+	guint64 errors_in;		/* GLIBTOP_NETLOAD_ERRORS_IN	*/
+	guint64 errors_out;		/* GLIBTOP_NETLOAD_ERRORS_OUT	*/
+	guint64 errors_total;		/* GLIBTOP_NETLOAD_ERRORS_TOTAL	*/
+	guint64 collisions;		/* GLIBTOP_NETLOAD_COLLISIONS	*/
 
 	guint8 address6[16];		/* GLIBTOP_NETLOAD_ADDRESS6     */
 	guint8 prefix6[16];		/* GLIBTOP_NETLOAD_PREXIF6      */

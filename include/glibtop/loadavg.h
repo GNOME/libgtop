@@ -42,9 +42,9 @@ struct _glibtop_loadavg
 {
 	guint64 flags;
 	double loadavg [3];		/* GLIBTOP_LOADAVG_LOADAVG	*/
-	guint64 nr_running,		/* GLIBTOP_LOADAVG_NR_RUNNING	*/
-		nr_tasks,		/* GLIBTOP_LOADAVG_NR_TASKS	*/
-		last_pid;		/* GLIBTOP_LOADAVG_LAST_PID	*/
+	guint64 nr_running;		/* GLIBTOP_LOADAVG_NR_RUNNING	*/
+	guint64 nr_tasks;		/* GLIBTOP_LOADAVG_NR_TASKS	*/
+	guint64 last_pid;		/* GLIBTOP_LOADAVG_LAST_PID	*/
 };
 
 void glibtop_get_loadavg(glibtop_loadavg *buf);

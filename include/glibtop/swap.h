@@ -41,12 +41,12 @@ typedef struct _glibtop_swap	glibtop_swap;
 
 struct _glibtop_swap
 {
-	guint64	flags,
-		total,		/* GLIBTOP_SWAP_TOTAL	*/
-		used,		/* GLIBTOP_SWAP_USED	*/
-		free,		/* GLIBTOP_SWAP_FREE	*/
-		pagein,		/* GLIBTOP_SWAP_PAGEIN	*/
-		pageout;	/* GLIBTOP_SWAP_PAGEOUT	*/
+	guint64	flags;
+	guint64 total;		/* GLIBTOP_SWAP_TOTAL	*/
+	guint64 used;		/* GLIBTOP_SWAP_USED	*/
+	guint64 free;		/* GLIBTOP_SWAP_FREE	*/
+	guint64 pagein;		/* GLIBTOP_SWAP_PAGEIN	*/
+	guint64 pageout;	/* GLIBTOP_SWAP_PAGEOUT	*/
 };
 
 void

@@ -44,15 +44,15 @@ typedef struct _glibtop_mem	glibtop_mem;
 
 struct _glibtop_mem
 {
-	guint64	flags,
-		total,		/* GLIBTOP_MEM_TOTAL	*/
-		used,		/* GLIBTOP_MEM_USED	*/
-		free,		/* GLIBTOP_MEM_FREE	*/
-		shared,		/* GLIBTOP_MEM_SHARED	*/
-		buffer,		/* GLIBTOP_MEM_BUFFER	*/
-		cached,		/* GLIBTOP_MEM_CACHED	*/
-		user,		/* GLIBTOP_MEM_USER	*/
-		locked;		/* GLIBTOP_MEM_LOCKED	*/
+	guint64	flags;
+	guint64 total;		/* GLIBTOP_MEM_TOTAL	*/
+	guint64 used;		/* GLIBTOP_MEM_USED	*/
+	guint64 free;		/* GLIBTOP_MEM_FREE	*/
+	guint64 shared;		/* GLIBTOP_MEM_SHARED	*/
+	guint64 buffer;		/* GLIBTOP_MEM_BUFFER	*/
+	guint64 cached;		/* GLIBTOP_MEM_CACHED	*/
+	guint64 user;		/* GLIBTOP_MEM_USER	*/
+	guint64 locked;		/* GLIBTOP_MEM_LOCKED	*/
 };
 
 void glibtop_get_mem(glibtop_mem *buf);

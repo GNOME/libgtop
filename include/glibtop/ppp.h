@@ -45,10 +45,10 @@ enum {
 
 struct _glibtop_ppp
 {
-	guint64	flags,
-		state,			/* GLIBTOP_PPP_STATE		*/
-		bytes_in,		/* GLIBTOP_PPP_BYTES_IN		*/
-		bytes_out;		/* GLIBTOP_PPP_BYTES_OUT	*/
+	guint64	flags;
+	guint64 state;			/* GLIBTOP_PPP_STATE		*/
+	guint64 bytes_in;		/* GLIBTOP_PPP_BYTES_IN		*/
+	guint64 bytes_out;		/* GLIBTOP_PPP_BYTES_OUT	*/
 };
 
 void glibtop_get_ppp(glibtop_ppp *buf, unsigned short device);

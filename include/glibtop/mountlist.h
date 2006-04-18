@@ -49,10 +49,10 @@ struct _glibtop_mountentry
 
 struct _glibtop_mountlist
 {
-	guint64	flags,
-		number,			/* GLIBTOP_MOUNTLIST_NUMBER	*/
-		total,			/* GLIBTOP_MOUNTLIST_TOTAL	*/
-		size;			/* GLIBTOP_MOUNTLIST_SIZE	*/
+	guint64	flags;
+	guint64 number;			/* GLIBTOP_MOUNTLIST_NUMBER	*/
+	guint64 total;			/* GLIBTOP_MOUNTLIST_TOTAL	*/
+	guint64 size;			/* GLIBTOP_MOUNTLIST_SIZE	*/
 };
 
 glibtop_mountentry *

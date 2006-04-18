@@ -67,20 +67,28 @@ typedef struct _glibtop_proc_map	glibtop_proc_map;
 
 struct _glibtop_map_entry
 {
-	guint64 flags, start, end, offset, perm, inode, device;
-	guint64 size,
-		rss,
-		shared_clean, shared_dirty,
-		private_clean, private_dirty;
+	guint64 flags; 
+	guint64 start; 
+	guint64 end; 
+	guint64 offset; 
+	guint64 perm; 
+	guint64 inode; 
+	guint64 device;
+	guint64 size;
+	guint64 rss;
+	guint64 shared_clean; 
+	guint64 shared_dirty;
+	guint64 private_clean; 
+	guint64 private_dirty;
 	char filename [GLIBTOP_MAP_FILENAME_LEN+1];
 };
 
 struct _glibtop_proc_map
 {
-	guint64	flags,
-		number,			/* GLIBTOP_PROC_MAP_NUMBER	*/
-		total,			/* GLIBTOP_PROC_MAP_TOTAL	*/
-		size;			/* GLIBTOP_PROC_MAP_SIZE	*/
+	guint64	flags;
+	guint64 number;			/* GLIBTOP_PROC_MAP_NUMBER	*/
+	guint64 total;			/* GLIBTOP_PROC_MAP_TOTAL	*/
+	guint64 size;			/* GLIBTOP_PROC_MAP_SIZE	*/
 };
 glibtop_map_entry *
 glibtop_get_proc_map(glibtop_proc_map *buf, pid_t pid);

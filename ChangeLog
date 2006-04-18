@@ -1,3 +1,33 @@
+2006-04-18  German Poo-Caaman~o  <gpoo@ubiobio.cl>
+
+	* /include/glibtop/cpu.h:
+	* /include/glibtop/fsusage.h:
+	* /include/glibtop/loadavg.h:
+	* /include/glibtop/mem.h:
+	* /include/glibtop/mountlist.h:
+	* /include/glibtop/msg_limits.h:
+	* /include/glibtop/netload.h:
+	* /include/glibtop/ppp.h:
+	* /include/glibtop/procargs.h:
+	* /include/glibtop/prockernel.h:
+	* /include/glibtop/proclist.h:
+	* /include/glibtop/procmap.h:
+	* /include/glibtop/procmem.h:
+	* /include/glibtop/procopenfiles.h:
+	* /include/glibtop/procsegment.h:
+	* /include/glibtop/procsignal.h:
+	* /include/glibtop/procstate.h:
+	* /include/glibtop/proctime.h:
+	* /include/glibtop/procuid.h:
+	* /include/glibtop/sem_limits.h:
+	* /include/glibtop/shm_limits.h:
+	* /include/glibtop/swap.h:
+	* /include/glibtop/sysdeps.h:
+	* /include/glibtop/uptime.h:
+
+	Changed struct's definitions to be one type-one member.  To
+	avoid problems with any further gtk-doc's implementation.
+
 2006-04-18  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.in: Remove obsolete entry for no_NO

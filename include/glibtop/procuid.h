@@ -59,24 +59,24 @@ typedef struct _glibtop_proc_uid	glibtop_proc_uid;
 struct _glibtop_proc_uid
 {
 	guint64 flags;
-	gint32 uid,		/* user id */
-		euid,		/* effective user id */
-		gid,		/* group id */
-		egid,		/* effective group id */
-        suid,       /* set user id */
-        sgid,       /* set group id */
-        fsuid,      /* ??? user id */
-        fsgid,      /* ??? group id */
-		pid,		/* process id */
-		ppid,		/* pid of parent process */
-		pgrp,		/* process group id */
-		session,	/* session id */
-		tty,		/* full device number of controlling terminal */
-		tpgid,		/* terminal process group id */
-		priority,	/* kernel scheduling priority */
-		nice,		/* standard unix nice level of process */
-		ngroups,
-        groups [GLIBTOP_MAX_GROUPS];
+	gint32 uid;		/* user id */
+	gint32 euid;		/* effective user id */
+	gint32 gid;		/* group id */
+	gint32 egid;		/* effective group id */
+	gint32 suid;       /* set user id */
+	gint32 sgid;       /* set group id */
+	gint32 fsuid;      /* ??? user id */
+	gint32 fsgid;      /* ??? group id */
+	gint32 pid;		/* process id */
+	gint32 ppid;		/* pid of parent process */
+	gint32 pgrp;		/* process group id */
+	gint32 session;	/* session id */
+	gint32 tty;		/* full device number of controlling terminal */
+	gint32 tpgid;		/* terminal process group id */
+	gint32 priority;	/* kernel scheduling priority */
+	gint32 nice;		/* standard unix nice level of process */
+	gint32 ngroups;
+	gint32 groups [GLIBTOP_MAX_GROUPS];
 
 };
 

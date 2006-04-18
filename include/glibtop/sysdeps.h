@@ -62,32 +62,32 @@ typedef struct _glibtop_sysdeps	glibtop_sysdeps;
 
 struct _glibtop_sysdeps
 {
-	guint64 flags,
-		features,		/* server features	*/
-		cpu,			/* glibtop_cpu		*/
-		mem,			/* glibtop_mem		*/
-		swap,			/* glibtop_swap		*/
-		uptime,			/* glibtop_uptime	*/
-		loadavg,		/* glibtop_loadavg	*/
-		shm_limits,		/* glibtop_shm_limits	*/
-		msg_limits,		/* glibtop_msg_limits	*/
-		sem_limits,		/* glibtop_sem_limits	*/
-		proclist,		/* glibtop_proclist	*/
-		proc_state,		/* glibtop_proc_state	*/
-		proc_uid,		/* glibtop_proc_uid	*/
-		proc_mem,		/* glibtop_proc_mem	*/
-		proc_time,		/* glibtop_proc_time	*/
-		proc_signal,		/* glibtop_proc_signal	*/
-		proc_kernel,		/* glibtop_proc_kernel	*/
-		proc_segment,		/* glibtop_proc_segment	*/
-		proc_args,		/* glibtop_proc_args	*/
-		proc_map,		/* glibtop_proc_map	*/
-		proc_open_files,	/* glibtop_proc_open_files */
-		mountlist,		/* glibtop_mountlist	*/
-		fsusage,		/* glibtop_fsusage	*/
-		netlist,		/* glibtop_netlist	*/
-		netload,		/* glibtop_netload	*/
-		ppp;			/* glibtop_ppp		*/
+	guint64 flags;
+	guint64 features;		/* server features	*/
+	guint64 cpu;			/* glibtop_cpu		*/
+	guint64 mem;			/* glibtop_mem		*/
+	guint64 swap;			/* glibtop_swap		*/
+	guint64 uptime;			/* glibtop_uptime	*/
+	guint64 loadavg;		/* glibtop_loadavg	*/
+	guint64 shm_limits;		/* glibtop_shm_limits	*/
+	guint64 msg_limits;		/* glibtop_msg_limits	*/
+	guint64 sem_limits;		/* glibtop_sem_limits	*/
+	guint64 proclist;		/* glibtop_proclist	*/
+	guint64 proc_state;		/* glibtop_proc_state	*/
+	guint64 proc_uid;		/* glibtop_proc_uid	*/
+	guint64 proc_mem;		/* glibtop_proc_mem	*/
+	guint64 proc_time;		/* glibtop_proc_time	*/
+	guint64 proc_signal;		/* glibtop_proc_signal	*/
+	guint64 proc_kernel;		/* glibtop_proc_kernel	*/
+	guint64 proc_segment;		/* glibtop_proc_segment	*/
+	guint64 proc_args;		/* glibtop_proc_args	*/
+	guint64 proc_map;		/* glibtop_proc_map	*/
+	guint64 proc_open_files;	/* glibtop_proc_open_files */
+	guint64 mountlist;		/* glibtop_mountlist	*/
+	guint64 fsusage;		/* glibtop_fsusage	*/
+	guint64 netlist;		/* glibtop_netlist	*/
+	guint64 netload;		/* glibtop_netload	*/
+	guint64 ppp;			/* glibtop_ppp		*/
 };
 
 void glibtop_get_sysdeps (glibtop_sysdeps *buf);

@@ -56,10 +56,10 @@ typedef struct _glibtop_proclist	glibtop_proclist;
 
 struct _glibtop_proclist
 {
-	guint64	flags,
-		number,			/* GLIBTOP_PROCLIST_NUMBER	*/
-		total,			/* GLIBTOP_PROCLIST_TOTAL	*/
-		size;			/* GLIBTOP_PROCLIST_SIZE	*/
+	guint64	flags;
+	guint64 number;			/* GLIBTOP_PROCLIST_NUMBER	*/
+	guint64 total;			/* GLIBTOP_PROCLIST_TOTAL	*/
+	guint64 size;			/* GLIBTOP_PROCLIST_SIZE	*/
 };
 
 unsigned *

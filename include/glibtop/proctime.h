@@ -50,24 +50,24 @@ typedef struct _glibtop_proc_time	glibtop_proc_time;
 
 struct _glibtop_proc_time
 {
-	guint64	flags,
-		start_time,	/* start time of process --
+	guint64	flags;
+	guint64 start_time;	/* start time of process --
 				 * seconds since 1-1-70 */
-		rtime,		/* real time accumulated by process */
-		utime,		/* user-mode CPU time accumulated by process */
-		stime,		/* kernel-mode CPU time accumulated by process */
-		cutime,		/* cumulative utime of process and
+	guint64 rtime;		/* real time accumulated by process */
+	guint64 utime;		/* user-mode CPU time accumulated by process */
+	guint64 stime;		/* kernel-mode CPU time accumulated by process */
+	guint64 cutime;		/* cumulative utime of process and
 				 * reaped children */
-		cstime,		/* cumulative stime of process and
+	guint64 cstime;		/* cumulative stime of process and
 				 * reaped children */
-		timeout,	/* The time (in jiffies) of the process's
+	guint64 timeout;	/* The time (in jiffies) of the process's
 				 * next timeout */
-		it_real_value,	/* The time (in jiffies) before the
+	guint64 it_real_value;	/* The time (in jiffies) before the
 				 * next SIGALRM is sent to the process
 				 * due to an interval timer. */
-		frequency,	/* Tick frequency. */
-		xcpu_utime [GLIBTOP_NCPU],	/* utime and stime for all CPUs on */
-		xcpu_stime [GLIBTOP_NCPU];	/* SMP machines. */
+	guint64 frequency;	/* Tick frequency. */
+	guint64 xcpu_utime [GLIBTOP_NCPU];	/* utime and stime for all CPUs on */
+	guint64 xcpu_stime [GLIBTOP_NCPU];	/* SMP machines. */
 };
 
 

@@ -41,12 +41,12 @@ typedef struct _glibtop_shm_limits	glibtop_shm_limits;
 
 struct _glibtop_shm_limits
 {
-	guint64	flags,
-		shmmax,		/* GLIBTOP_IPC_SHMMAX	*/
-		shmmin,		/* GLIBTOP_IPC_SHMMIN	*/
-		shmmni,		/* GLIBTOP_IPC_SHMMNI	*/
-		shmseg,		/* GLIBTOP_IPC_SHMSEG	*/
-		shmall;		/* GLIBTOP_IPC_SHMALL	*/
+	guint64	flags;
+	guint64 shmmax;		/* GLIBTOP_IPC_SHMMAX	*/
+	guint64 shmmin;		/* GLIBTOP_IPC_SHMMIN	*/
+	guint64 shmmni;		/* GLIBTOP_IPC_SHMMNI	*/
+	guint64 shmseg;		/* GLIBTOP_IPC_SHMSEG	*/
+	guint64 shmall;		/* GLIBTOP_IPC_SHMALL	*/
 };
 
 void glibtop_get_shm_limits(glibtop_shm_limits *buf);

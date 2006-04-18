@@ -46,16 +46,16 @@ typedef struct _glibtop_proc_segment	glibtop_proc_segment;
 
 struct _glibtop_proc_segment
 {
-	guint64	flags,
-		text_rss,	/* text resident set size */
-		shlib_rss,	/* shared-lib resident set size */
-		data_rss,	/* data resident set size */
-		stack_rss,	/* stack resident set size */
-		dirty_size,	/* size of dirty pages */
-		start_code,
+	guint64	flags;
+	guint64 text_rss;	/* text resident set size */
+	guint64 shlib_rss;	/* shared-lib resident set size */
+	guint64 data_rss;	/* data resident set size */
+	guint64 stack_rss;	/* stack resident set size */
+	guint64 dirty_size;	/* size of dirty pages */
+	guint64 start_code;
 				/* address of beginning of code segment */
-		end_code,	/* address of end of code segment */
-		start_stack;	/* address of the bottom of stack segment */
+	guint64 end_code;	/* address of end of code segment */
+	guint64 start_stack;	/* address of the bottom of stack segment */
 };
 
 void glibtop_get_proc_segment(glibtop_proc_segment *buf, pid_t pid);

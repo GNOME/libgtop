@@ -46,17 +46,17 @@ typedef struct _glibtop_sem_limits	glibtop_sem_limits;
 
 struct _glibtop_sem_limits
 {
-	guint64	flags,
-		semmap,		/* GLIBTOP_IPC_SEMMAP	*/
-		semmni,		/* GLIBTOP_IPC_SEMMNI	*/
-		semmns,		/* GLIBTOP_IPC_SEMMNS	*/
-		semmnu,		/* GLIBTOP_IPC_SEMMNU	*/
-		semmsl,		/* GLIBTOP_IPC_SEMMSL	*/
-		semopm,		/* GLIBTOP_IPC_SEMOPM	*/
-		semume,		/* GLIBTOP_IPC_SEMUME	*/
-		semusz,		/* GLIBTOP_IPC_SEMUSZ	*/
-		semvmx,		/* GLIBTOP_IPC_SEMVMX	*/
-		semaem;		/* GLIBTOP_IPC_SEMAEM	*/
+	guint64	flags;
+	guint64 semmap;		/* GLIBTOP_IPC_SEMMAP	*/
+	guint64 semmni;		/* GLIBTOP_IPC_SEMMNI	*/
+	guint64 semmns;		/* GLIBTOP_IPC_SEMMNS	*/
+	guint64 semmnu;		/* GLIBTOP_IPC_SEMMNU	*/
+	guint64 semmsl;		/* GLIBTOP_IPC_SEMMSL	*/
+	guint64 semopm;		/* GLIBTOP_IPC_SEMOPM	*/
+	guint64 semume;		/* GLIBTOP_IPC_SEMUME	*/
+	guint64 semusz;		/* GLIBTOP_IPC_SEMUSZ	*/
+	guint64 semvmx;		/* GLIBTOP_IPC_SEMVMX	*/
+	guint64 semaem;		/* GLIBTOP_IPC_SEMAEM	*/
 };
 
 void glibtop_get_sem_limits(glibtop_sem_limits *buf);
