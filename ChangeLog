@@ -1,3 +1,13 @@
+2006-06-03  Benoît Dejean  <benoit@placenet.org>
+
+	* .cvsignore:
+	* Makefile.am:
+	* configure.in:
+	* po/LINGUAS:
+	
+	Use po/LINGUAS.
+	Closes #337902.
+
 2006-04-18  German Poo-Caaman~o  <gpoo@ubiobio.cl>
 
 	* /include/glibtop/cpu.h:

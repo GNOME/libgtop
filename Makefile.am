@@ -7,7 +7,15 @@ libgtopincludedir = $(includedir)/libgtop-2.0
 EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt \
 	 features.def libgtopconfig.h.in \
 	libgtop-sysdeps.m4 README \
-	 libgtop-2.0.pc.in acinclude.m4
+	 libgtop-2.0.pc.in acinclude.m4 \
+	intltool-extract.in \
+	intltool-merge.in \
+	intltool-update.in
+
+DISTCLEANFILES = \
+	intltool-extract \
+	intltool-merge \
+	intltool-update
 
 dist-hook:
 	cp libgtop.spec $(distdir)

@@ -40,3 +40,9 @@ install-sh
 missing
 mkinstalldirs
 libgtopconfig.h
+intltool-extract.in
+intltool-extract
+intltool-merge.in
+intltool-merge
+intltool-update.in
+intltool-update
