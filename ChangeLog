@@ -1,3 +1,10 @@
+2006-06-04  Benoît Dejean  <benoit@placenet.org>
+
+	* libgtop-sysdeps.m4:
+	
+	Removed undefined LIBGTOP_HACKER_TESTS.
+	Closes #342890.
+
 2006-06-03  Benoît Dejean  <benoit@placenet.org>
 
 	* .cvsignore:

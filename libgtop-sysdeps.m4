@@ -29,10 +29,6 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	AM_CONDITIONAL(HACKER_MODE, test x"$hacker_mode" = xyes)
 
-	if test x$hacker_mode = xyes ; then
-	  LIBGTOP_HACKER_TESTS
-	fi
-
 	AC_ARG_WITH(libgtop-smp,
 	[  --with-libgtop-smp      Enable SMP support (default-auto)],[
 	libgtop_smp="$withval"],[libgtop_smp=auto])
