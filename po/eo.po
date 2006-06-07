@@ -1,0 +1,208 @@
+# Esperanto translation of libgtop
+# Copyright (C) 2006 THE libgtop'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the libgtop package.
+# Dominique PELLE <dominique.pelle@free.fr>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-06-08 00:34+0530\n"
+"PO-Revision-Date: 2006-06-06 21:30+1200\n"
+"Last-Translator: Dominique PELLE <dominique.pelle@free.fr>\n"
+"Language-Team: Esperanto <eo-tradukado@lists.tuxfamily.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../lib/read.c:65
+#, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "legis %d bajton"
+msgstr[1] "legis %d bajtojn"
+
+#: ../lib/read_data.c:53
+msgid "read data size"
+msgstr "grandeco de legita datumo"
+
+#: ../lib/read_data.c:72
+#, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "legis %lu bajton da datumo"
+msgstr[1] "legis %lu bajtojn da datumo"
+
+#: ../lib/write.c:53
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "skribis %d bajton"
+msgstr[1] "skribis %d bajtojn"
+
+#: ../src/daemon/gnuserv.c:460
+msgid "Enable debugging"
+msgstr "Ebligu sencimigon"
+
+#: ../src/daemon/gnuserv.c:460
+msgid "DEBUG"
+msgstr "SENCIMIGO"
+
+#: ../src/daemon/gnuserv.c:462
+msgid "Enable verbose output"
+msgstr "Ebligu babileman eligon"
+
+#: ../src/daemon/gnuserv.c:462
+msgid "VERBOSE"
+msgstr "BABILEMA"
+
+#: ../src/daemon/gnuserv.c:464
+msgid "Don't fork into background"
+msgstr "Ne forku fone"
+
+#: ../src/daemon/gnuserv.c:464
+msgid "NO-DAEMON"
+msgstr "NE-DEMONO"
+
+#: ../src/daemon/gnuserv.c:466
+msgid "Invoked from inetd"
+msgstr "Alvokita de inetd"
+
+#: ../src/daemon/gnuserv.c:466
+msgid "INETD"
+msgstr "INETD"
+
+#: ../src/daemon/gnuserv.c:500
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Eraro en opcio %s: %s.\n"
+"Lanĉu '%s --help' por vidi plenan liston de uzeblaj opcioj de komanda "
+"linio.\n"
+
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+msgid "Hangup"
+msgstr "Malkontaktu"
+
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+msgid "Interrupt"
+msgstr "Interrompu"
+
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+msgid "Quit"
+msgstr "Adiaŭu"
+
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+msgid "Illegal instruction"
+msgstr "Nevalida komando"
+
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+msgid "Trace trap"
+msgstr "Spura escepto"
+
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+msgid "Abort"
+msgstr "Ĉesigu"
+
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+msgid "EMT error"
+msgstr "EMT eraro"
+
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+msgid "Floating-point exception"
+msgstr "Glitpunkta escepto"
+
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+msgid "Kill"
+msgstr "Mortigu"
+
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+msgid "Bus error"
+msgstr "Busa eraro"
+
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+msgid "Segmentation violation"
+msgstr "Aliro al nerezervita memoro"
+
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+msgid "Bad argument to system call"
+msgstr "Nevalida argumento de kornovoko"
+
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+msgid "Broken pipe"
+msgstr "Rompita dukto"
+
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+msgid "Alarm clock"
+msgstr "Vekhorloĝo"
+
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+msgid "Termination"
+msgstr "Ĉesigo"
+
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+msgid "Urgent condition on socket"
+msgstr "Urĝa kondiĉo ĉe kontaktoskatolo"
+
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+msgid "Stop"
+msgstr "Ĉesigu"
+
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+msgid "Keyboard stop"
+msgstr "Klavara ĉesigo"
+
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+msgid "Continue"
+msgstr "Daŭrigu"
+
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+msgid "Child status has changed"
+msgstr "Stato de ido ŝanĝiĝis"
+
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+msgid "Background read from tty"
+msgstr "Fona lego el tty"
+
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+msgid "Background write to tty"
+msgstr "Fona skribo al tty"
+
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+msgid "I/O now possible"
+msgstr "Eneligo nun eblas"
+
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+msgid "CPU limit exceeded"
+msgstr "Limo de procesilo superitas"
+
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+msgid "File size limit exceeded"
+msgstr "Limo de dosiergrandeco superitas"
+
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+msgid "Virtual alarm clock"
+msgstr "Virtuala alarm-takto"
+
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+msgid "Profiling alarm clock"
+msgstr "Profila alarm-takto"
+
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+msgid "Window size change"
+msgstr "Ŝanĝo de grandeco de fenestro"
+
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+msgid "Information request"
+msgstr "Informpeto"
+
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+msgid "User defined signal 1"
+msgstr "Uzant-difinita signalo 1"
+
+#: ../sysdeps/osf1/siglist.c:59 ../sysdeps/sun4/siglist.c:59
+msgid "User defined signal 2"
+msgstr "Uzant-difinita signalo 2"

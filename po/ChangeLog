@@ -1,3 +1,9 @@
+2006-06-08  Gora Mohanty  <gmohanty@cvs.gnome.org>
+
+        * LINGUAS: Added 'eo' (Esperanto)
+        * eo.po: Added Esperanto translation by Guillaume Savaton
+          <gsavaton@hotmail.com>
+
 2006-04-07  Ales Nyakhaychyk  <nab@mail.by>
 
 	* be.po: Updated Belarusian translation.
