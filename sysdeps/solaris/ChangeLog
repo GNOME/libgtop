@@ -1,3 +1,17 @@
+2006-06-24  Benoît Dejean  <benoit@placenet.org>
+
+	* msg_limits.c: (glibtop_init_msg_limits_p),
+	(glibtop_get_msg_limits_p):
+	* open_suid.c: (glibtop_open_p):
+	* sem_limits.c: (glibtop_init_sem_limits_p),
+	(glibtop_get_sem_limits_p):
+	* shm_limits.c: (glibtop_init_shm_limits_p),
+	(glibtop_get_shm_limits_p):
+	
+	Don't use kvm anymore.
+	Patch by hua.zhang@sun.com.
+	Closes #345811.
+
 2005-08-12  Benoît Dejean  <benoit@placenet.org>
 
 	* glibtop_server.h:

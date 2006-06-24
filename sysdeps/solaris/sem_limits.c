@@ -26,11 +26,13 @@
 #include <glibtop/sem_limits.h>
 
 #include <kvm.h>
+#include <rctl.h>
 #include <sys/sem.h>
 
-static const struct nlist nlst[] = { {"seminfo"}, {NULL} };
+static const struct nlist nlst[] = { {"glibtop_sem_limits"}, {NULL} };
+#if GLIBTOP_SOLARIS_RELEASE < 51000
 static const unsigned long _glibtop_sysdeps_sem_limits =
-#if GLIBTOP_SOLARIS_RELEASE <= 570
+#if GLIBTOP_SOLARIS_RELEASE <= 50700
 (1L << GLIBTOP_IPC_SEMMAP) +
 #endif
 (1L << GLIBTOP_IPC_SEMMNI) + (1L << GLIBTOP_IPC_SEMMNS) +
@@ -38,18 +40,25 @@ static const unsigned long _glibtop_sysdeps_sem_limits =
 (1L << GLIBTOP_IPC_SEMOPM) + (1L << GLIBTOP_IPC_SEMUME) +
 (1L << GLIBTOP_IPC_SEMUSZ) + (1L << GLIBTOP_IPC_SEMVMX) +
 (1L << GLIBTOP_IPC_SEMAEM);
+#else
+static const unsigned long _glibtop_sysdeps_sem_limits = 0;
+#endif
+
 
 /* Init function. */
 
 void
 glibtop_init_sem_limits_p (glibtop *server)
 {
+#if GLIBTOP_SOLARIS_RELEASE < 51000
+
    	kvm_t *kd = server->machine.kd;
 
 	if(kd && !kvm_nlist(kd, nlst))
 		server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
 	else
 	   	server->sysdeps.sem_limits = 0;
+#endif
 }
 
 /* Provides information about sysv sem limits. */
@@ -57,18 +66,20 @@ glibtop_init_sem_limits_p (glibtop *server)
 void
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
+#if GLIBTOP_SOLARIS_RELEASE < 51000
    	kvm_t *kd = server->machine.kd;
-	struct seminfo sinfo;
+        glibtop_sem_limits sinfo;
 
 	memset (buf, 0, sizeof (glibtop_sem_limits));
 
 	if(!(server->sysdeps.sem_limits))
 	   	return;
 	if(kvm_read(kd, nlst[0].n_value, (void *)&sinfo,
-		    sizeof(struct seminfo)) != sizeof(struct seminfo))
+                    sizeof(glibtop_sem_limits)) != sizeof(glibtop_sem_limits))
+
 	   	return;
 
-#if GLIBTOP_SOLARIS_RELEASE <= 570
+#if GLIBTOP_SOLARIS_RELEASE <= 50700
 	/* This field don't exist anymore in Solaris 8.
 	 * Thanks to Laszlo PETER <Laszlo.Peter@ireland.sun.com>. */
 	buf->semmap = sinfo.semmap;
@@ -82,5 +93,30 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 	buf->semusz = sinfo.semusz;
 	buf->semvmx = sinfo.semvmx;
 	buf->semaem = sinfo.semaem;
-	buf->flags = _glibtop_sysdeps_sem_limits;
+#endif
+
+#if GLIBTOP_SOLARIS_RELEASE >= 51000
+       rctlblk_t *rblk;
+       if ((rblk = malloc(rctlblk_size())) == NULL)
+               return;
+
+       if (getrctl("process.max-sem-ops", NULL, rblk, RCTL_FIRST) == -1)
+               return;
+       else
+               buf->semopm = rctlblk_get_value(rblk);
+
+       if (getrctl("process.max-sem-nsems", NULL, rblk, RCTL_FIRST) == -1)
+               return;
+       else
+               buf->semmsl = rctlblk_get_value(rblk);
+
+       if (getrctl("project.max-sem-ids", NULL, rblk, RCTL_FIRST) == -1)
+               return;
+       else
+               buf->semmni = rctlblk_get_value(rblk);
+	/* there are only 3 fields, the remaining ones have been obsoleted in S10
+	 and no longer have system-wide limits */
+#endif
+       buf->flags = _glibtop_sysdeps_sem_limits;
+
 }

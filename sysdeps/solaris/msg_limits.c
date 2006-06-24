@@ -26,28 +26,37 @@
 #include <glibtop/msg_limits.h>
 
 #include <kvm.h>
+#include <rctl.h>
 #include <sys/msg.h>
 
-static const struct nlist nlst[] = { {"msginfo"}, {NULL} };
+static const struct nlist nlst[] = { {"glibtop_msg_limits"}, {NULL} };
+#if GLIBTOP_SOLARIS_RELEASE < 51000
 static const unsigned long _glibtop_sysdeps_msg_limits =
-#if GLIBTOP_SOLARIS_RELEASE <= 570
+#if GLIBTOP_SOLARIS_RELEASE <= 50700
 (1L << GLIBTOP_IPC_MSGMAP) +  (1L << GLIBTOP_IPC_MSGSSZ) +
 #endif
 (1L << GLIBTOP_IPC_MSGPOOL) + (1L << GLIBTOP_IPC_MSGMAX) +
 (1L << GLIBTOP_IPC_MSGMNB) + (1L << GLIBTOP_IPC_MSGMNI) +
 (1L << GLIBTOP_IPC_MSGTQL);
+#else
+static const unsigned long _glibtop_sysdeps_msg_limits = 0;
+#endif
+
 
 /* Init function. */
 
 void
 glibtop_init_msg_limits_p (glibtop *server)
 {
+#if GLIBTOP_SOLARIS_RELEASE < 51000
+
    	kvm_t *kd = server->machine.kd;
 
 	if(kd && !kvm_nlist(kd, nlst))
 		server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
 	else
 	   	server->sysdeps.msg_limits = 0;
+#endif
 }
 
 /* Provides information about sysv ipc limits. */
@@ -55,18 +64,22 @@ glibtop_init_msg_limits_p (glibtop *server)
 void
 glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 {
+#if GLIBTOP_SOLARIS_RELEASE < 51000
+
    	kvm_t *kd = server->machine.kd;
-	struct msginfo minfo;
+        glibtop_msg_limits minfo;
+
 
 	memset (buf, 0, sizeof (glibtop_msg_limits));
 
 	if(!(server->sysdeps.msg_limits))
 	   	return;
 	if(kvm_read(kd, nlst[0].n_value, (void *)&minfo,
-		    sizeof(struct msginfo)) != sizeof(struct msginfo))
+                    sizeof(glibtop_msg_limits)) != sizeof(glibtop_msg_limits))
+
 	   	return;
 
-#if GLIBTOP_SOLARIS_RELEASE <= 570
+#if GLIBTOP_SOLARIS_RELEASE <= 50700
 	/* These fields don't exist anymore in Solaris 8.
 	 * Thanks to Laszlo PETER <Laszlo.Peter@ireland.sun.com>. */
 	buf->msgmap = minfo.msgmap;
@@ -76,6 +89,33 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 	buf->msgmnb = minfo.msgmnb;
 	buf->msgmni = minfo.msgmni;
 	buf->msgtql = minfo.msgtql;
-	buf->msgpool = minfo.msgmni * minfo.msgmnb >> 10;
-	buf->flags = _glibtop_sysdeps_msg_limits;
+#endif
+#if GLIBTOP_SOLARIS_RELEASE >= 51000
+       rctlblk_t *rblk;
+       if ((rblk = malloc(rctlblk_size())) == NULL)
+               return;
+
+       if (getrctl("project.max-msg-qbytes", NULL, rblk, RCTL_FIRST) == -1)
+               return;
+       else
+               buf->msgmnb = rctlblk_get_value(rblk);
+
+       if (getrctl("project.max-msg-ids", NULL, rblk, RCTL_FIRST) == -1)
+               return;
+       else
+               buf->msgmni = rctlblk_get_value(rblk);
+
+       if (getrctl("project.max-msg-messages", NULL, rblk, RCTL_FIRST) == -1)
+               return;
+       else
+               buf->msgtql = rctlblk_get_value(rblk);
+       /* this is the maximum size of a system V message, which has been obsoleted as a kernel tunable value now */
+       /* and it should always be 65535 instead, so I list it here, if needed, can be removed */	       
+       buf->msgmax = 65535;
+       
+#endif
+
+       buf->msgpool = buf->msgmni * buf->msgmnb >> 10;
+       buf->flags = _glibtop_sysdeps_msg_limits;
+
 }
