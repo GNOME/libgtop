@@ -1,3 +1,11 @@
+2006-06-24  Benoît Dejean  <benoit@placenet.org>
+
+	* configure.in:
+	
+	Don't use kvm on newer solaris.
+	Patch by hua.zhang@sun.com.
+	Closes #345811.
+
 2006-06-04  Benoît Dejean  <benoit@placenet.org>
 
 	* libgtop-sysdeps.m4:
