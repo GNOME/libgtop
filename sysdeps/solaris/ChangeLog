@@ -1,5 +1,13 @@
 2006-06-24  Benoît Dejean  <benoit@placenet.org>
 
+	* netlist.c: (glibtop_get_netlist_s):
+
+	Fixed.
+	Patch by hua.zhang@sun.com.
+	Closes #345813.
+
+2006-06-24  Benoît Dejean  <benoit@placenet.org>
+
 	* msg_limits.c: (glibtop_init_msg_limits_p),
 	(glibtop_get_msg_limits_p):
 	* open_suid.c: (glibtop_open_p):

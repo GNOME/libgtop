@@ -50,13 +50,18 @@ glibtop_get_netlist_s (glibtop *server, glibtop_netlist *buf)
 	devices = g_ptr_array_new();
 
 	kc = kstat_open();
-
+	if (kc == NULL) {
+		glibtop_warn_io_r(server, "kstat_open()");
+		return NULL;
+	}
+	
 	for (ksp = kc->kc_chain; ksp; ksp = ksp->ks_next)
 	{
 		if (strcmp(ksp->ks_class, "net") != 0)
 			continue;
 
 		g_ptr_array_add(devices, g_strdup(ksp->ks_name));
+		buf->number++;
 	}
 
 	kstat_close(kc);
