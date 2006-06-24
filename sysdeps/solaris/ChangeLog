@@ -1,5 +1,14 @@
 2006-06-24  Benoît Dejean  <benoit@placenet.org>
 
+	* procmap.c: (glibtop_get_proc_map_s):
+
+	Fixed writable memory.
+
+	Patch by hua.zhang@sun.com.
+	Closes #345817.
+
+2006-06-24  Benoît Dejean  <benoit@placenet.org>
+
 	* open.c: (glibtop_get_kstats), (glibtop_open_s):
 	
 	Can't get cpu_stat_kstat, didn't close kstat, this will make other
