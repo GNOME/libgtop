@@ -83,7 +83,8 @@ glibtop_get_kstats(glibtop *server)
 	    char cpu[20];
 
 	    for(i = 0, checked = 0; i < GLIBTOP_NCPU || checked == new_ncpu; ++i)
-		if(server->machine.cpu_stat_kstat[i])
+                if(!server->machine.cpu_stat_kstat[i])
+
 		{
 		    sprintf(cpu, "cpu_stat%d", i);
 		    if(!(server->machine.cpu_stat_kstat[i] =
@@ -145,6 +146,8 @@ glibtop_open_s (glibtop *server, const char *program_name,
     for(i = 0; page; ++i, page >>= 1);
     server->machine.pagesize = i - 1;
     server->machine.ticks = sysconf(_SC_CLK_TCK);
+    if(server->machine.kc)
+    	kstat_close(server->machine.kc);
     server->machine.kc = kc = kstat_open ();
 
 #if 0
@@ -210,9 +213,11 @@ glibtop_open_s (glibtop *server, const char *program_name,
 
     /* Now let's have a bit of magic dust... */
 
-#if GLIBTOP_SOLARIS_RELEASE >= 560
+#if GLIBTOP_SOLARIS_RELEASE >= 50600
 
     dl = dlopen("/usr/lib/libproc.so", RTLD_LAZY);
+    if(server->machine.libproc)
+    	dlclose(server->machine.libproc);
     server->machine.libproc = dl;
     if(dl)
     {
@@ -226,6 +231,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
        server->machine.pgrab = (struct ps_prochandle *(*)(pid_t, int, int *))
 	  		       dlsym(dl, "Pgrab");
        server->machine.pfree = (void (*)(void *))dlsym(dl, "Pfree");
+       
     }
     else
     {
