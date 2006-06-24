@@ -1,5 +1,15 @@
 2006-06-24  Benoît Dejean  <benoit@placenet.org>
 
+	* libgtop-sysdeps.m4:
+	* sysdeps/solaris/glibtop_machine.h:
+	
+	Updated the GLIBTOP_SOLARIS_RELEASE
+	
+	Patch by hua.zhang@sun.com.
+	Closes #345821.
+
+2006-06-24  Benoît Dejean  <benoit@placenet.org>
+
 	* configure.in:
 	
 	Don't use kvm on newer solaris.

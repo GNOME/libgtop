@@ -251,16 +251,16 @@ main (void)
 	  AC_MSG_RESULT($os_version_code)
 	  ;;
 	solaris*)
-	  os_major_version=`uname -r | sed 's/\([[0-9]]*\).\([[0-9]]\)\.*\([[0-9]]*\)/\1/'`
-	  os_minor_version=`uname -r | sed 's/\([[0-9]]*\).\([[0-9]]\)\.*\([[0-9]]*\)/\2/'`
-	  os_micro_version=`uname -r | sed 's/\([[0-9]]*\).\([[0-9]]\)\.*\([[0-9]]*\)/\3/'`
+	  os_major_version=`uname -r | sed 's/\([[0-9]]*\).\([[0-9]]*\)\.*\([[0-9]]*\)/\1/'`
+	  os_minor_version=`uname -r | sed 's/\([[0-9]]*\).\([[0-9]]*\)\.*\([[0-9]]*\)/\2/'`
+	  os_micro_version=`uname -r | sed 's/\([[0-9]]*\).\([[0-9]]*\)\.*\([[0-9]]*\)/\3/'`
 	  test -z "$os_micro_version" && os_micro_version=0
-	  os_version_expr="$os_major_version 100 * $os_minor_version 10 * + $os_micro_version + p q"
+	  os_version_expr="$os_major_version 10000 * $os_minor_version 100 * + $os_micro_version + p q"
 	  os_version_code=`echo "$os_version_expr" | dc`
 
 	  AC_MSG_CHECKING(for Solaris release code)
 	  AC_DEFINE_UNQUOTED(GLIBTOP_SOLARIS_RELEASE, $os_version_code,
-              [Solaris release code (eg. 251 for Solaris 2.5.1).])
+              [Solaris release code (eg. 20501 for Solaris 2.5.1).])
 	  AC_MSG_RESULT($os_version_code)
 	  ;;
 	esac
