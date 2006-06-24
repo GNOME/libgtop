@@ -1,3 +1,16 @@
+2006-06-24  Benoît Dejean  <benoit@placenet.org>
+
+	* mountlist.c: (read_filesystem_list):
+	
+	Ensure file is closed.
+	
+	(glibtop_get_mountlist_s):
+	 
+	Fixed .flags.
+	 
+	Patch by hua.zhang@sun.com.
+	Closes #345812.
+
 2006-04-09  Benoît Dejean  <benoit@placenet.org>
 
 	* Makefile.am: Fixed trivial warning.
