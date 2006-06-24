@@ -1,5 +1,14 @@
 2006-06-24  Benoît Dejean  <benoit@placenet.org>
 
+	* proctime.c: (glibtop_get_proc_time_s):
+	
+	Fixed start time.
+
+	Patch by hua.zhang@sun.com.
+	Closes #345819.
+	
+2006-06-24  Benoît Dejean  <benoit@placenet.org>
+
 	* procmap.c: (glibtop_get_proc_map_s):
 
 	Fixed writable memory.

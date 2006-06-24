@@ -46,6 +46,7 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf,
 			 pid_t pid)
 {
 	struct prusage prusage;
+        GTimeVal time;
 
 	memset (buf, 0, sizeof (glibtop_proc_time));
 
@@ -56,7 +57,9 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf,
 		if (glibtop_get_proc_data_usage_s (server, &prusage, pid))
 			return;
 
-		buf->start_time = prusage.pr_create.tv_sec;
+                g_get_current_time (&time);
+		/* prusage.pr_rtime.tv_sec is the during that the process existed */
+                buf->start_time = time.tv_sec - prusage.pr_rtime.tv_sec;
 
 		buf->rtime = prusage.pr_rtime.tv_sec * 1E+6 +
 			prusage.pr_rtime.tv_nsec / 1E+3;
