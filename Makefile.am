@@ -1,5 +1,10 @@
 
-SUBDIRS = po misc include sysdeps lib src examples doc
+if EXAMPLES
+EXAMPLES_DIR = examples
+else
+EXAMPLES_DIR = 
+fi
+SUBDIRS = po misc include sysdeps lib src $(EXAMPLES_DIR) doc
 
 libgtopinclude_HEADERS = glibtop.h libgtopconfig.h
 libgtopincludedir = $(includedir)/libgtop-2.0
