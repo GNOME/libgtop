@@ -1,3 +1,10 @@
+2006-06-25  Benoît Dejean  <benoit@placenet.org>
+
+	* Makefile.am: 
+	
+	Fixed build.
+	Closes #341779.
+
 2006-06-24  Benoît Dejean  <benoit@placenet.org>
 
 	* Makefile.am:

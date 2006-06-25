@@ -3,7 +3,8 @@ if EXAMPLES
 EXAMPLES_DIR = examples
 else
 EXAMPLES_DIR = 
-fi
+endif
+
 SUBDIRS = po misc include sysdeps lib src $(EXAMPLES_DIR) doc
 
 libgtopinclude_HEADERS = glibtop.h libgtopconfig.h
