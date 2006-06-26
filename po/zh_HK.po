@@ -1,4 +1,4 @@
-# Chinese (Taiwan) translation for libgtop.
+# Chinese (Hong Kong) translation for libgtop.
 # Copyright (C) 2001, 2002, 2003 Free Software Foundation, Inc.
 # Abel Cheung <abel@oaka.org>, 2001-2003.
 # 
@@ -7,9 +7,9 @@ msgstr ""
 "Project-Id-Version: libgtop 2.9.92\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-06-26 23:04+0800\n"
-"PO-Revision-Date: 2006-06-26 23:04+0800\n"
+"PO-Revision-Date: 2006-06-26 23:06+0800\n"
 "Last-Translator: Abel Cheung <abel@oaka.org>\n"
-"Language-Team: Chinese (Taiwan) <community@linuxhall.org>\n"
+"Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -92,11 +92,11 @@ msgstr "退出 (Quit)"
 
 #: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Illegal instruction"
-msgstr "不合法硬體指示"
+msgstr "不合法硬件指示"
 
 #: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "Trace trap"
-msgstr "TRAP 硬體錯誤"
+msgstr "TRAP 硬件錯誤"
 
 #: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Abort"
@@ -104,7 +104,7 @@ msgstr "不正常中止"
 
 #: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "EMT error"
-msgstr "EMT 硬體錯誤"
+msgstr "EMT 硬件錯誤"
 
 #: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Floating-point exception"
@@ -124,7 +124,7 @@ msgstr "記憶體區段錯誤"
 
 #: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Bad argument to system call"
-msgstr "系統函式參數錯誤"
+msgstr "系統函數參數錯誤"
 
 #: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
 msgid "Broken pipe"
