@@ -1,3 +1,7 @@
+2006-07-03  Simos Xenitellis  <simos@gnome.org>
+
+	* ne.po: Fixed ^M, bug #316750.
+
 2006-06-26  Abel Cheung  <abel@oaka.org>
 
 	* zh_HK.po, zh_TW.po: Updated traditional Chinese translation.
