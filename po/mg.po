@@ -1,0 +1,207 @@
+# Malagasy translation of LIBGTOP.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Thierry Randrianiriana <randrianiriana@gmail.com>, 2006.
+# Fano Rajaonarisoa <rajfanhar@yahoo.fr>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: LIBGTOP 2.16\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-07-05 15:53+0200\n"
+"PO-Revision-Date: 2006-07-05 21:48+0300\n"
+"Last-Translator: Fano Rajaonarisoa <rajfanhar@yahoo.fr>\n"
+"Language-Team: Malagasy <i18n-malagasy-gnome@gna.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+
+#: ../lib/read.c:65
+#, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "%d octet voavaky"
+msgstr[1] "%d octet voavaky"
+
+#: ../lib/read_data.c:53
+msgid "read data size"
+msgstr "hijery ny haben'ilay data"
+
+#: ../lib/read_data.c:72
+#, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "Voavaky ny %lu amin'ilay data"
+msgstr[1] "Voavaky ny %lu amin'ilay data"
+
+#: ../lib/write.c:53
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "%d octet voadika"
+msgstr[1] "%d octet voadika"
+
+#: ../src/daemon/gnuserv.c:460
+msgid "Enable debugging"
+msgstr "Alefaso ny debugging"
+
+#: ../src/daemon/gnuserv.c:460
+msgid "DEBUG"
+msgstr "DEBUG"
+
+#: ../src/daemon/gnuserv.c:462
+msgid "Enable verbose output"
+msgstr "Alefaso ny famoahana be resaka"
+
+#: ../src/daemon/gnuserv.c:462
+msgid "VERBOSE"
+msgstr "BE RESAKA"
+
+#: ../src/daemon/gnuserv.c:464
+msgid "Don't fork into background"
+msgstr "Aza manasaka any afara"
+
+#: ../src/daemon/gnuserv.c:464
+msgid "NO-DAEMON"
+msgstr "TSIA-DAEMON"
+
+#: ../src/daemon/gnuserv.c:466
+msgid "Invoked from inetd"
+msgstr "Nantsoina avy any amin'ny inetd"
+
+#: ../src/daemon/gnuserv.c:466
+msgid "INETD"
+msgstr "INETD"
+
+#: ../src/daemon/gnuserv.c:500
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"Tsy fetezana amin'ny safidy %s: %s.\n"
+"Alefaso ny '%s --help' ahitana ireo safidin-dazam-baiko misy.\n"
+
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+msgid "Hangup"
+msgstr "Ahatoy"
+
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+msgid "Interrupt"
+msgstr "Tapao"
+
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+msgid "Quit"
+msgstr "Ajanony"
+
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+msgid "Illegal instruction"
+msgstr "Torolàlana tsy ara-dalàna"
+
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+msgid "Trace trap"
+msgstr "Trace trap"
+
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+msgid "Abort"
+msgstr "Hiala"
+
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+msgid "EMT error"
+msgstr "Tsy fetezana EMT"
+
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+msgid "Floating-point exception"
+msgstr "Fanavahan'ny floating-point"
+
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+msgid "Kill"
+msgstr "Vonoy"
+
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+msgid "Bus error"
+msgstr "Tsy fetezan'ny mpampita"
+
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+msgid "Segmentation violation"
+msgstr "Fanimbazimbana ny segmentation"
+
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+msgid "Bad argument to system call"
+msgstr "Tondriky tsy mety ho an'ny antson'ny rafitra"
+
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+msgid "Broken pipe"
+msgstr "Fantsona simba"
+
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+msgid "Alarm clock"
+msgstr "Famantaranandro misy fanairana"
+
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+msgid "Termination"
+msgstr "Fiafarana"
+
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+msgid "Urgent condition on socket"
+msgstr "Toe-javatra mila jerena maika amin'ny socket"
+
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+msgid "Stop"
+msgstr "Fijanonana"
+
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+msgid "Keyboard stop"
+msgstr "Fijanonan'ny kitendry"
+
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+msgid "Continue"
+msgstr "Tohizo"
+
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+msgid "Child status has changed"
+msgstr "Niova ilay toetra zanaka"
+
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+msgid "Background read from tty"
+msgstr "Famakiana ny tty any afara"
+
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+msgid "Background write to tty"
+msgstr "Fanoratana ny tty any afara"
+
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+msgid "I/O now possible"
+msgstr "Mety amin'izay ny I/O"
+
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+msgid "CPU limit exceeded"
+msgstr "Nihoarana ny fetran'ny CPU"
+
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+msgid "File size limit exceeded"
+msgstr "Voahoatra ny fetran'ny haben-drakitra"
+
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+msgid "Virtual alarm clock"
+msgstr "Famantaranandro virtoaly misy fanairana"
+
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+msgid "Profiling alarm clock"
+msgstr "Manoritsoritra ilay famantaranandro misy fanairana"
+
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+msgid "Window size change"
+msgstr "Fanovana ny haben'ny fikandrana"
+
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+msgid "Information request"
+msgstr "Fangataha-panazavana"
+
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+msgid "User defined signal 1"
+msgstr "Fambara 1 voafaritry ny mpampiasa"
+
+#: ../sysdeps/osf1/siglist.c:59 ../sysdeps/sun4/siglist.c:59
+msgid "User defined signal 2"
+msgstr "Fambara 2 voafaritry ny mpampiasa"

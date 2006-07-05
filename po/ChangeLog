@@ -1,3 +1,8 @@
+2006-07-05  Thierry Randrianiriana <thierryR@cvs.gnome.org>
+
+        * mg.po: Added Malagasy translation
+        * LINGUAS: Added Malagasy code 'mg' to the list
+
 2006-07-03  Runa Bhattacharjee <runabh@gmail.com>
 
         * bn_IN.po: Added Bengali India Translation
@@ -38,7 +43,7 @@
 2006-03-18  Vladimer Sichinava  <vlsichinava@gmail.com>
 
 	* ka.po: Updated Georgian translation.
-	
+
 2006-03-03  Žygimantas Beručka  <zygis@gnome.org>
 
 	* lt.po: Updated Lithuanian translation.
@@ -46,7 +51,7 @@
 2006-02-28  Clytie Siddall <clytie@riverland.net.au>
 
 	* lv.po: Updated Latvian translation by Raivis Dejus <orvils@gmail.com>.
-	
+
 2005-12-04  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	* th.po: Added Thai translation.
@@ -79,7 +84,7 @@
 2005-08-29  Telsa Gwynne  <hobbit@aloss.ukuu.org.uk>
 
         * cy.po: Updated Welsh translation.
-	
+
 2005-08-22  Mugurel Tudor  <mugurelu@gnome.ro>
 
 	* ro.po: Updated Romanian translation
@@ -212,9 +217,9 @@
 	* ru.po: Updated Russian translation
 
 2005-02-07  David Lodge <dave@cirt.net>
-                                                                                
+
         * en_GB.po: Updated British translation.
-                                                                                
+
 2005-02-06  Ole Laursen  <olau@hardworking.dk>
 
 	* da.po: Updated Danish translation.
@@ -307,7 +312,7 @@
 
 2004-12-29  Benoît Dejean  <tazforever@dlfp.org>
 
-	* POTFILES.in: Removed a bunch of strings. 
+	* POTFILES.in: Removed a bunch of strings.
 
 2004-12-28  Christian Rose  <menthos@menthos.com>
 
@@ -357,9 +362,9 @@
 	* it.po: Updated Italian translation.
 
 2004-09-14  Gora Mohanty  <gmohanty@cvs.gnome.org>
-                                                                                
+
         * or.po: Updated Oriya translation.
-  
+
 2004-09-12  Laszlo Dvornik  <dvornik@gnome.hu>
 
 	* hu.po: Updated Hungarian translation by Gabor Kelemen.
@@ -380,7 +385,7 @@
 2004-09-06  Mugurel Tudor  <mugurelu@go.ro>
 
         * ro.po: Updated Romanian translation
-        by Misu Moldovan <dumol@go.ro> 
+        by Misu Moldovan <dumol@go.ro>
 
 2004-09-06  Kostas Papadimas <pkst@gnome.org>
 
@@ -393,11 +398,11 @@
 2004-09-03  Baris Cicek <baris@teamforce.name.tr>
 
 	* tr.po: Updated Turkish Translation
-	
+
 2004-09-02  Hendrik Richter <hendrik@gnome-de.org>
 
 	* de.po: Updated German translation
-	
+
 2004-08-30  Nikos Charonitakis  <charosn@her.forthnet.gr>
 
 	* el.po: Updated Greek translation.
@@ -557,9 +562,9 @@
 
 	* es.po: Updated Spanih translation.
 
-2004-07-28  David Lodge  <dave@cirt.net>                                                                       
+2004-07-28  David Lodge  <dave@cirt.net>
         * en_GB.po: Updated British translation.
-                                                                                
+
 2004-07-26  Duarte Loreto <happyguy_pt@hotmail.com>
 
 	* pt.po: Updated Portuguese translation.
@@ -662,7 +667,7 @@
 
 	* bg.po: Updated Bulgarian translation by
 	Rostislav Raykov <zbrox@i-space.org>
-		
+
 2004-06-28  Laurent Dhima  <laurenti@alblinux.net>
 
 	* sq.po: Translation updated.
@@ -1563,4 +1568,3 @@ Sun, 31 May 1998 22:38:59 +0200  Vincent Renardias  <vincent@waw.com>
 1998-05-21  Martin Baulig  <martin@home-of-linux.org>
 
 	* ChangeLog: new file - currently empty
-
