@@ -1,5 +1,11 @@
 2006-07-27  Benoît Dejean  <benoit@placenet.org>
 
+	* NEWS:
+
+	Released 2.14.2.
+
+2006-07-27  Benoît Dejean  <benoit@placenet.org>
+
 	* include/glibtop/netload.h:
 	
 	Tiny interface addition to handle wireless interfaces.
