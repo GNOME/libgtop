@@ -1,3 +1,9 @@
+2006-07-27  Benoît Dejean  <benoit@placenet.org>
+
+	* include/glibtop/netload.h:
+	
+	Tiny interface addition to handle wireless interfaces.
+
 2006-06-26  Benoît Dejean  <benoit@placenet.org>
 
 	* po/Makefile.in.in.in:
