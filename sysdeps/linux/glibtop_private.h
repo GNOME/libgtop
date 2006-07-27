@@ -142,6 +142,10 @@ check_cpu_line_warn(glibtop *server, const char *line, unsigned i)
 }
 
 
+gboolean
+has_sysfs(void) G_GNUC_INTERNAL G_GNUC_CONST;
+
+
 G_END_DECLS
 
 #endif /* __LINUX__GLIBTOP_PRIVATE_H__ */

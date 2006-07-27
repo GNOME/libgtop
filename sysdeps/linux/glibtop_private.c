@@ -163,3 +163,18 @@ check_cpu_line(glibtop *server, const char *line, unsigned i)
 	return g_str_has_prefix(line, start);
 }
 
+
+
+gboolean
+has_sysfs(void)
+{
+	static gboolean init;
+	static gboolean sysfs;
+
+	if (G_UNLIKELY(!init)) {
+		sysfs = g_file_test("/sys", G_FILE_TEST_IS_DIR);
+		init = TRUE;
+	}
+
+	return sysfs;
+}

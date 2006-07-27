@@ -50,7 +50,7 @@ static void set_linux_version(glibtop *server)
 			       uts.release, x, y, z, LINUX_VERSION_CODE(x,y,z));
 
 	if (LINUX_VERSION_CODE(x, y, z) >= LINUX_VERSION_CODE(2, 6, 0)
-	    && !g_file_test("/sys", G_FILE_TEST_IS_DIR))
+	    && !has_sysfs())
 		glibtop_warn_r(server,
 			       "You're running a 2.6 kernel without /sys."
 			       "You should mount it.");

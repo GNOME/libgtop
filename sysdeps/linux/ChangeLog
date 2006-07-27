@@ -1,3 +1,13 @@
+2006-07-27  Benoît Dejean  <benoit@placenet.org>
+
+	* glibtop_private.c: (has_sysfs):
+	* glibtop_private.h:
+	* netload.c: (glibtop_get_netload_s):
+	* open.c: (set_linux_version):
+
+	New has_sysfs function to avoid stating
+	over and over '/sys' on each netload call.
+
 2006-04-02  Benoît Dejean  <benoit@placenet.org>
 
 	* msg_limits.c: (glibtop_get_msg_limits_s):
