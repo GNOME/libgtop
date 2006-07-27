@@ -501,6 +501,10 @@ glibtop_get_netload_s (glibtop *server, glibtop_netload *buf,
 	    }
 
 	g_strlcpy (ifr.ifr_name, interface, sizeof ifr.ifr_name);
+	if (!ioctl(skfd, /* SIOCGIWNAME */ 0x8B01, &ifr))
+		buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_WIRELESS);
+
+	g_strlcpy (ifr.ifr_name, interface, sizeof ifr.ifr_name);
 	if (!ioctl (skfd, SIOCGIFADDR, &ifr)) {
 	    buf->address = ((struct sockaddr_in *) &ifr.ifr_addr)->sin_addr.s_addr;
 	    buf->flags |= (1L << GLIBTOP_NETLOAD_ADDRESS);

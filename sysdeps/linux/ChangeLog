@@ -1,5 +1,11 @@
 2006-07-27  Benoît Dejean  <benoit@placenet.org>
 
+	* netload.c: (glibtop_get_netload_s):
+
+	Updated implementation.
+
+2006-07-27  Benoît Dejean  <benoit@placenet.org>
+
 	* glibtop_private.c: (has_sysfs):
 	* glibtop_private.h:
 	* netload.c: (glibtop_get_netload_s):
