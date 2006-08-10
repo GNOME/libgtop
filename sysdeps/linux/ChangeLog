@@ -1,3 +1,12 @@
+2006-08-10  Benoît Dejean  <benoit@placenet.org>
+
+	* open.c: (glibtop_open_s):
+	
+	Only print the warning if
+		(number of real cpu's) != (number of cpu's monitored).
+	Patch by Wouter Bolsterlee (uws) <uws+gnome@xs4all.nl>.
+	Closes #350705.
+
 2006-07-27  Benoît Dejean  <benoit@placenet.org>
 
 	* netload.c: (glibtop_get_netload_s):

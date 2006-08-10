@@ -91,9 +91,11 @@ glibtop_open_s (glibtop *server, const char *program_name,
 
 	server->ncpu = MIN(GLIBTOP_NCPU - 1, server->real_ncpu);
 
-	glibtop_warn_r(server,
-		       "This machine has %d CPUs, "
-		       "%d are being monitored.",
-		       server->real_ncpu + 1,
-		       server->ncpu + 1);
+	if (server->real_ncpu != server->ncpu) {
+		glibtop_warn_r(server,
+			       "This machine has %d CPUs, "
+			       "%d are being monitored.",
+			       server->real_ncpu + 1,
+			       server->ncpu + 1);
+	}
 }
