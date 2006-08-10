@@ -24,6 +24,10 @@
 #ifndef __GLIBTOP_H__
 #define __GLIBTOP_H__
 
+#include <glib/gmacros.h>
+
+G_BEGIN_DECLS
+
 typedef struct _glibtop		glibtop;
 
 /**
@@ -107,5 +111,7 @@ glibtop *
 glibtop_init_s (glibtop **server_ptr,
 		unsigned long features,
 		unsigned flags);
+
+G_END_DECLS
 
 #endif
