@@ -1,3 +1,13 @@
+2006-08-14  Benoît Dejean  <benoit@placenet.org>
+
+	* src/inodedb/Makefile.am:
+
+	Fixed inodedb build with --as-needed to please people
+	who want to compile and optimize broken, deprecated and
+	never-used feature.
+	Patch by Daniel Gryniewicz <dang@gentoo.org>
+	Closes #341041.
+
 2006-08-10  Benoît Dejean  <benoit@placenet.org>
 
 	* configure.in:
