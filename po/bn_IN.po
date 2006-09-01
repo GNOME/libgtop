@@ -9,14 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-07 08:14+0200\n"
+"POT-Creation-Date: 2006-09-01 01:20+0200\n"
 "PO-Revision-Date: 2006-08-07 12:47+0530\n"
 "Last-Translator: Runa Bhattacharjee <runabh@gmail.com>\n"
 "Language-Team: Bengali India\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"\n"
 "X-Generator: KBabel 1.9.1\n"
 
 #: ../lib/read.c:65
@@ -96,7 +97,8 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "%s বিকল্পে সমস্যা: %s.\n"
-"কমান্ত-লাইন থেকে ব্যবহারযোগ্য সমস্ত বিকল্পের সম্পূর্ণ তালিকা দেখতে '%s --help' প্রয়োগ করুন।\n"
+"কমান্ত-লাইন থেকে ব্যবহারযোগ্য সমস্ত বিকল্পের সম্পূর্ণ তালিকা দেখতে '%s --help' প্রয়োগ "
+"করুন।\n"
 
 # msgstr "সিস্টেম বুট হবার পর থেকে নিষ্ক্রিয় কাজে অতিবাহিত সময় (সেকেন্ডে)"
 #: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
@@ -105,7 +107,7 @@ msgstr "বন্ধ করুন"
 
 #: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Interrupt"
-msgstr "ইন্টারাপ্ট উত্‌পন্ন করুন"
+msgstr "ইন্টারাপ্ট উৎপন্ন করুন"
 
 #: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Quit"
@@ -239,4 +241,3 @@ msgstr "ব্যবহারকারী নির্ধারিত সিগ�
 #: ../sysdeps/osf1/siglist.c:59 ../sysdeps/sun4/siglist.c:59
 msgid "User defined signal 2"
 msgstr "ব্যবহারকারী নির্ধারিত সিগনাল ২"
-
