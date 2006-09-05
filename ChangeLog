@@ -1,3 +1,9 @@
+2006-09-05  Benoît Dejean  <benoit@placenet.org>
+
+	* NEWS:
+	
+	Released 2.14.3.
+
 2006-08-14  Benoît Dejean  <benoit@placenet.org>
 
 	* src/inodedb/Makefile.am:
