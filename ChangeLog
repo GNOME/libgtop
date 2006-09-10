@@ -1,3 +1,11 @@
+2006-09-10  Benoît Dejean  <benoit@placenet.org>
+
+	* configure.in:
+	* include/glibtop/procstate.h:
+	
+	Removed wrong inline documentation.
+	Closes #355286.
+
 2006-09-05  Benoît Dejean  <benoit@placenet.org>
 
 	* NEWS:

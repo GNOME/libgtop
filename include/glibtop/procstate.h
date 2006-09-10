@@ -58,8 +58,7 @@ struct _glibtop_proc_state
 	guint64 flags;
 	char cmd[40];		/* basename of executable file in
 				 * call to exec(2) */
-	unsigned state;		/* single-char code for process state
-				 * (S=sleeping) */
+	unsigned state;
 	/* NOTE: when porting the library, TRY HARD to implement the
 	 *       following two fields. */
 	/* IMPORTANT NOTICE: For security reasons, it is extremely important
