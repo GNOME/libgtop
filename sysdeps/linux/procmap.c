@@ -38,9 +38,7 @@
 #define SMAPS_FILE "/proc/%u/smaps"
 
 
-#define PROC_MAPS_FORMAT ((sizeof(void*) == 8) \
-? "%16lx-%16lx %4c %16lx %02hx:%02hx %lu%*[ ]%[^\n]\n" \
-: "%08lx-%08lx %4c %08lx %02hx:%02hx %lu%*[ ]%[^\n]\n")
+#define PROC_MAPS_FORMAT "%16llx-%16llx %4c %16llx %02hx:%02hx %llu%*[ ]%[^\n]\n"
 
 
 static const unsigned long _glibtop_sysdeps_proc_map =
@@ -161,7 +159,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		guint len;
 
 		unsigned short dev_major, dev_minor;
-		unsigned long start, end, offset, inode;
+		guint64 start, end, offset, inode;
 		char flags[4];
 		char filename [GLIBTOP_MAP_FILENAME_LEN+1];
 
@@ -206,12 +204,12 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		entry = &g_array_index(entry_list, glibtop_map_entry, len);
 
 		entry->flags = _glibtop_sysdeps_map_entry;
-		entry->start = (guint64) start;
-		entry->end = (guint64) end;
-		entry->offset = (guint64) offset;
-		entry->perm = (guint64) perm;
-		entry->device = (guint64) MKDEV(dev_major, dev_minor);
-		entry->inode = (guint64) inode;
+		entry->start = start;
+		entry->end = end;
+		entry->offset = offset;
+		entry->perm = perm;
+		entry->device = MKDEV(dev_major, dev_minor);
+		entry->inode = inode;
 		g_strlcpy(entry->filename, filename, sizeof entry->filename);
 
 		if (has_smaps)

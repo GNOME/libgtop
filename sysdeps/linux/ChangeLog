@@ -1,3 +1,11 @@
+2006-09-11  Benoît Dejean  <benoit@placenet.org>
+
+	* procmap.c: (glibtop_get_proc_map_s):
+	
+	Fixed parsing s?maps on 64bit kernel.
+	Closes #355290.
+	Removed useless casts.
+
 2006-08-10  Benoît Dejean  <benoit@placenet.org>
 
 	* open.c: (glibtop_open_s):
