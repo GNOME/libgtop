@@ -1,3 +1,7 @@
+September 16, 2006: Overview of changes in 2.14.4
+=================================================
+* Fixed linux maps/smaps parsing on 64bit kernel.
+
 September 5, 2006: Overview of changes in 2.14.3
 ================================================
 * Fixed build with --as-needed.
