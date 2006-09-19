@@ -1,3 +1,13 @@
+2006-09-19  Benoît Dejean  <benoit@placenet.org>
+
+	* Makefile.am:
+	* procopenfiles.c: (glibtop_init_proc_open_files_s),
+	(glibtop_get_proc_open_files_s):
+
+	Added glibtop_get_proc_open_files implementation by 
+	Henry Zhang <hua.zhang@sun.com>.
+	Closes #346174.
+
 2006-06-24  Benoît Dejean  <benoit@placenet.org>
 
 	* proctime.c: (glibtop_get_proc_time_s):
