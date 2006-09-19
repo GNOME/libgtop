@@ -1,0 +1,207 @@
+# Telugu translation of libgtop
+# This file is distributed under the same license as the libgtop package.
+# Copyright (C) Sree Ganesh <mrthottempudi@yahoo.com>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop.HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-19 20:33+0530\n"
+"PO-Revision-Date: 2006-09-14 15:44+0530\n"
+"Last-Translator: Sree Ganesh <mrthottempudi@yahoo.com>\n"
+"Language-Team: Swecha <localisation@swecha.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: ../lib/read.c:65
+#, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "%d బైట్ చదువు"
+msgstr[1] "%d బైట్ చదువు"
+
+#: ../lib/read_data.c:53
+msgid "read data size"
+msgstr "సమాచార సైజును చదువు"
+
+#: ../lib/read_data.c:72
+#, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "సమాచారంయొక్క %lu బైట్ చదువు"
+msgstr[1] "సమాచారంయొక్క %lu బైట్ చదువు"
+
+#: ../lib/write.c:53
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "%d బైట్ రాయి"
+msgstr[1] "%d బైట్ రాయి"
+
+#: ../src/daemon/gnuserv.c:460
+msgid "Enable debugging"
+msgstr "డిబగ్గింగ్ కుదరదు"
+
+#: ../src/daemon/gnuserv.c:460
+msgid "DEBUG"
+msgstr "డిబగ్"
+
+#: ../src/daemon/gnuserv.c:462
+msgid "Enable verbose output"
+msgstr "వెర్బోస్ ఉద్గాతం కుదరదు"
+
+#: ../src/daemon/gnuserv.c:462
+msgid "VERBOSE"
+msgstr "వెర్బోసు"
+
+#: ../src/daemon/gnuserv.c:464
+msgid "Don't fork into background"
+msgstr "నేపధ్యంలోకి తిరగకండి"
+
+#: ../src/daemon/gnuserv.c:464
+msgid "NO-DAEMON"
+msgstr "డిఎఇఎమ్ఒఎన్ లేదు"
+
+#: ../src/daemon/gnuserv.c:466
+msgid "Invoked from inetd"
+msgstr "ఇన్ఎటిదడ్ నుండీ లే"
+
+#: ../src/daemon/gnuserv.c:466
+msgid "INETD"
+msgstr "ఐఎన్ఇటిడి"
+
+#: ../src/daemon/gnuserv.c:500
+#, c-format
+msgid ""
+"Error on option %s: %s.\n"
+"Run '%s --help' to see a full list of available command line options.\n"
+msgstr ""
+"%s: %s.ఐచ్ఛికంలో దోషం\n"
+"అందుబాటులోఉన్న కమాండ్ లైన్ ఐచ్చికాల పూర్తిజాబితా చూడటానికి '%s --help' ఉపయోగించు.\n"
+
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+msgid "Hangup"
+msgstr "పైకివేలాడతీయి"
+
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+msgid "Interrupt"
+msgstr "అడ్డుపడు"
+
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+msgid "Quit"
+msgstr "వదులు"
+
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+msgid "Illegal instruction"
+msgstr "చట్టవ్యతిరేక నిర్దేశాలు"
+
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+msgid "Trace trap"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+msgid "Abort"
+msgstr ""
+
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+msgid "EMT error"
+msgstr "ఇఎంటి దోషం"
+
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+msgid "Floating-point exception"
+msgstr "చర-కేంద్ర మినహాయింపు"
+
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+msgid "Kill"
+msgstr "చంపు"
+
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+msgid "Bus error"
+msgstr "బస్ దోషం"
+
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+msgid "Segmentation violation"
+msgstr "అంశీకరణ ఉల్లంఘన"
+
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+msgid "Bad argument to system call"
+msgstr "కంప్యూటరు పిలుపుకు సరికాని వాదన"
+
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+msgid "Broken pipe"
+msgstr "విరిగిన పైపు"
+
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+msgid "Alarm clock"
+msgstr "అలారం గడియారం"
+
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+msgid "Termination"
+msgstr "ముగింపు"
+
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+msgid "Urgent condition on socket"
+msgstr "సాకెట్లో అత్యవసర స్థితి"
+
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+msgid "Stop"
+msgstr "ఆగు"
+
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+msgid "Keyboard stop"
+msgstr "కీబోర్డు ఆపు"
+
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+msgid "Continue"
+msgstr "కొనసాగించు"
+
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+msgid "Child status has changed"
+msgstr "బాల్య స్థితి మార్చబడింది"
+
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+msgid "Background read from tty"
+msgstr "టిటివైనుండీ నేపధ్యాన్ని చదువు"
+
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+msgid "Background write to tty"
+msgstr "టిటివైకి నేపధ్యాన్ని రాయి"
+
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+msgid "I/O now possible"
+msgstr "ఐ/ఒ ఇప్పుడు సాధ్యం"
+
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+msgid "CPU limit exceeded"
+msgstr "సిపియు అవధి మీరింది"
+
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+msgid "File size limit exceeded"
+msgstr "ఫైలు పరిమాణం ఎక్కువైంది"
+
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+msgid "Virtual alarm clock"
+msgstr "సరైన అలారం గడియాయారం"
+
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+msgid "Profiling alarm clock"
+msgstr "ఆకృతీకరించిన అలారం గడియారం"
+
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+msgid "Window size change"
+msgstr "విందో పరిమాణం మార్పు"
+
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+msgid "Information request"
+msgstr "సమాచారం కావాలి"
+
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+msgid "User defined signal 1"
+msgstr "వినియోగదారుని నిర్ధారనా చిహ్నం 1"
+
+#: ../sysdeps/osf1/siglist.c:59 ../sysdeps/sun4/siglist.c:59
+msgid "User defined signal 2"
+msgstr "వినియోగదారుని నిర్ధారనా చిహ్నం 2"
