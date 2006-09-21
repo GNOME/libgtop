@@ -1,3 +1,9 @@
+2006-09-21  Benoît Dejean  <benoit@placenet.org>
+
+	* mountlist.c: (ignore_mount_entry):
+
+	Added nfsd to the exclude list.
+
 2006-06-24  Benoît Dejean  <benoit@placenet.org>
 
 	* mountlist.c: (read_filesystem_list):

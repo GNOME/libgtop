@@ -546,6 +546,7 @@ static gboolean ignore_mount_entry(const struct mount_entry *me)
 		"mfs",
 		"mntfs",
 		"mqueue",
+		"nsfd",
 		"none",
 		"openpromfs",
 		"proc",
