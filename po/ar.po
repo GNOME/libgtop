@@ -1,24 +1,24 @@
-# translation of libgtop.po to Arabic
-# translation of libgtop.libgtop-GNOME-2-0-port.ar.po to Arabic
+# translation of libgtop.HEAD.ar.po to Arabic
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+#
 # Arafat Medini <lumina@silverpen.de>, 2002,2003.
 # Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
 # Abdulaziz Al-Arfaj <alarfaj0@yahoo.com>, 2004.
-#
+# Khaled Hosny <khaledhosny@eglug.org>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop\n"
+"Project-Id-Version: libgtop.HEAD.ar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-23 08:51+0200\n"
-"PO-Revision-Date: 2006-10-05 21:07-0000\n"
-"Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
+"PO-Revision-Date: 2006-11-16 17:57+0200\n"
+"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : 3\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : 3\n"
 
 #: ../lib/read.c:65
 #, c-format
@@ -53,19 +53,19 @@ msgstr[3] "كتابة %d بايت"
 
 #: ../src/daemon/gnuserv.c:460
 msgid "Enable debugging"
-msgstr "تفعيل التنقيح"
+msgstr "فعّل التنقيح"
 
 #: ../src/daemon/gnuserv.c:460
 msgid "DEBUG"
-msgstr "تنقيح"
+msgstr "DEBUG"
 
 #: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
-msgstr "تمكين اخراج مسهب"
+msgstr "فعّل خرْج مطنب"
 
 #: ../src/daemon/gnuserv.c:462
 msgid "VERBOSE"
-msgstr "مضجر"
+msgstr "VERBOSE"
 
 #: ../src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
@@ -73,7 +73,7 @@ msgstr "لا تشعّب إلى الخلفية"
 
 #: ../src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
-msgstr "لا-جنّي"
+msgstr "NO-DAEMON"
 
 #: ../src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
@@ -90,22 +90,22 @@ msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "خطأ عند الخيار %s: %s.\n"
-"فعل '%s --help' لرئية قائمة كاملة لخيارات سطر الأوامر.\n"
+"شغّل '%s --help' لرئية قائمة كاملة لخيارات سطر الأوامر.\n"
 
 #: ../sysdeps/osf1/siglist.c:29
 #: ../sysdeps/sun4/siglist.c:29
 msgid "Hangup"
-msgstr "أغلاق الخط"
+msgstr "علق"
 
 #: ../sysdeps/osf1/siglist.c:30
 #: ../sysdeps/sun4/siglist.c:30
 msgid "Interrupt"
-msgstr "مقاطعة"
+msgstr "قاطِع"
 
 #: ../sysdeps/osf1/siglist.c:31
 #: ../sysdeps/sun4/siglist.c:31
 msgid "Quit"
-msgstr "خروج"
+msgstr "اخرج"
 
 #: ../sysdeps/osf1/siglist.c:32
 #: ../sysdeps/sun4/siglist.c:32
@@ -120,7 +120,7 @@ msgstr "فخ رسم"
 #: ../sysdeps/osf1/siglist.c:34
 #: ../sysdeps/sun4/siglist.c:34
 msgid "Abort"
-msgstr "ايقاف"
+msgstr "اجهض"
 
 #: ../sysdeps/osf1/siglist.c:35
 #: ../sysdeps/sun4/siglist.c:35
@@ -135,12 +135,12 @@ msgstr "استثناء Floating-point"
 #: ../sysdeps/osf1/siglist.c:37
 #: ../sysdeps/sun4/siglist.c:37
 msgid "Kill"
-msgstr "قتل"
+msgstr "اقتل"
 
 #: ../sysdeps/osf1/siglist.c:38
 #: ../sysdeps/sun4/siglist.c:38
 msgid "Bus error"
-msgstr "خطأ باص"
+msgstr "خطأ ناقل"
 
 #: ../sysdeps/osf1/siglist.c:39
 #: ../sysdeps/sun4/siglist.c:39
@@ -150,7 +150,7 @@ msgstr "انتهاك اﻻنقسام"
 #: ../sysdeps/osf1/siglist.c:40
 #: ../sysdeps/sun4/siglist.c:40
 msgid "Bad argument to system call"
-msgstr "متغيّر سيء عند نداء النظام"
+msgstr "متغيّر سيء لنداء النظام"
 
 #: ../sysdeps/osf1/siglist.c:41
 #: ../sysdeps/sun4/siglist.c:41
@@ -170,12 +170,12 @@ msgstr "إنهاء"
 #: ../sysdeps/osf1/siglist.c:44
 #: ../sysdeps/sun4/siglist.c:44
 msgid "Urgent condition on socket"
-msgstr "حالة استعجالية عند نقطة الاتصال"
+msgstr "حالة استعجالية عند مقبس"
 
 #: ../sysdeps/osf1/siglist.c:45
 #: ../sysdeps/sun4/siglist.c:45
 msgid "Stop"
-msgstr "توقّف"
+msgstr "قف"
 
 #: ../sysdeps/osf1/siglist.c:46
 #: ../sysdeps/sun4/siglist.c:46
@@ -185,7 +185,7 @@ msgstr "توقيف لوحة المفاتيح"
 #: ../sysdeps/osf1/siglist.c:47
 #: ../sysdeps/sun4/siglist.c:47
 msgid "Continue"
-msgstr "متابعة"
+msgstr "تابع"
 
 #: ../sysdeps/osf1/siglist.c:48
 #: ../sysdeps/sun4/siglist.c:48
@@ -195,12 +195,12 @@ msgstr "تغيرت حالة الابن"
 #: ../sysdeps/osf1/siglist.c:49
 #: ../sysdeps/sun4/siglist.c:49
 msgid "Background read from tty"
-msgstr "قراءة خلفية من tty"
+msgstr "قراءة من tty في الخلفية"
 
 #: ../sysdeps/osf1/siglist.c:50
 #: ../sysdeps/sun4/siglist.c:50
 msgid "Background write to tty"
-msgstr "كتابة خلفية لـ tty"
+msgstr "كتابة لـ tty في الخلفية"
 
 #: ../sysdeps/osf1/siglist.c:51
 #: ../sysdeps/sun4/siglist.c:51
