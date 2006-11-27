@@ -43,7 +43,7 @@ static const unsigned long _glibtop_sysdeps_mem =
 (1L << GLIBTOP_MEM_FREE) +
 (1L << GLIBTOP_MEM_SHARED) +
 (1L << GLIBTOP_MEM_BUFFER) +
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 (1L << GLIBTOP_MEM_CACHED) +
 #endif
 (1L << GLIBTOP_MEM_USER) + (1L << GLIBTOP_MEM_LOCKED);
@@ -66,7 +66,7 @@ static struct nlist nlst [] = {
 #else
 #if defined(__bsdi__)
 	{ "_bufcachemem" },
-#elif defined(__FreeBSD__)
+#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 	{ "_bufspace" },
 #else
 	{ "_bufpages" },
@@ -171,7 +171,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 
 	/* convert memory stats to Kbytes */
 
-#if defined(__FreeBSD__)
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 	v_total_count = vmm.v_page_count;
 #else
 #if defined(__NetBSD__)  && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
@@ -198,7 +198,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	buf->used  = (guint64) pagetok (v_used_count) << LOG1024;
 	buf->free  = (guint64) pagetok (v_free_count) << LOG1024;
 
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 	buf->cached = (guint64) pagetok (vmm.v_cache_count) << LOG1024;
 #endif
 
@@ -210,7 +210,7 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 
 	buf->shared = (guint64) pagetok (vmt.t_rmshr) << LOG1024;
 
-#if __FreeBSD__
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 	buf->buffer = (guint64) bufspace;
 #else
 	buf->buffer = (guint64) pagetok (bufspace) << LOG1024;

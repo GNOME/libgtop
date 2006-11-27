@@ -36,7 +36,7 @@
 #include <sys/user.h>
 #endif
 #if !defined(__bsdi__) && !(defined(__FreeBSD__) && defined(__alpha__)) && \
-    !defined(__NetBSD__)
+    !defined(__NetBSD__) 
 #include <machine/pcb.h>
 #endif
 
@@ -94,7 +94,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 			   pid_t pid)
 {
 	struct kinfo_proc *pinfo;
-#ifndef __FreeBSD__
+#if !(defined(__FreeBSD__) || defined(__FreeBSD_kernel__))
 	struct user *u_addr = (struct user *)USRSTACK;
 	struct pstats pstats;
 	struct pcb pcb;
@@ -119,7 +119,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	if ((pinfo == NULL) || (count != 1))
 		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
 
-#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
+#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
 
 #define	PROC_WCHAN	ki_wchan
 #define	PROC_WMESG	ki_wmesg
@@ -147,7 +147,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	}
 #endif
 
-#ifndef __FreeBSD__
+#if !(defined(__FreeBSD__) || defined(__FreeBSD_kernel__))
 
 	/* Taken from `saveuser ()' in `/usr/src/bin/ps/ps.c'. */
 
@@ -203,9 +203,9 @@ glibtop_get_proc_kernel_p (glibtop *server,
 		       (unsigned long) &u_addr->u_pcb,
 		       (char *) &pcb, sizeof (pcb)) == sizeof (pcb))
 		{
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 #ifndef __alpha__
-#if (__FreeBSD_version >= 300003)
+#if (__FreeBSD_version >= 300003) || defined(__FreeBSD_kernel__)
 			buf->kstk_esp = (guint64) pcb.pcb_esp;
 			buf->kstk_eip = (guint64) pcb.pcb_eip;
 #else

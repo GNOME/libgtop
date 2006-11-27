@@ -73,7 +73,7 @@ glibtop_get_proc_state_p (glibtop *server,
 		return;
 	}
 
-#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
+#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
 #define	PROC_COMM	ki_comm
 #define	PROC_SVUID	ki_svuid
 #define	PROC_SVGID	ki_svgid

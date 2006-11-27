@@ -70,7 +70,7 @@ glibtop_get_proc_signal_p (glibtop *server,
 		return;
 	}
 
-#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
+#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
 
 #define	PROC_SIGLIST	ki_siglist
 #define	PROC_SIGMASK	ki_sigmask
@@ -92,7 +92,7 @@ glibtop_get_proc_signal_p (glibtop *server,
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 105150000)
 	buf->signal [0] = pinfo [0].kp_proc.p_sigctx.ps_siglist.__bits[0];
 #elif (defined(__NetBSD__) && (NSIG > 32)) || \
-      (defined(__FreeBSD__) && (__FreeBSD_version >= 400011))
+      (defined(__FreeBSD__) && (__FreeBSD_version >= 400011) || defined(__FreeBSD_kernel__))
 	buf->signal [0] = pinfo [0].PROC_SIGLIST.__bits[0];
 #else
 	buf->signal [0] = pinfo [0].kp_proc.p_siglist;
@@ -104,7 +104,7 @@ glibtop_get_proc_signal_p (glibtop *server,
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 105150000)
 	buf->blocked [0] = pinfo [0].kp_proc.p_sigctx.ps_sigmask.__bits[0];
 #elif (defined(__NetBSD__) && (NSIG > 32)) || \
-      (defined(__FreeBSD__) && (__FreeBSD_version >= 400011))
+      (defined(__FreeBSD__) && (__FreeBSD_version >= 400011) || defined(__FreeBSD_kernel__))
 	buf->blocked [0] = pinfo [0].PROC_SIGMASK.__bits[0];
 #else
 	buf->blocked [0] = pinfo [0].kp_proc.p_sigmask;
@@ -116,7 +116,7 @@ glibtop_get_proc_signal_p (glibtop *server,
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 105150000)
 	buf->sigignore [0] = pinfo [0].kp_proc.p_sigctx.ps_sigignore.__bits[0];
 #elif (defined(__NetBSD__) && (NSIG > 32)) || \
-      (defined(__FreeBSD__) && (__FreeBSD_version >= 400011))
+      (defined(__FreeBSD__) && (__FreeBSD_version >= 400011) || defined(__FreeBSD_kernel__))
 	buf->sigignore [0] = pinfo [0].PROC_SIGIGNORE.__bits[0];
 #else
 	buf->sigignore [0] = pinfo [0].kp_proc.p_sigignore;
@@ -128,7 +128,7 @@ glibtop_get_proc_signal_p (glibtop *server,
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 105150000)
 	buf->sigcatch [0] = pinfo [0].kp_proc.p_sigctx.ps_sigcatch.__bits[0];
 #elif (defined(__NetBSD__) && (NSIG > 32)) || \
-      (defined(__FreeBSD__) && (__FreeBSD_version >= 400011))
+      (defined(__FreeBSD__) && (__FreeBSD_version >= 400011) || defined(__FreeBSD_kernel__))
 	buf->sigcatch [0] = pinfo [0].PROC_SIGCATCH.__bits[0];
 #else
 	buf->sigcatch [0] = pinfo [0].kp_proc.p_sigcatch;

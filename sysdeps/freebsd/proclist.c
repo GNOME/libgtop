@@ -86,7 +86,7 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 	pids = g_realloc (pids, count * sizeof (unsigned));
 	/* Copy the pids over to this chain */
 	for (i=j=0; i < count; i++) {
-#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
+#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
 #define PROC_STAT	ki_stat
 #define PROC_RUID	ki_ruid
 #define PROC_PID	ki_pid

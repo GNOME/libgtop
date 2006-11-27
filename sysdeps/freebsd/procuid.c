@@ -77,7 +77,7 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 		return;
 	}
 
-#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
+#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
 
 #define	PROC_RUID	ki_ruid
 #define	PROC_SVUID	ki_svuid
@@ -87,11 +87,7 @@ glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf,
 #define	PROC_PGID	ki_pgid
 #define	PROC_TPGID	ki_tpgid
 #define	PROC_NICE	ki_nice
-#if __FreeBSD_version >= 500013
 #define	PROC_PRIORITY	ki_pri.pri_user
-#else
-#define	PROC_PRIORITY	ki_priority
-#endif
 #else
 
 #define	PROC_RUID	kp_eproc.e_pcred.p_ruid

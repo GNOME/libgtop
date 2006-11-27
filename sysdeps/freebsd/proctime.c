@@ -58,9 +58,8 @@ glibtop_init_proc_time_p (glibtop *server)
  * system, and interrupt time usage.
  */
 
-#ifndef __FreeBSD__
+#if !(defined(__FreeBSD__) || defined(__FreeBSD_kernel__))
 
-#ifndef __FreeBSD__
 static void
 calcru(p, up, sp, ip)
      struct proc *p;
@@ -109,8 +108,6 @@ calcru(p, up, sp, ip)
 		ip->tv_usec = it % 1000000;
 	}
 }
-#endif
-
 #endif /* !__FreeBSD__ */
 
 /* Provides detailed information about a process. */
@@ -145,7 +142,7 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	if ((pinfo == NULL) || (count != 1))
 		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
 
-#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
+#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
 	buf->rtime = pinfo [0].ki_runtime;
 #elif (defined __FreeBSD__) && (__FreeBSD_version <= 500013)
 	buf->rtime = pinfo [0].kp_proc.p_runtime;
@@ -182,8 +179,8 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 
 	buf->flags |= _glibtop_sysdeps_proc_time_user;
 #else
-#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
-#if __FreeBSD_version >= 500016
+#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
+#if (__FreeBSD_version >= 500016) || defined(__FreeBSD_kernel__)
        if ((pinfo [0].ki_flag & PS_INMEM)) {
 #else
        if ((pinfo [0].ki_flag & P_INMEM)) {

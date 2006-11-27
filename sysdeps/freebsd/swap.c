@@ -33,13 +33,13 @@ static const unsigned long _glibtop_sysdeps_swap =
 (1L << GLIBTOP_SWAP_FREE) + (1L << GLIBTOP_SWAP_PAGEIN) +
 (1L << GLIBTOP_SWAP_PAGEOUT);
 
-#if defined(__FreeBSD__) || defined(__bsdi__)
+#if defined(__FreeBSD__) || defined(__bsdi__) || defined(__FreeBSD_kernel__)
 
 #include <sys/conf.h>
 #ifdef __bsdi__
 #include <vm/swap_pager.h>
 #else
-#if __FreeBSD_version < 400005
+#if (__FreeBSD_version < 400005) && !defined(__FreeBSD_kernel__)
 #include <sys/rlist.h>
 #endif
 #endif
@@ -94,7 +94,7 @@ static struct nlist nlst2 [] = {
 void
 glibtop_init_swap_p (glibtop *server)
 {
-#if defined(__FreeBSD__) || defined(__bsdi__)
+#if defined(__FreeBSD__) || defined(__bsdi__) || defined(__FreeBSD_kernel__)
 #if __FreeBSD__ < 4 || defined(__bsdi__)
 	if (kvm_nlist (server->machine.kd, nlst) < 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (swap)");
@@ -130,9 +130,9 @@ glibtop_init_swap_p (glibtop *server)
 void
 glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 {
-#if defined(__FreeBSD__)
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 
-# if __FreeBSD__ < 4
+# if (__FreeBSD__ < 4) && !defined(__FreeBSD_kernel__)
 	char *header;
 	int hlen, nswdev, dmmax;
 	int div, nfree, npfree;
@@ -194,7 +194,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		buf->pagein = 0;
 		buf->pageout = 0;
 	} else {
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 		buf->pagein = vmm.v_swappgsin - swappgsin;
 		buf->pageout = vmm.v_swappgsout - swappgsout;
 #else
@@ -208,7 +208,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 #endif
 	}
 
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
         swappgsin = vmm.v_swappgsin;
 	swappgsout = vmm.v_swappgsout;
 #else
@@ -221,9 +221,9 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 #endif
 #endif
 
-#if defined(__FreeBSD__)
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 
-#if __FreeBSD__ < 4
+#if (__FreeBSD__ < 4) && !defined(__FreeBSD_kernel__)
 
 	/* Size of largest swap device. */
 

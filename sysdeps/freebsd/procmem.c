@@ -73,7 +73,7 @@ static const unsigned long _glibtop_sysdeps_proc_mem =
 static const unsigned long _glibtop_sysdeps_proc_mem_share =
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
 (1L << GLIBTOP_PROC_MEM_SHARE);
-#elif defined(__FreeBSD__)
+#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 (1L << GLIBTOP_PROC_MEM_SHARE);
 #else
 0;
@@ -126,7 +126,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 #else
 	struct vm_object object;
 #endif
-#if !defined(__FreeBSD__) || (__FreeBSD_version < 500013)
+#if (!defined(__FreeBSD__) || (__FreeBSD_version < 500013)) && !defined(__FreeBSD_kernel__)
 	struct plimit plimit;
 #endif
 	int count;
@@ -147,7 +147,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
 		return;
 	}
-#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
+#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
 
 #define        PROC_VMSPACE   ki_vmspace
 
@@ -214,8 +214,8 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 			return;
 		}
 
-#ifdef __FreeBSD__
-#if __FreeBSD__ >= 4
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
+#if (__FreeBSD__ >= 4) || defined(__FreeBSD_kernel__)
 		if (entry.eflags & (MAP_ENTRY_IS_SUB_MAP))
 			continue;
 #else
@@ -282,7 +282,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 #endif /* __NetBSD_Version__ >= 105250000 */
 #endif
 
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 		if (object.type != OBJT_VNODE)
 			continue;
 

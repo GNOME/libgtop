@@ -41,18 +41,18 @@
 #else
 #include <vm/vm_object.h>
 #include <vm/vm_map.h>
-#if (__FreeBSD_version >= 400011)
+#if (__FreeBSD_version >= 400011) || defined(__FreeBSD_kernel__)
 #include <vm/vm.h>
 #else
 #include <vm/vm_prot.h>
 #endif
 #endif
 
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 #define _KVM_VNODE
 #endif
 #include <sys/vnode.h>
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 #undef _KVM_VNODE
 #endif
 #include <sys/mount.h>
@@ -109,9 +109,9 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 	struct vm_object object;
 #endif
 	glibtop_map_entry *maps;
-#if defined __FreeBSD__
+#if (defined __FreeBSD__) || defined(__FreeBSD_kernel__)
 	struct vnode vnode;
-#if __FreeBSD_version < 500039
+#if (__FreeBSD_version < 500039) && !defined(__FreeBSD_kernel__)
 	struct inode inode;
 #endif
 #endif
@@ -137,7 +137,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 	/* Now we get the memory maps. */
 
 	if (kvm_read (server->machine.kd,
-#if defined(__FreeBSD__) && (__FreeBSD_version >= 500013)
+#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
 		      (unsigned long) pinfo [0].ki_vmspace,
 #else
 		      (unsigned long) pinfo [0].kp_proc.p_vmspace,
@@ -179,8 +179,8 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			update = 1;
 		}
 
-#ifdef __FreeBSD__
-#if __FreeBSD__ >= 4
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
+#if (__FreeBSD__ >= 4) || defined(__FreeBSD_kernel__)
 		if (entry.eflags & (MAP_ENTRY_IS_SUB_MAP))
 			continue;
 #else
@@ -256,7 +256,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 #endif
 
 
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 		/* If the object is of type vnode, add its size */
 
 		if (object.type != OBJT_VNODE)
@@ -270,10 +270,10 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			      &vnode, sizeof (vnode)) != sizeof (vnode))
 			glibtop_error_io_r (server, "kvm_read (vnode)");
 
-#if defined(__FreeBSD__) && (__FreeBSD_version >= 500039)
+#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500039)) || defined(__FreeBSD_kernel__)
                switch (vnode.v_type) {
                    case VREG:
-#if __FreeBSD_version < 600006
+#if (__FreeBSD_version < 600006) && !defined(__FreeBSD_kernel__)
                        maps [i-1].inode = vnode.v_cachedid;
                        maps [i-1].device = vnode.v_cachedfs;
 #endif

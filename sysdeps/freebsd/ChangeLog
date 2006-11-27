@@ -1,3 +1,20 @@
+2006-11-27  Benoît Dejean  <benoit@placenet.org>
+
+	* fsusage.c: (_glibtop_freebsd_get_fsusage_read_write):
+	* mem.c: (glibtop_get_mem_p):
+	* prockernel.c: (glibtop_get_proc_kernel_p):
+	* proclist.c: (glibtop_get_proclist_p):
+	* procmap.c: (glibtop_get_proc_map_p):
+	* procmem.c: (glibtop_get_proc_mem_p):
+	* procsignal.c: (glibtop_get_proc_signal_p):
+	* procstate.c: (glibtop_get_proc_state_p):
+	* proctime.c:
+	* procuid.c: (glibtop_get_proc_uid_p):
+	* swap.c: (glibtop_init_swap_p), (glibtop_get_swap_p):
+
+	Added kfreebsd support.
+	Patch by Petr Salinger <Petr.Salinger@seznam.cz>.
+
 2006-04-09  Benoît Dejean  <benoit@placenet.org>
 
 	* fsusage.c: (_glibtop_freebsd_get_fsusage_read_write):

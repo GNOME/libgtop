@@ -46,9 +46,9 @@ _glibtop_freebsd_get_fsusage_read_write(glibtop *server,
 	if (result == -1) {
 		return;
 	}
-
+#if !defined(__FreeBSD_kernel__)
 	buf->read = sfs.f_syncreads + sfs.f_asyncreads;
 	buf->write = sfs.f_syncwrites + sfs.f_asyncwrites;
-
+#endif
 	buf->flags |= (1 << GLIBTOP_FSUSAGE_READ) | (1 << GLIBTOP_FSUSAGE_WRITE);
 }
