@@ -1,5 +1,12 @@
 2006-11-27  Benoît Dejean  <benoit@placenet.org>
 
+	* libgtop-sysdeps.m4:
+	
+	Added kfreebsd support.
+	Patch by Petr Salinger <Petr.Salinger@seznam.cz>.
+
+2006-11-27  Benoît Dejean  <benoit@placenet.org>
+
 	* configure.in:
 	
 	Bumped version number.

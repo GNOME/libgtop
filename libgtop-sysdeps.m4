@@ -64,7 +64,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  libgtop_have_sysinfo=yes
 	  libgtop_need_server=no
 	  ;;
-	freebsd*|netbsd*|openbsd*|bsdi*)
+	freebsd*|netbsd*|openbsd*|bsdi*|kfreebsd*)
 	  libgtop_sysdeps_dir=freebsd
 	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
@@ -122,7 +122,13 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	case "$host_os" in
 	*bsd*)
-	  AC_CHECK_LIB(kvm, kvm_open, KVM_LIBS=-lkvm, KVM_LIBS=)
+		case "$host_os" in
+		*kfreebsd*)
+		AC_CHECK_LIB(kvm, kvm_open, KVM_LIBS="-lkvm -lfreebsd -lbsd", KVM_LIBS=, -lfreebsd -lbsd);;
+		*) 
+	  	AC_CHECK_LIB(kvm, kvm_open, KVM_LIBS=-lkvm, KVM_LIBS=);;
+	  	esac
+	  
 	  AC_SUBST(KVM_LIBS)
 
 	  AC_CHECK_HEADERS(net/if_var.h)
@@ -141,7 +147,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 #include <net/netisr.h>
 #include <net/route.h>
 
-#if defined(__FreeBSD__) || defined(__NetBSD__)
+#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__FreeBSD_kernel__)
 #include <net/if_sppp.h>
 #else
 #include <i4b/sppp/if_sppp.h>
@@ -167,7 +173,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 #include <net/netisr.h>
 #include <net/route.h>
 
-#if defined(__FreeBSD__) || defined(__NetBSD__)
+#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__FreeBSD_kernel__)
 #include <net/if_sppp.h>
 #else
 #include <i4b/sppp/if_sppp.h>
