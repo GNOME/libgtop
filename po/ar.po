@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libgtop.HEAD.ar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-23 08:51+0200\n"
-"PO-Revision-Date: 2006-11-16 17:57+0200\n"
+"PO-Revision-Date: 2006-11-25 15:36+0200\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,30 +24,30 @@ msgstr ""
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "قراءة بايت واحدة"
-msgstr[1] "قراءة بايتين"
-msgstr[2] "قراءة %d بايتات"
-msgstr[3] "قراءة %d بايت"
+msgstr[0] "اقرأ بايت واحدة"
+msgstr[1] "اقرأ بايتين"
+msgstr[2] "اقرأ %d بايتات"
+msgstr[3] "اقرأ %d بايت"
 
 #: ../lib/read_data.c:53
 msgid "read data size"
-msgstr "قراءت حجم البيانات"
+msgstr "اقرأ حجم البيانات"
 
 #: ../lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "قراءة بايت واحدة %lu"
-msgstr[1] "قراءة بايتين %lu"
-msgstr[2] "قراءة %lu بايتات"
-msgstr[3] "قراءة %lu بايت"
+msgstr[0] "اقرأ بايت واحدة "
+msgstr[1] "اقرأ بايتين"
+msgstr[2] "اقرأ %lu بايتات"
+msgstr[3] "اقرأ %lu بايت"
 
 #: ../lib/write.c:53
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "كتابة بايت واحدة %d"
-msgstr[1] "كتابة بايتين %d"
+msgstr[0] "كتابة بايت واحدة"
+msgstr[1] "كتابة بايتين"
 msgstr[2] "كتابة %d بايتات"
 msgstr[3] "كتابة %d بايت"
 
@@ -61,7 +61,7 @@ msgstr "DEBUG"
 
 #: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
-msgstr "فعّل خرْج مطنب"
+msgstr "فعّل خرْج مسهِب"
 
 #: ../src/daemon/gnuserv.c:462
 msgid "VERBOSE"
@@ -130,7 +130,7 @@ msgstr "خطأ EMT"
 #: ../sysdeps/osf1/siglist.c:36
 #: ../sysdeps/sun4/siglist.c:36
 msgid "Floating-point exception"
-msgstr "استثناء Floating-point"
+msgstr "استثناء أرقام عشرية"
 
 #: ../sysdeps/osf1/siglist.c:37
 #: ../sysdeps/sun4/siglist.c:37
@@ -155,7 +155,7 @@ msgstr "متغيّر سيء لنداء النظام"
 #: ../sysdeps/osf1/siglist.c:41
 #: ../sysdeps/sun4/siglist.c:41
 msgid "Broken pipe"
-msgstr "انبوب مكسور"
+msgstr "أنبوب مكسور"
 
 #: ../sysdeps/osf1/siglist.c:42
 #: ../sysdeps/sun4/siglist.c:42
@@ -170,7 +170,7 @@ msgstr "إنهاء"
 #: ../sysdeps/osf1/siglist.c:44
 #: ../sysdeps/sun4/siglist.c:44
 msgid "Urgent condition on socket"
-msgstr "حالة استعجالية عند مقبس"
+msgstr "حالة عاجلة عند المقبس"
 
 #: ../sysdeps/osf1/siglist.c:45
 #: ../sysdeps/sun4/siglist.c:45
@@ -180,7 +180,7 @@ msgstr "قف"
 #: ../sysdeps/osf1/siglist.c:46
 #: ../sysdeps/sun4/siglist.c:46
 msgid "Keyboard stop"
-msgstr "توقيف لوحة المفاتيح"
+msgstr "أوقف لوحة المفاتيح"
 
 #: ../sysdeps/osf1/siglist.c:47
 #: ../sysdeps/sun4/siglist.c:47
@@ -205,7 +205,7 @@ msgstr "كتابة لـ tty في الخلفية"
 #: ../sysdeps/osf1/siglist.c:51
 #: ../sysdeps/sun4/siglist.c:51
 msgid "I/O now possible"
-msgstr "ادخال/اخراج ممكن الآن"
+msgstr "دخْل/خرْج ممكن الآن"
 
 #: ../sysdeps/osf1/siglist.c:52
 #: ../sysdeps/sun4/siglist.c:52
@@ -240,10 +240,10 @@ msgstr "طلب معلومات"
 #: ../sysdeps/osf1/siglist.c:58
 #: ../sysdeps/sun4/siglist.c:58
 msgid "User defined signal 1"
-msgstr "اشارة معرفة من طرف المستخدم 1"
+msgstr "اشارة 1 معرفة من طرف المستخدم"
 
 #: ../sysdeps/osf1/siglist.c:59
 #: ../sysdeps/sun4/siglist.c:59
 msgid "User defined signal 2"
-msgstr "اشارة معرفة من طرف المستخدم 2"
+msgstr "اشارة 2 معرفة من طرف المستخدم"
 
