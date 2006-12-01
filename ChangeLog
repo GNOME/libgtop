@@ -1,3 +1,11 @@
+2006-12-01  Julio M. Merino Vidal  <jmmv@NetBSD.org>
+
+	* configure.in:
+	* libgtop-sysdeps.m4:
+
+	Use the AS_HELP_STRING macro to format help messages.
+	Fixes bug #337068.
+
 2006-11-27  Benoît Dejean  <benoit@placenet.org>
 
 	* libgtop-sysdeps.m4:

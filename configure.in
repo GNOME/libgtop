@@ -25,6 +25,7 @@ m4_define([libgtop_server_version], [5])
 # Version code calculation
 m4_define([libgtop_version_code], [m4_eval(libgtop_major_version * 1000000 + libgtop_minor_version * 1000 + libgtop_micro_version)])
 
+AC_PREREQ(2.59)
 AC_INIT([libgtop], [libgtop_version],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop])
 AC_CONFIG_SRCDIR(copyright.txt)
@@ -87,8 +88,10 @@ GNOME_LIBGTOP_SYSDEPS
 GNOME_LIBGTOP_TYPES
 
 AC_ARG_WITH(libgtop-inodedb,
-[  --with-libgtop-inodedb  Build the inodedb stuff (default=no)],
-[build_inodedb="$withval"], [build_inodedb=no])
+            AS_HELP_STRING([--with-libgtop-inodedb],
+                           [Build the inodedb stuff @<:@default=no@:>@]),
+            [build_inodedb="$withval"],
+            [build_inodedb=no])
 
 LIBGTOP_EXTRA_LIBS=
 
@@ -279,8 +282,15 @@ dnl For diskusage stuff
 GNOME_FILEUTILS_CHECKS
 
 dnl Debugging
-AC_ARG_ENABLE(debug, [  --enable-debug          turn on debugging [default=no]],AC_DEFINE(LIBGTOP_ENABLE_DEBUG, 1, [Define to enable debugging]),)
-AC_ARG_ENABLE(fatal-warnings, [  --enable-fatal-warnings make all warnings fatal [debug=no]],AC_DEFINE(LIBGTOP_FATAL_WARNINGS, 1, [Define to enable fatal warnings]),)
+AC_ARG_ENABLE(debug,
+              AS_HELP_STRING([--enable-debug],
+                             [Turn on debugging @<:@default=no@:>@]),
+              AC_DEFINE(LIBGTOP_ENABLE_DEBUG, 1, [Define to enable debugging]))
+AC_ARG_ENABLE(fatal-warnings,
+              AS_HELP_STRING([--enable-fatal-warnings],
+                             [Make all warnings fatal @<:@debug=no@:>@]),
+              AC_DEFINE(LIBGTOP_FATAL_WARNINGS, 1,
+                        [Define to enable fatal warnings]))
 
 dnl These definitions are expanded in make.
 LIBGTOP_LIBS='-L$(libdir)'

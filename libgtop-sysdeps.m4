@@ -18,19 +18,22 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	AC_SUBST(libgtop_need_server)
 
 	AC_ARG_WITH(libgtop-examples,
-	[  --with-libgtop-examples Build the libgtop examples (default=no)],[
+	AS_HELP_STRING([--with-libgtop-examples],
+	[Build the libgtop examples @<:@default=no@:>@]),[
 	build_examples="$withval"], [build_examples=no])
 
 	AM_CONDITIONAL(EXAMPLES, test x"$build_examples" = xyes)
 
 	AC_ARG_ENABLE(hacker-mode,
-	[  --enable-hacker-mode    Enable building of unstable sysdeps],
+	AS_HELP_STRING([--enable-hacker-mode],
+	[Enable building of unstable sysdeps]),
 	[hacker_mode="$enableval"], [hacker_mode=no])
 
 	AM_CONDITIONAL(HACKER_MODE, test x"$hacker_mode" = xyes)
 
 	AC_ARG_WITH(libgtop-smp,
-	[  --with-libgtop-smp      Enable SMP support (default-auto)],[
+	AS_HELP_STRING([--with-libgtop-smp],
+	[Enable SMP support @<:@default-auto@:>@]),[
 	libgtop_smp="$withval"],[libgtop_smp=auto])
 
 	if test $libgtop_smp = auto ; then
