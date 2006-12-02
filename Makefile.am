@@ -32,3 +32,4 @@ pkgconfig_DATA = libgtop-2.0.pc
 libgtop-features.def: features.def
 	@LN_S@ $< $@
 
+DISTCHECK_CONFIGURE_FLAGS=--enable-gtk-doc

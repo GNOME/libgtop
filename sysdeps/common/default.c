@@ -5,13 +5,40 @@
 #include <glibtop/union.h>
 
 
+/**
+ * glibtop_close:
+ *
+ * Close the connection to the server.
+ */
 void
 glibtop_close(void)
 {
 	glibtop_close_r(glibtop_global_server);
 }
 
+/**
+ * SECTION:glibtop
+ * @short_description: Server initilization
+ * @stability: Stable
+ *  
+ * You do not need to worry about the #glibtop * server structure if
+ * you don't need - the library exports a #glibtop_global_server
+ * which you can use everywhere a #glibtop * is expected.
+ *
+ * Most of the library and all of the sysdeps function also have an alias
+ * (which is the function name without the <suffix>_l</suffix>, 
+ * <suffix>_s</suffix> or <suffix>_r</suffix> suffix) which don't 
+ * take a #glibtop * as argument but uses the #glibtop_global_server 
+ * instead.
+ */
 
+/**
+ * glibtop_init:
+ *
+ * Server initialization.
+ *
+ * Returns: A #glibtop reference.
+ */
 glibtop*
 glibtop_init(void)
 {
@@ -19,6 +46,17 @@ glibtop_init(void)
 }
 
 
+/**
+ * glibtop_get_cpu:
+ * @buf: A location to return the CPU usage.
+ *
+ * Get the CPU usage.
+ *
+ * All CPU units are measured in <type>jiffies</type> which are normally
+ * 1/100th of a second (in which case <type>frequency</type> equals 100),
+ * but can also be in any other unit. To get seconds, divide them by 
+ * <type>frequency</type>.
+ */
 void
 glibtop_get_cpu(glibtop_cpu *buf)
 {
@@ -26,6 +64,13 @@ glibtop_get_cpu(glibtop_cpu *buf)
 }
 
 
+/**
+ * glibtop_get_fsusage:
+ * @buf: A location to return the file system usage.
+ * @mount_dir: mount dir where to get the information of usage.
+ *
+ * Get the file system usage for an specific @mount_dir.
+ */
 void
 glibtop_get_fsusage(glibtop_fsusage *buf, const char *mount_dir)
 {
@@ -33,6 +78,16 @@ glibtop_get_fsusage(glibtop_fsusage *buf, const char *mount_dir)
 }
 
 
+/**
+ * glibtop_get_uptime:
+ * @buf: A location to return the system uptime
+ *
+ * When porting LibGTop to a new system, you only need to implement 
+ * #uptime and #idletime if there's a faster or better way to obtain them
+ * as using function(glibtop_cpu) for it. Look at 
+ * <filename>sysdeps/freebsd/uptime.c</filename> for an
+ * example on how to obtain them using function(glibtop_cpu).
+ */
 void
 glibtop_get_uptime(glibtop_uptime *buf)
 {
@@ -40,6 +95,11 @@ glibtop_get_uptime(glibtop_uptime *buf)
 }
 
 
+/**
+ * glibtop_sysinfo:
+ *
+ * Returns: The system information through a #glibtop_sysinfo structure.
+ */
 const glibtop_sysinfo *
 glibtop_get_sysinfo(void)
 {
@@ -47,6 +107,12 @@ glibtop_get_sysinfo(void)
 }
 
 
+/**
+ * glibtop_get_swap:
+ * @buf: A location to return a #glibtop_swap.
+ *
+ * Get the swap usage.
+ */
 void
 glibtop_get_swap(glibtop_swap *buf)
 {
@@ -54,6 +120,13 @@ glibtop_get_swap(glibtop_swap *buf)
 }
 
 
+/**
+ * glibtop_get_proc_uid:
+ * @buf: A location to return a #glibtop_proc_uid
+ * @pid: Process id to get the user and tty information
+ * 
+ * Get the process user id and tty information.
+ */
 void
 glibtop_get_proc_uid(glibtop_proc_uid *buf, pid_t pid)
 {
@@ -61,6 +134,20 @@ glibtop_get_proc_uid(glibtop_proc_uid *buf, pid_t pid)
 }
 
 
+/**
+ * glibtop_get_proc_time:
+ * @buf:
+ * @pid: Process id to get the user and tty information
+ *
+ * Please note that under Linux, #start_time value may be strange.
+ * Linux kernel defines <type>INITIAL_JIFFIES</type> which implies a time
+ * shift. Because <type>INITIAL_JIFFIES</type> is not user-space defined,
+ * we cannot use it to compute accurate @code{start_time}. On Linux2.6,
+ * <type>INITIAL_JIFFIES</type> is 300 so <type>start_time</type> is 
+ * always 3s different from real start time of the given process. You 
+ * may also get shift results if your system clock is not synchronised 
+ * with your hardware clock. See <command>man hwclock</command>.
+ */
 void
 glibtop_get_proc_time(glibtop_proc_time *buf, pid_t pid)
 {
@@ -138,20 +225,70 @@ glibtop_get_proc_kernel(glibtop_proc_kernel *buf, pid_t pid)
 }
 
 
+/**
+ * SECTION:ppp
+ * @short_description: PPP Usage.
+ * @see_also: #libgtop-netload, #libgtop-netlist
+ * @stability: Stable
+ *
+ * Management of a PPP device.
+ */
+
+/**
+ * glibtop_get_ppp:
+ * @buf: A location to return the PPP usage
+ * @short device: The device to ask information
+ *
+ * Get the PPP usage.
+ */
 void
 glibtop_get_ppp(glibtop_ppp *buf, unsigned short device)
 {
 	glibtop_get_ppp_l(glibtop_global_server, buf, device);
 }
 
+/**
+ * SECTION:netlist
+ * @short_description: Network Devices List.
+ * @see_also: #libgtop-netload
+ * @stability: Stable
+ *
+ * The application class handles ...
+ */
 
+/**
+ * glibtop_get_nelist:
+ * @buf:
+ *
+ * Get the list of network devices.
+ *
+ * Returns: A list of network devices.
+ */
 char**
 glibtop_get_netlist(glibtop_netlist *buf)
 {
 	return glibtop_get_netlist_l(glibtop_global_server, buf);
 }
 
+/**
+ * SECTION:netload
+ * @short_description: Network Load.
+ * @see_also: #libtop-netlist
+ * @stability: Stable
+ *
+ * The application class handles ...
+ */
 
+
+/**
+ * glibtop_get_netload:
+ * @buf: The variable where the results will be assigned.
+ * @interface: The name of the network interface.
+ *
+ * Recolects network statistics for @interface
+ * (which is the same than in <application>ifconfig</application>).  
+ * The values are returned into @buf.
+ */ 
 void
 glibtop_get_netload(glibtop_netload *buf, const char *interface)
 {
@@ -166,6 +303,13 @@ glibtop_get_mountlist(glibtop_mountlist *buf, int all_fs)
 }
 
 
+/**
+ * glibtop_get_mem:
+ * @buf: Buffer where the output will be given.
+ *
+ * Get the memory usage. Unless explicitly stated otherwise, all memory
+ * units are in bytes.
+ */
 void
 glibtop_get_mem(glibtop_mem *buf)
 {

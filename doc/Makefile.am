@@ -1,3 +1,5 @@
+SUBDIRS = reference
+
 info_TEXINFOS		= libgtop2.texi
 
 libgtop2_TEXINFOS	= libgtop2.texi about.texi reference.texi \

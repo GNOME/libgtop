@@ -391,6 +391,8 @@ fi
 AC_SUBST(sysdeps_suid_lib)
 AC_SUBST(server_programs)
 
+GTK_DOC_CHECK(1.4)
+
 AC_CONFIG_FILES([
 Makefile
 libgtop.spec
@@ -414,6 +416,8 @@ src/inodedb/Makefile
 lib/Makefile
 examples/Makefile
 doc/Makefile
+doc/reference/Makefile
+doc/reference/version.xml
 libgtop-2.0.pc
 libgtopconfig.h
 ])

@@ -1,3 +1,18 @@
+2006-12-02  Benoît Dejean  <benoit@placenet.org>
+
+	* Makefile.am:
+	* configure.in:
+	* doc/Makefile.am:
+	* doc/reference/Makefile.am:
+	* doc/reference/libgtop-docs.xml:
+	* doc/reference/libgtop-sections.txt:
+	* doc/reference/version.xml.in:
+	* gtk-doc.make:
+	* sysdeps/common/default.c:
+
+	Converted to gtk-doc.
+	Patch by Germán Poó-Caamaño <gpoo@ubiobio.cl>.
+
 2006-12-01  Julio M. Merino Vidal  <jmmv@NetBSD.org>
 
 	* configure.in:
