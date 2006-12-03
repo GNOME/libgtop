@@ -69,14 +69,15 @@ LIBGTOP_MICRO_VERSION >= (micro)))
 
 #include <glibtop/close.h>
 
+
+#ifdef HAVE_GLIBTOP_MACHINE_H
+
 struct _glibtop
 {
 	unsigned flags;
 	unsigned method;		/* Server Method */
 	unsigned error_method;		/* Error Method */
-#ifdef HAVE_GLIBTOP_MACHINE_H
 	glibtop_machine machine;	/* Machine dependent data */
-#endif
 	int input [2];			/* Pipe client <- server */
 	int output [2];			/* Pipe client -> server */
 	int socket;			/* Accepted connection of a socket */
@@ -94,6 +95,33 @@ struct _glibtop
 	glibtop_sysdeps required;	/* Required feature list */
 	pid_t pid;			/* PID of the server */
 };
+
+#else /* !HAVE_GLIBTOP_MACHINE_H */
+
+struct _glibtop
+{
+	unsigned flags;
+	unsigned method;		/* Server Method */
+	unsigned error_method;		/* Error Method */
+	int input [2];			/* Pipe client <- server */
+	int output [2];			/* Pipe client -> server */
+	int socket;			/* Accepted connection of a socket */
+	int ncpu;			/* Number of CPUs, zero if single-processor */
+	int real_ncpu;			/* Real number of CPUs. Only ncpu are monitored */
+	unsigned long os_version_code;	/* Version code of the operating system */
+	const char *name;		/* Program name for error messages */
+	const char *server_command;	/* Command used to invoke server */
+	const char *server_host;	/* Host the server should run on */
+	const char *server_user;	/* Name of the user on the target host */
+	const char *server_rsh;		/* Command used to connect to the target host */
+	unsigned long features;		/* Server is required for this features */
+	unsigned long server_port;	/* Port on which daemon is listening */
+	glibtop_sysdeps sysdeps;	/* Detailed feature list */
+	glibtop_sysdeps required;	/* Required feature list */
+	pid_t pid;			/* PID of the server */
+};
+
+#endif /* HAVE_GLIBTOP_MACHINE_H */
 
 extern glibtop *glibtop_global_server;
 
