@@ -1,3 +1,10 @@
+December 3, 2006: Overview of changes in 2.14.5
+===============================================
+* Added kfreebsd support (Petr Salinger <Petr.Salinger@seznam.cz>).
+* Added solaris glibtop_get_proc_open_files (Henry Zhang <hua.zhang@sun.com>).
+* Migrated to gtk-doc (Germán Poó-Caamaño <gpoo@ubiobio.cl>).
+* glibtop_get_mountlist can now ignore nsfd FS. 
+
 September 16, 2006: Overview of changes in 2.14.4
 =================================================
 * Fixed linux maps/smaps parsing on 64bit kernel.
