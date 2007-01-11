@@ -1,3 +1,13 @@
+2007-01-11  Benoît Dejean  <benoit@placenet.org>
+
+	* configure.in:
+	
+	Bumped version number to 2.14.6.
+	
+	* *:
+	
+	Got rid of CVS admin files.
+
 2006-12-03  Benoît Dejean  <benoit@placenet.org>
 
 	* doc/reference/libgtop-docs.xml:

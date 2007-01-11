@@ -1,9 +1,0 @@
-control
-rules
-build
-tmp
-*.postinst
-*.debhelper
-*.files
-files
-substvars
