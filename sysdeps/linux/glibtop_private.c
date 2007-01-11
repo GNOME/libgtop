@@ -25,10 +25,16 @@ get_scaled(const char *buffer, const char *key)
 	{
 		ptr += strlen(key);
 		value = strtoull(ptr, &next, 0);
-		if (strchr(next, 'k'))
-			value *= 1024;
-		else if (strchr(next, 'M'))
-			value *= 1024 * 1024;
+
+		for ( ; *next; ++next) {
+			if (*next == 'k') {
+				value *= 1024;
+				break;
+			} else if (*next == 'M') {
+				value *= 1024 * 1024;
+				break;
+			}
+		}
 	} else
 		g_warning("Could not read key '%s' in buffer '%s'",
 			  key, buffer);

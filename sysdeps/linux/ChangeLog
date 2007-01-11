@@ -1,3 +1,9 @@
+2007-01-11  Benoît Dejean  <benoit@placenet.org>
+
+	* glibtop_private.c: (get_scaled):
+	
+	Replaced two strstr by a hand-written loop in this critical code.
+
 2006-09-11  Benoît Dejean  <benoit@placenet.org>
 
 	* procmap.c: (glibtop_get_proc_map_s):
