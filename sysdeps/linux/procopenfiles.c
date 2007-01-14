@@ -58,7 +58,8 @@ static void
 parse_file(const char *filename, LineParser parser, GHashTable *dict)
 {
 	FILE *f;
-	char line[1024];
+	char *line = NULL;
+	size_t size = 0;
 
 	f = fopen(filename, "r");
 
@@ -67,15 +68,16 @@ parse_file(const char *filename, LineParser parser, GHashTable *dict)
 		return;
 	}
 
-	/* skip the first line */
-	if(!fgets(line, sizeof line, f)) goto eof;
 
-	while(fgets(line, sizeof line, f))
-	{
+	/* skip the first line */
+	if (getline(&line, &size, f) == -1)
+		goto eof;
+
+	while (getline(&line, &size, f) != -1)
 		parser(dict, line);
-	}
 
  eof:
+	free(line);
 	fclose(f);
 }
 

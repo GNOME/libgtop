@@ -1,3 +1,13 @@
+2007-01-14  Benoît Dejean  <benoit@placenet.org>
+
+	* procmap.c: (glibtop_get_proc_map_s):
+	* procopenfiles.c: (parse_file):
+
+	Fixed stack overflow in proc_map.
+	Switched to Glibc getline because fgets gets fooled by long
+	lines.
+	Closes #396477.
+
 2007-01-11  Benoît Dejean  <benoit@placenet.org>
 
 	* glibtop_private.c: (get_scaled):

@@ -38,7 +38,7 @@
 #define SMAPS_FILE "/proc/%u/smaps"
 
 
-#define PROC_MAPS_FORMAT "%16llx-%16llx %4c %16llx %02hx:%02hx %llu%*[ ]%[^\n]\n"
+#define PROC_MAPS_FORMAT "%16llx-%16llx %4c %16llx %02hx:%02hx %llu%*[ ]%n"
 
 
 static const unsigned long _glibtop_sysdeps_proc_map =
@@ -132,6 +132,8 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	FILE *maps;
 	const char *filename;
 	gboolean has_smaps;
+	char *line = NULL;
+	size_t line_size = 0;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
 
@@ -152,32 +154,28 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 
 	while(TRUE)
 	{
-		char line[1024];
-
 		unsigned long perm = 0;
-		int rv;
 		guint len;
+		int line_end;
 
 		unsigned short dev_major, dev_minor;
 		guint64 start, end, offset, inode;
 		char flags[4];
-		char filename [GLIBTOP_MAP_FILENAME_LEN+1];
+		char *filename;
 
 		glibtop_map_entry *entry;
 
-		if (!fgets(line, sizeof line, maps))
+		if (getline(&line, &line_size, maps) == -1)
 			break;
 
 		/* 8 arguments */
-		rv = sscanf(line, PROC_MAPS_FORMAT,
-			    &start, &end, flags, &offset,
-			    &dev_major, &dev_minor, &inode, filename);
+		if (sscanf(line, PROC_MAPS_FORMAT,
+			   &start, &end, flags, &offset,
+			   &dev_major, &dev_minor, &inode, &line_end) != 7)
+			break;
 
-		if(rv == EOF || rv < 7)
-		  break;
-
-		if(rv == 7) /* no filename */
-		  filename[0] = '\0';
+		filename = line + line_end;
+		g_strstrip(filename);
 
 		/* Compute access permissions. */
 
@@ -217,6 +215,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 
 	}
 
+	free(line);
 	fclose (maps);
 
 	buf->flags = _glibtop_sysdeps_proc_map;
