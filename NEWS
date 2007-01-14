@@ -1,3 +1,10 @@
+January 14, 2007: Overview of changes in 2.14.6
+===============================================
+* linux:
+  - fixed stack overflow in glibtop_get_proc_map
+  - fixed handling of long filenames in glibtop_get_proc_map and glibtop_get_proc_open_files.
+  - micro-optimization
+
 December 3, 2006: Overview of changes in 2.14.5
 ===============================================
 * Added kfreebsd support (Petr Salinger <Petr.Salinger@seznam.cz>).
