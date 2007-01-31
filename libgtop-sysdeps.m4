@@ -203,6 +203,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	    msginfo_needs=
 	    for def in nothing KERNEL _KERNEL; do
 	      AC_COMPILE_IFELSE([#define $def
+#include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
 #include <stdio.h>

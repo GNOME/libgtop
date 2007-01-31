@@ -1,4 +1,11 @@
 #include <config.h>
+
+/* Although FreeBSD ships with statvfs it seems incomplete, so prefer statfs */
+#if defined (__FreeBSD__) || defined (__FreeBSD_kernel__)
+#undef HAVE_SYS_STATVFS_H
+#undef STAT_STATVFS
+#endif
+
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/fsusage.h>
@@ -46,9 +53,8 @@ _glibtop_freebsd_get_fsusage_read_write(glibtop *server,
 	if (result == -1) {
 		return;
 	}
-#if !defined(__FreeBSD_kernel__)
+
 	buf->read = sfs.f_syncreads + sfs.f_asyncreads;
 	buf->write = sfs.f_syncwrites + sfs.f_asyncwrites;
-#endif
 	buf->flags |= (1 << GLIBTOP_FSUSAGE_READ) | (1 << GLIBTOP_FSUSAGE_WRITE);
 }

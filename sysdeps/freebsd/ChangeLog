@@ -1,3 +1,18 @@
+2007-01-31  Benoît Dejean  <benoit@placenet.org>
+
+	* fsusage.c: (_glibtop_freebsd_get_fsusage_read_write):
+	* netload.c: (glibtop_get_netload_p):
+	* prockernel.c: (glibtop_get_proc_kernel_p):
+	* procmap.c: (glibtop_get_proc_map_p):
+	* proctime.c:
+	* siglist.c:
+	* /libgtop-sysdeps.m4:
+	
+	Various FreeBSD and kFreeBSD updates.
+	Patch by Roy Marples  <uberlord@gentoo.org>.
+	Reviewed by Petr Salinger  <Petr.Salinger@seznam.cz>.
+	Closes #387200.
+
 2006-11-27  Benoît Dejean  <benoit@placenet.org>
 
 	* fsusage.c: (_glibtop_freebsd_get_fsusage_read_write):

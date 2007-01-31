@@ -139,8 +139,10 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
-	if ((pinfo == NULL) || (count != 1))
-		glibtop_error_io_r (server, "kvm_getprocs (%d)", pid);
+	if ((pinfo == NULL) || (count != 1)) {
+		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
+		return;
+	}
 
 #if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
 	buf->rtime = pinfo [0].ki_runtime;
@@ -186,9 +188,13 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
        if ((pinfo [0].ki_flag & P_INMEM)) {
 #endif
            buf->utime = pinfo [0].ki_runtime;
-           buf->stime = 0; /* XXX */
+		   buf->stime = tv2sec (pinfo [0].ki_rusage.ru_stime);
            buf->cutime = tv2sec (pinfo [0].ki_childtime);
-           buf->cstime = 0; /* XXX */
+#if (__FreeBSD_version >= 600000) || (__FreeBSD_kernel_version >= 600000)
+		   buf->cstime = tv2sec (pinfo [0].ki_rusage_ch.ru_stime);
+#else
+		   buf->cstime = 0;
+#endif
            buf->start_time = tv2sec (pinfo [0].ki_start);
            buf->flags = _glibtop_sysdeps_proc_time_user;
        }
