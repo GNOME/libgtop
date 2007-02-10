@@ -286,7 +286,7 @@ glibtop_get_fsusage_s (glibtop *server, glibtop_fsusage *buf,
 
   buf->blocks = fsd.f_blocks;
   buf->bfree  = fsd.f_bfree;
-  buf->bavail = fsd.f_bavail;
+  buf->bavail = (fsd.f_bavail > fsd.f_bfree) ? 0 : fsd.f_bavail;
   buf->files  = fsd.f_files;
   buf->ffree  = fsd.f_ffree;
 
