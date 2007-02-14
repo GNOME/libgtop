@@ -22,48 +22,39 @@
 */
 
 #include <config.h>
+#include <errno.h>
 #include <glibtop/read.h>
 #include <glibtop/error.h>
 #include <glib/gi18n-lib.h>
 
 
-/* Reads some data from server. */
-
-static void
-do_read (int s, void *ptr, size_t total_size)
-{
-	ssize_t nread;
-
-	if(!total_size) return;
-
-	while (total_size && (nread = recv (s, ptr, total_size, 0)) > 0) {
-		total_size -= nread;
-		ptr = (char*)ptr + nread;
-	}
-
-	if(nread == 0)
-		close (s);
-	else if (nread < 0)
-		glibtop_error_io ("recv");
-}
 
 void
 glibtop_read_l (glibtop *server, size_t size, void *buf)
 {
+	int fd;
 	glibtop_init_r (&server, 0, 0);
 
 #ifdef DEBUG
 	fprintf (stderr, "LIBRARY: really reading %d bytes.\n", (int)size);
 #endif
 
-	if (server->socket) {
-		do_read (server->socket, buf, size);
-	} else {
-		if(read (server->input [0], buf, size) < 0)
-			glibtop_error_io_r (
+	fd = server->socket ? server->socket : server->input[0];
+
+	while (size) {
+		ssize_t nread = read(fd, buf, size);
+
+		if (nread < 0 && errno == EINTR)
+			continue;
+
+		if (nread <= 0)
+			glibtop_error_io_r(
 				server,
 				ngettext ("read %d byte",
 					  "read %d bytes", size),
 				(int)size);
+
+		size -= nread;
+		buf = (char *)buf + nread;
 	}
 }

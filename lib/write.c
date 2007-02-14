@@ -22,7 +22,7 @@
 */
 
 #include <config.h>
-
+#include <errno.h>
 #include <glibtop/write.h>
 #include <glibtop/error.h>
 #include <glib/gi18n-lib.h>
@@ -33,6 +33,7 @@ void
 glibtop_write_l (glibtop *server, size_t size, void *buf)
 {
 	int ret;
+	int fd;
 
 	glibtop_init_r (&server, 0, 0);
 
@@ -42,11 +43,10 @@ glibtop_write_l (glibtop *server, size_t size, void *buf)
 	fprintf (stderr, "LIBRARY: really writing %d bytes.\n", (int)size);
 #endif
 
-	if (server->socket) {
-		ret = send (server->socket, buf, size, 0);
-	} else {
-		ret = write (server->output [1], buf, size);
-	}
+	fd = server->socket ? server->socket : server->output[1];
+
+	while ((ret = write(fd, buf, size)) < 0 && errno == EINTR)
+		;
 
 	if (ret < 0)
 		glibtop_error_io_r (server,
