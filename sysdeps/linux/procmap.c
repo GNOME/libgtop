@@ -74,7 +74,7 @@ add_smaps(glibtop *server, FILE *smaps, glibtop_map_entry *entry)
 #define SMAP_OFFSET(MEMBER) offsetof(glibtop_map_entry, MEMBER)
 
 	struct smap_value {
-		const char *name;
+		char name[15];
 		ptrdiff_t offset;
 	};
 
@@ -94,7 +94,7 @@ add_smaps(glibtop *server, FILE *smaps, glibtop_map_entry *entry)
 		char *offset;
 		guint64 *value;
 
-		if (!fgets(line, sizeof line, smaps)) {
+		if (!fgets(line, sizeof line, smaps) || !g_str_has_prefix(line, values[i].name)) {
 			glibtop_warn_io_r(server,
 					  "Could not read smaps value %s",
 					  values[i].name);
