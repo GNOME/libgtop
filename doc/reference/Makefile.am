@@ -15,25 +15,25 @@ SCAN_OPTIONS=
 
 # Extra options to supply to gtkdoc-mkdb.
 # e.g. MKDB_OPTIONS=--sgml-mode --output-format=xml
-MKDB_OPTIONS=--sgml-mode --output-format=xml --source-dir=../../sysdeps/common
+MKDB_OPTIONS=--sgml-mode --output-format=xml --source-dir=$(top_srcdir)/sysdeps/common
 
 # The directory containing the source code. Relative to $(srcdir).
 # gtk-doc will search all .c & .h files beneath here for inline comments
 # documenting the functions and macros.
 # e.g. DOC_SOURCE_DIR=../../../gtk
-DOC_SOURCE_DIR=../../include/glibtop
+DOC_SOURCE_DIR=$(top_srcdir)/include/glibtop
 
 # Used for dependencies. The docs will be rebuilt if any of these change.
 # e.g. HFILE_GLOB=$(top_srcdir)/gtk/*.h
 # e.g. CFILE_GLOB=$(top_srcdir)/gtk/*.c
-HFILE_GLOB=../../include/glibtop/*.h
-CFILE_GLOB=../../sysdeps/common/*.c
+HFILE_GLOB=$(top_srcdir)/include/glibtop/*.h
+CFILE_GLOB=$(top_srcdir)/sysdeps/common/*.c
 
 # Header files to ignore when scanning.
 # e.g. IGNORE_HFILES=gtkdebug.h gtkintl.h
 IGNORE_HFILES=error.h global.h gnuserv.h init_hooks.h write.h read.h read_data.h config.h libgtopconfig.h
 
-EXTRA_HFILES=../../glibtop.h
+EXTRA_HFILES=$(top_srcdir)/glibtop.h
 
 # Extra SGML files that are included by $(DOC_MAIN_SGML_FILE).
 # e.g. content_files=running.sgml building.sgml changes-2.0.sgml
