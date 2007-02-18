@@ -25,8 +25,13 @@
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/proclist.h>
+#include <glibtop/procstate.h>
 
 #include <glibtop_suid.h>
+
+#include <sys/types.h>
+#include <sys/sysctl.h>
+#include <sys/user.h>
 
 static const unsigned long _glibtop_sysdeps_proclist =
 (1L << GLIBTOP_PROCLIST_TOTAL) + (1L << GLIBTOP_PROCLIST_NUMBER) +
@@ -60,56 +65,90 @@ glibtop_init_proclist_p (glibtop *server)
 
 unsigned *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
-			gint64 real_which, gint64 arg)
+			gint64 which, gint64 arg)
 {
 	struct kinfo_proc *pinfo;
-	unsigned *pids = NULL;
-	int which, count;
-	int i,j;
+	GArray *pids;
+	glibtop_proc_state procstate;
+	size_t len;
+	unsigned int i;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROCLIST), 0);
 
 	memset (buf, 0, sizeof (glibtop_proclist));
 
-	which = (int)(real_which & GLIBTOP_KERN_PROC_MASK);
-
-	/* Get the process data */
-	pinfo = kvm_getprocs (server->machine.kd, which, arg, &count);
-	if ((pinfo == NULL) || (count < 1)) {
-		glibtop_warn_io_r (server, "kvm_getprocs (proclist)");
+	if (sysctlbyname ("kern.proc.all", NULL, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.proc.all)");
 		return NULL;
 	}
-	count--;
 
-	/* Allocate count objects in the pids_chain array
-	 * Same as malloc is pids is NULL, which it is. */
-	pids = g_realloc (pids, count * sizeof (unsigned));
-	/* Copy the pids over to this chain */
-	for (i=j=0; i < count; i++) {
-#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
-#define PROC_STAT	ki_stat
-#define PROC_RUID	ki_ruid
-#define PROC_PID	ki_pid
+	pinfo = (struct kinfo_proc *) g_malloc0 (len);
 
-#else
-#define PROC_STAT	kp_proc.p_stat
-#define PROC_RUID	kp_eproc.e_pcred.p_ruid
-#define PROC_PID	kp_proc.p_pid
+	if (sysctlbyname ("kern.proc.all", pinfo, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.proc.all)");
+		g_free (pinfo);
+		return NULL;
+	}
 
-#endif
+	len /= sizeof (struct kinfo_proc);
 
-		if ((real_which & GLIBTOP_EXCLUDE_IDLE) &&
-		    (pinfo[i].PROC_STAT != SRUN))
-			continue;
-		else if ((real_which & GLIBTOP_EXCLUDE_SYSTEM) &&
-			 (pinfo[i].PROC_RUID == 0))
-			continue;
-		pids [j++] = (unsigned) pinfo[i].PROC_PID;
-	} /* end for */
-	/* Set the fields in buf */
-	buf->number = j;
-	buf->size = sizeof (unsigned);
-	buf->total = j * sizeof (unsigned);
+	pids = g_array_sized_new (FALSE, FALSE, sizeof (unsigned), len);
+
+	for (i = 0; i < len; i++) {
+		unsigned pid;
+
+		pid = (unsigned) pinfo[i].ki_pid;
+
+		switch (which & GLIBTOP_KERN_PROC_MASK) {
+			case GLIBTOP_KERN_PROC_ALL:
+				break;
+			case GLIBTOP_KERN_PROC_PID:
+				if ((unsigned) arg != pid)
+					continue;
+				break;
+			case GLIBTOP_KERN_PROC_UID:
+				if ((uid_t) arg != pinfo[i].ki_ruid)
+					continue;
+				break;
+			case GLIBTOP_KERN_PROC_PGRP:
+				if ((pid_t) arg != pinfo[i].ki_pgid)
+					continue;
+				break;
+			case GLIBTOP_KERN_PROC_SESSION:
+				if ((pid_t) arg != pinfo[i].ki_sid)
+					continue;
+				break;
+			case GLIBTOP_KERN_PROC_TTY:
+				if ((dev_t) arg != pinfo[i].ki_tdev)
+					continue;
+				break;
+			case GLIBTOP_KERN_PROC_RUID:
+				if ((uid_t) arg != pinfo[i].ki_ruid)
+					continue;
+				break;
+			}
+
+		if (which & GLIBTOP_EXCLUDE_NOTTY)
+			if (pinfo[i].ki_tdev == (dev_t) -1) continue;
+
+		if (which & GLIBTOP_EXCLUDE_IDLE) {
+			glibtop_get_proc_state_p (server, &procstate, pid);
+			if (procstate.flags & (1L << GLIBTOP_PROC_STATE_STATE))
+				if (procstate.state != GLIBTOP_PROCESS_RUNNING) continue;
+		}
+
+		if (which & GLIBTOP_EXCLUDE_SYSTEM)
+			if (pinfo[i].ki_ruid == (uid_t) 0) continue;
+
+		g_array_append_val (pids, pid);
+	}
+
+	g_free (pinfo);
+
 	buf->flags = _glibtop_sysdeps_proclist;
-	return pids;
+	buf->size = sizeof (unsigned);
+	buf->number = pids->len;
+	buf->total = buf->number * buf->size;
+
+	return (unsigned *) g_array_free (pids, FALSE);
 }

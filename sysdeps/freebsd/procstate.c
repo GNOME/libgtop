@@ -28,25 +28,18 @@
 
 #include <glibtop_suid.h>
 
-#if !defined(__OpenBSD__)
-/* && (!defined __bsdi__) */
 #include <sys/user.h>
-#endif
 
 static const unsigned long _glibtop_sysdeps_proc_state =
-(1L << GLIBTOP_PROC_STATE_CMD) + (1L << GLIBTOP_PROC_STATE_UID) +
-(1L << GLIBTOP_PROC_STATE_GID);
-
-static const unsigned long _glibtop_sysdeps_proc_state_new =
-0;
+(1L << GLIBTOP_PROC_STATE_CMD) + (1L << GLIBTOP_PROC_STATE_STATE) +
+(1L << GLIBTOP_PROC_STATE_UID) + (1L << GLIBTOP_PROC_STATE_GID);
 
 /* Init function. */
 
 void
 glibtop_init_proc_state_p (glibtop *server)
 {
-	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state |
-		_glibtop_sysdeps_proc_state_new;
+	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
 }
 
 /* Provides detailed information about a process. */
@@ -73,78 +66,33 @@ glibtop_get_proc_state_p (glibtop *server,
 		return;
 	}
 
-#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
-#define	PROC_COMM	ki_comm
-#define	PROC_SVUID	ki_svuid
-#define	PROC_SVGID	ki_svgid
-#define	PROC_RUID	ki_ruid
-#define	PROC_RGID	ki_rgid
-#define PROC_STAT	ki_stat
+	buf->uid = pinfo[0].ki_ruid;
+	buf->gid = pinfo[0].ki_rgid;
 
-#else
-#define	PROC_COMM	kp_proc.p_comm
-#define	PROC_SVUID	kp_eproc.e_pcred.p_svuid
-#define	PROC_SVGID	kp_eproc.e_pcred.p_svgid
-#define	PROC_RUID	kp_eproc.e_pcred.p_ruid
-#define	PROC_RGID	kp_eproc.e_pcred.p_rgid
-#define	PROC_STAT	kp_proc.p_stat
+	g_strlcpy (buf->cmd, pinfo[0].ki_comm, sizeof (buf->cmd));
 
-#endif
-
-	g_strlcpy (buf->cmd, pinfo [0].PROC_COMM, sizeof buf->cmd);
-
-	buf->uid = pinfo [0].PROC_SVUID;
-	buf->gid = pinfo [0].PROC_SVGID;
-
-	/* Set the flags for the data we're about to return*/
-	buf->flags = _glibtop_sysdeps_proc_state |
-		_glibtop_sysdeps_proc_state_new;
-
-#if LIBGTOP_VERSION_CODE >= 1001000
-	switch (pinfo [0].PROC_STAT) {
-	case SIDL:
-		buf->state = 0;
-		break;
-	case SRUN:
-		buf->state = GLIBTOP_PROCESS_RUNNING;
-		break;
-#ifdef SSLEEP
-	case SSLEEP:
-		buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
-		break;
-#endif
-	case SSTOP:
-		buf->state = GLIBTOP_PROCESS_STOPPED;
-		break;
-	case SZOMB:
-		buf->state = GLIBTOP_PROCESS_ZOMBIE;
-		break;
-	default:
-		return;
+	switch (pinfo[0].ki_stat) {
+		case SRUN:
+			buf->state = GLIBTOP_PROCESS_RUNNING;
+			break;
+		case SSLEEP:
+			buf->state = GLIBTOP_PROCESS_INTERRUPTIBLE;
+			break;
+		case SSTOP:
+			buf->state = GLIBTOP_PROCESS_STOPPED;
+			break;
+		case SZOMB:
+			buf->state = GLIBTOP_PROCESS_ZOMBIE;
+			break;
+		case SWAIT:
+		case SLOCK:
+			buf->state = GLIBTOP_PROCESS_UNINTERRUPTIBLE;
+			break;
+		case SIDL:
+		default:
+			buf->state = 0;
+			break;
 	}
-#else
-	switch (pinfo [0].PROC_STAT) {
-	case SIDL:
-		buf->state = 'D';
-		break;
-	case SRUN:
-		buf->state = 'R';
-		break;
-#ifdef SSLEEP
-	case SSLEEP:
-		buf->state = 'S';
-		break;
-#endif
-	case SSTOP:
-		buf->state = 'T';
-		break;
-	case SZOMB:
-		buf->state = 'Z';
-		break;
-	default:
-		return;
-	}
-#endif
 
-	buf->flags |= (1L << GLIBTOP_PROC_STATE_STATE);
+	buf->flags = _glibtop_sysdeps_proc_state;
 }

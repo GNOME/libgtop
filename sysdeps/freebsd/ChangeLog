@@ -1,3 +1,52 @@
+2007-02-18  Benoît Dejean  <benoit@placenet.org>
+
+	* AUTHORS:
+	* Makefile.am:
+	* NOTES:
+	* cpu.c: (glibtop_init_cpu_s), (glibtop_get_cpu_s):
+	* fsusage.c: (_glibtop_freebsd_get_fsusage_read_write):
+	* glibtop_machine.h:
+	* glibtop_server.h:
+	* init.c:
+	* loadavg.c: (glibtop_init_loadavg_s), (glibtop_get_loadavg_s):
+	* mem.c: (glibtop_init_mem_s), (glibtop_get_mem_s):
+	* msg_limits.c: (glibtop_init_msg_limits_s),
+	(glibtop_get_msg_limits_s):
+	* netload.c: (glibtop_init_netload_p), (glibtop_get_netload_p):
+	* open.c: (glibtop_open_p):
+	* ppp.c: (glibtop_init_ppp_p), (glibtop_get_ppp_p):
+	* procargs.c: (glibtop_get_proc_args_p):
+	* procdata.c:
+	* prockernel.c: (glibtop_init_proc_kernel_p),
+	(glibtop_get_proc_kernel_p):
+	* proclist.c: (glibtop_get_proclist_p):
+	* procmap.c: (_glibtop_sysdeps_freebsd_dev_inode),
+	(glibtop_get_proc_map_p):
+	* procmem.c: (glibtop_init_proc_mem_p), (glibtop_get_proc_mem_p):
+	* procsegment.c: (glibtop_init_proc_segment_p),
+	(glibtop_get_proc_segment_p):
+	* procsignal.c: (glibtop_get_proc_signal_p):
+	* procstate.c: (glibtop_init_proc_state_p),
+	(glibtop_get_proc_state_p):
+	* proctime.c: (glibtop_get_proc_time_p):
+	* procuid.c: (glibtop_init_proc_uid_p), (glibtop_get_proc_uid_p):
+	* sem_limits.c: (glibtop_init_sem_limits_s),
+	(glibtop_get_sem_limits_s):
+	* shm_limits.c: (glibtop_init_shm_limits_s),
+	(glibtop_get_shm_limits_s):
+	* swap.c: (glibtop_init_swap_p), (glibtop_get_swap_p):
+	* sysinfo.c: (init_sysinfo):
+	* uptime.c: (glibtop_init_uptime_s), (glibtop_get_uptime_s):
+
+	Huge (k)FreeBSD update.
+	(k)FreeBSD support is freebsd/
+	Other BSD are in bsd/
+	
+	Patch by Joe Marcus Clarke  <marcus@freebsd.org>
+	Alexander Nedotsukov  <bland@FreeBSD.org>
+	
+	Closes #407693.
+
 2007-01-31  Benoît Dejean  <benoit@placenet.org>
 
 	* fsusage.c: (_glibtop_freebsd_get_fsusage_read_write):

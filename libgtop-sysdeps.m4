@@ -67,11 +67,17 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  libgtop_have_sysinfo=yes
 	  libgtop_need_server=no
 	  ;;
-	freebsd*|netbsd*|openbsd*|bsdi*|kfreebsd*)
+	netbsd*|openbsd*|bsdi*)
+	  libgtop_sysdeps_dir=bsd
+	  libgtop_use_machine_h=yes
+	  libgtop_need_server=yes
+	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server2 && chmod 2755 $(bindir)/libgtop_server2'
+	  ;;
+	freebsd*|kfreebsd*)
 	  libgtop_sysdeps_dir=freebsd
 	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
-	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server2 && chmod 2755 $(bindir)/libgtop_server2'
 	  ;;
 	solaris*)
 	  libgtop_sysdeps_dir=solaris
@@ -133,6 +139,20 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  	esac
 	  
 	  AC_SUBST(KVM_LIBS)
+
+	  case "$host_os" in
+	  kfreebsd*)
+	  	EXTRA_SYSDEPS_LIBS="-lgeom -ldevstat"
+		;;
+	  freebsd*)
+	  	osreldate=`sysctl -n kern.osreldate 2>/dev/null`
+		if test -n "${osreldate}" && test ${osreldate} -ge 600000 ; then
+		    EXTRA_SYSDEPS_LIBS="-lgeom -ldevstat"
+		fi
+		;;
+          esac
+
+	  AC_SUBST(EXTRA_SYSDEPS_LIBS)
 
 	  AC_CHECK_HEADERS(net/if_var.h)
 	  AC_MSG_CHECKING([for I4B])

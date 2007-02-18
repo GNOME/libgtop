@@ -40,11 +40,7 @@
 #include <net/netisr.h>
 #include <net/route.h>
 
-#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
 #include <net/if_sppp.h>
-#else
-#include <i4b/sppp/if_sppp.h>
-#endif
 
 /* Read `misc/i4b_acct.txt' for details ... */
 #ifdef HAVE_I4B_ACCT
@@ -83,8 +79,10 @@ glibtop_init_ppp_p (glibtop *server)
 #endif
 #endif /* HAVE_I4B */
 
-	if (kvm_nlist (server->machine.kd, nlst) < 0)
-		glibtop_error_io_r (server, "kvm_nlist");
+	if (kvm_nlist (server->machine.kd, nlst) < 0) {
+		glibtop_warn_io_r (server, "kvm_nlist");
+		server->sysdeps.ppp = 0;
+	}
 }
 
 /* Provides information about ppp usage. */
@@ -104,9 +102,13 @@ glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device)
 
 	memset (buf, 0, sizeof (glibtop_ppp));
 
+	if (server->sysdeps.ppp == 0) return;
+
 	if (kvm_read (server->machine.kd, nlst [0].n_value,
-		      &data, sizeof (data)) != sizeof (data))
-		glibtop_error_io_r (server, "kvm_read (i4bisppp_softc)");
+		      &data, sizeof (data)) != sizeof (data)) {
+		glibtop_warn_io_r (server, "kvm_read (i4bisppp_softc)");
+		return;
+	}
 
 #ifdef HAVE_I4B_ACCT
 	phase = data.sc_if_un.scu_sp.pp_phase;

@@ -410,6 +410,7 @@ sysdeps/linux/Makefile
 sysdeps/freebsd/Makefile
 sysdeps/solaris/Makefile
 sysdeps/aix/Makefile
+sysdeps/bsd/Makefile
 src/Makefile
 src/daemon/Makefile
 src/inodedb/Makefile

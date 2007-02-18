@@ -54,11 +54,6 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 	size_t size = 0, pos = 0;
 	int count;
 
-#ifndef __bsdi__
-	char filename [BUFSIZ];
-	struct stat statb;
-#endif
-
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_ARGS), 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_args));
@@ -66,25 +61,20 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 	/* swapper, init, pagedaemon, vmdaemon, update - this doen't work. */
 	if (pid < 5) return NULL;
 
-#ifndef __bsdi__
-	sprintf (filename, "/proc/%d/mem", pid);
-	if (stat (filename, &statb)) return NULL;
-#endif
-
 	glibtop_suid_enter (server);
 
 	/* Get the process data */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count < 1)) {
-		glibtop_suid_leave (server);
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
+		glibtop_suid_leave (server);
 		return NULL;
 	}
 
 	args = kvm_getargv (server->machine.kd, pinfo, max_len);
 	if (args == NULL) {
-		glibtop_suid_leave (server);
 		glibtop_warn_io_r (server, "kvm_getargv (%d)", pid);
+		glibtop_suid_leave (server);
 		return NULL;
 	}
 

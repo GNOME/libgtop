@@ -22,32 +22,40 @@
 */
 
 #include <config.h>
+#include <stdlib.h>
 #include <glibtop.h>
 #include <glibtop/error.h>
 #include <glibtop/loadavg.h>
 
-#include <glibtop_suid.h>
+#include <sys/types.h>
+#include <sys/sysctl.h>
 
 static const unsigned long _glibtop_sysdeps_loadavg =
 (1L << GLIBTOP_LOADAVG_LOADAVG);
 
+static const unsigned long _glibtop_sysdeps_last_pid =
+(1L << GLIBTOP_LOADAVG_LAST_PID);
+
 /* Init function. */
 
 void
-glibtop_init_loadavg_p (glibtop *server)
+glibtop_init_loadavg_s (glibtop *server)
 {
-	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
+	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg |
+		_glibtop_sysdeps_last_pid;
 }
 
 /* Provides load averange. */
 
 void
-glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
+glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
 	double ldavg[3];
+	pid_t last_pid;
+	size_t len;
 	int i;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_LOADAVG), 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_LOADAVG, 0);
 
 	memset (buf, 0, sizeof (glibtop_loadavg));
 
@@ -58,4 +66,14 @@ glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
 	for (i = 0; i < 3; i++) {
 		buf->loadavg [i] = ldavg [i];
 	} /* end for */
+
+	len = sizeof (last_pid);
+	if (sysctlbyname ("kern.lastpid", &last_pid, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.lastpid)");
+		return;
+	}
+
+	buf->last_pid = last_pid;
+
+	buf->flags |= _glibtop_sysdeps_last_pid;
 }

@@ -32,13 +32,18 @@
 #include <sys/param.h>
 #include <sys/sysctl.h>
 
-static const unsigned long _glibtop_sysdeps_proc_segment = 0;
+static const unsigned long _glibtop_sysdeps_proc_segment =
+(1L << GLIBTOP_PROC_SEGMENT_TEXT_RSS) +
+(1L << GLIBTOP_PROC_SEGMENT_DATA_RSS);
+
+static int pagesize;
 
 /* Init function. */
 
 void
 glibtop_init_proc_segment_p (glibtop *server)
 {
+	pagesize = getpagesize ();
 	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;
 }
 
@@ -49,35 +54,25 @@ glibtop_get_proc_segment_p (glibtop *server,
 			    glibtop_proc_segment *buf,
 			    pid_t pid)
 {
+	struct kinfo_proc *pinfo;
+	int count = 0;
+
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_SEGMENT), 0);
 
 	memset (buf, 0, sizeof (glibtop_proc_segment));
 
-#if 0
+	/* It does not work for the swapper task. */
+	if (pid == 0) return;
+
 	/* Get the process info from the kernel */
-	kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, count);
-	if (*count != 1) {
-		return; /* the zeroed-out buffer indicating no data */
+	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	if ((pinfo == NULL) || (count != 1)) {
+		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
+		return;
 	}
 
-	/* trs: text resident set size
-	   pinfo[0]->kp_eproc.e_xrssize;
-	*/
-	/* buf->trs = pinfo[0]->kp_eproc.e_xrssize; */
-	/* lrs: shared-lib resident set size
-	   ?  */
-	/* drs: data resident set size
-	   pinfo[0]->kp_eproc.e_vm.vm_map.vm_dsize;
-	*/
-	/* dt: dirty pages
-	 */
-	/* start_code: address of beginning of code segment
+	buf->text_rss = pinfo[0].ki_tsize * pagesize;
+	buf->data_rss = pinfo[0].ki_dsize * pagesize;
 
-	 */
-	/* end_code: address of end of code segment
-	 */
-	/* start_stack: address of the bottom of stack segment
-	 */
-#endif
+	buf->flags = _glibtop_sysdeps_proc_segment;
 }
-

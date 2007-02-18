@@ -35,17 +35,7 @@
 
 #include <fcntl.h>
 
-#ifdef __FreeBSD__
 #include <osreldate.h>
-#endif
-
-#ifdef __NetBSD__
-#include <sys/proc.h>
-
-#ifndef SRUN
-#define SRUN    SACTIVE
-#endif
-#endif
 
 G_BEGIN_DECLS
 

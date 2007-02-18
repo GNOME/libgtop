@@ -26,35 +26,8 @@
 #include <glibtop/error.h>
 #include <glibtop/sem_limits.h>
 
-#include <glibtop_suid.h>
-
-#if defined(__bsdi__) && (_BSDI_VERSION < 199700)
-/* Older versions of BSDI don't seem to have this. */
-
-void
-glibtop_init_sem_limits_p (glibtop *server)
-{ }
-
-void
-glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
-{
-        glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
-
-        memset (buf, 0, sizeof (glibtop_sem_limits));
-}
-
-#else
-
-/* #define KERNEL to get declaration of `struct seminfo'. */
-
-#if (defined(__FreeBSD__) && (__FreeBSD_version < 410000)) || defined(__bsdi__)
-#define KERNEL 1
-#else
-#define _KERNEL 1
-#endif
-
-#include <sys/ipc.h>
-#include <sys/sem.h>
+#include <sys/types.h>
+#include <sys/sysctl.h>
 
 static unsigned long _glibtop_sysdeps_sem_limits =
 (1L << GLIBTOP_IPC_SEMMAP) + (1L << GLIBTOP_IPC_SEMMNI) +
@@ -63,59 +36,101 @@ static unsigned long _glibtop_sysdeps_sem_limits =
 (1L << GLIBTOP_IPC_SEMUME) + (1L << GLIBTOP_IPC_SEMUSZ) +
 (1L << GLIBTOP_IPC_SEMVMX) + (1L << GLIBTOP_IPC_SEMAEM);
 
-/* The values in this structure never change at runtime, so we only
- * read it once during initialization. We have to use the name `_seminfo'
- * since `seminfo' is already declared external in <sys/sem.h>. */
-static struct seminfo _seminfo;
-
-/* nlist structure for kernel access */
-static struct nlist nlst [] = {
-	{ "_seminfo" },
-	{ 0 }
-};
-
 /* Init function. */
 
 void
-glibtop_init_sem_limits_p (glibtop *server)
+glibtop_init_sem_limits_s (glibtop *server)
 {
-	if (kvm_nlist (server->machine.kd, nlst) < 0) {
-		glibtop_warn_io_r (server, "kvm_nlist (sem_limits)");
-		return;
-	}
-
-	if (kvm_read (server->machine.kd, nlst [0].n_value,
-		      &_seminfo, sizeof (_seminfo)) != sizeof (_seminfo)) {
-		glibtop_warn_io_r (server, "kvm_read (seminfo)");
-		return;
-	}
-
 	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
 }
 
 /* Provides information about sysv sem limits. */
 
 void
-glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
+glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 {
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SEM_LIMITS), 0);
+	size_t len;
+	int semmap, semmni, semmns, semmnu, semmsl, semopm, semume, semusz;
+	int semvmx, semaem;
+
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SEM_LIMITS, 0);
 
 	memset (buf, 0, sizeof (glibtop_sem_limits));
 
 	if (server->sysdeps.sem_limits == 0)
 		return;
 
-	buf->semmap = _seminfo.semmap;
-	buf->semmni = _seminfo.semmni;
-	buf->semmns = _seminfo.semmns;
-	buf->semmnu = _seminfo.semmnu;
-	buf->semmsl = _seminfo.semmsl;
-	buf->semopm = _seminfo.semopm;
-	buf->semvmx = _seminfo.semvmx;
-	buf->semaem = _seminfo.semaem;
+	len = sizeof (semmap);
+	if (sysctlbyname ("kern.ipc.semmap", &semmap, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.semmap)");
+		return;
+	}
+
+	len = sizeof (semmni);
+	if (sysctlbyname ("kern.ipc.semmni", &semmni, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.semmni)");
+		return;
+	}
+
+	len = sizeof (semmns);
+	if (sysctlbyname ("kern.ipc.semmns", &semmns, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.semmns)");
+		return;
+	}
+
+	len = sizeof (semmnu);
+	if (sysctlbyname ("kern.ipc.semmnu", &semmnu, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.semmnu)");
+		return;
+	}
+
+	len = sizeof (semmsl);
+	if (sysctlbyname ("kern.ipc.semmsl", &semmsl, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.semmsl)");
+		return;
+	}
+
+	len = sizeof (semopm);
+	if (sysctlbyname ("kern.ipc.semopm", &semopm, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.semopm)");
+		return;
+	}
+
+	len = sizeof (semume);
+	if (sysctlbyname ("kern.ipc.semume", &semume, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.semume)");
+		return;
+	}
+
+	len = sizeof (semusz);
+	if (sysctlbyname ("kern.ipc.semusz", &semusz, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.semusz)");
+		return;
+	}
+
+	len = sizeof (semvmx);
+	if (sysctlbyname ("kern.ipc.semvmx", &semvmx, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.semvmx)");
+		return;
+	}
+
+	len = sizeof (semaem);
+	if (sysctlbyname ("kern.ipc.semaem", &semaem, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.semaem)");
+		return;
+	}
+
+	buf->semmap = semmap;
+	buf->semmni = semmni;
+	buf->semmns = semmns;
+	buf->semmnu = semmnu;
+	buf->semmsl = semmsl;
+	buf->semopm = semopm;
+	buf->semume = semume;
+	buf->semusz = semusz;
+	buf->semvmx = semvmx;
+	buf->semaem = semaem;
 
 	buf->flags = _glibtop_sysdeps_sem_limits;
 }
-
-#endif /* either a newer BSDI or no BSDI at all. */
 

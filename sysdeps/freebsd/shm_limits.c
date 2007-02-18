@@ -26,91 +26,72 @@
 #include <glibtop/error.h>
 #include <glibtop/shm_limits.h>
 
-#include <glibtop_suid.h>
-
-#if defined(__bsdi__) && (_BSDI_VERSION < 199700)
-/* Older versions of BSDI don't seem to have this. */
-
-void
-glibtop_init_shm_limits_p (glibtop *server)
-{ }
-
-void
-glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
-{
-        glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
-
-        memset (buf, 0, sizeof (glibtop_shm_limits));
-}
-
-#else
-
-/* #define KERNEL to get declaration of `struct shminfo'. */
-
-#if (defined(__FreeBSD__) && (__FreeBSD_version < 410000)) || defined(__bsdi__)
-#define KERNEL 1
-#else
-#define _KERNEL 1
-#endif
-
-#include <sys/ipc.h>
-#include <sys/shm.h>
+#include <sys/types.h>
+#include <sys/sysctl.h>
 
 static unsigned long _glibtop_sysdeps_shm_limits =
 (1L << GLIBTOP_IPC_SHMMAX) + (1L << GLIBTOP_IPC_SHMMIN) +
 (1L << GLIBTOP_IPC_SHMMNI) + (1L << GLIBTOP_IPC_SHMSEG) +
 (1L << GLIBTOP_IPC_SHMALL);
 
-/* The values in this structure never change at runtime, so we only
- * read it once during initialization. We have to use the name `_shminfo'
- * since `shminfo' is already declared external in <sys/shm.h>. */
-static struct shminfo _shminfo;
-
-/* nlist structure for kernel access */
-static struct nlist nlst [] = {
-	{ "_shminfo" },
-	{ 0 }
-};
-
 /* Init function. */
 
 void
-glibtop_init_shm_limits_p (glibtop *server)
+glibtop_init_shm_limits_s (glibtop *server)
 {
-	if (kvm_nlist (server->machine.kd, nlst) < 0) {
-		glibtop_warn_io_r (server, "kvm_nlist (shm_limits)");
-		return;
-	}
-
-	if (kvm_read (server->machine.kd, nlst [0].n_value,
-		      &_shminfo, sizeof (_shminfo)) != sizeof (_shminfo)) {
-		glibtop_warn_io_r (server, "kvm_read (shminfo)");
-		return;
-	}
-
 	server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
 }
 
 /* Provides information about sysv ipc limits. */
 
 void
-glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
+glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 {
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SHM_LIMITS), 0);
+	size_t len;
+	int shmmax, shmmin, shmmni, shmseg, shmall;
+
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SHM_LIMITS, 0);
 
 	memset (buf, 0, sizeof (glibtop_shm_limits));
 
 	if (server->sysdeps.shm_limits == 0)
 		return;
 
-	buf->shmmax = _shminfo.shmmax;
-	buf->shmmin = _shminfo.shmmin;
-	buf->shmmni = _shminfo.shmmni;
-	buf->shmseg = _shminfo.shmseg;
-	buf->shmall = _shminfo.shmall;
+	len = sizeof (shmmax);
+	if (sysctlbyname ("kern.ipc.shmmax", &shmmax, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.shmmax)");
+		return;
+	}
+
+	len = sizeof (shmmin);
+	if (sysctlbyname ("kern.ipc.shmmin", &shmmin, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.shmmin)");
+		return;
+	}
+
+	len = sizeof (shmmni);
+	if (sysctlbyname ("kern.ipc.shmmni", &shmmni, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.shmmni)");
+		return;
+	}
+
+	len = sizeof (shmseg);
+	if (sysctlbyname ("kern.ipc.shmseg", &shmseg, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.shmseg)");
+		return;
+	}
+
+	len = sizeof (shmall);
+	if (sysctlbyname ("kern.ipc.shmall", &shmall, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.shmall)");
+		return;
+	}
+
+	buf->shmmax = shmmax;
+	buf->shmmin = shmmin;
+	buf->shmmni = shmmni;
+	buf->shmseg = shmseg;
+	buf->shmall = shmall;
 
 	buf->flags = _glibtop_sysdeps_shm_limits;
 }
-
-#endif /* either a newer BSDI or no BSDI at all. */
-

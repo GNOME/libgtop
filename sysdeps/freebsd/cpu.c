@@ -28,91 +28,52 @@
 
 #include <glibtop_suid.h>
 
-#ifdef __NetBSD__
-#include <sys/sched.h>
-#endif
-
 static const unsigned long _glibtop_sysdeps_cpu =
 (1L << GLIBTOP_CPU_TOTAL) + (1L << GLIBTOP_CPU_USER) +
 (1L << GLIBTOP_CPU_NICE) + (1L << GLIBTOP_CPU_SYS) +
 (1L << GLIBTOP_CPU_IDLE) + (1L << GLIBTOP_CPU_FREQUENCY) +
-(1L << GLIBTOP_CPU_IOWAIT);
+(1L << GLIBTOP_CPU_IRQ);
 
-#ifndef KERN_CP_TIME
-/* nlist structure for kernel access */
-static struct nlist nlst [] = {
-#ifdef __bsdi__
-	{ "_cpustats" },
-#else
-	{ "_cp_time" },
-#endif
-	{ 0 }
-};
-#endif
-
-/* MIB array for sysctl */
-static int mib_length=2;
-static int mib [] = { CTL_KERN, KERN_CLOCKRATE };
-#ifdef KERN_CP_TIME
-static int mib2 [] = { CTL_KERN, KERN_CP_TIME };
-#endif
+static const unsigned long _glibtop_sysdeps_cpu_smp =
+(1L << GLIBTOP_XCPU_TOTAL) + (1L << GLIBTOP_XCPU_USER) +
+(1L << GLIBTOP_XCPU_NICE) + (1L << GLIBTOP_XCPU_SYS) +
+(1L << GLIBTOP_XCPU_IDLE) + (1L << GLIBTOP_XCPU_IRQ);
 
 /* Init function. */
 
 void
-glibtop_init_cpu_p (glibtop *server)
+glibtop_init_cpu_s (glibtop *server)
 {
-#ifndef KERN_CP_TIME
-	if (kvm_nlist (server->machine.kd, nlst) < 0) {
-		glibtop_warn_io_r (server, "kvm_nlist (cpu)");
-		return;
-	}
-#endif
-
-	/* Set this only if kvm_nlist () succeeded. */
 	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
+
+	if (server->ncpu)
+		server->sysdeps.cpu |= _glibtop_sysdeps_cpu_smp;
 }
 
 /* Provides information about cpu usage. */
 
 void
-glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
+glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
-#ifdef KERN_CP_TIME
-	guint64 cpts [CPUSTATES];
-#else
 	long cpts [CPUSTATES];
-#endif
-	/* sysctl vars*/
 	struct clockinfo ci;
 	size_t length;
+	int ncpu, i;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_CPU), 0);
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
 	memset (buf, 0, sizeof (glibtop_cpu));
 
-	/* If this fails, the nlist may not be valid. */
-	if (server->sysdeps.cpu == 0)
-		return;
-
-#ifdef KERN_CP_TIME
 	length = sizeof (cpts);
-	if (sysctl (mib2, mib_length, cpts, &length, NULL, 0)) {
-		glibtop_warn_io_r (server, "sysctl");
+	if (sysctlbyname ("kern.cp_time", cpts, &length, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.cp_time)");
 		return;
 	}
-#else
-	if (kvm_read (server->machine.kd, nlst [0].n_value,
-		      &cpts, sizeof (cpts)) != sizeof (cpts)) {
-		glibtop_warn_io_r (server, "kvm_read (cp_time)");
-		return;
-	}
-#endif
 
 	/* Get the clockrate data */
-	length = sizeof (struct clockinfo);
-	if (sysctl (mib, mib_length, &ci, &length, NULL, 0)) {
-		glibtop_warn_io_r (server, "sysctl");
+	length = sizeof (ci);
+	if (sysctlbyname ("kern.clockrate", &ci, &length, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.cockrate)");
 		return;
 	}
 
@@ -124,21 +85,32 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	buf->sys = cpts [CP_SYS];
 	/* set idle time */
 	buf->idle = cpts [CP_IDLE];
-	/* set iowait (really just interrupt) time */
-	buf->iowait = cpts [CP_INTR];
+	/* set irq */
+	buf->irq = cpts [CP_INTR];
 
 	/* set frequency */
-	/*
-	   FIXME --  is hz, tick, profhz or stathz wanted?
-	   buf->frequency = sysctl("kern.clockrate", ...);
-
-	   struct clockinfo
-	*/
-	buf->frequency = ci.hz;
+	buf->frequency = (ci.stathz ? ci.stathz : ci.hz);
 	/* set total */
 	buf->total = cpts [CP_USER] + cpts [CP_NICE]
-		+ cpts [CP_SYS] + cpts [CP_IDLE];
+		+ cpts [CP_SYS] + cpts [CP_IDLE] + cpts [CP_INTR];
+
+	ncpu = server->ncpu + 1;
+
+	for (i = 0; i < ncpu; i++) {
+		buf->xcpu_user[i] = cpts [CP_USER] / ncpu;
+		buf->xcpu_nice[i] = cpts [CP_NICE] / ncpu;
+		buf->xcpu_sys[i] = cpts [CP_SYS] / ncpu;
+		buf->xcpu_idle[i] = cpts [CP_IDLE] / ncpu;
+		buf->xcpu_irq[i] = cpts [CP_INTR] / ncpu;
+		buf->xcpu_total[i] = buf->xcpu_user[i] + buf->xcpu_nice[i] \
+				     + buf->xcpu_sys[i] + buf->xcpu_idle[i] \
+				     + buf->xcpu_irq[i];
+	}
 
 	/* Set the flags last. */
 	buf->flags = _glibtop_sysdeps_cpu;
+
+	if (ncpu > 1) {
+		buf->flags |= _glibtop_sysdeps_cpu_smp;
+	}
 }

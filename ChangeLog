@@ -1,3 +1,18 @@
+2007-02-18  Benoît Dejean  <benoit@placenet.org>
+
+	* configure.in:
+	* libgtop-sysdeps.m4:
+	* sysdeps/Makefile.am:
+	
+	Huge (k)FreeBSD update.
+	(k)FreeBSD support is freebsd/
+	Other BSD are in bsd/
+	
+	Patch by Joe Marcus Clarke  <marcus@freebsd.org>
+	Alexander Nedotsukov  <bland@FreeBSD.org>
+	
+	Closes #407693.
+
 2007-02-14  Benoît Dejean  <benoit@placenet.org>
 
 	* lib/read.c: (glibtop_read_l):

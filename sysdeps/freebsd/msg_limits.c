@@ -26,91 +26,79 @@
 #include <glibtop/error.h>
 #include <glibtop/msg_limits.h>
 
-#include <glibtop_suid.h>
-
-#if (defined __bsdi__) && (_BSDI_VERSION < 199700)
-/* Older versions of BSDI don't seem to have this. */
-
-void
-glibtop_init_msg_limits_p (glibtop *server)
-{ }
-
-void
-glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
-{
-        glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MSG_LIMITS), 0);
-
-        memset (buf, 0, sizeof (glibtop_msg_limits));
-}
-
-#else
-
-/* Define the appropriate macro (if any) to get declaration of `struct
- * msginfo'.  Needed on, at least, FreeBSD. */
-#if defined (STRUCT_MSGINFO_NEEDS_KERNEL)
-#define KERNEL 1
-#elif defined (STRUCT_MSGINFO_NEEDS__KERNEL)
-#define _KERNEL 1
-#endif
-
-#include <sys/ipc.h>
-#include <sys/msg.h>
+#include <sys/types.h>
+#include <sys/sysctl.h>
 
 static const unsigned long _glibtop_sysdeps_msg_limits =
 (1L << GLIBTOP_IPC_MSGMAX) + (1L << GLIBTOP_IPC_MSGMNI) +
 (1L << GLIBTOP_IPC_MSGMNB) + (1L << GLIBTOP_IPC_MSGTQL) +
-(1L << GLIBTOP_IPC_MSGSSZ);
-
-/* The values in this structure never change at runtime, so we only
- * read it once during initialization. We have to use the name `_msginfo'
- * since `msginfo' is already declared external in <sys/msg.h>. */
-static struct msginfo _msginfo;
-
-/* nlist structure for kernel access */
-static struct nlist nlst [] = {
-	{ "_msginfo" },
-	{ 0 }
-};
+(1L << GLIBTOP_IPC_MSGSSZ) + (1L << GLIBTOP_IPC_MSGPOOL);
 
 /* Init function. */
 
 void
-glibtop_init_msg_limits_p (glibtop *server)
+glibtop_init_msg_limits_s (glibtop *server)
 {
-	if (kvm_nlist (server->machine.kd, nlst) < 0) {
-		glibtop_warn_io_r (server, "kvm_nlist (msg_limits)");
-		return;
-	}
-
-	if (kvm_read (server->machine.kd, nlst [0].n_value,
-		      &_msginfo, sizeof (_msginfo)) != sizeof (_msginfo)) {
-		glibtop_warn_io_r (server, "kvm_read (msginfo)");
-		return;
-	}
-
 	server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
 }
 
 /* Provides information about sysv ipc limits. */
 
 void
-glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
+glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 {
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_MSG_LIMITS), 0);
+	size_t len;
+	int msgmax, msgmni, msgmnb, msgtql, msgssz, msgseg;
+
+	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MSG_LIMITS, 0);
 
 	memset (buf, 0, sizeof (glibtop_msg_limits));
 
 	if (server->sysdeps.msg_limits == 0)
 		return;
 
-	buf->msgmax = _msginfo.msgmax;
-	buf->msgmni = _msginfo.msgmni;
-	buf->msgmnb = _msginfo.msgmnb;
-	buf->msgtql = _msginfo.msgtql;
-	buf->msgssz = _msginfo.msgtql;
+	len = sizeof (msgseg);
+	if (sysctlbyname ("kern.ipc.msgseg", &msgseg, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.msgseg)");
+		return;
+	}
+
+	len = sizeof (msgssz);
+	if (sysctlbyname ("kern.ipc.msgssz", &msgssz, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.msgssz)");
+		return;
+	}
+
+	len = sizeof (msgtql);
+	if (sysctlbyname ("kern.ipc.msgtql", &msgtql, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.msgtql)");
+		return;
+	}
+
+	len = sizeof (msgmnb);
+	if (sysctlbyname ("kern.ipc.msgmnb", &msgmnb, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.msgmnb)");
+		return;
+	}
+
+	len = sizeof (msgmni);
+	if (sysctlbyname ("kern.ipc.msgmni", &msgmni, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.msgmni)");
+		return;
+	}
+
+	len = sizeof (msgmax);
+	if (sysctlbyname ("kern.ipc.msgmax", &msgmax, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (kern.ipc.msgmax)");
+		return;
+	}
+
+	buf->msgmax = msgmax;
+	buf->msgmni = msgmni;
+	buf->msgmnb = msgmnb;
+	buf->msgtql = msgtql;
+	buf->msgssz = msgssz;
+	buf->msgpool = msgseg;
 
 	buf->flags = _glibtop_sysdeps_msg_limits;
 }
-
-#endif /* either a newer BSDI or no BSDI at all. */
-

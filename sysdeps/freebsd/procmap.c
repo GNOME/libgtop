@@ -32,282 +32,256 @@
 #include <sys/param.h>
 #include <sys/proc.h>
 #include <sys/resource.h>
-#if defined(__NetBSD__) && (__NetBSD_Version__ < 105020000)
-#include <vm/vm_object.h>
-#include <vm/vm_prot.h>
-#include <vm/vm_map.h>
-#elif defined(__NetBSD__) && (__NetBSD_Version__ >= 105020000)
-#include <uvm/uvm_extern.h>
-#else
 #include <vm/vm_object.h>
 #include <vm/vm_map.h>
-#if (__FreeBSD_version >= 400011) || defined(__FreeBSD_kernel__)
 #include <vm/vm.h>
-#else
-#include <vm/vm_prot.h>
-#endif
-#endif
 
-#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 #define _KVM_VNODE
-#endif
 #include <sys/vnode.h>
-#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 #undef _KVM_VNODE
-#endif
+
+#define _KERNEL
+#include <sys/pipe.h>
+#include <sys/conf.h>
+#include <sys/file.h>
 #include <sys/mount.h>
 #include <ufs/ufs/quota.h>
 #include <ufs/ufs/inode.h>
+#include <fs/devfs/devfs.h>
+#if (__FreeBSD_version >= 600006) || defined(__FreeBSD_kernel__)
+#include <fs/devfs/devfs_int.h>
+#endif
+#undef _KERNEL
 
 #include <sys/ucred.h>
-#if (!defined __OpenBSD__) && (!defined __bsdi__)
-#include <sys/user.h>
-#endif
 #include <sys/sysctl.h>
-#if !defined(__NetBSD__) || (__NetBSD_Version__ < 105020000)
-#include <vm/vm.h>
-#endif
-
-#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
-/* Fixme ... */
-#undef _KERNEL
-#define _UVM_UVM_AMAP_I_H_ 1
-#define _UVM_UVM_MAP_I_H_ 1
-#include <uvm/uvm.h>
-#endif
 
 static const unsigned long _glibtop_sysdeps_proc_map =
-(1L << GLIBTOP_PROC_MAP_TOTAL) + (1L << GLIBTOP_PROC_MAP_NUMBER) +
-(1L << GLIBTOP_PROC_MAP_SIZE);
+        (1L << GLIBTOP_PROC_MAP_TOTAL) + (1L << GLIBTOP_PROC_MAP_NUMBER) +
+        (1L << GLIBTOP_PROC_MAP_SIZE);
 
 static const unsigned long _glibtop_sysdeps_map_entry =
-(1L << GLIBTOP_MAP_ENTRY_START) + (1L << GLIBTOP_MAP_ENTRY_END) +
-(1L << GLIBTOP_MAP_ENTRY_OFFSET) + (1L << GLIBTOP_MAP_ENTRY_PERM) +
-(1L << GLIBTOP_MAP_ENTRY_INODE) + (1L << GLIBTOP_MAP_ENTRY_DEVICE);
+        (1L << GLIBTOP_MAP_ENTRY_START) + (1L << GLIBTOP_MAP_ENTRY_END) +
+        (1L << GLIBTOP_MAP_ENTRY_OFFSET) + (1L << GLIBTOP_MAP_ENTRY_PERM) +
+        (1L << GLIBTOP_MAP_ENTRY_INODE) + (1L << GLIBTOP_MAP_ENTRY_DEVICE);
+
+#if (__FreeBSD_version >= 600006) || defined(__FreeBSD_kernel__)
+void _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode, struct vnode *vn, guint64 *inum, guint64 *dev);
+
+void
+_glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
+                                    struct vnode *vn, guint64 *inum,
+                                    guint64 *dev)
+{
+        char *tagptr;
+        char tagstr[12];
+        struct inode inode;
+        struct cdev_priv priv;
+        struct cdev si;
+
+        *inum = 0;
+        *dev = 0;
+
+        if (kvm_read (server->machine.kd, (gulong) &vnode->v_tag,
+ 	             (char *) &tagptr, sizeof (tagptr)) != sizeof (tagptr) ||
+            kvm_read (server->machine.kd, (gulong) tagptr,
+		     (char *) tagstr, sizeof (tagstr)) != sizeof (tagstr))
+        {
+                glibtop_warn_io_r (server, "kvm_read (tagptr)");
+                return;
+        }
+
+        tagstr[sizeof(tagstr) - 1] = '\0';
+
+        if (strcmp (tagstr, "ufs"))
+                return;
+
+        if (kvm_read (server->machine.kd, (gulong) VTOI(vn), (char *) &inode,
+ 	              sizeof (inode)) != sizeof (inode))
+        {
+                glibtop_warn_io_r (server, "kvm_read (inode)");
+                return;
+        }
+
+        if (kvm_read (server->machine.kd, (gulong) inode.i_dev, (char *) &si,
+	              sizeof (si)) != sizeof (si) ||
+            kvm_read (server->machine.kd, (gulong) si.si_priv, (char *) &priv,
+		      sizeof (priv)) != sizeof (priv))
+        {
+                glibtop_warn_io_r (server, "kvm_read (si)");
+                return;
+        }
+
+        *inum = (guint64) inode.i_number;
+        *dev = (guint64) priv.cdp_inode;
+}
+#endif
 
 /* Init function. */
 
 void
 glibtop_init_proc_map_p (glibtop *server)
 {
-	server->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
+        server->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
 }
 
 /* Provides detailed information about a process. */
 
 glibtop_map_entry *
 glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
-			pid_t pid)
+                        pid_t pid)
 {
-	struct kinfo_proc *pinfo;
-	struct vm_map_entry entry, *first;
-	struct vmspace vmspace;
-#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
-	struct vnode vnode;
-	struct inode inode;
-#else
-	struct vm_object object;
-#endif
-	GArray *maps = g_array_sized_new(FALSE, FALSE,
-					 sizeof(glibtop_map_entry),
-					 100);
-#if (defined __FreeBSD__) || defined(__FreeBSD_kernel__)
-	struct vnode vnode;
-#if (__FreeBSD_version < 500039) && !defined(__FreeBSD_kernel__)
-	struct inode inode;
-#endif
-#endif
-	int count, i = 0;
-	int update = 0;
+        struct kinfo_proc *pinfo;
+        struct vm_map_entry entry, *first;
+        struct vmspace vmspace;
+        struct vm_object object;
+        GArray *maps;
+        struct vnode vnode;
+        int count;
+        int update = 0;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_MAP), 0);
+        glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_MAP), 0);
 
-	memset (buf, 0, sizeof (glibtop_proc_map));
+        memset (buf, 0, sizeof (glibtop_proc_map));
 
-	/* It does not work for the swapper task. */
-	if (pid == 0) return (glibtop_map_entry*) g_array_free(maps, TRUE);
+        /* It does not work for the swapper task. */
+        if (pid == 0) return NULL;
 
-	glibtop_suid_enter (server);
+        /*return (glibtop_map_entry*) g_array_free(maps, TRUE);*/
 
-	/* Get the process data */
-	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
-	if ((pinfo == NULL) || (count < 1)) {
-		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
-		return (glibtop_map_entry*) g_array_free(maps, TRUE);
-	}
+        glibtop_suid_enter (server);
 
-	/* Now we get the memory maps. */
+        /* Get the process data */
+        pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+        if ((pinfo == NULL) || (count < 1)) {
+                glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
+		glibtop_suid_leave (server);
+                return NULL;
+        }
 
-	if (kvm_read (server->machine.kd,
-#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
-		      (unsigned long) pinfo [0].ki_vmspace,
-#else
-		      (unsigned long) pinfo [0].kp_proc.p_vmspace,
-#endif
-		      (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace))
-		glibtop_error_io_r (server, "kvm_read (vmspace)");
+        /* Now we get the memory maps. */
 
-	first = vmspace.vm_map.header.next;
+        if (kvm_read (server->machine.kd,
+                        (gulong) pinfo [0].ki_vmspace,
+                        (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace)) {
+                glibtop_warn_io_r (server, "kvm_read (vmspace)");
+		glibtop_suid_leave (server);
+                return NULL;
+        }
 
-	if (kvm_read (server->machine.kd,
-		      (unsigned long) vmspace.vm_map.header.next,
-		      (char *) &entry, sizeof (entry)) != sizeof (entry))
-		glibtop_error_io_r (server, "kvm_read (entry)");
+        first = vmspace.vm_map.header.next;
 
-	/* Allocate space. */
+        if (kvm_read (server->machine.kd,
+                        (gulong) vmspace.vm_map.header.next,
+                        (char *) &entry, sizeof (entry)) != sizeof (entry)) {
+                glibtop_warn_io_r (server, "kvm_read (entry)");
+		glibtop_suid_leave (server);
+                return NULL;
+        }
 
-	buf->number = vmspace.vm_map.nentries;
-	buf->size = sizeof (glibtop_map_entry);
+        /* Walk through the `vm_map_entry' list ... */
 
-	buf->total = buf->number * buf->size;
+        /* I tested this a few times with `mmap'; as soon as you write
+         * to the mmap'ed area, the object type changes from OBJT_VNODE
+         * to OBJT_DEFAULT so if seems this really works. */
 
-	buf->flags = _glibtop_sysdeps_proc_map;
+        maps = g_array_sized_new(FALSE, FALSE, sizeof(glibtop_map_entry),
+                                 vmspace.vm_map.nentries);
 
-	/* Walk through the `vm_map_entry' list ... */
+        do {
+                glibtop_map_entry *mentry;
+                guint64 inum, dev;
+                guint len;
 
-	/* I tested this a few times with `mmap'; as soon as you write
-	 * to the mmap'ed area, the object type changes from OBJT_VNODE
-	 * to OBJT_DEFAULT so if seems this really works. */
+                if (update) {
+                        if (kvm_read (server->machine.kd,
+                                        (gulong) entry.next,
+                                        (char *) &entry, sizeof (entry)) != sizeof (entry)) {
+                                glibtop_warn_io_r (server, "kvm_read (entry)");
+                                continue;
+                        }
+                } else {
+                        update = 1;
+                }
 
-	do {
-		glibtop_map_entry *mentry;
-		unsigned long inum, dev;
-		guint len;
+                if (entry.eflags & (MAP_ENTRY_IS_SUB_MAP))
+                        continue;
 
-		if (update) {
-			if (kvm_read (server->machine.kd,
-				      (unsigned long) entry.next,
-				      &entry, sizeof (entry)) != sizeof (entry))
-				glibtop_error_io_r (server, "kvm_read (entry)");
-		} else {
-			update = 1;
-		}
+                if (!entry.object.vm_object)
+                        continue;
 
-#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
-#if (__FreeBSD__ >= 4) || defined(__FreeBSD_kernel__)
-		if (entry.eflags & (MAP_ENTRY_IS_SUB_MAP))
-			continue;
-#else
- 		if (entry.eflags & (MAP_ENTRY_IS_A_MAP|MAP_ENTRY_IS_SUB_MAP))
- 			continue;
-#endif
-#else
-#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
- 		if (UVM_ET_ISSUBMAP (&entry))
-			continue;
-#else
-		if (entry.is_a_map || entry.is_sub_map)
-			continue;
-#endif
-#endif
+                /* We're only interested in `vm_object's */
 
+                if (kvm_read (server->machine.kd,
+                                (gulong) entry.object.vm_object,
+                                (char *) &object, sizeof (object)) != sizeof (object)) {
+                        glibtop_warn_io_r (server, "kvm_read (object)");
+                        continue;
+                }
 
-#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
-		if (!entry.object.uvm_obj)
-			continue;
+                /* If the object is of type vnode, add its size */
 
-		/* We're only interested in vnodes */
+                if (object.type != OBJT_VNODE)
+                        continue;
 
-		if (kvm_read (server->machine.kd,
-			      (unsigned long) entry.object.uvm_obj,
-			      &vnode, sizeof (vnode)) != sizeof (vnode)) {
-			glibtop_warn_io_r (server, "kvm_read (vnode)");
-			return (glibtop_map_entry*) g_array_free(maps, TRUE);
-		}
-#else
-		if (!entry.object.vm_object)
-			continue;
+                if (!object.handle)
+                        continue;
 
-		/* We're only interested in `vm_object's */
+                if (kvm_read (server->machine.kd,
+                                (gulong) object.handle,
+                                (char *) &vnode, sizeof (vnode)) != sizeof (vnode)) {
+                        glibtop_warn_io_r (server, "kvm_read (vnode)");
+                        continue;
+                }
 
-		if (kvm_read (server->machine.kd,
-			      (unsigned long) entry.object.vm_object,
-			      &object, sizeof (object)) != sizeof (object))
-			glibtop_error_io_r (server, "kvm_read (object)");
-#endif
-
-#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000)
-#if defined(UVM_VNODE_VALID)
-		if (!vnode.v_uvm.u_flags & UVM_VNODE_VALID)
-			continue;
-#endif
-		if ((vnode.v_type != VREG) || (vnode.v_tag != VT_UFS) ||
-		    !vnode.v_data) continue;
-
-		if (kvm_read (server->machine.kd,
-			      (unsigned long) vnode.v_data,
-			      &inode, sizeof (inode)) != sizeof (inode))
-			glibtop_error_io_r (server, "kvm_read (inode)");
-
-		inum  = inode.i_number;
-		dev = inode.i_dev;
-#endif
-
-
-#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
-		/* If the object is of type vnode, add its size */
-
-		if (object.type != OBJT_VNODE)
-			continue;
-
-		if (!object.handle)
-			continue;
-
-		if (kvm_read (server->machine.kd,
-			      (unsigned long) object.handle,
-			      &vnode, sizeof (vnode)) != sizeof (vnode))
-			glibtop_error_io_r (server, "kvm_read (vnode)");
-
-#if (defined(__FreeBSD__) && (__FreeBSD_version >= 500039)) || defined(__FreeBSD_kernel__)
-               switch (vnode.v_type) {
-                   case VREG:
+                switch (vnode.v_type) {
+                case VNON:
+                case VBAD:
+                        continue;
+                default:
 #if (__FreeBSD_version < 600006) && !defined(__FreeBSD_kernel__)
-                       inum = vnode.v_cachedid;
-		       dev = vnode.v_cachedfs;
-#endif
-                   default:
-                   continue;
-               }
+                        inum = vnode.v_cachedid;
+                        dev = vnode.v_cachedfs;
+
 #else
-		if ((vnode.v_type != VREG) || (vnode.v_tag != VT_UFS) ||
-		    !vnode.v_data) continue;
-
-		if (kvm_read (server->machine.kd,
-			      (unsigned long) vnode.v_data,
-			      &inode, sizeof (inode)) != sizeof (inode))
-			glibtop_error_io_r (server, "kvm_read (inode)");
-
-		inum  = inode.i_number;
-		dev = inode.i_dev;
+                        _glibtop_sysdeps_freebsd_dev_inode (server,
+					(struct vnode *) object.handle,
+					&vnode, &inum, &dev);
 #endif
-#endif
-		len = maps->len;
-		g_array_set_size(maps, len + 1);
-		mentry = &g_array_index(maps, glibtop_map_entry, len);
+                        break;
+                }
 
-		mentry->flags  = _glibtop_sysdeps_map_entry;
+                len = maps->len;
+                g_array_set_size(maps, len + 1);
+                mentry = &g_array_index(maps, glibtop_map_entry, len);
 
-		mentry->start  = (guint64) entry.start;
-		mentry->end    = (guint64) entry.end;
-		mentry->offset = (guint64) entry.offset;
-		mentry->device = (guint64) dev;
-		mentry->inode  = (guint64) inum;
+                memset (mentry, 0, sizeof (glibtop_map_entry));
 
-		mentry->perm   = (guint64) 0;
+                mentry->flags  = _glibtop_sysdeps_map_entry;
+                mentry->start  = (guint64) entry.start;
+                mentry->end    = (guint64) entry.end;
+                mentry->offset = (guint64) entry.offset;
+                mentry->device = (guint64) dev;
+                mentry->inode  = (guint64) inum;
 
-		if (entry.protection & VM_PROT_READ)
-			mentry->perm |= GLIBTOP_MAP_PERM_READ;
-		if (entry.protection & VM_PROT_WRITE)
-			mentry->perm |= GLIBTOP_MAP_PERM_WRITE;
-		if (entry.protection & VM_PROT_EXECUTE)
-			mentry->perm |= GLIBTOP_MAP_PERM_EXECUTE;
-	} while (entry.next != first);
+                mentry->perm   = (guint64) 0;
 
-	buf->flags = _glibtop_sysdeps_proc_map;
+                if (entry.protection & VM_PROT_READ)
+                        mentry->perm |= GLIBTOP_MAP_PERM_READ;
+                if (entry.protection & VM_PROT_WRITE)
+                        mentry->perm |= GLIBTOP_MAP_PERM_WRITE;
+                if (entry.protection & VM_PROT_EXECUTE)
+                        mentry->perm |= GLIBTOP_MAP_PERM_EXECUTE;
 
-	buf->number = maps->len;
-	buf->size = sizeof (glibtop_map_entry);
-	buf->total = buf->number * buf->size;
+        } while (entry.next != first);
 
-	return (glibtop_map_entry*) g_array_free(maps, FALSE);
+        glibtop_suid_leave (server);
+
+        buf->flags = _glibtop_sysdeps_proc_map;
+
+        buf->number = (guint64) maps->len;
+        buf->size   = (guint64) sizeof (glibtop_map_entry);
+        buf->total  = (guint64) (buf->number * buf->size);
+
+        return (glibtop_map_entry*) g_array_free(maps, FALSE);
 }
