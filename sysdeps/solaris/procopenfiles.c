@@ -1,5 +1,3 @@
-/* $Id$ */
-
 /* Copyright (C) 2006 Henry Zhang
    This file is part of LibGTop 2.14.
 

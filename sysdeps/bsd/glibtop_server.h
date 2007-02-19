@@ -1,5 +1,3 @@
-/* $Id: glibtop_server.h 2469 2006-04-04 20:06:14Z bdejean $ */
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 

@@ -1,5 +1,3 @@
-/* $Id: netlist.c 2303 2005-02-28 08:15:59Z bdejean $ */
-
 /*
    This file is part of LibGTop 2.0.
 

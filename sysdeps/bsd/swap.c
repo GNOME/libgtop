@@ -1,5 +1,3 @@
-/* $Id: swap.c 2536 2006-11-27 19:22:45Z bdejean $ */
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 

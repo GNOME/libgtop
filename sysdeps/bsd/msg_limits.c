@@ -1,5 +1,3 @@
-/* $Id: msg_limits.c 2475 2006-04-09 10:50:43Z bdejean $ */
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 

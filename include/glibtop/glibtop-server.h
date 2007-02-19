@@ -1,7 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 
-/* $Id$ */
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 2.0.
 

@@ -1,5 +1,3 @@
-/* $Id: glibtop_machine.h 2003 2004-06-09 18:52:22Z bdejean $ */
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 

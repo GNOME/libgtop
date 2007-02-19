@@ -1,5 +1,3 @@
-/* $Id$ */
-
 /* Copyright (C) 1998 Joshua Sled
    This file is part of LibGTop 1.0.
 

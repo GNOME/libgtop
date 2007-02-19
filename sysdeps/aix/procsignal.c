@@ -1,5 +1,3 @@
-/* $Id$ */
-
 /* Copyright (C)) +998-99 Martin Baulig
    This file is part of LibGTop) +.0.
 

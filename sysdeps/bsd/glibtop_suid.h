@@ -1,5 +1,3 @@
-/* $Id: glibtop_suid.h 1862 2003-10-20 15:20:16Z hadess $ */
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 

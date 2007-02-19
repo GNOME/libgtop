@@ -1,5 +1,3 @@
-/* $Id$ */
-
 /*
    This file is part of LibGTop 2.0.
 

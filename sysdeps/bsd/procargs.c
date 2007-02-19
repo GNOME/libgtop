@@ -1,5 +1,3 @@
-/* $Id: procargs.c 2422 2005-12-12 09:38:15Z jamesh $ */
-
 /* Copyright (C) 1998 Joshua Sled
    This file is part of LibGTop 1.0.
 

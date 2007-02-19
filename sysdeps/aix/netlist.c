@@ -1,5 +1,3 @@
-/* $Id$ */
-
 /* This file is part of LibGTop 2.0.
 
    LibGTop is free software; you can redistribute it and/or modify it

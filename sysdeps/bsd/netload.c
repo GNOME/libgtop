@@ -1,5 +1,3 @@
-/* $Id: netload.c 2550 2007-01-31 21:23:21Z bdejean $ */
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 

@@ -1,5 +1,3 @@
-/* $Id$ */
-
 /* Copyright (C) 1998-99 Martin Baulig
 
    Contributed by Martin Baulig <martin@home-of-linux.org>, April 1998.

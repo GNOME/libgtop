@@ -1,5 +1,3 @@
-/* $Id$ */
-
 /* Copyright (C) 1998-99 Martin Baulig
    Copyright (C) 2004 Nicolás Lichtmaier
    This file is part of LibGTop 1.0.
