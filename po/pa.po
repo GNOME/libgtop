@@ -1,214 +1,214 @@
 # translation of libgtop.HEAD.po to Punjabi
-# translation of pa.po to Punjabi
-# translation of libgtop.HEAD.pa.po to Punjabi
 # Punjabi translation of PACKAGE.
 # Copyright (C) 2004 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+#
+#
 # Amanpreet Singh Alam <amanlinux@netscape.net>, 2004.
 # Amanpreet Singh Alam <aalam@redhat.com>, 2004.
 # Amanpreet Singh Alam <amanpreetalam@yahoo.com>, 2005.
-#
-#
+# A S Alam <aalam@users.sf.net>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-25 18:15+0200\n"
-"PO-Revision-Date: 2005-03-03 17:38+0530\n"
-"Last-Translator: Amanpreet Singh Alam <amanpreetalam@yahoo.com>\n"
-"Language-Team: Punjabi <fedora-trans-pa@redhat.com>\n"
+"POT-Creation-Date: 2007-01-02 03:06+0000\n"
+"PO-Revision-Date: 2007-02-25 18:41+0530\n"
+"Last-Translator: A S Alam <aalam@users.sf.net>\n"
+"Language-Team: Punjabi <punjabi-l10n@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: KBabel 1.11.4\n"
 
-#: lib/read.c:65
+#: ../lib/read.c:65
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "ਪੜੋ %d ਬਾਇਟ"
-msgstr[1] "ਪੜੋ %d ਬਾਈਟ"
+msgstr[0] "%d ਬਾਇਟ ਪੜ੍ਹੇ"
+msgstr[1] "%d ਬਾਈਟ ਪੜ੍ਹੇ"
 
-#: lib/read_data.c:53
+#: ../lib/read_data.c:53
 msgid "read data size"
-msgstr "ਖੋਲ਼ੋ ਡਾਟਾ ਦਾ ਅਕਾਰ"
+msgstr "ਡਾਟਾ ਆਕਾਰ ਪੜ੍ਹੇ"
 
-#: lib/read_data.c:72
+#: ../lib/read_data.c:72
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "%lu ਡਾਟਾ ਬਾਈਟ ਪੜੋ"
-msgstr[1] "%lu ਡਾਟਾ ਬਾਈਟ ਪੜੋ"
+msgstr[0] "%lu ਡਾਟਾ ਬਾਈਟ ਪੜ੍ਹੇ"
+msgstr[1] "%lu ਡਾਟਾ ਬਾਈਟ ਪੜ੍ਹੇ"
 
-#: lib/write.c:52
+#: ../lib/write.c:53
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "%d ਬਾਈਟ ਲਿਖੇ"
 msgstr[1] "%d ਬਾਈਟ ਲਿਖੇ"
 
-#: src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "ਡੀਬੱਗਇੰਗ ਚਾਲੂ ਕਰੋ"
 
-#: src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:460
 msgid "DEBUG"
 msgstr "ਡੀਬੱਗ"
 
-#: src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
-msgstr "ਸ਼ਬਦ ਸਮੂਹ ਦੀ ਆਉਟਪੁੱਟ ਚਾਲੂ ਕਰੋ"
+msgstr "ਜਾਣਕਾਰੀ ਆਉਟਪੁੱਟ ਯੋਗ"
 
-#: src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:462
 msgid "VERBOSE"
-msgstr "ਵਿਸਥਾਰ"
+msgstr "ਜਾਣਕਾਰੀ"
 
-#: src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
-msgstr "ਪਿਛੋਕੜ ਵਿਚ ਦੁਫਾੜ ਨਾ ਕਰੋ"
+msgstr "ਬੈਕਗਰਾਊਂਡ 'ਚ ਫੋਰਕ"
 
-#: src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
 msgstr "ਕੋਈ-ਡੇਮੋਨ ਨਹੀ"
 
-#: src/daemon/gnuserv.c:466
+#: ../src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
-msgstr "inetd ਤੋ ਸ਼ਾਮਿਲ ਹੈ"
+msgstr "inetd ਤੋਂ ਸ਼ਾਮਿਲ ਹੈ"
 
-#: src/daemon/gnuserv.c:466
+#: ../src/daemon/gnuserv.c:466
 msgid "INETD"
 msgstr "INETD"
 
-#: src/daemon/gnuserv.c:500
+#: ../src/daemon/gnuserv.c:500
 #, c-format
 msgid ""
 "Error on option %s: %s.\n"
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "ਗਲਤੀ %s ਚੋਣ ਦੌਰਾਨ: %s.\n"
-"ਪੂਰੀ ਕਮਾਂਡ ਚੋਣ ਸੂਚੀ ਵੇਖਣ ਲਈ '%s --ਸਹਾਇਤਾ' ਚਲਾਉ।\n"
+"ਪੂਰੀ ਕਮਾਂਡ ਚੋਣ ਲਿਸਟ ਵੇਖਣ ਲਈ '%s --help' ਚਲਾਉ।\n"
 
-#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Hangup"
 msgstr "ਬੰਦ ਕਰੋ"
 
-#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Interrupt"
 msgstr "ਰੁਕਾਵਟ"
 
-#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Quit"
 msgstr "ਬਾਹਰ"
 
-#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Illegal instruction"
-msgstr "ਜਾਅਲੀ ਹਦਾਇਤ"
+msgstr "ਗਲਤ ਹਦਾਇਤ"
 
-#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "Trace trap"
-msgstr "ਪਦ-ਚਿੰਨ ਖੋਜ"
+msgstr "ਟਰੇਸ ਟਰੈਪ"
 
-#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Abort"
-msgstr "ਛੱਡੋ"
+msgstr "ਅਧੂਰਾ ਛੱਡੋ"
 
-#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "EMT error"
 msgstr "EMT ਗਲਤੀ"
 
-#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Floating-point exception"
 msgstr "ਦਸ਼ਮਲਵ ਅਪਵਾਦ"
 
-#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Kill"
 msgstr "ਖਤਮ"
 
-#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Bus error"
 msgstr "ਬਸ ਗਲਤੀ"
 
-#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Segmentation violation"
 msgstr "ਸਿਗਮਿੰਟੇਸ਼ਨ ਉਲੰਘਣਾ"
 
-#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Bad argument to system call"
 msgstr "ਸਿਸਟਮ ਕਾਲ ਲਈ ਗਲਤ ਆਰਗੂਮਿੰਟ"
 
-#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
 msgid "Broken pipe"
 msgstr "ਟੁੱਟਿਆ ਪਾਇਪ"
 
-#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Alarm clock"
 msgstr "ਆਲਰਮ ਘੜੀ"
 
-#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Termination"
-msgstr "ਸਮਾਪਤ"
+msgstr "ਸਮਾਪਤੀ"
 
-#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
 msgid "Urgent condition on socket"
 msgstr "ਸਾਕਟ ਲਈ ਜਰੂਰੀ ਸ਼ਰਤ"
 
-#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
 msgid "Stop"
 msgstr "ਰੋਕੋ"
 
-#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Keyboard stop"
 msgstr "ਕੀ-ਬੋਰਡ ਰੁੱਕ ਗਿਆ ਹੈ"
 
-#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Continue"
 msgstr "ਜਾਰੀ ਰਹੋ"
 
-#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Child status has changed"
-msgstr "ਅਗਲੀ ਸਥਿਤੀ ਤਬਦੀਲ ਹੋਈ"
+msgstr "ਚਲਾਇਡ ਹਾਲਤ ਤਬਦੀਲ ਹੋਈ"
 
-#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "Background read from tty"
-msgstr "tty ਤੋਂ ਪਿੱਠਵਰਤੀ ਪੜੋ"
+msgstr "tty ਤੋਂ ਬੈਕਗਰਾਊਂਡ ਪੜ੍ਹੋ"
 
-#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "Background write to tty"
-msgstr "tty ਲਈ ਪਿੱਠਵਰਤੀ ਲਿਖੋ"
+msgstr "tty ਲਈ ਬੈਕਗਰਾਊਂਡ ਲਿਖੋ"
 
-#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "I/O now possible"
 msgstr "I/O ਹੁਣ ਸੰਭਵ"
 
-#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "CPU limit exceeded"
 msgstr "CPU ਸੀਮਾ ਟੱਪੀ"
 
-#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
 msgid "File size limit exceeded"
 msgstr "ਫਾਇਲ ਆਕਾਰ ਸੀਮਾ ਟੱਪੀ"
 
-#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
 msgid "Virtual alarm clock"
-msgstr "ਫਰਜ਼ੀ ਅਲਾਰਮ ਘੜੀ"
+msgstr "ਵੁਰਚੁਅਲ ਅਲਾਰਮ ਘੜੀ"
 
-#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Profiling alarm clock"
 msgstr "ਅਲਾਰਮ ਘੜੀ ਰਾਹੀਂ ਪ੍ਰੋਫਾਇਲਿੰਗ"
 
-#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "Window size change"
 msgstr "ਝਰੋਖੇ ਅਕਾਰ ਬਦਲੋ"
 
-#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "Information request"
 msgstr "ਜਾਣਕਾਰੀ ਲਈ ਬੇਨਤੀ"
 
-#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
 msgid "User defined signal 1"
-msgstr "ਉਪਭੋਗਤਾ ਨਿਰਧਾਰਿਤ ਸੰਕੇਤ ੧"
+msgstr "ਉਪਭੋਗੀ ਪ੍ਰਭਾਸ਼ਿਤ ਸੰਕੇਤ 1"
 
-#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#: ../sysdeps/osf1/siglist.c:59 ../sysdeps/sun4/siglist.c:59
 msgid "User defined signal 2"
-msgstr "ਉਪਭੋਗਤਾ ਨਿਰਧਾਰਿਤ ਸੰਕੇਤ ੨"
+msgstr "ਉਪਭੋਗੀ ਪ੍ਰਭਾਸ਼ਿਤ ਸੰਕੇਤ 2"
+
