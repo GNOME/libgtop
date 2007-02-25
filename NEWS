@@ -1,3 +1,8 @@
+25 February 2007: Overview of changes in 2.14.8
+===============================================
+* bsd implementations have been splitted by Joe Marcus Clarke
+  and Alexander Nedotsukov. (k)freeBSD now has a separate implementation.
+
 February 10, 2007: Overview of changes in 2.14.7
 ================================================
 * bsd:
