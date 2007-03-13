@@ -1,3 +1,10 @@
+2007-03-13  Benoît Dejean  <benoit@placenet.org>
+
+	* fsusage.c: (get_sys_path), (linux_2_6_0):
+	
+	Fixed stat parsing for md devices.
+	Patch by Martin Bailey  <martin@pcalpha.com>.
+
 2007-02-15  Benoît Dejean  <benoit@placenet.org>
 
 	* procmap.c: (add_smaps):

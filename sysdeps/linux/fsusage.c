@@ -62,8 +62,8 @@ get_partition(const char *mountpoint)
 }
 
 
-static char *
-get_sys_path(const char *device)
+static void
+get_sys_path(const char *device, char **stat_path, const char **parse_format)
 {
 	if(g_str_has_prefix(device, "hd") || g_str_has_prefix(device, "sd"))
 	{
@@ -80,12 +80,14 @@ get_sys_path(const char *device)
 				       prefix, device);
 
 		g_free(prefix);
-		return path;
 
+		*stat_path = path;
+		*parse_format = "%*llu %llu %*llu %llu";
 	}
 	else
 	{
-		return g_strdup_printf("/sys/block/%s/stat", device);
+		*stat_path = g_strdup_printf("/sys/block/%s/stat", device);
+		*parse_format = "%*llu %*llu %llu %*llu %*llu %*llu %llu";
 	}
 }
 
@@ -95,26 +97,26 @@ static void linux_2_6_0(glibtop *server, glibtop_fsusage *buf, const char *path)
 {
 	char *device;
 	char *filename;
+	const char *format;
 	int ret;
 	char buffer[BUFSIZ];
-	char *p;
 
 	device = get_partition(path);
 	if(!device) return;
 
-	filename = get_sys_path(device);
+	get_sys_path(device, &filename, &format);
 	g_free(device);
 
 	ret = try_file_to_buffer(buffer, filename);
-	g_free(filename);
 
 	if(ret < 0) return;
 
-	p = buffer;
-	p = skip_token(p);
-	buf->read = strtoull(p, &p, 0);
-	p = skip_token(p);
-	buf->write = strtoull(p, &p, 0);
+	if (sscanf(buffer, format, &buf->read, &buf->write) != 2) {
+		glibtop_warn_io_r(server, "Could not parse %s", filename);
+		return;
+	}
+
+	g_free(filename);
 
 	buf->flags |= (1 << GLIBTOP_FSUSAGE_READ) | (1 << GLIBTOP_FSUSAGE_WRITE);
 }
