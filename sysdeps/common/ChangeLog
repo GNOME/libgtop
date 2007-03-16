@@ -1,3 +1,11 @@
+2007-03-16  Benoît Dejean  <benoit@placenet.org>
+
+	* mountlist.c: (ignore_mount_entry):
+	
+	Ignore securityfs and fusectl.
+	Patch by Fryderyk Dziarmagowski  <freetz@gmx.net>
+	Closes #418718.
+
 2007-02-10  Benoît Dejean  <benoit@placenet.org>
 
 	* fsusage.c: (glibtop_get_fsusage_s):
