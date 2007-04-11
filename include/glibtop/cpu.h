@@ -92,10 +92,10 @@ void glibtop_get_cpu(glibtop_cpu *buf);
 void glibtop_get_cpu_l (glibtop *server, glibtop_cpu *buf);
 
 #if GLIBTOP_SUID_CPU
-void glibtop_init_cpu_p (glibtop *server);
+void _glibtop_init_cpu_p (glibtop *server);
 void glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf);
 #else
-void glibtop_init_cpu_s (glibtop *server);
+void _glibtop_init_cpu_s (glibtop *server);
 void glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf);
 #endif
 

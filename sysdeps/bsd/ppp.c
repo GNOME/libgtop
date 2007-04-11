@@ -70,7 +70,7 @@ static struct nlist nlst [] = {
 /* Init function. */
 
 void
-glibtop_init_ppp_p (glibtop *server)
+_glibtop_init_ppp_p (glibtop *server)
 {
 #ifdef HAVE_I4B
 #ifdef HAVE_I4B_ACCT

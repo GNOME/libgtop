@@ -32,7 +32,7 @@ static const unsigned long _glibtop_sysdeps_sem_limits =
 /* Init function. */
 
 void
-glibtop_init_sem_limits_s (glibtop *server)
+_glibtop_init_sem_limits_s (glibtop *server)
 {
 	server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
 }

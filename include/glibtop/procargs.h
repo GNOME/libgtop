@@ -51,7 +51,7 @@ glibtop_get_proc_args (glibtop_proc_args *buf, pid_t pid, unsigned max_len);
 
 # define glibtop_get_proc_args_r		glibtop_get_proc_args_p
 
-  void glibtop_init_proc_args_p (glibtop *server);
+  void _glibtop_init_proc_args_p (glibtop *server);
 
   char *
   glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
@@ -62,7 +62,7 @@ glibtop_get_proc_args (glibtop_proc_args *buf, pid_t pid, unsigned max_len);
 
 # define glibtop_get_proc_args_r		glibtop_get_proc_args_s
 
-  void glibtop_init_proc_args_s (glibtop *server);
+  void _glibtop_init_proc_args_s (glibtop *server);
 
   char *
   glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,

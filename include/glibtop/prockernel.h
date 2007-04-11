@@ -73,10 +73,10 @@ void glibtop_get_proc_kernel(glibtop_proc_kernel *buf, pid_t pid);
 void glibtop_get_proc_kernel_l (glibtop *server, glibtop_proc_kernel *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_KERNEL
-void glibtop_init_proc_kernel_p (glibtop *server);
+void _glibtop_init_proc_kernel_p (glibtop *server);
 void glibtop_get_proc_kernel_p (glibtop *server, glibtop_proc_kernel *buf, pid_t pid);
 #else
-void glibtop_init_proc_kernel_s (glibtop *server);
+void _glibtop_init_proc_kernel_s (glibtop *server);
 void glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid);
 #endif
 

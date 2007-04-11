@@ -37,7 +37,7 @@ static const unsigned long _glibtop_sysdeps_swap_paging =
 /* Init function. */
 
 void
-glibtop_init_swap_s (glibtop *server)
+_glibtop_init_swap_s (glibtop *server)
 {
 	server->sysdeps.swap = _glibtop_sysdeps_swap |
 		_glibtop_sysdeps_swap_paging;

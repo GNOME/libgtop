@@ -54,10 +54,10 @@ void glibtop_get_uptime (glibtop_uptime *buf);
 void glibtop_get_uptime_l (glibtop *server, glibtop_uptime *buf);
 
 #if GLIBTOP_SUID_UPTIME
-void glibtop_init_uptime_p (glibtop *server);
+void _glibtop_init_uptime_p (glibtop *server);
 void glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf);
 #else
-void glibtop_init_uptime_s (glibtop *server);
+void _glibtop_init_uptime_s (glibtop *server);
 void glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf);
 #endif
 

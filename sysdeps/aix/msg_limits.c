@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_msg_limits =
 /* Init function. */
 
 void
-glibtop_init_msg_limits_p (glibtop *server)
+_glibtop_init_msg_limits_p (glibtop *server)
 {
 	off_t result;
 

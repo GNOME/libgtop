@@ -118,7 +118,7 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
 /* Init function. */
 
 void
-glibtop_init_proc_map_p (glibtop *server)
+_glibtop_init_proc_map_p (glibtop *server)
 {
         server->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
 }

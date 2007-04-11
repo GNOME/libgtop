@@ -39,7 +39,7 @@ static int pagesize;
 /* Init function. */
 
 void
-glibtop_init_proc_segment_p (glibtop *server)
+_glibtop_init_proc_segment_p (glibtop *server)
 {
 	pagesize = getpagesize ();
 	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment;

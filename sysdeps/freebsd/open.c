@@ -31,7 +31,7 @@ void
 glibtop_init_p (glibtop *server, const unsigned long features,
 		const unsigned flags)
 {
-	const glibtop_init_func_t *init_fkt;
+	const _glibtop_init_func_t *init_fkt;
 
 	if (server == NULL)
 		glibtop_error_r (NULL, "glibtop_init_p (server == NULL)");

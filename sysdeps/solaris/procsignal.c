@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_proc_signal =
 /* Init function. */
 
 void
-glibtop_init_proc_signal_s (glibtop *server)
+_glibtop_init_proc_signal_s (glibtop *server)
 {
 	server->sysdeps.proc_signal = _glibtop_sysdeps_proc_signal;
 }

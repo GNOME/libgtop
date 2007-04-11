@@ -117,10 +117,10 @@ void glibtop_get_netload(glibtop_netload *buf, const char *interface);
 void glibtop_get_netload_l (glibtop *server, glibtop_netload *buf, const char *interface);
 
 #if GLIBTOP_SUID_NETLOAD
-void glibtop_init_netload_p (glibtop *server);
+void _glibtop_init_netload_p (glibtop *server);
 void glibtop_get_netload_p (glibtop *server, glibtop_netload *buf, const char *interface);
 #else
-void glibtop_init_netload_s (glibtop *server);
+void _glibtop_init_netload_s (glibtop *server);
 void glibtop_get_netload_s (glibtop *server, glibtop_netload *buf, const char *interface);
 #endif
 

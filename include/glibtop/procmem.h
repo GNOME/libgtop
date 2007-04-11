@@ -64,10 +64,10 @@ void glibtop_get_proc_mem(glibtop_proc_mem *buf, pid_t pid);
 void glibtop_get_proc_mem_l (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_MEM
-void glibtop_init_proc_mem_p (glibtop *server);
+void _glibtop_init_proc_mem_p (glibtop *server);
 void glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
 #else
-void glibtop_init_proc_mem_s (glibtop *server);
+void _glibtop_init_proc_mem_s (glibtop *server);
 void glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid);
 #endif
 

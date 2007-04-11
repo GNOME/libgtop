@@ -31,7 +31,7 @@
 /* Init function. */
 
 void
-glibtop_init_mem_s (glibtop *server)
+_glibtop_init_mem_s (glibtop *server)
 {
     server->sysdeps.mem = (1L << GLIBTOP_MEM_TOTAL)
 	| (1L << GLIBTOP_MEM_FREE)

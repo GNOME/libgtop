@@ -29,7 +29,7 @@ static const unsigned long _glibtop_sysdeps_netlist = (1 << GLIBTOP_NETLIST_NUMB
 /* Init function. */
 
 void
-glibtop_init_netlist_s (glibtop *server)
+_glibtop_init_netlist_s (glibtop *server)
 {
 	server->sysdeps.netlist = _glibtop_sysdeps_netlist;
 }

@@ -29,7 +29,7 @@
 /* Init function. */
 
 void
-glibtop_init_proc_open_files_s (glibtop *server)
+_glibtop_init_proc_open_files_s (glibtop *server)
 {
 	server->sysdeps.proc_open_files = 0;
 }

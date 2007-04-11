@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_proc_state = 0;
 /* Init function. */
 
 void
-glibtop_init_proc_state_p (glibtop *server)
+_glibtop_init_proc_state_p (glibtop *server)
 {
 	server->sysdeps.proc_state = _glibtop_sysdeps_proc_state;
 }

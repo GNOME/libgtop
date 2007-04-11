@@ -45,7 +45,7 @@ static const unsigned long _glibtop_sysdeps_proc_uid_prcred =
 /* Init function. */
 
 void
-glibtop_init_proc_uid_s (glibtop *server)
+_glibtop_init_proc_uid_s (glibtop *server)
 {
 	server->sysdeps.proc_uid = _glibtop_sysdeps_proc_uid_psinfo +
 	   			   _glibtop_sysdeps_proc_uid_prcred;

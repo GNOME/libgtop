@@ -80,10 +80,10 @@ void glibtop_get_proc_time(glibtop_proc_time *buf, pid_t pid);
 void glibtop_get_proc_time_l (glibtop *server, glibtop_proc_time *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_TIME
-void glibtop_init_proc_time_p (glibtop *server);
+void _glibtop_init_proc_time_p (glibtop *server);
 void glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf, pid_t pid);
 #else
-void glibtop_init_proc_time_s (glibtop *server);
+void _glibtop_init_proc_time_s (glibtop *server);
 void glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid);
 #endif
 

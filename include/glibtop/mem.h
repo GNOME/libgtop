@@ -64,10 +64,10 @@ void glibtop_get_mem(glibtop_mem *buf);
 void glibtop_get_mem_l (glibtop *server, glibtop_mem *buf);
 
 #if GLIBTOP_SUID_MEM
-void glibtop_init_mem_p (glibtop *server);
+void _glibtop_init_mem_p (glibtop *server);
 void glibtop_get_mem_p (glibtop *server, glibtop_mem *buf);
 #else
-void glibtop_init_mem_s (glibtop *server);
+void _glibtop_init_mem_s (glibtop *server);
 void glibtop_get_mem_s (glibtop *server, glibtop_mem *buf);
 #endif
 

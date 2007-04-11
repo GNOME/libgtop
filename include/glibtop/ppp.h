@@ -60,10 +60,10 @@ void glibtop_get_ppp(glibtop_ppp *buf, unsigned short device);
 void glibtop_get_ppp_l (glibtop *server, glibtop_ppp *buf, unsigned short device);
 
 #if GLIBTOP_SUID_PPP
-void glibtop_init_ppp_p (glibtop *server);
+void _glibtop_init_ppp_p (glibtop *server);
 void glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device);
 #else
-void glibtop_init_ppp_s (glibtop *server);
+void _glibtop_init_ppp_s (glibtop *server);
 void glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device);
 #endif
 

@@ -105,12 +105,12 @@ glibtop_open_files_entry *
 glibtop_get_proc_open_files_l (glibtop *server, glibtop_proc_open_files *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_FILE
-void glibtop_init_proc_open_files_p (glibtop *server);
+void _glibtop_init_proc_open_files_p (glibtop *server);
 
 glibtop_open_files_entry *
 glibtop_get_proc_open_files_p (glibtop *server, glibtop_proc_open_files *buf, pid_t pid);
 #else
-void glibtop_init_proc_open_files_s (glibtop *server);
+void _glibtop_init_proc_open_files_s (glibtop *server);
 
 glibtop_open_files_entry *
 glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf, pid_t pid);

@@ -68,10 +68,10 @@ void glibtop_get_sem_limits(glibtop_sem_limits *buf);
 void glibtop_get_sem_limits_l (glibtop *server, glibtop_sem_limits *buf);
 
 #if GLIBTOP_SUID_SEM_LIMITS
-void glibtop_init_sem_limits_p (glibtop *server);
+void _glibtop_init_sem_limits_p (glibtop *server);
 void glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf);
 #else
-void glibtop_init_sem_limits_s (glibtop *server);
+void _glibtop_init_sem_limits_s (glibtop *server);
 void glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf);
 #endif
 

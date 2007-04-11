@@ -42,7 +42,7 @@ static const unsigned long _glibtop_sysdeps_proc_open_files =
 /* Init function. */
 
 void
-glibtop_init_proc_open_files_s (glibtop *server)
+_glibtop_init_proc_open_files_s (glibtop *server)
 {
 	server->sysdeps.proc_open_files = _glibtop_sysdeps_proc_open_files;
 }

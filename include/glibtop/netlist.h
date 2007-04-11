@@ -48,10 +48,10 @@ char** glibtop_get_netlist(glibtop_netlist *buf);
 char** glibtop_get_netlist_l (glibtop *server, glibtop_netlist *buf);
 
 #if GLIBTOP_SUID_NETLIST
-void glibtop_init_netlist_p (glibtop *server);
+void _glibtop_init_netlist_p (glibtop *server);
 char** glibtop_get_netlist_p (glibtop *server, glibtop_netlist *buf);
 #else
-void glibtop_init_netlist_s (glibtop *server);
+void _glibtop_init_netlist_s (glibtop *server);
 char** glibtop_get_netlist_s (glibtop *server, glibtop_netlist *buf);
 #endif
 

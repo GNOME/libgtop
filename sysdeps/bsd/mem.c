@@ -88,7 +88,7 @@ static int mib_uvmexp [] = { CTL_VM, VM_UVMEXP };
 /* Init function. */
 
 void
-glibtop_init_mem_p (glibtop *server)
+_glibtop_init_mem_p (glibtop *server)
 {
 	register int pagesize;
 

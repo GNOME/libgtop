@@ -102,12 +102,12 @@ glibtop_map_entry *
 glibtop_get_proc_map_l (glibtop *server, glibtop_proc_map *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_MAP
-void glibtop_init_proc_map_p (glibtop *server);
+void _glibtop_init_proc_map_p (glibtop *server);
 
 glibtop_map_entry *
 glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf, pid_t pid);
 #else
-void glibtop_init_proc_map_s (glibtop *server);
+void _glibtop_init_proc_map_s (glibtop *server);
 
 glibtop_map_entry *
 glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf, pid_t pid);

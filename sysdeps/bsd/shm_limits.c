@@ -30,7 +30,7 @@
 /* Older versions of BSDI don't seem to have this. */
 
 void
-glibtop_init_shm_limits_p (glibtop *server)
+_glibtop_init_shm_limits_p (glibtop *server)
 { }
 
 void
@@ -73,7 +73,7 @@ static struct nlist nlst [] = {
 /* Init function. */
 
 void
-glibtop_init_shm_limits_p (glibtop *server)
+_glibtop_init_shm_limits_p (glibtop *server)
 {
 	if (kvm_nlist (server->machine.kd, nlst) < 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (shm_limits)");

@@ -58,7 +58,7 @@ static const unsigned long _glibtop_sysdeps_map_entry_smaps =
 /* Init function. */
 
 void
-glibtop_init_proc_map_s (glibtop *server)
+_glibtop_init_proc_map_s (glibtop *server)
 {
 	server->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
 }

@@ -1,3 +1,14 @@
+2007-04-11  Benoît Dejean  <benoit@placenet.org>
+
+	* *:
+	
+	Renamed all glibtop_init_xxx functions
+	to _glibtop_init_xxx so they get internal visibility.
+
+	* configure.in:
+	
+	Bumped version number.
+
 2007-03-13  Benoît Dejean  <benoit@placenet.org>
 
 	* MAINTAINERS:

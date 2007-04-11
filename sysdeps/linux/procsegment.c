@@ -40,7 +40,7 @@ static const unsigned long _glibtop_sysdeps_proc_segment_statm =
 /* Init function. */
 
 void
-glibtop_init_proc_segment_s (glibtop *server)
+_glibtop_init_proc_segment_s (glibtop *server)
 {
 	server->sysdeps.proc_segment = _glibtop_sysdeps_proc_segment |
 	  _glibtop_sysdeps_proc_segment_statm;

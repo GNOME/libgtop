@@ -32,7 +32,7 @@ static const unsigned long _glibtop_sysdeps_proc_mem =
 /* Init function. */
 
 void
-glibtop_init_proc_mem_s (glibtop *server)
+_glibtop_init_proc_mem_s (glibtop *server)
 {
 	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
 }

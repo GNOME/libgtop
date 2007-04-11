@@ -90,7 +90,7 @@ static int pageshift;		/* log base 2 of the pagesize */
 /* Init function. */
 
 void
-glibtop_init_proc_mem_p (glibtop *server)
+_glibtop_init_proc_mem_p (glibtop *server)
 {
 	register int pagesize;
 

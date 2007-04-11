@@ -219,7 +219,7 @@ glibtop *
 glibtop_init_s (glibtop **server_ptr, unsigned long features, unsigned flags)
 {
 	glibtop *server;
-	const glibtop_init_func_t *init_fkt;
+	const _glibtop_init_func_t *init_fkt;
 
 	if (server_ptr == NULL)
 		return NULL;

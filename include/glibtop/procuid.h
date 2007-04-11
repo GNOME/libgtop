@@ -89,10 +89,10 @@ void glibtop_get_proc_uid(glibtop_proc_uid *buf, pid_t pid);
 void glibtop_get_proc_uid_l (glibtop *server, glibtop_proc_uid *buf, pid_t pid);
 
 #if GLIBTOP_SUID_PROC_UID
-void glibtop_init_proc_uid_p (glibtop *server);
+void _glibtop_init_proc_uid_p (glibtop *server);
 void glibtop_get_proc_uid_p (glibtop *server, glibtop_proc_uid *buf, pid_t pid);
 #else
-void glibtop_init_proc_uid_s (glibtop *server);
+void _glibtop_init_proc_uid_s (glibtop *server);
 void glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid);
 #endif
 

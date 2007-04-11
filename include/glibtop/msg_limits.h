@@ -62,10 +62,10 @@ void glibtop_get_msg_limits(glibtop_msg_limits *buf);
 void glibtop_get_msg_limits_l (glibtop *server, glibtop_msg_limits *buf);
 
 #if GLIBTOP_SUID_MSG_LIMITS
-void glibtop_init_msg_limits_p (glibtop *server);
+void _glibtop_init_msg_limits_p (glibtop *server);
 void glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf);
 #else
-void glibtop_init_msg_limits_s (glibtop *server);
+void _glibtop_init_msg_limits_s (glibtop *server);
 void glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf);
 #endif
 

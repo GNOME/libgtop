@@ -38,7 +38,7 @@ static int pagesize;
 
 /* Init function. */
 void
-glibtop_init_mem_s (glibtop *server)
+_glibtop_init_mem_s (glibtop *server)
 {
 	pagesize = getpagesize ();
 

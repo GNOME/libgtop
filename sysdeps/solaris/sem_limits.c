@@ -46,7 +46,7 @@ static const unsigned long _glibtop_sysdeps_sem_limits = 0;
 /* Init function. */
 
 void
-glibtop_init_sem_limits_p (glibtop *server)
+_glibtop_init_sem_limits_p (glibtop *server)
 {
 #if GLIBTOP_SOLARIS_RELEASE < 51000
 

@@ -32,7 +32,7 @@ static const unsigned long _glibtop_sysdeps_uptime =
 /* Init function. */
 
 void
-glibtop_init_uptime_s (glibtop *server)
+_glibtop_init_uptime_s (glibtop *server)
 {
 	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
 }

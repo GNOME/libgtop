@@ -56,7 +56,7 @@ static const unsigned long _glibtop_sysdeps_proclist =
 /* Init function. */
 
 void
-glibtop_init_proclist_p (glibtop *server)
+_glibtop_init_proclist_p (glibtop *server)
 {
 	server->sysdeps.proclist = _glibtop_sysdeps_proclist;
 }

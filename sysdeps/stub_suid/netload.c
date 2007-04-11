@@ -29,7 +29,7 @@ static const unsigned long _glibtop_sysdeps_netload = 0;
 /* Init function. */
 
 void
-glibtop_init_netload_p (glibtop *server)
+_glibtop_init_netload_p (glibtop *server)
 {
 	server->sysdeps.netload = _glibtop_sysdeps_netload;
 }

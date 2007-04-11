@@ -56,10 +56,10 @@ void glibtop_get_loadavg(glibtop_loadavg *buf);
 void glibtop_get_loadavg_l (glibtop *server, glibtop_loadavg *buf);
 
 #if GLIBTOP_SUID_LOADAVG
-void glibtop_init_loadavg_p (glibtop *server);
+void _glibtop_init_loadavg_p (glibtop *server);
 void glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf);
 #else
-void glibtop_init_loadavg_s (glibtop *server);
+void _glibtop_init_loadavg_s (glibtop *server);
 void glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf);
 #endif
 

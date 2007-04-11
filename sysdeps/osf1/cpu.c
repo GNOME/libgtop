@@ -32,7 +32,7 @@ static const unsigned long _glibtop_sysdeps_cpu =
 /* Init function. */
 
 void
-glibtop_init_cpu_s (glibtop *server)
+_glibtop_init_cpu_s (glibtop *server)
 {
 	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
 }

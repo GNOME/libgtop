@@ -58,7 +58,7 @@ static int mib2 [] = { CTL_KERN, KERN_CP_TIME };
 /* Init function. */
 
 void
-glibtop_init_cpu_p (glibtop *server)
+_glibtop_init_cpu_p (glibtop *server)
 {
 #ifndef KERN_CP_TIME
 	if (kvm_nlist (server->machine.kd, nlst) < 0) {

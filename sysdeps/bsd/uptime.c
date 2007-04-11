@@ -38,7 +38,7 @@ static const unsigned long _required_cpu_flags =
 /* Init function. */
 
 void
-glibtop_init_uptime_p (glibtop *server)
+_glibtop_init_uptime_p (glibtop *server)
 {
 	server->sysdeps.uptime = _glibtop_sysdeps_uptime;
 }

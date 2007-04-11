@@ -33,7 +33,7 @@ static const unsigned long _glibtop_sysdeps_shm_limits =
 /* Init function. */
 
 void
-glibtop_init_shm_limits_p (glibtop *server)
+_glibtop_init_shm_limits_p (glibtop *server)
 {
 	int result;
 

@@ -81,7 +81,7 @@ static void get_ifaddr(glibtop* server, struct ifaddr* next, long* addr, long* m
 /* Init function. */
 
 void
-glibtop_init_netload_p (glibtop *server)
+_glibtop_init_netload_p (glibtop *server)
 {
 	off_t result;
 	off_t addr;
