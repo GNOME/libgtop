@@ -1,18 +1,18 @@
 # translation of ta.po to Tamil
 # Tamil translation of Tamil Libgtop 2.4.
-# Copyright (C) 2003, 2004 Free Software Foundation, Inc.
+# Copyright (C) 2003, 2004,2007 Free Software Foundation, Inc.
 # Dinesh Nadarajah <n_dinesh@yahoo.com>, 2003.
 # Jayaradha N <jaya@pune.redhat.com>, 2004.
-#
+# B.Senthil Kumar <senthilb@cdac.in>, 2007
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-25 18:15+0200\n"
-"PO-Revision-Date: 2004-09-03 10:28+0530\n"
-"Last-Translator: Jayaradha N <jaya@pune.redhat.com>\n"
-"Language-Team: Tamil <zhakanini@yahoogroups.com>\n"
+"PO-Revision-Date: 2007-04-24 16:28+0530\n"
+"Last-Translator: B.Senthil Kumar <senthilb@cdac.in>\n"
+"Language-Team: Tamil <tamil-DI@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,7 +52,7 @@ msgstr "பிழை திருத்தலை செயல்படுத்�
 
 #: src/daemon/gnuserv.c:460
 msgid "DEBUG"
-msgstr "DEBUG"
+msgstr "DEBUG(டீபக்)"
 
 #: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
@@ -60,7 +60,7 @@ msgstr "வெர்போஸ் விளைவை செயல்படுத�
 
 #: src/daemon/gnuserv.c:462
 msgid "VERBOSE"
-msgstr "VERBOSE"
+msgstr "VERBOSE(வெற்போஸ்)"
 
 #: src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
@@ -68,7 +68,7 @@ msgstr "பின்னனியை பிளக்காதே"
 
 #: src/daemon/gnuserv.c:464
 msgid "NO-DAEMON"
-msgstr "NO-DAEMON"
+msgstr "NO-DAEMON(நோ-டொமொன்)"
 
 #: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
@@ -76,7 +76,7 @@ msgstr "inetd லிருந்து செயல்படுத்து"
 
 #: src/daemon/gnuserv.c:466
 msgid "INETD"
-msgstr "INETD"
+msgstr "INETD(இனிட்டி)"
 
 #: src/daemon/gnuserv.c:500
 #, c-format
