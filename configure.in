@@ -3,8 +3,8 @@ dnl Configure script for the Gnome library
 dnl
 
 m4_define([libgtop_major_version], [2])
-m4_define([libgtop_minor_version], [14])
-m4_define([libgtop_micro_version], [9])
+m4_define([libgtop_minor_version], [19])
+m4_define([libgtop_micro_version], [1])
 m4_define([libgtop_version], [libgtop_major_version.libgtop_minor_version.libgtop_micro_version])
 
 dnl  increment if the interface has additions, changes, removals.
@@ -12,7 +12,7 @@ m4_define([libgtop_current], [7])
 
 dnl  increment any time the source changes; set to
 dnl  0 if you increment CURRENT
-m4_define([libgtop_revision], [0])
+m4_define([libgtop_revision], [1])
 
 dnl  increment if any interfaces have been added; set to 0
 dnl  if any interfaces have been removed. removal has
@@ -86,25 +86,6 @@ AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = xyes)
 
 GNOME_LIBGTOP_SYSDEPS
 GNOME_LIBGTOP_TYPES
-
-AC_ARG_WITH(libgtop-inodedb,
-            AS_HELP_STRING([--with-libgtop-inodedb],
-                           [Build the inodedb stuff @<:@default=no@:>@]),
-            [build_inodedb="$withval"],
-            [build_inodedb=no])
-
-LIBGTOP_EXTRA_LIBS=
-
-if test x$build_inodedb = xyes ; then
-  AC_CHECK_LIB(gdbm, gdbm_open, LIBGTOP_EXTRA_LIBS='-lgdbm', build_inodedb=no)
-fi
-
-AM_CONDITIONAL(INODEDB, test x$build_inodedb = xyes)
-
-if test x$build_inodedb = xyes ; then
-  AC_DEFINE(GLIBTOP_INODEDB, 1,
-            [Define if the libgtop inodedb should be built])
-fi
 
 GLIB_REQUIRED=2.6.0
 
@@ -300,10 +281,6 @@ if test x$libgtop_use_machine_h = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_GLIBTOP_MACHINE_H"
 fi
 
-if test x$build_inodedb = xyes ; then
-  LIBGTOP_INCS="$LIBGTOP_INCS -DGLIBTOP_INODEDB"
-fi
-
 if test x$libgtop_smp = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SMP"
 fi
@@ -413,7 +390,6 @@ sysdeps/aix/Makefile
 sysdeps/bsd/Makefile
 src/Makefile
 src/daemon/Makefile
-src/inodedb/Makefile
 lib/Makefile
 examples/Makefile
 doc/Makefile

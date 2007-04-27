@@ -15,8 +15,6 @@ src/daemon/main.c
 src/daemon/server.c
 src/daemon/slave.c
 src/daemon/version.c
-src/inodedb/file_by_inode2.c
-src/inodedb/mkinodedb2.c
 sysdeps/linux/siglist.c
 sysdeps/osf1/siglist.c
 sysdeps/sun4/siglist.c

@@ -1,3 +1,9 @@
+2007-04-27  Benoît Dejean  <benoit@placenet.org>
+
+	Got rid of InodeDB.
+	This feature was optionnal and i have never heard of anyone using
+	it. I have never touched it so it may be broken since 2.6.
+
 2007-04-11  Benoît Dejean  <benoit@placenet.org>
 
 	* *:

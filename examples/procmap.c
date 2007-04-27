@@ -35,9 +35,6 @@
 
 #include <glibtop/procmap.h>
 
-#ifdef GLIBTOP_INODEDB
-#include <glibtop/inodedb.h>
-#endif
 
 #include <sys/resource.h>
 #include <sys/mman.h>
@@ -49,9 +46,6 @@
 int
 main (int argc, char *argv [])
 {
-#ifdef GLIBTOP_INODEDB
-	glibtop_inodedb *inodedb;
-#endif
 	glibtop_proc_map procmap;
 	glibtop_map_entry *maps;
 	unsigned method, count, port, i;
@@ -87,10 +81,6 @@ main (int argc, char *argv [])
 	if ((argc != 2) || (sscanf (argv [1], "%d", (int *) &pid) != 1))
 		g_error ("Usage: %s pid", argv [0]);
 
-#ifdef GLIBTOP_INODEDB
-	inodedb = glibtop_inodedb_open (0, 0);
-#endif
-
 	fprintf (stderr, "Getting memory maps for pid %d.\n\n", (int) pid);
 
 	maps = glibtop_get_proc_map (&procmap, pid);
@@ -102,12 +92,6 @@ main (int argc, char *argv [])
 
 		if (maps [i].flags & (1L << GLIBTOP_MAP_ENTRY_FILENAME))
 			filename = maps [i].filename;
-
-#ifdef GLIBTOP_INODEDB
-		if (inodedb && !filename)
-			filename = glibtop_inodedb_lookup
-				(inodedb, maps [i].device, maps [i].inode);
-#endif
 
 		perm [0] = (maps [i].perm & GLIBTOP_MAP_PERM_READ) ? 'r' : '-';
 		perm [1] = (maps [i].perm & GLIBTOP_MAP_PERM_WRITE) ? 'w' : '-';

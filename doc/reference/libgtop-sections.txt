@@ -73,24 +73,6 @@ glibtop_server_ref
 glibtop_server_unref
 </SECTION>
 
-<INCLUDE>glibtop/inodedb.h</INCLUDE>
-<SECTION>
-<FILE>inodedb</FILE>
-<TITLE>Inode DB</TITLE>
-GLIBTOP_INODEDB_SYSTEM
-GLIBTOP_INODEDB_USER
-GLIBTOP_INODEDB_CACHE
-GLIBTOP_INODEDB_ALL
-glibtop_inodedb
-glibtop_inodedb_key
-glibtop_inodedb_open
-glibtop_inodedb_lookup
-glibtop_inodedb_close
-glibtop_inodedb_open_s
-glibtop_inodedb_lookup_s
-glibtop_inodedb_close_s
-</SECTION>
-
 <INCLUDE>glibtop/netload.h</INCLUDE>
 <SECTION>
 <FILE>netload</FILE>

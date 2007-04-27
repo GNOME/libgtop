@@ -171,7 +171,6 @@ rather than using the server.</para>
     <xi:include href="xml/close.xml"/>
     <xi:include href="xml/command.xml"/>
     <xi:include href="xml/glibtop-server.xml"/>
-    <xi:include href="xml/inodedb.xml"/>
     <xi:include href="xml/netload.xml"/>
     <xi:include href="xml/ppp.xml"/>
     <xi:include href="xml/shm_limits.xml"/>
