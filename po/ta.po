@@ -1,4 +1,4 @@
-# translation of ta.po to Tamil
+# translation of ta.po to
 # Tamil translation of Tamil Libgtop 2.4.
 # Copyright (C) 2003, 2004,2007 Free Software Foundation, Inc.
 # Dinesh Nadarajah <n_dinesh@yahoo.com>, 2003.
@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: ta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-25 18:15+0200\n"
-"PO-Revision-Date: 2007-04-24 16:28+0530\n"
-"Last-Translator: B.Senthil Kumar <senthilb@cdac.in>\n"
-"Language-Team: Tamil <tamil-DI@yahoogroups.com>\n"
+"PO-Revision-Date: 2007-04-27 11:03+0530\n"
+"Last-Translator: \n"
+"Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "0500\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "\n"
 
@@ -33,18 +33,18 @@ msgid "read data size"
 msgstr "படித்த தகவல் அளவு"
 
 #: lib/read_data.c:72
-#, fuzzy, c-format
+#, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "%d பைட்கள் படி"
-msgstr[1] "%d பைட்கள் படி"
+msgstr[0] "தரவின் %lu பைட்டை வாசிக்கவும்"
+msgstr[1] "தரவின் %lu பைட்டுக்களை வாசிக்கவும்"
 
 #: lib/write.c:52
-#, fuzzy, c-format
+#, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "எழுதிய %d பைட்"
-msgstr[1] "எழுதிய %d பைட்"
+msgstr[1] "எழுதிய %d பைட்டுகள்"
 
 #: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
@@ -210,3 +210,4 @@ msgstr "பயனீட்டாளர் குறித்த சங்கே�
 #: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
 msgid "User defined signal 2"
 msgstr "பயனீட்டாளர் குறித்த சங்கேதம் 2"
+
