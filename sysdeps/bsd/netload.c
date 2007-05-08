@@ -233,7 +233,11 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 		buf->flags |= GLIBTOP_NETLOAD_ADDRESS6;
 	    }
 	    /* FIXME prefix6, scope6 */
+#if defined (__OpenBSD__)
+	    ifaddraddr = (u_long) ifaddr.ifa.ifa_list.tqe_next;
+#else
 	    ifaddraddr = (u_long) ifaddr.ifa.ifa_link.tqe_next;
+#endif
 	}
 	return;
     }

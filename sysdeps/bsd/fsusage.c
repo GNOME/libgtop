@@ -54,7 +54,9 @@ _glibtop_bsd_get_fsusage_read_write(glibtop *server,
 		return;
 	}
 
+#if !defined(__OpenBSD__)
 	buf->read = sfs.f_syncreads + sfs.f_asyncreads;
+#endif
 	buf->write = sfs.f_syncwrites + sfs.f_asyncwrites;
 	buf->flags |= (1 << GLIBTOP_FSUSAGE_READ) | (1 << GLIBTOP_FSUSAGE_WRITE);
 }
