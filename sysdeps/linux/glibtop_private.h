@@ -145,6 +145,8 @@ check_cpu_line_warn(glibtop *server, const char *line, unsigned i)
 gboolean
 has_sysfs(void) G_GNUC_INTERNAL G_GNUC_CONST;
 
+gboolean safe_readlink(const char *path, char *buf, size_t bufsiz);
+
 
 G_END_DECLS
 

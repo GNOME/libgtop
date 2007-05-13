@@ -51,8 +51,9 @@ G_BEGIN_DECLS
 #define GLIBTOP_SYSDEPS_PPP		22
 #define GLIBTOP_SYSDEPS_NETLIST		23
 #define GLIBTOP_SYSDEPS_PROC_OPEN_FILES	24
+#define GLIBTOP_SYSDEPS_PROC_WD		25
 
-#define GLIBTOP_MAX_SYSDEPS		25
+#define GLIBTOP_MAX_SYSDEPS		26
 
 #define GLIBTOP_SYSDEPS_ALL		((1 << GLIBTOP_MAX_SYSDEPS) - 1)
 
@@ -86,6 +87,7 @@ struct _glibtop_sysdeps
 	guint64 netlist;		/* glibtop_netlist	*/
 	guint64 netload;		/* glibtop_netload	*/
 	guint64 ppp;			/* glibtop_ppp		*/
+	guint64	proc_wd;		/* glibtop_proc_wd	*/
 };
 
 void glibtop_get_sysdeps (glibtop_sysdeps *buf);

@@ -1,3 +1,23 @@
+2007-05-10  Benoît Dejean  <benoit@placenet.org>
+
+	* lib/libgtop.sym:
+
+	Added missing *_p symbols.
+
+2007-05-07  Benoît Dejean  <benoit@placenet.org>
+
+	* configure.in:
+	* lib/Makefile.am:
+	* lib/libgtop.sym:
+
+	Updated libtool version.
+	Now uses a symbol list instead of a regex.
+
+2007-05-07  Benoît Dejean  <benoit@placenet.org>
+
+	* New API to get cwd, root and exe path
+	of a process. API not frozen yet.
+
 2007-04-27  Benoît Dejean  <benoit@placenet.org>
 
 	Got rid of InodeDB.

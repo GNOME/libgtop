@@ -204,9 +204,8 @@ glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pi
 		g_snprintf(fn, sizeof fn, "/proc/%d/fd/%s",
 			   pid, direntry->d_name);
 
-		rv = readlink(fn, tgt, sizeof(tgt) - 1);
-		if(rv < 0) continue;
-		tgt[rv] = '\0';
+		if (!safe_readlink(fn, tgt, tgt))
+			continue;
 
 		entry.fd = atoi(direntry->d_name);
 

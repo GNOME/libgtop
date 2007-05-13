@@ -150,6 +150,15 @@ handle_parent_connection (int s)
 		       resp->u.data.proc_map.total, ptr);
 	    g_free (ptr);
 	    break;
+
+	case GLIBTOP_CMND_PROC_WD:
+		/* FIXME */
+	    break;
+
+	case GLIBTOP_CMND_NETLIST:
+		/* FIXME */
+	    break;
+
 	case GLIBTOP_CMND_PROC_ARGS:
 	    memcpy (&pid, parameter, sizeof (pid_t));
 	    ptr = glibtop_get_proc_args_l (server,

@@ -184,3 +184,20 @@ has_sysfs(void)
 
 	return sysfs;
 }
+
+
+
+gboolean safe_readlink(const char *path, char *buf, size_t bufsiz)
+{
+	ssize_t ret;
+
+	ret = readlink(path, buf, bufsiz - 1);
+
+	if (ret == -1) {
+		g_warning("Could not read link %s : %s", path, strerror(errno));
+		return FALSE;
+	}
+
+	buf[ret] = '\0';
+	return TRUE;
+}

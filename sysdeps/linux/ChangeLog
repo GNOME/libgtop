@@ -1,3 +1,29 @@
+2007-05-07  Benoît Dejean  <benoit@placenet.org>
+
+	* procwd.c:
+
+	Always set buf->number.
+
+2007-05-07  Benoît Dejean  <benoit@placenet.org>
+
+	* glibtop_private.c (safe_readlink):
+
+	Simplified.
+
+	* procopenfiles.c:
+
+	Use safe_readlink.
+
+2007-05-07  Benoît Dejean  <benoit@placenet.org>
+
+	* procwd.c:
+
+	Implemented.
+
+	* glibtop_private.c (safe_readlink):
+
+	New function.
+
 2007-03-13  Benoît Dejean  <benoit@placenet.org>
 
 	* fsusage.c: (get_sys_path), (linux_2_6_0):

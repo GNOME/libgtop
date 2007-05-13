@@ -8,16 +8,16 @@ m4_define([libgtop_micro_version], [1])
 m4_define([libgtop_version], [libgtop_major_version.libgtop_minor_version.libgtop_micro_version])
 
 dnl  increment if the interface has additions, changes, removals.
-m4_define([libgtop_current], [7])
+m4_define([libgtop_current], [8])
 
 dnl  increment any time the source changes; set to
 dnl  0 if you increment CURRENT
-m4_define([libgtop_revision], [1])
+m4_define([libgtop_revision], [0])
 
 dnl  increment if any interfaces have been added; set to 0
 dnl  if any interfaces have been removed. removal has
 dnl  precedence over adding, so set to 0 if both happened.
-m4_define([libgtop_age], [0])
+m4_define([libgtop_age], [1])
 
 # Increase each time you change the client/server protocol.
 m4_define([libgtop_server_version], [5])
@@ -92,14 +92,6 @@ GLIB_REQUIRED=2.6.0
 PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLIB_REQUIRED)
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
-
-AC_CHECK_HEADER(popt.h,[POPT=yes],[POPT=no])
-AC_MSG_CHECKING(for popt.h)
-if test x$POPT = xyes ; then
-   AC_MSG_RESULT(yes)
-else
-   AC_MSG_ERROR([libgtop requires the popt development libraries])
-fi
 
 AC_CHECK_HEADER(ifaddrs.h, [HAVE_IFADDRS_H=yes], [HAVE_IFADDRS_H=no])
 if test x$HAVE_IFADDRS_H = xyes ; then

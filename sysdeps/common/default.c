@@ -352,5 +352,19 @@ glibtop_get_sysdeps(glibtop_sysdeps *buf)
 }
 
 
+/**
+ * glibtop_get_proc_wd:
+ * @buf:
+ * @pid: Process id to get the user and tty information
+ *
+ * Get the root directory and the working directories
+ *
+ * Returns: A NULL-terminated list of working directories.
+ */
+char**
+glibtop_get_proc_wd(glibtop_proc_wd *buf, pid_t pid)
+{
+	return glibtop_get_proc_wd_l(glibtop_global_server, buf, pid);
+}
 
 

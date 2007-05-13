@@ -1,3 +1,11 @@
+2007-05-08  Benoît Dejean  <benoit@placenet.org>
+
+	* fsusage.c: (_glibtop_bsd_get_fsusage_read_write):
+	* netload.c: (glibtop_get_netload_p):
+	
+	Fixed build on OpenBSD.
+	Patch by Jasper Lievisse Adriaanse <jasper@nedbsd.nl>.
+
 2007-02-18  Benoît Dejean  <benoit@placenet.org>
 
 	* AUTHORS:
