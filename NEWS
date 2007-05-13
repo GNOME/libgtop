@@ -1,3 +1,11 @@
+13 May 2007: Overview of changes in 2.19.2
+==========================================
+* This is the first release of the 2.19.x series.
+* Got rid of inodedb (you don't even know what it is ;)
+* New unstable API glibtop_get_proc_wd to get working directories of
+  a process.
+* Fixed OpenBSD build. Jasper Lievisse Adriaanse.
+
 25 February 2007: Overview of changes in 2.14.8
 ===============================================
 * bsd implementations have been splitted by Joe Marcus Clarke
