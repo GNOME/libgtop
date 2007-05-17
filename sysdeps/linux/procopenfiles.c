@@ -195,7 +195,6 @@ glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pi
 
 	while((direntry = readdir(dir))) {
 		char tgt [BUFSIZ];
-		int rv;
 		glibtop_open_files_entry entry = {0};
 
 		if(direntry->d_name[0] == '.')
@@ -204,7 +203,7 @@ glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pi
 		g_snprintf(fn, sizeof fn, "/proc/%d/fd/%s",
 			   pid, direntry->d_name);
 
-		if (!safe_readlink(fn, tgt, tgt))
+		if (!safe_readlink(fn, tgt, sizeof tgt))
 			continue;
 
 		entry.fd = atoi(direntry->d_name);
