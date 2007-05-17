@@ -1,3 +1,9 @@
+2007-05-17  Benoît Dejean  <benoit@placenet.org>
+
+	* configure.in:
+
+	Bumped version number.
+
 2007-05-14  Benoît Dejean  <benoit@placenet.org>
 
 	* include/glibtop/Makefile.am:
