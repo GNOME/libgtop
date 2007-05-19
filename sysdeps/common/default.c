@@ -211,7 +211,7 @@ glibtop_get_proc_argv(glibtop_proc_args *buf, pid_t pid, unsigned max_len)
 }
 
 
-unsigned *
+pid_t*
 glibtop_get_proclist(glibtop_proclist *buf, gint64 which, gint64 arg)
 {
 	return glibtop_get_proclist_l(glibtop_global_server, buf, which, arg);
