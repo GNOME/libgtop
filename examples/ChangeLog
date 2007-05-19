@@ -1,3 +1,11 @@
+2007-05-19  Benoît Dejean  <benoit@placenet.org>
+
+	* Makefile.am:
+	* mem.c: (main):
+	* wd.c: (main):
+
+	Fixed wd and new simple mem example.
+
 2006-02-27  Benoît Dejean  <benoit@placenet.org>
 
 	* pprint.c: (pprint_get_proc_mem), (main):

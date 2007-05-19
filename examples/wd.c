@@ -13,6 +13,8 @@ int main(int argc, char **argv)
 	if (argc < 2 || !(pid = strtoul(argv[1], NULL, 0)))
 		pid = getpid();
 
+	glibtop_init();
+
 	dirs = glibtop_get_proc_wd(&buf, pid);
 
 	g_print("Process %u:\n"
@@ -25,6 +27,8 @@ int main(int argc, char **argv)
 		g_print("   - '%s'\n", *dir);
 
 	g_strfreev(dirs);
+
+	glibtop_close();
 
 	return 0;
 }
