@@ -1,3 +1,12 @@
+2007-05-19  Benoît Dejean  <benoit@placenet.org>
+
+	* features.def:
+	* include/glibtop/proclist.h:
+
+	Small API change.
+	get_proclist returns pid_t instead of unsigned for consistency.
+	I have checked many archs and this doesn't break the ABI.
+
 2007-05-17  Benoît Dejean  <benoit@placenet.org>
 
 	* configure.in:

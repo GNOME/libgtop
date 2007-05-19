@@ -60,7 +60,7 @@ struct _glibtop_proclist
 	guint64 size;			/* GLIBTOP_PROCLIST_SIZE	*/
 };
 
-unsigned *
+pid_t*
 glibtop_get_proclist(glibtop_proclist *buf, gint64 which, gint64 arg);
 
 #if GLIBTOP_SUID_PROCLIST
@@ -69,20 +69,20 @@ glibtop_get_proclist(glibtop_proclist *buf, gint64 which, gint64 arg);
 #define glibtop_get_proclist_r		glibtop_get_proclist_s
 #endif
 
-unsigned *
+pid_t*
 glibtop_get_proclist_l (glibtop *server, glibtop_proclist *buf,
 			gint64 which, gint64 arg);
 
 #if GLIBTOP_SUID_PROCLIST
 void _glibtop_init_proclist_p (glibtop *server);
 
-unsigned *
+pid_t*
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 			gint64 which, gint64 arg);
 #else
 void _glibtop_init_proclist_s (glibtop *server);
 
-unsigned *
+pid_t*
 glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 			gint64 which, gint64 arg);
 #endif
