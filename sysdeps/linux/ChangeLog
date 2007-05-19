@@ -1,3 +1,9 @@
+2007-05-19  Benoît Dejean  <benoit@placenet.org>
+
+	* proclist.c: (glibtop_get_proclist_s):
+
+	Fixed warnings.
+
 2007-05-17  Benoît Dejean  <benoit@placenet.org>
 
 	* procopenfiles.c: (glibtop_get_proc_open_files_s):

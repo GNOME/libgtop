@@ -55,7 +55,7 @@ _glibtop_init_proclist_s (glibtop *server)
  *
  * On error, NULL is returned and buf->flags is zero. */
 
-unsigned *
+pid_t*
 glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 			gint64 which, gint64 arg)
 {
@@ -75,12 +75,12 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 
 	if(stat("/proc", &statb)) return NULL;
 
-	pids = g_array_sized_new(FALSE, FALSE, sizeof(unsigned), statb.st_nlink);
+	pids = g_array_sized_new(FALSE, FALSE, sizeof(pid_t), statb.st_nlink);
 
 	/* read every every entry in /proc */
 
 	while((entry = readdir (proc))) {
-		unsigned pid;
+		pid_t pid;
 
 		if (entry->d_type != DT_DIR)
 			continue;
@@ -92,7 +92,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 		case GLIBTOP_KERN_PROC_ALL:
 			break;
 		case GLIBTOP_KERN_PROC_PID:
-			if ((unsigned) arg != pid)
+			if ((pid_t) arg != pid)
 				continue;
 			break;
 		case GLIBTOP_KERN_PROC_UID:
@@ -100,7 +100,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 			char path[32];
 			struct stat path_stat;
 
-			snprintf(path, sizeof path, "/proc/%u", pid);
+			snprintf(path, sizeof path, "/proc/%u", (unsigned)pid);
 
 			if (stat(path, &path_stat))
 				continue;
@@ -163,9 +163,9 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	closedir (proc);
 
 	buf->flags = _glibtop_sysdeps_proclist;
-	buf->size = sizeof (unsigned);
+	buf->size = sizeof(pid_t);
 	buf->number = pids->len;
 	buf->total = buf->number * buf->size;
 
-	return (unsigned*) g_array_free(pids, FALSE);
+	return (pid_t*)g_array_free(pids, FALSE);
 }
