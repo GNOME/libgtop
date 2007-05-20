@@ -47,8 +47,6 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid)
 {
 	char buffer [BUFSIZ], *p;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_KERNEL, 0);
-
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
 
 	if (proc_stat_to_buffer (buffer, pid))

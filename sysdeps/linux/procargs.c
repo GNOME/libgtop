@@ -47,8 +47,6 @@ glibtop_get_proc_args_s (glibtop *server, glibtop_proc_args *buf,
 	gsize length;
 	GError *error = NULL;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_ARGS, 0);
-
 	memset (buf, 0, sizeof (glibtop_proc_args));
 
 	sprintf (filename, "/proc/%d/cmdline", pid);

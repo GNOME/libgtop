@@ -73,8 +73,6 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	char buffer [BUFSIZ], *p;
 	int i;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
-
 	memset (buf, 0, sizeof (glibtop_cpu));
 
 	file_to_buffer(server, buffer, FILENAME);

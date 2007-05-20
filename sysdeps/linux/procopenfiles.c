@@ -182,8 +182,6 @@ glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pi
 	struct dirent *direntry;
 	DIR *dir;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_OPEN_FILES, 0);
-
 	memset (buf, 0, sizeof (glibtop_proc_open_files));
 
 	sprintf (fn, "/proc/%d/fd", pid);

@@ -54,8 +54,6 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 {
 	char buffer [BUFSIZ], *p;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SWAP, 0);
-
 	memset (buf, 0, sizeof (glibtop_swap));
 
 	file_to_buffer(server, buffer, MEMINFO);

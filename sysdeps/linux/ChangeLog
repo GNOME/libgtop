@@ -1,3 +1,12 @@
+2007-05-20  Benoît Dejean  <benoit@placenet.org>
+
+	* *.c:
+
+	Got rid of glibtop_init_s calls.
+	If i'm right, these are only no-op and the legacy stub/ don't
+	have any calls to them, so it's should harmless.
+	So let's try it.
+
 2007-05-19  Benoît Dejean  <benoit@placenet.org>
 
 	* proclist.c: (glibtop_get_proclist_s):

@@ -180,8 +180,6 @@ glibtop_get_ppp_s (glibtop *server, glibtop_ppp *buf, unsigned short device)
 {
 	int in, out, online;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PPP, 0);
-
 	memset (buf, 0, sizeof (glibtop_ppp));
 
 	if (is_ISDN_on (server, &online)) {

@@ -49,8 +49,6 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 {
 	char buffer [BUFSIZ], *p;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_UPTIME, 0);
-
 	memset (buf, 0, sizeof (glibtop_uptime));
 
 	file_to_buffer(server, buffer, FILENAME);

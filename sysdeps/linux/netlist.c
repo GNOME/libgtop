@@ -44,8 +44,6 @@ glibtop_get_netlist_s (glibtop *server, glibtop_netlist *buf)
 	FILE *f;
 	GPtrArray *devices;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_NETLIST, 0);
-
 	memset (buf, 0, sizeof (glibtop_netlist));
 
 	f = fopen("/proc/net/dev", "r");

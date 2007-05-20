@@ -51,8 +51,6 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	char buffer [BUFSIZ], *p;
 	struct stat statb;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_STATE, 0);
-
 	memset (buf, 0, sizeof (glibtop_proc_state));
 
 	/* IMPORTANT NOTICE: For security reasons it is extremely important

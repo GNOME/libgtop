@@ -133,8 +133,6 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	char *line = NULL;
 	size_t line_size = 0;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROC_MAP, 0);
-
 	memset (buf, 0, sizeof (glibtop_proc_map));
 
 	has_smaps = server->os_version_code >= LINUX_VERSION_CODE(2, 6, 14);

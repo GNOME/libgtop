@@ -66,8 +66,6 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	glibtop_proc_state procstate;
 	struct stat statb;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_PROCLIST, 0);
-
 	memset (buf, 0, sizeof (glibtop_proclist));
 
 	proc = opendir ("/proc");

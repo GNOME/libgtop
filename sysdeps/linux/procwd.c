@@ -59,8 +59,6 @@ glibtop_get_proc_wd_s(glibtop *server, glibtop_proc_wd *buf, pid_t pid)
 	char dir[256];
 	DIR *task;
 
-	glibtop_init_s(&server, GLIBTOP_SYSDEPS_PROC_WD, 0);
-
 	memset(buf, 0, sizeof(glibtop_proc_wd));
 
 	g_snprintf(path, sizeof path, "/proc/%u/root", pid);

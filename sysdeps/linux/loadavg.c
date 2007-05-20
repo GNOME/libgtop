@@ -50,8 +50,6 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
 	char buffer [BUFSIZ], *p, *old;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_LOADAVG, 0);
-
 	memset (buf, 0, sizeof (glibtop_loadavg));
 
 	file_to_buffer(server, buffer, FILENAME);
