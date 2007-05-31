@@ -18,7 +18,7 @@
 void
 _glibtop_linux_get_fsusage_read_write(glibtop *server,
 				      glibtop_fsusage *buf,
-				      const char *path) G_GNUC_INTERNAL;
+				      const char *path);
 
 /*
  * Linux 2.6.x
@@ -127,7 +127,7 @@ static void linux_2_4_0(glibtop *server, glibtop_fsusage *buf, const char *path)
 }
 
 
-void G_GNUC_INTERNAL
+void
 _glibtop_linux_get_fsusage_read_write(glibtop *server,
 				      glibtop_fsusage *buf,
 				      const char *path)

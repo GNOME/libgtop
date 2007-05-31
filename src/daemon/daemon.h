@@ -57,17 +57,17 @@ G_BEGIN_DECLS
 #define MSG_BUFSZ		sizeof (struct _glibtop_ipc_message)
 #define MSG_MSGSZ		(MSG_BUFSZ - sizeof (long))
 
-void handle_parent_connection (int s) G_GNUC_INTERNAL;
-void handle_slave_connection (int input, int output) G_GNUC_INTERNAL;
+void handle_parent_connection (int s);
+void handle_slave_connection (int input, int output);
 void handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
-			   const void *parameter) G_GNUC_INTERNAL ;
+			   const void *parameter);
 
 void do_output (int s, glibtop_response *resp, off_t offset,
-		size_t data_size, const void *data) G_GNUC_INTERNAL;
-int do_read (int s, void *ptr, size_t total_size) G_GNUC_INTERNAL;
+		size_t data_size, const void *data);
+int do_read (int s, void *ptr, size_t total_size);
 
-void syslog_message (int priority, const char *format, ...) G_GNUC_INTERNAL G_GNUC_PRINTF(2, 3);
-void syslog_io_message (int priority, const char *format, ...) G_GNUC_INTERNAL G_GNUC_PRINTF(2, 3);
+void syslog_message (int priority, const char *format, ...) G_GNUC_PRINTF(2, 3);
+void syslog_io_message (int priority, const char *format, ...) G_GNUC_PRINTF(2, 3);
 
 extern gboolean enable_debug;
 extern gboolean verbose_output;

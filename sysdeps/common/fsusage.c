@@ -129,7 +129,7 @@ static const unsigned long _glibtop_sysdeps_fsusage =
 void
 _glibtop_linux_get_fsusage_read_write(glibtop *server,
 				      glibtop_fsusage *buf,
-				      const char *path) G_GNUC_INTERNAL;
+				      const char *path);
 
 static inline void
 _glibtop_get_fsusage_read_write(glibtop *server,
@@ -141,7 +141,7 @@ _glibtop_get_fsusage_read_write(glibtop *server,
 
 
 #elif defined(__FreeBSD__)
-void G_GNUC_INTERNAL
+void
 _glibtop_freebsd_get_fsusage_read_write(glibtop *server,
 					glibtop_fsusage *buf,
 					const char *path);

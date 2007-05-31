@@ -42,7 +42,7 @@ next_token(const char *p)
 }
 
 char *
-skip_token (const char *p) G_GNUC_INTERNAL;
+skip_token (const char *p);
 
 static inline char *
 skip_multiple_token (const char *p, size_t count)
@@ -63,15 +63,15 @@ skip_line (const char *p)
 
 
 unsigned long long
-get_scaled(const char *buffer, const char *key) G_GNUC_INTERNAL;
+get_scaled(const char *buffer, const char *key);
 
 
 /* aborts on error */
-void G_GNUC_INTERNAL
+void
 file_to_buffer(glibtop *server, char *buffer, const char *filename);
 
 /* return < 0 on error, otherwise 0 on success */
-int G_GNUC_INTERNAL
+int
 try_file_to_buffer(char *buffer, const char *format, ...) G_GNUC_PRINTF(2, 3);
 
 
@@ -115,15 +115,15 @@ proc_stat_after_cmd (char *p)
 
 
 unsigned long
-get_boot_time(glibtop *server) G_GNUC_INTERNAL;
+get_boot_time(glibtop *server);
 
 
 size_t
-get_page_size(void) G_GNUC_INTERNAL;
+get_page_size(void);
 
 
 gboolean
-check_cpu_line(glibtop *server, const char *line, unsigned n) G_GNUC_INTERNAL;
+check_cpu_line(glibtop *server, const char *line, unsigned n);
 
 
 static inline gboolean
@@ -143,7 +143,7 @@ check_cpu_line_warn(glibtop *server, const char *line, unsigned i)
 
 
 gboolean
-has_sysfs(void) G_GNUC_INTERNAL G_GNUC_CONST;
+has_sysfs(void) G_GNUC_CONST;
 
 gboolean safe_readlink(const char *path, char *buf, size_t bufsiz);
 

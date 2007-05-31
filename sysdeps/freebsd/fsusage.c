@@ -22,12 +22,12 @@
 #include <stdlib.h>
 
 void
-G_GNUC_INTERNAL
+
 _glibtop_freebsd_get_fsusage_read_write(glibtop *server,
                                         glibtop_fsusage *buf,
                                         const char *path);
 
-void G_GNUC_INTERNAL
+void
 _glibtop_freebsd_get_fsusage_read_write(glibtop *server,
                                         glibtop_fsusage *buf,
                                         const char *path)
