@@ -1,3 +1,15 @@
+3 June 2007: Overview of changes in 2.19.3
+==========================================
+* Small API change. get_proclist returns pid_t instead of unsigned
+  for consistency.
+* linux:
+  - fixed an typo bug in open_files.
+  - got rid of useless glibtop_init_s calls.
+* Enable example build by defaut.
+* Dropped G_GNUC_INTERNAL attributes no longer needed.
+  This will please people trying to implement G_GNUC macro with a non
+  GNU Compiler.
+
 13 May 2007: Overview of changes in 2.19.2
 ==========================================
 * This is the first release of the 2.19.x series.
