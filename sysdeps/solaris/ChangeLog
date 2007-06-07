@@ -1,3 +1,11 @@
+2007-06-07  Benoît Dejean  <benoit@placenet.org>
+
+	* proclist.c: (glibtop_get_proclist_s):
+
+	Fixed build.
+	Patch by Damien Carbery <damien.carbery@sun.com>.
+	Closes #444815.
+
 2006-09-19  Benoît Dejean  <benoit@placenet.org>
 
 	* Makefile.am:

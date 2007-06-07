@@ -46,7 +46,7 @@ _glibtop_init_proclist_s (glibtop *server)
 }
 
 #define BLOCK_COUNT	256
-#define BLOCK_SIZE	(BLOCK_COUNT * sizeof (unsigned))
+#define BLOCK_SIZE	(BLOCK_COUNT * sizeof (pid_t))
 
 /* Fetch list of currently running processes.
  *
@@ -55,7 +55,7 @@ _glibtop_init_proclist_s (glibtop *server)
  *   On success, it returnes a pointer to a list of buf->number elements
  *   each buf->size big. The total size is stored in buf->total. */
 
-unsigned *
+pid_t*
 glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 			gint64 which, gint64 arg)
 {
@@ -63,7 +63,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	struct dirent *entry;
 	char buffer [BUFSIZ];
 	unsigned count, total, pid = 0, mask;
-	unsigned pids [BLOCK_COUNT], *pids_chain = NULL;
+	pid_t pids [BLOCK_COUNT], *pids_chain = NULL;
 	unsigned pids_size = 0, pids_offset = 0, new_size;
 	struct stat statb;
 	int len, ok;
@@ -98,7 +98,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	      if(s_stat(buffer, &statb) < 0)
 		 return NULL;
 	   }
-	   pids_chain = g_malloc(sizeof(unsigned));
+	   pids_chain = g_malloc(sizeof(pid_t));
 	   *pids_chain = pid;
 	   return pids_chain;
 	}
@@ -216,11 +216,11 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	 * new size and copy pids to the beginning of the newly allocated
 	 * block. */
 
-	new_size = pids_size + count * sizeof (unsigned);
+	new_size = pids_size + count * sizeof (pid_t);
 
 	pids_chain = g_realloc (pids_chain, new_size);
 
-	memcpy (pids_chain + pids_offset, pids, count * sizeof (unsigned));
+	memcpy (pids_chain + pids_offset, pids, count * sizeof (pid_t));
 
 	pids_size = new_size;
 
@@ -231,10 +231,10 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 
 	buf->flags = _glibtop_sysdeps_proclist;
 
-	buf->size = sizeof (unsigned);
+	buf->size = sizeof (pid_t);
 	buf->number = total;
 
-	buf->total = total * sizeof (unsigned);
+	buf->total = buf->number * buf->size;
 
 	return pids_chain;
 }
