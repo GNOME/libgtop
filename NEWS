@@ -1,3 +1,8 @@
+18 June 2007: Overview of changes in 2.19.4
+===========================================
+* solaris:
+  - fixed build. Damien Carbery.
+
 3 June 2007: Overview of changes in 2.19.3
 ==========================================
 * Small API change. get_proclist returns pid_t instead of unsigned
