@@ -164,11 +164,10 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		if (getline(&line, &line_size, maps) == -1)
 			break;
 
-		/* 8 arguments */
 		if (sscanf(line, PROC_MAPS_FORMAT,
 			   &start, &end, flags, &offset,
 			   &dev_major, &dev_minor, &inode, &line_end) != 7)
-			break;
+			continue;
 
 		filename = line + line_end;
 		g_strstrip(filename);

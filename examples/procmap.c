@@ -140,9 +140,9 @@ main (int argc, char *argv [])
 		}
 
 
-		g_print("smaps flags:%#llx size:%llu rss:%llu "
-			"shared_clean:%llu shared_dirty:%llu "
-			"private_clean:%llu private_dirty: %llu\n",
+		g_print("smaps flags:%#llx size:%lluKiB rss:%lluKiB "
+			"shared_clean:%lluKib shared_dirty:%lluKiB "
+			"private_clean:%lluKiB private_dirty: %lluKiB\n",
 			maps[i].flags,
 			maps[i].size >> 10,
 			maps[i].rss >> 10,
