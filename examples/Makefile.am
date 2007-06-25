@@ -8,7 +8,7 @@ DEFS			= @DEFS@
 
 noinst_PROGRAMS	= 	first second pprint procargs df netlist \
 			  mountlist procmap netload sysdeps timings \
-			  openfiles smp proclist mem wd
+			  openfiles smp proclist mem wd affinity
 
 first_SOURCES		= first.c
 first_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
@@ -58,3 +58,5 @@ wd_LDADD	= $(top_builddir)/lib/libgtop-2.0.la
 mem_SOURCE	= mem.c
 mem_LDADD	= $(top_builddir)/lib/libgtop-2.0.la
 
+affinity_SOURCES	= affinity.c
+affinity_LDADD	= $(top_builddir)/lib/libgtop-2.0.la

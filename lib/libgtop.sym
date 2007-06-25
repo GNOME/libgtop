@@ -42,6 +42,10 @@ glibtop_get_ppp
 glibtop_get_ppp_l
 glibtop_get_ppp_p
 glibtop_get_ppp_s
+glibtop_get_proc_affinity
+glibtop_get_proc_affinity_l
+glibtop_get_proc_affinity_p
+glibtop_get_proc_affinity_s
 glibtop_get_proc_args
 glibtop_get_proc_args_l
 glibtop_get_proc_args_p
@@ -53,10 +57,6 @@ glibtop_get_proc_kernel
 glibtop_get_proc_kernel_l
 glibtop_get_proc_kernel_p
 glibtop_get_proc_kernel_s
-glibtop_get_proclist
-glibtop_get_proclist_l
-glibtop_get_proclist_p
-glibtop_get_proclist_s
 glibtop_get_proc_map
 glibtop_get_proc_map_l
 glibtop_get_proc_map_p
@@ -93,6 +93,10 @@ glibtop_get_proc_wd
 glibtop_get_proc_wd_l
 glibtop_get_proc_wd_p
 glibtop_get_proc_wd_s
+glibtop_get_proclist
+glibtop_get_proclist_l
+glibtop_get_proclist_p
+glibtop_get_proclist_s
 glibtop_get_sem_limits
 glibtop_get_sem_limits_l
 glibtop_get_sem_limits_p
