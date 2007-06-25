@@ -23,4 +23,5 @@ void|netload|ulong(if_flags,mtu,subnet,address,packets_in,packets_out,packets_to
 void|ppp|ulong(state,bytes_in,bytes_out)|ushort(device)
 char **|netlist|unsigned(number)
 char **|proc_wd|ulong(number),str(root),str(exe)|pid_t(pid)
+guint16*|proc_affinity|ulong(number),int(all)|pid_t(pid)
 

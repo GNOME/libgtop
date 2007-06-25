@@ -47,6 +47,7 @@ GLIBTOP_SUID_PROC_MAP +
 GLIBTOP_SUID_NETLOAD +
 GLIBTOP_SUID_NETLIST +
 GLIBTOP_SUID_PROC_WD +
+GLIBTOP_SUID_PROC_AFFINITY +
 GLIBTOP_SUID_PPP;
 
 const _glibtop_init_func_t _glibtop_init_hook_s [] = {
@@ -112,6 +113,9 @@ const _glibtop_init_func_t _glibtop_init_hook_s [] = {
 #endif
 #if !GLIBTOP_SUID_PROC_WD
 	_glibtop_init_proc_wd_s,
+#endif
+#if !GLIBTOP_SUID_PROC_AFFINITY
+	_glibtop_init_proc_affinity_s,
 #endif
 #if !GLIBTOP_SUID_PPP
 	_glibtop_init_ppp_s,
@@ -182,6 +186,9 @@ const _glibtop_init_func_t _glibtop_init_hook_p [] = {
 #endif
 #if GLIBTOP_SUID_PROC_WD
 	_glibtop_init_proc_wd_p,
+#endif
+#if GLIBTOP_SUID_PROC_AFFINITY
+	_glibtop_init_proc_affinity_p,
 #endif
 #if GLIBTOP_SUID_PPP
 	_glibtop_init_ppp_p,
