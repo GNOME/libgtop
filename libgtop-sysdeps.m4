@@ -63,9 +63,9 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	case "$host_os" in
 	linux*)
 	  libgtop_sysdeps_dir=linux
-	  libgtop_use_machine_h=no
+	  libgtop_use_machine_h=yes
 	  libgtop_have_sysinfo=yes
-	  libgtop_need_server=no
+	  libgtop_need_server=yes
 	  ;;
 	netbsd*|openbsd*|bsdi*)
 	  libgtop_sysdeps_dir=bsd
