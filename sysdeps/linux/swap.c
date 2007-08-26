@@ -56,7 +56,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
 	memset (buf, 0, sizeof (glibtop_swap));
 
-	file_to_buffer(server, buffer, MEMINFO);
+	file_to_buffer(server, buffer, sizeof buffer, MEMINFO);
 
 	/* Kernel 2.6 with multiple lines */
 
@@ -69,7 +69,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 
 	if(server->os_version_code >= LINUX_VERSION_CODE(2, 6, 0))
 	{
-		file_to_buffer (server, buffer, PROC_VMSTAT);
+		file_to_buffer (server, buffer, sizeof buffer, PROC_VMSTAT);
 
 		p = strstr (buffer, "\npswpin");
 
@@ -86,7 +86,7 @@ glibtop_get_swap_s (glibtop *server, glibtop_swap *buf)
 	}
 	else /* Linux 2.4 */
 	{
-		file_to_buffer (server, buffer, PROC_STAT);
+		file_to_buffer (server, buffer, sizeof buffer, PROC_STAT);
 
 		p = strstr (buffer, "\nswap");
 

@@ -193,6 +193,7 @@ read_value(glibtop *server,
     char buffer[BUFSIZ];
 
     if(try_file_to_buffer(buffer,
+    			  sizeof buffer,
 			  "/sys/class/net/%s/statistics/%s",
 			  device,
 			  filename))

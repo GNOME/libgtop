@@ -55,7 +55,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 
 	memset (buf, 0, sizeof (glibtop_proc_uid));
 
-	if (proc_status_to_buffer (buffer, pid))
+	if (proc_status_to_buffer(buffer, sizeof buffer, pid))
 		return;
 
 	/* Search substring 'Pid:' */
@@ -89,7 +89,7 @@ glibtop_get_proc_uid_s (glibtop *server, glibtop_proc_uid *buf, pid_t pid)
 
 	buf->flags = _glibtop_sysdeps_proc_uid;
 
-	if (proc_stat_to_buffer (buffer, pid))
+	if (proc_stat_to_buffer(buffer, sizeof buffer, pid))
 		return;
 
 	p = proc_stat_after_cmd (buffer);
