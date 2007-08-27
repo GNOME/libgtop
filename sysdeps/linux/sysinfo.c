@@ -26,7 +26,7 @@
 
 #include "glibtop_private.h"
 
-#define FILENAME "/home/benoit/Desktop/libgtop/cpuinfo8.txt"
+#define FILENAME "/proc/cpuinfo"
 
 static const unsigned long _glibtop_sysdeps_sysinfo =
 (1L << GLIBTOP_SYSINFO_CPUINFO);
