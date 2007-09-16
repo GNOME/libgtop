@@ -1,3 +1,7 @@
+16 September 2007: Overview of changes in 2.20.0
+================================================
+* Updated translations.
+
 27 August 2007: Overview of changes in 2.19.92
 ==============================================
 * Fixed stupid hardwired path in linux/sysinfo.c
