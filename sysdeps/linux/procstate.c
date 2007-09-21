@@ -73,7 +73,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 
 	/* Now we read the remaining fields. */
 
-	if (proc_stat_to_buffer (buffer, pid))
+	if (proc_stat_to_buffer(buffer, sizeof buffer, pid))
 		return;
 
 	p = proc_stat_after_cmd(buffer);

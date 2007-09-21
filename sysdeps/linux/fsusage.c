@@ -107,7 +107,7 @@ static void linux_2_6_0(glibtop *server, glibtop_fsusage *buf, const char *path)
 	get_sys_path(device, &filename, &format);
 	g_free(device);
 
-	ret = try_file_to_buffer(buffer, filename);
+	ret = try_file_to_buffer(buffer, sizeof buffer, filename);
 
 	if(ret < 0) return;
 

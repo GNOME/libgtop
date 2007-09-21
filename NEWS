@@ -1,3 +1,26 @@
+16 September 2007: Overview of changes in 2.20.0
+================================================
+* Updated translations.
+
+27 August 2007: Overview of changes in 2.19.92
+==============================================
+* Fixed stupid hardwired path in linux/sysinfo.c
+
+26 August 2007: Overview of changes in 2.19.91
+==============================================
+* Translations updates.
+* linux:
+  - Small internal improvement. Might fix sysinfo when having more than
+  8 CPUS.
+
+9 July 2007: Overview of changes in 2.19.5
+==========================================
+* linux:
+  - fixed proc_map for >= 2.6.22
+* freebsd:
+  - implemented procwd and procopenfiles
+    Joe Marcus Clarke
+
 18 June 2007: Overview of changes in 2.19.4
 ===========================================
 * solaris:

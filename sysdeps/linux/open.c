@@ -73,7 +73,7 @@ glibtop_open_s (glibtop *server, const char *program_name,
 
 	set_linux_version(server);
 
-	file_to_buffer(server, buffer, FILENAME);
+	file_to_buffer(server, buffer, sizeof buffer, FILENAME);
 
 	p = skip_line(p); /* cpu */
 

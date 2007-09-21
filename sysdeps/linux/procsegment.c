@@ -57,7 +57,7 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 
 	memset (buf, 0, sizeof (glibtop_proc_segment));
 
-	if (proc_stat_to_buffer (buffer, pid))
+	if (proc_stat_to_buffer(buffer, sizeof buffer, pid))
 		return;
 
 	p = proc_stat_after_cmd (buffer);
@@ -71,7 +71,7 @@ glibtop_get_proc_segment_s (glibtop *server, glibtop_proc_segment *buf,
 
 	buf->flags = _glibtop_sysdeps_proc_segment;
 
-	if (proc_statm_to_buffer (buffer, pid))
+	if (proc_statm_to_buffer(buffer, sizeof buffer, pid))
 		return;
 
 	p = skip_multiple_token (buffer, 3);

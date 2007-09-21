@@ -68,11 +68,11 @@ get_scaled(const char *buffer, const char *key);
 
 /* aborts on error */
 void
-file_to_buffer(glibtop *server, char *buffer, const char *filename);
+file_to_buffer(glibtop *server, char *buffer, size_t bufsiz, const char *filename);
 
 /* return < 0 on error, otherwise 0 on success */
 int
-try_file_to_buffer(char *buffer, const char *format, ...) G_GNUC_PRINTF(2, 3);
+try_file_to_buffer(char *buffer, size_t bufsiz, const char *format, ...) G_GNUC_PRINTF(3, 4);
 
 
 /* some inline functions that wrap proc path
@@ -80,27 +80,27 @@ try_file_to_buffer(char *buffer, const char *format, ...) G_GNUC_PRINTF(2, 3);
  */
 
 static inline int
-proc_file_to_buffer (char *buffer, const char *fmt, pid_t pid)
+proc_file_to_buffer (char *buffer, size_t bufsiz, const char *fmt, pid_t pid)
 {
-	return try_file_to_buffer(buffer, fmt, pid);
+	return try_file_to_buffer(buffer, bufsiz, fmt, pid);
 }
 
 static inline int
-proc_stat_to_buffer (char *buffer, pid_t pid)
+proc_stat_to_buffer (char *buffer, size_t bufsiz, pid_t pid)
 {
-	return proc_file_to_buffer (buffer, "/proc/%d/stat", pid);
+	return proc_file_to_buffer(buffer, bufsiz, "/proc/%d/stat", pid);
 }
 
 static inline int
-proc_status_to_buffer (char *buffer, pid_t pid)
+proc_status_to_buffer (char *buffer, size_t bufsiz, pid_t pid)
 {
-	return proc_file_to_buffer (buffer, "/proc/%d/status", pid);
+	return proc_file_to_buffer(buffer, bufsiz, "/proc/%d/status", pid);
 }
 
 static inline int
-proc_statm_to_buffer (char *buffer, pid_t pid)
+proc_statm_to_buffer (char *buffer, size_t bufsiz, pid_t pid)
 {
-	return proc_file_to_buffer (buffer, "/proc/%d/statm", pid);
+	return proc_file_to_buffer(buffer, bufsiz, "/proc/%d/statm", pid);
 }
 
 

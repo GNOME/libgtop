@@ -1,208 +1,192 @@
 # libgtop ja.po.
-# Copyright (C) 1998,2000,2002-2005 Free Software Foundation, Inc.
+# Copyright (C) 1998,2000,2002-2007 Free Software Foundation, Inc.
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1998
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2000, 2002.
 # Yukihiro Nakai <nakai@gnome.gr.jp>, 2000.
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
-# Takeshi AIHANA <aihana@gnome.gr.jp>, 2004,2005.
+# Takeshi AIHANA <takeshi.aihana@gmail.com>, 2004-2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop HEAD\n"
+"Project-Id-Version: libgtop trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-30 01:37+0900\n"
-"PO-Revision-Date: 2006-10-30 01:38+0900\n"
-"Last-Translator: Satoru SATOH <ss@gnome.gr.jp>\n"
+"POT-Creation-Date: 2007-07-08 01:03+0900\n"
+"PO-Revision-Date: 2007-07-08 01:03+0900\n"
+"Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../lib/read.c:65
+#: ../lib/read.c:51
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "%d バイト読み込み"
+msgstr[0] " %dバイト読み込み"
+msgstr[1] " %dバイト読み込み"
 
-#: ../lib/read_data.c:53
+#: ../lib/read_data.c:51
 msgid "read data size"
 msgstr "データの読み込みサイズ"
 
-#: ../lib/read_data.c:72
+#: ../lib/read_data.c:70
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "%lu バイトデータの読み込み"
+msgstr[0] " %luバイトデータの読み込み"
+msgstr[1] " %luバイトデータの読み込み"
 
-#: ../lib/write.c:53
+#: ../lib/write.c:51
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "%d バイトの書き込み"
+msgstr[0] " %dバイトの書き込み"
+msgstr[1] " %dバイトの書き込み"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:458
 msgid "Enable debugging"
 msgstr "デバッグを有効にする"
 
 #: ../src/daemon/gnuserv.c:460
-msgid "DEBUG"
-msgstr "DEBUG"
-
-#: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "詳細な出力にする"
 
 #: ../src/daemon/gnuserv.c:462
-msgid "VERBOSE"
-msgstr "VERBOSE"
-
-#: ../src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "子プロセスをバックグラウンドに回さない"
 
 #: ../src/daemon/gnuserv.c:464
-msgid "NO-DAEMON"
-msgstr "NO-DAEMON"
-
-#: ../src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "`inetd` から起動する"
 
-#: ../src/daemon/gnuserv.c:466
-msgid "INETD"
-msgstr "INETD"
-
-#: ../src/daemon/gnuserv.c:500
+#: ../src/daemon/gnuserv.c:498
 #, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
+msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"オプション%sでエラー: %s\n"
-"コマンドラインオプションに使えるもの一覧を見るには'%s --help'を実行してくださ"
-"い。\n"
+"利用可能なコマンド・ラインのオプション一覧を表示する場合は '%s --help' を実行"
+"して下さい\n"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
 msgstr "ハングアップ"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
 msgstr "インタラプト"
 
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Quit"
 msgstr "終了"
 
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
 msgstr "不正なインストラクション"
 
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
 msgstr "トレーストラップ"
 
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Abort"
-msgstr "終了"
+msgstr "停止"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "EMT error"
-msgstr "EMTエラー"
+msgstr "EMT エラー"
 
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
 msgstr "浮動小数点例外"
 
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
-msgstr "kill"
+msgstr "強制終了"
 
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Bus error"
 msgstr "バスエラー"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
 msgstr "セグメンテーションバイオレーション"
 
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
 msgstr "システムコールの引数が誤っています"
 
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
 msgstr "パイプ破壊"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
 msgstr "アラームクロック"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
 msgid "Termination"
 msgstr "ターミネーション"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
 msgstr "ソケットの緊急状態"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Stop"
 msgstr "ストップ"
 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
-msgstr "キーボードストップ"
+msgstr "キーボード停止"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
 msgid "Continue"
 msgstr "コンティニュー"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
 msgstr "子プロセス状態が変更された"
 
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
-msgstr "ttyからのバックグラウンド読み込み"
+msgstr "TTY からのバックグラウンド読み込み"
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
-msgstr "ttyへのバックグラウンド書き込み"
+msgstr "TTY へのバックグラウンド書き込み"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
 msgstr "I/Oが使用可能"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
-msgstr "CPU限界を越えた"
+msgstr "CPU の限界を越えた"
 
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr "ファイルサイズ限界を越えた"
+msgstr "ファイルサイズの限界を越えた"
 
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
 msgstr "仮想アラームクロック"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
 msgstr "アラームクロックのプロファイル"
 
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
 msgid "Window size change"
 msgstr "ウィンドウサイズの変更"
 
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Information request"
 msgstr "情報リクエスト"
 
-#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr "ユーザ定義シグナル 1"
+msgstr "ユーザ定義シグナル１"
 
-#: ../sysdeps/osf1/siglist.c:59 ../sysdeps/sun4/siglist.c:59
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr "ユーザ定義シグナル 2"
+msgstr "ユーザ定義シグナル２"

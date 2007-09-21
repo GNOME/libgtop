@@ -51,7 +51,7 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 
 	memset (buf, 0, sizeof (glibtop_uptime));
 
-	file_to_buffer(server, buffer, FILENAME);
+	file_to_buffer(server, buffer, sizeof buffer, FILENAME);
 
 	buf->uptime   = g_ascii_strtod (buffer, &p);
 	buf->idletime = g_ascii_strtod (p, &p);

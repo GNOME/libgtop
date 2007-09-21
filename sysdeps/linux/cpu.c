@@ -75,7 +75,7 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 
 	memset (buf, 0, sizeof (glibtop_cpu));
 
-	file_to_buffer(server, buffer, FILENAME);
+	file_to_buffer(server, buffer, sizeof buffer, FILENAME);
 
 	/*
 	 * GLOBAL

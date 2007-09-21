@@ -1,23 +1,25 @@
+# translation of lt.po to Lithuanian
 # Lithuanian translation of libgtop library.
 # Copyright (C) 2003-2006 Free Software Foundation.
 # This file is distributed under the same license as the libgtop package.
+#
+#
 # Tomas Kuliavas <tokul@users.sourceforge.net>, 2003.
 # Žygimantas Beručka <zygis@gnome.org>, 2003-2006.
-# 
-# 
+# Gintautas Miliauskas <gintas@akl.lt>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop\n"
+"Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-02-27 15:48+0200\n"
-"PO-Revision-Date: 2006-03-03 12:24+0200\n"
+"POT-Creation-Date: 2007-09-16 13:57+0300\n"
+"PO-Revision-Date: 2007-09-16 13:58+0300\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
-"Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
+"Language-Team: Lithuanian <gnome-lt@lists.akl.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
-"100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../lib/read.c:51
 #, c-format
@@ -47,46 +49,27 @@ msgstr[0] "įrašytas %d baitas"
 msgstr[1] "įrašyti %d baitai"
 msgstr[2] "įrašyta %d baitų"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:458
 msgid "Enable debugging"
 msgstr "Įjungti testavimo veikseną"
 
 #: ../src/daemon/gnuserv.c:460
-msgid "DEBUG"
-msgstr "TESTAVIMAS"
-
-#: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "Įjungti išsamią išvestį"
 
 #: ../src/daemon/gnuserv.c:462
-msgid "VERBOSE"
-msgstr "IŠSAMUS"
-
-#: ../src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "Neperkelti į foninę veikseną"
 
 #: ../src/daemon/gnuserv.c:464
-msgid "NO-DAEMON"
-msgstr "NE-DEMONUI"
-
-#: ../src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "Paleista iš inetd"
 
-#: ../src/daemon/gnuserv.c:466
-msgid "INETD"
-msgstr "INETD"
-
-#: ../src/daemon/gnuserv.c:500
+#: ../src/daemon/gnuserv.c:498
 #, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
+msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"Klaidingi parametrai %s: %s.\n"
-"Paleiskite „%s --help“ norėdami pamatyti visus galimus komandinės eilutės "
+"Paleiskite „%s --help“, norėdami pamatyti visus galimus komandinės eilutės "
 "parametrus.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
@@ -212,3 +195,4 @@ msgstr "Pirmas naudotojo nurodytas signalas (USR1)"
 #: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "Antras naudotojo nurodytas signalas (USR2)"
+

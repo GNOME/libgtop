@@ -54,7 +54,7 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 
-	if (proc_stat_to_buffer (buffer, pid))
+	if (proc_stat_to_buffer(buffer, sizeof buffer, pid))
 		return;
 
 	p = proc_stat_after_cmd (buffer);
@@ -68,7 +68,7 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 
 	buf->flags = _glibtop_sysdeps_proc_mem;
 
-	if (proc_statm_to_buffer (buffer, pid))
+	if (proc_statm_to_buffer(buffer, sizeof buffer, pid))
 		return;
 
 	buf->size     = strtoull (buffer, &p, 0);

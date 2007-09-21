@@ -368,17 +368,3 @@ glibtop_get_proc_wd(glibtop_proc_wd *buf, pid_t pid)
 }
 
 
-/**
- * glibtop_get_proc_affinity:
- * @buf:
- * @pid: Process id to get the affinity
- *
- * Get the processor affinity list for a process
- *
- * Returns: A list of processor ID of 'buf.number' elements.
- */
-guint16 *
-glibtop_get_proc_affinity(glibtop_proc_affinity *buf, pid_t pid)
-{
-	return glibtop_get_proc_affinity_l(glibtop_global_server, buf, pid);
-}

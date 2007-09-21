@@ -36,12 +36,12 @@ static glibtop_sysinfo sysinfo = { .flags = 0 };
 static void
 init_sysinfo (glibtop *server)
 {
-	char buffer [BUFSIZ];
+	char buffer [16384];
 	gchar ** processors;
 
 	if(G_LIKELY(sysinfo.flags)) return;
 
-	file_to_buffer(server, buffer, FILENAME);
+	file_to_buffer(server, buffer, sizeof buffer, FILENAME);
 
 	/* cpuinfo records are seperated by a blank line */
 	processors = g_strsplit(buffer, "\n\n", 0);

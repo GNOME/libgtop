@@ -47,7 +47,7 @@ glibtop_get_proc_signal_s (glibtop *server, glibtop_proc_signal *buf, pid_t pid)
 
 	memset (buf, 0, sizeof (glibtop_proc_signal));
 
-	if (proc_stat_to_buffer (buffer, pid))
+	if (proc_stat_to_buffer(buffer, sizeof buffer, pid))
 		return;
 
 	p = proc_stat_after_cmd (buffer);

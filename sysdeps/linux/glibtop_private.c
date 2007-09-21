@@ -63,12 +63,15 @@ enum TRY_FILE_TO_BUFFER
 	TRY_FILE_TO_BUFFER_READ = -2
 };
 
-int try_file_to_buffer(char *buffer, const char *format, ...)
+int try_file_to_buffer(char *buffer, size_t bufsiz, const char *format, ...)
 {
 	char path[4096];
 	int fd;
 	ssize_t len;
 	va_list pa;
+
+	if (bufsiz <= sizeof(char*))
+	  g_warning("Huhu, bufsiz of %lu looks bad", (gulong)bufsiz);
 
 	va_start(pa, format);
 
@@ -82,7 +85,7 @@ int try_file_to_buffer(char *buffer, const char *format, ...)
 	if((fd = open (path, O_RDONLY)) < 0)
 		return TRY_FILE_TO_BUFFER_OPEN;
 
-	len = read (fd, buffer, BUFSIZ-1);
+	len = read (fd, buffer, bufsiz - 1);
 	close (fd);
 
 	if (len < 0)
@@ -95,9 +98,9 @@ int try_file_to_buffer(char *buffer, const char *format, ...)
 
 
 void
-file_to_buffer(glibtop *server, char *buffer, const char *filename)
+file_to_buffer(glibtop *server, char *buffer, size_t bufsiz, const char *filename)
 {
-	switch(try_file_to_buffer(buffer, filename))
+	switch(try_file_to_buffer(buffer, bufsiz, filename))
 	{
 	case TRY_FILE_TO_BUFFER_OPEN:
 		glibtop_error_io_r (server, "open (%s)", filename);
@@ -115,7 +118,7 @@ read_boot_time(glibtop *server)
 	char buffer[BUFSIZ];
 	char *btime;
 
-	file_to_buffer(server, buffer, "/proc/stat");
+	file_to_buffer(server, buffer, sizeof buffer, "/proc/stat");
 
 	btime = strstr(buffer, "btime");
 

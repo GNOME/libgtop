@@ -58,7 +58,7 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 
 	memset (buf, 0, sizeof (glibtop_proc_time));
 
-	if (proc_stat_to_buffer (buffer, pid))
+	if (proc_stat_to_buffer(buffer, sizeof buffer, pid))
 		return;
 
 	p = proc_stat_after_cmd (buffer);
@@ -113,7 +113,7 @@ glibtop_get_proc_time_s (glibtop *server, glibtop_proc_time *buf, pid_t pid)
 		return;
 
 	/* FIXME: doesn't work with 2.6 */
-	if (proc_file_to_buffer (buffer, "/proc/%d/cpu", pid))
+	if (proc_file_to_buffer(buffer, sizeof buffer, "/proc/%d/cpu", pid))
 		return;
 
 	p = skip_multiple_token (p, 3);

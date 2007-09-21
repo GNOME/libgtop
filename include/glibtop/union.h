@@ -43,7 +43,6 @@
 #include <glibtop/procmap.h>
 #include <glibtop/procopenfiles.h>
 #include <glibtop/procwd.h>
-#include <glibtop/procaffinity.h>
 
 #include <glibtop/mountlist.h>
 #include <glibtop/fsusage.h>
@@ -83,7 +82,6 @@ union _glibtop_union
 	glibtop_ppp		ppp;
 	glibtop_proc_open_files proc_open_files;
 	glibtop_proc_wd		proc_wd;
-	glibtop_proc_affinity	proc_affinity;
 };
 
 G_END_DECLS

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.HEAD.ar\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-07-23 08:51+0200\n"
-"PO-Revision-Date: 2006-11-25 15:36+0200\n"
-"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
+"POT-Creation-Date: 2007-08-26 14:20-0700\n"
+"PO-Revision-Date: 2007-09-08 14:32-0000\n"
+"Last-Translator: Youssef Chahibi <chahibi@gmail.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : 3\n"
 
-#: ../lib/read.c:65
+#: ../lib/read.c:51
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -29,11 +29,11 @@ msgstr[1] "اقرأ بايتين"
 msgstr[2] "اقرأ %d بايتات"
 msgstr[3] "اقرأ %d بايت"
 
-#: ../lib/read_data.c:53
+#: ../lib/read_data.c:51
 msgid "read data size"
 msgstr "اقرأ حجم البيانات"
 
-#: ../lib/read_data.c:72
+#: ../lib/read_data.c:70
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
@@ -42,7 +42,7 @@ msgstr[1] "اقرأ بايتين"
 msgstr[2] "اقرأ %lu بايتات"
 msgstr[3] "اقرأ %lu بايت"
 
-#: ../lib/write.c:53
+#: ../lib/write.c:51
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
@@ -51,199 +51,188 @@ msgstr[1] "كتابة بايتين"
 msgstr[2] "كتابة %d بايتات"
 msgstr[3] "كتابة %d بايت"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:458
 msgid "Enable debugging"
 msgstr "فعّل التنقيح"
 
 #: ../src/daemon/gnuserv.c:460
-msgid "DEBUG"
-msgstr "DEBUG"
-
-#: ../src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "فعّل خرْج مسهِب"
 
 #: ../src/daemon/gnuserv.c:462
-msgid "VERBOSE"
-msgstr "VERBOSE"
-
-#: ../src/daemon/gnuserv.c:464
 msgid "Don't fork into background"
 msgstr "لا تشعّب إلى الخلفية"
 
 #: ../src/daemon/gnuserv.c:464
-msgid "NO-DAEMON"
-msgstr "NO-DAEMON"
-
-#: ../src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "استُحضرت من inetd "
 
-#: ../src/daemon/gnuserv.c:466
-msgid "INETD"
-msgstr "INETD"
-
-#: ../src/daemon/gnuserv.c:500
+#: ../src/daemon/gnuserv.c:498
 #, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"خطأ عند الخيار %s: %s.\n"
-"شغّل '%s --help' لرئية قائمة كاملة لخيارات سطر الأوامر.\n"
+msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgstr "شغّل '%s --help' لرؤية قائمة كاملة لخيارات سطر الأوامر.\n"
 
-#: ../sysdeps/osf1/siglist.c:29
-#: ../sysdeps/sun4/siglist.c:29
+#: ../sysdeps/osf1/siglist.c:27
+#: ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
 msgstr "علق"
 
-#: ../sysdeps/osf1/siglist.c:30
-#: ../sysdeps/sun4/siglist.c:30
+#: ../sysdeps/osf1/siglist.c:28
+#: ../sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
 msgstr "قاطِع"
 
-#: ../sysdeps/osf1/siglist.c:31
-#: ../sysdeps/sun4/siglist.c:31
+#: ../sysdeps/osf1/siglist.c:29
+#: ../sysdeps/sun4/siglist.c:29
 msgid "Quit"
 msgstr "اخرج"
 
-#: ../sysdeps/osf1/siglist.c:32
-#: ../sysdeps/sun4/siglist.c:32
+#: ../sysdeps/osf1/siglist.c:30
+#: ../sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
 msgstr "توجيه ممنوع"
 
-#: ../sysdeps/osf1/siglist.c:33
-#: ../sysdeps/sun4/siglist.c:33
+#: ../sysdeps/osf1/siglist.c:31
+#: ../sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
 msgstr "فخ رسم"
 
-#: ../sysdeps/osf1/siglist.c:34
-#: ../sysdeps/sun4/siglist.c:34
+#: ../sysdeps/osf1/siglist.c:32
+#: ../sysdeps/sun4/siglist.c:32
 msgid "Abort"
 msgstr "اجهض"
 
-#: ../sysdeps/osf1/siglist.c:35
-#: ../sysdeps/sun4/siglist.c:35
+#: ../sysdeps/osf1/siglist.c:33
+#: ../sysdeps/sun4/siglist.c:33
 msgid "EMT error"
 msgstr "خطأ EMT"
 
-#: ../sysdeps/osf1/siglist.c:36
-#: ../sysdeps/sun4/siglist.c:36
+#: ../sysdeps/osf1/siglist.c:34
+#: ../sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
 msgstr "استثناء أرقام عشرية"
 
-#: ../sysdeps/osf1/siglist.c:37
-#: ../sysdeps/sun4/siglist.c:37
+#: ../sysdeps/osf1/siglist.c:35
+#: ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
 msgstr "اقتل"
 
-#: ../sysdeps/osf1/siglist.c:38
-#: ../sysdeps/sun4/siglist.c:38
+#: ../sysdeps/osf1/siglist.c:36
+#: ../sysdeps/sun4/siglist.c:36
 msgid "Bus error"
 msgstr "خطأ ناقل"
 
-#: ../sysdeps/osf1/siglist.c:39
-#: ../sysdeps/sun4/siglist.c:39
+#: ../sysdeps/osf1/siglist.c:37
+#: ../sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
 msgstr "انتهاك اﻻنقسام"
 
-#: ../sysdeps/osf1/siglist.c:40
-#: ../sysdeps/sun4/siglist.c:40
+#: ../sysdeps/osf1/siglist.c:38
+#: ../sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
 msgstr "متغيّر سيء لنداء النظام"
 
-#: ../sysdeps/osf1/siglist.c:41
-#: ../sysdeps/sun4/siglist.c:41
+#: ../sysdeps/osf1/siglist.c:39
+#: ../sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
 msgstr "أنبوب مكسور"
 
-#: ../sysdeps/osf1/siglist.c:42
-#: ../sysdeps/sun4/siglist.c:42
+#: ../sysdeps/osf1/siglist.c:40
+#: ../sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
 msgstr "ساعة منبهة"
 
-#: ../sysdeps/osf1/siglist.c:43
-#: ../sysdeps/sun4/siglist.c:43
+#: ../sysdeps/osf1/siglist.c:41
+#: ../sysdeps/sun4/siglist.c:41
 msgid "Termination"
 msgstr "إنهاء"
 
-#: ../sysdeps/osf1/siglist.c:44
-#: ../sysdeps/sun4/siglist.c:44
+#: ../sysdeps/osf1/siglist.c:42
+#: ../sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
 msgstr "حالة عاجلة عند المقبس"
 
-#: ../sysdeps/osf1/siglist.c:45
-#: ../sysdeps/sun4/siglist.c:45
+#: ../sysdeps/osf1/siglist.c:43
+#: ../sysdeps/sun4/siglist.c:43
 msgid "Stop"
 msgstr "قف"
 
-#: ../sysdeps/osf1/siglist.c:46
-#: ../sysdeps/sun4/siglist.c:46
+#: ../sysdeps/osf1/siglist.c:44
+#: ../sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
 msgstr "أوقف لوحة المفاتيح"
 
-#: ../sysdeps/osf1/siglist.c:47
-#: ../sysdeps/sun4/siglist.c:47
+#: ../sysdeps/osf1/siglist.c:45
+#: ../sysdeps/sun4/siglist.c:45
 msgid "Continue"
 msgstr "تابع"
 
-#: ../sysdeps/osf1/siglist.c:48
-#: ../sysdeps/sun4/siglist.c:48
+#: ../sysdeps/osf1/siglist.c:46
+#: ../sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
 msgstr "تغيرت حالة الابن"
 
-#: ../sysdeps/osf1/siglist.c:49
-#: ../sysdeps/sun4/siglist.c:49
+#: ../sysdeps/osf1/siglist.c:47
+#: ../sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
 msgstr "قراءة من tty في الخلفية"
 
-#: ../sysdeps/osf1/siglist.c:50
-#: ../sysdeps/sun4/siglist.c:50
+#: ../sysdeps/osf1/siglist.c:48
+#: ../sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
 msgstr "كتابة لـ tty في الخلفية"
 
-#: ../sysdeps/osf1/siglist.c:51
-#: ../sysdeps/sun4/siglist.c:51
+#: ../sysdeps/osf1/siglist.c:49
+#: ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
 msgstr "دخْل/خرْج ممكن الآن"
 
-#: ../sysdeps/osf1/siglist.c:52
-#: ../sysdeps/sun4/siglist.c:52
+#: ../sysdeps/osf1/siglist.c:50
+#: ../sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
 msgstr "تجاوز حد الـمعالج"
 
-#: ../sysdeps/osf1/siglist.c:53
-#: ../sysdeps/sun4/siglist.c:53
+#: ../sysdeps/osf1/siglist.c:51
+#: ../sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
 msgstr "تجاوز حد حجم الملف"
 
-#: ../sysdeps/osf1/siglist.c:54
-#: ../sysdeps/sun4/siglist.c:54
+#: ../sysdeps/osf1/siglist.c:52
+#: ../sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
 msgstr "ساعة تنبيه تخيّلية"
 
-#: ../sysdeps/osf1/siglist.c:55
-#: ../sysdeps/sun4/siglist.c:55
+#: ../sysdeps/osf1/siglist.c:53
+#: ../sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
 msgstr "كتابة لمحة عن ساعة التنبيه"
 
-#: ../sysdeps/osf1/siglist.c:56
-#: ../sysdeps/sun4/siglist.c:56
+#: ../sysdeps/osf1/siglist.c:54
+#: ../sysdeps/sun4/siglist.c:54
 msgid "Window size change"
 msgstr "تغير حجم النافذة"
 
-#: ../sysdeps/osf1/siglist.c:57
-#: ../sysdeps/sun4/siglist.c:57
+#: ../sysdeps/osf1/siglist.c:55
+#: ../sysdeps/sun4/siglist.c:55
 msgid "Information request"
 msgstr "طلب معلومات"
 
-#: ../sysdeps/osf1/siglist.c:58
-#: ../sysdeps/sun4/siglist.c:58
+#: ../sysdeps/osf1/siglist.c:56
+#: ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
 msgstr "اشارة 1 معرفة من طرف المستخدم"
 
-#: ../sysdeps/osf1/siglist.c:59
-#: ../sysdeps/sun4/siglist.c:59
+#: ../sysdeps/osf1/siglist.c:57
+#: ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "اشارة 2 معرفة من طرف المستخدم"
+
+#~ msgid "DEBUG"
+#~ msgstr "DEBUG"
+#~ msgid "VERBOSE"
+#~ msgstr "VERBOSE"
+#~ msgid "NO-DAEMON"
+#~ msgstr "NO-DAEMON"
+#~ msgid "INETD"
+#~ msgstr "INETD"
 
