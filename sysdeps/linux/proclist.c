@@ -71,7 +71,7 @@ glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 	proc = opendir ("/proc");
 	if (!proc) return NULL;
 
-	if(stat("/proc", &statb)) return NULL;
+	if(fstat(dirfd(proc), &statb) != 0) return NULL;
 
 	pids = g_array_sized_new(FALSE, FALSE, sizeof(pid_t), statb.st_nlink);
 
