@@ -92,6 +92,13 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  libgtop_have_sysinfo=yes
 	  libgtop_postinstall='chgrp system $(bindir)/libgtop_server && chmod g+s $(bindir)/libgtop_server2'
 	  ;;
+	darwin*)
+	  libgtop_sysdeps_dir=darwin
+	  libgtop_use_machine_h=yes
+	  libgtop_need_server=yes
+	  libgtop_have_sysinfo=yes
+	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server && chmod g+s $(bindir)/libgtop_server2'
+	  ;;
 	*)
 	  if test x$hacker_mode = xyes ; then
 	    case "$host_os" in
