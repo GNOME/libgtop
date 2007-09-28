@@ -79,6 +79,9 @@ glibtop_get_proc_wd_s(glibtop *server, glibtop_proc_wd *buf, pid_t pid)
 	if ((task = opendir(path)) != NULL) {
 		struct dirent *sub;
 		while ((sub = readdir(task)) != NULL) {
+			/* task dirs have numeric name */
+			if (!isdigit(sub->d_name[0]))
+				continue;
 			g_snprintf(path, sizeof path, "/proc/%u/task/%s/cwd", pid, sub->d_name);
 			if (safe_readlink(path, dir, sizeof dir) && !is_in(dirs, dir))
 				g_ptr_array_add(dirs, g_strdup(dir));
