@@ -108,10 +108,10 @@ main (int argc, char *argv [])
 
 			if (sizeof (void*) == 8)
 				format = "%016lx-%016lx %016lx - "
-					 "%02x:%02x %08lu - %4s - %s\n";
+					 "%02x:%02x %08lu - %5.5s - %s\n";
 			else
 				format = "%08lx-%08lx %08lx - "
-					 "%02x:%02x %08lu - %4s - %s\n";
+					 "%02x:%02x %08lu - %5.5s - %s\n";
 
 			fprintf (stderr, format,
 				 (unsigned long) maps [i].start,
