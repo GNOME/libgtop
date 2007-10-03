@@ -554,6 +554,7 @@ static gboolean ignore_mount_entry(const struct mount_entry *me)
 		"openpromfs",
 		"proc",
 		"procfs",
+		"rpc_pipefs",
 		"securityfs",
 		"supermount",
 		"sysfs",
