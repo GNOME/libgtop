@@ -36,7 +36,7 @@
 #define SMAPS_FILE "/proc/%u/smaps"
 
 
-#define PROC_MAPS_FORMAT "%16llx-%16llx %4c %16llx %02hx:%02hx %llu%*[ ]%n"
+#define PROC_MAPS_FORMAT "%16" G_GINT64_MODIFIER "x-%16" G_GINT64_MODIFIER "x %4c %16" G_GINT64_MODIFIER "x %02hx:%02hx %" G_GINT64_MODIFIER "u%*[ ]%n"
 
 
 static const unsigned long _glibtop_sysdeps_proc_map =
