@@ -148,7 +148,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 		if (nbytes != size)
 			glibtop_error_r (server,
 					 "Requested %u bytes but got %u.",
-					 size, nbytes);
+					 (unsigned)size, (unsigned)nbytes);
 
 		glibtop_read_l (server, nbytes, buffer);
 
