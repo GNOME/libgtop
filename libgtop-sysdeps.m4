@@ -66,6 +66,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  libgtop_use_machine_h=no
 	  libgtop_have_sysinfo=yes
 	  libgtop_need_server=no
+	  libgtop_sysdeps_private_mountlist=yes
 	  ;;
 	netbsd*|openbsd*|bsdi*)
 	  libgtop_sysdeps_dir=bsd
@@ -318,5 +319,6 @@ main (void)
 	fi
 
 	AM_CONDITIONAL(NEED_LIBGTOP, test x$libgtop_need_server = xyes)
+	AM_CONDITIONAL(LIBGTOP_SYSDEPS_PRIVATE_MOUNTLIST, test x$libgtop_sysdeps_private_mountlist = xyes)
 ])
 
