@@ -36,7 +36,7 @@ int main()
   printf("%-20s %-10s %-10s %-10s %-10s\n",
 	 "Filesystem", "Size", "Used", "Avail", "Use%");
 
-  entries = glibtop_get_mountlist(&buf, FALSE);
+  entries = glibtop_get_mountlist(&buf, TRUE);
 
   for(i = 0; i < buf.number; ++i)
     {
