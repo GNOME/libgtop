@@ -119,7 +119,10 @@ glibtop_get_mountlist_s(glibtop *server, glibtop_mountlist *buf, int all_fs)
   glibtop_init_r(&server, 0, 0);
   memset(buf, 0, sizeof(glibtop_mountlist));
 
-  entries = g_array_new(FALSE, FALSE, sizeof(glibtop_mountentry));
+  /* wild guess, preallocate 8 entries
+     on a desktop, almost everyone has / and a tmpfs for udev
+     if all_fs, there are also proc, sys, fuse, binfmt, etc */
+  entries = g_array_sized_new(FALSE, FALSE, sizeof(glibtop_mountentry), 8);
 
   if (!(fp = setmntent(MOUNTED, "r"))) {
       glibtop_warn_io_r(server, "Could not open %s", MOUNTED);
