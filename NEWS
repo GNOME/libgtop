@@ -1,3 +1,14 @@
+28 October 2007: Overview of changes in 2.21.1
+==============================================
+* don't export _p/_s private symbols anymore. This is not an API/ABI breakage.
+* darwin implementation by Benjamin Reed.
+* linux:
+  - splitted fsusage and mountlist implementations;
+  - smarter mountlist(allfs = False);
+  - fixed some compile warning on 64bit;
+* solaris:
+  - fixed netload build by Henry Zhang.
+
 16 September 2007: Overview of changes in 2.20.0
 ================================================
 * Updated translations.
