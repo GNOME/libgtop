@@ -98,9 +98,9 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
        buf->rss_rlim = pinfo [0].ki_rssize;
 
        buf->vsize = buf->size = (guint64)
-	       (pinfo [0].ki_size / 1024);
+	       pinfo [0].ki_size;
        buf->resident = buf->rss = (guint64)
-	       ps_pgtok (pinfo [0].ki_rssize);
+	       ps_pgtok (pinfo [0].ki_rssize) * 1024;
 
 	/* Now we get the shared memory. */
 
