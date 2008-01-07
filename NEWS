@@ -1,3 +1,9 @@
+7 January 2007: Overview of changes in 2.20.1
+=============================================
+* freebsd:
+  - fixed build on GNU/kfreebsd. Petr Salinger.
+  - fixed procmem units. Kuang-che Wu.
+
 16 September 2007: Overview of changes in 2.20.0
 ================================================
 * Updated translations.
