@@ -1,4 +1,4 @@
-7 January 2007: Overview of changes in 2.20.1
+7 January 2008: Overview of changes in 2.20.1
 =============================================
 * freebsd:
   - fixed build on GNU/kfreebsd. Petr Salinger.
