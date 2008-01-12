@@ -5,51 +5,57 @@
 # Arafat Medini <lumina@silverpen.de>, 2002,2003.
 # Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
 # Abdulaziz Al-Arfaj <alarfaj0@yahoo.com>, 2004.
-# Khaled Hosny <khaledhosny@eglug.org>, 2006.
+# Khaled Hosny <khaledhosny@eglug.org>, 2006, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop.HEAD.ar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-08-26 14:20-0700\n"
-"PO-Revision-Date: 2007-09-08 14:32-0000\n"
-"Last-Translator: Youssef Chahibi <chahibi@gmail.com>\n"
-"Language-Team: Arabic <support@arabeyes.org>\n"
+"PO-Revision-Date: 2008-01-11 23:29+0200\n"
+"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
+"Language-Team: Arabic <doc@eglug.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && n<=10 ? 2 : 3\n"
+"Plural-Forms:  nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n>=3 && n<=10 ? 3 : n>=11 && n<=99 ? 4 : 5;\n"
 
 #: ../lib/read.c:51
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "اقرأ بايت واحدة"
-msgstr[1] "اقرأ بايتين"
-msgstr[2] "اقرأ %d بايتات"
-msgstr[3] "اقرأ %d بايت"
+msgstr[0] "قرأ صفر بايت"
+msgstr[1] "قرأ بايت واحدة"
+msgstr[2] "قرأ بايتين"
+msgstr[3] "قرأ %d بايتات"
+msgstr[4] "قرأ %d بايت"
+msgstr[5] "قرأ %d بايت"
 
 #: ../lib/read_data.c:51
 msgid "read data size"
-msgstr "اقرأ حجم البيانات"
+msgstr "حجم البيانات المقروءة"
 
 #: ../lib/read_data.c:70
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "اقرأ بايت واحدة "
-msgstr[1] "اقرأ بايتين"
-msgstr[2] "اقرأ %lu بايتات"
-msgstr[3] "اقرأ %lu بايت"
+msgstr[0] "قرأ صفر بايت من البيانات"
+msgstr[1] "قرأ بايت واحدة من البيانات"
+msgstr[2] "قرأ بايتين من البيانات"
+msgstr[3] "قرأ %lu بايتات من البيانات"
+msgstr[4] "قرأ %lu بايت من البيانات"
+msgstr[5] "قرأ %lu بايت من البيانات"
 
 #: ../lib/write.c:51
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "كتابة بايت واحدة"
-msgstr[1] "كتابة بايتين"
-msgstr[2] "كتابة %d بايتات"
-msgstr[3] "كتابة %d بايت"
+msgstr[0] "كتب صفر بايت"
+msgstr[1] "كتب بايت واحدة"
+msgstr[2] "كتب بايتين"
+msgstr[3] "كتب %d بايتات"
+msgstr[4] "كتب %d بايت"
+msgstr[5] "كتب %d بايت"
 
 #: ../src/daemon/gnuserv.c:458
 msgid "Enable debugging"
@@ -57,7 +63,7 @@ msgstr "فعّل التنقيح"
 
 #: ../src/daemon/gnuserv.c:460
 msgid "Enable verbose output"
-msgstr "فعّل خرْج مسهِب"
+msgstr "فعّل الخرْج المسهِب"
 
 #: ../src/daemon/gnuserv.c:462
 msgid "Don't fork into background"
@@ -75,7 +81,7 @@ msgstr "شغّل '%s --help' لرؤية قائمة كاملة لخيارات س�
 #: ../sysdeps/osf1/siglist.c:27
 #: ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
-msgstr "علق"
+msgstr "علّق"
 
 #: ../sysdeps/osf1/siglist.c:28
 #: ../sysdeps/sun4/siglist.c:28
@@ -95,7 +101,7 @@ msgstr "توجيه ممنوع"
 #: ../sysdeps/osf1/siglist.c:31
 #: ../sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
-msgstr "فخ رسم"
+msgstr "تتبع الأثر"
 
 #: ../sysdeps/osf1/siglist.c:32
 #: ../sysdeps/sun4/siglist.c:32
@@ -120,7 +126,7 @@ msgstr "اقتل"
 #: ../sysdeps/osf1/siglist.c:36
 #: ../sysdeps/sun4/siglist.c:36
 msgid "Bus error"
-msgstr "خطأ ناقل"
+msgstr "خطأ في ناقل"
 
 #: ../sysdeps/osf1/siglist.c:37
 #: ../sysdeps/sun4/siglist.c:37
@@ -130,7 +136,7 @@ msgstr "انتهاك اﻻنقسام"
 #: ../sysdeps/osf1/siglist.c:38
 #: ../sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
-msgstr "متغيّر سيء لنداء النظام"
+msgstr "معطى سيء لنداء النظام"
 
 #: ../sysdeps/osf1/siglist.c:39
 #: ../sysdeps/sun4/siglist.c:39
@@ -160,7 +166,7 @@ msgstr "قف"
 #: ../sysdeps/osf1/siglist.c:44
 #: ../sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
-msgstr "أوقف لوحة المفاتيح"
+msgstr "إيقاف من لوحة المفاتيح"
 
 #: ../sysdeps/osf1/siglist.c:45
 #: ../sysdeps/sun4/siglist.c:45
@@ -185,7 +191,7 @@ msgstr "كتابة لـ tty في الخلفية"
 #: ../sysdeps/osf1/siglist.c:49
 #: ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
-msgstr "دخْل/خرْج ممكن الآن"
+msgstr "الدخْل/الخرْج ممكن الآن"
 
 #: ../sysdeps/osf1/siglist.c:50
 #: ../sysdeps/sun4/siglist.c:50
@@ -205,7 +211,7 @@ msgstr "ساعة تنبيه تخيّلية"
 #: ../sysdeps/osf1/siglist.c:53
 #: ../sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
-msgstr "كتابة لمحة عن ساعة التنبيه"
+msgstr "تشخيص ساعة التنبيه"
 
 #: ../sysdeps/osf1/siglist.c:54
 #: ../sysdeps/sun4/siglist.c:54
@@ -220,19 +226,10 @@ msgstr "طلب معلومات"
 #: ../sysdeps/osf1/siglist.c:56
 #: ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr "اشارة 1 معرفة من طرف المستخدم"
+msgstr "إشارة 1 معرفة من طرف المستخدم"
 
 #: ../sysdeps/osf1/siglist.c:57
 #: ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr "اشارة 2 معرفة من طرف المستخدم"
-
-#~ msgid "DEBUG"
-#~ msgstr "DEBUG"
-#~ msgid "VERBOSE"
-#~ msgstr "VERBOSE"
-#~ msgid "NO-DAEMON"
-#~ msgstr "NO-DAEMON"
-#~ msgid "INETD"
-#~ msgstr "INETD"
+msgstr "إشارة 2 معرفة من طرف المستخدم"
 
