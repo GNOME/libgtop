@@ -72,5 +72,7 @@ glibtop_get_proc_kernel_s (glibtop *server, glibtop_proc_kernel *buf, pid_t pid)
 
 	buf->nwchan = strtoull (p, &p, 0);
 
+	proc_file_to_buffer(buf->wchan, sizeof buf->wchan, "/proc/%d/wchan", pid),
+
 	buf->flags = _glibtop_sysdeps_proc_kernel;
 }
