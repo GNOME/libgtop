@@ -17,27 +17,31 @@
 unsigned long long
 get_scaled(const char *buffer, const char *key)
 {
-	const char    *ptr;
+	const char    *ptr = buffer;;
 	char	      *next;
-	unsigned long long value = 0;
+	unsigned long long value;
 
-	if (G_LIKELY((ptr = strstr(buffer, key))))
-	{
-		ptr += strlen(key);
-		value = strtoull(ptr, &next, 0);
-
-		for ( ; *next; ++next) {
-			if (*next == 'k') {
-				value *= 1024;
-				break;
-			} else if (*next == 'M') {
-				value *= 1024 * 1024;
-				break;
-			}
+	if (key) {
+		if (G_LIKELY((ptr = strstr(buffer, key))))
+			ptr += strlen(key);
+		else {
+			g_warning("Could not read key '%s' in buffer '%s'",
+				  key, buffer);
+			return 0;
 		}
-	} else
-		g_warning("Could not read key '%s' in buffer '%s'",
-			  key, buffer);
+	}
+
+	value = strtoull(ptr, &next, 0);
+
+	for ( ; *next; ++next) {
+		if (*next == 'k') {
+			value *= 1024;
+			break;
+		} else if (*next == 'M') {
+			value *= 1024 * 1024;
+			break;
+		}
+	}
 
 	return value;
 }

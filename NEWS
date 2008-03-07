@@ -1,3 +1,9 @@
+05 Mars 2008: Overview of changes in 2.20.2
+===========================================
+* linux:
+  - fixed smaps parsing on >= 2.6.24.x.
+    backport of svn+ssh://svn.gnome.org/svn/libgtop/trunk@2713.
+
 7 January 2008: Overview of changes in 2.20.1
 =============================================
 * freebsd:

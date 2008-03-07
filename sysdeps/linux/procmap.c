@@ -66,49 +66,78 @@ _glibtop_init_proc_map_s (glibtop *server)
 /* Provides detailed information about a process. */
 
 
-static void
-add_smaps(glibtop *server, FILE *smaps, glibtop_map_entry *entry)
+
+struct smap_value {
+	char name[16];
+	size_t name_len;
+	ptrdiff_t offset;
+};
+
+static int
+compare(const void* a_key, const void* a_smap)
+{
+	const char* key = a_key;
+	const struct smap_value* smap = a_smap;
+	return strncmp(key, smap->name, smap->name_len);
+}
+
+
+static gboolean
+is_smap_value(const char* s)
+{
+	for ( ; *s; ++s) {
+
+		if (isspace(*s))
+			return FALSE;
+
+		if (*s == ':')
+			return TRUE;
+	}
+
+	return FALSE;
+}
+
+
+/*
+  Returns whether line is a 'value' line
+  and add if we know its meaning
+*/
+static gboolean
+parse_smaps(glibtop_map_entry *entry, const char* line)
 {
 #define SMAP_OFFSET(MEMBER) offsetof(glibtop_map_entry, MEMBER)
+#define STR_AND_LEN(X) (X), (sizeof X - 1)
 
-	struct smap_value {
-		char name[15];
-		ptrdiff_t offset;
-	};
-
+	/* keep sorted */
 	const struct smap_value values[] = {
-		{ "Size:",		SMAP_OFFSET(size) },
-		{ "Rss:",		SMAP_OFFSET(rss) },
-		{ "Shared_Clean:",	SMAP_OFFSET(shared_clean) },
-		{ "Shared_Dirty:",	SMAP_OFFSET(shared_dirty) },
-		{ "Private_Clean:",	SMAP_OFFSET(private_clean) },
-		{ "Private_Dirty:",	SMAP_OFFSET(private_dirty) }
+		{ STR_AND_LEN("Private_Clean:"),	SMAP_OFFSET(private_clean) },
+		{ STR_AND_LEN("Private_Dirty:"),	SMAP_OFFSET(private_dirty) },
+		{ STR_AND_LEN("Rss:"),			SMAP_OFFSET(rss) },
+		{ STR_AND_LEN("Shared_Clean:"),		SMAP_OFFSET(shared_clean) },
+		{ STR_AND_LEN("Shared_Dirty:"),		SMAP_OFFSET(shared_dirty) },
+		{ STR_AND_LEN("Size:"),			SMAP_OFFSET(size) }
 	};
 
-	size_t i;
+#undef STR_AND_LEN
+#undef SMAP_OFFSET
 
-	for (i = 0; i < G_N_ELEMENTS(values); ++i) {
-		char line[80];
+	struct smap_value* smap;
+
+	smap = bsearch(line, values, G_N_ELEMENTS(values), sizeof values[0], compare);
+
+	if (smap) {
 		char *offset;
 		guint64 *value;
 
-		if (!fgets(line, sizeof line, smaps) || !g_str_has_prefix(line, values[i].name)) {
-			glibtop_warn_io_r(server,
-					  "Could not read smaps value %s",
-					  values[i].name);
-			return;
-		}
-
 		offset = (void*) entry;
-		offset += values[i].offset;
+		offset += smap->offset;
 		value = (void*) offset;
 
-		*value = get_scaled(line, values[i].name);
+		*value = get_scaled(line + smap->name_len, NULL);
+		return TRUE;
 	}
 
-	entry->flags |= _glibtop_sysdeps_map_entry_smaps;
-
-#undef SMAP_OFFSET
+	return is_smap_value(line);
 }
 
 
@@ -150,7 +179,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 
 	while(TRUE)
 	{
-		unsigned long perm = 0;
+		unsigned long perm;
 		guint len;
 		int line_end;
 
@@ -164,6 +193,8 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		if (getline(&line, &line_size, maps) == -1)
 			break;
 
+	new_entry_line:
+
 		if (sscanf(line, PROC_MAPS_FORMAT,
 			   &start, &end, flags, &offset,
 			   &dev_major, &dev_minor, &inode, &line_end) != 7)
@@ -173,6 +204,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		g_strstrip(filename);
 
 		/* Compute access permissions. */
+		perm = 0;
 
 		if (flags [0] == 'r')
 			perm |= GLIBTOP_MAP_PERM_READ;
@@ -205,10 +237,21 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		entry->inode = inode;
 		g_strlcpy(entry->filename, filename, sizeof entry->filename);
 
-		if (has_smaps)
-			add_smaps(server, maps, entry);
+		if (has_smaps) {
+			ssize_t ret;
+			entry->flags |= _glibtop_sysdeps_map_entry_smaps;
 
+			while ((ret = getline(&line, &line_size, maps)) != -1) {
+				if (!parse_smaps(entry, line))
+					goto new_entry_line;
+			}
+
+			if (ret == -1)
+				goto eof;
+		}
 	}
+
+eof:
 
 	free(line);
 	fclose (maps);
