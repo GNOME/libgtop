@@ -1,3 +1,8 @@
+10 Mars 2008: Overview of changes in 2.22.0
+===========================================
+* linux:
+  - fixed proc_kernel.
+ 
 25 February 2008: Overview of changes in 2.21.92
 ================================================
 * linux:
