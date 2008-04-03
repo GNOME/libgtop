@@ -3,18 +3,18 @@ INCLUDES			= @INCLUDES@
 
 noinst_LTLIBRARIES		= libgtop_common-2.0.la libgtop_suid_common-2.0.la
 
-libgtop_common_2_0_la_SOURCES	= error.c gnuslib.c \
-                                  procargs.c \
-				  default.c
-
 if !LIBGTOP_SYSDEPS_PRIVATE_MOUNTLIST
-	libgtop_common_2_0_la_SOURCES += mountlist.c
+mountlist_src = mountlist.c
 endif
 
 if !LIBGTOP_SYSDEPS_PRIVATE_FSUSAGE
-	libgtop_common_2_0_la_SOURCES += fsusage.c
+fsusage_src = fsusage.c
 endif
 
+libgtop_common_2_0_la_SOURCES	= error.c gnuslib.c \
+                                  procargs.c \
+				  default.c \
+				  $(mountlist_src) $(fsusage_src)
 
 # libgtop_common_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 libgtop_common_2_0_la_LIBADD	= $(LIBGTOP_EXTRA_LIBS)
