@@ -73,11 +73,11 @@ int
 main (int argc, char *argv [])
 {
 	glibtop_union data;
-	unsigned c, count, *ptr;
+	unsigned c, count;
 	struct rusage total_start, total_end;
 	struct rusage rusage_start, rusage_end;
 	struct timeval elapsed_utime, elapsed_stime;
-	pid_t pid;
+	pid_t pid, *ptr;
 
 	count = PROFILE_COUNT;
 

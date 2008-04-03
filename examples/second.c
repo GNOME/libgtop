@@ -239,7 +239,8 @@ main (int argc, char *argv [])
 {
 	glibtop_proclist proclist;
 	glibtop_sysdeps sysdeps;
-	unsigned *ptr, pid, i;
+	unsigned i;
+	pid_t *ptr, pid;
 
 	setlocale (LC_ALL, "");
 	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);

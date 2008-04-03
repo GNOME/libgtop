@@ -47,9 +47,9 @@ main (int argc, char *argv [])
 {
 	glibtop_union data;
 	glibtop_sysdeps sysdeps;
-	unsigned c, method, count, port, i, *ptr;
+	unsigned c, method, count, port, i;
 	char buffer [BUFSIZ];
-	pid_t pid, ppid;
+	pid_t pid, ppid, *ptr;
 	char *args;
 
 	count = PROFILE_COUNT;

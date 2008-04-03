@@ -11,7 +11,7 @@
 
 static void print_pids(guint64 which, guint64 arg)
 {
-	unsigned *pids;
+	pid_t *pids;
 	unsigned i;
 	glibtop_proclist buf;
 
