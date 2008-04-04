@@ -1,3 +1,8 @@
+04 April 2008: Overview of changes in 2.22.1
+============================================
+* Fixed compilation/dist for !linux.
+  Closes #525953.
+
 10 Mars 2008: Overview of changes in 2.22.0
 ===========================================
 * linux:
