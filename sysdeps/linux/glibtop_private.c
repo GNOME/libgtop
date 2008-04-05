@@ -17,7 +17,7 @@
 unsigned long long
 get_scaled(const char *buffer, const char *key)
 {
-	const char    *ptr = buffer;;
+	const char    *ptr = buffer;
 	char	      *next;
 	unsigned long long value;
 
