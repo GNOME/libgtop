@@ -27,12 +27,43 @@
 #include "glibtop_private.h"
 
 static const unsigned long _glibtop_sysdeps_proc_mem =
-(1L << GLIBTOP_PROC_MEM_VSIZE) + (1L << GLIBTOP_PROC_MEM_RSS) +
-(1L << GLIBTOP_PROC_MEM_RSS_RLIM);
-
-static const unsigned long _glibtop_sysdeps_proc_mem_statm =
 (1L << GLIBTOP_PROC_MEM_SIZE) + (1L << GLIBTOP_PROC_MEM_RESIDENT) +
 (1L << GLIBTOP_PROC_MEM_SHARE);
+
+static const unsigned long _glibtop_sysdeps_proc_mem_pss =
+(1L << GLIBTOP_PROC_MEM_RSS);
+
+
+static unsigned long
+get_pss(glibtop* server, pid_t pid)
+{
+	char filepath[128];
+	FILE* smaps;
+	char* line = NULL;
+	size_t line_size = 0;
+	unsigned long pss = 0;
+
+	snprintf(filepath, sizeof filepath, "/proc/%u/smaps", (unsigned)pid);
+
+	if (!(smaps = fopen(filepath, "r"))) {
+		glibtop_error_io_r(server, "Cannot open %s", filepath);
+		goto out;
+	}
+
+	while (getline(&line, &line_size, smaps) != -1) {
+		if (strncmp(line, "Pss:", 4))
+			continue;
+		pss += get_scaled(line + 4, NULL);
+	}
+
+out:
+	if (smaps)
+		fclose(smaps);
+
+	free(line);
+
+	return pss;
+}
 
 
 /* Init function. */
@@ -40,8 +71,9 @@ static const unsigned long _glibtop_sysdeps_proc_mem_statm =
 void
 _glibtop_init_proc_mem_s (glibtop *server)
 {
-	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem |
-	  _glibtop_sysdeps_proc_mem_statm;
+	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
+	if (server->os_version_code >= LINUX_VERSION_CODE(2, 6, 25))
+		server->sysdeps.proc_mem |= _glibtop_sysdeps_proc_mem_pss;
 }
 
 /* Provides detailed information about a process. */
@@ -54,19 +86,34 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 
-	if (proc_stat_to_buffer(buffer, sizeof buffer, pid))
-		return;
+	/* As of 2.6.24 in fs/proc/*.c
 
-	p = proc_stat_after_cmd (buffer);
-	if (!p) return;
+	   == rss vs. resident ==
 
-	p = skip_multiple_token (p, 20);
+	   stat/rss:
+	   get_mm_rss where
+	   #define get_mm_rss(mm)					\
+		(get_mm_counter(mm, file_rss) + get_mm_counter(mm, anon_rss))
 
-	buf->vsize    = strtoull (p, &p, 0);
-	buf->rss      = strtoull (p, &p, 0);
-	buf->rss_rlim = strtoull (p, &p, 0);
+	   statm/resident:
+	   *shared = get_mm_counter(mm, file_rss);
+	   *resident = *shared + get_mm_counter(mm, anon_rss);
 
-	buf->flags = _glibtop_sysdeps_proc_mem;
+	   == vsize vs. size ==
+
+	   stat/vsize:
+	   task_vsize(mm) ... total_vm * pagesize
+
+	   statm/size
+	   mm->total_vm
+
+	   =================
+	   rss == resident
+	   vsize == size
+	   rss_lim is not implemented in statm, but there's limits which
+		provides all limits
+	   share is only implemented in statm
+	*/
 
 	if (proc_statm_to_buffer(buffer, sizeof buffer, pid))
 		return;
@@ -78,7 +125,11 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 	buf->size     *= pagesize;
 	buf->resident *= pagesize;
 	buf->share    *= pagesize;
-	buf->rss      *= pagesize;
 
-	buf->flags |= _glibtop_sysdeps_proc_mem_statm;
+	buf->flags |= _glibtop_sysdeps_proc_mem;
+
+	if (server->os_version_code >= LINUX_VERSION_CODE(2, 6, 25)) {
+		buf->rss = get_pss(server, pid);
+		buf->flags |= _glibtop_sysdeps_proc_mem_pss;
+	}
 }
