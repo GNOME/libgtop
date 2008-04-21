@@ -53,7 +53,8 @@ enum glibtop_file_type {
 	GLIBTOP_FILE_TYPE_FILE		= 1,
 	GLIBTOP_FILE_TYPE_PIPE		= 2,
 	GLIBTOP_FILE_TYPE_INETSOCKET	= 4,
-	GLIBTOP_FILE_TYPE_LOCALSOCKET	= 8
+	GLIBTOP_FILE_TYPE_LOCALSOCKET	= 8,
+	GLIBTOP_FILE_TYPE_INET6SOCKET	= 16
 };
 
 typedef struct _glibtop_open_files_entry glibtop_open_files_entry;
@@ -65,7 +66,8 @@ struct _glibtop_open_files_entry
 	int fd;
 	guint16 type; /* An "enum glibtop_file_type" value. */
 	union {
-		/* When type == GLIBTOP_FILE_TYPE_INETSOCKET */
+		/* When type == GLIBTOP_FILE_TYPE_INETSOCKET or
+		 * when type == GLIBTOP_FILE_TYPE_INET6SOCKET */
 		struct {
 			char dest_host[GLIBTOP_OPEN_DEST_HOST_LEN+1];
 			int dest_port;

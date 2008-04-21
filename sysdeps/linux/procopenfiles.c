@@ -97,6 +97,48 @@ get_all(const char *filename, LineParser parser)
 
 
 
+struct Inet6SocketEntry
+{
+	char host[GLIBTOP_OPEN_DEST_HOST_LEN + 1];
+	int port;
+};
+
+
+static void
+inet6_socket_parser(GHashTable *dict, const char* line)
+{
+	struct Inet6SocketEntry *se;
+	int sock;
+	struct in6_addr addr;
+
+	se = g_malloc0(sizeof *se);
+
+	if(sscanf(line, "%*d: %*s %8x%8x%8x%8x:%4x %*x %*x:%*x %*x:%*x %*d %*d %*d %d",
+		  &addr.s6_addr32[0], &addr.s6_addr32[1], &addr.s6_addr32[2],
+		  &addr.s6_addr32[3], &se->port, &sock) != 6)
+		goto error;
+
+	if(!inet_ntop(AF_INET6, &addr, se->host, sizeof se->host))
+		goto error;
+
+	g_hash_table_insert(dict, GINT_TO_POINTER(sock), se);
+	return;
+
+ error:
+	g_free(se);
+}
+
+
+static inline GHashTable *
+get_all_inet6_sockets()
+{
+	return get_all("/proc/net/tcp6", inet6_socket_parser);
+}
+
+
+
+
+
 struct InetSocketEntry
 {
 	char host[GLIBTOP_OPEN_DEST_HOST_LEN + 1];
@@ -178,7 +220,7 @@ glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pi
 {
 	char fn [BUFSIZ];
 	GArray *entries;
-	GHashTable *inet_sockets = NULL, *local_sockets = NULL;
+	GHashTable *inet6_sockets = NULL, *inet_sockets = NULL, *local_sockets = NULL;
 	struct dirent *direntry;
 	DIR *dir;
 
@@ -209,13 +251,26 @@ glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pi
 		if(g_str_has_prefix(tgt, "socket:["))
 		{
 			int sockfd;
+			struct Inet6SocketEntry *i6se;
 			struct InetSocketEntry *ise;
 			struct LocalSocketEntry *lse;
 
+			if(!inet6_sockets) inet6_sockets = get_all_inet6_sockets();
 			if(!inet_sockets) inet_sockets = get_all_inet_sockets();
 			if(!local_sockets) local_sockets = get_all_local_sockets();
 
 			sockfd = atoi(tgt + 8);
+
+			i6se = g_hash_table_lookup(inet6_sockets,
+						 GINT_TO_POINTER(sockfd));
+
+			if(i6se) {
+				entry.type = GLIBTOP_FILE_TYPE_INET6SOCKET;
+				entry.info.sock.dest_port = i6se->port;
+				g_strlcpy(entry.info.sock.dest_host, i6se->host,
+					  sizeof entry.info.sock.dest_host);
+				goto found;
+			}
 
 			ise = g_hash_table_lookup(inet_sockets,
 						 GINT_TO_POINTER(sockfd));
@@ -257,6 +312,7 @@ glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf,	pi
 	closedir (dir);
 
 	if(inet_sockets) g_hash_table_destroy(inet_sockets);
+	if(inet6_sockets) g_hash_table_destroy(inet6_sockets);
 	if(local_sockets) g_hash_table_destroy(local_sockets);
 
 	buf->flags = _glibtop_sysdeps_proc_open_files;

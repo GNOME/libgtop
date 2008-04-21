@@ -37,9 +37,16 @@ static void show_open_files(pid_t pid)
 		  printf("socket %s:%d\n", files[i].info.sock.dest_host, files[i].info.sock.dest_port);
 		  break;
 
+	  case GLIBTOP_FILE_TYPE_INET6SOCKET:
+		  printf("socket [%s]:%d\n", files[i].info.sock.dest_host, files[i].info.sock.dest_port);
+		  break;
+
 	  case GLIBTOP_FILE_TYPE_LOCALSOCKET:
 		  printf("localsocket %s\n", files[i].info.localsock.name);
 		  break;
+
+	  default:
+		  printf("unknown type\n");
 	  }
   }
 
