@@ -61,7 +61,11 @@ skip_line (const char *p)
 	return (char *) (*p ? p+1 : p);
 }
 
-
+/*
+ * Smart strtoul which handles binary suffixes
+ * e.g: get_scaled("Size: 32 kB", "Size:") == 32768
+ * key can be NULL if there's not prefix to strip (or prefix size is known
+ */
 unsigned long long
 get_scaled(const char *buffer, const char *key);
 
