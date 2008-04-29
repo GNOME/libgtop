@@ -119,20 +119,27 @@ file_to_buffer(glibtop *server, char *buffer, size_t bufsiz, const char *filenam
 static unsigned long
 read_boot_time(glibtop *server)
 {
-	char buffer[BUFSIZ];
-	char *btime;
+	char* line = NULL;
+	size_t size = 0;
+	FILE* stat;
+	unsigned long btime = 0;
 
-	file_to_buffer(server, buffer, sizeof buffer, "/proc/stat");
-
-	btime = strstr(buffer, "btime");
-
-	if (!btime) {
-		glibtop_warn_io_r(server, "cannot find btime in /proc/stat");
-		return 0UL;
+	if (!(stat = fopen("/proc/stat", "r"))) {
+		glibtop_error_io_r(server, "fopen(\"/proc/stat\")");
+		goto out;
 	}
 
-	btime = skip_token(btime);
-	return strtoul(btime, NULL, 10);
+	while (getline(&line, &size, stat) != -1) {
+		if (!strncmp(line, "btime", 5)) {
+			btime = strtoul(skip_token(line), NULL, 10);
+			break;
+		}
+	}
+
+	free(line);
+	fclose(stat);
+out:
+	return btime;
 }
 
 
