@@ -1,3 +1,8 @@
+24 May 2008: Overview of changes in 2.22.2
+==========================================
+* linux:
+  - fixed parsing of huge /proc/stat.
+
 04 April 2008: Overview of changes in 2.22.1
 ============================================
 * Fixed compilation/dist for !linux.
