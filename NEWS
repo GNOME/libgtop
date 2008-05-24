@@ -1,3 +1,13 @@
+24 May 2008: Overview of changes in 2.23.2
+==========================================
+* glibtop_get_proc_open_files API can also lists IPv6 TCP sockets.
+* glibtop_get_proc_affinity : new API to retrieve process CPU affinity.
+
+(Let's hope one day i'll find the gtk-doc documentation ...)
+
+* linux:
+  - fixed parsing of big /proc/stat for uptime.
+
 04 April 2008: Overview of changes in 2.22.1
 ============================================
 * Fixed compilation/dist for !linux.
