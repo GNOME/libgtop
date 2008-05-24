@@ -126,10 +126,19 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 	buf->resident *= pagesize;
 	buf->share    *= pagesize;
 
-	buf->flags |= _glibtop_sysdeps_proc_mem;
+	/* dummy values */
+	buf->vsize = buf->size;
+	buf->rss_rlim = ~0;
 
+	buf->flags |= _glibtop_sysdeps_proc_mem;
+     
+#if 0 
+	/* FIXME: see previous comment */
 	if (server->os_version_code >= LINUX_VERSION_CODE(2, 6, 25)) {
 		buf->rss = get_pss(server, pid);
 		buf->flags |= _glibtop_sysdeps_proc_mem_pss;
 	}
+#else
+	buf->rss = buf->resident;
+#endif
 }
