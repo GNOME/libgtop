@@ -8,7 +8,7 @@ libgtop_sysdeps_2_0_la_SOURCES	= open.c close.c cpu.c mem.c swap.c \
 				  proctime.c procmem.c procsignal.c prockernel.c \
 				  procsegment.c procargs.c procmap.c siglist.c \
 				  sysinfo.c netload.c ppp.c glibtop_private.c \
-				  mountlist.c \
+				  mountlist.c  procaffinity.c \
 				  fsusage.c netlist.c procopenfiles.c procwd.c
 
 libgtop_sysdeps_2_0_la_LIBADD	=  @GLIB_LIBS@
