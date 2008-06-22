@@ -59,9 +59,35 @@ get_partition(const char *mountpoint)
 }
 
 
+/*
+  Bug #539360.
+  /sys/.../stat format is partially defined in
+  linux/Documentation/block/stat.txt (looks outdated).  Before linux
+  2.5.25, /sys/block/%s/stat and /sys/block/%s/%s/stat were not the
+  same, but the following commit changed the latter to have the same
+  format and broke compatibility.
+
+  Commit 34e8beac92c27d292938065f8375842d2840767c
+  Author: Jerome Marchand <jmarchan@redhat.com>
+  Date:   Fri Feb 8 11:04:55 2008 +0100
+
+    Enhanced partition statistics: sysfs
+
+    Reports enhanced partition statistics in sysfs.
+
+    Signed-off-by: Jerome Marchand <jmarchan@redhat.com>
+
+    fs/partitions/check.c |   22 +++++++++++++++++++---
+    1 files changed, 19 insertions(+), 3 deletions(-)
+
+ */
+
 static void
-get_sys_path(const char *device, char **stat_path, const char **parse_format)
+get_sys_path(glibtop* server, const char *device, char **stat_path, const char **parse_format)
 {
+	const char* linux_2_6_25_format = "%*llu %*llu %llu %*llu"
+					  "%*llu %*llu %llu %*llu";
+
 	if(g_str_has_prefix(device, "hd") || g_str_has_prefix(device, "sd"))
 	{
 		char *prefix;
@@ -79,12 +105,18 @@ get_sys_path(const char *device, char **stat_path, const char **parse_format)
 		g_free(prefix);
 
 		*stat_path = path;
-		*parse_format = "%*llu %llu %*llu %llu";
+		if (server->os_version_code < LINUX_VERSION_CODE(2, 6, 25))
+			*parse_format = "%*llu %llu %*llu %llu";
+		else
+			*parse_format = linux_2_6_25_format;
 	}
 	else
 	{
 		*stat_path = g_strdup_printf("/sys/block/%s/stat", device);
-		*parse_format = "%*llu %*llu %llu %*llu %*llu %*llu %llu";
+		if (server->os_version_code < LINUX_VERSION_CODE(2, 6, 25))
+			*parse_format = "%*llu %*llu %llu %*llu %*llu %*llu %llu";
+		else
+			*parse_format = linux_2_6_25_format;
 	}
 }
 
@@ -101,7 +133,7 @@ static void linux_2_6_0(glibtop *server, glibtop_fsusage *buf, const char *path)
 	device = get_partition(path);
 	if(!device) return;
 
-	get_sys_path(device, &filename, &format);
+	get_sys_path(server, device, &filename, &format);
 	g_free(device);
 
 	ret = try_file_to_buffer(buffer, sizeof buffer, filename);
