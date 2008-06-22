@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <mntent.h>
 
 
 /*
@@ -25,37 +26,52 @@
 
 
 
-static char *
-get_partition(const char *mountpoint)
+static gboolean
+get_device(glibtop* server, const char *mountpoint,
+	   char* device, size_t device_size)
 {
-	FILE *partitions;
-	char *name = NULL;
-	char line[1024];
-	struct stat statb;
+	const struct mntent *mnt;
+	FILE *fp;
+	gboolean found = FALSE;
 
-	if(stat(mountpoint, &statb) == -1)
-		return NULL;
-
-	if((partitions = fopen("/proc/partitions", "r")) == NULL)
-		return NULL;
-
-	while(fgets(line, sizeof line, partitions))
-	{
-		unsigned major, minor;
-		char dev[32];
-
-		if(sscanf(line, "%u %u %*u %31s", &major, &minor, dev) != 3)
-			continue;
-
-		if(MKDEV(major, minor) != statb.st_dev)
-			continue;
-
-		name = g_strdup(dev);
-		break;
+	if (!(fp = setmntent(MOUNTED, "r"))) {
+		glibtop_warn_io_r(server, "Could not open %s", MOUNTED);
+		goto out;
 	}
 
-	fclose(partitions);
-	return name;
+	while ((mnt = getmntent(fp)))
+	{
+		if (!strcmp(mountpoint, mnt->mnt_dir)) {
+			if (!strncmp(mnt->mnt_fsname, "/dev/", 5)) {
+				g_strlcpy(device, mnt->mnt_fsname + 5, device_size);
+				found = TRUE;
+			}
+			break;
+		}
+	}
+
+	endmntent(fp);
+out:
+	return found;
+}
+
+
+/*
+  TRUE if device is like "hda3" and then set prefix to "hda".
+ */
+static gboolean
+is_partition(const char* device, char* prefix, size_t prefix_size)
+{
+	g_strlcpy(prefix, device, prefix_size);
+
+	for ( ; *prefix; prefix++) {
+		if (isdigit(*prefix)) {
+			*prefix = '\0';
+			return TRUE;
+		}
+	}
+
+	return FALSE;
 }
 
 
@@ -88,23 +104,12 @@ get_sys_path(glibtop* server, const char *device, char **stat_path, const char *
 	const char* linux_2_6_25_format = "%*llu %*llu %llu %*llu"
 					  "%*llu %*llu %llu %*llu";
 
-	if(g_str_has_prefix(device, "hd") || g_str_has_prefix(device, "sd"))
-	{
-		char *prefix;
-		char *path;
-		size_t offset;
+	char prefix[32];
 
-		offset = strcspn(device, "0123456789");
+	if (is_partition(device, prefix, sizeof prefix)) {
 
-		prefix = g_strdup(device);
-		prefix [offset] = '\0';
-
-		path = g_strdup_printf("/sys/block/%s/%s/stat",
-				       prefix, device);
-
-		g_free(prefix);
-
-		*stat_path = path;
+		*stat_path = g_strdup_printf("/sys/block/%s/%s/stat",
+					     prefix, device);
 		if (server->os_version_code < LINUX_VERSION_CODE(2, 6, 25))
 			*parse_format = "%*llu %llu %*llu %llu";
 		else
@@ -124,17 +129,16 @@ get_sys_path(glibtop* server, const char *device, char **stat_path, const char *
 
 static void linux_2_6_0(glibtop *server, glibtop_fsusage *buf, const char *path)
 {
-	char *device;
 	char *filename;
 	const char *format;
 	int ret;
 	char buffer[BUFSIZ];
+	char device[64];
 
-	device = get_partition(path);
-	if(!device) return;
+	if (!get_device(server, path, device, sizeof device))
+		return;
 
 	get_sys_path(server, device, &filename, &format);
-	g_free(device);
 
 	ret = try_file_to_buffer(buffer, sizeof buffer, filename);
 
