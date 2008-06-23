@@ -27,25 +27,31 @@ static void print_fsusage(const char *mountpoint)
 }
 
 
-int main()
+int main(int argc, char **argv)
 {
   glibtop_mountlist buf;
-  glibtop_mountentry *entries;
-  size_t i;
 
   glibtop_init();
 
   printf("%-30s %10s %10s %10s %5s %10s %10s\n",
 	 "Filesystem", "Size", "Used", "Avail", "Use%", "Read", "Write");
 
-  entries = glibtop_get_mountlist(&buf, TRUE);
+  if (argc > 1) {
+    while (*++argv)
+      print_fsusage(*argv);
+  } else {
+    glibtop_mountentry *entries;
+    size_t i;
 
-  for(i = 0; i < buf.number; ++i)
-    {
-      print_fsusage(entries[i].mountdir);
-    }
+    entries = glibtop_get_mountlist(&buf, TRUE);
 
-  g_free(entries);
+    for(i = 0; i < buf.number; ++i)
+      {
+	print_fsusage(entries[i].mountdir);
+      }
+
+    g_free(entries);
+  }
 
   glibtop_close();
 
