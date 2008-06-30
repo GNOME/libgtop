@@ -1,3 +1,9 @@
+30 June 2008: Overview of changes in 2.22.3
+===========================================
+* linux:
+  - Fixed glibtop_get_fsusage with kernel >= 2.6.25.
+    Closes #539360.
+
 24 May 2008: Overview of changes in 2.22.2
 ==========================================
 * linux:
