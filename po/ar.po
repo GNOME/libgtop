@@ -1,4 +1,4 @@
-# translation of libgtop.HEAD.ar.po to Arabic
+# translation of libgtop.HEAD.po to Arabic
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
@@ -8,18 +8,17 @@
 # Khaled Hosny <khaledhosny@eglug.org>, 2006, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop.HEAD.ar\n"
+"Project-Id-Version: libgtop.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-12 01:07+0000\n"
-"PO-Revision-Date: 2008-01-11 23:29+0200\n"
+"PO-Revision-Date: 2008-07-28 19:26+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
-"Language-Team: Arabic <doc@eglug.org>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n>=3 && "
-"n<=10 ? 3 : n>=11 && n<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: ../lib/read.c:51
 #, c-format
@@ -28,9 +27,9 @@ msgid_plural "read %d bytes"
 msgstr[0] "قرأ صفر بايت"
 msgstr[1] "قرأ بايت واحدة"
 msgstr[2] "قرأ بايتين"
-msgstr[3] "قرأ %d بايتات"
-msgstr[4] "قرأ %d بايت"
-msgstr[5] "قرأ %d بايت"
+msgstr[3] "قرأ %Id بايتات"
+msgstr[4] "قرأ %Id بايت"
+msgstr[5] "قرأ %Id بايت"
 
 #: ../lib/read_data.c:51
 msgid "read data size"
@@ -54,9 +53,9 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "كتب صفر بايت"
 msgstr[1] "كتب بايت واحدة"
 msgstr[2] "كتب بايتين"
-msgstr[3] "كتب %d بايتات"
-msgstr[4] "كتب %d بايت"
-msgstr[5] "كتب %d بايت"
+msgstr[3] "كتب %Id بايتات"
+msgstr[4] "كتب %Id بايت"
+msgstr[5] "كتب %Id بايت"
 
 #: ../src/daemon/gnuserv.c:458
 msgid "Enable debugging"
@@ -202,3 +201,4 @@ msgstr "إشارة 1 معرفة من طرف المستخدم"
 #: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "إشارة 2 معرفة من طرف المستخدم"
+
