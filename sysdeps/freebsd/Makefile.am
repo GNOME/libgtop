@@ -6,8 +6,8 @@ noinst_LTLIBRARIES		= libgtop_sysdeps-2.0.la libgtop_sysdeps_suid-2.0.la
 libgtop_sysdeps_2_0_la_SOURCES	= nosuid.c siglist.c sysinfo.c shm_limits.c \
 				  cpu.c msg_limits.c sem_limits.c loadavg.c \
 				  uptime.c netlist.c fsusage.c mem.c \
-				  procopenfiles.c procwd.c \
-				  glibtop_private.c
+				  mountlist.c procopenfiles.c procwd.c \
+				  procaffinity.c glibtop_private.c
 
 libgtop_sysdeps_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 

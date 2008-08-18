@@ -79,6 +79,8 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  libgtop_sysdeps_dir=freebsd
 	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
+	  libgtop_sysdeps_private_mountlist=yes
+	  libgtop_sysdeps_private_fsusage=yes
 	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server2 && chmod 2755 $(bindir)/libgtop_server2'
 	  ;;
 	solaris*)
