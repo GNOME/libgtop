@@ -1,3 +1,8 @@
+18 August 2008: Overview of changes in 2.23.90
+==============================================
+* freebsd:
+  - updated port by Joe Marcus Clarke.
+
 23 June 2008: Overview of changes in 2.23.4
 ===========================================
 * linux:
