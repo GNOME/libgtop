@@ -21,8 +21,7 @@ msgstr ""
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "%d bayt oku"
-msgstr[1] "%d bayt oku"
+msgstr[0] "%d bayt okundu"
 
 #: ../lib/read_data.c:51
 msgid "read data size"
@@ -32,15 +31,13 @@ msgstr "okunan veri miktarı"
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "%lu bayt oku"
-msgstr[1] "%lu bayt oku"
+msgstr[0] "%lu bayt okundu"
 
 #: ../lib/write.c:51
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "%d bayt yaz"
-msgstr[1] "%d bayt yaz"
+msgstr[0] "%d bayt yazıldı"
 
 #: ../src/daemon/gnuserv.c:458
 msgid "Enable debugging"
