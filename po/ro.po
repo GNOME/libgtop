@@ -1,14 +1,14 @@
 # Romanian translation for libgtop
-# Copyright (C) 2003 - 2007, Free Software Foundation, Inc.
-# Mişu Moldovan <dumol@gnome.ro>, 2003 - 2007.
+# Copyright (C) 2003 - 2008, Free Software Foundation, Inc.
+# Mișu Moldovan <dumol@gnome.ro>, 2003 - 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-14 03:41+0100\n"
-"PO-Revision-Date: 2007-09-12 01:20+0300\n"
-"Last-Translator: Mişu Moldovan <dumol@gnome.ro>\n"
+"POT-Creation-Date: 2007-09-13 08:49+0100\n"
+"PO-Revision-Date: 2008-09-18 22:36+0300\n"
+"Last-Translator: Mișu Moldovan <dumol@gnome.ro>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,9 +20,9 @@ msgstr ""
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "citeşte %d octet"
-msgstr[1] "citeşte %d octeţi"
-msgstr[2] "citeşte %d de octeţi"
+msgstr[0] "s-a citit un octet"
+msgstr[1] "s-au citit %d octeți"
+msgstr[2] "s-au citit %d de octeți"
 
 #: ../lib/read_data.c:51
 msgid "read data size"
@@ -32,17 +32,17 @@ msgstr "mărime date citire"
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "citeşte %lu octet de date"
-msgstr[1] "citeşte %lu octeţi de date"
-msgstr[2] "citeşte %lu de octeţi de date"
+msgstr[0] "s-a citit un octet de date"
+msgstr[1] "s-au citit %lu octeți de date"
+msgstr[2] "s-au citit %lu de octeți de date"
 
 #: ../lib/write.c:51
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "a scris %d octet"
-msgstr[1] "a scris %d octeţi"
-msgstr[2] "a scris %d de octeţi"
+msgstr[0] "s-a scris un octet"
+msgstr[1] "s-au scris %d octeți"
+msgstr[2] "s-au scris %d de octeți"
 
 #: ../src/daemon/gnuserv.c:458
 msgid "Enable debugging"
@@ -50,7 +50,7 @@ msgstr "Activare depanare"
 
 #: ../src/daemon/gnuserv.c:460
 msgid "Enable verbose output"
-msgstr "Mesaje de ieşire explicite"
+msgstr "Mesaje de ieșire explicite"
 
 #: ../src/daemon/gnuserv.c:462
 msgid "Don't fork into background"
@@ -63,7 +63,7 @@ msgstr "Pornit de inetd"
 #: ../src/daemon/gnuserv.c:498
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "Încercaţi „%s --help” pentru a vedea o listă completă a opţiunilor.\n"
+msgstr "Încercați „%s --help” pentru a vedea o listă completă a opțiunilor.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
@@ -75,11 +75,11 @@ msgstr "Întrerupere"
 
 #: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Quit"
-msgstr "Ieşire"
+msgstr "Ieșire"
 
 #: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
-msgstr "Instrucţiune ilegală"
+msgstr "Instrucțiune ilegală"
 
 #: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
@@ -87,7 +87,7 @@ msgstr "Punct de oprire întâlnit"
 
 #: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Abort"
-msgstr "Renunţă"
+msgstr "Renunță"
 
 #: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "EMT error"
@@ -95,7 +95,7 @@ msgstr "Eroare EMT"
 
 #: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
-msgstr "Excepţie în virgulă mobilă"
+msgstr "Excepție în virgulă mobilă"
 
 #: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
@@ -111,11 +111,11 @@ msgstr "Violare a segmentului"
 
 #: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
-msgstr "Argument greşit în apelul de sistem"
+msgstr "Argument greșit în apelul de sistem"
 
 #: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
-msgstr "Filtru nefuncţional"
+msgstr "Filtru nefuncțional"
 
 #: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
@@ -127,7 +127,7 @@ msgstr "Terminare"
 
 #: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
-msgstr "Condiţie de urgenţă în socket"
+msgstr "Condiție de urgență în socket"
 
 #: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Stop"
@@ -155,15 +155,15 @@ msgstr "Scriere în fundal către tty"
 
 #: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
-msgstr "Operaţiile I/O sunt acum posibile"
+msgstr "Operațiile I/O sunt acum posibile"
 
 #: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
-msgstr "Limită depăşită CPU"
+msgstr "Limită depășită CPU"
 
 #: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr "Limită depăşită mărime fişier"
+msgstr "Limită depășită mărime fișier"
 
 #: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
@@ -179,7 +179,7 @@ msgstr "Schimbare de mărime a ferestrei"
 
 #: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Information request"
-msgstr "Cerere de informaţie"
+msgstr "Cerere de informație"
 
 #: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
@@ -189,14 +189,3 @@ msgstr "Semnal 1 definit de utilizator"
 msgid "User defined signal 2"
 msgstr "Semnal 2 definit de utilizator"
 
-#~ msgid "DEBUG"
-#~ msgstr "DEBUG"
-
-#~ msgid "VERBOSE"
-#~ msgstr "VERBOSE"
-
-#~ msgid "NO-DAEMON"
-#~ msgstr "NO-DAEMON"
-
-#~ msgid "INETD"
-#~ msgstr "INETD"
