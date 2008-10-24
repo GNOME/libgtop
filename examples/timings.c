@@ -44,7 +44,7 @@
 #endif
 
 #ifndef PROFILE_COUNT_EXPENSIVE
-#define PROFILE_COUNT_EXPENSIVE		10000L
+#define PROFILE_COUNT_EXPENSIVE		(PROFILE_COUNT / 10)
 #endif
 
 #define ELAPSED_UTIME ((unsigned long) elapsed_utime.tv_sec * 1000000 +	(unsigned long) elapsed_utime.tv_usec)
@@ -73,13 +73,13 @@ int
 main (int argc, char *argv [])
 {
 	glibtop_union data;
-	unsigned c, count;
+	unsigned c;
 	struct rusage total_start, total_end;
 	struct rusage rusage_start, rusage_end;
 	struct timeval elapsed_utime, elapsed_stime;
-	pid_t pid, *ptr;
+	pid_t pid;
 
-	count = PROFILE_COUNT;
+	pid = getpid ();
 
 	setlocale (LC_ALL, "");
 	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
@@ -184,12 +184,10 @@ main (int argc, char *argv [])
 		(long double) ELAPSED_UTIME / PROFILE_COUNT,
 		(long double) ELAPSED_STIME / PROFILE_COUNT);
 
-	printf ("\n");
-
 	getrusage (RUSAGE_SELF, &rusage_start);
 
 	for (c = 0; c < PROFILE_COUNT_EXPENSIVE; c++) {
-		ptr = glibtop_get_proclist (&data.proclist, 0, 0);
+		pid_t* ptr = glibtop_get_proclist (&data.proclist, 0, 0);
 		g_free (ptr);
 	}
 
@@ -207,9 +205,26 @@ main (int argc, char *argv [])
 		(long double) ELAPSED_UTIME / PROFILE_COUNT_EXPENSIVE,
 		(long double) ELAPSED_STIME / PROFILE_COUNT_EXPENSIVE);
 
-	pid = getpid ();
+	getrusage (RUSAGE_SELF, &rusage_start);
 
-	printf ("\n");
+	for (c = 0; c < PROFILE_COUNT_EXPENSIVE; c++) {
+		char** ptr = glibtop_get_netlist (&data.netlist);
+		g_strfreev (ptr);
+	}
+
+	getrusage (RUSAGE_SELF, &rusage_end);
+
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
+
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
+
+	printf ("Netlist      (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.proclist.flags,
+		PROFILE_COUNT_EXPENSIVE,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT_EXPENSIVE,
+		(long double) ELAPSED_STIME / PROFILE_COUNT_EXPENSIVE);
 
 	getrusage (RUSAGE_SELF, &rusage_start);
 
@@ -267,6 +282,27 @@ main (int argc, char *argv [])
 
 	getrusage (RUSAGE_SELF, &rusage_start);
 
+	for (c = 0; c < PROFILE_COUNT_EXPENSIVE; c++) {
+		glibtop_map_entry* entries;
+		entries = glibtop_get_proc_map (&data.proc_map, pid);
+		g_free (entries);
+	}
+
+	getrusage (RUSAGE_SELF, &rusage_end);
+
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
+
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
+
+	printf ("Proc_Map     (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.proc_map.flags, PROFILE_COUNT_EXPENSIVE,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT_EXPENSIVE,
+		(long double) ELAPSED_STIME / PROFILE_COUNT_EXPENSIVE);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
 	for (c = 0; c < PROFILE_COUNT; c++)
 		glibtop_get_proc_segment (&data.proc_segment, pid);
 
@@ -280,6 +316,27 @@ main (int argc, char *argv [])
 
 	printf ("Proc_Segment (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
 		(unsigned long) data.proc_segment.flags, PROFILE_COUNT,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT,
+		(long double) ELAPSED_STIME / PROFILE_COUNT);
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
+	for (c = 0; c < PROFILE_COUNT; c++) {
+		char** argv;
+		argv = glibtop_get_proc_argv (&data.proc_args, pid, 0);
+		g_strfreev(argv);
+	}
+
+	getrusage (RUSAGE_SELF, &rusage_end);
+
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
+
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
+
+	printf ("Proc_Args    (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.proc_args.flags, PROFILE_COUNT,
 		(long double) ELAPSED_UTIME / PROFILE_COUNT,
 		(long double) ELAPSED_STIME / PROFILE_COUNT);
 
