@@ -36,9 +36,6 @@
 #include <glibtop/open.h>
 #include <glibtop/close.h>
 #include <glibtop/command.h>
-
-#include <glib/gstrfuncs.h>
-
 #include <glibtop/parameter.h>
 
 #include "server_config.h"

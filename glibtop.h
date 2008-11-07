@@ -22,7 +22,7 @@
 #ifndef __GLIBTOP_H__
 #define __GLIBTOP_H__
 
-#include <glib/gmacros.h>
+#include <glib.h>
 
 G_BEGIN_DECLS
 

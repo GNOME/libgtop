@@ -20,7 +20,7 @@
 */
 
 #include <config.h>
-#include <glib/gstrfuncs.h>
+#include <glib.h>
 #include <errno.h>
 
 #include <glibtop.h>
