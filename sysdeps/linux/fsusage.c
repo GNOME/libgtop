@@ -129,29 +129,29 @@ get_sys_path(glibtop* server, const char *device, char **stat_path, const char *
 
 static void linux_2_6_0(glibtop *server, glibtop_fsusage *buf, const char *path)
 {
-	char *filename;
+	char *filename = NULL;
 	const char *format;
 	int ret;
 	char buffer[BUFSIZ];
 	char device[64];
 
 	if (!get_device(server, path, device, sizeof device))
-		return;
+		goto out;
 
 	get_sys_path(server, device, &filename, &format);
 
 	ret = try_file_to_buffer(buffer, sizeof buffer, filename);
 
-	if(ret < 0) return;
+	if (ret < 0) goto out;
 
 	if (sscanf(buffer, format, &buf->read, &buf->write) != 2) {
 		glibtop_warn_io_r(server, "Could not parse %s", filename);
-		return;
+		goto out;
 	}
 
-	g_free(filename);
-
 	buf->flags |= (1 << GLIBTOP_FSUSAGE_READ) | (1 << GLIBTOP_FSUSAGE_WRITE);
+ out:
+	g_free(filename);
 }
 
 
