@@ -67,14 +67,18 @@ enum TRY_FILE_TO_BUFFER
 	TRY_FILE_TO_BUFFER_READ = -2
 };
 
+/*
+ * Doesn't handle bufsiz == 0
+ */
 int try_file_to_buffer(char *buffer, size_t bufsiz, const char *format, ...)
 {
 	char path[4096];
 	int fd;
-	ssize_t len;
+	size_t len = 0;
+	ssize_t nread = 0;
 	va_list pa;
 
-	if (bufsiz <= sizeof(char*))
+	if (G_UNLIKELY(bufsiz <= sizeof(char*)))
 	  g_warning("Huhu, bufsiz of %lu looks bad", (gulong)bufsiz);
 
 	va_start(pa, format);
@@ -84,15 +88,31 @@ int try_file_to_buffer(char *buffer, size_t bufsiz, const char *format, ...)
 
 	va_end(pa);
 
+	bufsiz--; /* reserve 1 for trailing NUL */
 	buffer [0] = '\0';
 
 	if((fd = open (path, O_RDONLY)) < 0)
 		return TRY_FILE_TO_BUFFER_OPEN;
 
-	len = read (fd, buffer, bufsiz - 1);
+	while (len < bufsiz) {
+		nread = read (fd, buffer + len, bufsiz - len);
+
+		if (G_UNLIKELY(nread < 0)) {
+			if (errno == EINTR)
+				continue;
+			else
+				break;
+		}
+
+		len += nread;
+
+		if (nread == 0)
+			break;
+	}
+
 	close (fd);
 
-	if (len < 0)
+	if (nread < 0)
 		return TRY_FILE_TO_BUFFER_READ;
 
 	buffer [len] = '\0';
