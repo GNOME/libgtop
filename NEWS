@@ -3,6 +3,8 @@
 * linux:
   - fixed potential memory leak. Vincent Untz.
   - fixed read(2) usage. Should fix the missing cpus bug in system-monitor.
+* darwin:
+  - fixed build. "paul".
 
 22 Septembre 2008: Overview of changes in 2.24.0
 ================================================
