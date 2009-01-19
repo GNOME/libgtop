@@ -1,3 +1,7 @@
+19 January 2009: Overview of changes in 2.24.4
+==============================================
+* Fixed license: libgtop is GPL-2.
+
 12 January 2009: Overview of changes in 2.24.3
 ==============================================
 * linux:
