@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-02-26 19:13+0900\n"
-"PO-Revision-Date: 2008-02-26 19:13+0900\n"
+"PO-Revision-Date: 2009-01-29 16:18+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr[0] "%d바이트 읽음"
 
 #: ../lib/read_data.c:51
 msgid "read data size"
-msgstr "데이타 크기 읽음"
+msgstr "읽은 데이터 크기"
 
 #: ../lib/read_data.c:70
 #, c-format
