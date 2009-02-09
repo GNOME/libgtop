@@ -1,15 +1,15 @@
 # Chinese (Taiwan) translation for libgtop.
 # Copyright (C) 2001, 2002, 2003 Free Software Foundation, Inc.
 # Abel Cheung <abel@oaka.org>, 2001-2003.
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 2.2.5\n"
+"Project-Id-Version: libgtop 2.25.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-14 20:10+0800\n"
+"POT-Creation-Date: 2009-02-09 08:05+0800\n"
 "PO-Revision-Date: 2008-02-14 23:04+0800\n"
 "Last-Translator: Abel Cheung <abel@oaka.org>\n"
-"Language-Team: Chinese (Taiwan) <community@linuxhall.org>\n"
+"Language-Team: Chinese (Taiwan) <zh-l10n@lists.linux.org.tw>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,39 +37,38 @@ msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "寫入 %d 位元組"
 
-#: ../src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
-msgstr "啟用偵錯功能"
+msgstr "啟用除錯碼"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
 msgstr "顯示詳細的輸出訊息"
 
-#: ../src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
 msgstr "不要放置於背景執行"
 
-#: ../src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
 msgstr "透過 inetd 執行"
 
-#: ../src/daemon/gnuserv.c:498
+#: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"請執行‘%s --help’查看完整的指令列選項清單。\n"
+msgstr "請執行‘%s --help’查看完整的指令列選項清單。\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
-msgstr "掛斷 (Hangup)"
+msgstr "掛斷(Hangup)"
 
 #: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
-msgstr "中斷 (Interrupt)"
+msgstr "中斷(Interrupt)"
 
 #: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Quit"
-msgstr "退出 (Quit)"
+msgstr "結束"
 
 #: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
