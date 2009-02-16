@@ -1,3 +1,19 @@
+17 February 2009: Overview of changes in 2.25.91
+================================================
+* Synced with gnome-2-24.
+
+19 January 2009: Overview of changes in 2.24.4
+==============================================
+* Fixed license: libgtop is GPL-2.
+
+12 January 2009: Overview of changes in 2.24.3
+==============================================
+* linux:
+  - fixed potential memory leak. Vincent Untz.
+  - fixed read(2) usage. Should fix the missing cpus bug in system-monitor.
+* darwin:
+  - fixed build. "paul".
+
 22 Septembre 2008: Overview of changes in 2.24.0
 ================================================
 * Translation updates.
