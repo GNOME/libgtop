@@ -1,0 +1,189 @@
+# translation of libgtop.HEAD.po to Kannada
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Shankar Prasad <svenkate@redhat.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop.HEAD\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop&component=general\n"
+"POT-Creation-Date: 2009-03-01 23:08+0000\n"
+"PO-Revision-Date: 2009-03-14 20:01+0530\n"
+"Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
+"Language-Team: Kannada <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../lib/read.c:51
+#, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "%d ಬೈಟನ್ನು ಓದಲಾಗಿದೆ"
+msgstr[1] "%d ಬೈಟ್‌ಗಳನ್ನು ಓದಲಾಗಿದೆ"
+
+#: ../lib/read_data.c:51
+msgid "read data size"
+msgstr "ಓದಲಾದ ದತ್ತಾಂಶದ ಗಾತ್ರ"
+
+#: ../lib/read_data.c:70
+#, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "%lu ಬೈಟ್ ಗಾತ್ರವನ್ನು ಓದಲಾಗಿದೆ"
+msgstr[1] "%lu ಬೈಟುಗಳ ಗಾತ್ರವನ್ನು ಓದಲಾಗಿದೆ"
+
+#: ../lib/write.c:51
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "%d ಬೈಟನ್ನು ಬರೆಯಲಾಗಿದೆ"
+msgstr[1] "%d ಬೈಟುಗಳನ್ನು ಬರೆಯಲಾಗಿದೆ"
+
+#: ../src/daemon/gnuserv.c:455
+msgid "Enable debugging"
+msgstr "ದೋಷನಿವಾರಣೆಯನ್ನು ಶಕ್ತಗೊಳಿಸು"
+
+#: ../src/daemon/gnuserv.c:457
+msgid "Enable verbose output"
+msgstr "ವರ್ಬೋಸ್ ಔಟ್‌ಪುಟ್ ಅನ್ನು ಶಕ್ತಗೊಳಿಸು"
+
+#: ../src/daemon/gnuserv.c:459
+msgid "Don't fork into background"
+msgstr "ಹಿನ್ನಲೆಗೆ ಕವಲೊಡೆಸಬೇಡ"
+
+#: ../src/daemon/gnuserv.c:461
+msgid "Invoked from inetd"
+msgstr "inetd ಇಂದ ರದ್ದು ಮಾಡಲಾದ"
+
+#: ../src/daemon/gnuserv.c:495
+#, c-format
+msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgstr "ಲಭ್ಯವಿರುವ ಆಜ್ಞೆಯ ಒಂದು ಸಂಪೂರ್ಣ ಪಟ್ಟಿಯನ್ನು ನೋಡಲು '%s --help' ಅನ್ನು ಚಲಾಯಿಸಿ.\n"
+
+#: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
+msgid "Hangup"
+msgstr "ನೇತಾಡು"
+
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+msgid "Interrupt"
+msgstr "ತಡೆ"
+
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+msgid "Quit"
+msgstr "ತ್ಯಜಿಸು"
+
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+msgid "Illegal instruction"
+msgstr "ಅನಧೀಕೃತ ಸೂಚನೆ"
+
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+msgid "Trace trap"
+msgstr "ಜಾಡಿನ ಟ್ರಾಪ್"
+
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+msgid "Abort"
+msgstr "ಸ್ಥಗಿತಗೊಳಿಸು"
+
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+msgid "EMT error"
+msgstr "EMT ದೋಷ"
+
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+msgid "Floating-point exception"
+msgstr "ತೇಲುವ-ಬಿಂದುವಿನ ವಿನಾಯಿತಿ"
+
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+msgid "Kill"
+msgstr "ಕೊಲ್ಲು"
+
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+msgid "Bus error"
+msgstr "ಬಸ್ ದೋಷ"
+
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+msgid "Segmentation violation"
+msgstr "ಸೆಗ್ಮೆಂಟೇಶನ್ ಉಲ್ಲಂಘನೆ"
+
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+msgid "Bad argument to system call"
+msgstr "ವ್ಯವಸ್ಥೆಯ ಕೋಶಕ್ಕೆ ಸರಿಯಲ್ಲದ ಆರ್ಗ್ಯುಮೆಂಟ್"
+
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+msgid "Broken pipe"
+msgstr "ತುಂಡಾದ ಪೈಪ್"
+
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+msgid "Alarm clock"
+msgstr "ಅಲಾರಮ್ ಗಡಿಯಾರ"
+
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+msgid "Termination"
+msgstr "ಅಂತ್ಯಗೊಳಿಕೆ"
+
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+msgid "Urgent condition on socket"
+msgstr "ಸಾಕೆಟ್‌ನಲ್ಲಿ ತುರ್ತು ಪರಿಸ್ಥಿತಿ"
+
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+msgid "Stop"
+msgstr "ನಿಲ್ಲಿಸು"
+
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+msgid "Keyboard stop"
+msgstr "ಕೀಲಿಮಣೆ ನಿಲುಗಡೆ"
+
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+msgid "Continue"
+msgstr "ಮುಂದುವರೆ"
+
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+msgid "Child status has changed"
+msgstr "ಚೈಲ್ಡಿನ ಸ್ಥಿತಿ ಬದಲಾಗಿದೆ"
+
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+msgid "Background read from tty"
+msgstr "tty ಇಂದ ಓದಲಾದ ಹಿನ್ನಲೆ"
+
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+msgid "Background write to tty"
+msgstr "tty ಗೆ ಹಿನ್ನಲೆ ಬರೆಯುವಿಕೆ"
+
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+msgid "I/O now possible"
+msgstr "I/O ಈಗ ಸಾಧ್ಯವಿದೆ"
+
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+msgid "CPU limit exceeded"
+msgstr "CPU ಮಿತಿಯನ್ನು ಮೀರಲಾಗಿದೆ"
+
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+msgid "File size limit exceeded"
+msgstr "ಕಡತದ ಗಾತ್ರದ ಮಿತಿಯನ್ನು ಮೀರಲಾಗಿದೆ"
+
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+msgid "Virtual alarm clock"
+msgstr "ವರ್ಚುವಲ್ ಅಲಾರಮ್ ಗಡಿಯಾರ"
+
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+msgid "Profiling alarm clock"
+msgstr "ಪ್ರೊಫೈಲಿಂಗ್ ಅಲಾರಮ್ ಗಡಿಯಾರ"
+
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+msgid "Window size change"
+msgstr "ವಿಂಡೋ ಗಾತ್ರದ ಬದಲಾವಣೆ"
+
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+msgid "Information request"
+msgstr "ಮಾಹಿತಿಯ ಮನವಿ"
+
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+msgid "User defined signal 1"
+msgstr "ಬಳಕೆದಾರ ಸೂಚಿತ ಸಂಕೇತ ೧"
+
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+msgid "User defined signal 2"
+msgstr "ಬಳಕೆದಾರ ಸೂಚಿತ ಸಂಕೇತ ೨"
+
