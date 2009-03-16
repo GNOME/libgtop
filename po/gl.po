@@ -13,19 +13,20 @@
 # Jesus Bravo Alvarez <jba@pobox.com>, 1999, 2000.
 # Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005.
 # Ignacio Casal Quinteiro <icq@svn.gnome.org>, 2007.
+# Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun.org>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-28 15:25+0100\n"
-"PO-Revision-Date: 2007-11-28 15:25+0100\n"
-"Last-Translator: Ignacio Casal Quinteiro <icq@svn.gnome.org>\n"
+"POT-Creation-Date: 2009-03-16 23:15+0100\n"
+"PO-Revision-Date: 2009-03-10 20:17+0000\n"
+"Last-Translator: Suso Baleato <suso.baleato@xunta.es>\n"
 "Language-Team: Galego <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"Language: gl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../lib/read.c:51
 #, c-format
@@ -52,28 +53,28 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "escrito %d byte"
 msgstr[1] "escritos %d bytes"
 
-#: ../src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
-msgstr "Activar depuración"
+msgstr "Activar a depuración"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
-msgstr "Activar saída detallada"
+msgstr "Activar a saída detallada"
 
-#: ../src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
 msgstr "Non facer fork na tarefa de fondo"
 
-#: ../src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
 msgstr "Invocado desde inetd"
 
-#: ../src/daemon/gnuserv.c:498
+#: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"Execute '%s --help' para ver unha lista completa das opcións de liña\n"
-"de comandos dispoñibles.\n"
+"Execute '%s --help' para ver a lista completa das opcións de liña de "
+"comandos dispoñíbeis.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
@@ -105,7 +106,7 @@ msgstr "Erro EMT"
 
 #: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
-msgstr "Excepción da coma flotante"
+msgstr "Excepción de coma flotante"
 
 #: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
@@ -117,7 +118,7 @@ msgstr "Erro de bus"
 
 #: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
-msgstr "Erro de segmento"
+msgstr "Violación de segmento"
 
 #: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
@@ -165,7 +166,7 @@ msgstr "Escritura en segundo plano ao tty"
 
 #: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
-msgstr "A E/S é posible agora"
+msgstr "A E/S é posíbel agora"
 
 #: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
@@ -185,11 +186,11 @@ msgstr "Reloxo de alarma con perfil"
 
 #: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
 msgid "Window size change"
-msgstr "Cambio do tamaño da ventá"
+msgstr "Cambio do tamaño da xanela"
 
 #: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Information request"
-msgstr "Petición de Información"
+msgstr "Petición de información"
 
 #: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
@@ -198,4 +199,3 @@ msgstr "Sinal 1 definido polo usuario"
 #: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "Sinal 2 definido polo usuario"
-
