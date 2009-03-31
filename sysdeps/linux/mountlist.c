@@ -92,6 +92,8 @@ ignore_fs(const char *fstype, IgnoreList** ig)
 
     *ig = ignore_list_new();
 
+    ignore_list_add(*ig, "none");
+
     if ((fs = fopen("/proc/filesystems", "r")) != NULL) {
       while (fgets(line, sizeof line, fs)) {
 	if (!strncmp(line, "nodev", 5)) {
