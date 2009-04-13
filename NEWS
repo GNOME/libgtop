@@ -1,3 +1,8 @@
+13 April 2009: Overview of changes in 2.26.1
+============================================
+* linux:
+  - glibtop_get_mounlist(...): also hide "none" fs.
+
 1 Mars 2009: Overview of changes in 2.26.0
 ==========================================
 * Nothing.
