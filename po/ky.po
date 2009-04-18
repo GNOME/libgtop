@@ -20,10 +20,10 @@ msgstr ""
 
 #: ../lib/read.c:65
 #, c-format
-msgid "read %d byte"
-msgid_plural "read %d bytes"
-msgstr[0] "%d байт окулду"
-msgstr[1] ""
+#msgid "read %d byte"
+#msgid_plural "read %d bytes"
+#msgstr[0] "%d байт окулду"
+#msgstr[1] ""
 
 #: ../lib/read_data.c:53
 msgid "read data size"
@@ -31,17 +31,17 @@ msgstr "окулган берилиштердин көлөмү"
 
 #: ../lib/read_data.c:72
 #, c-format
-msgid "read %lu byte of data"
-msgid_plural "read %lu bytes of data"
-msgstr[0] "%lu байт берилиш окулду"
-msgstr[1] ""
+#msgid "read %lu byte of data"
+#msgid_plural "read %lu bytes of data"
+#msgstr[0] "%lu байт берилиш окулду"
+#msgstr[1] ""
 
 #: ../lib/write.c:52
 #, c-format
-msgid "wrote %d byte"
-msgid_plural "wrote %d bytes"
-msgstr[0] "%d байт жазылды"
-msgstr[1] ""
+#msgid "wrote %d byte"
+#msgid_plural "wrote %d bytes"
+#msgstr[0] "%d байт жазылды"
+#msgstr[1] ""
 
 #: ../src/daemon/gnuserv.c:460
 msgid "Enable debugging"
