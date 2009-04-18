@@ -34,8 +34,8 @@ msgstr "lesestorleik på data"
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "las %d byte data"
-msgstr[1] "las %d byte data"
+msgstr[0] "las %lu byte data"
+msgstr[1] "las %lu byte data"
 
 #: ../lib/write.c:51
 #, c-format
