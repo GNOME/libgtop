@@ -16,6 +16,7 @@ EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt \
 	 libgtop-2.0.pc.in acinclude.m4 \
 	intltool-extract.in \
 	intltool-merge.in \
+	libgtop.doap \
 	intltool-update.in
 
 DISTCLEANFILES = \
