@@ -192,10 +192,10 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	  It's the average number of entry per process on my laptop
 	*/
 
-	size_t added = 0;
+	size_t added = 0, entry_list_capacity = 100;
 	GArray *entry_list = g_array_sized_new(FALSE, FALSE,
 					       sizeof(glibtop_map_entry),
-					       100);
+					       entry_list_capacity);
 	FILE *maps;
 	const char *filename;
 	gboolean has_smaps;
@@ -271,8 +271,11 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		  element.
 		*/
 
-		if (G_UNLIKELY(added >= entry_list->len)) {
-			g_array_set_size(entry_list, 2 * entry_list->len);
+		g_debug("added = %d len = %d\n", (int)added, (int)entry_list_capacity);
+
+		if (G_UNLIKELY(added >= entry_list_capacity)) {
+			entry_list_capacity *= 2;
+			g_array_set_size(entry_list, entry_list_capacity);
 		}
 
 		entry = &g_array_index(entry_list, glibtop_map_entry, added++);
@@ -308,7 +311,7 @@ eof:
 
 	buf->flags = _glibtop_sysdeps_proc_map;
 
-	buf->number = entry_list->len;
+	buf->number = added;
 	buf->size = sizeof (glibtop_map_entry);
 	buf->total = buf->number * buf->size;
 
