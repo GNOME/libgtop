@@ -141,6 +141,68 @@ parse_smaps(glibtop_map_entry *entry, const char* line)
 }
 
 
+/*
+  sscanf is too slow
+  and system-monitor calls procmap for each pid every second
+
+  manual parsing is faster
+
+  error checking is weaker
+*/
+
+static gboolean
+parse_line(char* line,
+	   guint64* start, guint64* end, char flags[4], guint64* offset,
+	   gushort* dev_major, gushort* dev_minor, guint64* inode,
+	   char** filename)
+{
+	/* %16llx-%16llx %4c %16llx %02hx:%02hx %llu%*[ ]%n */
+
+	char *p, *next;
+
+	p = line;
+
+	*start = strtoull(p, &p, 16);
+
+	if (G_UNLIKELY(*p != '-'))
+		return FALSE;
+	p++;
+
+	*end = strtoull(p, &p, 16);
+
+	p = next_token(p);
+
+	memcpy(flags, p, 4);
+	p += 4;
+
+	*offset = strtoull(p, &p, 16);
+
+	*dev_major = strtoul(p, &p, 16);
+
+	if (G_UNLIKELY(*p != ':'))
+		return FALSE;
+	p++;
+
+	*dev_minor = strtoul(p, &p, 16);
+
+	*inode = strtoull(p, &p, 10);
+
+	p = next_token(p);
+
+	*filename = p;
+
+	for ( ; *p; p++) {
+		if (*p == '\n') {
+			*p = '\0';
+			break;
+		}
+	}
+
+	return TRUE;
+}
+
+
+
 
 
 glibtop_map_entry *
@@ -181,7 +243,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	{
 		unsigned long perm;
 		guint len;
-		int line_end;
+		/* int line_end; */
 
 		unsigned short dev_major, dev_minor;
 		guint64 start, end, offset, inode;
@@ -195,6 +257,12 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 
 	new_entry_line:
 
+		if (!parse_line(line,
+				&start, &end, flags, &offset,
+				&dev_major, &dev_minor, &inode, &filename))
+			continue;
+
+		/*
 		if (sscanf(line, PROC_MAPS_FORMAT,
 			   &start, &end, flags, &offset,
 			   &dev_major, &dev_minor, &inode, &line_end) != 7)
@@ -202,6 +270,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 
 		filename = line + line_end;
 		g_strstrip(filename);
+		*/
 
 		/* Compute access permissions. */
 		perm = 0;
