@@ -1,0 +1,21 @@
+%language=ANSI-C
+%includes
+%struct-type
+%readonly-tables
+%pic
+%define lookup-function-name _glibtop_find_smap
+%compare-lengths
+%{
+#include "glibtop_private.h"
+#include <glibtop/procmap.h>
+#include <stddef.h>
+#define SMAP_OFFSET(MEMBER) offsetof(glibtop_map_entry, MEMBER)
+%}
+struct smap_value { int name; ptrdiff_t offset; };
+%%
+Private_Clean:,	SMAP_OFFSET(private_clean)
+Private_Dirty:,	SMAP_OFFSET(private_dirty)
+Rss:,		SMAP_OFFSET(rss)
+Shared_Clean:,	SMAP_OFFSET(shared_clean)
+Shared_Dirty:,	SMAP_OFFSET(shared_dirty)
+Size:,		SMAP_OFFSET(size)

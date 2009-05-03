@@ -31,6 +31,7 @@
 
 #include "glibtop_private.h"
 
+#include "procmap_smaps.c"
 
 #define  MAPS_FILE "/proc/%u/maps"
 #define SMAPS_FILE "/proc/%u/smaps"
@@ -66,35 +67,19 @@ _glibtop_init_proc_map_s (glibtop *server)
 /* Provides detailed information about a process. */
 
 
-
-struct smap_value {
-	char name[16];
-	size_t name_len;
-	ptrdiff_t offset;
-};
-
-static int
-compare(const void* a_key, const void* a_smap)
-{
-	const char* key = a_key;
-	const struct smap_value* smap = a_smap;
-	return strncmp(key, smap->name, smap->name_len);
-}
-
-
-static gboolean
+static const char*
 is_smap_value(const char* s)
 {
 	for ( ; *s; ++s) {
 
 		if (isspace(*s))
-			return FALSE;
+			return NULL;
 
 		if (*s == ':')
-			return TRUE;
+			return s;
 	}
 
-	return FALSE;
+	return NULL;
 }
 
 
@@ -105,25 +90,18 @@ is_smap_value(const char* s)
 static gboolean
 parse_smaps(glibtop_map_entry *entry, const char* line)
 {
-#define SMAP_OFFSET(MEMBER) offsetof(glibtop_map_entry, MEMBER)
-#define STR_AND_LEN(X) (X), (sizeof X - 1)
 
-	/* keep sorted */
-	const struct smap_value values[] = {
-		{ STR_AND_LEN("Private_Clean:"),	SMAP_OFFSET(private_clean) },
-		{ STR_AND_LEN("Private_Dirty:"),	SMAP_OFFSET(private_dirty) },
-		{ STR_AND_LEN("Rss:"),			SMAP_OFFSET(rss) },
-		{ STR_AND_LEN("Shared_Clean:"),		SMAP_OFFSET(shared_clean) },
-		{ STR_AND_LEN("Shared_Dirty:"),		SMAP_OFFSET(shared_dirty) },
-		{ STR_AND_LEN("Size:"),			SMAP_OFFSET(size) }
-	};
+	const struct smap_value* smap;
+	size_t len;
+	const char* colon;
 
-#undef STR_AND_LEN
-#undef SMAP_OFFSET
+	if ((colon = is_smap_value(line)) == NULL)
+		return FALSE;
 
-	struct smap_value* smap;
+	len = colon - line + 1;
+	smap = _glibtop_find_smap(line, len);
 
-	smap = bsearch(line, values, G_N_ELEMENTS(values), sizeof values[0], compare);
+//		g_debug("smap %s -> %p", line, smap);
 
 	if (smap) {
 		char *offset;
@@ -133,11 +111,10 @@ parse_smaps(glibtop_map_entry *entry, const char* line)
 		offset += smap->offset;
 		value = (void*) offset;
 
-		*value = get_scaled(line + smap->name_len, NULL);
-		return TRUE;
+		*value = get_scaled(line + len, NULL);
 	}
 
-	return is_smap_value(line);
+	return TRUE;
 }
 
 
@@ -215,6 +192,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	  It's the average number of entry per process on my laptop
 	*/
 
+	size_t added = 0;
 	GArray *entry_list = g_array_sized_new(FALSE, FALSE,
 					       sizeof(glibtop_map_entry),
 					       100);
@@ -242,7 +220,6 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 	while(TRUE)
 	{
 		unsigned long perm;
-		guint len;
 		/* int line_end; */
 
 		unsigned short dev_major, dev_minor;
@@ -293,9 +270,12 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		  avoid copying the entry, grow by 1 and point to the last
 		  element.
 		*/
-		len = entry_list->len;
-		g_array_set_size(entry_list, len + 1);
-		entry = &g_array_index(entry_list, glibtop_map_entry, len);
+
+		if (G_UNLIKELY(added >= entry_list->len)) {
+			g_array_set_size(entry_list, 2 * entry_list->len);
+		}
+
+		entry = &g_array_index(entry_list, glibtop_map_entry, added++);
 
 		entry->flags = _glibtop_sysdeps_map_entry;
 		entry->start = start;
@@ -322,6 +302,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 
 eof:
 
+	g_array_set_size(entry_list, added);
 	free(line);
 	fclose (maps);
 
