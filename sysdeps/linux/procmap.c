@@ -271,8 +271,6 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		  element.
 		*/
 
-		g_debug("added = %d len = %d\n", (int)added, (int)entry_list_capacity);
-
 		if (G_UNLIKELY(added >= entry_list_capacity)) {
 			entry_list_capacity *= 2;
 			g_array_set_size(entry_list, entry_list_capacity);
