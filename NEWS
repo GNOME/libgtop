@@ -1,3 +1,10 @@
+3 May 2009: Overview of changes in 2.27.1
+=========================================
+* linux:
+  - glibtop_get_proc_map is ~40% faster. This should be noticeable
+    in system-monitor.
+* New cygwin support.
+
 13 April 2009: Overview of changes in 2.26.1
 ============================================
 * linux:
