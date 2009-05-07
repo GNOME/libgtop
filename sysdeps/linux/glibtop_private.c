@@ -124,7 +124,7 @@ int try_file_to_buffer(char *buffer, size_t bufsiz, const char *format, ...)
 void
 file_to_buffer(glibtop *server, char *buffer, size_t bufsiz, const char *filename)
 {
-	switch(try_file_to_buffer(buffer, bufsiz, filename))
+	switch(try_file_to_buffer(buffer, bufsiz, "%s", filename))
 	{
 	case TRY_FILE_TO_BUFFER_OPEN:
 		glibtop_error_io_r (server, "open (%s)", filename);
