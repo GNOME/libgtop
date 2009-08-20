@@ -1,203 +1,201 @@
-# Irish (gaeilge) translations for libgtop.pot (Gnome)
-# Copyright (C) 1998,2004 Free Software Foundation, Inc.
-# Alastair McKinstry <mckinstry@computer.org>, 1998
-# Paul Duffy <dubhthach@frink.nuigalway.ie>, 2003
+# Irish translations for libgtop package.
+# Copyright (C) 1998-2009 Free Software Foundation, Inc.
+# This file is distributed under the same license as the libgtop package.
+# Alastair McKinstry <mckinstry@computer.org>, 1998.
+# Paul Duffy <dubhthach@frink.nuigalway.ie>, 2003.
+# Seán de Búrca <leftmostcat@gmail.com>, 2009.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop-GNOME-2-0-port \n"
+"Project-Id-Version: libgtop.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-25 18:15+0200\n"
-"PO-Revision-Date: 2004-01-23 18:10+0000\n"
-"Last-Translator: Alastair McKinstry <mckinstry@computer.org>\n"
+"POT-Creation-Date: 2009-08-20 09:28-0600\n"
+"PO-Revision-Date: 2009-08-20 09:47-0600\n"
+"Last-Translator: Seán de Búrca <leftmostcat@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : (n%10==1 || n%10==2) ? 1 : (n%"
+"10>=3 && n%10<= 6) ? 2 : ((n%10>=7 && n%10<=9) || n==10) ? 3 : 4;\n"
 
-#: lib/read.c:65
+#: ../lib/read.c:51
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "léigh %d bheart"
+msgstr[1] "léigh %d bheart"
+msgstr[2] "léigh %d bheart"
+msgstr[3] "léigh %d mbeart"
+msgstr[4] "léigh %d beart"
 
-#: lib/read_data.c:53
+#: ../lib/read_data.c:51
 msgid "read data size"
-msgstr ""
+msgstr "léigh méid sonraí"
 
-#: lib/read_data.c:72
+#: ../lib/read_data.c:70
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "léigh %lu bheart sonraí"
+msgstr[1] "léigh %lu bheart sonraí"
+msgstr[2] "léigh %lu bheart sonraí"
+msgstr[3] "léigh %lu mbeart sonraí"
+msgstr[4] "léigh %lu beart sonraí"
 
-#: lib/write.c:52
+#: ../lib/write.c:51
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "scríobh %d bheart"
+msgstr[1] "scríobh %d bheart"
+msgstr[2] "scríobh %d bheart"
+msgstr[3] "scríobh %d mbeart"
+msgstr[4] "scríobh %d beart"
 
-#: src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
-msgstr ""
+msgstr "Cumasaigh dífhabhtú"
 
-#: src/daemon/gnuserv.c:460
-msgid "DEBUG"
-msgstr ""
-
-#: src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
-msgstr ""
+msgstr "Cumasaigh aschur foclach"
 
-#: src/daemon/gnuserv.c:462
-msgid "VERBOSE"
-msgstr ""
-
-#: src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
-msgstr ""
+msgstr "Ná forc isteach sa chúlra"
 
-#: src/daemon/gnuserv.c:464
-msgid "NO-DAEMON"
-msgstr ""
-
-#: src/daemon/gnuserv.c:466
+#: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "Glaodh ó inetd"
 
-#: src/daemon/gnuserv.c:466
-msgid "INETD"
-msgstr ""
-
-#: src/daemon/gnuserv.c:500
+#: ../src/daemon/gnuserv.c:495
 #, c-format
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
+msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+"Rith '%s --help' chun liosta iomlán roghanna líne na n-orduithe le fáil a "
+"fheiceáil.\n"
 
-#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+#: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
-msgstr ""
+msgstr "Croch"
 
-#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
-msgstr "Idirbhrís"
+msgstr "Idirbhriseadh"
 
-#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Quit"
-msgstr "Ealu"
+msgstr "Scor"
 
-#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
-msgstr ""
+msgstr "Treoir neamhcheadaithe"
 
-#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
-msgstr ""
+msgstr "Gaiste loirg"
 
-#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Abort"
-msgstr ""
+msgstr "Tobscor"
 
-#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "EMT error"
-msgstr ""
+msgstr "Earráid EMT"
 
-#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
-msgstr ""
+msgstr "Eisceacht snámhphointe"
 
-#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
-msgstr ""
+msgstr "Marú"
 
-#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Bus error"
-msgstr "Earraidh Bus"
+msgstr "Earráid bhus"
 
-#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
-msgstr ""
+msgstr "Sárú deighilte"
 
-#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
-msgstr ""
+msgstr "Drochargóint go glao córais"
 
-#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
-msgstr "Píopa Briste"
+msgstr "Píopa briste"
 
-#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
-msgstr ""
+msgstr "Clog aláraim"
 
-#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
 msgid "Termination"
-msgstr ""
+msgstr "Críoch"
 
-#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Staid práinneach ar shoicéad"
 
-#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Stop"
-msgstr ""
+msgstr "Stad"
 
-#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
-msgstr ""
+msgstr "Stad méarchláir"
 
-#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
 msgid "Continue"
-msgstr ""
+msgstr "Leanúint ar aghaidh"
 
-#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
-msgstr ""
+msgstr "Athraíodh stádas mic"
 
-#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
-msgstr ""
+msgstr "Léamh cúlrach ó tty"
 
-#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
-msgstr ""
+msgstr "Scríobh cúlrach go tty"
 
-#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
-msgstr ""
+msgstr "I/A indéanta anois"
 
-#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
-msgstr ""
+msgstr "Imithe thar teorainn LAP"
 
-#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr ""
+msgstr "Imithe thar teorainn mhéid chomhaid"
 
-#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
-msgstr ""
+msgstr "Clog aláraim fíorúil"
 
-#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Clog aláraim próifílithe"
 
-#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
 msgid "Window size change"
-msgstr ""
+msgstr "Athrú mhéid fhuinneoige"
 
-#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Information request"
-msgstr ""
+msgstr "Iarratas eolais"
 
-#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr ""
+msgstr "Comhartha sainmhínithe ag an úsáideoir 1"
 
-#: sysdeps/osf1/siglist.c:58 sysdeps/sun4/siglist.c:58
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr ""
+msgstr "Comhartha sainmhínithe ag an úsáideoir 2"
