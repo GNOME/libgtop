@@ -1,0 +1,189 @@
+# translation of libgtop.master.po to Maithili
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sangeeta Kumari <sangeeta09@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop.master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop&component=general\n"
+"POT-Creation-Date: 2009-09-02 16:38+0000\n"
+"PO-Revision-Date: 2009-09-11 20:50+0530\n"
+"Last-Translator: Sangeeta Kumari <sangeeta09@gmail.com>\n"
+"Language-Team: Maithili <maithili.sf.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../lib/read.c:51
+#, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "%d बाइट पढ़ू"
+msgstr[1] "%d बाइट पढ़ू"
+
+#: ../lib/read_data.c:51
+msgid "read data size"
+msgstr "आंकड़ाक आकार पढ़ू"
+
+#: ../lib/read_data.c:70
+#, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "%lu आंकड़ाक बाइट पढ़ू"
+msgstr[1] "%lu आंकड़ाक बाइट पढ़ू"
+
+#: ../lib/write.c:51
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "%d बाइट लिखलक"
+msgstr[1] "%d बाइट लिखलक"
+
+#: ../src/daemon/gnuserv.c:455
+msgid "Enable debugging"
+msgstr "डिबगिंग सक्षम करू"
+
+#: ../src/daemon/gnuserv.c:457
+msgid "Enable verbose output"
+msgstr "वर्बोज आउटपुट सक्षम करू"
+
+#: ../src/daemon/gnuserv.c:459
+msgid "Don't fork into background"
+msgstr "पृष्ठभूमिमे फॉर्क नहि करू"
+
+#: ../src/daemon/gnuserv.c:461
+msgid "Invoked from inetd"
+msgstr "inetd मारफत बोलाएल गेल"
+
+#: ../src/daemon/gnuserv.c:495
+#, c-format
+msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgstr "'%s --help' चलाबू उपलब्ध कमांड लाइन विकल्प देखबाक लेल.\n"
+
+#: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
+msgid "Hangup"
+msgstr "हैंगअप"
+
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+msgid "Interrupt"
+msgstr "रूकाबट"
+
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+msgid "Quit"
+msgstr "बाहर"
+
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+msgid "Illegal instruction"
+msgstr "अबैध निर्देश"
+
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+msgid "Trace trap"
+msgstr "ट्रेस ट्रैप"
+
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+msgid "Abort"
+msgstr "छोड़ू"
+
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+msgid "EMT error"
+msgstr "EMT त्रुटि"
+
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+msgid "Floating-point exception"
+msgstr "फ्लोटिंग-पाइंट अपबाद"
+
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+msgid "Kill"
+msgstr "मारू"
+
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+msgid "Bus error"
+msgstr "बस त्रुटि"
+
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+msgid "Segmentation violation"
+msgstr "सेगमेंटेशन अतिक्रमण"
+
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+msgid "Bad argument to system call"
+msgstr "सिस्टम कालमे गलत आर्गुमेंट"
+
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+msgid "Broken pipe"
+msgstr "टूटल पाइप"
+
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+msgid "Alarm clock"
+msgstr "अलार्म घड़ी"
+
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+msgid "Termination"
+msgstr "समाप्त"
+
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+msgid "Urgent condition on socket"
+msgstr "साकेट पर अत्यावश्यक अवस्था"
+
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+msgid "Stop"
+msgstr "रोकू"
+
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+msgid "Keyboard stop"
+msgstr "कीबोर्ड रोकू"
+
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+msgid "Continue"
+msgstr "जारी राखू"
+
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+msgid "Child status has changed"
+msgstr "शिशुक स्थिति बदैल गेल अछि"
+
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+msgid "Background read from tty"
+msgstr "टीटीवाइ सँ पढ़बाक काज पृष्ठभूमिमे करू"
+
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+msgid "Background write to tty"
+msgstr "टीटीवाइ पर लिखबाक काज पृष्ठभूमिमे करू"
+
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+msgid "I/O now possible"
+msgstr "आइ/ओ आब संभव"
+
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+msgid "CPU limit exceeded"
+msgstr "सीपीयू सीमा सँ बाहर पहुँच गेल"
+
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+msgid "File size limit exceeded"
+msgstr "फाइलक आकार सीमा सँ बाहर पहुँच गेल"
+
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+msgid "Virtual alarm clock"
+msgstr "आभासी अलार्म घड़ी"
+
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+msgid "Profiling alarm clock"
+msgstr "प्रोफाइलिंग अलार्म घड़ी"
+
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+msgid "Window size change"
+msgstr "विंडो आकार परिवर्तन"
+
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+msgid "Information request"
+msgstr "जानकारी निवेदन"
+
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+msgid "User defined signal 1"
+msgstr "प्रयोक्ता परिभाषित संकेत १"
+
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+msgid "User defined signal 2"
+msgstr "प्रयोक्ता परिभाषित संकेत २"
+
