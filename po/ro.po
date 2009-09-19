@@ -1,13 +1,13 @@
 # Romanian translation for libgtop
-# Copyright (C) 2003 - 2008, Free Software Foundation, Inc.
-# Mișu Moldovan <dumol@gnome.ro>, 2003 - 2008.
+# Copyright (C) 2003 - 2009, Free Software Foundation, Inc.
+# Mișu Moldovan <dumol@gnome.ro>, 2003 - 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-09-13 08:49+0100\n"
-"PO-Revision-Date: 2008-09-18 22:36+0300\n"
+"PO-Revision-Date: 2009-09-20 00:44+0300\n"
 "Last-Translator: Mișu Moldovan <dumol@gnome.ro>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr[2] "s-au citit %d de octeți"
 
 #: ../lib/read_data.c:51
 msgid "read data size"
-msgstr "mărime date citire"
+msgstr "mărime date citite"
 
 #: ../lib/read_data.c:70
 #, c-format
@@ -46,7 +46,7 @@ msgstr[2] "s-au scris %d de octeți"
 
 #: ../src/daemon/gnuserv.c:458
 msgid "Enable debugging"
-msgstr "Activare depanare"
+msgstr "Activează depanarea"
 
 #: ../src/daemon/gnuserv.c:460
 msgid "Enable verbose output"
