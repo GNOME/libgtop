@@ -1,17 +1,17 @@
 # libgtop ja.po.
-# Copyright (C) 1998,2000,2002-2007 Free Software Foundation, Inc.
+# Copyright (C) 1998,2000,2002-2007,2009 Free Software Foundation, Inc.
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1998
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2000, 2002.
 # Yukihiro Nakai <nakai@gnome.gr.jp>, 2000.
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
-# Takeshi AIHANA <takeshi.aihana@gmail.com>, 2004-2007.
+# Takeshi AIHANA <takeshi.aihana@gmail.com>, 2004-2007,2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop trunk\n"
+"Project-Id-Version: libgtop master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-08 01:03+0900\n"
-"PO-Revision-Date: 2007-07-08 01:03+0900\n"
+"POT-Creation-Date: 2009-10-04 17:38+0900\n"
+"PO-Revision-Date: 2009-10-04 17:38+0900\n"
 "Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -23,8 +23,8 @@ msgstr ""
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] " %dバイト読み込み"
-msgstr[1] " %dバイト読み込み"
+msgstr[0] "%dバイト読み込み"
+msgstr[1] "%dバイト読み込み"
 
 #: ../lib/read_data.c:51
 msgid "read data size"
@@ -34,33 +34,33 @@ msgstr "データの読み込みサイズ"
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] " %luバイトデータの読み込み"
-msgstr[1] " %luバイトデータの読み込み"
+msgstr[0] "%luバイトデータの読み込み"
+msgstr[1] "%luバイトデータの読み込み"
 
 #: ../lib/write.c:51
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] " %dバイトの書き込み"
-msgstr[1] " %dバイトの書き込み"
+msgstr[0] "%dバイトの書き込み"
+msgstr[1] "%dバイトの書き込み"
 
-#: ../src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
 msgstr "デバッグを有効にする"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
 msgstr "詳細な出力にする"
 
-#: ../src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
 msgstr "子プロセスをバックグラウンドに回さない"
 
-#: ../src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
 msgstr "`inetd` から起動する"
 
-#: ../src/daemon/gnuserv.c:498
+#: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
@@ -157,7 +157,7 @@ msgstr "TTY へのバックグラウンド書き込み"
 
 #: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
-msgstr "I/Oが使用可能"
+msgstr "I/O が使用可能"
 
 #: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
@@ -185,8 +185,8 @@ msgstr "情報リクエスト"
 
 #: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr "ユーザ定義シグナル１"
+msgstr "ユーザ定義のシグナル１"
 
 #: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr "ユーザ定義シグナル２"
+msgstr "ユーザ定義のシグナル２"
