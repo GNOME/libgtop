@@ -1,6 +1,6 @@
 # Andraz Tori <andraz.tori1@guest.arnes.si>, 2000.
 # Matic Žgur <mr.zgur@gmail.com>, 2006.
-# Matej Urbančič <matej.urban@gmail.com>, 2007.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007 - 2009.
 #
 msgid ""
 msgstr ""
@@ -8,13 +8,15 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-05-14 03:41+0100\n"
 "PO-Revision-Date: 2007-10-18 16:10+0100\n"
-"Last-Translator: Matej Urbančič <matej.urban@gmail.com>\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
+"X-Poedit-Country: SLOVENIA\n"
 "X-Poedit-Language: Slovenian\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: ../lib/read.c:51
 #, c-format
@@ -49,11 +51,11 @@ msgstr[3] "zapisani %d bajti"
 
 #: ../src/daemon/gnuserv.c:458
 msgid "Enable debugging"
-msgstr "Vključi razhroščevanje"
+msgstr "Omogoči razhroščevanje"
 
 #: ../src/daemon/gnuserv.c:460
 msgid "Enable verbose output"
-msgstr "Vključi podroben izpis"
+msgstr "Omogoči podroben izpis"
 
 #: ../src/daemon/gnuserv.c:462
 msgid "Don't fork into background"
@@ -121,12 +123,12 @@ msgstr "Napaka vodila"
 #: ../sysdeps/osf1/siglist.c:37
 #: ../sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
-msgstr "Segmentacijska napaka"
+msgstr "Napaka razčlenjevanja"
 
 #: ../sysdeps/osf1/siglist.c:38
 #: ../sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
-msgstr "Nepravilen argument za sistemski klic"
+msgstr "Slab argument za sistemski klic"
 
 #: ../sysdeps/osf1/siglist.c:39
 #: ../sysdeps/sun4/siglist.c:39
