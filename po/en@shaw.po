@@ -1,0 +1,164 @@
+# Shavian translation for libgtop.
+# Copyright (C) 2009 The Gnome Foundation.
+# Thomas Thurman <tthurman@gnome.org>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: metacity\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2009-11-06 19:17+0200\n"
+"Last-Translator: Thomas Thurman <tthurman@gnome.org>\n"
+"Language-Team: Shavian <ubuntu-l10n-en-shaw@lists.launchpad.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n!=1\n"
+
+#: ../lib/read.c:51
+#, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "𐑮𐑧𐑛 %d 𐑚𐑲𐑑"
+msgstr[1] "𐑮𐑧𐑛 %d 𐑚𐑲𐑑𐑕"
+
+#: ../lib/read_data.c:51
+msgid "read data size"
+msgstr "𐑮𐑧𐑛 𐑛𐑱𐑑𐑩 𐑕𐑲𐑟"
+
+#: ../lib/read_data.c:70
+#, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "𐑮𐑧𐑛 %lu 𐑚𐑲𐑑 𐑝 𐑛𐑱𐑑𐑩"
+msgstr[1] "𐑮𐑧𐑛 %lu 𐑚𐑲𐑑𐑕 𐑝 𐑛𐑱𐑑𐑩"
+
+#: ../lib/write.c:51
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "𐑮𐑴𐑑 %d 𐑚𐑲𐑑"
+msgstr[1] "𐑮𐑴𐑑 %d 𐑚𐑲𐑑𐑕"
+
+#: ../src/daemon/gnuserv.c:455
+msgid "Enable debugging"
+msgstr "𐑦𐑯𐑱𐑚𐑩𐑤 𐑛𐑰𐑚𐑳𐑜𐑦𐑙"
+
+#: ../src/daemon/gnuserv.c:459
+msgid "Don't fork into background"
+msgstr "𐑛𐑴𐑯𐑑 𐑓𐑹𐑒 𐑦𐑯𐑑𐑫 𐑚𐑨𐑒𐑜𐑮𐑬𐑯𐑛"
+
+#: ../src/daemon/gnuserv.c:495
+#, c-format
+msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgstr "𐑮𐑳𐑯 '%s --help' 𐑑 𐑕𐑰 𐑩 𐑓𐑫𐑤 𐑤𐑦𐑕𐑑 𐑝 𐑩𐑝𐑱𐑤𐑩𐑚𐑩𐑤 𐑒𐑩𐑥𐑭𐑯𐑛 𐑤𐑲𐑯 𐑪𐑐𐑖𐑩𐑯𐑟.\n"
+
+#: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
+msgid "Hangup"
+msgstr "𐑣𐑨𐑙𐑜𐑩𐑐"
+
+#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+msgid "Interrupt"
+msgstr "𐑦𐑯𐑑𐑻𐑳𐑐𐑑"
+
+#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+msgid "Quit"
+msgstr "𐑒𐑢𐑦𐑑"
+
+#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+msgid "Illegal instruction"
+msgstr "𐑦𐑤𐑰𐑜𐑩𐑤 𐑦𐑯𐑕𐑑𐑮𐑳𐑒𐑖𐑩𐑯"
+
+#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+msgid "Trace trap"
+msgstr "𐑑𐑮𐑱𐑕 𐑑𐑮𐑨𐑐"
+
+#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+msgid "Abort"
+msgstr "𐑩𐑚𐑹𐑑"
+
+#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+msgid "Floating-point exception"
+msgstr "𐑓𐑤𐑴𐑑𐑦𐑙-𐑐𐑶𐑯𐑑 𐑦𐑒𐑕𐑧𐑐𐑖𐑩𐑯"
+
+#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+msgid "Kill"
+msgstr "𐑒𐑦𐑤"
+
+#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+msgid "Bus error"
+msgstr "𐑚𐑳𐑕 𐑻𐑼"
+
+#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+msgid "Segmentation violation"
+msgstr "𐑕𐑧𐑜𐑥𐑩𐑯𐑑𐑱𐑖𐑩𐑯 𐑝𐑲𐑩𐑤𐑱𐑖𐑩𐑯"
+
+#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+msgid "Bad argument to system call"
+msgstr "𐑚𐑨𐑛 𐑸𐑜𐑿𐑥𐑩𐑯𐑑 𐑑 𐑕𐑦𐑕𐑑𐑩𐑥 𐑒𐑷𐑤"
+
+#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+msgid "Broken pipe"
+msgstr "𐑚𐑮𐑴𐑒𐑩𐑯 𐑐𐑲𐑐"
+
+#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+msgid "Alarm clock"
+msgstr "𐑩𐑤𐑸𐑥 𐑒𐑤𐑪𐑒"
+
+#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+msgid "Termination"
+msgstr "𐑑𐑻𐑥𐑩𐑯𐑱𐑖𐑩𐑯"
+
+#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+msgid "Urgent condition on socket"
+msgstr "𐑻𐑡𐑩𐑯𐑑 𐑒𐑩𐑯𐑛𐑦𐑖𐑩𐑯 𐑪𐑯 𐑕𐑪𐑒𐑩𐑑"
+
+#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+msgid "Stop"
+msgstr "𐑕𐑑𐑪𐑐"
+
+#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+msgid "Keyboard stop"
+msgstr "𐑒𐑰𐑚𐑪𐑮𐑛 𐑕𐑑𐑪𐑐"
+
+#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+msgid "Continue"
+msgstr "𐑒𐑩𐑯𐑑𐑦𐑯𐑿"
+
+#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+msgid "Child status has changed"
+msgstr "𐑗𐑲𐑤𐑛 𐑕𐑑𐑱𐑑𐑫𐑕 𐑣𐑨𐑟 𐑗𐑱𐑯𐑡𐑛"
+
+#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+msgid "I/O now possible"
+msgstr "I/O 𐑯𐑬 𐑐𐑪𐑕𐑩𐑚𐑩𐑤"
+
+#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+msgid "CPU limit exceeded"
+msgstr "CPU·𐑿 𐑤𐑦𐑥𐑦𐑑 𐑩𐑒𐑕𐑰𐑛𐑩𐑛"
+
+#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+msgid "File size limit exceeded"
+msgstr "𐑓𐑲𐑤 𐑕𐑲𐑟 𐑤𐑦𐑥𐑦𐑑 𐑩𐑒𐑕𐑰𐑛𐑩𐑛"
+
+#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+msgid "Virtual alarm clock"
+msgstr "𐑝𐑻𐑗𐑫𐑩𐑤 𐑩𐑤𐑸𐑥 𐑒𐑤𐑪𐑒"
+
+#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+msgid "Profiling alarm clock"
+msgstr "𐑐𐑮𐑴𐑓𐑲𐑤𐑦𐑙 𐑩𐑤𐑸𐑥 𐑒𐑤𐑪𐑒"
+
+#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+msgid "Window size change"
+msgstr "𐑢𐑦𐑯𐑛𐑴 𐑕𐑲𐑟 𐑗𐑱𐑯𐑡"
+
+#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+msgid "Information request"
+msgstr "𐑦𐑯𐑓𐑼𐑥𐑱𐑖𐑩𐑯 𐑮𐑦𐑒𐑢𐑧𐑕𐑑"
+
+#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+msgid "User defined signal 1"
+msgstr "𐑿𐑟𐑼 𐑛𐑦𐑓𐑲𐑯𐑛 𐑕𐑦𐑜𐑯𐑩𐑤 1"
+
+#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+msgid "User defined signal 2"
+msgstr "𐑿𐑟𐑼 𐑛𐑦𐑓𐑲𐑯𐑛 𐑕𐑦𐑜𐑯𐑩𐑤 2"
