@@ -1,17 +1,24 @@
-# Copyright (C) 2001-2005 Free Software Foundation, Inc.
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Aviary.pl
+# Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
+# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
+# gnomepl@aviary.pl
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-17 21:16+0200\n"
-"PO-Revision-Date: 2002-07-05 19:13+0200\n"
-"Last-Translator: GNOME PL Team <translators@gnomepl.org>\n"
-"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+"POT-Creation-Date: 2010-02-25 12:52+0100\n"
+"PO-Revision-Date: 2010-02-25 12:47+0100\n"
+"Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
+"Language-Team: Polish <gnomepl@aviary.pl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: Poland\n"
 
 #: ../lib/read.c:51
 #, c-format
@@ -41,26 +48,27 @@ msgstr[0] "zapisano jeden bajt"
 msgstr[1] "zapisano %d bajty"
 msgstr[2] "zapisano %d bajtów"
 
-#: ../src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
-msgstr "Uaktywnia śledzenie"
+msgstr "Włącza debugowanie"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
-msgstr "Uaktywnia informowanie o przebiegu"
+msgstr "Wyświetla więcej informacji"
 
-#: ../src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
 msgstr "Uruchamia program bez przechodzenia w tło"
 
-#: ../src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
 msgstr "Wywołanie przez inetd"
 
-#: ../src/daemon/gnuserv.c:498
+#: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "Uruchom \"%s --help\" aby wyświetlić pełną listę dostępnych opcji.\n"
+msgstr ""
+"Proszę wykonać \"%s --help\", aby wyświetlić pełną listę dostępnych opcji.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
@@ -68,7 +76,7 @@ msgstr "Zawieszenie"
 
 #: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
-msgstr "Przerwanie (Interrupt)"
+msgstr "Przerwanie"
 
 #: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Quit"
@@ -84,7 +92,7 @@ msgstr "Trace trap"
 
 #: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Abort"
-msgstr "Przerwanie (Abort)"
+msgstr "Przerwanie"
 
 #: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "EMT error"
@@ -96,23 +104,23 @@ msgstr "Wyjątek związany z liczbą zmiennoprzecinkową"
 
 #: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
-msgstr "Usunięcie (Kill)"
+msgstr "Wymuszenie zakończenia"
 
 #: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Bus error"
-msgstr "Błąd szyny"
+msgstr "Błąd magistrali"
 
 #: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
-msgstr "Naruszenie segmentacji"
+msgstr "Naruszenie ochrony pamięci"
 
 #: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
-msgstr "Niepoprawny parametr wywołania systemowego"
+msgstr "Błędny parametr dla wywołania systemowego"
 
 #: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
-msgstr "Przerwany potok"
+msgstr "Uszkodzony potok"
 
 #: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
@@ -128,7 +136,7 @@ msgstr "Pilny warunek związany z gniazdem"
 
 #: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Stop"
-msgstr "Zatrzymanie (Stop)"
+msgstr "Zatrzymanie"
 
 #: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
@@ -140,27 +148,27 @@ msgstr "Kontynuacja"
 
 #: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
-msgstr "Zmiana statusu proc. potomnego"
+msgstr "Zmiana stanu procesu potomnego"
 
 #: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
-msgstr "Odczyt w tle z urządzenia tty"
+msgstr "Odczyt w tle z urządzenia TTY"
 
 #: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
-msgstr "Zapis w tle do urządzenia tty"
+msgstr "Zapis w tle do urządzenia TTY"
 
 #: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
-msgstr "Wejście/wyjście teraz dostępne"
+msgstr "Wejście/wyjście jest teraz dostępne"
 
 #: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
-msgstr "Przekroczenie limitu CPU"
+msgstr "Przekroczenie ograniczenia procesora"
 
 #: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr "Przekroczenie limitu rozm. plików"
+msgstr "Przekroczono ograniczenie rozmiaru plików"
 
 #: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
@@ -180,20 +188,8 @@ msgstr "Żądanie informacji"
 
 #: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr "1. sygnał zdefiniowany przez użytkownika"
+msgstr "1. sygnał określony przez użytkownika"
 
 #: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr "2. sygnał zdefiniowany przez użytkownika"
-
-#~ msgid "DEBUG"
-#~ msgstr "ŚLEDZENIE"
-
-#~ msgid "VERBOSE"
-#~ msgstr "PRZEBIEG"
-
-#~ msgid "NO-DAEMON"
-#~ msgstr "NIE-DEMON"
-
-#~ msgid "INETD"
-#~ msgstr "INETD"
+msgstr "2. sygnał określony przez użytkownika"
