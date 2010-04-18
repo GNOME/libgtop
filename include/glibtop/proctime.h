@@ -46,26 +46,50 @@ typedef struct _glibtop_proc_time	glibtop_proc_time;
 
 /* Time section */
 
+/**
+ * glibtop_proc_time:
+ * @start_time: Start time of process in seconds since the epoch.
+ * @rtime: Real time accumulated by process (should be @utime + @stime).
+ * @utime: User-mode CPU time accumulated by process.
+ * @stime: Kernel-mode CPU time accumulated by process.
+ * @cutime: Cumulative utime of process and reaped children.
+ * @cstime: Cumulative stime of process and reaped children.
+ * @timeout: The time (in jiffies) of the process’s next timeout.
+ * @it_real_value: The time (in jiffies) before the next <type>SIGALRM</type>
+ * is sent to the process due to an interval timer.
+ * @frequency: Tick frequency.
+ * @xcpu_utime: SMP user-mode CPU time accumulated by process.
+ * @xcpu_stime: SMP kernel-mode CPU time accumulated by process 
+ *
+ * Process time data filled by glibtop_get_proc_time().
+ *
+ * Under Linux the @start_time value may be wrong due to the information
+ * available from the kernel.
+ * 
+ * The Linux kernel defines <type>INITIAL_JIFFIES</type> which implies a time
+ * shift. Because <type>INITIAL_JIFFIES</type> is not user-space defined,
+ * we cannot use it to compute an accurate @start_time. On Linux 2.6,
+ * <type>INITIAL_JIFFIES</type> is 300 so @start_time is 
+ * always 3s different from the real start time of the given process. You 
+ * may also get shift results if your system clock is not synchronised 
+ * with your hardware clock. See <command>man hwclock</command>.
+ */
 struct _glibtop_proc_time
 {
+    /*< private >*/
 	guint64	flags;
-	guint64 start_time;	/* start time of process --
-				 * seconds since 1-1-70 */
-	guint64 rtime;		/* real time accumulated by process */
-	guint64 utime;		/* user-mode CPU time accumulated by process */
-	guint64 stime;		/* kernel-mode CPU time accumulated by process */
-	guint64 cutime;		/* cumulative utime of process and
-				 * reaped children */
-	guint64 cstime;		/* cumulative stime of process and
-				 * reaped children */
-	guint64 timeout;	/* The time (in jiffies) of the process's
-				 * next timeout */
-	guint64 it_real_value;	/* The time (in jiffies) before the
-				 * next SIGALRM is sent to the process
-				 * due to an interval timer. */
-	guint64 frequency;	/* Tick frequency. */
-	guint64 xcpu_utime [GLIBTOP_NCPU];	/* utime and stime for all CPUs on */
-	guint64 xcpu_stime [GLIBTOP_NCPU];	/* SMP machines. */
+	/*< public >*/
+	guint64 start_time;
+	guint64 rtime;
+	guint64 utime;
+	guint64 stime;
+	guint64 cutime;
+	guint64 cstime;
+	guint64 timeout;
+	guint64 it_real_value;
+	guint64 frequency;
+	guint64 xcpu_utime [GLIBTOP_NCPU];
+	guint64 xcpu_stime [GLIBTOP_NCPU];
 };
 
 

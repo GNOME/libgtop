@@ -36,22 +36,89 @@ G_BEGIN_DECLS
 /* You can use the folowing constants as the `which' member of
  * glibtop_get_proclist () to specify which processes to fetch. */
 
-#define GLIBTOP_KERN_PROC_ALL		0	/* all processes */
+/**
+ * GLIBTOP_KERN_PROC_ALL:
+ *
+ * Return information about all processes
+ **/
+#define GLIBTOP_KERN_PROC_ALL		0
+
+/**
+ * GLIBTOP_KERN_PROC_PID:
+ *
+ * Return all processes with the pid which is passed in @arg. You can use this to find out whether some process still exists.
+ **/
 #define GLIBTOP_KERN_PROC_PID		1
+
+/**
+ * GLIBTOP_KERN_PROC_PGRP:
+ *
+ * Return all processes in the process group passed in @arg. 
+ **/
 #define GLIBTOP_KERN_PROC_PGRP		2
+
+/**
+ * GLIBTOP_KERN_PROC_SESSION:
+ *
+ * Return all processes in the session passed in @arg. 
+ **/
 #define GLIBTOP_KERN_PROC_SESSION	3
+
+/**
+ * GLIBTOP_KERN_PROC_TTY:
+ *
+ * Return all processes which have the controlling tty passed in @arg
+ * (which is interpreted as the device number). 
+ **/
 #define GLIBTOP_KERN_PROC_TTY		4
+
+/**
+ * GLIBTOP_KERN_PROC_UID:
+ *
+ * Return all processes with the effective uid passed in @arg. 
+ **/
 #define GLIBTOP_KERN_PROC_UID		5
+
+/**
+ * GLIBTOP_KERN_PROC_RUID:
+ *
+ * Return all processes with the real uid passed in @arg. 
+ **/
 #define GLIBTOP_KERN_PROC_RUID		6
 
 #define GLIBTOP_KERN_PROC_MASK		15
 
+
+/**
+ * GLIBTOP_EXCLUDE_IDLE:
+ *
+ * Exclude idle processes. 
+ **/
 #define GLIBTOP_EXCLUDE_IDLE		0x1000
+
+/**
+ * GLIBTOP_EXCLUDE_SYSTEM:
+ *
+ * Exclude system (on most UNIXes root's) processes.
+ **/
 #define GLIBTOP_EXCLUDE_SYSTEM		0x2000
+
+/**
+ * GLIBTOP_EXCLUDE_NOTTY:
+ *
+ * Exclude processes without a controlling terminal.
+ **/
 #define GLIBTOP_EXCLUDE_NOTTY		0x4000
 
 typedef struct _glibtop_proclist	glibtop_proclist;
 
+/**
+ * glibtop_proclist:
+ * @number: Number of entries in the returned list.
+ * @total: Total size of the returned list (this equals @number * @size).
+ * @size: Size of a single entry in the returned list 
+ * (this equals <type>sizeof(unsigned)</type>).
+ */
 struct _glibtop_proclist
 {
 	guint64	flags;
