@@ -4,19 +4,22 @@
 #
 # Peteris Krisjanis <peteris.krisjanis@os.lv>, 2002.
 # Raivis Dejus <orvils@gmail.com>, 2006, 2009.
+# Peteris Krisjanis <pecisk@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: lv\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-07 14:35+0100\n"
-"PO-Revision-Date: 2009-01-25 17:52+0200\n"
-"Last-Translator: Raivis Dejus <orvils@gmail.com>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
+"cgi?product=libgtop&component=general\n"
+"POT-Creation-Date: 2009-11-12 10:53+0000\n"
+"PO-Revision-Date: 2010-04-26 11:18+0300\n"
+"Last-Translator: Peteris Krisjanis <pecisk@gmail.com>\n"
+"Language-Team: Latviešu <lata-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
-"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: ../lib/read.c:51
 #, c-format
@@ -42,27 +45,27 @@ msgstr[2] "lasīt %lu baitu datus"
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "ierakstīju %d baitu"
-msgstr[1] "ierakstīju %d baitus"
-msgstr[2] "ierakstīju %d baitu"
+msgstr[0] "ierakstīts %d baits"
+msgstr[1] "ierakstīti %d baiti"
+msgstr[2] "ierakstīti %d baitu"
 
-#: ../src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
 msgstr "Aktivizēt atkļūdošanu"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
 msgstr "Aktivizēt vārdisku izvadi"
 
-#: ../src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
 msgstr "Nesadalīties fona"
 
-#: ../src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
 msgstr "Izsaukts no inetd"
 
-#: ../src/daemon/gnuserv.c:498
+#: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
@@ -127,7 +130,7 @@ msgstr "Modinātājs"
 
 #: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
 msgid "Termination"
-msgstr "Pātraukšana"
+msgstr "Pārtraukšana"
 
 #: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
