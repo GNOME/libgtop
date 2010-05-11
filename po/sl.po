@@ -1,13 +1,17 @@
-# Andraz Tori <andraz.tori1@guest.arnes.si>, 2000.
+# Slovenian translation of libgtop.
+# Copyright (C) 2005-2006 Free Software Foundation, Inc.
+# This file is distributed under the same license as the libgtop package.
+#
+# Andraž Tori <andraz.tori1@guest.arnes.si>, 2000.
 # Matic Žgur <mr.zgur@gmail.com>, 2006.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007 - 2009.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007 - 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop\n"
+"Project-Id-Version: libgtop master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-05-14 03:41+0100\n"
-"PO-Revision-Date: 2007-10-18 16:10+0100\n"
+"PO-Revision-Date: 2010-05-11 15:12+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -59,16 +63,16 @@ msgstr "Omogoči podroben izpis"
 
 #: ../src/daemon/gnuserv.c:462
 msgid "Don't fork into background"
-msgstr "Ne razveji se v ozadje"
+msgstr "Ne razveji v ozadje"
 
 #: ../src/daemon/gnuserv.c:464
 msgid "Invoked from inetd"
-msgstr "Poklican iz programa inetd"
+msgstr "Poklican s programom inetd"
 
 #: ../src/daemon/gnuserv.c:498
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "Z zastavico '%s --help' se izpiše popoln seznam možnosti ukaza.\n"
+msgstr "Za popoln seznam možnosti ukazne vrstice zaženite '%s --help'."
 
 #: ../sysdeps/osf1/siglist.c:27
 #: ../sysdeps/sun4/siglist.c:27
@@ -83,7 +87,7 @@ msgstr "Prekinitev"
 #: ../sysdeps/osf1/siglist.c:29
 #: ../sysdeps/sun4/siglist.c:29
 msgid "Quit"
-msgstr "Izhod"
+msgstr "Končaj"
 
 #: ../sysdeps/osf1/siglist.c:30
 #: ../sysdeps/sun4/siglist.c:30
@@ -98,7 +102,7 @@ msgstr "Past sledenja"
 #: ../sysdeps/osf1/siglist.c:32
 #: ../sysdeps/sun4/siglist.c:32
 msgid "Abort"
-msgstr "Prekini"
+msgstr "Prekliči"
 
 #: ../sysdeps/osf1/siglist.c:33
 #: ../sysdeps/sun4/siglist.c:33
@@ -113,7 +117,7 @@ msgstr "Izjema plavajoče vejice"
 #: ../sysdeps/osf1/siglist.c:35
 #: ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
-msgstr "Ubij"
+msgstr "Uniči"
 
 #: ../sysdeps/osf1/siglist.c:36
 #: ../sysdeps/sun4/siglist.c:36
@@ -153,7 +157,7 @@ msgstr "Nujno stanje na vtiču"
 #: ../sysdeps/osf1/siglist.c:43
 #: ../sysdeps/sun4/siglist.c:43
 msgid "Stop"
-msgstr "Ustavi"
+msgstr "Zaustavi"
 
 #: ../sysdeps/osf1/siglist.c:44
 #: ../sysdeps/sun4/siglist.c:44
@@ -183,12 +187,12 @@ msgstr "Pisanje na tty v ozadju"
 #: ../sysdeps/osf1/siglist.c:49
 #: ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
-msgstr "V/I sedaj mogoč"
+msgstr "V/I je sedaj mogoč"
 
 #: ../sysdeps/osf1/siglist.c:50
 #: ../sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
-msgstr "Prekoračena omejitev procesorja"
+msgstr "Prekoračena omejitev CPE"
 
 #: ../sysdeps/osf1/siglist.c:51
 #: ../sysdeps/sun4/siglist.c:51
@@ -224,13 +228,3 @@ msgstr "Uporabniško določen signal 1"
 #: ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "Uporabniško določen signal 2"
-
-#~ msgid "DEBUG"
-#~ msgstr "RAZHROŠČUJ"
-#~ msgid "VERBOSE"
-#~ msgstr "ZGOVOREN"
-#~ msgid "NO-DAEMON"
-#~ msgstr "NI-DEAMON"
-#~ msgid "INETD"
-#~ msgstr "INETD"
-
