@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: libgtop master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-05-14 03:41+0100\n"
-"PO-Revision-Date: 2010-05-11 15:12+0100\n"
+"PO-Revision-Date: 2010-05-11 15:26+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -72,7 +72,7 @@ msgstr "Poklican s programom inetd"
 #: ../src/daemon/gnuserv.c:498
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "Za popoln seznam možnosti ukazne vrstice zaženite '%s --help'."
+msgstr "Za popoln seznam možnosti ukazne vrstice zaženite '%s --help'.\n"
 
 #: ../sysdeps/osf1/siglist.c:27
 #: ../sysdeps/sun4/siglist.c:27
@@ -228,3 +228,4 @@ msgstr "Uporabniško določen signal 1"
 #: ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "Uporabniško določen signal 2"
+
