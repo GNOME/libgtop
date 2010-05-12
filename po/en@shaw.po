@@ -4,17 +4,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: metacity\n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2009-11-06 19:17+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop&component=general\n"
+"POT-Creation-Date: 2010-05-11 13:26+0000\n"
+"PO-Revision-Date: 2010-05-12 18:37 -0400\n"
 "Last-Translator: Thomas Thurman <tthurman@gnome.org>\n"
-"Language-Team: Shavian <ubuntu-l10n-en-shaw@lists.launchpad.net>\n"
+"Language-Team: Shavian <ubuntu-l10n-en-shaw@launchpad.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n!=1\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
 
-#: ../lib/read.c:51
 #, c-format
+#: ../lib/read.c:51
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "𐑮𐑧𐑛 %d 𐑚𐑲𐑑"
@@ -24,15 +25,15 @@ msgstr[1] "𐑮𐑧𐑛 %d 𐑚𐑲𐑑𐑕"
 msgid "read data size"
 msgstr "𐑮𐑧𐑛 𐑛𐑱𐑑𐑩 𐑕𐑲𐑟"
 
-#: ../lib/read_data.c:70
 #, c-format
+#: ../lib/read_data.c:70
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "𐑮𐑧𐑛 %lu 𐑚𐑲𐑑 𐑝 𐑛𐑱𐑑𐑩"
 msgstr[1] "𐑮𐑧𐑛 %lu 𐑚𐑲𐑑𐑕 𐑝 𐑛𐑱𐑑𐑩"
 
-#: ../lib/write.c:51
 #, c-format
+#: ../lib/write.c:51
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "𐑮𐑴𐑑 %d 𐑚𐑲𐑑"
@@ -42,13 +43,24 @@ msgstr[1] "𐑮𐑴𐑑 %d 𐑚𐑲𐑑𐑕"
 msgid "Enable debugging"
 msgstr "𐑦𐑯𐑱𐑚𐑩𐑤 𐑛𐑰𐑚𐑳𐑜𐑦𐑙"
 
+#, fuzzy
+#: ../src/daemon/gnuserv.c:457
+msgid "Enable verbose output"
+msgstr "𐑦𐑯𐑱𐑚𐑩𐑤 verbose 𐑬𐑑𐑐𐑫𐑑"
+
 #: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
 msgstr "𐑛𐑴𐑯𐑑 𐑓𐑹𐑒 𐑦𐑯𐑑𐑫 𐑚𐑨𐑒𐑜𐑮𐑬𐑯𐑛"
 
-#: ../src/daemon/gnuserv.c:495
+#, fuzzy
+#: ../src/daemon/gnuserv.c:461
+msgid "Invoked from inetd"
+msgstr "𐑦𐑯𐑝𐑴𐑒𐑑 𐑓𐑮𐑪𐑥 inetd"
+
 #, c-format
-msgid "Run '%s --help' to see a full list of available command line options.\n"
+#: ../src/daemon/gnuserv.c:495
+msgid ""
+"Run '%s --help' to see a full list of available command line options.\n"
 msgstr "𐑮𐑳𐑯 '%s --help' 𐑑 𐑕𐑰 𐑩 𐑓𐑫𐑤 𐑤𐑦𐑕𐑑 𐑝 𐑩𐑝𐑱𐑤𐑩𐑚𐑩𐑤 𐑒𐑩𐑥𐑭𐑯𐑛 𐑤𐑲𐑯 𐑪𐑐𐑖𐑩𐑯𐑟.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
@@ -74,6 +86,11 @@ msgstr "𐑑𐑮𐑱𐑕 𐑑𐑮𐑨𐑐"
 #: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Abort"
 msgstr "𐑩𐑚𐑹𐑑"
+
+#, fuzzy
+#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+msgid "EMT error"
+msgstr "EMT 𐑻𐑼"
 
 #: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
@@ -127,6 +144,16 @@ msgstr "𐑒𐑩𐑯𐑑𐑦𐑯𐑿"
 msgid "Child status has changed"
 msgstr "𐑗𐑲𐑤𐑛 𐑕𐑑𐑱𐑑𐑫𐑕 𐑣𐑨𐑟 𐑗𐑱𐑯𐑡𐑛"
 
+#, fuzzy
+#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+msgid "Background read from tty"
+msgstr "𐑚𐑨𐑒𐑜𐑮𐑬𐑯𐑛 𐑮𐑧𐑛 𐑓𐑮𐑪𐑥 tty"
+
+#, fuzzy
+#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+msgid "Background write to tty"
+msgstr "𐑚𐑨𐑒𐑜𐑮𐑬𐑯𐑛 𐑮𐑲𐑑 𐑑 tty"
+
 #: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
 msgstr "I/O 𐑯𐑬 𐑐𐑪𐑕𐑩𐑚𐑩𐑤"
@@ -162,3 +189,4 @@ msgstr "𐑿𐑟𐑼 𐑛𐑦𐑓𐑲𐑯𐑛 𐑕𐑦𐑜𐑯𐑩𐑤 1"
 #: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "𐑿𐑟𐑼 𐑛𐑦𐑓𐑲𐑯𐑛 𐑕𐑦𐑜𐑯𐑩𐑤 2"
+
