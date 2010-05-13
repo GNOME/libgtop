@@ -1,9 +1,9 @@
 # Shavian translation for libgtop.
-# Copyright (C) 2009 The Gnome Foundation.
+# Copyright (C) 2010 The Gnome Foundation.
 # Thomas Thurman <tthurman@gnome.org>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: metacity\n"
+"Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop&component=general\n"
 "POT-Creation-Date: 2010-05-11 13:26+0000\n"
 "PO-Revision-Date: 2010-05-12 18:37 -0400\n"
@@ -43,16 +43,14 @@ msgstr[1] "𐑮𐑴𐑑 %d 𐑚𐑲𐑑𐑕"
 msgid "Enable debugging"
 msgstr "𐑦𐑯𐑱𐑚𐑩𐑤 𐑛𐑰𐑚𐑳𐑜𐑦𐑙"
 
-#, fuzzy
 #: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
-msgstr "𐑦𐑯𐑱𐑚𐑩𐑤 verbose 𐑬𐑑𐑐𐑫𐑑"
+msgstr "𐑦𐑯𐑱𐑚𐑩𐑤 𐑝𐑻𐑚𐑴𐑕 𐑬𐑑𐑐𐑫𐑑"
 
 #: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
 msgstr "𐑛𐑴𐑯𐑑 𐑓𐑹𐑒 𐑦𐑯𐑑𐑫 𐑚𐑨𐑒𐑜𐑮𐑬𐑯𐑛"
 
-#, fuzzy
 #: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
 msgstr "𐑦𐑯𐑝𐑴𐑒𐑑 𐑓𐑮𐑪𐑥 inetd"
@@ -87,7 +85,6 @@ msgstr "𐑑𐑮𐑱𐑕 𐑑𐑮𐑨𐑐"
 msgid "Abort"
 msgstr "𐑩𐑚𐑹𐑑"
 
-#, fuzzy
 #: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "EMT error"
 msgstr "EMT 𐑻𐑼"
@@ -144,12 +141,10 @@ msgstr "𐑒𐑩𐑯𐑑𐑦𐑯𐑿"
 msgid "Child status has changed"
 msgstr "𐑗𐑲𐑤𐑛 𐑕𐑑𐑱𐑑𐑫𐑕 𐑣𐑨𐑟 𐑗𐑱𐑯𐑡𐑛"
 
-#, fuzzy
 #: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
 msgstr "𐑚𐑨𐑒𐑜𐑮𐑬𐑯𐑛 𐑮𐑧𐑛 𐑓𐑮𐑪𐑥 tty"
 
-#, fuzzy
 #: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
 msgstr "𐑚𐑨𐑒𐑜𐑮𐑬𐑯𐑛 𐑮𐑲𐑑 𐑑 tty"
@@ -160,7 +155,7 @@ msgstr "I/O 𐑯𐑬 𐑐𐑪𐑕𐑩𐑚𐑩𐑤"
 
 #: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
-msgstr "CPU·𐑿 𐑤𐑦𐑥𐑦𐑑 𐑩𐑒𐑕𐑰𐑛𐑩𐑛"
+msgstr "CPU 𐑤𐑦𐑥𐑦𐑑 𐑩𐑒𐑕𐑰𐑛𐑩𐑛"
 
 #: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
