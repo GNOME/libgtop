@@ -108,6 +108,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  libgtop_use_machine_h=no
 	  libgtop_need_server=no
 	  libgtop_have_sysinfo=yes
+	  libgtop_sysdeps_private_mountlist=yes
 	  ;;
 	*)
 	  if test x$hacker_mode = xyes ; then
