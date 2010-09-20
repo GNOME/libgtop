@@ -1,7 +1,7 @@
 # libgtop ja.po.
-# Copyright (C) 1998,2000,2002-2007,2009 Free Software Foundation, Inc.
+# Copyright (C) 1998,2000,2002-2007,2009-2010 Free Software Foundation, Inc.
 # Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1998
-# Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2000, 2002.
+# Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2000, 2002, 2010.
 # Yukihiro Nakai <nakai@gnome.gr.jp>, 2000.
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2004-2007,2009.
@@ -9,22 +9,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-04 17:38+0900\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&component=general\n"
+"POT-Creation-Date: 2010-06-27 13:25+0000\n"
 "PO-Revision-Date: 2009-10-04 17:38+0900\n"
-"Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
+"Last-Translator: Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../lib/read.c:51
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "%dバイト読み込み"
-msgstr[1] "%dバイト読み込み"
 
 #: ../lib/read_data.c:51
 msgid "read data size"
@@ -35,14 +35,12 @@ msgstr "データの読み込みサイズ"
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "%luバイトデータの読み込み"
-msgstr[1] "%luバイトデータの読み込み"
 
 #: ../lib/write.c:51
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "%dバイトの書き込み"
-msgstr[1] "%dバイトの書き込み"
 
 #: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
@@ -65,7 +63,7 @@ msgstr "`inetd` から起動する"
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
 "利用可能なコマンド・ラインのオプション一覧を表示する場合は '%s --help' を実行"
-"して下さい\n"
+"してください\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
@@ -185,8 +183,8 @@ msgstr "情報リクエスト"
 
 #: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr "ユーザ定義のシグナル１"
+msgstr "ユーザ定義のシグナル1"
 
 #: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr "ユーザ定義のシグナル２"
+msgstr "ユーザ定義のシグナル2"
