@@ -79,10 +79,10 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	buffers = 0;
 
 	buf->total = memtotal;
-	buf->used = (memused * pagesize);
+	buf->used = (memused * (gulong) pagesize);
 	buf->free = (buf->total - buf->used);
 	buf->shared = 0;
-	buf->cached = (cached * pagesize);
+	buf->cached = (cached * (gulong) pagesize);
 	buf->buffer = buffers;
 
 	buf->user = buf->total - buf->free - buf->cached - buf->buffer;
