@@ -7,9 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libgtop&component=general\n"
-"POT-Creation-Date: 2010-10-02 23:22+0000\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop&component=general\n"
+"POT-Creation-Date: 2010-10-16 18:32+0000\n"
 "PO-Revision-Date: 2010-10-08 10:12+0600\n"
 "Last-Translator: Sahran <sahran@live.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -26,7 +25,7 @@ msgstr[0] "%d بايت  ئوقۇ"
 
 #: ../lib/read_data.c:51
 msgid "read data size"
-msgstr " ئوقۇلىدىغان سانلىق-مەلۇماتنىڭ چوڭلۇقى"
+msgstr "ئوقۇلىدىغان سانلىق-مەلۇماتنىڭ چوڭلۇقى"
 
 #: ../lib/read_data.c:70
 #, c-format
@@ -59,9 +58,7 @@ msgstr "«inetd» ئارقىلىق قوزغىتىلغان"
 #: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"'%s --help' ئىجرا قىلىنسا بۇيرۇق قۇرى تاللانمىسىنى ئىشلىتىشنىڭ تولۇق "
-"تىزىملىكى كۆرۈنىدۇ.\n"
+msgstr "'%s --help' ئىجرا قىلىنسا بۇيرۇق قۇرى تاللانمىسىنى ئىشلىتىشنىڭ تولۇق تىزىملىكى كۆرۈنىدۇ.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
