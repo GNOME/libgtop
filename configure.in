@@ -25,7 +25,7 @@ m4_define([libgtop_server_version], [5])
 # Version code calculation
 m4_define([libgtop_version_code], [m4_eval(libgtop_major_version * 1000000 + libgtop_minor_version * 1000 + libgtop_micro_version)])
 
-AC_PREREQ(2.59)
+AC_PREREQ(2.62)
 AC_INIT([libgtop], [libgtop_version],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop])
 AC_CONFIG_SRCDIR(copyright.txt)
@@ -33,7 +33,10 @@ AC_CONFIG_HEADERS(config.h)
 
 AC_CANONICAL_HOST
 
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([-Wno-portability])
+AC_CONFIG_MACRO_DIR([m4])
+GOBJECT_INTROSPECTION_CHECK([0.6.7])
+
 AC_SUBST(ACLOCAL_AMFLAGS, [\${ACLOCAL_FLAGS}])
 
 AC_SUBST(LIBGTOP_MAJOR_VERSION, [libgtop_major_version])

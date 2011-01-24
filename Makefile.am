@@ -1,3 +1,4 @@
+ACLOCAL_AMFLAGS = -I m4
 
 if EXAMPLES
 EXAMPLES_DIR = examples
@@ -17,7 +18,8 @@ EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt \
 	intltool-extract.in \
 	intltool-merge.in \
 	libgtop.doap \
-	intltool-update.in
+	intltool-update.in \
+	m4/introspection.m4
 
 DISTCLEANFILES = \
 	intltool-extract \
@@ -33,4 +35,4 @@ pkgconfig_DATA = libgtop-2.0.pc
 libgtop-features.def: features.def
 	@LN_S@ $< $@
 
-DISTCHECK_CONFIGURE_FLAGS=--enable-gtk-doc
+DISTCHECK_CONFIGURE_FLAGS=--enable-gtk-doc --enable-introspection
