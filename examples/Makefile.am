@@ -6,6 +6,8 @@ INCLUDES		= @INCLUDES@
 
 DEFS			= @DEFS@
 
+LDFLAGS			= $(LIBGTOP_EXTRA_LIBS)
+
 noinst_PROGRAMS	= 	first second pprint procargs df netlist \
 			  mountlist procmap netload sysdeps timings \
 			  openfiles smp proclist mem wd affinity
