@@ -1,3 +1,11 @@
+25 March 2011: Overview of changes in 2.28.3
+================================================
+* Fix build issue for strict linkers.
+* Add Introspection support
+* Cygwin fixes.
+* FreeBSD: Fix get_mem() on 64-bit systems.
+* Updated translations.
+
 28 September 2010: Overview of changes in 2.28.2
 ================================================
 * Updated translations.
