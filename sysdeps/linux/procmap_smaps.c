@@ -1,3 +1,7 @@
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 /* ANSI-C code produced by gperf version 3.0.3 */
 /* Command-line: gperf sysdeps/linux/procmap_smaps.gperf  */
 /* Computed positions: -k'9' */
