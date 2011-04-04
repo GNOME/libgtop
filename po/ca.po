@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libgtop 2.9.91\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-09-16 22:33+0200\n"
-"PO-Revision-Date: 2005-09-04 01:16+0200\n"
+"PO-Revision-Date: 2011-04-04 22:04+0200\n"
 "Last-Translator: Jordi Mallach <jordi@sindominio.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "Ha estat cridat des d'inetd"
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"Executeu «%s --help»  per a veure una llista completa de les opcions "
+"Executeu «%s --help»  per veure una llista completa de les opcions "
 "disponibles de la línia d'ordres.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
@@ -86,7 +86,7 @@ msgstr "Captura traça"
 
 #: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Abort"
-msgstr "Avorta"
+msgstr "Interromp"
 
 #: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "EMT error"
