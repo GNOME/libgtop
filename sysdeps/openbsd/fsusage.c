@@ -2,6 +2,11 @@
 
 #include <config.h>
 
+/*
+ * statvfs is lacking various members which are present in statfs,
+ * like f_(a)syncreads and f_(a)syncwrites. So eventhough we have
+ * statvfs, undef it here untill those members are added.
+ */
 #undef HAVE_SYS_STATVFS_H
 #undef STAT_STATVFS
 
