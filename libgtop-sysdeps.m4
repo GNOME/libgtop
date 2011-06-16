@@ -69,11 +69,17 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  libgtop_sysdeps_private_mountlist=yes
 	  libgtop_sysdeps_private_fsusage=yes
 	  ;;
-	netbsd*|openbsd*|bsdi*)
+	netbsd*|bsdi*)
 	  libgtop_sysdeps_dir=bsd
 	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
 	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server2 && chmod 2755 $(bindir)/libgtop_server2'
+	  ;;
+	openbsd*)
+	  libgtop_sysdeps_dir=openbsd
+	  libgtop_use_machine_h=yes
+	  libgtop_need_server=yes
+	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server2 && chmod 2555 $(bindir)/libgtop_server2'
 	  ;;
 	freebsd*|kfreebsd*)
 	  libgtop_sysdeps_dir=freebsd

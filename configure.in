@@ -385,6 +385,7 @@ sysdeps/aix/Makefile
 sysdeps/bsd/Makefile
 sysdeps/darwin/Makefile
 sysdeps/cygwin/Makefile
+sysdeps/openbsd/Makefile
 src/Makefile
 src/daemon/Makefile
 lib/Makefile
