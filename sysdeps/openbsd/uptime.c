@@ -1,4 +1,4 @@
-/* $OpenBSD: uptime.c,v 1.3 2011/05/23 19:35:57 jasper Exp $	*/
+/* $OpenBSD: uptime.c,v 1.6 2011/06/01 07:24:49 jasper Exp $	*/
 
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
@@ -28,10 +28,9 @@
 
 #include <glibtop/cpu.h>
 
-#include <glibtop_suid.h>
-
 static const unsigned long _glibtop_sysdeps_uptime =
-(1L << GLIBTOP_UPTIME_UPTIME) + (1L << GLIBTOP_UPTIME_IDLETIME);
+(1L << GLIBTOP_UPTIME_UPTIME) + (1L << GLIBTOP_UPTIME_IDLETIME) +
+(1UL << GLIBTOP_UPTIME_BOOT_TIME);
 
 static const unsigned long _required_cpu_flags =
 (1L << GLIBTOP_CPU_TOTAL) + (1L << GLIBTOP_CPU_IDLE) +
@@ -51,10 +50,10 @@ void
 glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 {
 	time_t now;
-	time_t uptime;
 	int mib[2];
 	struct timeval boottime;
 	size_t size;
+	glibtop_cpu cpu;
 
 	mib[0] = CTL_KERN;
 	mib[1] = KERN_BOOTTIME;
@@ -63,8 +62,14 @@ glibtop_get_uptime_p (glibtop *server, glibtop_uptime *buf)
 	    boottime.tv_sec != 0) {
 		time(&now);
 		buf->uptime = now - boottime.tv_sec;
-		/* XXX: don't know a useful value to put here. */
-		buf->idletime = 0;
-		buf->flags = _glibtop_sysdeps_uptime;
+		buf->boot_time = boottime.tv_sec;
 	}
+
+	glibtop_get_cpu_p (server, &cpu);
+
+	/* Put something clever in buf->idletime: CP_IDLE. */
+	buf->idletime = (double) cpu.idle / (double) cpu.frequency;
+	buf->idletime /= (double) (server->ncpu + 1);
+
+	buf->flags = _glibtop_sysdeps_uptime;
 }
