@@ -45,8 +45,8 @@ init_sysinfo (glibtop *server)
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
 
-	len = sizeof (ncpus);
-	sysctlbyname ("hw.ncpu", &ncpus, &len, NULL, 0);
+	ncpus = server->ncpu + 1;
+
 	len = 0;
 	sysctlbyname ("hw.model", NULL, &len, NULL, 0);
 	model = g_malloc (len);

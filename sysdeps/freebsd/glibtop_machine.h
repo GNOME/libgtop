@@ -24,6 +24,7 @@
 
 #include <sys/param.h>
 #include <nlist.h>
+#include <limits.h>
 #include <kvm.h>
 #include <sys/dkstat.h>
 #include <time.h>
