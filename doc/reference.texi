@@ -743,7 +743,7 @@ The description above is taken from the manual page of the @file{/proc}
 filesystem under Linux and is a little bit confusing, so I make this clear
 here. 
 
-@strong{Note for people porting LibGTop to other systems:}
+@strong{A word for people porting LibGTop to other systems:}
 Every operating system has its own idea about the memory usage of a process
 and also system utilities like @code{ps} show different things on different
 systems.
