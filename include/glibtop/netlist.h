@@ -26,9 +26,8 @@
 G_BEGIN_DECLS
 
 #define GLIBTOP_NETLIST_NUMBER		0
-#define GLIBTOP_NETLIST_MEDIA_TYPE	1
 
-#define GLIBTOP_MAX_NETLIST		2
+#define GLIBTOP_MAX_NETLIST		1
 
 typedef struct _glibtop_netlist	glibtop_netlist;
 
@@ -36,7 +35,6 @@ struct _glibtop_netlist
 {
 	guint64 flags;
 	guint32 number;
-	gchar *dev_type;
 };
 
 char** glibtop_get_netlist(glibtop_netlist *buf);

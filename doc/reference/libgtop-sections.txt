@@ -167,7 +167,6 @@ glibtop_get_uptime_s
 <FILE>netlist</FILE>
 <TITLE>Net List</TITLE>
 GLIBTOP_NETLIST_NUMBER
-GLIBTOP_NETLIST_MEDIA_TYPE
 GLIBTOP_MAX_NETLIST
 glibtop_netlist
 glibtop_get_netlist
