@@ -155,13 +155,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	case "$host_os" in
 	*bsd*)
-		case "$host_os" in
-		*kfreebsd*)
-		AC_CHECK_LIB(kvm, kvm_open, KVM_LIBS="-lkvm -lfreebsd -lbsd", KVM_LIBS=, -lfreebsd -lbsd);;
-		*) 
-	  	AC_CHECK_LIB(kvm, kvm_open, KVM_LIBS=-lkvm, KVM_LIBS=);;
-	  	esac
-	  
+	  AC_CHECK_LIB(kvm, kvm_open, KVM_LIBS=-lkvm, KVM_LIBS=)
 	  AC_SUBST(KVM_LIBS)
 
 	  case "$host_os" in
