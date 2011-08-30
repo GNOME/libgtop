@@ -42,7 +42,7 @@
 #include <sys/pipe.h>
 #include <sys/conf.h>
 #undef _KERNEL
-#if __FreeBSD_version >= 800038
+#if (__FreeBSD_version >= 800038) || (__FreeBSD_kernel_version >= 800038)
 #define _WANT_FILE
 #include <sys/file.h>
 #undef _WANT_FILE
@@ -113,7 +113,7 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
                 return;
         }
 
-#if __FreeBSD_version >= 800039
+#if (__FreeBSD_version >= 800039) || (__FreeBSD_kernel_version >= 800039)
         if (kvm_read (server->machine.kd, (gulong) cdev2priv(inode.i_dev), (char *) &priv,
 		      sizeof (priv))
 #else
