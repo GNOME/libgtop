@@ -195,28 +195,31 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 #if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 		buf->pagein = vmm.v_swappgsin - swappgsin;
 		buf->pageout = vmm.v_swappgsout - swappgsout;
-#else
-#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
+#elif defined(__NetBSD__) && (__NetBSD_Version__ >= 599002100)
+		/* no uvmexp.swap{ins,outs} */
+		buf->pagein = 0;
+		buf->pageout = 0;
+#elif defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
 		buf->pagein = uvmexp.swapins - swappgsin;
 		buf->pageout = uvmexp.swapouts - swappgsout;
 #else
 		buf->pagein = vmm.v_swpin - swappgsin;
 		buf->pageout = vmm.v_swpout - swappgsout;
 #endif
-#endif
 	}
 
 #if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
         swappgsin = vmm.v_swappgsin;
 	swappgsout = vmm.v_swappgsout;
-#else
-#if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
+#elif defined(__NetBSD__) && (__NetBSD_Version__ >= 599002100)
+	swappgsin = 0;
+	swappgsout = 0;
+#elif defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
 	swappgsin = uvmexp.swapins;
 	swappgsout = uvmexp.swapouts;
 #else
 	swappgsin = vmm.v_swpin;
 	swappgsout = vmm.v_swpout;
-#endif
 #endif
 
 #if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
