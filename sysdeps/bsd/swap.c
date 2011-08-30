@@ -153,7 +153,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 #endif
 
 	int nswap, i;
-	int avail = 0, inuse = 0;
+	guint64 avail = 0, inuse = 0;
 
 #if defined(__NetBSD__) && (__NetBSD_Version__ >= 104000000) || defined(__OpenBSD__)
 	struct uvmexp uvmexp;
