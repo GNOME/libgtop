@@ -43,7 +43,7 @@ _glibtop_init_proclist_p (glibtop *server)
 
 pid_t *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
-			int64_t which, int64_t arg)
+			gint64 which, gint64 arg)
 {
 	unsigned count, total, i;
 	pid_t *pids_chain;
