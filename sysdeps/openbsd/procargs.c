@@ -58,8 +58,11 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 
 	memset (buf, 0, sizeof (glibtop_proc_args));
 
-	/* swapper, init, pagedaemon, vmdaemon, update - this doen't work. */
-	if (pid < 5) return NULL;
+	/*
+	 * Don't bother with PIDs below 20, because everything below this
+	 * number is highly likely to be a kernel thread.
+	 */
+	if (pid < 19) return NULL;
 
 	glibtop_suid_enter (server);
 
