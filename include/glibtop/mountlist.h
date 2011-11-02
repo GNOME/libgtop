@@ -53,6 +53,38 @@ struct _glibtop_mountlist
 	guint64 size;			/* GLIBTOP_MOUNTLIST_SIZE	*/
 };
 
+/**
+ * glibtop_get_mountlist:
+ * @buf: (out):
+ * @all_fs:
+ *
+ * Returns: (transfer full):
+ */
+
+/**
+ * glibtop_get_mountlist_r:
+ * @buf: (out):
+ * @all_fs:
+ *
+ * Returns: (transfer none):
+ */
+
+/**
+ * glibtop_get_mountlist_s:
+ * @buf: (out):
+ * @all_fs:
+ *
+ * Returns: (transfer none):
+ */
+
+/**
+ * glibtop_get_mountlist_l:
+ * @buf: (out):
+ * @all_fs:
+ *
+ * Returns: (transfer none):
+ */
+
 glibtop_mountentry *
 glibtop_get_mountlist(glibtop_mountlist *buf, int all_fs);
 
@@ -64,6 +96,8 @@ glibtop_get_mountlist_l (glibtop *server, glibtop_mountlist *buf, int all_fs);
 glibtop_mountentry *
 glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs);
 
+GType     glibtop_mountlist_get_type (void) G_GNUC_CONST;
+GType     glibtop_mountentry_get_type (void) G_GNUC_CONST;
 
 G_END_DECLS
 

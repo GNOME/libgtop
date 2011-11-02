@@ -94,6 +94,42 @@ struct _glibtop_proc_open_files
 	guint64 size;			/* GLIBTOP_PROC_OPEN_FILES_SIZE   */
 };
 
+/**
+ * glibtop_get_proc_open_files:
+ * @server:
+ * @buf: (out):
+ * @all_fs:
+ *
+ * Returns: (transfer none):
+ */
+
+/**
+ * glibtop_get_proc_open_files_l:
+ * @server:
+ * @buf: (out):
+ * @all_fs:
+ *
+ * Returns: (transfer none):
+ */
+
+/**
+ * glibtop_get_proc_open_files_p:
+ * @server:
+ * @buf: (out):
+ * @all_fs:
+ *
+ * Returns: (transfer none):
+ */
+
+/**
+ * glibtop_get_proc_open_files_l:
+ * @server:
+ * @buf: (out):
+ * @all_fs:
+ *
+ * Returns: (transfer none):
+ */
+
 glibtop_open_files_entry *
 glibtop_get_proc_open_files(glibtop_proc_open_files *buf, pid_t pid);
 
@@ -117,6 +153,9 @@ void _glibtop_init_proc_open_files_s (glibtop *server);
 glibtop_open_files_entry *
 glibtop_get_proc_open_files_s (glibtop *server, glibtop_proc_open_files *buf, pid_t pid);
 #endif
+
+GType     glibtop_open_files_entry_get_type (void) G_GNUC_CONST;
+GType     glibtop_proc_open_files_get_type (void) G_GNUC_CONST;
 
 G_END_DECLS
 

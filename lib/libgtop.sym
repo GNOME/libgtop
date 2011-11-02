@@ -68,3 +68,10 @@ glibtop_open_l
 glibtop_server_features
 glibtop_set_parameter_l
 glibtop_sys_siglist
+glibtop_mountlist_get_type
+glibtop_mountentry_get_type
+glibtop_open_files_entry_get_type
+glibtop_proc_open_files_get_type
+glibtop_map_entry_get_type
+glibtop_proc_map_get_type
+glibtop_get_type

@@ -92,6 +92,42 @@ glibtop_map_entry *
 glibtop_get_proc_map(glibtop_proc_map *buf, pid_t pid);
 
 
+/**
+ * glibtop_get_proc_map:
+ * @server:
+ * @buf: (out):
+ * @pid:
+ *
+ * Returns: (transfer none):
+ */
+
+/**
+ * glibtop_get_proc_map_l:
+ * @server:
+ * @buf: (out):
+ * @pid:
+ *
+ * Returns: (transfer none):
+ */
+
+/**
+ * glibtop_get_proc_map_p:
+ * @server:
+ * @buf: (out):
+ * @pid:
+ *
+ * Returns: (transfer none):
+ */
+
+/**
+ * glibtop_get_proc_map_s:
+ * @server:
+ * @buf: (out):
+ * @pid:
+ *
+ * Returns: (transfer none):
+ */
+
 #if GLIBTOP_SUID_PROC_MAP
 #define glibtop_get_proc_map_r		glibtop_get_proc_map_p
 #else
@@ -113,6 +149,8 @@ glibtop_map_entry *
 glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf, pid_t pid);
 #endif
 
+GType     glibtop_map_entry_get_type (void) G_GNUC_CONST;
+GType     glibtop_proc_map_get_type (void) G_GNUC_CONST;
 
 G_END_DECLS
 

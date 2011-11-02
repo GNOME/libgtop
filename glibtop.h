@@ -23,6 +23,7 @@
 #define __GLIBTOP_H__
 
 #include <glib.h>
+#include <glib-object.h>
 
 G_BEGIN_DECLS
 
@@ -137,6 +138,8 @@ glibtop *
 glibtop_init_s (glibtop **server_ptr,
 		unsigned long features,
 		unsigned flags);
+
+GType     glibtop_get_type (void) G_GNUC_CONST;
 
 G_END_DECLS
 
