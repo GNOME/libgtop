@@ -96,7 +96,7 @@ void
 glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 			pid_t pid)
 {
-	struct kinfo_proc2 *pinfo;
+	struct kinfo_proc *pinfo;
 
 	int count;
 
@@ -111,7 +111,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	if (pid == 0) return;
 
 	/* Get the process data */
-	pinfo = kvm_getproc2 (server->machine.kd, KERN_PROC_PID, pid,
+	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid,
 			      sizeof (*pinfo), &count);
 	if ((pinfo == NULL) || (count < 1)) {
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);

@@ -49,7 +49,7 @@ char *
 glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len)
 {
-	struct kinfo_proc2 *pinfo;
+	struct kinfo_proc *pinfo;
 	char *retval, **args, **ptr;
 	size_t size = 0, pos = 0;
 	int count;
@@ -67,7 +67,7 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 	glibtop_suid_enter (server);
 
 	/* Get the process data */
-	pinfo = kvm_getproc2 (server->machine.kd, KERN_PROC_PID, pid,
+	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid,
 			       sizeof (*pinfo), &count);
 	if ((pinfo == NULL) || (count < 1)) {
 		glibtop_suid_leave (server);
@@ -75,7 +75,7 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 		return NULL;
 	}
 
-	args = kvm_getargv2 (server->machine.kd, pinfo, max_len);
+	args = kvm_getargv (server->machine.kd, pinfo, max_len);
 	if (args == NULL) {
 		glibtop_suid_leave (server);
 		glibtop_warn_io_r (server, "kvm_getargv (%d)", pid);

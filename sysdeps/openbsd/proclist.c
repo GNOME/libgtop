@@ -62,7 +62,7 @@ pid_t *
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 			gint64 real_which, gint64 arg)
 {
-	struct kinfo_proc2 *pinfo;
+	struct kinfo_proc *pinfo;
 	unsigned *pids = NULL;
 	int which, count;
 	int i,j;
@@ -74,7 +74,7 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 	which = (int)(real_which & GLIBTOP_KERN_PROC_MASK);
 
 	/* Get the process data */
-	pinfo = kvm_getproc2 (server->machine.kd, which, arg,
+	pinfo = kvm_getprocs (server->machine.kd, which, arg,
 			      sizeof (*pinfo), &count);
 	if ((pinfo == NULL) || (count < 1)) {
 		glibtop_warn_io_r (server, "kvm_getprocs (proclist)");
