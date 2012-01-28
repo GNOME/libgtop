@@ -1,15 +1,16 @@
-# Norwegian translation for Libgtop (bokmål dialect)
+# Norwegian bokmål translation for libgtop
 # Copyright (C) 1998-2004 Free Software Foundation, Inc.
-# Kjartan Maraas <kmaraas@gnome.org>, 1998-2007.
+# Kjartan Maraas <kmaraas@gnome.org>, 1998-2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop 2.21.x\n"
+"Project-Id-Version: libgtop 2.28.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-06-23 11:52+0200\n"
-"PO-Revision-Date: 2007-06-23 11:52+0200\n"
+"POT-Creation-Date: 2012-01-28 16:53+0100\n"
+"PO-Revision-Date: 2012-01-28 16:54+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
-"Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
+"Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
@@ -40,26 +41,28 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "skrev %d byte"
 msgstr[1] "skrev %d bytes"
 
-#: ../src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
 msgstr "Slå på avlusing"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
 msgstr "Slå på utfyllende utskrift"
 
-#: ../src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
 msgstr "Ikke forgren til bakgrunnen"
 
-#: ../src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
 msgstr "Kalt fra inetd"
 
-#: ../src/daemon/gnuserv.c:498
+#: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "Kjør '%s --help' for å se en full liste av tilgjengelige kommandolinjeflagg.\n"
+msgstr ""
+"Kjør '%s --help' for å se en full liste av tilgjengelige "
+"kommandolinjeflagg.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
