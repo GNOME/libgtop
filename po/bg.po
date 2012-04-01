@@ -3,21 +3,22 @@
 # Borislav Aleksandrov <B.Aleksandrov@cnsys.bg>, 2002.
 # Yanko Kaneti <yaneti@declera.com>, 2002.
 # Rostislav Raykov <zbrox@i-space.org>, 2004.
-# Vladimir Petkov <vpetkov@i-space.org>, 2005.
-# Alexander Shopov <ash@contact.bg>, 2007.
+# Vladimir Petkov <kaladan@gmail.com>, 2005.
+# Alexander Shopov <ash@kambanaria.org>, 2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgtop trunk\n"
+"Project-Id-Version: libgtop master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-18 10:43+0300\n"
-"PO-Revision-Date: 2007-09-18 10:43+0300\n"
-"Last-Translator: Alexander Shopov <ash@contact.bg>\n"
+"POT-Creation-Date: 2012-04-01 18:21+0300\n"
+"PO-Revision-Date: 2012-04-01 18:20+0300\n"
+"Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../lib/read.c:51
 #, c-format
@@ -44,23 +45,23 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "записан %d байт"
 msgstr[1] "записани %d байта"
 
-#: ../src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
 msgstr "Включване на изчистване на грешките"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
 msgstr "Включване на подробен изход"
 
-#: ../src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
 msgstr "Не се поражда процес във фонов режим"
 
-#: ../src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
 msgstr "Извикан от inetd"
 
-#: ../src/daemon/gnuserv.c:498
+#: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr "Изпълнете „%s --help“ за пълния списък от опции за командата.\n"
