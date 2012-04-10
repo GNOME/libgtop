@@ -2,12 +2,14 @@
 # Copyright © 2000, 2001, 2002, 2003, 2004, 2005 Free Software Foundation, Inc.
 # Softcatalà <gnome@softcatala.net>, 2000, 2001, 2002.
 # Jordi Mallach <jordi@sindominio.net>, 2002, 2003, 2004, 2005.
+# Jordi Serratosa <jordis@softcatala.cat>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.9.91\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-16 22:33+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2011-04-04 20:06+0000\n"
 "PO-Revision-Date: 2011-04-04 22:04+0200\n"
 "Last-Translator: Jordi Mallach <jordi@sindominio.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -41,23 +43,23 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "s'ha escrit %d octet"
 msgstr[1] "s'ha escrit %d octets"
 
-#: ../src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
 msgstr "Activa la depuració"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
 msgstr "Activa la sortida detallada"
 
-#: ../src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
 msgstr "No bifurquis al segon pla"
 
-#: ../src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
 msgstr "Ha estat cridat des d'inetd"
 
-#: ../src/daemon/gnuserv.c:498
+#: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
@@ -178,7 +180,7 @@ msgstr "Canvi de la mida de la finestra"
 
 #: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Information request"
-msgstr "Petició d'informació"
+msgstr "Sol·licitud d'informació"
 
 #: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
