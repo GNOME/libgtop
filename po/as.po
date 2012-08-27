@@ -163,7 +163,7 @@ msgstr "CPU ৰ সীমা পাৰ হৈছে"
 
 #: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr "নথিপত্ৰৰ আকাৰৰ সীমা পাৰ হৈছে"
+msgstr "ফাইলৰ আকাৰৰ সীমা পাৰ হৈছে"
 
 #: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
