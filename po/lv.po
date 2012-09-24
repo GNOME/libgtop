@@ -5,21 +5,22 @@
 # Peteris Krisjanis <peteris.krisjanis@os.lv>, 2002.
 # Raivis Dejus <orvils@gmail.com>, 2006, 2009.
 # Peteris Krisjanis <pecisk@gmail.com>, 2010.
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: lv\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
-"cgi?product=libgtop&component=general\n"
-"POT-Creation-Date: 2009-11-12 10:53+0000\n"
-"PO-Revision-Date: 2010-04-26 11:18+0300\n"
-"Last-Translator: Peteris Krisjanis <pecisk@gmail.com>\n"
-"Language-Team: Latviešu <lata-l10n@googlegroups.com>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-24 15:33+0300\n"
+"PO-Revision-Date: 2012-09-24 15:36+0300\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
+"Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.4\n"
 
 #: ../lib/read.c:51
 #, c-format
@@ -51,15 +52,15 @@ msgstr[2] "ierakstīti %d baitu"
 
 #: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
-msgstr "Aktivizēt atkļūdošanu"
+msgstr "Aktivēt atkļūdošanu"
 
 #: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
-msgstr "Aktivizēt vārdisku izvadi"
+msgstr "Aktivēt detalizētu izvadi"
 
 #: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
-msgstr "Nesadalīties fona"
+msgstr "Nesadalīties fonā"
 
 #: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
@@ -69,7 +70,7 @@ msgstr "Izsaukts no inetd"
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"Palaidiet '%s --help' lai redzētu pilnu pieejamo komandrindas iespēju "
+"Palaidiet “%s --help”, lai redzētu pilnu pieejamo komandrindas opciju "
 "sarakstu.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
@@ -94,7 +95,7 @@ msgstr "Izsekot slazdu"
 
 #: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Abort"
-msgstr "Pātraukt"
+msgstr "Pārtraukt"
 
 #: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "EMT error"
@@ -102,7 +103,7 @@ msgstr "EMT kļūda"
 
 #: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
-msgstr "Peldošā punkta izņēmums"
+msgstr "Peldošā komata izņēmums"
 
 #: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
@@ -110,7 +111,7 @@ msgstr "Nobeigt"
 
 #: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Bus error"
-msgstr "Šinas kļūda"
+msgstr "Kopnes kļūda"
 
 #: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
@@ -118,7 +119,7 @@ msgstr "Segmentācijas pārkāpums"
 
 #: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
-msgstr "Slikts arguments sistēmas izsaukumam"
+msgstr "Slikts parametrs sistēmas izsaukumam"
 
 #: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
@@ -134,7 +135,7 @@ msgstr "Pārtraukšana"
 
 #: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
-msgstr "Steidzama situācija kontaktā"
+msgstr "Steidzama situācija ligzdā"
 
 #: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Stop"
@@ -170,7 +171,7 @@ msgstr "CPU limits pārsniegts"
 
 #: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr "Faila izmēra limits pārsniegts"
+msgstr "Datnes izmēra limits pārsniegts"
 
 #: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
