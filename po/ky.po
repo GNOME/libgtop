@@ -1,23 +1,25 @@
-# translation of ky.po to Kitghiz
+# translation of libgtop to Kyrgyz
 # Kirghiz translation of libgtop.
 # Copyright (C) 1999, 2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgtop package.
-# Timur Jamakeev <ztimur@gmail.com>, 2005.
+#
+# Timur Zhamakeev <ztimur@gmail.com>, 2005, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ky\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-05 23:45+0200\n"
-"PO-Revision-Date: 2005-11-17 17:42+0500\n"
-"Last-Translator: Timur Jamakeev <ztimur@gmail.com>\n"
-"Language-Team: Kitghiz\n"
-"Language: ky\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2011-09-05 21:47+0000\n"
+"PO-Revision-Date: 2012-09-27 12:10+0600\n"
+"Last-Translator: Timur Zhamakeev <ztimur@gmail.com>\n"
+"Language-Team: Kirghiz <gnome-i18n@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ky\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: Lokalize 1.4\n"
 
 #: ../lib/read.c:51
 #, c-format
@@ -27,13 +29,13 @@ msgstr[0] "%d байт окулду"
 
 #: ../lib/read_data.c:51
 msgid "read data size"
-msgstr "окулган берилиштердин көлөмү"
+msgstr "окулган маалымат көлөмү"
 
 #: ../lib/read_data.c:70
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "%lu байт берилиш окулду"
+msgstr[0] "%lu байт маалымат окулду"
 
 #: ../lib/write.c:51
 #, c-format
@@ -43,7 +45,7 @@ msgstr[0] "%d байт жазылды"
 
 #: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
-msgstr "Дебагды иштетүү"
+msgstr "Ката издөөнү иштетүү"
 
 #: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
@@ -58,12 +60,11 @@ msgid "Invoked from inetd"
 msgstr "inetd аркылуу чакырылган"
 
 #: ../src/daemon/gnuserv.c:495
-#, fuzzy, c-format
+#, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"\"%s\" параметринде ката байкалды: %s\n"
-"Командалык саптын мүмкүн болгон бардык параметрлерин көрүү үчүн \"%s --help"
-"\" командасын колдонуңуз.\n"
+"Командалык саптын мүмкүн болгон бардык параметрлерин көрүү үчүн \"%s --help\" "
+"командасын колдонуңуз.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
@@ -95,7 +96,7 @@ msgstr "EMT катасы"
 
 #: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
-msgstr ""
+msgstr "Анык сан катасы"
 
 #: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
@@ -143,7 +144,7 @@ msgstr "Улантуу"
 
 #: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
-msgstr "Тукумдун абалы өзгөрүлдү"
+msgstr "Туунду процесстин абалы өзгөрүлдү"
 
 #: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
@@ -163,7 +164,7 @@ msgstr "CPU пределинен ашты"
 
 #: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr "Файл көлөмүнүн пределинен ашты"
+msgstr "Файл көлөмү пределинен ашты"
 
 #: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
@@ -183,8 +184,9 @@ msgstr "Маалымат талап кылуу"
 
 #: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr "Колдонуучу сигналы 1"
+msgstr "Колдонуучу аныктаган сигналы 1"
 
 #: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr "Колдонуучу сигналы 2"
+msgstr "Колдонуучу аныктаган сигналы 2"
+
