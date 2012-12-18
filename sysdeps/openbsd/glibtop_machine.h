@@ -31,6 +31,7 @@
 #include <time.h>
 #include <sys/user.h>
 #include <sys/types.h>
+#include <sys/proc.h>
 #include <sys/sysctl.h>
 
 #include <fcntl.h>
