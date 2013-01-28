@@ -41,6 +41,10 @@ get_device(glibtop* server, const char *mountpoint,
 
 	while ((mnt = getmntent(fp)))
 	{
+		/* There can be multiple root mount entries, skip the unuseful one */
+		if (!strcmp(mnt->mnt_fsname, "rootfs"))
+			continue;
+
 		if (!strcmp(mountpoint, mnt->mnt_dir)) {
 			if (!strncmp(mnt->mnt_fsname, "/dev/", 5)) {
 				g_strlcpy(device, mnt->mnt_fsname + 5, device_size);
