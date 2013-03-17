@@ -1,16 +1,17 @@
 # libgtop's Portuguese Translation
-# Copyright © 2001, 2002, 2003, 2004, 2005, 2007 libgtop
+# Copyright © 2001, 2002, 2003, 2004, 2005, 2007, 2013 libgtop
 # Distributed under the same licence as the libgtop package
-# Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003, 2004, 2005, 2007.
-#
+# Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003, 2004, 2005, 2007, 2013.
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: 2.20\n"
+"Project-Id-Version: 3.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-08 01:57+0100\n"
-"PO-Revision-Date: 2007-09-08 02:00+0000\n"
+"POT-Creation-Date: 2013-03-17 01:06+0000\n"
+"PO-Revision-Date: 2013-03-17 01:10+0000\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,23 +42,23 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "%d byte escrito"
 msgstr[1] "%d bytes escritos"
 
-#: ../src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
-msgstr "Activar depuração"
+msgstr "Ativar depuração"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
-msgstr "Activar resultados extensos"
+msgstr "Ativar resultados extensos"
 
-#: ../src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
-msgstr "Não efectuar fork em fundo"
+msgstr "Não efetuar fork em fundo"
 
-#: ../src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
 msgstr "Invocado pelo inetd"
 
-#: ../src/daemon/gnuserv.c:498
+#: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
@@ -94,7 +95,7 @@ msgstr "Erro EMT"
 
 #: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
-msgstr "Excepção de vírgula flutuante"
+msgstr "Exceção de vírgula flutuante"
 
 #: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
@@ -170,7 +171,7 @@ msgstr "Alarme virtual"
 
 #: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
-msgstr "Alarme de optimização"
+msgstr "Alarme de otimização"
 
 #: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
 msgid "Window size change"
