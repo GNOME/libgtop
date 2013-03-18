@@ -1,15 +1,15 @@
 # libgtop ko.po
 # Sung-Hyun Nam <namsh@lgic.co.kr>, 1998
-# Changwoo Ryu <cwryu@debian.org>, 2002, 2004, 2005, 2008.
+# Changwoo Ryu <cwryu@debian.org>, 2002, 2004, 2005, 2008, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop&component=general\n"
 "POT-Creation-Date: 2008-02-26 19:13+0900\n"
-"PO-Revision-Date: 2009-01-29 16:18+0900\n"
+"PO-Revision-Date: 2013-03-19 02:23+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
-"Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
+"Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,7 +51,7 @@ msgstr "백그라운드로 실행 안 함"
 
 #: ../src/daemon/gnuserv.c:464
 msgid "Invoked from inetd"
-msgstr "inetd에 의해 불림"
+msgstr "inetd가 호출"
 
 #: ../src/daemon/gnuserv.c:498
 #, c-format
@@ -181,15 +181,3 @@ msgstr "사용자 정의 신호 1"
 #: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "사용자 정의 신호 2"
-
-#~ msgid "DEBUG"
-#~ msgstr "디버그"
-
-#~ msgid "VERBOSE"
-#~ msgstr "VERBOSE"
-
-#~ msgid "NO-DAEMON"
-#~ msgstr "NO-DAEMON"
-
-#~ msgid "INETD"
-#~ msgstr "INETD"
