@@ -87,12 +87,12 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 		buf->pagein = 0;
 		buf->pageout = 0;
 	} else {
-		buf->pagein = uvmexp.swapins - swappgsin;
-		buf->pageout = uvmexp.swapouts - swappgsout;
+		buf->pagein = uvmexp.pgswapin - swappgsin;
+		buf->pageout = uvmexp.pgswapout - swappgsout;
 	}
 
-	swappgsin = uvmexp.swapins;
-	swappgsout = uvmexp.swapouts;
+	swappgsin = uvmexp.pgswapin;
+	swappgsout = uvmexp.pgswapout;
 
 	nswap = swapctl (SWAP_NSWAP, 0, 0);
 	if (nswap < 0) {
