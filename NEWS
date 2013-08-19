@@ -1,3 +1,8 @@
+19 August 2013: Overview of changes in 2.28.5
+=============================================
+* Fix numerous bugs in the OpenBSD backend.
+* Updated translations.
+
 30 August 2011: Overview of changes in 2.28.4
 =============================================
 * Fix numerous bugs in the FreeBSD backend.
