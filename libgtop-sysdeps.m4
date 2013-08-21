@@ -240,7 +240,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  AC_CACHE_VAL(msginfo_needs,
 	    msginfo_needs=
 	    for def in nothing KERNEL _KERNEL; do
-	      AC_COMPILE_IFELSE([#define $def
+	      AC_COMPILE_IFELSE([AC_LANG_SOURCE([#define $def
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
@@ -252,7 +252,7 @@ main (void)
   struct msginfo mi;
   mi.msgmax = 0;
   return 0;
-}],
+}])],
 	        [
 	          msginfo_needs=$def
 	          if test ${msginfo_needs} = KERNEL; then
