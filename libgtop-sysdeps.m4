@@ -237,8 +237,8 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  fi
 
 	  AC_MSG_CHECKING(what we need to define to get struct msginfo)
-	  AC_CACHE_VAL(msginfo_needs,
-	    msginfo_needs=
+	  AC_CACHE_VAL(msginfo_cv_needs,
+	    msginfo_cv_needs=
 	    for def in nothing KERNEL _KERNEL; do
 	      AC_COMPILE_IFELSE([AC_LANG_SOURCE([#define $def
 #include <sys/types.h>
@@ -254,21 +254,21 @@ main (void)
   return 0;
 }])],
 	        [
-	          msginfo_needs=$def
-	          if test ${msginfo_needs} = KERNEL; then
+	          msginfo_cv_needs=$def
+	          if test ${msginfo_cv_needs} = KERNEL; then
 	            AC_DEFINE(STRUCT_MSGINFO_NEEDS_KERNEL, 1,
 	              [Define to 1 if we need to define KERNEL to get 'struct msginfo'])
-	          elif test ${msginfo_needs} = _KERNEL; then
+	          elif test ${msginfo_cv_needs} = _KERNEL; then
 	            AC_DEFINE(STRUCT_MSGINFO_NEEDS__KERNEL, 1,
 	              [Define to 1 if we need to define _KERNEL to get 'struct msginfo'])
 	          fi
 	        ]
 	      )
-	      test -n "${msginfo_needs}" && break
+	      test -n "${msginfo_cv_needs}" && break
 	    done
 	  )
-	  AC_MSG_RESULT($msginfo_needs)
-	  if test -z "${msginfo_needs}"; then
+	  AC_MSG_RESULT($msginfo_cv_needs)
+	  if test -z "${msginfo_cv_needs}"; then
 	    AC_MSG_ERROR([Could not find the definition of 'struct msginfo'])
 	  fi
 	  ;;
