@@ -36,7 +36,7 @@ static glibtop_sysinfo sysinfo = { .flags = 0 };
 static void
 init_sysinfo (glibtop *server)
 {
-	char buffer [16384];
+	char buffer [65536];
 	gchar ** processors;
 
 	if(G_LIKELY(sysinfo.flags)) return;
