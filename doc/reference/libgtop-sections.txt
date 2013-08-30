@@ -219,17 +219,8 @@ glibtop_set_parameter_l
 <INCLUDE>glibtop/procargs.h</INCLUDE>
 <SECTION>
 <FILE>procargs</FILE>
-GLIBTOP_PROC_ARGS_SIZE
-GLIBTOP_MAX_PROC_ARGS
 glibtop_proc_args
-glibtop_get_proc_args_l
 glibtop_get_proc_args
-glibtop_get_proc_args_r
-glibtop_init_proc_args_p
-glibtop_get_proc_args_p
-glibtop_init_proc_args_s
-glibtop_get_proc_args_s
-glibtop_get_proc_argv_l
 glibtop_get_proc_argv
 </SECTION>
 
@@ -420,26 +411,8 @@ glibtop_get_proc_uid_s
 <INCLUDE>glibtop/proctime.h</INCLUDE>
 <SECTION>
 <FILE>proctime</FILE>
-GLIBTOP_PROC_TIME_START_TIME
-GLIBTOP_PROC_TIME_RTIME
-GLIBTOP_PROC_TIME_UTIME
-GLIBTOP_PROC_TIME_STIME
-GLIBTOP_PROC_TIME_CUTIME
-GLIBTOP_PROC_TIME_CSTIME
-GLIBTOP_PROC_TIME_TIMEOUT
-GLIBTOP_PROC_TIME_IT_REAL_VALUE
-GLIBTOP_PROC_TIME_FREQUENCY
-GLIBTOP_PROC_TIME_XCPU_UTIME
-GLIBTOP_PROC_TIME_XCPU_STIME
-GLIBTOP_MAX_PROC_TIME
 glibtop_proc_time
 glibtop_get_proc_time
-glibtop_get_proc_time_r
-glibtop_get_proc_time_l
-glibtop_init_proc_time_p
-glibtop_get_proc_time_p
-glibtop_init_proc_time_s
-glibtop_get_proc_time_s
 </SECTION>
 
 <INCLUDE>glibtop/signal.h</INCLUDE>
@@ -515,10 +488,6 @@ glibtop_send_version
 <INCLUDE>glibtop/proclist.h</INCLUDE>
 <SECTION>
 <FILE>proclist</FILE>
-GLIBTOP_PROCLIST_NUMBER
-GLIBTOP_PROCLIST_TOTAL
-GLIBTOP_PROCLIST_SIZE
-GLIBTOP_MAX_PROCLIST
 GLIBTOP_KERN_PROC_ALL
 GLIBTOP_KERN_PROC_PID
 GLIBTOP_KERN_PROC_PGRP
@@ -532,12 +501,6 @@ GLIBTOP_EXCLUDE_SYSTEM
 GLIBTOP_EXCLUDE_NOTTY
 glibtop_proclist
 glibtop_get_proclist
-glibtop_get_proclist_r
-glibtop_get_proclist_l
-glibtop_init_proclist_p
-glibtop_get_proclist_p
-glibtop_init_proclist_s
-glibtop_get_proclist_s
 </SECTION>
 
 <INCLUDE>glibtop/sem_limits.h</INCLUDE>

@@ -135,18 +135,18 @@ glibtop_get_proc_uid(glibtop_proc_uid *buf, pid_t pid)
 
 
 /**
+ * SECTION:proctime
+ * @title: Process Time
+ * @short_description: Get process time information
+ * @stability: Stable
+ */
+
+/**
  * glibtop_get_proc_time:
- * @buf:
- * @pid: Process id to get the user and tty information
+ * @buf: Returned process time information - see #glibtop_proc_time.
+ * @pid: Process id
  *
- * Please note that under Linux, #start_time value may be strange.
- * Linux kernel defines <type>INITIAL_JIFFIES</type> which implies a time
- * shift. Because <type>INITIAL_JIFFIES</type> is not user-space defined,
- * we cannot use it to compute accurate @code{start_time}. On Linux2.6,
- * <type>INITIAL_JIFFIES</type> is 300 so <type>start_time</type> is 
- * always 3s different from real start time of the given process. You 
- * may also get shift results if your system clock is not synchronised 
- * with your hardware clock. See <command>man hwclock</command>.
+ * Get process time information.
  */
 void
 glibtop_get_proc_time(glibtop_proc_time *buf, pid_t pid)
@@ -197,6 +197,26 @@ glibtop_get_proc_map(glibtop_proc_map *buf, pid_t pid)
 }
 
 
+/**
+ * SECTION:procargs
+ * @title: Process Arguments
+ * @short_description: Get process command line arguments
+ * @see_also: #libgtop-Process-List
+ * @stability: Stable
+ */
+
+/**
+ * glibtop_get_proc_args:
+ * @buf: Struct with @size of returned string.
+ * @pid: Process id
+ * @max_len: Maximum length of string to return (use zero to get all arguments).
+ *
+ * Get process command line arguments.
+ *
+ * Returns: @pid's command line arguments separated by null bytes; the length of 
+ * this string is returned in the @buf size field.  You are required to free
+ * the string when done.
+ */
 char *
 glibtop_get_proc_args(glibtop_proc_args *buf, pid_t pid, unsigned max_len)
 {
@@ -204,6 +224,18 @@ glibtop_get_proc_args(glibtop_proc_args *buf, pid_t pid, unsigned max_len)
 }
 
 
+/**
+ * glibtop_get_proc_argv
+ * @buf: Struct with @size of combined returned arguments.
+ * @pid: Process id
+ * @max_len: Maximum length of all arguments combined (use zero to get all arguments).
+ *
+ * Get process command line arguments.
+ *
+ * Returns: A NULL-terminated array of strings with all arguments of process pid
+ * (up to @max_len characters).  Remember to <function>g_strfreev</function>
+ * the returned array to avoid a memory leak.
+ */
 char **
 glibtop_get_proc_argv(glibtop_proc_args *buf, pid_t pid, unsigned max_len)
 {
@@ -211,6 +243,23 @@ glibtop_get_proc_argv(glibtop_proc_args *buf, pid_t pid, unsigned max_len)
 }
 
 
+/**
+ * SECTION:proclist
+ * @title: Process List
+ * @short_description: List running processes
+ * @stability: Stable
+ */
+
+/**
+ * glibtop_get_proclist
+ * @buf: Extra return information, see #glibtop_proclist.
+ * @which: Criteria for processes in returned list.  See the <type>GLIBTOP_KERN_PROC_*</type> and <type>GLIBTOP_EXCLUDE_*</type> constants.
+ * @arg: Extra arguments applied to @which.  Only <type>GLIBTOP_KERN_PROC_*</type> constants take arguments, see each constant definition for particular @arg description.
+ *
+ * Returns: A list of running processes or <type>NULL</type> on error.  The
+ * returned list is allocated using <function>g_malloc</function> and must be
+ * freed using <function>g_free</function> to avoid a memory leak.
+ */
 pid_t*
 glibtop_get_proclist(glibtop_proclist *buf, gint64 which, gint64 arg)
 {
