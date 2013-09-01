@@ -226,7 +226,7 @@ GLIB_DEFINE_LOCALEDIR([GTOPLOCALEDIR])
 AC_PATH_XTRA
 
 dnl For Solaris
-dnl Please don't move this before AC_PATH_XTRA
+dnl Please don\'t move this before AC_PATH_XTRA
 AC_CHECK_FUNC(gethostbyname,,[AC_CHECK_LIB(nsl,gethostbyname)])
 AC_CHECK_FUNC(connect,,[AC_CHECK_LIB(socket,connect)])
 AC_CHECK_FUNC(inet_aton,,[AC_CHECK_LIB(resolv,inet_aton)])
@@ -364,12 +364,20 @@ AC_SUBST(sysdeps_suid_lib)
 AC_SUBST(server_programs)
 
 GTK_DOC_CHECK(1.4)
+GLIB_REQUIRED=2.37.3
+
+PKG_CHECK_MODULES(GTOP_DBUS,
+   glib-2.0 >= $GLIB_REQUIRED
+   gio-2.0 >= $GLIB_REQUIRED
+   gio-unix-2.0 >= $GLIB_REQUIRED
+)
 
 AC_CONFIG_FILES([
 Makefile
 libgtop.spec
 po/Makefile.in
 misc/Makefile
+service/Makefile
 include/Makefile
 include/glibtop/Makefile
 sysdeps/Makefile

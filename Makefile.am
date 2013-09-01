@@ -6,7 +6,7 @@ else
 EXAMPLES_DIR = 
 endif
 
-SUBDIRS = po misc include sysdeps lib src $(EXAMPLES_DIR) doc
+SUBDIRS = po misc include sysdeps lib src $(EXAMPLES_DIR) doc service
 
 libgtopinclude_HEADERS = glibtop.h libgtopconfig.h
 libgtopincludedir = $(includedir)/libgtop-2.0

@@ -1,3 +1,6 @@
+service/*.o
+service/.deps
+service/gtop-dbus-service
 sysdeps/Makefile
 sysdeps/Makefile.in
 sysdeps/*/Makefile
