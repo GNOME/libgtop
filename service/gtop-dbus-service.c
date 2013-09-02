@@ -35,7 +35,7 @@ handle_method_call (GDBusConnection       *connection,
 {
 #ifdef VERBOSE
   gchar *paramstr = g_variant_print (parameters, TRUE);
-  fprintf (stderr, "[server 0] "
+  fprintf (stderr, MSG_PREFIX
            "handle_method_call (%p,\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",(invocation),%p)\n",
            connection, sender, object_path, interface_name, method_name, 
            paramstr, user_data);
