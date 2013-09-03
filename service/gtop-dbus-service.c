@@ -1,22 +1,44 @@
 #include <gio/gio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <config.h>
 #include <glib.h>
 
-#define MSG_PREFIX "[libgtop dbus server] "
+#include "gtop-dbus-service.h"
 
-static const gchar service[] = "org.gnome.gtopServer";
+// required for renice
+#include <sys/time.h>
+#include <sys/resource.h>
+#include <errno.h>
 
 static const gchar object_name[] = "/org/gnome/gtopServer";
+static const gchar processes_object_name[] = "/org/gnome/gtopServer/Processes";
+
+#define VERBOSE 1
 /* ---------------------------------------------------------------------------------------------------- */
 
 static GDBusNodeInfo *introspection_data = NULL;
 
 /* Introspection data for the service we are exporting */
 static const gchar introspection_xml[] =
-  "<node>"
+  "<node name='/org/gnome/gtopServer'>"
   "  <interface name='org.gnome.gtop'>"
   "    <property type='s' name='Version' access='read'/>"
+  "  </interface>"
+  "  <interface name='org.gnome.gtop.Processes'>"
+  "    <method name='SendSignal'>"
+  "      <arg name='pid' type='i' direction='in' />"
+  "      <arg name='signal' type='i' direction='in' />"
+  "    </method>"
+  "    <method name='Renice'>"
+  "      <arg name='pid' type='i' direction='in' />"
+  "      <arg name='nice' type='i' direction='in' />"
+  "    </method>"
+  "    <method name='GetProperties'>"
+  "      <arg name='pid' type='i' direction='in' />"
+  "      <arg name='propertyList' type='as' direction='in' />"
+  "      <arg name='properties' type='a{sv}' direction='out' />"
+  "    </method>"
   "  </interface>"
   "</node>";
 
@@ -34,20 +56,53 @@ handle_method_call (GDBusConnection       *connection,
                     gpointer               user_data)
 {
 #ifdef VERBOSE
-  gchar *paramstr = g_variant_print (parameters, TRUE);
-  fprintf (stderr, MSG_PREFIX
-           "handle_method_call (%p,\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",(invocation),%p)\n",
-           connection, sender, object_path, interface_name, method_name, 
-           paramstr, user_data);
-  g_free (paramstr);
+    gchar *paramstr = g_variant_print (parameters, TRUE);
+    fprintf (stderr, MSG_PREFIX
+             "handle_method_call (%p,\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",(invocation),%p)\n",
+             connection, sender, object_path, interface_name, method_name, 
+             paramstr, user_data);
+    g_free (paramstr);
 #endif
+    if (g_strcmp0 (method_name, "Renice") == 0)
+    {
+        int pid, prio;
+        g_variant_get (parameters, "(ii)", &pid, &prio);
+        gint renice_result = setpriority (PRIO_PROCESS, pid, CLAMP(prio, PRIO_MIN, PRIO_MAX));
+#ifdef VERBOSE
+        fprintf (stderr, MSG_PREFIX"renicing '%d' to '%d' priority returned %d", pid, prio, renice_result);
+#endif      
+        if (renice_result == 0) 
+            g_dbus_method_invocation_return_value (invocation, NULL);
+        else {
+            switch (errno) {
+                case ESRCH: g_dbus_method_invocation_return_error (invocation, 
+                                                                   G_IO_ERROR,
+                                                                   G_IO_ERROR_NOT_FOUND,
+                                                                   MSG_PREFIX "Process '%d' not found",
+                                                                   pid);
+                break;
+                case EACCES:
+                case EPERM: g_dbus_method_invocation_return_error (invocation, 
+                                                                   G_IO_ERROR,
+                                                                   G_IO_ERROR_PERMISSION_DENIED,
+                                                                   MSG_PREFIX "Permission denied to change priority of process '%d' to '%d'",
+                                                                   pid, prio);
+                break;
+            }
+        }
+            
+    }
 
+    // Anything else is an error.
+    else
+    {
   // Default: No such method
-     g_dbus_method_invocation_return_error (invocation,
-                                            G_IO_ERROR,
-                                            G_IO_ERROR_INVALID_ARGUMENT,
-                                            MSG_PREFIX "Invalid method: '%s'",
-                                            method_name);
+      g_dbus_method_invocation_return_error (invocation,
+                                             G_IO_ERROR,
+                                             G_IO_ERROR_INVALID_ARGUMENT,
+                                             MSG_PREFIX "Invalid method: '%s' on '%s'",
+                                             method_name, interface_name);
+    }
 } // handle_method_call
 
 /**
@@ -150,7 +205,18 @@ on_bus_acquired (GDBusConnection *connection,
                                          NULL,    // Optional user data
                                          NULL,    // Func. for freeing user data
                                          &error);
+                                         
+                                         
 
+    registration_id = 
+      g_dbus_connection_register_object (connection,
+                                         processes_object_name,
+                                         introspection_data->interfaces[1],
+                                         &interface_vtable,
+                                         NULL,    // Optional user data
+                                         NULL,    // Func. for freeing user data
+                                         &error);
+                                         
 } // on_bus_acquired
 
 static void
@@ -186,7 +252,7 @@ int main ( int argc, char ** argv ) {
     introspection_data = g_dbus_node_info_new_for_xml (introspection_xml, NULL);
     
     owner_id = g_bus_own_name (G_BUS_TYPE_SESSION,
-                               service,
+                               GTOP_SERVER,
                                G_BUS_NAME_OWNER_FLAGS_NONE,
                                on_bus_acquired,
                                on_name_acquired,
