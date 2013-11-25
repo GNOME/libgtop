@@ -251,7 +251,7 @@ int main ( int argc, char ** argv ) {
     
     introspection_data = g_dbus_node_info_new_for_xml (introspection_xml, NULL);
     
-    owner_id = g_bus_own_name (G_BUS_TYPE_SESSION,
+    owner_id = g_bus_own_name (G_BUS_TYPE_SYSTEM,
                                GTOP_SERVER,
                                G_BUS_NAME_OWNER_FLAGS_NONE,
                                on_bus_acquired,
