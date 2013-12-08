@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <errno.h>
 #include <mntent.h>
 
 
@@ -197,7 +198,7 @@ glibtop_get_fsusage_s(glibtop *server, glibtop_fsusage *buf, const char *path)
   memset(buf, 0, sizeof(glibtop_fsusage));
 
   if (statvfs(path, &fsd) < 0) {
-    glibtop_warn_r(server, "statvfs '%s' failed", path);
+    glibtop_warn_r(server, "statvfs '%s' failed: %s", path, strerror (errno));
     return;
   }
 
