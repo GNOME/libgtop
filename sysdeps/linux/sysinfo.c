@@ -51,7 +51,8 @@ init_sysinfo (glibtop *server)
 	    sysinfo.ncpu++) {
 
 		gchar **parts, **p;
-
+        if (g_strrstr (processors[sysinfo.ncpu], "processor" ) == NULL) 
+            continue;
 		glibtop_entry * const cpuinfo = &sysinfo.cpuinfo[sysinfo.ncpu];
 
 		cpuinfo->labels = g_ptr_array_new ();
