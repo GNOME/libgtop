@@ -3,6 +3,7 @@
 #endif
 
 #include <glibtop.h>
+#include <glibtop/sysinfo.h>
 
 #include <glibtop/union.h>
 
@@ -29,9 +30,41 @@ for(i = 0; i < (SIZE - 1); ++i) printf(".%u = " FORMAT ", ", i, buf.ARRAY[i]); \
 printf(".%u = " FORMAT " }\n", SIZE - 1 , buf.ARRAY[SIZE - 1]); \
 } while(0)
 
+#define PPRINT_ENTRY_ARRAY(ARRAY, SIZE) do { \
+size_t i; \
+printf("\t%4lu B %3lu " #ARRAY "[%lu] = { ", \
+(unsigned long) sizeof buf->ARRAY, 0,\
+(unsigned long) G_N_ELEMENTS(buf->ARRAY)); \
+for(i = 0; i < SIZE; ++i) { \
+printf ("[ ");\
+PPRINT_HASHTABLE(buf->ARRAY[i].values); \
+printf ("]\n");\
+} \
+printf("} "); \
+} while(0)
+
+#define PPRINT_HASHTABLE(HASHTABLE) do { \
+g_hash_table_foreach (HASHTABLE, (GHFunc)pprint_hashtable_item, NULL); \
+} while(0)
+
 #define FOOTER_PPRINT() putchar('\n');
 
+static void pprint_hashtable_item(gchar* key, gchar* value, gpointer user_data) 
+{
+  printf ("'%s': '%s', ", key, value);
+}
+static void pprint_get_sysinfo(void)
+{
+  const glibtop_sysinfo *buf;
 
+  buf = glibtop_get_sysinfo();
+
+  HEADER_PPRINT(glibtop_get_sysinfo);
+  //PPRINT(flags, "%#llx");
+  //PPRINT(ncpu, "%llu");
+  PPRINT_ENTRY_ARRAY(cpuinfo, 4);
+  FOOTER_PPRINT();
+}
 
 static void pprint_get_cpu(void)
 {
@@ -291,6 +324,7 @@ int main()
 {
   glibtop_init();
 
+  pprint_get_sysinfo();
   pprint_get_cpu();
 
   pprint_get_fsusage("/");
