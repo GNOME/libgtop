@@ -66,11 +66,12 @@ _glibtop_init_cpu_s (glibtop *server)
 /* Provides information about cpu usage. */
 
 #define FILENAME	"/proc/stat"
+#define STAT_BUFSIZ     81920
 
 void
 glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
-	char buffer [BUFSIZ], *p;
+	char buffer [STAT_BUFSIZ], *p;
 	int i;
 
 	memset (buf, 0, sizeof (glibtop_cpu));

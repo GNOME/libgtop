@@ -61,13 +61,14 @@ static void set_linux_version(glibtop *server)
 /* Opens pipe to gtop server. Returns 0 on success and -1 on error. */
 
 #define FILENAME	"/proc/stat"
+#define STAT_BUFSIZ     81920
 
 void
 glibtop_open_s (glibtop *server, const char *program_name,
 		const unsigned long features,
 		const unsigned flags)
 {
-	char buffer [BUFSIZ], *p = buffer;
+	char buffer [STAT_BUFSIZ], *p = buffer;
 
 	server->name = program_name;
 

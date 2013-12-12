@@ -54,7 +54,7 @@ G_BEGIN_DECLS
    Yes we are :)
    Nobody should really be using more than 32 processors.
 */
-#define GLIBTOP_NCPU		32
+#define GLIBTOP_NCPU		1024
 
 typedef struct _glibtop_cpu	glibtop_cpu;
 
