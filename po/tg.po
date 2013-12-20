@@ -8,70 +8,72 @@ msgstr ""
 "Project-Id-Version: Tajik Gnome\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgtop&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-29 00:29+0000\n"
-"PO-Revision-Date: 2013-01-21 15:11+0500\n"
+"POT-Creation-Date: 2013-12-19 14:39+0000\n"
+"PO-Revision-Date: 2013-12-20 13:31+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: \n"
-"Language: Tajik\n"
+"Language: tg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=2; plural=1;\n"
+"X-Generator: Poedit 1.6.3\n"
 
 #: ../lib/read.c:51
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d байти хондашуда"
+msgstr[1] "%d байти хондашуда"
 
 #: ../lib/read_data.c:51
 msgid "read data size"
-msgstr ""
+msgstr "андозаи иттилооти хондашуда"
 
 #: ../lib/read_data.c:70
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%lu байти иттилооти хондашуда"
+msgstr[1] "%lu байти иттилооти хондашуда"
 
 #: ../lib/write.c:51
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d байти сабтшуда"
+msgstr[1] "%d байти сабтшуда"
 
 #: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
-msgstr ""
+msgstr "Фаъол кардани ислоҳи хатоҳо"
 
 #: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
-msgstr ""
+msgstr "Фаъол кардани барориши ботафсил"
 
 #: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
-msgstr ""
+msgstr "Нагузаштан ба пасзамина"
 
 #: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "Дархостшуда аз inetd"
 
 #: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
+"Барои намоиш додани рӯйхати ҳамаи фармонҳои имконпазир '%s --help'-ро иҷро "
+"намоед.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
-msgstr ""
+msgstr "Боздоштан"
 
 #: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
-msgstr ""
+msgstr "Қатъ"
 
 #: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Quit"
@@ -79,11 +81,11 @@ msgstr "Баромад"
 
 #: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
-msgstr ""
+msgstr "Дастури нодуруст"
 
 #: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
-msgstr ""
+msgstr "Таҳлил"
 
 #: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Abort"
@@ -91,31 +93,31 @@ msgstr "Қатъ кардан"
 
 #: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "EMT error"
-msgstr ""
+msgstr "Хатои EMT"
 
 #: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
-msgstr ""
+msgstr "Истиснои нуқтаи тағйирёбанда"
 
 #: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
-msgstr ""
+msgstr "Қатъ кардан"
 
 #: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Bus error"
-msgstr ""
+msgstr "Хатои гузаргоҳ"
 
 #: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
-msgstr ""
+msgstr "Вайронии қисматбандӣ"
 
 #: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
-msgstr ""
+msgstr "Аргументи нокифоя барои дархости системавӣ"
 
 #: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
-msgstr ""
+msgstr "Вуруди вайроншуда"
 
 #: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
@@ -127,7 +129,7 @@ msgstr "Анҷоми кор"
 
 #: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Шарти таъҷилӣ дар бастагоҳ"
 
 #: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Stop"
@@ -135,7 +137,7 @@ msgstr "Истодан"
 
 #: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
-msgstr ""
+msgstr "Қатъи клавиатура"
 
 #: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
 msgid "Continue"
@@ -143,48 +145,48 @@ msgstr "Идома додан"
 
 #: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
-msgstr ""
+msgstr "Вазъияти иловагӣ тағйир ёфт"
 
 #: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
-msgstr ""
+msgstr "Пасзаминаи хониш аз tty"
 
 #: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
-msgstr ""
+msgstr "Пасзаминаи сабт ба tty"
 
 #: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
-msgstr ""
+msgstr "I/O ҳоло имконпазир аст"
 
 #: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
-msgstr ""
+msgstr "Аз ҳудуди CPU афзуд"
 
 #: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr ""
+msgstr "Аз ҳудуди андозаи файл афзуд"
 
 #: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
-msgstr ""
+msgstr "Соати зангдори виртуалӣ"
 
 #: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Соати зангдори профил"
 
 #: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
 msgid "Window size change"
-msgstr ""
+msgstr "Тағйири андозаи равзана"
 
 #: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Information request"
-msgstr ""
+msgstr "Дархости иттилоот"
 
 #: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr ""
+msgstr "Сигнали интихобшудаи 1"
 
 #: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr ""
+msgstr "Сигнали интихобшудаи 2"
