@@ -55,6 +55,7 @@ glibtop_open_p (glibtop *server, const char *program_name,
 		const unsigned long features,
 		const unsigned flags)
 {
+	char errbuf[_POSIX2_LINE_MAX];
 #ifdef DEBUG
 	fprintf (stderr, "DEBUG (%d): glibtop_open_p ()\n", getpid ());
 #endif
@@ -69,7 +70,7 @@ glibtop_open_p (glibtop *server, const char *program_name,
 	server->os_version_code = OpenBSD;
 
 	/* Setup machine-specific data */
-	server->machine.kd = kvm_open (NULL, NULL, NULL, O_RDONLY, "kvm_open");
+	server->machine.kd = kvm_openfiles (NULL, NULL, NULL, O_RDONLY, errbuf);
 
 	if (server->machine.kd == NULL)
 		glibtop_error_io_r (server, "kvm_open");

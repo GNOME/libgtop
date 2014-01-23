@@ -78,9 +78,9 @@ glibtop_get_proc_kernel_p (glibtop *server,
 		return;
 	}
 
-	if (pinfo->p_wmesg[0])
-		g_strlcpy(buf->wchan, pinfo->p_wmesg[0], sizeof(buf->wchan));
-	
+	if (pinfo->p_wmesg)
+		g_strlcpy(buf->wchan, pinfo->p_wmesg, sizeof(buf->wchan));
+
 	buf->min_flt = pinfo[0].p_uru_minflt;
 	buf->maj_flt = pinfo[0].p_uru_majflt;
 
