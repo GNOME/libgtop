@@ -1,5 +1,3 @@
-/* $OpenBSD: prockernel.c,v 1.4 2011/05/31 14:02:26 jasper Exp $	*/
-
 /* Copyright (C) 1998 Joshua Sled
    This file is part of LibGTop 1.0.
 

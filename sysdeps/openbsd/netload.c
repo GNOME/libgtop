@@ -1,5 +1,3 @@
-/* $OpenBSD: netload.c,v 1.4 2011/06/20 09:50:04 jasper Exp $	*/
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 

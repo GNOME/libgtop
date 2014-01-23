@@ -1,5 +1,3 @@
-/* $OpenBSD: mem.c,v 1.11 2011/07/10 15:23:01 jasper Exp $	*/
-
 /* Copyright (C) 1998 Joshua Sled
    This file is part of LibGTop 1.0.
 

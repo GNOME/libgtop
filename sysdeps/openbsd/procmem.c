@@ -1,5 +1,3 @@
-/* $OpenBSD: procmem.c,v 1.4 2011/05/24 10:40:47 jasper Exp $	*/
-
 /* Copyright (C) 1998 Joshua Sled
    This file is part of LibGTop 1.0.
 

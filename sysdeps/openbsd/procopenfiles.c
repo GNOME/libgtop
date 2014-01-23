@@ -1,5 +1,3 @@
-/* $OpenBSD: patch-sysdeps_openbsd_procopenfiles_c,v 1.1 2013/12/09 14:26:56 robert Exp $     */
-
 /* Copyright (C) 1998-99 Martin Baulig
    Copyright (C) 2004 Nicol\ufffds Lichtmaier
    Copyright (C) 2007 Joe Marcus Clarke

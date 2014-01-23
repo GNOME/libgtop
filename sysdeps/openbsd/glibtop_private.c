@@ -1,5 +1,3 @@
-/* $OpenBSD: glibtop_private.c,v 1.2 2011/05/23 19:35:53 jasper Exp $	*/
-
 #include <config.h>
 #include <glibtop.h>
 #include <glibtop/error.h>

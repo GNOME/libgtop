@@ -1,5 +1,3 @@
-# $OpenBSD: Makefile.am,v 1.2 2011/05/23 19:35:52 jasper Exp $
-
 INCLUDES			= @INCLUDES@
 
 noinst_LTLIBRARIES		= libgtop_sysdeps-2.0.la libgtop_sysdeps_suid-2.0.la

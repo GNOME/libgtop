@@ -1,5 +1,3 @@
-/* $OpenBSD: proctime.c,v 1.5 2011/07/10 15:29:26 jasper Exp $	*/
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 

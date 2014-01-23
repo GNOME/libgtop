@@ -1,5 +1,3 @@
-/* $OpenBSD: uptime.c,v 1.6 2011/06/01 07:24:49 jasper Exp $	*/
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 

@@ -1,5 +1,3 @@
-/* $OpenBSD: fsusage.c,v 1.4 2011/05/31 19:25:31 jasper Exp $	*/
-
 #include <config.h>
 
 /*

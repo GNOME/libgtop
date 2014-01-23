@@ -1,5 +1,3 @@
-/* $OpenBSD: sysinfo.c,v 1.4 2011/05/31 14:02:26 jasper Exp $	*/
-
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 

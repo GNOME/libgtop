@@ -1,5 +1,3 @@
-/* $OpenBSD: patch-sysdeps_openbsd_procmap_c,v 1.7 2012/03/11 08:45:24 ajacoutot Exp $	*/
-
 /* Copyright (C) 1998 Joshua Sled
    This file is part of LibGTop 1.0.
 
