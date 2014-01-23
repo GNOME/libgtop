@@ -71,7 +71,7 @@ calcru(struct proc *p, struct timeval *up, struct timeval *sp,
 {
 	quad_t totusec;
 	u_quad_t u, st, ut, it, tot;
-        long sec, usec;
+        long sec, nsec;
         struct timeval tv;
 
 	st = p->p_sticks;
@@ -85,9 +85,9 @@ calcru(struct proc *p, struct timeval *up, struct timeval *sp,
 	}
 
 	sec = p->p_rtime.tv_sec;
-	usec = p->p_rtime.tv_usec;
+	nsec = p->p_rtime.tv_nsec;
 
-	totusec = (quad_t)sec * 1000000 + usec;
+	totusec = (quad_t)sec * 1000000 + nsec/1000;
 
 	if (totusec < 0) {
 		/* XXX no %qd in kernel.  Truncate. */
