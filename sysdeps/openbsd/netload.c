@@ -36,12 +36,12 @@
 
 #include <sys/ioctl.h>
 
-#ifdef HAVE_NET_IF_VAR_H
 #include <net/if_var.h>
-#endif
 
 #include <netinet/in.h>
+#define _KERNEL
 #include <netinet/in_var.h>
+#undef _KERNEL
 #include <netinet6/in6_var.h>
 
 static const unsigned long _glibtop_sysdeps_netload =
