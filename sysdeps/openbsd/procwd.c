@@ -94,29 +94,6 @@ parse_output(const char *output, glibtop_proc_wd *buf)
 char**
 glibtop_get_proc_wd_s(glibtop *server, glibtop_proc_wd *buf, pid_t pid)
 {
-	char path[MAXPATHLEN];
-	char *output;
-
-	memset (buf, 0, sizeof (glibtop_proc_wd));
-
-	g_snprintf(path, sizeof(path), "/proc/%u/file", pid);
-	if (safe_readlink(path, buf->exe, sizeof(buf->exe)))
-		buf->flags |= (1 << GLIBTOP_PROC_WD_EXE);
-
-	output = execute_lsof(pid);
-	if (output != NULL) {
-		GPtrArray *dirs;
-
-		dirs = parse_output(output, buf);
-		g_free(output);
-
-		buf->number = dirs->len;
-		buf->flags |= (1 << GLIBTOP_PROC_WD_NUMBER);
-
-		g_ptr_array_add(dirs, NULL);
-
-		return (char **)g_ptr_array_free(dirs, FALSE);
-	}
-
+	/* TODO */
 	return NULL;
 }

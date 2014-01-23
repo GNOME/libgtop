@@ -32,7 +32,6 @@
 
 G_BEGIN_DECLS
 
-char *execute_lsof(pid_t pid);
 gboolean safe_readlink(const char *path, char *buf, int bufsiz);
 
 G_END_DECLS
