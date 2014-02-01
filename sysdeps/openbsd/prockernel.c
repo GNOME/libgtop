@@ -76,11 +76,13 @@ glibtop_get_proc_kernel_p (glibtop *server,
 		return;
 	}
 
-	if (pinfo->p_wmesg)
-		g_strlcpy(buf->wchan, pinfo->p_wmesg, sizeof(buf->wchan));
-
 	buf->min_flt = pinfo[0].p_uru_minflt;
 	buf->maj_flt = pinfo[0].p_uru_majflt;
+
+	buf->nwchan = pinfo[0].p_wchan;
+	if (pinfo[0].p_wchan && pinfo[0].p_wmesg)
+		g_strlcpy(buf->wchan, pinfo[0].p_wmesg,
+			  sizeof buf->wchan);
 
 	buf->flags |= (_glibtop_sysdeps_proc_kernel_wchan
 		| _glibtop_sysdeps_proc_kernel_pstats);
