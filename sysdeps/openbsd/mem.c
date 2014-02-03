@@ -48,12 +48,6 @@ static int pageshift;		/* log base 2 of the pagesize */
 /* define pagetok in terms of pageshift */
 #define pagetok(size) ((size) << pageshift)
 
-/* nlist structure for kernel access */
-static struct nlist nlst [] = {
-	{ "_bufpages" },
-	{ 0 }
-};
-
 /* MIB array for sysctl */
 static int vmmeter_mib [] = { CTL_VM, VM_METER };
 static int uvmexp_mib  [] = { CTL_VM, VM_UVMEXP };
@@ -62,14 +56,9 @@ static int bcstats_mib [] = { CTL_VFS, VFS_GENERIC, VFS_BCACHESTAT };
 /* Init function. */
 
 void
-_glibtop_init_mem_p (glibtop *server)
+_glibtop_init_mem_s (glibtop *server)
 {
 	register int pagesize;
-
-	if (kvm_nlist (server->machine.kd, nlst) < 0) {
-		glibtop_warn_io_r (server, "kvm_nlist (mem)");
-		return;
-	}
 
 	/* get the page size and calculate pageshift from it */
 	pagesize = sysconf(_SC_PAGESIZE);
@@ -86,7 +75,7 @@ _glibtop_init_mem_p (glibtop *server)
 }
 
 void
-glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
+glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
 	struct vmtotal vmt;
 	struct uvmexp uvmexp;

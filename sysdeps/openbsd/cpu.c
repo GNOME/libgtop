@@ -42,7 +42,7 @@ static int mib2 [] = { CTL_KERN, KERN_CPTIME };
 /* Init function. */
 
 void
-_glibtop_init_cpu_p (glibtop *server)
+_glibtop_init_cpu_s (glibtop *server)
 {
 	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
 }
@@ -50,7 +50,7 @@ _glibtop_init_cpu_p (glibtop *server)
 /* Provides information about cpu usage. */
 
 void
-glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
+glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 {
 	gulong cpts [CPUSTATES];
 

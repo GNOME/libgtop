@@ -191,8 +191,11 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 	if (kvm_read (server->machine.kd,
 		      (unsigned long) pinfo [0].p_vmspace,
-		      (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace))
-		glibtop_error_io_r (server, "kvm_read (vmspace)");
+		      (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace)) {
+			glibtop_warn_io_r (server, "kvm_read (vmspace)");
+			glibtop_suid_leave (server);
+			return NULL;
+	}
 
 	RB_INIT(&root);
 	nentries = load_vmmap_entries(server,
@@ -236,6 +239,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			      &vnode, sizeof (vnode)) != sizeof (vnode)) {
 			glibtop_warn_io_r (server, "kvm_read (vnode)");
 			unload_vmmap_entries(RB_ROOT(&root));
+			glibtop_suid_leave (server);
 			return (glibtop_map_entry*) g_array_free(maps, TRUE);
 		}
 
@@ -248,8 +252,12 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 		if (kvm_read (server->machine.kd,
 			      (unsigned long) vnode.v_data,
-			      &inode, sizeof (inode)) != sizeof (inode))
-			glibtop_error_io_r (server, "kvm_read (inode)");
+			      &inode, sizeof (inode)) != sizeof (inode)) {
+			glibtop_warn_io_r (server, "kvm_read (inode)");
+			unload_vmmap_entries(RB_ROOT(&root));
+			glibtop_suid_leave (server);
+			return (glibtop_map_entry*) g_array_free(maps, TRUE);
+		}
 
 		inum  = inode.i_number;
 		dev = inode.i_dev;
@@ -275,6 +283,8 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 		if (entry->protection & VM_PROT_EXECUTE)
 			mentry->perm |= GLIBTOP_MAP_PERM_EXECUTE;
 	}
+
+	glibtop_suid_leave (server);
 
 	buf->flags = _glibtop_sysdeps_proc_map;
 

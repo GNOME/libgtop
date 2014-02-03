@@ -32,7 +32,7 @@ static const unsigned long _glibtop_sysdeps_loadavg =
 /* Init function. */
 
 void
-_glibtop_init_loadavg_p (glibtop *server)
+_glibtop_init_loadavg_s (glibtop *server)
 {
 	server->sysdeps.loadavg = _glibtop_sysdeps_loadavg;
 }
@@ -40,7 +40,7 @@ _glibtop_init_loadavg_p (glibtop *server)
 /* Provides load averange. */
 
 void
-glibtop_get_loadavg_p (glibtop *server, glibtop_loadavg *buf)
+glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 {
 	double ldavg[3];
 	int i;

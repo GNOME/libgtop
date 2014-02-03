@@ -39,58 +39,6 @@ _glibtop_init_proc_wd_s(glibtop *server)
 	server->sysdeps.proc_wd = _glibtop_sysdeps_proc_wd;
 }
 
-static GPtrArray *
-parse_output(const char *output, glibtop_proc_wd *buf)
-{
-	GPtrArray *dirs;
-	char     **lines;
-	gboolean   nextwd = FALSE;
-	gboolean   nextrtd = FALSE;
-	gboolean   havertd = FALSE;
-	guint      i;
-	guint      len;
-
-	dirs = g_ptr_array_sized_new(1);
-
-	lines = g_strsplit(output, "\n", 0);
-	len = g_strv_length(lines);
-
-	for (i = 0; i < len && lines[i]; i++) {
-		if (strlen(lines[i]) < 2)
-			continue;
-
-		if (!strcmp(lines[i], "fcwd")) {
-			nextwd = TRUE;
-			continue;
-		}
-
-		if (!strcmp(lines[i], "frtd")) {
-			nextrtd = TRUE;
-			continue;
-		}
-
-		if (!g_str_has_prefix(lines[i], "n"))
-			continue;
-
-		if (nextwd) {
-			g_ptr_array_add(dirs, g_strdup(lines[i] + 1));
-			nextwd = FALSE;
-		}
-
-		if (nextrtd && !havertd) {
-			g_strlcpy(buf->root, lines[i] + 1,
-				  sizeof(buf->root));
-			buf->flags |= (1 << GLIBTOP_PROC_WD_ROOT);
-			nextrtd = FALSE;
-			havertd = TRUE;
-		}
-	}
-
-	g_strfreev(lines);
-
-	return dirs;
-}
-
 char**
 glibtop_get_proc_wd_s(glibtop *server, glibtop_proc_wd *buf, pid_t pid)
 {

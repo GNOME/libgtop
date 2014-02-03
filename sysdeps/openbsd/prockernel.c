@@ -34,12 +34,13 @@
 #include <fcntl.h>
 
 static const unsigned long _glibtop_sysdeps_proc_kernel_pstats =
+(1L << GLIBTOP_PROC_KERNEL_K_FLAGS) +
 (1L << GLIBTOP_PROC_KERNEL_MIN_FLT) +
 (1L << GLIBTOP_PROC_KERNEL_MAJ_FLT);
 
 static const unsigned long _glibtop_sysdeps_proc_kernel_wchan =
-(1L << GLIBTOP_PROC_KERNEL_NWCHAN) +
-(1L << GLIBTOP_PROC_KERNEL_WCHAN);
+(1L << GLIBTOP_PROC_KERNEL_WCHAN) +
+(1L << GLIBTOP_PROC_KERNEL_NWCHAN);
 
 /* Init function. */
 
@@ -68,22 +69,39 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	/* It does not work for the swapper task. */
 	if (pid == 0) return;
 
+	glibtop_suid_enter (server);
+
 	/* Get the process information */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid,
 			      sizeof(*pinfo), &count);
 	if ((pinfo == NULL) || (count != 1)) {
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
+		glibtop_suid_leave (server);
 		return;
 	}
 
-	buf->min_flt = pinfo[0].p_uru_minflt;
-	buf->maj_flt = pinfo[0].p_uru_majflt;
+	glibtop_suid_leave (server);
 
-	buf->nwchan = pinfo[0].p_wchan;
-	if (pinfo[0].p_wchan && pinfo[0].p_wmesg)
-		g_strlcpy(buf->wchan, pinfo[0].p_wmesg,
-			  sizeof buf->wchan);
+#define	PROC_WCHAN	p_wchan
+#define	PROC_WMESG	p_wmesg
 
-	buf->flags |= (_glibtop_sysdeps_proc_kernel_wchan
-		| _glibtop_sysdeps_proc_kernel_pstats);
+	buf->nwchan = (unsigned long) pinfo [0].PROC_WCHAN;
+
+	buf->flags |= (1L << GLIBTOP_PROC_KERNEL_NWCHAN);
+
+	if (pinfo [0].PROC_WCHAN && pinfo [0].PROC_WMESG[0] != 0) {
+		g_strlcpy (buf->wchan, pinfo [0].PROC_WMESG,
+			 sizeof buf->wchan);
+		buf->flags |= (1L << GLIBTOP_PROC_KERNEL_WCHAN);
+	} else {
+		buf->wchan [0] = 0;
+	}
+
+	buf->k_flags = (unsigned long) pinfo [0].p_flag;
+	buf->min_flt = (unsigned long) pinfo [0].p_uru_minflt;
+	buf->maj_flt = (unsigned long) pinfo [0].p_uru_majflt;
+
+	buf->flags |= _glibtop_sysdeps_proc_kernel_pstats;
+
+	return;
 }

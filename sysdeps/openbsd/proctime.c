@@ -56,59 +56,6 @@ _glibtop_init_proc_time_p (glibtop *server)
 		_glibtop_sysdeps_proc_time_user;
 }
 
-/* Taken from /usr/src/sys/kern/kern_resource.c */
-
-/*
- * Transform the running time and tick information in proc p into user,
- * system, and interrupt time usage.
- */
-
-static void
-calcru(struct proc *p, struct timeval *up, struct timeval *sp,
-    struct timeval *ip)
-{
-	quad_t totusec;
-	u_quad_t u, st, ut, it, tot;
-        long sec, nsec;
-        struct timeval tv;
-
-	st = p->p_sticks;
-	ut = p->p_uticks;
-	it = p->p_iticks;
-
-	tot = st + ut + it;
-	if (tot == 0) {
-		st = 1;
-		tot = 1;
-	}
-
-	sec = p->p_rtime.tv_sec;
-	nsec = p->p_rtime.tv_nsec;
-
-	totusec = (quad_t)sec * 1000000 + nsec/1000;
-
-	if (totusec < 0) {
-		/* XXX no %qd in kernel.  Truncate. */
-		fprintf (stderr, "calcru: negative time: %ld usec\n",
-			 (long)totusec);
-		totusec = 0;
-	}
-
-
-	u = totusec;
-	st = (u * st) / tot;
-	sp->tv_sec = st / 1000000;
-	sp->tv_usec = st % 1000000;
-	ut = (u * ut) / tot;
-	up->tv_sec = ut / 1000000;
-	up->tv_usec = ut % 1000000;
-	if (ip != NULL) {
-		it = (u * it) / tot;
-		ip->tv_sec = it / 1000000;
-		ip->tv_usec = it % 1000000;
-	}
-}
-
 /* Provides detailed information about a process. */
 
 void

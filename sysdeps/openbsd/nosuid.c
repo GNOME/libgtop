@@ -21,15 +21,7 @@
 
 #include <config.h>
 #include <glibtop.h>
-#include <glibtop/open.h>
 #include <glibtop/close.h>
-
-void
-glibtop_open_s (glibtop *server,
-		const char *program_name,
-		const unsigned long features,
-		const unsigned flags)
-{ }
 
 void
 glibtop_close_s (glibtop *server)

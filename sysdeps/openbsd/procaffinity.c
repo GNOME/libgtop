@@ -1,5 +1,5 @@
 /*
- * procaffinity stub.
+ * TODO (procaffinity stub)
  */
 
 #include <config.h>
