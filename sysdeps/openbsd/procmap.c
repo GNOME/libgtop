@@ -182,7 +182,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 	/* Get the process data */
 	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, sizeof(struct kinfo_proc), &count);
-	if ((pinfo == NULL) || (count < 1)) {
+	if (pinfo == NULL) {
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
 		return (glibtop_map_entry*) g_array_free(maps, TRUE);
 	}
