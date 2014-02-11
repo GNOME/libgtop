@@ -42,7 +42,7 @@ _glibtop_init_proclist_s (glibtop *server)
  *   On success, it returnes a pointer to a list of buf->number elements
  *   each buf->size big. The total size is stored in buf->total. */
 
-unsigned *
+pid_t *
 glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 			gint64 which, gint64 arg)
 {
