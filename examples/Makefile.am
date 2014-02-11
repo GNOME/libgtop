@@ -1,11 +1,5 @@
 ## Process this file with automake to produce Makefile.in
 
-LINK			= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(AM_LDFLAGS) -o $@
-
-INCLUDES		= @INCLUDES@
-
-DEFS			= @DEFS@
-
 AM_LDFLAGS			= $(LIBGTOP_EXTRA_LIBS)
 
 noinst_PROGRAMS	= 	first second pprint procargs df netlist \
