@@ -174,7 +174,10 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	  AC_SUBST(EXTRA_SYSDEPS_LIBS)
 
-	  AC_CHECK_HEADERS(net/if_var.h)
+	  AC_CHECK_HEADERS(net/if_var.h,,, [
+#include <net/if.h>
+#include <sys/types.h>
+#include <sys/socket.h>])
 	  AC_MSG_CHECKING([for I4B])
 	  AC_TRY_COMPILE([
 #include <sys/types.h>

@@ -43,10 +43,6 @@ glibtop_open_s (glibtop *server, const char *program_name,
 	server->real_ncpu = ncpus - 1;
 	server->ncpu = MIN(GLIBTOP_NCPU - 1, server->real_ncpu);
 
-#if defined(__FreeBSD_kernel__)
-	server->os_version_code = __FreeBSD_kernel_version;
-#else
 	server->os_version_code = __FreeBSD_version;
-#endif
 
 }
