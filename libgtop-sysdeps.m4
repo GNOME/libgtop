@@ -160,20 +160,6 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  AC_CHECK_LIB(kvm, kvm_open, KVM_LIBS=-lkvm, KVM_LIBS=)
 	  AC_SUBST(KVM_LIBS)
 
-	  case "$host_os" in
-	  kfreebsd*)
-	  	EXTRA_SYSDEPS_LIBS="-lgeom -ldevstat"
-		;;
-	  freebsd*)
-	  	osreldate=`sysctl -n kern.osreldate 2>/dev/null`
-		if test -n "${osreldate}" && test ${osreldate} -ge 600000 ; then
-		    EXTRA_SYSDEPS_LIBS="-lgeom -ldevstat"
-		fi
-		;;
-          esac
-
-	  AC_SUBST(EXTRA_SYSDEPS_LIBS)
-
 	  AC_CHECK_HEADERS(net/if_var.h,,, [
 #include <net/if.h>
 #include <sys/types.h>
