@@ -12,8 +12,6 @@
 ## Martin <martin@home-of-linux.org>
 ##
 
-LINK				= $(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o $@
-
 INCLUDES			= $(LIBGTOP_CFLAGS) @INCLUDES@ -D_BSD \
 				  -DLIBGTOP_COMPILE_SYSTEM="\"`uname -s`\"" \
 				  -DLIBGTOP_COMPILE_RELEASE="\"`uname -r`\"" \
