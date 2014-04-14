@@ -59,6 +59,12 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	buf->buffer = get_scaled(buffer, "Buffers:");
 	buf->cached = get_scaled(buffer, "Cached:");
 
-	buf->user = buf->total - buf->free - buf->cached - buf->buffer;
+	if (server->os_version_code >= LINUX_VERSION_CODE(3, 14, 0)) {
+		buf->user = buf->total - get_scaled(buffer, "MemAvailable:");
+	}
+	else {
+		buf->user = buf->total - buf->free - buf->cached - buf->buffer;
+	}
+
 	buf->flags = _glibtop_sysdeps_mem;
 }
