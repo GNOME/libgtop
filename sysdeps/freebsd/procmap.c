@@ -38,10 +38,7 @@
 #include <sys/vnode.h>
 #undef _KVM_VNODE
 
-#define _KERNEL
-#include <sys/pipe.h>
 #include <sys/conf.h>
-#undef _KERNEL
 #if (__FreeBSD_version >= 800038) || (__FreeBSD_kernel_version >= 800038)
 #define _WANT_FILE
 #include <sys/file.h>
