@@ -18,16 +18,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-16 17:03+0000\n"
-"PO-Revision-Date: 2005-02-18 13:40+0200\n"
-"Last-Translator: Kostas Papadimas <pkst@gnome.org>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-12-19 14:39+0000\n"
+"PO-Revision-Date: 2014-07-09 13:59+0200\n"
+"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.3.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.5\n"
 
 #: ../lib/read.c:51
 #, c-format
@@ -54,23 +56,23 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "εγγραφή %d byte"
 msgstr[1] "εγγραφή %d bytes"
 
-#: ../src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
-msgstr "Ενεργοποίηση εκσφαλμάτωσης"
+msgstr "Ενεργοποίηση αποσφαλμάτωσης"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
-msgstr "Ενεργοποίηση περιφραστικής εξόδου"
+msgstr "Ενεργοποίηση αναλυτικής εξόδου"
 
-#: ../src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
-msgstr "Να μη γίνει δικράνωση στο παρασκήνιο"
+msgstr "Να μη γίνει διακλάδωση στο παρασκήνιο"
 
-#: ../src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
 msgstr "Εκτελεσμένο από το inetd"
 
-#: ../src/daemon/gnuserv.c:498
+#: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
@@ -79,7 +81,7 @@ msgstr ""
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
-msgstr "Αποτελμάτωση"
+msgstr "Κλείσιμο"
 
 #: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
@@ -91,7 +93,7 @@ msgstr "Έξοδος"
 
 #: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
-msgstr "Ακατάλληλη εντολή"
+msgstr "Μη επιτρεπτή εντολή"
 
 #: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
@@ -99,7 +101,7 @@ msgstr "Παγίδευση παρακολούθησης"
 
 #: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Abort"
-msgstr "Αποβολή"
+msgstr "Εγκατάλειψη"
 
 #: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "EMT error"
@@ -107,11 +109,11 @@ msgstr "Σφάλμα EMT"
 
 #: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
-msgstr "Εξαίρεση κιν. υποδιαστολής"
+msgstr "Εξαίρεση κινητής υποδιαστολής"
 
 #: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
-msgstr "Σκότωμα"
+msgstr "Βίαιος τερματισμός"
 
 #: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Bus error"
@@ -119,7 +121,7 @@ msgstr "Σφάλμα διαύλου"
 
 #: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
-msgstr "Παραβίαση τμηματοποίησης"
+msgstr "Παραβίαση κατάτμησης"
 
 #: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
@@ -127,7 +129,7 @@ msgstr "Ακατάλληλο όρισμα σε κλήση συστήματος"
 
 #: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
-msgstr "Διακοπείσα σωλήνωση"
+msgstr "Κατεστραμμένη διοχέτευση"
 
 #: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
@@ -155,7 +157,7 @@ msgstr "Συνέχεια"
 
 #: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
-msgstr "Η κατάσταση θυγατρικής διεργασίας έχει αλλάξει"
+msgstr "Έχει αλλάξει η κατάσταση της θυγατρικής διεργασίας"
 
 #: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
@@ -167,19 +169,19 @@ msgstr "Εγγραφή παρασκηνίου σε tty"
 
 #: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
-msgstr "Η Ε/Ε είναι τώρα δυνατή"
+msgstr "Η I/O είναι τώρα δυνατή"
 
 #: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
-msgstr "Το όριο ΚΜΕ έχει ξεπεραστεί"
+msgstr "Έχει ξεπεραστεί το όριο της CPU"
 
 #: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr "Το όριο μεγέθους αρχείου έχει ξεπεραστεί"
+msgstr "Έχει ξεπεραστεί το όριο μεγέθους αρχείου"
 
 #: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
-msgstr "Ιδεατό ξυπνητήρι"
+msgstr "Εικονικό ξυπνητήρι"
 
 #: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
