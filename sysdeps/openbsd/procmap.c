@@ -41,6 +41,10 @@
 #include <sys/ucred.h>
 #include <sys/sysctl.h>
 
+/* XXX until uvm gets cleaned up */
+#include <sys/mutex.h>
+typedef int boolean_t;
+
 #undef _KERNEL
 #define _UVM_UVM_AMAP_I_H_ 1
 #define _UVM_UVM_MAP_I_H_ 1

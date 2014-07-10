@@ -38,6 +38,10 @@
 
 #include <sys/ucred.h>
 #include <sys/sysctl.h>
+
+/* XXX until uvm gets cleaned up */
+#include <sys/mutex.h>
+typedef int boolean_t;
 #include <uvm/uvm.h>
 
 /* Fixme ... */
