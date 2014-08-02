@@ -127,6 +127,15 @@ struct _glibtop_proclist
 	guint64 size;			/* GLIBTOP_PROCLIST_SIZE	*/
 };
 
+/**
+ * glibtop_get_proclist:
+ * @buf: a #glibtop_proclist
+ * @which: a #GLIBTOP_* constant specifying process type
+ * @arg: an argument specific for the process type
+ *
+ * Returns: (array zero-terminated=1) (transfer none): an array of process
+ *     ids
+ */
 pid_t*
 glibtop_get_proclist(glibtop_proclist *buf, gint64 which, gint64 arg);
 
@@ -136,6 +145,16 @@ glibtop_get_proclist(glibtop_proclist *buf, gint64 which, gint64 arg);
 #define glibtop_get_proclist_r		glibtop_get_proclist_s
 #endif
 
+/**
+ * glibtop_get_proclist_l:
+ * @server: a #glibtop server
+ * @buf: a #glibtop_proclist
+ * @which: a #GLIBTOP_* constant specifying process type
+ * @arg: an argument specific for the process type
+ *
+ * Returns: (array zero-terminated=1) (transfer none): an array of process
+ *     ids
+ */
 pid_t*
 glibtop_get_proclist_l (glibtop *server, glibtop_proclist *buf,
 			gint64 which, gint64 arg);
@@ -143,12 +162,32 @@ glibtop_get_proclist_l (glibtop *server, glibtop_proclist *buf,
 #if GLIBTOP_SUID_PROCLIST
 void _glibtop_init_proclist_p (glibtop *server);
 
+/**
+ * glibtop_get_proclist_p:
+ * @server: a #glibtop server
+ * @buf: a #glibtop_proclist
+ * @which: a #GLIBTOP_* constant specifying process type
+ * @arg: an argument specific for the process type
+ *
+ * Returns: (array zero-terminated=1) (transfer none): an array of process
+ *     ids
+ */
 pid_t*
 glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 			gint64 which, gint64 arg);
 #else
 void _glibtop_init_proclist_s (glibtop *server);
 
+/**
+ * glibtop_get_proclist_s:
+ * @server: a #glibtop server
+ * @buf: a #glibtop_proclist
+ * @which: a #GLIBTOP_* constant specifying process type
+ * @arg: an argument specific for the process type
+ *
+ * Returns: (array zero-terminated=1) (transfer none): an array of process
+ *     ids
+ */
 pid_t*
 glibtop_get_proclist_s (glibtop *server, glibtop_proclist *buf,
 			gint64 which, gint64 arg);
