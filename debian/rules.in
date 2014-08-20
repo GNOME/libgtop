@@ -10,7 +10,7 @@
 i=$(shell pwd)/debian/tmp
 b=$(shell pwd)/debian/build
 
-configure: configure.in
+configure: configure.ac
 	@echo "--- Making configure script and configuring"
 	chmod +x autogen.sh
 	./autogen.sh --prefix=/@PREFIX@ --with-gnome=/@GNOMEPREFIX@ \

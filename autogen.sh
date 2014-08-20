@@ -6,7 +6,7 @@ test -z "$srcdir" && srcdir=.
 
 PKG_NAME="Gnome Top Library"
 
-(test -f $srcdir/configure.in \
+(test -f $srcdir/configure.ac \
   && test -f $srcdir/copyright.txt \
   && test -d $srcdir/sysdeps) || {
     echo -n "**Error**: Directory "\`$srcdir\'" does not look like the"
