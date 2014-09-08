@@ -23,9 +23,9 @@
 #define __GLIBTOP_MACHINE_H__
 
 #include <sys/param.h>
+#include <sys/sched.h>
 #include <nlist.h>
 #include <kvm.h>
-#include <sys/dkstat.h>
 #include <time.h>
 #include <sys/user.h>
 #include <sys/types.h>
