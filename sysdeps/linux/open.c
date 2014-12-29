@@ -42,7 +42,7 @@ static void set_linux_version(glibtop *server)
 	if (uname(&uts) == -1) /* failure most likely implies impending death */
 		glibtop_error_r(server, "uname() failed");
 
-	version_string_depth = sscanf(uts.release, "%d.%d.%d", &x, &y, &z);
+	version_string_depth = sscanf(uts.release, "%u.%u.%u", &x, &y, &z);
 
 	if ((version_string_depth < 2) ||                /* Non-standard for all known kernels */
 	   ((version_string_depth < 3) && (x < 3)))      /* Non-standard for 2.x.x kernels */
