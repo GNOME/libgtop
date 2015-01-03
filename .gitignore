@@ -50,6 +50,7 @@ config.log
 config.status
 config.sub
 configure
+compile
 depcomp
 doc/Makefile
 doc/Makefile.in
