@@ -34,6 +34,7 @@ AC_CONFIG_HEADERS(config.h)
 AC_CANONICAL_HOST
 
 AM_INIT_AUTOMAKE([-Wno-portability tar-ustar no-dist-gzip dist-xz])
+AM_SILENT_RULES([yes])
 AC_CONFIG_MACRO_DIR([m4])
 GOBJECT_INTROSPECTION_CHECK([0.6.7])
 
