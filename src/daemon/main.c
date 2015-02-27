@@ -26,8 +26,8 @@
 #ifndef PARENT_DEBUG
 #define PARENT_DEBUG 1
 #endif
-#ifndef DEBUG
-#define DEBUG 1
+#ifndef LIBGTOP_ENABLE_DEBUG
+#define LIBGTOP_ENABLE_DEBUG 1
 #endif
 #endif
 

@@ -52,7 +52,7 @@ glibtop_open_p (glibtop *server, const char *program_name,
 		const unsigned long features,
 		const unsigned flags)
 {
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 	fprintf (stderr, "DEBUG (%d): glibtop_open_p ()\n", getpid ());
 #endif
 

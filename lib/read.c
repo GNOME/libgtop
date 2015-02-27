@@ -33,7 +33,7 @@ glibtop_read_l (glibtop *server, size_t size, void *buf)
 	int fd;
 	glibtop_init_r (&server, 0, 0);
 
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 	fprintf (stderr, "LIBRARY: really reading %d bytes.\n", (int)size);
 #endif
 

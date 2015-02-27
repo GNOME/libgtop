@@ -56,7 +56,7 @@ glibtop_open_p (glibtop *server, const char *program_name,
 		const unsigned flags)
 {
 	char errbuf[_POSIX2_LINE_MAX];
-#ifdef DEBUG
+#ifdef LIBGTOP_ENABLE_DEBUG
 	fprintf (stderr, "DEBUG (%d): glibtop_open_p ()\n", getpid ());
 #endif
 
