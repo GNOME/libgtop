@@ -102,6 +102,11 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
        buf->resident = buf->rss = (guint64)
 	       ps_pgtok (pinfo [0].ki_rssize) * 1024;
 
+#if 0
+	/*
+	 * It doesn't make any sense to count as shared each and every mmaped file
+	 */
+
 	/* Now we get the shared memory. */
 
 	if (kvm_read (server->machine.kd,
@@ -157,4 +162,5 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 	buf->flags = _glibtop_sysdeps_proc_mem |
 		_glibtop_sysdeps_proc_mem_share;
+#endif
 }
