@@ -141,7 +141,7 @@ _init_server (glibtop *server, const unsigned features)
 
 		/* Open pipe to server. */
 		server->method = GLIBTOP_METHOD_PIPE;
-
+		server->server_command = g_strdup(LIBGTOP_SERVER);
 	} else {
 
 		glibtop_error_r (server, "Unknown server method '%s'",

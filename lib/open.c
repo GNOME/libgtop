@@ -95,7 +95,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 	case GLIBTOP_METHOD_PIPE:
 #ifdef LIBGTOP_ENABLE_DEBUG
 		fprintf (stderr, "Opening pipe to server (%s).\n",
-			 LIBGTOP_SERVER);
+			 server->server_command);
 #endif
 
 		if (pipe (server->input) || pipe (server->output))
@@ -110,9 +110,9 @@ glibtop_open_l (glibtop *server, const char *program_name,
 			close (server->input [0]); close (server->output [1]);
 			dup2 (server->input [1], 1);
 			dup2 (server->output [0], 0);
-			execl (LIBGTOP_SERVER, "libgtop-server", NULL);
+			execl (server->server_command, "libgtop-server", NULL);
 			glibtop_error_io_r (server, "execl (%s)",
-					    LIBGTOP_SERVER);
+					    server->server_command);
 			_exit (2);
 		}
 
