@@ -132,7 +132,9 @@ _glibtop_get_fsusage_read_write (glibtop *server, glibtop_fsusage *buf, const ch
         buf->read = sfs.f_syncreads + sfs.f_asyncreads;
         buf->write = sfs.f_syncwrites + sfs.f_asyncwrites;
 #endif
-        buf->flags |= (1 << GLIBTOP_FSUSAGE_READ) | (1 << GLIBTOP_FSUSAGE_WRITE);
+	if (buf->read || buf->write) {
+                buf->flags |= (1 << GLIBTOP_FSUSAGE_READ) | (1 << GLIBTOP_FSUSAGE_WRITE);
+	}
 }
 
 void
