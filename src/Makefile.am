@@ -1,4 +1,4 @@
-if NEED_LIBGTOP
+if LIBGTOP_NEED_SERVER
 daemon_SUBDIRS		= daemon
 else
 daemon_SUBDIRS		=

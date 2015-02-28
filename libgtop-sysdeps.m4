@@ -7,8 +7,8 @@ dnl * 'libgtop_sysdeps_dir'    - sysdeps dir for libgtop.
 dnl * 'libgtop_use_machine_h'  - some of system dependend parts of libgtop provide
 dnl                              their own header file. In this case we need to
 dnl                              define 'HAVE_GLIBTOP_MACHINE_H'.
-dnl * 'libgtop_need_server'    - is the server really needed? Defines 'NEED_LIBGTOP'
-dnl                              if true; defines conditional 'NEED_LIBGTOP'.
+dnl * 'libgtop_need_server'    - is the server really needed? Defines 'LIBGTOP_NEED_SERVER'
+dnl                              if true; defines conditional 'LIBGTOP_NEED_SERVER'.
 
 AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	AC_REQUIRE([AC_CANONICAL_HOST])
@@ -311,7 +311,7 @@ main (void)
 	AC_MSG_RESULT($libgtop_need_server)
 
 	if test x$libgtop_need_server = xyes ; then
-	  AC_DEFINE(NEED_LIBGTOP, 1, [Define if libgtop is required])
+	  AC_DEFINE(LIBGTOP_NEED_SERVER, 1, [Define if libgtop server is required])
 	fi
 
 	if test x$libgtop_use_machine_h = xyes ; then
@@ -319,7 +319,7 @@ main (void)
                     [Define if machine.h in libgtop sysdeps dir])
 	fi
 
-	AM_CONDITIONAL(NEED_LIBGTOP, test x$libgtop_need_server = xyes)
+	AM_CONDITIONAL(LIBGTOP_NEED_SERVER, test x$libgtop_need_server = xyes)
 	AM_CONDITIONAL(LIBGTOP_SYSDEPS_PRIVATE_MOUNTLIST, test x$libgtop_sysdeps_private_mountlist = xyes)
 	AM_CONDITIONAL(LIBGTOP_SYSDEPS_PRIVATE_FSUSAGE, test x$libgtop_sysdeps_private_fsusage = xyes)
 ])

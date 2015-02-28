@@ -18,7 +18,7 @@ INCLUDES			= $(LIBGTOP_CFLAGS) @INCLUDES@ -D_BSD \
 				  -DLIBGTOP_COMPILE_VERSION="\"`uname -v`\"" \
 				  -DLIBGTOP_COMPILE_MACHINE="\"`uname -m`\""
 
-if NEED_LIBGTOP
+if LIBGTOP_NEED_SERVER
 suid_sysdeps			= $(top_builddir)/sysdeps/@sysdeps_dir@/libgtop_sysdeps_suid-2.0.la
 suid_common			= $(top_builddir)/sysdeps/common/libgtop_suid_common-2.0.la
 else
