@@ -60,8 +60,7 @@ static const unsigned long _glibtop_sysdeps_proc_mem_share =
 void
 _glibtop_init_proc_mem_p (glibtop *server)
 {
-	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem |
-		_glibtop_sysdeps_proc_mem_share;
+	server->sysdeps.proc_mem = _glibtop_sysdeps_proc_mem;
 }
 
 /* Provides detailed information about a process. */
@@ -101,6 +100,8 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	       pinfo [0].ki_size;
        buf->resident = buf->rss = (guint64)
 	       ps_pgtok (pinfo [0].ki_rssize) * 1024;
+
+       buf->flags |= _glibtop_sysdeps_proc_mem;
 
 #if 0
 	/*
@@ -160,7 +161,6 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 		buf->share += object.un_pager.vnp.vnp_size;
 	}
 
-	buf->flags = _glibtop_sysdeps_proc_mem |
-		_glibtop_sysdeps_proc_mem_share;
+	buf->flags |= _glibtop_sysdeps_proc_mem_share;
 #endif
 }
