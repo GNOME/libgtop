@@ -21,14 +21,21 @@
 #define PPRINT(DATA, FORMAT) printf("\t%4lu B %3lu " #DATA " = " FORMAT "\n", \
 (unsigned long) sizeof buf.DATA, (unsigned long) buf_offsetof(DATA), buf.DATA)
 
-#define PPRINT_ARRAY(ARRAY, SIZE, FORMAT) do { \
-size_t i; \
-printf("\t%4lu B %3lu " #ARRAY "[%lu] = { ", \
-(unsigned long) sizeof buf.ARRAY, (unsigned long) buf_offsetof(ARRAY),\
-(unsigned long) G_N_ELEMENTS(buf.ARRAY)); \
-for(i = 0; i < (SIZE - 1); ++i) printf(".%u = " FORMAT ", ", i, buf.ARRAY[i]); \
-printf(".%u = " FORMAT " }\n", SIZE - 1 , buf.ARRAY[SIZE - 1]); \
-} while(0)
+#define PPRINT_ARRAY(ARRAY, SIZE, FORMAT) do {				\
+    size_t i;								\
+    printf("\t%4lu B %3lu " #ARRAY "[%lu] = { ",			\
+	   (unsigned long) sizeof buf.ARRAY,				\
+	   (unsigned long) buf_offsetof(ARRAY),				\
+	   (unsigned long) G_N_ELEMENTS(buf.ARRAY));			\
+    for (i = 0; i < (SIZE); ++i) {					\
+      printf(".%u = " FORMAT ", ", i, buf.ARRAY[i]);			\
+      if (!buf.ARRAY[i] && i < (SIZE - 1) && !buf.ARRAY[i + 1]) {	\
+	do { i++; } while (i < SIZE && !buf.ARRAY[i]);			\
+	printf("..., ");						\
+      }									\
+    }									\
+    printf("}\n");							\
+  } while(0)
 
 #define PPRINT_ENTRY_ARRAY(ARRAY, SIZE) do { \
 size_t i; \
