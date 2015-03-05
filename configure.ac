@@ -278,10 +278,6 @@ if test x$libgtop_use_machine_h = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_GLIBTOP_MACHINE_H"
 fi
 
-if test x$libgtop_smp = xyes ; then
-  LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SMP"
-fi
-
 if test x$libgtop_have_sysinfo = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SYSINFO"
 fi

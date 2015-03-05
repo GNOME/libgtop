@@ -31,33 +31,6 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 
 	AM_CONDITIONAL(HACKER_MODE, test x"$hacker_mode" = xyes)
 
-	AC_ARG_WITH(libgtop-smp,
-	AS_HELP_STRING([--with-libgtop-smp],
-	[Enable SMP support @<:@default-auto@:>@]),[
-	libgtop_smp="$withval"],[libgtop_smp=auto])
-
-	if test $libgtop_smp = auto ; then
-	  AC_MSG_CHECKING(whether to enable SMP support)
-	  case "$host_os" in
-	  linux*)
-	    libgtop_smp=yes
-	    ;;
-	  aix*)
-	    libgtop_smp=yes
-	    ;;
-	  *)
-	    libgtop_smp=no
-	    ;;
-	  esac
-	  AC_MSG_RESULT($libgtop_smp)
-	fi
-
-	if test $libgtop_smp = yes ; then
-	  AC_DEFINE(HAVE_LIBGTOP_SMP, 1, [Define if libgtop supports SMP])
-	fi
-
-	AM_CONDITIONAL(LIBGTOP_SMP, test $libgtop_smp = yes)
-
 	AC_MSG_CHECKING(for libgtop sysdeps directory)
 
 	case "$host_os" in
