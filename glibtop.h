@@ -126,14 +126,37 @@ extern glibtop *glibtop_global_server;
 
 extern const unsigned long glibtop_server_features;
 
+/**
+ * glibtop_init:
+ *
+ * Returns: (transfer none):
+ */
 glibtop *
 glibtop_init (void);
 
+
+/**
+ * glibtop_init_r:
+ * @server_ptr: (out):
+ * @features:
+ * @flags:
+ *
+ * Returns: (transfer none):
+ */
 glibtop *
 glibtop_init_r (glibtop **server_ptr,
 		unsigned long features,
 		unsigned flags);
 
+
+/**
+ * glibtop_init_s:
+ * @server_ptr: (out):
+ * @features:
+ * @flags:
+ *
+ * Returns: (transfer none):
+ */
 glibtop *
 glibtop_init_s (glibtop **server_ptr,
 		unsigned long features,
