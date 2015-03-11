@@ -96,9 +96,8 @@ struct _glibtop_proc_open_files
 
 /**
  * glibtop_get_proc_open_files:
- * @server:
  * @buf: (out):
- * @all_fs:
+ * @pid:
  *
  * Returns: (transfer none):
  */
@@ -107,7 +106,7 @@ struct _glibtop_proc_open_files
  * glibtop_get_proc_open_files_l:
  * @server:
  * @buf: (out):
- * @all_fs:
+ * @pid:
  *
  * Returns: (transfer none):
  */
@@ -116,16 +115,16 @@ struct _glibtop_proc_open_files
  * glibtop_get_proc_open_files_p:
  * @server:
  * @buf: (out):
- * @all_fs:
+ * @pid:
  *
  * Returns: (transfer none):
  */
 
 /**
- * glibtop_get_proc_open_files_l:
+ * glibtop_get_proc_open_files_s:
  * @server:
  * @buf: (out):
- * @all_fs:
+ * @pid:
  *
  * Returns: (transfer none):
  */

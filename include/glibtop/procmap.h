@@ -94,7 +94,6 @@ glibtop_get_proc_map(glibtop_proc_map *buf, pid_t pid);
 
 /**
  * glibtop_get_proc_map:
- * @server:
  * @buf: (out):
  * @pid:
  *
