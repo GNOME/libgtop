@@ -56,6 +56,9 @@ G_BEGIN_DECLS
 
 #define GLIBTOP_MAX_SYSDEPS		27
 
+/* The 'features' args to glibtop_init_* is an unsigned long */
+G_STATIC_ASSERT((1UL << (GLIBTOP_MAX_SYSDEPS - 1)) <= ULONG_MAX);
+
 #define GLIBTOP_SYSDEPS_ALL		((1 << GLIBTOP_MAX_SYSDEPS) - 1)
 
 typedef struct _glibtop_sysdeps	glibtop_sysdeps;
