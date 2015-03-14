@@ -67,6 +67,8 @@ char** glibtop_get_netlist(glibtop_netlist *buf);
 char** glibtop_get_netlist_l (glibtop *server, glibtop_netlist *buf);
 
 #if GLIBTOP_SUID_NETLIST
+void _glibtop_init_netlist_p (glibtop *server);
+
 /**
  * glibtop_get_netlist_p:
  * @server: a #glibtop server
@@ -75,9 +77,10 @@ char** glibtop_get_netlist_l (glibtop *server, glibtop_netlist *buf);
  * Returns: (array zero-terminated=1) (transfer none): an array of network
  *          interface names.
  */
-void _glibtop_init_netlist_p (glibtop *server);
 char** glibtop_get_netlist_p (glibtop *server, glibtop_netlist *buf);
 #else
+void _glibtop_init_netlist_s (glibtop *server);
+
 /**
  * glibtop_get_netlist_s:
  * @server: a #glibtop server
@@ -86,7 +89,6 @@ char** glibtop_get_netlist_p (glibtop *server, glibtop_netlist *buf);
  * Returns: (array zero-terminated=1) (transfer none): an array of network
  *          interface names.
  */
-void _glibtop_init_netlist_s (glibtop *server);
 char** glibtop_get_netlist_s (glibtop *server, glibtop_netlist *buf);
 #endif
 
