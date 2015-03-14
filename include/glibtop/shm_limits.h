@@ -37,6 +37,9 @@ G_BEGIN_DECLS
 
 typedef struct _glibtop_shm_limits	glibtop_shm_limits;
 
+/**
+ * glibtop_shm_limits:
+ */
 struct _glibtop_shm_limits
 {
 	guint64	flags;
@@ -47,6 +50,10 @@ struct _glibtop_shm_limits
 	guint64 shmall;		/* GLIBTOP_IPC_SHMALL	*/
 };
 
+/**
+ * glibtop_get_shm_limits:
+ * @buf: a #glibtop_shm_limits
+ */
 void glibtop_get_shm_limits(glibtop_shm_limits *buf);
 
 #if GLIBTOP_SUID_SHM_LIMITS
@@ -55,13 +62,28 @@ void glibtop_get_shm_limits(glibtop_shm_limits *buf);
 #define glibtop_get_shm_limits_r	glibtop_get_shm_limits_s
 #endif
 
+/**
+ * glibtop_get_shm_limits_l:
+ * @server: a #glibtop server
+ * @buf: a #glibtop_shm_limits
+ */
 void glibtop_get_shm_limits_l (glibtop *server, glibtop_shm_limits *buf);
 
 #if GLIBTOP_SUID_SHM_LIMITS
 void _glibtop_init_shm_limits_p (glibtop *server);
+/**
+ * glibtop_get_shm_limits_p:
+ * @server: a #glibtop server
+ * @buf: a #glibtop_shm_limits
+ */
 void glibtop_get_shm_limits_p (glibtop *, glibtop_shm_limits *buf);
 #else
 void _glibtop_init_shm_limits_s (glibtop *server);
+/**
+ * glibtop_get_shm_limits_s:
+ * @server: a #glibtop server
+ * @buf: a #glibtop_shm_limits
+ */
 void glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf);
 #endif
 
