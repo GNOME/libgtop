@@ -31,12 +31,23 @@ G_BEGIN_DECLS
 
 typedef struct _glibtop_netlist	glibtop_netlist;
 
+/**
+ * glibtop_netlist:
+ * @number: Number of entries in the returned list.
+ */
 struct _glibtop_netlist
 {
 	guint64 flags;
 	guint32 number;
 };
 
+/**
+ * glibtop_get_netlist:
+ * @buf: a #glibtop_netlist
+ *
+ * Returns: (array zero-terminated=1) (transfer none): an array of network
+ *          interface names.
+ */
 char** glibtop_get_netlist(glibtop_netlist *buf);
 
 #if GLIBTOP_SUID_NETLIST
@@ -45,12 +56,36 @@ char** glibtop_get_netlist(glibtop_netlist *buf);
 #define glibtop_get_netlist_r		glibtop_get_netlist_s
 #endif
 
+/**
+ * glibtop_get_netlist_l:
+ * @server: a #glibtop server
+ * @buf: a #glibtop_netlist
+ *
+ * Returns: (array zero-terminated=1) (transfer none): an array of network
+ *          interface names.
+ */
 char** glibtop_get_netlist_l (glibtop *server, glibtop_netlist *buf);
 
 #if GLIBTOP_SUID_NETLIST
+/**
+ * glibtop_get_netlist_p:
+ * @server: a #glibtop server
+ * @buf: a #glibtop_netlist
+ *
+ * Returns: (array zero-terminated=1) (transfer none): an array of network
+ *          interface names.
+ */
 void _glibtop_init_netlist_p (glibtop *server);
 char** glibtop_get_netlist_p (glibtop *server, glibtop_netlist *buf);
 #else
+/**
+ * glibtop_get_netlist_s:
+ * @server: a #glibtop server
+ * @buf: a #glibtop_netlist
+ *
+ * Returns: (array zero-terminated=1) (transfer none): an array of network
+ *          interface names.
+ */
 void _glibtop_init_netlist_s (glibtop *server);
 char** glibtop_get_netlist_s (glibtop *server, glibtop_netlist *buf);
 #endif
