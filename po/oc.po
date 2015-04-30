@@ -1,74 +1,81 @@
 # Occitan translation of libgtop.
-# Copyright (C) 1998-2004, 2007 Free Software Foundation, Inc.
+# Copyright (C) 1998-2004 Free Software Foundation, Inc.
 # This file is distributed under the GNU General Public License Version 2.
-#
-# Yannig Marchegay (Kokoyaya) <yannig@marchegay.org> - 2006-2007
+# 
+# 
+# 
+# Cédric Valmary (Tot en Òc) <cvalmary@yahoo.fr>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: oc\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-07 10:22+0100\n"
-"PO-Revision-Date: 2007-11-20 14:32+0100\n"
-"Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>\n"
-"Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
+"Project-Id-Version: libgtop 2.9.91\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgto"
+"p&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-12-19 14:39+0000\n"
+"PO-Revision-Date: 2015-04-30 09:46+0200\n"
+"Last-Translator: Cédric Valmary (Tot en Òc) <cvalmary@yahoo.fr>\n"
+"Language-Team: www.totenoc.eu\n"
+"Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Virtaal 0.7.0\n"
+"X-Project-Style: gnome\n"
 
 #: ../lib/read.c:51
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "a legit %d octet"
-msgstr[1] "a legits %d octets"
+msgstr[0] "%d octet legit"
+msgstr[1] "%d octets legits"
 
 #: ../lib/read_data.c:51
 msgid "read data size"
-msgstr ""
+msgstr "talha de las donadas legidas"
 
 #: ../lib/read_data.c:70
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "lectura de %lu octet de donadas"
+msgstr[1] "lectura de %lu octets de donadas"
 
 #: ../lib/write.c:51
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "a escrich %d octet"
-msgstr[1] "a escriches %d octets"
+msgstr[0] "escritura de %d octet"
+msgstr[1] "escritura de %d octets"
 
-#: ../src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:455
 msgid "Enable debugging"
-msgstr ""
+msgstr "Activa lo desbugatge"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:457
 msgid "Enable verbose output"
-msgstr ""
+msgstr "Activa la sortida charraira"
 
-#: ../src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:459
 msgid "Don't fork into background"
-msgstr ""
+msgstr "Aviar pas en prètzfach de fons"
 
-#: ../src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:461
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "Invocat a partir de inetd"
 
-#: ../src/daemon/gnuserv.c:498
+#: ../src/daemon/gnuserv.c:495
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
+msgstr "Aviar « %s --help » per afichar la lista de las opcions de la linha de "
+"comanda.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
-msgstr ""
+msgstr "Hangup"
 
 #: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
-msgstr ""
+msgstr "Interrupcion"
 
 #: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
 msgid "Quit"
@@ -76,23 +83,23 @@ msgstr "Quitar"
 
 #: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
-msgstr ""
+msgstr "Instruccion illegala"
 
 #: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
-msgstr ""
+msgstr "Punt d'arrèst rencontrat"
 
 #: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
 msgid "Abort"
-msgstr "Abandonar"
+msgstr "Anullacion"
 
 #: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
 msgid "EMT error"
-msgstr ""
+msgstr "Error EMT"
 
 #: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
-msgstr ""
+msgstr "Excepcion virgula flotanta"
 
 #: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
 msgid "Kill"
@@ -100,39 +107,39 @@ msgstr "Tuar"
 
 #: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
 msgid "Bus error"
-msgstr ""
+msgstr "Error bus"
 
 #: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
-msgstr ""
+msgstr "Violacion de segmentacion"
 
 #: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
-msgstr ""
+msgstr "Marrit argument d'apèl sistèma"
 
 #: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
-msgstr ""
+msgstr "Tub copat"
 
 #: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
-msgstr ""
+msgstr "Alarma de relòtge"
 
 #: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
 msgid "Termination"
-msgstr ""
+msgstr "Senhal de fin"
 
 #: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "Condicion urgenta sus socket"
 
 #: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
 msgid "Stop"
-msgstr "Arrestar"
+msgstr "Arrèst"
 
 #: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
-msgstr ""
+msgstr "Arrèst dempuèi lo clavièr"
 
 #: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
 msgid "Continue"
@@ -140,48 +147,48 @@ msgstr "Contunhar"
 
 #: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
-msgstr ""
+msgstr "L'estat del filh a cambiat"
 
 #: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
-msgstr ""
+msgstr "Lectura sus tty en rèire plan"
 
 #: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
-msgstr ""
+msgstr "Escritura sus tty en rèire plan"
 
 #: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
-msgstr ""
+msgstr "E/S ara possibla"
 
 #: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
-msgstr ""
+msgstr "Limit de temps CPU depassat"
 
 #: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr ""
+msgstr "Talha de fichièr excessiva"
 
 #: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
-msgstr ""
+msgstr "Alarma virtuala"
 
 #: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "Perfil de l'alarma"
 
 #: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
 msgid "Window size change"
-msgstr ""
+msgstr "Redimensionament de la fenèstra"
 
 #: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
 msgid "Information request"
-msgstr ""
+msgstr "Demanda d'informacion"
 
 #: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr ""
+msgstr "Senhal utilizaire 1"
 
 #: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr ""
+msgstr "Senhal utilizaire 2"
