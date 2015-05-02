@@ -92,6 +92,7 @@ static gboolean ignore_mount_entry(const struct mount_entry *me)
 	static const char ignored[][17] = {
 		"autofs",
 		"devfs",
+		"fdescfs",
 		"fusectl",
 		"linprocfs",
 		"linsysfs",
