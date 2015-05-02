@@ -45,46 +45,57 @@ _glibtop_init_mem_s (glibtop *server)
 	server->sysdeps.mem = _glibtop_sysdeps_mem;
 }
 
+static gulong mem_get_by_bytes (glibtop *server, const char *name) {
+	gulong result = 0;
+	size_t len = sizeof (result);
+
+	if (sysctlbyname (name, &result, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (%s)", name);
+	}
+	return result;
+}
+
+static gulong mem_get_by_pages (glibtop *server, const char *name) {
+	guint result = 0;
+	size_t len = sizeof (result);
+
+	if (sysctlbyname (name, &result, &len, NULL, 0)) {
+		glibtop_warn_io_r (server, "sysctl (%s)", name);
+	}
+	return (gulong) result * pagesize;
+}
+
 void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
 	gulong memtotal;
-	guint memused;
-	gulong buffers;
-	guint cached;
-	size_t len;
+	gulong memactive;
+	gulong meminactive;
+	gulong memwired;
+	gulong memcached;
+	gulong membuffer;
+	gulong memfree;
 
 	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
 
 	memset (buf, 0, sizeof *buf);
 
-	len = sizeof (memtotal);
-	if (sysctlbyname ("hw.physmem", &memtotal, &len, NULL, 0)) {
-		glibtop_warn_io_r (server, "sysctl (hw.physmem)");
-		return;
-	}
-
-	len = sizeof (memused);
-	if (sysctlbyname ("vm.stats.vm.v_wire_count", &memused, &len, NULL, 0)) {
-		glibtop_warn_io_r (server, "sysctl (vm.stats.vm.v_wire_count)");
-		return;
-	}
-
-	len = sizeof (cached);
-	if (sysctlbyname ("vm.stats.vm.v_cache_count", &cached, &len, NULL, 0)) {
-		glibtop_warn_io_r (server, "sysctl (vm.stats.vm.v_cache_count)");
-		return;
-	}
-
-	buffers = 0;
+	memtotal = mem_get_by_bytes (server, "hw.physmem");
+	memactive = mem_get_by_pages (server, "vm.stats.vm.v_active_count");
+	meminactive = mem_get_by_pages (server, "vm.stats.vm.v_inactive_count");
+	memwired = mem_get_by_pages (server, "vm.stats.vm.v_wire_count");
+	memcached = mem_get_by_pages (server, "vm.stats.vm.v_cache_count");
+	membuffer = mem_get_by_bytes (server, "vfs.bufspace");
+	memfree = mem_get_by_pages (server, "vm.stats.vm.v_free_count");
 
 	buf->total = memtotal;
-	buf->used = (memused * (gulong) pagesize);
-	buf->free = (buf->total - buf->used);
+	buf->used = memtotal - memfree;
+	buf->free = memfree;
 	buf->shared = 0;
-	buf->cached = (cached * (gulong) pagesize);
-	buf->buffer = buffers;
+	buf->buffer = membuffer;
+	buf->cached = memcached;
+	buf->locked = 0;
 
-	buf->user = buf->total - buf->free - buf->cached - buf->buffer;
+	buf->user = memactive + memwired;
 	buf->flags = _glibtop_sysdeps_mem;
 }
