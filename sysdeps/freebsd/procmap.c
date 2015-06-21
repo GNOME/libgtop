@@ -120,7 +120,45 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
 
 
         if (fs_type == IS_ZFS) {
-		/* NOP */
+		/* FIXME: I have no idea about what is the actual layout of what we've read
+		   but the inode number is definitely at offset 16, 8 bytes of amd64.
+		   *inum = *(guint64*) ((unsigned char*)&inode + 16);
+		   So this is really hugly, but I don't have anything better for now.
+
+                   Actually, this looks like a znode_t as described in kernel's zfs_znode.h.
+                   I don't have that header file, so let's just mimic that.
+                */
+
+                struct my_zfsvfs {
+                        /* vfs_t */ void *z_vfs;
+                        /* zfsvfs_t */ void *z_parent;
+                        /* objset_t */ void *z_os;
+                        uint64_t z_root;
+                        /* ... */
+                };
+
+                typedef struct my_znode {
+                        struct my_zfsvfs *z_zfsvfs;
+                        /* vnode_t */ void *z_vnode;
+                        uint64_t z_id;
+                        /* ... */
+                } my_znode_t;
+
+                G_STATIC_ASSERT(sizeof(my_znode_t) <= sizeof(struct inode));
+
+                my_znode_t* znode = (my_znode_t*)&inode;
+                *inum = znode->z_id;
+
+                struct my_zfsvfs zvfs;
+
+                if (kvm_read(server->machine.kd,
+                             (unsigned long)(znode->z_zfsvfs),
+                             &zvfs, sizeof zvfs) != sizeof zvfs) {
+                        glibtop_warn_io_r(server, "kvm_read (z_zfsvfs)");
+                        return;
+                }
+
+                *dev = zvfs.z_root;
         }
         else if (fs_type == IS_UFS) {
 		/* Set inum as soon as possible, so that if the next kvm_reads fail
