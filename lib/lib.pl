@@ -88,7 +88,7 @@ sub output {
     @line_fields = split(/\|/, $line, 9999);
     $retval = $line_fields[1];
     $feature = $line_fields[2];
-    $param_def = $line_fields[4];
+    $param_def = $line_fields[3];
 
     $orig = $feature;
     $feature =~ s/^@//;
@@ -106,16 +106,16 @@ sub output {
     }
 
     if ($param_def eq 'string') {
-	$call_param = ', ' . $line_fields[5];
+	$call_param = ', ' . $line_fields[4];
 	$param_buf = '';
 	$buf_set = '';
 	$param_decl = ",\n            " . $space . '    const char *' .
 
-	  $line_fields[5];
-	$send_ptr = "\t\tconst void *send_ptr = " . $line_fields[5] . ';';
-	$send_size = "\t\tconst size_t send_size =\n\t\tstrlen (" .
+	  $line_fields[4];
+	$send_ptr = "\n\tconst void *send_ptr = " . $line_fields[4] . ';';
+	$send_size = "\n\tconst size_t send_size =\n\t\tstrlen (" .
 
-	  $line_fields[5] . ') + 1;';
+	  $line_fields[4] . ') + 1;';
     }
     else {
 	$call_param = '';

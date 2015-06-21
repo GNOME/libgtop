@@ -1,27 +1,27 @@
-void|cpu|ulong(total,user,nice,sys,idle,iowait,irq,softirq,frequency,xcpu_total[4],xcpu_user[4],xcpu_nice[4],xcpu_sys[4],xcpu_idle[4],xcpu_iowait[4],xcpu_irq[4],xcpu_softirq[4])
-void|mem|ulong(total,used,free,shared,buffer,cached,user,locked)
-void|swap|ulong(total,used,free,pagein,pageout)
-void|uptime|double(uptime,idletime)
-void|loadavg|double(loadavg[3]):ulong(nr_running,nr_tasks,last_pid)
-void|shm_limits|ulong(shmmax,shmmin,shmmni,shmseg,shmall)
-void|msg_limits|ulong(msgpool,msgmap,msgmax,msgmnb,msgmni,msgssz,msgtql)
-void|sem_limits|ulong(semmap,semmni,semmns,semmnu,semmsl,semopm,semume,semusz,semvmx,semaem)
-pid_t*|proclist|ulong(number,size,total)|long(which,arg)
-void|proc_state|str(cmd):char(state):ulong(uid,gid)|pid_t(pid)
-void|proc_uid|long(uid,euid,gid,egid,pid,ppid,pgrp,session,tty,tpgid,priority,nice)|pid_t(pid)
-void|proc_mem|long(size,vsize,resident,share,rss,rss_rlim)|pid_t(pid)
-void|proc_time|long(start_time,rtime,utime,stime,cutime,cstime,timeout,it_real_value,frequency,xcpu_utime[4],xcpu_stime[4])|pid_t(pid)
-void|proc_signal|ulong(signal[2],blocked[2],sigignore[2],sigcatch[2])|pid_t(pid)
-void|proc_kernel|ulong(k_flags,min_flt,maj_flt,cmin_flt,cmaj_flt,kstk_esp,kstk_eip,nwchan):str(wchan)|pid_t(pid)
-void|proc_segment|ulong(text_rss,shlib_rss,data_rss,stack_rss,dirty_size,start_code,end_code,start_stack)|pid_t(pid)
-char *|proc_args|ulong(size)|pid_t(pid):unsigned(max_len)
-glibtop_map_entry *|proc_map|ulong(number,size,total)|pid_t(pid)
-glibtop_open_files_entry *|proc_open_files|ulong(number)|pid_t(pid)
-glibtop_mountentry *|@mountlist|ulong(number,size,total)|int(all_fs)
-void|@fsusage|ulong(blocks,bfree,bavail,files,ffree)|string|mount_dir
-void|netload|ulong(if_flags,mtu,subnet,address,packets_in,packets_out,packets_total,bytes_in,bytes_out,bytes_total,errors_in,errors_out,errors_total,collisions)|string|interface
-void|ppp|ulong(state,bytes_in,bytes_out)|ushort(device)
-char **|netlist|unsigned(number)
-char **|proc_wd|ulong(number),str(root),str(exe)|pid_t(pid)
-guint16*|proc_affinity|ulong(number),int(all)|pid_t(pid)
+void|cpu
+void|mem
+void|swap
+void|uptime
+void|loadavg
+void|shm_limits
+void|msg_limits
+void|sem_limits
+pid_t*|proclist|long(which,arg)
+void|proc_state|pid_t(pid)
+void|proc_uid|pid_t(pid)
+void|proc_mem|pid_t(pid)
+void|proc_time|pid_t(pid)
+void|proc_signal|pid_t(pid)
+void|proc_kernel|pid_t(pid)
+void|proc_segment|pid_t(pid)
+char *|proc_args|pid_t(pid):unsigned(max_len)
+glibtop_map_entry *|proc_map|pid_t(pid)
+glibtop_open_files_entry *|proc_open_files|pid_t(pid)
+glibtop_mountentry *|@mountlist|int(all_fs)
+void|@fsusage|string|mount_dir
+void|netload|string|interface
+void|ppp|ushort(device)
+char **|netlist
+char **|proc_wd|pid_t(pid)
+guint16*|proc_affinity|pid_t(pid)
 
