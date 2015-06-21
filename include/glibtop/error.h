@@ -47,14 +47,16 @@ void glibtop_error_io (const char *format, ...) G_GNUC_PRINTF(1, 2) G_GNUC_NORET
 void glibtop_warn_io (const char *format, ...) G_GNUC_PRINTF(1, 2);
 
 /* FIXME: C99 */
-#define glibtop_debug(fmt, ...)						\
+#define glibtop_debug_r(server, fmt, ...)				\
 	G_STMT_START {							\
 	if (LIBGTOP_ENABLE_DEBUG)					\
-		glibtop_debug_r(glibtop_global_server, fmt, ##__VA_ARGS__); \
+		glibtop_debug_r_real(server, fmt, ##__VA_ARGS__); \
 	} G_STMT_END
 
+#define glibtop_debug(...) glibtop_debug_r(glibtop_global_server, __VA_ARGS__)
+
 void glibtop_debug_vr (glibtop *server, const char *format, va_list args);
-void glibtop_debug_r (glibtop *server, const char *format, ...) G_GNUC_PRINTF(2, 3);
+void glibtop_debug_r_real (glibtop *server, const char *format, ...) G_GNUC_PRINTF(2, 3);
 
 G_END_DECLS
 

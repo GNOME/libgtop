@@ -174,7 +174,7 @@ glibtop_debug_vr (glibtop *server, const char *format, va_list args)
 }
 
 void
-glibtop_debug_r (glibtop *server, const char *format, ...)
+glibtop_debug_r_real (glibtop *server, const char *format, ...)
 {
 	va_list args;
 
