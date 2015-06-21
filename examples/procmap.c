@@ -43,6 +43,30 @@
 #define PROFILE_COUNT	1
 #endif
 
+static void
+try_mmap(const char *path)
+{
+	struct stat buf;
+	int fd;
+
+	if ((fd = open(path, O_RDONLY)) < 0)
+		goto out;
+
+	if (fstat(fd, &buf) < 0)
+		goto out;
+
+	if (mmap(NULL, buf.st_size, PROT_READ, MAP_PRIVATE, fd, 0) == MAP_FAILED)
+		goto out;
+
+	close(fd);
+
+	return;
+
+out:
+	fprintf(stderr, "Failed to test mmap with '%s'\n", path);
+}
+
+
 int
 main (int argc, char *argv [])
 {
@@ -78,8 +102,18 @@ main (int argc, char *argv [])
 
 	glibtop_init_r (&glibtop_global_server, 0, 0);
 
-	if ((argc != 2) || (sscanf (argv [1], "%d", (int *) &pid) != 1))
-		g_error ("Usage: %s pid", argv [0]);
+	if (argc == 1) {
+		pid = getpid();
+	}
+	else if ((argc != 2) || (sscanf (argv [1], "%d", (int *) &pid) != 1))
+		g_error ("Usage: %s [pid]", argv [0]);
+
+	if (pid == getpid()) {
+		/* let's map something for a try */
+		try_mmap("/etc/passwd");
+		try_mmap("/etc/resolv.conf");
+		try_mmap(argv[0]);
+	}
 
 	fprintf (stderr, "Getting memory maps for pid %d.\n\n", (int) pid);
 
