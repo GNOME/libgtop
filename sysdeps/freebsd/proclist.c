@@ -70,6 +70,7 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 	glibtop_proc_state procstate;
 	size_t len;
 	unsigned int i;
+	pid_t prev;
 
 	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROCLIST), 0);
 
@@ -96,6 +97,17 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 		pid_t pid;
 
 		pid = (pid_t) pinfo[i].ki_pid;
+
+		/* If a process has many threads, kern.proc.all reports multiple
+		   times the same pid. So don't look twice at the same pid.
+		   FIXME?: not sure that kern.proc.all reports a partially sorted
+		   list (all pid/threads grouped).
+		*/
+		if (i > 0 && pid == prev) {
+			continue;
+		}
+
+		prev = pid;
 
 		switch (which & GLIBTOP_KERN_PROC_MASK) {
 			case GLIBTOP_KERN_PROC_ALL:
