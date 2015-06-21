@@ -134,6 +134,25 @@ glibtop_warn_io_r (glibtop *server, const char *format, ...)
 
 
 void
+glibtop_debug_vr (glibtop *server, const char *format, va_list args)
+{
+	print_server_name (server);
+	vfprintf (stderr, format, args);
+	fputc('\n', stderr);
+}
+
+void
+glibtop_debug_r (glibtop *server, const char *format, ...)
+{
+	va_list args;
+
+	va_start (args, format);
+	glibtop_debug_vr (server, format, args);
+	va_end (args);
+}
+
+
+void
 glibtop_error (const char *format, ...)
 {
 	va_list args;
