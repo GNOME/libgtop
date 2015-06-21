@@ -263,7 +263,8 @@ dnl Debugging
 AC_ARG_ENABLE(debug,
               AS_HELP_STRING([--enable-debug],
                              [Turn on debugging @<:@default=no@:>@]),
-              AC_DEFINE(LIBGTOP_ENABLE_DEBUG, 1, [Define to enable debugging]))
+              AC_DEFINE(LIBGTOP_ENABLE_DEBUG, 1, [Define to enable debugging]),
+              AC_DEFINE(LIBGTOP_ENABLE_DEBUG, 0, [Define to disable debugging]))
 AC_ARG_ENABLE(fatal-warnings,
               AS_HELP_STRING([--enable-fatal-warnings],
                              [Make all warnings fatal @<:@debug=no@:>@]),
