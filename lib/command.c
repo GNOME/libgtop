@@ -20,6 +20,7 @@
 */
 
 #include <config.h>
+#include <glibtop/error.h>
 #include <glibtop/read.h>
 #include <glibtop/write.h>
 #include <glibtop/read_data.h>
@@ -40,6 +41,44 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 	/* If send_size is less than _GLIBTOP_PARAM_SIZE (normally 16 Bytes), we
 	 * send it together with command, so we only need one system call instead
 	 * of two. */
+
+#ifdef LIBGTOP_ENABLE_DEBUG
+	g_assert(command >= GLIBTOP_CMND_QUIT && command < GLIBTOP_MAX_CMND);
+	switch (command) {
+#define DEBUG_CALL(CMD) case (CMD): glibtop_warn_r(server, "CALL: command %s sending %lu bytes", #CMD, (unsigned long)send_size); break
+	  DEBUG_CALL(GLIBTOP_CMND_QUIT);
+	  DEBUG_CALL(GLIBTOP_CMND_SYSDEPS);
+	  DEBUG_CALL(GLIBTOP_CMND_CPU);
+	  DEBUG_CALL(GLIBTOP_CMND_MEM);
+	  DEBUG_CALL(GLIBTOP_CMND_SWAP);
+	  DEBUG_CALL(GLIBTOP_CMND_UPTIME);
+	  DEBUG_CALL(GLIBTOP_CMND_LOADAVG);
+	  DEBUG_CALL(GLIBTOP_CMND_SHM_LIMITS);
+	  DEBUG_CALL(GLIBTOP_CMND_MSG_LIMITS);
+	  DEBUG_CALL(GLIBTOP_CMND_SEM_LIMITS);
+	  DEBUG_CALL(GLIBTOP_CMND_PROCLIST);
+	  DEBUG_CALL(GLIBTOP_CMND_PROC_STATE);
+	  DEBUG_CALL(GLIBTOP_CMND_PROC_UID);
+	  DEBUG_CALL(GLIBTOP_CMND_PROC_MEM);
+	  DEBUG_CALL(GLIBTOP_CMND_PROC_TIME);
+	  DEBUG_CALL(GLIBTOP_CMND_PROC_SIGNAL);
+	  DEBUG_CALL(GLIBTOP_CMND_PROC_KERNEL);
+	  DEBUG_CALL(GLIBTOP_CMND_PROC_SEGMENT);
+	  DEBUG_CALL(GLIBTOP_CMND_PROC_ARGS);
+	  DEBUG_CALL(GLIBTOP_CMND_PROC_MAP);
+	  DEBUG_CALL(GLIBTOP_CMND_MOUNTLIST);
+	  DEBUG_CALL(GLIBTOP_CMND_FSUSAGE);
+	  DEBUG_CALL(GLIBTOP_CMND_NETLOAD);
+	  DEBUG_CALL(GLIBTOP_CMND_PPP);
+	  DEBUG_CALL(GLIBTOP_CMND_NETLIST);
+	  DEBUG_CALL(GLIBTOP_CMND_PROC_OPEN_FILES);
+	  DEBUG_CALL(GLIBTOP_CMND_PROC_WD);
+	  DEBUG_CALL(GLIBTOP_CMND_PROC_AFFINITY);
+	default:
+	  glibtop_error_r(server, "CALL: command UNKNOWN(%d) sending %lu bytes", command, (unsigned long)send_size); break;
+	}
+#undef DEBUG_CALL
+#endif
 
 	if (send_size <= _GLIBTOP_PARAM_SIZE) {
 		memcpy (cmnd.parameter, send_buf, send_size);
