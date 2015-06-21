@@ -69,6 +69,21 @@
 		}							\
 	} while (0)
 
+
+static void display_self_times(void)
+{
+	printf("-- Overview using `ps` --------------------"
+	       "---------------\n");
+	printf("-- this client is %8u ----------------"
+	       "---------------\n", (unsigned)getpid());
+	printf("-- this server is %8u ----------------"
+	       "---------------\n", (unsigned)glibtop_global_server->pid);
+	system("ps xjf | egrep 'timings|libgtop_server'");
+	printf("-------------------------------------------"
+	       "---------------\n");
+}
+
+
 int
 main (int argc, char *argv [])
 {
@@ -85,12 +100,15 @@ main (int argc, char *argv [])
 	bindtextdomain (GETTEXT_PACKAGE, GTOPLOCALEDIR);
 	textdomain (GETTEXT_PACKAGE);
 
+
+	glibtop_init_r (&glibtop_global_server, 0, 0);
+
+	display_self_times();
+
 	printf ("%-12s (%-10s): %7s - %9s - %9s\n",
 		"Feature", "Flags", "Count", "utime", "stime");
 	printf ("-------------------------------------------"
 		"---------------\n");
-
-	glibtop_init_r (&glibtop_global_server, 0, 0);
 
 	getrusage (RUSAGE_SELF, &total_start);
 
@@ -410,6 +428,8 @@ main (int argc, char *argv [])
 
 	printf ("All timings are in clock ticks "
 		"(1000000 ticks per second).\n\n");
+
+	display_self_times();
 
 	glibtop_close ();
 
