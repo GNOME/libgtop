@@ -40,6 +40,7 @@ static void
 print_start (const glibtop *server, int message_level)
 {
 	const char *level;
+	char pids[32];
 
 	switch (message_level) {
 	case MESSAGE_DEBUG:
@@ -55,10 +56,18 @@ print_start (const glibtop *server, int message_level)
 		level = "UNKNOWN";
 	}
 
-	fprintf (stderr, "%s: [%s] ", server && server->name
+	if (server->pid) {
+		snprintf(pids, sizeof pids, "c=%u/s=%u", getpid(), server->pid);
+	}
+	else {
+		snprintf(pids, sizeof pids, "c=%u", getpid());
+	}
+
+	fprintf (stderr, "%s(%s): [%s] ", server && server->name
 		 ? server->name
 		 : DEFAULT_NAME,
-		level);
+		 pids,
+		 level);
 }
 
 void
