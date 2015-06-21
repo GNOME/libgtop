@@ -80,6 +80,8 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
 {
         char *tagptr;
         char tagstr[12];
+        enum FS_TYPE { UNKNOWN, IS_UFS, IS_ZFS };
+        int fs_type = UNKNOWN;
         struct inode inode;
         struct cdev_priv priv;
 #if __FreeBSD_version < 800039
@@ -100,8 +102,14 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
 
         tagstr[sizeof(tagstr) - 1] = '\0';
 
-        if (strcmp (tagstr, "ufs"))
+        if (!strcmp(tagstr, "ufs")) {
+                fs_type = IS_UFS;
+        } else if (!strcmp(tagstr, "zfs")) {
+                fs_type = IS_ZFS;
+        } else {
+                glibtop_warn_io_r (server, "ignoring fstype %s", tagstr);
                 return;
+        }
 
         if (kvm_read (server->machine.kd, (gulong) VTOI(vn), (char *) &inode,
  	              sizeof (inode)) != sizeof (inode))
@@ -109,6 +117,16 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
                 glibtop_warn_io_r (server, "kvm_read (inode)");
                 return;
         }
+
+
+        if (fs_type == IS_ZFS) {
+		/* NOP */
+        }
+        else if (fs_type == IS_UFS) {
+		/* Set inum as soon as possible, so that if the next kvm_reads fail
+		   we still have something */
+                *inum = inode.i_number;
+
 
 #if (__FreeBSD_version >= 800039) || (__FreeBSD_kernel_version >= 800039)
         if (kvm_read (server->machine.kd, (gulong) cdev2priv(inode.i_dev), (char *) &priv,
@@ -125,8 +143,8 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
                 return;
         }
 
-        *inum = (guint64) inode.i_number;
         *dev = (guint64) priv.cdp_inode;
+	    } /* end-if IS_UFS */
 }
 #endif
 
