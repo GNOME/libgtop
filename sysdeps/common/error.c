@@ -26,22 +26,45 @@
 
 #include <glibtop/error.h>
 
+enum MESSAGE_LEVEL {
+	MESSAGE_DEBUG,
+	MESSAGE_WARNING,
+	MESSAGE_ERROR
+};
+
 #define DEFAULT_NAME	"LibGTop-Server"
 
 /* Prints error message and exits. */
 
 static void
-print_server_name (const glibtop *server)
+print_start (const glibtop *server, int message_level)
 {
-	fprintf (stderr, "%s: ", server && server->name
+	const char *level;
+
+	switch (message_level) {
+	case MESSAGE_DEBUG:
+		level = "DEBUG";
+		break;
+	case MESSAGE_WARNING:
+		level = "WARNING";
+		break;
+	case MESSAGE_ERROR:
+		level = "ERROR";
+		break;
+	default:
+		level = "UNKNOWN";
+	}
+
+	fprintf (stderr, "%s: [%s] ", server && server->name
 		 ? server->name
-		 : DEFAULT_NAME);
+		 : DEFAULT_NAME,
+		level);
 }
 
 void
 glibtop_error_vr (glibtop *server, const char *format, va_list args)
 {
-	print_server_name (server);
+	print_start (server, MESSAGE_ERROR);
 	vfprintf (stderr, format, args);
 	fputc('\n', stderr);
 
@@ -55,7 +78,7 @@ glibtop_error_vr (glibtop *server, const char *format, va_list args)
 void
 glibtop_error_io_vr (glibtop *server, const char *format, int error, va_list args)
 {
-	print_server_name (server);
+	print_start (server, MESSAGE_ERROR);
 	vfprintf (stderr, format, args);
 	fprintf (stderr, ": %s\n", g_strerror (error));
 
@@ -69,7 +92,7 @@ glibtop_error_io_vr (glibtop *server, const char *format, int error, va_list arg
 void
 glibtop_warn_vr (glibtop *server, const char *format, va_list args)
 {
-	print_server_name (server);
+	print_start (server, MESSAGE_WARNING);
 	vfprintf (stderr, format, args);
 	fputc('\n', stderr);
 
@@ -81,7 +104,7 @@ glibtop_warn_vr (glibtop *server, const char *format, va_list args)
 void
 glibtop_warn_io_vr (glibtop *server, const char *format, int error, va_list args)
 {
-	print_server_name (server);
+	print_start (server, MESSAGE_WARNING);
 	vfprintf (stderr, format, args);
 	fprintf (stderr, ": %s\n", g_strerror (error));
 
@@ -136,7 +159,7 @@ glibtop_warn_io_r (glibtop *server, const char *format, ...)
 void
 glibtop_debug_vr (glibtop *server, const char *format, va_list args)
 {
-	print_server_name (server);
+	print_start (server, MESSAGE_DEBUG);
 	vfprintf (stderr, format, args);
 	fputc('\n', stderr);
 }
