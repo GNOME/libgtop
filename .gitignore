@@ -12,6 +12,10 @@ src/*/Makefile.in
 src/*/.deps
 src/Makefile
 src/Makefile.in
+src/daemon/*.o
+src/daemon/.libs
+src/daemon/libgtop_daemon2
+src/daemon/libgtop_server2
 stamp-h1
 po/*.gmo
 po/stamp-it
