@@ -121,6 +121,7 @@ main (int argc, char *argv [])
 
 	for (i = 0; i < procmap.number; i++) {
 		const char *filename = NULL;
+		char * format;
 		unsigned device, device_major, device_minor;
 		char perm [5];
 
@@ -137,42 +138,27 @@ main (int argc, char *argv [])
 		device_minor = (device & 255);
 		device_major = ((device >> 8) & 255);
 
+		if (sizeof (void*) == 8)
+			format = "%016lx-%016lx +%016lx (%8lu bytes mapped) - "
+				 "%02x:%02x %08lu - %.*s";
+		else
+			format = "%08lx-%08lx +%08lx (%8lu bytes mapped) - "
+				 "%02x:%02x %08lu - %.*s";
+
+		fprintf (stderr, format,
+			 (unsigned long) maps [i].start,
+			 (unsigned long) maps [i].end,
+			 (unsigned long) maps [i].offset,
+			 (unsigned long) (maps [i].end - (maps [i].start + maps [i].offset)),
+			 device_major, device_minor,
+			 (unsigned long) maps [i].inode,
+			 sizeof perm, perm);
+
 		if (filename) {
-			char *format;
-
-			if (sizeof (void*) == 8)
-				format = "%016lx-%016lx %016lx - "
-					 "%02x:%02x %08lu - %5.5s - %s\n";
-			else
-				format = "%08lx-%08lx %08lx - "
-					 "%02x:%02x %08lu - %5.5s - %s\n";
-
-			fprintf (stderr, format,
-				 (unsigned long) maps [i].start,
-				 (unsigned long) maps [i].end,
-				 (unsigned long) maps [i].offset,
-				 device_major, device_minor,
-				 (unsigned long) maps [i].inode,
-				 perm, filename);
-		} else {
-			char * format;
-
-			if (sizeof (void*) == 8)
-				format = "%016lx-%016lx %016lx - "
-					 "%02x:%02x %08lu - %4s\n";
-			else
-				format = "%08lx-%08lx %08lx - "
-					 "%02x:%02x %08lu - %4s\n";
-
-			fprintf (stderr, format,
-				 (unsigned long) maps [i].start,
-				 (unsigned long) maps [i].end,
-				 (unsigned long) maps [i].offset,
-				 device_major, device_minor,
-				 (unsigned long) maps [i].inode,
-				 perm);
+			fprintf(stderr, " - %s", filename);
 		}
 
+		fputc('\n', stderr);
 
 		g_print("smaps flags:%#llx size:%lluKiB rss:%lluKiB "
 			"shared_clean:%lluKib shared_dirty:%lluKiB "
