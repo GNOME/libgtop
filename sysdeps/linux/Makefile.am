@@ -1,4 +1,4 @@
-INCLUDES			= @INCLUDES@
+AM_CPPFLAGS			= @AM_CPPFLAGS@
 
 noinst_LTLIBRARIES		= libgtop_sysdeps-2.0.la
 

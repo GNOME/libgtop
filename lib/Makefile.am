@@ -1,5 +1,5 @@
 
-INCLUDES			= @INCLUDES@
+AM_CPPFLAGS			= @AM_CPPFLAGS@
 
 lib_LTLIBRARIES			= libgtop-2.0.la
 
@@ -39,8 +39,8 @@ introspection_sources = $(libgtop_2_0_la_SOURCES) lib.c ../glibtop.h \
 			../include/glibtop/netlist.h ../include/glibtop/procopenfiles.h ../include/glibtop/open.h
 
 GTop-2.0.gir: libgtop-2.0.la
-GTop_2_0_gir_INCLUDES = GObject-2.0
-GTop_2_0_gir_CFLAGS = $(INCLUDES)
+GTop_2_0_gir_AM_CPPFLAGS = GObject-2.0
+GTop_2_0_gir_CFLAGS = $(AM_CPPFLAGS)
 GTop_2_0_gir_LIBS = libgtop-2.0.la
 GTop_2_0_gir_FILES = $(introspection_sources)
 INTROSPECTION_GIRS += GTop-2.0.gir

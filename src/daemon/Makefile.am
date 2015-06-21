@@ -12,7 +12,7 @@
 ## Martin <martin@home-of-linux.org>
 ##
 
-INCLUDES			= $(LIBGTOP_CFLAGS) @INCLUDES@ -D_BSD \
+AM_CPPFLAGS			= $(LIBGTOP_CFLAGS) @AM_CPPFLAGS@ -D_BSD \
 				  -DLIBGTOP_COMPILE_SYSTEM="\"`uname -s`\"" \
 				  -DLIBGTOP_COMPILE_RELEASE="\"`uname -r`\"" \
 				  -DLIBGTOP_COMPILE_VERSION="\"`uname -v`\"" \

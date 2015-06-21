@@ -323,7 +323,7 @@ if test "$GCC" = "yes" ; then
 	$CFLAGS"
 fi
 
-INCLUDES="-I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $X_CFLAGS"
+AM_CPPFLAGS="-I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $X_CFLAGS"
 
 # Add various defines to the config.h file ...
 AH_VERBATIM([_GNU_SOURCE],
@@ -342,7 +342,7 @@ AC_DEFINE([LIBGTOP_VERSION_CODE], [libgtop_version_code],
 AC_DEFINE_UNQUOTED([LIBGTOP_SERVER], ["$LIBGTOP_SERVER"],
                    [The path to the libgtop server])
 
-AC_SUBST(INCLUDES)
+AC_SUBST(AM_CPPFLAGS)
 
 AC_SUBST(LIBGTOP_EXTRA_LIBS)
 AC_SUBST(GLIB_LIBS)

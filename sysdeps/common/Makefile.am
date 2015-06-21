@@ -1,5 +1,5 @@
 
-INCLUDES			= @INCLUDES@
+AM_CPPFLAGS			= @AM_CPPFLAGS@
 
 noinst_LTLIBRARIES		= libgtop_common-2.0.la libgtop_suid_common-2.0.la
 
