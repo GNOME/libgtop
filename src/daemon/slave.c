@@ -41,10 +41,8 @@ handle_slave_connection (int input, int output)
 	glibtop_send_version (glibtop_global_server, output);
 
 	while (do_read (input, cmnd, sizeof (glibtop_command))) {
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Slave %d received command "
-			 "%llu from client.\n", getpid (), cmnd->command);
-#endif
+		glibtop_debug ("Slave %d received command "
+			 "%llu from client.", getpid (), cmnd->command);
 
 		if (cmnd->data_size >= BUFSIZ)
 			glibtop_error ("Client sent %llu bytes, "
@@ -56,10 +54,8 @@ handle_slave_connection (int input, int output)
 		memset (parameter, 0, sizeof (parameter));
 
 		if (cmnd->data_size) {
-#ifdef LIBGTOP_ENABLE_DEBUG
-			fprintf (stderr, "Client has %llu bytes of data.\n",
+			glibtop_debug ("Client has %llu bytes of data.",
 				 cmnd->data_size);
-#endif
 
 			do_read (input, parameter, cmnd->data_size);
 

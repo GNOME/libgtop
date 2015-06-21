@@ -47,56 +47,44 @@ glibtop_open_l (glibtop *server, const char *program_name,
 
 	server->error_method = GLIBTOP_ERROR_METHOD_DEFAULT;
 
-#ifdef LIBGTOP_ENABLE_DEBUG
-	fprintf (stderr, "SIZEOF: %u - %u - %u - %u - %u - %u\n",
+	glibtop_debug ("SIZEOF: %u - %u - %u - %u - %u - %u",
 		 sizeof (glibtop_command), sizeof (glibtop_response),
 		 sizeof (glibtop_mountentry), sizeof (glibtop_union),
 		 sizeof (glibtop_sysdeps), sizeof (glibtop_response_union));
-#endif
 
 	switch (server->method) {
 	case GLIBTOP_METHOD_DIRECT:
 		server->features = 0;
 		break;
 	case GLIBTOP_METHOD_INET:
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Connecting to '%s' port %ld.\n",
+		glibtop_debug ("Connecting to '%s' port %ld.",
 			 server->server_host, server->server_port);
-#endif
 
 		connect_type = glibtop_make_connection
 			(server->server_host, server->server_port,
 			 &server->socket);
 
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Connect Type is %d.\n", connect_type);
-#endif
+		glibtop_debug ("Connect Type is %d.", connect_type);
 
 		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
 
 		server->features = -1;
 		break;
 	case GLIBTOP_METHOD_UNIX:
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Connecting to Unix Domain Socket.\n");
-#endif
+		glibtop_debug ("Connecting to Unix Domain Socket.");
 
 		connect_type = glibtop_make_connection
 			("unix", 0, &server->socket);
 
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Connect Type is %d.\n", connect_type);
-#endif
+		glibtop_debug ("Connect Type is %d.", connect_type);
 
 		server->flags |= _GLIBTOP_INIT_STATE_SERVER;
 
 		server->features = -1;
 		break;
 	case GLIBTOP_METHOD_PIPE:
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Opening pipe to server (%s).\n",
+		glibtop_debug ("Opening pipe to server (%s).",
 			 server->server_command);
-#endif
 
 		if (pipe (server->input) || pipe (server->output))
 			glibtop_error_io_r (server, "cannot make a pipe");
@@ -165,18 +153,14 @@ glibtop_open_l (glibtop *server, const char *program_name,
 
 		memcpy (&server->sysdeps, &sysdeps, sizeof (glibtop_sysdeps));
 
-#ifdef LIBGTOP_ENABLE_DEBUG
-		fprintf (stderr, "Server features are %lu.\n",
+		glibtop_debug ("Server features are %lu.",
 			 server->features);
-#endif
 	}
 
 	/* In any case, we call the open functions of our own sysdeps
 	 * directory. */
 
-#ifdef LIBGTOP_ENABLE_DEBUG
-	fprintf (stderr, "Calling sysdeps open function.\n");
-#endif
+	glibtop_debug ("Calling sysdeps open function.");
 
 	glibtop_init_s (&server, features, flags);
 }

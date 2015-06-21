@@ -33,9 +33,7 @@ glibtop_read_l (glibtop *server, size_t size, void *buf)
 	int fd;
 	glibtop_init_r (&server, 0, 0);
 
-#ifdef LIBGTOP_ENABLE_DEBUG
-	glibtop_warn_r(server, "LIBRARY: really reading %d bytes.\n", (int)size);
-#endif
+	glibtop_debug("LIBRARY: really reading %d bytes.", (int)size);
 
 	fd = server->socket ? server->socket : server->input[0];
 

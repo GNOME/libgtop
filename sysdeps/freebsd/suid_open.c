@@ -56,9 +56,7 @@ glibtop_open_p (glibtop *server, const char *program_name,
 		const unsigned flags)
 {
 	char errbuf[_POSIX2_LINE_MAX];
-#ifdef LIBGTOP_ENABLE_DEBUG
-	fprintf (stderr, "DEBUG (%d): glibtop_open_p ()\n", getpid ());
-#endif
+	glibtop_debug ("glibtop_open_p ()");
 
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 	server->machine.uid = getuid ();

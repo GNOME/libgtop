@@ -45,7 +45,7 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 #ifdef LIBGTOP_ENABLE_DEBUG
 	g_assert(command >= GLIBTOP_CMND_QUIT && command < GLIBTOP_MAX_CMND);
 	switch (command) {
-#define DEBUG_CALL(CMD) case (CMD): glibtop_warn_r(server, "CALL: command %s sending %lu bytes", #CMD, (unsigned long)send_size); break
+#define DEBUG_CALL(CMD) case (CMD): glibtop_debug("CALL: command %s sending %lu bytes", #CMD, (unsigned long)send_size); break
 	  DEBUG_CALL(GLIBTOP_CMND_QUIT);
 	  DEBUG_CALL(GLIBTOP_CMND_SYSDEPS);
 	  DEBUG_CALL(GLIBTOP_CMND_CPU);
@@ -91,10 +91,8 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 
 	glibtop_read_l (server, sizeof (glibtop_response), &response);
 
-#ifdef LIBGTOP_ENABLE_DEBUG
-	fprintf (stderr, "RESPONSE: offset=%lu - data_size=%lu\n",
+	glibtop_debug ("RESPONSE: offset=%lu - data_size=%lu",
 		 response.offset, response.data_size);
-#endif
 
 	if (recv_buf)
 		memcpy (recv_buf, ((char *) &response) + response.offset,
