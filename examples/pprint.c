@@ -43,9 +43,11 @@ printf("\t%4lu B %3lu " #ARRAY "[%lu] = { ", \
 (unsigned long) sizeof buf->ARRAY, 0,\
 (unsigned long) G_N_ELEMENTS(buf->ARRAY)); \
 for(i = 0; i < SIZE; ++i) { \
-printf ("[ ");\
-PPRINT_HASHTABLE(buf->ARRAY[i].values); \
-printf ("]\n");\
+  if (buf->ARRAY[i].values) {			\
+    printf ("[ ");				\
+    PPRINT_HASHTABLE(buf->ARRAY[i].values);	\
+    printf ("]\n");				\
+  }						\
 } \
 printf("} "); \
 } while(0)
