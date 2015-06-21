@@ -92,7 +92,7 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 	glibtop_read_l (server, sizeof (glibtop_response), &response);
 
 #ifdef LIBGTOP_ENABLE_DEBUG
-	fprintf (stderr, "RESPONSE: %lu - %d\n",
+	fprintf (stderr, "RESPONSE: offset=%lu - data_size=%lu\n",
 		 response.offset, response.data_size);
 #endif
 
