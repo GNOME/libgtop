@@ -39,6 +39,8 @@
 #include <sys/resource.h>
 #include <sys/mman.h>
 
+#include <fcntl.h>
+
 #ifndef PROFILE_COUNT
 #define PROFILE_COUNT	1
 #endif
