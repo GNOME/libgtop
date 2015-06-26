@@ -328,6 +328,28 @@ static void pprint_get_proc_mem(pid_t pid)
 }
 
 
+static void pprint_get_proc_affinity(pid_t pid)
+{
+  glibtop_proc_affinity buf;
+  guint32 i;
+  guint16* cpus;
+
+  cpus = glibtop_get_proc_affinity(&buf, pid);
+
+  HEADER_PPRINT(glibtop_get_proc_affinity);
+  PPRINT(flags, "%#llx");
+  PPRINT(number, "%u");
+  PPRINT(all, "%d");
+
+  printf("\taffinity=");
+  for (i = 0; i < buf.number; i++) {
+    printf("%d, ", cpus[i]);
+  }
+  putchar('\n');
+
+  FOOTER_PPRINT();
+}
+
 
 int main()
 {
@@ -360,6 +382,7 @@ int main()
 
   pprint_get_proc_kernel(getpid());
   pprint_get_proc_mem(getpid());
+  pprint_get_proc_affinity(getpid());
 
   glibtop_close();
 
