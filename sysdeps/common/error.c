@@ -37,10 +37,21 @@ enum MESSAGE_LEVEL {
 /* Prints error message and exits. */
 
 static void
-print_start (const glibtop *server, int message_level)
+print_message (const glibtop *server, int message_level, const char *format, int error, va_list args)
 {
 	const char *level;
-	char pids[32];
+	GString* message;
+
+	message = g_string_new(NULL);
+
+	g_string_printf(message, "%s", (server && server->name ? server->name : DEFAULT_NAME));
+
+	if (server->pid) {
+		g_string_append_printf(message, "(c=%u/s=%u)", getpid(), server->pid);
+	}
+	else {
+		g_string_append_printf(message, "(c=%u)", getpid());
+	}
 
 	switch (message_level) {
 	case MESSAGE_DEBUG:
@@ -56,26 +67,25 @@ print_start (const glibtop *server, int message_level)
 		level = "UNKNOWN";
 	}
 
-	if (server->pid) {
-		snprintf(pids, sizeof pids, "c=%u/s=%u", getpid(), server->pid);
-	}
-	else {
-		snprintf(pids, sizeof pids, "c=%u", getpid());
+	g_string_append_printf(message, ": [%s] ", level);
+
+	g_string_append_vprintf(message, format, args);
+
+	if (error) {
+		g_string_append_printf(message, ": %s", g_strerror(error));
 	}
 
-	fprintf (stderr, "%s(%s): [%s] ", server && server->name
-		 ? server->name
-		 : DEFAULT_NAME,
-		 pids,
-		 level);
+	g_string_append_c(message, '\n');
+
+	fputs(message->str, stderr);
+
+	g_string_free(message, TRUE);
 }
 
 void
 glibtop_error_vr (glibtop *server, const char *format, va_list args)
 {
-	print_start (server, MESSAGE_ERROR);
-	vfprintf (stderr, format, args);
-	fputc('\n', stderr);
+	print_message (server, MESSAGE_ERROR, format, 0, args);
 
 #ifdef LIBGTOP_ENABLE_DEBUG
 	abort ();
@@ -87,9 +97,7 @@ glibtop_error_vr (glibtop *server, const char *format, va_list args)
 void
 glibtop_error_io_vr (glibtop *server, const char *format, int error, va_list args)
 {
-	print_start (server, MESSAGE_ERROR);
-	vfprintf (stderr, format, args);
-	fprintf (stderr, ": %s\n", g_strerror (error));
+	print_message (server, MESSAGE_ERROR, format, error, args);
 
 #ifdef LIBGTOP_ENABLE_DEBUG
 	abort ();
@@ -101,9 +109,7 @@ glibtop_error_io_vr (glibtop *server, const char *format, int error, va_list arg
 void
 glibtop_warn_vr (glibtop *server, const char *format, va_list args)
 {
-	print_start (server, MESSAGE_WARNING);
-	vfprintf (stderr, format, args);
-	fputc('\n', stderr);
+	print_message (server, MESSAGE_WARNING, format, 0, args);
 
 #ifdef LIBGTOP_FATAL_WARNINGS
 	abort ();
@@ -113,9 +119,7 @@ glibtop_warn_vr (glibtop *server, const char *format, va_list args)
 void
 glibtop_warn_io_vr (glibtop *server, const char *format, int error, va_list args)
 {
-	print_start (server, MESSAGE_WARNING);
-	vfprintf (stderr, format, args);
-	fprintf (stderr, ": %s\n", g_strerror (error));
+	print_message (server, MESSAGE_WARNING, format, error, args);
 
 #ifdef LIBGTOP_FATAL_WARNINGS
 	abort ();
@@ -168,9 +172,7 @@ glibtop_warn_io_r (glibtop *server, const char *format, ...)
 void
 glibtop_debug_vr (glibtop *server, const char *format, va_list args)
 {
-	print_start (server, MESSAGE_DEBUG);
-	vfprintf (stderr, format, args);
-	fputc('\n', stderr);
+	print_message (server, MESSAGE_DEBUG, format, 0, args);
 }
 
 void
