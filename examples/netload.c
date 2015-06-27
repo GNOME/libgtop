@@ -51,7 +51,7 @@ static char* hwaddress_format_for_display(glibtop_netload *buf)
 
 	for(i = 0; i < sizeof buf->hwaddress; ++i)
 		g_string_append_printf(repr, "%02X:",
-				       (unsigned) ((char*)buf->hwaddress)[i]);
+				       ((unsigned char*)buf->hwaddress)[i]);
 
 	repr->str [ repr->len - 1] = ' ';
 	str = g_string_free(repr, FALSE);
