@@ -92,9 +92,8 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
                        const char *interface)
 {
         struct ifnet ifnet;
-        u_long ifnetaddr, ifnetfound;
+        u_long ifnetaddr;
         struct sockaddr *sa = NULL;
-        char name [32];
 
         union {
                 struct ifaddr ifa;
@@ -113,31 +112,23 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 		return;
 	}
 
-        while (ifnetaddr)
+        for (/* NOP */; ifnetaddr; ifnetaddr = (u_long) ifnet.if_link.tqe_next)
         {
                 struct sockaddr_in *sin;
                 register char *cp;
                 u_long ifaddraddr;
 
-                {
-                        ifnetfound = ifnetaddr;
+		if (kvm_read (server->machine.kd, ifnetaddr, &ifnet,
+			      sizeof (ifnet)) != sizeof (ifnet)) {
+			glibtop_warn_io_r (server,
+					   "kvm_read (ifnetaddr)");
+			break;
+		}
 
-                        if (kvm_read (server->machine.kd, ifnetaddr, &ifnet,
-                                        sizeof (ifnet)) != sizeof (ifnet)) {
-                                glibtop_warn_io_r (server,
-						   "kvm_read (ifnetaddr)");
-				continue;
-			}
-
-                        g_strlcpy (name, ifnet.if_xname, sizeof(name));
-                        ifnetaddr = (u_long) ifnet.if_link.tqe_next;
-
-                        if (strcmp (name, interface) != 0)
-                                continue;
-
-                        ifaddraddr = (u_long) ifnet.if_addrhead.tqh_first;
-                }
-                if (ifnet.if_flags & IFF_UP)
+		if (strcmp (ifnet.if_xname, interface) != 0)
+			continue;
+		
+	        if (ifnet.if_flags & IFF_UP)
                         buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_UP);
                 if (ifnet.if_flags & IFF_BROADCAST)
                         buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_BROADCAST);
@@ -193,12 +184,12 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
                 buf->collisions = ifnet.if_collisions;
                 buf->flags = _glibtop_sysdeps_netload;
 
-                while (ifaddraddr) {
+                for (ifaddraddr = (u_long) ifnet.if_addrhead.tqh_first; ifaddraddr; ifaddraddr = (u_long) ifaddr.ifa.ifa_link.tqe_next) {
                         if ((kvm_read (server->machine.kd, ifaddraddr, &ifaddr,
                                         sizeof (ifaddr)) != sizeof (ifaddr))) {
                                 glibtop_warn_io_r (server,
 						   "kvm_read (ifaddraddr)");
-				continue;
+				break;
 			}
 
 #define CP(x) ((char *)(x))
@@ -247,8 +238,9 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
                                         close (in6fd);
                                 }
                         }
-                        ifaddraddr = (u_long) ifaddr.ifa.ifa_link.tqe_next;
-                }
-                return;
-        }
+                } /* end of for ( ifaddraddr ) */
+
+		/* found the interface anyway */
+                break;
+        } /* end of for ( ifnetaddr ) */
 }
