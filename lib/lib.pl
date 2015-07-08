@@ -112,8 +112,8 @@ sub output {
 	$param_decl = ",\n            " . $space . '    const char *' .
 
 	  $line_fields[5];
-	$send_ptr = "\n\tconst void *send_ptr = " . $line_fields[5] . ';';
-	$send_size = "\n\tconst size_t send_size =\n\t\tstrlen (" .
+	$send_ptr = "\t\tconst void *send_ptr = " . $line_fields[5] . ';';
+	$send_size = "\t\tconst size_t send_size =\n\t\tstrlen (" .
 
 	  $line_fields[5] . ') + 1;';
     }
@@ -126,7 +126,7 @@ sub output {
 	$buf_set = '';
 	$nr_params = (@params = split(/:/, $param_def, 9999));
 	if ($nr_params) {
-	    $param_buf = "\n\tstruct {\n";
+	    $param_buf = "\t\tstruct {\n";
 	}
 	for ($param = 1; $param <= $nr_params; $param++) {
 	    $list = $params[$param];
@@ -138,8 +138,8 @@ sub output {
 
 	    if ($count > 0) {
 		for ($field = 1; $field <= $count; $field++) {
-		    $param_buf .= "\t\t$convert{$type} buf_$fields[$field];\n";
-		    $buf_set .= "\tparam_buf.buf_$fields[$field] = $fields[$field];\n";
+		    $param_buf .= "\t\t\t$convert{$type} buf_$fields[$field];\n";
+		    $buf_set .= "\t\tparam_buf.buf_$fields[$field] = $fields[$field];\n";
 		}
 	    }
 
@@ -155,19 +155,19 @@ sub output {
 		  $fields[$field];
 		$call_param = $call_param . ', ' . $fields[$field];
 		if ($send_ptr eq '') {
-		    $send_ptr = "\n\tconst void *send_ptr = &param_buf;";
+		    $send_ptr = "\t\tconst void *send_ptr = &param_buf;";
 		}
 	    }
 	}
 	if ($nr_params) {
-	    $param_buf .= "\t} param_buf;";
-	    $send_size  = "\n\tconst size_t send_size = sizeof param_buf;";
+	    $param_buf .= "\t\t} param_buf;\n";
+	    $send_size  = "\t\tconst size_t send_size = sizeof param_buf;";
 	}
 	else {
-	    $send_size = "\n\tconst size_t send_size = 0;";
+	    $send_size = "\t\tconst size_t send_size = 0;";
 	}
 	if ($send_ptr eq '') {
-	    $send_ptr = "\n\tconst void *send_ptr = NULL;";
+	    $send_ptr = "\t\tconst void *send_ptr = NULL;";
 	}
     }
 
@@ -175,13 +175,11 @@ sub output {
 
       $feature . ' *buf' . $param_decl . ')';
 
-    print "{" . $param_buf;
+    print "{";
 
-    print $send_ptr . '' . $send_size;
     if ($retval !~ /^void$/) {
 	print "\t" . $retval . ' retval = (' . $retval . ') 0;';
     }
-    print $buf_set;
 
     print "\tglibtop_init_r (&server, (1 << GLIBTOP_SYSDEPS_" .
 
@@ -197,6 +195,15 @@ sub output {
 
       &toupper($feature) . ')))';
     print "\t{";
+
+    if ($param_buf) {
+        print $param_buf;
+        print $buf_set;
+    }
+
+    print $send_ptr;
+    print $send_size;
+    print '';
 
     print "\t\t" . $prefix . 'glibtop_call_l (server, GLIBTOP_CMND_' .
 
