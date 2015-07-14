@@ -52,12 +52,13 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 
 	file_to_buffer(server, buffer, sizeof buffer, FILENAME);
 
+        /* try to match procps's `free` */
 	buf->total  = get_scaled(buffer, "MemTotal:");
 	buf->free   = get_scaled(buffer, "MemFree:");
 	buf->used   = buf->total - buf->free;
-	buf->shared = 0;
+	buf->shared = get_scaled(buffer, "Shmem:");
 	buf->buffer = get_scaled(buffer, "Buffers:");
-	buf->cached = get_scaled(buffer, "Cached:");
+	buf->cached = get_scaled(buffer, "Cached:") + get_scaled(buffer, "Slab:");
 
 	if (server->os_version_code >= LINUX_VERSION_CODE(3, 14, 0)) {
 		buf->user = buf->total - get_scaled(buffer, "MemAvailable:");
