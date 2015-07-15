@@ -35,10 +35,10 @@ glibtop_send_version (glibtop *server, int fd)
 
 	sprintf (buffer, LIBGTOP_VERSION_STRING,
 		 LIBGTOP_VERSION, LIBGTOP_SERVER_VERSION,
-		 sizeof (glibtop_command),
-		 sizeof (glibtop_response),
-		 sizeof (glibtop_union),
-		 sizeof (glibtop_sysdeps));
+		 (unsigned) sizeof (glibtop_command),
+		 (unsigned) sizeof (glibtop_response),
+		 (unsigned) sizeof (glibtop_union),
+		 (unsigned) sizeof (glibtop_sysdeps));
 
 	size = strlen (buffer) + 1;
 
