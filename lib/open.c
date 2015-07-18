@@ -47,7 +47,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 
 	server->error_method = GLIBTOP_ERROR_METHOD_DEFAULT;
 
-	glibtop_debug ("SIZEOF: %u - %u - %u - %u - %u - %u",
+	glibtop_debug ("SIZEOF: %zu - %zu - %zu - %zu - %zu - %zu",
 		 sizeof (glibtop_command), sizeof (glibtop_response),
 		 sizeof (glibtop_mountentry), sizeof (glibtop_union),
 		 sizeof (glibtop_sysdeps), sizeof (glibtop_response_union));
