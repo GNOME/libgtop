@@ -22,39 +22,11 @@
 #include <config.h>
 #include "daemon.h"
 
-static glibtop _glibtop_global_server;
-glibtop *glibtop_global_server = &_glibtop_global_server;
-
 #include <glibtop.h>
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
 
 #include <sys/utsname.h>
-
-const unsigned long glibtop_server_features =
-GLIBTOP_SUID_CPU +
-GLIBTOP_SUID_MEM +
-GLIBTOP_SUID_SWAP +
-GLIBTOP_SUID_UPTIME +
-GLIBTOP_SUID_LOADAVG +
-GLIBTOP_SUID_SHM_LIMITS +
-GLIBTOP_SUID_MSG_LIMITS +
-GLIBTOP_SUID_SEM_LIMITS +
-GLIBTOP_SUID_PROCLIST +
-GLIBTOP_SUID_PROC_STATE +
-GLIBTOP_SUID_PROC_UID +
-GLIBTOP_SUID_PROC_MEM +
-GLIBTOP_SUID_PROC_TIME +
-GLIBTOP_SUID_PROC_SIGNAL +
-GLIBTOP_SUID_PROC_KERNEL +
-GLIBTOP_SUID_PROC_SEGMENT +
-GLIBTOP_SUID_PROC_ARGS +
-GLIBTOP_SUID_PROC_MAP +
-GLIBTOP_SUID_NETLOAD +
-GLIBTOP_SUID_NETLIST +
-GLIBTOP_SUID_PROC_WD +
-GLIBTOP_SUID_PROC_AFFINITY +
-GLIBTOP_SUID_PPP;
 
 #include <fcntl.h>
 #include <locale.h>
