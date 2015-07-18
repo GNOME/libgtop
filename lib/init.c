@@ -209,7 +209,7 @@ glibtop_init_r (glibtop **server_ptr, unsigned long features, unsigned flags)
 	/* Open server, but only if not already opened. */
 
 	if ((server->flags & _GLIBTOP_INIT_STATE_OPEN) == 0)
-		glibtop_open_l (glibtop_global_server, "glibtop",
+		glibtop_open_l (server, "glibtop",
 				features, flags);
 
 	return server;
