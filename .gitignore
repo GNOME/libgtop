@@ -62,7 +62,7 @@ doc/version.texi
 examples/affinity
 examples/df
 examples/first
-examples/mem
+examples/free
 examples/mountlist
 examples/netlist
 examples/netload
