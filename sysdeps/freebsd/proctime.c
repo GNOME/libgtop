@@ -37,7 +37,12 @@ static const unsigned long _glibtop_sysdeps_proc_time_user =
 (1L << GLIBTOP_PROC_TIME_CUTIME) + (1L << GLIBTOP_PROC_TIME_CSTIME) +
 (1L << GLIBTOP_PROC_TIME_START_TIME);
 
-#define tv2sec(tv)	(((guint64) tv.tv_sec * 1000000) + (guint64) tv.tv_usec)
+static guint64 tv2sec_freq(struct timeval tv, guint64 freq)
+{
+	return tv.tv_sec * freq + tv.tv_usec * freq / 1000000;
+}
+
+#define tv2sec(tv)	tv2sec_freq(tv, 1)
 
 /* Init function. */
 
@@ -92,16 +97,20 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	buf->rtime = pinfo [0].ki_runtime * buf->frequency / 1000000;
 	buf->flags = _glibtop_sysdeps_proc_time;
 
-       if ((pinfo [0].ki_flag & PS_INMEM)) {
-           buf->utime = (pinfo [0].ki_runtime * 1e-6) * buf->frequency;
-	   buf->stime = tv2sec (pinfo [0].ki_rusage.ru_stime) * buf->frequency;
-           buf->cutime = tv2sec (pinfo [0].ki_childtime) * buf->frequency;
+	/*
+	  All the following used to be 'if (pinfo [0].ki_flag & PS_INMEM)'
+	  but it was never entered.
+	  I have no idea what this PS_INMEM is, but it works perfectly
+	  without this check.
+	 */
+	buf->utime = tv2sec_freq (pinfo [0].ki_rusage.ru_utime, buf->frequency);
+	buf->stime = tv2sec_freq (pinfo [0].ki_rusage.ru_stime, buf->frequency);
+	buf->cutime = tv2sec_freq (pinfo [0].ki_childtime, buf->frequency);
 #if (__FreeBSD_version >= 600006) || defined(__FreeBSD_kernel__)
-	   buf->cstime = tv2sec (pinfo [0].ki_rusage_ch.ru_stime) * buf->frequency;
+	buf->cstime = tv2sec_freq (pinfo [0].ki_rusage_ch.ru_stime, buf->frequency);
 #else
 	   buf->cstime = 0;
 #endif
            buf->start_time = tv2sec (pinfo [0].ki_start);
            buf->flags |= _glibtop_sysdeps_proc_time_user;
-       }
 }
