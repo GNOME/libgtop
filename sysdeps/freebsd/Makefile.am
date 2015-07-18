@@ -21,6 +21,8 @@ libgtop_sysdeps_suid_2_0_la_SOURCES	= suid_open.c close.c swap.c \
 libgtop_sysdeps_suid_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 
 libgtopinclude_HEADERS		= glibtop_server.h glibtop_machine.h \
-				  glibtop_suid.h glibtop_private.h
+				  glibtop_suid.h
 
 libgtopincludedir		= $(includedir)/libgtop-2.0
+
+noinst_HEADERS			= glibtop_private.h
