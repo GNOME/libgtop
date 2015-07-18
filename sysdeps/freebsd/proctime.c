@@ -80,7 +80,6 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 
 	glibtop_suid_leave (server);
 
-	buf->rtime = pinfo [0].ki_runtime * 1e-6;
 
 	len = sizeof (ci);
 	if (sysctlbyname ("kern.clockrate", &ci, &len, NULL, 0)) {
@@ -90,9 +89,8 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	}
 
 	buf->frequency = (ci.stathz ? ci.stathz : ci.hz);
+	buf->rtime = pinfo [0].ki_runtime * buf->frequency / 1000000;
 	buf->flags = _glibtop_sysdeps_proc_time;
-
-	buf->rtime *= buf->frequency;
 
        if ((pinfo [0].ki_flag & PS_INMEM)) {
            buf->utime = (pinfo [0].ki_runtime * 1e-6) * buf->frequency;
