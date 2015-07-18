@@ -317,7 +317,6 @@ if test "$GCC" = "yes" ; then
         CFLAGS="\
 	-Winline \
 	-Wall \
-	-std=gnu89 \
 	-Wchar-subscripts -Wmissing-declarations -Wmissing-prototypes \
 	-Wnested-externs -Wpointer-arith \
 	-Wcast-align -Wsign-compare \
