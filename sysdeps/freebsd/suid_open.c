@@ -71,11 +71,15 @@ glibtop_open_p (glibtop *server, const char *program_name,
 
 	/* Drop priviledges. */
 
+	glibtop_debug ("uid=%d euid=%d gid=%d egid=%d", getuid(), geteuid(), getgid(), getegid());
+
 	if (setreuid (server->machine.euid, server->machine.uid))
 		_exit (1);
 
 	if (setregid (server->machine.egid, server->machine.gid))
 		_exit (1);
+
+	glibtop_debug ("uid=%d euid=%d gid=%d egid=%d", getuid(), geteuid(), getgid(), getegid());
 
 	/* !!! END OF SUID ROOT PART !!! */
 

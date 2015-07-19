@@ -25,6 +25,7 @@
 #include <glibtop.h>
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
+#include <glibtop/error.h>
 
 #include <sys/utsname.h>
 
@@ -41,6 +42,8 @@ main(int argc, char *argv[])
 
 	uid = getuid (); euid = geteuid ();
 	gid = getgid (); egid = getegid ();
+
+	glibtop_debug ("uid=%d euid=%d gid=%d egid=%d", getuid(), geteuid(), getgid(), getegid());
 
 	if (uname (&uts) < 0) _exit (1);
 
@@ -74,9 +77,13 @@ main(int argc, char *argv[])
 
 	glibtop_init_p (glibtop_global_server, 0, 0);
 
+	glibtop_debug ("uid=%d euid=%d gid=%d egid=%d", getuid(), geteuid(), getgid(), getegid());
+
 	if (setreuid (euid, uid)) _exit (1);
 
 	if (setregid (egid, gid)) _exit (1);
+
+	glibtop_debug ("uid=%d euid=%d gid=%d egid=%d", getuid(), geteuid(), getgid(), getegid());
 
 	/* !!! END OF SUID ROOT PART !!! */
 
