@@ -153,7 +153,7 @@ glibtop_open_l (glibtop *server, const char *program_name,
 
 		memcpy (&server->sysdeps, &sysdeps, sizeof (glibtop_sysdeps));
 
-		glibtop_debug ("Server features are %lu.",
+		glibtop_debug ("Server features are %#0lx.",
 			 server->features);
 	}
 
