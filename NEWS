@@ -1,3 +1,25 @@
+29 July 2015: Overview of changes in 2.31.4
+=============================================
+* 71 commits !
+* Implement a proper --enable-debug mode.
+* FreeBSD:
+	- procstate: set process name for kernel (pid=0)
+	- procmap: get dev/inode for ZFS (no filename yet)
+	- mem: rework memory usage to something more meaningful
+	- proclist: don't report threads
+	- proctime: fix CPU times
+* Linux:
+	- mem: use MemAvailable when available
+	- mem: match `free`, report Slab as Cached.
+	- support for x.y versionsmemory to match `free`
+* Fix a lot of GI tags: it now works without crashing.
+* Server and daemon binaries are now dynamically linked against their libgtop.
+* Update a lot of examples/.
+* Clean up some very old code.
+* Updated translations.
+
+Special thanks to Ting-Wei Lan for providing patches and feedback on FreeBSD.
+
 22 June 2015: Overview of changes in 2.31.3
 =============================================
 * Numerous OpenBSD backend fixes.
