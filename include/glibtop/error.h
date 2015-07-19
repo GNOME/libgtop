@@ -50,7 +50,7 @@ void glibtop_warn_io (const char *format, ...) G_GNUC_PRINTF(1, 2);
 #define glibtop_debug_r(server, fmt, ...)				\
 	G_STMT_START {							\
 	if (LIBGTOP_ENABLE_DEBUG)					\
-		glibtop_debug_r_real(server, fmt, ##__VA_ARGS__); \
+		glibtop_debug_r_real(server, "%s:%d %s(): " fmt, __FILE__, __LINE__, __func__, ##__VA_ARGS__); \
 	} G_STMT_END
 
 #define glibtop_debug(...) glibtop_debug_r(glibtop_global_server, __VA_ARGS__)
