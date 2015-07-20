@@ -98,7 +98,7 @@ parse_smaps(glibtop_map_entry *entry, const char* line)
 	if ((colon = is_smap_value(line)) == NULL)
 		return FALSE;
 
-	len = colon - line + 1;
+	len = colon - line;
 	smap = _glibtop_find_smap(line, len);
 
 //		g_debug("smap %s -> %p", line, smap);
