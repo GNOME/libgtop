@@ -52,6 +52,7 @@ static const unsigned long _glibtop_sysdeps_map_entry =
 
 static const unsigned long _glibtop_sysdeps_map_entry_smaps =
 (1UL << GLIBTOP_MAP_ENTRY_SIZE) + (1UL << GLIBTOP_MAP_ENTRY_RSS) +
+(1UL << GLIBTOP_MAP_ENTRY_PSS) + (1UL << GLIBTOP_MAP_ENTRY_SWAP) +
 (1UL << GLIBTOP_MAP_ENTRY_SHARED_DIRTY) + (1UL << GLIBTOP_MAP_ENTRY_SHARED_CLEAN) +
 (1UL << GLIBTOP_MAP_ENTRY_PRIVATE_DIRTY) + (1UL << GLIBTOP_MAP_ENTRY_PRIVATE_CLEAN);
 

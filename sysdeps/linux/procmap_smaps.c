@@ -1,6 +1,6 @@
 /* ANSI-C code produced by gperf version 3.0.3 */
 /* Command-line: gperf sysdeps/linux/procmap_smaps.gperf  */
-/* Computed positions: -k'9' */
+/* Computed positions: -k'1,$' */
 
 #if !((' ' == 32) && ('!' == 33) && ('"' == 34) && ('#' == 35) \
       && ('%' == 37) && ('&' == 38) && ('\'' == 39) && ('(' == 40) \
@@ -40,7 +40,7 @@ struct smap_value { int name; ptrdiff_t offset; };
 #include <string.h>
 #include <stddef.h>
 
-#define TOTAL_KEYWORDS 6
+#define TOTAL_KEYWORDS 8
 #define MIN_WORD_LENGTH 3
 #define MAX_WORD_LENGTH 13
 #define MIN_HASH_VALUE 3
@@ -65,13 +65,13 @@ hash (register const char *str, register unsigned int len)
       19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
       19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
       19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
-      19, 19, 19, 19, 19, 19, 19,  5,  0, 19,
       19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
       19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
+       0, 19,  5,  0, 19, 19, 19, 19, 19, 19,
       19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
-      19, 19, 19, 19, 19,  5, 19, 19,  0, 19,
-      19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
-      19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
+      19,  5, 19, 19, 19, 19, 19, 19, 19, 19,
+       5, 19,  0, 19, 19,  0, 19, 19, 19, 19,
+      19,  0, 19, 19, 19, 19, 19, 19, 19, 19,
       19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
       19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
       19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
@@ -86,40 +86,29 @@ hash (register const char *str, register unsigned int len)
       19, 19, 19, 19, 19, 19, 19, 19, 19, 19,
       19, 19, 19, 19, 19, 19
     };
-  register int hval = len;
-
-  switch (hval)
-    {
-      default:
-        hval += asso_values[(unsigned char)str[8]];
-      /*FALLTHROUGH*/
-      case 8:
-      case 7:
-      case 6:
-      case 5:
-      case 4:
-      case 3:
-        break;
-    }
-  return hval;
+  return len + asso_values[(unsigned char)str[len - 1]] + asso_values[(unsigned char)str[0]];
 }
 
 struct stringpool_t
   {
-    char stringpool_str3[sizeof("Rss")];
-    char stringpool_str4[sizeof("Size")];
-    char stringpool_str12[sizeof("Shared_Clean")];
+    char stringpool_str3[sizeof("Pss")];
+    char stringpool_str4[sizeof("Swap")];
+    char stringpool_str8[sizeof("Rss")];
+    char stringpool_str9[sizeof("Size")];
+    char stringpool_str12[sizeof("Shared_Dirty")];
     char stringpool_str13[sizeof("Private_Dirty")];
-    char stringpool_str17[sizeof("Shared_Dirty")];
+    char stringpool_str17[sizeof("Shared_Clean")];
     char stringpool_str18[sizeof("Private_Clean")];
   };
 static const struct stringpool_t stringpool_contents =
   {
+    "Pss",
+    "Swap",
     "Rss",
     "Size",
-    "Shared_Clean",
-    "Private_Dirty",
     "Shared_Dirty",
+    "Private_Dirty",
+    "Shared_Clean",
     "Private_Clean"
   };
 #define stringpool ((const char *) &stringpool_contents)
@@ -135,24 +124,29 @@ _glibtop_find_smap (register const char *str, register unsigned int len)
 {
   static const unsigned char lengthtable[] =
     {
-       0,  0,  0,  3,  4,  0,  0,  0,  0,  0,  0,  0, 12, 13,
+       0,  0,  0,  3,  4,  0,  0,  0,  3,  4,  0,  0, 12, 13,
        0,  0,  0, 12, 13
     };
   static const struct smap_value wordlist[] =
     {
       {-1}, {-1}, {-1},
 #line 18 "sysdeps/linux/procmap_smaps.gperf"
-      {offsetof(struct stringpool_t, stringpool_str3),		SMAP_OFFSET(rss)},
-#line 21 "sysdeps/linux/procmap_smaps.gperf"
-      {offsetof(struct stringpool_t, stringpool_str4),		SMAP_OFFSET(size)},
-      {-1}, {-1}, {-1}, {-1}, {-1}, {-1}, {-1},
+      {offsetof(struct stringpool_t, stringpool_str3),		SMAP_OFFSET(pss)},
+#line 23 "sysdeps/linux/procmap_smaps.gperf"
+      {offsetof(struct stringpool_t, stringpool_str4),		SMAP_OFFSET(swap),},
+      {-1}, {-1}, {-1},
 #line 19 "sysdeps/linux/procmap_smaps.gperf"
-      {offsetof(struct stringpool_t, stringpool_str12),	SMAP_OFFSET(shared_clean)},
+      {offsetof(struct stringpool_t, stringpool_str8),		SMAP_OFFSET(rss)},
+#line 22 "sysdeps/linux/procmap_smaps.gperf"
+      {offsetof(struct stringpool_t, stringpool_str9),		SMAP_OFFSET(size)},
+      {-1}, {-1},
+#line 21 "sysdeps/linux/procmap_smaps.gperf"
+      {offsetof(struct stringpool_t, stringpool_str12),	SMAP_OFFSET(shared_dirty)},
 #line 17 "sysdeps/linux/procmap_smaps.gperf"
       {offsetof(struct stringpool_t, stringpool_str13),	SMAP_OFFSET(private_dirty)},
       {-1}, {-1}, {-1},
 #line 20 "sysdeps/linux/procmap_smaps.gperf"
-      {offsetof(struct stringpool_t, stringpool_str17),	SMAP_OFFSET(shared_dirty)},
+      {offsetof(struct stringpool_t, stringpool_str17),	SMAP_OFFSET(shared_clean)},
 #line 16 "sysdeps/linux/procmap_smaps.gperf"
       {offsetof(struct stringpool_t, stringpool_str18),	SMAP_OFFSET(private_clean)}
     };

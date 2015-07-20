@@ -15,7 +15,9 @@ struct smap_value { int name; ptrdiff_t offset; };
 %%
 Private_Clean,	SMAP_OFFSET(private_clean)
 Private_Dirty,	SMAP_OFFSET(private_dirty)
+Pss,		SMAP_OFFSET(pss)
 Rss,		SMAP_OFFSET(rss)
 Shared_Clean,	SMAP_OFFSET(shared_clean)
 Shared_Dirty,	SMAP_OFFSET(shared_dirty)
 Size,		SMAP_OFFSET(size)
+Swap,		SMAP_OFFSET(swap),
