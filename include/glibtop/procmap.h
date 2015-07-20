@@ -48,8 +48,10 @@ G_BEGIN_DECLS
 #define GLIBTOP_MAP_ENTRY_SHARED_DIRTY		10
 #define GLIBTOP_MAP_ENTRY_PRIVATE_CLEAN		11
 #define GLIBTOP_MAP_ENTRY_PRIVATE_DIRTY		12
+#define GLIBTOP_MAP_ENTRY_PSS			13
+#define GLIBTOP_MAP_ENTRY_SWAP			14
 
-#define GLIBTOP_MAX_MAP_ENTRY		13
+#define GLIBTOP_MAX_MAP_ENTRY		15
 
 #define GLIBTOP_MAP_FILENAME_LEN	215
 
@@ -78,6 +80,8 @@ struct _glibtop_map_entry
 	guint64 shared_dirty;
 	guint64 private_clean; 
 	guint64 private_dirty;
+	guint64 pss;
+	guint64 swap;
 	char filename [GLIBTOP_MAP_FILENAME_LEN+1];
 };
 
