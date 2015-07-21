@@ -32,11 +32,8 @@ typedef struct _glibtop_machine		glibtop_machine;
 
 struct _glibtop_machine
 {
-	pid_t	last_pid;
-	int	no_update;
-	int	fd_stat, fd_meminfo, fd_loadavg;
-	char	proc_stat [BUFSIZ], proc_statm [BUFSIZ];
-	char	proc_status [BUFSIZ];
+	guint64 reserved[8];
+	int	reserved[8];
 };
 
 G_END_DECLS
