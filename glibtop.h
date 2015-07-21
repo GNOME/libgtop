@@ -22,6 +22,10 @@
 #ifndef __GLIBTOP_H__
 #define __GLIBTOP_H__
 
+/* for pid_t, uid_t, gid_t */
+#include <sys/types.h>
+
+
 #include <glib.h>
 #include <glib-object.h>
 
@@ -88,6 +92,12 @@ struct _glibtop
 	glibtop_sysdeps sysdeps;	/* Detailed feature list */
 	glibtop_sysdeps required;	/* Required feature list */
 	pid_t pid;			/* PID of the server */
+
+	uid_t uid;
+	uid_t euid;
+	gid_t gid;
+	gid_t egid;
+
 	glibtop_machine machine;	/* Machine dependent data */
 };
 
