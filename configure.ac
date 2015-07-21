@@ -275,10 +275,6 @@ dnl These definitions are expanded in make.
 LIBGTOP_LIBS='-L$(libdir)'
 LIBGTOP_INCS='-I$(includedir)/libgtop-2.0'
 
-if test x$libgtop_use_machine_h = xyes ; then
-  LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_GLIBTOP_MACHINE_H"
-fi
-
 if test x$libgtop_have_sysinfo = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SYSINFO"
 fi
@@ -306,12 +302,6 @@ fi
 LIBGTOP_EXTRA_LIBS="$GLIB_LIBS $LIBGTOP_EXTRA_LIBS"
 
 LIBGTOP_LIBS="$LIBGTOP_LIBS"
-
-LIBGTOP_LIBS="$LIBGTOP_LIBS" 
-
-machine_incs="-I\$(top_srcdir)/sysdeps/$sysdeps_dir"
-
-AC_SUBST(machine_incs)
 
 if test "$GCC" = "yes" ; then
         CFLAGS="\

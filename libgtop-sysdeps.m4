@@ -4,9 +4,6 @@ dnl
 dnl It defines the following variables:
 dnl
 dnl * 'libgtop_sysdeps_dir'    - sysdeps dir for libgtop.
-dnl * 'libgtop_use_machine_h'  - some of system dependend parts of libgtop provide
-dnl                              their own header file. In this case we need to
-dnl                              define 'HAVE_GLIBTOP_MACHINE_H'.
 dnl * 'libgtop_need_server'    - is the server really needed? Defines 'LIBGTOP_NEED_SERVER'
 dnl                              if true; defines conditional 'LIBGTOP_NEED_SERVER'.
 
@@ -14,7 +11,6 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	AC_REQUIRE([AC_CANONICAL_HOST])
 
 	AC_SUBST(libgtop_sysdeps_dir)
-	AC_SUBST(libgtop_use_machine_h)
 	AC_SUBST(libgtop_need_server)
 
 	AC_ARG_WITH(libgtop-examples,
@@ -36,7 +32,6 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	case "$host_os" in
 	linux*)
 	  libgtop_sysdeps_dir=linux
-	  libgtop_use_machine_h=no
 	  libgtop_have_sysinfo=yes
 	  libgtop_need_server=no
 	  libgtop_sysdeps_private_mountlist=yes
@@ -44,13 +39,11 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  ;;
 	netbsd*|bsdi*)
 	  libgtop_sysdeps_dir=bsd
-	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
 	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server2 && chmod 2755 $(bindir)/libgtop_server2'
 	  ;;
 	openbsd*)
 	  libgtop_sysdeps_dir=openbsd
-	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
 	  libgtop_sysdeps_private_mountlist=yes
 	  libgtop_sysdeps_private_fsusage=yes
@@ -58,7 +51,6 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  ;;
 	freebsd*|kfreebsd*)
 	  libgtop_sysdeps_dir=freebsd
-	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
 	  libgtop_sysdeps_private_mountlist=yes
 	  libgtop_sysdeps_private_fsusage=yes
@@ -66,27 +58,23 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  ;;
 	solaris*)
 	  libgtop_sysdeps_dir=solaris
-	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
 	  libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
 	  ;;
 	aix*)
 	  libgtop_sysdeps_dir=aix
-	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
 	  libgtop_have_sysinfo=yes
 	  libgtop_postinstall='chgrp system $(bindir)/libgtop_server && chmod g+s $(bindir)/libgtop_server2'
 	  ;;
 	darwin*)
 	  libgtop_sysdeps_dir=darwin
-	  libgtop_use_machine_h=yes
 	  libgtop_need_server=yes
 	  libgtop_have_sysinfo=yes
 	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server2 && chmod g+s $(bindir)/libgtop_server2'
 	  ;;
 	cygwin*)
 	  libgtop_sysdeps_dir=cygwin
-	  libgtop_use_machine_h=no
 	  libgtop_need_server=no
 	  libgtop_have_sysinfo=yes
 	  libgtop_sysdeps_private_mountlist=yes
@@ -98,23 +86,19 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	      #Please note that this port is obsolete and not working at
 	      #all. It is only useful for people who want to fix it ... :-)
 	      libgtop_sysdeps_dir=sun4
-	      libgtop_use_machine_h=yes
 	      libgtop_need_server=yes
 	      ;;
 	    osf*)
 	      libgtop_sysdeps_dir=osf1
-	      libgtop_use_machine_h=yes
 	      libgtop_need_server=yes
 	      ;;
 	    *)
 	      libgtop_sysdeps_dir=stub
-	      libgtop_use_machine_h=no
 	      libgtop_need_server=no
 	      ;;
 	    esac
 	  else
 	    libgtop_sysdeps_dir=stub
-	    libgtop_use_machine_h=no
 	    libgtop_need_server=no
 	  fi
 	  ;;
@@ -277,19 +261,11 @@ main (void)
 	  ;;
 	esac
 
-	AC_MSG_CHECKING(for machine.h in libgtop sysdeps dir)
-	AC_MSG_RESULT($libgtop_use_machine_h)
-
 	AC_MSG_CHECKING(whether we need libgtop)
 	AC_MSG_RESULT($libgtop_need_server)
 
 	if test x$libgtop_need_server = xyes ; then
 	  AC_DEFINE(LIBGTOP_NEED_SERVER, 1, [Define if libgtop server is required])
-	fi
-
-	if test x$libgtop_use_machine_h = xyes ; then
-	  AC_DEFINE(HAVE_GLIBTOP_MACHINE_H, 1,
-                    [Define if machine.h in libgtop sysdeps dir])
 	fi
 
 	AM_CONDITIONAL(LIBGTOP_NEED_SERVER, test x$libgtop_need_server = xyes)
