@@ -77,7 +77,7 @@ static struct nlist nlst [] =
 void
 _glibtop_init_netload_p (glibtop *server)
 {
-        if (kvm_nlist (server->machine.kd, nlst) < 0) {
+        if (kvm_nlist (server->machine->kd, nlst) < 0) {
                 glibtop_warn_io_r (server, "kvm_nlist");
 		return;
 	}
@@ -104,7 +104,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 
 	if (server->sysdeps.netload == 0) return;
 
-        if (kvm_read (server->machine.kd, nlst [0].n_value,
+        if (kvm_read (server->machine->kd, nlst [0].n_value,
                         &ifnetaddr, sizeof (ifnetaddr)) != sizeof (ifnetaddr)) {
                 glibtop_warn_io_r (server, "kvm_read (ifnet)");
 		return;
@@ -116,7 +116,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
                 register char *cp;
                 u_long ifaddraddr;
 
-		if (kvm_read (server->machine.kd, ifnetaddr, &ifnet,
+		if (kvm_read (server->machine->kd, ifnetaddr, &ifnet,
 			      sizeof (ifnet)) != sizeof (ifnet)) {
 			glibtop_warn_io_r (server,
 					   "kvm_read (ifnetaddr)");
@@ -183,7 +183,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
                 buf->flags = _glibtop_sysdeps_netload;
 
                 for (ifaddraddr = (u_long) ifnet.if_addrhead.tqh_first; ifaddraddr; ifaddraddr = (u_long) ifaddr.ifa.ifa_link.tqe_next) {
-                        if ((kvm_read (server->machine.kd, ifaddraddr, &ifaddr,
+                        if ((kvm_read (server->machine->kd, ifaddraddr, &ifaddr,
                                         sizeof (ifaddr)) != sizeof (ifaddr))) {
                                 glibtop_warn_io_r (server,
 						   "kvm_read (ifaddraddr)");

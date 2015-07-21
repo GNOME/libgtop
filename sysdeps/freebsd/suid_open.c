@@ -59,24 +59,24 @@ glibtop_open_p (glibtop *server, const char *program_name,
 	glibtop_debug ("glibtop_open_p ()");
 
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
-	server->machine.uid = getuid ();
-	server->machine.euid = geteuid ();
-	server->machine.gid = getgid ();
-	server->machine.egid = getegid ();
+	server->machine->uid = getuid ();
+	server->machine->euid = geteuid ();
+	server->machine->gid = getgid ();
+	server->machine->egid = getegid ();
 	/* Setup machine-specific data */
-	server->machine.kd = kvm_openfiles (NULL, NULL, NULL, O_RDONLY, errbuf);
+	server->machine->kd = kvm_openfiles (NULL, NULL, NULL, O_RDONLY, errbuf);
 
-	if (server->machine.kd == NULL)
+	if (server->machine->kd == NULL)
 		glibtop_error_io_r (server, "kvm_open");
 
 	/* Drop priviledges. */
 
 	glibtop_debug ("uid=%d euid=%d gid=%d egid=%d", getuid(), geteuid(), getgid(), getegid());
 
-	if (setreuid (server->machine.euid, server->machine.uid))
+	if (setreuid (server->machine->euid, server->machine->uid))
 		_exit (1);
 
-	if (setregid (server->machine.egid, server->machine.gid))
+	if (setregid (server->machine->egid, server->machine->gid))
 		_exit (1);
 
 	glibtop_debug ("uid=%d euid=%d gid=%d egid=%d", getuid(), geteuid(), getgid(), getegid());

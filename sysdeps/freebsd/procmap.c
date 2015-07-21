@@ -91,9 +91,9 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
         *inum = 0;
         *dev = 0;
 
-        if (kvm_read (server->machine.kd, (gulong) &vnode->v_tag,
+        if (kvm_read (server->machine->kd, (gulong) &vnode->v_tag,
  	             (char *) &tagptr, sizeof (tagptr)) != sizeof (tagptr) ||
-            kvm_read (server->machine.kd, (gulong) tagptr,
+            kvm_read (server->machine->kd, (gulong) tagptr,
 		     (char *) tagstr, sizeof (tagstr)) != sizeof (tagstr))
         {
                 glibtop_warn_io_r (server, "kvm_read (tagptr)");
@@ -111,7 +111,7 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
                 return;
         }
 
-        if (kvm_read (server->machine.kd, (gulong) VTOI(vn), (char *) &inode,
+        if (kvm_read (server->machine->kd, (gulong) VTOI(vn), (char *) &inode,
  	              sizeof (inode)) != sizeof (inode))
         {
                 glibtop_warn_io_r (server, "kvm_read (inode)");
@@ -151,7 +151,7 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
 
                 struct my_zfsvfs zvfs;
 
-                if (kvm_read(server->machine.kd,
+                if (kvm_read(server->machine->kd,
                              (unsigned long)(znode->z_zfsvfs),
                              &zvfs, sizeof zvfs) != sizeof zvfs) {
                         glibtop_warn_io_r(server, "kvm_read (z_zfsvfs)");
@@ -167,12 +167,12 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
 
 
 #if (__FreeBSD_version >= 800039) || (__FreeBSD_kernel_version >= 800039)
-        if (kvm_read (server->machine.kd, (gulong) cdev2priv(inode.i_dev), (char *) &priv,
+        if (kvm_read (server->machine->kd, (gulong) cdev2priv(inode.i_dev), (char *) &priv,
 		      sizeof (priv))
 #else
-        if (kvm_read (server->machine.kd, (gulong) inode.i_dev, (char *) &si,
+        if (kvm_read (server->machine->kd, (gulong) inode.i_dev, (char *) &si,
 	              sizeof (si)) != sizeof (si) ||
-            kvm_read (server->machine.kd, (gulong) si.si_priv, (char *) &priv,
+            kvm_read (server->machine->kd, (gulong) si.si_priv, (char *) &priv,
 		      sizeof (priv))
 #endif
 	    != sizeof (priv))
@@ -219,7 +219,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
         glibtop_suid_enter (server);
 
         /* Get the process data */
-        pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+        pinfo = kvm_getprocs (server->machine->kd, KERN_PROC_PID, pid, &count);
         if ((pinfo == NULL) || (count < 1)) {
                 glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
 		glibtop_suid_leave (server);
@@ -228,7 +228,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
         /* Now we get the memory maps. */
 
-        if (kvm_read (server->machine.kd,
+        if (kvm_read (server->machine->kd,
                         (gulong) pinfo [0].ki_vmspace,
                         (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace)) {
                 glibtop_warn_io_r (server, "kvm_read (vmspace)");
@@ -238,7 +238,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
         first = vmspace.vm_map.header.next;
 
-        if (kvm_read (server->machine.kd,
+        if (kvm_read (server->machine->kd,
                         (gulong) vmspace.vm_map.header.next,
                         (char *) &entry, sizeof (entry)) != sizeof (entry)) {
                 glibtop_warn_io_r (server, "kvm_read (entry)");
@@ -261,7 +261,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
                 guint len;
 
                 if (update) {
-                        if (kvm_read (server->machine.kd,
+                        if (kvm_read (server->machine->kd,
                                         (gulong) entry.next,
                                         (char *) &entry, sizeof (entry)) != sizeof (entry)) {
                                 glibtop_warn_io_r (server, "kvm_read (entry)");
@@ -279,7 +279,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
                 /* We're only interested in `vm_object's */
 
-                if (kvm_read (server->machine.kd,
+                if (kvm_read (server->machine->kd,
                                 (gulong) entry.object.vm_object,
                                 (char *) &object, sizeof (object)) != sizeof (object)) {
                         glibtop_warn_io_r (server, "kvm_read (object)");
@@ -294,7 +294,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
                 if (!object.handle)
                         continue;
 
-                if (kvm_read (server->machine.kd,
+                if (kvm_read (server->machine->kd,
                                 (gulong) object.handle,
                                 (char *) &vnode, sizeof (vnode)) != sizeof (vnode)) {
                         glibtop_warn_io_r (server, "kvm_read (vnode)");

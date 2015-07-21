@@ -84,7 +84,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	if (pid == 0) return;
 
 	/* Get the process data */
-	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	pinfo = kvm_getprocs (server->machine->kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count < 1)) {
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
 		return;
@@ -108,7 +108,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 	/* Now we get the shared memory. */
 
-	if (kvm_read (server->machine.kd,
+	if (kvm_read (server->machine->kd,
 		      (unsigned long) pinfo [0].PROC_VMSPACE,
 		      (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace)) {
 		glibtop_warn_io_r (server, "kvm_read (vmspace)");
@@ -117,7 +117,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 	first = vmspace.vm_map.header.next;
 
-	if (kvm_read (server->machine.kd,
+	if (kvm_read (server->machine->kd,
 		      (unsigned long) vmspace.vm_map.header.next,
 		      (char *) &entry, sizeof (entry)) != sizeof (entry)) {
 		glibtop_warn_io_r (server, "kvm_read (entry)");
@@ -131,7 +131,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	 * to OBJT_DEFAULT so if seems this really works. */
 
 	while (entry.next != first) {
-		if (kvm_read (server->machine.kd,
+		if (kvm_read (server->machine->kd,
 			      (unsigned long) entry.next,
 			      (char *) &entry, sizeof (entry)) != sizeof (entry)) {
 			glibtop_warn_io_r (server, "kvm_read (entry)");
@@ -146,7 +146,7 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 
 		/* We're only interested in `vm_object's */
 
-		if (kvm_read (server->machine.kd,
+		if (kvm_read (server->machine->kd,
 			      (unsigned long) entry.object.vm_object,
 			      (char *) &object, sizeof (object)) != sizeof (object)) {
 			glibtop_warn_io_r (server, "kvm_read (object)");

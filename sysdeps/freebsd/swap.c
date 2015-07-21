@@ -59,7 +59,7 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	memset (buf, 0, sizeof (glibtop_swap));
 	memset (kvmsw, 0, sizeof (kvmsw));
 
-	nswdev = kvm_getswapinfo (server->machine.kd, kvmsw, 16, 0);
+	nswdev = kvm_getswapinfo (server->machine->kd, kvmsw, 16, 0);
 	if (nswdev < 1) return;
 
 	buf->flags = _glibtop_sysdeps_swap;

@@ -36,13 +36,13 @@ G_BEGIN_DECLS
 
 static inline void glibtop_suid_enter (glibtop *server) {
 	glibtop_debug ("uid=%d euid=%d gid=%d egid=%d", getuid(), geteuid(), getgid(), getegid());
-	setregid (server->machine.gid, server->machine.egid);
+	setregid (server->machine->gid, server->machine->egid);
 	glibtop_debug ("uid=%d euid=%d gid=%d egid=%d", getuid(), geteuid(), getgid(), getegid());
 };
 
 static inline void glibtop_suid_leave (glibtop *server) {
 	glibtop_debug ("uid=%d euid=%d gid=%d egid=%d", getuid(), geteuid(), getgid(), getegid());
-	if (setregid (server->machine.egid, server->machine.gid))
+	if (setregid (server->machine->egid, server->machine->gid))
 		_exit (1);
 	glibtop_debug ("uid=%d euid=%d gid=%d egid=%d", getuid(), geteuid(), getgid(), getegid());
 };

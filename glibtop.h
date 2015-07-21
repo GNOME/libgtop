@@ -98,7 +98,7 @@ struct _glibtop
 	gid_t gid;
 	gid_t egid;
 
-	glibtop_machine machine;	/* Machine dependent data */
+	glibtop_machine *machine;	/* Machine dependent data */
 };
 
 extern glibtop *glibtop_global_server;

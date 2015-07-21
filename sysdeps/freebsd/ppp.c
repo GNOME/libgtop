@@ -77,7 +77,7 @@ _glibtop_init_ppp_p (glibtop *server)
 #endif
 #endif /* HAVE_I4B */
 
-	if (kvm_nlist (server->machine.kd, nlst) < 0) {
+	if (kvm_nlist (server->machine->kd, nlst) < 0) {
 		glibtop_warn_io_r (server, "kvm_nlist");
 		server->sysdeps.ppp = 0;
 	}
@@ -100,7 +100,7 @@ glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device)
 
 	if (server->sysdeps.ppp == 0) return;
 
-	if (kvm_read (server->machine.kd, nlst [0].n_value,
+	if (kvm_read (server->machine->kd, nlst [0].n_value,
 		      &data, sizeof (data)) != sizeof (data)) {
 		glibtop_warn_io_r (server, "kvm_read (i4bisppp_softc)");
 		return;

@@ -26,6 +26,7 @@
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
 #include <glibtop/error.h>
+#include <glibtop/machine.h>
 
 #include <sys/utsname.h>
 
@@ -74,6 +75,8 @@ main(int argc, char *argv[])
                          "applications.\n");
 	}
 #endif
+
+	glibtop_machine_new (glibtop_global_server);
 
 	glibtop_init_p (glibtop_global_server, 0, 0);
 
