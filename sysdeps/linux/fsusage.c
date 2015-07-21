@@ -194,7 +194,6 @@ glibtop_get_fsusage_s(glibtop *server, glibtop_fsusage *buf, const char *path)
 {
   struct statvfs fsd;
 
-  glibtop_init_r(&server, 0, 0);
   memset(buf, 0, sizeof(glibtop_fsusage));
 
   if (statvfs(path, &fsd) < 0) {

@@ -58,8 +58,6 @@ glibtop_get_uptime_s (glibtop *server, glibtop_uptime *buf)
 	size_t size;
 	glibtop_cpu cpu;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_UPTIME, 0);
-
 	memset (buf, 0, sizeof (glibtop_uptime));
 
 	mib[0] = CTL_KERN;

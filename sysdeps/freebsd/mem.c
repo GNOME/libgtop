@@ -76,8 +76,6 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	gulong membuffer;
 	gulong memfree;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MEM, 0);
-
 	memset (buf, 0, sizeof *buf);
 
 	memtotal = mem_get_by_bytes (server, "hw.physmem");

@@ -43,8 +43,6 @@ init_sysinfo (glibtop *server)
 	if (G_LIKELY (sysinfo.flags))
 		return;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
-
 	ncpus = server->ncpu + 1;
 
 	len = 0;

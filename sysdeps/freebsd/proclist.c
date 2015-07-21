@@ -72,8 +72,6 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 	unsigned int i;
 	pid_t prev;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROCLIST), 0);
-
 	memset (buf, 0, sizeof (glibtop_proclist));
 
 	if (sysctlbyname ("kern.proc.all", NULL, &len, NULL, 0)) {

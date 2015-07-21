@@ -69,8 +69,6 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	struct kinfo_proc *pinfo;
 	int count;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_KERNEL), 0);
-
 	memset (buf, 0, sizeof (glibtop_proc_kernel));
 
 	if (server->sysdeps.proc_time == 0)

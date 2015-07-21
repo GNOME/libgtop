@@ -51,8 +51,6 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	pid_t last_pid;
 	size_t len;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_LOADAVG, 0);
-
 	memset (buf, 0, sizeof (glibtop_loadavg));
 
 	if (getloadavg (buf->loadavg, G_N_ELEMENTS(buf->loadavg)) == -1)

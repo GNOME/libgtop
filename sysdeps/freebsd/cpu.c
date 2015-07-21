@@ -59,8 +59,6 @@ glibtop_get_cpu_s (glibtop *server, glibtop_cpu *buf)
 	size_t length;
 	int ncpu, i;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_CPU, 0);
-
 	memset (buf, 0, sizeof (glibtop_cpu));
 
 	length = sizeof (cpts);

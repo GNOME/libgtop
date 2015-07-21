@@ -56,8 +56,6 @@ glibtop_get_swap_p (glibtop *server, glibtop_swap *buf)
 	int nswdev;
 	struct kvm_swap kvmsw[16];
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_SWAP), 0);
-
 	memset (buf, 0, sizeof (glibtop_swap));
 	memset (kvmsw, 0, sizeof (kvmsw));
 

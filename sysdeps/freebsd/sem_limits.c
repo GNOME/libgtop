@@ -51,8 +51,6 @@ glibtop_get_sem_limits_s (glibtop *server, glibtop_sem_limits *buf)
 	int semmap, semmni, semmns, semmnu, semmsl, semopm, semume, semusz;
 	int semvmx, semaem;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SEM_LIMITS, 0);
-
 	memset (buf, 0, sizeof (glibtop_sem_limits));
 
 	if (server->sysdeps.sem_limits == 0)

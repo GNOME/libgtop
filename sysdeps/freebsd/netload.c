@@ -100,8 +100,6 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
                 struct in_ifaddr in;
         } ifaddr;
 
-        glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_NETLOAD), 0);
-
         memset (buf, 0, sizeof (glibtop_netload));
 
 	if (server->sysdeps.netload == 0) return;

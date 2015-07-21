@@ -126,8 +126,6 @@ glibtop_get_mountlist_s (glibtop *server, glibtop_mountlist *buf, int all_fs)
 	GArray *mount_array = g_array_new(FALSE, FALSE,
 					  sizeof(glibtop_mountentry));
 
-	glibtop_init_r (&server, 0, 0);
-
 	memset (buf, 0, sizeof (glibtop_mountlist));
 
 	/* Read filesystem list. */

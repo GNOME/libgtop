@@ -50,8 +50,6 @@ glibtop_get_proc_state_p (glibtop *server,
 	struct kinfo_proc *pinfo;
 	int count = 0;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_STATE), 0);
-
 	memset (buf, 0, sizeof (glibtop_proc_state));
 
 	/* Get the process information */

@@ -96,8 +96,6 @@ glibtop_get_ppp_p (glibtop *server, glibtop_ppp *buf, unsigned short device)
 #endif
 	int phase;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PPP), 0);
-
 	memset (buf, 0, sizeof (glibtop_ppp));
 
 	if (server->sysdeps.ppp == 0) return;

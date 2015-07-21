@@ -66,8 +66,6 @@ glibtop_get_proc_time_p (glibtop *server, glibtop_proc_time *buf,
 	int count;
 	size_t len;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_TIME), 0);
-
 	memset (buf, 0, sizeof (glibtop_proc_time));
 
 	/* It does not work for the swapper task. */

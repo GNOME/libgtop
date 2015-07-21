@@ -75,8 +75,6 @@ glibtop_get_proc_mem_p (glibtop *server, glibtop_proc_mem *buf,
 	struct vm_object object;
 	int count;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_MEM), 0);
-
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 
 	if (server->sysdeps.proc_mem == 0)

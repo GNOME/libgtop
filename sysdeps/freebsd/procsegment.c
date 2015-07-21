@@ -55,8 +55,6 @@ glibtop_get_proc_segment_p (glibtop *server,
 	struct kinfo_proc *pinfo;
 	int count = 0;
 
-	glibtop_init_p (server, (1L << GLIBTOP_SYSDEPS_PROC_SEGMENT), 0);
-
 	memset (buf, 0, sizeof (glibtop_proc_segment));
 
 	/* It does not work for the swapper task. */

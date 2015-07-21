@@ -48,8 +48,6 @@ glibtop_get_msg_limits_s (glibtop *server, glibtop_msg_limits *buf)
 	size_t len;
 	int msgmax, msgmni, msgmnb, msgtql, msgssz, msgseg;
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_MSG_LIMITS, 0);
-
 	memset (buf, 0, sizeof (glibtop_msg_limits));
 
 	if (server->sysdeps.msg_limits == 0)

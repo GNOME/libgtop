@@ -53,8 +53,6 @@ glibtop_get_shm_limits_s (glibtop *server, glibtop_shm_limits *buf)
 	unsigned long shmmax, shmmin, shmmni, shmseg, shmall;
 #endif
 
-	glibtop_init_s (&server, GLIBTOP_SYSDEPS_SHM_LIMITS, 0);
-
 	memset (buf, 0, sizeof (glibtop_shm_limits));
 
 	if (server->sysdeps.shm_limits == 0)
