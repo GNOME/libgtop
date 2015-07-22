@@ -143,6 +143,9 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 			glibtop_get_proc_state_p (server, &procstate, pid);
 			if (procstate.flags & (1L << GLIBTOP_PROC_STATE_STATE))
 				if (procstate.state != GLIBTOP_PROCESS_RUNNING) continue;
+
+			if (pinfo[i].ki_ppid == 0 && !strcmp(pinfo[i].ki_comm, "idle"))
+				continue;
 		}
 
 		if (which & GLIBTOP_EXCLUDE_SYSTEM)
