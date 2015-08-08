@@ -22,9 +22,7 @@
 #ifndef __GLIBTOP_MACHINE_H__
 #define __GLIBTOP_MACHINE_H__
 
-#include <unistd.h>
-#include <fcntl.h>
-#include <ctype.h>
+#include <glib.h>
 
 G_BEGIN_DECLS
 
@@ -32,8 +30,6 @@ typedef struct _glibtop_machine		glibtop_machine;
 
 struct _glibtop_machine
 {
-	guint64 reserved[8];
-	int	reserved[8];
 };
 
 G_END_DECLS
