@@ -72,7 +72,7 @@ _glibtop_init_netload_p (glibtop *server)
 {
     server->sysdeps.netload = _glibtop_sysdeps_netload;
 
-    if (kvm_nlist (server->machine.kd, nlst) < 0)
+    if (kvm_nlist (server->machine->kd, nlst) < 0)
 	glibtop_error_io_r (server, "kvm_nlist");
 }
 
@@ -99,7 +99,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 
     memset (buf, 0, sizeof (glibtop_netload));
 
-    if (kvm_read (server->machine.kd, nlst [0].n_value,
+    if (kvm_read (server->machine->kd, nlst [0].n_value,
 		  &ifnetaddr, sizeof (ifnetaddr)) != sizeof (ifnetaddr))
 	glibtop_error_io_r (server, "kvm_read (ifnet)");
 
@@ -111,12 +111,12 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	{
 	    ifnetfound = ifnetaddr;
 
-	    if (kvm_read (server->machine.kd, ifnetaddr, &ifnet,
+	    if (kvm_read (server->machine->kd, ifnetaddr, &ifnet,
 			  sizeof (ifnet)) != sizeof (ifnet))
 		    glibtop_error_io_r (server, "kvm_read (ifnetaddr)");
 
 #if (defined(__FreeBSD__) && (__FreeBSD_version < 501113)) || defined(__bsdi__)
-	    if (kvm_read (server->machine.kd, (u_long) ifnet.if_name,
+	    if (kvm_read (server->machine->kd, (u_long) ifnet.if_name,
 			  tname, 16) != 16)
 		    glibtop_error_io_r (server, "kvm_read (if_name)");
 	    tname[15] = '\0';
@@ -202,7 +202,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 	buf->flags = _glibtop_sysdeps_netload;
 
 	while (ifaddraddr) {
-	    if ((kvm_read (server->machine.kd, ifaddraddr, &ifaddr,
+	    if ((kvm_read (server->machine->kd, ifaddraddr, &ifaddr,
 			   sizeof (ifaddr)) != sizeof (ifaddr)))
 		glibtop_error_io_r (server, "kvm_read (ifaddraddr)");
 

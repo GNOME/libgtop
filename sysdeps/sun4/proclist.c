@@ -55,8 +55,8 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 
 	/* Count number of processes. */
 
-	for (pp = server->machine.proc_table, i = 0;
-	     i < server->machine.nproc; pp++, i++) {
+	for (pp = server->machine->proc_table, i = 0;
+	     i < server->machine->nproc; pp++, i++) {
 		if (pp->p_stat == 0)
 			continue;
 		else
@@ -74,8 +74,8 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 
 	/* Write process list. */
 
-	for (pp = server->machine.proc_table, i = 0, nproc = 0;
-	     i < server->machine.nproc; pp++, i++) {
+	for (pp = server->machine->proc_table, i = 0, nproc = 0;
+	     i < server->machine->nproc; pp++, i++) {
 		if (pp->p_stat == 0)
 			continue;
 		proc_list [nproc++] = pp->p_pid;

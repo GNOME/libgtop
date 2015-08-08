@@ -62,7 +62,7 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 		return;
 
 #else
-	if(!(kc = server->machine.kc))
+	if(!(kc = server->machine->kc))
 	    return;
 
 	switch(kstat_chain_update(kc))
@@ -72,7 +72,7 @@ glibtop_get_loadavg_s (glibtop *server, glibtop_loadavg *buf)
 	    default: glibtop_get_kstats(server);
 	}
 
-	if(!(ksp = server->machine.system))
+	if(!(ksp = server->machine->system))
 	    return;
 
 	if(kstat_read(kc, ksp, NULL) < 0)

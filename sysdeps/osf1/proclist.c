@@ -77,7 +77,7 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 
 	memset (buf, 0, sizeof (glibtop_proclist));
 
-	for (entry = 0; entry < server->machine.proctable_entries;
+	for (entry = 0; entry < server->machine->proctable_entries;
 	     entry += ELEMENTS_PER_ENTRY)
 	{
 		/* !!! THE FOLLOWING CODE RUNS SUID ROOT -

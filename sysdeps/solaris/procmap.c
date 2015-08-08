@@ -125,9 +125,9 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 
 #if GLIBTOP_SOLARIS_RELEASE >= 50600
 
-	if(server->machine.objname && server->machine.pgrab &&
-	   server->machine.pfree)
-	   Pr = (server->machine.pgrab)(pid, 1, &pr_err);
+	if(server->machine->objname && server->machine->pgrab &&
+	   server->machine->pfree)
+	   Pr = (server->machine->pgrab)(pid, 1, &pr_err);
 #endif
 	for(heap = 0,i = 0; i < nmaps; ++i)
 	{
@@ -179,7 +179,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 		else
 		   if(Pr)
 		   {
-		      server->machine.objname(Pr, maps[i].pr_vaddr, buffer,
+		      server->machine->objname(Pr, maps[i].pr_vaddr, buffer,
 					      BUFSIZ);
 		      if((len = resolvepath(buffer, entry[i].filename,
 					    GLIBTOP_MAP_FILENAME_LEN)) > 0)
@@ -194,7 +194,7 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 #if GLIBTOP_SOLARIS_RELEASE >= 50600
 
 	if(Pr)
-	   	server->machine.pfree(Pr);
+	   	server->machine->pfree(Pr);
 #endif
 	buf->flags = _glibtop_sysdeps_proc_map;
 	s_close(fd);

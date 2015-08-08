@@ -68,9 +68,9 @@ _glibtop_get_kmem_info(glibtop* server, off_t offset, void* buf, size_t len)
 
 	glibtop_suid_enter(server);
 
-	lseek(server->machine.kmem_fd, offset, SEEK_SET);
+	lseek(server->machine->kmem_fd, offset, SEEK_SET);
 
-	result = read(server->machine.kmem_fd, buf, len);
+	result = read(server->machine->kmem_fd, buf, len);
 
         glibtop_suid_leave(server);
 
@@ -86,23 +86,23 @@ _glibtop_get_procinfo (glibtop *server, pid_t pid)
 
 	/* test if procsinfo already found */
 
-	if ((server->machine.last_pinfo.pi_pid == pid) && (!first_time))
+	if ((server->machine->last_pinfo.pi_pid == pid) && (!first_time))
 	{
-		return &server->machine.last_pinfo;
+		return &server->machine->last_pinfo;
 	}
 
 	/* seek procsinfo if given pid */
 
 	first_time = 0;
 	current = 0;
-	while ((result =  getprocs( &server->machine.last_pinfo
+	while ((result =  getprocs( &server->machine->last_pinfo
 				  , sizeof(struct procsinfo)
 				  , NULL, 0, &current, 1)) == 1)
 	{
 
-		if (pid == server->machine.last_pinfo.pi_pid)
+		if (pid == server->machine->last_pinfo.pi_pid)
 		{
-			return &server->machine.last_pinfo;
+			return &server->machine->last_pinfo;
 		}
 	}
 	return NULL;

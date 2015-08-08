@@ -92,7 +92,7 @@ _glibtop_init_mem_p (glibtop *server)
 {
 	register int pagesize;
 
-	if (kvm_nlist (server->machine.kd, nlst) < 0) {
+	if (kvm_nlist (server->machine->kd, nlst) < 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (mem)");
 		return;
 	}
@@ -154,14 +154,14 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 	}
 #else
 	/* Get the data from kvm_* */
-	if (kvm_read (server->machine.kd, nlst[1].n_value,
+	if (kvm_read (server->machine->kd, nlst[1].n_value,
 		      &vmm, sizeof (vmm)) != sizeof (vmm)) {
 		glibtop_warn_io_r (server, "kvm_read (cnt)");
 		return;
 	}
 #endif
 
-	if (kvm_read (server->machine.kd, nlst[0].n_value,
+	if (kvm_read (server->machine->kd, nlst[0].n_value,
 		      &bufspace, sizeof (bufspace)) != sizeof (bufspace)) {
 		glibtop_warn_io_r (server, "kvm_read (bufspace)");
 		return;

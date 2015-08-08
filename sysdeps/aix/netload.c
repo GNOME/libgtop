@@ -100,7 +100,7 @@ _glibtop_init_netload_p (glibtop *server)
 		return;
 	}
 
-	server->machine.ifnet_offset = addr;
+	server->machine->ifnet_offset = addr;
 
 	server->sysdeps.netload = _glibtop_sysdeps_netload;
 }
@@ -122,7 +122,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 
 	memset (buf, 0, sizeof (glibtop_netload));
 
-	for ( offset = server->machine.ifnet_offset;
+	for ( offset = server->machine->ifnet_offset;
 	      offset != 0;
 	      offset = (off_t)ifnet.if_next
 	    )

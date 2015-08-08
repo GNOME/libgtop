@@ -25,11 +25,11 @@
 G_BEGIN_DECLS
 
 static inline void glibtop_suid_enter (glibtop *server) {
-	setreuid (server->machine.uid, server->machine.euid);
+	setreuid (server->machine->uid, server->machine->euid);
 };
 
 static inline void glibtop_suid_leave (glibtop *server) {
-	if (setreuid (server->machine.euid, server->machine.uid))
+	if (setreuid (server->machine->euid, server->machine->uid))
 		_exit (1);
 };
 

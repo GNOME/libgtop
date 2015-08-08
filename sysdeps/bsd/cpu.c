@@ -61,7 +61,7 @@ void
 _glibtop_init_cpu_p (glibtop *server)
 {
 #ifndef KERN_CP_TIME
-	if (kvm_nlist (server->machine.kd, nlst) < 0) {
+	if (kvm_nlist (server->machine->kd, nlst) < 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (cpu)");
 		return;
 	}
@@ -100,7 +100,7 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 		return;
 	}
 #else
-	if (kvm_read (server->machine.kd, nlst [0].n_value,
+	if (kvm_read (server->machine->kd, nlst [0].n_value,
 		      &cpts, sizeof (cpts)) != sizeof (cpts)) {
 		glibtop_warn_io_r (server, "kvm_read (cp_time)");
 		return;

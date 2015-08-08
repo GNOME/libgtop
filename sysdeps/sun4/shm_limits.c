@@ -50,7 +50,7 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 
 	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
 
-	setregid (server->machine.gid, server->machine.egid);
+	setregid (server->machine->gid, server->machine->egid);
 
 	/* get the load average array */
 
@@ -58,7 +58,7 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 				 (int *) &shminfo, sizeof (shminfo),
 				 _glibtop_nlist [X_SHMINFO].n_name);
 
-	if (setregid (server->machine.egid, server->machine.gid))
+	if (setregid (server->machine->egid, server->machine->gid))
 		_exit (1);
 
 	/* !!! END OF SGID KMEM PART !!! */

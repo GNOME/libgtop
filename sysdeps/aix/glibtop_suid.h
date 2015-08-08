@@ -29,11 +29,11 @@ G_BEGIN_DECLS
 #endif
 
 static inline void glibtop_suid_enter (glibtop *server) {
-	setegid (server->machine.egid);
+	setegid (server->machine->egid);
 }
 
 static inline void glibtop_suid_leave (glibtop *server) {
-	if (setegid (server->machine.gid))
+	if (setegid (server->machine->gid))
 		_exit (1);
 }
 

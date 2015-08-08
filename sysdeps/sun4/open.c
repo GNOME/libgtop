@@ -85,37 +85,37 @@ glibtop_open_p (glibtop *server, const char *program_name,
 
 	server->name = program_name;
 
-	server->machine.uid = getuid ();
-	server->machine.euid = geteuid ();
-	server->machine.gid = getgid ();
-	server->machine.egid = getegid ();
+	server->machine->uid = getuid ();
+	server->machine->euid = geteuid ();
+	server->machine->gid = getgid ();
+	server->machine->egid = getegid ();
 
 	/* initialize the kernel interface */
 
-	server->machine.kd = kvm_open (NULL, NULL, NULL, O_RDONLY, "libgtop");
+	server->machine->kd = kvm_open (NULL, NULL, NULL, O_RDONLY, "libgtop");
 
-	if (server->machine.kd == NULL)
+	if (server->machine->kd == NULL)
 		glibtop_error_io_r (server, "kvm_open");
 
 	/* get the list of symbols we want to access in the kernel */
 
-	server->machine.nlist_count = kvm_nlist
-		(server->machine.kd, _glibtop_nlist);
+	server->machine->nlist_count = kvm_nlist
+		(server->machine->kd, _glibtop_nlist);
 
-	if (server->machine.nlist_count < 0)
+	if (server->machine->nlist_count < 0)
 		glibtop_error_io_r (server, "nlist");
 
 #ifdef MULTIPROCESSOR
 	/* were ncpu and xp_time not found in the nlist? */
 
-	if ((server->machine.nlist_count > 0) &&
+	if ((server->machine->nlist_count > 0) &&
 	    (_glibtop_nlist[X_NCPU].n_type == 0) &&
 	    (_glibtop_nlist[X_MP_TIME].n_type == 0)) {
 		/* we were compiled on an MP system but we are not running
 		 * on one, so we will pretend this didn't happen and set
 		 * ncpu = 1 */
-		server->machine.nlist_count -= 2;
-		server->machine.ncpu = 1;
+		server->machine->nlist_count -= 2;
+		server->machine->ncpu = 1;
 	}
 #endif
 
@@ -125,76 +125,76 @@ glibtop_open_p (glibtop *server, const char *program_name,
 
 		/* Get the number of CPUs on this system.  */
 		syscall(SYS_getcpustatus, &status,
-			&server->machine.ncpu, &type);
+			&server->machine->ncpu, &type);
 	}
 #endif
 
 	/* Make sure all of the symbols were found. */
 
-	if ((server->machine.nlist_count > 0) &&
+	if ((server->machine->nlist_count > 0) &&
 	    (_glibtop_check_nlist (server, _glibtop_nlist) > 0))
 		_exit (1);
 
 	/* Get process array stuff. */
 
 	(void) _glibtop_getkval (server, _glibtop_nlist[X_NPROC].n_value,
-				 (int *)(&server->machine.nproc),
-				 sizeof (server->machine.nproc),
+				 (int *)(&server->machine->nproc),
+				 sizeof (server->machine->nproc),
 				 _glibtop_nlist[X_NPROC].n_name);
 
 	(void) _glibtop_getkval (server, _glibtop_nlist[X_PROC].n_value,
-				 (int *)(&server->machine.ptable_offset),
-				 sizeof (server->machine.ptable_offset),
+				 (int *)(&server->machine->ptable_offset),
+				 sizeof (server->machine->ptable_offset),
 				 _glibtop_nlist[X_PROC].n_name);
 
-	server->machine.ptable_size = (unsigned long) server->machine.nproc *
+	server->machine->ptable_size = (unsigned long) server->machine->nproc *
 		(unsigned long) sizeof (struct proc);
 
-	server->machine.proc_table = g_malloc
-		(server, server->machine.ptable_size);
+	server->machine->proc_table = g_malloc
+		(server, server->machine->ptable_size);
 
 	/* This are for the memory statistics. */
 
 	(void) _glibtop_getkval (server, _glibtop_nlist[X_PAGES].n_value,
-				 (int *)(&server->machine.pages),
-				 sizeof (server->machine.pages),
+				 (int *)(&server->machine->pages),
+				 sizeof (server->machine->pages),
 				 _glibtop_nlist[X_PAGES].n_name);
 
 	(void) _glibtop_getkval (server, _glibtop_nlist[X_EPAGES].n_value,
-				 (int *)(&server->machine.epages),
-				 sizeof (server->machine.epages),
+				 (int *)(&server->machine->epages),
+				 sizeof (server->machine->epages),
 				 _glibtop_nlist[X_EPAGES].n_name);
 
-	server->machine.bytesize = server->machine.epages -
-		server->machine.pages;
-	server->machine.count = server->machine.bytesize /
+	server->machine->bytesize = server->machine->epages -
+		server->machine->pages;
+	server->machine->count = server->machine->bytesize /
 		sizeof (struct page);
 
-	server->machine.physpage = (struct page *)
-		g_malloc (server->machine.bytesize);
+	server->machine->physpage = (struct page *)
+		g_malloc (server->machine->bytesize);
 
 	/* get the page size with "getpagesize" and
 	 * calculate pageshift from it */
 
 	pagesize = getpagesize();
 
-	server->machine.pageshift = 0;
+	server->machine->pageshift = 0;
 
 	while (pagesize > 1) {
-		server->machine.pageshift++;
+		server->machine->pageshift++;
 		pagesize >>= 1;
 	}
 
 	/* we only need the amount of log(2)1024 for our conversion */
 
-	server->machine.pageshift -= LOG1024;
+	server->machine->pageshift -= LOG1024;
 
 	/* Drop priviledges. */
 
-	if (setreuid (server->machine.euid, server->machine.uid))
+	if (setreuid (server->machine->euid, server->machine->uid))
 		_exit (1);
 
-	if (setregid (server->machine.egid, server->machine.gid))
+	if (setregid (server->machine->egid, server->machine->gid))
 		_exit (1);
 
 	/* !!! END OF SUID ROOT PART !!! */
@@ -254,7 +254,7 @@ _glibtop_getkval (void *void_server, unsigned long offset, int *ptr,
 {
 	glibtop	*server = (glibtop *) void_server;
 
-	if (kvm_read (server->machine.kd, offset, ptr, size) != size)
+	if (kvm_read (server->machine->kd, offset, ptr, size) != size)
 		{
 			if (*refstr == '!') return 0;
 
@@ -274,16 +274,16 @@ _glibtop_read_proc_table (void *void_server)
 
 	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
 
-	setregid (server->machine.gid, server->machine.egid);
+	setregid (server->machine->gid, server->machine->egid);
 
 	/* Read process table from kernel. */
 
-	(void) _glibtop_getkval (server, server->machine.ptable_offset,
-				 (int *) server->machine.proc_table,
-				 (size_t) server->machine.ptable_size,
+	(void) _glibtop_getkval (server, server->machine->ptable_offset,
+				 (int *) server->machine->proc_table,
+				 (size_t) server->machine->ptable_size,
 				 _glibtop_nlist[X_PROC].n_name);
 
-	if (setregid (server->machine.egid, server->machine.gid))
+	if (setregid (server->machine->egid, server->machine->gid))
 		_exit (1);
 
 	/* !!! END OF SGID KMEM PART !!! */
@@ -299,8 +299,8 @@ _glibtop_find_pid (void *void_server, pid_t pid)
 
 	glibtop *server = (glibtop *) void_server;
 
-	for (pp = server->machine.proc_table, i = 0;
-	     i < server->machine.nproc; pp++, i++) {
+	for (pp = server->machine->proc_table, i = 0;
+	     i < server->machine->nproc; pp++, i++) {
 		if ((pp->p_stat != 0) && (pp->p_pid == pid))
 			return pp;
 	}

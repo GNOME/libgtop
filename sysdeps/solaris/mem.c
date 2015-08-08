@@ -47,12 +47,12 @@ _glibtop_init_mem_s (glibtop *server)
 void
 glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 {
-    kstat_ctl_t * const kc = server->machine.kc;
+    kstat_ctl_t * const kc = server->machine->kc;
     kstat_t *ksp;
     kstat_named_t *kn;
 
 #undef PAGESIZE
-#define PAGESIZE (server->machine.pagesize)
+#define PAGESIZE (server->machine->pagesize)
 #define PAGESHIFT (PAGESIZE + 10)
 
 #ifdef _LP64
@@ -78,7 +78,7 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	default: glibtop_get_kstats(server);
     }
 
-    if((ksp = server->machine.syspages) && kstat_read(kc, ksp, NULL) >= 0)
+    if((ksp = server->machine->syspages) && kstat_read(kc, ksp, NULL) >= 0)
     {
 	kn = kstat_data_lookup(ksp, "pagesfree");
 	if(kn)
@@ -99,7 +99,7 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 
     /* Bunyip module provides data in multiples of system page size */
 
-    if((ksp = server->machine.bunyip) && kstat_read(kc, ksp, NULL) >= 0)
+    if((ksp = server->machine->bunyip) && kstat_read(kc, ksp, NULL) >= 0)
     {
 	kn = kstat_data_lookup(ksp, "pages_exec");
 	if(kn)

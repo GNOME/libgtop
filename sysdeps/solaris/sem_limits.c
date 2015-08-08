@@ -50,7 +50,7 @@ _glibtop_init_sem_limits_p (glibtop *server)
 {
 #if GLIBTOP_SOLARIS_RELEASE < 51000
 
-   	kvm_t *kd = server->machine.kd;
+   	kvm_t *kd = server->machine->kd;
 
 	if(kd && !kvm_nlist(kd, nlst))
 		server->sysdeps.sem_limits = _glibtop_sysdeps_sem_limits;
@@ -65,7 +65,7 @@ void
 glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 {
 #if GLIBTOP_SOLARIS_RELEASE < 51000
-   	kvm_t *kd = server->machine.kd;
+   	kvm_t *kd = server->machine->kd;
         glibtop_sem_limits sinfo;
 
 	memset (buf, 0, sizeof (glibtop_sem_limits));

@@ -55,17 +55,17 @@ glibtop_open_p (glibtop *server, const char *program_name,
 
 	server->name = program_name;
 
-	server->machine.uid = getuid ();
-	server->machine.euid = geteuid ();
-	server->machine.gid = getgid ();
-	server->machine.egid = getegid ();
+	server->machine->uid = getuid ();
+	server->machine->euid = geteuid ();
+	server->machine->gid = getgid ();
+	server->machine->egid = getegid ();
 
 	/* Drop priviledges. */
 
-	if (setreuid (server->machine.euid, server->machine.uid))
+	if (setreuid (server->machine->euid, server->machine->uid))
 		_exit (1);
 
-	if (setregid (server->machine.egid, server->machine.gid))
+	if (setregid (server->machine->egid, server->machine->gid))
 		_exit (1);
 
 	/* !!! END OF SUID ROOT PART !!! */

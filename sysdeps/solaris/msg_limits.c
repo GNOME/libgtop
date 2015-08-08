@@ -48,7 +48,7 @@ _glibtop_init_msg_limits_p (glibtop *server)
 {
 #if GLIBTOP_SOLARIS_RELEASE < 51000
 
-   	kvm_t *kd = server->machine.kd;
+   	kvm_t *kd = server->machine->kd;
 
 	if(kd && !kvm_nlist(kd, nlst))
 		server->sysdeps.msg_limits = _glibtop_sysdeps_msg_limits;
@@ -64,7 +64,7 @@ glibtop_get_msg_limits_p (glibtop *server, glibtop_msg_limits *buf)
 {
 #if GLIBTOP_SOLARIS_RELEASE < 51000
 
-   	kvm_t *kd = server->machine.kd;
+   	kvm_t *kd = server->machine->kd;
         glibtop_msg_limits minfo;
 
 

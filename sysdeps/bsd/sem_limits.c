@@ -77,12 +77,12 @@ static struct nlist nlst [] = {
 void
 _glibtop_init_sem_limits_p (glibtop *server)
 {
-	if (kvm_nlist (server->machine.kd, nlst) < 0) {
+	if (kvm_nlist (server->machine->kd, nlst) < 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (sem_limits)");
 		return;
 	}
 
-	if (kvm_read (server->machine.kd, nlst [0].n_value,
+	if (kvm_read (server->machine->kd, nlst [0].n_value,
 		      &_seminfo, sizeof (_seminfo)) != sizeof (_seminfo)) {
 		glibtop_warn_io_r (server, "kvm_read (seminfo)");
 		return;

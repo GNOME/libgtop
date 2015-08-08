@@ -44,7 +44,7 @@ _glibtop_init_shm_limits_p (glibtop *server)
 		return;
 	}
 
-	server->machine.shminfo_offset = result;
+	server->machine->shminfo_offset = result;
 
 	server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
 }
@@ -62,7 +62,7 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 
 	memset (buf, 0, sizeof (glibtop_shm_limits));
 
-	result = _glibtop_get_kmem_info(server, server->machine.shminfo_offset,
+	result = _glibtop_get_kmem_info(server, server->machine->shminfo_offset,
 					&shminfo, sizeof(struct shminfo));
 	if (result <= 0)
 	{

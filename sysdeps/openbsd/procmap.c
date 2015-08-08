@@ -99,7 +99,7 @@ load_vmmap_entries(glibtop *server, unsigned long kptr,
 		return -1;
 
 	/* Download entry at kptr. */
-	if (kvm_read (server->machine.kd, kptr,
+	if (kvm_read (server->machine->kd, kptr,
 	    (char *)entry, sizeof(*entry)) != sizeof(*entry)) {
 		free(entry);
 		return -1;
@@ -185,7 +185,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 	glibtop_suid_enter (server);
 
 	/* Get the process data */
-	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, sizeof(struct kinfo_proc), &count);
+	pinfo = kvm_getprocs (server->machine->kd, KERN_PROC_PID, pid, sizeof(struct kinfo_proc), &count);
 	if (pinfo == NULL) {
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
 		return (glibtop_map_entry*) g_array_free(maps, TRUE);
@@ -193,7 +193,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 	/* Now we get the memory maps. */
 
-	if (kvm_read (server->machine.kd,
+	if (kvm_read (server->machine->kd,
 		      (unsigned long) pinfo [0].p_vmspace,
 		      (char *) &vmspace, sizeof (vmspace)) != sizeof (vmspace)) {
 			glibtop_warn_io_r (server, "kvm_read (vmspace)");
@@ -238,7 +238,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 		/* We're only interested in vnodes */
 
-		if (kvm_read (server->machine.kd,
+		if (kvm_read (server->machine->kd,
 			      (unsigned long) entry->object.uvm_obj,
 			      &vnode, sizeof (vnode)) != sizeof (vnode)) {
 			glibtop_warn_io_r (server, "kvm_read (vnode)");
@@ -254,7 +254,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 		if ((vnode.v_type != VREG) || (vnode.v_tag != VT_UFS) ||
 		    !vnode.v_data) continue;
 
-		if (kvm_read (server->machine.kd,
+		if (kvm_read (server->machine->kd,
 			      (unsigned long) vnode.v_data,
 			      &inode, sizeof (inode)) != sizeof (inode)) {
 			glibtop_warn_io_r (server, "kvm_read (inode)");

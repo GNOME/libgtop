@@ -56,23 +56,23 @@ glibtop_open_p (glibtop *server, const char *program_name,
 {
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
-	server->machine.uid = getuid ();
-	server->machine.euid = geteuid ();
-	server->machine.gid = getgid ();
-	server->machine.egid = getegid ();
+	server->machine->uid = getuid ();
+	server->machine->euid = geteuid ();
+	server->machine->gid = getgid ();
+	server->machine->egid = getegid ();
 
 	/* open kmem */
 
-	server->machine.kmem_fd = open("/dev/kmem", O_RDONLY);
-	if (server->machine.kmem_fd == -1)
+	server->machine->kmem_fd = open("/dev/kmem", O_RDONLY);
+	if (server->machine->kmem_fd == -1)
 		glibtop_error_io_r (server, "Cannot open /dev/kmem");
 
 	/* Drop priviledges. */
 
-	if (seteuid (server->machine.uid))
+	if (seteuid (server->machine->uid))
 		_exit (1);
 
-	if (setegid (server->machine.gid))
+	if (setegid (server->machine->gid))
 		_exit (1);
 
 	/* !!! END OF SUID ROOT PART !!! */

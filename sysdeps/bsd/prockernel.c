@@ -113,7 +113,7 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	if (pid == 0) return;
 
 	/* Get the process information */
-	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	pinfo = kvm_getprocs (server->machine->kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count != 1)) {
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
 		return;
@@ -170,11 +170,11 @@ glibtop_get_proc_kernel_p (glibtop *server,
 	/* On NetBSD, there is no kvm_uread(), and kvm_read() always reads
 	 * from kernel memory.  */
 
-	if (kvm_read (server->machine.kd,
+	if (kvm_read (server->machine->kd,
 #else
 
 	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
-	    kvm_uread (server->machine.kd, &(pinfo [0]).kp_proc,
+	    kvm_uread (server->machine->kd, &(pinfo [0]).kp_proc,
 #endif
 		       (unsigned long) &u_addr->u_stats,
 		       (char *) &pstats, sizeof (pstats)) == sizeof (pstats))
@@ -195,10 +195,10 @@ glibtop_get_proc_kernel_p (glibtop *server,
 		}
 
 #ifdef __NetBSD__
-	if (kvm_read (server->machine.kd,
+	if (kvm_read (server->machine->kd,
 #else
 	if ((pinfo [0].kp_proc.p_flag & P_INMEM) &&
-	    kvm_uread (server->machine.kd, &(pinfo [0]).kp_proc,
+	    kvm_uread (server->machine->kd, &(pinfo [0]).kp_proc,
 #endif
 		       (unsigned long) &u_addr->u_pcb,
 		       (char *) &pcb, sizeof (pcb)) == sizeof (pcb))

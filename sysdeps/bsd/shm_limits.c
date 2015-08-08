@@ -75,12 +75,12 @@ static struct nlist nlst [] = {
 void
 _glibtop_init_shm_limits_p (glibtop *server)
 {
-	if (kvm_nlist (server->machine.kd, nlst) < 0) {
+	if (kvm_nlist (server->machine->kd, nlst) < 0) {
 		glibtop_warn_io_r (server, "kvm_nlist (shm_limits)");
 		return;
 	}
 
-	if (kvm_read (server->machine.kd, nlst [0].n_value,
+	if (kvm_read (server->machine->kd, nlst [0].n_value,
 		      &_shminfo, sizeof (_shminfo)) != sizeof (_shminfo)) {
 		glibtop_warn_io_r (server, "kvm_read (shminfo)");
 		return;

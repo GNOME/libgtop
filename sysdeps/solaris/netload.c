@@ -97,7 +97,7 @@ solaris_stats(glibtop *server,
 	char	*name = interface;
 	char	*module;
 	char	*ptr;
-    	kstat_ctl_t * const kctl = server->machine.kc;
+    	kstat_ctl_t * const kctl = server->machine->kc;
 	kstat_t			*ksp;
 	kstat_named_t		*kdata;
 	int have_bytes = 1;

@@ -53,7 +53,7 @@ glibtop_get_proc_segment_p (glibtop *server,
 
 #if 0
 	/* Get the process info from the kernel */
-	kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, count);
+	kvm_getprocs (server->machine->kd, KERN_PROC_PID, pid, count);
 	if (*count != 1) {
 		return; /* the zeroed-out buffer indicating no data */
 	}

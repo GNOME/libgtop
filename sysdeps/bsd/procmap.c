@@ -128,7 +128,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 	glibtop_suid_enter (server);
 
 	/* Get the process data */
-	pinfo = kvm_getprocs (server->machine.kd, KERN_PROC_PID, pid, &count);
+	pinfo = kvm_getprocs (server->machine->kd, KERN_PROC_PID, pid, &count);
 	if ((pinfo == NULL) || (count < 1)) {
 		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
 		return (glibtop_map_entry*) g_array_free(maps, TRUE);
@@ -136,7 +136,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 	/* Now we get the memory maps. */
 
-	if (kvm_read (server->machine.kd,
+	if (kvm_read (server->machine->kd,
 #if (defined(__FreeBSD__) && (__FreeBSD_version >= 500013)) || defined(__FreeBSD_kernel__)
 		      (unsigned long) pinfo [0].ki_vmspace,
 #else
@@ -147,7 +147,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 	first = vmspace.vm_map.header.next;
 
-	if (kvm_read (server->machine.kd,
+	if (kvm_read (server->machine->kd,
 		      (unsigned long) vmspace.vm_map.header.next,
 		      (char *) &entry, sizeof (entry)) != sizeof (entry))
 		glibtop_error_io_r (server, "kvm_read (entry)");
@@ -173,7 +173,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 		guint len;
 
 		if (update) {
-			if (kvm_read (server->machine.kd,
+			if (kvm_read (server->machine->kd,
 				      (unsigned long) entry.next,
 				      &entry, sizeof (entry)) != sizeof (entry))
 				glibtop_error_io_r (server, "kvm_read (entry)");
@@ -206,7 +206,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 		/* We're only interested in vnodes */
 
-		if (kvm_read (server->machine.kd,
+		if (kvm_read (server->machine->kd,
 			      (unsigned long) entry.object.uvm_obj,
 			      &vnode, sizeof (vnode)) != sizeof (vnode)) {
 			glibtop_warn_io_r (server, "kvm_read (vnode)");
@@ -218,7 +218,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
 		/* We're only interested in `vm_object's */
 
-		if (kvm_read (server->machine.kd,
+		if (kvm_read (server->machine->kd,
 			      (unsigned long) entry.object.vm_object,
 			      &object, sizeof (object)) != sizeof (object))
 			glibtop_error_io_r (server, "kvm_read (object)");
@@ -232,7 +232,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 		if ((vnode.v_type != VREG) || (vnode.v_tag != VT_UFS) ||
 		    !vnode.v_data) continue;
 
-		if (kvm_read (server->machine.kd,
+		if (kvm_read (server->machine->kd,
 			      (unsigned long) vnode.v_data,
 			      &inode, sizeof (inode)) != sizeof (inode))
 			glibtop_error_io_r (server, "kvm_read (inode)");
@@ -251,7 +251,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 		if (!object.handle)
 			continue;
 
-		if (kvm_read (server->machine.kd,
+		if (kvm_read (server->machine->kd,
 			      (unsigned long) object.handle,
 			      &vnode, sizeof (vnode)) != sizeof (vnode))
 			glibtop_error_io_r (server, "kvm_read (vnode)");
@@ -270,7 +270,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 		if ((vnode.v_type != VREG) || (vnode.v_tag != VT_UFS) ||
 		    !vnode.v_data) continue;
 
-		if (kvm_read (server->machine.kd,
+		if (kvm_read (server->machine->kd,
 			      (unsigned long) vnode.v_data,
 			      &inode, sizeof (inode)) != sizeof (inode))
 			glibtop_error_io_r (server, "kvm_read (inode)");

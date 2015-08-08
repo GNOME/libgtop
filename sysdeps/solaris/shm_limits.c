@@ -50,7 +50,7 @@ _glibtop_init_shm_limits_p (glibtop *server)
 {
 #if GLIBTOP_SOLARIS_RELEASE < 51000
 
-	kvm_t * const kd = server->machine.kd;
+	kvm_t * const kd = server->machine->kd;
 
 	if(kd && !kvm_nlist(kd, nlst))
 		server->sysdeps.shm_limits = _glibtop_sysdeps_shm_limits;
@@ -66,7 +66,7 @@ glibtop_get_shm_limits_p (glibtop *server, glibtop_shm_limits *buf)
 {
 #if GLIBTOP_SOLARIS_RELEASE < 51000
 
-	kvm_t * const kd = server->machine.kd;
+	kvm_t * const kd = server->machine->kd;
         glibtop_shm_limits sinfo;
 
 

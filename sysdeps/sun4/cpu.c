@@ -55,7 +55,7 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 #ifdef MULTIPROCESSOR
 	/* get the mp_time array as well */
 
-	if (server->machine.ncpu > 1) {
+	if (server->machine->ncpu > 1) {
 		(void) _glibtop_getkval (server, _glibtop_nlist [X_MP_TIME].n_value,
 					 (int *) mp_time, sizeof (mp_time),
 					 _glibtop_nlist [X_MP_TIME].n_name);
@@ -73,8 +73,8 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	/* [FIXME]: I had no machine with more than one processor to test
 	 *          this code !!! */
 
-	if (server->machine.ncpu > 1) {
-		for (i = 0; i < server->machine.ncpu; i++) {
+	if (server->machine->ncpu > 1) {
+		for (i = 0; i < server->machine->ncpu; i++) {
 			buf->user += mp_time [i][CP_USER];
 			buf->nice += mp_time [i][CP_NICE];
 			buf->sys  += mp_time [i][CP_SYS];

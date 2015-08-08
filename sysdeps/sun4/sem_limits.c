@@ -52,7 +52,7 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 
 	/* !!! THE FOLLOWING CODE RUNS SGID KMEM - CHANGE WITH CAUTION !!! */
 
-	setregid (server->machine.gid, server->machine.egid);
+	setregid (server->machine->gid, server->machine->egid);
 
 	/* get the load average array */
 
@@ -60,7 +60,7 @@ glibtop_get_sem_limits_p (glibtop *server, glibtop_sem_limits *buf)
 				 (int *) &seminfo, sizeof (seminfo),
 				 _glibtop_nlist [X_SEMINFO].n_name);
 
-	if (setregid (server->machine.egid, server->machine.gid))
+	if (setregid (server->machine->egid, server->machine->gid))
 		_exit (1);
 
 	/* !!! END OF SGID KMEM PART !!! */

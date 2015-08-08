@@ -31,7 +31,7 @@ static const unsigned long _glibtop_sysdeps_mem =
 
 /* define pagetok in terms of pageshift */
 
-#define pagetok(size) ((size) << server->machine.pageshift)
+#define pagetok(size) ((size) << server->machine->pageshift)
 
 /* Provides information about memory usage. */
 
@@ -48,9 +48,9 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 
 	/* get the array of physpage descriptors */
 
-	(void) _glibtop_getkval (server, server->machine.pages,
-				 (int *) server->machine.physpage,
-				 server->machine.bytesize,
+	(void) _glibtop_getkval (server, server->machine->pages,
+				 (int *) server->machine->physpage,
+				 server->machine->bytesize,
 				 "array _page");
 
 	glibtop_suid_leave (server);
@@ -67,9 +67,9 @@ glibtop_get_mem_p (glibtop *server, glibtop_mem *buf)
 
 		/* bop thru the array counting page types */
 
-		pp = server->machine.physpage;
+		pp = server->machine->physpage;
 		inuse = free = locked = 0;
-		for (cnt = server->machine.count; --cnt >= 0; pp++) {
+		for (cnt = server->machine->count; --cnt >= 0; pp++) {
 			if (pp->p_free)
 				free++;
 			else if (pp->p_lock || pp->p_keepcnt > 0)

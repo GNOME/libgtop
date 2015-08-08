@@ -56,7 +56,7 @@ _glibtop_init_cpu_p (glibtop *server)
 	{
 		return;
 	}
-	server->machine.sysinfo_offset = result;
+	server->machine->sysinfo_offset = result;
 
 	result = _glibtop_get_kmem_offset(server, "cpuinfo");
 	if (result == -1)
@@ -65,9 +65,9 @@ _glibtop_init_cpu_p (glibtop *server)
 
 		return;
 	}
-	server->machine.cpuinfo_offset = result;
+	server->machine->cpuinfo_offset = result;
 
-	server->machine.cpuinfo = (struct cpuinfo*)calloc(_system_configuration.ncpus, sizeof(struct cpuinfo));
+	server->machine->cpuinfo = (struct cpuinfo*)calloc(_system_configuration.ncpus, sizeof(struct cpuinfo));
 
 	server->sysdeps.cpu = _glibtop_sysdeps_cpu;
 }
@@ -85,7 +85,7 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 
 	memset (buf, 0, sizeof (glibtop_cpu));
 
-	result = _glibtop_get_kmem_info(server, server->machine.sysinfo_offset,
+	result = _glibtop_get_kmem_info(server, server->machine->sysinfo_offset,
 					&sysinfo, sizeof(struct sysinfo));
 	if (result <= 0)
 	{
@@ -100,8 +100,8 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 
 	buf->total = buf->idle + buf->user + buf->sys + buf->nice ;
 
-	result = _glibtop_get_kmem_info(server, server->machine.cpuinfo_offset,
-					server->machine.cpuinfo,
+	result = _glibtop_get_kmem_info(server, server->machine->cpuinfo_offset,
+					server->machine->cpuinfo,
 					_system_configuration.ncpus
 						* sizeof(struct cpuinfo));
 
@@ -115,13 +115,13 @@ glibtop_get_cpu_p (glibtop *server, glibtop_cpu *buf)
 	for (cpu = 0; cpu < MIN(GLIBTOP_NCPU, _system_configuration.ncpus); cpu++)
 	{
 		buf->xcpu_idle[cpu] =
-			server->machine.cpuinfo[cpu].cpu[CPU_IDLE];
+			server->machine->cpuinfo[cpu].cpu[CPU_IDLE];
 		buf->xcpu_user[cpu] =
-			server->machine.cpuinfo[cpu].cpu[CPU_USER];
+			server->machine->cpuinfo[cpu].cpu[CPU_USER];
 		buf->xcpu_sys[cpu] =
-			server->machine.cpuinfo[cpu].cpu[CPU_KERNEL];
+			server->machine->cpuinfo[cpu].cpu[CPU_KERNEL];
 		buf->xcpu_nice[cpu] =
-			server->machine.cpuinfo[cpu].cpu[CPU_WAIT];
+			server->machine->cpuinfo[cpu].cpu[CPU_WAIT];
 
 		buf->xcpu_total[cpu] = buf->xcpu_idle[cpu] +
 			buf->xcpu_user[cpu] +

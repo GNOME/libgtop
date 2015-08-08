@@ -72,7 +72,7 @@ glibtop_get_proclist_p (glibtop *server, glibtop_proclist *buf,
 	which = (int)(real_which & GLIBTOP_KERN_PROC_MASK);
 
 	/* Get the process data */
-	pinfo = kvm_getprocs (server->machine.kd, which, arg,
+	pinfo = kvm_getprocs (server->machine->kd, which, arg,
 			      sizeof (*pinfo), &count);
 	if ((pinfo == NULL) || (count < 1)) {
 		glibtop_warn_io_r (server, "kvm_getprocs (proclist)");

@@ -58,27 +58,27 @@ glibtop_open_p (glibtop *server, const char *program_name,
 
 	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
 
-	server->machine.uid = getuid ();
-	server->machine.euid = geteuid ();
-	server->machine.gid = getgid ();
-	server->machine.egid = getegid ();
+	server->machine->uid = getuid ();
+	server->machine->euid = geteuid ();
+	server->machine->gid = getgid ();
+	server->machine->egid = getegid ();
 
 #ifdef __FreeBSD__
 	server->os_version_code = __FreeBSD_version;
 #endif
 
 	/* Setup machine-specific data */
-	server->machine.kd = kvm_open (NULL, NULL, NULL, O_RDONLY, "kvm_open");
+	server->machine->kd = kvm_open (NULL, NULL, NULL, O_RDONLY, "kvm_open");
 
-	if (server->machine.kd == NULL)
+	if (server->machine->kd == NULL)
 		glibtop_error_io_r (server, "kvm_open");
 
 	/* Drop priviledges. */
 
-	if (setreuid (server->machine.euid, server->machine.uid))
+	if (setreuid (server->machine->euid, server->machine->uid))
 		_exit (1);
 
-	if (setregid (server->machine.egid, server->machine.gid))
+	if (setregid (server->machine->egid, server->machine->gid))
 		_exit (1);
 
 	/* !!! END OF SUID ROOT PART !!! */
