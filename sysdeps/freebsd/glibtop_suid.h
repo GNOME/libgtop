@@ -28,6 +28,8 @@ G_BEGIN_DECLS
 #include <sys/param.h>
 #endif
 
+#include <glibtop_machine.h>
+
 #define KI_PROC(ki) (&(ki))->kp_proc)
 #define KI_EPROC(ki) (&(ki))->kp_eproc)
 
