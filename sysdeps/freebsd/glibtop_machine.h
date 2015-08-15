@@ -38,8 +38,6 @@
 
 G_BEGIN_DECLS
 
-typedef struct _glibtop_machine glibtop_machine;
-
 struct _glibtop_machine
 {
 	uid_t uid, euid;
