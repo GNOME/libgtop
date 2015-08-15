@@ -32,6 +32,7 @@
 G_BEGIN_DECLS
 
 typedef struct _glibtop		glibtop;
+typedef struct _glibtop_machine	glibtop_machine;
 
 /**
  *  LIBGTOP_CHECK_VERSION
@@ -58,8 +59,6 @@ LIBGTOP_MICRO_VERSION >= (micro)))
 #include <glibtop/global.h>
 
 #include <glibtop_server.h>
-
-#include <glibtop_machine.h>
 
 #ifndef GLIBTOP_MOUNTENTRY_LEN
 #define GLIBTOP_MOUNTENTRY_LEN	79
