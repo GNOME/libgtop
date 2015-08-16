@@ -1,3 +1,28 @@
+16 August 2015: Overview of changes in 2.31.5
+=============================================
+* ABI changes:
+  - ABI was inconsistent on platforms like FreeBSD which make use of
+    glibtop_machine. The ABI was actually different between the
+    library and the server. Fixed this by simply always defining
+    glibtop_machine in glibtop struct.
+  - Add Pss and Swap members in glibtop_proc_mem.
+  - This is the second ABI breakage in since 2.28 (the first one was
+    bumping NCPU), there were no release for 2.30.
+
+* FreeBSD:
+  - proclist: exclude the "idle" kernel process when GLIBTOP_EXCLUDE_IDLE.
+  - Remove extraneous glibtop_init() calls.
+
+* Linux:
+  - proc_mem: implement Pss and Swap.
+  - Remove extraneous glibtop_init() calls.
+
+* All:
+  - Propagate the change that machine in struct glibtop is now a
+    pointer. Hope that change doesn't break build on other platforms,
+    I can only test Linux and FreeBSD.
+
+
 5 August 2015: Overview of changes in 2.31.4
 =============================================
 * 71 commits !
