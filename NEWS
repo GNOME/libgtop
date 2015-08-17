@@ -1,4 +1,4 @@
-16 August 2015: Overview of changes in 2.31.5
+16 August 2015: Overview of changes in 2.31.90
 =============================================
 * ABI changes:
   - ABI was inconsistent on platforms like FreeBSD which make use of
