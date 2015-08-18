@@ -23,6 +23,8 @@
 #include <glibtop/cpu.h>
 #include <glibtop/open.h>
 
+#include <glibtop_machine.h>
+
 #include <mach/mach_host.h>
 #include <mach/mach_init.h>
 #include <mach/mach_interface.h>

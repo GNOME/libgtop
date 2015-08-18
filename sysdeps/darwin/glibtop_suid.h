@@ -22,6 +22,8 @@
 
 G_BEGIN_DECLS
 
+#include <glibtop_machine.h>
+
 static inline void glibtop_suid_enter (glibtop *server) {
 	setreuid (server->machine->uid, server->machine->euid);
 };
