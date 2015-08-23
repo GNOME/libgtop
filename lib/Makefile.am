@@ -26,10 +26,10 @@ INTROSPECTION_SCANNER_ARGS = --accept-unprefixed --warn-all
 INTROSPECTION_COMPILER_ARGS =
 
 if HAVE_INTROSPECTION
-introspection_sources = $(libgtop_2_0_la_SOURCES) lib.c ../glibtop.h \
+introspection_sources = $(libgtop_2_0_la_SOURCES) lib.c ../glibtop.h ../libgtopconfig.h \
 			../include/glibtop/close.h ../include/glibtop/loadavg.h ../include/glibtop/prockernel.h ../include/glibtop/procstate.h \
 			../include/glibtop/sem_limits.h ../include/glibtop/uptime.h ../include/glibtop/command.h ../include/glibtop/mem.h ../include/glibtop/proclist.h \
-			../include/glibtop/proctime.h ../include/glibtop/shm_limits.h ../include/glibtop/version.h ../include/glibtop/cpu.h ../include/glibtop/msg_limits.h \
+			../include/glibtop/proctime.h ../include/glibtop/shm_limits.h ../include/glibtop/cpu.h ../include/glibtop/msg_limits.h \
 			../include/glibtop/procmem.h ../include/glibtop/procuid.h ../include/glibtop/swap.h \
 			../include/glibtop/procsegment.h ../include/glibtop/sysdeps.h ../include/glibtop/global.h \
 			../include/glibtop/procsignal.h ../include/glibtop/union.h ../include/glibtop/gnuserv.h \

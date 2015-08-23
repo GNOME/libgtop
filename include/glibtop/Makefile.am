@@ -2,7 +2,7 @@ glibtopdir		= $(includedir)/libgtop-2.0/glibtop
 
 glibtop_HEADERS		= close.h loadavg.h prockernel.h procstate.h \
 			  sem_limits.h uptime.h command.h mem.h proclist.h \
-			  proctime.h shm_limits.h version.h cpu.h msg_limits.h \
+			  proctime.h shm_limits.h cpu.h msg_limits.h \
 			  procmem.h procuid.h swap.h \
 			  procsegment.h sysdeps.h global.h \
 			  procsignal.h union.h gnuserv.h \
@@ -11,4 +11,6 @@ glibtop_HEADERS		= close.h loadavg.h prockernel.h procstate.h \
 			  procwd.h procaffinity.h \
 			  netlist.h procopenfiles.h open.h
 
-noinst_HEADERS		= error.h write.h read_data.h read.h init_hooks.h machine.h
+noinst_HEADERS		= error.h write.h read_data.h read.h init_hooks.h machine.h \
+			  version.h
+
