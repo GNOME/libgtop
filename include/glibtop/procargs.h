@@ -79,6 +79,15 @@ char **
 glibtop_get_proc_argv_l (glibtop *server, glibtop_proc_args *buf,
 			 pid_t pid, unsigned max_len);
 
+/**
+ * glibtop_get_proc_argv:
+ * @buf:
+ * @pid:
+ * @max_len:
+ *
+ * Returns: (transfer full):
+ */
+
 char **
 glibtop_get_proc_argv (glibtop_proc_args *buf, pid_t pid, unsigned max_len);
 

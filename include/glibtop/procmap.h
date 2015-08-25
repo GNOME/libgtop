@@ -92,17 +92,18 @@ struct _glibtop_proc_map
 	guint64 total;			/* GLIBTOP_PROC_MAP_TOTAL	*/
 	guint64 size;			/* GLIBTOP_PROC_MAP_SIZE	*/
 };
-glibtop_map_entry *
-glibtop_get_proc_map(glibtop_proc_map *buf, pid_t pid);
-
 
 /**
  * glibtop_get_proc_map:
- * @buf: (out):
+ * @buf:
  * @pid:
  *
  * Returns: (transfer none):
  */
+glibtop_map_entry *
+glibtop_get_proc_map(glibtop_proc_map *buf, pid_t pid);
+
+
 
 /**
  * glibtop_get_proc_map_l:

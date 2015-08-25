@@ -44,6 +44,13 @@ struct _glibtop_proc_wd
 };
 
 
+/**
+ * glibtop_get_proc_wd:
+ * @buf:
+ * @pid:
+ *
+ * Returns: (transfer full):
+ */
 char ** glibtop_get_proc_wd(glibtop_proc_wd *buf, pid_t pid);
 char ** glibtop_get_proc_wd_l(glibtop *server, glibtop_proc_wd *buf, pid_t pid);
 

@@ -96,7 +96,7 @@ struct _glibtop_proc_open_files
 
 /**
  * glibtop_get_proc_open_files:
- * @buf: (out):
+ * @buf:
  * @pid:
  *
  * Returns: (transfer none):

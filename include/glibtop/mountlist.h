@@ -55,7 +55,7 @@ struct _glibtop_mountlist
 
 /**
  * glibtop_get_mountlist:
- * @buf: (out):
+ * @buf:
  * @all_fs:
  *
  * Returns: (transfer full):
