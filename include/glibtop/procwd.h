@@ -30,7 +30,7 @@ typedef struct _glibtop_proc_wd	glibtop_proc_wd;
 #define GLIBTOP_PROC_WD_NUMBER	0
 #define GLIBTOP_PROC_WD_ROOT	1
 #define GLIBTOP_PROC_WD_EXE	2
-#define GLIBTOP_PROC_WD_MAX	3
+#define GLIBTOP_MAX_PROC_WD	3
 
 #define GLIBTOP_PROC_WD_ROOT_LEN 215
 #define GLIBTOP_PROC_WD_EXE_LEN 215
