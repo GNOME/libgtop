@@ -29,6 +29,7 @@ typedef struct _glibtop_proc_affinity	glibtop_proc_affinity;
 
 #define GLIBTOP_PROC_AFFINITY_NUMBER	0
 #define GLIBTOP_PROC_AFFINITY_ALL	1
+#define GLIBTOP_MAX_PROC_AFFINITY	2
 
 struct _glibtop_proc_affinity
 {
