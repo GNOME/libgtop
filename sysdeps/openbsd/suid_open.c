@@ -27,6 +27,9 @@
 #include <glibtop/init_hooks.h>
 #include <glibtop/machine.h>
 
+#include <fcntl.h>
+#include <kvm.h>
+
 /* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
 void

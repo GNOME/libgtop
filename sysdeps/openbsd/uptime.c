@@ -26,6 +26,8 @@
 
 #include <glibtop/cpu.h>
 
+#include <sys/sysctl.h>
+
 static const unsigned long _glibtop_sysdeps_uptime =
 (1L << GLIBTOP_UPTIME_UPTIME) + (1L << GLIBTOP_UPTIME_IDLETIME) +
 (1UL << GLIBTOP_UPTIME_BOOT_TIME);

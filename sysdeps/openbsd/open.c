@@ -21,6 +21,7 @@
 
 #include <config.h>
 #include <sys/types.h>
+#include <sys/sysctl.h>
 #include <glibtop.h>
 #include <glibtop/open.h>
 #include <glibtop/cpu.h>
