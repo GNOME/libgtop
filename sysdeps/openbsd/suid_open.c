@@ -25,7 +25,7 @@
 #include <glibtop/cpu.h>
 #include <glibtop/open.h>
 #include <glibtop/init_hooks.h>
-
+#include <glibtop/machine.h>
 
 /* !!! THIS FUNCTION RUNS SUID ROOT - CHANGE WITH CAUTION !!! */
 
