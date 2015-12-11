@@ -284,7 +284,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			mentry->perm |= GLIBTOP_MAP_PERM_READ;
 		if (entry->protection & PROT_WRITE)
 			mentry->perm |= GLIBTOP_MAP_PERM_WRITE;
-		if (entry->protection & PROT_EXECUTE)
+		if (entry->protection & PROT_EXEC)
 			mentry->perm |= GLIBTOP_MAP_PERM_EXECUTE;
 	}
 
