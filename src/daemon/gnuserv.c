@@ -43,6 +43,7 @@
 #include <glibtop/gnuserv.h>
 
 #include <errno.h>
+#include <locale.h>
 
 #include "daemon.h"
 
@@ -472,6 +473,8 @@ main (int argc, char **argv)
     GError *error = NULL;
 
     int ils = -1;		/* internet domain listen socket */
+
+    setlocale (LC_ALL, "");
 
     /* On non-glibc systems, this is not set up for us.  */
     if (!program_invocation_name) {
