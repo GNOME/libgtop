@@ -34,7 +34,7 @@
 #include <sys/socket.h>
 #include <sys/ioctl.h>
 
-#if !defined (_LIBC) && defined (__GNU_LIBRARY__) && __GNU_LIBRARY__ > 1
+#if !defined (__GLIBC__) || __GNU_LIBRARY__ > 1
 /* GNU LibC */
 #include <net/if.h>
 #include <netinet/ip_icmp.h>
@@ -43,7 +43,7 @@
 #include <netinet/tcp.h>
 #include <netinet/udp.h>
 #include <net/if.h>
-#else /* Libc 5 */
+#elif defined (__GLIBC__) /* Libc 5 */
 #include <linux/if.h>
 #include <linux/in.h>
 #include <linux/ip.h>
