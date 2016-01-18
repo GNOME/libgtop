@@ -1,3 +1,8 @@
+18 January 2016: Overview of changes in 2.33.4
+
+* On OpenBSD only PID 1 is special
+* Call setlocale in main
+
 14 December: Overview of changes in 2.33.3
 
 * Fixed borken compilation on OpenBSD 
