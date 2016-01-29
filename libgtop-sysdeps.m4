@@ -36,43 +36,43 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  libgtop_need_server=yes
 	  libgtop_sysdeps_private_mountlist=yes
 	  libgtop_sysdeps_private_fsusage=yes
-	  libgtop_postinstall='chown root $(bindir)/libgtop_server2 && chmod 4755 $(bindir)/libgtop_server2'
+	  libgtop_postinstall='chown root $(DESTDIR)$(libexecdir)/libgtop_server2 && chmod 4755 $(DESTDIR)$(libexecdir)/libgtop_server2'
 	  ;;
 	netbsd*|bsdi*)
 	  libgtop_sysdeps_dir=bsd
 	  libgtop_need_server=yes
-	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server2 && chmod 2755 $(bindir)/libgtop_server2'
+	  libgtop_postinstall='chgrp kmem $(DESTDIR)$(libexecdir)/libgtop_server2 && chmod 2755 $(DESTDIR)$(libexecdir)/libgtop_server2'
 	  ;;
 	openbsd*)
 	  libgtop_sysdeps_dir=openbsd
 	  libgtop_need_server=yes
 	  libgtop_sysdeps_private_mountlist=yes
 	  libgtop_sysdeps_private_fsusage=yes
-	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server2 && chmod 2555 $(bindir)/libgtop_server2'
+	  libgtop_postinstall='chgrp kmem $(DESTDIR)$(libexecdir)/libgtop_server2 && chmod 2555 $(DESTDIR)$(libexecdir)/libgtop_server2'
 	  ;;
 	freebsd*|kfreebsd*)
 	  libgtop_sysdeps_dir=freebsd
 	  libgtop_need_server=yes
 	  libgtop_sysdeps_private_mountlist=yes
 	  libgtop_sysdeps_private_fsusage=yes
-	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server2 && chmod 2755 $(bindir)/libgtop_server2'
+	  libgtop_postinstall='chgrp kmem $(DESTDIR)$(libexecdir)/libgtop_server2 && chmod 2755 $(DESTDIR)$(libexecdir)/libgtop_server2'
 	  ;;
 	solaris*)
 	  libgtop_sysdeps_dir=solaris
 	  libgtop_need_server=yes
-	  libgtop_postinstall='chgrp sys $(bindir)/libgtop_server && chmod 2755 $(bindir)/libgtop_server'
+	  libgtop_postinstall='chgrp sys $(DESTDIR)$(libexecdir)/libgtop_server && chmod 2755 $(DESTDIR)$(libexecdir)/libgtop_server'
 	  ;;
 	aix*)
 	  libgtop_sysdeps_dir=aix
 	  libgtop_need_server=yes
 	  libgtop_have_sysinfo=yes
-	  libgtop_postinstall='chgrp system $(bindir)/libgtop_server && chmod g+s $(bindir)/libgtop_server2'
+	  libgtop_postinstall='chgrp system $(DESTDIR)$(libexecdir)/libgtop_server && chmod g+s $(DESTDIR)$(libexecdir)/libgtop_server2'
 	  ;;
 	darwin*)
 	  libgtop_sysdeps_dir=darwin
 	  libgtop_need_server=yes
 	  libgtop_have_sysinfo=yes
-	  libgtop_postinstall='chgrp kmem $(bindir)/libgtop_server2 && chmod g+s $(bindir)/libgtop_server2'
+	  libgtop_postinstall='chgrp kmem $(DESTDIR)$(libexecdir)/libgtop_server2 && chmod g+s $(DESTDIR)$(libexecdir)/libgtop_server2'
 	  ;;
 	cygwin*)
 	  libgtop_sysdeps_dir=cygwin

@@ -295,8 +295,8 @@ libgtop_save_prefix="$prefix"
 libgtop_save_exec_prefix="$exec_prefix"
 test "x$prefix" = xNONE && prefix=$ac_default_prefix
 test "x$exec_prefix" = xNONE && exec_prefix=$prefix
-LIBGTOP_BINDIR=`eval echo "${bindir}"`
-LIBGTOP_SERVER=`eval echo "${bindir}/libgtop_server2"`
+LIBGTOP_BINDIR=`eval echo "${libexecdir}"`
+LIBGTOP_SERVER=`eval echo "${libexecdir}/libgtop_server2"`
 prefix="$libgtop_save_prefix"
 exec_prefix="$libgtop_save_exec_prefix"
 

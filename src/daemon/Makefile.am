@@ -26,7 +26,7 @@ suid_sysdeps			=
 suid_common			=
 endif
 
-bin_PROGRAMS			= libgtop_daemon2 @server_programs@
+libexec_PROGRAMS		= libgtop_daemon2 @server_programs@
 
 EXTRA_PROGRAMS			= libgtop_server2
 
