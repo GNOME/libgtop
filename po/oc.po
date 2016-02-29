@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.9.91\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop"
-"&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-04-30 07:47+0000\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-11-10 14:02+0000\n"
 "PO-Revision-Date: 2015-10-31 08:15+0200\n"
 "Last-Translator: Cédric Valmary (Tot en òc) <cvalmary@yahoo.fr>\n"
 "Language-Team: Tot en òc (totenoc.eu)\n"
@@ -20,25 +20,25 @@ msgstr ""
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
-#: ../lib/read.c:51
+#: ../lib/read.c:49
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "%d octet legit"
 msgstr[1] "%d octets legits"
 
-#: ../lib/read_data.c:51
+#: ../lib/read_data.c:49
 msgid "read data size"
 msgstr "talha de las donadas legidas"
 
-#: ../lib/read_data.c:70
+#: ../lib/read_data.c:66
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "lectura de %lu octet de donadas"
 msgstr[1] "lectura de %lu octets de donadas"
 
-#: ../lib/write.c:51
+#: ../lib/write.c:49
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
@@ -150,11 +150,11 @@ msgstr "L'estat del filh a cambiat"
 
 #: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
-msgstr "Lectura sus tty en rèire plan"
+msgstr "Lectura sus tty en rèireplan"
 
 #: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
-msgstr "Escritura sus tty en rèire plan"
+msgstr "Escritura sus tty en rèireplan"
 
 #: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
