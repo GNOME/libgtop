@@ -1,3 +1,8 @@
+29 February 2016: Overview of changes in 2.33.91
+
+* Updated translations
+* Fix building on must-libc
+
 18 January 2016: Overview of changes in 2.33.4
 
 * On OpenBSD only PID 1 is special
