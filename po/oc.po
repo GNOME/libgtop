@@ -3,15 +3,16 @@
 # This file is distributed under the GNU General Public License Version 2.
 # Cédric Valmary <cvalmary@yahoo.fr>, 2015.
 # Cédric Valmary (Tot en òc) <cvalmary@yahoo.fr>, 2015.
+# Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.9.91\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libgtop&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-11-10 14:02+0000\n"
-"PO-Revision-Date: 2015-10-31 08:15+0200\n"
-"Last-Translator: Cédric Valmary (Tot en òc) <cvalmary@yahoo.fr>\n"
-"Language-Team: Tot en òc (totenoc.eu)\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop"
+"&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-02-29 19:08+0000\n"
+"PO-Revision-Date: 2016-05-05 21:47+0200\n"
+"Last-Translator: Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>\n"
+"Language-Team: Tot En Òc\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,23 +46,23 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "escritura de %d octet"
 msgstr[1] "escritura de %d octets"
 
-#: ../src/daemon/gnuserv.c:455
+#: ../src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "Activa lo desbugatge"
 
-#: ../src/daemon/gnuserv.c:457
+#: ../src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
 msgstr "Activa la sortida verbosa"
 
-#: ../src/daemon/gnuserv.c:459
+#: ../src/daemon/gnuserv.c:460
 msgid "Don't fork into background"
-msgstr "Aviar pas en prètzfach de fons"
+msgstr "Aviar pas en prètzfait de fons"
 
-#: ../src/daemon/gnuserv.c:461
+#: ../src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
 msgstr "Invocat a partir d'inetd"
 
-#: ../src/daemon/gnuserv.c:495
+#: ../src/daemon/gnuserv.c:498
 #, c-format
 msgid "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
