@@ -122,10 +122,6 @@ unsigned long
 get_boot_time(glibtop *server);
 
 
-size_t
-get_page_size(void);
-
-
 gboolean
 check_cpu_line(glibtop *server, const char *line, unsigned n);
 

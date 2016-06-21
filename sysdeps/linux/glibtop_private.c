@@ -178,20 +178,6 @@ get_boot_time(glibtop *server)
 }
 
 
-size_t
-get_page_size(void)
-{
-	static size_t pagesize = 0;
-
-	if(G_UNLIKELY(!pagesize))
-	{
-		pagesize = getpagesize();
-	}
-
-	return pagesize;
-}
-
-
 
 gboolean
 check_cpu_line(glibtop *server, const char *line, unsigned i)
