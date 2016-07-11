@@ -215,15 +215,13 @@ AC_TYPE_SIGNAL
 AC_FUNC_STRFTIME
 AC_CHECK_FUNCS(getcwd gettimeofday getwd putenv strdup strtoul uname)
 
-IT_PROG_INTLTOOL([0.35.0])
+AM_GNU_GETTEXT_VERSION([0.19.4])
+AM_GNU_GETTEXT([external])
 
 GETTEXT_PACKAGE=libgtop-2.0
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE",
                    [Define to the gettext package used by the library])
-
-AM_GLIB_GNU_GETTEXT
-GLIB_DEFINE_LOCALEDIR([GTOPLOCALEDIR])
 
 AC_PATH_XTRA
 

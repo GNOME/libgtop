@@ -79,7 +79,3 @@ examples/timings
 examples/wd
 gtk-doc.make
 install-sh
-intltool-extract.in
-intltool-merge.in
-intltool-update.in
-

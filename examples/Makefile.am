@@ -1,5 +1,12 @@
 ## Process this file with automake to produce Makefile.in
 
+AM_CPPFLAGS = \
+	-I$(top_srcdir) \
+	-I$(top_srcdir)/include \
+	-I$(top_srcdir)/sysdeps/$(sysdeps_dir) \
+	-DGTOPLOCALEDIR=\"$(localedir)\" \
+	$(GLIB_CFLAGS)
+
 AM_LDFLAGS			= $(LIBGTOP_EXTRA_LIBS)
 
 noinst_PROGRAMS	= 	first second pprint procargs df netlist \

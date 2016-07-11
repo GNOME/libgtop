@@ -15,16 +15,8 @@ EXTRA_DIST = autogen.sh libgtop.spec.in copyright.txt \
 	 features.def libgtopconfig.h.in \
 	libgtop-sysdeps.m4 README \
 	 libgtop-2.0.pc.in acinclude.m4 \
-	intltool-extract.in \
-	intltool-merge.in \
 	libgtop.doap \
-	intltool-update.in \
 	m4/introspection.m4
-
-DISTCLEANFILES = \
-	intltool-extract \
-	intltool-merge \
-	intltool-update
 
 dist-hook:
 	cp libgtop.spec $(distdir)
