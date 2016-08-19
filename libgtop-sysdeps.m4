@@ -13,7 +13,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	AC_SUBST(libgtop_sysdeps_dir)
 	AC_SUBST(libgtop_need_server)
 
-	AC_ARG_WITH(libgtop-examples,
+	AC_ARG_WITH(examples,
 	AS_HELP_STRING([--with-examples],
 	[Build the libgtop examples @<:@default=yes@:>@]),[
 	build_examples="$withval"], [build_examples=yes])
