@@ -1,3 +1,20 @@
+20 August 2016: Overview of changes in 2.34.1
+================================================
+
+* FreeBSD:
+  - rewrite netload to use official APIs
+  - mark wireless interfaces as such
+
+* All
+  - rename --with-libgtop-examples to --with-examples
+  - use gettext instead of intltool/glib-gettext
+  - added Language headers to the translations
+
+
+Special thanks to Gleb Smirnoff, Antoine Brodin, Koop Mast and Ting-Wei Lan for
+the FreeBSD fixes, to Javier Jardón for the gettext migration and to Piotr Drąg
+for adding the Language headers.
+
 22 March 2016: Overview of changes in 2.34.0
 ================================================
 
