@@ -33,6 +33,7 @@
 #include <netinet/in.h>
 #include <net/if.h>
 #include <net/if_dl.h>
+#include <net/if_media.h>
 #include <ifaddrs.h>
 
 static const unsigned long _glibtop_sysdeps_netload =
@@ -94,6 +95,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
                 switch (ifa->ifa_addr->sa_family) {
                 case AF_LINK: {
                         struct sockaddr_dl *sdl;
+                        struct ifmediareq ifmr;
                         struct ifreq ifr;
                         int s, flags;
 
@@ -102,6 +104,20 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
                                 glibtop_warn_io_r(server, "socket(AF_INET)");
                                 break;
                         }
+
+                        memset(&ifmr, 0, sizeof(ifmr));
+                        (void)strlcpy(ifmr.ifm_name, ifa->ifa_name,
+                                sizeof(ifmr.ifm_name));
+                        if (ioctl(s, SIOCGIFXMEDIA, (caddr_t)&ifmr) < 0 &&
+                            ioctl(s, SIOCGIFMEDIA, (caddr_t)&ifmr) < 0) {
+                                glibtop_warn_io_r(server, "ioctl(SIOCGIFMEDIA)");
+                        } else {
+                                if (IFM_TYPE (ifmr.ifm_current) & IFM_IEEE80211)
+                                    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_WIRELESS);
+                                if (IFM_TYPE (ifmr.ifm_active) & IFM_IEEE80211)
+                                    buf->if_flags |= (1L << GLIBTOP_IF_FLAGS_WIRELESS);
+                        }
+
                         memset(&ifr, 0, sizeof(ifr));
                         (void)strlcpy(ifr.ifr_name, ifa->ifa_name,
                                 sizeof(ifr.ifr_name));
@@ -110,6 +126,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
                                 close(s);
                                 break;
                         }
+
                         close(s);
 
                         flags = (ifr.ifr_flags & 0xffff) | (ifr.ifr_flagshigh << 16);
