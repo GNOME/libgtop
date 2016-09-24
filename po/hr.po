@@ -5,20 +5,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-11 15:24+0000\n"
-"PO-Revision-Date: 2007-06-19 23:43+0000\n"
-"Last-Translator: Ante Karamatić <ivoks@grad.hr>\n"
+"POT-Creation-Date: 2016-04-26 22:07+0000\n"
+"PO-Revision-Date: 2009-06-30 04:01+0000\n"
+"Last-Translator: Ante Karamatić <ante.karamatic@canonical.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
-"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2008-05-27 21:06+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2016-09-15 11:39+0000\n"
+"X-Generator: Launchpad (build 18186)\n"
+"Language: hr\n"
 
-#: ../lib/read.c:51
+#: ../lib/read.c:49
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -26,11 +26,11 @@ msgstr[0] "čitaj %d byte"
 msgstr[1] "čitaj %d bytea"
 msgstr[2] "čitaj %d byteova"
 
-#: ../lib/read_data.c:51
+#: ../lib/read_data.c:49
 msgid "read data size"
 msgstr "veličina pročitanih podataka"
 
-#: ../lib/read_data.c:70
+#: ../lib/read_data.c:66
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
@@ -38,7 +38,7 @@ msgstr[0] "čitaj %lu byte podataka"
 msgstr[1] "čitaj %lu bytea podataka"
 msgstr[2] "čitaj %lu byteova podataka"
 
-#: ../lib/write.c:51
+#: ../lib/write.c:49
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
@@ -46,19 +46,19 @@ msgstr[0] "zapisao %d byte"
 msgstr[1] "zapisao %d bytea"
 msgstr[2] "zapisao %d byteova"
 
-#: ../src/daemon/gnuserv.c:458
+#: ../src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "Omogućavanje debugiranja"
 
-#: ../src/daemon/gnuserv.c:460
+#: ../src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
 msgstr "Omogući opširni izlaz"
 
-#: ../src/daemon/gnuserv.c:462
+#: ../src/daemon/gnuserv.c:460
 msgid "Don't fork into background"
 msgstr "Bez forkanja u pozadini"
 
-#: ../src/daemon/gnuserv.c:464
+#: ../src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
 msgstr "Pozvano iz inetda"
 
@@ -66,7 +66,8 @@ msgstr "Pozvano iz inetda"
 #, c-format
 msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "Pokrenite naredbu '%s --help' kako biste vidjeli popis dostupnih opcija.\n"
+msgstr ""
+"Pokrenite naredbu '%s --help' kako biste vidjeli popis dostupnih opcija.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
 msgid "Hangup"
