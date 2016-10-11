@@ -457,7 +457,7 @@ static const GOptionEntry options [] = {
     { "verbose", 'v', 0, G_OPTION_ARG_NONE, &verbose_output,
       N_("Enable verbose output"), NULL },
     { "no-daemon", 'f', 0, G_OPTION_ARG_NONE, &no_daemon,
-      N_("Don't fork into background"), NULL },
+      N_("Don’t fork into background"), NULL },
     { "inetd", 'i', 0, G_OPTION_ARG_NONE, &invoked_from_inetd,
       N_("Invoked from inetd"), NULL },
     { NULL }
@@ -495,7 +495,7 @@ main (int argc, char **argv)
     if (error != NULL) {
         g_printerr ("%s\n", error->message);
         g_error_free (error);
-        g_printerr (_("Run '%s --help' to see a full list of "
+        g_printerr (_("Run “%s --help” to see a full list of "
                     "available command line options.\n"),
                     program_invocation_name);
         exit(1);
