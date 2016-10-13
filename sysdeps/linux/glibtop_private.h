@@ -37,7 +37,7 @@ G_BEGIN_DECLS
 static inline char*
 next_token(const char *p)
 {
-	while (isspace(*p)) p++;
+	while (g_ascii_isspace(*p)) p++;
 	return (char*) p;
 }
 

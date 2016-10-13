@@ -51,7 +51,7 @@ char *
 skip_token (const char *p)
 {
 	p = next_token(p);
-	while (*p && !isspace(*p)) p++;
+	while (*p && !g_ascii_isspace(*p)) p++;
 	p = next_token(p);
 	return (char *)p;
 }
