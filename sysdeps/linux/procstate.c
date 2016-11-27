@@ -110,6 +110,9 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	    break;
 	  }
 
+        p = skip_multiple_token (p, 36);
+	buf->last_processor = atoi (p);
+
 	p = skip_token (buffer); /* pid */
 	if (G_UNLIKELY(*p++ != '('))
 		glibtop_error_r (server, "Bad data in /proc/%d/stat", pid);
