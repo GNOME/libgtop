@@ -110,7 +110,7 @@ glibtop_get_proc_state_s (glibtop *server, glibtop_proc_state *buf, pid_t pid)
 	    break;
 	  }
 
-        p = skip_multiple_token (p, 36);
+	p = skip_multiple_token (p, 36);
 	buf->last_processor = atoi (p);
 
 	p = skip_token (buffer); /* pid */
