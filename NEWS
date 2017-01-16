@@ -1,3 +1,12 @@
+16 January 2017: Overview of changes in 2.34.2
+================================================
+
+* Linux:
+  - fill last_processor member
+
+* Updated translations
+* Added more gettext options
+
 20 August 2016: Overview of changes in 2.34.1
 ================================================
 
