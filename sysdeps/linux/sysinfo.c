@@ -36,15 +36,19 @@ static glibtop_sysinfo sysinfo = { .flags = 0 };
 static void
 init_sysinfo (glibtop *server)
 {
-	char buffer [65536];
+	char* buffer;
 	gchar ** processors;
 
 	if(G_LIKELY(sysinfo.flags)) return;
 
-	file_to_buffer(server, buffer, sizeof buffer, FILENAME);
+	if (!g_file_get_contents(FILENAME, &buffer, NULL, NULL)) {
+		glibtop_error_io_r(server, "g_file_get_contents(%s)", FILENAME);
+	}
 
 	/* cpuinfo records are seperated by a blank line */
 	processors = g_strsplit(buffer, "\n\n", 0);
+
+	g_free(buffer);
 
 	for(sysinfo.ncpu = 0;
 	    sysinfo.ncpu < GLIBTOP_NCPU && processors[sysinfo.ncpu] && *processors[sysinfo.ncpu];
