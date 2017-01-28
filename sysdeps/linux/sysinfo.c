@@ -50,13 +50,20 @@ init_sysinfo (glibtop *server)
 
 	g_free(buffer);
 
-	for(sysinfo.ncpu = 0;
-	    sysinfo.ncpu < GLIBTOP_NCPU && processors[sysinfo.ncpu] && *processors[sysinfo.ncpu];
-	    sysinfo.ncpu++) {
+	sysinfo.ncpu = 0;
+	for (char** this_proc = &processors[0]; *this_proc && **this_proc; this_proc++) {
+
+		if (sysinfo.ncpu >= GLIBTOP_NCPU) {
+			glibtop_warn_r(server, "Cannot deal with more than %d CPUs", GLIBTOP_NCPU);
+			break;
+		}
 
 		gchar **parts, **p;
-        if (g_strrstr (processors[sysinfo.ncpu], "processor" ) == NULL) 
-            continue;
+		if (g_strrstr (*this_proc, "processor" ) == NULL) {
+		  /* skip unknown paragraph */
+		  continue;
+		}
+
 		glibtop_entry * const cpuinfo = &sysinfo.cpuinfo[sysinfo.ncpu];
 
 		cpuinfo->labels = g_ptr_array_new ();
@@ -68,7 +75,7 @@ init_sysinfo (glibtop *server)
 							g_free, g_free);
 
 		/* "<key>    : <value>" */
-		parts = g_strsplit_set(processors[sysinfo.ncpu], ":\n", 0);
+		parts = g_strsplit_set(*this_proc, ":\n", 0);
 
 		for(p = parts; *p && *(p+1); p += 2) {
 
@@ -89,6 +96,7 @@ init_sysinfo (glibtop *server)
 
 		g_free(parts);
 
+		sysinfo.ncpu++;
 	}
 
 	g_strfreev(processors);
