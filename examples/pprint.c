@@ -28,10 +28,11 @@
 	   (unsigned long) buf_offsetof(ARRAY),				\
 	   (unsigned long) G_N_ELEMENTS(buf.ARRAY));			\
     for (i = 0; i < (SIZE); ++i) {					\
-      printf(".%u = " FORMAT ", ", i, buf.ARRAY[i]);			\
       if (!buf.ARRAY[i] && i < (SIZE - 1) && !buf.ARRAY[i + 1]) {	\
 	do { i++; } while (i < SIZE && !buf.ARRAY[i]);			\
 	printf("..., ");						\
+      } else {								\
+	printf(".%u = " FORMAT ", ", i, buf.ARRAY[i]);			\
       }									\
     }									\
     printf("}\n");							\
@@ -39,12 +40,12 @@
 
 #define PPRINT_ENTRY_ARRAY(ARRAY, SIZE) do { \
 size_t i; \
-printf("\t%4lu B %3lu " #ARRAY "[%lu] = { ", \
-(unsigned long) sizeof buf->ARRAY, 0,\
+printf("\t%4lu B " #ARRAY "[%lu/%lu] = { \n", \
+(unsigned long) sizeof buf->ARRAY, (unsigned long)(SIZE),	\
 (unsigned long) G_N_ELEMENTS(buf->ARRAY)); \
 for(i = 0; i < SIZE; ++i) { \
   if (buf->ARRAY[i].values) {			\
-    printf ("[ ");				\
+    printf ("\t[ ");				\
     PPRINT_HASHTABLE(buf->ARRAY[i].values);	\
     printf ("]\n");				\
   }						\
@@ -70,8 +71,8 @@ static void pprint_get_sysinfo(void)
 
   HEADER_PPRINT(glibtop_get_sysinfo);
   //PPRINT(flags, "%#llx");
-  //PPRINT(ncpu, "%llu");
-  PPRINT_ENTRY_ARRAY(cpuinfo, 4);
+  // PPRINT(ncpu, "%llu");
+  PPRINT_ENTRY_ARRAY(cpuinfo, buf->ncpu);
   FOOTER_PPRINT();
 }
 
