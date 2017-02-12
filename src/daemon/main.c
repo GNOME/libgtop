@@ -221,6 +221,12 @@ handle_parent_connection (int s)
 	    do_output (s, resp, _offset_data (fsusage),
 		       0, NULL);
 	    break;
+    case GLIBTOP_CMND_PROC_DISKIO:
+	    glibtop_get_proc_diskio_l
+		(server, &resp->u.data.proc_diskio, parameter);
+	    do_output (s, resp, _offset_data (proc_diskio),
+		       0, NULL);
+	    break;
 	case GLIBTOP_CMND_PPP:
 	    memcpy (&device, parameter, sizeof (device));
 	    glibtop_get_ppp_l
