@@ -1,3 +1,15 @@
+13 February 2017: Overview of changes in 2.35.90
+================================================
+
+* Linux:
+  - Use dynamically allocated cpu buffer
+  - Do not cache getpagesize()
+  - Use faster g_ascii_isspace in tokenization
+  - Ignore paragraphs not describing a CPU/core
+
+* Updated translations
+* Added more gettext options
+
 16 January 2017: Overview of changes in 2.34.2
 ================================================
 
