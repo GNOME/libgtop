@@ -32,7 +32,7 @@ G_BEGIN_DECLS
 #define GLIBTOP_PROC_DISKIO_RBYTES	2
 #define GLIBTOP_PROC_DISKIO_WBYTES	3
 
-#define GLIBTOP_MAX_PROC_TIME		3
+#define GLIBTOP_MAX_PROC_DISKIO		3
 
 typedef struct _glibtop_proc_diskio	glibtop_proc_diskio;
 
