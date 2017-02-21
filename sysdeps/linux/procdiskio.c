@@ -46,6 +46,8 @@ glibtop_get_proc_diskio_s (glibtop *server, glibtop_proc_diskio *buf, pid_t pid)
 	char buffer [BUFSIZ], *p;
     memset (buf, 0, sizeof (glibtop_proc_diskio));
 
+    if (server->os_version_code < LINUX_VERSION_CODE(2, 6, 20))
+      return;
 
 	if (proc_file_to_buffer(buffer, sizeof buffer, "/proc/%d/io", pid))
 		return;
@@ -63,4 +65,6 @@ glibtop_get_proc_diskio_s (glibtop *server, glibtop_proc_diskio *buf, pid_t pid)
     p = skip_line (p);
     p = skip_token (p);
     buf->wbytes = g_ascii_strtoull (p, &p, 10);    
+
+    buf->flags = _glibtop_sysdeps_proc_diskio;
 }
