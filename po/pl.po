@@ -1,17 +1,18 @@
 # Polish translation for libgtop.
-# Copyright © 1999-2016 the libgtop authors.
+# Copyright © 1999-2017 the libgtop authors.
 # This file is distributed under the same license as the libgtop package.
 # Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1999-2002.
 # Artur Flinta <aflinta@at.kernel.pl>, 2004-2007.
-# Piotr Drąg <piotrdrag@gmail.com>, 2010-2016.
-# Aviary.pl <community-poland@mozilla.org>, 2010-2016.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2017.
+# Aviary.pl <community-poland@mozilla.org>, 2010-2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-12 09:17+0000\n"
-"PO-Revision-Date: 2016-08-20 15:54+0200\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-04-07 11:26+0000\n"
+"PO-Revision-Date: 2017-04-07 13:44+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -25,19 +26,19 @@ msgstr ""
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "odczyt %d bajtu"
-msgstr[1] "odczyt %d bajtów"
-msgstr[2] "odczyt %d bajtów"
+msgstr[0] "odczytano %d bajt"
+msgstr[1] "odczytano %d bajty"
+msgstr[2] "odczytano %d bajtów"
 
 #: lib/read_data.c:49
 msgid "read data size"
-msgstr "odczyt rozmiaru danych"
+msgstr "odczytano rozmiar danych"
 
 #: lib/read_data.c:66
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "odczytano jeden bajt danych"
+msgstr[0] "odczytano %lu bajt danych"
 msgstr[1] "odczytano %lu bajty danych"
 msgstr[2] "odczytano %lu bajtów danych"
 
@@ -45,7 +46,7 @@ msgstr[2] "odczytano %lu bajtów danych"
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "zapisano jeden bajt"
+msgstr[0] "zapisano %d bajt"
 msgstr[1] "zapisano %d bajty"
 msgstr[2] "zapisano %d bajtów"
 
@@ -58,7 +59,7 @@ msgid "Enable verbose output"
 msgstr "Więcej informacji"
 
 #: src/daemon/gnuserv.c:460
-msgid "Don't fork into background"
+msgid "Don’t fork into background"
 msgstr "Bez przechodzenia w tło"
 
 #: src/daemon/gnuserv.c:462
@@ -67,7 +68,7 @@ msgstr "Wywołanie przez inetd"
 
 #: src/daemon/gnuserv.c:498
 #, c-format
-msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgid "Run “%s --help” to see a full list of available command line options.\n"
 msgstr ""
 "Polecenie „%s --help” wyświetli pełną listę dostępnych opcji wiersza "
 "poleceń.\n"
