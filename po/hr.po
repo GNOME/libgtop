@@ -4,191 +4,193 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-26 22:07+0000\n"
-"PO-Revision-Date: 2009-06-30 04:01+0000\n"
-"Last-Translator: Ante Karamatić <ante.karamatic@canonical.com>\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-04-07 11:26+0000\n"
+"PO-Revision-Date: 2017-04-11 19:07+0200\n"
+"Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Launchpad-Export-Date: 2016-09-15 11:39+0000\n"
-"X-Generator: Launchpad (build 18186)\n"
-"Language: hr\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
-#: ../lib/read.c:49
+#: lib/read.c:49
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "čitaj %d byte"
-msgstr[1] "čitaj %d bytea"
-msgstr[2] "čitaj %d byteova"
+msgstr[0] "čitaj %d bajt"
+msgstr[1] "čitaj %d bajta"
+msgstr[2] "čitaj %d bajtova"
 
-#: ../lib/read_data.c:49
+#: lib/read_data.c:49
 msgid "read data size"
-msgstr "veličina pročitanih podataka"
+msgstr "veličina podataka čitanja"
 
-#: ../lib/read_data.c:66
+#: lib/read_data.c:66
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "čitaj %lu byte podataka"
-msgstr[1] "čitaj %lu bytea podataka"
-msgstr[2] "čitaj %lu byteova podataka"
+msgstr[0] "čitaj %lu bajt podataka"
+msgstr[1] "čitaj %lu bajta podataka"
+msgstr[2] "čitaj %lu bajta podataka"
 
-#: ../lib/write.c:49
+#: lib/write.c:49
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "zapisao %d byte"
-msgstr[1] "zapisao %d bytea"
-msgstr[2] "zapisao %d byteova"
+msgstr[0] "zapisan %d bajt"
+msgstr[1] "zapisano %d bajta"
+msgstr[2] "zapisano %d bajtova"
 
-#: ../src/daemon/gnuserv.c:456
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
-msgstr "Omogućavanje debugiranja"
+msgstr "Omogući otklanjanje grešaka"
 
-#: ../src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
-msgstr "Omogući opširni izlaz"
+msgstr "Omogući opširniji ispis"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:460
 msgid "Don't fork into background"
-msgstr "Bez forkanja u pozadini"
+msgstr "Bez grananja u pozadini"
 
-#: ../src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
 msgstr "Pozvano iz inetda"
 
-#: ../src/daemon/gnuserv.c:498
+#: src/daemon/gnuserv.c:498
 #, c-format
 msgid ""
 "Run '%s --help' to see a full list of available command line options.\n"
 msgstr ""
-"Pokrenite naredbu '%s --help' kako biste vidjeli popis dostupnih opcija.\n"
+"Pokrenite '%s --help' kako bi vidjeli potpun popis mogućnosti "
+"naredbenog redka.\n"
 
-#: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
+#: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
 msgid "Hangup"
-msgstr "Prekidanje veze"
+msgstr "Prekini vezu"
 
-#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
 msgstr "Prekid"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Quit"
-msgstr "Izlaz"
+msgstr "Zatvori"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
 msgstr "Nedopuštena instrukcija"
 
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
 msgstr "Prati trap"
 
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Abort"
-msgstr "Odustani"
+msgstr "Prekini"
 
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "EMT error"
 msgstr "EMT greška"
 
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
 msgstr "Iznimka pomičnog zareza"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Kill"
 msgstr "Ubij"
 
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Bus error"
-msgstr "Sabirnička greška"
+msgstr "Greška sabirnice"
 
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
-msgstr "Povreda segmenta"
+msgstr "Segmentacijska povreda"
 
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
-msgstr "Neispravan argument za sistemski poziv"
+msgstr "Neispravan argument za poziv sustava"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
-msgstr "Prekinut kanal"
+msgstr "Prekinut slivnik"
 
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
-msgstr "Budilica"
+msgstr "Sat alarma"
 
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Termination"
-msgstr "Završetak"
+msgstr "Prekidanje"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
-msgstr "Hitno stanje na socketu"
+msgstr "Hitno stanje na priključnici"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Stop"
 msgstr "Zaustavi"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
 msgstr "Zaustavljanje tipkovnice"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Continue"
 msgstr "Nastavi"
 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
-msgstr "Status djeteta je promijenjen"
+msgstr "Nadređeno stanje je promijenjeno"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
 msgstr "Pozadinsko čitanje iz tty-a"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
-msgstr "Pozadinsko pisanje na tty"
+msgstr "Pozadinsko zapisivanje na tty"
 
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
 msgstr "U/I je sada moguć"
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
-msgstr "CPU granica iskorištena"
+msgstr "CPU ograničenje iskorišteno"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr "Prekoračeno ograničenje veličine spisa"
+msgstr "Ograničenje veličine datoteke prekoračeno"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
-msgstr "Virtualni alarmni sat"
+msgstr "Virtualni sat alarma"
 
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
 msgstr "Profiliranje sata alarma"
 
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Window size change"
 msgstr "Promjena veličine prozora"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Information request"
 msgstr "Zahtjev za informacijom"
 
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr "Korisnički definiran signal 1"
+msgstr "Korisnički određen signal 1"
 
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr "Korisnički definiran signal 2"
+msgstr "Korisnički određen signal 2"
