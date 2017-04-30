@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: libgtop 0\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgtop&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-04-07 11:26+0000\n"
-"PO-Revision-Date: 2017-04-11 19:07+0200\n"
+"POT-Creation-Date: 2017-04-11 17:09+0000\n"
+"PO-Revision-Date: 2017-04-30 21:50+0200\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -56,7 +56,7 @@ msgid "Enable verbose output"
 msgstr "Omogući opširniji ispis"
 
 #: src/daemon/gnuserv.c:460
-msgid "Don't fork into background"
+msgid "Don’t fork into background"
 msgstr "Bez grananja u pozadini"
 
 #: src/daemon/gnuserv.c:462
@@ -66,9 +66,9 @@ msgstr "Pozvano iz inetda"
 #: src/daemon/gnuserv.c:498
 #, c-format
 msgid ""
-"Run '%s --help' to see a full list of available command line options.\n"
+"Run “%s --help” to see a full list of available command line options.\n"
 msgstr ""
-"Pokrenite '%s --help' kako bi vidjeli potpun popis mogućnosti "
+"Pokrenite \"%s --help\" kako bi vidjeli potpun popis mogućnosti "
 "naredbenog redka.\n"
 
 #: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
