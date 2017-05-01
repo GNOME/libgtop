@@ -46,7 +46,7 @@ print_message (const glibtop *server, int message_level, const char *format, int
 
 	g_string_printf(message, "%s", (server && server->name ? server->name : DEFAULT_NAME));
 
-	if (server->pid) {
+	if (server && server->pid) {
 		g_string_append_printf(message, "(c=%u/s=%u)", getpid(), server->pid);
 	}
 	else {
