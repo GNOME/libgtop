@@ -2,22 +2,23 @@
 # Copyright (C) 2012 libgtop's COPYRIGHT HOLDER
 # This file is distributed under the same license as the libgtop package.
 # TmTFx <f.t.public@gmail.com>, 2012.
+# Fabio Tomat <f.t.public@gmail.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=libgtop&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-04-07 11:26+0000\n"
-"PO-Revision-Date: 2017-04-21 22:59+0200\n"
+"POT-Creation-Date: 2017-05-01 04:58+0000\n"
+"PO-Revision-Date: 2017-05-03 07:37+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
-"Language-Team: Friulian <fur@li.org>\n"
+"Language-Team: Friulian <f.t.public@gmail.com>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: lib/read.c:49
 #, c-format
@@ -54,7 +55,7 @@ msgstr "Abilite jessude verbôs"
 
 #: src/daemon/gnuserv.c:460
 msgid "Don’t fork into background"
-msgstr "No stâ fâ fork in background"
+msgstr "No sta fâ fork in background"
 
 #: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
