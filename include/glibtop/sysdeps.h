@@ -53,7 +53,7 @@ G_BEGIN_DECLS
 #define GLIBTOP_SYSDEPS_PROC_OPEN_FILES	24
 #define GLIBTOP_SYSDEPS_PROC_WD		25
 #define GLIBTOP_SYSDEPS_PROC_AFFINITY	26
-#define GLIBTOP_SYSDEPS_PROC_DISKIO	27
+#define GLIBTOP_SYSDEPS_PROC_IO	27
 
 #define GLIBTOP_MAX_SYSDEPS		28
 
@@ -94,7 +94,7 @@ struct _glibtop_sysdeps
 	guint64 ppp;			/* glibtop_ppp		*/
 	guint64	proc_wd;		/* glibtop_proc_wd	*/
 	guint64	proc_affinity;		/* glibtop_proc_affinity */
-	guint64	proc_diskio;		/* glibtop_proc_diskio */
+	guint64	proc_io;		/* glibtop_proc_io */
 };
 
 void glibtop_get_sysdeps (glibtop_sysdeps *buf);

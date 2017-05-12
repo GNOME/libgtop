@@ -416,7 +416,7 @@ main (int argc, char *argv [])
 	getrusage (RUSAGE_SELF, &rusage_start);
 
 	for (c = 0; c < PROFILE_COUNT; c++)
-		glibtop_get_proc_diskio (&data.proc_diskio, pid);
+		glibtop_get_proc_io (&data.proc_io, pid);
 
 	getrusage (RUSAGE_SELF, &rusage_end);
 
@@ -426,8 +426,8 @@ main (int argc, char *argv [])
 	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
 			  &elapsed_stime);
 
-	printf ("Proc_DiskIo  (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
-		(unsigned long) data.proc_diskio.flags, PROFILE_COUNT,
+	printf ("Proc_Io  (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.proc_io.flags, PROFILE_COUNT,
 		(long double) ELAPSED_UTIME / PROFILE_COUNT,
 		(long double) ELAPSED_STIME / PROFILE_COUNT);
 

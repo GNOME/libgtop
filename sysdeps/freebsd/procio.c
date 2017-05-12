@@ -21,23 +21,23 @@
 
 #include <config.h>
 #include <glibtop.h>
-#include <glibtop/procdiskio.h>
+#include <glibtop/procio.h>
 
-static const unsigned long _glibtop_sysdeps_proc_diskio = 0;
+static const unsigned long _glibtop_sysdeps_proc_io = 0;
 
 /* Init function. */
 
 void
-_glibtop_init_proc_diskio_s (glibtop *server)
+_glibtop_init_proc_io_p (glibtop *server)
 {
-	server->sysdeps.proc_diskio = _glibtop_sysdeps_proc_diskio;
+	server->sysdeps.proc_io = _glibtop_sysdeps_proc_io;
 }
 
 /* Provides detailed information about a process. */
 
 void
-glibtop_get_proc_diskio_s (glibtop *server, glibtop_proc_diskio *buf,
+glibtop_get_proc_io_p (glibtop *server, glibtop_proc_io *buf,
 			 pid_t pid)
 {
-	memset (buf, 0, sizeof (glibtop_proc_diskio));
+	memset (buf, 0, sizeof (glibtop_proc_io));
 }

@@ -3,7 +3,7 @@
 #endif
 
 #include <glibtop.h>
-#include <glibtop/procdiskio.h>
+#include <glibtop/procio.h>
 
 #include <stdlib.h>
 
@@ -11,13 +11,13 @@
 
 static void show_diskio(pid_t pid)
 {
-  glibtop_proc_diskio diskio;
+  glibtop_proc_io io;
 
-  glibtop_get_proc_diskio (&diskio, pid);
+  glibtop_get_proc_io (&io, pid);
 
   printf("<%ld>\t", (long)pid);
 
-  printf("flags: %08lx rchar : %lu, wchar : %lu, read_bytes : %lu, write_bytes : %lu\n", (unsigned long)diskio.flags, diskio.rchar, diskio.wchar, diskio.rbytes, diskio.wbytes);
+  printf("flags: %08lx rchar : %lu, wchar : %lu, read_bytes : %lu, write_bytes : %lu\n", (unsigned long)io.flags, io.rchar, io.wchar, io.rbytes, io.wbytes);
 
 }
 
