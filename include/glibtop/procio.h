@@ -27,10 +27,10 @@
 
 G_BEGIN_DECLS
 
-#define GLIBTOP_PROC_IO_RCHAR	0
-#define GLIBTOP_PROC_IO_WCHAR	1
-#define GLIBTOP_PROC_IO_RBYTES	2
-#define GLIBTOP_PROC_IO_WBYTES	3
+#define GLIBTOP_PROC_IO_DISK_RCHAR	0
+#define GLIBTOP_PROC_IO_DISK_WCHAR	1
+#define GLIBTOP_PROC_IO_DISK_RBYTES	2
+#define GLIBTOP_PROC_IO_DISK_WBYTES	3
 
 #define GLIBTOP_MAX_PROC_IO		3
 
@@ -40,15 +40,15 @@ typedef struct _glibtop_proc_io	glibtop_proc_io;
 
 /**
  * glibtop_proc_io:
- * @rchar: The number of bytes which this task has caused to be read from storage. This
+ * @disk_rchar: The number of bytes which this task has caused to be read from storage. This
  * is simply the sum of bytes which this process passed to read() and pread(), also including tty IO,
  * and it is unaffected by whether or not actual physical disk IO was required.
- * @wchar: The number of bytes which this task has caused, or shall cause to be written
+ * @disk_wchar: The number of bytes which this task has caused, or shall cause to be written
  * to disk. Similar caveats apply here as with rchar.
- * @rbytes: Attempt to count the number of bytes which this process really did cause to
+ * @disk_rbytes: Attempt to count the number of bytes which this process really did cause to
  * be fetched from the storage layer. Done at the submit_bio() level, so it is
  * accurate for block-backed filesystems.
- * @wbytes: Attempt to count the number of bytes which this process caused to be sent to
+ * @disk_wbytes: Attempt to count the number of bytes which this process caused to be sent to
  * the storage layer. This is done at page-dirtying time.
  *
  * Process disk io data filled by glibtop_get_proc_io().
@@ -59,10 +59,10 @@ struct _glibtop_proc_io
     /*< private >*/
 	guint64	flags;
 	/*< public >*/
-	guint64 rchar;
-	guint64 wchar;
-	guint64 rbytes;
-	guint64 wbytes;
+	guint64 disk_rchar;
+	guint64 disk_wchar;
+	guint64 disk_rbytes;
+	guint64 disk_wbytes;
 };
 
 

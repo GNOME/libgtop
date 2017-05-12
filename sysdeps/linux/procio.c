@@ -27,8 +27,8 @@
 #include "glibtop_private.h"
 
 static const unsigned long _glibtop_sysdeps_proc_io =
-(1L << GLIBTOP_PROC_IO_RCHAR) + (1L << GLIBTOP_PROC_IO_WCHAR) +
-(1L << GLIBTOP_PROC_IO_RBYTES) + (1L << GLIBTOP_PROC_IO_WBYTES);
+(1L << GLIBTOP_PROC_IO_DISK_RCHAR) + (1L << GLIBTOP_PROC_IO_DISK_WCHAR) +
+(1L << GLIBTOP_PROC_IO_DISK_RBYTES) + (1L << GLIBTOP_PROC_IO_DISK_WBYTES);
 
 /* Init function. */
 
@@ -53,18 +53,18 @@ glibtop_get_proc_io_s (glibtop *server, glibtop_proc_io *buf, pid_t pid)
 		return;
 
 	p = skip_token (buffer);
-    buf->rchar = g_ascii_strtoull (p, &p, 10);
+    buf->disk_rchar = g_ascii_strtoull (p, &p, 10);
     p = skip_line (p);
     p = skip_token (p);
-    buf->wchar = g_ascii_strtoull (p, &p, 10);
+    buf->disk_wchar = g_ascii_strtoull (p, &p, 10);
     p = skip_line (p);
     p = skip_line (p);
     p = skip_line (p);
     p = skip_token (p);
-    buf->rbytes = g_ascii_strtoull (p, &p, 10);
+    buf->disk_rbytes = g_ascii_strtoull (p, &p, 10);
     p = skip_line (p);
     p = skip_token (p);
-    buf->wbytes = g_ascii_strtoull (p, &p, 10);    
+    buf->disk_wbytes = g_ascii_strtoull (p, &p, 10);    
 
     buf->flags = _glibtop_sysdeps_proc_io;
 }

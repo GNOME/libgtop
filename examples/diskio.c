@@ -17,7 +17,7 @@ static void show_diskio(pid_t pid)
 
   printf("<%ld>\t", (long)pid);
 
-  printf("flags: %08lx rchar : %lu, wchar : %lu, read_bytes : %lu, write_bytes : %lu\n", (unsigned long)io.flags, io.rchar, io.wchar, io.rbytes, io.wbytes);
+  printf("flags: %08lx disk_rchar : %lu, disk_wchar : %lu, disk_read_bytes : %lu, disk_write_bytes : %lu\n", (unsigned long)io.flags, io.disk_rchar, io.disk_wchar, io.disk_rbytes, io.disk_wbytes);
 
 }
 
