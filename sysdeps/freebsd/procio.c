@@ -22,8 +22,11 @@
 #include <config.h>
 #include <glibtop.h>
 #include <glibtop/procio.h>
+#include <glibtop/error.h>
+#include <glibtop_suid.h>
 
-static const unsigned long _glibtop_sysdeps_proc_io = 0;
+static const unsigned long _glibtop_sysdeps_proc_io =
+  (1UL << GLIBTOP_PROC_IO_DISK_RBYTES) + (1UL << GLIBTOP_PROC_IO_DISK_WBYTES);
 
 /* Init function. */
 
@@ -40,4 +43,38 @@ glibtop_get_proc_io_p (glibtop *server, glibtop_proc_io *buf,
 			 pid_t pid)
 {
 	memset (buf, 0, sizeof (glibtop_proc_io));
+
+	struct kinfo_proc *pinfo;
+	int count;
+
+	glibtop_suid_enter (server);
+
+	/* Get the process information */
+	pinfo = kvm_getprocs (server->machine->kd, KERN_PROC_PID, pid, &count);
+	if ((pinfo == NULL) || (count != 1)) {
+		glibtop_warn_io_r (server, "kvm_getprocs (%d)", pid);
+		glibtop_suid_leave (server);
+		return;
+	}
+
+	glibtop_suid_leave (server);
+
+	/* man getrusage
+
+	   long ru_inblock;         == block input operations
+	   long ru_oublock;         == block output operations
+
+	   ru_inblock   the number of times the file system had to perform input.
+	   ru_oublock   the number of times the file system had to perform output.
+
+	   And then it says 'account only for real IO'.
+
+	   But if I write 1MB in a process, I can see ru_oublock increased
+	   1024. So it's neither a number of operations or times.
+
+	   FIXME: seems the blocksize is 1024 but ...
+	*/
+	buf->disk_rbytes = pinfo->ki_rusage.ru_inblock << 10;
+	buf->disk_wbytes = pinfo->ki_rusage.ru_oublock << 10;
+	buf->flags = _glibtop_sysdeps_proc_io;
 }
