@@ -63,6 +63,9 @@ struct _glibtop_proc_io
 	guint64 disk_wchar;
 	guint64 disk_rbytes;
 	guint64 disk_wbytes;
+
+    /* reserved for future extensions, e.g. per-process netio */
+    guint64 reserved[10];
 };
 
 
