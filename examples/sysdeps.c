@@ -92,9 +92,10 @@ main (int argc, char *argv [])
 		"\tproc_time:\t%d\t0x%08lx\n"
 		"\tproc_signal:\t%d\t0x%08lx\n"
 		"\tproc_kernel:\t%d\t0x%08lx\n"
-		"\tproc_segment:\t%d\t0x%08lx\n\n"
+		"\tproc_segment:\t%d\t0x%08lx\n"
 		"\tproc_args:\t%d\t0x%08lx\n"
-		"\tproc_map:\t%d\t0x%08lx\n\n"
+		"\tproc_map:\t%d\t0x%08lx\n"
+		"\tproc_io:\t%d\t0x%08lx\n\n"
 		"\tmountlist:\t%d\t0x%08lx\n"
 		"\tfsusage:\t%d\t0x%08lx\n\n"
 		"\tnetload:\t%d\t0x%08lx\n"
@@ -137,6 +138,8 @@ main (int argc, char *argv [])
 		(unsigned long) sysdeps.proc_args,
 		FEATURE_CHECK(PROC_MAP),
 		(unsigned long) sysdeps.proc_map,
+		FEATURE_CHECK(PROC_IO),
+		(unsigned long) sysdeps.proc_io,
 		FEATURE_CHECK(MOUNTLIST),
 		(unsigned long) sysdeps.mountlist,
 		FEATURE_CHECK(FSUSAGE),

@@ -431,3 +431,18 @@ glibtop_get_proc_affinity(glibtop_proc_affinity *buf, pid_t pid)
 {
 	return glibtop_get_proc_affinity_l(glibtop_global_server, buf, pid);
 }
+
+/**
+ * glibtop_get_proc_io: Get the io stats for the given pid
+ * @buf: Buffer where the result will be given
+ * @pid: Process id to get the io stats for
+ *
+ * Get the io stats for a process
+ *
+ * Returns: A list of processor ID of 'buf.number' elements.
+ */
+void
+glibtop_get_proc_io(glibtop_proc_io *buf, pid_t pid)
+{
+	return glibtop_get_proc_io_l(glibtop_global_server, buf, pid);
+}

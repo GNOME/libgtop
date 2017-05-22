@@ -412,6 +412,26 @@ main (int argc, char *argv [])
 		(long double) ELAPSED_UTIME / PROFILE_COUNT,
 		(long double) ELAPSED_STIME / PROFILE_COUNT);
 
+
+	getrusage (RUSAGE_SELF, &rusage_start);
+
+	for (c = 0; c < PROFILE_COUNT; c++)
+		glibtop_get_proc_io (&data.proc_io, pid);
+
+	getrusage (RUSAGE_SELF, &rusage_end);
+
+	libgtop_timersub (&rusage_end.ru_utime, &rusage_start.ru_utime,
+			  &elapsed_utime);
+
+	libgtop_timersub (&rusage_end.ru_stime, &rusage_start.ru_stime,
+			  &elapsed_stime);
+
+	printf ("Proc_Io  (0x%08lx): %7lu - %9.2Lf - %9.2Lf\n",
+		(unsigned long) data.proc_io.flags, PROFILE_COUNT,
+		(long double) ELAPSED_UTIME / PROFILE_COUNT,
+		(long double) ELAPSED_STIME / PROFILE_COUNT);
+
+
 	getrusage (RUSAGE_SELF, &total_end);
 
 	libgtop_timersub (&total_end.ru_utime, &total_start.ru_utime,

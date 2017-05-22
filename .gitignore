@@ -70,6 +70,7 @@ examples/smp
 examples/sysdeps
 examples/timings
 examples/wd
+examples/diskio
 gtk-doc.make
 install-sh
 lib/GTop-2.0.gir

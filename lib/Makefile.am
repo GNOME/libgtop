@@ -35,7 +35,7 @@ introspection_sources = $(libgtop_2_0_la_SOURCES) lib.c ../glibtop.h ../libgtopc
 			../include/glibtop/procsignal.h ../include/glibtop/union.h ../include/glibtop/gnuserv.h \
 			../include/glibtop/parameter.h ../include/glibtop/mountlist.h ../include/glibtop/fsusage.h ../include/glibtop/procmap.h ../include/glibtop/signal.h \
 			../include/glibtop/sysinfo.h ../include/glibtop/ppp.h ../include/glibtop/procargs.h ../include/glibtop/netload.h \
-			../include/glibtop/procwd.h ../include/glibtop/procaffinity.h \
+			../include/glibtop/procwd.h ../include/glibtop/procaffinity.h ../include/glibtop/procio.h \
 			../include/glibtop/netlist.h ../include/glibtop/procopenfiles.h ../include/glibtop/open.h
 
 GTop-2.0.gir: libgtop-2.0.la

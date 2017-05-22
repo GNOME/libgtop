@@ -24,4 +24,5 @@ void|ppp|ushort(device)
 char **|netlist
 char **|proc_wd|pid_t(pid)
 guint16*|proc_affinity|pid_t(pid)
+void|proc_io|pid_t(pid)
 

@@ -52,6 +52,8 @@ glibtop_get_shm_limits
 glibtop_get_shm_limits_l
 glibtop_get_proc_affinity
 glibtop_get_proc_affinity_l
+glibtop_get_proc_io
+glibtop_get_proc_io_l
 glibtop_get_swap
 glibtop_get_swap_l
 glibtop_get_sysdeps

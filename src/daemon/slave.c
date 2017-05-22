@@ -209,6 +209,14 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 		resp->offset = _offset_data (proc_time);
 		break;
 #endif
+#if GLIBTOP_SUID_PROC_IO
+	case GLIBTOP_CMND_PROC_IO:
+		memcpy (&pid, parameter, sizeof (pid_t));
+		glibtop_get_proc_io_p
+			(server, &resp->u.data.proc_io, pid);
+		resp->offset = _offset_data (proc_time);
+		break;
+#endif
 #if GLIBTOP_SUID_PROC_SIGNAL
 	case GLIBTOP_CMND_PROC_SIGNAL:
 		memcpy (&pid, parameter, sizeof (pid_t));
