@@ -1,3 +1,13 @@
+22 May 2017: Overview of changes in 2.37.2
+================================================
+
+* Added support for per-process io monitoring
+  * Linux
+  * FreeBSD
+* Updated translations
+* Added nullpointer check
+* Use unicode in translatable strings
+
 20 March 2017: Overview of changes in 2.36.0
 ================================================
 
