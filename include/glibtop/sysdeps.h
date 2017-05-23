@@ -95,6 +95,14 @@ struct _glibtop_sysdeps
 	guint64	proc_wd;		/* glibtop_proc_wd	*/
 	guint64	proc_affinity;		/* glibtop_proc_affinity */
 	guint64	proc_io;		/* glibtop_proc_io */
+	guint64	reserved0;
+	guint64	reserved1;
+	guint64	reserved2;
+	guint64	reserved3;
+	guint64	reserved4;
+	guint64	reserved5;
+	guint64	reserved6;
+	guint64	reserved7;
 };
 
 void glibtop_get_sysdeps (glibtop_sysdeps *buf);
