@@ -56,9 +56,7 @@ typedef struct _glibtop_proc_io	glibtop_proc_io;
  */
 struct _glibtop_proc_io
 {
-    /*< private >*/
 	guint64	flags;
-	/*< public >*/
 	guint64 disk_rchar;
 	guint64 disk_wchar;
 	guint64 disk_rbytes;
