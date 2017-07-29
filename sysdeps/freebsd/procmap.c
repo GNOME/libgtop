@@ -58,6 +58,15 @@
 #endif
 #undef _KERNEL
 
+
+#if (__FreeBSD_version >= 1101001)
+#define _KERNEL
+#include <ufs/ufs/extattr.h>
+#include <ufs/ufs/ufsmount.h>
+#undef _KERNEL
+#endif
+
+
 #include <sys/ucred.h>
 #include <sys/sysctl.h>
 
@@ -166,6 +175,32 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
                 *inum = inode.i_number;
 
 
+#if (__FreeBSD_version >= 1101001)
+/*
+  The ufs struct inode changed between 11.0 and 11.1.
+
+  commit 20f1e8ac63b58708989267ea34a6aefa90b46577
+  Author: kib <kib@FreeBSD.org>
+  Date:   Sat Sep 17 16:47:34 2016 +0000
+
+  Reduce size of ufs inode.
+  [...]
+*/
+		struct ufsmount um;
+
+		if (kvm_read(server->machine->kd, (gulong)inode.i_ump, &um, sizeof um) != sizeof um) {
+			glibtop_warn_io_r (server, "kvm_read (ufsmount)");
+			return;
+		}
+
+		if (kvm_read(server->machine->kd, (gulong)cdev2priv(um.um_dev), &priv, sizeof priv) != sizeof priv) {
+			glibtop_warn_io_r (server, "kvm_read (priv)");
+			return;
+		}
+
+		*dev = priv.cdp_inode;
+
+#else /* older versions */
 #if (__FreeBSD_version >= 800039) || (__FreeBSD_kernel_version >= 800039)
         if (kvm_read (server->machine->kd, (gulong) cdev2priv(inode.i_dev), (char *) &priv,
 		      sizeof (priv))
@@ -182,6 +217,8 @@ _glibtop_sysdeps_freebsd_dev_inode (glibtop *server, struct vnode *vnode,
         }
 
         *dev = (guint64) priv.cdp_inode;
+#endif /* older versions */
+
 	    } /* end-if IS_UFS */
 }
 #endif
