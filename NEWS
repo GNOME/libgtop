@@ -1,3 +1,10 @@
+07 August 2017: Overview of changes in 2.37.90
+================================================
+
+* Added reserved fields to the sysdeps struct
+* Updated translations
+* Fixed build failure in FreeBSD 11
+
 22 May 2017: Overview of changes in 2.37.2
 ================================================
 
