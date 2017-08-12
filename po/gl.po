@@ -1,202 +1,205 @@
 # translation of gl.po to Galego
 # Galician translation of libgtop.
 # Copyright (C) 1999, 2000 Jesus Bravo Alvarez
-#
 # Se desexas colaborar connosco na traducción de programas libres ó galego,
 # vai mira-la páxina do noso grupo:  http://www.ctv.es/USERS/jtarrio/trans
-#
 # Conclusion Date: 1999-10-09 23:46+0200
-#
 # Se alguén me axuda coa revisión dalgunhas traduccións "pouco ortodoxas",
 # agradeceríallo. ;-)
-#
 # Jesus Bravo Alvarez <jba@pobox.com>, 1999, 2000.
 # Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005.
 # Ignacio Casal Quinteiro <icq@svn.gnome.org>, 2007.
 # Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun.org>, 2009.
 # Fran Diéguez <frandieguez@ubuntu.com>, 2010.
+# Fran Dieguez <frandieguez@gnome.org>, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-27 03:18+0100\n"
-"PO-Revision-Date: 2010-01-10 03:46+0100\n"
-"Last-Translator: Fran Diéguez <frandieguez@ubuntu.com>\n"
-"Language-Team: Galician <proxecto@trasno.net>\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=libgto"
+"p&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-04-07 11:26+0000\n"
+"PO-Revision-Date: 2017-08-12 12:25+0200\n"
+"Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
+"Language-Team: Galician\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
 
-#: ../lib/read.c:51
+#: lib/read.c:49
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "lido %d byte"
 msgstr[1] "lidos %d bytes"
 
-#: ../lib/read_data.c:51
+#: lib/read_data.c:49
 msgid "read data size"
 msgstr "tamaño dos datos lidos"
 
-#: ../lib/read_data.c:70
+#: lib/read_data.c:66
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "lido %lu byte de datos"
 msgstr[1] "lidos %lu bytes de datos"
 
-#: ../lib/write.c:51
+#: lib/write.c:49
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "escrito %d byte"
 msgstr[1] "escritos %d bytes"
 
-#: ../src/daemon/gnuserv.c:455
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "Activar a depuración"
 
-#: ../src/daemon/gnuserv.c:457
+#: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
 msgstr "Activar a saída detallada"
 
-#: ../src/daemon/gnuserv.c:459
-msgid "Don't fork into background"
+#: src/daemon/gnuserv.c:460
+#| msgid "Don't fork into background"
+msgid "Don’t fork into background"
 msgstr "Non facer fork nunha tarefa de fondo"
 
-#: ../src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
 msgstr "Invocado desde inetd"
 
-#: ../src/daemon/gnuserv.c:495
+#: src/daemon/gnuserv.c:498
 #, c-format
-msgid "Run '%s --help' to see a full list of available command line options.\n"
+#| msgid ""
+#| "Run '%s --help' to see a full list of available command line options.\n"
+msgid "Run “%s --help” to see a full list of available command line options.\n"
 msgstr ""
 "Execute '%s --help' para ver a lista completa das opcións de liña de ordes "
 "dispoñíbeis.\n"
 
-#: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
+#: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
 msgid "Hangup"
 msgstr "Colgar"
 
-#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
 msgstr "Interromper"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Quit"
 msgstr "Saír"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
 msgstr "Instrución ilegal"
 
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
 msgstr "Captura do rastro"
 
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Abort"
 msgstr "Interromper"
 
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "EMT error"
 msgstr "Erro EMT"
 
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
 msgstr "Excepción de coma flotante"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Kill"
 msgstr "Matar"
 
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Bus error"
 msgstr "Erro de bus"
 
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
 msgstr "Violación de segmento"
 
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
 msgstr "Argumento incorrecto na chamada ao sistema"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
 msgstr "Canalización danada"
 
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
 msgstr "Reloxo de alarma"
 
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Termination"
 msgstr "Finalización"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
 msgstr "Condición urxente no socket"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Stop"
 msgstr "Deter"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
 msgstr "Detención co teclado"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Continue"
 msgstr "Continuar"
 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
 msgstr "O estado do fillo cambiou"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
 msgstr "Lectura en segundo plano do tty"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
 msgstr "Escritura en segundo plano ao tty"
 
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
 msgstr "A E/S é posíbel agora"
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
 msgstr "Límite de CPU excedido"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
 msgstr "Excedeuse o límite de tamaño do ficheiro"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
 msgstr "Reloxo de alarma virtual"
 
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
 msgstr "Reloxo de alarma con perfil"
 
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Window size change"
 msgstr "Cambio do tamaño da xanela"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Information request"
 msgstr "Petición de información"
 
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
 msgstr "Sinal 1 definido polo usuario"
 
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "Sinal 2 definido polo usuario"
