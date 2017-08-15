@@ -25,9 +25,10 @@ msgstr ""
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "прочитан %d бајт"
-msgstr[1] "прочитана %d бајта"
-msgstr[2] "прочитано %d бајтова"
+msgstr[0] "прочитан је %d бајт"
+msgstr[1] "прочитана су %d бајта"
+msgstr[2] "прочитано је %d бајтова"
+msgstr[3] "прочитан је један бајт"
 
 #: lib/read_data.c:49
 msgid "read data size"
@@ -40,6 +41,7 @@ msgid_plural "read %lu bytes of data"
 msgstr[0] "прочитан је %lu бајт података"
 msgstr[1] "прочитана су %lu бајта података"
 msgstr[2] "прочитано је %lu бајтова података"
+msgstr[3] "прочитан је један бајт података"
 
 #: lib/write.c:49
 #, c-format
@@ -48,6 +50,7 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "уписан је %d бајт"
 msgstr[1] "уписана су %d бајта"
 msgstr[2] "уписано је %d бајтова"
+msgstr[3] "уписан је један бајт"
 
 #: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
