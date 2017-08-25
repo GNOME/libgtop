@@ -1,189 +1,191 @@
 # libgtop Italian translation
-# Copyright (C) 2003 Free Software Foundation, Inc.
+# Copyright (C) 2003, 2004, 2005, 2017 Free Software Foundation, Inc.
 # Alessio Frusciante <algol@firenze.linux.it>, 2003-2005
+# Milo Casagrande <milo@milo.name>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-02 23:18+0200\n"
-"PO-Revision-Date: 2007-10-02 23:18+0200\n"
-"Last-Translator: Alessio Frusciante <algol@firenze.linux.it>\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-04-07 11:45+0000\n"
+"PO-Revision-Date: 2017-08-25 09:15+0200\n"
+"Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.12\n"
 
-#: ../lib/read.c:51
+#: lib/read.c:49
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "letto %d byte"
 msgstr[1] "letti %d byte"
 
-#: ../lib/read_data.c:51
+#: lib/read_data.c:49
 msgid "read data size"
 msgstr "dimensione dei dati letti"
 
-#: ../lib/read_data.c:70
+#: lib/read_data.c:66
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "letto %lu byte di dati"
 msgstr[1] "letti %lu byte di dati"
 
-#: ../lib/write.c:51
+#: lib/write.c:49
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "scrittura di %d byte"
 msgstr[1] "scrittura di %d byte"
 
-#: ../src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "Abilita debug"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
 msgstr "Abilita output prolisso"
 
-#: ../src/daemon/gnuserv.c:462
-msgid "Don't fork into background"
-msgstr "Non fare fork in background"
+#: src/daemon/gnuserv.c:460
+msgid "Don’t fork into background"
+msgstr "Non esegue una fork in background"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
 msgstr "Invocato da inetd"
 
-#: ../src/daemon/gnuserv.c:498
+#: src/daemon/gnuserv.c:498
 #, c-format
-msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgid "Run “%s --help” to see a full list of available command line options.\n"
 msgstr ""
-"Eseguire '%s --help' per vedere una lista completa delle opzioni per la riga "
-"di comando.\n"
+"Eseguire «%s --help» per l'elenco completo delle opzioni a riga di comando.\n"
 
-#: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
+#: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
 msgid "Hangup"
 msgstr "Hangup"
 
-#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
 msgstr "Interrupt"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Quit"
 msgstr "Quit"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
 msgstr "Illegal instruction"
 
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
 msgstr "Trace trap"
 
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Abort"
 msgstr "Abort"
 
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "EMT error"
 msgstr "EMT error"
 
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
 msgstr "Floating-point exception"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Kill"
 msgstr "Kill"
 
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Bus error"
 msgstr "Bus error"
 
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
 msgstr "Segmentation violation"
 
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
 msgstr "Bad argument to system call"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
 msgstr "Broken pipe"
 
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
 msgstr "Alarm clock"
 
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Termination"
 msgstr "Termination"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
 msgstr "Urgent condition on socket"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Stop"
 msgstr "Stop"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
 msgstr "Keyboard stop"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Continue"
 msgstr "Continue"
 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
 msgstr "Lo stato del figlio è cambiato"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
 msgstr "Lettura in background dalla tty"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
 msgstr "Scrittura in background sulla tty"
 
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
 msgstr "I/O adesso possibile"
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
 msgstr "Superato il limite della CPU"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
 msgstr "Superato il limite nella dimensione dei file"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
 msgstr "Virtual alarm clock"
 
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
 msgstr "Profiling alarm clock"
 
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Window size change"
 msgstr "Window size change"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Information request"
 msgstr "Information request"
 
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
 msgstr "Segnale definito dall'utente 1"
 
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "Segnale definito dall'utente 2"
