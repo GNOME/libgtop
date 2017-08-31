@@ -54,7 +54,7 @@ struct _glibtop_proc_mem
 };
 
 /**
- * glibtop_get_proc_map:
+ * glibtop_get_proc_mem:
  * @buf:
  * @pid:
  *
