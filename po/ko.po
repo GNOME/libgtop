@@ -1,13 +1,14 @@
 # libgtop ko.po
 # Sung-Hyun Nam <namsh@lgic.co.kr>, 1998
-# Changwoo Ryu <cwryu@debian.org>, 2002, 2004, 2005, 2008, 2013.
+# Changwoo Ryu <cwryu@debian.org>, 2002, 2004, 2005, 2008, 2013, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop&component=general\n"
-"POT-Creation-Date: 2008-02-26 19:13+0900\n"
-"PO-Revision-Date: 2013-03-19 02:23+0900\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-04-07 11:45+0000\n"
+"PO-Revision-Date: 2017-08-28 20:28+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
@@ -16,169 +17,169 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../lib/read.c:51
+#: lib/read.c:49
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "%d바이트 읽음"
 
-#: ../lib/read_data.c:51
+#: lib/read_data.c:49
 msgid "read data size"
 msgstr "읽은 데이터 크기"
 
-#: ../lib/read_data.c:70
+#: lib/read_data.c:66
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "데이터 %lu바이트 읽음"
 
-#: ../lib/write.c:51
+#: lib/write.c:49
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "%d바이트 씀"
 
-#: ../src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "디버깅 사용"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
 msgstr "많은 출력 사용"
 
-#: ../src/daemon/gnuserv.c:462
-msgid "Don't fork into background"
+#: src/daemon/gnuserv.c:460
+msgid "Don’t fork into background"
 msgstr "백그라운드로 실행 안 함"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
 msgstr "inetd가 호출"
 
-#: ../src/daemon/gnuserv.c:498
+#: src/daemon/gnuserv.c:498
 #, c-format
-msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "사용할 수 있는 명령행 옵션을 모두 보려면 '%s --help'라고 실행하십시오.\n"
+msgid "Run “%s --help” to see a full list of available command line options.\n"
+msgstr "사용할 수 있는 명령행 옵션을 모두 보려면 “%s --help”라고 실행하십시오.\n"
 
-#: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
+#: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
 msgid "Hangup"
 msgstr "끊어짐"
 
-#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
 msgstr "인터럽트"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Quit"
 msgstr "끝내기"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
 msgstr "잘못된 기계명령"
 
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
 msgstr "추적 트랩"
 
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Abort"
 msgstr "중지"
 
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "EMT error"
 msgstr "EMT 에러"
 
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
 msgstr "실수연산 예외"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Kill"
 msgstr "죽임"
 
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Bus error"
 msgstr "버스 에러"
 
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
 msgstr "세그먼테이션 위반"
 
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
 msgstr "시스템 콜에 잘못된 인자"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
 msgstr "깨진 파이프"
 
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
 msgstr "알람 클럭"
 
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Termination"
 msgstr "Termination"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
 msgstr "소켓에 위급한 조건"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Stop"
 msgstr "중지"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
 msgstr "키보드 중지"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Continue"
 msgstr "계속"
 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
 msgstr "하위 프로세스 상태가 바뀌었습니다"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
 msgstr "tty에서 백그라운드 읽기"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
 msgstr "tty로 백그라운드 쓰기"
 
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
 msgstr "I/O 이제 가능"
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
 msgstr "CPU 한계 초과"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
 msgstr "파일 크기 한계 초과"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
 msgstr "가상 알람 클럭"
 
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
 msgstr "Profiling 알람 클럭"
 
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Window size change"
 msgstr "창 크기 바뀜"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Information request"
 msgstr "정보 요청"
 
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
 msgstr "사용자 정의 신호 1"
 
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "사용자 정의 신호 2"
