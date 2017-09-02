@@ -1,17 +1,18 @@
 # Bulgarian translation for libgtop po-file
-# Copyright (C) 2002, 2004, 2005, 2007 Free Software Foundation, Inc.
+# Copyright (C) 2002, 2004, 2005, 2007, 2017 Free Software Foundation, Inc.
 # Borislav Aleksandrov <B.Aleksandrov@cnsys.bg>, 2002.
 # Yanko Kaneti <yaneti@declera.com>, 2002.
 # Rostislav Raykov <zbrox@i-space.org>, 2004.
 # Vladimir Petkov <kaladan@gmail.com>, 2005.
-# Alexander Shopov <ash@kambanaria.org>, 2007.
+# Alexander Shopov <ash@kambanaria.org>, 2007, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-01 18:21+0300\n"
-"PO-Revision-Date: 2012-04-01 18:20+0300\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-09-02 09:32+0300\n"
+"PO-Revision-Date: 2017-08-25 11:00+0200\n"
 "Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "Language: bg\n"
@@ -20,50 +21,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../lib/read.c:51
+#: ../lib/read.c:49
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "прочетен %d байт"
 msgstr[1] "прочетени %d байта"
 
-#: ../lib/read_data.c:51
+#: ../lib/read_data.c:49
 msgid "read data size"
 msgstr "прочетен е размерът на данните"
 
-#: ../lib/read_data.c:70
+#: ../lib/read_data.c:66
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "прочетен %lu байт данни"
 msgstr[1] "прочетени %lu байта данни"
 
-#: ../lib/write.c:51
+#: ../lib/write.c:49
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "записан %d байт"
 msgstr[1] "записани %d байта"
 
-#: ../src/daemon/gnuserv.c:455
+#: ../src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "Включване на изчистване на грешките"
 
-#: ../src/daemon/gnuserv.c:457
+#: ../src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
 msgstr "Включване на подробен изход"
 
-#: ../src/daemon/gnuserv.c:459
-msgid "Don't fork into background"
-msgstr "Не се поражда процес във фонов режим"
+#: ../src/daemon/gnuserv.c:460
+msgid "Don’t fork into background"
+msgstr "Да не се поражда процес във фонов режим"
 
-#: ../src/daemon/gnuserv.c:461
+#: ../src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
 msgstr "Извикан от inetd"
 
-#: ../src/daemon/gnuserv.c:495
+#: ../src/daemon/gnuserv.c:498
 #, c-format
-msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgid "Run “%s --help” to see a full list of available command line options.\n"
 msgstr "Изпълнете „%s --help“ за пълния списък от опции за командата.\n"
 
 #: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
