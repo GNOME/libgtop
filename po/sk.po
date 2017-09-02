@@ -5,18 +5,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-06 22:12+0100\n"
-"PO-Revision-Date: 2008-03-06 22:12+0100\n"
-"Last-Translator: Marcel Telka <Marcel@telka.sk>\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-04-07 11:45+0000\n"
+"PO-Revision-Date: 2017-09-02 10:17+0200\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural= (n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"Plural-Forms: nplurals=3; plural= (n==1) ? 1 : (n>=2 && n<=4) ? 2 : "
+"0;\n"
+"X-Generator: Poedit 2.0.3\n"
 
-#: ../lib/read.c:51
+#: lib/read.c:49
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
@@ -24,11 +27,11 @@ msgstr[0] "načítaných %d bajtov"
 msgstr[1] "načítaný %d bajt"
 msgstr[2] "načítané %d bajty"
 
-#: ../lib/read_data.c:51
+#: lib/read_data.c:49
 msgid "read data size"
 msgstr "veľkosť načítaných dát"
 
-#: ../lib/read_data.c:70
+#: lib/read_data.c:66
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
@@ -36,7 +39,7 @@ msgstr[0] "načítaných %lu bajtov dát"
 msgstr[1] "načítaný %lu bajt dát"
 msgstr[2] "načítané %lu bajty dát"
 
-#: ../lib/write.c:51
+#: lib/write.c:49
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
@@ -44,149 +47,151 @@ msgstr[0] "zapísaných %d bajtov"
 msgstr[1] "zapísaný %d bajt"
 msgstr[2] "zapísané %d bajty"
 
-#: ../src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "Povoliť ladenie"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
 msgstr "Povoliť detailný výpis"
 
-#: ../src/daemon/gnuserv.c:462
-msgid "Don't fork into background"
-msgstr "Nerozvetvuj sa do pozadia"
+#: src/daemon/gnuserv.c:460
+msgid "Don’t fork into background"
+msgstr "Nerozvetvovať do pozadia"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
 msgstr "Vyvolaný cez inetd"
 
-#: ../src/daemon/gnuserv.c:498
+#: src/daemon/gnuserv.c:498
 #, c-format
-msgid "Run '%s --help' to see a full list of available command line options.\n"
+msgid ""
+"Run “%s --help” to see a full list of available command line "
+"options.\n"
 msgstr ""
 "Spustite '%s --help', aby ste videli úplný zoznam dostupných volieb "
 "príkazového riadku.\n"
 
-#: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
+#: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
 msgid "Hangup"
 msgstr "Zavesenie"
 
-#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
 msgstr "Prerušenie"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Quit"
 msgstr "Ukončiť"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
 msgstr "Neplatná inštrukcia"
 
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
 msgstr "Ladiaci bod"
 
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Abort"
 msgstr "Prerušiť"
 
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "EMT error"
 msgstr "Chyba EMT"
 
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
 msgstr "Výnimka pri práci s pohyblivou rádovou čiarkou"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Kill"
 msgstr "Zabiť"
 
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Bus error"
 msgstr "Chyba na spoji"
 
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
 msgstr "Chyba segmentácie"
 
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
 msgstr "Nesprávny argument v systémvom volaní"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
 msgstr "Prerušená rúra"
 
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
 msgstr "Budík"
 
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Termination"
 msgstr "Ukončenie"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
 msgstr "Naliehavá situácia na zásuvke"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Stop"
 msgstr "Zastaviť"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
 msgstr "Prerušenie klávesnice"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Continue"
 msgstr "Pokračovanie"
 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
 msgstr "Stav potomka bol zmenený"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
 msgstr "Čítanie z tty na pozadí"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
 msgstr "Zápis do tty na pozadí"
 
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
 msgstr "V/V je možné"
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
 msgstr "Prekročený limit procesora"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
 msgstr "Prekročený limit veľkosti súboru"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
 msgstr "Virtuálny budík"
 
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
 msgstr "Nastavenie budíka"
 
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Window size change"
 msgstr "Zmena veľkosti okna"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Information request"
 msgstr "Požiadavka na informáciu"
 
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
 msgstr "Používateľom definovaný signál 1"
 
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "Používateľom definovaný signál 2"
