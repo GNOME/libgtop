@@ -1,17 +1,19 @@
 # Danish translation of libgtop.
-# Copyright (C) 1998, 2002, 03, 04, 05 Free Software Foundation, Inc.
+# Copyright (C) 1998, 2002, 03, 04, 05, 17 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libgtop package.
 # Kenneth Christiansen <kenneth@ripen.dk>, 1998, 1999.
 # Keld Simonsen <keld@dkuug.dk>, 2000.
 # Ole Laursen <olau@hardworking.dk>, 2002, 03, 05.
 # Martin Willemoes Hansen <mwh@sysrq.dk>, 2004.
+# Ask Hjorth Larsen <asklarsen@gmail.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-16 23:21+0200\n"
-"PO-Revision-Date: 2007-09-16 23:21+0200\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-04-07 11:45+0000\n"
+"PO-Revision-Date: 2017-09-10 17:51+0200\n"
 "Last-Translator: Ole Laursen <olau@hardworking.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "Language: da\n"
@@ -20,174 +22,173 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../lib/read.c:51
+#: lib/read.c:49
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "læste %d byte"
 msgstr[1] "læste %d byte"
 
-#: ../lib/read_data.c:51
+#: lib/read_data.c:49
 msgid "read data size"
 msgstr "læste datastørrelse"
 
-#: ../lib/read_data.c:70
+#: lib/read_data.c:66
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "læste %lu byte"
 msgstr[1] "læste %lu byte"
 
-#: ../lib/write.c:51
+#: lib/write.c:49
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "skrev %d byte"
 msgstr[1] "skrev %d byte"
 
-#: ../src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "Slå fejlfinding til"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
 msgstr "Slå meddelsom udskrift til"
 
-#: ../src/daemon/gnuserv.c:462
-msgid "Don't fork into background"
+#: src/daemon/gnuserv.c:460
+msgid "Don’t fork into background"
 msgstr "Forgren ikke til baggrund"
 
-#: ../src/daemon/gnuserv.c:464
+#: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
 msgstr "Kaldt fra inetd"
 
-#: ../src/daemon/gnuserv.c:498
+#: src/daemon/gnuserv.c:498
 #, c-format
-msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr ""
-"Kør '%s --help' for at få en liste over alle tilgængelige tilvalgsflag.\n"
+msgid "Run “%s --help” to see a full list of available command line options.\n"
+msgstr "Kør “%s --help” for at få en liste over alle tilgængelige kommandolinjetilvalg.\n"
 
-#: ../sysdeps/osf1/siglist.c:27 ../sysdeps/sun4/siglist.c:27
+#: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
 msgid "Hangup"
 msgstr "Læg på"
 
-#: ../sysdeps/osf1/siglist.c:28 ../sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
 msgstr "Afbrud"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Quit"
 msgstr "Afslut"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
 msgstr "Ugyldig instruktion"
 
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
 msgstr "Spore fælde"
 
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Abort"
 msgstr "Afbryd"
 
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "EMT error"
 msgstr "EMT-fejl"
 
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
 msgstr "Flydende tals-undtagelse"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Kill"
 msgstr "Afslut"
 
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Bus error"
 msgstr "Bus-fejl"
 
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
 msgstr "Segmentovertrædelse"
 
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
 msgstr "Ugyldig argument til systemkald"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
 msgstr "Brudt datakanal"
 
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
 msgstr "Alarmklokke"
 
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Termination"
 msgstr "Terminering"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
 msgstr "Vigtig tilstand på sokkel"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Stop"
 msgstr "Stop"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
 msgstr "Tastaturstop"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Continue"
 msgstr "Fortsæt"
 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
 msgstr "Barnets status er ændret"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
 msgstr "Læsing fra tty i baggrunden"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
 msgstr "Skriving til tty i baggrunden"
 
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
 msgstr "I/O nu muligt"
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
 msgstr "Processor-grænse overskredet"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
 msgstr "Grænse for filstørrelse overskredet"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
 msgstr "Virtuel alarmklokke"
 
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
 msgstr "Profilerer alarmklokken"
 
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Window size change"
 msgstr "Ændring i vinduesstørrelse"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Information request"
 msgstr "Informationsforespørsel"
 
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
 msgstr "Brugerdefineret signal 2"
 
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "Brugerdefineret signal 2"
 
