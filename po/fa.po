@@ -3,14 +3,15 @@
 # Copyright (C) 2003, 2005 Sharif FarsiWeb, Inc.
 # Roozbeh Pournader <roozbeh@farsiweb.info>, 2003.
 # Azin Azadi <aazadi@gmail.com>, 2005.
-# Arash Mousavi <mousavi.arash@gmail.com>, 2010, 2011.
+# Arash Mousavi <mousavi.arash@gmail.com>, 2010, 2011, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-04-04 20:06+0000\n"
-"PO-Revision-Date: 2011-04-24 17:45+0330\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
+"product=libgtop&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-04-07 11:26+0000\n"
+"PO-Revision-Date: 2017-09-29 19:25+0330\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: Persian <translate@ifsug.org>\n"
 "Language: fa\n"
@@ -18,205 +19,177 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Language: Persian\n"
-"X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 2.0.4\n"
 
-#: ../lib/read.c:51
+#: lib/read.c:49
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
 msgstr[0] "خوانده شد %Id بایت"
 
-#: ../lib/read_data.c:51
+#: lib/read_data.c:49
 msgid "read data size"
 msgstr "‌اندازه‌ی داده‌های خوانده شده"
 
-#: ../lib/read_data.c:70
+#: lib/read_data.c:66
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
 msgstr[0] "%lu بایت اطلاعات خوانده شد"
 
-#: ../lib/write.c:51
+#: lib/write.c:49
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "%Id بایت نوشته شد"
 
-#: ../src/daemon/gnuserv.c:455
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
 msgstr "به کار انداختن اشکال‌زدایی"
 
-#: ../src/daemon/gnuserv.c:457
+#: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
 msgstr "به کار انداختن خروجی مفصل"
 
-#: ../src/daemon/gnuserv.c:459
-msgid "Don't fork into background"
+#: src/daemon/gnuserv.c:460
+msgid "Don’t fork into background"
 msgstr "عدم انشعاب در پس‌زمینه"
 
-#: ../src/daemon/gnuserv.c:461
+#: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
 msgstr "از inetd احضار شد"
 
-#: ../src/daemon/gnuserv.c:495
+#: src/daemon/gnuserv.c:498
 #, c-format
-msgid "Run '%s --help' to see a full list of available command line options.\n"
-msgstr "برای نمایش تمام گزینه‌های موجود خط فرمان «%s --help» را اجرا کنید.\n"
+msgid ""
+"Run “%s --help” to see a full list of available command line "
+"options.\n"
+msgstr ""
+"برای نمایش تمام گزینه‌های موجود خط فرمان «%s --help» را اجرا "
+"کنید.\n"
 
-#: ../sysdeps/osf1/siglist.c:27
-#: ../sysdeps/sun4/siglist.c:27
+#: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
 msgid "Hangup"
 msgstr "معوق گذاشتن"
 
-#: ../sysdeps/osf1/siglist.c:28
-#: ../sysdeps/sun4/siglist.c:28
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
 msgstr "وقفه"
 
-#: ../sysdeps/osf1/siglist.c:29
-#: ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Quit"
 msgstr "خروج"
 
-#: ../sysdeps/osf1/siglist.c:30
-#: ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
 msgstr "دستورالعمل غیرمجاز"
 
-#: ../sysdeps/osf1/siglist.c:31
-#: ../sysdeps/sun4/siglist.c:31
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
 msgstr "ردگیری تله"
 
-#: ../sysdeps/osf1/siglist.c:32
-#: ../sysdeps/sun4/siglist.c:32
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Abort"
 msgstr "قطع کردن"
 
-#: ../sysdeps/osf1/siglist.c:33
-#: ../sysdeps/sun4/siglist.c:33
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "EMT error"
 msgstr "خطای EMT"
 
-#: ../sysdeps/osf1/siglist.c:34
-#: ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
 msgstr "استثنای ممیز شناور"
 
-#: ../sysdeps/osf1/siglist.c:35
-#: ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Kill"
 msgstr "خاموش کردن"
 
-#: ../sysdeps/osf1/siglist.c:36
-#: ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Bus error"
 msgstr "خطای گذرگاه"
 
-#: ../sysdeps/osf1/siglist.c:37
-#: ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
 msgstr "تخلف قطعه قطعه کردن"
 
-#: ../sysdeps/osf1/siglist.c:38
-#: ../sysdeps/sun4/siglist.c:38
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
 msgstr "آرگومان بد به فراخوانی سیستم"
 
-#: ../sysdeps/osf1/siglist.c:39
-#: ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
 msgstr "لوله‌ی شکسته"
 
-#: ../sysdeps/osf1/siglist.c:40
-#: ../sysdeps/sun4/siglist.c:40
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
 msgstr "ساعت زنگی"
 
-#: ../sysdeps/osf1/siglist.c:41
-#: ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Termination"
 msgstr "پایان دادن"
 
-#: ../sysdeps/osf1/siglist.c:42
-#: ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
 msgstr "وضعیت اورژانس برای سوکت"
 
-#: ../sysdeps/osf1/siglist.c:43
-#: ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Stop"
 msgstr "توقف"
 
-#: ../sysdeps/osf1/siglist.c:44
-#: ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
 msgstr "توقف صفحه‌کلید"
 
-#: ../sysdeps/osf1/siglist.c:45
-#: ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Continue"
 msgstr "ادامه"
 
-#: ../sysdeps/osf1/siglist.c:46
-#: ../sysdeps/sun4/siglist.c:46
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
 msgstr "وضعیت بچه عوض شد"
 
-#: ../sysdeps/osf1/siglist.c:47
-#: ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
 msgstr "خواندن پس‌زمینه از tty"
 
-#: ../sysdeps/osf1/siglist.c:48
-#: ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
 msgstr "نوشتن پس‌زمینه در tty"
 
-#: ../sysdeps/osf1/siglist.c:49
-#: ../sysdeps/sun4/siglist.c:49
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
 msgstr "ورودی/خروجی اکنون امکان دارد"
 
-#: ../sysdeps/osf1/siglist.c:50
-#: ../sysdeps/sun4/siglist.c:50
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
 msgstr "بیشتر از محدودیت واحد پردازش مرکزی شد"
 
-#: ../sysdeps/osf1/siglist.c:51
-#: ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
 msgstr "بیشتر از محدودیت اندازه‌ی پرونده شد"
 
-#: ../sysdeps/osf1/siglist.c:52
-#: ../sysdeps/sun4/siglist.c:52
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
 msgstr "ساعت هشدار مجازی"
 
-#: ../sysdeps/osf1/siglist.c:53
-#: ../sysdeps/sun4/siglist.c:53
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
 msgstr "درحال تنظیم زنگ هشدار"
 
-#: ../sysdeps/osf1/siglist.c:54
-#: ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Window size change"
 msgstr "تغییر اندازه‌ی پنجره"
 
-#: ../sysdeps/osf1/siglist.c:55
-#: ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Information request"
 msgstr "درخواست اطلاعات"
 
-#: ../sysdeps/osf1/siglist.c:56
-#: ../sysdeps/sun4/siglist.c:56
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
 msgstr "سیگنال تعریف شده توسط کاربر ۱"
 
-#: ../sysdeps/osf1/siglist.c:57
-#: ../sysdeps/sun4/siglist.c:57
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "سیگنال تعریف شده توسط کاربر ۲"
 
