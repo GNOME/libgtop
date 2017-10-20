@@ -4,7 +4,7 @@
 #
 # Andraž Tori <andraz.tori1@guest.arnes.si>, 2000.
 # Matic Žgur <mr.zgur@gmail.com>, 2006.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007–2017.
+# Matej Urbančič <mateju@svn.gnome.org>, + 2007–2017.
 #
 msgid ""
 msgstr ""
@@ -73,7 +73,7 @@ msgstr "Poklican s programom inetd"
 #: src/daemon/gnuserv.c:498
 #, c-format
 msgid "Run “%s --help” to see a full list of available command line options.\n"
-msgstr "Za popoln seznam možnosti ukazne vrstice zaženite '%s --help'.\n"
+msgstr "Za popoln seznam možnosti ukazne vrstice zaženite »%s --help«.\n"
 
 #: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
 msgid "Hangup"
