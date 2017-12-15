@@ -1,12 +1,11 @@
 #ifndef __NETSOCKETS_H__
 #define __NETSOCKETS_H__
 
-//includes
 #include <glib.h>
 #include <sys/types.h>
 #include <netinet/in.h>
 
-//G_BEEGIN_DECLS
+G_BEGIN_DECLS
 
 typedef struct _glibtop_socket glibtop_socket;
 
@@ -26,6 +25,7 @@ struct _glibtop_socket
 
 glibtop_socket*
 glibtop_get_netsockets (char *filename ,GHashTable *inode_table);
-//G_END_DECLS
+
+G_END_DECLS
 #endif
 
