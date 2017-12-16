@@ -1,5 +1,5 @@
 #include <glib.h>
-#include <dirent.h>
+#include <gio/gio.h>
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -9,64 +9,74 @@
 #include "proc_inode_parser.h"
 #include <stdlib.h>
 
-GHashTable* 
-traverse_file(const char *dirname ,int depth ,char *pid,GHashTable *inode_table)
+GHashTable*
+traverse_file(const gchar *dirname ,int depth , const gchar *pid, GHashTable *inode_table)
 {
-	DIR *curdir = opendir(dirname);
+	GFile *curdir = g_file_new_for_path (dirname);
 	if(curdir == NULL)
 	{
 		fprintf(stderr, "error opening dir %s\n",curdir);
 		return NULL;
 	}
+	
+	GFileEnumerator *entry;
 
-	chdir(dirname);
-	struct dirent *entry;
-	struct stat stat_buf;
+	entry = g_file_enumerate_children (curdir,
+                          G_FILE_ATTRIBUTE_STANDARD_NAME ,
+                          G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS,
+                          NULL,
+                          NULL);
+	GFileInfo *info_buf;
 	int enter_fd=0;
-	while((entry=readdir(curdir)) != NULL && !enter_fd){	
-		g_lstat(entry->d_name , &stat_buf);
+	while((info_buf=g_file_enumerator_next_file (entry,NULL,NULL))!= NULL && !enter_fd){	
+		char *nextDir = (char *)malloc(strlen(dirname)+sizeof(char)*30);
+		const gchar *currentFile = g_file_info_get_name(info_buf);
+		memcpy(nextDir , dirname ,strlen(dirname));
+		memcpy(nextDir+strlen(dirname),"/",1);
+		memcpy(nextDir+strlen(dirname)+1,currentFile ,strlen(currentFile));
+				
+		struct stat stat_buf ;
+		g_lstat( nextDir, &stat_buf);
+	
 		if(S_ISDIR(stat_buf.st_mode))
-		{	if(strcmp(".",entry->d_name) == 0 || 
-                strcmp("..",entry->d_name) == 0)
-                continue;
-			switch(depth)
-			{
-			case 0:
-				if((entry->d_name)[0]>48 && (entry->d_name)[0]<57)
+		{
+		    switch(depth)
+            {
+            case 0: 
+            	if(currentFile[0]>48 && currentFile[0]<57 )
 				{
-					pid=entry->d_name;
-					printf("\npid:%s ",pid);
-					traverse_file(entry->d_name , depth +1 ,pid,inode_table);
+					if(currentFile != NULL)
+						pid = currentFile;
+						traverse_file(nextDir, depth+1,pid,inode_table);
 				}
-				else continue;
 				break;
-			case 1: 
-				if(strcmp(entry->d_name,"fd") == 0)
-					{
-						enter_fd = 1;
-						printf("fd/");
-						traverse_file(entry->d_name,depth+1,pid,inode_table);
-					}
+			
+			case 1:
+				if(strcmp(currentFile,"fd") == 0)
+				{
+					enter_fd = 1;
+					traverse_file(nextDir,depth+1,pid,inode_table);
+				}
 				break;
-			}
+            }
 		}
-		
-		else if(S_ISLNK(stat_buf.st_mode) && depth == 2)
-		{	
-			char slnk_buf[128];
-			int len = readlink(entry->d_name,slnk_buf,sizeof(slnk_buf));
-			slnk_buf[len]='\0';
-			int *inode = (int *)malloc(sizeof(int));	//dont free until hashTable deleted
-			int match=sscanf(slnk_buf, "socket:[%d]\n",inode);
-			if(match==1)
-			printf("%s::%d     ",entry->d_name ,*inode );
-			int *pid_int=(int *)malloc(sizeof(int)); //dont free until hashTable deleted
-			*pid_int = atoi(pid);
-			g_hash_table_insert(inode_table, inode ,pid_int);
+		else if(S_ISLNK(stat_buf.st_mode))
+		{
+			gchar *slnk_buf = g_file_read_link(nextDir,NULL);
+			if(slnk_buf != NULL)
+			{
+				int *inode = (int *)malloc(sizeof(int));	//dont free until hashTable deleted
+				int match=sscanf(slnk_buf, "socket:[%d]\n",inode);
+				if(match==1)
+				{
+					int *pid_int=(int *)malloc(sizeof(int)); //dont free until hashTable deleted
+					*pid_int = atoi(pid);
+					g_hash_table_insert(inode_table, inode ,pid_int);
+	         	}
+         	}
 		}
 	}
-	chdir("..");
-	closedir(curdir);
+	g_object_unref(curdir);
 	return inode_table;
 }
 
@@ -79,5 +89,5 @@ print_hashtable(gpointer key,gpointer value,gpointer user_data)
 void 
 print_inode(GHashTable *inode_table)
 {
-	 g_hash_table_foreach(inode_table,(GHFunc)print_hashtable,NULL);
+	g_hash_table_foreach(inode_table,(GHFunc)print_hashtable,NULL);
 }
