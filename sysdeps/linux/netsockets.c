@@ -22,9 +22,9 @@ add_socket_list(char *buf, glibtop_socket *list_socket,GHashTable *inode_table)
 {	
 	char temp_local_addr[128];
 	char temp_rem_addr[128];
-	glibtop_socket *temp_socket = (glibtop_socket *)malloc(sizeof(glibtop_socket));
-	temp_socket->local_addr = (struct in6_addr *)malloc(sizeof(in6_addr));
-    temp_socket->rem_addr = (struct in6_addr *)malloc(sizeof(in6_addr));
+	glibtop_socket *temp_socket = g_slice_new(glibtop_socket);
+	temp_socket->local_addr = g_slice_new(in6_addr);
+    temp_socket->rem_addr = g_slice_new(in6_addr);
     
     if(list_socket!=NULL)
         list_socket->next = temp_socket;
