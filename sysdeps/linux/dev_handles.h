@@ -5,6 +5,9 @@
 #include <pcap.h>
 #include <netinet/in.h>
 G_BEGIN_DECLS
+
+#define IF_HANDLE 1
+#define IF_HANDLE_FUNC 19
 typedef struct _packet_handle packet_handle;
 //for callbacks
 typedef int (*packet_callback)(u_char* , const pcap_pkthdr*, const u_char *);
@@ -32,8 +35,8 @@ struct _packet_args
 	int sa_family;
 	in_addr ip_src;
 	in_addr ip_dst;
-	in6_addr ip_src;
-	in6_addr ip_dst;
+	in6_addr ip6_src;
+	in6_addr ip6_dst;
 };
 
 packet_handle * open_pcap_handles();
