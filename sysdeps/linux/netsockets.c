@@ -5,17 +5,16 @@
 #include <ftw.h>
 #include "proc_inode_parser.h"
 #include <glibtop/procstate.h>
+#include <glib.h>
 
-gpointer 
+gint 
 match_pid(int inode, GHashTable *inode_table)
 {
-	if(g_hash_table_contains(inode_table, (gconstpointer *)&inode))
+	if(g_hash_table_contains(inode_table, GINT_TO_POINTER(inode)))
 	{
-		gpointer pid_ptr = g_hash_table_lookup(inode_table,(gconstpointer *)&inode);
-	    printf("%d\n", *(int *)pid_ptr );
-        return pid_ptr;
+		return GPOINTER_TO_INT(g_hash_table_lookup(inode_table,GINT_TO_POINTER(inode)));
     }
-	return NULL;
+	return -1;
 }
 
 glibtop_socket *
@@ -44,15 +43,12 @@ add_socket_list(char *buf, glibtop_socket *list_socket,GHashTable *inode_table)
 		fprintf(stderr, "Invalid buf\n");
 		exit(0);
 	}  
-    gpointer pid_return = match_pid(temp_socket->inode, inode_table);
+
+    temp_socket->pid =match_pid(temp_socket->inode, inode_table);
+    glibtop_proc_state *proc_buf = g_slice_new(glibtop_proc_state);
+    glibtop_get_proc_state(proc_buf,temp_socket->pid);
+    temp_socket->proc_name = proc_buf->cmd;
     
-    if(pid_return)
-    {   
-        temp_socket->pid =*(pid_t *)pid_return;
-        glibtop_proc_state *buf = (glibtop_proc_state *)malloc(sizeof(glibtop_proc_state));
-        glibtop_get_proc_state(buf,temp_socket->pid);
-        temp_socket->proc_name = buf->cmd;
-    }
     if(strlen(temp_local_addr) >8) //it is IPv6
 	{
 		sscanf(temp_local_addr, "%08X%08X%08X%08X",
