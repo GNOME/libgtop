@@ -51,13 +51,12 @@ traverse_file(GFile *curdir ,int depth , const gchar *pid, GHashTable *inode_tab
 			gchar *slnk_buf = g_file_read_link(symlink_name,NULL);
 			if(slnk_buf != NULL)
 			{
-				int *inode = (int *)g_malloc(sizeof(int));	//dont free until hashTable deleted
-				int match=sscanf(slnk_buf, "socket:[%d]\n",inode);
+				int inode;
+				int match=sscanf(slnk_buf, "socket:[%d]\n",&inode);
 				if(match==1)
 				{
-					int *pid_int=(int *)g_malloc(sizeof(int)); //dont free until hashTable deleted
-					*pid_int = g_ascii_strtoll(pid, NULL, 0);
-					g_hash_table_insert(inode_table, inode, pid_int);
+					int pid_int = g_ascii_strtoll(pid, NULL, 0);
+					g_hash_table_insert(inode_table, GINT_TO_POINTER(inode), GINT_TO_POINTER(pid_int));
 	         	}
          	}
 		}
@@ -69,7 +68,7 @@ traverse_file(GFile *curdir ,int depth , const gchar *pid, GHashTable *inode_tab
 void 
 print_hashtable(gpointer key,gpointer value,gpointer user_data)
 {
-	printf("%d :: %d\n",*(int *)value,*(int *)(key));
+	printf("%d :: %d\n",GPOINTER_TO_INT(value),GPOINTER_TO_INT(key));
 }
 
 void 
