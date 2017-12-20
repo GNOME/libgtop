@@ -13,7 +13,7 @@ int main()
 		char rip[128];
 		inet_ntop(AF_INET,&(*(socket_list->local_addr)),lip,sizeof(lip));
 		inet_ntop(AF_INET,&(*(socket_list->rem_addr)),rip,sizeof(rip));
-		printf("proc_name:%s inode: %d pid: %d local_addr: %s rem_addr: %s local_port: %d rem_port: %d sa_family: %d \n",
+		printf("proc_name:%s inode:%lu pid: %d local_addr: %s rem_addr: %s local_port: %d rem_port: %d sa_family: %d \n",
 						socket_list->proc_name,
 						socket_list->inode,
 						socket_list->pid,  
