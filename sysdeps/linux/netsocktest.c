@@ -5,7 +5,7 @@
 
 int main()
 {
-	GHashTable *inode_table = g_hash_table_new(g_int_hash , g_int_equal);
+	GHashTable *inode_table = g_hash_table_new(g_direct_hash, g_direct_equal);
 	char *fname = g_strdup("/proc/net/tcp");
 	glibtop_socket *socket_list = glibtop_get_netsockets (fname,inode_table);
 	while(socket_list != NULL){
