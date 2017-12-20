@@ -4,41 +4,26 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include <string.h>
 #include <glib/gstdio.h>
 #include "proc_inode_parser.h"
 #include <stdlib.h>
 
 GHashTable*
-traverse_file(const gchar *dirname ,int depth , const gchar *pid, GHashTable *inode_table)
+traverse_file(GFile *curdir ,int depth , const gchar *pid, GHashTable *inode_table)
 {
-	GFile *curdir = g_file_new_for_path (dirname);
-	if(curdir == NULL)
-	{
-		fprintf(stderr, "error opening dir %s\n",curdir);
-		return NULL;
-	}
-	
-	GFileEnumerator *entry;
-
-	entry = g_file_enumerate_children (curdir,
-                          G_FILE_ATTRIBUTE_STANDARD_NAME ,
-                          G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS,
-                          NULL,
-                          NULL);
+	GFileEnumerator *entry = g_file_enumerate_children (curdir,
+								G_FILE_ATTRIBUTE_STANDARD_NAME ,
+								G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS,
+								NULL,
+								NULL);
 	GFileInfo *info_buf;
-	int enter_fd=0;
-	while((info_buf=g_file_enumerator_next_file (entry,NULL,NULL))!= NULL && !enter_fd){	
-		char *nextDir = (char *)malloc(strlen(dirname)+sizeof(char)*30);
+	gboolean enter_fd=false;
+
+	while((info_buf=g_file_enumerator_next_file (entry,NULL,NULL))!= NULL && !enter_fd){
+		
 		const gchar *currentFile = g_file_info_get_name(info_buf);
-		memcpy(nextDir , dirname ,strlen(dirname));
-		memcpy(nextDir+strlen(dirname),"/",1);
-		memcpy(nextDir+strlen(dirname)+1,currentFile ,strlen(currentFile));
-				
-		struct stat stat_buf ;
-		g_lstat( nextDir, &stat_buf);
-	
-		if(S_ISDIR(stat_buf.st_mode))
+		
+		if(g_file_info_get_file_type(info_buf) == G_FILE_TYPE_DIRECTORY)
 		{
 		    switch(depth)
             {
@@ -47,31 +32,32 @@ traverse_file(const gchar *dirname ,int depth , const gchar *pid, GHashTable *in
 				{
 					if(currentFile != NULL)
 						pid = currentFile;
-						traverse_file(nextDir, depth+1,pid,inode_table);
+						traverse_file(g_file_get_child(curdir, g_file_info_get_name(info_buf)), depth+1,pid,inode_table);
 				}
 				break;
 			
 			case 1:
-				if(strcmp(currentFile,"fd") == 0)
+				if(g_strcmp0(currentFile,"fd") == 0)
 				{
-					enter_fd = 1;
-					traverse_file(nextDir,depth+1,pid,inode_table);
+					enter_fd = true;
+					traverse_file(g_file_get_child(curdir, g_file_info_get_name(info_buf)),depth+1,pid,inode_table);
 				}
 				break;
             }
 		}
-		else if(S_ISLNK(stat_buf.st_mode))
-		{
-			gchar *slnk_buf = g_file_read_link(nextDir,NULL);
+		else if(g_file_info_get_is_symlink(info_buf))
+		{	
+			gchar *symlink_name = g_build_filename(g_file_get_path(curdir),currentFile,NULL);
+			gchar *slnk_buf = g_file_read_link(symlink_name,NULL);
 			if(slnk_buf != NULL)
 			{
-				int *inode = (int *)malloc(sizeof(int));	//dont free until hashTable deleted
+				int *inode = (int *)g_malloc(sizeof(int));	//dont free until hashTable deleted
 				int match=sscanf(slnk_buf, "socket:[%d]\n",inode);
 				if(match==1)
 				{
-					int *pid_int=(int *)malloc(sizeof(int)); //dont free until hashTable deleted
-					*pid_int = atoi(pid);
-					g_hash_table_insert(inode_table, inode ,pid_int);
+					int *pid_int=(int *)g_malloc(sizeof(int)); //dont free until hashTable deleted
+					*pid_int = g_ascii_strtoll(pid, NULL, 0);
+					g_hash_table_insert(inode_table, inode, pid_int);
 	         	}
          	}
 		}
