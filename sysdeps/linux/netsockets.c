@@ -29,8 +29,9 @@ add_socket_list(char *buf, glibtop_socket *list_socket,GHashTable *inode_table)
     if(list_socket!=NULL)
         list_socket->next = temp_socket;
     else
-        list_socket = temp_socket;
-
+        {
+			list_socket = temp_socket;
+        }
 	int matches = sscanf(buf, "%*X: %64[0-9A-Fa-f]:%X %64[0-9A-Fa-f]:%X %*X "
                             "%*X:%*X %*X:%*X %*X %*d %*d %ld %*512s\n",
                             temp_local_addr,
