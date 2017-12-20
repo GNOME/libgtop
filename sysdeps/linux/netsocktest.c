@@ -1,11 +1,12 @@
 #include "netsockets.h"
 #include <stdio.h>
 #include <arpa/inet.h>
+#include <glib.h>
 
 int main()
 {
 	GHashTable *inode_table = g_hash_table_new(g_int_hash , g_int_equal);
-	char fname[20] = "/proc/net/tcp";
+	char *fname = g_strdup("/proc/net/tcp");
 	glibtop_socket *socket_list = glibtop_get_netsockets (fname,inode_table);
 	while(socket_list != NULL){
 		char lip[128];

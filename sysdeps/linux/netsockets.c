@@ -82,7 +82,7 @@ glibtop_socket*
 glibtop_get_netsockets (char *filename,GHashTable *inode_table)
 {   
 	char line[8192] ;
-	traverse_file("/proc",0,"",inode_table);
+	traverse_file(g_file_new_for_path("/proc"),0,"",inode_table);
 	FILE *fd = fopen(filename, "r");
 
 	if(fd == NULL)
