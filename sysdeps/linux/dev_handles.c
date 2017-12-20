@@ -3,7 +3,7 @@
 #include <pcap/pcap.h>
 #include "dev_handles.h"
 #include "packet.h"
-#include <tcp.h>
+#include <netinet/tcp.h>
 #include <sys/time.h>
 
 int promisc = 0;
@@ -29,7 +29,7 @@ int process_tcp(u_char *userdata, const pcap_pkthdr *header /* header */,
 
 	curtime = header->ts;
 	Packet *packet = (Packet *)malloc(sizeof(Packet));
-	switch(args->sa_family)
+/*	switch(args->sa_family)
 	{
 	case AF_INET:
 		Packet_init_in_addr(packet, args->ip_src, ntohs(tcp->th_sport), args->ip_dst, ntohs(tcp->th_dport), header->len, header->ts);
@@ -39,7 +39,7 @@ int process_tcp(u_char *userdata, const pcap_pkthdr *header /* header */,
 		Packet_init_in6_addr(packet, args->ip6_src, ntohs(tcp->th_sport), args->ip6_dst, ntohs(tcp->th_dport), header->len, header->ts);
 		break;
 	}
-
+*/
 }
 
 void add_callback(packet_handle *handle ,enum packet_type type ,packet_callback callback)
@@ -47,12 +47,16 @@ void add_callback(packet_handle *handle ,enum packet_type type ,packet_callback 
 	handle->callback[type] = callback ;
 }
 packet_handle*
-get_interface_handle(char *device )
+get_interface_handle(char *device, GError **err)
 {
 	pcap_t *temp = pcap_open_live(device, BUFSIZ, promisc, 100, errbuf);
 	if(temp == NULL)
 	{
-		fprintf(stderr,"failed to open handle for device :%s",device);
+		g_set_error(err,
+					IF_HANDLE,
+					IF_HANDLE_FUNC,
+					"failed to open handle for device : %s",
+					device);
 		return NULL;
 	}
 
@@ -76,11 +80,12 @@ open_pcap_handles()
 {	glibtop_netlist buf;
 	char **devices;
 	devices = glibtop_get_netlist (&buf);
+	GError **if_error;
 	int count=0;
 	packet_handle *previous_handle=NULL , *initial_handle = NULL;
 	int init_ele = 1 ; 
 	while(count < buf.number){
-		packet_handle *new_handle = get_interface_handle(devices[count]);
+		packet_handle *new_handle = get_interface_handle(devices[count], if_error);
 		if(new_handle != NULL)
 		{	if(init_ele)
 			{
