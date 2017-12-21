@@ -23,8 +23,7 @@ struct _glibtop_socket
 
 };
 
-glibtop_socket*
-glibtop_get_netsockets (char *filename ,GHashTable *inode_table);
+glibtop_socket* glibtop_get_netsockets (char *filename, GHashTable *inode_table);
 
 G_END_DECLS
 #endif

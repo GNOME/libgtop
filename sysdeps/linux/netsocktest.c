@@ -7,13 +7,13 @@ int main()
 {
 	GHashTable *inode_table = g_hash_table_new(g_direct_hash, g_direct_equal);
 	char *fname = g_strdup("/proc/net/tcp");
-	glibtop_socket *socket_list = glibtop_get_netsockets (fname,inode_table);
-	while(socket_list != NULL){
+	glibtop_socket *socket_list = glibtop_get_netsockets (fname, inode_table);
+	while (socket_list != NULL) {
 		char lip[128];
 		char rip[128];
-		inet_ntop(AF_INET,&(*(socket_list->local_addr)),lip,sizeof(lip));
-		inet_ntop(AF_INET,&(*(socket_list->rem_addr)),rip,sizeof(rip));
-		printf("proc_name:%s inode:%lu pid: %d local_addr: %s rem_addr: %s local_port: %d rem_port: %d sa_family: %d \n",
+		inet_ntop(AF_INET, &(*(socket_list->local_addr)), lip, sizeof(lip));
+		inet_ntop(AF_INET, &(*(socket_list->rem_addr)), rip, sizeof(rip));
+		printf("proc_name:%s inode: %lu pid: %d local_addr: %s rem_addr: %s local_port: %d rem_port: %d sa_family: %d \n\n",
 						socket_list->proc_name,
 						socket_list->inode,
 						socket_list->pid,  
