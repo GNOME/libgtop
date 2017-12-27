@@ -42,7 +42,7 @@ struct _packet_args
 packet_handle * open_pcap_handles();
 void print_pcap_handles(packet_handle *handle);
 void print_interface_local_address();
-
+local_addr *get_if_local_addr();
 G_END_DECLS
 
 #endif
