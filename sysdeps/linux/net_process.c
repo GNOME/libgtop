@@ -66,8 +66,8 @@ to_kbps(u_int64_t bytes)
 {
 	return to_kb(bytes)/PERIOD; //define macro
 }
-void
-Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, timeval currtime)
+void /*RE check*/
+Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, timeval curtime)
 {
 	u_int64_t sum_sent = 0;
 	u_int64_t sum_recv = 0;
@@ -75,7 +75,7 @@ Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, timeval currt
 	Conn_list *previous = NULL;
 	while (curr_conn != NULL)
 	{
-		if (Connection_get_last_packet_time(Conn_list_get_connection(curr_conn)) <= currtime.tv_sec - CONNTIMEOUT/*macro*/)
+		if (Connection_get_last_packet_time(Conn_list_get_connection(curr_conn)) <= curtime.tv_sec - CONNTIMEOUT/*macro*/)
 		{	//sum up bytes transfer for all connections in a connection list
 			proc->bytes_sent = Conn_list_get_connection(curr_conn)->bytes_sent;
 			proc->bytes_recv = Conn_list_get_connection(curr_conn)->bytes_recv;
@@ -86,6 +86,8 @@ Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, timeval currt
 			//changing the reference of the conn_list because the previous will be freed
 			if (to_delete_list == proc->connections)
 				proc->connections = curr_conn;
+			if (previous != NULL)
+				Connection_list_setNext(previous,curr_conn);
 			//g_slice_new is used to allocate mem to these structs
 			g_slice_free(Conn_list, to_delete_list);
 			g_slice_free(Connection, conn_to_delete);
@@ -96,15 +98,27 @@ Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, timeval currt
 			*sum and delete funct for connections in a connection list
 			*
 			**/
+			u_int64_t sent = 0;
+			u_int64_t recv = 0;
+			Connection_sum_and_del(Conn_list_get_connection(curr_conn), curtime, &recv, &sent);
+			sum_recv += recv;
+			sum_sent += sent;
+			previous = curr_conn;
+			curr_conn = Connection_list_get_next(curr_conn); 
 		}
 	}
 	*recvd = to_kbps(sum_recv);
 	*sent = to_kbps(sum_sent);
 
 }
-uid_t Net_process_get_uid(Net_process *proc);
-void Net_process_set_uid(Net_process *proc);
-unsigned long Net_process_get_inode(Net_process *proc);
 
+uid_t Net_process_get_uid(Net_process *proc)
+{
+	return proc->uid;
+}
 //Net_process_list function
-void Net_process_list_init(Net_process_list *plist, Net_process *proc, Net_process_list *next_val);
+void Net_process_list_init(Net_process_list *plist, Net_process *proc, Net_process_list *next_val)
+{
+	plist->val = proc;
+	plist->next = next_val;
+}

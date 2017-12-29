@@ -33,9 +33,6 @@ float to_kb(u_int64_t bytes);
 float to_kbps(u_int64_t bytes);
 void Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, timeval currtime);
 uid_t Net_process_get_uid(Net_process *proc);
-void Net_process_set_uid(Net_process *proc);
-unsigned long Net_process_get_inode(Net_process *proc);
-
 //Net_process_list function
 void Net_process_list_init(Net_process_list *plist, Net_process *proc, Net_process_list *next_val);
 
