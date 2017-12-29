@@ -83,7 +83,7 @@ Conn_list_get_connection(Conn_list *clist)
 }
 
 void 
-setNext(Conn_list *clist,Conn_list *next_val)
+Connection_list_setNext(Conn_list *clist,Conn_list *next_val)
 {
 	clist->next = next_val;
 }
@@ -140,4 +140,35 @@ int
 Connection_get_last_packet_time(Connection *conn)
 {
 	return conn->last_packet_time;
+}
+
+u_int64_t Packet_list_sum_and_del(Packet_list *pktlist, timeval t)
+{
+	u_int64_t sum = 0;
+	Packet_list_node *current = pktlist->content;
+	Packet_list_node *previous ;
+	while (current != NULL)
+	{
+		if (current->pkt->time.tv_sec <= t.tv_sec - PERIOD)
+		{
+			if (current == pktlist->content)
+				pktlist->content = NULL;
+			else if (previous != NULL)
+				previous->next = NULL;
+			g_slice_free(current);
+			return sum;
+		}
+		sum += current->pkt->len;
+		previous = current;
+		current = current->next;
+	}
+	return sum;
+}
+void
+Connection_sum_and_del(Connection *conn, timeval t, u_int64_t *recv, u_int64_t *sent)
+{
+	*sent = 0;
+	*recv = 0;
+	*sent = Packet_list_sum_and_del(conn->sent_packets, t);
+	*recv = Packet_list_sum_and_del(conn->received_packets, t);
 }

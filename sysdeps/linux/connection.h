@@ -48,6 +48,9 @@ Connection *Conn_list_get_connection(Conn_list *clist);
 void setNext(Conn_list *clist, Conn_list *next_val);
 ConnList *Connection_list_get_next(Conn_list *clist);
 int Connection_get_last_packet_time(Connection *conn);
+void Connection_sum_and_del(Connection *conn, timeval t, u_int64_t *recv, u_int64_t *sent);
+void Connection_list_setNext(Conn_list *clist,Conn_list *next_val);
+
 //function to sum up data stats of old packets and delete them in a given connection
 G_END_DECLS
 
