@@ -7,8 +7,8 @@
 
 G_BEGIN_DECLS
 
+#define HASHKEYSIZE 92
 typedef struct _glibtop_socket glibtop_socket;
-
 struct _glibtop_socket
 {
 	char *proc_name;
@@ -19,12 +19,13 @@ struct _glibtop_socket
 	int local_port;
 	int rem_port;
 	int sa_family;
+	char *sock_hash;
 	glibtop_socket *next;
 
 };
 
-glibtop_socket* glibtop_get_netsockets (char *filename, GHashTable *inode_table);
-
+glibtop_socket* glibtop_get_netsockets (char *filename, GHashTable *inode_table, GHashTable *hash_table);
+gint match_hash_to_inode(char *hash, GHashTable *hash_table);
 G_END_DECLS
 #endif
 
