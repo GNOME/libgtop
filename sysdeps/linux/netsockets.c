@@ -17,8 +17,18 @@ match_pid(int inode, GHashTable *inode_table)
 	return -1;
 }
 
+gint
+match_hash_to_inode(char *hash, GHashTable *hash_table)
+{
+	if (g_hash_table_contains(hash_table, hash))
+	{
+		return GPOINTER_TO_INT(g_hash_table_lookup(hash_table, hash));
+	}
+	return -1;
+}
+
 glibtop_socket *
-add_socket_list(char *buf, glibtop_socket *list_socket, GHashTable *inode_table)
+add_socket_list(char *buf, glibtop_socket *list_socket, GHashTable *inode_table, GHashTable *hash_table)
 {	
 	char temp_local_addr[128];
 	char temp_rem_addr[128];
@@ -70,12 +80,17 @@ add_socket_list(char *buf, glibtop_socket *list_socket, GHashTable *inode_table)
 			sscanf(temp_rem_addr, "%X", (unsigned int *)&(*(temp_socket->rem_addr)));
 			temp_socket->sa_family = AF_INET;
 	}
+	//check for malloc
+	char temp_hash[92];
+	snprintf(temp_hash, HASHKEYSIZE * sizeof(char), "%s:%d-%s:%d", temp_local_addr, temp_socket->local_port, temp_rem_addr, temp_socket->rem_port);
+	temp_socket->sock_hash = g_strdup(temp_hash);
+	g_hash_table_insert(hash_table, temp_socket->sock_hash, GINT_TO_POINTER(temp_socket->inode));
 	temp_socket->next = NULL;
 	return temp_socket;
 }
 
 glibtop_socket*
-glibtop_get_netsockets (char *filename, GHashTable *inode_table)
+glibtop_get_netsockets (char *filename, GHashTable *inode_table, GHashTable *hash_table)
 {
 	char line[8192] ;
 	traverse_file(g_file_new_for_path("/proc"), 0, "", inode_table);
@@ -91,12 +106,12 @@ glibtop_get_netsockets (char *filename, GHashTable *inode_table)
 	//to initialise socket_list with the first entry  
 	fgets(line, sizeof(line), fd);
 	glibtop_socket *socket_list = NULL;
-	socket_list = add_socket_list(line, socket_list, inode_table);
+	socket_list = add_socket_list(line, socket_list, inode_table, hash_table);
 	glibtop_socket *temp_socket_list = socket_list;
 	glibtop_socket *next_socket = temp_socket_list;
 	while(!feof(fd)){
 	fgets(line, sizeof(line), fd);
-	next_socket = add_socket_list(line, next_socket, inode_table);
+	next_socket = add_socket_list(line, next_socket, inode_table, hash_table);
 	}
-return socket_list;
+	return socket_list;
 }
