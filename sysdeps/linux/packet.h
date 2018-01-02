@@ -8,6 +8,7 @@
 
 G_BEGIN_DECLS
 
+#define HASHKEYSIZE 92
 enum direction
 {
 	dir_unknown,
@@ -28,6 +29,7 @@ struct _Packet
 	unsigned short dport;
 	u_int32_t len;
 	timeval time;
+	char *pkt_hash;
 };
 
 void Packet_init_in_addr(Packet *pkt,in_addr pkt_sip, unsigned short pkt_sport, in_addr pkt_dip, 
@@ -39,6 +41,9 @@ gboolean is_pkt_outgoing(Packet *pkt);
 gboolean packet_match_source(Packet *pkt, Packet *other);
 gboolean packet_match(Packet *pkt,Packet *other); 
 Packet *get_inverted_packet(Packet *pkt);
+char *Packet_gethash(Packet *pkt);
+void Packet_set_global_local_addr();
+
 G_END_DECLS
 
 #endif
