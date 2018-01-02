@@ -3,9 +3,11 @@
 
 #include <glib.h>
 #include <sys/types.h>
+#include "connection.h"
 G_BEGIN_DECLS
 
 #define CONNTIMEOUT 50
+#define PERIOD 5
 typedef struct _Net_process Net_process;
 struct _Net_process
 {
@@ -35,7 +37,7 @@ void Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, timeval 
 uid_t Net_process_get_uid(Net_process *proc);
 //Net_process_list function
 void Net_process_list_init(Net_process_list *plist, Net_process *proc, Net_process_list *next_val);
-
+Net_process *Net_process_list_get_proc(Net_process_list *plist);
 G_END_DECLS
 
 #endif
