@@ -2,16 +2,13 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include "connection.h"
-#include "process.h"
+#include "net_process.h"
 
 //Net_process functions
 void 
-Net_process_init(Net_process *proc, unsigned long inode_val, char *device_name_val, char *proc_name_val
+Net_process_init(Net_process *proc, unsigned long inode_val, char *device_name_val, char *proc_name_val)
 {
-	if (proc_name == NULL)
-		proc->proc_name = proc_name_val;
-	else
-		proc_name = proc_name_val;
+	proc->proc_name = proc_name_val;
 	//debug statement
 	printf("Process name :%s\n",proc->proc_name);
 	proc->device_name = device_name_val;
@@ -26,10 +23,10 @@ int
 Net_process_get_last_packet_time(Net_process *proc)
 {
 	int last_packet = 0;
-	Conn_list *curr_conn = proc->connections;
+	Conn_list *curr_conn = proc->proc_connections;
 	while (curr_conn != NULL)
 	{
-		g_assert(Conn_list_get_connection(curr_conn) != NULL)
+		g_assert(Conn_list_get_connection(curr_conn) != NULL);
 		if (Connection_get_last_packet_time(Conn_list_get_connection(curr_conn)) > last_packet)
 			last_packet = Connection_get_last_packet_time(Conn_list_get_connection(curr_conn));
 		curr_conn = Connection_list_get_next(curr_conn);
@@ -44,7 +41,7 @@ void Net_process_get_total(Net_process *proc, u_int64_t *recvd, u_int64_t *sent)
 	Conn_list *curr_conn = proc->connections;
 	while (curr_conn != NULL)
 	{
-		Connection *conn = Conn_list_get_connection(curr_conn));
+		Connection *conn = Conn_list_get_connection(curr_conn);
 		sum_recv += conn->bytes_recv;
 		sum_sent += conn->bytes_sent;
 		curr_conn = Connection_list_get_next(curr_conn);
@@ -71,7 +68,7 @@ Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, timeval curti
 {
 	u_int64_t sum_sent = 0;
 	u_int64_t sum_recv = 0;
-	Conn_list *curr_conn = proc->connections;
+	Conn_list *curr_conn = proc->proc_connections;
 	Conn_list *previous = NULL;
 	while (curr_conn != NULL)
 	{
@@ -84,8 +81,8 @@ Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, timeval curti
 			Connection *conn_to_delete = Conn_list_get_connection(curr_conn);
 			curr_conn = Connection_list_get_next(curr_conn);
 			//changing the reference of the conn_list because the previous will be freed
-			if (to_delete_list == proc->connections)
-				proc->connections = curr_conn;
+			if (to_delete_list == proc->proc_connections)
+				proc->proc_connections = curr_conn;
 			if (previous != NULL)
 				Connection_list_setNext(previous,curr_conn);
 			//g_slice_new is used to allocate mem to these structs
@@ -121,4 +118,10 @@ void Net_process_list_init(Net_process_list *plist, Net_process *proc, Net_proce
 {
 	plist->val = proc;
 	plist->next = next_val;
+}
+
+Net_process *
+Net_process_list_get_proc(Net_process_list *plist)
+{
+	return plist->val;
 }

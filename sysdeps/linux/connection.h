@@ -7,7 +7,7 @@
 
 G_BEGIN_DECLS
 
-typedef struct _Packet_list_node _Packet_list_node;
+typedef struct _Packet_list_node Packet_list_node;
 struct _Packet_list_node
 {
 	Packet *pkt;
@@ -23,13 +23,13 @@ struct _Packet_list
 typedef struct _Connection Connection;
 struct _Connection
 {
-	PacketList *sent_packets;
-	PacketList *received_packets;
+	Packet_list *sent_packets;
+	Packet_list *received_packets;
 	//ref packet is used to check if the packet belongs to the given connection
 	Packet *ref_packet;
 	//connection stats
 	u_int64_t bytes_sent;
-	u_int64_t byes_recv;
+	u_int64_t bytes_recv;
 	//time when last packet was captured in this connection 
 	int last_packet_time;
 };
@@ -46,7 +46,7 @@ Connection *findConnection(Packet *pkt);
 void Conn_list_init(Conn_list *clist, Connection *conn_val, Conn_list *next_val = NULL);
 Connection *Conn_list_get_connection(Conn_list *clist);
 void setNext(Conn_list *clist, Conn_list *next_val);
-ConnList *Connection_list_get_next(Conn_list *clist);
+Conn_list *Connection_list_get_next(Conn_list *clist);
 int Connection_get_last_packet_time(Connection *conn);
 void Connection_sum_and_del(Connection *conn, timeval t, u_int64_t *recv, u_int64_t *sent);
 void Connection_list_setNext(Conn_list *clist,Conn_list *next_val);
