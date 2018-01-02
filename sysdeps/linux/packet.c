@@ -1,6 +1,10 @@
 #include "packet.h"
 #include <glib.h>
-packet, args->ip_src, ntohs(tcp->th_sport), args->ip_dst, ntohs(tcp->th_dport), header->len, header->ts
+#include "interface_local_addr.h"
+#include "dev_handles.h"
+
+local_addr *interface_local_addr;
+
 void
 Packet_init_in_addr(Packet *pkt,in_addr pkt_sip, unsigned short pkt_sport, in_addr pkt_dip, 
 						unsigned short pkt_dport, u_int32_t pkt_len, timeval pkt_ts ,direction pkt_dir)
@@ -68,20 +72,20 @@ is_pkt_outgoing(Packet *pkt)
 	case dir_unknown:
 		gboolean is_local;
 		if (pkt->sa_family == AF_INET)
-			is_local = local_addr_contains(pkt->sip.s_addr);
+			is_local = local_addr_contains(interface_local_addr, pkt->sip.s_addr);
 		else
-			is_local = local_addr6_contains(pkt->sip6);
+			is_local = local_addr6_contains(interface_local_addr, pkt->sip6);
 		
 		if (is_local)
 		{
-			pk->dir = outgoing;
+			pkt->dir = dir_outgoing;
 		}
 		else
 		{
 			if (pkt->sa_family == AF_INET)
-				is_local = local_addr_contains(pkt->dip.s_addr);
+				is_local = local_addr_contains(interface_local_addr, pkt->dip.s_addr);
 			else
-				is_local = local_addr6_contains(pkt->dip6);
+				is_local = local_addr6_contains(interface_local_addr, pkt->dip6);
 
 			if(!is_local)
 			{
@@ -99,8 +103,8 @@ gboolean
 packet_match_source(Packet *pkt, Packet *other)
 {
 	return (pkt->sport == other->sport) &&
-			(pk->sa_family == AF_INET) ? (pk->sip.s_addr == other->sip.s_addr) :
-										(pk->sip6.s6_addr == other->sip6.s6_addr);
+			(pkt->sa_family == AF_INET) ? (pkt->sip.s_addr == other->sip.s_addr) :
+										(pkt->sip6.s6_addr == other->sip6.s6_addr);
 
 }
 
@@ -108,13 +112,13 @@ gboolean
 packet_match(Packet *pkt, Packet *other) 
 {
 	return (pkt->sa_family == other->sa_family) && 
-			(pk->sport == other->sport) &&
-			(pk->dport == other->dport) &&
-			(pk->sa_family == AF_INET) ? ((pk->sip.s_addr == other->sip.s_addr) && (pk->dip.s_addr == other->dip.s_addr)):
-										((pk->sip6.s6_addr == other->sip6.s6_addr) && (pk->dip6.s6_addr == other->dip6.s6_addr));
+			(pkt->sport == other->sport) &&
+			(pkt->dport == other->dport) &&
+			(pkt->sa_family == AF_INET) ? ((pkt->sip.s_addr == other->sip.s_addr) && (pkt->dip.s_addr == other->dip.s_addr)):
+										((pkt->sip6.s6_addr == other->sip6.s6_addr) && (pkt->dip6.s6_addr == other->dip6.s6_addr));
 }
 
-gboolean  )
+
 direction 
 invert(direction dir)
 {
@@ -133,12 +137,50 @@ get_inverted_packet(Packet *pkt)
 	Packet *inverted_packet = g_slice_new (Packet);
 	if (pkt->sa_family == AF_INET)
 		Packet_init_in_addr(inverted_packet, pkt->sip, pkt->sport, pkt->dip, pkt->dport, 
-							pkt->len, pkt->ts , inverted_dir);
+							pkt->len, pkt->time , inverted_dir);
 	else
 		Packet_init_in6_addr(inverted_packet, pkt->sip6, pkt->sport, pkt->dip6, pkt->dport,
-							pkt->len, pkt->ts, inverted_dir);
+							pkt->len, pkt->time, inverted_dir);
 	return inverted_packet; 
 		
 }
 
+char *
+Packet_gethash(Packet *pkt)
+{
+	if (pkt->pkt_hash != NULL)
+	{
+		return pkt->pkt_hash;
+	}
 
+	//free pkt_hash
+	char pkt_hash[92];
+		switch(pkt->sa_family)
+		{
+		case AF_INET:
+			if (is_pkt_outgoing(pkt))
+				snprintf(pkt_hash, HASHKEYSIZE*sizeof(char), "%s:%d-%s:%d",
+					pkt->sip, pkt->sport, pkt->dip, pkt->dport);
+			else
+				snprintf(pkt_hash, HASHKEYSIZE*sizeof(char), "%s:%d-%s:%d",
+					pkt->dip, pkt->dport, pkt->sip, pkt->sport);
+			break;
+
+		case AF_INET6:
+			if (is_pkt_outgoing(pkt))
+				snprintf(pkt_hash, HASHKEYSIZE*sizeof(char), "%s:%d-%s:%d",
+					pkt->sip6, pkt->sport, pkt->dip6, pkt->dport);
+			else
+				snprintf(pkt_hash, HASHKEYSIZE*sizeof(char), "%s:%d-%s:%d",
+					pkt->dip6, pkt->dport, pkt->sip6, pkt->sport);
+			break;
+		}
+	pkt->pkt_hash = g_strdup(pkt_hash);
+	return pkt->pkt_hash;
+}
+
+void
+Packet_set_global_local_addr()
+{
+	interface_local_addr = get_global_local_addr();
+}
