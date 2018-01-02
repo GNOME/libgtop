@@ -1,4 +1,4 @@
-#include "connection.c"
+#include "connection.h"
 #include "packet.h"
 //global list of all connections being monitored
 Conn_list *connections;
@@ -9,7 +9,7 @@ Packet_list_node_init(Packet_list_node *pktlist_node, Packet *pkt_val, Packet_li
 	pktlist_node->pkt = pkt_val;
 	pktlist_node->next = next_val;
 }
-
+match_hash_to_inode(Packet_gethash(conn->ref_packet));
 //initializers for packet list
 void
 Packet_list_init_beg(Packet_list *pktlist)
