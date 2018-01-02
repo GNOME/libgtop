@@ -36,7 +36,7 @@ void Packet_init_in_addr(Packet *pkt,in_addr pkt_sip, unsigned short pkt_sport, 
 						unsigned short pkt_dport, u_int32_t pkt_len, timeval pkt_ts, direction pkt_dir = dir_unknown);
 void Packet_init_in6_addr(Packet *pkt,in6_addr pkt_sip6, unsigned short pkt_sport, in6_addr pkt_dip6, 
 						unsigned short pkt_dport, u_int32_t pkt_len, timeval pkt_ts, direction pkt_dir = dir_unknown);
-
+void Packet_init(Packet *pkt, Packet &old_packet);
 gboolean is_pkt_outgoing(Packet *pkt);
 gboolean packet_match_source(Packet *pkt, Packet *other);
 gboolean packet_match(Packet *pkt,Packet *other); 
