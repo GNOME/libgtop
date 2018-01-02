@@ -38,7 +38,7 @@ void Net_process_get_total(Net_process *proc, u_int64_t *recvd, u_int64_t *sent)
 {
 	u_int64_t sum_sent = 0;
 	u_int64_t sum_recv = 0;
-	Conn_list *curr_conn = proc->connections;
+	Conn_list *curr_conn = proc->proc_connections;
 	while (curr_conn != NULL)
 	{
 		Connection *conn = Conn_list_get_connection(curr_conn);

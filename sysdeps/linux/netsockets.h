@@ -26,6 +26,7 @@ struct _glibtop_socket
 
 glibtop_socket* glibtop_get_netsockets (char *filename, GHashTable *inode_table, GHashTable *hash_table);
 gint match_hash_to_inode(char *hash, GHashTable *hash_table);
+gint match_pid(int inode, GHashTable *inode_table);
 G_END_DECLS
 #endif
 

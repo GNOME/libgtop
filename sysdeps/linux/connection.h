@@ -7,6 +7,7 @@
 
 G_BEGIN_DECLS
 
+#define PERIOD 5
 typedef struct _Packet_list_node Packet_list_node;
 struct _Packet_list_node
 {
@@ -42,7 +43,7 @@ struct _Conn_list
 };
 void Connection_init(Connection *conn, Packet *pkt);
 void add_packet_to_connection(Connection *conn, Packet *pkt);
-Connection *findConnection(Packet *pkt);
+Connection *find_connection(Packet *pkt);
 void Conn_list_init(Conn_list *clist, Connection *conn_val, Conn_list *next_val = NULL);
 Connection *Conn_list_get_connection(Conn_list *clist);
 void setNext(Conn_list *clist, Conn_list *next_val);
@@ -50,7 +51,8 @@ Conn_list *Connection_list_get_next(Conn_list *clist);
 int Connection_get_last_packet_time(Connection *conn);
 void Connection_sum_and_del(Connection *conn, timeval t, u_int64_t *recv, u_int64_t *sent);
 void Connection_list_setNext(Conn_list *clist,Conn_list *next_val);
-
+void Packet_list_init_beg(Packet_list *pktlist);
+void Packet_list_init(Packet_list *pktlist, Packet *pkt_val);
 //function to sum up data stats of old packets and delete them in a given connection
 G_END_DECLS
 
