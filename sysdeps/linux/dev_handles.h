@@ -8,14 +8,16 @@
 #include "interface_local_addr.h"
 #include "net_process.h"
 #include "connection.h"
+
 G_BEGIN_DECLS
 
 #define IF_HANDLE 1
 #define IF_HANDLE_FUNC 19
-time_t refresh_delay = 1;
+#define refresh_delay 1
+
 typedef struct _packet_handle packet_handle;
 //for callbacks
-typedef int (*packet_callback)(u_char* , const struct pcap_pkthdr*, const u_char *, GHashTable *, GHashTable *);
+typedef int (*packet_callback)(u_char* , const struct pcap_pkthdr*, const u_char *);
 enum packet_type
 {
 	packet_ip,

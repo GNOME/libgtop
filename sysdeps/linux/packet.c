@@ -3,7 +3,7 @@
 #include "interface_local_addr.h"
 #include "dev_handles.h"
 
-local_addr *interface_local_addr;
+local_addr *pkt_interface_local_addr;
 
 void
 Packet_init_in_addr(Packet *pkt,in_addr pkt_sip, unsigned short pkt_sport, in_addr pkt_dip, 
@@ -72,9 +72,9 @@ is_pkt_outgoing(Packet *pkt)
 	case dir_unknown:
 		gboolean is_local;
 		if (pkt->sa_family == AF_INET)
-			is_local = local_addr_contains(interface_local_addr, pkt->sip.s_addr);
+			is_local = local_addr_contains(pkt_interface_local_addr, pkt->sip.s_addr);
 		else
-			is_local = local_addr6_contains(interface_local_addr, pkt->sip6);
+			is_local = local_addr6_contains(pkt_interface_local_addr, pkt->sip6);
 		
 		if (is_local)
 		{
@@ -83,9 +83,9 @@ is_pkt_outgoing(Packet *pkt)
 		else
 		{
 			if (pkt->sa_family == AF_INET)
-				is_local = local_addr_contains(interface_local_addr, pkt->dip.s_addr);
+				is_local = local_addr_contains(pkt_interface_local_addr, pkt->dip.s_addr);
 			else
-				is_local = local_addr6_contains(interface_local_addr, pkt->dip6);
+				is_local = local_addr6_contains(pkt_interface_local_addr, pkt->dip6);
 
 			if(!is_local)
 			{
@@ -182,5 +182,5 @@ Packet_gethash(Packet *pkt)
 void
 Packet_set_global_local_addr()
 {
-	interface_local_addr = get_global_local_addr();
+	pkt_interface_local_addr = get_global_local_addr();
 }
