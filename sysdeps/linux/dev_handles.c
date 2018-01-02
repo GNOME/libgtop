@@ -8,8 +8,8 @@
 #include <sys/time.h>
 #include "interface_local_addr.h"
 #include "connection.h"
-#include "process.h"
-#include "netsockets.c"
+#include "net_process.h"
+#include "netsockets.h"
 #include <glib.h>
 /*GLOBAL HASH TABLE */
 local_addr *interface_local_addr;
@@ -20,7 +20,8 @@ GHashTable *inode_table = g_hash_table_new(g_direct_hash, g_direct_equal);
 GHashTable *hash_table = g_hash_table_new(g_str_hash, g_str_equal);
 
 Net_process_list *processes;//global process list
-Net_process *unknwownTCP;
+Net_process *unknownTCP;
+
 void handles_set_hash(GHashTable *inode, GHashTable *hash)
 {
 	inode_table = inode;
@@ -30,7 +31,7 @@ void handles_set_hash(GHashTable *inode, GHashTable *hash)
 void handles_set_process_lists(Net_process_list *procs, Net_process *tcp)
 {
 	processes = procs;
-	unknwownTCP = tcp;
+	unknownTCP = tcp;
 }
 
 timeval
@@ -38,7 +39,7 @@ get_curtime()
 {
 	return curtime;
 }
-Net_process *get_process_from_inode(unsigned long inode, char *device_name)
+Net_process *get_process_from_inode(unsigned long inode, const char *device_name)
 {
 	int pid = match_pid(inode, inode_table);
 	Net_process_list *current = processes ;/*global list of all procs*/
@@ -53,8 +54,8 @@ Net_process *get_process_from_inode(unsigned long inode, char *device_name)
 	return NULL;
 }
 
-Net_process *get_process(Connection *conn, char *device_name, 
-						/*GHashTable *hash_inode_table pass the table which is mainained globally */,
+Net_process *get_process(Connection *conn, const char *device_name
+						/*GHashTable *hash_inode_table pass the table which is mainained globally */
  							/*GHashTable *inode_table pass the global table holding inode vs proc name*/)
 {
 	unsigned long inode = match_hash_to_inode(Packet_gethash(conn->ref_packet),hash_table);
@@ -73,7 +74,7 @@ Net_process *get_process(Connection *conn, char *device_name,
 		conn->ref_packet = reverse_pkt;
 	}
 	/*this proc is present in the hash table*/
-	Net_process *proc = get_process_from_inode(inode, device_name, inode_table);
+	Net_process *proc = get_process_from_inode(inode, device_name);
 	if (proc == NULL)
 	{
 		proc = g_slice_new(Net_process);
@@ -84,7 +85,7 @@ Net_process *get_process(Connection *conn, char *device_name,
 	}
 	Conn_list *temp_list = g_slice_new(Conn_list);
 	Conn_list_init(temp_list, conn, proc->proc_connections);
-	proc_connections = temp_list;
+	proc->proc_connections = temp_list;
 
 	return proc;
 }
@@ -128,7 +129,7 @@ process_tcp(u_char *userdata, const struct pcap_pkthdr *header /* header */,cons
 		Connection_init(connection, packet);
 		//Add this connection to a connectionlist depending on the process it belongs to
 		//write this 
-		get_process(connection, args->device,/*hash tables*/hash_table,inode_table);
+		get_process(connection, args->device);
 
 	}
 	g_slice_free(Packet, packet);
@@ -239,13 +240,13 @@ local_addr_contains (const in_addr_t &n_addr, local_addr *laddr = interface_loca
 }
 
 gboolean
-local_addr6_contains (const struct in6_addr &n_addr, local_addr *local_addr = interface_local_addr)
+local_addr6_contains (const struct in6_addr &n_addr, local_addr *laddr = interface_local_addr)
 {
 	if ((laddr->sa_family == AF_INET6) && ((laddr->addr6).s6_addr == n_addr.s6_addr))
 		return true;
 	if (laddr->next == NULL)
 		return false;
-	return local_addr_contains(n_addr, laddr->next);
+	return local_addr6_contains(n_addr, laddr->next);
 }
 
 local_addr *
