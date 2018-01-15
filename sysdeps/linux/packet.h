@@ -42,7 +42,6 @@ gboolean packet_match_source(Packet *pkt, Packet *other);
 gboolean packet_match(Packet *pkt,Packet *other); 
 Packet *get_inverted_packet(Packet *pkt);
 char *Packet_gethash(Packet *pkt);
-void Packet_set_global_local_addr();
 
 G_END_DECLS
 

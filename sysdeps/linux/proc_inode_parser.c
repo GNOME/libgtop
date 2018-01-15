@@ -62,6 +62,7 @@ traverse_file(GFile *curdir, int depth, const gchar *pid, GHashTable *inode_tabl
 			}
 		}
 	}
+	g_object_unref(entry);
 	g_object_unref(curdir);
 	return inode_table;
 }
