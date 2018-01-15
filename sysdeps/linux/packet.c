@@ -48,24 +48,15 @@ Packet_init(Packet *pkt, Packet &old_packet)
 	pkt->len = old_packet.len;
 	pkt->time = old_packet.time;
 	pkt->dir = old_packet.dir;
-	//hash for matching the process is not yet implemented
+	pkt->pkt_hash = old_packet.pkt_hash;
 }
 
 //check the dir of the packet
 gboolean 
 is_pkt_outgoing(Packet *pkt)
 {
-	/*
-	*1.check if outgoing
-	*IF UNKNOWN---->
-	*2.check if the sip is one of the interface ip (check for ipv4 then sip otherwise sip6)-->then dir is outgoing 
-	*3.if dip  is one of the interfaces ip then it's incoming
-	*4. if neither dip nor sip are ip of interfaces then return false
-	*in either cases after setting the dir for unknown RETURN False in case of incoming
-	**/
-	//NOTE this req function to check all the ip of the interfaces
-	//this further requires a function to craete a global linked list of ip of the interfaces , create this in a new file
-	g_assert(get_if_local_addr() !=  NULL);
+	local_addr *pkt_interface_local_addr = get_local_addr_instance(NULL);
+	g_assert(pkt_interface_local_addr !=  NULL);
 	switch(pkt->dir)
 	{
 	case dir_outgoing:
