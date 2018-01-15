@@ -4,10 +4,10 @@
 #include <glib.h>
 
 int main()
-{
-	GHashTable *inode_table = g_hash_table_new(g_direct_hash, g_direct_equal);
+{	
+	global_hashes inode_hash = get_global_hashes_instance();
 	char *fname = g_strdup("/proc/net/tcp");
-	glibtop_socket *socket_list = glibtop_get_netsockets (fname, inode_table);
+	glibtop_socket *socket_list = glibtop_get_netsockets (fname, inode_hash.inode_table, inode_hash.hash_table);
 	while (socket_list != NULL) {
 		char lip[128];
 		char rip[128];
