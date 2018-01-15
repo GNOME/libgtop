@@ -2,8 +2,8 @@
 #include <glib.h>
 #include "interface_local_addr.h"
 #include "dev_handles.h"
-
-local_addr *pkt_interface_local_addr;
+#include <arpa/inet.h>
+#include <stdlib.h>
 
 void
 Packet_init_in_addr(Packet *pkt,in_addr pkt_sip, unsigned short pkt_sport, in_addr pkt_dip, 
@@ -17,6 +17,7 @@ Packet_init_in_addr(Packet *pkt,in_addr pkt_sip, unsigned short pkt_sport, in_ad
 	pkt->len = pkt_len;
 	pkt->time = pkt_ts;
 	pkt->dir = pkt_dir;
+	pkt->pkt_hash = NULL;
 }
 
 void
@@ -31,7 +32,9 @@ Packet_init_in6_addr(Packet *pkt,in6_addr pkt_sip6, unsigned short pkt_sport, in
 	pkt->len = pkt_len;
 	pkt->time = pkt_ts;
 	pkt->dir = pkt_dir;
+	pkt->pkt_hash = NULL;
 }
+
 void
 Packet_init(Packet *pkt, Packet &old_packet)
 {
@@ -79,6 +82,7 @@ is_pkt_outgoing(Packet *pkt)
 		if (is_local)
 		{
 			pkt->dir = dir_outgoing;
+			return true;
 		}
 		else
 		{
@@ -87,7 +91,7 @@ is_pkt_outgoing(Packet *pkt)
 			else
 				is_local = local_addr6_contains(pkt_interface_local_addr, pkt->dip6);
 
-			if(!is_local)
+			if (!is_local)
 			{
 				printf("neither dip nor sip are local\n");
 				return false;
@@ -136,13 +140,12 @@ get_inverted_packet(Packet *pkt)
 	direction inverted_dir = invert(pkt->dir);
 	Packet *inverted_packet = g_slice_new (Packet);
 	if (pkt->sa_family == AF_INET)
-		Packet_init_in_addr(inverted_packet, pkt->sip, pkt->sport, pkt->dip, pkt->dport, 
-							pkt->len, pkt->time , inverted_dir);
+		Packet_init_in_addr(inverted_packet, pkt->dip, pkt->dport, pkt->sip, pkt->sport, 
+							pkt->len, pkt->time, inverted_dir);
 	else
-		Packet_init_in6_addr(inverted_packet, pkt->sip6, pkt->sport, pkt->dip6, pkt->dport,
+		Packet_init_in6_addr(inverted_packet, pkt->dip6, pkt->dport, pkt->sip6, pkt->sport,
 							pkt->len, pkt->time, inverted_dir);
 	return inverted_packet; 
-		
 }
 
 char *
@@ -151,36 +154,33 @@ Packet_gethash(Packet *pkt)
 	if (pkt->pkt_hash != NULL)
 	{
 		return pkt->pkt_hash;
-	}
-
+	}	
 	//free pkt_hash
 	char pkt_hash[92];
-		switch(pkt->sa_family)
-		{
-		case AF_INET:
-			if (is_pkt_outgoing(pkt))
-				snprintf(pkt_hash, HASHKEYSIZE*sizeof(char), "%s:%d-%s:%d",
-					pkt->sip, pkt->sport, pkt->dip, pkt->dport);
-			else
-				snprintf(pkt_hash, HASHKEYSIZE*sizeof(char), "%s:%d-%s:%d",
-					pkt->dip, pkt->dport, pkt->sip, pkt->sport);
-			break;
-
-		case AF_INET6:
-			if (is_pkt_outgoing(pkt))
-				snprintf(pkt_hash, HASHKEYSIZE*sizeof(char), "%s:%d-%s:%d",
-					pkt->sip6, pkt->sport, pkt->dip6, pkt->dport);
-			else
-				snprintf(pkt_hash, HASHKEYSIZE*sizeof(char), "%s:%d-%s:%d",
-					pkt->dip6, pkt->dport, pkt->sip6, pkt->sport);
-			break;
-		}
-	pkt->pkt_hash = g_strdup(pkt_hash);
-	return pkt->pkt_hash;
+	char local_string[128];
+	char remote_string[128];
+	if (pkt->sa_family == AF_INET)
+	{
+		inet_ntop(pkt->sa_family, &(pkt->sip), local_string, 16);
+		inet_ntop(pkt->sa_family, &(pkt->dip), remote_string, 16);
+	}
+	else 
+	{
+		inet_ntop(pkt->sa_family, &(pkt->sip6), local_string, 46);
+		inet_ntop(pkt->sa_family, &(pkt->dip6), remote_string, 46);
+	}
+	if (is_pkt_outgoing(pkt))
+		{snprintf(pkt_hash, HASHKEYSIZE*sizeof(char), "%s:%d-%s:%d",
+				local_string, pkt->sport, remote_string, pkt->dport);
 }
-
-void
-Packet_set_global_local_addr()
-{
-	pkt_interface_local_addr = get_global_local_addr();
+	else
+	{
+		snprintf(pkt_hash, HASHKEYSIZE*sizeof(char), "%s:%d-%s:%d",
+				remote_string, pkt->dport, local_string, pkt->sport);
+	}
+	pkt->pkt_hash = g_strdup(pkt_hash);
+	printf("matching inode hash %s:%d-%s:%d\n", local_string, pkt->sport, remote_string, pkt->dport);
+	if (pkt->pkt_hash != NULL)
+		return pkt->pkt_hash;
+	return NULL;
 }
