@@ -24,8 +24,8 @@ struct _glibtop_socket
 	char *proc_name;
 	pid_t pid;
 	unsigned long inode;
-	in6_addr *rem_addr;
-	in6_addr *local_addr;
+	struct in6_addr *rem_addr;
+	struct in6_addr *local_addr;
 	int local_port;
 	int rem_port;
 	int sa_family;
