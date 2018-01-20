@@ -93,10 +93,13 @@ GNOME_LIBGTOP_TYPES
 
 GLIB_REQUIRED=2.6.0
 GOBJECT_REQUIRED=2.26.0
+PCAP_REQUIRED=0.8
 
-PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLIB_REQUIRED gobject-2.0 >= $GOBJECT_REQUIRED)
+PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLIB_REQUIRED gobject-2.0 >= $GOBJECT_REQUIRED )
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
+AC_SUBST(PCAP_CFLAGS)
+AC_SUBST(PCAP_LIBS)
 
 AC_CHECK_HEADER(ifaddrs.h, [HAVE_IFADDRS_H=yes], [HAVE_IFADDRS_H=no])
 if test x$HAVE_IFADDRS_H = xyes ; then
@@ -277,7 +280,7 @@ if test x$libgtop_have_sysinfo = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SYSINFO"
 fi
 
-LIBGTOP_INCS="$LIBGTOP_INCS $GLIB_CFLAGS"
+LIBGTOP_INCS="$LIBGTOP_INCS $GLIB_CFLAGS $PCAP_CFLAGS"
 
 libgtop_save_prefix="$prefix"
 libgtop_save_exec_prefix="$exec_prefix"
@@ -297,7 +300,7 @@ else
   LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $libs_xauth"
 fi
 
-LIBGTOP_EXTRA_LIBS="$GLIB_LIBS $LIBGTOP_EXTRA_LIBS"
+LIBGTOP_EXTRA_LIBS="$GLIB_LIBS $LIBGTOP_EXTRA_LIBS -lpcap"
 
 LIBGTOP_LIBS="$LIBGTOP_LIBS"
 
@@ -311,7 +314,7 @@ if test "$GCC" = "yes" ; then
 	$CFLAGS"
 fi
 
-AM_CPPFLAGS="-I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $X_CFLAGS"
+AM_CPPFLAGS="-I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $PCAP_CFLAGS $X_CFLAGS"
 
 # Add various defines to the config.h file ...
 AH_VERBATIM([_GNU_SOURCE],
@@ -384,3 +387,4 @@ libgtopconfig.h
 ])
 
 AC_OUTPUT
+

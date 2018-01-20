@@ -67,3 +67,6 @@ affinity_LDADD	= $(top_builddir)/lib/libgtop-2.0.la
 
 diskio_SOURCES	  = diskio.c
 diskio_LDADD	  = $(top_builddir)/lib/libgtop-2.0.la
+
+devtest_SOURCES = devtest.c
+devtest_LDADD = $(top_builddir)/lib/libgtop-2.0.la

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "stats.h"
+#include <glibtop/stats.h>
 #include <stdlib.h>
 
 void 

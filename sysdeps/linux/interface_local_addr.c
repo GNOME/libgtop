@@ -1,4 +1,4 @@
-#include "interface_local_addr.h"
+#include <glibtop/interface_local_addr.h>
 #include <sys/types.h>
 #include <ifaddrs.h>
 #include <glib.h>
@@ -32,23 +32,23 @@ local_addr6_init(local_addr *laddr, struct in6_addr addr6_value, const char *dev
 }
 
 gboolean
-local_addr_contains(local_addr *laddr, const in_addr_t &n_addr)
+local_addr_contains(local_addr *laddr, const in_addr_t *n_addr)
 {	
-	if((laddr->sa_family == AF_INET) && (laddr->addr == n_addr))
-		return true;
+	if((laddr->sa_family == AF_INET) && (laddr->addr == *n_addr))
+		return TRUE;
 	if(laddr->next != NULL && laddr->device_name != NULL)
 		return local_addr_contains(laddr->next, n_addr);
-	return false;
+	return FALSE;
 }
 
 gboolean
-local_addr6_contains(local_addr *laddr, const struct in6_addr &n_addr)
+local_addr6_contains(local_addr *laddr, const struct in6_addr *n_addr)
 {
-	if (((laddr->sa_family) == AF_INET) && ((laddr->addr6).s6_addr == n_addr.s6_addr))
-		return true;
+	if (((laddr->sa_family) == AF_INET) && ((laddr->addr6).s6_addr == n_addr->s6_addr))
+		return TRUE;
 	if(laddr->next != NULL && laddr->device_name != NULL)
 		return local_addr6_contains(laddr->next, n_addr);
-	return false;
+	return FALSE;
 }
 
 local_addr*
