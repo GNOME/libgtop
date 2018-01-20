@@ -5,9 +5,9 @@
 #include <pcap.h>
 #include <netinet/in.h>
 #include <sys/time.h>
-#include "interface_local_addr.h"
-#include "net_process.h"
-#include "connection.h"
+#include <glibtop/interface_local_addr.h>
+#include <glibtop/net_process.h>
+#include <glibtop/connection.h>
 
 G_BEGIN_DECLS
 
@@ -42,10 +42,10 @@ struct _packet_args
 {
 	const char* device;
 	int sa_family;
-	in_addr ip_src;
-	in_addr ip_dst;
-	in6_addr ip6_src;
-	in6_addr ip6_dst;
+	struct in_addr ip_src;
+	struct in_addr ip_dst;
+	struct in6_addr ip6_src;
+	struct in6_addr ip6_dst;
 };
 /*Defining the headers as those available in netinet/*.h are having issues when parsing for ports*/
 #define SNAP_LEN 1518
@@ -108,7 +108,7 @@ void print_pcap_handles(packet_handle *handle);
 void print_interface_local_address();
 local_addr *get_if_local_addr();
 int packet_dispatch(packet_handle *handle, int count, u_char *user, int size);
-timeval get_curtime(timeval val );
+struct timeval get_curtime(struct timeval val );
 local_addr* get_global_local_addr();
 void handles_set_hash(GHashTable *inode, GHashTable *hash);
 void handles_set_process_lists(Net_process_list *procs, Net_process *tcp);

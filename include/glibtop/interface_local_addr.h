@@ -18,10 +18,10 @@ struct _local_addr
 	local_addr *next;
 };
 
-void 		local_addr_init(local_addr *laddr, in_addr_t addr_value, char *device, local_addr *next_laddr = NULL);
-void 		local_addr6_init(local_addr *laddr, struct in6_addr addr6_value,char *device, local_addr *next_laddr = NULL);
-gboolean 	local_addr_contains(local_addr *laddr, const in_addr_t &n_addr);
-gboolean 	local_addr6_contains(local_addr *laddr, const struct in6_addr &n_addr);
+void 		local_addr_init(local_addr *laddr, in_addr_t addr_value, const char *device, local_addr *next_laddr);
+void 		local_addr6_init(local_addr *laddr, struct in6_addr addr6_value, const char *device, local_addr *next_laddr);
+gboolean 	local_addr_contains(local_addr *laddr, const in_addr_t *n_addr);
+gboolean 	local_addr6_contains(local_addr *laddr, const struct in6_addr *n_addr);
 local_addr	*get_device_local_addr(const char *device);
 local_addr  *get_local_addr_instance(local_addr *val);
 

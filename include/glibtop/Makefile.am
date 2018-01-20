@@ -10,7 +10,10 @@ glibtop_HEADERS		= close.h loadavg.h prockernel.h procstate.h \
 			  sysinfo.h ppp.h procargs.h netload.h \
 			  procwd.h procaffinity.h \
               procio.h \
-			  netlist.h procopenfiles.h open.h
+			  netlist.h procopenfiles.h open.h \
+			  interface_local_addr.h dev_handles.h netsockets.h \
+			  net_process.h connection.h packet.h stats.h \
+			  proc_inode_parser.h
 
 noinst_HEADERS		= error.h write.h read_data.h read.h init_hooks.h machine.h \
 			  version.h

@@ -1,0 +1,513 @@
+Script started on 2018-01-14 23:15:35+0530
+]0;aakp@aakp-Lenovo-ideapad-500-15ISK: ~/wipnetsockets/libgtop/sysdeps/linux[01;32maakp@aakp-Lenovo-ideapad-500-15ISK[00m:[01;34m~/wipnetsockets/libgtop/sysdeps/linux[00m$ exitg++ -g  dev_handles_test.c -o dtest netsockets.c proc_inode_parser.c packet.c interface__local_addr.c net_process.c connection.c dev_handles.c stats.c `pkg-config --cflaags --libs glib-2.0 gobject-2.0 gio-2.0 libgtop-2.0` -lpcap [A[A[A]0;aakp@aakp-Lenovo-ideapad-500-15ISK: ~/wipnetsockets/libgtop/sysdeps/linux[01;32maakp@aakp-Lenovo-ideapad-500-15ISK[00m:[01;34m~/wipnetsockets/libgtop/sysdeps/linux[00m$ sudo gdb ./dtest[K
+[K
+[K[A[A[C[C[C[C[C[C[C[C[C[C
+[sudo] password for aakp: 
+GNU gdb (Ubuntu 8.0.1-0ubuntu1) 8.0.1
+Copyright (C) 2017 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./dtest...done.
+(gdb) r
+Starting program: /home/aakp/wipnetsockets/libgtop/sysdeps/linux/dtest 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Process name :unknownTCP
+Adding local address: 192.168.43.126
+Adding local address: 2405:204:960e:3374:ed2f:b813:24bc:ac1d
+Adding local address: 2405:204:960e:3374:a12d:823b:6393:12d1
+Adding local address: fe80::94f3:b54b:fed9:88b9
+Adding local address: 127.0.0.1
+Adding local address: ::1
+
+ PCAP HANDLES 
+device name : enp2s0 linktype: 1 
+ device name : wlp3s0 linktype: 1 
+ device name : lo linktype: 1 
+ 
+Local Addresses
+lo : ::1 
+lo : 127.0.0.1 
+wlp3s0 : fe80::94f3:b54b:fed9:88b9 
+wlp3s0 : 2405:204:960e:3374:a12d:823b:6393:12d1 
+wlp3s0 : 2405:204:960e:3374:ed2f:b813:24bc:ac1d 
+wlp3s0 : 192.168.43.126 
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 79 
+Looking at packet with length 131 
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 93 
+Looking at packet with length 93 
+Looking at packet with length 139 
+Looking at packet with length 151 
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 79 
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 131 
+Looking at packet with length 75 
+Looking at packet with length 221 
+Looking at packet with length 75 
+Looking at packet with length 137 
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 79 
+Looking at packet with length 131 
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 93 
+Looking at packet with length 93 
+Looking at packet with length 93 
+Looking at packet with length 93 
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 139 
+Looking at packet with length 139 
+Looking at packet with length 151 
+Looking at packet with length 151 
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 79 
+Looking at packet with length 131 
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 75 
+Looking at packet with length 221 
+Looking at packet with length 75 
+Looking at packet with length 137 
+Looking at packet with length 89 
+Looking at packet with length 89 
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 89 
+Looking at packet with length 89 
+Looking at packet with length 121 
+Looking at packet with length 121 
+no of proc:2pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 74 
+NEW PROC 
+new conn w/ pkt len = 74
+New reference packet created at 34381: 
+matching inode hash 192.168.43.126:34381-104.197.3.80:80
+127.0.0.1:631-0.0.0.0:0 :: 22202
+0.0.0.0:25-0.0.0.0:0 :: 31195
+0.0.0.0:8787-0.0.0.0:0 :: 25828
+0.0.0.0:5355-0.0.0.0:0 :: 24379
+127.0.0.1:3306-0.0.0.0:0 :: 28873
+192.168.43.126:34381-104.197.3.80:80 :: 541538
+127.0.0.1:631-0.0.0.0:0 :: 22202
+0.0.0.0:25-0.0.0.0:0 :: 31195
+0.0.0.0:8787-0.0.0.0:0 :: 25828
+0.0.0.0:5355-0.0.0.0:0 :: 24379
+127.0.0.1:3306-0.0.0.0:0 :: 28873
+Process name :NetworkManager
+no of proc:3pid :1194 	 sent_value:0.014453 	recv value:0.014453 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 74 
+ADDING to 34381:80 pkt 80:34381
+Looking at packet with length 66 
+ADDING to 34381:80 pkt 34381:80
+Looking at packet with length 153 
+ADDING to 34381:80 pkt 34381:80
+Looking at packet with length 66 
+ADDING to 34381:80 pkt 80:34381
+Looking at packet with length 214 
+ADDING to 34381:80 pkt 80:34381
+Looking at packet with length 66 
+ADDING to 34381:80 pkt 34381:80
+Looking at packet with length 66 
+ADDING to 34381:80 pkt 80:34381
+Looking at packet with length 66 
+ADDING to 34381:80 pkt 34381:80
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.139258 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 66 
+ADDING to 34381:80 pkt 80:34381
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 75 
+Looking at packet with length 75 
+Looking at packet with length 269 
+Looking at packet with length 137 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+
+(process:22193): GLib-GObject-[1;35mCRITICAL[0m **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(process:22193): GLib-GObject-[1;35mCRITICAL[0m **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+
+(process:22193): GLib-GObject-[1;35mCRITICAL[0m **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(process:22193): GLib-GObject-[1;35mCRITICAL[0m **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 73 
+Looking at packet with length 73 
+Looking at packet with length 134 
+Looking at packet with length 146 
+
+(process:22193): GLib-GObject-[1;35mCRITICAL[0m **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(process:22193): GLib-GObject-[1;35mCRITICAL[0m **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 75 
+Looking at packet with length 269 
+Looking at packet with length 75 
+Looking at packet with length 137 
+
+(process:22193): GLib-GObject-[1;35mCRITICAL[0m **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(process:22193): GLib-GObject-[1;35mCRITICAL[0m **: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 79 
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 131 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 75 
+Looking at packet with length 269 
+Looking at packet with length 75 
+Looking at packet with length 137 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 79 
+Looking at packet with length 131 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 79 
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 131 
+Looking at packet with length 75 
+Looking at packet with length 269 
+Looking at packet with length 75 
+Looking at packet with length 137 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 79 
+Looking at packet with length 131 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 78 
+Looking at packet with length 78 
+Looking at packet with length 79 
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 131 
+Looking at packet with length 140 
+Looking at packet with length 256 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 79 
+Looking at packet with length 131 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 79 
+Looking at packet with length 131 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 75 
+Looking at packet with length 253 
+Looking at packet with length 75 
+Looking at packet with length 137 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 79 
+Looking at packet with length 131 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 87 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 75 
+Looking at packet with length 253 
+Looking at packet with length 75 
+Looking at packet with length 137 
+Looking at packet with length 75 
+Looking at packet with length 253 
+Looking at packet with length 75 
+Looking at packet with length 137 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 75 
+Looking at packet with length 253 
+Looking at packet with length 75 
+Looking at packet with length 137 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 79 
+Looking at packet with length 131 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 93 
+Looking at packet with length 93 
+Looking at packet with length 139 
+Looking at packet with length 151 
+Looking at packet with length 75 
+Looking at packet with length 253 
+Looking at packet with length 75 
+Looking at packet with length 137 
+no of proc:3pid :1194 	 sent_value:0.097461 	recv value:0.152148 	name of process:NetworkManager device_name:
+pid :0 	 sent_value:0.000000 	recv value:0.000000 	name of process:unknownTCP device_name:
+
+
+
+Looking at packet with length 79 
+Looking at packet with length 119 
+Looking at packet with length 79 
+Looking at packet with length 131 
+^C
+Program received signal SIGINT, Interrupt.
+0x00007ffff65e58b4 in __GI___poll (fds=0x7fffffffe430, nfds=1, timeout=0)
+    at ../sysdeps/unix/sysv/linux/poll.c:29
+29	../sysdeps/unix/sysv/linux/poll.c: No such file or directory.
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 22193] will be killed.
+
+Quit anyway? (y or n) EOF [assumed Y]
