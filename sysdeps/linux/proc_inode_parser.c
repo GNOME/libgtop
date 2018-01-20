@@ -5,7 +5,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <glib/gstdio.h>
-#include "proc_inode_parser.h"
+#include <glibtop/proc_inode_parser.h>
 #include <stdlib.h>
 
 GHashTable*
@@ -17,7 +17,7 @@ traverse_file(GFile *curdir, int depth, const gchar *pid, GHashTable *inode_tabl
 								NULL,
 								NULL);
 	GFileInfo *info_buf;
-	gboolean enter_fd = false;
+	gboolean enter_fd = FALSE;
 	if (entry != NULL)
 	{
 		while ((info_buf = g_file_enumerator_next_file(entry, NULL, NULL)) != NULL && !enter_fd) {
@@ -39,7 +39,7 @@ traverse_file(GFile *curdir, int depth, const gchar *pid, GHashTable *inode_tabl
 				case 1:
 					if (g_strcmp0(currentFile,"fd") == 0)
 					{
-						enter_fd = true;
+						enter_fd = TRUE;
 						traverse_file(g_file_get_child(curdir, g_file_info_get_name(info_buf)), depth+1, pid, inode_table);
 					}
 					break;

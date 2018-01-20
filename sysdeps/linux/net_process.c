@@ -1,8 +1,8 @@
 #include <glib.h>
 #include <sys/types.h>
 #include <stdio.h>
-#include "connection.h"
-#include "net_process.h"
+#include <glibtop/connection.h>
+#include <glibtop/net_process.h>
 
 void 
 Net_process_init(Net_process *proc, unsigned long pid , char *device_name_val, char *proc_name_val)
@@ -61,7 +61,7 @@ to_kbps(u_int64_t bytes)
 	return to_kb(bytes)/PERIOD;
 }
 void
-Net_process_get_kbps(Net_process *proc, float &recvd, float &sent, timeval curtime)
+Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, struct timeval curtime)
 {
 	u_int64_t sum_sent = 0;
 	u_int64_t sum_recv = 0;
@@ -69,16 +69,16 @@ Net_process_get_kbps(Net_process *proc, float &recvd, float &sent, timeval curti
 	Conn_list *previous = NULL;
 	while (curr_conn != NULL)
 	{
-		u_int64_t sent = 0;
+		u_int64_t sent_val = 0;
 		u_int64_t recv = 0;
-		Connection_sum_and_del(Conn_list_get_connection(curr_conn), curtime, recv, sent);
+		Connection_sum_and_del(Conn_list_get_connection(curr_conn), curtime, &recv, &sent_val);
 		sum_recv += recv;
-		sum_sent += sent;
+		sum_sent += sent_val;
 		previous = curr_conn;
 		curr_conn = Connection_list_get_next(curr_conn); 
 	}
-	recvd = to_kbps(sum_recv);
-	sent = to_kbps(sum_sent);
+	*recvd = to_kbps(sum_recv);
+	*sent = to_kbps(sum_sent);
 
 }
 

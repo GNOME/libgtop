@@ -1,16 +1,16 @@
 #include <glibtop/netlist.h>
 #include <stdio.h>
 #include <pcap/pcap.h>
-#include "dev_handles.h"
-#include "packet.h"
+#include <glibtop/dev_handles.h>
+#include <glibtop/packet.h>
 #include <netinet/tcp.h>
 #include <netinet/ip.h>
 #include <netinet/ip6.h>
 #include <sys/time.h>
-#include "interface_local_addr.h"
-#include "connection.h"
-#include "net_process.h"
-#include "netsockets.h"
+#include <glibtop/interface_local_addr.h>
+#include <glibtop/connection.h>
+#include <glibtop/net_process.h>
+#include <glibtop/netsockets.h>
 #include <glib.h>
 #include <net/ethernet.h>
 #include <arpa/inet.h>
@@ -31,9 +31,9 @@ process_init()
 	Net_process_list_init(processes, unknownTCP, NULL);
 }
 
-timeval 
-get_curtime(timeval val)
-{	static timeval curtime ;
+struct timeval 
+get_curtime(struct timeval val)
+{	static struct timeval curtime ;
 	if(val.tv_sec)
 		curtime = val;
 	return curtime;
@@ -138,18 +138,18 @@ process_tcp(u_char *userdata, const struct pcap_pkthdr *header,const u_char *m_p
 {
 	packet_args *args = (packet_args *)userdata;
 	struct hdr_tcp *tcp = (struct hdr_tcp *)(m_packet);
-	timeval cur = header->ts;
+	struct timeval cur = header->ts;
 	get_curtime(header->ts);
 	Packet *packet = g_slice_new(Packet);
 	
 	switch(args->sa_family)
 	{
 	case AF_INET:
-		Packet_init_in_addr(packet, args->ip_src, ntohs(tcp->th_sport), args->ip_dst, ntohs(tcp->th_dport), header->len, header->ts);
+		Packet_init_in_addr(packet, args->ip_src, ntohs(tcp->th_sport), args->ip_dst, ntohs(tcp->th_dport), header->len, header->ts, dir_unknown);
 		break;
 
 	case AF_INET6:
-		Packet_init_in6_addr(packet, args->ip6_src, ntohs(tcp->th_sport), args->ip6_dst, ntohs(tcp->th_dport), header->len, header->ts);
+		Packet_init_in6_addr(packet, args->ip6_src, ntohs(tcp->th_sport), args->ip6_dst, ntohs(tcp->th_dport), header->len, header->ts, dir_unknown);
 		break;
 
 	default:
@@ -235,7 +235,7 @@ open_pcap_handles()
 	GError **if_error;
 	int count=0;
 	packet_handle *previous_handle=NULL , *initial_handle = NULL;
-	gboolean init_ele = true ; 
+	gboolean init_ele = TRUE ; 
 	while(count < buf.number)
 	{
 		packet_handle *new_handle = get_interface_handle(devices[count], if_error);
@@ -247,7 +247,7 @@ open_pcap_handles()
 			if (init_ele)
 			{
 				initial_handle = new_handle;
-				init_ele = false;
+				init_ele = FALSE;
 			}
 			add_callback(new_handle, packet_ip, process_ip);
 			add_callback(new_handle, packet_ip6, process_ip6);
@@ -309,7 +309,7 @@ packet_parse_ip(packet_handle *handle, const struct pcap_pkthdr *hdr, const u_ch
 		printf("   * Invalid IP header length: %u bytes\n", size_ip);
 		return;
 	}
-	u_char *payload = (u_char *)(pkt + sizeof(ip));
+	u_char *payload = (u_char *)(pkt + sizeof(struct ip));
 	if (handle->callback[packet_ip] != NULL)
 	{	
 		if (handle->callback[packet_ip](handle->userdata, hdr, pkt))

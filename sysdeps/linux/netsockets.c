@@ -1,9 +1,9 @@
-#include "netsockets.h"
+#include <glibtop/netsockets.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ftw.h>
-#include "proc_inode_parser.h"
+#include <glibtop/proc_inode_parser.h>
 #include <glibtop/procstate.h>
 #include <glib.h>
 #include <arpa/inet.h>
@@ -50,8 +50,8 @@ add_socket_list(char *buf, glibtop_socket *list_socket, GHashTable *inode_table,
 	char temp_local_addr[128];
 	char temp_rem_addr[128];
 	glibtop_socket *temp_socket = g_slice_new(glibtop_socket);
-	temp_socket->local_addr = g_slice_new(in6_addr);
-	temp_socket->rem_addr = g_slice_new(in6_addr);
+	temp_socket->local_addr = g_slice_new(struct in6_addr);
+	temp_socket->rem_addr = g_slice_new(struct in6_addr);
 	char temp_hash[92];
 
 	if (list_socket != NULL)
@@ -146,12 +146,12 @@ glibtop_get_netsockets (char *filename, GHashTable *inode_table, GHashTable *has
 }
 
 void
-global_hashes_init(global_hashes &gh)
+global_hashes_init(global_hashes *gh)
 {	
-	if(gh.inode_table == NULL)
-		gh.inode_table  = g_hash_table_new(g_direct_hash, g_direct_equal);
-	if(gh.hash_table == NULL)
-		gh.hash_table = g_hash_table_new(g_str_hash, g_str_equal);
+	if(gh->inode_table == NULL)
+		gh->inode_table  = g_hash_table_new(g_direct_hash, g_direct_equal);
+	if(gh->hash_table == NULL)
+		gh->hash_table = g_hash_table_new(g_str_hash, g_str_equal);
 }
 
 global_hashes 
@@ -159,6 +159,6 @@ get_global_hashes_instance()
 {
 	static global_hashes gh_temp = {NULL,NULL};
 	if(gh_temp.inode_table == NULL || gh_temp.hash_table == NULL)
-		global_hashes_init(gh_temp);
+		global_hashes_init(&gh_temp);
 	return gh_temp;
 }

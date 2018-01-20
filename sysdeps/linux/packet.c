@@ -1,13 +1,13 @@
-#include "packet.h"
+#include <glibtop/packet.h>
 #include <glib.h>
-#include "interface_local_addr.h"
-#include "dev_handles.h"
+#include <glibtop/interface_local_addr.h>
+#include <glibtop/dev_handles.h>
 #include <arpa/inet.h>
 #include <stdlib.h>
 
 void
-Packet_init_in_addr(Packet *pkt,in_addr pkt_sip, unsigned short pkt_sport, in_addr pkt_dip, 
-						unsigned short pkt_dport, u_int32_t pkt_len, timeval pkt_ts ,direction pkt_dir)
+Packet_init_in_addr(Packet *pkt, struct in_addr pkt_sip, unsigned short pkt_sport, struct in_addr pkt_dip, 
+						unsigned short pkt_dport, u_int32_t pkt_len, struct timeval pkt_ts ,direction pkt_dir)
 {
 	pkt->sa_family = AF_INET;
 	pkt->sip = pkt_sip;
@@ -16,13 +16,16 @@ Packet_init_in_addr(Packet *pkt,in_addr pkt_sip, unsigned short pkt_sport, in_ad
 	pkt->dport = pkt_dport;
 	pkt->len = pkt_len;
 	pkt->time = pkt_ts;
-	pkt->dir = pkt_dir;
+	if(pkt_dir)
+		pkt->dir = pkt_dir;
+	else
+		pkt->dir = dir_unknown;
 	pkt->pkt_hash = NULL;
 }
 
 void
-Packet_init_in6_addr(Packet *pkt,in6_addr pkt_sip6, unsigned short pkt_sport, in6_addr pkt_dip6, 
-						unsigned short pkt_dport, u_int32_t pkt_len, timeval pkt_ts ,direction pkt_dir) 
+Packet_init_in6_addr(Packet *pkt, struct in6_addr pkt_sip6, unsigned short pkt_sport, struct in6_addr pkt_dip6, 
+						unsigned short pkt_dport, u_int32_t pkt_len, struct timeval pkt_ts ,direction pkt_dir) 
 {
 	pkt->sa_family = AF_INET6;
 	pkt->sip6 = pkt_sip6;
@@ -31,24 +34,27 @@ Packet_init_in6_addr(Packet *pkt,in6_addr pkt_sip6, unsigned short pkt_sport, in
 	pkt->dport = pkt_dport;
 	pkt->len = pkt_len;
 	pkt->time = pkt_ts;
-	pkt->dir = pkt_dir;
+	if(pkt_dir)
+		pkt->dir = pkt_dir;
+	else
+		pkt->dir = dir_unknown;
 	pkt->pkt_hash = NULL;
 }
 
 void
-Packet_init(Packet *pkt, Packet &old_packet)
+Packet_init(Packet *pkt, Packet *old_packet)
 {
-	pkt->sa_family = old_packet.sa_family;
-	pkt->sip = old_packet.sip;
-	pkt->dip = old_packet.dip;
-	pkt->sip6 = old_packet.sip6;
-	pkt->dip6 = old_packet.dip6;
-	pkt->sport = old_packet.sport;
-	pkt->dport = old_packet.dport;
-	pkt->len = old_packet.len;
-	pkt->time = old_packet.time;
-	pkt->dir = old_packet.dir;
-	pkt->pkt_hash = old_packet.pkt_hash;
+	pkt->sa_family = old_packet->sa_family;
+	pkt->sip = old_packet->sip;
+	pkt->dip = old_packet->dip;
+	pkt->sip6 = old_packet->sip6;
+	pkt->dip6 = old_packet->dip6;
+	pkt->sport = old_packet->sport;
+	pkt->dport = old_packet->dport;
+	pkt->len = old_packet->len;
+	pkt->time = old_packet->time;
+	pkt->dir = old_packet->dir;
+	pkt->pkt_hash = old_packet->pkt_hash;
 }
 
 //check the dir of the packet
@@ -57,41 +63,42 @@ is_pkt_outgoing(Packet *pkt)
 {
 	local_addr *pkt_interface_local_addr = get_local_addr_instance(NULL);
 	g_assert(pkt_interface_local_addr !=  NULL);
+	gboolean is_local;
 	switch(pkt->dir)
 	{
 	case dir_outgoing:
-		return true;
+		return TRUE;
 	case dir_incoming:
-		return false;
+		return FALSE;
 	case dir_unknown:
-		gboolean is_local;
+
 		if (pkt->sa_family == AF_INET)
-			is_local = local_addr_contains(pkt_interface_local_addr, pkt->sip.s_addr);
+			is_local = local_addr_contains(pkt_interface_local_addr, &pkt->sip.s_addr);
 		else
-			is_local = local_addr6_contains(pkt_interface_local_addr, pkt->sip6);
+			is_local = local_addr6_contains(pkt_interface_local_addr, &pkt->sip6);
 		
 		if (is_local)
 		{
 			pkt->dir = dir_outgoing;
-			return true;
+			return TRUE;
 		}
 		else
 		{
 			if (pkt->sa_family == AF_INET)
-				is_local = local_addr_contains(pkt_interface_local_addr, pkt->dip.s_addr);
+				is_local = local_addr_contains(pkt_interface_local_addr, &pkt->dip.s_addr);
 			else
-				is_local = local_addr6_contains(pkt_interface_local_addr, pkt->dip6);
+				is_local = local_addr6_contains(pkt_interface_local_addr, &pkt->dip6);
 
 			if (!is_local)
 			{
 				printf("neither dip nor sip are local\n");
-				return false;
+				return FALSE;
 			}
 			pkt->dir = dir_incoming;
-			return false;
+			return FALSE;
 		}
 	}
-	return false;
+	return FALSE;
 }
 
 gboolean
