@@ -8,6 +8,7 @@
 #include <glibtop/interface_local_addr.h>
 #include <glibtop/net_process.h>
 #include <glibtop/connection.h>
+#include <glibtop/netsockets.h>
 
 G_BEGIN_DECLS
 
@@ -17,7 +18,7 @@ G_BEGIN_DECLS
 
 typedef struct _packet_handle packet_handle;
 //for callbacks
-typedef int (*packet_callback)(u_char* , const struct pcap_pkthdr*, const u_char *);
+typedef int (*packet_callback)(u_char *userdata, const struct pcap_pkthdr *header,const u_char *m_packet);
 enum packet_type
 {
 	packet_ip,
