@@ -36,8 +36,10 @@ introspection_sources = $(libgtop_2_0_la_SOURCES) lib.c ../glibtop.h ../libgtopc
 			../include/glibtop/parameter.h ../include/glibtop/mountlist.h ../include/glibtop/fsusage.h ../include/glibtop/procmap.h ../include/glibtop/signal.h \
 			../include/glibtop/sysinfo.h ../include/glibtop/ppp.h ../include/glibtop/procargs.h ../include/glibtop/netload.h \
 			../include/glibtop/procwd.h ../include/glibtop/procaffinity.h ../include/glibtop/procio.h \
-			../include/glibtop/netlist.h ../include/glibtop/procopenfiles.h ../include/glibtop/open.h
-
+			../include/glibtop/netlist.h ../include/glibtop/procopenfiles.h ../include/glibtop/open.h \
+			../include/glibtop/interface_local_addr.h ../include/glibtop/dev_handles.h ../include/glibtop/netsockets.h \
+			../include/glibtop/net_process.h ../include/glibtop/connection.h ../include/glibtop/packet.h ../include/glibtop/stats.h \
+			../include/glibtop/proc_inode_parser.h
 GTop-2.0.gir: libgtop-2.0.la
 GTop_2_0_gir_AM_CPPFLAGS = GObject-2.0
 GTop_2_0_gir_CFLAGS = $(AM_CPPFLAGS)
