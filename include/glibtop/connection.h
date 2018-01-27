@@ -1,5 +1,5 @@
-#ifndef __CONNECTION_H_
-#define __CONNECTION_H_
+#ifndef __GLIBTOP_CONNECTION_H__
+#define __GLIBTOP_CONNECTION_H__
 
 #include <glib.h>
 #include <glibtop/packet.h>
