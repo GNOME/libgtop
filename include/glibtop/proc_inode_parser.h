@@ -1,5 +1,5 @@
-#ifndef __PROC_INODE_PARSER_H__
-#define __PROC_INODE_PARSER_H__
+#ifndef __GLIBTOP_PROC_INODE_PARSER_H__
+#define __GLIBTOP_PROC_INODE_PARSER_H__
 #include <glib.h>
 #include <gio/gio.h>
 G_BEGIN_DECLS

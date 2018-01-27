@@ -1,5 +1,5 @@
-#ifndef __INTERFACE_LOCAL_ADDR_H_
-#define __INTERFACE_LOCAL_ADDR_H_
+#ifndef __GLIBTOP_INTERFACE_LOCAL_ADDR_H__
+#define __GLIBTOP_INTERFACE_LOCAL_ADDR_H__
 
 #include <sys/types.h>
 #include <ifaddrs.h>

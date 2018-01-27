@@ -1,5 +1,5 @@
-#ifndef __PACKET_H_
-#define __PACKET_H_
+#ifndef __GLIBTOP_PACKET_H_
+#define __GLIBTOP_PACKET_H_
 
 #include <glib.h>
 #include <sys/time.h>

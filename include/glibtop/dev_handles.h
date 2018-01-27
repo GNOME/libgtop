@@ -1,5 +1,5 @@
-#ifndef __DEV_HANDLES_H__
-#define __DEV_HANDLES_H__
+#ifndef __GLIBTOP_DEV_HANDLES_H__
+#define __GLIBTOP_DEV_HANDLES_H__
 
 #include <glib.h>
 #include <pcap.h>
