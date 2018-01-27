@@ -77,3 +77,17 @@ glibtop_proc_open_files_get_type
 glibtop_map_entry_get_type
 glibtop_proc_map_get_type
 glibtop_get_type
+get_global_hashes_instance
+get_global_hashes_instance
+glibtop_get_netsockets
+get_proc_list_instance
+get_curtime
+Net_process_get_kbps
+Net_process_list_get_proc
+stat_init
+print_stat
+process_init
+open_pcap_handles
+print_pcap_handles
+print_interface_local_address
+packet_dispatch
