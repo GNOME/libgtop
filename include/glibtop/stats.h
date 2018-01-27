@@ -1,5 +1,5 @@
-#ifndef __STATS_H_
-#define __STATS_H_
+#ifndef __GLIBTOP_STATS_H_
+#define __GLIBTOP_STATS_H_
 
 #include <glib.h>
 
