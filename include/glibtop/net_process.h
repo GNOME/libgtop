@@ -1,5 +1,5 @@
-#ifndef __NET_PROCESS_H_
-#define __NET_PROCESS_H_
+#ifndef __GLIBTOP_NET_PROCESS_H_
+#define __GLIBTOP_NET_PROCESS_H_
 
 #include <glib.h>
 #include <sys/types.h>

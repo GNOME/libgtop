@@ -1,5 +1,5 @@
-#ifndef __NETSOCKETS_H__
-#define __NETSOCKETS_H__
+#ifndef __GLIBTOP_NETSOCKETS_H__
+#define __GLIBTOP_NETSOCKETS_H__
 
 #include <glib.h>
 #include <sys/types.h>
