@@ -34,10 +34,10 @@ Net_process_get_last_packet_time(Net_process *proc)
 	return last_packet;
 }
 
-void Net_process_get_total(Net_process *proc, u_int64_t *recvd, u_int64_t *sent)
+void Net_process_get_total(Net_process *proc, guint64 *recvd, guint64 *sent)
 {
-	u_int64_t sum_sent = 0;
-	u_int64_t sum_recv = 0;
+	guint64 sum_sent = 0;
+	guint64 sum_recv = 0;
 	GSList *curr_conn = proc->proc_connections;
 	while (curr_conn != NULL)
 	{
@@ -51,27 +51,27 @@ void Net_process_get_total(Net_process *proc, u_int64_t *recvd, u_int64_t *sent)
 }
 
 float
-to_kb(u_int64_t bytes)
+to_kb(guint64 bytes)
 {
 	return ((double)bytes)/1024;
 }
 
 float
-to_kbps(u_int64_t bytes)
+to_kbps(guint64 bytes)
 {
 	return to_kb(bytes)/PERIOD;
 }
 void
 Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, struct timeval curtime)
 {
-	u_int64_t sum_sent = 0;
-	u_int64_t sum_recv = 0;
+	guint64 sum_sent = 0;
+	guint64 sum_recv = 0;
 	GSList *curr_conn = proc->proc_connections;
 	GSList *previous = NULL;
 	while (curr_conn != NULL)
 	{
-		u_int64_t sent_val = 0;
-		u_int64_t recv = 0;
+		gint64 sent_val = 0;
+		guint64 recv = 0;
 		Connection_sum_and_del(Conn_list_get_connection(curr_conn), curtime, &recv, &sent_val);
 		sum_recv += recv;
 		sum_sent += sent_val;
