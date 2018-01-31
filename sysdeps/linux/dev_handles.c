@@ -88,8 +88,8 @@ get_process(Connection *conn, const char *device_name)
 			{
 				//printf("Unknown PROC\n");
 				g_slice_free(Packet, reverse_pkt);
-				Conn_list *temp = g_slice_new(Conn_list);
-				Conn_list_init(temp, conn, get_unknown_proc_instance(NULL)->proc_connections);
+				//Conn_list *temp = g_slice_new(Conn_list);
+				GSList *temp = Conn_list_init(get_unknown_proc_instance(NULL)->proc_connections, conn);
 				get_unknown_proc_instance(NULL)->proc_connections = temp; //assigning this connection to unknown TCP 
 				return get_unknown_proc_instance(NULL);
 			}

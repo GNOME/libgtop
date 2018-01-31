@@ -19,7 +19,7 @@ struct _Net_process
 	pid_t pid;
 	u_int64_t bytes_sent;
 	u_int64_t bytes_recv;
-	Conn_list *proc_connections; 
+	GSList *proc_connections; 
 };
 
 typedef struct _Net_process_list Net_process_list;

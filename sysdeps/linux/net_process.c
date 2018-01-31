@@ -22,13 +22,14 @@ int
 Net_process_get_last_packet_time(Net_process *proc)
 {
 	int last_packet = 0;
-	Conn_list *curr_conn = proc->proc_connections;
-	while (curr_conn != NULL)
+	GSList *curr_conn_list = proc->proc_connections;
+	while (curr_conn_list != NULL)
 	{
-		g_assert(Conn_list_get_connection(curr_conn) != NULL);
-		if (Connection_get_last_packet_time(Conn_list_get_connection(curr_conn)) > last_packet)
-			last_packet = Connection_get_last_packet_time(Conn_list_get_connection(curr_conn));
-		curr_conn = Connection_list_get_next(curr_conn);
+		Connection *curr_conn = Conn_list_get_connection(curr_conn_list);
+		g_assert(curr_conn != NULL);
+		if (Connection_get_last_packet_time(curr_conn) > last_packet)
+			last_packet = Connection_get_last_packet_time(curr_conn);
+		curr_conn_list = Connection_list_get_next(curr_conn_list);
 	}
 	return last_packet;
 }
@@ -37,7 +38,7 @@ void Net_process_get_total(Net_process *proc, u_int64_t *recvd, u_int64_t *sent)
 {
 	u_int64_t sum_sent = 0;
 	u_int64_t sum_recv = 0;
-	Conn_list *curr_conn = proc->proc_connections;
+	GSList *curr_conn = proc->proc_connections;
 	while (curr_conn != NULL)
 	{
 		Connection *conn = Conn_list_get_connection(curr_conn);
@@ -65,8 +66,8 @@ Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, struct timeva
 {
 	u_int64_t sum_sent = 0;
 	u_int64_t sum_recv = 0;
-	Conn_list *curr_conn = proc->proc_connections;
-	Conn_list *previous = NULL;
+	GSList *curr_conn = proc->proc_connections;
+	GSList *previous = NULL;
 	while (curr_conn != NULL)
 	{
 		u_int64_t sent_val = 0;
