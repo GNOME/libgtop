@@ -43,16 +43,16 @@ struct _Conn_list
 void Connection_init(Connection *conn, Packet *pkt);
 void add_packet_to_connection(Connection *conn, Packet *pkt);
 Connection *find_connection(Packet *pkt);
-void Conn_list_init(Conn_list *clist, Connection *conn_val, Conn_list *next_val);
-Connection *Conn_list_get_connection(Conn_list *clist);
+GSList *Conn_list_init(GSList *clist, Connection *conn_val);
+Connection *Conn_list_get_connection(GSList *clist);
 void setNext(Conn_list *clist, Conn_list *next_val);
-Conn_list *Connection_list_get_next(Conn_list *clist);
+GSList *Connection_list_get_next(GSList *clist);
 int Connection_get_last_packet_time(Connection *conn);
 void Connection_sum_and_del(Connection *conn, struct timeval t, u_int64_t *recv, u_int64_t *sent);
 void Connection_list_setNext(Conn_list *clist,Conn_list *next_val);
 void Packet_list_init_beg(Packet_list *pktlist);
 void Packet_list_init(Packet_list *pktlist, Packet *pkt_val);
-Conn_list *get_global_connections_instance(Conn_list *val);
+GSList *get_global_connections_instance(GSList *val);
 
 G_END_DECLS
 

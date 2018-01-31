@@ -56,7 +56,7 @@ do_refresh()
 		curproc = curproc->next;
 		n++;
 	}
-	print_stat(st, nproc-1);
+	print_stat(st, nproc);
 	printf("\n\n\n");
 }
 
