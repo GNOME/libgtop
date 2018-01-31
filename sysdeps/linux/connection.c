@@ -72,17 +72,16 @@ add_packet_to_connection(Connection *conn, Packet *pkt)
 	}
 }
 
-void
-Conn_list_init(Conn_list *clist, Connection *conn_val, Conn_list *next_val)
+GSList *
+Conn_list_init(GSList *clist, Connection *conn_val)
 {
-	clist->conn = conn_val;
-	clist->next = next_val;
+	return g_slist_append(clist, conn_val);
 }
 
 Connection *
-Conn_list_get_connection(Conn_list *clist)
+Conn_list_get_connection(GSList *clist)
 {
-	return clist->conn;
+	return clist->data;
 }
 
 void 
@@ -91,32 +90,32 @@ Connection_list_setNext(Conn_list *clist,Conn_list *next_val)
 	clist->next = next_val;
 }
 
-Conn_list *
-Connection_list_get_next(Conn_list *clist)
+GSList *
+Connection_list_get_next(GSList *clist)
 {
 	return clist->next;
 }
 
-Conn_list *
-get_global_connections_instance(Conn_list *val)
+GSList *
+get_global_connections_instance(GSList *val)
 {
-	static Conn_list *global_connections_list = NULL;
+	static GSList *global_connections_list = NULL;
 	if (val != NULL)
 		global_connections_list = val;
-	else if (global_connections_list == NULL)
+	/*else if (global_connections_list == NULL)
 		{
 			global_connections_list = g_slice_new(Conn_list);
 			Conn_list_init(global_connections_list, NULL, NULL);
-		}
+		}*/
 	return global_connections_list;
 }
 
 void
 Connection_init(Connection *conn, Packet *pkt)
 {
-	Conn_list *temp = g_slice_new(Conn_list);
-	Conn_list *connections = get_global_connections_instance(NULL);
-	Conn_list_init(temp, conn, connections);
+	//Conn_list *temp = g_slice_new(Conn_list);
+	GSList *connections = get_global_connections_instance(NULL);
+	GSList *temp = Conn_list_init(connections, conn);
 	get_global_connections_instance(temp); //to set connections = temp in the static var global_connections_list
 	conn->sent_packets = g_slice_new(Packet_list);
 	Packet_list_init_beg(conn->sent_packets);
@@ -147,11 +146,11 @@ Connection_init(Connection *conn, Packet *pkt)
 Connection *
 find_connection_with_matching_source(Packet *pkt)
 {	
-	Conn_list *current = get_global_connections_instance(NULL);
-	while (current->conn != NULL)
+	GSList *current = get_global_connections_instance(NULL);
+	while (current != NULL)
 	{
 		if (packet_match_source(pkt, Conn_list_get_connection(current)->ref_packet))
-			return current->conn;
+			return current->data;
 		current = current->next;
 	}
 	return NULL;
@@ -202,14 +201,14 @@ void
 print_global_connection_list()
 {	
 	printf("CONNECTION LIST\n");
-	Conn_list *current = get_global_connections_instance(NULL);
-	while (current->conn != NULL)
+	GSList *current = get_global_connections_instance(NULL);
+	while (current != NULL)
 	{
-		printf("bytes_recv:%d from%d bytes sent %d sent %d\n",current->conn->bytes_recv, 
-															current->conn->ref_packet->sport, 
-															current->conn->bytes_sent, 
-															current->conn->ref_packet->dport);
-		print_packet_list(current->conn);
+		printf("bytes_recv:%d from%d bytes sent %d sent %d\n",((Connection *)(current->data))->bytes_recv, 
+															((Connection *)(current->data))->ref_packet->sport, 
+															((Connection *)(current->data))->bytes_sent, 
+															((Connection *)(current->data))->ref_packet->dport);
+		print_packet_list(current->data);
 		current = current->next;
 	}
 }
@@ -217,11 +216,11 @@ print_global_connection_list()
 Connection *
 find_connection_with_matching_ref_packet_or_source(Packet *pkt)
 {
-	Conn_list *current = get_global_connections_instance(NULL);
-	while (current->conn != NULL)
+	GSList *current = get_global_connections_instance(NULL);
+	while (current != NULL)
 	{	
 		if (packet_match(pkt, Conn_list_get_connection(current)->ref_packet))
-			return current->conn;
+			return current->data;
 		current = current->next;
 	}
 	return find_connection_with_matching_source(pkt);
