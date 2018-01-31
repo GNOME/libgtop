@@ -88,27 +88,29 @@ Net_process_get_uid(Net_process *proc)
 	return proc->uid;
 }
 
-void
-Net_process_list_init(Net_process_list *plist, Net_process *proc, Net_process_list *next_val)
+GSList *
+Net_process_list_init(GSList *net_proc_list, Net_process *proc)
 {
-	plist->val = proc;
-	plist->next = next_val;
+	return g_slist_append (net_proc_list, proc);
 }
 
 Net_process *
-Net_process_list_get_proc(Net_process_list *plist)
+Net_process_list_get_proc(GSList *plist)
 {
-	return plist->val;
+	return plist->data;
 }
 
-Net_process_list *
-get_proc_list_instance(Net_process_list *val)
+GSList *
+get_proc_list_instance(GSList *val)
 {
-	static Net_process_list *temp_proc_list = NULL;
+	static GSList *temp_proc_list = NULL;
 	if (val != NULL)
 		temp_proc_list = val;
-	else if (temp_proc_list == NULL)
-		temp_proc_list = g_slice_new(Net_process_list);
+/*	else if (temp_proc_list == NULL)
+	{	
+		Net_process *temp_proc = g_slice_new(Net_process);
+		temp_proc_list = g_slist_append(temp_proc_list, temp_proc);
+	}*/
 	return temp_proc_list;
 }
 

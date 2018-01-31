@@ -10,9 +10,9 @@
 #include <stdio.h>
 
 static time_t last_refresh_time = 0;
-
+/*
 int 
-size(Net_process_list *plist)
+size(GSList *plist)
 {	
 	int i = 1;
 	if (plist != NULL)
@@ -20,7 +20,7 @@ size(Net_process_list *plist)
 			i += size(plist->next);
 		}
 	return i;
-}
+}*/
 
 void 
 do_refresh()
@@ -32,14 +32,14 @@ do_refresh()
 	test_hash = get_global_hashes_instance();
 	glibtop_socket *socket_list = glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
 	g_free(fname);
-	Net_process_list *curproc = get_proc_list_instance(NULL);
-	int nproc = size(curproc);
+	GSList *curproc = get_proc_list_instance(NULL);
+	int nproc = g_slist_length(curproc);
 	printf("no of proc:%d",nproc);
 	stat_entry *st = (stat_entry *)calloc(nproc, sizeof(stat_entry));
 	int n = 0;
 	while (curproc != NULL)
 	{
-		g_assert(Net_process_list_get_proc(curproc) != NULL);
+		g_assert(curproc->data != NULL);
 		float value_sent = 0;
 		float value_recv = 0;
 		struct timeval t;

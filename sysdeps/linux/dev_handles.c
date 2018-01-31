@@ -24,11 +24,12 @@ char errbuf[PCAP_ERRBUF_SIZE];
 void
 process_init()
 {
-	Net_process_list *processes = get_proc_list_instance(NULL);//global process list
+	GSList *processes = get_proc_list_instance(NULL);//global process list
 	Net_process *unknownTCP = get_unknown_proc_instance(NULL);
 
 	Net_process_init(unknownTCP, 0, "", "unknownTCP");
-	Net_process_list_init(processes, unknownTCP, NULL);
+	processes = Net_process_list_init(processes, unknownTCP);
+	get_proc_list_instance(processes);
 }
 
 struct timeval 
@@ -42,10 +43,10 @@ get_curtime(struct timeval val)
 Net_process *get_process_from_inode(unsigned long inode, const char *device_name)
 {
 	int pid = match_pid(inode);
-	Net_process_list *current = get_proc_list_instance(NULL) ;/*global list of all procs*/
+	GSList *current = get_proc_list_instance(NULL) ;/*global list of all procs*/
 	while (current != NULL)
 	{
-		Net_process *curr_process = Net_process_list_get_proc(current);
+		Net_process *curr_process = (Net_process *)current->data;
 		g_assert(curr_process);
 		if (pid == curr_process->pid)
 			return curr_process;
@@ -54,12 +55,13 @@ Net_process *get_process_from_inode(unsigned long inode, const char *device_name
 	if (pid!= -1)
 	{	
 		Net_process *proc = g_slice_new(Net_process);
-		Net_process_list *temp = g_slice_new(Net_process_list);
+		//Net_process_list *temp = g_slice_new(Net_process_list);
 		glibtop_proc_state *proc_buf = g_slice_new(glibtop_proc_state);
 		glibtop_get_proc_state(proc_buf, pid);
 		Net_process_init(proc, pid,"", proc_buf->cmd);
-		Net_process_list_init(temp, proc, get_proc_list_instance(NULL));
-		get_proc_list_instance(temp);	//processes = temp
+		GSList *processes = get_proc_list_instance(NULL);
+		processes = Net_process_list_init(processes, proc);
+		get_proc_list_instance(processes);	//processes = temp
 		return proc;
 	}
 	return NULL;
@@ -102,12 +104,12 @@ get_process(Connection *conn, const char *device_name)
 		proc = g_slice_new(Net_process);
 		printf("%s not in /proc/net/tcp \n", Packet_gethash(conn->ref_packet));
 		Net_process_init(proc, inode,"", Packet_gethash(conn->ref_packet));
-		Net_process_list *temp = g_slice_new(Net_process_list);
-		Net_process_list_init(temp, proc, get_proc_list_instance(NULL));
-		get_proc_list_instance(temp);	//processes = temp
+		//Net_process_list *temp = g_slice_new(Net_process_list);
+		GSList *processes = get_proc_list_instance(NULL);
+		processes = Net_process_list_init(processes, proc);
+		get_proc_list_instance(processes);	//processes = temp
 	}
-	Conn_list *temp_list = g_slice_new(Conn_list);
-	Conn_list_init(temp_list, conn, proc->proc_connections);
+	Conn_list *temp_list = Conn_list_init(proc->proc_connections, conn);
 	proc->proc_connections = temp_list;
 	return proc;
 }
