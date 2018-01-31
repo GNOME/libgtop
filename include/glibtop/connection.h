@@ -28,8 +28,8 @@ struct _Connection
 	//ref packet is used to check if the packet belongs to the given connection
 	Packet *ref_packet;
 	//connection stats
-	u_int64_t bytes_sent;
-	u_int64_t bytes_recv;
+	guint64 bytes_sent;
+	guint64 bytes_recv;
 	//time when last packet was captured in this connection 
 	int last_packet_time;
 };
@@ -48,7 +48,7 @@ Connection *Conn_list_get_connection(GSList *clist);
 void setNext(Conn_list *clist, Conn_list *next_val);
 GSList *Connection_list_get_next(GSList *clist);
 int Connection_get_last_packet_time(Connection *conn);
-void Connection_sum_and_del(Connection *conn, struct timeval t, u_int64_t *recv, u_int64_t *sent);
+void Connection_sum_and_del(Connection *conn, struct timeval t, guint64 *recv, guint64 *sent);
 void Connection_list_setNext(Conn_list *clist,Conn_list *next_val);
 void Packet_list_init_beg(Packet_list *pktlist);
 void Packet_list_init(Packet_list *pktlist, Packet *pkt_val);

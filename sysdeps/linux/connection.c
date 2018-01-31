@@ -246,9 +246,9 @@ Connection_get_last_packet_time(Connection *conn)
 	return conn->last_packet_time;
 }
 
-u_int64_t Packet_list_sum_and_del(Packet_list *pktlist, struct timeval t)
+guint64 Packet_list_sum_and_del(Packet_list *pktlist, struct timeval t)
 {
-	u_int64_t sum = 0;
+	guint64 sum = 0;
 	int i=0;
 	Packet_list_node *current = pktlist->content;
 	Packet_list_node *previous = NULL;
@@ -265,7 +265,7 @@ u_int64_t Packet_list_sum_and_del(Packet_list *pktlist, struct timeval t)
 }
 
 void
-Connection_sum_and_del(Connection *conn, struct timeval t, u_int64_t *recv, u_int64_t *sent)
+Connection_sum_and_del(Connection *conn, struct timeval t, guint64 *recv, guint64 *sent)
 {
  	*sent = 0;
 	*recv = 0;

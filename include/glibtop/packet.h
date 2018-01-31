@@ -28,15 +28,15 @@ struct _Packet
 	struct in6_addr dip6;
 	unsigned short sport;
 	unsigned short dport;
-	u_int32_t len;
+	guint32 len;
 	struct timeval time;
 	char *pkt_hash;
 };
 
 void Packet_init_in_addr(Packet *pkt, struct in_addr pkt_sip, unsigned short pkt_sport, struct in_addr pkt_dip, 
-						unsigned short pkt_dport, u_int32_t pkt_len, struct timeval pkt_ts, direction pkt_dir);
+						unsigned short pkt_dport, guint32 pkt_len, struct timeval pkt_ts, direction pkt_dir);
 void Packet_init_in6_addr(Packet *pkt, struct in6_addr pkt_sip6, unsigned short pkt_sport, struct in6_addr pkt_dip6, 
-						unsigned short pkt_dport, u_int32_t pkt_len, struct timeval pkt_ts, direction pkt_dir);
+						unsigned short pkt_dport, guint32 pkt_len, struct timeval pkt_ts, direction pkt_dir);
 void Packet_init(Packet *pkt, Packet *old_packet);
 gboolean is_pkt_outgoing(Packet *pkt);
 gboolean packet_match_source(Packet *pkt, Packet *other);
