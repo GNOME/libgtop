@@ -17,8 +17,8 @@ struct _Net_process
 	char *proc_name;
 	char *device_name;
 	pid_t pid;
-	u_int64_t bytes_sent;
-	u_int64_t bytes_recv;
+	guint64 bytes_sent;
+	guint64 bytes_recv;
 	GSList *proc_connections; 
 };
 
@@ -31,9 +31,9 @@ struct _Net_process_list
 
 void Net_process_init(Net_process *proc, unsigned long pid, char *device_name_val, char *proc_name_val);
 int Net_process_get_last_packet_time(Net_process *proc);
-void Net_process_get_total(Net_process *proc, u_int64_t *recvd, u_int64_t *sent);
-float to_kb(u_int64_t bytes);
-float to_kbps(u_int64_t bytes);
+void Net_process_get_total(Net_process *proc, guint64 *recvd, guint64 *sent);
+float to_kb(guint64 bytes);
+float to_kbps(guint64 bytes);
 void Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, struct timeval currtime);
 uid_t Net_process_get_uid(Net_process *proc);
 GSList *Net_process_list_init(GSList *plist, Net_process *proc);

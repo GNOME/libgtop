@@ -80,7 +80,7 @@ struct hdr_ip {
 #define IP_V(ip)	(((ip)->ip_vhl) >> 4)
 
 /* TCP header */
-typedef u_int tcp_seq;
+typedef guint tcp_seq;
 
 struct hdr_tcp {
 	u_short th_sport;
