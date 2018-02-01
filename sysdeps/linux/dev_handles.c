@@ -88,7 +88,6 @@ get_process(Connection *conn, const char *device_name)
 			{
 				//printf("Unknown PROC\n");
 				g_slice_free(Packet, reverse_pkt);
-				//Conn_list *temp = g_slice_new(Conn_list);
 				GSList *temp = Conn_list_init(get_unknown_proc_instance(NULL)->proc_connections, conn);
 				get_unknown_proc_instance(NULL)->proc_connections = temp; //assigning this connection to unknown TCP 
 				return get_unknown_proc_instance(NULL);
@@ -109,8 +108,7 @@ get_process(Connection *conn, const char *device_name)
 		processes = Net_process_list_init(processes, proc);
 		get_proc_list_instance(processes);	//processes = temp
 	}
-	Conn_list *temp_list = Conn_list_init(proc->proc_connections, conn);
-	proc->proc_connections = temp_list;
+	proc->proc_connections = Conn_list_init(proc->proc_connections, conn);
 	return proc;
 }
 
