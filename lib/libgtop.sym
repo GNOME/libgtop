@@ -84,10 +84,11 @@ get_proc_list_instance
 get_curtime
 Net_process_get_kbps
 Net_process_list_get_proc
-stat_init
-print_stat
+network_stats_init
+network_stats_print_stat
 process_init
 open_pcap_handles
 print_pcap_handles
 print_interface_local_address
 packet_dispatch
+network_stats_get_global_instance
