@@ -5,22 +5,10 @@
 #include <netinet/in.h>
 #include <glibtop/net_process.h>
 #include <glibtop/stats.h>
-#include <stdlib.h>
 #include <glibtop/netsockets.h>
 #include <stdio.h>
 
 static time_t last_refresh_time = 0;
-/*
-int 
-size(GSList *plist)
-{	
-	int i = 1;
-	if (plist != NULL)
-		{
-			i += size(plist->next);
-		}
-	return i;
-}*/
 
 void 
 do_refresh()
@@ -35,7 +23,7 @@ do_refresh()
 	GSList *curproc = get_proc_list_instance(NULL);
 	int nproc = g_slist_length(curproc);
 	printf("no of proc:%d",nproc);
-	stat_entry *st = (stat_entry *)calloc(nproc, sizeof(stat_entry));
+	GArray *network_stats_instance = network_stats_get_global_instance(NULL);	
 	int n = 0;
 	while (curproc != NULL)
 	{
@@ -47,21 +35,25 @@ do_refresh()
 		t = get_curtime(t);
 		Net_process_get_kbps(Net_process_list_get_proc(curproc), &value_recv, &value_sent, t);
 		uid_t uid = Net_process_list_get_proc(curproc)->uid;
-		stat_init(&st[n], Net_process_list_get_proc(curproc)->proc_name,
+		network_stats_entry temp_stats;	
+		network_stats_init(&temp_stats, Net_process_list_get_proc(curproc)->proc_name,
 						Net_process_list_get_proc(curproc)->device_name,
 						value_recv,
 						value_sent,
 						Net_process_list_get_proc(curproc)->pid,
 						Net_process_list_get_proc(curproc)->uid);
+		network_stats_instance = g_array_prepend_val(network_stats_instance, temp_stats);
+		network_stats_get_global_instance(network_stats_instance);
 		curproc = curproc->next;
 		n++;
 	}
-	print_stat(st, nproc);
+	network_stats_print_stat(network_stats_get_global_instance(NULL), nproc);
 	printf("\n\n\n");
 }
 
-int main()
-{	
+void
+init_capture()
+{
 	char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();
 	glibtop_socket *socket_list = glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
@@ -95,5 +87,9 @@ int main()
 			do_refresh();
 		}
 	}
+}
+int main()
+{	
+	init_capture();
 	return 0;
 }
