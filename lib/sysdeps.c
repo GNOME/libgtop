@@ -24,6 +24,7 @@
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
 #include <glibtop/init_hooks.h>
+#include <glibtop/netstats.h>
 
 const unsigned long glibtop_server_features =
 GLIBTOP_SUID_CPU +
