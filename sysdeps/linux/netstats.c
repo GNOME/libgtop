@@ -15,9 +15,10 @@
 static const unsigned long _glibtop_sysdeps_netstats = (1 << GLIBTOP_NETSTATS_NUMBER);
 static time_t last_refresh_time = 0;
 void
-glibtop_init_netstats_s (glibtop *server)
+_glibtop_init_netstats_s (glibtop *server)
 {	//sysdeps.h
 	server->sysdeps.netstats = _glibtop_sysdeps_netstats;
+	glibtop_init_packet_capture_s ();
 }
 
 GArray *
@@ -68,8 +69,9 @@ do_refresh()
 }
 
 void 
-glibtop_init_packet_capture_s (glibtop *server)
+glibtop_init_packet_capture_s ()
 {
+	//glibtop_init_s (&server, GLIBTOP_SYSDEPS_NETSTATS, 0);
 	char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();
 	glibtop_socket *socket_list = glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
