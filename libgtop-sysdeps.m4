@@ -33,7 +33,7 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	linux*)
 	  libgtop_sysdeps_dir=linux
 	  libgtop_have_sysinfo=yes
-	  libgtop_need_server=no
+	  libgtop_need_server=yes
 	  libgtop_sysdeps_private_mountlist=yes
 	  libgtop_sysdeps_private_fsusage=yes
 	  ;;
