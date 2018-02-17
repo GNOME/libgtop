@@ -25,6 +25,8 @@
 #include <glibtop/open.h>
 #include <glibtop/error.h>
 #include <glibtop/init_hooks.h>
+#include <kvm.h>
+#include <fcntl.h>
 
 #include "glibtop_private.h"
 
@@ -124,4 +126,41 @@ glibtop_init_p (glibtop *server, const unsigned long features,
 
 		server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;
 	}
+}
+
+void
+glibtop_open_p (glibtop *server, const char *program_name,
+		const unsigned long features,
+		const unsigned flags)
+{
+
+/*#ifdef LIBGTOP_ENABLE_DEBUG
+	fprintf (stderr, "DEBUG (%d): glibtop_open_p ()\n", getpid ());
+#endif*/
+
+	/* !!! WE ARE ROOT HERE - CHANGE WITH CAUTION !!! */
+
+	server->machine->uid = getuid ();
+	server->machine->euid = geteuid ();
+	server->machine->gid = getgid ();
+	server->machine->egid = getegid ();
+/*
+#ifdef __Linux__
+	server->os_version_code = __FreeBSD_version;
+#endif*/
+
+	/* Setup machine-specific data */
+	server->machine->kd = kvm_open (NULL, NULL, NULL, O_RDONLY, "kvm_open");
+
+	if (server->machine->kd == NULL)
+		glibtop_error_io_r (server, "kvm_open");
+
+	/* Drop priviledges. */
+
+	if (setreuid (server->machine->euid, server->machine->uid))
+		_exit (1);
+
+	if (setregid (server->machine->egid, server->machine->gid))
+		_exit (1);
+
 }
