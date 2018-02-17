@@ -118,22 +118,22 @@ main (int argc, char *argv [])
 		"\tAddress:\t\t0x%08x - %s\n"
 		"\tSubnet:\t\t\t0x%08x - %s\n\n"
 		"\tMTU:\t\t\t%d\n"
-		"\tCollisions:\t\t%llu\n\n"
-		"\tPackets In:\t\t%llu\n"
-		"\tPackets Out:\t\t%llu\n"
-		"\tPackets Total:\t\t%llu\n\n"
-		"\tBytes In:\t\t%llu\n"
-		"\tBytes Out:\t\t%llu\n"
-		"\tBytes Total:\t\t%llu\n\n"
-		"\tErrors In:\t\t%llu\n"
-		"\tErrors Out:\t\t%llu\n"
-		"\tErrors Total:\t\t%llu\n\n"
+		"\tCollisions:\t\t%" G_GUINT64_FORMAT "\n\n"
+		"\tPackets In:\t\t%" G_GUINT64_FORMAT "\n"
+		"\tPackets Out:\t\t%" G_GUINT64_FORMAT "\n"
+		"\tPackets Total:\t\t%" G_GUINT64_FORMAT "\n\n"
+		"\tBytes In:\t\t%" G_GUINT64_FORMAT "\n"
+		"\tBytes Out:\t\t%" G_GUINT64_FORMAT "\n"
+		"\tBytes Total:\t\t%" G_GUINT64_FORMAT "\n\n"
+		"\tErrors In:\t\t%" G_GUINT64_FORMAT "\n"
+		"\tErrors Out:\t\t%" G_GUINT64_FORMAT "\n"
+		"\tErrors Total:\t\t%" G_GUINT64_FORMAT "\n\n"
 		"\tAddress6:\t\t%s\n"
 		"\tPrefix6:\t\t%s\n"
 		"\tScope6:\t\t\t%#03x\n\n"
 		"\tHarware Address:\t%s\n\n",
-		netload.flags,
-		netload.if_flags,
+		(unsigned long long)netload.flags,
+		(unsigned long long)netload.if_flags,
 		(guint32) netload.address, address_string,
 		(guint32) netload.subnet,  subnet_string,
 		netload.mtu,
