@@ -50,7 +50,7 @@ add_socket_list(char *buf, glibtop_socket *list_socket, GHashTable *inode_table,
 	char temp_local_addr[128];
 	char temp_rem_addr[128];
 	glibtop_socket *temp_socket = g_slice_new(glibtop_socket);
-	temp_socket->local_addr = g_slice_new(struct in6_addr);
+	temp_socket->laddr = g_slice_new(struct in6_addr);
 	temp_socket->rem_addr = g_slice_new(struct in6_addr);
 	char temp_hash[92];
 
@@ -80,10 +80,10 @@ add_socket_list(char *buf, glibtop_socket *list_socket, GHashTable *inode_table,
 	if (strlen(temp_local_addr) > 8) //it is IPv6
 	{
 		sscanf(temp_local_addr, "%08X%08X%08X%08X",
-					&((temp_socket->local_addr)->s6_addr32[0]),
-					&((temp_socket->local_addr)->s6_addr32[1]),
-					&((temp_socket->local_addr)->s6_addr32[2]),
-					&((temp_socket->local_addr)->s6_addr32[3]));
+					&((temp_socket->laddr)->s6_addr32[0]),
+					&((temp_socket->laddr)->s6_addr32[1]),
+					&((temp_socket->laddr)->s6_addr32[2]),
+					&((temp_socket->laddr)->s6_addr32[3]));
 		sscanf(temp_rem_addr, "%08X%08X%08X%08X",
 					&((temp_socket->rem_addr)->s6_addr32[0]),
 					&((temp_socket->rem_addr)->s6_addr32[1]),
@@ -99,12 +99,12 @@ add_socket_list(char *buf, glibtop_socket *list_socket, GHashTable *inode_table,
 	}
 	else//it is IPv4
 	{		
-		sscanf(temp_local_addr, "%X", (unsigned int *)&(*(temp_socket->local_addr)));
+		sscanf(temp_local_addr, "%X", (unsigned int *)&(*(temp_socket->laddr)));
 		sscanf(temp_rem_addr, "%X", (unsigned int *)&(*(temp_socket->rem_addr)));
 		temp_socket->sa_family = AF_INET;
 		char lip[128];
 		char rip[128];
-		inet_ntop(AF_INET, &(*(temp_socket->local_addr)), lip, sizeof(lip));
+		inet_ntop(AF_INET, &(*(temp_socket->laddr)), lip, sizeof(lip));
 		inet_ntop(AF_INET, &(*(temp_socket->rem_addr)), rip, sizeof(rip));
 		snprintf(temp_hash, HASHKEYSIZE * sizeof(char), "%s:%d-%s:%d", lip, temp_socket->local_port, rip, temp_socket->rem_port);
 		//snprintf(temp_hash, HASHKEYSIZE * sizeof(char), "%s-%s", lip, rip);
