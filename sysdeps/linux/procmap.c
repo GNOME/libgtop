@@ -30,6 +30,7 @@
 #include <stddef.h>
 
 #include "glibtop_private.h"
+#include "glibtop_suid.h"
 
 #include "procmap_smaps.c"
 
@@ -60,7 +61,7 @@ static const unsigned long _glibtop_sysdeps_map_entry_smaps =
 /* Init function. */
 
 void
-_glibtop_init_proc_map_s (glibtop *server)
+_glibtop_init_proc_map_p (glibtop *server)
 {
 	server->sysdeps.proc_map = _glibtop_sysdeps_proc_map;
 }
@@ -184,7 +185,7 @@ parse_line(char* line,
 
 
 glibtop_map_entry *
-glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
+glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 {
 	char procfilename[GLIBTOP_MAP_FILENAME_LEN+1];
 
@@ -214,9 +215,16 @@ glibtop_get_proc_map_s (glibtop *server, glibtop_proc_map *buf,	pid_t pid)
 
 	snprintf (procfilename, sizeof procfilename, filename, (unsigned)pid);
 
+	glibtop_suid_enter (server);
+
 	if((maps = fopen (procfilename, "r")) == NULL) {
+	  glibtop_suid_leave (server);
 	  return (glibtop_map_entry*) g_array_free(entry_list, TRUE);
 	}
+
+	glibtop_debug("opened %p", maps);
+
+	glibtop_suid_leave (server);
 
 	while(TRUE)
 	{
