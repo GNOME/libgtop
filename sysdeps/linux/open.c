@@ -24,6 +24,7 @@
 #include <glibtop/cpu.h>
 #include <glibtop/open.h>
 #include <glibtop/error.h>
+#include <glibtop/init_hooks.h>
 
 #include "glibtop_private.h"
 
@@ -100,5 +101,27 @@ glibtop_open_s (glibtop *server, const char *program_name,
 			       "%d are being monitored.",
 			       server->real_ncpu + 1,
 			       server->ncpu + 1);
+	}
+}
+
+
+void
+glibtop_init_p (glibtop *server, const unsigned long features,
+		const unsigned flags)
+{
+	const _glibtop_init_func_t *init_fkt;
+
+	if (server == NULL)
+		glibtop_error_r (NULL, "glibtop_init_p (server == NULL)");
+
+	/* Do the initialization, but only if not already initialized. */
+
+	if ((server->flags & _GLIBTOP_INIT_STATE_SYSDEPS) == 0) {
+		glibtop_open_p (server, "glibtop", features, flags);
+
+		for (init_fkt = _glibtop_init_hook_p; *init_fkt; init_fkt++)
+			(*init_fkt) (server);
+
+		server->flags |= _GLIBTOP_INIT_STATE_SYSDEPS;
 	}
 }
