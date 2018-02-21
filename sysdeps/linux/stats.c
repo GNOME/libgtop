@@ -47,4 +47,17 @@ network_stats_get_global_instance(GArray *val)
 	return global_stats;
 }
 
-
+stats *
+get_stats_instance(void )
+{
+	static stats *temp_stats = NULL;
+	if(temp_stats == NULL)
+	{
+		temp_stats = g_slice_new(stats);
+		temp_stats->pid=0;
+		temp_stats->bytes_recv = 0;
+		temp_stats->bytes_sent = 0;
+		temp_stats->process_name = g_strdup("default");
+	}
+    return temp_stats;
+}
