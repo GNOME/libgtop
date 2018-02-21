@@ -2,12 +2,16 @@
 #include <gio/gio.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <glibtop/stats.h>
 
 static const gchar netstats_introspection_xml[] =
 "<node name='/org/gnome/GTop/NetStats'>"
 "  <interface name='org.gnome.GTop.NetStats'>"
 "    <method name='GetStats'>"
-"      <arg type='siii' name='stats' direction='out'/>"
+"      <arg type='s' name='process_name' direction='out'/>"
+"      <arg type='i' name='pid' direction='out'/>"
+"      <arg type='i' name='bytes_sent' direction='out'/>"
+"      <arg type='i' name='bytes_recv' direction='out'/>"
 "    </method>"
 "  </interface>"
 "</node>";
@@ -26,19 +30,17 @@ handle_method_call (GDBusConnection       *connection,
 					GDBusMethodInvocation *invocation,
 					gpointer               user_data)
 { 
+	stats *temp = (stats*) user_data;
 	if (g_strcmp0 (method_name, "GetStats") == 0)
-	{ 
-		stats *temp = get_stats_instance();
-		GVariant **t = g_new(GVariant *, 4);
-		t[0] = g_variant_new("s",temp->process_name);
-		t[1] = g_variant_new("i",temp->pid);
-		t[2] = g_variant_new("i",temp->bytes_sent);
-		t[3] = g_variant_new("i",temp->bytes_recv);
-		GVariant *retval = g_variant_new_tuple(t, 4);
-		g_free(t);
-		g_dbus_method_invocation_return_value (invocation,
-												retval);
-	}
+	{
+		GVariant *retval = g_variant_new ("(siii)", temp->process_name,
+											temp->pid,
+											temp->bytes_sent,
+											temp->bytes_recv);
+
+	g_dbus_method_invocation_return_value (invocation,
+											retval);
+}
 }
      
 static const GDBusInterfaceVTable interface_vtable =
@@ -91,6 +93,7 @@ main (int argc, char *argv[])
 {
 	GError *err = NULL;
 	g_type_init ();
+	stats *user_stats = get_stats_instance();
 	
 	netstats_data = g_dbus_node_info_new_for_xml (netstats_introspection_xml, &err);
 	if (netstats_data == NULL)
@@ -105,7 +108,7 @@ main (int argc, char *argv[])
 								on_netstats_bus_acquired,
 								on_name_acquired,
 								on_name_lost,
-								NULL,
+								user_stats,
 								NULL);
 
 	loop = g_main_loop_new (NULL, FALSE);
