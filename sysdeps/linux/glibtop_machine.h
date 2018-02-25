@@ -28,10 +28,16 @@ G_BEGIN_DECLS
 
 struct _glibtop_machine
 {
+<<<<<<< HEAD
   uid_t uid;
   uid_t euid;
   gid_t gid;
   gid_t egid;
+=======
+   uid_t uid, euid;
+   gid_t gid, egid;
+
+>>>>>>> Change Daemon settings for Linux
 };
 
 G_END_DECLS
