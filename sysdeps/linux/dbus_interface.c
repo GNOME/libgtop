@@ -1,8 +1,12 @@
+/**
+*Move the DBus to examples in Libgtop
+*/
 #include <glib.h>
 #include <gio/gio.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <glibtop/stats.h>
+#include <glibtop/netstats.h>
 
 static const gchar netstats_introspection_xml[] =
 "<node name='/org/gnome/GTop/NetStats'>"
@@ -13,6 +17,8 @@ static const gchar netstats_introspection_xml[] =
 "      <arg type='i' name='bytes_sent' direction='out'/>"
 "      <arg type='i' name='bytes_recv' direction='out'/>"
 "    </method>"
+"	 <method name='init_capture'>"
+"	 </method>"
 "  </interface>"
 "</node>";
     
@@ -41,6 +47,12 @@ handle_method_call (GDBusConnection       *connection,
 	g_dbus_method_invocation_return_value (invocation,
 											retval);
 }
+	if (g_strcmp0 (method_name, "init_capture") == 0)
+	{
+		glibtop_init_packet_capture_s();
+		g_dbus_method_invocation_return_value (invocation,
+												NULL);
+	}
 }
      
 static const GDBusInterfaceVTable interface_vtable =
@@ -71,8 +83,7 @@ on_netstats_bus_acquired (GDBusConnection *connection,
 		g_error_free (error);
 	}
 }
-     
-     
+
 static void
 on_name_acquired (GDBusConnection *connection,
 				  const gchar     *name,
