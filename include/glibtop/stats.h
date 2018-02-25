@@ -26,11 +26,13 @@ struct  _netstats
 	guint *bytes_recv;
 };
 
+
 void network_stats_init(network_stats_entry *st, char *proc_name, char *device_name, double recv_value, double sent_value, pid_t pid, uid_t uid);
 void network_stats_print_stat(GArray *stat, int nproc);
 GArray *network_stats_get_global_instance(GArray *val);
 stats *get_stats_instance(void);
-
+gboolean get_capture_status(gboolean val);
+void invert_capture_status(gboolean *status_ptr);
 G_END_DECLS
 
 #endif
