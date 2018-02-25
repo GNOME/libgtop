@@ -8,6 +8,7 @@
 #include <netinet/in.h>
 #include <glibtop/net_process.h>
 #include <glibtop/netsockets.h>
+#include <gmodule.h>
 
 static time_t last_refresh_time = 0;
 
@@ -29,9 +30,11 @@ network_stats_print_entry(network_stats_entry *st)
 	printf("pid :%d \t sent_value:%f \trecv value:%f \tname of process:%s device_name:%s\n", st->pid, st->sent_value, st->recv_value, st->proc_name, st->device_name);
 }
 
+
 void
 network_stats_print_stat(GArray *stats,int nproc)
-{	GArray *list = stats;
+{	
+	GArray *list = stats;
 	for(int index = 0; index < nproc; index++)
 	{	
 		network_stats_entry temp = g_array_index (stats, network_stats_entry, index);
@@ -41,6 +44,20 @@ network_stats_print_stat(GArray *stats,int nproc)
 	}
 	network_stats_get_global_instance(stats);
 }
+
+void
+dbus_stats_free(GPtrArray *dbus_stats_instance)
+{	
+	guint len = dbus_stats_instance->len;
+	while(len--)
+	{	
+		stats *temp = (stats *)g_ptr_array_index(dbus_stats_instance,0);
+		g_ptr_array_remove_index(dbus_stats_instance, 0);
+		g_slice_free(stats,temp);
+	}
+	//check might have to initialize a new GPtrArray and call get_stats_inst
+}
+
 GArray *
 network_stats_get_global_instance(GArray *val)
 {
@@ -52,23 +69,35 @@ network_stats_get_global_instance(GArray *val)
 	else	if (global_stats == NULL)
 	{	
 		global_stats = g_array_new (TRUE,FALSE,sizeof(network_stats_entry));
+		
 	}			
 	return global_stats;
 }
 
 stats *
-get_stats_instance(void )
+new_stats(guint pid, gchar *name, gdouble bytes_sent, gdouble bytes_recv)
 {
-	static stats *temp_stats = NULL;
-	if(temp_stats == NULL)
-	{
-		temp_stats = g_slice_new(stats);
-		temp_stats->pid=0;
-		temp_stats->bytes_recv = 0;
-		temp_stats->bytes_sent = 0;
-		temp_stats->process_name = g_strdup("default");
+	stats *temp_stats = g_slice_new(stats);
+	temp_stats->pid = pid;
+	temp_stats->bytes_recv = bytes_recv;
+	temp_stats->bytes_sent = bytes_sent;
+	temp_stats->process_name = g_strdup(name);
+	return temp_stats;
+}
+
+GPtrArray *
+get_stats_instance(GPtrArray *val)
+{
+	static GPtrArray *dbus_stats = NULL;
+	if (val != NULL)
+	{	
+		dbus_stats = val;
 	}
-    return temp_stats;
+	else if (dbus_stats == NULL)
+	{	
+		dbus_stats = g_ptr_array_new ();
+	}			
+	return dbus_stats;
 }
 
 void
@@ -110,7 +139,11 @@ do_refresh()
 	GSList *curproc = get_proc_list_instance(NULL);
 	int nproc = g_slist_length(curproc);
 	printf("no of proc:%d",nproc);
-	GArray *network_stats_instance = network_stats_get_global_instance(NULL);	
+	//GArray *network_stats_instance = network_stats_get_global_instance(NULL);	
+	GPtrArray *dbus_stats_instance = get_stats_instance(NULL);
+	//free the previous entries in dbus stats
+	dbus_stats_free(dbus_stats_instance);
+
 	int n = 0;
 	while (curproc != NULL)
 	{
@@ -122,8 +155,15 @@ do_refresh()
 		t = get_curtime(t);
 		Net_process_get_kbps(Net_process_list_get_proc(curproc), &value_recv, &value_sent, t);
 		uid_t uid = Net_process_list_get_proc(curproc)->uid;
-		network_stats_entry temp_stats;	
-		network_stats_init(&temp_stats, Net_process_list_get_proc(curproc)->proc_name,
+		
+		/**
+		* use cases:
+		* (RAW STATS) Use this to print the stats on the terminal (uncomment this to use raw data)
+		* (INTERFACE with APPLICATIONS) As now it's proposed that DBus will be used to consume
+		*  the stats in applications so instatiate the dbus_stats which is GArray of ptr to stats 
+		*  struct
+			network_stats_entry temp_stats;	
+			network_stats_init(&temp_stats, Net_process_list_get_proc(curproc)->proc_name,
 						Net_process_list_get_proc(curproc)->device_name,
 						value_recv,
 						value_sent,
@@ -131,6 +171,14 @@ do_refresh()
 						Net_process_list_get_proc(curproc)->uid);
 		network_stats_instance = g_array_prepend_val(network_stats_instance, temp_stats);
 		network_stats_get_global_instance(network_stats_instance);
+		*/
+		//new instance of stats (dbus) with curproc , prepend , get_instanceNet_process_list_get_proc(curproc)->pid
+		stats *temp_stats = new_stats((guint)Net_process_list_get_proc(curproc)->pid, 
+									 Net_process_list_get_proc(curproc)->proc_name,
+									 value_sent,
+									 value_recv);
+		g_ptr_array_add (dbus_stats_instance, (gpointer)temp_stats);
+		
 		curproc = curproc->next;
 		n++;
 	}
