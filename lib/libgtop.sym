@@ -92,3 +92,6 @@ print_pcap_handles
 print_interface_local_address
 packet_dispatch
 network_stats_get_global_instance
+glibtop_init_packet_capture_s
+get_stats_instance
+glibtop_init_packet_capture

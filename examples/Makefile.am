@@ -11,7 +11,7 @@ AM_LDFLAGS			= $(LIBGTOP_EXTRA_LIBS)
 
 noinst_PROGRAMS	= 	first second pprint procargs df netlist \
 			  mountlist procmap netload sysdeps timings \
-			  openfiles smp proclist free wd affinity diskio devtest
+			  openfiles smp proclist free wd affinity diskio devtest dbus_interface
 
 first_SOURCES		= first.c
 first_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
@@ -70,3 +70,6 @@ diskio_LDADD	  = $(top_builddir)/lib/libgtop-2.0.la
 
 devtest_SOURCES = devtest.c
 devtest_LDADD = $(top_builddir)/lib/libgtop-2.0.la
+
+dbus_interface_SOURCES = dbus_interface.c
+dbus_interface_LDADD = $(top_builddir)/lib/libgtop-2.0.la
