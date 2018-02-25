@@ -103,7 +103,7 @@ main (int argc, char *argv[])
 {
 	GError *err = NULL;
 	g_type_init ();
-	stats *user_stats = get_stats_instance();
+	stats *user_stats = get_stats_instance(NULL);
 	
 	netstats_data = g_dbus_node_info_new_for_xml (netstats_introspection_xml, &err);
 	if (netstats_data == NULL)
