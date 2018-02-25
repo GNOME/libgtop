@@ -28,7 +28,7 @@ network_stats_get_global_instance_s(glibtop *server, GArray *val)
 }
 
 void 
-do_refresh()
+do_refresh_s()
 {		
 	char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();
@@ -104,7 +104,7 @@ glibtop_init_packet_capture_s ()
 			{	
 				last_refresh_time = now;
 				//error in opening file free later//g_slice_free(glibtop_socket, socket_list); //free the socket details struct 
-				do_refresh();
+				do_refresh_s();
 			}
 		}
 		else
