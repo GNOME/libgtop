@@ -61,3 +61,29 @@ get_stats_instance(void )
 	}
     return temp_stats;
 }
+
+void
+invert_capture_status(gboolean *status_ptr)
+{
+	*status_ptr = (*status_ptr == FALSE)? TRUE : FALSE;
+}
+
+/**
+*NOTE (DBus): this function is used to change the capture status when a relevant
+*	   		  signal is processed by the callback in the dbus interface.
+*      		  source of signal emission is any application which tries to consume
+*      		  the libgtop API through the DBus
+*
+*NOTE (Daemon): if later a daemon is proposed to be used over DBus this won't be
+*	   			an issue since by default status is kept to be active
+*/
+gboolean
+get_capture_status(gboolean val)
+{
+	static gboolean active = TRUE;
+	//if val is true invert the capture status
+	//if false capture status is unchanged
+	if(val)
+		invert_capture_status(&active);
+	return active;
+}
