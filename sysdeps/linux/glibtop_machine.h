@@ -28,6 +28,9 @@ G_BEGIN_DECLS
 
 struct _glibtop_machine
 {
+   uid_t uid, euid;
+   gid_t gid, egid;
+
 };
 
 G_END_DECLS
