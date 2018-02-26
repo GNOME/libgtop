@@ -27,7 +27,7 @@ process_init()
 	GSList *processes = get_proc_list_instance(NULL);//global process list
 	Net_process *unknownTCP = get_unknown_proc_instance(NULL);
 
-	Net_process_init(unknownTCP, 0, "", "unknownTCP");
+	Net_process_init(unknownTCP, 0);
 	processes = Net_process_list_init(processes, unknownTCP);
 	get_proc_list_instance(processes);
 }
@@ -55,10 +55,7 @@ Net_process *get_process_from_inode(unsigned long inode, const char *device_name
 	if (pid!= -1)
 	{	
 		Net_process *proc = g_slice_new(Net_process);
-		//Net_process_list *temp = g_slice_new(Net_process_list);
-		glibtop_proc_state *proc_buf = g_slice_new(glibtop_proc_state);
-		glibtop_get_proc_state(proc_buf, pid);
-		Net_process_init(proc, pid,"", proc_buf->cmd);
+		Net_process_init(proc, pid);
 		GSList *processes = get_proc_list_instance(NULL);
 		processes = Net_process_list_init(processes, proc);
 		get_proc_list_instance(processes);	//processes = temp
@@ -102,7 +99,7 @@ get_process(Connection *conn, const char *device_name)
 	{
 		proc = g_slice_new(Net_process);
 		printf("%s not in /proc/net/tcp \n", Packet_gethash(conn->ref_packet));
-		Net_process_init(proc, inode,"", Packet_gethash(conn->ref_packet));
+		Net_process_init(proc, inode);
 		//Net_process_list *temp = g_slice_new(Net_process_list);
 		GSList *processes = get_proc_list_instance(NULL);
 		processes = Net_process_list_init(processes, proc);

@@ -13,12 +13,9 @@
 static time_t last_refresh_time = 0;
 
 void 
-network_stats_init(network_stats_entry *st, char *proc_name, char *device_name, double recv_value, double sent_value, pid_t pid, uid_t uid)
+network_stats_init(network_stats_entry *st,double recv_value, double sent_value, pid_t pid)
 {
-	st->proc_name = proc_name;
-	st->device_name = device_name;
 	st->pid = pid;
-	st->uid = uid;
 	st->sent_value = sent_value;
 	st->recv_value = recv_value;
 	g_assert(pid >= 0);
@@ -27,7 +24,7 @@ network_stats_init(network_stats_entry *st, char *proc_name, char *device_name, 
 void
 network_stats_print_entry(network_stats_entry *st)
 {
-	printf("pid :%d \t sent_value:%f \trecv value:%f \tname of process:%s device_name:%s\n", st->pid, st->sent_value, st->recv_value, st->proc_name, st->device_name);
+	printf("pid :%d \t sent_value:%f \trecv value:%f \t \n", st->pid, st->sent_value, st->recv_value);
 }
 
 
@@ -75,13 +72,12 @@ network_stats_get_global_instance(GArray *val)
 }
 
 stats *
-new_stats(guint pid, gchar *name, gdouble bytes_sent, gdouble bytes_recv)
+new_stats(guint pid,gdouble bytes_sent, gdouble bytes_recv)
 {
 	stats *temp_stats = g_slice_new(stats);
 	temp_stats->pid = pid;
 	temp_stats->bytes_recv = bytes_recv;
 	temp_stats->bytes_sent = bytes_sent;
-	temp_stats->process_name = g_strdup(name);
 	return temp_stats;
 }
 
@@ -154,8 +150,7 @@ do_refresh()
 		t.tv_sec = 0;
 		t = get_curtime(t);
 		Net_process_get_kbps(Net_process_list_get_proc(curproc), &value_recv, &value_sent, t);
-		uid_t uid = Net_process_list_get_proc(curproc)->uid;
-		
+				
 		/**
 		* use cases:
 		* (RAW STATS) Use this to print the stats on the terminal (uncomment this to use raw data)
@@ -174,9 +169,8 @@ do_refresh()
 		*/
 		//new instance of stats (dbus) with curproc , prepend , get_instanceNet_process_list_get_proc(curproc)->pid
 		stats *temp_stats = new_stats((guint)Net_process_list_get_proc(curproc)->pid, 
-									 Net_process_list_get_proc(curproc)->proc_name,
-									 value_sent,
-									 value_recv);
+									  value_sent,
+									  value_recv);
 		g_ptr_array_add (dbus_stats_instance, (gpointer)temp_stats);
 		
 		curproc = curproc->next;

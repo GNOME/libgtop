@@ -5,14 +5,11 @@
 #include <glibtop/net_process.h>
 
 void 
-Net_process_init(Net_process *proc, unsigned long pid , char *device_name_val, char *proc_name_val)
+Net_process_init(Net_process *proc, unsigned long pid)
 {
-	proc->proc_name = proc_name_val;
 	//debug statement
-	printf("Process name :%s\n",proc->proc_name);
-	proc->device_name = device_name_val;
+	printf("Process name :%d\n",pid);
 	proc->pid = pid;
-	proc->uid = 0;
 	proc->bytes_sent = 0;
 	proc->bytes_recv = 0;
 	proc->proc_connections = NULL;
@@ -81,12 +78,6 @@ Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, struct timeva
 	*recvd = to_kbps(sum_recv);
 	*sent = to_kbps(sum_sent);
 
-}
-
-uid_t
-Net_process_get_uid(Net_process *proc)
-{
-	return proc->uid;
 }
 
 GSList *
