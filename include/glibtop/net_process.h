@@ -13,13 +13,12 @@ typedef struct _Net_process Net_process;
 struct _Net_process
 {
 	unsigned long inode;
-	uid_t uid;
-	char *proc_name;
-	char *device_name;
 	pid_t pid;
 	guint64 bytes_sent;
 	guint64 bytes_recv;
 	GSList *proc_connections; 
+	//char *device_name;
+	//uid_t uid;
 };
 
 typedef struct _Net_process_list Net_process_list;
@@ -29,7 +28,7 @@ struct _Net_process_list
 	Net_process_list *next;
 };
 
-void Net_process_init(Net_process *proc, unsigned long pid, char *device_name_val, char *proc_name_val);
+void Net_process_init(Net_process *proc, unsigned long pid);
 int Net_process_get_last_packet_time(Net_process *proc);
 void Net_process_get_total(Net_process *proc, guint64 *recvd, guint64 *sent);
 float to_kb(guint64 bytes);

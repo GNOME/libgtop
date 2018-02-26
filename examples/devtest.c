@@ -34,14 +34,11 @@ do_refresh()
 		t.tv_sec = 0;
 		t = get_curtime(t);
 		Net_process_get_kbps(Net_process_list_get_proc(curproc), &value_recv, &value_sent, t);
-		uid_t uid = Net_process_list_get_proc(curproc)->uid;
 		network_stats_entry temp_stats;	
-		network_stats_init(&temp_stats, Net_process_list_get_proc(curproc)->proc_name,
-						Net_process_list_get_proc(curproc)->device_name,
-						value_recv,
-						value_sent,
-						Net_process_list_get_proc(curproc)->pid,
-						Net_process_list_get_proc(curproc)->uid);
+		network_stats_init(&temp_stats,
+		                   value_recv,
+		                   value_sent,
+		                   Net_process_list_get_proc(curproc)->pid);
 		network_stats_instance = g_array_prepend_val(network_stats_instance, temp_stats);
 		network_stats_get_global_instance(network_stats_instance);
 		curproc = curproc->next;
