@@ -101,9 +101,9 @@ get_stats_instance(GPtrArray *val)
 }
 
 void
-invert_capture_status(gboolean *status_ptr)
+toggle_capture_status(gboolean *status_ptr)
 {
-	*status_ptr = (*status_ptr == FALSE)? TRUE : FALSE;
+	*status_ptr = !(*status_ptr);
 }
 
 /**
@@ -122,7 +122,7 @@ get_capture_status(gboolean val)
 	//if val is true invert the capture status
 	//if false capture status is unchanged
 	if(val)
-		invert_capture_status(&active);
+		toggle_capture_status(&active);
 	return active;
 }
 
