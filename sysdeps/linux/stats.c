@@ -125,7 +125,7 @@ get_capture_status(gboolean val)
 void 
 do_refresh()
 {		
-	char *fname = g_strdup("/proc/self/net/tcp");
+char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();
 	test_hash.inode_table = NULL;
 	test_hash.hash_table = NULL;
@@ -150,7 +150,6 @@ do_refresh()
 		t.tv_sec = 0;
 		t = get_curtime(t);
 		Net_process_get_kbps(Net_process_list_get_proc(curproc), &value_recv, &value_sent, t);
-				
 		/**
 		* use cases:
 		* (RAW STATS) Use this to print the stats on the terminal (uncomment this to use raw data)
@@ -180,7 +179,7 @@ do_refresh()
 	printf("\n\n\n");
 }
 
-void 
+gboolean
 glibtop_init_packet_capture ()
 {
 	char *fname = g_strdup("/proc/self/net/tcp");
@@ -195,9 +194,7 @@ glibtop_init_packet_capture ()
 	print_interface_local_address();
 	packet_args *userdata = g_slice_new(packet_args); 
 	//if cature status is true continue the capture else return 
-	while (get_capture_status(FALSE))
-	{
-		for(packet_handle *current_handle = handles; current_handle != NULL; current_handle = current_handle->next)
+	for(packet_handle *current_handle = handles; current_handle != NULL; current_handle = current_handle->next)
 		{	
 			userdata->device = current_handle->device_name;
 			userdata->sa_family = AF_UNSPEC;
@@ -209,6 +206,8 @@ glibtop_init_packet_capture ()
 			if (retval < 0)
 				printf("Error dispatching for device %s \n ", current_handle->device_name);
 		}
+		for(packet_handle *current_handle = handles; current_handle != NULL; current_handle = current_handle->next)
+		{	pcap_close(current_handle->pcap_handle);}
 		time_t const now = time(NULL);
 		if (last_refresh_time + refresh_delay <= now)
 		{	
@@ -216,5 +215,5 @@ glibtop_init_packet_capture ()
 			//error in opening file free later//g_slice_free(glibtop_socket, socket_list); //free the socket details struct 
 			do_refresh();
 		}
-	}
+	return TRUE;
 }
