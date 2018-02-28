@@ -30,7 +30,7 @@ network_stats_get_global_instance_s(glibtop *server, GArray *val)
 void 
 do_refresh_s()
 {		
-	char *fname = g_strdup("/proc/self/net/tcp");
+/*	char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();
 	test_hash.inode_table = NULL;
 	test_hash.hash_table = NULL;
@@ -39,7 +39,7 @@ do_refresh_s()
 	g_free(fname);
 	GSList *curproc = get_proc_list_instance(NULL);
 	int nproc = g_slist_length(curproc);
-	printf("no of proc:%d",nproc);
+	printf("no of procs:%d",nproc);
 	GArray *network_stats_instance = network_stats_get_global_instance(NULL);	
 	int n = 0;
 	while (curproc != NULL)
@@ -62,12 +62,12 @@ do_refresh_s()
 		n++;
 	}
 	network_stats_print_stat(network_stats_get_global_instance(NULL), nproc);
-	printf("\n\n\n");
+	printf("\n\n\n");*/
 }
 
 void 
 glibtop_init_packet_capture_s ()
-{
+{/*
 	char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();
 	glibtop_socket *socket_list = glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
@@ -107,6 +107,6 @@ glibtop_init_packet_capture_s ()
 		else
 			return ;
 	}
-
+*/
 }
 

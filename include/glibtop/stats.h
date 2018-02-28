@@ -30,6 +30,7 @@ GArray *network_stats_get_global_instance(GArray *val);
 gboolean get_capture_status(gboolean val);
 void invert_capture_status(gboolean *status_ptr);
 GPtrArray *get_stats_instance(GPtrArray *val);
+gboolean glibtop_init_packet_capture();
 G_END_DECLS
 
 #endif
