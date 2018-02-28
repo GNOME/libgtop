@@ -21,7 +21,8 @@ static const gchar netstats_introspection_xml[] =
 static GDBusNodeInfo *netstats_data = NULL;
 static guint owner_id;
 static GMainLoop *loop;
-     
+//source_id
+guint id;    
 static void
 handle_method_call (GDBusConnection       *connection,
                     const gchar           *sender,
@@ -45,10 +46,10 @@ handle_method_call (GDBusConnection       *connection,
             stats* dbus_stats = g_ptr_array_index(temp,num_proc);
             g_variant_builder_add (b, 
                                   "{i(dd)}",
-                                   temp->pid,
+                                   dbus_stats->pid,
                                    g_variant_new ("(dd)",
-                                   temp->bytes_sent,
-                                   temp->bytes_recv));
+                                   dbus_stats->bytes_sent,
+                                   dbus_stats->bytes_recv));
 
         }
         g_variant_builder_close (b);
@@ -59,8 +60,8 @@ handle_method_call (GDBusConnection       *connection,
 
     if (g_strcmp0 (method_name, "init_capture") == 0)
     {
-        glibtop_init_packet_capture();
-        g_dbus_method_invocation_return_value (invocation,
+       id = g_timeout_add(5000,glibtop_init_packet_capture,NULL);
+       g_dbus_method_invocation_return_value (invocation,
                                                NULL);
     }
 }
