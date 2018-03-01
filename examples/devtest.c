@@ -56,7 +56,8 @@ init_capture()
 	glibtop_socket *socket_list = glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
 	g_free(fname);
 	process_init();
-	packet_handle *handles = open_pcap_handles();
+	get_global_packet_handles(open_pcap_handles());
+	packet_handle *handles = get_global_packet_handles(NULL);
 	printf("\n PCAP HANDLES \n");
 	print_pcap_handles(handles);
 	printf("\nLocal Addresses\n");
@@ -85,8 +86,11 @@ init_capture()
 		}
 	}
 }
+
 int main()
-{	
-	init_capture();
+{
+	//init_capture();
+	init_setup();
+	g_timeout_add(1000,glibtop_init_packet_capture,NULL);
 	return 0;
 }
