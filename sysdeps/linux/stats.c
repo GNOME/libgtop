@@ -135,7 +135,7 @@ char *fname = g_strdup("/proc/self/net/tcp");
 	GSList *curproc = get_proc_list_instance(NULL);
 	int nproc = g_slist_length(curproc);
 	printf("no of proc:%d",nproc);
-	//GArray *network_stats_instance = network_stats_get_global_instance(NULL);	
+	GArray *network_stats_instance = network_stats_get_global_instance(NULL);	
 	GPtrArray *dbus_stats_instance = get_stats_instance(NULL);
 	//free the previous entries in dbus stats
 	dbus_stats_free(dbus_stats_instance);
@@ -156,22 +156,20 @@ char *fname = g_strdup("/proc/self/net/tcp");
 		* (INTERFACE with APPLICATIONS) As now it's proposed that DBus will be used to consume
 		*  the stats in applications so instatiate the dbus_stats which is GArray of ptr to stats 
 		*  struct
-			network_stats_entry temp_stats;	
-			network_stats_init(&temp_stats, Net_process_list_get_proc(curproc)->proc_name,
-						Net_process_list_get_proc(curproc)->device_name,
-						value_recv,
-						value_sent,
-						Net_process_list_get_proc(curproc)->pid,
-						Net_process_list_get_proc(curproc)->uid);
+		*/
+		network_stats_entry temp_stats;	
+		network_stats_init(&temp_stats,
+		                   value_recv,
+		                   value_sent,
+		                   Net_process_list_get_proc(curproc)->pid);
 		network_stats_instance = g_array_prepend_val(network_stats_instance, temp_stats);
 		network_stats_get_global_instance(network_stats_instance);
-		*/
 		//new instance of stats (dbus) with curproc , prepend , get_instanceNet_process_list_get_proc(curproc)->pid
-		stats *temp_stats = new_stats((guint)Net_process_list_get_proc(curproc)->pid, 
+		/*stats *temp_stats = new_stats((guint)Net_process_list_get_proc(curproc)->pid, 
 									  value_sent,
 									  value_recv);
 		g_ptr_array_add (dbus_stats_instance, (gpointer)temp_stats);
-		
+		*/
 		curproc = curproc->next;
 		n++;
 	}
@@ -186,12 +184,7 @@ glibtop_init_packet_capture ()
 	global_hashes test_hash = get_global_hashes_instance();
 	glibtop_socket *socket_list = glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
 	g_free(fname);
-	process_init();
-	packet_handle *handles = open_pcap_handles();
-	printf("\n PCAP HANDLES \n");
-	print_pcap_handles(handles);
-	printf("\nLocal Addresses\n");
-	print_interface_local_address();
+	packet_handle *handles = get_global_packet_handles(NULL);
 	packet_args *userdata = g_slice_new(packet_args); 
 	//if cature status is true continue the capture else return 
 	for(packet_handle *current_handle = handles; current_handle != NULL; current_handle = current_handle->next)
@@ -206,8 +199,6 @@ glibtop_init_packet_capture ()
 			if (retval < 0)
 				printf("Error dispatching for device %s \n ", current_handle->device_name);
 		}
-		for(packet_handle *current_handle = handles; current_handle != NULL; current_handle = current_handle->next)
-		{	pcap_close(current_handle->pcap_handle);}
 		time_t const now = time(NULL);
 		if (last_refresh_time + refresh_delay <= now)
 		{	
@@ -216,4 +207,16 @@ glibtop_init_packet_capture ()
 			do_refresh();
 		}
 	return TRUE;
+}
+
+void
+init_setup()
+{
+	process_init();
+	packet_handle *handles = open_pcap_handles();
+	get_global_packet_handles(handles);
+	printf("\n PCAP HANDLES \n");
+	print_pcap_handles(handles);
+	printf("\nLocal Addresses\n");
+	print_interface_local_address();
 }

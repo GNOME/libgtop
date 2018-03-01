@@ -27,6 +27,7 @@ static void
 handle_method_call (GDBusConnection       *connection,
                     const gchar           *sender,
                     const gchar           *object_path,
+                    const gchar           *interface_name,
                     const gchar           *method_name,
                     GVariant              *parameters,
                     GDBusMethodInvocation *invocation,
@@ -60,7 +61,8 @@ handle_method_call (GDBusConnection       *connection,
 
     if (g_strcmp0 (method_name, "init_capture") == 0)
     {
-       id = g_timeout_add(5000,glibtop_init_packet_capture,NULL);
+       init_setup();
+       id = g_timeout_add(1000,glibtop_init_packet_capture,NULL);
        g_dbus_method_invocation_return_value (invocation,
                                                NULL);
     }
