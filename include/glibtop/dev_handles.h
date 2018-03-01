@@ -115,6 +115,7 @@ void handles_set_hash(GHashTable *inode, GHashTable *hash);
 void handles_set_process_lists(Net_process_list *procs, Net_process *tcp);
 void process_init();
 Net_process_list *get_processes();
+packet_handle *get_global_packet_handles(packet_handle *val);
 G_END_DECLS
 
 #endif

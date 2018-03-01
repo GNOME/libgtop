@@ -386,3 +386,11 @@ packet_dispatch(packet_handle *handle, int count, u_char *user, int size)
 	return pcap_dispatch(handle->pcap_handle, -1, packet_pcap_callback, (u_char *)handle);
 }
 
+packet_handle *
+get_global_packet_handles(packet_handle *val)
+{
+	static packet_handle *handle = NULL;
+	if(val != NULL)
+		handle = val;
+	return handle;
+}
