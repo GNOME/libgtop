@@ -187,7 +187,9 @@ glibtop_init_packet_capture ()
 	packet_handle *handles = get_global_packet_handles(NULL);
 	packet_args *userdata = g_slice_new(packet_args); 
 	//if cature status is true continue the capture else return 
-	for(packet_handle *current_handle = handles; current_handle != NULL; current_handle = current_handle->next)
+	if(get_capture_status(FALSE))
+	{
+		for(packet_handle *current_handle = handles; current_handle != NULL; current_handle = current_handle->next)
 		{	
 			userdata->device = current_handle->device_name;
 			userdata->sa_family = AF_UNSPEC;
@@ -206,7 +208,9 @@ glibtop_init_packet_capture ()
 			//error in opening file free later//g_slice_free(glibtop_socket, socket_list); //free the socket details struct 
 			do_refresh();
 		}
-	return TRUE;
+		return TRUE; //continue the capture
+	}
+	return FALSE;
 }
 
 void
