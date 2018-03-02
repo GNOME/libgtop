@@ -33,7 +33,7 @@ handle_method_call (GDBusConnection       *connection,
                     GDBusMethodInvocation *invocation,
                     gpointer               user_data)
 { 
-    GPtrArray *temp = (stats*) user_data;
+    GPtrArray *temp = get_stats_instance(NULL);
     if (g_strcmp0 (method_name, "GetStats") == 0)
     {
 
@@ -126,7 +126,7 @@ main (int argc, char *argv[])
         g_error_free (err);
         goto error;
     }
-    owner_id = g_bus_own_name (G_BUS_TYPE_SESSION,
+    owner_id = g_bus_own_name (G_BUS_TYPE_SYSTEM,
                                 "org.gnome.GTop.NetStats",
                                 G_BUS_NAME_OWNER_FLAGS_NONE, //check
                                 on_netstats_bus_acquired,
