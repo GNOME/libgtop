@@ -165,11 +165,11 @@ char *fname = g_strdup("/proc/self/net/tcp");
 		network_stats_instance = g_array_prepend_val(network_stats_instance, temp_stats);
 		network_stats_get_global_instance(network_stats_instance);
 		//new instance of stats (dbus) with curproc , prepend , get_instanceNet_process_list_get_proc(curproc)->pid
-		/*stats *temp_stats = new_stats((guint)Net_process_list_get_proc(curproc)->pid, 
+		stats *temp_dbus_stats = new_stats((guint)Net_process_list_get_proc(curproc)->pid, 
 									  value_sent,
 									  value_recv);
-		g_ptr_array_add (dbus_stats_instance, (gpointer)temp_stats);
-		*/
+		g_ptr_array_add (dbus_stats_instance, (gpointer)temp_dbus_stats);
+		
 		curproc = curproc->next;
 		n++;
 	}
@@ -186,10 +186,7 @@ glibtop_init_packet_capture ()
 	g_free(fname);
 	packet_handle *handles = get_global_packet_handles(NULL);
 	packet_args *userdata = g_slice_new(packet_args); 
-	//if cature status is true continue the capture else return 
-	if(get_capture_status(FALSE))
-	{
-		for(packet_handle *current_handle = handles; current_handle != NULL; current_handle = current_handle->next)
+	for(packet_handle *current_handle = handles; current_handle != NULL; current_handle = current_handle->next)
 		{	
 			userdata->device = current_handle->device_name;
 			userdata->sa_family = AF_UNSPEC;
@@ -208,9 +205,7 @@ glibtop_init_packet_capture ()
 			//error in opening file free later//g_slice_free(glibtop_socket, socket_list); //free the socket details struct 
 			do_refresh();
 		}
-		return TRUE; //continue the capture
-	}
-	return FALSE;
+	return (get_capture_status(FALSE));
 }
 
 void
