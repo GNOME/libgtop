@@ -13,7 +13,9 @@ static const gchar netstats_introspection_xml[] =
 "    <method name='GetStats'>"
 "      <arg type='a{i(dd)}' name='pid' direction='out'/>"
 "    </method>"
-"    <method name='init_capture'>"
+"    <method name='InitCapture'>"
+"    </method>"
+"    <method name='SetCaptureStatus'>"
 "    </method>"
 "  </interface>"
 "</node>";
@@ -59,10 +61,29 @@ handle_method_call (GDBusConnection       *connection,
                                                 dict);
     }
 
-    if (g_strcmp0 (method_name, "init_capture") == 0)
+    if (g_strcmp0 (method_name, "InitCapture") == 0)
     {
        init_setup();
        id = g_timeout_add(1000,glibtop_init_packet_capture,NULL);
+       g_dbus_method_invocation_return_value (invocation,
+                                               NULL);
+    }
+    // *TODO* `if` conditions in the following funcs can be removed by changing the 
+    //         implementation of the stats in stats.c 
+    if (g_strcmp0 (method_name, "SetCaptureStatus") == 0)
+    {	
+	//if it's deactivated activate 
+	if(!get_capture_status(FALSE))
+            get_capture_status(TRUE);
+       g_dbus_method_invocation_return_value (invocation,
+                                               NULL);
+    }
+    if (g_strcmp0 (method_name, "ResetCaptureStatus") == 0)
+    {
+	//if the status is already set to false don't change
+       if(get_capture_status(FALSE))
+         get_capture_status(TRUE);
+	
        g_dbus_method_invocation_return_value (invocation,
                                                NULL);
     }

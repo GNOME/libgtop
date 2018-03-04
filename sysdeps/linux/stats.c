@@ -114,7 +114,7 @@ toggle_capture_status(gboolean *status_ptr)
 gboolean
 get_capture_status(gboolean val)
 {
-	static gboolean active = TRUE;
+	static gboolean active = FALSE;
 	//if val is true invert the capture status
 	//if false capture status is unchanged
 	if(val)
