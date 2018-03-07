@@ -7,7 +7,9 @@
 *.in
 *.la
 *.lo
+*.new
 *.o
+*.old
 *.out
 *.patch
 *.pot
@@ -24,6 +26,7 @@ INSTALL
 Makefile
 Makevars.template
 Rules-quot
+\#*\#
 aclocal.m4
 autom4te.cache/
 compile
@@ -55,6 +58,7 @@ doc/texinfo.tex
 doc/version.texi
 examples/affinity
 examples/df
+examples/diskio
 examples/first
 examples/free
 examples/mountlist
@@ -70,7 +74,6 @@ examples/smp
 examples/sysdeps
 examples/timings
 examples/wd
-examples/diskio
 gtk-doc.make
 install-sh
 lib/GTop-2.0.gir
