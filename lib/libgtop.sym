@@ -97,3 +97,4 @@ get_stats_instance
 glibtop_init_packet_capture
 init_setup
 get_global_packet_handles
+get_capture_status

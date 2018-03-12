@@ -10,6 +10,7 @@
 #include <glibtop/netsockets.h>
 #include <gmodule.h>
 
+#define EPSILON	0.001 //precision is set to 2 decimal places at the client end of dbus so less than this is clearly insignificant
 static time_t last_refresh_time = 0;
 
 void 
@@ -165,10 +166,13 @@ char *fname = g_strdup("/proc/self/net/tcp");
 		network_stats_instance = g_array_prepend_val(network_stats_instance, temp_stats);
 		network_stats_get_global_instance(network_stats_instance);
 		//new instance of stats (dbus) with curproc , prepend , get_instanceNet_process_list_get_proc(curproc)->pid
-		stats *temp_dbus_stats = new_stats((guint)Net_process_list_get_proc(curproc)->pid, 
+		if (value_sent > EPSILON  || value_recv > EPSILON)
+		{
+			stats *temp_dbus_stats = new_stats((guint)Net_process_list_get_proc(curproc)->pid, 
 									  value_sent,
 									  value_recv);
-		g_ptr_array_add (dbus_stats_instance, (gpointer)temp_dbus_stats);
+			g_ptr_array_add (dbus_stats_instance, (gpointer)temp_dbus_stats);
+		}
 		
 		curproc = curproc->next;
 		n++;
