@@ -17,6 +17,8 @@ static const gchar netstats_introspection_xml[] =
 "    </method>"
 "    <method name='SetCaptureStatus'>"
 "    </method>"
+"    <method name='ResetCaptureStatus'>"
+"    </method>"
 "  </interface>"
 "</node>";
     
