@@ -28,6 +28,7 @@ int main()
     loop = g_main_loop_new ( NULL , FALSE );
 
 	//init_capture();
+	get_capture_status(TRUE);
 	init_setup();
 	//glibtop_init_packet_capture();
 	g_timeout_add(1000,glibtop_init_packet_capture,NULL);
