@@ -13,7 +13,7 @@
 #include <glibtop/netstats.h>
 
 static const unsigned long _glibtop_sysdeps_netstats = (1 << GLIBTOP_NETSTATS_NUMBER);
-static time_t last_refresh_time = 0;
+
 void
 _glibtop_init_netstats_s (glibtop *server)
 {	//sysdeps.h
@@ -27,9 +27,9 @@ network_stats_get_global_instance_s(glibtop *server, GArray *val)
 	return network_stats_get_global_instance(NULL);
 }
 
-void 
+static void
 do_refresh_s()
-{		
+{
 /*	char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();
 	test_hash.inode_table = NULL;
@@ -65,8 +65,8 @@ do_refresh_s()
 	printf("\n\n\n");*/
 }
 
-void 
-glibtop_init_packet_capture_s ()
+void
+glibtop_init_packet_capture_s (void)
 {/*
 	char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();

@@ -22,7 +22,7 @@ int promisc = 0;
 char errbuf[PCAP_ERRBUF_SIZE];
 
 void
-process_init()
+process_init(void)
 {
 	GSList *processes = get_proc_list_instance(NULL);//global process list
 	Net_process *unknownTCP = get_unknown_proc_instance(NULL);
@@ -40,7 +40,8 @@ get_curtime(struct timeval val)
 	return curtime;
 }
 
-Net_process *get_process_from_inode(unsigned long inode, const char *device_name)
+static Net_process *
+get_process_from_inode(unsigned long inode, const char *device_name)
 {
 	int pid = match_pid(inode);
 	GSList *current = get_proc_list_instance(NULL) ;/*global list of all procs*/
@@ -64,18 +65,18 @@ Net_process *get_process_from_inode(unsigned long inode, const char *device_name
 	return NULL;
 }
 
-Net_process * 
+static Net_process *
 get_process(Connection *conn, const char *device_name)
 {
-	unsigned long inode = match_hash_to_inode(Packet_gethash(conn->ref_packet));
+	long inode = match_hash_to_inode(Packet_gethash(conn->ref_packet));
 	if (inode == -1)
-	{	
+	{
 		char *fname = g_strdup("/proc/self/net/tcp");
 		global_hashes test_hash = get_global_hashes_instance();
 		test_hash.inode_table = NULL;
 		test_hash.hash_table = NULL;
 		test_hash = get_global_hashes_instance();
-		glibtop_socket *socket_list = glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
+		glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
 		g_free(fname);
 		if ((inode = match_hash_to_inode(Packet_gethash(conn->ref_packet))) == -1)
 		{
@@ -108,7 +109,7 @@ get_process(Connection *conn, const char *device_name)
 	return proc;
 }
 
-int 
+static int
 process_ip(u_char *userdata, const struct pcap_pkthdr *header,const u_char *m_packet)
 {
 	packet_args *args = (packet_args *)userdata;
@@ -119,7 +120,7 @@ process_ip(u_char *userdata, const struct pcap_pkthdr *header,const u_char *m_pa
 	return 0;
 }
 
-int 
+static int
 process_ip6(u_char *userdata, const struct pcap_pkthdr *header,const u_char *m_packet)
 {
 	packet_args *args = (packet_args *)userdata;
@@ -129,15 +130,14 @@ process_ip6(u_char *userdata, const struct pcap_pkthdr *header,const u_char *m_p
 	args->ip6_dst = ip6->ip6_dst;
 	return 0;
 }
-int 
+static int
 process_tcp(u_char *userdata, const struct pcap_pkthdr *header,const u_char *m_packet)
 {
 	packet_args *args = (packet_args *)userdata;
 	struct hdr_tcp *tcp = (struct hdr_tcp *)(m_packet);
-	struct timeval cur = header->ts;
 	get_curtime(header->ts);
 	Packet *packet = g_slice_new(Packet);
-	
+
 	switch(args->sa_family)
 	{
 	case AF_INET:
@@ -169,13 +169,13 @@ process_tcp(u_char *userdata, const struct pcap_pkthdr *header,const u_char *m_p
 	return 1;
 }
 
-void 
+static void
 add_callback(packet_handle *handle, enum packet_type type, packet_callback callback)
 {
 	handle->callback[type] = callback ;
 }
 
-packet_handle*
+static packet_handle*
 get_interface_handle(char *device, GError **err)
 {
 	bpf_u_int32 maskp; // subnet mask
@@ -208,7 +208,7 @@ get_interface_handle(char *device, GError **err)
 
 	packet_handle *temp_packet_handle = (packet_handle *)malloc(sizeof(packet_handle));
 	if (temp_packet_handle != NULL)
-	{	
+	{
 		temp_packet_handle->pcap_handle = temp;
 		temp_packet_handle->device_name = device;
 		temp_packet_handle->next = NULL;
@@ -222,16 +222,16 @@ get_interface_handle(char *device, GError **err)
 	return NULL;
 }
 
-packet_handle * 
-open_pcap_handles()
-{	
+packet_handle *
+open_pcap_handles(void)
+{
 	glibtop_netlist buf;
 	char **devices;
 	devices = glibtop_get_netlist (&buf);
 	GError **if_error;
-	int count=0;
+	guint count=0;
 	packet_handle *previous_handle=NULL , *initial_handle = NULL;
-	gboolean init_ele = TRUE ; 
+	gboolean init_ele = TRUE ;
 	while(count < buf.number)
 	{
 		packet_handle *new_handle = get_interface_handle(devices[count], if_error);
@@ -239,7 +239,7 @@ open_pcap_handles()
 		if ((temp = get_device_local_addr(devices[count])) == NULL)
 			g_error("Failed to get addr for %s\n",devices[count]);
 		if (new_handle != NULL)
-		{	
+		{
 			if (init_ele)
 			{
 				initial_handle = new_handle;
@@ -259,23 +259,21 @@ open_pcap_handles()
 	return initial_handle;
 }
 
-void 
+void
 print_pcap_handles(packet_handle *handle)
 {
 	glibtop_netlist buf;
-	char **devices;
-	devices = glibtop_get_netlist (&buf);
-	int count = 0;
+	glibtop_get_netlist (&buf);
 	packet_handle *temp_handle = handle;
 	while (temp_handle != NULL)
 	{
 		printf("device name : %s linktype: %d \n ", temp_handle->device_name, temp_handle->linktype);
 		temp_handle = temp_handle->next;
-	}	
+	}
 }
 
 void
-print_interface_local_address()
+print_interface_local_address(void)
 {
 	local_addr *temp = get_local_addr_instance(NULL);
 	while (temp != NULL && temp->device_name != NULL)
@@ -285,7 +283,7 @@ print_interface_local_address()
 	}
 }
 
-void
+static void
 packet_parse_tcp(packet_handle *handle, const struct pcap_pkthdr *hdr, const u_char * pkt)
 {
 	if (handle->callback[packet_tcp] != NULL)
@@ -295,7 +293,7 @@ packet_parse_tcp(packet_handle *handle, const struct pcap_pkthdr *hdr, const u_c
 	}
 }
 
-void
+static void
 packet_parse_ip(packet_handle *handle, const struct pcap_pkthdr *hdr, const u_char *pkt)
 {
 	const struct hdr_ip *ip_packet = (struct hdr_ip*)pkt;
@@ -307,11 +305,10 @@ packet_parse_ip(packet_handle *handle, const struct pcap_pkthdr *hdr, const u_ch
 	}
 	u_char *payload = (u_char *)(pkt + sizeof(struct ip));
 	if (handle->callback[packet_ip] != NULL)
-	{	
+	{
 		if (handle->callback[packet_ip](handle->userdata, hdr, pkt))
 			return ;
 	}
-	const struct hdr_tcp *tcp;
 	switch(ip_packet->ip_p)
 	{
 	case IPPROTO_TCP:
@@ -324,17 +321,18 @@ packet_parse_ip(packet_handle *handle, const struct pcap_pkthdr *hdr, const u_ch
 	}
 }
 
-void packet_parse_ip6(packet_handle *handle, const struct pcap_pkthdr *hdr, const u_char *pkt)
+static void
+packet_parse_ip6(packet_handle *handle, const struct pcap_pkthdr *hdr, const u_char *pkt)
 {
 	const struct ip6_hdr *ip6 = (struct ip6_hdr *)pkt;
 	u_char *payload = (u_char *)(pkt + sizeof(ip6));
 
-	if (handle->callback[packet_ip6] != NULL) 
+	if (handle->callback[packet_ip6] != NULL)
 	{
-		if (handle->callback[packet_ip6])(handle->userdata, hdr, pkt);
+		if (handle->callback[packet_ip6](handle->userdata, hdr, pkt))
 			return;
 	}
-	switch ((ip6->ip6_ctlun).ip6_un1.ip6_un1_nxt) 
+	switch ((ip6->ip6_ctlun).ip6_un1.ip6_un1_nxt)
 	{
 	case IPPROTO_TCP:
 		packet_parse_tcp(handle, hdr, payload);
@@ -344,7 +342,7 @@ void packet_parse_ip6(packet_handle *handle, const struct pcap_pkthdr *hdr, cons
 	}
 }
 
-void
+static void
 packet_parse_ethernet(packet_handle * handle, const struct pcap_pkthdr *hdr, const u_char *pkt)
 {
 	const struct hdr_ethernet *ethernet = (struct hdr_ethernet *)pkt;
@@ -362,7 +360,7 @@ packet_parse_ethernet(packet_handle * handle, const struct pcap_pkthdr *hdr, con
 	}
 }
 
-void
+static void
 packet_pcap_callback(u_char *u_handle, const struct pcap_pkthdr *hdr, const u_char *pkt)
 {
 	packet_handle *handle = (packet_handle *)u_handle;
