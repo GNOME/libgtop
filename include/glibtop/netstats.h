@@ -15,7 +15,7 @@ G_BEGIN_DECLS
 #if GLIBTOP_SUID_NETSTATS
 GArray *network_stats_get_global_instance_s(glibtop *server, GArray *val);
 void _glibtop_init_netstats_s(glibtop *server);
-void glibtop_init_packet_capture_s ();
+void glibtop_init_packet_capture_s (void);
 #endif
 
 G_END_DECLS

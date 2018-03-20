@@ -8,8 +8,6 @@
 #include <glibtop/netsockets.h>
 #include <stdio.h>
 
-static time_t last_refresh_time = 0;
-
 int main()
 {
 	GMainLoop *loop;
