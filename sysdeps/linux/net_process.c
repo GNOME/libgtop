@@ -53,13 +53,8 @@ to_kb(guint64 bytes)
 	return ((double)bytes)/1024;
 }
 
-float
-to_kbps(guint64 bytes)
-{
-	return to_kb(bytes)/PERIOD;
-}
 void
-Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, struct timeval curtime)
+Net_process_get_kb(Net_process *proc, float *recvd, float *sent, struct timeval curtime)
 {
 	guint64 sum_sent = 0;
 	guint64 sum_recv = 0;
@@ -75,8 +70,8 @@ Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, struct timeva
 		previous = curr_conn;
 		curr_conn = Connection_list_get_next(curr_conn); 
 	}
-	*recvd = to_kbps(sum_recv);
-	*sent = to_kbps(sum_sent);
+	*recvd = to_kb(sum_recv);
+	*sent = to_kb(sum_sent);
 
 }
 

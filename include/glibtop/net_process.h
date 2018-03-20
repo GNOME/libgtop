@@ -33,7 +33,7 @@ int Net_process_get_last_packet_time(Net_process *proc);
 void Net_process_get_total(Net_process *proc, guint64 *recvd, guint64 *sent);
 float to_kb(guint64 bytes);
 float to_kbps(guint64 bytes);
-void Net_process_get_kbps(Net_process *proc, float *recvd, float *sent, struct timeval currtime);
+void Net_process_get_kb(Net_process *proc, float *recvd, float *sent, struct timeval currtime);
 uid_t Net_process_get_uid(Net_process *proc);
 GSList *Net_process_list_init(GSList *plist, Net_process *proc);
 Net_process *Net_process_list_get_proc(GSList *plist);

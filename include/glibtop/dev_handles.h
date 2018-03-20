@@ -105,8 +105,6 @@ struct hdr_tcp {
 };
 
 packet_handle * open_pcap_handles(void);
-void print_pcap_handles(packet_handle *handle);
-void print_interface_local_address(void);
 local_addr *get_if_local_addr();
 int packet_dispatch(packet_handle *handle, int count, u_char *user, int size);
 struct timeval get_curtime(struct timeval val );

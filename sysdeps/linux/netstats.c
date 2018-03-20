@@ -75,9 +75,7 @@ glibtop_init_packet_capture_s (void)
 	process_init();
 	packet_handle *handles = open_pcap_handles();
 	printf("\n PCAP HANDLES \n");
-	print_pcap_handles(handles);
 	printf("\nLocal Addresses\n");
-	print_interface_local_address();
 	packet_args *userdata = g_slice_new(packet_args); 
 	while(1)
 	{	

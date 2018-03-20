@@ -129,6 +129,7 @@ const _glibtop_init_func_t _glibtop_init_hook_s [] = {
 #endif
 #if !GLIBTOP_SUID_PROC_OPEN_FILES
 	_glibtop_init_proc_open_files_s,
+#endif
 #if GLIBTOP_SUID_NETSTATS
 	_glibtop_init_netstats_s,
 #endif

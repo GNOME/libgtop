@@ -148,7 +148,7 @@ do_refresh()
 		struct timeval t;
 		t.tv_sec = 0;
 		t = get_curtime(t);
-		Net_process_get_kbps(Net_process_list_get_proc(curproc), &value_recv, &value_sent, t);
+		Net_process_get_kb(Net_process_list_get_proc(curproc), &value_recv, &value_sent, t);
 		/**
 		* use cases:
 		* (RAW STATS) Use this to print the stats on the terminal (uncomment this to use raw data)
@@ -216,7 +216,5 @@ init_setup(void)
 	packet_handle *handles = open_pcap_handles();
 	get_global_packet_handles(handles);
 	printf("\n PCAP HANDLES \n");
-	print_pcap_handles(handles);
 	printf("\nLocal Addresses\n");
-	print_interface_local_address();
 }
