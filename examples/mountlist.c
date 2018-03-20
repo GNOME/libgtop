@@ -99,7 +99,7 @@ main (int argc, char *argv [])
 		glibtop_get_fsusage (&fsusage,
 				     mount_entries [index].mountdir);
 
-		printf ("%-16s %9Lu %9Lu %9Lu %9Lu %9Lu %9d\n",
+		printf ("%-16s %9" G_GUINT64_FORMAT " %9" G_GUINT64_FORMAT " %9" G_GUINT64_FORMAT " %9" G_GUINT64_FORMAT " %9" G_GUINT64_FORMAT " %9d\n",
 			mount_entries [index].mountdir,
 			fsusage.blocks, fsusage.bfree,
 			fsusage.bavail, fsusage.files,

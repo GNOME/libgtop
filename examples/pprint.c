@@ -18,8 +18,13 @@
 #define HEADER_PPRINT(FUNC) printf("### " #FUNC " ###\nsizeof *buf = %lu B\n", \
 (unsigned long) sizeof buf)
 
-#define PPRINT(DATA, FORMAT) printf("\t%4lu B %3lu " #DATA " = " FORMAT "\n", \
+#define PPRINT(DATA, FORMAT) printf("\t%4lu B %3lu " #DATA " = %" FORMAT "\n", \
 (unsigned long) sizeof buf.DATA, (unsigned long) buf_offsetof(DATA), buf.DATA)
+
+#define PPRINT_GUINT64(DATA) PPRINT(DATA, G_GUINT64_FORMAT)
+
+#define PPRINT_FLAGS(DATA) printf("\t%4lu B %3lu " "flags" " = " "%#llx" "\n", \
+(unsigned long) sizeof buf.DATA, (unsigned long) buf_offsetof(DATA), (unsigned long long)buf.DATA)
 
 #define PPRINT_ARRAY(ARRAY, SIZE, FORMAT) do {				\
     size_t i;								\
@@ -32,7 +37,7 @@
 	do { i++; } while (i < SIZE && !buf.ARRAY[i]);			\
 	printf("..., ");						\
       } else {								\
-	printf(".%u = " FORMAT ", ", i, buf.ARRAY[i]);			\
+	printf(".%zd = %" FORMAT ", ", i, buf.ARRAY[i]);			\
       }									\
     }									\
     printf("}\n");							\
@@ -70,8 +75,8 @@ static void pprint_get_sysinfo(void)
   buf = glibtop_get_sysinfo();
 
   HEADER_PPRINT(glibtop_get_sysinfo);
-  //PPRINT(flags, "%#llx");
-  // PPRINT(ncpu, "%llu");
+  //PPRINT_FLAGS(flags);
+  // PPRINT_GUINT64(ncpu);
   PPRINT_ENTRY_ARRAY(cpuinfo, buf->ncpu);
   FOOTER_PPRINT();
 }
@@ -83,25 +88,25 @@ static void pprint_get_cpu(void)
   glibtop_get_cpu(&buf);
 
   HEADER_PPRINT(glibtop_get_cpu);
-  PPRINT(flags, "%#llx");
-  PPRINT(total, "%llu");
-  PPRINT(user, "%llu");
-  PPRINT(nice, "%llu");
-  PPRINT(sys, "%llu");
-  PPRINT(idle, "%llu");
-  PPRINT(iowait, "%llu");
-  PPRINT(irq, "%llu");
-  PPRINT(softirq, "%llu");
-  PPRINT(frequency, "%llu");
-  PPRINT_ARRAY(xcpu_total, GLIBTOP_NCPU, "%llu");
-  PPRINT_ARRAY(xcpu_user, GLIBTOP_NCPU, "%llu");
-  PPRINT_ARRAY(xcpu_nice, GLIBTOP_NCPU, "%llu");
-  PPRINT_ARRAY(xcpu_sys, GLIBTOP_NCPU, "%llu");
-  PPRINT_ARRAY(xcpu_idle, GLIBTOP_NCPU, "%llu");
-  PPRINT_ARRAY(xcpu_iowait, GLIBTOP_NCPU, "%llu");
-  PPRINT_ARRAY(xcpu_irq, GLIBTOP_NCPU, "%llu");
-  PPRINT_ARRAY(xcpu_softirq, GLIBTOP_NCPU, "%llu");
-  PPRINT(xcpu_flags, "%llx");
+  PPRINT_FLAGS(flags);
+  PPRINT_GUINT64(total);
+  PPRINT_GUINT64(user);
+  PPRINT_GUINT64(nice);
+  PPRINT_GUINT64(sys);
+  PPRINT_GUINT64(idle);
+  PPRINT_GUINT64(iowait);
+  PPRINT_GUINT64(irq);
+  PPRINT_GUINT64(softirq);
+  PPRINT_GUINT64(frequency);
+  PPRINT_ARRAY(xcpu_total, GLIBTOP_NCPU, G_GUINT64_FORMAT);
+  PPRINT_ARRAY(xcpu_user, GLIBTOP_NCPU, G_GUINT64_FORMAT);
+  PPRINT_ARRAY(xcpu_nice, GLIBTOP_NCPU, G_GUINT64_FORMAT);
+  PPRINT_ARRAY(xcpu_sys, GLIBTOP_NCPU, G_GUINT64_FORMAT);
+  PPRINT_ARRAY(xcpu_idle, GLIBTOP_NCPU, G_GUINT64_FORMAT);
+  PPRINT_ARRAY(xcpu_iowait, GLIBTOP_NCPU, G_GUINT64_FORMAT);
+  PPRINT_ARRAY(xcpu_irq, GLIBTOP_NCPU, G_GUINT64_FORMAT);
+  PPRINT_ARRAY(xcpu_softirq, GLIBTOP_NCPU, G_GUINT64_FORMAT);
+  PPRINT_FLAGS(xcpu_flags);
   FOOTER_PPRINT();
 }
 
@@ -115,15 +120,15 @@ static void pprint_get_fsusage(const char *mountpoint)
 
   HEADER_PPRINT(glibtop_get_fsusage);
   printf("pprint_get_fsusage (mountpoint = \"%s\"\n", mountpoint);
-  PPRINT(flags, "%#llx");
-  PPRINT(blocks, "%llu");
-  PPRINT(bfree, "%llu");
-  PPRINT(bavail, "%llu");
-  PPRINT(files, "%llu");
-  PPRINT(ffree, "%llu");
-  PPRINT(block_size, "%u");
-  PPRINT(read, "%llu");
-  PPRINT(write, "%llu");
+  PPRINT_FLAGS(flags);
+  PPRINT_GUINT64(blocks);
+  PPRINT_GUINT64(bfree);
+  PPRINT_GUINT64(bavail);
+  PPRINT_GUINT64(files);
+  PPRINT_GUINT64(ffree);
+  PPRINT(block_size, "u");
+  PPRINT_GUINT64(read);
+  PPRINT_GUINT64(write);
   FOOTER_PPRINT();
 }
 
@@ -136,11 +141,11 @@ static void pprint_get_loadavg(void)
   glibtop_get_loadavg(&buf);
 
   HEADER_PPRINT(glibtop_get_loadavg);
-  PPRINT(flags, "%#llx");
-  PPRINT_ARRAY(loadavg, 3, "%f");
-  PPRINT(nr_running, "%llu");
-  PPRINT(nr_tasks, "%llu");
-  PPRINT(last_pid, "%llu");
+  PPRINT_FLAGS(flags);
+  PPRINT_ARRAY(loadavg, 3, "f");
+  PPRINT_GUINT64(nr_running);
+  PPRINT_GUINT64(nr_tasks);
+  PPRINT_GUINT64(last_pid);
   FOOTER_PPRINT();
 }
 
@@ -153,15 +158,15 @@ static void pprint_get_mem(void)
   glibtop_get_mem(&buf);
 
   HEADER_PPRINT(glibtop_get_mem);
-  PPRINT(flags, "%#llx");
-  PPRINT(total, "%llu");
-  PPRINT(used, "%llu");
-  PPRINT(free, "%llu");
-  PPRINT(shared, "%llu");
-  PPRINT(buffer, "%llu");
-  PPRINT(cached, "%llu");
-  PPRINT(user, "%llu");
-  PPRINT(locked, "%llu");
+  PPRINT_FLAGS(flags);
+  PPRINT_GUINT64(total);
+  PPRINT_GUINT64(used);
+  PPRINT_GUINT64(free);
+  PPRINT_GUINT64(shared);
+  PPRINT_GUINT64(buffer);
+  PPRINT_GUINT64(cached);
+  PPRINT_GUINT64(user);
+  PPRINT_GUINT64(locked);
   FOOTER_PPRINT();
 }
 
@@ -177,12 +182,12 @@ static void pprint_get_mountlist(gboolean allfs)
 
   HEADER_PPRINT(glibtop_get_mountlist);
   printf("glibtop_get_mountlist (allfs = %d)\n", allfs);
-  PPRINT(flags, "%#llx");
-  PPRINT(number, "%llu");
-  PPRINT(total, "%llu");
-  PPRINT(size, "%llu");
+  PPRINT_FLAGS(flags);
+  PPRINT_GUINT64(number);
+  PPRINT_GUINT64(total);
+  PPRINT_GUINT64(size);
 
-  printf("\t%4llu B entries[%llu] = \n\t\t{\n", buf.total, buf.number);
+  printf("\t%4" G_GUINT64_FORMAT " B entries[%" G_GUINT64_FORMAT "] = \n\t\t{\n", buf.total, buf.number);
 
   for(i = 0; i < buf.number; ++i)
     {
@@ -190,7 +195,7 @@ static void pprint_get_mountlist(gboolean allfs)
 	     " .devname = \"%s\","
 	     " .mountir = \"%s\","
 	     " .type = \"%s\" }\n",
-	     (unsigned long) i, entries[i].dev,
+	     (unsigned long) i, (unsigned long long)entries[i].dev,
 	     entries[i].devname,
 	     entries[i].mountdir,
 	     entries[i].type);
@@ -211,14 +216,14 @@ static void pprint_get_msg_limits(void)
   glibtop_get_msg_limits(&buf);
 
   HEADER_PPRINT(glibtop_get_msg_limits);
-  PPRINT(flags, "%#llx");
-  PPRINT(msgpool, "%llu");
-  PPRINT(msgmap, "%llu");
-  PPRINT(msgmax, "%llu");
-  PPRINT(msgmnb, "%llu");
-  PPRINT(msgmni, "%llu");
-  PPRINT(msgssz, "%llu");
-  PPRINT(msgtql, "%llu");
+  PPRINT_FLAGS(flags);
+  PPRINT_GUINT64(msgpool);
+  PPRINT_GUINT64(msgmap);
+  PPRINT_GUINT64(msgmax);
+  PPRINT_GUINT64(msgmnb);
+  PPRINT_GUINT64(msgmni);
+  PPRINT_GUINT64(msgssz);
+  PPRINT_GUINT64(msgtql);
   FOOTER_PPRINT();
 }
 
@@ -232,7 +237,7 @@ static void pprint_get_netload(const char *iface)
 
   HEADER_PPRINT(glibtop_get_netload);
   printf("glibtop_get_netload (iface = \"%s\")\n", iface);
-  PPRINT(flags, "%#llx");
+  PPRINT_FLAGS(flags);
   FOOTER_PPRINT();
 }
 
@@ -266,12 +271,12 @@ static void pprint_get_swap(void)
   glibtop_get_swap(&buf);
 
   HEADER_PPRINT(glibtop_get_swap);
-  PPRINT(flags, "%#llx");
-  PPRINT(total, "%llu");
-  PPRINT(used, "%llu");
-  PPRINT(free, "%llu");
-  PPRINT(pagein, "%llu");
-  PPRINT(pageout, "%llu");
+  PPRINT_FLAGS(flags);
+  PPRINT_GUINT64(total);
+  PPRINT_GUINT64(used);
+  PPRINT_GUINT64(free);
+  PPRINT_GUINT64(pagein);
+  PPRINT_GUINT64(pageout);
   FOOTER_PPRINT();
 }
 
@@ -284,10 +289,10 @@ static void pprint_get_uptime(void)
   glibtop_get_uptime(&buf);
 
   HEADER_PPRINT(glibtop_get_uptime);
-  PPRINT(flags, "%#llx");
-  PPRINT(uptime, "%f");
-  PPRINT(idletime, "%f");
-  PPRINT(boot_time, "%llu");
+  PPRINT_FLAGS(flags);
+  PPRINT(uptime, "f");
+  PPRINT(idletime, "f");
+  PPRINT_GUINT64(boot_time);
   FOOTER_PPRINT();
 }
 
@@ -301,12 +306,12 @@ static void pprint_get_proc_kernel(pid_t pid)
   glibtop_get_proc_kernel(&buf, pid);
 
   HEADER_PPRINT(glibtop_get_proc_kernel);
-  PPRINT(flags, "%#llx");
-  PPRINT(k_flags, "%llu");
-  PPRINT(min_flt, "%llu");
-  PPRINT(maj_flt, "%llu");
-  PPRINT(cmin_flt, "%llu");
-  PPRINT(cmaj_flt, "%llu");
+  PPRINT_FLAGS(flags);
+  PPRINT_GUINT64(k_flags);
+  PPRINT_GUINT64(min_flt);
+  PPRINT_GUINT64(maj_flt);
+  PPRINT_GUINT64(cmin_flt);
+  PPRINT_GUINT64(cmaj_flt);
   FOOTER_PPRINT();
 }
 
@@ -318,13 +323,13 @@ static void pprint_get_proc_mem(pid_t pid)
   glibtop_get_proc_mem(&buf, pid);
 
   HEADER_PPRINT(glibtop_get_proc_mem);
-  PPRINT(flags, "%#llx");
-  PPRINT(size, "%llu");
-  PPRINT(vsize, "%llu");
-  PPRINT(resident, "%llu");
-  PPRINT(share, "%llu");
-  PPRINT(rss, "%llu");
-  PPRINT(rss_rlim, "%llu");
+  PPRINT_FLAGS(flags);
+  PPRINT_GUINT64(size);
+  PPRINT_GUINT64(vsize);
+  PPRINT_GUINT64(resident);
+  PPRINT_GUINT64(share);
+  PPRINT_GUINT64(rss);
+  PPRINT_GUINT64(rss_rlim);
   FOOTER_PPRINT();
 }
 
@@ -338,9 +343,9 @@ static void pprint_get_proc_affinity(pid_t pid)
   cpus = glibtop_get_proc_affinity(&buf, pid);
 
   HEADER_PPRINT(glibtop_get_proc_affinity);
-  PPRINT(flags, "%#llx");
-  PPRINT(number, "%u");
-  PPRINT(all, "%d");
+  PPRINT_FLAGS(flags);
+  PPRINT(number, "u");
+  PPRINT(all, "d");
 
   printf("\taffinity=");
   for (i = 0; i < buf.number; i++) {

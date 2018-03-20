@@ -162,10 +162,10 @@ main (int argc, char *argv [])
 
 		fputc('\n', stderr);
 
-		g_print("smaps flags:%#llx size:%lluKiB rss:%lluKiB "
-			"shared_clean:%lluKib shared_dirty:%lluKiB "
-			"private_clean:%lluKiB private_dirty: %lluKiB\n",
-			maps[i].flags,
+		g_print("smaps flags:%#llx size:%" G_GUINT64_FORMAT "KiB rss:%" G_GUINT64_FORMAT "KiB "
+			"shared_clean:%" G_GUINT64_FORMAT "Kib shared_dirty:%" G_GUINT64_FORMAT "KiB "
+			"private_clean:%" G_GUINT64_FORMAT "KiB private_dirty: %" G_GUINT64_FORMAT "KiB\n",
+			(unsigned long long)maps[i].flags,
 			maps[i].size >> 10,
 			maps[i].rss >> 10,
 			maps[i].shared_clean >> 10,

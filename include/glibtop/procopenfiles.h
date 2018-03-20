@@ -105,7 +105,7 @@ struct _glibtop_proc_open_files
 glibtop_open_files_entry *
 glibtop_get_proc_open_files(glibtop_proc_open_files *buf, pid_t pid);
 
-#if GLIBTOP_SUID_PROC_FILE
+#if GLIBTOP_SUID_PROC_OPEN_FILES
 #define glibtop_get_proc_open_files_r		glibtop_get_proc_open_files_p
 #else
 #define glibtop_get_proc_open_files_r		glibtop_get_proc_open_files_s
@@ -124,7 +124,7 @@ glibtop_get_proc_open_files(glibtop_proc_open_files *buf, pid_t pid);
 glibtop_open_files_entry *
 glibtop_get_proc_open_files_l (glibtop *server, glibtop_proc_open_files *buf, pid_t pid);
 
-#if GLIBTOP_SUID_PROC_FILE
+#if GLIBTOP_SUID_PROC_OPEN_FILES
 void _glibtop_init_proc_open_files_p (glibtop *server);
 
 

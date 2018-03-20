@@ -8,7 +8,8 @@ libgtop_sysdeps_suid_2_0_la_SOURCES = open.c close.c \
 cpu.c mem.c swap.c uptime.c loadavg.c shm_limits.c msg_limits.c \
 sem_limits.c procaffinity.c proclist.c procstate.c procuid.c proctime.c \
 procmem.c procsignal.c prockernel.c procsegment.c procargs.c \
-procmap.c netload.c ppp.c netlist.c procopenfiles.c procwd.c
+procmap.c netload.c ppp.c netlist.c procopenfiles.c procwd.c \
+procio.c
 
 libgtopinclude_HEADERS		= glibtop_server.h glibtop_machine.h
 libgtopincludedir		= $(includedir)/libgtop-2.0

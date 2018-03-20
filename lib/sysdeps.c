@@ -45,6 +45,7 @@ GLIBTOP_SUID_PROC_KERNEL +
 GLIBTOP_SUID_PROC_SEGMENT +
 GLIBTOP_SUID_PROC_ARGS +
 GLIBTOP_SUID_PROC_MAP +
+GLIBTOP_SUID_PROC_OPEN_FILES +
 GLIBTOP_SUID_NETLOAD +
 GLIBTOP_SUID_NETLIST +
 GLIBTOP_SUID_PROC_WD +
@@ -126,8 +127,13 @@ const _glibtop_init_func_t _glibtop_init_hook_s [] = {
 #if !GLIBTOP_SUID_PROC_IO
 	_glibtop_init_proc_io_s,
 #endif
+<<<<<<< HEAD
 #if GLIBTOP_SUID_NETSTATS
 	_glibtop_init_netstats_s,
+=======
+#if !GLIBTOP_SUID_PROC_OPEN_FILES
+	_glibtop_init_proc_open_files_s,
+>>>>>>> cab8791fdd6a174b1aea06410214800a774a729b
 #endif
 	NULL
 };
@@ -204,6 +210,9 @@ const _glibtop_init_func_t _glibtop_init_hook_p [] = {
 #endif
 #if GLIBTOP_SUID_PROC_IO
 	_glibtop_init_proc_io_p,
+#endif
+#if GLIBTOP_SUID_PROC_OPEN_FILES
+	_glibtop_init_proc_open_files_p,
 #endif
 	NULL
 };
