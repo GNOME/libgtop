@@ -32,7 +32,7 @@ process_init()
 	get_proc_list_instance(processes);
 }
 
-struct timeval 
+struct timeval
 get_curtime(struct timeval val)
 {	static struct timeval curtime ;
 	if(val.tv_sec)
@@ -53,7 +53,7 @@ Net_process *get_process_from_inode(unsigned long inode, const char *device_name
 		current = current->next;
 	}
 	if (pid!= -1)
-	{	
+	{
 		Net_process *proc = g_slice_new(Net_process);
 		Net_process_init(proc, pid);
 		GSList *processes = get_proc_list_instance(NULL);
@@ -83,7 +83,6 @@ get_process(Connection *conn, const char *device_name)
 			inode = match_hash_to_inode(Packet_gethash(reverse_pkt));
 			if (inode == -1)
 			{
-				//printf("Unknown PROC\n");
 				g_slice_free(Packet, reverse_pkt);
 				GSList *temp = Conn_list_init(get_unknown_proc_instance(NULL)->proc_connections, conn);
 				get_unknown_proc_instance(NULL)->proc_connections = temp; //assigning this connection to unknown TCP 
@@ -196,13 +195,13 @@ get_interface_handle(char *device, GError **err)
 	}
 	if (pcap_compile(temp, &fp, filter_exp, 0, netp) == -1) 
 	{
-		fprintf(stderr, "Couldn't parse filter %s: %s\n",
+		g_error("Couldn't parse filter %s: %s\n",
 				filter_exp, pcap_geterr(temp));
 		exit(EXIT_FAILURE);
 	}
 	if (pcap_setfilter(temp, &fp) == -1)
 	{
-		fprintf(stderr, "Couldn't install filter %s: %s\n",
+		g_error("Couldn't install filter %s: %s\n",
 				filter_exp, pcap_geterr(temp));
 		exit(EXIT_FAILURE);
 	}
@@ -238,7 +237,7 @@ open_pcap_handles()
 		packet_handle *new_handle = get_interface_handle(devices[count], if_error);
 		local_addr *temp;
 		if ((temp = get_device_local_addr(devices[count])) == NULL)
-			printf("Failed to get addr for %s\n",devices[count]);
+			g_error("Failed to get addr for %s\n",devices[count]);
 		if (new_handle != NULL)
 		{	
 			if (init_ele)
@@ -250,7 +249,7 @@ open_pcap_handles()
 			add_callback(new_handle, packet_ip6, process_ip6);
 			add_callback(new_handle, packet_tcp, process_tcp);
 			if (pcap_setnonblock(new_handle->pcap_handle, 1, errbuf) == -1)
-				printf("failed to set to non blocking mode %s\n",devices[count]);
+				g_error("failed to set to non blocking mode %s\n",devices[count]);
 			if (previous_handle != NULL)
 				previous_handle->next = new_handle;
 			previous_handle = new_handle;
@@ -359,13 +358,13 @@ packet_parse_ethernet(packet_handle * handle, const struct pcap_pkthdr *hdr, con
 	case ETHERTYPE_IPV6:
 		packet_parse_ip6(handle, hdr, payload);
 		break;
-	
+
 	}
 }
 
 void
 packet_pcap_callback(u_char *u_handle, const struct pcap_pkthdr *hdr, const u_char *pkt)
-{	
+{
 	packet_handle *handle = (packet_handle *)u_handle;
 	switch(handle->linktype)
 	{
