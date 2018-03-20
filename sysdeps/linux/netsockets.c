@@ -9,9 +9,9 @@
 #include <arpa/inet.h>
 #include <errno.h>
 
-gint 
+gint
 match_pid(int inode)
-{	
+{
 	GHashTable *inode_table = get_global_hashes_instance().inode_table;
 	if (g_hash_table_lookup(inode_table, GINT_TO_POINTER(inode)) != NULL)
 	{
@@ -20,13 +20,13 @@ match_pid(int inode)
 	return -1;
 }
 
-void 
+void
 print_table(gpointer key, gpointer value, gpointer user_data)
 {
 	printf("%s :: %d\n", (char *)key, GPOINTER_TO_INT(value));
 }
 
-void 
+void
 print_hash(GHashTable *inode_table)
 {
 	g_hash_table_foreach(inode_table, (GHFunc)print_table, NULL);
@@ -38,7 +38,7 @@ match_hash_to_inode(char *hash)
 	GHashTable *hash_table = get_global_hashes_instance().hash_table;
 	print_hash(hash_table);
 	if (g_hash_table_lookup(hash_table, hash) != NULL)
-	{	
+	{
 		return GPOINTER_TO_INT(g_hash_table_lookup(hash_table, hash));
 	}
 	return -1;
@@ -68,7 +68,7 @@ add_socket_list(char *buf, glibtop_socket *list_socket, GHashTable *inode_table,
 							&(temp_socket->inode));
 	if (matches != 5)
 	{
-		fprintf(stderr, "Invalid buf\n");
+		g_error("Invalid buf\n");
 		exit(0);
 	}
 
@@ -98,7 +98,7 @@ add_socket_list(char *buf, glibtop_socket *list_socket, GHashTable *inode_table,
 		//snprintf(temp_hash, HASHKEYSIZE * sizeof(char), "%s:%d-%s:%d", lip, temp_socket->local_port, rip, temp_socket->rem_port);
 	}
 	else//it is IPv4
-	{		
+	{
 		sscanf(temp_local_addr, "%X", (unsigned int *)&(*(temp_socket->laddr)));
 		sscanf(temp_rem_addr, "%X", (unsigned int *)&(*(temp_socket->rem_addr)));
 		temp_socket->sa_family = AF_INET;
@@ -123,14 +123,13 @@ glibtop_get_netsockets (char *filename, GHashTable *inode_table, GHashTable *has
 	FILE *fd = fopen(filename, "r");
 
 	if (fd == NULL)
-	{	
-		fprintf(stderr, "Error opening file : %s", filename);
-		printf("%d\n",errno );
+	{
+		g_error("Error opening file : %s", filename);
 		return NULL;
 	}
 	//removing the file header
 	fgets(line, sizeof(line), fd);
-	//to initialise socket_list with the first entry  
+	//to initialise socket_list with the first entry
 	fgets(line, sizeof(line), fd);
 	glibtop_socket *socket_list = NULL;
 	socket_list = add_socket_list(line, socket_list, inode_table, hash_table);
@@ -147,14 +146,14 @@ glibtop_get_netsockets (char *filename, GHashTable *inode_table, GHashTable *has
 
 void
 global_hashes_init(global_hashes *gh)
-{	
+{
 	if(gh->inode_table == NULL)
 		gh->inode_table  = g_hash_table_new(g_direct_hash, g_direct_equal);
 	if(gh->hash_table == NULL)
 		gh->hash_table = g_hash_table_new(g_str_hash, g_str_equal);
 }
 
-global_hashes 
+global_hashes
 get_global_hashes_instance()
 {
 	static global_hashes gh_temp = {NULL,NULL};

@@ -13,7 +13,7 @@
 #define EPSILON	0.001 //precision is set to 2 decimal places at the client end of dbus so less than this is clearly insignificant
 static time_t last_refresh_time = 0;
 
-void 
+void
 network_stats_init(network_stats_entry *st,double recv_value, double sent_value, pid_t pid)
 {
 	st->pid = pid;
@@ -31,10 +31,10 @@ network_stats_print_entry(network_stats_entry *st)
 
 void
 network_stats_print_stat(GArray *stats,int nproc)
-{	
+{
 	GArray *list = stats;
 	for(int index = 0; index < nproc; index++)
-	{	
+	{
 		network_stats_entry temp = g_array_index (stats, network_stats_entry, index);
 		network_stats_print_entry(&temp);
 		if(stats->len>index	)
@@ -45,10 +45,10 @@ network_stats_print_stat(GArray *stats,int nproc)
 
 void
 dbus_stats_free(GPtrArray *dbus_stats_instance)
-{	
+{
 	guint len = dbus_stats_instance->len;
 	while(len--)
-	{	
+	{
 		stats *temp = (stats *)g_ptr_array_index(dbus_stats_instance,0);
 		g_ptr_array_remove_index(dbus_stats_instance, 0);
 		g_slice_free(stats,temp);
@@ -61,14 +61,13 @@ network_stats_get_global_instance(GArray *val)
 {
 	static GArray *global_stats = NULL;
 	if (val != NULL)
-		{	
+		{
 			global_stats = val;
 		}
 	else	if (global_stats == NULL)
-	{	
+	{
 		global_stats = g_array_new (TRUE,FALSE,sizeof(network_stats_entry));
-		
-	}			
+	}
 	return global_stats;
 }
 
@@ -87,13 +86,13 @@ get_stats_instance(GPtrArray *val)
 {
 	static GPtrArray *dbus_stats = NULL;
 	if (val != NULL)
-	{	
+	{
 		dbus_stats = val;
 	}
 	else if (dbus_stats == NULL)
-	{	
+	{
 		dbus_stats = g_ptr_array_new ();
-	}			
+	}
 	return dbus_stats;
 }
 
@@ -123,10 +122,10 @@ get_capture_status(gboolean val)
 	return active;
 }
 
-void 
+void
 do_refresh()
-{		
-char *fname = g_strdup("/proc/self/net/tcp");
+{
+	char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();
 	test_hash.inode_table = NULL;
 	test_hash.hash_table = NULL;
@@ -136,7 +135,7 @@ char *fname = g_strdup("/proc/self/net/tcp");
 	GSList *curproc = get_proc_list_instance(NULL);
 	int nproc = g_slist_length(curproc);
 	printf("no of proc:%d",nproc);
-	GArray *network_stats_instance = network_stats_get_global_instance(NULL);	
+	GArray *network_stats_instance = network_stats_get_global_instance(NULL);
 	GPtrArray *dbus_stats_instance = get_stats_instance(NULL);
 	//free the previous entries in dbus stats
 	dbus_stats_free(dbus_stats_instance);
@@ -158,7 +157,7 @@ char *fname = g_strdup("/proc/self/net/tcp");
 		*  the stats in applications so instatiate the dbus_stats which is GArray of ptr to stats 
 		*  struct
 		*/
-		network_stats_entry temp_stats;	
+		network_stats_entry temp_stats;
 		network_stats_init(&temp_stats,
 		                   value_recv,
 		                   value_sent,
@@ -168,12 +167,12 @@ char *fname = g_strdup("/proc/self/net/tcp");
 		//new instance of stats (dbus) with curproc , prepend , get_instanceNet_process_list_get_proc(curproc)->pid
 		if (value_sent > EPSILON  || value_recv > EPSILON)
 		{
-			stats *temp_dbus_stats = new_stats((guint)Net_process_list_get_proc(curproc)->pid, 
+			stats *temp_dbus_stats = new_stats((guint)Net_process_list_get_proc(curproc)->pid,
 									  value_sent,
 									  value_recv);
 			g_ptr_array_add (dbus_stats_instance, (gpointer)temp_dbus_stats);
 		}
-		
+
 		curproc = curproc->next;
 		n++;
 	}
@@ -189,24 +188,23 @@ glibtop_init_packet_capture ()
 	glibtop_socket *socket_list = glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
 	g_free(fname);
 	packet_handle *handles = get_global_packet_handles(NULL);
-	packet_args *userdata = g_slice_new(packet_args); 
+	packet_args *userdata = g_slice_new(packet_args);
 	for(packet_handle *current_handle = handles; current_handle != NULL; current_handle = current_handle->next)
-		{	
+		{
 			userdata->device = current_handle->device_name;
 			userdata->sa_family = AF_UNSPEC;
-			
+
 			if (current_handle->pcap_handle == NULL)
 				continue;
 			int retval = packet_dispatch(current_handle, 0, (u_char *)userdata, sizeof(packet_args))	;
-			//printf will be later changed to  gerror
 			if (retval < 0)
-				printf("Error dispatching for device %s \n ", current_handle->device_name);
+				g_error("Error dispatching for device %s \n ", current_handle->device_name);
 		}
 		time_t const now = time(NULL);
 		if (last_refresh_time + refresh_delay <= now)
-		{	
+		{
 			last_refresh_time = now;
-			//error in opening file free later//g_slice_free(glibtop_socket, socket_list); //free the socket details struct 
+			g_slice_free(glibtop_socket, socket_list);
 			do_refresh();
 		}
 	return (get_capture_status(FALSE));
