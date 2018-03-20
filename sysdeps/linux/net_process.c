@@ -47,7 +47,7 @@ void Net_process_get_total(Net_process *proc, guint64 *recvd, guint64 *sent)
 	*sent = sum_sent + proc->bytes_sent;
 }
 
-float
+static float
 to_kb(guint64 bytes)
 {
 	return ((double)bytes)/1024;
