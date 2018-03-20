@@ -48,7 +48,7 @@ struct _packet_args
 	struct in6_addr ip6_src;
 	struct in6_addr ip6_dst;
 };
-/*Defining the headers as those available in netinet/*.h are having issues when parsing for ports*/
+/*Defining the headers as those available in netinet_*.h are having issues when parsing for ports*/
 #define SNAP_LEN 1518
 #define SIZE_ETHERNET 14
 #define ETHER_ADDR_LEN	6
@@ -104,16 +104,16 @@ struct hdr_tcp {
 	u_short th_urp;
 };
 
-packet_handle * open_pcap_handles();
+packet_handle * open_pcap_handles(void);
 void print_pcap_handles(packet_handle *handle);
-void print_interface_local_address();
+void print_interface_local_address(void);
 local_addr *get_if_local_addr();
 int packet_dispatch(packet_handle *handle, int count, u_char *user, int size);
 struct timeval get_curtime(struct timeval val );
 local_addr* get_global_local_addr();
 void handles_set_hash(GHashTable *inode, GHashTable *hash);
 void handles_set_process_lists(Net_process_list *procs, Net_process *tcp);
-void process_init();
+void process_init(void);
 Net_process_list *get_processes();
 packet_handle *get_global_packet_handles(packet_handle *val);
 G_END_DECLS

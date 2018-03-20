@@ -21,12 +21,12 @@ static const gchar netstats_introspection_xml[] =
 "    </method>"
 "  </interface>"
 "</node>";
-    
+
 static GDBusNodeInfo *netstats_data = NULL;
 static guint owner_id;
 static GMainLoop *loop;
 //source_id
-guint id;    
+guint id;
 static void
 handle_method_call (GDBusConnection       *connection,
                     const gchar           *sender,
@@ -36,7 +36,7 @@ handle_method_call (GDBusConnection       *connection,
                     GVariant              *parameters,
                     GDBusMethodInvocation *invocation,
                     gpointer               user_data)
-{ 
+{
     GPtrArray *temp = get_stats_instance(NULL);
     if (g_strcmp0 (method_name, "GetStats") == 0)
     {

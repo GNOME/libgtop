@@ -22,7 +22,7 @@ network_stats_init(network_stats_entry *st,double recv_value, double sent_value,
 	g_assert(pid >= 0);
 }
 
-void
+static void
 network_stats_print_entry(network_stats_entry *st)
 {
 	printf("pid :%d \t sent_value:%f \trecv value:%f \t \n", st->pid, st->sent_value, st->recv_value);
@@ -32,8 +32,7 @@ network_stats_print_entry(network_stats_entry *st)
 void
 network_stats_print_stat(GArray *stats,int nproc)
 {
-	GArray *list = stats;
-	for(int index = 0; index < nproc; index++)
+	for(guint index = 0; index < (guint)nproc; index++)
 	{
 		network_stats_entry temp = g_array_index (stats, network_stats_entry, index);
 		network_stats_print_entry(&temp);
@@ -43,7 +42,7 @@ network_stats_print_stat(GArray *stats,int nproc)
 	network_stats_get_global_instance(stats);
 }
 
-void
+static void
 dbus_stats_free(GPtrArray *dbus_stats_instance)
 {
 	guint len = dbus_stats_instance->len;
@@ -71,7 +70,7 @@ network_stats_get_global_instance(GArray *val)
 	return global_stats;
 }
 
-stats *
+static stats *
 new_stats(guint pid,gdouble bytes_sent, gdouble bytes_recv)
 {
 	stats *temp_stats = g_slice_new(stats);
@@ -96,7 +95,7 @@ get_stats_instance(GPtrArray *val)
 	return dbus_stats;
 }
 
-void
+static void
 toggle_capture_status(gboolean *status_ptr)
 {
 	*status_ptr = !(*status_ptr);
@@ -122,7 +121,7 @@ get_capture_status(gboolean val)
 	return active;
 }
 
-void
+static void
 do_refresh()
 {
 	char *fname = g_strdup("/proc/self/net/tcp");
@@ -130,7 +129,7 @@ do_refresh()
 	test_hash.inode_table = NULL;
 	test_hash.hash_table = NULL;
 	test_hash = get_global_hashes_instance();
-	glibtop_socket *socket_list = glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
+	glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
 	g_free(fname);
 	GSList *curproc = get_proc_list_instance(NULL);
 	int nproc = g_slist_length(curproc);
@@ -181,7 +180,7 @@ do_refresh()
 }
 
 gboolean
-glibtop_init_packet_capture ()
+glibtop_init_packet_capture (void)
 {
 	char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();
@@ -211,7 +210,7 @@ glibtop_init_packet_capture ()
 }
 
 void
-init_setup()
+init_setup(void)
 {
 	process_init();
 	packet_handle *handles = open_pcap_handles();
