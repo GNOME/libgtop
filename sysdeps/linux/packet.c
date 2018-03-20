@@ -120,8 +120,7 @@ packet_match(Packet *pkt, Packet *other)
 										((pkt->sip6.s6_addr == other->sip6.s6_addr) && (pkt->dip6.s6_addr == other->dip6.s6_addr));
 }
 
-
-direction 
+static direction
 invert(direction dir)
 {
 	if (dir == dir_incoming)
