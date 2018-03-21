@@ -11,7 +11,7 @@ static const gchar netstats_introspection_xml[] =
 "<node name='/org/gnome/GTop/NetStats'>"
 "  <interface name='org.gnome.GTop.NetStats'>"
 "    <method name='GetStats'>"
-"      <arg type='a{i(dd)}' name='pid' direction='out'/>"
+"      <arg type='a{i(uu)}' name='pid' direction='out'/>"
 "    </method>"
 "    <method name='InitCapture'>"
 "    </method>"
@@ -43,16 +43,16 @@ handle_method_call (GDBusConnection       *connection,
 
         GVariantBuilder *b;
         GVariant *dict;
-        b = g_variant_builder_new (G_VARIANT_TYPE ("(a{i(dd)})"));
-        g_variant_builder_open (b, G_VARIANT_TYPE ("a{i(dd)}"));
+        b = g_variant_builder_new (G_VARIANT_TYPE ("(a{i(uu)})"));
+        g_variant_builder_open (b, G_VARIANT_TYPE ("a{i(uu)}"));
         guint num_proc = temp->len;
         while(num_proc--)
         {
             stats* dbus_stats = g_ptr_array_index(temp,num_proc);
-            g_variant_builder_add (b, 
-                                  "{i(dd)}",
+            g_variant_builder_add (b,
+                                  "{i(uu)}",
                                    dbus_stats->pid,
-                                   g_variant_new ("(dd)",
+                                   g_variant_new ("(uu)",
                                    dbus_stats->bytes_sent,
                                    dbus_stats->bytes_recv));
 
@@ -71,10 +71,10 @@ handle_method_call (GDBusConnection       *connection,
                                                NULL);
     }
     // *TODO* `if` conditions in the following funcs can be removed by changing the 
-    //         implementation of the stats in stats.c 
+    //         implementation of the stats in stats.c
     if (g_strcmp0 (method_name, "SetCaptureStatus") == 0)
-    {	
-	//if it's deactivated activate 
+    {
+	//if it's deactivated activate
 	if(!get_capture_status(FALSE))
             get_capture_status(TRUE);
        g_dbus_method_invocation_return_value (invocation,
@@ -85,19 +85,19 @@ handle_method_call (GDBusConnection       *connection,
 	//if the status is already set to false don't change
        if(get_capture_status(FALSE))
          get_capture_status(TRUE);
-	
+
        g_dbus_method_invocation_return_value (invocation,
                                                NULL);
     }
 }
-     
+
 static const GDBusInterfaceVTable interface_vtable =
 {
     handle_method_call,
     NULL,
     NULL
 };
-     
+
 static void
 on_netstats_bus_acquired (GDBusConnection *connection,
                           const gchar     *name,

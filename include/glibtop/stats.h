@@ -11,20 +11,20 @@ struct _network_stats_entry
 	//char *device_name;
 	pid_t pid;
 	//uid_t uid;
-	double sent_value;
-	double recv_value;
+	guint sent_value;
+	guint recv_value;
 };
 
 typedef struct _netstats stats;
 struct  _netstats
 {
 	guint pid;
-	gdouble bytes_sent;
-	gdouble bytes_recv;
+	guint bytes_sent;
+	guint bytes_recv;
 };
 
 
-void network_stats_init(network_stats_entry *st, double recv_value, double sent_value, pid_t pid);
+void network_stats_init(network_stats_entry *st, guint recv_value, guint sent_value, pid_t pid);
 void network_stats_print_stat(GArray *stat, int nproc);
 GArray *network_stats_get_global_instance(GArray *val);
 gboolean get_capture_status(gboolean val);
