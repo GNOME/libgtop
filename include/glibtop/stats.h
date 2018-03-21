@@ -25,7 +25,6 @@ struct  _netstats
 
 
 void network_stats_init(network_stats_entry *st, guint recv_value, guint sent_value, pid_t pid);
-void network_stats_print_stat(GArray *stat, int nproc);
 GArray *network_stats_get_global_instance(GArray *val);
 gboolean get_capture_status(gboolean val);
 void invert_capture_status(gboolean *status_ptr);

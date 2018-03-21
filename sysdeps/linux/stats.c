@@ -22,26 +22,6 @@ network_stats_init(network_stats_entry *st, guint recv_value, guint sent_value, 
 }
 
 static void
-network_stats_print_entry(network_stats_entry *st)
-{
-	printf("pid :%d \t sent_value:%d \trecv value:%d \t \n", st->pid, st->sent_value, st->recv_value);
-}
-
-
-void
-network_stats_print_stat(GArray *stats,int nproc)
-{
-	for(guint index = 0; index < (guint)nproc; index++)
-	{
-		network_stats_entry temp = g_array_index (stats, network_stats_entry, index);
-		network_stats_print_entry(&temp);
-		if(stats->len>index	)
-		stats = g_array_remove_index(stats, index);
-	}
-	network_stats_get_global_instance(stats);
-}
-
-static void
 dbus_stats_free(GPtrArray *dbus_stats_instance)
 {
 	guint len = dbus_stats_instance->len;
@@ -174,8 +154,6 @@ do_refresh()
 		curproc = curproc->next;
 		n++;
 	}
-	network_stats_print_stat(network_stats_get_global_instance(NULL), nproc);
-	printf("\n\n\n");
 }
 
 gboolean
@@ -214,6 +192,4 @@ init_setup(void)
 	process_init();
 	packet_handle *handles = open_pcap_handles();
 	get_global_packet_handles(handles);
-	printf("\n PCAP HANDLES \n");
-	printf("\nLocal Addresses\n");
 }

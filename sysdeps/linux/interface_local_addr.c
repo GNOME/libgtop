@@ -19,7 +19,7 @@ local_addr_init(local_addr *laddr, in_addr_t addr_value, const char *device, loc
 	laddr->next = next_laddr;
 }
 
-void 
+void
 local_addr6_init(local_addr *laddr, struct in6_addr addr6_value, const char *device, local_addr *next_laddr)
 {
 	laddr->addr6 = addr6_value;
@@ -67,7 +67,7 @@ get_device_local_addr(const char *device)
 			continue;
 		if(g_strcmp0(ifa->ifa_name, device) !=0)
 			continue;
-		
+
 		int family = ifa->ifa_addr->sa_family;
 		if(family == AF_INET)
 		{
@@ -75,7 +75,6 @@ get_device_local_addr(const char *device)
 			local_addr *temp = g_slice_new(local_addr);
 			local_addr_init(temp, addr->sin_addr.s_addr, device, interface_local_addr);
 			get_local_addr_instance(temp); //set global static var of local addr with temp
-			printf("Adding local address: %s\n", inet_ntoa(addr->sin_addr)); //just for debugging
 		}
 		else if(family == AF_INET6)
 		{
@@ -84,7 +83,6 @@ get_device_local_addr(const char *device)
 			local_addr6_init(temp, addr->sin6_addr, device, interface_local_addr); //CHECK THIS
 			get_local_addr_instance(temp);
 			char host[128];
-			printf("Adding local address: %s\n",inet_ntop(AF_INET6, &addr->sin6_addr, host, sizeof(host))); //just for debugging
 		}
 	}
 	return get_local_addr_instance(NULL);
