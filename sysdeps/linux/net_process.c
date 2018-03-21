@@ -47,14 +47,8 @@ void Net_process_get_total(Net_process *proc, guint64 *recvd, guint64 *sent)
 	*sent = sum_sent + proc->bytes_sent;
 }
 
-static float
-to_kb(guint64 bytes)
-{
-	return ((double)bytes)/1024;
-}
-
 void
-Net_process_get_kb(Net_process *proc, float *recvd, float *sent, struct timeval curtime)
+Net_process_get_bytes(Net_process *proc, guint *recvd, guint *sent, struct timeval curtime)
 {
 	guint64 sum_sent = 0;
 	guint64 sum_recv = 0;
@@ -68,11 +62,10 @@ Net_process_get_kb(Net_process *proc, float *recvd, float *sent, struct timeval 
 		sum_recv += recv;
 		sum_sent += sent_val;
 		previous = curr_conn;
-		curr_conn = Connection_list_get_next(curr_conn); 
+		curr_conn = Connection_list_get_next(curr_conn);
 	}
-	*recvd = to_kb(sum_recv);
-	*sent = to_kb(sum_sent);
-
+	*recvd = sum_recv;
+	*sent = sum_sent;
 }
 
 GSList *
