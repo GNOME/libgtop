@@ -4,18 +4,16 @@
 #include <glibtop/connection.h>
 #include <glibtop/net_process.h>
 
-void 
+void
 Net_process_init(Net_process *proc, unsigned long pid)
 {
-	//debug statement
-	printf("Process name :%d\n",pid);
 	proc->pid = pid;
 	proc->bytes_sent = 0;
 	proc->bytes_recv = 0;
 	proc->proc_connections = NULL;
 }
 
-int 
+int
 Net_process_get_last_packet_time(Net_process *proc)
 {
 	int last_packet = 0;
@@ -86,11 +84,6 @@ get_proc_list_instance(GSList *val)
 	static GSList *temp_proc_list = NULL;
 	if (val != NULL)
 		temp_proc_list = val;
-/*	else if (temp_proc_list == NULL)
-	{	
-		Net_process *temp_proc = g_slice_new(Net_process);
-		temp_proc_list = g_slist_append(temp_proc_list, temp_proc);
-	}*/
 	return temp_proc_list;
 }
 

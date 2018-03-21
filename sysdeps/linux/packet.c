@@ -90,10 +90,7 @@ is_pkt_outgoing(Packet *pkt)
 				is_local = local_addr6_contains(pkt_interface_local_addr, &pkt->dip6);
 
 			if (!is_local)
-			{
-				printf("neither dip nor sip are local\n");
 				return FALSE;
-			}
 			pkt->dir = dir_incoming;
 			return FALSE;
 		}
@@ -176,7 +173,6 @@ Packet_gethash(Packet *pkt)
 				remote_string, pkt->dport, local_string, pkt->sport);
 	}
 	pkt->pkt_hash = g_strdup(pkt_hash);
-	printf("matching inode hash %s:%d-%s:%d\n", local_string, pkt->sport, remote_string, pkt->dport);
 	if (pkt->pkt_hash != NULL)
 		return pkt->pkt_hash;
 	return NULL;

@@ -98,7 +98,6 @@ get_process(Connection *conn, const char *device_name)
 	if (proc == NULL)
 	{
 		proc = g_slice_new(Net_process);
-		printf("%s not in /proc/net/tcp \n", Packet_gethash(conn->ref_packet));
 		Net_process_init(proc, inode);
 		//Net_process_list *temp = g_slice_new(Net_process_list);
 		GSList *processes = get_proc_list_instance(NULL);
@@ -149,7 +148,6 @@ process_tcp(u_char *userdata, const struct pcap_pkthdr *header,const u_char *m_p
 		break;
 
 	default:
-		printf("invalid family\n");
 		packet = NULL;
 	}
 
@@ -159,7 +157,7 @@ process_tcp(u_char *userdata, const struct pcap_pkthdr *header,const u_char *m_p
 		if (connection != NULL)
 			add_packet_to_connection(connection, packet);
 		else
-		{	printf("NEW PROC \n");
+		{
 			Connection *connection = g_slice_new(Connection);
 			Connection_init(connection, packet);
 			//Add this connection to a connectionlist depending on the process it belongs to
@@ -259,30 +257,6 @@ open_pcap_handles(void)
 	return initial_handle;
 }
 
-void
-print_pcap_handles(packet_handle *handle)
-{
-	glibtop_netlist buf;
-	glibtop_get_netlist (&buf);
-	packet_handle *temp_handle = handle;
-	while (temp_handle != NULL)
-	{
-		printf("device name : %s linktype: %d \n ", temp_handle->device_name, temp_handle->linktype);
-		temp_handle = temp_handle->next;
-	}
-}
-
-void
-print_interface_local_address(void)
-{
-	local_addr *temp = get_local_addr_instance(NULL);
-	while (temp != NULL && temp->device_name != NULL)
-	{
-		printf("%s : %s \n", temp->device_name, temp->ip_text);
-		temp = temp->next;
-	}
-}
-
 static void
 packet_parse_tcp(packet_handle *handle, const struct pcap_pkthdr *hdr, const u_char * pkt)
 {
@@ -297,12 +271,9 @@ static void
 packet_parse_ip(packet_handle *handle, const struct pcap_pkthdr *hdr, const u_char *pkt)
 {
 	const struct hdr_ip *ip_packet = (struct hdr_ip*)pkt;
-	printf("Looking at packet with length %d \n", hdr->len);
 	size_ip = IP_HL(ip_packet)*4;
-		if (size_ip < 20) {
-		printf("   * Invalid IP header length: %u bytes\n", size_ip);
+		if (size_ip < 20)
 		return;
-	}
 	u_char *payload = (u_char *)(pkt + sizeof(struct ip));
 	if (handle->callback[packet_ip] != NULL)
 	{
@@ -312,7 +283,6 @@ packet_parse_ip(packet_handle *handle, const struct pcap_pkthdr *hdr, const u_ch
 	switch(ip_packet->ip_p)
 	{
 	case IPPROTO_TCP:
-		printf("exec tcp\n");
 		packet_parse_tcp(handle, hdr, payload);
 		break;
 	//non tcp IP packet support not present currently
@@ -369,8 +339,6 @@ packet_pcap_callback(u_char *u_handle, const struct pcap_pkthdr *hdr, const u_ch
 	case (DLT_EN10MB):
 		packet_parse_ethernet(handle, hdr, pkt);
 		break;
-	default :
-		printf("Unknown linktype\n");
 	}
 }
 
