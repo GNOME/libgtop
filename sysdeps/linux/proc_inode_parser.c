@@ -29,7 +29,7 @@ traverse_file(GFile *curdir, int depth, const gchar *pid, GHashTable *inode_tabl
 				switch(depth)
 				{
 				case 0:
-					if (currentFile[0] > 48 && currentFile[0] < 57 )
+					if (g_ascii_isdigit(currentFile[0]))
 					{
 						pid = currentFile;
 						traverse_file(g_file_get_child(curdir, g_file_info_get_name(info_buf)), depth+1, pid, inode_table);
@@ -59,6 +59,8 @@ traverse_file(GFile *curdir, int depth, const gchar *pid, GHashTable *inode_tabl
 						g_hash_table_insert(inode_table, GINT_TO_POINTER(inode), GINT_TO_POINTER(pid_int));
 					}
 				}
+				g_free(slnk_buf);
+				g_free(symlink_name);
 			}
 		}
 	}

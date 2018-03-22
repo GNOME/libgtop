@@ -74,12 +74,6 @@ glibtop_get_stats_instance(GPtrArray *val)
 	return dbus_stats;
 }
 
-static void
-toggle_capture_status(gboolean *status_ptr)
-{
-	*status_ptr = !(*status_ptr);
-}
-
 /**
 *NOTE (DBus): this function is used to change the capture status when a relevant
 *	   		  signal is processed by the callback in the dbus interface.
@@ -96,20 +90,37 @@ glibtop_get_capture_status(gboolean val)
 	//if val is true invert the capture status
 	//if false capture status is unchanged
 	if(val)
-		toggle_capture_status(&active);
+		{
+			active = !active;
+		}
 	return active;
 }
+static void
+network_stats_print_entry(network_stats_entry *st)
+{
+	printf("pid :%d \t sent_value:%d \trecv value:%d \t \n", st->pid, st->sent_value, st->recv_value);
+}
 
+void
+network_stats_print_stat(GArray *stats,int nproc)
+{
+	for(guint index = 0; index < (guint)nproc; index++)
+	{
+		network_stats_entry temp = g_array_index (stats, network_stats_entry, index);
+		network_stats_print_entry(&temp);
+		if(stats->len>index	)
+		stats = g_array_remove_index(stats, index);
+	}
+	network_stats_get_global_instance(stats);
+}
 static void
 do_refresh()
 {
-	char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();
 	test_hash.inode_table = NULL;
 	test_hash.hash_table = NULL;
 	test_hash = get_global_hashes_instance();
-	glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
-	g_free(fname);
+	glibtop_get_netsockets ("/proc/self/net/tcp", test_hash.inode_table, test_hash.hash_table);
 	GSList *curproc = get_proc_list_instance(NULL);
 	int nproc = g_slist_length(curproc);
 	GArray *network_stats_instance = network_stats_get_global_instance(NULL);
@@ -117,7 +128,6 @@ do_refresh()
 	//free the previous entries in dbus stats
 	dbus_stats_free(dbus_stats_instance);
 
-	int n = 0;
 	while (curproc != NULL)
 	{
 		g_assert(curproc->data != NULL);
@@ -147,21 +157,20 @@ do_refresh()
 			stats *temp_dbus_stats = new_stats((guint)Net_process_list_get_proc(curproc)->pid,
 									  value_sent,
 									  value_recv);
-			g_ptr_array_add (dbus_stats_instance, (gpointer)temp_dbus_stats);
+			g_ptr_array_add (dbus_stats_instance, temp_dbus_stats);
 		}
-
+			network_stats_print_stat(network_stats_get_global_instance(NULL), nproc);
+	printf("\n\n\n");
 		curproc = curproc->next;
-		n++;
+
 	}
 }
 
 gboolean
 glibtop_init_packet_capture (void)
 {
-	char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();
-	glibtop_socket *socket_list = glibtop_get_netsockets (fname, test_hash.inode_table, test_hash.hash_table);
-	g_free(fname);
+	glibtop_socket *socket_list = glibtop_get_netsockets ("/proc/self/net/tcp", test_hash.inode_table, test_hash.hash_table);
 	packet_handle *handles = get_global_packet_handles(NULL);
 	packet_args *userdata = g_slice_new(packet_args);
 	for(packet_handle *current_handle = handles; current_handle != NULL; current_handle = current_handle->next)

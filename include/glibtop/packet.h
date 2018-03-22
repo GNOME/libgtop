@@ -33,14 +33,14 @@ struct _Packet
 	char *pkt_hash;
 };
 
-void Packet_init_in_addr(Packet *pkt, struct in_addr pkt_sip, unsigned short pkt_sport, struct in_addr pkt_dip, 
+void Packet_init_in_addr(Packet *pkt, struct in_addr pkt_sip, unsigned short pkt_sport, struct in_addr pkt_dip,
 						unsigned short pkt_dport, guint32 pkt_len, struct timeval pkt_ts, direction pkt_dir);
-void Packet_init_in6_addr(Packet *pkt, struct in6_addr pkt_sip6, unsigned short pkt_sport, struct in6_addr pkt_dip6, 
+void Packet_init_in6_addr(Packet *pkt, struct in6_addr pkt_sip6, unsigned short pkt_sport, struct in6_addr pkt_dip6,
 						unsigned short pkt_dport, guint32 pkt_len, struct timeval pkt_ts, direction pkt_dir);
-void Packet_init(Packet *pkt, Packet *old_packet);
+Packet *Packet_init(Packet *old_packet);
 gboolean is_pkt_outgoing(Packet *pkt);
 gboolean packet_match_source(Packet *pkt, Packet *other);
-gboolean packet_match(Packet *pkt,Packet *other); 
+gboolean packet_match(Packet *pkt,Packet *other);
 Packet *get_inverted_packet(Packet *pkt);
 char *Packet_gethash(Packet *pkt);
 

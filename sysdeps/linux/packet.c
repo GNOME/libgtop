@@ -41,42 +41,31 @@ Packet_init_in6_addr(Packet *pkt, struct in6_addr pkt_sip6, unsigned short pkt_s
 	pkt->pkt_hash = NULL;
 }
 
-void
-Packet_init(Packet *pkt, Packet *old_packet)
+Packet *
+Packet_init(Packet *old_packet)
 {
-	pkt->sa_family = old_packet->sa_family;
-	pkt->sip = old_packet->sip;
-	pkt->dip = old_packet->dip;
-	pkt->sip6 = old_packet->sip6;
-	pkt->dip6 = old_packet->dip6;
-	pkt->sport = old_packet->sport;
-	pkt->dport = old_packet->dport;
-	pkt->len = old_packet->len;
-	pkt->time = old_packet->time;
-	pkt->dir = old_packet->dir;
-	pkt->pkt_hash = old_packet->pkt_hash;
+	return g_slice_copy(sizeof(*old_packet), old_packet);
 }
 
 //check the dir of the packet
-gboolean 
+gboolean
 is_pkt_outgoing(Packet *pkt)
 {
 	local_addr *pkt_interface_local_addr = get_local_addr_instance(NULL);
 	g_assert(pkt_interface_local_addr !=  NULL);
 	gboolean is_local;
-	switch(pkt->dir)
-	{
-	case dir_outgoing:
-		return TRUE;
-	case dir_incoming:
-		return FALSE;
-	case dir_unknown:
 
+	if (pkt->dir == dir_outgoing)
+		return TRUE;
+	if (pkt->dir == dir_incoming)
+		return FALSE;
+	if (pkt->dir == dir_unknown)
+    {
 		if (pkt->sa_family == AF_INET)
 			is_local = local_addr_contains(pkt_interface_local_addr, &pkt->sip.s_addr);
 		else
 			is_local = local_addr6_contains(pkt_interface_local_addr, &pkt->sip6);
-		
+
 		if (is_local)
 		{
 			pkt->dir = dir_outgoing;
