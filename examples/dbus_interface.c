@@ -37,7 +37,7 @@ handle_method_call (GDBusConnection       *connection,
                     GDBusMethodInvocation *invocation,
                     gpointer               user_data)
 {
-    GPtrArray *temp = get_stats_instance(NULL);
+    GPtrArray *temp = glibtop_get_stats_instance(NULL);
     if (g_strcmp0 (method_name, "GetStats") == 0)
     {
 
@@ -65,7 +65,7 @@ handle_method_call (GDBusConnection       *connection,
 
     if (g_strcmp0 (method_name, "InitCapture") == 0)
     {
-       init_setup();
+       glibtop_init_setup();
        id = g_timeout_add(1000,glibtop_init_packet_capture,NULL);
        g_dbus_method_invocation_return_value (invocation,
                                                NULL);
@@ -75,16 +75,16 @@ handle_method_call (GDBusConnection       *connection,
     if (g_strcmp0 (method_name, "SetCaptureStatus") == 0)
     {
 	//if it's deactivated activate
-	if(!get_capture_status(FALSE))
-            get_capture_status(TRUE);
+	if(!glibtop_get_capture_status(FALSE))
+            glibtop_get_capture_status(TRUE);
        g_dbus_method_invocation_return_value (invocation,
                                                NULL);
     }
     if (g_strcmp0 (method_name, "ResetCaptureStatus") == 0)
     {
 	//if the status is already set to false don't change
-       if(get_capture_status(FALSE))
-         get_capture_status(TRUE);
+       if(glibtop_get_capture_status(FALSE))
+         glibtop_get_capture_status(TRUE);
 
        g_dbus_method_invocation_return_value (invocation,
                                                NULL);
@@ -126,7 +126,7 @@ on_name_acquired (GDBusConnection *connection,
                   gpointer         user_data)
 {
 }
-     
+
 static void
 on_name_lost (GDBusConnection *connection,
               const gchar     *name,
@@ -134,14 +134,14 @@ on_name_lost (GDBusConnection *connection,
 {
     exit(0);
 }
-     
+
 int
 main (int argc, char *argv[])
 {
     GError *err = NULL;
     g_type_init ();
-    GPtrArray *user_stats = get_stats_instance(NULL);
-    
+    GPtrArray *user_stats = glibtop_get_stats_instance(NULL);
+
     netstats_data = g_dbus_node_info_new_for_xml (netstats_introspection_xml, &err);
     if (netstats_data == NULL)
     {
