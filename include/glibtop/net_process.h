@@ -21,13 +21,6 @@ struct _Net_process
 	//uid_t uid;
 };
 
-typedef struct _Net_process_list Net_process_list;
-struct _Net_process_list
-{
-	Net_process *val;
-	Net_process_list *next;
-};
-
 void Net_process_init(Net_process *proc, unsigned long pid);
 int Net_process_get_last_packet_time(Net_process *proc);
 void Net_process_get_total(Net_process *proc, guint64 *recvd, guint64 *sent);

@@ -26,11 +26,11 @@ struct  _netstats
 
 void network_stats_init(network_stats_entry *st, guint recv_value, guint sent_value, pid_t pid);
 GArray *network_stats_get_global_instance(GArray *val);
-gboolean get_capture_status(gboolean val);
+gboolean glibtop_get_capture_status(gboolean val);
 void invert_capture_status(gboolean *status_ptr);
-GPtrArray *get_stats_instance(GPtrArray *val);
+GPtrArray *glibtop_get_stats_instance(GPtrArray *val);
 gboolean glibtop_init_packet_capture(void);
-void init_setup(void);
+void glibtop_init_setup(void);
 G_END_DECLS
 
 #endif

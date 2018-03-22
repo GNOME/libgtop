@@ -60,7 +60,7 @@ new_stats(guint pid, guint bytes_sent, guint bytes_recv)
 }
 
 GPtrArray *
-get_stats_instance(GPtrArray *val)
+glibtop_get_stats_instance(GPtrArray *val)
 {
 	static GPtrArray *dbus_stats = NULL;
 	if (val != NULL)
@@ -90,7 +90,7 @@ toggle_capture_status(gboolean *status_ptr)
 *	   			an issue since by default status is kept to be active
 */
 gboolean
-get_capture_status(gboolean val)
+glibtop_get_capture_status(gboolean val)
 {
 	static gboolean active = FALSE;
 	//if val is true invert the capture status
@@ -112,9 +112,8 @@ do_refresh()
 	g_free(fname);
 	GSList *curproc = get_proc_list_instance(NULL);
 	int nproc = g_slist_length(curproc);
-	printf("no of proc:%d",nproc);
 	GArray *network_stats_instance = network_stats_get_global_instance(NULL);
-	GPtrArray *dbus_stats_instance = get_stats_instance(NULL);
+	GPtrArray *dbus_stats_instance = glibtop_get_stats_instance(NULL);
 	//free the previous entries in dbus stats
 	dbus_stats_free(dbus_stats_instance);
 
@@ -183,11 +182,11 @@ glibtop_init_packet_capture (void)
 			g_slice_free(glibtop_socket, socket_list);
 			do_refresh();
 		}
-	return (get_capture_status(FALSE));
+	return (glibtop_get_capture_status(FALSE));
 }
 
 void
-init_setup(void)
+glibtop_init_setup(void)
 {
 	process_init();
 	packet_handle *handles = open_pcap_handles();
