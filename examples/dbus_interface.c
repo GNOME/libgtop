@@ -37,7 +37,7 @@ handle_method_call (GDBusConnection       *connection,
                     GDBusMethodInvocation *invocation,
                     gpointer               user_data)
 {
-    GPtrArray *temp = glibtop_get_stats_instance(NULL);
+    GPtrArray *temp = *(glibtop_get_stats_instance(NULL));
     if (g_strcmp0 (method_name, "GetStats") == 0)
     {
 
@@ -140,7 +140,7 @@ main (int argc, char *argv[])
 {
     GError *err = NULL;
     g_type_init ();
-    GPtrArray *user_stats = glibtop_get_stats_instance(NULL);
+    GPtrArray *user_stats = *(glibtop_get_stats_instance(NULL));
 
     netstats_data = g_dbus_node_info_new_for_xml (netstats_introspection_xml, &err);
     if (netstats_data == NULL)

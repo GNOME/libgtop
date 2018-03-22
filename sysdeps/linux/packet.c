@@ -9,6 +9,7 @@ void
 Packet_init_in_addr(Packet *pkt, struct in_addr pkt_sip, unsigned short pkt_sport, struct in_addr pkt_dip, 
 						unsigned short pkt_dport, guint32 pkt_len, struct timeval pkt_ts ,direction pkt_dir)
 {
+	memset(pkt, 0, sizeof(pkt));
 	pkt->sa_family = AF_INET;
 	pkt->sip = pkt_sip;
 	pkt->dip = pkt_dip;
@@ -27,6 +28,7 @@ void
 Packet_init_in6_addr(Packet *pkt, struct in6_addr pkt_sip6, unsigned short pkt_sport, struct in6_addr pkt_dip6, 
 						unsigned short pkt_dport, guint32 pkt_len, struct timeval pkt_ts ,direction pkt_dir) 
 {
+	memset(pkt, 0, sizeof(pkt));
 	pkt->sa_family = AF_INET6;
 	pkt->sip6 = pkt_sip6;
 	pkt->dip6 = pkt_dip6;
