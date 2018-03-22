@@ -13,8 +13,7 @@ void addPacket(GSList **pktlist, Packet *pkt)
 {
 	if (*pktlist == NULL)
 	{
-		Packet *copy_pkt = g_slice_new(Packet);
-		Packet_init(copy_pkt, pkt);
+		Packet *copy_pkt = Packet_init(pkt);
 		*pktlist = Packet_list_init(*pktlist, copy_pkt);
 		return;
 	}
@@ -27,8 +26,7 @@ void addPacket(GSList **pktlist, Packet *pkt)
 		}
 	}
 
-	Packet *copy_pkt = g_slice_new(Packet);
-	Packet_init(copy_pkt, pkt);
+	Packet *copy_pkt = Packet_init(pkt);
 	*pktlist = Packet_list_init(*pktlist, copy_pkt);
 }
 
@@ -92,8 +90,7 @@ Connection_init(Connection *conn, Packet *pkt)
 	{
 		conn->bytes_sent += pkt->len;
 		addPacket(&(conn->sent_packets), pkt);
-		conn->ref_packet = g_slice_new(Packet);
-		Packet_init(conn->ref_packet, pkt);
+		conn->ref_packet = Packet_init(pkt);
 	}
 	else
 	{
