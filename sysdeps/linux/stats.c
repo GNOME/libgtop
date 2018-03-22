@@ -22,16 +22,10 @@ network_stats_init(network_stats_entry *st, guint recv_value, guint sent_value, 
 }
 
 static void
-dbus_stats_free(GPtrArray *dbus_stats_instance)
+free_dbus_stats (gpointer data)
 {
-	guint len = dbus_stats_instance->len;
-	while(len--)
-	{
-		stats *temp = (stats *)g_ptr_array_index(dbus_stats_instance,0);
-		g_ptr_array_remove_index(dbus_stats_instance, 0);
-		g_slice_free(stats,temp);
-	}
-	//check might have to initialize a new GPtrArray and call get_stats_inst
+  stats *temp = data;
+  g_slice_free (stats, temp);
 }
 
 GArray *
@@ -59,7 +53,7 @@ new_stats(guint pid, guint bytes_sent, guint bytes_recv)
 	return temp_stats;
 }
 
-GPtrArray *
+GPtrArray **
 glibtop_get_stats_instance(GPtrArray *val)
 {
 	static GPtrArray *dbus_stats = NULL;
@@ -69,9 +63,9 @@ glibtop_get_stats_instance(GPtrArray *val)
 	}
 	else if (dbus_stats == NULL)
 	{
-		dbus_stats = g_ptr_array_new ();
+		dbus_stats = g_ptr_array_new_with_free_func (free_dbus_stats);
 	}
-	return dbus_stats;
+	return &dbus_stats;
 }
 
 /**
@@ -124,10 +118,11 @@ do_refresh()
 	GSList *curproc = get_proc_list_instance(NULL);
 	int nproc = g_slist_length(curproc);
 	GArray *network_stats_instance = network_stats_get_global_instance(NULL);
-	GPtrArray *dbus_stats_instance = glibtop_get_stats_instance(NULL);
+	GPtrArray **set_dbus_stats_to_null = glibtop_get_stats_instance(NULL);
 	//free the previous entries in dbus stats
-	dbus_stats_free(dbus_stats_instance);
-
+	g_ptr_array_free(*set_dbus_stats_to_null, FALSE);
+	*set_dbus_stats_to_null = NULL;
+	GPtrArray *dbus_stats_instance = *(glibtop_get_stats_instance(NULL));
 	while (curproc != NULL)
 	{
 		g_assert(curproc->data != NULL);

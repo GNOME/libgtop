@@ -28,7 +28,7 @@ void network_stats_init(network_stats_entry *st, guint recv_value, guint sent_va
 GArray *network_stats_get_global_instance(GArray *val);
 gboolean glibtop_get_capture_status(gboolean val);
 void invert_capture_status(gboolean *status_ptr);
-GPtrArray *glibtop_get_stats_instance(GPtrArray *val);
+GPtrArray **glibtop_get_stats_instance(GPtrArray *val);
 gboolean glibtop_init_packet_capture(void);
 void glibtop_init_setup(void);
 G_END_DECLS

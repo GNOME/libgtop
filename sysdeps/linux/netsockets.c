@@ -86,13 +86,13 @@ add_socket_list(char *buf, glibtop_socket *list_socket, GHashTable *inode_table,
 	}
 	else//it is IPv4
 	{
-		sscanf(temp_local_addr, "%X", (unsigned int *)&(*(temp_socket->laddr)));
-		sscanf(temp_rem_addr, "%X", (unsigned int *)&(*(temp_socket->rem_addr)));
+		sscanf(temp_local_addr, "%X", (unsigned int *)temp_socket->laddr);
+		sscanf(temp_rem_addr, "%X", (unsigned int *)temp_socket->rem_addr);
 		temp_socket->sa_family = AF_INET;
 		char lip[128];
 		char rip[128];
-		inet_ntop(AF_INET, &(*(temp_socket->laddr)), lip, sizeof(lip));
-		inet_ntop(AF_INET, &(*(temp_socket->rem_addr)), rip, sizeof(rip));
+		inet_ntop(AF_INET, temp_socket->laddr, lip, sizeof(lip));
+		inet_ntop(AF_INET, temp_socket->rem_addr, rip, sizeof(rip));
 		snprintf(temp_hash, HASHKEYSIZE * sizeof(char), "%s:%d-%s:%d", lip, temp_socket->local_port, rip, temp_socket->rem_port);
 		//snprintf(temp_hash, HASHKEYSIZE * sizeof(char), "%s-%s", lip, rip);
 	}
@@ -122,10 +122,13 @@ glibtop_get_netsockets (char *filename, GHashTable *inode_table, GHashTable *has
 	socket_list = add_socket_list(line, socket_list, inode_table, hash_table);
 	glibtop_socket *temp_socket_list = socket_list;
 	glibtop_socket *next_socket = temp_socket_list;
-	while (!feof(fd))
+	while (fgets(line, sizeof(line), fd))
 	{
-		fgets(line, sizeof(line), fd);
 		next_socket = add_socket_list(line, next_socket, inode_table, hash_table);
+	}
+	if (!feof(fd))
+	{
+		g_error("Error reading the file: %s", filename);
 	}
 	fclose(fd);
 	return socket_list;
