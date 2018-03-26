@@ -3,7 +3,7 @@ dnl Configure script for the Gnome library
 dnl
 
 m4_define([libgtop_major_version], [2])
-m4_define([libgtop_minor_version], [38])
+m4_define([libgtop_minor_version], [39])
 m4_define([libgtop_micro_version], [0])
 m4_define([libgtop_version], [libgtop_major_version.libgtop_minor_version.libgtop_micro_version])
 
@@ -12,7 +12,7 @@ m4_define([libgtop_current], [11])
 
 dnl  increment any time the source changes; set to
 dnl  0 if you increment CURRENT
-m4_define([libgtop_revision], [0])
+m4_define([libgtop_revision], [1])
 
 dnl  increment if any interfaces have been added; set to 0
 dnl  if any interfaces have been removed. removal has
