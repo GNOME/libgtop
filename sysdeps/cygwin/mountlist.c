@@ -84,7 +84,7 @@ ignore_list_has(IgnoreList* ig, const char* fs)
 
 
 static gboolean
-ignore_fs(const char *fstype, IgnoreList** ig)
+ignore_fs(const struct mntent *mnt, IgnoreList** ig)
 {
   if (!*ig) {
     FILE* fs;
@@ -106,7 +106,7 @@ ignore_fs(const char *fstype, IgnoreList** ig)
     }
   }
 
-  return ignore_list_has(*ig, fstype);
+  return hasmntopt(mnt, "nodev") || ignore_list_has(*ig, mnt->mnt_type);
 }
 
 
@@ -135,7 +135,7 @@ glibtop_get_mountlist_s(glibtop *server, glibtop_mountlist *buf, int all_fs)
       glibtop_mountentry *me;
       gsize len;
 
-      if (!all_fs && ignore_fs(mnt->mnt_type, &ig))
+      if (!all_fs && ignore_fs(mnt, &ig))
 	continue;
 
       len = entries->len;
