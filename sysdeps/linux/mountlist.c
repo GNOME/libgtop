@@ -40,8 +40,7 @@ End:
 
 typedef struct
 {
-  GHashTable *table_fstype;
-  GHashTable *table_mntdir;
+  GHashTable *table;
 } IgnoreList;
 
 
@@ -50,8 +49,7 @@ ignore_list_new(void)
 {
   IgnoreList* ig;
   ig = g_new(IgnoreList, 1);
-  ig->table_fstype = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
-  ig->table_mntdir = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
+  ig->table = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
   return ig;
 }
 
@@ -60,47 +58,31 @@ static void
 ignore_list_delete(IgnoreList* ig)
 {
   if (ig) {
-    g_hash_table_destroy(ig->table_fstype);
-    g_hash_table_destroy(ig->table_mntdir);
+    g_hash_table_destroy(ig->table);
     g_free(ig);
   }
 }
 
 
 static void
-ignore_list_add_fstype(IgnoreList* ig, const char* fstype)
+ignore_list_add(IgnoreList* ig, const char* fs)
 {
-  g_hash_table_insert(ig->table_fstype, g_strdup(fstype), GINT_TO_POINTER(1));
-}
-
-static void
-ignore_list_add_mntdir(IgnoreList* ig, const char* mntdir)
-{
-  g_hash_table_insert(ig->table_mntdir, g_strdup(mntdir), GINT_TO_POINTER(1));
+  g_hash_table_insert(ig->table, g_strdup(fs), GINT_TO_POINTER(1));
 }
 
 static gboolean
-ignore_list_has_fstype(IgnoreList* ig, const char* fstype)
+ignore_list_has(IgnoreList* ig, const char* fs)
 {
   gpointer data;
-  data = g_hash_table_lookup(ig->table_fstype, fstype);
+  data = g_hash_table_lookup(ig->table, fs);
   return data != NULL;
 }
-
-static gboolean
-ignore_list_has_mntdir(IgnoreList* ig, const char* mntdir)
-{
-  gpointer data;
-  data = g_hash_table_lookup(ig->table_mntdir, mntdir);
-  return data != NULL;
-}
-
 
 /* ~IgnoreList */
 
 
 static gboolean
-ignore_fs(const char *mntdir, const char *fstype, IgnoreList** ig)
+ignore_fs(const struct mntent *mnt, IgnoreList** ig)
 {
   if (!*ig) {
     FILE* fs;
@@ -108,41 +90,21 @@ ignore_fs(const char *mntdir, const char *fstype, IgnoreList** ig)
 
     *ig = ignore_list_new();
 
-    ignore_list_add_fstype(*ig, "none");
+    ignore_list_add(*ig, "none");
 
     if ((fs = fopen("/proc/filesystems", "r")) != NULL) {
       while (fgets(line, sizeof line, fs)) {
 	if (!strncmp(line, "nodev", 5)) {
 	  char *type;
 	  type = g_strstrip(line + 5);
-	  ignore_list_add_fstype(*ig, type);
+	  ignore_list_add(*ig, type);
 	}
       }
       fclose(fs);
     }
-
-    if ((fs = fopen("/run/mount/utab", "r")) != NULL) {
-	size_t len = 0;
-	char *uline = NULL;
-
-	while (getline(&uline, &len, fs) != -1) {
-	  if (strstr(uline, "x-gdu.hide")) {
-	    char * pch = strtok (uline, " ");
-	    while (pch != NULL) {
-	      if (!strncmp(pch, "TARGET=", 7)) {
-		ignore_list_add_mntdir(*ig, pch+7);
-	      }
-	      pch = strtok (NULL, " ");
-	    }
-	  }
-	}
-
-	free(uline);
-	fclose(fs);
-    }
   }
 
-  return ignore_list_has_fstype(*ig, fstype) || ignore_list_has_mntdir(*ig, mntdir);
+  return hasmntopt(mnt, "nodev") || ignore_list_has(*ig, mnt->mnt_type);
 }
 
 glibtop_mountentry *
@@ -171,7 +133,7 @@ glibtop_get_mountlist_s(glibtop *server, glibtop_mountlist *buf, int all_fs)
       const char *devopt;
       gsize len;
 
-      if (!all_fs && ignore_fs(mnt->mnt_dir, mnt->mnt_type, &ig))
+      if (!all_fs && ignore_fs(mnt, &ig))
 	continue;
 
       len = entries->len;
