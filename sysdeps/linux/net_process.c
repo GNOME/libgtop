@@ -13,10 +13,10 @@ Net_process_init(Net_process *proc, unsigned long pid)
 	proc->proc_connections = NULL;
 }
 
-int
+time_t
 Net_process_get_last_packet_time(Net_process *proc)
 {
-	int last_packet = 0;
+	time_t last_packet = 0;
 	GSList *curr_conn_list = proc->proc_connections;
 	while (curr_conn_list != NULL)
 	{
