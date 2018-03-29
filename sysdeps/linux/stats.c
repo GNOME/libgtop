@@ -190,7 +190,7 @@ glibtop_init_packet_capture (void)
 }
 
 void
-glibtop_init_setup(void)
+glibtop_init_netstats(void)
 {
 	process_init();
 	packet_handle *handles = open_pcap_handles();

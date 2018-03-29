@@ -65,7 +65,7 @@ handle_method_call (GDBusConnection       *connection,
 
     if (g_strcmp0 (method_name, "InitCapture") == 0)
     {
-       glibtop_init_setup();
+       glibtop_init_netstats();
        id = g_timeout_add(1000,glibtop_init_packet_capture,NULL);
        g_dbus_method_invocation_return_value (invocation,
                                                NULL);

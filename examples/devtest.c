@@ -19,7 +19,7 @@ int main()
 	GMainLoop *loop;
 	loop = g_main_loop_new(NULL, FALSE );
 	glibtop_get_capture_status(TRUE);
-	glibtop_init_setup();
+	glibtop_init_netstats();
 	g_timeout_add(1000,glibtop_init_packet_capture,NULL);
 	g_main_loop_run(loop);
 	g_main_loop_unref(loop);

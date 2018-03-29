@@ -79,5 +79,5 @@ glibtop_proc_map_get_type
 glibtop_get_type
 glibtop_get_stats_instance
 glibtop_init_packet_capture
-glibtop_init_setup
+glibtop_init_netstats
 glibtop_get_capture_status
