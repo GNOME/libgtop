@@ -142,7 +142,7 @@ find_connection(Packet *pkt)
 	}
 }
 
-int
+time_t
 Connection_get_last_packet_time(Connection *conn)
 {
 	return conn->last_packet_time;

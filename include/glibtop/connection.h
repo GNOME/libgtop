@@ -19,7 +19,7 @@ struct _Connection
 	guint64 bytes_sent;
 	guint64 bytes_recv;
 	//time when last packet was captured in this connection 
-	int last_packet_time;
+	time_t last_packet_time;
 };
 
 void Connection_init(Connection *conn, Packet *pkt);
@@ -28,7 +28,7 @@ Connection *find_connection(Packet *pkt);
 GSList *Conn_list_init(GSList *clist, Connection *conn_val);
 Connection *Conn_list_get_connection(GSList *clist);
 GSList *Connection_list_get_next(GSList *clist);
-int Connection_get_last_packet_time(Connection *conn);
+time_t Connection_get_last_packet_time(Connection *conn);
 void Connection_sum_and_del(Connection *conn, struct timeval t, guint64 *recv, guint64 *sent);
 GSList *Packet_list_init(GSList *pktlist, Packet *pkt_val);
 GSList *get_global_connections_instance(GSList *val);
