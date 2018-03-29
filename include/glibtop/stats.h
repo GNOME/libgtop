@@ -30,7 +30,7 @@ gboolean glibtop_get_capture_status(gboolean val);
 void invert_capture_status(gboolean *status_ptr);
 GPtrArray **glibtop_get_stats_instance(GPtrArray *val);
 gboolean glibtop_init_packet_capture(void);
-void glibtop_init_setup(void);
+void glibtop_init_netstats(void);
 G_END_DECLS
 
 #endif
