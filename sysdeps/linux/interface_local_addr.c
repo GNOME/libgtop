@@ -12,9 +12,7 @@ local_addr_init(local_addr *laddr, in_addr_t addr_value, const char *device, loc
 {
 	laddr->addr = addr_value;
 	laddr->sa_family = AF_INET;
-	char ip_buf[16];
-	inet_ntop(AF_INET, &addr_value, ip_buf, 15 );	//copy the network part
-	laddr->ip_text = g_strdup(ip_buf);
+	inet_ntop(AF_INET, &addr_value, laddr->ip_text, 15 );	//copy the network part
 	laddr->device_name = g_strdup(device);
 	laddr->next = next_laddr;
 }
@@ -24,9 +22,7 @@ local_addr6_init(local_addr *laddr, struct in6_addr addr6_value, const char *dev
 {
 	laddr->addr6 = addr6_value;
 	laddr->sa_family = AF_INET;
-	char ip_buf[128];
-	inet_ntop(AF_INET6, &addr6_value, ip_buf, 128 );	//copy the network part
-	laddr->ip_text = g_strdup(ip_buf);
+	inet_ntop(AF_INET6, &addr6_value, laddr->ip_text, 128 );	//copy the network part
 	laddr->device_name = g_strdup(device);
 	laddr->next = next_laddr;
 }
