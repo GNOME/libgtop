@@ -11,7 +11,7 @@ static const gchar netstats_introspection_xml[] =
 "<node name='/org/gnome/GTop/NetStats'>"
 "  <interface name='org.gnome.GTop.NetStats'>"
 "    <method name='GetStats'>"
-"      <arg type='a{i(uu)}' name='pid' direction='out'/>"
+"      <arg type='a{i(dd)}' name='pid' direction='out'/>"
 "    </method>"
 "    <method name='InitCapture'>"
 "    </method>"
@@ -43,18 +43,18 @@ handle_method_call (GDBusConnection       *connection,
 
         GVariantBuilder *b;
         GVariant *dict;
-        b = g_variant_builder_new (G_VARIANT_TYPE ("(a{i(uu)})"));
-        g_variant_builder_open (b, G_VARIANT_TYPE ("a{i(uu)}"));
+        b = g_variant_builder_new (G_VARIANT_TYPE ("(a{i(dd)})"));
+        g_variant_builder_open (b, G_VARIANT_TYPE ("a{i(dd)}"));
         guint num_proc = temp->len;
         while(num_proc--)
         {
             stats* dbus_stats = g_ptr_array_index(temp,num_proc);
             g_variant_builder_add (b,
-                                  "{i(uu)}",
+                                  "{i(dd)}",
                                    dbus_stats->pid,
-                                   g_variant_new ("(uu)",
-                                   dbus_stats->bytes_sent,
-                                   dbus_stats->bytes_recv));
+                                   g_variant_new ("(dd)",
+                                   (double)dbus_stats->bytes_sent,
+                                   (double)dbus_stats->bytes_recv));
 
         }
         g_variant_builder_close (b);
