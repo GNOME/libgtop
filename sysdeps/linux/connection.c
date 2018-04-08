@@ -5,7 +5,7 @@
 GSList *
 Packet_list_init(GSList *pktlist, Packet *pkt_val)
 {
-	return g_slist_append(pktlist, pkt_val);
+	return g_slist_prepend(pktlist, pkt_val);
 }
 
 //adding a packet to the linked list
@@ -13,8 +13,7 @@ void addPacket(GSList **pktlist, Packet *pkt)
 {
 	if (*pktlist == NULL)
 	{
-		Packet *copy_pkt = Packet_init(pkt);
-		*pktlist = Packet_list_init(*pktlist, copy_pkt);
+		*pktlist = Packet_list_init(*pktlist, pkt);
 		return;
 	}
 	if ((Packet *)((*pktlist)->data) != NULL)
@@ -26,8 +25,7 @@ void addPacket(GSList **pktlist, Packet *pkt)
 		}
 	}
 
-	Packet *copy_pkt = Packet_init(pkt);
-	*pktlist = Packet_list_init(*pktlist, copy_pkt);
+	*pktlist = Packet_list_init(*pktlist, pkt);
 }
 
 //this packet to get the time of the last pcket capture for th given connection
@@ -148,20 +146,38 @@ Connection_get_last_packet_time(Connection *conn)
 	return conn->last_packet_time;
 }
 
-guint64 Packet_list_sum_and_del(GSList *pktlist, struct timeval t)
+static void
+free_packets(gpointer data)
+{
+  Packet *temp = data;
+  g_slice_free (Packet, temp);
+}
+
+static guint64
+Packet_list_sum_and_del(GSList **pktlist, struct timeval t)
 {
 	guint64 sum = 0;
-	int i=0;
-	GSList *current = pktlist;
+	GSList *current = *pktlist;
 	GSList *previous = NULL;
 	while (current != NULL && previous != current && current->data)
 	{
 		if (!(((Packet *)(current->data))->time.tv_sec <= t.tv_sec - PERIOD))
 		{
 			sum += ((Packet *)current->data)->len;
+			previous = current;
+			current = current->next;
 		}
-		previous = current;
-		current = current->next;
+		else
+		{
+			if(current == *pktlist)
+				*pktlist = NULL;
+			else
+			{
+				previous->next = NULL;
+				g_slist_free_full(current, free_packets);
+			}
+			return sum;
+		}
 	}
 	return sum;
 }
@@ -171,6 +187,6 @@ Connection_sum_and_del(Connection *conn, struct timeval t, guint64 *recv, guint6
 {
  	*sent = 0;
 	*recv = 0;
-	*sent = Packet_list_sum_and_del(conn->sent_packets, t);
-	*recv = Packet_list_sum_and_del(conn->received_packets, t);
+	*sent = Packet_list_sum_and_del(&(conn->sent_packets), t);
+	*recv = Packet_list_sum_and_del(&(conn->received_packets), t);
 }
