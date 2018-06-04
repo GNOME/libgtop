@@ -95,7 +95,7 @@ network_stats_print_entry(network_stats_entry *st)
 	printf("pid :%d \t sent_value:%d \trecv value:%d \t \n", st->pid, st->sent_value, st->recv_value);
 }
 
-void
+static void
 network_stats_print_stat(GArray *stats,int nproc)
 {
 	for(guint index = 0; index < (guint)nproc; index++)
@@ -107,6 +107,7 @@ network_stats_print_stat(GArray *stats,int nproc)
 	}
 	network_stats_get_global_instance(stats);
 }
+
 static void
 do_refresh()
 {

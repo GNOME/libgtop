@@ -9,7 +9,8 @@ Packet_list_init(GSList *pktlist, Packet *pkt_val)
 }
 
 //adding a packet to the linked list
-void addPacket(GSList **pktlist, Packet *pkt)
+static void
+addPacket(GSList **pktlist, Packet *pkt)
 {
 	if (*pktlist == NULL)
 	{
@@ -100,7 +101,7 @@ Connection_init(Connection *conn, Packet *pkt)
 
 }
 
-Connection *
+static Connection *
 find_connection_with_matching_source(Packet *pkt)
 {
 	GSList *current = get_global_connections_instance(NULL);
@@ -113,7 +114,7 @@ find_connection_with_matching_source(Packet *pkt)
 	return NULL;
 }
 
-Connection *
+static Connection *
 find_connection_with_matching_ref_packet_or_source(Packet *pkt)
 {
 	GSList *current = get_global_connections_instance(NULL);

@@ -51,12 +51,12 @@ traverse_file(GFile *curdir, int depth, const gchar *pid, GHashTable *inode_tabl
 				gchar *slnk_buf = g_file_read_link(symlink_name, NULL);
 				if (slnk_buf != NULL)
 				{
-					int inode;
-					int match = sscanf(slnk_buf, "socket:[%d]\n", &inode);
+					unsigned long inode;
+					int match = sscanf(slnk_buf, "socket:[%lu]\n", &inode);
 					if (match == 1)
 					{
 						int pid_int = g_ascii_strtoll(pid, NULL, 0);
-						g_hash_table_insert(inode_table, GINT_TO_POINTER(inode), GINT_TO_POINTER(pid_int));
+						g_hash_table_insert(inode_table, GUINT_TO_POINTER(inode), GINT_TO_POINTER(pid_int));
 					}
 				}
 				g_free(slnk_buf);

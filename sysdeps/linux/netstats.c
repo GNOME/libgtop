@@ -26,11 +26,11 @@ network_stats_get_global_instance_s(glibtop *server, GArray *val)
 {
 	return network_stats_get_global_instance(NULL);
 }
-
+/*
 static void
 do_refresh_s()
 {
-/*	char *fname = g_strdup("/proc/self/net/tcp");
+	char *fname = g_strdup("/proc/self/net/tcp");
 	global_hashes test_hash = get_global_hashes_instance();
 	test_hash.inode_table = NULL;
 	test_hash.hash_table = NULL;
@@ -62,8 +62,9 @@ do_refresh_s()
 		n++;
 	}
 	network_stats_print_stat(network_stats_get_global_instance(NULL), nproc);
-	printf("\n\n\n");*/
+	printf("\n\n\n");
 }
+*/
 
 void
 glibtop_init_packet_capture_s (void)

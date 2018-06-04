@@ -12,8 +12,8 @@ struct _local_addr
 {
 	in_addr_t addr; //ip in network Byte order
 	struct in6_addr addr6;
-	short int sa_family; 
-	char ip_text[30]; //to store ip in text form
+	short int sa_family;
+	char ip_text[41]; //for 8 colon separated 4 hex numbers
 	char *device_name;
 	local_addr *next;
 };

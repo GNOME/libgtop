@@ -51,15 +51,14 @@ Net_process_get_bytes(Net_process *proc, guint *recvd, guint *sent, struct timev
 	guint64 sum_sent = 0;
 	guint64 sum_recv = 0;
 	GSList *curr_conn = proc->proc_connections;
-	GSList *previous = NULL;
+
 	while (curr_conn != NULL)
 	{
-		gint64 sent_val = 0;
+		guint64 sent_val = 0;
 		guint64 recv = 0;
 		Connection_sum_and_del(Conn_list_get_connection(curr_conn), curtime, &recv, &sent_val);
 		sum_recv += recv;
 		sum_sent += sent_val;
-		previous = curr_conn;
 		curr_conn = Connection_list_get_next(curr_conn);
 	}
 	*recvd = sum_recv;

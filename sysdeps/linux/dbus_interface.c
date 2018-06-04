@@ -21,11 +21,11 @@ static const gchar netstats_introspection_xml[] =
 "	 </method>"
 "  </interface>"
 "</node>";
-    
+
 static GDBusNodeInfo *netstats_data = NULL;
 static guint owner_id;
 static GMainLoop *loop;
-     
+
 static void
 handle_method_call (GDBusConnection       *connection,
 					const gchar           *sender,
@@ -35,7 +35,7 @@ handle_method_call (GDBusConnection       *connection,
 					GVariant              *parameters,
 					GDBusMethodInvocation *invocation,
 					gpointer               user_data)
-{ 
+{
 	stats *temp = (stats*) user_data;
 	if (g_strcmp0 (method_name, "GetStats") == 0)
 	{
@@ -44,9 +44,9 @@ handle_method_call (GDBusConnection       *connection,
 											temp->bytes_sent,
 											temp->bytes_recv);
 
-	g_dbus_method_invocation_return_value (invocation,
+		g_dbus_method_invocation_return_value (invocation,
 											retval);
-}
+	}
 	if (g_strcmp0 (method_name, "init_capture") == 0)
 	{
 		glibtop_init_packet_capture_s();
@@ -54,14 +54,14 @@ handle_method_call (GDBusConnection       *connection,
 												NULL);
 	}
 }
-     
+
 static const GDBusInterfaceVTable interface_vtable =
 {
 	handle_method_call,
 	NULL,
 	NULL
 };
-     
+
 static void
 on_netstats_bus_acquired (GDBusConnection *connection,
 						  const gchar     *name,
@@ -90,7 +90,7 @@ on_name_acquired (GDBusConnection *connection,
 				  gpointer         user_data)
 {
 }
-     
+
 static void
 on_name_lost (GDBusConnection *connection,
 			  const gchar     *name,
@@ -98,14 +98,13 @@ on_name_lost (GDBusConnection *connection,
 {
 	exit(0);
 }
-     
+
 int
 main (int argc, char *argv[])
 {
 	GError *err = NULL;
-	g_type_init ();
 	stats *user_stats = get_stats_instance();
-	
+
 	netstats_data = g_dbus_node_info_new_for_xml (netstats_introspection_xml, &err);
 	if (netstats_data == NULL)
 	{

@@ -7,7 +7,7 @@
 #include <arpa/inet.h> //for inet_ntop
 #include <stdio.h>
 
-void 
+void
 local_addr_init(local_addr *laddr, in_addr_t addr_value, const char *device, local_addr *next_laddr)
 {
 	laddr->addr = addr_value;
@@ -29,7 +29,7 @@ local_addr6_init(local_addr *laddr, struct in6_addr addr6_value, const char *dev
 
 gboolean
 local_addr_contains(local_addr *laddr, const in_addr_t *n_addr)
-{	
+{
 	if((laddr->sa_family == AF_INET) && (laddr->addr == *n_addr))
 		return TRUE;
 	if(laddr->next != NULL && laddr->device_name != NULL)
@@ -78,7 +78,6 @@ get_device_local_addr(const char *device)
 			local_addr *temp = g_slice_new(local_addr);
 			local_addr6_init(temp, addr->sin6_addr, device, interface_local_addr); //CHECK THIS
 			get_local_addr_instance(temp);
-			char host[128];
 		}
 	}
 	return get_local_addr_instance(NULL);

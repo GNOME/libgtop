@@ -31,7 +31,7 @@ match_hash_to_inode(char *hash)
 	return -1;
 }
 
-glibtop_socket *
+static glibtop_socket *
 add_socket_list(char *buf, glibtop_socket *list_socket, GHashTable *inode_table, GHashTable *hash_table)
 {
 	char temp_local_addr[128];
@@ -134,7 +134,7 @@ glibtop_get_netsockets (char *filename, GHashTable *inode_table, GHashTable *has
 	return socket_list;
 }
 
-void
+static void
 global_hashes_init(global_hashes *gh)
 {
 	if(gh->inode_table == NULL)
@@ -144,7 +144,7 @@ global_hashes_init(global_hashes *gh)
 }
 
 global_hashes
-get_global_hashes_instance()
+get_global_hashes_instance(void)
 {
 	static global_hashes gh_temp = {NULL,NULL};
 	if(gh_temp.inode_table == NULL || gh_temp.hash_table == NULL)

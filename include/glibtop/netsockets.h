@@ -15,7 +15,7 @@ struct _global_hashes
 	GHashTable *hash_table;
 };
 
-global_hashes get_global_hashes_instance();
+global_hashes get_global_hashes_instance(void);
 
 
 typedef struct _glibtop_socket glibtop_socket;
