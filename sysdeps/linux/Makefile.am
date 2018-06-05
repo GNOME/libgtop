@@ -11,12 +11,7 @@ libgtop_sysdeps_2_0_la_SOURCES	= open.c close.c cpu.c mem.c swap.c \
 				  procsegment.c procargs.c procmap.c siglist.c \
 				  sysinfo.c netload.c ppp.c glibtop_private.c \
 				  mountlist.c  procaffinity.c procio.c \
-				  fsusage.c netlist.c procopenfiles.c procwd.c \
-				  proc_inode_parser.c netsockets.c \
-				  packet.c net_process.c \
-				  interface_local_addr.c  \
-				  dev_handles.c connection.c stats.c 
-
+				  fsusage.c netlist.c procopenfiles.c procwd.c 
 libgtop_sysdeps_2_0_la_LIBADD	=  @GLIB_LIBS@
 
 # libgtop_sysdeps_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
