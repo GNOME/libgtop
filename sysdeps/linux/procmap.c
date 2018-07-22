@@ -136,7 +136,7 @@ parse_line(char* line,
 {
 	/* %16llx-%16llx %4c %16llx %02hx:%02hx %llu%*[ ]%n */
 
-	char *p, *next;
+	char *p;
 
 	p = line;
 

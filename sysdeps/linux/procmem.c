@@ -35,7 +35,7 @@ static const unsigned long _glibtop_sysdeps_proc_mem_pss =
 
 
 static unsigned long
-get_pss(glibtop* server, pid_t pid)
+G_GNUC_UNUSED get_pss(glibtop* server, pid_t pid)
 {
 	char filepath[128];
 	FILE* smaps;
@@ -86,7 +86,7 @@ glibtop_get_proc_mem_s (glibtop *server, glibtop_proc_mem *buf, pid_t pid)
 
 	memset (buf, 0, sizeof (glibtop_proc_mem));
 
-	/* As of 2.6.24 in fs/proc/*.c
+	/* As of 2.6.24 in fs/proc/ *.c
 
 	   == rss vs. resident ==
 
