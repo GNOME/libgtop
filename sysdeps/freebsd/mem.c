@@ -55,6 +55,16 @@ static gulong mem_get_by_bytes (glibtop *server, const char *name) {
 	return result;
 }
 
+static gulong try_mem_get_by_bytes (glibtop *server, const char *name) {
+	gulong result = 0;
+	size_t len = sizeof (result);
+
+	if (sysctlbyname (name, &result, &len, NULL, 0)) {
+		return 0;
+	}
+	return result;
+}
+
 static gulong mem_get_by_pages (glibtop *server, const char *name) {
 	guint result = 0;
 	size_t len = sizeof (result);
@@ -71,29 +81,35 @@ glibtop_get_mem_s (glibtop *server, glibtop_mem *buf)
 	gulong memtotal;
 	gulong memactive;
 	gulong meminactive;
+	gulong memlaundry;
 	gulong memwired;
 	gulong memcached;
 	gulong membuffer;
 	gulong memfree;
+	gulong zfs_arc_size;
 
 	memset (buf, 0, sizeof *buf);
 
 	memtotal = mem_get_by_bytes (server, "hw.physmem");
 	memactive = mem_get_by_pages (server, "vm.stats.vm.v_active_count");
 	meminactive = mem_get_by_pages (server, "vm.stats.vm.v_inactive_count");
+	memlaundry = mem_get_by_pages (server, "vm.stats.vm.v_laundry_count");
 	memwired = mem_get_by_pages (server, "vm.stats.vm.v_wire_count");
 	memcached = mem_get_by_pages (server, "vm.stats.vm.v_cache_count");
 	membuffer = mem_get_by_bytes (server, "vfs.bufspace");
 	memfree = mem_get_by_pages (server, "vm.stats.vm.v_free_count");
+
+	zfs_arc_size = try_mem_get_by_bytes (server, "kstat.zfs.misc.arcstats.size");
 
 	buf->total = memtotal;
 	buf->used = memtotal - memfree;
 	buf->free = memfree;
 	buf->shared = 0;
 	buf->buffer = membuffer;
-	buf->cached = memcached;
+	buf->cached = memcached + zfs_arc_size;
 	buf->locked = 0;
 
-	buf->user = memactive + memwired;
+	buf->user = memactive + memlaundry + memwired - zfs_arc_size;
+
 	buf->flags = _glibtop_sysdeps_mem;
 }
