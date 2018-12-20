@@ -368,6 +368,7 @@ GTK_DOC_CHECK(1.4)
 AC_CONFIG_FILES([
 Makefile
 libgtop.spec
+data/Makefile
 po/Makefile.in
 misc/Makefile
 include/Makefile
