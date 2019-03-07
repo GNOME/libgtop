@@ -99,7 +99,7 @@ struct _glibtop_proc_open_files
  * @buf:
  * @pid:
  *
- * Returns: (transfer none):
+ * Returns: (transfer full) (array zero-terminated=1):
  */
 
 glibtop_open_files_entry *
@@ -118,7 +118,7 @@ glibtop_get_proc_open_files(glibtop_proc_open_files *buf, pid_t pid);
  * @buf: (out):
  * @pid:
  *
- * Returns: (transfer none):
+ * Returns: (transfer full) (array zero-terminated=1):
  */
 
 glibtop_open_files_entry *
@@ -134,7 +134,7 @@ void _glibtop_init_proc_open_files_p (glibtop *server);
  * @buf: (out):
  * @pid:
  *
- * Returns: (transfer none):
+ * Returns: (transfer full) (array zero-terminated=1):
  */
 
 glibtop_open_files_entry *

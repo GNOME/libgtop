@@ -58,7 +58,7 @@ struct _glibtop_mountlist
  * @buf:
  * @all_fs:
  *
- * Returns: (transfer full):
+ * Returns: (transfer full) (array zero-terminated=1):
  */
 
 /**
@@ -66,7 +66,7 @@ struct _glibtop_mountlist
  * @buf: (out):
  * @all_fs:
  *
- * Returns: (transfer none):
+ * Returns: (transfer full) (array zero-terminated=1):
  */
 
 /**
@@ -74,7 +74,7 @@ struct _glibtop_mountlist
  * @buf: (out):
  * @all_fs:
  *
- * Returns: (transfer none):
+ * Returns: (transfer full) (array zero-terminated=1):
  */
 
 /**
@@ -82,7 +82,7 @@ struct _glibtop_mountlist
  * @buf: (out):
  * @all_fs:
  *
- * Returns: (transfer none):
+ * Returns: (transfer full) (array zero-terminated=1):
  */
 
 glibtop_mountentry *

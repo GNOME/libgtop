@@ -98,7 +98,7 @@ struct _glibtop_proc_map
  * @buf:
  * @pid:
  *
- * Returns: (transfer none):
+ * Returns: (transfer full) (array zero-terminated=1):
  */
 glibtop_map_entry *
 glibtop_get_proc_map(glibtop_proc_map *buf, pid_t pid);
@@ -111,7 +111,7 @@ glibtop_get_proc_map(glibtop_proc_map *buf, pid_t pid);
  * @buf: (out):
  * @pid:
  *
- * Returns: (transfer none):
+ * Returns: (transfer full) (array zero-terminated=1):
  */
 
 /**
@@ -120,7 +120,7 @@ glibtop_get_proc_map(glibtop_proc_map *buf, pid_t pid);
  * @buf: (out):
  * @pid:
  *
- * Returns: (transfer none):
+ * Returns: (transfer full) (array zero-terminated=1):
  */
 
 /**
@@ -129,7 +129,7 @@ glibtop_get_proc_map(glibtop_proc_map *buf, pid_t pid);
  * @buf: (out):
  * @pid:
  *
- * Returns: (transfer none):
+ * Returns: (transfer full) (array zero-terminated=1):
  */
 
 #if GLIBTOP_SUID_PROC_MAP

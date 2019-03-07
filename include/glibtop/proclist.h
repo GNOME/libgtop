@@ -133,7 +133,7 @@ struct _glibtop_proclist
  * @which: a #GLIBTOP_* constant specifying process type
  * @arg: an argument specific for the process type
  *
- * Returns: (array zero-terminated=1) (transfer none): an array of process
+ * Returns: (array zero-terminated=1) (transfer full): an array of process
  *     ids
  */
 pid_t*
@@ -152,7 +152,7 @@ glibtop_get_proclist(glibtop_proclist *buf, gint64 which, gint64 arg);
  * @which: a #GLIBTOP_* constant specifying process type
  * @arg: an argument specific for the process type
  *
- * Returns: (array zero-terminated=1) (transfer none): an array of process
+ * Returns: (array zero-terminated=1) (transfer full): an array of process
  *     ids
  */
 pid_t*
@@ -169,7 +169,7 @@ void _glibtop_init_proclist_p (glibtop *server);
  * @which: a #GLIBTOP_* constant specifying process type
  * @arg: an argument specific for the process type
  *
- * Returns: (array zero-terminated=1) (transfer none): an array of process
+ * Returns: (array zero-terminated=1) (transfer full): an array of process
  *     ids
  */
 pid_t*
@@ -185,7 +185,7 @@ void _glibtop_init_proclist_s (glibtop *server);
  * @which: a #GLIBTOP_* constant specifying process type
  * @arg: an argument specific for the process type
  *
- * Returns: (array zero-terminated=1) (transfer none): an array of process
+ * Returns: (array zero-terminated=1) (transfer full): an array of process
  *     ids
  */
 pid_t*
