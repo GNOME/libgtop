@@ -1,3 +1,8 @@
+11 March 2019: Overview of changes in 2.40.0
+================================================
+
+* Fixed array and transfer annotations for documentation
+
 18 February 2019: Overview of changes in 2.39.91
 
 * Replace deprecated gnome-common with autoreconf
