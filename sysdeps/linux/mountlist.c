@@ -112,7 +112,7 @@ ignore_fs(const char *mntdir, const char *fstype, IgnoreList** ig)
 
     if ((fs = fopen("/proc/filesystems", "r")) != NULL) {
       while (fgets(line, sizeof line, fs)) {
-	if (!strncmp(line, "nodev", 5)) {
+	if (!strncmp(line, "nodev", 5) && strncmp(line+strlen(line)-4, "zfs", 3)) {
 	  char *type;
 	  type = g_strstrip(line + 5);
 	  ignore_list_add_fstype(*ig, type);
