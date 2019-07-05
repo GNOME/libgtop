@@ -128,7 +128,7 @@ glibtop_init_r (glibtop **server_ptr,
 
 
 /**
- * glibtop_init_s:
+ * glibtop_init_s: (skip)
  * @server_ptr: (out):
  * @features:
  * @flags:
