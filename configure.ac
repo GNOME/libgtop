@@ -93,8 +93,22 @@ GNOME_LIBGTOP_TYPES
 
 GLIB_REQUIRED=2.6.0
 GOBJECT_REQUIRED=2.26.0
+PCAP_REQUIRED=0.8
 
-PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLIB_REQUIRED gobject-2.0 >= $GOBJECT_REQUIRED)
+PCAP_CONFIG="pcap-config"
+AC_MSG_CHECKING(libpcap)
+if ! $PCAP_CONFIG --libs ; then
+  AC_MSG_ERROR(no)
+else
+  AC_MSG_RESULT(yes)
+  PCAP_LIBS="`$PCAP_CONFIG --libs`"
+  PCAP_CFLAGS="`$PCAP_CONFIG --cflags`"
+fi
+
+AC_SUBST([PCAP_CFLAGS])
+AC_SUBST([PCAP_LIBS])
+
+PKG_CHECK_MODULES(GLIB, glib-2.0 >= $GLIB_REQUIRED gobject-2.0 >= $GOBJECT_REQUIRED )
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
 
@@ -279,7 +293,7 @@ if test x$libgtop_have_sysinfo = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SYSINFO"
 fi
 
-LIBGTOP_INCS="$LIBGTOP_INCS $GLIB_CFLAGS"
+LIBGTOP_INCS="$LIBGTOP_INCS $GLIB_CFLAGS $PCAP_CFLAGS"
 
 libgtop_save_prefix="$prefix"
 libgtop_save_exec_prefix="$exec_prefix"
@@ -299,7 +313,7 @@ else
   LIBGTOP_EXTRA_LIBS="$LIBGTOP_EXTRA_LIBS $libs_xauth"
 fi
 
-LIBGTOP_EXTRA_LIBS="$GLIB_LIBS $LIBGTOP_EXTRA_LIBS"
+LIBGTOP_EXTRA_LIBS="$GLIB_LIBS $LIBGTOP_EXTRA_LIBS $PCAP_LIBS -lgio-2.0"
 
 LIBGTOP_LIBS="$LIBGTOP_LIBS"
 
@@ -313,7 +327,7 @@ if test "$GCC" = "yes" ; then
 	$CFLAGS"
 fi
 
-AM_CPPFLAGS="-I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $X_CFLAGS"
+AM_CPPFLAGS="-I\$(top_builddir) -I\$(top_srcdir) -I\$(top_srcdir)/sysdeps/$sysdeps_dir -I\$(top_srcdir)/include $GLIB_CFLAGS $PCAP_CFLAGS $X_CFLAGS"
 
 # Add various defines to the config.h file ...
 AH_VERBATIM([_GNU_SOURCE],
@@ -356,6 +370,7 @@ GTK_DOC_CHECK(1.4)
 AC_CONFIG_FILES([
 Makefile
 libgtop.spec
+data/Makefile
 po/Makefile.in
 misc/Makefile
 include/Makefile
@@ -386,3 +401,4 @@ libgtopconfig.h
 ])
 
 AC_OUTPUT
+

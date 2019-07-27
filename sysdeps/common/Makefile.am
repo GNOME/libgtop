@@ -14,6 +14,8 @@ endif
 libgtop_common_2_0_la_SOURCES	= error.c gnuslib.c \
                                   procargs.c \
 				  default.c \
+				  proc_inode_parser.c netsockets.c packet.c net_process.c \
+                                  interface_local_addr.c dev_handles.c connection.c stats.c \
 				  $(mountlist_src) $(fsusage_src)
 
 # libgtop_common_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)

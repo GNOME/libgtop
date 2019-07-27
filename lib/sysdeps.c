@@ -24,6 +24,7 @@
 #include <glibtop/union.h>
 #include <glibtop/sysdeps.h>
 #include <glibtop/init_hooks.h>
+#include <glibtop/netstats.h>
 
 const unsigned long glibtop_server_features =
 GLIBTOP_SUID_CPU +
@@ -50,7 +51,8 @@ GLIBTOP_SUID_NETLIST +
 GLIBTOP_SUID_PROC_WD +
 GLIBTOP_SUID_PROC_AFFINITY +
 GLIBTOP_SUID_PPP +
-GLIBTOP_SUID_PROC_IO;
+GLIBTOP_SUID_PROC_IO+
+GLIBTOP_SUID_NETSTATS;
 
 const _glibtop_init_func_t _glibtop_init_hook_s [] = {
 #if !GLIBTOP_SUID_CPU
@@ -127,6 +129,9 @@ const _glibtop_init_func_t _glibtop_init_hook_s [] = {
 #endif
 #if !GLIBTOP_SUID_PROC_OPEN_FILES
 	_glibtop_init_proc_open_files_s,
+#endif
+#if GLIBTOP_SUID_NETSTATS
+	_glibtop_init_netstats_s,
 #endif
 	NULL
 };

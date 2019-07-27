@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.gnome.GTop.NetStats
+Exec=~/.cache/jhbuild/build/libgtop/examples/dbus_interface
+User=root
