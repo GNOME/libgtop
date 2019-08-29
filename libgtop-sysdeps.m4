@@ -118,6 +118,9 @@ AC_DEFUN([GNOME_LIBGTOP_SYSDEPS],[
 	  AC_CHECK_LIB(kvm, kvm_open, KVM_LIBS=-lkvm, KVM_LIBS=)
 	  AC_SUBST(KVM_LIBS)
 
+	  AC_CHECK_LIB(util, kinfo_getfile)
+	  AC_CHECK_FUNCS(kinfo_getfile)
+
 	  AC_CHECK_HEADERS(net/if_var.h,,, [
 #include <net/if.h>
 #include <sys/types.h>
