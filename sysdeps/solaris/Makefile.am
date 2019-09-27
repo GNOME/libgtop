@@ -16,7 +16,8 @@ libgtop_sysdeps_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 libgtop_sysdeps_2_0_la_LIBADD	= @DL_LIB@
 
 libgtop_sysdeps_suid_2_0_la_SOURCES	= open_suid.c close_suid.c \
-				  shm_limits.c msg_limits.c sem_limits.c
+				  shm_limits.c msg_limits.c sem_limits.c \
+				  procio.c
 
 libgtop_sysdeps_suid_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 
