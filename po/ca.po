@@ -130,7 +130,7 @@ msgstr "Terminació"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
-msgstr "Condició urgent en socket"
+msgstr "Condició urgent en sòcol"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Stop"
