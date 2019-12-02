@@ -71,7 +71,9 @@ main (int argc, char *argv [])
 
 	printf ("Host = '%s' - %u\n\n", buffer, port);
 
+#ifdef HAVE_SBRK
 	printf ("sbrk (0) = %p\n\n", sbrk (0));
+#endif
 
 	for (c = 0; c < PROFILE_COUNT; c++) {
 		mount_entries = glibtop_get_mountlist (&mount_list, 1);
@@ -79,7 +81,9 @@ main (int argc, char *argv [])
 		g_free (mount_entries);
 	}
 
+#ifdef HAVE_SBRK
 	printf ("sbrk (0) = %p\n\n", sbrk (0));
+#endif
 
 	mount_entries = glibtop_get_mountlist (&mount_list, 1);
 
@@ -108,7 +112,9 @@ main (int argc, char *argv [])
 
 	g_free (mount_entries);
 
+#ifdef HAVE_SBRK
 	printf ("\nsbrk (0) = %p\n\n", sbrk (0));
+#endif
 
 	glibtop_close ();
 

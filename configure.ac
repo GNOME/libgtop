@@ -213,7 +213,7 @@ AC_FUNC_ALLOCA
 AC_FUNC_MMAP
 AC_TYPE_SIGNAL
 AC_FUNC_STRFTIME
-AC_CHECK_FUNCS(getcwd gettimeofday getwd putenv strdup strtoul uname)
+AC_CHECK_FUNCS(getcwd gettimeofday getwd putenv sbrk strdup strtoul uname)
 
 # FIXME: Remove AM_GNU_GETTEXT_VERSION once autoreconf supports REQUIRE_VERSION
 AM_GNU_GETTEXT_VERSION([0.19.6])
