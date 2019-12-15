@@ -273,10 +273,18 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
                 return NULL;
         }
 
+#if (__FreeBSD_version >= 1300062)
+        first = vmspace.vm_map.header.right;
+#else
         first = vmspace.vm_map.header.next;
+#endif
 
         if (kvm_read (server->machine->kd,
+#if (__FreeBSD_version >= 1300062)
+                        (gulong) vmspace.vm_map.header.right,
+#else
                         (gulong) vmspace.vm_map.header.next,
+#endif
                         (char *) &entry, sizeof (entry)) != sizeof (entry)) {
                 glibtop_warn_io_r (server, "kvm_read (entry)");
 		glibtop_suid_leave (server);
@@ -299,7 +307,11 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 
                 if (update) {
                         if (kvm_read (server->machine->kd,
+#if (__FreeBSD_version >= 1300062)
+                                        (gulong) entry.right,
+#else
                                         (gulong) entry.next,
+#endif
                                         (char *) &entry, sizeof (entry)) != sizeof (entry)) {
                                 glibtop_warn_io_r (server, "kvm_read (entry)");
                                 continue;
@@ -377,7 +389,11 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
                 if (entry.protection & VM_PROT_EXECUTE)
                         mentry->perm |= GLIBTOP_MAP_PERM_EXECUTE;
 
+#if (__FreeBSD_version >= 1300062)
+        } while (entry.right != first);
+#else
         } while (entry.next != first);
+#endif
 
         glibtop_suid_leave (server);
 
