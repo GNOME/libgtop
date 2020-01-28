@@ -1,18 +1,20 @@
 # libgtop ja.po.
-# Copyright (C) 1998,2000,2002-2007,2009-2010 Free Software Foundation, Inc.
-# Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1998
+# Copyright (C) 1998-2011, 2020 Free Software Foundation, Inc.
+# Eiichiro ITANI <emu@ceres.dti.ne.jp>, 1998.
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2000, 2002, 2010.
 # Yukihiro Nakai <nakai@gnome.gr.jp>, 2000.
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
-# Takeshi AIHANA <takeshi.aihana@gmail.com>, 2004-2007,2009.
+# Takeshi AIHANA <takeshi.aihana@gmail.com>, 2004-2007, 2009.
+# Jiro Matsuzawa <jmatsuzawa@src.gnome.org>, 2011.
+# sicklylife <translation@sicklylife.jp>, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues\n"
 "POT-Creation-Date: 2020-01-08 15:19+0000\n"
-"PO-Revision-Date: 2011-09-11 07:40+0900\n"
-"Last-Translator: Jiro Matsuzawa <jmatsuzawa@src.gnome.org>\n"
+"PO-Revision-Date: 2020-01-28 21:00+0900\n"
+"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +26,7 @@ msgstr ""
 #, c-format
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "%dバイト読み込み"
+msgstr[0] "%d バイト読み込み"
 
 #: lib/read_data.c:49
 msgid "read data size"
@@ -34,13 +36,13 @@ msgstr "データの読み込みサイズ"
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "%luバイトデータの読み込み"
+msgstr[0] "%lu バイトデータの読み込み"
 
 #: lib/write.c:49
 #, c-format
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "%dバイトの書き込み"
+msgstr[0] "%d バイトの書き込み"
 
 #: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
@@ -51,23 +53,19 @@ msgid "Enable verbose output"
 msgstr "詳細な出力にする"
 
 #: src/daemon/gnuserv.c:460
-#, fuzzy
-#| msgid "Don't fork into background"
 msgid "Don’t fork into background"
 msgstr "子プロセスをバックグラウンドに回さない"
 
 #: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
-msgstr "`inetd` から起動する"
+msgstr "“inetd”から起動する"
 
 #: src/daemon/gnuserv.c:498
-#, fuzzy, c-format
-#| msgid ""
-#| "Run '%s --help' to see a full list of available command line options.\n"
+#, c-format
 msgid "Run “%s --help” to see a full list of available command line options.\n"
 msgstr ""
-"利用可能なコマンド・ラインのオプション一覧を表示する場合は '%s --help' を実行"
-"してください\n"
+"“%s --help”を実行すると利用可能なコマンドラインオプションの一覧が表示されます"
+"\n"
 
 #: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
 msgid "Hangup"
@@ -187,8 +185,8 @@ msgstr "情報リクエスト"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr "ユーザー定義のシグナル1"
+msgstr "ユーザー定義のシグナル 1"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr "ユーザー定義のシグナル2"
+msgstr "ユーザー定義のシグナル 2"
