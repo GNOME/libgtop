@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 1.90.1\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues\n"
-"POT-Creation-Date: 2018-01-25 10:19+0000\n"
-"PO-Revision-Date: 2018-03-03 18:19+0200\n"
+"POT-Creation-Date: 2020-01-28 15:06+0000\n"
+"PO-Revision-Date: 2020-02-22 17:09+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.3\n"
 
 #: lib/read.c:49
 #, c-format
@@ -54,10 +54,8 @@ msgid "Enable verbose output"
 msgstr "Näytä lisätietoja"
 
 #: src/daemon/gnuserv.c:460
-#, fuzzy
-#| msgid "Don't fork into background"
 msgid "Don’t fork into background"
-msgstr "Älä käynnistä taustaprosessia"
+msgstr "Älä haarauta taustalle"
 
 #: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
