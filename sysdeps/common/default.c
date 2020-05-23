@@ -65,6 +65,20 @@ glibtop_get_cpu(glibtop_cpu *buf)
 
 
 /**
+ * glibtop_get_disk:
+ * @buf: A location to return the disk usage.
+ *
+ * Get the DISK usage.
+ *
+ */
+void
+glibtop_get_cpu(glibtop_cpu *buf)
+{
+	glibtop_get_cpu_l(glibtop_global_server, buf);
+}
+
+
+/**
  * glibtop_get_fsusage:
  * @buf: A location to return the file system usage.
  * @mount_dir: mount dir where to get the information of usage.

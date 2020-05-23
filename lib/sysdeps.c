@@ -27,6 +27,7 @@
 
 const unsigned long glibtop_server_features =
 GLIBTOP_SUID_CPU +
+GLIBTOP_SUID_DISK +
 GLIBTOP_SUID_MEM +
 GLIBTOP_SUID_SWAP +
 GLIBTOP_SUID_UPTIME +
@@ -55,6 +56,9 @@ GLIBTOP_SUID_PROC_IO;
 const _glibtop_init_func_t _glibtop_init_hook_s [] = {
 #if !GLIBTOP_SUID_CPU
 	_glibtop_init_cpu_s,
+#endif
+#if !GLIBTOP_SUID_DISK
+	_glibtop_init_disk_s,
 #endif
 #if !GLIBTOP_SUID_MEM
 	_glibtop_init_mem_s,

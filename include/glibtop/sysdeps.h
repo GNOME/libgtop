@@ -54,8 +54,9 @@ G_BEGIN_DECLS
 #define GLIBTOP_SYSDEPS_PROC_WD		25
 #define GLIBTOP_SYSDEPS_PROC_AFFINITY	26
 #define GLIBTOP_SYSDEPS_PROC_IO	27
+#define GLIBTOP_SYSDEPS_DISK	28
 
-#define GLIBTOP_MAX_SYSDEPS		28
+#define GLIBTOP_MAX_SYSDEPS		29
 
 /* The 'features' args to glibtop_init_* is an unsigned long */
 G_STATIC_ASSERT((1UL << (GLIBTOP_MAX_SYSDEPS - 1)) <= ULONG_MAX);
@@ -69,6 +70,7 @@ struct _glibtop_sysdeps
 	guint64 flags;
 	guint64 features;		/* server features	*/
 	guint64 cpu;			/* glibtop_cpu		*/
+	guint64 disk;			/* glibtop_cpu		*/
 	guint64 mem;			/* glibtop_mem		*/
 	guint64 swap;			/* glibtop_swap		*/
 	guint64 uptime;			/* glibtop_uptime	*/

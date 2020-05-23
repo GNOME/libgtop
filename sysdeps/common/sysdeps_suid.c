@@ -30,6 +30,9 @@ const _glibtop_init_func_t _glibtop_init_hook_p [] = {
 #if GLIBTOP_SUID_CPU
 	_glibtop_init_cpu_p,
 #endif
+#if GLIBTOP_SUID_DISK
+	_glibtop_init_disk_p,
+#endif
 #if GLIBTOP_SUID_MEM
 	_glibtop_init_mem_p,
 #endif
