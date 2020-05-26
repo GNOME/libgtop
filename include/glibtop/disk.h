@@ -42,6 +42,14 @@ G_BEGIN_DECLS
 
 typedef struct _glibtop_disk	glibtop_disk;
 
+struct _partition_info
+{
+	char name[256];
+	char type[256];
+   char raid_num[256];
+	int max;
+};
+
 struct _glibtop_disk
 {
 	guint64 xdisk_sectors_read [GLIBTOP_NDISK];	/* GLIBTOP_XDISK_SECTORS_READ		*/
@@ -50,7 +58,7 @@ struct _glibtop_disk
 	guint64 xdisk_time_write  [GLIBTOP_NDISK];	/* GLIBTOP_XDISK_TIME_WRITE		*/
 };
 
-void glibtop_get_disk(glibtop_disk *buf);
+void glibtop_get_disk (glibtop_disk *buf);
 
 #if GLIBTOP_SUID_DISK
 #define glibtop_get_disk_r	glibtop_get_disk_p

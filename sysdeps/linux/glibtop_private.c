@@ -57,21 +57,20 @@ skip_token (const char *p)
 }
 
 
-int
-check_alphanumeric_word (const char *p)
+void
+get_from_pipe (char *buffer, const char *cmd)
 {
-	int test = 0;
-	p = next_token(p);
-	while (*p && !g_ascii_isspace(*p)) {
-		if(g_ascii_isalpha(*p)){
-			test = 0;
-		}else if(g_ascii_isdigit(*p)){
-			test = 1;
-		}
-		p++;
-	};
-	p = next_token(p);
-	return test;
+	FILE* fp;
+	long psize;
+
+	fp = popen (cmd, "r");
+
+	fseek (fp, 0, SEEK_END);
+	psize = ftell (fp);
+	fseek (fp, 0, SEEK_SET);
+	fread(buffer,1,psize,fp);
+
+	pclose (fp);
 }
 
 
