@@ -34,6 +34,9 @@ mountlist_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
 smp_SOURCES		= smp.c
 smp_LDADD		= $(top_builddir)/lib/libgtop-2.0.la -lm
 
+disk_SOURCES		= disk.c
+disk_LDADD		= $(top_builddir)/lib/libgtop-2.0.la -lm
+
 timings_SOURCES		= timings.c
 timings_LDADD		= $(top_builddir)/lib/libgtop-2.0.la
 

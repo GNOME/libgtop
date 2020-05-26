@@ -71,6 +71,16 @@ dnl Most people should have a working perl interpreter on their system
 AC_CHECK_PROGS(PERL, perl5 perl)
 test -z "$PERL" && AC_MSG_ERROR([You need to have a working perl interpreter.])
 
+case "${host_os}" in
+	linux*)
+		AC_CHECK_TOOL(LSBLK,lsblk)
+		AC_CHECK_TOOL(SED,sed)
+		AC_CHECK_TOOL(TR,tr)
+		;;
+	*)
+		;;
+esac
+
 AC_CHECK_TOOL(CC,gcc)
 AC_CHECK_TOOL(RANLIB,ranlib)
 AC_CHECK_TOOL(AS,as)

@@ -46,16 +46,20 @@ struct _partition_info
 {
 	char name[256];
 	char type[256];
-   char raid_num[256];
+	char raid_num[256];
 	int max;
 };
 
+typedef struct _partition_info partition_info;
+
 struct _glibtop_disk
 {
+   guint64 flags;
 	guint64 xdisk_sectors_read [GLIBTOP_NDISK];	/* GLIBTOP_XDISK_SECTORS_READ		*/
 	guint64 xdisk_time_read [GLIBTOP_NDISK];	/* GLIBTOP_XDISK_TIME_READ		*/
 	guint64 xdisk_sectors_write [GLIBTOP_NDISK];	/* GLIBTOP_XDISK_SECTORS_WRITE		*/
 	guint64 xdisk_time_write  [GLIBTOP_NDISK];	/* GLIBTOP_XDISK_TIME_WRITE		*/
+   guint64 xdisk_flags;
 };
 
 void glibtop_get_disk (glibtop_disk *buf);

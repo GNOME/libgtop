@@ -5,6 +5,7 @@
 %define prefix   /usr
 
 Summary: LibGTop library
+Requires: util-linux, sed
 Name: libgtop
 Version: %ver
 Release: %rel

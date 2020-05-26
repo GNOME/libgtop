@@ -1,5 +1,33 @@
 #!/bin/sh
 # Run this to generate all the initial makefiles, etc.
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+case "$(uname -s)" in
+        Linux)
+                if ! [ -x "$(command -v lsblk)" ]; then
+                        echo '' >&2
+                        echo -e "${RED}*** ERROR:${NC}  lsblk cannot be found. Try installing util-linux or util-linux-ng ${RED}***${NC}" >&2
+                        echo '' >&2
+                        exit 1
+                fi
+                if ! [ -x "$(command -v sed)" ]; then
+                        echo '' >&2
+                        echo -e "${RED}*** ERROR:${NC}  sed cannot be found. ***" >&2
+                        echo '' >&2
+                        exit 1
+                fi
+                if ! [ -x "$(command -v tr)" ]; then
+                        echo '' >&2
+                        echo -e "${RED}*** ERROR:${NC}  tr cannot be found. ***" >&2
+                        echo '' >&2
+                        exit 1
+                fi
+        ;;
+        *)
+        ;;
+esac
+
 test -n "$srcdir" || srcdir=$(dirname "$0")
 test -n "$srcdir" || srcdir=.
 
