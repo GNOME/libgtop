@@ -51,7 +51,7 @@ void
 find_primary_part (partition_info *primary_part, const char *m)
 {
 	int n = 0, tlvl = 0;
-	char name[256]="",type[256]="";
+	char name[256]="", type[256]="";
 
 	primary_part->max = 0;
 
@@ -92,14 +92,8 @@ find_primary_part (partition_info *primary_part, const char *m)
 				n--;
 
 			}
-			else if ((strcmp (type, "lvm") == 0)) {
+			else if ((strcmp (type, "lvm") == 0) || (strncmp (type, "raid", 4) == 0)) {
 
-				tlvl = 2;
-				primary_part->max++;
-
-			}
-			else if ((strncmp (type, "raid", 4) == 0)) {
-				
 				tlvl = 2;
 				primary_part->max++;
 
@@ -115,23 +109,14 @@ find_primary_part (partition_info *primary_part, const char *m)
 				primary_part->max++;
 
 			}
-			else if ((strcmp (primary_part[n-1].type, "lvm") == 0) && (strcmp (type, "lvm") == 0)) {
+			else if ((strcmp (primary_part[n-1].type, "lvm") == 0) && (strcmp (type, "lvm") == 0) || 
+				(strcmp (primary_part[n-1].type, "raid") == 0) && (strncmp (type, "raid", 4) == 0)) {
 
 				n--;
 
 			}
-			else if ((strcmp (primary_part[n-1].type, "raid") == 0) && (strncmp (type, "raid", 4) == 0)) {
-
-				n--;
-
-			}
-			else if ((strcmp (primary_part[n-1].type, "lvm") == 0) && (strcmp (type, "part") == 0)) {
-
-				n--;
-				tlvl = 1;
-
-			}
-			else if ((strcmp (primary_part[n-1].type, "raid") == 0) && (strcmp (type, "part") == 0)) {
+			else if ((strcmp (primary_part[n-1].type, "lvm") == 0) && (strcmp (type, "part") == 0) || 
+				(strcmp (primary_part[n-1].type, "raid") == 0) && (strcmp (type, "part") == 0)) {
 
 				n--;
 				tlvl = 1;
@@ -171,6 +156,7 @@ find_primary_part (partition_info *primary_part, const char *m)
 				tlvl = 1;
 
 			}
+
 		}
 
 
@@ -195,11 +181,12 @@ is_virtual_drive (partition_info *primary_part, const char *p)
 	int i;
 	char name[256];
 	int test = 1;
+
 	sscanf (p, "%s", name);
 
 	if (*p) {
 
-		for (i=0; i<primary_part->max; i++) {
+		for (i=0; i < primary_part->max; i++) {
 
 			if (strcmp (primary_part[i].name, name) == 0) {
 

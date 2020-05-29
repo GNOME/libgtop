@@ -28,17 +28,17 @@
 G_BEGIN_DECLS
 
 #define GLIBTOP_XDISK_SECTORS_READ	0
-#define GLIBTOP_XDISK_TIME_READ	1
+#define GLIBTOP_XDISK_TIME_READ		1
 #define GLIBTOP_XDISK_SECTORS_WRITE	2
 #define GLIBTOP_XDISK_TIME_WRITE		3
 
-#define GLIBTOP_MAX_DISK		4
+#define GLIBTOP_MAX_DISK				4
 
 /* Nobody should really be using more than 4 disk.
    Yes we are :)
    Nobody should really be using more than 32 disk.
 */
-#define GLIBTOP_NDISK		1024
+#define GLIBTOP_NDISK					1024
 
 typedef struct _glibtop_disk	glibtop_disk;
 
@@ -54,12 +54,12 @@ typedef struct _partition_info partition_info;
 
 struct _glibtop_disk
 {
-   guint64 flags;
-	guint64 xdisk_sectors_read [GLIBTOP_NDISK];	/* GLIBTOP_XDISK_SECTORS_READ		*/
-	guint64 xdisk_time_read [GLIBTOP_NDISK];	/* GLIBTOP_XDISK_TIME_READ		*/
-	guint64 xdisk_sectors_write [GLIBTOP_NDISK];	/* GLIBTOP_XDISK_SECTORS_WRITE		*/
-	guint64 xdisk_time_write  [GLIBTOP_NDISK];	/* GLIBTOP_XDISK_TIME_WRITE		*/
-   guint64 xdisk_flags;
+	guint64 flags;														/* NOT USED YET		*/
+	guint64 xdisk_sectors_read [GLIBTOP_NDISK];				/* GLIBTOP_XDISK_SECTORS_READ		*/
+	guint64 xdisk_time_read [GLIBTOP_NDISK];					/* GLIBTOP_XDISK_TIME_READ		*/
+	guint64 xdisk_sectors_write [GLIBTOP_NDISK];				/* GLIBTOP_XDISK_SECTORS_WRITE		*/
+	guint64 xdisk_time_write [GLIBTOP_NDISK];					/* GLIBTOP_XDISK_TIME_WRITE		*/
+	guint64 xdisk_flags;
 };
 
 void glibtop_get_disk (glibtop_disk *buf);

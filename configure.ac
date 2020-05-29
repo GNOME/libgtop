@@ -8,16 +8,16 @@ m4_define([libgtop_micro_version], [0])
 m4_define([libgtop_version], [libgtop_major_version.libgtop_minor_version.libgtop_micro_version])
 
 dnl  increment if the interface has additions, changes, removals.
-m4_define([libgtop_current], [11])
+m4_define([libgtop_current], [12])
 
 dnl  increment any time the source changes; set to
 dnl  0 if you increment CURRENT
-m4_define([libgtop_revision], [1])
+m4_define([libgtop_revision], [0])
 
 dnl  increment if any interfaces have been added; set to 0
 dnl  if any interfaces have been removed. removal has
 dnl  precedence over adding, so set to 0 if both happened.
-m4_define([libgtop_age], [0])
+m4_define([libgtop_age], [1])
 
 # Increase each time you change the client/server protocol.
 m4_define([libgtop_server_version], [5])
