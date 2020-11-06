@@ -28,7 +28,6 @@
 * glibtop_proc_map::            Process Memory Maps.
 * glibtop_netload::             Network Load.
 * glibtop_ppp::                 PPP Usage.
-* glibtop_disk::                DISK Usage.
 @end menu
 
 @node glibtop_cpu, glibtop_mem, System Dependent, System Dependent
@@ -1344,7 +1343,7 @@ enum @{
 @end example
 
 @page
-@node glibtop_ppp, glibtop_disk, glibtop_netload, System Dependent
+@node glibtop_ppp,  , glibtop_netload, System Dependent
 @subsection PPP Statistics
 
 Library function @code{glibtop_get_ppp}:
@@ -1403,62 +1402,6 @@ We're currently offline.
 @item GLIBTOP_PPP_STATE_ONLINE
 We're currently online.
 @end table
-
-@page
-@node glibtop_disk, , glibtop_ppp, System Dependent
-@subsection DISK Usage
-
-Library function @code{glibtop_get_disk}:
-
-@example
-@cartouche
-void glibtop_get_disk (glibtop_disk *buf);
-void glibtop_get_disk_l (glibtop *server, glibtop_disk *buf);
-@end cartouche
-@end example
-
-Declaration of @code{glibtop_disk} in @file{<glibtop/disk.h>}:
-
-@example
-@cartouche
-typedef struct _glibtop_disk     glibtop_disk;
-
-struct _glibtop_disk
-@{
-    xdisk_sectors_read [GLIBTOP_NDISK],
-    xdisk_time_read [GLIBTOP_NDISK],
-    xdisk_sectors_write [GLIBTOP_NDISK],
-    xdisk_time_write [GLIBTOP_NDISK],
-@};
-@end cartouche
-@end example
-
-All DISK reads and writes are measured by @dfn{sectors} which are normally 512 bytes each. 
-All disk time are measured in milliseconds which is 1/1000th of a second.
-
-@table @code
-@item xdisk_sectors_read
-Number of sectors read since system boot.
-
-@item xdisk_time_read
-Number of milliseconds spent reading since system boot.
-
-@item xdisk_sectors_write
-Number of sectors written since system boot.
-
-@item xdisk_time_write
-Number of milliseconds spent writing since system boot.
-
-@end table
-
-The @samp{xdisk_} are values from arrays of @code{GLIBTOP_NDISK} (defined in
-@file{<glibtop/disk.h>}) elements and contain one value for each DISK
-in the system.
-
-Please note that all of the disk values are absolute values measured in
-certain units since system boot. To get bandwidth values (bytes/s), you need to call @code{glibtop_disk}, save the
-result, wait some time and then call it again and divide the differences of
-the two values by the time spent reading or writing.
 
 @page
 @node Common Functions, Library Functions, System Dependent, Reference Manual
