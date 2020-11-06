@@ -62,7 +62,7 @@ skip_line (const char *p)
 }
 
 void
-get_from_pipe (char *buffer, const char *cmd);
+get_from_pipe (char *buffer, const char *cmd)
 
 /*
  * Smart strtoul which handles binary suffixes

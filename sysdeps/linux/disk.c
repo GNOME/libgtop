@@ -48,7 +48,7 @@ _glibtop_init_disk_s (glibtop *server)
 // Handle LVM and RAID //
 
 void
-find_primary_part (partition_info *primary_part, const char *m)
+find_primary_part (_partition_info *primary_part, const char *m)
 {
 	int n = 0, tlvl = 0;
 	char name[256]="",type[256]="";
@@ -190,7 +190,7 @@ find_primary_part (partition_info *primary_part, const char *m)
 }
 
 int
-is_virtual_drive (partition_info *primary_part, const char *p)
+is_virtual_drive (_partition_info *primary_part, const char *p)
 {
 	int i;
 	char name[256];
@@ -220,27 +220,10 @@ is_virtual_drive (partition_info *primary_part, const char *p)
 	return test;
 }
 
-int
-max_lines (const char *p)
-{
-	char temp[10];
-	int count = 0;
-
-	while (sscanf (p, "%s", temp) == 1)
-	{
-
-		p = skip_line(p);
-		count++;
-
-	}
-
-	return count;
-}
-
 void
 glibtop_get_disk_s (glibtop *server, glibtop_disk *buf)
 {
-	partition_info primary_part[GLIBTOP_NDISK];
+	_partition_info primary_part[GLIBTOP_NDISK];
 	char buffer [STAT_BUFSIZ], *p, map_buffer [STAT_BUFSIZ], *m;
 	int i;
 
@@ -249,6 +232,8 @@ glibtop_get_disk_s (glibtop *server, glibtop_disk *buf)
 	file_to_buffer (server, buffer, sizeof buffer, FILENAME);
 
 	get_from_pipe (map_buffer, CMD_PIPE);
+
+	server->ndisk = GLIBTOP_NDISK;
 
 	/*
 	 * GLOBAL
@@ -261,22 +246,22 @@ glibtop_get_disk_s (glibtop *server, glibtop_disk *buf)
 	 * PER DISK
 	 */
 
-	server->ndisk = max_lines(p);
-
 	find_primary_part (primary_part, m);
 
-	for (i = 0; i < server->ndisk; i++) {
+	for (i = 0; i <= server->ndisk; i++) {
 
 		p = skip_multiple_token (p,2);
 
 		// skip if disk is the raw device
 		if (!is_virtual_drive (primary_part, p)) {
 
-			server->ndisk--;
 			p = skip_line (p); /* move to ^ */
 			p = skip_multiple_token (p, 2);
 
 		}
+
+		if (!check_disk_line_warn (server, p, i))
+			break;
 
 		p = skip_token (p); /* prev xdisk_name */
 		p = skip_token (p); /* prev xdisk_reads_completed */

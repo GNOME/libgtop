@@ -61,7 +61,7 @@ typedef union _glibtop_union	glibtop_union;
 union _glibtop_union
 {
 	glibtop_cpu		cpu;
-	glibtop_disk	disk;
+	glibtop_disk		disk;
 	glibtop_mem		mem;
 	glibtop_swap		swap;
 	glibtop_uptime		uptime;

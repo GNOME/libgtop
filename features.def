@@ -1,5 +1,4 @@
 void|cpu
-void|disk
 void|mem
 void|swap
 void|uptime
