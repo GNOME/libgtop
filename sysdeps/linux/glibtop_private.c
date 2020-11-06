@@ -57,24 +57,6 @@ skip_token (const char *p)
 }
 
 
-int
-check_alphanumeric_word (const char *p)
-{
-	int test = 0;
-	p = next_token(p);
-	while (*p && !g_ascii_isspace(*p)) {
-		if(g_ascii_isalpha(*p)){
-			test = 0;
-		}else if(g_ascii_isdigit(*p)){
-			test = 1;
-		}
-		p++;
-	};
-	p = next_token(p);
-	return test;
-}
-
-
 /*
  * Read functions
  */

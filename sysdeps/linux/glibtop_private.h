@@ -61,9 +61,6 @@ skip_line (const char *p)
 	return (char *) (*p ? p+1 : p);
 }
 
-int
-check_alphanumeric_word (const char *p);
-
 /*
  * Smart strtoul which handles binary suffixes
  * e.g: get_scaled("Size: 32 kB", "Size:") == 32768
