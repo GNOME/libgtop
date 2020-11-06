@@ -80,7 +80,7 @@ struct _glibtop
 	int socket;			/* Accepted connection of a socket */
 	int ncpu;			/* Number of CPUs, zero if single-processor */
 	int real_ncpu;			/* Real number of CPUs. Only ncpu are monitored */
-	int ndisk;			    /* Number of DISKs, zero if single-disk */
+	int ndisk;			/* Number of DISKs, zero if single-disk */
 	int real_ndisk;			/* Number of PHYSICAL DISKs. Only ncpu is monitored */
 	unsigned long os_version_code;	/* Version code of the operating system */
 	const char *name;		/* Program name for error messages */

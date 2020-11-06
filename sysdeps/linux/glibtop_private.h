@@ -61,8 +61,8 @@ skip_line (const char *p)
 	return (char *) (*p ? p+1 : p);
 }
 
-void
-get_from_pipe (char *buffer, const char *cmd)
+int
+check_alphanumeric_word (const char *p);
 
 /*
  * Smart strtoul which handles binary suffixes
