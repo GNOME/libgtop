@@ -65,7 +65,7 @@ msgstr "Ha estat cridat des d'inetd"
 #, c-format
 msgid "Run “%s --help” to see a full list of available command line options.\n"
 msgstr ""
-"Executeu «%s --help»  per veure una llista completa de les opcions "
+"Executeu «%s --help» per a veure una llista completa de les opcions "
 "disponibles de la línia d'ordres.\n"
 
 #: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
