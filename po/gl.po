@@ -15,12 +15,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=libgto"
-"p&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-04-07 11:26+0000\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues\n"
+"POT-Creation-Date: 2020-05-29 05:44+0000\n"
 "PO-Revision-Date: 2017-08-12 12:25+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
-"Language-Team: Galician\n"
+"Language-Team: Proxecto Trasno <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +62,6 @@ msgid "Enable verbose output"
 msgstr "Activar a saída detallada"
 
 #: src/daemon/gnuserv.c:460
-#| msgid "Don't fork into background"
 msgid "Don’t fork into background"
 msgstr "Non facer fork nunha tarefa de fondo"
 
@@ -73,8 +71,6 @@ msgstr "Invocado desde inetd"
 
 #: src/daemon/gnuserv.c:498
 #, c-format
-#| msgid ""
-#| "Run '%s --help' to see a full list of available command line options.\n"
 msgid "Run “%s --help” to see a full list of available command line options.\n"
 msgstr ""
 "Execute '%s --help' para ver a lista completa das opcións de liña de ordes "
