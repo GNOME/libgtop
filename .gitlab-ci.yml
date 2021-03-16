@@ -1,0 +1,18 @@
+stages:
+  - build
+
+build-fedora:
+  image: fedora:latest
+  stage: build
+  except:
+    - tags
+  before_script:
+    - dnf update -y --nogpgcheck
+    - dnf -y install --nogpgcheck
+      gawk gettext-devel glib2-devel gobject-introspection-devel gtk-doc perl
+      texinfo texinfo-tex
+  script:
+    - ./autogen.sh --disable-dependency-tracking
+    - make
+    - make install
+    - make distcheck
