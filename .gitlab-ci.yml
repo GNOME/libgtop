@@ -20,7 +20,7 @@ build-fedora:
 
 test-examples:
     stage: test
-    needs: ["build"]
+    needs: ["build-fedora"]
     script:
       - ./examples/affinity
       - ./examples/df
