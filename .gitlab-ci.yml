@@ -37,6 +37,8 @@ test-examples:
     stage: test
     extends: build-fedora
     script:
+      - ./autogen.sh --disable-dependency-tracking
+      - make
       - ./examples/affinity
       - ./examples/df
       - ./examples/diskio
