@@ -18,6 +18,19 @@ build-fedora:
     - make install
     - make distcheck
 
+deploy-install:
+    stage: deploy
+    needs: ["build-fedora"]
+    script:
+      - make install
+
+package-distcheck:
+    stage: package
+    needs: ["build-fedora"]
+    script:
+      - make distcheck
+
+
 test-examples:
     stage: test
     needs: ["build-fedora"]
