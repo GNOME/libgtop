@@ -22,12 +22,14 @@ deploy-install:
     stage: deploy
     extends: build-fedora
     script:
+      - ./autogen.sh --disable-dependency-tracking
       - make install
 
 package-distcheck:
     stage: package
     extends: build-fedora
     script:
+      - ./autogen.sh --disable-dependency-tracking
       - make distcheck
 
 
