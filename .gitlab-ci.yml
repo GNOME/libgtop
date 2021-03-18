@@ -1,5 +1,6 @@
 stages:
   - build
+  - test
 
 build-fedora:
   image: fedora:latest
@@ -16,3 +17,26 @@ build-fedora:
     - make
     - make install
     - make distcheck
+
+test-examples:
+    stage: test
+    script:
+      - ./examples/affinity
+      - ./examples/df
+      - ./examples/diskio
+      - ./examples/first
+      - ./examples/free
+      - ./examples/mountlist
+      - ./examples/netlist
+      - ./examples/netload
+      - ./examples/openfiles
+      - ./examples/pprint
+      - ./examples/procargs
+      - ./examples/proclist
+      - ./examples/procmap
+      - ./examples/second
+      - ./examples/smp
+      - ./examples/sysdeps
+      - ./examples/timings
+      - ./examples/wd
+
