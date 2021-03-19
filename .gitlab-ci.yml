@@ -46,7 +46,7 @@ test-examples:
       - ./examples/free
       - ./examples/mountlist
       - ./examples/netlist
-      - ./examples/netload
+      - ./examples/netload lo
       - ./examples/openfiles
       - ./examples/pprint
       - ./examples/procargs
