@@ -1,6 +1,17 @@
 stages:
   - build
 
+variables:
+  FEDORA_DEPENDENCIES:
+    gawk
+    gettext-devel
+    glib2-devel
+    gobject-introspection-devel
+    gtk-doc
+    perl
+    texinfo
+    texinfo-tex
+
 build-fedora:
   image: fedora:latest
   stage: build
@@ -8,9 +19,7 @@ build-fedora:
     - tags
   before_script:
     - dnf update -y --nogpgcheck
-    - dnf -y install --nogpgcheck
-      gawk gettext-devel glib2-devel gobject-introspection-devel gtk-doc perl
-      texinfo texinfo-tex
+    - dnf -y install --nogpgcheck $FEDORA_DEPENDENCIES
   script:
     - ./autogen.sh --disable-dependency-tracking
     - make
