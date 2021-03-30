@@ -11,6 +11,10 @@ variables:
     perl
     texinfo
     texinfo-tex
+  FEDORA_DEPENDENCIES_ABI_CHECK:
+    libabigail
+    intltool
+  LAST_ABI_BREAK: "abccaf488a929de1e95e6a748485575dec52c998"
 
 build-fedora:
   image: fedora:latest
@@ -27,3 +31,7 @@ build-fedora:
     - make
     - make install
     - make distcheck
+    - cd ..
+    - curl https://gitlab.freedesktop.org/hadess/check-abi/-/raw/main/contrib/check-abi-fedora.sh | bash
+    - dnf install -y $FEDORA_DEPENDENCIES_ABI_CHECK
+    - check-abi ${LAST_ABI_BREAK} $(git rev-parse HEAD)
