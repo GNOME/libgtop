@@ -21,7 +21,9 @@ build-fedora:
     - dnf update -y --nogpgcheck
     - dnf -y install --nogpgcheck $FEDORA_DEPENDENCIES
   script:
-    - ./autogen.sh --disable-dependency-tracking
+    - mkdir _build
+    - cd _build
+    - ../autogen.sh --disable-dependency-tracking
     - make
     - make install
     - make distcheck
