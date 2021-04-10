@@ -49,6 +49,7 @@ System Dependent Functions
 * glibtop_proc_map::            Process Memory Maps.
 * glibtop_netload::             Network Load.
 * glibtop_ppp::                 PPP Usage.
+* glibtop_disk::                DISK Usage.
 
 Common Functions
 
