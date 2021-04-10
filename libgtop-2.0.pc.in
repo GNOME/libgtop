@@ -5,7 +5,7 @@ includedir=@includedir@
           
 Name: libgtop
 Description: Portable System Access Library
-Requires: glib-2.0, util-linux
+Requires: glib-2.0
 Version: @VERSION@
 Libs: -L${libdir} -lgtop-2.0
 Cflags: -I${includedir}/libgtop-2.0
