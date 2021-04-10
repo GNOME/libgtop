@@ -23,6 +23,7 @@
 #define __GLIBTOP_UNION_H__
 
 #include <glibtop/cpu.h>
+#include <glibtop/disk.h>
 #include <glibtop/mem.h>
 #include <glibtop/swap.h>
 #include <glibtop/uptime.h>
@@ -60,6 +61,7 @@ typedef union _glibtop_union	glibtop_union;
 union _glibtop_union
 {
 	glibtop_cpu		cpu;
+	glibtop_disk		disk;
 	glibtop_mem		mem;
 	glibtop_swap		swap;
 	glibtop_uptime		uptime;

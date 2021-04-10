@@ -3,6 +3,8 @@ glibtop_close
 glibtop_close_r
 glibtop_get_cpu
 glibtop_get_cpu_l
+glibtop_get_disk
+glibtop_get_disk_l
 glibtop_get_fsusage
 glibtop_get_fsusage_l
 glibtop_get_loadavg
