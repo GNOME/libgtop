@@ -135,6 +135,12 @@ handle_slave_command (glibtop_command *cmnd, glibtop_response *resp,
 		resp->offset = _offset_data (cpu);
 		break;
 #endif
+#if GLIBTOP_SUID_DISK
+	case GLIBTOP_CMND_DISK:
+		glibtop_get_disk_p (server, &resp->u.data.disk);
+		resp->offset = _offset_data (disk);
+		break;
+#endif
 #if GLIBTOP_SUID_MEM
 	case GLIBTOP_CMND_MEM:
 		glibtop_get_mem_p (server, &resp->u.data.mem);

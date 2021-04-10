@@ -98,7 +98,7 @@ handle_parent_connection (int s)
 	    do_output (s, resp, _offset_data (cpu), 0, NULL);
 	    break;
 	case GLIBTOP_CMND_DISK:
-	    glibtop_get_disk_l (server, &resp->u.disk.cpu);
+	    glibtop_get_disk_l (server, &resp->u.data.disk);
 	    do_output (s, resp, _offset_data (disk), 0, NULL);
 	    break;
 	case GLIBTOP_CMND_MEM:

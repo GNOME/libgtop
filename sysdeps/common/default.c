@@ -72,9 +72,9 @@ glibtop_get_cpu(glibtop_cpu *buf)
  *
  */
 void
-glibtop_get_cpu (glibtop_cpu *buf)
+glibtop_get_disk (glibtop_disk *buf)
 {
-	glibtop_get_cpu_l (glibtop_global_server, buf);
+	glibtop_get_disk_l (glibtop_global_server, buf);
 }
 
 
