@@ -15,6 +15,18 @@ variables:
     libabigail
     intltool
   LAST_ABI_BREAK: "abccaf488a929de1e95e6a748485575dec52c998"
+  UBUNTU_DEPENDENCIES:
+    autoconf
+    automake
+    autopoint
+    gettext
+    glib2.0
+    gtk-doc-tools
+    libgirepository1.0-dev
+    libtool
+    make
+    texinfo
+    texlive
 
 build-fedora:
   image: fedora:latest
@@ -35,3 +47,19 @@ build-fedora:
     - curl https://gitlab.freedesktop.org/hadess/check-abi/-/raw/main/contrib/check-abi-fedora.sh | bash
     - dnf install -y $FEDORA_DEPENDENCIES_ABI_CHECK
     - check-abi ${LAST_ABI_BREAK} $(git rev-parse HEAD)
+
+build-ubuntu:
+  image: ubuntu:latest
+  stage: build
+  except:
+    - tags
+  before_script:
+    - apt-get update
+    - apt-get install -y $UBUNTU_DEPENDENCIES
+  script:
+    - mkdir _build
+    - cd _build
+    - ../autogen.sh
+    - make
+    - make install
+    - make distcheck
