@@ -36,7 +36,7 @@ build-fedora:
     - tags
   before_script:
     - dnf update -y --nogpgcheck
-    - dnf -y install --nogpgcheck $FEDORA_DEPENDENCIES
+    - dnf install -y --nogpgcheck $FEDORA_DEPENDENCIES
   script:
     - mkdir _build
     - cd _build
@@ -52,8 +52,7 @@ abi-fedora:
     - build-fedora
   before_script:
     - dnf update -y --nogpgcheck
-    - dnf install -y --nogpgcheck $FEDORA_DEPENDENCIES
-    - dnf install -y --nogpgcheck $FEDORA_DEPENDENCIES_ABI_CHECK
+    - dnf install -y --nogpgcheck $FEDORA_DEPENDENCIES $FEDORA_DEPENDENCIES_ABI_CHECK
   script:
     - curl https://gitlab.freedesktop.org/hadess/check-abi/-/raw/main/contrib/check-abi-fedora.sh | bash
     - check-abi ${LAST_ABI_BREAK} $(git rev-parse HEAD)
