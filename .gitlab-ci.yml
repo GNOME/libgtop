@@ -1,5 +1,6 @@
 stages:
   - build
+  - abi
 
 variables:
   FEDORA_DEPENDENCIES:
@@ -43,10 +44,17 @@ build-fedora:
     - make
     - make install
     - make distcheck
-    - cd ..
-    - curl https://gitlab.freedesktop.org/hadess/check-abi/-/raw/main/contrib/check-abi-fedora.sh | bash
-    - dnf install -y $FEDORA_DEPENDENCIES_ABI_CHECK
-    - check-abi ${LAST_ABI_BREAK} $(git rev-parse HEAD)
+
+abi-fedora:
+  image: fedora:latest
+  stage: abi
+  needs:
+    - build-fedora
+  before_script:
+  - dnf install -y $FEDORA_DEPENDENCIES_ABI_CHECK
+  script:
+  - curl https://gitlab.freedesktop.org/hadess/check-abi/-/raw/main/contrib/check-abi-fedora.sh | bash
+  - check-abi ${LAST_ABI_BREAK} $(git rev-parse HEAD)
 
 build-ubuntu:
   image: ubuntu:latest
