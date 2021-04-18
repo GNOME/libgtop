@@ -26,6 +26,8 @@
 
 #include <glibtop_suid.h>
 
+#include <rb_workaround.h>
+
 #include <kvm.h>
 #include <stdlib.h>
 #include <sys/param.h>
@@ -58,11 +60,6 @@ static const unsigned long _glibtop_sysdeps_map_entry =
 (1L << GLIBTOP_MAP_ENTRY_START) + (1L << GLIBTOP_MAP_ENTRY_END) +
 (1L << GLIBTOP_MAP_ENTRY_OFFSET) + (1L << GLIBTOP_MAP_ENTRY_PERM) +
 (1L << GLIBTOP_MAP_ENTRY_INODE) + (1L << GLIBTOP_MAP_ENTRY_DEVICE);
-
-/* Ugly workaround */
-#define RBE_LEFT(elm, field)             (elm)->field.rbt_left
-#define RBE_RIGHT(elm, field)            (elm)->field.rbt_right
-#define RBE_PARENT(elm, field)           (elm)->field.rbt_parent
 
 /* Local helper functions. */
 
@@ -206,7 +203,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			return NULL;
 	}
 
-	//RB_INIT(&root);
+	RB_INIT(&root);
 	nentries = load_vmmap_entries(server,
 	    (unsigned long) &RB_ROOT(&vmspace.vm_map.addr),
 	    &RB_ROOT(&root), NULL);
@@ -231,7 +228,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 	 * to OBJT_DEFAULT so it seems this really works.
 	 */
 
-	RB_FOREACH(entry, uvm_map_addr, &root) {
+	RBE_FOREACH(entry, uvm_map_addr, &root) {
 		glibtop_map_entry *mentry;
 		unsigned long inum, dev;
 		guint len;
@@ -315,4 +312,4 @@ no_impl(void *p, void *q)
 	return 0;
 }
 
-RBT_GENERATE(uvm_map_addr, vm_map_entry, daddrs.addr_entry, no_impl);
+RBE_GENERATE(uvm_map_addr, vm_map_entry, daddrs.addr_entry, no_impl);
