@@ -26,8 +26,6 @@
 
 #include <glibtop_suid.h>
 
-#include <rb_workaround.h>
-
 #include <kvm.h>
 #include <stdlib.h>
 #include <sys/param.h>
@@ -47,7 +45,6 @@
 #include <sys/mutex.h>
 typedef int boolean_t;
 
-#undef _KERNEL
 #define _UVM_UVM_AMAP_I_H_ 1
 #define _UVM_UVM_MAP_I_H_ 1
 #include <uvm/uvm.h>
@@ -61,14 +58,26 @@ static const unsigned long _glibtop_sysdeps_map_entry =
 (1L << GLIBTOP_MAP_ENTRY_OFFSET) + (1L << GLIBTOP_MAP_ENTRY_PERM) +
 (1L << GLIBTOP_MAP_ENTRY_INODE) + (1L << GLIBTOP_MAP_ENTRY_DEVICE);
 
+/*
+ * Don't implement address comparison.
+ */
+static int __inline
+no_impl(const void *p, const void *q)
+{
+        abort(); /* Should not be called. */
+        return 0;
+}
+
+RBT_PROTOTYPE(uvm_map_addr, vm_map_entry, daddrs.addr_entry, no_impl);
+RBT_GENERATE(uvm_map_addr, vm_map_entry, daddrs.addr_entry, no_impl);
+
 /* Local helper functions. */
 
-ssize_t	load_vmmap_entries(glibtop*, unsigned long, struct vm_map_entry**,
+ssize_t	load_vmmap_entries(glibtop*, unsigned long, struct vm_map_entry*,
 	    struct vm_map_entry*);
 void	unload_vmmap_entries(struct vm_map_entry *);
 
 /* Init function. */
-
 void
 _glibtop_init_proc_map_p (glibtop *server)
 {
@@ -85,7 +94,7 @@ _glibtop_init_proc_map_p (glibtop *server)
  */
 ssize_t
 load_vmmap_entries(glibtop *server, unsigned long kptr,
-    struct vm_map_entry **rptr, struct vm_map_entry *parent)
+    struct vm_map_entry *rptr, struct vm_map_entry *parent)
 {
 	struct vm_map_entry *entry;
 	unsigned long left_kptr, right_kptr;
@@ -112,17 +121,17 @@ load_vmmap_entries(glibtop *server, unsigned long kptr,
 	 * We save the kernel pointers in {left,right}_kptr, so we have them
 	 * available to download children.
 	 */
-	left_kptr = (unsigned long) RBE_LEFT(entry, daddrs.addr_entry);
-	right_kptr = (unsigned long) RBE_RIGHT(entry, daddrs.addr_entry);
-	RBE_LEFT(entry, daddrs.addr_entry) =
-	    RBE_RIGHT(entry, daddrs.addr_entry) = NULL;
+	left_kptr = (unsigned long) RBT_LEFT(uvm_map_addr, entry);
+	right_kptr = (unsigned long) RBT_RIGHT(uvm_map_addr, entry);
+	entry->daddrs.addr_entry.rbt_left =
+	    entry->daddrs.addr_entry.rbt_right = NULL;
 	/* Fill in parent pointer. */
-	RBE_PARENT(entry, daddrs.addr_entry) = parent;
+	entry->daddrs.addr_entry.rbt_parent = &parent->daddrs.addr_entry;
 
 	/*
 	 * Consistent state reached, fill in *rptr.
 	 */
-	*rptr = entry;
+	rptr = entry;
 
 	/*
 	 * Download left, right.
@@ -130,11 +139,11 @@ load_vmmap_entries(glibtop *server, unsigned long kptr,
 	 * unload_vmmap_entries.
 	 */
 	left_sz = load_vmmap_entries(server, left_kptr,
-	    &RBE_LEFT(entry, daddrs.addr_entry), entry);
+	    RBT_LEFT(uvm_map_addr, entry), entry);
 	if (left_sz == -1)
 		return -1;
 	right_sz = load_vmmap_entries(server, right_kptr,
-	    &RBE_RIGHT(entry, daddrs.addr_entry), entry);
+	    RBT_RIGHT(uvm_map_addr, entry), entry);
 	if (right_sz == -1)
 		return -1;
 
@@ -150,8 +159,8 @@ unload_vmmap_entries(struct vm_map_entry *entry)
 	if (entry == NULL)
 		return;
 
-	unload_vmmap_entries(RBE_LEFT(entry, daddrs.addr_entry));
-	unload_vmmap_entries(RBE_RIGHT(entry, daddrs.addr_entry));
+	unload_vmmap_entries(RBT_LEFT(uvm_map_addr, entry));
+	unload_vmmap_entries(RBT_RIGHT(uvm_map_addr, entry));
 	free(entry);
 }
 
@@ -203,12 +212,12 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			return NULL;
 	}
 
-	RB_INIT(&root);
+	RBT_INIT(uvm_map_addr, &root);
 	nentries = load_vmmap_entries(server,
-	    (unsigned long) &RB_ROOT(&vmspace.vm_map.addr),
-	    &RB_ROOT(&root), NULL);
+	    (unsigned long) RBT_ROOT(uvm_map_addr, &vmspace.vm_map.addr),
+	    RBT_ROOT(uvm_map_addr, &root), NULL);
 	if (nentries == -1) {
-		unload_vmmap_entries(&RB_ROOT(&root));
+		unload_vmmap_entries(RBT_ROOT(uvm_map_addr, &root));
 		glibtop_error_io_r (server, "kvm_read (entry)");
 	}
 
@@ -228,7 +237,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 	 * to OBJT_DEFAULT so it seems this really works.
 	 */
 
-	RBE_FOREACH(entry, uvm_map_addr, &root) {
+	RBT_FOREACH(entry, uvm_map_addr, &root) {
 		glibtop_map_entry *mentry;
 		unsigned long inum, dev;
 		guint len;
@@ -244,7 +253,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			      (unsigned long) entry->object.uvm_obj,
 			      &vnode, sizeof (vnode)) != sizeof (vnode)) {
 			glibtop_warn_io_r (server, "kvm_read (vnode)");
-			unload_vmmap_entries(&RB_ROOT(&root));
+			unload_vmmap_entries(RBT_ROOT(uvm_map_addr, &root));
 			glibtop_suid_leave (server);
 			return (glibtop_map_entry*) g_array_free(maps, TRUE);
 		}
@@ -260,7 +269,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			      (unsigned long) vnode.v_data,
 			      &inode, sizeof (inode)) != sizeof (inode)) {
 			glibtop_warn_io_r (server, "kvm_read (inode)");
-			unload_vmmap_entries(&RB_ROOT(&root));
+			unload_vmmap_entries(RBT_ROOT(uvm_map_addr, &root));
 			glibtop_suid_leave (server);
 			return (glibtop_map_entry*) g_array_free(maps, TRUE);
 		}
@@ -298,18 +307,6 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 	buf->size = sizeof (glibtop_map_entry);
 	buf->total = buf->number * buf->size;
 
-	unload_vmmap_entries(&RB_ROOT(&root));
+	unload_vmmap_entries(RBT_ROOT(uvm_map_addr, &root));
 	return (glibtop_map_entry*) g_array_free(maps, FALSE);
 }
-
-/*
- * Don't implement address comparison.
- */
-static __inline int
-no_impl(void *p, void *q)
-{
-	abort(); /* Should not be called. */
-	return 0;
-}
-
-RBE_GENERATE(uvm_map_addr, vm_map_entry, daddrs.addr_entry, no_impl);
