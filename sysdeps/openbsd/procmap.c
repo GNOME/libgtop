@@ -78,6 +78,7 @@ ssize_t	load_vmmap_entries(glibtop*, unsigned long, struct vm_map_entry*,
 void	unload_vmmap_entries(struct vm_map_entry *);
 
 /* Init function. */
+
 void
 _glibtop_init_proc_map_p (glibtop *server)
 {
