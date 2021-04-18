@@ -263,8 +263,7 @@ AC_CACHE_VAL(fu_cv_sys_mounted_getmntinfo,
 [
 ok=
 if test $ac_cv_func_getmntinfo = yes; then
-AC_EGREP_HEADER(f_type;, sys/mount.h,
-ok=yes)
+AC_EGREP_HEADER(getmntinfo, sys/mount.h, ok=yes)
 fi
 test -n "$ok" \
 && fu_cv_sys_mounted_getmntinfo=yes \
