@@ -59,6 +59,11 @@ static const unsigned long _glibtop_sysdeps_map_entry =
 (1L << GLIBTOP_MAP_ENTRY_OFFSET) + (1L << GLIBTOP_MAP_ENTRY_PERM) +
 (1L << GLIBTOP_MAP_ENTRY_INODE) + (1L << GLIBTOP_MAP_ENTRY_DEVICE);
 
+/* Ugly workaround */
+#define RBE_LEFT(elm, field)             (elm)->field.rbt_left
+#define RBE_RIGHT(elm, field)            (elm)->field.rbt_right
+#define RBE_PARENT(elm, field)           (elm)->field.rbt_parent
+
 /* Local helper functions. */
 
 ssize_t	load_vmmap_entries(glibtop*, unsigned long, struct vm_map_entry**,
@@ -110,12 +115,12 @@ load_vmmap_entries(glibtop *server, unsigned long kptr,
 	 * We save the kernel pointers in {left,right}_kptr, so we have them
 	 * available to download children.
 	 */
-	left_kptr = (unsigned long) RBT_LEFT(uvm_map_addr, entry);
-	right_kptr = (unsigned long) RBT_RIGHT(uvm_map_addr, entry);
-	//RBT_LEFT(uvm_map_addr, entry) =
-	    //RBT_RIGHT(uvm_map_addr, entry) = NULL;
+	left_kptr = (unsigned long) RBE_LEFT(entry, daddrs.addr_entry);
+	right_kptr = (unsigned long) RBE_RIGHT(entry, daddrs.addr_entry);
+	RBE_LEFT(entry, daddrs.addr_entry) =
+	    RBE_RIGHT(entry, daddrs.addr_entry) = NULL;
 	/* Fill in parent pointer. */
-	//RBT_PARENT(uvm_map_addr, entry) = parent;
+	RBE_PARENT(entry, daddrs.addr_entry) = parent;
 
 	/*
 	 * Consistent state reached, fill in *rptr.
@@ -128,11 +133,11 @@ load_vmmap_entries(glibtop *server, unsigned long kptr,
 	 * unload_vmmap_entries.
 	 */
 	left_sz = load_vmmap_entries(server, left_kptr,
-	    RBT_LEFT(uvm_map_addr, entry), entry);
+	    &RBE_LEFT(entry, daddrs.addr_entry), entry);
 	if (left_sz == -1)
 		return -1;
 	right_sz = load_vmmap_entries(server, right_kptr,
-	    RBT_RIGHT(uvm_map_addr, entry), entry);
+	    &RBE_RIGHT(entry, daddrs.addr_entry), entry);
 	if (right_sz == -1)
 		return -1;
 
@@ -148,8 +153,8 @@ unload_vmmap_entries(struct vm_map_entry *entry)
 	if (entry == NULL)
 		return;
 
-	unload_vmmap_entries(RBT_LEFT(uvm_map_addr, entry));
-	unload_vmmap_entries(RBT_RIGHT(uvm_map_addr, entry));
+	unload_vmmap_entries(RBE_LEFT(entry, daddrs.addr_entry));
+	unload_vmmap_entries(RBE_RIGHT(entry, daddrs.addr_entry));
 	free(entry);
 }
 
@@ -201,12 +206,12 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			return NULL;
 	}
 
-	RBT_INIT(uvm_map_addr, &root);
+	RB_INIT(&root);
 	nentries = load_vmmap_entries(server,
-	    (unsigned long) RBT_ROOT(uvm_map_addr, &vmspace.vm_map.addr),
-	    RBT_ROOT(uvm_map_addr, &root), NULL);
+	    (unsigned long) RB_ROOT(&vmspace.vm_map.addr),
+	    &RB_ROOT(&root), NULL);
 	if (nentries == -1) {
-		unload_vmmap_entries(RBT_ROOT(uvm_map_addr, &root));
+		unload_vmmap_entries(RB_ROOT(&root));
 		glibtop_error_io_r (server, "kvm_read (entry)");
 	}
 
@@ -242,7 +247,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			      (unsigned long) entry->object.uvm_obj,
 			      &vnode, sizeof (vnode)) != sizeof (vnode)) {
 			glibtop_warn_io_r (server, "kvm_read (vnode)");
-			unload_vmmap_entries(RBT_ROOT(uvm_map_addr, &root));
+			unload_vmmap_entries(RB_ROOT(&root));
 			glibtop_suid_leave (server);
 			return (glibtop_map_entry*) g_array_free(maps, TRUE);
 		}
@@ -258,7 +263,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 			      (unsigned long) vnode.v_data,
 			      &inode, sizeof (inode)) != sizeof (inode)) {
 			glibtop_warn_io_r (server, "kvm_read (inode)");
-			unload_vmmap_entries(RBT_ROOT(uvm_map_addr, &root));
+			unload_vmmap_entries(RB_ROOT(&root));
 			glibtop_suid_leave (server);
 			return (glibtop_map_entry*) g_array_free(maps, TRUE);
 		}
@@ -296,7 +301,7 @@ glibtop_get_proc_map_p (glibtop *server, glibtop_proc_map *buf,
 	buf->size = sizeof (glibtop_map_entry);
 	buf->total = buf->number * buf->size;
 
-	unload_vmmap_entries(RBT_ROOT(uvm_map_addr, &root));
+	unload_vmmap_entries(RB_ROOT(&root));
 	return (glibtop_map_entry*) g_array_free(maps, FALSE);
 }
 
