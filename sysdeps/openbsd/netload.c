@@ -34,12 +34,16 @@
 
 #include <sys/ioctl.h>
 
+#include <netinet/in.h>
+
+#include <sys/malloc.h>
+
+#define _KERNEL
 #include <net/if_var.h>
 
-#include <netinet/in.h>
-#define _KERNEL
 #include <netinet/in_var.h>
 #undef _KERNEL
+
 #include <netinet6/in6_var.h>
 
 static const unsigned long _glibtop_sysdeps_netload =
