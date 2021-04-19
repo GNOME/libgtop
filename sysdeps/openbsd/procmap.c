@@ -61,7 +61,7 @@ static const unsigned long _glibtop_sysdeps_map_entry =
 /*
  * Don't implement address comparison.
  */
-static int __inline
+static __inline int
 no_impl(const void *p, const void *q)
 {
         abort(); /* Should not be called. */

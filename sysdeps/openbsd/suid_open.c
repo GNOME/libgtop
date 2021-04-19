@@ -69,7 +69,7 @@ glibtop_open_p (glibtop *server, const char *program_name,
 	server->machine->gid = getgid ();
 	server->machine->egid = getegid ();
 	/* Setup machine-specific data */
-	server->machine->kd = kvm_openfiles (NULL, NULL, NULL, O_RDONLY, errbuf);
+	server->machine->kd = kvm_openfiles (NULL, NULL, NULL, KVM_NO_FILES, errbuf);
 
 	if (server->machine->kd == NULL)
 		glibtop_error_io_r (server, "kvm_open");
