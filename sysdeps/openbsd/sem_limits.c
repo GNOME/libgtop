@@ -60,12 +60,12 @@ _glibtop_init_sem_limits_p (glibtop *server)
 	mib[2] = KERN_SYSVIPC_SEM_INFO;
 
 	if ((semsi = malloc(len)) == NULL) {
-		glibtop_warn_io_r (server, "malloc (shm_limits)");
+		glibtop_warn_io_r (server, "malloc (sem_limits)");
 		return;
 	}
 
 	if (sysctl(mib, 3, semsi, &len, NULL, 0) < 0) {
-		glibtop_warn_io_r (server, "sysctl (shm_limits)");
+		glibtop_warn_io_r (server, "sysctl (sem_limits)");
 		return;
 	}
 

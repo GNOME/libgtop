@@ -62,12 +62,12 @@ _glibtop_init_msg_limits_p (glibtop *server)
 	mib[2] = KERN_SYSVIPC_MSG_INFO;
 
 	if ((msgsi = malloc(len)) == NULL) {
-		glibtop_warn_io_r (server, "malloc (shm_limits)");
+		glibtop_warn_io_r (server, "malloc (msg_limits)");
 		return;
 	}
 
 	if (sysctl(mib, 3, msgsi, &len, NULL, 0) < 0) {
-		glibtop_warn_io_r (server, "sysctl (shm_limits)");
+		glibtop_warn_io_r (server, "sysctl (msg_limits)");
 		return;
 	}
 
