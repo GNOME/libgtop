@@ -80,8 +80,6 @@ struct _glibtop
 	int socket;			/* Accepted connection of a socket */
 	int ncpu;			/* Number of CPUs, zero if single-processor */
 	int real_ncpu;			/* Real number of CPUs. Only ncpu are monitored */
-	int ndisk;			/* Number of DISKs,  zero if single-disk. This pertains to disk volumes */
-	int real_ndisk;			/* Number of PHYSICAL DISKs. Only ndisk is monitored for now */
 	unsigned long os_version_code;	/* Version code of the operating system */
 	const char *name;		/* Program name for error messages */
 	const char *server_command;	/* Command used to invoke server */
@@ -100,6 +98,9 @@ struct _glibtop
 	gid_t egid;
 
 	glibtop_machine *machine;	/* Machine dependent data */
+
+	int ndisk;			/* Number of DISKs,  zero if single-disk. This pertains to disk volumes */
+	int real_ndisk;			/* Number of PHYSICAL DISKs. Only ndisk is monitored for now */
 };
 
 extern glibtop *glibtop_global_server;
