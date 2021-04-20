@@ -70,7 +70,6 @@ struct _glibtop_sysdeps
 	guint64 flags;
 	guint64 features;		/* server features	*/
 	guint64 cpu;			/* glibtop_cpu		*/
-	guint64 disk;			/* glibtop_cpu		*/
 	guint64 mem;			/* glibtop_mem		*/
 	guint64 swap;			/* glibtop_swap		*/
 	guint64 uptime;			/* glibtop_uptime	*/
@@ -97,7 +96,7 @@ struct _glibtop_sysdeps
 	guint64	proc_wd;		/* glibtop_proc_wd	*/
 	guint64	proc_affinity;		/* glibtop_proc_affinity */
 	guint64	proc_io;		/* glibtop_proc_io */
-	guint64	reserved0;
+	guint64 disk;			/* glibtop_disk		*/
 	guint64	reserved1;
 	guint64	reserved2;
 	guint64	reserved3;
