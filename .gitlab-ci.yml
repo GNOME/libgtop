@@ -15,7 +15,7 @@ variables:
   FEDORA_DEPENDENCIES_ABI_CHECK:
     libabigail
     intltool
-  LAST_ABI_BREAK: "abccaf488a929de1e95e6a748485575dec52c998"
+  LAST_ABI_BREAK: "d4ac1eda0752d559db8737773d6894aadc700ce3"
   UBUNTU_DEPENDENCIES:
     autoconf
     automake
