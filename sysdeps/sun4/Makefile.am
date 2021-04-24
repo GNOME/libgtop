@@ -3,7 +3,7 @@ AM_CPPFLAGS			= @AM_CPPFLAGS@
 
 noinst_LTLIBRARIES		= libgtop_sysdeps-2.0.la libgtop_sysdeps_suid-2.0.la
 
-libgtop_sysdeps_2_0_la_SOURCES	= nosuid.c siglist.c
+libgtop_sysdeps_2_0_la_SOURCES	= nosuid.c siglist.c disk.c procio.c
 libgtop_sysdeps_2_0_la_LDFLAGS	= $(LT_VERSION_INFO)
 libgtop_sysdeps_2_0_la_LIBADD	= -lkvm
 

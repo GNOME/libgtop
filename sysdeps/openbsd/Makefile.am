@@ -3,7 +3,7 @@ AM_CPPFLAGS			= @AM_CPPFLAGS@
 noinst_LTLIBRARIES		= libgtop_sysdeps-2.0.la libgtop_sysdeps_suid-2.0.la
 
 libgtop_sysdeps_2_0_la_SOURCES	= nosuid.c siglist.c sysinfo.c \
-				  cpu.c loadavg.c \
+				  cpu.c loadavg.c disk.c \
 				  uptime.c netlist.c fsusage.c mem.c \
 				  mountlist.c procopenfiles.c procwd.c \
 				  procaffinity.c glibtop_private.c open.c
