@@ -284,8 +284,8 @@ AC_ARG_ENABLE(fatal-warnings,
                         [Define to enable fatal warnings]))
 
 dnl These definitions are expanded in make.
-LIBGTOP_LIBS='-L$(libdir)'
-LIBGTOP_INCS='-I$(includedir)/libgtop-2.0'
+LIBGTOP_LIBS='-L=$(libdir)'
+LIBGTOP_INCS='-I=$(includedir)/libgtop-2.0'
 
 if test x$libgtop_have_sysinfo = xyes ; then
   LIBGTOP_INCS="$LIBGTOP_INCS -DHAVE_LIBGTOP_SYSINFO"
