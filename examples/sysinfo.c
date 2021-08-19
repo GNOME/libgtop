@@ -1,7 +1,7 @@
 /* Copyright (C) 1998-99 Martin Baulig
    This file is part of LibGTop 1.0.
 
-   Contributed by James Dominic P. Guana <guana.histark@gmail.com>, May 2020.
+   Contributed by Dr. James Dominic P. Guana <jdpguana@histark.com>, August 2021.
 
    LibGTop is free software; you can redistribute it and/or modify it
    under the terms of the GNU General Public License as published by
