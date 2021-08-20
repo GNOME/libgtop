@@ -72,4 +72,4 @@ diskio_SOURCES	  = diskio.c
 diskio_LDADD	  = $(top_builddir)/lib/libgtop-2.0.la
 
 sysinfo_SOURCES		= sysinfo.c
-sysinfo_LDADD		= $(top_builddir)/lib/libgtop-2.0.la -lm
+sysinfo_LDADD		= $(top_builddir)/lib/libgtop-2.0.la

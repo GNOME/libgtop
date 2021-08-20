@@ -50,7 +50,7 @@ struct _glibtop_sysinfo
 {
 	guint64	flags;
 	guint64 ncpu;
-   gchar *model;
+	gchar *model;
 	glibtop_entry cpuinfo [GLIBTOP_NCPU];
 };
 

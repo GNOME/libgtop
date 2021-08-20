@@ -32,10 +32,16 @@
 int
 main (int argc, char *argv [])
 {
-	const glibtop_sysinfo * sysinfo = glibtop_get_sysinfo ();
+   const glibtop_sysinfo * sysinfo;
+
+   glibtop_init();
+
+   sysinfo = glibtop_get_sysinfo ();
 
 	printf ("\nProcessor Model: %s\n", sysinfo->model);
 	printf ("Number of Cores: %d\n\n", sysinfo->ncpu);
+
+   glibtop_close ();
 
 	exit (0);
 }

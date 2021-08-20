@@ -59,8 +59,9 @@ init_sysinfo (glibtop *server)
 
 			if (buf != NULL)
 			{
-				buf+=2;					// we want to look at what's _after_ the ':' 
-				sysinfo.model = buf;
+				/* we want to look at what's _after_ the ':' */
+				buf+=2;
+				sysinfo.model = g_strdup (buf);
 			}
 			break;
 		}
