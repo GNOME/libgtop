@@ -39,10 +39,10 @@ main (int argc, char *argv [])
    sysinfo = glibtop_get_sysinfo ();
    model = g_hash_table_lookup (sysinfo->cpuinfo [1].values, "model name");
 
-	printf ("\nProcessor Model: %s\n", g_strdup (model));
-	printf ("Number of Cores: %d\n\n", sysinfo->ncpu);
+   printf ("\nProcessor Model: %s\n", g_strdup (model));
+   printf ("Number of Cores: %d\n\n", sysinfo->ncpu);
 
    glibtop_close ();
 
-	exit (0);
+   exit (0);
 }
