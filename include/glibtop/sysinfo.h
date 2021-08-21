@@ -51,7 +51,6 @@ struct _glibtop_sysinfo
 	guint64	flags;
 	guint64 ncpu;
 	glibtop_entry cpuinfo [GLIBTOP_NCPU];
-	gchar *model;
 };
 
 #define glibtop_get_sysinfo_r	glibtop_get_sysinfo_s

@@ -37,7 +37,6 @@ static void
 init_sysinfo (glibtop *server)
 {
 	char* buffer;
-	gchar *buf, *line;
 	gchar ** processors;
 
 	if(G_LIKELY(sysinfo.flags)) return;
@@ -48,25 +47,6 @@ init_sysinfo (glibtop *server)
 
 	/* cpuinfo records are seperated by a blank line */
 	processors = g_strsplit(buffer, "\n\n", 0);
-
-	line = strtok(processors[0], "\n");
-
-	while(line != NULL) 
-	{
-		if (strstr(line, "model name") != NULL)
-		{
-			buf = strchr(line, ':');
-
-			if (buf != NULL)
-			{
-				/* we want to look at what's _after_ the ':' */
-				buf+=2;
-				sysinfo.model = g_strdup (buf);
-			}
-			break;
-		}
-		line  = strtok(NULL, "\n");
-	}
 
 	g_free(buffer);
 
