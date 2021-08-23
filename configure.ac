@@ -27,7 +27,7 @@ m4_define([libgtop_version_code], [m4_eval(libgtop_major_version * 1000000 + lib
 
 AC_PREREQ(2.62)
 AC_INIT([libgtop], [libgtop_version],
-        [http://bugzilla.gnome.org/enter_bug.cgi?product=libgtop])
+        [https://gitlab.gnome.org/GNOME/libgtop/-/issues/])
 AC_CONFIG_SRCDIR(copyright.txt)
 AC_CONFIG_HEADERS(config.h)
 
