@@ -21,9 +21,9 @@ variables:
     automake
     autopoint
     gettext
-    glib2.0
     gtk-doc-tools
     libgirepository1.0-dev
+    libglib2.0-dev
     libtool
     make
     texinfo
