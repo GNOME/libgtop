@@ -23,7 +23,6 @@ variables:
     gettext
     gtk-doc-tools
     libgirepository1.0-dev
-    libglib2.0-dev
     libtool
     make
     texinfo
@@ -64,7 +63,7 @@ build-ubuntu:
     - tags
   before_script:
     - apt-get update
-    - apt-get install -y $UBUNTU_DEPENDENCIES
+    - DEBIAN_FRONTEND=noninteractive apt-get install -y $UBUNTU_DEPENDENCIES
   script:
     - mkdir _build
     - cd _build
