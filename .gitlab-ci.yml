@@ -4,14 +4,10 @@ stages:
 
 variables:
   FEDORA_DEPENDENCIES:
-    gawk
     gettext-devel
-    glib2-devel
     gobject-introspection-devel
     gtk-doc
-    perl
     texinfo
-    texinfo-tex
   FEDORA_DEPENDENCIES_ABI_CHECK:
     libabigail
     intltool
