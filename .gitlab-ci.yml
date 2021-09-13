@@ -13,7 +13,6 @@ variables:
     intltool
   LAST_ABI_BREAK: "d4ac1eda0752d559db8737773d6894aadc700ce3"
   UBUNTU_DEPENDENCIES:
-    autoconf
     automake
     autopoint
     gettext
