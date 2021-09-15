@@ -66,7 +66,13 @@ find_primary_part (partition_info *primary_part, const char *m)
 
 		if (tlvl == 0) {
 
-			if (strcmp (type, "disk") == 0) {
+			if (strcmp (type, "loop") == 0 || strcmp (type, "rom") == 0) {
+
+				n--;
+				tlvl = 0;
+
+			}
+			else if (strcmp (type, "disk") == 0) {
 
 				primary_part->max++;
 
@@ -80,7 +86,13 @@ find_primary_part (partition_info *primary_part, const char *m)
 		}
 		else if(tlvl == 1){
 
-			if (strcmp (type, "disk") == 0) {
+			if (strcmp (type, "loop") == 0 || strcmp (type, "rom") == 0) {
+
+				n--;
+				tlvl = 0;
+
+			}
+			else if (strcmp (type, "disk") == 0) {
 
 				n--;
 				tlvl = 0;
@@ -102,7 +114,13 @@ find_primary_part (partition_info *primary_part, const char *m)
 		}
 		else if( tlvl == 2){
 
-			if (strcmp(type, "disk") == 0) {
+			if (strcmp (type, "loop") == 0 || strcmp (type, "rom") == 0) {
+
+				n--;
+				tlvl = 0;
+
+			}
+			else if (strcmp(type, "disk") == 0) {
 
 				n--;
 				tlvl = 0;
@@ -132,7 +150,13 @@ find_primary_part (partition_info *primary_part, const char *m)
 		}
 		else if (tlvl == 3) {
 
-			if (strcmp (type, "disk") == 0) {
+			if (strcmp (type, "loop") == 0 || strcmp (type, "rom") == 0) {
+
+				n--;
+				tlvl = 0;
+
+			}
+			else if (strcmp (type, "disk") == 0) {
 
 				n--;
 				tlvl = 0;
