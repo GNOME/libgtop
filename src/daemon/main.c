@@ -226,8 +226,9 @@ handle_parent_connection (int s)
 		       0, NULL);
 	    break;
     case GLIBTOP_CMND_PROC_IO:
+        memcpy (&pid, parameter, sizeof (pid_t));
 	    glibtop_get_proc_io_l
-		(server, &resp->u.data.proc_io, parameter);
+		(server, &resp->u.data.proc_io, pid);
 	    do_output (s, resp, _offset_data (proc_io),
 		       0, NULL);
 	    break;
