@@ -47,7 +47,7 @@ _glibtop_init_disk_s (glibtop *server)
 
 // Handle LVM and RAID //
 
-void
+static void
 find_primary_part (partition_info *primary_part, const char *m)
 {
 	int n = 0, tlvl = 0;
@@ -175,7 +175,7 @@ find_primary_part (partition_info *primary_part, const char *m)
 	}
 }
 
-int
+static int
 is_virtual_drive (partition_info *primary_part, const char *p)
 {
 	int i;
@@ -207,7 +207,7 @@ is_virtual_drive (partition_info *primary_part, const char *p)
 	return test;
 }
 
-int
+static int
 max_lines (const char *p)
 {
 	char temp[10];
