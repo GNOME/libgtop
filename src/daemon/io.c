@@ -27,7 +27,7 @@ void
 do_output (int s, glibtop_response *resp, off_t offset,
 	   size_t data_size, const void *data)
 {
-	glibtop_debug ("Really writing %d bytes at offset %lu.",
+	glibtop_debug ("Really writing %zu bytes at offset %lu.",
 		 sizeof (glibtop_response), offset);
 
 	resp->offset = offset;
@@ -42,7 +42,7 @@ do_output (int s, glibtop_response *resp, off_t offset,
 	}
 
 	if (resp->data_size) {
-		glibtop_debug ("Writing %d bytes of data.", resp->data_size);
+		glibtop_debug ("Writing %lu bytes of data.", resp->data_size);
 
 		if (s == 0) {
 			if (write (1, data, resp->data_size) < 0)
@@ -84,7 +84,7 @@ do_read (int s, void *ptr, size_t total_size)
 		tmp_ptr += nread;
 		ptr = tmp_ptr;
 
-		glibtop_debug ("READ (%d): %d - %d - %d",
+		glibtop_debug ("READ (%d): %zu - %zu - %zu",
 			 nread, already_read, remaining, total_size);
 	}
 
