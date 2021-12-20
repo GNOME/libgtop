@@ -120,9 +120,11 @@ AC_TYPE_OFF_T
 AC_TYPE_PID_T
 AC_TYPE_SIZE_T
 AC_STRUCT_ST_RDEV
-AC_HEADER_TIME
 AC_STRUCT_TM
 AC_TYPE_UID_T
+
+dnl Check sys/time.h
+AC_CHECK_HEADERS([sys/time.h])
 
 dnl For SunOS
 AC_CHECK_TYPE(ssize_t, int)
