@@ -109,14 +109,14 @@ find_primary_part (partition_info *primary_part, const char *m)
 				primary_part->max++;
 
 			}
-			else if ((strcmp (primary_part[n-1].type, "lvm") == 0) && (strcmp (type, "lvm") == 0) || 
-				(strcmp (primary_part[n-1].type, "raid") == 0) && (strncmp (type, "raid", 4) == 0)) {
+			else if (((strcmp (primary_part[n-1].type, "lvm") == 0) && (strcmp (type, "lvm") == 0)) ||
+				((strcmp (primary_part[n-1].type, "raid") == 0) && (strncmp (type, "raid", 4) == 0))) {
 
 				n--;
 
 			}
-			else if ((strcmp (primary_part[n-1].type, "lvm") == 0) && (strcmp (type, "part") == 0) || 
-				(strcmp (primary_part[n-1].type, "raid") == 0) && (strcmp (type, "part") == 0)) {
+			else if (((strcmp (primary_part[n-1].type, "lvm") == 0) && (strcmp (type, "part") == 0)) ||
+				((strcmp (primary_part[n-1].type, "raid") == 0) && (strcmp (type, "part") == 0))) {
 
 				n--;
 				tlvl = 1;
