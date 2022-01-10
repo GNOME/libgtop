@@ -78,7 +78,7 @@ _glibtop_init_netload_p (glibtop *server)
     server->sysdeps.netload = _glibtop_sysdeps_netload;
 
     if (kvm_nlist (server->machine->kd, nlst) < 0)
-	glibtop_error_io_r (server, "kvm_nlist");
+	glibtop_warn_io_r (server, "kvm_nlist");
 }
 
 /* Provides Network statistics. */
@@ -103,7 +103,7 @@ glibtop_get_netload_p (glibtop *server, glibtop_netload *buf,
 
     if (kvm_read (server->machine->kd, nlst [0].n_value,
 		  &ifnetaddr, sizeof (ifnetaddr)) != sizeof (ifnetaddr))
-	glibtop_error_io_r (server, "kvm_read (ifnet)");
+	glibtop_warn_io_r (server, "kvm_read (ifnet)");
 
     while (ifnetaddr) {
 	struct sockaddr_in *sin;
