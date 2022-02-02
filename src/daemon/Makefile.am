@@ -52,5 +52,5 @@ libgtop_server2_LDADD		= $(top_builddir)/lib/libgtop-2.0.la \
 EXTRA_DIST			= server_config.h.in server_config.pl
 
 install-exec-hook:
-	-@libgtop_postinstall@
+	-test -n "$(DESTDIR)" || @libgtop_postinstall@
 
