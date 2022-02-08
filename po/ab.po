@@ -1,0 +1,189 @@
+# Abkhazian translation for libgtop.
+# Copyright (C) 2022 libgtop's COPYRIGHT HOLDER
+# This file is distributed under the same license as the libgtop package.
+# Нанба Наала <naala-nanba@rambler.ru>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues\n"
+"POT-Creation-Date: 2021-09-12 23:06+0000\n"
+"PO-Revision-Date: 2021-09-12 23:06+0000\n"
+"Last-Translator: Нанба Наала <naala-nanba@rambler.ru>\n"
+"Language-Team: Abkhazian <ab@li.org>\n"
+"Language: ab\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-DamnedLies-Scope: partial\n"
+
+#: lib/read.c:49
+#, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "%d баит шәрыԥхьахьеит"
+msgstr[1] "%d баит шәрыԥхьахьеит"
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "егьырҭ адыррақәа ршәага"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "%lu баитк адыррақәа ирыԥхьоуп"
+msgstr[1] "%lu баитк адыррақәа ирыԥхьоуп"
+
+#: lib/write.c:49
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "иҭаҩҩуп %d баитк"
+msgstr[1] "иҭаҩҩуп %d баитк"
+
+#: src/daemon/gnuserv.c:456
+msgid "Enable debugging"
+msgstr "Аиқәыршәара аҿакра"
+
+#: src/daemon/gnuserv.c:458
+msgid "Enable verbose output"
+msgstr "Иԥкаау алкаа аҿакра"
+
+#: src/daemon/gnuserv.c:460
+msgid "Don’t fork into background"
+msgstr "Ақәыԥшыларатә режим аиҿымгара"
+
+#: src/daemon/gnuserv.c:462
+msgid "Invoked from inetd"
+msgstr "inetd аҟынтә ицәыргоуп"
+
+#: src/daemon/gnuserv.c:498
+#, c-format
+msgid "Run “%s --help” to see a full list of available command line options.\n"
+msgstr "Инашәыгӡа адҵа «%s --help», ишәзыманшәалоу  адҵатә цәаҳәа алшарақәа резыкхьӡынҵа нарҭбааны ишәбарц азы.\n"
+
+#: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
+msgid "Hangup"
+msgstr "Аԥжәара"
+
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Interrupt"
+msgstr "Аҟәыхра"
+
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Quit"
+msgstr "Аҭыҵра"
+
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Illegal instruction"
+msgstr "Иақәнагам абжьгара"
+
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Trace trap"
+msgstr "Амҩалгара акра"
+
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+msgid "Abort"
+msgstr "Аҟәыҵра"
+
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "EMT error"
+msgstr "EMT агха "
+
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+msgid "Floating-point exception"
+msgstr "Иӡсуа акәаԥ алцара"
+
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+msgid "Kill"
+msgstr "Ашьра"
+
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Bus error"
+msgstr "Аҭелцаха агха"
+
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+msgid "Segmentation violation"
+msgstr "Агҿаԥҵәара аилагара"
+
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+msgid "Bad argument to system call"
+msgstr "Ииашам аҵаҵӷәы асистематә ааԥхьараҟны"
+
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+msgid "Broken pipe"
+msgstr "Ацышьҭа аилагара"
+
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+msgid "Alarm clock"
+msgstr "Аамҭарбага"
+
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+msgid "Termination"
+msgstr "Ахырқәшара"
+
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+msgid "Urgent condition on socket"
+msgstr "Азҿлымҳара зҭаху асокет азыҳәарақәа"
+
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+msgid "Stop"
+msgstr "Аанкылара"
+
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Keyboard stop"
+msgstr "Арыдыкырақәа раанкылара"
+
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+msgid "Continue"
+msgstr "Ацҵара"
+
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Child status has changed"
+msgstr "Ахылҵ иҭагылазаашьа ԥсахын"
+
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+msgid "Background read from tty"
+msgstr "Ақәыԥшыларала аԥхьара  tty аҟынтә"
+
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+msgid "Background write to tty"
+msgstr "Ақәыԥшыларатә нҵамҭа tty аҟны"
+
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+msgid "I/O now possible"
+msgstr "Уажәы иалшахоит аҭагалара/аҭгара"
+
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+msgid "CPU limit exceeded"
+msgstr "ЦПУ анаӡара иахысит"
+
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+msgid "File size limit exceeded"
+msgstr "Афаил амҿхак анаӡара иахысит"
+
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+msgid "Virtual alarm clock"
+msgstr "Ихыҭҳәаау аамҭарбага"
+
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+msgid "Profiling alarm clock"
+msgstr "Нада-аадала еиҟароу аамҭарбага"
+
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Window size change"
+msgstr "Аԥенџьыр ашәага аԥсахра"
+
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+msgid "Information request"
+msgstr "Аинформациа азыҳәара"
+
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+msgid "User defined signal 1"
+msgstr "Ахархәаҩ 1 идырга "
+
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+msgid "User defined signal 2"
+msgstr "Ахархәаҩ 2 идырга "
