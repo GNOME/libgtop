@@ -392,6 +392,7 @@ handle_internet_request (int ls)
     int s;
     size_t addrlen = sizeof (struct sockaddr_in);
     struct sockaddr_in peer;	/* for peer socket address */
+    char addrstr[addrlen];
     pid_t pid;
 
     memset ((char *) &peer, 0, sizeof (struct sockaddr_in));
@@ -401,21 +402,24 @@ handle_internet_request (int ls)
 	exit (1);
     }
 
+    /* TODO: Check errno. */
+    inet_ntop (AF_INET, &peer, addrstr, addrlen);
+
     if (verbose_output)
 	syslog_message (LOG_INFO, "Connection was made from %s port %u.",
-			inet_ntoa (peer.sin_addr), ntohs (peer.sin_port));
+			addrstr, ntohs (peer.sin_port));
 
     /* Check that access is allowed - if not return crud to the client */
     if (!permitted (peer.sin_addr.s_addr, s)) {
 	close (s);
 	syslog_message (LOG_CRIT, "Refused connection from %s.",
-			inet_ntoa (peer.sin_addr));
+			addrstr);
 	return;
     }			/* if */
 
     if (verbose_output)
 	syslog_message (LOG_INFO, "Accepted connection from %s port %u.",
-			inet_ntoa (peer.sin_addr), ntohs (peer.sin_port));
+			addrstr, ntohs (peer.sin_port));
 
     pid = fork ();
 
@@ -436,7 +440,7 @@ handle_internet_request (int ls)
 
     if (verbose_output)
 	syslog_message (LOG_INFO, "Closed connection to %s port %u.",
-			inet_ntoa (peer.sin_addr), ntohs (peer.sin_port));
+			addrstr, ntohs (peer.sin_port));
 
     _exit (0);
 }				/* handle_internet_request */
@@ -560,6 +564,7 @@ main (int argc, char **argv)
     if (invoked_from_inetd) {
 	size_t addrlen = sizeof (struct sockaddr_in);
 	struct sockaddr_in peer;
+	char addrstr[addrlen];
 
 	memset ((char *) &peer, 0, sizeof (struct sockaddr_in));
 
@@ -568,15 +573,18 @@ main (int argc, char **argv)
 	    exit (1);
 	}
 
+	/* TODO: Check errno. */
+	inet_ntop (AF_INET, &peer, addrstr, addrlen);
+
 	if (verbose_output)
 	    syslog_message (LOG_INFO, "Connection was made from %s port %u.",
-			    inet_ntoa (peer.sin_addr), ntohs (peer.sin_port));
+			    addrstr, ntohs (peer.sin_port));
 
 	/* Check that access is allowed - if not return crud to the client */
 	if (!permitted (peer.sin_addr.s_addr, 0)) {
 	    close (0);
 	    syslog_message (LOG_CRIT, "Refused connection from %s.",
-			    inet_ntoa (peer.sin_addr));
+			    addrstr);
 	    exit (1);
 	}
 

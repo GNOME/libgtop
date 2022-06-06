@@ -202,16 +202,20 @@ connect_to_unix_server (void)
 long
 glibtop_internet_addr (const char *host)
 {
-	struct hostent *hp;	/* pointer to host info for remote host */
+	/* specify IPv4 and TCP */
+	struct addrinfo hints = { AF_INET, SOCK_STREAM, };
+	struct addrinfo *result;/* pointer to host info for remote host */
 	IN_ADDR numeric_addr;	/* host address */
 
-	numeric_addr = inet_addr (host);
-	if (!NUMERIC_ADDR_ERROR)
+	if (getaddrinfo (NULL, host, &hints, &result) == 0) {
+		/* Take only the first address. */
+		struct sockaddr_in *res = (struct sockaddr_in *)result->ai_addr;
+		numeric_addr = res->sin_addr.s_addr;
+		freeaddrinfo (result);
 		return numeric_addr;
-	else if ((hp = gethostbyname (host)) != NULL)
-		return ((struct in_addr *) (hp->h_addr))->s_addr;
+	}
 	else {
-		glibtop_warn_io ("gethostbyname (%s)", host);
+		glibtop_warn_io ("getaddrinfo (%s)", host);
 		return -1;
 	}
 

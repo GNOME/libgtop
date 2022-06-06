@@ -66,7 +66,7 @@ main (int argc, char *argv [])
 	glibtop_netload netload;
 	unsigned method, count, port;
 	struct in_addr addr, subnet;
-	char *address_string, *subnet_string;
+	char address_string[INET_ADDRSTRLEN], subnet_string[INET_ADDRSTRLEN];
 	char address6_string[INET6_ADDRSTRLEN], prefix6_string[INET6_ADDRSTRLEN];
 	char *hwaddress_string;
 	char buffer [BUFSIZ];
@@ -105,9 +105,8 @@ main (int argc, char *argv [])
 	addr.s_addr = netload.address;
 	subnet.s_addr = netload.subnet;
 
-	address_string = g_strdup (inet_ntoa (addr));
-	subnet_string  = g_strdup (inet_ntoa (subnet));
-
+	inet_ntop (AF_INET, &addr,   address_string, INET_ADDRSTRLEN);
+	inet_ntop (AF_INET, &subnet, subnet_string,  INET_ADDRSTRLEN);
 	inet_ntop (AF_INET6, netload.address6, address6_string, INET6_ADDRSTRLEN);
 	inet_ntop (AF_INET6, netload.prefix6,  prefix6_string,  INET6_ADDRSTRLEN);
 
@@ -152,9 +151,6 @@ main (int argc, char *argv [])
 		(int) netload.scope6,
 		hwaddress_string);
 
-
-	g_free (address_string);
-	g_free (subnet_string);
 
 	glibtop_close ();
 
