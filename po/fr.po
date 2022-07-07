@@ -7,14 +7,14 @@
 # Christophe Merlet <redfox@redfoxcenter.org>, 2000-2004.
 # Benoit Dejean <tazforever@dlfp.org>, 2004.
 # Stéphane Raimbault <stephane.raimbault@gmail.com>, 2007.
-# Charles Monzat <charles.monzat@free.fr>, 2018-2021.
+# Charles Monzat <charles.monzat@free.fr>, 2018-2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop 2.9.91\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues\n"
-"POT-Creation-Date: 2020-05-29 05:44+0000\n"
-"PO-Revision-Date: 2021-03-11 10:22+0100\n"
+"POT-Creation-Date: 2021-08-23 22:54+0000\n"
+"PO-Revision-Date: 2022-04-08 15:50+0200\n"
 "Last-Translator: Charles Monzat <charles.monzat@free.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 3.38.0\n"
+"X-Generator: Gtranslator 40.0\n"
 
 #: lib/read.c:49
 #, c-format
@@ -63,7 +63,7 @@ msgstr "Ne pas lancer en tâche de fond"
 
 #: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
-msgstr "Invoqué à partir de inetd"
+msgstr "Invoqué à partir de inetd"
 
 #: src/daemon/gnuserv.c:498
 #, c-format
