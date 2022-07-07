@@ -1,221 +1,186 @@
-# translation of libgtop.po to Georgian
-# Copyright (C) 2006 Gnome Georgian Translators
-# This file is distributed under the same license as the libgtop package.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Alexander Didebulidze <didebuli@in.tum.de>, 2006.
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-25 08:57+0100\n"
-"PO-Revision-Date: 2006-03-18 03:28+0100\n"
-"Last-Translator: Alexander Didebulidze <didebuli@in.tum.de>\n"
-"Language-Team: Georgian <gnome@inet.ge>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues\n"
+"POT-Creation-Date: 2022-03-28 13:02+0000\n"
+"PO-Revision-Date: 2022-07-03 06:30+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <(nothing)>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.1\n"
 
-#: ../lib/read.c:65
+#: lib/read.c:49
 #, c-format
-#, fuzzy
 msgid "read %d byte"
 msgid_plural "read %d bytes"
-msgstr[0] "byte"
+msgstr[0] "წაკითხულია %d ბაიტი"
 
-#: ../lib/read_data.c:53
-#, fuzzy
+#: lib/read_data.c:49
 msgid "read data size"
-msgstr "სიდიდე"
+msgstr "წაკითხული მონაცემების ზომა"
 
-#: ../lib/read_data.c:72
+#: lib/read_data.c:66
 #, c-format
-#, fuzzy
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "byte"
+msgstr[0] "წაკითხულია %lu ბაიტი ინფორმაცა"
 
-#: ../lib/write.c:52
+#: lib/write.c:49
 #, c-format
-#, fuzzy
 msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
-msgstr[0] "byte"
+msgstr[0] "ჩაწერილია %d ბაიტი"
 
-#: ../src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:456
 msgid "Enable debugging"
-msgstr ""
+msgstr "გამართვის კოდის ჩართვა"
 
-#: ../src/daemon/gnuserv.c:460
-msgid "DEBUG"
-msgstr "DEBUG"
-
-#: ../src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:458
 msgid "Enable verbose output"
-msgstr ""
+msgstr "უფრო მეტის ჩვენება"
 
-#: ../src/daemon/gnuserv.c:462
-msgid "VERBOSE"
-msgstr "VERBOSE"
+#: src/daemon/gnuserv.c:460
+msgid "Don’t fork into background"
+msgstr "ფონზე გადასვლის გათიშვა"
 
-#: ../src/daemon/gnuserv.c:464
-msgid "Don't fork into background"
-msgstr ""
-
-#: ../src/daemon/gnuserv.c:464
-msgid "NO-DAEMON"
-msgstr ""
-
-#: ../src/daemon/gnuserv.c:466
+#: src/daemon/gnuserv.c:462
 msgid "Invoked from inetd"
-msgstr ""
+msgstr "გაშვებულია inetd-დან"
 
-#: ../src/daemon/gnuserv.c:466
-msgid "INETD"
-msgstr "INETD"
-
-#: ../src/daemon/gnuserv.c:500
+#: src/daemon/gnuserv.c:498
 #, c-format
-#, fuzzy
-msgid ""
-"Error on option %s: %s.\n"
-"Run '%s --help' to see a full list of available command line options.\n"
-msgstr "შეცდომა -სკენ a ხაზი n"
+msgid "Run “%s --help” to see a full list of available command line options.\n"
+msgstr "გაშვების ხელმისაწვდომი პარამეტრების სანახავად გაუშვით \"%s --help\".\n"
 
-#: ../sysdeps/osf1/siglist.c:29 ../sysdeps/sun4/siglist.c:29
+#: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
 msgid "Hangup"
-msgstr ""
+msgstr "გათიშვა"
 
-#: ../sysdeps/osf1/siglist.c:30 ../sysdeps/sun4/siglist.c:30
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
+msgstr "შეწყვეტა"
+
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Quit"
+msgstr "გასვლა"
+
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Illegal instruction"
+msgstr "არასწორი ინსტრუქცია"
+
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Trace trap"
 msgstr ""
 
-#: ../sysdeps/osf1/siglist.c:31 ../sysdeps/sun4/siglist.c:31
-msgid "Quit"
-msgstr "გამოსვლა"
-
-#: ../sysdeps/osf1/siglist.c:32 ../sysdeps/sun4/siglist.c:32
-msgid "Illegal instruction"
-msgstr "არალეგალური ინსტრუქცია"
-
-#: ../sysdeps/osf1/siglist.c:33 ../sysdeps/sun4/siglist.c:33
-#, fuzzy
-msgid "Trace trap"
-msgstr "გამოთვალე"
-
-#: ../sysdeps/osf1/siglist.c:34 ../sysdeps/sun4/siglist.c:34
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Abort"
 msgstr "შეწყვეტა"
 
-#: ../sysdeps/osf1/siglist.c:35 ../sysdeps/sun4/siglist.c:35
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
 msgid "EMT error"
 msgstr "EMT შეცდომა"
 
-#: ../sysdeps/osf1/siglist.c:36 ../sysdeps/sun4/siglist.c:36
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
 msgid "Floating-point exception"
-msgstr ""
+msgstr "წილადი რიცხვების ანგარიშის შეცდომა"
 
-#: ../sysdeps/osf1/siglist.c:37 ../sysdeps/sun4/siglist.c:37
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Kill"
-msgstr ""
+msgstr "მოკვლა"
 
-#: ../sysdeps/osf1/siglist.c:38 ../sysdeps/sun4/siglist.c:38
-#, fuzzy
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Bus error"
-msgstr "შეცდომა"
+msgstr "მატარებლის შეცდომა"
 
-#: ../sysdeps/osf1/siglist.c:39 ../sysdeps/sun4/siglist.c:39
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
 msgid "Segmentation violation"
-msgstr ""
+msgstr "სეგმენტაციის შეცდომა"
 
-#: ../sysdeps/osf1/siglist.c:40 ../sysdeps/sun4/siglist.c:40
-#, fuzzy
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
-msgstr "-სკენ"
+msgstr "სისტემური ფუნქციის არასწორი არგუმენტები"
 
-#: ../sysdeps/osf1/siglist.c:41 ../sysdeps/sun4/siglist.c:41
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
-msgstr ""
+msgstr "გაფუჭებული მილი"
 
-#: ../sysdeps/osf1/siglist.c:42 ../sysdeps/sun4/siglist.c:42
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
-msgstr ""
+msgstr "მაღვიძარა"
 
-#: ../sysdeps/osf1/siglist.c:43 ../sysdeps/sun4/siglist.c:43
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
 msgid "Termination"
-msgstr ""
+msgstr "შეწყვეტა"
 
-#: ../sysdeps/osf1/siglist.c:44 ../sysdeps/sun4/siglist.c:44
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
-msgstr ""
+msgstr "სოკეტის სასწრაფო მდგომარეობა"
 
-#: ../sysdeps/osf1/siglist.c:45 ../sysdeps/sun4/siglist.c:45
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Stop"
 msgstr "შეჩერება"
 
-#: ../sysdeps/osf1/siglist.c:46 ../sysdeps/sun4/siglist.c:46
-#, fuzzy
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
 msgid "Keyboard stop"
-msgstr "კლავიატურა"
+msgstr "კლავიაუტით გაჩერება"
 
-#: ../sysdeps/osf1/siglist.c:47 ../sysdeps/sun4/siglist.c:47
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
 msgid "Continue"
 msgstr "გაგრძელება"
 
-#: ../sysdeps/osf1/siglist.c:48 ../sysdeps/sun4/siglist.c:48
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
-msgstr ""
+msgstr "შვილის სტატუსი შეცვლილია"
 
-#: ../sysdeps/osf1/siglist.c:49 ../sysdeps/sun4/siglist.c:49
-#, fuzzy
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
-msgstr "ფონი"
+msgstr "TTY-დან ფონურად კითხვა"
 
-#: ../sysdeps/osf1/siglist.c:50 ../sysdeps/sun4/siglist.c:50
-#, fuzzy
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
-msgstr "ფონი -სკენ"
+msgstr "TTY-ში ფონურად ჩაწერა"
 
-#: ../sysdeps/osf1/siglist.c:51 ../sysdeps/sun4/siglist.c:51
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
-msgstr "I/O ახლა შესაძლებელია"
+msgstr "I/O ახლა შესაძელებელია"
 
-#: ../sysdeps/osf1/siglist.c:52 ../sysdeps/sun4/siglist.c:52
-#, fuzzy
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
-msgstr "CPU"
+msgstr "CPU-ის ლიმიტი გადაჭარბებულია"
 
-#: ../sysdeps/osf1/siglist.c:53 ../sysdeps/sun4/siglist.c:53
-#, fuzzy
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr "ფაილი სიდიდე"
+msgstr "ფაილის ზომის ლიმიტი გადაჭარბებულია"
 
-#: ../sysdeps/osf1/siglist.c:54 ../sysdeps/sun4/siglist.c:54
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
-msgstr ""
+msgstr "ვირტუალური მაღვიძარა"
 
-#: ../sysdeps/osf1/siglist.c:55 ../sysdeps/sun4/siglist.c:55
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
-msgstr ""
+msgstr "მაღვიძარის ზარის პროფილირება"
 
-#: ../sysdeps/osf1/siglist.c:56 ../sysdeps/sun4/siglist.c:56
-#, fuzzy
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Window size change"
-msgstr "ფანჯარა სიდიდე"
+msgstr "ფანჯრის ზომის შეცვლა"
 
-#: ../sysdeps/osf1/siglist.c:57 ../sysdeps/sun4/siglist.c:57
-#, fuzzy
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Information request"
-msgstr "ინფორმაცია"
+msgstr "ინფორმაციის მოთხოვნა"
 
-#: ../sysdeps/osf1/siglist.c:58 ../sysdeps/sun4/siglist.c:58
-#, fuzzy
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr "მომხმარებელი 1"
+msgstr "მომხმარებლის მიერ განსაზღვრული სიგნალი 1"
 
-#: ../sysdeps/osf1/siglist.c:59 ../sysdeps/sun4/siglist.c:59
-#, fuzzy
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr "მომხმარებელი 2"
-
+msgstr "მომხმარებლის მიერ განსაზღვრული სიგნალი 2"
