@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues\n"
 "POT-Creation-Date: 2022-03-28 13:02+0000\n"
-"PO-Revision-Date: 2022-07-03 06:30+0200\n"
+"PO-Revision-Date: 2022-07-21 17:28+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: lib/read.c:49
 #, c-format
@@ -79,7 +79,7 @@ msgstr "არასწორი ინსტრუქცია"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
-msgstr ""
+msgstr "ტრეისის ჩაჭერა"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Abort"
