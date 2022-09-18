@@ -1,17 +1,18 @@
 # translation of libgtop to Turkish
 # Copyright (C) 2004 Free Software Foundation, Inc.
+# Copyright (C) 2009-2022 libgtop's COPYRIGHT HOLDER
+# This file is distributed under the same license as the libgtop package.
+#
 # Görkem Çetin <gorkem@gelecek.com.tr>, 2001.
 # Ömer Fadıl USTA <omer_fad@hotmail.com>,2002.
-#
 # Baris Cicek <baris@teamforce.name.tr>, 2004, 2008.
 # Emin Tufan Çetin <etcetin@gmail.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=libgtop&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-04-07 11:45+0000\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues\n"
+"POT-Creation-Date: 2022-07-07 17:11+0000\n"
 "PO-Revision-Date: 2017-09-05 07:33+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
@@ -53,7 +54,6 @@ msgid "Enable verbose output"
 msgstr "Detaylı çıktıyı etkinleştir"
 
 #: src/daemon/gnuserv.c:460
-#| msgid "Don't fork into background"
 msgid "Don’t fork into background"
 msgstr "Arka plana çatallama"
 
@@ -63,8 +63,6 @@ msgstr "Inetd’den çalıştırıldı"
 
 #: src/daemon/gnuserv.c:498
 #, c-format
-#| msgid ""
-#| "Run '%s --help' to see a full list of available command line options.\n"
 msgid "Run “%s --help” to see a full list of available command line options.\n"
 msgstr ""
 "Kullanılabilir tüm komut satırı seçeneklerinin tam listesini görmek için “%s "
@@ -193,15 +191,3 @@ msgstr "Kullanıcı tanımlı sinyal 1"
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
 msgstr "Kullanıcı tanımlı sinyal 2"
-
-#~ msgid "DEBUG"
-#~ msgstr "HATA AYIKLA"
-
-#~ msgid "VERBOSE"
-#~ msgstr "DETAYLI"
-
-#~ msgid "NO-DAEMON"
-#~ msgstr "SERVİS-YOK"
-
-#~ msgid "INETD"
-#~ msgstr "INETD"
