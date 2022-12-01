@@ -70,6 +70,11 @@ glibtop_get_proc_args_p (glibtop *server, glibtop_proc_args *buf,
 		return NULL;
 	}
 
+	if (pinfo[0].p_flag & P_SYSTEM) {
+		glibtop_suid_leave (server);
+		return NULL;
+	}
+
 	args = kvm_getargv (server->machine->kd, pinfo, max_len);
 	if (args == NULL) {
 		glibtop_suid_leave (server);
