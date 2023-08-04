@@ -11,7 +11,7 @@ AM_LDFLAGS			= $(LIBGTOP_EXTRA_LIBS)
 
 noinst_PROGRAMS	= 	first second pprint procargs df netlist \
 			  mountlist procmap netload sysdeps timings \
-			  openfiles smp proclist free wd affinity diskio sysinfo
+			  openfiles smp proclist free wd affinity disk diskio sysinfo
 
 first_SOURCES		= first.c
 first_LDADD		= $(top_builddir)/lib/libgtop-2.0.la

@@ -235,7 +235,7 @@ glibtop_get_disk_s (glibtop *server, glibtop_disk *buf)
 
 	file_to_buffer (server, buffer, sizeof buffer, FILENAME);
 
-	get_from_pipe (map_buffer, CMD_PIPE);
+	get_from_pipe (map_buffer, STAT_BUFSIZ, CMD_PIPE);
 
 	/*
 	 * GLOBAL

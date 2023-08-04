@@ -58,17 +58,15 @@ skip_token (const char *p)
 
 
 void
-get_from_pipe (char *buffer, const char *cmd)
+get_from_pipe (char *buffer, const size_t bufsiz, const char *cmd)
 {
 	FILE* fp;
-	long psize;
 
 	fp = popen (cmd, "r");
 
-	fseek (fp, 0, SEEK_END);
-	psize = ftell (fp);
-	fseek (fp, 0, SEEK_SET);
-	fread(buffer,1,psize,fp);
+	size_t psize = fread(buffer,1,bufsiz,fp);
+	if (psize == bufsiz)
+		g_warning("Read bufsiz bytes, there may be more");
 
 	pclose (fp);
 }

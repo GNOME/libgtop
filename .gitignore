@@ -58,6 +58,7 @@ doc/texinfo.tex
 doc/version.texi
 examples/affinity
 examples/df
+examples/disk
 examples/diskio
 examples/first
 examples/free
