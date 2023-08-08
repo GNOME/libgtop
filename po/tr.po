@@ -1,21 +1,21 @@
 # translation of libgtop to Turkish
 # Copyright (C) 2004 Free Software Foundation, Inc.
-# Copyright (C) 2009-2022 libgtop's COPYRIGHT HOLDER
+# Copyright (C) 2009-2023 libgtop's COPYRIGHT HOLDER
 # This file is distributed under the same license as the libgtop package.
 #
 # Görkem Çetin <gorkem@gelecek.com.tr>, 2001.
 # Ömer Fadıl USTA <omer_fad@hotmail.com>,2002.
-# Baris Cicek <baris@teamforce.name.tr>, 2004, 2008.
+# Baris Çicek <baris@teamforce.name.tr>, 2004, 2008.
 # Emin Tufan Çetin <etcetin@gmail.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues\n"
-"POT-Creation-Date: 2022-07-07 17:11+0000\n"
+"POT-Creation-Date: 2023-01-25 20:47+0000\n"
 "PO-Revision-Date: 2017-09-05 07:33+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
-"Language-Team: Türkçe <gnome-turk@gnome.org>\n"
+"Language-Team: Türkçe <takim@gnome.org.tr>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,23 +45,23 @@ msgid "wrote %d byte"
 msgid_plural "wrote %d bytes"
 msgstr[0] "%d bayt yazıldı"
 
-#: src/daemon/gnuserv.c:456
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "Hata ayıklamayı etkinleştir"
 
-#: src/daemon/gnuserv.c:458
+#: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
 msgstr "Detaylı çıktıyı etkinleştir"
 
-#: src/daemon/gnuserv.c:460
+#: src/daemon/gnuserv.c:464
 msgid "Don’t fork into background"
 msgstr "Arka plana çatallama"
 
-#: src/daemon/gnuserv.c:462
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "Inetd’den çalıştırıldı"
 
-#: src/daemon/gnuserv.c:498
+#: src/daemon/gnuserv.c:502
 #, c-format
 msgid "Run “%s --help” to see a full list of available command line options.\n"
 msgstr ""
