@@ -21,6 +21,7 @@
 
 #include <config.h>
 #include <glibtop.h>
+#include <glibtop/error.h>
 #include <glibtop/procio.h>
 
 static const unsigned long _glibtop_sysdeps_proc_io = 0;
@@ -40,4 +41,5 @@ glibtop_get_proc_io_s (glibtop *server, glibtop_proc_io *buf,
 			 pid_t pid)
 {
 	memset (buf, 0, sizeof (glibtop_proc_io));
+	buf->flags = _glibtop_sysdeps_proc_io;
 }
