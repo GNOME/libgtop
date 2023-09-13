@@ -46,15 +46,15 @@ main (int argc, char *argv [])
 	separator [92] = '\0';
 
 	printf("\n\n");
-	printf ("ELAPSE                  ");
-	printf ("Read    Time Read        Write   Time Write\n");
+	printf ("ELAPSE                 ");
+	printf ("Read (b)  Time Read (ms)       Write (b) Time Write (ms)\n");
 	printf ("%s\n", separator);
 
 	for (i = 0; i < ndisk; i++) {
-		printf ("DISK %3d      : %12lu %12lu %12lu %12lu\n", i,
-			(unsigned long) disk.xdisk_sectors_read [i],
+		printf ("DISK %3d      : %15lu %15lu %15lu %15lu\n", i,
+			(unsigned long) disk.xdisk_sectors_read [i] * 512,
 			(unsigned long) disk.xdisk_time_read [i],
-			(unsigned long) disk.xdisk_sectors_write  [i],
+			(unsigned long) disk.xdisk_sectors_write  [i] * 512,
 			(unsigned long) disk.xdisk_time_write   [i]);
 
 	}
