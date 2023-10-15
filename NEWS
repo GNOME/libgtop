@@ -1,3 +1,31 @@
+15 October 2023: Overview of changes in 2.41.2
+================================================
+
+* Solaris
+  - Fix build #47
+* Linux
+  - Change disk example read/write unit to bytes
+  - Fixed potential Buffer overflow when reading disk stats
+  - Changed disk read/write unit to bytes in example
+* CI
+  - Fixed CI by adding missing dependency
+
+
+10 January 2023 : Overview of changes in 2.41.1
+================================================
+
+* FreeBSD
+  - Build fixes
+  - Support FreeBSD 13.0-CURRENT >= 1300062 vm_map_entry
+* OpenBSD
+  - Build fixes
+* Linux
+  - skip loop and rom devices
+* Allow building with gettext >= 0.20
+* Updated translations
+* CI build setup
+
+
 11 March 2019: Overview of changes in 2.40.0
 ================================================
 
