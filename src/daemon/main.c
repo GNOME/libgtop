@@ -61,25 +61,31 @@ handle_parent_connection (int s)
 			    "Parent (%d) received command %lu from client.",
 			    getpid (), cmnd->command);
 
-	if (cmnd->data_size >= BUFSIZ) {
-	    syslog_message (LOG_WARNING,
-			    "Client sent %lu bytes, but buffer is %lu",
-			    cmnd->data_size, (unsigned long)BUFSIZ);
-	    return;
-	}
-
 	memset (resp, 0, sizeof (glibtop_response));
 
 	memset (parameter, 0, sizeof (parameter));
 
 	if (cmnd->data_size) {
+	    if (cmnd->data_size >= BUFSIZ) {
+	        syslog_message (LOG_WARNING,
+				"Client sent %lu bytes, but buffer is %lu",
+				cmnd->data_size, (unsigned long)BUFSIZ);
+	        return;
+	    }
+
 	    if (enable_debug)
 		syslog_message (LOG_DEBUG, "Client has %lu bytes of data.",
 				cmnd->data_size);
 
 	    do_read (s, parameter, cmnd->data_size);
-
 	} else if (cmnd->size) {
+	    if (cmnd->size >= BUFSIZ) {
+	        syslog_message (LOG_WARNING,
+				"Client sent %lu bytes, but buffer is %lu",
+				cmnd->size, (unsigned long)BUFSIZ);
+	        return;
+	    }
+
 	    memcpy (parameter, cmnd->parameter, cmnd->size);
 	}
 

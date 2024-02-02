@@ -44,22 +44,26 @@ handle_slave_connection (int input, int output)
 		glibtop_debug ("Slave %d received command "
 			 "%lu from client.", getpid (), cmnd->command);
 
-		if (cmnd->data_size >= BUFSIZ)
-			glibtop_error ("Client sent %lu bytes, "
-				       "but buffer is %lu",
-				       cmnd->size, (unsigned long)BUFSIZ);
-
 		memset (resp, 0, sizeof (glibtop_response));
 
 		memset (parameter, 0, sizeof (parameter));
 
 		if (cmnd->data_size) {
+			if (cmnd->data_size >= BUFSIZ)
+				glibtop_error ("Client sent %lu bytes, "
+					       "but buffer is %lu",
+					       cmnd->data_size, (unsigned long)BUFSIZ);
+
 			glibtop_debug ("Client has %lu bytes of data.",
 				 cmnd->data_size);
 
 			do_read (input, parameter, cmnd->data_size);
-
 		} else if (cmnd->size) {
+			if (cmnd->size >= BUFSIZ)
+				glibtop_error ("Client sent %lu bytes, "
+					       "but buffer is %lu",
+					       cmnd->size, (unsigned long)BUFSIZ);
+
 			memcpy (parameter, cmnd->parameter, cmnd->size);
 		}
 
