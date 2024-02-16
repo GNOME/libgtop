@@ -1,3 +1,9 @@
+16 February 2024: Overview of changes in 2.41.3
+================================================
+
+* Fixed daemon buffer overflow #72
+* Updated translations
+
 15 October 2023: Overview of changes in 2.41.2
 ================================================
 
