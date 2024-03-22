@@ -63,6 +63,7 @@ main(int argc, char *argv[])
 		_exit (1);
 	}
 #else
+#ifndef __linux__
 	if (strcmp (uts.sysname, LIBGTOP_COMPILE_SYSTEM) ||
 	    strcmp (uts.release, LIBGTOP_COMPILE_RELEASE) ||
 	    strcmp (uts.machine, LIBGTOP_COMPILE_MACHINE)) {
@@ -74,6 +75,7 @@ main(int argc, char *argv[])
                 fprintf (stderr, "you should recompile libgtop and dependent "
                          "applications.\n");
 	}
+#endif
 #endif
 
 	glibtop_machine_new (glibtop_global_server);
