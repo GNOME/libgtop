@@ -1,0 +1,189 @@
+# Kabyle translation for libgtop.
+# Copyright (C) 2024 libgtop's COPYRIGHT HOLDER
+# This file is distributed under the same license as the libgtop package.
+# Rachida SACI <rgebbid@gmail.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues/\n"
+"POT-Creation-Date: 2024-03-22 12:09+0000\n"
+"PO-Revision-Date: 2024-03-30 18:36+0100\n"
+"Last-Translator: sa\n"
+"Language-Team: Kabyle <kab@li.org>\n"
+"Language: kab\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: lib/read.c:49
+#, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "ɣeṛ %d yibit"
+msgstr[1] "ɣeṛ %d yibiten"
+
+#: lib/read_data.c:49
+msgid "read data size"
+msgstr "ɣeṛ teɣzi n yisefka"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "ɣeṛ %lu yibit n yisefka"
+msgstr[1] "ɣeṛ %lu yibiten n yisefka"
+
+#: lib/write.c:49
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "aru %d yibit"
+msgstr[1] "aru %d yibiten"
+
+#: src/daemon/gnuserv.c:460
+msgid "Enable debugging"
+msgstr "Rmed n tseɣtayt"
+
+#: src/daemon/gnuserv.c:462
+msgid "Enable verbose output"
+msgstr "Rmed n tuffɣa talqayant"
+
+#: src/daemon/gnuserv.c:464
+msgid "Don’t fork into background"
+msgstr "Ur ttεedday ara deg ugilal"
+
+#: src/daemon/gnuserv.c:466
+msgid "Invoked from inetd"
+msgstr "Yettwancad seg inetd"
+
+#: src/daemon/gnuserv.c:502
+#, c-format
+msgid "Run “%s --help” to see a full list of available command line options.\n"
+msgstr "Selkem \"%s --tallalat\" i wakken ad twaliḍ tabdart tummidt n textiṛiyin n izirig iwejden.\n"
+
+#: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
+msgid "Hangup"
+msgstr "Gzem"
+
+#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
+msgid "Interrupt"
+msgstr "Anegzum"
+
+#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
+msgid "Quit"
+msgstr "Ffeɣ"
+
+#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
+msgid "Illegal instruction"
+msgstr "Tnaḍt tarayugant"
+
+#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
+msgid "Trace trap"
+msgstr "Aḍfar n temdayt"
+
+#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
+msgid "Abort"
+msgstr "Sefsex"
+
+#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
+msgid "EMT error"
+msgstr "Tuccḍa EMT"
+
+#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
+msgid "Floating-point exception"
+msgstr "Tasureft n tefrayt yettifliwin"
+
+#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
+msgid "Kill"
+msgstr "Neɣ"
+
+#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
+msgid "Bus error"
+msgstr "Tuccḍa n uzebg"
+
+#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
+msgid "Segmentation violation"
+msgstr "Akukel useqzuzem"
+
+#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
+msgid "Bad argument to system call"
+msgstr "Yir afakul i usiwel n unagraw"
+
+#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
+msgid "Broken pipe"
+msgstr "Tagmamt yerrẓen"
+
+#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
+msgid "Alarm clock"
+msgstr "Tangedwit"
+
+#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
+msgid "Termination"
+msgstr "Taggara"
+
+#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
+msgid "Urgent condition on socket"
+msgstr "Tawtilt taḍrurant ɣef socket"
+
+#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
+msgid "Stop"
+msgstr "Seḥbes"
+
+#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
+msgid "Keyboard stop"
+msgstr "Aḥbas n unasiw"
+
+#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
+msgid "Continue"
+msgstr "Kemmel"
+
+#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
+msgid "Child status has changed"
+msgstr "Addad aqrur yettwasenfel"
+
+#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
+msgid "Background read from tty"
+msgstr "Taɣri n ugilal seg tdiwent"
+
+#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
+msgid "Background write to tty"
+msgstr "Tira n ugilal ɣef tdiwent"
+
+#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
+msgid "I/O now possible"
+msgstr "Asekcem/Asuffeɣ yella tura"
+
+#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
+msgid "CPU limit exceeded"
+msgstr "CPU iεedda tilisa"
+
+#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
+msgid "File size limit exceeded"
+msgstr "Teɣzi n ufaylu tεedda tilisa"
+
+#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
+msgid "Virtual alarm clock"
+msgstr "Tangedwit tuhlist"
+
+#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
+msgid "Profiling alarm clock"
+msgstr "Tangedwit n tesnawsit"
+
+#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
+msgid "Window size change"
+msgstr "Asenfel n teεzi n usfaylu"
+
+#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
+msgid "Information request"
+msgstr "Tettwasra talɣut"
+
+#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
+msgid "User defined signal 1"
+msgstr "Tamuli yettusbadu sɣur useqdac 1"
+
+#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
+msgid "User defined signal 2"
+msgstr "Tamuli yettusbadu sɣur useqdac 2"
