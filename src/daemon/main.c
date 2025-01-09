@@ -227,7 +227,7 @@ handle_parent_connection (int s)
 	    break;
 	case GLIBTOP_CMND_FSUSAGE:
 	    glibtop_get_fsusage_l
-		(server, &resp->u.data.fsusage, parameter);
+		(server, &resp->u.data.fsusage, (char*)parameter);
 	    do_output (s, resp, _offset_data (fsusage),
 		       0, NULL);
 	    break;
