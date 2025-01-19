@@ -37,7 +37,7 @@ main (int argc, char *argv [])
 
    glibtop_init();
    sysinfo = glibtop_get_sysinfo ();
-   model = g_hash_table_lookup (sysinfo->cpuinfo [1].values, "model name");
+   model = g_hash_table_lookup (sysinfo->cpuinfo [0].values, "model name");
 
    printf ("\nProcessor Model: %s\n", g_strdup (model));
    printf ("Number of Cores: %" G_GUINT64_FORMAT "\n\n", sysinfo->ncpu);
