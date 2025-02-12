@@ -100,7 +100,7 @@ struct _glibtop_netload
 	guint64 collisions;		/* GLIBTOP_NETLOAD_COLLISIONS	*/
 
 	guint8 address6[16];		/* GLIBTOP_NETLOAD_ADDRESS6     */
-	guint8 prefix6[16];		/* GLIBTOP_NETLOAD_PREXIF6      */
+	guint8 prefix6[16];		/* GLIBTOP_NETLOAD_PREFIX6      */
 	guint8 scope6;			/* GLIBTOP_NETLOAD_SCOPE6       */
 
 	guint8 hwaddress[8];		/* GLIBTOP_NETLOAD_HWADDRESS    */
