@@ -42,7 +42,7 @@ do_output (int s, glibtop_response *resp, off_t offset,
 	}
 
 	if (resp->data_size) {
-		glibtop_debug ("Writing %lu bytes of data.", resp->data_size);
+		glibtop_debug ("Writing %" G_GUINT64_FORMAT " bytes of data.", resp->data_size);
 
 		if (s == 0) {
 			if (write (1, data, resp->data_size) < 0)
@@ -68,7 +68,7 @@ do_read (int s, void *ptr, size_t total_size)
 			nread = read (0, ptr, remaining);
 
 		if ((already_read == 0) && (nread == 0)) {
-			glibtop_warn ("pid %d received eof.", getpid ());
+			glibtop_warn ("pid %" G_GINT64_FORMAT " received eof.", (gint64)getpid ());
 			return 0;
 		}
 

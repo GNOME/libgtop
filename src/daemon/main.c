@@ -58,8 +58,8 @@ handle_parent_connection (int s)
     while (do_read (s, cmnd, sizeof (glibtop_command))) {
 	if (enable_debug)
 	    syslog_message (LOG_DEBUG,
-			    "Parent (%d) received command %lu from client.",
-			    getpid (), cmnd->command);
+			    "Parent (%" G_GINT64_FORMAT ") received command %" G_GUINT64_FORMAT " from client.",
+			    (gint64)getpid (), cmnd->command);
 
 	memset (resp, 0, sizeof (glibtop_response));
 
@@ -68,20 +68,20 @@ handle_parent_connection (int s)
 	if (cmnd->data_size) {
 	    if (cmnd->data_size >= BUFSIZ) {
 	        syslog_message (LOG_WARNING,
-				"Client sent %lu bytes, but buffer is %lu",
+				"Client sent %" G_GUINT64_FORMAT " bytes, but buffer is %lu",
 				cmnd->data_size, (unsigned long)BUFSIZ);
 	        return;
 	    }
 
 	    if (enable_debug)
-		syslog_message (LOG_DEBUG, "Client has %lu bytes of data.",
+		syslog_message (LOG_DEBUG, "Client has %" G_GUINT64_FORMAT " bytes of data.",
 				cmnd->data_size);
 
 	    do_read (s, parameter, cmnd->data_size);
 	} else if (cmnd->size) {
 	    if (cmnd->size >= BUFSIZ) {
 	        syslog_message (LOG_WARNING,
-				"Client sent %lu bytes, but buffer is %lu",
+				"Client sent %" G_GUINT64_FORMAT " bytes, but buffer is %lu",
 				cmnd->size, (unsigned long)BUFSIZ);
 	        return;
 	    }
@@ -251,7 +251,7 @@ handle_parent_connection (int s)
 		       0, NULL);
 	    break;
 	default:
-	    syslog_message (LOG_ERR, "Parent received unknown command %lu.",
+	    syslog_message (LOG_ERR, "Parent received unknown command %" G_GUINT64_FORMAT ".",
 			    cmnd->command);
 	    break;
 	}

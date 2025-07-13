@@ -39,7 +39,7 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 	g_assert(command >= GLIBTOP_CMND_QUIT && command < GLIBTOP_MAX_CMND);
 
 	switch (command) {
-#define CHECK_CMND(CMND) case (CMND): glibtop_debug("CALL: command %s sending %lu bytes", #CMND, (unsigned long)send_size); break
+#define CHECK_CMND(CMND) case (CMND): glibtop_debug("CALL: command %s sending %zu bytes", #CMND, send_size); break
 	  CHECK_CMND(GLIBTOP_CMND_QUIT);
 	  CHECK_CMND(GLIBTOP_CMND_SYSDEPS);
 	  CHECK_CMND(GLIBTOP_CMND_CPU);
@@ -71,7 +71,7 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 	  CHECK_CMND(GLIBTOP_CMND_PROC_AFFINITY);
 	  CHECK_CMND(GLIBTOP_CMND_PROC_IO);
 	default:
-	  glibtop_error_r(server, "CALL: command UNKNOWN(%d) sending %lu bytes", command, (unsigned long)send_size); break;
+	  glibtop_error_r(server, "CALL: command UNKNOWN(%d) sending %zu bytes", command, send_size); break;
 	}
 #undef CHECK_CMND
 
@@ -92,7 +92,7 @@ glibtop_call_l (glibtop *server, unsigned command, size_t send_size,
 
 	glibtop_read_l (server, sizeof (glibtop_response), &response);
 
-	glibtop_debug ("RESPONSE: offset=%lu - data_size=%lu",
+	glibtop_debug ("RESPONSE: offset=%" G_GUINT64_FORMAT " - data_size=%" G_GUINT64_FORMAT,
 		 response.offset, response.data_size);
 
 	if (recv_buf)

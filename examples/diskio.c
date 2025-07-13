@@ -17,7 +17,10 @@ static void show_diskio(pid_t pid)
 
   printf("<%ld>\t", (long)pid);
 
-  printf("flags: %08lx disk_rchar : %lu, disk_wchar : %lu, disk_read_bytes : %lu, disk_write_bytes : %lu\n", (unsigned long)io.flags, io.disk_rchar, io.disk_wchar, io.disk_rbytes, io.disk_wbytes);
+  printf("flags: %08" G_GUINT64_FORMAT ", disk_rchar : %" G_GUINT64_FORMAT
+         ", disk_wchar : %" G_GUINT64_FORMAT ", disk_read_bytes : %" G_GUINT64_FORMAT
+         ", disk_write_bytes : %" G_GUINT64_FORMAT "\n",
+         io.flags, io.disk_rchar, io.disk_wchar, io.disk_rbytes, io.disk_wbytes);
 
 }
 
