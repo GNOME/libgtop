@@ -2,21 +2,23 @@
 # Copyright (C) 2003 - 2009, Free Software Foundation, Inc.
 # Mișu Moldovan <dumol@gnome.ro>, 2003 - 2009.
 # Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>, 2018.
+# Antonio Marin <gnmer.6qxyg@slmail.me>, 2025.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues\n"
-"POT-Creation-Date: 2018-03-26 20:36+0000\n"
-"PO-Revision-Date: 2018-03-25 14:30+0200\n"
-"Last-Translator: Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>\n"
-"Language-Team: Gnome Romanian Translation Team\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues/\n"
+"POT-Creation-Date: 2025-03-10 23:58+0000\n"
+"PO-Revision-Date: 2025-07-28 13:09+0200\n"
+"Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
+"Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2);;\n"
-"X-Generator: Virtaal 0.7.1\n"
+"20)) ? 1 : 2);\n"
+"X-Generator: Gtranslator 48.0\n"
 
 #: lib/read.c:49
 #, c-format
@@ -46,38 +48,38 @@ msgstr[0] "s-a scris un octet"
 msgstr[1] "s-au scris %d octeți"
 msgstr[2] "s-au scris %d de octeți"
 
-#: src/daemon/gnuserv.c:456
+#: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
 msgstr "Activează depanarea"
 
-#: src/daemon/gnuserv.c:458
-msgid "Enable verbose output"
-msgstr "Mesaje de ieșire explicite"
-
-#: src/daemon/gnuserv.c:460
-msgid "Don’t fork into background"
-msgstr "Nu clona în fundal"
-
 #: src/daemon/gnuserv.c:462
+msgid "Enable verbose output"
+msgstr "Activează informațiile detaliate"
+
+#: src/daemon/gnuserv.c:464
+msgid "Don’t fork into background"
+msgstr "Nu porni în ascuns"
+
+#: src/daemon/gnuserv.c:466
 msgid "Invoked from inetd"
 msgstr "Pornit de inetd"
 
-#: src/daemon/gnuserv.c:498
+#: src/daemon/gnuserv.c:502
 #, c-format
 msgid "Run “%s --help” to see a full list of available command line options.\n"
-msgstr "Încercați „%s --help” pentru a vedea o listă completă a opțiunilor.\n"
+msgstr "Comanda „%s --help” pentru a vedea o listă completă a opțiunilor.\n"
 
 #: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
 msgid "Hangup"
-msgstr "Terminare"
+msgstr "Hangup"
 
 #: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
 msgid "Interrupt"
-msgstr "Întrerupere"
+msgstr "Întrerupe"
 
 #: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
 msgid "Quit"
-msgstr "Ieșire"
+msgstr "Închide"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
@@ -101,7 +103,7 @@ msgstr "Excepție în virgulă mobilă"
 
 #: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
 msgid "Kill"
-msgstr "Omoară"
+msgstr "Ucide"
 
 #: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
 msgid "Bus error"
@@ -117,7 +119,7 @@ msgstr "Argument greșit în apelul de sistem"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
-msgstr "Filtru nefuncțional"
+msgstr "Conductă întreruptă"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
@@ -149,11 +151,11 @@ msgstr "Starea copilului s-a schimbat"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
-msgstr "Citire în fundal de la tty"
+msgstr "Citire în ascuns de la terminal"
 
 #: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
 msgid "Background write to tty"
-msgstr "Scriere în fundal către tty"
+msgstr "Scriere în ascuns către terminal"
 
 #: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
 msgid "I/O now possible"
@@ -161,11 +163,11 @@ msgstr "Operațiile I/O sunt acum posibile"
 
 #: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
 msgid "CPU limit exceeded"
-msgstr "Limită depășită CPU"
+msgstr "Limită CPU depășită"
 
 #: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
 msgid "File size limit exceeded"
-msgstr "Limită depășită mărime fișier"
+msgstr "Mărimea fișierului este excesivă"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
@@ -181,7 +183,7 @@ msgstr "Schimbare de mărime a ferestrei"
 
 #: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
 msgid "Information request"
-msgstr "Cerere de informație"
+msgstr "Cerere de informații"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
