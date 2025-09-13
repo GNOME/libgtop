@@ -1,0 +1,46 @@
+# Interlingua translation for libgtop.
+# Copyright (C) 2025 libgtop's COPYRIGHT HOLDER
+# This file is distributed under the same license as the libgtop package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Emilio Sepúlveda <emism.translations@gmail.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libgtop master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues/\n"
+"POT-Creation-Date: 2025-09-10 21:11+0000\n"
+"PO-Revision-Date: 2025-09-13 16:30-0300\n"
+"Last-Translator: Emilio Sepúlveda <emism.translations@gmail.com>\n"
+"Language-Team: Interlingua <softinterlingua@gmail.com>\n"
+"Language: ia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-DL-Lang: ia\n"
+"X-DL-Module: libgtop\n"
+"X-DL-Branch: master\n"
+"X-DL-Domain: po\n"
+"X-DL-State: Translating\n"
+"X-Generator: Gtranslator 48.0\n"
+
+#: lib/read.c:49
+#, c-format
+msgid "read %d byte"
+msgid_plural "read %d bytes"
+msgstr[0] "lege %d byte"
+msgstr[1] "lege %d bytes"
+
+#: lib/read_data.c:66
+#, c-format
+msgid "read %lu byte of data"
+msgid_plural "read %lu bytes of data"
+msgstr[0] "lege %lu byte de datos"
+msgstr[1] "lege %lu bytes de datos"
+
+#: lib/write.c:49
+#, c-format
+msgid "wrote %d byte"
+msgid_plural "wrote %d bytes"
+msgstr[0] "scribite %d byte"
+msgstr[1] "scribite %d bytes"
