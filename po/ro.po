@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgtop\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues/\n"
-"POT-Creation-Date: 2025-03-10 23:58+0000\n"
-"PO-Revision-Date: 2025-07-28 13:09+0200\n"
+"POT-Creation-Date: 2025-09-22 19:17+0000\n"
+"PO-Revision-Date: 2025-10-16 09:49+0200\n"
 "Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -28,10 +28,6 @@ msgstr[0] "s-a citit un octet"
 msgstr[1] "s-au citit %d octeți"
 msgstr[2] "s-au citit %d de octeți"
 
-#: lib/read_data.c:49
-msgid "read data size"
-msgstr "mărime date citite"
-
 #: lib/read_data.c:66
 #, c-format
 msgid "read %lu byte of data"
@@ -47,148 +43,3 @@ msgid_plural "wrote %d bytes"
 msgstr[0] "s-a scris un octet"
 msgstr[1] "s-au scris %d octeți"
 msgstr[2] "s-au scris %d de octeți"
-
-#: src/daemon/gnuserv.c:460
-msgid "Enable debugging"
-msgstr "Activează depanarea"
-
-#: src/daemon/gnuserv.c:462
-msgid "Enable verbose output"
-msgstr "Activează informațiile detaliate"
-
-#: src/daemon/gnuserv.c:464
-msgid "Don’t fork into background"
-msgstr "Nu porni în ascuns"
-
-#: src/daemon/gnuserv.c:466
-msgid "Invoked from inetd"
-msgstr "Pornit de inetd"
-
-#: src/daemon/gnuserv.c:502
-#, c-format
-msgid "Run “%s --help” to see a full list of available command line options.\n"
-msgstr "Comanda „%s --help” pentru a vedea o listă completă a opțiunilor.\n"
-
-#: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
-msgid "Hangup"
-msgstr "Hangup"
-
-#: sysdeps/osf1/siglist.c:28 sysdeps/sun4/siglist.c:28
-msgid "Interrupt"
-msgstr "Întrerupe"
-
-#: sysdeps/osf1/siglist.c:29 sysdeps/sun4/siglist.c:29
-msgid "Quit"
-msgstr "Închide"
-
-#: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
-msgid "Illegal instruction"
-msgstr "Instrucțiune ilegală"
-
-#: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
-msgid "Trace trap"
-msgstr "Punct de oprire întâlnit"
-
-#: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
-msgid "Abort"
-msgstr "Renunță"
-
-#: sysdeps/osf1/siglist.c:33 sysdeps/sun4/siglist.c:33
-msgid "EMT error"
-msgstr "Eroare EMT"
-
-#: sysdeps/osf1/siglist.c:34 sysdeps/sun4/siglist.c:34
-msgid "Floating-point exception"
-msgstr "Excepție în virgulă mobilă"
-
-#: sysdeps/osf1/siglist.c:35 sysdeps/sun4/siglist.c:35
-msgid "Kill"
-msgstr "Ucide"
-
-#: sysdeps/osf1/siglist.c:36 sysdeps/sun4/siglist.c:36
-msgid "Bus error"
-msgstr "Eroare de bus"
-
-#: sysdeps/osf1/siglist.c:37 sysdeps/sun4/siglist.c:37
-msgid "Segmentation violation"
-msgstr "Violare a segmentului"
-
-#: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
-msgid "Bad argument to system call"
-msgstr "Argument greșit în apelul de sistem"
-
-#: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
-msgid "Broken pipe"
-msgstr "Conductă întreruptă"
-
-#: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
-msgid "Alarm clock"
-msgstr "Ceas de alarmă"
-
-#: sysdeps/osf1/siglist.c:41 sysdeps/sun4/siglist.c:41
-msgid "Termination"
-msgstr "Terminare"
-
-#: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
-msgid "Urgent condition on socket"
-msgstr "Condiție de urgență în socket"
-
-#: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
-msgid "Stop"
-msgstr "Stop"
-
-#: sysdeps/osf1/siglist.c:44 sysdeps/sun4/siglist.c:44
-msgid "Keyboard stop"
-msgstr "Întrerupere de la tastatură"
-
-#: sysdeps/osf1/siglist.c:45 sysdeps/sun4/siglist.c:45
-msgid "Continue"
-msgstr "Continuă"
-
-#: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
-msgid "Child status has changed"
-msgstr "Starea copilului s-a schimbat"
-
-#: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
-msgid "Background read from tty"
-msgstr "Citire în ascuns de la terminal"
-
-#: sysdeps/osf1/siglist.c:48 sysdeps/sun4/siglist.c:48
-msgid "Background write to tty"
-msgstr "Scriere în ascuns către terminal"
-
-#: sysdeps/osf1/siglist.c:49 sysdeps/sun4/siglist.c:49
-msgid "I/O now possible"
-msgstr "Operațiile I/O sunt acum posibile"
-
-#: sysdeps/osf1/siglist.c:50 sysdeps/sun4/siglist.c:50
-msgid "CPU limit exceeded"
-msgstr "Limită CPU depășită"
-
-#: sysdeps/osf1/siglist.c:51 sysdeps/sun4/siglist.c:51
-msgid "File size limit exceeded"
-msgstr "Mărimea fișierului este excesivă"
-
-#: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
-msgid "Virtual alarm clock"
-msgstr "Ceas de alarmă virtual"
-
-#: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
-msgid "Profiling alarm clock"
-msgstr "Ceas de alarmă pentru „profiling”"
-
-#: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
-msgid "Window size change"
-msgstr "Schimbare de mărime a ferestrei"
-
-#: sysdeps/osf1/siglist.c:55 sysdeps/sun4/siglist.c:55
-msgid "Information request"
-msgstr "Cerere de informații"
-
-#: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
-msgid "User defined signal 1"
-msgstr "Semnal 1 definit de utilizator"
-
-#: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
-msgid "User defined signal 2"
-msgstr "Semnal 2 definit de utilizator"
