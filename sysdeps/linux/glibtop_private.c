@@ -64,9 +64,11 @@ get_from_pipe (char *buffer, const size_t bufsiz, const char *cmd)
 
 	fp = popen (cmd, "r");
 
-	size_t psize = fread(buffer,1,bufsiz,fp);
+	memset (buffer, '\0', bufsiz);
+
+	size_t psize = fread (buffer, 1, bufsiz - 1, fp);
 	if (psize == bufsiz)
-		g_warning("Read bufsiz bytes, there may be more");
+		g_warning ("Read %" G_GSIZE_FORMAT " bytes, there may be more", psize);
 
 	pclose (fp);
 }
