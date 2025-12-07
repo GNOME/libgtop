@@ -112,7 +112,7 @@ parse_smaps(glibtop_map_entry *entry, const char* line)
 		offset += smap->offset;
 		value = (void*) offset;
 
-		*value = get_scaled(line + len, NULL);
+		*value = get_scaled(line + len + 1, NULL);
 	}
 
 	return TRUE;

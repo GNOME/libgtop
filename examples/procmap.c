@@ -164,14 +164,15 @@ main (int argc, char *argv [])
 
 		g_print("smaps flags:%#llx size:%" G_GUINT64_FORMAT "KiB rss:%" G_GUINT64_FORMAT "KiB "
 			"shared_clean:%" G_GUINT64_FORMAT "Kib shared_dirty:%" G_GUINT64_FORMAT "KiB "
-			"private_clean:%" G_GUINT64_FORMAT "KiB private_dirty: %" G_GUINT64_FORMAT "KiB\n",
+			"private_clean:%" G_GUINT64_FORMAT "KiB private_dirty: %" G_GUINT64_FORMAT "KiB swap: %" G_GUINT64_FORMAT "KiB\n",
 			(unsigned long long)maps[i].flags,
 			maps[i].size >> 10,
 			maps[i].rss >> 10,
 			maps[i].shared_clean >> 10,
 			maps[i].shared_dirty >> 10,
 			maps[i].private_clean >> 10,
-			maps[i].private_dirty >> 10);
+			maps[i].private_dirty >> 10,
+			maps[i].swap >> 10);
 
 		if (filename && (filename != maps [i].filename))
 			g_free ((void*)filename);
