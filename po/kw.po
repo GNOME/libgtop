@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libgtop master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/libgtop/issues/\n"
 "POT-Creation-Date: 2025-07-13 02:57+0000\n"
-"PO-Revision-Date: 2026-01-26 15:49+0000\n"
+"PO-Revision-Date: 2026-05-21 17:16+0100\n"
 "Last-Translator: Flynn Peck <cirilla@tuta.io>\n"
 "Language-Team: kw\n"
 "Language: kw\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-DL-Branch: master\n"
 "X-DL-Domain: po\n"
 "X-DL-State: Translating\n"
-"X-Generator: Gtranslator 49.0\n"
+"X-Generator: Gtranslator 50.0\n"
 
 #: lib/read.c:49
 #, c-format
@@ -40,8 +40,8 @@ msgstr "redya braster data"
 #, c-format
 msgid "read %lu byte of data"
 msgid_plural "read %lu bytes of data"
-msgstr[0] "redys %lu bayt a data"
-msgstr[1] "redys %lu baytys a data"
+msgstr[0] "redys %lu bayt a dhata"
+msgstr[1] "redys %lu baytys a dhata"
 
 #: lib/write.c:49
 #, c-format
@@ -52,11 +52,11 @@ msgstr[1] "skrifys %d baytys"
 
 #: src/daemon/gnuserv.c:460
 msgid "Enable debugging"
-msgstr "Gallosegi prevessyans"
+msgstr "Bywhe prevessyans"
 
 #: src/daemon/gnuserv.c:462
 msgid "Enable verbose output"
-msgstr "Gallosegi eskorrans gerennek"
+msgstr "Bywhe eskorrans gerennek"
 
 #: src/daemon/gnuserv.c:464
 msgid "Don’t fork into background"
@@ -70,7 +70,7 @@ msgstr "Sordya dhyworth inetd"
 #, c-format
 msgid "Run “%s --help” to see a full list of available command line options.\n"
 msgstr ""
-"Eksekutya “%s --help” rag gweles unn rol leun dewisyow arghadow-linen "
+"Eksekutyewgh “%s --help” rag gweles rol leun a dhewisyow arghadow-linen "
 "kavadow.\n"
 
 #: sysdeps/osf1/siglist.c:27 sysdeps/sun4/siglist.c:27
@@ -87,11 +87,11 @@ msgstr "Kwytya"
 
 #: sysdeps/osf1/siglist.c:30 sysdeps/sun4/siglist.c:30
 msgid "Illegal instruction"
-msgstr "Dyskans anlaghel"
+msgstr "Danvonadow anlaghel"
 
 #: sysdeps/osf1/siglist.c:31 sysdeps/sun4/siglist.c:31
 msgid "Trace trap"
-msgstr "Maglen tresen"
+msgstr "Maglen dresen"
 
 #: sysdeps/osf1/siglist.c:32 sysdeps/sun4/siglist.c:32
 msgid "Abort"
@@ -119,11 +119,11 @@ msgstr "Gorthmosyans ranansow"
 
 #: sysdeps/osf1/siglist.c:38 sysdeps/sun4/siglist.c:38
 msgid "Bad argument to system call"
-msgstr "Oberadow brog dhe galow system"
+msgstr "Oberadow drog dhe alow system"
 
 #: sysdeps/osf1/siglist.c:39 sysdeps/sun4/siglist.c:39
 msgid "Broken pipe"
-msgstr "Pib terrys"
+msgstr "Pib derrys"
 
 #: sysdeps/osf1/siglist.c:40 sysdeps/sun4/siglist.c:40
 msgid "Alarm clock"
@@ -135,7 +135,7 @@ msgstr "Gorfennans"
 
 #: sysdeps/osf1/siglist.c:42 sysdeps/sun4/siglist.c:42
 msgid "Urgent condition on socket"
-msgstr "Studh yniadow war kraw"
+msgstr "Studh yniadow war graw"
 
 #: sysdeps/osf1/siglist.c:43 sysdeps/sun4/siglist.c:43
 msgid "Stop"
@@ -151,7 +151,7 @@ msgstr "Pesya"
 
 #: sysdeps/osf1/siglist.c:46 sysdeps/sun4/siglist.c:46
 msgid "Child status has changed"
-msgstr "Studh flogh re chanjys"
+msgstr "Studh flogh re janjys"
 
 #: sysdeps/osf1/siglist.c:47 sysdeps/sun4/siglist.c:47
 msgid "Background read from tty"
@@ -175,11 +175,11 @@ msgstr "Finweth braster restren eksedys"
 
 #: sysdeps/osf1/siglist.c:52 sysdeps/sun4/siglist.c:52
 msgid "Virtual alarm clock"
-msgstr "Difunell gowir"
+msgstr "Difunell wowir"
 
 #: sysdeps/osf1/siglist.c:53 sysdeps/sun4/siglist.c:53
 msgid "Profiling alarm clock"
-msgstr "Difunell profilyans"
+msgstr "Difunell brofilyans"
 
 #: sysdeps/osf1/siglist.c:54 sysdeps/sun4/siglist.c:54
 msgid "Window size change"
@@ -191,8 +191,8 @@ msgstr "Govyn kedhlow"
 
 #: sysdeps/osf1/siglist.c:56 sysdeps/sun4/siglist.c:56
 msgid "User defined signal 1"
-msgstr "Sinell usyer-styrys 1"
+msgstr "Sinell dhevnydhyer-styrys 1"
 
 #: sysdeps/osf1/siglist.c:57 sysdeps/sun4/siglist.c:57
 msgid "User defined signal 2"
-msgstr "Sinell usyer-styrys 2"
+msgstr "Sinell dhevnydhyer-styrys 2"
