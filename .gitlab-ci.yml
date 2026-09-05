@@ -1,6 +1,21 @@
+include:
+  - component: gitlab.gnome.org/GNOME/citemplates/release-service@master
+    inputs:
+      dist-job-name: "dist-tarball"
+      tarball-artifact-path: "public-dist"
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH
+    - if: $CI_COMMIT_TAG && $CI_COMMIT_REF_PROTECTED
+
 stages:
   - build
   - abi
+  - deploy
 
 variables:
   FEDORA_DEPENDENCIES:
@@ -27,8 +42,10 @@ variables:
 build-fedora:
   image: fedora:latest
   stage: build
-  except:
-    - tags
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - when: on_success
   before_script:
     - dnf update -y --nogpgcheck
     - dnf install -y --nogpgcheck $FEDORA_DEPENDENCIES
@@ -44,7 +61,8 @@ abi-fedora:
   image: fedora:latest
   stage: abi
   needs:
-    - build-fedora
+    - job: build-fedora
+      optional: true
   before_script:
     - dnf update -y --nogpgcheck
     - dnf install -y --nogpgcheck $FEDORA_DEPENDENCIES $FEDORA_DEPENDENCIES_ABI_CHECK
@@ -55,8 +73,10 @@ abi-fedora:
 build-ubuntu:
   image: ubuntu:latest
   stage: build
-  except:
-    - tags
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - when: on_success
   before_script:
     - apt-get update
     - DEBIAN_FRONTEND=noninteractive apt-get install -y $UBUNTU_DEPENDENCIES
@@ -67,3 +87,26 @@ build-ubuntu:
     - make
     - make install
     - make distcheck
+
+dist-tarball:
+  image: fedora:latest
+  stage: deploy
+  rules:
+    - if: $CI_COMMIT_TAG && $CI_COMMIT_REF_PROTECTED
+  needs:
+    - abi-fedora
+  before_script:
+    - dnf update -y --nogpgcheck
+    - dnf install -y --nogpgcheck $FEDORA_DEPENDENCIES
+  script:
+    - mkdir _build
+    - cd _build
+    - ../autogen.sh --disable-dependency-tracking
+    - make distcheck
+    - mkdir -p "$CI_PROJECT_DIR/public-dist"
+    - mv libgtop-*.tar.xz "$CI_PROJECT_DIR/public-dist/"
+    - cd "$CI_PROJECT_DIR/public-dist"
+    - for tarball in *.tar.xz; do sha256sum "$tarball" > "$tarball.sha256sum"; done
+  artifacts:
+    paths:
+      - public-dist/
