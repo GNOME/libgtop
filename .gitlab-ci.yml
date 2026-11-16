@@ -12,7 +12,7 @@ variables:
   FEDORA_DEPENDENCIES_ABI_CHECK:
     libabigail
     intltool
-  LAST_ABI_BREAK: "d4ac1eda0752d559db8737773d6894aadc700ce3"
+  LAST_ABI_BREAK: "df6393ac"
   UBUNTU_DEPENDENCIES:
     automake
     autopoint
