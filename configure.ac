@@ -12,7 +12,7 @@ m4_define([libgtop_current], [12])
 
 dnl  increment any time the source changes; set to
 dnl  0 if you increment CURRENT
-m4_define([libgtop_revision], [0])
+m4_define([libgtop_revision], [1])
 
 dnl  increment if any interfaces have been added; set to 0
 dnl  if any interfaces have been removed. removal has
