@@ -34,6 +34,64 @@ static const unsigned long _glibtop_sysdeps_sysinfo =
 static glibtop_sysinfo sysinfo = { .flags = 0 };
 
 static void
+extend_sysinfo (glibtop *server)
+{
+	/* expand the already retrieved information by augmenting the output of lscpu into it */
+	const char* key = "model name";
+	g_autofree char *output = NULL;
+	g_autofree char *lscpu = NULL;
+	gint exit_status;
+	g_autoptr (GError) error = NULL;
+	g_auto (GStrv) lines = NULL;
+	g_auto (GStrv) fields = NULL;
+	guint i;
+	const char *command = "lscpu --parse=cpu,MODELNAME";
+
+	if (g_spawn_command_line_sync (command, &output, NULL, &exit_status, &error)) {
+		if (!g_spawn_check_wait_status (exit_status, &error)) {
+			glibtop_warn_r (server, "Could not execute \"%s\" (%i)", command, exit_status);
+			return;
+		}
+	} else {
+		glibtop_warn_r (server, "Failed to spawn \"lscpu\"");
+	}
+
+	/* use output form here on */
+	if (output == NULL)
+		return;
+
+	lines = g_strsplit (output, "\n", 0);
+	char *model;
+	model = NULL;
+
+	for (i = 0; lines[i]; i++) {
+		if (*lines[i] == '#')
+			continue;
+
+		fields = g_strsplit (lines[i], ",", 3);
+		if (g_strv_length (fields) < 2) {
+			continue;
+		}
+
+		/* parse cpu number and model name */
+		guint cpu_num = g_ascii_strtoull (fields[0], NULL, 0);
+
+		if (cpu_num >= sysinfo.ncpu) {
+			continue;
+		}
+		
+		/* check if model name field is already present */
+		glibtop_entry * const cpuinfo = &sysinfo.cpuinfo[cpu_num];
+		model = g_hash_table_lookup (cpuinfo->values, key);
+
+		if (model == NULL) {
+			g_ptr_array_add (cpuinfo->labels, key);
+			g_hash_table_insert (cpuinfo->values, g_strdup (key), g_strdup (fields[1]));
+		}
+	}
+}
+
+static void
 init_sysinfo (glibtop *server)
 {
 	char* buffer;
@@ -100,6 +158,7 @@ init_sysinfo (glibtop *server)
 	}
 
 	g_strfreev(processors);
+	extend_sysinfo (server);
 
 	sysinfo.flags = _glibtop_sysdeps_sysinfo;
 }
